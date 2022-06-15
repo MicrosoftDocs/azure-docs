@@ -4,8 +4,7 @@ description: How to create a custom query in the Audit dashboard in Permissions 
 services: active-directory
 author: kenwith
 manager: rkarlin
-ms.service: active-directory
-ms.subservice: ciem
+ms.service: ciem
 ms.workload: identity
 ms.topic: how-to
 ms.date: 02/23/2022
@@ -108,7 +107,7 @@ This article describes how you can use the **Audit** dashboard in Permissions Ma
 1. In the **Audit** dashboard, load the query you want to duplicate.
 2. Select the ellipses menu **(…)** on the far right, and then select **Duplicate**.
 
-    CloudKnox creates a copy of the query. Both the copy of the query and the original query display in the **Saved Queries** list.
+    Permissions Management creates a copy of the query. Both the copy of the query and the original query display in the **Saved Queries** list.
 
     You can rename the original or copy of the query, change it, and save it without changing the other query.
 

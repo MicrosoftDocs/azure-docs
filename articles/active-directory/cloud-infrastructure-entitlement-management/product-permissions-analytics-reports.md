@@ -1,11 +1,10 @@
 ---
-title: Generate and download the Permissions analytics report in CloudKnox Permissions Management
-description: How to generate and download the Permissions analytics report in CloudKnox Permissions Management.
+title: Generate and download the Permissions analytics report in Permissions Management
+description: How to generate and download the Permissions analytics report in Permissions Management.
 services: active-directory
 author: kenwith
 manager: rkarlin
-ms.service: active-directory
-ms.subservice: ciem
+ms.service: ciem
 ms.workload: identity
 ms.topic: how-to
 ms.date: 02/23/2022
@@ -15,17 +14,17 @@ ms.author: kenwith
 # Generate and download the Permissions analytics report
 
 > [!IMPORTANT]
-> CloudKnox Permissions Management (CloudKnox) is currently in PREVIEW.
+> Entra Permissions Management is currently in PREVIEW.
 > Some information relates to a prerelease product that may be substantially modified before it's released. Microsoft makes no warranties, express or implied, with respect to the information provided here.
 
-This article describes how to generate and download the **Permissions analytics report** in CloudKnox Permissions Management (CloudKnox).
+This article describes how to generate and download the **Permissions analytics report** in Permissions Management.
 
 > [!NOTE]
 > This topic applies only to Amazon Web Services (AWS) users.
 
 ## Generate the Permissions analytics report
 
-1. In the CloudKnox home page, select the **Reports** tab, and then select the **Systems Reports** subtab.
+1. In the Permissions Management home page, select the **Reports** tab, and then select the **Systems Reports** subtab.
 
     The **Systems Reports** subtab displays a list of reports the **Reports** table.
 1. Find **Permissions Analytics Report** in the list, and to download the report, select the down arrow to the right of the report name, or from the ellipses **(...)** menu, select **Download**.

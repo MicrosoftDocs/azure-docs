@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 02/02/2022
+ms.date: 06/13/2022
 ms.author: eur
 ms.custom: references_regions, ignite-fall-2021
 ---
@@ -789,7 +789,7 @@ Use the following table to determine supported styles and roles for each neural 
 |en-US-GuyNeural|`angry`, `cheerful`, `excited`, `friendly`, `hopeful`, `newscast`, `sad`, `shouting`, `terrified`, `unfriendly`, `whispering`|||
 |en-US-JaneNeural <sup>Public preview</sup>|`angry`, `cheerful`, `excited`, `friendly`, `hopeful`, `sad`, `shouting`, `terrified`, `unfriendly`, `whispering`|||
 |en-US-JasonNeural <sup>Public preview</sup>|`angry`, `cheerful`, `excited`, `friendly`, `hopeful`, `sad`, `shouting`, `terrified`, `unfriendly`, `whispering`|||
-|en-US-JennyNeural|`angry`, `assistant`, `chat`, `cheerful`,`customerservice`, `excited`, `friendly`, `hopeful`, `newscast`, `sad`, `shouting`, `terrified`, , `unfriendly`, `whispering`|||
+|en-US-JennyNeural|`angry`, `assistant`, `chat`, `cheerful`,`customerservice`, `excited`, `friendly`, `hopeful`, `newscast`, `sad`, `shouting`, `terrified`, `unfriendly`, `whispering`|||
 |en-US-NancyNeural <sup>Public preview</sup>|`angry`, `cheerful`, `excited`, `friendly`, `hopeful`, `sad`, `shouting`, `terrified`, `unfriendly`, `whispering`|||
 |en-US-SaraNeural|`angry`, `cheerful`, `excited`, `friendly`, `hopeful`, `sad`, `shouting`, `terrified`, `unfriendly`, `whispering`|||
 |en-US-TonyNeural <sup>Public preview</sup>|`angry`, `cheerful`, `excited`, `friendly`, `hopeful`, `sad`, `shouting`, `terrified`, `unfriendly`, `whispering`|||
@@ -800,7 +800,7 @@ Use the following table to determine supported styles and roles for each neural 
 |zh-CN-XiaomoNeural|`affectionate`, `angry`, `calm`, `cheerful`, `depressed`, `disgruntled`, `embarrassed`, `envious`, `fearful`, `gentle`, `sad`, `serious`|Supported|Supported|
 |zh-CN-XiaoruiNeural|`angry`, `calm`, `fearful`, `sad`|Supported||
 |zh-CN-XiaoshuangNeural|`chat`|Supported||
-|zh-CN-XiaoxiaoNeural|`affectionate`, `angry`, `assistant`, `calm`, `chat`, `cheerful`, `customerservice`, `disgruntled`, `fearful`, `gentle`, `lyrical`, `newscast`, `sad`, `serious`|Supported||
+|zh-CN-XiaoxiaoNeural|`affectionate`, `angry`, `assistant`, `calm`, `chat`, `cheerful`, `customerservice`, `disgruntled`, `fearful`, `gentle`, `lyrical`, `newscast`, `poetry-reading`, `sad`, `serious`|Supported||
 |zh-CN-XiaoxuanNeural|`angry`, `calm`, `cheerful`, `depressed`, `disgruntled`, `fearful`, `gentle`, `serious`|Supported|Supported|
 |zh-CN-YunxiNeural|`angry`, `assistant`, `cheerful`, `depressed`, `disgruntled`, `embarrassed`, `fearful`, `narration-relaxed`, `sad`, `serious`|Supported|Supported|
 |zh-CN-YunyangNeural|`customerservice`, `narration-professional`, `newscast-casual`|Supported||
@@ -925,6 +925,7 @@ The following table lists the released languages and public preview languages.
 |English (United Kingdom)|`en-GB`<sup>Public preview</sup> |
 |English (United States)|`en-US`<sup>General available</sup>|
 |French (France)|`fr-FR`<sup>Public preview</sup> |
+|German (Germany)|`de-DE`<sup>Public preview</sup> |
 |Spanish (Spain)|`es-ES`<sup>Public preview</sup> |
 
 > [!NOTE]

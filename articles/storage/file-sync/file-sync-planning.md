@@ -381,7 +381,7 @@ If you prefer to use an on-premises backup solution, backups should be performed
 > Bare-metal (BMR) restore can cause unexpected results and is not currently supported.
 
 > [!Note]  
-> VSS snapshots (including Previous Versions tab) are supported on volumes which have cloud tiering enabled. However, you must enable previous version compatibility through PowerShell. [Learn how](file-sync-deployment-guide.md#self-service-restore-through-previous-versions-and-vss-volume-shadow-copy-service).
+> VSS snapshots (including Previous Versions tab) are supported on volumes which have cloud tiering enabled. However, you must enable previous version compatibility through PowerShell. [Learn how](file-sync-deployment-guide.md#optional-self-service-restore-through-previous-versions-and-vss-volume-shadow-copy-service).
 
 ## Data Classification
 If you have data classification software installed, enabling cloud tiering may result in increased cost for two reasons:

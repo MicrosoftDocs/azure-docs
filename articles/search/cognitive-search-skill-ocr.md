@@ -8,7 +8,7 @@ ms.author: chalton
 
 ms.service: cognitive-search
 ms.topic: reference
-ms.date: 04/27/2022
+ms.date: 06/09/2022
 ---
 # OCR cognitive skill
 
@@ -25,7 +25,6 @@ The **OCR** skill extracts text from image files. Supported file formats include
 + .JPG
 + .PNG
 + .BMP
-+ .GIF
 + .TIFF
 
 > [!NOTE]
@@ -58,6 +57,10 @@ In previous versions, there was a parameter called "textExtractionAlgorithm" to 
 |---------------|-------------------------------|
 | `text`             | Plain text extracted from the image.   |
 | `layoutText`    | Complex type that describes the extracted text and the location where the text was found.|
+
+
+The OCR skill always extracts images at the end of each page. This is by design.
+
 
 ## Sample definition
 
@@ -206,6 +209,8 @@ The above skillset example assumes that a normalized-images field exists. To gen
   }
 }
 ```
+
+
 
 ## See also
 

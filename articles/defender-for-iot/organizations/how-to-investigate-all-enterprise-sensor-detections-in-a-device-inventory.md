@@ -1,13 +1,17 @@
 ---
-title: Learn about devices discovered by all enterprise sensors
+title: Learn about devices discovered by all sensors
 description: Use the device inventory in the on-premises management console to get a comprehensive view of device information from connected sensors. Use import, export, and filtering tools to manage this information. 
 ms.date: 11/09/2021
 ms.topic: how-to
 ---
 
-# Investigate all enterprise sensor detections in the device inventory
+# Investigate all sensor detections in the device inventory
 
 You can view device information from connected sensors by using the *device inventory* in the on-premises management console. This feature gives you a comprehensive view of all network information. Use import, export, and filtering tools to manage this information. The status information about the connected sensor versions also appears.
+
+For more information, see [Devices monitored by Defender for IoT](architecture.md#devices-monitored-by-defender-for-iot).
+
+## View the device inventory from an on-premises management console
 
 :::image type="content" source="media/how-to-work-with-asset-inventory-information/device-inventory-data-table.png" alt-text="Screenshot of the device inventory data table.":::
 
@@ -39,20 +43,9 @@ The following table describes the table columns in the device inventory.
 | **Discovered** | When this device was first seen in the network. |
 | **PLC mode (preview)** | The PLC operating mode includes the Key state (physical) and run state (logical). Possible **Key** states include, Run, Program, Remote, Stop, Invalid, Programming Disabled.Possible Run. The possible **Run** states are Run, Program, Stop, Paused, Exception, Halted, Trapped, Idle, Offline. if both states are the same, only one state is presented. |
 
-## What is an Inventory device?
-
-The Defender for IoT Device Inventory displays an extensive range of device attributes that are detected by sensors monitoring organizational networks and managed endpoints. Defender for IoT will identify and classify devices as a single unique network device in the inventory for:
-
-1. Standalone IT/OT/IoT devices (w/ 1 or multiple NICs)
-1. Devices composed of multiple backplane components (including all racks/slots/modules)
-1. Devices acting as network infrastructure such as Switch/Router (w/ multiple NICs). 
-
-Public internet IP addresses, multicast groups, and broadcast groups aren't considered inventory devices.
-Devices that have been inactive for more than 60 days are classified as inactive Inventory devices.
-
 ## Integrate data into the enterprise device inventory
 
-Data integration capabilities let you enhance the data in the device inventory with information from other enterprise resources. These sources include CMDBs, DNS, firewalls, and Web APIs.
+Data integration capabilities let you enhance the data in the device inventory with information from other resources. These sources include CMDBs, DNS, firewalls, and Web APIs.
 
 You can use this information to learn. For example:
 
@@ -78,7 +71,7 @@ You can integrate data by either:
 
 - Running customized scripts that Defender for IoT provides
 
-:::image type="content" source="media/how-to-work-with-asset-inventory-information/enterprise-data-integrator-graph.png" alt-text="Diagram of the enterprise data integrator.":::
+:::image type="content" source="media/how-to-work-with-asset-inventory-information/enterprise-data-integrator-graph.png" alt-text="Diagram of the data integrator.":::
 
 You can work with Defender for IoT technical support to set up your system to receive Web API queries.
 
@@ -102,7 +95,7 @@ To add data manually:
 
 6. In the upper-right corner of the **Device Inventory** window, select :::image type="icon" source="media/how-to-work-with-asset-inventory-information/menu-icon-device-inventory.png" border="false":::, select **Import Manual Input Columns**, and browse to the CSV file. The new data appears in the **Device Inventory** table.
 
-To integrate data from other enterprise entities:
+To integrate data from other entities:
 
 1. In the upper-right corner of the **Device Inventory** window, select :::image type="icon" source="media/how-to-work-with-asset-inventory-information/menu-icon-device-inventory.png" border="false"::: and select **Export All Device Inventory**.
 

@@ -80,7 +80,6 @@ Read the following SAP Notes and papers first:
 - Azure-specific RHEL documentation:
 	- [Support Policies for RHEL High Availability Clusters - Microsoft Azure Virtual Machines as Cluster Members.](https://access.redhat.com/articles/3131341)
 	- [Installing and Configuring a Red Hat Enterprise Linux 7.4 (and later) High-Availability Cluster on Microsoft Azure.](https://access.redhat.com/articles/3252491)
-	- [Install SAP HANA on Red Hat Enterprise Linux for Use in Microsoft Azure.](https://access.redhat.com/solutions/3193782)
 	- [Configure SAP HANA scale-up system replication up Pacemaker cluster when the HANA file systems are on NFS shares](https://access.redhat.com/solutions/5156571)
 - [NetApp SAP Applications on Microsoft Azure using Azure NetApp Files](https://www.netapp.com/us/media/tr-4746.pdf)
 - [NFS v4.1 volumes on Azure NetApp Files for SAP HANA](./hana-vm-operations-netapp.md)

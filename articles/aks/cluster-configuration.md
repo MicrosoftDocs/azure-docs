@@ -126,6 +126,9 @@ This enables an OIDC Issuer URL of the provider which allows the API server to d
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
+> [!WARNING]
+> Enable/disable OIDC Issuer will change the current service account token issuer to a new value, which causes some down time and make API server restart. If the application pods based on service account token keep in failed status after enable/disable OIDC Issuer, it's recommended to restart the pods manually.
+
 ### Before you begin
 
 You must have the following resource installed:

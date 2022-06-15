@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: vamahtan
 ms.author: vamahtan
-ms.date: 05/25/2022
+ms.date: 06/06/2022
 ---
 
 # Plan a Microsoft Dynamics 365 offer
@@ -45,7 +45,7 @@ The following table describes the transaction process of each listing option.
 
 ## Customer leads
 
-When you're publishing an offer to the commercial marketplace with Partner Center, you'll want to connect it to your Customer Relationship Management (CRM) system. This lets you receive customer contact information as soon as someone expresses interest in or uses your product. Connecting to a CRM is required if you want to enable a test drive; otherwise, connecting to a CRM is optional. Partner Center supports Azure table, Dynamics 365 Customer Engagement, HTTPS endpoint, Marketo, and Salesforce.
+When you're publishing an offer to the commercial marketplace with Partner Center, you'll want to connect it to your Customer Relationship Management (CRM) system. This lets you receive customer contact information as soon as someone expresses interest in or uses your product. Partner Center supports Azure table, Dynamics 365 Customer Engagement, HTTPS endpoint, Marketo, and Salesforce.
 
 ## Legal
 

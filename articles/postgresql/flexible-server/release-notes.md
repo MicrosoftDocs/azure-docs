@@ -12,7 +12,14 @@ ms.date: 04/14/2022
 
 # Release notes - Azure Database for PostgreSQL - Flexible Server
 
+[!INCLUDE [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
+
 This page provides latest news and updates regarding feature additions, engine versions support, extensions, and any other announcements relevant for Flexible Server - PostgreSQL.
+
+## Release" June 2022
+
+* Support for [extensions](concepts-extensions.md) PLV8, pgrouting with new servers<sup>$</sup> 
+* Version updates for [extension](concepts-extensions.md) PostGIS
 
 ## Release: April 2022
 

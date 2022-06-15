@@ -13,6 +13,8 @@ ms.custom: devx-track-azurecli
 
 # Data encryption for Azure Database for PostgreSQL Single server by using the Azure CLI
 
+[!INCLUDE [applies-to-postgresql-single-server](../includes/applies-to-postgresql-single-server.md)]
+
 Learn how to use the Azure CLI to set up and manage data encryption for your Azure Database for PostgreSQL Single server.
 
 ## Prerequisites for Azure CLI

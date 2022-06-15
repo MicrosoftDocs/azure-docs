@@ -3,7 +3,7 @@ title: Use Container Storage Interface (CSI) driver for Azure disks on Azure Kub
 description: Learn how to use the Container Storage Interface (CSI) driver for Azure disks in an Azure Kubernetes Service (AKS) cluster.
 services: container-service
 ms.topic: article
-ms.date: 05/10/2022
+ms.date: 06/15/2022
 author: palma21
 
 ---
@@ -32,7 +32,7 @@ In addition to in-tree driver features, Azure disks CSI driver supports the foll
   - `Premium_ZRS`, `StandardSSD_ZRS` disk types are supported, check more details about [Zone-redundant storage for managed disks](../virtual-machines/disks-redundancy.md)
 - [Snapshot](#volume-snapshots)
 - [Volume clone](#clone-volumes)
-- [Resize disk PV without downtime](#resize-a-persistent-volume-without-downtime)
+- [Resize disk PV without downtime(Preview)](#resize-a-persistent-volume-without-downtime-preview)
 
 ## Storage class driver dynamic disks parameters
 
@@ -79,10 +79,14 @@ To leverage these storage classes, create a [PVC](concepts-storage.md#persistent
 
 Create an example pod and respective PVC by running the [kubectl apply][kubectl-apply] command:
 
-```console
-$ kubectl apply -f https://raw.githubusercontent.com/kubernetes-sigs/azuredisk-csi-driver/master/deploy/example/pvc-azuredisk-csi.yaml
-$ kubectl apply -f https://raw.githubusercontent.com/kubernetes-sigs/azuredisk-csi-driver/master/deploy/example/nginx-pod-azuredisk.yaml
+```bash
+kubectl apply -f https://raw.githubusercontent.com/kubernetes-sigs/azuredisk-csi-driver/master/deploy/example/pvc-azuredisk-csi.yaml
+kubectl apply -f https://raw.githubusercontent.com/kubernetes-sigs/azuredisk-csi-driver/master/deploy/example/nginx-pod-azuredisk.yaml
+```
 
+The output of the command resembles the following example:
+
+```bash
 persistentvolumeclaim/pvc-azuredisk created
 pod/nginx-azuredisk created
 ```
@@ -90,13 +94,13 @@ pod/nginx-azuredisk created
 After the pod is in the running state, run the following command to create a new file called `test.txt`.
 
 ```bash
-$ kubectl exec nginx-azuredisk -- touch /mnt/azuredisk/test.txt
+kubectl exec nginx-azuredisk -- touch /mnt/azuredisk/test.txt
 ```
 
 To validate the disk is correctly mounted, run the following command and verify you see the `test.txt` file in the output:
 
-```console
-$ kubectl exec nginx-azuredisk -- ls /mnt/azuredisk
+```bash
+kubectl exec nginx-azuredisk -- ls /mnt/azuredisk
 
 lost+found
 outfile
@@ -128,9 +132,13 @@ volumeBindingMode: WaitForFirstConsumer
 
 Create the storage class by running the [kubectl apply][kubectl-apply] command and specify your `sc-azuredisk-csi-waitforfirstconsumer.yaml` file:
 
-```console
-$ kubectl apply -f sc-azuredisk-csi-waitforfirstconsumer.yaml
+```bash
+kubectl apply -f sc-azuredisk-csi-waitforfirstconsumer.yaml
+```
 
+The output of the command resembles the following example:
+
+```bash
 storageclass.storage.k8s.io/azuredisk-csi-waitforfirstconsumer created
 ```
 
@@ -152,25 +160,37 @@ The following table provides details for all of the parameters.
 
 For an example of this capability, create a [volume snapshot class](https://github.com/kubernetes-sigs/azuredisk-csi-driver/blob/master/deploy/example/snapshot/storageclass-azuredisk-snapshot.yaml) with the [kubectl apply][kubectl-apply] command:
 
-```console
-$ kubectl apply -f https://raw.githubusercontent.com/kubernetes-sigs/azuredisk-csi-driver/master/deploy/example/snapshot/storageclass-azuredisk-snapshot.yaml
+```bash
+kubectl apply -f https://raw.githubusercontent.com/kubernetes-sigs/azuredisk-csi-driver/master/deploy/example/snapshot/storageclass-azuredisk-snapshot.yaml
+```
 
+The output of the command resembles the following example:
+
+```bash
 volumesnapshotclass.snapshot.storage.k8s.io/csi-azuredisk-vsc created
 ```
 
 Now let's create a [volume snapshot](https://github.com/kubernetes-sigs/azuredisk-csi-driver/blob/master/deploy/example/snapshot/azuredisk-volume-snapshot.yaml) from the PVC that [we dynamically created at the beginning of this tutorial](#dynamically-create-azure-disks-pvs-by-using-the-built-in-storage-classes), `pvc-azuredisk`.
 
 ```bash
-$ kubectl apply -f https://raw.githubusercontent.com/kubernetes-sigs/azuredisk-csi-driver/master/deploy/example/snapshot/azuredisk-volume-snapshot.yaml
+kubectl apply -f https://raw.githubusercontent.com/kubernetes-sigs/azuredisk-csi-driver/master/deploy/example/snapshot/azuredisk-volume-snapshot.yaml
+```
 
+The output of the command resembles the following example:
+
+```bash
 volumesnapshot.snapshot.storage.k8s.io/azuredisk-volume-snapshot created
 ```
 
-Check that the snapshot was created correctly:
+To verify that the snapshot was created correctly, run the following command:
 
 ```bash
-$ kubectl describe volumesnapshot azuredisk-volume-snapshot
+kubectl describe volumesnapshot azuredisk-volume-snapshot
+```
 
+The output of the command resembles the following example:
+
+```bash
 Name:         azuredisk-volume-snapshot
 Namespace:    default
 Labels:       <none>
@@ -201,20 +221,27 @@ Events:                                <none>
 
 You can create a new PVC based on a volume snapshot. Use the snapshot created in the previous step, and create a [new PVC](https://github.com/kubernetes-sigs/azuredisk-csi-driver/blob/master/deploy/example/snapshot/pvc-azuredisk-snapshot-restored.yaml) and a [new pod](https://github.com/kubernetes-sigs/azuredisk-csi-driver/blob/master/deploy/example/snapshot/nginx-pod-restored-snapshot.yaml) to consume it.
 
-```console
-$ kubectl apply -f https://raw.githubusercontent.com/kubernetes-sigs/azuredisk-csi-driver/master/deploy/example/snapshot/pvc-azuredisk-snapshot-restored.yaml
+```bash
+kubectl apply -f https://raw.githubusercontent.com/kubernetes-sigs/azuredisk-csi-driver/master/deploy/example/snapshot/pvc-azuredisk-snapshot-restored.yaml
+kubectl apply -f https://raw.githubusercontent.com/kubernetes-sigs/azuredisk-csi-driver/master/deploy/example/snapshot/nginx-pod-restored-snapshot.yaml
+```
 
-$ kubectl apply -f https://raw.githubusercontent.com/kubernetes-sigs/azuredisk-csi-driver/master/deploy/example/snapshot/nginx-pod-restored-snapshot.yaml
+The output of the command resembles the following example:
 
+```bash
 persistentvolumeclaim/pvc-azuredisk-snapshot-restored created
 pod/nginx-restored created
 ```
 
-Finally, let's make sure it's the same PVC created before by checking the contents.
+Finally, let's make sure it's the same PVC created before by checking the contents by running the following command:
 
-```console
-$ kubectl exec nginx-restored -- ls /mnt/azuredisk
+```bash
+kubectl exec nginx-restored -- ls /mnt/azuredisk
+```
 
+The output of the command resembles the following example:
+
+```bash
 lost+found
 outfile
 test.txt
@@ -228,26 +255,37 @@ A cloned volume is defined as a duplicate of an existing Kubernetes volume. For 
 
 The CSI driver for Azure disks supports volume cloning. To demonstrate, create a [cloned volume](https://github.com/kubernetes-sigs/azuredisk-csi-driver/blob/master/deploy/example/cloning/nginx-pod-restored-cloning.yaml) of the [previously created](#dynamically-create-azure-disks-pvs-by-using-the-built-in-storage-classes) `azuredisk-pvc` and [a new pod to consume it](https://github.com/kubernetes-sigs/azuredisk-csi-driver/blob/master/deploy/example/cloning/nginx-pod-restored-cloning.yaml).
 
-```console
-$ kubectl apply -f https://raw.githubusercontent.com/kubernetes-sigs/azuredisk-csi-driver/master/deploy/example/cloning/pvc-azuredisk-cloning.yaml
+```bash
+kubectl apply -f https://raw.githubusercontent.com/kubernetes-sigs/azuredisk-csi-driver/master/deploy/example/cloning/pvc-azuredisk-cloning.yaml
+kubectl apply -f https://raw.githubusercontent.com/kubernetes-sigs/azuredisk-csi-driver/master/deploy/example/cloning/nginx-pod-restored-cloning.yaml
+```
 
-$ kubectl apply -f https://raw.githubusercontent.com/kubernetes-sigs/azuredisk-csi-driver/master/deploy/example/cloning/nginx-pod-restored-cloning.yaml
+The output of the command resembles the following example:
 
+```bash
 persistentvolumeclaim/pvc-azuredisk-cloning created
 pod/nginx-restored-cloning created
 ```
 
-You can verify the content of the cloned volume by running the following command and confirming the file `test.txt` is created.
+You can verify the content of the cloned volume by running the following command and confirming the file `test.txt` is created:
 
-```console
-$ kubectl exec nginx-restored-cloning -- ls /mnt/azuredisk
+```bash
+kubectl exec nginx-restored-cloning -- ls /mnt/azuredisk
+```
 
+The output of the command resembles the following example:
+
+```bash
 lost+found
 outfile
 test.txt
 ```
 
-## Resize a persistent volume without downtime
+## Resize a persistent volume without downtime (Preview)
+
+> [!IMPORTANT]
+> Azure disks CSI driver supports resizing PVCs without downtime.
+> Follow this [link][expand-an-azure-managed-disk] to register the disk online resize feature.
 
 You can request a larger volume for a PVC. Edit the PVC object, and specify a larger size. This change triggers the expansion of the underlying volume that backs the PV.
 
@@ -256,44 +294,65 @@ You can request a larger volume for a PVC. Edit the PVC object, and specify a la
 
 In AKS, the built-in `managed-csi` storage class already supports expansion, so use the [PVC created earlier with this storage class](#dynamically-create-azure-disks-pvs-by-using-the-built-in-storage-classes). The PVC requested a 10-Gi persistent volume. You can confirm by running the following command:
 
-```console
-$ kubectl exec -it nginx-azuredisk -- df -h /mnt/azuredisk
+```bash
+kubectl exec -it nginx-azuredisk -- df -h /mnt/azuredisk
+```
 
+The output of the command resembles the following example:
+
+```bash
 Filesystem      Size  Used Avail Use% Mounted on
 /dev/sdc        9.8G   42M  9.8G   1% /mnt/azuredisk
 ```
 
-> [!IMPORTANT]
-> Azure disks CSI driver supports resizing PVCs without downtime in specific regions.
-> Follow this [link][expand-an-azure-managed-disk] to register the disk online resize feature.
-> If your cluster is not in the supported region list, you need to delete application first to detach disk on the node before expanding PVC.
-
 Expand the PVC by increasing the `spec.resources.requests.storage` field running the following command:
 
-```console
-$ kubectl patch pvc pvc-azuredisk --type merge --patch '{"spec": {"resources": {"requests": {"storage": "15Gi"}}}}'
+```basj
+kubectl patch pvc pvc-azuredisk --type merge --patch '{"spec": {"resources": {"requests": {"storage": "15Gi"}}}}'
+```
 
+The output of the command resembles the following example:
+
+```bash
 persistentvolumeclaim/pvc-azuredisk patched
 ```
 
 Run the following command to confirm the volume size has increased:
 
 ```console
-$ kubectl get pv
+kubectl get pv
+```
 
+The output of the command resembles the following example:
+
+```bash
 NAME                                       CAPACITY   ACCESS MODES   RECLAIM POLICY   STATUS   CLAIM                                     STORAGECLASS   REASON   AGE
 pvc-391ea1a6-0191-4022-b915-c8dc4216174a   15Gi       RWO            Delete           Bound    default/pvc-azuredisk                     managed-csi             2d2h
 (...)
 ```
 
-And after a few minutes, run the following commands to confirm the size of the PVC and inside the pod:
+And after a few minutes, run the following commands to confirm the size of the PVC:
 
-```console
-$ kubectl get pvc pvc-azuredisk
+```bash
+kubectl get pvc pvc-azuredisk
+```
+
+The output of the command resembles the following example:
+
+```bash
 NAME            STATUS   VOLUME                                     CAPACITY   ACCESS MODES   STORAGECLASS   AGE
 pvc-azuredisk   Bound    pvc-391ea1a6-0191-4022-b915-c8dc4216174a   15Gi       RWO            managed-csi    2d2h
+```
 
-$ kubectl exec -it nginx-azuredisk -- df -h /mnt/azuredisk
+Run the following command to confirm the size of the disk inside the pod:
+
+```bash
+kubectl exec -it nginx-azuredisk -- df -h /mnt/azuredisk
+```
+
+The output of the command resembles the following example:
+
+```bash
 Filesystem      Size  Used Avail Use% Mounted on
 /dev/sdc         15G   46M   15G   1% /mnt/azuredisk
 ```
@@ -327,18 +386,26 @@ The Azure disks CSI driver supports Windows nodes and containers. If you want to
 
 After you have a Windows node pool, you can now use the built-in storage classes like `managed-csi`. You can deploy an example [Windows-based stateful set](https://github.com/kubernetes-sigs/azuredisk-csi-driver/blob/master/deploy/example/windows/statefulset.yaml) that saves timestamps into the file `data.txt` by running the following [kubectl apply][kubectl-apply] command:
 
-```console
-$ kubectl apply -f https://raw.githubusercontent.com/kubernetes-sigs/azuredisk-csi-driver/master/deploy/example/windows/statefulset.yaml
+```bash
+kubectl apply -f https://raw.githubusercontent.com/kubernetes-sigs/azuredisk-csi-driver/master/deploy/example/windows/statefulset.yaml
+```
 
+The output of the command resembles the following example:
+
+```bash
 statefulset.apps/busybox-azuredisk created
 ```
 
 To validate the content of the volume, run the following command:
 
-```console
-$ kubectl exec -it busybox-azuredisk-0 -- cat c:\\mnt\\azuredisk\\data.txt # on Linux/MacOS Bash
-$ kubectl exec -it busybox-azuredisk-0 -- cat c:\mnt\azuredisk\data.txt # on Windows Powershell/CMD
+```bash
+kubectl exec -it busybox-azuredisk-0 -- cat c:\\mnt\\azuredisk\\data.txt # on Linux/MacOS Bash
+kubectl exec -it busybox-azuredisk-0 -- cat c:\mnt\azuredisk\data.txt # on Windows Powershell/CMD
+```
 
+The output of the command resembles the following example:
+
+```bash
 2020-08-27 08:13:41Z
 2020-08-27 08:13:42Z
 2020-08-27 08:13:44Z
