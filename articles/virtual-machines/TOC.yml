@@ -539,7 +539,7 @@
         href: ./windows/create-vm-generalized-managed.md
       - name: Visual Studio
         href: ./windows/using-visual-studio-vm.md
-    - name: Image builder
+    - name: VM Image Builder
       items:
       - name: Overview
         displayName: Image builder, images, building
@@ -564,7 +564,7 @@
         - name: Security controls by Azure Policy
           displayName: Image builder, images, building
           href: ./security-controls-policy-image-builder.md
-      - name: Use a VNET
+      - name: Use a virtual network
         items:
         - name: CLI
           displayName: Image builder, images, building
@@ -586,7 +586,7 @@
       - name: DevOps task
         displayName: Image builder, images, building
         href: ./linux/image-builder-devops-task.md
-      - name: Image Builder template reference
+      - name: VM Image Builder template reference
         displayName: Image builder, images, building, json, ARM, template
         href: ./linux/image-builder-json.md
       - name: Build for image galleries
@@ -608,7 +608,7 @@
       - name: Store scripts
         displayName: Image builder, images, building, scripts
         href: ./linux/image-builder-user-assigned-identity.md
-      - name: What's new in Azure Image Builder
+      - name: What's new in Azure VM Image Builder
         displayName: Image builder, images, building, api, features, updates, change log
         href: image-builder-api-update-release-notes.md
       - name: Troubleshoot
