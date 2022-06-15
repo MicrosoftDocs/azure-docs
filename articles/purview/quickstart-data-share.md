@@ -6,7 +6,7 @@ ms.author: jife
 ms.service: purview
 ms.topic: quickstart
 ms.custom: references_regions
-ms.date: 05/20/2022
+ms.date: 06/15/2022
 ---
 # Quickstart: Share and receive Azure Storage data in-place with Microsoft Purview Data Sharing (preview)
 
@@ -92,7 +92,7 @@ Note: If you created the Microsoft Purview account, you're automatically assigne
 
     If you don't see a storage account from the drop-down list, select on the **Register a new source to share from** link below to register your storage account. Azure resource needs to be registered with Microsoft Purview before you can share data from that resource. Your storage account needs to be registered in the same collection as the share. For instructions to register, see the [ADLS Gen2](register-scan-adls-gen2.md) or [Blob storage](register-scan-azure-blob-storage-source.md) data source pages.
 
-    :::image type="content" source="./media/how-to-share-data/create-share-select-source.png" alt-text="Screenshot showing select source, with an A D L S gen 2 account selected and continue highlighted." border="true":::
+    :::image type="content" source="./media/how-to-share-data/create-share-select-source.png" alt-text="Screenshot showing select source, with an A D L S gen 2 account selected and Continue highlighted." border="true":::
 
 1. Browse your storage account hierarchy and select (check) the objects you want to share. Then select **Add**. 
 
@@ -163,7 +163,7 @@ You can now access the data in the target storage account.
 To clean up the resources created for the quick start, follow the steps below: 
 
 1. Within [Microsoft Purview governance portal](https://web.purview.azure.com/), [delete the sent share](how-to-share-data.md#delete-a-sent-share).
-1. Also [delete your received share](how-to-receive-share.md#delete-received-share)
+1. Also [delete your received share](how-to-receive-share.md#delete-received-share).
 1. Once the shares are successfully deleted, delete the target container and folder Microsoft Purview created in your target storage account when you received shared data.
 
 ## Troubleshoot

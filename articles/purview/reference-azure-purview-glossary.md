@@ -6,7 +6,7 @@ ms.author: daperlov
 ms.service: purview
 ms.custom: event-tier1-build-2022
 ms.topic: conceptual
-ms.date: 05/27/2022
+ms.date: 06/15/2022
 ---
 # Microsoft Purview product glossary
 
@@ -15,7 +15,7 @@ Below is a glossary of terminology used throughout Microsoft Purview.
 ## Advanced resource sets
 A set of features activated at the Microsoft Purview instance level that, when enabled, enrich resource set assets by computing additional aggregations on the metadata to provide information such as partition counts, total size, and schema counts. Resource set pattern rules are also included.
 ## Annotation
-Information that is associated with data assets in Microsoft Purview, for example, glossary terms and classifications. After they are applied, annotations can be used within Search to aid in the discovery of the data assets.
+Information that is associated with data assets in Microsoft Purview, for example, glossary terms and classifications. After they're applied, annotations can be used within Search to aid in the discovery of the data assets.
 ## Approved
 The state given to any request that has been accepted as satisfactory by the designated individual or group who has authority to change the state of the request.
 ## Asset
@@ -27,7 +27,7 @@ A cloud solution that supports labeling of documents and emails to classify and 
 ## Business glossary
 A searchable list of specialized terms that an organization uses to describe key business words and their definitions. Using a business glossary can provide consistent data usage across the organization.
 ## Capacity unit
-A measure of data map usage. All Microsoft Purview data maps include one capacity unit by default, which provides up to 2GB of metadata storage and has a throughput of 25 data map operations/second.
+A measure of data map usage. All Microsoft Purview data maps include one capacity unit by default, which provides up to 2 GB of metadata storage and has a throughput of 25 data map operations/second.
 ## Classification report
 A report that shows key classification details about the scanned data.  
 ## Classification
@@ -45,7 +45,7 @@ A regular expression included in a classification rule that represents the colum
 ## Contact
 An individual who is associated with an entity in the data catalog.
 ## Control plane operation
-An operation that manages resources in your subscription, such as role-based access control and Azure policy, that are sent to the Azure Resource Manager end point. Control plane operations can also apply to resources outside of Azure across on-premises, multicloud, and SaaS sources.
+An operation that manages resources in your subscription, such as role-based access control and Azure policy that are sent to the Azure Resource Manager end point. Control plane operations can also apply to resources outside of Azure across on-premises, multicloud, and SaaS sources.
 ## Credential
 A verification of identity or tool used in an access control system. Credentials can be used to authenticate an individual or group to grant access to a data asset.
 ## Data Catalog
@@ -73,7 +73,7 @@ A role that can manage data sources and scans. A user in the Data source admin r
 ## Data steward
 An individual or group responsible for maintaining nomenclature, data quality standards, security controls, compliance requirements, and rules for the associated object.
 ## Data dictionary
-A list of canonical names of database columns and their corresponding data types. It is often used to describe the format and structure of a database, and the relationship between its elements.
+A list of canonical names of database columns and their corresponding data types. It's often used to describe the format and structure of a database, and the relationship between its elements.
 ## Discovered asset
 An asset that Microsoft Purview identifies in a data source during the scanning process. The number of discovered assets includes all files or tables before resource set grouping.
 ## Distinct match threshold
@@ -89,7 +89,7 @@ An entry in the Business glossary that defines a concept specific to an organiza
 ## Incremental scan
 A scan that detects and processes assets that have been created, modified, or deleted since the previous successful scan. To run an incremental scan, at least one full scan must be completed on the source.
 ## Ingested asset
-An asset that has been scanned, classified (when applicable), and added to the Microsoft Purview data map. Ingested assets are discoverable and consumable within the data catalog through automated scanning or external connections, such as Azure Data Factory and Azure Synapse.
+An asset that has been scanned, classified (when applicable), and added to the Microsoft Purview Data Map. Ingested assets are discoverable and consumable within the data catalog through automated scanning or external connections, such as Azure Data Factory and Azure Synapse.
 ## Insight reader
 A role that provides read-only access to insights reports for collections where the insights reader also has the **Data reader** role.
 ## Data Estate Insights
@@ -153,7 +153,7 @@ A system where data is stored. Sources can be hosted in various places such as a
 ## Source type
 A categorization of the registered sources used in a Microsoft Purview instance, for example, Azure SQL Database, Azure Blob Storage, Amazon S3, or SAP ECC.
 ## Steward
-An individual who defines the standards for a glossary term. They are responsible for maintaining quality standards, nomenclature, and rules for the assigned entity.
+An individual who defines the standards for a glossary term. They're responsible for maintaining quality standards, nomenclature, and rules for the assigned entity.
 ## Term template
 A definition of attributes included in a glossary term. Users can either use the system-defined term template or create their own to include custom attributes.
 ## Workflow

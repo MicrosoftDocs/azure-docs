@@ -145,7 +145,7 @@ If both *sent shares* and *received shares* are disabled in the navigation, you 
 If you've been notified that you've received a share, but can't view pending share in your Microsoft Purview account, it could be due to the following reasons:
 
 * You don't have **Data Share Contributor** role to any collections in this Microsoft Purview account. Contact your *Microsoft Purview Collection Admin* to grant you access to **Data Share Contributor** role to view, accept and configure the received share. 
-* Pending share invitation is sent to your email alias instead of your Azure sign in email.  Contact your data provider and ensure that they've sent the invitation to your Azure sign in e-mail address and not your e-mail alias.
+* Pending share invitation is sent to your email alias instead of your Azure sign-in email.  Contact your data provider and ensure that they've sent the invitation to your Azure sign-in e-mail address and not your e-mail alias.
 * Share has already been accepted.  If you've already accepted the share, it will no longer show up in *Pending* tab. Select *Accepted* tab under *Received shares* to see your active shares.
 * You're a guest user of the tenant. If you're a guest user of a tenant, you need to verify your email address for the tenant in order to view pending share for the first time. Once verified, it's valid for 12 months.
 
