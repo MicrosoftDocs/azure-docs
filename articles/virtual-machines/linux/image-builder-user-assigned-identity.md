@@ -19,7 +19,7 @@ This article shows how to create a customized image by using Azure VM Image Buil
 
 Azure VM Image Builder supports using scripts and copying files from GitHub, Azure storage accounts, and other locations. If you want to use the locations, they must be externally accessible to VM Image Builder.
 
-In the following example, you'll create two resource groups, one for the custom image and the other to host an Azure storage account that contains a script file. This example simulates a real-life scenario, where you might have build artifacts or image files in various storage accounts. You'll create a user-assigned identity and then grant the identity read permissions on the script file, but you won't allow public access to that file. You'll then use the Shell customizer to download and run a script from the storage account.
+In the following example, you'll create two resource groups, one for the custom image and the other to host an Azure storage account that contains a script file. This example simulates a real-life scenario, where you might have build artifacts or image files in various storage accounts. You'll create a user-assigned identity and then grant the identity read permissions on the script file, but you won't allow public access to the file. You'll then use the shell customizer to download and run a script from the storage account.
 
 
 ## Register the features
@@ -140,7 +140,7 @@ In the following example, you'll create two resource groups, one for the custom 
 
     az storage container create -n $scriptStorageAccContainer --fail-on-exist --account-name $scriptStorageAcc
 
-    # copy in an example script from the GitHub repo 
+    # Copy in an example script from the GitHub repo 
     az storage blob copy start \
         --destination-blob customizeScript.sh \
         --destination-container $scriptStorageAccContainer \
