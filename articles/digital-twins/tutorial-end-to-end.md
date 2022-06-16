@@ -106,7 +106,7 @@ In the **Solution Explorer** pane, expand **SampleFunctionsApp > Dependencies**.
 
 Doing so will open the NuGet Package Manager. Select the **Updates** tab and if there are any packages to be updated, check the box to **Select all packages**. Then select **Update**.
 
-:::image type="content" source="media/tutorial-end-to-end/update-dependencies-2.png" alt-text="Screenshot of Visual Studio showing how to selecting to update all packages in the NuGet Package Manager.":::
+:::image type="content" source="media/tutorial-end-to-end/update-dependencies-2.png" alt-text="Screenshot of Visual Studio showing how to select to update all packages in the NuGet Package Manager.":::
 
 ### Publish the app
 
@@ -361,20 +361,20 @@ To do so, you'll use the *ProcessDTRoutedData* Azure function to update a Room t
 :::image type="content" source="media/tutorial-end-to-end/building-scenario-c.png" alt-text="Diagram of an excerpt from the full building scenario diagram highlighting the section that shows the elements after Azure Digital Twins.":::
 
 Here are the actions you'll complete to set up this data flow:
-1. [Create an event grid topic](#create-the-event-grid-topic) to enable movement of data between Azure services
-1. [Create an endpoint](#create-the-endpoint) in Azure Digital Twins that connects the instance to the event grid topic
+1. [Create an Event Grid topic](#create-the-event-grid-topic) to enable movement of data between Azure services
+1. [Create an endpoint](#create-the-endpoint) in Azure Digital Twins that connects the instance to the Event Grid topic
 1. [Set up a route](#create-the-route) within Azure Digital Twins that sends twin property change events to the endpoint
-1. [Set up an Azure function](#connect-the-azure-function) that listens on the event grid topic at the endpoint, receives the twin property change events that are sent there, and updates other twins in the graph accordingly
+1. [Set up an Azure function](#connect-the-azure-function) that listens on the Event Grid topic at the endpoint, receives the twin property change events that are sent there, and updates other twins in the graph accordingly
 
 [!INCLUDE [digital-twins-twin-to-twin-resources.md](../../includes/digital-twins-twin-to-twin-resources.md)]
 
 ### Connect the Azure function
 
-Next, subscribe the *ProcessDTRoutedData* Azure function to the event grid topic you created earlier, so that telemetry data can flow from the thermostat67 twin through the event grid topic to the function, which goes back into Azure Digital Twins and updates the room21 twin accordingly.
+Next, subscribe the *ProcessDTRoutedData* Azure function to the Event Grid topic you created earlier, so that telemetry data can flow from the thermostat67 twin through the Event Grid topic to the function, which goes back into Azure Digital Twins and updates the room21 twin accordingly.
 
-To do so, you'll create an Event Grid subscription that sends data from the event grid topic that you created earlier to your *ProcessDTRoutedData* Azure function.
+To do so, you'll create an Event Grid subscription that sends data from the Event Grid topic that you created earlier to your *ProcessDTRoutedData* Azure function.
 
-Use the following CLI command to create the event subscription. There's a placeholder for you to enter a name for this event subscription, and there are also placeholders for you to enter your subscription ID, resource group, the name of your event grid topic, and the name of your function app.
+Use the following CLI command to create the event subscription. There's a placeholder for you to enter a name for this event subscription, and there are also placeholders for you to enter your subscription ID, resource group, the name of your Event Grid topic, and the name of your function app.
 
 ```azurecli-interactive
 az eventgrid event-subscription create --name <name-for-topic-event-subscription> --event-delivery-schema eventgridschema --source-resource-id /subscriptions/<your-subscription-ID>/resourceGroups/<your-resource-group>/providers/Microsoft.EventGrid/topics/<your-event-grid-topic> --endpoint-type azurefunction --endpoint /subscriptions/<your-subscription-ID>/resourceGroups/<your-resource-group>/providers/Microsoft.Web/sites/<your-function-app>/functions/ProcessDTRoutedData
@@ -412,7 +412,7 @@ Here's a review of the scenario that you built in this tutorial.
 
 1. An Azure Digital Twins instance digitally represents a floor, a room, and a thermostat (represented by **section A** in the diagram below)
 2. Simulated device telemetry is sent to IoT Hub, where the *ProcessHubToDTEvents* Azure function is listening for telemetry events. The *ProcessHubToDTEvents* Azure function uses the information in these events to set the `Temperature` property on thermostat67 (**arrow B** in the diagram).
-3. Property change events in Azure Digital Twins are routed to an event grid topic, where the *ProcessDTRoutedData* Azure function is listening for events. The *ProcessDTRoutedData* Azure function uses the information in these events to set the `Temperature` property on room21 (**arrow C** in the diagram).
+3. Property change events in Azure Digital Twins are routed to an Event Grid topic, where the *ProcessDTRoutedData* Azure function is listening for events. The *ProcessDTRoutedData* Azure function uses the information in these events to set the `Temperature` property on room21 (**arrow C** in the diagram).
 
 :::image type="content" source="media/tutorial-end-to-end/building-scenario.png" alt-text="Diagram of the full building scenario, which shows the data flowing from a device into and out of Azure Digital Twins through various Azure services.":::
 
