@@ -208,8 +208,6 @@ Azure Synapse does not currently support this feature -- if the synonym refers t
 
 To view a list of user-defined types within an Oracle database, query the views ALL_TYPES, DBA_TYPES or USER_TYPES. Azure Synapse does not currently support this feature -- if the data to be migrated includes user-defined data types, they must be either'flattened' into a conventional table definition, or normalized to a separate table in the case of arrays of data.
 
-#### 
-
 #### Oracle data type mapping
 
 Assess the impact of unsupported data types as part of the preparation phase
