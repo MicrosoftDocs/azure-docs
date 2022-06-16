@@ -17,7 +17,7 @@ ms.author: aahi
 Use this article to find information on integrating the Language service SDKs and REST API into your applications. 
 
 >[!TIP]
-> Is it your first time using Language service features? You can find quickstart guides with both REST API and SDK samples in the docmentation for the [available features](../overview#available-features) you want to use.
+> Is it your first time using Language service features? You can find quickstart guides with both REST API and SDK samples in the docmentation for the [available features](../overview.md#available-features) you want to use.
 
 ## What SDKs are available? 
 
@@ -25,7 +25,8 @@ The Language service provides three namespaces for using the available features.
 
 ### Azure.AI.TextAnalytics  
 
->[!NOTE] If you're using custom named entity recognition or custom text classification, you will need to create a project and train a model before using the SDK. The SDK only provides the ability to analyze text using models you create. See the following quicsktarts for more information. 
+>[!NOTE] 
+> If you're using custom named entity recognition or custom text classification, you will need to create a project and train a model before using the SDK. The SDK only provides the ability to analyze text using models you create. See the following quicsktarts for more information. 
 > * [Custom named entity recognition](../custom-named-entity-recognition/quickstart.md)
 > * [Custom text classification](../custom-text-classification/quickstart.md)
 
@@ -56,14 +57,15 @@ As you use these features in your application, use the following documentation a
 
 ### Azure.AI.Language.Conversations 
 
-> [!NOTE] If you're using conversational language understanding or orchestration workflow, you will need to create a project and train a model before using the SDK. The SDK only provides the ability to analyze text using models you create. See the following quicsktarts for more information. 
+> [!NOTE] 
+> If you're using conversational language understanding or orchestration workflow, you will need to create a project and train a model before using the SDK. The SDK only provides the ability to analyze text using models you create. See the following quicsktarts for more information. 
 > * [Conversational language understanding](../conversational-language-understanding/quickstart.md)
 > * [Orchestration workflow](../orchestration-workflow/quickstart.md)
 
 The `Azure.AI.Language.Conversations` namespace enables you to use the following Language features:
 
 * [Conversational language understanding](../conversational-language-understanding/overview.md)
-* [Orchestration workflow](../orchestration-workflow/)
+* [Orchestration workflow](../orchestration-workflow/overview.md)
 * [Conversation summarization](../summarization/overview.md?tabs=conversation-summarization)
 * [Personally Identifing Information (PII) detection for conversations](../summarization/how-to/conversation-summarization.md)
 
@@ -90,8 +92,8 @@ As you use these features in your application, use the following documentation a
 |Development option / language  |Reference documentation  |Samples  |
 |---------|---------|---------|---------|
 |REST API     | [REST API documentation (Prebuilt API)](/rest/api/cognitiveservices/questionanswering/question-answering/get-answers-from-text), [REST API documentation (Custom API)](/rest/api/cognitiveservices/questionanswering/question-answering-projects)        |         |
-|C#     |         | [C# documentation](/dotnet/api/overview/azure/ai.language.questionanswering-readme-pre?view=azure-dotnet)        |  [C# samples](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/cognitivelanguage/Azure.AI.Language.QuestionAnswering)        |
-|Python |         | [Python documentation](/python/api/overview/azure/ai-language-questionanswering-readme?view=azure-python)        | [Python samples](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/cognitivelanguage/azure-ai-language-questionanswering) |
+|C#     | [C# documentation](/dotnet/api/overview/azure/ai.language.questionanswering-readme-pre?view=azure-dotnet)        |  [C# samples](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/cognitivelanguage/Azure.AI.Language.QuestionAnswering)        |
+|Python | [Python documentation](/python/api/overview/azure/ai-language-questionanswering-readme?view=azure-python)        | [Python samples](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/cognitivelanguage/azure-ai-language-questionanswering) |
 
 
 <!--## Other development options 
