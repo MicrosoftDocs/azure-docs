@@ -20,6 +20,7 @@ This page provides latest news and updates regarding feature additions, engine v
 
 * Support for [extensions](concepts-extensions.md) PLV8, pgrouting with new servers<sup>$</sup> 
 * Version updates for [extension](concepts-extensions.md) PostGIS.
+* General availability of Azure Database for PostgreSQL - Flexible Server in Canada East and Jio India West regions. 
 
 <sup>**$**</sup> New servers get these features automatically. In your existing servers, these features are enabled during your server's future maintenance window.
 
