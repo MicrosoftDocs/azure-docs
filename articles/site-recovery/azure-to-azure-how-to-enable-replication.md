@@ -29,6 +29,9 @@ Enable replication. This procedure assumes that the primary Azure region is East
 2. Note the following fields:
    - **Source**: The point of origin of the VMs, which in this case is **Azure**.
    - **Source location**: The Azure region from where you want to protect your VMs. For this illustration, the source location is 'East Asia'
+   >[!NOTE]
+     >For cross-regional disaster recovery, the source location should be different from the Recovery Services Vault and it's Resource Group's location. However, it can be same as any of them for zonal disaster recovery.
+     >
    - **Deployment model**: Azure deployment model of the source machines.
    - **Source subscription**: The subscription to which your source VMs belong. This can be any subscription within the same Azure Active Directory tenant where your recovery services vault exists.
    - **Resource Group**: The resource group to which your source virtual machines belong. All the VMs under the selected resource group are listed for protection in the next step.

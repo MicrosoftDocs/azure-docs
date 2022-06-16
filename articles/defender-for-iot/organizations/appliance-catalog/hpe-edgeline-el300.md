@@ -9,7 +9,7 @@ ms.topic: reference
 
 This article describes the HPE Edgeline EL300 appliance for OT sensors or on-premises management consoles.
 
-Legacy appliances are certified but aren't currently offered as pre-configured appliances.
+Legacy appliances are certified but aren't currently offered as preconfigured appliances.
 
 
 | Appliance characteristic |Details |
