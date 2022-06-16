@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, shahparth, laveeshb, azla
 ms.topic: how-to
-ms.date: 05/02/2022
+ms.date: 06/17/2022
 ms.custom: references_regions
 #Customer intent: As a developer, I want to protect logic apps from regional failures by setting up availability zones.
 ---
