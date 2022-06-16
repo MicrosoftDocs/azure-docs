@@ -21,6 +21,7 @@ This article shows you how to connect to Azure Cosmos DB MongoDB API using the n
 
 [MongoDB API reference documentation](https://docs.mongodb.com/drivers/node) | [mongodb Package (NuGet)](https://www.npmjs.com/package/mongodb)
 
+
 ## Prerequisites
 
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free).
@@ -45,7 +46,7 @@ This article shows you how to connect to Azure Cosmos DB MongoDB API using the n
 
 3. To run the app, use a terminal to navigate to the application directory and run the application.
 
-    ```dotnetcli
+    ```console
     node index.js
     ```
 
@@ -204,14 +205,12 @@ The following guides show you how to use each of these classes to build your app
 ## See also
 
 - [Package (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.Cosmos)
-- [Samples](samples-dotnet.md)
-- [API reference](/dotnet/api/microsoft.azure.cosmos)
-- [Library source code](https://github.com/Azure/azure-cosmos-dotnet-v3)
-- [Give Feedback](https://github.com/Azure/azure-cosmos-dotnet-v3/issues)
+- [Samples](samples-javascript.md)
+- [API reference](https://docs.mongodb.com/drivers/node)
 
 ## Next steps
 
 Now that you've connected to a MongoDB API account, use the next guide to create and manage databases.
 
 > [!div class="nextstepaction"]
-> [Create a database in Azure Cosmos DB MongoDB API using JavaScript](how-to-dotnet-create-database.md)
+> [Create a database in Azure Cosmos DB MongoDB API using JavaScript](how-to-javascript-create-database.md)

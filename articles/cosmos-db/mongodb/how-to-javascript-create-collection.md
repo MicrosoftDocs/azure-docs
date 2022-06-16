@@ -13,7 +13,15 @@ ms.custom: devx-track-csharp
 
 # Create a collection in Azure Cosmos DB MongoDB API using JavaScript
 
+[!INCLUDE[appliesto-mongodb-api](../includes/appliesto-mongodb-api.md)]
+
 Collections in Azure Cosmos DB store sets of docss. Before you can create, query, or manage docss, you must first create a collection.
+
+> [!NOTE]
+> The [example code snippets](https://github.com/Azure-Samples/cosmos-db-mongodb-api-javascript-samples) are available on GitHub as a JavaScript project.
+
+[MongoDB API reference documentation](https://docs.mongodb.com/drivers/node) | [mongodb Package (NuGet)](https://www.npmjs.com/package/mongodb)
+
 
 ## Name a collection
 

@@ -12,6 +12,7 @@ ms.custom: devx-track-js
 ---
 
 # Quickstart: Azure Cosmos DB MongoDB API for JavaScript with mongoDB driver
+
 [!INCLUDE[appliesto-mongodb-api](../includes/appliesto-mongodb-api.md)]
 
 Get started with the mongoDB npm package to create databases, collections, and docs within your account. Follow these steps to  install the package and try out example code for basic tasks.
