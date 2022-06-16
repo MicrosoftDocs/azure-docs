@@ -21,7 +21,7 @@ ms.collection: M365-identity-device-management
 
 # User management enhancements in Azure Active Directory
 
-This article describes how to use the user management enhancements in the Azure Active Directory (Azure AD) portal. The **All users** and **Deleted users** pages have been updated to provide more information and make it easier to find users.
+This article describes how to use the user management enhancements in the Azure Active Directory (Azure AD) portal. The **All users** page and user profile pages have been updated to provide more information and make it easier to find users.
 
 Enhancements include:
 
@@ -39,7 +39,7 @@ Enhancements include:
 
 We’ve made some changes to the columns and filters available on the **All users** page. In addition to the existing columns for managing your list of users, we've added the option to add more user properties as columns and filters including employee ID, employee hire date, on-premises attributes, and more. 
 
-![new user properties displayed on All users and Deleted users pages](./media/users-search-enhanced/user-properties.png)
+![new user properties displayed on All users page and user profile pages](./media/users-search-enhanced/user-properties.png)
 
 ### Re-order columns
 
@@ -51,14 +51,14 @@ If you want to share your customized list view with another person, you can sele
 
 ## User Profile enhancements
 
-The user profile page is not organized into three tabs: **Overview**, **Monitoring**, and **Properties**.  
+The user profile page is now organized into three tabs: **Overview**, **Monitoring**, and **Properties**.  
 
 ### Overview tab 
 
 The overview tab contains key properties and insights about a user, such as: 
 
 - Properties like user principal name, object ID, created date/time and user type 
-- Selectable aggregate values such as the number groups of which the user is a member, the number of apps to which they have access, and the number of licenses that are are assigned to them 
+- Selectable aggregate values such as the number of groups that the user is a member of, the number of apps to which they have access, and the number of licenses that are are assigned to them 
 - Quick alerts and insights about a user such as their current account enabled status, the last time they signed in, whether they can use multifactor authentication, and B2B collaboration options
 
 ![new user profile displaying the Overview tab contents](./media/users-search-enhanced/user-profile-overview.png)

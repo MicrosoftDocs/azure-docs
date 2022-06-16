@@ -7,7 +7,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 06/07/2022
+ms.date: 06/16/2022
 
 ms.author: mimart
 author: msmimart
@@ -41,6 +41,7 @@ To manage these scenarios previously, you had to manually delete the guest user�
    - Select the **Save** button at the bottom of the page.
 
 1. In the **Overview** tab, under **My Feed**, select **B2B collaboration**. 
+    ![new user profile page displaying the B2B Collaboration tile](./media/reset-redemption-status/user-profile-b2b-collaboration.png)
 1. Under **Redemption status**, next to **Reset invitation status? (Preview)**, select **Yes**.
 1. Select **Yes** to confirm.
 
