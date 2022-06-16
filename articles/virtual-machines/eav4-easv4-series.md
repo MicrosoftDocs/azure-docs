@@ -14,7 +14,7 @@ ms.reviewer: jushiman
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 
-The Eav4- and Easv4-series run on 2nd Generation AMD EPYC<sup>TM</sup> 7452 or 3rd Generation EPYC<sup>TM</sup> 7763v processors in a multi-threaded configuration. The Eav4-series and Easv4-series have the same memory and disk configurations as the Ev3 & Esv3-series.
+The Eav4-series and Easv4-series run on 2nd Generation AMD EPYC<sup>TM</sup> 7452 or 3rd Generation EPYC<sup>TM</sup> 7763v processors in a multi-threaded configuration. The Eav4-series and Easv4-series have the same memory and disk configurations as the Ev3 & Esv3-series.
 
 ## Eav4-series
 
