@@ -47,7 +47,7 @@ East US, East US 2, Central US, South Central US, North Central US, West US, Wes
 
 ### In which regions is Azure Spring Apps Enterprise tier available?
 
-East US, East US 2, South Central US, West US 2, West US 3, West Europe, North Europe, UK South, Southeast Asia, Australia East.
+East US, East US 2, South Central US, West US 2, West US 3, West Europe, North Europe, UK South, Southeast Asia, Australia East, Brazil South, Canada Central, Central India, Central US, East Asia, France Central, Korea Central, North Central US, South Africa North, UAE North and West US.
 
 ### Is any customer data stored outside of the specified region?
 
