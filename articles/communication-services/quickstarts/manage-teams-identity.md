@@ -165,9 +165,5 @@ In this quickstart, you learned how to:
 
 Learn about the following concepts:
 
-- [Quickstart to manage access tokens for Teams users
-with best practices using Javascript SDK](TODO add link)
-- [Quickstart to manage access tokens for Teams users
-with best practices using .NET SDK](TODO add link)
 - [Custom Teams endpoint](../concepts/teams-endpoint.md)
 - [Teams interoperability](../concepts/teams-interop.md)

@@ -204,6 +204,7 @@ These can be accessed by looking at where your app is keeping its local data. Th
 * **Getting Directory ID**
 * **Getting Application ID**
 * **Getting User ID**
+* **Getting Application Manifest**
 
 ## Getting Directory ID 
 To find your Directory (tenant) ID, follow the steps listed below:
@@ -235,6 +236,16 @@ To find your User ID, follow the steps listed below:
 1. From **Profile** page in Azure AD Users, copy the **Object ID** and store it in your application code.
 
    ![Screenshot of how to copy Azure Active Directory user ID and store it.](./media/troubleshooting/copy-aad-user-id.png)
+
+## Getting Application Manifest
+To find your application manifest:
+
+1. Navigate to [Azure portal](https://portal.azure.com) and sign in to the Azure portal using the credentials.
+1. From the left-pane, select Azure Active Directory.
+1. From **App registrations** in Azure AD, select your application.
+1. From the app's **Overview** page, select the **Manifest** section.
+
+For more information about application manifest, see [Azure Active Directory app manifest](../../active-directory/develop/reference-app-manifest.md).
 
 ## Getting immutable resource ID 
 Sometimes you also need to provide immutable resource ID of your Communication Service resource. To find it, follow the steps listed below:
