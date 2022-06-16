@@ -44,7 +44,7 @@ Once the Defender profile/extension has been deployed, a default workspace will 
 
 If you have no workspace assigned, you will see `Assignments (0)`.
 
-:::image type="content" source="../media/defender-for-containers/no-assignment.png" alt-text="Screenshot showing that no workspace has been assigned.":::
+:::image type="content" source="../media/defender-for-containers/no-assignment.png" alt-text="Screenshot showing that no workspace has been assigned." lightbox="../media/defender-for-containers/no-assignment.png":::
 
 **To assign custom workspace**:
 
@@ -54,7 +54,7 @@ If you have no workspace assigned, you will see `Assignments (0)`.
 
 1. Select a LogAnalyticsWorkspaceResource ID from the drop down menu.
 
-   :::image type="content" source="../media/defender-for-containers/drop-down-menu.png" alt-text="Screenshot showing where the drop down menu is located."::: 
+   :::image type="content" source="../media/defender-for-containers/drop-down-menu.png" alt-text="Screenshot showing where the drop down menu is located." lightbox="../media/defender-for-containers/drop-down-menu.png"::: 
 
 1. Select **Review + create**.
 
@@ -64,7 +64,7 @@ If you have no workspace assigned, you will see `Assignments (0)`.
 
 If it already assigned to a workspace you will see `Assignments (1)`.
 
-:::image type="content" source="../media/defender-for-containers/already-assigned.png" alt-text="Screenshot that shows Assignment (1), meaning a workspace has already been assigned.":::
+:::image type="content" source="../media/defender-for-containers/already-assigned.png" alt-text="Screenshot that shows Assignment (1), meaning a workspace has already been assigned." lightbox="../media/defender-for-containers/already-assigned.png":::
 
 > [!NOTE]
 > If you have more than one subscription the number may be higher
@@ -73,7 +73,7 @@ If it already assigned to a workspace you will see `Assignments (1)`.
 
 1. Select the relevant assignment.
 
-    :::image type="content" source="../media/defender-for-containers/relevant-assignment.png" alt-text="Screenshot that shows where to select the relevant assignment from.":::
+    :::image type="content" source="../media/defender-for-containers/relevant-assignment.png" alt-text="Screenshot that shows where to select the relevant assignment from." lightbox="../media/defender-for-containers/relevant-assignment.png":::
 
 1. Select **Edit assignment**.
 
@@ -81,7 +81,7 @@ If it already assigned to a workspace you will see `Assignments (1)`.
 
 1. Select a LogAnalyticsWorkspaceResource ID from the drop down menu.
 
-   :::image type="content" source="../media/defender-for-containers/drop-down-menu.png" alt-text="Screenshot showing where the drop down menu is located."::: 
+   :::image type="content" source="../media/defender-for-containers/drop-down-menu.png" alt-text="Screenshot showing where the drop down menu is located." lightbox="../media/defender-for-containers/drop-down-menu.png"::: 
 
 1. Select **Review + create**.
 

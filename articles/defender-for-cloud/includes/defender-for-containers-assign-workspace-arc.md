@@ -44,7 +44,7 @@ Once the Defender profile/extension has been deployed, a default workspace will 
 
 If you have no workspace assigned, you will see `Assignments (0)`.
 
-:::image type="content" source="../media/defender-for-containers/no-assignment-arc.png" alt-text="Screenshot showing that no workspace has been assigned for ARC.":::
+:::image type="content" source="../media/defender-for-containers/no-assignment-arc.png" alt-text="Screenshot showing that no workspace has been assigned for ARC." lightbox="../media/defender-for-containers/no-assignment-arc.png":::
 
 **To assign custom workspace**:
 
@@ -54,7 +54,7 @@ If you have no workspace assigned, you will see `Assignments (0)`.
 
 1. Select a LogAnalyticsWorkspaceResource ID from the drop down menu.
 
-   :::image type="content" source="../media/defender-for-containers/drop-down-menu-arc.png" alt-text="Screenshot showing where the drop down menu is located for ARC."::: 
+   :::image type="content" source="../media/defender-for-containers/drop-down-menu-arc.png" alt-text="Screenshot showing where the drop down menu is located for ARC." lightbox="../media/defender-for-containers/drop-down-menu-arc.png"::: 
 
 1. Select **Review + create**.
 
@@ -67,13 +67,13 @@ If it already assigned to a workspace you will see `Assignments (1)`.
 > [!NOTE]
 > If you have more than one subscription the number may be higher
 
-:::image type="content" source="../media/defender-for-containers/already-assigned-arc.png" alt-text="Screenshot that shows Assignment (1), meaning a workspace has already been assigned for ARC.":::
+:::image type="content" source="../media/defender-for-containers/already-assigned-arc.png" alt-text="Screenshot that shows Assignment (1), meaning a workspace has already been assigned for ARC." lightbox="../media/defender-for-containers/already-assigned-arc.png":::
 
 **To assign custom workspace**:
 
 1. Select the relevant assignment.
 
-    :::image type="content" source="../media/defender-for-containers/relevant-assignment-arc.png" alt-text="Screenshot that shows where to select the relevant assignment from for ARC.":::
+    :::image type="content" source="../media/defender-for-containers/relevant-assignment-arc.png" alt-text="Screenshot that shows where to select the relevant assignment from for ARC." lightbox="../media/defender-for-containers/relevant-assignment-arc.png":::
 
 1. Select **Edit assignment**.
 
@@ -81,7 +81,7 @@ If it already assigned to a workspace you will see `Assignments (1)`.
 
 1. Select a LogAnalyticsWorkspaceResource ID from the drop down menu.
 
-   :::image type="content" source="../media/defender-for-containers/drop-down-menu-arc.png" alt-text="Screenshot showing where the drop down menu is located for ARC."::: 
+   :::image type="content" source="../media/defender-for-containers/drop-down-menu-arc.png" alt-text="Screenshot showing where the drop down menu is located for ARC." lightbox="../media/defender-for-containers/drop-down-menu-arc.png"::: 
 
 1. Select **Review + create**.
 
