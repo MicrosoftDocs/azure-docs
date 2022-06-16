@@ -116,7 +116,7 @@ First, get the subnet resource ID for the existing subnet into which the AKS clu
 
 ```azurecli-interactive
 $ az network vnet subnet list \
-    --resource-group myVnet \
+    --resource-group myResourceGroup \
     --vnet-name myVnet \
     --query "[0].id" --output tsv
 
