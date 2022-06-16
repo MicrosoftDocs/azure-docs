@@ -111,6 +111,9 @@ helm create azure-vote-front
 
 Update *azure-vote-front/Chart.yaml* to add a dependency for the *redis* chart from the `https://charts.bitnami.com/bitnami` chart repository and update `appVersion` to `v1`. For example:
 
+> [!NOTE]
+> The container image versions shown in this guide have been tested to work with this example but may not be the latest version available.
+
 ```yml
 apiVersion: v2
 name: azure-vote-front

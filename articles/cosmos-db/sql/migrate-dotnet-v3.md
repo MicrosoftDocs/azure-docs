@@ -67,7 +67,7 @@ The following are some of the main class name changes:
 
 | .NET v2 SDK | .NET v3 SDK |
 |-------------|-------------|
-|`Microsoft.Azure.Documents.Client.DocumentClient`|`Microsoft.Azure.CosmosClient`|
+|`Microsoft.Azure.Documents.Client.DocumentClient`|`Microsoft.Azure.Cosmos.CosmosClient`|
 |`Microsoft.Azure.Documents.Client.ConnectionPolicy`|`Microsoft.Azure.Cosmos.CosmosClientOptions`|
 |`Microsoft.Azure.Documents.Client.DocumentClientException` |`Microsoft.Azure.Cosmos.CosmosException`|
 |`Microsoft.Azure.Documents.Client.Database`|`Microsoft.Azure.Cosmos.DatabaseProperties`|
