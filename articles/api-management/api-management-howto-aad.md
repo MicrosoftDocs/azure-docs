@@ -18,7 +18,8 @@ In this article, you'll learn how to:
 > * Manage groups of Azure AD users by adding external groups that contain the users.
 
 > [!IMPORTANT]
-> This article has been updated with steps to configure an Azure AD app using the Microsoft Authentication Library ([MSAL](/active-directory/develop/msal-overview)) v2.0. If you previously configured an Azure AD app using the Azure AD Authentication Library, learn about [migration to MSAL v2.0](../active-directory/develop/migrate-spa-implicit-to-auth-code.md).
+> * This article has been updated with steps to configure an Azure AD app using the Microsoft Authentication Library ([MSAL](../active-directory/develop/msal-overview.md)) v2.0. 
+> * If you previously configured an Azure AD app using the Azure AD Authentication Library, learn about [migration to MSAL v2.0](../active-directory/develop/migrate-spa-implicit-to-auth-code.md). You must republish the developer portal after any configuration change.
 
 ## Prerequisites
 
@@ -213,9 +214,8 @@ Your user is now signed in to the developer portal for your API Management servi
 
 ## Next Steps
 
-- Learn how to [Protect your web API backend in API Management by using OAuth 2.0 authorization with Azure AD](./api-management-howto-protect-backend-with-aad.md)
 - Learn more about [Azure Active Directory and OAuth2.0](../active-directory/develop/authentication-vs-authorization.md).
-- Learn more about [MSAL](../active-directory/develop/msal-overview.md) and [migrating to MSAL v2](../active-directory/develop/msal-migration.md).
+Learn more about [MSAL](../active-directory/develop/msal-overview.md) and [migrating to MSAL v2](../active-directory/develop/msal-migration.md).
 - [Create an API Management service instance](./get-started-create-service-instance.md).
 - [Manage your first API](./import-and-publish.md).
 

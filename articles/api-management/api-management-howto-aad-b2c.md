@@ -7,7 +7,7 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: how-to
-ms.date: 09/28/2021
+ms.date: 06/16/2022
 ms.author: danlep
 ---
 
@@ -19,7 +19,7 @@ Azure Active Directory B2C is a cloud identity management solution for consumer-
 In this tutorial, you'll learn the configuration required in your API Management service to integrate with Azure Active Directory B2C. As noted later in this article, if you are using the deprecated legacy developer portal, some steps will differ.
 
 > [!IMPORTANT]
-> * This article has been updated with steps to configure an Azure AD B2C app using the Microsoft Authentication Library ([MSAL](/active-directory/develop/msal-overview)) v2.0. 
+> * This article has been updated with steps to configure an Azure AD B2C app using the Microsoft Authentication Library ([MSAL](../active-directory/develop/msal-overview.md)) v2.0. 
 > * If you previously configured an Azure AD B2C app for developer account authorization using the Azure AD Authentication Library, learn about [migration to MSAL v2.0](../active-directory/develop/migrate-spa-implicit-to-auth-code.md). You must republish the developer portal after any configuration change.
 
 
