@@ -3,7 +3,7 @@ title: Microsoft Teams on Azure Virtual Desktop - Azure
 description: How to use Microsoft Teams on Azure Virtual Desktop.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 05/24/2022
+ms.date: 06/16/2022
 ms.author: helohr
 manager: femila
 ---
@@ -70,7 +70,7 @@ The following table lists the latest versions of the WebSocket Service:
 ### Updates for version 1.17.2205.23001
 
 - Fixed an issue that made the WebRTC redirector service disconnect from Teams on Azure Virtual Desktop.
-- Added keyboard shortcut detection for Shift+Ctrl+; that lets users turn on a diagnostic overlay during calls on Teams for Azure Virtual Desktop. This feature is supported in version 1.2.3297 or later of the Windows Desktop client. 
+- Added keyboard shortcut detection for Shift+Ctrl+; that lets users turn on a diagnostic overlay during calls on Teams for Azure Virtual Desktop. This feature is supported in version 1.2.3308 or later of the Windows Desktop client. 
 - Added further stability and reliability improvements to the service.
 
 #### Updates for version 1.4.2111.18001
