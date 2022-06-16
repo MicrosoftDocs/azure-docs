@@ -66,7 +66,7 @@ To make a query control use this data source, use the Data source drop-down to c
 ## Azure Data Explorer
 
 Workbooks now have support for querying from [Azure Data Explorer](/azure/data-explorer/) clusters with the powerful [Kusto](/azure/kusto/query/index) query language.
-For the **Cluster Name** field, you should add ther region name following the cluster name. For example: *mycluster.westeurope*.
+For the **Cluster Name** field, you should add the region name following the cluster name. For example: *mycluster.westeurope*.
 
 ![Screenshot of Kusto query window](./media/workbooks-data-sources/data-explorer.png)
 
@@ -88,7 +88,7 @@ To make a query control use this data source, use the **Query type** drop-down t
 
 ## Change Analysis (preview)
 
-To make a query control using [Application Change Analysis](../app/change-analysis.md) as the data source, use the *Data source* drop down and choose *Change Analysis (preview)* and select a single resource. Changes for up to the last 14 days can be shown. The *Level* drop down can be used to filter between "Important", "Normal", and "Noisy" changes, and this drop down supports workbook parameters of type [drop down](workbooks-dropdowns.md).
+To make a query control using [Application Change Analysis](../app/change-analysis.md) as the data source, use the **Data source** drop-down and choose *Change Analysis (preview)* and select a single resource. Changes for up to the last 14 days can be shown. The *Level* drop-down can be used to filter between "Important", "Normal", and "Noisy" changes, and this drop down supports workbook parameters of type [drop down](workbooks-dropdowns.md).
 
 > [!div class="mx-imgBorder"]
 > ![A screenshot of a workbook with Change Analysis](./media/workbooks-data-sources/change-analysis-data-source.png)
@@ -113,7 +113,7 @@ To avoid automatically making calls to untrusted hosts when using templates, the
 This provider supports [JSONPath](workbooks-jsonpath.md).
 
 ## Azure RBAC
-The Azure RBAC provider allows you to check permissions on resources. It is most commonly used in parameter to check if the correct RBAC are setup. A use case would be to create a parameter to check deployment permission and then notify the user if they don't have deployment permission. Simple JSON arrays or objects will automatically be converted into grid rows and columns or text with a 'hasPermission' column with either true or false. The permission is checked on each resource and then either 'or' or 'and' to get the result. The [operations or actions](../../role-based-access-control/resource-provider-operations.md) can be a string or an array.
+The Azure RBAC provider allows you to check permissions on resources. It is most commonly used in parameter to check if the correct RBAC are set up. A use case would be to create a parameter to check deployment permission and then notify the user if they don't have deployment permission. Simple JSON arrays or objects will automatically be converted into grid rows and columns or text with a 'hasPermission' column with either true or false. The permission is checked on each resource and then either 'or' or 'and' to get the result. The [operations or actions](../../role-based-access-control/resource-provider-operations.md) can be a string or an array.
 
   **String:**
    ```
