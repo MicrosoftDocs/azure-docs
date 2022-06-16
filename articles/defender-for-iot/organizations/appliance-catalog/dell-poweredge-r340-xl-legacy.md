@@ -126,7 +126,7 @@ This procedure describes how to update the Dell PowerEdge R340 XL configuration 
 
 Configure the appliance BIOS only if you didn't purchase your appliance from Arrow or if you have an appliance, but don't have access to the XML configuration file.
 
-1. Access the appliance's BIOS directly using a keyboard and screen or iDRAC.
+1. Access the appliance's BIOS directly by using a keyboard and screen, or use iDRAC.
 
    - If the appliance isn't a Defender for IoT appliance, open a browser and go to the IP address configured beforehand. Sign in with the Dell default administrator privileges. Use **root** for the username and **calvin** for the password.
 
