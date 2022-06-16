@@ -15,20 +15,12 @@ ms.author: alkohli
 
 [!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
-This article describes how to deploy an IoT Edge runtime on an Ubuntu VM running on your Azure Stack Edge device. 
+This article describes how to deploy an IoT Edge runtime on an Ubuntu VM running on your Azure Stack Edge device.
+
+For new development work, we recommend that you don't use the managed version of the IoT Edge solution due to limited features and [known issues](https://microsoft.github.io/iotedge-k8s-doc/knownissues.html). Instead, use the self-serve method described in this article to deploy a recent IoT Edge runtime version on an Ubuntu VM that is running on your Azure Stack Edge.
 
 > [!NOTE]
 > If you use the IoT Edge solution in a production environment, we recommend that you deploy IoT Edge on an Ubuntu VM. The managed IoT Edge solution on Azure Stack Edge has limited features and functionality.
-
-## About IoT Edge runtime on Ubuntu VM
-
-For new development work, we recommend that you don't use the managed version of the IoT Edge solution due to limited features and [known issues](https://microsoft.github.io/iotedge-k8s-doc/knownissues.html). Instead, deploy a recent IoT Edge runtime version on an Ubuntu VM that is running on your Azure Stack Edge using the steps described in this article.
-
-To help facilitate the deployment of the IoT Edge runtime onto the Ubuntu VM, you can deploy the IoT Edge runtime using a `cloud-init` script during the VM deployment.  
-
-## Migrating workloads on Azure Stack Edge from a managed IoT Edge solution to IoT Edge on an Ubuntu VM
-
-To migrate an existing module from a managed IoT Edge solution to IoT Edge on an Ubuntu VM, reuse the device from IoT Hub by copying the connection string from your managed IoT Edge solution. Use the copied connection string for your IoT Edge configuration on the Ubuntu VM.
 
 ## Prerequisites
 
@@ -36,6 +28,14 @@ Before you begin, make sure you have:
 
 - An Azure Stack Edge device that you've activated. For detailed steps, see [Activate Azure Stack Edge Pro GPU](azure-stack-edge-gpu-deploy-activate.md).
 - Access to the latest Ubuntu 20.04 VM image, either an image from Azure Marketplace or a custom image that you're bringing.
+
+## About IoT Edge runtime on Ubuntu VM
+
+To help facilitate the deployment of the IoT Edge runtime onto the Ubuntu VM, you can deploy the IoT Edge runtime using a `cloud-init` script during the VM deployment.
+
+## Migrating workloads from a managed IoT Edge solution
+
+To migrate an existing module from a managed IoT Edge solution to IoT Edge on an Ubuntu VM, reuse the device from IoT Hub by copying the connection string from your managed IoT Edge solution. Use the copied connection string for your IoT Edge configuration on the Ubuntu VM.
 
 ## Process overview
 
