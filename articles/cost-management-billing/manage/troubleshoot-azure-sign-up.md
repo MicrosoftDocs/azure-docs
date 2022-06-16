@@ -169,7 +169,9 @@ Other troubleshooting articles for Azure Billing and Subscriptions
 
 ## Contact us for help
 
-If you have questions or need help, [create a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+- Get answers in [Azure forums](https://azure.microsoft.com/support/forums/).
+- Connect with [@AzureSupport](https://twitter.com/AzureSupport)- answers, support, experts.
+- If you have a support plan, [open a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
 ## Next steps
 
