@@ -10,7 +10,7 @@ ms.reviewer: harelb
 
 The alerts page summarizes all alert instances in all your Azure resources generated in the last 30 days. You can see all types of alerts from multiple subscriptions in a single pane. You can search for a specific alert and manage alert instances. 
 
-You can get to the alerts page in any of the following ways:
+There are a few ways to get to the alerts page:
 
 - From the home page in the [Azure portal](https://portal.azure.com/), select **Monitor** > **Alerts**.  
 
@@ -19,21 +19,10 @@ You can get to the alerts page in any of the following ways:
 - From a specific resource, go to the **Monitoring** section, and choose **Alerts**. The landing page is pre-filtered for alerts on that specific resource.
 
   :::image type="content" source="media/alerts-managing-alert-instances/alerts-resource-menu.png" alt-text="Screenshot of alerts link on a resource's menu.":::
-## Alert rule recommendations (preview)
-
-If you don't have any alert rules defined for the selected resource, either individually or as part of a resource group or subscription, you can [enable recommended out-of-the-box alert rules in the Azure portal (preview)](alerts-log.md#enable-recommended-out-of-the-box-alert-rules-in-the-azure-portal-preview). 
-
-:::image type="content" source="media/alerts-managing-alert-instances/enable-recommended-alert-rules.jpg" alt-text="Screenshot of alerts page with link to recommended alert rules.":::
-
-> [!NOTE]
-> The alert rule recommendations feature is currently in preview and is only enabled for VMs.
 
 ## The Alerts summary pane
 
-The alerts summary pane summarizes the alerts fired in the last 24 hours. You can filter the list of alert instances by **time range**, **subscription**, **alert condition**, **severity**, and more. 
-
-> [!NOTE]
-> If you navigated to the alerts page by selecting a specific alert severity, the list is pre-filtered for that severity.
+The alerts summary pane summarizes the alerts fired in the last 24 hours. You can filter the list of alert instances by **time range**, **subscription**, **alert condition**, **severity**, and more. If you navigated to the alerts page by selecting a specific alert severity, the list is pre-filtered for that severity.
 
 To see more details about a specific alert instance, select the alert instance to open the **Alert Details** page. 
    
@@ -47,6 +36,15 @@ The **Alerts details** page provides details about the selected alert.
  - To see all closed alerts, select the **History** tab.  
 
 :::image type="content" source="media/alerts-managing-alert-instances/alerts-details-page.png" alt-text="Screenshot of alerts details page.":::
+
+## Alert rule recommendations (preview)
+
+If you don't have any alert rules defined for the selected resource, either individually or as part of a resource group or subscription, you can [enable recommended out-of-the-box alert rules in the Azure portal (preview)](alerts-log.md#enable-recommended-out-of-the-box-alert-rules-in-the-azure-portal-preview). 
+
+:::image type="content" source="media/alerts-managing-alert-instances/enable-recommended-alert-rules.jpg" alt-text="Screenshot of alerts page with link to recommended alert rules.":::
+
+> [!NOTE]
+> The alert rule recommendations feature is currently in preview and is only enabled for VMs.
 
 ## Next steps
 
