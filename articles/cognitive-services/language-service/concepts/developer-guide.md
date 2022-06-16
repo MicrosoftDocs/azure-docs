@@ -1,7 +1,7 @@
 ---
 title: Use the Language SDK and REST API
 titleSuffix: Azure Cognitive Services
-description: Data and service limitations for Azure Cognitive Service for Language features.
+description: Learn about how to integrate the Language service SDK and REST API into your applications.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -25,31 +25,23 @@ The Language service provides three namespaces for using the available features.
 
 ### Azure.AI.TextAnalytics  
 
-> [!NOTE] If you're using custom named entity recognition or custom text classification, you will need to create a project and train a model before using the SDK. The SDK only provides the ability to analyze text using models you create. See the following quicsktarts for more information. 
+>[!NOTE] If you're using custom named entity recognition or custom text classification, you will need to create a project and train a model before using the SDK. The SDK only provides the ability to analyze text using models you create. See the following quicsktarts for more information. 
 > * [Custom named entity recognition](../custom-named-entity-recognition/quickstart.md)
 > * [Custom text classification](../custom-text-classification/quickstart.md)
 
 The `Azure.AI.TextAnalytics` namespace enables you to use the following Language features:
 
-* Custom named entity recognition
-* Custom text classification
-* Entity linking
-* Key phrase extraction
-* Named entity recognition (NER)
-* Personally Identifing Information (PII) detection
-* Sentiment analysis and opinion mining
-* Text analytics for health
+* [Custom named entity recognition](../custom-named-entity-recognition/overview.md)
+* [Custom text classification](../custom-text-classification/overview.md)
+* [Document summarization](../summarization/overview.md?tabs=document-summarization)
+* [Entity linking](../entity-linking/overview.md)
+* [Key phrase extraction](../key-phrase-extraction/overview.md)
+* [Named entity recognition (NER)](../named-entity-recognition/overview.md)
+* [Personally Identifing Information (PII) detection](../personally-identifiable-information/overview.md)
+* [Sentiment analysis and opinion mining](../sentiment-opinion-mining/overview.md)
+* [Text analytics for health](../text-analytics-for-health/overview.md)
 
-#### Language support
-
-The `Azure.AI.TextAnalytics` namespace provides SDKs in following programming language 
-
-* C#
-* Java
-* JavaScript
-* Python
-
-### Reference documentation and code samples
+### Azure.AI.TextAnalytics reference documentation and code samples
 
 As you use these features in your application, use the following documentation and code samples for additional information.
 
@@ -70,19 +62,14 @@ As you use these features in your application, use the following documentation a
 
 The `Azure.AI.Language.Conversations` namespace enables you to use the following Language features:
 
-* Conversational language understanding
-* Orchestration workflow
-* Conversation summarization
-* Personally Identifing Information (PII) detection for conversations
+* [Conversational language understanding](../conversational-language-understanding/overview.md)
+* [Orchestration workflow](../orchestration-workflow/)
+* [Conversation summarization](../summarization/overview.md?tabs=conversation-summarization)
+* [Personally Identifing Information (PII) detection for conversations](../summarization/how-to/conversation-summarization.md)
 
-#### Language support
+#### Azure.AI.Language.Conversations reference documentation and code samples
 
-The `Azure.AI.Language.Conversations` namespace provides SDKs in following programming language 
-
-* C#
-* Python
-
-#### Reference documentation and code samples
+As you use these features in your application, use the following documentation and code samples for additional information.
 
 |Development option / language  |Reference documentation (Authoring API) | Reference documentation (Runtime prediction API) |Samples  |
 |---------|---------|---------|---------|
@@ -92,31 +79,25 @@ The `Azure.AI.Language.Conversations` namespace provides SDKs in following progr
 
 ### Azure.AI.Language.QuestionAnswering 
 
-The `Azure.AI.Language.QuestionAnswering` namespace provides SDKs in following programming language 
+The `Azure.AI.Language.QuestionAnswering` namespace enables you to use the following Language features:
 
-#### Language support
+* [Question answering](../question-answering/overview.md)
 
-The `Azure.AI.Language.QuestionAnswering` namespace provides SDKs in following programming language 
+#### Azure.AI.Language.QuestionAnswering reference documentation and code samples
 
-* C#
-* Python
+As you use these features in your application, use the following documentation and code samples for additional information.
 
-## Getting started with the SDK 
+|Development option / language  |Reference documentation  |Samples  |
+|---------|---------|---------|---------|
+|REST API     | [REST API documentation (Prebuilt API)](/rest/api/cognitiveservices/questionanswering/question-answering/get-answers-from-text), [REST API documentation (Custom API)](/rest/api/cognitiveservices/questionanswering/question-answering-projects)        |         |
+|C#     |         | [C# documentation](/dotnet/api/overview/azure/ai.language.questionanswering-readme-pre?view=azure-dotnet)        |  [C# samples](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/cognitivelanguage/Azure.AI.Language.QuestionAnswering)        |
+|Python |         | [Python documentation](/python/api/overview/azure/ai-language-questionanswering-readme?view=azure-python)        | [Python samples](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/cognitivelanguage/azure-ai-language-questionanswering) |
 
-Links to quickstart guides, which contain simple code samples for using a client library from the SDK. 
 
-## Available samples 
-
-Links to GitHub repositories for available samples, for both namespaces. 
-
-## Reference content 
-
-Links to reference content, by language. 
-
-## Other development options 
+<!--## Other development options 
 
 While not the main focus of the guide, informs customers that the Text Analytics for health Docker container can be used with the SDK (note: need to check if other containers are compatible with the SDK) 
 
 See also 
 
-Additional links to relevant material for SDK developers 
+Additional links to relevant material for SDK developers -->
