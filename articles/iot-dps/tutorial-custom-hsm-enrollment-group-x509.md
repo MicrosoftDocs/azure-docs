@@ -42,64 +42,76 @@ In this tutorial you will complete the following objectives:
 
 The following prerequisites are for a Windows development environment used to simulate the devices. For Linux or macOS, see the appropriate section in [Prepare your development environment](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md) in the SDK documentation.
 
-* [Visual Studio](https://visualstudio.microsoft.com/vs/) 2019 with the ['Desktop development with C++'](/cpp/ide/using-the-visual-studio-ide-for-cpp-desktop-development) workload enabled. Visual Studio 2015 and Visual Studio 2017 are also supported. 
+* Install [Visual Studio](https://visualstudio.microsoft.com/vs/) 2022 with the ['Desktop development with C++'](/cpp/ide/using-the-visual-studio-ide-for-cpp-desktop-development) workload enabled. Visual Studio 2015, Visual Studio 2017, and Visual Studio 19 are also supported. For Linux or macOS, see the appropriate section in [Prepare your development environment](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md) in the SDK documentation.
 
-    Visual Studio is used in this article to build the device sample code that would be deployed to IoT devices.  This does not imply that Visual Studio is required on the device itself.
+* Install the latest [CMake build system](https://cmake.org/download/). Make sure you check the option that adds the CMake executable to your path.
 
-* Latest version of [Git](https://git-scm.com/download/) installed.
+    >[!IMPORTANT]
+    >Confirm that the Visual Studio prerequisites (Visual Studio and the 'Desktop development with C++' workload) are installed on your machine, **before** starting the `CMake` installation. Once the prerequisites are in place, and the download is verified, install the CMake build system. Also, be aware that older versions of the CMake build system fail to generate the solution file used in this article. Make sure to use the latest version of CMake.
+
+* Install the latest version of [Git](https://git-scm.com/download/). Make sure that Git is added to the environment variables accessible to the command window. See [Software Freedom Conservancy's Git client tools](https://git-scm.com/download/) for the latest version of `git` tools to install, which includes *Git Bash*, the command-line app that you can use to interact with your local Git repository.
+
+* Make sure [OpenSSL](https://www.openssl.org/) is installed on your machine. On Windows, your installation of Git includes an installation of OpenSSL. You can access OpenSSL from the Git Bash prompt. To verify that OpenSSL is installed, open a Git Bash prompt and enter `openssl version`.
+
+  >[!NOTE]
+  > Unless you're familiar with OpenSSL and already have it installed on your Windows machine, we recommend using OpenSSL from the Git Bash prompt. Alternatively, you can choose to download the source code and build OpenSSL. To learn more, see the [OpenSSL Downloads](https://www.openssl.org/source/) page. Or, you can download OpenSSL pre-built from a third-party. To learn more, see the [OpenSSL wiki](https://wiki.openssl.org/index.php/Binaries). Microsoft makes no guarantees about the validity of packages downloaded from third-parties. If you do choose to build or download OpenSSL make sure that the OpenSSL binary is accessible in your path and that the `OPENSSL_CNF` environment variable is set to the path of your *openssl.cnf* file.
+
+* Open both a Windows command prompt and a Git Bash prompt.
+
+    The steps in this tutorial assume that you're using a Windows machine and the OpenSSL installation that is installed as part of Git. You'll use the Git Bash prompt to issue OpenSSL commands and the Windows command prompt for everything else. If you're using Linux, you can issue all commands from a Bash shell.
 
 ## Prepare the Azure IoT C SDK development environment
 
-In this section, you will prepare a development environment used to build the [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c). The SDK includes sample code and tools used by X.509 devices provisioning with DPS.
+In this section, you'll prepare a development environment used to build the [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c). The SDK includes sample code and tools used by X.509 devices provisioning with DPS.
 
-1. Download the [CMake build system](https://cmake.org/download/).
+1. Open a web browser, and go to the [Release page of the Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c/releases/latest).
 
-    It is important that the Visual Studio prerequisites ([Visual Studio](https://visualstudio.microsoft.com/vs/) and the ['Desktop development with C++'](/cpp/ide/using-the-visual-studio-ide-for-cpp-desktop-development) workload) are installed on your machine, **before** starting the `CMake` installation. Once the prerequisites are in place, and the download is verified, install the CMake build system.
+2. Select the **Tags** tab at the top of the page.
 
-2. Find the tag name for the [latest release](https://github.com/Azure/azure-iot-sdk-c/releases/latest) of the Azure IoT C SDK.
+3. Copy the tag name for the latest release of the Azure IoT C SDK.
 
-3. Open a command prompt or Git Bash shell. Run the following commands to clone the latest release of the [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) GitHub repository. Use the tag you found in the previous step as the value for the `-b` parameter:
+4. In your Windows command prompt, run the following commands to clone the latest release of the [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) GitHub repository. (replace `<release-tag>` with the tag you copied in the previous step).
 
-    ```cmd/sh
+    ```cmd
     git clone -b <release-tag> https://github.com/Azure/azure-iot-sdk-c.git
     cd azure-iot-sdk-c
     git submodule update --init
     ```
 
-    You should expect this operation to take several minutes to complete.
+    This operation could take several minutes to complete.
 
-4. Create a `cmake` subdirectory in the root directory of the git repository, and navigate to that folder. 
+5. When the operation is complete, run the following commands from the `azure-iot-sdk-c` directory:
 
-    ```cmd/sh
+    ```cmd
     mkdir cmake
     cd cmake
     ```
 
-5. The `cmake` directory you created will contain the custom HSM sample, and the sample device provisioning code that uses the custom HSM to provide X.509 authentication. 
+6. The code sample uses an X.509 certificate to provide attestation via X.509 authentication. Run the following command to build a version of the SDK specific to your development platform that includes the device provisioning client. A Visual Studio solution for the simulated device is generated in the `cmake` directory.
 
-    Run the following command in your `cmake` directory to build a version of the SDK specific to your development platform. The build will include a reference to the custom HSM sample. 
-
-    When specifying the path used with `-Dhsm_custom_lib` below, make sure to use the path relative to the `cmake` directory you previously created. The relative path shown below is only an example.
+    When specifying the path used with `-Dhsm_custom_lib` in the command below, make sure to use the absolute path to the library in the `cmake` directory you previously created. The path shown below assumes that you cloned the C SDK in the root directory of the C drive. If you used another directory, adjust the path accordingly.
 
     ```cmd
-    $ cmake -Duse_prov_client:BOOL=ON -Dhsm_custom_lib=/d/azure-iot-sdk-c/cmake/provisioning_client/samples/custom_hsm_example/Debug/custom_hsm_example.lib ..
+    cmake -Duse_prov_client:BOOL=ON -Dhsm_custom_lib=c:/azure-iot-sdk-c/cmake/provisioning_client/samples/custom_hsm_example/Debug/custom_hsm_example.lib ..
     ```
 
-    If `cmake` does not find your C++ compiler, you might get build errors while running the above command. If that happens, try running this command in the [Visual Studio command prompt](/dotnet/framework/tools/developer-command-prompt-for-vs).
+    >[!TIP]
+    >If `cmake` does not find your C++ compiler, you may get build errors while running the above command. If that happens, try running the command in the [Visual Studio command prompt](/dotnet/framework/tools/developer-command-prompt-for-vs).
 
-    Once the build succeeds, a Visual Studio solution will be generated in your `cmake` directory. The last few output lines look similar to the following output:
+7. When the build succeeds, the last few output lines look similar to the following output:
 
-    ```cmd/sh
-    $ cmake -Duse_prov_client:BOOL=ON -Dhsm_custom_lib=/d/azure-iot-sdk-c/cmake/provisioning_client/samples/custom_hsm_example/Debug/custom_hsm_example.lib ..
-    -- Building for: Visual Studio 16 2019
-    -- The C compiler identification is MSVC 19.23.28107.0
-    -- The CXX compiler identification is MSVC 19.23.28107.0
-
+    ```cmd
+    cmake -Duse_prov_client:BOOL=ON -Dhsm_custom_lib=c:/azure-iot-sdk-c/cmake/provisioning_client/samples/custom_hsm_example/Debug/custom_hsm_example.lib ..
+    -- Building for: Visual Studio 17 2022
+    -- Selecting Windows SDK version 10.0.19041.0 to target Windows 10.0.22000.
+    -- The C compiler identification is MSVC 19.32.31329.0
+    -- The CXX compiler identification is MSVC 19.32.31329.0
+    
     ...
 
     -- Configuring done
     -- Generating done
-    -- Build files have been written to: D:/azure-iot-sdk-c/cmake
+    -- Build files have been written to: C:/azure-iot-sdk-c/cmake
     ```
 
 ## Create an X.509 certificate chain
@@ -112,15 +124,385 @@ In this section you, will generate an X.509 certificate chain of three certifica
 
 [Intermediate Certificate](concepts-x509-attestation.md#intermediate-certificate): It's common for intermediate certificates to be used to group devices logically by product lines, company divisions, or other criteria. This tutorial will use a certificate chain composed of one intermediate certificate. The intermediate certificate will be signed by the root certificate. This certificate will also be used on the enrollment group created in DPS to logically group a set of devices. This configuration allows managing a whole group of devices that have device certificates signed by the same intermediate certificate. You can create enrollment groups for enabling or disabling a group of devices. For more information on disabling a group of devices, see [Disallow an X.509 intermediate or root CA certificate by using an enrollment group](how-to-revoke-device-access-portal.md#disallow-an-x509-intermediate-or-root-ca-certificate-by-using-an-enrollment-group)
 
-[Device certificates](concepts-x509-attestation.md#end-entity-leaf-certificate): The device (leaf) certificates will be signed by the intermediate certificate and stored on the device along with its private key. Ideally these sensitive items would be stored securely with an HSM. Each device will present its certificate and private key, along with the certificate chain when attempting provisioning. 
+[Device certificates](concepts-x509-attestation.md#end-entity-leaf-certificate): The device (leaf) certificates will be signed by the intermediate certificate and stored on the device along with its private key. Ideally these sensitive items would be stored securely with an HSM. Each device will present its certificate and private key, along with the certificate chain when attempting provisioning.
 
-#### Create root and intermediate certificates
+### Set up the X.509 OpenSSL environment
 
-To create the root and intermediate portions of the certificate chain:
+1. In your Git Bash command prompt, navigate to a folder where you want to generate the X.509 certificates and keys you'll use in this tutorial.
 
-> [!IMPORTANT]
-> Only use the Bash shell approach with this article. Using PowerShell is possible but, it is not covered in this article.
+1. Create an OpenSSL configuration file for your root CA certificate. OpenSSL configuration files contain policies and definitions that are consumed by OpenSSL commands. Copy and paste the following text into a file named *openssl_root_ca.cnf*:
 
+    ```text
+    # OpenSSL root CA configuration file.
+
+    [ ca ]
+    default_ca = CA_default
+
+    [ CA_default ]
+    # Directory and file locations.
+    dir               = .
+    certs             = $dir/certs
+    crl_dir           = $dir/crl
+    new_certs_dir     = $dir/newcerts
+    database          = $dir/index.txt
+    serial            = $dir/serial
+    RANDFILE          = $dir/private/.rand
+
+    # The root key and root certificate.
+    private_key       = $dir/private/azure-iot-test-only.root.ca.key.pem
+    certificate       = $dir/certs/azure-iot-test-only.root.ca.cert.pem
+
+    # For certificate revocation lists.
+    crlnumber         = $dir/crlnumber
+    crl               = $dir/crl/azure-iot-test-only.intermediate.crl.pem
+    crl_extensions    = crl_ext
+    default_crl_days  = 30
+
+    # SHA-1 is deprecated, so use SHA-2 instead.
+    default_md        = sha256
+
+    name_opt          = ca_default
+    cert_opt          = ca_default
+    default_days      = 375
+    preserve          = no
+    policy            = policy_loose
+
+    [ policy_strict ]
+    # The root CA should only sign intermediate certificates that match.
+    countryName             = optional
+    stateOrProvinceName     = optional
+    organizationName        = optional
+    organizationalUnitName  = optional
+    commonName              = supplied
+    emailAddress            = optional
+
+    [ policy_loose ]
+    # Allow the intermediate CA to sign a more diverse range of certificates.
+    countryName             = optional
+    stateOrProvinceName     = optional
+    localityName            = optional
+    organizationName        = optional
+    organizationalUnitName  = optional
+    commonName              = supplied
+    emailAddress            = optional
+
+    [ req ]
+    default_bits        = 2048
+    distinguished_name  = req_distinguished_name
+    string_mask         = utf8only
+
+    # SHA-1 is deprecated, so use SHA-2 instead.
+    default_md          = sha256
+
+    # Extension to add when the -x509 option is used.
+    x509_extensions     = v3_ca
+
+    [ req_distinguished_name ]
+    # See <https://en.wikipedia.org/wiki/Certificate_signing_request>.
+    countryName                     = Country Name (2 letter code)
+    stateOrProvinceName             = State or Province Name
+    localityName                    = Locality Name
+    0.organizationName              = Organization Name
+    organizationalUnitName          = Organizational Unit Name
+    commonName                      = Common Name
+    emailAddress                    = Email Address
+
+    # Optionally, specify some defaults.
+    countryName_default             = US
+    stateOrProvinceName_default     = WA
+    localityName_default            =
+    0.organizationName_default      = My Organization
+    organizationalUnitName_default  =
+    emailAddress_default            =
+
+    [ v3_ca ]
+    # Extensions for a typical CA.
+    subjectKeyIdentifier = hash
+    authorityKeyIdentifier = keyid:always,issuer
+    basicConstraints = critical, CA:true
+    keyUsage = critical, digitalSignature, cRLSign, keyCertSign
+
+    [ v3_intermediate_ca ]
+    # Extensions for a typical intermediate CA.
+    subjectKeyIdentifier = hash
+    authorityKeyIdentifier = keyid:always,issuer
+    basicConstraints = critical, CA:true
+    keyUsage = critical, digitalSignature, cRLSign, keyCertSign
+
+    [ usr_cert ]
+    # Extensions for client certificates.
+    basicConstraints = CA:FALSE
+    nsCertType = client, email
+    nsComment = "OpenSSL Generated Client Certificate"
+    subjectKeyIdentifier = hash
+    authorityKeyIdentifier = keyid,issuer
+    keyUsage = critical, nonRepudiation, digitalSignature, keyEncipherment
+    extendedKeyUsage = clientAuth, emailProtection
+
+    [ server_cert ]
+    # Extensions for server certificates.
+    basicConstraints = CA:FALSE
+    nsCertType = server
+    nsComment = "OpenSSL Generated Server Certificate"
+    subjectKeyIdentifier = hash
+    authorityKeyIdentifier = keyid,issuer:always
+    keyUsage = critical, digitalSignature, keyEncipherment
+    extendedKeyUsage = serverAuth
+
+    [ crl_ext ]
+    # Extension for CRLs.
+    authorityKeyIdentifier=keyid:always
+
+    [ ocsp ]
+    # Extension for OCSP signing certificates.
+    basicConstraints = CA:FALSE
+    subjectKeyIdentifier = hash
+    authorityKeyIdentifier = keyid,issuer
+    keyUsage = critical, digitalSignature
+    extendedKeyUsage = critical, OCSPSigning
+    ```
+
+1. Create an OpenSSL configuration file to use for intermediate and device certificates. Copy and paste the following text into a file named *openssl_device_intermediate_ca.cnf*:
+
+    ```text
+    # OpenSSL root CA configuration file.
+
+    [ ca ]
+    default_ca = CA_default
+
+    [ CA_default ]
+    # Directory and file locations.
+    dir               = .
+    certs             = $dir/certs
+    crl_dir           = $dir/crl
+    new_certs_dir     = $dir/newcerts
+    database          = $dir/index.txt
+    serial            = $dir/serial
+    RANDFILE          = $dir/private/.rand
+
+    # The root key and root certificate.
+    private_key       = $dir/private/azure-iot-test-only.intermediate.key.pem
+    certificate       = $dir/certs/azure-iot-test-only.intermediate.cert.pem
+
+    # For certificate revocation lists.
+    crlnumber         = $dir/crlnumber
+    crl               = $dir/crl/azure-iot-test-only.intermediate.crl.pem
+    crl_extensions    = crl_ext
+    default_crl_days  = 30
+
+    # SHA-1 is deprecated, so use SHA-2 instead.
+    default_md        = sha256
+
+    name_opt          = ca_default
+    cert_opt          = ca_default
+    default_days      = 375
+    preserve          = no
+    policy            = policy_loose
+
+    [ policy_strict ]
+    # The root CA should only sign intermediate certificates that match.
+    countryName             = optional
+    stateOrProvinceName     = optional
+    organizationName        = optional
+    organizationalUnitName  = optional
+    commonName              = supplied
+    emailAddress            = optional
+
+    [ policy_loose ]
+    # Allow the intermediate CA to sign a more diverse range of certificates.
+    countryName             = optional
+    stateOrProvinceName     = optional
+    localityName            = optional
+    organizationName        = optional
+    organizationalUnitName  = optional
+    commonName              = supplied
+    emailAddress            = optional
+
+    [ req ]
+    default_bits        = 2048
+    distinguished_name  = req_distinguished_name
+    string_mask         = utf8only
+
+    # SHA-1 is deprecated, so use SHA-2 instead.
+    default_md          = sha256
+
+    # Extension to add when the -x509 option is used.
+    x509_extensions     = v3_ca
+
+    [ req_distinguished_name ]
+    # See <https://en.wikipedia.org/wiki/Certificate_signing_request>.
+    countryName                     = Country Name (2 letter code)
+    stateOrProvinceName             = State or Province Name
+    localityName                    = Locality Name
+    0.organizationName              = Organization Name
+    organizationalUnitName          = Organizational Unit Name
+    commonName                      = Common Name
+    emailAddress                    = Email Address
+
+    # Optionally, specify some defaults.
+    countryName_default             = US
+    stateOrProvinceName_default     = WA
+    localityName_default            =
+    0.organizationName_default      = My Organization
+    organizationalUnitName_default  =
+    emailAddress_default            =
+
+    [ v3_ca ]
+    # Extensions for a typical CA.
+    subjectKeyIdentifier = hash
+    authorityKeyIdentifier = keyid:always,issuer
+    basicConstraints = critical, CA:true
+    keyUsage = critical, digitalSignature, cRLSign, keyCertSign
+
+    [ v3_intermediate_ca ]
+    # Extensions for a typical intermediate CA.
+    subjectKeyIdentifier = hash
+    authorityKeyIdentifier = keyid:always,issuer
+    basicConstraints = critical, CA:true
+    keyUsage = critical, digitalSignature, cRLSign, keyCertSign
+
+    [ usr_cert ]
+    # Extensions for client certificates.
+    basicConstraints = CA:FALSE
+    nsCertType = client, email
+    nsComment = "OpenSSL Generated Client Certificate"
+    subjectKeyIdentifier = hash
+    authorityKeyIdentifier = keyid,issuer
+    keyUsage = critical, nonRepudiation, digitalSignature, keyEncipherment
+    extendedKeyUsage = clientAuth, emailProtection
+
+    [ server_cert ]
+    # Extensions for server certificates.
+    basicConstraints = CA:FALSE
+    nsCertType = server
+    nsComment = "OpenSSL Generated Server Certificate"
+    subjectKeyIdentifier = hash
+    authorityKeyIdentifier = keyid,issuer:always
+    keyUsage = critical, digitalSignature, keyEncipherment
+    extendedKeyUsage = serverAuth
+
+    [ crl_ext ]
+    # Extension for CRLs.
+    authorityKeyIdentifier=keyid:always
+
+    [ ocsp ]
+    # Extension for OCSP signing certificates.
+    basicConstraints = CA:FALSE
+    subjectKeyIdentifier = hash
+    authorityKeyIdentifier = keyid,issuer
+    keyUsage = critical, digitalSignature
+    extendedKeyUsage = critical, OCSPSigning
+    ```
+
+1. Create the directory structure, the index file, and the serial number file used by OpenSSL commands in this article:
+
+    ```bash
+    mkdir certs csr intermediateCerts newcerts private
+    touch index.txt
+    openssl rand -hex 16 > serial
+    ```
+
+### Create the root CA certificate
+
+Run the following commands to create the root CA private key and the root CA certificate. You'll use this certificate and key to sign your intermediate certificate.
+
+1. Create the root CA private key:
+
+    ```bash
+    openssl genrsa -aes256 -passout pass:1234 -out ./private/azure-iot-test-only.root.ca.key.pem 4096
+    ```
+
+1. Create the root CA certificate:
+
+    ```bash
+    openssl req -new -x509 -config ./openssl_root_ca.cnf -passin pass:1234 -key ./private/azure-iot-test-only.root.ca.key.pem -subj '//CN=Azure IoT Hub CA Cert Test Only' -days 30 -sha256 -extensions v3_ca -out ./certs/azure-iot-test-only.root.ca.cert.pem
+    ```
+
+### Create the intermediate CA certificate
+
+Run the following commands to create the intermediate CA private key and the intermediate CA certificate. You'll use this certificate and key to sign your device certificate(s).
+
+1. Create the intermediate CA private key:
+
+    ```bash
+    openssl genrsa -aes256 -passout pass:1234 -out ./private/azure-iot-test-only.intermediate.key.pem 4096
+    ```
+
+1. Create the intermediate CA certificate signing request (CSR):
+
+    ```bash
+    openssl req -new -sha256 -passin pass:1234 -config ./openssl_device_intermediate_ca.cnf -subj '//CN=Azure IoT Hub Intermediate Cert Test Only' -key ./private/azure-iot-test-only.intermediate.key.pem -out ./csr/azure-iot-test-only.intermediate.csr.pem
+    ```
+
+1. Sign the intermediate certificate with the root CA certificate
+
+    ```bash
+    openssl ca -batch -config ./openssl_root_ca.cnf -passin pass:1234 -extensions v3_intermediate_ca -days 30 -notext -md sha256 -in ./csr/azure-iot-test-only.intermediate.csr.pem -out ./certs/azure-iot-test-only.intermediate.cert.pem
+    ```
+
+### Create the device certificates
+
+In this section you create the device certificates and the full chain device certificates. The full chain certificate contains the device certificate, the intermediate CA certificate, and the root CA certificate. The device must present its full chain certificate when it registers with DPS.
+
+1. Create the device private key.
+
+    ```bash
+    openssl genrsa -out ./private/device-01.key.pem 4096
+    ```
+
+1. Create the device certificate CSR.
+
+    The subject common name (CN) of the device certificate must be set to the [Registration ID](./concepts-service.md#registration-id) that your device will use to register with DPS. The registration ID is a case-insensitive string (up to 128 characters long) of alphanumeric characters plus the special characters: `'-'`, `'.'`, `'_'`, `':'`. The last character must be alphanumeric or dash (`'-'`). The common name must adhere to this format. For group enrollments, the registration ID is also used as the device ID in IoT Hub. The subject common name is set in the `-subj` parameter in the following command.
+
+    ```bash
+    openssl req -config ./openssl_device_intermediate_ca.cnf -key ./private/device-01.key.pem -subj //CN=device-01 -new -sha256 -out ./csr/device-01.csr.pem
+    ```
+
+1. Sign the device certificate.
+
+    ```bash
+    openssl ca -batch -config ./openssl_device_intermediate_ca.cnf -passin pass:1234 -extensions usr_cert -days 30 -notext -md sha256 -in ./csr/device-01.csr.pem -out ./certs/device-01.cert.pem
+    ```
+
+1. The device must present the full certificate chain when it authenticates with DPS. Replace all instances of `new-device` in the command with the device file name root that you chose previously.
+
+    ```bash
+    cat ./certs/device-01.cert.pem ./certs/azure-iot-test-only.intermediate.cert.pem ./certs/azure-iot-test-only.root.ca.cert.pem > ./certs/device-01-full-chain.cert.pem
+    ```  
+
+    Use a text editor and open the certificate chain file, *./certs/device-01-full-chain.cert.pem*. The certificate chain text contains the full chain of all three certificates. You will use this text as the certificate chain with in the custom HSM device code later in this tutorial for `custom-hsm-device-01`.
+
+    The full chain text has the following format:
+ 
+    ```output 
+    -----BEGIN CERTIFICATE-----
+        <Text for the device certificate includes public key>
+    -----END CERTIFICATE-----
+    -----BEGIN CERTIFICATE-----
+        <Text for the intermediate certificate includes public key>
+    -----END CERTIFICATE-----
+    -----BEGIN CERTIFICATE-----
+        <Text for the root certificate includes public key>
+    -----END CERTIFICATE-----
+    ```
+
+1. To create the private key, X.509 certificate, and full chain certificate for the second device, copy and paste this script into your GitBash command prompt. To create additional devices, you can modify the `registration_id` variable declared at the beginning of the script.
+
+    ```bash
+    registration_id=device-02
+    echo $registration_id
+    openssl genrsa -out ./private/${registration_id}.key.pem 4096
+    openssl req -config ./openssl_device_intermediate_ca.cnf -key ./private/${registration_id}.key.pem -subj "//CN=$registration_id" -new -sha256 -out ./csr/${registration_id}.csr.pem
+    openssl ca -batch -config ./openssl_device_intermediate_ca.cnf -passin pass:1234 -extensions usr_cert -days 30 -notext -md sha256 -in ./csr/${registration_id}.csr.pem -out ./certs/${registration_id}.cert.pem
+    cat ./certs/${registration_id}.cert.pem ./certs/azure-iot-test-only.intermediate.cert.pem ./certs/azure-iot-test-only.root.ca.cert.pem > ./certs/${registration_id}-full-chain.ca.cert.pem
+    ```
+
+    >[NOTE!]
+    > This script uses the registration ID as the base filename for the private key and certificate files. If your registration ID contains characters that aren't valid filename characters, you'll need to modify it accordingly.
+
+### Create root CA and intermediate CA certificates
+
+To create the root CA and intermediate CA certificates of the certificate chain:
 
 1. Open a Git Bash command prompt. Complete steps 1 and 2 using the Bash shell instructions that are located in [Managing test CA certificates for samples and tutorials](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md#managing-test-ca-certificates-for-samples-and-tutorials).
 
@@ -311,8 +693,6 @@ To add the signing certificates to the certificate store in Windows-based device
 
 Your signing certificates are now trusted on the Windows-based device and the full chain can be transported to DPS.
 
-
-
 ## Create an enrollment group
 
 1. Sign in to the Azure portal, select the **All resources** button on the left-hand menu and open your Device Provisioning Service.
@@ -330,7 +710,6 @@ Your signing certificates are now trusted on the Windows-based device and the fu
     | **IoT Edge device** | Select **False** |
     | **Certificate Type** | Select **Intermediate Certificate** |
     | **Primary certificate .pem or .cer file** | Navigate to the intermediate you created earlier (*./certs/azure-iot-test-only.intermediate.cert.pem*). This intermediate certificate is signed by the root certificate that you already uploaded and verified. DPS trusts that root once it is verified. DPS can verify the intermediate provided with this enrollment group is truly signed by the trusted root. DPS will trust each intermediate truly signed by that root certificate, and therefore be able to verify and trust leaf certificates signed by the intermediate.  |
-
 
 ## Configure the provisioning device code
 
@@ -361,24 +740,23 @@ In this section, you update the sample code with your Device Provisioning Servic
 
 6. Right-click the **prov\_dev\_client\_sample** project and select **Set as Startup Project**.
 
-
 ## Configure the custom HSM stub code
 
-The specifics of interacting with actual secure hardware-based storage vary depending on the hardware. As a result, the certificate chains used by the simulated devices in this tutorial will be hardcoded in the custom HSM stub code. In a real-world scenario, the certificate chain would be stored in the actual HSM hardware to provide better security for sensitive information. Methods similar to the stub methods used in this sample would then be implemented to read the secrets from that hardware-based storage. 
+The specifics of interacting with actual secure hardware-based storage vary depending on the device hardware. The certificate chains used by the simulated devices in this tutorial will be hardcoded in the custom HSM stub code. In a real-world scenario, the certificate chain would be stored in the actual HSM hardware to provide better security for sensitive information. Methods similar to the stub methods used in this sample would then be implemented to read the secrets from that hardware-based storage.
 
 While HSM hardware is not required, it is recommended to protect sensitive information, like the certificate's private key. If an actual HSM was being called by the sample, the private key would not be present in the source code. Having the key in the source code exposes the key to anyone that can view the code. This is only done in this article to assist with learning.
 
-To update the custom HSM stub code to simulate the identity of the device with ID `custom-hsm-device-01`, perform the following steps:
+To update the custom HSM stub code to simulate the identity of the device with ID `device-01`, perform the following steps:
 
 1. In Solution Explorer for Visual Studio, navigate to **Provisioning_Samples > custom_hsm_example > Source Files** and open *custom_hsm_example.c*.
 
 2. Update the string value of the `COMMON_NAME` string constant using the common name you used when generating the device certificate.
 
     ```c
-    static const char* const COMMON_NAME = "custom-hsm-device-01";
+    static const char* const COMMON_NAME = "device-01";
     ```
 
-3. In the same file, you need to update the string value of the `CERTIFICATE` constant string using your certificate chain text you saved in *./certs/new-device-01-full-chain.cert.pem* after generating your certificates.
+3. Update the string value of the `CERTIFICATE` constant string using the certificate chain you saved in *./certs/device-01-full-chain.cert.pem* after generating your certificates.
 
     The syntax of certificate text must follow the pattern below with no extra spaces or parsing done by Visual Studio.
 
@@ -403,29 +781,15 @@ To update the custom HSM stub code to simulate the identity of the device with I
     "-----END CERTIFICATE-----";        
     ```
 
-    Updating this string value correctly in this step can be very tedious and subject to error. To generate the proper syntax in your Git Bash prompt, copy and paste the following bash shell commands into your Git Bash command prompt, and press **ENTER**. These commands will generate the syntax for the `CERTIFICATE` string constant value.
+    Updating this string value manually can be prone to error. To generate the proper syntax, you can copy and paste the following command into your **Git Bash prompt**, and press **ENTER**. This command will generate the syntax for the `CERTIFICATE` string constant value and write it to the output.
 
     ```Bash
-    input="./certs/new-device-01-full-chain.cert.pem"
-    bContinue=true
-    prev=
-    while $bContinue; do
-        if read -r next; then
-          if [ -n "$prev" ]; then	
-            echo "\"$prev\\n\""
-          fi
-          prev=$next  
-        else
-          echo "\"$prev\";"
-          bContinue=false
-        fi	
-    done < "$input"
+    sed -e 's/^/"/;$ !s/$/""\\n"/;$ s/$/"/' ./certs/device-01-full-chain.cert.pem
     ```
 
-    Copy and paste the output certificate text for the new constant value. 
+    Copy and paste the output certificate text for the constant value.
 
-
-4. In the same file, the string value of the `PRIVATE_KEY` constant must also be updated with the private key for your device certificate.
+4. Update the string value of the `PRIVATE_KEY` constant with the private key for your device certificate.
 
     The syntax of the private key text must follow the pattern below with no extra spaces or parsing done by Visual Studio.
 
@@ -472,11 +836,11 @@ To update the custom HSM stub code to simulate the identity of the device with I
     Provisioning Status: PROV_DEVICE_REG_STATUS_CONNECTED
     Provisioning Status: PROV_DEVICE_REG_STATUS_ASSIGNING
     
-    Registration Information received from service: test-docs-hub.azure-devices.net, deviceId: custom-hsm-device-01
+    Registration Information received from service: test-docs-hub.azure-devices.net, deviceId: device-01
     Press enter key to exit:
     ```
 
-7. In the portal, navigate to the IoT hub linked to your provisioning service and select the **IoT devices** tab. On successful provisioning of the X.509 device to the hub, its device ID appears on the **IoT devices** blade, with *STATUS* as **enabled**. You might need to press the **Refresh** button at the top. 
+7. In the portal, navigate to the IoT hub linked to your provisioning service and select the **IoT devices** tab. On successful provisioning of the X.509 device to the hub, its device ID appears on the **IoT devices** blade, with *STATUS* as **enabled**. You might need to press the **Refresh** button at the top.
 
     ![Custom HSM device is registered with the IoT hub](./media/tutorial-custom-hsm-enrollment-group-x509/hub-provisioned-custom-hsm-x509-device.png) 
 
@@ -484,11 +848,11 @@ To update the custom HSM stub code to simulate the identity of the device with I
 
     |   Description                 |  Value  |
     | :---------------------------- | :--------- |
-    | `COMMON_NAME`                 | `"custom-hsm-device-02"` |
-    | Full certificate chain        | Generate the text using `input="./certs/new-device-02-full-chain.cert.pem"` |
-    | Private key                   | Generate the text using `input="./private/new-device-02.key.pem"` |
+    | `COMMON_NAME`                 | `"device-02"` |
+    | Full certificate chain        | Generate the text using *./certs/new-device-02-full-chain.cert.pem* |
+    | Private key                   | Generate the text using  *./private/new-device-02.key.pem* |
 
-    The following output is an example of simulated device `custom-hsm-device-02` successfully booting up, and connecting to the provisioning service. The device was assigned to an IoT hub and registered:
+    The following output is an example of simulated device `device-02` successfully booting up, and connecting to the provisioning service. The device was assigned to an IoT hub and registered:
 
     ```cmd
     Provisioning API Version: 1.3.9
@@ -498,7 +862,7 @@ To update the custom HSM stub code to simulate the identity of the device with I
     Provisioning Status: PROV_DEVICE_REG_STATUS_CONNECTED
     Provisioning Status: PROV_DEVICE_REG_STATUS_ASSIGNING
     
-    Registration Information received from service: test-docs-hub.azure-devices.net, deviceId: custom-hsm-device-02
+    Registration Information received from service: test-docs-hub.azure-devices.net, deviceId: device-02
     Press enter key to exit:
     ```
 
