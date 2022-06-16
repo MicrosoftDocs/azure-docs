@@ -50,7 +50,7 @@ To configure the integration of Keystone into Azure AD, you need to add Keystone
 
 ## Configure and test Azure AD SSO for Keystone
 
-Configure and test Azure AD SSO with Keystone using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in Keystone.
+Configure and test Azure AD SSO with Keystone using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user at Keystone.
 
 To configure and test Azure AD SSO with Keystone, perform the following steps:
 
@@ -123,7 +123,7 @@ To configure single sign-on on **Keystone** side, you need to send the downloade
 
 ### Create Keystone test user
 
-In this section, you create a user called Britta Simon in Keystone. Work with [Keystone support team](mailto:soc@irdeto.com) to add the users in the Keystone platform. Users must be created and activated before you use single sign-on.
+In this section, you create a user called Britta Simon at Keystone. Work with [Keystone support team](mailto:soc@irdeto.com) to add the users in the Keystone platform. Users must be created and activated before you use single sign-on.
 
 ## Test SSO 
 
