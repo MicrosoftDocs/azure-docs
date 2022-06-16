@@ -93,7 +93,7 @@ You'll need to replace the following values in your deployment task.
 ```yaml
 
 trigger:
-- master
+- main
 
 pool:
   vmImage: ubuntu-latest
