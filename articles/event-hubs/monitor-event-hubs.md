@@ -3,7 +3,7 @@ title: Monitoring Azure Event Hubs
 description: Learn how to use Azure Monitor to view, analyze, and create alerts on metrics from Azure Event Hubs. 
 ms.topic: conceptual
 ms.custom: subject-monitoring
-ms.date: 02/10/2022
+ms.date: 06/16/2022
 ---
 
 # Monitor Azure Event Hubs
@@ -58,7 +58,7 @@ If you use **Log Analytics** to store the diagnostic logging information, the in
 
 The metrics and logs you can collect are discussed in the following sections.
 
-## Analyzing metrics
+## Analyze metrics
 You can analyze metrics for Azure Event Hubs, along with metrics from other Azure services, by selecting **Metrics** from the **Azure Monitor** section on the home page for your Event Hubs namespace. See [Getting started with Azure Metrics Explorer](../azure-monitor/essentials/metrics-getting-started.md) for details on using this tool. For a list of the platform metrics collected, see [Monitoring Azure Event Hubs data reference metrics](monitor-event-hubs-reference.md#metrics).
 
 ![Metrics Explorer with Event Hubs namespace selected](./media/monitor-event-hubs/metrics.png)
@@ -68,12 +68,12 @@ For reference, you can see a list of [all resource metrics supported in Azure Mo
 > [!TIP]
 > Azure Monitor metrics data is available for 90 days. However, when creating charts only 30 days can be visualized. For example, if you want to visualize a 90 day period, you must break it into three charts of 30 days within the 90 day period.
 
-### Filtering and splitting
+### Filter and split
 For metrics that support dimensions, you can apply filters using a dimension value. For example, add a filter with `EntityName` set to the name of an event hub. You can also split a metric by dimension to visualize how different segments of the metric compare with each other. For more information of filtering and splitting, see [Advanced features of Azure Monitor](../azure-monitor/essentials/metrics-charts.md).
 
 :::image type="content" source="./media/monitor-event-hubs/metrics-filter-split.png" alt-text="Image showing filtering and splitting metrics":::
 
-## Analyzing logs
+## Analyze logs
 Using Azure Monitor Log Analytics requires you to create a diagnostic configuration and enable __Send information to Log Analytics__. For more information, see the [Collection and routing](#collection-and-routing) section. Data in Azure Monitor Logs is stored in tables, with each table having its own set of unique properties. Azure Event Hubs stores data in the following tables: **AzureDiagnostics** and **AzureMetrics**.
 
 > [!IMPORTANT]
@@ -134,7 +134,7 @@ Following are sample queries that you can use to help you monitor your Azure Eve
 
     ```
 
-## Using Runtime logs  
+## Use runtime logs  
 
 Azure Event Hubs allows you to monitor and audit data plane interactions of your client applications using runtime audit logs and application metrics logs. 
 
@@ -144,7 +144,7 @@ Using *Runtime audit logs* you can capture aggregated diagnostic information for
 > [!NOTE] 
 > Runtime audit logs are available only in **premium** and **dedicated** tiers.  
 
-### Enabling Runtime logs
+### Enable runtime logs
 You can enable either runtime audit logs or application metrics logs by selecting *Diagnostic settings* from the *Monitoring* section on the Event Hubs namespace page in Azure Portal. Click on *Add diagnostic setting* as shown below.  
 
 ![Metrics Explorer with Event Hubs namespace selected](./media/monitor-event-hubs/add-diagnostic-settings.png)
@@ -154,11 +154,11 @@ Then you can enable log categories *RuntimeAuditLogs* or *ApplicationMetricsLogs
 
 Once runtime logs are enabled, Event Hubs will start collecting and storing them according to the diagnostic setting configuration. 
 
-### Publishing and consuming sample data 
+### Publish and consume sample data 
 To collect sample runtime audit logs in your Event Hubs namespace, you can publish and consume sample data using client applications which are based on [Event Hubs SDK](../event-hubs/event-hubs-dotnet-standard-getstarted-send.md) (AMQP) or using any [Apache Kafka client application](../event-hubs/event-hubs-quickstart-kafka-enabled-event-hubs.md).
 
 
-### Analyzing Runtime Audit logs
+### Analyze runtime audit logs
 You can analyze the collected runtime audit logs using the following sample query. 
 
 ```kusto
@@ -173,7 +173,7 @@ Up on the execution of the query you should be able to obtain corresponding audi
 By analyzing these logs you should be able to audit how each client application interacts with Event Hubs. Each feild associated with runtime audit logs are defined in [runtime audit logs reference](../event-hubs/monitor-event-hubs-reference.md#runtime-audit-logs). 
 
 
-### Analyzing Application metrics 
+### Analyze application metrics 
 You can analyze the collected application metrics logs using the following sample query. 
 
 ```kusto
