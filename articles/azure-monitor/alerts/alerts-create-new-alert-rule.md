@@ -89,7 +89,7 @@ And then defining these elements for the resulting alert actions using:
 # [Activity Log alerts](#tab/activity-log)
    1.  In the **Conditions** pane.
     
-    ---
+---
  
 1. In the **Conditions** pane,
   
