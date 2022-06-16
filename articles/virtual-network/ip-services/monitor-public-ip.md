@@ -6,7 +6,7 @@ ms.author: allensu
 ms.service: virtual-network
 ms.subservice: ip-services
 ms.custom: subject-monitoring
-ms.date: 09/01/2021
+ms.date: 06/22/2022
 ---
 
 # Monitoring Public IP addresses
@@ -37,7 +37,7 @@ Platform metrics and the Activity log are collected and stored automatically, bu
 
 Resource Logs are not collected and stored until you create a diagnostic setting and route them to one or more locations.
 
-For general guidance, see [Create diagnostic setting to collect platform logs and metrics in Azure](/azure/azure-monitor/platform/diagnostic-settings) for the process for creating a diagnostic setting using the Azure portal, CLI, or PowerShell. When you create a diagnostic setting, you specify which categories of logs to collect. The categories for *Public IP Address*es are listed in [Monitoring *Public IP Address*es data reference](monitor-public-ip-reference.md).
+For general guidance, see [Create diagnostic setting to collect platform logs and metrics in Azure](/azure/azure-monitor/platform/diagnostic-settings) for the process for creating a diagnostic setting using the Azure portal, CLI, or PowerShell. When you create a diagnostic setting, you specify which categories of logs to collect. The categories for *Public IP Addresses* are listed in [Monitoring *Public IP Addresses* data reference](monitor-public-ip-reference.md).
 
 ## Creating a diagnostic setting
 
@@ -284,41 +284,32 @@ All resource logs in Azure Monitor have the same fields followed by service-spec
 
 The [Activity log](/azure/azure-monitor/essentials/activity-log) is a type of platform log in Azure that provides insight into subscription-level events. You can view it independently or route it to Azure Monitor Logs, where you can do much more complex queries using Log Analytics.  
 
-For a list of the types of resource logs collected for Public IP Address, see [Monitoring *Public IP Addresses* data reference](monitor-public-ip-reference.md#resource-logs).
+For a list of the types of resource logs collected for Public IP addresses, see [Monitoring *Public IP Addresses* data reference](monitor-public-ip-reference.md#resource-logs).
 
 For a list of the tables used by Azure Monitor Logs and queryable by Log Analytics, see [Monitoring *Public IP Addresses* data reference](monitor-public-ip-reference.md##azure-monitor-logs-tables).  
 
-<!--  Optional: Call out additional information to help your customers. For example, you can include additional information here about log usage or what logs are most important. Remember that the UI is subject to change quite often so you will need to maintain these screenshots yourself if you add them in. -->
-
 ### Sample Kusto queries
 
-<!-- REQUIRED if you support logs. Please keep headings in this order -->
-<!-- Add sample Log Analytics Kusto queries for your service. -->
-
 > [!IMPORTANT]
-> When you select **Logs** from the [service-name] menu, Log Analytics is opened with the query scope set to the current [service name]. This means that log queries will only include data from that resource. If you want to run a query that includes data from other [service resource] or data from other Azure services, select **Logs** from the **Azure Monitor** menu. See [Log query scope and time range in Azure Monitor Log Analytics](/azure/azure-monitor/logs/scope) for details.
+> When you select **Logs** from the Public IP menu, Log Analytics is opened with the query scope set to the current Public IP address. This means that log queries will only include data from that resource. If you want to run a query that includes data from other resources or data from other Azure services, select **Logs** from the **Azure Monitor** menu. See [Log query scope and time range in Azure Monitor Log Analytics](/azure/azure-monitor/logs/scope) for details.
 
-For a list of common queries for [service-name], see the [Log Analytics queries interface](/azure/azure-monitor/logs/queries). 
+For a list of common queries for Public IP addresses, see the [Log Analytics queries interface](/azure/azure-monitor/logs/queries). 
+
+The following is an example of the built in queries for Public IP addresses that are found within the Long Analytics queries interface in the Azure portal.
+
+:::image type="content" source="./media/monitor-public-ip/public-ip-queries.png" alt-text="Screenshot of the built in queries for Public IP addresses.":::
 
 ## Alerts
 
-<!-- SUGGESTED: Include useful alerts on metrics, logs, log conditions or activity log. Ask your PMs if you don't know. 
-This information is the BIGGEST request we get in Azure Monitor so do not avoid it long term. People don't know what to monitor for best results. Be prescriptive. You can delete this section and point to an article that discusses common alerts in detail.   
--->
-
 Azure Monitor alerts proactively notify you when important conditions are found in your monitoring data. They allow you to identify and address issues in your system before your customers notice them. You can set alerts on [metrics](/azure/azure-monitor/alerts/alerts-metric-overview), [logs](/azure/azure-monitor/alerts/alerts-unified-log), and the [activity log](/azure/azure-monitor/alerts/activity-log-alerts). Different types of alerts have benefits and drawbacks.
 
-The following table lists common and recommended alert rules for Public IP Addresses.
+The following table lists common and recommended alert rules for Public IP addresses.
 
-<!-- Fill in the table with metric and log alerts that would be valuable for your service. Change the format as necessary to make it more readable -->
 | Alert type | Condition | Description  |
 |:---|:---|:---|
-| | | |
-| | | |
+| Under DDoS attack or not | Condition is defined as a **1** or **0**. </br> **1** is currently under attack. </br> **0** indicates normal activity | As part of Azure's edge protection, public IP addresses are monitored for DDoS attacks. An alert will allow you to be notified if your public IP address is affected. |
 
 ## Next steps
 
-<!-- Add additional links. You can change the wording of these and add more if useful.   -->
-
-- See [Monitoring *Public IP Address*es data reference](monitor-public-ip-reference.md#public-ip) for a reference of the metrics, logs, and other important values created by Public IP Address.
+- See [Monitoring *Public IP Addresses* data reference](monitor-public-ip-reference.md) for a reference of the metrics, logs, and other important values created by Public IP Address.
 - See [Monitoring Azure resources with Azure Monitor](/azure/azure-monitor/essentials/monitor-azure-resource) for details on monitoring Azure resources.
