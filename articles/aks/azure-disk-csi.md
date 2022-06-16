@@ -27,7 +27,7 @@ To create an AKS cluster with CSI driver support, see [Enable CSI driver on AKS]
 In addition to in-tree driver features, Azure disks CSI driver supports the following features:
 
 - Performance improvements during concurrent disk attach and detach
-  - In-tree drivers attach or detach disks in serial, while CSI drivers attach or detach disks in batch. There is significant improvement when there are multiple disks attaching to one node.
+  - In-tree drivers attach or detach disks in serial, while CSI drivers attach or detach disks in batch. There's significant improvement when there are multiple disks attaching to one node.
 - Zone-redundant storage (ZRS) disk support
   - `Premium_ZRS`, `StandardSSD_ZRS` disk types are supported, check more details about [Zone-redundant storage for managed disks](../virtual-machines/disks-redundancy.md)
 - [Snapshot](#volume-snapshots)
@@ -53,9 +53,9 @@ In addition to in-tree driver features, Azure disks CSI driver supports the foll
 |writeAcceleratorEnabled | [Write Accelerator on Azure disks](../virtual-machines/windows/how-to-enable-write-accelerator.md) | `true`, `false` | No | ""|
 |networkAccessPolicy | NetworkAccessPolicy property to prevent generation of the SAS URI for a disk or a snapshot | `AllowAll`, `DenyAll`, `AllowPrivate` | No | `AllowAll`|
 |diskAccessID | ARM ID of the DiskAccess resource to use private endpoints on disks | | No  | ``|
-|enableBursting | [Enable on-demand bursting](../virtual-machines/disk-bursting.md) beyond the provisioned performance target of the disk. On-demand bursting should only be applied to Premium disk and when the disk size > 512GB. Ultra and shared disk is not supported. Bursting is disabled by default. | `true`, `false` | No | `false`|
+|enableBursting | [Enable on-demand bursting](../virtual-machines/disk-bursting.md) beyond the provisioned performance target of the disk. On-demand bursting should only be applied to Premium disk and when the disk size > 512 GB. Ultra and shared disk isn't supported. Bursting is disabled by default. | `true`, `false` | No | `false`|
 |useragent | User agent used for [customer usage attribution](../marketplace/azure-partner-customer-usage-attribution.md)| | No  | Generated Useragent formatted `driverName/driverVersion compiler/version (OS-ARCH)`|
-|enableAsyncAttach | Allow multiple disk attach operations (in batch) on one node in parallel.<br> While this can speed up disk attachment, you may encounter Azure API throttling limit when there are large number of volume attachments. | `true`, `false` | No | `false`|
+|enableAsyncAttach | Allow multiple disk attach operations (in batch) on one node in parallel.<br> While this parameter can speed up disk attachment, you may encounter Azure API throttling limit when there are large number of volume attachments. | `true`, `false` | No | `false`|
 |subscriptionID | Specify Azure subscription ID where the Azure disks will be created  | Azure subscription ID | No | If not empty, `resourceGroup` must be provided.|
 
 ## Use CSI persistent volumes with Azure disks
@@ -68,14 +68,14 @@ For more information on Kubernetes volumes, see [Storage options for application
 
 A storage class is used to define how a unit of storage is dynamically created with a persistent volume. For more information on Kubernetes storage classes, see [Kubernetes storage classes][kubernetes-storage-classes].
 
-When you use the Azure disks CSI driver on AKS, there are two additional built-in `StorageClasses` that use the Azure disks CSI storage driver. The additional CSI storage classes are created with the cluster alongside the in-tree default storage classes.
+When you use the Azure disks CSI driver on AKS, there are two more built-in `StorageClasses` that use the Azure disks CSI storage driver. The other CSI storage classes are created with the cluster alongside the in-tree default storage classes.
 
-- `managed-csi`: Uses Azure Standard SSD locally redundant storage (LRS) to create a managed disks.
-- `managed-csi-premium`: Uses Azure Premium LRS to create a managed disks.
+- `managed-csi`: Uses Azure Standard SSD locally redundant storage (LRS) to create a managed disk.
+- `managed-csi-premium`: Uses Azure Premium LRS to create a managed disk.
 
-The reclaim policy in both storage classes ensures that the underlying Azure disks is deleted when the respective PV is deleted. The storage classes also configure the PVs to be expandable. You just need to edit the persistent volume claim (PVC) with the new size.
+The reclaim policy in both storage classes ensures that the underlying Azure disks are deleted when the respective PV is deleted. The storage classes also configure the PVs to be expandable. You just need to edit the persistent volume claim (PVC) with the new size.
 
-To leverage these storage classes, create a [PVC](concepts-storage.md#persistent-volume-claims) and respective pod that references and uses them. A PVC is used to automatically provision storage based on a storage class. A PVC can use one of the pre-created storage classes or a user-defined storage class to create an Azure-managed disk for the desired SKU and size. When you create a pod definition, the PVC is specified to request the desired storage.
+To use these storage classes, create a [PVC](concepts-storage.md#persistent-volume-claims) and respective pod that references and uses them. A PVC is used to automatically provision storage based on a storage class. A PVC can use one of the pre-created storage classes or a user-defined storage class to create an Azure-managed disk for the desired SKU and size. When you create a pod definition, the PVC is specified to request the desired storage.
 
 Create an example pod and respective PVC by running the [kubectl apply][kubectl-apply] command:
 
@@ -111,7 +111,7 @@ test.txt
 
 The default storage classes are suitable for most common scenarios. For some cases, you might want to have your own storage class customized with your own parameters. For example, you might want to change the `volumeBindingMode` class.
 
-You can use a `volumeBindingMode: Immediate` class that guarantees it occurs immediately once the PVC is created. In cases where your node pools are topology constrained, for example when using availability zones, PVs would be bound or provisioned without knowledge of the pod's scheduling requirements (in this case to be in a specific zone).
+You can use a `volumeBindingMode: Immediate` class that guarantees it occurs immediately once the PVC is created. When your node pools are topology constrained, for example when using availability zones, PVs would be bound or provisioned without knowledge of the pod's scheduling requirements.
 
 To address this scenario, you can use `volumeBindingMode: WaitForFirstConsumer`, which delays the binding and provisioning of a PV until a pod that uses the PVC is created. This way, the PV conforms and is provisioned in the availability zone (or other topology) that's specified by the pod's scheduling constraints. The default storage classes use `volumeBindingMode: WaitForFirstConsumer` class.
 
@@ -359,12 +359,12 @@ Filesystem      Size  Used Avail Use% Mounted on
 
 ## On-demand bursting
 
-On-demand disk bursting model allows disk bursts whenever its needs exceed its current capacity. This model incurs additional charges anytime the disk bursts. On-demand bursting is only available for premium SSDs larger than 512 GiB. For more information on premium SSDs provisioned IOPS and throughput per disk, see [Premium SSD size][az-premium-ssd]. Alternatively, credit-based bursting is where the disk will burst only if it has burst credits accumulated in its credit bucket. Credit-based bursting does not incur additional charges when the disk bursts. Credit-based bursting is only available for premium SSDs 512 GiB and smaller, and standard SSDs 1024 GiB and smaller. For more details on on-demand bursting, see [On-demand bursting][az-on-demand-bursting].
+On-demand disk bursting model allows disk bursts whenever its needs exceed its current capacity. This model generates extra charges anytime the disk bursts. On-demand bursting is only available for premium SSDs larger than 512 GiB. For more information on premium SSDs provisioned IOPS and throughput per disk, see [Premium SSD size][az-premium-ssd]. Alternatively, credit-based bursting is where the disk will burst only if it has burst credits accumulated in its credit bucket. Credit-based bursting doesn't generate extra charges when the disk bursts. Credit-based bursting is only available for premium SSDs 512 GiB and smaller, and standard SSDs 1024 GiB and smaller. For more information on on-demand bursting, see [On-demand bursting][az-on-demand-bursting].
 
 > [!IMPORTANT]
 > The default `managed-csi-premium` storage class has on-demand bursting disabled and uses credit-based bursting. Any premium SSD dynamically created by a persistent volume claim based on the default `managed-csi-premium` storage class also has on-demand bursting disabled.
 
-To create a premium SSD persistent volume with [on-demand bursting][az-on-demand-bursting] enabled you can create a new storage class with the [enableBursting][csi-driver-parameters] parameter set to `true` as shown in the following YAML template. For more details on enabling on-demand bursting, see [On-demand bursting][az-on-demand-bursting]. For more details on building your own storage class with on-demand bursting enabled, see [Create a Burstable Managed CSI Premium Storage Class][create-burstable-storage-class].
+To create a premium SSD persistent volume with [on-demand bursting][az-on-demand-bursting] enabled, you can create a new storage class with the [enableBursting][csi-driver-parameters] parameter set to `true` as shown in the following YAML template. For more information on enabling on-demand bursting, see [On-demand bursting][az-on-demand-bursting]. For more information on building your own storage class with on-demand bursting enabled, see [Create a Burstable Managed CSI Premium Storage Class][create-burstable-storage-class].
 
 ```yaml
 apiVersion: storage.k8s.io/v1
