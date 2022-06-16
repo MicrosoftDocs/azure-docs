@@ -88,7 +88,7 @@ This procedure describes how to create a virtual machine by using Hyper-V.
 
 While a virtual switch doesn't have mirroring capabilities, you can use *Promiscuous mode* in a virtual switch environment as a workaround for configuring a SPAN port.
 
-*Promiscuous mode* is a mode of operation and a security, monitoring, and administration technique that is defined at the virtual switch or portgroup level. When promiscuous mode is used, any of the virtual machine’s network interfaces that are in the same portgroup can view all network traffic that goes through that virtual switch. By default, promiscuous mode is turned off.
+*Promiscuous mode* is a mode of operation and a security, monitoring, and administration technique that is defined at the virtual switch or portgroup level. When promiscuous mode is used, any of the virtual machine’s network interfaces in the same portgroup can view all network traffic that goes through that virtual switch. By default, promiscuous mode is turned off.
 
 For more information, see [Purdue reference model and Defender for IoT](../plan-network-monitoring.md#purdue-reference-model-and-defender-for-iot).
 
@@ -140,9 +140,9 @@ You are able to attach a SPAN Virtual Interface to the Virtual Switch through Wi
 
     | Parameter | Description |
     |--|--|
-    | VK-C1000V-LongRunning-650 | CPPM VA name |
-    |vSwitch_Span |Newly added SPAN virtual switch name |
-    |Monitor |Newly added adapter name |
+    |**VK-C1000V-LongRunning-650** | CPPM VA name |
+    |**vSwitch_Span** |Newly added SPAN virtual switch name |
+    |**Monitor** |Newly added adapter name |
 
 1. Select **OK**.
 
@@ -196,10 +196,10 @@ Add-VMSwitchExtensionPortFeature -ExternalPort -SwitchName vSwitch_Span -VMSwitc
 
 | Parameter | Description |
 |--|--|
-| vSwitch_Span | Newly added SPAN virtual switch name. |
-| MonitorMode=2 | Source |
-| MonitorMode=1 | Destination |
-| MonitorMode=0 | None |
+|**vSwitch_Span** | Newly added SPAN virtual switch name. |
+|**MonitorMode=2** | Source |
+|**MonitorMode=1** | Destination |
+|**MonitorMode=0** | None |
 
 Use the following PowerShell command to verify the monitoring mode status:
 
@@ -208,7 +208,7 @@ Get-VMSwitchExtensionPortFeature -FeatureName "Ethernet Switch Port Security Set
 ```
 | Parameter | Description |
 |--|--|
-| vSwitch_Span | Newly added SPAN virtual switch name |
+|**vSwitch_Span** | Newly added SPAN virtual switch name |
 
 
 ## Next steps
