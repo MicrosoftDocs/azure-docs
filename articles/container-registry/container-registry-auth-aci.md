@@ -35,6 +35,9 @@ az container create \
     --registry-password <service-principal-password>
 ```
 
+>[!Note]
+>We recommend running the commands in the most recent version of the Azure Cloud Shell. Set `export MSYS_NO_PATHCONV=1` for running on-perm bash environment.
+
 ## Sample scripts
 
 You can find the preceding sample scripts for Azure CLI on GitHub, as well versions for Azure PowerShell:
