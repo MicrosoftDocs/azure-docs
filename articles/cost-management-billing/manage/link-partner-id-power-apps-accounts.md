@@ -35,16 +35,12 @@ The attribution step is critical and typically happens automatically, as the par
 
 ## Get access accounts from your customer
 
-<a name="access"></a>
-
 Before you link your partner ID, your customer must give you access to their Power Platform or Customer Insights resources. They use one of the following options:
 
 * **Directory account** - Your customer can create a dedicated user account, or a user account to act as a service account, in their own directory, and provide access to the product(s) you're working on in production.
 * **Service principal** - Your customer can add an app or script from your organization in their directory and provide access to the product you're working on in production. 
 
 ## Link your access account to your partner ID
-
-<a name="link"></a>
 
 Linking your access account to your partner ID is also called *PAL association*. When you have access to a Production Environment access account, you can use PAL to link the account to your Microsoft Partner Network ID (Location MPN ID)
 
@@ -59,13 +55,12 @@ To use the Azure portal to link to a new partner ID:
 3. Enter the [Microsoft Partner Network](https://partner.microsoft.com/) ID for your organization. Be sure to use the **Associated MPN ID** shown on your partner center profile. It's typically known as your [Partner Location Account MPN ID](/partner-center/account-structure).  
     :::image type="content" source="./media/link-partner-id-power-apps-accounts/link-partner-id.png" alt-text="Screenshot showing the Link to a partner ID window." lightbox="./media/link-partner-id-power-apps-accounts/link-partner-id.png" :::
 
-Note: To link your partner ID to another customer, switch the directory. Under **Switch directory**, select the appropriate directory.
+> [!NOTE]
+> To link your partner ID to another customer, switch the directory. Under **Switch directory**, select the appropriate directory.
     
-For more information about using PowerShell or the Azure CLI, see [Use PowerShell, CLI, and other tools](#tooling).
+For more information about using PowerShell or the Azure CLI, see [Use PowerShell, CLI, and other tools](use-powershell,-azure-cli,-and-other-tools).
 
 ##  Attribute your access account to product resource
-
-<a name="attribute"></a>
 
 To count the usage of a specific resource, the partner user or guest account needs to be attributed to the *resource* for Power Platform or Dynamics Customer Insights. The access account is the one that you received from your customer. It's the same account that was linked through the Partner Admin Link (PAL).
 
@@ -100,8 +95,6 @@ Other points about products:
 ## Use PowerShell, Azure CLI, and other tools
 
 The following sections cover PowerShell, Azure CLI, and other tools to manage ownership and link partner IDs.
-
-<a name="tooling"></a>
 
 ### Tooling to update or change attributed users 
 
