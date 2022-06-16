@@ -11,7 +11,7 @@
 
 # Azure Monitor
 articles/azure-monitor/* @bwren
-articles/azure-monitor/agents @bwren
+articles/azure-monitor/agents @guywi-ms @bwren
 articles/azure-monitor/alerts @abbyMSFT
 articles/azure-monitor/app @AaronMaxwell 
 articles/azure-monitor/autoscale @rboucher

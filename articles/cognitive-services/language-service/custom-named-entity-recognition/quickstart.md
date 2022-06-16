@@ -14,7 +14,7 @@ ms.custom: language-service-custom-ner, ignite-fall-2021, mode-other, event-tier
 zone_pivot_groups: usage-custom-language-features
 ---
 
-# Quickstart: Custom named entity recognition (preview)
+# Quickstart: Custom named entity recognition
 
 Use this article to get started with creating a custom NER project where you can train custom models for custom entity recognition. A model is an object that's trained to do a certain task. For this system, the models extract named entities. Models are trained by learning from tagged data.
 
