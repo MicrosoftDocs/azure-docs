@@ -50,7 +50,17 @@ sections:
         answer: |
           Azure Analysis Services does not support Private Links, VNETs, or Service Tags. There are some open-source solutions (for example, https://github.com/mathwro/Scripts/blob/master/Azure/AllowAzure-AnalysisServer.ps1) that detect the IP address of the client application, and automatically and temporarily update the firewall rules.
           
-          
+  - name: Client that is behind firewall can enable URL based rule
+    questions:
+      - question: |
+          I use a client that has a firewall between the client and the Internet to reach Azure Analysis Services. What URL should I configure to allow the traffic to go through the firewall
+        answer: |
+          api.powerbi.com
+          login.windows.net
+          *.asazure.windows.net
+
+
+
 additionalContent: |
 
   ## Next steps
