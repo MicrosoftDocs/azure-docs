@@ -280,7 +280,7 @@ Before proceeding, review [prerequisites for agent installation](azure-monitor-a
 
 Policy initiatives for Windows and Linux **virtual machines, scale-sets** consist of individual policies that:
 
-- (Optional) Create and assign built-in user-assigned managed identity, per subscription, per region. [Learn more](../../active-directory/managed-identities-azure-resources/how-to-assign-managed-identity-via-azure-policy.md#policy-definition-and-details)
+- (Optional) Create and assign built-in user-assigned managed identity, per subscription, per region. [Learn more](../../active-directory/managed-identities-azure-resources/how-to-assign-managed-identity-via-azure-policy.md#policy-definition-and-details).  
    - `Bring Your Own User-Assigned Identity`: If set of `true`, it creates the built-in user-assigned managed identity in the predefined resource group, and assigns it to all machines that the policy is applied to. If set to `false`, you can instead use existing user-assigned identity that **you must assign** to the machines beforehand.
 - Install the Azure Monitor agent extension on the machine, and configure it to use user-assigned identity as specified by the parameters below
   - `Bring Your Own User-Assigned Managed Identity`: If set to `false`, it configures the agent to use the built-in user-assigned managed identity created by the policy above. If set to `true`, it configures the agent to use an existing user-assigned identity that **you must assign** to the machine(s) in scope beforehand.
@@ -291,6 +291,12 @@ Policy initiatives for Windows and Linux **virtual machines, scale-sets** consis
    - `Data Collection Rule Resource Id`: The ARM resourceId of the rule you want to associate via this policy, to all machines the policy is applied to.
 
 ![Partial screenshot from the Azure Policy Definitions page showing two built-in policy initiatives for configuring the Azure Monitor agent.](media/azure-monitor-agent-install/built-in-ama-dcr-initiatives.png)  
+
+#### Known issues:
+- Managed Identity default behavior: [Learn more](../../active-directory/managed-identities-azure-resources/managed-identities-faq.md#what-identity-will-imds-default-to-if-dont-specify-the-identity-in-the-request)
+- Possible race condition with using built-in user-assigned identity creation policy above. [Learn more](../../active-directory/managed-identities-azure-resources/how-to-assign-managed-identity-via-azure-policy.md#known-issues)
+- Assigning policy to resource groups: If the assignment scope of the policy is a resource group and not a subscription, the identity used by policy assignment (different from the user-assigned identity used by agent) must be manually granted [these roles](../../active-directory/managed-identities-azure-resources/how-to-assign-managed-identity-via-azure-policy.md#required-authorization) prior to assignment/remediation. Failing to do this will result in **deployment failures**.
+- Other [Managed Identity limitations](../../active-directory/managed-identities-azure-resources/managed-identities-faq.md#limitations)
 
 ### Built-in policies 
 You can choose to use the individual policies from the policy initiative above to perform a single action at scale. For example, if you *only* want to automatically install the agent, use the second agent installation policy from the initiative as shown below.  
