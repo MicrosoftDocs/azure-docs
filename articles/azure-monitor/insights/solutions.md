@@ -4,7 +4,7 @@ description: Get information on prepackaged collections of logic, visualization,
 ms.topic: conceptual
 author: rboucher
 ms.author: robb
-ms.date: 11/21/2021
+ms.date: 06/16/2022
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 
@@ -19,12 +19,12 @@ You can add monitoring solutions to Azure Monitor for any applications and servi
 
 ## Use monitoring solutions
 
-The **Overview** page in Azure Monitor displays a tile for each solution installed in a Log Analytics workspace. To open this page, go to **Azure Monitor** in the [Azure portal](https://portal.azure.com). On the **Insights** menu, select **More** to open **Insights Hub**, and then select **Log Analytics workspaces**.
+The **Overview** page displays a tile for each solution installed in a Log Analytics workspace. To open this page, go to **Log Analytics workspaces** in the [Azure portal](https://portal.azure.com) and select your workspace. In the **General** section of the menu, select **Workspace Summary**.
 
 [![Screenshot that shows selections for opening Insights Hub.](media/solutions/insights-hub.png)](media/solutions/insights-hub.png#lightbox)
 
 
-Use the dropdown boxes at the top of the screen to change the workspace or the time range that's used for the tiles. Select the tile for a solution to open a view that includes a more detailed analysis of its collected data.
+Use the dropdown boxes at the top of the screen to change the time range that's used for the tiles. Select the tile for a solution to open a view that includes a more detailed analysis of its collected data.
 
 [![Screenshot that shows statistics for monitoring solutions in the Azure portal.](media/solutions/overview.png)](media/solutions/overview.png#lightbox)
 
@@ -88,13 +88,11 @@ Get-AzMonitorLogAnalyticsSolution -ResourceGroupName MyResourceGroup
 
 Monitoring solutions from Microsoft and partners are available from [Azure Marketplace](https://azuremarketplace.microsoft.com). You can search through available solutions and install them by using the following procedure. When you install a solution, you must select a [Log Analytics workspace](../logs/manage-access.md) where the solution will be installed and where its data will be collected.
 
-1. From the [list of solutions for your subscription](#list-installed-monitoring-solutions), select **Add**.
+1. From the [list of solutions for your subscription](#list-installed-monitoring-solutions), select **Create**.
 1. Browse or search for a solution. You can also use [this search link](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/category/management-tools?page=1&subcategories=management-solutions).
 1. Find the monitoring solution that you want and read through its description.
 1. Select **Create** to start the installation process.
 1. When you're prompted, specify the Log Analytics workspace and provide any required configuration for the solution.
-
-![Screenshot that shows solutions on Azure Marketplace.](media/solutions/install-solution.png)
 
 ### Install a solution from the community
 
