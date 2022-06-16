@@ -157,7 +157,7 @@ This table shows the supported query parameters for each of the supported resour
 | Resource Type | Parameters | Query string examples |
 | ------------ | ------------- | ------------- |
 | plan | product `*`<br>externalId<br>$maxpagesize<br>$skip<br>$top | `GET plan?product=<product-durableId>`<br>`GET plan?product=<product-durableId>&externalId=<plan-externalId>`<br>`GET plan?product=<product-durableId>&$maxpagesize=<#>`<br>`GET plan?product=<product-durableId>&$skip=<#>&$top=<#>` |
-| product | externalId<br>type<br>$maxpagesize<br>$skip<br>$top<br>continuationToken | `GET product?externalId=<product-externalId>`<br>`GET product?type=<product-type>`<br>`GET product?$maxpagesize=<#>`<br>`GET product?$skip=<#>&$top=<#>`<br>`GET product?continuationToken=<token>`|
+| product | externalId<br>type<br>$maxpagesize<br>$skip<br>$top<br>continuationToken | `GET product?externalId=<product-externalId>`<br>`GET product?type=<product-type>`<br>`GET product?$maxpagesize=<#>`<br>`GET product?$skip=<#>&$top=<#>`<br>`GET product?continuationToken=<token>` |
 | submission | targetType<br>$maxpagesize<br>continuationToken | `GET submission/<product-durableId>?targetType=<environment>`<br>`GET submission/<product-id>?$maxpagesize=<#>&continuationToken=<token>` |
 | resource-tree | targetType | `GET resource-tree/<product-durableId>?targetType=<environment>` |
 
