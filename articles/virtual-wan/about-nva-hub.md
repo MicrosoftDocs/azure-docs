@@ -3,11 +3,11 @@ title: 'About Network Virtual Appliances - Virtual WAN hub'
 titleSuffix: Azure Virtual WAN
 description: Learn about Network Virtual Appliances in a Virtual WAN hub.
 services: virtual-wan
-author: cherylmc
+author: wtnlee
 ms.service: virtual-wan
 ms.topic: conceptual
 ms.date: 06/02/2021
-ms.author: cherylmc
+ms.author: wellee
 ms.custom: references_regions
 # Customer intent: As someone with a networking background, I want to learn about Network Virtual Appliances in a Virtual WAN hub.
 ---
@@ -83,6 +83,24 @@ NVA Partners may create different resources depending on their appliance deploym
 * **Managed resource group** - Customers can't configure or change resources in this resource group directly, as this is controlled by the publisher of the managed application. This resource group will contain the **NetworkVirtualAppliances** resource.
 
 :::image type="content" source="./media/about-nva-hub/managed-app.png" alt-text="Managed Application resource groups":::
+
+
+### Managed resource group permissions
+
+By default, all managed resource groups have an deny-all Azure Active Directory assignment. Deny-all assignments prevent customers from calling write operations on any resources in the managed resource group, including Network Virtual Appliance resources.
+
+However, partners may create exceptions for specific actions that customers are allowed to perform on resources deployed in managed resource groups.
+
+Permissions on resources in existing managed resource groups are not dynamically updated as new permitted actions are added by partners and require a manual refresh.
+
+To refresh permissions on the managed resource groups, customers can leverage the [Refresh Permissions REST API ](/rest/api/managedapplications/applications/refresh-permissions).
+
+> [!NOTE]
+> To properly apply new permissions, refresh permissions API must be called with an additional query parameter **targetVersion**. The value for targetVersion is provider-specific. Please reference your provider's documentation for the latest version number.
+
+```http-interactive
+POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Solutions/applications/{applicationName}/refreshPermissions?api-version=2019-07-01&targetVersion={targetVersion}
+```
 
 ### <a name="units"></a>NVA Infrastructure Units
 

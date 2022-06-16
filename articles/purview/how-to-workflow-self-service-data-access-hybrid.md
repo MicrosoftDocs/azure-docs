@@ -10,13 +10,25 @@ ms.date: 03/09/2022
 ms.custom: template-how-to #Required; leave this attribute/value as-is.
 ---
 
-# Self-service data access workflows for hybrid data estates
+# Self-service access workflows for hybrid data estates
 
-[!INCLUDE [Region Notice](./includes/workflow-regions.md)]
+[!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
 
-This guide will take you through the creation and management of self-service data access [workflows](concept-workflow.md) for hybrid data estates. 
+[Workflows](concept-workflow.md) allow you to automate some business processes through Azure Purview. Self-service access workflows allow you to create a process for your users to request access to datasets they've discovered in Azure Purview!
 
-## Create and enable self-service data access workflow
+For example: let's say your team has a new data analyst who will be doing some business reporting. You add them to your department's collection in Azure Purview. From there they can browse the data assets and read descriptions about the data your department has available. They notice that one of the Azure Data Lake Storage Gen2 accounts seems to have the exact data they need to get started. Since a self-service access workflow has been set up for that resource, they can [request access](how-to-request-access.md) to that Azure Data Lake Storage account from within Azure Purview!
+
+:::image type="content" source="./media/how-to-workflow-self-service-data-access-hybrid/request-access.png" alt-text="Screenshot of a data asset's overview page, with the Request button highlighted in the mid-page menu.":::
+
+You can create these workflows for any of your resources across your data estate to automate the access request process. Workflows are assigned at the [collection](reference-azure-purview-glossary.md#collection) level, and so automate business processes along the same organizational lines as your permissions.
+
+This guide will show you how to create and manage self-service access workflows in Azure Purview.
+
+>[!NOTE]
+> To be able to create or edit a workflow, you'll need the to be in the [workflow admin role](catalog-permissions.md) in Azure Purview.
+> You can also contact the workflow admin in your collection, or reach out to your collection administrator for permissions.
+
+## Create and enable self-service access workflow
 
 1. Sign in to [the Microsoft Purview governance portal](https://web.purview.azure.com/resource/) and select the Management center. You'll see three new icons in the table of contents.
 
@@ -29,7 +41,7 @@ This guide will take you through the creation and management of self-service dat
     >[!NOTE]
     >If the authoring tab is greyed out, you don't have the permissions to be able to author workflows. You'll need the [workflow admin role](catalog-permissions.md).
 
-1. To create a new self-service workflow, select **+New** button.
+1. To create a new self-service workflow, select the **+New** button.
 
     :::image type="content" source="./media/how-to-workflow-self-service-data-access-hybrid/workflow-authoring-select-new.png" alt-text="Screenshot showing the authoring workflows page, with the + New button highlighted.":::
 
@@ -54,13 +66,13 @@ This guide will take you through the creation and management of self-service dat
     1. Approval connector that specifies a user or group that will be contacted to approve the request.
     1. Condition to check approval status 
         - If approved:
-            1. Condition to check if data source is registered for use governance (policy) 
+            1. Condition to check if data source is registered for [data use governance](how-to-enable-data-use-governance.md) (policy) 
                 1. If a data source is registered with policy:
-                    1. Create self-service policy 
+                    1. Create a [self-service policy](concept-self-service-data-access-policy.md) 
                     1. Send email to requestor that access is provided 
                 1. If data source isn't registered with policy:
-                    1. Task connector to assign a task to a user or Microsoft Azure Active Directory group to manually provide access to requestor. 
-                    1. Send an email to requestor that access is provided once the task is complete. 
+                    1. Task connector to assign [a task](how-to-workflow-manage-requests-approvals.md#tasks) to a user or Microsoft Azure Active Directory group to manually provide access to requestor. 
+                    1. Send an email to requestor that access is provided once the task is marked as complete. 
         - If rejected:
             1. Send an email to requestor that data access request is denied.
 1. The default template can be used as it is by populating two fields:  
@@ -70,7 +82,9 @@ This guide will take you through the creation and management of self-service dat
     :::image type="content" source="./media/how-to-workflow-self-service-data-access-hybrid/required-fields-for-template-inline.png" alt-text="Screenshot showing the workflow canvas with the start and wait for an approval step, and the Create Task and wait for task completion steps highlighted, and the Assigned to textboxes highlighted within those steps." lightbox="./media/how-to-workflow-self-service-data-access-hybrid/required-fields-for-template-expanded.png":::
 
     > [!NOTE]
-    > Please configure the workflow to create self-service policies ONLY for sources supported by Microsft Purview's policy feature. To see what's supported by policy, check the [Data owner policies documentation](tutorial-data-owner-policies-storage.md).
+    > Please configure the workflow to create self-service policies ONLY for sources supported by Microsoft Purview's policy feature. To see what's supported by policy, check the [Data owner policies documentation](tutorial-data-owner-policies-storage.md).
+    >
+    > If your source isn't supported by Azure purview's policy feature, use the Task connector to assign [tasks](how-to-workflow-manage-requests-approvals.md#tasks) to users or groups that can provide access.
 
 1. You can also modify the template by adding more connectors to suit your organizational needs. 
 

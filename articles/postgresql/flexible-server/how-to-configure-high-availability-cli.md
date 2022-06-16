@@ -3,8 +3,9 @@ title: Manage zone redundant high availability - Azure CLI - Azure Database for 
 description: This article describes how to configure zone redundant high availability in Azure Database for PostgreSQL flexible Server with the Azure CLI.
 ms.service: postgresql
 ms.subservice: flexible-server
-ms.author: sumuth
-author: mksuni
+ms.author: sunila
+author: sunilagarwal
+ms.reviewer: ""
 ms.topic: how-to
 ms.date: 11/30/2021
 ms.custom: references_regions, devx-track-azurecli
@@ -12,7 +13,7 @@ ms.custom: references_regions, devx-track-azurecli
 
 # Manage zone redundant high availability in Azure Database for PostgreSQL Flexible Server with Azure CLI
 
-
+[!INCLUDE [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 
 The article describes how you can enable or disable zone redundant high availability configuration at the time of server creation in your flexible server. You can disable zone redundant high availability after server creation too. Enabling zone redundant high availability after server creation is not supported.
 

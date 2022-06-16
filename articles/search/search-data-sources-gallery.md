@@ -8,7 +8,7 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 layout: LandingPage
-ms.date: 01/25/2022
+ms.date: 05/27/2022
 
 ---
 
@@ -18,7 +18,6 @@ Find a data connector from Microsoft or a partner to simplify data ingestion int
 
 + [Generally available data sources by Cognitive Search](#ga)
 + [Preview data sources by Cognitive Search](#preview)
-+ [Power Query Connectors (preview)](#powerquery)
 + [Data sources from our Partners](#partners)
 
 <a name="ga"></a>
@@ -240,146 +239,6 @@ Connect to Azure Storage through Azure Files share to extract content serialized
 :::row-end:::
 
 ---
-
-<a name="powerquery"></a>
-
-## Power Query Connectors (preview)
-
-Connect to data on other cloud platforms using indexers and a Power Query connector as the data source. [Sign up](https://aka.ms/azure-cognitive-search/indexer-preview) to get started.
-
-:::row:::
-:::column span="":::
-
----
-
-### Amazon Redshift
-
-Powered by [Power Query](/power-query/power-query-what-is-power-query)
-
-Connect to [Amazon Redshift](https://aws.amazon.com/redshift/) and extract searchable content for indexing in Cognitive Search.
-
-[More details](search-how-to-index-power-query-data-sources.md)
-
-:::column-end:::
-:::column span="":::
-
----
-
-### Elasticsearch
-
-Powered by [Power Query](/power-query/power-query-what-is-power-query)
-
-Connect to [Elasticsearch](https://www.elastic.co/elasticsearch) in the cloud and extract searchable content for indexing in Cognitive Search.
-
-[More details](search-how-to-index-power-query-data-sources.md)
-
-:::column-end:::
-:::column span="":::
-
----
-
-### PostgreSQL
-
-Powered by [Power Query](/power-query/power-query-what-is-power-query)
-
-Connect to a [PostgreSQL](https://www.postgresql.org/) database in the cloud and extract searchable content for indexing in Cognitive Search.
-
-[More details](search-how-to-index-power-query-data-sources.md)
-
-:::column-end:::
-:::row-end:::
-:::row:::
-:::column span="":::
-
-   :::column-end:::
-   :::column span="":::
-   :::column-end:::
-
-:::row-end:::
-
-:::row:::
-:::column span="":::
-
----
-
-### Salesforce Objects
-
-Powered by [Power Query](/power-query/power-query-what-is-power-query)
-
-Connect to Salesforce Objects and extract searchable content for indexing in Cognitive Search.
-
-[More details](search-how-to-index-power-query-data-sources.md)
-
-:::column-end:::
-:::column span="":::
-
----
-
-### Salesforce Reports
-
-Powered by [Power Query](/power-query/power-query-what-is-power-query)
-
-Connect to Salesforce Reports and extract searchable content for indexing in Cognitive Search.
-
-[More details](search-how-to-index-power-query-data-sources.md)
-
-:::column-end:::
-:::column span="":::
-
----
-
-### Smartsheet
-
-Powered by [Power Query](/power-query/power-query-what-is-power-query)
-
-Connect to Smartsheet and extract searchable content for indexing in Cognitive Search.
-
-[More details](search-how-to-index-power-query-data-sources.md)
-
-:::column-end:::
-:::row-end:::
-:::row:::
-:::column span="":::
-
-   :::column-end:::
-   :::column span="":::
-   :::column-end:::
-
-:::row-end:::
-
-:::row:::
-:::column span="":::
-
----
-
-### Snowflake
-
-Powered by [Power Query](/power-query/power-query-what-is-power-query)
-
-Extract searchable data and metadata from a Snowflake database and populate an index based on field-to-field mappings between the index and your data source. 
-
-[More details](search-how-to-index-power-query-data-sources.md)
-
-:::column-end:::
-:::column span="":::
-
----
-
-:::column-end:::
-:::column span="":::
-
----
-
-:::column-end:::
-:::row-end:::
-:::row:::
-:::column span="":::
-
-   :::column-end:::
-   :::column span="":::
-   :::column-end:::
-
-:::row-end:::
 
 <a name="partners"></a>
 

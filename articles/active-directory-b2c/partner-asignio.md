@@ -114,7 +114,7 @@ Follow the steps mentioned in [this tutorial](tutorial-register-applications.md?
    | Property | Value |
    |:--------|:-------------|
    |Name  | Login with Asignio *(or a name of your choice)*
-   |Metadata URL |  https://authorization.asignio.com/.well-known/openid-configuration|
+   |Metadata URL |  `https://authorization.asignio.com/.well-known/openid-configuration`|
    | Client ID |  enter the client ID that you previously generated in [step 1](#step-1-configure-an-application-with-asignio)|
    |Client Secret |  enter the Client secret that you previously generated in [step 1](#step-1-configure-an-application-with-asignio)|
    | Scope | openid email profile |
@@ -266,10 +266,6 @@ Use the following steps to add Asignio as a claims provider:
           <OutputClaims>
             <OutputClaim ClaimTypeReferenceId="issuerUserId" PartnerClaimType="sub" />
             <OutputClaim ClaimTypeReferenceId="tenantId" PartnerClaimType="tid" AlwaysUseDefaultValue="true" DefaultValue="{Policy:TenantObjectId}" />
-            <!-- <OutputClaim ClaimTypeReferenceId="givenName" PartnerClaimType="given_name" /> -->
-            <!-- <OutputClaim ClaimTypeReferenceId="surName" PartnerClaimType="family_name" />
-            <OutputClaim ClaimTypeReferenceId="displayName" PartnerClaimType="name" /> -->
-            <!-- <OutputClaim ClaimTypeReferenceId="email" PartnerClaimType="email" /> -->
             <OutputClaim ClaimTypeReferenceId="authenticationSource" DefaultValue="socialIdpAuthentication" AlwaysUseDefaultValue="true" />
             <OutputClaim ClaimTypeReferenceId="identityProvider" PartnerClaimType="iss" DefaultValue="https://authorization.asignio.com" />
             <OutputClaim ClaimTypeReferenceId="identityProviderAccessToken" PartnerClaimType="{oauth2:access_token}" />

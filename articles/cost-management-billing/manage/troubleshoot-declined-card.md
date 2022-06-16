@@ -22,7 +22,7 @@ When you choose a card, Azure displays the card options that are valid in the co
 
 > [!Note]
 > - American Express credit cards are not currently supported as a payment instrument in India. We have no time frame as to when it may be an accepted form of payment.
-> - Debit cards are not currently accepted in Hong Kong and Brazil.
+> - Credit cards are accepted and debit cards are accepted by most countries or regions. However, debit cards are not currently accepted in Hong Kong and Brazil.
 
 ## You're using a virtual or prepaid card
 

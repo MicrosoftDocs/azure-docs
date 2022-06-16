@@ -28,7 +28,7 @@ The following table lists the available configuration settings.
 | `cwd`<br />(Azure Pipelines only) | Absolute path to the working folder. Defaults to `$(System.DefaultWorkingDirectory)`. | No |
 | `build_timeout_in_minutes` | Set this value to customize the build timeout. Defaults to `15`. | No |
 
-With these settings, you can set up GitHub Actions or [Azure Pipelines](publish-devops.md) to run continuous integration/continuous delivery (CI/CD) for your static web app.
+With these settings, you can set up GitHub Actions or [Azure Pipelines](get-started-portal.md?pivots=azure-devops) to run continuous integration/continuous delivery (CI/CD) for your static web app.
 
 ## File name and location
 
@@ -134,7 +134,7 @@ In this configuration:
 - The `api_location` points to the `api` folder that contains the Azure Functions application for the site's API endpoints. This value is relative to the working directory (`cwd`). To set it to the working directory, use `/`.
 - The `output_location` points to the `public` folder that contains the final version of the app's source files. This value is relative to `app_location`. For .NET projects, the location is relative to the publish output folder.
 - The `cwd` is an absolute path pointing to the working directory. It defaults to `$(System.DefaultWorkingDirectory)`.
-- The `$(deployment_token)` variable points to the [generated Azure DevOps deployment token](./publish-devops.md).
+- The `$(deployment_token)` variable points to the [generated Azure DevOps deployment token](./get-started-portal.md?pivots=azure-devops).
 
 > [!NOTE]
 > `app_location` and `api_location` must be relative to the working directory (`cwd`) and they must be subdirectories under `cwd`.
@@ -188,6 +188,9 @@ To skip building the front-end app:
 - Set `app_location` to the location the files you want to deploy.
 - Set `skip_app_build` to `true`.
 - Set `output_location` to an empty string (`''`).
+
+> [!NOTE]
+> Make sure you have your `staticwebapp.config.json` file copied as well into the *output* directory.
 
 # [GitHub Actions](#tab/github-actions)
 

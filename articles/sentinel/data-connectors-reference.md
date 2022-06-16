@@ -1,10 +1,10 @@
 ---
 title: Find your Microsoft Sentinel data connector | Microsoft Docs
 description: Learn about specific configuration steps for Microsoft Sentinel data connectors.
-author: batamig
+author: cwatson-cat
 ms.topic: reference
 ms.date: 01/04/2022
-ms.author: bagol
+ms.author: cwatson
 ms.custom: ignite-fall-2021
 ---
 
@@ -241,7 +241,7 @@ For more information, see the Cognito Detect Syslog Guide, which can be download
 | **Log Analytics table(s)** | [CommonSecurityLog](/azure/azure-monitor/reference/tables/commonsecuritylog) |
 | **DCR support** | [Workspace transformation DCR](../azure-monitor/logs/tutorial-ingestion-time-transformations.md) |
 | **Kusto function alias:** | ArubaClearPass |
-| **Kusto function URL:** | https://aka.ms/Sentinel-arubaclearpass-parser |
+| **Kusto function URL:** | https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/Aruba%20ClearPass/Parsers/ArubaClearPass.txt |
 | **Vendor documentation/<br>installation instructions** | Follow Aruba's instructions to [configure ClearPass](https://www.arubanetworks.com/techdocs/ClearPass/6.7/PolicyManager/Content/CPPM_UserGuide/Admin/syslogExportFilters_add_syslog_filter_general.htm). |
 | **Supported by** | Microsoft |
 
@@ -466,7 +466,7 @@ You will only see the storage types that you actually have defined resources for
 | **Log Analytics table(s)** | [Syslog](/azure/azure-monitor/reference/tables/syslog) |
 | **DCR support** | [Workspace transformation DCR](../azure-monitor/logs/tutorial-ingestion-time-transformations.md) |
 | **Kusto function alias:** | CGFWFirewallActivity |
-| **Kusto function URL:** | https://aka.ms/Sentinel-barracudacloudfirewall-function |
+| **Kusto function URL:** | https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/Barracuda%20CloudGen%20Firewall/Parsers/CGFWFirewallActivity |
 | **Vendor documentation/<br>installation instructions** | https://aka.ms/Sentinel-barracudacloudfirewall-connector |
 | **Supported by** | [Barracuda](https://www.barracuda.com/support) |
 
@@ -669,8 +669,8 @@ Configure eNcore to stream data via TCP to the Log Analytics Agent. This configu
 | Connector attribute | Description |
 | --- | --- |
 | **Data ingestion method** | Only available after installing the [Continuous Threat Monitoring for SAP solution](sentinel-solutions-catalog.md#sap)|
-| **Log Analytics table(s)** | See [Microsoft Sentinel SAP solution logs reference](sap-solution-log-reference.md) |
-| **Vendor documentation/<br>installation instructions** | [Deploy SAP continuous threat monitoring](sap-deploy-solution.md) |
+| **Log Analytics table(s)** | See [Microsoft Sentinel SAP solution data reference](sap/sap-solution-log-reference.md) |
+| **Vendor documentation/<br>installation instructions** | [Deploy SAP continuous threat monitoring](sap/deployment-overview.md) |
 | **Supported by** | Microsoft |
 
 
@@ -709,7 +709,7 @@ Configure eNcore to stream data via TCP to the Log Analytics Agent. This configu
 | Connector attribute | Description |
 | --- | --- |
 | **Data ingestion method** | **Azure service-to-service integration: <br>[API-based connections](connect-azure-windows-microsoft-services.md#api-based-connections)** <br><br> Also available as part of the [Microsoft Sentinel 4 Dynamics 365 solution](sentinel-solutions-catalog.md#azure)|
-| **License prerequisites/<br>Cost information** | <li>[Microsoft Dynamics 365 production license](/office365/servicedescriptions/microsoft-dynamics-365-online-service-description). Not available for sandbox environments.<li>Microsoft 365 Enterprise [E3 or E5](/power-platform/admin/enable-use-comprehensive-auditing#requirements) subscription is required to do Activity Logging.<br>Other charges may apply |
+| **License prerequisites/<br>Cost information** | <li>[Microsoft Dynamics 365 production license](/office365/servicedescriptions/microsoft-dynamics-365-online-service-description). Not available for sandbox environments.<li>At least one user assigned a Microsoft/Office 365 [E1 or greater](/power-platform/admin/enable-use-comprehensive-auditing#requirements) license.<br>Other charges may apply |
 | **Log Analytics table(s)** | Dynamics365Activity |
 | **DCR support** | [Workspace transformation DCR](../azure-monitor/logs/tutorial-ingestion-time-transformations.md) |
 | **Supported by** | Microsoft |
@@ -1051,7 +1051,7 @@ Add http://localhost:8081/ under **Authorized redirect URIs** while creating [We
 | **Log Analytics table(s)** | [CommonSecurityLog](/azure/azure-monitor/reference/tables/commonsecuritylog) |
 | **DCR support** | [Workspace transformation DCR](../azure-monitor/logs/tutorial-ingestion-time-transformations.md) |
 | **Vendor documentation/<br>installation instructions** | [Illusive Networks Admin Guide](https://support.illusivenetworks.com/hc/en-us/sections/360002292119-Documentation-by-Version) |
-| **Supported by** | [Illusive Networks](https://www.illusivenetworks.com/technical-support/) |
+| **Supported by** | [Illusive Networks](https://illusive.com/support/) |
 
 
 ## Imperva WAF Gateway (Preview)
@@ -1229,7 +1229,7 @@ Add http://localhost:8081/ under **Authorized redirect URIs** while creating [We
 
 | Connector attribute | Description |
 | --- | --- |
-| **Data ingestion method** | [**Syslog**](connect-syslog.md), with, [ASIM parsers](normalization-about-parsers.md) based on Kusto functons |
+| **Data ingestion method** | [**Syslog**](connect-syslog.md), with, [ASIM parsers](normalization-about-parsers.md) based on Kusto functions |
 | **Log Analytics table(s)** | [Syslog](/azure/azure-monitor/reference/tables/syslog) |
 | **DCR support** | [Workspace transformation DCR](../azure-monitor/logs/tutorial-ingestion-time-transformations.md) |
 | **Supported by** | Microsoft |
@@ -1244,7 +1244,7 @@ Add http://localhost:8081/ under **Authorized redirect URIs** while creating [We
 | **Log Analytics table(s)** | [CommonSecurityLog](/azure/azure-monitor/reference/tables/commonsecuritylog) |
 | **DCR support** | [Workspace transformation DCR](../azure-monitor/logs/tutorial-ingestion-time-transformations.md) |
 | **Kusto function alias:** | Morphisec |
-| **Kusto function URL** | https://aka.ms/Sentinel-Morphiescutpp-parser |
+| **Kusto function URL** | https://github.com/Azure/Azure-Sentinel/blob/master/Solutions/Morphisec/Parsers/Morphisec/Morphisec |
 | **Supported by** | [Morphisec](https://support.morphisec.com/support/home) |
 
 
@@ -1258,7 +1258,7 @@ Add http://localhost:8081/ under **Authorized redirect URIs** while creating [We
 | **DCR support** | Not currently supported |
 | **Azure Function App code** | https://aka.ms/Sentinel-netskope-functioncode |
 | **API credentials** | <li>Netskope API Token |
-| **Vendor documentation/<br>installation instructions** | <li>[Netskope Cloud Security Platform](https://www.netskope.com/platform)<li>[Netskope API Documentation](https://innovatechcloud.goskope.com/docs/Netskope_Help/en/rest-api-v1-overview.html)<li>[Obtain an API Token](https://innovatechcloud.goskope.com/docs/Netskope_Help/en/rest-api-v2-overview.html) |
+| **Vendor documentation/<br>installation instructions** | <li>[Netskope Cloud Security Platform](https://www.netskope.com/platform)<li>[Netskope API Documentation](https://docs.netskope.com/en/rest-api-v1-overview.html)<li>[Obtain an API Token](https://docs.netskope.com/en/rest-api-v2-overview.html) |
 | **Connector deployment instructions** | <li>[Single-click deployment](connect-azure-functions-template.md?tabs=ARM) via Azure Resource Manager (ARM) template<li>[Manual deployment](connect-azure-functions-template.md?tabs=MPS) |
 | **Kusto function alias** | Netskope |
 | **Kusto function URL/<br>Parser config instructions** | https://aka.ms/Sentinel-netskope-parser |
@@ -1340,7 +1340,7 @@ Add http://localhost:8081/ under **Authorized redirect URIs** while creating [We
 | **Log Analytics table(s)** | [CommonSecurityLog](/azure/azure-monitor/reference/tables/commonsecuritylog) |
 | **DCR support** | [Workspace transformation DCR](../azure-monitor/logs/tutorial-ingestion-time-transformations.md) |
 | **Kusto function alias:** | incident_lookup |
-| **Kusto function URL** | https://aka.ms/Sentinel-Onapsis-parser |
+| **Kusto function URL** | https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/Onapsis%20Platform/Parsers/OnapsisLookup.txt |
 | **Supported by** | [Onapsis](https://onapsis.force.com/s/login/) |
 
 
@@ -1910,12 +1910,12 @@ Microsoft Sentinel can apply machine learning (ML) to Security events data to id
 | **Data ingestion method** | [**Azure Functions and the REST API**](connect-azure-functions-template.md)<br><br>[Configure Webhooks](#configure-webhooks) <br>[Add Callback URL to Webhook configuration](#add-callback-url-to-webhook-configuration)|
 | **Log Analytics table(s)** | Workplace_Facebook_CL |
 | **DCR support** | Not currently supported |
-| **Azure Function App code** | https://aka.ms/Sentinel-WorkplaceFacebook-functionapp |
+| **Azure Function App code** | https://github.com/Azure/Azure-Sentinel/blob/master/Solutions/Workplace%20from%20Facebook/Data%20Connectors/WorkplaceFacebook/WorkplaceFacebookWebhooksSentinelConn.zip |
 | **API credentials** | <li>WorkplaceAppSecret<li>WorkplaceVerifyToken |
 | **Vendor documentation/<br>installation instructions** | <li>[Configure Webhooks](https://developers.facebook.com/docs/workplace/reference/webhooks)<li>[Configure permissions](https://developers.facebook.com/docs/workplace/reference/permissions) |
 | **Connector deployment instructions** | <li>[Single-click deployment](connect-azure-functions-template.md?tabs=ARM) via Azure Resource Manager (ARM) template<li>[Manual deployment](connect-azure-functions-template.md?tabs=MPY) |
 | **Kusto function alias** | Workplace_Facebook |
-| **Kusto function URL/<br>Parser config instructions** | https://aka.ms/Sentinel-WorkplaceFacebook-parser |
+| **Kusto function URL/<br>Parser config instructions** | https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/Workplace%20from%20Facebook/Parsers/Workplace_Facebook.txt |
 | **Application settings** | <li>WorkplaceAppSecret<li>WorkplaceVerifyToken<li>WorkspaceID<li>WorkspaceKey<li>logAnalyticsUri (optional) |
 | **Supported by** | Microsoft |
 

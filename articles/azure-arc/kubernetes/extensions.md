@@ -2,7 +2,8 @@
 title: "Azure Arc-enabled Kubernetes cluster extensions"
 services: azure-arc
 ms.service: azure-arc
-ms.date: 11/24/2021
+ms.custom: event-tier1-build-2022
+ms.date: 05/24/2022
 ms.topic: article
 author: shashankbarsin
 ms.author: shasb
@@ -18,25 +19,26 @@ The Kubernetes extensions feature enables the following on Azure Arc-enabled Kub
 
 In this article, you learn:
 > [!div class="checklist"]
-> * Current available Azure Arc-enabled Kubernetes cluster extensions.
+
+> * Which Azure Arc-enabled Kubernetes cluster extensions are currently available.
 > * How to create extension instances.
 > * Required and optional parameters.
-> * How to view, list, update, and delete extension instances. 
+> * How to view, list, update, and delete extension instances.
 
-A conceptual overview of this feature is available in [Cluster extensions - Azure Arc-enabled Kubernetes](conceptual-extensions.md) article.
+A conceptual overview of this feature is available in [Cluster extensions - Azure Arc-enabled Kubernetes](conceptual-extensions.md).
 
 [!INCLUDE [preview features note](./includes/preview/preview-callout.md)]
 
 ## Prerequisites
 
-- [Install or upgrade Azure CLI](/cli/azure/install-azure-cli) to version >= 2.16.0.
-- `connectedk8s` (version >= 1.2.0) and `k8s-extension` (version >= 1.0.0) Azure CLI extensions. Install these Azure CLI extensions by running the following commands:
+* [Install or upgrade Azure CLI](/cli/azure/install-azure-cli) to version >= 2.16.0.
+* `connectedk8s` (version >= 1.2.0) and `k8s-extension` (version >= 1.0.0) Azure CLI extensions. Install these Azure CLI extensions by running the following commands:
   
     ```azurecli
     az extension add --name connectedk8s
     az extension add --name k8s-extension
     ```
-    
+
     If the `connectedk8s` and `k8s-extension` extension are already installed, you can update them to the latest version using the following command:
 
     ```azurecli
@@ -44,9 +46,9 @@ A conceptual overview of this feature is available in [Cluster extensions - Azur
     az extension update --name k8s-extension
     ```
 
-- An existing Azure Arc-enabled Kubernetes connected cluster.
-    - If you haven't connected a cluster yet, use our [quickstart](quickstart-connect-cluster.md).
-    - [Upgrade your agents](agent-upgrade.md#manually-upgrade-agents) to version >= 1.5.3.
+* An existing Azure Arc-enabled Kubernetes connected cluster.
+  * If you haven't connected a cluster yet, use our [quickstart](quickstart-connect-cluster.md).
+  * [Upgrade your agents](agent-upgrade.md#manually-upgrade-agents) to version >= 1.5.3.
 
 ## Currently available extensions
 
@@ -61,8 +63,9 @@ A conceptual overview of this feature is available in [Cluster extensions - Azur
 | [Azure App Service on Azure Arc](../../app-service/overview-arc-integration.md) | Allows you to provision an App Service Kubernetes environment on top of Azure Arc-enabled Kubernetes clusters. |
 | [Event Grid on Kubernetes](../../event-grid/kubernetes/overview.md) | Create and manage event grid resources such as topics and event subscriptions on top of Azure Arc-enabled Kubernetes clusters. |
 | [Azure API Management on Azure Arc](../../api-management/how-to-deploy-self-hosted-gateway-azure-arc.md) | Deploy and manage API Management gateway on Azure Arc-enabled Kubernetes clusters. |
-| [Azure Arc-enabled Machine Learning](../../machine-learning/how-to-attach-arc-kubernetes.md) | Deploy and run Azure Machine Learning on Azure Arc-enabled Kubernetes clusters. |
+| [Azure Arc-enabled Machine Learning](../../machine-learning/how-to-attach-kubernetes-anywhere.md) | Deploy and run Azure Machine Learning on Azure Arc-enabled Kubernetes clusters. |
 | [Flux (GitOps)](./conceptual-gitops-flux2.md) | Use GitOps with Flux to manage cluster configuration and application deployment. |
+| [Dapr extension for Azure Kubernetes Service (AKS) and Arc-enabled Kubernetes](../../aks/dapr.md)| Eliminates the overhead of downloading Dapr tooling and manually installing and managing the runtime on your clusters. |
 
 ## Usage of cluster extensions
 

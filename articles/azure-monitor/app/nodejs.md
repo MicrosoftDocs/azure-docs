@@ -5,6 +5,7 @@ ms.topic: conceptual
 ms.date: 10/12/2021
 ms.devlang: javascript
 ms.custom: devx-track-js
+ms.reviewer: mmcc
 ---
 
 # Monitor your Node.js services and apps with Application Insights
@@ -172,6 +173,10 @@ appInsights.setup("<connection_string>");
 appInsights.defaultClient.context.tags[appInsights.defaultClient.context.keys.cloudRole] = "MyRoleName";
 appInsights.start();
 ```
+
+### Automatic web snippet injection (Preview)
+
+Automatic web snippet injection allows you to enable [Application Insights Usage Experiences](usage-overview.md) and Browser Diagnostic Experiences with a simple configuration. It provides an easier alternative to manually adding the JavaScript snippet or NPM package to your JavaScript web code. For node server with configuration, set `enableAutoWebSnippetInjection` to `true` or alternatively set environment variable `APPLICATIONINSIGHTS_WEB_SNIPPET_ENABLED = true`. Automatic web snippet injection is available in Application Insights Node.js SDK version 2.3.0 or greater. See [Application Insights Node.js GitHub Readme](https://github.com/microsoft/ApplicationInsights-node.js#automatic-web-snippet-injectionpreview) for more information.
 
 ### Automatic third-party instrumentation
 

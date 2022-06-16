@@ -1,6 +1,6 @@
 ---
 title: Get started with Cost Management for partners
-titleSuffix: Azure Cost Management + Billing
+titleSuffix: Microsoft Cost Management
 description: This article explains how partners use Cost Management features and how they enable access for their customers.
 author: bandersmsft
 ms.author: banders

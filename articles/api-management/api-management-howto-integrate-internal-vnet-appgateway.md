@@ -23,6 +23,11 @@ By combining API Management provisioned in an internal virtual network with the 
 * Use a single API Management resource and have a subset of APIs defined in API Management available for external consumers.
 * Provide a turnkey way to switch access to API Management from the public internet on and off.
 
+For architectural guidance, see:
+* **Basic enterprise integration**: [Reference architecture](/azure/architecture/reference-architectures/enterprise-integration/basic-enterprise-integration?toc=%2Fazure%2Fapi-management%2Ftoc.json&bc=/azure/api-management/breadcrumb/toc.json)
+* **API Management landing zone accelerator**: [Reference architecture](/azure/architecture/example-scenario/integration/app-gateway-internal-api-management-function?toc=%2Fazure%2Fapi-management%2Ftoc.json&bc=/azure/api-management/breadcrumb/toc.json) and [design guidance](/azure/cloud-adoption-framework/scenarios/app-platform/api-management/landing-zone-accelerator?toc=%2Fazure%2Fapi-management%2Ftoc.json&bc=/azure/api-management/breadcrumb/toc.json)
+
+
 > [!NOTE]
 > This article has been updated to use the [Application Gateway WAF_v2 SKU](../application-gateway/application-gateway-autoscaling-zone-redundant.md).
 
@@ -390,10 +395,10 @@ All configuration items must be set up before you create the application gateway
     $config = New-AzApplicationGatewayWebApplicationFirewallConfiguration -Enabled $true -FirewallMode "Prevention"
     ```
 
-1. Because TLS 1.0 currently is the default, set the application gateway to use the most recent [TLS 1.2 policy](../application-gateway/application-gateway-ssl-policy-overview.md#appgwsslpolicy20170401s).
+1. Because TLS 1.0 currently is the default, set the application gateway to use one of the recent [TLS 1.2 policy](../application-gateway/application-gateway-ssl-policy-overview.md#predefined-tls-policy).
 
     ```powershell
-    $policy = New-AzApplicationGatewaySslPolicy -PolicyType Predefined -PolicyName AppGwSslPolicy20170401S
+    $policy = New-AzApplicationGatewaySslPolicy -PolicyType Predefined -PolicyName AppGwSslPolicy20220101
     ```
 
 ## Create an application gateway

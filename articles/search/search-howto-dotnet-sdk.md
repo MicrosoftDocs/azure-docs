@@ -9,7 +9,7 @@ ms.author: heidist
 ms.devlang: csharp
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 12/10/2021
+ms.date: 04/26/2021
 ms.custom: devx-track-csharp
 ---
 # How to use Azure.Search.Documents in a C# .NET Application
@@ -18,13 +18,14 @@ This article explains how to create and manage search objects using C# and the [
 
 ## About version 11
 
-Azure SDK for .NET includes a [**Azure.Search.Documents**](/dotnet/api/overview/azure/search) client library from the Azure SDK team that is functionally equivalent to the previous client library, [Microsoft.Azure.Search](/dotnet/api/overview/azure/search/client10), but utilizes common approaches and conventions where applicable. Some examples include [`AzureKeyCredential`](/dotnet/api/azure.azurekeycredential) key authentication, and [System.Text.Json.Serialization](/dotnet/api/system.text.json.serialization) for JSON serialization.
+Azure SDK for .NET includes a [**Azure.Search.Documents**](/dotnet/api/overview/azure/search) client library from the Azure SDK team that is functionally equivalent to the previous client library, [Microsoft.Azure.Search](/dotnet/api/overview/azure/search/client10). Version 11 is more consistent in terms of Azure programmability. Some examples include [`AzureKeyCredential`](/dotnet/api/azure.azurekeycredential) key authentication, and [System.Text.Json.Serialization](/dotnet/api/system.text.json.serialization) for JSON serialization.
 
 As with previous versions, you can use this library to:
 
 + Create and manage search indexes, data sources, indexers, skillsets, and synonym maps
 + Load and manage search documents in an index
 + Execute queries, all without having to deal with the details of HTTP and JSON
++ Invoke and manage AI enrichment (skillsets) and outputs
 
 The library is distributed as a single [Azure.Search.Documents NuGet package](https://www.nuget.org/packages/Azure.Search.Documents/), which includes all APIs used for programmatic access to a search service.
 
@@ -307,7 +308,7 @@ The `JsonIgnore` attribute on this property tells the `FieldBuilder` to not seri
 
 ## Load an index
 
-The next step in `Main` populates the newly-created "hotels" index. This index population is done in the following method:
+The next step in `Main` populates the newly created "hotels" index. This index population is done in the following method:
 (Some code replaced with "..." for illustration purposes. See the full sample solution for the full data population code.)
 
 ```csharp
@@ -421,7 +422,7 @@ private static void UploadDocuments(SearchClient searchClient)
     Thread.Sleep(2000);
 ```
 
-This method has four parts. The first creates an array of 3 `Hotel` objects each with 3 `Room` objects that will serve as our input data to upload to the index. This data is hard-coded for simplicity. In an actual application, data will likely come from an external data source such as a SQL database.
+This method has four parts. The first creates an array of 3 `Hotel` objects each with 3 `Room` objects that will serve as our input data to upload to the index. This data is hard-coded for simplicity. In an actual application, data will likely come from an external data source such as an SQL database.
 
 The second part creates an [`IndexDocumentsBatch`](/dotnet/api/azure.search.documents.models.indexdocumentsbatch) containing the documents. You specify the operation you want to apply to the batch at the time you create it, in this case by calling [`IndexDocumentsAction.Upload`](/dotnet/api/azure.search.documents.models.indexdocumentsaction.upload). The batch is then uploaded to the Azure Cognitive Search index by the [`IndexDocuments`](/dotnet/api/azure.search.documents.searchclient.indexdocuments) method.
 
@@ -429,7 +430,7 @@ The second part creates an [`IndexDocumentsBatch`](/dotnet/api/azure.search.docu
 > In this example, we are just uploading documents. If you wanted to merge changes into existing documents or delete documents, you could create batches by calling `IndexDocumentsAction.Merge`, `IndexDocumentsAction.MergeOrUpload`, or `IndexDocumentsAction.Delete` instead. You can also mix different operations in a single batch by calling `IndexBatch.New`, which takes a collection of `IndexDocumentsAction` objects, each of which tells Azure Cognitive Search to perform a particular operation on a document. You can create each `IndexDocumentsAction` with its own operation by calling the corresponding method such as `IndexDocumentsAction.Merge`, `IndexAction.Upload`, and so on.
 > 
 
-The third part of this method is a catch block that handles an important error case for indexing. If your search service fails to index some of the documents in the batch, an `IndexBatchException` is thrown by `IndexDocuments`. This exception can happen if you are indexing documents while your service is under heavy load. **We strongly recommend explicitly handling this case in your code.** You can delay and then retry indexing the documents that failed, or you can log and continue like the sample does, or you can do something else depending on your application's data consistency requirements.
+The third part of this method is a catch block that handles an important error case for indexing. If your search service fails to index some of the documents in the batch, a `RequestFailedException` is thrown. An exception can happen if you are indexing documents while your service is under heavy load. **We strongly recommend explicitly handling this case in your code.** You can delay and then retry indexing the documents that failed, or you can log and continue like the sample does, or you can do something else depending on your application's data consistency requirements. An alternative is to use [SearchIndexingBufferedSender](/dotnet/api/azure.search.documents.searchindexingbufferedsender-1) for intelligent batching, automatic flushing, and retries for failed indexing actions. See [this example](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/search/Azure.Search.Documents/samples/Sample05_IndexingDocuments.md#searchindexingbufferedsender) for more context.
 
 Finally, the `UploadDocuments` method delays for two seconds. Indexing happens asynchronously in your search service, so the sample application needs to wait a short time to ensure that the documents are available for searching. Delays like this are typically only necessary in demos, tests, and sample applications.
 
