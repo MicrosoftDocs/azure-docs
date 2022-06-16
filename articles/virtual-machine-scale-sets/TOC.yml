@@ -3,34 +3,25 @@
 - name: Overview
   items:
   - name: What are virtual machine scale sets?
-    href: overview.md
+    href: flexible-virtual-machine-scale-sets.md
   - name: Orchestration modes
-    items:
-    - name: Overview 
-      href: virtual-machine-scale-sets-orchestration-modes.md
+    href: virtual-machine-scale-sets-orchestration-modes.md
+    items: 
     - name: API comparison
       href: orchestration-modes-api-comparison.md
-    - name: Flexible orchestration
-      href: flexible-virtual-machine-scale-sets.md
   - name: Scale Set FAQ
     href: virtual-machine-scale-sets-faq.yml
   expanded: true
 - name: Quickstarts
   items:
   - name: Create in the Azure portal
-    href: quick-create-portal.md
+    href: flexible-virtual-machine-scale-sets-portal.md
   - name: Create with the Azure CLI
-    href: quick-create-cli.md
+    href: flexible-virtual-machine-scale-sets-cli.md
   - name: Create with Azure PowerShell
-    href: quick-create-powershell.md
+    href: flexible-virtual-machine-scale-sets-powershell.md
   - name: Create with ARM template
-    items:
-    - name: Linux scale set
-      displayName: ARM, resource manager
-      href: quick-create-template-linux.md
-    - name: Windows scale set
-      displayName: ARM, resource manager
-      href: quick-create-template-windows.md
+    href: flexible-virtual-machine-scale-sets-rest-api.md
 - name: Tutorials
   items: 
   - name: 1 - Create / manage scale set
