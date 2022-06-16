@@ -6,7 +6,7 @@ description: Learn how to enable user sign-in to the API Management developer po
 author: dlepow
 ms.service: api-management
 ms.topic: article
-ms.date: 05/20/2022
+ms.date: 06/16/2022
 ms.author: danlep
 ---
 
@@ -16,6 +16,9 @@ In this article, you'll learn how to:
 > [!div class="checklist"]
 > * Enable access to the developer portal for users from Azure Active Directory (Azure AD).
 > * Manage groups of Azure AD users by adding external groups that contain the users.
+
+> [!IMPORTANT]
+> This article has been updated with steps to configure an Azure AD app using the Microsoft Authentication Library ([MSAL](/active-directory/develop/msal-overview)) v2.0. If you previously configured an Azure AD app using the Azure AD Authentication Library, learn about [migration to MSAL v2.0](../active-directory/develop/migrate-spa-implicit-to-auth-code.md).
 
 ## Prerequisites
 
@@ -75,14 +78,14 @@ After the Azure AD provider is enabled:
 1. Select **New registration**. On the **Register an application** page, set the values as follows:
     
     * Set **Name** to a meaningful name such as *developer-portal*
-    * Set **Supported account types** to **Accounts in this organizational directory only**. 
-    * In **Redirect URI**, select **Web** and paste the redirect URL you saved from a previous step. 
+    * Set **Supported account types** to **Accounts in any organizational directory**. 
+    * In **Redirect URI**, select **Single-page application (SPA)** and paste the redirect URL you saved from a previous step. 
     * Select **Register**. 
 
 1.  After you've registered the application, copy the **Application (client) ID** from the **Overview** page. 
 1. Switch to the browser tab with your API Management instance. 
 1. In the **Add identity provider** window, paste the **Application (client) ID** value into the **Client ID** box.
-1. Switch to the browser tab with the App Registration.
+1. Switch to the browser tab with the App registration.
 1. Select the appropriate app registration.
 1. Under the **Manage** section of the side menu, select **Certificates & secrets**. 
 1. From the **Certificates & secrets** page, select the **New client secret** button under **Client secrets**. 
@@ -135,9 +138,9 @@ Follow these steps to grant:
 1. Update the first 3 lines of the following Azure CLI script to match your environment and run it.
 
    ```azurecli
-   $subId = "Your Azure subscription ID" #e.g. "1fb8fadf-03a3-4253-8993-65391f432d3a"
-   $tenantId = "Your Azure AD Tenant or Organization ID" #e.g. 0e054eb4-e5d0-43b8-ba1e-d7b5156f6da8"
-   $appObjectID = "Application Object ID that has been registered in AAD" #e.g. "2215b54a-df84-453f-b4db-ae079c0d2619"
+   $subId = "Your Azure subscription ID" # Example: "1fb8fadf-03a3-4253-8993-65391f432d3a"
+   $tenantId = "Your Azure AD Tenant or Organization ID" # Example: 0e054eb4-e5d0-43b8-ba1e-d7b5156f6da8"
+   $appObjectID = "Application Object ID that has been registered in AAD" # Example: "2215b54a-df84-453f-b4db-ae079c0d2619"
    #Login and Set the Subscription
    az login
    az account set --subscription $subId
@@ -212,8 +215,7 @@ Your user is now signed in to the developer portal for your API Management servi
 
 - Learn how to [Protect your web API backend in API Management by using OAuth 2.0 authorization with Azure AD](./api-management-howto-protect-backend-with-aad.md)
 - Learn more about [Azure Active Directory and OAuth2.0](../active-directory/develop/authentication-vs-authorization.md).
-- Check out more [videos](https://azure.microsoft.com/documentation/videos/index/?services=api-management) about API Management.
-- For other ways to secure your back-end service, see [Mutual Certificate authentication](./api-management-howto-mutual-certificates.md).
+- Learn more about [MSAL](../active-directory/develop/msal-overview.md) and [migrating to MSAL v2](../active-directory/develop/msal-migration.md).
 - [Create an API Management service instance](./get-started-create-service-instance.md).
 - [Manage your first API](./import-and-publish.md).
 

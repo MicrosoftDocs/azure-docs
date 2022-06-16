@@ -18,6 +18,11 @@ Azure Active Directory B2C is a cloud identity management solution for consumer-
 
 In this tutorial, you'll learn the configuration required in your API Management service to integrate with Azure Active Directory B2C. As noted later in this article, if you are using the deprecated legacy developer portal, some steps will differ.
 
+> [!IMPORTANT]
+> * This article has been updated with steps to configure an Azure AD B2C app using the Microsoft Authentication Library ([MSAL](/active-directory/develop/msal-overview)) v2.0. 
+> * If you previously configured an Azure AD B2C app for developer account authorization using the Azure AD Authentication Library, learn about [migration to MSAL v2.0](../active-directory/develop/migrate-spa-implicit-to-auth-code.md). You must republish the developer portal after any configuration change.
+
+
 For information about enabling access to the developer portal by using classic Azure Active Directory, see [How to authorize developer accounts using Azure Active Directory](api-management-howto-aad.md).
 
 ## Prerequisites
@@ -56,7 +61,7 @@ In this section, you'll create a user flow in your Azure Active Directory B2C te
 1. In the **Register an application** page, enter your application's registration information.
     * In the **Name** section, enter an application name of your choosing.
     * In the **Supported account types** section, select **Accounts in any identity provider or organizational directory (for authenticating users with user flows)**. For more information, see [Register an application](../active-directory/develop/quickstart-register-app.md#register-an-application).
-    * In **Redirect URI**, enter the Redirect URL your copied from your API Management instance.
+    * In **Redirect URI**, select **Single-page application (SPA)** and paste the redirect URL you saved from a previous step.
     * In **Permissions**, select **Grant admin consent to openid and offline_access permissions.**
     * Select **Register** to create the application.
 
@@ -82,6 +87,7 @@ In this section, you'll create a user flow in your Azure Active Directory B2C te
 
          :::image type="content" source="media/api-management-howto-aad-b2c/add-identity-provider.png" alt-text="Active Directory B2c identity provider configuration":::
 1. After you've specified the desired configuration, select **Add**.
+1. Republish the developer portal for the Azure AD B2C configuration to take effect. In the left menu, under **Developer portal**, select **Portal overview** > **Publish**.
 
 After the changes are saved, developers will be able to create new accounts and sign in to the developer portal by using Azure Active Directory B2C.
 
