@@ -78,7 +78,7 @@ This is how the workbook will look like in read-mode, in the "Pills" style.
   
 Each parameter type has its own formatting options. Use the `Previews` section of the _Edit Parameter_ pane to see the formatting expansion options for your parameter:
 
-   :::image type="content" source="media/workbooks-parameters/workbooks-time-settings.png" alt-text="Image showing a time range parameter options.":::
+   :::image type="content" source="media/workbooks-parameters/workbooks-time-settings.png" alt-text="Screenshot showing a time range parameter options.":::
 ### Format your parameters 
 
 You can use these options to format all parameter types except for the time range picker. For examples of formatting times, see [Time parameter options](workbooks-time.md#time-parameter-options).

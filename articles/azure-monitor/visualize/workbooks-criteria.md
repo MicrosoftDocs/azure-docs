@@ -11,7 +11,7 @@ ms.reviewer: gardnerjr
 
 # Text parameter criteria
 
-When a query depends on many parameters, then the query will be stalled until each of it's parameters have been resolved. Sometimes a parameter could have a simple query that concatenates a string or performs a conditional evaluation. However these queries still make network calls to services that perform these basic operations and that increases the time it takes for a parameter to resolve a value. This results in long load times for complex workbooks.
+When a query depends on many parameters, then the query will be stalled until each of its parameters have been resolved. Sometimes a parameter could have a simple query that concatenates a string or performs a conditional evaluation. However these queries still make network calls to services that perform these basic operations and that increases the time it takes for a parameter to resolve a value. This results in long load times for complex workbooks.
 
 Criteria Text parameters solve this issue, as an author can define a set of criteria based on previously specified parameters, which will be evaluated to provide a dynamic value. The main benefit of using Criteria parameters is that it has the ability to resolve values of previously specified parameters and perform simple conditional operations without making any network calls. Below is an example of such a use case.
 
@@ -82,7 +82,7 @@ In the image above, the conditions will be evaluated from top to bottom and the 
    :::image type="content" source="media/workbooks-criteria/workbooks-criteria-default.png" alt-text="Image showing the criteria settings default form filled.":::
 
 1. Save the Parameter
-1. Select on the refresh button on the workbook, to see the `randCriteria` parameter in action. It's value will be based on the value of `rand`!
+1. Select on the refresh button on the workbook, to see the `randCriteria` parameter in action. Its value will be based on the value of `rand`!
 
 ## Criteria settings form
 |Form fields|Description|

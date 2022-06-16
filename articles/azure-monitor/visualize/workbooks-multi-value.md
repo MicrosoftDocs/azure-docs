@@ -26,11 +26,11 @@ A multi-value parameter allows the user to set one or more arbitrary text values
 1. Select **Save** from the toolbar to create the parameter.
 1. The Filter parameter will be a multi-value parameter, initially with no values:
 
-   :::image type="content" source="media/workbooks-multi-value/workbooks-multi-value-create.png" alt-text="Image showing the creation of mulit-value parameter in workbooks.":::
+   :::image type="content" source="media/workbooks-multi-value/workbooks-multi-value-create.png" alt-text="Screenshot showing the creation of mulit-value parameter in workbooks.":::
 
 1. You can then add multiple values:
 
-   :::image type="content" source="media/workbooks-multi-value/workbooks-multi-value-third-value.png" alt-text="Image showing the user adding a third value in workbooks.":::
+   :::image type="content" source="media/workbooks-multi-value/workbooks-multi-value-third-value.png" alt-text="Screenshot showing the user adding a third value in workbooks.":::
 
 
 A multi-value parameter behaves similarly to a multi-select [drop down parameter](workbooks-dropdowns.md). As such, it is commonly used in an "in" like scenario
@@ -47,11 +47,11 @@ A multi-value parameter behaves similarly to a multi-select [drop down parameter
 Multi-value parameter supports following field style:
 1. Standard: Allows a user to add or remove arbitrary text items
 
-   :::image type="content" source="media/workbooks-multi-value/workbooks-multi-value-standard.png" alt-text="Image showing standard workbooks multi-value field.":::
+   :::image type="content" source="media/workbooks-multi-value/workbooks-multi-value-standard.png" alt-text="Screenshot showing standard workbooks multi-value field.":::
 
 1. Password: Allows a user to add or remove arbitrary password fields. The password values are only hidden on UI when user types. The values are still fully accessible as a param value when referred and they are stored unencrypted when workbook is saved.
 
-   :::image type="content" source="media/workbooks-multi-value/workbooks-multi-value-password.png" alt-text="Image showing a workbooks password multi-value field.":::
+   :::image type="content" source="media/workbooks-multi-value/workbooks-multi-value-password.png" alt-text="Screenshot showing a workbooks password multi-value field.":::
 
 ## Creating a multi-value with initial values
 You can use a query to seed the multi-value parameter with initial values. The user can then manually remove values, or add more values. If a query is used to populate the multi-value parameter, a restore defaults button will appear on the parameter to restore back to the originally queried values.
@@ -74,7 +74,7 @@ You can use a query to seed the multi-value parameter with initial values. The u
 1. Select **Save** from the toolbar to create the parameter.
 1. The Filter parameter will be a multi-value parameter with three initial values.
 
-   :::image type="content" source="media/workbooks-multi-value/workbooks-multi-value-initial-values.png" alt-text="Image showing the creation of a dynamic drop-down in workbooks.":::
+   :::Screenshot type="content" source="media/workbooks-multi-value/workbooks-multi-value-initial-values.png" alt-text="Screenshot showing the creation of a dynamic drop-down in workbooks.":::
 ## Next steps
 
 - [Workbook parameters](workbooks-parameters.md).

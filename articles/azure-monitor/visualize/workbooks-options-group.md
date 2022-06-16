@@ -39,7 +39,7 @@ You can specify the list by:
 1. Select **Save** from the toolbar to create the parameter.
 1. The Environment parameter will be an options group control with the three values.
 
-   :::image type="content" source="media/workbooks-options-group/workbooks-options-group-create.png" alt-text="Image showing the creation of a static options group in a workbook.":::
+   :::image type="content" source="media/workbooks-options-group/workbooks-options-group-create.png" alt-text="Screenshot showing the creation of a static options group in a workbook.":::
 
 ## Next steps
 
