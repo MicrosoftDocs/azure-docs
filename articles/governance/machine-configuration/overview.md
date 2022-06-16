@@ -5,7 +5,7 @@ ms.date: 06/16/2022
 ms.topic: overview
 ms.author: timwarner
 author: timwarner-msft
-ms.service: machine-configuration
+ms.service: governance
 ---
 # What is Azure Automanage Machine Configuration?
 
