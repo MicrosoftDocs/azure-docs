@@ -22,7 +22,7 @@ In this article, you learn how to use an Azure DevOps task to inject build artif
 
 At this time, there are two VM Image Builder DevOps tasks:
 
-* [*Stable* VM Image Builder task](https://marketplace.visualstudio.com/items?itemName=AzureImageBuilder.devOps-task-for-azure-image-builder): The latest stable build that's been tested, and reports no General Data Protection Regulation (GDPR) issues. 
+* [*Stable* VM Image Builder task](https://marketplace.visualstudio.com/items?itemName=AzureImageBuilder.devOps-task-for-azure-image-builder): The latest stable build that's been tested, and reports no [General Data Protection Regulation (GDPR)](https://www.microsoft.com/trust-center/privacy/gdpr-overview) issues. 
 
 
 * [*Unstable* VM Image Builder task](https://marketplace.visualstudio.com/items?itemName=AzureImageBuilder.devOps-task-for-azure-image-builder-canary): We offer a so-called *unstable* task so that you can test the latest updates and features before we release the task code as *stable*. After about a week, if there are no customer-reported or telemetry issues, we promote the task code to *stable*. 
