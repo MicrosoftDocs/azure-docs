@@ -13,35 +13,9 @@ For more information, see [Devices monitored by Defender for IoT](architecture.m
 
 ## View the device inventory from an on-premises management console
 
-:::image type="content" source="media/how-to-work-with-asset-inventory-information/device-inventory-data-table.png" alt-text="Screenshot of the device inventory data table.":::
 
 The following table describes the table columns in the device inventory.
 
-| Parameter | Description |
-|--|--|
-| **Unacknowledged Alerts** | The number of unhandled alerts associated with this device. |
-| **Business Unit** | The business unit that contains this device. |
-| **Region** | The region that contains this device. |
-| **Site** | The site that contains this device. |
-| **Zone** | The zone that contains this device. |
-| **Appliance** | The Microsoft Defender for IoT sensor that protects this device. |
-| **Name** | The name of this device as Defender for IoT discovered it. |
-| **Type** | The type of device, such as PLC or HMI. |
-| **Vendor** | The name of the device's vendor, as defined in the MAC address. |
-| **Operating System** | The OS of the device. |
-| **Firmware** | The device's firmware. |
-| **IP Address** | The IP address of the device. |
-| **VLAN** | The VLAN of the device. |
-| **MAC Address** | The MAC address of the device. |
-| **Protocols** | The protocols that the device uses. |
-| **Unacknowledged Alerts** | The number of unhandled alerts associated with this device. |
-| **Is Authorized** | The authorization status of the device:<br />- **True**: The device has been authorized.<br />- **False**: The device hasn't been authorized. |
-| **Is Known as Scanner** | Whether this device performs scanning-like activities in the network. |
-| **Is Programming Device** | Whether this is a programming device:<br />- **True**: The device performs programming activities for PLCs, RTUs, and controllers, which are relevant to engineering stations.<br />- **False**: The device isn't a programming device. |
-| **Groups** | Groups in which this device participates. |
-| **Last Activity** | The last activity that the device performed. |
-| **Discovered** | When this device was first seen in the network. |
-| **PLC mode (preview)** | The PLC operating mode includes the Key state (physical) and run state (logical). Possible **Key** states include, Run, Program, Remote, Stop, Invalid, Programming Disabled.Possible Run. The possible **Run** states are Run, Program, Stop, Paused, Exception, Halted, Trapped, Idle, Offline. if both states are the same, only one state is presented. |
 
 ## Integrate data into the enterprise device inventory
 

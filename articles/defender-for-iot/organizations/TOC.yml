@@ -144,10 +144,12 @@
         items:
         - name: Manage individual sensors
           href: how-to-manage-individual-sensors.md
-        - name: Control OT traffic monitoring
-          href: how-to-control-what-traffic-is-monitored.md
         - name: Manage sensors from the on-premises management console
           href: how-to-manage-sensors-from-the-on-premises-management-console.md
+        - name: Control OT traffic monitoring
+          href: how-to-control-what-traffic-is-monitored.md
+        - name: Detect Windows workstations and servers by script
+          href: detect-windows-endpoints-script.md
       - name: Manage OT sensor users
         items:
         - name: Create and manage users

@@ -18,7 +18,7 @@ Use Microsoft Defender for IoT's **Device inventory** page in the Azure portal t
 The **Device inventory** page displays all detected IT, IoT, and OT devices in your network, and allows you to identify new devices detected, devices that might need troubleshooting, and more.
 
 > [!NOTE]
-> Alternately, view detected devices [on each sensor console](how-to-investigate-sensor-detections-in-a-device-inventory.md or on [the on-premises management console](how-to-investigate-all-enterprise-sensor-detections-in-a-device-inventory.md).
+> Alternately, view detected devices [on each sensor console](how-to-investigate-sensor-detections-in-a-device-inventory.md) or on [the on-premises management console](how-to-investigate-all-enterprise-sensor-detections-in-a-device-inventory.md).
 
 ## View the device inventory
 
@@ -77,10 +77,9 @@ For more information, see [Reference of editable fields](#reference-of-editable-
 
 The following device fields are supported for editing in the **Device inventory** page:
 
-**General information**:
-
 |Name  |Description  |
 |---------|---------|
+| **General information** | |
 |**Name** | Mandatory. Supported for editing only when editing a single device. |
 |**Authorized Device**     |Toggle on or off as needed as device security changes.         |
 |**Description**     |  Enter a meaningful description for the device.       |
@@ -91,12 +90,7 @@ The following device fields are supported for editing in the **Device inventory*
 |**Hardware Vendor**     | Select the device's hardware vendor from the dropdown menu.        |
 |**Firmware**      |   Device the device's firmware name and version. You can either select the **delete** button to delete an existing firmware definition, or select **+ Add** to add a new one.  |
 |**Tags**     | Enter meaningful tags for the device. Select the **delete**  button to delete an existing tag, or select **+ Add** to add a new one.         |
-
-
-**Settings**:
-
-|Name  |Description  |
-|---------|---------|
+| **Settings** |
 |**Importance**     | Select **Low**, **Normal**, or **High** to modify the device's importance.        |
 |**Programming device**     | Toggle the **Programming Device** option on or off as needed for your device.        |
 
@@ -112,6 +106,10 @@ The device inventory is exported with any filters currently applied, and you can
 ## Delete a device
 
 If you have devices no longer in use, delete them from the device inventory so that they're no longer connected to Defender for IoT.
+
+Devices might be inactive because of misconfigured SPAN ports, changes in network coverage, or because the device was unplugged from the network.
+
+Delete inactive devices to maintain a correct representation of current network activity, better understand your committed devices when managing your Defender for IoT plans, and to reduce clutter on your screen.
 
 Devices must be inactive for 14 days or more in order for you to be able to delete them.
 
