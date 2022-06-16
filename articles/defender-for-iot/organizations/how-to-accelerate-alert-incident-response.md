@@ -37,7 +37,7 @@ The list of available options appears in each alert, and users can select one or
 
 ## Accelerate incident workflows by using alert groups
 
-Alert groups let SOC teams view and filter alerts in their SIEM solutions and then manage them based on enterprise security policies and business priorities. For example, alerts about new detections are organized in a discovery group. This group includes alerts that deal with detecting new devices, new VLANs, new user accounts, new MAC addresses, and more.
+Alert groups let SOC teams view and filter alerts in their SIEM solutions and then manage these alerts based on enterprise security policies and business priorities. For example, alerts about new detections are organized in a discovery group. This group includes alerts that deal with detecting new devices, new VLANs, new user accounts, new MAC addresses, and more.
 
 Alert groups are applied when you create forwarding rules for the following partner solutions:
 
