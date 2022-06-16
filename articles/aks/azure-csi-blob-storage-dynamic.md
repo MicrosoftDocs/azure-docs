@@ -4,7 +4,7 @@ titleSuffix: Azure Kubernetes Service
 description: Learn how to dynamically create a persistent volume with Azure Blob storage for use with multiple concurrent pods in Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
-ms.date: 06/06/2022
+ms.date: 06/16/2022
 
 ---
 
@@ -16,9 +16,9 @@ For more information on Kubernetes volumes, see [Storage options for application
 
 ## Before you begin
 
-This article assumes that you have an existing AKS cluster running version 1.21 or higher. If you need an AKS cluster, see the AKS quickstart [using the Azure CLI][aks-quickstart-cli], [using Azure PowerShell][aks-quickstart-powershell], or [using the Azure portal][aks-quickstart-portal]. 
+This article assumes that you have an existing AKS cluster running version 1.21 or higher. If you need an AKS cluster, see the AKS quickstart [using the Azure CLI][aks-quickstart-cli], [using Azure PowerShell][aks-quickstart-powershell], or [using the Azure portal][aks-quickstart-portal].
 
-If you don't have a storage account that supports the NFS v3 protocol, see [Mount Blob Storage by using the Network File System (NFS) 3.0 protocol][mount-blob-storage-nfs] to create one for your AKS cluster.
+If you don't have a storage account that supports the NFS v3 protocol, see [Use Azure Blob storage Container Storage Interface (CSI) driver][blob-storage-csi-driver] (preview) to create one for your AKS cluster.
 
 ## Storage class driver dynamic parameters
 
@@ -149,7 +149,6 @@ The following YAML creates a pod that uses the persistent volume claim my-blobst
 [kubernetes-files]: https://github.com/kubernetes/examples/blob/master/staging/volumes/azure_file/README.md
 [kubernetes-secret]: https://kubernetes.io/docs/concepts/configuration/secret/
 [kubernetes-volumes]: https://kubernetes.io/docs/concepts/storage/volumes/
-[smb-overview]: /windows/desktop/FileIO/microsoft-smb-protocol-and-cifs-protocol-overview
 [kubernetes-security-context]: https://kubernetes.io/docs/tasks/configure-pod-container/security-context/
 [CSI driver parameters]: https://github.com/kubernetes-sigs/azurefile-csi-driver/blob/master/docs/driver-parameters.md#static-provisionbring-your-own-file-share
 
@@ -167,3 +166,4 @@ The following YAML creates a pod that uses the persistent volume claim my-blobst
 [sas-tokens]: ../storage/common/storage-sas-overview.md
 [mount-blob-storage-nfs]: ../storage/blobs/network-file-system-protocol-support-how-to.md
 [azure-csi-blob-storage-static]: azure-csi-blob-storage-manual.md
+[blob-storage-csi-driver]: azure-blob-csi.md

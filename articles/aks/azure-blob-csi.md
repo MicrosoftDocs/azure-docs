@@ -3,25 +3,28 @@ title: Use Container Storage Interface (CSI) driver for Azure Blob storage on Az
 description: Learn how to use the Container Storage Interface (CSI) driver for Azure Blob storage (preview) in an Azure Kubernetes Service (AKS) cluster.
 services: container-service
 ms.topic: article
-ms.date: 06/02/2021
+ms.date: 06/16/2021
 author: mgoedtel
 
 ---
 
 # Use Azure Blob storage Container Storage Interface (CSI) driver (preview)
 
-The Azure Blob storage Container Storage Interface (CSI) driver (preview) is a [CSI specification][csi-specification]-compliant driver used by Azure Kubernetes Service (AKS) to manage the lifecycle of Azure Blob storage.
+The Azure Blob storage Container Storage Interface (CSI) driver (preview) is a [CSI specification][csi-specification]-compliant driver used by Azure Kubernetes Service (AKS) to manage the lifecycle of Azure Blob storage. The CSI is a standard for exposing arbitrary block and file storage systems to containerized workloads on Kubernetes. By adopting and using CSI, AKS now can write, deploy, and iterate plug-ins to expose new or improve existing storage systems in Kubernetes. Using CSI drivers in AKS avoids having to touch the core Kubernetes code and wait for its release cycles.
 
-The CSI is a standard for exposing arbitrary block and file storage systems to containerized workloads on Kubernetes. By adopting and using CSI, AKS now can write, deploy, and iterate plug-ins to expose new or improve existing storage systems in Kubernetes without having to touch the core Kubernetes code and wait for its release cycles.
+Mounting Azure Blob storage as a file system into a container or pod, enables you to use blob storage with a number of applications like:
 
-To create an AKS cluster with CSI drivers support, see [CSI drivers on AKS][csi-drivers-aks].
+* Log file data
+* Images, documents, and streaming video or audio
+* Disaster recovery data
 
-> [!NOTE]
-> *In-tree driver* refers to the current storage driver that are part of the core Kubernetes code versus the new CSI driver, which is a plug-in.
+Additionally, if your AKS cluster ingests data into Azure Data Lake Storage can directly mount it and use it in an AKS cluster without configuring another interim filesystem. The data on the object storage can be accessed by applications using BlobFuse or Network File System (NFS) 3.0 protocol. Before the introduction of the Azure Blob storage CSI driver, the only option was to manually install an unsupported open-source driver to access Blob storage from your application running on AKS.
 
-## Azure Blob storage CSI driver (preview) new features
+To create an AKS cluster with CSI drivers support, see [CSI drivers on AKS][csi-drivers-aks]. To learn more about the differences in access between each of the Azure storage types using the NFS protocol, see [Compare access to Azure Files, Blob Storage, and Azure NetApp Files with NFS][compare-access-with-nfs].
 
-In addition to the in-tree driver features, Azure Blob storage CSI driver (preview) supports the following new features:
+## Azure Blob storage CSI driver (preview) features
+
+Azure Blob storage CSI driver (preview) supports the following features:
 
 - BlobFuse and Network File System (NFS) version 3.0 protocol
 
@@ -40,7 +43,7 @@ A storage class is used to define how an Azure Blob storage container is created
 * **Standard_GRS**: Standard geo-redundant storage
 * **Standard_RAGRS**: Standard read-access geo-redundant storage
 
-When you use storage CSI drivers on AKS, there are two additional built-in StorageClasses that use the Azure Blob CSI storage driver. The additional CSI storage classes are created with the cluster alongside the in-tree default storage classes.
+When you use storage CSI drivers on AKS, there are two additional built-in StorageClasses that use the Azure Blob CSI storage driver.
 
 The reclaim policy on both storage classes ensures that the underlying Azure Blob storage is deleted when the respective PV is deleted. The storage classes also configure the container to be expandable, you just need to edit the persistent volume claim (PVC) with the new size.
 
@@ -50,7 +53,11 @@ The following example creates a PVC that uses the NFS protocol to mount a Blob s
 
 ```bash
 kubectl create -f https://raw.githubusercontent.com/kubernetes-sigs/blob-csi-driver/master/deploy/example/storageclass-blob-nfs.yaml
+```
 
+The output of the command resembles the following example:
+
+```bash
 storageclass.storage.k8s.io/blob-nfs created
 ```
 
@@ -58,7 +65,11 @@ The following example creates a PVC that uses blobfuse to mount a Blob storage c
 
 ```bash
 kubectl create -f https://raw.githubusercontent.com/kubernetes-sigs/blob-csi-driver/master/deploy/example/storageclass-blobfuse.yaml
+```
 
+The output of the command resembles the following example:
+
+```bash
 storageclass.storage.k8s.io/blobfuse created
 ```
 
@@ -88,7 +99,11 @@ Create the storage class with the [kubectl apply][kubectl-apply] command:
 
 ```bash
 kubectl apply -f azure-blob-nfs-sc.yaml
+```
 
+The output of the command resembles the following example:
+
+```bash
 storageclass.storage.k8s.io/blob-nfs created
 ```
 
@@ -124,15 +139,13 @@ Create the storage class with the [kubectl apply][kubectl-apply] command:
 
 ```bash
 kubectl apply -f azure-blobfuse-sc.yaml
-
-storageclass.storage.k8s.io/blob-fuse created
 ```
 
-## Resize a persistent volume
+The output of the command resembles the following example:
 
-You can request a larger volume for a PVC. Edit the PVC object, and specify a larger size. This change triggers the expansion of the underlying volume that backs the PV.
-
-This hasn't been tested yet by Vybava and team. THey will get back to me
+```bash
+storageclass.storage.k8s.io/blob-fuse created
+```
 
 ## Next steps
 
@@ -150,13 +163,13 @@ This hasn't been tested yet by Vybava and team. THey will get back to me
 [kubernetes-storage-classes]: https://kubernetes.io/docs/concepts/storage/storage-classes/
 [kubernetes-volumes]: https://kubernetes.io/docs/concepts/storage/persistent-volumes/
 [managed-disk-pricing-performance]: https://azure.microsoft.com/pricing/details/managed-disks/
-[smb-overview]: /windows/desktop/FileIO/microsoft-smb-protocol-and-cifs-protocol-overview
 [csi-specification]: https://github.com/container-storage-interface/spec/blob/master/spec.md
 
 <!-- LINKS - internal -->
 [azure-disk-volume]: azure-disk-volume.md
 [azure-files-pvc]: azure-files-dynamic-pv.md
 [premium-storage]: ../virtual-machines/disks-types.md
+[compare-access-with-nfs]: ../storage/common/nfs-comparison.md
 [az-disk-list]: /cli/azure/disk#az_disk_list
 [az-snapshot-create]: /cli/azure/snapshot#az_snapshot_create
 [az-disk-create]: /cli/azure/disk#az_disk_create

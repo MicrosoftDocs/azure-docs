@@ -4,7 +4,7 @@ titleSuffix: Azure Kubernetes Service
 description: Learn how to manually create a persistent volume with Azure Blob storage for use with multiple concurrent pods in Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
-ms.date: 06/06/2022
+ms.date: 06/16/2022
 
 ---
 
@@ -62,8 +62,6 @@ $ az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeR
 
 MC_myResourceGroup_myAKSCluster_eastus
 ```
-
-Now create a container for storing blobs following the steps in the [Manage blob storage][manage-blob-storage] to authorize access and then create the container.
 
 ## Mount Blob storage as a volume using NFS
 
@@ -231,7 +229,7 @@ Kubernetes needs credentials to access the Blob storage container created earlie
 
     ---
 
-2. Create a `storageclass-blobfuse-container.yaml` file. Under `volumeAttributes`, update `containerName`. For example:
+2. Create a `pv-blobfuse-container.yaml` file. Under `volumeAttributes`, update `containerName`. For example:
 
     ```yml
     ---
@@ -265,10 +263,10 @@ Kubernetes needs credentials to access the Blob storage container created earlie
 3. Run the following command to create the storage class using the `kubectl create` command referencing the YAML file created earlier:
 
     ```bash
-    kubectl create -f storageclass-blobfuse-existing-container.yaml
+    kubectl create -f pv-blobfuse-existing-container.yaml
     ```
 
-4. Create a `pv-blobfuse-container.yaml` file with a *PersistentVolume*. For example:
+4. Create a `pvc-blobfuse-container.yaml` file with a *PersistentVolume*. For example:
 
     ```yml
     ---
@@ -303,7 +301,6 @@ Kubernetes needs credentials to access the Blob storage container created earlie
 [kubernetes-files]: https://github.com/kubernetes/examples/blob/master/staging/volumes/azure_file/README.md
 [kubernetes-secret]: https://kubernetes.io/docs/concepts/configuration/secret/
 [kubernetes-volumes]: https://kubernetes.io/docs/concepts/storage/volumes/
-[smb-overview]: /windows/desktop/FileIO/microsoft-smb-protocol-and-cifs-protocol-overview
 [kubernetes-security-context]: https://kubernetes.io/docs/tasks/configure-pod-container/security-context/
 
 <!-- LINKS - internal -->
