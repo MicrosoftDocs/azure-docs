@@ -26,7 +26,7 @@ In Speech Studio, the following Speech service features are available as project
 
 * [Pronunciation assessment](https://aka.ms/speechstudio/pronunciationassessment): Evaluate speech pronunciation and give speakers feedback on the accuracy and fluency of spoken audio. Speech Studio provides a sandbox for testing this feature quickly, without code. To use the feature with the Speech SDK in your applications, see the [Pronunciation assessment](how-to-pronunciation-assessment.md) article.
 
-* [Voice Gallery](https://aka.ms/speechstudio/voicegallery): Build apps and services that speak naturally. Choose from more than 170 voices in over 70 languages and variants. Bring your scenarios to life with highly expressive and human-like neural voices.
+* [Voice Gallery](https://aka.ms/speechstudio/voicegallery): Build apps and services that speak naturally. Choose from a huge portfolio of [languages, voices, and variants](language-support.md#prebuilt-neural-voices). Bring your scenarios to life with highly expressive and human-like neural voices.
 
 * [Custom Voice](https://aka.ms/speechstudio/customvoice): Create custom, one-of-a-kind voices for text-to-speech. You supply audio files and create matching transcriptions in Speech Studio, and then use the custom voices in your applications. To create and use custom voices via endpoints, see [Create and use your voice model](how-to-custom-voice-create-voice.md). 
 
