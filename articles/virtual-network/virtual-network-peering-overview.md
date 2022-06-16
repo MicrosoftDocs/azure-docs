@@ -54,7 +54,6 @@ This feature does not support the following scenarios if the virtual network to 
 <ul>
 <li>A classic virtual network</li>
 <li>A managed virtual network such as the Azure VWAN hub</li>
-<li>Address Space Update on Virtual Hub</li>
 </ul>
 
 ## Service chaining
