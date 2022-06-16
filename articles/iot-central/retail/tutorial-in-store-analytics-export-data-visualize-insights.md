@@ -8,7 +8,7 @@ ms.topic: tutorial
 ms.custom: [iot-storeAnalytics-checkout, iot-p0-scenario]
 ms.author: dobett
 author: dominicbetts
-ms.date: 11/12/2019
+ms.date: 06/15/2012
 ---
 
 # Tutorial: Export data from Azure IoT Central and visualize insights in Power BI
