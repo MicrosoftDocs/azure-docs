@@ -39,7 +39,7 @@ You can modify the contact profile via the Portal or through the API.
 
 You can delete the contact profile via the Portal or through the API.
 
-## Next Steps
+## Next steps
 
 - [Quickstart: Schedule a contact](schedule-contact.md)
 - [How to: Update the Spacecraft TLE](update-tle.md)

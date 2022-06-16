@@ -58,7 +58,7 @@ Please refer to [Quickstart: Schedule a contact](schedule-contact.md) for the Po
 
 The API can be used as well to create a contact. Please refer to (link to API docs) for this method.
 
-## Next Steps
+## Next steps
 
 - [Quickstart: Schedule a contact](schedule-contact.md)
 - [How to: Update the Spacecraft TLE](update-tle.md)
