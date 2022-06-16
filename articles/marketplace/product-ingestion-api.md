@@ -276,7 +276,6 @@ If publishing to “preview” or “live”, include the submission resource in
 - The “targetType” property, denoting the target environment
 - When publishing to live specifically, the “id” of the preview submission you are looking to publish
 
-
 ```json
 ...
   {
