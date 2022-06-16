@@ -36,7 +36,7 @@ az container create \
 ```
 
 >[!Note]
->We recommend running the commands in the most recent version of the Azure Cloud Shell. Set `export MSYS_NO_PATHCONV=1` for running on-perm bash environment.
+> We recommend running the commands in the most recent version of the Azure Cloud Shell. Set `export MSYS_NO_PATHCONV=1` for running on-perm bash environment.
 
 ## Sample scripts
 
