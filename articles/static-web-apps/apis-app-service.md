@@ -70,4 +70,4 @@ When the unlinking process is complete, requests to routes beginning with `/api`
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Add an API](add-api.md)
+> [API overview](api-overview.md)
