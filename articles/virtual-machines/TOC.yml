@@ -670,7 +670,7 @@
       displayName: pre-empt, preempt, spot, low priority, low-priority, ARM, template
       href: ./linux/spot-template.md
     - name: VM size recommendation 
-      href: ../virtual-machine-scale-sets/spot-vm-size-recommendation.md
+      href: ../virtual-machine-scale-sets/spot-vm-size-recommendation.md?toc=/azure/virtual-machines/toc.json
     - name: Error codes
       displayName: pre-empt, preempt, spot, low priority, low-priority
       href: error-codes-spot.md
