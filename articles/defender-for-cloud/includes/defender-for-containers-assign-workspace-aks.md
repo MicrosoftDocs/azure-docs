@@ -2,7 +2,7 @@
 author: ElazarK
 ms.service: defender-for-cloud
 ms.topic: include
-ms.date: 06/15/2022
+ms.date: 06/16/2022
 ms.author: elkrieger
 ---
 
@@ -18,9 +18,9 @@ The naming convention for the default Log Analytics workspace and resource group
 
 ### Assign a custom workspace
 
-Once the Defender profile/extension has been deployed, a default workspace will be automatically assigned. You can assign a custom workspace through Azure Policy.
+Once the Defender profile/extension has been deployed, a default workspace will be automatically assigned because of the auto-provision option. You can assign a custom workspace through Azure Policy.
 
-**To assign custom workspace**:
+**To check if you have a workspace assigned**:
 
 1. Sign in to the [Azure portal](https://portal.azure.com). 
 
@@ -36,30 +36,53 @@ Once the Defender profile/extension has been deployed, a default workspace will 
 
 1. Select **\[Preview]: Configure Azure Kubernetes Service clusters to enable Defender profile**.
 
+1. Select **Assignment**.
+
+1. Select the [No assignment](#no-assignment) steps if you have no assigned workspace select the [Already assigned](#already-assigned) steps if a workspace is already assigned.
+
+#### No assignment
+
+If you have no workspace assigned, you will see `Assignments (0)`.
+
+:::image type="content" source="../media/defender-for-containers/no-assignment.png" alt-text="Screenshot showing that no workspace has been assigned.":::
+
+**To assign custom workspace**:
+
 1. Select **Assign**.
 
 1. In the **Parameters** tab, deselect the **Only show parameters that need input or review** option.
 
-1. Enter `LogAnalyticsWorkspaceResource`.
+1. Select a LogAnalyticsWorkspaceResource ID from the drop down menu.
+
+   :::image type="content" source="../media/defender-for-containers/drop-down-menu.png" alt-text="Screenshot showing where the drop down menu is located."::: 
 
 1. Select **Review + create**.
 
 1. Select **Create**.
 
-If you already assigned the policy to a custom workspace you can change the assignment to your custom, or any other workspace.
+#### Already assigned
 
-**To change the assignment**:
+If it already assigned to a workspace you will see `Assignments (1)`.
 
-1. Sign in to the [Azure portal](https://portal.azure.com). 
+:::image type="content" source="../media/defender-for-containers/already-assigned.png" alt-text="Screenshot that shows Assignment (1), meaning a workspace has already been assigned.":::
 
-1. Search for, and select **Policy**.
+> [!NOTE]
+> If you have more than one subscription the number may be higher
 
-1. Select **Assignments**.
+**To assign custom workspace**:
 
-1. Search for policy ID `64def556-fbad-4622-930e-72d1d5589bf5`.
+1. Select the relevant assignment.
 
-    :::image type="content" source="../media/defender-for-containers/assigned-aks.png" alt-text="Screenshot that shows the workspaces with the policy assigned to them." lightbox="../media/defender-for-containers/assigned-aks.png":::
+    :::image type="content" source="../media/defender-for-containers/relevant-assignment.png" alt-text="Screenshot that shows where to select the relevant assignment from.":::
 
-1. Select the relevant workspace.
- 
-1. 
+1. Select **Edit assignment**.
+
+1. In the **Parameters** tab, deselect the **Only show parameters that need input or review** option.
+
+1. Select a LogAnalyticsWorkspaceResource ID from the drop down menu.
+
+   :::image type="content" source="../media/defender-for-containers/drop-down-menu.png" alt-text="Screenshot showing where the drop down menu is located."::: 
+
+1. Select **Review + create**.
+
+1. Select **Create**.
