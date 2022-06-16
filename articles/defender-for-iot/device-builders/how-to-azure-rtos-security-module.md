@@ -72,7 +72,7 @@ Other configurations flags are advanced, and have unsupported features. Contact 
 
 The Defender-IoT-micro-agent for Azure RTOS supports specific security alerts and recommendations. Make sure to [review and customize the relevant alert and recommendation values](concept-rtos-security-alerts-recommendations.md) for your service.
 
-## Log analytics (optional)
+## Log Analytics (optional)
 
 You can enable and configure Log Analytics to investigate device events and activities. Read about how to setup, and use [Log Analytics with the Defender for IoT service](how-to-security-data-access.md#log-analytics) to learn more. 
 
