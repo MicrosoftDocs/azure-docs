@@ -143,15 +143,20 @@
     items:
     - name: Overview
       displayName: Run command
-      href: run-command-overview.md
+      href: ../virtual-machines/run-command-overview.md
+      maintainContext: true
     - name: Action Run Commands for Linux
-      href: ./linux/run-command.md
+      href: ../virtual-machines/linux/run-command.md
+      maintainContext: true
     - name: Action Run Commands for Windows
-      href: ./windows/run-command.md
+      href: ../virtual-machines/windows/run-command.md
+      maintainContext: true
     - name: Managed Run Commands for Linux 
-      href: ./linux/run-command-managed.md
+      href: ../virtual-machines/linux/run-command-managed.md
+      maintainContext: true
     - name: Managed Run Commands for Windows
-      href: ./windows/run-command-managed.md
+      href: ../virtual-machines/windows/run-command-managed.md
+      maintainContext: true
   - name: Extensions
     items:
     - name: Extensions Overview
