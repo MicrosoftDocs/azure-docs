@@ -44,6 +44,7 @@ JBoss EAP is only available on the Linux version of App Service. Select the **Li
 -----
 
 If Maven isn't your preferred development tool, check out our similar tutorials for Java developers:
++ [Azure Portal](./quickstart-java-azure-portal.md)
 + [Gradle](./configure-language-java.md?pivots=platform-linux#gradle)
 + [IntelliJ IDEA](/azure/developer/java/toolkit-for-intellij/create-hello-world-web-app)
 + [Eclipse](/azure/developer/java/toolkit-for-eclipse/create-hello-world-web-app)
