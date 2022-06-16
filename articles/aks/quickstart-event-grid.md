@@ -59,7 +59,7 @@ It takes a few minutes for the status to show *Registered*. Verify the registrat
 
 ```azurepowershell-interactive
 Get-AzProviderPreviewFeature -ProviderNamespace Microsoft.ContainerService -Name EventgridPreview |
- Format-Table Name, @{n='State'; e={$_.Properties.State}}
+ Format-Table -Property Name, @{name='State'; expression={$_.Properties.State}}
 ```
 
 When ready, refresh the registration of the *Microsoft.ContainerService* resource provider by using the [Register-AzResourceProvider][register-azresourceprovider] command:
