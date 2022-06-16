@@ -87,7 +87,7 @@ public final String connectionString =
     "DefaultEndpointsProtocol=http;" +
     "AccountName=your_storage_account;" +
     "AccountKey=your_storage_account_key;" +
-    "EndpointSuffix=core.windows.net;
+    "EndpointSuffix=core.windows.net";
 ```
 
 ### Add an Azure Cosmos DB Table API connection string
@@ -101,7 +101,7 @@ public final String connectionString =
     "DefaultEndpointsProtocol=https;" + 
     "AccountName=your_cosmosdb_account;" + 
     "AccountKey=your_account_key;" + 
-    "TableEndpoint=https://your_endpoint;" ;
+    "TableEndpoint=https://your_endpoint;";
 ```
 
 In an app running within a role in Azure, you can store this string in the service configuration file, *ServiceConfiguration.cscfg*. You can access it with a call to the `System.getenv` method. Here's an example of getting the connection string from a **Setting** element named *ConnectionString* in the service configuration file:
