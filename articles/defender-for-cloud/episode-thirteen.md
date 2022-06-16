@@ -2,7 +2,7 @@
 title: Defender for Storage
 description: Learn about the capabilities available in Defender for Storage.
 ms.topic: reference
-ms.date: 06/02/2022
+ms.date: 06/16/2022
 ---
 
 # Defender for Storage
@@ -15,17 +15,17 @@ ms.date: 06/02/2022
 <br>
 <iframe src="https://aka.ms/docs/player?id=79f69cee-ae56-4ce3-9443-0f45e5c3ccf4" width="1080" height="530" allowFullScreen="true" frameBorder="0"></iframe>
 
-- [01:00](/shows/mdc-in-the-field/) - Current threats for Cloud Storage workloads
+- [01:00](/shows/mdc-in-the-field/defender-for-storage#time=01m00s) - Current threats for Cloud Storage workloads
 
-- [07:00](/shows/mdc-in-the-field/) - Defender for Storage threat detections
+- [07:00](/shows/mdc-in-the-field/defender-for-storage#time=07m00s) - Defender for Storage threat detections
 
-- [10:10](/shows/mdc-in-the-field/) - How Defender for Storage works after you enable it
+- [10:10](/shows/mdc-in-the-field/defender-for-storage#time=10m10s) - How Defender for Storage works after you enable it
 
-- [20:35](/shows/mdc-in-the-field/) - How to investigate a Defender for Storage Alert
+- [20:35](/shows/mdc-in-the-field/defender-for-storage#time=20m35s) - How to investigate a Defender for Storage Alert
 
-- [29:00](/shows/mdc-in-the-field/) - Best practices to enable Defender for Storage
+- [29:00](/shows/mdc-in-the-field/defender-for-storage#time=29m00s) - Best practices to enable Defender for Storage
 
-- [32:15](/shows/mdc-in-the-field/) - What's coming next
+- [32:15](/shows/mdc-in-the-field/defender-for-storage#time=32m15s) - What's coming next
 
 ## Recommended resources
   
