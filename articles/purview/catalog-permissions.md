@@ -6,7 +6,7 @@ ms.author: viseshag
 ms.service: purview
 ms.custom: event-tier1-build-2022
 ms.topic: conceptual
-ms.date: 05/16/2022
+ms.date: 06/16/2022
 ---
 
 # Access control in the Microsoft Purview governance portal
@@ -27,7 +27,7 @@ The Microsoft Purview governance portal uses a set of predefined roles to contro
 - **Collection administrator** - a role for users that will need to assign roles to other users in the Microsoft Purview governance portal or manage collections. Collection admins can add users to roles on collections where they're admins. They can also edit collections, their details, and add subcollections.
 - **Data curators** - a role that provides access to the data catalog to manage assets, configure custom classifications, set up glossary terms, and view data estate insights. Data curators can create, read, modify, move, and delete assets. They can also apply annotations to assets.
 - **Data readers** - a role that provides read-only access to data assets, classifications, classification rules, collections and glossary terms.
-- **Data share contributor** - A role that can share data within an organization and with other organizations using Data share capabilities in Microsoft Purview. Data share contributors can view, create, update, and delete sent and received shares.
+- **Data share contributor** - A role that can share data within an organization and with other organizations using data sharing capabilities in Microsoft Purview. Data share contributors can view, create, update, and delete sent and received shares.
 - **Data source administrator** - a role that allows a user to manage data sources and scans. If a user is granted only to **Data source admin** role on a given data source, they can run new scans using an existing scan rule. To create new scan rules, the user must be also granted as either **Data reader** or **Data curator** roles.
 - **Insights reader** - a role that provides read-only access to insights reports for collections where the insights reader also has at least the **Data reader** role. For more information, see [insights permissions.](insights-permissions.md)
 - **Policy author (Preview)** - a role that allows a user to view, update, and delete Microsoft Purview policies through the policy management app within Microsoft Purview.
