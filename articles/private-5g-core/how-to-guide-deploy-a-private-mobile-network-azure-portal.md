@@ -50,7 +50,7 @@ In this step, you'll create the Mobile Network resource representing your privat
 
 1. If you're provisioning SIMs at this point, you'll need to take the following additional steps.
    1. If you want to use the default service and SIM policy, set **Do you wish to create a basic, default SIM policy and assign it these SIMs?** to **Yes**, and then enter the name of the data network into the **Data network name** field that appears. 
-   1. Under **SIM group information**, set **SIM group name** to your chosen name for the SIM group to which your SIMs will be added.
+   1. Under **Enter SIM group information**, set **SIM group name** to your chosen name for the SIM group to which your SIMs will be added.
 1. Select **Review + create**.
 1. Azure will now validate the configuration values you've entered. You should see a message indicating that your values have passed validation.
 

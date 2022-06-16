@@ -485,6 +485,7 @@ In this step, we will provision two SIMs and assign a SIM policy to each one. Th
     :::image type="content" source="media/provision-sims-azure-portal/create-new-sim.png" alt-text="Screenshot of the Azure portal showing the Create button and its options - Upload J S O N from file and Add manually.":::
 
 1. Select **Browse** and then select the JSON file you created at the start of this step.
+1. Under **SIM group name**, select **Create new** and then enter **SIMGroup1** into the field that appears. 
 1. Select **Add**.
 1. The Azure portal will now begin deploying the SIMs. When the deployment is complete, select **Go to resource group**.
 
@@ -530,10 +531,10 @@ You have now provisioned two SIMs and assigned each of them a different SIM poli
 You can now delete each of the resources we've created during this tutorial.
 
 1. Search for and select the Mobile Network resource representing your private mobile network.
-1. In the **Resource** menu, select **SIMs**.
-1. Tick the checkboxes next to **SIM1** and **SIM2**, and then select **Delete** from the **Command** bar. 
+1. In the **Resource** menu, select **SIM groups**.
+1. Tick the checkboxes next to **SIMGroup1**, and then select **Delete** from the **Command** bar. 
 1. Select **Delete** to confirm your choice.
-1. Once the SIMs have been deleted, select **SIM policies** from the **Resource** menu.
+1. Once the SIM group and SIMs have been deleted, select **SIM policies** from the **Resource** menu.
 1. Tick the checkboxes next to **sim-policy-1** and **sim-policy-2**, and then select **Delete** from the **Command** bar.
 1. Select **Delete** to confirm your choice.
 1. Once the SIM policies have been deleted, select **Services** from the **Resource** menu.

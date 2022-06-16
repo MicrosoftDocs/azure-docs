@@ -1,7 +1,7 @@
 ---
-title: Provision SIMs - ARM template
+title: Provision new SIMs - ARM template
 titleSuffix: Azure Private 5G Core Preview
-description: This how-to guide shows how to provision SIMs using an Azure Resource Manager (ARM) template. 
+description: This how-to guide shows how to provision new SIMs using an Azure Resource Manager (ARM) template. 
 author: djrmetaswitch
 ms.author: drichards
 ms.service: private-5g-core
@@ -10,7 +10,7 @@ ms.date: 03/21/2022
 ms.custom: template-how-to 
 ---
 
-# Provision SIMs for Azure Private 5G Core Preview - ARM template
+# Provision new SIMs for Azure Private 5G Core Preview - ARM template
 
 *SIM resources* represent physical SIMs or eSIMs used by user equipment (UEs) served by the private mobile network. In this how-to guide, you'll learn how to provision new SIMs for an existing private mobile network using an Azure Resource Manager template (ARM template).
 
@@ -24,6 +24,8 @@ If your environment meets the prerequisites and you're familiar with using ARM t
 
 - Ensure you can sign in to the Azure portal using an account with access to the active subscription you identified in [Complete the prerequisite tasks for deploying a private mobile network](complete-private-mobile-network-prerequisites.md). This account must have the built-in Contributor role at the subscription scope.
 - Identify the name of the Mobile Network resource corresponding to your private mobile network and the resource group containing it.
+- Decide on the SIM group to which you want to add your SIMs. You can create a new SIM group when provisioning your SIMs, or you can choose an existing SIM group. See [Manage SIM groups - Azure portal](manage-sim-groups.md) for information on viewing your existing SIM groups.
+- For each SIM you want to provision, decide whether you want to assign a SIM policy to it. If you do, you must have already created the relevant SIM policies using the instructions in [Configure a SIM policy - Azure portal](configure-sim-policy-azure-portal.md). SIMs can't access your private mobile network unless they have an assigned SIM policy.
 
 ## Collect the required information for your SIMs
 
@@ -37,10 +39,11 @@ To begin, collect the values in the following table for each SIM you want to pro
 | The Authentication Key (Ki). The Ki is a unique 128-bit value assigned to the SIM by an operator, and is used with the derived operator code (OPc) to authenticate a user. It must be a 32-character string, containing hexadecimal characters only. | `authenticationKey` |
 | The derived operator code (OPc). The OPc is taken from the SIM's Ki and the network's operator code (OP). The packet core instance uses it to authenticate a user using a standards-based algorithm. The OPc must be a 32-character string, containing hexadecimal characters only. | `operatorKeyCode` |
 | The type of device using this SIM. This value is an optional free-form string. You can use it as required to easily identify device types using the enterprise's private mobile network.  | `deviceType` |
+| The resource ID of the SIM policy to assign to the SIM. This is optional, but your SIMs won't be able to use the private mobile network without an assigned SIM policy. | `simPolicy` |
 
 ## Prepare an array for your SIMs
 
-Use the information you collected in [Collect the required information for your SIMs](#collect-the-required-information-for-your-sims) to create an array containing properties for each of the SIMs you want to provision. The following is an example of an array containing properties for two SIMs.
+Use the information you collected in [Collect the required information for your SIMs](#collect-the-required-information-for-your-sims) to create an array containing properties for each of the SIMs you want to provision. The following is an example of an array containing properties for two SIMs. If you don't want to assign a SIM policy to a SIM, you can delete the `simPolicy` parameter for that SIM.
 
 ```json
 [
@@ -50,25 +53,26 @@ Use the information you collected in [Collect the required information for your 
   "internationalMobileSubscriberIdentity": "001019990010001",
   "authenticationKey": "00112233445566778899AABBCCDDEEFF",
   "operatorKeyCode": "63bfa50ee6523365ff14c1f45f88737d",
-  "deviceType": "Cellphone"
+  "deviceType": "Cellphone",
+  "simPolicy": {
+      "id": "/subscriptions/subid/resourceGroups/contoso-rg/providers/Microsoft.MobileNetwork/mobileNetworks/contoso-network/simPolicies/SimPolicy1"
+    }
  },
  {
   "simName": "SIM2",
-  "simProfileName": "profile2",
   "integratedCircuitCardIdentifier": "8922345678901234567",
   "internationalMobileSubscriberIdentity": "001019990010002",
   "authenticationKey": "11112233445566778899AABBCCDDEEFF",
   "operatorKeyCode": "63bfa50ee6523365ff14c1f45f88738d",
-  "deviceType": "Sensor"
+  "deviceType": "Sensor",
+  "simPolicy": {
+      "id": "/subscriptions/subid/resourceGroups/contoso-rg/providers/Microsoft.MobileNetwork/mobileNetworks/contoso-network/simPolicies/SimPolicy2"
+    }
  }
 ]
 ```
 
 ## Review the template
-
-<!--
-Need to confirm whether the following link is correct.
--->
 
 The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/mobilenetwork-provision-sims).
 
@@ -82,7 +86,7 @@ The template defines one or more [**Microsoft.MobileNetwork/sims**](/azure/templ
 
     [![Deploy to Azure.](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.mobilenetwork%2Fmobilenetwork-provision-sims%2Fazuredeploy.json)
 
-1. Select or enter the following values, using the information you retrieved in [Prerequisites](#prerequisites). <!-- We should also add a screenshot of a filled out set of parameters. -->
+1. Select or enter the following values, using the information you retrieved in [Prerequisites](#prerequisites).
 
     - **Subscription:** select the Azure subscription you used to create your private mobile network.
     - **Resource group:** select the resource group containing the Mobile Network resource representing your private mobile network.
@@ -100,7 +104,6 @@ The template defines one or more [**Microsoft.MobileNetwork/sims**](/azure/templ
 
 1. Once your configuration has been validated, you can select **Create** to provision your SIMs. The Azure portal will display a confirmation screen when the SIMs have been provisioned.
 
-
 ## Review deployed resources
 
 1. Select **Go to resource group**.
@@ -113,8 +116,4 @@ The template defines one or more [**Microsoft.MobileNetwork/sims**](/azure/templ
 
 ## Next steps
 
-You'll need to assign a SIM policy to your SIMs to bring them into service.
-<!-- we may want to update the template to include SIM policies, or update the link below to reference the ARM template procedure rather than the portal -->
-
-- [Configure a SIM policy for Azure Private 5G Core Preview - Azure portal](configure-sim-policy-azure-portal.md)
-- [Assign a SIM policy to a SIM](provision-sims-azure-portal.md#assign-sim-policies)
+If you've configured static IP address allocation for your packet core instance(s), you may want to [assign static IP addresses to the SIMs you've provisioned](manage-existing-sims.md#assign-static-ip-addresses).

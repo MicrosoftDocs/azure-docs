@@ -19,7 +19,7 @@ ms.custom: template-how-to
 - Ensure you can sign in to the Azure portal using an account with access to the active subscription you identified in [Complete the prerequisite tasks for deploying a private mobile network](complete-private-mobile-network-prerequisites.md). This account must have the built-in Contributor role at the subscription scope.
 - Identify the name of the Mobile Network resource corresponding to your private mobile network.
 - Collect all the configuration values in [Collect the required information for a SIM policy](collect-required-information-for-sim-policy.md) for your chosen SIM policy.
-- Decide whether you want to assign this SIM policy to any SIMs or SIM groups as part of configuring it. If you do, you must have already provisioned the SIMs (as described in [Provision SIMs - Azure portal](provision-sims-azure-portal.md)) or created the SIM groups (as described in [Create a SIM group - Azure portal](create-sim-group-azure-portal.md)).
+- Decide whether you want to assign this SIM policy to any SIMs as part of configuring it. If you do, you must have already provisioned the SIMs (as described in [Provision SIMs - Azure portal](provision-sims-azure-portal.md)).
 
 ## Configure the SIM policy
 
@@ -51,7 +51,7 @@ ms.custom: template-how-to
 
     :::image type="content" source="media/configure-sim-policy-azure-portal/network-scope-configuration.png" alt-text="Screenshot of the Azure portal. It shows the Create a SIM policy screen. The Network scope section is highlighted.":::
 
-1. If you want to assign this SIM policy to one or more existing provisioned SIMs, select **Next : Assign to SIMs**, and then select your chosen SIMs from the list that appears.
+1. If you want to assign this SIM policy to one or more existing provisioned SIMs, select **Next : Assign to SIMs**, and then select your chosen SIMs from the list that appears. You can choose to search this list based on any field, including SIM name, SIM group, and device type.
 
     :::image type="content" source="media/configure-sim-policy-azure-portal/assign-to-sims-tab.png" alt-text="Screenshot of the Azure portal. It shows the Assign to SIMs tab for a SIM policy.":::
 
