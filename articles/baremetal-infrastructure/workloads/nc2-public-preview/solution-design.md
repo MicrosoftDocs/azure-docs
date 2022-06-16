@@ -10,7 +10,7 @@ ms.date: 07/01/2022
 
 ## Supported topologies
 
-The following table describes the network topologies supported by each network features configuration of Azure NetApp Files.
+The following table describes the network topologies supported by each network features configuration of NC2 on Azure.
 
 |Topology |Basic network features |
 | :------------------- |:---------------:|
@@ -38,7 +38,7 @@ The following table describes what’s supported for each network features confi
 |[User-defined routes (UDRs)](/azure/virtual-network/virtual-networks-udr-overview#user-defined) on NC2 on Azure-delegated subnets|No|
 |Connectivity to [private endpoints](/azure/private-link/private-endpoint-overview)|No|
 |Load balancers for NC2 on Azure traffic|No|
-|Dual stack IPv4 and IPv6) virtual network|IPv4 only supported|
+|Dual stack (IPv4 and IPv6) virtual network|IPv4 only supported|
 
 ## Next steps
 
