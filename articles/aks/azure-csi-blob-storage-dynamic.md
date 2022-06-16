@@ -10,7 +10,9 @@ ms.date: 06/16/2022
 
 # Dynamically create and use a persistent volume with Azure Blob storage in Azure Kubernetes Service (AKS)
 
-Container-based applications often need to access and persist data in an external data volume. If multiple pods need concurrent access to the same storage volume, you can use Azure Blob storage to connect using [blobfuse][blobfuse-overview] or [Network File System][nfs-overview] (NFS). This article shows you how to install the Container Storage Interface (CSI) driver and dynamically create an Azure Blob storage container to attach to a pod in AKS.
+Container-based applications often need to access and persist data in an external data volume. If multiple pods need concurrent access to the same storage volume, you can use Azure Blob storage to connect using [blobfuse][blobfuse-overview] or [Network File System][nfs-overview] (NFS).
+
+This article shows you how to install the Container Storage Interface (CSI) driver and dynamically create an Azure Blob storage container to attach to a pod in AKS.
 
 For more information on Kubernetes volumes, see [Storage options for applications in AKS][concepts-storage].
 
@@ -151,6 +153,8 @@ The following YAML creates a pod that uses the persistent volume claim my-blobst
 [kubernetes-volumes]: https://kubernetes.io/docs/concepts/storage/volumes/
 [kubernetes-security-context]: https://kubernetes.io/docs/tasks/configure-pod-container/security-context/
 [CSI driver parameters]: https://github.com/kubernetes-sigs/azurefile-csi-driver/blob/master/docs/driver-parameters.md#static-provisionbring-your-own-file-share
+[blobfuse-overview]: https://github.com/Azure/azure-storage-fuse
+[nfs-overview]: https://en.wikipedia.org/wiki/Network_File_System
 
 <!-- LINKS - internal -->
 [aks-quickstart-cli]: ./learn/quick-kubernetes-deploy-cli.md

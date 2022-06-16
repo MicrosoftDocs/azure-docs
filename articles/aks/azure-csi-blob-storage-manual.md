@@ -10,7 +10,9 @@ ms.date: 06/16/2022
 
 # Create and use a static volume with Azure Blob storage in Azure Kubernetes Service (AKS)
 
-Container-based applications often need to access and persist data in an external data volume. If multiple pods need concurrent access to the same storage volume, you can use Azure Blob storage to connect using [blobfuse][blobfuse-overview] or [Network File System][nfs-overview] (NFS). This article shows you how to manually create an Azure Blob storage container and attach it to a pod in AKS.
+Container-based applications often need to access and persist data in an external data volume. If multiple pods need concurrent access to the same storage volume, you can use Azure Blob storage to connect using [blobfuse][blobfuse-overview] or [Network File System][nfs-overview] (NFS).
+
+This article shows you how to manually create an Azure Blob storage container and attach it to a pod in AKS.
 
 For more information on Kubernetes volumes, see [Storage options for applications in AKS][concepts-storage].
 
@@ -57,9 +59,13 @@ When you create an Azure Blob storage resource for use with AKS, you can create 
 
 For this article, create the container in the node resource group. First, get the resource group name with the [az aks show][az-aks-show] command and add the `--query nodeResourceGroup` query parameter. The following example gets the node resource group for the AKS cluster named **myAKSCluster** in the resource group named **myResourceGroup**:
 
-```bash
-$ az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv
+```azurecli
+az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv
+```
 
+The output of the command resembles the following example:
+
+```azurecli
 MC_myResourceGroup_myAKSCluster_eastus
 ```
 
@@ -138,8 +144,8 @@ The following example demonstrates how to mount a Blob storage container using t
 
 4. Run the following command to create the persistent volume using the `kubectl create` command referencing the YAML file created earlier:
 
-    ```yml
-    kubectl create -f pvc-blobfuse-container.yaml
+    ```bash
+    kubectl create -f pv-blobfuse-container.yaml
     ```
 
 ## Mount Blob storage as a volume using Blobfuse
@@ -200,8 +206,8 @@ The following example demonstrates how to mount a Blob storage container using B
 
 4. Run the following command to create the persistent volume using the `kubectl create` command referencing the YAML file created earlier:
 
-    ```yml
-    kubectl create -f pvc-blobfuse-container.yaml
+    ```bash
+    kubectl create -f pv-blobfuse-container.yaml
     ```
 
 ### Authenticate using an Azure secret or SAS tokens
@@ -286,7 +292,7 @@ Kubernetes needs credentials to access the Blob storage container created earlie
 
 5. Run the following command to create the persistent volume using the `kubectl create` command referencing the YAML file created earlier:
 
-    ```yml
+    ```bash
     kubectl create -f pvc-blobfuse-container.yaml
     ```
 
@@ -302,6 +308,8 @@ Kubernetes needs credentials to access the Blob storage container created earlie
 [kubernetes-secret]: https://kubernetes.io/docs/concepts/configuration/secret/
 [kubernetes-volumes]: https://kubernetes.io/docs/concepts/storage/volumes/
 [kubernetes-security-context]: https://kubernetes.io/docs/tasks/configure-pod-container/security-context/
+[blobfuse-overview]: https://github.com/Azure/azure-storage-fuse
+[nfs-overview]: https://en.wikipedia.org/wiki/Network_File_System
 
 <!-- LINKS - internal -->
 [aks-quickstart-cli]: ./learn/quick-kubernetes-deploy-cli.md
