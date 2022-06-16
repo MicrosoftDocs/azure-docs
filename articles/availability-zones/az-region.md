@@ -134,7 +134,7 @@ In the Product Catalog, always-available services are listed as "non-regional" s
 | Virtual Machines: [Azure Dedicated Host](migrate-vm.md) | ![An icon that signifies this service is zonal.](media/icon-zonal.svg) |
 | Virtual Machines: [Ddsv4-Series](migrate-vm.md) | ![An icon that signifies this service is zonal.](media/icon-zonal.svg) |
 | Virtual Machines: [Ddv4-Series](migrate-vm.md) | ![An icon that signifies this service is zonal.](media/icon-zonal.svg) |
-| Virtual Machines: [Dsv4-Series](migrate-vm.mdd) | ![An icon that signifies this service is zonal.](media/icon-zonal.svg) |
+| Virtual Machines: [Dsv4-Series](migrate-vm.md) | ![An icon that signifies this service is zonal.](media/icon-zonal.svg) |
 | Virtual Machines: [Dv4-Series](migrate-vm.md) | ![An icon that signifies this service is zonal.](media/icon-zonal.svg) |
 | Virtual Machines: [Edsv4-Series](migrate-vm.md) | ![An icon that signifies this service is zonal.](media/icon-zonal.svg) |
 | Virtual Machines: [Edv4-Series](migrate-vm.md) | ![An icon that signifies this service is zonal.](media/icon-zonal.svg) |
