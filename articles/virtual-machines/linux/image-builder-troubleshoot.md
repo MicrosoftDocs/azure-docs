@@ -677,7 +677,7 @@ For more information about Azure DevOps capabilities and limitations, see [Micro
  
 #### Solution
 
-You can host your own DevOps agents or look to reduce the time of your build. For example, if you're distributing to Azure Compute Gallery, replicate to one region. If you want to replicate asynchronously. 
+You can host your own DevOps agents or look to reduce the time of your build. For example, if you're distributing to Azure Compute Gallery, you can replicate them to one region or replicate them asynchronously. 
 
 ### Slow Windows logon
 
