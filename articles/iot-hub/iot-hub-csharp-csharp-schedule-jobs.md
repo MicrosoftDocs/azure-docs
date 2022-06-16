@@ -85,6 +85,8 @@ In this section, you create a .NET console app that responds to a direct method 
     using Microsoft.Azure.Devices.Client;
     using Microsoft.Azure.Devices.Shared;
     using Newtonsoft.Json;
+    using System.Threading.Tasks;
+    using System.Text;
     ```
 
 1. Add the following fields to the **Program** class. Replace the placeholder value with the device connection string that you noted in the previous section:
