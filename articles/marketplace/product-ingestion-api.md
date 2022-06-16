@@ -50,7 +50,7 @@ To update an existing resource, a typical workflow would be to:
 1. Make any necessary updates and then submit a configuration request (API type: Configure submit)
 1. Check the status of the request (API type: Configure status & Configure status details)
 
-`*` This same workflow can be leveraged when creating new resources, but instead of retrieving resources (Step 1), use the [Resource API reference](#resource-api-reference) table to ensure that you are leveraging the current schema for the resource type that you are creating.
+<sup>`*`</sup> This same workflow can be leveraged when creating new resources, but instead of retrieving resources (Step 1), use the [Resource API reference](#resource-api-reference) table to ensure that you are leveraging the current schema for the resource type that you are creating.
 To summarize, this image shows the typical calling pattern used to submit a configuration request, regardless of whether you are creating new or modifying an existing resource.
 
 :::image type="content" source="./media/product-ingestion-api/product-ingestion-api-workflow.png" alt-text="Image of a typical Product Ingestion API workflow.":::
@@ -157,7 +157,7 @@ This table shows the supported query parameters for each of the supported resour
 | Resource Type | Parameters | Query string examples |
 | ------------ | ------------- | ------------- |
 | plan | product `*`<br>externalId<br>$maxpagesize<br>$skip<br>$top | `GET plan?product=<product-durableId>`<br>`GET plan?product=<product-durableId>&externalId=<plan-externalId>`<br>`GET plan?product=<product-durableId>&$maxpagesize=<#>`<br>`GET plan?product=<product-durableId>&$skip=<#>&$top=<#>` |
-| product | externalId<br>type<br>$maxpagesize<br>$skip<br>$top<br>continuationToken | `GET product?externalId=<product-externalId>`<br>`GET product?type=<product-type>`<br>`GET product?$maxpagesize=<#>`<br>`GET product?$skip=<#>&$top=<#>`<br>`GET product?continuationToken=<token>` |
+| product | externalId<br>type<br>$maxpagesize<br>$skip<br>$top<br>continuationToken | `GET product?externalId=<product-externalId>`<br>`GET product?type=<product-type>`<br>`GET product?$maxpagesize=<#>`<br>`GET product?$skip=<#>&$top=<#>`<br>`GET product?continuationToken=<token>`|
 | submission | targetType<br>$maxpagesize<br>continuationToken | `GET submission/<product-durableId>?targetType=<environment>`<br>`GET submission/<product-id>?$maxpagesize=<#>&continuationToken=<token>` |
 | resource-tree | targetType | `GET resource-tree/<product-durableId>?targetType=<environment>` |
 
@@ -205,7 +205,7 @@ The external ID of product and plan resources is defined within the “_identity
 {
     "$schema": "https://product-ingestion.azureedge.net/schema/plan/2022-03-01-preview2", 
     "alias": "my new plan",
-    "identity": {"externalId": "**myPlanName123**"} 
+    "identity": {"externalId": "myPlanName123"} 
      ...
  }
  {
