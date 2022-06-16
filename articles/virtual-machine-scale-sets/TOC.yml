@@ -139,8 +139,24 @@
     href: virtual-machine-scale-sets-manage-fault-domains.md
   - name: Understand instance IDs
     href: virtual-machine-scale-sets-instance-ids.md
+  - name: Run Command
+    items:
+    - name: Overview
+      displayName: Run command
+      href: run-command-overview.md
+    - name: Action Run Commands for Linux
+      href: ./linux/run-command.md
+    - name: Action Run Commands for Windows
+      href: ./windows/run-command.md
+    - name: Managed Run Commands for Linux 
+      href: ./linux/run-command-managed.md
+    - name: Managed Run Commands for Windows
+      href: ./windows/run-command-managed.md
   - name: Extensions
     items:
+    - name: Extensions Overview
+      href: ../virtual-machines/extensions/overview.md
+      maintainContext: true
     - name: Automatic extension upgrade 
       href: ../virtual-machines/automatic-extension-upgrade.md
       maintainContext: true
@@ -194,46 +210,10 @@
     maintainContext: true
   - name: Use data disks with scale sets
     href: virtual-machine-scale-sets-attached-disks.md
-- name: Networking
-  items: 
-  - name: Networking Overview
-    href: ../virtual-network/network-overview.md
-    maintainContext: true
-  - name: Network performance
-    href: ../virtual-network/virtual-network-optimize-network-bandwidth.md
-    maintainContext: true
-  - name: Use an existing virtual network
-    href: virtual-machine-scale-sets-mvss-existing-vnet.md
-- name: Security
-  items:
-  - name: Security and policy
-    href: ../virtual-machines/security-policy.md
-    maintainContext: true
-  - name: Automatic OS upgrades
-    href: virtual-machine-scale-sets-automatic-upgrade.md
-  - name: Maintenance control
-    items:
-    - name: Overview
-      href: ../virtual-machines/virtual-machine-scale-sets-maintenance-control.md
-    - name: PowerShell
-      href: ../virtual-machines/virtual-machine-scale-sets-maintenance-control-powershell.md
-    - name: CLI
-      href: ../virtual-machines/virtual-machine-scale-sets-maintenance-control-CLI.md
-    - name: Portal
-      href: ../virtual-machines/virtual-machine-scale-sets-maintenance-control-portal.md
-  - name: Automatic VM guest patching
-    items:
-    - name: Overview
-      href: ../virtual-machines/automatic-vm-guest-patching.md
-      maintainContext: true
-    - name: Hotpatch
-      href: ../automanage/automanage-hotpatch.md
-      maintainContext: true
+  - name: Server-side disk Encryption
+    href: ../virtual-machines/disk-encryption.md
   - name: Azure Disk Encryption
     href: disk-encryption-overview.md
-  - name: Azure security baseline
-    href: /security/benchmark/azure/baselines/virtual-machine-scale-sets-security-baseline
-    maintainContext: true
   - name: Encrypt disks in scale sets
     items:
     - name: Use PowerShell
@@ -246,6 +226,49 @@
       href: disk-encryption-extension-sequencing.md
     - name: Key vault for Azure Disk Encryption
       href: disk-encryption-key-vault.md
+- name: Networking
+  items: 
+  - name: Networking Overview
+    href: ../virtual-network/network-overview.md
+    maintainContext: true
+  - name: Network performance
+    href: ../virtual-network/virtual-network-optimize-network-bandwidth.md
+    maintainContext: true
+  - name: Default outbound access in Azure
+    href: ../virtual-network/ip-services/default-outbound-access.md
+  - name: Networking for scale sets
+    href: virtual-machine-scale-sets-networking.md
+  - name: Use an existing virtual network
+    href: virtual-machine-scale-sets-mvss-existing-vnet.md
+- name: Security
+  items:
+  - name: Security and policy
+    href: ../virtual-machines/security-policy.md
+    maintainContext: true
+  - name: Automatic OS image upgrades
+    href: virtual-machine-scale-sets-automatic-upgrade.md
+    items: 
+    - name: Maintenance control
+      items:
+      - name: Overview
+        href: ../virtual-machines/virtual-machine-scale-sets-maintenance-control.md
+      - name: PowerShell
+        href: ../virtual-machines/virtual-machine-scale-sets-maintenance-control-powershell.md
+      - name: CLI
+        href: ../virtual-machines/virtual-machine-scale-sets-maintenance-control-CLI.md
+      - name: Portal
+        href: ../virtual-machines/virtual-machine-scale-sets-maintenance-control-portal.md
+  - name: Automatic VM guest patching
+    items:
+    - name: Overview
+      href: ../virtual-machines/automatic-vm-guest-patching.md
+      maintainContext: true
+    - name: Hotpatch
+      href: ../automanage/automanage-hotpatch.md
+      maintainContext: true
+  - name: Azure security baseline
+    href: /security/benchmark/azure/baselines/virtual-machine-scale-sets-security-baseline
+    maintainContext: true
 - name: Reference
   items:
   - name: Azure CLI
