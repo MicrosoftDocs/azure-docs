@@ -26,7 +26,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Prerequisites
 
-* An Azure subscription.
+* An Azure subscription
 
 ## Sign in to Azure
 
@@ -100,7 +100,7 @@ In this section, you'll create a virtual machine that will be used to test the p
     | Resource Group | Select **myResourceGroup** |
     | **Instance details** |  |
     | Virtual machine name | Enter **myVM** |
-    | Region | Select **East US** |
+    | Region | Select **(US) East US** |
     | Availability Options | Select **No infrastructure redundancy required** |
     | Security type | Select **Standard** |
     | Image | Select **Windows Server 2019 Datacenter - Gen2** |
