@@ -24,7 +24,7 @@ At the end of the previous tutorial, your template had the following JSON file:
 
 :::code language="json" source="~/resourcemanager-templates/get-started-with-templates/add-sku/azuredeploy.json":::
 
-Suppose you hard-coded the location of the [Azure storage account](../../storage/common/storage-account-create.md) to **eastus**, but you now need to deploy it to another region. You need to add a parameter to add flexibility to your template and allow it to have a different location. 
+Suppose you hard-coded the location of the [Azure storage account](../../storage/common/storage-account-create.md) to **eastus**, but you need to deploy it to another region. You need to add a parameter to add flexibility to your template and allow it to have a different location. 
 
 ## Use function
 
