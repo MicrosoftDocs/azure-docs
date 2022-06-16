@@ -196,9 +196,9 @@ Error message: VM creation failed due to Market Place purchase request being not
 
 Azure Backup supports backup and restore of VMs which are available in Azure Marketplace. This error occurs when you are trying to restore a VM (with a specific Plan/Publisher setting) which is no longer available in Azure Marketplace, [Learn more here](/legal/marketplace/participation-policy#offering-suspension-and-removal).
 
-In this scenario, it's not possible to create the VM from the restored disks. Therefore, you may need to contact the plan publisher.
+In this scenario, it may not be possible to create the VM from the restored disks.
 
-If the publisher does not have any Marketplace information, you can use the data disks to retrieve your data and you can attach them to an existing VM.
+If the publisher doesn't have any Marketplace information, you can use the data disks to retrieve your data and you can attach them to an existing VM.
 
 ### ExtensionConfigParsingFailure - Failure in parsing the config for the backup extension
 
