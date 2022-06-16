@@ -43,4 +43,4 @@ Thus users can use Prism to manage everything they would want to manage, while n
 ## Next step
 
 > [!div class="nextstepaction"]
-> [Learn about the NC2 on Microsoft Azure Public Preview](about-the-public-preview.md)
+> [Getting started with NC2-on-Azure](getting-started.md)
