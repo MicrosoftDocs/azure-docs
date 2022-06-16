@@ -183,7 +183,7 @@ AzureDiagnostics
 ```
 
 Application metrics includes the following runtime metrics. 
-:::image type="content" source="./media/monitor-event-hubs/application-metrics-logs.png" alt-text="Image showing the result of a sample query to analyze application metrics." lightbox="./media/monitor-event-hubs/./media/monitor-event-hubs/application-metrics-logs.png":::
+:::image type="content" source="./media/monitor-event-hubs/application-metrics-logs.png" alt-text="Image showing the result of a sample query to analyze application metrics." lightbox="./media/monitor-event-hubs/application-metrics-logs.png":::
 
 Therefore you can use application metrics to monitor runtime metrics such as consumer lag or active connection from a given client application. Each feild associated with runtime audit logs are defined in [applicaiton metrics logs reference](../event-hubs/monitor-event-hubs-reference.md#runtime-audit-logs). 
 
