@@ -8,8 +8,6 @@ ms.date: 07/01/2021
 
 # SKUs
 
-Gen6 vs Gen7 (Swapna to check AVS documentation)
-
 | Component |Ready Node for Nutanix AN36|Ready Node for Nutanix AN36P|
 | :------------------- | -------------------: |:---------------:|
 |Core|Intel 6140, 36 Core, 2.3 GHz|Intel 6240, 36 Core, 2.6 GHz|
