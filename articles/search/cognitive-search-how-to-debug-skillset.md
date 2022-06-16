@@ -25,7 +25,7 @@ A debug session is a cached indexer and skillset execution, scoped to a single d
 
 + An Azure Storage account, used to save session state.
 
-+ A **Storage Blob Data Contributor** role assingement in Azure Storage. 
++ A **Storage Blob Data Contributor** role assignment in Azure Storage. 
 
 + If the Azure Storage account is behind a firewall, configure it to [allow Search service access](search-indexer-howto-access-ip-restricted.md).
 
@@ -159,7 +159,7 @@ Custom skills can be more challenging to debug because the code runs externally.
     ```
 
     > [!NOTE]
-    > By default, Azure Functions are exposed on 7071. Other tools and configurations might require that you provide a different port.
+    > By default, Azure functions are exposed on 7071. Other tools and configurations might require that you provide a different port.
 
 1. When ngrok starts, copy and save the public forwarding URL for the next step. The forwarding URL is randomly generated.
 
