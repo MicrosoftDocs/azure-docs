@@ -18,7 +18,7 @@ Azure Private 5G Core is an Azure cloud service for deploying and managing 5G co
 - A private mobile network.
 - A site.
 - The default service and SIM policy (as described in [Default service and SIM policy](default-service-sim-policy.md)).
-- Optionally, one or more SIMs.
+- Optionally, one or more SIMs, and a SIM group.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
