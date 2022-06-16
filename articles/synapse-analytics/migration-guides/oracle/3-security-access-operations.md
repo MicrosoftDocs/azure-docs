@@ -66,7 +66,7 @@ This section addresses the possible methods of authentication for existing legac
 
 It is assumed that there is a requirement to migrate the existing methods of connection and user/role/permission structure 'as-is'. If this is not the case, then Azure utilities (e.g. Azure Portal) can be used to create and manage a new security regime.
 
-For more information on the Azure Synapse security options see <https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-overview-manage-security#authorization>
+For more information on the Azure Synapse security options, see [Secure a dedicated SQL pool (formerly SQL DW) in Azure Synapse Analytics](../../sql-data-warehouse/sql-data-warehouse-overview-manage-security.md#authorization).
 
 ### Connection and authentication
 
@@ -78,27 +78,27 @@ Authentication is the process of verifying the identity of a user, device, or ot
 
 ##### Database authentication
 
-> With this approach administration of the user account including > authentication of that user is performed entirely by Oracle database. > To have Oracle database authenticate a user, a password for the user > is specified when the user is created (or altered). Users can change > their password at any time. Passwords are stored in an encrypted > format and Oracle recommends the use of password management, including > account locking, password aging and expiration, password history, and > password complexity verification. This method is very common in older > Oracle installations.
+With this approach administration of the user account including authentication of that user is performed entirely by Oracle database. To have Oracle database authenticate a user, a password for the user is specified when the user is created (or altered). Users can change their password at any time. Passwords are stored in an encrypted format and Oracle recommends the use of password management, including account locking, password aging and expiration, password history, and password complexity verification. This method is very common in older Oracle installations.
 
 ##### External authentication
 
-> With external authentication for a user, the user account is > maintained by Oracle database, but password administration and user > authentication is performed by an external service. This external > service can be the operating system or a network service, such as > Oracle Net. The database relies on the underlying operating system or > network authentication service to restrict access to database > accounts. A database password is not used for this type of login. > There are 2 external authentication options:
+With external authentication for a user, the user account is maintained by Oracle database, but password administration and user authentication is performed by an external service. This external service can be the operating system or a network service, such as Oracle Net. The database relies on the underlying operating system or network authentication service to restrict access to database accounts. A database password is not used for this type of login. There are 2 external authentication options:
 
 ###### Operating System Authentication
 
-> By default, Oracle allows operating-system-authenticated logins only > over secure connections, which precludes using Oracle Net and a shared > server configuration. This default restriction prevents a remote user > from impersonating another operating system user over a network > connection.
+By default, Oracle allows operating-system-authenticated logins only over secure connections, which precludes using Oracle Net and a shared server configuration. This default restriction prevents a remote user from impersonating another operating system user over a network connection.
 
 ###### Network Authentication
 
-> With this approach, more choices of authentication mechanism are > available, such as smart cards, fingerprints, Kerberos, or the > operating system. Many network authentication services, such as > Kerberos support single sign-on, enabling users to have fewer > passwords to remember.
+With this approach, more choices of authentication mechanism are available, such as smart cards, fingerprints, Kerberos, or the operating system. Many network authentication services, such as Kerberos support single sign-on, enabling users to have fewer passwords to remember.
 
 ##### Global Authentication and Authorization 
 
-> Oracle Advanced Security enables centralized management of > user-related information, including authorizations, in an LDAP-based > directory service. Users can be identified in the database as global > users, meaning that they are authenticated by SSL and that the > management of these users is done outside of the database by the > centralized directory service. > > This approach provides strong authentication using SSL, Kerberos, or > Windows native authentication and enables centralized management of > users and privileges across the enterprise. Is easy to administer in > that it is not necessary to create a schema for every user in every > database in the enterprise and also facilitates single sign-on so that > users only need to sign on once to access multiple databases and > services.
+Oracle Advanced Security enables centralized management of user-related information, including authorizations, in an LDAP-based directory service. Users can be identified in the database as global users, meaning that they are authenticated by SSL and that the management of these users is done outside of the database by the centralized directory service. This approach provides strong authentication using SSL, Kerberos, or Windows native authentication and enables centralized management of users and privileges across the enterprise. Is easy to administer in that it is not necessary to create a schema for every user in every database in the enterprise and also facilitates single sign-on so that users only need to sign on once to access multiple databases and services.
 
 ##### Proxy Authentication and Authorization 
 
-> It is possible to designate a middle-tier server to proxy clients in a > secure fashion. Oracle provides various options for proxy > authentication: > > The middle-tier server can authenticate itself with the database > server and a client, in this case an application user or another > application, authenticates itself with the middle-tier server. Client > identities can be maintained all the way through to the database. > > The client, in this case a database user, is not authenticated by the > middle-tier server. The client's identity and database password are > passed through the middle-tier server to the database server for > authentication. > > The client, in this case a global user, is authenticated by the > middle-tier server, and passes either a Distinguished Name (DN) or > Certificate through the middle tier for retrieving the client\'s user > name.
+It is possible to designate a middle-tier server to proxy clients in a secure fashion. Oracle provides various options for proxy authentication: The middle-tier server can authenticate itself with the database server and a client, in this case an application user or another application, authenticates itself with the middle-tier server. Client identities can be maintained all the way through to the database. The client, in this case a database user, is not authenticated by the middle-tier server. The client's identity and database password are passed through the middle-tier server to the database server for authentication. The client, in this case a global user, is authenticated by the middle-tier server, and passes either a Distinguished Name (DN) or Certificate through the middle tier for retrieving the client\'s user name.
 
 #### Azure Synapse authorization options
 
@@ -134,7 +134,7 @@ The information about current users and groups in an Oracle system is held in sy
 
 See below for some basic examples:
 
-> \-- List of users > > select \* from dba_users order by username; > > \--List of roles > > select \* from dba_roles order by role; > > \--List of users and their associated roles > > select \* from user_role_privs order by username, granted_role;
+\-- List of users select \* from dba_users order by username; \--List of roles select \* from dba_roles order by role; \--List of users and their associated roles select \* from user_role_privs order by username, granted_role;
 
 SQL Developer also has built-in options to display this information in the 'Reports' section -- see example screen shot below:
 
@@ -270,7 +270,7 @@ Truncate Allows the user to delete all TRUNCATE rows from a table. Applies only 
 
 Update Allows the user to modify table UPDATE rows. Applies to tables only. &mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;
 
-For more full details of Azure Synapse permissions see <https://docs.microsoft.com/sql/relational-databases/security/permissions-database-engine?view=sql-server-2017>
+For more full details of Azure Synapse permissions, see [Database Engine Permissions](/sql/relational-databases/security/permissions-database-engine.md).
 
 #### Migrating Users, Roles and Privileges
 
@@ -302,11 +302,11 @@ Oracle administration tasks typically fall into two categories:
 
 ##### System administration
 
-> Managing the hardware, configuration settings, system status, access, > disk space, usage, upgrades, and other tasks
+Managing the hardware, configuration settings, system status, access, disk space, usage, upgrades, and other tasks
 
 ##### Database administration
 
-> Managing the user databases and their content, loading data, backing > up data, restoring data, controlling access to data and permissions
+Managing the user databases and their content, loading data, backing up data, restoring data, controlling access to data and permissions
 
 Oracle offers several methods or interfaces that you can use to perform the various system and database management tasks:
 
@@ -362,13 +362,13 @@ The Azure Portal can also provide recommendations for performance enhancements a
 
 The portal also enables integration with other Azure monitoring services such as Operations Management Suite (OMS) and Azure Monitor (logs) to provide a holistic monitoring experience for not only the data warehouse but also the entire Azure analytics platform for an integrated monitoring experience.
 
-For more information on the Azure Synapse operations and management options see <https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-how-to-manage-and-monitor-workload-importance>
+For more information on the Azure Synapse operations and management options see [Manage and monitor workload importance in dedicated SQL pool for Azure Synapse Analytics](../../sql-data-warehouse/sql-data-warehouse-how-to-manage-and-monitor-workload-importance.md).
 
 ### High Availability (HA) and Disaster Recovery (DR)
 
 Oracle originally became available in 1979 and since then has evolved to incorporate many features required by large enterprise customers including a variety of options for high availability and disaster recovery. The latest announcements in this area is Maximum Availability Architecture (MAA) which incorporates a wide range of options including reference architectures for 4 levels of high availability and disaster recovery:
 
-> Bronze Tier -- A Single Instance HA Architecture > > Silver Tier - High Availability with Automatic Failover > > Gold Tier - Comprehensive High Availability and Disaster Recovery > > Platinum Tier - Zero Outage for Platinum Ready Applications
+Bronze Tier -- A Single Instance HA Architecture Silver Tier - High Availability with Automatic Failover Gold Tier - Comprehensive High Availability and Disaster Recovery Platinum Tier - Zero Outage for Platinum Ready Applications
 
 Azure Synapse creates snapshots automatically to ensure a fast recovery time
 
@@ -382,7 +382,7 @@ Microsoft Azure provides automatic backups to a separate geographical location t
 
 User-defined restore points are also supported, allowing manual triggering of snapshots to create restore points of a data warehouse before and after large modifications. This capability ensures that restore points are logically consistent, which provides additional data protection in case of any workload interruptions or user errors for quick recovery time.
 
-As well as the snapshots described above, Azure Synapse also performs as standard a geo-backup once per day to a [paired data center](https://docs.microsoft.com/azure/best-practices-availability-paired-regions). The RPO for a geo-restore is 24 hours. You can restore the geo-backup to a server in any other region where Azure Synapse is supported. A geo-backup ensures that a data warehouse can be restored in case the restore points in the primary region are not available.
+As well as the snapshots described above, Azure Synapse also performs as standard a geo-backup once per day to a [paired data center](/azure/availability-zones/cross-region-replication-azure). The RPO for a geo-restore is 24 hours. You can restore the geo-backup to a server in any other region where Azure Synapse is supported. A geo-backup ensures that a data warehouse can be restored in case the restore points in the primary region are not available.
 
 ### Workload management
 
@@ -408,7 +408,7 @@ Azure Synapse provides a set of Dynamic Management Views (DMVs) for monitoring o
 
 In Azure Synapse resource classes are pre-determined resource limits that govern compute resources and concurrency for query execution. Resource classes can help you manage your workload by setting limits on the number of queries that run concurrently and on the compute resources assigned to each query. There\'s a trade-off between memory and concurrency.
 
-See <https://docs.microsoft.com/azure/sql-data-warehouse/resource-classes-for-workload-management> for detailed information.
+See [Workload management with resource classes in Azure Synapse Analytics](../../sql-data-warehouse/resource-classes-for-workload-management.md) for detailed information.
 
 This information can also be used for capacity planning -- i.e. determining the resources required for additional users or application workload. This also applies to planning scale up/scale down of compute resources (see section below) for cost-effective support of 'peaky' workloads.
 

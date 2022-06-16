@@ -122,15 +122,15 @@ Oracle implements some database objects that are not directly supported in Azure
 
 - Various indexing options -- In Oracle there are several indexing options which have no direct equivalent in Azure Synapse. For example, bit-mapped indexes, function-based indexes and domain indexes.
 
-> Azure Synapse does not specifically include these index types, but > similar results (i.e. reduction of disk I/O to improve performance > when running queries) can be achieved by using other (user-defined) > index types and/or partitioning. > > It is possible to find out which columns are indexed and the index > type by querying system catalog tables and views such as ALL_INDEXES, > DBA_INDEXES and USER_INDEXES. It is also possible to find which > indexes are actually used by querying the v\$object_usage view if > monitoring has been enabled. > > It is not unusual for a data warehouse migrated to Synapse to need > fewer indexes than the original Oracle data warehouse due to > implementation features such as parallel query processing, result set > caching which can provide excellent performance without the need for > indexes.
+Azure Synapse does not specifically include these index types, but similar results (i.e. reduction of disk I/O to improve performance when running queries) can be achieved by using other (user-defined) index types and/or partitioning. It is possible to find out which columns are indexed and the index type by querying system catalog tables and views such as ALL_INDEXES, DBA_INDEXES and USER_INDEXES. It is also possible to find which indexes are actually used by querying the v\$object_usage view if monitoring has been enabled. It is not unusual for a data warehouse migrated to Synapse to need fewer indexes than the original Oracle data warehouse due to implementation features such as parallel query processing, result set caching which can provide excellent performance without the need for indexes.
 
 - Clustered tables -- In Oracle tables can be organized so that rows of tables that are frequently accessed together (based on a common value) are physically stored together, reducing disk I/O when this data is retrieved. There is also a hash-cluster option for individual tables, where a hash value is applied to the cluster key and rows with the same hash value are stored physically close together.
 
-> In Azure Synapse a similar effect can be achieved by use of > partitioning and/or use of other indexes.
+In Azure Synapse a similar effect can be achieved by use of partitioning and/or use of other indexes.
 
 - Materialized views -- Oracle supports materialized views and recommends that 1 (or more) of these is created over large tables that have many columns where only a few of those columns are regularly used in queries. Materialized views are automatically maintained by the system when data in the base table is updates.
 
-> As of May 2019, Microsoft has announced that Azure Synapse will > support materialized views which have the same functionality as Oracle > -- this feature is now available in preview.
+As of May 2019, Microsoft has announced that Azure Synapse will support materialized views which have the same functionality as Oracle -- this feature is now available in preview.
 
 - In-database triggers -- A trigger in Oracle is executed automatically when a triggering event takes place. The event can be any of the following:
 
@@ -142,15 +142,15 @@ Oracle implements some database objects that are not directly supported in Azure
 
 - A user event such as login or logout.
 
-> Azure Synapse does not currently support this functionality within the > database -- however equivalent functionality can be incorporated using > Azure Data Factory though this will require refactoring of processes > that use triggers.
+Azure Synapse does not currently support this functionality within the database -- however equivalent functionality can be incorporated using Azure Data Factory though this will require refactoring of processes that use triggers.
 
 - Synonyms -- Oracle allows the definition of synonyms which are alternative names for a table, view, sequence, procedure, stored function, package, materialized view, Java class schema object, user-defined object type, or another synonym.
 
-> Azure Synapse does not currently support this feature -- if the > synonym refers to a table or view, then a view can be defined to > provide an alternative name. If the synonym refers to a function or > stored procedure then another function or procedure which calls the > target can replace the synonym.
+Azure Synapse does not currently support this feature -- if the synonym refers to a table or view, then a view can be defined to provide an alternative name. If the synonym refers to a function or stored procedure then another function or procedure which calls the target can replace the synonym.
 
 - User-defined types -- Oracle allows the definition of user-defined objects which can contain a series of individual fields, each with their own definition and default values. These user-defined objects can then be referenced within a table definition in the same way as built-in data types (e.g. NUMBER or VARCHAR).
 
-> Azure Synapse does not currently support this feature -- if the data > to be migrated includes user-defined data types, they must be either > 'flattened' into a conventional table definition, or normalized to a > separate table in the case of arrays of data.
+Azure Synapse does not currently support this feature -- if the data to be migrated includes user-defined data types, they must be either 'flattened' into a conventional table definition, or normalized to a separate table in the case of arrays of data.
 
 #### Oracle data type mapping
 
@@ -264,7 +264,7 @@ There are some differences in SQL Data Manipulation Language (DML) syntax betwee
 
 - DUAL table -- in Oracle there is a system table which consists of exactly one column named 'dummy', and one record (with the value 'X'). It is used when a query requires a table name (for syntax reasons) but the actual contents of the table is not needed -- e.g.
 
-> SELECT sysdate from dual; > > The Azure Synapse equivalent of this is simply > > SELECT GETDATE(); > > During a migration it may be simpler to create an equivalent DUAL > table in Azure Synapse -- this can be done as follows: > > CREATE TABLE DUAL\ > (\ > DUMMY VARCHAR(1)\ > )\ > GO\ > INSERT INTO DUAL (DUMMY)\ > VALUES (\'X\')\ > GO
+SELECT sysdate from dual; The Azure Synapse equivalent of this is simply SELECT GETDATE(); During a migration it may be simpler to create an equivalent DUAL table in Azure Synapse -- this can be done as follows: CREATE TABLE DUAL\ (\ DUMMY VARCHAR(1)\ )\ GO\ INSERT INTO DUAL (DUMMY)\ VALUES (\'X\')\ GO
 
 - NULL values -- in Oracle the empty string (i.e. a CHAR or VARCHAR string of length 0) is equivalent to a NULL value -- this is not the case in Azure Synapse (or indeed most other databases). Therefore care must be taken when migrating data and processes which store and handle these values to ensure consistency.
 
@@ -272,7 +272,7 @@ There are some differences in SQL Data Manipulation Language (DML) syntax betwee
 
 Old Oracle syntax:
 
-> SELECT > > d.deptno, e.job > > FROM > > dept d, > > emp e > > WHERE > > d.deptno = e.deptno (+) > > AND e.job (+) = \'CLERK\' > > GROUP BY > > d.deptno, e.job; > > ANSI standard syntax: > > SELECT > > d.deptno, e.job > > FROM > > dept d > > LEFT OUTER JOIN emp e ON d.deptno = e.deptno > > and e.job = \'CLERK\' > > GROUP BY > > d.deptno, > > e.job > > ORDER BY > > d.deptno, e.job;
+SELECT d.deptno, e.job FROM dept d, emp e WHERE d.deptno = e.deptno (+) AND e.job (+) = \'CLERK\' GROUP BY d.deptno, e.job; ANSI standard syntax: SELECT d.deptno, e.job FROM dept d LEFT OUTER JOIN emp e ON d.deptno = e.deptno and e.job = \'CLERK\' GROUP BY d.deptno, e.job ORDER BY d.deptno, e.job;
 
 - DATE data -- Oracle DATE data type can store date and time, whereas in Azure Synapse there are separate DATE, TIME and DATETIME data types. When migrating it is good practice to examine the usage of Oracle DATE columns to determine whether time data is being stored in there, or only the date. If no time data is being stored, map the column to DATE , otherwise to DATETIME.
 
@@ -340,15 +340,15 @@ See below for more information on each of these elements:
 
 ##### Functions
 
-> In common with most database products, Oracle supports system > functions and also user-defined functions within the SQL > implementation. When migrating to another database platform such as > Azure Synapse common system functions are generally available and can > be migrated without change. Some system functions may have slightly > different syntax but the required changes can be automated in this > case. > > For system functions where there is no equivalent, of for arbitrary > user-defined functions these may need to be re-coded using the > language(s) available in the target environment. Oracle user-defined > functions are coded in PL/SQL, Java or C languages whereas Azure > Synapse uses the popular Transact-SQL language for implementation of > user-defined functions.
+In common with most database products, Oracle supports system functions and also user-defined functions within the SQL implementation. When migrating to another database platform such as Azure Synapse common system functions are generally available and can be migrated without change. Some system functions may have slightly different syntax but the required changes can be automated in this case. For system functions where there is no equivalent, of for arbitrary user-defined functions these may need to be re-coded using the language(s) available in the target environment. Oracle user-defined functions are coded in PL/SQL, Java or C languages whereas Azure Synapse uses the popular Transact-SQL language for implementation of user-defined functions.
 
 ##### Stored procedures
 
-> Most modern database products allow for procedures to be stored within > the database -- in Oracle's case the PL/SQL language is provided for > this purpose. A stored procedure typically contains SQL statements and > some procedural logic and may return data or a status. > > SQL Azure Data Warehouse also supports stored procedures using T-SQL > -- so if there are stored procedures to be migrated they must be > recoded accordingly.
+Most modern database products allow for procedures to be stored within the database -- in Oracle's case the PL/SQL language is provided for this purpose. A stored procedure typically contains SQL statements and some procedural logic and may return data or a status. SQL Azure Data Warehouse also supports stored procedures using T-SQL -- so if there are stored procedures to be migrated they must be recoded accordingly.
 
 ##### Sequences
 
-> In Oracle a sequence is a named database object created via CREATE > SEQUENCE that can provide the unique value via the NEXT VALUE FOR > method. These can be used to generate unique numbers that can be used > as surrogate key values for primary key values. > > Within Azure Synapse there is no CREATE SEQUENCE so sequences are > handled via use of IDENTITY columns or using SQL code to create the > next sequence number in a series.
+In Oracle a sequence is a named database object created via CREATE SEQUENCE that can provide the unique value via the NEXT VALUE FOR method. These can be used to generate unique numbers that can be used as surrogate key values for primary key values. Within Azure Synapse there is no CREATE SEQUENCE so sequences are handled via use of IDENTITY columns or using SQL code to create the next sequence number in a series.
 
 #### Use EXPLAIN to validate legacy SQL
 
