@@ -80,7 +80,7 @@ Each service includes:
 
 ### SIM policies
 
-*SIM policies* let you define different sets of policies and interoperability settings. You can assign a SIM policy to a SIM group or to individual SIMs. If you don't directly assign a SIM policy to a SIM, it will inherit the SIM policy assigned to its SIM group. You'll need to assign a SIM policy to a SIM (either directly or through its SIM group) before the UE using that SIM can access the private mobile network.
+*SIM policies* let you define different sets of policies and interoperability settings that can each be assigned to one or more SIMs. You'll need to assign a SIM policy to a SIM (either directly or through its SIM group) before the UE using that SIM can access the private mobile network.
 
 Each SIM policy includes:
 
@@ -105,7 +105,7 @@ When you first come to design the policy control configuration for your own priv
 1. Learn about each of the available options for a service in [Collect the required information for a service](collect-required-information-for-service.md). Compare these options with the requirements of the SDFs to decide on the services you'll need.
 1. Collect the appropriate policy configuration values you'll need for each service, using the information in [Collect the required information for a service](collect-required-information-for-service.md).
 1. Configure each of your services as described in [Configure a service - Azure portal](configure-service-azure-portal.md).
-1. Categorize your SIMs according to the services they'll require. For each category, configure a SIM policy and assign it to the correct SIMs or SIM groups by carrying out the following procedures:
+1. Categorize your SIMs according to the services they'll require. For each category, configure a SIM policy and assign it to the correct SIMs by carrying out the following procedures:
 
     1. [Collect the required information for a SIM policy](collect-required-information-for-sim-policy.md)
     1. [Configure a SIM policy - Azure portal](configure-sim-policy-azure-portal.md)

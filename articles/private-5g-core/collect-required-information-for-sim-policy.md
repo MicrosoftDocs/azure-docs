@@ -12,7 +12,7 @@ ms.custom: template-how-to
 
 # Collect the required information for a SIM policy for Azure Private 5G Core Preview
 
-SIM policies allow you to define different sets of policies and interoperability settings. Each SIM policy can be assigned to a SIM group or to individual SIMs. This allows you to offer different quality of service (QoS) policy settings to different SIMs on the same data network. 
+SIM policies allow you to define different sets of policies and interoperability settings. Each SIM policy can be assigned to a different set of SIMs. This allows you to offer different quality of service (QoS) policy settings to different SIMs on the same data network. 
 
 In this how-to guide, we'll collect all the required information to configure a SIM policy.
 
