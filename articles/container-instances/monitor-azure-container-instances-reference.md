@@ -21,7 +21,7 @@ This section lists all the automatically collected platform metrics collected fo
 |-------|-----|
 | Container Instances | [Microsoft.ContainerInstance/containerGroups](/azure/azure-monitor/platform/metrics-supported#microsoftcontainerinstancecontainergroups) |
 
-## Metric Dimensions
+## Metric dimensions
 
 For more information on what metric dimensions are, see [Multi-dimensional metrics](/azure/azure-monitor/platform/data-platform-metrics#multi-dimensional-metrics).
 
