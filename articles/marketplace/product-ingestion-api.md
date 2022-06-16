@@ -245,10 +245,9 @@ Certain resources have dependencies on the creation of another resource as a pre
 
 In this example, the product must be created prior to the plan and therefore, the “_resourceName_” property is used.
 
+```json
 POST https://graph.microsoft.com/rp/product-ingestion/configure
 
-
-```json
 {
   "$schema": "https://product-ingestion.azureedge.net/schema/configure/2022-03-01-preview2"
   "resources": [
@@ -327,7 +326,6 @@ Alternatively, if you are not prepared to publish all draft changes across vario
 ***Sample request:***
 
 In this example, resources in the product are explicitly provided as part of the modular publish followed by the submission resource.
-
 
 ```json
 POST https://graph.microsoft.com/rp/product-ingestion/configure
@@ -480,9 +478,9 @@ Updates to private audiences in the draft, preview, and live environments can be
 
 ***Sample request to sync the private audience configuration:***
 
+```json
 POST https://graph.microsoft.com/rp/product-ingestion/configure
 
-```json
 {
   "$schema": "https://product-ingestion.azureedge.net/schema/configure/2022-03-01-preview2"
   "resources": [
@@ -637,5 +635,4 @@ The Product Ingestion API will be made available to additional offer types in th
 
 | Offer type | Offer-specific resources |
 | ------------ | ------------- |
-| Virtual machine | Prerequisites<br>Guidance to use APIs for VMs<br>How to create a VM offer |
 | Private offers | See [Create and manage private offers via API](private-offers-api.md) |
