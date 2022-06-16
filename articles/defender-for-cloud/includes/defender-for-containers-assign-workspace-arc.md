@@ -38,9 +38,9 @@ Once the Defender profile/extension has been deployed, a default workspace will 
 
 1. Select **Assignment**.
 
-1. Select the [No assignment](#no-assignment) steps if you have no assigned workspace select the [Already assigned](#already-assigned) steps if a workspace is already assigned.
+1. Select the [No workspace assigned](#no-workspace-assigned) steps if you have no assigned workspace. Or, select the [Workspace already assigned](#workspace-already-assigned) steps if a workspace is already assigned.
 
-#### No assignment
+#### No workspace assigned
 
 If you have no workspace assigned, you will see `Assignments (0)`.
 
@@ -60,7 +60,7 @@ If you have no workspace assigned, you will see `Assignments (0)`.
 
 1. Select **Create**.
 
-#### Already assigned
+#### Workspace already assigned
 
 If it already assigned to a workspace you will see `Assignments (1)`. 
 
