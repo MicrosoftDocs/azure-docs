@@ -10,7 +10,7 @@ ms.date: 03/28/2022
 
 The Defender for IoT security agent uses configurations from a local configuration file.
 
-The security agent reads the configuration file once the agent starts running. Configurations found in the local configuration file contain both authentication configuration and other agent related configurations.
+The security agent reads the configuration file once, when the agent starts running. Configurations found in the local configuration file contain both authentication configuration and other agent related configurations.
 
 The C# security agent uses multiple configuration files:
 
