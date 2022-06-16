@@ -1,5 +1,5 @@
 ---
-title: "Migrate PostgreSQL Single Server to Flexible Server using the Azure CLI"
+title: "Migrate from Single Server to Flexible Server by using the Azure CLI"
 titleSuffix: Azure Database for PostgreSQL Flexible Server
 description: Learn about migrating your Single Server databases to Azure database for PostgreSQL Flexible Server by using the Azure CLI.
 author: hariramt
@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.date: 05/09/2022
 ---
 
-# Migrate Single Server to Flexible Server by using the Azure CLI
+# Migrate from Single Server to Flexible Server by using the Azure CLI
 
 [!INCLUDE[applies-to-postgres-single-flexible-server](../includes/applies-to-postgresql-single-flexible-server.md)]
 
