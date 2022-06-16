@@ -1,0 +1,50 @@
+### YamlMime:Landing
+
+title: Azure Automanage Machine Configuration documentation
+summary: This is the description.
+
+metadata:
+  title: Azure Automanage Machine Configuration documentation
+  description: This is the description.
+  ms.service: machine-configuration
+  ms.topic: landing-page
+  ms.collection: collection
+  author: timwarner-msft
+  ms.author: timwarner
+  ms.date: 05/25/2022
+
+landingContent:
+  - title: About Azure Automanage Machine Configuration
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Azure Automanage Machine Configuration?
+            url: ./overview.md
+
+  - title: Get started
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Create a custom package artifact
+            url: ./overview.md
+
+  - title: PowerShell Desired State Configuration (DSC)
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: What is Azure Automation DSC?
+            url: ./overview.md
+
+  - title: Migration
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Migrating to machine configuration
+            url: ./overview.md
+
+  - title: Reference
+    linkLists:
+      - linkListType: reference
+        links:
+          - text: Placeholder text
+            url: ./overview.md

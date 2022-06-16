@@ -1,0 +1,38 @@
+- name: Azure Automanage Machine Configuration documentation
+  href: index.yml
+- name: Overview
+  expanded: true
+  items:
+  - name: What is Azure Automanage Machine Configuration?
+    displayName: tbd
+    href: ./overview.md
+- name: Concepts
+  items:
+  - name: Concepts doc name
+    displayName: tbd
+    href: ./overview.md
+- name: Quickstarts
+  items:
+  - name: Quickstarts doc name
+    displayName: tbd
+    href: ./overview.md
+- name: Tutorials
+  items:
+  - name: Tutorials doc name
+    displayName: tbd
+    href: ./overview.md
+- name: PowerShell DSC
+  items:
+  - name: PowerShell DSC doc name
+    displayName: tbd
+    href: ./overview.md
+- name: Migration to Machine Configuration
+  items:
+  - name: Migration doc name
+    displayName: tbd
+    href: ./overview.md
+- name: Resources
+  items:
+  - name: Reference link
+    displayName: tbd
+    href: ./overview.md
