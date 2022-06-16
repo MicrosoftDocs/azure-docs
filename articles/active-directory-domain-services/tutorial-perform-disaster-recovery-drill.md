@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 09/22/2021
+ms.date: 06/16/2022
 ms.author: justinha
 
 #Customer intent: As an identity administrator, I want to perform a disaster recovery drill by using replica sets in Azure Active Directory Domain Services to demonstrate resiliency for geographically distributed domain data.
