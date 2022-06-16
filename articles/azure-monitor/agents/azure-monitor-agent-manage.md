@@ -4,7 +4,7 @@ description: Options for managing the Azure Monitor agent (AMA) on Azure virtual
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 05/25/2022
+ms.date: 06/16/2022
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 
 ---
@@ -269,24 +269,31 @@ az connectedmachine extension update --name AzureMonitorLinuxAgent --machine-nam
 
 
 ## Using Azure Policy
-Use the following policies and policy initiatives to automatically install the agent and associate it with a data collection rule, every time you create a virtual machine.
+Use the following policies and policy initiatives to **automatically install the agent and associate it with a data collection rule**, every time you create a virtual machine, scale set, or Arc-enabled server.
+
+> [!NOTE]
+> As per Microsoft Identity best practices, all policy instructions for Azure Monitor agent deployment rely on **user-assigned managed identity for virtual machines and scale-sets**. This is the more scalable and resilient managed identity options for these resources.  
+> For **Arc-enabled servers**, policies rely on only **system-assigned managed identity** as the only supported option today. 
 
 ### Built-in policy initiatives
-[View prerequisites for agent installation](azure-monitor-agent-manage.md#prerequisites). 
+Before proceeding, review [prerequisites for agent installation](azure-monitor-agent-manage.md#prerequisites). 
 
-Policy initiatives for Windows and Linux virtual machines consist of individual policies that:
+Policy initiatives for Windows and Linux **virtual machines, scale-sets** consist of individual policies that:
 
-- Create and assign built-in user-assigned managed identity, per subscription, per region. [Learn more](../../active-directory/managed-identities-azure-resources/how-to-assign-managed-identity-via-azure-policy.md#policy-definition-and-details)
-- Install the Azure Monitor agent extension on the virtual machine, and configure it to use user-assigned identity as specified by the parameters below
-  - `Bring Your Own User-Assigned Managed Identity`: If set to false, it configures the agent to use the built-in user-assigned managed identity created by the policy above. If set to true, it configures the agent to use an existing user-assigned identity that **must be assigned** to the machine(s) in scope.
-  - `User-Assigned Managed Identity Name`: If using your own identity, specify the name of the identity that's assigned to the machine(s)
-  - `User-Assigned Managed Identity Name`: If using your own identity, specify the resource group where it is created
+- (Optional) Create and assign built-in user-assigned managed identity, per subscription, per region. [Learn more](../../active-directory/managed-identities-azure-resources/how-to-assign-managed-identity-via-azure-policy.md#policy-definition-and-details)
+   - `Bring Your Own User-Assigned Identity`: If set of `true`, it creates the built-in user-assigned managed identity in the predefined resource group, and assigns it to all machines that the policy is applied to. If set to `false`, you can instead use existing user-assigned identity that **you must assign** to the machines beforehand.
+- Install the Azure Monitor agent extension on the machine, and configure it to use user-assigned identity as specified by the parameters below
+  - `Bring Your Own User-Assigned Managed Identity`: If set to `false`, it configures the agent to use the built-in user-assigned managed identity created by the policy above. If set to `true`, it configures the agent to use an existing user-assigned identity that **you must assign** to the machine(s) in scope beforehand.
+  - `User-Assigned Managed Identity Name`: If using your own identity (selected `true`), specify the name of the identity that's assigned to the machine(s)
+  - `User-Assigned Managed Identity Resource Group`: If using your own identity (selected `true`), specify the resource group where the identity exists
+  - `Additional Virtual Machine Images`: Pass additional VM image names that you want to apply the policy to, if not already included
 - Create and deploy the association to link the machine to specified data collection rule.
+   - `Data Collection Rule Resource Id`: The ARM resourceId of the rule you want to associate via this policy, to all machines the policy is applied to.
 
 ![Partial screenshot from the Azure Policy Definitions page showing two built-in policy initiatives for configuring the Azure Monitor agent.](media/azure-monitor-agent-install/built-in-ama-dcr-initiatives.png)  
 
 ### Built-in policies 
-You can choose to use the individual policies from the policy initiative above to perform a single action at scale. For example, if you only want to automatically install the agent, use the second policy from the initiative as shown in the following example.  
+You can choose to use the individual policies from the policy initiative above to perform a single action at scale. For example, if you *only* want to automatically install the agent, use the second agent installation policy from the initiative as shown below.  
 
 ![Partial screenshot from the Azure Policy Definitions page showing policies contained within the initiative for configuring the Azure Monitor agent.](media/azure-monitor-agent-install/built-in-ama-dcr-policy.png)  
 
