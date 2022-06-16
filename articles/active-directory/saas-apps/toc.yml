@@ -368,7 +368,7 @@
       - name: Carbonite Endpoint Backup
         href: carbonite-endpoint-backup-tutorial.md
       - name: CWT
-        href: carlsonwagonlit-tutorial.md
+        href: cwt-tutorial.md
       - name: Catchpoint
         href: catchpoint-tutorial.md
       - name: CBRE ServiceInsight
