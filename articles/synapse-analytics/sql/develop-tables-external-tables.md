@@ -28,8 +28,8 @@ The key differences between Hadoop and native external tables are presented in t
 | Supported formats | Delimited/CSV, Parquet, ORC, Hive RC, and RC | Serverless SQL pool: Delimited/CSV, Parquet, and [Delta Lake](query-delta-lake-format.md)<br/>Dedicated SQL pool: Parquet (preview) |
 | [Folder partition elimination](#folder-partition-elimination) | No | Only for partitioned tables synchronized from Apache Spark pools in Synapse workspace to serverless SQL pools |
 | [File elimination](#file-elimination) (predicate pushdown) | No | Yes in serverless SQL pool. For the string pushdown, you need to use `Latin1_General_100_BIN2_UTF8` collation on the `VARCHAR` columns to enable pushdown. |
-| Custom format for location | Yes | Yes, using wildcards like `/year=*/month=*/day=*` |
-| Recursive folder scan | No | Only in serverless SQL pools when specified `/**` at the end of the location path |
+| Custom format for location | No | Yes, using wildcards like `/year=*/month=*/day=*` |
+| Recursive folder scan | Yes | Only in serverless SQL pools when specified `/**` at the end of the location path |
 | Storage authentication | Storage Access Key(SAK), AAD passthrough, Managed identity, Custom application Azure AD identity | [Shared Access Signature(SAS)](develop-storage-files-storage-access-control.md?tabs=shared-access-signature), [AAD passthrough](develop-storage-files-storage-access-control.md?tabs=user-identity), [Managed identity](develop-storage-files-storage-access-control.md?tabs=managed-identity), [Custom application Azure AD identity](develop-storage-files-storage-access-control.md?tabs=service-principal). |
 
 > [!NOTE]
