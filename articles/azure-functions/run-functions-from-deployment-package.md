@@ -72,7 +72,7 @@ This section provides information about how to run your function app from a loca
 With the `WEBSITE_RUN_FROM_PACKAGE` app setting value of `1`, the zip deployment APIs copy your package to the `d:\home\data\SitePackages` (Windows) or `/home/data/SitePackages` (Linux) folder instead of extracting the files to `d:\home\site\wwwroot` (Windows) or `/home/site/wwwroot` (Linux). It also creates the `packagename.txt` file. After a restart, the package is mounted to `wwwroot` as a read-only filesystem. For more information about zip deployment, see [Zip deployment for Azure Functions](deployment-zip-push.md).
 
 > [!NOTE]
-> When a deployment occurs, a restart of the function app is triggered. Before a restart, all existing function executions are allowed to complete or time out. To learn more, see [Deployment behaviors](functions-deployment-technologies.md#deployment-behaviors).
+> When a deployment occurs, a restart of the function app is triggered. Function executions currently running during the deploy will be terminated. To learn more, see [Deployment behaviors](functions-deployment-technologies.md#deployment-behaviors).
 
 ## Using WEBSITE_RUN_FROM_PACKAGE = URL
 
