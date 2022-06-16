@@ -33,18 +33,18 @@ Azure Container Instances has the following dimension associated with its metric
 
 ## Activity log
 
-The following table lists the operations that Azure Container Instances may record in the Activity log. This is a subset of the possible entries your might find in the activity log. You can also find this information in the [Azure role-based access control (RBAC) Resource provider operations documentation](/azure/role-based-access-control/resource-provider-operations#microsoftcontainerinstance).
+The following table lists the operations that Azure Container Instances may record in the Activity log. This is a subset of the possible entries you might find in the activity log. You can also find this information in the [Azure role-based access control (RBAC) Resource provider operations documentation](/azure/role-based-access-control/resource-provider-operations#microsoftcontainerinstance).
 
 | Operation | Description |
 |:---|:---|
 | Microsoft.ContainerInstance/register/action | Registers the subscription for the container instance resource provider and enables the creation of container groups. |
-| Microsoft.ContainerInstance/containerGroupProfiles/read | Get all container goup profiles. |
+| Microsoft.ContainerInstance/containerGroupProfiles/read | Get all container group profiles. |
 | Microsoft.ContainerInstance/containerGroupProfiles/write | Create or update a specific container group profile. |
 | Microsoft.ContainerInstance/containerGroupProfiles/delete | Delete the specific container group profile. |
 | Microsoft.ContainerInstance/containerGroups/read | Get all container groups. |
 | Microsoft.ContainerInstance/containerGroups/write | Create or update a specific container group. |
 | Microsoft.ContainerInstance/containerGroups/delete | Delete the specific container group. |
-| Microsoft.ContainerInstance/containerGroups/restart/action | Restarts a specific container group. |
+| Microsoft.ContainerInstance/containerGroups/restart/action | Restarts a specific container group. This log only captures customer-intiated restarts, not restarts initiated by Azure Container Instances infrastructure. |
 | Microsoft.ContainerInstance/containerGroups/stop/action | Stops a specific container group. Compute resources will be deallocated and billing will stop. |
 | Microsoft.ContainerInstance/containerGroups/start/action | Starts a specific container group. |
 | Microsoft.ContainerInstance/containerGroups/containers/exec/action | Exec into a specific container. |
@@ -121,5 +121,5 @@ The following schemas are in use by Azure Container Instances.
 
 ## See Also
 
-- See [Monitoring Azure Azure Container Instances](monitor-azure-container-instances.md) for a description of monitoring Azure Azure Container Instances.
+- See [Monitoring Azure Container Instances](monitor-azure-container-instances.md) for a description of monitoring Azure Container Instances.
 - See [Monitoring Azure resources with Azure Monitor](/azure/azure-monitor/insights/monitor-azure-resources) for details on monitoring Azure resources.
