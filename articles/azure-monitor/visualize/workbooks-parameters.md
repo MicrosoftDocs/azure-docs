@@ -66,7 +66,7 @@ This is how the workbook will look like in read-mode, in the "Pills" style.
 3. This expands on query evaluation time to `| where timestamp > ago(1d)`, which is the time range value of the parameter.
 4. Run query to see the results
 
-   :::image type="content" source="media/workbooks-parameters/workbooks-time-in-code.png" alt-text="Screenshot showing a time range referenced in the KQL query.":::    
+   :::image type="content" source="media/workbooks-parameters/workbooks-time-in-code.png" alt-text="Screenshot showing a time range referenced in the K Q L query.":::    
 
 ### Reference a parameter with Text 
 1. Add a text control to the workbook.

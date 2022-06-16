@@ -1379,6 +1379,8 @@ items:
           href: visualize/workbooks-limits.md
     - name: Creating a new workbook
       items:
+        - name: Using workbook templates
+          href: visualize/workbooks-templates.md
         - name: Create a new workbook
           href: visualize/workbooks-create-workbook.md
         - name: Add text to your workbook

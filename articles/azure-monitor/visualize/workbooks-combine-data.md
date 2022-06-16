@@ -25,7 +25,8 @@ The example below combines alerting data with Log Analytics VM performance data 
 
 Here is a tutorial on using the merge control to combine Azure Resource Graph and Log Analytics data:
 
-[!VIDEO https://www.youtube.com/embed?v=7nWP_YRzxHg]
+[https://www.youtube.com/watch?v=7nWP_YRzxHg](https://www.youtube.com/watch?v=7nWP_YRzxHg)
+
 
 Workbooks support these merges:
 

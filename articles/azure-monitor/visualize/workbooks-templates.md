@@ -15,7 +15,7 @@ Workbook templates are curated reports designed for flexible reuse by multiple u
 
 You can adjust the template-based workbook parameters and perform analysis without fear of breaking the future reporting experience for colleagues. If you open a template, make some adjustments, and then select the save icon, you will be saving the template as a workbook, which would then show in green,  leaving the original template untouched.
 
-The design and architecture of templates is also different from saved workbooks. Saving a workbook creates an associated Azure Resource Manager resource, whereas the transient workbook created when opening a template doesn't have a unique resource associated with it.  The resources associated with a workbook affect who has access to that workbook. [Click here](workbooks-overview.md#access-control) to learn more about how access control is managed in workbooks.
+The design and architecture of templates is also different from saved workbooks. Saving a workbook creates an associated Azure Resource Manager resource, whereas the transient workbook created when opening a template doesn't have a unique resource associated with it.  The resources associated with a workbook affect who has access to that workbook. Learn more about [Azure workbooks access control](workbooks-overview.md#access-control).
 
 ## Explore a workbook template
 
@@ -41,6 +41,6 @@ If we select the edit button immediately under the grid of request data, we can 
 
   :::image type="content" source="./media/workbooks-overview/kusto.png" alt-text="Screenshot of underlying Kusto query." border="false" lightbox="./media/workbooks-overview/kusto.png":::
 
-Selecting the other **Edit** buttons on the right will reveal a number of the core components that make up workbooks like markdown-based [text boxes](../visualize/workbooks-text-visualizations.md), [parameter selection](../visualize/workbooks-parameters.md) UI elements, and other [chart/visualization types](workbooks-visualizations.md).
+Selecting the other **Edit** buttons on the right will reveal some of the core components that make up workbooks like markdown-based [text boxes](../visualize/workbooks-text-visualizations.md), [parameter selection](../visualize/workbooks-parameters.md) UI elements, and other [chart/visualization types](workbooks-visualizations.md).
 
 Exploring the pre-built templates in edit-mode and then modifying them to fit your needs and save your own custom workbook is an excellent way to start to learn about what is possible with Azure Monitor workbooks.
