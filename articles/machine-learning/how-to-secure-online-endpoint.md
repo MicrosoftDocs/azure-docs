@@ -7,8 +7,8 @@ ms.service: machine-learning
 ms.subservice: enterprise-readiness
 ms.topic: how-to
 ms.reviewer: larryfr
-ms.author: seramasu
-author: rsethur
+author: dem108
+ms.author: sehan
 ms.date: 06/06/2022
 ms.custom: event-tier1-build-2022
 ---
