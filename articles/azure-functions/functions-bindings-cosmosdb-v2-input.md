@@ -423,8 +423,83 @@ namespace CosmosDBSamplesV2
 
 # [Isolated process](#tab/isolated-process)
 
-Example pending.
+This section contains the following examples for using [dotnet isolated functions](dotnet-isolated-process-guide.md) with version 3.x of CosmosDB extension and 5.x of Storage extension. If not already present in your function app, add reference to the below nuget packages.
 
+  1. Microsoft.Azure.Functions.Worker.Extensions.CosmosDB
+  2. Microsoft.Azure.Functions.Worker.Extensions.Storage
+
+* [Queue trigger, look up ID from JSON](#queue-trigger-look-up-id-from-json-isolated)
+
+The examples refer to a simple `ToDoItem` type:
+
+```cs
+namespace CosmosDBSamplesV2
+{
+    public class ToDoItem
+    {
+        public string Id { get; set; }
+
+        public string PartitionKey { get; set; }
+
+        public string Description { get; set; }
+    }
+}
+```
+
+<a id="queue-trigger-look-up-id-from-json-isolated"></a>
+
+### Queue trigger, look up ID from JSON
+
+The following example shows an [isolated dotnet function](dotnet-isolated-process-guide.md) that retrieves a single document. The function is triggered by a queue message that contains a JSON object. The queue trigger parses the JSON into an object of type `ToDoItemLookup`, which contains the ID and partition key value to look up. That ID and partition key value are used to retrieve a `ToDoItem` document from the specified database and collection.
+
+```cs
+namespace CosmosDBSamplesV2
+{
+    public class ToDoItemLookup
+    {
+        public string ToDoItemId { get; set; }
+
+        public string ToDoItemPartitionKeyValue { get; set; }
+    }
+}
+```
+
+```cs
+using Microsoft.Azure.Functions.Worker;
+using Microsoft.Extensions.Logging;
+
+namespace CosmosDBSamplesV2
+{
+    public class DocByIdFromJSON
+    {
+        private readonly ILogger _logger;
+
+        public DocByIdFromJSON(ILogger<DocByIdFromJSON> logger)
+        {
+            _logger = logger ?? throw new ArgumentNullException(nameof(logger));
+        }
+
+        [Function("DocByIdFromJSON")]
+        public void Run(
+            [QueueTrigger("todoqueueforlookup", Connection = "AzureWebJobsStorage")] ToDoItemLookup toDoItemLookup,
+            [CosmosDBInput(databaseName: "ToDoItems",
+                           collectionName: "Items",
+                           ConnectionStringSetting = "CosmosDBConnection",
+                           Id ="{ToDoItemId}",
+                           PartitionKey ="{ToDoItemPartitionKeyValue}")] ToDoItem toDoItem)
+        {
+            if (toDoItem == null)
+            {
+                _logger.LogInformation($"ToDo item not found");
+            }
+            else
+            {
+                _logger.LogInformation($"Found ToDo item, Description={toDoItem.Description}");
+            }
+        }
+    }
+}
+```
 # [C# Script](#tab/csharp-script)
 
 This section contains the following examples:
