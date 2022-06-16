@@ -12,7 +12,7 @@ metadata:
   ms.topic: landing-page
   author: halkazwini
   ms.author: halkazwini
-  ms.date: 05/18/2020
+  ms.date: 06/16/2022
   
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
@@ -42,7 +42,7 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Register Peering Service - Azure portal
+          - text: Create Peering Service Connection - Azure portal
             url: azure-portal.md
 
   # Card
