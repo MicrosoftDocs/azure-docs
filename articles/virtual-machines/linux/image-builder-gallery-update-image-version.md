@@ -94,8 +94,9 @@ If you already have an Azure Compute Gallery but didn't set it up by following a
 
 You can review the JSON example you're about to use at [helloImageTemplateforSIGfromSIG.json](https://raw.githubusercontent.com/azure/azvmimagebuilder/master/quickquickstarts/2_Creating_a_Custom_Linux_Shared_Image_Gallery_Image_from_SIG/helloImageTemplateforSIGfromSIG.json). For information about the JSON file, see [Create an Azure VM Image Builder template](image-builder-json.md). 
 
+1. Download the JSON example, as shown in [Create a Linux image and distribute it to an Azure Compute Gallery by using the Azure CLI](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/image-builder#create-a-user-assigned-identity-and-set-permissions-on-the-resource-group). 
 
-1. Download the JSON example, and then configure it with your variables: 
+1. Configure the JSON with your variables: 
 
 	```console
 	curl https://raw.githubusercontent.com/azure/azvmimagebuilder/master/quickquickstarts/8_Creating_a_Custom_Linux_Shared_Image_Gallery_Image_from_SIG/helloImageTemplateforSIGfromSIG.json -o helloImageTemplateforSIGfromSIG.json
