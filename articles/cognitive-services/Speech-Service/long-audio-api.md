@@ -35,6 +35,9 @@ When preparing your text file, make sure it:
   * For plain text, each paragraph is separated by hitting **Enter/Return**. See [plain text input example](https://github.com/Azure-Samples/Cognitive-Speech-TTS/blob/master/CustomVoice-API-Samples/Java/en-US.txt).
   * For SSML text, each SSML piece is considered a paragraph. Separate SSML pieces by different paragraphs. See [SSML text input example](https://github.com/Azure-Samples/Cognitive-Speech-TTS/blob/master/CustomVoice-API-Samples/Java/SSMLTextInputSample.txt).
 
+> [!NOTE]
+> When using SSML text, be sure to use the [supported SSML elements](speech-synthesis-markup.md?tabs=csharp#supported-ssml-elements) except the `audio` and `mstts:backgroundaudio` elements. Currently, `audio` and `mstts:backgroundaudio` elements are not supported by Long Audio API. Once your synthesis task failed, download the audio result (.zip file) and check the error report with suffix name "err.txt" within the zip file for details.
+
 ## Sample code
 
 The rest of this page focuses on Python, but sample code for the Long Audio API is available on GitHub for the following programming languages:
