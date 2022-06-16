@@ -19,7 +19,7 @@ Azure VMware Solution clusters are based on hyper-converged, bare-metal infrastr
 | AV36P     |  dual Intel 18 core 2.6 GHz / 3.9 GHz turbo (Cascade Lake) |  768  | 1.5 (Intel Optane Cache) | 19.20 (NVMe) | Selected regions (*) |
 | AV52      |  dual Intel 26 core 2.7 GHz / 4.0 GHz turbo (Cascade Lake) | 1536  | 1.5 (Intel Optane Cache) | 38.40 (NVMe) | Selected regions (*) |
 
-An Azure VMware cluster requires a minumum number of 3 hosts. You can only use host of the same type in a single cluster. You can use multple custers with different host types in a single Azure VMware Private Cloud.
+An Azure VMware cluster requires a minimum number of three hosts. You can only use host of the same type in a single cluster. You can use multiple clusters with different host types in a single Azure VMware Private Cloud.
 Hosts used to build or scale clusters come from an isolated pool of hosts. Those hosts have passed hardware tests and have had all data securely deleted before being added to a cluster. 
 
 (*) details available via the Azure pricing calculator.
