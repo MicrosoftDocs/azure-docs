@@ -19,7 +19,7 @@ You can use [Azure Machine Learning studio](https://ml.azure.com) to monitor, or
 
 This article shows how to do the following tasks:
 
-* Add run display name. 
+* Add job display name. 
 * Create a custom view. 
 * Add a run description. 
 * Tag and find runs.
@@ -42,29 +42,31 @@ You'll need the following items:
 * To use Azure Machine Learning, you must have an Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/).
 * You must have an Azure Machine Learning workspace. A workspace is created in [Install, set up, and use the CLI (v2)](how-to-configure-cli.md).
 
-## Run Display Name 
+## Job Display Name 
 
-The run display name is an optional and customizable name that you can provide for your run. To edit the run display name:
+The job display name is an optional and customizable name that you can provide for your run. To edit the job display name:
 
-1. Navigate to the runs list. 
+1. Navigate to the **Jobs** list. 
 
-2. Select the run to edit the display name in the run details page.
+1. Select the job to edit.
 
-3. Select the **Edit** button to edit the run display name. 
+    :::image type="content" source="media/how-to-track-monitor-analyze-runs/select-job.png" alt-text="Screenshot of Jobs list.":::
 
-:::image type="content" source="media/how-to-track-monitor-analyze-runs/display-name.gif" alt-text="Screenshot: edit the display name":::
+1. Select the **Edit** button to edit the job display name.
+
+    :::image type="content" source="media/how-to-track-monitor-analyze-runs/display-name.gif" alt-text="Screenshot: edit the display name":::
 
 ## Custom View 
     
-To view your runs in the studio: 
+To view your jobs in the studio: 
     
-1. Navigate to the **Experiments** tab.
+1. Navigate to the **Jobs** tab.
     
-1. Select either **All experiments** to view all the runs in an experiment or select **All runs** to view all the runs submitted in the Workspace.
+1. Select either **All experiments** to view all the runs in an experiment or select **All jobs** to view all the jobs submitted in the Workspace.
     
-In the **All runs'** page, you can filter the runs list by tags, experiments, compute target and more to better organize and scope your work.  
+In the **All jobs'** page, you can filter the jobs list by tags, experiments, compute target and more to better organize and scope your work.  
     
-1. Make customizations to the page by selecting runs to compare, adding charts or applying filters. These changes can be saved as a **Custom View** so you can easily return to your work. Users with workspace permissions can edit, or view the custom view. Also, share the custom view with team members for enhanced collaboration by selecting **Share view**.   
+1. Make customizations to the page by selecting jobs to compare, adding charts or applying filters. These changes can be saved as a **Custom View** so you can easily return to your work. Users with workspace permissions can edit, or view the custom view. Also, share the custom view with team members for enhanced collaboration by selecting **Share view**.   
 
 1. To view the run logs, select a specific run and in the **Outputs + logs** tab, you can find diagnostic and error logs for your run.
 
@@ -73,35 +75,35 @@ In the **All runs'** page, you can filter the runs list by tags, experiments, co
 
 ## Run description 
 
-A run description can be added to a run to provide more context and information to the run. You can also search on these descriptions from the runs list and add the run description as a column in the runs list. 
+A run description can be added to a run to provide more context and information to the run. You can also search on these descriptions from the jobs list and add the run description as a column in the jobs list. 
 
-Navigate to the **Run Details** page for your run and select the edit or pencil icon to add, edit, or delete descriptions for your run. To persist the changes to the runs list, save the changes to your existing Custom View or a new Custom View. Markdown format is supported for run descriptions, which allows images to be embedded and deep linking as shown below.
+Navigate to the **Run Details** page for your run and select the edit or pencil icon to add, edit, or delete descriptions for your run. To persist the changes to the jobs list, save the changes to your existing Custom View or a new Custom View. Markdown format is supported for run descriptions, which allows images to be embedded and deep linking as shown below.
 
 :::image type="content" source="media/how-to-track-monitor-analyze-runs/run-description-2.gif" alt-text="Screenshot: create a run description"::: 
 
-## Tag and find runs
+## Tag and find jobs
 
-In Azure Machine Learning, you can use properties and tags to help organize and query your runs for important information.
+In Azure Machine Learning, you can use properties and tags to help organize and query your jobs for important information.
 
 * Edit tags
 
-    You can add, edit, or delete run tags from the studio. Navigate to the **Run Details** page for your run and select the edit, or pencil icon to add, edit, or delete tags for your runs. You can also search and filter on these tags from the runs list page.
+    You can add, edit, or delete run tags from the studio. Navigate to the **Run Details** page for your run and select the edit, or pencil icon to add, edit, or delete tags for your jobs. You can also search and filter on these tags from the jobs list page.
     
     :::image type="content" source="media/how-to-track-monitor-analyze-runs/run-tags.gif" alt-text="Screenshot: Add, edit, or delete run tags":::
     
 
 * Query properties and tags
 
-    You can query runs within an experiment to return a list of runs that match specific properties and tags.
+    You can query jobs within an experiment to return a list of jobs that match specific properties and tags.
     
-    To search for specific runs, navigate to the  **All runs** list. From there you have two options:
+    To search for specific jobs, navigate to the  **All jobs** list. From there you have two options:
     
-    1. Use the **Add filter** button and select filter on tags to filter your runs by tag that was assigned to the run(s). <br><br>
+    1. Use the **Add filter** button and select filter on tags to filter your jobs by tag that was assigned to the run(s). <br><br>
     OR
     
-    1. Use the search bar to quickly find runs by searching on the run metadata like the run status, descriptions, experiment names, and submitter name. 
+    1. Use the search bar to quickly find jobs by searching on the run metadata like the run status, descriptions, experiment names, and submitter name. 
 
-## Cancel or fail runs
+## Cancel or fail jobs
 
 If you notice a mistake or if your run is taking too long to finish, you can cancel the run.
 
@@ -142,9 +144,9 @@ The following notebooks demonstrate the concepts in this article:
 
 * To learn more about the logging APIs, see the [logging API notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/track-and-monitor-experiments/logging-api/logging-api.ipynb).
 
-* For more information about managing runs with the Azure Machine Learning SDK, see the [manage runs notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/track-and-monitor-experiments/manage-runs/manage-runs.ipynb).
+* For more information about managing jobs with the Azure Machine Learning SDK, see the [manage jobs notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/track-and-monitor-experiments/manage-runs/manage-runs.ipynb).
 
 ## Next steps
 
-* To learn how to log metrics for your experiments, see [Log metrics during training runs](how-to-log-view-metrics.md).
+* To learn how to log metrics for your experiments, see [Log metrics during training jobs](how-to-log-view-metrics.md).
 * To learn how to monitor resources and logs from Azure Machine Learning, see [Monitoring Azure Machine Learning](monitor-azure-machine-learning.md).
