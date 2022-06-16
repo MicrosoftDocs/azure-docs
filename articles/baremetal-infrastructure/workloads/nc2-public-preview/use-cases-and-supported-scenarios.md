@@ -8,12 +8,12 @@ ms.date: 07/01/2022
 
 # Use cases and supported scenarios
 
-** Unified management experience - cluster management
+## Unified management experience - cluster management
 
 That operations and cluster management be nearly identical to on-premises is critical to customers. 
 Customers can update capacity, monitor alerts, replace hosts, monitor usage, and more by combining the power of microsoft and nutanix.
 
-** Disaster Recovery
+## Disaster Recovery
 
 Disaster recovery is critical to cloud functionality.
 A disaster can be any of the following:
@@ -36,14 +36,14 @@ A disaster can be any of the following:
 When a disaster strikes, the goal of any DR plan is to ensure operations run as normally as possible.
 While the business will be aware of the crisis, ideally, its customers and end-users shouldn't be affected.
 
-** On Demand Elasticity
+## On Demand Elasticity
 Scale up and scale out as you like.
 We provide the flexibility that means you don't have to procure hardware yourself - with just a click of a button you can get additional nodes in the cloud nearly instantly.
 
-** Lift and shift
+## Lift and shift
 
 Move applications to the cloud and modernize your infrastructure.
 Applications move with no changes, allowing for flexible operations and minimum downtime.
 
 > [!div class="nextstepaction"]
-> [About the Public Preview](about-the-public-preview.md)
+> [Getting started with NC2 on Azure](getting-started.md)
