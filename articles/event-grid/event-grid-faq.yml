@@ -26,7 +26,7 @@ sections:
       - question: |
           Where does Azure Event Grid store data?
         answer: |
-          Azure Event Grid provides flexibility to choose where stores and processes data when you create topics and domains, you can opt to replicate metadata to the predefined secondary region in case Microsoft decide to failover the traffic, or can opt to keep your data in the region selected without any kind of data replication.
+          Azure Event Grid provides you the flexibility to choose where data is stored and processed. When you create topics and domains, you can opt to replicate metadata to the predefined secondary region in case Microsoft decides to failover the traffic, or can opt to keep your data in the region selected without any kind of data replication.
 
 additionalContent: | 
 
