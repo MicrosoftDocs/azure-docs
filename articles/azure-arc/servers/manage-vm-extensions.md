@@ -61,6 +61,7 @@ Arc-enabled servers support moving machines with one or more VM extensions insta
 |Azure Key Vault Certificate Sync | Microsoft.Azure.Key.Vault |KeyVaultForWindows | [Key Vault virtual machine extension for Windows](../../virtual-machines/extensions/key-vault-windows.md) |
 |Azure Monitor Agent |Microsoft.Azure.Monitor |AzureMonitorWindowsAgent |[Install the Azure Monitor agent](../../azure-monitor/agents/azure-monitor-agent-manage.md) |
 |Azure Automation Hybrid Runbook Worker extension (preview) |Microsoft.Compute |HybridWorkerForWindows |[Deploy an extension-based User Hybrid Runbook Worker](../../automation/extension-based-hybrid-runbook-worker-install.md) to execute runbooks locally. |
+|Azure Extension for SQL Server |Microsoft.AzureData |WindowsAgent.SqlServer |[Install Azure extension for SQL Server](/sql/sql-server/azure-arc/connect#initiate-the-connection-from-azure) to initiate SQL Server connection to Azure. |
 
 ### Linux extensions
 
@@ -118,6 +119,62 @@ Verify your machine matches the [supported versions](prerequisites.md#supported-
 The minimum version of the Connected Machine agent that is supported with this feature on Windows and Linux is the 1.0 release.
 
 To upgrade your machine to the version of the agent required, see [Upgrade agent](manage-agent.md#upgrade-the-agent).
+
+## Operating system extension availability
+
+The following extensions are available for Windows and Linux machines:
+
+### Windows extension availability
+
+|Operating system |Azure Monitor agent |Log Analytics agent |Dependency VM Insights |Qualys |Custom Script |Key Vault |Hybrid Runbook |Antimalware Extension |Connected Machine agent |
+|-----------------|--------------------|--------------------|-----------------------|-------|--------------|----------|---------------|----------------------|------------------------|
+|Windows Server 2019 |X |X |X |X |X |X | |X |
+|Windows Server 2019 Core |X | | |X |X |X |X | |X |
+|Windows Server 2016 |X |X |X |X |X |X |X |Built-in |X |
+|Windows Server 2016 Core |X | | |X |X |X | |Built-in |X |
+|Windows Server 2012 R2 |X |X |X |X |X | |X |X |X |
+|Windows Server 2012 |X |X |X |X |X |X |X |X |X |
+|Windows Server 2008 R2 SP1 |X |X |X |X |X | |X |X | |
+|Windows Server 2008 R2 | | | |X |X | |X |X |X |
+|Windows Server 2008 SP2 | |X | |X |X | |X | | |
+|Windows 11 client OS |X | | |X | | | | | |
+|Windows 10 1803 (RS4) and higher |X | | |X |X | | | |X |
+|Windows 10 Enterprise (including multi-session) and Pro (Server scenarios only) |X |X |X |X |X | |X | |X |
+|Windows 8 Enterprise and Pro (Server scenarios only) | |X |X |X | | |X | | |
+|Windows 7 SP1 (Server scenarios only) | |X |X |X | | |X | | |
+|Azure Stack HCI (Server scenarios only) | |X | |X | | |X | |X |
+
+### Linux extension availability
+
+|Operating system |Azure Monitor agent |Log Analytics agent |Dependency VM Insights |Qualys |Custom Script |Key Vault |Hybrid Runbook |Antimalware Extension |Connected Machine agent |
+|-----------------|--------------------|--------------------|-----------------------|-------|--------------|----------|---------------|----------------------|------------------------|
+|Amazon Linux 2 | |X | |X | | |X |X |
+|CentOS Linux 8 |X |X |X |X |X | |X |X |
+|CentOS Linux 7 |X |X |X |X |X | |X |X |
+|CentOS Linux 6 | |X | |X |X | |X | |
+|Debian 10 |X | | |X |X | |X | |
+|Debian 9 |X |X |X |X |X | | | |
+|Debian 8 | |X |X |X | | |X | |
+|Debian 7 | | | |X | | |X | |
+|OpenSUSE 13.1+ | | | |X |X | | | |
+|Oracle Linux 8 |X |X | |X |X | |X |X |
+|Oracle Linux 7 |X |X | |X |X | |X |X |
+|Oracle Linux 6 | |X | |X |X | |X |X |
+|Red Hat Enterprise Linux Server 8 |X |X | |X |X | |X |X |
+|Red Hat Enterprise Linux Server 7 |X |X |X |X |X | |X |X |
+|Red Hat Enterprise Linux Server 6 | |X |X |X | | |X | |
+|SUSE Linux Enterprise Server 15.2 |X | | |X |X |X | |X |
+|SUSE Linux Enterprise Server 15.1 |X |X | |X |X |X |X |X |
+|SUSE Linux Enterprise Server 15 SP1 |X |X |X |X |X |X |X |X |
+|SUSE Linux Enterprise Server 15 |X |X |X |X |X |X |X |X |
+|SUSE Linux Enterprise Server 15 SP5 |X |X |X |X |X | |X |X |
+|SUSE Linux Enterprise Server 12 SP5 |X |X |X |X |X | |X |X |
+|Unbuntu 20.04 LTS |X |X |X |X |X | |X |X |
+|Unbuntu 18.04 LTS |X |X |X |X |X |X |X |X |
+|Unbuntu 16.04 LTS |X |X |X |X | | |X |X |
+|Unbuntu 140.04 LTS | |X | |X | | |X | |
+
+For the regional availabilities of different Azure services and VM extensions available for Azure Arc-enabled servers, [refer to Azure Global's Product Availability Roadmap](https://global.azure.com/product-availability/roadmap).
 
 ## Next steps
 

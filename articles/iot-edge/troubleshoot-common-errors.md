@@ -70,7 +70,7 @@ By default, IoT Edge starts modules in their own isolated container network. The
 
 **Option 1: Set DNS server in container engine settings**
 
-Specify the DNS server for your environment in the container engine settings, which will apply to all container modules started by the engine. Create a file named `daemon.json` specifying the DNS server to use. For example:
+Specify the DNS server for your environment in the container engine settings, which will apply to all container modules started by the engine. Create a file named `daemon.json`, then specify the DNS server to use. For example:
 
 ```json
 {
@@ -78,7 +78,7 @@ Specify the DNS server for your environment in the container engine settings, wh
 }
 ```
 
-The above example sets the DNS server to a publicly accessible DNS service. If the edge device can't access this IP from its environment, replace it with DNS server address that is accessible.
+This DNS server is set to a publicly accessible DNS service. However some networks, such as corporate networks, have their own DNS servers installed and won't allow access to public DNS servers. Therefore, if your edge device can't access a public DNS server, replace it with an accessible DNS server address.
 
 <!-- 1.1 -->
 :::moniker range="iotedge-2018-06"

@@ -9,6 +9,7 @@ ms.subservice: translator-text
 ms.date: 08/17/2020
 ms.author: lajanuar
 ms.topic: reference
+ms.custom: applied-ai-non-critical-form
 #Customer intent: As a Custom Translator user, I want to review frequently asked questions.
 ---
 
@@ -26,12 +27,12 @@ There are restrictions and limits with respect to file size, model training, and
 ## When should I request deployment for a translation system that has been trained?
 
 It may take several trainings to create the optimal translation system for your project. You may want to try using more training data or more carefully filtered data, if the BLEU score and/ or the test results aren't satisfactory. You should
-be strict and careful in designing your tuning set and your test set, to be
-fully representative of the terminology and style of material you want to
+be strict and careful in designing your tuning set and your test set. Make certain your sets
+fully represent the terminology and style of material you want to
 translate. You can be more liberal in composing your training data, and
 experiment with different options. Request a system deployment when you're
-satisfied with the translations in your system test results, have no more data to add to the training to
-improve your trained system, and you want to access the trained model via APIs.
+satisfied with the translations in your system test results and have no more data to add to
+improve your trained system.
 
 ## How many trained systems can be deployed in a project?
 

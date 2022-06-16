@@ -307,7 +307,7 @@ az acr login && mvn compile jib:build
 
 We'll now create an AKS cluster in the virtual network *vnet-mysqlaksdemo*. 
 
-In this tutorial, we'll use Azure CNI networking in AKS. If you'd like to configure kubenet networking instead, see [Use kubenet networking in AKS](../../aks/configure-kubenet.md#create-a-service-principal-and-assign-permissions).  
+In this tutorial, we'll use Azure CNI networking in AKS. If you'd like to configure kubenet networking instead, see [Use kubenet networking in AKS](../../aks/configure-kubenet.md).  
 
 1. Create a subnet *subnet-aks* for the AKS cluster to use.
 

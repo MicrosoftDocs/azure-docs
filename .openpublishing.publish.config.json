@@ -435,6 +435,12 @@
       "branch_mapping": {}
     },
     {
+      "path_to_root": "media-services-video-indexer",
+      "url": "https://github.com/Azure-Samples/media-services-video-indexer",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
       "path_to_root": "remote-monitoring-webui",
       "url": "https://github.com/Azure/pcs-remote-monitoring-webui.git",
       "branch": "master",
@@ -624,6 +630,12 @@
       "path_to_root": "samples-cosmosdb-dotnet-v3",
       "url": "https://github.com/Azure/azure-cosmos-dotnet-v3",
       "branch": "master",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "samples-cosmosdb-mongodb-javascript",
+      "url": "https://github.com/Azure-Samples/cosmos-db-mongodb-api-javascript-samples",
+      "branch": "main",
       "branch_mapping": {}
     },
     {
@@ -912,6 +924,12 @@
       "path_to_root": "ms-identity-javascript-nodejs-desktop",
       "url": "https://github.com/Azure-Samples/ms-identity-javascript-nodejs-desktop",
       "branch": "main",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "azure-cosmos-dotnet-v3",
+      "url": "https://github.com/Azure-Samples/cosmos-db-sql-api-dotnet-samples",
+      "branch": "v3",
       "branch_mapping": {}
     }
   ],

@@ -10,10 +10,13 @@ ms.date: 01/28/2020
 ms.custom: fasttrack-edit
 ---
 # Limits in Azure Database for PostgreSQL - Single Server
+
+[!INCLUDE [applies-to-postgresql-single-server](../includes/applies-to-postgresql-single-server.md)]
+
 The following sections describe capacity and functional limits in the database service. If you'd like to learn about resource (compute, memory, storage) tiers, see the [pricing tiers](concepts-pricing-tiers.md) article.
 
-
 ## Maximum connections
+
 The maximum number of connections per pricing tier and vCores are shown below. The Azure system requires five connections to monitor the Azure Database for PostgreSQL server. 
 
 |**Pricing Tier**| **vCore(s)**| **Max Connections** | **Max User Connections** |
