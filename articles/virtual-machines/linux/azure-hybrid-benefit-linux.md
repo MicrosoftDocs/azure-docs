@@ -1,8 +1,7 @@
 ---
 title: Azure Hybrid Benefit for PAYG Linux VMs
-description: Learn how Azure Hybrid Benefit can help you save money on your Linux virtual machines running on Azure.
+description: Learn how Azure Hybrid Benefit can save you money on Linux virtual machines.
 services: virtual-machines
-documentationcenter: ''
 author: mathapli
 manager: gachandw
 ms.service: virtual-machines
@@ -15,14 +14,14 @@ ms.author: mathapli
 ms.custom: kr2b-contr-experiment
 ---
 
-# An Overview of Azure Hybrid Benefit applied to Linux pay-as-you-go virtual machines
+# An overview of Azure Hybrid Benefit for Linux pay-as-you-go virtual machines
 
 >[!IMPORTANT]
->This article outlines *Azure Hybrid Benefit* for *pay-as-you-go (PAYG) Marketplace*, *virtual machines (VMs)*. It explores the conversion of *Red Hat Enterprise Linux (RHEL)* PAYG and *SUSE Linux Enterprise Server (SLES)* PAYG VMs to a *bring-your-own-subscription (BYOS)* billing model. To switch to pay-as-you-go billing, visit [Azure Hybrid Benefit for BYOS VMs](./azure-hybrid-benefit-byos-linux.md).
+>This article explores *Azure Hybrid Benefit* for *pay-as-you-go (PAYG)* *virtual machines (VMs)*. It explores how to switch your VMs to *Red Hat Enterprise Linux (RHEL)* PAYG and *SUSE Linux Enterprise Server (SLES)* PAYG billing. To do the reverse and switch to *bring-your-own-subscription (BYOS)* billing, visit [Azure Hybrid Benefit for BYOS VMs](./azure-hybrid-benefit-byos-linux.md).
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets
 
-Hybrid Benefit for pay-as-you-go (PAYG) virtual machines (VMs) is an optional licensing benefit. It significantly reduces the cost of running Red Hat Enterprise Linux (RHEL) and SUSE Linux Enterprise Server (SLES) virtual machines (VMs) in the cloud. With this benefit, your RHEL or SLES subscription covers the software fee. You only pay infrastructure costs for your VM. This benefit is available for all RHEL and SLES Marketplace PAYG images.
+Hybrid Benefit for pay-as-you-go (PAYG) virtual machines (VMs) is an optional licensing benefit. It significantly reduces the cost of running Red Hat Enterprise Linux (RHEL) and SUSE Linux Enterprise Server (SLES) virtual machines (VMs) in the cloud. With this benefit, your RHEL or SLES subscription covers your software fee. You only pay infrastructure costs for your VM. This benefit is available for all RHEL and SLES Marketplace PAYG images.
 
 Hybrid Benefit for Linux VMs is now publicly available.
 
@@ -69,7 +68,7 @@ Hybrid Benefit for PAYG VMs for SUSE is available to customers who have:
 
 - Unused SUSE subscriptions that are eligible to use in Azure.
 - One or more active SUSE subscriptions to use on-premises that should be moved to Azure.
-- Purchased subscriptions that they activated in the SUSE Customer Center to use in Azure. 
+- Purchased subscriptions that they activated in the SUSE Customer Center to use in Azure.
 
 > [!IMPORTANT]
 > Ensure that you select the correct subscription to use in Azure.
@@ -82,13 +81,13 @@ To start using Hybrid benefit for SUSE:
 
 ## Enable and disable Hybrid benefit in Azure portal
 
-In the Azure portal, you can enable Hybrid benefit on existing VMs or enable Hybrid benefit on new VMs when you create the VM.
+In Azure portal, you can enable Hybrid benefit on existing VMs or on new VMs at the time that you create them.
 
 ### Enable Hybrid benefit on an existing VM in Azure portal
 
 To enable Hybrid benefit on an existing VM:
 
-1. Got to the [Azure portal](https://portal.azure.com/).
+1. Got to [Azure portal](https://portal.azure.com/).
 1. Open the Virtual Machine page on which you want to apply the conversion.
 1. Go the **Configuration** option on the left. You will see the Licensing section. To enable the AHB conversion, check the 'Yes' radio button and check the Confirmation checkbox.
 ![AHB Configuration blade after creating](./media/azure-hybrid-benefit/create-configuration-blade.png)
@@ -171,7 +170,7 @@ From within the VM itself, you can query the attested metadata in Azure Instance
 
 ### Red Hat
 
-Customers who use Hybrid Benefit for PAYG RHEL VMs agree to the standard [legal terms](http://www.redhat.com/licenses/cloud_CSSA/Red_Hat_Cloud_Software_Subscription_Agreement_for_Microsoft_Azure.pdf) and [privacy statement](http://www.redhat.com/licenses/cloud_CSSA/Red_Hat_Privacy_Statement_for_Microsoft_Azure.pdf) associated with the Azure Marketplace RHEL offerings.
+Customers who use Hybrid Benefit for PAYG RHEL VMs agree to the standard [legal terms](http://www.redhat.com/licenses/cloud_CSSA/Red_Hat_Cloud_Software_Subscription_Agreement_for_Microsoft_Azure.pdf) and [privacy statement](http://www.redhat.com/licenses/cloud_CSSA/Red_Hat_Privacy_Statement_for_Microsoft_Azure.pdf) associated with the Azure Marketplace RHEL offers.
 
 Customers who use Hybrid Benefit for PAYG RHEL VMs have three options for providing software updates and patches to those VMs:
 
@@ -187,7 +186,7 @@ For more information about Red Hat subscription compliance, software updates, an
 
 ### SUSE
 
-To use Hybrid Benefit for PAYG SLES VMs, and for information about moving from SLES PAYG to BYOS or moving from SLES BYOS to PAYG, see [SUSE Linux Enterprise and Hybrid Benefit](https://aka.ms/suse-ahb). 
+To use Hybrid Benefit for PAYG SLES VMs, and for information about moving from SLES PAYG to BYOS or moving from SLES BYOS to PAYG, see [SUSE Linux Enterprise and Hybrid Benefit](https://aka.ms/suse-ahb).
 
 Customers who use Hybrid Benefit for PAYG SLES VMs need to move the Cloud Update Infrastructure to one of three options that provide software updates and patches to those VMs:
 - [SUSE Customer Center](https://scc.suse.com)

@@ -17,7 +17,7 @@ ms.custom: kr2b-contr-experiment
 # Explore Hybrid Benefit for bring-your-own-subscription virtual machines and Linux VMs
 
 >[!IMPORTANT]
->This article explores *Azure Hybrid Benefit* for *bring-your-own-subscription (BYOS) virtual machines (VMs)*. Hybrid benefit provides the option to switch to custom image VMs, RHEL BYOS VMs, and SLES BYOS VMs. For steps to switch in the reverse from a BYOS VM to a RHEL PAYG VM or SLES PAYG VM, refer to [Hybrid Benefit for PAYG VMs](./azure-hybrid-benefit-linux.md).
+>This article explores *Azure Hybrid Benefit* for *bring-your-own-subscription (BYOS) virtual machines (VMs)*. Hybrid benefit lets you switch to custom image VMs, RHEL BYOS VMs, and SLES BYOS VMs. For steps to switch in the reverse from a BYOS VM to a RHEL PAYG VM or SLES PAYG VM, refer to [Hybrid Benefit for PAYG VMs](./azure-hybrid-benefit-linux.md).
 
 >[!NOTE]
 >Hybrid Benefit for BYOS VMs is in public preview at this time. To use this option on Azure, follow the steps in the [Getting Started](#get-started) section of this article.
@@ -91,8 +91,7 @@ To start using Hybrid benefit for SLES VMs:
 
 ## Enable and disable Hybrid benefit for RHEL
 
-You can install the `AHBForRHEL` extension to install the extension. After successfully installing the extension,
-you can use the `az vm update` command to update existing license type on running VMs. For SLES VMs, run the command and set `--license-type` parameter to one of the following license types: `RHEL_BASE`, `RHEL_EUS`, `RHEL_SAPHA`, `RHEL_SAPAPPS`, `RHEL_BASESAPAPPS` or `RHEL_BASESAPHA`.
+You can install the `AHBForRHEL` extension. After successfully installing the extension, you can use the `az vm update` command to update your existing license type on your running VMs. For SLES VMs, run the command and set `--license-type` parameter to one of the following license types: `RHEL_BASE`, `RHEL_EUS`, `RHEL_SAPHA`, `RHEL_SAPAPPS`, `RHEL_BASESAPAPPS` or `RHEL_BASESAPHA`.
 
 
 ### A CLI example to enable Hybrid benefit for RHEL
