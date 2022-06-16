@@ -743,7 +743,7 @@ func durable raise-event --id 1234567 --event-name MyOtherEvent --event-data 3
 
 In long-running orchestrations, you may want to wait and get the results of an orchestration. In these cases, it's also useful to be able to define a timeout period on the orchestration. If the timeout is exceeded, the state of the orchestration should be returned instead of the results.
 
-The *"wait for completion or create check status response"* API can be used to get the actual output from an orchestration instance synchronously. By default, this method have a default timeout of 10 seconds and a polling interval of 1 second.
+The *"wait for completion or create check status response"* API can be used to get the actual output from an orchestration instance synchronously. By default, this method has a default timeout of 10 seconds and a polling interval of 1 second.
 
 Here is an example HTTP-trigger function that demonstrates how to use this API:
 
