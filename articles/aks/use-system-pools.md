@@ -134,7 +134,7 @@ New-AzAksNodePool -ResourceGroupName myResourceGroup -ClusterName myAKSCluster -
 
 # Update the node pool's mode to System and add the 'CriticalAddonsOnly=true:NoSchedule' taint
 $myAKSCluster = Get-AzAksCluster -ResourceGroupName myResourceGroup2 -Name myAKSCluster
-$systemPool = $myAKSCluster.AgentPoolProfiles | where Name -eq 'systempool'
+$systemPool = $myAKSCluster.AgentPoolProfiles | Where-Object Name -eq 'systempool'
 $systemPool.Mode = 'System'
 $nodeTaints = [System.Collections.Generic.List[string]]::new()
 $NodeTaints.Add('CriticalAddonsOnly=true:NoSchedule')
@@ -259,7 +259,7 @@ This command changes a system node pool to a user node pool.
 
 ```azurepowershell-interactive
 $myAKSCluster = Get-AzAksCluster -ResourceGroupName myResourceGroup -Name myAKSCluster
-($myAKSCluster.AgentPoolProfiles | where Name -eq 'mynodepool').Mode = 'User'
+($myAKSCluster.AgentPoolProfiles | Where-Object Name -eq 'mynodepool').Mode = 'User'
 $myAKSCluster | Set-AzAksCluster
 ```
 
@@ -267,7 +267,7 @@ This command changes a user node pool to a system node pool.
 
 ```azurepowershell-interactive
 $myAKSCluster = Get-AzAksCluster -ResourceGroupName myResourceGroup -Name myAKSCluster
-($myAKSCluster.AgentPoolProfiles | where Name -eq 'mynodepool').Mode = 'System'
+($myAKSCluster.AgentPoolProfiles | Where-Object Name -eq 'mynodepool').Mode = 'System'
 $myAKSCluster | Set-AzAksCluster
 ```
 
