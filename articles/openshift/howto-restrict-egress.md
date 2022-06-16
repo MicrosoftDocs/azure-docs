@@ -62,6 +62,7 @@ In OpenShift Container Platform, customers can opt out of reporting health and u
 
 ### OTHER POSSIBLE OPENSHIFT REQUIREMENTS
 
+- **`quay.io`**: May be used to download images from the Red Hat managed Quay registry. Also a possible fall-back target for ARO required system images.
 - **`mirror.openshift.com`**: Required to access mirrored installation content and images. This site is also a source of release image signatures.
 - **`*.apps.<cluster_name>.<base_domain>`** (OR EQUIVALENT ARO URL): When allowlisting domains, this is use in your corporate network to reach applications deployed in OpenShift, or to access the OpenShift console.
 - **`api.openshift.com`**: Used by the cluster for release graph parsing. https://access.redhat.com/labs/ocpupgradegraph/ can be used as alternative.
