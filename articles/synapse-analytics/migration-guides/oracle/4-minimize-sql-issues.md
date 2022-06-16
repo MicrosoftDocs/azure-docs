@@ -18,7 +18,7 @@ This article is part four of a four part series that provides guidance on how to
 
 ## Overview
 
-'More than just a database' -- the Azure environment includes a comprehensive set of capabilites and tools
+'More than just a database' -- the Azure environment includes a comprehensive set of capabilities and tools
 
 Existing users of Oracle data warehouse systems are now looking to take advantage of the innovations provided by newer environments (e.g. cloud, IaaS, PaaS) and to delegate tasks such as infrastructure maintenance and platform development to the cloud provider.
 
@@ -86,7 +86,7 @@ While the SQL language has been standardized, individual vendors have in some ca
 
 Automate the migration process by using Azure Data Factory capabilities
 
-It makes sense to automate and orchestrate the migration process by making use of the capabilities in the Axure environment. This approach also minimizes the impact on the existing Oracle environment (which may already running close to full capacity).
+It makes sense to automate and orchestrate the migration process by making use of the capabilities in the Azure environment. This approach also minimizes the impact on the existing Oracle environment (which may already running close to full capacity).
 
 Azure Data Factory is a cloud-based data integration service that allows creation of data-driven workflows in the cloud for orchestrating and automating data movement and data transformation. Using Azure Data Factory, you can create and schedule data-driven workflows (called pipelines) that can ingest data from disparate data stores. It can process and transform the data by using compute services such as Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics, and Azure Machine Learning.
 
@@ -108,7 +108,7 @@ The following sections discuss the Oracle-specific options which need to be cons
 
 Use existing indexes to give an indication of candidates for indexing in the migrated warehouse
 
-When migrating SQL tables between different technologies it is generally only the raw data (and the metadata that describes it) that gets physically moved between the 2 environments. Other database elements from the source system (e.g. indexes, logfiles) are not directly migrated as these may not be needed, or may be implemented differently within the new target environment. For example, the TEMPORARY option within Oracle's CREATE TABLE syntax is equivalent to prefixing the table name with a '#' character in Azure Synapse.
+When migrating SQL tables between different technologies it is generally only the raw data (and the metadata that describes it) that gets physically moved between the 2 environments. Other database elements from the source system (e.g. indexes, log files) are not directly migrated as these may not be needed, or may be implemented differently within the new target environment. For example, the TEMPORARY option within Oracle's CREATE TABLE syntax is equivalent to prefixing the table name with a '#' character in Azure Synapse.
 
 However, it is important to understand where performance optimizations such as indexes have been used in the source environment as this information can give useful indication of where performance optimization might be added in the new target environment. For example, if bit-mapped indexes has been created within the source Oracle environment, it may indicate that a non-clustered index should be created within the migrated Azure Synapse -- but also be aware that other native performance optimization techniques (such as table replication or materialized views) may be more applicable than a straight 'like for like' creation of indexes.
 
@@ -156,7 +156,7 @@ Azure Synapse does not currently support this feature -- if the data to be migra
 
 Assess the impact of unsupported data types as part of the preparation phase
 
-Most Oracle datatypes have a direct equivalent in the Azure Synapse -- below is a table which shows these data types together with the recommended approach for mapping these.
+Most Oracle data types have a direct equivalent in the Azure Synapse -- below is a table which shows these data types together with the recommended approach for mapping these.
 
 &mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;-- Oracle Data Type Azure Synapse Data Type &mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;- &mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash; BFILE Not supported in Azure Synapse Analytics but can map to VARBINARY (MAX)
 
@@ -242,7 +242,7 @@ This generated the following CREATE TABLE statement:
 
 :::image type="content" source="../media/5-minimize-sql-issues/notepad-create-table-statement.png" border="true" alt-text="Screenshot showing the Quick DDL menu option in Oracle SQL Developer.":::
 
-This contains Oracle-specific clauses that need to be removed before running on Azure Synapse, and it also may be required to perform some data type mapping before creating the table. Therefore another approach is to generate GREATE TABLE statements form the information in the Oracle catalog tables which performs this automatically. The automated approach also means that this process can be done quickly and consistently for many tables. This can be achieved via SQL queries, or migration tools from Microsoft (Azure Database Migration Services or SSMA) or 3^rd^ parties.
+This contains Oracle-specific clauses that need to be removed before running on Azure Synapse, and it also may be required to perform some data type mapping before creating the table. Therefore another approach is to generate CREATE TABLE statements form the information in the Oracle catalog tables which performs this automatically. The automated approach also means that this process can be done quickly and consistently for many tables. This can be achieved via SQL queries, or migration tools from Microsoft (Azure Database Migration Services or SSMA) or third parties.
 
 Third party tools and services can automate data mapping tasks
 
@@ -334,7 +334,7 @@ It may be that there are facilities in the Azure environment that replace the fu
 
 third part products and services can automate migration of non-data elements
 
-Microsoft tools such as Azure Database Migration Services or SSMA and some 3rd party vendors offer tools and services that can automate the migration of these -- see for example see Attunity or Wherescape migration products.
+Microsoft tools such as Azure Database Migration Services or SSMA and some third party vendors offer tools and services that can automate the migration of these -- see for example see Attunity or WhereScape migration products.
 
 See below for more information on each of these elements:
 

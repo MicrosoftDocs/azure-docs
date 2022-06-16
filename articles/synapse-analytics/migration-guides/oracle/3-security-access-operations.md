@@ -18,7 +18,7 @@ This article is part three of a four part series that provides guidance on how t
 
 ## Overview
 
-'More than just a database' -- the Azure environment includes a comprehensive set of capabilites and tools
+'More than just a database' -- the Azure environment includes a comprehensive set of capabilities and tools
 
 Existing users of Oracle data warehouse systems are now looking to take advantage of the innovations provided by newer environments (e.g. cloud, IaaS, PaaS) and to delegate tasks such as infrastructure maintenance and platform development to the cloud provider.
 
@@ -156,7 +156,7 @@ Queries can be created to produce a script which is a series of CREATE and GRANT
 
 :::image type="content" source="../media/3-security-access-operations/oracle-sql-developer-reports-3.png" border="true" alt-text="Screenshot showing how to create a script of CREATE and GRANT statements in Oracle SQL Developer.":::
 
-To summarise -- the views required to view user, role and privilege information are listed below:
+To summarize -- the views required to view user, role and privilege information are listed below:
 
 &mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash; **View** **Description** &mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash; &mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;-- DBA_COL_PRIVS DBA view describes all column object grants in the database. ALL view describes all column object grants for which the current user or PUBLIC is the object owner, grantor, or grantee. USER view describes column object grants for which the current user is the object owner, grantor, or grantee.
 
@@ -324,9 +324,9 @@ The following sections compare Oracle and Azure Synapse options for various oper
 
 ### Housekeeping tasks
 
-Housekeeping tasks keep a production warehouse operating efficiently and optimize use of resiurces such as storage
+Housekeeping tasks keep a production warehouse operating efficiently and optimize use of resources such as storage
 
-In most legacy data warehouse environments there is a requirement to perform regular 'housekeeping' tasks such as reclaiming disk storage space that can be freed up by removing old versions of updated or deleted rows or re-organising data, logfile or index blocks for efficiency (e.g. ALTER TABLE.... SHRINK SPACE in Oracle).
+In most legacy data warehouse environments there is a requirement to perform regular 'housekeeping' tasks such as reclaiming disk storage space that can be freed up by removing old versions of updated or deleted rows or reorganizing data, log file or index blocks for efficiency (e.g. ALTER TABLE.... SHRINK SPACE in Oracle).
 
 Collecting statistics is also a potentially time-consuming task which is required after bulk data ingest to provide the query optimizer with up to date data on which to base generation of query execution plans.
 
