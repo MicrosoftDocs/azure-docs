@@ -21,7 +21,7 @@ For more information:
 
 The **DeviceUpdateCore** interface is used to send update actions and metadata to devices and receive update status from devices. The DeviceUpdateCore interface is split into two object properties.
 
-The expected component name in your model is **"deviceUpdate"** when this interface is implemented. [Learn more about Azure IoT Plug and Play components].(../iot-develop/concepts-modeling-guide.md)
+The expected component name in your model is **"deviceUpdate"** when this interface is implemented. [Learn more about Azure IoT Plug and Play components.](../iot-develop/concepts-modeling-guide.md)
 
 ### Agent metadata
 
