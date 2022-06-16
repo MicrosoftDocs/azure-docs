@@ -40266,6 +40266,12 @@
       "source_path_from_root": "/articles/private-link/private-endpoint-static-ip-powershell.md",
       "redirect_url": "/azure/private-link/create-private-endpoint-powershell",
       "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/app-service/environment/overview-zone-redundancy.md",
+      "redirect_url": "/azure/availability-zones/migrate-app-service-env",
+      "redirect_document_id": true
     }
+
   ]
 }

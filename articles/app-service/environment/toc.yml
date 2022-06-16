@@ -21,8 +21,6 @@
     href: networking.md
   - name: Resiliency
     items:
-    - name: Zone redundancy
-      href: overview-zone-redundancy.md
     - name: Migrate to availability zone support
       href: migrate-app-service-env.md
   - name: Certificates
