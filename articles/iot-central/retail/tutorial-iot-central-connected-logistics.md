@@ -1,12 +1,12 @@
 ---
 title: Tutorial of IoT Connected logistics | Microsoft Docs
 description: A tutorial of Connected logistics application template for IoT Central
-author: KishorIoT
-ms.author: nandab
+author: dominicbetts
+ms.author: dobett
 ms.service: iot-central
 ms.subservice: iot-central-retail
 ms.topic: tutorial
-ms.date: 01/06/2022
+ms.date: 06/13/2022
 
 ---
 
