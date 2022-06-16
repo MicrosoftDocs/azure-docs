@@ -27,9 +27,6 @@ Here is a tutorial on using the merge control to combine Azure Resource Graph an
 
 [![Combining data from different sources in workbooks](https://img.youtube.com/vi/7nWP_YRzxHg/0.jpg)](https://www.youtube.com/watch?v=7nWP_YRzxHg "Video showing how to combine data from different sources in workbooks.")
 
-[https://www.youtube.com/watch?v=7nWP_YRzxHg](https://www.youtube.com/watch?v=7nWP_YRzxHg)
-
-
 Workbooks support these merges:
 
 * Inner unique join
