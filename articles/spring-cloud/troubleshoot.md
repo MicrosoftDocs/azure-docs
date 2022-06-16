@@ -280,6 +280,15 @@ You can view the billing account for your subscription if you have admin access.
 
 Enterprise tier has built-in VMware Spring Runtime Support, so you can open support tickets to [VMware](https://aka.ms/ascevsrsupport) if you think your issue is in the scope of VMware Spring Runtime Support. To better understand VMware Spring Runtime Support itself, see <https://tanzu.vmware.com/spring-runtime>. To understand the details about how to register and use this support service, see the Support section in the [Enterprise tier FAQ from VMware](https://aka.ms/EnterpriseTierFAQ). For any other issues, open support tickets with Microsoft.
 
+### Details info about deployment exit code
+
+The exit codes indicate the termination reasons of the application. The detail info are as belows:
+
+0 - The application exited because it has run to completion, please replace it with a server application that runs constantly.
+1 - The application exited with a non-zero exit code, please debug the code and related services, then redeploy the application.
+137 - The application exited because it has requested resources that the hosting platform failed to provide, please update JVM parameters to restrict resource usage, or scale up application resources.
+143 - The application exited because it failed to respond to health probing, please make sure the application listens to some port, configure the port for health probing on the hosting platform, or turn off health probing.
+
 ## Next steps
 
 * [How to self-diagnose and solve problems in Azure Spring Apps](./how-to-self-diagnose-solve.md)
