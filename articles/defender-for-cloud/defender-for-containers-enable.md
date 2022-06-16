@@ -22,6 +22,10 @@ Defender for Containers protects your clusters whether they're running in:
 
 Learn about this plan in [Overview of Microsoft Defender for Containers](defender-for-containers-introduction.md).
 
+You can learn more about from the product manager by watching [Microsoft Defender for Containers in a multi-cloud environment](episode-nine.md).
+
+You can also watch [Protect Containers in GCP with Defender for Containers](episode-ten.md) to learn how to protect your containers.
+
 ::: zone pivot="defender-for-container-arc,defender-for-container-eks,defender-for-container-gke"
 > [!NOTE]
 > Defender for Containers' support for Arc-enabled Kubernetes clusters, AWS EKS, and GCP GKE. This is a preview feature.
@@ -93,10 +97,7 @@ A full list of supported alerts is available in the [reference table of all Defe
 
 ## Learn More
 
-Learn more from the product manager about [Microsoft Defender for Containers in a multicloud environment](episode-nine.md).
-You can also learn how to [Protect Containers in GCP with Defender for Containers](episode-ten.md).
-
-You can also check out the following blogs:
+You can check out the following blogs:
 
 - [Protect your Google Cloud workloads with Microsoft Defender for Cloud](https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/protect-your-google-cloud-workloads-with-microsoft-defender-for/ba-p/3073360)
 - [Introducing Microsoft Defender for Containers](https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/introducing-microsoft-defender-for-containers/ba-p/2952317)
