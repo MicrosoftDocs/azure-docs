@@ -141,23 +141,7 @@ If you put an infrequently accessed workload in the transaction optimized tier, 
 
 Similarly, if you put a highly accessed workload in the cool tier, you'll pay a lot more in transaction costs, but less for data storage costs. This can lead to a situation where the increased costs from the transaction prices increase outweigh the savings from the decreased data storage price, leading you to pay more money on cool than you would have on transaction optimized. For some usage levels, it's possible that the hot tier will be the most cost efficient, and the cool tier will be more expensive than transaction optimized.
 
-Your workload and activity level will determine the most cost efficient tier for your standard file share. In practice, the best way to pick the most cost efficient tier involves looking at the actual resource consumption of the share (data stored, write transactions, etc.).
-
-### Choosing a tier
-Regardless of how you migrate existing data into Azure Files, we recommend initially creating the file share in transaction optimized tier due to the large number of transactions incurred during migration. After your migration is complete and you've operated for a few days or weeks with regular usage, you can plug your transaction counts into the [pricing calculator](https://azure.microsoft.com/pricing/calculator/) to figure out which tier is best suited for your workload. 
-
-Because standard file shares only show transaction information at the storage account level, using the storage metrics to estimate which tier is cheaper at the file share level is an imperfect science. If possible, we recommend deploying only one file share in each storage account to ensure full visibility into billing.
-
-To see previous transactions:
-
-1. Go to your storage account and select **Metrics** in the left navigation bar.
-2. Select **Scope** as your storage account name, **Metric Namespace** as "File", **Metric** as "Transactions", and **Aggregation** as "Sum".
-3. Select **Apply Splitting**.
-4. Select **Values** as "API Name". Select your desired **Limit** and **Sort**.
-5. Select your desired time period.
-
-> [!Note]  
-> Make sure you view transactions over a period of time to get a better idea of average number of transactions. Ensure that the chosen time period does not overlap with initial provisioning. Multiply the average number of transactions during this time period to get the estimated transactions for an entire month.
+Your workload and activity level will determine the most cost efficient tier for your standard file share. In practice, the best way to pick the most cost efficient tier involves looking at the actual resource consumption of the share (data stored, write transactions, etc.). For standard file shares, we recommend starting in the transaction optimized tier during the initial migration into Azure Files, and then picking the correct tier based on usage after the migration is complete. Transaction usage during migration is not typically indicative of normal transaction usage.
 
 ### What are transactions?
 Transactions are operations or requests against Azure Files to upload, download, or otherwise manipulate the contents of the file share. Every action taken on a file share translates to one or more transactions, and on standard shares that use the pay-as-you-go billing model, that translates to transaction costs.
@@ -174,6 +158,41 @@ There are five basic transaction categories: write, list, read, other, and delet
 
 > [!Note]  
 > NFS 4.1 is only available for premium file shares, which use the provisioned billing model. Transactions don't affect billing for premium file shares.
+
+### Switching between standard tiers
+Although you can change a standard file share between the three standard file share tiers, the best practice to optimize costs after the initial migration is to pick the most cost optimal tier to be in, and stay there unless your access pattern changes. This is because changing the tier of a standard file share results in additional costs as follows:
+
+- Transactions: When you move a share from a hotter tier to a cooler tier, you will incur the cooler tier's write transaction charge for each file in the share. Moving a file share from a cooler tier to a hotter tier will incur the cool tier's read transaction charge for each file in the share. 
+
+- Data retrieval: If you are moving from the cool tier to hot or transaction optimized, you will incur a data retrieval charge based on the size of data moved. Only the cool tier has a data retrieval charge.
+
+The following table illustrates the cost breakdown of moving tiers:
+
+| Tier | Transaction optimized (destination) | Hot (destination) | Cool (destination) |
+|-|-|-|-|
+| **Transaction optimized (source)** | -- | <ul><li>1 hot write transaction per file.</li></ul> | <ul><li>1 cool write transaction per file.</li></ul> |
+| **Hot (source)** | <ul><li>1 hot read transaction per file.</li><ul> | -- | <ul><li>1 cool write transaction per file.</li></ul> |
+| **Cool (source)** | <ul><li>1 cool read transaction per file.</li><li>Data retrieval per total used GiB.</li></ul> | <ul><li>1 cool read transaction per file.</li><li>Data retrieval per total used GiB.</li></ul> | -- |
+
+Although there is no formal limit on how often you can change the tier of your file share, your share will take time to transition based on the amount of data in your share. You cannot change the tier of the share while the file share is transitioning between tiers. Changing the tier of the file share does not impact regular file share access. 
+
+Although there is no direct mechanism to move between premium and standard file shares because they are contained in different storage account types, you can use a copy tool such as robocopy to move between premium and standard file shares.
+
+### Choosing a tier
+Regardless of how you migrate existing data into Azure Files, we recommend initially creating the file share in transaction optimized tier due to the large number of transactions incurred during migration. After your migration is complete and you've operated for a few days or weeks with regular usage, you can plug your transaction counts into the [pricing calculator](https://azure.microsoft.com/pricing/calculator/) to figure out which tier is best suited for your workload. 
+
+Because standard file shares only show transaction information at the storage account level, using the storage metrics to estimate which tier is cheaper at the file share level is an imperfect science. If possible, we recommend deploying only one file share in each storage account to ensure full visibility into billing.
+
+To see previous transactions:
+
+1. Go to your storage account and select **Metrics** in the left navigation bar.
+2. Select **Scope** as your storage account name, **Metric Namespace** as "File", **Metric** as "Transactions", and **Aggregation** as "Sum".
+3. Select **Apply Splitting**.
+4. Select **Values** as "API Name". Select your desired **Limit** and **Sort**.
+5. Select your desired time period.
+
+> [!Note]  
+> Make sure you view transactions over a period of time to get a better idea of average number of transactions. Ensure that the chosen time period does not overlap with initial provisioning. Multiply the average number of transactions during this time period to get the estimated transactions for an entire month.
 
 ## Provisioned/quota, logical size, and physical size
 Azure Files tracks three distinct quantities with respect to share capacity: 
