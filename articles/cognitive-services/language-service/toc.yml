@@ -14,7 +14,8 @@ items:
     href: https://aka.ms/unifiedLanguagePricing
   - name: Language Studio quickstart
     href: language-studio.md
-  - name: Samples
+  - name: Samples and developer information
+    href: concepts/developer-guide.md
     items:
     - name: C#
       href: https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/textanalytics/Azure.AI.TextAnalytics/samples
