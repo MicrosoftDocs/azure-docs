@@ -32,7 +32,7 @@ While there are similarities between Oracle and Azure Synapse in that both are S
 
 Microsoft Azure is a globally available, highly secure, scalable cloud environment which includes Azure Synapse within an eco-system of supporting tools and capabilities.
 
-![](/media/imageb.png)
+:::image type="content" source="/media/imageb.png" border="true" alt-text=".":::
 
 Azure Synapse gives best performance and price-performance in independent benchmark
 
@@ -56,7 +56,7 @@ Planning and preparation is essential for a successful migration project
 
 To maximize these benefits it is necessary to migrate existing (or new) data and applications to the Azure Synapse platform, and in many organizations this will include migration of an existing data warehouse from legacy on-premise platforms such as Oracle. At a high level, the basic process will include the following steps:
 
-![](/media/imagec.png)
+:::image type="content" source="/media/imagec.png" border="true" alt-text=".":::
 
 This paper looks at the security and operational aspects of migration from a legacy Oracle data warehouse and data marts onto Azure Synapse. The topics included in this paper apply specifically to migrations from an existing Oracle environment and assume that there is requirement to migrate the existing security regime (i.e. users, roles and permissions) 'as-is'.
 
@@ -122,7 +122,7 @@ Therefore conceptually the 2 databases are very similar, and so it may be possib
 
 Once this is in place, Oracle system catalog tables can again be used to generate equivalent GRANT statements to assign permissions (where an equivalent one exists).
 
-![](/media/imaged.png)
+:::image type="content" source="/media/imaged.png" border="true" alt-text=".":::
 
 See following sections for more details.
 
@@ -138,7 +138,7 @@ See below for some basic examples:
 
 SQL Developer also has built-in options to display this information in the 'Reports' section -- see example screen shot below:
 
-![](/media/imagee.png)
+:::image type="content" source="/media/imagee.png" border="true" alt-text=".":::
 
 The example SELECT statement can be modified to produce a result set which is a series of CREATE USER and CREATE GROUP statements by including the appropriate text as a literal within the SELECT statement.
 
@@ -150,11 +150,11 @@ Migration of a data warehouse requires more than just tables, views and SQL stat
 
 In an Oracle system, the access rights for users and roles are held in the system view DBA_ROLE_PRIVS. This view can be queried (assuming that the user has SELECT access to those tables) to obtain current lists of access rights defined within the system:
 
-![](/media/imagef.png)
+:::image type="content" source="/media/imagef.png" border="true" alt-text=".":::
 
 Queries can be created to produce a script which is a series of CREATE and GRANT statements for Azure Synapse based on the existing Oracle privileges:
 
-![](/media/image10.png)
+:::image type="content" source="/media/image10.png" border="true" alt-text=".":::
 
 To summarise -- the views required to view user, role and privilege information are listed below:
 
@@ -332,7 +332,7 @@ Collecting statistics is also a potentially time-consuming task which is require
 
 In version 12c Release 2 Oracle introduced a new feature called the Optimizer Statistics Advisor -- this works through a list of rules provided by Oracle, which represent \"best practices\" for optimizer statistics. It checks each rule and where necessary generates findings, recommendations and actions involving calls to the DBMS_STATS package to take corrective measures. The list of rules can be displayed using the V\$STATS_ADVISOR_RULES view as shown in the example below:
 
-![](/media/image11.png)
+:::image type="content" source="/media/image11.png" border="true" alt-text=".":::
 
 Housekeeping tasks can be automated and monitored in Azure
 
@@ -350,7 +350,7 @@ Oracle's Enterprise Manager includes facilities to monitor various aspects of on
 
 An overview of the monitoring environment for an Oracle warehouse is shown in the diagram below:
 
-![](/media/image12.png)
+:::image type="content" source="/media/image12.png" border="true" alt-text=".":::
 
 Azure Portal provides a GUI to manage monitoring and auditing tasks for all Azure data and processes
 
@@ -358,7 +358,7 @@ Similarly, Azure Synapse provides a rich monitoring experience within the Azure 
 
 The Azure Portal can also provide recommendations for performance enhancements as shown in the screenshot below:
 
-![](media/image9.png)
+:::image type="content" source="media/image9.png" border="true" alt-text=".":::
 
 The portal also enables integration with other Azure monitoring services such as Operations Management Suite (OMS) and Azure Monitor (logs) to provide a holistic monitoring experience for not only the data warehouse but also the entire Azure analytics platform for an integrated monitoring experience.
 

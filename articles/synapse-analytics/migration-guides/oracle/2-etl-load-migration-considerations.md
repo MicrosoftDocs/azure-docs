@@ -32,7 +32,7 @@ While there are similarities between Oracle and Azure Synapse in that both are S
 
 Microsoft Azure is a globally available, highly secure, scalable cloud environment which includes Azure Synapse within an eco-system of supporting tools and capabilities.
 
-![A screenshot of a cell phone Description automatically generated](media/image1.png)
+:::image type="content" source="../media/1-design-performance-migration/azure-synapse-ecosystem-2.png" border="true" alt-text="Chart showing the Azure Synapse ecosystem of supporting tools and capabilities.":::
 
 Azure Synapse provides best-of-breed relational database performance by using techniques such as massively parallel processing (MPP) and automatic in-memory caching -- the results of this approach can be seen in independent benchmarks such as the one run recently by GigaOm -- see <https://gigaom.com/report/data-warehouse-cloud-benchmark/> which compares Azure Synapse to other popular cloud data warehouse offerings. Customers who have already migrated to this environment have seen many benefits including:
 
@@ -52,7 +52,7 @@ Azure Synapse provides best-of-breed relational database performance by using te
 
 To maximize these benefits, it is necessary to migrate existing (or new) data and applications to the Azure Synapse platform, and in many organizations this will include migration of an existing data warehouse from legacy on-premise platforms such as Oracle. At a high level, the basic process will include the following steps:
 
-![](media/image2.png)
+:::image type="content" source="../media/1-design-performance-migration/migration-steps.png" border="true" alt-text="Diagram showing the steps for preparing to migrate, migration, and post-migration.":::
 
 This paper looks at the data migration, ETL and loading aspects of migration from a legacy Oracle data warehouse and data marts onto Azure Synapse. The topics included in this paper apply specifically to migrations from an existing Oracle environment.
 
@@ -334,7 +334,7 @@ For ETL/ELT processing, legacy Oracle data warehouses may use custom-built scrip
 
 The sections below discuss the options available and make some recommendations for the various use cases. One way to decide on the approach to take can be summarized by the following flowchart:
 
-![](media/image3.png)
+:::image type="content" source="../media/2-etl-load-migration-considerations/migration-options-flowchart.png" border="true" alt-text="Flowchart of migration options and recommendations.":::
 
 The initial step should always be to build an inventory of ETL/ELT processes to be migrated -- again, as with other steps, it may be that standard 'built-in' Azure features mean that some existing processes need not be migrated. For planning purposes, it is important to understand the scale of the migration to be performed.
 
@@ -438,7 +438,7 @@ With just a few clicks, you can deploy the remote engine to run integration task
 
 Talend can leverage Azure tools such as PolyBase to guarantee the most efficient data loading into Azure Synapse.
 
-![](media/image4.png)
+:::image type="content" source="../media/2-etl-load-migration-considerations/polybase-data-loading.png" border="true" alt-text="Diagram showing how PolyBase can be used for data loading into Azure Synapse.":::
 
 See <https://www.talend.com/blog/2017/02/08/leverage-load-data-microsoft-azure-sql-data-warehouse-using-polybase-talend-etl/> for details.
 
@@ -532,7 +532,7 @@ As mentioned earlier, there are a number of techniques that can be used to extra
 
 SQL Developer GUI has an export option which allows export to many formats including CSV using a very simple GUI based method as shown below.
 
-![A screenshot of a social media post Description automatically generated](media/image5.jpeg)
+:::image type="content" source="../media/2-etl-load-migration-considerations/oracle-sql-developer-export-option.png" border="true" alt-text="Screenshot of the SQL Developer GUI export wizard.":::
 
  
 
@@ -540,7 +540,7 @@ Other export options include JSON and XML. There's also a 'Cart' option in the G
 
  
 
-![A screenshot of a social media post Description automatically generated](media/image6.jpeg)
+:::image type="content" source="../media/2-etl-load-migration-considerations/oracle-sql-developer-export-option-2.png" border="true" alt-text="Screenshot of the SQL Developer GUI cart option.":::
 
  
 
@@ -556,7 +556,7 @@ You can also unload large Oracle tables in parallel to enable loading of data by
 
 The Azure Data Factory Oracle connector provides built-in data partitioning to copy data from Oracle in parallel. You can find data partitioning options on the Source tab of the copy activity.
 
-![Screenshot of partition options](media/image7.png)
+:::image type="content" source="../media/2-etl-load-migration-considerations/azure-data-factory-source-tab.png" border="true" alt-text="Screenshot of Azure Data Factory Oracle partition options in the source tab.":::
 
 When you enable partitioned copy, Data Factory runs parallel queries against your Oracle source to load data by partitions. The parallel degree is controlled by the [parallelCopies](https://docs.microsoft.com/en-us/azure/data-factory/copy-activity-performance#parallel-copy) setting on the copy activity. For example, if you set parallelCopies to eight, Data Factory concurrently generates and runs eight queries based on your specified partition option and settings, and each query retrieves a portion of data from your Oracle database.
 

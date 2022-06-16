@@ -36,7 +36,7 @@ While there are similarities between Oracle and Azure Synapse in that both are S
 
 Microsoft Azure is a globally available, highly secure, scalable cloud environment which includes Azure Synapse within an eco-system of supporting tools and capabilities. These include SQL Server Migration Assistant for Oracle which is designed specifically to automate many aspects of a migration project where the source environment is an Oracle data warehouse.
 
-![](media/image1.png)
+:::image type="content" source="../media/1-design-performance-migration/azure-synapse-ecosystem-2.png" border="true" alt-text="Chart showing the Azure Synapse ecosystem of supporting tools and capabilities.":::
 
 Azure Synapse gives best performance and price-performance in independent benchmark
 
@@ -58,7 +58,7 @@ Azure Synapse provides best-of-breed relational database performance by using te
 
 To maximize these benefits it is necessary to migrate existing (or new) data and applications to the Azure Synapse platform, and in many organizations, this will include migration of an existing data warehouse from legacy on-premise platforms such as Oracle. At a high level, the basic process will include the following steps:
 
-![](media/image2.png)
+:::image type="content" source="../media/1-design-performance-migration/migration-steps.png" border="true" alt-text="Diagram showing the steps for preparing to migrate, migration, and post-migration.":::
 
 This paper looks at schema migration with a view to obtain equivalent or better performance of your migrated Oracle data warehouse and data marts on Azure Synapse. The topics included in this paper apply specifically to migrations from an existing Oracle environment.
 
@@ -108,7 +108,7 @@ It makes sense to automate and orchestrate the migration process by making use o
 
 SQL Server Migration Assistant for Oracle can automate many parts of the migration process and supports Azure Synapse as a target environment.
 
-![](media/image3.png)
+:::image type="content" source="media/image3.png" border="true" alt-text=".":::
 
 Azure Data Factory is a cloud-based data integration service that allows creation of data-driven workflows in the cloud for orchestrating and automating data movement and data transformation. Using Azure Data Factory, you can create and schedule data-driven workflows (called pipelines) that can ingest data from disparate data stores. It can process and transform the data by using compute services such as Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics, and Azure Machine Learning. Azure also includes Migration Services to help in planning and executing a migration from environments such as Oracle.
 
@@ -146,7 +146,19 @@ Oracle implements some database objects that are not directly supported in Azure
 
 - Various indexing options -- In Oracle there are several indexing options which have no direct equivalent in Azure Synapse. For example, bit-mapped indexes, function-based indexes and domain indexes.
 
-> It is possible to find out which columns are indexed and the index > type by querying system catalog tables and views such as ALL_INDEXES, > DBA_INDEXES and USER_INDEXES and DBA_IND_COL or by using the built-in > queries in SQL Developer as shown in the screenshot below: > > ![](media/image4.png) > > Alternatively, to find all indexes of a given type, simply run queries > such as: > > select \* from dba_indexes where index_type like \'FUNCTION-BASED%\' > > Function-based indexes are a special case where there is no direct > equivalent in Azure Synapse -- i.e. the index contains the result of a > function on the underlying data columns. The recommendation in this > case is to migrate the data and then test queries that were using the > function-based index in the Oracle environment -- it may well be that > Azure Synapse performance is acceptable. If not, then consider > creating a column which contains the pre-calculated value and index > that instead. > > It is also possible to find which indexes are actually used by > querying the dba_index_usage or v\$object_usage views if monitoring > has been enabled -- e.g. > > ![](media/image5.png) > > Of course, it only makes sense to implement indexes in the migrated > Synapse environment that are actually being used. > > Azure Synapse currently supports the following index types: > > ![](media/image6.png) > > Note that other features of Azure Synapse (e.g. parallel query > processing and in-memory caching of data and results) mean that > typically fewer indexes are required in to achieve the required > performance for data warehouse applications. > > The recommendations for index definition in Synapse are as follows: > > **Clustered columnstore indexes** > > By default, SQL Data Warehouse creates a clustered columnstore index > when no index options are specified on a table. Clustered columnstore > tables offer both the highest level of data compression as well as the > best overall query performance. Clustered columnstore tables will > generally outperform clustered index or heap tables and are usually > the best choice for large tables. For these reasons, clustered > columnstore is the best place to start when you are unsure of how to > index your table. > > There are a few scenarios where clustered columnstore may not be a > good option:
+  It is possible to find out which columns are indexed and the index > type by querying system catalog tables and views such as ALL_INDEXES, > DBA_INDEXES and USER_INDEXES and DBA_IND_COL or by using the built-in > queries in SQL Developer as shown in the screenshot below:
+  
+  :::image type="content" source="media/image4.png" border="true" alt-text=".":::
+
+  Alternatively, to find all indexes of a given type, simply run queries > such as: > > select \* from dba_indexes where index_type like \'FUNCTION-BASED%\' > > Function-based indexes are a special case where there is no direct > equivalent in Azure Synapse -- i.e. the index contains the result of a > function on the underlying data columns. The recommendation in this > case is to migrate the data and then test queries that were using the > function-based index in the Oracle environment -- it may well be that > Azure Synapse performance is acceptable. If not, then consider > creating a column which contains the pre-calculated value and index > that instead. > > It is also possible to find which indexes are actually used by > querying the dba_index_usage or v\$object_usage views if monitoring > has been enabled -- e.g. 
+
+  :::image type="content" source="media/image5.png" border="true" alt-text=".":::
+
+  Of course, it only makes sense to implement indexes in the migrated > Synapse environment that are actually being used. > > Azure Synapse currently supports the following index types:
+
+  :::image type="content" source="media/image6.png" border="true" alt-text=".":::
+
+  Note that other features of Azure Synapse (e.g. parallel query > processing and in-memory caching of data and results) mean that > typically fewer indexes are required in to achieve the required > performance for data warehouse applications. > > The recommendations for index definition in Synapse are as follows: > > **Clustered columnstore indexes** > > By default, SQL Data Warehouse creates a clustered columnstore index > when no index options are specified on a table. Clustered columnstore > tables offer both the highest level of data compression as well as the > best overall query performance. Clustered columnstore tables will > generally outperform clustered index or heap tables and are usually > the best choice for large tables. For these reasons, clustered > columnstore is the best place to start when you are unsure of how to > index your table. > > There are a few scenarios where clustered columnstore may not be a > good option:
 
 - Columnstore tables do not support varchar(max), nvarchar(max) and varbinary(max). Consider heap or clustered index instead.
 
@@ -182,7 +194,11 @@ Will show the table name and cluster ID for each table;
 
 - A user event such as login or logout.
 
-> A list of triggers defined in an Oracle database can be found by > querying the ALL_TRIGGERS, DBA_TRIGGERS or USER_TRIGGERS views as > shown in the example below: > > ![](media/image7.png) > > Azure Synapse does not currently support this functionality within the > database -- however equivalent functionality can be incorporated using > Azure Data Factory though this will require refactoring of processes > that use triggers.
+> A list of triggers defined in an Oracle database can be found by > querying the ALL_TRIGGERS, DBA_TRIGGERS or USER_TRIGGERS views as > shown in the example below:
+
+  :::image type="content" source="media/image7.png" border="true" alt-text=".":::
+
+  Azure Synapse does not currently support this functionality within the > database -- however equivalent functionality can be incorporated using > Azure Data Factory though this will require refactoring of processes > that use triggers.
 
 - Synonyms -- Oracle allows the definition of synonyms which are alternative names for a table, view, sequence, procedure, stored function, package, materialized view, Java class schema object, user-defined object type, or another synonym.
 
@@ -290,11 +306,19 @@ See below for more information on each of these elements:
 
 ##### Functions
 
-> In common with most database products, Oracle supports system > functions and also user-defined functions within the SQL > implementation. When migrating to another database platform such as > Azure Synapse common system functions are generally available and can > be migrated without change. Some system functions may have slightly > different syntax but the required changes can be automated in this > case. > > A list of functions within an Oracle database can be found by querying > the ALL_OBJECTS view with the appropriate WHERE clause -- e.g. > > ![](media/image8.png) > > For system functions where there is no equivalent, of for arbitrary > user-defined functions these may need to be re-coded using the > language(s) available in the target environment. Oracle user-defined > functions are coded in PL/SQL, Java or C whereas Azure Synapse uses > the popular Transact-SQL language for implementation of user-defined > functions.
+> In common with most database products, Oracle supports system > functions and also user-defined functions within the SQL > implementation. When migrating to another database platform such as > Azure Synapse common system functions are generally available and can > be migrated without change. Some system functions may have slightly > different syntax but the required changes can be automated in this > case. > > A list of functions within an Oracle database can be found by querying > the ALL_OBJECTS view with the appropriate WHERE clause -- e.g.
+
+:::image type="content" source="media/image8.png" border="true" alt-text=".":::
+
+For system functions where there is no equivalent, of for arbitrary > user-defined functions these may need to be re-coded using the > language(s) available in the target environment. Oracle user-defined > functions are coded in PL/SQL, Java or C whereas Azure Synapse uses > the popular Transact-SQL language for implementation of user-defined > functions.
 
 ##### Stored procedures
 
-> Most modern database products allow for procedures to be stored within > the database -- in the Oracle case the PL/SQL language is provided for > this purpose. A stored procedure typically contains SQL statements and > some procedural logic and may return data or a status. > > A list of functions within an Oracle database can be found by querying > the ALL_OBJECTS view with the appropriate WHERE clause -- e.g. > > ![](media/image9.png) > > SQL Azure Data Warehouse also supports stored procedures using T-SQL > -- so if there are stored procedures to be migrated they must be > recoded accordingly.
+> Most modern database products allow for procedures to be stored within > the database -- in the Oracle case the PL/SQL language is provided for > this purpose. A stored procedure typically contains SQL statements and > some procedural logic and may return data or a status. > > A list of functions within an Oracle database can be found by querying > the ALL_OBJECTS view with the appropriate WHERE clause -- e.g.
+
+:::image type="content" source="media/image9.png" border="true" alt-text=".":::
+
+SQL Azure Data Warehouse also supports stored procedures using T-SQL > -- so if there are stored procedures to be migrated they must be > recoded accordingly.
 
 ##### Sequences
 
@@ -312,7 +336,7 @@ This information can be accessed via utilities such as SQL Developer and can be 
 
 SQL Server Migration Assistant for Oracle can be used to migrate tables from and existing Oracle environment to Azure Synapse, applying appropriate data type mappings and recommending table and distribution types.
 
-![](media/image10.png)
+:::image type="content" source="media/image10.png" border="true" alt-text=".":::
 
 3^rd^ party migration and ETL tools also use the catalog information to achieve the same result.
 

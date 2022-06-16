@@ -9,7 +9,7 @@ ms.topic: conceptual
 author: ajagadish-24
 ms.author: ajagadish
 ms.reviewer: wiassaf
-ms.date: 05/31/2022
+ms.date: 06/30/2022
 ---
 
 # Minimize SQL issues for Oracle migrations
@@ -32,7 +32,7 @@ While there are similarities between Oracle and Azure Synapse in that both are S
 
 Microsoft Azure is a globally available, highly secure, scalable cloud environment which includes Azure Synapse within an eco-system of supporting tools and capabilities.
 
-![](media/image1.png)
+:::image type="content" source="media/image1.png" border="true" alt-text=".":::
 
 Azure Synapse gives best performance and price-performance in independent benchmark
 
@@ -56,7 +56,7 @@ Planning and preparation is essential for a successful migration project
 
 To maximize these benefits, it is necessary to migrate existing (or new) data and applications to the Azure Synapse platform. In many organizations this will include migration of an existing data warehouse from legacy on-premise platforms such as Oracle. At a high level, the basic process will include the following steps:
 
-![](media/image2.png)
+:::image type="content" source="media/image2.png" border="true" alt-text=".":::
 
 This paper looks at SQL syntax migration with a view to obtain equivalent or better performance of your migrated Oracle data warehouse and data marts on Azure Synapse. The topics included in this paper apply specifically to migrations from an existing Oracle environment.
 
@@ -236,11 +236,11 @@ However, all the information that specifies the current definitions of tables an
 
 This information can be accessed via utilities such as SQL Developer and can be used to generate the CREATE TABLE DDL statements which can then be edited for the equivalent tables in Azure Synapse. See screenshot below:
 
-![](media/image3.png)
+:::image type="content" source="media/image3.png" border="true" alt-text=".":::
 
 This generated the following CREATE TABLE statement:
 
-![](media/image4.png)
+:::image type="content" source="media/image4.png" border="true" alt-text=".":::
 
 This contains Oracle-specific clauses that need to be removed before running on Azure Synapse, and it also may be required to perform some data type mapping before creating the table. Therefore another approach is to generate GREATE TABLE statements form the information in the Oracle catalog tables which performs this automatically. The automated approach also means that this process can be done quickly and consistently for many tables. This can be achieved via SQL queries, or migration tools from Microsoft (Azure Database Migration Services or SSMA) or 3^rd^ parties.
 
