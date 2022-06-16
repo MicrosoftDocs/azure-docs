@@ -134,74 +134,58 @@ Following are sample queries that you can use to help you monitor your Azure Eve
 
     ```
 
-## Using Runtime logs 
+## Using Runtime logs  
 
-Runtime audit logs capture aggregated diagnostic information for all data plane access operations 
+Azure Event Hubs allows you to monitor and audit data plane interactions of your client applications using runtime audit logs and application metrics logs. 
+
+Using *Runtime audit logs* you can capture aggregated diagnostic information for all data plane access operations such as publishing or comsuming events. 
+*Application metrics logs* capture the aggregated data on certain runtime metrics (such as consumer lag and active connections) related to client applications are connected to Event Hubs. 
+
+> [!NOTE] 
+> Runtime audit logs are available only in **premium** and **dedicated** tiers.  
 
 ### Enabling Runtime logs
-Azure Event Hubs 
+You can enable either runtime audit logs or application metrics logs by selecting *Diagnostic settings* from the *Monitoring* section on the Event Hubs namespace page in Azure Portal. Click on *Add diagnostic setting* as shown below.  
 
 ![Metrics Explorer with Event Hubs namespace selected](./media/monitor-event-hubs/add-diagnostic-settings.png)
 
-Azure Event Hubs 
+Then you can enable log categories *RuntimeAuditLogs* or *ApplicationMetricsLogs* as needed.  
 ![Metrics Explorer with Event Hubs namespace selected](./media/monitor-event-hubs/configure-diagnostic-settings.png)
 
+Once runtime logs are enabled, Event Hubs will start collecting and storing them according to the diagnostic setting configuration. 
 
 ### Publishing and consuming sample data 
-Azure Event Hubs 
-
-Publish data using Event Hubs SDK (AMQP)
-
-Consume data using Event Hubs SDK 
-
-
-
-
-Query logs using: 
-
-
-
-
-
-
+To collect sample runtime audit logs in your Event Hubs namespace, you can publish and consume sample data using client applications which are based on [Event Hubs SDK](../event-hubs/event-hubs-dotnet-standard-getstarted-send.md) (AMQP) or using any [Apache Kafka client application](../event-hubs/event-hubs-quickstart-kafka-enabled-event-hubs.md).
 
 
 ### Analyzing Runtime Audit logs
+You can analyze the collected runtime audit logs using the following sample query. 
 
+```kusto
 AzureDiagnostics
 | where TimeGenerated > ago(1h)
-| where ResourceProvider =="MICROSOFT.EVENTHUB"
+| where ResourceProvider == "MICROSOFT.EVENTHUB"
 | where Category == "RuntimeAuditLogs"
-
-
-Azure Event Hubs 
+```
+Up on the execution of the query you should be able to obtain corresponding audit logs in the following format. 
 ![Metrics Explorer with Event Hubs namespace selected](./media/monitor-event-hubs/runtime-audit-logs.png)
 
+By analyzing these logs you should be able to audit how each client application interacts with Event Hubs. Each feild associated with runtime audit logs are defined in [runtime audit logs reference](../event-hubs/monitor-event-hubs-reference.md#runtime-audit-logs). 
 
 
 ### Analyzing Application metrics 
-Application metrics logs capture the aggregated information on certain metrics related to data plane operations. The captured information includes the following runtime metrics. 
+You can analyze the collected application metrics logs using the following sample query. 
 
-
+```kusto
 AzureDiagnostics
 | where TimeGenerated > ago(1h)
 | where Category == "ApplicationMetricsLogs"
-
+```
+Application metrics includes the following runtime metrics. 
 ![Metrics Explorer with Event Hubs namespace selected](./media/monitor-event-hubs/application-metrics-logs.png)
 
+Therefore you can use application metrics to monitor runtime metrics such as consumer lag or active connection from a given client application. Each feild associated with runtime audit logs are defined in [applicaiton metrics logs reference](../event-hubs/monitor-event-hubs-reference.md#runtime-audit-logs). 
 
-
-
-resources: 
-
-+ Get errors fro
-
-
-
-df
-
-
-    
 
 ## Alerts
 You can access alerts for Azure Event Hubs by selecting **Alerts** from the **Azure Monitor** section on the home page for your Event Hubs namespace. See [Create, view, and manage metric alerts using Azure Monitor](../azure-monitor/alerts/alerts-metric.md) for details on creating alerts.
