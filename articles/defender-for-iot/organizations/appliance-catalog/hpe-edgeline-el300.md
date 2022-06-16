@@ -74,7 +74,7 @@ Installation includes:
 - Configuring BIOS settings
 - Installing Defender for IoT software
 
-A default administrative user is provided, and we recommend that you change the password during the network configuration.
+A default administrative user is provided. We recommend that you change the password during the network configuration.
 
 > [!NOTE]
 > Installation procedures are only relevant if you need to re-install the software on a preconfigured device or buy your hardware and configure the appliance yourself.
