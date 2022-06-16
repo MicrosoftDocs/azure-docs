@@ -4,7 +4,7 @@ description: Recommended ways for you to manage your Azure Virtual Desktop envir
 author: heidilohr
 
 ms.topic: conceptual
-ms.date: 06/23/2022
+ms.date: 06/29/2022
 ms.author: helohr
 manager: femila
 ---
