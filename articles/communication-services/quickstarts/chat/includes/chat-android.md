@@ -442,7 +442,7 @@ Push notifications let clients to be notified for incoming messages and other op
    });
 ```
 
-8. Create a class which contains all the constant string to be used in your application(MainActivity class and MyAppConfiguration class):
+8. Create a class, which contains all the constant string to be used in your application(MainActivity class and MyAppConfiguration class):
 
 ```java
     public class ApplicationConstants {
@@ -486,14 +486,14 @@ Push notifications let clients to be notified for incoming messages and other op
     <!--  End of Disabling  default initializer of  WorkManager -->
 ```
 
-11. Adding worker manager dependency in build.gradle:
+11. Add worker manager dependency in build.gradle:
 
 ```
     def work_version = "2.7.1"
     implementation "androidx.work:work-runtime:$work_version"
 ```
 
-12. Adding a custom worker manager inilizer by creating a class implementing Configuration.Provider:
+12. Add a custom worker manager initializer by creating a class implementing Configuration.Provider:
 
 ```java
 public class MyAppConfiguration extends Application implements Configuration.Provider {
@@ -521,7 +521,7 @@ public class MyAppConfiguration extends Application implements Configuration.Pro
 }
 ```
 
-13. Adding android:name field, which is the class name of step 11, into AndroidManifest.xml:
+13. Adding android: name field, which is the class name of step 11, into AndroidManifest.xml:
 
 ```
 <application
