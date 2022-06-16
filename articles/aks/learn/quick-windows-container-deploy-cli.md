@@ -131,7 +131,7 @@ When creating a Windows node pool, the default operating system will be Windows 
 
 [!INCLUDE [preview features callout](../includes/preview/preview-callout.md)]
 
-### Install the `aks-preview` Azure CLI extension
+### Install the `aks-preview` extension
 
 You also need the *aks-preview* Azure CLI extension version `0.5.68` or later. Install the *aks-preview* Azure CLI extension by using the [az extension add][az-extension-add] command, or install any available updates by using the [az extension update][az-extension-update] command.
 
