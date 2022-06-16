@@ -153,7 +153,7 @@ It's important to note that when you ask the API to create lists or evaluate tex
 
 ## Generation
 
-One of the most powerful yet simplest tasks you can accomplish with the API is generating new ideas or versions of input. You can give the API a list of a few story ideas and it will try to add to that list. We have seen it create business plans, character descriptions and marketing slogans just by providing it a handful of examples. In this demonstration we'll use the API to create more examples for how to use virtual reality in the classroom:
+One of the most powerful yet simplest tasks you can accomplish with the API is generating new ideas or versions of input. You can give the API a list of a few story ideas and it will try to add to that list. We've seen it create business plans, character descriptions and marketing slogans just by providing it a handful of examples. In this demonstration we'll use the API to create more examples for how to use virtual reality in the classroom:
 
 ```
 Ideas involving education and virtual reality
@@ -172,7 +172,7 @@ Although this is a very simple prompt, there are several details worth noting:
 Just like with the classifier, we tell the API up front what the list is about. This helps it focus on completing the list and not trying to guess what the pattern is behind it.
 
 **2. Our example sets the pattern for the rest of the list**<br>
-Because we provided a one-sentence description, the API is going to try to follow that pattern for the rest of the items it adds to the list. If we want a more verbose response we need to set that up from the start.
+Because we provided a one-sentence description, the API is going to try to follow that pattern for the rest of the items it adds to the list. If we want a more verbose response, we need to set that up from the start.
 
 **3. We prompt the API by adding an incomplete entry**<br>
 When the API sees `2.` and the prompt abruptly ends, the first thing it tries to do is figure out what should come after it. Since we already had an example with number one and gave the list a title, the most obvious response is to continue adding items to the list.
@@ -271,7 +271,7 @@ Spider-Man:
 
 ## Summarization
 
-The API is able to grasp the context of text and rephrase it in different ways. In this example the API takes a block of text and creates an explanation a child would understand. This illustrates that the API has a deep grasp of language.
+The API is able to grasp the context of text and rephrase it in different ways. In this example, the API takes a block of text and creates an explanation a child would understand. This illustrates that the API has a deep grasp of language.
 
 ```
 My ten-year-old asked me what this passage means:
@@ -312,7 +312,7 @@ If you provide the API with a body of text to answer questions about (like a Wik
 **2. Use a low probability and show the API how to say "I don't know"**
 If the API understands that in cases where it's less certain about a response that saying "I don't know" or some variation is appropriate, it will be less inclined to make up answers.
 
-In this example we give the API examples of questions and answers it knows and then examples of things it wouldn't know and provide question marks. We also set the probability to zero so the API is more likely to respond with a "?" if there is any doubt.
+In this example we give the API examples of questions and answers it knows and then examples of things it wouldn't know and provide question marks. We also set the probability to zero so the API is more likely to respond with a "?" if there's any doubt.
 
 ```
 Q: Who is Batman?
@@ -364,7 +364,7 @@ You can use Codex for a variety of tasks including:
  * Rewrite code for efficiency
 
 
-### Quickstart
+### Codex examples
 
 Here are a few examples of using Codex
 
@@ -411,7 +411,7 @@ for (var i = 0; i < 50; i++) {
 
 ### Best practices
 
-**Start with a comment, data or code.**  To get Codex to create a useful completion it's helpful to think about what information a programmer would need to perform a task. This could simply be a clear comment or the data needed to write a useful function, like the names of variables or what class a function handles.
+**Start with a comment, data or code.**  To get Codex to create a useful completion it's helpful to think about what information a programmer would need to perform a task. This could just be a clear comment or the data needed to write a useful function, like the names of variables or what class a function handles.
 
 ```
 # Create a function called 'nameImporter' to add a first and last name to the database
