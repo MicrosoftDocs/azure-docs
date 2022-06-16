@@ -6,8 +6,8 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: mlops
 ms.topic: conceptual
-ms.author: seramasu
-author: rsethur
+author: dem108
+ms.author: sehan
 ms.reviewer: larryfr
 ms.custom: devplatv2, ignite-fall-2021, event-tier1-build-2022
 ms.date: 05/24/2022

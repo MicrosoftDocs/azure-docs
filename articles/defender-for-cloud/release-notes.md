@@ -2,7 +2,7 @@
 title: Release notes for Microsoft Defender for Cloud
 description: A description of what's new and changed in Microsoft Defender for Cloud
 ms.topic: reference
-ms.date: 05/30/2022
+ms.date: 06/16/2022
 ---
 
 # What's new in Microsoft Defender for Cloud?
@@ -23,6 +23,7 @@ Updates in June include:
 - [Drive implementation of security recommendations to enhance your security posture](#drive-implementation-of-security-recommendations-to-enhance-your-security-posture)
 - [Filter security alerts by IP address](#filter-security-alerts-by-ip-address)
 - [General availability (GA) of Defender for SQL on machines for AWS and GCP environments](#general-availability-ga-of-defender-for-sql-on-machines-for-aws-and-gcp-environments)
+- [Alerts by resource group](#alerts-by-resource-group)
 
 ### Drive implementation of security recommendations to enhance your security posture
 
@@ -49,6 +50,22 @@ Microsoft Defender for SQL provides a unified multicloud experience to view secu
 Using the multicloud onboarding experience, you can enable and enforce databases protection for SQL servers running on AWS EC2, RDS Custom for SQL Server and GCP compute engine. After enabling either of these plans, all supported resources that exist within the subscription are protected. Future resources created on the same subscription will also be protected.
 
 Learn how to protect and connect your [AWS environment](quickstart-onboard-aws.md) and your [GCP organization](quickstart-onboard-gcp.md) with Microsoft Defender for Cloud.
+
+## Alerts by resource group
+
+The ability to filter, sort and group by resource group has been added to the Security alerts page. 
+
+A resource group column has been added to the alerts grid.
+
+:::image type="content" source="media/release-notes/resource-column.png" alt-text="Screenshot of the newly added reource group column." lightbox="media/release-notes/resource-column.png":::
+
+A new filter has been added which allows you to view all of the alerts for specific resource groups.
+
+:::image type="content" source="media/release-notes/filter-by-resource-group.png" alt-text="Screenshot that shows the new resource group filter." lightbox="media/release-notes/filter-by-resource-group.png":::
+
+You can now also group your alerts by resource group to view all of your alerts for each of your resource groups. 
+
+:::image type="content" source="media/release-notes/group-by-resource.png" alt-text="Screenshot that shows how to view your alerts when they are grouped by resource group." lightbox="media/release-notes/group-by-resource.png":::
 
 ## May 2022
 

@@ -1,9 +1,9 @@
 ---
 title: Tutorial - Azure IoT smart meter monitoring | Microsoft Docs
 description: This tutorial shows you how to deploy and use the smart meter monitoring application template for IoT Central.
-author: eross-msft
-ms.author: lizross
-ms.date: 12/23/2021
+author: dominicbetts
+ms.author: dobett
+ms.date: 06/14/2022
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central

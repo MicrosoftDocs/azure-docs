@@ -47,7 +47,7 @@ Azure VMware Solution currently supports the following regions:
 
 **America**   : East US, West US, Central US, South Central US, North Central US, Canada East, Canada Central .
 
-**Europe**    : North Europe, UK West, UK South, France Central, Switzerland West, Germany West Central.
+**Europe**    : West Europe, North Europe, UK West, UK South, France Central, Switzerland West, Germany West Central.
 
 **Asia**      : Southeast Asia, Japan West.
 
