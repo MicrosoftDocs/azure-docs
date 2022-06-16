@@ -18,7 +18,9 @@ The following sections identify the requirements to use Nutanix Clusters on Azur
 
 ## My Nutanix account requirements
 
-For more information, see (insert nutanix url)
+For more information, see [Creating My Nutanix Account
+](https://download.nutanix.com/documentation/hosted/Nutanix-Cloud-Clusters-Azure.pdf) in [Nutanix Cloud Clusters
+on Azure Deployment and User Guide](https://download.nutanix.com/documentation/hosted/Nutanix-Cloud-Clusters-Azure.pdf).
 
 ## Networking requirements
 
@@ -34,8 +36,5 @@ gateway-external-api.console.nutanix.com.
 * Only the Nutanix AHV hypervisor on Nutanix clusters running in Azure
 * Prism Central instance deployed on NC2 on Azure to manage the Nutanix clusters in Azure
 
-
-For more information, see Deployment. 
-
 > [!div class="nextstepaction"]
-> [About the Public Preview](about-the-public-preview.md)
+> [Getting started with NC2-on-Azure](getting-started.md)
