@@ -27,9 +27,18 @@ The UI Library now gives developers the ability to provide a more customized exp
 #### Usage
 
 ```swift
-let participantViewData = ParticipantViewData(avatar: <Some UIImage>, displayName: "<Some Display Name>")
-let localOptions = LocalOptions(participantViewData: participantViewData)
-callComposite.launch(remoteOptions: <some RemoteOptions>, localOptions: localOptions)
+// LocalOptions (data not sent to server)
+let localParticipantViewData = ParticipantViewData(avatar: <Some UIImage>,
+                                                   displayName: "<DISPLAY_NAME>")
+let localOptions = LocalOptions(participantViewData: localParticipantViewData)
+
+// RemoteOptions (data sent to server)
+let remoteOptions = RemoteOptions(for: .groupCall(groupId: UUID()),
+                                  credential: <Some CommunicationTokenCredential>,
+                                  displayName: "<DISPLAY_NAME>")
+
+// Launch
+callComposite.launch(remoteOptions: remoteOptions, localOptions: localOptions)
 ```
 
 |Setup View|Calling Experience View|
