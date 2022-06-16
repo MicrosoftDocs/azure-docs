@@ -1,6 +1,6 @@
 ---
 title: Push and pull supply chain artifacts
-description: Push and pull supply chain artifacts, using a private container registry in Azure 
+description: Push and pull supply chain artifacts, using a registry in Azure 
 author: SteveLasker
 manager: gwallace
 ms.topic: article
@@ -9,7 +9,7 @@ ms.author: stevelas
 ms.custom: references_regions, devx-track-azurecli
 ---
 
-# Push and pull supply chain artifacts, using a private container registry in Azure (Preview)
+# Push and pull supply chain artifacts, using a registry in Azure (Preview)
 
 Use an Azure container registry to store and manage a graph of artifacts, including signatures, software bill of materials (SBoM), security scan results or other types. 
 
@@ -35,7 +35,7 @@ ORAS Artifacts support is limited to the South Central US region, with Availabil
 
 Download and install a preview ORAS release for your operating system. See [ORAS Install instructions][oras-install-docs] for how to extract and install the file for your operating system, referencing an Alpha.1 preview build from the [ORAS GitHub repo][oras-preview-install]
 
-## Configure a private registry
+## Configure a registry
 
 Configure environment variables to easily copy/paste commands into your shell. The commands can be run in the [Azure Cloud Shell](https://shell.azure.com/)
 
@@ -140,7 +140,7 @@ To read the password from Stdin, use `--password-stdin`.
 
 ## Push a container image
 
-This example associates a graph of artifacts to a container image. Build and push a container image, or reference an existing image in the private registry.
+This example associates a graph of artifacts to a container image. Build and push a container image, or reference an existing image in the registry.
 
 ```bash
 docker build -t $IMAGE https://github.com/wabbit-networks/net-monitor.git#main
