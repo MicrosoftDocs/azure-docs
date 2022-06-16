@@ -77,7 +77,7 @@ az aks nodepool add \
 ```
 
 > [!NOTE]
-> Every AKS cluster must contain at least one system node pool with at least one node. In the above example, we are using a `--mode` of `System`, as the cluster is assumed to have only one node pool, necessitating a `System` node pool to replace it. A node pool's mode can be [updated at any time][update-node-pool-mode].
+> Every AKS cluster must contain at least one system node pool with at least one node. In the example above, we are using a `--mode` of `System`, as the cluster is assumed to have only one node pool, necessitating a `System` node pool to replace it. A node pool's mode can be [updated at any time][update-node-pool-mode].
 
 When resizing, be sure to consider other requirements and configure your node pool accordingly. You may need to modify the above command. For a full list of the configuration options, see the [az aks nodepool add][az-aks-nodepool-add] reference page.
 
@@ -129,11 +129,11 @@ aks-nodepool1-31721111-vmss000002    Ready    agent   10d   v1.21.9
 ```
 
 > [!NOTE]
-> Every AKS cluster must contain at least one system node pool with at least one node. In the below example, we are updating a node pool's mode to `System`, as the cluster is assumed to have only one node pool, necessitating a `System` node pool to replace it. A node pool's mode can be [updated at any time][update-node-pool-mode].
+> Every AKS cluster must contain at least one system node pool with at least one node. In the example below, we are updating a node pool's mode to `System`, as the cluster is assumed to have only one node pool, necessitating a `System` node pool to replace it. A node pool's mode can be [updated at any time][update-node-pool-mode].
 
 ```azurepowershell-interactive
 $myAKSCluster = Get-AzAksCluster -ResourceGroupName myResourceGroup -Name myAKSCluster
-($myAKSCluster.AgentPoolProfiles | where Name -eq 'mynodepool').Mode = 'System'
+($myAKSCluster.AgentPoolProfiles | Where-Object Name -eq 'mynodepool').Mode = 'System'
 $myAKSCluster | Set-AzAksCluster
 ```
 
