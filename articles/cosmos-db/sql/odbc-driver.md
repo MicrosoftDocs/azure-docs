@@ -119,7 +119,7 @@ To define a schema, follow these steps. For the table-delimiter mapping method, 
 
 1. On the **User DSN** tab of the **ODBC Data Source Administrator** window, select your Azure Cosmos DB User DSN Name, and then select **Configure**.
 
-1. In the **Azure DocumentDB ODBC Driver DSN Setup** window, select **Schema Editor**.
+1. In the **DocumentDB ODBC Driver DSN Setup** window, select **Schema Editor**.
 
    :::image type="content" source="./media/odbc-driver/odbc-driver-schema-editor.png" alt-text="Screenshot that shows the Schema Editor button in the D S N Setup window.":::
 
@@ -129,7 +129,7 @@ To define a schema, follow these steps. For the table-delimiter mapping method, 
 
 1. To use the *container mapping* method, select **Sample**.
 
-   Or, to use *table-delimiter* mapping, take the following steps to define attributes and values.
+   Or, to use *table-delimiter* mapping, take the following steps to define attributes and values for scoping the sample.
 
    1. Select **Edit** in the **Mapping Definition** column for your DSN.
 
@@ -222,7 +222,7 @@ You can use your DSN to connect to Azure Cosmos DB with any ODBC-compliant tools
 
    :::image type="content" source="./media/odbc-driver/odbc-driver-power-bi-get-data.png" alt-text="Screenshot showing Get Data in Power B I Desktop.":::
 
-1. In the **Get Data** window, select **Other** > **ODBC** > **Connect**.
+1. In the **Get Data** window, select **Other** > **ODBC**, and then select **Connect**.
 
    :::image type="content" source="./media/odbc-driver/odbc-driver-power-bi-get-data-2.png" alt-text="Screenshot that shows choosing O D B C data source in Power B I Get Data.":::
 
