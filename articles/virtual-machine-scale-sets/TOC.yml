@@ -159,6 +159,8 @@
       href: virtual-machine-scale-sets-extension-sequencing.md
     - name: Application Health extension
       href: virtual-machine-scale-sets-health-extension.md
+  - name: Azure Compute Gallery
+    href: ../virtual-machines/azure-compute-gallery.md
 - name: Monitoring
   items:
   - name: Monitor virtual machines
