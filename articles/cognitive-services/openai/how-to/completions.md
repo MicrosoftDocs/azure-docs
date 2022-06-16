@@ -641,4 +641,4 @@ button.onclick = function() {
 
 ## Next steps
 
-Learn more about the [underlying engines/models that power Azure OpenAI](./concepts/engines.md).
+Learn more about the [underlying engines/models that power Azure OpenAI](../concepts/engines.md).
