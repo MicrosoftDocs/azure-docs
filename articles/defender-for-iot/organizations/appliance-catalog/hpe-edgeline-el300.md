@@ -17,7 +17,7 @@ Legacy appliances are certified but aren't currently offered as preconfigured ap
 |**Hardware profile** | SMB|
 |**Performance** |Max bandwidth: 100 Mbp/s<br>Max devices: 800 |
 |**Physical specifications** | Mounting: Mounting kit, Din Rail<br>Ports: 5x RJ45|
-|**Status** | Supported, Not available, pre-configured|
+|**Status** | Supported, Not available pre-configured|
 
 The following image shows a view of the back panel of the HPE Edgeline EL300.
 
