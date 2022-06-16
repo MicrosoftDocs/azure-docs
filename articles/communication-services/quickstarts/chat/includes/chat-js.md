@@ -81,7 +81,7 @@ module.exports = {
 }
 ```
 
-Add a `start` script to your `package.json`, we will use this for running the app. Inside the `scripts` section of `package.json` add the following:
+Add a `start` script to your `package.json`, we'll use this for running the app. Inside the `scripts` section of `package.json` add the following:
 
 ```
 "scripts": {
@@ -111,7 +111,7 @@ Create a file in the root directory of your project called **client.js** to cont
 
 To create a chat client in your web app, you'll use the Communications Service **endpoint** and the **access token** that was generated as part of prerequisite steps.
 
-User access tokens enable you to build client applications that directly authenticate to Azure Communication Services. This quickstart does not cover creating a service tier to manage tokens for your chat application. See [chat concepts](../../../concepts/chat/concepts.md) for more information about chat architecture, and [user access tokens](../../access-tokens.md) for more information about access tokens.
+User access tokens enable you to build client applications that directly authenticate to Azure Communication Services. This quickstart doesn't cover creating a service tier to manage tokens for your chat application. See [chat concepts](../../../concepts/chat/concepts.md) for more information about chat architecture, and [user access tokens](../../access-tokens.md) for more information about access tokens.
 
 Inside **client.js** use the endpoint and access token in the code below to add chat capability using the Azure Communication Chat SDK for JavaScript.
 
@@ -128,7 +128,7 @@ let userAccessToken = '<USER_ACCESS_TOKEN>';
 let chatClient = new ChatClient(endpointUrl, new AzureCommunicationTokenCredential(userAccessToken));
 console.log('Azure Communication Chat client created!');
 ```
-- Replace **endpointUrl** with the Communication Services resource endpoint, see [Create an Azure Communication Services resource](../../create-communication-resource.md) if you have not already done so.
+- Replace **endpointUrl** with the Communication Services resource endpoint, see [Create an Azure Communication Services resource](../../create-communication-resource.md) if you haven't already done so.
 - Replace **userAccessToken** with the token that you issued.
 
 
@@ -200,7 +200,7 @@ createChatThread().then(async threadId => {
   });
 ```
 
-When you refresh your browser tab you should see the following in the console:
+When you refresh your browser tab, you should see the following in the console:
 ```console
 Thread created: <thread_id>
 ```
@@ -243,7 +243,7 @@ Use `sendMessage` method to sends a message to a thread identified by threadId.
 
 - Use `senderDisplayName` to specify the display name of the sender;
 - Use `type` to specify the message type, such as 'text' or 'html' ;
-- Use `metadata` optionally to include any additional data you want to send along with the message. This field provides a mechanism for developers to extend chat message functionality and add custom information for your use case. For example, when sharing a file link in the message, you might want to add 'hasAttachment:true' in metadata so that recipient's application can parse that and display accordingly.
+- Use `metadata` optionally to include any other data you want to send along with the message. This field provides a mechanism for developers to extend chat message functionality and add custom information for your use case. For example, when sharing a file link in the message, you might want to add 'hasAttachment:true' in metadata so that recipient's application can parse that and display accordingly.
 
 `SendChatMessageResult` is the response returned from sending a message, it contains an ID, which is the unique ID of the message.
 
@@ -309,7 +309,7 @@ For more details, see [Message Types](../../../concepts/chat/concepts.md#message
 
 Once a chat thread is created, you can then add and remove users from it. By adding users, you give them access to send messages to the chat thread, and add/remove other participants.
 
-Before calling the `addParticipants` method, ensure that you have acquired a new access token and identity for that user. The user will need that access token in order to initialize their chat client.
+Before calling the `addParticipants` method, ensure that you've acquired a new access token and identity for that user. The user will need that access token in order to initialize their chat client.
 
 `addParticipantsRequest` describes the request object wherein `participants` lists the participants to be added to the chat thread;
 - `id`, required, is the communication identifier to be added to the chat thread.

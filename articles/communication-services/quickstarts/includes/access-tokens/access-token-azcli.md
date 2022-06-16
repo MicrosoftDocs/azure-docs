@@ -24,11 +24,11 @@ Open a console window and enter the following command:
 setx AZURE_COMMUNICATION_CONNECTION_STRING "<yourconnectionstring>"
 ```
 
-After you add the environment variable, you may need to restart any running programs that will need to read the environment variable, including the console window. For example, if you are using Visual Studio as your editor, restart Visual Studio before running the example.
+After you add the environment variable, you may need to restart any running programs that will need to read the environment variable, including the console window. For example, if you're using Visual Studio as your editor, restart Visual Studio before running the example.
 
 #### [macOS](#tab/unix)
 
-Edit your **.zshrc**, and add the environment variable:
+Edit your **`.zshrc`**, and add the environment variable:
 
 ```bash
 export AZURE_COMMUNICATION_CONNECTION_STRING="<yourconnectionstring>"
@@ -38,7 +38,7 @@ After you add the environment variable, run `source ~/.zshrc` from your console 
 
 #### [Linux](#tab/linux)
 
-Edit your **.bash_profile**, and add the environment variable:
+Edit your **`.bash_profile`**, and add the environment variable:
 
 ```bash
 export AZURE_COMMUNICATION_CONNECTION_STRING="<yourconnectionstring>"
@@ -50,7 +50,7 @@ After you add the environment variable, run `source ~/.bash_profile` from your c
 
 ## Operations
 
-Before running any commands, you will need to first [sign in to Azure CLI](/cli/azure/authenticate-azure-cli). You can do this through the terminal using the ```az login``` command and providing your credentials.
+Before running any commands, you'll need to first [sign in to Azure CLI](/cli/azure/authenticate-azure-cli). You can sign in by running ```az login``` in the terminal or command window and providing your credentials.
 
 ### Issue access token
 
@@ -91,7 +91,7 @@ After you add the environment variable, you may need to restart any running prog
 
 #### [macOS](#tab/unix)
 
-Edit your **.zshrc**, and add the environment variable:
+Edit your **`.zshrc`**, and add the environment variable:
 
 ```bash
 export AZURE_COMMUNICATION_ACCESS_TOKEN="<youraccesstoken>"
@@ -101,7 +101,7 @@ After you add the environment variable, run `source ~/.zshrc` from your console 
 
 #### [Linux](#tab/linux)
 
-Edit your **.bash_profile**, and add the environment variable:
+Edit your **`.bash_profile`**, and add the environment variable:
 
 ```bash
 export AZURE_COMMUNICATION_ACCESS_TOKEN="<youraccesstoken>"

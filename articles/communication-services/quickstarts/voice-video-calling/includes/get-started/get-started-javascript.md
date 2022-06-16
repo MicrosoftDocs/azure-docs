@@ -8,7 +8,7 @@ ms.topic: include
 ms.service: azure-communication-services
 ---
 
-In this quickstart, you'll learn how start a call using the Azure Communication Services Calling SDK for JavaScript.
+In this quickstart, you'll learn how to start a call using the Azure Communication Services Calling SDK for JavaScript.
 
 ## Sample code
 
@@ -27,7 +27,7 @@ You can download the sample app from [GitHub](https://github.com/Azure-Samples/c
 
 [!INCLUDE [Calling with JavaScript](./get-started-javascript-setup.md)]
 
-Here's the html, that we need to add to the `index.html` file which we just created:
+Here's the html, that we need to add to the `index.html` file which we created:
 
 ```html
 <!DOCTYPE html>
@@ -92,11 +92,11 @@ The following classes and interfaces handle some of the major features of the Az
 | ---------------------------------| ------------------------------------------------------------------------------------------------------------------------------------------- |
 | CallClient                       | The CallClient is the main entry point to the Calling SDK.                                                                       |
 | CallAgent                        | The CallAgent is used to start and manage calls.                                                                                            |
-| AzureCommunicationTokenCredential | The AzureCommunicationTokenCredential class implements the CommunicationTokenCredential interface which is used to instantiate the CallAgent. |
+| AzureCommunicationTokenCredential | The AzureCommunicationTokenCredential class implements the CommunicationTokenCredential interface, which is used to instantiate the CallAgent. |
 
 ## Authenticate the client
 
-You need to input a valid user access token for your resource into the text field and click 'Submit'. Refer to the [user access token](../../../access-tokens.md) documentation if you don't already have a token available. Using the `CallClient`, initialize a `CallAgent` instance with a `CommunicationTokenCredential` which will enable us to make and receive calls. 
+You need to input a valid user access token for your resource into the text field and click 'Submit'. Refer to the [user access token](../../../access-tokens.md) documentation if you don't already have a token available. Using the `CallClient`, initialize a `CallAgent` instance with a `CommunicationTokenCredential`, that will enable us to make and receive calls. 
 
 Add the following code to **app.js**:
 
@@ -164,5 +164,5 @@ Open your browser and navigate to http://localhost:1234/. You should see the fol
 
 You can make an outbound VOIP call by providing a valid user access token and user ID in the corresponding text fields and clicking the **Start Call** button.
 
-Calling `8:echo123` connects you with an echo bot, this is great for getting started and verifying your audio devices are working. Pass `{id: '8:echo123'}` to the CallAgent.startCall() API to call echobot.
+Calling `8:echo123` connects you with an echo bot, which is great for getting started and verifying your audio devices are working. Pass `{id: '8:echo123'}` to the CallAgent.startCall() API to call echobot.
 To call an Azure Communication Services communication user, pass `{communicationUserId: 'ACS_USER_ID'}` to the `CallAgent.startCall()` API.
