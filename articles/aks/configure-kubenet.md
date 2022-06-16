@@ -167,7 +167,7 @@ The following example output shows the application ID and password for your serv
   "appId": "476b3636-5eda-4c0e-9751-849e70b5cfad",
   "displayName": "azure-cli-2019-01-09-22-29-24",
   "password": "tzG8Q~DRYSJtMPhajpHfYaG~.4Yp2VonoZfU9bjy",
-  "tenant": "72f998bf-85f1-41cf-92ab-2e7cd014db46"
+  "tenant": "00000000-0000-0000-0000-000000000000"
 }
 ```
 
@@ -297,8 +297,8 @@ The following IP address ranges are also defined as part of the cluster create p
 
 ```azurepowershell-interactive
 # Create a PSCredential object using the service principal's ID and secret
-$password = ConvertTo-SecureString $servicePrincipal.PasswordCredentials[0].SecretText -AsPlainText -Force
-$credential = New-Object System.Management.Automation.PSCredential ($servicePrincipal.AppId, $password)
+$password = ConvertTo-SecureString -String $servicePrincipal.PasswordCredentials[0].SecretText -AsPlainText -Force
+$credential = New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $servicePrincipal.AppId, $password
 
 $params = @{
     ResourceGroupName           = 'myResourceGroup'
