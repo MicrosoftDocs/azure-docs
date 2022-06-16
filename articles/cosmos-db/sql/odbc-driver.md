@@ -51,7 +51,7 @@ You can also connect your normalized Azure Cosmos DB data to other software solu
 
 1. Ensure that the **Microsoft Azure DocumentDB ODBC Driver** is listed on the **Drivers** tab.
 
-   :::image type="content" source="./media/odbc-driver/odbc-driver.png" alt-text="Azure Cosmos DB ODBC Data Source Administrator":::
+   :::image type="content" source="./media/odbc-driver/odbc-driver.png" alt-text="Screenshot of the O D B C Data Source Administrator.":::
 
 <a id="connect"></a>
 1. On the **User DSN** tab of the **ODBC Data Source Administrator** window, select **Add** to create a new data source name (DSN). You can also create a System DSN.
@@ -60,7 +60,7 @@ You can also connect your normalized Azure Cosmos DB data to other software solu
 
 1. In the **Azure DocumentDB ODBC Driver DSN Setup** window, fill in the following information: 
 
-   :::image type="content" source="./media/odbc-driver/odbc-driver-dsn-setup.png" alt-text="Azure Cosmos DB ODBC Driver DSN Setup window
+   :::image type="content" source="./media/odbc-driver/odbc-driver-dsn-setup.png" alt-text="Screenshot of the D S N Setup window.":::
    
    - **Data Source Name**: A friendly name for the ODBC DSN. This name is unique to this Azure Cosmos DB account.
    - **Description**: A brief description of the data source.
@@ -69,7 +69,7 @@ You can also connect your normalized Azure Cosmos DB data to other software solu
    
    To avoid a key not found error, use the copy buttons to copy the URI and key from the Azure portal.
    
-   :::image type="content" source="./media/odbc-driver/odbc-cosmos-account-keys.png" alt-text="Azure Cosmos DB Keys page":::
+   :::image type="content" source="./media/odbc-driver/odbc-cosmos-account-keys.png" alt-text="Screenshot of the Azure Cosmos D B Keys page.":::
    
    - **Encrypt Access Key for**: Select the best choice, based on who uses the machine.
     
@@ -89,7 +89,7 @@ You can also connect your normalized Azure Cosmos DB data to other software solu
 
 1. Once you complete and close the **DocumentDB ODBC Driver DSN Setup** window, the new User DSN appears on the **User DSN** tab of the **ODBC Data Source Administrator** window.
 
-   :::image type="content" source="./media/odbc-driver/odbc-driver-user-dsn.png" alt-text="New Azure Cosmos DB ODBC DSN on the User DSN tab":::
+   :::image type="content" source="./media/odbc-driver/odbc-driver-user-dsn.png" alt-text="Screenshot that shows the new User D S N on the User D S N tab.":::
 
 ### Edit the Windows registry to allow REST API version 2018-12-31 support
 
@@ -101,7 +101,7 @@ If you have containers with [large partition keys](../large-partition-keys.md) t
 1. Navigate to the new **Contoso Account ODBC DSN** subkey, and right-click to add a new **String** value:
    - Value Name: **IgnoreSessionToken**
    - Value data: **1**
-   :::image type="content" source="./media/odbc-driver/cosmos-odbc-edit-registry.png" alt-text="Registry Editor settings":::
+   :::image type="content" source="./media/odbc-driver/cosmos-odbc-edit-registry.png" alt-text="Screenshot that shows the Windows Registry Editor settings.":::
 
 <a id="#container-mapping"></a>
 ## Create a schema definition
@@ -116,7 +116,7 @@ The following steps create a schema for the data in one or more containers by us
 
 1. In the **Azure DocumentDB ODBC Driver DSN Setup** window, select **Schema Editor**.
 
-   :::image type="content" source="./media/odbc-driver/odbc-driver-schema-editor.png" alt-text="Schema editor button in the Azure Cosmos DB ODBC Driver DSN Setup window":::
+   :::image type="content" source="./media/odbc-driver/odbc-driver-schema-editor.png" alt-text="Screenshot that shows the Schema Editor button in the D S N Setup window.":::
 
 1. In the **Schema Editor** window, select **Create New**. The **Generate Schema** window displays all the containers in the Azure Cosmos DB account.
 
