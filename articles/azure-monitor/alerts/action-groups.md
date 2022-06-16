@@ -6,11 +6,7 @@ ms.topic: conceptual
 ms.date: 06/06/2022
 ms.author: dukek
 ms.reviewer: dukek
-<<<<<<< HEAD
 
-=======
-=======
->>>>>>> 42cb34b1709be5cb53beb9e8d3d03eaed3098df1
 ---
 # Create and manage action groups in the Azure portal
 
