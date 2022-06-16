@@ -21,10 +21,10 @@ Azure Cosmos DB is a fully managed NoSQL database for modern app development. Si
 >
 > [!VIDEO https://aka.ms/docs.essential-introduction]
 
-You can [Try Azure Cosmos DB for Free](/azure/cosmos-db/try-free) without an Azure subscription, free of charge and commitments or use the [Azure Cosmos DB free tier](free-tier.md) to get an account with the first 1000 RU/s and 25 GB of storage free.
+You can [Try Azure Cosmos DB for Free](https://azure.microsoft.com/try/cosmosdb/) without an Azure subscription, free of charge and commitments or use the [Azure Cosmos DB free tier](free-tier.md) to get an account with the first 1000 RU/s and 25 GB of storage free.
 
 > [!div class="nextstepaction"]
-> [Try Azure Cosmos DB for Free](/azure/cosmos-db/try-free)
+> [Try Azure Cosmos DB for Free](https://azure.microsoft.com/try/cosmosdb/)
 
 > [!TIP]
 > To learn more about Azure Cosmos DB, join us every Thursday at 1PM Pacific on Azure Cosmos DB Live TV. See the [Upcoming session schedule and past episodes](https://gotcosmos.com/tv).
@@ -102,4 +102,4 @@ Get started with Azure Cosmos DB with one of our quickstarts:
     - If you know typical request rates for your current database workload, read about [estimating request units using Azure Cosmos DB capacity planner](estimate-ru-with-capacity-planner.md)
 
 > [!div class="nextstepaction"]
-> [Try Azure Cosmos DB for free](/azure/cosmos-db/try-free)
+> [Try Azure Cosmos DB for free](https://azure.microsoft.com/try/cosmosdb/)

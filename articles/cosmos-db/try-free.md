@@ -12,13 +12,13 @@ ms.date: 08/26/2021
 # Try Azure Cosmos DB free
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
-[Try Azure Cosmos DB](/azure/cosmos-db/try-free) makes it easy to try out Azure Cosmos DB for free before you commit. There's no credit card required to get started. Your account is free for 30 days. After expiration, a new sandbox account can be created. You can extend beyond 30 days for 24 hours. You can upgrade your active Try Azure Cosmos DB account at any time during the 30 day trial period. If you're using the SQL API, migrate your Try Azure Cosmos DB data to your upgraded account.
+[Try Azure Cosmos DB](https://aka.ms/trycosmosdb) makes it easy to try out Azure Cosmos DB for free before you commit. There's no credit card required to get started. Your account is free for 30 days. After expiration, a new sandbox account can be created. You can extend beyond 30 days for 24 hours. You can upgrade your active Try Azure Cosmos DB account at any time during the 30 day trial period. If you're using the SQL API, migrate your Try Azure Cosmos DB data to your upgraded account.
  
 This article walks you through how to create your account, limits, and upgrading your account. This article also walks through how to migrate your data from your Try Azure Cosmos DB sandbox to your own account using the SQL API.
 
 ## Try Azure Cosmos DB limits
 
-The following table lists the limits for the [Try Azure Cosmos DB](/azure/cosmos-db/try-free) for Free trial.
+The following table lists the limits for the [Try Azure Cosmos DB](https://aka.ms/trycosmosdb) for Free trial.
 
 | Resource | Limit |
 | --- | --- |
@@ -33,7 +33,7 @@ Try Azure Cosmos DB supports global distribution in only the Central US, North E
 
 ## Create your Try Azure Cosmos DB account
 
-From the [Try Azure Cosmos DB home page](/azure/cosmos-db/try-free), select an API. Azure Cosmos DB provides five APIs: Core (SQL) and MongoDB for document data, Gremlin for graph data, Azure Table, and Cassandra. 
+From the [Try Azure Cosmos DB home page](https://aka.ms/trycosmosdb), select an API. Azure Cosmos DB provides five APIs: Core (SQL) and MongoDB for document data, Gremlin for graph data, Azure Table, and Cassandra. 
 
 > [!NOTE]
 > Not sure which API will best meet your needs? To learn more about the APIs for Azure Cosmos DB, see [Choose an API in Azure Cosmos DB](choose-api.md).
@@ -58,7 +58,7 @@ You can also get started with one of the learning resources in Data Explorer.
 
 Your account is free for 30 days. After expiration, a new sandbox account can be created. You can upgrade your active Try Azure Cosmos DB account at any time during the 30 day trial period. Here are the steps to start an upgrade.
 
-1. Select the option to upgrade your current account in the Dashboard page or from the [Try Azure Cosmos DB](/azure/cosmos-db/try-free) page.
+1. Select the option to upgrade your current account in the Dashboard page or from the [Try Azure Cosmos DB](https://aka.ms/trycosmosdb) page.
     
     :::image type="content" source="media/try-free/upgrade-account.png" lightbox="media/try-free/upgrade-account.png" alt-text="Confirmation page for the account upgrade experience.":::
 
@@ -107,7 +107,7 @@ If you're using the SQL API, you can migrate your Try Azure Cosmos DB data to yo
 
 There can only be one free Try Azure Cosmos DB account per Microsoft account. You may want to delete your account or to try different APIs, you'll have to create a new account. Here’s how to delete your account.
 
-1. Go to the [Try AzureCosmos DB](/azure/cosmos-db/try-free) page
+1. Go to the [Try AzureCosmos DB](https://aka.ms/trycosmosdb) page
 
 1. Select Delete my account.
     

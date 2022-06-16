@@ -33,7 +33,7 @@ You can use any other Spark 3.1.1 or 3.2.1 spark offering as well, also you shou
 
 ## Prerequisites
 
-* An active Azure account. If you don't have one, you can sign up for a [free account](/azure/cosmos-db/try-free). Alternatively, you can use the [use Azure Cosmos DB Emulator](../local-emulator.md) for development and testing.
+* An active Azure account. If you don't have one, you can sign up for a [free account](https://azure.microsoft.com/try/cosmosdb/). Alternatively, you can use the [use Azure Cosmos DB Emulator](../local-emulator.md) for development and testing.
 
 * [Azure Databricks](/azure/databricks/release-notes/runtime/8.0) runtime 8.0 with Spark 3.1.1 or [Azure Databricks](/azure/databricks/release-notes/runtime/10.3) runtime 10.3 with Spark 3.2.1.
 
