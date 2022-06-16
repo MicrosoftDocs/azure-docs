@@ -26,13 +26,13 @@ When you configure to be zone redundant, the platform automatically spreads the 
 - You configure availability zones when you create your App Service Environment.
   - All App Service plans created in that App Service Environment will automatically be zone redundant.
 - You can only specify availability zones when creating a **new** App Service Environment. A pre-existing App Service Environment can't be converted to use availability zones.
-- Availability zones are only supported in a [subset of regions](overview.md#regions).
+- Availability zones are only supported in a [subset of regions](../app-service/environment/overview#regions).
 
 ## Downtime requirements
 
 Downtime will be dependent on how you decide to carry out the migration. Since you can't convert pre-existing App Service Environments to use availability zones, migration will consist of a side-by-side deployment where you'll create a new App Service Environment with availability zones enabled.
 
-Downtime will depend on how you choose to redirect traffic from your old to your new availability zone enabled App Service Environment. For example, if you're using an [Application Gateway](networking/app-gateway-with-service-endpoints.md), a [custom domain](../app-service/app-service-web-tutorial-custom-domain.md), or [Azure Front Door](../frontdoor/front-door-overview.md), downtime will be dependent on the time it takes to update those respective services with your new app's information. Alternatively, you can route traffic to multiple apps at the same time using a service such as [Azure Traffic Manager](../app-service/web-sites-traffic-manager.md) and only fully cutover to your new availability zone enabled apps when everything is deployed and fully tested. For more information on App Service Environment migration options, see [App Service Environment migration](../app-service/migration-alternatives.md). If you're already using App Service Environment v3, disregard the information about migration from previous versions and focus on the app migration strategies.
+Downtime will depend on how you choose to redirect traffic from your old to your new availability zone enabled App Service Environment. For example, if you're using an [Application Gateway](../app-service/networking/app-gateway-with-service-endpoints.md), a [custom domain](../app-service/app-service-web-tutorial-custom-domain.md), or [Azure Front Door](../frontdoor/front-door-overview.md), downtime will be dependent on the time it takes to update those respective services with your new app's information. Alternatively, you can route traffic to multiple apps at the same time using a service such as [Azure Traffic Manager](../app-service/web-sites-traffic-manager.md) and only fully cutover to your new availability zone enabled apps when everything is deployed and fully tested. For more information on App Service Environment migration options, see [App Service Environment migration](../app-service/environment/migration-alternatives.md). If you're already using App Service Environment v3, disregard the information about migration from previous versions and focus on the app migration strategies.
 
 ## Migration guidance: Redeployment
 
@@ -56,7 +56,7 @@ A zone redundant App Service Environment will only store customer data within th
 
 The following steps describe how to enable availability zones.
 
-1. To redeploy and ensure you'll be able to use availability zones, you'll need to be on the App Service footprint that supports availability zones. Create your new App Service Environment in one of the [supported regions](overview.md#regions).
+1. To redeploy and ensure you'll be able to use availability zones, you'll need to be on the App Service footprint that supports availability zones. Create your new App Service Environment in one of the [supported regions](../app-service/environment/overview#regions).
 1. Ensure the zoneRedundant property (described below) is set to true when creating the new App Service Environment.
 1. Create your new App Service plans and apps in the new App Service Environment using your desired deployment method.
 
