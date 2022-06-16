@@ -58,7 +58,7 @@ To use the Azure portal to link to a new partner ID:
 > [!NOTE]
 > To link your partner ID to another customer, switch the directory. Under **Switch directory**, select the appropriate directory.
     
-For more information about using PowerShell or the Azure CLI, see [Use PowerShell, CLI, and other tools](use-powershell-azure-cli-and-other-tools).
+For more information about using PowerShell or the Azure CLI, see [Use PowerShell, CLI, and other tools](#use-powershell-azure-cli-and-other-tools).
 
 ##  Attribute your access account to product resource
 
