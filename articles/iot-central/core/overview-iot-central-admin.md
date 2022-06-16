@@ -1,6 +1,6 @@
 ---
 title: Azure IoT Central application administration guide
-description: Azure IoT Central is an IoT application platform that simplifies the creation of IoT solutions. This guide describes how to administer your IoT Central application. Application administration includes users, organization, and security.
+description: Azure IoT Central is an IoT application platform that simplifies the creation of IoT solutions. This guide describes how to administer your IoT Central application. Application administration includes users, organization, security, and automated deployments.
 author: dominicbetts 
 ms.author: dobett 
 ms.date: 06/08/2022
@@ -24,6 +24,7 @@ IoT Central application administration includes the following tasks:
 - Upgrade applications.
 - Export and share applications.
 - Monitor application health.
+- DevOps integration.
 
 ## Create applications
 
@@ -83,7 +84,15 @@ An administrator can:
 - Create a copy of an application if you just need a duplicate copy of your application. For example, you may need a duplicate copy for testing.
 - Create an application template from an existing application if you plan to create multiple copies.
 
-To learn more, see [Create and use a custom application template](howto-create-iot-central-application.md#create-and-use-a-custom-application-template) .
+To learn more, see [Create and use a custom application template](howto-create-iot-central-application.md#create-and-use-a-custom-application-template).
+
+## Integrate with DevOps pipelines
+
+Continuous integration and continuous delivery (CI/CD) refers to the process of developing and delivering software in short, frequent cycles using automation pipelines. You can use Azure DevOps pipelines to automate the build, test, and deployment of IoT Central application configurations.
+
+Just as IoT Central is a part of your larger IoT solution, make IoT Central a part of your CI/CD pipeline.
+
+To learn more, see [Integrate IoT Central into your Azure DevOps CI/CD pipeline](howto-integrate-with-devops.md).
 
 ## Monitor application health
 

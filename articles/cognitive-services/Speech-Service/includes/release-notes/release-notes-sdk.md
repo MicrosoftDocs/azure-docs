@@ -536,7 +536,7 @@ Stay healthy!
 - Keyword recognition support added for Android `.aar` package and added support for x86 and x64 flavors.
 - Objective-C: `SendMessage` and `SetMessageProperty` methods added to `Connection` object. See documentation [here](/objectivec/cognitive-services/speech/spxconnection).
 - TTS C++ api now supports `std::wstring` as synthesis text input, removing the need to convert a wstring to string before passing it to the SDK. See details [here](/cpp/cognitive-services/speech/speechsynthesizer#speaktextasync).
-- C#: [Language ID](../../how-to-automatic-language-detection.md?pivots=programming-language-csharp) and [source language config](../../how-to-specify-source-language.md?pivots=programming-language-csharp) are now available.
+- C#: [Language ID](../../how-to-automatic-language-detection.md?pivots=programming-language-csharp) and [source language config](../../how-to-recognize-speech.md) are now available.
 - JavaScript: Added a feature to `Connection` object to pass through custom messages from the Speech service as callback `receivedServiceMessage`.
 - JavaScript: Added support for `FromHost API` to ease use with on-prem containers and sovereign clouds. See documentation [here](../../speech-container-howto.md).
 - JavaScript: We now honor `NODE_TLS_REJECT_UNAUTHORIZED` thanks to a contribution from [orgads](https://github.com/orgads). See details [here](https://github.com/microsoft/cognitive-services-speech-sdk-js/pull/75).

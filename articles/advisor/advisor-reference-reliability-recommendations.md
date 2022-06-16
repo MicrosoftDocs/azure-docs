@@ -355,7 +355,7 @@ Learn more about [Application gateway - AppGwLog4JCVEGenericNotification (Additi
 
 ### Enable Active-Active gateways for redundancy
 
-In active-active configuration, both instances of the VPN gateway will establish S2S VPN tunnels to your on-premise VPN device. When a planned maintenance or unplanned event happens to one gateway instance, traffic will be switched over to the other active IPsec tunnel automatically.
+In active-active configuration, both instances of the VPN gateway will establish S2S VPN tunnels to your on-premises VPN device. When a planned maintenance or unplanned event happens to one gateway instance, traffic will be switched over to the other active IPsec tunnel automatically.
 
 Learn more about [Virtual network gateway - VNetGatewayActiveActive (Enable Active-Active gateways for redundancy)](../vpn-gateway/vpn-gateway-highlyavailable.md).
 

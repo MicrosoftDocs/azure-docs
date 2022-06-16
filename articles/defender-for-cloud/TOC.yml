@@ -385,18 +385,6 @@
   items:
   - name: Build your skills with Microsoft Learn
     href: /learn/browse/?term=defender%20for%20cloud
-  - name: Manage user data
-    href: privacy.md
-  - name: Microsoft Defender for IoT documentation
-    href: ../defender-for-iot/index.yml
-  - name: Azure security documentation
-    href: ../security/index.yml
-  - name: Readiness Roadmap
-    href: security-center-readiness-roadmap.md
-  - name: Microsoft Defender for Cloud tech community blogs
-    href: https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/bg-p/MicrosoftDefenderCloudBlog
-  - name: Microsoft Defender for Cloud on Stack Overflow
-    href: https://stackoverflow.com/search?q=microsoft+defender+for+cloud
   - name: Microsoft Defender for Cloud in the field
     items:
     - name: New AWS connector
@@ -415,7 +403,7 @@
       href: episode-seven.md
     - name: Microsoft Defender for IoT
       href: episode-eight.md
-    - name: Microsoft Defender for Containers in a multi-cloud environment
+    - name: Microsoft Defender for Containers in a multicloud environment
       href: episode-nine.md
     - name: Protecting containers in GCP with Defender for Containers
       href: episode-ten.md
@@ -423,6 +411,20 @@
       href: episode-eleven.md
     - name: Enhanced workload protection features in Defender for Servers
       href: episode-twelve.md
+    - name: Defender for Storage
+      href: episode-thirteen.md
+  - name: Manage user data
+    href: privacy.md
+  - name: Microsoft Defender for IoT documentation
+    href: ../defender-for-iot/index.yml
+  - name: Azure security documentation
+    href: ../security/index.yml
+  - name: Readiness Roadmap
+    href: security-center-readiness-roadmap.md
+  - name: Microsoft Defender for Cloud tech community blogs
+    href: https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/bg-p/MicrosoftDefenderCloudBlog
+  - name: Microsoft Defender for Cloud on Stack Overflow
+    href: https://stackoverflow.com/search?q=microsoft+defender+for+cloud
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/azure-defender/
   - name: Regional availability

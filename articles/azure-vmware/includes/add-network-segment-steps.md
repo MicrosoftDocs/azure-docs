@@ -2,10 +2,10 @@
 title: Add an NSX-T network segment
 description: Steps to add an NSX-T network segment for Azure VMware Solution in NSX-T Manager.
 ms.topic: include
+ms.service: azure-vmware
 ms.date: 03/13/2021
 author: suzizuber
 ms.author: v-szuber
-ms.service: azure-vmware
 ---
 
 <!-- Used in configure-dhcp-azure-vmware-solution.md and tutorial-nsx-t-network-segment.md -->
