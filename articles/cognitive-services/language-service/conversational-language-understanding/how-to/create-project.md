@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: how-to
-ms.date: 05/13/2022
+ms.date: 06/03/2022
 ms.author: aahi
 ms.custom: language-service-clu, ignite-fall-2021
 ---
@@ -34,7 +34,7 @@ Before you start using CLU, you will need an Azure Language resource.
 
 [!INCLUDE [create a new resource from the Azure portal](../includes/resource-creation-azure-portal.md)]
 
-[!INCLUDE [create a new resource from the Language Studio](../includes/resource-creation-language-studio.md)]
+[!INCLUDE [create a new resource from Language Studio](../includes/resource-creation-language-studio.md)]
 
 
 ## Sign in to Language Studio
@@ -105,7 +105,7 @@ You can export a Conversational Language Understanding project as a JSON file at
 
 ---
 
-## Delete resources 
+## Delete project 
 
 ### [Language Studio](#tab/language-studio)
 

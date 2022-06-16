@@ -15,9 +15,9 @@ recommendations: false
 # Get started: Form Recognizer Python SDK (beta)
 
 >[!NOTE]
-> Form Recognizer beta version is currently in public preview. Some features may not be supported or have limited capabilities.
+> Form Recognizer beta version—3.2.0b5—is currently in public preview. Some features may not be supported or have limited capabilities.
 
-[Reference documentation](/python/api/azure-ai-formrecognizer/azure.ai.formrecognizer?view=azure-python-preview&preserve-view=true) | [Library source code](https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-formrecognizer_3.2.0b3/sdk/formrecognizer/azure-ai-formrecognizer/) | [Package (PyPi)](https://pypi.org/project/azure-ai-formrecognizer/3.2.0b3/) | [Samples](https://github.com/Azure/azure-sdk-for-python/blob/azure-ai-formrecognizer_3.2.0b3/sdk/formrecognizer/azure-ai-formrecognizer/samples/README.md)
+[Reference documentation](/python/api/azure-ai-formrecognizer/azure.ai.formrecognizer?view=azure-python-preview&preserve-view=true) | [Library source code](https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-formrecognizer_3.2.0b5/sdk/formrecognizer/azure-ai-formrecognizer) | [Package (PyPi)](https://pypi.org/project/azure-ai-formrecognizer/3.2.0b5/) | [Samples](https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-formrecognizer_3.2.0b5/sdk/formrecognizer/azure-ai-formrecognizer/samples)
 
 Get started with Azure Form Recognizer using the Python programming language. Azure Form Recognizer is a cloud-based Azure Applied AI Service that uses machine learning to extract key-value pairs, text, and tables from your documents. You can easily call Form Recognizer models by integrating our client library SDks into your workflows and applications. We recommend that you use the free service when you're learning the technology. Remember that the number of free pages is limited to 500 per month.
 
@@ -55,7 +55,7 @@ In this quickstart you'll use following features to analyze and extract data and
 Open a terminal window in your local environment and install the Azure Form Recognizer client library for Python with pip:
 
 ```console
-pip install azure-ai-formrecognizer==3.2.0b3
+pip install azure-ai-formrecognizer==3.2.0b5
 
 ```
 
@@ -740,7 +740,10 @@ That's it, congratulations!
 
 In this quickstart, you used the Form Recognizer Python SDK to analyze various forms in different ways. Next, explore the reference documentation to learn more about Form Recognizer v3.0 API.
 
-## Next step
+## Next steps
 
 > [!div class="nextstepaction"]
-> [Learn more about Form Recognizer REST API v3.0](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-2/operations/AnalyzeDocument)
+> [Form Recognizer REST API v3.0 (preview)](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-06-30-preview/operations/AnalyzeDocument)
+
+> [!div class="nextstepaction"]
+> [Form Recognizer Python reference library](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-ai-formrecognizer/3.2.0b5/index.html)

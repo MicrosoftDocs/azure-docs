@@ -456,6 +456,8 @@
         href: normalization-parsers-list.md
       - name: ASIM common fields
         href: normalization-common-fields.md 
+      - name: ASIM helper functions
+        href: normalization-functions.md
       - name: ASIM schemas
         items:
         - name: ASIM authentication schema

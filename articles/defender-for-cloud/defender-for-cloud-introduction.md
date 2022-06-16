@@ -2,14 +2,12 @@
 title: What is Microsoft Defender for Cloud?
 description: Use Microsoft Defender for Cloud to protect your Azure, hybrid, and multicloud resources and workloads.
 ms.topic: overview
-ms.author: benmansheim
-author: bmansheim
 ms.custom: mvc
-ms.date: 05/19/2022
+ms.date: 06/15/2022
 ---
 # What is Microsoft Defender for Cloud?
 
-Microsoft Defender for Cloud is a Cloud Security Posture Management (CSPM) and Cloud Workload Protection Platform (CWPP) for all of your Azure, on-premises, and multi-cloud (Amazon AWS and Google GCP) resources. Defender for Cloud fills three vital needs as you manage the security of your resources and workloads in the cloud and on-premises:
+Microsoft Defender for Cloud is a Cloud Security Posture Management (CSPM) and Cloud Workload Protection Platform (CWPP) for all of your Azure, on-premises, and multicloud (Amazon AWS and Google GCP) resources. Defender for Cloud fills three vital needs as you manage the security of your resources and workloads in the cloud and on-premises:
 
 :::image type="content" source="media/defender-for-cloud-introduction/defender-for-cloud-synopsis.png" alt-text="Understanding the core functionality of Microsoft Defender for Cloud.":::
 
@@ -18,6 +16,8 @@ Microsoft Defender for Cloud is a Cloud Security Posture Management (CSPM) and C
 - [**Defender for Cloud alerts**](alerts-overview.md) **defends** your workloads in real-time so you can react immediately and prevent security events from developing.
 
 For a step-by-step walkthrough of Defender for Cloud, check out this [interactive tutorial](https://mslearn.cloudguides.com/en-us/guides/Protect%20your%20multi-cloud%20environment%20with%20Microsoft%20Defender%20for%20Cloud).
+
+You can learn more about Defender for Cloud from a cybersecurity expert by watching [Lessons Learned from the Field](episode-six.md).
 
 ## Protect your resources and track your security progress
 
@@ -36,7 +36,7 @@ As soon as you open Defender for Cloud for the first time, Defender for Cloud:
 
 - **Generates a secure score** for your subscriptions based on an assessment of your connected resources compared with the guidance in [Azure Security Benchmark](/security/benchmark/azure/overview). Use the score to understand your security posture, and the compliance dashboard to review your compliance with the built-in benchmark. When you've enabled the enhanced security features, you can customize the standards used to assess your compliance, and add other regulations (such as NIST and Azure CIS) or organization-specific security requirements. You can also apply recommendations, and score based on the AWS Foundational Security Best practices standards.
 
-- **Provides hardening recommendations** based on any identified security misconfigurations and weaknesses. Use these security recommendations to strengthen the security posture of your organization's Azure, hybrid, and multi-cloud resources.
+- **Provides hardening recommendations** based on any identified security misconfigurations and weaknesses. Use these security recommendations to strengthen the security posture of your organization's Azure, hybrid, and multicloud resources.
 
 [Learn more about secure score](secure-score-security-controls.md).
 
@@ -141,11 +141,9 @@ Use the advanced protection tiles in the [workload protections dashboard](worklo
 
 ## Learn More
 
-If you would like to learn more about Defender for Cloud from a cybersecurity expert, check out [Lessons Learned from the Field](episode-six.md).
-
 You can also check out the following blogs:
 
-- [A new name for multi-cloud security: Microsoft Defender for Cloud](https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/a-new-name-for-multi-cloud-security-microsoft-defender-for-cloud/ba-p/2943020)
+- [A new name for multicloud security: Microsoft Defender for Cloud](https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/a-new-name-for-multi-cloud-security-microsoft-defender-for-cloud/ba-p/2943020)
 - [Microsoft Defender for Cloud - Use cases](https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/microsoft-defender-for-cloud-use-cases/ba-p/2953619)
 - [Microsoft Defender for Cloud PoC Series - Microsoft Defender for Containers](https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/microsoft-defender-for-cloud-poc-series-microsoft-defender-for/ba-p/3064644)
 

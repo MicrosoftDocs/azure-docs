@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: enterprise-users
 ms.workload: identity
 ms.topic: overview
-ms.date: 06/02/2022
+ms.date: 06/08/2022
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
@@ -67,7 +67,7 @@ A membership rule that automatically populates a group with users or devices is 
 - Operator
 - Value
 
-The order of the parts within an expression are important to avoid syntax errors.
+The order of the parts within an expression is important to avoid syntax errors.
 
 ## Supported properties
 
@@ -81,49 +81,50 @@ The following are the user properties that you can use to create a single expres
 
 ### Properties of type boolean
 
-| Properties | Allowed values | Usage |
-| --- | --- | --- |
-| accountEnabled |true false |user.accountEnabled -eq true |
-| dirSyncEnabled |true false |user.dirSyncEnabled -eq true |
+Properties | Allowed values | Usage
+--- | --- | ---
+accountEnabled |true false |user.accountEnabled -eq true
+dirSyncEnabled |true false |user.dirSyncEnabled -eq true
 
 ### Properties of type string
 
 | Properties | Allowed values | Usage |
 | --- | --- | --- |
-| city |Any string value or *null* |(user.city -eq "value") |
-| country |Any string value or *null* |(user.country -eq "value") |
-| companyName | Any string value or *null* | (user.companyName -eq "value") |
-| department |Any string value or *null* |(user.department -eq "value") |
-| displayName |Any string value |(user.displayName -eq "value") |
-| employeeId |Any string value |(user.employeeId -eq "value")<br>(user.employeeId -ne *null*) |
-| facsimileTelephoneNumber |Any string value or *null* |(user.facsimileTelephoneNumber -eq "value") |
-| givenName |Any string value or *null* |(user.givenName -eq "value") |
-| jobTitle |Any string value or *null* |(user.jobTitle -eq "value") |
-| mail |Any string value or *null* (SMTP address of the user) |(user.mail -eq "value") |
-| mailNickName |Any string value (mail alias of the user) |(user.mailNickName -eq "value") |
-| mobile |Any string value or *null* |(user.mobile -eq "value") |
-| objectId |GUID of the user object |(user.objectId -eq "11111111-1111-1111-1111-111111111111") |
-| onPremisesDistinguishedName (preview)| Any string value or *null* |(user.onPremisesDistinguishedName -eq "value") |
-| onPremisesSecurityIdentifier | On-premises security identifier (SID) for users who were synchronized from on-premises to the cloud. |(user.onPremisesSecurityIdentifier -eq "S-1-1-11-1111111111-1111111111-1111111111-1111111") |
-| passwordPolicies |None DisableStrongPassword DisablePasswordExpiration DisablePasswordExpiration, DisableStrongPassword |(user.passwordPolicies -eq "DisableStrongPassword") |
-| physicalDeliveryOfficeName |Any string value or *null* |(user.physicalDeliveryOfficeName -eq "value") |
-| postalCode |Any string value or *null* |(user.postalCode -eq "value") |
-| preferredLanguage |ISO 639-1 code |(user.preferredLanguage -eq "en-US") |
-| sipProxyAddress |Any string value or *null* |(user.sipProxyAddress -eq "value") |
-| state |Any string value or *null* |(user.state -eq "value") |
-| streetAddress |Any string value or *null* |(user.streetAddress -eq "value") |
-| surname |Any string value or *null* |(user.surname -eq "value") |
-| telephoneNumber |Any string value or *null* |(user.telephoneNumber -eq "value") |
-| usageLocation |Two lettered country/region code |(user.usageLocation -eq "US") |
-| userPrincipalName |Any string value |(user.userPrincipalName -eq "alias@domain") |
-| userType |member guest *null* |(user.userType -eq "Member") |
+| city |Any string value or *null* | user.city -eq "value" |
+| country |Any string value or *null* | user.country -eq "value" |
+| companyName | Any string value or *null* | user.companyName -eq "value" |
+| department |Any string value or *null* | user.department -eq "value" |
+| displayName |Any string value | user.displayName -eq "value" |
+| employeeId |Any string value | user.employeeId -eq "value"<br>user.employeeId -ne *null* |
+| facsimileTelephoneNumber |Any string value or *null* | user.facsimileTelephoneNumber -eq "value" |
+| givenName |Any string value or *null* | user.givenName -eq "value" |
+| jobTitle |Any string value or *null* | user.jobTitle -eq "value" |
+| mail |Any string value or *null* (SMTP address of the user) | user.mail -eq "value" |
+| mailNickName |Any string value (mail alias of the user) | user.mailNickName -eq "value" |
+| memberOf | Any string value (valid group object ID) | user.memberof -any (group.objectId -in ['value']) |
+| mobile |Any string value or *null* | user.mobile -eq "value" |
+| objectId |GUID of the user object | user.objectId -eq "11111111-1111-1111-1111-111111111111" |
+| onPremisesDistinguishedName (preview)| Any string value or *null* | user.onPremisesDistinguishedName -eq "value" |
+| onPremisesSecurityIdentifier | On-premises security identifier (SID) for users who were synchronized from on-premises to the cloud. | user.onPremisesSecurityIdentifier -eq "S-1-1-11-1111111111-1111111111-1111111111-1111111" |
+| passwordPolicies |None<br>DisableStrongPassword<br>DisablePasswordExpiration<br>DisablePasswordExpiration, DisableStrongPassword | user.passwordPolicies -eq "DisableStrongPassword" |
+| physicalDeliveryOfficeName |Any string value or *null* | user.physicalDeliveryOfficeName -eq "value" |
+| postalCode |Any string value or *null* | user.postalCode -eq "value" |
+| preferredLanguage |ISO 639-1 code | user.preferredLanguage -eq "en-US" |
+| sipProxyAddress |Any string value or *null* | user.sipProxyAddress -eq "value" |
+| state |Any string value or *null* | user.state -eq "value" |
+| streetAddress |Any string value or *null* | user.streetAddress -eq "value" |
+| surname |Any string value or *null* | user.surname -eq "value" |
+| telephoneNumber |Any string value or *null* | user.telephoneNumber -eq "value" |
+| usageLocation |Two lettered country/region code | user.usageLocation -eq "US" |
+| userPrincipalName |Any string value | user.userPrincipalName -eq "alias@domain" |
+| userType |member guest *null* | user.userType -eq "Member" |
 
 ### Properties of type string collection
 
-| Properties | Allowed values | Usage |
+| Properties | Allowed values | Example |
 | --- | --- | --- |
-| otherMails |Any string value |(user.otherMails -contains "alias@domain") |
-| proxyAddresses |SMTP: alias@domain smtp: alias@domain |(user.proxyAddresses -contains "SMTP: alias@domain") |
+| otherMails |Any string value | user.otherMails -contains "alias@domain" |
+| proxyAddresses |SMTP: alias@domain smtp: alias@domain | user.proxyAddresses -contains "SMTP: alias@domain" |
 
 For the properties used for device rules, see [Rules for devices](#rules-for-devices).
 
@@ -161,12 +162,12 @@ The **-match** operator is used for matching any regular expression. Examples:
 ```
 user.displayName -match "Da.*"   
 ```
-Da, Dav, David evaluate to true, aDa evaluates to false.
+`Da`, `Dav`, `David` evaluate to true, aDa evaluates to false.
 
 ```
 user.displayName -match ".*vid"
 ```
-David evaluates to true, Da evaluates to false.
+`David` evaluates to true, `Da` evaluates to false.
 
 ## Supported values
 
@@ -277,7 +278,7 @@ user.assignedPlans -any (assignedPlan.service -eq "SCO" -and assignedPlan.capabi
 
 #### Example 3
 
-The following expression selects all users who have no asigned service plan:
+The following expression selects all users who have no assigned service plan:
 
 ```
 user.assignedPlans -all (assignedPlan.servicePlanId -eq "")
@@ -382,23 +383,24 @@ The following device attributes can be used.
 
  Device attribute  | Values | Example
  ----- | ----- | ----------------
- accountEnabled | true false | (device.accountEnabled -eq true)
- displayName | any string value |(device.displayName -eq "Rob iPhone")
- deviceOSType | any string value | (device.deviceOSType -eq "iPad") -or (device.deviceOSType -eq "iPhone")<br>(device.deviceOSType -contains "AndroidEnterprise")<br>(device.deviceOSType -eq "AndroidForWork")<br>(device.deviceOSType -eq "Windows")
- deviceOSVersion | any string value | (device.deviceOSVersion -eq "9.1")<br>(device.deviceOSVersion -startsWith "10.0.1")
- deviceCategory | a valid device category name | (device.deviceCategory -eq "BYOD")
- deviceManufacturer | any string value | (device.deviceManufacturer -eq "Samsung")
- deviceModel | any string value | (device.deviceModel -eq "iPad Air")
- deviceOwnership | Personal, Company, Unknown | (device.deviceOwnership -eq "Company")
- enrollmentProfileName | Apple Device Enrollment Profile name, Android Enterprise Corporate-owned dedicated device Enrollment Profile name, or Windows Autopilot profile name | (device.enrollmentProfileName -eq "DEP iPhones")
- isRooted | true false | (device.isRooted -eq true)
- managementType | MDM (for mobile devices) | (device.managementType -eq "MDM")
- deviceId | a valid Azure AD device ID | (device.deviceId -eq "d4fe7726-5966-431c-b3b8-cddc8fdb717d")
- objectId | a valid Azure AD object ID |  (device.objectId -eq "76ad43c9-32c5-45e8-a272-7b58b58f596d")
- devicePhysicalIds | any string value used by Autopilot, such as all Autopilot devices, OrderID, or PurchaseOrderID  | (device.devicePhysicalIDs -any _ -contains "[ZTDId]") (device.devicePhysicalIds -any _ -eq "[OrderID]:179887111881") (device.devicePhysicalIds -any _ -eq "[PurchaseOrderId]:76222342342")
- systemLabels | any string matching the Intune device property for tagging Modern Workplace devices | (device.systemLabels -contains "M365Managed")
+ accountEnabled | true false | device.accountEnabled -eq true
+ displayName | any string value | device.displayName -eq "Rob iPhone"
+ deviceOSType | any string value | (device.deviceOSType -eq "iPad") -or (device.deviceOSType -eq "iPhone")<br>device.deviceOSType -contains "AndroidEnterprise"<br>device.deviceOSType -eq "AndroidForWork"<br>device.deviceOSType -eq "Windows"
+ deviceOSVersion | any string value | device.deviceOSVersion -eq "9.1"<br>device.deviceOSVersion -startsWith "10.0.1"
+ deviceCategory | a valid device category name | device.deviceCategory -eq "BYOD"
+ deviceManufacturer | any string value | device.deviceManufacturer -eq "Samsung"
+ deviceModel | any string value | device.deviceModel -eq "iPad Air"
+ deviceOwnership | Personal, Company, Unknown | device.deviceOwnership -eq "Company"
+ enrollmentProfileName | Apple Device Enrollment Profile name, Android Enterprise Corporate-owned dedicated device Enrollment Profile name, or Windows Autopilot profile name | device.enrollmentProfileName -eq "DEP iPhones"
+ isRooted | true false | device.isRooted -eq true
+ managementType | MDM (for mobile devices) | device.managementType -eq "MDM"
+ memberOf | Any string value (valid group object ID) | device.memberof -any (group.objectId -in ['value']) 
+ deviceId | a valid Azure AD device ID | device.deviceId -eq "d4fe7726-5966-431c-b3b8-cddc8fdb717d"
+ objectId | a valid Azure AD object ID | device.objectId -eq "76ad43c9-32c5-45e8-a272-7b58b58f596d"
+ devicePhysicalIds | any string value used by Autopilot, such as all Autopilot devices, OrderID, or PurchaseOrderID  | device.devicePhysicalIDs -any _ -contains "[ZTDId]"<br>(device.devicePhysicalIds -any _ -eq "[OrderID]:179887111881"<br>(device.devicePhysicalIds -any _ -eq "[PurchaseOrderId]:76222342342"
+ systemLabels | any string matching the Intune device property for tagging Modern Workplace devices | device.systemLabels -contains "M365Managed"
 
-> [!Note]  
+> [!NOTE]
 > For the deviceOwnership when creating Dynamic Groups for devices you need to set the value equal to "Company". On Intune the device ownership is represented instead as Corporate. Refer to [OwnerTypes](/intune/reports-ref-devices#ownertypes) for more details. 
 
 ## Next steps
