@@ -10,6 +10,10 @@ ms.date: 12/20/2020
 ---
 
 # Restart Azure Database for PostgreSQL - Single Server using the Azure portal
+
+[!INCLUDE [applies-to-postgresql-single-server](../includes/applies-to-postgresql-single-server.md)]
+
+
 This topic describes how you can restart an Azure Database for PostgreSQL server. You may need to restart your server for maintenance reasons, which causes a short outage as the server performs the operation.
 
 The server restart will be blocked if the service is busy. For example, the service may be processing a previously requested operation such as scaling vCores.
