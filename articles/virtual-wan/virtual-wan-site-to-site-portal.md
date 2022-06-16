@@ -5,7 +5,7 @@ description: Learn how to use Azure Virtual WAN to create a site-to-site VPN con
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: tutorial
-ms.date: 05/02/2022
+ms.date: 06/16/2022
 ms.author: cherylmc
 # Customer intent: As someone with a networking background, I want to connect my local site to my VNets using Virtual WAN and I don't want to go through a Virtual WAN partner.
 ---
