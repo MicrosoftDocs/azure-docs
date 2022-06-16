@@ -20,9 +20,9 @@ If you don't have an App Service Environment, see [How to Create an App Service 
 > This article covers the features, benefits, and use cases of App Service Environment v3, which is used with App Service Isolated v2 plans.
 > 
 
-The custom domain suffix defines a root domain that can be used by the App Service Environment. In the public variation of Azure App Service, the default root domain for all web apps is *azurewebsites.net*. For ILB App Service Environments, the default root domain is *appserviceenvironment.net*. However, since an ILB App Service Environment is internal to a customer's virtual network, customers can use a root domain in addition to the default one that makes sense for use within a company's internal virtual network. For example, a hypothetical Contoso Corporation might use a default root domain of *internal-contoso.com* for apps that are intended to only be resolvable and accessible within Contoso's virtual network. An app in this virtual network could be reached by accessing *<appname>.internal-contoso.com*.
+The custom domain suffix defines a root domain that can be used by the App Service Environment. In the public variation of Azure App Service, the default root domain for all web apps is *azurewebsites.net*. For ILB App Service Environments, the default root domain is *appserviceenvironment.net*. However, since an ILB App Service Environment is internal to a customer's virtual network, customers can use a root domain in addition to the default one that makes sense for use within a company's internal virtual network. For example, a hypothetical Contoso Corporation might use a default root domain of *internal-contoso.com* for apps that are intended to only be resolvable and accessible within Contoso's virtual network. An app in this virtual network could be reached by accessing *APP-NAME.internal-contoso.com*.
 
-The custom domain name works for app requests but doesn't for the scm site. The scm site is only available at *<appname>.scm.<asename>.appserviceenvironment.net*.
+The custom domain name works for app requests but doesn't for the scm site. The scm site is only available at *APP-NAME.scm.ASE-NAME.appserviceenvironment.net*.
 
 The custom domain suffix is for the App Service Environment. This feature is different from a custom domain binding on an App Service. For more information on custom domain bindings, see [Map an existing custom DNS name to Azure App Service](../app-service-web-tutorial-custom-domain.md).
 
@@ -30,7 +30,7 @@ The custom domain suffix is for the App Service Environment. This feature is dif
 
 - Custom domain suffix is only a feature for the ILB variation of App Service Environment v3.
 - If you don't have a custom domain, you can [purchase an App Service domain](../manage-custom-dns-buy-domain.md).
-- Valid SSL/TLS certificate must be stored in an Azure Key Vault. For more information on using certificates with App Service, see [Add a TLS/SSL certificate in Azure App Service](../configure-ssl-certificate).
+- Valid SSL/TLS certificate must be stored in an Azure Key Vault. For more information on using certificates with App Service, see [Add a TLS/SSL certificate in Azure App Service](../configure-ssl-certificate.md).
 
 ### Managed identity
 
