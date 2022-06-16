@@ -6,25 +6,6 @@ ms.service: virtual-wan
 ms.topic: include
 ---
 
-1. Go to the virtual WAN that you created. On the virtual WAN page left pane, under the **Connectivity**, select **Hubs**.
-
-1. On the **Hubs** page, select **+New Hub** to open the **Create virtual hub** page.
-
-   :::image type="content" source="media/virtual-wan-p2s-hub/new-hub.png" alt-text="Screenshot of new hub.":::
-
-1. On the **Create virtual hub** page, view the **Basics** tab.
-
-   :::image type="content" source="media/virtual-wan-p2s-hub/create-hub.png" alt-text="Screenshot of create virtual hub.":::
-
-1. On the **Basics** tab, configure the following settings:
-
-   * **Region**: This setting was previously referred to as location. It's the region in which you want to create your virtual hub.
-   * **Name**: The name by which you want the virtual hub to be known.
-   * **Hub private address space**: The hub's address range in CIDR notation. The minimum address space is /24 to create a hub.
-   * **Virtual hub capacity**: Select from the dropdown. For more information, see [Virtual hub settings](../articles/virtual-wan/hub-settings.md).
-   * **Hub routing preference**: This field is only available as part of the virtual hub routing preference preview and can only be viewed in the [preview portal](https://portal.azure.com/?feature.customRouterAsn=true&feature.virtualWanRoutingPreference=true#home). See [Virtual hub routing preference](../articles/virtual-wan/about-virtual-hub-routing-preference.md) for more information.
-   * **Router ASN**: Set the Autonomous System Number for the virtual hub router. You can use any ASN number except numbers that are reserved by [Azure or IANA](../articles/vpn-gateway/vpn-gateway-bgp-overview.md#what-asns-autonomous-system-numbers-can-i-use).
-
 1. Click the **Point to site** tab to open the configuration page for point-to-site. To view the point to site settings, click **Yes**.
 
    :::image type="content" source="media/virtual-wan-p2s-hub/create-point-to-site.png" alt-text="Screenshot of virtual hub configuration with point-to-site selected.":::
