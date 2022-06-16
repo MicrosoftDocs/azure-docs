@@ -2,12 +2,12 @@
 title: Azure Health Data Services monthly releases
 description: This article provides details about the Azure Health Data Services monthly features and enhancements.
 services: healthcare-apis
-author: mikaelweave
+author: v-smcevoy
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 06/10/2022
-ms.author: mikaelw
+ms.date: 06/16/2022
+ms.author: v-smcevoy
 ---
 
 # Release notes: Azure Health Data Services
@@ -22,6 +22,12 @@ Azure Health Data Services is a set of managed API services based on open standa
 ## May 2022
 
 ### FHIR service
+
+### **Enhancement**
+
+|Enhancement |Related information |
+| :----------------------------------- | :--------------- |
+|FHIR service does not create a new version of the resource if the resource content has not changed. |If a user updates an existing resource and only meta.versionId or meta.lastUpdated have changed then we return OK with existing resource information without updating VersionId and lastUpdated. For more information, see [#2519](https://github.com/microsoft/fhir-server/pull/2519). |
 
 #### **Bug fixes**
 
