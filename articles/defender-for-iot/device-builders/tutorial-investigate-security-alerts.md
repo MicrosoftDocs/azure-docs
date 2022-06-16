@@ -85,10 +85,6 @@ You can access your alerts and investigate them with the Log Analytics workspace
 
     :::image type="content" source="media/how-to-configure-agent-based-solution/log-analytic.png" alt-text="Screenshot that shows where to select to investigate in the log analytics workspace.":::
 
-## Clean up resources
-
-There are no resources to clean up.
-
 ## Next steps
 
 > [!div class="nextstepaction"]

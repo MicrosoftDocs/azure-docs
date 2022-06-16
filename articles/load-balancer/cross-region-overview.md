@@ -4,13 +4,13 @@ titleSuffix: Azure Load Balancer
 description: Overview of cross region load balancer tier for Azure Load Balancer.
 services: load-balancer
 documentationcenter: na
-author: greg-lindsay
+author: mbender-ms
 ms.service: load-balancer
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/22/2020
-ms.author: greglin
+ms.author: mbender
 ms.custom: references_regions
 
 ---
