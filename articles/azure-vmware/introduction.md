@@ -2,6 +2,7 @@
 title: Introduction
 description: Learn the features and benefits of Azure VMware Solution to deploy and manage VMware-based workloads in Azure. Azure VMware Solution SLA guarantees that Azure VMware management tools (vCenter Server and NSX Manager) will be available at least 99.9% of the time.
 ms.topic: overview
+ms.service: azure-vmware
 ms.date: 04/20/2021
 ---
 
@@ -18,9 +19,9 @@ The diagram shows the adjacency between private clouds and VNets in Azure, Azure
 
 ## Hosts, clusters, and private clouds
 
-Azure VMware Solution private clouds and clusters are built from a bare-metal, hyper-converged Azure infrastructure host. The high-end (HE) hosts have 576-GB RAM and dual Intel 18 core, 2.3-GHz processors. In addition, the HE hosts have two vSAN disk groups with 15.36 TB (SSD) of raw vSAN capacity tier and a 3.2 TB (NVMe) vSAN cache tier.
+[!INCLUDE [host-sku-sizes](includes/disk-capabilities-of-the-host.md)]
 
-You can deploy new private clouds through the Azure portal or Azure CLI.
+You can deploy new or scale existing private clouds through the Azure portal or Azure CLI.
 
 
 ## Networking

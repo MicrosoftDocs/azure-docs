@@ -1,6 +1,5 @@
 ---
 title: Protecting against consent phishing
-titleSuffix: Microsoft Entra
 description: Learn ways of mitigating against app-based consent phishing attacks using Azure AD.
 services: active-directory
 author: Chrispine-Chiedo

@@ -59,7 +59,7 @@ The maximum number of pods per node in an AKS cluster is 250. The *default* maxi
 | -- | :--: | :--: | -- |
 | Azure CLI | 110 | 30 | Yes (up to 250) |
 | Resource Manager template | 110 | 30 | Yes (up to 250) |
-| Portal | 110 | 110 (configured in the Node Pools tab) | No |
+| Portal | 110 | 110 (configurable in the Node Pools tab) | Yes (up to 250) |
 
 ### Configure maximum - new clusters
 
@@ -72,7 +72,7 @@ A minimum value for maximum pods per node is enforced to guarantee space for sys
 | Networking | Minimum | Maximum |
 | -- | :--: | :--: |
 | Azure CNI | 10 | 250 |
-| Kubenet | 10 | 110 |
+| Kubenet | 10 | 250 |
 
 > [!NOTE]
 > The minimum value in the table above is strictly enforced by the AKS service. You can not set a maxPods value lower than the minimum shown as doing so can prevent the cluster from starting.
@@ -159,6 +159,9 @@ A drawback with the traditional CNI is the exhaustion of pod IP addresses as the
 
 ### Additional prerequisites
 
+> [!NOTE]
+> When using dynamic allocation of IPs, exposing an application as a Private Link Service using a Kubernetes Load Balancer Service is not supported.
+
 The [prerequisites][prerequisites] already listed for Azure CNI still apply, but there are a few additional limitations:
 
 * Only linux node clusters and node pools are supported.
@@ -175,10 +178,10 @@ The planning of IPs for Kubernetes services and Docker bridge remain unchanged.
 
 The pods per node values when using Azure CNI with dynamic allocation of IPs have changed slightly from the traditional CNI behavior:
 
-|CNI|Deployment Method|Default|Configurable at deployment|
-|--|--| :--: |--|
-|Traditional Azure CNI|Azure CLI|30|Yes (up to 250)|
-|Azure CNI with dynamic allocation of IPs|Azure CLI|250|Yes (up to 250)|
+|CNI|Default|Configurable at deployment|
+|--| :--: |--|
+|Traditional Azure CNI|30|Yes (up to 250)|
+|Azure CNI with dynamic allocation of IPs|250|Yes (up to 250)|
 
 All other guidance related to configuring the maximum nodes per pod remains the same.
 
@@ -279,7 +282,7 @@ The following questions and answers apply to the **Azure CNI network configurati
 
 * *Can I assign Pod subnets from a different VNet altogether?*
 
-  The pod subnet should be from the same VNet as the cluster.  
+  No, the pod subnet should be from the same VNet as the cluster.  
 
 * *Can some node pools in a cluster use the traditional CNI while others use the new CNI?*
 
