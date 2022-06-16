@@ -24,8 +24,8 @@ Application Insights SDKs for .NET and .NET Core ships with `DependencyTrackingT
 |WCF calls| Only tracked automatically if Http-based bindings are used.|
 |SQL | Calls made with `SqlClient`. See [this](#advanced-sql-tracking-to-get-full-sql-query) for capturing SQL query.  |
 |[Azure storage (Blob, Table, Queue )](https://www.nuget.org/packages/WindowsAzure.Storage/) | Calls made with Azure Storage Client. |
-|[EventHub Client SDK](https://www.nuget.org/packages/Microsoft.Azure.EventHubs) | Version 1.1.0 and above. |
-|[ServiceBus Client SDK](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus)| Version 3.0.0 and above. |
+|[EventHub Client SDK](https://nuget.org/packages/Azure.Messaging.EventHubs) | Use the latest package. https://nuget.org/packages/Azure.Messaging.EventHubs |
+|[ServiceBus Client SDK](https://nuget.org/packages/Azure.Messaging.ServiceBus)| Use the latest package. https://nuget.org/packages/Azure.Messaging.ServiceBus |
 |Azure Cosmos DB | Only tracked automatically if HTTP/HTTPS is used. TCP mode won't be captured by Application Insights. |
 
 If you're missing a dependency, or using a different SDK make sure it's in the list of [auto-collected dependencies](./auto-collect-dependencies.md). If the dependency isn't auto-collected, you can still track it manually with a [track dependency call](./api-custom-events-metrics.md#trackdependency).
