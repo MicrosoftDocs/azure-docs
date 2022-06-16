@@ -20,7 +20,7 @@ Mounting Azure Blob storage as a file system into a container or pod, enables yo
 * Images, documents, and streaming video or audio
 * Disaster recovery data
 
-Additionally, if your AKS cluster ingests data into Azure Data Lake Storage, it can directly mount it and use it in an AKS cluster without configuring another interim filesystem. The data on the object storage can be accessed by applications using BlobFuse or Network File System (NFS) 3.0 protocol. Before the introduction of the Azure Blob storage CSI driver, the only option was to manually install an unsupported open-source driver to access Blob storage from your application running on AKS.
+The data on the object storage can be accessed by applications using BlobFuse or Network File System (NFS) 3.0 protocol. Before the introduction of the Azure Blob storage CSI driver (preview), the only option was to manually install an unsupported open-source driver to access Blob storage from your application running on AKS.
 
 To create an AKS cluster with CSI drivers support, see [CSI drivers on AKS][csi-drivers-aks]. To learn more about the differences in access between each of the Azure storage types using the NFS protocol, see [Compare access to Azure Files, Blob Storage, and Azure NetApp Files with NFS][compare-access-with-nfs].
 
