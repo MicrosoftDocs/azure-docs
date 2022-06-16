@@ -3,7 +3,7 @@ title: Use Container Storage Interface (CSI) driver for Azure disks on Azure Kub
 description: Learn how to use the Container Storage Interface (CSI) driver for Azure disks in an Azure Kubernetes Service (AKS) cluster.
 services: container-service
 ms.topic: article
-ms.date: 06/15/2022
+ms.date: 06/16/2022
 author: palma21
 
 ---
@@ -12,7 +12,7 @@ author: palma21
 
 The Azure disks Container Storage Interface (CSI) driver is a [CSI specification](https://github.com/container-storage-interface/spec/blob/master/spec.md)-compliant driver used by Azure Kubernetes Service (AKS) to manage the lifecycle of Azure disks.
 
-The CSI is a standard for exposing arbitrary block and file storage systems to containerized workloads on Kubernetes. By adopting and using CSI, AKS can write, deploy, and iterate plug-ins to expose new or improve existing storage systems in Kubernetes without having to touch the core Kubernetes code and wait for its release cycles.
+The CSI is a standard for exposing arbitrary block and file storage systems to containerized workloads on Kubernetes. By adopting and using CSI, AKS now can write, deploy, and iterate plug-ins to expose new or improve existing storage systems in Kubernetes. Using CSI drivers in AKS avoids having to touch the core Kubernetes code and wait for its release cycles.
 
 To create an AKS cluster with CSI driver support, see [Enable CSI driver on AKS](csi-storage-drivers.md). This article describes how to use the Azure disks CSI driver version 1.
 
@@ -414,7 +414,8 @@ The output of the command resembles the following example:
 
 ## Next steps
 
-- To learn how to use CSI driver for Azure Files, see [Use Azure Files with CSI driver](azure-files-csi.md).
+- To learn how to use CSI driver for Azure Files, see [Use Azure Files with CSI driver][azure-files-csi].
+- To learn how to use CSI driver for Azure Blob storage (preview), see [Use Azure Blob storage with CSI driver][azure-blob-csi] (preview).
 - For more information about storage best practices, see [Best practices for storage and backups in Azure Kubernetes Service][operator-best-practices-storage].
 
 <!-- LINKS - external -->
@@ -430,6 +431,8 @@ The output of the command resembles the following example:
 <!-- LINKS - internal -->
 [azure-disk-volume]: azure-disk-volume.md
 [azure-files-pvc]: azure-files-dynamic-pv.md
+[azure-files-csi]: azure-files-csi.md
+[azure-blob-csi]: azure-blob-csi.md
 [premium-storage]: ../virtual-machines/disks-types.md
 [expand-an-azure-managed-disk]: ../virtual-machines/linux/expand-disks.md#expand-an-azure-managed-disk
 [az-disk-list]: /cli/azure/disk#az_disk_list

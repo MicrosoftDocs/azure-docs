@@ -10,9 +10,9 @@ author: palma21
 
 # Use Azure Files Container Storage Interface (CSI) driver in Azure Kubernetes Service (AKS)
 
-The Azure Files Container Storage Interface (CSI) driver is a [CSI specification][csi-specification]-compliant driver used by Azure Kubernetes Service (AKS) to manage the lifecycle of Azure Files shares.
+The Azure Files Container Storage Interface (CSI) driver is a [CSI specification][csi-specification]-compliant driver used by Azure Kubernetes Service (AKS) to manage the lifecycle of Azure Files shares. The CSI is a standard for exposing arbitrary block and file storage systems to containerized workloads on Kubernetes.
 
-The CSI is a standard for exposing arbitrary block and file storage systems to containerized workloads on Kubernetes. By adopting and using CSI, AKS now can write, deploy, and iterate plug-ins to expose new or improve existing storage systems in Kubernetes. Using CSI drivers in AKS avoids having to touch the core Kubernetes code and wait for its release cycles.
+By adopting and using CSI, AKS now can write, deploy, and iterate plug-ins to expose new or improve existing storage systems in Kubernetes. Using CSI drivers in AKS avoids having to touch the core Kubernetes code and wait for its release cycles.
 
 To create an AKS cluster with CSI drivers support, see [Enable CSI drivers on AKS][csi-drivers-overview].
 
@@ -406,7 +406,8 @@ The output of the commands resembles the following example:
 
 ## Next steps
 
-- To learn how to use CSI driver for Azure disks, see [Use Azure disks with CSI driver](azure-disk-csi.md).
+- To learn how to use CSI driver for Azure disks, see [Use Azure disks with CSI driver][azure-disk-csi].
+- To learn how to use CSI driver for Azure Blob storage (preview), see [Use Azure Blob storage with CSI driver][azure-blob-csi] (preview).
 - For more about storage best practices, see [Best practices for storage and backups in Azure Kubernetes Service][operator-best-practices-storage].
 
 <!-- LINKS - external -->
@@ -423,6 +424,8 @@ The output of the commands resembles the following example:
 
 <!-- LINKS - internal -->
 [csi-drivers-overview]: csi-storage-drivers.md
+[azure-disk-csi]: azure-disk-csi.md
+[azure-blob-csi]: azure-blob-csi.md
 [persistent-volume-claim-overview]: concepts-storage.md#persistent-volume-claims
 [azure-disk-volume]: azure-disk-volume.md
 [azure-files-pvc]: azure-files-dynamic-pv.md
