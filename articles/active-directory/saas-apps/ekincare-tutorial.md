@@ -114,7 +114,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Federation Metadata XML** from the given options as per your requirement and save it on your computer.
 
-	![Screenshot that shows the Certificate download link.](common/metadataxml "Certificate")
+	![Screenshot that shows the Certificate download link.](common/metadataxml.png "Certificate")
 
 1. On the **Set up eKincare** section, copy the appropriate URL(s) as per your requirement.
 
