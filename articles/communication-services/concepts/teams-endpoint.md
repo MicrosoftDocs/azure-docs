@@ -14,8 +14,6 @@ ms.subservice: teams-interop
 ---
 # Build a custom Teams endpoint
 
-[!INCLUDE [Public Preview](../includes/public-preview-include-document.md)]
-
 You can use Azure Communication Services and Graph API to build custom Teams endpoints to communicate with the Microsoft Teams client or other custom Teams endpoints. With a custom Teams endpoint, you can customize a voice, video, chat, and screen-sharing experience for Teams users.
 
 You can use the Azure Communication Services Identity SDK to exchange Azure Active Directory (Azure AD) access tokens of Teams users for Communication Identity access tokens. The diagrams in the next sections demonstrate multitenant use cases, where fictional company Fabrikam is the customer of fictional company Contoso.

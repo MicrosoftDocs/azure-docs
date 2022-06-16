@@ -31,16 +31,25 @@ Before we begin:
 - The Azure Communication Services resource admin needs to grant Alice permission to perform her role. Learn more about [Azure RBAC role assignment](../../../role-based-access-control/role-assignments-portal.md).
 
 Steps:
-1. Authenticate Alice using Azure Active Directory: Alice is authenticated using a standard OAuth flow with *Microsoft Authentication Library (MSAL)*. If authentication is successful, the client application receives an Azure AD access token, with a value of 'A'. Tokens are outlined later in this article. Authentication from the developer perspective is explored in this [quickstart](../../quickstarts/manage-teams-identity.md).
-1. Get an access token for Alice: The customized Teams application performs control plane logic, using artifact 'A'. This produces Azure Communication Services access token 'D' and gives Alice access. This access token can also be used for data plane actions in Azure Communication Services, like Calling.
+1. Authenticate Alice using Azure Active Directory: Alice is authenticated using a standard OAuth flow with *Microsoft Authentication Library (MSAL)*. If authentication is successful, the client application receives an Azure AD access token, with a value of 'A1' and an Object ID of an Azure AD user with a value of 'A2'. Tokens are outlined later in this article. Authentication from the developer perspective is explored in this [quickstart](../../quickstarts/manage-teams-identity.md).
+1. Get an access token for Alice: The customized Teams application performs control plane logic, using artifacts 'A1', 'A2' and 'A3'. This produces Azure Communication Services access token 'D' and gives Alice access. This access token can also be used for data plane actions in Azure Communication Services, like Calling.
 1. Call Bob: Alice makes a call to Teams user Bob, with Fabrikam's customized Teams app. The call takes place via the Calling SDK with an Azure Communication Services access token. Learn more about [developing custom Teams clients](../../quickstarts/voice-video-calling/get-started-with-voice-video-calling-custom-teams-client.md).
 
 Artifacts:
-- Artifact A
+- Artifact A1
   - Type: Azure AD access token
   - Audience: _`Azure Communication Services`_ — control plane
   - Azure AD application ID: Fabrikam's _`Azure AD application ID`_
   - Permission: _`https://auth.msft.communication.azure.com/Teams.ManageCalls`_
+- Artifact A2
+  - Type: Object ID of an Azure AD user
+  - Audience: Azure Communication Services — control plane
+  - Azure AD application ID: Contoso's _`Azure AD application ID`_
+  - Permission: _`https://auth.msft.communication.azure.com/Teams.ManageCalls`_
+- Artifact A3
+  - Type: Azure AD application ID
+  - Audience: Azure Communication Services — control plane
+  - Azure AD application ID: Contoso's _`Azure AD application ID`_
 - Artifact D
   - Type: Azure Communication Services access token
   - Audience: _`Azure Communication Services`_ — data plane
@@ -59,17 +68,26 @@ Before we begin:
 - Alice or her Azure AD administrator needs to give Contoso's Azure Active Directory application consent before the first attempt to sign in. Learn more about [consent](../../../active-directory/develop/consent-framework.md).
 
 Steps:
-1. Authenticate Alice using the Fabrikam application: Alice is authenticated through Fabrikam's customized Teams application. A standard OAuth flow with Microsoft Authentication Library (MSAL) is used. If authentication is successful, the client application, the Contoso app in this case, receives an Azure AD access token with a value of 'A'. Token details are outlined below. Authentication from the developer perspective is explored in this [quickstart](../../quickstarts/manage-teams-identity.md).
-1. Get an access token for Alice: The Contoso application performs control plane logic, using artifact 'A'. This generates Azure Communication Services access token 'D' for Alice within the Contoso application. This access token can be used for data plane actions in Azure Communication Services, like Calling.
+1. Authenticate Alice using the Fabrikam application: Alice is authenticated through Fabrikam's customized Teams application. A standard OAuth flow with Microsoft Authentication Library (MSAL) is used. If authentication is successful, the client application, the Contoso app in this case, receives an Azure AD access token with a value of 'A1' and an Object ID of an Azure AD user with a value of 'A2'. Token details are outlined below. Authentication from the developer perspective is explored in this [quickstart](../../quickstarts/manage-teams-identity.md).
+1. Get an access token for Alice: The Contoso application performs control plane logic, using artifacts 'A1', 'A2' and 'A3'. This generates Azure Communication Services access token 'D' for Alice within the Contoso application. This access token can be used for data plane actions in Azure Communication Services, like Calling.
 1. Call Bob: Alice makes a call to Teams user Bob, with Fabrikam's customized Teams app. The call takes place via the Calling SDK with an Azure Communication Services access token. Learn more about developing custom, Teams apps [in this quickstart](../../quickstarts/voice-video-calling/get-started-with-voice-video-calling-custom-teams-client.md).
 
 
 Artifacts:
-- Artifact A
+- Artifact A1
   - Type: Azure AD access token
   - Audience: Azure Communication Services — control plane
   - Azure AD application ID: Contoso's _`Azure AD application ID`_
   - Permission: _`https://auth.msft.communication.azure.com/Teams.ManageCalls`_
+- Artifact A2
+  - Type: Object ID of an Azure AD user
+  - Audience: Azure Communication Services — control plane
+  - Azure AD application ID: Contoso's _`Azure AD application ID`_
+  - Permission: _`https://auth.msft.communication.azure.com/Teams.ManageCalls`_
+- Artifact A3
+  - Type: Azure AD application ID
+  - Audience: Azure Communication Services — control plane
+  - Azure AD application ID: Contoso's _`Azure AD application ID`_
 - Artifact B
   - Type: Custom Contoso authentication artifact
 - Artifact C

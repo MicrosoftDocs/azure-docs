@@ -22,8 +22,8 @@ Ensure that your Azure Active Directory users have at least one of the following
 
 | Service Plan(friendly names)   |  GUID  |
 |:--- |:--- |
-|	TEAMS1 | 57ff2da0-773e-42df-b2af-ffb7a2317929 |
-|	TEAMS_FREE | 4fa4026d-ce74-4962-a151-8e96d57ea8e4 |
+| TEAMS1 | 57ff2da0-773e-42df-b2af-ffb7a2317929 |
+| TEAMS_FREE | 4fa4026d-ce74-4962-a151-8e96d57ea8e4 |
 | TEAMS_GOV | 304767db-7d23-49e8-a945-4a7eb65f9f28 |
 | TEAMS_GCCHIGH | 495922d5-f138-498b-8967-4acdcdfb2a74 |
 | TEAMS_AR_GCCHIGH | 9953b155-8aef-4c56-92f3-72b0487fce41 |
