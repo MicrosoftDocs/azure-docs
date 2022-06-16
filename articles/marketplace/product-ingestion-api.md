@@ -40,9 +40,8 @@ There are four management APIs that can be leveraged to perform different action
 | ------------ | ------------- | ------------- |
 | Query | Retrieves existing resources by:<br>1) “resource-tree” resource type<br>2) the durable-id<br>3) query string parameters | Method 1: `GET resource-tree/<product-durableId>`<br>Method 2: `GET <resource-durableId>`<br>Method 3: `GET <resourceType>?<query parameters>` |
 | Configure submit | Submits requests to create or update one or more resources. Upon successful processing, a jobId is returned, which can be used to retrieve the status of the request. This API type can be used to update the draft state as well as publish changes, sync private audiences, and modify the resource lifecycle state. | POST configure |
-| Configure status | Retrieves the status of a pending request via the jobId.| C3 R4 |
-| Configure status details | Column 2 row 4 | GET configure/<jobId>/status |
-| Column 1 row 5 | Retrieves a detailed summary of a completed request, including the updated resources, via the jobId. | GET configure/<jobId> |
+| Configure status | Retrieves the status of a pending request via the jobId.| `GET configure/<jobId>/status` |
+| Configure status details | Retrieves a detailed summary of a completed request, including the updated resources, via the jobId. | `GET configure/<jobId>/status` |
 
 ## A typical workflow
 
@@ -296,7 +295,7 @@ If publishing to “preview” or “live”, include the submission resource in
 Commercial product types support a preview environment, and each update must be first published to preview before going live. You cannot publish directly to live.
 
 > [!IMPORTANT]
-> The exception to this is when making changes to the private audience of your plans. When [syncing updates to the private audience](#sync-private-audience) specifically, you can publish to preview and live at the same time.
+> The exception to this is when making changes to the private audience of your plans. When [syncing updates to the private audience](#sync-private-audiences) specifically, you can publish to preview and live at the same time.
 
 There are two ways you can publish your resources to the preview environment. If any changes need to be made to the preview submission, simply do another GET request, make the necessary changes, and push the changes again. You don’t need to first go live with your initial changes.
 
