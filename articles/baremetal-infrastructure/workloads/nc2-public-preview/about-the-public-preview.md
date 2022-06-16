@@ -10,7 +10,7 @@ ms.date: 03/31/2021
 
 The articles in this section are intended for the professionals participating in the Public Preview of NC2 on Azure.
 
-The documentation is a work-in-progress and is being constantly updated. If you want to share any feedback for this document, you can email at AzNutanixPM@microsoft.com
+ To provide input, email [NC2-on-Azure Docs](mailto:AzNutanixPM@microsoft.com).
 
 ![Nutanix Preview](media/nc2-on-azure-preview.png)
 
