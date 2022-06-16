@@ -8,7 +8,7 @@ author: schaffererin
 ms.author: v-eschaffer
 ms.topic: quickstart
 ms.custom: subject-armqs, devx-track-azurepowershell, mode-arm
-ms.date: 04/25/2022
+ms.date: 06/16/2022
 ---
 
 # Quickstart: Create an Azure Data Factory using Bicep
