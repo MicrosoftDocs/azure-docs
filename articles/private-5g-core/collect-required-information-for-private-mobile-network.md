@@ -42,7 +42,7 @@ As part of creating your private mobile network, you can provision one or more S
 
 If you want to provision SIMs as part of deploying your private mobile network, take the following steps.
 
-1. Choose a name for a new SIM group to which all of the SIMs you provision will be added. If you need more than one SIM group, you can create additional SIM groups after you've deployed your private mobile network using the instructions in [Create a SIM group](create-sim-group-azure-portal.md).
+1. Choose a name for a new SIM group to which all of the SIMs you provision will be added. If you need more than one SIM group, you can create additional SIM groups after you've deployed your private mobile network using the instructions in [Manage SIM groups](manage-sim-groups.md).
   
 1. Choose one of the following methods for provisioning your SIMs:
 
