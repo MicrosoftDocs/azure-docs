@@ -15,11 +15,11 @@ ms.topic: how-to
 
 This article describes how to upgrade a directly connected Azure Arc-enabled data controller using the Azure CLI (`az`).
 
-During a data controller upgrade, portions of the data control plane such as Custom Resource Definitions (CRDs) and containers may be upgraded. An upgrade of the data controller will not cause downtime for the data services (SQL Managed Instance or PostgreSQL server).
+During a data controller upgrade, portions of the data control plane such as Custom Resource Definitions (CRDs) and containers may be upgraded. An upgrade of the data controller won't cause downtime for the data services (SQL Managed Instance or PostgreSQL server).
 
 ## Prerequisites
 
-You will need a directly connected data controller with the imageTag v1.0.0_2021-07-30 or later.
+You'll need a directly connected data controller with the imageTag v1.0.0_2021-07-30 or later.
 
 To check the version, run:
 
@@ -29,9 +29,9 @@ kubectl get datacontrollers -n <namespace> -o custom-columns=BUILD:.spec.docker.
 
 ## Install tools
 
-Before you can proceed with the tasks in this article you need to install:
+Before you can proceed with the tasks in this article, you need to install:
 
-- The [Azure CLI (az)](/cli/azure/install-azure-cli)
+- The [Azure CLI (`az`)](/cli/azure/install-azure-cli)
 - The [`arcdata` extension for Azure CLI](install-arcdata-extension.md)
 
 [!INCLUDE [azure-arc-angle-bracket-example](../../../includes/azure-arc-angle-bracket-example.md)]
@@ -69,7 +69,7 @@ This section shows how to upgrade a directly connected data controller.
 
 ### Authenticate  
 
-You will need to connect and authenticate to a Kubernetes cluster and have an existing Kubernetes context selected prior to beginning the upgrade of the Azure Arc data controller.
+You'll need to connect and authenticate to a Kubernetes cluster and have an existing Kubernetes context selected prior to beginning the upgrade of the Azure Arc data controller.
 
 ```kubectl
 kubectl config use-context <Kubernetes cluster name>
@@ -79,7 +79,13 @@ kubectl config use-context <Kubernetes cluster name>
 
 Upgrade the Arc data controller extension first. 
 
-Retrieve the name of your extension and its version by going to the Azure portal, browsing to the Overview blade of your Arc enabled Kubernetes cluster, and selecting the Extensions tab on the left. You can also retrieve the name of your extension and its version running `az` CLI.
+Retrieve the name of your extension and its version:
+
+1. Go to the Azure portal
+1. Select **Overview** for your Azure Arc enabled Kubernetes cluster
+1. Selecting the **Extensions** tab on the left. 
+
+Alternatively, you can use `az` CLI to get the name of your extension and its version running.
 
 ```azurecli
 az k8s-extension list --resource-group <resource-group> --cluster-name <connected cluster name> --cluster-type connectedClusters
@@ -91,7 +97,7 @@ Example:
 az k8s-extension list --resource-group rg-arcds --cluster-name aks-arc --cluster-type connectedClusters
 ```
 
-After retrieving the extension name and its version, the extension can be upgraded. 
+After you retrieve the extension name and its version, upgrade the extension. 
 
 ```azurecli
 az k8s-extension update --resource-group <resource-group> --cluster-name <connected cluster name> --cluster-type connectedClusters --name <name of extension> --version <extension version> --release-train stable --config systemDefaultValues.image="<registry>/<repository>/arc-bootstrapper:<imageTag>"

@@ -1,6 +1,6 @@
 ---
-title: Upgrade an indirectly connected Azure Arc-enabled Managed Instance using Kubernetes tools
-description: Article describes how to upgrade an indirectly connected Azure Arc-enabled Managed Instance using Kubernetes tools
+title: Upgrade Azure SQL Managed Instance indirectly connected to Azure Arc using Kubernetes tools
+description: Article describes how to upgrade an indirectly connected Azure Arc-enabled SQL Managed Instance using Kubernetes tools
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
@@ -12,15 +12,15 @@ ms.date: 11/08/2021
 ms.topic: how-to
 ---
 
-# Upgrade an an indirectly connected Azure Arc-enabled Managed Instance using Kubernetes tools
+# Upgrade Azure SQL Managed Instance indirectly connected to Azure Arc using Kubernetes tools
 
-This article describes how to upgrade a SQL Managed Instance deployed on an indirectly connected Azure Arc-enabled data controller using Kubernetes tools.
+This article describes how to upgrade Azure SQL Managed Instance deployed on an indirectly connected Azure Arc-enabled data controller using Kubernetes tools.
 
 ## Prerequisites
 
 ### Install tools
 
-Before you can proceed with the tasks in this article you need:
+Before you can proceed with the tasks in this article, you need:
 
 - To connect and authenticate to a Kubernetes cluster
 - An existing Kubernetes context selected
@@ -29,13 +29,13 @@ You need an indirectly connected data controller with the `imageTag v1.0.0_2021-
 
 ## Limitations
 
-The Azure Arc Data Controller must be upgraded to the new version before the Managed Instance can be upgraded.
+The Azure Arc Data Controller must be upgraded to the new version before the managed instance can be upgraded.
 
-The Managed Instance must be at the same version as the data controller before a data controller is upgraded.
+The managed instance must be at the same version as the data controller before a data controller is upgraded.
 
-There is no batch upgrade process available at this time.
+There's no batch upgrade process available at this time.
 
-## Upgrade the Managed Instance
+## Upgrade the managed instance
 
 [!INCLUDE [upgrade-sql-managed-instance-service-tiers](includes/upgrade-sql-managed-instance-service-tiers.md)]
 

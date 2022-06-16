@@ -1,6 +1,6 @@
 ---
-title: Enable automatic upgrades - Azure Arc enabled SQL Managed Instance
-description: Article describes how to enable automatic upgrades of SQL Managed Instance for Azure Arc
+title: Enable automatic upgrades - Azure SQL Managed Instance for Azure Arc
+description: Article describes how to enable automatic upgrades for Azure SQL Managed Instance deployed for Azure Arc
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
@@ -11,21 +11,21 @@ ms.date: 05/27/2022
 ms.topic: how-to
 ---
 
-# Enable automatic upgrades of a SQL Managed Instance
+# Enable automatic upgrades of an Azure SQL Managed Instance for Azure Arc
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
-You can set the `--desired-version` parameter of the `spec.update.desiredVersion` property of an Azure Arc-enabled SQL Managed Instance to `auto` to ensure that your Managed Instance will be upgraded after a data controller upgrade, with no interaction from a user. This allows for ease of management, as you do not need to manually upgrade every instance for every release.
+You can set the `--desired-version` parameter of the `spec.update.desiredVersion` property of an Azure Arc-enabled SQL Managed Instance to `auto` to ensure that your managed instance will be upgraded after a data controller upgrade, with no interaction from a user. This setting simplifies management, as you don't need to manually upgrade every instance for every release.
 
-After setting the `--desired-version` parameter of the `spec.update.desiredVersion` property to `auto` the first time, the Azure Arc-enabled data service will begin an upgrade of the Managed Instance to the newest image version within five minutes, or within the next [Maintenance Window](maintenance-window.md). Thereafter, within five minutes of a data controller being upgraded, or within the next Maintenance Window, the Managed Instance will begin the upgrade process. This works for both directly connected and indirectly connected modes.
+After setting the `--desired-version` parameter of the `spec.update.desiredVersion` property to `auto` the first time, the Azure Arc-enabled data service will begin an upgrade of the managed instance to the newest image version within five minutes, or within the next [Maintenance Window](maintenance-window.md). Thereafter, within five minutes of a data controller being upgraded, or within the next maintenance window, the managed instance will begin the upgrade process. This setting works for both directly connected and indirectly connected modes.
 
-If the `spec.update.desiredVersion` property is pinned to a specific version, automatic upgrades will not take place. This allows you to let most instances automatically upgrade, while manually managing instances that need a more hands-on approach.
+If the `spec.update.desiredVersion` property is pinned to a specific version, automatic upgrades won't take place. This property allows you to let most instances automatically upgrade, while manually managing instances that need a more hands-on approach.
 
 ## Prerequisites
 
-Your Managed Instance version must be equal to the data controller version before enabling auto mode.
+Your managed instance version must be equal to the data controller version before enabling auto mode.
 
-## Enable with with Kubernetes tools (kubectl)
+## Enable with Kubernetes tools (kubectl)
 
 Use kubectl to view the existing spec in yaml.
 
