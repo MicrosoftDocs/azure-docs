@@ -23,6 +23,12 @@ items:
   items:
   - name: Earth Observation
     items:
+    - name: Prepare network to send and receive data
+      href: howto-prepare-network.md
+    - name: License your spacecraft
+      href: howto-licensing.md
+    - name: Receive real-time telemetry
+      href: howto-realtime-telem.md
     - name: Update the Spacecraft TLE
       href: update-tle.md
     - name: Cancel a Contact
