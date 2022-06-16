@@ -26,7 +26,7 @@ When you configure to be zone redundant, the platform automatically spreads the 
 - You configure availability zones when you create your App Service Environment.
   - All App Service plans created in that App Service Environment will automatically be zone redundant.
 - You can only specify availability zones when creating a **new** App Service Environment. A pre-existing App Service Environment can't be converted to use availability zones.
-- Availability zones are only supported in a [subset of regions](../app-service/environment/overview#regions).
+- Availability zones are only supported in a [subset of regions](../app-service/environment/overview.md#regions).
 
 ## Downtime requirements
 
@@ -56,7 +56,7 @@ A zone redundant App Service Environment will only store customer data within th
 
 The following steps describe how to enable availability zones.
 
-1. To redeploy and ensure you'll be able to use availability zones, you'll need to be on the App Service footprint that supports availability zones. Create your new App Service Environment in one of the [supported regions](../app-service/environment/overview#regions).
+1. To redeploy and ensure you'll be able to use availability zones, you'll need to be on the App Service footprint that supports availability zones. Create your new App Service Environment in one of the [supported regions](../app-service/environment/overview.md#regions).
 1. Ensure the zoneRedundant property (described below) is set to true when creating the new App Service Environment.
 1. Create your new App Service plans and apps in the new App Service Environment using your desired deployment method.
 
