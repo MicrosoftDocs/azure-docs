@@ -86,6 +86,7 @@
     items: 
     - name: Overview
       href: ../virtual-machines/co-location.md
+      maintainContext: true
     - name: Create a proximity placement group
       href: proximity-placement-groups.md
   - name: Capacity reservations
@@ -171,9 +172,11 @@
     - name: CLI
       displayName: Monitor metadata
       href: ../virtual-machines/linux/instance-metadata-service.md
+      maintainContext: true
     - name: PowerShell
       displayName: Monitor metadata
       href: ../virtual-machines/windows/instance-metadata-service.md
+      maintainContext: true
   - name: Planned maintenance
     items: 
     - name: Maintenance notifications
@@ -183,8 +186,10 @@
       - name: Linux
         href: ../virtual-machines/linux/scheduled-events.md
         displayname: Scheduled events
+        maintainContext: true
       - name: Windows
         href: ../virtual-machines/windows/scheduled-events.md
+        maintainContext: true
 - name: Disks
   items:
   - name: Select a disk type

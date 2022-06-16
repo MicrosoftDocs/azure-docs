@@ -11,7 +11,7 @@ ms.reviewer: jushiman
 ms.custom: mimckitt, devx-track-azurecli, vmss-flex
 ---
 
-# What are virtual machine scale sets?
+# Flexible orchestration for virtual machine scale sets in Azure
 
 **Applies to:** :heavy_check_mark: Flexible scale sets
 
