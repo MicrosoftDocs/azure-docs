@@ -48,7 +48,7 @@ See [this article](workbooks-data-sources.md) for detailed information about the
 
 Workbooks provide a rich set of capabilities for visualizing your data. Each data source and result set support visualizations that are most useful for that data. See [this article](workbooks-visualizations.md) for detailed information about the visualizations.
 
-:::image type="content" source="./media/workbooks-overview/visualizations.png" alt-text="Example of workbook visualizations." border="false" lightbox="./media/workbooks-overview/visualizations.png":::
+:::image type="content" source="./media/workbooks-overview/visualizations.png" alt-text="Screenshot that shows an example of workbook visualizations." border="false" lightbox="./media/workbooks-overview/visualizations.png":::
 
 ## Access control
 

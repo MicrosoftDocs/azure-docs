@@ -79,7 +79,7 @@ In the image above, the conditions will be evaluated from top to bottom and the 
     - Value from: Static Value
     - Result is: is 0.25 or under
 
-   :::image type="content" source="media/workbooks-criteria/workbooks-criteria-default.png" alt-text="Image showing the criteria settings default form filled.":::
+   :::image type="content" source="media/workbooks-criteria/workbooks-criteria-default.png" alt-text="Screenshot showing the criteria settings default form filled.":::
 
 1. Save the Parameter
 1. Select on the refresh button on the workbook, to see the `randCriteria` parameter in action. Its value will be based on the value of `rand`!

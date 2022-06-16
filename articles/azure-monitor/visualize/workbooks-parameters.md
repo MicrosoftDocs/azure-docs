@@ -45,11 +45,11 @@ These parameter values can be referenced in other parts of workbooks either via 
     
 1. Choose 'Save' from the toolbar to create the parameter.
 
-   :::image type="content" source="media/workbooks-parameters/workbooks-time-settings.png" alt-text="Image showing the creation of a time range parameter.":::
+   :::image type="content" source="media/workbooks-parameters/workbooks-time-settings.png" alt-text="Screenshot showing the creation of a time range parameter.":::
 
 This is how the workbook will look like in read-mode, in the "Pills" style.
 
-   :::image type="content" source="media/workbooks-parameters/workbooks-time-settings.png" alt-text="Image showing a time range parameter in read mode.":::
+   :::image type="content" source="media/workbooks-parameters/workbooks-time-settings.png" alt-text="Screenshot showing a time range parameter in read mode.":::
 
 ## Reference a parameter
 ### Reference a parameter with Bindings
@@ -58,7 +58,7 @@ This is how the workbook will look like in read-mode, in the "Pills" style.
 3. This binds the time range parameter to the time range of the chart. The time scope of the sample query is now Last 24 hours.
 4. Run query to see the results
 
-   :::image type="content" source="media/workbooks-parameters/workbooks-time-binding.png" alt-text="Image showing a time range parameter referenced via bindings":::    
+   :::image type="content" source="media/workbooks-parameters/workbooks-time-binding.png" alt-text="Screenshot showing a time range parameter referenced via bindings.":::    
 
 ### Reference a parameter with KQL
 1. Add a query control to the workbook and select an Application Insights resource.
@@ -173,24 +173,24 @@ The following styles are available to layout the parameters in a parameters step
 #### Pills
 In pills style, the default style, the parameters look like text, and require the user to select them once to go into the edit mode.
 
-   :::image type="content" source="media/workbooks-parameters/workbooks-pills-read-mode.png" alt-text="Workbooks pill style read mode.":::
+   :::image type="content" source="media/workbooks-parameters/workbooks-pills-read-mode.png" alt-text="Screenshot showing Workbooks pill style read mode.":::
 
-   :::image type="content" source="media/workbooks-parameters/workbooks-pills-edit-mode.png" alt-text="Workbooks pill style edit mode.":::   
+   :::image type="content" source="media/workbooks-parameters/workbooks-pills-edit-mode.png" alt-text="Screenshot that shows Workbooks pill style edit mode.":::   
 
 #### Standard
 In standard style, the controls are always visible, with a label above the control.
 
-   :::image type="content" source="media/workbooks-parameters/workbooks-standard.png" alt-text="Workbooks standard style.":::
+   :::image type="content" source="media/workbooks-parameters/workbooks-standard.png" alt-text="Screenshot that shows Workbooks standard style.":::
 
 #### Form Horizontal
 In horizontal style form, the controls are always visible, with label on left side of the control.
 
-   :::image type="content" source="media/workbooks-parameters/workbooks-form-horizontal.png" alt-text="Workbooks form horizontal style.":::
+   :::image type="content" source="media/workbooks-parameters/workbooks-form-horizontal.png" alt-text="Screenshot that shows Workbooks form horizontal style.":::
 
 #### Form Vertical
 In vertical style from, the controls are always visible, with label above the control. Unlike standard style, there is only one label or control in one row. 
 
-   :::image type="content" source="media/workbooks-parameters/workbooks-form-vertical.png" alt-text="Workbooks form vertical style.":::
+   :::image type="content" source="media/workbooks-parameters/workbooks-form-vertical.png" alt-text="Screenshot that shows Workbooks form vertical style.":::
  
 > [!NOTE]
 > In standard, form horizontal, and form vertical layouts, there's no concept of inline editing, the controls are always in edit mode. 
