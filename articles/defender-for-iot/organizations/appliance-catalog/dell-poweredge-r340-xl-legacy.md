@@ -75,7 +75,7 @@ This section describes how to install Defender for IoT software on the Dell Powe
 Before installing the software on the Dell appliance, you need to adjust the appliance's BIOS configuration.
 
 > [!NOTE]
-> Installation procedures are only relevant if you need to re-install the software on a preconfigured device or buy the hardware and configure the appliance yourself.
+> Installation procedures are only relevant if you need to re-install the software on a preconfigured device, or if you buy your own hardware and configure the appliance yourself.
 >
 
 ### Prerequisites
