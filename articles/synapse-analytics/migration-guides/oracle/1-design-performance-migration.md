@@ -18,7 +18,7 @@ This article is part one of a four part series that provides guidance on how to 
 
 ## Overview
 
-Due to the cost and complexity of maintaining and upgrading legacy on-premises Oracle environments, many existing users of Oracle data warehouse systems want to take advantage of the innovations provided by newer environments such as cloud, IaaS, and PaaS, and to delegate tasks like infrastructure maintenance and platform development to the cloud provider.
+Due to the cost and complexity of maintaining and upgrading legacy on-premises Oracle environments, many existing users of Oracle data warehouse systems want to take advantage of the innovations provided by newer environments such as cloud, IaaS, and PaaS. These environments let you delegate tasks like infrastructure maintenance and platform development to the cloud provider.
 
 >[!TIP]
 >More than just a database&mdash;the Azure environment includes a comprehensive set of capabilities and tools.
@@ -29,13 +29,13 @@ Although Oracle and Azure Synapse Analytics are both SQL databases designed to u
 
 - Upgrading an Oracle configuration is a major task involving additional physical hardware and potentially lengthy database reconfiguration, or dump and reload. Since storage and compute resources are separate in the Azure environment, these resources can be scaled upwards or downwards independently, leveraging the elastic scaling capability.
 
-- Azure Synapse can be paused or resized as required to reduce resource utilization and cost.
+- You can pause or resize Azure Synapse as required to reduce resource utilization and cost.
 
 Microsoft Azure is a globally available, highly secure, scalable cloud environment that includes Azure Synapse and an ecosystem of supporting tools and capabilities. The next diagram summarizes the Azure Synapse ecosystem.
 
 :::image type="content" source="../media/1-design-performance-migration/azure-synapse-ecosystem-2.png" border="true" alt-text="Chart showing the Azure Synapse ecosystem of supporting tools and capabilities.":::
 
-Azure Synapse provides best-of-breed relational database performance by using techniques such as massively parallel processing (MPP) and automatic in-memory caching. See the results of this approach in independent benchmarks such as the one run recently by [GigaOm](https://research.gigaom.com/report/data-warehouse-cloud-benchmark/), which compares Azure Synapse to other popular cloud data warehouse offerings. Customers who have migrated to this environment have seen many benefits including:
+Azure Synapse provides best-of-breed relational database performance by using techniques such as massively parallel processing (MPP) and automatic in-memory caching. You can see the results of this approach in independent benchmarks such as the one run recently by [GigaOm](https://research.gigaom.com/report/data-warehouse-cloud-benchmark/), which compares Azure Synapse to other popular cloud data warehouse offerings. Customers who have migrated to this environment have seen many benefits including:
 
 - Improved performance and price/performance.
 
@@ -51,11 +51,11 @@ Azure Synapse provides best-of-breed relational database performance by using te
 
 - Lower overall TCO, better cost control, and streamlined operational expenditure (OPEX).
 
-To maximize these benefits,  migrate new or existing data and applications to the Azure Synapse platform. In many organizations, this will include migrating an existing data warehouse from legacy on-premises platforms such as Oracle. At a high level, the basic process includes these steps:
+To maximize these benefits, migrate new or existing data and applications to the Azure Synapse platform. In many organizations, this will include migrating an existing data warehouse from legacy on-premises platforms such as Oracle. At a high level, the basic process includes these steps:
 
 :::image type="content" source="../media/1-design-performance-migration/migration-steps.png" border="true" alt-text="Diagram showing the steps for preparing to migrate, migration, and post-migration.":::
 
-This article looks at schema migration with a goal of equivalent or better performance of your migrated Oracle data warehouse and data marts on Azure Synapse. This article applies specifically to migrations from an existing Oracle environment.
+This article looks at schema migration with a goal of equivalent or better performance for your migrated Oracle data warehouse and data marts on Azure Synapse. This article applies specifically to migrations from an existing Oracle environment.
 
 ## Design considerations
 
@@ -63,11 +63,9 @@ This article looks at schema migration with a goal of equivalent or better perfo
 
 #### Preparation for migration
 
-Build an inventory of objects to be migrated and document the process
+When migrating from an Oracle environment, consider the following migration decisions.
 
-When migrating from an Oracle environment there are some specific topics which must be taken into account in addition to the more general subjects described in the 'Section 1 -- Design and Performance' document.
-
-#### Choosing the workload for the initial migration
+#### Choose the workload for the initial migration
 
 Legacy Oracle environments have typically evolved over time to encompass multiple subject areas and mixed workloads. When deciding where to start on an initial migration project it makes sense to choose an area which will be able to:
 
@@ -78,6 +76,9 @@ Legacy Oracle environments have typically evolved over time to encompass multipl
 - Create a template for further migration exercises which is specific to the source Oracle environment and the current tools and processes which are already in place
 
 A good candidate for an initial migration from an Oracle environment which would enable the items above is typically one that implements a BI/Analytics workload (i.e. not an on-line transaction processing workload) with a data model that can be migrated with minimal modifications -- typically a star or snowflake schema.
+
+>[!TIP]
+> Create an inventory of objects that need to be migrated and document the migration process.
 
 In terms of size, it is important that the data volume to be migrated in the initial exercise is large enough to demonstrate the capabilities and benefits of the Azure Synapse environment while keeping the time to demonstrate value short -- typically in the 1-10TB range.
 
