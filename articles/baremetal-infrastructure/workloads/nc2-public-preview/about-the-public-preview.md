@@ -43,10 +43,13 @@ We offer two SKUs: AN36 and AN36P. For specifications, see [SKUs](skus.md).
 
 ### More benefits
 
-* MACC credits 
+* MACC credits
 * Nutanix BYOL  
-* RI (In future
-  * Added discount until RI is supported if there's committed interest in purchasing it once the option becomes available. 
+
+#### Upcoming benefits
+
+* RI
+  * Added discount until RI is supported if there's committed interest in purchasing it once the option becomes available.
 
 ## Transaction
 
