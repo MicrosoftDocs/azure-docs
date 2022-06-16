@@ -64,7 +64,7 @@ The following table lists the operations that Azure Container Instances may reco
 | Microsoft.ContainerInstance/locations/operations/read | List the operations for Azure Container Instance service. |
 | Microsoft.ContainerInstance/locations/usages/read | Get the usage for a specific region. |
 | Microsoft.ContainerInstance/operations/read | List the operations for Azure Container Instance service. |
-| Microsoft.ContainerInstance/serviceassociationlinks/delete | Delete the service association link created by azure container instance resource provider on a subnet. |
+| Microsoft.ContainerInstance/serviceassociationlinks/delete | Delete the service association link created by Azure Container Instance resource provider on a subnet. |
 
 See [all the possible resource provider operations in the activity log](/azure/role-based-access-control/resource-provider-operations).  
 
