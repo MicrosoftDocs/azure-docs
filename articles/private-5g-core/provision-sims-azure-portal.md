@@ -17,15 +17,25 @@ ms.custom: template-how-to
 ## Prerequisites
 
 - Ensure you can sign in to the Azure portal using an account with access to the active subscription you identified in [Complete the prerequisite tasks for deploying a private mobile network](complete-private-mobile-network-prerequisites.md). This account must have the built-in Contributor role at the subscription scope.
+
 - Identify the name of the Mobile Network resource corresponding to your private mobile network.
+
 - Decide on the method you'll use to provision SIMs. You can choose from the following:
+
   - Manually entering each provisioning value into fields in the Azure portal. This option is best if you're provisioning a few SIMs.
+
   - Importing a JSON file containing values for one or more SIM resources. This option is best if you're provisioning a large number of SIMs. You'll need a good JSON editor if you want to use this option.
+
 - Decide on the SIM group to which you want to add your SIMs. You can create a new SIM group when provisioning your SIMs, or you can choose an existing SIM group. See [Manage SIM groups - Azure portal](manage-sim-groups.md) for information on viewing your existing SIM groups.
+
   - If you're manually entering provisioning values, you'll add each SIM to a SIM group individually.
+
   - If you're using a JSON file, all SIMs in the same JSON file will be added to the same SIM group.
+
 - For each SIM you want to provision, decide whether you want to assign a SIM policy to it. If you do, you must have already created the relevant SIM policies using the instructions in [Configure a SIM policy - Azure portal](configure-sim-policy-azure-portal.md). SIMs can't access your private mobile network unless they have an assigned SIM policy.
+
   - If you're manually entering provisioning values, you'll need the name of the SIM policy.
+
   - If you're using a JSON file, you'll need the full resource ID of the SIM policy.
 
 ## Collect the required information for your SIMs
