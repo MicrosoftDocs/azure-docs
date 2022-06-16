@@ -153,10 +153,10 @@ This table shows the supported query parameters for each of the supported resour
 
 | Resource Type | Parameters | Query string examples |
 | ------------ | ------------- | ------------- |
-| plan | product (always required)<br>externalId<br>$maxpagesize<br>$skip<br>$top | GET plan?product=<product-durableId><br>GET plan?product=<product-durableId>&externalId=<plan-externalId><br>GET plan?product=<product-durableId>&$maxpagesize=<#><br>GET plan?product=<product-durableId>&$skip=<#>&$top=<#> |
-| product | externalId<br>type<br>$maxpagesize<br>$skip<br>$top<br>continuationToken | GET submission/<product-durableId>?targetType=<environment><br>GET submission/<product-id>?$maxpagesize=<#>&continuationToken=<token> |
-| submission | targetType<br>$maxpagesize<br>continuationToken | GET submission/<product-durableId>?targetType=<environment><br>GET submission/<product-id>?$maxpagesize=<#>&continuationToken=<token> |
-| resource-tree | targetType | GET resource-tree/<product-durableId>?targetType=<environment> |
+| plan | product (always required)<br>externalId<br>$maxpagesize<br>$skip<br>$top | `GET plan?product=<product-durableId>`<br>`GET plan?product=<product-durableId>&externalId=<plan-externalId>`<br>`GET plan?product=<product-durableId>&$maxpagesize=<#>`<br>`GET plan?product=<product-durableId>&$skip=<#>&$top=<#>` |
+| product | externalId<br>type<br>$maxpagesize<br>$skip<br>$top<br>continuationToken | `GET submission/<product-durableId>?targetType=<environment>`<br>`GET submission/<product-id>?$maxpagesize=<#>&continuationToken=<token>` |
+| submission | targetType<br>$maxpagesize<br>continuationToken | `GET submission/<product-durableId>?targetType=<environment>`<br>`GET submission/<product-id>?$maxpagesize=<#>&continuationToken=<token>` |
+| resource-tree | targetType | `GET resource-tree/<product-durableId>?targetType=<environment>` |
 
 Functionality of each of the supported query parameters:
 
