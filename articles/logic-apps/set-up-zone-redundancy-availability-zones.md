@@ -24,7 +24,7 @@ This article provides a brief overview, considerations, and information about ho
 
 Availability zone redundancy is available for Standard logic apps, which are powered by Azure Functions extensibility. For more information, review [Azure Functions support for availability zone redundancy](../azure-functions/azure-functions-az-redundancy.md#overview).
 
-* You can enable availability zone redundancy *only when you create* Standard logic apps in [Azure regions that support availability zone redundancy](../azure-functions/azure-functions-az-redundancy.md#requirements) or in an [App Service Environment v3 (ASE v3) for Windows plans only](../app-service/environment/overview-zone-redundancy.md). However, this capability is supports only built-in connector operations, not Azure (managed) connector operations. 
+* You can enable availability zone redundancy *only when you create* Standard logic apps, either in a [supported Azure region](../azure-functions/azure-functions-az-redundancy.md#requirements) or in an [App Service Environment v3 (ASE v3) - Windows plans only](../app-service/environment/overview-zone-redundancy.md). Currently, this capability supports only built-in connector operations, not Azure (managed) connector operations.
 
 * You can enable availability zone redundancy *only for new* Standard logic apps with workflows that run in single-tenant Azure Logic Apps. You can't enable availability zone redundancy for existing Standard logic app workflows.
 
