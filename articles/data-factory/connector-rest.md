@@ -869,20 +869,6 @@ The pagination rule syntax is the same as in Example 8 and should be set as belo
 
 :::image type="content" source="media/connector-rest/pagination-rule-example-9.png" alt-text="Screenshot showing setting the pagination rule for Example 9."::: 
 
-
-## Use OAuth
-This section describes how to use a solution template to copy data from REST connector into Azure Data Lake Storage in JSON format using OAuth. 
-
-### About the solution template
-
-The template contains two activities:
-- **Web** activity retrieves the bearer token and then pass it to subsequent Copy activity as authorization.
-- **Copy** activity copies data from REST to Azure Data Lake Storage.
-
-The template defines two parameters:
-- **SinkContainer** is the root folder path where the data is copied to in your Azure Data Lake Storage. 
-- **SinkDirectory** is the directory path under the root where the data is copied to in your Azure Data Lake Storage. 
-
 ## Export JSON response as-is
 
 You can use this REST connector to export REST API JSON response as-is to various file-based stores. To achieve such schema-agnostic copy, skip the "structure" (also called *schema*) section in dataset and schema mapping in copy activity.
