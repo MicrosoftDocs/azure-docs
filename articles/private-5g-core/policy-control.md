@@ -80,7 +80,7 @@ Each service includes:
 
 ### SIM policies
 
-*SIM policies* let you define different sets of policies and interoperability settings that can each be assigned to one or more SIMs. You'll need to assign a SIM policy to a SIM (either directly or through its SIM group) before the UE using that SIM can access the private mobile network.
+*SIM policies* let you define different sets of policies and interoperability settings that can each be assigned to one or more SIMs. You'll need to assign a SIM policy to a SIM before the UE using that SIM can access the private mobile network.
 
 Each SIM policy includes:
 
