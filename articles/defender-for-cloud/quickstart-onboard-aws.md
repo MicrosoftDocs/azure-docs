@@ -2,7 +2,7 @@
 title: Connect your AWS account to Microsoft Defender for Cloud
 description: Defend your AWS resources with Microsoft Defender for Cloud
 ms.topic: quickstart
-ms.date: 06/02/2022
+ms.date: 06/15/2022
 zone_pivot_groups: connect-aws-accounts
 ms.custom: mode-other
 ---
@@ -28,6 +28,8 @@ For a reference list of all the recommendations Defender for Cloud can provide f
 This screenshot shows AWS accounts displayed in Defender for Cloud's [overview dashboard](overview-page.md).
 
 :::image type="content" source="./media/quickstart-onboard-aws/aws-account-in-overview.png" alt-text="Four AWS projects listed on Defender for Cloud's overview dashboard" lightbox="./media/quickstart-onboard-aws/aws-account-in-overview.png":::
+
+You can learn more from the product manager about Microsoft Defender for Cloud's new AWS connector by watching [New AWS connector](episode-one.md).
 
 
 ::: zone pivot="env-settings"
@@ -346,9 +348,7 @@ For other operating systems, the SSM Agent should be installed manually using th
 
 ## Learn more
 
-If you would like to learn more from the product manager about Microsoft Defender for Cloud's new AWS connector check out [Microsoft Defender for Cloud in the Field](episode-one.md).
-
-You can also check out the following blogs:
+You can check out the following blogs:
 
 - [Ignite 2021: Microsoft Defender for Cloud news](https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/ignite-2021-microsoft-defender-for-cloud-news/ba-p/2882807).
 - [Custom assessments and standards in Microsoft Defender for Cloud for AWS workloads (Preview)](https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/custom-assessments-and-standards-in-microsoft-defender-for-cloud/ba-p/3066575).
