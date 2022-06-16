@@ -14,11 +14,11 @@ ms.reviewer: jushiman
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 
-The Dav4- and Dasv4-series run on 2nd Generation AMD EPYC<sup>TM</sup> 7452 or 3rd Generation EPYC<sup>TM</sup> 7763v processors in a multi-threaded configuration. The Dav4-series and Dasv4-series have the same memory and disk configurations as the D & Dsv3-series.
+The Dav4-series and Dasv4-series run on 2nd Generation AMD EPYC<sup>TM</sup> 7452 or 3rd Generation EPYC<sup>TM</sup> 7763v processors in a multi-threaded configuration. The Dav4-series and Dasv4-series have the same memory and disk configurations as the D & Dsv3-series.
 
 ## Dav4-series
 
-DThe Dav4-series run on 2nd Generation AMD EPYC<sup>TM</sup> 7452 (up to 3.35GHz) or 3rd Generation EPYC<sup>TM</sup> 7763v processors (up to 3.5GHz). The Dav4-series sizes offer a combination of vCPU, memory and temporary storage for most production workloads. Data disk storage is billed separately from virtual machines. To use premium SSD, use the Dasv4 sizes. The pricing and billing meters for Dasv4 sizes are the same as the Dav4-series.
+The Dav4-series run on 2nd Generation AMD EPYC<sup>TM</sup> 7452 (up to 3.35GHz) or 3rd Generation EPYC<sup>TM</sup> 7763v processors (up to 3.5GHz). The Dav4-series sizes offer a combination of vCPU, memory and temporary storage for most production workloads. Data disk storage is billed separately from virtual machines. To use premium SSD, use the Dasv4 sizes. The pricing and billing meters for Dasv4 sizes are the same as the Dav4-series.
 
 [ACU](acu.md): 230-260<br>
 [Premium Storage](premium-storage-performance.md): Not Supported<br>
