@@ -82,7 +82,6 @@ A few features that were available in earlier versions of App Service Environmen
 - Send SMTP traffic. You can still have email triggered alerts but your app can't send outbound traffic on port 25.
 - Monitor your traffic with Network Watcher or network security group (NSG) flow logs.
 - Configure an IP-based Transport Layer Security (TLS) or Secure Sockets Layer (SSL) binding with your apps.
-- Configure a custom domain suffix.
 - Perform a backup and restore operation on a storage account behind a firewall.
 
 ## Pricing
