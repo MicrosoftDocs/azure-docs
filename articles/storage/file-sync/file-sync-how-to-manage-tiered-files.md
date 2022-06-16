@@ -59,7 +59,7 @@ There are several ways to check whether a file has been tiered to your Azure fil
 
 ## How to exclude files or folders from being tiered
 
-If you want to exclude files or folders from being tiered and remain local on the Windows Server, you can configure the GhostingExclusionList registry setting. You can exclude files by file name, file extension or path. 
+If you want to exclude files or folders from being tiered and remain local on the Windows Server, you can configure the **GhostingExclusionList** registry setting under HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Azure\StorageSync. You can exclude files by file name, file extension or path. 
 
 To exclude files or folders from cloud tiering, perform the following steps:
 1. Open an elevated command prompt.
@@ -79,11 +79,10 @@ To exclude files or folders from cloud tiering, perform the following steps:
 
 3. For the cloud tiering exclusions to take effect, you must restart the Storage Sync Agent service (FileSyncSvc) by running the following commands:  
 	**net stop filesyncsvc**  
-	
 	**net start filesyncsvc**
 
 ### More information
--  If the Azure File Sync agent is installed on a Failover Cluster, the GhostingExclusionList registry setting must be created under HKEY_LOCAL_MACHINE\Cluster\StorageSync\SOFTWARE\Microsoft\Azure\StorageSync.
+-  If the Azure File Sync agent is installed on a Failover Cluster, the **GhostingExclusionList** registry setting must be created under HKEY_LOCAL_MACHINE\Cluster\StorageSync\SOFTWARE\Microsoft\Azure\StorageSync.
 	-  Example: **reg ADD "HKEY_LOCAL_MACHINE\Cluster\StorageSync\SOFTWARE\Microsoft\Azure\StorageSync" /v GhostingExclusionList /t REG_SZ /d .one|.lnk|.log /f**
 -  Each exclusion in the registry should be separated by a pipe (|) character.
 -  Use double backslash (\\\\) when specifying a path to exclude.
@@ -97,9 +96,13 @@ To exclude files or folders from cloud tiering, perform the following steps:
 
 When an application accesses a file, the last access time for the file is updated in the cloud tiering database. Applications that scan the file system like anti-virus cause all files to have the same last access time, which impacts when files are tiered.
 
-To exclude applications from last access time tracking, add the process exclusions to the HeatTrackingProcessNamesExclusionList registry setting.  
+To exclude applications from last access time tracking, add the process exclusions to the **HeatTrackingProcessNamesExclusionList** registry setting under HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Azure\StorageSync.  
 
-Example: reg ADD "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Azure\StorageSync" /v HeatTrackingProcessNamesExclusionList /t REG_SZ /d "SampleApp.exe|AnotherApp.exe" /f
+Example: **reg ADD "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Azure\StorageSync" /v HeatTrackingProcessNamesExclusionList /t REG_SZ /d "SampleApp.exe|AnotherApp.exe" /f**
+
+If the Azure File Sync agent is installed on a Failover Cluster, the **HeatTrackingProcessNamesExclusionList** registry setting must be created under HKEY_LOCAL_MACHINE\Cluster\StorageSync\SOFTWARE\Microsoft\Azure\StorageSync.
+
+Example: **reg ADD "HKEY_LOCAL_MACHINE\Cluster\StorageSync\SOFTWARE\Microsoft\Azure\StorageSync" /v HeatTrackingProcessNamesExclusionList /t REG_SZ /d "SampleApp.exe|AnotherApp.exe" /f**
 
 > [!NOTE]
 > Data Deduplication and File Server Resource Manager (FSRM) processes are excluded by default. Changes to the process exclusion list are honored by the system every 5 minutes.

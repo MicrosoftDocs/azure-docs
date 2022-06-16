@@ -294,7 +294,7 @@ Legacy table: availability
 
 |ApplicationInsights|Type|LogAnalytics|Type|
 |:---|:---|:---|:---|
-|appId|string|\_ResourceGUID|string|
+|appId|string|ResourceGUID|string|
 |application_Version|string|AppVersion|string|
 |appName|string|\_ResourceId|string|
 |client_Browser|string|ClientBrowser|string|
@@ -338,7 +338,7 @@ Legacy table: browserTimings
 
 |ApplicationInsights|Type|LogAnalytics|Type|
 |:---|:---|:---|:---|
-|appId|string|\_ResourceGUID|string|
+|appId|string|ResourceGUID|string|
 |application_Version|string|AppVersion|string|
 |appName|string|\_ResourceId|string|
 |client_Browser|string|ClientBrowser|string|
@@ -382,7 +382,7 @@ Legacy table: dependencies
 
 |ApplicationInsights|Type|LogAnalytics|Type|
 |:---|:---|:---|:---|
-|appId|string|\_ResourceGUID|string|
+|appId|string|ResourceGUID|string|
 |application_Version|string|AppVersion|string|
 |appName|string|\_ResourceId|string|
 |client_Browser|string|ClientBrowser|string|
@@ -427,7 +427,7 @@ Legacy table: customEvents
 
 |ApplicationInsights|Type|LogAnalytics|Type|
 |:---|:---|:---|:---|
-|appId|string|\_ResourceGUID|string|
+|appId|string|ResourceGUID|string|
 |application_Version|string|AppVersion|string|
 |appName|string|\_ResourceId|string|
 |client_Browser|string|ClientBrowser|string|
@@ -464,7 +464,7 @@ Legacy table: customMetrics
 
 |ApplicationInsights|Type|LogAnalytics|Type|
 |:---|:---|:---|:---|
-|appId|string|\_ResourceGUID|string|
+|appId|string|ResourceGUID|string|
 |application_Version|string|AppVersion|string|
 |appName|string|\_ResourceId|string|
 |client_Browser|string|ClientBrowser|string|
@@ -505,7 +505,7 @@ Legacy table: pageViews
 
 |ApplicationInsights|Type|LogAnalytics|Type|
 |:---|:---|:---|:---|
-|appId|string|\_ResourceGUID|string|
+|appId|string|ResourceGUID|string|
 |application_Version|string|AppVersion|string|
 |appName|string|\_ResourceId|string|
 |client_Browser|string|ClientBrowser|string|
@@ -546,7 +546,7 @@ Legacy table: performanceCounters
 
 |ApplicationInsights|Type|LogAnalytics|Type|
 |:---|:---|:---|:---|
-|appId|string|\_ResourceGUID|string|
+|appId|string|ResourceGUID|string|
 |application_Version|string|AppVersion|string|
 |appName|string|\_ResourceId|string|
 |category|string|Category|string|
@@ -585,7 +585,7 @@ Legacy table: requests
 
 |ApplicationInsights|Type|LogAnalytics|Type|
 |:---|:---|:---|:---|
-|appId|string|\_ResourceGUID|string|
+|appId|string|ResourceGUID|string|
 |application_Version|string|AppVersion|string|
 |appName|string|\_ResourceId|string|
 |client_Browser|string|ClientBrowser|string|
@@ -629,7 +629,7 @@ Legacy table: exceptions
 
 |ApplicationInsights|Type|LogAnalytics|Type|
 |:---|:---|:---|:---|
-|appId|string|\_ResourceGUID|string|
+|appId|string|ResourceGUID|string|
 |application_Version|string|AppVersion|string|
 |appName|string|\_ResourceId|string|
 |assembly|string|Assembly|string|
@@ -681,7 +681,7 @@ Legacy table: traces
 
 |ApplicationInsights|Type|LogAnalytics|Type|
 |:---|:---|:---|:---|
-|appId|string|\_ResourceGUID|string|
+|appId|string|ResourceGUID|string|
 |application_Version|string|AppVersion|string|
 |appName|string|\_ResourceId|string|
 |client_Browser|string|ClientBrowser|string|

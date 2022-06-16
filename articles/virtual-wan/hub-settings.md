@@ -37,6 +37,10 @@ Adjust the virtual hub capacity when you need to support additional virtual mach
 
 To add additional virtual hub capacity, go to the virtual hub in the Azure portal. On the **Overview** page, click **Edit virtual hub**. Adjust the **Virtual hub capacity** using the dropdown, then **Confirm**.
 
+> [!NOTE]
+> When you edit virtual hub capacity, there will be data path disruption if the change in scale units has resulted in an underlying VPN GW SKU change.
+> 
+
 ### Routing infrastructure unit table
 
 For pricing information, see [Azure Virtual WAN pricing](https://azure.microsoft.com/pricing/details/virtual-wan/).
@@ -97,7 +101,7 @@ For pricing information, see [Azure Virtual WAN pricing](https://azure.microsoft
 
 A Virtual WAN virtual hub connects to virtual networks (VNets) and on-premises sites using connectivity gateways, such as site-to-site (S2S) VPN gateway, ExpressRoute (ER) gateway, point-to-site (P2S) gateway, and SD-WAN Network Virtual Appliance (NVA). The virtual hub router provides central route management and enables advanced routing scenarios using route propagation, route association, and custom route tables. When a virtual hub router makes routing decisions, it considers the configuration of such capabilities.
 
-Previously, there wasn't a configuration option for you to use to influence routing decisions within virtual hub router for prefixes in on-premises sites. These decisions relied on the virtual hub router's built-in route selection algorithm and the options available within gateways to manage routes before they reach the virtual hub router. To influence routing decisions in virtual hub router for prefixes in on-premises sites, you can now adjust the **Hub routing preference** using the [Azure Preview portal](https://portal.azure.com/?feature.customRouterAsn=true&feature.virtualWanRoutingPreference=true#home).
+Previously, there wasn't a configuration option for you to use to influence routing decisions within virtual hub router for prefixes in on-premises sites. These decisions relied on the virtual hub router's built-in route selection algorithm and the options available within gateways to manage routes before they reach the virtual hub router. To influence routing decisions in virtual hub router for prefixes in on-premises sites, you can now adjust the **Hub routing preference**.
 
 For more information, see [About virtual hub routing preference](about-virtual-hub-routing-preference.md).
 
