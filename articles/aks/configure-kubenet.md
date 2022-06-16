@@ -384,7 +384,7 @@ az aks create -g MyResourceGroup -n MyManagedCluster --vnet-subnet-id <MySubnetI
 # Find your subnet ID
 Get-AzVirtualNetwork -ResourceGroupName MyResourceGroup -Name myAKSVnet |
  Select-Object -ExpandProperty subnets |
- Select-Object Id
+ Select-Object -Property Id
 ```
 
 ```azurepowershell-interactive
