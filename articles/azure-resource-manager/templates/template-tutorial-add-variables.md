@@ -24,7 +24,7 @@ At the end of the previous tutorial, your template had the following JSON file:
 
 :::code language="json" source="~/resourcemanager-templates/get-started-with-templates/add-location/azuredeploy.json":::
 
-Your [Azure storage account](../../storage/common/storage-account-create.md) name needs to be unique to easily continue to build your ARM template. If you've completed the earlier tutorials in this series, you're probably tired of coming up with a unique name. You solve this problem by adding a variable that creates a unique name for your storage account.
+Your [Azure storage account](../../storage/common/storage-account-create.md) name needs to be unique to easily continue to build your ARM template. If you've completed the earlier tutorials in this series, you're tired of coming up with a unique name. You solve this problem by adding a variable that creates a unique name for your storage account.
 
 ## Use variable
 
@@ -42,7 +42,7 @@ The [uniqueString](template-functions-string.md#uniquestring) function creates a
 
 The [concat](template-functions-string.md#concat) function takes values and combines them. For this variable, it takes the string from the parameter and the string from the `uniqueString` function and combines them into one string.
 
-The `storagePrefix` parameter lets you pass in a prefix that helps you identify storage accounts. You can create your own naming convention that makes it easier to identify storage accounts after deployment from a long list of resources.
+The `storagePrefix` parameter lets you pass in a prefix that helps you identify storage accounts. You can create your own naming convention that makes it easier to identify storage accounts after deployment from an extensive list of resources.
 
 Finally, notice that the storage account name is now set to the variable instead of a parameter.
 
