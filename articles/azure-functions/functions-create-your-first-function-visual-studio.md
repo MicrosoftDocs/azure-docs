@@ -15,7 +15,7 @@ adobe-target-content: ./functions-create-your-first-function-visual-studio-uiex
 
 Azure Functions lets you use Visual Studio to create local C# function projects and then easily publish this project to run in a scalable serverless environment in Azure. If you prefer to develop your C# apps locally using Visual Studio Code, you should instead consider the [Visual Studio Code-based version](create-first-function-vs-code-csharp.md) of this article.
 
-By default, this article shows you how to create C# functions that runs on .NET 6 [in the same process as the Functions host](functions-dotnet-class-library.md). These _in-process_ C# functions are only supported on Long Term Support (LTS) version of .NET, such as .NET 6. To create C# functions on .NET 6 that can also run on .NET 5.0 and .NET Framework 4.8 (in preview) [in an isolated process](dotnet-isolated-process-guide.md), see the [alternate version of this article](functions-create-your-first-function-visual-studio.md?tabs=isolated-process). 
+By default, this article shows you how to create C# functions that run on .NET 6 [in the same process as the Functions host](functions-dotnet-class-library.md). These _in-process_ C# functions are only supported on Long Term Support (LTS) version of .NET, such as .NET 6. To create C# functions on .NET 6 that can also run on .NET 5.0 and .NET Framework 4.8 (in preview) [in an isolated process](dotnet-isolated-process-guide.md), see the [alternate version of this article](functions-create-your-first-function-visual-studio.md?tabs=isolated-process). 
 
 In this article, you learn how to:
 
@@ -54,7 +54,7 @@ The Azure Functions project template in Visual Studio creates a C# class library
     | **Use Azurite for runtime storage account (AzureWebJobsStorage)**  | Enable | Because a function app in Azure requires a storage account, one is assigned or created when you publish your project to Azure. An HTTP trigger doesn't use an Azure Storage account connection string; all other trigger types require a valid Azure Storage account connection string. When you select this option, the [Azurite emulator](../storage/common/storage-use-azurite.md?tabs=visual-studio) is used. |
     | **Authorization level** | **Anonymous** | The created function can be triggered by any client without providing a key. This authorization setting makes it easy to test your new function. For more information about keys and authorization, see [Authorization keys](./functions-bindings-http-webhook-trigger.md#authorization-keys) and [HTTP and webhook bindings](./functions-bindings-http-webhook.md). |
     
-     :::image type="content" source="../../includes/media/functions-vs-tools-create/functions-project-settings-v4.png" alt-text="Azure Functions project settings":::
+     :::image type="content" source="../../includes/media/functions-vs-tools-create/functions-project-settings-v4.png" alt-text="Screenshot of Azure Functions project settings.":::
     
     # [.NET 6 Isolated](#tab/isolated-process)
     
@@ -65,7 +65,7 @@ The Azure Functions project template in Visual Studio creates a C# class library
     | **Use Azurite for runtime storage account (AzureWebJobsStorage)**  | Enable | Because a function app in Azure requires a storage account, one is assigned or created when you publish your project to Azure. An HTTP trigger doesn't use an Azure Storage account connection string; all other trigger types require a valid Azure Storage account connection string. When you select this option, the [Azurite emulator](../storage/common/storage-use-azurite.md?tabs=visual-studio) is used. |
     | **Authorization level** | **Anonymous** | The created function can be triggered by any client without providing a key. This authorization setting makes it easy to test your new function. For more information about keys and authorization, see [Authorization keys](./functions-bindings-http-webhook-trigger.md#authorization-keys) and [HTTP and webhook bindings](./functions-bindings-http-webhook.md). |
     
-     :::image type="content" source="../../includes/media/functions-vs-tools-create/functions-project-settings-v4-isolated.png" alt-text="Azure Functions project settings":::
+     :::image type="content" source="../../includes/media/functions-vs-tools-create/functions-project-settings-v4-isolated.png" alt-text="Screenshot of Azure Functions project settings.":::
 
     ---
     
