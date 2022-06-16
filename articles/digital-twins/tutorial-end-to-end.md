@@ -175,7 +175,12 @@ To publish the function app to Azure, you'll first need to create a storage acco
     }
     ```
 
-You've now published the functions to a function app in Azure.
+The functions should now be published to a function app in Azure. You can use the following CLI commands to verify both functions were published successfully. Each command has placeholders for your resource group and the name of your function app. The commands will print information about the *ProcessDTRoutedData* and *ProcessHubToDTEvents* functions that have been published.
+
+```azurecli-interactive
+az functionapp function show --resource-group <your-resource-group> --name <your-function-app> --function-name ProcessDTRoutedData
+az functionapp function show --resource-group <your-resource-group> --name <your-function-app> --function-name ProcessHubToDTEvents
+```
 
 Next, your function app will need to have the right permission to access your Azure Digital Twins instance. You'll configure this access in the next section.
 
@@ -258,27 +263,19 @@ Save the **name** that you gave to your IoT hub. You'll use it later.
 
 Next, connect your IoT hub to the *ProcessHubToDTEvents* Azure function in the function app you published earlier, so that data can flow from the device in IoT Hub through the function, which updates Azure Digital Twins.
 
-To do so, you'll create an *Event Subscription* on your IoT Hub, with the Azure function as an endpoint. This "subscribes" the function to events happening in IoT Hub.
+To do so, you'll create an *event subscription* on your IoT Hub, with the Azure function as an endpoint. This "subscribes" the function to events happening in IoT Hub.
 
-In the [Azure portal](https://portal.azure.com/), navigate to your newly created IoT hub by searching for its name in the top search bar. Select **Events** from the hub menu, and select **+ Event Subscription**.
+Use the following CLI command to create the event subscription. There's a placeholder for you to enter a name for the event subscription, and there are also placeholders for you to enter your subscription ID, resource group, IoT hub name, and the name of your function app.
 
-:::image type="content" source="media/tutorial-end-to-end/event-subscription-1.png" alt-text="Screenshot of the Azure portal showing the IoT Hub event subscription.":::
+```azurecli-interactive
+az eventgrid event-subscription create --name <name-for-hub-event-subscription> --event-delivery-schema eventgridschema --source-resource-id /subscriptions/<your-subscription-ID>/resourceGroups/<your-resource-group>/providers/Microsoft.Devices/IotHubs/<your-IoT-hub> --included-event-types Microsoft.Devices.DeviceTelemetry --endpoint-type azurefunction --endpoint /subscriptions/<your-subscription-ID>/resourceGroups/<your-resource-group>/providers/Microsoft.Web/sites/<your-function-app>/functions/ProcessHubToDTEvents
+```
 
-Selecting this option will bring up the **Create Event Subscription** page.
+The output will show information about the event subscription that has been created. You can confirm that the operation completed successfully by verifying the `provisioningState` value in the result:
 
-:::image type="content" source="media/tutorial-end-to-end/event-subscription-2.png" alt-text="Screenshot of the Azure portal showing how to create an event subscription.":::
-
-Fill in the fields as follows (fields filled by default aren't mentioned):
-* **EVENT SUBSCRIPTION DETAILS** > **Name**: Give a name to your event subscription.
-* **TOPIC DETAILS** > **System Topic Name**: Give a name to use for the system topic. 
-* **EVENT TYPES** > **Filter to Event Types**: Select **Device Telemetry** from the menu options.
-* **ENDPOINT DETAILS** > **Endpoint Type**: Select **Azure Function** from the menu options.
-* **ENDPOINT DETAILS** > **Endpoint**: Select the **Select an endpoint** link, which will open a **Select Azure Function** window:
-    :::image type="content" source="media/tutorial-end-to-end/event-subscription-3.png" alt-text="Screenshot of the Azure portal event subscription showing the window to select an Azure function." border="false":::
-    - Fill in your **Subscription**, **Resource group**, **Function app**, and **Function** (**ProcessHubToDTEvents**). Some of these values may auto-populate after selecting the subscription.
-    - Select **Confirm Selection**.
-
-Back on the **Create Event Subscription** page, select **Create**.
+```azurecli
+"provisioningState": "Succeeded",
+```
 
 ### Register the simulated device with IoT Hub 
 
@@ -353,7 +350,7 @@ You should see the live updated temperatures from your Azure Digital Twins insta
 
 :::image type="content" source="media/tutorial-end-to-end/console-digital-twins-telemetry.png" alt-text="Screenshot of the console output showing log of temperature messages from digital twin thermostat67.":::
 
-Once you've verified the live temperatures logging is working successfully, you can stop running both projects. Keep the Visual Studio windows open, as you'll continue using them in the rest of the tutorial.
+Once you've verified the live temperature logging is working successfully, you can stop running both projects. Keep the Visual Studio windows open, as you'll continue using them in the rest of the tutorial.
 
 ## Propagate Azure Digital Twins events through the graph
 
@@ -377,20 +374,11 @@ Next, subscribe the *ProcessDTRoutedData* Azure function to the event grid topic
 
 To do so, you'll create an Event Grid subscription that sends data from the event grid topic that you created earlier to your *ProcessDTRoutedData* Azure function.
 
-In the [Azure portal](https://portal.azure.com/), navigate to your event grid topic by searching for its name in the top search bar. Select **+ Event Subscription**.
+Use the following CLI command to create the event subscription. There's a placeholder for you to enter a name for this event subscription, and there are also placeholders for you to enter your subscription ID, resource group, the name of your event grid topic, and the name of your function app.
 
-:::image type="content" source="media/tutorial-end-to-end/event-subscription-1b.png" alt-text="Screenshot of the Azure portal showing how to create an Event Grid event subscription.":::
-
-The steps to create this event subscription are similar to when you subscribed the first Azure function to IoT Hub earlier in this tutorial. This time, you don't need to specify **Device Telemetry** as the event type to listen for, and you'll connect to a different Azure function.
-
-On the **Create Event Subscription** page, fill in the fields as follows (fields filled by default aren't mentioned):
-* **EVENT SUBSCRIPTION DETAILS** > **Name**: Give a name to your event subscription.
-* **ENDPOINT DETAILS** > **Endpoint Type**: Select **Azure Function** from the menu options.
-* **ENDPOINT DETAILS** > **Endpoint**: Select the **Select an endpoint** link, which will open a **Select Azure Function** window:
-    - Fill in your **Subscription**, **Resource group**, **Function app**, and **Function** (**ProcessDTRoutedData**). Some of these values may auto-populate after selecting the subscription.
-    - Select **Confirm Selection**.
-
-Back on the **Create Event Subscription** page, select **Create**.
+```azurecli-interactive
+az eventgrid event-subscription create --name <name-for-topic-event-subscription> --event-delivery-schema eventgridschema --source-resource-id /subscriptions/<your-subscription-ID>/resourceGroups/<your-resource-group>/providers/Microsoft.EventGrid/topics/<your-event-grid-topic> --endpoint-type azurefunction --endpoint /subscriptions/<your-subscription-ID>/resourceGroups/<your-resource-group>/providers/Microsoft.Web/sites/<your-function-app>/functions/ProcessDTRoutedData
+```
 
 ## Run the simulation and see the results
 
@@ -420,7 +408,7 @@ Once you've verified the live temperatures logging from your instance is working
 
 ## Review
 
-Here's a review of the scenario that you built out in this tutorial.
+Here's a review of the scenario that you built in this tutorial.
 
 1. An Azure Digital Twins instance digitally represents a floor, a room, and a thermostat (represented by **section A** in the diagram below)
 2. Simulated device telemetry is sent to IoT Hub, where the *ProcessHubToDTEvents* Azure function is listening for telemetry events. The *ProcessHubToDTEvents* Azure function uses the information in these events to set the `Temperature` property on thermostat67 (**arrow B** in the diagram).
