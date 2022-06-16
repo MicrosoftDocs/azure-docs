@@ -147,10 +147,10 @@ Using *Runtime audit logs* you can capture aggregated diagnostic information for
 ### Enable runtime logs
 You can enable either runtime audit logs or application metrics logs by selecting *Diagnostic settings* from the *Monitoring* section on the Event Hubs namespace page in Azure Portal. Click on *Add diagnostic setting* as shown below.  
 
-![Metrics Explorer with Event Hubs namespace selected](./media/monitor-event-hubs/add-diagnostic-settings.png)
+![Screenshot showing the Diagnostic settings page.](./media/monitor-event-hubs/add-diagnostic-settings.png)
 
 Then you can enable log categories *RuntimeAuditLogs* or *ApplicationMetricsLogs* as needed.  
-![Metrics Explorer with Event Hubs namespace selected](./media/monitor-event-hubs/configure-diagnostic-settings.png)
+![Screenshot showing the selection of RuntimeAuditLogs and ApplicationMetricsLogs.](./media/monitor-event-hubs/configure-diagnostic-settings.png)
 
 Once runtime logs are enabled, Event Hubs will start collecting and storing them according to the diagnostic setting configuration. 
 
@@ -168,7 +168,7 @@ AzureDiagnostics
 | where Category == "RuntimeAuditLogs"
 ```
 Up on the execution of the query you should be able to obtain corresponding audit logs in the following format. 
-![Metrics Explorer with Event Hubs namespace selected](./media/monitor-event-hubs/runtime-audit-logs.png)
+:::image type="content" source="./media/monitor-event-hubs/runtime-audit-logs.png" alt-text="Image showing the result of a sample query to analyze runtime audit logs." lightbox="./media/monitor-event-hubs/runtime-audit-logs.png":::
 
 By analyzing these logs you should be able to audit how each client application interacts with Event Hubs. Each feild associated with runtime audit logs are defined in [runtime audit logs reference](../event-hubs/monitor-event-hubs-reference.md#runtime-audit-logs). 
 
@@ -181,8 +181,9 @@ AzureDiagnostics
 | where TimeGenerated > ago(1h)
 | where Category == "ApplicationMetricsLogs"
 ```
+
 Application metrics includes the following runtime metrics. 
-![Metrics Explorer with Event Hubs namespace selected](./media/monitor-event-hubs/application-metrics-logs.png)
+:::image type="content" source="./media/monitor-event-hubs/application-metrics-logs.png" alt-text="Image showing the result of a sample query to analyze application metrics." lightbox="./media/monitor-event-hubs/./media/monitor-event-hubs/application-metrics-logs.png":::
 
 Therefore you can use application metrics to monitor runtime metrics such as consumer lag or active connection from a given client application. Each feild associated with runtime audit logs are defined in [applicaiton metrics logs reference](../event-hubs/monitor-event-hubs-reference.md#runtime-audit-logs). 
 
