@@ -41,9 +41,9 @@ We’ve made some changes to the columns and filters available on the **All us
 
 ![new user properties displayed on All users page and user profile pages](./media/users-search-enhanced/user-properties.png)
 
-### Re-order columns
+### Reorder columns
 
-You can customize your list view by re-ordering the columns on the page in one of two ways. One way is to directly drag and drop the columns on the page. Another way is by opening the column picker and drag and dropping the three vertical dots next to any given column. 
+You can customize your list view by reordering the columns on the page in one of two ways. One way is to directly drag and drop the columns on the page. Another way is to select **Columns** to open the column picker and then drag and drop the three- dot "handle" next to any given column. 
 
 ### Share views
 
