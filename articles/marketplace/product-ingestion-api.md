@@ -50,7 +50,7 @@ To update an existing resource, a typical workflow would be to:
 1. Make any necessary updates and then submit a configuration request (API type: Configure submit) 
 1. Check the status of the request (API type: Configure status & Configure status details)
 
-* This same workflow can be leveraged when creating new resources, but instead of retrieving resources (Step 1), use the [Resource API reference](#resource-api-reference) table to ensure that you are leveraging the current schema for the resource type that you are creating.
+`*` This same workflow can be leveraged when creating new resources, but instead of retrieving resources (Step 1), use the [Resource API reference](#resource-api-reference) table to ensure that you are leveraging the current schema for the resource type that you are creating.
 To summarize, this image shows the typical calling pattern used to submit a configuration request, regardless of whether you are creating new or modifying an existing resource.
 
 :::image type="content" source="./media/product-ingestion-api/product-ingestion-api-workflow.png" alt-text="Image of a typical Product Ingestion API workflow.":::
