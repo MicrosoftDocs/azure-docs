@@ -24,7 +24,7 @@ Active geo-replication groups up to five instances of Enterprise Azure Cache for
 
 1. Select **Configure** to set up **Active geo-replication**.
 
-    :::image type="content" source="media/cache-how-to-active-geo-replication/cache-active-geo-replication-configured.png" alt-text="Screenshot of advanced tab of create new Redis cache page.":::
+    :::image type="content" source="media/cache-how-to-active-geo-replication/cache-active-geo-replication-configure.png" alt-text="Screenshot of advanced tab of create new Redis cache page.":::
 
 1. Create a new replication group for a first cache instance. Or, select an existing one from the list.
 
