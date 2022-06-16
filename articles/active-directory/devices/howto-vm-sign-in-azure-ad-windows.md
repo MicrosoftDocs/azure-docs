@@ -437,7 +437,7 @@ If the Azure Windows VM Sign-In application is missing from Conditional Access, 
 
 Another way to verify it is via Graph PowerShell:
 
-1. [Install the Graph PowerShell SDK](/powershell/microsoftgraph/installation?view=graph-powershell-1.0) if you haven't already done so. 
+1. [Install the Graph PowerShell SDK](/powershell/microsoftgraph/installation) if you haven't already done so. 
 1. `Connect-MgGraph -Scopes "ServicePrincipalEndpoint.ReadWrite.All","Application.ReadWrite.All"`
 1. Sign-in with a Global Admin account
 1. Consent to permission prompt
