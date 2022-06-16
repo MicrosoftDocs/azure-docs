@@ -633,8 +633,8 @@
     items:
     - name: Private Offer APIs
       href: private-offers-api.md
-    - name: Product Ingestion API
-      href: product-ingestion-api.md
+  - name: Product Ingestion API
+    href: product-ingestion-api.md
 - name: Resources
   items:
   - name: Commercial marketplace FAQ
