@@ -12,7 +12,7 @@ ms.date: 06/17/2022
 
 # Product Ingestion API for the commercial marketplace
 
-The _Product Ingestion API_ is a modernized API for the commercial marketplace that unifies all existing APIs. The API lets you create and manage resources associated with products and plans within your Partner Center account. It uses a declarative pattern to submit requests, in which the desired state is indicated as opposed to specifying the individual steps to reach the desired state. It can be accessed using the [MSGraph API](/graph/overview) under the workload name “product-ingestion”. The base URL is `https://graph.microsoft.com/rp/product-ingestion`.
+The _Product Ingestion API_ is a modernized API for the commercial marketplace that unifies all existing APIs. The API lets you create and manage resources associated with products and plans within your Partner Center account. It uses a declarative pattern to submit requests, in which the desired state is indicated as opposed to specifying the individual steps to reach the desired state. It can be accessed using the [MSGraph API](/graph/overview) under the workload name “_product-ingestion_”. The base URL is `https://graph.microsoft.com/rp/product-ingestion`.
 
 This article provides guidance on how to use the APIs for all commercial marketplace offer types. For guidance specific to your offer, review [API guidance per offer type](#api-guidance-per-offer-type).
 
@@ -22,15 +22,15 @@ Before you get started, you need to understand some basic concepts.
 
 ### Resources
 
-The API is structured around resource types, where each type is described using a dedicated schema definition as referenced by the “$schema” property. The schema consists of the configuration properties of that resource. Resources are fundamental in creating and updating the configuration of various aspects of a given product. For a full list of resource types and their schemas, see the [Resource API reference](#resource-api-reference).
+The API is structured around resource types, where each type is described using a dedicated schema definition as referenced by the “_$schema_” property. The schema consists of the configuration properties of that resource. Resources are fundamental in creating and updating the configuration of various aspects of a given product. For a full list of resource types and their schemas, see the [Resource API reference](#resource-api-reference).
 
 ### Durable ID
 
-A durable ID is a global identifier used to uniquely identify any resource. Every resource has an associated "id" property, which when combined with the resource type name, makes up a resource’s durable ID. The durable ID is used when referencing resources to either retrieve or modify.
+A durable ID is a global identifier used to uniquely identify any resource. Every resource has an associated "_id_" property, which when combined with the resource type name, makes up a resource’s durable ID. The durable ID is used when referencing resources to either retrieve or modify.
 
 ### External ID
 
-An external ID is another unique identifier that can be used to reference specific products or plans. This is an alternative way to reference these resources instead of using the durable ID. The external ID of a product translates to its “offerID” and the external ID of a plan translates to its “planID”, as defined upon creation.
+An external ID is another unique identifier that can be used to reference specific products or plans. This is an alternative way to reference these resources instead of using the durable ID. The external ID of a product translates to its “_offerID_” and the external ID of a plan translates to its “_planID_”, as defined upon creation.
 
 ### API Methods
 
@@ -38,7 +38,7 @@ There are four management APIs that can be leveraged to perform different action
 
 | API Type | Description | HTTP Method & Path |
 | ------------ | ------------- | ------------- |
-| [Query](#retrieve-existing-resource-configurations) | Retrieves existing resources by:<br>1) “resource-tree” resource type<br>2) the durable-id<br>3) query string parameters | Method 1: `GET resource-tree/<product-durableId>`<br>Method 2: `GET <resource-durableId>`<br>Method 3: `GET <resourceType>?<query parameters>` |
+| [Query](#retrieve-existing-resource-configurations) | Retrieves existing resources by:<br>1) “_resource-tree_” resource type<br>2) the durable-id<br>3) query string parameters | Method 1: `GET resource-tree/<product-durableId>`<br>Method 2: `GET <resource-durableId>`<br>Method 3: `GET <resourceType>?<query parameters>` |
 | [Configure submit](#configuration-requests) | Submits requests to create or update one or more resources. Upon successful processing, a jobId is returned, which can be used to retrieve the status of the request. This API type can be used to update the draft state as well as publish changes, sync private audiences, and modify the resource lifecycle state. | `POST configure` |
 | [Configure status](#status-of-a-pending-request) | Retrieves the status of a pending request via the jobId.| `GET configure/<jobId>/status` |
 | [Configure status details](#summary-of-a-completed-request) | Retrieves a detailed summary of a completed request, including the updated resources, via the jobId. | `GET configure/<jobId>/status` |
@@ -47,7 +47,7 @@ There are four management APIs that can be leveraged to perform different action
 
 To update an existing resource, a typical workflow would be to:
 1. Retrieve an existing resource configuration (API type: Query)*
-1. Make any necessary updates and then submit a configuration request (API type: Configure submit) 
+1. Make any necessary updates and then submit a configuration request (API type: Configure submit)
 1. Check the status of the request (API type: Configure status & Configure status details)
 
 `*` This same workflow can be leveraged when creating new resources, but instead of retrieving resources (Step 1), use the [Resource API reference](#resource-api-reference) table to ensure that you are leveraging the current schema for the resource type that you are creating.
@@ -72,7 +72,7 @@ Follow these [onboarding instructions](submission-api-onboard.md) to get started
 
 You can create new resources, including new products, as part of a single configuration request. By using the [Resource API reference](#resource-api-reference) table, you can retrieve the schema for the resource type you want to create. This ensures that you are leveraging the latest schema and therefore configuring all necessary properties to create the resource.
 
-If you’re creating a new product, requirements will vary by product type. Therefore, you’ll need to provide different resources. You can reference the corresponding commercial marketplace documentation for the respective product type to ensure that you’re configuring the basic requirements in your request. 
+If you’re creating a new product, requirements will vary by product type. Therefore, you’ll need to provide different resources. You can reference the corresponding commercial marketplace documentation for the respective product type to ensure that you’re configuring the basic requirements in your request.
 
 Similarly, to create a new resource within an existing product, you will also need to retrieve the latest schema of that specific resource type. Ensure that you provide the dependent resources as part of the configuration request by reviewing the [resource dependencies](#resource-references-and-dependencies).
 
@@ -91,7 +91,7 @@ You can retrieve all resource configurations within a specific product by using 
 > [!NOTE]
 > If you don’t know the product’s durable ID, you can retrieve the product resource first by using the product’s [external ID](#external-id) instead and running `GET product?externalId=<product-externalId>`. This request leverages a query string parameter, which is detailed in method 3 below. The response will include the product’s durable ID, which you can use for future requests.
 
-By default, when you run a GET call using the “resource-tree”, you’ll get back the draft version of your resources. However, by passing the “targetType” query parameter, you can specify the desired target to retrieve the “preview” or “live” data. In the following example, the GET call will return the configuration of the preview environment for all resources under the product “12345678-abcd-efgh-1234-12345678901”.
+By default, when you run a GET call using the “_resource-tree_”, you’ll get back the draft version of your resources. However, by passing the “_targetType_” query parameter, you can specify the desired target to retrieve the “_preview_” or “_live_” data. In the following example, the GET call will return the configuration of the preview environment for all resources under the product “12345678-abcd-efgh-1234-12345678901”.
 
 ***Sample GET call***
 
@@ -137,14 +137,14 @@ Retrieve a specific resource by using its [durable-id](#durable-id). Once a reso
 `GET product/12345678-abcd-efgh-1234-12345678901`
 
 > [!IMPORTANT]
-> This method is only used for retrieving the draft configuration. If you would like to retrieve preview or live data, use the “resource-tree” method, as detailed above.
+> This method is only used for retrieving the draft configuration. If you would like to retrieve preview or live data, use the “_resource-tree_” method, as detailed above.
 
 To find the durable-id for your resources, you can either:
 
 1. Use the ["resource-tree" method](#method-1-resource-tree) to fetch all resources within the product along with each of their respective durable IDs.
 1. Retrieve the [status of a completed resource configuration request](#summary-of-a-completed-request), which includes the durable IDs for all resources created or updated as a part of the request.
 
-Remember, the “id” property is the durable-id for the respective resource.
+Remember, the “_id_” property is the durable-id for the respective resource.
 
 ### Method 3: Query string parameters
 
@@ -178,7 +178,7 @@ To learn the specifics regarding how to retrieve your existing submissions, see 
 
 ## Modify existing products and resources
 
-You can submit updates by using the configure payload. This payload consists of one or more resource types and the “$schema” property indicates the resource type being referenced.
+You can submit updates by using the configure payload. This payload consists of one or more resource types and the “_$schema_” property indicates the resource type being referenced.
 
 > [!TIP]
 > We recommend that you first retrieve existing resources before publishing updates to ensure that you are leveraging the latest configuration.
@@ -199,7 +199,7 @@ For the durable ID, the resource is referenced in the following format:
 
 `"id": "<resource-durableId>"`
 
-The external ID of product and plan resources is defined within the “identity” property. The external ID can then be referenced by other subsequent resources in the following format respectively:
+The external ID of product and plan resources is defined within the “_identity_” property. The external ID can then be referenced by other subsequent resources in the following format respectively:
 
 ```json
 {
@@ -272,9 +272,9 @@ POST https://graph.microsoft.com/rp/product-ingestion/configure
 
 If publishing to “preview” or “live”, include the submission resource in your request, which contains:
 
-- The “product” property, denoting the product being updated as referenced by either its durable ID or external ID
-- The “targetType” property, denoting the target environment
-- When publishing to live specifically, the “id” of the preview submission you are looking to publish
+- The “_product_” property, denoting the product being updated as referenced by either its durable ID or external ID
+- The “_targetType_” property, denoting the target environment
+- When publishing to live specifically, the “_id_” of the preview submission you are looking to publish
 
 ```json
 ...
@@ -569,7 +569,7 @@ POST https://graph.microsoft.com/rp/product-ingestion/configure
 
 ### Generally Available
 
-“_generallyAvailable_” is the default lifecycle state for all resources. Once a resource is deprecated, you can restore it by changing the “lifecycleState” property back to “_generallyAvailable_”.
+“_generallyAvailable_” is the default lifecycle state for all resources. Once a resource is deprecated, you can restore it by changing the “_lifecycleState_” property back to “_generallyAvailable_”.
 
 ***Sample request:***
 
