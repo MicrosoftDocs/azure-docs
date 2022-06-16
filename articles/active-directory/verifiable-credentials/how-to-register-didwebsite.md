@@ -29,12 +29,12 @@ ms.author: barclayn
 
 ## Why do I need to register my website ID?
 
-If your trust system for the tenant is Web, you need register your website ID to be able to issue and verify your credentials. For the ION based trust system, information such as your issuers public keys are published to blockchain, but when the trust system is Web, you have to make this information available on your website.  
+If your trust system for the tenant is Web, you need register your website ID to be able to issue and verify your credentials. When you use the ION based trust system, information like your issuers' public keys are published to the blockchain. When the trust system is Web, you have to make this information available on your website.  
 
 ## How do I register my website ID?
 
 1. Navigate to the Verifiable Credentials | Getting Started page.
-1. On the left side of the page select Domain.
+1. On the left side of the page, select Domain.
 1. At the Website ID registration, select Review.
 
    ![Domain](media/how-to-register-didwebsite/how-to-register-didwebsite-domain.png)
@@ -46,7 +46,7 @@ If your trust system for the tenant is Web, you need register your website ID to
 
 ## When is the DID document in the did.json file used?
 
-The DID document contains the public keys for your issuer and will be used both during issuance and presentation. An example of this is when the Authenticator, as a wallet, wants to validate the signature of an issuance or presentation request.
+The DID document contains the public keys for your issuer and is used during both issuance and presentation. An example of how the public keys are used is when Authenticator, as a wallet, validates the signature of an issuance or presentation request.
 
 ## When does the did.json file need to be republished to the webserver?
 

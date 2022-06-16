@@ -7,27 +7,27 @@ manager: rkarlin
 ms.service: decentralized-identity
 ms.subservice: verifiable-credentials
 ms.topic: how-to
-ms.date: 06/15/2021
+ms.date: 06/16/2021
 ms.author: barclayn
 # Customer intent: As a developer I am looking for information around the open standards supported by Microsoft Entra verified ID
 ---
 
-## Supported Standards
+# Entra Verified ID Supported Standards
 
 [!INCLUDE [Verifiable Credentials announcement](../../../includes/verifiable-credentials-brand.md)]
 
 This page outlines currently supported open standards for Microsoft Entra Verified ID. The full document outlining how to build an implementation that interoperates with Microsoft is [JWT VC Presentation Profile](https://identity.foundation/jwt-vc-presentation-profile/).
 
-### Standard Bodies
+## Standard Bodies
 
 - [OpenID Foundation (OIDF)](https://openid.net/foundation/)
 - [Decentralized Identity Foundation (DIF)](https://identity.foundation/)
 - [World Wide Web Consortium (W3C)](https://www.w3.org/)
 - [Internet Engineering Task Force (IETF)](https://www.ietf.org/)
 
-### Supported Standards
+## Supported Standards
 
-Open standards currently supported by Entra Verified ID are the following:
+Entra Verified ID supports the following open standards:
 
 | Component in a Tech Stack | Open Standard | Standard Body |
 |:------|:-----|:-----|
@@ -42,18 +42,14 @@ Open standards currently supported by Entra Verified ID are the following:
 | Trust in DID Owner | [Well Known DID Configuration](https://identity.foundation/.well-known/resources/did-configuration)| DIF |
 | Revocation |[Verifiable Credential Status List 2021](https://github.com/w3c-ccg/vc-status-list-2021/tree/343b8b59cddba4525e1ef355356ae760fc75904e)| W3C CCG |
 
-#### Supported Algorithms
+## Supported Algorithms
 
-Key Types supported for the JWS signature verification are the following:
+Entra Verified ID supports the following Key Types for the JWS signature verification:
 
 |Key Type|JWT Algorithm|
 |--------|-------------|
 |secp256k1|ES256K|
 |Ed25519|EdDSA|
-
-### Upcoming Standards
-
-Our work adopting open standards is ongoing. Check this page for updates on supported standards.
 
 ## Next steps
 
