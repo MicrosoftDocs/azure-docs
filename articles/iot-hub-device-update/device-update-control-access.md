@@ -95,6 +95,6 @@ $Scope = 'https://api.adu.microsoft.com/.default'
 Get-MsalToken -ClientId $clientId -TenantId $tenantId -Authority $authority -Scopes $Scope -ClientCertificate $cert
 ```
 
-## Next Steps
+## Next steps
 
 [Create device update resources and configure access control roles](create-device-update-account.md)
