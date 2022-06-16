@@ -406,7 +406,7 @@ The output of the commands resembles the following example:
 
 ## Next steps
 
-- To learn how to use CSI driver for Azure disks, see [Use Azure disks with CSI driver][azure-disk-csi].
+- To learn how to use CSI driver for Azure Disks, see [Use Azure Disks with CSI driver][azure-disk-csi].
 - To learn how to use CSI driver for Azure Blob storage (preview), see [Use Azure Blob storage with CSI driver][azure-blob-csi] (preview).
 - For more about storage best practices, see [Best practices for storage and backups in Azure Kubernetes Service][operator-best-practices-storage].
 

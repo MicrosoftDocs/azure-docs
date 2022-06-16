@@ -153,7 +153,7 @@ storageclass.storage.k8s.io/blob-fuse created
 
 - To learn how to manually setup a static persistent volume, see [Create and use a volume with Azure Blob storage][azure-csi-blob-storage-static].
 - To learn how to dynamically setup a persistent volume, see [Create and use a dynamic persistent volume with Azure Blob storage][azure-csi-blob-storage-dynamic].
-- To learn how to use CSI driver for Azure disk, see [Use Azure disk with CSI driver](azure-disk-csi.md).
+- To learn how to use CSI driver for Azure Disks, see [Use Azure Disks with CSI driver](azure-disk-csi.md).
 - To learn how to use CSI driver for Azure Files, see [Use Azure Files with CSI driver](azure-files-csi.md).
 - For more about storage best practices, see [Best practices for storage and backups in Azure Kubernetes Service][operator-best-practices-storage].
 

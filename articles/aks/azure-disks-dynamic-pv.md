@@ -1,7 +1,7 @@
 ---
-title: Dynamically create Azure disks volume
+title: Dynamically create Azure Disks volume
 titleSuffix: Azure Kubernetes Service
-description: Learn how to dynamically create a persistent volume with Azure disks in Azure Kubernetes Service (AKS)
+description: Learn how to dynamically create a persistent volume with Azure Disks in Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
 ms.date: 05/31/2022
@@ -10,12 +10,12 @@ ms.date: 05/31/2022
 #Customer intent: As a developer, I want to learn how to dynamically create and attach storage to pods in AKS.
 ---
 
-# Dynamically create and use a persistent volume with Azure disks in Azure Kubernetes Service (AKS)
+# Dynamically create and use a persistent volume with Azure Disks in Azure Kubernetes Service (AKS)
 
-A persistent volume represents a piece of storage that has been provisioned for use with Kubernetes pods. A persistent volume can be used by one or many pods, and can be dynamically or statically provisioned. This article shows you how to dynamically create persistent volumes with Azure disks for use by a single pod in an Azure Kubernetes Service (AKS) cluster.
+A persistent volume represents a piece of storage that has been provisioned for use with Kubernetes pods. A persistent volume can be used by one or many pods, and can be dynamically or statically provisioned. This article shows you how to dynamically create persistent volumes with Azure Disks for use by a single pod in an Azure Kubernetes Service (AKS) cluster.
 
 > [!NOTE]
-> An Azure disk can only be mounted with *Access mode* type *ReadWriteOnce*, which makes it available to one node in AKS. If you need to share a persistent volume across multiple nodes, use [Azure Files][azure-files-pvc].
+> An Azure Disks can only be mounted with *Access mode* type *ReadWriteOnce*, which makes it available to one node in AKS. If you need to share a persistent volume across multiple nodes, use [Azure Files][azure-files-pvc].
 
 For more information on Kubernetes volumes, see [Storage options for applications in AKS][concepts-storage].
 
@@ -29,11 +29,11 @@ You also need the Azure CLI version 2.0.59 or later installed and configured. Ru
 
 A storage class is used to define how a unit of storage is dynamically created with a persistent volume. For more information on Kubernetes storage classes, see [Kubernetes Storage Classes][kubernetes-storage-classes].
 
-Each AKS cluster includes four pre-created storage classes, two of them configured to work with Azure disks:
+Each AKS cluster includes four pre-created storage classes, two of them configured to work with Azure Disks:
 
-* The *default* storage class provisions a standard SSD Azure disk.
+* The *default* storage class provisions a standard SSD Azure Disk.
     * Standard storage is backed by Standard SSDs and delivers cost-effective storage while still delivering reliable performance.
-* The *managed-csi-premium* storage class provisions a premium Azure disk.
+* The *managed-csi-premium* storage class provisions a premium Azure Disk.
     * Premium disks are backed by SSD-based high-performance, low-latency disk. Perfect for VMs running production workload. If the AKS nodes in your cluster use premium storage, select the *managed-premium* class.
     
 If you use one of the default storage classes, you can't update the volume size after the storage class is created. To be able to update the volume size after a storage class is created, add the line `allowVolumeExpansion: true` to one of the default storage classes, or you can create your own custom storage class. It's not supported to reduce the size of a PVC (to prevent data loss). You can edit an existing storage class by using the `kubectl edit sc` command.
@@ -96,7 +96,7 @@ persistentvolumeclaim/azure-managed-disk created
 
 ## Use the persistent volume
 
-Once the persistent volume claim has been created and the disk successfully provisioned, a pod can be created with access to the disk. The following manifest creates a basic NGINX pod that uses the persistent volume claim named *azure-managed-disk* to mount the Azure disk at the path `/mnt/azure`. For Windows Server containers, specify a *mountPath* using the Windows path convention, such as *'D:'*.
+Once the persistent volume claim has been created and the disk successfully provisioned, a pod can be created with access to the disk. The following manifest creates a basic NGINX pod that uses the persistent volume claim named *azure-managed-disk* to mount the Azure Disk at the path `/mnt/azure`. For Windows Server containers, specify a *mountPath* using the Windows path convention, such as *'D:'*.
 
 Create a file named `azure-pvc-disk.yaml`, and copy in the following manifest.
 
@@ -133,7 +133,7 @@ kubectl apply -f azure-pvc-disk.yaml
 pod/mypod created
 ```
 
-You now have a running pod with your Azure disk mounted in the `/mnt/azure` directory. This configuration can be seen when inspecting your pod via `kubectl describe pod mypod`, as shown in the following condensed example:
+You now have a running pod with your Azure Disk mounted in the `/mnt/azure` directory. This configuration can be seen when inspecting your pod via `kubectl describe pod mypod`, as shown in the following condensed example:
 
 ```bash
 kubectl describe pod mypod
@@ -179,7 +179,7 @@ NAME                 STATUS    VOLUME                                     CAPACI
 azure-managed-disk   Bound     pvc-faf0f176-8b8d-11e8-923b-deb28c58d242   5Gi        RWO            managed-premium   3m
 ```
 
-This volume name forms the underlying Azure disk name. Query for the disk ID with [az disk list][az-disk-list] and provide your PVC volume name, as shown in the following example:
+This volume name forms the underlying Azure Disk name. Query for the disk ID with [az disk list][az-disk-list] and provide your PVC volume name, as shown in the following example:
 
 ```azurecli
 az disk list --query '[].id | [?contains(@,`pvc-faf0f176-8b8d-11e8-923b-deb28c58d242`)]' -o tsv
@@ -283,10 +283,10 @@ For more information on using Azure tags, see [Use Azure tags in Azure Kubernete
 
 For associated best practices, see [Best practices for storage and backups in AKS][operator-best-practices-storage].
 
-Learn more about Kubernetes persistent volumes using Azure disks.
+Learn more about Kubernetes persistent volumes using Azure Disks.
 
 > [!div class="nextstepaction"]
-> [Kubernetes plugin for Azure disks][azure-disk-volume]
+> [Kubernetes plugin for Azure Disks][azure-disk-volume]
 
 <!-- LINKS - external -->
 [access-modes]: https://kubernetes.io/docs/concepts/storage/persistent-volumes/#access-modes
