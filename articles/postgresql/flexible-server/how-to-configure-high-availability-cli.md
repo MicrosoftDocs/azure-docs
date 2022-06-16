@@ -1,6 +1,6 @@
 ---
-title: Manage zone redundant high availability - Azure CLI - Azure Database for PostgreSQL Flexible Server
-description: This article describes how to configure zone redundant high availability in Azure Database for PostgreSQL flexible Server with the Azure CLI.
+title: Manage high availability - Azure CLI - Azure Database for PostgreSQL Flexible Server
+description: This article describes how to configure high availability in Azure Database for PostgreSQL flexible Server with the Azure CLI.
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.author: sunila
@@ -11,11 +11,11 @@ ms.date: 11/30/2021
 ms.custom: references_regions, devx-track-azurecli
 ---
 
-# Manage zone redundant high availability in Azure Database for PostgreSQL Flexible Server with Azure CLI
+# Manage high availability in Azure Database for PostgreSQL Flexible Server with Azure CLI
 
-[!INCLUDE [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
+[!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 
-The article describes how you can enable or disable zone redundant high availability configuration at the time of server creation in your flexible server. You can disable zone redundant high availability after server creation too. Enabling zone redundant high availability after server creation is not supported.
+The article describes how you can enable or disable high availability configuration at the time of server creation in your flexible server. You can disable high availability after server creation too. 
 
 High availability feature provisions physically separate primary and standby replica in different zones. For more information, see [high availability concepts documentation](./concepts/../concepts-high-availability.md). Enabling or disabling high availability does not change your other settings including VNET configuration, firewall settings, and backup retention. Disabling of high availability does not impact your application connectivity and operations.
 
