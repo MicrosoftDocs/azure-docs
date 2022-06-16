@@ -69,7 +69,7 @@ Here is an example of the request.
 
 
 ```http
-PATCH https://graph.microsoft.com/beta/applications/{<object-id-of--the-complex-app}
+PATCH https://graph.microsoft.com/beta/applications/{<object-id-of--the-complex-app-under-App-Registration}
 Content-type: application/json
 
 {
