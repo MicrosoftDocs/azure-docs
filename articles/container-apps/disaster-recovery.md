@@ -15,6 +15,8 @@ Azure Container Apps uses [availability zones](../availability-zones/az-overview
 
 Availability zones are unique physical locations within an Azure region. Each zone is made up of one or more data centers equipped with independent power, cooling, and networking. To ensure resiliency, there's a minimum of three separate zones in all enabled regions. You can build high availability into your application architecture by co-locating your compute, storage, networking, and data resources within a zone and replicating in other zones.
 
+By enabling Container Apps' zone redundancy feature, replicas are automatically evenly distributed across the zones in the region.  Traffic is load balanced among the replicas.  If a zone outage occurs, traffic will automatically be routed to the replicas in the remaining zones.
+
 In the unlikely event of a full region outage, you have the option of using one of two strategies:
 
 - **Manual recovery**: Manually deploy to a new region, or wait for the region to recover, and then manually redeploy all environments and apps.
@@ -31,7 +33,7 @@ Additionally, the following resources can help you create your own disaster reco
 
 ## Set up zone redundancy in your Container Apps environment
 
-Zone redundancy can be enabled when you create a Container Apps environment.  The environment must be configured with an internal virtual network (VNET) to enable zone redundancy.  
+To take advantage of availability zones, you must enable zone redundancy when you create the Container Apps environment.  The environment must include an internal virtual network (VNET).  Since there are three zones in a supporting region, you'll need to ensure that your container app's minimum and maximum replica count is divisible by 3.
 
 ### Enabled zone redundancy via the Azure portal 
  
