@@ -22,7 +22,7 @@ Before you get started, you need to understand some basic concepts.
 
 ### Resources
 
-The API is structured around resource types, where each type is described using a dedicated schema definition as referenced by the “$schema” property. The schema consists of the configuration properties of that resource. Resources are fundamental in creating and updating the configuration of various aspects of a given product. For a full list of resource type names, see the [Resource API reference](#resource-api-reference).
+The API is structured around resource types, where each type is described using a dedicated schema definition as referenced by the “$schema” property. The schema consists of the configuration properties of that resource. Resources are fundamental in creating and updating the configuration of various aspects of a given product. For a full list of resource types and their schemas, see the [Resource API reference](#resource-api-reference).
 
 ### Durable ID
 
@@ -38,10 +38,10 @@ There are four management APIs that can be leveraged to perform different action
 
 | API Type | Description | HTTP Method & Path |
 | ------------ | ------------- | ------------- |
-| Query | Retrieves existing resources by:<br>1) “resource-tree” resource type<br>2) the durable-id<br>3) query string parameters | Method 1: `GET resource-tree/<product-durableId>`<br>Method 2: `GET <resource-durableId>`<br>Method 3: `GET <resourceType>?<query parameters>` |
-| Configure submit | Submits requests to create or update one or more resources. Upon successful processing, a jobId is returned, which can be used to retrieve the status of the request. This API type can be used to update the draft state as well as publish changes, sync private audiences, and modify the resource lifecycle state. | POST configure |
-| Configure status | Retrieves the status of a pending request via the jobId.| `GET configure/<jobId>/status` |
-| Configure status details | Retrieves a detailed summary of a completed request, including the updated resources, via the jobId. | `GET configure/<jobId>/status` |
+| [Query](#retrieve-existing-resource-configurations) | Retrieves existing resources by:<br>1) “resource-tree” resource type<br>2) the durable-id<br>3) query string parameters | Method 1: `GET resource-tree/<product-durableId>`<br>Method 2: `GET <resource-durableId>`<br>Method 3: `GET <resourceType>?<query parameters>` |
+| [Configure submit](#configuration-requests) | Submits requests to create or update one or more resources. Upon successful processing, a jobId is returned, which can be used to retrieve the status of the request. This API type can be used to update the draft state as well as publish changes, sync private audiences, and modify the resource lifecycle state. | `POST configure` |
+| [Configure status](#status-of-a-pending-request) | Retrieves the status of a pending request via the jobId.| `GET configure/<jobId>/status` |
+| [Configure status details](#summary-of-a-completed-request) | Retrieves a detailed summary of a completed request, including the updated resources, via the jobId. | `GET configure/<jobId>/status` |
 
 ## A typical workflow
 
@@ -95,6 +95,9 @@ By default, when you run a GET call using the “resource-tree”, you’ll get 
 
 ***Sample GET call***
 
+`GET https://graph.microsoft.com/rp/product-ingestion/resource-tree/product/12345678-abcd-efgh-1234-12345678901?targetType="preview"`
+
+***Sample response:***
 
 ```json
 {
@@ -153,10 +156,12 @@ This table shows the supported query parameters for each of the supported resour
 
 | Resource Type | Parameters | Query string examples |
 | ------------ | ------------- | ------------- |
-| plan | product (always required)<br>externalId<br>$maxpagesize<br>$skip<br>$top | `GET plan?product=<product-durableId>`<br>`GET plan?product=<product-durableId>&externalId=<plan-externalId>`<br>`GET plan?product=<product-durableId>&$maxpagesize=<#>`<br>`GET plan?product=<product-durableId>&$skip=<#>&$top=<#>` |
-| product | externalId<br>type<br>$maxpagesize<br>$skip<br>$top<br>continuationToken | `GET submission/<product-durableId>?targetType=<environment>`<br>`GET submission/<product-id>?$maxpagesize=<#>&continuationToken=<token>` |
+| plan | product `*`<br>externalId<br>$maxpagesize<br>$skip<br>$top | `GET plan?product=<product-durableId>`<br>`GET plan?product=<product-durableId>&externalId=<plan-externalId>`<br>`GET plan?product=<product-durableId>&$maxpagesize=<#>`<br>`GET plan?product=<product-durableId>&$skip=<#>&$top=<#>` |
+| product | externalId<br>type<br>$maxpagesize<br>$skip<br>$top<br>continuationToken | `GET product?externalId=<product-externalId>`<br>`GET product?type=<product-type>`<br>`GET product?$maxpagesize=<#>`<br>`GET product?$skip=<#>&$top=<#>`<br>GET product?continuationToken=<token> |
 | submission | targetType<br>$maxpagesize<br>continuationToken | `GET submission/<product-durableId>?targetType=<environment>`<br>`GET submission/<product-id>?$maxpagesize=<#>&continuationToken=<token>` |
 | resource-tree | targetType | `GET resource-tree/<product-durableId>?targetType=<environment>` |
+
+`*` The product parameter is always
 
 Functionality of each of the supported query parameters:
 
@@ -164,13 +169,9 @@ Functionality of each of the supported query parameters:
 - _externalId_ – When passing the “_externalId_” parameter in the context of a product or plan, it will return the configuration of that respective product or plan. Unlike the “resource-tree” method, this query string parameter will only return the details of that resource, not all resources within it.
 - _type_ – When passing the “_type_” parameter in context of the “_product_” resource type, it will return all products of that type associated to your account. For example, by specifying “_type=azureVirtualMachine_”, all of your virtual machine products will be returned.
 - _targetType_ – This will return the data of a specific environment in the context of the resource type that is used. The supported “_targetType_” values are “_draft_”, “_preview_”, or “_live_”.
-- _$maxpagesize_ – By specifying the maximum page size, in the form of a positive whole number, this parameter is used to limit the results of your search when querying your previous submissions. Note: You can use the “_$maxpagesize_” or “_$top_” parameter, but not in the same query.
+- _$maxpagesize_ – By specifying the maximum page size, in the form of a positive whole number, this parameter is used to limit the results of your search when querying your previous submissions. You can use the “_$maxpagesize_” or “_$top_” parameter, but not in the same query.
 - _continuationToken_ – This parameter can be used with the “_$maxpagesize_” parameter to query another set of results available in your search. The “_continuationToken_” value is provided in the response of the previous page.
-- _$top_ – Limit the results that are returned to the first <#> items.
-
-    > [!NOTE]
-    > You can use the “_$maxpagesize_” or “_$top_” parameter, but not in the same query.
-
+- _$top_ – Limit the results that are returned to the first <#> items. You can use the “_$maxpagesize_” or “_$top_” parameter, but not in the same query.
 - _$skip_ – Offset to skip over the number of results indicated by <#>. This is usually used with the “_$top_” parameter to paginate over results.
 
 To learn the specifics regarding how to retrieve your existing submissions, see [Querying your submissions](#querying-your-submissions).
@@ -192,7 +193,7 @@ You can edit and publish in the same payload. To submit a configuration request,
 
 #### References
 
-To reference a specific resource within a request, provide the “$schema” for that resource type along with the resources durable ID. In the case of products and plans, you can also reference these resources via its external ID.
+To reference a specific resource within a request, provide the “$schema” for that resource type along with the resource's durable ID. In the case of products and plans, you can also reference these resources via its external ID.
 
 For the durable ID, the resource is referenced in the following format:
 
@@ -204,7 +205,7 @@ The external ID of product and plan resources is defined within the “identity�
 {
     "$schema": "https://product-ingestion.azureedge.net/schema/plan/2022-03-01-preview2", 
     "alias": "my new plan",
-    "identity": {"externalId": "myPlanName123"} 
+    "identity": {"externalId": "**myPlanName123**"} 
      ...
  }
  {
@@ -419,7 +420,7 @@ After the job finishes, you can get more detailed information on resources creat
 
 ## Querying your submissions
 
-You can retrieve your existing product submissions by doing `GET submission/<product-Id>`. By default, you’ll get back all your active submissions including the draft reference, but you can additionally query a specific environment using the “_targetType_” query parameter: (`GET submission/<product-Id>?targetType=<environment>`).
+You can retrieve your existing product submissions by doing `GET submission/<product-durableId>`. By default, you’ll get back all your active submissions including the draft reference, but you can additionally query a specific environment using the “_targetType_” query parameter: (`GET submission/<product-durableId>?targetType=<environment>`).
 
 > [!IMPORTANT]
 > Once a "_Preview_" submission is pushed to "_Live_", it replaces any the previous "_Live_" submission. When this happens, the data now represents both “_Preview_” and “_Live_” environments until a new submission is published to "_Preview_".
