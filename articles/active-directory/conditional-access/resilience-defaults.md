@@ -107,21 +107,29 @@ Sample request body:
 
 This patch operation may be deployed using Microsoft PowerShell after installation of the Microsoft.Graph.Authentication module. To install this module, open an elevated PowerShell prompt and execute
 
-`Install-Module Microsoft.Graph.Authentication`
+```powershell
+Install-Module Microsoft.Graph.Authentication
+```
 
-Connect to Microsoft Graph, requesting the required scopes –
+Connect to Microsoft Graph, requesting the required scopes:
 
-`Connect-MgGraph -Scopes Policy.Read.All,Policy.ReadWrite.ConditionalAccess,Application.Read.All -TenantId <TenantID>`
+```powershell
+Connect-MgGraph -Scopes Policy.Read.All,Policy.ReadWrite.ConditionalAccess,Application.Read.All -TenantId <TenantID>
+```
 
 Authenticate when prompted.
 
-Create the JSON body for the PATCH request –
+Create the JSON body for the PATCH request:
 
-`$patchBody = '{"sessionControls": {"disableResilienceDefaults": true}}'`
+```powershell
+$patchBody = '{"sessionControls": {"disableResilienceDefaults": true}}'
+```
 
-Execute the patch operation –
+Execute the patch operation:
 
-`Invoke-MgGraphRequest -Method PATCH -Uri https://graph.microsoft.com/beta/identity/conditionalAccess/policies/<PolicyID> -Body $patchBody`
+```powershell
+Invoke-MgGraphRequest -Method PATCH -Uri https://graph.microsoft.com/beta/identity/conditionalAccess/policies/<PolicyID> -Body $patchBody
+```
 
 ## Recommendations
 
