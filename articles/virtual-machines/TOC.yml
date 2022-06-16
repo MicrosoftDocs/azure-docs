@@ -669,6 +669,8 @@
     - name: ARM template
       displayName: pre-empt, preempt, spot, low priority, low-priority, ARM, template
       href: ./linux/spot-template.md
+    - name: VM size recommendation 
+      href: ../virtual-machine-scale-sets/spot-vm-size-recommendation.md
     - name: Error codes
       displayName: pre-empt, preempt, spot, low priority, low-priority
       href: error-codes-spot.md
