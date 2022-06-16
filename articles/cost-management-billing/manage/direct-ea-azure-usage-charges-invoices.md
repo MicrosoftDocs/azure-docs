@@ -199,7 +199,7 @@ The following table lists the terms and descriptions shown on the Reservation tr
 | Billing frequency | Billing frequency of the reservation |
 | Type | Type of the transaction. For example, Purchase or Refund. |
 | Purchase Month | Month of the Purchase |
-| MC (USD) | Indicates the Monetary Committment value |
+| MC (USD) | Indicates the Monetary Commitment value |
 | Overage (USD) | Indicates the Service Overage value |
 | Quantity | Reservation quantity that was purchased |
 | Amount (USD) | Reservation cost |
