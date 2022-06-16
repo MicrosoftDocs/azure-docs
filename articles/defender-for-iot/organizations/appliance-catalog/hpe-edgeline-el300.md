@@ -77,7 +77,7 @@ Installation includes:
 A default administrative user is provided. We recommend that you change the password during the network configuration.
 
 > [!NOTE]
-> Installation procedures are only relevant if you need to re-install the software on a preconfigured device or if you buy your own hardware and configure the appliance yourself.
+> Installation procedures are only relevant if you need to re-install the software on a preconfigured device, or if you buy your own hardware and configure the appliance yourself.
 >
 
 ### Enable remote access
