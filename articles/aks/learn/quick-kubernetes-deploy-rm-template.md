@@ -27,13 +27,13 @@ If your environment meets the prerequisites and you're familiar with using ARM t
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-# [Azure CLI](#tab/azure-cli) 
+### [Azure CLI](#tab/azure-cli) 
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
 
 - This article requires version 2.0.64 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
-# [PowerShell](#tab/azure-powershell)
+### [Azure PowerShell](#tab/azure-powershell)
 
 - If you're running PowerShell locally, install the Az PowerShell module and connect to your Azure account using the [Connect-AzAccount][connect-azaccount] cmdlet. For more information about installing the Az PowerShell module, see [Install Azure PowerShell][install-azure-powershell]. If using Azure Cloud Shell, the latest version is already installed.
 
@@ -97,7 +97,7 @@ It takes a few minutes to create the AKS cluster. Wait for the cluster to be suc
 
 To manage a Kubernetes cluster, use the Kubernetes command-line client, [kubectl][kubectl]. `kubectl` is already installed if you use Azure Cloud Shell.
 
-# [Azure CLI](#tab/azure-cli)
+### [Azure CLI](#tab/azure-cli)
 
 1. Install `kubectl` locally using the [az aks install-cli][az-aks-install-cli] command:
 
@@ -117,14 +117,16 @@ To manage a Kubernetes cluster, use the Kubernetes command-line client, [kubectl
     kubectl get nodes
     ```
 
-    The following output example shows the single node created in the previous steps. Make sure the node status is *Ready*:
+    The following output example shows the three nodes created in the previous steps. Make sure the node status is *Ready*:
 
     ```output
     NAME                       STATUS   ROLES   AGE     VERSION
-    aks-agentpool-41324942-0   Ready    agent   6m44s   v1.12.6
+    aks-agentpool-41324942-0   Ready    agent   6m44s   v1.12.6    
+    aks-agentpool-41324942-1   Ready    agent   6m46s   v1.12.6
+    aks-agentpool-41324942-2   Ready    agent   6m45s   v1.12.6
     ```
 
-# [PowerShell](#tab/azure-powershell)
+### [Azure PowerShell](#tab/azure-powershell)
 
 1. Install `kubectl` locally using the [Install-AzAksKubectl][install-azakskubectl] cmdlet:
 
@@ -144,11 +146,13 @@ To manage a Kubernetes cluster, use the Kubernetes command-line client, [kubectl
     kubectl get nodes
     ```
 
-    The following output example shows the single node created in the previous steps. Make sure the node status is *Ready*:
+    The following output example shows the three nodes created in the previous steps. Make sure the node status is *Ready*:
 
     ```plaintext
     NAME                       STATUS   ROLES   AGE     VERSION
-    aks-agentpool-41324942-0   Ready    agent   6m44s   v1.12.6
+    aks-agentpool-41324942-0   Ready    agent   6m44s   v1.12.6    
+    aks-agentpool-41324942-1   Ready    agent   6m46s   v1.12.6
+    aks-agentpool-41324942-2   Ready    agent   6m45s   v1.12.6
     ```
 
 ---
@@ -303,7 +307,7 @@ To see the Azure Vote app in action, open a web browser to the external IP addre
 
 ## Clean up resources
 
-# [Azure CLI](#tab/azure-cli)
+### [Azure CLI](#tab/azure-cli)
 
 To avoid Azure charges, if you don't plan on going through the tutorials that follow, clean up your unnecessary resources. Use the [az group delete][az-group-delete] command to remove the resource group, container service, and all related resources.
 
@@ -311,7 +315,7 @@ To avoid Azure charges, if you don't plan on going through the tutorials that fo
 az group delete --name myResourceGroup --yes --no-wait
 ```
 
-# [PowerShell](#tab/azure-powershell)
+### [Azure PowerShell](#tab/azure-powershell)
 
 To avoid Azure charges, if you don't plan on going through the tutorials that follow, clean up your unnecessary resources. Use the [Remove-AzResourceGroup][remove-azresourcegroup] cmdlet to remove the resource group, container service, and all related resources.
 
