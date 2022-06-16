@@ -1,9 +1,11 @@
 ---
 title: 'Quickstart: Your first PowerShell query'
 description: In this quickstart, you follow the steps to enable the Resource Graph module for Azure PowerShell and run your first query.
-ms.date: 07/09/2021
+ms.date: 06/15/2022
 ms.topic: quickstart
 ms.custom: mode-api
+ms.author: timwarner
+author: timwarner-msft
 ---
 # Quickstart: Run your first Resource Graph query using Azure PowerShell
 
@@ -93,11 +95,14 @@ or `-Subscription` parameters.
    results:
 
    ```azurepowershell-interactive
+   # Store the query in a variable
+   $query = 'Resources | project name, type | order by name asc | limit 5'
+
    # Run Azure Resource Graph query with `order by` first, then with `limit`
-   Search-AzGraph -Query 'Resources | project name, type | order by name asc | limit 5'
+   Search-AzGraph -Query $query
    ```
 
-When the final query is run several times, assuming that nothing in your environment is changing,
+When the final query is run several times, assuming that nothing in your environment changes,
 the results returned are consistent and ordered by the **Name** property, but still limited to the
 top five results.
 

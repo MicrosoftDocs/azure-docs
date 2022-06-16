@@ -2,7 +2,7 @@
 title: Improving your security posture with recommendations in Microsoft Defender for Cloud
 description: This document walks you through how to identify security recommendations that will help you improve your security posture.
 ms.topic: how-to
-ms.date: 05/23/2022
+ms.date: 06/15/2022
 ---
 # Find recommendations that can improve your security posture
 
@@ -16,6 +16,8 @@ To get to the list of recommendations:
     - Go to **Recommendations** in the Defender for Cloud menu.
 
 You can search for specific recommendations by name. Use the search box and filters above the list of recommendations to find specific recommendations, and look at the [details of the recommendation](security-policy-concept.md#security-recommendation-details) to decide whether to [remediate it](implement-security-recommendations.md), [exempt resources](exempt-resource.md), or [disable the recommendation](tutorial-security-policy.md#disable-security-policies-and-disable-recommendations).
+
+You can learn more from the product manager about security posture by watching [Security posture management improvements](episode-four.md).
 
 ## Finding recommendations with high impact on your secure score<a name="monitor-recommendations"></a>
 
@@ -113,9 +115,7 @@ When the report is ready, you'll be notified by a second pop-up.
 
 ## Learn more
 
-If you would like to learn more from the product manager about security posture, check out [Security posture management improvements](episode-four.md).
-
-You can also check out the following blogs:
+You can check out the following blogs:
 
 - [Security posture management and server protection for AWS and GCP are now generally available](https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/security-posture-management-and-server-protection-for-aws-and/ba-p/3271388)
 - [Custom assessments and standards in Microsoft Defender for Cloud for AWS workloads (Preview)](https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/custom-assessments-and-standards-in-microsoft-defender-for-cloud/ba-p/3066575)
