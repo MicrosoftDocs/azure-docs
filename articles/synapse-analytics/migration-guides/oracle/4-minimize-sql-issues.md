@@ -18,51 +18,46 @@ This article is part four of a four part series that provides guidance on how to
 
 ## Overview
 
-'More than just a database' -- the Azure environment includes a comprehensive set of capabilities and tools
+Due to the cost and complexity of maintaining and upgrading legacy on-premises Oracle environments, many existing users of Oracle data warehouse systems want to take advantage of the innovations provided by newer environments such as cloud, IaaS, and PaaS, and to delegate tasks like infrastructure maintenance and platform development to the cloud provider.
 
-Existing users of Oracle data warehouse systems are now looking to take advantage of the innovations provided by newer environments (e.g. cloud, IaaS, PaaS) and to delegate tasks such as infrastructure maintenance and platform development to the cloud provider.
+>[!TIP]
+>More than just a database&mdash;the Azure environment includes a comprehensive set of capabilities and tools.
 
-While there are similarities between Oracle and Azure Synapse in that both are SQL databases designed to use massively parallel processing (MPP) techniques to achieve high query performance on very large data volumes, there are also some basic differences in approach:
+Although Oracle and Azure Synapse Analytics are both SQL databases designed to use massively parallel processing (MPP) techniques to achieve high query performance on exceptionally large data volumes, there are some basic differences in approach:
 
-- Legacy Oracle systems are often installed on-premise, using relatively expensive hardware whereas Azure Synapse is cloud based using Azure storage and compute resources.
+- Legacy Oracle systems are often installed on-premises and use relatively expensive hardware, while Azure Synapse is cloud-based and uses Azure storage and compute resources.
 
-- Upgrading an Oracle configuration is a major task involving additional physical hardware and a potentially lengthy database reconfiguration or dump and reload. Since storage and compute resources are separate in the Azure environment these can easily be scaled (upwards and downwards) independently leveraging the elastic scalability capability.
+- Upgrading an Oracle configuration is a major task involving additional physical hardware and potentially lengthy database reconfiguration, or dump and reload. Since storage and compute resources are separate in the Azure environment, these resources can be scaled upwards or downwards independently, leveraging the elastic scaling capability.
 
-- Azure Synapse can be paused or resized as required to reduce resource utilization and therefore cost.
+- Azure Synapse can be paused or resized as required to reduce resource utilization and cost.
 
-Microsoft Azure is a globally available, highly secure, scalable cloud environment which includes Azure Synapse within an eco-system of supporting tools and capabilities.
+Microsoft Azure is a globally available, highly secure, scalable cloud environment that includes Azure Synapse and an ecosystem of supporting tools and capabilities. The next diagram summarizes the Azure Synapse ecosystem.
 
 :::image type="content" source="../media/1-design-performance-migration/azure-synapse-ecosystem-2.png" border="true" alt-text="Chart showing the Azure Synapse ecosystem of supporting tools and capabilities.":::
 
-Azure Synapse gives best performance and price-performance in independent benchmark
+Azure Synapse provides best-of-breed relational database performance by using techniques such as massively parallel processing (MPP) and automatic in-memory caching. See the results of this approach in independent benchmarks such as the one run recently by [GigaOm](https://research.gigaom.com/report/data-warehouse-cloud-benchmark/), which compares Azure Synapse to other popular cloud data warehouse offerings. Customers who have migrated to this environment have seen many benefits including:
 
-Azure Synapse provides best-of-breed relational database performance by using techniques such as massively parallel processing (MPP) and automatic in-memory caching -- the results of this approach can be seen in independent benchmarks such as the one run recently by GigaOm -- see <https://gigaom.com/report/data-warehouse-cloud-benchmark/> which compares Azure Synapse to other popular cloud data warehouse offerings. Customers who have already migrated to this environment have seen many benefits including:
+- Improved performance and price/performance.
 
-- Improved performance and price/performance
+- Increased agility and shorter time to value.
 
-- Increased agility and shorter time to value
+- Faster server deployment and application development.
 
-- Faster server deployment and application development
+- Elastic scalability&mdash;only pay for actual usage.
 
-- Elastic scalability -- only pay for actual usage
+- Improved security/compliance.
 
-- Improved security/compliance
+- Reduced storage and disaster recovery costs.
 
-- Reduced storage and Disaster Recovery costs
+- Lower overall TCO, better cost control, and streamlined operational expenditure (OPEX).
 
-- Lower overall TCO and better cost control (OPEX)
-
-Planning and preparation is essential for a successful migration project
-
-To maximize these benefits, it is necessary to migrate existing (or new) data and applications to the Azure Synapse platform. In many organizations this will include migration of an existing data warehouse from legacy on-premise platforms such as Oracle. At a high level, the basic process will include the following steps:
+To maximize these benefits,  migrate new or existing data and applications to the Azure Synapse platform. In many organizations, this will include migrating an existing data warehouse from legacy on-premises platforms such as Oracle. At a high level, the basic process includes these steps:
 
 :::image type="content" source="../media/1-design-performance-migration/migration-steps.png" border="true" alt-text="Diagram showing the steps for preparing to migrate, migration, and post-migration.":::
 
-This paper looks at SQL syntax migration with a view to obtain equivalent or better performance of your migrated Oracle data warehouse and data marts on Azure Synapse. The topics included in this paper apply specifically to migrations from an existing Oracle environment.
+This article looks at SQL syntax migration with a goal of equivalent or better performance of your migrated Oracle data warehouse and data marts on Azure Synapse. This article applies specifically to migrations from an existing Oracle environment.
 
 ## Minimizing SQL issues for Oracle migrations
-
-### Overview
 
 #### Characteristics of Oracle environments
 
@@ -70,7 +65,7 @@ Oracle pioneered the 'data warehouse appliance' concept in the early 2000's
 
 The initial Oracle database product was released in 1979 and was designed as a commercial implementation of a SQL relational database that could handle on-line transaction processing (OLTP) applications (of course, the typical transaction rates required were much lower then). Since that initial release the product has evolved to become the complex environment of today, encompassing features such as client-server architectures, distributed databases, parallel processing, data analytics, high availability, data warehousing, data in memory techniques and support for cloud-based instances.
 
-Given the cost and complexity of maintaining and upgrading legacy on-premise Oracle environments, many existing users of Oracle data warehouse systems are now looking to take advantage of the innovations provided by newer environments (e.g. cloud, IaaS, PaaS) and to delegate tasks such as infrastructure maintenance and platform development to the cloud provider.
+Given the cost and complexity of maintaining and upgrading legacy on-premises Oracle environments, many existing users of Oracle data warehouse systems are now looking to take advantage of the innovations provided by newer environments (e.g. cloud, IaaS, PaaS) and to delegate tasks such as infrastructure maintenance and platform development to the cloud provider.
 
 Most existing Oracle installations are on-premises, and therefore many users are considering migrating some or all of their Oracle data to Azure Synapse to gain the benefits of a move to a modern cloud environment.
 

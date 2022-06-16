@@ -18,49 +18,44 @@ This article is part one of a four part series that provides guidance on how to 
 
 ## Overview
 
-The initial Oracle database product was released in 1979 and was designed as a commercial implementation of a SQL relational database that could handle on-line transaction processing (OLTP) applications (of course, the typical transaction rates required were much lower then). Since that initial release the product has evolved to become the complex environment of today, encompassing features such as client-server architectures, distributed databases, parallel processing, data analytics, high availability, data warehousing, data in memory techniques and support for cloud-based instances.
+Due to the cost and complexity of maintaining and upgrading legacy on-premises Oracle environments, many existing users of Oracle data warehouse systems want to take advantage of the innovations provided by newer environments such as cloud, IaaS, and PaaS, and to delegate tasks like infrastructure maintenance and platform development to the cloud provider.
 
-'More than just a database' -- the Azure environment includes a comprehensive set of capabilities and tools
+>[!TIP]
+>More than just a database&mdash;the Azure environment includes a comprehensive set of capabilities and tools.
 
-Given the cost and complexity of maintaining and upgrading legacy on-premise Oracle environments, many existing users of Oracle data warehouse systems are now looking to take advantage of the innovations provided by newer environments (e.g. cloud, IaaS, PaaS) and to delegate tasks such as infrastructure maintenance and platform development to the cloud provider.
+Although Oracle and Azure Synapse Analytics are both SQL databases designed to use massively parallel processing (MPP) techniques to achieve high query performance on exceptionally large data volumes, there are some basic differences in approach:
 
-Most existing Oracle installations are on-premises, and therefore many users are considering migrating some or all of their Oracle data to Azure Synapse to gain the benefits of a move to a modern cloud environment.
+- Legacy Oracle systems are often installed on-premises and use relatively expensive hardware, while Azure Synapse is cloud-based and uses Azure storage and compute resources.
 
-While there are similarities between Oracle and Azure Synapse in that both are SQL databases that can use parallel processing techniques to achieve high query performance on very large data volumes, there are also some basic differences in approach:
+- Upgrading an Oracle configuration is a major task involving additional physical hardware and potentially lengthy database reconfiguration, or dump and reload. Since storage and compute resources are separate in the Azure environment, these resources can be scaled upwards or downwards independently, leveraging the elastic scaling capability.
 
-- Legacy Oracle systems are often installed on-premise, using relatively expensive hardware whereas Azure Synapse is cloud based using Azure storage and compute resources.
+- Azure Synapse can be paused or resized as required to reduce resource utilization and cost.
 
-- Upgrading an Oracle configuration is a major task involving additional physical hardware and a potentially lengthy database reconfiguration or dump and reload. Since storage and compute resources are separate in the Azure environment these can easily be scaled (upwards and downwards) independently leveraging the elastic scalability capability.
-
-- Azure Synapse can be paused or resized as required to reduce resource utilization and therefore cost.
-
-Microsoft Azure is a globally available, highly secure, scalable cloud environment which includes Azure Synapse within an eco-system of supporting tools and capabilities. These include SQL Server Migration Assistant for Oracle which is designed specifically to automate many aspects of a migration project where the source environment is an Oracle data warehouse.
+Microsoft Azure is a globally available, highly secure, scalable cloud environment that includes Azure Synapse and an ecosystem of supporting tools and capabilities. The next diagram summarizes the Azure Synapse ecosystem.
 
 :::image type="content" source="../media/1-design-performance-migration/azure-synapse-ecosystem-2.png" border="true" alt-text="Chart showing the Azure Synapse ecosystem of supporting tools and capabilities.":::
 
-Azure Synapse gives best performance and price-performance in independent benchmark
+Azure Synapse provides best-of-breed relational database performance by using techniques such as massively parallel processing (MPP) and automatic in-memory caching. See the results of this approach in independent benchmarks such as the one run recently by [GigaOm](https://research.gigaom.com/report/data-warehouse-cloud-benchmark/), which compares Azure Synapse to other popular cloud data warehouse offerings. Customers who have migrated to this environment have seen many benefits including:
 
-Azure Synapse provides best-of-breed relational database performance by using techniques such as massively parallel processing (MPP) and automatic in-memory caching -- the results of this approach can be seen in independent benchmarks such as the one run recently by GigaOm -- see <https://gigaom.com/report/data-warehouse-cloud-benchmark/> which compares Azure Synapse to other popular cloud data warehouse offerings. Customers who have already migrated to this environment have seen many benefits including:
+- Improved performance and price/performance.
 
-- Improved performance and price/performance
+- Increased agility and shorter time to value.
 
-- Increased agility and shorter time to value
+- Faster server deployment and application development.
 
-- Faster server deployment and application development
+- Elastic scalability&mdash;only pay for actual usage.
 
-- Elastic scalability -- only pay for actual usage
+- Improved security/compliance.
 
-- Improved security/compliance
+- Reduced storage and disaster recovery costs.
 
-- Reduced storage and Disaster Recovery costs
+- Lower overall TCO, better cost control, and streamlined operational expenditure (OPEX).
 
-- Lower overall TCO and better cost control (OPEX)
-
-To maximize these benefits it is necessary to migrate existing (or new) data and applications to the Azure Synapse platform, and in many organizations, this will include migration of an existing data warehouse from legacy on-premise platforms such as Oracle. At a high level, the basic process will include the following steps:
+To maximize these benefits,  migrate new or existing data and applications to the Azure Synapse platform. In many organizations, this will include migrating an existing data warehouse from legacy on-premises platforms such as Oracle. At a high level, the basic process includes these steps:
 
 :::image type="content" source="../media/1-design-performance-migration/migration-steps.png" border="true" alt-text="Diagram showing the steps for preparing to migrate, migration, and post-migration.":::
 
-This paper looks at schema migration with a view to obtain equivalent or better performance of your migrated Oracle data warehouse and data marts on Azure Synapse. The topics included in this paper apply specifically to migrations from an existing Oracle environment.
+This article looks at schema migration with a goal of equivalent or better performance of your migrated Oracle data warehouse and data marts on Azure Synapse. This article applies specifically to migrations from an existing Oracle environment.
 
 ## Design considerations
 
@@ -346,7 +341,7 @@ The raw data to be migrated from existing Oracle tables can be extracted to flat
 
 Generally during a migration exercise, it is important to extract the data as efficiently as possible (especially for very large fact tables) and the recommended approach for this with Oracle is to use parallelism where possible to maximize the throughput for the extraction process. This may be achieved by running multiple individual extract process which extract discrete segments of data, or by using tools which are capable of automating parallel extraction based on partitioning.
 
-If sufficient network bandwidth exists data can be extracted directly from an on-premise Oracle system into Azure Synapse tables or Azure Blob Data Storage by using Azure Data Factory processes or Azure Data Migration Services. This capability is also available from third party data migration or ETL products such as Informatica and Talend.
+If sufficient network bandwidth exists data can be extracted directly from an on-premises Oracle system into Azure Synapse tables or Azure Blob Data Storage by using Azure Data Factory processes or Azure Data Migration Services. This capability is also available from third party data migration or ETL products such as Informatica and Talend.
 
 Recommended data formats for the extracted data are delimited text files (also called Comma Separated Values or CSV or similar) or Optimized Row Columnar (ORC) or Parquet files.
 
@@ -380,7 +375,7 @@ This section highlights lower level implementation differences between Oracle an
 
 ##### Data distribution options
 
-Azure Synapse is designed to exploit a multi-node architecture and parallel processing for performance, and to optimize this CREATE TABLEstatements in Azure Synapse allow for specification of a data distribution definition -- via 'DISTRIBUTION =' in Azure Synapse. ManyOracle implementations (especially older on-premise systems) do not include this consideration. Compared to Oracle, Azure Synapse provides an additional way to achieve 'local joins' for small table-large table joins (typically dimension table to fact table in a start schema model) is to replicate the smaller dimension table across all nodes, therefore ensuring any value of the join key of the larger table will have a matching dimension row locally available. The overhead of replicating the dimension tables is relatively low provided the tables are not very large -- in which case the hash distribution approach as described above is more appropriate.
+Azure Synapse is designed to exploit a multi-node architecture and parallel processing for performance, and to optimize this CREATE TABLEstatements in Azure Synapse allow for specification of a data distribution definition -- via 'DISTRIBUTION =' in Azure Synapse. ManyOracle implementations (especially older on-premises systems) do not include this consideration. Compared to Oracle, Azure Synapse provides an additional way to achieve 'local joins' for small table-large table joins (typically dimension table to fact table in a start schema model) is to replicate the smaller dimension table across all nodes, therefore ensuring any value of the join key of the larger table will have a matching dimension row locally available. The overhead of replicating the dimension tables is relatively low provided the tables are not very large -- in which case the hash distribution approach as described above is more appropriate.
 
 ##### Data indexing
 
