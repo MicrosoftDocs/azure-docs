@@ -26,8 +26,7 @@ This tutorial is similar to the previous tutorials demonstrating how to use enro
 
 This tutorial will demonstrate the [custom HSM sample](https://github.com/Azure/azure-iot-sdk-c/tree/master/provisioning_client/samples/custom_hsm_example) that provides a stub implementation for interfacing with hardware-based secure storage. A [Hardware Security Module (HSM)](./concepts-service.md#hardware-security-module) is used for secure, hardware-based storage of device secrets. An HSM can be used with symmetric key, X.509 certificate, or TPM attestation to provide secure storage for secrets. Hardware-based storage of device secrets is not required, but strongly recommended to help protect sensitive information like your device certificate's private key.
 
-
-In this tutorial you will complete the following objectives:
+In this tutorial you'll complete the following objectives:
 
 > [!div class="checklist"]
 > * Create a certificate chain of trust to organize a set of devices using X.509 certificates.
@@ -473,7 +472,7 @@ In this section you create the device certificates and the full chain device cer
     Use a text editor and open the certificate chain file, *./certs/device-01-full-chain.cert.pem*. The certificate chain text contains the full chain of all three certificates. You will use this text as the certificate chain with in the custom HSM device code later in this tutorial for `custom-hsm-device-01`.
 
     The full chain text has the following format:
- 
+
     ```output 
     -----BEGIN CERTIFICATE-----
         <Text for the device certificate includes public key>
@@ -801,32 +800,19 @@ To update the custom HSM stub code to simulate the identity of the device with I
     "-----END RSA PRIVATE KEY-----";
     ```
 
-    Updating this string value correctly in this step can also be very tedious and subject to error. To generate the proper syntax in your Git Bash prompt, copy and paste the following bash shell commands, and press **ENTER**. These commands will generate the syntax for the `PRIVATE_KEY` string constant value.
+    Updating this string value manually can be prone to error. To generate the proper syntax, you can copy and paste the following command into your **Git Bash prompt**, and press **ENTER**. This command  will generate the syntax for the `PRIVATE_KEY` string constant value and write it to the output.
 
     ```Bash
-    input="./private/new-device-01.key.pem"
-    bContinue=true
-    prev=
-    while $bContinue; do
-        if read -r next; then
-          if [ -n "$prev" ]; then	
-            echo "\"$prev\\n\""
-          fi
-          prev=$next  
-        else
-          echo "\"$prev\";"
-          bContinue=false
-        fi	
-    done < "$input"
+    sed -e 's/^/"/;$ !s/$/""\\n"/;$ s/$/"/' ./private/device-01.key.pem
     ```
 
-    Copy and paste the output private key text for the new constant value. 
+    Copy and paste the output private key text for the constant value.
 
 5. Save *custom_hsm_example.c*.
 
 6. On the Visual Studio menu, select **Debug** > **Start without debugging** to run the solution. When prompted to rebuild the project, select **Yes** to rebuild the project before running.
 
-    The following output is an example of simulated device `custom-hsm-device-01` successfully booting up, and connecting to the provisioning service. The device was assigned to an IoT hub and registered:
+    The following output is an example of simulated device `device-01` successfully booting up, and connecting to the provisioning service. The device was assigned to an IoT hub and registered:
 
     ```cmd
     Provisioning API Version: 1.3.9
