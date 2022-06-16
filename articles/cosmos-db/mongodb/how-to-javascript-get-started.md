@@ -12,7 +12,7 @@ ms.custom: devx-track-js
 ---
 
 # Get started with Azure Cosmos DB MongoDB API and JavaScript
-[!INCLUDE[appliesto-mongo-api](../includes/appliesto-mongo-api.md)]
+[!INCLUDE[appliesto-mongo-api](../includes/appliesto-mongodb-api.md)]
 
 This article shows you how to connect to Azure Cosmos DB MongoDB API using the native MongoDB npm package. Once connected, you can perform operations on databases, collections, and docs.
 
@@ -54,7 +54,7 @@ This article shows you how to connect to Azure Cosmos DB MongoDB API using the n
 
 To connect with the MongoDB native driver to Azure Cosmos DB, create an instance of the [``MongoClient``](https://mongodb.github.io/node-mongodb-native/4.5/classes/MongoClient.html#connect) class. This class is the starting point to perform all operations against databases. 
 
-* [Connect with a MongoDB connection string](#connect-with-a-mongdb-connection-string)
+* [Connect with a MongoDB connection string](#connect-with-a-mongodb-connection-string)
 
 ### Connect with a MongoDB connection string
 
@@ -65,7 +65,7 @@ The most common constructor for **MongoClient** has two parameters:
 | ``url`` | ``COSMOS_CONNECTION_STRIN`` environment variable | MongoDB API connection string to use for all requests |
 | ``options`` | `{ssl: true, tls: true, }` | MongoDB oOptions](https://mongodb.github.io/node-mongodb-native/4.5/interfaces/MongoClientOptions.html) for the connection. |
 
-Refer to the [Troubleshooting guide](https://docs.microsoft.com/en-us/azure/cosmos-db/mongodb/error-codes-solutions) for connection issues.
+Refer to the [Troubleshooting guide](error-codes-solutions.md) for connection issues.
 
 #### Retrieve your connection string
 
@@ -205,7 +205,6 @@ The following guides show you how to use each of these classes to build your app
 ## See also
 
 - [Package (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.Cosmos)
-- [Samples](samples-javascript.md)
 - [API reference](https://docs.mongodb.com/drivers/node)
 
 ## Next steps
