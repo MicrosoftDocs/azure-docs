@@ -9,7 +9,7 @@ ms.date: 06/02/2022
 ---
 # Control egress traffic for your Azure Red Hat OpenShift (ARO) cluster (preview)
 
-This article provides the necessary details that allow you to secure outbound traffic from your Azure Red Hat OpenShift cluster (ARO). With the release of the [Egress Lockdown Feature](./concepts-egress-lockdown.md), all of the required connections for a private cluster will the proxied through the service. There are additional destinations that you may want to allow to use features such as Operator Hub, or Red Hat telemetry.  An [example](#private-aro-cluster-setup) will be provided at the end on how to configure these requirements with Azure Firewall. Keep in mind, you can apply this information to Azure Firewall or to any outbound restriction method or appliance.
+This article provides the necessary details that allow you to secure outbound traffic from your Azure Red Hat OpenShift cluster (ARO). With the release of the [Egress Lockdown Feature](./concepts-egress-lockdown.md), all of the required connections for a private cluster will be proxied through the service. There are additional destinations that you may want to allow to use features such as Operator Hub, or Red Hat telemetry.  An [example](#private-aro-cluster-setup) will be provided at the end on how to configure these requirements with Azure Firewall. Keep in mind, you can apply this information to Azure Firewall or to any outbound restriction method or appliance.
 
 ## Before you begin
 
@@ -64,7 +64,7 @@ In OpenShift Container Platform, customers can opt out of reporting health and u
 
 - **`quay.io`**: May be used to download images from the Red Hat managed Quay registry. Also a possible fall-back target for ARO required system images.
 - **`mirror.openshift.com`**: Required to access mirrored installation content and images. This site is also a source of release image signatures.
-- **`*.apps.<cluster_name>.<base_domain>`** (OR EQUIVALENT ARO URL): When allowlisting domains, this is use in your corporate network to reach applications deployed in OpenShift, or to access the OpenShift console.
+- **`*.apps.<cluster_name>.<base_domain>`** (OR EQUIVALENT ARO URL): When allowlisting domains, this is used in your corporate network to reach applications deployed in OpenShift, or to access the OpenShift console.
 - **`api.openshift.com`**: Used by the cluster for release graph parsing. https://access.redhat.com/labs/ocpupgradegraph/ can be used as alternative.
 - **`registry.access.redhat.com`**: Registry access is required in your VDI or laptop environment to download dev images when using the ODO CLI tool. (This CLI tool is an alternative CLI tool for developers who aren't familiar with kubernetes). https://docs.openshift.com/container-platform/4.6/cli_reference/developer_cli_odo/understanding-odo.html
 
@@ -282,14 +282,14 @@ az network vnet subnet update -g $RESOURCEGROUP --vnet-name $AROVNET --name "$CL
 ## Test the configuration from the Jumpbox
 These steps work only if you added rules for Docker images. 
 ### Configure the jumpbox
-Log into a jumpbox VM and install `azure-cli`, `oc-cli`, and `jq` utils. For the installation of openshift-cli, check the Red Hat customer portal.
+Log in to a jumpbox VM and install `azure-cli`, `oc-cli`, and `jq` utils. For the installation of openshift-cli, check the Red Hat customer portal.
 ```bash
 #Install Azure-cli
 curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
 #Install jq
 sudo apt install jq -y
 ```
-### Log into the ARO cluster
+### Log in to the ARO cluster
 List cluster credentials:
 ```bash
 
