@@ -4,7 +4,7 @@ description: Learn how to interpret the provisioned and pay-as-you-go billing mo
 author: khdownie
 ms.service: storage
 ms.topic: conceptual
-ms.date: 06/02/2022
+ms.date: 06/16/2022
 ms.author: kendownie
 ms.subservice: files
 ---
