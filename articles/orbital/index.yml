@@ -75,6 +75,10 @@ landingContent:
     linkLists:
       - linkListType: concept
         links:
+          - text: Contact
+            url: concepts-contact.md
+          - text: Contact profile
+            url: concepts-contact-profile.md
           - text: Geospatial Reference Architecture
             url: geospatial-reference-architecture.md
           - text: Spacecraft object
