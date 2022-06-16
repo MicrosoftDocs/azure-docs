@@ -78,4 +78,4 @@ Two Azure resources are defined in the template.
 
 You can now assign the SIM policy to your SIMs to bring them into service.
 
-- [Assign a SIM policy to a SIM](provision-sims-azure-portal.md#assign-sim-policies)
+- [Assign a SIM policy to a SIM](manage-existing-sims.md#assign-sim-policies)
