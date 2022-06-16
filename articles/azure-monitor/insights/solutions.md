@@ -21,7 +21,8 @@ You can add monitoring solutions to Azure Monitor for any applications and servi
 
 The **Overview** page displays a tile for each solution installed in a Log Analytics workspace. To open this page, go to **Log Analytics workspaces** in the [Azure portal](https://portal.azure.com) and select your workspace. In the **General** section of the menu, select **Workspace Summary**.
 
-[![Screenshot that shows selections for opening Insights Hub.](media/solutions/insights-hub.png)](media/solutions/insights-hub.png#lightbox)
+
+:::image type="content" source="media/solutions/insights-hub.png" lightbox="media/solutions/insights-hub.png" alt-text="Screenshot that shows selections for opening Insights Hub.":::
 
 
 Use the dropdown boxes at the top of the screen to change the time range that's used for the tiles. Select the tile for a solution to open a view that includes a more detailed analysis of its collected data.
