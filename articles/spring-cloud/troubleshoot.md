@@ -284,10 +284,10 @@ Enterprise tier has built-in VMware Spring Runtime Support, so you can open supp
 
 The exit codes indicate the termination reasons of the application. The detail info are as belows:
 
-0 - The application exited because it has run to completion, please replace it with a server application that runs constantly.
-1 - The application exited with a non-zero exit code, please debug the code and related services, then redeploy the application.
-137 - The application exited because it has requested resources that the hosting platform failed to provide, please update JVM parameters to restrict resource usage, or scale up application resources.
-143 - The application exited because it failed to respond to health probing, please make sure the application listens to some port, configure the port for health probing on the hosting platform, or turn off health probing.
+* 0 - The application exited because it has run to completion, please replace it with a server application that runs constantly.
+* 1 - The application exited with a non-zero exit code, please debug the code and related services, then redeploy the application.
+* 137 - The application exited because it has requested resources that the hosting platform failed to provide, please update JVM parameters to restrict resource usage, or scale up application resources.
+* 143 - The application exited because it failed to respond to health probing, please make sure the application listens to some port, configure the port for health probing on the hosting platform, or turn off health probing.
 
 ## Next steps
 
