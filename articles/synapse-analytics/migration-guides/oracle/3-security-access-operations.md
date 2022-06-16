@@ -66,7 +66,7 @@ This section addresses the possible methods of authentication for existing legac
 
 It is assumed that there is a requirement to migrate the existing methods of connection and user/role/permission structure 'as-is'. If this is not the case, then Azure utilities (e.g. Azure Portal) can be used to create and manage a new security regime.
 
-For more information on the Azure Synapse security options see <https://docs.microsoft.com/en-us/azure/sql-data-warehouse/sql-data-warehouse-overview-manage-security#authorization>
+For more information on the Azure Synapse security options see <https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-overview-manage-security#authorization>
 
 ### Connection and authentication
 
@@ -270,7 +270,7 @@ Truncate Allows the user to delete all TRUNCATE rows from a table. Applies only 
 
 Update Allows the user to modify table UPDATE rows. Applies to tables only. &mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;
 
-For more full details of Azure Synapse permissions see <https://docs.microsoft.com/en-us/sql/relational-databases/security/permissions-database-engine?view=sql-server-2017>
+For more full details of Azure Synapse permissions see <https://docs.microsoft.com/sql/relational-databases/security/permissions-database-engine?view=sql-server-2017>
 
 #### Migrating Users, Roles and Privileges
 
@@ -332,7 +332,7 @@ Collecting statistics is also a potentially time-consuming task which is require
 
 In version 12c Release 2 Oracle introduced a new feature called the Optimizer Statistics Advisor -- this works through a list of rules provided by Oracle, which represent \"best practices\" for optimizer statistics. It checks each rule and where necessary generates findings, recommendations and actions involving calls to the DBMS_STATS package to take corrective measures. The list of rules can be displayed using the V\$STATS_ADVISOR_RULES view as shown in the example below:
 
-:::image type="content" source="../media/3-security-access-operations/automating-migration-privileges.png" border="true" alt-text="":::
+:::image type="content" source="../media/3-security-access-operations/optimizer-statistics-advisor-rules.png" border="true" alt-text="Screenshot showing how to display a list of rules by using the the Optimizer Statistics Advisor.":::
 
 Housekeeping tasks can be automated and monitored in Azure
 
@@ -350,7 +350,7 @@ Oracle's Enterprise Manager includes facilities to monitor various aspects of on
 
 An overview of the monitoring environment for an Oracle warehouse is shown in the diagram below:
 
-:::image type="content" source="../media/3-security-access-operations/automating-migration-privileges.png" border="true" alt-text="":::
+:::image type="content" source="../media/3-security-access-operations/oracle-warehouse-overview.png" border="true" alt-text="Diagram showing an overview of the monitoring environment for an Oracle warehouse.":::
 
 Azure Portal provides a GUI to manage monitoring and auditing tasks for all Azure data and processes
 
@@ -358,11 +358,11 @@ Similarly, Azure Synapse provides a rich monitoring experience within the Azure 
 
 The Azure Portal can also provide recommendations for performance enhancements as shown in the screenshot below:
 
-:::image type="content" source="media/image9.png" border="true" alt-text=".":::
+:::image type="content" source="../media/3-security-access-operations/azure-portal-recommendations.png" border="true" alt-text="Screenshot of Azure Portal recommendations for performance enhancements.":::
 
 The portal also enables integration with other Azure monitoring services such as Operations Management Suite (OMS) and Azure Monitor (logs) to provide a holistic monitoring experience for not only the data warehouse but also the entire Azure analytics platform for an integrated monitoring experience.
 
-For more information on the Azure Synapse operations and management options see <https://docs.microsoft.com/en-us/azure/sql-data-warehouse/sql-data-warehouse-how-to-manage-and-monitor-workload-importance>
+For more information on the Azure Synapse operations and management options see <https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-how-to-manage-and-monitor-workload-importance>
 
 ### High Availability (HA) and Disaster Recovery (DR)
 
@@ -382,7 +382,7 @@ Microsoft Azure provides automatic backups to a separate geographical location t
 
 User-defined restore points are also supported, allowing manual triggering of snapshots to create restore points of a data warehouse before and after large modifications. This capability ensures that restore points are logically consistent, which provides additional data protection in case of any workload interruptions or user errors for quick recovery time.
 
-As well as the snapshots described above, Azure Synapse also performs as standard a geo-backup once per day to a [paired data center](https://docs.microsoft.com/en-us/azure/best-practices-availability-paired-regions). The RPO for a geo-restore is 24 hours. You can restore the geo-backup to a server in any other region where Azure Synapse is supported. A geo-backup ensures that a data warehouse can be restored in case the restore points in the primary region are not available.
+As well as the snapshots described above, Azure Synapse also performs as standard a geo-backup once per day to a [paired data center](https://docs.microsoft.com/azure/best-practices-availability-paired-regions). The RPO for a geo-restore is 24 hours. You can restore the geo-backup to a server in any other region where Azure Synapse is supported. A geo-backup ensures that a data warehouse can be restored in case the restore points in the primary region are not available.
 
 ### Workload management
 
@@ -408,7 +408,7 @@ Azure Synapse provides a set of Dynamic Management Views (DMVs) for monitoring o
 
 In Azure Synapse resource classes are pre-determined resource limits that govern compute resources and concurrency for query execution. Resource classes can help you manage your workload by setting limits on the number of queries that run concurrently and on the compute resources assigned to each query. There\'s a trade-off between memory and concurrency.
 
-See <https://docs.microsoft.com/en-us/azure/sql-data-warehouse/resource-classes-for-workload-management> for detailed information.
+See <https://docs.microsoft.com/azure/sql-data-warehouse/resource-classes-for-workload-management> for detailed information.
 
 This information can also be used for capacity planning -- i.e. determining the resources required for additional users or application workload. This also applies to planning scale up/scale down of compute resources (see section below) for cost-effective support of 'peaky' workloads.
 
