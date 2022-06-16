@@ -65,7 +65,7 @@ Enterprise administrators can also view an overall summary of the charges for th
 
 ## Download or view your Azure billing invoice
 
-An EA administrator can download the invoice from the [Azure portal](https://portal.azure.com) or have it sent in email. Invoices are sent to whoever is set up to receive invoices for the enrollment.
+An EA administrator can download the invoice from the [Azure portal](https://portal.azure.com) or have it sent in email. Invoices are sent to whoever is set up to receive invoices for the enrollment. If someone other than an EA administrator needs an email copy of the invoice, an EA administrator can send them a copy.
 
 Only an Enterprise Administrator has permission to view and download the billing invoice. To learn more about getting access to billing information, see [Manage access to Azure billing using roles](manage-billing-access.md).
 
