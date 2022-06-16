@@ -8,5 +8,9 @@ items:
       href: overview.md
     - name: Azure OpenAI Engines
       href: ./concepts/engines.md
+- name: How-to 
+  items:
+    - name: Completions
+      href: ./how-to/completions.md
 
   
