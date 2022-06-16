@@ -50,11 +50,9 @@ To create a database, call the following method:
 
 * [``Db``](https://mongodb.github.io/node-mongodb-native/4.5/classes/Db.html)
 
-### Create a database 
-
 The following example creates a database:
 
-:::code language="javascript" source="~/samples-cosmosdb-mongodb-javascript/200-create-database/index.js" id="package_dependencies":::
+:::code language="javascript" source="~/samples-cosmosdb-mongodb-javascript/200-create-database/index.js" id="new_database":::
 
 ## See also
 

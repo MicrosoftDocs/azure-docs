@@ -39,6 +39,9 @@ To create a collection, call the following method:
 
 * [``Collection``](https://mongodb.github.io/node-mongodb-native/4.5/classes/Db.html#collection)
 
+The following example creates a collection:
+
+:::code language="javascript" source="~/samples-cosmosdb-mongodb-javascript/225-create-collection/index.js" id="new_collection":::
 
 ## See also
 
