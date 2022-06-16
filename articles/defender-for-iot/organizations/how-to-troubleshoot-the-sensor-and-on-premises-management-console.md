@@ -168,7 +168,7 @@ When signing into a preconfigured sensor for the first time, you'll need to perf
 
 1. Select either **CyberX** or **Support**, and copy the unique identifier.
 
-1. Navigate to the Azure portal and select **Sites and Sensors**.  
+1. Navigate to the Azure portal and select **Sites and Sensors**.
 
 1. Select the **More Actions** drop down menu and select **Recover on-premises management console password**.
 
@@ -185,11 +185,11 @@ When signing into a preconfigured sensor for the first time, you'll need to perf
 1. Select **Next**, and your user, and system-generated password for your management console will then appear.
 
     > [!NOTE]
-    > When you sign in to a sensor or on-premise management console for the first time it will be linked to the subscription you connected it to. If you need to reset the password for the CyberX, or Support user you will need to select that subscription. For more information on recovering a CyberX, or Support user password, see [Recover the password for the on-premises management console, or the sensor](how-to-create-and-manage-users.md#recover-the-password-for-the-on-premises-management-console-or-the-sensor).
+    > When you sign in to a sensor or on-premises management console for the first time it will be linked to the subscription you connected it to. If you need to reset the password for the CyberX, or Support user you will need to select that subscription. For more information on recovering a CyberX, or Support user password, see [Recover the password for the on-premises management console, or the sensor](how-to-create-and-manage-users.md#recover-the-password-for-the-on-premises-management-console-or-the-sensor).
 
 ### Investigate a lack of traffic
 
-An indicator appears at the top of the console when the sensor recognizes that there's no traffic on one of the configured ports. This indicator is visible to all users. When this message appears, you can investigate where there's no traffic. Make sure the span cable is connected and there was no change in the span architecture.  
+An indicator appears at the top of the console when the sensor recognizes that there's no traffic on one of the configured ports. This indicator is visible to all users. When this message appears, you can investigate where there's no traffic. Make sure the span cable is connected and there was no change in the span architecture.
 
 
 ### Check system performance
@@ -198,12 +198,12 @@ When a new sensor is deployed or a sensor is working slowly or not showing any a
 
 1. In the Defender for IoT dashboard > **Overview**, make sure that `PPS > 0`.
 1. In *Devices** check that devices are being discovered.
-1. In **Data Mining**, generate a report. 
+1. In **Data Mining**, generate a report.
 1. In **Trends & Statistics** window, create a dashboard.
 1. In **Alerts**, check that the alert was created.
 
 
-### Investigate a lack of expected alerts 
+### Investigate a lack of expected alerts
 
 If the **Alerts** window doesn't show an alert that you expected, verify the following:
 
@@ -239,7 +239,7 @@ To connect a sensor controlled by the management console to NTP:
 
 Sometimes ICS devices are configured with external IP addresses. These ICS devices are not shown on the map. Instead of the devices, an internet cloud appears on the map. The IP addresses of these devices are included in the cloud image. Another indication of the same problem is when multiple internet-related alerts appear. Fix the issue as follows:
 
-1. Right-click the cloud icon on the device map and select **Export IP Addresses**. 
+1. Right-click the cloud icon on the device map and select **Export IP Addresses**.
 1. Copy the public ranges that are private, and add them to the subnet list. Learn more about [configuring subnets](how-to-control-what-traffic-is-monitored.md#configure-subnets).
 1. Generate a new data-mining report for internet connections.
 1. In the data-mining report, enter the administrator mode and delete the IP addresses of your ICS devices.
@@ -268,13 +268,13 @@ If an expected alert is not shown in the **Alerts** window, verify the following
 
 - Check if the same alert already appears in the **Alerts** window as a reaction to a different security instance. If yes, and this alert has not been handled yet, a new alert is not shown.
 
-- Verify that you did not exclude this alert by using the **Alert Exclusion** rules in the on-premises management console.  
+- Verify that you did not exclude this alert by using the **Alert Exclusion** rules in the on-premises management console.
 
 ### Tweak the Quality of Service (QoS)
 
 To save your network resources, you can limit the number of alerts sent to external systems (such as emails or SIEM) in one sync operation between an appliance and the on-premises management console.
 
-The default is 50. This means that in one communication session between an appliance and the on-premises management console, there will be no more than 50 alerts to external systems. 
+The default is 50. This means that in one communication session between an appliance and the on-premises management console, there will be no more than 50 alerts to external systems.
 
 To limit the number of alerts, use the `notifications.max_number_to_report` property available in `/var/cyberx/properties/management.properties`. No restart is needed after you change this property.
 

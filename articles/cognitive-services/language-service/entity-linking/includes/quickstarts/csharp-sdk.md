@@ -52,10 +52,10 @@ namespace EntityLinkingExample
 {
     class Program
     {
-        private static readonly AzureKeyCredential credentials = new AzureKeyCredential("replace-with-your-key-here");
         private static readonly Uri endpoint = new Uri("replace-with-your-endpoint-here");
+        private static readonly AzureKeyCredential credentials = new AzureKeyCredential("replace-with-your-key-here");
         
-        // Example method for recognizing entities and providing a link to an online data source
+        // Example method for recognizing entities and providing a link to an online data source.
         static void EntityLinkingExample(TextAnalyticsClient client)
         {
             var response = client.RecognizeLinkedEntities(
