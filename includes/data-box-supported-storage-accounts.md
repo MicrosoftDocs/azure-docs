@@ -3,7 +3,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod   
 ms.topic: include
-ms.date: 10/07/2021
+ms.date: 06/16/2022
 ms.author: alkohli
 ---
 
@@ -51,7 +51,6 @@ For export orders, following table shows the supported storage accounts.
   - For import orders, Data Box does not support Queue, Table, and Disk storage types.
   - For export orders, Data Box does not support Queue, Table, Disk, and Azure Data Lake Gen2 storage types.
 - Data Box does not support append blobs for Blob Storage and Block Blob Storage accounts.
-- Network File System (NFS) 3.0 protocol support in Azure Blob storage is not supported with Data Box.
 - Data uploaded to page blobs must be 512 bytes aligned such as VHDs.
 - For exports:
   - A maximum of 80 TB can be exported.
