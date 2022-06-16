@@ -22,31 +22,20 @@ Microsoft Sentinel uses two different models to create baselines and detect anom
 
 Sentinel UEBA detects anomalies based on dynamic baselines created for each entity across various data inputs. Each entity's baseline behavior is set according to its own historical activities, those of its peers, and those of the organization as a whole. Anomalies can be triggered by the correlation of different attributes such as action type, geo-location, device, resource, ISP, and more.
 
-Supported data sources: Azure Audit (Core Directory/UserManagement/Delete user, Core Directory/Device/Delete user, Core Directory/UserManagement/Delete user)
-
-
 > [!NOTE]
 > Anomalies are in **PREVIEW**. 
 
 - [Anomalous Account Access Removal](#anomalous-account-access-removal)
 - [Anomalous Account Creation](#anomalous-account-creation)
 - [Anomalous Account Deletion](#anomalous-account-deletion)
-- [Anomalous Account Discovery](#anomalous-account-discovery)
 - [Anomalous Account Manipulation](#anomalous-account-manipulation)
-- [Anomalous Application Deletion](#anomalous-application-deletion)
 - [Anomalous Code Execution](#anomalous-code-execution)
-- [Anomalous Credential Access](#anomalous-credential-access)
 - [Anomalous Data Destruction](#anomalous-data-destruction)
-- [Anomalous Data Discovery](#anomalous-data-discovery)
-- [Anomalous Defensive Mechanism Discovery](#anomalous-defensive-mechanism-discovery)
 - [Anomalous Defensive Mechanism Modification](#anomalous-defensive-mechanism-modification)
 - [Anomalous Failed Sign-in](#anomalous-failed-sign-in)
 - [Anomalous Password Reset](#anomalous-password-reset)
 - [Anomalous Privilege Granted](#anomalous-privilege-granted)
-- [Anomalous Role Assignment](#anomalous-role-assignment)
-- [Anomalous Session Duration](#anomalous-session-duration)
 - [Anomalous Sign-in](#anomalous-sign-in)
-- [Anomalous Process Creation](#anomalous-process-creation)
 
 ### Anomalous Account Access Removal
 
@@ -55,7 +44,7 @@ Supported data sources: Azure Audit (Core Directory/UserManagement/Delete user, 
 | Attribute                        | Value                                                              |
 | -------------------------------- | ------------------------------------------------------------------ |
 | **Anomaly type:**                | UEBA                                                               |
-| **Data sources:**                | Azure Activity logs<br>Check Point VPN (not in rule?)              |
+| **Data sources:**                | Azure Activity logs                                                |
 | **MITRE ATT&CK tactics:**        | Impact                                                             |
 | **MITRE ATT&CK techniques:**     | T1531 - Account Access Removal                                     |
 | **Activity:**                    | Microsoft.Authorization/roleAssignments/delete<br>Log Out |
@@ -91,22 +80,6 @@ Supported data sources: Azure Audit (Core Directory/UserManagement/Delete user, 
 
 [Back to UEBA anomalies list](#ueba-anomalies)
 
-### Anomalous Account Discovery
-***(NO RULE?)***
-
-**Description:** Adversaries may attempt to get a listing of accounts on a system or within an environment. This information can help adversaries determine which accounts exist to aid in follow-on behavior.
-
-| Attribute                        | Value                                                              |
-| -------------------------------- | ------------------------------------------------------------------ |
-| **Anomaly type:**                | UEBA                                                               |
-| **Data sources:**                | Azure Activity logs                                                |
-| **MITRE ATT&CK tactics:**        | Discovery                                                          |
-| **MITRE ATT&CK techniques:**     | T1087 - Account Discovery                                          |
-| **MITRE ATT&CK sub-techniques:** | Cloud Account                                                      |
-| **Activity:**                    | Microsoft.Sql/managedInstances/administrators/read<br>Microsoft.Sql/servers/administrators/read<br>Microsoft.Authorization/classicAdministrators/read |
-
-[Back to UEBA anomalies list](#ueba-anomalies)
-
 ### Anomalous Account Manipulation
 
 **Description:** Adversaries may manipulate accounts to maintain access to target systems. These actions include adding new accounts to high-privileged groups. Dragonfly 2.0, for example, added newly created accounts to the administrators group to maintain elevated access. The query below generates an output of all high-Blast Radius users performing "Update user" (name change) to privileged role, or ones that changed users for the first time.
@@ -118,21 +91,6 @@ Supported data sources: Azure Audit (Core Directory/UserManagement/Delete user, 
 | **MITRE ATT&CK tactics:**        | Persistence                                                        |
 | **MITRE ATT&CK techniques:**     | T1098 - Account Manipulation                                       |
 | **Activity:**                    | Core Directory/UserManagement/Update user                          |
-
-[Back to UEBA anomalies list](#ueba-anomalies)
-
-### Anomalous Application Deletion
-***(NO RULE?)***
-
-**Description:** Adversaries may interrupt availability of system and network resources by inhibiting access to accounts utilized by legitimate users. Accounts may be deleted, locked, or manipulated (ex: changed credentials) to remove access to accounts.
-
-| Attribute                        | Value                                                              |
-| -------------------------------- | ------------------------------------------------------------------ |
-| **Anomaly type:**                | UEBA                                                               |
-| **Data sources:**                | Azure Active Directory audit logs                                  |
-| **MITRE ATT&CK tactics:**        | Impact                                                             |
-| **MITRE ATT&CK techniques:**     | T1531 - Account Access Removal                                     |
-| **Activity:**                    | Core Directory/ApplicationManagement/Delete application            |
 
 [Back to UEBA anomalies list](#ueba-anomalies)
 
@@ -151,21 +109,6 @@ Supported data sources: Azure Audit (Core Directory/UserManagement/Delete user, 
 
 [Back to UEBA anomalies list](#ueba-anomalies)
 
-### Anomalous Credential Access
-***(NO RULE?)***
-
-**Description:** Adversaries may search for common password storage locations to obtain user credentials. Once credentials are obtained, they can be used to perform lateral movement and access restricted information.
-
-| Attribute                        | Value                                                              |
-| -------------------------------- | ------------------------------------------------------------------ |
-| **Anomaly type:**                | UEBA                                                               |
-| **Data sources:**                | Azure Activity logs                                                |
-| **MITRE ATT&CK tactics:**        | Credential Access                                                  |
-| **MITRE ATT&CK techniques:**     | T1555 - Credentials from Password Stores                           |
-| **Activity:**                    | Microsoft.KeyVault/vaults/keys/read<br>Microsoft.KeyVault/vaults/secrets/getSecret/action<br>Microsoft.KeyVault/vaults/storageaccounts/regeneratekey/action<br>Microsoft.KeyVault/vaults/storageaccounts/sas/set/action |
-
-[Back to UEBA anomalies list](#ueba-anomalies)
-
 ### Anomalous Data Destruction
 
 **Description:** Adversaries may destroy data and files on specific systems or in large numbers on a network to interrupt availability to systems, services, and network resources. Data destruction is likely to render stored data irrecoverable by forensic techniques through overwriting files or data on local and remote drives.
@@ -177,37 +120,6 @@ Supported data sources: Azure Audit (Core Directory/UserManagement/Delete user, 
 | **MITRE ATT&CK tactics:**        | Impact                                                             |
 | **MITRE ATT&CK techniques:**     | T1485 - Data Destruction                                           |
 | **Activity:**                    | Microsoft.Compute/disks/delete<br>Microsoft.Compute/galleries/images/delete<br>Microsoft.Compute/hostGroups/delete<br>Microsoft.Compute/hostGroups/hosts/delete<br>Microsoft.Compute/images/delete<br>Microsoft.Compute/virtualMachines/delete<br>Microsoft.Compute/virtualMachineScaleSets/delete<br>Microsoft.Compute/virtualMachineScaleSets/virtualMachines/delete<br>Microsoft.Devices/digitalTwins/Delete<br>Microsoft.Devices/iotHubs/Delete<br>Microsoft.KeyVault/vaults/delete<br>Microsoft.Logic/integrationAccounts/delete  <br>Microsoft.Logic/integrationAccounts/maps/delete <br>Microsoft.Logic/integrationAccounts/schemas/delete <br>Microsoft.Logic/integrationAccounts/partners/delete <br>Microsoft.Logic/integrationServiceEnvironments/delete<br>Microsoft.Logic/workflows/delete<br>Microsoft.Resources/subscriptions/resourceGroups/delete<br>Microsoft.Sql/instancePools/delete<br>Microsoft.Sql/managedInstances/delete<br>Microsoft.Sql/managedInstances/administrators/delete<br>Microsoft.Sql/managedInstances/databases/delete<br>Microsoft.Storage/storageAccounts/delete<br>Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete<br>Microsoft.Storage/storageAccounts/fileServices/fileshares/files/delete<br>Microsoft.Storage/storageAccounts/blobServices/containers/delete<br>Microsoft.AAD/domainServices/delete |
-
-[Back to UEBA anomalies list](#ueba-anomalies)
-
-### Anomalous Data Discovery
-***(NO RULE?)***
-
-**Description:** An adversary may attempt to enumerate the cloud services running on a system after gaining access. They may attempt to discover information about the services enabled throughout the environment.
-
-| Attribute                        | Value                                                              |
-| -------------------------------- | ------------------------------------------------------------------ |
-| **Anomaly type:**                | UEBA                                                               |
-| **Data sources:**                | Azure Activity logs                                                |
-| **MITRE ATT&CK tactics:**        | Discovery                                                          |
-| **MITRE ATT&CK techniques:**     | T1526 - Cloud Service Discovery<br>T1518 - Software Discovery      |
-| **Activity:**                    | Microsoft.SecurityGraph/diagnosticsettings/read<br>Microsoft.KeyVault/vaults/eventGridFilters/read<br>Microsoft.KeyVault/vaults/certificatecas/read |
-
-[Back to UEBA anomalies list](#ueba-anomalies)
-
-### Anomalous Defensive Mechanism Discovery
-***(NO RULE?)***
-
-**Description:** Adversaries may attempt to get a listing of security software, configurations, defensive tools, and sensors that are installed on a system or in a cloud environment. They may use this information during automated discovery to shape follow-on behaviors, including whether or not the adversary fully infects the target and/or attempts specific actions.
-
-| Attribute                        | Value                                                              |
-| -------------------------------- | ------------------------------------------------------------------ |
-| **Anomaly type:**                | UEBA                                                               |
-| **Data sources:**                | Azure Activity logs                                                |
-| **MITRE ATT&CK tactics:**        | Discovery                                                          |
-| **MITRE ATT&CK techniques:**     | T1518 - Software Discovery                                         |
-| **MITRE ATT&CK sub-techniques:** | Security Software Discovery                                        |
-| **Activity:**                    | Microsoft.Network/azurefirewalls/read<br>Microsoft.Sql/servers/firewallRules/read<br>Microsoft.Network/firewallPolicies/ruleGroups/read<br>Microsoft.Network/networkSecurityGroups/securityRules/read<br>Microsoft.Sql/managedInstances/databases/vulnerabilityAssessments/rules/baselines/read<br>Microsoft.Sql/managedInstances/databases/vulnerabilityAssessments/read<br>Microsoft.Network/networkSecurityGroups/read<br>Microsoft.Network/ddosProtectionPlans/read<br>Microsoft.Network/ApplicationGatewayWebApplicationFirewallPolicies/read<br>Microsoft.Authorization/policyAssignments/read |
 
 [Back to UEBA anomalies list](#ueba-anomalies)
 
@@ -233,10 +145,10 @@ Supported data sources: Azure Audit (Core Directory/UserManagement/Delete user, 
 | Attribute                        | Value                                                              |
 | -------------------------------- | ------------------------------------------------------------------ |
 | **Anomaly type:**                | UEBA                                                               |
-| **Data sources:**                | Azure Active Directory sign-in logs<br>Check Point VPN logs<br>Windows Security logs |
+| **Data sources:**                | Azure Active Directory sign-in logs<br>Windows Security logs       |
 | **MITRE ATT&CK tactics:**        | Credential Access                                                  |
 | **MITRE ATT&CK techniques:**     | T1110 - Brute Force                                                |
-| **Activity:**                    | Sign-in activity<br>Failed Log In<br>4625                          |
+| **Activity:**                    | **Azure AD:** Sign-in activity<br>**Windows Security:** Failed login (Event ID 4625) |
 
 [Back to UEBA anomalies list](#ueba-anomalies)
 
@@ -269,36 +181,6 @@ Supported data sources: Azure Audit (Core Directory/UserManagement/Delete user, 
 
 [Back to UEBA anomalies list](#ueba-anomalies)
 
-### Anomalous Role Assignment
-***(NO RULE?)***
-
-**Description:** Adversaries may manipulate accounts to maintain access to victim systems. These actions include adding new accounts to high privileged groups.
-
-| Attribute                        | Value                                                              |
-| -------------------------------- | ------------------------------------------------------------------ |
-| **Anomaly type:**                | UEBA                                                               |
-| **Data sources:**                | Azure Active Directory audit logs                                  |
-| **MITRE ATT&CK tactics:**        | Persistence                                                        |
-| **MITRE ATT&CK techniques:**     | T1098 - Account Manipulation                                       |
-| **Activity:**                    | Add member to group<br>Add member to role                          |
-
-[Back to UEBA anomalies list](#ueba-anomalies)
-
-### Anomalous Session Duration
-***(NO RULE?)***
-
-**Description:** Adversaries may leverage external-facing remote services to initially access and/or persist within a network. Remote services such as VPNs, Citrix, and other access mechanisms allow users to connect to internal enterprise network resources from external locations.
-
-| Attribute                        | Value                                                              |
-| -------------------------------- | ------------------------------------------------------------------ |
-| **Anomaly type:**                | UEBA                                                               |
-| **Data sources:**                | VPN logs                                                           |
-| **MITRE ATT&CK tactics:**        | Persistence                                                        |
-| **MITRE ATT&CK techniques:**     | T1133 - External Remote Services                                   |
-| **Activity:**                    | Log Out |
-
-[Back to UEBA anomalies list](#ueba-anomalies)
-
 ### Anomalous Sign-in
 
 **Description:** Adversaries may steal the credentials of a specific user or service account using Credential Access techniques or capture credentials earlier in their reconnaissance process through social engineering for means of gaining Persistence.
@@ -306,25 +188,10 @@ Supported data sources: Azure Audit (Core Directory/UserManagement/Delete user, 
 | Attribute                        | Value                                                              |
 | -------------------------------- | ------------------------------------------------------------------ |
 | **Anomaly type:**                | UEBA                                                               |
-| **Data sources:**                | Azure Active Directory sign-in logs<br>Check Point VPN logs<br>Windows Security logs |
+| **Data sources:**                | Azure Active Directory sign-in logs<br>Windows Security logs       |
 | **MITRE ATT&CK tactics:**        | Persistence **(Excel)**<br>Impact **(UI)**                         |
 | **MITRE ATT&CK techniques:**     | T1078 - Valid Accounts                                             |
-| **Activity:**                    | Sign-in activity<br>4624<br>Successful Log In                      |
-
-[Back to UEBA anomalies list](#ueba-anomalies)
-
-### Anomalous Process Creation
-***(NO RULE?)***
-
-**Description:** Services, daemons, or agents may be created with administrator privileges but executed under root/SYSTEM privileges. Adversaries may leverage this functionality to create or modify system processes in order to escalate privileges.
-
-| Attribute                        | Value                                                              |
-| -------------------------------- | ------------------------------------------------------------------ |
-| **Anomaly type:**                | UEBA                                                               |
-| **Data sources:**                | Windows Security logs                                              |
-| **MITRE ATT&CK tactics:**        | Persistence<br>Privilege Escalation                                |
-| **MITRE ATT&CK techniques:**     | T1543 - Create or Modify System Processes                          |
-| **Activity:**                    | 4688                                                               |
+| **Activity:**                    | **Azure AD:** Sign-in activity<br>**Windows Security:** Successful login (Event ID 4624) |
 
 [Back to UEBA anomalies list](#ueba-anomalies)
 
