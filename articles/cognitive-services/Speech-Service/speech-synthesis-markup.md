@@ -733,7 +733,7 @@ The optional `emphasis` element is used to add or remove word-level stress for t
 This SSML snippet demonstrates how the `emphasis` element is used to add moderate level emphasis for the word "meetings". 
     
 ```xml
-<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xmlns:mstts="https://www.w3.org/2001/mstts"xml:lang="en-US"> 
+<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xmlns:mstts="https://www.w3.org/2001/mstts" xml:lang="en-US"> 
     <voice name="en-US-GuyNeural">   
     I can help you join your <emphasis level="moderate">meetings</emphasis> fast. 
     </voice> 
