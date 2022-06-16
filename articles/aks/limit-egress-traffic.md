@@ -4,7 +4,7 @@ description: Learn what ports and addresses are required to control egress traff
 services: container-service
 ms.topic: article
 ms.author: jpalma
-ms.date: 03/7/2022
+ms.date: 06/15/2022
 author: palma21
 
 #Customer intent: As an cluster operator, I want to restrict egress traffic for nodes to only access defined ports and addresses and improve cluster security.
@@ -164,6 +164,16 @@ The following FQDN / application rules are required for AKS clusters that have M
 | **`login.microsoftonline.com`** | **`HTTPS:443`** | Required for Active Directory Authentication. |
 | **`*.ods.opinsights.azure.com`** | **`HTTPS:443`** | Required for Microsoft Defender to upload security events to the cloud.|
 | **`*.oms.opinsights.azure.com`** | **`HTTPS:443`** | Required to Authenticate with LogAnalytics workspaces.|
+
+### CSI Secret Store
+
+#### Required FQDN / application rules
+
+The following FQDN / application rules are required for AKS clusters that have CSI Secret Store enabled.
+
+| FQDN                                          | Port      | Use      |
+|-----------------------------------------------|-----------|----------|
+| **`vault.azure.net`** | **`HTTPS:443`** | Required for CSI Secret Store addon pods to talk to Azure KeyVault server.|
 
 ### Azure Monitor for containers
 
