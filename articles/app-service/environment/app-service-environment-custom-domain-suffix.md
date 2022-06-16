@@ -3,7 +3,7 @@ title: Configure custom domain suffix for App Service Environment
 description: Configure a custom domain suffix for the Azure App Service Environment.
 author: seligj95
 ms.topic: tutorial
-ms.date: 06/15/2022
+ms.date: 06/16/2022
 ms.author: jordanselig
 zone_pivot_groups: app-service-environment-portal-arm
 ---
@@ -32,36 +32,100 @@ The custom domain suffix is for the App Service Environment. This is different f
 - If you don't have a custom domain, you can [purchase an App Service domain](../manage-custom-dns-buy-domain.md).
 - Valid SSL/TLS certificate stored in an Azure Key Vault. For more information on using certificates with App Service, see [Add a TLS/SSL certificate in Azure App Service](../configure-ssl-certificate).
 
-## Managed identity
+### Managed identity
 
 A [managed identity](../../active-directory/managed-identities-azure-resources/overview.md) is used to authenticate against the Azure Key Vault where the SSL/TLS certificate is stored. If you don't currently have a managed identity associated with your App Service Environment, you'll need to configure one. 
 
-You can use either a system assigned or user assigned managed identity. Ensure the managed identity has sufficient permissions for both the App Service Environment as well as the Azure Key Vault. To create a user assigned managed identity, see [manage user-assigned managed identities](../../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md). If you'd like to use a system assigned managed identity, the Custom domain suffix [portal experience](#Select-a-managed-identity?pivots=experience-azp) will guide you through that process. <!-- what are the minimum permissions -->
+You can use either a system assigned or user assigned managed identity. Ensure the managed identity has sufficient permissions for both the App Service Environment as well as the Azure Key Vault. To create a user assigned managed identity, see [manage user-assigned managed identities](../../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md). If you'd like to use a system assigned managed identity and don't already have one assigned, the Custom domain suffix portal experience will guide you through that process. 
+
+<!-- what are the minimum permissions -->
 
 Also ensure the managed identity has the appropriate access policy set for the Azure Key Vault. At a minimum, the managed identity will need all "Get" permissions on the key vault.
 
-<!-- image -->
+:::image type="content" source="./media/custom-domain-suffix/key-vault-access-policy.png" alt-text="Sample key vault access policy for managed identity.":::
 
-## Certificate
+### Certificate
 
 The certificate for custom domain suffix must be stored in an Azure Key Vault. App Service Environment will use the managed identity you selected to get the certificate. The Key Vault must be publicly accessible.
 
-<!-- image -->
+:::image type="content" source="./media/custom-domain-suffix/key-vault-networking.png" alt-text="Sample networking blade for key vault to allow custom domain suffix feature.":::
 
 Your certificate must be a wildcard certificate for the selected custom domain name. For example, *contoso.com* would need a certificate covering **.contoso.com*.
 
 ::: zone pivot="experience-azp"
 
-## 1. tbd
+## Use the Azure portal to configure custom domain suffix
 
-tbd
+1. From the [Azure portal](https://portal.azure.com), navigate to the **Custom domain suffix** page for your App Service Environment.
+1. Enter your custom domain name.
+1. Select the managed identity you've defined for your App Service Environment. You can use either a system assigned or user defined managed identity. You will be able to configure your managed identity if you have not done so already directly from the custom domain suffix page using the "Add identity" option in the managed identity selection box.
+:::image type="content" source="./media/custom-domain-suffix/managed-identity-selection.png" alt-text="Configuration pane to select and update the managed identity for the App Service Environment.":::
+1. Select the certificate for the custom domain suffix.
+1. Select "Save" at the top of the page.
+
+:::image type="content" source="./media/custom-domain-suffix/custom-domain-suffix-portal-experience.png" alt-text="Overview of the custom domain suffix portal experience.":::
 
 ::: zone-end
 
 ::: zone pivot="experience-arm"
 
-## 1. tbd
+## Use Azure Resource Manager to configure custom domain suffix
 
-tbd
+<!-- INPUT -->
+
+Alternatively, you can update the App Service Environment by using [Azure Resource Explorer](https://resources.azure.com).
+
+```json
+"resources": [
+{
+    "apiVersion": "2022-03-01",
+    "type": "Microsoft.Web/hostingEnvironments",
+    "name": ...,
+    "location": ...,
+    "properties": {
+        "customDnsSuffixConfiguration": {
+            "dnsSuffix": "antares-test.net",
+            "certificateUrl": "https://kv-jordan-acmebot-mwol.vault.azure.net/secrets/wildcard-antares-test-net",
+            "keyVaultReferenceIdentity": "/subscriptions/7e574780-0f87-42e8-af8c-5e8cb7d3540a/resourcegroups/jordan-asev3-cdns/providers/microsoft.managedidentity/userassignedidentities/jordan-ase-cdns-managed-identity"
+        },
+        "identity": {
+            "type": "UserAssigned",
+            "userAssignedIdentities": {
+                "/subscriptions/7e574780-0f87-42e8-af8c-5e8cb7d3540a/resourcegroups/jordan-asev3-cdns/providers/Microsoft.ManagedIdentity/userAssignedIdentities/jordan-ase-cdns-managed-identity": {
+                    "principalId": "a80055fe-785e-4c1e-b525-6e1b1bb1f4ad",
+                    "clientId": "4182d459-876a-456e-8627-f48b0ce75b46"
+                }
+            }
+        },
+        "internalLoadBalancingMode": "Web, Publishing",
+        etc...
+    }
+}
+```
 
 ::: zone-end
+
+## Access your Apps
+
+After configuring the custom domain suffix for your App Service Environment, you can go to the **Custom domains** page for one of your App Service apps in your App Service Environment and confirm the addition of the assigned custom domain for the app. Apps on the ILB App Service Environment can be accessed over HTTPS and the connections will be secured using the default certificate you selected. The certificate will be used when apps on the App Service Environment are addressed using a combination of the application name plus the custom domain suffix. For example, *https://mycustomapp.internal-contoso.com* would use the TLS/SSL certificate for **.internal-contoso.com*.
+
+However, just like apps running on the public multi-tenant service, you can also configure custom host names for individual apps, and then configure unique SNI TLS/SSL certificate bindings for individual apps.
+
+:::image type="content" source="./media/custom-domain-suffix/app-custom-domain-sample.png" alt-text="Sample custom domain for an app created by App Service Environment custom domain suffix feature.":::
+
+## Troubleshooting
+
+<!-- INPUT -->
+
+:::image type="content" source="./media/custom-domain-suffix/custom-domain-suffix-error.png" alt-text="Sample custom domain suffix error message.":::
+
+## Next steps
+
+> [!div class="nextstepaction"]
+> [Using an App Service Environment v3](using.md)
+
+> [!div class="nextstepaction"]
+> [App Service Environment v3 Networking](networking.md)
+
+> [!div class="nextstepaction"]
+> [Tutorial: Map an existing custom DNS name to Azure App Service](../app-service-web-tutorial-custom-domain.md)
