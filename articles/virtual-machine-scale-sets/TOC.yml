@@ -6,9 +6,6 @@
     href: flexible-virtual-machine-scale-sets.md
   - name: Orchestration modes
     href: virtual-machine-scale-sets-orchestration-modes.md
-    items: 
-    - name: API comparison
-      href: orchestration-modes-api-comparison.md
   - name: Scale Set FAQ
     href: virtual-machine-scale-sets-faq.yml
   expanded: true
@@ -60,15 +57,15 @@
         href: tutorial-autoscale-template.md
 - name: Scale
   items:
-  - name: Autoscale a scale set
+  - name: Autoscale
     href: virtual-machine-scale-sets-autoscale-overview.md
-    items:
-    - name: Use the Azure portal
-      href: virtual-machine-scale-sets-autoscale-portal.md
-    - name: Advanced autoscale
-      href: ../azure-monitor/autoscale/autoscale-virtual-machine-scale-sets.md
-    - name: Troubleshoot autoscale
-      href: virtual-machine-scale-sets-troubleshoot.md 
+  - name: Configure autoscale - Portal
+    href: virtual-machine-scale-sets-autoscale-portal.md
+  - name: Configure autoscale - ARM Template
+    href: ../azure-monitor/autoscale/autoscale-virtual-machine-scale-sets.md
+    maintainContext: true
+  - name: Troubleshoot autoscale
+    href: virtual-machine-scale-sets-troubleshoot.md 
   - name: Vertical scaling in a scale set
     href: virtual-machine-scale-sets-vertical-scale-reprovision.md
   - name: Scale-In Policy
@@ -80,12 +77,11 @@
   - name: Design considerations
     href: virtual-machine-scale-sets-design-overview.md
   - name: vCPU quotas
-    href: ../virtual-machines/windows/quotas.md
-  - name: Automatic instance repairs
-    href: virtual-machine-scale-sets-automatic-instance-repairs.md
+    href: ../virtual-machines/linux/quotas.md
     maintainContext: true
   - name: Availability Zones
     href: virtual-machine-scale-sets-use-availability-zones.md
+    maintainContext: true
   - name: Proximity Placement Groups
     items: 
     - name: Overview
@@ -94,6 +90,8 @@
       href: proximity-placement-groups.md
   - name: Capacity reservations
     href: ../virtual-machines/capacity-reservation-overview.md
+  - name: Automatic instance repairs
+    href: virtual-machine-scale-sets-automatic-instance-repairs.md
 - name: Cost optimization
   items: 
   - name: Azure Spot Virtual Machines
@@ -267,6 +265,8 @@
     maintainContext: true
 - name: Reference
   items:
+  - name: API comparison
+    href: orchestration-modes-api-comparison.md
   - name: Azure CLI
     href: /cli/azure/vmss
   - name: Azure PowerShell

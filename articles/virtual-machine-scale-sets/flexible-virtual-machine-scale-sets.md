@@ -11,11 +11,9 @@ ms.reviewer: jushiman
 ms.custom: mimckitt, devx-track-azurecli, vmss-flex
 ---
 
-# Flexible orchestration for virtual machine scale sets in Azure
+# What are virtual machine scale sets?
 
 **Applies to:** :heavy_check_mark: Flexible scale sets
-
-Virtual machine scale sets with Flexible orchestration allows you to combine the scalability of [virtual machine scale sets in Uniform orchestration mode](../virtual-machine-scale-sets/overview.md) with the regional availability guarantees of [availability sets](../virtual-machines/availability-set-overview.md). 
 
 Azure virtual machine scale sets let you create and manage a group of load balanced VMs. The number of VM instances can automatically increase or decrease in response to demand or a defined schedule. Scale sets provide the following key benefits:
 - Easy to create and manage multiple VMs
