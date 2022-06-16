@@ -38,7 +38,7 @@ There are four management APIs that can be leveraged to perform different action
 
 | API Type | Description | HTTP Method & Path |
 | ------------ | ------------- | ------------- |
-| Query | Retrieves existing resources by:<br>1) “resource-tree” resource type<br>2) the durable-id<br>3) query string parameters | Method 1: GET resource-tree/<product-durableId><br>Method 2: GET <resource-durableId><br>Method 3: GET <resourceType>?<query parameters> |
+| Query | Retrieves existing resources by:<br>1) “resource-tree” resource type<br>2) the durable-id<br>3) query string parameters | Method 1: `GET resource-tree/<product-durableId>`<br>Method 2: `GET <resource-durableId>`<br>Method 3: `GET <resourceType>?<query parameters>` |
 | Configure submit | Submits requests to create or update one or more resources. Upon successful processing, a jobId is returned, which can be used to retrieve the status of the request. This API type can be used to update the draft state as well as publish changes, sync private audiences, and modify the resource lifecycle state. | POST configure |
 | Configure status | Retrieves the status of a pending request via the jobId.| C3 R4 |
 | Configure status details | Column 2 row 4 | GET configure/<jobId>/status |
@@ -51,7 +51,7 @@ To update an existing resource, a typical workflow would be to:
 1. Make any necessary updates and then submit a configuration request (API type: Configure submit) 
 1. Check the status of the request (API type: Configure status & Configure status details)
 
-* This same workflow can be leveraged when creating new resources, but instead of retrieving resources (Step 1), use the [Resource API reference](resource-api-reference) table to ensure that you are leveraging the current schema for the resource type that you are creating.
+* This same workflow can be leveraged when creating new resources, but instead of retrieving resources (Step 1), use the [Resource API reference](#resource-api-reference) table to ensure that you are leveraging the current schema for the resource type that you are creating.
 To summarize, this image shows the typical calling pattern used to submit a configuration request, regardless of whether you are creating new or modifying an existing resource.
 
 :::image type="content" source="./media/product-ingestion-api/product-ingestion-api-workflow.png" alt-text="Image of a typical Product Ingestion API workflow.":::
@@ -64,7 +64,7 @@ To use the Product Ingestion API, you need to first acquire the following prereq
 - An Azure AD application
 - An Azure AD access token
 
-Follow these [onboarding instructions](submission-api-onboard) to get started. After this has been setup once, you can obtain an Azure AD access token to call the APIs with the Authorization header for each API method.
+Follow these [onboarding instructions](submission-api-onboard.md) to get started. After this has been setup once, you can obtain an Azure AD access token to call the APIs with the Authorization header for each API method.
 
 > [!NOTE]
 > Be sure to review any additional prerequisites specific to the offer type you’re managing by referring to the [API guidance per offer type](#api-guidance-per-offer-type) section.
@@ -75,9 +75,9 @@ You can create new resources, including new products, as part of a single config
 
 If you’re creating a new product, requirements will vary by product type. Therefore, you’ll need to provide different resources. You can reference the corresponding commercial marketplace documentation for the respective product type to ensure that you’re configuring the basic requirements in your request. 
 
-Similarly, to create a new resource within an existing product, you will also need to retrieve the latest schema of that specific resource type. Ensure that you provide the dependent resources as part of the configuration request by reviewing the [resource dependencies](#resource-dependencies).
+Similarly, to create a new resource within an existing product, you will also need to retrieve the latest schema of that specific resource type. Ensure that you provide the dependent resources as part of the configuration request by reviewing the [resource dependencies](#resource-references-and-dependencies).
 
-After configuring your resources, learn how to make a [configuration request](#configuration-request).
+After configuring your resources, learn how to make a [configuration request](#configuration-requests).
 
 ## Retrieve existing resource configurations
 
@@ -139,8 +139,8 @@ Retrieve a specific resource by using its [durable-id](#durable-id). Once a reso
 
 To find the durable-id for your resources, you can either:
 
-1. Use the ["resource-tree" method](#resource-tree-method) to fetch all resources within the product along with each of their respective durable IDs.
-1. Retrieve the [status of a completed resource configuration request](#status-of-a-completed-resource-configuration-request), which includes the durable IDs for all resources created or updated as a part of the request.
+1. Use the ["resource-tree" method](#method-1-resource-tree) to fetch all resources within the product along with each of their respective durable IDs.
+1. Retrieve the [status of a completed resource configuration request](#summary-of-a-completed-request), which includes the durable IDs for all resources created or updated as a part of the request.
 
 Remember, the “id” property is the durable-id for the respective resource.
 
@@ -183,7 +183,7 @@ You can submit updates by using the configure payload. This payload consists of 
 > [!TIP]
 > We recommend that you first retrieve existing resources before publishing updates to ensure that you are leveraging the latest configuration.
 
-After configuring your resources, learn how to make a [configuration request](#configuration-request).
+After configuring your resources, learn how to make a [configuration request](#configuration-requests).
 
 ## Configuration requests
 
@@ -296,7 +296,7 @@ If publishing to “preview” or “live”, include the submission resource in
 Commercial product types support a preview environment, and each update must be first published to preview before going live. You cannot publish directly to live.
 
 > [!IMPORTANT]
-> The exception to this is when making changes to the private audience of your plans. When [syncing updates to the private audience](#syncing-updates-to-the-private-audience) specifically, you can publish to preview and live at the same time.
+> The exception to this is when making changes to the private audience of your plans. When [syncing updates to the private audience](#sync-private-audience) specifically, you can publish to preview and live at the same time.
 
 There are two ways you can publish your resources to the preview environment. If any changes need to be made to the preview submission, simply do another GET request, make the necessary changes, and push the changes again. You don’t need to first go live with your initial changes.
 
