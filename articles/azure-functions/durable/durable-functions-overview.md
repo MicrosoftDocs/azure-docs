@@ -274,7 +274,7 @@ The automatic checkpointing that happens at the `Wait-ActivityFunction` call ens
 public String fanOutFanInOrchestrator(
         @DurableOrchestrationTrigger(name = "runtimeState") String runtimeState) {
     return OrchestrationRunner.loadAndRun(runtimeState, ctx -> {
-        List<?> batch = ctx.callActivity("F1", null, List.class).await();
+        List<?> batch = ctx.callActivity("F1", List.class).await();
 
         // Schedule each task to run in parallel
         List<Task<Integer>> parallelTasks = IntStream.range(0, batch.size())
@@ -303,7 +303,7 @@ The async HTTP API pattern addresses the problem of coordinating the state of lo
 
 ![A diagram of the HTTP API pattern](./media/durable-functions-concepts/async-http-api.png)
 
-Durable Functions provides **built-in support** for this pattern, simplifying or even removing the code you need to write to interact with long-running function executions. For example, the Durable Functions quickstart samples ([C#](durable-functions-create-first-csharp.md) and [JavaScript](quickstart-js-vscode.md)) show a simple REST command that you can use to start new orchestrator function instances. After an instance starts, the extension exposes webhook HTTP APIs that query the orchestrator function status. 
+Durable Functions provides **built-in support** for this pattern, simplifying or even removing the code you need to write to interact with long-running function executions. For example, the Durable Functions quickstart samples ([C#](durable-functions-create-first-csharp.md), [JavaScript](quickstart-js-vscode.md), [Python](quickstart-python-vscode.md), [PowerShell](quickstart-powershell-vscode.md), and [Java](quickstart-java.md)) show a simple REST command that you can use to start new orchestrator function instances. After an instance starts, the extension exposes webhook HTTP APIs that query the orchestrator function status. 
 
 The following example shows REST commands that start an orchestrator and query its status. For clarity, some protocol details are omitted from the example.
 
@@ -916,9 +916,7 @@ You can get started with Durable Functions in under 10 minutes by completing one
 * [JavaScript using Visual Studio Code](quickstart-js-vscode.md)
 * [Python using Visual Studio Code](quickstart-python-vscode.md)
 * [PowerShell using Visual Studio Code](quickstart-powershell-vscode.md)
-
-> [!NOTE]
-> A quickstart for Java is coming soon.
+* [Java using Maven](quickstart-java.md)
 
 In these quickstarts, you locally create and test a "hello world" durable function. You then publish the function code to Azure. The function you create orchestrates and chains together calls to other functions.
 
