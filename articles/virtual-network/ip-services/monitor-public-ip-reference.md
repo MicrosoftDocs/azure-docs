@@ -25,15 +25,7 @@ For more information, see a list of [all platform metrics supported in Azure Mon
 
 ## Metric Dimensions
 
-<!-- REQUIRED. Please  keep headings in this order -->
-<!-- If you have metrics with dimensions, outline it here. If you have no dimensions, say so.  Questions email azmondocs@microsoft.com -->
-
 For more information on what metric dimensions are, see [Multi-dimensional metrics](/azure/azure-monitor/platform/data-platform-metrics#multi-dimensional-metrics).
-
-
-Public IP Address does not have any metrics that contain dimensions.
-
-*OR*
 
 Public IP Address has the following dimensions associated with its metrics.
 
@@ -71,16 +63,9 @@ For more information, see [Azure Monitor Logs table reference organized by resou
 <!-- REQUIRED. Please keep heading in this order -->
 <!-- If your service uses the AzureDiagnostics table in Azure Monitor Logs / Log Analytics, list what fields you use and what they are for. Azure Diagnostics is over 500 columns wide with all services using the fields that are consistent across Azure Monitor and then adding extra ones just for themselves.  If it uses service specific diagnostic table, refers to that table. If it uses both, put both types of information in. Most services in the future will have their own specific table. If you have questions, contact azmondocs@microsoft.com -->
 
-Public IP Address uses the [Azure Diagnostics](/azure/azure-monitor/reference/tables/azurediagnostics) table and the [TODO whatever additional] table to store resource log information. The following columns are relevant.
+Public IP Address uses the [Azure Diagnostics](/azure/azure-monitor/reference/tables/azurediagnostics) table to store resource log information. The following columns are relevant.
 
 **Azure Diagnostics**
-
-| Property | Description |
-|:--- |:---|
-|  |  |
-|  |  |
-
-**[TODO Service-specific table]**
 
 | Property | Description |
 |:--- |:---|
