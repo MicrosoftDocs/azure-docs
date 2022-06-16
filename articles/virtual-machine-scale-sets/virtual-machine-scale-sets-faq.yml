@@ -745,6 +745,7 @@ sections:
           You can call `ListVMInstanceViews` by doing a REST API `GET` on the following resource URI:
 
           /subscriptions/<subscription_id>/resourceGroups/<resource_group_name>/providers/Microsoft.Compute/virtualMachineScaleSets/<scaleset_name>/virtualMachines?$expand=instanceView&$select=instanceView
+          Note that fault domain is not returned when the scale set uses max spreading (platformFaultDomainCount = 1), because there is no guarantee as to how many fault domains would be used with this setting.
 
       - question: |
           Can I pass different extension arguments to different VMs in a virtual machine scale set?
