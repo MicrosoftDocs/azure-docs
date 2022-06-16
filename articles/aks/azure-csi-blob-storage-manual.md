@@ -69,33 +69,15 @@ The output of the command resembles the following example:
 MC_myResourceGroup_myAKSCluster_eastus
 ```
 
+Next, create a container for storing blobs following the steps in the [Manage blob storage][manage-blob-storage] to authorize access and then create the container.
+
 ## Mount Blob storage as a volume using NFS
 
 Mounting blob storage using the NFS v3 protocol does not authentication using an account key. Your AKS cluster needs to reside in the same or peered virtual network as the agent node. The only way to secure the data in your storage account is by using a virtual network and other network security settings. For more information on how to setup NFS access to your storage account, see [Mount Blob Storage by using the Network File System (NFS) 3.0 protocol](../storage/blobs/network-file-system-protocol-support-how-to.md).
 
 The following example demonstrates how to mount a Blob storage container using the NFS protocol.
 
-1. Create a `storageclass-blob-nfs-container.yaml` file. Under `storageClass`, you specify `protocol: nfs`. For example:
-
-    ```yml
-    apiVersion: storage.k8s.io/v1
-    kind: StorageClass
-    metadata:
-      name: blob-nfs
-    provisioner: blob.csi.azure.com
-    parameters:
-      protocol: nfs
-    mountOptions:
-    - nconnect=8  # only supported on linux kernel version >= 5.3
-    ```
-
-2. Run the following command to create the storage class using the `kubectl create` command referencing the YAML file created earlier:
-
-    ```bash
-    kubectl create -f storageclass-blob-nfs-existing-container.yaml
-    ```
-
-3. Create a `pv-blob-nfs-container.yaml` file with a *PersistentVolume*. For example:
+1. Create a `pv-blob-nfs-container.yaml` file with a *PersistentVolume*. For example:
 
     ```yml
     ---
@@ -118,10 +100,6 @@ The following example demonstrates how to mount a Blob storage container using t
           containers:
             - name: statefulset-blob
               image: mcr.microsoft.com/oss/nginx/nginx:1.17.3-alpine
-              command:
-                - "/bin/sh"
-                - "-c"
-                - while true; do echo $(date) >> /mnt/blob/outfile; sleep 1; done
               volumeMounts:
                 - name: persistent-storage
                   mountPath: /mnt/blob
@@ -142,7 +120,7 @@ The following example demonstrates how to mount a Blob storage container using t
                 storage: 100Gi
     ```
 
-4. Run the following command to create the persistent volume using the `kubectl create` command referencing the YAML file created earlier:
+2. Run the following command to create the persistent volume using the `kubectl create` command referencing the YAML file created earlier:
 
     ```bash
     kubectl create -f pv-blobfuse-container.yaml
