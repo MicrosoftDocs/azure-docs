@@ -96,6 +96,7 @@ Operations on managed identities can be performed by using an Azure Resource Man
 
 ## Next steps
 
+* [Developer introduction and guidelines](overview-for-developers.md)
 * [Use a Windows VM system-assigned managed identity to access Resource Manager](tutorial-windows-vm-access-arm.md)
 * [Use a Linux VM system-assigned managed identity to access Resource Manager](tutorial-linux-vm-access-arm.md)
 * [How to use managed identities for App Service and Azure Functions](../../app-service/overview-managed-identity.md)
