@@ -7,7 +7,7 @@ author: barclayn
 manager: rkarlin
 ms.author: barclayn
 ms.topic: tutorial
-ms.date: 05/09/2022
+ms.date: 06/16/2022
 # Customer intent: As an enterprise, we want to enable customers to manage information about themselves by using verifiable credentials.
 
 ---
@@ -96,7 +96,7 @@ To set up Azure AD Verifiable Credentials, follow these steps:
 
     1. **Key vault**: Select the key vault that you created earlier.
 
-    1. Under **Advanced**, you have the option to choose the **trust system** for your tenant. You may choose from either **Web** or **ION**. Web means your tenant uses [did:web](https://w3c-ccg.github.io/did-method-web/) as the did method and ION means it uses [did:ion](https://identity.foundation/ion/).
+    1. Under **Advanced**, you may choose the **trust system** that you want to use for your tenant. You can choose from either **Web** or **ION**. Web means your tenant uses [did:web](https://w3c-ccg.github.io/did-method-web/) as the did method and ION means it uses [did:ion](https://identity.foundation/ion/).
             
         >[!IMPORTANT]
         > The only way to change the trust system is to opt-out of verifiable credentials and redo the onboarding.
@@ -157,12 +157,13 @@ To add the required permissions, follow these steps:
 1. Notice that there are two sections:
     1. Website ID registration
     1. Domain verification.
-1. Click on each section and download the JSON file under each.
-1. Crete a website that you can use to distribute the files. If you specified **https://contoso.com** as your domain, the URLs for each of the files would be as shown below :
+1. Select on each section and download the JSON file under each.
+1. Crete a website that you can use to distribute the files. If you specified **https://contoso.com** as your domain, the URLs for each of the files would look as shown below:
     - https://contoso.com/.well-known/did.json
     - https://contoso.com/.well-known/did-configuration.json.
 
 Once that you have successfully completed the verification steps, you are ready to continue to the next tutorial.
+
 ## Next steps
 
 - [Learn how to issue Azure AD Verifiable Credentials from a web application](verifiable-credentials-configure-issuer.md).
