@@ -1,5 +1,5 @@
 ---
-title: Passwordless sign-in with the Microsoft ENtra Authenticator app - Azure Active Directory
+title: Passwordless sign-in with the Microsoft Entra Authenticator app - Azure Active Directory
 description: Enable passwordless sign-in to Azure AD using the Microsoft Entra Authenticator app 
 
 services: active-directory
@@ -31,7 +31,7 @@ People who enabled phone sign-in from Microsoft Authenticator see a message that
 
 ## Prerequisites
 
-To use passwordless phone sign-in with Microsoft Authenticator, the following prerequisites must be met:
+To use passwordless phone sign in with Microsoft Authenticator, the following prerequisites must be met:
 
 - Recommended: Azure AD Multi-Factor Authentication, with push notifications allowed as a verification method. Push notifications to your smartphone or tablet help Microsoft Authenticator to prevent unauthorized access to accounts and stop fraudulent transactions. Microsoft Authenticator can either perform traditional MFA push notifications to a device that a user must approve or deny, or it can perform passwordless authentication that requires a user to type a matching number. Microsoft Authenticator automatically generates codes when set up to do push notifications so a user has a backup sign-in method even if their device doesn't have connectivity. 
 - Latest version of Authenticator installed on devices running iOS 8.0 or greater, or Android 6.0 or greater.
@@ -84,11 +84,11 @@ An organization can direct its users to sign in with their phones, without using
 A user can start to utilize passwordless sign-in after all the following actions are completed:
 
 - An admin has enabled the user's tenant.
-- The user has updated her Authenticator app to enable phone sign-in.
+- The user has added Microsoft Authenticator as a sign-in method.
 
 The first time a user starts the phone sign-in process, the user performs the following steps:
 
-1. Enters her name at the sign-in page.
+1. Enters their name at the sign-in page.
 2. Selects **Next**.
 3. If necessary, selects **Other ways to sign in**.
 4. Selects **Approve a request on my Authenticator app**.
@@ -120,9 +120,9 @@ When a user has enabled any passwordless credential, the Azure AD login process 
 
 This logic generally prevents a user in a hybrid tenant from being directed to Active Directory Federated Services (AD FS) for sign-in verification. However, the user retains the option of clicking **Use your password instead**.
 
-### Azure MFA server
+### On-premises users
 
-An end user can be enabled for multifactor authentication (MFA) through an on-premises Azure MFA server. The user can still create and utilize a single passwordless phone sign-in credential.
+An end user can be enabled for multifactor authentication (MFA) through an on-premises. The user can still create and utilize a single passwordless phone sign-in credential.
 
 If the user attempts to upgrade multiple installations (5+) of Microsoft Authenticator with the passwordless phone sign-in credential, this change might result in an error.
 
