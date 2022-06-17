@@ -60,6 +60,7 @@ Applications based on larger container images like Windows Server Core can see s
 
 > [!NOTE]
 > The update command might not work if the Azure Container Group is attached to an Azure Storage profile.
+
 ## Properties that require container delete
 
 Not all container group properties can be updated. For example, to change the restart policy of a container, you must first delete the container group, then create it again.
