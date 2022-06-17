@@ -112,7 +112,7 @@
           },
           {
             "source_path_from_root": "/articles/azure-arc/data/reference/reference-az-arcdata-dc-debug.md",
-            "redirect_url": "",
+            "redirect_url": "/cli/azure/arcdata/dc/debug",
             "redirect_document_id": false
           },
           {
