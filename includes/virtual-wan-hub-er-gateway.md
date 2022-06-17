@@ -5,7 +5,7 @@ ms.date: 05/25/2022
 ms.service: virtual-wan
 ms.topic: include
 ---
-1. Select the **ExpressRoute tab**. Click **Yes** to reveal settings and fill out the field. For information about gateway scale units, see the [FAQ](../articles/virtual-wan/virtual-wan-faq.md#what-are-virtual-wan-gateway-scale-units).
+1. Select **ExpressRoute** to open the ExpressRoute page. Click **Yes** to reveal ExpressRoute configuration settings. Fill out the necessary fields. For information about gateway scale units, see the [FAQ](../articles/virtual-wan/virtual-wan-faq.md#what-are-virtual-wan-gateway-scale-units).
 
    :::image type="content" source="media/virtual-wan-hub-er-gateway/expressroute.png" alt-text="Screenshot shows the ExpressRoute tab where you can enter values.":::
 
