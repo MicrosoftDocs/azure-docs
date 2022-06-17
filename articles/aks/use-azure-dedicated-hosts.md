@@ -81,6 +81,10 @@ Not all host SKUs are available in all regions, and availability zones. You can 
 az vm list-skus -l eastus  -r hostGroups/hosts  -o table
 ```
 
+> [!NOTE]
+> First, when using host group, the nodepool fault domain count is always the same as the host group fault domain count. In order to use cluster auto-scaling to work with ADH and AKS, please make sure you host group fault domain count and capacity is enough.
+> Secondly, only change fault domain count from the default of 1 to any other number if you know what they are doing as a misconfiguration could lead to a unscalable configuration.
+
 ## Create a Host Group
 
 Now create a dedicated host in the host group. In addition to a name for the host, you are required to provide the SKU for the host. Host SKU captures the supported VM series as well as the hardware generation for your dedicated host.
