@@ -22,6 +22,9 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
 ## June 2022
 
+* [Backup VMs residing on Azure NetApp Files datastores for Azure VMware Solution with Cloud Backup Service for VMs](../azure-vmware/install-cloud-backup.md)
+    [Azure NetApp Files datastores for Azure VMware Solution](../azure-vmware/attach-azure-netapp-files-to-azure-vmware-solution-hosts) is now in public preview. You can [Back up Azure NetApp Files datastores and VMs using Cloud Backup](../azure-vmware/backup-azure-netapp-files-datastores-vms.md). This virtual appliance installs in the AVS cluster and provides policy based automated backup of VMs integrated with Azure NetApp Files snapshot technology for fast backups and restores of VMs, groups of VMs (organized in resource groups) or complete datastores. 
+
 * [Disaster Recovery with Azure NetApp Files, JetStream DR and Azure VMware Solution](../azure-vmware/deploy-disaster-recovery-using-jetstream.md#disaster-recovery-with-azure-netapp-files-jetstream-dr-and-azure-vmware-solution)
 
     Disaster Recovery to cloud is a resilient and cost-effective way of protecting the workloads against site outages and data corruption events like ransomware. Leveraging the VMware VAIO framework, on-premise VMware workloads can be replicated to Azure Blob storage and recovered with minimal or close to no data loss and near-zero Recovery Time Objective (RTO). JetStream DR can now seamlessly recover workloads replicated from on-premises to Azure VMware Solution to Azure NetApp Files. JetStream DR enables cost-effective disaster recovery by consuming minimal resources at the DR site and using cost-effective cloud storage. JetStream DR automates recovery to Azure NetApp Files datastores using Azure Blob Storage. It can recover independent VMs or groups of related VMs into the recovery site infrastructure according to runbook settings. It also provides point-in-time recovery for ransomware protection.
