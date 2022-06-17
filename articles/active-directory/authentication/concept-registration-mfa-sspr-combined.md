@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 05/24/2022
+ms.date: 06/17/2022
 
 ms.author: justinha
 author: justinha
@@ -38,6 +38,8 @@ Azure AD combined security information registration is available for Azure US Go
 > [!IMPORTANT]
 > Users that are enabled for both the original preview and the enhanced combined registration experience see the new behavior. Users that are enabled for both experiences see only the My Account experience. The *My Account* aligns with the look and feel of combined registration and provides a seamless experience for users. Users can see My Account by going to [https://myaccount.microsoft.com](https://myaccount.microsoft.com).
 >
+> You can set **Require users to register when signing in** to **Yes** to require all users to register when signing in, ensuring that all users are protected.
+>
 > You might encounter an error message while trying to access the Security info option, such as, "Sorry, we can't sign you in". Confirm that you don't have any configuration or group policy object that blocks third-party cookies on the web browser.
 
 *My Account* pages are localized based on the language settings of the computer accessing the page. Microsoft stores the most recent language used in the browser cache, so subsequent attempts to access the pages continue to render in the last language used. If you clear the cache, the pages re-render.
@@ -68,7 +70,7 @@ Combined registration supports the following authentication methods and actions:
 
 Users can set one of the following options as the default Multi-Factor Authentication method:
 
-- Microsoft Authenticator – push notification
+- Microsoft Authenticator – push notification or passwordless
 - Authenticator app or hardware token – code
 - Phone call
 - Text message
