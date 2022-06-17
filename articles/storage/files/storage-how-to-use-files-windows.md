@@ -108,7 +108,7 @@ You have now mounted your Azure file share.
 1. When you're ready to dismount the Azure file share, right-click on the entry for the share under the **Network locations** in File Explorer and select **Disconnect**.
 
 ### Accessing share snapshots from Windows
-If you've taken a share snapshot, either manually or automatically through a script or service like Azure Backup, you can view previous versions of a share, a directory, or a particular file from file share on Windows. You can take a share snapshot using [Azure PowerShell](./storage-how-to-use-files-portal.md), [Azure CLI](./storage-how-to-use-files-portal.md), or the [Azure portal](storage-how-to-use-files-portal.md).
+If you've taken a share snapshot, either manually or automatically through a script or service like Azure Backup, you can view previous versions of a share, a directory, or a particular file from a file share on Windows. You can take a share snapshot using the [Azure portal](storage-files-quick-create-use-windows.md#create-a-share-snapshot), [Azure PowerShell](/powershell/module/az.storage/new-azrmstorageshare?view=azps-8.0.0), or [Azure CLI](/cli/azure/storage/share?view=azure-cli-latest#az-storage-share-snapshot).
 
 #### List previous versions
 Browse to the item or parent item that needs to be restored. Double-click to go to the desired directory. Right-click and select **Properties** from the menu.

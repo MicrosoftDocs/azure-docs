@@ -7,7 +7,7 @@ ms.custom: references_regions
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: overview
-ms.date: 04/14/2022
+ms.date: 06/17/2022
 ---
 
 # Release notes - Azure Database for PostgreSQL - Flexible Server
@@ -16,10 +16,18 @@ ms.date: 04/14/2022
 
 This page provides latest news and updates regarding feature additions, engine versions support, extensions, and any other announcements relevant for Flexible Server - PostgreSQL.
 
-## Release" June 2022
+## Release: June 2022
 
+* Support for [Same-zone high availability](concepts-high-availability.md) deployment option. 
+* Support for choosing [standby availability zone](./how-to-manage-high-availability-portal.md) when deploying zone-redundant high availability.
 * Support for [extensions](concepts-extensions.md) PLV8, pgrouting with new servers<sup>$</sup> 
-* Version updates for [extension](concepts-extensions.md) PostGIS
+* Version updates for [extension](concepts-extensions.md) PostGIS.
+
+<sup>**$**</sup> New servers get these features automatically. In your existing servers, these features are enabled during your server's future maintenance window.
+
+## Release: May 2022
+
+* Support for [new regions](overview.md#azure-regions) Jio India West, Canada East.
 
 ## Release: April 2022
 
