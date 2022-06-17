@@ -4,7 +4,7 @@ titleSuffix: Azure Kubernetes Service
 description: Learn how to dynamically create a persistent volume with Azure Blob storage for use with multiple concurrent pods in Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
-ms.date: 06/16/2022
+ms.date: 06/17/2022
 
 ---
 
@@ -47,35 +47,11 @@ If you don't have a storage account that supports the NFS v3 protocol, see [Use 
 |--- | **Following parameters are only for NFS protocol** | --- | --- |--- |
 |mountPermissions | Specify mounted folder permissions |The default is `0777`. If set to `0`, driver will not perform `chmod` after mount. | `0777` | No |
 
-## Create a storage class
-
-A storage class is used to define how an Azure Blob storage container is created. A storage account is automatically created in the node resource group for use with the storage class to hold the Azure Blob storage container.
-
-1. Create a file named azure-blob-nfs-sc.yaml and copy in the following example manifest:
-
-    ```yml
-    apiVersion: storage.k8s.io/v1
-    kind: StorageClass
-    metadata:
-      name: blob-nfs
-    provisioner: blob.csi.azure.com
-    parameters:
-      protocol: nfs
-    mountOptions:
-        - nconnect=8  # only supported on linux kernel version >= 5.3
-    ```
-
-2. Create the storage class with the [kubectl create][kubectl-create] command:
-
-    ```bash
-    kubectl create -f azure-blob--nfs-sc.yaml
-    ```
-
 ## Create a persistent volume claim
 
 A persistent volume claim (PVC) uses the storage class object to dynamically provision an Azure Blob storage container. The following YAML can be used to create a persistent volume claim 100 GB in size with ReadWriteMany access. For more information on access modes, see the [Kubernetes persistent volume][kubernetes-volumes] documentation.
 
-1. Create a file named azure-blob-nfs-pvc.yaml and copy in the following YAML. Make sure that the *storageClassName* matches the storage class created in the last step:
+1. Create a file named `azure-blob-nfs-pvc.yaml` and copy in the following YAML. Make sure that the *storageClassName* matches the storage class created in the last step:
 
     ```yml
     apiVersion: apps/v1

@@ -4,7 +4,7 @@ titleSuffix: Azure Kubernetes Service
 description: Learn how to manually create a persistent volume with Azure Blob storage for use with multiple concurrent pods in Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
-ms.date: 06/16/2022
+ms.date: 06/17/2022
 
 ---
 
@@ -77,7 +77,7 @@ Mounting blob storage using the NFS v3 protocol does not authentication using an
 
 The following example demonstrates how to mount a Blob storage container using the NFS protocol.
 
-1. Create a `pv-blob-nfs-container.yaml` file with a *PersistentVolume*. For example:
+1. Create a `statefulset-nfs.yaml` file with a *PersistentVolume*. For example:
 
     ```yml
     ---
@@ -144,7 +144,6 @@ The following example demonstrates how to mount a Blob storage container using B
       resourceGroup: EXISTING_RESOURCE_GROUP_NAME
       storageAccount: EXISTING_STORAGE_ACCOUNT_NAME
       containerName: EXISTING_CONTAINER_NAME
-      server: SERVER_ADDRESS  # optional, provide a new address to replace default "accountname.blob.core.windows.net"
     reclaimPolicy: Retain  # if set as "Delete" container would be removed after pvc deletion
     volumeBindingMode: Immediate
     allowVolumeExpansion: true
@@ -188,7 +187,7 @@ The following example demonstrates how to mount a Blob storage container using B
     kubectl create -f pv-blobfuse-container.yaml
     ```
 
-### Authenticate using an Azure secret or SAS tokens
+### Authenticate using an Azure access key or SAS tokens
 
 Kubernetes needs credentials to access the Blob storage container created earlier. These credentials are stored in a Kubernetes secret, which is referenced when you create a Kubernetes pod.
 
@@ -204,7 +203,7 @@ Kubernetes needs credentials to access the Blob storage container created earlie
 
     # [SAS tokens](#tab/sas-tokens)
 
-    The following example creates secret named *azure-secret* and populates the *azurestorageaccountname* and *azurestorageaccountsastoken*. You need to provide the account name and shared access signature from an existing Azure storage account.
+    The following example creates a secret named *azure-secret* and populates the *azurestorageaccountname* and *azurestorageaccountsastoken*. You need to provide the account name and shared access signature from an existing Azure storage account.
 
     ```bash
     kubectl create secret generic azure-secret --from-literal azurestorageaccountname=NAME --from-literal azurestorageaccountsastoken

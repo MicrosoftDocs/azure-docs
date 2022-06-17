@@ -3,7 +3,7 @@ title: Use Container Storage Interface (CSI) driver for Azure Blob storage on Az
 description: Learn how to use the Container Storage Interface (CSI) driver for Azure Blob storage (preview) in an Azure Kubernetes Service (AKS) cluster.
 services: container-service
 ms.topic: article
-ms.date: 06/16/2021
+ms.date: 06/17/2021
 author: mgoedtel
 
 ---
@@ -20,7 +20,7 @@ Mounting Azure Blob storage as a file system into a container or pod, enables yo
 * Images, documents, and streaming video or audio
 * Disaster recovery data
 
-The data on the object storage can be accessed by applications using BlobFuse or Network File System (NFS) 3.0 protocol. Before the introduction of the Azure Blob storage CSI driver (preview), the only option was to manually install an unsupported open-source driver to access Blob storage from your application running on AKS.
+The data on the object storage can be accessed by applications using BlobFuse or Network File System (NFS) 3.0 protocol. Before the introduction of the Azure Blob storage CSI driver (preview), the only option was to manually install an unsupported open-source driver to access Blob storage from your application running on AKS. When the Azure Blob storage CSI driver (preview) is enabled on AKS, there are two built-in storage classes: *blob-fuse* and *blob-nfs*.
 
 To create an AKS cluster with CSI drivers support, see [CSI drivers on AKS][csi-drivers-aks]. To learn more about the differences in access between each of the Azure storage types using the NFS protocol, see [Compare access to Azure Files, Blob Storage, and Azure NetApp Files with NFS][compare-access-with-nfs].
 
@@ -29,6 +29,32 @@ To create an AKS cluster with CSI drivers support, see [CSI drivers on AKS][csi-
 Azure Blob storage CSI driver (preview) supports the following features:
 
 - BlobFuse and Network File System (NFS) version 3.0 protocol
+
+## Before you begin
+
+The Azure CLI version 2.xx.xx or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
+
+## Install the Azure CLI aks-preview extension
+
+To use the Azure CLI aks-preview extension for enabling the Blob storage CSI driver (preview) on your AKS cluster, run the following command to install it:
+
+```azurecli
+az extension add --name aks-preview
+```
+
+To upgrade the extension to the latest version, run the following command:
+
+```azurecli
+az extension update --name aks-preview
+```
+
+## Enable Blob storage CSI driver (preview) using the Azure CLI
+
+To enable the CSI driver (preview) using the Azure CLI, run the following command:
+
+```azurecli
+az feature register -name EnableBlobCSIDriver --namespace Microsoft.ContainerService
+```
 
 ## Use a persistent volume with Azure Blob storage
 
@@ -47,7 +73,7 @@ A storage class is used to define how an Azure Blob storage container is created
 
 When you use storage CSI drivers on AKS, there are two additional built-in StorageClasses that use the Azure Blob CSI storage driver (preview).
 
-The reclaim policy on both storage classes ensures that the underlying Azure Blob storage is deleted when the respective PV is deleted. The storage classes also configure the container to be expandable, you just need to edit the persistent volume claim (PVC) with the new size.
+The reclaim policy on both storage classes ensures that the underlying Azure Blob storage is deleted when the respective PV is deleted. The storage classes also configure the container to be expandable by default, as the `set allowVolumeExpansion` parameter is set to **true**.
 
 To use these storage classes, create a PVC and respective pod that references and uses them. A PVC is used to automatically provision storage based on a storage class. A PVC can use one of the pre-created storage classes or a user-defined storage class to create an Azure Blob storage container for the desired SKU, size, and protocol to communicate with it. When you create a pod definition, the PVC is specified to request the desired storage.
 
@@ -168,6 +194,7 @@ storageclass.storage.k8s.io/blob-fuse created
 [csi-specification]: https://github.com/container-storage-interface/spec/blob/master/spec.md
 
 <!-- LINKS - internal -->
+[install-azure-cli]: /cli/azure/install-azure-cli
 [azure-disk-volume]: azure-disk-volume.md
 [azure-files-pvc]: azure-files-dynamic-pv.md
 [premium-storage]: ../virtual-machines/disks-types.md
