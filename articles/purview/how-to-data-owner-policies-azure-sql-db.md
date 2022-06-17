@@ -114,8 +114,17 @@ SELECT * FROM sys.dm_server_external_policy_actions
 -- Lists the roles that are part of a policy published to this server
 SELECT * FROM sys.dm_server_external_policy_roles
 
+-- Lists the links between the roles and actions, could be used to join the two
+SELECT * FROM sys.dm_server_external_policy_role_actions
+
+-- Lists all Azure AD principals that were given connect permissions  
+SELECT * FROM sys.dm_server_external_policy_principals
+
 -- Lists Azure AD principals assigned to a given role on a given resource scope
 SELECT * FROM sys.dm_server_external_policy_role_members
+
+-- Lists Azure AD principals, joined with roles, joined with their data actions
+SELECT * FROM sys.dm_server_external_policy_principal_assigned_actions
 ```
 
 ## Additional information
