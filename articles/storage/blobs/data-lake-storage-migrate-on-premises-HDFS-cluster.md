@@ -169,6 +169,7 @@ Follow these steps to copy data via the REST APIs of Blob/Object storage to your
     -Dmapreduce.map.java.opts=-Xmx8196m \ 
     -m 4 \ 
     -update \ 
+    /data/bigfile wasb://hadoop@mystorageaccount.blob.core.windows.net/bigfile
     ```
 
 ## Ship the Data Box to Microsoft
