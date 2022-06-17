@@ -43,7 +43,7 @@ Migrating from self-hosted gateway v2 requires a few small steps to be done:
 
 Change the image tag in your deployment scripts to use `2.0.0` or above.
 
-Alternatively, choose one of our other [container image tags](articles/api-management/self-hosted-gateway-overview.md#container-images).
+Alternatively, choose one of our other [container image tags](self-hosted-gateway-overview.md#container-images).
 
 You can find a full list of available tags [here](https://mcr.microsoft.com/v2/azure-api-management/gateway/tags/list) or find us on [Docker Hub](https://hub.docker.com/_/microsoft-azure-api-management-gateway).
 
