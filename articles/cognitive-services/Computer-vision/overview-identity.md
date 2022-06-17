@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: overview
-ms.date: 02/28/2022
+ms.date: 06/13/2022
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: facial recognition, facial recognition software, facial analysis, face matching, face recognition app, face search by image, facial recognition search
@@ -30,9 +30,12 @@ This documentation contains the following types of articles:
 * The [conceptual articles](./concept-face-detection.md) provide in-depth explanations of the service's functionality and features.
 * The [tutorials](./enrollment-overview.md) are longer guides that show you how to use this service as a component in broader business solutions.
 
+For a more structured approach, follow a Microsoft Learn module for Face.
+* [Detect and analyze faces with the Face service](/learn/modules/detect-analyze-faces/)
+
 ## Example use cases
 
-**Identity verification**: Verify someone's identity against a government-issued ID card like a passport or driver's license or other enrollment image. You can use this verification to grant access to digital or physical services or recover an account. Specific access scenarios include opening a new account, verifying a worker, or administering an online assessment. Identity verification can be done once when a person is onboarded, and repeated when they access a digital or physical service.
+**Identity verification**: Verify someone's identity against a government-issued ID card like a passport or driver's license or other enrollment image. You can use this verification to grant access to digital or physical services or to recover an account. Specific access scenarios include opening a new account, verifying a worker, or administering an online assessment. Identity verification can be done once when a person is onboarded, and repeated when they access a digital or physical service.
 
 **Touchless access control**: Compared to today’s methods like cards or tickets, opt-in face identification enables an enhanced access control experience while reducing the hygiene and security risks from card sharing, loss, or theft. Facial recognition assists the check-in process with a human in the loop for check-ins in airports, stadiums, theme parks, buildings, reception kiosks at offices, hospitals, gyms, clubs, or schools.
 
