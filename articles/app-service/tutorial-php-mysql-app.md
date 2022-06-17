@@ -24,7 +24,7 @@ zone_pivot_groups: app-service-platform-windows-linux
 
 ::: zone-end
 
-:::image type="content" source="./media/tutorial-php-mysql-app/complete-checkbox-published.png" alt-text="Screenshot of a PHP app example titled Task List.":::
+:::image type="content" source="./media/tutorial-php-mysql-app/php-mysql-in-azure.png" alt-text="Screenshot of the Azure app example titled Task List showing new tasks added.":::
 
 In this tutorial, you learn how to:
 
@@ -431,8 +431,6 @@ Congratulations, you're running a data-driven PHP app in Azure App Service.
 
 ## Stream diagnostic logs
 
-::: zone pivot="platform-windows"  
-
 While the PHP application runs in Azure App Service, you can get the console logs piped to your terminal. That way, you can get the same diagnostic messages to help you debug application errors.
 
 To start log streaming, use the [`az webapp log tail`](/cli/azure/webapp/log#az-webapp-log-tail) command.
@@ -445,11 +443,10 @@ Once log streaming has started, refresh the Azure app in the browser to get some
 
 To stop log streaming at any time, enter `Ctrl`+`C`.
 
-::: zone-end
-
 ::: zone pivot="platform-linux"
 
-[!INCLUDE [Access diagnostic logs](../../includes/app-service-web-logs-access-no-h.md)]
+> [!NOTE]
+> You can also inspect the log files from the browser at `https://<app-name>.scm.azurewebsites.net/api/logs/docker`.
 
 ::: zone-end
 
