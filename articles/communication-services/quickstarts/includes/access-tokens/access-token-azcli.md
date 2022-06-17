@@ -27,7 +27,7 @@ You can get your connection string by running the command below.
 az communication list-key --name "<communicationName>" --resource-group "<resourceGroup>"
 ```
 
-For more information on ACS resources and connection strings, see [Create an Azure Communication Services resources](../quickstarts/create-communication-resource.md)
+For more information on ACS resources and connection strings, see [Create an Azure Communication Services resources](../../create-communication-resource.md)
 
 ### Store your connection string in an environment variable
 
