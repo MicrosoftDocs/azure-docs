@@ -59,229 +59,202 @@ This article looks at the data migration, ETL and loading aspects of migration f
 
 ## Data migration considerations
 
-### Initial decisions regarding data migration from Oracle
+### Initial decisions for data migration from Oracle
 
 When migrating from an Oracle environment, consider the following migration questions.
 
-- Should unused table structures be migrated or not?
+- Should unused table structures be migrated?
 
 - What's the best migration approach to minimize risk and impact for users?
 
-- Migrating data marts -- stay physical or go virtual?
+- When migrating data marts: stay physical or go virtual?
 
 The next sections discuss these points within the context of a migration from Oracle.
 
 #### Migrate unused tables?
 
-In legacy systems it is not unusual for tables to become redundant over time -- these don't need to be migrated in most cases
+>[!TIP]
+>In legacy systems, it's not unusual for tables to become redundant over time&mdash;these don't need to be migrated in most cases.
 
-It generally makes sense to only migrate the tables that are actually in use in the existing system. Tables which are not active can be archived rather than migrated so that the data is available if required in future. It's best to use system metadata and log files to determine which tables are in use, rather than documentation as documentation may be out of date.
+It makes sense to only migrate tables that are in use. Tables that aren't active can be archived rather than migrated, so that the data is available if needed in the future. It's best to use system metadata and log files rather than documentation to determine which tables are in use, as documentation can be out of date.
 
-Oracle system catalog tables and logs contain information which can be used to determine when a given table was last accessed -- which in turn can be used to decide whether or not a table is a candidate for migration.
+Oracle system catalog tables and logs contain information that can be used to determine when a given table was last accessed&mdash;which in turn can be used to decide whether or not a table is a candidate for migration.
 
-If you have licensed the Oracle Diagnostic Pack, then you will have access to Active Session History which samples data over time to let you know which queries have been running within a specific given time window. You can therefore query the data collected in the Active Session History to determine what tables have been used inside a given time window. An example of such a query is shown below:
+If you have licensed the Oracle Diagnostic Pack, then you have access to Active Session History, which samples data over time and can be used to determine when a table was last accessed. 
 
-SELECT  du.username,         s.sql_text,         MAX(ash.sample_time) AS last_access ,         sp.object_owner ,         sp.object_name ,         sp.object_alias as aliased_as ,         sp.object_type ,         COUNT(\*) AS access_count FROM    v\$active_session_history ash         JOIN v\$sql s ON ash.force_matching_signature = s.force_matching_signature         LEFT JOIN v\$sql_plan sp ON s.sql_id = sp.sql_id         JOIN DBA_USERS du ON ash.user_id = du.USER_ID WHERE   ash.session_type = \'FOREGROUND\'         AND ash.SQL_ID IS NOT NULL         AND sp.object_name IS NOT NULL         AND ash.user_id \<\> 0 GROUP BY du.username,         s.sql_text,         sp.object_owner,         sp.object_name,         sp.object_alias,         sp.object_type ORDER BY 3 DESC;
+Here's an example query that looks for the usage of a specific table within a given time window:
 
-This may take a while to run if you have been running a lot of queries
+```sql
+SELECT du.username,
+    s.sql_text,
+    MAX(ash.sample_time)
+AS last_access ,
+    sp.object_owner ,
+    sp.object_name ,
+    sp.object_alias as aliased_as ,
+    sp.object_type ,
+    COUNT(\*)
+AS access_count 
+FROM v\$active_session_history ash         
+    JOIN v\$sql s
+    ON ash.force_matching_signature = s.force_matching_signature
+    LEFT JOIN v\$sql_plan sp
+    ON s.sql_id = sp.sql_id
+    JOIN DBA_USERS du
+    ON ash.user_id = du.USER_ID
+WHERE ash.session_type = \'FOREGROUND\'         
+AND ash.SQL_ID IS NOT NULL
+AND sp.object_name IS NOT NULL
+AND ash.user_id \<\> 0
+GROUP BY du.username,
+    s.sql_text,
+    sp.object_owner,
+    sp.object_name,
+    sp.object_alias,
+    sp.object_type 
+ORDER BY 3 DESC;
+```
+
+This may take a while to run if you have been running a lot of queries.
 
 #### What's the best migration approach to minimize risk and impact on users?
 
-Migrate the existing model 'as-is' initially even if a change to the data model is planned for the future
+> [!TIP]
+> Migrate the existing model as-is initially, even if a change to the data model is planned in the future.
 
-This question comes up a lot as companies may want to lower the impact of changes to the data warehouse data model to improve agility and would like to seize the opportunity to do so during a migration to modernize their data model. This carries higher risk as it would almost certainly impact ETL jobs populating the data warehouse and also taking from a data warehouse to feed dependent data marts. Therefore, it may be better to do a re-design of this kind of scale after data warehouse migration.
+This question comes up often since companies may want to lower the impact of changes on the data warehouse data model to improve agility. Companies see an opportunity to modernize their data model during a migration. This approach carries a higher risk because it could impact ETL jobs populating the data warehouse from a data warehouse to feed dependent data marts. Because of that risk, it's usually better to redesign on this scale after the data warehouse migration.
 
-Even if a data model change is to be part of the overall migration, it is good practice the migrate the existing model 'as-is' to Azure Synapse, then do any re-engineering on the new platform. This approach has the advantage of minimizing the impact on existing production systems while also leveraging the performance and elastic scalability of the Azure platform for one-off re-engineering tasks. 
+Even if a data model is intentionally changed as part of the overall migration, it's good practice to migrate the existing model as-is to Azure Synapse, rather than do any re-engineering on the new platform. This approach has the advantage of minimizing the impact on existing production systems, while also leveraging the performance and elastic scalability of the Azure platform for one-off re-engineering tasks.
 
-#### Migrating data marts -- stay physical or go virtual??
+#### Data mart migration: stay physical or go virtual??
 
-Virtualizing data marts can save on storage and processing resources
+> [!TIP]
+> Virtualizing data marts can save on storage and processing resources.
 
-In legacy Oracle data warehouse environments it is common practice to create a number of data marts which are structured to provide good performance for ad hoc self-service queries and reports for a given department or business function within an organization.
+In legacy Oracle data warehouse environments, it is common practice to create a number of data marts that are structured to provide good performance for ad hoc self-service queries and reports for a given department or business function within an organization. A data mart typically consists of a subset of the data warehouse that contains aggregated versions of the data in a form that enables users to easily query that data with fast response times via user-friendly query tools such as Oracle BI EE, Microsoft Power BI, Tableau or MicroStrategy. This form is generally a dimensional data model, and one use of data marts is to expose the data in a usable form even if the underlying warehouse data model is something different, such as a data vault.
 
-As such, a data mart typically consists of a subset of the data warehouse containing aggregated versions of the data in a form that enables users to easily query that data with fast response times via user-friendly query tools such as Oracle BI EE, Microsoft Power BI, Tableau or MicroStrategy. This form is generally a dimensional data model, and one use of data marts is to expose the data in a usable form even if the underlying warehouse data model is something different (e.g. data vault).
+You can use separate data marts for individual business units within an organization to implement robust data security regimes. Restrict access to specific data marts that are relevant to users, and eliminate, obfuscate, or anonymize sensitive data.
 
-Separate data marts for individual business units within an organization can also be used to implement robust data security regimes, by only allowing user access to specific data marts relevant to them, and eliminating, obfuscating or anonymizing sensitive data.
+If these data marts are implemented as physical tables, they'll require additional storage resources to store them, and additional processing to build and refresh them regularly. Also, the data in the mart will only be as up to date as the last refresh operation, and so may be unsuitable for highly volatile data dashboards.
 
-If these data marts are implemented as physical tables, they required additional storage resources to store them and also additional processing to build and refresh them on a regular basis. It also implies that the data in the mart is only as up to date as the last refresh operation -- so it may not be suitable for highly volatile data dashboards.
+> [!TIP]
+> The performance and scalability of Azure Synapse enables virtualization without sacrificing performance.
 
-The performance and scalability of Azure Synapse enables virtualization without sacrificing performance
+With the advent of relatively low-cost scalable MPP architectures such as Azure Synapse and their inherent performance characteristics, you can provide data mart functionality without having to instantiate the mart as a set of physical tables. This is achieved by effectively virtualizing the data marts via SQL views onto the main data warehouse, or via a virtualization layer using features such as views in Azure or third-party virtualization products such as **Denodo**. This approach simplifies or eliminates the need for additional storage and aggregation processing and reduces the overall number of database objects to be migrated.
 
-With the advent of relatively low cost scalable MPP architectures such as Azure Synapse and their inherent performance characteristics, it may be that data mart functionality can be provided without having to instantiate the mart as a set of physical tables. This is achieved by effectively virtualizing the data marts via SQL views on to the main data warehouse or via a virtualization layer using features such as views in Azure or third party virtualization products such as **Denodo**. This approach simplifies or eliminates the need for additional storage and aggregation processing and reduces the overall number of database objects to be migrated.
+There's another potential benefit of this approach. By implementing the aggregation and join logic within a virtualization layer, and presenting external reporting tools via a virtualized view, the processing required to create these views is pushed down into the data warehouse, which is generally the best place to run joins, aggregations, and other related operations on large data volumes.
 
-There is also another potential benefit of this approach -- by implementing the aggregation and join logic within a virtualization layer and presenting external reporting tools via a virtualized view, the processing required to create these views is 'pushed down' into the data warehouse, which is generally the best place to run joins and aggregations etc. on large data volumes.
+The primary drivers for implementing a virtual data mart over a physical data mart are:
 
-The primary drivers for choosing to implement physical or virtual data mart implementation are:
+- More agility: a virtual data mart is easier to change than physical tables and the associated ETL processes.
 
-- More agility as a virtual data mart is easier to change than physical tables and the associated ETL processes
+- Lower total cost of ownership: a virtualized implementation requires fewer data stores and copies of data.
 
-- Lower total cost of ownership because of fewer data stores and copies of data in a virtualized implementation
+- Elimination of ETL jobs to migrate and simplify data warehouse architecture in a virtualized environment.
 
-- Elimination of ETL jobs to migrate and simplified DW architecture in a virtualized environment
-
-- Performance -- historically physical data marts have been more performant, though virtualization products are now implementing intelligent caching techniques to mitigate this
+- Performance: although physical data marts have historically performed better, virtualization products now implement intelligent caching techniques to mitigate this difference.
 
 ### Data migration from Oracle
 
 #### Understand your data
 
-Part of the migration planning should be to understand in detail the volume of data to be migrated as this can impact decisions on the migration approach to take. Use system metadata to determine the physical space taken up by the 'raw data' within the tables to be migrated. In this context 'raw data' means the amount of space used by the data rows within a table excluding overheads such as indexes and any compression. This is especially true for the largest fact tables as these will typically comprise \> 95% of the data.
+As part of migration planning, you should understand in detail the volume of data to be migrated since that can impact decisions about the migration approach. Use system metadata to determine the physical space taken up by the raw data within the tables to be migrated. In this context, raw data means the amount of space used by the data rows within a table, excluding overhead such as indexes and compression. This is especially true for the largest fact tables since these will typically comprise more than 95% of the data.
 
-A query that will give you the total database size in Oracle is
+This query will give you the total database size in Oracle:
 
+```sql
 SELECT
-
-( SELECT SUM(bytes)/1024/1024/1024 data_size
-
-FROM sys.dba_data_files ) +
-
-( SELECT NVL(sum(bytes),0)/1024/1024/1024 temp_size
-
-FROM sys.dba_temp_files ) +
-
-( SELECT SUM(bytes)/1024/1024/1024 redo_size FROM sys.v\_\$log ) +
-
-( SELECT SUM(BLOCK_SIZE\*FILE_SIZE_BLKS)/1024/1024/1024 controlfile_size
-
-FROM v\$controlfile) \"Size in GB\"
-
+    ( SELECT SUM(bytes)/1024/1024/1024 data_size FROM sys.dba_data_files ) +
+    ( SELECT NVL(sum(bytes),0)/1024/1024/1024 temp_size FROM sys.dba_temp_files ) +
+    ( SELECT SUM(bytes)/1024/1024/1024 redo_size FROM sys.v\_\$log ) +
+    ( SELECT SUM(BLOCK_SIZE\*FILE_SIZE_BLKS)/1024/1024/1024 controlfile_size FROM v\$controlfile )
+    \"Size in GB\"
 FROM dual
+```
 
-where the DB size equals the size of (data files + temp files + online/offline redo log files + control files)- Overall DB size includes used space and free space. An example of a query that will a breakdown of disk spaced used by table data and indexes is as follows:
+> [!TIP]
+> The database size equals the size of (data files + temp files + online/offline redo log files + control files). Overall DB size includes used space and free space.
 
+Here's an example query that will give a breakdown of disk space used by table data and indexes:
+
+```sql
 SELECT
-
    owner, \"Type\", table_name \"Name\", TRUNC(sum(bytes)/1024/1024) Meg
-
 FROM
-
-(  SELECT segment_name table_name, owner, bytes, \'Table\' as \"Type\"
-
-   FROM dba_segments
-
-   WHERE segment_type in  (\'TABLE\',\'TABLE PARTITION\',\'TABLE SUBPARTITION\')
-
+    ( SELECT segment_name table_name, owner, bytes, \'Table\' as \"Type\" 
+    FROM dba_segments 
+    WHERE segment_type in  (\'TABLE\',\'TABLE PARTITION\',\'TABLE SUBPARTITION\' )
 UNION ALL
-
-   SELECT i.table_name, i.owner, s.bytes, \'Index\' as \"Type\"
-
-   FROM dba_indexes i, dba_segments s
-
-   WHERE s.segment_name = i.index_name
-
-   AND   s.owner = i.owner
-
-   AND   s.segment_type in (\'INDEX\',\'INDEX PARTITION\',\'INDEX SUBPARTITION\')
-
+    SELECT i.table_name, i.owner, s.bytes, \'Index\' as \"Type\"
+    FROM dba_indexes i, dba_segments s
+    WHERE s.segment_name = i.index_name
+    AND   s.owner = i.owner
+    AND   s.segment_type in (\'INDEX\',\'INDEX PARTITION\',\'INDEX SUBPARTITION\')
 UNION ALL
-
-   SELECT l.table_name, l.owner, s.bytes, \'LOB\' as \"Type\"
-
-   FROM dba_lobs l, dba_segments s
-
-   WHERE s.segment_name = l.segment_name
-
-   AND   s.owner = l.owner
-
-   AND   s.segment_type IN (\'LOBSEGMENT\',\'LOB PARTITION\',\'LOB SUBPARTITION\')
-
+    SELECT l.table_name, l.owner, s.bytes, \'LOB\' as \"Type\"
+    FROM dba_lobs l, dba_segments s
+    WHERE s.segment_name = l.segment_name
+    AND   s.owner = l.owner
+    AND   s.segment_type IN (\'LOBSEGMENT\',\'LOB PARTITION\',\'LOB SUBPARTITION\')
 UNION ALL
-
-   SELECT l.table_name, l.owner, s.bytes, \'LOB Index\' as \"Type\"
-
-   FROM dba_lobs l, dba_segments s
-
-   WHERE s.segment_name = l.index_name
-
-   AND   s.owner = l.owner
-
-   AND   s.segment_type = \'LOBINDEX\')
-
-   WHERE owner in UPPER(\'&owner\')
-
+    SELECT l.table_name, l.owner, s.bytes, \'LOB Index\' as \"Type\"
+    FROM dba_lobs l, dba_segments s
+    WHERE s.segment_name = l.index_name
+    AND   s.owner = l.owner
+    AND   s.segment_type = \'LOBINDEX\')
+    WHERE owner in UPPER(\'&owner\')
 GROUP BY table_name, owner, \"Type\"
-
 HAVING SUM(bytes)/1024/1024 \> 10  /\* Ignore really small tables \*/
-
 ORDER BY SUM(bytes) desc;
+```
 
-In addition, the Microsoft database migration team provides a number of resources including an asset called [Oracle Inventory Script Artifacts](https://datamigration.microsoft.com/scenario/oracle-to-sqldw?step=1) that can be found on [GitHub](https://github.com/Microsoft/DataMigrationTeam/tree/master/Oracle%20Inventory%20Script%20Artifacts). This includes a PL/SQL query that accesses Oracle system tables and provides a count of objects by schema type, object type, and status. It also provides a rough estimate of 'Raw Data' in each schema and the sizing of tables in each schema, with results stored in a CSV format. A calculator spreadsheet is also included which takes the CSV as input and provides sizing data.
+In addition, the Microsoft database migration team provides a number of resources, including an asset called [Oracle Inventory Script Artifacts](https://datamigration.microsoft.com/scenario/oracle-to-sqldw?step=1) that can be found on [GitHub](https://github.com/Microsoft/DataMigrationTeam/tree/master/Oracle%20Inventory%20Script%20Artifacts). This includes a PL/SQL query that accesses Oracle system tables and provides a count of objects by schema type, object type, and status. It also provides a rough estimate of raw data in each schema and the sizing of tables in each schema, with results stored in a CSV format. An included calculator spreadsheet takes the CSV as input and provides sizing data.
 
-You could also get an accurate number for this for a given table by extracting a representative sample of the data (e.g. 1 million rows) to an uncompressed delimited flat ASCII data file and use the size of that to give an average raw data size per row of that table. Multiply this average size by the total number of rows in the full table to give a raw data size for that table and use this figure in planning.
+You can get an accurate number for the volume of data to be migrated for a given table by extracting a representative sample of the data&mdash;for example, one million rows&mdash;to an uncompressed delimited flat ASCII data file. Then, use the size of that file to get an average raw data size per row of that table. Finally, multiply that average size by the total number of rows in the full table to give a raw data size for the table. Use that raw data size in your planning.
 
 #### Oracle data type mapping
 
-Assess the impact of unsupported data types as part of the preparation phase
+> [!TIP]
+> Assess the impact of unsupported data types as part of the preparation phase.
 
-Some Oracle data types are not directly supported in Azure Synapse -- below is a table which shows these data types together with the recommended approach for handling these.
+Some Oracle data types are not directly supported in Azure Synapse. The following table shows these data types, together with the recommended approach for mapping them.
 
-&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;-- Oracle Data Type Azure Synapse Data Type &mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;- &mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash; BFILE Not supported in Azure Synapse Analytics but can map to VARBINARY (MAX)
-
-BINARY_FLOAT Not supported in Azure Synapse Analytics but can map to FLOAT
-
-BINARY_DOUBLE Not supported in Azure Synapse Analytics but can map to DOUBLE
-
-BLOB BLOB data type isn\'t directly supported but can be replaced with VARBINARY(MAX)
-
-CHAR CHAR
-
-CLOB CBLOB data type isn\'t directly supported but can be replaced with VARCHAR(MAX)
-
-DATE DATE in Oracle an contain time information as well. Therefore depending on usage it can map to DATE or TIMESTAMP
-
-DECIMAL DECIMAL
-
-DOUBLE PRECISION DOUBLE
-
-FLOAT FLOAT
-
-INTEGER INT
-
-INTERVAL YEAR TO MONTH INTERVAL data types aren\'t supported in Azure Synapse Analytics. but date calculations can be done with the date comparison functions (e.g. DATEDIFF and DATEADD)
-
-INTERVAL DAY TO SECOND INTERVAL data types aren\'t supported in Azure Synapse Analytics. but date calculations can be done with the date comparison functions (e.g. DATEDIFF and DATEADD)
-
-LONG  Not supported in Azure Synapse Analytics but can map to VARCHAR(MAX)
-
-LONG RAW Not supported in Azure Synapse Analytics but can map to VARBINARY(MAX)
-
-NCHAR NCHAR
-
-NVARCHAR2 NVARCHAR
-
-NUMBER  NUMBER
-
-NCLOB NCLOB data type isn\'t directly supported but can be replaced with NVARCHAR(MAX)
-
-NUMERIC NUMERIC
-
-ORD media data types Not supported in Azure Synapse Analytics
-
-RAW Not supported in Azure Synapse Analytics but could map to VARBINARY
-
-REAL REAL
-
-ROWID Not supported in Azure Synapse Analytics but may map to GUID as this is similar
-
-SDO Geospatial data types Not supported in Azure Synapse Analytics
-
-SMALLINT SMALLINT
-
-TIMESTAMP DATETIME2 and CURRENT_TIMESTAMP function
-
-TIMESTAMP WITH LOCAL TIME TIME WITH LOCAL TIME ZONE is not supported ZONE in Azure Synapse Analytics but can map to DATETIMEOFFSET
-
-TIMESTAMP WITH TIME ZONE TIME WITH TIME ZONE isn\'t supported because TIME is stored using \"wall clock\" time only without a time zone offset
-
-URIType URIType is not supported but a URI can be stored in a VARCHAR
-
-UROWID Not supported in Azure Synapse Analytics but may map to GUID as this is similar
-
-VARCHAR VARCHAR
-
-VARCHAR2  VARCHAR
-
-XMLType XMLType is not supported in Azure Synapse Analytics but XML data could be accommodated in a VARCHAR &mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;--
+| Oracle data type                 | Azure Synapse data type           |
+|----------------------------------|-----------------------------------|
+| BFILE                            | Not supported in Azure Synapse Analytics but can map to VARBINARY (MAX)    |
+| BINARY_FLOAT                     | Not supported in Azure Synapse Analytics but can map to FLOAT              |
+| BINARY_DOUBLE                    | Not supported in Azure Synapse Analytics but can map to DOUBLE
+| BLOB                             | BLOB data type isn't directly supported but can be replaced with VARBINARY(MAX)
+| CHAR                             | CHAR
+| CLOB                             | CBLOB data type isn\'t directly supported but can be replaced with VARCHAR(MAX)
+| DATE                             | DATE in Oracle an contain time information as well. Therefore depending on usage it can map to DATE or TIMESTAMP
+| DECIMAL                          | DECIMAL
+| DOUBLE                           | PRECISION DOUBLE
+| FLOAT                            | FLOAT
+| INTEGER                          | INT
+| INTERVAL YEAR TO MONTH           | INTERVAL data types aren\'t supported in Azure Synapse Analytics. but date calculations can be done with the date comparison functions (e.g. DATEDIFF and DATEADD)
+| INTERVAL DAY TO SECOND           | INTERVAL data types aren\'t supported in Azure Synapse Analytics. but date calculations can be done with the date comparison functions (e.g. DATEDIFF and DATEADD)
+| LONG                             | Not supported in Azure Synapse Analytics but can map to VARCHAR(MAX)
+| LONG                             | RAW Not supported in Azure Synapse Analytics but can map to VARBINARY(MAX)
+| NCHAR                            | NCHAR
+| NVARCHAR2                        | NVARCHAR
+| NUMBER                           | NUMBER
+| NCLOB                            | NCLOB data type isn\'t directly supported but can be replaced with NVARCHAR(MAX)
+| NUMERIC                          | NUMERIC
+| ORD media data types             | Not supported in Azure Synapse Analytics
+| RAW                              | Not supported in Azure Synapse Analytics but could map to VARBINARY
+| REAL                             | REAL
+| ROWID                            | Not supported in Azure Synapse Analytics but may map to GUID as this is similar
+| SDO                              | Geospatial data types Not supported in Azure Synapse Analytics
+| SMALLINT                         | SMALLINT
+| TIMESTAMP DATETIME2 and CURRENT_TIMESTAMP function
+| TIMESTAMP WITH LOCAL TIME TIME WITH LOCAL TIME ZONE is not supported ZONE in Azure Synapse Analytics but can map to DATETIMEOFFSET
+| TIMESTAMP WITH TIME ZONE TIME WITH TIME ZONE isn't supported because TIME is stored using \"wall clock\" time only without a time zone offset
+| URIType URIType is not supported but a URI can be stored in a VARCHAR
+| UROWID Not supported in Azure Synapse Analytics but may map to GUID as this is similar
+| VARCHAR VARCHAR
+| VARCHAR2  VARCHAR
+| XMLType XMLType is not supported in Azure Synapse Analytics but XML data could be accommodated in a VARCHAR &mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;--
 
 User-defined types -- Oracle allows the definition of user-defined objects which can contain a series of individual fields, each with their own definition and default values. These user-defined objects can then be referenced within a table definition in the same way as built-in data types (e.g. NUMBER or VARCHAR).
 
