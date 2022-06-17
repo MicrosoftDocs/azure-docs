@@ -20,9 +20,9 @@ When using Azure Cognitive Search indexers, an indexer automatically source fiel
 
 Field mappings in indexers are a simple way to map data fields to index fields, with some ability for light-weight data conversion. More complex data might require pre-processing to reshape it into a form that's conducive to indexing. One option you might consider is [Azure Data Factory](../data-factory/index.yml).
 
-## Supported scenarios
+## Scenarios and limitations
 
-Field mappings are an indexer property used to route source fields to search fields in an index:
+Field mappings enable the following scenarios:
 
 + Rename fields or handle name discrepancies. Suppose your data source has a field named `_id`. Given that Azure Cognitive Search doesn't allow field names that start with an underscore, a field mapping lets you effectively rename a field.
 
@@ -34,13 +34,15 @@ Field mappings are an indexer property used to route source fields to search fie
 
 + Base64 encoding or decoding of data. Field mappings support several [**mapping functions**](#mappingFunctions), including functions for Base64 encoding and decoding.
 
-+ Splitting strings or recasting a JSON array into a string collection. Field mapping functions provide this capability.
++ Splitting strings or recasting a JSON array into a string collection. [Field mapping functions](#mappingFunctions) provide this capability.
 
-## Limitations
+### Limitations
+
+Before you start mapping fields, make sure the following limitations won't block you:
 
 + The "targetFieldName" must be set to a single field name, either a simple field or a collection. You can't define a field path to a subfield in a complex field (such as `address/city`) at this time. A workaround is to add a skillset and use a [Shaper skill](cognitive-search-skill-shaper.md).
 
-+ Field mappings apply to search indexes only. For indexers that also create [knowledge stores](knowledge-store-concept-intro.md), [data shapes](knowledge-store-projection-shape.md) and [projections](knowledge-store-projections-examples.md) determine field associations, and any field mappings and output field mappings in the indexer are ignored.
++ Field mappings only work for search indexes. For indexers that also create [knowledge stores](knowledge-store-concept-intro.md), [data shapes](knowledge-store-projection-shape.md) and [projections](knowledge-store-projections-examples.md) determine field associations, and any field mappings and output field mappings in the indexer are ignored.
 
 ## Set up field mappings
 
@@ -123,6 +125,7 @@ await indexerClient.CreateOrUpdateIndexerAsync(indexer);
 ```
 
 ---
+<a name="mappingFunctions"></a>
 
 ## Field mapping functions and examples
 
