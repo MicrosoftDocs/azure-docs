@@ -1,6 +1,6 @@
 ---
 title: Execute commands in running container instance
-description: Learn how execute a command in a container that's currently running in Azure Container Instances
+description: Learn how to execute a command in a container that's currently running in Azure Container Instances
 ms.topic: how-to
 ms.author: tomcassidy
 author: tomvcassidy

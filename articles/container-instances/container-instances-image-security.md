@@ -98,11 +98,11 @@ You can also minimize the potential attack surface by removing any unused or unn
 
 ### Preapprove files and executables that the container is allowed to access or run 
 
-Reducing the number of variables or unknowns helps you maintain a stable, reliable environment. Limiting containers so they can access or run only preapproved or safelisted files and executables is a proven method of limiting exposure to risk.  
+Reducing the number of variables or unknowns helps you maintain a stable, reliable environment. Limiting containers so they can access or run only preapproved or safe listed files and executables is a proven method of limiting exposure to risk.  
 
-It’s a lot easier to manage a safelist when it’s implemented from the beginning. A safelist provides a measure of control and manageability as you learn what files and executables are required for the application to function correctly. 
+It’s a lot easier to manage a safe list when it’s implemented from the beginning. A safe list provides a measure of control and manageability as you learn what files and executables are required for the application to function correctly. 
 
-A safelist not only reduces the attack surface but can also provide a baseline for anomalies and prevent the use cases of the "noisy neighbor" and container breakout scenarios. 
+A safe list not only reduces the attack surface but can also provide a baseline for anomalies and prevent the use cases of the "noisy neighbor" and container breakout scenarios. 
 
 ### Enforce network segmentation on running containers  
 

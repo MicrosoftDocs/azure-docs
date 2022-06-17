@@ -56,7 +56,7 @@ az container logs --resource-group myResourceGroup --name mycontainer1
 az container logs --resource-group myResourceGroup --name mycontainer2
 ```
 
-The output of the containers show how you've modified the second container's script behavior by setting environment variables.
+The outputs of the containers show how you've modified the second container's script behavior by setting environment variables.
 
 **mycontainer1**
 ```output
