@@ -50,7 +50,7 @@ To create a Container App in an environment with zone redundancy enabled using t
 
 ### Enable zone redundancy with the Azure CLI
 
-Create an internal VNET to associate with the Container Apps environment and the  infrastructure subnet.
+Create an internal VNET and the  infrastructure subnet to include with the Container Apps environment .
 
 When using these commands, replace the \<placeholders\> with your values.
 
