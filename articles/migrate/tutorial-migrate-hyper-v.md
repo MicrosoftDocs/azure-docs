@@ -167,7 +167,7 @@ With discovery completed, you can begin replication of Hyper-V VMs to Azure.
     - Select **No** if you don't want to apply Azure Hybrid Benefit. Then, click **Next**.
     - Select **Yes** if you have Windows Server machines that are covered with active Software Assurance or Windows Server subscriptions, and you want to apply the benefit to the machines you're migrating. Then click **Next**.
 
-    ![Target settings](./media/tutorial-migrate-hyper-v/target-settings.png)
+    :::image type="content" source="./media/tutorial-migrate-hyper-v/target-settings.png" alt-text="Screenshot on target settings.":::
 
 1. In **Compute**, review the VM name, size, OS disk type, and availability configuration (if selected in the previous step). VMs must conform with [Azure requirements](migrate-support-matrix-hyper-v-migration.md#azure-vm-requirements).
 
@@ -181,7 +181,11 @@ With discovery completed, you can begin replication of Hyper-V VMs to Azure.
     - You can exclude disks from replication.
     - If you exclude disks, won't be present on the Azure VM after migration.
 
-    ![Screenshot shows the Disks tab of the Replicate dialog box.](./media/tutorial-migrate-hyper-v/disks.png)
+    :::image type="content" source="./media/tutorial-migrate-hyper-v/disks-inline.png" alt-text="Screenshot shows the Disks tab of the Replicate dialog box." lightbox="./media/tutorial-migrate-hyper-v/disks-expanded.png":::
+
+1. In **Tags**, choose to add tags to your Virtual machines, Disks, and NICs.
+
+    :::image type="content" source="./media/tutorial-migrate-vmware/tags-inline.png" alt-text="Screenshot shows the tags tab of the Replicate dialog box." lightbox="./media/tutorial-migrate-vmware/tags-expanded.png":::
 
 1. In **Review and start replication**, review the settings, and click **Replicate** to start the initial replication for the servers.
 
