@@ -152,7 +152,7 @@
           },
           {
             "source_path_from_root": "/articles/azure-arc/data/reference/reference-az-sql-mi-arc-config.md",
-            "redirect_url": "/sql/mi-arc/config",
+            "redirect_url": "/cli/azure/sql/mi-arc/config",
             "redirect_document_id": false
           },
           {
