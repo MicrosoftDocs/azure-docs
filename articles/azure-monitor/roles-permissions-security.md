@@ -25,7 +25,7 @@ People assigned the Monitoring Reader role can view all monitoring data in a sub
 * View monitoring dashboards in the Azure portal.
 * View alert rules defined in [Azure alerts](alerts/alerts-overview.md).
 * Query for metrics by using the [Azure Monitor REST API](/rest/api/monitor/metrics), [PowerShell cmdlets](powershell-samples.md), or [cross-platform CLI](cli-samples.md).
-* Query the Activity Log by using the portal, Azure Monitor REST API, PowerShell cmdlets, or cross-platform CLI.
+* Query the Activity log by using the portal, Azure Monitor REST API, PowerShell cmdlets, or cross-platform CLI.
 * View the [diagnostic settings](essentials/diagnostic-settings.md) for a resource.
 * View the [log profile](essentials/activity-log.md#legacy-collection-methods) for a subscription.
 * View autoscale settings.
@@ -69,17 +69,17 @@ If the preceding built-in roles don't meet the exact needs of your team, you can
 | Operation | Description |
 | --- | --- |
 | Microsoft.Insights/ActionGroups/[Read, Write, Delete] |Read, write, or delete action groups. |
-| Microsoft.Insights/ActivityLogAlerts/[Read, Write, Delete] |Read, write, or delete Activity Log alerts. |
+| Microsoft.Insights/ActivityLogAlerts/[Read, Write, Delete] |Read, write, or delete Activity log alerts. |
 | Microsoft.Insights/AlertRules/[Read, Write, Delete] |Read, write, or delete alert rules (from classic alerts). |
 | Microsoft.Insights/AlertRules/Incidents/Read |List incidents (history of the alert rule being triggered) for alert rules. This applies only to the portal. |
 | Microsoft.Insights/AutoscaleSettings/[Read, Write, Delete] |Read, write, or delete autoscale settings. |
 | Microsoft.Insights/DiagnosticSettings/[Read, Write, Delete] |Read, write, or delete diagnostic settings. |
-| Microsoft.Insights/EventCategories/Read |Enumerate all categories possible in the Activity Log. Used by the Azure portal. |
-| Microsoft.Insights/eventtypes/digestevents/Read |This permission is necessary for users who need access to the Activity Log via the portal. |
-| Microsoft.Insights/eventtypes/values/Read |List Activity Log events (management events) in a subscription. This permission applies to both programmatic and portal access to the Activity Log. |
+| Microsoft.Insights/EventCategories/Read |Enumerate all categories possible in the Activity log. Used by the Azure portal. |
+| Microsoft.Insights/eventtypes/digestevents/Read |This permission is necessary for users who need access to the Activity log via the portal. |
+| Microsoft.Insights/eventtypes/values/Read |List Activity log events (management events) in a subscription. This permission applies to both programmatic and portal access to the Activity log. |
 | Microsoft.Insights/ExtendedDiagnosticSettings/[Read, Write, Delete] | Read, write, or delete diagnostic settings for network flow logs. |
-| Microsoft.Insights/LogDefinitions/Read |This permission is necessary for users who need access to the Activity Log via the portal. |
-| Microsoft.Insights/LogProfiles/[Read, Write, Delete] |Read, write, or delete log profiles (streaming the Activity Log to an event hub or storage account). |
+| Microsoft.Insights/LogDefinitions/Read |This permission is necessary for users who need access to the Activity log via the portal. |
+| Microsoft.Insights/LogProfiles/[Read, Write, Delete] |Read, write, or delete log profiles (streaming the Activity log to an event hub or storage account). |
 | Microsoft.Insights/MetricAlerts/[Read, Write, Delete] |Read, write, or delete near-real-time metric alerts. |
 | Microsoft.Insights/MetricDefinitions/Read |Read metric definitions (list of available metric types for a resource). |
 | Microsoft.Insights/Metrics/Read |Read metrics for a resource. |
@@ -107,7 +107,7 @@ New-AzRoleDefinition -Role $role
 
 Monitoring data—particularly log files—can contain sensitive information, such as IP addresses or user names. Monitoring data from Azure comes in three basic forms:
 
-- The Activity Log describes all control-plane actions on your Azure subscription.
+- The Activity log describes all control-plane actions on your Azure subscription.
 - Resource logs are logs emitted by a resource.
 - Metrics are emitted by resources.
 
@@ -175,7 +175,7 @@ Monitoring data is often written to a storage account. You might want to make su
 
 ![Screenshot that shows the settings for firewalls and virtual networks.](./media/roles-permissions-security/secured-storage-example.png)
 
-Azure Monitor is considered a trusted Microsoft service. If you select the **Allow trusted Microsoft services to access this storage account** checkbox, Azure monitor will have access to your secured storage account. You then enable writing Azure Monitor resource logs, Activity Log, and metrics to your storage account under these protected conditions. This setting will also enable Log Analytics to read logs from secured storage.
+Azure Monitor is considered a trusted Microsoft service. If you select the **Allow trusted Microsoft services to access this storage account** checkbox, Azure monitor will have access to your secured storage account. You then enable writing Azure Monitor resource logs, Activity log, and metrics to your storage account under these protected conditions. This setting will also enable Log Analytics to read logs from secured storage.
 
 For more information, see [Configure Azure Storage firewalls and virtual networks](../storage/common/storage-network-security.md).
 
