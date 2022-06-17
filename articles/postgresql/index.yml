@@ -132,10 +132,6 @@ landingContent:
         links:
           - text: Design a Database on Single Server
             url: single-server/tutorial-design-database-using-azure-portal.md
-          - text: Design a multi-tenant database using Hyperscale
-            url: hyperscale/tutorial-design-database-multi-tenant.md
-          - text: Design a real-time database using Hyperscale
-            url: hyperscale/tutorial-design-database-realtime.md
 
   # Card
   - title: Reference
