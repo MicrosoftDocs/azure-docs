@@ -288,7 +288,7 @@ env:
   AZURE_FUNCTIONAPP_NAME: your-app-name      # set this to your function app name on Azure
   POM_XML_DIRECTORY: '.'                     # set this to the directory which contains pom.xml file
   POM_FUNCTIONAPP_NAME: your-app-name        # set this to the function app name in your local development environment
-  JAVA_VERSION: '1.8.x'                      # set this to the dotnet version to use
+  JAVA_VERSION: '1.8.x'                      # set this to the java version to use
 
 jobs:
   build-and-deploy:
