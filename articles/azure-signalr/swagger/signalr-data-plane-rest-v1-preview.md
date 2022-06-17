@@ -10,17 +10,18 @@ ms.date: 06/09/2022
 
 # Azure SignalR Service data plane REST API - v1-preview
 
+This article contains the obsoleted v1-preview version REST APIs for Azure SignalR Service data plane. Please use the [latest version](./signalr-data-plane-rest-v1.md) instead.
+
 ## Available APIs
 
 | API | Path |
 | ---- | ---------- | 
-| [post /api/v1-preview/hub/{hub}/user/{id}](#post-post-api-v1-preview-hub-hub-user-id) | `POST /api/v1-preview/hub/{hub}/user/{id}` |
-| [post /api/v1-preview/hub/{hub}/users/{userList}](#post-post-api-v1-preview-hub-hub-users-userlist) | `POST /api/v1-preview/hub/{hub}/users/{userList}` |
-| [post /api/v1-preview/hub/{hub}](#post-post-api-v1-preview-hub-hub) | `POST /api/v1-preview/hub/{hub}` |
-| [post /api/v1-preview/hub/{hub}/group/{group}](#post-post-api-v1-preview-hub-hub-group-group) | `POST /api/v1-preview/hub/{hub}/group/{group}` |
-| [post /api/v1-preview/hub/{hub}/groups/{groupList}](#post-post-api-v1-preview-hub-hub-groups-grouplist) | `POST /api/v1-preview/hub/{hub}/groups/{groupList}` |
+| [post /api/v1-preview/hub/{hub}/user/{id}](#post-apiv1-previewhubhubuserid) | `POST /api/v1-preview/hub/{hub}/user/{id}` |
+| [post /api/v1-preview/hub/{hub}/users/{userList}](#post-apiv1-previewhubhubusersuserlist) | `POST /api/v1-preview/hub/{hub}/users/{userList}` |
+| [post /api/v1-preview/hub/{hub}](#post-apiv1-previewhubhub) | `POST /api/v1-preview/hub/{hub}` |
+| [post /api/v1-preview/hub/{hub}/group/{group}](#post-apiv1-previewhubhubgroupgroup) | `POST /api/v1-preview/hub/{hub}/group/{group}` |
+| [post /api/v1-preview/hub/{hub}/groups/{groupList}](#post-apiv1-previewhubhubgroupsgrouplist) | `POST /api/v1-preview/hub/{hub}/groups/{groupList}` |
 
-<a name="post-post-api-v1-preview-hub-hub-user-id"></a>
 ### post /api/v1-preview/hub/{hub}/user/{id}
 
 `POST /api/v1-preview/hub/{hub}/user/{id}`
@@ -42,7 +43,6 @@ Send a message to a single user.
 | ---- | ----------- |
 | 202 | Accepted |
 
-<a name="post-post-api-v1-preview-hub-hub-users-userlist"></a>
 ### post /api/v1-preview/hub/{hub}/users/{userList}
 
 `POST /api/v1-preview/hub/{hub}/users/{userList}`
@@ -64,7 +64,6 @@ Send a message to multiple users.
 | ---- | ----------- |
 | 202 | Accepted |
 
-<a name="post-post-api-v1-preview-hub-hub"></a>
 ### post /api/v1-preview/hub/{hub}
 
 `POST /api/v1-preview/hub/{hub}`
@@ -85,7 +84,6 @@ Broadcast a message to all clients connected to target hub.
 | ---- | ----------- |
 | 202 | Accepted |
 
-<a name="post-post-api-v1-preview-hub-hub-group-group"></a>
 ### post /api/v1-preview/hub/{hub}/group/{group}
 
 `POST /api/v1-preview/hub/{hub}/group/{group}`
@@ -107,7 +105,6 @@ Broadcast a message to all clients within the target group.
 | ---- | ----------- |
 | 202 | Accepted |
 
-<a name="post-post-api-v1-preview-hub-hub-groups-grouplist"></a>
 ### post /api/v1-preview/hub/{hub}/groups/{groupList}
 
 `POST /api/v1-preview/hub/{hub}/groups/{groupList}`

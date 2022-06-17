@@ -39,38 +39,35 @@ The following table shows all versions of REST API we have for now. You can also
 
 API Version | Status | Port | Doc | Spec 
 ---|---|---|---|---
-`1.0` | Latest | Standard | [Doc](./swagger/v1.md) | [swagger](https://github.com/Azure/azure-signalr/blob/dev/docs/swagger/v1.json)
-`1.0-preview` | Obsolete| Standard | [Doc](./swagger/v1-preview.md) | [swagger](https://github.com/Azure/azure-signalr/blob/dev/docs/swagger/v1-preview.json)
+`1.0` | Latest | Standard | [Doc](./swagger/signalr-data-plane-rest-v1.md) | [swagger](https://github.com/Azure/azure-signalr/blob/dev/docs/swagger/v1.json)
+`1.0-preview` | Obsolete | Standard | [Doc](./swagger/signalr-data-plane-rest-v1-preview.md) | [swagger](https://github.com/Azure/azure-signalr/blob/dev/docs/swagger/v1-preview.json)
 
 The latest available APIs are listed as following.
 
 
 | API | Path |
 | ---- | ---------- | 
-| [Broadcast a message to all clients connected to target hub.](./swagger/v1.md#post-broadcast-a-message-to-all-clients-connected-to-target-hub.) | `POST /api/v1/hubs/{hub}` |
-| [Broadcast a message to all clients belong to the target user.](./swagger/v1.md#post-broadcast-a-message-to-all-clients-belong-to-the-target-user.) | `POST /api/v1/hubs/{hub}/users/{id}` |
-| [Send message to the specific connection.](./swagger/v1.md#post-send-message-to-the-specific-connection.) | `POST /api/v1/hubs/{hub}/connections/{connectionId}` |
-| [Check if the connection with the given connectionId exists](./swagger/v1.md#get-check-if-the-connection-with-the-given-connectionid-exists) | `GET /api/v1/hubs/{hub}/connections/{connectionId}` |
-| [Close the client connection](./swagger/v1.md#delete-close-the-client-connection) | `DELETE /api/v1/hubs/{hub}/connections/{connectionId}` |
-| [Broadcast a message to all clients within the target group.](./swagger/v1.md#post-broadcast-a-message-to-all-clients-within-the-target-group.) | `POST /api/v1/hubs/{hub}/groups/{group}` |
-| [Check if there are any client connections inside the given group](./swagger/v1.md#get-check-if-there-are-any-client-connections-inside-the-given-group) | `GET /api/v1/hubs/{hub}/groups/{group}` |
-| [Check if there are any client connections connected for the given user](./swagger/v1.md#get-check-if-there-are-any-client-connections-connected-for-the-given-user) | `GET /api/v1/hubs/{hub}/users/{user}` |
-| [Add a connection to the target group.](./swagger/v1.md#put-add-a-connection-to-the-target-group.) | `PUT /api/v1/hubs/{hub}/groups/{group}/connections/{connectionId}` |
-| [Remove a connection from the target group.](./swagger/v1.md#delete-remove-a-connection-from-the-target-group.) | `DELETE /api/v1/hubs/{hub}/groups/{group}/connections/{connectionId}` |
-| [Check whether a user exists in the target group.](./swagger/v1.md#get-check-whether-a-user-exists-in-the-target-group.) | `GET /api/v1/hubs/{hub}/groups/{group}/users/{user}` |
-| [Add a user to the target group.](./swagger/v1.md#put-add-a-user-to-the-target-group.) | `PUT /api/v1/hubs/{hub}/groups/{group}/users/{user}` |
-| [Remove a user from the target group.](./swagger/v1.md#delete-remove-a-user-from-the-target-group.) | `DELETE /api/v1/hubs/{hub}/groups/{group}/users/{user}` |
-| [Remove a user from all groups.](./swagger/v1.md#delete-remove-a-user-from-all-groups.) | `DELETE /api/v1/hubs/{hub}/users/{user}/groups` |
+| [Broadcast a message to all clients connected to target hub.](./swagger/signalr-data-plane-rest-v1.md#broadcast-a-message-to-all-clients-connected-to-target-hub) | `POST /api/v1/hubs/{hub}` |
+| [Broadcast a message to all clients belong to the target user.](./swagger/signalr-data-plane-rest-v1.md#broadcast-a-message-to-all-clients-belong-to-the-target-user) | `POST /api/v1/hubs/{hub}/users/{id}` |
+| [Send message to the specific connection.](./swagger/signalr-data-plane-rest-v1.md#send-message-to-the-specific-connection) | `POST /api/v1/hubs/{hub}/connections/{connectionId}` |
+| [Check if the connection with the given connectionId exists](./swagger/signalr-data-plane-rest-v1.md#check-if-the-connection-with-the-given-connectionid-exists) | `GET /api/v1/hubs/{hub}/connections/{connectionId}` |
+| [Close the client connection](./swagger/signalr-data-plane-rest-v1.md#close-the-client-connection) | `DELETE /api/v1/hubs/{hub}/connections/{connectionId}` |
+| [Broadcast a message to all clients within the target group.](./swagger/signalr-data-plane-rest-v1.md#broadcast-a-message-to-all-clients-within-the-target-group) | `POST /api/v1/hubs/{hub}/groups/{group}` |
+| [Check if there are any client connections inside the given group](./swagger/signalr-data-plane-rest-v1.md#check-if-there-are-any-client-connections-inside-the-given-group) | `GET /api/v1/hubs/{hub}/groups/{group}` |
+| [Check if there are any client connections connected for the given user](./swagger/signalr-data-plane-rest-v1.md#check-if-there-are-any-client-connections-connected-for-the-given-user) | `GET /api/v1/hubs/{hub}/users/{user}` |
+| [Add a connection to the target group.](./swagger/signalr-data-plane-rest-v1.md#add-a-connection-to-the-target-group) | `PUT /api/v1/hubs/{hub}/groups/{group}/connections/{connectionId}` |
+| [Remove a connection from the target group.](./swagger/signalr-data-plane-rest-v1.md#remove-a-connection-from-the-target-group) | `DELETE /api/v1/hubs/{hub}/groups/{group}/connections/{connectionId}` |
+| [Check whether a user exists in the target group.](./swagger/signalr-data-plane-rest-v1.md#check-whether-a-user-exists-in-the-target-group) | `GET /api/v1/hubs/{hub}/groups/{group}/users/{user}` |
+| [Add a user to the target group.](./swagger/signalr-data-plane-rest-v1.md#add-a-user-to-the-target-group) | `PUT /api/v1/hubs/{hub}/groups/{group}/users/{user}` |
+| [Remove a user from the target group.](./swagger/signalr-data-plane-rest-v1.md#remove-a-user-from-the-target-group) | `DELETE /api/v1/hubs/{hub}/groups/{group}/users/{user}` |
+| [Remove a user from all groups.](./swagger/signalr-data-plane-rest-v1.md#remove-a-user-from-all-groups) | `DELETE /api/v1/hubs/{hub}/users/{user}/groups` |
 
 ## Using REST API
-
-<a name="authentication"></a>
 
 ### Authenticate via Azure SignalR Service AccessKey
 
 In each HTTP request, an authorization header with a [JSON Web Token (JWT)](https://en.wikipedia.org/wiki/JSON_Web_Token) is required to authenticate with SignalR Service.
 
-<a name="signing"></a>
 #### Signing Algorithm and Signature
 
 `HS256`, namely HMAC-SHA256, is used as the signing algorithm.
@@ -110,13 +107,11 @@ A typical negotiation response looks as follows:
 }
 ```
 
-The `accessToken` is generated using the same algorithm described in [authentication section](#authentication). The only difference is the `aud` claim should be same as `url`.
+The `accessToken` is generated using the same algorithm described in [authentication section](#authenticate-via-azure-signalr-service-accesskey). The only difference is the `aud` claim should be same as `url`.
 
 You should host your negotiate API in `https://<hub_url>/negotiate` so you can still use SignalR client to connect to the hub url.
 
 Read more about redirecting client to Azure SignalR Service at [here](./signalr-concept-internals.md#client-connections).
-
-<a name="user-api"></a>
 
 ### User-related REST API
 

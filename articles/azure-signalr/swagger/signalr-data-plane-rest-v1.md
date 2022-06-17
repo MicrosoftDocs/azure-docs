@@ -10,26 +10,27 @@ ms.date: 06/09/2022
 
 # Azure SignalR Service data plane REST API - v1
 
+This article contains the v1 version REST APIs for Azure SignalR Service data plane. 
+
 ## Available APIs
 
 | API | Path |
 | ---- | ---------- | 
-| [Broadcast a message to all clients connected to target hub.](#post-broadcast-a-message-to-all-clients-connected-to-target-hub.) | `POST /api/v1/hubs/{hub}` |
-| [Broadcast a message to all clients belong to the target user.](#post-broadcast-a-message-to-all-clients-belong-to-the-target-user.) | `POST /api/v1/hubs/{hub}/users/{id}` |
-| [Send message to the specific connection.](#post-send-message-to-the-specific-connection.) | `POST /api/v1/hubs/{hub}/connections/{connectionId}` |
-| [Check if the connection with the given connectionId exists](#get-check-if-the-connection-with-the-given-connectionid-exists) | `GET /api/v1/hubs/{hub}/connections/{connectionId}` |
-| [Close the client connection](#delete-close-the-client-connection) | `DELETE /api/v1/hubs/{hub}/connections/{connectionId}` |
-| [Broadcast a message to all clients within the target group.](#post-broadcast-a-message-to-all-clients-within-the-target-group.) | `POST /api/v1/hubs/{hub}/groups/{group}` |
-| [Check if there are any client connections inside the given group](#get-check-if-there-are-any-client-connections-inside-the-given-group) | `GET /api/v1/hubs/{hub}/groups/{group}` |
-| [Check if there are any client connections connected for the given user](#get-check-if-there-are-any-client-connections-connected-for-the-given-user) | `GET /api/v1/hubs/{hub}/users/{user}` |
-| [Add a connection to the target group.](#put-add-a-connection-to-the-target-group.) | `PUT /api/v1/hubs/{hub}/groups/{group}/connections/{connectionId}` |
-| [Remove a connection from the target group.](#delete-remove-a-connection-from-the-target-group.) | `DELETE /api/v1/hubs/{hub}/groups/{group}/connections/{connectionId}` |
-| [Check whether a user exists in the target group.](#get-check-whether-a-user-exists-in-the-target-group.) | `GET /api/v1/hubs/{hub}/groups/{group}/users/{user}` |
-| [Add a user to the target group.](#put-add-a-user-to-the-target-group.) | `PUT /api/v1/hubs/{hub}/groups/{group}/users/{user}` |
-| [Remove a user from the target group.](#delete-remove-a-user-from-the-target-group.) | `DELETE /api/v1/hubs/{hub}/groups/{group}/users/{user}` |
-| [Remove a user from all groups.](#delete-remove-a-user-from-all-groups.) | `DELETE /api/v1/hubs/{hub}/users/{user}/groups` |
+| [Broadcast a message to all clients connected to target hub.](#broadcast-a-message-to-all-clients-connected-to-target-hub) | `POST /api/v1/hubs/{hub}` |
+| [Broadcast a message to all clients belong to the target user.](#broadcast-a-message-to-all-clients-belong-to-the-target-user) | `POST /api/v1/hubs/{hub}/users/{id}` |
+| [Send message to the specific connection.](#send-message-to-the-specific-connection) | `POST /api/v1/hubs/{hub}/connections/{connectionId}` |
+| [Check if the connection with the given connectionId exists](#check-if-the-connection-with-the-given-connectionid-exists) | `GET /api/v1/hubs/{hub}/connections/{connectionId}` |
+| [Close the client connection](#close-the-client-connection) | `DELETE /api/v1/hubs/{hub}/connections/{connectionId}` |
+| [Broadcast a message to all clients within the target group.](#broadcast-a-message-to-all-clients-within-the-target-group) | `POST /api/v1/hubs/{hub}/groups/{group}` |
+| [Check if there are any client connections inside the given group](#check-if-there-are-any-client-connections-inside-the-given-group) | `GET /api/v1/hubs/{hub}/groups/{group}` |
+| [Check if there are any client connections connected for the given user](#check-if-there-are-any-client-connections-connected-for-the-given-user) | `GET /api/v1/hubs/{hub}/users/{user}` |
+| [Add a connection to the target group.](#add-a-connection-to-the-target-group) | `PUT /api/v1/hubs/{hub}/groups/{group}/connections/{connectionId}` |
+| [Remove a connection from the target group.](#remove-a-connection-from-the-target-group) | `DELETE /api/v1/hubs/{hub}/groups/{group}/connections/{connectionId}` |
+| [Check whether a user exists in the target group.](#check-whether-a-user-exists-in-the-target-group) | `GET /api/v1/hubs/{hub}/groups/{group}/users/{user}` |
+| [Add a user to the target group.](#add-a-user-to-the-target-group) | `PUT /api/v1/hubs/{hub}/groups/{group}/users/{user}` |
+| [Remove a user from the target group.](#remove-a-user-from-the-target-group) | `DELETE /api/v1/hubs/{hub}/groups/{group}/users/{user}` |
+| [Remove a user from all groups.](#remove-a-user-from-all-groups) | `DELETE /api/v1/hubs/{hub}/users/{user}/groups` |
 
-<a name="post-broadcast-a-message-to-all-clients-connected-to-target-hub."></a>
 ### Broadcast a message to all clients connected to target hub.
 
 `POST /api/v1/hubs/{hub}`
@@ -47,7 +48,6 @@ ms.date: 06/09/2022
 | 202 | Success |
 | 400 | Bad Request |
 
-<a name="post-broadcast-a-message-to-all-clients-belong-to-the-target-user."></a>
 ### Broadcast a message to all clients belong to the target user.
 
 `POST /api/v1/hubs/{hub}/users/{id}`
@@ -65,7 +65,6 @@ ms.date: 06/09/2022
 | 202 | Success |
 | 400 | Bad Request |
 
-<a name="post-send-message-to-the-specific-connection."></a>
 ### Send message to the specific connection.
 
 `POST /api/v1/hubs/{hub}/connections/{connectionId}`
@@ -83,7 +82,6 @@ ms.date: 06/09/2022
 | 202 | Success |
 | 400 | Bad Request |
 
-<a name="get-check-if-the-connection-with-the-given-connectionid-exists"></a>
 ### Check if the connection with the given connectionId exists
 
 `GET /api/v1/hubs/{hub}/connections/{connectionId}`
@@ -102,7 +100,6 @@ ms.date: 06/09/2022
 | 400 | Bad Request |
 | 404 | Not Found |
 
-<a name="delete-close-the-client-connection"></a>
 ### Close the client connection
 
 `DELETE /api/v1/hubs/{hub}/connections/{connectionId}`
@@ -121,7 +118,6 @@ ms.date: 06/09/2022
 | 202 | Success |
 | 400 | Bad Request |
 
-<a name="post-broadcast-a-message-to-all-clients-within-the-target-group."></a>
 ### Broadcast a message to all clients within the target group.
 
 `POST /api/v1/hubs/{hub}/groups/{group}`
@@ -140,7 +136,6 @@ ms.date: 06/09/2022
 | 202 | Success |
 | 400 | Bad Request |
 
-<a name="get-check-if-there-are-any-client-connections-inside-the-given-group"></a>
 ### Check if there are any client connections inside the given group
 
 `GET /api/v1/hubs/{hub}/groups/{group}`
@@ -159,7 +154,6 @@ ms.date: 06/09/2022
 | 400 | Bad Request |
 | 404 | Not Found |
 
-<a name="get-check-if-there-are-any-client-connections-connected-for-the-given-user"></a>
 ### Check if there are any client connections connected for the given user
 
 `GET /api/v1/hubs/{hub}/users/{user}`
@@ -178,7 +172,6 @@ ms.date: 06/09/2022
 | 400 | Bad Request |
 | 404 | Not Found |
 
-<a name="put-add-a-connection-to-the-target-group."></a>
 ### Add a connection to the target group.
 
 `PUT /api/v1/hubs/{hub}/groups/{group}/connections/{connectionId}`
@@ -198,7 +191,6 @@ ms.date: 06/09/2022
 | 400 | Bad Request |
 | 404 | Not Found |
 
-<a name="delete-remove-a-connection-from-the-target-group."></a>
 ### Remove a connection from the target group.
 
 `DELETE /api/v1/hubs/{hub}/groups/{group}/connections/{connectionId}`
@@ -218,7 +210,6 @@ ms.date: 06/09/2022
 | 400 | Bad Request |
 | 404 | Not Found |
 
-<a name="get-check-whether-a-user-exists-in-the-target-group."></a>
 ### Check whether a user exists in the target group.
 
 `GET /api/v1/hubs/{hub}/groups/{group}/users/{user}`
@@ -238,7 +229,6 @@ ms.date: 06/09/2022
 | 400 | Bad Request |
 | 404 | Not Found |
 
-<a name="put-add-a-user-to-the-target-group."></a>
 ### Add a user to the target group.
 
 `PUT /api/v1/hubs/{hub}/groups/{group}/users/{user}`
@@ -258,7 +248,6 @@ ms.date: 06/09/2022
 | 202 | Success |
 | 400 | Bad Request |
 
-<a name="delete-remove-a-user-from-the-target-group."></a>
 ### Remove a user from the target group.
 
 `DELETE /api/v1/hubs/{hub}/groups/{group}/users/{user}`
@@ -277,7 +266,6 @@ ms.date: 06/09/2022
 | 202 | Success |
 | 400 | Bad Request |
 
-<a name="delete-remove-a-user-from-all-groups."></a>
 ### Remove a user from all groups.
 
 `DELETE /api/v1/hubs/{hub}/users/{user}/groups`
