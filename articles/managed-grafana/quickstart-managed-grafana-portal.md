@@ -16,6 +16,9 @@ Get started by using the Azure portal to create a new workspace in Azure Managed
 
 An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/dotnet).
 
+> [!NOTE]
+> Azure Managed Grafana doesn't support personal [Microsoft accounts](https://account.microsoft.com) (a.k.a., MSA) currently.
+
 ## Create a Managed Grafana workspace
 
 1. Sign in to the [Azure portal](https://portal.azure.com) with your Azure account.  
