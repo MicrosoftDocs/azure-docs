@@ -15,7 +15,7 @@ ms.custom: mimckitt, devx-track-azurecli, vmss-flex
 
 **Applies to:** :heavy_check_mark: Flexible scale sets
 
-Virtual machine scale sets with Flexible orchestration allows you to combine the scalability of [virtual machine scale sets in Uniform orchestration mode](../virtual-machine-scale-sets/overview.md) with the regional availability guarantees of [availability sets](../virtual-machines/availability-set-overview.md). 
+Virtual machine scale sets with Flexible orchestration allow you to combine the scalability of [virtual machine scale sets in Uniform orchestration mode](../virtual-machine-scale-sets/overview.md) with the regional availability guarantees of [availability sets](../virtual-machines/availability-set-overview.md).
 
 Azure virtual machine scale sets let you create and manage a group of load balanced VMs. The number of VM instances can automatically increase or decrease in response to demand or a defined schedule. Scale sets provide the following key benefits:
 - Easy to create and manage multiple VMs
@@ -73,7 +73,7 @@ Get started with Flexible orchestration mode for your scale sets through the [Az
 
 
 ## Add instances with autoscaling or manually
-Virtual machine scale sets with Flexible orchestration works as a thin orchestration layer to manage multiple VMs. There are several ways you can add VMs to be managed by the scale set:
+Virtual machine scale sets with Flexible orchestration work as a thin orchestration layer to manage multiple VMs. There are several ways you can add VMs to be managed by the scale set:
 
 - **Set instance count**
 
@@ -108,7 +108,7 @@ The following tables list the Flexible orchestration mode features and links to 
 | Maximum Instance Count (with FD guarantees)  | 1000  |
 | SKUs supported  | D series, E series, F series, A series, B series, Intel, AMD; Specialty SKUs (G, H, L, M, N) are not supported |
 | Full control over VM, NICs, Disks  | Yes  |
-| RBAC Permissions Required  | Compute VMSS Write, Compute VM Write, Network |
+| RBAC Permissions Required  | Compute virtual machine scale set Write, Compute VM Write, Network |
 | Cross tenant shared image gallery | No |
 | Accelerated networking  | Yes  |
 | Spot instances and pricing   | Yes, you can have both Spot and Regular priority instances  |
@@ -133,15 +133,15 @@ The following tables list the Flexible orchestration mode features and links to 
 | List VMs in Set | Yes |
 | Automatic Scaling (manual, metrics based, schedule based) | Yes |
 | Auto-Remove NICs and Disks when deleting VM instances | Yes |
-| Upgrade Policy (VM scale sets) | No, upgrade policy must be null or [] during create |
-| Automatic OS Updates (VM scale sets) | No |
+| Upgrade Policy (virtual machine scale sets) | No, upgrade policy must be null or [] during create |
+| Automatic OS Updates (virtual machine scale sets) | No |
 | In Guest Security Patching | Yes |
-| Terminate Notifications (VM scale sets) | Yes, read [Terminate Notifications documentation](../virtual-machine-scale-sets/virtual-machine-scale-sets-terminate-notification.md) |
+| Terminate Notifications (virtual machine scale sets) | Yes, read [Terminate Notifications documentation](../virtual-machine-scale-sets/virtual-machine-scale-sets-terminate-notification.md) |
 | Monitor Application Health | Application health extension |
-| Instance Repair (VM scale sets) | Yes, read [Instance Repair documentation](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-instance-repairs.md) |
+| Instance Repair (virtual machine scale sets) | Yes, read [Instance Repair documentation](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-instance-repairs.md) |
 | Instance Protection | No, use [Azure resource lock](../azure-resource-manager/management/lock-resources.md) |
 | Scale In Policy | No |
-| VMSS Get Instance View | No |
+| Virtual machine scale set Get Instance View | No |
 | VM Batch Operations (Start all, Stop all, delete subset, etc.) | Partial, Batch delete is supported. Other operations can be triggered on each instance using VM API) |
 
 ### High availability 
@@ -183,7 +183,7 @@ The following virtual machine scale set parameters are not currently supported w
 - Single placement group - you must choose `singlePlacementGroup=False`
 - Deployment using Specialty SKUs: G, H, L, M, N series VM families
 - Ultra disk configuration: `diskIOPSReadWrite`, `diskMBpsReadWrite`
-- VMSS Overprovisioning
+- Virtual machine scale set Overprovisioning
 - Image-based Automatic OS Upgrades
 - Application health via SLB health probe - use Application Health Extension on instances
 - Virtual machine scale set upgrade policy - must be null or empty
