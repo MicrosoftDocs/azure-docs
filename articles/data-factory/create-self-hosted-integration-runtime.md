@@ -7,7 +7,7 @@ ms.subservice: integration-runtime
 ms.topic: conceptual
 author: lrtoyou1223
 ms.author: lle
-ms.date: 06/14/2022
+ms.date: 06/16/2022
 ms.custom: devx-track-azurepowershell, synapse
 ---
 
@@ -197,8 +197,8 @@ Here are details of the application's actions and arguments:
 |`-tonau`,<br/>`-TurnOnAutoUpdate`||Turn on the self-hosted integration runtime auto-update.|
 |`-toffau`,<br/>`-TurnOffAutoUpdate`||Turn off the self-hosted integration runtime auto-update.|
 |`-ssa`,<br/>`-SwitchServiceAccount`|"`<domain\user>`" ["`<password>`"]|Set DIAHostService to run as a new account. Use the empty password "" for system accounts and virtual accounts.|
-|`-EnableLocalMachineAccess`|| Enable local machine access (localhost, private IP) on the current self-hosted IR node.|
-|`-DisableLocalMachineAccess`|| Disable local machine access (localhost, private IP) on the current self-hosted IR node.|
+|`-elma`,<br/>`-EnableLocalMachineAccess`|| Enable local machine access (localhost, private IP) on the current self-hosted IR node. In self-hosted IR High Availability scenario, the action needs to be invoked on every self-hosted IR node.|
+|`-dlma`,<br/>`-DisableLocalMachineAccess`|| Disable local machine access (localhost, private IP) on the current self-hosted IR node. In self-hosted IR High Availability scenario, the action needs to be invoked on every self-hosted IR node.|
 
 ## Install and register a self-hosted IR from Microsoft Download Center
 
