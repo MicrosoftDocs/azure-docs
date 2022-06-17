@@ -44,9 +44,9 @@ Azure automatically applies security patches to the Linux nodes in your cluster 
 
 ## What is the size limit on a container image in AKS?
 
-AKS does not set a limit on the container image size, but large images that include a lot of dependencies, debugging tools, compilers, etc. are likely to create containers requiring a large memory footprint. This could potentially exceed resource limits or the overall available memory of worker nodes. If you're using the default VM size Standard_DS2_v2 for an AKS cluster, it's memory is set to 7 GiB.
+AKS does not set a limit on the container image size. However, it is important to understand that the larger the image, the higher the memory demand. This could potentially exceed resource limits or the overall available memory of worker nodes. By default, memory for VM size Standard_DS2_v2 for an AKS cluster is set to 7 GiB.
 
-When a container image is excessively large, in the Terabyte (TBs) range, kubelet might not be able to pull it from the registry to a node due to lack of disk space.
+When a container image is excessively large, as in the Terabyte (TBs) range, kubelet might not be able to pull it from your container registry to a node due to lack of disk space.
 
 ### Windows Server nodes
 
