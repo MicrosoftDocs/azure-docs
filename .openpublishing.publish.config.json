@@ -967,6 +967,7 @@
     ".openpublishing.redirection.defender-for-iot.json",
     ".openpublishing.redirection.healthcare-apis.json",
     ".openpublishing.redirection.iot-hub.json",
+    ".openpublishing.redirection.app-service.json",
     ".openpublishing.redirection.key-vault.json",
     ".openpublishing.redirection.sql-database.json",
     ".openpublishing.redirection.security-benchmark.json",
@@ -1009,6 +1010,7 @@
     "articles/spring-cloud/.openpublishing.redirection.spring-cloud.json",
     "articles/load-testing/.openpublishing.redirection.azure-load-testing.json",
     "articles/azure-video-indexer/.openpublishing.redirection.azure-video-indexer.json",
-    "articles/machine-learning/.openpublishing.redirection.machine-learning.json"
+    "articles/machine-learning/.openpublishing.redirection.machine-learning.json",
+    "articles/static-web-apps/.openpublishing.redirection.static-web-apps.json"
   ]
 }
