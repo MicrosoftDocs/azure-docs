@@ -55,7 +55,7 @@ There are two kinds of retries available for your functions: built-in retry beha
 | Event Hubs | [Retry policies](#retry-policies) | Function-level | 
 | Queue Storage | [Binding extension](functions-bindings-storage-queue-trigger.md#poison-messages) | [host.json](functions-bindings-storage-queue.md#host-json) | 
 | RabbitMQ | [Binding extension](functions-bindings-rabbitmq-trigger.md#dead-letter-queues) | [Dead letter queue](https://www.rabbitmq.com/dlx.html) | 
-| Service Bus | [Binding extension](../service-bus-messaging/service-bus-dead-letter-queues.md) | [Dead letter queue](/service-bus-messaging/service-bus-dead-letter-queues.md#maximum-delivery-count) | 
+| Service Bus | [Binding extension](../service-bus-messaging/service-bus-dead-letter-queues.md) | [Dead letter queue](https://www.rabbitmq.com/dlx.html) | 
 |Timer | [Retry policies](#retry-policies) | Function-level |
 
 ### Retry policies
