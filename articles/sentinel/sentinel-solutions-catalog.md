@@ -82,6 +82,12 @@ For more information, see [Centrally discover and deploy Microsoft Sentinel out-
 |**Microsoft Sentinel Training Lab** |Workbook, analytics rules, playbooks, hunting queries | Training and tutorials |Microsoft |
 |**Azure SQL** | [Data connector](data-connectors-reference.md#azure-sql-databases), workbook, analytics, playbooks, hunting queries  | Application |Microsoft  |
 
+## Barracuda
+
+|Name   |Includes  |Categories |Supported by  |
+|------------------|---------|---------|---------|
+|**Barracuda WAF**| [Data connector](data-connectors-reference.md#barracuda-waf)  |Security - Network |[Barracuda](https://www.barracuda.com/support) |
+
 ## Bosch
 
 |Name   |Includes  |Categories |Supported by  |
@@ -152,11 +158,15 @@ For more information, see [Centrally discover and deploy Microsoft Sentinel out-
 
 ## Digital Guardian
 
-
 |Name    |Includes  |Categories |Supported by  |
 |---------|---------|---------|---------|
 |**Digital Guardian** |Data connector, parser |Security - Information Protection |Microsoft |
 
+## Exabeam
+
+|Name    |Includes  |Categories |Supported by  |
+|---------|---------|---------|---------|
+|**Exabeam Advanced Analytics** |[Data connector](data-connectors-reference.md#exabeam-advanced-analytics-preview), parser |Security - Others |Microsoft |
 
 ## FalconForce
 
@@ -283,9 +293,15 @@ For more information, see [Centrally discover and deploy Microsoft Sentinel out-
 |Name    |Includes  |Categories |Supported by  |
 |---------|---------|---------|---------|
 |**Microsoft Defender for Endpoint**     |   Hunting queries, parsers |      Security - Threat Protection   |Microsoft         |
+|**Microsoft PowerBI**     | [Data connector](data-connectors-reference.md#microsoft-power-bi-preview) |      Application   |Microsoft         |
+|**Microsoft Project**     | [Data connector](data-connectors-reference.md#microsoft-project-preview) |      Application   |Microsoft         |
 |**Microsoft Sentinel for Microsoft Dynamics 365**     |   [Data connector](data-connectors-reference.md#dynamics-365), workbooks, analytics rules, and hunting queries |      Application   |Microsoft         |
 |**Microsoft Sentinel for Teams**     | Analytics rules, playbooks, hunting queries      |   Application      |    Microsoft     |
 | **Microsoft Sysmon for Linux** | [Data connector](data-connectors-reference.md#microsoft-sysmon-for-linux-preview) | Platform | Microsoft |
+| **Network Security Groups** | Data connector | Security - Network| Microsoft |
+|**Threat Intelligence**     | [Data connector](threat-intelligence-integration.md), analytics rules, hunting queries, workbooks| Security - Threat Intelligence   |Microsoft         |
+| **Windows Firewall** | [Data connector](data-connectors-reference.md#windows-firewall), workbook | Security - Network| Microsoft |
+| **Windows Security Events** | [Data connector](data-connectors-reference.md#windows-security-events-via-ama), analytics rules, hunting queries, workbooks | Security - Threat Protection| Microsoft |
 
 ## NetSkope
 
@@ -303,8 +319,10 @@ For more information, see [Centrally discover and deploy Microsoft Sentinel out-
 
 |Name    |Includes  |Categories |Supported by  |
 |---------|---------|---------|---------|
-|**NXLog AIX Audit**     |  Data connector, parser |  IT operations  |NXLog       |
-|**NXLog DNS Logs**     |  Data connector |     Networking  |NXLog       |
+|**NXLog AIX Audit**     |  Data connector, parser |  IT Operations, Security - Network |[NXLog](https://nxlog.co/user?destination=node/add/support-ticket)       |
+|**NXLog BSM macOS**     |  [Data connector](data-connectors-reference.md#nxlog-basic-security-module-bsm-macos-preview) | IT Operations, Security - Others  |[NXLog](https://nxlog.co/user?destination=node/add/support-ticket)      |
+|**NXLog DNS Logs**     |  [Data connector](data-connectors-reference.md#nxlog-dns-logs-preview), parser |  IT Operations, Security - Network  |[NXLog](https://nxlog.co/user?destination=node/add/support-ticket)       |
+|**NXLog LinuxAudit**     |  [Data connector](data-connectors-reference.md#nxlog-linuxaudit-preview) |  IT Operations, Security - Network  |[NXLog](https://nxlog.co/user?destination=node/add/support-ticket)       |
 
 ## Oracle
 
@@ -313,6 +331,12 @@ For more information, see [Centrally discover and deploy Microsoft Sentinel out-
 |**Oracle Cloud Infrastructure** |Data connector, parser | Cloud Provider | Microsoft|
 |**Oracle Database Audit** | Data connector, workbook, analytics rules, hunting queries, parser| Application|Microsoft |
 |**Oracle  WebLogic Server** | Data connector, workbook, analytics rules, hunting queries, parser| IT Operations|Microsoft |
+
+## OSSEC
+
+|Name    |Includes  |Categories |Supported by  |
+|---------|---------|---------|---------|
+|**OSSEC** |[Data connector](data-connectors-reference.md#ossec-preview), parser | Security - Threat Protection | Microsoft|
 
 ## Palo Alto
 
@@ -341,6 +365,11 @@ For more information, see [Centrally discover and deploy Microsoft Sentinel out-
 |**Proofpoint POD Solution** |[Data connector](data-connectors-reference.md#proofpoint-on-demand-pod-email-security-preview), workbook, analytics rules, hunting queries, parser| Security - Threat protection|Microsoft |
 |**Proofpoint TAP Solution** | Workbooks, analytics rules, playbooks, custom Logic App connector|Security - Automation (SOAR), Security - Threat protection |Microsoft |
 
+## Pulse Secure
+
+|Name    |Includes  |Categories |Supported by  |
+|---------|---------|---------|---------|
+|**Pulse Connect Secure** |[Data connector](data-connectors-reference.md#pulse-connect-secure-preview), workbook, analytics rules, parser |Security - Threat Protection |Microsoft |
 
 ## Qualys
 
@@ -408,6 +437,12 @@ For more information, see [Centrally discover and deploy Microsoft Sentinel out-
 |Name    |Includes  |Categories |Supported by  |
 |---------|---------|---------|---------|
 |**SIGNL4 Mobile Alerting** |Data connector, playbook |DevOps, IT Operations |[SIGNL4](https://www.signl4.com) |
+
+## SonicWall
+
+|Name    |Includes  |Categories |Supported by  |
+|---------|---------|---------|---------|
+|**SonicWall Network Security** |Data connector |Security - Network |[SonicWall](https://www.sonicwall.com/support/) |
 
 ## Sonrai Security
 
