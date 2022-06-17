@@ -13,7 +13,15 @@ ms.date: 06/16/2022
 
 [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 
-The following table provides a list of high-level features and capabilities comparisons between Single Server and Flexible Server. For most new deployments, we recommend using Flexible Server. However, you should consider your own requirements against the comparison table below.
+## Overview
+
+Azure Database for PostgreSQL Flexible Server is the next generation managed PostgreSQL service in Azure. It provides maximum flexibility over your database, built-in cost-optimizations, and offers serveral improvements over Single Server. 
+
+>[!NOTE]
+> For all your new PostgreSQL deployments, we recommend using Flexible Server. However, you should consider your own requirements against the comparison table below.
+
+## Comparison table
+The following table provides a list of high-level features and capabilities comparisons between Single Server and Flexible Server. 
 
 | **Feature / Capability** | **Single Server** | **Flexible Server** |
 | ---- | ---- | ---- |
