@@ -44,7 +44,7 @@ This article assumes that you're familiar with the [basic concepts](overview.md)
 
 ## Scenario description
 
-Azure AD supports several of the most widely used authentication and authorization protocols. Legacy authentication refers to authentication protocols that do not communicate directly with or receive a token directly from Azure AD. It is specifically this proxy pattern (common in older authentication protocols) that is the deterministic feature for conditional access evaluating an authentication as "legacy". This includes legacy protocols such as basic authentication, a widely used industry-standard method for collecting user name and password information. Typically, legacy authentication clients can't enforce any type of second factor authentication. Examples of applications that commonly or only use legacy authentication are:
+Azure AD supports several of the most widely used authentication and authorization protocols. Legacy authentication refers to authentication protocols that do not communicate with or receive a token directly from Azure AD. It is specifically this pattern where a client supplies the credential directly to the resource that constitutes such authentication as "legacy". This includes basic authentication, a widely used industry-standard method for collecting user name and password information. Typically, legacy authentication clients can't enforce any type of second factor authentication. Examples of applications that commonly or only use legacy authentication are:
 
 - Microsoft Office 2013 or older.
 - Apps using mail protocols like POP, IMAP, and SMTP AUTH.
@@ -59,7 +59,7 @@ Conditional Access policies are enforced after the first-factor authentication h
 
 ## Implementation
 
-This section explains how to configure a Conditional Access policy to block legacy authentication. 
+This section explains how to configure a Conditional Access policy to block legacy authentication.
 
 ### Messaging protocols that support legacy authentication
 
@@ -83,7 +83,7 @@ For more information about these authentication protocols and services, see [Sig
 
 ### Identify legacy authentication use
 
-Before you can block legacy authentication in your directory, you need to first understand if your users have apps that use legacy authentication and how it affects your overall directory. Azure AD sign-in logs can be used to understand if you're using legacy authentication.
+Before you can block legacy authentication in your directory, you need to first understand if your users have apps that use legacy authentication and how it affects your overall directory. Azure AD sign-in logs can be used to understand if legacy authentication is in use.
 
 #### Indicators from Azure AD
 
@@ -96,29 +96,29 @@ Filtering will only show you sign-in attempts that were made by legacy authentic
 
 These logs will indicate which users are still depending on legacy authentication and which applications are using legacy protocols to make authentication requests. For users that don't appear in these logs and are confirmed to not be using legacy authentication, implement a Conditional Access policy for these users only.
 
-To help triage authentication within your Azure AD tenant that is considered legacy by conditional access policies we have also built the [Sign-ins using legacy authentication workbook](../reports-monitoring/workbook-legacy%20authentication.md).
+To help triage legacy authentication within your tenant use the [Sign-ins using legacy authentication workbook](../reports-monitoring/workbook-legacy%20authentication.md).
 
 #### Indicators from Client
 The [Deprecation of Basic authentication in Exchange Online](/exchange/clients-and-mobile-in-exchange-online/deprecation-of-basic-authentication-exchange-online#authentication-dialog). describes a simple way to tell if a client app is using legacy or modern authentication by observing the dialog that's presented when the user logs in.
 
 ## Important Considerations
 
-Many email protocols that once relied on legacy authentication now support more secure modern authentication methods.
+Many clients that once relied on legacy authentication now support more secure modern authentication methods.
 
 Some clients support both legacy & modern authentication depending on client configuration. If you see “modern mobile/desktop client” or “browser” for a client in the Azure AD logs, it is using modern authentication. If it has a specific client or protocol name, such as “Exchange ActiveSync”, it is using legacy authentication to connect to Azure AD. The client types in conditional access, Azure AD Sign-in logs and the legacy authentication workbook use the client type to distinguish between modern and legacy authentication clients for you.
 
-- Mail clients that support modern authentication but are not configured to use modern authentication should be updated or reconfigured to use modern authentication.
+- Clients that support modern authentication but are not configured to use modern authentication should be updated or reconfigured to use modern authentication.
 
-- Mail clients that do not support modern authentication should be replaced.
+- Clients that do not support modern authentication should be replaced.
 
-If you're using Microsoft Intune, you might be able to change the authentication type using the email profile you push or deploy to your devices. If you are using iOS devices (iPhones and iPads) you should take a look at Add e-mail settings for iOS and iPadOS devices in Microsoft Intune
+If you're using Microsoft Intune, you might be able to change the authentication type using the email profile you push or deploy to your devices. If you are using iOS devices (iPhones and iPads) you should take a look at [Add e-mail settings for iOS and iPadOS devices in Microsoft Intune](/mem/intune/configuration/email-settings-ios).
 
 >[!Important]
 >
 >**Exchange Active Sync and Certificate Based Authentication**
 >
 >- Certificate based authentication is **NOT BASIC** authentication and **will not be blocked** by [Deprecation of Basic authentication in Exchange Online](/exchange/clients-and-mobile-in-exchange-online/deprecation-of-basic-authentication-exchange-online). 
->- Mail clients that do not support or have not been configured to use modern authentication using a certificate are **considered legacy authentication and will be blocked** by conditional access.
+>- Mail clients that do not support or have not been configured to use modern authentication using a certificate are **legacy authentication and will be blocked** by conditional access.
 >
 >See [Overview of Azure AD certificate-based authentication (Preview)](../authentication/concept-certificate-based-authentication.md) for more information on using certificates with modern authentication and Azure AD.
 
