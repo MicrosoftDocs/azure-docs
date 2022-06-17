@@ -70,7 +70,11 @@ The following image shows a standard configuration for a new Automation account.
 
 ### Networking
 
-On the **Networking** tab, you can connect to your automation account either publicly, (via public IP addresses), or privately, using a private endpoint. The following image shows the connectivity configuration that you can define for a new automation account
+On the **Networking** tab, you can connect to your automation account either publicly, (via public IP addresses), or privately, using a private endpoint. The following image shows the connectivity configuration that you can define for a new automation account.
+
+- **Public Access** – This default option provides a public endpoint for the Automation account that can receive traffic over the internet and does not require any additional configuration. However, we don't recommend private applications or secure environments. Instead, Private Link can be leveraged to restrict access to automation endpoints only from authorized virtual networks. Public access can simultaneously coexist with the private endpoint enabled on the Automation account. If you select public access while creating the Automation account, you can add a Private endpoint later from the Networking blade of the Automation Account. 
+
+- **Private Access** – This option provides a private endpoint for the Automation account that uses a private IP address from your virtual network. This network interface connects you privately and securely to the Automation account. You bring the service into your virtual network by enabling a private endpoint. This is the recommended configuration from a security point of view; however, this requires you to configure Hybrid Runbook Worker connected to an Azure virtual network & currently does not support cloud jobs.
 
 :::image type="content" souce="./media/create-account-portal/create-account-networking.png" alt-text="Required fields for creating the Automation account on Networking tab.":::
 
