@@ -250,8 +250,6 @@ To use this feature, create an [Azure Blob storage linked service](connector-azu
 > [!NOTE]
 > The staging Azure Blob storage linked service must use shared access signature authentication, as required by the Snowflake COPY command. Make sure you grant proper access permission to Snowflake in the staging Azure Blob storage. To learn more about this, see this [article](https://docs.snowflake.com/en/user-guide/data-load-azure-config.html#option-2-generating-a-sas-token). 
 
-
-
 **Example:**
 
 ```json
