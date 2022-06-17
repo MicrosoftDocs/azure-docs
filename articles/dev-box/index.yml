@@ -24,9 +24,9 @@ highlightedContent:
       url: overview-what-is-microsoft-dev-box.md
       
     # Card
-    - title: Create a Dev Box Pool
+    - title: Configure the Microsoft Dev Box service
       itemType: quickstart
-      url: quickstart-create-dev-box-pool.md
+      url: quickstart-configure-dev-box-service.md
 
     # Card
     - title: Create a Dev Box

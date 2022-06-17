@@ -26,7 +26,7 @@ In this quickstart, you will:
 
 ## Prerequisites
 
-- Permissions as a [Dev Box User](./how-to-dev-box-user.md) on the Project that has a configured Dev Box Pool. Follow the [Create Dev Box Pool Quickstart](./quickstart-create-dev-box-pool.md) if you do not have an available pool.
+- Permissions as a [Dev Box User](./how-to-dev-box-user.md) on the Project that has a configured Dev Box Pool. Follow the [Create Dev Box Pool Quickstart](./quickstart-configure-dev-box-service.md) if you do not have an available pool.
 
 ## Create a dev box
 
@@ -77,4 +77,4 @@ When no longer needed, you can delete your dev box.
 
 ## Next steps
 
-In this quickstart, you created a dev box through the developer portal. To learn more about Dev Box concepts, see [Concepts: Microsoft Dev Box key concepts](dev-box-concepts.md).
+In this quickstart, you created a dev box through the developer portal. To learn more about Dev Box concepts, see [Concepts: Microsoft Dev Box key concepts](concept-dev-box-concepts.md).

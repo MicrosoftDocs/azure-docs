@@ -18,6 +18,8 @@ ms.topic: how-to
 - Using a specific image version allows you to standardize development teams on a supported image version until a newer version is validated.
 - Project Fidalgo will perform replication of the images you want to use for Dev Boxes to the Azure Regions that you've specified in your Network Connections. Replication takes place at the time of Dev Box Definition creation. 
 
+<!-- commented until I can fix links
+
 Learn how to [Create a gallery for storing and sharing resources](../virtual-machines/create-gallery?tabs=portal) and then come back here to attach and use the gallery in Project Fidalgo Dev Box.
 
 ## Pre-requisites
@@ -32,7 +34,7 @@ Learn how to [Create a gallery for storing and sharing resources](../virtual-mac
         - Generalized image
 
     ![Image Definition](/Documentation/media/Image_Definition.png)
-
+-->
 
 ## Provide permissions for Fidalgo to access the Gallery
 When using an Azure Compute Gallery image to create a Dev Box Definition, Windows 365 service will perform image validation to ensure the image to be used meets the requirements to be provisioned for a dev box. In addition, Fidalgo Dev Box service will perform image replication to the regions in the attached Network Connections so the images are present in the region required for dev box creation.
@@ -48,7 +50,8 @@ For this purpose, you will need to provide permissions to your Gallery as follow
 1. Review + Assign.
 
 ### DevCenter Managed Identity
-1. Create a user assigned managed identity using [these instructions](../azure/active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-azp#create-a-user-assigned-managed-identity). You can use this managed identity in multiple DevCenters and Azure Compute Galleries.
+<!-- commented until I can fix links
+1. Create a user assigned managed identity using [these instructions](../azure/active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-azp#create-a-user-assigned-managed-identity). You can use this managed identity in multiple DevCenters and Azure Compute Galleries. -->
 1. Open your DevCenter from the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Fidalgo/FidalgoMenuBlade/devcenters).
 1. Select the **Identity** menu item.
 1. Select the **User assigned** tab.
@@ -106,4 +109,4 @@ You can detach Galleries from DevCenters so that their images cannot be used any
 The Gallery will be detached from the DevCenter. The Gallery and any of its images will not be deleted, and can be added back if you wish. Please note, Galleries that are being actively used in Dev Box Definitions cannot be removed from the DevCenter. The associated Dev Box Definition needs to be deleted or updated to use an image from a different Gallery first.
 
 ## Next Steps
-- [Create a Dev Box Pool](./quickstart-create-dev-box-pool.md)
+- [Create a Dev Box Pool](./quickstart-configure-dev-box-service.md)

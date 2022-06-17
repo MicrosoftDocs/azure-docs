@@ -16,7 +16,7 @@ During the Preview, in addition to the Azure admin portal and the Dev Box user p
 
 ## Setup
 
-1. [Download and install the Az CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli)
+1. [Download and install the Az CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)
 
 1. Install the Fidalgo AZ CLI extension -
 

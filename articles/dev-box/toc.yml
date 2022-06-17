@@ -9,10 +9,10 @@
 - name: Quickstarts
   expanded: true
   items: 
+    - name: Configure the Microsoft Dev Box service
+    - href: quickstart-configure-dev-box-service.md
     - name: Create a Dev Box
       href: quickstart-create-dev-box.md
-    - name: Create a Dev Box Pool
-      href: quickstart-create-dev-box-pool.md  
 - name: Tutorials
   expanded: true
   items: 

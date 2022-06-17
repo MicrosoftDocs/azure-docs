@@ -57,6 +57,6 @@ Dev Box bridges the gap between development teams and IT, bringing control of pr
 ## Next steps
 
 Start using Microsoft Dev Box:
-- [Quickstart: Create a Dev Box Pool](./quickstart-create-dev-box-pool.md)
+- [Quickstart: Configure the Microsoft Dev Box service](./quickstart-configure-dev-box-service.md)
 - [Quickstart: Create a Dev Box](./quickstart-create-dev-box.md)
 
