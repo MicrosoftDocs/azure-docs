@@ -204,7 +204,7 @@ The following table shows the operating systems and languages that support porta
 
 ## Deployment behaviors
 
-When you do a deployment, all existing executions are allowed to complete or time out, after which the new code is loaded to begin processing requests.
+When you do a deployment function executions currently running during will be terminated, after which the new code is loaded to begin processing requests.
 
 If you need more control over this transition, you should use deployment slots.
 
