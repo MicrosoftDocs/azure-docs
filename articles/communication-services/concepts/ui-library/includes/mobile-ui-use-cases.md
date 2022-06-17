@@ -79,7 +79,7 @@ Localization is a key to making products that can be used across the world and b
 
 Accessibility is a key focus of the calling libraries. Screen Readers are supported to make important announcements regarding calling status and to help ensure that visibility impaired users can effectively participate in using the application.
 
-# Participant View Data Injection
+## Participant View Data Injection
 
 The Mobile UI Library gives the developers the ability to modify both Local and Remote Participants and how they are displayed in the call. On call launch the developer can supply a local avatar and custom display name to show to the local user. For Remote Users, methods are available to allow customization of avatars as they join the meetings. [How to customize participant views.](../../../how-tos/ui-library-sdk/data-model.md)
 
