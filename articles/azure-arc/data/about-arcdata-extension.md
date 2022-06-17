@@ -1,7 +1,7 @@
 ---
-title: az arcdata reference
+title: `az arcdata` reference
 titleSuffix: Azure Arc-enabled data services
-description: Reference article for az arcdata commands.
+description: Reference article for `az arcdata` commands.
 author: MikeRayMSFT
 ms.author: mikeray
 ms.reviewer: seanw
@@ -17,7 +17,7 @@ The `arcdata` extension for Azure CLI provides tools for managing Azure Arc data
 
 ## Install extension
 
-To install the extension, see [Install `arcdata` Azure CLI extension](../install-arcdata-extension.md).
+To install the extension, see [Install `arcdata` Azure CLI extension](install-arcdata-extension.md).
 
 ## Reference documentation
 
@@ -31,4 +31,4 @@ To access the latest reference documentation:
 
 ## Next steps
 
-[Plan an Azure Arc-enabled data services deployment](../plan-azure-arc-data-services.md)
+[Plan an Azure Arc-enabled data services deployment](plan-azure-arc-data-services.md)
