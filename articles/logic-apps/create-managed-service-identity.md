@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 03/16/2022
+ms.date: 06/17/2022
 ms.custom: devx-track-azurepowershell, subject-rbac-steps, ignite-fall-2021
 ---
 
@@ -47,7 +47,7 @@ The following table lists the operations where you can use either the system-ass
 | Operation type | Supported operations |
 |----------------|----------------------|
 | Built-in | - Azure API Management <br>- Azure App Services <br>- Azure Functions <br>- HTTP <br>- HTTP + Webhook <p>**Note**: HTTP operations can authenticate connections to Azure Storage accounts behind Azure firewalls with the system-assigned identity. However, they don't support the user-assigned managed identity for authenticating the same connections. |
-| Managed connector (**Preview**) | Single-authentication: <br>- Azure Automation <br>- Azure Event Grid <br>- Azure Key Vault <br>- Azure Resource Manager <br>- HTTP with Azure AD <p>Multi-authentication: <br>- Azure Blob Storage <br>- Azure Event Hubs <br>- Azure Service Bus <br>- SQL Server |
+| Managed connector | Single-authentication: <br>- Azure Automation <br>- Azure Event Grid <br>- Azure Key Vault <br>- Azure Resource Manager <br>- HTTP with Azure AD <p>Multi-authentication: <br>- Azure Blob Storage <br>- Azure Event Hubs <br>- Azure Service Bus <br>- SQL Server |
 |||
 
 ### [Standard](#tab/standard)
@@ -57,7 +57,7 @@ The following table lists the operations where you can use both the system-assig
 | Operation type | Supported operations |
 |----------------|----------------------|
 | Built-in | - HTTP <br>- HTTP + Webhook <p>**Note**: HTTP operations can authenticate connections to Azure Storage accounts behind Azure firewalls with the system-assigned identity. |
-| Managed connector (**Preview**) | Single-authentication: <br>- Azure Automation <br>- Azure Event Grid <br>- Azure Key Vault <br>- Azure Resource Manager <br>- HTTP with Azure AD <p>Multi-authentication: <br>- Azure Blob Storage <br>- Azure Event Hubs <br>- Azure Service Bus <br>- SQL Server |
+| Managed connector | Single-authentication: <br>- Azure Automation <br>- Azure Event Grid <br>- Azure Key Vault <br>- Azure Resource Manager <br>- HTTP with Azure AD <p>Multi-authentication: <br>- Azure Blob Storage <br>- Azure Event Hubs <br>- Azure Service Bus <br>- SQL Server |
 |||
 
 ---
@@ -612,9 +612,9 @@ These steps show how to use the managed identity with a trigger or action throug
 
      For more information, review [Example: Authenticate built-in trigger or action with a managed identity](#authenticate-built-in-managed-identity).
 
-   * **Managed connector operations that support managed identity authentication** (preview)
+   * **Managed connector operations that support managed identity authentication**
 
-     1. On the tenant selection page, select **Connect with managed identity (preview)**, for example:
+     1. On the tenant selection page, select **Connect with managed identity**, for example:
 
         ![Screenshot showing Azure Resource Manager action and "Connect with managed identity" selected in Consumption.](./media/create-managed-service-identity/select-connect-managed-identity-consumption.png)
 
@@ -660,9 +660,9 @@ These steps show how to use the managed identity with a trigger or action throug
 
      For more information, review [Example: Authenticate built-in trigger or action with a managed identity](#authenticate-built-in-managed-identity).
 
-   * **Managed connector operations that support managed identity authentication** (preview)
+   * **Managed connector operations that support managed identity authentication**
 
-     1. On the tenant selection page, select **Connect with managed identity (preview)**, for example:
+     1. On the tenant selection page, select **Connect with managed identity**, for example:
 
         ![Screenshot showing Azure Resource Manager action and "Connect with managed identity" selected - Standard.](./media/create-managed-service-identity/select-connect-managed-identity-standard.png)
 
@@ -824,7 +824,7 @@ The Azure Resource Manager managed connector has an action, **Read a resource**,
 
 ### [Consumption](#tab/consumption)
 
-1. After you add the action to your workflow and select your Azure AD tenant, select **Connect with managed identity (preview)**.
+1. After you add the action to your workflow and select your Azure AD tenant, select **Connect with managed identity**.
 
    ![Screenshot showing Azure Resource Manager action and "Connect with managed identity" selected.](./media/create-managed-service-identity/select-connect-managed-identity-consumption.png)
 
@@ -851,7 +851,7 @@ The Azure Resource Manager managed connector has an action, **Read a resource**,
 
 ### [Standard](#tab/standard)
 
-1. After you add the action to your workflow, on the action's **Create Connection** pane, select your Azure AD tenant, and then select **Connect with managed identity (preview)**.
+1. After you add the action to your workflow, on the action's **Create Connection** pane, select your Azure AD tenant, and then select **Connect with managed identity**.
 
    ![Screenshot showing Azure Resource Manager action and "Connect with managed identity" selected.](./media/create-managed-service-identity/select-connect-managed-identity-standard.png)
 
@@ -1053,8 +1053,9 @@ This example shows the underlying connection resource definition for an Azure Bl
         "parameterValueSet":{
             "name": "managedIdentityAuth",
             "values": {}
+        }
     }
-},
+}
 ```
 
 ### [Standard](#tab/standard)
@@ -1062,13 +1063,13 @@ This example shows the underlying connection resource definition for an Azure Bl
 The following examples apply to Standard logic apps and show how the underlying connector resource definition differs between a single-authentication connector, such as Azure Automation, and a multi-authentication connector, such as Azure Blob Storage.
 
 #### Single-authentication
-     
+
 This example shows the underlying connection resource definition for an Azure Automation action in a Standard logic app that uses a managed identity where the definition includes the following attributes:
 
 * The `apiVersion` property is set to `2016-06-01`.
 * The `kind` property is set to `V2` for a Standard logic app.
 * The `parameterValueType` property is set to `Alternative`.
-     
+
 ```json
 {
     "type": "Microsoft.Web/connections",
@@ -1112,8 +1113,9 @@ This example shows the underlying connection resource definition for an Azure Bl
         "parameterValueSet":{
             "name": "managedIdentityAuth",
             "values": {}
+        }
     }
-},
+}
 ```
 
 Following this `Microsoft.Web/connections` resource definition, make sure that you add an access policy that specifies a resource definition for each API connection and provide the following information:
