@@ -95,7 +95,7 @@ az network vnet subnet create `
 
 ---
 
-Query for the infrastructure subnet ID.
+Next, query for the infrastructure subnet ID.
 
 # [Bash](#tab/bash)
 
@@ -111,7 +111,7 @@ $INFRASTRUCTURE_SUBNET=(az network vnet subnet show --resource-group <RESOURCE_G
 
 ---
 
-Create the environment with the `--zone-redundant` parameter.  The location must be the same location used when creating the VNET.
+Finally, create the environment with the `--zone-redundant` parameter.  The location must be the same location used when creating the VNET.
 
 # [Bash](#tab/bash)
 
