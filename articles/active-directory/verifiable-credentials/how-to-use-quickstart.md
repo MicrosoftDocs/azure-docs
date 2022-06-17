@@ -1,13 +1,13 @@
 ---
-title: How to create credentials using the Quickstart
-description: Learn how to use the Quickstart to create custom credentials
+title: How to create credentials using the QuickStart
+description: Learn how to use the QuickStart to create custom credentials
 documentationCenter: ''
 author: barclayn
 manager: rkarlin
 ms.service: decentralized-identity
 ms.topic: how-to
 ms.subservice: verifiable-credentials
-ms.date: 06/08/2022
+ms.date: 06/16/2022
 ms.author: barclayn
 
 #Customer intent: As an administrator, I am looking for information to help me disable 
@@ -24,19 +24,22 @@ ms.author: barclayn
 
 ## Prerequisites
 
-- Complete verifiable credentials onboarding.
+To use the Azure Active Directory Verifiable Credentials QuickStart, you only need to complete verifiable credentials onboarding.
 
-## What is the Quickstart?
+## What is the QuickStart?
 
-Azure AD verifiable Credentials now comes with a quickstart in the portal for creating custom credentials. This means no more editing and uploading of Display and Rules files to Azure Storage. Instead you enter all details in the portal and create the credential in one page. For custom credentials, this means you provide the Display and Rules definition in JSON documents. These definitions are now stored together with the credential details. 
+Azure AD verifiable Credentials now come with a QuickStart in the portal for creating custom credentials. When using the QuickStart, you don't need to edit and upload of display and rules files to Azure Storage. Instead you enter all details in the portal and create the credential in one page. 
+
+>[!NOTE]
+>When working with custom credentials, you provide display and rules definitions in JSON documents. These definitions are now stored together with the credential's details.
 
 ## Create a Custom credential
 
-When you select + Add credential in the portal, you get the option to launch two Quickstarts. Select [x] Custom credential and click Next. 
+When you select + Add credential in the portal, you get the option to launch two Quickstarts. Select [x] Custom credential and select Next. 
 
 ![Quickstart start screen](media/how-to-use-quickstart/quickstart-startscreen.png)
 
-In the next screen, you enter JSON for the Display and the Rules definitions and give the credential a type name. Click Create to create the credential.
+In the next screen, you enter JSON for the Display and the Rules definitions and give the credential a type name. Select Create to create the credential.
 
 ![Quickstart create new credential](media/how-to-use-quickstart/quickstart-create-new.png)
 
@@ -109,11 +112,17 @@ The expected JSON for the Rules definitions is the inner content of the rules at
 
 ## Configure the samples to issue and verify your Custom credential
 
-To configure your sample code deployment to issue and verify your custom credentials you need your issuer DID for your tenant, the credential type and the manifest url to your credential. The easiest way to find this for a Custom Credential is to go to your credential in the portal, select Issue credential and switch to Custom issue.
+To configure your sample code to issue and verify using custom credentials, you need:
+
+- Your tenant's issuer DID
+- The credential type
+- The manifest url to your credential. 
+
+The easiest way to find this information for a Custom Credential is to go to your credential in the portal, select **Issue credential** and switch to Custom issue.
 
 ![Quickstart issue credential screen](media/how-to-use-quickstart/quickstart-config-sample-1.png)
 
-This will bring up a textbox with a skeleton JSON payload for the Request Service API. There you have these value that you can copy and paste to your sample deployment’s configuration files. Issuer’s DID is the authority value.
+After switching to custom issue, you have access to a textbox with a JSON payload for the Request Service API. Replace the place holder values with your environment's information. The issuer’s DID is the authority value.
 
 ![Quickstart custom issue](media/how-to-use-quickstart/quickstart-config-sample-2.png)
 
