@@ -6,11 +6,17 @@ items:
   items:
     - name: What is Azure OpenAI?
       href: overview.md
-    - name: Azure OpenAI Engines
-      href: ./concepts/engines.md
 - name: How-to 
   items:
     - name: Completions
       href: ./how-to/completions.md
+- name: Concepts
+  items:
+    - name: Azure OpenAI Engines
+      href: ./concepts/engines.md
+- name: Reference
+  items:
+    - name: REST API
+      href: reference.md
 
   
