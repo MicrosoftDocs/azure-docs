@@ -147,7 +147,7 @@ You'll often have the requirement to integrate Azure Monitor with other systems 
 
 ### Logic Apps
 
-[Logic Apps](https://azure.microsoft.com/services/logic-apps) is a service you can use to automate tasks and business processes by using workflows that integrate with different systems and services. Activities are available that read and write metrics and logs in Azure Monitor.
+[Azure Logic Apps](https://azure.microsoft.com/services/logic-apps) is a service you can use to automate tasks and business processes by using workflows that integrate with different systems and services. Activities are available that read and write metrics and logs in Azure Monitor.
 
 ### API
 
