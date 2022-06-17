@@ -948,6 +948,7 @@
   },
   "redirection_files": [
     ".openpublishing.redirection.json",
+    ".openpublishing.redirection.azure-arc-data.json",
     ".openpublishing.redirection.active-directory.json",
     ".openpublishing.redirection.azure-blob.json",
     "articles/data-factory/.openpublishing.redirection.data-factory.json",
@@ -998,6 +999,7 @@
     "articles/spring-cloud/.openpublishing.redirection.spring-cloud.json",
     "articles/load-testing/.openpublishing.redirection.azure-load-testing.json",
     "articles/azure-video-indexer/.openpublishing.redirection.azure-video-indexer.json",
-    "articles/machine-learning/.openpublishing.redirection.machine-learning.json"
+    "articles/machine-learning/.openpublishing.redirection.machine-learning.json",
+    "articles/static-web-apps/.openpublishing.redirection.static-web-apps.json"
   ]
 }

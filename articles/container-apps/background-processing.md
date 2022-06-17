@@ -7,12 +7,12 @@ ms.service: container-apps
 ms.topic: conceptual
 ms.date: 11/02/2021
 ms.author: joarteir
-ms.custom: ignite-fall-2021, devx-track-azurecli, event-tier1-build-2022
+ms.custom: devx-track-azurecli, event-tier1-build-2022
 ---
 
 # Tutorial: Deploy a background processing application with Azure Container Apps
 
-Using Azure Container Apps allows you to deploy applications without requiring the exposure of public endpoints. By using Container Apps scale rules, the application can scale up and down based on the Azure Storage queue length. When there are no messages on the queue, the container app scales down to zero.
+Using Azure Container Apps allows you to deploy applications without requiring the exposure of public endpoints. By using Container Apps scale rules, the application can scale out and in based on the Azure Storage queue length. When there are no messages on the queue, the container app scales in to zero.
 
 You learn how to:
 
@@ -265,7 +265,7 @@ New-AzResourceGroupDeployment `
 
 This command deploys the demo application from the public container image called `mcr.microsoft.com/azuredocs/containerapps-queuereader` and sets secrets and environments variables used by the application.
 
-The application scales up to 10 replicas based on the queue length as defined in the `scale` section of the ARM template.
+The application scales out to 10 replicas based on the queue length as defined in the `scale` section of the ARM template.
 
 ## Verify the result
 
