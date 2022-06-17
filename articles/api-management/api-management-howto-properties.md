@@ -51,8 +51,7 @@ Using key vault secrets is recommended because it helps improve API Management s
     1. Select **Secret permissions**, then select **Get** and **List**.
     1. In **Select principal**, select the resource name of your managed identity. If you're using a system-assigned identity, the principal is the name of your API Management instance.
 1. Create or import a secret to the key vault. See [Quickstart: Set and retrieve a secret from Azure Key Vault using the Azure portal](../key-vault/secrets/quick-create-portal.md).
-
-To use the key vault secret, [add or edit a named value](#add-or-edit-a-named-value), and specify a type of **Key vault**. Select the secret from the key vault.
+1. When adding a key vault secret to your API Management instance, you must have permissions to list secrets from the key vault.
 
 [!INCLUDE [api-management-key-vault-network](../../includes/api-management-key-vault-network.md)]
 
