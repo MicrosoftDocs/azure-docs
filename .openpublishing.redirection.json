@@ -40271,6 +40271,26 @@
       "source_path_from_root": "/articles/private-link/private-endpoint-static-ip-powershell.md",
       "redirect_url": "/azure/private-link/create-private-endpoint-powershell",
       "redirect_document_id": true
-    }
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/insights/sql-insights-alerts.md",
+      "redirect_url": "/azure/azure-sql/database/sql-insights-alerts",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/insights/sql-insights-enable.md",
+      "redirect_url": "/azure/azure-sql/database/sql-insights-enable",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/insights/sql-insights-overview.md",
+      "redirect_url": "/azure/azure-sql/database/sql-insights-overview",
+      "redirect_document_id": false
+    },    
+    {
+      "source_path_from_root": "/articles/azure-monitor/insights/sql-insights-troubleshoot.md",
+      "redirect_url": "/azure/azure-sql/database/sql-insights-troubleshoot",
+      "redirect_document_id": false
+    }    
   ]
 }
