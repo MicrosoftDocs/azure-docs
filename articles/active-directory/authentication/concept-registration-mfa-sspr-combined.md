@@ -130,7 +130,7 @@ Users can access manage mode by going to [https://aka.ms/mysecurityinfo](https:/
 
 An admin has enforced registration.
 
-A user has not set up all required security info and goes to the Azure portal. After entering the user name and password, the user is prompted to set up security info. The user then follows the steps shown in the wizard to set up the required security info. If your settings allow it, the user can choose to set up methods other than those shown by default. After completing the wizard, users review the methods they set up and their default method for Multi-Factor Authentication. To complete the setup process, the user confirms the info and continues to the Azure portal.
+A user has not set up all required security info and goes to the Azure portal. After the user enters the user name and password, the user is prompted to set up security info. The user then follows the steps shown in the wizard to set up the required security info. If your settings allow it, the user can choose to set up methods other than those shown by default. After users complete the wizard, they review the methods they set up and their default method for Multi-Factor Authentication. To complete the setup process, the user confirms the info and continues to the Azure portal.
 
 ### Set up security info from My Account
 
@@ -153,7 +153,7 @@ In addition, users who access a resource tenant may be confused when they change
 
 For example, a user sets Microsoft Authenticator app push notification as the primary authentication to sign-in to home tenant and also has SMS/Text as another option. 
 This user is also configured with SMS/Text option on a resource tenant. 
-If this user removes SMS/Text as one of the authentication option on their home tenant, they get confused when access to the resource tenant asks them to respond to SMS/Text message. 
+If this user removes SMS/Text as one of the authentication options on their home tenant, they get confused when access to the resource tenant asks them to respond to SMS/Text message. 
 
 To switch the directory in the Azure portal, click the user account name in the upper right corner and click **Switch directory**.
 
