@@ -11,14 +11,14 @@ ms.custom: devx-track-csharp
 
 Disaster recovery focuses on recovering from a severe loss of application functionality. This tutorial will walk you through how to set up your eventing architecture to recover if the Event Grid service becomes unhealthy in a particular region.
 
-In this tutorial, you'll learn how to create an active-passive fail over architecture for custom topics in Event Grid. You'll accomplish fail over by mirroring your topics and subscriptions across two regions and then managing a fail over when a topic becomes unhealthy. The architecture in this tutorial fails over all new traffic. it's important to be aware, with this setup, events already in flight won't be recovered until the compromised region is healthy again.
+In this tutorial, you'll learn how to create an active-passive failover architecture for custom topics in Event Grid. You'll accomplish failover by mirroring your topics and subscriptions across two regions and then managing a failover when a topic becomes unhealthy. The architecture in this tutorial fails over all new traffic. it's important to be aware, with this setup, events already in flight won't be recovered until the compromised region is healthy again.
 
 > [!NOTE]
-> Event Grid supports automatic geo disaster recovery (GeoDR) on the server side now. You can still implement client-side disaster recovery logic if you want a greater control on the fail over process. For details about automatic GeoDR, see [Server-side geo disaster recovery in Azure Event Grid](geo-disaster-recovery.md).
+> Event Grid supports automatic geo disaster recovery (GeoDR) on the server side now. You can still implement client-side disaster recovery logic if you want a greater control on the failover process. For details about automatic GeoDR, see [Server-side geo disaster recovery in Azure Event Grid](geo-disaster-recovery.md).
 
 ## Create a message endpoint
 
-To test your fail over configuration, you'll need an endpoint to receive your events at. The endpoint isn't part of your fail over infrastructure, but will act as our event handler to make it easier to test.
+To test your failover configuration, you'll need an endpoint to receive your events at. The endpoint isn't part of your failover infrastructure, but will act as our event handler to make it easier to test.
 
 To simplify testing, deploy a [pre-built web app](https://github.com/Azure-Samples/azure-event-grid-viewer) that displays the event messages. The deployed solution includes an App Service plan, an App Service web app, and source code from GitHub.
 
@@ -80,9 +80,9 @@ You should now have:
    * A secondary topic in your secondary region.
    * A secondary event subscription connecting your primary topic to the event receiver website.
 
-## Implement client-side fail over
+## Implement client-side failover
 
-Now that you have a regionally redundant pair of topics and subscriptions setup, you're ready to implement client-side fail over. There are several ways to accomplish it, but all fail over implementations will have a common feature: if one topic is no longer healthy, traffic will redirect to the other topic.
+Now that you have a regionally redundant pair of topics and subscriptions setup, you're ready to implement client-side failover. There are several ways to accomplish it, but all failover implementations will have a common feature: if one topic is no longer healthy, traffic will redirect to the other topic.
 
 ### Basic client-side implementation
 
@@ -177,7 +177,7 @@ namespace EventGridFailoverPublisher
 
 ### Try it out
 
-Now that you have all of your components in place, you can test out your fail over implementation. Run the above sample in Visual Studio code, or your favorite environment. Replace the following four values with the endpoints and keys from your topics:
+Now that you have all of your components in place, you can test out your failover implementation. Run the above sample in Visual Studio code, or your favorite environment. Replace the following four values with the endpoints and keys from your topics:
 
    * primaryTopic - the endpoint for your primary topic.
    * secondaryTopic - the endpoint for your secondary topic.
@@ -188,7 +188,7 @@ Try running the event publisher. You should see your test events land in your Ev
 
 ![Screenshot showing the Event Grid Viewer app.](./media/custom-disaster-recovery/event-grid-viewer.png)
 
-To make sure your fail over is working, you can change a few characters in your primary topic key to make it no longer valid. Try running the publisher again. You should still see new events appear in your Event Grid viewer, however when you look at your console, you'll see that they are now being published via the secondary topic.
+To make sure your failover is working, you can change a few characters in your primary topic key to make it no longer valid. Try running the publisher again. You should still see new events appear in your Event Grid viewer, however when you look at your console, you'll see that they are now being published via the secondary topic.
 
 ### Possible extensions
 
