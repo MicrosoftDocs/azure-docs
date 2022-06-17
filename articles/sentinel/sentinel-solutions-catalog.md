@@ -63,6 +63,7 @@ For more information, see [Centrally discover and deploy Microsoft Sentinel out-
 
 |Name    |Includes  |Categories |Supported by  |
 |---------|---------|---------|---------|
+|**Azure Active Directory**|[Data connector](data-connectors-reference.md#azure-active-directory), workbooks, analytic rules |Identity|Microsoft|
 |**Azure Firewall Solution for Sentinel**| [Data connector](data-connectors-reference.md#azure-firewall), workbook, analytics rules, playbooks, hunting queries, custom Logic App connector |Security - Network Security, Networking | Community|
 | **Microsoft Purview** | [Data connector](data-connectors-reference.md#microsoft-purview), workbook, analytics rules <br><br>For more information, see [Tutorial: Integrate Microsoft Sentinel and Microsoft Purview](purview-solution.md). | Compliance, Security- Cloud Security, and Security- Information Protection | Microsoft |
 |**Microsoft Sentinel for SQL PaaS**     |  [Data connector](data-connectors-reference.md#azure-sql-databases), workbook, analytics rules, playbooks, hunting queries     | Application        |      Community   |
@@ -101,6 +102,12 @@ For more information, see [Centrally discover and deploy Microsoft Sentinel out-
 |**Cisco Umbrella** |[Data connector](data-connectors-reference.md#cisco-umbrella-preview), workbooks, analytics rules, playbooks, hunting queries, parser, custom Logic App connector |Security - Cloud Security |Microsoft |
 |**Cisco Web Security Appliance (WSA)** | Data connector, parser|Security - Network |Microsoft |
 
+## Citrix ADC
+
+|Name    |Includes  |Categories |Supported by  |
+|---------|---------|---------|---------|
+|**Citrix ADC**|Data connector, parser| Networking |Microsoft |
+
 ## Cloudflare
 
 |Name    |Includes  |Categories |Supported by  |
@@ -113,14 +120,17 @@ For more information, see [Centrally discover and deploy Microsoft Sentinel out-
 |---------|---------|---------|---------|
 |**Contrast Protect Microsoft Sentinel Solution**|Data connector, workbooks, analytics rules |Security - Threat protection |Microsoft  |
 
-
 ## Crowdstrike
-
 
 |Name    |Includes  |Categories |Supported by  |
 |---------|---------|---------|---------|
 |**CrowdStrike Falcon Endpoint Protection Solution**| Data connector, workbooks, analytics rules, playbooks, parser| Security - Threat protection| Microsoft|
 
+## CyberArk
+
+|Name    |Includes  |Categories |Supported by  |
+|---------|---------|---------|---------|
+|**CyberArk Enterprise Password Vault (EPV)**| [Data connector](data-connectors-reference.md#cyberark-enterprise-password-vault-epv-events-preview), workbooks| Identity| [CyberArk](https://www.cyberark.com/customer-support/)|
 
 ## Digital Guardian
 
@@ -250,7 +260,6 @@ For more information, see [Centrally discover and deploy Microsoft Sentinel out-
 |**McAfee ePolicy Orchestrator Solution**| Data connector, workbook, analytics rules, playbooks, hunting queries, parser, custom Logic App connector| Security - Threat protection| Microsoft |
 |**McAfee Network Security Platform Solution** (Intrushield) + AntiVirus Information (T1 minus Logic apps) |Data connector, workbooks, analytics rules, hunting queries, parser |Security - Threat protection | Microsoft|
 
-
 ## Microsoft
 
 |Name    |Includes  |Categories |Supported by  |
@@ -259,6 +268,12 @@ For more information, see [Centrally discover and deploy Microsoft Sentinel out-
 |**Microsoft Sentinel for Microsoft Dynamics 365**     |   [Data connector](data-connectors-reference.md#dynamics-365), workbooks, analytics rules, and hunting queries |      Application   |Microsoft         |
 |**Microsoft Sentinel for Teams**     | Analytics rules, playbooks, hunting queries      |   Application      |    Microsoft     |
 | **Microsoft Sysmon for Linux** | [Data connector](data-connectors-reference.md#microsoft-sysmon-for-linux-preview) | Platform | Microsoft |
+
+## NetSkope
+
+|Name    |Includes  |Categories |Supported by  |
+|---------|---------|---------|---------|
+|**NetSkope**     |  [Data connector](data-connectors-reference.md#netskope-preview), parser |      Security – Network  |[NetSkope](https://www.netskope.com/services#support)       |
 
 ## NGINX
 
@@ -288,6 +303,11 @@ For more information, see [Centrally discover and deploy Microsoft Sentinel out-
 |**Palo Alto PAN-OS**|[Data connector](#palo-alto), playbooks, custom Logic App connector |Security - Automation (SOAR), Security - Network |Microsoft |
 |**Palo Alto Prisma Solution**|[Data connector](#palo-alto), workbooks, analytics rules, hunting queries, parser |Security - Cloud security |Microsoft |
 
+## Perimeter 81
+
+|Name    |Includes  |Categories |Supported by  |
+|---------|---------|---------|---------|
+|**Perimeter 81** |[Data connector](data-connectors-reference.md#perimeter-81-activity-logs-preview), workbook| Security - Network |[Perimeter 81](https://support.perimeter81.com/docs) |
 
 ## Ping Identity
 
@@ -391,6 +411,11 @@ For more information, see [Centrally discover and deploy Microsoft Sentinel out-
 |**Sophos Endpoint Protection Solution** |Data connector, parser| Security - Threat protection |Microsoft |
 |**Sophos XG Firewall Solution**| Workbooks, analytics rules, parser |Security - Network |Microsoft |
 
+## Squadra Technologies
+
+|Name    |Includes  |Categories |Supported by  |
+|---------|---------|---------|---------|
+|**Squadra Technologies secRMM** |[Data connector](data-connectors-reference.md#squadra-technologies-secrmm), workbook| Security - Information Protection, Security - Threat Protection |[Squadra Technologies](https://www.squadratechnologies.com/Contact.aspx) |
 
 ## Symantec
 
