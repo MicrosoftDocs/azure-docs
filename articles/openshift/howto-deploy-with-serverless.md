@@ -270,7 +270,7 @@ When a new revision is deployed, by default it is assigned 100% of the traffic. 
 You can update the service to create three traffic tags, while assigning 100% of traffic to them.
 
 - **current**: points to the currently deployed version
-- **prev**: points tp the previous version
+- **prev**: points to the previous version
 - **latest**: always points to the latest version
 
 ```azurecli-interactive
