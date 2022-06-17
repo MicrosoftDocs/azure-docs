@@ -1608,8 +1608,14 @@ items:
         href: migration-guides/oracle/2-etl-load-migration-considerations.md
       - name: 3 Security access operations
         href: migration-guides/oracle/3-security-access-operations.md
-      - name: 4 Minimizing SQL issues
-        href: migration-guides/oracle/4-minimize-sql-issues.md
+      - name: 4 Visualization and reporting
+        href: migration-guides/oracle/4-visualization-reporting.md
+      - name: 5 Minimizing SQL issues
+        href: migration-guides/oracle/5-minimize-sql-issues.md
+      - name: 6 Microsoft and third-party tools
+        href: migration-guides/oracle/6-microsoft-third-party-migration-tools.md
+      - name: 7 Implementing modern data warehouses
+        href: migration-guides/oracle/7-beyond-data-warehouse-migration.md
   - name: Security white paper
     items:
     - name: Introduction

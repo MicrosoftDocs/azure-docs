@@ -14,50 +14,11 @@ ms.date: 06/30/2022
 
 # Security, access, and operations for Oracle migrations
 
-This article is part three of a four part series that provides guidance on how to migrate from Oracle to Azure Synapse Analytics. This article provides best practices for security access operations.
-
-## Overview
-
-Due to the cost and complexity of maintaining and upgrading legacy on-premises Oracle environments, many existing users of Oracle data warehouse systems want to take advantage of the innovations provided by newer environments such as cloud, IaaS, and PaaS. These environments let you delegate tasks like infrastructure maintenance and platform development to the cloud provider.
-
->[!TIP]
->More than just a database&mdash;the Azure environment includes a comprehensive set of capabilities and tools.
-
-Although Oracle and Azure Synapse Analytics are both SQL databases designed to use massively parallel processing (MPP) techniques to achieve high query performance on exceptionally large data volumes, there are some basic differences in approach:
-
-- Legacy Oracle systems are often installed on-premises and use relatively expensive hardware, while Azure Synapse is cloud-based and uses Azure storage and compute resources.
-
-- Upgrading an Oracle configuration is a major task involving additional physical hardware and potentially lengthy database reconfiguration, or dump and reload. Since storage and compute resources are separate in the Azure environment, these resources can be scaled upwards or downwards independently, leveraging the elastic scaling capability.
-
-- You can pause or resize Azure Synapse as required to reduce resource utilization and cost.
-
-Microsoft Azure is a globally available, highly secure, scalable cloud environment that includes Azure Synapse and an ecosystem of supporting tools and capabilities. The next diagram summarizes the Azure Synapse ecosystem.
-
-:::image type="content" source="../media/1-design-performance-migration/azure-synapse-ecosystem.png" border="true" alt-text="Chart showing the Azure Synapse ecosystem of supporting tools and capabilities.":::
-
-Azure Synapse provides best-of-breed relational database performance by using techniques such as massively parallel processing (MPP) and automatic in-memory caching. You can see the results of this approach in independent benchmarks such as the one run recently by [GigaOm](https://research.gigaom.com/report/data-warehouse-cloud-benchmark/), which compares Azure Synapse to other popular cloud data warehouse offerings. Customers who have migrated to this environment have seen many benefits including:
-
-- Improved performance and price/performance.
-
-- Increased agility and shorter time to value.
-
-- Faster server deployment and application development.
-
-- Elastic scalability&mdash;only pay for actual usage.
-
-- Improved security/compliance.
-
-- Reduced storage and disaster recovery costs.
-
-- Lower overall TCO, better cost control, and streamlined operational expenditure (OPEX).
-
-To maximize these benefits, migrate new or existing data and applications to the Azure Synapse platform. In many organizations, this will include migrating an existing data warehouse from legacy on-premises platforms such as Oracle. At a high level, the basic process includes these steps:
-
-:::image type="content" source="../media/1-design-performance-migration/migration-steps.png" border="true" alt-text="Diagram showing the steps for preparing to migrate, migration, and post-migration.":::
-
-This article looks at the security and operational aspects of migration from a legacy Oracle data warehouse and data marts to Azure Synapse. This article applies specifically to migrations from an existing Oracle environment and assumes there is requirement to migrate the existing users, roles and permissions as-is.
+This article is part three of a seven part series that provides guidance on how to migrate from Oracle to Azure Synapse Analytics. This article provides best practices for security access operations.
 
 ## Security considerations
+
+This article looks at the security and operational aspects of migration from a legacy Oracle data warehouse and data marts to Azure Synapse. This article applies specifically to migrations from an existing Oracle environment and assumes there is requirement to migrate the existing users, roles and permissions as-is.
 
 This section addresses the possible methods of authentication for existing legacy Oracle environments and how these can be migrated to Azure Synapse with least risk and impact to users.
 
@@ -419,4 +380,4 @@ Adding more compute nodes adds more compute power and ability to leverage more p
 
 ## Next steps
 
-To learn more about minimizing SQL issues, see the next article in this series: [Minimizing SQL issues for Oracle migrations](4-minimize-sql-issues.md).
+To learn more about minimizing SQL issues, see the next article in this series: [Minimizing SQL issues for Oracle migrations](5-minimize-sql-issues.md).

@@ -14,7 +14,7 @@ ms.date: 06/30/2022
 
 # Design and performance for Oracle migrations
 
-This article is part one of a four part series that provides guidance on how to migrate from Oracle to Azure Synapse Analytics. This article provides best practices for design and performance.
+This article is part one of a seven part series that provides guidance on how to migrate from Oracle to Azure Synapse Analytics. This article provides best practices for design and performance.
 
 ## Overview
 
@@ -103,7 +103,7 @@ Microsoft recommends moving the existing data model as-is to Azure and using the
 
 #### Use Microsoft facilities to implement a metadata-driven migration
 
-Automate and orchestrate the migration process by using the capabilities of the Azure environment. This approach minimizes the impact on the existing Netezza environment, which may already be running close to capacity.
+Automate and orchestrate the migration process by using the capabilities of the Azure environment. This approach minimizes the impact on the existing Oracle environment, which may already be running close to capacity.
 
 SSMA can automate many parts of the migration process and supports Azure Synapse as a target environment.
 
