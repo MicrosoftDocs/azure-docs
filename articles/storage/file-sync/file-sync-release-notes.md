@@ -5,7 +5,7 @@ services: storage
 author: wmgries
 ms.service: storage
 ms.topic: conceptual
-ms.date: 5/24/2022
+ms.date: 6/06/2022
 ms.author: wgries
 ms.subservice: files
 ---
@@ -82,18 +82,7 @@ The following release notes are for version 15.0.0.0 of the Azure File Sync agen
 		```powershell
 		Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
 		Debug-StorageSyncServer -AFSDiag -OutputDirectory C:\output -KernelModeTraceLevel Verbose -UserModeTraceLevel Verbose
- 	```
-- Immediately run server change enumeration to detect files changes that were missed by USN journal
-	- Azure File Sync uses the Windows USN journal feature on Windows Server to immediately detect files that were changed and upload them to the Azure file share. If files changed are missed due to journal wrap or other issues, the files will not sync to the Azure file share until the changes are detected. Azure File Sync has a server change enumeration job that runs every 24 hours on the server endpoint path to detect changes that were missed by the USN journal. If you don't want to wait until the next server change enumeration job runs, you can now use the Invoke-StorageSyncServerChangeDetection PowerShell cmdlet to immediately run server change enumeration on a server endpoint path.  
- 
-		To immediately run server change enumeration on a server endpoint path, run the following PowerShell commands:
-		```powershell
-		Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
-		Invoke-StorageSyncServerChangeDetection -ServerEndpointPath <path>
-		```
-		> [!Note]  
-		>By default, the server change enumeration scan will only check the modified timestamp. To perform a deeper check, use the -DeepScan parameter.
- 
+ 		```
 - Miscellaneous improvements
 	- Reliability and telemetry improvements for cloud tiering and sync.
 

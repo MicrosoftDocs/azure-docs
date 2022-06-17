@@ -268,6 +268,7 @@ This section describes the current state of the functional and behavioral differ
 | Middleware | Not supported | Supported |
 | Cold start times | Typical | Longer, because of just-in-time start-up. Run on Linux instead of Windows to reduce potential delays. |
 | ReadyToRun | [Supported](functions-dotnet-class-library.md#readytorun) | _TBD_ | 
+| Application Insights dependencies | [Supported](functions-monitoring.md#dependencies) | Not Supported |
 
 ## Next steps
 

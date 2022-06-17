@@ -1,10 +1,8 @@
 ---
 title: Container security with Microsoft Defender for Cloud
 description: Learn about Microsoft Defender for Containers
-author: bmansheim
-ms.author: benmansheim
 ms.topic: overview
-ms.date: 05/25/2022
+ms.date: 06/15/2022
 ---
 
 # Overview of Microsoft Defender for Containers
@@ -12,6 +10,8 @@ ms.date: 05/25/2022
 Microsoft Defender for Containers is the cloud-native solution for securing your containers so you can improve, monitor, and maintain the security of your clusters, containers, and their applications.
 
 [How does Defender for Containers work in each Kubernetes platform?](defender-for-containers-architecture.md)
+
+You can learn more from the product manager about Microsoft Defender for Containers by watching [Microsoft Defender for Containers](episode-three.md).
 
 ## Microsoft Defender for Containers plan availability
 
@@ -82,7 +82,7 @@ Defender for Containers provides real-time threat protection for your containeri
 
 In addition, our threat detection goes beyond the Kubernetes management layer. Defender for Containers includes **host-level threat detection** with over 60 Kubernetes-aware analytics, AI, and anomaly detections based on your runtime workload. Our global team of security researchers constantly monitor the threat landscape. They add container-specific alerts and vulnerabilities as they're discovered.
 
-This solution monitors the growing attack surface of multi-cloud Kubernetes deployments and tracks the [MITRE ATT&CK® matrix for Containers](https://www.microsoft.com/security/blog/2021/04/29/center-for-threat-informed-defense-teams-up-with-microsoft-partners-to-build-the-attck-for-containers-matrix/), a framework that was developed by the [Center for Threat-Informed Defense](https://mitre-engenuity.org/ctid/) in close partnership with Microsoft and others.
+This solution monitors the growing attack surface of multicloud Kubernetes deployments and tracks the [MITRE ATT&CK® matrix for Containers](https://www.microsoft.com/security/blog/2021/04/29/center-for-threat-informed-defense-teams-up-with-microsoft-partners-to-build-the-attck-for-containers-matrix/), a framework that was developed by the [Center for Threat-Informed Defense](https://mitre-engenuity.org/ctid/) in close partnership with Microsoft and others.
 
 The full list of available alerts can be found in the [Reference table of alerts](alerts-reference.md#alerts-k8scluster).
 
@@ -113,9 +113,7 @@ No, AKS is a managed service, and manipulation of the IaaS resources isn't suppo
 
 ## Learn More
 
-If you would like to learn more from the product manager about Microsoft Defender for Containers, check out [Microsoft Defender for Containers](episode-three.md).
-
-You can also check out the following blogs:
+You can check out the following blogs:
 
 - [How to demonstrate the new containers features in Microsoft Defender for Cloud](https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/how-to-demonstrate-the-new-containers-features-in-microsoft/ba-p/3281172)
 - [Introducing Microsoft Defender for Containers](https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/introducing-microsoft-defender-for-containers/ba-p/2952317)

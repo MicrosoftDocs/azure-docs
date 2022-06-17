@@ -6,7 +6,7 @@ ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
 ms.custom: references_regions, subject-rbac-steps
-ms.date: 03/01/2022
+ms.date: 06/06/2022
 ms.author: mikaelw
 ---
 
@@ -169,3 +169,5 @@ In this article, you learned about the three steps in configuring export setting
 
 >[!div class="nextstepaction"]
 >[How to export FHIR data](export-data.md)
+
+FHIR&#174; is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.

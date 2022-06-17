@@ -1,7 +1,7 @@
 ---
 title: Activate and set up your sensor
 description: This article describes how to sign in and activate a sensor console.
-ms.date: 11/09/2021
+ms.date: 06/06/2022
 ms.topic: how-to
 ---
 
@@ -125,6 +125,17 @@ For more information about working with certificates, see [Manage certificates](
 You might need to refresh your screen after uploading the CA-signed certificate.
 
 For information about uploading a new certificate, supported certificate parameters, and working with CLI certificate commands, see [Manage individual sensors](how-to-manage-individual-sensors.md).
+
+### Activation expirations
+
+After activating a sensor, you'll need to apply new activation files as follows:
+
+|Location  |Activation process  |
+|---------|---------|
+|**Cloud-connected sensors**     | Cloud-connected sensors remain activated for as long as your Azure subscription with your Defender for IoT plan is active. <br><br>However, you'll also need to apply a new activation file when [updating your sensor software](how-to-manage-individual-sensors.md#download-a-new-activation-file-for-version-221x-or-higher) from a legacy version to version 22.2.x.        |
+|  **Locally-managed**   |   Apply a new activation file to locally-managed sensors every year. After a sensor's activation file has expired, the sensor will continue to monitor your network, but you'll see a warning message when signing in to the sensor.     |
+
+For more information, see [Manage Defender for IoT subscriptions](how-to-manage-subscriptions.md) and [Manage the on-premises management console](how-to-manage-the-on-premises-management-console.md).
 
 
 ### Activate an expired license (versions under 10.0)

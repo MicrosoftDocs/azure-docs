@@ -165,7 +165,7 @@ The following features are supported for Linux containers:
     | **Storage accounts** | Azure Storage account. It must contain an Azure Files share. |
     | **Share name** | Files share to mount. |
     | **Access key** (Advanced only) | [Access key](../storage/common/storage-account-keys-manage.md) for your storage account. |
-    | **Mount path** | Directory inside your file/blob storage that you want to mount. Only `/mounts/pathname` is supported.|
+    | **Mount path** | Directory inside your app service that you want to mount. Only `/mounts/pathname` is supported.|
     ::: zone-end
     ::: zone pivot="container-windows"
     | Setting | Description |
@@ -175,7 +175,7 @@ The following features are supported for Linux containers:
     | **Storage accounts** | Azure Storage account. It must contain an Azure Files share. |
     | **Share name** | Files share to mount. |
     | **Access key** (Advanced only) | [Access key](../storage/common/storage-account-keys-manage.md) for your storage account. |
-    | **Mount path** | Directory inside your file/blob storage that you want to mount. Do not use a root directory (`[C-Z]:\` or `/`) or the `home` directory (`[C-Z]:\home`, or `/home`).|
+    | **Mount path** | Directory inside your Windows container that you want to mount. Do not use a root directory (`[C-Z]:\` or `/`) or the `home` directory (`[C-Z]:\home`, or `/home`).|
     ::: zone-end
     ::: zone pivot="container-linux"
     | Setting | Description |

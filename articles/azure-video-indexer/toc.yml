@@ -5,7 +5,7 @@
   - name: What is Azure Video Indexer?
     href: video-indexer-overview.md
   - name: Language support
-    href: language-support.md    
+    href: language-support.md
 - name: Quickstarts
   expanded: true
   items:
@@ -23,7 +23,11 @@
     href: video-indexer-use-apis.md
   - name: Logic Apps connector
     href: logic-apps-connector-tutorial.md
+  - name: Deploy using Bicep
+    displayName: ARM,template,resource manager
+    href: deploy-with-bicep.md
   - name: Deploy using ARM template
+    displayName: Azure resporce manager
     href: deploy-with-arm-template.md
   - name: Index Video from OneDrive
     href: odrv-download.md
@@ -31,7 +35,7 @@
   items:
   - name: Azure Video Indexer samples
     href: https://github.com/Azure-Samples/media-services-video-indexer
-  - name: Azure Video Indexer widgets 
+  - name: Azure Video Indexer widgets
     href: https://www.npmjs.com/package/@azure/video-indexer-widgets
 - name: Concepts
   items:
@@ -45,10 +49,10 @@
     href: language-identification-model.md
   - name: Live stream analysis
     href: live-stream-analysis.md
-  - name: Observed people in a video   
+  - name: Observed people in a video
     href: observed-people-tracing.md
   - name: Matched person
-    href: matched-person.md    
+    href: matched-person.md
   - name: People's detected clothing
     href: detected-clothing.md
   - name: Audio effects detection
@@ -95,25 +99,25 @@
   - name: Disaster recovery
     href: video-indexer-disaster-recovery.md
   - name: Insert or remove transcript lines
-    href: edit-transcript-lines-portal.md    
+    href: edit-transcript-lines-portal.md
   - name: Customize content models
     items:
     - name: Animated characters
       href: animated-characters-recognition-how-to.md
     - name: Person
-      items: 
+      items:
       - name: using the website
         href: customize-person-model-with-website.md
       - name: using the API
         href: customize-person-model-with-api.md
-    - name: Brands 
-      items: 
+    - name: Brands
+      items:
       - name: using the website
         href: customize-brands-model-with-website.md
       - name: using the API
         href: customize-brands-model-with-api.md
     - name: Language
-      items: 
+      items:
       - name: using the website
         href: customize-language-model-with-website.md
       - name: using the API
