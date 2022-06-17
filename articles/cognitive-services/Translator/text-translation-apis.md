@@ -112,6 +112,10 @@ To call the Translator service via the [REST API](reference/rest-api-guide.md), 
 
 1. Delete the pre-existing code, including the line `Console.Writeline("Hello World!")`. You will copy and paste the code samples into your application's Program.cs file. For each code sample, make sure you update the key and endpoint variables with values from your Azure portal Translator instance.
 
+1. Once you've added a desired code sample to your application, choose the green **start button** next to formRecognizer_quickstart to build and run your program, or press **F5**.
+
+:::image type="content" source="media/how-to-guides/run-program-visual-studio.png" alt-text="Screenshot of the run program button in Visual Studio.":::
+
 ### [Go](#tab/go)
 
 You can use any text editor to write Go applications. We recommend using the latest version of [Visual Studio Code and the Go extension](/azure/developer/go/configure-visual-studio-code).
@@ -126,14 +130,21 @@ You can use any text editor to write Go applications. We recommend using the lat
     * Once the download is complete, run the installer.
     * Open a command prompt and enter the following to confirm Go was installed:
 
-        ```console
-          go version
+      ```console
+            go version
+      ```
 
 1. In a console window (such as cmd, PowerShell, or Bash), create a new directory for your app called **translator-text-app**, and navigate to it.
 
 1. Create a new GO file named **text-translator.go** from the **translator-text-app** directory.
 
 1. You will copy and paste the code samples into your **text-translator.go** file. Make sure you update the key and endpoint variables with values from your Azure portal Translator instance.
+
+1. Once you've added a code sample to your application, your Go program can be executed in a command or terminal prompt. Make sure your prompt's path is set to the **translator-text-app** folder and use the following command:
+
+      ```console
+       go run translation.go
+      ```
 
 ### [Java](#tab/java)
 
@@ -203,17 +214,31 @@ You can use any text editor to write Go applications. We recommend using the lat
 
     :::image type="content" source="media/quickstarts/java-directories-2.png" alt-text="Screenshot: Java directory structure":::
 
-1. Navigate to the `java` directory and create a file named **`TextTranslator.java`**.
+1. Navigate to the `java` directory and create a file named **`TranslatorText.java`**.
 
     > [!TIP]
     >
     > * You can create a new file using PowerShell.
     > * Open a PowerShell window in your project directory by holding down the Shift key and right-clicking the folder.
-    > * Type the following command **New-Item TextTranslator.java**.
+    > * Type the following command **New-Item TranslatorText.java**.
     >
-    > * You can also create a new file in your IDE named `TextTranslator.java`  and save it to the `java` directory.
+    > * You can also create a new file in your IDE named `TranslatorText.java`  and save it to the `java` directory.
 
-1. You will copy and paste the code samples `TextTranslator.java` file. **Make sure you update the key with one of the key values from your Azure portal Translator instance**.
+1. You will copy and paste the code samples `TranslatorText.java` file. **Make sure you update the key with one of the key values from your Azure portal Translator instance**.
+
+1. Once you've added a code sample to your application, navigate back to your main project directory—**translator-text-app**, open a console window, and enter the following commands:
+
+    1. Build your application with the `build` command:
+
+        ```console
+        gradle build
+        ```
+
+    1. Run your application with the `run` command:
+
+        ```console
+        gradle run
+        ```
 
 ##### [Node.js](#tab/nodejs)
 
@@ -264,6 +289,16 @@ You can use any text editor to write Go applications. We recommend using the lat
 
 1. You will copy and paste the code samples into your `index.js` file. **Make sure you update the key and endpoint variables with values from your Azure portal Translator instance**.
 
+1. Once you've added the code sample to your application, run your program:
+
+    1. Navigate to your application directory (translator-text-app).
+
+    1. Type the following command in your terminal:
+
+        ```console
+        node index.js
+        ```
+
 ### [Python](#tab/python)
 
 1. If you haven't done so already, install the latest version of [Python 3.x](https://www.python.org/downloads/). The Python installer package (pip) is included with the Python installation.
@@ -284,6 +319,16 @@ You can use any text editor to write Go applications. We recommend using the lat
 1. Create a new Python file called **text-translator.py** in your preferred editor or IDE.
 
 1. Add the following code sample to your `text-translator.py` file. **Make sure you update the key with one of the values from your Azure portal Translator instance**.
+
+1. Once you've added a desired code sample to your application, build and run your program:
+
+    1. Navigate to your **text-translator.py** file.
+
+    1. Type the following command in your console:
+
+        ```console
+        python translator-app.py
+        ```
 
 ---
 
@@ -407,28 +452,24 @@ func main() {
 ### [Java](#tab/java)
 
 ```java
-import java.io.*;
-import java.net.*;
-import java.util.*;
-import com.google.gson.*;
-import com.squareup.okhttp.*;
+import java.io.IOException;
 
-public class Translate {
+import com.google.gson.*;
+import okhttp3.MediaType;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.RequestBody;
+import okhttp3.Response;
+
+public class TranslatorText {
     private static String key = "<YOUR-TRANSLATOR-KEY>";
+    public String endpoint = "https://api.cognitive.microsofttranslator.com";
+    public String route = "/translate?api-version=3.0&from=en&to=sw&to=it";
+    public String url = endpoint.concat(route);
 
     // Add your location, also known as region. The default is global.
     // This is required if using a Cognitive Services resource.
     private static String location = "<YOUR-RESOURCE-LOCATION>";
-
-    HttpUrl url = new HttpUrl.Builder()
-        .scheme("https")
-        .host("api.cognitive.microsofttranslator.com")
-        .addPathSegment("/translate")
-        .addQueryParameter("api-version", "3.0")
-        .addQueryParameter("from", "en")
-        .addQueryParameter("to", "de")
-        .addQueryParameter("to", "it")
-        .build();
 
     // Instantiates the OkHttpClient.
     OkHttpClient client = new OkHttpClient();
@@ -437,8 +478,10 @@ public class Translate {
     public String Post() throws IOException {
         MediaType mediaType = MediaType.parse("application/json");
         RequestBody body = RequestBody.create(mediaType,
-                "[{\"Text\": \"Hello World!\"}]");
-        Request request = new Request.Builder().url(url).post(body)
+                "[{\"Text\": \"Hello, friend! What did you do today?\"}]");
+        Request request = new Request.Builder()
+                .url(url)
+                .post(body)
                 .addHeader("Ocp-Apim-Subscription-Key", key)
                 .addHeader("Ocp-Apim-Subscription-Region", location)
                 .addHeader("Content-type", "application/json")
@@ -457,7 +500,7 @@ public class Translate {
 
     public static void main(String[] args) {
         try {
-            Translate translateRequest = new Translate();
+            TranslatorText translateRequest = new TranslatorText();
             String response = translateRequest.Post();
             System.out.println(prettify(response));
         } catch (Exception e) {
@@ -582,7 +625,7 @@ using Newtonsoft.Json; // Install Newtonsoft.Json with NuGet
 class Program
 {
     private static readonly string key = "<YOUR-TRANSLATOR-KEY>";
-    private static readonly string endpoint = "https://api.cognitive.microsofttranslator.com/";
+    private static readonly string endpoint = "https://api.cognitive.microsofttranslator.com";
 
     // Add your location, also known as region. The default is global.
     // This is required if using a Cognitive Services resource.
@@ -683,37 +726,36 @@ func main() {
 ### [Java](#tab/java)
 
 ```java
-import java.io.*;
-import java.net.*;
-import java.util.*;
-import com.google.gson.*;
-import com.squareup.okhttp.*;
+import java.io.IOException;
 
-public class Translate {
+import com.google.gson.*;
+import okhttp3.MediaType;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.RequestBody;
+import okhttp3.Response;
+
+public class TranslatorText {
     private static String key = "<YOUR-TRANSLATOR-KEY>";
+    public String endpoint = "https://api.cognitive.microsofttranslator.com";
+    public String route = "/translate?api-version=3.0&to=en&to=it";
+    public String url = endpoint.concat(route);
 
     // Add your location, also known as region. The default is global.
     // This is required if using a Cognitive Services resource.
     private static String location = "<YOUR-RESOURCE-LOCATION>";
 
-    HttpUrl url = new HttpUrl.Builder()
-        .scheme("https")
-        .host("api.cognitive.microsofttranslator.com")
-        .addPathSegment("/translate")
-        .addQueryParameter("api-version", "3.0")
-        .addQueryParameter("to", "sw")
-        .addQueryParameter("to", "it")
-        .build();
-
-    // Instantiates the OkHttpClient.
+     // Instantiates the OkHttpClient.
     OkHttpClient client = new OkHttpClient();
 
     // This function performs a POST request.
     public String Post() throws IOException {
         MediaType mediaType = MediaType.parse("application/json");
         RequestBody body = RequestBody.create(mediaType,
-                "[{\"Text\": \"Hello World!\"}]");
-        Request request = new Request.Builder().url(url).post(body)
+                "[{\"Text\": \"Halo, rafiki! Ulifanya nini leo?\"}]");
+        Request request = new Request.Builder()
+                .url(url)
+                .post(body)
                 .addHeader("Ocp-Apim-Subscription-Key", key)
                 .addHeader("Ocp-Apim-Subscription-Region", location)
                 .addHeader("Content-type", "application/json")
@@ -732,7 +774,7 @@ public class Translate {
 
     public static void main(String[] args) {
         try {
-            Translate translateRequest = new Translate();
+            TranslatorText translateRequest = new TranslatorText();
             String response = translateRequest.Post();
             System.out.println(prettify(response));
         } catch (Exception e) {
@@ -855,7 +897,7 @@ using Newtonsoft.Json; // Install Newtonsoft.Json with NuGet
 class Program
 {
     private static readonly string key = "<YOUR-TRANSLATOR-KEY>";
-    private static readonly string endpoint = "https://api.cognitive.microsofttranslator.com/";
+    private static readonly string endpoint = "https://api.cognitive.microsofttranslator.com";
 
     // Add your location, also known as region. The default is global.
     // This is required if using a Cognitive Services resource.
@@ -955,25 +997,24 @@ func main() {
 ### [Java](#tab/java)
 
 ```java
-import java.io.*;
-import java.net.*;
-import java.util.*;
-import com.google.gson.*;
-import com.squareup.okhttp.*;
+import java.io.IOException;
 
-public class Detect {
+import com.google.gson.*;
+import okhttp3.MediaType;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.RequestBody;
+import okhttp3.Response;
+
+public class TranslatorText {
     private static String key = "<YOUR-TRANSLATOR-KEY>";
+    public String endpoint = "https://api.cognitive.microsofttranslator.com";
+    public String route = "/detect?api-version=3.0";
+    public String url = endpoint.concat(route);
 
     // Add your location, also known as region. The default is global.
     // This is required if using a Cognitive Services resource.
     private static String location = "<YOUR-RESOURCE-LOCATION>";
-
-    HttpUrl url = new HttpUrl.Builder()
-        .scheme("https")
-        .host("api.cognitive.microsofttranslator.com")
-        .addPathSegment("/detect")
-        .addQueryParameter("api-version", "3.0")
-        .build();
 
     // Instantiates the OkHttpClient.
     OkHttpClient client = new OkHttpClient();
@@ -982,8 +1023,10 @@ public class Detect {
     public String Post() throws IOException {
         MediaType mediaType = MediaType.parse("application/json");
         RequestBody body = RequestBody.create(mediaType,
-                "[{\"Text\": \"Ich würde wirklich gern Ihr Auto um den Block fahren ein paar Mal.\"}]");
-        Request request = new Request.Builder().url(url).post(body)
+                "[{\"Text\": \"Hallo Freund! Was hast du heute gemacht?\"}]");
+        Request request = new Request.Builder()
+                .url(url)
+                .post(body)
                 .addHeader("Ocp-Apim-Subscription-Key", key)
                 .addHeader("Ocp-Apim-Subscription-Region", location)
                 .addHeader("Content-type", "application/json")
@@ -1002,7 +1045,7 @@ public class Detect {
 
     public static void main(String[] args) {
         try {
-            Detect detectRequest = new Detect();
+            TranslatorText detectRequest = new TranslatorText();
             String response = detectRequest.Post();
             System.out.println(prettify(response));
         } catch (Exception e) {
@@ -1125,7 +1168,7 @@ using Newtonsoft.Json; // Install Newtonsoft.Json with NuGet
 class Program
 {
     private static readonly string key = "<YOUR-TRANSLATOR-KEY>";
-    private static readonly string endpoint = "https://api.cognitive.microsofttranslator.com/";
+    private static readonly string endpoint = "https://api.cognitive.microsofttranslator.com";
 
     // Add your location, also known as region. The default is global.
     // This is required if using a Cognitive Services resource.
@@ -1227,27 +1270,25 @@ func main() {
 ### [Java](#tab/java)
 
 ```java
-import java.io.*;
-import java.net.*;
-import java.util.*;
-import com.google.gson.*;
-import com.squareup.okhttp.*;
+import java.io.IOException;
 
-public class Translate {
+import com.google.gson.*;
+import okhttp3.MediaType;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.RequestBody;
+import okhttp3.Response;
+
+public class TranslatorText {
     private static String key = "<YOUR-TRANSLATOR-KEY>";
+    public String endpoint = "https://api.cognitive.microsofttranslator.com";
+    public String route = "/translate?api-version=3.0&to=th&toScript=latn";
+    public String url = endpoint.concat(route);
 
     // Add your location, also known as region. The default is global.
     // This is required if using a Cognitive Services resource.
     private static String location = "<YOUR-RESOURCE-LOCATION>";
 
-    HttpUrl url = new HttpUrl.Builder()
-        .scheme("https")
-        .host("api.cognitive.microsofttranslator.com")
-        .addPathSegment("/translate")
-        .addQueryParameter("api-version", "3.0")
-        .addQueryParameter("to", "th")
-        .addQueryParameter("toScript", "latn")
-        .build();
 
     // Instantiates the OkHttpClient.
     OkHttpClient client = new OkHttpClient();
@@ -1256,8 +1297,10 @@ public class Translate {
     public String Post() throws IOException {
         MediaType mediaType = MediaType.parse("application/json");
         RequestBody body = RequestBody.create(mediaType,
-                "[{\"Text\": \"Hello\"}]");
-        Request request = new Request.Builder().url(url).post(body)
+                "[{\"Text\": \"Hello, friend! What did you do today?\"}]");
+        Request request = new Request.Builder()
+                .url(url)
+                .post(body)
                 .addHeader("Ocp-Apim-Subscription-Key", key)
                 .addHeader("Ocp-Apim-Subscription-Region", location)
                 .addHeader("Content-type", "application/json")
@@ -1276,7 +1319,7 @@ public class Translate {
 
     public static void main(String[] args) {
         try {
-            Translate translateRequest = new Translate();
+            TranslatorText translateRequest = new TranslatorText();
             String response = translateRequest.Post();
             System.out.println(prettify(response));
         } catch (Exception e) {
@@ -1403,7 +1446,7 @@ using Newtonsoft.Json; // Install Newtonsoft.Json with NuGet
 class Program
 {
     private static readonly string key = "<YOUR-TRANSLATOR-KEY>";
-    private static readonly string endpoint = "https://api.cognitive.microsofttranslator.com/";
+    private static readonly string endpoint = "https://api.cognitive.microsofttranslator.com";
 
     // Add your location, also known as region. The default is global.
     // This is required if using a Cognitive Services resource.
@@ -1506,28 +1549,25 @@ func main() {
 ### [Java](#tab/java)
 
 ```java
-import java.io.*;
-import java.net.*;
-import java.util.*;
-import com.google.gson.*;
-import com.squareup.okhttp.*;
+import java.io.IOException;
 
-public class Transliterate {
+import com.google.gson.*;
+import okhttp3.MediaType;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.RequestBody;
+import okhttp3.Response;
+
+public class TranslatorText {
     private static String key = "<YOUR-TRANSLATOR-KEY>";
+    public String endpoint = "https://api.cognitive.microsofttranslator.com";
+    public String route = "/transliterate?api-version=3.0&language=th&fromScript=thai&toScript=latn";
+    public String url = endpoint.concat(route);
 
     // Add your location, also known as region. The default is global.
     // This is required if using a Cognitive Services resource.
     private static String location = "<YOUR-RESOURCE-LOCATION>";
 
-    HttpUrl url = new HttpUrl.Builder()
-        .scheme("https")
-        .host("api.cognitive.microsofttranslator.com")
-        .addPathSegment("/transliterate")
-            .addQueryParameter("api-version", "3.0")
-            .addQueryParameter("language", "th")
-            .addQueryParameter("fromScript", "thai")
-            .addQueryParameter("toScript", "latn")
-        .build();
 
     // Instantiates the OkHttpClient.
     OkHttpClient client = new OkHttpClient();
@@ -1536,8 +1576,10 @@ public class Transliterate {
     public String Post() throws IOException {
         MediaType mediaType = MediaType.parse("application/json");
         RequestBody body = RequestBody.create(mediaType,
-                "[{\"Text\": \"สวัสดี\"}]");
-        Request request = new Request.Builder().url(url).post(body)
+                "[{\"Text\": \"สวัสดีเพื่อน! วันนี้คุณทำอะไร\"}]");
+        Request request = new Request.Builder()
+                .url(url)
+                .post(body)
                 .addHeader("Ocp-Apim-Subscription-Key", key)
                 .addHeader("Ocp-Apim-Subscription-Region", location)
                 .addHeader("Content-type", "application/json")
@@ -1556,7 +1598,7 @@ public class Transliterate {
 
     public static void main(String[] args) {
         try {
-            Transliterate transliterateRequest = new Transliterate();
+            TranslatorText transliterateRequest = new TranslatorText();
             String response = transliterateRequest.Post();
             System.out.println(prettify(response));
         } catch (Exception e) {
@@ -1676,7 +1718,7 @@ using Newtonsoft.Json; // Install Newtonsoft.Json with NuGet
 class Program
 {
     private static readonly string key = "<YOUR-TRANSLATOR-KEY>";
-    private static readonly string endpoint = "https://api.cognitive.microsofttranslator.com/";
+    private static readonly string endpoint = "https://api.cognitive.microsofttranslator.com";
 
     // Add your location, also known as region. The default is global.
     // This is required if using a Cognitive Services resource.
@@ -1778,27 +1820,24 @@ func main() {
 ### [Java](#tab/java)
 
 ```java
-import java.io.*;
-import java.net.*;
-import java.util.*;
-import com.google.gson.*;
-import com.squareup.okhttp.*;
+import java.io.IOException;
 
-public class Translate {
+import com.google.gson.*;
+import okhttp3.MediaType;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.RequestBody;
+import okhttp3.Response;
+
+public class TranslatorText {
     private static String key = "<YOUR-TRANSLATOR-KEY>";
+    public String endpoint = "https://api.cognitive.microsofttranslator.com";
+    public String route = "/translate?api-version=3.0&to=es&includeSentenceLength=true";
+    public static String url = endpoint.concat(route);
 
     // Add your location, also known as region. The default is global.
     // This is required if using a Cognitive Services resource.
     private static String location = "<YOUR-RESOURCE-LOCATION>";
-
-    HttpUrl url = new HttpUrl.Builder()
-        .scheme("https")
-        .host("api.cognitive.microsofttranslator.com")
-        .addPathSegment("/translate")
-        .addQueryParameter("api-version", "3.0")
-        .addQueryParameter("to", "es")
-        .addQueryParameter("includeSentenceLength", "true")
-        .build();
 
     // Instantiates the OkHttpClient.
     OkHttpClient client = new OkHttpClient();
@@ -1808,7 +1847,9 @@ public class Translate {
         MediaType mediaType = MediaType.parse("application/json");
         RequestBody body = RequestBody.create(mediaType,
                 "[{\"Text\": \"Can you tell me how to get to Penn Station? Oh, you aren\'t sure? That\'s fine.\"}]");
-        Request request = new Request.Builder().url(url).post(body)
+        Request request = new Request.Builder()
+                .url(url)
+                .post(body)
                 .addHeader("Ocp-Apim-Subscription-Key", key)
                 .addHeader("Ocp-Apim-Subscription-Region", location)
                 .addHeader("Content-type", "application/json")
@@ -1827,7 +1868,7 @@ public class Translate {
 
     public static void main(String[] args) {
         try {
-            Translate translateRequest = new Translate();
+            TranslatorText translateRequest = new TranslatorText();
             String response = translateRequest.Post();
             System.out.println(prettify(response));
         } catch (Exception e) {
@@ -1959,7 +2000,7 @@ using Newtonsoft.Json; // Install Newtonsoft.Json with NuGet
 class Program
 {
     private static readonly string key = "<YOUR-TRANSLATOR-KEY>";
-    private static readonly string endpoint = "https://api.cognitive.microsofttranslator.com/";
+    private static readonly string endpoint = "https://api.cognitive.microsofttranslator.com";
 
     // Add your location, also known as region. The default is global.
     // This is required if using a Cognitive Services resource.
@@ -2065,19 +2106,15 @@ import java.util.*;
 import com.google.gson.*;
 import com.squareup.okhttp.*;
 
-public class BreakSentence {
+public class TranslatorText {
     private static String key = "<YOUR-TRANSLATOR-KEY>";
+    public String endpoint = "https://api.cognitive.microsofttranslator.com";
+    public String route = "/breaksentence?api-version=3.0";
+    public String url = endpoint.concat(route);
 
     // Add your location, also known as region. The default is global.
     // This is required if using a Cognitive Services resource.
     private static String location = "<YOUR-RESOURCE-LOCATION>";
-
-    HttpUrl url = new HttpUrl.Builder()
-        .scheme("https")
-        .host("api.cognitive.microsofttranslator.com")
-        .addPathSegment("/breaksentence")
-        .addQueryParameter("api-version", "3.0")
-        .build();
 
     // Instantiates the OkHttpClient.
     OkHttpClient client = new OkHttpClient();
@@ -2087,7 +2124,9 @@ public class BreakSentence {
         MediaType mediaType = MediaType.parse("application/json");
         RequestBody body = RequestBody.create(mediaType,
                 "[{\"Text\": \"Can you tell me how to get to Penn Station? Oh, you aren\'t sure? That\'s fine.\"}]");
-        Request request = new Request.Builder().url(url).post(body)
+        Request request = new Request.Builder()
+                .url(url)
+                .post(body)
                 .addHeader("Ocp-Apim-Subscription-Key", key)
                 .addHeader("Ocp-Apim-Subscription-Region", location)
                 .addHeader("Content-type", "application/json")
@@ -2106,7 +2145,7 @@ public class BreakSentence {
 
     public static void main(String[] args) {
         try {
-            BreakSentence breakSentenceRequest = new BreakSentence();
+            TranslatorText breakSentenceRequest = new TranslatorText();
             String response = breakSentenceRequest.Post();
             System.out.println(prettify(response));
         } catch (Exception e) {
@@ -2222,7 +2261,7 @@ using Newtonsoft.Json; // Install Newtonsoft.Json with NuGet
 class Program
 {
     private static readonly string key = "<YOUR-TRANSLATOR-KEY>";
-    private static readonly string endpoint = "https://api.cognitive.microsofttranslator.com/";
+    private static readonly string endpoint = "https://api.cognitive.microsofttranslator.com";
 
     // Add your location, also known as region. The default is global.
     // This is required if using a Cognitive Services resource.
@@ -2329,56 +2368,52 @@ import java.util.*;
 import com.google.gson.*;
 import com.squareup.okhttp.*;
 
-public class DictionaryLookup {
+public class TranslatorText {
     private static String key = "<YOUR-TRANSLATOR-KEY>";
+    public String endpoint = "https://api.cognitive.microsofttranslator.com";
+    public String route = "/dictionary/lookup?api-version=3.0&from=en&to=es";
+    public String url = endpoint.concat(route);
 
     // Add your location, also known as region. The default is global.
     // This is required if using a Cognitive Services resource.
     private static String location = "<YOUR-RESOURCE-LOCATION>";
 
-    HttpUrl url = new HttpUrl.Builder()
-        .scheme("https")
-        .host("api.cognitive.microsofttranslator.com")
-        .addPathSegment("/dictionary/lookup")
-        .addQueryParameter("api-version", "3.0")
-        .addQueryParameter("from", "en")
-        .addQueryParameter("to", "es")
-        .build();
-
     // Instantiates the OkHttpClient.
-    OkHttpClient client = new OkHttpClient();
+   OkHttpClient client = new OkHttpClient();
 
-    // This function performs a POST request.
-    public String Post() throws IOException {
-        MediaType mediaType = MediaType.parse("application/json");
-        RequestBody body = RequestBody.create(mediaType,
-                "[{\"Text\": \"Shark\"}]");
-        Request request = new Request.Builder().url(url).post(body)
-                .addHeader("Ocp-Apim-Subscription-Key", key)
-                .addHeader("Ocp-Apim-Subscription-Region", location)
-                .addHeader("Content-type", "application/json")
-                .build();
-        Response response = client.newCall(request).execute();
-        return response.body().string();
-    }
+   // This function performs a POST request.
+   public String Post() throws IOException {
+       MediaType mediaType = MediaType.parse("application/json");
+       RequestBody body = RequestBody.create(mediaType,
+               "[{\"Text\": \"sunlight\"}]");
+       Request request = new Request.Builder()
+               .url(url)
+               .post(body)
+               .addHeader("Ocp-Apim-Subscription-Key", key)
+               .addHeader("Ocp-Apim-Subscription-Region", location)
+               .addHeader("Content-type", "application/json")
+               .build();
+       Response response = client.newCall(request).execute();
+       return response.body().string();
+   }
 
-    // This function prettifies the json response.
-    public static String prettify(String json_text) {
-        JsonParser parser = new JsonParser();
-        JsonElement json = parser.parse(json_text);
-        Gson gson = new GsonBuilder().setPrettyPrinting().create();
-        return gson.toJson(json);
-    }
+   // This function prettifies the json response.
+   public static String prettify(String json_text) {
+       JsonParser parser = new JsonParser();
+       JsonElement json = parser.parse(json_text);
+       Gson gson = new GsonBuilder().setPrettyPrinting().create();
+       return gson.toJson(json);
+   }
 
-    public static void main(String[] args) {
-        try {
-            DictionaryLookup dictionaryLookupRequest = new DictionaryLookup();
-            String response = dictionaryLookupRequest.Post();
-            System.out.println(prettify(response));
-        } catch (Exception e) {
-            System.out.println(e);
-        }
-    }
+   public static void main(String[] args) {
+       try {
+           TranslatorText breakSentenceRequest = new TranslatorText();
+           String response = breakSentenceRequest.Post();
+           System.out.println(prettify(response));
+       } catch (Exception e) {
+           System.out.println(e);
+       }
+   }
 }
 ```
 
@@ -2639,7 +2674,7 @@ using Newtonsoft.Json; // Install Newtonsoft.Json with NuGet
 class Program
 {
     private static readonly string key = "<YOUR-TRANSLATOR-KEY>";
-    private static readonly string endpoint = "https://api.cognitive.microsofttranslator.com/";
+    private static readonly string endpoint = "https://api.cognitive.microsofttranslator.com";
 
     // Add your location, also known as region. The default is global.
     // This is required if using a Cognitive Services resource.
@@ -2749,21 +2784,16 @@ import java.util.*;
 import com.google.gson.*;
 import com.squareup.okhttp.*;
 
-public class DictionaryExamples {
+public class TranslatorText {
     private static String key = "<YOUR-TRANSLATOR-KEY>";
+    public String endpoint = "https://api.cognitive.microsofttranslator.com";
+    public String route = "/dictionary/examples?api-version=3.0&from=en&to=es";
+    public String url = endpoint.concat(route);
+
 
     // Add your location, also known as region. The default is global.
     // This is required if using a Cognitive Services resource.
     private static String location = "<YOUR-RESOURCE-LOCATION>";
-
-    HttpUrl url = new HttpUrl.Builder()
-        .scheme("https")
-        .host("api.cognitive.microsofttranslator.com")
-        .addPathSegment("/dictionary/examples")
-        .addQueryParameter("api-version", "3.0")
-        .addQueryParameter("from", "en")
-        .addQueryParameter("to", "es")
-        .build();
 
     // Instantiates the OkHttpClient.
     OkHttpClient client = new OkHttpClient();
@@ -2772,8 +2802,10 @@ public class DictionaryExamples {
     public String Post() throws IOException {
         MediaType mediaType = MediaType.parse("application/json");
         RequestBody body = RequestBody.create(mediaType,
-                "[{\"Text\": \"Shark\", \"Translation\": \"tiburón\"}]");
-        Request request = new Request.Builder().url(url).post(body)
+                "[{\"Text\": \"sunlight\", \"Translation\": \"luz solar\"}]");
+        Request request = new Request.Builder()
+                .url(url)
+                .post(body)
                 .addHeader("Ocp-Apim-Subscription-Key", key)
                 .addHeader("Ocp-Apim-Subscription-Region", location)
                 .addHeader("Content-type", "application/json")
@@ -2792,7 +2824,7 @@ public class DictionaryExamples {
 
     public static void main(String[] args) {
         try {
-            DictionaryExamples dictionaryExamplesRequest = new DictionaryExamples();
+            TranslatorText dictionaryExamplesRequest = new TranslatorText();
             String response = dictionaryExamplesRequest.Post();
             System.out.println(prettify(response));
         } catch (Exception e) {

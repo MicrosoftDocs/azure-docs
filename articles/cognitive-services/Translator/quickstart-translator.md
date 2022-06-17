@@ -150,7 +150,7 @@ class Program
 
 ### Run your C# application
 
-Once you've added a code sample to your application, choose the green Start button next to formRecognizer_quickstart to build and run your program, or press F5.
+Once you've added a code sample to your application, choose the green **start button** next to formRecognizer_quickstart to build and run your program, or press **F5**.
 
 :::image type="content" source="media/quickstarts/run-program-visual-studio.png" alt-text="Screenshot of the rum program button in Visual Studio.":::
 
