@@ -12,20 +12,20 @@ ms.author: barclayn
 # Customer intent: As a developer I am looking for information around the open standards supported by Microsoft Entra verified ID
 ---
 
-# Entra Verified ID Supported Standards
+# Entra Verified ID supported standards
 
 [!INCLUDE [Verifiable Credentials announcement](../../../includes/verifiable-credentials-brand.md)]
 
 This page outlines currently supported open standards for Microsoft Entra Verified ID. The full document outlining how to build an implementation that interoperates with Microsoft is [JWT VC Presentation Profile](https://identity.foundation/jwt-vc-presentation-profile/).
 
-## Standard Bodies
+## Standard bodies
 
 - [OpenID Foundation (OIDF)](https://openid.net/foundation/)
 - [Decentralized Identity Foundation (DIF)](https://identity.foundation/)
 - [World Wide Web Consortium (W3C)](https://www.w3.org/)
 - [Internet Engineering Task Force (IETF)](https://www.ietf.org/)
 
-## Supported Standards
+## Supported standards
 
 Entra Verified ID supports the following open standards:
 
@@ -42,7 +42,7 @@ Entra Verified ID supports the following open standards:
 | Trust in DID Owner | [Well Known DID Configuration](https://identity.foundation/.well-known/resources/did-configuration)| DIF |
 | Revocation |[Verifiable Credential Status List 2021](https://github.com/w3c-ccg/vc-status-list-2021/tree/343b8b59cddba4525e1ef355356ae760fc75904e)| W3C CCG |
 
-## Supported Algorithms
+## Supported algorithms
 
 Entra Verified ID supports the following Key Types for the JWS signature verification:
 

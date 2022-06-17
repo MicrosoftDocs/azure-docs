@@ -37,11 +37,11 @@ Azure AD verifiable Credentials now come with a QuickStart in the portal for cre
 
 When you select + Add credential in the portal, you get the option to launch two Quickstarts. Select [x] Custom credential and select Next. 
 
-![Quickstart start screen](media/how-to-use-quickstart/quickstart-startscreen.png)
+![Screenshot of VC quickstart](media/how-to-use-quickstart/quickstart-startscreen.png)
 
 In the next screen, you enter JSON for the Display and the Rules definitions and give the credential a type name. Select Create to create the credential.
 
-![Quickstart create new credential](media/how-to-use-quickstart/quickstart-create-new.png)
+![screenshot of create new credential section with JSON sample](media/how-to-use-quickstart/quickstart-create-new.png)
 
 ## Sample JSON Display definitions
 

@@ -73,7 +73,7 @@ The Verifiable Credentials Service Request is the Request Service API, and it ne
 
 1. For **Key permissions**, select permissions **Get** and **Sign**. 
 
-    ![key vault security principal access](media/verifiable-credentials-configure-tenant/set-key-vault-sp-access-policy.png)
+    ![screenshot of key vault granting access to a security principal](media/verifiable-credentials-configure-tenant/set-key-vault-sp-access-policy.png)
 
 1. To save the changes, select **Save**.
 
