@@ -1,7 +1,7 @@
 ---
-title: Overview of Responsible use of AI
+title: Limited Access features for Cognitive Services
 titleSuffix: Azure Cognitive Services
-description: Azure Cognitive Services provides information and guidelines on how to responsibly use our AI services in applications. Below are the links to articles that provide this guidance for the different services within the Cognitive Services suite.
+description: Azure Cognitive Services that are available with Limited Access are described below.
 services: cognitive-services
 author: nitinme
 manager: nitinme
