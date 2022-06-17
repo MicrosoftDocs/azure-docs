@@ -20,7 +20,7 @@ This article points you to resources to install the tools to manage Azure Arc-en
 >
 > [!INCLUDE [use-insider-azure-data-studio](includes/use-insider-azure-data-studio.md)] 
 
-The [`arcdata` extension for Azure CLI (`az`)](reference/reference-az-arcdata-dc.md) replaces `azdata` for Azure Arc-enabled data services.
+The [`arcdata` extension for Azure CLI (`az`)](about-arcdata-extension.md) replaces `azdata` for Azure Arc-enabled data services.
 
 ## Tools for creating and managing Azure Arc-enabled data services
 
