@@ -79,7 +79,7 @@ This section gives an overview of migration recommendations for specific resourc
 
 Workspaces don't need to be migrated with v2. You can use the same workspace, regardless of whether you're using v1 or v2. We recommend creating a new workspace for using v2 to keep v1/v2 entities separate and avoid backward/forward compatibility considerations.
 
-Do consider migrating the code for creating a workspace to v2. Typically Azure resources are managed via Azure Resource Manager (and Bicep) or similar resource provisioning tools. Alternatively, you can use the [CLI (v2) and YAML files](how-to-manage-workspace-cli.md&tabs=bringexistingresources2#create-a-workspace).
+Do consider migrating the code for creating a workspace to v2. Typically Azure resources are managed via Azure Resource Manager (and Bicep) or similar resource provisioning tools. Alternatively, you can use the [CLI (v2) and YAML files](how-to-manage-workspace-cli.md#create-a-workspace).
 
 > [!IMPORTANT]
 > If your workspace uses a private endpoint, it will automatically have the `v1_legacy_mode` flag enabled, preventing usage of v2 APIs. See [how to configure network isolation with v2](how-to-configure-network-isolation-with-v2.md) for details.
