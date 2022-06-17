@@ -247,4 +247,4 @@ Azure Functions Core Tools lets you run an Azure Functions project on your local
         "createdTime": "2022-06-15T05:00:02Z",
         "lastUpdatedTime": "2022-06-15T05:00:06Z"
     }
-```
+    ```
