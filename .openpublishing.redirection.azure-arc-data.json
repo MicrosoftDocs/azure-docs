@@ -8,7 +8,7 @@
           {
             "source_path_from_root": "/articles/azure-arc/data/reference/reference-az-sql-mi-arc-dag.md",
             "redirect_url": "/cli/azure/sql/instance-failover-group-arc",
-            "redirect_document_id":true
+            "redirect_document_id":false
           },
           {
             "source_path_from_root": "/articles/azure-arc/data/retrieve-the-username-password-for-data-controller.md",
