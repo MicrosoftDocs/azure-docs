@@ -24,7 +24,7 @@ In this tutorial:
 
 ## Prerequisites
 
-> * Install, create and sign in to [ORAS artifact enabled registry](azure/container-registry/container-registry-oras-artifacts#create-oras-artifact-enabled-registry)
+> * Install, create and sign in to [ORAS artifact enabled registry](/container-registry-oras-artifacts#create-oras-artifact-enabled-registry)
 > * Create or use an [Azure Key Vault](/azure/key-vault/general/quick-create-cli)
 >*  This tutorial can be run in the [Azure Cloud Shell](https://portal.azure.com/#cloudshell/)
 
