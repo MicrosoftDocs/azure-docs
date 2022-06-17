@@ -839,7 +839,7 @@ To update the custom HSM stub code to simulate the identity of the device with I
 
     ![Custom HSM device is registered with the IoT hub](./media/tutorial-custom-hsm-enrollment-group-x509/hub-provisioned-custom-hsm-x509-device.png) 
 
-1. Repeat the steps in [Configure the custom HSM stub code](#configure-the-custom-hsm-stub-code) for your second device (`device-02`). Use the following values for that device:
+1. Repeat the steps in [Configure the custom HSM stub code](#configure-the-custom-hsm-stub-code) for your second device (`device-02`) and run the sample again. Use the following values for that device:
 
     |   Description                 |  Value  |
     | :---------------------------- | :--------- |
@@ -860,6 +860,32 @@ To update the custom HSM stub code to simulate the identity of the device with I
     Registration Information received from service: MyExampleHub.azure-devices.net, deviceId: device-01
     Press enter key to exit:
     ```
+
+## Confirm your device provisioning registration
+
+Examine the registration records of the enrollment group to see the registration details for your devices:
+
+1. In Azure portal, go to your Device Provisioning Service.
+
+1. In the **Settings** menu, select **Manage enrollments**.
+
+1. Select **Enrollment Groups**. The X.509 enrollment group entry that you created previously, *custom-hsm-devices*, should appear in the list.
+
+1. Select the enrollment entry. Then select the **Registration Records** tab to see the devices that have been registered through the enrollment group. The IoT hub that each of your devices was assigned to, their device IDs, and the dates and times they were registered appear in the list.
+
+    :::image type="content" source="./media/tutorial-custom-hsm-enrollment-group-x509/enrollment-group-registration-records.png" alt-text="Screenshot that shows the registration records tab for the enrollment group on Azure portal.":::
+
+1. You can select one of the devices to see further details for that device.
+
+To verify the devices on your IoT hub:
+
+1. In Azure portal, go to the IoT hub that your device was assigned to.
+
+1. In the **Device management** menu, select **Devices**.
+
+1. If your devices were provisioned successfully, their device IDs, *device-01* and *device-02*, should appear in the list, with **Status** set as *enabled*. If you don't see your devices, select **Refresh**.
+
+    :::image type="content" source="./media/tutorial-custom-hsm-enrollment-group-x509/hub-provisioned-custom-hsm-x509-device.png" alt-text="Screenshot that shows the devices are registered with the I o T hub in Azure portal.":::
 
 ## Clean up resources
 
