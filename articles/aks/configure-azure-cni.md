@@ -308,7 +308,8 @@ Learn more about networking in AKS in the following articles:
 [services]: https://kubernetes.io/docs/concepts/services-networking/service/
 [portal]: https://portal.azure.com
 [cni-networking]: https://github.com/Azure/azure-container-networking/blob/master/docs/cni.md
-[kubenet]: https://kubernetes.io/docs/concepts/cluster-administration/network-plugins/#kubenet
+[kubenet]: concepts-network.md#kubenet-basic-networking
+
 
 <!-- LINKS - Internal -->
 [az-aks-create]: /cli/azure/aks#az_aks_create
