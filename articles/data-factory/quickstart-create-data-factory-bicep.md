@@ -98,7 +98,7 @@ You can also use the Azure portal to review the deployed resources.
 
 1. Sign in to the Azure portal.
 1. Navigate to your resource group.
-1. You will see your resources listed. Select each resource to see an overview.
+1. You'll see your resources listed. Select each resource to see an overview.
 
 ## Upload a file
 
