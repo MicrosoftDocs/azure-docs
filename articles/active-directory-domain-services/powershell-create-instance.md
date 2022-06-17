@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: sample
-ms.date: 05/19/2021
+ms.date: 06/17/2022
 ms.author: justinha
 ms.custom: devx-track-azurepowershell
 
@@ -48,7 +48,7 @@ To complete this article, you need the following resources:
 
 Azure AD DS requires a service principal to authenticate and communicate and an Azure AD group to define which users have administrative permissions in the managed domain.
 
-First, create an Azure AD service principal by using a specific application ID named *Domain Controller Services*. In public Azure, the ID value is *2565bd9d-da50-47d4-8b85-4c97f669dc36*. In other clouds, the value is *6ba9a5d4-8456-4118-b521-9c5ca10cdf84*. Don't change this application ID.
+First, create an Azure AD service principal by using a specific application ID named *Domain Controller Services*. The ID value is *2565bd9d-da50-47d4-8b85-4c97f669dc36*. Don't change this application ID.
 
 Create an Azure AD service principal using the [New-AzureADServicePrincipal][New-AzureADServicePrincipal] cmdlet:
 
@@ -251,7 +251,7 @@ Connect-AzureAD
 Connect-AzAccount
 
 # Create the service principal for Azure AD Domain Services.
-New-AzureADServicePrincipal -AppId "2565bd9d-da50-47d4-8b85-4c97f669dc36"
+New-AzureADServicePrincipal -AppId "6ba9a5d4-8456-4118-b521-9c5ca10cdf84"
 
 # First, retrieve the object ID of the 'AAD DC Administrators' group.
 $GroupObjectId = Get-AzureADGroup `
