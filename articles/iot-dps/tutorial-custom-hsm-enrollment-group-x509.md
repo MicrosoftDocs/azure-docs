@@ -15,7 +15,7 @@ ms.custom: mvc
 
 In this tutorial, you will learn how to provision groups of IoT devices that use X.509 certificates for authentication. Sample device code from the [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) will be executed on your development machine to simulate provisioning of X.509 devices. On real devices, device code would be deployed and run from the IoT device.
 
-Make sure you've at least completed the steps in [Set up IoT Hub Device Provisioning Service with the Azure portal](quick-setup-auto-provision.md) before continuing with this tutorial. Also, if you're unfamiliar with the process of autoprovisioning, review the [provisioning](about-iot-dps.md#provisioning-process) overview. 
+Make sure you've at least completed the steps in [Set up IoT Hub Device Provisioning Service with the Azure portal](quick-setup-auto-provision.md) before continuing with this tutorial. Also, if you're unfamiliar with the process of autoprovisioning, review the [provisioning](about-iot-dps.md#provisioning-process) overview.
 
 The Azure IoT Device Provisioning Service supports two types of enrollments for provisioning devices:
 
@@ -627,29 +627,58 @@ To create the device certificates signed by the intermediate certificate in the 
 ## Verify ownership of the root certificate
 
 > [!NOTE]
-> As of July 1st, 2021, you can perform automatic verification of certificate via [automatic verification](how-to-verify-certificates.md#automatic-verification-of-intermediate-or-root-ca-through-self-attestation)
+> As of July 1st, 2021, you can perform automatic verification of certificates that you upload to DPS. This is the recommended approach for this tutorial.
 >
+
+1. Follow the instructions in [Automatic verification of intermediate or root CA through self-attestation](how-to-verify-certificates.md#automatic-verification-of-intermediate-or-root-ca-through-self-attestation) to upload the root certificate (`./certs/azure-iot-test-only.root.ca.cert.pem`). This is the recommended approach for this tutorial.
+
+### (Optional) Manually verify ownership of the root certificate
 
 1. Using the directions from [Register the public part of an X.509 certificate and get a verification code](how-to-verify-certificates.md#register-the-public-part-of-an-x509-certificate-and-get-a-verification-code), upload the root certificate (`./certs/azure-iot-test-only.root.ca.cert.pem`) and get a verification code from DPS.
 
-2. Once you have a verification code from DPS for the root certificate, run the following command from your certificate script working directory to generate a verification certificate.
- 
-    The verification code given here is only an example. Use the code you generated from DPS.    
+2. Once you have a verification code from DPS for the root certificate, run the following commands from your GitBash command prompt to generate a verification certificate.
 
-    ```Bash
-    ./certGen.sh create_verification_certificate 1B1F84DE79B9BD5F16D71E92709917C2A1CA19D5A156CB9F    
-    ```    
+    1. Create the verification certificate private key:
 
-    This script creates a certificate signed by the root certificate with subject name set to the verification code. This certificate allows DPS to verify you have access to the private key of the root certificate. Notice the location of the verification certificate in the output of the script. This certificate is generated in `.pfx` format.
+        ```bash
+        openssl genrsa -out ./private/verification-code.key.pem 4096
+        ```
 
-    ```output
-    Leaf Device PFX Certificate Generated At:
-    --------------------------------------------
-        ./certs/verification-code.cert.pfx
-    ```
+    2. Create the verification certificate CSR with the subject common name (`-subj` parameter) set to the verification code downloaded from DPS.  The verification code given here, `1B1F84DE79B9BD5F16D71E92709917C2A1CA19D5A156CB9F`, is only an example. Use the code you generated from DPS.
+
+        ```bash
+        openssl req -config ./openssl_root_ca.cnf -key ./private/verification-code.key.pem -subj //CN=1B1F84DE79B9BD5F16D71E92709917C2A1CA19D5A156CB9F -new -sha256 -out ./csr/verification-code.csr.pem
+        ```
+
+    3. Create the verification certificate signed by the root CA certificate. The certificate is generated in `./certs/verification-code.cert.pem`.
+
+        ```bash
+        openssl ca -batch -config ./openssl_root_ca.cnf -passin pass:1234 -extensions usr_cert -days 30 -notext -md sha256 -in ./csr/verification-code.csr.pem -out ./certs/verification-code.cert.pem
+        ```
+
+    4. (Optional) Examine the verification certificate. Verify that the issuer is the root CA and that the subject is the verification code.
+
+        ```bash
+        openssl x509 -noout -text -in ./certs/verification-code.cert.pem
+        ```
+
+        ```output
+        Certificate:
+            Data:
+                Version: 3 (0x2)
+                Serial Number: 3 (0x3)
+                Signature Algorithm: sha256WithRSAEncryption
+                Issuer: CN = Azure IoT Hub CA Cert Test Only
+                Validity
+                    Not Before: Jun 17 22:21:54 2022 GMT
+                    Not After : Jul 17 22:21:54 2022 GMT
+                Subject: CN = 1B1F84DE79B9BD5F16D71E92709917C2A1CA19D5A156CB9F
+                Subject Public Key Info:
+                    Public Key Algorithm: rsaEncryption
+                        RSA Public-Key: (4096 bit)
+        ```
 
 3. As mentioned in [Upload the signed verification certificate](how-to-verify-certificates.md#upload-the-signed-verification-certificate), upload the verification certificate, and click **Verify** in DPS to complete proof of possession for the root certificate.
-
 
 ## Update the certificate store on Windows-based devices
 
