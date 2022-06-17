@@ -17,11 +17,11 @@ The following updates are new to Azure Synapse Analytics this month.
 
 ## General
 
-**Get connected with the new Azure Synapse Influencer program!**  [Join a community of Azure Synapse Influencers](http://aka.ms/synapseinfluencers) who are helping each other achieve more with cloud analytics! The Azure Synapse Influencer program recognizes Azure Synapse Analytics users and advocates who actively support the community by sharing Synapse-related content, announcements, and product news via social media. 
+**Get connected with the new Azure Synapse Influencer program!**  [Join a community of Azure Synapse Influencers](https://aka.ms/synapseinfluencers) who are helping each other achieve more with cloud analytics! The Azure Synapse Influencer program recognizes Azure Synapse Analytics users and advocates who actively support the community by sharing Synapse-related content, announcements, and product news via social media. 
 
 ## SQL
 
-* **Data Warehouse Migration guide for Dedicated SQL Pools in Azure Synapse Analytics** - With the benefits that cloud migration offers, we hear that you often look for steps, processes, or guidelines to follow for quick and easy migrations from existing data warehouse environments. We just released a set of [Data Warehouse migration guides](migration-guides.md) to make your transition to dedicated SQL Pools in Azure Synapse Analytics easier. 
+* **Data Warehouse Migration guide for Dedicated SQL Pools in Azure Synapse Analytics** - With the benefits that cloud migration offers, we hear that you often look for steps, processes, or guidelines to follow for quick and easy migrations from existing data warehouse environments. We just released a set of [Data Warehouse migration guides](migration-guides) to make your transition to dedicated SQL Pools in Azure Synapse Analytics easier. 
 
 * **Automatic character column length calculation** - It's no longer necessary to define character column lengths!  Serverless SQL pools let you query files in the data lake without knowing the schema upfront. The best practice was to specify the lengths of character columns to get optimal performance. Not anymore! With this new feature, you can get optimal query performance without having to define the schema. The serverless SQL pool will calculate the average column length for each inferred character column or character column defined as larger than 100 bytes. The schema will stay the same, while the serverless SQL pool will use the calculated average column lengths internally. It will also automatically calculate the cardinality estimation in case there was no previously created statistic.
 
