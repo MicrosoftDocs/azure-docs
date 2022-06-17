@@ -59,7 +59,7 @@ You can also access Activity log events by using the following methods:
 - Use [az monitor activity-log](/cli/azure/monitor/activity-log) to retrieve the Activity log from the CLI.  See [Azure Monitor CLI samples](../cli-samples.md#view-activity-log).
 - Use the [Azure Monitor REST API](/rest/api/monitor/) to retrieve the Activity log from a REST client.
 
-## Send to a Log Analytics workspace
+## Send to Log Analytics workspace
 
  Send the Activity log to a Log Analytics workspace to enable the [Azure Monitor Logs](../logs/data-platform-logs.md) feature, where you:
 
