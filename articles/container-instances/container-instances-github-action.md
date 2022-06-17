@@ -1,8 +1,12 @@
 ---
 title: Deploy container instance by GitHub action
 description: Configure a GitHub action that automates steps to build, push, and deploy a container image to Azure Container Instances
-ms.topic: article
-ms.date: 08/20/2020
+ms.topic: how-to
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: container-instances
+services: container-instances
+ms.date: 06/17/2022
 ms.custom: github-actions-azure, devx-track-azurecli
 ---
 

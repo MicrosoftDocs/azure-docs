@@ -750,6 +750,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/frontdoor/standard-premium/create-front-door-cli.md",
+      "redirect_url": "/azure/frontdoor/create-front-door-cli",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cdn/index.yml",
+      "redirect_url": "/azure/frontdoor",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/app-service-web/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md",
       "redirect_url": "/aspnet/core/security/authorization/secure-data",
       "redirect_document_id": false
@@ -2393,6 +2403,21 @@
       "source_path_from_root": "/articles/aks/ingress.md",
       "redirect_url": "/azure/aks/ingress-tls",
       "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/aks/ingress-internal-ip.md",
+      "redirect_url": "/azure/aks/ingress-basic",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/aks/ingress-own-tls.md",
+      "redirect_url": "/azure/aks/ingress-tls",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/aks/ingress-static-ip.md",
+      "redirect_url": "/azure/aks/ingress-tls",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/container-service/kubernetes/container-service-kubernetes-jenkins.md",
@@ -18986,6 +19011,16 @@
       "redirect_url": "/azure/logic-apps/logic-apps-exception-handling",
       "redirect_document_id": false
     },
+    {
+      "source_path_from_root": "/articles/machine-learning/tutorial-power-bi-automated-model.md",
+      "redirect_url": "/azure/machine-learning/tutorial-power-bi-custom-model",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/tutorial-power-bi-designer-model.md",
+      "redirect_url": "/azure/machine-learning/tutorial-power-bi-custom-model",
+      "redirect_document_id": false
+    },    
     {
       "source_path_from_root": "/articles/cognitive-services/LinguisticAnalysisAPI/AnalyzeMethod.md",
       "redirect_url": "/azure/machine-learning/classic-module-reference/text-analytics",
@@ -40236,6 +40271,26 @@
       "source_path_from_root": "/articles/private-link/private-endpoint-static-ip-powershell.md",
       "redirect_url": "/azure/private-link/create-private-endpoint-powershell",
       "redirect_document_id": true
-    }
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/insights/sql-insights-alerts.md",
+      "redirect_url": "/azure/azure-sql/database/sql-insights-alerts",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/insights/sql-insights-enable.md",
+      "redirect_url": "/azure/azure-sql/database/sql-insights-enable",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/insights/sql-insights-overview.md",
+      "redirect_url": "/azure/azure-sql/database/sql-insights-overview",
+      "redirect_document_id": false
+    },    
+    {
+      "source_path_from_root": "/articles/azure-monitor/insights/sql-insights-troubleshoot.md",
+      "redirect_url": "/azure/azure-sql/database/sql-insights-troubleshoot",
+      "redirect_document_id": false
+    }    
   ]
 }
