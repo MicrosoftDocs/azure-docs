@@ -40,7 +40,7 @@ The Azure OpenAI service provides two methods for authentication. you can use  e
 <!--TODO: Uncomment once linked doc is created
 - **Azure Active Directory authentication**: You can authenticate an API call using an Azure Active Directory token. Authentication tokens are included in a request as the ```Authorization``` header. The token provided must be preceded by ```Bearer```, for example ```Bearer YOUR_AUTH_TOKEN```. You can read our how-to guide on [authenticating with Azure Active Directory](../How%20to/Set%20up%20managed%20identity.md)-->
 
-### REST API Versioning
+### REST API versioning
 
 The service APIs are versioned using the ```api-version``` query parameter. All versions follow the YYYY-MM-DD date structure, with a -preview suffix for a preview service. For example:
 
@@ -51,11 +51,11 @@ We currently have the following versions available: ```2022-03-01-preview``` and
 ## Completions
 With the Completions operation, the model will generate one or more predicted completions based on a provided prompt. The service can also return the probabilities of alternative tokens at each position.
 
-**Create a Completion**
+**Create a completion**
 <br>
 ```POST https://{your-resource-name}.openai.azure.com/openai/deployments/{deployment-id}/completions?api-version={api-version}```
 
-**Path Parameters**
+**Path parameters**
 
 | Parameter | Type | Required? |  Description |
 |--|--|--|--|
@@ -63,12 +63,12 @@ With the Completions operation, the model will generate one or more predicted co
 | ```deployment-id``` | string | Required | The name of your model deployment. You're required to first deploy a model before you can make calls |
 | ```api-version``` | string | Required |The API version to use for this operation. This follows the YYYY-MM-DD-preview format.  |
 
-**Supported Versions**
+**Supported versions**
 
 - `2022-06-01-preview`
 <br>
 
-**Request Body**
+**Request body**
 
 | Parameter | Type | Required? | Default | Description |
 |--|--|--|--|--|
@@ -125,7 +125,7 @@ The search endpoint computes similarity scores between provided query and docume
 
 ```POST https://{your-resource-name}.openai.azure.com/openai/deployments/{deployment-id}/search?api-version={api-version}```
 
-**Path Parameters**
+**Path parameters**
 
 | Parameter | Type | Required? | Default | Description |
 |--|--|--|--|--|
@@ -133,18 +133,18 @@ The search endpoint computes similarity scores between provided query and docume
 | ```deployment-id``` | string | Required | null | The name of your model deployment. You're required to first deploy a model before you can make calls |
 | ```api-version``` | string | Required |  null |The API version to use for this operation. This follows the YYYY-MM-DD-preview format.|
 
-**Supported Versions**
+**Supported versions**
 
 - `2022-06-01-preview`
 
-**Request Body**
+**Request body**
 
 | Parameter | Type | Required? | Default | Description |
 |--|--|--|--|--|
 | documents | array | Optional | | Up to 200 documents to search over, provided as a list of strings. The maximum document length (in tokens) is 2034 minus the number of tokens in the query.
 | query | string | Required || Query to search against the documents. |
 
-#### Example Request
+#### Example request
 
 ```console
 curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/deployments/YOUR_DEPLOYMENT_NAME/search?api-version=2022-06-01-preview \
@@ -189,7 +189,7 @@ Get a vector representation of a given input that can be easily consumed by mach
 <br>
 ```POST https://{your-resource-name}.openai.azure.com/openai/deployments/{deployment-id}/embeddings?api-version={api-version}```
 
-**Path Parameters**
+**Path parameters**
 
 | Parameter | Type | Required? |  Description |
 |--|--|--|--|
@@ -197,12 +197,12 @@ Get a vector representation of a given input that can be easily consumed by mach
 | ```deployment-id``` | string | Required | The name of your model deployment. You're required to first deploy a model before you can make calls |
 | ```api-version``` | string | Required |The API version to use for this operation. This follows the YYYY-MM-DD-preview format.  |
 
-**Supported Versions**
+**Supported versions**
 
 - `2022-06-01-preview`
 <br>
 
-**Request Body**
+**Request body**
 
 | Parameter | Type | Required? | Default | Description |
 |--|--|--|--|--|
@@ -248,14 +248,14 @@ This API will return the list of all available models in your resource. This inc
 
 ```GET https://{your-resource-name}.openai.azure.com/openai/models?api-version={api-version}```
 
-**Path Parameters**
+**Path parameters**
 
 | Parameter | Type | Required? |  Description |
 |--|--|--|--|
 | ```your-resource-name``` | string |  Required | The name of your Azure OpenAI Resource. |
 | ```api-version``` | string | Required |The API version to use for this operation. This follows the YYYY-MM-DD-preview format.|
 
-**Supported Versions**
+**Supported versions**
 
 - `2022-06-01-preview`
 
@@ -309,7 +309,7 @@ This API will retrieve information on a specific model
 
 ```GET https://{your-resource-name}.openai.azure.com/openai/models/{model_id}?api-version={api-version}```
 
-**Path Parameters**
+**Path parameters**
 
 | Parameter | Type | Required? |  Description |
 |--|--|--|--|
@@ -317,7 +317,7 @@ This API will retrieve information on a specific model
 | ```model_id``` | string | Required | ID of the model you wish to get information on. |
 | ```api-version``` | string | Required |The API version to use for this operation. This follows the YYYY-MM-DD-preview format.|
 
-**Supported Versions**
+**Supported versions**
 
 - `2022-06-01-preview`
 
@@ -328,7 +328,7 @@ curl -X GET https://example_resource_name.openai.azure.com/openai/models/ada?api
   -H "api-key: YOUR_API_KEY" 
 ```
 
-#### Example Response
+#### Example response
 
 ```json
 {  
@@ -347,9 +347,9 @@ curl -X GET https://example_resource_name.openai.azure.com/openai/models/ada?api
 }
 ```
 
-## FineTunes
+## FineTune
 
-You can create customized versions of our models using the fine-tunes APIs. These APIs allow you to create training jobs which produce new models that are available for deployment.
+You can create customized versions of our models using the fine-tuning APIs. These APIs allow you to create training jobs which produce new models that are available for deployment.
 
 #### <a name="GetFineTune"></a> List all training jobs
 
@@ -358,14 +358,14 @@ This API will list your resource's fine-tuning jobs
 
 ```GET https://{your-resource-name}.openai.azure.com/openai/fine-tunes?api-version={api-version}```
 
-**Path Parameters**
+**Path parameters**
 
 | Parameter | Type | Required? |  Description |
 |--|--|--|--|
 | ```your-resource-name``` | string |  Required | The name of your Azure OpenAI Resource. |
 | ```api-version``` | string | Required |The API version to use for this operation. This follows the YYYY-MM-DD-preview format. |
 
-**Supported Versions**
+**Supported versions**
 
 - `2022-06-01-preview`
 
@@ -376,7 +376,7 @@ curl https://your_resource_name.openai.azure.com/openai/fine-tunes?api-version=2
   -H 'api-key: YOUR_API_KEY'
 ```
 
-#### Example Response
+#### Example response
 
 ```json
 {
@@ -462,25 +462,25 @@ curl https://your_resource_name.openai.azure.com/openai/fine-tunes?api-version=2
 
 ```
 
-#### <a name="PostFineTunes"></a> Create a Fine tune Job
+#### <a name="PostFineTunes"></a> Create a Fine tune job
 
 This API will create a new job to fine-tune a specified model with the specified dataset.
 <br>
 
 ```POST https://{your-resource-name}.openai.azure.com/openai/fine-tunes?api-version={api-version}```
 
-**Path Parameters**
+**Path parameters**
 
 | Parameter | Type | Required? |  Description |
 |--|--|--|--|
 | ```your-resource-name``` | string |  Required | The name of your Azure OpenAI Resource. |
 | ```api-version``` | string | Required |The API version to use for this operation. This follows the YYYY-MM-DD-preview format.|
 
-**Supported Versions**
+**Supported versions**
 
 - `2022-06-01-preview`
 
-**Request Body**
+**Request body**
 
 | Parameter | Type | Required? | Default | Description |
 |--|--|--|--|--|
@@ -515,7 +515,7 @@ curl https://your-resource-name.openai.azure.com/openai/fine-tunes?api-version=2
       }'
 ```
 
-#### Example Response
+#### Example response
 
 ```json
 {
@@ -566,7 +566,7 @@ This API will retrieve information about a specific fine tuning job
 
 ```GET https://{your-resource-name}.openai.azure.com/openai/fine-tunes/{fine_tune_id}?api-version={api-version}```
 
-**Path Parameters**
+**Path parameters**
 
 | Parameter | Type | Required? |  Description |
 |--|--|--|--|
@@ -574,7 +574,7 @@ This API will retrieve information about a specific fine tuning job
 | ```fine_tune_id``` | string | Required | The ID for the fine tuning job you wish to retrieve |
 | ```api-version``` | string | Required |The API version to use for this operation. This follows the YYYY-MM-DD-preview format.|
 
-**Supported Versions**
+**Supported versions**
 
 - `2022-03-01-preview`
 
@@ -585,7 +585,7 @@ curl https://example_resource_name.openai.azure.com/openai/fine-tunes/ft-d3f2a65
   -H "api-key: YOUR_API_KEY" 
 ```
 
-#### Example Response
+#### Example response
 ```json
 {
     "id": "ft-9f84568b71ff403a8b118df91128925b",
@@ -673,7 +673,7 @@ This API will delete a specific fine tuning job
 
 ```DELETE https://{your-resource-name}.openai.azure.com/openai/fine-tunes/{fine_tune_id}?api-version={api-version}```
 
-**Path Parameters**
+**Path parameters**
 
 | Parameter | Type | Required? |  Description |
 |--|--|--|--|
@@ -700,7 +700,7 @@ This API will retrieve the events associated with the specified fine tuning job.
 
 ```GET https://{your-resource-name}.openai.azure.com/openai/fine-tunes/{fine_tune_id}/events?api-version={api-version}```
 
-**Path Parameters**
+**Path parameters**
 
 | Parameter | Type | Required? |  Description |
 |--|--|--|--|
@@ -709,7 +709,7 @@ This API will retrieve the events associated with the specified fine tuning job.
 | ```stream``` | boolean | no | To stream events as they become available pass a true value |
 | ```api-version``` | string | Required |The API version to use for this operation. This follows the YYYY-MM-DD-preview format.|
 
-**Supported Versions**
+**Supported versions**
 
 - `2022-06-01-preview`
 
@@ -719,7 +719,7 @@ curl -X GET https://your_resource_name.openai.azure.com/openai/fine-tunes/ft-d3f
   -H "api-key: YOUR_API_KEY" 
 ```
 
-#### Example Response
+#### Example response
 
 ```json
 {
@@ -769,7 +769,7 @@ This API will cancel the specified job
 | ```fine_tune_id``` | string | Required | The ID for the fine tuning job you wish to stream events from |
 | ```api-version``` | string | Required |The API version to use for this operation. This follows the YYYY-MM-DD-preview format.|
 
-**Supported Versions**
+**Supported versions**
 - `2022-06-01-preview`
 
 #### Example request
@@ -779,7 +779,7 @@ curl -X 'POST' \
     -H "api-key: YOUR_API_KEY" 
 ```
 
-#### Example Response
+#### Example response
 
 ```json
 {
@@ -832,14 +832,14 @@ This API will list all the Files that have been uploaded to the resource
 
 ```GET https://{your-resource-name}.openai.azure.com/openai/files?api-version={api-version}```
 
-**Path Parameters**
+**Path parameters**
 
 | Parameter | Type | Required? |  Description |
 |--|--|--|--|
 | ```your-resource-name``` | string |  Required | The name of your Azure OpenAI Resource. |
 | ```api-version``` | string | Required |The API version to use for this operation. This follows the YYYY-MM-DD-preview format.|
 
-**Supported Versions**
+**Supported versions**
 
 - `2022-06-01-preview`
 
@@ -850,7 +850,7 @@ curl -X GET https://example_resource_name.openai.azure.com/openai/files?api-vers
   -H "api-key: YOUR_API_KEY" 
 ```
 
-#### Example Response
+#### Example response
 
 ```JSON
 {
@@ -890,21 +890,21 @@ This API will upload a file that contains the examples used for fine-tuning a mo
 
 ```GET https://{your-resource-name}.openai.azure.com/openai/files?api-version={api-version}```
 
-**Path Parameters**
+**Path parameters**
 
 | Parameter | Type | Required? |  Description |
 |--|--|--|--|
 | ```your-resource-name``` | string |  Required | The name of your Azure OpenAI Resource. |
 | ```api-version``` | string | Required |The API version to use for this operation. This follows the YYYY-MM-DD-preview format.|
 
-**Form Data**
+**Form data**
 
 | Parameter | Type | Required? |  Description |
 |--|--|--|--|
 | purpose | string |  Required | The intended purpose of the uploaded documents. Currently only 'fine-tune' is supported for fine tuning documents |
 | file | string | Required | the name of the JSON lines file to be uploaded |
 
-**Supported Versions**
+**Supported versions**
 
 - `2022-06-01-preview`
 
@@ -918,7 +918,7 @@ curl -X 'POST'  'https://example_resource_name.openai.azure.com/openai/files?api
   -F 'file=@straining_file_name.jsonl'
 ```
 
-#### Example Response
+#### Example response
 
 ```JSON
 {
@@ -940,7 +940,7 @@ This API will return information on the specified file
 
 ```GET https://{your-resource-name}.openai.azure.com/openai/files/{file_id}?api-version={api-version}```
 
-**Path Parameters**
+**Path parameters**
 
 | Parameter | Type | Required? |  Description |
 |--|--|--|--|
@@ -948,7 +948,7 @@ This API will return information on the specified file
 | ```file_id``` | string | yes | The ID of the file you wish to retrieve |
 | ```api-version``` | string | Required |The API version to use for this operation. This follows the YYYY-MM-DD-preview format.|
 
-**Supported Versions**
+**Supported versions**
 
 - `2022-06-01-preview`
 
@@ -959,7 +959,7 @@ curl -X 'GET'  'https://example_resource_name.openai.azure.com/openai/files/file
   -H "api-key: YOUR_API_KEY" 
 ```
 
-#### Example Response
+#### Example response
 
 ```json
 {
@@ -1006,7 +1006,7 @@ This API will download the specified file.
 
 ```GET https://{your-resource-name}.openai.azure.com/openai/files/{file_id}/content?api-version={api-version}```
 
-**Path Parameters**
+**path parameters**
 
 | Parameter | Type | Required? |  Description |
 |--|--|--|--| 
@@ -1014,7 +1014,7 @@ This API will download the specified file.
 | ```file_id``` | string | yes | The ID of the file you wish to download |
 | ```api-version``` | string | Required |The API version to use for this operation. This follows the YYYY-MM-DD-preview format.|
 
-**Supported Versions**
+**Supported versions**
 
 - `2022-06-01-preview`
 
@@ -1031,18 +1031,18 @@ Import files from blob storage or other web locations. We recommend you use this
 
 ```POST https://{your-resource-name}.openai.azure.com/openai/files/import?api-version={api-version}```
 
-**Path Parameters**
+**Path parameters**
 
 | Parameter | Type | Required? |  Description |
 |--|--|--|--|
 | ```your-resource-name``` | string |  Required | The name of your Azure OpenAI Resource. |
 | ```api-version``` | string | Required |The API version to use for this operation. This follows the YYYY-MM-DD-preview format.|
 
-**Supported Versions**
+**Supported versions**
 
 - `2022-06-01-preview`
 
-**Request Body**
+**Request body**
 
 | Parameter | Type | Required? | Default | Description |
 |--|--|--|--|--|
@@ -1064,7 +1064,7 @@ curl -X 'POST' \
       }'
 ```
 
-### Example Response
+### Example response
 
 ```JSON
 {
@@ -1087,14 +1087,14 @@ This API will return a list of all the deployments in the resource.
     
 ```POST https://{your-resource-name}.openai.azure.com/openai/deployments?api-version={api-version}```
 
-**Path Parameters**
+**Path parameters**
 
 | Parameter | Type | Required? |  Description |
 |--|--|--|--|
 | ```your-resource-name``` | string |  Required | The name of your Azure OpenAI Resource. |
 | ```api-version``` | string | Required |The API version to use for this operation. This follows the YYYY-MM-DD-preview format.|
 
-**Supported Versions**
+**Supported versions**
 
 - `2022-06-01-preview`
 
@@ -1137,24 +1137,23 @@ This API will create a new deployment in the resource. This will enable you to m
 
 ```POST https://{your-resource-name}.openai.azure.com/openai/deployments?api-version={api-version}```
 
-**Path Parameters**
+**Path parameters**
 
 | Parameter | Type | Required? |  Description |
 |--|--|--|--| 
 | ```your-resource-name``` | string |  Required | The name of your Azure OpenAI Resource. |
 | ```api-version``` | string | Required |The API version to use for this operation. This follows the YYYY-MM-DD-preview format.|
 
-**Supported Versions**
+**Supported versions**
 
 - `2022-06-01-preview`
 
-**Request Body**
+**Request body**
 
 | Parameter | Type | Required? | Default | Description |
 |--|--|--|--|--|
 | model | string | Yes | N/A |  The name of the model you wish to deploy. You can find the list of available models from the models API. |
 | scale_type | string | Yes | N/A | Scale configuration. The only option today is 'Standard' |
-
 
 #### Example request
 
@@ -1196,7 +1195,7 @@ This API will retrieve information about the specified deployment
 
 ```GET https://{your-resource-name}.openai.azure.com/openai/deployments/{deployment_id}?api-version={api-version}```
 
-**Path Parameters**
+**Path parameters**
 
 | Parameter | Type | Required? |  Description |
 |--|--|--|--|
@@ -1204,7 +1203,7 @@ This API will retrieve information about the specified deployment
 | ```deployment_id``` | string | Required | The name of the deployment you wish to retrieve |
 | ```api-version``` | string | Required |The API version to use for this operation. This follows the YYYY-MM-DD-preview format.|
 
-**Supported Versions**
+**Supported versions**
 
 - `2022-06-01-preview`
 
@@ -1238,7 +1237,7 @@ This API will update an existing deployment. Make sure to set the content-type t
 
 ```PATCH https://{your-resource-name}.openai.azure.com/openai/deployments/{deployment_id}?api-version={api-version}```
 
-**Path Parameters**
+**Path parameters**
 
 | Parameter | Type | Required? |  Description |
 |--|--|--|--|
@@ -1246,11 +1245,11 @@ This API will update an existing deployment. Make sure to set the content-type t
 | ```deployment_id``` | string | Required | The name of the deployment you wish to update |
 | ```api-version``` | string | Required |The API version to use for this operation. This follows the YYYY-MM-DD-preview format.|
 
-**Supported Versions**
+**Supported versions**
 
 - `2022-06-01-preview`
 
-**Request Body**
+**Request body**
 
 | Parameter | Type | Required? | Default | Description |
 |--|--|--|--|--|
@@ -1279,7 +1278,7 @@ This API will delete the specified deployment
 
 ```DELETE https://{your-resource-name}.openai.azure.com/openai/deployments/{deployment_id}?api-version={api-version}```
 
-**Path Parameters**
+**Path parameters**
 
 | Parameter | Type | Required? |  Description |
 |--|--|--|--|
@@ -1287,7 +1286,7 @@ This API will delete the specified deployment
 | ```deployment_id``` | string | Required | The name of the deployment you wish to delete |
 | ```api-version``` | string | Required |The API version to use for this operation. This follows the YYYY-MM-DD-preview format.|
 
-**Supported Versions**
+**Supported versions**
 
 - `2022-06-01-preview`
 
