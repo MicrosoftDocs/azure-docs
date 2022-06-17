@@ -7,7 +7,7 @@ manager: rkarlin
 ms.service: decentralized-identity
 ms.topic: how-to
 ms.subservice: verifiable-credentials
-ms.date: 04/01/2021
+ms.date: 06/03/2022
 ms.author: barclayn
 
 #Customer intent: As an administrator, I am trying to learn the process of revoking verifiable credentials that I have issued
@@ -80,10 +80,20 @@ See below for an example of how the Rules file is modified to include the index.
   "attestations": {
     "idTokens": [
       { 
-        "mapping": {
-          "Name": { "claim": "name" },
-          "email": { "claim": "email", "indexed": true}
-        },
+        "mapping": [
+           { 
+             "outputClaim": "Name", 
+             "inputClaim": "name",
+             "required": true,
+             "indexed": false                 
+           },
+           { 
+             "outputClaim": "email", 
+             "inputClaim": "email",
+             "required": true,
+             "indexed": true                 
+           }
+        ],
         "configuration": "https://login.microsoftonline.com/tenant-id-here7/v2.0/.well-known/openid-configuration",
         "client_id": "c0d6b785-7a08-494e-8f63-c30744c3be2f",
         "redirect_uri": "vcclient://openid"
@@ -98,7 +108,7 @@ See below for an example of how the Rules file is modified to include the index.
 ```
 
 >[!NOTE]
->Only one attribute can be indexed from a Rules file.  
+>Only one attribute can be indexed from a rules claims mapping.  
 
 ## How do I revoke a verifiable credential
 

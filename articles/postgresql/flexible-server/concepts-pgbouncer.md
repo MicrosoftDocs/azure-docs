@@ -11,7 +11,7 @@ ms.date: 11/30/2021
 
 # PgBouncer in Azure Database for PostgreSQL - Flexible Server
 
-
+[!INCLUDE [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 
 Azure Database for PostgreSQL – Flexible Server offers [PgBouncer](https://github.com/pgbouncer/pgbouncer) as a built-in connection pooling solution. This is an optional service that can be enabled on a per-database server basis and is supported with both public and private access. PgBouncer runs in the same virtual machine as the Postgres database server. Postgres uses a process-based model for connections which makes it expensive to maintain many idle connections. So, Postgres itself runs into resource constraints once the server runs more than a few thousand connections. The primary benefit of PgBouncer is to improve idle connections and short-lived connections at the database server.
 
