@@ -11,14 +11,14 @@ ms.custom: devx-track-csharp
 
 Disaster recovery focuses on recovering from a severe loss of application functionality. This tutorial will walk you through how to set up your eventing architecture to recover if the Event Grid service becomes unhealthy in a particular region.
 
-In this tutorial, you'll learn how to create an active-passive failover architecture for custom topics in Event Grid. You'll accomplish failover by mirroring your topics and subscriptions across two regions and then managing a failover when a topic becomes unhealthy. The architecture in this tutorial fails over all new traffic. it's important to be aware, with this setup, events already in flight won't be recovered until the compromised region is healthy again.
+In this tutorial, you'll learn how to create an active-passive fail over architecture for custom topics in Event Grid. You'll accomplish fail over by mirroring your topics and subscriptions across two regions and then managing a fail over when a topic becomes unhealthy. The architecture in this tutorial fails over all new traffic. it's important to be aware, with this setup, events already in flight won't be recovered until the compromised region is healthy again.
 
 > [!NOTE]
-> Event Grid supports automatic geo disaster recovery (GeoDR) on the server side now. You can still implement client-side disaster recovery logic if you want a greater control on the failover process. For details about automatic GeoDR, see [Server-side geo disaster recovery in Azure Event Grid](geo-disaster-recovery.md).
+> Event Grid supports automatic geo disaster recovery (GeoDR) on the server side now. You can still implement client-side disaster recovery logic if you want a greater control on the fail over process. For details about automatic GeoDR, see [Server-side geo disaster recovery in Azure Event Grid](geo-disaster-recovery.md).
 
 ## Create a message endpoint
 
-To test your failover configuration, you'll need an endpoint to receive your events at. The endpoint isn't part of your failover infrastructure, but will act as our event handler to make it easier to test.
+To test your fail over configuration, you'll need an endpoint to receive your events at. The endpoint isn't part of your fail over infrastructure, but will act as our event handler to make it easier to test.
 
 To simplify testing, deploy a [pre-built web app](https://github.com/Azure-Samples/azure-event-grid-viewer) that displays the event messages. The deployed solution includes an App Service plan, an App Service web app, and source code from GitHub.
 
@@ -32,7 +32,7 @@ Make sure to note this URL as you'll need it later.
 
 1. You see the site but no events have been posted to it yet.
 
-   ![View new site](./media/blob-event-quickstart-portal/view-site.png)
+   ![Screenshot showing your web site with no events.](./media/blob-event-quickstart-portal/view-site.png)
 
 [!INCLUDE [event-grid-register-provider-portal.md](../../includes/event-grid-register-provider-portal.md)]
 
@@ -44,28 +44,28 @@ First, create two Event Grid topics. These topics will act as primary and second
 1. Sign in to the [Azure portal](https://portal.azure.com). 
 
 1. From the upper left corner of the main Azure menu, 
-   choose **All services** > search for **Event Grid** > select **Event Grid Topics**.
+   choose **All services** > search for **Event Grid** > select **Event Grid topics**.
 
-   ![Event Grid Topics menu](./media/custom-disaster-recovery/select-topics-menu.png)
+   ![Screenshot showing the Event Grid topics menu.](./media/custom-disaster-recovery/select-topics-menu.png)
 
-    Select the star next to Event Grid Topics to add it to resource menu for easier access in the future.
+    Select the star next to Event Grid topics to add it to resource menu for easier access in the future.
 
-1. In the Event Grid Topics Menu, select **+ADD** to create the primary topic.
+1. In the Event Grid topics Menu, select **+ADD** to create the primary topic.
 
    * Give the topic a logical name and add "-primary" as a suffix to make it easy to track.
    * This topic's region will be your primary region.
 
-     ![Event Grid Topic primary create dialogue](./media/custom-disaster-recovery/create-primary-topic.png)
+     ![Screenshot showing the Create primary topic page.](./media/custom-disaster-recovery/create-primary-topic.png)
 
 1. Once the Topic has been created, navigate to it and copy the **Topic Endpoint**. you'll need the URI later.
 
-    ![Event Grid Primary Topic](./media/custom-disaster-recovery/get-primary-topic-endpoint.png)
+    ![Screenshot showing the topic endpoint.](./media/custom-disaster-recovery/get-primary-topic-endpoint.png)
 
 1. Get the access key for the topic, which you'll also need later. Click on **Access keys** in the resource menu and copy Key 1.
 
-    ![Get Primary Topic Key](./media/custom-disaster-recovery/get-primary-access-key.png)
+    ![Screenshot showing the topic's access key.](./media/custom-disaster-recovery/get-primary-access-key.png)
 
-1. In the Topic blade, click **+Event Subscription** to create a subscription connecting your subscribing the event receiver website you made in the pre-requisites to the tutorial.
+1. In the **Topic** page, click **+Event Subscription** to create a subscription connecting your subscribing the event receiver website you made in the pre-requisites to the tutorial.
 
    * Give the event subscription a logical name and add "-primary" as a suffix to make it easy to track.
    * Select Endpoint Type Web Hook.
@@ -83,13 +83,13 @@ You should now have:
    * A secondary topic in your secondary region.
    * A secondary event subscription connecting your primary topic to the event receiver website.
 
-## Implement client-side failover
+## Implement client-side fail over
 
-Now that you have a regionally redundant pair of topics and subscriptions setup, you're ready to implement client-side failover. There are several ways to accomplish it, but all failover implementations will have a common feature: if one topic is no longer healthy, traffic will redirect to the other topic.
+Now that you have a regionally redundant pair of topics and subscriptions setup, you're ready to implement client-side fail over. There are several ways to accomplish it, but all fail over implementations will have a common feature: if one topic is no longer healthy, traffic will redirect to the other topic.
 
 ### Basic client-side implementation
 
-The following sample code is a simple .NET publisher that will always attempt to publish to your primary topic first. If it doesn't succeed, it will then failover the secondary topic. In either case, it also checks the health api of the other topic by doing a GET on `https://<topic-name>.<topic-region>.eventgrid.azure.net/api/health`. A healthy topic should always respond with **200 OK** when a GET is made on the **/api/health** endpoint.
+The following sample code is a simple .NET publisher that will always attempt to publish to your primary topic first. If it doesn't succeed, it will then fail over the secondary topic. In either case, it also checks the health api of the other topic by doing a GET on `https://<topic-name>.<topic-region>.eventgrid.azure.net/api/health`. A healthy topic should always respond with **200 OK** when a GET is made on the **/api/health** endpoint.
 
 > [!NOTE]
 > The following sample code is only for demonstration purposes and is not intended for production use. 
@@ -115,12 +115,12 @@ namespace EventGridFailoverPublisher
         static async Task Main(string[] args)
         {
             // TODO: Enter the endpoint each topic. You can find this topic endpoint value
-            // in the "Overview" section in the "Event Grid Topics" blade in Azure Portal..
+            // in the "Overview" section in the "Event Grid topics" page in Azure Portal..
             string primaryTopic = "https://<primary-topic-name>.<primary-topic-region>.eventgrid.azure.net/api/events";
             string secondaryTopic = "https://<secondary-topic-name>.<secondary-topic-region>.eventgrid.azure.net/api/events";
 
             // TODO: Enter topic key for each topic. You can find this in the "Access Keys" section in the
-            // "Event Grid Topics" blade in Azure Portal.
+            // "Event Grid topics" page in Azure Portal.
             string primaryTopicKey = "<your-primary-topic-key>";
             string secondaryTopicKey = "<your-secondary-topic-key>";
 
@@ -180,7 +180,7 @@ namespace EventGridFailoverPublisher
 
 ### Try it out
 
-Now that you have all of your components in place, you can test out your failover implementation. Run the above sample in Visual Studio code, or your favorite environment. Replace the following four values with the endpoints and keys from your topics:
+Now that you have all of your components in place, you can test out your fail over implementation. Run the above sample in Visual Studio code, or your favorite environment. Replace the following four values with the endpoints and keys from your topics:
 
    * primaryTopic - the endpoint for your primary topic.
    * secondaryTopic - the endpoint for your secondary topic.
@@ -189,9 +189,9 @@ Now that you have all of your components in place, you can test out your failove
 
 Try running the event publisher. You should see your test events land in your Event Grid viewer like below.
 
-![Event Grid Primary Event Subscription](./media/custom-disaster-recovery/event-grid-viewer.png)
+![Screenshot showing the Event Grid Viewer app.](./media/custom-disaster-recovery/event-grid-viewer.png)
 
-To make sure your failover is working, you can change a few characters in your primary topic key to make it no longer valid. Try running the publisher again. You should still see new events appear in your Event Grid viewer, however when you look at your console, you'll see that they are now being published via the secondary topic.
+To make sure your fail over is working, you can change a few characters in your primary topic key to make it no longer valid. Try running the publisher again. You should still see new events appear in your Event Grid viewer, however when you look at your console, you'll see that they are now being published via the secondary topic.
 
 ### Possible extensions
 
