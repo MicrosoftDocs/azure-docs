@@ -47,7 +47,7 @@
 - name: Reference
   items:
     - name: Service limits
-      href: service-limits.md
+      href: reference/service-limits.md
     - name: API documentation
       href: https://fluidframework.com/docs/apis/
 - name: Resources
