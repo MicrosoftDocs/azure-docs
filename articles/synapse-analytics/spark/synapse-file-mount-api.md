@@ -26,7 +26,6 @@ Synapse studio team built two new mount/unmount APIs in mssparkutils package, yo
 The document will show you How to use mount/unmount API in your workspace, mainly includes below sections: 
 
 + How to mount ADLS Gen2 Storage or Azure Blob Storage 
-<!--- + How to mount Azure File share --->
 + How to access files under mount point via local file system API 
 + How to access files under mount point using mssparktuils fs API 
 + How to access files under mount point using Spark Read API
