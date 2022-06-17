@@ -1,5 +1,5 @@
 ---
-title: Cool access in Azure NetApp Files
+title: Cool access in Azure NetApp Files | Microsoft Docs
 description: 
 services: azure-netapp-files
 documentationcenter: ''
@@ -22,13 +22,13 @@ The majority of cold data is associated with unstructured data. It can account f
 
 Using Azure NetApp Files Standard service level with cool access, you can configure inactive data to move from Azure NetApp Files Standard service-level storage to an Azure storage account (the cool tier). In doing so, you free up storage that resides within Azure NetApp Files, resulting in cost saving.
 
-You can configure Standard service level with cool access on a volume by specifying the number of days (the coolness period, ranging from 7 to 63 days) for inactive data to be considered “cool”. \
+You can configure Standard service level with cool access on a volume by specifying the number of days (the coolness period, ranging from 7 to 63 days) for inactive data to be considered “cool”.
 
-When the data has remained inactive for the specified coolness period, the tiering process begins, and the data is moved to the cool tier (the Azure storage account). This tiering process might take a few days.  
+When the data has remained inactive for the specified coolness period, the tiering process begins, and the data is moved to the cool tier (the Azure storage account). This tiering process might take a few days.
+
 For example, if you specify 31 days as the coolness period, then 31 days after a data block is last accessed (read or written), it is qualified for movement to the cool tier.  
 
-After inactive data is moved to the cool tier and if it is read randomly again, it becomes “warm” and is moved back to the standard tier. 
-Sequential reads (such as index and antivirus scans) on inactive data in the cool tier do not warm the data and will not trigger inactive data to be moved back to the standard tier. 
+After inactive data is moved to the cool tier and if it is read randomly again, it becomes “warm” and is moved back to the standard tier. Sequential reads (such as index and antivirus scans) on inactive data in the cool tier do not warm the data and will not trigger inactive data to be moved back to the standard tier. 
 
 Metadata is never cooled and will always remain in the standard tier. As such, the activities of metadata-intensive workloads (for example, high file-count environments like chip design, VCS, and home directories) are not impacted by tiering.
 
@@ -120,7 +120,6 @@ To support this functionality, the following new [Azure NetApp Files metrics](az
 * Egress data (data tiered out using PUT)
 * Ingress data (data read via GET)
 
-
 ## Billing 
 
 You can enable tiering at the volume level for a newly created capacity pool that uses the Standard service level. How you are billed will be based on the following factors: 
@@ -154,3 +153,6 @@ When you create volumes in the capacity pool and start tiering data to the cool 
 * 0.75 TiB capacity at the cool tier rate
 * Network transfer between the standard tier and the cool tier at the rate determined by the markup on top of the transaction cost (GET, PUT) on blob storage and private link transfer in either direction between the standard tiers.
 
+## Next steps
+
+* [Manage Azure NetApp Files Standard service level with cool access](manage-cool-access.md)

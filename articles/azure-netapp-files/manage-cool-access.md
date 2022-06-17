@@ -18,30 +18,21 @@ ms.author: anfdocs
 
 # Manage Azure NetApp Files Standard service level with cool access
 
-Using Azure NetApp Files Standard service level with cool access, you can configure inactive data to move from Azure NetApp Files Standard service-level storage to an Azure storage account (the **cool tier**). In doing so, you free up storage that resides within Azure NetApp Files, resulting in cost saving. 
- 
-You can configure Standard service level with cool access on a volume by specifying the number of days (the **coolness period**, ranging from 7 to 63 days) for inactive data to be considered “cool”.  
+Using Azure NetApp Files Standard service level with cool access, you can configure inactive data to move from Azure NetApp Files Standard service-level storage to an Azure storage account (the cool tier). In doing so, you free up storage that resides within Azure NetApp Files, resulting in cost saving.
 
-When the data has remained inactive for the specified coolness period, the tiering process begins, and the data is moved to the cool tier (the Azure storage account). This tiering process might take a few days.   
+The Standard service level with cool access allows you configure a Standard capacity pool with cool access. The cool access feature moves cold (infrequently accessed) data to the Azure storage account to help you reduce the cost of storage. Throughput requirements remain the same for the Standard service level enabled with cool access. However, there can be a difference in data access latency because the data is tiered to the Azure storage account.
 
-For example, if you specify 31 days as the coolness period, then 31 days after a data block is last accessed (read or written), it is qualified for movement to the cool tier.   
-
-After inactive data is moved to the cool tier and if it is read randomly again, it becomes “warm” and is moved back to the standard tier.  
-
-Sequential reads (such as index and antivirus scans) on inactive data in the cool tier do not warm the data and will not trigger inactive data to be moved back to the standard tier.  
-
-Metadata is never cooled and will always remain in the standard tier. As such, the activities of metadata-intensive workloads (for example, high file-count environments like chip design, VCS, and home directories) are not impacted by tiering. 
+The Standard service level with cool access feature provides options for the “coolness period” to optimize the network transfer cost, based on your workload and read/write patterns. This feature is provided at the volume level. See the [Set options for coolness period section](#modify-cool) for details. The Standard service level with cool access feature also provides metrics on a per-volume basis. See the [Metrics section](cool-access-about.md#metrics) for details. 
 
 ## Considerations
 
 * No guarantee is provided for any maximum latency for client workload for any of the service tiers. 
 * This feature is available only at the **Standard** service level. It is not supported for the Ultra or Premium service level.  
-* Although cool access is available for the Standard service level, how you are billed for using the feature will differ from the Standard service level charges. See the Billing section for details and examples.  <!-- link >
+* Although cool access is available for the Standard service level, how you are billed for using the feature will differ from the Standard service level charges. See the [Billing section](cool-access-about.md#billing) for details and examples. 
 * You can convert an existing Standard service-level capacity pool into a cool-access capacity pool to create cool access volumes. However, once the capacity pool is enabled for the cool access feature, you cannot convert it back to a non-cool-access capacity pool.  
 * A cool-access capacity pool can contain both volumes with cool access enabled and volumes with cool access disabled. 
 * After the capacity pool is configured with the option to support cool access volumes, the setting cannot be disabled at the _capacity pool_ level. However, you can turn on or turn off the cool access setting at the volume level anytime. Turning off the cool access setting at the _volume_ level will stop further tiering of data.  
 * Cool access is supported only on capacity pools of the **auto** QoS type.   
-
 
 ## Register the feature
 
@@ -123,10 +114,9 @@ In a Standard service-level, cool-access enabled capacity pool, you can enable a
 * Coolness Period  
     This option specifies the period (in days) after which infrequently accessed data blocks (cold data blocks) are moved to the Azure storage account. The default value is 31 days. The supported values are between 7 and 63 days. 
 
-cool-access-new-volume.jpg
- <!-- image -->
+:::image type="content" source="../media/azure-netapp-files/cool-access-existing-volume.jpg" alt-text="The Edit window: Enable Cool Access is a field with a checked checkbox. The coolness period is set to 31 days. " lightbox="../media/azure-netapp-files/cool-access-existing-volume.jpg"::: 
 
-### Modify coolness period for a volume 
+### <a name="modify_cool"></a>Modify coolness period for a volume 
 
 You can modify the coolness period setting for a volume based on the client read/write patterns.  
 
@@ -136,4 +126,5 @@ You can modify the coolness period setting for a volume based on the client read
  
 The default value is 31 days. The supported values are between 7 and 63. 
 
- <!-- image -->
+:::image type="content" source="../media/azure-netapp-files/cool-access-existing-volume.jpg" alt-text="The Edit window: Enable Cool Access is a field with a checked checkbox. The coolness period is set to 31 days. " lightbox="../media/azure-netapp-files/cool-access-existing-volume.jpg"::: 
+
