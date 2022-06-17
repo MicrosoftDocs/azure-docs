@@ -64,7 +64,7 @@ The macOS CocoaPod package is available for download and use with the <a href="h
     use_frameworks!
     
     target 'AppName' do
-      pod 'MicrosoftCognitiveServicesSpeech', '~> 1.22.0'
+      pod 'MicrosoftCognitiveServicesSpeech-iOS', '~> 1.22.0'
     end
     ```
 1. Run `pod install` to install the Speech SDK.
