@@ -3,7 +3,7 @@ title: Select a disk type for Azure IaaS VMs - managed disks
 description: Learn about the available Azure disk types for virtual machines, including ultra disks, premium SSDs, standard SSDs, and Standard HDDs.
 author: roygara
 ms.author: rogarana
-ms.date: 11/03/2021
+ms.date: 06/17/2022
 ms.topic: conceptual
 ms.service: storage
 ms.subservice: disks
@@ -88,9 +88,50 @@ It's possible for a performance resize operation to fail because of a lack of pe
 
 If you would like to start using ultra disks, see the article on [using Azure ultra disks](disks-enable-ultra-ssd.md).
 
-## Premium SSD v2
+## Premium SSD v2 (preview)
 
-Azure premium SSD v2 is designed for performance-sensitive workloads that consistently require less than 1 ms average read and write latency, high IOPS, and throughput. The IOPS and throughput of a premium SSD v2 A few example workloads that premium SSD v2 is suitable for are SQL server, Oracle, Cassandra, and Mongo DB.
+Azure premium SSD v2 (preview) is designed for performance-sensitive workloads that consistently require less than 1 ms average read and write latency, high IOPS, and throughput. The IOPS and throughput of a premium SSD v2 A few example workloads that premium SSD v2 is suitable for are SQL server, Oracle, Cassandra, and Mongo DB.
+
+### Premium SSD v2 limitations
+
+Premium SSD v2 can't be used as OS disks, they can only be created as empty data disks. Premium SSD v2 also can't be used with some features and functionality, including disk snapshots, disk export, changing disk type, VM images, availability sets, Azure Dedicated Hosts, or Azure disk encryption. Azure Backup and Azure Site Recovery don't support premium SSD v2. In addition, only un-cached reads and un-cached writes are supported.
+
+The only infrastructure redundancy options currently available to premium SSD v2 are availability zones. VMs using any other redundancy options can't attach a premium SSD v2.
+
+Premium SSD v2 supports a 4k physical sector size by default. A 512E sector size is available as a generally available offering with no sign-up required. While most applications are compatible with 4k sector sizes, some require 512 byte sector sizes. Oracle Database, for example, requires release 12.2 or later in order to support 4k native disks. For older versions of Oracle DB, 512 byte sector size is required.
+
+### Premium SSD v2 performance
+
+Unlike other disk types, you can individually set the capacity, throughput, and IOPS of a premium SSD v2. Each of these values determine the cost of your disk. There is no dedicated sizes with premium SSD v2, but there are some limitations with how much performance is available to a disk of a particular capacity.
+
+The following table provides a comparison of disk sizes and performance caps to help you decide which to use.
+
+|Disk Size (GiB)  |Maximum available IOPS  |Maximum available throughput (MBps)  |
+|---------|---------|---------|
+|1-6     |3,000        |750         |
+|7     |3,500         |875         |
+|8     |4,000         |1,000         |
+|9     |4,500         |1,125         |
+|10 GiB - 62 TiB     |The maximum available IOPS increases by 500 per GiB, up to 80,000         |1200         |
+
+#### Premium SSD v2 capacities
+
+Premium SSD v2 can have a capacity ranging from 4 GiB to 64 TiB. You're billed on a per GiB ratio, see the pricing page for details.
+
+Premium SSD v2 offers up to 32 TiB per region per subscription by default, but premium SSD v2 supports higher capacity by request. To request an increase in capacity, request a quota increase or contact Azure Support.
+
+#### Premium SSD v2 IOPS
+
+Each premium SSD v2 has 3,000 IOPS as a baseline maximum. The capacity of a disk determines what you can set the IOPS to. For disks that a 4-6 GiB, the maximum you can set the IOPS to is 3,000 IOPS. After 6 GiB, the maximum you can set the IOPS to increases at a ratio of 500 IOPS per GiB, up to 80,000 IOPS. To be able to set 80,000 IOPS on an disk, that disk must have at least 160 GiB.
+
+The initial 3,000 IOPS don't increase the cost of the disk. Setting the IOPS higher than 3,000 will increase the cost per IOPS, see the pricing page for details.
+
+#### Premium SSD v2 throughput
+
+Each premium SSD v2 must have at least 125 MBps throughput. The disk's IOPS determines what you can set the throughput to. The IOPS to throughput ratio is .25 MiB/s per IOPS. The maximum you can set the throughput to is 1200, which requires 6,000 IOPS, or a disk that has 10 GiB.
+
+The initial 125 MB/s throughput doesn't increase the cost of your disk. Setting the throughput higher than 125 will increase the cost per MB/s, see the pricing page for details.
+
 
 ## Premium SSDs
 
