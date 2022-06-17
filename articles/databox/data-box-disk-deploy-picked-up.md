@@ -7,8 +7,9 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 06/07/2022
+ms.date: 06/16/2022
 ms.author: alkohli
+ms.custom: references_regions
 zone_pivot_groups: data-box-shipping
 
 # Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
@@ -54,7 +55,7 @@ If using Microsoft managed shipping, follow these steps.
 
 ## Shipping in Americas
 
-### [US & Canada](#tab/in-us-canada)
+### US & Canada
 
 Take the following steps if returning the device in US or Canada.
 
@@ -78,7 +79,7 @@ If using Microsoft managed shipping, follow these steps.
 
 ## Shipping in Europe
 
-### [EU & UK](#tab/in-europe-uk)
+### EU & UK
 
 Take the following steps if returning the device in Europe or the UK.
 
@@ -98,7 +99,7 @@ If using Microsoft managed shipping, follow these steps.
 
 ## Shipping in Australia
 
-### [Australia](#tab/in-australia)
+### Australia
 
 Azure datacenters in Australia have an additional security notification. All the inbound shipments must have an advanced notification. Take the following steps for pickup in Australia.
 
@@ -306,8 +307,6 @@ Subject: Request Azure Data Box Disk drop-off for order: <ordername>
 ```
   
 ::: zone-end    
-
----
 
 ::: zone target="docs"
 
