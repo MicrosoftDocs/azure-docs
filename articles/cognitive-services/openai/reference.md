@@ -1297,3 +1297,7 @@ This API will delete the specified deployment
 curl -X DELETE 'https://example_resource_name.openai.azure.com/openai/deployments/{deployment_id}?api-version=2022-06-01-preview' \
   -H "api-key: YOUR_API_KEY"
 ```
+
+## Next steps
+
+Learn more about the [underlying engines/models that power Azure OpenAI](./concepts/engines.md).
