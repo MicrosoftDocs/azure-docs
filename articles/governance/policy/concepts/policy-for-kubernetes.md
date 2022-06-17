@@ -40,20 +40,17 @@ Azure Policy for Kubernetes supports the following cluster environments:
 
 To enable and use Azure Policy with your Kubernetes cluster, take the following actions:
 
-1. Configure your Kubernetes cluster and install the add-on:
-   - [Azure Kubernetes Service (AKS)](#install-azure-policy-add-on-for-aks)
-   - [Azure Arc enabled Kubernetes](#install-azure-policy-extension-for-azure-arc-enabled-kubernetes)
-   - [AKS Engine](#install-azure-policy-add-on-for-aks-engine)
+1. Configure your Kubernetes cluster and install the [Azure Kubernetes Service (AKS)](#install-azure-policy-add-on-for-aks) add-on
 
    > [!NOTE]
    > For common issues with installation, see
    > [Troubleshoot - Azure Policy Add-on](../troubleshoot/general.md#add-on-for-kubernetes-installation-errors).
 
-1. [Understand the Azure Policy language for Kubernetes](#policy-language)
+2. [Understand the Azure Policy language for Kubernetes](#policy-language)
 
-1. [Assign a definition to your Kubernetes cluster](#assign-a-policy-definition)
+3. [Assign a definition to your Kubernetes cluster](#assign-a-policy-definition)
 
-1. [Wait for validation](#policy-evaluation)
+4. [Wait for validation](#policy-evaluation)
 
 ## Limitations
 
@@ -678,7 +675,7 @@ helm uninstall azure-policy-addon
 ```
 
 > [!NOTE]
->  The AKS Engine product is now deprecated for Azure public cloud customers. Please consider using [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/en-us/services/kubernetes-service/) for managed Kubernetes or [Cluster API Provider Azure](https://github.com/kubernetes-sigs/cluster-api-provider-azure) for self-managed Kubernetes. There are no new features planned; this project will only be updated for CVEs & similar, with Kubernetes 1.24 as the final version to receive updates.
+>  The AKS Engine product is now deprecated for Azure public cloud customers. Please consider using [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service/) for managed Kubernetes or [Cluster API Provider Azure](https://github.com/kubernetes-sigs/cluster-api-provider-azure) for self-managed Kubernetes. There are no new features planned; this project will only be updated for CVEs & similar, with Kubernetes 1.24 as the final version to receive updates.
 
 ### Remove the add-on from AKS Engine
 
