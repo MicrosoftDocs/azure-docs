@@ -21,7 +21,18 @@ Stretched Clusters allow the configuration of vSAN Fault Domains across two AZs 
 
 To protect against split-brain scenarios and help measure site health, a managed vSAN Witness is created in a third AZ. With a copy of the data in each AZ, vSphere HA attempts to recover from any failure using a simple restart of the virtual machine.
 
+**vSAN Stretched Cluster**
+:::image type="content" source="media/stretch-clusters/diagram-1-vsan-witness-third-availability-zone.png" alt-text="Diagram shows a managed vSAN Stretched Cluster created in a third Availability Zone with the data being copied to all three of them.":::
 
+In summary, Stretched Clusters simplify protection needs by providing the same trusted controls and capabilities in addition to the scale and flexibility of the Azure infrastructure. It's important to understand that stretched cluster private clouds only offer an additional layer of resiliency and don't address all failure scenarios. For instance, they don't protect against region-level failures within Azure or data loss scenarios resulting from application issues or poorly planned storage policies. Similarly, a Stretched Cluster provides protection against a single zonal failure however, it's not designed to provide protection against double or progressive failures. For instance, despite various layers of redundancy built into the fabric, if an inter-AZ failure results in the partitioning of the secondary site, vSphere HA starts powering off the workload VMs on the secondary site, as depicted in the figure below.
+
+**Secondary site partitioning**
+:::image type="content" source="media/stretch-clusters/diagram-2-secondary-site-power-off-workload.png" alt-text="Diagram shows vSphere high availability powering off the workload virtual machines on the secondary site.":::
+
+While this is in process, if this failure were to progress into the failure of the primary site instead, or results in a complete partitioning, vSphere HA instead tries to restart the workload VMs on the secondary site. This lands the workload VMs in an unsteady state.
+
+**Preferred site failure or complete partitioning**
+:::image type="content" source="media/stretch-clusters/diagram-3-restart-workload-secondary-site.png" alt-text="Diagram shows vSphere high availability trying to restart the workload virtual machines on the secondary site when preferred site failure or complete partitioning occurs.":::
 
 ## Deploy a Stretched Cluster SDDC
 
