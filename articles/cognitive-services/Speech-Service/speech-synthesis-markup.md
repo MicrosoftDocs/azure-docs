@@ -711,7 +711,7 @@ Pitch changes can be applied at the sentence level.
 
 ## Adjust emphasis
 
-The optional `emphasis` element is used to add or remove word-level stress for the text. This element can only contain text to be rendered and the following elements: `audio`, `break`, `emphasis`, `lang`, `phoneme`, `prosody`, `say-as`, `sub`, and `voice`.
+The optional `emphasis` element is used to add or remove word-level stress for the text. This element can only contain text and the following elements: `audio`, `break`, `emphasis`, `lang`, `phoneme`, `prosody`, `say-as`, `sub`, and `voice`.
 
 > [!NOTE]
 > The word-level emphasis tuning is only available for these neural voices: `en-US-GuyNeural`, `en-US-DavisNeural`, and `en-US-JaneNeural`.
@@ -726,7 +726,7 @@ The optional `emphasis` element is used to add or remove word-level stress for t
 
 | Attribute | Description | Required or optional |
 |-----------|-------------|---------------------|
-| `level` | Indicates the strength of emphasis to be applied:<ul><li>`reduced`</li><li>`none`</li><li>`moderate`</li><li>`strong`</li></ul><br>The default level is `moderate`. For details on each attribute, see [emphasis element](https://www.w3.org/TR/speech-synthesis11/#S3.2.2)| Optional|
+| `level` | Indicates the strength of emphasis to be applied:<ul><li>`reduced`</li><li>`none`</li><li>`moderate`</li><li>`strong`</li></ul><br>When the `level` attribute is not specified, the default level is `moderate`. For details on each attribute, see [emphasis element](https://www.w3.org/TR/speech-synthesis11/#S3.2.2)| Optional|
 
 **Example**
 
