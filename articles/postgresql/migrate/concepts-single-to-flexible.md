@@ -129,7 +129,7 @@ After you finish the prerequisites, migrate the data and schemas by using one of
 
 - If your migration fails, you can create a new migration task with a different name and retry the operation.
 
-- If you have more than eight databases on your Single Server source and you want to migrate them all, we recommend that you create multiple migration tasks.Each task can migrate up to eight databases.
+- If you have more than eight databases on your Single Server source and you want to migrate them all, we recommend that you create multiple migration tasks. Each task can migrate up to eight databases.
 
 - The migration does not move the database users and roles of the source server. You have to manually create these and apply them to the target server after migration.
 
