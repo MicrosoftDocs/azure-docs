@@ -17,9 +17,6 @@ Get started with Azure Communication Services by using the Communication module 
 
 Completing this quickstart incurs a small cost of a few USD cents or less in your Azure account.
 
-> [!NOTE]
-> Find the finalized code for this quickstart on [GitHub](https://github.com/Azure-Samples/communication-services-java-quickstarts/tree/main/send-sms-quickstart).
-
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
