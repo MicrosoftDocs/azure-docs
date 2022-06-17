@@ -8,7 +8,7 @@ ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
 ms.custom: references_regions
-ms.date: 06/09/2022
+ms.date: 06/16/2022
 ms.author: alkohli
 zone_pivot_groups: data-box-shipping
 
@@ -59,7 +59,7 @@ If using Microsoft managed shipping, follow these steps.
 
 ## Shipping in Americas 
 
-### [US & Canada](#tab/in-us-canada)
+### US & Canada
 
 [!INCLUDE [data-box-shipping-in-us-canada](../../includes/data-box-shipping-in-us-canada.md)]
 
@@ -121,7 +121,7 @@ If using Microsoft managed shipping, follow these steps.
 
 ## Shipping in Australia
 
-### [Australia](#tab/in-australia)
+### Australia
 
 [!INCLUDE [data-box-shipping-in-australia](../../includes/data-box-shipping-in-australia.md)]
 
@@ -133,7 +133,7 @@ If using Microsoft managed shipping, follow these steps.
 
 ## Shipping in Africa
 
-### [S Africa](#tab/in-sa)
+### S Africa
 
 [!INCLUDE [data-box-shipping-in-sa](../../includes/data-box-shipping-in-sa.md)]
 
