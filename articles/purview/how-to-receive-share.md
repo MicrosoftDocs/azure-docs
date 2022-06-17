@@ -5,7 +5,7 @@ author: jifems
 ms.author: jife
 ms.service: purview
 ms.topic: how-to
-ms.date: 06/14/2022
+ms.date: 06/17/2022
 ---
 # Receive Azure Storage in-place share with Microsoft Purview Data Sharing (preview)
 
@@ -25,7 +25,8 @@ Microsoft Purview Data Sharing supports in-place data sharing from Azure Data La
 * Your Azure subscription must be registered for the **AllowDataSharing** preview feature. Follow the below steps using Azure portal or PowerShell. 
 
     # [Portal](#tab/azure-portal)
-    1. In the [Azure portal](https://portal.azure.com), select your Azure subscription that you'll use to create the source and target storage account.
+
+    1. In the [Azure portal](https://portal.azure.com), select the Azure subscription that you'll use to create the source and target storage account.
     1. From the left menu, select **Preview features** under *Settings*.
     1. Select **AllowDataSharing** and *Register*. 
     1. Refresh the *Preview features* screen to verify the *State* is **Registered**. It could take 15 minutes to 1 hour for registration to complete.
@@ -130,7 +131,7 @@ To delete a *received share*, select the share and then select **Delete**.
 Deleting a received share will stop the sharing relationship, and you'll no longer be able to access shared data. Deleting a received share can take a few minutes.
 
 ## Troubleshoot
-Here are some common issues for receiving share and how to troubleshoot.
+Here are some common issues for receiving share and how to troubleshoot them.
 
 ### Can't create Microsoft Purview account
 
@@ -163,7 +164,7 @@ When you map an asset to a target, if your storage account isn't listed for you 
 ### Failed to map asset
 
 If you failed to map an asset, it's likely due to the following reasons:
-* Permission issue to the target data store. Check [Prerequisite](#prerequisites-to-receive-shared-data) for required data store permissions.
+* Permission issue to the target data store. Check [prerequisites](#prerequisites-to-receive-shared-data) for required data store permissions.
 * The share and target data store don't belong to the same Microsoft Purview collection. In order to receive data into a data store, the share and target data store need to belong to the same Microsoft Purview collection. 
 * The *Path* you specified includes container created outside of Microsoft Purview Data Sharing. You can only receive data into containers created during asset mapping.
 * The *New Folder* you specified to receive storage data isn't empty.

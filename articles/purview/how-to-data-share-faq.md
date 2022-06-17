@@ -5,7 +5,7 @@ author: jifems
 ms.author: jife
 ms.service: purview
 ms.topic: how-to
-ms.date: 06/15/2022
+ms.date: 06/17/2022
 ---
 # FAQ: Azure Storage in-place data share with Microsoft Purview Data Sharing (preview)
 
@@ -15,13 +15,13 @@ Here are some frequently asked questions for Microsoft Purview Data Sharing.
 
 * **Data Provider** - Organization that shares data. 
 * **Data Consumer** - Organization that receives shared data from a data provider.
-* **Share** - A share is a set of data that can be shared from provider to consumer. It's a set of assets. You can have one asset with files/folders from one storage account, and another asset with files/folders from a different storage account
+* **Share** - A share is a set of data that can be shared from provider to consumer. It's a set of assets. You can have one asset with files/folders from one storage account, and another asset with files/folders from a different storage account.
 * **Collection** - A [collection](catalog-permissions.md) is a tool Microsoft Purview uses to group assets, sources, shares, and other artifacts into a hierarchy for discoverability and to manage access control. A root collection is created automatically when you create your Microsoft Purview account and you're granted all the roles to the root collection. You can use the root collection (default) or create child collections for data sharing.
 * **Asset**	- For storage in-place sharing, an asset is a storage account. You can specify a list of files and folders you want to share from the storage account.
-* **Recipient**	A recipient is a user or service principal to which the share is sent. 
+* **Recipient** - A recipient is a user or service principal to which the share is sent. 
 
 ##	Can I use the API or SDK for storage in-place sharing?
-Yes, you can use [REST API](/rest/api/purview/) or [.NET SDK](/dotnet/api/overview/azure/purviewresourceprovider/) for programmatic experience to share data. 
+Yes, you can use [REST API](/rest/api/purview/) or [.NET SDK](/dotnet/api/overview/azure/purviewresourceprovider/) for programmatic experience to share data.
 
 ##	What are the roles and permissions required to share data or receive shares?
 
@@ -47,7 +47,7 @@ Cross-region in-place data sharing isn't currently supported for storage account
 
 Storage in-place sharing supports read-only shares. Data consumer can't write to the shared data. 
 
-To share data back to the data provider, data consumer can create a share and share with the data provider.
+To share data back to the data provider, the data consumer can create a share and share with the data provider.
 
 ## Can I access shared data from analytics tools like Azure Synapse?
 
@@ -78,6 +78,7 @@ Data provider's source storage account can support up to 20 targets, and data co
 To troubleshoot issues with sharing data, refer to the [Troubleshoot section of How to share data](how-to-share-data.md#troubleshoot). To troubleshoot issues with receiving share, refer to the [Troubleshoot section of How to receive share](how-to-receive-share.md#troubleshoot).
 
 ## Next steps
+
 * [Data sharing quickstart](quickstart-data-share.md)
 * [How to Share data](how-to-share-data.md)
 * [How to receive a share](how-to-receive-share.md)

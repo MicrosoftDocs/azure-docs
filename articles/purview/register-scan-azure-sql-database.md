@@ -15,7 +15,7 @@ This article outlines the process to register an Azure SQL data source in Micros
 ## Supported capabilities
 
 |**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Access Policy**|**Lineage**|**Data Sharing**|
-|---|---|---|---|---|---|---|
+|---|---|---|---|---|---|---|---|
 | [Yes](#register) | [Yes](#scan)|[Yes](#scan) | [Yes](#scan)|[Yes](#scan)| [Yes (Preview)](#access-policy) | [Yes](#lineagepreview)(Preview)** | No |
 
 \** Lineage is also supported if Azure SQL tables/views used as source/sink in [Data Factory Copy and Data Flow activities](how-to-link-azure-data-factory.md) 

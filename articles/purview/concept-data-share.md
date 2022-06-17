@@ -5,7 +5,7 @@ author: jifems
 ms.author: jife
 ms.service: purview
 ms.topic: conceptual
-ms.date: 06/13/2022
+ms.date: 06/17/2022
 ---
 
 # Azure Storage in-place data sharing with Microsoft Purview (preview)
@@ -14,7 +14,7 @@ ms.date: 06/13/2022
 
 Traditionally, organizations have shared data with internal teams or external partners by generating data feeds requiring investment in data copy and refresh pipelines. The result is higher cost for data storage and movement, data proliferation (that is, multiple copies of data), and delay in access to time-sensitive data.
 
-With Microsoft Purview Data Sharing, data providers can now share data **in-place** from Azure Data Lake Storage Gen2 and Azure Storage accounts, both within and across organizations. Share data directly with users and partners without data duplication, and centrally manage your sharing activities from within Microsoft Purview.
+With Microsoft Purview Data Sharing, data providers can now share data **in-place** from Azure Data Lake Storage Gen2 and Azure Storage accounts, both within and across organizations. Share data directly with users and partners without data duplication and centrally manage your sharing activities from within Microsoft Purview.
 
 With Microsoft Purview Data Sharing, data consumers can now have near real-time access to shared data. Storage data access and transactions are charged to the data consumers based on what they use, and at no more cost to the data providers.
 
@@ -24,9 +24,9 @@ Microsoft Purview enables sharing of files and folders in-place from ADLS Gen2 a
 
 :::image type="content" source="./media/concept-data-share/data-share-flow.png" alt-text="Flow chart showing a data provider with a source store sharing an invitation to a data consumer with a target store. Connecting the source store and target store is an arrow labeled in-place access that points from the target to the source.":::
 
-A data provider creates a share by choosing which files and folders to share, and who to share them with (one or more data consumers). Microsoft Purview then sends an invitation to each data consumer.
+A data provider creates a share by selecting a data source that is registered in Microsoft Purview, choosing which files and folders to share, and who to share them with. Microsoft Purview then sends an invitation to each data consumer.
 
-When a consumer accepts the invitation, they specify a target storage account in their own Azure subscription that they'll use to access the shared data. This establishes a sharing relationship between the provider and consumer storage accounts. This sharing relationship provides data consumer read-only access to shared data through the consumer’s target storage account. Any changes to the data in the provider’s source storage account is reflected in near real-time in the consumer’s target storage account. 
+When a consumer accepts the invitation, they specify a target storage account in their own Azure subscription that they'll use to access the shared data. This establishes a sharing relationship between the provider and consumer storage accounts. This sharing relationship provides data consumer read-only access to shared data through the consumer’s storage account. Any changes to the data in the provider’s source storage account is reflected in near real-time in the consumer’s storage account.
 
 The data provider pays for data storage and their own data access, while the data consumer pays for their own data access transactions.  
 
@@ -39,7 +39,7 @@ Microsoft Purview Data Sharing only stores metadata about your share. It doesn't
 ## Key capabilities
 
 * Share data within the organization or with partners and customers outside of the organization (within the same Azure tenant or across different Azure tenants).
-* Share data in-place without data duplication from ADLS Gen2 or Blob storage.
+* Share data from ADLS Gen2 or Blob storage in-place without data duplication.
 * Share data with multiple recipients.
 * Access shared data in near real time.
 * Centrally manage sharing relationships and keep track of who the data is shared with/from.
