@@ -7,7 +7,7 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 10/22/2021
+ms.date: 06/16/2022
 ms.author: banders
 ---
 
@@ -68,7 +68,7 @@ Later in this article, you'll give permission to the Azure AD app to act by usin
 
 - An EnrollmentReader role can be assigned to an SPN only by a user who has an enrollment writer role.
 - A DepartmentReader role can be assigned to an SPN only by a user who has an enrollment writer or department writer role.
-- A SubscriptionCreator role can be assigned to an SPN only by a user who is the owner of the enrollment account. The role isn't shown in the EA portal. It's created by programmatic means and is only for programmatic use.
+- A SubscriptionCreator role can be assigned to an SPN only by a user who is the owner of the enrollment account (EA administrator). The role isn't shown in the EA portal. It's created by programmatic means and is only for programmatic use.
 - The EA purchaser role isn't shown in the EA portal. It's created by programmatic means and is only for programmatic use.
 
 ## Assign enrollment account role permission to the SPN

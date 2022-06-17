@@ -1346,48 +1346,67 @@ items:
   - name: Workbooks
     items:
     - name: Overview
-      displayName: Workbooks
-      href: visualize/workbooks-overview.md
-    - name: Visualizations
+      href: visualize/workbooks-overview.md 
+    - name: Working with workbooks
       items:
-      - name: Text
-        href: visualize/workbooks-text-visualizations.md
-      - name: Chart
-        href: visualize/workbooks-chart-visualizations.md
-      - name: Grid
-        href: visualize/workbooks-grid-visualizations.md
-      - name: Tile
-        href: visualize/workbooks-tile-visualizations.md
-      - name: Tree
-        href: visualize/workbooks-tree-visualizations.md
-      - name: Graph
-        href: visualize/workbooks-graph-visualizations.md
-      - name: Map
-        href: visualize/workbooks-map-visualizations.md
-      - name: Honey comb
-        href: visualize/workbooks-honey-comb.md
-      - name: Composite bar
-        href: visualize/workbooks-composite-bar.md
-    - name: Data sources
-      href: visualize/workbooks-data-sources.md
-    - name: Parameters
+        - name: Getting Started with workbooks
+          href: visualize/workbooks-getting-started.md
+        - name: Data sources
+          href: visualize/workbooks-data-sources.md         
+        - name: Visualizations
+          items:
+          - name: Overview
+            href: visualize/workbooks-visualizations.md         
+          - name: Text
+            href: visualize/workbooks-text-visualizations.md
+          - name: Chart
+            href: visualize/workbooks-chart-visualizations.md
+          - name: Grid
+            href: visualize/workbooks-grid-visualizations.md
+          - name: Tile
+            href: visualize/workbooks-tile-visualizations.md
+          - name: Tree
+            href: visualize/workbooks-tree-visualizations.md
+          - name: Graph
+            href: visualize/workbooks-graph-visualizations.md
+          - name: Map
+            href: visualize/workbooks-map-visualizations.md
+          - name: Honey comb
+            href: visualize/workbooks-honey-comb.md
+          - name: Composite bar
+            href: visualize/workbooks-composite-bar.md
+        - name: Workbook Result Limits
+          href: visualize/workbooks-limits.md
+    - name: Creating a new workbook
       items:
-      - name: Parameter summary
-        href: visualize/workbooks-parameters.md
-      - name: Drop down parameters
-        href: visualize/workbooks-dropdowns.md
-      - name: Interactive parameters
-        href: visualize/workbooks-interactive.md
-      - name: Time parameters
-        href: visualize/workbooks-time.md
-      - name: Text parameters
-        href: visualize/workbooks-text.md
-      - name: Resource parameters
-        href: visualize/workbooks-resources.md
+        - name: Using workbook templates
+          href: visualize/workbooks-templates.md
+        - name: Create a new workbook
+          href: visualize/workbooks-create-workbook.md
+        - name: Add text to your workbook
+          href: visualize/workbooks-add-text.md
+        - name: Add parameters to your workbook
+          items:
+          - name: Workbook parameters
+            href: visualize/workbooks-parameters.md
+          - name: Time parameters
+            href: visualize/workbooks-time.md
+          - name: Drop down parameters
+            href: visualize/workbooks-dropdowns.md
+          - name: Options group parameters
+            href: visualize/workbooks-options-group.md
+          - name: Text parameters
+            href: visualize/workbooks-text.md
+          - name: Criteria
+            href: visualize/workbooks-criteria.md
+          - name: Resource parameters
+            href: visualize/workbooks-resources.md
+          - name: Multi-value parameters
+            href: visualize/workbooks-multi-value.md
+        - name: Combine data from different sources
+          href: visualize/workbooks-combine-data.md       
     - name: Configuration
       items:
-      - name: Access control
-        href: visualize/workbooks-access-control.md
       - name: Deploy with Azure Resource Manager
         href: visualize/workbooks-automate.md
       - name: Groups
