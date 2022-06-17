@@ -26,15 +26,15 @@ The API is structured around resource types, where each type is described using 
 
 ### Durable ID
 
-A durable ID is a global identifier used to uniquely identify any resource. Every resource has an associated "_id_" property, which when combined with the resource type name, makes up a resource’s durable ID. The durable ID is used when referencing resources to either retrieve or modify.
+A _durable ID_ is a global identifier used to uniquely identify any resource. Every resource has an associated "_id_" property, which when combined with the resource type name, makes up a resource’s durable ID. The durable ID is used when referencing resources to either retrieve or modify.
 
 ### External ID
 
-An external ID is another unique identifier that can be used to reference specific products or plans. This is an alternative way to reference these resources instead of using the durable ID. The external ID of a product translates to its “_offerID_” and the external ID of a plan translates to its “_planID_”, as defined upon creation.
+An _external ID_ is another unique identifier that can be used to reference specific products or plans. This is an alternative way to reference these resources instead of using the durable ID. The external ID of a product translates to its “_offerID_” and the external ID of a plan translates to its “_planID_”, as defined upon creation.
 
 ### API Methods
 
-There are four management APIs that can be leveraged to perform different actions, such as querying existing resources, making configuration updates, as well as checking the status of a request.
+There are four management APIs that can be used to perform different actions, such as querying existing resources, making configuration updates, and checking the status of a request.
 
 | API Type | Description | HTTP Method & Path |
 | ------------ | ------------- | ------------- |
@@ -48,10 +48,10 @@ There are four management APIs that can be leveraged to perform different action
 To update an existing resource, a typical workflow would be to:
 1. Retrieve an existing resource configuration (API type: Query)*
 1. Make any necessary updates and then submit a configuration request (API type: Configure submit)
-1. Check the status of the request (API type: Configure status & Configure status details)
+1. Check the status of the request (API type: _Configure status_ & _Configure status details_)
 
-<sup>`*`</sup> This same workflow can be leveraged when creating new resources, but instead of retrieving resources (Step 1), use the [Resource API reference](#resource-api-reference) table to ensure that you are leveraging the current schema for the resource type that you are creating.
-To summarize, this image shows the typical calling pattern used to submit a configuration request, regardless of whether you are creating new or modifying an existing resource.
+<sup>`*`</sup> This same workflow can be applied when creating new resources, but instead of retrieving resources (Step 1), use the [Resource API reference](#resource-api-reference) table to ensure that you're using the current schema for the resource type that you're creating.
+To summarize, this image shows the typical calling pattern used to submit a configuration request, regardless of whether you're creating new or modifying an existing resource.
 
 :::image type="content" source="./media/product-ingestion-api/product-ingestion-api-workflow.png" alt-text="Image of a typical Product Ingestion API workflow.":::
 
@@ -63,18 +63,18 @@ To use the Product Ingestion API, you need to first acquire the following prereq
 - An Azure AD application
 - An Azure AD access token
 
-Follow these [onboarding instructions](submission-api-onboard.md) to get started. After this has been setup once, you can obtain an Azure AD access token to call the APIs with the Authorization header for each API method.
+Follow these [onboarding instructions](submission-api-onboard.md) to get started. After this has been set up once, you can obtain an Azure AD access token to call the APIs with the Authorization header for each API method.
 
 > [!NOTE]
 > Be sure to review any additional prerequisites specific to the offer type you’re managing by referring to the [API guidance per offer type](#api-guidance-per-offer-type) section.
 
 ## Create new products and resources
 
-You can create new resources, including new products, as part of a single configuration request. By using the [Resource API reference](#resource-api-reference) table, you can retrieve the schema for the resource type you want to create. This ensures that you are leveraging the latest schema and therefore configuring all necessary properties to create the resource.
+You can create new resources, including new products, as part of a single configuration request. By using the [Resource API reference](#resource-api-reference) table, you can retrieve the schema for the resource type you want to create. This ensures that you're using the latest schema and therefore configuring all necessary properties to create the resource.
 
 If you’re creating a new product, requirements will vary by product type. Therefore, you’ll need to provide different resources. You can reference the corresponding commercial marketplace documentation for the respective product type to ensure that you’re configuring the basic requirements in your request.
 
-Similarly, to create a new resource within an existing product, you will also need to retrieve the latest schema of that specific resource type. Ensure that you provide the dependent resources as part of the configuration request by reviewing the [resource dependencies](#resource-references-and-dependencies).
+Similarly, to create a new resource within an existing product, you'll also need to retrieve the latest schema of that specific resource type. Ensure that you provide the dependent resources as part of the configuration request by reviewing the [resource dependencies](#resource-references-and-dependencies).
 
 After configuring your resources, learn how to make a [configuration request](#configuration-requests).
 
@@ -152,7 +152,7 @@ Remember, the “_id_” property is the durable-id for the respective resource.
 
 This method is used to query certain resource types associated with a specific account. For example, you can retrieve all your virtual machine products with a single GET call. Query string parameters are mainly used to query details pertaining to your products, plans, or submissions.
 
-This table shows the supported query parameters for each of the supported resource types. Note that not all resource types support each of the query parameters. Reference this table for the full list of currently supported query strings.
+This table shows the supported query parameters for each of the supported resource types. Not all resource types support each of the query parameters. Reference this table for the full list of currently supported query strings.
 
 | Resource Type | Parameters | Query string examples |
 | ------------ | ------------- | ------------- |
@@ -187,7 +187,7 @@ After configuring your resources, learn how to make a [configuration request](#c
 
 ## Configuration requests
 
-You can edit and publish in the same payload. To submit a configuration request, use the HTTP POST method of the configure API. The configure payload consists of an array of resources that indicate the desired changes. All edits affect only the draft version until you explicitly submit a submission configuration to publish your draft changes. When publishing to preview or live, include the submission resource and specify the target environment. Before submitting a request, you will need to know how to reference resources and understand their dependencies.
+You can edit and publish in the same payload. To submit a configuration request, use the HTTP POST method of the configure API. The configure payload consists of an array of resources that indicate the desired changes. All edits affect only the draft version until you explicitly submit a submission configuration to publish your draft changes. When publishing to preview or live, include the submission resource and specify the target environment. Before submitting a request, you'll need to know how to reference resources and understand their dependencies.
 
 ### Resource references and dependencies
 
@@ -236,7 +236,7 @@ POST https://graph.microsoft.com/rp/product-ingestion/configure
 }
 ```
 
-Then, to later publish this plan to preview, you will need to include the [submission resource](#submission-resource) within the request.
+Then, to later publish this plan to preview, you'll need to include the [submission resource](#submission-resource) within the request.
 
 #### Dependencies
 
@@ -274,7 +274,7 @@ If publishing to “preview” or “live”, include the submission resource in
 
 - The “_product_” property, denoting the product being updated as referenced by either its durable ID or external ID
 - The “_targetType_” property, denoting the target environment
-- When publishing to live specifically, the “_id_” of the preview submission you are looking to publish
+- When publishing to live specifically, the “_id_” of the preview submission you're looking to publish
 
 ```json
 ...
@@ -291,16 +291,16 @@ If publishing to “preview” or “live”, include the submission resource in
 
 ### Publishing to preview
 
-Commercial product types support a preview environment, and each update must be first published to preview before going live. You cannot publish directly to live.
+Commercial product types support a preview environment, and each update must be first published to preview before going live. You can't publish directly to live.
 
 > [!IMPORTANT]
 > The exception to this is when making changes to the private audience of your plans. When [syncing updates to the private audience](#sync-private-audiences) specifically, you can publish to preview and live at the same time.
 
-There are two ways you can publish your resources to the preview environment. If any changes need to be made to the preview submission, simply do another GET request, make the necessary changes, and push the changes again. You don’t need to first go live with your initial changes.
+There are two ways you can publish your resources to the preview environment. If any changes need to be made to the preview submission, do another GET request, make the necessary changes, and push the changes again. You don’t need to first go live with your initial changes.
 
 #### Method 1: Publish all draft resources
 
-If you want to publish every draft change you have made, you can simply send a configure request with a submission resource that sets the preview environment as the “targetType”. As shown in the example below, you do not need to explicitly provide every resource that requires an update as this method will publish all changes to the target environment, which in this case is preview. You only need to provide the configure API endpoint and the submission resource.
+If you want to publish every draft change you have made, you can send a configure request with a submission resource that sets the preview environment as the “targetType”. As shown in the example below, you don't need to explicitly provide every resource that requires an update as this method will publish all changes to the target environment, which in this case is preview. You only need to provide the configure API endpoint and the submission resource.
 
 ***Sample request:***
 
@@ -319,9 +319,9 @@ POST https://graph.microsoft.com/rp/product-ingestion/configure
 }
 ```
 
-#### Method 2: Publish specific draft resources (AKA Modular publish)
+#### Method 2: Publish specific draft resources (Also known as Modular publish)
 
-Alternatively, if you are not prepared to publish all draft changes across various resources, just provide the resources you want to publish along with the submission resource to trigger a modular publish. You can also use this approach to make changes to resources and publish them at the same time instead of as part of a bulk update, as is done through Method 1. For a modular publish, all resources are required except for the offer level details (for example, listing, availability, packages, reseller) as applicable to your offer type.
+Alternatively, if you aren't prepared to publish all draft changes across various resources, just provide the resources you want to publish along with the submission resource to trigger a modular publish. You can also use this approach to make changes to resources and publish them at the same time instead of as part of a bulk update, as is done through Method 1. For a modular publish, all resources are required except for the offer level details (for example, listing, availability, packages, reseller) as applicable to your offer type.
 
 ***Sample request:***
 
@@ -384,7 +384,7 @@ POST https://graph.microsoft.com/rp/product-ingestion/configure
 
 ## Check the status of a request
 
-Regardless of the environment you are publishing to, you will get a response back shortly after submitting a request once it is successfully processed. The “_jobId_” is important as it can later be used to check the status of the request.
+Regardless of the environment you're publishing to, you'll get a response back shortly after submitting a request once it's successfully processed. The “_jobId_” is important as it can later be used to check the status of the request.
 
 ***Sample response to a processed request:***
 
@@ -430,7 +430,7 @@ You can retrieve your existing product submissions by doing `GET submission/<pro
 
 ***Sample response:***
 
-This example shows a GET request for the active submissions associated to product ID “_12345678-abcd-efgh-1234-12345678901_”. The active “_Live_” submission (_submission/12345678-abcd-efgh-1234-12345678901/1152921515689847470_) was published to preview first and then later to live. When this submission was pushed to live on 2022-01-25, it represented both preview and live until a new preview submission (_submission/12345678-abcd-efgh-1234-12345678901/1152921515689848683_) was created on 2022-02-04.
+This example shows a GET request for the active submissions associated to _product ID_ “_12345678-abcd-efgh-1234-12345678901_”. The active “_Live_” submission (_submission/12345678-abcd-efgh-1234-12345678901/1152921515689847470_) was published to preview first and then later to live. When this submission was pushed to live on 2022-01-25, it represented both preview and live until a new preview submission (_submission/12345678-abcd-efgh-1234-12345678901/1152921515689848683_) was created on 2022-02-04.
 
 ```json
 {
@@ -471,10 +471,10 @@ This example shows a GET request for the active submissions associated to produc
 
 ## Sync private audiences
 
-Updates to private audiences in the draft, preview, and live environments can be performed at the same time without requiring a publish. This can be done by utilizing the “_price-and-availability-update-private-audiences_” resource and specifying which audiences you want to add or remove from a specific plan. You do not need to provide the submission resource when syncing the private audience.
+Updates to private audiences in the draft, preview, and live environments can be performed at the same time without requiring a publish. This can be done by utilizing the “_price-and-availability-update-private-audiences_” resource and specifying which audiences you want to add or remove from a specific plan. You don't need to provide the submission resource when syncing the private audience.
 
 > [!IMPORTANT]
-> If your product supports more than one type of ID to configure the private audience (for example, both tenant IDs and subscription IDs), you must perform a full publish if providing a new ID type for the first time. You cannot sync the private audience in this case.
+> If your product supports more than one type of identifier to configure the private audience (for example, both tenant IDs and subscription IDs), you must perform a full publish if providing a new identifier type for the first time. You cannot sync the private audience in this case.
 
 ***Sample request to sync the private audience configuration:***
 
@@ -518,7 +518,7 @@ There are different actions you can take that map to a resource’s lifecycle st
 
 ### Deleted
 
-You can delete specific resources by updating the “_lifecycleState_” property to “_deleted_”. You can only delete draft resources which have not been published before. This action cannot be undone.
+You can delete specific resources by updating the “_lifecycleState_” property to “_deleted_”. You can only delete draft resources that haven't been published before. This action can't be undone.
 
 ***Sample request:***
 
@@ -567,7 +567,7 @@ POST https://graph.microsoft.com/rp/product-ingestion/configure
 }
 ```
 
-### Generally Available
+### Generally available
 
 “_generallyAvailable_” is the default lifecycle state for all resources. Once a resource is deprecated, you can restore it by changing the “_lifecycleState_” property back to “_generallyAvailable_”.
 
@@ -631,7 +631,7 @@ POST https://graph.microsoft.com/rp/product-ingestion/configure
 
 ## API guidance per offer type
 
-The Product Ingestion API will be made available to additional offer types in the future. As more offers are supported, additional guidance specific to each offer type will be made available.
+The Product Ingestion API will be made available to other offer types in the future. As more offers are supported, additional guidance specific to each offer type will be made available.
 
 | Offer type | Offer-specific resources |
 | ------------ | ------------- |
