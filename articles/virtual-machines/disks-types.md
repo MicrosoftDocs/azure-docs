@@ -38,7 +38,7 @@ The following table provides a comparison of the five disk types to help you dec
 
 Azure ultra disks are the highest-performing storage option for Azure virtual machines (VMs). You can change the performance parameters of an ultra disk without having to restart your VMs. Ultra disks are suited for data-intensive workloads such as SAP HANA, top-tier databases, and transaction-heavy workloads.
 
-Ultra disks must be used as data disks and can only be created as empty disks. We recommend using premium solid-state drives (SSDs) as operating system (OS) disks.
+Ultra disks must be used as data disks and can only be created as empty disks. You should use premium solid-state drives (SSDs) as operating system (OS) disks.
 
 ### Ultra disk size
 
