@@ -170,39 +170,39 @@ Oracle-specific features can generally be replaced by Azure Synapse features. Th
 
   - **Clustered and nonclustered indexes**: clustered indexes can outperform clustered columnstore tables when a single row needs to be quickly retrieved. For queries where a single or few row lookups must perform at extreme speed, consider a cluster index or nonclustered secondary index. The disadvantage of using a clustered index is that only queries that use a highly selective filter on the clustered index column will benefit from that index type. To improve filtering on other columns, add a nonclustered index to other columns. However, each index that's added to a table adds both space and processing time to loads.
   
-  - **Heap tables**: when you're temporarily landing data on Azure Synapse, you may find that using a heap table makes the overall process faster. This is because loading data to heaps is faster than loading data to index tables and in some cases the subsequent read can be done from cache. If you're loading data only to stage it before running more transformations, loading to a heap table is much faster than loading to a clustered columnstore table. Also, loading data to a [temporary table](../../sql-data-warehouse/sql-data-warehouse-tables-temporary.md) is faster than loading to permanent storage. For small lookup tables of less than 100 million rows, heap tables are usually the right choice. Cluster columnstore tables begin to achieve optimal compression when they exceed 100 million rows.
+  - **Heap tables**: when you're temporarily landing data on Azure Synapse, you may find that using a heap table makes the overall process faster. This is because loading data to heap tables is faster than loading data to index tables and in some cases the subsequent read can be done from cache. If you're loading data only to stage it before running more transformations, loading to a heap table is much faster than loading to a clustered columnstore table. Also, loading data to a [temporary table](../../sql-data-warehouse/sql-data-warehouse-tables-temporary.md) is faster than loading a table to permanent storage. For small lookup tables of less than 100 million rows, heap tables are usually the right choice. Cluster columnstore tables begin to achieve optimal compression when they exceed 100 million rows.
 
 - Clustered tables: Oracle tables can be organized so that rows of tables that are frequently accessed together (based on a common value) are physically stored together. This strategy reduces disk I/O when data is retrieved. Oracle also has a hash-cluster option for individual tables, where a hash value is applied to the cluster key and rows with the same hash value are physically stored together. To list clusters within an Oracle database, use the query `SELECT \* FROM DBA_CLUSTERS;`. To determine whether a table is within a cluster use the query `SELECT \* FROM TAB;`, which will show the table name and cluster ID for each table. 
-  
+
   In Azure Synapse, you can achieve a similar effect by using materialized and/or replicated tables to minimize the I/O required at query run time.
 
-- Materialized views: Oracle supports materialized views and recommends that one or more of these are created for large tables that have many columns and only a few of those columns are regularly used in queries. Materialized views are automatically refreshed by the system when data in the base table is updated.
+- Materialized views: Oracle supports materialized views and recommends one or more of them for large tables with many columns where only a few columns are regularly used in queries. Materialized views are automatically refreshed by the system when data in the base table is updated.
 
   In 2019, Microsoft announced that Azure Synapse will support materialized views with the same functionality as in Oracle. Materialized views are now a preview feature in Azure Synapse.
 
-- In-database triggers: a trigger in Oracle is executed automatically when a triggering event takes place. The event can be any of the following:
+- In-database triggers: a trigger in Oracle automatically runs when a triggering event occurs. The event can be:
 
-- A data manipulation language (DML) statement executed against a table e.g., INSERT, UPDATE, or DELETE. For example, if you define a trigger that fires before an INSERT statement on the customers table, the trigger will fire once before a new row is inserted into the customers table.
+  - A data manipulation language (DML) statement, such as `INSERT`, `UPDATE`, or `DELETE`, runs on a table. As an example, if you define a trigger that fires before an `INSERT` statement on a customer table, the trigger will fire once before a new row is inserted into the customer table.
 
-- A data definition language (DDL) statement executes e.g., CREATE or ALTER statement. These triggers are often used for auditing purposes to record changes of the schema.
+  - A data definition language (DDL) statement, such as `CREATE` or `ALTER`, runs. These triggers are often used for auditing purposes to record changes to the schema.
 
-- A system event such as startup or shutdown of the Oracle Database.
+  - A system event such as startup or shutdown of the Oracle Database.
 
-- A user event such as login or logout.
+  - A user event such as login or logout.
 
-A list of triggers defined in an Oracle database can be found by querying the ALL_TRIGGERS, DBA_TRIGGERS or USER_TRIGGERS views as shown in the example below:
+  You can get a list of the triggers that are defined in an Oracle database by querying the `ALL_TRIGGERS`, `DBA_TRIGGERS`, or `USER_TRIGGERS` views. The next screenshot shows a `DBA_TRIGGERS` query in Oracle SQL Developer.
 
   :::image type="content" source="../media/1-design-performance-migration/oracle-sql-developer-triggers.png" border="true" alt-text="Screenshot showing how to query for a list of triggers in Oracle SQL Developer.":::
 
-  Azure Synapse does not currently support this functionality within the database -- however equivalent functionality can be incorporated usingAzure Data Factory though this will require refactoring of processes that use triggers.
+  Azure Synapse doesn't support Oracle's database trigger features, but you can add equivalent functionality by using Data Factory&mdash;although doing so will require refactoring the processes that use triggers.
 
-- Synonyms -- Oracle allows the definition of synonyms which are alternative names for a table, view, sequence, procedure, stored function, package, materialized view, Java class schema object, user-defined object type, or another synonym.
+- Synonyms: Oracle supports defining synonyms that are alternative names for several database object types, such as a table, view, sequence, procedure, stored function, package, materialized view, Java class schema object, or a user-defined object type.
 
-Azure Synapse does not currently support this feature -- if the synonym refers to a table or view, then a view can be defined to provide an alternative name. If the synonym refers to a function or stored procedure then another function or procedure which calls the target can replace the synonym.
+  Azure Synapse doesn't currently support this feature, although if a synonym in Oracle refers to a table or view, then you can define a view in Azure Synapse to provide that alternative name. If a synonym in Oracle refers to a function or stored procedure, then you can replace the synonym in Azure Synapse by creating another function or procedure that calls the target.
 
-- User-defined types -- Oracle allows the definition of user-defined objects which can contain a series of individual fields, each with their own definition and default values. These user-defined objects can then be referenced within a table definition in the same way as built-in data types (e.g. NUMBER or VARCHAR).
+- User-defined types: Oracle supports defining user-defined objects that can contain a series of individual fields, each with their own definition and default values. These user-defined objects can then be referenced within a table definition in the same way as built-in data types like `NUMBER` or `VARCHAR`. You can get a list of user-defined types within an Oracle database by querying the `ALL_TYPES`, `DBA_TYPES`, or `USER_TYPES` views.
 
-To view a list of user-defined types within an Oracle database, query the views ALL_TYPES, DBA_TYPES or USER_TYPES. Azure Synapse does not currently support this feature -- if the data to be migrated includes user-defined data types, they must be either'flattened' into a conventional table definition, or normalized to a separate table in the case of arrays of data.
+  Azure Synapse doesn't currently support this feature, so if the data to be migrated includes user-defined data types, you must either "flatten" them into a conventional table definition or, in the case of arrays of data, normalize them in a separate table.
 
 #### Oracle data type mapping
 
