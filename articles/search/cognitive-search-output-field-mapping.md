@@ -76,7 +76,7 @@ The body of the request is structured as follows:
 }
 ```
 
-For each output field mapping, set the location of the data in the enriched document tree (sourceFieldName), and the name of the field as referenced in the index (targetFieldName). Assign any [mapping functions](search-indexer-field-mappings.md#field-mapping-functions) that you require to transform the content of a field before it's stored in the index.
+For each output field mapping, set the location of the data in the enriched document tree (sourceFieldName), and the name of the field as referenced in the index (targetFieldName). Assign any [mapping functions](search-indexer-field-mappings.md#field-mapping-functions-and-examples) that you require to transform the content of a field before it's stored in the index.
 
 ## Flattening Information from Complex Types 
 
