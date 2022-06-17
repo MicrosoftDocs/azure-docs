@@ -42,8 +42,8 @@ The bastion host will be used to connect securely to the virtual machine for tes
 
 2. In **Create virtual network**, enter or select this information in the **Basics** tab:
 
-    | **Setting**          | **Value**                                                           |
-    |------------------|-----------------------------------------------------------------|
+    | Setting          | Value                        |
+    |------------------|------------------------------------|
     | **Project Details**  |                                                                 |
     | Subscription     | Select your Azure subscription.                     |
     | Resource Group   | Select **myResourceGroup**. |
