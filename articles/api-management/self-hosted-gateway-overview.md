@@ -37,7 +37,7 @@ Deploying self-hosted gateways into the same environments where the backend API 
 
 ## Packaging and features
 
-The self-hosted gateway is a containerized, functionally equivalent version of the managed gateway deployed to Azure as part of every API Management service. The self-hosted gateway is available as a Linux-based Docker [container image](https://aka.ms/apim/sputnik/dhub) from the Microsoft Container Registry. It can be deployed to Docker, Kubernetes, or any other container orchestration solution running on a server cluster on premises, cloud infrastructure, or for evaluation and development purposes, on a personal computer. You can also deploy the self-hosted gateway as a cluster extension to an [Azure Arc-enabled Kubernetes cluster](./how-to-deploy-self-hosted-gateway-azure-arc.md).
+The self-hosted gateway is a containerized, functionally equivalent version of the managed gateway deployed to Azure as part of every API Management service. The self-hosted gateway is available as a Linux-based Docker [container image](https://mcr.microsoft.com/product/azure-api-management/gateway/about) from the Microsoft Artifact Registry. It can be deployed to Docker, Kubernetes, or any other container orchestration solution running on a server cluster on premises, cloud infrastructure, or for evaluation and development purposes, on a personal computer. You can also deploy the self-hosted gateway as a cluster extension to an [Azure Arc-enabled Kubernetes cluster](./how-to-deploy-self-hosted-gateway-azure-arc.md).
 
 ### Known limitations
 
@@ -62,7 +62,7 @@ We provide a variety of container images for self-hosted gateways to meet your n
 | `v{major}-preview` | Use this tag if you always want to run our latest preview container image. | `v2-preview` | ✔️ |  ❌ |
 | `latest` | Use this tag if you want to evaluate the self-hosted gateway. | `latest` | ✔️ |  ❌ |
 
-You can find a full list of available tags [here](https://mcr.microsoft.com/v2/azure-api-management/gateway/tags/list).
+You can find a full list of available tags [here](https://mcr.microsoft.com/en-us/product/azure-api-management/gateway/tags).
 
 #### Use of tags in our official deployment options
 
@@ -120,7 +120,7 @@ The self-hosted gateway v2 requires the following:
 * The public IP address of the API Management instance in its primary location
 * The hostname of the instance's configuration endpoint: `<apim-service-name>.configuration.azure-api.net`
 
-Additionally,customers that use API inspector or quotas in their policies have to ensure that the following additional dependencies are accessible: 
+Additionally, customers that use API inspector or quotas in their policies have to ensure that the following additional dependencies are accessible: 
 
 * The hostname of the instance's associated blob storage account: `<blob-storage-account-name>.blob.core.windows.net`
 * The hostname of the instance's associated table storage account: `<table-storage-account-name>.table.core.windows.net`
