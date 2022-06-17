@@ -7,7 +7,7 @@ ms.subservice: azure-arc-data
 author: dnethi
 ms.author: dinethi
 ms.reviewer: mikeray
-ms.date: 07/30/2021
+ms.date: 06/16/2021
 ms.topic: how-to
 ---
 
@@ -17,33 +17,41 @@ This document walks you through the steps for installing Azure SQL Managed Insta
 
 [!INCLUDE [azure-arc-common-prerequisites](../../../includes/azure-arc-common-prerequisites.md)]
 
-[!INCLUDE [use-insider-azure-data-studio](includes/use-insider-azure-data-studio.md)]
-
 ## Create Azure SQL Managed Instance on Azure Arc
 
-- Launch Azure Data Studio
-- On the Connections tab, Click on the three dots on the top left and choose "New Deployment"
-- From the deployment options, select **Azure SQL Managed Instance - Azure Arc** 
+1. Launch Azure Data Studio
+2. On the Connections tab, Click on the three dots on the top left and choose **New Deployment...**.
+3. From the deployment options, select **Azure SQL managed instance**.
   > [!NOTE]
   > You may be prompted to install the appropriate CLI here if it is not currently installed.
-- Accept the Privacy and license terms and click **Select** at the bottom
+4. Click **Select**.
 
-- In the Deploy Azure SQL Managed Instance - Azure Arc blade, enter the following information:
-  - Enter a name for the SQL Server instance
-  - Enter and confirm a password for the SQL Server instance
-  - Select the storage class as appropriate for data
-  - Select the storage class as appropriate for logs
-  - Select the storage class as appropriate for backups
- 
- > [!NOTE]
->Note: Starting with the February release, a ReadWriteMany (RWX) capable storage class needs to be specified for backups. Learn more about [access modes](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#access-modes)
-If no storage class is specified for backups, the default storage class in kubernetes is used and if this is not RWX capable, the Arc SQL Managed Instance installation may not succeed. 
+   Azure Data Studio opens **Azure SQL managed instance**. 
 
-- Click the **Deploy** button
+5. For **Resource Type**, choose **Azure SQL managed instance - Azure Arc**. 
+6. Accept the privacy statement and license terms
+1. Review the required tools. Follow instructions to update tools before you proceed.
+1. Select **Next**.
 
-- This should initiate the creation of the Azure SQL Managed Instance - Azure Arc on the data controller.
+   Azure Data Studio allows you to set your specifications for the managed instance.
 
-- In a few minutes, your creation should successfully complete
+   - For **Service Tier** set either **Business Critical** or **General Purpose**.
+   - For a development or test environment, select **For development use only**.
+   - For high availability, select the appropriate number of replicas. 
+   - For **Storage Class (Backups)** specify a ReadWriteMany (RWX) capable storage class. 
+     
+     > [!WARNING]
+     > You need to specify a ReadWriteMany (RWX) capable storage class needs to be specified for backups. Learn more about [access modes](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#access-modes).
+     >
+     > If you don't specify a storage class is specified for backups, the deployment uses the default storage class in Kubernetes. If this storage class is not RWX capable, the deployment may not succeed.
+
+   - Specify the retention period in days for point-in-time backups.
+
+   - Complete the other fields as required for your managed instance.
+
+1. Click the **Deploy** button.
+
+After you click the deploy button, the Azure Arc data controller initiates the deployment. The deployment will take a few minutes to create the data controller.
 
 ## Connect to Azure SQL Managed Instance - Azure Arc from Azure Data Studio
 
