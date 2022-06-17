@@ -51,7 +51,13 @@ ExpressRoute gateways are provisioned in units of 2 Gbps. 1 scale unit = 2 Gbps 
 
 Create a new virtual hub. Once a hub is created, you'll be charged for the hub, even if you don't attach any sites.
 
-[!INCLUDE [Create a hub](../../includes/virtual-wan-tutorial-er-hub-include.md)]
+#### Basics page
+
+[!INCLUDE [Create a hub](../../includes/virtual-wan-hub-basics.md)]
+
+#### ExpressRoute page
+
+[!INCLUDE [Create ExpressRoute gateway](../../includes/virtual-wan-hub-er-gateway.md)]
 
 ### <a name="existinghub"></a>To create a gateway in an existing hub
 
