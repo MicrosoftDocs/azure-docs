@@ -39,6 +39,8 @@
   - name: Manage credential revocation
     href: how-to-use-quickstart.md
   - name: Create credentials using the QuickStart
+    href: how-to-use-quickstart.md
+  - name: Revoke a Verifiable Credential
     href: how-to-issuer-revoke.md
   - name: Link your domain to your DID
     href: how-to-dnsbind.md
