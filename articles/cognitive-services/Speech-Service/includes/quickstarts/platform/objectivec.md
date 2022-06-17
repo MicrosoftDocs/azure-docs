@@ -23,19 +23,26 @@ System requirements for Mac:
 
 - A macOS version 10.14 or later
 
-The macOS CocoaPod package is available for download and use with the <a href="https://apps.apple.com/us/app/xcode/id497799835" target="_blank">Xcode 9.4.1 (or later) </a> integrated development environment (IDE). First, <a href="https://aka.ms/csspeech/macosbinary" target="_blank">download the binary CocoaPod </a>. Extract the pod in the same directory for its intended use, create a *Podfile*, and list the `pod` as a `target`.
+The macOS CocoaPod package is available for download and use with the <a href="https://apps.apple.com/us/app/xcode/id497799835" target="_blank">Xcode 9.4.1 (or later)</a> integrated development environment (IDE). 
 
-```
-platform :osx, 10.14
-use_frameworks!
+1. Go to the Xcode directory where your `.xcodeproj` project file is located.
+1. Run `pod init` to create a pod file named `Podfile`.
+1. Replace the contents of `Podfile` with the following. Update the `target` name from 'AppName' to the name of your app. Update the platform or pod version as needed.
 
-target 'MyApp' do
-  pod 'MicrosoftCognitiveServicesSpeech', '~> 1.22.0'
-end
-```
+    ```
+    platform :osx, 10.14
+    use_frameworks!
+    
+    target 'AppName' do
+      pod 'MicrosoftCognitiveServicesSpeech-macOS', '~> 1.22.0'
+    end
+    ```
+1. Run `pod install` to install the Speech SDK.
 
-Alternatively, .NET developers can build native macOS applications by using the Xamarin.Mac application framework. For more information, see <a href="/xamarin/mac/" target="_blank">Xamarin.Mac</a>.
+Alternatively, you can <a href="https://aka.ms/csspeech/macosbinary" target="_blank">download the binary CocoaPod</a> and unzip to extract it's contents. In your Xcode project, add a reference to the extracted "MicrosoftCognitiveServicesSpeech.xcframework" folder and it's contents.
 
+> [!NOTE]
+> .NET developers can build native macOS applications by using the Xamarin.Mac application framework. For more information, see <a href="/xamarin/mac/" target="_blank">Xamarin.Mac</a>.
 
 # [iOS](#tab/ios)
 
@@ -46,18 +53,26 @@ System requirements for iOS:
 - A macOS version 10.14 or later
 - Target iOS 9.3 or later
 
-The iOS CocoaPod package is available for download and use with the <a href="https://apps.apple.com/us/app/xcode/id497799835" target="_blank">Xcode 9.4.1 (or later) </a> integrated development environment (IDE). First, <a href="https://aka.ms/csspeech/iosbinary" target="_blank">download the binary CocoaPod</a>. Extract the pod in the same directory for its intended use, create a *Podfile*, and list the `pod` as a `target`.
+The macOS CocoaPod package is available for download and use with the <a href="https://apps.apple.com/us/app/xcode/id497799835" target="_blank">Xcode 9.4.1 (or later)</a> integrated development environment (IDE). 
 
-```
-platform :ios, '9.3'
-use_frameworks!
+1. Go to the Xcode directory where your `.xcodeproj` project file is located.
+1. Run `pod init` to create a pod file named `Podfile`.
+1. Replace the contents of `Podfile` with the following. Update the `target` name from 'AppName' to the name of your app. Update the platform or pod version as needed.
 
-target 'AppName' do
-  pod 'MicrosoftCognitiveServicesSpeech', '~> 1.22.0'
-end
-```
+    ```
+    platform :ios, '9.3'
+    use_frameworks!
+    
+    target 'AppName' do
+      pod 'MicrosoftCognitiveServicesSpeech', '~> 1.22.0'
+    end
+    ```
+1. Run `pod install` to install the Speech SDK.
 
-Alternatively, .NET developers can build native iOS applications by using the Xamarin.iOS application framework For more information, see <a href="/xamarin/ios/" target="_blank">Xamarin.iOS</a>.
+Alternatively, you can <a href="https://aka.ms/csspeech/macosbinary" target="_blank">download the binary CocoaPod</a> and unzip to extract it's contents. In your Xcode project, add a reference to the extracted "MicrosoftCognitiveServicesSpeech.xcframework" folder and it's contents.
+
+> [!NOTE]
+> .NET developers can build native iOS applications by using the Xamarin.iOS application framework For more information, see <a href="/xamarin/ios/" target="_blank">Xamarin.iOS</a>.
 
 
 ---
