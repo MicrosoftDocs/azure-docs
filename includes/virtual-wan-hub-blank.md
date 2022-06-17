@@ -16,7 +16,7 @@ ms.topic: include
 
 1. On the **Basics** tab, fill in the values.
 
-   :::image type="content" source="media/virtual-wan-hub-blank/basics.png" alt-text="Screenshot shows the Create virtual hub pane where you can enter values.":::
+   :::image type="content" source="media/virtual-wan-hub-blank/basics-page.png" alt-text="Screenshot shows the Create virtual hub pane where you can enter values.":::
 
    * **Region**: This setting was previously referred to as location. It's the region in which you want to create your virtual hub.
    * **Name**: The name by which you want the virtual hub to be known.
