@@ -35,8 +35,8 @@ Custom email verification requires the use of a third-party email provider like 
 
 If you don't already have one, start by setting up a Mailjet account (Azure customers can unlock 6,000 emails with a limit of 200 emails/day).
 
-1. Follow the setup instructions at [Create a Mailjet Account](https://www.mailjet.com/guides/azure-mailjet-developer-resource-user-guide/enabling-mailjet/).
-1. To be able to send email, [register and validate](https://www.mailjet.com/guides/azure-mailjet-developer-resource-user-guide/enabling-mailjet/#how-to-configure-mailjet-for-use) your Sender email address or domain.
+1. Follow the setup instructions at [Create a Mailjet Account](https://www.mailjet.com/blog/product/create-setup-mailjet-account/).
+1. To be able to send email, [register and validate](https://www.mailjet.com/#:~:text=%20How%20to%20Configure%20Mailjet%20for%20Use%C2%B6%20,to%20use%20Mailjet%E2%80%99s%20open%20and%20click...%20More%20) your Sender email address or domain.
 2. Navigate to the [API Key Management page](https://dev.mailjet.com/email/guides/senders-and-domains/#use-a-sender-on-all-api-keys-(metasender)). Record the **API Key** and **Secret Key** for use in a later step. Both keys are generated automatically when your account is created.
 
 > [!IMPORTANT]
