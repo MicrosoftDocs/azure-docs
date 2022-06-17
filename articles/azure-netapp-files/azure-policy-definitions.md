@@ -56,4 +56,4 @@ To learn how to assign a policy to resources and view compliance report, see [As
 
 ## Next steps
 
-* [Azure Policy documentation](/azure/governance/policy/)
+* [Azure Policy documentation](../governance/policy/index.yml)
