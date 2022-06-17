@@ -3,7 +3,7 @@ title: Configure custom domain suffix for App Service Environment
 description: Configure a custom domain suffix for the Azure App Service Environment.
 author: seligj95
 ms.topic: tutorial
-ms.date: 06/16/2022
+ms.date: 06/17/2022
 ms.author: jordanselig
 zone_pivot_groups: app-service-environment-portal-arm
 ---
@@ -154,7 +154,7 @@ After configuring the custom domain suffix for your App Service Environment, you
 
 Apps on the ILB App Service Environment can be accessed over HTTPS and the connections will be secured using the default certificate you selected. The certificate will be used when apps on the App Service Environment are addressed using a combination of the application name plus the custom domain suffix. For example, *https://mycustomapp.internal-contoso.com* would use the TLS/SSL certificate for **.internal-contoso.com*.
 
-However, just like apps running on the public multi-tenant service, you can also configure custom host names for individual apps, and then configure unique SNI TLS/SSL certificate bindings for individual apps.
+However, just like apps running on the public multi-tenant service, you can also configure custom host names for individual apps, and then configure unique SNI [TLS/SSL certificate bindings for individual apps](./overview-certificates.md#tls-settings).
 
 ## Troubleshooting
 
