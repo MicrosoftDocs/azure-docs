@@ -17,7 +17,7 @@ ms.custom: kr2b-contr-experiment
 
 
 
-# Explore Azure Hybrid Benefit and Linux virtual machine scale sets
+# Explore Azure Hybrid Benefit for Linux virtual machine scale sets
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Uniform scale sets
 
@@ -27,7 +27,7 @@ Hybrid benefit is available for all RHEL and SLES Marketplace pay-as-you-go (PAY
 
 
 >[!NOTE]
-> This article explores Hybrid Benefit for Linux *virtual machine scale sets (VMSS)*. A separate article discusses [Hybrid benefit for Linux VMs](../virtual-machines/linux/azure-hybrid-benefit-linux.md). This is already available to Azure customers since November, 2020.
+> This article explores Hybrid Benefit for Linux *virtual machine scale sets (VMSS)*. A separate article discusses [Hybrid benefit for Linux VMs](../virtual-machines/linux/azure-hybrid-benefit-linux.md), a service available to Azure customers since November 2020.
 
 ## What is Hybrid benefit for Linux virtual machine scale sets?
 Hybrid benefit allows you to switch your virtual machine scale sets to *bring-your-own-subscription (BYOS)* billing. Your Cloud access licenses from Red Hat or SUSE can be used for this. You can also switch PAYG instances to BYOS without any need to redeploy, when you enable Hybrid benefit.
@@ -36,7 +36,7 @@ A VMSS deployed from PAYG marketplace images is charged both infrastructure and 
 
 :::image type="content" source="./media/azure-hybrid-benefit-linux/azure-hybrid-benefit-linux-cost.png" alt-text="A screenshot that shows Hybrid Benefit costs for Linux VMs.":::
 
-## Which Linux VMs can apply Hybrid Benefit?
+## Which Linux VMs can use Hybrid Benefit?
 Hybrid Benefit can be used on all RHEL and SLES PAYG images from Azure Marketplace. Hybrid benefit isn't yet available for RHEL or SLES BYOS images or custom images from Azure Marketplace.
 
 Azure Dedicated Host instances, and SQL hybrid benefits are not eligible for Hybrid Benefit if you're already using Hybrid benefit with Linux VMs.
@@ -58,7 +58,7 @@ To start using Hybrid benefit for Red Hat:
 1. Enable your eligible RHEL subscriptions in Azure by using the [Red Hat Cloud Access customer interface](https://access.redhat.com/management/cloud).
 
    The Azure subscriptions that you provide during the Red Hat Cloud Access enablement process are permitted to use Hybrid Benefit.
-1. Apply Hybrid benefit to any of your existing or new RHEL PAYG VMSSs. You can use Azure portal or Azure CLI to enable Hybrid benefit.
+1. Apply Hybrid benefit to any of your existing or new RHEL PAYG VMSSs. You can use Azure portal or Azure *command line interface (CLI)* to enable Hybrid benefit.
 1. Configure update sources for your RHEL VMs and RHEL subscription compliance guidelines with the following, recommended [next steps](https://access.redhat.com/articles/5419341).
 
 
@@ -128,7 +128,7 @@ In addition to applying the Hybrid Benefit to existing pay-as-you-go virtual mac
 - It enables future licensing mode changes, something not available with a BYOS-only image.
 - The virtual machine scale set instances will be connected to *Red Hat Update Infrastructure (RHUI)* by default, to ensure that it remains up to date and secure. You can change the updated mechanism after deployment at any time.
 
-### How to apply Hybrid benefit at VMSS create time using a CLI
+### How to apply Hybrid benefit at VMSS creation time using a CLI
 ```azurecli
 # This will enable Hybrid benefit while creating RHEL VMSS
 az vmss create --name myVmName --resource-group myResourceGroup --vnet-name myVnet --subnet mySubnet  --image myRedHatImageURN --admin-username myAdminUserName --admin-password myPassword --instance-count myInstanceCount --license-type RHEL_BYOS 

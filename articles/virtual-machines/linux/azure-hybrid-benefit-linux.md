@@ -14,20 +14,20 @@ ms.author: mathapli
 ms.custom: kr2b-contr-experiment
 ---
 
-# An overview of Azure Hybrid Benefit for Linux pay-as-you-go virtual machines
+# Explore Azure Hybrid benefit for pay-as-you-go Linux virtual machines
 
 >[!IMPORTANT]
 >This article explores *Azure Hybrid Benefit* for *pay-as-you-go (PAYG)* *virtual machines (VMs)*. It explores how to switch your VMs to *Red Hat Enterprise Linux (RHEL)* PAYG and *SUSE Linux Enterprise Server (SLES)* PAYG billing. To do the reverse and switch to *bring-your-own-subscription (BYOS)* billing, visit [Azure Hybrid Benefit for BYOS VMs](./azure-hybrid-benefit-byos-linux.md).
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets
 
-Hybrid Benefit for pay-as-you-go (PAYG) virtual machines (VMs) is an optional licensing benefit. It significantly reduces the cost of running Red Hat Enterprise Linux (RHEL) and SUSE Linux Enterprise Server (SLES) virtual machines (VMs) in the cloud. With this benefit, your RHEL or SLES subscription covers your software fee. You only pay infrastructure costs for your VM. This benefit is available for all RHEL and SLES Marketplace PAYG images.
+Hybrid Benefit for pay-as-you-go (PAYG) virtual machines (VMs) is an optional licensing benefit. It significantly reduces the cost of running Red Hat Enterprise Linux (RHEL) and SUSE Linux Enterprise Server (SLES) VMs in the cloud. With this benefit, your RHEL or SLES subscription covers your software fee. So you only pay infrastructure costs for your VM. This benefit is available for all RHEL and SLES Marketplace PAYG images.
 
 Hybrid Benefit for Linux VMs is now publicly available.
 
 ## How does Hybrid Benefit work?
 
-You can convert existing RHEL and SLES PAYG VMs to bring-your-own-subscription (BYOS) billing, using Hybrid Benefit. You can switch PAYG VMs to BYOS billing without the need to redeploy with this benefit. This avoids downtime. VMs deployed from PAYG images on Azure pay both an infrastructure fee and a software fee. When you apply Hybrid benefit, you pay only infrastructure costs for your VM.
+You can convert existing RHEL and SLES PAYG VMs to bring-your-own-subscription (BYOS) billing using Hybrid Benefit. You can switch PAYG VMs to BYOS billing without the need to redeploy with this benefit. This avoids downtime. VMs deployed from PAYG images on Azure pay both an infrastructure fee and a software fee. When you apply Hybrid benefit, you pay only infrastructure costs for your VM.
 
 :::image type="content" source="./media/ahb-linux/azure-hybrid-benefit-cost.png" alt-text="Hybrid Benefit cost visualization on Linux VMs.":::
 
@@ -37,13 +37,11 @@ After you apply Hybrid benefit to your RHEL or SLES VM, you are no longer charge
 
 **Hybrid Benefit for PAYG VMs** is available for all RHEL and SLES PAYG images in Azure Marketplace.
 
-**Hybrid Benefit for BYOS VMs** is available for RHEL or SLES BYOS images or custom images in Azure Marketplace. Read more about [Hybrid benefit for BYOS VMs](./azure-hybrid-benefit-byos-linux.md).
-
 Azure Dedicated Host instances, and SQL hybrid benefits are not eligible for Hybrid Benefit if you already use Hybrid benefit with Linux VMs.
 
 ## Get started
 
-### How Red Hat customers can apply Hybrid Benefit
+### How to apply Hybrid Benefit to Red Hat
 
 Hybrid Benefit for PAYG VMs for RHEL is available to Red Hat customers who meet the following criteria:
 
@@ -58,11 +56,11 @@ To start using Hybrid benefit for Red Hat:
 1. Enable one or more of your eligible RHEL subscriptions for use in Azure by using the [Red Hat Cloud Access customer interface](https://access.redhat.com/management/cloud).
 
    The Azure subscriptions that you provide during the Red Hat Cloud Access enablement process will then be permitted to use Hybrid Benefit.
-1. Apply Hybrid Benefit for PAYG VMs to any RHEL PAYG VMs that you deploy in Azure Marketplace PAYG images. You can use Azure portal or Azure CLI to enable Hybrid benefit.
+1. Apply Hybrid Benefit for PAYG VMs to any RHEL PAYG VMs that you deploy in Azure Marketplace PAYG images. You can use Azure portal or Azure command line interface (CLI) to enable Hybrid benefit.
 1. Follow the recommended [next steps](https://access.redhat.com/articles/5419341) for configuring update sources for your RHEL VMs and for RHEL subscription compliance guidelines.
 
 
-### How SUSE customers can apply Hybrid benefit
+### How to apply Hybrid benefit to SUSE
 
 Hybrid Benefit for PAYG VMs for SUSE is available to customers who have:
 
@@ -79,11 +77,11 @@ To start using Hybrid benefit for SUSE:
 2. Activate the subscription in the SUSE Customer Center.
 3. Register your VMs that are receiving Hybrid benefit with the SUSE Customer Center to get the updates from the SUSE Customer Center.
 
-## Enable and disable Hybrid benefit in Azure portal
+## How to enable and disable Hybrid benefit in Azure portal
 
 In Azure portal, you can enable Hybrid benefit on existing VMs or on new VMs at the time that you create them.
 
-### Enable Hybrid benefit on an existing VM in Azure portal
+### How to enable Hybrid benefit on an existing VM in Azure portal
 
 To enable Hybrid benefit on an existing VM:
 
@@ -92,9 +90,9 @@ To enable Hybrid benefit on an existing VM:
 1. Go the **Configuration** option on the left. You will see the Licensing section. To enable the AHB conversion, check the 'Yes' radio button and check the Confirmation checkbox.
 ![AHB Configuration blade after creating](./media/azure-hybrid-benefit/create-configuration-blade.png)
 
-### Enable Hybrid benefit when you create a VM in Azure portal
+### How to enable Hybrid benefit when you create a VM in Azure portal
 
-To enable Hyrbid benefit when you create a VM (the SUSE workflow is the same as the RHEL example shown here):
+To enable Hybrid benefit when you create a VM (the SUSE workflow is the same as the RHEL example shown here):
 
 1. Go to [Azure portal](https://portal.azure.com/).
 1. Go to 'Create a Virtual Machine' page in the portal.
@@ -105,11 +103,11 @@ To enable Hyrbid benefit when you create a VM (the SUSE workflow is the same as 
 1. Check the **Configuration** blade and you will see the option enabled. 
 ![AHB Configuration blade after creating](./media/azure-hybrid-benefit/create-configuration-blade.png)
 
-## Enable and disable Hybrid benefit using Azure CLI
+## How to enable and disable Hybrid benefit using Azure CLI
 
 You can use the `az vm update` command to update existing VMs. For RHEL VMs, run the command with a `--license-type` parameter of `RHEL_BYOS`. For SLES VMs, run the command with a `--license-type` parameter of `SLES_BYOS`.
 
-### CLI example to enable Hybrid benefit
+### How to enable Hybrid benefit using a CLI
 ```azurecli
 # This will enable Hybrid benefit on a RHEL VM
 az vm update -g myResourceGroup -n myVmName --license-type RHEL_BYOS
@@ -117,15 +115,15 @@ az vm update -g myResourceGroup -n myVmName --license-type RHEL_BYOS
 # This will enable Hybrid benefit on a SLES VM
 az vm update -g myResourceGroup -n myVmName --license-type SLES_BYOS
 ```
-### CLI example to disable Hybrid benefit
+### How to disable Hybrid benefit using a CLI
 To disable Hybrid benefit, use a `--license-type` value of `None`:
 
 ```azurecli
-# This will disable Hyrbid benefit on a VM
+# This will disable Hybrid benefit on a VM
 az vm update -g myResourceGroup -n myVmName --license-type None
 ```
 
-### CLI example to enable Hybrid benefit on a large number of VMs
+### How to enable Hybrid benefit on a large number of VMs using a CLI
 To enable Hybrid benefit on a large number of VMs, you can use the `--ids` parameter in the Azure CLI:
 
 ```azurecli
@@ -145,16 +143,16 @@ $(az vm list -g MyResourceGroup --query "[].id" -o tsv)
 az vm list -o json | jq '.[] | {VMName: .name, ResourceID: .id}'
 ```
 
-## Apply Hybrid Benefit to PAYG VMs at create time
+## How to apply Hybrid Benefit to PAYG VMs at creation time
 In addition to applying the Hybrid Benefit for PAYG VMs to existing pay-as-you-go VMs, you can invoke it at the time of VM creation. Hybrid benefits of doing so are threefold:
 - You can provision both PAYG and BYOS VMs by using the same image and process.
 - It enables future licensing mode changes, something not available with a BYOS-only image or if you bring your own VM.
 - The VM will be connected to Red Hat Update Infrastructure (RHUI) by default, to ensure that it remains up to date and secure. You can change the updated mechanism after deployment at any time.
 
-## Check the Hybrid Benefit status of a VM
+## How to check the Hybrid Benefit status of a VM
 You can view the Hybrid Benefit for PAYG VMs status of a VM by using the Azure CLI or by using Azure Instance Metadata Service.
 
-### Azure CLI
+### A status check using Azure CLI
 
 You can use the `az vm get-instance-view` command for this purpose. Look for a `licenseType` field in the response. If the `licenseType` field exists and the value is `RHEL_BYOS` or `SLES_BYOS`, your VM has Hybrid benefit enabled.
 
@@ -162,13 +160,13 @@ You can use the `az vm get-instance-view` command for this purpose. Look for a `
 az vm get-instance-view -g MyResourceGroup -n MyVm
 ```
 
-### Azure Instance Metadata Service
+### A status check using Azure Instance Metadata Service
 
 From within the VM itself, you can query the attested metadata in Azure Instance Metadata Service to determine the VM's `licenseType` value. A `licenseType` value of `RHEL_BYOS` or `SLES_BYOS` will indicate that your VM has Hybrid benefit enabled. [Learn more about attested metadata](./instance-metadata-service.md#attested-data).
 
 ## Compliance
 
-### Red Hat
+### Red Hat compliance
 
 Customers who use Hybrid Benefit for PAYG RHEL VMs agree to the standard [legal terms](http://www.redhat.com/licenses/cloud_CSSA/Red_Hat_Cloud_Software_Subscription_Agreement_for_Microsoft_Azure.pdf) and [privacy statement](http://www.redhat.com/licenses/cloud_CSSA/Red_Hat_Privacy_Statement_for_Microsoft_Azure.pdf) associated with the Azure Marketplace RHEL offers.
 
@@ -184,7 +182,7 @@ Customers who choose either Red Hat Satellite Server or Red Hat Subscription Man
 
 For more information about Red Hat subscription compliance, software updates, and sources for Hybrid Benefit for PAYG RHEL VMs, see the [Red Hat article about using RHEL subscriptions with Hybrid Benefit](https://access.redhat.com/articles/5419341).
 
-### SUSE
+### SUSE compliance
 
 To use Hybrid Benefit for PAYG SLES VMs, and for information about moving from SLES PAYG to BYOS or moving from SLES BYOS to PAYG, see [SUSE Linux Enterprise and Hybrid Benefit](https://aka.ms/suse-ahb).
 
