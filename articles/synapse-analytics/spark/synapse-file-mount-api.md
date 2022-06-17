@@ -18,8 +18,9 @@ Synapse studio team built two new mount/unmount APIs in mssparkutils package, yo
 
 
 > [!WARNING]
-> Azure Fileshare mount is temporarily disabled, you can use blob/gen2 mount following the [How to mount Gen2/blob Storage](#How-to-mount-Gen2/blob-Storage).
-> Azure Gen1 storage is not supported, you can migrate to gen2 following the [Migration gudiance](../../storage/blobs/data-lake-storage-migrate-gen1-to-gen2-azure-portal.md) before using mount APIs.
+> Azure Fileshare mount is temporarily disabled, you can use Gen2/blob mount following the [How to mount Gen2/blob Storage](#How-to-mount-Gen2/blob-Storage).
+>
+> Azure Gen1 storage is not supported, you can migrate to Gen2 following the [Migration gudiance](../../storage/blobs/data-lake-storage-migrate-gen1-to-gen2-azure-portal.md) before using mount APIs.
 
 
 The document will show you How to use mount/unmount API in your workspace, mainly includes below sections: 
