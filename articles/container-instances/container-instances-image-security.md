@@ -1,8 +1,12 @@
 ---
 title: Security considerations for container instances
 description: Recommendations to secure images and secrets for Azure Container Instances, and general security considerations for any container platform
-ms.topic: article
-ms.date: 01/10/2020
+ms.topic: conceptual
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: container-instances
+services: container-instances
+ms.date: 06/17/2022
 ms.custom: 
 ---
 
