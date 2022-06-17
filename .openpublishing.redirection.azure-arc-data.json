@@ -7,7 +7,7 @@
           },
           {
             "source_path_from_root": "/articles/azure-arc/data/reference/reference-az-sql-mi-arc-dag.md",
-            "redirect_url": "/azure/azure-arc/data/reference/reference-az-sql-instance-failover-group-arc",
+            "redirect_url": "/cli/azure/sql/instance-failover-group-arc",
             "redirect_document_id":true
           },
           {
@@ -142,7 +142,7 @@
           },
           {
             "source_path_from_root": "/articles/azure-arc/data/reference/reference-az-sql-instance-failover-group-arc.md",
-            "redirect_url": "/azure/sql/instance-failover-group-arc",
+            "redirect_url": "/cli/azure/sql/instance-failover-group-arc",
             "redirect_document_id": false
           },
           {
