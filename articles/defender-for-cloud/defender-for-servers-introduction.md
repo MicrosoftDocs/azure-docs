@@ -1,7 +1,7 @@
 ---
 title: Microsoft Defender for Servers - the benefits and features
 description: Learn about the benefits and features of Microsoft Defender for Servers.
-ms.date: 05/11/2022
+ms.date: 06/15/2022
 ms.topic: overview
 ---
 # Introduction to Microsoft Defender for Servers
@@ -13,7 +13,9 @@ To protect machines in hybrid and multicloud environments, Defender for Cloud us
 - [Connect your AWS accounts to Microsoft Defender for Cloud](quickstart-onboard-aws.md)
 
 > [!TIP]
-> For details of which Defender for Servers features are relevant for machines running on other cloud environments, see [Supported features for virtual machines and servers](supported-machines-endpoint-solutions-clouds-servers.md?tabs=features-windows#supported-features-for-virtual-machines-and-servers-).
+> For details of which Defender for Servers features are relevant for machines running on other cloud environments, see [Supported features for virtual machines and servers](supported-machines-endpoint-solutions-clouds-servers.md?tabs=features-windows#supported-features-for-virtual-machines-and-servers).
+
+You can learn more from the product manager about Defender for Servers, by watching [Microsoft Defender for Servers](episode-five.md). You can also watch [Enhanced workload protection features in Defender for Servers](episode-twelve.md).
 
 ## What are the Microsoft Defender for server plans?
 
@@ -128,9 +130,7 @@ You can simulate alerts by downloading one of the following playbooks:
 
 ## Learn more
 
-If you would like to learn more from the product manager about Defender for Servers, check out [Microsoft Defender for Servers](episode-five.md). You can also learn about the [Enhanced workload protection features in Defender for Servers](episode-twelve.md).
-
-You can also check out the following blogs:
+You can check out the following blogs:
 
 - [Security posture management and server protection for AWS and GCP are now generally available](https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/security-posture-management-and-server-protection-for-aws-and/ba-p/3271388)
 

@@ -17,7 +17,11 @@ ms.date: 05/02/2022
 
 [!INCLUDE [cli v1](../../../includes/machine-learning-cli-v1.md)]
 
-Learn how to create and manage a [compute instance](../concept-compute-instance.md) in your Azure Machine Learning workspace with CLI v1. 
+> [!div class="op_single_selector" title1="Select the Azure Machine Learning CLI version you are using:"]
+> * [CLI v1](how-to-create-manage-compute-instance.md)
+> * [CLI v2 (current version)](../how-to-create-manage-compute-instance.md)
+
+Learn how to create and manage a [compute instance](../concept-compute-instance.md) in your Azure Machine Learning workspace with CLI v1.
 
 Use a compute instance as your fully configured and managed development environment in the cloud. For development and testing, you can also use the instance as a [training compute target](../concept-compute-target.md#train) or for an [inference target](../concept-compute-target.md#deploy).   A compute instance can run multiple jobs in parallel and has a job queue. As a development environment, a compute instance can't be shared with other users in your workspace.
 

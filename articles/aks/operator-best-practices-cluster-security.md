@@ -22,7 +22,13 @@ This article focuses on how to secure your AKS cluster. You learn how to:
 
 You can also read the best practices for [container image management][best-practices-container-image-management] and for [pod security][best-practices-pod-security].
 
-You can also use [Azure Kubernetes Services integration with Defender for Cloud][security-center-aks] to help detect threats and view recommendations for securing your AKS clusters.
+
+## Enable threat protection
+
+> **Best practice guidance** 
+>
+> You can enable [Defender for Containers](../defender-for-cloud/defender-for-containers-introduction.md) to help secure your containers. Defender for Containers can assess cluster configurations and provide security recommendations, run vulnerability scans, and provide real-time protection and alerting for Kubernetes nodes and clusters.
+
 
 ## Secure access to the API server and cluster nodes
 
@@ -141,7 +147,7 @@ AppArmor profiles are added using the `apparmor_parser` command.
     spec:
       containers:
       - name: hello
-        image: mcr.microsoft.com/aks/fundamental/base-ubuntu:v0.0.11
+        image: mcr.microsoft.com/dotnet/runtime-deps:6.0
         command: [ "sh", "-c", "echo 'Hello AppArmor!' && sleep 1h" ]
     ```
 
@@ -216,7 +222,7 @@ To see seccomp in action, create a filter that prevents changing permissions on 
     spec:
       containers:
       - name: chmod
-        image: mcr.microsoft.com/aks/fundamental/base-ubuntu:v0.0.11
+        image: mcr.microsoft.com/dotnet/runtime-deps:6.0
         command:
           - "chmod"
         args:
@@ -239,7 +245,7 @@ To see seccomp in action, create a filter that prevents changing permissions on 
           localhostProfile: prevent-chmod
       containers:
       - name: chmod
-        image: mcr.microsoft.com/aks/fundamental/base-ubuntu:v0.0.11
+        image: mcr.microsoft.com/dotnet/runtime-deps:6.0
         command:
           - "chmod"
         args:

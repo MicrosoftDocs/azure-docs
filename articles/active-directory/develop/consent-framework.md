@@ -1,6 +1,5 @@
 ---
 title: Microsoft identity platform consent framework
-titleSuffix: Microsoft identity platform
 description: Learn about the consent framework in the Microsoft identity platform and how it applies to multi-tenant applications.
 services: active-directory
 author: rwike77

@@ -7,7 +7,7 @@ ms.date: 12/17/2021
 
 # Index your videos stored on OneDrive
 
-This article shows how to index videos stored on OneDrive by using the Azure Video Indexer (formerly Azure Azure Video Indexer) website.
+This article shows how to index videos stored on OneDrive by using the Azure Video Indexer website.
 
 ## Supported file formats
 
@@ -91,7 +91,7 @@ Use this parameter to define an AI bundle that you want to apply on your audio o
 
 Azure Video Indexer covers up to two tracks of audio. If the file has more audio tracks, they're treated as one track. If you want to index the tracks separately, you need to extract the relevant audio file and index it as `AudioOnly`.
 
-Price depends on the selected indexing option. For more information, see [Media Services pricing](https://azure.microsoft.com/pricing/details/azure/media-services/).
+Price depends on the selected indexing option. For more information, see [Media Services pricing](https://azure.microsoft.com/pricing/details/media-services/).
 
 #### priority
 
@@ -117,6 +117,9 @@ If you only want to index your video and not encode it, set `streamingPreset` to
 This parameter specifies the URL of the video or audio file to be indexed. If the `videoUrl` parameter is not specified, Azure Video Indexer expects you to pass the file as multipart/form body content.
 
 ### Code sample
+
+> [!NOTE]
+> The following sample is intended for Classic accounts only and isn't compatible with ARM accounts. For an updated sample for ARM, see [this ARM sample repo](https://github.com/Azure-Samples/media-services-video-indexer/blob/master/ApiUsage/ArmBased/Program.cs).
 
 The following C# code snippets demonstrate the usage of all the Azure Video Indexer APIs together.
 

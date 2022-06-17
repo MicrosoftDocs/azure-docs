@@ -18,7 +18,7 @@ This article helps you configure Azure Route Server to peer with a Network Virtu
 :::image type="content" source="media/quickstart-configure-route-server-portal/environment-diagram.png" alt-text="Diagram of Route Server deployment environment using the Azure CLI." border="false":::
 
 > [!IMPORTANT]
-> If you have an Azure Route Server created before September 1st and it doesn't have a public IP address asssociated, you'll need to recreate the Route Server so it can obtain an IP address for management purpose.
+> Azure Route Servers created before November 1st, 2021, that don't have a public IP address associated, are deployed with the Public preview offering. The public preview offering is not backed by Generally Available SLA and support. To deploy Azure Route Server with the Generally Available offering, and to achieve Generally Available SLA and support, please delete and recreate your Route Server.
 
 ##  Prerequisites 
 

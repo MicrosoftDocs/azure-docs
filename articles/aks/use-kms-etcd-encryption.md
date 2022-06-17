@@ -3,7 +3,7 @@ title: Use KMS etcd encryption in Azure Kubernetes Service (AKS) (Preview)
 description: Learn how to use kms etcd encryption with Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
-ms.date: 04/11/2022
+ms.date: 06/06/2022
 
 ---
 
@@ -65,11 +65,8 @@ The following limitations apply when you integrate KMS etcd encryption with AKS:
 * Changing of key ID, including key name and key version.
 * Deletion of the key, Key Vault, or the associated identity.
 * KMS etcd encryption doesn't work with System-Assigned Managed Identity. The keyvault access-policy is required to be set before the feature is enabled. In addition, System-Assigned Managed Identity isn't available until cluster creation, thus there's a cycle dependency.
-* Using Azure Key Vault with PrivateLink enabled.
 * Using more than 2000 secrets in a cluster.
-* Managed HSM Support
 * Bring your own (BYO) Azure Key Vault from another tenant.
-
 
 ## Create a KeyVault and key
 

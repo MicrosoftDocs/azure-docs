@@ -12,6 +12,9 @@ ms.date: 5/6/2019
 ---
 
 # Configure and access server logs by using Azure CLI
+
+[!INCLUDE [applies-to-postgresql-single-server](../includes/applies-to-postgresql-single-server.md)]
+
 You can download the PostgreSQL server error logs by using the command-line interface (Azure CLI). However, access to transaction logs isn't supported. 
 
 ## Prerequisites

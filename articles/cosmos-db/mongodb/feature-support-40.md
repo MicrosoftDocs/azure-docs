@@ -530,7 +530,7 @@ $polygon | No |
 
 ## Sort operations
 
-When using the `findOneAndUpdate` operation, sort operations on a single field are supported but sort operations on multiple fields are not supported.
+When using the `findOneAndUpdate` operation with Mongo API version 4.0, sort operations on a single field and multiple fields are supported. Sort operations on multiple fields was a limitation of previous wire protocols.
 
 ## Indexing
 The API for MongoDB [supports a variety of indexes](mongodb-indexing.md) to enable sorting on multiple fields, improve query performance, and enforce uniqueness.

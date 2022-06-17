@@ -1,26 +1,26 @@
 ---
 title: Migrate an Azure Cosmos DB account from periodic to continuous backup mode
-description: Azure Cosmos DB currently supports a one-way migration from periodic to continuous mode and it’s irreversible. After migrating from periodic to continuous mode, you can leverage the benefits of continuous mode.
+description: Azure Cosmos DB currently supports a one-way migration from periodic to continuous mode and it’s irreversible. After migrating from periodic to continuous mode, you can apply the benefits of continuous mode.
 author: kanshiG
 ms.author: govindk
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.date: 04/08/2022
 ms.topic: how-to
-ms.reviewer: wiassaf
+ms.reviewer: mjbrown
 ---
 
 # Migrate an Azure Cosmos DB account from periodic to continuous backup mode
 [!INCLUDE[appliesto-all-apis-except-cassandra](includes/appliesto-all-apis-except-cassandra.md)]
 
-Azure Cosmos DB accounts with periodic mode backup policy can be migrated to continuous mode using [Azure portal](#portal), [CLI](#cli), [PowerShell](#powershell), or [Resource Manager templates](#ARM-template). Migration from periodic to continuous mode is a one-way migration and it’s not reversible. After migrating from periodic to continuous mode, you can leverage the benefits of continuous mode.
+Azure Cosmos DB accounts with periodic mode backup policy can be migrated to continuous mode using [Azure portal](#portal), [CLI](#cli), [PowerShell](#powershell), or [Resource Manager templates](#ARM-template). Migration from periodic to continuous mode is a one-way migration and it’s not reversible. After migrating from periodic to continuous mode, you can apply the benefits of continuous mode.
 
 The following are the key reasons to migrate into continuous mode:
 
 * The ability to do self-service restore using Azure portal, CLI, or PowerShell.
 * The ability to restore at time granularity of the second within the last 30-day window.
 * The ability to make sure that the backup is consistent across shards or partition key ranges within a period.
-* The ability to restore container, database, or the full account when it is deleted or modified.
+* The ability to restore container, database, or the full account when it's deleted or modified.
 * The ability to choose the events on the container, database, or account and decide when to initiate the restore.
 
 > [!NOTE]
@@ -41,7 +41,7 @@ To perform the migration, you need `Microsoft.DocumentDB/databaseAccounts/write`
 
 ## Pricing after migration
 
-After you migrate your account to continuous backup mode, the cost with this mode is different when compared to the periodic backup mode. The continuous mode backup cost is significantly cheaper than periodic mode. To learn more, see the [continuous backup mode pricing](continuous-backup-restore-introduction.md#continuous-backup-pricing) example.
+After you migrate your account to continuous backup mode, the cost with this mode is different when compared to the periodic backup mode. The continuous mode backup cost can vary from periodic mode. To learn more, see [continuous backup mode pricing](continuous-backup-restore-introduction.md#continuous-backup-pricing).
 
 ## <a id="portal"></a> Migrate using portal
 
@@ -53,7 +53,7 @@ Use the following steps to migrate your account from periodic backup to continuo
 
    :::image type="content" source="./media/migrate-continuous-backup/enable-backup-migration.png" alt-text="Migrate to continuous mode using Azure portal" lightbox="./media/migrate-continuous-backup/enable-backup-migration.png":::
 
-1. When the migration is in progress, the status shows **Pending.** After the it’s complete, the status changes to **On.** Migration time depends on the size of data in your account.
+1. When the migration is in progress, the status shows **Pending.** After it’s complete, the status changes to **On.** Migration time depends on the size of data in your account.
 
    :::image type="content" source="./media/migrate-continuous-backup/migration-status.png" alt-text="Check the status of migration from Azure portal" lightbox="./media/migrate-continuous-backup/migration-status.png":::
 
@@ -84,7 +84,7 @@ Install the [latest version of Azure PowerShell](/powershell/azure/install-az-ps
    * If you already have Azure CLI installed, use `az upgrade` command to upgrade to the latest version.
    * Alternatively, user can also use Cloud Shell from Azure portal.
 
-1. Log in to your Azure account and run the following command to migrate your account to continuous mode:
+1. Sign in to your Azure account and run the following command to migrate your account to continuous mode:
 
    ```azurecli-interactive
    az login
@@ -159,7 +159,7 @@ az group deployment create -g <ResourceGroup> --template-file <ProvisionTemplate
 
 ## What to expect during and after migration?
 
-When migrating from periodic mode to continuous mode, you cannot run any control plane operations that performs account level updates or deletes. For example, operations such as adding or removing regions, account failover, updating backup policy etc. can't be run while the migration is in progress. The time for migration depends on the size of data and the number of regions in your account. Restore action on the migrated accounts only succeeds from the time when migration successfully completes.
+When migrating from periodic mode to continuous mode, you can't run any control plane operations that performs account level updates or deletes. For example, operations such as adding or removing regions, account failover, updating backup policy etc. can't be run while the migration is in progress. The time for migration depends on the size of data and the number of regions in your account. Restore action on the migrated accounts only succeeds from the time when migration successfully completes.
 
 You can restore your account after the migration completes. If the migration completes at 1:00 PM PST, you can do point in time restore starting from 1:00 PM PST.
 
@@ -169,15 +169,15 @@ You can restore your account after the migration completes. If the migration com
 Yes.
 
 #### Which accounts can be targeted for backup migration?
-Currently, SQL API and API for MongoDB accounts with single write region, that have shared, provisioned, or autoscale provisioned throughput support migration. Table API and Gremlin API are in preview.
+Currently, SQL API and API for MongoDB accounts with single write region that have shared, provisioned, or autoscale provisioned throughput support migration. Table API and Gremlin API are in preview.
 
-Accounts enabled with analytical storage and multiple-write regions are not supported for migration.
+Accounts enabled with analytical storage and multiple-write regions aren't supported for migration.
 
 #### Does the migration take time? What is the typical time?
-Migration takes time and it depends on the size of data and the number of regions in your account. You can get the migration status using Azure CLI or PowerShell commands. For large accounts with 10s of terabytes of data, the migration can take up to few days to complete.
+Migration takes time and it depends on the size of data and the number of regions in your account. You can get the migration status using Azure CLI or PowerShell commands. For large accounts with tens of terabytes of data, the migration can take up to few days to complete.
 
 #### Does the migration cause any availability impact/downtime?
-No, the migration operation takes place in the background, so the client requests are not impacted. However, we need to perform some backend operations during the migration, and it might take extra time if the account is under heavy load.
+No, the migration operation takes place in the background, so the client requests aren't impacted. However, we need to perform some backend operations during the migration, and it might take extra time if the account is under heavy load.
 
 #### What happens if the migration fails? Will I still get the periodic backups or get the continuous backups?
 Once the migration process is started, the account will start to become a continuous mode.  If the migration fails, you must initiate migration again until it succeeds.
@@ -192,11 +192,11 @@ To restore to a time before t1, you can open a support ticket like you normally 
 #### Which account level control plane operations are blocked during migration?
 Operations such as add/remove region, failover, changing backup policy, throughput changes resulting in data movement are blocked during migration.
 
-#### If the migration fails for some underlying issue, would it still block the control plane operation until it is retried and completed successfully?
-Failed migration will not block any control plane operations. If migration fails, it’s recommended to retry until it succeeds before performing any other control plane operations.
+#### If the migration fails for some underlying issue, would it still block the control plane operation until it's retried and completed successfully?
+Failed migration won't block any control plane operations. If migration fails, it’s recommended to retry until it succeeds before performing any other control plane operations.
 
 #### Is it possible to cancel the migration?
-It is not possible to cancel the migration because it is not a reversible operation.
+It isn't possible to cancel the migration because it isn't a reversible operation.
 
 #### Is there a tool that can help estimate migration time based on the data usage and number of regions?
 There isn't a tool to estimate time. But our scale runs indicate single region with 1 TB of data takes roughly one and half hour.
@@ -217,5 +217,5 @@ To learn more about continuous backup mode, see the following articles:
 * Restore an account using [Azure portal](restore-account-continuous-backup.md#restore-account-portal), [PowerShell](restore-account-continuous-backup.md#restore-account-powershell), [CLI](restore-account-continuous-backup.md#restore-account-cli), or [Azure Resource Manager](restore-account-continuous-backup.md#restore-arm-template).
 
 Trying to do capacity planning for a migration to Azure Cosmos DB?
-   * If all you know is the number of vcores and servers in your existing database cluster, read about [estimating request units using vCores or vCPUs](convert-vcore-to-request-unit.md) 
+   * If all you know is the number of vCores and servers in your existing database cluster, read about [estimating request units using vCores or vCPUs](convert-vcore-to-request-unit.md) 
    * If you know typical request rates for your current database workload, read about [estimating request units using Azure Cosmos DB capacity planner](estimate-ru-with-capacity-planner.md)

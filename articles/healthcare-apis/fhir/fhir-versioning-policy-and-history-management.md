@@ -5,7 +5,7 @@ author: stevewohl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: conceptual
-ms.date: 05/06/2022
+ms.date: 06/06/2022
 ms.author: mikaelw
 ---
 
@@ -73,4 +73,5 @@ In this article, you learned how to purge the history for resources in the FHIR 
 >[!div class="nextstepaction"]
 >[Purge history operation](purge-history.md)
 
+FHIR&#174; is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.
 
