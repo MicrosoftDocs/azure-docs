@@ -247,9 +247,7 @@ Here's how to find the threat intelligence workbook provided in Microsoft Sentin
 
 1. Select the **Done editing** button. You’ve created a new chart for your workbook.
 
-    ```
     :::image type="content" source="media/work-with-threat-indicators/threat-intel-bar-chart.png" alt-text="Bar chart":::
-    ```
 
 Workbooks provide powerful interactive dashboards that give you insights into all aspects of Microsoft Sentinel. There is a whole lot you can do with workbooks, and while the provided templates are a great starting point, you will likely want to dive in and customize these templates, or create new dashboards combining many different data sources so you can visualize your data in unique ways. Since Microsoft Sentinel workbooks are based on Azure Monitor workbooks, there is already extensive documentation available, and many more templates. A great place to start is this article on how to [Create interactive reports with Azure Monitor workbooks](../azure-monitor/visualize/workbooks-overview.md). 
 
