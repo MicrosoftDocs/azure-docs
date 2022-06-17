@@ -204,15 +204,15 @@ Azure Functions Core Tools lets you run an Azure Functions project on your local
 
 1. If you are using Visual Studio Code, open a new terminal window and run the following commands to build the project:
 
-```bash
-mvn clean package
-```
-
-Then run the durable function:
-
-```bash
-mvn azure-functions:run
-```
+    ```bash
+    mvn clean package
+    ```
+    
+    Then run the durable function:
+    
+    ```bash
+    mvn azure-functions:run
+    ```
 
 2. In the Terminal panel, copy the URL endpoint of your HTTP-triggered function.
 
@@ -220,31 +220,31 @@ mvn azure-functions:run
 
 3. Using a tool like [Postman](https://www.getpostman.com/) or [cURL](https://curl.haxx.se/), send an HTTP POST request to the URL endpoint. You should get a response similar to the following:
 
-```json
-{
-  "id": "d1b33a60-333f-4d6e-9ade-17a7020562a9",
-  "purgeHistoryDeleteUri": "http://localhost:7071/runtime/webhooks/durabletask/instances/d1b33a60-333f-4d6e-9ade-17a7020562a9?code=ACCupah_QfGKoFXydcOHH9ffcnYPqjkddSawzRjpp1PQAzFueJ2tDw==",
-  "sendEventPostUri": "http://localhost:7071/runtime/webhooks/durabletask/instances/d1b33a60-333f-4d6e-9ade-17a7020562a9/raiseEvent/{eventName}?code=ACCupah_QfGKoFXydcOHH9ffcnYPqjkddSawzRjpp1PQAzFueJ2tDw==",
-  "statusQueryGetUri": "http://localhost:7071/runtime/webhooks/durabletask/instances/d1b33a60-333f-4d6e-9ade-17a7020562a9?code=ACCupah_QfGKoFXydcOHH9ffcnYPqjkddSawzRjpp1PQAzFueJ2tDw==",
-  "terminatePostUri": "http://localhost:7071/runtime/webhooks/durabletask/instances/d1b33a60-333f-4d6e-9ade-17a7020562a9/terminate?reason={text}&code=ACCupah_QfGKoFXydcOHH9ffcnYPqjkddSawzRjpp1PQAzFueJ2tDw=="
-}
-```
+    ```json
+    {
+        "id": "d1b33a60-333f-4d6e-9ade-17a7020562a9",
+        "purgeHistoryDeleteUri": "http://localhost:7071/runtime/webhooks/durabletask/instances/d1b33a60-333f-4d6e-9ade-17a7020562a9?code=ACCupah_QfGKoFXydcOHH9ffcnYPqjkddSawzRjpp1PQAzFueJ2tDw==",
+        "sendEventPostUri": "http://localhost:7071/runtime/webhooks/durabletask/instances/d1b33a60-333f-4d6e-9ade-17a7020562a9/raiseEvent/{eventName}?code=ACCupah_QfGKoFXydcOHH9ffcnYPqjkddSawzRjpp1PQAzFueJ2tDw==",
+        "statusQueryGetUri": "http://localhost:7071/runtime/webhooks/durabletask/instances/d1b33a60-333f-4d6e-9ade-17a7020562a9?code=ACCupah_QfGKoFXydcOHH9ffcnYPqjkddSawzRjpp1PQAzFueJ2tDw==",
+        "terminatePostUri": "http://localhost:7071/runtime/webhooks/durabletask/instances/d1b33a60-333f-4d6e-9ade-17a7020562a9/terminate?reason={text}&code=ACCupah_QfGKoFXydcOHH9ffcnYPqjkddSawzRjpp1PQAzFueJ2tDw=="
+    }
+    ```
+    
+    The response is the initial result from the HTTP function letting you know the durable orchestration has started successfully. It is not yet the end result of the orchestration. The response includes a few useful URLs. For now, let's query the status of the orchestration.
 
-The response is the initial result from the HTTP function letting you know the durable orchestration has started successfully. It is not yet the end result of the orchestration. The response includes a few useful URLs. For now, let's query the status of the orchestration.
+4. Copy the URL value for `statusQueryGetUri` and paste it in the browser's address bar and execute the request. Alternatively you can also continue to use Postman or cURL to issue the GET request.
 
-3. Copy the URL value for `statusQueryGetUri` and paste it in the browser's address bar and execute the request. Alternatively you can also continue to use Postman or cURL to issue the GET request.
+    The request will query the orchestration instance for the status. You should get an eventual response, which shows us the instance has completed, and includes the outputs or results of the durable function. It looks like:
 
-The request will query the orchestration instance for the status. You should get an eventual response, which shows us the instance has completed, and includes the outputs or results of the durable function. It looks like:
-
-```json
-{
-    "name": "HelloCities",
-    "instanceId": "d1b33a60-333f-4d6e-9ade-17a7020562a9",
-    "runtimeStatus": "Completed",
-    "input": null,
-    "customStatus": "",
-    "output": "Hello Tokyo!, Hello London!, Hello Seattle!",
-    "createdTime": "2022-06-15T05:00:02Z",
-    "lastUpdatedTime": "2022-06-15T05:00:06Z"
-}
+    ```json
+    {
+        "name": "HelloCities",
+        "instanceId": "d1b33a60-333f-4d6e-9ade-17a7020562a9",
+        "runtimeStatus": "Completed",
+        "input": null,
+        "customStatus": "",
+        "output": "Hello Tokyo!, Hello London!, Hello Seattle!",
+        "createdTime": "2022-06-15T05:00:02Z",
+        "lastUpdatedTime": "2022-06-15T05:00:06Z"
+    }
 ```

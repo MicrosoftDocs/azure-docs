@@ -9,7 +9,7 @@ ms.devlang: csharp, javascript, powershell, python, java
 #Customer intent: As a developer, I want to understand durable orchestrations so that I can use them effectively in my applications.
 ---
 
-# Durable Orchestrations
+# Durable orchestrations
 
 Durable Functions is an extension of [Azure Functions](../functions-overview.md). You can use an *orchestrator function* to orchestrate the execution of other Durable functions within a function app. Orchestrator functions have the following characteristics:
 
