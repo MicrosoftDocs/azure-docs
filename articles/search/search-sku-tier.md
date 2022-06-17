@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 06/08/2022
+ms.date: 06/17/2022
 ms.custom: contperf-fy21q2 
 ---
 
@@ -41,7 +41,7 @@ The most commonly used billable tiers include the following:
 
 + **Basic** has just one partition but with the ability to meet SLA with its support for three replicas. 
 
-+ **Standard** is the default. It gives you more flexibility in scaling for workloads. You can scale both partitions and replicas. With dedicated resources under your control, you can deploy larger projects, optimize performance, and increase capacity.
++ **Standard (S1, S2, S3)** is the default. It gives you more flexibility in scaling for workloads. You can scale both partitions and replicas. With dedicated resources under your control, you can deploy larger projects, optimize performance, and increase capacity.
 
 Some tiers are designed for certain types of work:
 
@@ -66,7 +66,7 @@ Most features are available on all tiers, including the free tier. In a few case
 | [IP firewall access](service-configure-firewall.md) | Not available on the Free tier. |
 | [Private endpoint (integration with Azure Private Link)](service-create-private-endpoint.md) | For inbound connections to a search service, not available on the Free tier. For outbound connections by indexers to other Azure resources, not available on Free or S3 HD. For indexers that use skillsets, not available on Free, Basic, S1, or S3 HD.| 
 | [Availability Zones](search-performance-optimization.md) | Not available on the Free tier or Basic tier. |
-| [Semantic search (preview)](semantic-search-overview.md) | Not available on the Free tier or Basic tier. |
+| [Semantic search (preview)](semantic-search-overview.md) | Not available on the Free, Basic, or S3 HD. |
 
 Resource-intensive features might not work well unless you give it sufficient capacity. For example, [AI enrichment](cognitive-search-concept-intro.md) has long-running skills that time out on a Free service unless the dataset is small.
 
