@@ -24,6 +24,9 @@ The Fluid Framework offers a variety of [distributed data structures (DDSes)](ht
 |Number of simultaneous users in one session | 100 |
 |Incremental summary size upload | 28 MB |
 
+## Signals
+
+The Fluid Framework has a concept of Signals that can be sent to participating clients in the session. More info linked [here](https://fluidframework.com/docs/concepts/signals/). The Azure Fluid Relay does not support the Signals.
 
 ## Need help?
 
