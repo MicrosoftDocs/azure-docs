@@ -13,7 +13,7 @@ Resource parameters allow picking of resources in workbooks. This is useful in s
 
 Values from resource pickers can come from the workbook context, static list or from Azure Resource Graph queries.
 
-## Creating a resource parameter (workbook resources)
+## Create a resource parameter (workbook resources)
 1. Start with an empty workbook in edit mode.
 2. Choose _Add parameters_ from the links within the workbook.
 3. Click on the blue _Add Parameter_ button.
@@ -28,7 +28,7 @@ Values from resource pickers can come from the workbook context, static list or 
 
 ![Image showing the creation of a resource parameter using workbook resources](./media/workbooks-resources/resource-create.png)
 
-## Creating a resource parameter (Azure Resource Graph)
+## Create an Azure Resource Graph resource parameter
 1. Start with an empty workbook in edit mode.
 2. Choose _Add parameters_ from the links within the workbook.
 3. Click on the blue _Add Parameter_ button.
@@ -54,7 +54,7 @@ Values from resource pickers can come from the workbook context, static list or 
 
 [Azure Resource Graph documentation](../../governance/resource-graph/overview.md)
 
-## Creating a resource parameter  (JSON list)
+## Create a JSON list resource parameter
 1. Start with an empty workbook in edit mode.
 2. Choose _Add parameters_ from the links within the workbook.
 3. Click on the blue _Add Parameter_ button.
@@ -75,7 +75,7 @@ Values from resource pickers can come from the workbook context, static list or 
 6. Optionally set the `Include only resource types` to _Application Insights_
 7. Choose 'Save' from the toolbar to create the parameter.
 
-## Referencing a resource parameter
+## Reference a resource parameter
 1. Add a query control to the workbook and select an Application Insights resource.
 2. Use the _Application Insights_ drop down to bind the parameter to the control. Doing this sets the scope of the query to the resources returned by the parameter at run time.
 4. In the KQL control, add this snippet
@@ -104,5 +104,4 @@ Values from resource pickers can come from the workbook context, static list or 
 
 ## Next steps
 
-* [Get started](./workbooks-overview.md#visualizations) learning more about workbooks many rich visualizations options.
-* [Control](./workbooks-access-control.md) and share access to your workbook resources.
+ - [Getting started with Azure Workbooks](workbooks-getting-started.md).

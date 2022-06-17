@@ -92,7 +92,7 @@ Four steps are needed to set up an authorization with the authorization code gra
     |Setting  |Value  |
     |---------|---------|
     |**Display name**     | *github*        |
-    |**Web service URL**     |  https://api.github.com/users/       |
+    |**Web service URL**     |  https://api.github.com/users       |
     |**API URL suffix**     |  *github*       |
 
 2. Navigate to the newly created API and select **Add Operation**. Enter the following settings and select **Save**.
