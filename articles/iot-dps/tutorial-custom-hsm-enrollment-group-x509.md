@@ -463,7 +463,7 @@ In this section you create the device certificates and the full chain device cer
     winpty openssl ca -batch -config ./openssl_device_intermediate_ca.cnf -passin pass:1234 -extensions usr_cert -days 30 -notext -md sha256 -in ./csr/device-01.csr.pem -out ./certs/device-01.cert.pem
     ```
 
-1. The device must present the full certificate chain when it authenticates with DPS. Replace all instances of `new-device` in the command with the device file name root that you chose previously.
+1. The device must present the full certificate chain when it authenticates with DPS.
 
     ```bash
     winpty cat ./certs/device-01.cert.pem ./certs/azure-iot-test-only.intermediate.cert.pem ./certs/azure-iot-test-only.root.ca.cert.pem > ./certs/device-01-full-chain.cert.pem
@@ -490,10 +490,10 @@ In this section you create the device certificates and the full chain device cer
     ```bash
     registration_id=device-02
     echo $registration_id
-    winpty openssl genrsa -out ./private/${registration_id}.key.pem 4096
-    winpty openssl req -config ./openssl_device_intermediate_ca.cnf -key ./private/${registration_id}.key.pem -subj "//CN=$registration_id" -new -sha256 -out ./csr/${registration_id}.csr.pem
-    winpty openssl ca -batch -config ./openssl_device_intermediate_ca.cnf -passin pass:1234 -extensions usr_cert -days 30 -notext -md sha256 -in ./csr/${registration_id}.csr.pem -out ./certs/${registration_id}.cert.pem
-    winpty cat ./certs/${registration_id}.cert.pem ./certs/azure-iot-test-only.intermediate.cert.pem ./certs/azure-iot-test-only.root.ca.cert.pem > ./certs/${registration_id}-full-chain.cert.pem
+    openssl genrsa -out ./private/${registration_id}.key.pem 4096
+    openssl req -config ./openssl_device_intermediate_ca.cnf -key ./private/${registration_id}.key.pem -subj "//CN=$registration_id" -new -sha256 -out ./csr/${registration_id}.csr.pem
+    openssl ca -batch -config ./openssl_device_intermediate_ca.cnf -passin pass:1234 -extensions usr_cert -days 30 -notext -md sha256 -in ./csr/${registration_id}.csr.pem -out ./certs/${registration_id}.cert.pem
+    cat ./certs/${registration_id}.cert.pem ./certs/azure-iot-test-only.intermediate.cert.pem ./certs/azure-iot-test-only.root.ca.cert.pem > ./certs/${registration_id}-full-chain.cert.pem
     ```
 
     >[!NOTE]
@@ -737,7 +737,9 @@ In this section, you update the sample code with your Device Provisioning Servic
     //hsm_type = SECURE_DEVICE_TYPE_SYMMETRIC_KEY;
     ```
 
-6. Right-click the **prov\_dev\_client\_sample** project and select **Set as Startup Project**.
+6. Save your changes.
+
+7. Right-click the **prov\_dev\_client\_sample** project and select **Set as Startup Project**.
 
 ## Configure the custom HSM stub code
 
@@ -808,57 +810,63 @@ To update the custom HSM stub code to simulate the identity of the device with I
 
     Copy and paste the output private key text for the constant value.
 
-5. Save *custom_hsm_example.c*.
+5. Save your changes.
 
-6. On the Visual Studio menu, select **Debug** > **Start without debugging** to run the solution. When prompted to rebuild the project, select **Yes** to rebuild the project before running.
+6. Right-click the **custom_hsm_-_example** project and select **Build**.
+
+    > [!IMPORTANT]
+    > You must build the **custom_hsm_example** project before you build the rest of the solution in the next section.
+
+### Run the sample
+
+1. On the Visual Studio menu, select **Debug** > **Start without debugging** to run the solution. When prompted to rebuild the project, select **Yes** to rebuild the project before running.
 
     The following output is an example of simulated device `device-01` successfully booting up, and connecting to the provisioning service. The device was assigned to an IoT hub and registered:
 
-    ```cmd
-    Provisioning API Version: 1.3.9
-    
+    ```output
+    Provisioning API Version: 1.8.0
+
     Registering Device
-    
+
     Provisioning Status: PROV_DEVICE_REG_STATUS_CONNECTED
     Provisioning Status: PROV_DEVICE_REG_STATUS_ASSIGNING
-    
-    Registration Information received from service: test-docs-hub.azure-devices.net, deviceId: device-01
+
+    Registration Information received from service: MyExampleHub.azure-devices.net, deviceId: device-01
     Press enter key to exit:
     ```
 
-7. In the portal, navigate to the IoT hub linked to your provisioning service and select the **IoT devices** tab. On successful provisioning of the X.509 device to the hub, its device ID appears on the **IoT devices** blade, with *STATUS* as **enabled**. You might need to press the **Refresh** button at the top.
+1. In the portal, navigate to the IoT hub linked to your provisioning service and select the **IoT devices** tab. On successful provisioning of the X.509 device to the hub, its device ID appears on the **IoT devices** blade, with *STATUS* as **enabled**. You might need to press the **Refresh** button at the top.
 
     ![Custom HSM device is registered with the IoT hub](./media/tutorial-custom-hsm-enrollment-group-x509/hub-provisioned-custom-hsm-x509-device.png) 
 
-8. Repeat steps 1-7 for a second device with device ID `custom-hsm-device-02`. Use the following values for that device:
+1. Repeat the steps in [Configure the custom HSM stub code](#configure-the-custom-hsm-stub-code) for your second device (`device-02`). Use the following values for that device:
 
     |   Description                 |  Value  |
     | :---------------------------- | :--------- |
     | `COMMON_NAME`                 | `"device-02"` |
-    | Full certificate chain        | Generate the text using *./certs/new-device-02-full-chain.cert.pem* |
-    | Private key                   | Generate the text using  *./private/new-device-02.key.pem* |
+    | Full certificate chain        | Generate the text using *./certs/device-02-full-chain.cert.pem* |
+    | Private key                   | Generate the text using  *./private/device-02.key.pem* |
 
     The following output is an example of simulated device `device-02` successfully booting up, and connecting to the provisioning service. The device was assigned to an IoT hub and registered:
 
-    ```cmd
-    Provisioning API Version: 1.3.9
-    
+    ```output
+    Provisioning API Version: 1.8.0
+
     Registering Device
-    
+
     Provisioning Status: PROV_DEVICE_REG_STATUS_CONNECTED
     Provisioning Status: PROV_DEVICE_REG_STATUS_ASSIGNING
-    
-    Registration Information received from service: test-docs-hub.azure-devices.net, deviceId: device-02
+
+    Registration Information received from service: MyExampleHub.azure-devices.net, deviceId: device-01
     Press enter key to exit:
     ```
-
 
 ## Clean up resources
 
 When you're finished testing and exploring this device client sample, use the following steps to delete all resources created by this tutorial.
 
 1. Close the device client sample output window on your machine.
-1. From the left-hand menu in the Azure portal, select **All resources** and then select your Device Provisioning Service. Open **Manage Enrollments** for your service, and then select the **Enrollment Groups** tab. Select the check box next to the *Group Name* of the device group you created in this tutorial, and press the **Delete** button at the top of the pane. 
+1. From the left-hand menu in the Azure portal, select **All resources** and then select your Device Provisioning Service. Open **Manage Enrollments** for your service, and then select the **Enrollment Groups** tab. Select the check box next to the *Group Name* of the device group you created in this tutorial, and press the **Delete** button at the top of the pane.
 1. Click **Certificates** in DPS. For each certificate you uploaded and verified in this tutorial, click the certificate and click the **Delete** button to remove it.
 1. From the left-hand menu in the Azure portal, select **All resources** and then select your IoT hub. Open **IoT devices** for your hub. Select the check box next to the *DEVICE ID* of the device that you registered in this tutorial. Click the **Delete** button at the top of the pane.
 
