@@ -54,8 +54,6 @@ This section refers to all of the Azure Monitor Logs Kusto tables relevant to Pu
 For more information, see [Azure Monitor Logs table reference organized by resource type](/azure/azure-monitor/reference/tables/tables-resourcetype#public-ip-addresses)
 
 ### Diagnostics tables
-<!-- REQUIRED. Please keep heading in this order -->
-<!-- If your service uses the AzureDiagnostics table in Azure Monitor Logs / Log Analytics, list what fields you use and what they are for. Azure Diagnostics is over 500 columns wide with all services using the fields that are consistent across Azure Monitor and then adding extra ones just for themselves.  If it uses service specific diagnostic table, refers to that table. If it uses both, put both types of information in. Most services in the future will have their own specific table. If you have questions, contact azmondocs@microsoft.com -->
 
 Public IP Address uses the [Azure Diagnostics](/azure/azure-monitor/reference/tables/azurediagnostics) table to store resource log information. The following columns are relevant.
 
@@ -91,4 +89,5 @@ For more information on the schema of Activity Log entries, see [Activity Log sc
 ## See Also
 
 - See [Monitoring Azure Public IP Address](monitor-public-ip.md) for a description of monitoring Azure Public IP Address.
+
 - See [Monitoring Azure resources with Azure Monitor](/azure/azure-monitor/insights/monitor-azure-resources) for details on monitoring Azure resources.

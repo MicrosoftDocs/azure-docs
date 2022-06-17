@@ -308,7 +308,7 @@ The following table lists common and recommended alert rules for Public IP addre
 
 | Alert type | Condition | Description  |
 |:---|:---|:---|
-| Under DDoS attack or not | Condition is defined as a **1** or **0**. </br> **1** is currently under attack. </br> **0** indicates normal activity | As part of Azure's edge protection, public IP addresses are monitored for DDoS attacks. An alert will allow you to be notified if your public IP address is affected. |
+| Under DDoS attack or not | **GreaterThan** 0. </br> **1** is currently under attack. </br> **0** indicates normal activity | As part of Azure's edge protection, public IP addresses are monitored for DDoS attacks. An alert will allow you to be notified if your public IP address is affected. |
 
 ## Next steps
 
