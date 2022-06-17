@@ -92,6 +92,10 @@ items:
     href: quickstarts-sdk/image-analysis-client-library.md
   - name: Samples  
     href: /samples/browse/?products=azure&terms=analyze-image
+  - name: Responsible use of AI
+    items:
+    - name: Limited Access features
+      href: /legal/cognitive-services/computer-vision/limited-access?context=/azure/cognitive-services/computer-vision/context/context
   - name: How-to guides
     items:
     - name: Call the Image Analysis API
@@ -158,6 +162,10 @@ items:
     href: quickstarts-sdk/identity-client-library.md
   - name: Samples
     href: /samples/browse/?products=azure&term=face
+  - name: Responsible use of AI
+    items:
+    - name: Limited Access features
+      href: /legal/cognitive-services/computer-vision/limited-access-identity?context=/azure/cognitive-services/computer-vision/context/context
   - name: How-to guides
     items:
     - name: Detect and analyze faces
