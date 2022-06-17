@@ -55,9 +55,9 @@ sections:
       - question: |
           I use a client that has a firewall between the client and the Internet to reach Azure Analysis Services. What URL should I configure to allow the traffic to go through the firewall
         answer: |
-          api.powerbi.com
-          login.windows.net
-          *.asazure.windows.net
+          - api.powerbi.com
+          - login.windows.net
+          - *.asazure.windows.net
 
 
 
