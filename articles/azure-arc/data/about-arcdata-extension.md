@@ -1,5 +1,5 @@
 ---
-title: `az arcdata` reference
+title: Reference for `az arcdata` extension
 titleSuffix: Azure Arc-enabled data services
 description: Reference article for `az arcdata` commands.
 author: MikeRayMSFT
