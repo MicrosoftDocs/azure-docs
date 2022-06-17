@@ -5,7 +5,7 @@ author: karlerickson
 ms.author: yoterada
 ms.service: spring-cloud
 ms.topic: how-to
-ms.date: 06/13/2022
+ms.date: 06/17/2022
 ms.custom: devx-track-java, event-tier1-build-2022
 ---
 
@@ -250,7 +250,7 @@ This command produces output similar to the following example.
 ```output
 Name                      Location       ResourceGroup           Public Url                                                           Production Deployment    Provisioning State    CPU    Memory    Running Instance    Registered Instance    Persistent Storage    Bind Service Registry    Bind Application Configuration Service
 ------------------------  -------------  ----------------------  -------------------------------------------------------------------  -----------------------  --------------------  -----  --------  ------------------  ---------------------  --------------------  -----------------------  ----------------------------------------
-servicea                  southeastasia  $RESOURCE_GROUP         https://$AZURE_SPRING_APPS_NAME-servicea.azuremicroservices.io      default                  Succeeded             1      2Gi       1/1                 N/A                    -                     -                        -
+servicea                  southeastasia  $RESOURCE_GROUP         https://$AZURE_SPRING_APPS_NAME-servicea.azuremicroservices.io       default                  Succeeded             1      2Gi       1/1                 N/A                    -                     default                  -
 ```
 
 ### Confirm that the Service A application is running
