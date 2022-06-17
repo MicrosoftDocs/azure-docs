@@ -97,5 +97,11 @@ landingContent:
             url: oracle/2-etl-load-migration-considerations.md     
           - text: 3. Security access operations
             url: oracle/3-security-access-operations.md
-          - text: 4. Minimize SQL issues
-            url: oracle/4-minimize-sql-issues.md
+          - text: 4. Visualization and reporting
+            url: oracle/4-visualization-reporting.md
+          - text: 5. Minimize SQL issues
+            url: oracle/5-minimize-sql-issues.md
+          - text: 6. Microsoft and third-party migration tools
+            url: oracle/6-microsoft-third-party-migration-tools.md
+          - text: 7. Beyond migration implementation 
+            url: oracle/7-beyond-data-warehouse-migration.md
