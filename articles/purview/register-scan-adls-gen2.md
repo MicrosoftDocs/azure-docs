@@ -1,11 +1,11 @@
 ---
-title: 'Register and scan Azure Data Lake Storage (ADLS Gen2)'
+title: 'Register and scan Azure Data Lake Storage (ADLS) Gen2'
 description: This article outlines the process to register an Azure Data Lake Storage Gen2 data source in Microsoft Purview including instructions to authenticate and interact with the Azure Data Lake Storage Gen2 source
 author: athenads
 ms.author: athenadsouza
 ms.service: purview
 ms.topic: how-to
-ms.date: 05/20/2022
+ms.date: 06/17/2022
 ms.custom: template-how-to, ignite-fall-2021, references_regions
 ---
 # Connect to Azure Data Lake Storage in Microsoft Purview
@@ -286,6 +286,9 @@ The following storage accounts are supported for in-place data sharing:
 * Tiers: Hot, Cool
 
 Only use storage account without production workload for the preview.
+
+>[!NOTE]
+> Source and target storage accounts must be in the same region as each other. They don't need to be in the same region as the Microsoft Purview account.
 
 ### Storage account permissions required to share data
 To add or update a storage account asset to a share, you need ONE of the following permissions:

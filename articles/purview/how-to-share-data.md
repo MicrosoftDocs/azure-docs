@@ -6,7 +6,7 @@ ms.author: jife
 ms.service: purview
 ms.topic: how-to
 ms.custom: references_regions
-ms.date: 06/13/2022
+ms.date: 06/17/2022
 ---
 # Share Azure Storage data in-place with Microsoft Purview Data Sharing (preview)
 
@@ -154,7 +154,7 @@ If you're getting an error related to *quota* when creating a Microsoft Purview 
 
 ### Both sent shares and received shares are disabled
 
-If both *sent shares* and *received shares* are disabled in the navigation, you don't have **Data Share Contributor** role to any collections in this Microsoft Purview account. 
+If both *sent shares* and *received shares* are disabled in the navigation, you don't have **Data Share Contributor** role on any collections in this Microsoft Purview account. 
 
 ### Can't select a collection when creating a share or register a data source
 

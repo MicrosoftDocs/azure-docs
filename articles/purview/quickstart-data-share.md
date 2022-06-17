@@ -6,7 +6,7 @@ ms.author: jife
 ms.service: purview
 ms.topic: quickstart
 ms.custom: references_regions
-ms.date: 06/15/2022
+ms.date: 06/17/2022
 ---
 # Quickstart: Share and receive Azure Storage data in-place with Microsoft Purview Data Sharing (preview)
 

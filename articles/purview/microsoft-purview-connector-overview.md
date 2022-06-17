@@ -6,7 +6,7 @@ ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: conceptual
-ms.date: 06/16/2022
+ms.date: 06/17/2022
 ms.custom: ignite-fall-2021
 ---
 
@@ -19,7 +19,7 @@ This article discusses currently supported data sources, file types, and scannin
 The table below shows the supported capabilities for each data source. Select the data source, or the feature, to learn more.
 
 |**Category**|  **Data Store**  |**Technical metadata** |**Classification** |**Lineage** | **Access Policy** | **Data Sharing** |
-|---|---|---|---|---|---|---|---|
+|---|---|---|---|---|---|---|
 | Azure | [Azure Blob Storage](register-scan-azure-blob-storage-source.md)| [Yes](register-scan-azure-blob-storage-source.md#register) | [Yes](register-scan-azure-blob-storage-source.md#scan)| Limited* | [Yes (Preview)](how-to-data-owner-policies-storage.md) | [Yes](register-scan-azure-blob-storage-source.md#data-sharing)|
 ||    [Azure Cosmos DB](register-scan-azure-cosmos-database.md)| [Yes](register-scan-azure-cosmos-database.md#register) | [Yes](register-scan-azure-cosmos-database.md#scan)|No*|No| No|
 ||    [Azure Data Explorer](register-scan-azure-data-explorer.md)| [Yes](register-scan-azure-data-explorer.md#register) | [Yes](register-scan-azure-data-explorer.md#scan)| No* | No | No|
