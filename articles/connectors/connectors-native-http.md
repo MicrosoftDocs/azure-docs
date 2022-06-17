@@ -154,7 +154,16 @@ For example, if you're working in Visual Studio Code, follow these steps:
       }
    }
    ```
-Note: To find the thumbprint - from the left navigation of your app, select TLS/SSL settings, then select Private Key Certificates (.pfx) or Public Key Certificates (.cer). Find the certificate you want to use and copy the thumbprint.
+
+   > [!NOTE]
+   >
+   > To find the thumbprint, follow these steps:
+   >
+   > 1. On your logic app resource menu, under **Settings**, select **TLS/SSL settings** > **Private Key Certificates (.pfx)** or **Public Key Certificates (.cer)**.
+   > 
+   > 2. Find the certificate that you want to use, and copy the thumbprint.
+   > 
+   > For more information, review [Find the thumbprint - Azure App Service](../app-service/configure-ssl-certificate-in-code.md#find-the-thumbprint).
 
 ![image](https://user-images.githubusercontent.com/105737541/174128938-cedfb73f-b701-41b8-b2eb-8552faab0580.png)
 
