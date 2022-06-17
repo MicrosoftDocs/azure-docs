@@ -25,11 +25,11 @@ Time parameters allow users to set the time context of analysis and is used by a
     4. Available time ranges: Last hour, Last 12 hours, Last 24 hours, Last 48 hours, Last 3 days, Last 7 days and Allow custom time range selection
 5. Choose 'Save' from the toolbar to create the parameter.
 
-    ![Image showing the creation of a time range parameter](./media/workbooks-time/time-settings.png)
+    :::image type="content" source="media/workbooks-time/time-settings.png" alt-text="Screenshot showing the creation of a workbooks time range parameter.":::
 
 This is how the workbook will look like in read-mode.
 
-![Image showing a time range parameter in read mode](./media/workbooks-time/parameters-time.png)
+:::image type="content" source="media/workbooks-time/parameters-time.png" alt-text="Screenshot showing a time range parameter in read mode.":::
 
 ## Referencing a time parameter
 ### Via Bindings
@@ -38,7 +38,7 @@ This is how the workbook will look like in read-mode.
 3. This binds the time range parameter to the time range of the chart. The time scope of the sample query is now Last 24 hours.
 4. Run query to see the results
 
-    ![Image showing a time range parameter referenced via bindings](./media/workbooks-time/time-binding.png)
+    :::image type="content" source="media/workbooks-time/time-binding.png" alt-text="Screenshot showing a workbooks time range parameter referenced via bindings.":::
 
 ### In KQL
 1. Add a query control to the workbook and select an Application Insights resource.
@@ -46,7 +46,7 @@ This is how the workbook will look like in read-mode.
 3. This expands on query evaluation time to `| where timestamp > ago(1d)`, which is the time range value of the parameter.
 4. Run query to see the results
 
-    ![Image showing a time range referenced in KQL](./media/workbooks-time/time-in-code.png)
+    :::image type="content" source="media/workbooks-time/time-in-code.png" alt-text="Screenshot showing a time range referenced in KQL.":::
 
 ### In Text 
 1. Add a text control to the workbook.
@@ -74,5 +74,4 @@ requests
 
 ## Next steps
 
-* [Get started](./workbooks-overview.md#visualizations) learning more about workbooks many rich visualizations options.
-* [Control](./workbooks-access-control.md) and share access to your workbook resources.
+ - [Getting started with Azure Workbooks](workbooks-getting-started.md).

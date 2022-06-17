@@ -57,7 +57,7 @@ In addition to triggering orchestrator or entity functions, the *durable client*
 
 ## Next steps
 
-To get started, create your first durable function in [C#](durable-functions-create-first-csharp.md) or [JavaScript](quickstart-js-vscode.md).
+To get started, create your first durable function in [C#](durable-functions-create-first-csharp.md), [JavaScript](quickstart-js-vscode.md), [Python](quickstart-python-vscode.md), [PowerShell](quickstart-powershell-vscode.md), or [Java](quickstart-java.md).
 
 > [!div class="nextstepaction"]
 > [Read more about Durable Functions orchestrations](durable-functions-orchestrations.md)
