@@ -7,7 +7,7 @@ author: sipastak
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 06/06/2022
+ms.date: 06/17/2022
 ms.author: sipastak
 ---
 
@@ -137,13 +137,15 @@ The following tables list the various enclosure specifications for dimensions an
 
 ### Enclosure dimensions
 
+The Azure Stack Edge Pro 2 is designed to fit in a standard 19" equipment rack and is two rack units high (2U).
+
 The enclosure dimensions are identical across all models of Azure Stack Edge Pro 2. 
 
 The following table lists the dimensions of the 2U device enclosure in millimeters and inches. 
 
 |     Enclosure     |     Millimeters     |     Inches     |
 |-------------------|---------------------|----------------|
-|    Height         |    87.0             |    3.425       |
+|    Height         |    87.0             |    3.43        |
 |    Width          |    482.6            |    19.00       |
 |    Depth          |    430.5            |    16.95       |
 
