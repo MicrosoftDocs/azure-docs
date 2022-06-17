@@ -45,7 +45,6 @@ To complete this tutorial:
 - [Install Git](https://git-scm.com/)
 - [Install PHP 7.4](https://php.net/downloads.php)
 - [Install Composer](https://getcomposer.org/doc/00-intro.md)
-- Enable the following PHP extensions Laravel needs: OpenSSL, PDO-MySQL, Mbstring, Tokenizer, XML
 - [Install and start MySQL](https://dev.mysql.com/doc/refman/5.7/en/installing.html)
 - <a href="/cli/azure/install-azure-cli" target="_blank">Azure CLI</a> to run commands in any shell to provision and configure Azure resources.
 
@@ -117,11 +116,11 @@ DB_USERNAME=root
 DB_PASSWORD=<root_password>
 ```
 
-For information on how Laravel uses the _.env_ file, see [Laravel Environment Configuration](https://laravel.com/docs/5.4/configuration#environment-configuration).
+For information on how Laravel uses the _.env_ file, see [Laravel Environment Configuration](https://laravel.com/docs/8.x#environment-based-configuration).
 
 ### Run the sample locally
 
-1. Run [Laravel database migrations](https://laravel.com/docs/5.4/migrations) to create the tables the application needs. To see which tables are created in the migrations, look in the _database/migrations_ directory in the Git repository.
+1. Run [Laravel database migrations](https://laravel.com/docs/8.x/migrations) to create the tables the application needs. To see which tables are created in the migrations, look in the _database/migrations_ directory in the Git repository.
 
     ```terminal
     php artisan migrate
@@ -219,7 +218,7 @@ Laravel needs an application key in App Service. You can configure it with app s
 
 ::: zone pivot="platform-windows"  
 
-Set the virtual application path for the app. This step is required because the [Laravel application lifecycle](https://laravel.com/docs/9.x/lifecycle#lifecycle-overview) begins in the _public_ directory instead of the application's root directory. Other PHP frameworks whose lifecycle start in the root directory can work without manual configuration of the virtual application path.
+Set the virtual application path for the app. This step is required because the [Laravel application lifecycle](https://laravel.com/docs/8.x/lifecycle#lifecycle-overview) begins in the _public_ directory instead of the application's root directory. Other PHP frameworks whose lifecycle start in the root directory can work without manual configuration of the virtual application path.
 
 Set the virtual application path by using the [`az resource update`](/cli/azure/resource#az-resource-update) command. Replace the _&lt;app-name>_ placeholder.
 
@@ -233,7 +232,7 @@ By default, Azure App Service points the root virtual application path (_/_) to 
 
 ::: zone pivot="platform-linux"
 
-[Laravel application lifecycle](https://laravel.com/docs/9.x/lifecycle#lifecycle-overview) begins in the _public_ directory instead of the application's root directory. The default PHP Docker image for App Service uses Apache, and it doesn't let you customize the `DocumentRoot` for Laravel. But you can use `.htaccess` to rewrite all requests to point to _/public_ instead of the root directory. In the repository root, an `.htaccess` is added already for this purpose. With it, your Laravel application is ready to be deployed.
+[Laravel application lifecycle](https://laravel.com/docs/8.x/lifecycle#lifecycle-overview) begins in the _public_ directory instead of the application's root directory. The default PHP Docker image for App Service uses Apache, and it doesn't let you customize the `DocumentRoot` for Laravel. But you can use `.htaccess` to rewrite all requests to point to _/public_ instead of the root directory. In the repository root, an `.htaccess` is added already for this purpose. With it, your Laravel application is ready to be deployed.
 
 For more information, see [Change site root](configure-language-php.md#change-site-root).
 
@@ -376,7 +375,7 @@ When prompted, provide the administrator username and password for the MySQL dat
     ```
 
     > [!TIP]
-    > PHP uses the [getenv](https://www.php.net/manual/en/function.getenv.php) method to access the settings. the Laravel code uses an [env](https://laravel.com/docs/5.4/helpers#method-env) wrapper over the PHP `getenv`. 
+    > PHP uses the [getenv](https://www.php.net/manual/en/function.getenv.php) method to access the settings. the Laravel code uses an [env](https://laravel.com/docs/8.x/helpers#method-env) wrapper over the PHP `getenv`. 
 
 1. By default, Azure Database for MySQL enforces TLS connections from clients. To connect to your MySQL database in Azure, you must use the [_.pem_ certificate supplied by Azure Database for MySQL](../mysql/single-server/how-to-configure-ssl.md). The certificate `BaltimoreCyberTrustRoot.crt.pem` is provided in the sample repository for convenience in this tutorial. At the bottom of the `mysql` section in _config/database.php_, change the `options` parameter to the following code:
 
@@ -457,7 +456,7 @@ To stop log streaming at any time, enter `Ctrl`+`C`.
 > [!TIP]
 > A PHP application can use the standard [error_log()](https://php.net/manual/function.error-log.php) to output to the console. The sample application uses this approach in _app/Http/routes.php_.
 >
-> As a web framework, [Laravel uses Monolog](https://laravel.com/docs/9.x/logging) as the logging provider. To see how to get Monolog to output messages to the console, see [PHP: How to use monolog to log to console (php://out)](https://stackoverflow.com/questions/25787258/php-how-to-use-monolog-to-log-to-console-php-out).
+> As a web framework, [Laravel uses Monolog](https://laravel.com/docs/8.x/logging) as the logging provider. To see how to get Monolog to output messages to the console, see [PHP: How to use monolog to log to console (php://out)](https://stackoverflow.com/questions/25787258/php-how-to-use-monolog-to-log-to-console-php-out).
 >
 
 [!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
