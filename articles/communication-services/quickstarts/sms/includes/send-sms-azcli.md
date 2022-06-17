@@ -41,6 +41,24 @@ Run the following command in a terminal or command window to install the communi
 az extension add --name communication
 ```
 
+### Sign in to Azure CLI
+You will need to [sign in to Azure CLI](/cli/azure/authenticate-azure-cli). You can do this through the terminal using the ```az login``` command and providing your credentials.
+
+### Create an ACS resource and get your connection string
+If you don't have an ACS resource, you create one by running the command below.
+
+```azurecli-interactive
+az communication create --name "<communicationName>" --location "Global" --data-location "United States" --resource-group "<resourceGroup>"
+```
+
+You can get your connection string by running the command below.
+
+```azurecli-interactive
+az communication list-key --name "<communicationName>" --resource-group "<resourceGroup>"
+```
+
+For more information on ACS resources and connection strings, see [Create an Azure Communication Services resources](../quickstarts/create-communication-resource.md)
+
 ### Set your Communication Services resource connection string
 
 To configure an environment variable, open a terminal or command window and select your operating system from the below tabs. Replace `<yourconnectionstring>` with your actual connection string.
@@ -77,10 +95,6 @@ After you add the environment variable, run `source ~/.bash_profile` from your c
 
 ---
 
-### Sign in to your Azure account
-
-Before running any commands, you'll need to first [sign in to Azure CLI](sign in to Azure CLI). You can sign in by running ```az login``` in the terminal or command window and providing your credentials.
-
 ### Make sure you're using the correct subscription
 
 If you have multiple subscriptions in your account, make sure that you're using the correct one for this tutorial.
@@ -100,6 +114,12 @@ az account set --subscription <yoursubcriptionid>
 You need to replace `<yoursubscriptionid>` with your actual subscription ID, which you can find in the Subscriptions section in Azure Portal.
 
 ## Operations
+
+> [!NOTE]
+> The connection string environment variable must be set to try out operations in the embedded Docs Shell. 
+> ```bash
+> export AZURE_COMMUNICATION_CONNECTION_STRING="<yourconnectionstring>"
+> ```
 
 ## Send a 1:1 SMS message
 

@@ -2,7 +2,6 @@
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Install [Azure CLI](/cli/azure/install-azure-cli-windows?tabs=azure-cli).
-- An active Communication Services resource and connection string. [Create a Communication Services resource](../../create-communication-resource.md).
 
 ## Setting up
 ### Add the extension
@@ -11,6 +10,24 @@ Add the Azure Communication Services extension for Azure CLI by using the `az ex
 ```azurecli-interactive
 az extension add --name communication
 ```
+
+### Sign in to Azure CLI
+You will need to [sign in to Azure CLI](/cli/azure/authenticate-azure-cli). You can do this through the terminal using the ```az login``` command and providing your credentials.
+
+### Create an ACS resource and get your connection string
+If you don't have an ACS resource, you create one by running the command below.
+
+```azurecli-interactive
+az communication create --name "<communicationName>" --location "Global" --data-location "United States" --resource-group "<resourceGroup>"
+```
+
+You can get your connection string by running the command below.
+
+```azurecli-interactive
+az communication list-key --name "<communicationName>" --resource-group "<resourceGroup>"
+```
+
+For more information on ACS resources and connection strings, see [Create an Azure Communication Services resources](../quickstarts/create-communication-resource.md)
 
 ### Store your connection string in an environment variable
 
@@ -50,7 +67,11 @@ After you add the environment variable, run `source ~/.bash_profile` from your c
 
 ## Operations
 
-Before running any commands, you'll need to first [sign in to Azure CLI](/cli/azure/authenticate-azure-cli). You can sign in by running ```az login``` in the terminal or command window and providing your credentials.
+> [!NOTE]
+> The connection string environment variable must be set to try out operations in the embedded Docs Shell. 
+> ```bash
+> export AZURE_COMMUNICATION_CONNECTION_STRING="<yourconnectionstring>"
+> ```
 
 ### Issue access token
 
