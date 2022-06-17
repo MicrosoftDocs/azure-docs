@@ -7,7 +7,7 @@ author: barclayn
 manager: rkarlin
 ms.author: barclayn
 ms.topic: tutorial
-ms.date: 05/03/2022
+ms.date: 06/16/2022
 # Customer intent: As an enterprise, we want to enable customers to manage information about themselves by using verifiable credentials.
 
 ---
@@ -47,7 +47,7 @@ The following diagram illustrates the Azure AD Verifiable Credentials architectu
 
 ## Create the verified credential expert card in Azure
 
-In this step, you create the verified credential expert card by using Azure AD Verifiable Credentials. After creating a verified credential, your Azure AD tenant can issue this credential to users who initiate the process.
+In this step, you create the verified credential expert card by using Azure AD Verifiable Credentials. After you create the credential, your Azure AD tenant can issue it to users who initiate the process.
 
 1. Using the [Azure portal](https://portal.azure.com/), search for *verifiable credentials*. Then select **Verifiable Credentials (Preview)**.
 1. After you [set up your tenant](verifiable-credentials-configure-tenant.md), the **Create credential** should appear. Alternatively, you can select **Credentials** in the left hand menu and select **+ Add a credential**.
@@ -238,7 +238,7 @@ Now you're ready to issue your first verified credential expert card by running 
 
     ![Screenshot that shows how to scan the Q R code.](media/verifiable-credentials-configure-issuer/scan-issuer-qr-code.png)
 
-1. At this time, you will see a message warning that this app or website might be risky. Select **Advanced**.
+1. At this time, you'll see a message warning that this app or website might be risky. Select **Advanced**.
 
      ![Screenshot that shows how to respond to the warning message.](media/verifiable-credentials-configure-issuer/at-risk.png)
 
@@ -246,11 +246,11 @@ Now you're ready to issue your first verified credential expert card by running 
 
      ![Screenshot that shows how to proceed with the risky warning.](media/verifiable-credentials-configure-issuer/proceed-anyway.png)
 
-1. You will be prompted to enter a PIN code that is displayed in the screen where you scanned the QR code. The PIN adds an extra layer of protection to the issuance. The PIN code is randomly generated every time an issuance QR code is displayed.
+1. You'll be prompted to enter a PIN code that is displayed in the screen where you scanned the QR code. The PIN adds an extra layer of protection to the issuance. The PIN code is randomly generated every time an issuance QR code is displayed.
 
      ![Screenshot that shows how to type the pin code.](media/verifiable-credentials-configure-issuer/enter-verification-code.png)
 
-1. After entering the PIN number, the **Add a credential** screen appears. At the top of the screen, you see a **Not verified** message (in red). This warning is related to the domain validation warning mentioned earlier.
+1. After you enter the PIN number, the **Add a credential** screen appears. At the top of the screen, you see a **Not verified** message (in red). This warning is related to the domain validation warning mentioned earlier.
 
 1. Select **Add** to accept your new verifiable credential.
 

@@ -7,7 +7,7 @@ manager: rkarlin
 ms.service: decentralized-identity
 ms.topic: how-to
 ms.subservice: verifiable-credentials
-ms.date: 06/08/2022
+ms.date: 06/16/2022
 ms.author: barclayn
 
 #Customer intent: As an administrator, I am looking for information to help me disable 
@@ -20,36 +20,40 @@ ms.author: barclayn
 Rules and Display definitions are used to define a credential. You can read more about it in [How to customize your credentials](credential-design.md).
 
 ## rulesModel type
+
 | Property | Type | Description |
 | -------- | -------- | -------- |
 |`attestations`| [idTokenAttestation](#idtokenattestation-type) and/or [idTokenHintAttestation](#idtokenhintattestation-type) and/or [verifiablePresentationAttestation](#verifiablepresentationattestation-type) and/or [selfIssuedAttestation](#selfissuedattestation-type) |
-|`validityInterval` | number | time span the represents the lifespan of the credential |
+|`validityInterval` | number | represents the lifespan of the credential |
 |`vc`| vcType array | types for this contract |
 
 
 ### idTokenAttestation type
-When you sign-in the user from within Authenticator you can use the returned ID token from the OIDC compatible provider as input.
+
+When you sign in the user from within Authenticator, you can use the returned ID token from the OIDC compatible provider as input.
 
 | Property | Type | Description |
 | -------- | -------- | -------- |
 | `mapping` | [claimMapping](#claimmapping-type) (optional) | rules to map input claims into output claims in the verifiable credential |
 | `configuration` | string (url) | location of the identity provider's configuration document |
-| `clientId` | string | client id to use when obtaining the id token |
-| `redirectUri` | string | redirect uri to use when obtaining the id token MUST BE vcclient://openid/ |
-| `scope` | string | space delimited list of scopes to use when obtaining the id token |
+| `clientId` | string | client ID to use when obtaining the ID token |
+| `redirectUri` | string | redirect uri to use when obtaining the ID token MUST BE vcclient://openid/ |
+| `scope` | string | space delimited list of scopes to use when obtaining the ID token |
 | `required` | boolean (default false) | indicating whether this attestation is required or not |
-| `trustedIssuers` | optional string (array) | a list of DIDs allowed to issue the verifiable credential for this contract, this is only used for specific scenarios where the idtoken hint can come from another issuer |
+| `trustedIssuers` | optional string (array) | a list of DIDs allowed to issue the verifiable credential for this contract. This property is only used for specific scenarios where the `idtoken` hint can come from another issuer |
 
 ### idTokenHintAttestation type
-This flow uses the IDTokenHint which is provided as payload throught the Request REST API. The mapping is the same as for the ID Token attestation.
+
+This flow uses the IDTokenHint, which is provided as payload through the Request REST API. The mapping is the same as for the ID Token attestation.
 
 | Property | Type | Description |
 | -------- | -------- | -------- |
 | `mapping` | [claimMapping](#claimmapping-type) (optional) | rules to map input claims into output claims in the verifiable credential |
 | `required` | boolean (default false) | indicating whether this attestation is required or not |
-| `trustedIssuers` | optional string (array) | a list of DIDs allowed to issue the verifiable credential for this contract, this is only used for specific scenarios where the idtoken hint can come from another issuer |
+| `trustedIssuers` | optional string (array) | a list of DIDs allowed to issue the verifiable credential for this contract. This property is only used for specific scenarios where the idtoken hint can come from another issuer |
 
 ### verifiablePresentationAttestation type
+
 When you want the user to present another VC as input for a new issued VC. The wallet will allow the user to select the VC during issuance.
 
 | Property | Type | Description |
@@ -57,10 +61,12 @@ When you want the user to present another VC as input for a new issued VC. The w
 | `mapping` | [claimMapping](#claimmapping-type) (optional) | rules to map input claims into output claims in the verifiable credential |
 | `credentialType` | string (optional) | required credential type of the input |
 | `required` | boolean (default false) | indicating whether this attestation is required or not |
-| `trustedIssuers` | string (array) | a list of DIDs allowed to issue the verifiable credential for this contract, the service will default your issuer under the covers so no need to provide this yourself. |
+| `trustedIssuers` | string (array) | a list of DIDs allowed to issue the verifiable credential for this contract. The service will default to your issuer under the covers so no need to provide this value yourself. |
 
 ### selfIssuedAttestation type
-When you want the user to enter input themselves, also called self-attested input.
+
+When you want the user to enter information themselves. This type is also called self-attested input.
+
 | Property | Type | Description |
 | -------- | -------- | -------- |
 | `mapping` | [claimMapping](#claimmapping-type) (optional) | rules to map input claims into output claims in the verifiable credential |
@@ -68,11 +74,12 @@ When you want the user to enter input themselves, also called self-attested inpu
 
 
 ### claimMapping type
+
 | Property | Type | Description |
 | -------- | -------- | -------- |
 | `inputClaim` | string | the name of the claim to use from the input |
 | `outputClaim` | string | the name of the claim in the verifiable credential |
-| `indexed` | boolean (default false) | indicating whether the value of this claim is used for searching; only one clientMapping object is allowed to be indexed for a given contract |
+| `indexed` | boolean (default false) | indicating whether the value of this claim is used for searching; only one clientMapping object is indexable for a given contract |
 | `required` | boolean (default false) | indicating whether this mapping is required or not |
 | `type` | string (optional) | type of claim |
 
@@ -123,8 +130,8 @@ When you want the user to enter input themselves, also called self-attested inpu
 | -------- | -------- | -------- |
 |`title`| string | title of the credential |
 |`issuedBy` | string | the name of the issuer of the credential |
-|`backgroundColor` | number (hex)| background color of the credential in hex format e.g. #FFAABB |
-|`textColor`| number (hex)| text color of the credential in hex format e.g. #FFAABB |
+|`backgroundColor` | number (hex)| background color of the credential in hex format, for example, #FFAABB |
+|`textColor`| number (hex)| text color of the credential in hex format, for example, #FFAABB |
 |`description`| string | supplemental text displayed alongside each credential |
 |`logo`| [displayCredentialLogo](#displaycredentiallogo-type) | the logo to use for the credential |
 
