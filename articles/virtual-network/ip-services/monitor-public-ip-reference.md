@@ -21,25 +21,19 @@ This section lists all the automatically collected platform metrics collected fo
 |-------|-----|
 | Public IP Addresses | [Microsoft.Network/publicIPAddresses](/azure/azure-monitor/platform/metrics-supported#microsoftnetworkpublicipaddresses) |
 
-For more information, see a list of [all platform metrics supported in Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported).
+For more information, see a list of [all platform metrics supported in Azure Monitor](/azure/azure-monitor/platform/metrics-supported).
 
 ## Metric Dimensions
 
 For more information on what metric dimensions are, see [Multi-dimensional metrics](/azure/azure-monitor/platform/data-platform-metrics#multi-dimensional-metrics).
 
-Public IP Address has the following dimensions associated with its metrics.
-
-<!-- See https://docs.microsoft.com/azure/storage/common/monitor-storage-reference#metrics-dimensions for an example. Part is copied below. -->
-
-**--------------EXAMPLE format when you have dimensions------------------**
-
-Azure Storage supports following dimensions for metrics in Azure Monitor.
+Public IP Addresses have the following dimensions associated with its metrics.
 
 | Dimension Name | Description |
 | ------------------- | ----------------- |
-| **BlobType** | The type of blob for Blob metrics only. The supported values are **BlockBlob**, **PageBlob**, and **Azure Data Lake Storage**. Append blobs are included in **BlockBlob**. |
-| **BlobTier** | Azure storage offers different access tiers, which allow you to store blob object data in the most cost-effective manner. See more in [Azure Storage blob tier](/azure/storage/blobs/storage-blob-storage-tiers). The supported values include: <br/> <li>**Hot**: Hot tier</li> <li>**Cool**: Cool tier</li> <li>**Archive**: Archive tier</li> <li>**Premium**: Premium tier for block blob</li> <li>**P4/P6/P10/P15/P20/P30/P40/P50/P60**: Tier types for premium page blob</li> <li>**Standard**: Tier type for standard page Blob</li> <li>**Untiered**: Tier type for general purpose v1 storage account</li> |
-| **GeoType** | Transaction from Primary or Secondary cluster. The available values include **Primary** and **Secondary**. It applies to Read Access Geo Redundant Storage(RA-GRS) when reading objects from secondary tenant. |
+| **Port** | The port of the traffic. |
+| **Direction** | The direction of the traffic, inbound or outbound. |
+
 
 ## Resource logs
 

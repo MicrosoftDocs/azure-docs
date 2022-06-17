@@ -3,6 +3,7 @@ title: Monitoring Public IP addresses
 description: Start here to learn how to monitor Public IP addresses
 author: asudbring
 ms.author: allensu
+ms.topic: how-to
 ms.service: virtual-network
 ms.subservice: ip-services
 ms.custom: subject-monitoring
@@ -312,4 +313,5 @@ The following table lists common and recommended alert rules for Public IP addre
 ## Next steps
 
 - See [Monitoring *Public IP Addresses* data reference](monitor-public-ip-reference.md) for a reference of the metrics, logs, and other important values created by Public IP Address.
+
 - See [Monitoring Azure resources with Azure Monitor](/azure/azure-monitor/essentials/monitor-azure-resource) for details on monitoring Azure resources.
