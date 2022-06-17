@@ -16,9 +16,9 @@ ms.date: 06/17/2022
 
 ![Indexer Stages](./media/search-indexer-field-mappings/indexer-stages-field-mappings.png "indexer stages")
 
-When using Azure Cognitive Search indexers, an indexer automatically source fields to destination fields a target index, assuming compatible field names and data types. When input data doesn't quite match the schema of your target index, you can define *field mappings* to specifically set the data path.
+When using an Azure Cognitive Search indexer to push content into a search index, the indexer automatically assigns the source-to-destination field mappings. Implicit field mappings occur when field names and data types are compatible. If inputs and outputs don't match, you can define explicit *field mappings* to set up the data path, as described in this article.
 
-Field mappings in indexers are a simple way to map data fields to index fields, with some ability for light-weight data conversion. More complex data might require pre-processing to reshape it into a form that's conducive to indexing. One option you might consider is [Azure Data Factory](../data-factory/index.yml).
+Field mappings also provide light-weight data conversion through mapping functions. If more processing is required, consider [Azure Data Factory](../data-factory/index.yml) to bridge the gap.
 
 ## Scenarios and limitations
 
@@ -51,8 +51,8 @@ Field mappings are added to the "fieldMappings" array of the indexer definition.
 | Property | Description |
 |----------|-------------|
 | "sourceFieldName" | Required. Represents a field in your data source. |
-|  "targetFieldName" | Optional. Represents a field in your search index. If omitted, the value of "sourceFieldName" is used for the target. |
-| "mappingFunction" | Optional. [Predefined functions](#mappingFunctions) that transform data. Functions can be applied on both input and output field mappings. |
+|  "targetFieldName" | Optional. Represents a field in your search index. If omitted, the value of "sourceFieldName" is assumed for the target. |
+| "mappingFunction" | Optional. Consists of [predefined functions](#mappingFunctions) that transform data. You can apply functions to both source and target field mappings. |
 
 Azure Cognitive Search uses case-insensitive comparison to resolve the field and function names in field mappings. This is convenient (you don't have to get all the casing right), but it means that your data source or index can't have fields that differ only by case.  
 
@@ -63,9 +63,9 @@ You can use the portal, REST API, or an Azure SDK to define field mappings.
 
 ### [**Azure portal**](#tab/portal)
 
-If you're using the [Import data wizard](search-import-data-portal.md), field mappings aren't supported because the wizard creates search fields that align to source fields.
+If you're using the [Import data wizard](search-import-data-portal.md), field mappings aren't supported because the wizard creates target search fields that mirror the origin source fields.
 
-To set field mappings in the portal:
+In the portal, you can set field mappings in an indexer after the indexer already exists:
 
 1. Open the JSON definition of an existing indexer.
 
@@ -75,7 +75,7 @@ To set field mappings in the portal:
 
 1. If the search field is empty, run the indexer to import data from the source field to the newly mapped search field. If the search field was previously populated, reset the indexer before running it to drop and add the content.
 
-### [**REST**](#tab/rest)
+### [**REST APIs**](#tab/rest)
 
 Add field mappings when creating a new indexer using the [Create Indexer](/rest/api/searchservice/create-Indexer) API request. Manage the field mappings of an existing indexer using the [Update Indexer](/rest/api/searchservice/update-indexer) API request.
 
@@ -102,7 +102,7 @@ A source field can be referenced in multiple field mappings. The following examp
 ]
 ```
 
-### [**C#**](#tab/csharp)
+### [**.NET SDK (C#)**](#tab/csharp)
 
 In the Azure SDK for .NET, use the [FieldMapping](/dotnet/api/azure.search.documents.indexes.models.fieldmapping) class that provides "SourceFieldName" and "TargetFieldName" properties and an optional "MappingFunction" reference.
 
