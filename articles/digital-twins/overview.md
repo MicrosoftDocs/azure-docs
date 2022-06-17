@@ -30,7 +30,7 @@ Take advantage of your domain expertise on top of Azure Digital Twins to build c
 * Use a robust event system to build dynamic business logic and data processing
 * Integrate with Azure data, analytics, and AI services to help you track the past and then predict the future
 
-## Create custom environment models
+## Define your business environment
 
 In Azure Digital Twins, you define the digital entities that represent the people, places, and things in your physical environment using custom twin types called [models](concepts-models.md). 
 
@@ -45,7 +45,7 @@ You can view your Azure Digital Twins graph in [Azure Digital Twins Explorer](co
 
 :::image type="content" source="media/concepts-azure-digital-twins-explorer/azure-digital-twins-explorer-demo.png" alt-text="Screenshot of Azure Digital Twins Explorer, showing a graph of nodes representing digital twins." lightbox="media/concepts-azure-digital-twins-explorer/azure-digital-twins-explorer-demo.png":::
 
-## Incorporate data from IoT and business systems
+## Contextualize IoT and business system data
 
 Digital models in Azure Digital Twins are live, up-to-date representations of the real world. 
 
@@ -55,15 +55,11 @@ You can also drive Azure Digital Twins from other data sources, using [REST APIs
 
 Azure Digital Twins provides a rich event system to keep your graph current, including data processing that can be customized to match your business logic. You can connect external compute resources, such as [Azure Functions](../azure-functions/functions-overview.md), to drive this data processing in flexible, customized ways.
 
-## Visualize and query your digital twin graph
-
-You can observe the state of your twin graph at any given time using *queries* and *visualization*.
-
-### Query language
+## Query for environment insights
 
 Azure Digital Twins provides a powerful query API​ to help you extract insights from the live execution environment. The API can query with extensive search conditions, including property values, relationships, relationship properties, model information, and more. You can also combine queries, gathering a broad range of insights about your environment and answering custom questions that are important to you. For more details about the language used to craft these queries, see [Query language](concepts-query-language.md).
 
-### 3D Scenes Studio (preview)
+## Visualize environment in 3D Scenes Studio (preview)
 
 Azure Digital Twins [3D Scenes Studio (preview)](concepts-3d-scenes-studio.md) is an immersive visual 3D environment, where end users can monitor, diagnose, and investigate operational digital twin data with the visual context of 3D assets. With a digital twin graph and curated 3D model, subject matter experts can leverage the studio's low-code builder to map the 3D elements to digital twins in the Azure Digital Twins graph, and define UI interactivity and business logic for a 3D visualization of a business environment. The 3D scenes can then be consumed in the hosted 3D Scenes Studio, or in a custom application that leverages the embeddable 3D viewer component.
 
