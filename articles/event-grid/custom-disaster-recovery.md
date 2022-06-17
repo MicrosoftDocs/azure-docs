@@ -9,7 +9,7 @@ ms.custom: devx-track-csharp
 
 # Build your own disaster recovery plan for Azure Event Grid topics and domains
 
-If you have decided to not to replicate any data to a paired region, you'll need to invest in some practices to build your own disaster recovery scenario and recover from a severe loss of application functionality.
+If you have decided not to replicate any data to a paired region, you'll need to invest in some practices to build your own disaster recovery scenario and recover from a severe loss of application functionality.
 
 ## Build your scripts for automation
 
@@ -33,17 +33,15 @@ Note: Once you have deployed resources in Azure you'll need to ensure changes ma
 
 Save in some place the topic endpoints URLs for each resource you have created, you'll see something like this: 
 
-Region 1:
-https://my-primary-topic.my-region-1.eventgrid.azure.net/api/events 
+Region 1: `https://my-primary-topic.my-region-1.eventgrid.azure.net/api/events` 
 
-Region 2:
-https://my-secondary-topic.my-secondary-1.eventgrid.azure.net/api/events 
+Region 2: `https://my-secondary-topic.my-secondary-1.eventgrid.azure.net/api/events` 
 
 ## Create a Traffic Manager for Azure Event Grid endpoints
 
-The previously created Azure Event Grid resources endpoints will be used when we create and configure the Traffic Manager profile in Azure, see the following [Quickstart: Create a Traffic Manager profile using the Azure Portal](../traffic-manager/quickstart-create-traffic-manager-profile.md) for more information.
+The previously created Azure Event Grid resources endpoints will be used when we create and configure the Traffic Manager profile in Azure, see the following [Quickstart: Create a Traffic Manager profile using the Azure portal](../traffic-manager/quickstart-create-traffic-manager-profile.md) for more information.
 
-Traffic Manager it's a global resource that provides a unique DNS name, like: https://myeventgridtopic.trafficmanager.net. Once you configure both Azure Event Grid topic endpoints in the Traffic Manager, it will automatically redirect the traffic to the second region once the primary region becomes unavailable.
+Traffic Manager it's a global resource that provides a unique DNS name, like: `https://myeventgridtopic.trafficmanager.net`. Once you configure both Azure Event Grid topic endpoints in the Traffic Manager, it will automatically redirect the traffic to the second region once the primary region becomes unavailable.
 
 At this moment you have your resources deployed and running, and can start sending events to your traffic manager endpoint, in case you don't want to keep active the secondary endpoint in your traffic manager you may be interested to [disable the endpoint](../traffic-manager/traffic-manager-manage-endpoints.md#to-disable-an-endpoint).
 
