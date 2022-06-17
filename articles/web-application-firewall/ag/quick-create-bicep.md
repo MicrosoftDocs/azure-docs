@@ -1,41 +1,37 @@
 ---
-title: 'Quickstart: Create an Azure WAF v2 on Application Gateway - Azure Resource Manager template'
+title: 'Quickstart: Create an Azure WAF v2 on Application Gateway - Bicep'
 titleSuffix: Azure Application Gateway
 description: Learn how to use an Azure Resource Manager quickstart template (ARM template) to create a Web Application Firewall v2 on Azure Application Gateway.
 services: web-application-firewall
-author: vhorne
+author: schaffererin
 ms.service: web-application-firewall
 ms.topic: quickstart
-ms.date: 09/16/2020
-ms.author: victorh
+ms.date: 06/17/2022
+ms.author: v-eschaffer
 ms.custom: subject-armqs, devx-track-azurepowershell, mode-arm
 ---
 
-# Quickstart: Create an Azure WAF v2 on Application Gateway using an ARM template
+# Quickstart: Create an Azure WAF v2 on Application Gateway using Bicep
 
-In this quickstart, you use an Azure Resource Manager template (ARM template) to create an Azure Web Application Firewall v2 on Application Gateway.
+In this quickstart, you use Bicep to create an Azure Web Application Firewall v2 on Application Gateway.
 
-[!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
+[!INCLUDE [About Bicep](../../../includes/resource-manager-quickstart-bicep-introduction.md)]
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
-
-If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal.
-
-[![Deploy to Azure](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fdemos%2Fag-docs-wafv2%2Fazuredeploy.json)
 
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-## Review the template
+## Review the Bicep file
 
-This template creates a simple Web Application Firewall v2 on Azure Application Gateway. This includes a public IP frontend IP address, HTTP settings, a rule with a basic listener on port 80, and a backend pool. A WAF policy with a custom rule is created to block traffic to the backend pool based on an IP address match type.
+This Bicep file creates a simple Web Application Firewall v2 on Azure Application Gateway. This includes a public IP frontend IP address, HTTP settings, a rule with a basic listener on port 80, and a backend pool. The file also creates a WAF policy with a custom rule to block traffic to the backend pool based on an IP address match type.
 
-The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/ag-docs-wafv2/).
+The Bicep file used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/ag-docs-wafv2/).
 
-:::code language="json" source="~/quickstart-templates/demos/ag-docs-wafv2/azuredeploy.json":::
+:::code language="bicep" source="~/quickstart-templates/demos/ag-docs-wafv2/main.bicep":::
 
-Multiple Azure resources are defined in the template:
+Multiple Azure resources are defined in the Bicep file:
 
 - [**Microsoft.Network/applicationgateways**](/azure/templates/microsoft.network/applicationgateways)
 - [**Microsoft.Network/ApplicationGatewayWebApplicationFirewallPolicies**](/azure/templates/microsoft.network/ApplicationGatewayWebApplicationFirewallPolicies)
@@ -46,16 +42,31 @@ Multiple Azure resources are defined in the template:
 - [**Microsoft.Network/networkInterfaces**](/azure/templates/microsoft.network/networkinterfaces) : two for the virtual machines
 - [**Microsoft.Compute/virtualMachine/extensions**](/azure/templates/microsoft.compute/virtualmachines/extensions) : to configure IIS and the web pages
 
-## Deploy the template
+## Deploy the Bicep file
 
-Deploy the ARM template to Azure:
+1. Save the Bicep file as **main.bicep** to your local computer.
+1. Deploy the Bicep file using either Azure CLI or Azure PowerShell.
 
-1. Select **Deploy to Azure** to sign in to Azure and open the template. The template creates an application gateway, the network infrastructure, and two virtual machines in the backend pool running IIS.
+    # [CLI](#tab/CLI)
 
-   [![Deploy to Azure](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fdemos%2Fag-docs-wafv2%2Fazuredeploy.json)
+    ```azurecli
+    az group create --name exampleRG --location eastus
+    az deployment group create --resource-group exampleRG --template-file main.bicep --parameters adminUsername=<admin-user>
+    ```
 
-2. Select or create your resource group.
-3. Select **I agree to the terms and conditions stated above** and then select **Purchase**. The deployment can take 10 minutes or longer to complete.
+    # [PowerShell](#tab/PowerShell)
+
+    ```azurepowershell
+    New-AzResourceGroup -Name exampleRG -Location eastus
+    New-AzResourceGroupDeployment -ResourceGroupName exampleRG -TemplateFile ./main.bicep -adminUsername "<admin-user>"
+    ```
+
+    ---
+
+> [!NOTE]
+> You'll be prompted to enter **adminPassword**, which is the password for the admin account on the backend servers.
+
+When the deployment finishes, you should see a message indicating the deployment succeeded. The deployment can take 10 minutes or longer to complete.
 
 ## Validate the deployment
 
@@ -83,13 +94,21 @@ Use IIS to test the application gateway:
 
 ## Clean up resources
 
-When you no longer need the resources that you created with the application gateway, delete the resource group. This removes the application gateway and all the related resources.
+When you no longer need the resources that you created with the application gateway, use the Azure portal, Azure CLI, or Azure PowerShell to delete the resource group. This removes the application gateway and all the related resources.
 
-To delete the resource group, call the `Remove-AzResourceGroup` cmdlet:
+# [CLI](#tab/CLI)
+
+```azurecli-interactive
+az group delete --name exampleRG
+```
+
+# [PowerShell](#tab/PowerShell)
 
 ```azurepowershell-interactive
-Remove-AzResourceGroup -Name "<your resource group name>"
+Remove-AzResourceGroup -Name exampleRG
 ```
+
+---
 
 ## Next steps
 
