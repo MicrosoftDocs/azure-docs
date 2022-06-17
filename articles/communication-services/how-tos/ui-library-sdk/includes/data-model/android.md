@@ -12,7 +12,7 @@ Azure Communication UI [open source library](https://github.com/Azure/communicat
 
 ### Local Participant View Customization
 
-The UI Library gives developers the ability to provide a more customized experience regarding Participant information. At launch, developers can optionally add Participant View Data. This local data is not shared with the server and can be used to customize the display name and avatar of the local user.
+The UI Library gives developers the ability to provide a more customized experience regarding Participant information. At launch, developers can optionally add Participant View Data. This local data isn't shared with the server and can be used to customize the display name and avatar of the local user.
 
 #### Local Participant View Data
 
@@ -20,7 +20,7 @@ The UI Library gives developers the ability to provide a more customized experie
 
 This class is held in the `CallCompositeLocalOptions` object that represents options used locally on the device making the call.
 
-`displayName` differs from the `displayName` passed in via the `CallCompositeRemoteOptions`. `CallCompositeParticipantViewData` `displayName` is only used locally as an override, where `CallCompositeRemoteOptions` `displayName` is passed to the server and shared with other participants. When `CallCompositeParticipantViewData` `displayName` is not provided, `CallCompositeRemoteOptions` `displayName` is used.
+`displayName` differs from the `displayName` passed in via the `CallCompositeRemoteOptions`. `CallCompositeParticipantViewData` `displayName` is only used locally as an override, where `CallCompositeRemoteOptions` `displayName` is passed to the server and shared with other participants. When `CallCompositeParticipantViewData` `displayName` isn't provided, `CallCompositeRemoteOptions` `displayName` is used.
 
 #### Usage
 
@@ -45,7 +45,7 @@ callComposite.launch(this, remoteOptions, localOptions);
 
 |Setup View| Calling Experience View|
 | ---- | ---- |
-| :::image type="content" source="media/android-model-injection.png" alt-text="Screenshot of a Android data custom model injection."::: | :::image type="content" source="media/android-model-injection-name.png"  alt-text="Screenshot of a Android data custom model injection with name."::: |
+| :::image type="content" source="media/android-model-injection.png" alt-text="Screenshot of an Android data custom model injection."::: | :::image type="content" source="media/android-model-injection-name.png"  alt-text="Screenshot of an Android data custom model injection with name."::: |
 
 ### Remote Participant View Customization
 
