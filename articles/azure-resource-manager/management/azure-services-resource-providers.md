@@ -113,7 +113,7 @@ The resources providers that are marked with **- registered** are registered by 
 | Microsoft.Logic | [Logic Apps](../../logic-apps/index.yml) |
 | Microsoft.MachineLearning | [Machine Learning Studio](../../machine-learning/classic/index.yml) |
 | Microsoft.MachineLearningServices | [Azure Machine Learning](../../machine-learning/index.yml) |
-| Microsoft.Maintenance | [Azure Maintenance](../../virtual-machines/maintenance-control-cli.md) |
+| Microsoft.Maintenance | [Azure Maintenance](../../virtual-machines/maintenance-configurations.md) |
 | Microsoft.ManagedIdentity | [Managed identities for Azure resources](../../active-directory/managed-identities-azure-resources/index.yml) |
 | Microsoft.ManagedNetwork | Virtual networks managed by PaaS services |
 | Microsoft.ManagedServices | [Azure Lighthouse](../../lighthouse/index.yml) |

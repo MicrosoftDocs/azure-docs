@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: how-to
-ms.date: 04/01/2022
+ms.date: 06/16/2022
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -274,14 +274,14 @@ The AADLoginForWindows extension must install successfully in order for the VM t
 
 1. Ensure the required endpoints are accessible from the VM using PowerShell:
    
-   - `curl https://login.microsoftonline.com/ -D -`
-   - `curl https://login.microsoftonline.com/<TenantID>/ -D -`
-   - `curl https://enterpriseregistration.windows.net/ -D -`
-   - `curl https://device.login.microsoftonline.com/ -D -`
-   - `curl https://pas.windows.net/ -D -`
+   - `curl.exe https://login.microsoftonline.com/ -D -`
+   - `curl.exe https://login.microsoftonline.com/<TenantID>/ -D -`
+   - `curl.exe https://enterpriseregistration.windows.net/ -D -`
+   - `curl.exe https://device.login.microsoftonline.com/ -D -`
+   - `curl.exe https://pas.windows.net/ -D -`
 
    > [!NOTE]
-   > Replace `<TenantID>` with the Azure AD Tenant ID that is associated with the Azure subscription.<br/> `enterpriseregistration.windows.net` and `pas.windows.net` should return 404 Not Found, which is expected behavior.
+   > Replace `<TenantID>` with the Azure AD Tenant ID that is associated with the Azure subscription.<br/> `login.microsoftonline.com/<TenantID>`,  `enterpriseregistration.windows.net`, and `pas.windows.net` should return 404 Not Found, which is expected behavior.
             
 1. The Device State can be viewed by running `dsregcmd /status`. The goal is for Device State to show as `AzureAdJoined : YES`.
 
@@ -398,12 +398,12 @@ If you've configured a Conditional Access policy that requires multi-factor auth
 
 - Your credentials did not work.
 
+> [!WARNING]
+> Legacy per-user Enabled/Enforced Azure AD Multi-Factor Authentication is not supported for VM Sign-In. This setting causes Sign-in to fail with “Your credentials do not work.” error message.
+
 ![Your credentials did not work](./media/howto-vm-sign-in-azure-ad-windows/your-credentials-did-not-work.png)
 
-> [!WARNING]
-> Per-user Enabled/Enforced Azure AD Multi-Factor Authentication is not supported for VM Sign-In. This setting causes Sign-in to fail with “Your credentials do not work.” error message.
-
-You can resolve the above issue by removing the per user MFA setting, by following these steps:
+You can resolve the above issue by removing the per-user MFA setting, by following these steps:
 
 ```
 
@@ -425,6 +425,27 @@ If you haven't deployed Windows Hello for Business and if that isn't an option f
 > Windows Hello for Business PIN authentication with RDP has been supported by Windows 10 for several versions, however support for Biometric authentication with RDP was added in Windows 10 version 1809. Using Windows Hello for Business authentication during RDP is only available for deployments that use cert trust model and currently not available for key trust model.
  
 Share your feedback about this feature or report issues using it on the [Azure AD feedback forum](https://feedback.azure.com/d365community/forum/22920db1-ad25-ec11-b6e6-000d3a4f0789).
+
+### Missing application
+
+If the Azure Windows VM Sign-In application is missing from Conditional Access, use the following steps to remediate the issue:
+
+1. Check to make sure the application isn't in the tenant by:
+   1. Sign in to the **Azure portal**.
+   1. Browse to **Azure Active Directory** > **Enterprise applications**
+   1. Remove the filters to see all applications, and search for "VM". If you don't see Azure Windows VM Sign-In as a result, the service principal is missing from the tenant.
+
+Another way to verify it is via Graph PowerShell:
+
+1. [Install the Graph PowerShell SDK](/powershell/microsoftgraph/installation) if you haven't already done so. 
+1. `Connect-MgGraph -Scopes "ServicePrincipalEndpoint.ReadWrite.All","Application.ReadWrite.All"`
+1. Sign-in with a Global Admin account
+1. Consent to permission prompt
+1. `Get-MgServicePrincipal -ConsistencyLevel eventual -Search '"DisplayName:Azure Windows VM Sign-In"'`
+   1. If this command results in no output and returns you to the PowerShell prompt, you can create the Service Principal with the following Graph PowerShell command:
+   1. `New-MgServicePrincipal -AppId 372140e0-b3b7-4226-8ef9-d57986796201`
+   1. Successful output will show that the AppID and the Application Name Azure Windows VM Sign-In was created.
+1. Sign out of Graph PowerShell when complete with the following command: `Disconnect-MgGraph`
 
 ## Next steps
 

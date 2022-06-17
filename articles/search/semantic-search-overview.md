@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 04/26/2022
+ms.date: 06/17/2022
 ms.custom: references_regions
 ---
 # Semantic search in Azure Cognitive Search
@@ -82,7 +82,7 @@ Semantic search and spell check are available on services that meet the criteria
 
 | Feature | Tier | Region | Sign up | Pricing |
 |---------|------|--------|---------------------|-------------------|
-| Semantic search | Standard tier (S1, S2, S3) | [Region availability](https://azure.microsoft.com/global-infrastructure/services/?products=search)| Required | [Pricing](https://azure.microsoft.com/pricing/details/search/) <sup>1</sup>|
+| Semantic search | Standard tier (S1, S2, S3, S3 HD), Storage Optimized tier (L1, L2) | [Region availability](https://azure.microsoft.com/global-infrastructure/services/?products=search)| Required | [Pricing](https://azure.microsoft.com/pricing/details/search/) <sup>1</sup>|
 | Spell check | Basic <sup>2</sup> and above  | All | None | None (free) |
 
 <sup>1</sup> At lower query volumes (under 1000 monthly), semantic search is free. To go above that limit, you can opt in to the semantic search standard pricing plan. The pricing page shows you the semantic query billing rate for different currencies and intervals.
@@ -131,7 +131,7 @@ PUT https://management.azure.com/subscriptions/{{subscriptionId}}/resourcegroups
 To re-enable semantic search, rerun the above request, setting "semanticSearch" to either "free" (default) or "standard".
 
 > [!TIP]
-> Management REST API calls are authenticated through Azure Active Directory. For guidance on setting up a security principle and a request, see this blog post [Azure REST APIs with Postman (2021)](https://blog.jongallant.com/2021/02/azure-rest-apis-postman-2021/). The previous example was tested using the instructions and Postman collection provided in the blog post.
+> Management REST API calls are authenticated through Azure Active Directory. For guidance on setting up a security principal and a request, see this blog post [Azure REST APIs with Postman (2021)](https://blog.jongallant.com/2021/02/azure-rest-apis-postman-2021/). The previous example was tested using the instructions and Postman collection provided in the blog post.
 
 ## Next steps
 

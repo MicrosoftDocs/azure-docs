@@ -1,6 +1,5 @@
 ---
 title: Protect against consent phishing
-titleSuffix: Azure AD
 description: Learn ways of mitigating against application-based consent phishing attacks using Azure Active Directory.
 services: active-directory
 author: davidmu1

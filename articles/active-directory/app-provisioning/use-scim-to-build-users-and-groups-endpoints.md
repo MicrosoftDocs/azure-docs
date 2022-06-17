@@ -3,7 +3,7 @@ title: Build a SCIM endpoint for user provisioning to apps from Azure Active Dir
 description: Learn to develop a SCIM endpoint, integrate your SCIM API with Azure Active Directory, and automatically provision users and groups into your cloud applications. 
 services: active-directory
 author: kenwith
-manager: karenhoran
+manager: rkarlin
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity

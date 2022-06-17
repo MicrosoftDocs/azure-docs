@@ -4,7 +4,7 @@ description: Guidance for troubleshooting issues on Windows virtual machines, sc
 ms.topic: conceptual
 author: shseth
 ms.author: shseth
-ms.date: 5/3/2022
+ms.date: 6/9/2022
 ms.custom: references_region
 
 ---
@@ -13,7 +13,7 @@ ms.custom: references_region
 
 [!INCLUDE [azure-monitor-agent-architecture](../../../includes/azure-monitor-agent/azure-monitor-agent-architecture-include.md)]
 
-## Basic troubleshooting steps
+## Basic troubleshooting steps (installation, agent not running, configuration issues)
 Follow the steps below to troubleshoot the latest version of the Azure Monitor agent running on your Windows virtual machine:
 
 1. **Carefully review the [prerequisites here](./azure-monitor-agent-manage.md#prerequisites).**  
@@ -42,6 +42,8 @@ Follow the steps below to troubleshoot the latest version of the Azure Monitor a
 	2. On your virtual machine, verify the existence of the file `C:\WindowsAzure\Resources\AMADataStore.<virtual-machine-name>\mcs\mcsconfig.latest.xml`. If this file doesn't exist:
 		- The virtual machine may not be associated with a DCR. See step 3
 		- The virtual machine may not have Managed Identity enabled. [See here](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#enable-system-assigned-managed-identity-during-creation-of-a-vm) on how to enable. 
+		- IMDS service is not running/accessible from the virtual machine. [Check if you can access IMDS from the machine](../../virtual-machines/windows/instance-metadata-service.md?tabs=windows). If not, [file a ticket](#file-a-ticket) with **Summary** as 'IMDS service not running' and **Problem type** as 'I need help configuring data collection from a VM'.
+		- AMA cannot access IMDS. Check if you see IMDS errors in `C:\WindowsAzure\Resources\AMADataStore.<virtual-machine-name>\Tables\MAEventTable.tsf` file. If yes, [file a ticket](#file-a-ticket) with **Summary** as 'AMA cannot access IMDS' and **Problem type** as 'I need help configuring data collection from a VM'.
 	3. Open Azure portal > select your data collection rule > Open **Configuration** : **Resources** blade from left menu > You should see the virtual machine listed here  
 	4. If not listed, click 'Add' and select your virtual machine from the resource picker. Repeat across all DCRs.
 	5. If none of the above helps, [file a ticket](#file-a-ticket) with **Summary** as 'DCR not found or associated' and **Problem type** as 'I need help configuring data collection from a VM'.
@@ -111,5 +113,3 @@ Follow the steps below to troubleshoot the latest version of the Azure Monitor a
 	
 	
 [!INCLUDE [azure-monitor-agent-file-a-ticket](../../../includes/azure-monitor-agent/azure-monitor-agent-file-a-ticket.md)]
-
-

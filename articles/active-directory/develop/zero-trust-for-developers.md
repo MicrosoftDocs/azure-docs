@@ -1,6 +1,5 @@
 ---
 title: "Increase application security using Zero Trust principles"
-titleSuffix: Microsoft identity platform
 description: Learn how using Zero Trust principles can help increase the security of your application and its data.
 services: active-directory
 author: davidmu1
@@ -67,5 +66,5 @@ Consider the following actions prevent breaches in security:
 
 ## Next steps
 
-- Zero Trust [Guidance Center](/security/zero-trust/)  
+- Zero Trust [Guidance Center](/security/zero-trust/)
 - Microsoft identity platform [best practices and recommendations](./identity-platform-integration-checklist.md).

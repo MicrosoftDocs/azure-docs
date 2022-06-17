@@ -3,17 +3,19 @@ title: Link your Domain to your Decentralized Identifier (DID) (preview) - Azure
 description: Learn how to DNS Bind?
 documentationCenter: ''
 author: barclayn
-manager: karenhoran
-ms.service: active-directory
+manager: rkarlin
+ms.service: decentralized-identity
 ms.topic: how-to
 ms.subservice: verifiable-credentials
-ms.date: 02/22/2022
+ms.date: 06/02/2022
 ms.author: barclayn
 
 #Customer intent: Why are we doing this?
 ---
 
 # Link your domain to your Decentralized Identifier (DID) (preview)
+
+[!INCLUDE [Verifiable Credentials announcement](../../../includes/verifiable-credentials-brand.md)]
 
 > [!IMPORTANT]
 > Azure Active Directory Verifiable Credentials is currently in public preview.
@@ -35,7 +37,7 @@ Linking a DID to a domain solves the initial trust problem by allowing any entit
 
 ## When do you need to update the domain in your DID?
 
-In the event where the domain associated with your company changes, you would also need to change the domain in your DID document that is also published in the ION network. You can update the domain in your DID directly from the Azure AD Verifiable Credential portal.
+In the event where the domain associated with your company changes, you would also need to change the domain in your DID document. You can update the domain in your DID directly from the Azure AD Verifiable Credential portal
 
 ## How do we link DIDs and domains?
 
@@ -116,7 +118,7 @@ It is of high importance that you link your DID to a domain recognizable to the 
 
 :::image type="content" source="media/how-to-dnsbind/publish-update-domain.png" alt-text="Choose the publish button so your changes become":::
 
-It might take up to two hours for your DID document to be updated in the [ION network](https://identity.foundation/ion) with the new domain information. No other changes to the domain are possible before the changes are published.
+If the trust system is ION, it might take up to two hours for your DID document to be updated in the [ION network](https://identity.foundation/ion) with the new domain information. No other changes to the domain are possible before the changes are published. If the trust system is Web, the changes are public as soon as you replace the did-configuration.json file on your web server.
 
 >[!NOTE]
 >If your changes are successful you will need to [verify](#verified-domain) your newly added domain.
@@ -130,7 +132,7 @@ Yes. You need to wait until the config.json file gets updated before you publish
 
 ### How do I know when the linked domain update has successfully completed?
 
-Once the domain changes are publised to ION, the domain section inside the Azure AD Verifiable Credentials service will display `Published` as the status and you should be able to make new changes to the domain. 
+If the trust system is ION, once the domain changes are published to ION, the domain section inside the Azure AD Verifiable Credentials service will display Published as the status and you should be able to make new changes to the domain. If the trust system is Web, the changes are public as soon as you replace the did-configuration.json file on your web server.
 
 >[!IMPORTANT]
 > No changes to your domain are possible while publishing is in progress.

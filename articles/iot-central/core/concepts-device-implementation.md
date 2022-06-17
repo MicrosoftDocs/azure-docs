@@ -27,7 +27,7 @@ An IoT Central device template includes a _model_ that specifies the behaviors a
 
 Each model has a unique _device twin model identifier_ (DTMI), such as `dtmi:com:example:Thermostat;1`. When a device connects to IoT Central, it sends the DTMI of the model it implements. IoT Central can then assign the correct device template to the device.
 
-[IoT Plug and Play](../../iot-develop/overview-iot-plug-and-play.md) defines a set of [conventions](../../iot-develop/concepts-convention.md) that a device should follow when it implements a DTDL model.
+[IoT Plug and Play](../../iot-develop/overview-iot-plug-and-play.md) defines a set of [conventions](../../iot-develop/concepts-convention.md) that a device should follow when it implements a Digital Twin Definition Language (DTDL) model.
 
 The [Azure IoT device SDKs](#device-sdks) include support for the IoT Plug and Play conventions.
 
@@ -46,9 +46,9 @@ A DTDL model can be a _no-component_ or a _multi-component_ model:
 - Multi-component model. A more complex model that includes two or more components. These components include a single root component, and one or more nested components. For an example, see the [Temperature Controller](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/TemperatureController.json) model.
 
 > [!TIP]
-> You can export the model from an IoT Central device template as a [Digital Twins Definition Language (DTDL) v2](https://github.com/Azure/opendigitaltwins-dtdl) JSON file.
+> You can [export a device model](howto-set-up-template.md#interfaces-and-components) from an IoT Central device template as a DTDL v2 file.
 
-To learn more, see [IoT Plug and Play modeling guide](../../iot-develop/concepts-modeling-guide.md)
+To learn more about device models, see the [IoT Plug and Play modeling guide](../../iot-develop/concepts-modeling-guide.md)
 
 ### Conventions
 

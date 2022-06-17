@@ -10,11 +10,12 @@ author: csteegz
 ms.reviewer: larryfr
 ms.date: 10/21/2021
 ms.topic: how-to
-ms.custom: devx-track-python, deploy
+ms.custom: devx-track-python, deploy, sdkv1, event-tier1-build-2022
 ---
 
 # Deploy a deep learning model for inference with GPU
 
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
 
 This article teaches you how to use Azure Machine Learning to deploy a GPU-enabled model as a web service. The information in this article is based on deploying a model on Azure Kubernetes Service (AKS). The AKS cluster provides a GPU resource that is used by the model for inference.
 
@@ -29,7 +30,7 @@ Inference, or model scoring, is the phase where the deployed model is used to ma
 > Although the code snippets in this article use a TensorFlow model, you can apply the information to any machine learning framework that supports GPUs.
 
 > [!NOTE]
-> The information in this article builds on the information in the [How to deploy to Azure Kubernetes Service](how-to-deploy-azure-kubernetes-service.md) article. Where that article generally covers deployment to AKS, this article covers GPU specific deployment.
+> The information in this article builds on the information in the [How to deploy to Azure Kubernetes Service](v1/how-to-deploy-azure-kubernetes-service.md) article. Where that article generally covers deployment to AKS, this article covers GPU specific deployment.
 
 ## Prerequisites
 
@@ -92,7 +93,7 @@ except ComputeTargetException:
 > [!IMPORTANT]
 > Azure will bill you as long as the AKS cluster exists. Make sure to delete your AKS cluster when you're done with it.
 
-For more information on using AKS with Azure Machine Learning, see [How to deploy to Azure Kubernetes Service](how-to-deploy-azure-kubernetes-service.md).
+For more information on using AKS with Azure Machine Learning, see [How to deploy to Azure Kubernetes Service](v1/how-to-deploy-azure-kubernetes-service.md).
 
 ## Write the entry script
 

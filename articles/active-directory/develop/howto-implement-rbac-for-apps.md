@@ -1,6 +1,5 @@
 ---
 title: Implement role-based access control in applications
-titleSuffix: Microsoft identity platform
 description: Learn how to implement role-based access control in your applications.
 services: active-directory
 author: davidmu1
