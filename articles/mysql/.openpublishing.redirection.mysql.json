@@ -735,5 +735,15 @@
         "redirect_url": "/azure/mysql/single-server/tutorial-design-database-using-powershell",
         "redirect_document_id": false
     },
+    {
+        "source_path_from_root": "/articles/mysql/single-server/concepts-supported-versions.md",
+        "redirect_url": "/azure/mysql/concepts-version-policy",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/mysql/flexible-server/concepts-compute-storage.md",
+        "redirect_url": "/azure/mysql/concepts-service-tiers",
+        "redirect_document_id": true
+    }
     ]
 }

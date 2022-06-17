@@ -32,7 +32,7 @@ In Azure Database for MySQL service, gateway nodes listens on port 3308 for v5.7
 
 | Version | [Single Server](overview.md) <br/> Current minor version |[Flexible Server](../flexible-server/overview.md) <br/> Current minor version  |
 |:-------------------|:-------------------------------------------|:---------------------------------------------|
-|MySQL Version 5.6 |  [5.6.47](https://dev.mysql.com/doc/relnotes/mysql/5.6/en/news-5-6-47.html) (Retired) | Not supported|
+|MySQL Version 5.6 | [5.6.47](https://dev.mysql.com/doc/relnotes/mysql/5.6/en/news-5-6-47.html) (Retired) | Not supported|
 |MySQL Version 5.7 | [5.7.32](https://dev.mysql.com/doc/relnotes/mysql/5.7/en/news-5-7-32.html) | [5.7.37](https://dev.mysql.com/doc/relnotes/mysql/5.7/en/news-5-7-37.html)|
 |MySQL Version 8.0 | [8.0.15](https://dev.mysql.com/doc/relnotes/mysql/8.0/en/news-8-0-15.html) | [8.0.28](https://dev.mysql.com/doc/relnotes/mysql/8.0/en/news-8-0-28.html)|
 

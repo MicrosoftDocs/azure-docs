@@ -1,5 +1,5 @@
 ---
-title: Compute and storage options - Azure Database for MySQL - Flexible Server
+title: Azure Database for MySQL - Flexible Server service tiers
 description: This article describes the compute and storage options in Azure Database for MySQL - Flexible Server.
 author: Bashar-MSFT
 ms.author: bahusse
@@ -10,12 +10,11 @@ ms.topic: conceptual
 ms.date: 05/24/2022
 ---
 
-# Compute and storage options in Azure Database for MySQL - Flexible Server
+# Azure Database for MySQL - Flexible Server service tiers
 
 [!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
-
-You can create an Azure Database for MySQL Flexible Server in one of three different compute tiers: Burstable, General Purpose, and Business Critical. The compute tiers are differentiated by the underlying VM SKU used B-series, D-series, and E-series. The choice of compute tier and size determines the memory and vCores available on the server. The same storage technology is used across all compute tiers. All resources are provisioned at the MySQL server level. A server can have one or many databases.
+You can create an Azure Database for MySQL Flexible Server in one of three different service tiers: Burstable, General Purpose, and Business Critical. The service tiers are differentiated by the underlying VM SKU used B-series, D-series, and E-series. The choice of compute tier and size determines the memory and vCores available on the server. The same storage technology is used across all service tiers. All resources are provisioned at the MySQL server level. A server can have one or many databases.
 
 | Resource / Tier | **Burstable** | **General Purpose** | **Business Critical** |
 |:---|:----------|:--------------------|:---------------------|
@@ -39,7 +38,7 @@ To choose a compute tier, use the following table as a starting point.
 
 After you create a server, the compute tier, compute size, and storage size can be changed. Compute scaling requires a restart and takes between 60-120 seconds, while storage scaling does not require restart. You also can independently adjust the backup retention period up or down. For more information, see the [Scale resources](#scale-resources) section.
 
-## Compute tiers, size, and server types
+## Service tiers, size, and server types
 
 Compute resources can be selected based on the tier and size. This determines the vCores and memory size. vCores represent the logical CPU of the underlying hardware.
 
@@ -90,7 +89,7 @@ To get more details about the compute series available, refer to Azure VM docume
 
 ## Storage
 
-The storage you provision is the amount of storage capacity available to your flexible server. Storage is used for the database files, temporary files, transaction logs, and the MySQL server logs. In all compute tiers, the minimum storage supported is 20 GiB and maximum is 16 TiB. Storage is scaled in 1 GiB increments and can be scaled up after the server is created.
+The storage you provision is the amount of storage capacity available to your flexible server. Storage is used for the database files, temporary files, transaction logs, and the MySQL server logs. In all service tiers, the minimum storage supported is 20 GiB and maximum is 16 TiB. Storage is scaled in 1 GiB increments and can be scaled up after the server is created.
 
 >[!NOTE]
 > Storage can only be scaled up, not down.

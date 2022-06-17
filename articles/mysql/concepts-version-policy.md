@@ -9,9 +9,10 @@ ms.topic: conceptual
 ms.custom: fasttrack-edit
 ms.date: 11/03/2020
 ---
+
 # Azure Database for MySQL version support policy
 
-[!INCLUDE[applies-to-mysql-single-flexible-server](../includes/applies-to-mysql-single-flexible-server.md)]
+[!INCLUDE [applies-to-mysql-single-flexible-server](includes/applies-to-mysql-single-flexible-server.md)]
 
 This page describes the Azure Database for MySQL versioning policy, and is applicable to Azure Database for MySQL - Single Server and Azure Database for MySQL - Flexible Server (Preview) deployment modes.
 
@@ -23,7 +24,7 @@ Azure Database for MySQL currently supports the following major and minor versio
 
 | Version | [Single Server](overview.md) <br/> Current minor version |[Flexible Server](../flexible-server/overview.md) <br/> Current minor version  |
 |:-------------------|:-------------------------------------------|:---------------------------------------------|
-|MySQL Version 5.6 |  [5.6.47](https://dev.mysql.com/doc/relnotes/mysql/5.6/en/news-5-6-47.html)(Retired) | Not supported|
+|MySQL Version 5.6 | [5.6.47](https://dev.mysql.com/doc/relnotes/mysql/5.6/en/news-5-6-47.html)(Retired) | Not supported|
 |MySQL Version 5.7 | [5.7.29](https://dev.mysql.com/doc/relnotes/mysql/5.7/en/news-5-7-29.html) | [5.7.37](https://dev.mysql.com/doc/relnotes/mysql/5.7/en/news-5-7-37.html)|
 |MySQL Version 8.0 | [8.0.15](https://dev.mysql.com/doc/relnotes/mysql/8.0/en/news-8-0-15.html) | [8.0.28](https://dev.mysql.com/doc/relnotes/mysql/8.0/en/news-8-0-28.html)|
 
@@ -66,6 +67,4 @@ After the retirement date for each MySQL database version, if you continue runni
 
 ## Next steps
 
-- See Azure Database for MySQL - Single Server [supported versions](./concepts-supported-versions.md)
-- See Azure Database for MySQL - Flexible Server [supported versions](../flexible-server/concepts-supported-versions.md)
 - See MySQL [dump and restore](./concepts-migrate-dump-restore.md) to perform upgrades.

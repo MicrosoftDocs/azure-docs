@@ -1,6 +1,6 @@
 ---
-title: Pricing tiers - Azure Database for MySQL
-description: Learn about the various pricing tiers for Azure Database for MySQL including compute generations, storage types, storage size, vCores, memory, and backup retention periods.
+title: Azure Database for MySQL - Single Server service tiers
+description: Learn about the various service tiers for Azure Database for MySQL including compute generations, storage types, storage size, vCores, memory, and backup retention periods.
 author: savjani
 ms.author: pariks
 ms.service: mysql
@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.date: 02/07/2022
 ---
 
-# Azure Database for MySQL pricing tiers
+# Azure Database for MySQL - Single Server service tiers
 
 [!INCLUDE[applies-to-mysql-single-server](../includes/applies-to-mysql-single-server.md)]
 
-You can create an Azure Database for MySQL server in one of three different pricing tiers: Basic, General Purpose, and Memory Optimized. The pricing tiers are differentiated by the amount of compute in vCores that can be provisioned, memory per vCore, and the storage technology used to store the data. All resources are provisioned at the MySQL server level. A server can have one or many databases.
+You can create an Azure Database for MySQL server in one of three different service tiers: Basic, General Purpose, and Memory Optimized. The service tiers are differentiated by the amount of compute in vCores that can be provisioned, memory per vCore, and the storage technology used to store the data. All resources are provisioned at the MySQL server level. A server can have one or many databases.
 
-| Attribute   | **Basic** | **General Purpose** | **Memory Optimized** |
+| Attribute | **Basic** | **General Purpose** | **Memory Optimized** |
 |:---|:----------|:--------------------|:---------------------|
 | Compute generation | Gen 4, Gen 5 | Gen 4, Gen 5 | Gen 5 |
 | vCores | 1, 2 | 2, 4, 8, 16, 32, 64 |2, 4, 8, 16, 32 |
@@ -32,7 +32,7 @@ To choose a pricing tier, use the following table as a starting point.
 | Memory Optimized | High-performance database workloads that require in-memory performance for faster transaction processing and higher concurrency. Examples include servers for processing real-time data and high-performance transactional or analytical apps.|
 
 > [!NOTE]
-> Dynamic scaling to and from the Basic pricing tiers is currently not supported. Basic Tier SKUs servers can't be scaled up to General Purpose or Memory Optimized Tiers.
+> Dynamic scaling to and from the Basic service tiers is currently not supported. Basic Tier SKUs servers can't be scaled up to General Purpose or Memory Optimized Tiers.
 
 After you create a General Purpose or Memory Optimized server, the number of vCores, hardware generation, and pricing tier can be changed up or down within seconds. You also can independently adjust the amount of storage up and the backup retention period up or down with no application downtime. You can't change the backup storage type after a server is created. For more information, see the [Scale resources](#scale-resources) section.
 
@@ -128,7 +128,7 @@ Yes, migration to general purpose storage v2 from v1 is supported if the underly
 ### Can I grow storage size after server is provisioned?
 You can add additional storage capacity during and after the creation of the server, and allow the system to grow storage automatically based on the storage consumption of your workload. 
 
->[!IMPORTANT]
+> [!IMPORTANT]
 > Storage can only be scaled up, not down.
 
 ### Monitoring IO consumption
