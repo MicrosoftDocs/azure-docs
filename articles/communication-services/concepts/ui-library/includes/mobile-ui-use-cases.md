@@ -83,6 +83,8 @@ Accessibility is a key focus of the calling libraries. Screen Readers are suppor
 
 The Mobile UI Library gives the developers the ability to modify both Local and Remote Participants and how they are displayed in the call. On call launch the developer can supply a local avatar and custom display name to show to the local user. For Remote Users, methods are available to allow customization of avatars as they join the meetings. [How to customize participant views.](../../../how-tos/ui-library-sdk/data-model.md)
 
+:::image type="content" source="../../media/mobile-ui/ios-composite.gif" alt-text="Gif animation shows the pre-meeting experience and joining experience on iOS.":::
+
 ## Recommended Architecture
 
 Composites are initialized using an Azure Communication Services access token. Access tokens should be procured from Azure Communication Services through a
