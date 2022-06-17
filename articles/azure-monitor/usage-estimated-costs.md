@@ -44,7 +44,7 @@ Use the following basic guidance for common resources:
 
 - **Virtual machines**: With typical monitoring enabled, a virtual machine generates from 1 GB to 3 GB of data per month. This range is highly dependent on the configuration of your agents.
 - **Application Insights**: For different methods to estimate data from your applications, see the following section.
-- **Container insights**: For guidance on estimating data for your AKS cluster, see [Estimating costs to monitor your Azure Kubernetes Service (AKS) cluster](containers/container-insights-cost.md#estimating-costs-to-monitor-your-aks-cluster).
+- **Container insights**: For guidance on estimating data for your Azure Kubernetes Service (AKS) cluster, see [Estimating costs to monitor your AKS cluster](containers/container-insights-cost.md#estimating-costs-to-monitor-your-aks-cluster).
 
 The [Azure Monitor pricing calculator](https://azure.microsoft.com/pricing/calculator/?service=monitor) includes data volume estimation calculators for these three cases.
 
