@@ -81,7 +81,7 @@ After you choose the Single Server source, the **Location**, **PostgreSQL versio
 
 Under **Choose databases to migrate**, you can see the list of user databases inside the Single Server source. You can select up to eight databases that can be migrated in a single migration attempt. If there are more than eight user databases, create multiple migrations by using the same experience between the source and target servers.
 
-The final property on the **Source** tab is **Migration mode**. The migration tool offers online and offline modes of migration. The [concepts article](./concepts-single-to-flexible.md) talks more about the migration modes and their differences. After you choose the migration mode, the restrictions that are associated with thats mode appear.
+The final property on the **Source** tab is **Migration mode**. The migration tool offers online and offline modes of migration. The [concepts article](./concepts-single-to-flexible.md) talks more about the migration modes and their differences. After you choose the migration mode, the restrictions that are associated with that mode appear.
 
 When you're finished filling out all the fields, select the **Next** button.
 
@@ -137,7 +137,7 @@ After you select the **Create** button, a notification appears in a few seconds 
 
 You should automatically be redirected to the **Migration (Preview)** page of Flexible Server. That page has a new entry for the recently created migration.
 
-:::image type="content" source="./media/concepts-single-to-flexible/single-to-flex-migration-review-tab.png" alt-text="Screenshot of migration status." lightbox="./media/concepts-single-to-flexible/single-to-flex-migration-review-tab.png":::
+:::image type="content" source="./media/concepts-single-to-flexible/single-to-flex-migration-review-tab.png" alt-text="Screenshot of migration details." lightbox="./media/concepts-single-to-flexible/single-to-flex-migration-review-tab.png":::
 
 The grid that displays the migrations has these columns: **Name**, **Status**,  **Source DB server**, **Resource group**, **Region**, **Version**, **Databases**, and **Start time**. By default, the grid shows the list of migrations in descending order of migration start times. In other words, recent migrations appear on top of the grid.
 

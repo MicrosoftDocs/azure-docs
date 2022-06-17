@@ -44,7 +44,7 @@ An Azure AD app helps with role-based access control (RBAC). The migration infra
     
     :::image type="content" source="./media/how-to-setup-azure-ad-app-portal/azure-ad-add-client-secret-description.png" alt-text="Screenshot that shows adding a description and selecting a life span for a client secret." lightbox="./media/how-to-setup-azure-ad-app-portal/azure-ad-add-client-secret-description.png":::
 
-9. Copy the **Value** column that has the details of the Azure AD app secret. You can copy the secreet only during creation. If you miss copying the secret, you'll need to delete it and create another one for future tries.
+9. Copy the **Value** column that has the details of the Azure AD app secret. You can copy the secret only during creation. If you miss copying the secret, you'll need to delete it and create another one for future tries.
     
     :::image type="content" source="./media/how-to-setup-azure-ad-app-portal/azure-ad-client-secret-value.png" alt-text="Screenshot of copying a client secret." lightbox="./media/how-to-setup-azure-ad-app-portal/azure-ad-client-secret-value.png":::
 
@@ -59,7 +59,7 @@ After you create the Azure AD app, you need to add contributor privileges for it
 | Azure resource group | Required | Resource group for the migration. By default, this is the resource group for the Flexible Server target. If you're using a temporary resource group to create the migration infrastructure, the Azure AD app will require contributor privileges to this resource group. |
 | Virtual network | Required (if used) | If the source or the target has private access, the Azure AD app will require contributor privileges to the corresponding virtual network. If you're using public access, you can skip this step. |
 
-The following steps add contributor priviliges to a Flexible Server target. Repeat the steps for the Single Server source, resource group, and virtual network (if used).
+The following steps add contributor privileges to a Flexible Server target. Repeat the steps for the Single Server source, resource group, and virtual network (if used).
 
 1. In the Azure portal, select the Flexible Server target. Then select **Access Control (IAM)** on the upper left.
     
