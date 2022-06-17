@@ -8,7 +8,7 @@ author: schaffererin
 ms.author: v-eschaffer
 ms.topic: quickstart
 ms.custom: subject-armqs, devx-track-azurepowershell, mode-arm
-ms.date: 06/16/2022
+ms.date: 06/17/2022
 ---
 
 # Quickstart: Create an Azure Data Factory using Bicep
@@ -55,7 +55,7 @@ Save the file locally. You'll use it later in the quickstart.
 
 ## Deploy the Bicep file
 
-1. Save the Bicep file as **main.bicep** to your local computer.
+1. Save the Bicep file from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/data-factory-v2-blob-to-blob-copy/) as **main.bicep** to your local computer.
 1. Deploy the Bicep file using either Azure CLI or Azure PowerShell.
 
     # [CLI](#tab/CLI)
@@ -78,7 +78,7 @@ Save the file locally. You'll use it later in the quickstart.
 
 ## Review deployed resources
 
-Use the Azure portal, Azure CLI, or Azure PowerShell to list the deployed resources in the resource group.
+Use the Azure CLI or Azure PowerShell to list the deployed resources in the resource group.
 
 # [CLI](#tab/CLI)
 
@@ -93,6 +93,12 @@ Get-AzResource -ResourceGroupName exampleRG
 ```
 
 ---
+
+You can also use the Azure portal to review the deployed resources.
+
+1. Sign in to the Azure portal.
+1. Navigate to your resource group.
+1. You will see your resources listed. Select each resource to see an overview.
 
 ## Upload a file
 
@@ -162,7 +168,7 @@ The pipeline automatically creates an output folder in the blob container. It th
 
 ## Clean up resources
 
-When no longer needed, use the Azure portal, Azure CLI, or Azure PowerShell to delete the resource group and all of its resources.
+When no longer needed, use the Azure CLI or Azure PowerShell to delete the resource group and all of its resources.
 
 # [CLI](#tab/CLI)
 
@@ -177,6 +183,12 @@ Remove-AzResourceGroup -Name exampleRG
 ```
 
 ---
+
+You can also use the Azure portal to delete the resource group.
+
+1. In the Azure portal, navigate to your resource group.
+1. Select **Delete resource group**.
+1. A tab will appear. Enter the resource group name and select **Delete**.
 
 ## Next steps
 
