@@ -103,7 +103,7 @@ Azure Synapse supports 2 basic options for connection and authorization -- SQL A
 
 - **SQL authentication** -- this is authentication via a database connection which includes a database identifier, user ID and password plus other optional parameters. This is functionally equivalent to Oracle database connections above.
 
-- **Azure Active Directory (AAD) authentication** - With Azure Active Directory authentication, you can centrally manage the identities of database users and other Microsoft services in one central location. Central ID management provides a single place to manage SQL Data Warehouse users and simplifies permission management. AAD can also support connections to LDAP and Kerberos services, so for example this method can be used to connect to existing LDAP directories if these are to remain in place after migration of the database.
+- **Azure Active Directory (AAD) authentication** - With Azure Active Directory authentication, you can centrally manage the identities of database users and other Microsoft services in one central location. Central ID management provides a single place to manage Azure Synapse users and simplifies permission management. AAD can also support connections to LDAP and Kerberos services, so for example this method can be used to connect to existing LDAP directories if these are to remain in place after migration of the database.
 
 ### Users, roles and permissions
 
