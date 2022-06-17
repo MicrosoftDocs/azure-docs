@@ -32,6 +32,13 @@ For more information, see [Centrally discover and deploy Microsoft Sentinel out-
 | **Microsoft Sentinel Deception** | [Workbooks, analytics rules, watchlists](monitor-key-vault-honeytokens.md)  | Security - Threat Protection  |Microsoft |
 |**Zero Trust** (TIC3.0) |[Analytics rules, playbook,  workbooks](/security/zero-trust/integrate/sentinel-solution) |Identity, Security - Others |Microsoft  |
 
+## Amazon Web Services
+
+|Name    |Includes  |Categories |Supported by  |
+|---------|---------|---------|---------|
+|**Amazon Web Services** |[Data connector](connect-aws.md), analytics rules, hunting queries, workbooks | Security - Cloud Security |Microsoft |
+
+
 ## Apache
 
 |Name    |Includes  |Categories |Supported by  |
@@ -44,20 +51,24 @@ For more information, see [Centrally discover and deploy Microsoft Sentinel out-
 |---------|---------|---------|---------|
 |**Arista Networks** (Awake Security) |Data connector, workbooks, analytics rules | Security - Network |[Arista - Awake Security](https://awakesecurity.com/) |
 
-
-## Atlassian
-
-|Name    |Includes  |Categories |Supported by  |
-|---------|---------|---------|---------|
-|**Atlassian Confluence Audit**  |Data connector |IT operations, application |Microsoft|
-|**Atlassian Jira Audit**  |Workbook, analytics rules, hunting queries |DevOps |Microsoft|
-
 ## Armorblox
 
 |Name    |Includes  |Categories |Supported by  |
 |---------|---------|---------|---------|
 |**Armorblox - Sentinel** |Data connector | Security - Threat protection |[Armorblox](https://www.armorblox.com/contact/) |
 
+## Atlassian
+
+|Name    |Includes  |Categories |Supported by  |
+|---------|---------|---------|---------|
+|**Atlassian Confluence Audit**  |[Data connector](data-connectors-reference.md#atlassian-confluence-audit-preview) |IT operations, application |Microsoft|
+|**Atlassian Jira Audit**  |Workbook, analytics rules, hunting queries |DevOps |Microsoft|
+
+## Aruba
+
+|Name    |Includes  |Categories |Supported by  |
+|---------|---------|---------|---------|
+|**Aruba ClearPass**  |[Data connector](data-connectors-reference.md#aruba-clearpass-preview), parser |Security - Threat Protection |Microsoft|
 
 ## Azure
 
@@ -65,6 +76,7 @@ For more information, see [Centrally discover and deploy Microsoft Sentinel out-
 |---------|---------|---------|---------|
 |**Azure Active Directory**|[Data connector](data-connectors-reference.md#azure-active-directory), workbooks, analytic rules |Identity|Microsoft|
 |**Azure Firewall Solution for Sentinel**| [Data connector](data-connectors-reference.md#azure-firewall), workbook, analytics rules, playbooks, hunting queries, custom Logic App connector |Security - Network Security, Networking | Community|
+|**Azure DDoS Protection**| [Data connector](data-connectors-reference.md#azure-ddos-protection), workbook |Cloud Provider, Security - Network | Microsoft|
 | **Microsoft Purview** | [Data connector](data-connectors-reference.md#microsoft-purview), workbook, analytics rules <br><br>For more information, see [Tutorial: Integrate Microsoft Sentinel and Microsoft Purview](purview-solution.md). | Compliance, Security- Cloud Security, and Security- Information Protection | Microsoft |
 |**Microsoft Sentinel for SQL PaaS**     |  [Data connector](data-connectors-reference.md#azure-sql-databases), workbook, analytics rules, playbooks, hunting queries     | Application        |      Community   |
 |**Microsoft Sentinel Training Lab** |Workbook, analytics rules, playbooks, hunting queries | Training and tutorials |Microsoft |
@@ -81,6 +93,12 @@ For more information, see [Centrally discover and deploy Microsoft Sentinel out-
 |Name   |Includes  |Categories |Supported by  |
 |------------------|---------|---------|---------|
 |**Box Solution**| Data connector, workbook, analytics rules, hunting queries, parser |  Storage, application  | Microsoft|
+
+## Broadcom
+
+|Name   |Includes  |Categories |Supported by  |
+|------------------|---------|---------|---------|
+|**Broadcom SymantecDLP**| [Data connector](data-connectors-reference.md#broadcom-symantec-data-loss-prevention-dlp-preview), parser |  Security - Information Protection  | Microsoft|
 
 ## Check Point
 
@@ -421,8 +439,9 @@ For more information, see [Centrally discover and deploy Microsoft Sentinel out-
 
 |Name    |Includes  |Categories |Supported by  |
 |---------|---------|---------|---------|
-|**Symantec Endpoint**|Data connector, workbook, analytics rules, playbooks, hunting queries, parser| Security - Threat protection|Microsoft |
-|**Symantec ProxySG  Solution**|Workbooks, analytics rules |Security - Network |Symantec |
+|**Symantec Endpoint Protection**|Data connector, workbook, analytics rules, playbooks, hunting queries, parser| Security - Threat protection|Microsoft |
+|**Symantec ProxySG**|Workbooks, analytics rules |Security - Network |Microsoft |
+|**Symantec VIP**|[Data connector](data-connectors-reference.md#symantec-vip-preview), analytics rules, parser, workbooks |Security - Network |Microsoft |
 
 ## Tenable
 
@@ -435,6 +454,7 @@ For more information, see [Centrally discover and deploy Microsoft Sentinel out-
 |Name    |Includes  |Categories |Supported by  |
 |---------|---------|---------|---------|
 |**Trend Micro Apex One Solution**  | Data connector, hunting queries, parser| Security - Threat protection|Microsoft |
+|**Trend Micro Cloud App Security**  | Data connector, analytics rules, hunting queries, parser| Security - Threat protection|Microsoft |
 
 ## Ubiquiti
 
@@ -462,11 +482,23 @@ For more information, see [Centrally discover and deploy Microsoft Sentinel out-
 |**VMware Carbon Black Solution**|Workbooks, analytics rules| Security - Threat protection| Microsoft|
 |**VMware ESXi**|Workbooks, analytics rules, data connectors, hunting queries, parser| IT Operations| Microsoft|
 
+## WatchGuard
+
+|Name    |Includes  |Categories |Supported by  |
+|---------|---------|---------|---------|
+|**WatchGuard Firebox**|[Data connector](data-connectors-reference.md#watchguard-firebox-preview), parser| Security - Network|[WatchGuard](https://www.watchguard.com/wgrd-support/contact-support)|
+
 ## Zeek Network
 
 |Name    |Includes  |Categories |Supported by  |
 |---------|---------|---------|---------|
 |**Corelight for Microsoft Sentinel**|Data connector, workbooks, analytics rules, hunting queries, parser | IT Operations, Security - Network | [Zeek Network](https://support.corelight.com/)|
+
+## Zimperium
+
+|Name    |Includes  |Categories |Supported by  |
+|---------|---------|---------|---------|
+|**Zimperium Mobile Threat Defense**|[Data connector](data-connectors-reference.md#zimperium-mobile-thread-defense-preview), workbook| Security - Threat Protection | [Zimperium](https://support.zimperium.com)|
 
 ## Zscaler
 
