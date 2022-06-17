@@ -76,13 +76,12 @@ In this tutorial:
 1. Configure AKV resource names
 
     ```bash
-    # Name of the existing AKV Resource Group
-    AKV_RG=myResourceGroup
     # Name of the existing Azure Key Vault used to store the signing keys
     AKV_NAME=<your-unique-keyvault-name>
     # New desired key name used to sign and verify
     KEY_NAME=wabbit-networks-io
     KEY_SUBJECT_NAME=wabbit-networks.io
+    CERT_PATH=./${KEY_NAME}.pem
     ```
 
 2. Configure ACR and image resource names
@@ -140,12 +139,13 @@ Otherwise create an x509 self-signed certificate storing it in AKV for remote si
 1. Get the Key ID for the certificate
 
     ```bash
-    KEY_ID=$(az keyvault certificate show -n $KEY_NAME --vault-name $AKV_NAME --query 'id' -otsv)
+    KEY_ID=$(az keyvault certificate show -n $KEY_NAME --vault-name $AKV_NAME --query 'kid' -o tsv)
     ```
 4. Download public certificate
 
     ```bash
-    az keyvault certificate download --file $CERT_PATH --id $KEY_ID --encoding PEM
+    CERT_ID=$(az keyvault certificate show -n $KEY_NAME --vault-name $AKV_NAME --query 'id' -o tsv)
+    az keyvault certificate download --file $CERT_PATH --id $CERT_ID --encoding PEM
     ```
 
 5. Add the Key ID to the keys and certs
