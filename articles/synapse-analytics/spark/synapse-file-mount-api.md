@@ -14,19 +14,23 @@ ms.custom: subject-rbac-steps
 
 # How to use file mount/unmount API in Synapse 
 
-Synapse studio team built two new mount/unmount APIs in mssparkutils package, you can use mount to attach remote storage (Blob, Gen2, Azure File Share) to all working nodes (driver node and worker nodes), after that, you can access data in storage as if they were one the local file system with local file API. 
+Synapse studio team built two new mount/unmount APIs in mssparkutils package, you can use mount to attach remote storage (Blob, Gen2) to all working nodes (driver node and worker nodes), after that, you can access data in storage as if they were one the local file system with local file API. 
 
 The document will show you How to use mount/unmount API in your workspace, mainly includes below sections: 
 
 + How to mount ADLS Gen2 Storage or Azure Blob Storage 
-+ How to mount Azure File share 
 + How to access files under mount point via local file system API 
 + How to access files under mount point using mssparktuils fs API 
-+ How to access files under mount point using Spark Read API 
-+ How to unmount the mount point 
++ How to access files under mount point using Spark Read API
++ How to unmount the mount point
+ 
+> [!WARNING]
+> + Azure Fileshare mount is temporarily disabled, you can use Gen2/blob mount following the [How to mount Gen2/blob Storage](#How-to-mount-Gen2/blob-Storage).
+>
+> + Azure Gen1 storage is not supported, you can migrate to Gen2 following the [Migration gudiance](../../storage/blobs/data-lake-storage-migrate-gen1-to-gen2-azure-portal.md) before using mount APIs.
 
 
-## How to mount Gen2/blob Storage  
+<h2 id="How-to-mount-Gen2/blob-Storage">How to mount Gen2/blob Storage</h2>
 
 Here we will illustrate how to mount gen2 storage account step by step as an example, mounting blob storage works similarly. 
 
@@ -99,8 +103,10 @@ mssparkutils.fs.mount(
 > [!Note]
 > We do not recommend writing credentials in code.
 
-
+<!---
 ## How to mount Azure File Shares
+> [!WARNING]
+> Fileshare mount is temporarily disable due to tech limitation issue. Please using blob/gen2 mount following above steps as workaround.
 
 Assuming you have a gen2 storage account named **storegen2** and the account has one file share named **myfileshare**, and you want to mount the **myfileshare** to **/test** of your spark pool.
 ![Screenshot of file share](./media/synapse-file-mount-api/file-share.png)
@@ -136,6 +142,7 @@ f = open(f"/synfs/{jobId}/test/myFile.txt", "a")
 f.write("Hello world.") 
 f.close() 
 ``` 
+--->
 
 ## How to access files under mount point using mssparktuils fs API 
 
