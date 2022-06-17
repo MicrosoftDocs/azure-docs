@@ -33,13 +33,16 @@ Additionally, the following resources can help you create your own disaster reco
 
 ## Set up zone redundancy in your Container Apps environment
 
-To take advantage of availability zones, you must enable zone redundancy when you create the Container Apps environment.  The environment must include an internal virtual network (VNET).  Since there are three zones in a supporting region, you'll need to ensure that your container app's minimum and maximum replica count is divisible by 3.
+To take advantage of availability zones, you must enable zone redundancy when you create the Container Apps environment.  The environment must include an internal virtual network (VNET).  Since there are three zones in a supporting region, you'll need to ensure that your container app's minimum and maximum replica count is divisible by three.
 
 ### Enabled zone redundancy via the Azure portal 
  
 To create a Container App in an environment with zone redundancy enabled using the Azure portal:
 
-1. From the **Create Container App** page in the Azure portal, select **Create New** in the *Container Apps Environment* field to open the **Create Container Apps Environment** panel.
+1. Navigate to the Azure portal.
+1. Search for **Container Apps** in the top search box.
+1. Select **Container Apps**.
+1. Select **Create New** in the *Container Apps Environment* field to open the *Create Container Apps Environment* panel.
 1. Enter the environment name.
 1. Select **Enabled** for the *Zone redundancy* field.
 1. You can choose to create a custom internal VNET in the **Networking** tab or allow a VNET to be automatically created for you when the environment is created.
@@ -52,7 +55,7 @@ To create a Container App in an environment with zone redundancy enabled using t
 
 Create an internal VNET and the  infrastructure subnet to include with the Container Apps environment .
 
-When using these commands, replace the \<placeholders\> with your values.
+When using these commands, replace the `\<PLACEHOLDERS\>` with your values.
 
 # [Bash](#tab/bash)
 
