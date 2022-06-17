@@ -46,6 +46,8 @@
       href: how-tos/validate-document-creator.md
 - name: Reference
   items:
+    - name: Service limits
+      href: service-limits.md
     - name: API documentation
       href: https://fluidframework.com/docs/apis/
 - name: Resources
@@ -54,3 +56,6 @@
     href: https://fluidframework.com
   - name: FAQ
     href: resources/faq.md
+  - name: Support
+    href: resources/support.md
+    
