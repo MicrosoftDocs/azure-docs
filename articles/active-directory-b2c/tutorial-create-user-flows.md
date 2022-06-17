@@ -21,7 +21,7 @@ zone_pivot_groups: b2c-policy-type
 In your applications you may have user flows that enable users to sign up, sign in, or manage their profile. You can create multiple user flows of different types in your Azure Active Directory B2C (Azure AD B2C) tenant and use them in your applications as needed. User flows can be reused across applications.
 
 ::: zone pivot="b2c-user-flow"
-A user flow lets you determine how users interact with your application when they do things like sign in, sign up, edit a profile, or reset a password. In this article, you learn how to:
+A user flow lets you determine how users interact with your application when they do things like sign-in, sign-up, edit a profile, or reset a password. In this article, you learn how to:
 ::: zone-end
 
 ::: zone pivot="b2c-custom-policy"
@@ -29,7 +29,7 @@ A user flow lets you determine how users interact with your application when the
 ::: zone-end
 
 > [!div class="checklist"]
-> * Create a sign up and sign in user flow
+> * Create a sign-up and sign-in user flow
 > * Enable self-service password reset
 > * Create a profile editing user flow
 
@@ -54,9 +54,9 @@ A user flow lets you determine how users interact with your application when the
 ::: zone-end
 
 ::: zone pivot="b2c-user-flow"
-## Create a sign up and sign in user flow
+## Create a sign-up and sign-in user flow
 
-The sign up and sign in user flow handles both sign up and sign in experiences with a single configuration. Users of your application are led down the right path depending on the context.
+The sign-up and sign-in user flow handles both sign-up and sign-in experiences with a single configuration. Users of your application are led down the right path depending on the context.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
@@ -68,7 +68,7 @@ The sign up and sign in user flow handles both sign up and sign in experiences w
 
 1. On the **Create a user flow** page, select the **Sign up and sign in** user flow.
 
-    ![Select a user flow page with Sign up and sign in flow highlighted](./media/tutorial-create-user-flows/select-user-flow-type.png)
+    ![Select a user flow page with Sign-up and sign-in flow highlighted](./media/tutorial-create-user-flows/select-user-flow-type.png)
 
 1. Under **Select a version**, select **Recommended**, and then select **Create**. ([Learn more](user-flow-versions.md) about user flow versions.)
 
@@ -76,7 +76,7 @@ The sign up and sign in user flow handles both sign up and sign in experiences w
 
 1. Enter a **Name** for the user flow. For example, *signupsignin1*.
 1. For **Identity providers**, select **Email signup**.
-1. For **User attributes and claims**, choose the claims and attributes that you want to collect and send from the user during sign up. For example, select **Show more**, and then choose attributes and claims for **Country/Region**, **Display Name**, and **Postal Code**. Select **OK**.
+1. For **User attributes and claims**, choose the claims and attributes that you want to collect and send from the user during sign-up. For example, select **Show more**, and then choose attributes and claims for **Country/Region**, **Display Name**, and **Postal Code**. Select **OK**.
 
     ![Attributes and claims selection page with three claims selected](./media/tutorial-create-user-flows/signup-signin-attributes.png)
 
@@ -101,9 +101,9 @@ The sign up and sign in user flow handles both sign up and sign in experiences w
 
 ## Enable self-service password reset
 
-To enable [self-service password reset](add-password-reset-policy.md) for the sign up or sign in user flow:
+To enable [self-service password reset](add-password-reset-policy.md) for the sign-up or sign-in user flow:
 
-1. Select the sign up or sign in user flow  you created.
+1. Select the sign-up or sign-in user flow  you created.
 1. Under **Settings** in the left menu, select **Properties**.
 1. Under **Password configuration**, select **Self-service password reset**.
 1. Select **Save**.
@@ -113,7 +113,7 @@ To enable [self-service password reset](add-password-reset-policy.md) for the si
 1. Select the user flow you created to open its overview page, then select **Run user flow**.
 1. For **Application**, select the web application named *webapp1* that you previously registered. The **Reply URL** should show `https://jwt.ms`.
 1. Select **Run user flow**.
-1. From the sign up or sign in page, select **Forgot your password?**.
+1. From the sign-up or sign-in page, select **Forgot your password?**.
 1. Verify the email address of the account that you previously created, and then select **Continue**.
 1. You now have the opportunity to change the password for the user. Change the password and select **Continue**. The token is returned to `https://jwt.ms` and should be displayed to you.
 
@@ -343,7 +343,7 @@ As you upload the files, Azure adds the prefix `B2C_1A_` to each.
 In this article, you learned how to:
 
 > [!div class="checklist"]
-> * Create a sign up and sign in user flow
+> * Create a sig- up and sign in user flow
 > * Create a profile editing user flow
 > * Create a password reset user flow
 
