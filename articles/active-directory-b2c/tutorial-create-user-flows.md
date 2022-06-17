@@ -8,7 +8,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/30/2022
+ms.date: 06/17/2022
 ms.author: kengaderdus
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
@@ -29,7 +29,7 @@ A user flow lets you determine how users interact with your application when the
 ::: zone-end
 
 > [!div class="checklist"]
-> * Create a sign-up and sign-in user flow
+> * Create a sign up and sign in user flow
 > * Enable self-service password reset
 > * Create a profile editing user flow
 
@@ -54,9 +54,9 @@ A user flow lets you determine how users interact with your application when the
 ::: zone-end
 
 ::: zone pivot="b2c-user-flow"
-## Create a sign-up and sign-in user flow
+## Create a sign up and sign in user flow
 
-The sign-up and sign-in user flow handles both sign-up and sign-in experiences with a single configuration. Users of your application are led down the right path depending on the context.
+The sign up and sign in user flow handles both sign up and sign in experiences with a single configuration. Users of your application are led down the right path depending on the context.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
@@ -76,23 +76,24 @@ The sign-up and sign-in user flow handles both sign-up and sign-in experiences w
 
 1. Enter a **Name** for the user flow. For example, *signupsignin1*.
 1. For **Identity providers**, select **Email signup**.
-1. For **User attributes and claims**, choose the claims and attributes that you want to collect and send from the user during sign-up. For example, select **Show more**, and then choose attributes and claims for **Country/Region**, **Display Name**, and **Postal Code**. Click **OK**.
+1. For **User attributes and claims**, choose the claims and attributes that you want to collect and send from the user during sign up. For example, select **Show more**, and then choose attributes and claims for **Country/Region**, **Display Name**, and **Postal Code**. Select **OK**.
 
     ![Attributes and claims selection page with three claims selected](./media/tutorial-create-user-flows/signup-signin-attributes.png)
 
-1. Click **Create** to add the user flow. A prefix of *B2C_1* is automatically prepended to the name.
+1. Select **Create** to add the user flow. A prefix of *B2C_1_* is automatically prepended to the name.
 
 ### Test the user flow
 
-1. Select the user flow you created to open its overview page, then select **Run user flow**.
+1. Select the user flow you created to open its overview page.
+1. At the top of the user flow overview page, select **Run user flow**. A pane opens at the right side of the page. 
 1. For **Application**, select the web application named *webapp1* that you previously registered. The **Reply URL** should show `https://jwt.ms`.
-1. Click **Run user flow**, and then select **Sign up now**.
+1. Select **Run user flow**, and then select **Sign up now**.
 
     ![Run user flow page in portal with Run user flow button highlighted](./media/tutorial-create-user-flows/signup-signin-run-now.PNG)
 
-1. Enter a valid email address, click **Send verification code**, enter the verification code that you receive, then select **Verify code**.
+1. Enter a valid email address, select **Send verification code**, enter the verification code that you receive, then select **Verify code**.
 1. Enter a new password and confirm the password.
-1. Select your country and region, enter the name that you want displayed, enter a postal code, and then click **Create**. The token is returned to `https://jwt.ms` and should be displayed to you.
+1. Select your country and region, enter the name that you want displayed, enter a postal code, and then select **Create**. The token is returned to `https://jwt.ms` and should be displayed to you.
 1. You can now run the user flow again and you should be able to sign in with the account that you created. The returned token includes the claims that you selected of country/region, name, and postal code.
 
 > [!NOTE]
@@ -100,9 +101,9 @@ The sign-up and sign-in user flow handles both sign-up and sign-in experiences w
 
 ## Enable self-service password reset
 
-To enable [self-service password reset](add-password-reset-policy.md) for the sign-up or sign-in user flow:
+To enable [self-service password reset](add-password-reset-policy.md) for the sign up or sign in user flow:
 
-1. Select the sign-up or sign-in user flow  you created.
+1. Select the sign up or sign in user flow  you created.
 1. Under **Settings** in the left menu, select **Properties**.
 1. Under **Password configuration**, select **Self-service password reset**.
 1. Select **Save**.
@@ -112,7 +113,7 @@ To enable [self-service password reset](add-password-reset-policy.md) for the si
 1. Select the user flow you created to open its overview page, then select **Run user flow**.
 1. For **Application**, select the web application named *webapp1* that you previously registered. The **Reply URL** should show `https://jwt.ms`.
 1. Select **Run user flow**.
-1. From the sign-up or sign-in page, select **Forgot your password?**.
+1. From the sign up or sign in page, select **Forgot your password?**.
 1. Verify the email address of the account that you previously created, and then select **Continue**.
 1. You now have the opportunity to change the password for the user. Change the password and select **Continue**. The token is returned to `https://jwt.ms` and should be displayed to you.
 
@@ -124,16 +125,17 @@ If you want to enable users to edit their profile in your application, you use a
 1. On the **Create a user flow** page, select the **Profile editing** user flow. 
 1. Under **Select a version**, select **Recommended**, and then select **Create**.
 1. Enter a **Name** for the user flow. For example, *profileediting1*.
-1. For **Identity providers**, select **Local Account SignIn**.
-2. For **User attributes**, choose the attributes that you want the customer to be able to edit in their profile. For example, select **Show more**, and then choose both attributes and claims for **Display name** and **Job title**. Click **OK**.
-3. Click **Create** to add the user flow. A prefix of *B2C_1* is automatically appended to the name.
+1. For **Identity providers**, under **Local accounts**, select **Email signup**.
+2. For **User attributes**, choose the attributes that you want the customer to be able to edit in their profile. For example, select **Show more**, and then choose both attributes and claims for **Display name** and **Job title**. Select **OK**.
+3. Select **Create** to add the user flow. A prefix of *B2C_1_* is automatically appended to the name.
 
 ### Test the user flow
 
-1. Select the user flow you created to open its overview page, then select **Run user flow**.
+1. Select the user flow you created to open its overview page.
+1. At the top of the user flow overview page, select **Run user flow**. A pane opens at the right side of the page. 
 1. For **Application**, select the web application named *webapp1* that you previously registered. The **Reply URL** should show `https://jwt.ms`.
-1. Click **Run user flow**, and then sign in with the account that you previously created.
-1. You now have the opportunity to change the display name and job title for the user. Click **Continue**. The token is returned to `https://jwt.ms` and should be displayed to you.
+1. Select **Run user flow**, and then sign in with the account that you previously created.
+1. You now have the opportunity to change the display name and job title for the user. Select **Continue**. The token is returned to `https://jwt.ms` and should be displayed to you.
 ::: zone-end
 
 ::: zone pivot="b2c-custom-policy"
@@ -278,7 +280,7 @@ The **SocialAndLocalAccounts** starter pack includes Facebook social sign in. Fa
 
 ### Create Facebook application
 
-Use the steps outlined in [Create a Facebook application](identity-provider-facebook.md#create-a-facebook-application) to obtain Facebook *App ID* and *App Secret*. Skip the prerequisites and the rest of the steps in the [Set up sign-up and sign-in with a Facebook account](identity-provider-facebook.md) article. 
+Use the steps outlined in [Create a Facebook application](identity-provider-facebook.md#create-a-facebook-application) to obtain Facebook *App ID* and *App Secret*. Skip the prerequisites and the rest of the steps in the [Set up sign up and sign in with a Facebook account](identity-provider-facebook.md) article. 
 
 ### Create the Facebook key
 
@@ -341,7 +343,7 @@ As you upload the files, Azure adds the prefix `B2C_1A_` to each.
 In this article, you learned how to:
 
 > [!div class="checklist"]
-> * Create a sign-up and sign-in user flow
+> * Create a sign up and sign in user flow
 > * Create a profile editing user flow
 > * Create a password reset user flow
 
