@@ -26,13 +26,13 @@ Metrics in Azure Monitor are lightweight and capable of supporting near-real-tim
 > [!NOTE]
 > Azure Monitor Metrics is one half of the data platform that supports Azure Monitor. The other half is [Azure Monitor Logs](../logs/data-platform-logs.md), which collects and organizes log and performance data. You can analyze that data by using a rich query language.
 >
-> The Metrics feature can only store numeric data in a particular structure. The Azure Monitor Logs feature can store a variety of datatypes, each with its own structure. You can also perform complex analysis on log data by using log queries, which you can't use for analysis of metric data.
+> The Azure Monitor Metrics feature can only store numeric data in a particular structure. The Azure Monitor Logs feature can store a variety of datatypes, each with its own structure. You can also perform complex analysis on log data by using log queries, which you can't use for analysis of metric data.
 
 ## What can you do with Azure Monitor Metrics?
 
 The following table lists the ways that you can use the Azure Monitor Metrics feature.
 
-|  | Description |
+| Uses | Description |
 |:---|:---|
 | Analyze | Use [Metrics Explorer](metrics-charts.md) to analyze collected metrics on a chart and compare metrics from various resources. |
 | Alert | Configure a [metric alert rule](../alerts/alerts-metric.md) that sends a notification or takes [automated action](../alerts/action-groups.md) when the metric value crosses a threshold. |
@@ -74,9 +74,9 @@ Data that Azure Monitor Metrics collects is stored in a time-series database tha
 * The value itself.
 * [Multiple dimensions](#multi-dimensional-metrics) when they're present. Custom metrics are limited to 10 dimensions.
 
-## Multidimensional metrics
+## Multi-dimensional metrics
 
-One of the challenges to metric data is that it often has limited information to provide context for collected values. Azure Monitor addresses this challenge with multidimensional metrics.
+One of the challenges to metric data is that it often has limited information to provide context for collected values. Azure Monitor addresses this challenge with multi-dimensional metrics.
 
 Dimensions of a metric are name/value pairs that carry more data to describe the metric value. For example, a metric called _Available disk space_ might have a dimension called _Drive_ with values _C:_ and _D:_. That dimension would allow viewing available disk space across all drives or for each drive individually.
 
@@ -105,13 +105,13 @@ This nondimensional metric can only answer a basic question like "What was my ne
 | 8/9/2017 8:15 | IP="10.24.2.15"  | Direction="Send"    | 155.0 Kbps |
 | 8/9/2017 8:15 | IP="10.24.2.15"  | Direction="Receive" | 100.1 Kbps |
 
-This metric can answer questions such as "What was the network throughput for each IP address?" and "How much data was sent versus received?" Multidimensional metrics carry more analytical and diagnostic value compared to nondimensional metrics.
+This metric can answer questions such as "What was the network throughput for each IP address?" and "How much data was sent versus received?" Multi-dimensional metrics carry more analytical and diagnostic value compared to nondimensional metrics.
 
-### View multidimensional performance counter metrics in Metrics Explorer
+### View multi-dimensional performance counter metrics in Metrics Explorer
 
-It's not possible to send performance counter metrics that contain an asterisk (\*) to Azure Monitor via the Classic Guest Metrics API. This API can't display metrics that contain an asterisk because it's a multidimensional metric, which classic metrics don't support.
+It's not possible to send performance counter metrics that contain an asterisk (\*) to Azure Monitor via the Classic Guest Metrics API. This API can't display metrics that contain an asterisk because it's a multi-dimensional metric, which classic metrics don't support.
 
-To configure and view multidimensional guest OS performance counter metrics by using the Azure Diagnostic extension:
+To configure and view multi-dimensional guest OS performance counter metrics by using the Azure Diagnostic extension:
 
 1. Go to the **Diagnostic settings** page for your virtual machine.
 1. Select the **Performance counters** tab.

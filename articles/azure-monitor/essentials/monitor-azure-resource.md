@@ -22,7 +22,7 @@ In this tutorial, you learn about:
 > [!NOTE]
 > This tutorial describes Azure Monitor concepts and walks you through different menu items. To jump right into using Azure Monitor features, start with [Tutorial: Analyze metrics for an Azure resource](../essentials/tutorial-metrics.md).
 
-## Monitor data
+## Monitoring data
 
 This section discusses collecting and monitoring data.
 
