@@ -2,7 +2,7 @@
 title: Frequently asked questions for Azure Kubernetes Service (AKS)
 description: Find answers to some of the common questions about Azure Kubernetes Service (AKS).
 ms.topic: conceptual
-ms.date: 05/23/2021
+ms.date: 06/17/2022
 ms.custom: references_regions
 
 ---
@@ -41,6 +41,12 @@ Azure automatically applies security patches to the Linux nodes in your cluster 
 - Manually, through the Azure portal or the Azure CLI.
 - By upgrading your AKS cluster. The cluster upgrades [cordon and drain nodes][cordon-drain] automatically and then bring a new node online with the latest Ubuntu image and a new patch version or a minor Kubernetes version. For more information, see [Upgrade an AKS cluster][aks-upgrade].
 - By using [node image upgrade](node-image-upgrade.md).
+
+## What is the size limit on a container image in AKS?
+
+AKS does not set a limit on the container image size, but large images that include a lot of dependencies, debugging tools, compilers, etc. are likely to create containers requiring a large memory footprint. This could potentially exceed resource limits or the overall available memory of worker nodes. If you're using the default VM size Standard_DS2_v2 for an AKS cluster, it's memory is set to 7 GiB.
+
+When a container image is excessively large, in the Terabyte (TBs) range, kubelet might not be able to pull it from the registry to a node due to lack of disk space.
 
 ### Windows Server nodes
 
@@ -188,6 +194,7 @@ Confirm your service principal hasn't expired.  See: [AKS service principal](./k
 Confirm your service principal hasn't expired.  See: [AKS service principal](./kubernetes-service-principal.md)  and [AKS update credentials](./update-credentials.md).
 
 ## Can I scale my AKS cluster to zero?
+
 You can completely [stop a running AKS cluster](start-stop-cluster.md), saving on the respective compute costs. Additionally, you may also choose to [scale or autoscale all or specific `User` node pools](scale-cluster.md#scale-user-node-pools-to-0) to 0, maintaining only the necessary cluster configuration.
 You can't directly scale [system node pools](use-system-pools.md) to zero.
 
@@ -240,6 +247,7 @@ root@k8s-agentpool1-20465682-1:/#
 ```
 
 ### Transparent mode
+
 Transparent mode takes a straight forward approach to setting up Linux networking. In this mode, Azure CNI won't change any properties of eth0 interface in the Linux VM. This minimal approach of changing the Linux networking properties helps reduce complex corner case issues that clusters could face with Bridge mode. In Transparent Mode, Azure CNI will create and add host-side pod `veth` pair interfaces that will be added to the host network. Intra VM Pod-to-Pod communication is through ip routes that the CNI will add. Essentially Pod-to-Pod communication is over layer 3 and pod traffic is routed by L3 routing rules.
 
 :::image type="content" source="media/faq/transparent-mode.png" alt-text="Transparent mode topology":::
@@ -283,15 +291,15 @@ spec:
     fsGroup: 0
 ```
 
-The issue has been resolved by Kubernetes v1.20, refer [Kubernetes 1.20: Granular Control of Volume Permission Changes](https://kubernetes.io/blog/2020/12/14/kubernetes-release-1.20-fsgroupchangepolicy-fsgrouppolicy/) for more details.
+The issue has been resolved with Kubernetes version 1.20. For more information, see [Kubernetes 1.20: Granular Control of Volume Permission Changes](https://kubernetes.io/blog/2020/12/14/kubernetes-release-1.20-fsgroupchangepolicy-fsgrouppolicy/).
 
 ## Can I use FIPS cryptographic libraries with deployments on AKS?
 
-FIPS-enabled nodes are currently are now Generally Available on Linux-based node pools. For more details, see [Add a FIPS-enabled node pool](use-multiple-node-pools.md#add-a-fips-enabled-node-pool).
+FIPS-enabled nodes are currently are now supported on Linux-based node pools. For more information, see [Add a FIPS-enabled node pool](use-multiple-node-pools.md#add-a-fips-enabled-node-pool).
 
 ## Can I configure NSGs with AKS?
 
-AKS doesn't apply Network Security Groups (NSGs) to its subnet and will not modify any of the NSGs associated with that subnet. AKS will only modify the NSGs at the NIC level. If you're using CNI, you also must ensure the security rules in the NSGs allow traffic between the node and pod CIDR ranges. If you're using kubenet, you also must ensure the security rules in the NSGs allow traffic between the node and pod CIDR. For more details, see [Network security groups](concepts-network.md#network-security-groups).
+AKS doesn't apply Network Security Groups (NSGs) to its subnet and doesn't modify any of the NSGs associated with that subnet. AKS only modifies the network interfaces NSGs settings. If you're using CNI, you also must ensure the security rules in the NSGs allow traffic between the node and pod CIDR ranges. If you're using kubenet, you must also ensure the security rules in the NSGs allow traffic between the node and pod CIDR. For more information, see [Network security groups](concepts-network.md#network-security-groups).
 
 <!-- LINKS - internal -->
 
