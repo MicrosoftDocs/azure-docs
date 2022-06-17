@@ -65,7 +65,7 @@
   - name: Rules and Display definition model
     href: rules-and-display-definitions-model.md
   - name: Supported standards
-    href: verifiable-credentials.md
+    href: verifiable-credentials-standards.md
 - name: Resources
   expanded: true
   items:
