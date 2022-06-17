@@ -17,9 +17,9 @@ ms.custom: subject-rbac-steps
 Synapse studio team built two new mount/unmount APIs in mssparkutils package, you can use mount to attach remote storage (Blob, Gen2) to all working nodes (driver node and worker nodes), after that, you can access data in storage as if they were one the local file system with local file API. 
 
 > [!WARINIG]
-> Azure Fileshare mount is temporarily disabled, you can use blob/gen2 mount following the [Instruction](https://docs.microsoft.com/en-us/azure/synapse-analytics/spark/synapse-file-mount-api#how-to-mount-gen2blob-storage).
+> Azure Fileshare mount is temporarily disabled, you can use blob/gen2 mount following the [How to mount Gen2/blob Storage](#How-to-mount-Gen2/blob-Storage).
 
-> Azure Gen1 storage is not supported, you can migrate to gen2 following the [Migration gudiance](https://docs.microsoft.com/en-us/azure/storage/blobs/data-lake-storage-migrate-gen1-to-gen2-azure-portal) before using mount APIs.
+> Azure Gen1 storage is not supported, you can migrate to gen2 following the [Migration gudiance](../../storage/blobs/data-lake-storage-migrate-gen1-to-gen2-azure-portal.md) before using mount APIs.
 
 The document will show you How to use mount/unmount API in your workspace, mainly includes below sections: 
 
@@ -29,8 +29,8 @@ The document will show you How to use mount/unmount API in your workspace, mainl
 + How to access files under mount point using mssparktuils fs API 
 + How to access files under mount point using Spark Read API
 + How to unmount the mount point
-
-## How to mount Gen2/blob Storage  
+ 
+<h2 id="How-to-mount-Gen2/blob-Storage">How to mount Gen2/blob Storage</h2>
 
 Here we will illustrate how to mount gen2 storage account step by step as an example, mounting blob storage works similarly. 
 
