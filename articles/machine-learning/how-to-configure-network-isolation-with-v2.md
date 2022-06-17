@@ -100,7 +100,7 @@ ws.update(v1_legacy_mode=false)
 
 # [Azure CLI extension v1](#tab/azurecliextensionv1)
 
-The Azure CLI [extension v1 for machine learning](reference-azure-machine-learning-cli.md) provides the [az ml workspace update](/cli/azure/ml/workspace#az-ml-workspace-update) command. To enable the parameter for a workspace, add the parameter `--v1-legacy-mode true`.
+The Azure CLI [extension v1 for machine learning](reference-azure-machine-learning-cli.md) provides the [az ml workspace update](/cli/azure/ml(v1)/workspace#az-ml(v1)-workspace-update) command. To enable the parameter for a workspace, add the parameter `--v1-legacy-mode true`.
 
 > [!IMPORTANT]
 > The `v1-legacy-mode` parameter is only available in version 1.41.0 or newer of the Azure CLI extension for machine learning v1 (`azure-cli-ml`). Use the `az version` command to view version information.

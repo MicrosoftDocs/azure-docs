@@ -364,7 +364,7 @@ The following `errorCode` values may be sent to the Error Handler
 #### [Kotlin](#tab/kotlin)
 
 ```kotlin
-callComposite.setOnErrorHandler { callCompositeErrorEvent ->
+callComposite.addOnErrorEventHandler { callCompositeErrorEvent ->
     println(callCompositeErrorEvent.errorCode)
 }
 ```
@@ -372,7 +372,7 @@ callComposite.setOnErrorHandler { callCompositeErrorEvent ->
 #### [Java](#tab/java)
 
 ```java
-callComposite.setOnErrorHandler(callCompositeErrorEvent -> {
+callComposite.addOnErrorEventHandler(callCompositeErrorEvent -> {
     System.out.println(callCompositeErrorEvent.getErrorCode());
 });
 ```

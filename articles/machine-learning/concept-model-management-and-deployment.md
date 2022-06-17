@@ -6,8 +6,8 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: mlops
 ms.topic: conceptual
-author: rsethur
-ms.author:  seramasu
+author: dem108
+ms.author: sehan
 ms.reviewer: larryfr
 ms.custom: seodec18, mktng-kw-nov2021, event-tier1-build-2022
 ms.date: 05/11/2022

@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.subservice: integration-runtime
 ms.topic: conceptual
 ms.custom: seo-lt-2019, references_regions, devx-track-azurepowershell
-ms.date: 04/01/2022
+ms.date: 06/16/2022
 ---
 
 # Azure Data Factory managed virtual network
@@ -138,28 +138,15 @@ This section discusses limitations and known issues.
 
 ### Supported data sources and services
 
-The following data sources and services have native private endpoint support. They can be connected through private link from a Data Factory managed virtual network:
+The following services have native private endpoint support. They can be connected through private link from a Data Factory managed virtual network:
 
-- Azure Blob Storage (not including storage account V1)
-- Azure Cognitive Search
-- Azure Cosmos DB MongoDB API
-- Azure Cosmos DB SQL API
-- Azure Data Lake Storage Gen2
-- Azure Database for MariaDB
-- Azure Database for MySQL
-- Azure Database for PostgreSQL
-- Azure Files (not including storage account V1)
 - Azure Functions (Premium plan)
 - Azure Key Vault
 - Azure Machine Learning
 - Azure Private Link
 - Microsoft Purview
-- Azure SQL Database
-- Azure SQL Managed Instance (public preview)
-- Azure Synapse Analytics
-- Azure Table Storage (not including storage account V1)
 
-You can access all data sources that are supported by Data Factory through a public network.
+For the support of data sources, you can refer to [connector overview](connector-overview.md). You can access all data sources that are supported by Data Factory through a public network.
 
 > [!NOTE]
 > Because SQL Managed Instance native private endpoint is in private preview, you can access it from a managed virtual network by using Private Link and Azure Load Balancer. For more information, see [Access SQL Managed Instance from a Data Factory managed virtual network using a private endpoint](tutorial-managed-virtual-network-sql-managed-instance.md).
