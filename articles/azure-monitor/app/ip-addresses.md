@@ -1,27 +1,25 @@
 ---
 title: IP addresses used by Azure Monitor
-description: Server firewall exceptions required by Application Insights
+description: This article discusses server firewall exceptions that are required by Application Insights.
 ms.topic: conceptual
 ms.date: 01/27/2020
-ms.reviewer: mmcc
+ms.reviewer: saars
 ---
 
 # IP addresses used by Azure Monitor
 
-[Azure Monitor](../overview.md) uses a number of IP addresses. Azure Monitor is made up of core platform metrics and log in addition to Log Analytics and Application Insights. You might need to know these addresses if the app or infrastructure that you are monitoring is hosted behind a firewall.
+[Azure Monitor](../overview.md) uses several IP addresses. Azure Monitor is made up of core platform metrics and logs in addition to Log Analytics and Application Insights. You might need to know IP addresses if the app or infrastructure that you're monitoring is hosted behind a firewall.
 
 > [!NOTE]
-> Although these addresses are static, it's possible that we will need to change them from time to time. All Application Insights traffic represents outbound traffic with the exception of availability monitoring and webhooks which require inbound firewall rules.
+> Although these addresses are static, it's possible that we'll need to change them from time to time. All Application Insights traffic represents outbound traffic with the exception of availability monitoring and webhooks, which require inbound firewall rules.
 
-> [!TIP]
-> You can use Azure [network service tags](../../virtual-network/service-tags-overview.md) to manage access if you are using Azure Network Security Groups. If you are managing access for hybrid/on premises resources you can download the equivalent IP address lists as [JSON files](../../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) which are updated each week. To cover all the exceptions in this article you would need to use the service tags: `ActionGroup`, `ApplicationInsightsAvailability`, and `AzureMonitor`.
+You can use Azure [network service tags](../../virtual-network/service-tags-overview.md) to manage access if you're using Azure network security groups. If you're managing access for hybrid/on-premises resources, you can download the equivalent IP address lists as [JSON files](../../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files), which are updated each week. To cover all the exceptions in this article, use the service tags `ActionGroup`, `ApplicationInsightsAvailability`, and `AzureMonitor`.
 
-Alternatively, you can subscribe to this page as a RSS feed by adding https://github.com/MicrosoftDocs/azure-docs/blob/main/articles/azure-monitor/app/ip-addresses.md to your favorite RSS/ATOM reader to get notified of the latest changes.
-
+Alternatively, you can subscribe to this page as an RSS feed by adding https://github.com/MicrosoftDocs/azure-docs/blob/main/articles/azure-monitor/app/ip-addresses.md to your favorite RSS/ATOM reader to get notified of the latest changes.
 
 ## Outgoing ports
 
-You need to open some outgoing ports in your server's firewall to allow the Application Insights SDK and/or Status Monitor to send data to the portal:
+You need to open some outgoing ports in your server's firewall to allow the Application Insights SDK or Status Monitor to send data to the portal.
 
 | Purpose | URL | IP | Ports |
 | --- | --- | --- | --- |
@@ -30,7 +28,7 @@ You need to open some outgoing ports in your server's firewall to allow the Appl
 
 ## Status Monitor
 
-Status Monitor Configuration - needed only when making changes.
+Status Monitor configuration is needed only when you're making changes.
 
 | Purpose | URL | IP | Ports |
 | --- | --- | --- | --- |
@@ -45,43 +43,45 @@ Status Monitor Configuration - needed only when making changes.
 
 ## Availability tests
 
-This is the list of addresses from which [availability web tests](./monitor-web-app-availability.md) are run. If you want to run web tests on your app, but your web server is restricted to serving specific clients, then you will have to permit incoming traffic from our availability test servers.
-
+This is the list of addresses from which [availability web tests](./monitor-web-app-availability.md) are run. If you want to run web tests on your app but your web server is restricted to serving specific clients, you'll have to permit incoming traffic from our availability test servers.
 
 > [!NOTE]
-> For resources located inside private virtual networks that cannot allow direct inbound communication with the availability test agents in public Azure, the only option is to [create and host your own custom availability tests](availability-azure-functions.md).
+> For resources located inside private virtual networks that can't allow direct inbound communication with the availability test agents in public Azure, the only option is to [create and host your own custom availability tests](availability-azure-functions.md).
 
 ### Service tag
 
-If you are using Azure Network Security Groups, simply add an **inbound port rule** to allow traffic from Application Insights availability tests by selecting **Service Tag** as the **Source** and **ApplicationInsightsAvailability** as the **Source service tag**.
+If you're using Azure network security groups, add an *inbound port rule* to allow traffic from Application Insights availability tests. Select **Service Tag** as the **Source** and **ApplicationInsightsAvailability** as the **Source service tag**.
 
 >[!div class="mx-imgBorder"]
->![Under settings select Inbound security rules and then select add at the top of the tab ](./media/ip-addresses/add-inbound-security-rule.png)
+>![Screenshot that shows selecting Inbound security rules and then selecting Add.](./media/ip-addresses/add-inbound-security-rule.png)
 
 >[!div class="mx-imgBorder"]
->![Add inbound security rule tab](./media/ip-addresses/add-inbound-security-rule2.png)
+>![Screenshot that shows the Add inbound security rule tab.](./media/ip-addresses/add-inbound-security-rule2.png)
 
-Open ports 80 (http) and 443 (https) for incoming traffic from these addresses (IP addresses are grouped by location):
+Open port 80 (HTTP) and port 443 (HTTPS) for incoming traffic from these addresses. IP addresses are grouped by location.
 
-### IP Addresses
+### IP addresses
 
-If you're looking for the actual IP addresses so you can add them to the list of allowed IP's in your firewall, please download the JSON file describing Azure IP Ranges. These files contain the most up-to-date information. For Azure public cloud, you may also look up the IP address ranges by location using the table below.
+If you're looking for the actual IP addresses so that you can add them to the list of allowed IPs in your firewall, download the JSON file that describes Azure IP ranges. These files contain the most up-to-date information. For Azure public cloud, you might also look up the IP address ranges by location using the following table.
 
-After downloading the appropriate file, open it using your favorite text editor and search for "ApplicationInsightsAvailability" to go straight to the section of the file describing the service tag for availability tests.
+After you download the appropriate file, open it by using your favorite text editor. Search for **ApplicationInsightsAvailability** to go straight to the section of the file that describes the service tag for availability tests.
 
 > [!NOTE]
-> These addresses are listed using Classless Inter-Domain Routing (CIDR) notation. This means that an entry like `51.144.56.112/28` is equivalent to 16 IPs starting at `51.144.56.112` and ending at `51.144.56.127`.
+> These addresses are listed by using Classless Interdomain Routing notation. As an example, an entry like `51.144.56.112/28` is equivalent to 16 IPs that start at `51.144.56.112` and end at `51.144.56.127`.
 
-#### Azure Public Cloud
-Download [Public Cloud IP addresses](https://www.microsoft.com/download/details.aspx?id=56519).
+#### Azure public cloud
 
-#### Azure US Government Cloud
-Download [Government Cloud IP addresses](https://www.microsoft.com/download/details.aspx?id=57063).
+Download [public cloud IP addresses](https://www.microsoft.com/download/details.aspx?id=56519).
 
-#### Azure China Cloud
-Download [China Cloud IP addresses](https://www.microsoft.com/download/details.aspx?id=57062).
+#### Azure US Government cloud
 
-#### Addresses grouped by location (Azure Public Cloud)
+Download [US Government cloud IP addresses](https://www.microsoft.com/download/details.aspx?id=57063).
+
+#### Azure China cloud
+
+Download [China cloud IP addresses](https://www.microsoft.com/download/details.aspx?id=57062).
+
+#### Addresses grouped by location (Azure public cloud)
 
 ```
 Australia East
@@ -150,40 +150,41 @@ East US
 ```
 
 ### Discovery API
-You may also want to [programmatically retrieve](../../virtual-network/service-tags-overview.md#use-the-service-tag-discovery-api) the current list of service tags together with IP address range details.
 
-## Application Insights & Log Analytics APIs
+You might also want to [programmatically retrieve](../../virtual-network/service-tags-overview.md#use-the-service-tag-discovery-api) the current list of service tags together with IP address range details.
+
+## Application Insights and Log Analytics APIs
 
 | Purpose | URI |  IP | Ports |
 | --- | --- | --- | --- |
 | API |`api.applicationinsights.io`<br/>`api1.applicationinsights.io`<br/>`api2.applicationinsights.io`<br/>`api3.applicationinsights.io`<br/>`api4.applicationinsights.io`<br/>`api5.applicationinsights.io`<br/>`dev.applicationinsights.io`<br/>`dev.applicationinsights.microsoft.com`<br/>`dev.aisvc.visualstudio.com`<br/>`www.applicationinsights.io`<br/>`www.applicationinsights.microsoft.com`<br/>`www.aisvc.visualstudio.com`<br/>`api.loganalytics.io`<br/>`*.api.loganalytics.io`<br/>`dev.loganalytics.io`<br>`docs.loganalytics.io`<br/>`www.loganalytics.io` |20.37.52.188 <br/> 20.37.53.231 <br/> 20.36.47.130 <br/> 20.40.124.0 <br/> 20.43.99.158 <br/> 20.43.98.234 <br/> 13.70.127.61 <br/> 40.81.58.225 <br/> 20.40.160.120 <br/> 23.101.225.155 <br/> 52.139.8.32 <br/> 13.88.230.43 <br/> 52.230.224.237 <br/> 52.242.230.209 <br/> 52.173.249.138 <br/> 52.229.218.221 <br/> 52.229.225.6 <br/> 23.100.94.221 <br/> 52.188.179.229 <br/> 52.226.151.250 <br/> 52.150.36.187 <br/> 40.121.135.131 <br/> 20.44.73.196 <br/> 20.41.49.208 <br/> 40.70.23.205 <br/> 20.40.137.91 <br/> 20.40.140.212 <br/> 40.89.189.61 <br/> 52.155.118.97 <br/> 52.156.40.142 <br/> 23.102.66.132 <br/> 52.231.111.52 <br/> 52.231.108.46 <br/> 52.231.64.72 <br/> 52.162.87.50 <br/> 23.100.228.32 <br/> 40.127.144.141 <br/> 52.155.162.238 <br/> 137.116.226.81 <br/> 52.185.215.171 <br/> 40.119.4.128 <br/> 52.171.56.178 <br/> 20.43.152.45 <br/> 20.44.192.217 <br/> 13.67.77.233 <br/> 51.104.255.249 <br/> 51.104.252.13 <br/> 51.143.165.22 <br/> 13.78.151.158 <br/> 51.105.248.23 <br/> 40.74.36.208 <br/> 40.74.59.40 <br/> 13.93.233.49 <br/> 52.247.202.90 |80,443 |
 | Azure Pipeline annotations extension | aigs1.aisvc.visualstudio.com |dynamic|443 | 
 
-## Application Insights Analytics
+## Application Insights analytics
 
 | Purpose | URI | IP | Ports |
 | --- | --- | --- | --- |
-| Analytics Portal | analytics.applicationinsights.io | dynamic | 80,443 |
+| Analytics portal | analytics.applicationinsights.io | dynamic | 80,443 |
 | CDN | applicationanalytics.azureedge.net | dynamic | 80,443 |
 | Media CDN | applicationanalyticsmedia.azureedge.net | dynamic | 80,443 |
 
-Note: *.applicationinsights.io domain is owned by Application Insights team.
+The *.applicationinsights.io domain is owned by the Application Insights team.
 
-## Log Analytics Portal
+## Log Analytics portal
 
 | Purpose | URI | IP | Ports |
 | --- | --- | --- | --- |
 | Portal | portal.loganalytics.io | dynamic | 80,443 |
 | CDN | applicationanalytics.azureedge.net | dynamic | 80,443 |
 
-Note: *.loganalytics.io domain is owned by the Log Analytics team.
+The *.loganalytics.io domain is owned by the Log Analytics team.
 
-## Application Insights Azure portal Extension
+## Application Insights Azure portal extension
 
 | Purpose | URI | IP | Ports |
 | --- | --- | --- | --- |
-| Application Insights Extension | stamp2.app.insightsportal.visualstudio.com | dynamic | 80,443 |
-| Application Insights Extension CDN | insightsportal-prod2-cdn.aisvc.visualstudio.com<br/>insightsportal-prod2-asiae-cdn.aisvc.visualstudio.com<br/>insightsportal-cdn-aimon.applicationinsights.io | dynamic | 80,443 |
+| Application Insights extension | stamp2.app.insightsportal.visualstudio.com | dynamic | 80,443 |
+| Application Insights extension CDN | insightsportal-prod2-cdn.aisvc.visualstudio.com<br/>insightsportal-prod2-asiae-cdn.aisvc.visualstudio.com<br/>insightsportal-cdn-aimon.applicationinsights.io | dynamic | 80,443 |
 
 ## Application Insights SDKs
 
@@ -191,35 +192,36 @@ Note: *.loganalytics.io domain is owned by the Log Analytics team.
 | --- | --- | --- | --- |
 | Application Insights JS SDK CDN | az416426.vo.msecnd.net<br/>js.monitor.azure.com | dynamic | 80,443 |
 
-## Action Group webhooks
+## Action group webhooks
 
-You can query the list of IP addresses used by Action Groups using the [Get-AzNetworkServiceTag PowerShell command](/powershell/module/az.network/Get-AzNetworkServiceTag).
+You can query the list of IP addresses used by action groups by using the [Get-AzNetworkServiceTag PowerShell command](/powershell/module/az.network/Get-AzNetworkServiceTag).
 
-### Action Groups Service Tag
-Managing changes to Source IP addresses can be quite time consuming. Using **Service Tags** eliminates the need to update your configuration. A service tag represents a group of IP address prefixes from a given Azure service. Microsoft manages the IP addresses and automatically updates the service tag as addresses change, eliminating the need to update network security rules for an Action Group.
+### Action group service tag
 
-1. In the Azure portal under Azure Services search for *Network Security Group*.
-2. Click on **Add** and create a Network Security Group.
+Managing changes to source IP addresses can be time consuming. Using *service tags* eliminates the need to update your configuration. A service tag represents a group of IP address prefixes from a specific Azure service. Microsoft manages the IP addresses and automatically updates the service tag as addresses change, which eliminates the need to update network security rules for an action group.
 
-   1. Add the Resource Group Name and then enter *Instance Details*.
-   1. Click on **Review + Create** and then click *Create*.
+1. In the Azure portal under **Azure Services**, search for **Network Security Group**.
+1. Select **Add** and create a network security group:
+
+   1. Add the resource group name, and then enter **Instance details** information.
+   1. Select **Review + Create**, and then select **Create**.
    
-   :::image type="content" source="../alerts/media/action-groups/action-group-create-security-group.png" alt-text="Example on how to create a Network Security Group."border="true":::
+   :::image type="content" source="../alerts/media/action-groups/action-group-create-security-group.png" alt-text="Screenshot that shows how to create a network security group."border="true":::
 
-3. Go to Resource Group and then click on *Network Security Group* you have created.
+1. Go to **Resource Group**, and then select the network security group you created:
 
-    1. Select *Inbound Security Rules*.
-    1. Click on **Add**.
+    1. Select **Inbound security rules**.
+    1. Select **Add**.
     
-    :::image type="content" source="../alerts/media/action-groups/action-group-add-service-tag.png" alt-text="Example on how to add a service tag." border="true":::
+    :::image type="content" source="../alerts/media/action-groups/action-group-add-service-tag.png" alt-text="Screenshot that shows how to add inbound security rules." border="true":::
 
-4. A new window will open in right pane.
-    1.  Select Source: **Service Tag**
-    1.  Source Service Tag: **ActionGroup**
-    1.  Click **Add**.
+1. A new window opens in the right pane:
+
+    1.  Under **Source**, enter **Service Tag**.
+    1.  Under **Source service tag**, enter **ActionGroup**.
+    1.  Select **Add**.
     
-    :::image type="content" source="../alerts/media/action-groups/action-group-service-tag.png" alt-text="Example on how to add service tag." border="true":::
-
+    :::image type="content" source="../alerts/media/action-groups/action-group-service-tag.png" alt-text="Screenshot that shows how to add a service tag." border="true":::
 
 ## Profiler
 

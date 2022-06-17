@@ -5,7 +5,7 @@ ms.service: cognitive-services
 ms.subservice: language-service
 ms.custom: event-tier1-build-2022
 ms.topic: include
-ms.date: 05/04/2022
+ms.date: 06/14/2022
 ms.author: aahi
 ---
 
@@ -17,13 +17,13 @@ Use the following **GET** request to query the status/results of the text classi
 |Placeholder  |Value  | Example |
 |---------|---------|---------|
 |`{ENDPOINT}`     | The endpoint for authenticating your API request.   | `https://<your-custom-subdomain>.cognitiveservices.azure.com` |
-|`{API-VERSION}`     | The version of the API you are calling. The value referenced here is for the latest version released. See [Model lifecycle](../../../concepts/model-lifecycle.md#choose-the-model-version-used-on-your-data) for more information on other available API versions.  | `2022-05-01` |
+|`{API-VERSION}`     | The version of the API you're calling. The value referenced here is for the latest released [model version](../../../concepts/model-lifecycle.md#choose-the-model-version-used-on-your-data) version.  | `2022-05-01` |
 
 #### Headers
 
 |Key|Value|
 |--|--|
-|Ocp-Apim-Subscription-Key| Your Subscription key that provides access to this API.|
+|Ocp-Apim-Subscription-Key| Your key that provides access to this API.|
 
 ### Response body
 

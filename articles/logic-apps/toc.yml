@@ -429,8 +429,6 @@
         href: logic-apps-scenario-social-serverless.md
       - name: Create a serverless app - Visual Studio
         href: create-serverless-apps-visual-studio.md
-      - name: Add error and exception handling
-        href: logic-apps-scenario-error-and-exception-handling.md
       - name: B2B processing
         href: logic-apps-enterprise-integration-b2b.md
 - name: Reference
@@ -447,8 +445,10 @@
     href: /connectors/
   - name: Service limits and configuration
     href: logic-apps-limits-and-config.md
-  - name: Azure CLI
+  - name: Azure CLI - Consumption
     href: /cli/azure/logic
+  - name: Azure CLI - Standard
+    href: /cli/azure/logicapp
   - name: Azure PowerShell
     href: /powershell/module/az.logicapp
   - name: REST API

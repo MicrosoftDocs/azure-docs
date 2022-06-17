@@ -116,7 +116,11 @@ You can then use the flexible servername (FQDN) to connect from the client appli
 * Flexible server doesn't support Private Link. Instead, it uses VNet injection to make flexible server available within a VNet.
 
 > [!NOTE]
-> If you are using the custom DNS server then you must use a DNS forwarder to resolve the FQDN of Azure Database for MySQL - Flexible Server. Refer to [name resolution that uses your own DNS server](../../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server) to learn more.
+> If you are using a custom DNS server, then you must use a DNS forwarder to resolve the following FQDNs:
+> * Azure Database for MySQL - Flexible Server
+> * Azure Storage Resources (for successful provisioning of the Flexible Server)
+>
+> Refer to [name resolution that uses your own DNS server](../../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server) to learn more.
 
 ## Next steps
 

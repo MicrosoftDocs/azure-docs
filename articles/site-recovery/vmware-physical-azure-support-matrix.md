@@ -246,7 +246,7 @@ Guest/server disk > 1 GB | Yes, disk must be larger than 1024 MB<br/><br/>Up to 
 Guest/server disk with 4K logical and 4k physical sector size | No
 Guest/server disk with 4K logical and 512-bytes physical sector size | No
 Guest/server volume with striped disk >4 TB | Yes
-Logical volume management (LVM)| Thick provisioning - Yes <br></br> Thin provisioning - No
+Logical volume management (LVM)| Thick provisioning - Yes <br></br> Thin provisioning - Yes, it is supported from [Update Rollup 61](https://support.microsoft.com/topic/update-rollup-61-for-azure-site-recovery-kb5012960-a1cc029b-03ad-446f-9365-a00b41025d39) onwards. It wasn't supported in earlier Mobility service versions.
 Guest/server - Storage Spaces | No
 Guest/server - NVMe interface | No
 Guest/server hot add/remove disk | No
@@ -352,7 +352,7 @@ As average churn on the disks increases, the number of disks that a storage acco
 V1 storage account    |    600 disks    |    300 disks
 V2 storage account    |    1500 disks    |    750 disks
 
-Please note that the above limits are applicable to hybrid DR scenarios only.
+Please note that the above limits are applicable to VMWare and Hyper-V scenarios only.
 
 ## Vault tasks
 

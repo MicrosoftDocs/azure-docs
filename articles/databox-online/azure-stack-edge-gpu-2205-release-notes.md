@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 06/06/2022
+ms.date: 06/07/2022
 ms.author: alkohli
 ---
 
@@ -38,6 +38,7 @@ The following table lists the issues that were release noted in previous release
 | No. | Feature | Issue | 
 | --- | --- | --- |
 |**1.**|GPU Extension installation | In the previous releases, there were issues that caused the GPU extension installation to fail. These issues are described in [Troubleshooting GPU extension issues](azure-stack-edge-gpu-troubleshoot-virtual-machine-gpu-extension-installation.md). These are fixed in the 2205 release and both the Windows and Linux installation packages are updated. More information on 2205 specific installation changes is covered in [Install GPU extension on your Azure Stack Edge device](azure-stack-edge-gpu-deploy-virtual-machine-install-gpu-extension.md).  |
+|**2.**|HPN VMs  | In the previous release, the Standard_F12_HPN could only support one network interface and couldn't be used for Multi-Access Edge Computing (MEC) deployments. This issue is fixed in this release. |
 
 ## Known issues in 2205 release
 
@@ -46,8 +47,6 @@ The following table provides a summary of known issues in this release.
 | No. | Feature | Issue | Workaround/comments |
 | --- | --- | --- | --- |
 |**1.**|Preview features |For this release, the following features are available in preview: <br> - Clustering and Multi-Access Edge Computing (MEC) for Azure Stack Edge Pro GPU devices only.  <br> - VPN for Azure Stack Edge Pro R and Azure Stack Edge Mini R only. <br> - Local Azure Resource Manager, VMs, Cloud management of VMs, Kubernetes cloud management, and Multi-process service (MPS) for Azure Stack Edge Pro GPU, Azure Stack Edge Pro R, and Azure Stack Edge Mini R. |These features will be generally available in later releases. |
-|**2.**|HPN VMs |For this release, the Standard_F12_HPN can only support one network interface and can't be used for Multi-Access Edge Computing (MEC) deployments. | |
-
 
 ## Known issues from previous releases
 
@@ -78,9 +77,8 @@ The following table provides a summary of known issues carried over from the pre
 |**21.**|Compute configuration |Compute configuration fails in network configurations where gateways or switches or routers respond to Address Resolution Protocol (ARP) requests for systems that don't exist on the network.| |
 |**22.**|Compute and Kubernetes |If Kubernetes is set up first on your device, it claims all the available GPUs. Hence, it isn't possible to create Azure Resource Manager VMs using GPUs after setting up the Kubernetes. |If your device has 2 GPUs, then you can create one VM that uses the GPU and then configure Kubernetes. In this case, Kubernetes will use the remaining available one GPU. |
 |**23.**|Custom script VM extension |There's a known issue in the Windows VMs that were created in an earlier release and the device was updated to 2103. <br> If you add a custom script extension on these VMs, the Windows VM Guest Agent (Version 2.7.41491.901 only) gets stuck in the update causing the extension deployment to time out. | To work around this issue: <br> - Connect to the Windows VM using remote desktop protocol (RDP). <br> - Make sure that the `waappagent.exe` is running on the machine: `Get-Process WaAppAgent`. <br> - If the `waappagent.exe` isn't running, restart the `rdagent` service: `Get-Service RdAgent` \| `Restart-Service`. Wait for 5 minutes.<br> - While the `waappagent.exe` is running, kill the `WindowsAzureGuest.exe` process. <br> - After you kill the process, the process starts running again with the newer version. <br> - Verify that the Windows VM Guest Agent version is 2.7.41491.971 using this command: `Get-Process WindowsAzureGuestAgent` \| `fl ProductVersion`.<br> - [Set up custom script extension on Windows VM](azure-stack-edge-gpu-deploy-virtual-machine-custom-script-extension.md).  |
-|**24.**|GPU VMs |Prior to this release, GPU VM lifecycle wasn't managed in the update flow. Hence, when updating to 2103 release, GPU VMs aren't stopped automatically during the update. You'll need to manually stop the GPU VMs using a `stop-stayProvisioned` flag before you update your device. For more information, see [Suspend or shut down the VM](azure-stack-edge-gpu-deploy-virtual-machine-powershell.md#suspend-or-shut-down-the-vm).<br> All the GPU VMs that are kept running before the update, are started after the update. In these instances, the workloads running on the VMs aren't terminated gracefully. And the VMs could potentially end up in an undesirable state after the update. <br>All the GPU VMs that are stopped via the `stop-stayProvisioned` before the update, are automatically started after the update. <br>If you stop the GPU VMs via the Azure portal, you'll need to manually start the VM after the device update.| If running GPU VMs with Kubernetes, stop the GPU VMs right before the update. <br>When the GPU VMs are stopped, Kubernetes will take over the GPUs that were used originally by VMs. <br>The longer the GPU VMs are in stopped state, higher the chances that Kubernetes will take over the GPUs. |
-|**25.**|Multi-Process Service (MPS) |When the device software and the Kubernetes cluster are updated, the MPS setting isn't retained for the workloads.   |[Re-enable MPS](azure-stack-edge-gpu-connect-powershell-interface.md#connect-to-the-powershell-interface) and redeploy the workloads that were using MPS. |
-|**26.**|Wi-Fi |Wi-Fi doesn't work on Azure Stack Edge Pro 2 in this release. | This functionality may be available in a future release.   |
+|**24.**|Multi-Process Service (MPS) |When the device software and the Kubernetes cluster are updated, the MPS setting isn't retained for the workloads.   |[Re-enable MPS](azure-stack-edge-gpu-connect-powershell-interface.md#connect-to-the-powershell-interface) and redeploy the workloads that were using MPS. |
+|**25.**|Wi-Fi |Wi-Fi doesn't work on Azure Stack Edge Pro 2 in this release. | This functionality may be available in a future release.   |
 
 
 ## Next steps
