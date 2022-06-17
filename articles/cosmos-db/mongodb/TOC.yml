@@ -290,6 +290,8 @@
           items: 
             - name: Get started
               href: how-to-javascript-get-started.md
+            - name: Work with the server
+              href: how-to-javascript-get-server-information.md
             - name: Work with databases
               items: 
                 - name: Create a database

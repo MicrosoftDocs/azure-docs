@@ -44,13 +44,13 @@ The connection string includes the following options by default:
 * maxIdleTimeMS=120000
 * appName=YOUR-RESOURCE-NAME
 
-## Create a database
+## Connect to a database
 
-To create a database, call the following method:
+To connect a database, call the following method:
 
 * [``Db``](https://mongodb.github.io/node-mongodb-native/4.5/classes/Db.html)
 
-The following example creates a database:
+The following example creates a database. If the database already exists, a connection to the existing database is returned. Use the server's 
 
 :::code language="javascript" source="~/samples-cosmosdb-mongodb-javascript/200-create-database/index.js" id="new_database":::
 
