@@ -28,7 +28,7 @@ Public IP Address insights provides:
 
 ## Monitoring data 
 
-Public IP Addresses collect the same kinds of monitoring data as other Azure resources that are described in [Monitoring data from Azure resources](/azure/azure-monitor/essentials/monitor-azure-resource#monitoring-data-from-Azure-resources). 
+Public IP Addresses collect the same kinds of monitoring data as other Azure resources that are described in [Monitoring data from Azure resources](/azure/azure-monitor/essentials/monitor-azure-resource#monitoring-data-from-azure-resources). 
 
 See [Monitoring *Public IP Addresses* data reference](monitor-public-ip-reference.md) for detailed information on the metrics and logs metrics created by Public IP Addresses.
 
@@ -287,7 +287,7 @@ The [Activity log](/azure/azure-monitor/essentials/activity-log) is a type of pl
 
 For a list of the types of resource logs collected for Public IP addresses, see [Monitoring *Public IP Addresses* data reference](monitor-public-ip-reference.md#resource-logs).
 
-For a list of the tables used by Azure Monitor Logs and queryable by Log Analytics, see [Monitoring *Public IP Addresses* data reference](monitor-public-ip-reference.md##azure-monitor-logs-tables).  
+For a list of the tables used by Azure Monitor Logs and queryable by Log Analytics, see [Monitoring *Public IP Addresses* data reference](monitor-public-ip-reference.md#azure-monitor-logs-tables).  
 
 ### Sample Kusto queries
 

@@ -6,7 +6,7 @@ ms.topic: reference
 ms.author: allensu
 ms.service: virtual-network
 ms.custom: subject-monitoring
-ms.date: 09/01/2021
+ms.date: 06/20/2022
 ---
 
 # Monitoring Public IP Addresses data reference
@@ -33,7 +33,6 @@ Public IP Addresses have the following dimensions associated with its metrics.
 | ------------------- | ----------------- |
 | **Port** | The port of the traffic. |
 | **Direction** | The direction of the traffic, inbound or outbound. |
-
 
 ## Resource logs
 
