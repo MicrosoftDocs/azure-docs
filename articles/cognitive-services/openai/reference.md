@@ -8,6 +8,7 @@ ms.service: cognitive-services
 ms.subservice: openai
 ms.topic: conceptual
 ms.date: 06/24/2022
+recommendations: false
 ms.custom:
 ---
 
@@ -15,26 +16,29 @@ ms.custom:
 
 This article provides details on the  REST API endpoints for the Azure OpenAI Service, a service in the Azure Cognitive Services suite. The REST APIs are broken up into two categories:
 
-1. **Management APIs**: The Azure Resource Manager (ARM) provides the management layer in Azure that allows you to create, update and delete resource in Azure. All services use a common structure for these operations. [Learn More](https://docs.microsoft.com/azure/azure-resource-manager/management/overview)
+1. **Management APIs**: The Azure Resource Manager (ARM) provides the management layer in Azure that allows you to create, update and delete resource in Azure. All services use a common structure for these operations. [Learn More](/azure/azure-resource-manager/management/overview)
 1. **Service APIs**: The Azure OpenAI service provides you with a set of REST APIs for interacting with the resources & models you deploy via the Management APIs.
 
 ## Management APIs
 
 The Azure OpenAI Service is deployed as a part of the Azure Cognitive Services. All Cognitive Services rely on the same set of management APIs for creation, update and delete operations. The management APIs are also used for deploying models within an OpenAI resource.
 
-[**Management APIs Reference Documentation**](https://docs.microsoft.com/rest/api/cognitiveservices/)
+[**Management APIs Reference Documentation**](/azure/rest/api/cognitiveservices/)
 
 ## Service APIs
 
-Once you've created an Azure OpenAI Resource and deployed a model, you'll primarily use the Service APIs to interact. An easy way to view and test your service is to use the OpenAPI Swagger editor in VS Code: [available here](https://marketplace.visualstudio.com/items?itemName=42Crunch.vscode-openapi). Using this extension you can generate local reference documentation and make API calls to the service. You can find the [latest Swagger File here](./swagger_2022_11_01.json).
+Once you've created an Azure OpenAI Resource and deployed a model, you'll primarily use the Service APIs to interact. An easy way to view and test your service is to use the OpenAPI Swagger editor in VS Code: [available here](https://marketplace.visualstudio.com/items?itemName=42Crunch.vscode-openapi). Using this extension you can generate local reference documentation and make API calls to the service.
 
 ## Authentication
 
 The Azure OpenAI service provides two methods for authentication. you can use  either API Keys or Azure Active Directory.
 
-- **API Key authentication**: For this type of authentication, all API requests must include the API Key in the ```api-key``` HTTP header. The [Quickstart](../Quickstarts/Quickstarts.md) provides a tutorial for how to make calls with this type of authentication
+- **API Key authentication**: For this type of authentication, all API requests must include the API Key in the ```api-key``` HTTP header. 
+<!--TODO: Uncommment once the link to the doc is created
+ The [Quickstart](../Quickstarts/Quickstarts.md) provides a tutorial for how to make calls with this type of authentication-->
 
-- **Azure Active Directory authentication**: You can authenticate an API call using an Azure Active Directory token. Authentication tokens are included in a request as the ```Authorization``` header. The token provided must be preceded by ```Bearer```, for example ```Bearer YOUR_AUTH_TOKEN```. You can read our how-to guide on [authenticating with Azure Active Directory](../How%20to/Set%20up%20managed%20identity.md)
+<!--TODO: Uncomment once linked doc is created
+- **Azure Active Directory authentication**: You can authenticate an API call using an Azure Active Directory token. Authentication tokens are included in a request as the ```Authorization``` header. The token provided must be preceded by ```Bearer```, for example ```Bearer YOUR_AUTH_TOKEN```. You can read our how-to guide on [authenticating with Azure Active Directory](../How%20to/Set%20up%20managed%20identity.md)-->
 
 ### REST API Versioning
 
