@@ -12,7 +12,7 @@ recommendations: false
 ms.custom:
 ---
 
-# REST API Reference Documentation
+# Azure OpenAI REST API reference
 
 This article provides details on the  REST API endpoints for the Azure OpenAI Service, a service in the Azure Cognitive Services suite. The REST APIs are broken up into two categories:
 
