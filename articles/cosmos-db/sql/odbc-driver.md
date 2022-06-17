@@ -7,7 +7,7 @@ ms.reviewer: mjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
-ms.date: 06/16/2022
+ms.date: 06/17/2022
 ms.custom: kr2b-contr-experiment
 ---
 
@@ -125,7 +125,7 @@ To define a schema, follow these steps. For the table-delimiter mapping method, 
 
 1. In the **Schema Editor** window, select **Create New**. 
 
-1. The **Generate Schema** window displays all the collections in the Azure Cosmos DB account. Select the checkboxs next to the containers you want to sample.
+1. The **Generate Schema** window displays all the collections in the Azure Cosmos DB account. Select the checkboxes next to the containers you want to sample.
 
 1. To use the *container mapping* method, select **Sample**.
 
