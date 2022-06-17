@@ -57,7 +57,7 @@ Create a new virtual hub. Once a hub is created, you'll be charged for the hub, 
 
 #### ExpressRoute page
 
-[!INCLUDE [Create ExpressRoute gateway](../../includes/virtual-wan-hub-er-gateway.md)]
+[!INCLUDE [Create ExpressRoute gateway](../../includes/virtual-wan-hub-expressroute-gateway.md)]
 
 ### <a name="existinghub"></a>To create a gateway in an existing hub
 
