@@ -24,7 +24,7 @@
   - name: Deploy and monitor decoy honeytokens
     href: monitor-key-vault-honeytokens.md
   - name: Build and monitor Zero Trust
-    href: /security/zero-trust/integrate/sentinel-solution?toc=%2Fazure%2Fsentinel%2FTOC.json&bc=%2azure%2sentinel%2breadcrumb%2toc.json
+    href: /security/zero-trust/integrate/sentinel-solution?toc=%2Fazure%2Fsentinel%2FTOC.json&bc=%2Fazure%2Fsentinel%2Fbreadcrumb%2Ftoc.json
   - name: Integrate with Microsoft Defender for IoT
     href: iot-solution.md
   - name: Integrate with Microsoft Purview
@@ -62,7 +62,7 @@
       - name: Extend Microsoft Sentinel across workspaces and tenants
         href: extend-sentinel-across-workspaces-tenants.md
       - name: Security baseline
-        href: /security/benchmark/azure/baselines/sentinel-security-baseline?toc=%2Fazure%2Fsentinel%2FTOC.json&bc=%2azure%2sentinel%2breadcrumb%2toc.json
+        href: /security/benchmark/azure/baselines/sentinel-security-baseline?toc=%2Fazure%2Fsentinel%2FTOC.json&bc=%2Fazure%2Fsentinel%2Fbreadcrumb%2Ftoc.json
   - name: Find solutions and content
     items:
     - name: About Sentinel content
@@ -82,13 +82,13 @@
       - name: Overview
         href: kusto-overview.md
       - name: Query best practices
-        href: /azure/data-explorer/kusto/query/best-practices?toc=%2Fazure%2Fsentinel%2FTOC.json&bc=%2azure%2sentinel%2breadcrumb%2toc.json
+        href: /azure/data-explorer/kusto/query/best-practices?toc=%2Fazure%2Fsentinel%2FTOC.json&bc=%2Fazure%2Fsentinel%2Fbreadcrumb%2Ftoc.json
       - name: SQL to KQL cheat sheet
-        href: /azure/data-explorer/kusto/query/sqlcheatsheet?toc=%2Fazure%2Fsentinel%2FTOC.json&bc=%2azure%2sentinel%2breadcrumb%2toc.json
+        href: /azure/data-explorer/kusto/query/sqlcheatsheet?toc=%2Fazure%2Fsentinel%2FTOC.json&bc=%2Fazure%2Fsentinel%2Fbreadcrumb%2Ftoc.json
       - name: Splunk to KQL cheat sheet
-        href: /azure/data-explorer/kusto/query/splunk-cheat-sheet?toc=%2Fazure%2Fsentinel%2FTOC.json&bc=%2azure%2sentinel%2breadcrumb%2toc.json
+        href: /azure/data-explorer/kusto/query/splunk-cheat-sheet?toc=%2Fazure%2Fsentinel%2FTOC.json&bc=%2Fazure%2Fsentinel%2Fbreadcrumb%2Ftoc.json
       - name: KQL quick reference
-        href: /azure/data-explorer/kql-quick-reference?toc=%2Fazure%2Fsentinel%2FTOC.json&bc=%2azure%2sentinel%2breadcrumb%2toc.json
+        href: /azure/data-explorer/kql-quick-reference?toc=%2Fazure%2Fsentinel%2FTOC.json&bc=%2Fazure%2Fsentinel%2Fbreadcrumb%2Ftoc.json
       - name: Other KQL resources
         href: kusto-resources.md
   - name: Normalize data
