@@ -165,7 +165,7 @@ Using the default Pay-as-you-go model for [Log Analytics pricing](https://azure.
 
 This section will explain how to measure and manage data ingestion to reduce costs.
 
-To learn about managing rights and permissions to the workbook, see [Access control](../azure-monitor/visualize/workbooks-access-control.md).
+To learn about managing rights and permissions to the workbook, see [Access control](../azure-monitor/visualize/workbooks-overview.md#access-control).
 
 >[!NOTE]
 >Removing data points will impact their corresponding visuals in Azure Monitor for Azure Virtual Desktop.

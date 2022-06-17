@@ -224,7 +224,7 @@ Select VMs for migration.
 
 1. In the Azure Migrate project > **Servers**, **Azure Migrate: Server Migration**, click **Replicate**.
 
-    ![Screenshot of the Servers screen in Azure Migrate. The Replicate button is selected in Azure Migrate: Server Migration under Migration tools.](./media/tutorial-migrate-vmware-agent/select-replicate.png)
+    :::image type="content" source="./media/tutorial-migrate-vmware-agent/select-replicate.png" alt-text="Screenshot  of the Servers screen in Azure Migrate. The Replicate button is selected in Azure Migrate: Server Migration under Migration tools.":::
 
 2. In **Replicate**, > **Source settings** > **Are your machines virtualized?**, select **Yes, with VMware vSphere**.
 3. In **On-premises appliance**, select the name of the Azure Migrate appliance that you set up.
@@ -232,7 +232,7 @@ Select VMs for migration.
 5. In **Process Server**, select the name of the replication appliance.
 6. In **Guest credentials**, specify the VM admin account that will be used for push installation of the Mobility service. Then click **Next: Virtual machines**.
 
-    ![Screenshot of the Source settings tab in the Replicate screen. The Guest credentials field is highlighted and the value is set to VM-admin-account.](./media/tutorial-migrate-vmware-agent/source-settings.png)
+    :::image type="content" source="./media/tutorial-migrate-vmware-agent/source-settings.png" alt-text="Screenshot of the Source settings tab in the Replicate screen. The Guest credentials field is highlighted and the value is set to VM-admin-account.":::
 
 7. In **Virtual Machines**, select the machines that you want to replicate.
 
@@ -244,6 +244,9 @@ Select VMs for migration.
     -  Availability Set to place the migrated machine in an Availability Set. The target Resource Group that was selected must have one or more availability sets in order to use this option.
     - No infrastructure redundancy required option if you don't need either of these availability configurations for the migrated machines.
 9. Check each VM you want to migrate. Then click **Next: Target settings**.
+
+    :::image type="content" source="./media/tutorial-migrate-vmware-agent/select-vms-inline.png" alt-text="Screenshot on selecting VMs." lightbox="./media/tutorial-migrate-vmware-agent/select-vms-expanded.png":::
+
 10. In **Target settings**, select the subscription, and target region to which you'll migrate, and specify the resource group in which the Azure VMs will reside after migration.
 11. In **Virtual Network**, select the Azure VNet/subnet to which the Azure VMs will be joined after migration.  
 12. In  **Cache storage account**, keep the default option to use the cache storage account that is automatically created for the project. Use the dropdown if you'd like to specify a different storage account to use as the cache storage account for replication. <br/>
@@ -268,7 +271,7 @@ Select VMs for migration.
     - Select **No** if you don't want to apply Azure Hybrid Benefit. Then click **Next**.
     - Select **Yes** if you have Windows Server machines that are covered with active Software Assurance or Windows Server subscriptions, and you want to apply the benefit to the machines you're migrating. Then click **Next**.
 
-    ![Target settings](./media/tutorial-migrate-vmware/target-settings.png)
+        :::image type="content" source="./media/tutorial-migrate-vmware/target-settings.png" alt-text="Screenshot on target settings.":::
 
 16. In **Compute**, review the VM name, size, OS disk type, and availability configuration (if selected in the previous step). VMs must conform with [Azure requirements](migrate-support-matrix-vmware-migration.md#azure-vm-requirements).
 
@@ -281,7 +284,13 @@ Select VMs for migration.
     - You can exclude disks from replication.
     - If you exclude disks, won't be present on the Azure VM after migration.
 
-18. In **Review and start replication**, review the settings, and click **Replicate** to start the initial replication for the servers.
+    :::image type="content" source="./media/tutorial-migrate-vmware-agent/disks-inline.png" alt-text="Screenshot shows the Disks tab of the Replicate dialog box." lightbox="./media/tutorial-migrate-vmware-agent/disks-expanded.png":::
+
+18. In **Tags**, choose to add tags to your Virtual machines, Disks, and NICs.
+
+    :::image type="content" source="./media/tutorial-migrate-vmware/tags-inline.png" alt-text="Screenshot shows the tags tab of the Replicate dialog box." lightbox="./media/tutorial-migrate-vmware/tags-expanded.png":::
+
+19. In **Review and start replication**, review the settings, and click **Replicate** to start the initial replication for the servers.
 
 > [!NOTE]
 > You can update replication settings any time before replication starts, **Manage** > **Replicating machines**. Settings can't be changed after replication starts.
@@ -314,20 +323,21 @@ When delta replication begins, you can run a test migration for the VMs, before 
 Do a test migration as follows:
 
 
-1. In **Migration goals** > **Servers, databases and web apps** > **Azure Migrate: Server Migration**, click **Test migrated servers**.
+1. In **Migration goals** > **Servers** > **Azure Migrate: Server Migration**, click **Test migrated servers**.
 
-     ![Test migrated servers](./media/tutorial-migrate-vmware-agent/test-migrated-servers.png)
+     :::image type="content" source="./media/tutorial-migrate-vmware-agent/test-migrated-servers.png" alt-text="Screenshot of Test migrated servers.":::
 
 2. Right-click the VM to test, and click **Test migrate**.
 
-    ![Test migration](./media/tutorial-migrate-vmware-agent/test-migrate.png)
+    :::image type="content" source="./media/tutorial-migrate-vmware-agent/test-migrate-inline.png" alt-text="Screenshot of Test migration." lightbox="./media/tutorial-migrate-vmware-agent/test-migrate-expanded.png":::
 
 3. In **Test Migration**, select the Azure VNet in which the Azure VM will be located after the migration. We recommend you use a non-production VNet.
 4. The **Test migration** job starts. Monitor the job in the portal notifications.
 5. After the migration finishes, view the migrated Azure VM in **Virtual Machines** in the Azure portal. The machine name has a suffix **-Test**.
 6. After the test is done, right-click the Azure VM in **Replicating machines**, and click **Clean up test migration**.
 
-    ![Clean up migration](./media/tutorial-migrate-vmware-agent/clean-up.png)
+    :::image type="content" source="./media/tutorial-migrate-vmware-agent/clean-up-inline.png" alt-text="Screenshot of Clean up migration." lightbox="./media/tutorial-migrate-vmware-agent/clean-up-expanded.png":::
+
     > [!NOTE]
     > You can now register your servers running SQL server with SQL VM RP to take advantage of automated patching, automated backup and simplified license management using SQL IaaS Agent Extension.
     >- Select **Manage** > **Replicating servers** > **Machine containing SQL server** > **Compute and Network** and select **yes** to register with SQL VM RP.
