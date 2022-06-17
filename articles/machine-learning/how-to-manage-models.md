@@ -223,11 +223,11 @@ For a complete example, see the [model notebook](https://github.com/Azure/azurem
 
 ### Registering model as an asset in Azure Machine Learning using UI
 
-To create a model in Azure Machine Learning, open the Models page in Azure Machine Learning. Click **Create** and select where your model is located. 
+To create a model in Azure Machine Learning, open the Models page in Azure Machine Learning. Click **Register model** and select where your model is located. Fill out the required fields, and then select __Register__. 
 
 :::image type="content" source="./media/how-to-manage-models/register-model-as-asset.png" alt-text="Screenshot of the UI to register a model." lightbox="./media/how-to-manage-models/register-model-as-asset.png":::
 
-Use the tabs below to select where your model is located.
+<!-- Use the tabs below to select where your model is located.
 
 # [Local model](#tab/use-local)
 
@@ -252,7 +252,7 @@ To add a model from an Azure Machine Learning Job, locate the Job in the Job UI 
 :::image type="content" source="./media/how-to-manage-models/register-model-job-output.png" alt-text="Screenshot of creating a model from job output in the UI." lightbox="./media/how-to-manage-models/register-model-job-output.png":::
 
 
----
+--- -->
 
 ## Consuming V1 model assets in V2
 
