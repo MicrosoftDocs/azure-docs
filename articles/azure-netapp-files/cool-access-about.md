@@ -18,7 +18,7 @@ ms.author: anfdocs
 
 # Cool access in Azure NetApp Files 
 
-The majority of cold data is associated with unstructured data. It can account for more than 50% of the total storage capacity in many storage environments. Infrequently accessed data associated with productivity software, completed projects, and old datasets is an inefficient use of a high-performance storage. 
+The majority of cold data is associated with unstructured data. It can account for more than 50% of the total storage capacity in many storage environments. Infrequently accessed data associated with productivity software, completed projects, and old datasets are an inefficient use of a high-performance storage. 
 
 Using Azure NetApp Files Standard service level with cool access, you can configure inactive data to move from Azure NetApp Files Standard service-level storage to an Azure storage account (the cool tier). In doing so, you free up storage that resides within Azure NetApp Files, resulting in cost saving.
 
@@ -26,9 +26,9 @@ You can configure Standard service level with cool access on a volume by specify
 
 When the data has remained inactive for the specified coolness period, the tiering process begins, and the data is moved to the cool tier (the Azure storage account). This tiering process might take a few days.
 
-For example, if you specify 31 days as the coolness period, then 31 days after a data block is last accessed (read or written), it is qualified for movement to the cool tier.  
+For example, if you specify 31 days as the coolness period, then 31 days after a data block is last accessed (read or written), it's qualified for movement to the cool tier.  
 
-After inactive data is moved to the cool tier and if it is read randomly again, it becomes “warm” and is moved back to the standard tier. Sequential reads (such as index and antivirus scans) on inactive data in the cool tier do not warm the data and will not trigger inactive data to be moved back to the standard tier. 
+After inactive data is moved to the cool tier and if it's read randomly again, it becomes “warm” and is moved back to the standard tier. Sequential reads (such as index and antivirus scans) on inactive data in the cool tier do not warm the data and will not trigger inactive data to be moved back to the standard tier. 
 
 Metadata is never cooled and will always remain in the standard tier. As such, the activities of metadata-intensive workloads (for example, high file-count environments like chip design, VCS, and home directories) are not impacted by tiering.
 
@@ -43,13 +43,13 @@ This scenario provides insight to the warming performance behavior of a 100% coo
 
 ### 4k random-read test
 
-This section describes a 4k random-read test across 160 files totaling 10-TB of data.   
+This section describes a 4k random-read test across 160 files totaling 10 TB of data.   
 
 **Setup** 
 
 **Region:** Japan <br>
 **Capacity pool size:** 100 TB capacity pool <br>
-**Volume allocated capacity:** 100-TB volumes <br>
+**Volume allocated capacity:** 100 TB volumes <br>
 **Working Dataset:** 10 TB <br>
 **Service Level:** Standard service level with cool access <br>
 **Volume Count/Size:** 1 <br>
@@ -59,9 +59,9 @@ This section describes a 4k random-read test across 160 files totaling 10-TB of 
 
 **Methodology**
 
-This test was set up via FIO to run a 4k random-read test across 160 files totaling 10-TB of data. FIO was configured to randomly read each block across the entire working dataset. (That is, it can read any block any number of times as part of the test instead of touching each block once). This script was called once every 5 minutes and then a data point collected on performance. When blocks are randomly read, they are moved to the standard tier.
+This test was set up via FIO to run a 4k random-read test across 160 files that total 10 TB of data. FIO was configured to randomly read each block across the entire working dataset. (That is, it can read any block any number of times as part of the test instead of touching each block once). This script was called once every 5 minutes and then a data point collected on performance. When blocks are randomly read, they're moved to the standard tier.
 
-This test had an extremely large dataset and ran several days starting the worst-case most-aged data (all caches dumped). The time component of the X axis has been removed because the total time to rewarm will vary significantly due to the dataset size.  This curve could be in days, hours, minutes, or even seconds depending on the dataset. 
+This test had a large dataset and ran several days starting the worst-case most-aged data (all caches dumped). The time component of the X axis has been removed because the total time to rewarm will vary due to the dataset size.  This curve could be in days, hours, minutes, or even seconds depending on the dataset. 
 
 **Results**
 
@@ -106,11 +106,11 @@ The following table summarizes the test results:
 
 The measurements and testing executed in this section are difficult to reproduce. The numbers here show worst-case scenarios. There are diagnostic-level commands that allowed buffers to be dumped and timers shortened, so this testing could be achieved in a reasonable timeframe, and FIO scripts tuned to achieve the goals of each test.  
 
-Data read from the cool tier experiences a performance hit. If you size your time to cool off correctly, then you might not experience a performance hit at all. You might have very little cool tier access, and a 30-day window is perfect for keeping warm data warm.
+Data read from the cool tier experiences a performance hit. If you size your time to cool off correctly, then you might not experience a performance hit at all. You might have little cool tier access, and a 30-day window is perfect for keeping warm data warm.
 
-You should avoid a situation that churns blocks between the standard tier and the cool tier. For instance,  you set a workload for data to cool 7 days, and you randomly read a large percentage of the dataset every 11 days.
+You should avoid a situation that churns blocks between the standard tier and the cool tier. For instance, you set a workload for data to cool seven days, and you randomly read a large percentage of the dataset every 11 days.
 
-In summary, if your working set is predictable, you can save cost by moving infrequently accessed data blocks to the cool tier. The 7 to 30 day wait range before cooling provides a large window for working sets that are rarely accessed after they are dormant or do not require the standard-tier speeds when they are accessed.
+In summary, if your working set is predictable, you can save cost by moving infrequently accessed data blocks to the cool tier. The 7 to 30 day wait range before cooling provides a large window for working sets that are rarely accessed after they're dormant or do not require the standard-tier speeds when they're accessed.
 
 ## Metrics 
 
@@ -122,35 +122,35 @@ To support this functionality, the following new [Azure NetApp Files metrics](az
 
 ## Billing 
 
-You can enable tiering at the volume level for a newly created capacity pool that uses the Standard service level. How you are billed will be based on the following factors: 
+You can enable tiering at the volume level for a newly created capacity pool that uses the Standard service level. How you're billed will be based on the following factors: 
 
 * The capacity in the Standard service level
 * The capacity in the cool tier (by enabling tiering for volumes in a Standard capacity pool)
-* Network transfer between the standard tier and the cool tier at the rate determined by the markup on top of the transaction cost (GET, PUT) on blob storage and private link transfer in either direction between the standard tiers.
+* Network transfer between the standard tier and the cool tier at the rate that is determined by the markup on top of the transaction cost (GET and PUT requests) on blob storage and private link transfer in either direction between the standard tiers.
 
-Billing calculation for a Standard capacity pool will be at the standard tier rate for the data that is not tiered to the cool tier. When you enable tiering for volumes, the capacity in the cool tier will be at the rate of the cool tier (which is lower than the standard tier), and the remaining capacity will be at the rate of the standard tier. 
+Billing calculation for a Standard capacity pool will be at the standard tier rate for the data that is not tiered to the cool tier. When you enable tiering for volumes, the capacity in the cool tier will be at the rate of the cool tier, and the remaining capacity will be at the rate of the standard tier. The rate of the cool tier is lower than the standard tier's rate. 
 
 ### Billing structure examples
 
-Assume that you created a 4 TiB Standard capacity pool. The billing structure will be at the Standard capacity tier rate for the entire 4TiB. 
+Assume that you created a 4-TiB Standard capacity pool. The billing structure will be at the Standard capacity tier rate for the entire 4TiB. 
 
-When you create volumes in the capacity pool and start tiering data to the cool tier, the following examples shows you the applicable billing structure: 
+When you create volumes in the capacity pool and start tiering data to the cool tier, the following example shows you the applicable billing structure: 
 
 1. Assume that you create 3 volumes with 1 TiB each. You do not enable tiering at the volume level. The billing calculation will be as follows: 
 * 4-TiB capacity at the standard tier rate
 * Zero capacity at the cool tier rate
 * Zero network transfer between the standard tier and the cool tier at the rate determined by the markup on top of the transaction cost (GET, PUT) on blob storage and private link transfer in either direction between the standard tiers.
-1. Assume that you create 4 volumes with 1 TiB each. Each volume has 0.25 TiB of the volume capacity on the standard tier, and 0.75 TiB of the volume capacity in the cool tier. The billing calculation will be as follows: 
+1. Assume that you create four volumes with 1 TiB each. Each volume has 0.25 TiB of the volume capacity on the standard tier, and 0.75-TiB of the volume capacity in the cool tier. The billing calculation will be as follows: 
 * 1-TiB capacity at the standard tier rate
 * 3-TiB capacity at the cool tier rate
 * Network transfer between the standard tier and the cool tier at the rate determined by the markup on top of the transaction cost (GET, PUT) on blob storage and private link transfer in either direction between the standard tiers.
-1. Assume that you create 2 volumes with 1 TiB each. Each volume has 0.25 TiB of the volume capacity on the standard tier, and 0.75 TiB of the volume capacity in the cool tier. The billing calculation will be as follows: 
+1. Assume that you create two volumes with 1 TiB each. Each volume has 0.25 TiB of the volume capacity on the standard tier, and 0.75 TiB of the volume capacity in the cool tier. The billing calculation will be as follows: 
 * 2.5 TiB capacity at the standard tier rate
 * 1.5 TiB capacity at the cool tier rate
 * Network transfer between the standard tier and the cool tier at the rate determined by the markup on top of the transaction cost (GET, PUT) on blob storage and private link transfer in either direction between the standard tiers.
 1. Assume that you create 1 volume with 1 TiB. The volume has 0.25 TiB of the volume capacity on the standard tier, 0.75 of the volume capacity in the cool tier. The billing calculation will be as follows: 
 * 3.25 capacity at the standard tier rate
-* 0.75 TiB capacity at the cool tier rate
+* 0.75-TiB capacity at the cool tier rate
 * Network transfer between the standard tier and the cool tier at the rate determined by the markup on top of the transaction cost (GET, PUT) on blob storage and private link transfer in either direction between the standard tiers.
 
 ## Next steps
