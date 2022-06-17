@@ -42,6 +42,31 @@ Metadata is never cooled and will always remain in the standard tier. As such, t
 * After the capacity pool is configured with the option to support cool access volumes, the setting cannot be disabled at the _capacity pool_ level. However, you can turn on or turn off the cool access setting at the volume level anytime. Turning off the cool access setting at the _volume_ level will stop further tiering of data.  
 * Cool access is supported only on capacity pools of the **auto** QoS type.   
 
+
+## Register the feature
+
+This feature is currently in preview preview. 
+
+<!-- 
+This feature is currently in preview. You need to register the feature before using it for the first time. After registration, the feature is enabled and works in the background. No UI control is required. 
+
+1. Register the feature: 
+
+    ```azurepowershell-interactive
+    Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName TKTK
+    ```
+
+2. Check the status of the feature registration: 
+
+    > [!NOTE]
+    > The **RegistrationState** may be in the `Registering` state for up to 60 minutes before changing to`Registered`. Wait until the status is **Registered** before continuing.
+
+    ```azurepowershell-interactive
+    Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName TKTK
+    ```
+You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` and `az feature show` to register the feature and display the registration status. 
+-->
+
 ## Enable cool access 
 
 To use the cool access feature, you need to configure the feature at the capacity pool level and the volume level.  
@@ -58,7 +83,7 @@ Before creating or enable a cool-access volume, you need to configure a Stand se
 1. Check the **Enable Cool Access** checkbox, then select **Create**. 
     When you select Enable Cool Access, the UI automatically selects the auto QoS type. The manual QoS type is not supported for cool access. 
 
-<!-- image -->
+:::image type="content" source="../media/azure-netapp-files/cool-access-new-capacity-pool.jpg" alt-text="The new capacity pool menu includes an option Enable Cool Access, with a selected checkbox. This is the penultimate field, before QoS Type." lightbox="../media/azure-netapp-files/cool-access-new-capacity-pool.jpg"::: 
 
 #### Enable cool access on an existing capacity pool  
 
@@ -68,6 +93,47 @@ You can enable cool access support on an existing Standard service-level capacit
 
 2. Select **Enable Cool Access**: 
 
- <!-- image -->
+:::image type="content" source="../media/azure-netapp-files/cool-access-existing-pool.jpg" alt-text="After right-clicking on an existing capacity pool, a menu pops up with the option to Enable Cool Access." lightbox="../media/azure-netapp-files/cool-access-existing-pool.jpg"::: 
 
 ### Configure a volume for cool access 
+
+Cool access can be enabled during the creation of a new volume or on an existing volume. 
+
+#### Enable cool access on a new volume 
+
+1. Select the **Volumes** menu from the **Capacity Pools** menu. Click **+ Add volume** to create a new NFS, SMB, or dual-protocol volume. 
+1. In the **Basics** tab of the **Create a Volume** page, set the following options to enable the volume for cool access: 
+
+* **Enable Cool Access**
+    This option specifies whether the volume will support cool access. 
+ 
+* **Coolness Period**
+    This option specifies the period (in days) after which infrequently accessed data blocks (cold data blocks) are moved to the Azure storage account. The default value is 31 days. The supported values are between 7 and 63 days.         
+
+:::image type="content" source="../media/azure-netapp-files/cool-access-new-volume.jpg" alt-text="Image showing the Create a volume field. Under the basics tab, there is an option to Enable Cool Access with a checkbox selected. There is a coolness period field which access a numerical string between 7 and 63 days. The image shows 31 as the value in the field. " lightbox="../media/azure-netapp-files/cool-access-new-volume.jpg"::: 
+
+#### Enable cool access on an existing volume 
+
+In a Standard service-level, cool-access enabled capacity pool, you can enable an existing volume to support cool access.  
+
+1. Right-click the volume for which you want to enable the cool access. 
+1. In the **Edit** window that appears, set the following options for the volume: 
+* Enable Cool Access 
+    This option specifies whether the volume will support cool access. 
+* Coolness Period  
+    This option specifies the period (in days) after which infrequently accessed data blocks (cold data blocks) are moved to the Azure storage account. The default value is 31 days. The supported values are between 7 and 63 days. 
+
+cool-access-new-volume.jpg
+ <!-- image -->
+
+### Modify coolness period for a volume 
+
+You can modify the coolness period setting for a volume based on the client read/write patterns.  
+
+1. Right-click the volume for which you want to modify the coolness configuration.  
+
+1. In the **Edit** window that appears, update the** Coolness Period field**.   
+ 
+The default value is 31 days. The supported values are between 7 and 63. 
+
+ <!-- image -->
