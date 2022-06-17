@@ -1,6 +1,6 @@
 ---
-title: Deploy a premium ssd v2 (preview) managed disk
-description: Learn how to deploy a premium ssd v2 (preview).
+title: Deploy a premium SSD v2 (preview) managed disk
+description: Learn how to deploy a premium SSD v2 (preview).
 author: roygara
 ms.author: rogarana
 ms.date: 06/17/2022
@@ -15,11 +15,11 @@ Azure premium SSD v2 (preview) is designed for performance-sensitive workloads t
 
 ## Limitations
 
-Premium SSD v2 can't be used as OS disks, they can only be created as empty data disks. Premium SSD v2 also can't be used with some features and functionality, including disk snapshots, disk export, changing disk type, VM images, availability sets, Azure Dedicated Hosts, or Azure disk encryption. Azure Backup and Azure Site Recovery don't support premium SSD v2. In addition, only un-cached reads and un-cached writes are supported.
+Premium SSD v2 can't be used as OS disks, they can only be created as empty data disks. Premium SSD v2 also can't be used with some features and functionality, including disk snapshots, disk export, changing disk type, VM images, availability sets, Azure Dedicated Hosts, or Azure disk encryption. Azure Backup and Azure Site Recovery don't support premium SSD v2. In addition, only uncached reads and uncached writes are supported.
 
-The only infrastructure redundancy options currently available to premium SSD v2 are availability zones. VMs using any other redundancy options cannot attach a premium SSD v2.
+The only infrastructure redundancy options currently available to premium SSD v2 are availability zones. VMs using any other redundancy options can't attach a premium SSD v2.
 
-Premium SSD v2 supports a 4k physical sector size by default. A 512E sector size is available as a generally available offering with no sign-up required. While most applications are compatible with 4k sector sizes, some require 512 byte sector sizes. Oracle Database, for example, requires release 12.2 or later in order to support 4k native disks. For older versions of Oracle DB, 512 byte sector size is required.
+Premium SSD v2 supports a 4k physical sector size by default. A 512E sector size is available as a generally available offering with no sign-up required. While most applications are compatible with 4k sector sizes, some require 512-byte sector sizes. Oracle Database, for example, requires release 12.2 or later in order to support 4k native disks. For older versions of Oracle DB, 512-byte sector size is required.
 
 ## Prerequisites
 
@@ -54,7 +54,7 @@ if($sku){$sku[0].LocationInfo[0].ZoneDetails} Else {Write-host "$vmSize is not s
 
 The response will be similar to the form below, where X is the zone to use for deploying in your chosen region. X could be either 1, 2, or 3.
 
-Preserve the **Zones** value, it represents your availability zone and you will need it in order to deploy an premium SSD v2.
+Preserve the **Zones** value, it represents your availability zone and you'll need it in order to deploy a premium SSD v2.
 
 |ResourceType  |Name  |Location  |Zones  |Restriction  |Capability  |Value  |
 |---------|---------|---------|---------|---------|---------|---------|
