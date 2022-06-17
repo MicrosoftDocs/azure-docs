@@ -74,23 +74,56 @@ Although IIS isn't required to create the application gateway, it's installed on
 
 Use IIS to test the application gateway:
 
-1. Find the public IP address for the application gateway on its **Overview** page.![Record application gateway public IP address](../../application-gateway/media/application-gateway-create-gateway-portal/application-gateway-record-ag-address.png) Or, you can select **All resources**, enter *myAGPublicIPAddress* in the search box, and then select it in the search results. Azure displays the public IP address on the **Overview** page.
+1. Find the public IP address for the application gateway on its **Overview** page.![Record application gateway public IP address](../../application-gateway/media/application-gateway-create-gateway-portal/application-gateway-record-ag-address.png).
 2. Copy the public IP address, and then paste it into the address bar of your browser to browse that IP address.
 3. Check the response. A **403 Forbidden** response verifies that the WAF was successfully created and is blocking connections to the backend pool.
-4. Change the custom rule to **Allow traffic**.
-  Run the following Azure PowerShell script, replacing your resource group name:
-   ```azurepowershell
-   $rg = "<your resource group name>"
-   $AppGW = Get-AzApplicationGateway -Name myAppGateway -ResourceGroupName $rg
-   $pol = Get-AzApplicationGatewayFirewallPolicy -Name WafPol01 -ResourceGroupName $rg
-   $pol[0].customrules[0].action = "allow"
-   $rule = $pol.CustomRules
-   Set-AzApplicationGatewayFirewallPolicy -Name WafPol01 -ResourceGroupName $rg -CustomRule $rule
-   $AppGW.FirewallPolicy = $pol
-   Set-AzApplicationGateway -ApplicationGateway $AppGW
-   ```
+4. Change the custom rule to **Allow traffic** using Azure CLI or Azure PowerShell, replacing your resource group name.
+    
+    # [CLI](#tab/CLI)
 
-   Refresh your browser multiple times and you should see connections to both myVM1 and myVM2.
+    ```azurecli
+    
+    az network application-gateway show --name $fwPolicyName --resource-group $rgName
+    az network application-gateway waf-policy show --name $fwPolicyName --resource-group $rgName
+   
+    # Update the resources
+    $pol[0].CustomRules[0].Action = "allow"
+    $appGW.FirewallPolicy = $pol
+
+    # Push your changes to Azure
+    #Set-AzApplicationGatewayFirewallPolicy -Name $fwPolicyName -ResourceGroupName $rgName -CustomRule $pol.CustomRules
+    az network application-gateway waf-policy update --name $fwPolicyName --resource-group $rgName
+
+    Set-AzApplicationGateway -ApplicationGateway $appGW
+    ```
+
+    # [PowerShell](#tab/PowerShell)
+
+    ```azurepowershell
+    
+    $rgName = "exampleRG"
+    $appGWName = "myAppGateway"
+    $fwPolicyName = "WafPol01"
+
+    # Pull the existing Azure resources
+
+    $appGW = Get-AzApplicationGateway -Name $appGWName -ResourceGroupName $rgName
+    $pol = Get-AzApplicationGatewayFirewallPolicy -Name $fwPolicyName -ResourceGroupName $rgName
+
+    # Update the resources
+
+    $pol[0].CustomRules[0].Action = "allow"
+    $appGW.FirewallPolicy = $pol
+
+    # Push your changes to Azure
+
+    Set-AzApplicationGatewayFirewallPolicy -Name $fwPolicyName -ResourceGroupName $rgName -CustomRule $pol.CustomRules
+    Set-AzApplicationGateway -ApplicationGateway $appGW
+    ```
+
+    ---
+
+    Refresh your browser multiple times and you should see connections to both myVM1 and myVM2.
 
 ## Clean up resources
 
