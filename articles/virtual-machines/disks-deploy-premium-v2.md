@@ -58,9 +58,39 @@ Preserve the **Zones** value, it represents your availability zone and you'll ne
 
 |ResourceType  |Name  |Location  |Zones  |Restriction  |Capability  |Value  |
 |---------|---------|---------|---------|---------|---------|---------|
-|disks     |UltraSSD_LRS         |eastus2         |X         |         |         |         |
+|disks     |premium_SKU_Name         |eastus2         |X         |         |         |         |
 
 > [!NOTE]
 > If there was no response from the command, then the selected VM size is not supported with premium SSD v2 in the selected region.
 
 Now that you know which zone to deploy to, follow the deployment steps in this article to either deploy a VM with a premium SSD v2 attached or attach a premium SSD v2 to an existing VM.
+
+## Deploy a premium SSD v2
+
+Portal, PowerShell, CLI, ARM, steps here.
+
+# [Azure CLI](#tab/azure-cli)
+
+You must create a VM that is capable of using premium SSD v2, to attach one.
+
+Replace or set the **$vmname**, **$rgname**, **$diskname**, **$location**, **$password**, **$user** variables with your own values. Set **$zone**  to the value of your availability zone that you got from the [start of this article](#determine-vm-size-and-region-availability). Then run the following CLI command:
+
+```azurecli-interactive
+az disk create --subscription $subscription -n $diskname -g $rgname --size-gb 1024 --location $location --sku Premium_SKU_NAME --disk-iops-read-write 8192 --disk-mbps-read-write 400
+az vm create --subscription $subscription -n $vmname -g $rgname --image Win2016Datacenter --zone $zone --authentication-type password --admin-password $password --admin-username $user --size Standard_D4s_v3 --location $location --attach-data-disks $diskname
+```
+
+# [PowerShell](#tab/azure-powershell)
+
+To use a premium SSD v2, you must create a VM that is capable of using it. Replace or set the **$resourcegroup** and **$vmName** variables with your own values. Set **$zone** to the value of your availability zone that you got from the [start of this article](#determine-vm-size-and-region-availability). Then run the following [New-AzVm](/powershell/module/az.compute/new-azvm) command:
+
+```powershell
+New-AzVm `
+    -ResourceGroupName $resourcegroup `
+    -Name $vmName `
+    -Location "eastus2" `
+    -Image "Win2016Datacenter" `
+    -size "Standard_D4s_v3" `
+    -zone $zone
+```
+---
