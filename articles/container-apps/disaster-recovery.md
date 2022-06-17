@@ -37,7 +37,7 @@ To take advantage of availability zones, you must enable zone redundancy when yo
 
 ### Enabled zone redundancy via the Azure portal 
  
-To create a Container App in an environment with zone redundancy enabled using the Azure portal:
+To create a container app in an environment with zone redundancy enabled using the Azure portal:
 
 1. Navigate to the Azure portal.
 1. Search for **Container Apps** in the top search box.
