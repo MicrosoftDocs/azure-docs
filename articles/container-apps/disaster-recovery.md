@@ -6,7 +6,7 @@ author: craigshoemaker
 ms.author: cshoe
 ms.service: container-apps
 ms.topic: tutorial
-ms.date: 5/10/2022
+ms.date: 6/17/2022
 ---
 
 # Disaster recovery guidance for Azure Container Apps
