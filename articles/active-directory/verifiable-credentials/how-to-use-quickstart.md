@@ -120,11 +120,11 @@ To configure your sample code to issue and verify using custom credentials, you 
 
 The easiest way to find this information for a Custom Credential is to go to your credential in the portal, select **Issue credential** and switch to Custom issue.
 
-![Quickstart issue credential screen](media/how-to-use-quickstart/quickstart-config-sample-1.png)
+![Screenshot of QuickStart issue credential screen.](media/how-to-use-quickstart/quickstart-config-sample-1.png)
 
 After switching to custom issue, you have access to a textbox with a JSON payload for the Request Service API. Replace the place holder values with your environment's information. The issuer’s DID is the authority value.
 
-![Quickstart custom issue](media/how-to-use-quickstart/quickstart-config-sample-2.png)
+![Screenshot of Quickstart custom issue.](media/how-to-use-quickstart/quickstart-config-sample-2.png)
 
 ## Next steps
 

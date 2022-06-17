@@ -112,7 +112,7 @@ Azure AD Verifiable Credentials Service Request needs to get access tokens to is
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) with your administrative account.
 
-1. If you have access to multiple tenants, select the **Directory + subscription** :::image type="icon" source="media/verifiable-credentials-configure-tenant/portal-directory-subscription-filter.png" border="false"::: icon. Then, search for and select your **Azure Active Directory**.
+1. If you have access to multiple tenants, select the **Directory + subscription**. Then, search for and select your **Azure Active Directory**.
 
 1. Under **Manage**, select **App registrations** > **New registration**.  
 
