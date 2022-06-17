@@ -15,9 +15,13 @@ ms.custom: cog-serv-seo-aug-2020, mode-other
 keywords: translator, translator service, translate text, transliterate text, language detection
 ---
 
+<!-- markdownlint-disable MD033 -->
+<!-- markdownlint-disable MD001 -->
+<!-- markdownlint-disable MD024 -->
+
 # Use Text Translator APIs
 
-In this how-to guide, you'll learn to use the Translator service APIs via REST. You'll start with basic examples and move onto some core configuration options that are commonly used during development, including:
+In this how-to guide, you'll learn to use the [Translator text service REST APIs](reference/rest-api-guide.md). You'll start with basic examples and move onto some core configuration options that are commonly used during development, including:
 
 * [Translation](#translate-text)
 * [Transliteration](#transliterate-text)
@@ -28,83 +32,21 @@ In this how-to guide, you'll learn to use the Translator service APIs via REST. 
 ## Prerequisites
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/)
-* Once you have an Azure subscription, [create a Translator resource](https://portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) in the Azure portal to get your key and endpoint. After it deploys, select **Go to resource**.
-  * You'll need the key and endpoint from the resource to connect your application to the Translator service. You'll paste your key and endpoint into the code below later in the quickstart. You can find these values on the Azure portal **Keys and Endpoint** page:
 
-    :::image type="content" source="media/keys-and-endpoint-portal.png" alt-text="Screenshot: Azure portal keys and endpoint page.":::
+* A Cognitive Services or Translator resource. Once you have your Azure subscription, create a [single-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) or [multi-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) resource in the Azure portal to get your key and endpoint. After it deploys, select **Go to resource**.
 
 * You can use the free pricing tier (F0) to try the service, and upgrade later to a paid tier for production.
 
-## Platform setup
+    > [!TIP]
+    > Create a Cognitive Services resource if you plan to access multiple cognitive services under a single endpoint/key. For Form Recognizer access only, create a Form Recognizer resource. Please note that you'll need a single-service resource if you intend to use [Azure Active Directory authentication](../../active-directory/authentication/overview-authentication.md).
 
-# [C#](#tab/csharp)
+* You'll need the key and endpoint from the resource to connect your application to the Translator service. Later, you'll paste your key and endpoint into the code samples. You can find these values on the Azure portal **Keys and Endpoint** page:
 
-* Create a new project: `dotnet new console -o your_project_name`
-* Replace Program.cs with the C# code shown below.
-* Set the key and endpoint values in Program.cs.
-* [Add Newtonsoft.Json using .NET CLI](https://www.nuget.org/packages/Newtonsoft.Json/).
-* Run the program from the project directory: ``dotnet run``
+    :::image type="content" source="media/keys-and-endpoint-portal.png" alt-text="Screenshot: Azure portal keys and endpoint page.":::
 
+## Headers
 
-# [Go](#tab/go)
-
-* Create a new Go project in your favorite code editor.
-* Add the code provided below.
-* Replace the `key` value with an access key valid for your subscription.
-* Save the file with a '.go' extension.
-* Open a command prompt on a computer with Go installed.
-* Build the file, for example: 'go build example-code.go'.
-* Run the file, for example: 'example-code'.
-
-# [Java](#tab/java)
-
-* Create a working directory for your project. For example: `mkdir sample-project`.
-* Initialize your project with Gradle: `gradle init --type basic`. When prompted to choose a **DSL**, select **Kotlin**.
-* Update `build.gradle.kts`. Keep in mind that you'll need to update your `mainClassName` depending on the sample.
-  ```java
-  plugins {
-    java
-    application
-  }
-  application {
-    mainClassName = "<NAME OF YOUR CLASS>"
-  }
-  repositories {
-    mavenCentral()
-  }
-  dependencies {
-    compile("com.squareup.okhttp:okhttp:2.5.0")
-    compile("com.google.code.gson:gson:2.8.5")
-  }
-  ```
-* Create a Java file and copy in the code from the provided sample. Don't forget to add your key.
-* Run the sample: `gradle run`.
-
-
-
-# [Node.js](#tab/nodejs)
-
-* Create a new project in your favorite IDE or editor.
-* Copy the code from one of the samples into your project.
-* Set your key.
-* Run the program. For example: `node Translate.js`.
-
-
-
-# [Python](#tab/python)
-
-* Create a new project in your favorite IDE or editor.
-* Copy the code from one of the samples into your project.
-* Set your key.
-* Run the program. For example: `python translate.py`.
-
-
-
----
-
-## Headers 
-
-To call the Translator service via the [REST API](reference/rest-api-guide.md), you'll need to make sure the following headers are included with each request. Don't worry, we'll include the headers in the sample code in the following sections. 
+To call the Translator service via the [REST API](reference/rest-api-guide.md), you'll need to make sure the following headers are included with each request. Don't worry, we'll include the headers in the sample code in the following sections.
 
 |Header|Value| Condition  |
 |--- |:--- |:---|
@@ -114,42 +56,269 @@ To call the Translator service via the [REST API](reference/rest-api-guide.md), 
 |**Content-Length**|The **length of the request** body.|<ul><li>***Optional***</li></ul> |
 |**X-ClientTraceId**|A client-generated GUID to uniquely identify the request. You can omit this header if you include the trace ID in the query string using a query parameter named ClientTraceId.|<ul><li>***Optional***</li></ul>
 |||
-</table> 
 
-## Keys and endpoints
+## Setup your application
 
-The samples on this page use hard-coded keys and endpoints for simplicity. Remember to **remove the key from your code when you're done**, and **never post it publicly**. For production, consider using a secure way of storing and accessing your credentials. For more information, *see* [Cognitive Services security](../cognitive-services-security.md).
+### [C#](#tab/csharp)
 
-## Translate text 
+1. Make sure you have the current version of [Visual Studio IDE](https://visualstudio.microsoft.com/vs/).
 
-The core operation of the Translator service is to translate text. In this section, you'll build a request that takes a single source (`from`) and provides two outputs (`to`). Then we'll review some parameters that can be used to adjust both the request and the response. 
+> [!TIP]
+>
+> If you're new to Visual Studio, try the [**Introduction to Visual Studio**](/learn/modules/go-get-started/) Microsoft Learn module.
 
-# [C#](#tab/csharp)
+1. Open Visual Studio.
+
+1. On the Start page, choose **Create a new project**.
+
+    :::image type="content" source="media/quickstarts/start-window.png" alt-text="Screenshot: Visual Studio start window.":::
+
+1. On the **Create a new project page**, enter **console** in the search box. Choose the **Console Application** template, then choose **Next**.
+
+    :::image type="content" source="media/quickstarts/create-new-project.png" alt-text="Screenshot: Visual Studio's create new project page.":::
+
+1. In the **Configure your new project** dialog window, enter `translator_text_app` in the Project name box. Leave the "Place solution and project in the same directory" checkbox **unchecked** and select **Next**.
+
+    :::image type="content" source="media/how-to-guides/configure-your-console-app.png" alt-text="Screenshot: Visual Studio's configure new project dialog window.":::
+
+1. In the **Additional information** dialog window, make sure **.NET 6.0 (Long-term support)** is selected. Leave the "Don't use top-level statements" checkbox **unchecked** and select **Create**.
+
+    :::image type="content" source="media/quickstarts/additional-information.png" alt-text="Screenshot: Visual Studio's additional information dialog window.":::
+
+### Install the Newtonsoft.json package with NuGet
+
+1. Right-click on your translator_quickstart project and select **Manage NuGet Packages...** .
+
+    :::image type="content" source="media/how-to-guides/manage-nuget.png" alt-text="{Screenshot of the NuGet package search box.}":::
+
+1. Select the Browse tab and type Newtonsoft.
+
+    :::image type="content" source="media/quickstarts/newtonsoft.png" alt-text="{Screenshot of the NuGet package install window.}":::
+
+1. Select install from the right package manager window to add the package to your project.
+
+    :::image type="content" source="media/how-to-guides/install-newtonsoft.png" alt-text="Screenshot of the NuGet package install button.":::
+
+### Build your application
+
+> [!NOTE]
+>
+> * Starting with .NET 6, new projects using the `console` template generate a new program style that differs from previous versions.
+> * The new output uses recent C# features that simplify the code you need to write.
+> * When you use the newer version, you only need to write the body of the `Main` method. You don't need to include top-level statements, global using directives, or implicit using directives.
+> * For more information, *see* [**New C# templates generate top-level statements**](/dotnet/core/tutorials/top-level-templates).
+
+1. Open the **Program.cs** file.
+
+1. Delete the pre-existing code, including the line `Console.Writeline("Hello World!")`. You will copy and paste the code samples into your application's Program.cs file. For each code sample, make sure you update the key and endpoint variables with values from your Azure portal Translator instance.
+
+### [Go](#tab/go)
+
+You can use any text editor to write Go applications. We recommend using the latest version of [Visual Studio Code and the Go extension](/azure/developer/go/configure-visual-studio-code).
+
+> [!TIP]
+>
+> If you're new to Go, try the [**Get started with Go**](/learn/modules/go-get-started/) Microsoft Learn module.
+
+1. If you haven't done so already, [download and install Go](https://go.dev/doc/install]).
+
+    * Download the Go version for your operating system.
+    * Once the download is complete, run the installer.
+    * Open a command prompt and enter the following to confirm Go was installed:
+
+        ```console
+          go version
+
+1. In a console window (such as cmd, PowerShell, or Bash), create a new directory for your app called **translator-text-app**, and navigate to it.
+
+1. Create a new GO file named **text-translator.go** from the **translator-text-app** directory.
+
+1. You will copy and paste the code samples into your **text-translator.go** file. Make sure you update the key and endpoint variables with values from your Azure portal Translator instance.
+
+### [Java](#tab/java)
+
+* You should have the latest version of [Visual Studio Code](https://code.visualstudio.com/) or your preferred IDE. *See* [Java in Visual Studio Code](https://code.visualstudio.com/docs/languages/java).
+
+  >[!TIP]
+  >
+  > * Visual Studio Code offers a **Coding Pack for Java** for Windows and macOS.The coding pack is a bundle of VS Code, the Java Development Kit (JDK), and a collection of suggested extensions by Microsoft. The Coding Pack can also be used to fix an existing development environment.
+  > * If you are using VS Code and the Coding Pack For Java, install the [**Gradle for Java**](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-gradle) extension.
+
+* If you aren't using VS Code, make sure you have the following installed in your development environment:
+
+  * A [**Java Development Kit** (OpenJDK)](/java/openjdk/download#openjdk-17) version 8 or later.
+
+  * [**Gradle**](https://docs.gradle.org/current/userguide/installation.html), version 6.8 or later.
+
+### Create a new Gradle project
+
+1. In console window (such as cmd, PowerShell, or Bash), create a new directory for your app called **translator-text-app**, and navigate to it.
+
+    ```console
+    mkdir translator-text-app && translator-text-app
+    ```
+
+   ```powershell
+    mkdir translator-text-app; cd translator-text-app
+   ```
+
+1. Run the `gradle init` command from the translator-text-app directory. This command will create essential build files for Gradle, including *build.gradle.kts*, which is used at runtime to create and configure your application.
+
+    ```console
+    gradle init --type basic
+    ```
+
+1. When prompted to choose a **DSL**, select **Kotlin**.
+
+1. Accept the default project name (translator-text-app) by selecting **Return** or **Enter**.
+
+1. Update `build.gradle.kts` with the following code:
+
+  ```kotlin
+  plugins {
+    java
+    application
+  }
+  application {
+    mainClass.set("TextTranslator")
+  }
+  repositories {
+    mavenCentral()
+  }
+  dependencies {
+    implementation("com.squareup.okhttp3:okhttp:4.10.0")
+    implementation("com.google.code.gson:gson:2.9.0")
+  }
+  ```
+
+### Create a Java Application
+
+1. From the translator-text-app directory, run the following command:
+
+    ```console
+    mkdir -p src/main/java
+    ```
+
+   You'll create the following directory structure:
+
+    :::image type="content" source="media/quickstarts/java-directories-2.png" alt-text="Screenshot: Java directory structure":::
+
+1. Navigate to the `java` directory and create a file named **`TextTranslator.java`**.
+
+    > [!TIP]
+    >
+    > * You can create a new file using PowerShell.
+    > * Open a PowerShell window in your project directory by holding down the Shift key and right-clicking the folder.
+    > * Type the following command **New-Item TextTranslator.java**.
+    >
+    > * You can also create a new file in your IDE named `TextTranslator.java`  and save it to the `java` directory.
+
+1. You will copy and paste the code samples `TextTranslator.java` file. **Make sure you update the key with one of the key values from your Azure portal Translator instance**.
+
+##### [Node.js](#tab/nodejs)
+
+1. If you haven't done so already, install the latest version of [Node.js](https://nodejs.org/en/download/). Node Package Manager (npm) is included with the Node.js installation.
+
+> [!TIP]
+>
+> If you're new to Node.js, try the [**Introduction to Node.js**](/learn/modules/intro-to-nodejs/) Microsoft Learn module.
+
+1. In a console window (such as cmd, PowerShell, or Bash), create and navigate to a new directory for your app named `translator-text-app`.
+
+    ```console
+        mkdir translator-text-app && cd translator-text-app
+    ```
+
+   ```powershell
+     mkdir translator-text-app; cd translator-text-app
+   ```
+
+1. Run the npm init command to initialize the application and scaffold your project.
+
+    ```console
+       npm init
+    ```
+
+1. Specify your project's attributes using the prompts presented in the terminal.
+
+    * The most important attributes are name, version number, and entry point.
+    * We recommend keeping `index.js` for the entry point name. The description, test command, GitHub repository, keywords, author, and license information are optional attributes—they can be skipped for this project.
+    * Accept the suggestions in parentheses by selecting **Return** or **Enter**.
+    * After you've completed the prompts, a `package.json` file will be created in your translator-text-app directory.
+
+1. Open a console window and use npm to install the `axios` HTTP library and `uuid` package:
+
+    ```console
+       npm install axios uuid
+    ```
+
+1. Create the `index.js` file in the application directory.
+
+     > [!TIP]
+    >
+    > * You can create a new file using PowerShell.
+    > * Open a PowerShell window in your project directory by holding down the Shift key and right-clicking the folder.
+    > * Type the following command **New-Item index.js**.
+    >
+    > * You can also create a new file named `index.js` in your IDE and save it to the `translator-text-app` directory.
+
+1. You will copy and paste the code samples into your `index.js` file. **Make sure you update the key and endpoint variables with values from your Azure portal Translator instance**.
+
+### [Python](#tab/python)
+
+1. If you haven't done so already, install the latest version of [Python 3.x](https://www.python.org/downloads/). The Python installer package (pip) is included with the Python installation.
+
+> [!TIP]
+>
+> If you're new to Python, try the [**Introduction to Python**](https://docs.microsoft.com/learn/paths/beginner-python/) Microsoft Learn module.
+
+1. Open a terminal window and use pip to install the Requests library and uuid0 package:
+
+    ```console
+       pip install requests uuid
+    ```
+
+> [!NOTE]
+> We will also use a Python built-in package called json. It's used to work with JSON data.
+
+1. Create a new Python file called **text-translator.py** in your preferred editor or IDE.
+
+1. Add the following code sample to your `text-translator.py` file. **Make sure you update the key with one of the values from your Azure portal Translator instance**.
+
+---
+
+> [!IMPORTANT]
+> The samples in this guide require hard-coded keys and endpoints.
+> Remember to **remove the key from your code when you're done**, and **never post it publicly**.
+> For production, consider using a secure way of storing and accessing your credentials. For more information, *see* [Cognitive Services security](../cognitive-services-security.md).
+
+## Translate text
+
+The core operation of the Translator service is to translate text. In this section, you'll build a request that takes a single source (`from`) and provides two outputs (`to`). Then we'll review some parameters that can be used to adjust both the request and the response.
+
+### [C#](#tab/csharp)
 
 ```csharp
-using System;
-using System.Net.Http;
 using System.Text;
-using System.Threading.Tasks;
 using Newtonsoft.Json; // Install Newtonsoft.Json with NuGet
 
 class Program
 {
-    private static readonly string key = "YOUR-KEY";
-    private static readonly string endpoint = "https://api.cognitive.microsofttranslator.com/";
+    private static readonly string key = "<YOUR-TRANSLATOR-KEY>";
+    private static readonly string endpoint = "https://api.cognitive.microsofttranslator.com";
 
     // Add your location, also known as region. The default is global.
-    // This is required if using a Cognitive Services resource.
-    private static readonly string location = "YOUR_RESOURCE_LOCATION";
-    
+    // This is required if using a Cognitive Services resource and can be found in the Azure portal on the Keys and Endpoint page.
+    private static readonly string location = "<YOUR-RESOURCE-LOCATION>";
+
     static async Task Main(string[] args)
     {
         // Input and output languages are defined as parameters.
-        string route = "/translate?api-version=3.0&from=en&to=de&to=it";
-        string textToTranslate = "Hello, world!";
+        string route = "/translate?api-version=3.0&from=en&to=sw&to=it";
+        string textToTranslate = "Hello, friend! What did you do today?";
         object[] body = new object[] { new { Text = textToTranslate } };
         var requestBody = JsonConvert.SerializeObject(body);
-    
+
         using (var client = new HttpClient())
         using (var request = new HttpRequestMessage())
         {
@@ -159,7 +328,7 @@ class Program
             request.Content = new StringContent(requestBody, Encoding.UTF8, "application/json");
             request.Headers.Add("Ocp-Apim-Subscription-Key", key);
             request.Headers.Add("Ocp-Apim-Subscription-Region", location);
-    
+
             // Send the request and get response.
             HttpResponseMessage response = await client.SendAsync(request).ConfigureAwait(false);
             // Read response as a string.
@@ -170,8 +339,7 @@ class Program
 }
 ```
 
-
-# [Go](#tab/go)
+### [Go](#tab/go)
 
 ```go
 package main
@@ -186,10 +354,10 @@ import (
 )
 
 func main() {
-    key := "YOUR-KEY"
+    key := "<YOUR-TRANSLATOR-KEY>"
     // Add your location, also known as region. The default is global.
     // This is required if using a Cognitive Services resource.
-    location := "YOUR_RESOURCE_LOCATION";
+    location := "<YOUR-RESOURCE-LOCATION>";
     endpoint := "https://api.cognitive.microsofttranslator.com/"
     uri := endpoint + "/translate?api-version=3.0"
 
@@ -197,15 +365,15 @@ func main() {
     u, _ := url.Parse(uri)
     q := u.Query()
     q.Add("from", "en")
-    q.Add("to", "de")
     q.Add("to", "it")
+    q.Add("to", "sw")
     u.RawQuery = q.Encode()
 
     // Create an anonymous struct for your request body and encode it to JSON
     body := []struct {
         Text string
     }{
-        {Text: "Hello, world!"},
+        {Text: "Hello friend! What did you do today?"},
     }
     b, _ := json.Marshal(body)
 
@@ -236,9 +404,7 @@ func main() {
 }
 ```
 
-
-
-# [Java](#tab/java)
+### [Java](#tab/java)
 
 ```java
 import java.io.*;
@@ -248,11 +414,11 @@ import com.google.gson.*;
 import com.squareup.okhttp.*;
 
 public class Translate {
-    private static String key = "YOUR_KEY";
+    private static String key = "<YOUR-TRANSLATOR-KEY>";
 
     // Add your location, also known as region. The default is global.
     // This is required if using a Cognitive Services resource.
-    private static String location = "YOUR_RESOURCE_LOCATION";
+    private static String location = "<YOUR-RESOURCE-LOCATION>";
 
     HttpUrl url = new HttpUrl.Builder()
         .scheme("https")
@@ -301,19 +467,18 @@ public class Translate {
 }
 ```
 
+### [Node.js](#tab/nodejs)
 
-# [Node.js](#tab/nodejs)
-
-```Javascript
+```javascript
 const axios = require('axios').default;
 const { v4: uuidv4 } = require('uuid');
 
-var key = "YOUR_KEY";
+var key = "<YOUR-TRANSLATOR-KEY>";
 var endpoint = "https://api.cognitive.microsofttranslator.com";
 
 // Add your location, also known as region. The default is global.
 // This is required if using a Cognitive Services resource.
-var location = "YOUR_RESOURCE_LOCATION";
+var location = "<YOUR-RESOURCE-LOCATION>";
 
 axios({
     baseURL: endpoint,
@@ -339,20 +504,18 @@ axios({
 })
 ```
 
+### [Python](#tab/python)
 
-
-
-# [Python](#tab/python)
 ```python
 import requests, uuid, json
 
 # Add your key and endpoint
-key = "YOUR_KEY"
+key = "<YOUR-TRANSLATOR-KEY>"
 endpoint = "https://api.cognitive.microsofttranslator.com"
 
 # Add your location, also known as region. The default is global.
 # This is required if using a Cognitive Services resource.
-location = "YOUR_RESOURCE_LOCATION"
+location = "<YOUR-RESOURCE-LOCATION>"
 
 path = '/translate'
 constructed_url = endpoint + path
@@ -381,62 +544,58 @@ response = request.json()
 print(json.dumps(response, sort_keys=True, ensure_ascii=False, indent=4, separators=(',', ': ')))
 ```
 
-
 ---
 
-After a successful call, you should see the following response: 
+After a successful call, you should see the following response:
 
-```JSON
+```json
 [
-    {
-        "translations": [
-            {
-                "text": "Hallo Welt!",
-                "to": "de"
-            },
-            {
-                "text": "Salve, mondo!",
-                "to": "it"
-            }
-        ]
-    }
+   {
+      "translations":[
+         {
+            "text":"Halo, rafiki! Ulifanya nini leo?",
+            "to":"sw"
+         },
+         {
+            "text":"Ciao, amico! Cosa hai fatto oggi?",
+            "to":"it"
+         }
+      ]
+   }
 ]
 ```
 
 ## Detect language
 
-If you need translation, but don't know the language of the text, you can use the language detection operation. There's more than one way to identify the source text language. In this section, you'll learn how to use language detection using the `translate` endpoint, and the `detect` endpoint. 
+If you need translation, but don't know the language of the text, you can use the language detection operation. There's more than one way to identify the source text language. In this section, you'll learn how to use language detection using the `translate` endpoint, and the `detect` endpoint.
 
 ### Detect source language during translation
 
 If you don't include the `from` parameter in your translation request, the Translator service will attempt to detect the source text's language. In the response, you'll get the detected language (`language`) and a confidence score (`score`). The closer the `score` is to `1.0`, means that there's increased confidence that the detection is correct.
 
-# [C#](#tab/csharp)
+### [C#](#tab/csharp)
 
 ```csharp
 using System;
-using System.Net.Http;
-using System.Text;
-using System.Threading.Tasks;
 using Newtonsoft.Json; // Install Newtonsoft.Json with NuGet
 
 class Program
 {
-    private static readonly string key = "YOUR-KEY";
+    private static readonly string key = "<YOUR-TRANSLATOR-KEY>";
     private static readonly string endpoint = "https://api.cognitive.microsofttranslator.com/";
 
     // Add your location, also known as region. The default is global.
     // This is required if using a Cognitive Services resource.
-    private static readonly string location = "YOUR_RESOURCE_LOCATION";
-    
+    private static readonly string location = "<YOUR-RESOURCE-LOCATION>";
+
     static async Task Main(string[] args)
     {
         // Output languages are defined as parameters, input language detected.
-        string route = "/translate?api-version=3.0&to=de&to=it";
-        string textToTranslate = "Hello, world!";
+        string route = "/translate?api-version=3.0&to=en&to=it";
+        string textToTranslate = "Halo, rafiki! Ulifanya nini leo?";
         object[] body = new object[] { new { Text = textToTranslate } };
         var requestBody = JsonConvert.SerializeObject(body);
-    
+
         using (var client = new HttpClient())
         using (var request = new HttpRequestMessage())
         {
@@ -446,7 +605,7 @@ class Program
             request.Content = new StringContent(requestBody, Encoding.UTF8, "application/json");
             request.Headers.Add("Ocp-Apim-Subscription-Key", key);
             request.Headers.Add("Ocp-Apim-Subscription-Region", location);
-    
+
             // Send the request and get response.
             HttpResponseMessage response = await client.SendAsync(request).ConfigureAwait(false);
             // Read response as a string.
@@ -457,8 +616,7 @@ class Program
 }
 ```
 
-
-# [Go](#tab/go)
+### [Go](#tab/go)
 
 ```go
 package main
@@ -473,17 +631,17 @@ import (
 )
 
 func main() {
-    key := "YOUR-KEY"
+    key := "<YOUR-TRANSLATOR-KEY>"
     // Add your location, also known as region. The default is global.
     // This is required if using a Cognitive Services resource.
-    location := "YOUR_RESOURCE_LOCATION";
+    location := "<YOUR-RESOURCE-LOCATION>";
     endpoint := "https://api.cognitive.microsofttranslator.com/"
     uri := endpoint + "/translate?api-version=3.0"
 
     // Build the request URL. See: https://go.dev/pkg/net/url/#example_URL_Parse
     u, _ := url.Parse(uri)
     q := u.Query()
-    q.Add("to", "de")
+    q.Add("to", "en")
     q.Add("to", "it")
     u.RawQuery = q.Encode()
 
@@ -491,7 +649,7 @@ func main() {
     body := []struct {
         Text string
     }{
-        {Text: "Hello, world!"},
+        {Text: "Halo rafiki! Ulifanya nini leo?"},
     }
     b, _ := json.Marshal(body)
 
@@ -522,10 +680,7 @@ func main() {
 }
 ```
 
-
-
-
-# [Java](#tab/java)
+### [Java](#tab/java)
 
 ```java
 import java.io.*;
@@ -535,18 +690,18 @@ import com.google.gson.*;
 import com.squareup.okhttp.*;
 
 public class Translate {
-    private static String key = "YOUR_KEY";
+    private static String key = "<YOUR-TRANSLATOR-KEY>";
 
     // Add your location, also known as region. The default is global.
     // This is required if using a Cognitive Services resource.
-    private static String location = "YOUR_RESOURCE_LOCATION";
+    private static String location = "<YOUR-RESOURCE-LOCATION>";
 
     HttpUrl url = new HttpUrl.Builder()
         .scheme("https")
         .host("api.cognitive.microsofttranslator.com")
         .addPathSegment("/translate")
         .addQueryParameter("api-version", "3.0")
-        .addQueryParameter("to", "de")
+        .addQueryParameter("to", "sw")
         .addQueryParameter("to", "it")
         .build();
 
@@ -587,20 +742,18 @@ public class Translate {
 }
 ```
 
-
-
-# [Node.js](#tab/nodejs)
+### [Node.js](#tab/nodejs)
 
 ```javascript
 const axios = require('axios').default;
 const { v4: uuidv4 } = require('uuid');
 
-var key = "YOUR_KEY";
+var key = "<YOUR-TRANSLATOR-KEY>";
 var endpoint = "https://api.cognitive.microsofttranslator.com";
 
 // Add your location, also known as region. The default is global.
 // This is required if using a Cognitive Services resource.
-var location = "YOUR_RESOURCE_LOCATION";
+var location = "<YOUR-RESOURCE-LOCATION>";
 
 axios({
     baseURL: endpoint,
@@ -614,7 +767,7 @@ axios({
     },
     params: {
         'api-version': '3.0',
-        'to': ['de', 'it']
+        'to': ['sw', 'it']
     },
     data: [{
         'text': 'Hello World!'
@@ -625,26 +778,25 @@ axios({
 })
 ```
 
+### [Python](#tab/python)
 
-
-# [Python](#tab/python)
 ```python
 import requests, uuid, json
 
 # Add your key and endpoint
-key = "YOUR_KEY"
+key = "<YOUR-TRANSLATOR-KEY>"
 endpoint = "https://api.cognitive.microsofttranslator.com"
 
 # Add your location, also known as region. The default is global.
 # This is required if using a Cognitive Services resource.
-location = "YOUR_RESOURCE_LOCATION"
+location = "<YOUR-RESOURCE-LOCATION>"
 
 path = '/translate'
 constructed_url = endpoint + path
 
 params = {
     'api-version': '3.0',
-    'to': ['de', 'it']
+    'to': ['sw', 'it']
 }
 
 headers = {
@@ -665,63 +817,58 @@ response = request.json()
 print(json.dumps(response, sort_keys=True, ensure_ascii=False, indent=4, separators=(',', ': ')))
 ```
 
-
-
 ---
 
-After a successful call, you should see the following response: 
+After a successful call, you should see the following response:
 
 ```json
 [
-    {
-        "detectedLanguage": {
-            "language": "en",
-            "score": 1.0
-        },
-        "translations": [
-            {
-                "text": "Hallo Welt!",
-                "to": "de"
-            },
-            {
-                "text": "Salve, mondo!",
-                "to": "it"
-            }
-        ]
-    }
+   {
+      "detectedLanguage":{
+         "language":"sw",
+         "score":0.8
+      },
+      "translations":[
+         {
+            "text":"Hello friend! What did you do today?",
+            "to":"en"
+         },
+         {
+            "text":"Ciao amico! Cosa hai fatto oggi?",
+            "to":"it"
+         }
+      ]
+   }
 ]
 ```
 
 ### Detect source language without translation
 
-It's possible to use the Translator service to detect the language of source text without performing a translation. To do so, you'll use the [`/detect`](./reference/v3-0-detect.md) endpoint. 
+It's possible to use the Translator service to detect the language of source text without performing a translation. To do so, you'll use the [`/detect`](./reference/v3-0-detect.md) endpoint.
 
-# [C#](#tab/csharp)
+### [C#](#tab/csharp)
 
 ```csharp
 using System;
-using System.Net.Http;
-using System.Text;
-using System.Threading.Tasks;
 using Newtonsoft.Json; // Install Newtonsoft.Json with NuGet
 
 class Program
 {
-    private static readonly string key = "YOUR-KEY";
+    private static readonly string key = "<YOUR-TRANSLATOR-KEY>";
     private static readonly string endpoint = "https://api.cognitive.microsofttranslator.com/";
 
     // Add your location, also known as region. The default is global.
     // This is required if using a Cognitive Services resource.
-    private static readonly string location = "YOUR_RESOURCE_LOCATION";    
-    
+    private static readonly string location = "<YOUR-RESOURCE-LOCATION>";
+
     static async Task Main(string[] args)
     {
         // Just detect language
         string route = "/detect?api-version=3.0";
-        string textToLangDetect = "Ich würde wirklich gern Ihr Auto um den Block fahren ein paar Mal.";
+        string textToLangDetect = "Hallo Freund! Was hast du heute gemacht?";
         object[] body = new object[] { new { Text = textToLangDetect } };
         var requestBody = JsonConvert.SerializeObject(body);
-    
+
         using (var client = new HttpClient())
         using (var request = new HttpRequestMessage())
         {
@@ -731,7 +878,7 @@ class Program
             request.Content = new StringContent(requestBody, Encoding.UTF8, "application/json");
             request.Headers.Add("Ocp-Apim-Subscription-Key", key);
             request.Headers.Add("Ocp-Apim-Subscription-Region", location);
-    
+
             // Send the request and get response.
             HttpResponseMessage response = await client.SendAsync(request).ConfigureAwait(false);
             // Read response as a string.
@@ -742,9 +889,7 @@ class Program
 }
 ```
 
-
-
-# [Go](#tab/go)
+### [Go](#tab/go)
 
 ```go
 package main
@@ -759,10 +904,10 @@ import (
 )
 
 func main() {
-    key := "YOUR-KEY"
+    key := "<YOUR-TRANSLATOR-KEY>"
     // Add your location, also known as region. The default is global.
     // This is required if using a Cognitive Services resource.
-    location := "YOUR_RESOURCE_LOCATION";   
+    location := "<YOUR-RESOURCE-LOCATION>";
 
     endpoint := "https://api.cognitive.microsofttranslator.com/"
     uri := endpoint + "/detect?api-version=3.0"
@@ -776,7 +921,7 @@ func main() {
     body := []struct {
         Text string
     }{
-        {Text: "Ich würde wirklich gern Ihr Auto um den Block fahren ein paar Mal."},
+        {Text: "Ciao amico! Cosa hai fatto oggi?"},
     }
     b, _ := json.Marshal(body)
 
@@ -807,8 +952,7 @@ func main() {
 }
 ```
 
-
-# [Java](#tab/java)
+### [Java](#tab/java)
 
 ```java
 import java.io.*;
@@ -818,11 +962,11 @@ import com.google.gson.*;
 import com.squareup.okhttp.*;
 
 public class Detect {
-    private static String key = "YOUR_KEY";
+    private static String key = "<YOUR-TRANSLATOR-KEY>";
 
     // Add your location, also known as region. The default is global.
     // This is required if using a Cognitive Services resource.
-    private static String location = "YOUR_RESOURCE_LOCATION";
+    private static String location = "<YOUR-RESOURCE-LOCATION>";
 
     HttpUrl url = new HttpUrl.Builder()
         .scheme("https")
@@ -868,19 +1012,18 @@ public class Detect {
 }
 ```
 
-
-# [Node.js](#tab/nodejs)
+### [Node.js](#tab/nodejs)
 
 ```javascript
 const axios = require('axios').default;
 const { v4: uuidv4 } = require('uuid');
 
-var key = "YOUR_KEY";
+var key = "<YOUR-TRANSLATOR-KEY>";
 var endpoint = "https://api.cognitive.microsofttranslator.com";
 
 // Add your location, also known as region. The default is global.
 // This is required if using a Cognitive Services resource.
-var location = "YOUR_RESOURCE_LOCATION";
+var location = "<YOUR-RESOURCE-LOCATION>";
 
 axios({
     baseURL: endpoint,
@@ -904,18 +1047,18 @@ axios({
 })
 ```
 
+### [Python](#tab/python)
 
-# [Python](#tab/python)
 ```python
 import requests, uuid, json
 
 # Add your key and endpoint
-key = "YOUR_KEY"
+key = "<YOUR-TRANSLATOR-KEY>"
 endpoint = "https://api.cognitive.microsofttranslator.com"
 
 # Add your location, also known as region. The default is global.
 # This is required if using a Cognitive Services resource.
-location = "YOUR_RESOURCE_LOCATION"
+location = "<YOUR-RESOURCE-LOCATION>"
 
 path = '/detect'
 constructed_url = endpoint + path
@@ -944,29 +1087,25 @@ print(json.dumps(response, sort_keys=True, ensure_ascii=False, indent=4, separat
 
 ---
 
-The `/detect` endpoint response will include alternate detections, and will let you know if translation and transliteration are supported for all of the detected languages. After a successful call, you should see the following response: 
+The `/detect` endpoint response will include alternate detections, and will let you know if translation and transliteration are supported for all of the detected languages. After a successful call, you should see the following response:
 
 ```json
 [
+   {
+      "language":"de",
 
-    {
+      "score":1.0,
 
-        "language": "de",
+      "isTranslationSupported":true,
 
-        "score": 1.0,
-
-        "isTranslationSupported": true,
-
-        "isTransliterationSupported": false
-
-    }
-
+      "isTransliterationSupported":false
+   }
 ]
 ```
 
-## Transliterate text 
+## Transliterate text
 
-Transliteration is the process of converting a word or phrase from the script (alphabet) of one language to another based on phonetic similarity. For example, you could use transliteration to convert "สวัสดี" (`thai`) to "sawatdi" (`latn`). There's more than one way to perform transliteration. In this section, you'll learn how to use language detection using the `translate` endpoint, and the `transliterate` endpoint. 
+Transliteration is the process of converting a word or phrase from the script (alphabet) of one language to another based on phonetic similarity. For example, you could use transliteration to convert "สวัสดี" (`thai`) to "sawatdi" (`latn`). There's more than one way to perform transliteration. In this section, you'll learn how to use language detection using the `translate` endpoint, and the `transliterate` endpoint.
 
 ### Transliterate during translation
 
@@ -977,32 +1116,29 @@ To get a transliteration from the `translate` endpoint, use the `toScript` param
 > [!NOTE]
 > For a complete list of available languages and transliteration options, see [language support](language-support.md).
 
-# [C#](#tab/csharp)
+### [C#](#tab/csharp)
 
 ```csharp
 using System;
-using System.Net.Http;
-using System.Text;
-using System.Threading.Tasks;
 using Newtonsoft.Json; // Install Newtonsoft.Json with NuGet
 
 class Program
 {
-    private static readonly string key = "YOUR-KEY";
+    private static readonly string key = "<YOUR-TRANSLATOR-KEY>";
     private static readonly string endpoint = "https://api.cognitive.microsofttranslator.com/";
 
     // Add your location, also known as region. The default is global.
     // This is required if using a Cognitive Services resource.
-    private static readonly string location = "YOUR_RESOURCE_LOCATION";    
-    
+    private static readonly string location = "<YOUR-RESOURCE-LOCATION>";
+
     static async Task Main(string[] args)
     {
         // Output language defined as parameter, with toScript set to latn
         string route = "/translate?api-version=3.0&to=th&toScript=latn";
-        string textToTransliterate = "Hello";
+        string textToTransliterate = "Hello, friend! What did you do today?";
         object[] body = new object[] { new { Text = textToTransliterate } };
         var requestBody = JsonConvert.SerializeObject(body);
-    
+
         using (var client = new HttpClient())
         using (var request = new HttpRequestMessage())
         {
@@ -1012,7 +1148,7 @@ class Program
             request.Content = new StringContent(requestBody, Encoding.UTF8, "application/json");
             request.Headers.Add("Ocp-Apim-Subscription-Key", key);
             request.Headers.Add("Ocp-Apim-Subscription-Region", location);
-    
+
             // Send the request and get response.
             HttpResponseMessage response = await client.SendAsync(request).ConfigureAwait(false);
             // Read response as a string.
@@ -1023,8 +1159,7 @@ class Program
 }
 ```
 
-
-# [Go](#tab/go)
+### [Go](#tab/go)
 
 ```go
 package main
@@ -1039,11 +1174,12 @@ import (
 )
 
 func main() {
-    key := "YOUR-KEY"
+    key := "<YOUR-TRANSLATOR-KEY>"
     // Add your location, also known as region. The default is global.
     // This is required if using a Cognitive Services resource.
-    location := "YOUR_RESOURCE_LOCATION";   
+    location := "<YOUR-RESOURCE-LOCATION>";
     endpoint := "https://api.cognitive.microsofttranslator.com/"
+
     uri := endpoint + "/translate?api-version=3.0"
 
     // Build the request URL. See: https://go.dev/pkg/net/url/#example_URL_Parse
@@ -1057,7 +1193,7 @@ func main() {
     body := []struct {
         Text string
     }{
-        {Text: "Hello"},
+        {Text: "Hello, friend! What did you do today?"},
     }
     b, _ := json.Marshal(body)
 
@@ -1088,8 +1224,7 @@ func main() {
 }
 ```
 
-
-# [Java](#tab/java)
+### [Java](#tab/java)
 
 ```java
 import java.io.*;
@@ -1099,11 +1234,11 @@ import com.google.gson.*;
 import com.squareup.okhttp.*;
 
 public class Translate {
-    private static String key = "YOUR_KEY";
+    private static String key = "<YOUR-TRANSLATOR-KEY>";
 
     // Add your location, also known as region. The default is global.
     // This is required if using a Cognitive Services resource.
-    private static String location = "YOUR_RESOURCE_LOCATION";
+    private static String location = "<YOUR-RESOURCE-LOCATION>";
 
     HttpUrl url = new HttpUrl.Builder()
         .scheme("https")
@@ -1151,19 +1286,18 @@ public class Translate {
 }
 ```
 
-
-# [Node.js](#tab/nodejs)
+### [Node.js](#tab/nodejs)
 
 ```javascript
 const axios = require('axios').default;
 const { v4: uuidv4 } = require('uuid');
 
-var key = "YOUR_KEY";
+var key = "<YOUR-TRANSLATOR-KEY>";
 var endpoint = "https://api.cognitive.microsofttranslator.com";
 
 // Add your location, also known as region. The default is global.
 // This is required if using a Cognitive Services resource.
-var location = "YOUR_RESOURCE_LOCATION";
+var location = "<YOUR-RESOURCE-LOCATION>";
 
 axios({
     baseURL: endpoint,
@@ -1189,18 +1323,18 @@ axios({
 })
 ```
 
+### [Python](#tab/python)
 
-# [Python](#tab/python)
 ```Python
 import requests, uuid, json
 
 # Add your key and endpoint
-key = "YOUR_KEY"
+key = "<YOUR-TRANSLATOR-KEY>"
 endpoint = "https://api.cognitive.microsofttranslator.com"
 
 # Add your location, also known as region. The default is global.
 # This is required if using a Cognitive Services resource.
-location = "YOUR_RESOURCE_LOCATION"
+location = "<YOUR-RESOURCE-LOCATION>"
 
 path = '/translate'
 constructed_url = endpoint + path
@@ -1228,66 +1362,62 @@ response = request.json()
 print(json.dumps(response, sort_keys=True, ensure_ascii=False, indent=4, separators=(',', ': ')))
 ```
 
-
 ---
 
 After a successful call, you should see the following response. Keep in mind that the response from `translate` endpoint includes the detected source language with a confidence score, a translation using the alphabet of the output language, and a transliteration using the Latin alphabet.
 
 ```json
 [
-    {
-        "detectedLanguage": {
-            "language": "en",
-            "score": 1.0
-        },
-        "translations": [
-            {
-                "text": "สวัสดี",
-                "to": "th",
-                "transliteration": {
-                    "script": "Latn",
-                    "text": "sawatdi"
-                }
-            }
-        ]
-    }
+  {
+    "detectedLanguage": {
+      "language": "en",
+      "score": 1
+    },
+    "translations": [
+      {
+        "text": "หวัดดีเพื่อน! วันนี้เธอทำอะไรไปบ้าง ",
+        "to": "th",
+        "transliteration": {
+          "script": "Latn",
+          "text": "watdiphuean! wannithoethamaraipaiang"
+        }
+      }
+    ]
+  }
 ]
 ```
 
 ### Transliterate without translation
 
-You can also use the `transliterate` endpoint to get a transliteration. When using the transliteration endpoint, you must provide the source language (`language`), the source script/alphabet (`fromScript`), and the output script/alphabet (`toScript`) as parameters. In this example, we're going to get the transliteration for สวัสดี. 
+You can also use the `transliterate` endpoint to get a transliteration. When using the transliteration endpoint, you must provide the source language (`language`), the source script/alphabet (`fromScript`), and the output script/alphabet (`toScript`) as parameters. In this example, we're going to get the transliteration for สวัสดีเพื่อน! วันนี้คุณทำอะไร.
 
 > [!NOTE]
 > For a complete list of available languages and transliteration options, see [language support](language-support.md).
 
-# [C#](#tab/csharp)
+### [C#](#tab/csharp)
 
 ```csharp
 using System;
-using System.Net.Http;
-using System.Text;
-using System.Threading.Tasks;
 using Newtonsoft.Json; // Install Newtonsoft.Json with NuGet
 
 class Program
 {
-    private static readonly string key = "YOUR-KEY";
+    private static readonly string key = "<YOUR-TRANSLATOR-KEY>";
     private static readonly string endpoint = "https://api.cognitive.microsofttranslator.com/";
 
     // Add your location, also known as region. The default is global.
     // This is required if using a Cognitive Services resource.
-    private static readonly string location = "YOUR_RESOURCE_LOCATION";   
-    
+    private static readonly string location = "<YOUR-RESOURCE-LOCATION>";
+
     static async Task Main(string[] args)
     {
         // For a complete list of options, see API reference.
         // Input and output languages are defined as parameters.
-        string route = "/translate?api-version=3.0&to=th&toScript=latn";
-        string textToTransliterate = "Hello";
+        string route = "/transliterate?api-version=3.0&language=th&fromScript=thai&toScript=latn";
+        string textToTransliterate = "สวัสดีเพื่อน! วันนี้คุณทำอะไร";
         object[] body = new object[] { new { Text = textToTransliterate } };
         var requestBody = JsonConvert.SerializeObject(body);
-    
+
         using (var client = new HttpClient())
         using (var request = new HttpRequestMessage())
         {
@@ -1297,7 +1427,7 @@ class Program
             request.Content = new StringContent(requestBody, Encoding.UTF8, "application/json");
             request.Headers.Add("Ocp-Apim-Subscription-Key", key);
             request.Headers.Add("Ocp-Apim-Subscription-Region", location);
-    
+
             // Send the request and get response.
             HttpResponseMessage response = await client.SendAsync(request).ConfigureAwait(false);
             // Read response as a string.
@@ -1308,8 +1438,7 @@ class Program
 }
 ```
 
-
-# [Go](#tab/go)
+### [Go](#tab/go)
 
 ```go
 package main
@@ -1324,10 +1453,10 @@ import (
 )
 
 func main() {
-    key := "YOUR-KEY"
+    key := "<YOUR-TRANSLATOR-KEY>"
     // Add your location, also known as region. The default is global.
     // This is required if using a Cognitive Services resource.
-    location := "YOUR_RESOURCE_LOCATION";
+    location := "<YOUR-RESOURCE-LOCATION>";
     endpoint := "https://api.cognitive.microsofttranslator.com/"
     uri := endpoint + "/transliterate?api-version=3.0"
 
@@ -1343,7 +1472,7 @@ func main() {
     body := []struct {
         Text string
     }{
-        {Text: "สวัสดี"},
+        {Text: "สวัสดีเพื่อน! วันนี้คุณทำอะไร"},
     }
     b, _ := json.Marshal(body)
 
@@ -1374,9 +1503,7 @@ func main() {
 }
 ```
 
-
-
-# [Java](#tab/java)
+### [Java](#tab/java)
 
 ```java
 import java.io.*;
@@ -1386,11 +1513,11 @@ import com.google.gson.*;
 import com.squareup.okhttp.*;
 
 public class Transliterate {
-    private static String key = "YOUR_KEY";
+    private static String key = "<YOUR-TRANSLATOR-KEY>";
 
     // Add your location, also known as region. The default is global.
     // This is required if using a Cognitive Services resource.
-    private static String location = "YOUR_RESOURCE_LOCATION";
+    private static String location = "<YOUR-RESOURCE-LOCATION>";
 
     HttpUrl url = new HttpUrl.Builder()
         .scheme("https")
@@ -1439,19 +1566,18 @@ public class Transliterate {
 }
 ```
 
-
-# [Node.js](#tab/nodejs)
+### [Node.js](#tab/nodejs)
 
 ```javascript
 const axios = require('axios').default;
 const { v4: uuidv4 } = require('uuid');
 
-var key = "YOUR_KEY";
+var key = "<YOUR-TRANSLATOR-KEY>";
 var endpoint = "https://api.cognitive.microsofttranslator.com";
 
 // Add your location, also known as region. The default is global.
 // This is required if using a Cognitive Services resource.
-var location = "YOUR_RESOURCE_LOCATION";
+var location = "<YOUR-RESOURCE-LOCATION>";
 
 axios({
     baseURL: endpoint,
@@ -1478,18 +1604,18 @@ axios({
 })
 ```
 
+### [Python](#tab/python)
 
-# [Python](#tab/python)
 ```python
 import requests, uuid, json
 
 # Add your key and endpoint
-key = "YOUR_KEY"
+key = "<YOUR-TRANSLATOR-KEY>"
 endpoint = "https://api.cognitive.microsofttranslator.com"
 
 # Add your location, also known as region. The default is global.
 # This is required if using a Cognitive Services resource.
-location = "YOUR_RESOURCE_LOCATION"
+location = "<YOUR-RESOURCE-LOCATION>"
 
 path = '/transliterate'
 constructed_url = endpoint + path
@@ -1519,17 +1645,17 @@ response = request.json()
 print(json.dumps(response, sort_keys=True, indent=4, separators=(',', ': ')))
 ```
 
-
 ---
 
-After a successful call, you should see the following response. Unlike the call to the `translate` endpoint, `transliterate` only returns the `script` and the output `text`. 
+After a successful call, you should see the following response. Unlike the call to the `translate` endpoint, `transliterate` only returns the `text` and the output `script`.
 
 ```json
 [
-    {
-        "script": "latn",
-        "text": "sawatdi"
-    }
+   {
+      "text":"sawatdiphuean! wannikhunthamarai",
+
+      "script":"latn"
+   }
 ]
 ```
 
@@ -1541,33 +1667,30 @@ With the Translator service, you can get the character count for a sentence or s
 
 You can get character counts for both source text and translation output using the `translate` endpoint. To return sentence length (`srcSenLen` and `transSenLen`) you must set the `includeSentenceLength` parameter to `True`.
 
-# [C#](#tab/csharp)
+### [C#](#tab/csharp)
 
 ```csharp
 using System;
-using System.Net.Http;
-using System.Text;
-using System.Threading.Tasks;
 using Newtonsoft.Json; // Install Newtonsoft.Json with NuGet
 
 class Program
 {
-    private static readonly string key = "YOUR-KEY";
+    private static readonly string key = "<YOUR-TRANSLATOR-KEY>";
     private static readonly string endpoint = "https://api.cognitive.microsofttranslator.com/";
 
     // Add your location, also known as region. The default is global.
     // This is required if using a Cognitive Services resource.
-    private static readonly string location = "YOUR_RESOURCE_LOCATION";   
-    
+    private static readonly string location = "<YOUR-RESOURCE-LOCATION>";
+
     static async Task Main(string[] args)
     {
         // Include sentence length details.
         string route = "/translate?api-version=3.0&to=es&includeSentenceLength=true";
-        string sentencesToCount = 
+        string sentencesToCount =
                 "Can you tell me how to get to Penn Station? Oh, you aren't sure? That's fine.";
         object[] body = new object[] { new { Text = sentencesToCount } };
         var requestBody = JsonConvert.SerializeObject(body);
-    
+
         using (var client = new HttpClient())
         using (var request = new HttpRequestMessage())
         {
@@ -1577,7 +1700,7 @@ class Program
             request.Content = new StringContent(requestBody, Encoding.UTF8, "application/json");
             request.Headers.Add("Ocp-Apim-Subscription-Key", key);
             request.Headers.Add("Ocp-Apim-Subscription-Region", location);
-    
+
             // Send the request and get response.
             HttpResponseMessage response = await client.SendAsync(request).ConfigureAwait(false);
             // Read response as a string.
@@ -1588,8 +1711,7 @@ class Program
 }
 ```
 
-
-# [Go](#tab/go)
+### [Go](#tab/go)
 
 ```go
 package main
@@ -1604,10 +1726,10 @@ import (
 )
 
 func main() {
-    key := "YOUR-KEY"
+    key := "<YOUR-TRANSLATOR-KEY>"
     // Add your location, also known as region. The default is global.
     // This is required if using a Cognitive Services resource.
-    location := "YOUR_RESOURCE_LOCATION";
+    location := "<YOUR-RESOURCE-LOCATION>";
     endpoint := "https://api.cognitive.microsofttranslator.com/"
     uri := endpoint + "/translate?api-version=3.0"
 
@@ -1653,9 +1775,7 @@ func main() {
 }
 ```
 
-
-
-# [Java](#tab/java)
+### [Java](#tab/java)
 
 ```java
 import java.io.*;
@@ -1665,11 +1785,11 @@ import com.google.gson.*;
 import com.squareup.okhttp.*;
 
 public class Translate {
-    private static String key = "YOUR_KEY";
+    private static String key = "<YOUR-TRANSLATOR-KEY>";
 
     // Add your location, also known as region. The default is global.
     // This is required if using a Cognitive Services resource.
-    private static String location = "YOUR_RESOURCE_LOCATION";
+    private static String location = "<YOUR-RESOURCE-LOCATION>";
 
     HttpUrl url = new HttpUrl.Builder()
         .scheme("https")
@@ -1717,18 +1837,18 @@ public class Translate {
 }
 ```
 
-# [Node.js](#tab/nodejs)
+### [Node.js](#tab/nodejs)
 
 ```javascript
 const axios = require('axios').default;
 const { v4: uuidv4 } = require('uuid');
 
-var key = "YOUR_KEY";
+var key = "<YOUR-TRANSLATOR-KEY>";
 var endpoint = "https://api.cognitive.microsofttranslator.com";
 
 // Add your location, also known as region. The default is global.
 // This is required if using a Cognitive Services resource.
-var location = "YOUR_RESOURCE_LOCATION";
+var location = "<YOUR-RESOURCE-LOCATION>";
 
 axios({
     baseURL: endpoint,
@@ -1754,18 +1874,18 @@ axios({
 })
 ```
 
+### [Python](#tab/python)
 
-# [Python](#tab/python)
 ```python
 import requests, uuid, json
 
 # Add your key and endpoint
-key = "YOUR_KEY"
+key = "<YOUR-TRANSLATOR-KEY>"
 endpoint = "https://api.cognitive.microsofttranslator.com"
 
 # Add your location, also known as region. The default is global.
 # This is required if using a Cognitive Services resource.
-location = "YOUR_RESOURCE_LOCATION"
+location = "<YOUR-RESOURCE-LOCATION>"
 
 path = '/translate'
 constructed_url = endpoint + path
@@ -1793,72 +1913,67 @@ response = request.json()
 print(json.dumps(response, sort_keys=True, ensure_ascii=False, indent=4, separators=(',', ': ')))
 ```
 
-
-
 ---
 
 After a successful call, you should see the following response. In addition to the detected source language and translation, you'll get character counts for each detected sentence for both the source (`srcSentLen`) and translation (`transSentLen`).
 
 ```json
 [
-    {
-        "detectedLanguage": {
-            "language": "en",
-            "score": 1.0
-        },
-        "translations": [
-            {
-                "sentLen": {
-                    "srcSentLen": [
-                        44,
-                        21,
-                        12
-                    ],
-                    "transSentLen": [
-                        48,
-                        18,
-                        10
-                    ]
-                },
-                "text": "¿Puedes decirme cómo llegar a la estación Penn? ¿No estás seguro? Está bien.",
-                "to": "es"
+   {
+      "detectedLanguage":{
+         "language":"en",
+         "score":1.0
+      },
+      "translations":[
+         {
+            "text":"¿Puedes decirme cómo llegar a Penn Station? Oh, ¿no estás seguro? Está bien.",
+            "to":"es",
+            "sentLen":{
+               "srcSentLen":[
+                  44,
+                  21,
+                  12
+               ],
+               "transSentLen":[
+                  44,
+                  22,
+                  10
+               ]
             }
-        ]
-    }
+         }
+      ]
+   }
 ]
 ```
 
 ### Get sentence length without translation
 
-The Translator service also lets you request sentence length without translation using the `breaksentence` endpoint. 
+The Translator service also lets you request sentence length without translation using the `breaksentence` endpoint.
 
-# [C#](#tab/csharp)
+### [C#](#tab/csharp)
 
 ```csharp
 using System;
-using System.Net.Http;
-using System.Text;
-using System.Threading.Tasks;
 using Newtonsoft.Json; // Install Newtonsoft.Json with NuGet
 
 class Program
 {
-    private static readonly string key = "YOUR-KEY";
+    private static readonly string key = "<YOUR-TRANSLATOR-KEY>";
     private static readonly string endpoint = "https://api.cognitive.microsofttranslator.com/";
 
     // Add your location, also known as region. The default is global.
     // This is required if using a Cognitive Services resource.
-    private static readonly string location = "YOUR_RESOURCE_LOCATION";   
-    
+    private static readonly string location = "<YOUR-RESOURCE-LOCATION>";
+
     static async Task Main(string[] args)
     {
         // Only include sentence length details.
         string route = "/breaksentence?api-version=3.0";
-        string sentencesToCount = 
+        string sentencesToCount =
                 "Can you tell me how to get to Penn Station? Oh, you aren't sure? That's fine.";
         object[] body = new object[] { new { Text = sentencesToCount } };
         var requestBody = JsonConvert.SerializeObject(body);
-    
+
         using (var client = new HttpClient())
         using (var request = new HttpRequestMessage())
         {
@@ -1868,7 +1983,7 @@ class Program
             request.Content = new StringContent(requestBody, Encoding.UTF8, "application/json");
             request.Headers.Add("Ocp-Apim-Subscription-Key", key);
             request.Headers.Add("Ocp-Apim-Subscription-Region", location);
-    
+
             // Send the request and get response.
             HttpResponseMessage response = await client.SendAsync(request).ConfigureAwait(false);
             // Read response as a string.
@@ -1879,9 +1994,7 @@ class Program
 }
 ```
 
-
-
-# [Go](#tab/go)
+### [Go](#tab/go)
 
 ```go
 package main
@@ -1896,10 +2009,10 @@ import (
 )
 
 func main() {
-    key := "YOUR-KEY"
+    key := "<YOUR-TRANSLATOR-KEY>"
     // Add your location, also known as region. The default is global.
     // This is required if using a Cognitive Services resource.
-    location := "YOUR_RESOURCE_LOCATION";
+    location := "<YOUR-RESOURCE-LOCATION>";
     endpoint := "https://api.cognitive.microsofttranslator.com/"
     uri := endpoint + "/breaksentence?api-version=3.0"
 
@@ -1943,7 +2056,7 @@ func main() {
 }
 ```
 
-# [Java](#tab/java)
+### [Java](#tab/java)
 
 ```java
 import java.io.*;
@@ -1953,11 +2066,11 @@ import com.google.gson.*;
 import com.squareup.okhttp.*;
 
 public class BreakSentence {
-    private static String key = "YOUR_KEY";
+    private static String key = "<YOUR-TRANSLATOR-KEY>";
 
     // Add your location, also known as region. The default is global.
     // This is required if using a Cognitive Services resource.
-    private static String location = "YOUR_RESOURCE_LOCATION";
+    private static String location = "<YOUR-RESOURCE-LOCATION>";
 
     HttpUrl url = new HttpUrl.Builder()
         .scheme("https")
@@ -2003,20 +2116,18 @@ public class BreakSentence {
 }
 ```
 
-
-
-# [Node.js](#tab/nodejs)
+### [Node.js](#tab/nodejs)
 
 ```javascript
 const axios = require('axios').default;
 const { v4: uuidv4 } = require('uuid');
 
-var key = "YOUR_KEY";
+var key = "<YOUR-TRANSLATOR-KEY>";
 var endpoint = "https://api.cognitive.microsofttranslator.com";
 
 // Add your location, also known as region. The default is global.
 // This is required if using a Cognitive Services resource.
-var location = "YOUR_RESOURCE_LOCATION";
+var location = "<YOUR-RESOURCE-LOCATION>";
 
 axios({
     baseURL: endpoint,
@@ -2040,19 +2151,18 @@ axios({
 })
 ```
 
+### [Python](#tab/python)
 
-
-# [Python](#tab/python)
 ```python
 import requests, uuid, json
 
 # Add your key and endpoint
-key = "YOUR_KEY"
+key = "<YOUR-TRANSLATOR-KEY>"
 endpoint = "https://api.cognitive.microsofttranslator.com"
 
 # Add your location, also known as region. The default is global.
 # This is required if using a Cognitive Services resource.
-location = "YOUR_RESOURCE_LOCATION"
+location = "<YOUR-RESOURCE-LOCATION>"
 
 path = '/breaksentence'
 constructed_url = endpoint + path
@@ -2079,57 +2189,53 @@ response = request.json()
 print(json.dumps(response, sort_keys=True, indent=4, separators=(',', ': ')))
 ```
 
-
 ---
 
-After a successful call, you should see the following response. Unlike the call to the `translate` endpoint, `breaksentence` only returns the character counts for the source text in an array called `sentLen`. 
+After a successful call, you should see the following response. Unlike the call to the `translate` endpoint, `breaksentence` only returns the character counts for the source text in an array called `sentLen`.
 
 ```json
 [
-    {
-        "detectedLanguage": {
-            "language": "en",
-            "score": 1.0
-        },
-        "sentLen": [
-            44,
-            21,
-            12
-        ]
-    }
+   {
+      "detectedLanguage":{
+         "language":"en",
+         "score":1.0
+      },
+      "sentLen":[
+         44,
+         21,
+         12
+      ]
+   }
 ]
 ```
 
 ## Dictionary lookup (alternate translations)
 
-With the  endpoint, you can get alternate translations for a word or phrase. For example, when translating the word "shark" from `en` to `es`, this endpoint returns both "tiburón" and "escualo".
+With the  endpoint, you can get alternate translations for a word or phrase. For example, when translating the word "sunshine" from `en` to `es`, this endpoint returns "luz solar", "rayos solares", and "soleamiento", "sol", and "insolación".
 
-# [C#](#tab/csharp)
+### [C#](#tab/csharp)
 
 ```csharp
 using System;
-using System.Net.Http;
-using System.Text;
-using System.Threading.Tasks;
 using Newtonsoft.Json; // Install Newtonsoft.Json with NuGet
 
 class Program
 {
-    private static readonly string key = "YOUR-KEY";
+    private static readonly string key = "<YOUR-TRANSLATOR-KEY>";
     private static readonly string endpoint = "https://api.cognitive.microsofttranslator.com/";
 
     // Add your location, also known as region. The default is global.
     // This is required if using a Cognitive Services resource.
-    private static readonly string location = "YOUR_RESOURCE_LOCATION"; 
-    
+    private static readonly string location = "<YOUR-RESOURCE-LOCATION>";
+
     static async Task Main(string[] args)
     {
         // See many translation options
         string route = "/dictionary/lookup?api-version=3.0&from=en&to=es";
-        string wordToTranslate = "shark";
+        string wordToTranslate = "sunlight";
         object[] body = new object[] { new { Text = wordToTranslate } };
         var requestBody = JsonConvert.SerializeObject(body);
-    
+
         using (var client = new HttpClient())
         using (var request = new HttpRequestMessage())
         {
@@ -2139,7 +2245,7 @@ class Program
             request.Content = new StringContent(requestBody, Encoding.UTF8, "application/json");
             request.Headers.Add("Ocp-Apim-Subscription-Key", key);
             request.Headers.Add("Ocp-Apim-Subscription-Region", location);
-    
+
             // Send the request and get response.
             HttpResponseMessage response = await client.SendAsync(request).ConfigureAwait(false);
             // Read response as a string.
@@ -2150,8 +2256,7 @@ class Program
 }
 ```
 
-
-# [Go](#tab/go)
+### [Go](#tab/go)
 
 ```go
 package main
@@ -2166,10 +2271,10 @@ import (
 )
 
 func main() {
-    key := "YOUR-KEY"
+    key := "<YOUR-TRANSLATOR-KEY>"
     // Add your location, also known as region. The default is global.
     // This is required if using a Cognitive Services resource.
-    location := "YOUR_RESOURCE_LOCATION";
+    location := "<YOUR-RESOURCE-LOCATION>";
     endpoint := "https://api.cognitive.microsofttranslator.com/"
     uri := endpoint + "/dictionary/lookup?api-version=3.0"
 
@@ -2184,7 +2289,7 @@ func main() {
     body := []struct {
         Text string
     }{
-        {Text: "shark"},
+        {Text: "sunlight"},
     }
     b, _ := json.Marshal(body)
 
@@ -2215,8 +2320,7 @@ func main() {
 }
 ```
 
-
-# [Java](#tab/java)
+### [Java](#tab/java)
 
 ```java
 import java.io.*;
@@ -2226,11 +2330,11 @@ import com.google.gson.*;
 import com.squareup.okhttp.*;
 
 public class DictionaryLookup {
-    private static String key = "YOUR_KEY";
+    private static String key = "<YOUR-TRANSLATOR-KEY>";
 
     // Add your location, also known as region. The default is global.
     // This is required if using a Cognitive Services resource.
-    private static String location = "YOUR_RESOURCE_LOCATION";
+    private static String location = "<YOUR-RESOURCE-LOCATION>";
 
     HttpUrl url = new HttpUrl.Builder()
         .scheme("https")
@@ -2278,20 +2382,18 @@ public class DictionaryLookup {
 }
 ```
 
-
-
-# [Node.js](#tab/nodejs)
+### [Node.js](#tab/nodejs)
 
 ```javascript
 const axios = require('axios').default;
 const { v4: uuidv4 } = require('uuid');
 
-var key = "YOUR_KEY";
+var key = "<YOUR-TRANSLATOR-KEY>";
 var endpoint = "https://api.cognitive.microsofttranslator.com";
 
 // Add your location, also known as region. The default is global.
 // This is required if using a Cognitive Services resource.
-var location = "YOUR_RESOURCE_LOCATION";
+var location = "<YOUR-RESOURCE-LOCATION>";
 
 axios({
     baseURL: endpoint,
@@ -2317,18 +2419,18 @@ axios({
 })
 ```
 
+### [Python](#tab/python)
 
-# [Python](#tab/python)
 ```python
 import requests, uuid, json
 
 # Add your key and endpoint
-key = "YOUR_KEY"
+key = "<YOUR-TRANSLATOR-KEY>"
 endpoint = "https://api.cognitive.microsofttranslator.com"
 
 # Add your location, also known as region. The default is global.
 # This is required if using a Cognitive Services resource.
-location = "YOUR_RESOURCE_LOCATION"
+location = "<YOUR-RESOURCE-LOCATION>"
 
 path = '/dictionary/lookup'
 constructed_url = endpoint + path
@@ -2362,74 +2464,194 @@ After a successful call, you should see the following response. Let's examine th
 
 ```json
 [
-    {
-        "displaySource": "shark",
-        "normalizedSource": "shark",
-        "translations": [
-            {
-                "backTranslations": [
-                    {
-                        "displayText": "shark",
-                        "frequencyCount": 45,
-                        "normalizedText": "shark",
-                        "numExamples": 0
-                    }
-                ],
-                "confidence": 0.8182,
-                "displayTarget": "tiburón",
-                "normalizedTarget": "tiburón",
-                "posTag": "OTHER",
-                "prefixWord": ""
-            },
-            {
-                "backTranslations": [
-                    {
-                        "displayText": "shark",
-                        "frequencyCount": 10,
-                        "normalizedText": "shark",
-                        "numExamples": 1
-                    }
-                ],
-                "confidence": 0.1818,
-                "displayTarget": "escualo",
-                "normalizedTarget": "escualo",
-                "posTag": "NOUN",
-                "prefixWord": ""
-            }
-        ]
-    }
+   {
+      "normalizedSource":"sunlight",
+      "displaySource":"sunlight",
+      "translations":[
+         {
+            "normalizedTarget":"luz solar",
+            "displayTarget":"luz solar",
+            "posTag":"NOUN",
+            "confidence":0.5313,
+            "prefixWord":"",
+            "backTranslations":[
+               {
+                  "normalizedText":"sunlight",
+                  "displayText":"sunlight",
+                  "numExamples":15,
+                  "frequencyCount":702
+               },
+               {
+                  "normalizedText":"sunshine",
+                  "displayText":"sunshine",
+                  "numExamples":7,
+                  "frequencyCount":27
+               },
+               {
+                  "normalizedText":"daylight",
+                  "displayText":"daylight",
+                  "numExamples":4,
+                  "frequencyCount":17
+               }
+            ]
+         },
+         {
+            "normalizedTarget":"rayos solares",
+            "displayTarget":"rayos solares",
+            "posTag":"NOUN",
+            "confidence":0.1544,
+            "prefixWord":"",
+            "backTranslations":[
+               {
+                  "normalizedText":"sunlight",
+                  "displayText":"sunlight",
+                  "numExamples":4,
+                  "frequencyCount":38
+               },
+               {
+                  "normalizedText":"rays",
+                  "displayText":"rays",
+                  "numExamples":11,
+                  "frequencyCount":30
+               },
+               {
+                  "normalizedText":"sunrays",
+                  "displayText":"sunrays",
+                  "numExamples":0,
+                  "frequencyCount":6
+               },
+               {
+                  "normalizedText":"sunbeams",
+                  "displayText":"sunbeams",
+                  "numExamples":0,
+                  "frequencyCount":4
+               }
+            ]
+         },
+         {
+            "normalizedTarget":"soleamiento",
+            "displayTarget":"soleamiento",
+            "posTag":"NOUN",
+            "confidence":0.1264,
+            "prefixWord":"",
+            "backTranslations":[
+               {
+                  "normalizedText":"sunlight",
+                  "displayText":"sunlight",
+                  "numExamples":0,
+                  "frequencyCount":7
+               }
+            ]
+         },
+         {
+            "normalizedTarget":"sol",
+            "displayTarget":"sol",
+            "posTag":"NOUN",
+            "confidence":0.1239,
+            "prefixWord":"",
+            "backTranslations":[
+               {
+                  "normalizedText":"sun",
+                  "displayText":"sun",
+                  "numExamples":15,
+                  "frequencyCount":20387
+               },
+               {
+                  "normalizedText":"sunshine",
+                  "displayText":"sunshine",
+                  "numExamples":15,
+                  "frequencyCount":1439
+               },
+               {
+                  "normalizedText":"sunny",
+                  "displayText":"sunny",
+                  "numExamples":15,
+                  "frequencyCount":265
+               },
+               {
+                  "normalizedText":"sunlight",
+                  "displayText":"sunlight",
+                  "numExamples":15,
+                  "frequencyCount":242
+               }
+            ]
+         },
+         {
+            "normalizedTarget":"insolación",
+            "displayTarget":"insolación",
+            "posTag":"NOUN",
+            "confidence":0.064,
+            "prefixWord":"",
+            "backTranslations":[
+               {
+                  "normalizedText":"heat stroke",
+                  "displayText":"heat stroke",
+                  "numExamples":3,
+                  "frequencyCount":67
+               },
+               {
+                  "normalizedText":"insolation",
+                  "displayText":"insolation",
+                  "numExamples":1,
+                  "frequencyCount":55
+               },
+               {
+                  "normalizedText":"sunstroke",
+                  "displayText":"sunstroke",
+                  "numExamples":2,
+                  "frequencyCount":31
+               },
+               {
+                  "normalizedText":"sunlight",
+                  "displayText":"sunlight",
+                  "numExamples":0,
+                  "frequencyCount":12
+               },
+               {
+                  "normalizedText":"solarization",
+                  "displayText":"solarization",
+                  "numExamples":0,
+                  "frequencyCount":7
+               },
+               {
+                  "normalizedText":"sunning",
+                  "displayText":"sunning",
+                  "numExamples":1,
+                  "frequencyCount":7
+               }
+            ]
+         }
+      ]
+   }
 ]
 ```
 
 ## Dictionary examples (translations in context)
 
-After you've performed a dictionary lookup, you can pass the source text and translation to the `dictionary/examples` endpoint to get a list of examples that show both terms in the context of a sentence or phrase. Building on the previous example, you'll use the `normalizedText` and `normalizedTarget` from the dictionary lookup response as `text` and `translation` respectively. The source language (`from`) and output target (`to`) parameters are required. 
+After you've performed a dictionary lookup, you can pass the source text and translation to the `dictionary/examples` endpoint to get a list of examples that show both terms in the context of a sentence or phrase. Building on the previous example, you'll use the `normalizedText` and `normalizedTarget` from the dictionary lookup response as `text` and `translation` respectively. The source language (`from`) and output target (`to`) parameters are required.
 
-# [C#](#tab/csharp)
+### [C#](#tab/csharp)
 
 ```csharp
 using System;
-using System.Net.Http;
-using System.Text;
-using System.Threading.Tasks;
 using Newtonsoft.Json; // Install Newtonsoft.Json with NuGet
 
 class Program
 {
-    private static readonly string key = "YOUR-KEY";
+    private static readonly string key = "<YOUR-TRANSLATOR-KEY>";
     private static readonly string endpoint = "https://api.cognitive.microsofttranslator.com/";
 
     // Add your location, also known as region. The default is global.
     // This is required if using a Cognitive Services resource.
-    private static readonly string location = "YOUR_RESOURCE_LOCATION"; 
-    
+    private static readonly string location = "<YOUR-RESOURCE-LOCATION>";
+
     static async Task Main(string[] args)
     {
         // See examples of terms in context
         string route = "/dictionary/examples?api-version=3.0&from=en&to=es";
-        object[] body = new object[] { new { Text = "Shark",  Translation = "tiburón" } } ;
+        object[] body = new object[] { new { Text = "sunlight",  Translation = "luz solar" } } ;
         var requestBody = JsonConvert.SerializeObject(body);
-    
+
         using (var client = new HttpClient())
         using (var request = new HttpRequestMessage())
         {
@@ -2439,7 +2661,7 @@ class Program
             request.Content = new StringContent(requestBody, Encoding.UTF8, "application/json");
             request.Headers.Add("Ocp-Apim-Subscription-Key", key);
             request.Headers.Add("Ocp-Apim-Subscription-Region", location);
-    
+
             // Send the request and get response.
             HttpResponseMessage response = await client.SendAsync(request).ConfigureAwait(false);
             // Read response as a string.
@@ -2450,9 +2672,7 @@ class Program
 }
 ```
 
-
-
-# [Go](#tab/go)
+### [Go](#tab/go)
 
 ```go
 package main
@@ -2467,10 +2687,10 @@ import (
 )
 
 func main() {
-    key := "YOUR-KEY"
+    key := "<YOUR-TRANSLATOR-KEY>"
     // Add your location, also known as region. The default is global.
     // This is required if using a Cognitive Services resource.
-    location := "YOUR_RESOURCE_LOCATION";
+    location := "<YOUR-RESOURCE-LOCATION>";
     endpoint := "https://api.cognitive.microsofttranslator.com/"
     uri := endpoint + "/dictionary/examples?api-version=3.0"
 
@@ -2487,8 +2707,8 @@ func main() {
         Translation string
     }{
         {
-            Text:        "Shark",
-            Translation: "tiburón",
+            Text:        "sunlight",
+            Translation: "luz solar",
         },
     }
     b, _ := json.Marshal(body)
@@ -2520,8 +2740,7 @@ func main() {
 }
 ```
 
-
-# [Java](#tab/java)
+### [Java](#tab/java)
 
 ```java
 import java.io.*;
@@ -2531,11 +2750,11 @@ import com.google.gson.*;
 import com.squareup.okhttp.*;
 
 public class DictionaryExamples {
-    private static String key = "YOUR_KEY";
+    private static String key = "<YOUR-TRANSLATOR-KEY>";
 
     // Add your location, also known as region. The default is global.
     // This is required if using a Cognitive Services resource.
-    private static String location = "YOUR_RESOURCE_LOCATION";
+    private static String location = "<YOUR-RESOURCE-LOCATION>";
 
     HttpUrl url = new HttpUrl.Builder()
         .scheme("https")
@@ -2584,18 +2803,18 @@ public class DictionaryExamples {
 ```
 
 
-# [Node.js](#tab/nodejs)
+### [Node.js](#tab/nodejs)
 
 ```javascript
 const axios = require('axios').default;
 const { v4: uuidv4 } = require('uuid');
 
-var key = "YOUR_KEY";
+var key = "<YOUR-TRANSLATOR-KEY>";
 var endpoint = "https://api.cognitive.microsofttranslator.com";
 
 // Add your location, also known as region. The default is global.
 // This is required if using a Cognitive Services resource.
-var location = "YOUR_RESOURCE_LOCATION";
+var location = "<YOUR-RESOURCE-LOCATION>";
 
 axios({
     baseURL: endpoint,
@@ -2623,17 +2842,17 @@ axios({
 ```
 
 
-# [Python](#tab/python)
+### [Python](#tab/python)
 ```python
 import requests, uuid, json
 
 # Add your key and endpoint
-key = "YOUR_KEY"
+key = "<YOUR-TRANSLATOR-KEY>"
 endpoint = "https://api.cognitive.microsofttranslator.com"
 
 # Add your location, also known as region. The default is global.
 # This is required if using a Cognitive Services resource.
-location = "YOUR_RESOURCE_LOCATION"
+location = "<YOUR-RESOURCE-LOCATION>"
 
 path = '/dictionary/examples'
 constructed_url = endpoint + path
@@ -2671,36 +2890,132 @@ After a successful call, you should see the following response. For more informa
 
 ```json
 [
-    {
-        "examples": [
-            {
-                "sourcePrefix": "More than a match for any ",
-                "sourceSuffix": ".",
-                "sourceTerm": "shark",
-                "targetPrefix": "Más que un fósforo para cualquier ",
-                "targetSuffix": ".",
-                "targetTerm": "tiburón"
-            },
-            {
-                "sourcePrefix": "Same with the mega ",
-                "sourceSuffix": ", of course.",
-                "sourceTerm": "shark",
-                "targetPrefix": "Y con el mega ",
-                "targetSuffix": ", por supuesto.",
-                "targetTerm": "tiburón"
-            },
-            {
-                "sourcePrefix": "A ",
-                "sourceSuffix": " ate it.",
-                "sourceTerm": "shark",
-                "targetPrefix": "Te la ha comido un ",
-                "targetSuffix": ".",
-                "targetTerm": "tiburón"
-            }
-        ],
-        "normalizedSource": "shark",
-        "normalizedTarget": "tiburón"
-    }
+   {
+      "normalizedSource":"sunlight",
+      "normalizedTarget":"luz solar",
+      "examples":[
+         {
+            "sourcePrefix":"You use a stake, silver, or ",
+            "sourceTerm":"sunlight",
+            "sourceSuffix":".",
+            "targetPrefix":"Se usa una estaca, plata, o ",
+            "targetTerm":"luz solar",
+            "targetSuffix":"."
+         },
+         {
+            "sourcePrefix":"A pocket of ",
+            "sourceTerm":"sunlight",
+            "sourceSuffix":".",
+            "targetPrefix":"Una bolsa de ",
+            "targetTerm":"luz solar",
+            "targetSuffix":"."
+         },
+         {
+            "sourcePrefix":"There must also be ",
+            "sourceTerm":"sunlight",
+            "sourceSuffix":".",
+            "targetPrefix":"También debe haber ",
+            "targetTerm":"luz solar",
+            "targetSuffix":"."
+         },
+         {
+            "sourcePrefix":"We were living off of current ",
+            "sourceTerm":"sunlight",
+            "sourceSuffix":".",
+            "targetPrefix":"Estábamos viviendo de la ",
+            "targetTerm":"luz solar",
+            "targetSuffix":" actual."
+         },
+         {
+            "sourcePrefix":"And they don't need unbroken ",
+            "sourceTerm":"sunlight",
+            "sourceSuffix":".",
+            "targetPrefix":"Y ellos no necesitan ",
+            "targetTerm":"luz solar",
+            "targetSuffix":" ininterrumpida."
+         },
+         {
+            "sourcePrefix":"We have lamps that give the exact equivalent of ",
+            "sourceTerm":"sunlight",
+            "sourceSuffix":".",
+            "targetPrefix":"Disponemos de lámparas que dan el equivalente exacto de ",
+            "targetTerm":"luz solar",
+            "targetSuffix":"."
+         },
+         {
+            "sourcePrefix":"Plants need water and ",
+            "sourceTerm":"sunlight",
+            "sourceSuffix":".",
+            "targetPrefix":"Las plantas necesitan agua y ",
+            "targetTerm":"luz solar",
+            "targetSuffix":"."
+         },
+         {
+            "sourcePrefix":"So this requires ",
+            "sourceTerm":"sunlight",
+            "sourceSuffix":".",
+            "targetPrefix":"Así que esto requiere ",
+            "targetTerm":"luz solar",
+            "targetSuffix":"."
+         },
+         {
+            "sourcePrefix":"And this pocket of ",
+            "sourceTerm":"sunlight",
+            "sourceSuffix":" freed humans from their ...",
+            "targetPrefix":"Y esta bolsa de ",
+            "targetTerm":"luz solar",
+            "targetSuffix":", liberó a los humanos de ..."
+         },
+         {
+            "sourcePrefix":"Since there is no ",
+            "sourceTerm":"sunlight",
+            "sourceSuffix":", the air within ...",
+            "targetPrefix":"Como no hay ",
+            "targetTerm":"luz solar",
+            "targetSuffix":", el aire atrapado en ..."
+         },
+         {
+            "sourcePrefix":"The ",
+            "sourceTerm":"sunlight",
+            "sourceSuffix":" shining through the glass creates a ...",
+            "targetPrefix":"La ",
+            "targetTerm":"luz solar",
+            "targetSuffix":" a través de la vidriera crea una ..."
+         },
+         {
+            "sourcePrefix":"Less ice reflects less ",
+            "sourceTerm":"sunlight",
+            "sourceSuffix":", and more open ocean ...",
+            "targetPrefix":"Menos hielo refleja menos ",
+            "targetTerm":"luz solar",
+            "targetSuffix":", y más mar abierto ..."
+         },
+         {
+            "sourcePrefix":"",
+            "sourceTerm":"Sunlight",
+            "sourceSuffix":" is most intense at midday, so ...",
+            "targetPrefix":"La ",
+            "targetTerm":"luz solar",
+            "targetSuffix":" es más intensa al mediodía, por lo que ..."
+         },
+         {
+            "sourcePrefix":"... capture huge amounts of ",
+            "sourceTerm":"sunlight",
+            "sourceSuffix":", so fueling their growth.",
+            "targetPrefix":"... capturan enormes cantidades de ",
+            "targetTerm":"luz solar",
+            "targetSuffix":" que favorecen su crecimiento."
+         },
+         {
+            "sourcePrefix":"... full height, giving more direct ",
+            "sourceTerm":"sunlight",
+            "sourceSuffix":" in the winter.",
+            "targetPrefix":"... altura completa, dando más ",
+            "targetTerm":"luz solar",
+            "targetSuffix":" directa durante el invierno."
+         }
+      ]
+   }
 ]
 ```
 

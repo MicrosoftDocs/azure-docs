@@ -13,6 +13,9 @@ ms.author: lajanuar
 ms.devlang: csharp, golang, java, javascript, python
 ---
 
+<!-- markdownlint-disable MD033 -->
+<!-- markdownlint-disable MD001 -->
+
 # Quickstart: Azure Cognitive Services Translator
 
 In this quickstart, you learn to use the Translator service to [translate text](reference/v3-0-translate.md) using the programming language of your choice and the REST API.
@@ -83,7 +86,7 @@ The core operation of the Translator service is translating text. In this quicks
 
 ### Install the Newtonsoft.json package with NuGet
 
-1. Right-click on your translator_quickstart project and select Manage NuGet Packages... .
+1. Right-click on your translator_quickstart project and select **Manage NuGet Packages...** .
 
     :::image type="content" source="media/quickstarts/manage-nuget.png" alt-text="{Screenshot of the NuGet package search box.}":::
 
@@ -115,7 +118,7 @@ using Newtonsoft.Json;
 class Program
 {
     private static readonly string key = "<your-translator-key>";
-    private static readonly string endpoint = "<your-translator-endpoint>";
+    private static readonly string endpoint = "https://api.cognitive.microsofttranslator.com";
 
     static async Task Main(string[] args)
     {
@@ -155,26 +158,23 @@ Once you've added a code sample to your application, choose the green Start butt
 
 ### Set up your Go environment
 
-* You can use any text editor to write Go applications. We recommend using the latest version of [Visual Studio Code and the Go extension](/azure/developer/go/configure-visual-studio-code).
+You can use any text editor to write Go applications. We recommend using the latest version of [Visual Studio Code and the Go extension](/azure/developer/go/configure-visual-studio-code).
 
 > [!TIP]
 >
 > If you're new to Go, try the [**Get started with Go**](/learn/modules/go-get-started/) Microsoft Learn module.
 
-1. Install Go
+1. If you haven't done so already, [download and install Go](https://go.dev/doc/install]).
 
-* In your favorite web browser, go to the Go [download and install page](https://go.dev/doc/install]).
-* Download the version for your operating system.
-* Once the download is complete, run the installer.
-* Open a command prompt and enter the following to confirm Go was installed:
+    * Download the Go version for your operating system.
+    * Once the download is complete, run the installer.
+    * Open a command prompt and enter the following to confirm Go was installed:
 
-```console
-  go version
-```
+        ```console
+          go version
+        ```
 
-1. [Set-up your Go development environment](https://go.dev/doc/editors) with your preferred IDE.
-
-1. In console window (such as cmd, PowerShell, or Bash), create a new directory for your app called **translator-app**, and navigate to it.
+1. In a console window (such as cmd, PowerShell, or Bash), create a new directory for your app called **translator-app**, and navigate to it.
 
 1. Create a new GO file named **translation.go** from the **translator-app** directory.
 
@@ -184,34 +184,60 @@ Once you've added a code sample to your application, choose the green Start butt
 package main
 
 import (
+    "bytes"
+    "encoding/json"
     "fmt"
-    "strings"
+    "log"
     "net/http"
-    "io/ioutil"
+    "net/url"
 )
 
 func main() {
+    key := "<YOUR-TRANSLATOR-KEY>"
+    // Add your location, also known as region. The default is global.
+    // This is required if using a Cognitive Services resource.
+    endpoint := "https://api.cognitive.microsofttranslator.com/"
+    uri := endpoint + "/translate?api-version=3.0"
 
-    key := "<your-translator-key>"
+    // Build the request URL. See: https://go.dev/pkg/net/url/#example_URL_Parse
+    u, _ := url.Parse(uri)
+    q := u.Query()
+    q.Add("from", "en")
+    q.Add("to", "fr")
+    q.Add("to", "zu")
+    u.RawQuery = q.Encode()
 
-    endpoint :="<your translator-endpoint>"
+    // Create an anonymous struct for your request body and encode it to JSON
+    body := []struct {
+        Text string
+    }{
+        {Text: "I would really like to drive your car around the block a few times."},
+    }
+    b, _ := json.Marshal(body)
 
-    url := endpoint + "translate?api-version=3.0&from=en&to=fr&to=zu"
+    // Build the HTTP POST request
+    req, err := http.NewRequest("POST", u.String(), bytes.NewBuffer(b))
+    if err != nil {
+        log.Fatal(err)
+    }
+    // Add required headers to the request
+    req.Header.Add("Ocp-Apim-Subscription-Key", key)
+    req.Header.Add("Content-Type", "application/json")
 
-    payload := strings.NewReader("[\r\n    {\"Text\":\"I would really like to drive your car around the block a few times!\"}\r\n]")
+    // Call the Translator API
+    res, err := http.DefaultClient.Do(req)
+    if err != nil {
+        log.Fatal(err)
+    }
 
-    req, _ := http.NewRequest("POST", url, payload)
-
-    req.Header.Add("content-type", "application/json")
-    req.Header.Add("ocp-apim-subscription-key", key)
-
-    res, _ := http.DefaultClient.Do(req)
-
-    defer res.Body.Close()
-    body, _ := ioutil.ReadAll(res.Body)
-
-    fmt.Println(string(body))
-
+    // Decode the JSON response
+    var result interface{}
+    if err := json.NewDecoder(res.Body).Decode(&result); err != nil {
+        log.Fatal(err)
+    }
+    // Format and print the response to terminal
+    prettyJSON, _ := json.MarshalIndent(result, "", "  ")
+    fmt.Printf("%s\n", prettyJSON)
 }
 ```
 
@@ -422,7 +448,7 @@ Once you've added a code sample to your application, navigate back to your main 
     >
     > * You can also create a new file named `index.js` in your IDE and save it to the `translator-app` directory.
 
-1. Add the following code sample to your `index.js` file. Make sure you update the key and endpoint variables with values from your Azure portal Translator instance:
+1. Add the following code sample to your `index.js` file. **Make sure you update the key and endpoint variables with values from your Azure portal Translator instance**:
 
 ```javascript
     const axios = require('axios').default;
@@ -480,21 +506,21 @@ Once you've added the code sample to your application, run your program:
 1. Open a terminal window and use pip to install the Requests library and uuid0 package:
 
     ```console
-       pip install requests uuid0
+       pip install requests uuid
     ```
 
 > [!NOTE]
-> Python has a built-in package called json, that is used to work with JSON data.
+> We will also use a Python built-in package called json. It's used to work with JSON data.
 
 1. Create a new Python file called **translator-app.py** in your preferred editor or IDE.
 
-1. Add the following code sample to your `translator-app.py` file. Make sure you update the key with one of the values from your Azure portal Translator instance:
+1. Add the following code sample to your `translator-app.py` file. **Make sure you update the key with one of the values from your Azure portal Translator instance**.
 
 ```python
 import requests, uuid, json
 
 # Add your key and endpoint
-key = "ba6c4278a6c0412da1d8015ef9930d44"
+key = "<your-translator-key>"
 endpoint = "https://api.cognitive.microsofttranslator.com"
 
 # Add your location, also known as region. The default is global.
