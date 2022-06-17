@@ -117,9 +117,41 @@ This section describes how to add, update, and manage API routes for apps that u
 
 The route config definition includes the following parts:
 
-- appResourceId: The full app resource ID to route traffic to
 - OpenAPI URI: The URI points to an OpenAPI specification,  both OpenAPI 2.0 and OpenAPI 3.0 specs are supported. The specification later can be shown in API portal to try out. Two types of URI are accepted, the first one is a public endpoint like `https://petstore3.swagger.io/api/v3/openapi.json`, and the second one is a constructed URL `http://<app-name>/{relative-path-to-OpenAPI-spec}`, where `app-name` is the name of an application in Azure Spring Apps which includes the API definition.
 - routes: A list of route rules about how the traffic goes to one app
+
+You can use the following command to create a route config. `--app-name` should be the name of app in Azure Spring Apps which the requests will route to.
+   ```azurecli
+   az spring gateway route-config create \
+      --name <route-config-name> \
+      --app-name <app-name> \
+      --routes-file <routes-file.json>
+   ```
+Here's a sample of the JSON file that is passed to the `--routes-file` parameter in the create command:
+   ```json
+   {
+      "open_api": {
+         "uri": "<OpenAPI-URI>"
+      },
+      "routes": [
+         {
+            "title": "<title-of-route>",
+            "description": "<description-of-route>",
+            "predicates": [
+               "<predicate-of-route>",
+            ],
+            "ssoEnabled": true,
+            "filters": [
+               "<filter-of-route>",
+            ],
+            "tags": [
+               "<tag-of-route>"
+            ],
+            "order": 0
+         }
+      ]
+   }
+   ```
 
 The following tables list the route definitions. All the properties are optional.
 
@@ -127,7 +159,7 @@ The following tables list the route definitions. All the properties are optional
 | - | - |
 | title | A title, will be applied to methods in the generated OpenAPI documentation |
 | description | A description, will be applied to methods in the generated OpenAPI documentation  |
-| uri | Full uri, will override `appResourceId` |
+| uri | Full uri, will override the name of app which requests route to |
 | ssoEnabled | Enable SSO validation. See "Using Single Sign-on" |
 | tokenRelay | Pass currently authenticated user's identity token to application service |
 | predicates | A list of predicates. See [Available Predicates](https://docs.vmware.com/en/VMware-Spring-Cloud-Gateway-for-Kubernetes/1.0/scg-k8s/GUID-configuring-routes.html#available-predicates) and [Commercial Route Filters](https://docs.vmware.com/en/VMware-Spring-Cloud-Gateway-for-Kubernetes/1.0/scg-k8s/GUID-route-predicates.html)|

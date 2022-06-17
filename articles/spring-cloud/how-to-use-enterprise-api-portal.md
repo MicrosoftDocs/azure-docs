@@ -75,8 +75,8 @@ You can also use the Azure CLI to assign a public endpoint with the following co
 az spring api-portal update --assign-endpoint
 ```
 
-## Setup route information definition of APIs
-To display APIs and try out with schema definition in API portal, you need to configure route config in Spring Cloud Gateway for Tanzu.
+## Configure API routing with OpenAPI Spec on Spring Cloud Gateway
+To view and try out APIs with schema definition in API portal, you need to configure API routing with OpenAPI spec url on Spring Cloud Gateway for Tanzu.
 1. To create an app in Azure Spring Apps which the gateway will route traffic to.
 2. Generate the OpenAPI definition and get the URI to access it. Two types of URI are accepted.
     - The first one is a public accessible endpoint like the URI `https://petstore3.swagger.io/api/v3/openapi.json` which includes the OpenAPI specification.
@@ -132,7 +132,7 @@ az spring gateway route-config create \
 6. Check the response of created routes, you can also view the routes in the portal.
 
 
-## View the route information through API portal
+## View exposed APIs in API portal
 
 > [!NOTE]
 > It takes several minutes to sync between Spring Cloud Gateway for Tanzu and API portal.
@@ -142,7 +142,7 @@ Select the `endpoint URL` to go to API portal. You'll see all the routes configu
 :::image type="content" source="media/enterprise/how-to-use-enterprise-api-portal/api-portal.png" alt-text="Screenshot of A P I portal showing configured routes.":::
 
 
-## Try APIs using API portal
+## Try out APIs in API portal
 1. Select the API you would like to try.
 1. Select **EXECUTE** and the response will be shown.
 
