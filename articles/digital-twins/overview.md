@@ -2,10 +2,10 @@
 # Mandatory fields.
 title: What is Azure Digital Twins?
 titleSuffix: Azure Digital Twins
-description: Overview of Azure Digital Twins, what the service comprises, and how it can be used in a wider cloud solution.
+description: Overview of the Azure Digital Twins IoT platform, including its features and value.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 03/24/2022
+ms.date: 06/17/2022
 ms.topic: overview
 ms.service: digital-twins
 
