@@ -1,5 +1,5 @@
 ---
-title: Frontline worker management - Azure Active Directory
+title: Frontline worker management
 description: Learn about frontline worker management capabilities that are provided through the My Staff portal.
 
 services: active-directory
@@ -8,16 +8,17 @@ ms.subservice: fundamentals
 ms.topic: conceptual
 ms.date: 03/16/2021
 
-ms.author: cchiedo
-author: Chrispine-Chiedo
+ms.author: davidmu
+author: davidmu1
 manager: CelesteDG
 ms.reviewer: stevebal
 
 #Customer intent: As a manager of frontline workers, I want an intuitive portal so that I can easily onboard new workers and provision shared devices.
 ---
+
 # Frontline worker management
 
-Frontline workers account for over 80 percent of the global workforce. Yet because of high scale, rapid turnover, and fragmented processes, frontline workers often lack the tools to make their demanding jobs a little easier. Frontline worker management brings digital transformation to the entire frontline workforce. The workforce may include managers, frontline workers, operations, and IT.
+Frontline workers account for over eighty percent of the global workforce. Yet because of high scale, rapid turnover, and fragmented processes, frontline workers often lack the tools to make their demanding jobs a little easier. Frontline worker management brings digital transformation to the entire frontline workforce. The workforce may include managers, frontline workers, operations, and IT.
 
 Frontline worker management empowers the frontline workforce by making the following activities easier to accomplish:
 - Streamlining common IT tasks with My Staff
@@ -47,5 +48,3 @@ Many companies use shared devices so frontline workers can do inventory manageme
 ## Next steps
 
 - For more information on delegated user management, see [My Staff user documentation](https://support.microsoft.com/account-billing/manage-front-line-users-with-my-staff-c65b9673-7e1c-4ad6-812b-1a31ce4460bd).
-- For inbound user provisioning from SAP SuccessFactors, see the tutorial on [configuring SAP SuccessFactors to Active Directory user provisioning](../saas-apps/sap-successfactors-inbound-provisioning-tutorial.md).
-- For inbound user provisioning from Workday, see the tutorial on [configuring Workday for automatic user provisioning](../saas-apps/workday-inbound-tutorial.md).
