@@ -45,7 +45,7 @@ This article shows you how to use the migration tool in the Azure CLI to migrate
 
 ## Migration CLI commands
 
-The migration tool comes with a list of easy-to-use CLI commands to do migration-related tasks. All the CLI commands start with  `az postgres flexible-server migration`. 
+The migration tool comes with easy-to-use CLI commands to do migration-related tasks. All the CLI commands start with  `az postgres flexible-server migration`. 
 
 For help with understanding the options associated with a command and with framing the right syntax, you can use the `help` parameter:
 
@@ -99,7 +99,7 @@ The `migration-name` argument used in the `create` command will be used in other
 
 The migration tool offers online and offline modes of migration. To know more about the migration modes and their differences, see [Migrate from Azure Database for PostgreSQL Single Server to Flexible Server](./concepts-single-to-flexible.md).
 
-Create a migration between a source and target server by using the migration mode of your choice. The `create` command needs a JSON file to be passed as part of its `properties` argument.
+Create a migration between source and target servers by using the migration mode of your choice. The `create` command needs a JSON file to be passed as part of its `properties` argument.
 
 The structure of the JSON is:
 
@@ -151,13 +151,13 @@ Here are the `create` parameters:
 | Parameter | Type | Description |
 | ---- | ---- | ---- |
 | `SourceDBServerResourceId` | Required |  This is the resource ID of the Single Server source and is mandatory. |
-| `SourceDBServerFullyQualifiedDomainName` | optional |  Use it when a custom DNS server is used for name resolution for a virtual network. Provide the FQDN of the Single Server source according to the custom DNS server for this property. |
-| `TargetDBServerFullyQualifiedDomainName` | optional |  Use it when a custom DNS server is used for name resolution inside a virtual network. Provide the FQDN of the Flexible Server target according to the custom DNS server. <br> `SourceDBServerFullyQualifiedDomainName` and `TargetDBServerFullyQualifiedDomainName` should be included as a part of the JSON only in the rare scenario of a custom DNS server being used for name resolution instead of Azure-provided DNS. Otherwise, don't include these parameters as a part of the JSON file. |
+| `SourceDBServerFullyQualifiedDomainName` | Optional |  Use it when a custom DNS server is used for name resolution for a virtual network. Provide the FQDN of the Single Server source according to the custom DNS server for this property. |
+| `TargetDBServerFullyQualifiedDomainName` | Optional |  Use it when a custom DNS server is used for name resolution inside a virtual network. Provide the FQDN of the Flexible Server target according to the custom DNS server. <br> `SourceDBServerFullyQualifiedDomainName` and `TargetDBServerFullyQualifiedDomainName` should be included as a part of the JSON only in the rare scenario of a custom DNS server being used for name resolution instead of Azure-provided DNS. Otherwise, don't include these parameters as a part of the JSON file. |
 | `SecretParameters` | Required | This parameter lists passwords for admin users for both the Single Server source and the Flexible Server target, along with the Azure Active Directory app credentials. These passwords help to authenticate against the source and target servers. They also help in checking proper authorization access to the resources.
 | `MigrationResourceGroup` | Optional | This section consists of two properties: <br><br> `ResourceID` (optional): The migration infrastructure and other network infrastructure components are created to migrate data and schemas from the source to the target. By default, all the components that this tool creates are provisioned under the resource group of the target server. If you want to deploy them under a different resource group, you can assign the resource ID of that resource group to this property. <br><br> `SubnetResourceID` (optional): If your source has public access turned off, or if your target server is deployed inside a virtual network, specify a subnet under which migration infrastructure needs to be created so that it can connect to both source and target servers. |
 | `DBsToMigrate` | Required | Specify the list of databases that you want to migrate to Flexible Server. You can include a maximum of eight database names at a time. |
 | `SetupLogicalReplicationOnSourceDBIfNeeded` | Optional | You can enable logical replication on the source server automatically by setting this property to `true`. This change in the server settings requires a server restart with a downtime of two to three minutes. |
-| `OverwriteDBsinTarget` | Optional | If the target server happens to have an existing database with the same name as the one you're trying to migrate, the migration will pause until you acknowledge that overwrites in the target databases are allowed. You can avoid this pause by giving the migration tool permission to automatically overwrite databases by setting the value of this property to `true`. |
+| `OverwriteDBsinTarget` | Optional | If the target server happens to have an existing database with the same name as the one you're trying to migrate, the migration will pause until you acknowledge that overwrites in the target databases are allowed. You can avoid this pause by setting the value of this property to `true`, which gives the migration tool permission to automatically overwrite databases. |
 
 ### Choose a migration mode
 

@@ -14,7 +14,7 @@ ms.custom: "mvc, references_regions"
 
 [!INCLUDE[applies-to-postgres-single-flexible-server](../includes/applies-to-postgresql-single-flexible-server.md)]
 
-Azure Database for PostgreSQL Flexible Server provides zone-redundant high availability, control over price, and control over maintenance windows. You can use a migration tool to move your databases from Single Server to Flexible Server. To understand the differences between the two deployment options, see [this comparison chart](../flexible-server/concepts-compare-single-server-flexible-server.md). 
+Azure Database for PostgreSQL Flexible Server provides zone-redundant high availability, control over price, and control over maintenance windows. You can use the available migration tool to move your databases from Single Server to Flexible Server. To understand the differences between the two deployment options, see [this comparison chart](../flexible-server/concepts-compare-single-server-flexible-server.md). 
 
 By using the migration tool, you can initiate migrations for multiple servers and databases in a repeatable way. The tool automates most of the migration steps to make the migration journey across Azure platforms as seamless as possible. The tool is free for customers.
 
@@ -44,7 +44,7 @@ The following diagram shows the process flow for migration from Single Server to
     
 The steps in the process are:
 
-1. Create a flexible PostgreSQL server.
+1. Create a Flexible Server target.
 2. Invoke migration.
 3. Provision the migration infrastructure by using Azure Database Migration Service.
 4. Start the migration.
@@ -129,7 +129,7 @@ After you finish the prerequisites, migrate the data and schemas by using one of
 
 - If your migration fails, you can create a new migration task with a different name and retry the operation.
 
-- If you have more than eight databases on your Single Server source and you want to migrate them all, we recommend that you create multiple migration tasks, with each task migrating up to eight databases.
+- If you have more than eight databases on your Single Server source and you want to migrate them all, we recommend that you create multiple migration tasks.Each task can migrate up to eight databases.
 
 - The migration does not move the database users and roles of the source server. You have to manually create these and apply them to the target server after migration.
 
@@ -183,7 +183,7 @@ After you finish the prerequisites, migrate the data and schemas by using one of
 - Batch similar-sized databases in a migration task.  
 - Perform large database migrations with one or two databases at a time to avoid source-side load and migration failures.
 - Perform test migrations before migrating for production:
-  - Test migrations are an important aspect of database migration to ensure that you cover all aspects of the migration, including application testing. 
+  - Test migrations are an important for ensuring that you cover all aspects of the database migration, including application testing. 
   
     The best practice is to begin by running a migration entirely for testing purposes. After a newly started migration enters the continuous replication (CDC) phase with minimal lag, make your Flexible Server target the primary database server. Use that target for testing the application to ensure expected performance and results. If you're migrating to a higher Postgres version, test for application compatibility.
 

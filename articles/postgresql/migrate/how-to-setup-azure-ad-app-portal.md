@@ -34,23 +34,23 @@ An Azure AD app helps with role-based access control (RBAC). The migration infra
 
     :::image type="content" source="./media/how-to-setup-azure-ad-app-portal/azure-ad-add-secret-screen.png" alt-text="Screenshot that shows essential information about an Azure Active Directory app, along with the button for adding a certificate or secret." lightbox="./media/how-to-setup-azure-ad-app-portal/azure-ad-add-secret-screen.png":::
 
-7. On the **Client secrets** tab, select **New client secret**.
+7. For **Certificates & Secrets**, on the **Client secrets** tab, select **New client secret**.
     
     :::image type="content" source="./media/how-to-setup-azure-ad-app-portal/azure-ad-add-new-client-secret.png" alt-text="Screenshot that shows the button for creating a new client secret." lightbox="./media/how-to-setup-azure-ad-app-portal/azure-ad-add-new-client-secret.png":::
 
-8. On the fan-out pane that opens, add a description, and then use the drop-down list to select the life span of your Azure AD app. 
+8. On the fan-out pane, add a description, and then use the drop-down list to select the life span of your Azure AD app. 
 
    After all the migrations are complete, you can delete the Azure AD app that you created for RBAC. The default option is **6 months**. If you don't need the Azure AD app for six months, select **3 months**. Then select **Add**.
     
     :::image type="content" source="./media/how-to-setup-azure-ad-app-portal/azure-ad-add-client-secret-description.png" alt-text="Screenshot that shows adding a description and selecting a life span for a client secret." lightbox="./media/how-to-setup-azure-ad-app-portal/azure-ad-add-client-secret-description.png":::
 
-9. Copy the **Value** column that has the details of the Azure AD app secret. You can copy the secret only during creation. If you miss copying the secret, you'll need to delete it and create another one for future tries.
+9. In the **Value** column, copy the Azure AD app secret. You can copy the secret only during creation. If you miss this step, you'll need to delete the secret and create another one for future tries.
     
     :::image type="content" source="./media/how-to-setup-azure-ad-app-portal/azure-ad-client-secret-value.png" alt-text="Screenshot of copying a client secret." lightbox="./media/how-to-setup-azure-ad-app-portal/azure-ad-client-secret-value.png":::
 
 ## Add contributor privileges to an Azure resource
 
-After you create the Azure AD app, you need to add contributor privileges for it to the following resources:
+After you create the Azure AD app, you need to add contributor privileges for it to the following resources.
 
 | Resource | Type | Description |
 | ---- | ---- | ---- |

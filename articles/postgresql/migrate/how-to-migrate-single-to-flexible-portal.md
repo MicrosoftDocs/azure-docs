@@ -45,13 +45,13 @@ The migration tool comes with a simple, wizard-based experience on the Azure por
 
     :::image type="content" source="./media/concepts-single-to-flexible/single-to-flex-migration-preview.png" alt-text="Screenshot of Migration tab details." lightbox="./media/concepts-single-to-flexible/single-to-flex-migration-preview.png":::
 
-4. Select the **Migrate from Single Server** button to start a migration from Single Server to Flexible Server. If this is the first time you're using the migration tool, you see an empty grid with a prompt to begin your first migration.
+4. Select the **Migrate from Single Server** button to start a migration from Single Server to Flexible Server. If this is the first time you're using the migration tool, an empty grid appears with a prompt to begin your first migration.
 
     :::image type="content" source="./media/concepts-single-to-flexible/single-to-flex-migrate-single-server.png" alt-text="Screenshot of the Migrate from Single Server tab." lightbox="./media/concepts-single-to-flexible/single-to-flex-migrate-single-server.png":::
 
-    If you've already created migrations to your Flexible Server target, you should see the grid populated with information about migrations that were attempted to this target from Single Server sources.
+    If you've already created migrations to your Flexible Server target, the grid is populated with information about migrations that were attempted to this target from Single Server sources.
 
-5. Select the **Migrate from Single Server** button. You'll be taken through a wizard-based series of tabs to create a migration to this Flexible Server target from any Single Server source.
+5. Select the **Migrate from Single Server** button. You'll go through a wizard-based series of tabs to create a migration to this Flexible Server target from any Single Server source.
 
 ### Setup tab
 
@@ -79,7 +79,7 @@ After you make the **Subscription** and  **Resource Group** selections, the drop
 
 After you choose the Single Server source, the **Location**, **PostgreSQL version**, and **Server admin login name** boxes are automatically populated. The server admin login name is the admin username that was used to create the Single Server source. In the **Password** box, enter the password for that admin login name. It will enable the migration tool to log in to the Single Server source to initiate the dump and migration.
 
-Under **Choose databases to migrate**, you can see the list of user databases inside the Single Server source. You can select up to eight databases that can be migrated in a single migration attempt. If there are more than eight user databases, create multiple migrations by using the same experience between the source and target servers.
+Under **Choose databases to migrate**, there's a list of user databases inside the Single Server source. You can select up to eight databases that can be migrated in a single migration attempt. If there are more than eight user databases, create multiple migrations by using the same experience between the source and target servers.
 
 The final property on the **Source** tab is **Migration mode**. The migration tool offers online and offline modes of migration. The [concepts article](./concepts-single-to-flexible.md) talks more about the migration modes and their differences. After you choose the migration mode, the restrictions that are associated with that mode appear.
 
@@ -151,7 +151,7 @@ As soon as the migration is created, the migration moves to the **InProgress** s
 
 After the **PerformingPreRequisiteSteps** substate is completed, the migration moves to the substate of **Migrating Data** where the dump and restore of the databases take place. The time that the **Migrating Data** substate takes to finish depends on the size of databases that you're migrating.
 
-When you select each of the databases that are being migrated. a fan-out pane appears. It has all the migration details, such as table count, incremental inserts, deletes, and pending bytes.
+When you select each of the databases that are being migrated, a fan-out pane appears. It has all the migration details, such as table count, incremental inserts, deletes, and pending bytes.
 
 For offline mode, the migration moves to the **Succeeded** state as soon as the **Migrating Data** state finishes successfully. If there's an issue at the **Migrating Data** state, the migration moves into a **Failed** state.
 
@@ -167,19 +167,19 @@ At this stage, the ongoing writes at your Single Server source are replicated to
 
 You can monitor the replication lag by selecting each database that's being migrated. That opens a fan-out pane with metrics. The value of the **Pending Bytes** metric should be nearing zero over time. After it reaches a few megabytes for all the databases, stop any further writes to your Single Server source and wait until the metric reaches 0. Then, validate the data and schemas on your Flexible Server target to make sure that they match exactly with the source server.
 
-After you complete the preceding steps, select the **Cutover** button. You should see the following message.
+After you complete the preceding steps, select the **Cutover** button. The following message appears.
 
 :::image type="content" source="./media/concepts-single-to-flexible/single-to-flex-migration-click-cutover.png" alt-text="Screenshot of the cutover button before migration." lightbox="./media/concepts-single-to-flexible/single-to-flex-migration-click-cutover.png":::
 
 Select the **Yes** button to start cutover.
 
-In a few seconds after starting cutover, you should see the following notification.
+A few seconds after you start cutover, the following notification appears.
 
 :::image type="content" source="./media/concepts-single-to-flexible/single-to-flex-migration-successful-cutover.png" alt-text="Screenshot of successful cutover after migration." lightbox="./media/concepts-single-to-flexible/single-to-flex-migration-successful-cutover.png":::
 
 When the cutover is complete, the migration moves to the **Succeeded** state. Migration of schema data from your Single Server source to your Flexible Server target is now complete. You can use the refresh button on the page to check if the cutover was successful.
 
-After you complete the preceding steps, you can make changes to your application code to point database connection strings to Flexible Server and start using it as the primary database server.
+After you complete the preceding steps, you can change your application code to point database connection strings to Flexible Server. You can then start using the target as the primary database server.
 
 Possible migration states include:
 
@@ -187,7 +187,7 @@ Possible migration states include:
 - **Canceled**: The migration has been canceled or deleted.
 - **Failed**: The migration has failed.
 - **Succeeded**: The migration has succeeded and is complete.
-- **WaitingForUserAction**: Migration is waiting for a user action.
+- **WaitingForUserAction**: The migration is waiting for a user action.
 
 Possible migration substates include:
 
@@ -207,7 +207,7 @@ You can choose multiple ongoing migrations at once and cancel them.
 
 :::image type="content" source="./media/concepts-single-to-flexible/single-to-flex-migration-multiple.png" alt-text="Screenshot of canceling multiple migrations in process." lightbox="./media/concepts-single-to-flexible/single-to-flex-migration-multiple.png":::
 
-Note that canceling a migration just stops further migration activity on your target server. It doesn't drop or roll back any changes on your target server from the migration attempts. Be sure to drop the databases involved in a canceled migration on your target server.
+Canceling a migration stops further migration activity on your target server. It doesn't drop or roll back any changes on your target server from the migration attempts. Be sure to drop the databases involved in a canceled migration on your target server.
 
 ## Next steps
 
