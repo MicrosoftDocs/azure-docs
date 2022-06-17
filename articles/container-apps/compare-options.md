@@ -46,10 +46,6 @@ You can get started building your first container app [using the quickstarts](ge
 ### Azure Kubernetes Service
 [Azure Kubernetes Service (AKS)](../aks/intro-kubernetes.md) provides a fully managed Kubernetes option in Azure. It supports direct access to the Kubernetes API and runs any Kubernetes workload. The full cluster resides in your subscription, with the cluster configurations and operations within your control and responsibility. Teams looking for a fully managed version of Kubernetes in Azure, Azure Kubernetes Service is an ideal option.
 
-### Azure Service Fabric
-[Azure Service Fabric](../service-fabric/service-fabric-overview.md) is a managed distributed system platform that provides a container orchestrator for deploying and managing scalable containerized stateful (and stateless) microservices on Service Fabric machine clusters. Clusters can be comprised of Windows and Linux virtual or physical  servers and has the flexibility of running in both on-premise compute environments and in Azure and other public cloud platform.  With it's robust support for building stateful services, Service Fabric is an excellent solution for microservices in a server based environments.
-
-
 ### Azure Functions
 [Azure Functions](../azure-functions/functions-overview.md) is a serverless Functions-as-a-Service (FaaS) solution. It's optimized for running event-driven applications using the functions programming model. It shares many characteristics with Azure Container Apps around scale and integration with events, but optimized for ephemeral functions deployed as either code or containers. The Azure Functions programming model provides productivity benefits for teams looking to trigger the execution of your functions on events and bind to other data sources. When building FaaS-style functions, Azure Functions is the ideal option. The Azure Functions programming model is available as a base container image, making it portable to other container based compute platforms allowing teams to reuse code as environment requirements change. 
 
