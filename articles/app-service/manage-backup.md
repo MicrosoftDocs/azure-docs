@@ -3,7 +3,7 @@ title: Back up an app
 description: Learn how to restore backups of your apps in Azure App Service or configure custom backups. Customize backups by including the linked database.
 ms.assetid: 6223b6bd-84ec-48df-943f-461d84605694
 ms.topic: article
-ms.date: 05/09/2022 
+ms.date: 06/17/2022 
 ms.custom: seodec18
 
 ---
@@ -24,10 +24,11 @@ There are two types of backups in App Service. Automatic backups made for your a
 | Configuration required | No. | Yes. |
 | Backup size | 30 GB. | 10 GB, 4 GB of which can be the linked database. |
 | Linked database | Not backed up. | The following linked databases can be backed up: [SQL Database](/azure/azure-sql/database/), [Azure Database for MySQL](../mysql/index.yml), [Azure Database for PostgreSQL](../postgresql/index.yml), [MySQL in-app](https://azure.microsoft.com/blog/mysql-in-app-preview-app-service/). |
-| [Storage account](../storage/index.yml) required | Yes. | No. |
+| [Storage account](../storage/index.yml) required | No. | Yes. |
 | Backup frequency | Hourly, not configurable. | Configurable. |
 | Retention | 30 days, not configurable. | 0-30 days or indefinite. |
 | Donwloadable | No. | Yes, as Azure Storage blobs. |
+| Partial backups | Not supported. | Supported. |
 
 <!-- - No file copy errors due to file locks. -->
 
@@ -151,7 +152,7 @@ There are two types of backups in App Service. Automatic backups made for your a
 
 ## Configure partial backups
 
-Sometimes you don't want to back up everything on your app. Here are a few examples:
+Partial backups are supported for custom backups. Sometimes you don't want to back up everything on your app. Here are a few examples:
 
 * You [set up weekly backups](#configure-custom-scheduled-backups) of your app that contains static content that never changes, such as old blog posts or images.
 * Your app has over 10 GB of content (that's the max amount you can back up at a time).
