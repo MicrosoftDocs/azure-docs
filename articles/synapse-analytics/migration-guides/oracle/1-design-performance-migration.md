@@ -206,83 +206,53 @@ Oracle-specific features can generally be replaced by Azure Synapse features. Th
 
 #### Oracle data type mapping
 
-Assess the impact of unsupported data types as part of the preparation phase
+Most Oracle data types have a direct equivalent in the Azure Synapse. The following table shows the recommended approach for mapping Oracle data types to Azure Synapse.
 
-Most Oracle data types have a direct equivalent in the Azure Synapse -- below is a table which shows these data types together with the recommended approach for mapping these.
+| Oracle Data Type | Azure Synapse Data Type |
+|-|-|
+| BFILE | Not supported. Map to VARBINARY (MAX). |
+| BINARY_FLOAT | Not supported. Map to FLOAT. |
+| BINARY_DOUBLE | Not supported. Map to DOUBLE. |
+| BLOB | Not directly supported. Replace with VARBINARY(MAX). |
+| CHAR | CHAR |
+| CLOB | Not directly supported. Replace with VARCHAR(MAX). |
+| DATE | DATE in Oracle can also contain time information. Depending on usage map to DATE or TIMESTAMP. |
+| DECIMAL | DECIMAL |
+| DOUBLE | PRECISION DOUBLE |
+| FLOAT | FLOAT |
+| INTEGER | INT |
+| INTERVAL YEAR TO MONTH | INTERVAL data types aren't supported. Use date comparison functions, such as DATEDIFF or DATEADD, for date calculations. |
+| INTERVAL DAY TO SECOND | INTERVAL data types aren't supported. Use date comparison functions, such as DATEDIFF or DATEADD, for date calculations. |
+| LONG | Not supported. Map to VARCHAR(MAX). |
+| LONG RAW | Not supported. Map to VARBINARY(MAX). |
+| NCHAR | NCHAR |
+| NVARCHAR2 | NVARCHAR |
+| NUMBER | NUMBER |
+| NCLOB | Not directly supported. Replace with NVARCHAR(MAX). |
+| NUMERIC | NUMERIC |
+| ORD media data types | Not supported |
+| RAW | Not supported. Map to VARBINARY. |
+| REAL | REAL |
+| ROWID | Not supported. Map to GUID, which is similar. |
+| SDO Geospatial data types | Not supported |
+| SMALLINT | SMALLINT |
+| TIMESTAMP | DATETIME2 or the CURRENT_TIMESTAMP() function |
+| TIMESTAMP WITH LOCAL TIME ZONE | Not supported. Map to DATETIMEOFFSET. |
+| TIMESTAMP WITH TIME ZONE | Not supported because TIME is stored using wall-clock time without a time zone offset. |
+| URIType | Not supported. Store in a VARCHAR. |
+| UROWID | Not supported. Map to GUID, which is similar. |
+| VARCHAR | VARCHAR |
+| VARCHAR2 | VARCHAR |
+| XMLType | Not supported. Store XML data in a VARCHAR. |
 
-&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;-- Oracle Data Type Azure Synapse Data Type &mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;- &mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash; BFILE Not supported in Azure Synapse Analytics but can map to VARBINARY (MAX)
+>[!TIP]
+>Assess the impact of unsupported data types during your preparation phase.
 
-BINARY_FLOAT Not supported in Azure Synapse Analytics but can map to FLOAT
-
-BINARY_DOUBLE Not supported in Azure Synapse Analytics but can map to DOUBLE
-
-BLOB BLOB data type isn\'t directly supported but can be replaced with VARBINARY(MAX)
-
-CHAR CHAR
-
-CLOB CBLOB data type isn\'t directly supported but can be replaced with VARCHAR(MAX)
-
-DATE DATE in Oracle an contain time information as well. Therefore depending on usage it can map to DATE or TIMESTAMP
-
-DECIMAL DECIMAL
-
-DOUBLE PRECISION DOUBLE
-
-FLOAT FLOAT
-
-INTEGER INT
-
-INTERVAL YEAR TO MONTH INTERVAL data types aren\'t supported in Azure Synapse Analytics. but date calculations can be done with the date comparison functions (e.g. DATEDIFF and DATEADD)
-
-INTERVAL DAY TO SECOND INTERVAL data types aren\'t supported in Azure Synapse Analytics. but date calculations can be done with the date comparison functions (e.g. DATEDIFF and DATEADD)
-
-LONG  Not supported in Azure Synapse Analytics but can map to VARCHAR(MAX)
-
-LONG RAW Not supported in Azure Synapse Analytics but can map to VARBINARY(MAX)
-
-NCHAR NCHAR
-
-NVARCHAR2 NVARCHAR
-
-NUMBER  NUMBER
-
-NCLOB NCLOB data type isn\'t directly supported but can be replaced with NVARCHAR(MAX)
-
-NUMERIC NUMERIC
-
-ORD media data types Not supported in Azure Synapse Analytics
-
-RAW Not supported in Azure Synapse Analytics but could map to VARBINARY
-
-REAL REAL
-
-ROWID Not supported in Azure Synapse Analytics but may map to GUID as this is similar
-
-SDO Geospatial data types Not supported in Azure Synapse Analytics
-
-SMALLINT SMALLINT
-
-TIMESTAMP DATETIME2 and CURRENT_TIMESTAMP function
-
-TIMESTAMP WITH LOCAL TIME TIME WITH LOCAL TIME ZONE is not supported ZONE in Azure Synapse Analytics but can map to DATETIMEOFFSET
-
-TIMESTAMP WITH TIME ZONE TIME WITH TIME ZONE isn\'t supported because TIME is stored using \"wall clock\" time only without a time zone offset
-
-URIType URIType is not supported but a URI can be stored in a VARCHAR
-
-UROWID Not supported in Azure Synapse Analytics but may map to GUID as this is similar
-
-VARCHAR VARCHAR
-
-VARCHAR2  VARCHAR
-
-XMLType XMLType is not supported in Azure Synapse Analytics but XML data could be accommodated in a VARCHAR &mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;--
-
-There are third party vendors who offer tools and services to automate migration including the mapping of data types as described above. Also, if a third party ETL tool such as Informatica or Talend is already in use in the Oracle environment, these can implement any required data transformations.
+Third-party vendors offer tools and services to automate migration, including the mapping of data types. If a third-party ETL tool such as Informatica or Talend is already in use in the Oracle environment, use those tools to implement any required data transformations.
 
 #### SQL DML syntax differences
 
-There are important differences in SQL Data Manipulation Language (DML) syntax between Oracle SQL and Azure Synapse to be aware of when migrating. These are covered in detail in the associated document 'Section 5.3 - Minimizing SQL Issues for Oracle Migrations'. In some cases, the migration of DML can be automated using tools from Microsoft (i.e. SQL Server Migration Assistant for Oracle or Azure Database Migration Services) or by using third party migration products and services.
+There are a few differences in SQL Data Manipulation Language (DML) syntax between Oracle SQL and Azure Synapse (T-SQL). These differences are discussed in detail in [Minimize SQL issues for Oracle migrations](5-minimize-sql-issues.md#sql-ddl-differences-between-oracle-and-azure-synapse). In some cases, you can automated DML migration using Microsoft tools like [SQL Server Migration Assistant](/sql/ssma/sql-server-migration-assistant) (SSMA) for Oracle or [Azure Database Migration Services](/services/database-migration/), or by using [third-party](../../partner/data-integration.md) migration products and services.
 
 #### Functions, stored procedures and sequences
 
@@ -294,7 +264,7 @@ As part of the preparation phase, an inventory of these objects which are to be 
 
 It may be that there are facilities in the Azure environment that replace the functionality implemented as functions or stored procedures in the Oracle environment -- in which case it is generally more efficient to use the built-in Azure facilities rather than re-coding the Oracle functions.
 
-third party vendors offer tools and services that can automate the migration of these -- see for example see Attunity or WhereScape migration products.
+third-party vendors offer tools and services that can automate the migration of these -- see for example see Attunity or WhereScape migration products.
 
 See below for more information on each of these elements:
 
@@ -332,7 +302,7 @@ SQL Server Migration Assistant for Oracle can be used to migrate tables from and
 
 :::image type="content" source="../media/1-design-performance-migration/oracle-sql-server-migration-assistant-2.png" border="true" alt-text="Screenshot showing how to migrate tables from and existing Oracle environment to Azure Synapse using SQL Server Migration Assistant for Oracle.":::
 
-third party migration and ETL tools also use the catalog information to achieve the same result.
+third-party migration and ETL tools also use the catalog information to achieve the same result.
 
 #### Data extraction from Oracle
 
@@ -342,7 +312,7 @@ The raw data to be migrated from existing Oracle tables can be extracted to flat
 
 Generally during a migration exercise, it is important to extract the data as efficiently as possible (especially for very large fact tables) and the recommended approach for this with Oracle is to use parallelism where possible to maximize the throughput for the extraction process. This may be achieved by running multiple individual extract process which extract discrete segments of data, or by using tools which are capable of automating parallel extraction based on partitioning.
 
-If sufficient network bandwidth exists data can be extracted directly from an on-premises Oracle system into Azure Synapse tables or Azure Blob Data Storage by using Azure Data Factory processes or Azure Data Migration Services. This capability is also available from third party data migration or ETL products such as Informatica and Talend.
+If sufficient network bandwidth exists data can be extracted directly from an on-premises Oracle system into Azure Synapse tables or Azure Blob Data Storage by using Azure Data Factory processes or Azure Data Migration Services. This capability is also available from third-party data migration or ETL products such as Informatica and Talend.
 
 Recommended data formats for the extracted data are delimited text files (also called Comma Separated Values or CSV or similar) or Optimized Row Columnar (ORC) or Parquet files.
 
