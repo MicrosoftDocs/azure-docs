@@ -83,7 +83,7 @@ For more information about these authentication protocols and services, see [Sig
 
 ### Identify legacy authentication use
 
-Before you can block legacy authentication in your directory, you need to first understand if your users have clients that use legacy authentication Below, you will find useful information to identify and triage where clients are using legacy authentication.
+Before you can block legacy authentication in your directory, you need to first understand if your users have clients that use legacy authentication. Below, you will find useful information to identify and triage where clients are using legacy authentication.
 
 #### Indicators from Azure AD
 
