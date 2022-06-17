@@ -23,13 +23,13 @@ The [Spring Framework](https://spring.io/projects/spring-framework) is a program
 
 You can use Spring Data Azure Cosmos DB in your [Azure Spring Cloud](https://azure.microsoft.com/services/spring-cloud/) applications.
 
-## Spring Boot Support Policy
+## Spring Boot support policy
 
 Azure Spring Data Cosmos supports multiple [Spring Boot Versions](https://aka.ms/spring/versions). For complete list of currently supported versions, please visit our [Spring Version Mapping](https://aka.ms/spring/versions).
 
 Spring Boot releases are marked as "End of Life" when they are no longer supported or released in any form. If you are running an EOL version, you should upgrade as soon as possible. 
 
-Please note that a version can be out of support before it is marked as "End of Life". During this time you should only expect releases for critical bugs or security issues.
+Please note that a version can be out of support before it is marked as "End of Life." During this time you should only expect releases for critical bugs or security issues.
 
 For more information on Spring Boot supported versions, please visit [Spring Boot Supported Versions](https://github.com/spring-projects/spring-boot/wiki/Supported-Versions).
 
