@@ -80,11 +80,11 @@ Virtual machines which do not have replication enabled to another region are not
 
 Learn more about [Virtual machine - ASRUnprotectedVMs (Enable virtual machine replication to protect your applications from regional outage)](https://aka.ms/azure-site-recovery-dr-azure-vms).
 
-### Upgrade VM from Premium Unmanaged Disks to Managed Disks at no additional cost
+### Upgrade VM from Premium Unmanaged Disks to Managed Disks at no extra cost
 
-We have identified that your VM is using premium unmanaged disks that can be migrated to managed disks at no additional cost. Azure Managed Disks provides higher resiliency, simplified service management, higher scale target and more choices among several disk types. This upgrade can be done through the portal in less than 5 minutes.
+We have identified that your VM is using premium unmanaged disks that can be migrated to managed disks at no extra cost. Azure Managed Disks provides higher resiliency, simplified service management, higher scale target and more choices among several disk types. This upgrade can be done through the portal in less than 5 minutes.
 
-Learn more about [Virtual machine - UpgradeVMToManagedDisksWithoutAdditionalCost (Upgrade VM from Premium Unmanaged Disks to Managed Disks at no additional cost)](https://aka.ms/md_overview).
+Learn more about [Virtual machine - UpgradeVMToManagedDisksWithoutAdditionalCost (Upgrade VM from Premium Unmanaged Disks to Managed Disks at no extra cost)](https://aka.ms/md_overview).
 
 ### Update your outbound connectivity protocol to Service Tags for Azure Site Recovery
 
