@@ -78,12 +78,11 @@ A PostgreSQL connection, even idle, can occupy about 10 MB of memory. Also, crea
 
 ### High availability (HA)
 
-- Please see [Zone Redundant HA Limitations documentation](concepts-high-availability.md#zone-redundant-high-availability---limitations) page.
+- Please see [HA Limitations documentation](concepts-high-availability.md#high-availability---limitations) page.
 
 ### Availability zones
 
 - Manually moving servers to a different availability zone is currently not supported.
-- The availability zone of the HA standby server cannot be manually configured.
 
 ### Postgres engine, extensions, and PgBouncer
 
