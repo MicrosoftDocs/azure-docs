@@ -110,6 +110,6 @@ If a feature is disabled in Synapse Studio, a tooltip will indicate the required
 
 - Learn more about [Synapse RBAC](./synapse-workspace-synapse-rbac.md)
 - Learn more about [Synapse RBAC roles](./synapse-workspace-synapse-rbac-roles.md)
-- Learn [How to set up access control](./how-to-set-up-access-control.md) for a Synapse Workspace using security groups.
-- Learn [How to review Synapse RBAC role assignments](./how-to-review-synapse-rbac-role-assignments.md)
-- Learn [How to manage Synapse RBAC role assignments](./how-to-manage-synapse-rbac-role-assignments.md)
+- Learn [how to set up access control](./how-to-set-up-access-control.md) for a Synapse Workspace using security groups.
+- Learn [how to review Synapse RBAC role assignments](./how-to-review-synapse-rbac-role-assignments.md)
+- Learn [how to manage Synapse RBAC role assignments](./how-to-manage-synapse-rbac-role-assignments.md)

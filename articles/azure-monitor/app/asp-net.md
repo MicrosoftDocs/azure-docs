@@ -67,7 +67,7 @@ This section will guide you through manually adding Application Insights to a te
 
 2. In some cases, the *ApplicationInsights.config* file is created for you automatically. If the file is already present, skip to step 4. 
 
-   If it's not created automatically, you'll need to create it yourself. At the same level in your project as the *Global.asax* file, create a new file called *ApplicationInsights.config*.
+   If it's not created automatically, you'll need to create it yourself. In the root directory of an ASP.NET application, create a new file called *ApplicationInsights.config*.
 
 3. Copy the following XML configuration into your newly created file:
 

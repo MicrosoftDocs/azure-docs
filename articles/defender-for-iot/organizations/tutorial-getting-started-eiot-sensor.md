@@ -111,6 +111,8 @@ You can also download, and add the [Azure public IP ranges](https://www.microsof
 
 A sensor is needed to discover, and continuously monitor Enterprise IoT devices. The sensor will use the Enterprise IoT network, and endpoint sensors to gain comprehensive visibility.
 
+**Prerequisites**: Make sure that you've completed [Set up a server or Virtual Machine (VM)](#set-up-a-server-or-virtual-machine-vm) and [Prepare your environment](#prepare-your-environment), including verifying that you have the listed required resources.
+
 **To set up an Enterprise IoT sensor**:
 
 1. Navigate to the [Azure portal](https://portal.azure.com#home).
@@ -119,23 +121,18 @@ A sensor is needed to discover, and continuously monitor Enterprise IoT devices.
 
     :::image type="content" source="media/tutorial-get-started-eiot/onboard-sensor.png" alt-text="On the Getting Started page select Onboard sensor.":::
 
-1. Enter a name for the sensor.
+1. In the **Sensor name** field, enter a meaningful name for your sensor.
 
-    :::image type="content" source="media/tutorial-get-started-eiot/onboard-sensor-screen.png" alt-text="Enter the following information into the onboarding screen.":::
+1. From the **Subscription** drop-down menu, select the subscription where you want to add your sensor.
 
-1. Select a subscription from the drop-down menu.
+1. Select **Register**. A **Sensor registration successful** screen shows your next steps and the command you'll need to start the sensor installation.
 
-1. Enter a meaningful site name that will assist you in locating where the sensor is located.
-
-1. Enter a display name.
-
-1. Enter a zone name. If no name is entered, the name `default` will be applied.
-
-1. Select **Set up**.
-
-1. Save the command provided to you.
+    For example:
 
     :::image type="content" source="media/tutorial-get-started-eiot/successful-registration.png" alt-text="Screenshot of the successful registration of an Enterprise IoT sensor.":::
+
+1. Copy the command to a safe location, and continue [below](#install-the-sensor).
+
 
 ## Install the sensor
 
@@ -223,7 +220,14 @@ Once you've validated your setup, the device inventory will start to populate wi
 
 1. From the left side toolbar, select **Device inventory**.
 
-The device inventory is where you'll be able to view all of your device systems, and network information. Learn more about the device inventory see [Manage your IoT devices with the device inventory for organizations](how-to-manage-device-inventory-for-organizations.md#manage-your-iot-devices-with-the-device-inventory-for-organizations).
+The device inventory is where you'll be able to view all of your device systems, and network information.
+
+You can also view your sensors from the **Sites and sensors** page. Enterprise IoT sensors are all automatically added to the same site, named **Enterprise network**.
+
+For more information, see:
+
+- [Manage your IoT devices with the device inventory for organizations](how-to-manage-device-inventory-for-organizations.md)
+- [Manage sensors with Defender for IoT in the Azure portal](how-to-manage-sensors-on-the-cloud.md)
 
 ## Remove the sensor (optional)
 

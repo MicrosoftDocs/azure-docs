@@ -67,6 +67,8 @@ landingContent:
         links: 
           - text: Manage resources with Azure CLI
             url: manage-resources-cli.md   
+          - text: Enable LDAP Authentication
+            url: ldap.md            
           - text: Monitor cluster resources
             url: monitor-clusters.md 
           - text: Configure Customer-Managed Keys

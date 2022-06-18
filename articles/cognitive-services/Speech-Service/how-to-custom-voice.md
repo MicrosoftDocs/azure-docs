@@ -28,7 +28,7 @@ A Speech service subscription is required before you can use Custom Neural Voice
 Once you've created an Azure account and a Speech service subscription, you'll need to sign in to Speech Studio and connect your subscription.
 
 1. Get your Speech service subscription key from the Azure portal.
-1. Sign in to [Speech Studio](https://speech.microsoft.com), and then select **Custom Voice**.
+1. Sign in to [Speech Studio](https://aka.ms/speechstudio/customvoice), and then select **Custom Voice**.
 1. Select your subscription and create a speech project.
 1. If you want to switch to another Speech subscription, select the **cog** icon at the top.
 
@@ -41,7 +41,7 @@ Content like data, models, tests, and endpoints are organized into projects in S
 
 To create a custom voice project:
 
-1. Sign in to [Speech Studio](https://speech.microsoft.com).
+1. Sign in to [Speech Studio](https://aka.ms/speechstudio/customvoice).
 1. Select **Text-to-Speech** > **Custom Voice** > **Create project**.
 
    See [Custom Neural Voice project types](custom-neural-voice.md#custom-neural-voice-project-types) for information about capabilities, requirements, and differences between Custom Neural Voice Pro and Custom Neural Voice Lite projects.
@@ -68,7 +68,7 @@ After the recordings are ready, follow [Prepare training data](how-to-custom-voi
 
 ### Training
 
-After you've prepared the training data, go to [Speech Studio](https://aka.ms/custom-voice) to create your custom neural voice. Select at least 300 utterances to create a custom neural voice. A series of data quality checks are automatically performed when you upload them. To build high-quality voice models, you should fix any errors and submit again.
+After you've prepared the training data, go to [Speech Studio](https://aka.ms/speechstudio/customvoice) to create your custom neural voice. Select at least 300 utterances to create a custom neural voice. A series of data quality checks are automatically performed when you upload them. To build high-quality voice models, you should fix any errors and submit again.
 
 ### Testing
 
@@ -79,6 +79,14 @@ Prepare test scripts for your voice model that cover the different use cases for
 The style and the characteristics of the trained voice model depend on the style and the quality of the recordings from the voice talent used for training. However, you can make several adjustments by using [SSML (Speech Synthesis Markup Language)](./speech-synthesis-markup.md?tabs=csharp) when you make the API calls to your voice model to generate synthetic speech.
 
 SSML is the markup language used to communicate with the text-to-speech service to convert text into audio. The adjustments you can make include change of pitch, rate, intonation, and pronunciation correction. If the voice model is built with multiple styles, you can also use SSML to switch the styles.
+
+## Cross lingual feature
+
+With cross lingual feature (public preview), you can create a different language for your voice model. If the language of your training data is supported by cross lingual feature, you can create a voice that speaks a different language from your training data. For example, with the `zh-CN` training data, you can create a voice that speaks `en-US` or any of the languages supported by cross lingual feature.  For details, see [supported languages](language-support.md#custom-neural-voice). You don't need to prepare additional data in the target language for training, but your test script needs to be in the target language. 
+
+For how to create a different language from your training data, select the training method **Neural-cross lingual** during training. See [how to train your custom neural voice model](how-to-custom-voice-create-voice.md#train-your-custom-neural-voice-model).
+
+After the voice is created, you can use the Audio Content Creation tool to fine-tune your deployed voice, with richer voice tuning supports.  Sign in to the Audio Content Creation of [Speech Studio]( https://aka.ms/speechstudio/) with your Azure account, and select your created voice from the target language to start tuning experience.
 
 ## Migrate to Custom Neural Voice
 

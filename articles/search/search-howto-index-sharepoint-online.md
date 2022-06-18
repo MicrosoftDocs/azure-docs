@@ -5,11 +5,11 @@ description: Set up a SharePoint indexer to automate indexing of document librar
 
 author: gmndrg
 ms.author: gimondra
-manager: nitinme
+manager: liamca
 
 ms.service: cognitive-search
 ms.topic: how-to
-ms.date: 01/19/2022
+ms.date: 06/01/2022
 ---
 
 # Index data from SharePoint document libraries
@@ -70,6 +70,8 @@ The SharePoint indexer supports both [delegated and application](/graph/auth/aut
 + Delegated permissions, where the indexer runs under the identity of the user or app that sent the request. Data access is limited to the sites and files to which the user has access. To support deleted permissions, the indexer requires a [device code prompt](../active-directory/develop/v2-oauth2-device-code.md) to log in on behalf of the user.
 
 + Application permissions, where the indexer runs under the identity of the SharePoint tenant with access to all sites and files within the SharePoint tenant. The indexer requires a [client secret](../active-directory/develop/v2-oauth2-client-creds-grant-flow.md) to access the SharePoint tenant. The indexer will also require [tenant admin approval](../active-directory/manage-apps/grant-admin-consent.md) before it can index any content.
+
+Note that if your Azure Active Directory organization has [Conditional Access enabled](../active-directory/conditional-access/overview.md) and your administrator is not able to grant any device access for Delegated permissions, you should consider Application permissions instead. For more information, refer to [SharePoint Conditional Access policies](./search-indexer-troubleshooting.md#sharepoint-conditional-access-policies).
 
 ### Step 3: Create an Azure AD application
 

@@ -1,18 +1,18 @@
 ---
 title: How to create and manage collections
-description: This article explains how to create and manage collections within Microsoft Purview.
+description: This article explains how to create and manage collections within the Microsoft Purview Data Map.
 author: viseshag
 ms.author: viseshag
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 01/24/2022
+ms.date: 05/23/2022
 ms.custom: template-how-to
 ---
 
-# Create and manage collections in Microsoft Purview
+# Create and manage collections in the Microsoft Purview Data Map
 
-Collections in Microsoft Purview can be used to organize assets and sources by your business's flow. They are also the tool used to manage access across Microsoft Purview. This guide will take you through the creation and management of these collections, as well as cover steps about how to register sources and add assets into your collections.
+Collections in the Microsoft Purview Data Map can be used to organize assets and sources by your business's flow. They're also the tool used to manage access across the Microsoft Purview governance portal. This guide will take you through the creation and management of these collections, as well as cover steps about how to register sources and add assets into your collections.
 
 ## Prerequisites
 
@@ -20,17 +20,17 @@ Collections in Microsoft Purview can be used to organize assets and sources by y
 
 * Your own [Azure Active Directory tenant](../active-directory/fundamentals/active-directory-access-create-new-tenant.md).
 
-* An active [Microsoft Purview account](create-catalog-portal.md).
+* An active [Microsoft Purview (formerly Azure Purview) account](create-catalog-portal.md).
 
 ### Check permissions
 
-In order to create and manage collections in Microsoft Purview, you will need to be a **Collection Admin** within Microsoft Purview. We can check these permissions in the [Microsoft Purview governance portal](https://web.purview.azure.com/resource/). You can find Studio in the overview page of the Microsoft Purview account in [Azure portal](https://portal.azure.com).
+In order to create and manage collections in the Microsoft Purview Data Map, you'll need to be a **Collection Admin** within the Microsoft Purview governance portal. We can check these permissions in the [Microsoft Purview governance portal](https://web.purview.azure.com/resource/). You can find Studio in the overview page of the account in the [Azure portal](https://portal.azure.com).
 
 1. Select Data Map > Collections from the left pane to open collection management page.
 
     :::image type="content" source="./media/how-to-create-and-manage-collections/find-collections.png" alt-text="Screenshot of Microsoft Purview governance portal window, opened to the Data Map, with the Collections tab selected." border="true":::
 
-1. Select your root collection. This is the top collection in your collection list and will have the same name as your Microsoft Purview account. In the following example, it's called Contoso Microsoft Purview. Alternatively, if collections already exist you can select any collection where you want to create a subcollection.
+1. Select your root collection. This is the top collection in your collection list and will have the same name as your account. In the following example, it's called Contoso Microsoft Purview. Alternatively, if collections already exist you can select any collection where you want to create a subcollection.
 
     :::image type="content" source="./media/how-to-create-and-manage-collections/select-root-collection.png" alt-text="Screenshot of Microsoft Purview governance portal window, opened to the Data Map, with the root collection highlighted." border="true":::
 
@@ -38,7 +38,7 @@ In order to create and manage collections in Microsoft Purview, you will need to
 
     :::image type="content" source="./media/how-to-create-and-manage-collections/role-assignments.png" alt-text="Screenshot of Microsoft Purview governance portal window, opened to the Data Map, with the role assignments tab highlighted." border="true":::
 
-1. To create a collection, you'll need to be in the collection admin list under role assignments. If you created the Microsoft Purview account, you should be listed as a collection admin under the root collection already. If not, you'll need to contact the collection admin to grant your permission.
+1. To create a collection, you'll need to be in the collection admin list under role assignments. If you created the account, you should be listed as a collection admin under the root collection already. If not, you'll need to contact the collection admin to grant your permission.
 
     :::image type="content" source="./media/how-to-create-and-manage-collections/collection-admins.png" alt-text="Screenshot of Microsoft Purview governance portal window, opened to the Data Map, with the collection admin section highlighted." border="true":::
 
@@ -109,19 +109,22 @@ You'll need to be a collection admin in order to delete a collection. If you are
 
 ## Add roles and restrict access through collections
 
-Since permissions are managed through collections in Microsoft Purview, it is important to understand the roles and what permissions they will give your users. A user granted permissions on a collection will have access to sources and assets associated with that collection, and inherit permissions to subcollections. Inheritance [can be restricted](#restrict-inheritance), but is allowed by default.
+Since permissions are managed through collections in the Microsoft Purview Data Map, it's important to understand the roles and what permissions they'll give your users. A user granted permissions on a collection will have access to sources and assets associated with that collection, and inherit permissions to subcollections. Inheritance [can be restricted](#restrict-inheritance), but is allowed by default.
 
 The following guide will discuss the roles, how to manage them, and permissions inheritance.
 
 ### Roles
 
 All assigned roles apply to sources, assets, and other objects within the collection where the role is applied.
+A few of the main roles are:
 
-* **Collection admins** can edit the collection, its details, and add subcollections. They can also add data curators, data readers, and other Microsoft Purview roles to a collection scope. Collection admins that are automatically inherited from a parent collection can't be removed.
-* **Data source admins** can manage data sources and data scans. They can also enter the policy management app to view and publish policies.
-* **Data curators** can perform create, read, modify, and delete actions on catalog data objects and establish relationships between objects. They can also enter the policy management app to view policies.
-* **Data readers** can access but not modify catalog data objects.
-* **Policy Authors** can enter the policy management app and create/edit policy statements.
+- **Collection administrator** - a role for users that will need to assign roles to other users in the Microsoft Purview governance portal or manage collections. Collection admins can add users to roles on collections where they're admins. They can also edit collections, their details, and add subcollections.
+- **Data curators** - a role that provides access to the data catalog to manage assets, configure custom classifications, set up glossary terms, and view data estate insights. Data curators can create, read, modify, move, and delete assets. They can also apply annotations to assets.
+- **Data readers** - a role that provides read-only access to data assets, classifications, classification rules, collections and glossary terms.
+- **Data source administrator** - a role that allows a user to manage data sources and scans. If a user is granted only to **Data source admin** role on a given data source, they can run new scans using an existing scan rule. To create new scan rules, the user must be also granted as either **Data reader** or **Data curator** roles.
+
+> [!IMPORTANT]
+> For a list of all available roles, and more information about roles, see the [permissions documentation](catalog-permissions.md#roles).
 
 ### Add role assignments
 
@@ -137,7 +140,7 @@ All assigned roles apply to sources, assets, and other objects within the collec
 
     :::image type="content" source="./media/how-to-create-and-manage-collections/search-user-permissions.png" alt-text="Screenshot of Microsoft Purview governance portal collection admin window with the search bar highlighted." border="true":::
 
-1. Select **OK** to save your changes, and you will see the new users reflected in the role assignments list.
+1. Select **OK** to save your changes, and you'll see the new users reflected in the role assignments list.
 
 ### Remove role assignments
 
@@ -151,9 +154,9 @@ All assigned roles apply to sources, assets, and other objects within the collec
 
 ### Restrict inheritance
 
-Collection permissions are inherited automatically from the parent collection. For example, any permissions on the root collection (the collection at the top of the list that has the same name as your Microsoft Purview account), will be inherited by all collections below it. You can restrict inheritance from a parent collection at any time, using the restrict inherited permissions option.
+Collection permissions are inherited automatically from the parent collection. For example, any permissions on the root collection (the collection at the top of the list that has the same name as your account), will be inherited by all collections below it. You can restrict inheritance from a parent collection at any time, using the restrict inherited permissions option.
 
-Once you restrict inheritance, you will need to add users directly to the restricted collection to grant them access.
+Once you restrict inheritance, you'll need to add users directly to the restricted collection to grant them access.
 
 1. Navigate to the collection where you want to restrict inheritance and select the **Role assignments** tab.
 1. Select **Restrict inherited permissions** and select **Restrict access** in the popup dialog to remove inherited permissions from this collection and any subcollections. Note that collection admin permissions won't be affected.
@@ -188,7 +191,7 @@ The collections listed here are restricted to subcollections of the data source 
 
     :::image type="content" source="./media/how-to-create-and-manage-collections/scan-under-collection.png" alt-text="Screenshot of a new scan window with the collection dropdown highlighted."border="true":::
 
-1. Back in the collection window, you will see the data sources linked to the collection on the sources card.
+1. Back in the collection window, you'll see the data sources linked to the collection on the sources card.
 
     :::image type="content" source="./media/how-to-create-and-manage-collections/source-under-collection.png" alt-text="Screenshot of the data map Microsoft Purview governance portal window with the newly added source card highlighted in the map."border="true":::
 
@@ -202,7 +205,7 @@ Assets and sources are also associated with collections. During a scan, if the s
 
 1. Permissions in asset details page:
     1. Check the collection-based permission model by following the [add roles and restricting access on collections guide above](#add-roles-and-restrict-access-through-collections).
-    1. If you don't have read permission on a collection, the assets under that collection will not be listed in search results. If you get the direct URL of one asset and open it, you will see the no access page. Contact your Microsoft Purview admin to grant you the access. You can select the **Refresh** button to check the permission again.
+    1. If you don't have read permission on a collection, the assets under that collection won't be listed in search results. If you get the direct URL of one asset and open it, you'll see the no access page. Contact your collection admin to grant you the access. You can select the **Refresh** button to check the permission again.
 
         :::image type="content" source="./media/how-to-create-and-manage-collections/no-access.png" alt-text="Screenshot of Microsoft Purview governance portal asset window where the user has no permissions, and has no access to information or options." border="true":::
 
@@ -231,19 +234,19 @@ Assets and sources are also associated with collections. During a scan, if the s
 
 ### Search by collection
 
-1. In Microsoft Purview, the search bar is located at the top of the Microsoft Purview governance portal UX.
+1. In the Microsoft Purview governance portal, the search bar is located at the top of the portal window.
 
-   :::image type="content" source="./media/how-to-create-and-manage-collections/purview-search-bar.png" alt-text="Screenshot showing the location of the Microsoft Purview search bar" border="true":::
+   :::image type="content" source="./media/how-to-create-and-manage-collections/purview-search-bar.png" alt-text="Screenshot showing the location of the Microsoft Purview governance portal search bar." border="true":::
 
 1. When you select the search bar, you can see your recent search history and recently accessed assets. Select **View all** to see all of the recently viewed assets.
 
    :::image type="content" source="./media/how-to-create-and-manage-collections/search-no-keywords.png" alt-text="Screenshot showing the search bar before any keywords have been entered" border="true":::
 
-1. Enter in keywords that help identify your asset such as its name, data type, classifications, and glossary terms. As you enter in keywords relating to your desired asset, Microsoft Purview displays suggestions on what to search and potential asset matches. To complete your search, select **View search results** or press **Enter**.
+1. Enter in keywords that help identify your asset such as its name, data type, classifications, and glossary terms. As you enter in keywords relating to your desired asset, the Microsoft Purview governance portal displays suggestions on what to search and potential asset matches. To complete your search, select **View search results** or press **Enter**.
 
    :::image type="content" source="./media/how-to-create-and-manage-collections/search-keywords.png" alt-text="Screenshot showing the search bar as a user enters in keywords" border="true":::
 
-1. The search results page shows a list of assets that match the keywords provided in order of relevance. There are various factors that can affect the relevance score of an asset. You can filter down the list more by selecting specific collections, data stores, classifications, contacts, labels, and glossary terms that apply to the asset you are looking for.
+1. The search results page shows a list of assets that match the keywords provided in order of relevance. There are various factors that can affect the relevance score of an asset. You can filter down the list more by selecting specific collections, data stores, classifications, contacts, labels, and glossary terms that apply to the asset you're looking for.
 
    :::image type="content" source="./media/how-to-create-and-manage-collections/search-results.png" alt-text="Screenshot showing the results of a search" border="true":::
 

@@ -71,7 +71,7 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |[Bitscape](https://www.bitscape.com)|
 |[Bio Automation Support](https://www.stacsdna.com/)|
 |[Blackwood Associates, Inc. (dba BAI Federal)](https://www.blackwoodassociates.com/)|
-|[Blue Source Group, Inc.](https://www.blackwoodassociates.com/)|
+|[Blue Source Group, Inc.](https://bluesourcegroup.com/)|
 |[Blueforce Development Corporation](https://www.blueforcedev.com/)|
 |[Booz Allen Hamilton](https://www.boozallen.com/)|
 |[Bridge Partners LLC](https://www.bridgepartnersllc.com)|
@@ -133,7 +133,7 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |[Deborgem Enterprises Incorporated](https://deborgem.com)|
 |[Definitive Logic Corporation](https://www.definitivelogic.com/)|
 |[Dell Federal Services](https://www.dellemc.com/en-us/industry/federal/federal-government-it.htm#)|
-|[Dell Marketing LP](https://www.dell.com/learn/us/en/rc1009777/fed)|
+|[Dell Marketing LP](https://www.dell.com/)|
 |[Delphi Technology Solutions](https://delphi-ts.com/)|
 |[Developing Today LLC](https://www.developingtoday.net/)|
 |[DevHawk, LLC](https://www.devhawk.io)|
@@ -141,7 +141,7 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |[DirectApps, Inc. D.B.A. Direct Technology](https://directtechnology.com)|
 |[DominionTech Inc.](https://www.dominiontech.com)|
 |[DOT Personable Inc](http://solutions.personable.com/)|
-|[Doublehorn, LLC](https://doublehorn.com/)|
+|Doublehorn, LLC|
 |[DXC Technology Services LLC](https://www.dxc.technology/services)|
 |[DXL Enterprises, Inc.](https://mahwahnjcoc.wliinc31.com/Supply-Chain-Management/DXL-Enterprises,-Inc-1349)|
 |[DynTek](https://www.dyntek.com)|
@@ -231,7 +231,6 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |[Jacobs Technolgy Inc.](https://www.jacobs.com/)|
 |[Jadex Strategic Group](https://jadexstrategic.com)|
 |[Jasper Solutions Inc.](https://jaspersolutions.com/)|
-|[JHC Technology, Inc.](https://www.effectual.com/jhc-technology/)|
 |[Quiet Professionals](https://quietprofessionalsllc.com)|
 |[Quzara LLC](https://www.quzara.com)|
 |[Karpel Solutions](https://www.karpel.com/)|

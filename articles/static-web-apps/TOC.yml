@@ -23,12 +23,22 @@
   items:
     - name: APIs
       items:
-        - name: API support with Azure Functions
-          href: apis.md
-        - name: Add an API
-          href: add-api.md
-        - name: Bring your own functions
-          href: functions-bring-your-own.md
+        - name: Overview
+          href: apis-overview.md
+        - name: Azure Functions
+          items:
+            - name: Integration options
+              href: apis-functions.md
+            - name: Add an API
+              href: add-api.md
+            - name: Bring your own functions
+              href: functions-bring-your-own.md
+        - name: Azure API Management
+          href: apis-api-management.md
+        - name: Azure App Service
+          href: apis-app-service.md 
+        - name: Azure Container Apps
+          href: apis-container-apps.md
     - name: Configuration
       items:
         - name: Configuration overview
@@ -57,6 +67,8 @@
           href: review-publish-pull-requests.md
         - name: Branch environments
           href: branch-environments.md
+        - name: Named environments
+          href: named-environments.md
     - name: Custom domains
       items:
       - name: About custom domains
