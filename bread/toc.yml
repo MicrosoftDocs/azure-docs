@@ -603,7 +603,7 @@
         topicHref: /azure/hdinsight/domain-joined/apache-domain-joined-introduction
       - name: ML Services
         tocHref: /azure/hdinsight/r-server
-        topicHref: /azure/hdinsight/r-server/r-server-overview
+        topicHref: https://azure.microsoft.com/services/hdinsight/r-server/#overview
       - name: Spark
         tocHref: /azure/hdinsight/spark
         topicHref: /azure/hdinsight/spark/apache-spark-overview
