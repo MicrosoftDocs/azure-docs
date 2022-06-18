@@ -104,7 +104,7 @@ Premium SSD v2 supports a 4k physical sector size by default. A 512E sector size
 
 Unlike other disk types, you can individually set the capacity, throughput, and IOPS of a premium SSD v2. Each of these values determine the cost of your disk. There is no dedicated sizes with premium SSD v2, but there are some limitations with how much performance is available to a disk of a particular capacity.
 
-The following table provides a comparison of disk sizes and performance caps to help you decide which to use.
+The following table provides a comparison of disk capacities and performance maximums to help you decide which to use.
 
 |Disk Size (GiB)  |Maximum available IOPS  |Maximum available throughput (MBps)  |
 |---------|---------|---------|
