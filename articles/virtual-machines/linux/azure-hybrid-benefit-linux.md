@@ -27,7 +27,7 @@ Hybrid Benefit for Linux VMs is now publicly available.
 
 ## How does Hybrid Benefit work?
 
-You can convert existing RHEL and SLES PAYG VMs to bring-your-own-subscription (BYOS) billing using Hybrid Benefit. You can switch PAYG VMs to BYOS billing without the need to redeploy with this benefit. This avoids downtime. VMs deployed from PAYG images on Azure pay both an infrastructure fee and a software fee. When you apply Hybrid Benefit, you pay only infrastructure costs for your VM.
+You can convert existing RHEL and SLES PAYG VMs to bring-your-own-subscription (BYOS) billing using Hybrid Benefit. You can switch PAYG VMs to BYOS billing without having to redeploy. VMs deployed from PAYG images on Azure pay both an infrastructure fee and a software fee. When you apply Hybrid Benefit, you pay only infrastructure costs for your VM.
 
 :::image type="content" source="./media/ahb-linux/azure-hybrid-benefit-cost.png" alt-text="Hybrid Benefit cost visualization on Linux VMs.":::
 

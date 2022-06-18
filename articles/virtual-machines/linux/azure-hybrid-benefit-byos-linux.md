@@ -63,7 +63,7 @@ To start using Hybrid Benefit for Red Hat:
 1. In case you want to switch back to the bring-your-own-subscription model,  just change the license type to 'None' and run the extension. This action will remove all RHUI repositories from your virtual machine and stop the billing.
 
 >[!Note]
-> In the unlikely event that the extension isn't able to install repositories or there are any issues, please change the license type back to empty and reach out to support for help. This will ensure you aren't getting billed for software updates.  
+> In the unlikely event that the extension is unable to install repositories or there are any other issues, switch the license type back to empty and reach out to Support. This ensures that you don't get billed for software updates.  
 
 
 ### Hybrid Benefit for SUSE customers
