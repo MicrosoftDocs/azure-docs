@@ -178,7 +178,7 @@ For more information, see [Centrally discover and deploy Microsoft Sentinel out-
 
 |Name    |Includes  |Categories |Supported by  |
 |---------|---------|---------|---------|
-|**Cyberpion Security Logs**| [Data connector](data-connectors-reference.md#cyberpion-security-logs-preview), analytics rule, workbook| Security - Threat Protection| [CyberArk](https://www.cyberpion.com/contact/)|
+|**Cyberpion Security Logs**| [Data connector](data-connectors-reference.md#cyberpion-security-logs-preview), analytics rule, workbook| Security - Threat Protection| [Cyberpion](https://www.cyberpion.com/contact/)|
 
 ## Digital Guardian
 
@@ -341,7 +341,7 @@ For more information, see [Centrally discover and deploy Microsoft Sentinel out-
 | **Windows Firewall** | [Data connector](data-connectors-reference.md#windows-firewall), workbook | Security - Network| Microsoft |
 | **Windows Forwarded Events** | [Data connector](data-connectors-reference.md#windows-forwarded-events-preview), analytics rules | IT Operations| Microsoft |
 | **Windows Security Events** | [Data connector](data-connectors-reference.md#windows-security-events-via-ama), analytics rules, hunting queries, workbooks | Security - Threat Protection| Microsoft |
-|Syslog|Data connector, analytics rules, hunting queries, workbook|IT Operations|Microsoft|
+|**Syslog**|Data connector, analytics rules, hunting queries, workbook|IT Operations|Microsoft|
 
 ## NetSkope
 
