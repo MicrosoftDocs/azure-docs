@@ -93,7 +93,7 @@ Learn more about [Redis Cache Server - PrivateLink (Injecting a cache into a vir
 
 ### TLS versions 1.0 and 1.1 are known to be susceptible to security attacks, and have other Common Vulnerabilities and Exposures (CVE) weaknesses.
 
-TLS versions 1.0 and 1.1 are known to be susceptible to security attacks, and have other Common Vulnerabilities and Exposures (CVE) weaknesses. We highly recommend that you configure your cache to use TLS 1.2 only and your application should using TLS 1.2 or later. See https://aka.ms/TLSVersions for more information.
+TLS versions 1.0 and 1.1 are known to be susceptible to security attacks, and have other Common Vulnerabilities and Exposures (CVE) weaknesses. We highly recommend that you configure your cache to use TLS 1.2 only and your application should use TLS 1.2 or later. See https://aka.ms/TLSVersions for more information.
 
 Learn more about [Redis Cache Server - TLSVersion (TLS versions 1.0 and 1.1 are known to be susceptible to security attacks, and have other Common Vulnerabilities and Exposures (CVE) weaknesses.)](https://aka.ms/TLSVersions).
 
@@ -125,11 +125,11 @@ Excessive NTP client traffic caused by frequent DNS lookups and NTP sync for new
 
 Learn more about [Virtual machine - GetVmlistFortigateNtpIssue (Excessive NTP client traffic caused by frequent DNS lookups and NTP sync for new servers, which happens often on some global NTP servers.)](https://docs.fortinet.com/document/fortigate/6.2.3/fortios-release-notes/236526/known-issues).
 
-### An Azure environment update has been rolled out that may affect you Checkpoint Firewall.
+### An Azure environment update has been rolled out that may affect your Checkpoint Firewall.
 
 The image version of the Checkpoint firewall installed may have been affected by the recent Azure environment update. A kernel panic resulting in a reboot to factory defaults can occur in certain circumstances.
 
-Learn more about [Virtual machine - NvaCheckpointNicServicing (An Azure environment update has been rolled out that may affect you Checkpoint Firewall.)](https://supportcenter.checkpoint.com/supportcenter/portal).
+Learn more about [Virtual machine - NvaCheckpointNicServicing (An Azure environment update has been rolled out that may affect your Checkpoint Firewall.)](https://supportcenter.checkpoint.com/supportcenter/portal).
 
 ### The iControl REST interface has an unauthenticated remote command execution vulnerability.
 
@@ -209,7 +209,7 @@ Learn more about [Kubernetes service - DeprecatedKubernetesAPIIn122IsFound (Depr
 
 ### Your Azure Database for MySQL - Flexible Server is vulnerable using weak, deprecated TLSv1 or TLSv1.1 protocols
 
-To support modern security standards, MySQL community edition discontinued the support for communication over Transport Layer Security (TLS) 1.0 and 1.1 protocols. Microsoft will also stop supporting connection over TLSv1 and TLSv1.1 to Azure Database for MySQL - Flexible server soon to comply with the modern security standards . We recommend you upgrade your client driver to support TLSv1.2.
+To support modern security standards, MySQL community edition discontinued the support for communication over Transport Layer Security (TLS) 1.0 and 1.1 protocols. Microsoft will also stop supporting connection over TLSv1 and TLSv1.1 to Azure Database for MySQL - Flexible server soon to comply with the modern security standards. We recommend you upgrade your client driver to support TLSv1.2.
 
 Learn more about [Azure Database for MySQL flexible server - OrcasMeruMySqlTlsDeprecation (Your Azure Database for MySQL - Flexible Server is vulnerable using weak, deprecated TLSv1 or TLSv1.1 protocols)](https://aka.ms/encrypted_connection_deprecated_protocols).
 
@@ -217,7 +217,7 @@ Learn more about [Azure Database for MySQL flexible server - OrcasMeruMySqlTlsDe
 
 ### Permissions missing for start VM on connect
 
-We have determined you have enabled start VM on connect but didn't gave the Azure Virtual Desktop the rights to power manage VMs in your subscription. As a result your users connecting to host pools won't receive a remote desktop session. Review feature documentation for requirements.
+We have determined you enabled start VM on connect but didn't grant the Azure Virtual Desktop the rights to power manage VMs in your subscription. As a result your users connecting to host pools won't receive a remote desktop session. Review feature documentation for requirements.
 
 Learn more about [Host Pool - AVDStartVMonConnect (Permissions missing for start VM on connect)](https://aka.ms/AVDStartVMRequirement).
 
@@ -247,7 +247,7 @@ Your Azure Cosmos DB accounts are configured with periodic backup. Continuous ba
 
 Learn more about [Cosmos DB account - CosmosDBMigrateToContinuousBackup (Improve resiliency by migrating your Azure Cosmos DB accounts to continuous backup)](../cosmos-db/continuous-backup-restore-introduction.md).
 
-## Insights
+## Monitor
 
 ### Repair your log alert rule
 
@@ -445,11 +445,11 @@ Azure Center for SAP recommendation: Ensure all NICs for a system should be atta
 
 Learn more about [Database Instance - AllVmsHaveSameVnetDb (Azure Center for SAP recommendation: Ensure all NICs for a system are attached to the same VNET)](/azure/virtual-machines/workloads/sap/sap-deployment-checklist#:~:text=this%20article.-,Networking,-.).
 
-### Azure Center for SAP recommendation: Ensure network configuation is optimised for HANA and OS
+### Azure Center for SAP recommendation: Ensure network configuration is optimized for HANA and OS
 
-Azure Center for SAP  solutions recommendation: Ensure network configuation is optimised for HANA and OS.
+Azure Center for SAP  solutions recommendation: Ensure network configuration is optimized for HANA and OS.
 
-Learn more about [Database Instance - NetworkConfigForSap (Azure Center for SAP recommendation: Ensure network configuation is optimised for HANA and OS)](https://launchpad.support.sap.com/#/notes/2382421).
+Learn more about [Database Instance - NetworkConfigForSap (Azure Center for SAP recommendation: Ensure network configuration is optimized for HANA and OS)](https://launchpad.support.sap.com/#/notes/2382421).
 
 ## Next steps
 
