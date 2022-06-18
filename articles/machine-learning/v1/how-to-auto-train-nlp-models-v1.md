@@ -111,7 +111,7 @@ text,labels
 
 ### Named entity recognition (NER)
 
-Unlike multi-class or multi-label, which takes `.csv` format datasets, named entity recognition requires [CoNLL](https://www.clips.uantwerpen.be/conll2003/ner/) format. The file must contain exactly two columns and in each row, the token and the label is separated by a single space. 
+Unlike multi-class or multi-label, which takes `.csv` format datasets, named entity recognition requires CoNLL format. The file must contain exactly two columns and in each row, the token and the label is separated by a single space. 
 
 For example,
 
