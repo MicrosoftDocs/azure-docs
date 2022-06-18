@@ -324,7 +324,7 @@ Learn more about [Traffic Manager profile - GeographicProfile (Add an endpoint c
 
 ### Add or move one endpoint to another Azure region
 
-All endpoints associated to this proximity profile are in the same region. Users from other regions may experience long latency when attempting to connect. Adding or moving an endpoint to another region will improve overall performance for proximity routing and provide better availability if all endpoints in one region fail.
+All endpoints associated to this proximity profile are in the same region. Users from other regions may experience long latency when attempting to connect. Adding or moving an endpoint to another region will improve overall performance for proximity routing and provide better availability in case all endpoints in one region fail.
 
 Learn more about [Traffic Manager profile - ProximityProfile (Add or move one endpoint to another Azure region)](https://aka.ms/Ldkkdb).
 
@@ -449,7 +449,7 @@ Learn more about [App service - AppServiceMemoryExhaustion (Consider scaling up 
 
 ### Scale up your App Service resource to remove the quota limit
 
-Your app is part of a shared App Service plan and has met its quota multiple times. After meeting a quota, your web app can’t accept incoming requests. To remove the quota, upgrade to a Standard plan.
+Your app is part of a shared App Service plan and has met its quota multiple times. Once quota is met, your web app can’t accept incoming requests. To remove the quota, upgrade to a Standard plan.
 
 Learn more about [App service - AppServiceRemoveQuota (Scale up your App Service resource to remove the quota limit)](https://aka.ms/ant-asp).
 
