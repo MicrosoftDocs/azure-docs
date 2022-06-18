@@ -14,7 +14,7 @@ ms.date: 06/30/2022
 
 # Data migration, ETL, and load for Oracle migrations
 
-This article is part two of a seven part series that provides guidance on how to migrate from Oracle to Azure Synapse Analytics, with best-practice suggestions for ETL and load migration.
+This article is part two of a seven-part series that provides guidance on how to migrate from Oracle to Azure Synapse Analytics, with best practices for ETL and load migration.
 
 ## Data migration considerations
 
@@ -96,7 +96,7 @@ In legacy Oracle data warehouse environments, it is common practice to create a 
 
 You can use separate data marts for individual business units within an organization to implement robust data security regimes. Restrict access to specific data marts that are relevant to users, and eliminate, obfuscate, or anonymize sensitive data.
 
-If these data marts are implemented as physical tables, they'll require additional storage resources to store them, and additional processing to build and refresh them regularly. Also, the data in the mart will only be as up to date as the last refresh operation, and so may be unsuitable for highly volatile data dashboards.
+If these data marts are implemented as physical tables, they'll require additional storage resources and additional processing to build and refresh them regularly. Also, the data in the mart will only be as up to date as the last refresh operation, and so may be unsuitable for highly volatile data dashboards.
 
 With the advent of relatively low-cost scalable MPP architectures such as Azure Synapse and their inherent performance characteristics, you can provide data mart functionality without having to instantiate the mart as a set of physical tables. This is achieved by effectively virtualizing the data marts via SQL views onto the main data warehouse, or via a virtualization layer using features such as views in Azure or third-party virtualization products such as **Denodo**. This approach simplifies or eliminates the need for additional storage and aggregation processing and reduces the overall number of database objects to be migrated.
 
@@ -250,7 +250,7 @@ GROUP BY data_type 
 ORDER BY data_type;
 ```
 
-Microsoft offers SQL Server Migration Assistant (SSMA) to automate migration of data warehouses from legacy Oracle environments, including the mapping of data types. As well, you can use as Azure Migration Services to help with the migration process. Third-party vendors also offer tools and services to automate migration. If Oracle Data Integrator or a third-party ETL tool, such as Informatica or Talend, is already in use in the Oracle environment, these can implement any required data transformations. The next section explores migration of existing ETL processes.
+Microsoft offers SQL Server Migration Assistant (SSMA) to automate migration of data warehouses from legacy Oracle environments, including the mapping of data types. As well, you can use Azure Migration Services to help with the migration process. Third-party vendors also offer tools and services to automate migration. If Oracle Data Integrator or a third-party ETL tool, such as Informatica or Talend, is already in use in the Oracle environment, these can implement any required data transformations. The next section explores migration of existing ETL processes.
 
 ## ETL migration considerations
 
