@@ -265,7 +265,7 @@ Learn more about [HDInsight cluster - GCSCertRotationR3PlanPatch (Apply critical
 
 You're receiving this notice because you have one or more active A8, A9, A10 or A11 HDInsight cluster. The A8-A11 virtual machines (VMs) will be retired in all regions on 1 March 2021. After that date, all clusters using A8-A11 will be deallocated. Migrate your affected clusters to another HDInsight supported VM (https://azure.microsoft.com/pricing/details/hdinsight/) before that date. For more details, see 'Learn More' link or contact us at askhdinsight@microsoft.com
 
-Learn more about [HDInsight cluster - VMDeprecation (Action required: Migrate your A8–A11 HDInsight cluster before 1 March 2021)](https://azure.microsoft.com/updates/a8-a11-azure-virtual-machine-sizes-will-be-retired-on-march-1-2021/).
+Learn more about [HDInsight cluster - VM Deprecation (Action required: Migrate your A8–A11 HDInsight cluster before 1 March 2021)](https://azure.microsoft.com/updates/a8-a11-azure-virtual-machine-sizes-will-be-retired-on-march-1-2021/).
 
 ## Hybrid Compute
 
