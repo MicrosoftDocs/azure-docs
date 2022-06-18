@@ -234,7 +234,7 @@ A: Yes, Hybrid Benefit on virtual machine scale sets for RHEL and SLES is is ava
 
 *Q: Can I use Hybrid Benefit for PAYG VMs on reserved instances for RHEL and SLES?*
 
-A: Yes, Hybrid Benefit for PAYG VMs on reserved instance for RHEL and SLES is available to all users. You can [learn more about this benefit and how to use it here](#azure-hybrid-benefit-for-payg-vms-on-reserved-instances).
+A: Yes, Hybrid Benefit for PAYG VMs on reserved instance for RHEL and SLES is available to all users.
 
 *Q: Can I use Hybrid Benefit for PAYG VMs on a virtual machine deployed for SQL Server on RHEL images?*
 
