@@ -23,7 +23,7 @@ In this tutorial you will learn how to:
 > * Create a subnet to delegate to App Service
 > * Create a web app
 > * Add the web app to the virtual network
-> * Connect to Postgres from the web app
+> * Connect to MySQL from the web app
 
 ## Prerequisites
 
