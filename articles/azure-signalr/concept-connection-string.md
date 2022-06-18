@@ -96,7 +96,7 @@ Different `TokenCredential` will be used to generate Azure AD tokens with the re
 
 - `type=azure.app`
 
-  `clientId` and `tenantId` are required to use [Azure AD application with service principal](/azure/active-directory/develop/howto-create-service-principal-portal).
+  `clientId` and `tenantId` are required to use [Azure AD application with service principal](../active-directory/develop/howto-create-service-principal-portal.md).
 
   1. [ClientSecretCredential(clientId, tenantId, clientSecret)](/dotnet/api/azure.identity.clientsecretcredential) will be used if `clientSecret` is given.
      ```

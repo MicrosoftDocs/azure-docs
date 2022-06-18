@@ -7,10 +7,10 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
 
-author: rsethur
-ms.author: seramasu
-ms.date: 12/22/2021
-ms.reviewer: laobri
+author: dem108
+ms.author: sehan
+ms.date: 06/15/2022
+ms.reviewer: larryfr
 ms.custom: devplatv2, event-tier1-build-2022
 ---
 
@@ -145,7 +145,7 @@ If you aren't going use the deployment, you should delete it with the below comm
 * Learn to [Troubleshoot online endpoints deployment and scoring](how-to-troubleshoot-managed-online-endpoints.md)
 * Learn how to [Access Azure resources with a online endpoint and managed identity](how-to-access-resources-from-endpoints-managed-identities.md)
 * Learn how to [monitor online endpoints](how-to-monitor-online-endpoints.md).
-* Learn [Safe rollout for online endpoints](how-to-safely-rollout-managed-endpoints.md).
+* Learn [safe rollout for online endpoints](how-to-safely-rollout-managed-endpoints.md).
 * [View costs for an Azure Machine Learning managed online endpoint](how-to-view-online-endpoints-costs.md).
 * [Managed online endpoints SKU list](reference-managed-online-endpoints-vm-sku-list.md).
 * Learn about limits on managed online endpoints in [Manage and increase quotas for resources with Azure Machine Learning](how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints).

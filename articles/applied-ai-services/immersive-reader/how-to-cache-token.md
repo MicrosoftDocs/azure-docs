@@ -22,7 +22,7 @@ This article demonstrates how to cache the authentication token in order to impr
 Import the **Microsoft.IdentityModel.Clients.ActiveDirectory** NuGet package, which is used to acquire a token. Next, use the following code to acquire an `AuthenticationResult`, using the authentication values you got when you [created the Immersive Reader resource](./how-to-create-immersive-reader.md).
 
 > [!IMPORTANT]
-> The [Microsoft.IdentityModel.Clients.ActiveDirectory](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory) NuGet package and Azure AD Authentication Library (ADAL) have been deprecated. No new features have been added since June 30, 2020.   We strongly encourage you to upgrade, see the [migration guide](/azure/active-directory/develop/msal-migration) for more details.
+> The [Microsoft.IdentityModel.Clients.ActiveDirectory](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory) NuGet package and Azure AD Authentication Library (ADAL) have been deprecated. No new features have been added since June 30, 2020.   We strongly encourage you to upgrade, see the [migration guide](../../active-directory/develop/msal-migration.md) for more details.
 
 
 ```csharp

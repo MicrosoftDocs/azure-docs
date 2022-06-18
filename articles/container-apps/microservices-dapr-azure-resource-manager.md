@@ -218,7 +218,8 @@ Create an ARM template to deploy a Container Apps environment that includes:
 * the associated Log Analytics workspace
 * the Application Insights resource for distributed tracing
 * a dapr component for the state store
-* the two dapr-enabled container apps
+* the two dapr-enabled container apps: [hello-k8s-node](https://hub.docker.com/r/dapriosamples/hello-k8s-node) and [hello-k8s-python](https://hub.docker.com/r/dapriosamples/hello-k8s-python)
+  
 
 Save the following file as _hello-world.json_:
 
@@ -427,7 +428,7 @@ Create a bicep template to deploy a Container Apps environment that includes:
 * the associated Log Analytics workspace
 * the Application Insights resource for distributed tracing
 * a dapr component for the state store
-* the two dapr-enabled container apps
+* the two dapr-enabled container apps: [hello-k8s-node](https://hub.docker.com/r/dapriosamples/hello-k8s-node) and [hello-k8s-python](https://hub.docker.com/r/dapriosamples/hello-k8s-python)
 
 Save the following file as _hello-world.bicep_:
 
