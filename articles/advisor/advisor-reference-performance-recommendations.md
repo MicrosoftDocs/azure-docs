@@ -38,27 +38,77 @@ Learn more about [AVS Private cloud - vSANCapacity (vSAN capacity utilization ha
 
 Cache instances perform best when not running under high network bandwidth which may cause them to become unresponsive, experience data loss, or become unavailable. Apply best practices to reduce network bandwidth or scale to a different size or sku with more capacity.
 
-Learn more about [Redis Cache Server - RedisCacheNetworkBandwidth (Improve your Cache and application performance when running with high network bandwidth)](/azure/azure-cache-for-redis/cache-troubleshoot-server#server-side-bandwidth-limitation).
+Learn more about [Redis Cache Server - RedisCacheNetworkBandwidth (Improve your Cache and application performance when running with high network bandwidth)](https://aka.ms/redis/recommendations/bandwidth).
 
 ### Improve your Cache and application performance when running with many connected clients
 
 Cache instances perform best when not running under high server load which may cause them to become unresponsive, experience data loss, or become unavailable. Apply best practices to reduce the server load or scale to a different size or sku with more capacity.
 
-Learn more about [Redis Cache Server - RedisCacheConnectedClients (Improve your Cache and application performance when running with many connected clients)](/azure/azure-cache-for-redis/cache-faq#performance-considerations-around-connections).
+Learn more about [Redis Cache Server - RedisCacheConnectedClients (Improve your Cache and application performance when running with many connected clients)](https://aka.ms/redis/recommendations/connections).
 
 ### Improve your Cache and application performance when running with high server load
 
 Cache instances perform best when not running under high server load which may cause them to become unresponsive, experience data loss, or become unavailable. Apply best practices to reduce the server load or scale to a different size or sku with more capacity.
 
-Learn more about [Redis Cache Server - RedisCacheServerLoad (Improve your Cache and application performance when running with high server load)](/azure/azure-cache-for-redis/cache-troubleshoot-client#high-client-cpu-usage).
+Learn more about [Redis Cache Server - RedisCacheServerLoad (Improve your Cache and application performance when running with high server load)](https://aka.ms/redis/recommendations/cpu).
 
 ### Improve your Cache and application performance when running with high memory pressure
 
 Cache instances perform best when not running under high memory pressure which may cause them to become unresponsive, experience data loss, or become unavailable. Apply best practices to reduce used memory or scale to a different size or sku with more capacity.
 
-Learn more about [Redis Cache Server - RedisCacheUsedMemory (Improve your Cache and application performance when running with high memory pressure)](/azure/azure-cache-for-redis/cache-troubleshoot-client#memory-pressure-on-redis-client).
+Learn more about [Redis Cache Server - RedisCacheUsedMemory (Improve your Cache and application performance when running with high memory pressure)](https://aka.ms/redis/recommendations/memory).
 
-## Cognitive Service
+### Improve your Cache and application performance when memory rss usage is high.
+
+Cache instances perform best when not running under high memory pressure which may cause them to become unresponsive, experience data loss, or become unavailable. Apply best practices to reduce used memory or scale to a different size or sku with more capacity.
+
+Learn more about [Redis Cache Server - RedisCacheUsedMemoryRSS (Improve your Cache and application performance when memory rss usage is high.)](https://aka.ms/redis/recommendations/memory).
+
+### Improve your Cache and application performance when memory rss usage is high.
+
+Cache instances perform best when not running under high memory pressure which may cause them to become unresponsive, experience data loss, or become unavailable. Apply best practices to reduce used memory or scale to a different size or sku with more capacity.
+
+Learn more about [Redis Cache Server - RedisCacheUsedMemoryRSSHigh (Improve your Cache and application performance when memory rss usage is high.)](https://aka.ms/redis/recommendations/memory).
+
+### Improve your Cache and application performance when running with high network bandwidth
+
+Cache instances perform best when not running under high network bandwidth which may cause them to become unresponsive, experience data loss, or become unavailable. Apply best practices to reduce network bandwidth or scale to a different size or sku with more capacity.
+
+Learn more about [Redis Cache Server - RedisCacheNetworkBandwidthHigh (Improve your Cache and application performance when running with high network bandwidth)](https://aka.ms/redis/recommendations/bandwidth).
+
+### Improve your Cache and application performance when running with high memory pressure
+
+Cache instances perform best when not running under high memory pressure which may cause them to become unresponsive, experience data loss, or become unavailable. Apply best practices to reduce used memory or scale to a different size or sku with more capacity.
+
+Learn more about [Redis Cache Server - RedisCacheUsedMemoryHigh (Improve your Cache and application performance when running with high memory pressure)](https://aka.ms/redis/recommendations/memory).
+
+### Improve your Cache and application performance when running with many connected clients
+
+Cache instances perform best when not running under high server load which may cause them to become unresponsive, experience data loss, or become unavailable. Apply best practices to reduce the server load or scale to a different size or sku with more capacity.
+
+Learn more about [Redis Cache Server - RedisCacheConnectedClientsHigh (Improve your Cache and application performance when running with many connected clients)](https://aka.ms/redis/recommendations/connections).
+
+### Improve your Cache and application performance when running with high server load
+
+Cache instances perform best when not running under high server load which may cause them to become unresponsive, experience data loss, or become unavailable. Apply best practices to reduce the server load or scale to a different size or sku with more capacity.
+
+Learn more about [Redis Cache Server - RedisCacheServerLoadHigh (Improve your Cache and application performance when running with high server load)](https://aka.ms/redis/recommendations/cpu).
+
+### Cache instances perform best when the host machines where client application runs is able to keep up with responses from the cache.
+
+Cache instances perform best when the host machines where client application runs is able to keep up with responses from the cache. If client host machine is running hot on memory, CPU or network bandwidth, the cache responses will not reach your application fast enough and could result in higher latency.
+
+Learn more about [Redis Cache Server - UnresponsiveClient (Cache instances perform best when the host machines where client application runs is able to keep up with responses from the cache.)](/azure/azure-cache-for-redis/cache-troubleshoot-client).
+
+## CDN
+
+### Upgrade SDK version recommendation
+
+The latest version of Azure Front Door Standard and Premium Client Library or SDK contains fixes to issues reported by customers and proactively identified through our QA process. The latest version also carries reliability and performance optimization in addition to new features that can improve your overall experience using Azure Front Door Standard and Premium.
+
+Learn more about [Front Door Profile - UpgradeCDNToLatestSDKLanguage (Upgrade SDK version recommendation)](https://aka.ms/afd/tiercomparison).
+
+## Cognitive Services
 
 ### Upgrade to the latest Cognitive Service Text Analytics API version
 
@@ -70,7 +120,7 @@ Learn more about [Cognitive Service - UpgradeToLatestAPI (Upgrade to the latest 
 
 Upgrade to the latest API version to get the best results in terms of model quality, performance and service availability.
 
-Learn more about [Cognitive Service - UpgradeToLatestAPILanguage (Upgrade to the latest API version of Azure Cognitive Service for Language)](../cognitive-services/language-service/overview.md).
+Learn more about [Cognitive Service - UpgradeToLatestAPILanguage (Upgrade to the latest API version of Azure Cognitive Service for Language)](https://aka.ms/language-api).
 
 ### Upgrade to the latest Cognitive Service Text Analytics SDK version
 
@@ -82,7 +132,7 @@ Learn more about [Cognitive Service - UpgradeToLatestSDK (Upgrade to the latest 
 
 Upgrade to the latest SDK version to get the best results in terms of model quality, performance and service availability.
 
-Learn more about [Cognitive Service - UpgradeToLatestSDKLanguage (Upgrade to the latest Cognitive Service Language SDK version)](../cognitive-services/language-service/overview.md).
+Learn more about [Cognitive Service - UpgradeToLatestSDKLanguage (Upgrade to the latest Cognitive Service Language SDK version)](https://aka.ms/language-api).
 
 ## Communication services
 
@@ -146,13 +196,13 @@ Learn more about [Virtual machine - RegionProximitySessionHosts (Improve user ex
 
 When NVAs run at high CPU, packets can get dropped resulting in connection failures or high latency due to network retransmits. Your NVA is running at high CPU, so you should consider increasing the VM size as allowed by the NVA vendor's licensing requirements.
 
-Learn more about [Virtual machine - NVAHighCPU (Consider increasing the size of your NVA to address persistent high CPU)](../virtual-machines/sizes.md).
+Learn more about [Virtual machine - NVAHighCPU (Consider increasing the size of your NVA to address persistent high CPU)](https://aka.ms/NVAHighCPU).
 
 ### Use Managed disks to prevent disk I/O throttling
 
 Your virtual machine disks belong to a storage account that has reached its scalability target, and is susceptible to I/O throttling. To protect your virtual machine from performance degradation and to simplify storage management, use Managed Disks.
 
-Learn more about [Virtual machine - ManagedDisksStorageAccount (Use Managed disks to prevent disk I/O throttling)](../virtual-machines/managed-disks-overview.md).
+Learn more about [Virtual machine - ManagedDisksStorageAccount (Use Managed disks to prevent disk I/O throttling)](https://aka.ms/aa_avset_manageddisk_learnmore).
 
 ### Convert Managed Disks from Standard HDD to Premium SSD for performance
 
@@ -274,7 +324,7 @@ Learn more about [Virtual machine - AzureStorageVmUltraDisk (Take advantage of U
 
 Unsupported Kubernetes version is detected. Ensure Kubernetes cluster runs with a supported version.
 
-Learn more about [Kubernetes service - UnsupportedKubernetesVersionIsDetected (Unsupported Kubernetes version is detected)](../aks/supported-kubernetes-versions.md).
+Learn more about [Kubernetes service - UnsupportedKubernetesVersionIsDetected (Unsupported Kubernetes version is detected)](https://aka.ms/aks-supported-versions).
 
 ## Data Factory
 
@@ -282,7 +332,7 @@ Learn more about [Kubernetes service - UnsupportedKubernetesVersionIsDetected (U
 
 A high volume of throttling has been detected in an event-based trigger that runs in your Data Factory resource. This is causing your pipeline runs to drop from the run queue. Review the trigger definition to resolve issues and increase performance.
 
-Learn more about [Data factory trigger - ADFThrottledTriggers (Review your throttled Data Factory Triggers)](../data-factory/how-to-create-event-trigger.md).
+Learn more about [Data factory trigger - ADFThrottledTriggers (Review your throttled Data Factory Triggers)](https://aka.ms/adf-create-event-trigger).
 
 ## MariaDB
 
@@ -308,13 +358,13 @@ Learn more about [MariaDB server - OrcasMariaDbConcurrentConnection (Scale the M
 
 Our internal telemetry shows that there is high churn in the buffer pool for this server which can result in slower query performance and increased IOPS. To improve performance,  review your workload queries to identify opportunities to minimize memory consumed.  If no such opportunity found, then we recommend moving to higher SKU with more memory or increase storage size to get more IOPS.
 
-Learn more about [MariaDB server - OrcasMariaDbMemoryCache (Move your MariaDB server to Memory Optimized SKU)](https://aka.ms/mariadbpricing).
+Learn more about [MariaDB server - OrcasMariaDbMemoryCache (Move your MariaDB server to Memory Optimzed SKU)](https://aka.ms/mariadbpricing).
 
 ### Increase the reliability of audit logs
 
 Our internal telemetry shows that the server's audit logs may have been lost over the past day. This can occur when your server is experiencing a CPU heavy workload or a server generates a large number of audit logs over a short period of time. We recommend only logging the necessary events required for your audit purposes using the following server parameters: audit_log_events, audit_log_exclude_users, audit_log_include_users. If the CPU usage on your server is high due to your workload, we recommend increasing the server's vCores to improve performance.
 
-Learn more about [MariaDB server - OrcasMariaDBAuditLog (Increase the reliability of audit logs)](../mariadb/concepts-audit-logs.md).
+Learn more about [MariaDB server - OrcasMariaDBAuditLog (Increase the reliability of audit logs)](https://aka.ms/mariadb-audit-logs).
 
 ## MySQL
 
@@ -358,7 +408,7 @@ Learn more about [MySQL server - OrcasMySQLConnectionPooling (Improve MySQL conn
 
 Our internal telemetry shows that the server's audit logs may have been lost over the past day. This can occur when your server is experiencing a CPU heavy workload or a server generates a large number of audit logs over a short period of time. We recommend only logging the necessary events required for your audit purposes using the following server parameters: audit_log_events, audit_log_exclude_users, audit_log_include_users. If the CPU usage on your server is high due to your workload, we recommend increasing the server's vCores to improve performance.
 
-Learn more about [MySQL server - OrcasMySQLAuditLog (Increase the reliability of audit logs)](../mysql/concepts-audit-logs.md).
+Learn more about [MySQL server - OrcasMySQLAuditLog (Increase the reliability of audit logs)](https://aka.ms/mysql-audit-logs).
 
 ### Improve performance by optimizing MySQL temporary-table sizing
 
@@ -370,7 +420,43 @@ Learn more about [MySQL server - OrcasMySqlTmpTables (Improve performance by opt
 
 Our internal telemetry indicates that your application connecting to MySQL server may not be managing connections efficiently. This may result in higher application latency. To improve connection latency, we recommend that you enable connection redirection. This can be done by enabling the connection redirection feature of the PHP driver.
 
-Learn more about [MySQL server - OrcasMySQLConnectionRedirection (Improve MySQL connection latency)](../mysql/howto-redirection.md).
+Learn more about [MySQL server - OrcasMySQLConnectionRedirection (Improve MySQL connection latency)](https://aka.ms/azure_mysql_connection_redirection).
+
+### Increase the storage limit for MySQL Flexible Server
+
+Our internal telemetry shows that the server may be constrained because it is approaching limits for the currently provisioned storage values. This may result in degraded performance or in the server being moved to read-only mode. To ensure continued performance, we recommend increasing the provisioned storage amount.
+
+Learn more about [Azure Database for MySQL flexible server - OrcasMeruMySqlStorageUpsell (Increase the storage limit for MySQL Flexible Server)](https://aka.ms/azure_mysql_flexible_server_storage).
+
+### Scale the MySQL Flexible Server to a higher SKU
+
+Our telemetry indicates that your Flexible Server is exceeding the connection limits associated with your current SKU. A large number of failed connection requests may adversely affect server performance. To improve performance, we recommend increasing the number of vCores or switching to a higher SKU.
+
+Learn more about [Azure Database for MySQL flexible server - OrcasMeruMysqlConnectionUpsell (Scale the MySQL Flexible Server to a higher SKU)](https://aka.ms/azure_mysql_flexible_server_storage).
+
+### Increase the MySQL Flexible Server vCores.
+
+Our internal telemetry shows that the CPU has been running under high utilization for an extended period of time over the last 7 days. High CPU utilization may lead to slow query performance. To improve performance, we recommend moving to a larger compute size.
+
+Learn more about [Azure Database for MySQL flexible server - OrcasMeruMysqlCpuUpcell (Increase the MySQL Flexible Server vCores.)](https://aka.ms/azure_mysql_flexible_server_pricing).
+
+### Improve performance by optimizing MySQL temporary-table sizing.
+
+Our internal telemetry indicates that your MySQL server may be incurring unncessary I/O overhead due to low temporary-table parameter settings. This may result in unnecessary disk-based transactions and reduced performance. We recommend that you increase the 'tmp_table_size' and 'max_heap_table_size' parameter values to reduce the number of disk-based transactions.
+
+Learn more about [Azure Database for MySQL flexible server - OrcasMeruMysqlTmpTable (Improve performance by optimizing MySQL temporary-table sizing.)](https://dev.mysql.com/doc/refman/8.0/en/internal-temporary-tables.html#internal-temporary-tables-engines).
+
+### Move your MySQL server to Memory Optimized SKU
+
+Our internal telemetry shows that there is high memory usage for this server which can result in slower query performance and increased IOPS. To improve performance, please review your workload queries to identify opportunities to minimize memory consumed.  If no such opportunity found, then we recommend moving to higher SKU with more memory or increase storage size to get more IOPS.
+
+Learn more about [Azure Database for MySQL flexible server - OrcasMeruMysqlMemoryUpsell (Move your MySQL server to Memory Optimized SKU)](https://aka.ms/azure_mysql_flexible_server_storage).
+
+### Add a MySQL Read Replica server
+
+Our internal telemetry shows that you may have a read intensive workload running, which results in resource contention for this server. This may lead to slow query performance for the server. To improve performance, we recommend you add a read replica, and offload some of your read workloads to the replica.
+
+Learn more about [Azure Database for MySQL flexible server - OrcasMeruMysqlReadReplicaUpsell (Add a MySQL Read Replica server)](https://aka.ms/flexible-server-mysql-read-replicas).
 
 ## PostgreSQL
 
@@ -414,7 +500,7 @@ Learn more about [PostgreSQL server - OrcasPostgreSqlMemoryCache (Move your Post
 
 Our internal telemetry shows that you may have a read intensive workload running, which results in resource contention for this server. This may lead to slow query performance for the server. To improve performance, we recommend you add a read replica, and offload some of your read workloads to the replica.
 
-Learn more about [PostgreSQL server - OrcasPostgreSqlReadReplica (Add a PostgreSQL Read Replica server)](../postgresql/howto-read-replicas-portal.md).
+Learn more about [PostgreSQL server - OrcasPostgreSqlReadReplica (Add a PostgreSQL Read Replica server)](https://aka.ms/postgresqlreadreplica).
 
 ### Increase the PostgreSQL server vCores
 
@@ -438,19 +524,19 @@ Learn more about [PostgreSQL server - OrcasPostgreSqlLogErrorVerbosity (Improve 
 
 Our internal telemetry indicates that your PostgreSQL server has been configured to track query statistics using the pg_stat_statements module. While useful for troubleshooting, it can also result in reduced server performance. To improve performance, we recommend that you change the pg_stat_statements.track parameter to NONE.
 
-Learn more about [PostgreSQL server - OrcasPostgreSqlStatStatementsTrack (Optimize query statistics collection on an Azure Database for PostgreSQL)](../postgresql/howto-optimize-query-stats-collection.md).
+Learn more about [PostgreSQL server - OrcasPostgreSqlStatStatementsTrack (Optimize query statistics collection on an Azure Database for PostgreSQL)](https://aka.ms/azure_postgresql_optimize_query_stats).
 
 ### Optimize query store on an Azure Database for PostgreSQL when not troubleshooting
 
 Our internal telemetry indicates that your PostgreSQL database has been configured to track query performance using the pg_qs.query_capture_mode parameter. While troubleshooting, we suggest setting the pg_qs.query_capture_mode parameter to TOP or ALL. When not troubleshooting, we recommend that you set the pg_qs.query_capture_mode parameter to NONE.
 
-Learn more about [PostgreSQL server - OrcasPostgreSqlQueryCaptureMode (Optimize query store on an Azure Database for PostgreSQL when not troubleshooting)](../postgresql/concepts-query-store.md).
+Learn more about [PostgreSQL server - OrcasPostgreSqlQueryCaptureMode (Optimize query store on an Azure Database for PostgreSQL when not troubleshooting)](https://aka.ms/azure_postgresql_query_store).
 
 ### Increase the storage limit for PostgreSQL Flexible Server
 
 Our internal telemetry shows that the server may be constrained because it is approaching limits for the currently provisioned storage values. This may result in degraded performance or in the server being moved to read-only mode. To ensure continued performance, we recommend increasing the provisioned storage amount.
 
-Learn more about [PostgreSQL server - OrcasPostgreSqlFlexibleServerStorageLimit (Increase the storage limit for PostgreSQL Flexible Server)](../postgresql/flexible-server/concepts-limits.md).
+Learn more about [PostgreSQL server - OrcasPostgreSqlFlexibleServerStorageLimit (Increase the storage limit for PostgreSQL Flexible Server)](https://aka.ms/azure_postgresql_flexible_server_limits).
 
 ### Optimize logging settings by setting LoggingCollector to -1
 
@@ -538,6 +624,12 @@ Consider our new offering Azure Database for PostgreSQL Flexible Server that pro
 
 Learn more about [Azure Database for PostgreSQL flexible server - OrcasPostgreSqlMeruMigration (Migrate your database from SSPG to FSPG)](../postgresql/how-to-upgrade-using-dump-and-restore.md).
 
+### Move your PostgreSQL Flexible Server to Memory Optimized SKU
+
+Our internal telemetry shows that there is high churn in the buffer pool for this server which can result in slower query performance and increased IOPS. To improve performance, please review your workload queries to identify opportunities to minimize memory consumed. If no such opportunity found, then we recommend moving to higher SKU with more memory or increase storage size to get more IOPS.
+
+Learn more about [PostgreSQL server - OrcasMeruMemoryUpsell (Move your PostgreSQL Flexible Server to Memory Optimized SKU)](https://aka.ms/azure_postgresql_flexible_server_pricing).
+
 ## Desktop Virtualization
 
 ### Improve user experience and connectivity by deploying VMs closer to user’s location.
@@ -600,6 +692,7 @@ You are seeing this advisor recommendation because HDInsight team's system log s
 
 These conditions are indicators that your cluster is suffering from high write latencies. This could be due to heavy workload performed on your cluster.
 To improve the performance of your cluster, you may want to consider utilizing the Accelerated Writes feature provided by Azure HDInsight HBase.  The Accelerated Writes feature for HDInsight Apache HBase clusters attaches premium SSD-managed disks to every RegionServer (worker node) instead of using cloud storage. As a result, provides low write-latency and better resiliency for your applications.
+
 Learn more about [HDInsight cluster - AccWriteCandidate (Consider using Accelerated Writes feature in your HBase cluster to improve cluster performance.)](../hdinsight/hbase/apache-hbase-accelerated-writes.md).
 
 ### More than 75% of your queries are full scan queries.
@@ -649,19 +742,19 @@ Learn more about [Managed HSM Service - UpgradeKeyVaultMHSMSDK (Update Key Vault
 
 This recommendation surfaces all Data Explorer resources which exceed the recommended data capacity (80%). The recommended action to improve the performance is to scale to the recommended configuration shown.
 
-Learn more about [Data explorer resource - Right-size ADX resource (Right-size Data Explorer resources for optimal performance.)](/azure/data-explorer/azure-advisor#correctly-size-azure-data-explorer-clusters-to-optimize-performance).
+Learn more about [Data explorer resource - Right-size ADX resource (Right-size Data Explorer resources for optimal performance.)](https://aka.ms/adxskuperformance).
 
 ### Review table cache policies for Data Explorer tables
 
 This recommendation surfaces Data Explorer tables with a high number of queries that look back beyond the configured cache period (policy). (You'll see the top 10 tables by query percentage that access out-of-cache data). The recommended action to improve the performance: Limit queries on this table to the minimal necessary time range (within the defined policy). Alternatively, if data from the entire time range is required, increase the cache period to the recommended value.
 
-Learn more about [Data explorer resource - UpdateCachePoliciesForAdxTables (Review table cache policies for Data Explorer tables)](/azure/data-explorer/kusto/management/cachepolicy).
+Learn more about [Data explorer resource - UpdateCachePoliciesForAdxTables (Review table cache policies for Data Explorer tables)](https://aka.ms/adxcachepolicy).
 
 ### Reduce Data Explorer table cache policy for better performance
 
 Reducing the table cache policy will free up unused data from the resource's cache and improve performance.
 
-Learn more about [Data explorer resource - ReduceCacheForAzureDataExplorerTablesToImprovePerformance (Reduce Data Explorer table cache policy for better performance)](/azure/data-explorer/kusto/management/cachepolicy).
+Learn more about [Data explorer resource - ReduceCacheForAzureDataExplorerTablesToImprovePerformance (Reduce Data Explorer table cache policy for better performance)](https://aka.ms/adxcachepolicy).
 
 ## Networking
 
@@ -669,13 +762,13 @@ Learn more about [Data explorer resource - ReduceCacheForAzureDataExplorerTables
 
 Time to Live (TTL) affects how recent of a response a client will get when it makes a request to Azure Traffic Manager. Reducing the TTL value means that the client will be routed to a functioning endpoint faster in the case of a failover. Configure your TTL to 20 seconds to route traffic to a health endpoint as quickly as possible.
 
-Learn more about [Traffic Manager profile - FastFailOverTTL (Configure DNS Time to Live to 20 seconds)](/azure/traffic-manager/traffic-manager-monitoring#endpoint-failover-and-recovery).
+Learn more about [Traffic Manager profile - FastFailOverTTL (Configure DNS Time to Live to 20 seconds)](https://aka.ms/Ngfw4r).
 
 ### Configure DNS Time to Live to 60 seconds
 
 Time to Live (TTL) affects how recent of a response a client will get when it makes a request to Azure Traffic Manager. Reducing the TTL value means that the client will be routed to a functioning endpoint faster in the case of a failover. Configure your TTL to 60 seconds to route traffic to a health endpoint as quickly as possible.
 
-Learn more about [Traffic Manager profile - ProfileTTL (Configure DNS Time to Live to 60 seconds)](../traffic-manager/traffic-manager-monitoring.md).
+Learn more about [Traffic Manager profile - ProfileTTL (Configure DNS Time to Live to 60 seconds)](https://aka.ms/Um3xr5).
 
 ### Upgrade your ExpressRoute circuit bandwidth to accommodate your bandwidth needs
 
@@ -687,7 +780,7 @@ Learn more about [ExpressRoute circuit - UpgradeERCircuitBandwidth (Upgrade your
 
 Under high traffic load, the VPN gateway may drop packets due to high CPU.
 
-Learn more about [Virtual network gateway - HighCPUVNetGateway (Consider increasing the size of your VNet Gateway SKU to address consistently high CPU use)](../virtual-machines/sizes.md).
+Learn more about [Virtual network gateway - HighCPUVNetGateway (Consider increasing the size of your VNet Gateway SKU to address consistently high CPU use)](https://aka.ms/HighCPUP2SVNetGateway).
 
 ### Consider increasing the size of your VNet Gateway SKU to address high P2S use
 
@@ -699,7 +792,7 @@ Learn more about [Virtual network gateway - HighP2SConnectionsVNetGateway (Consi
 
 Your Application Gateway has been running on high utilization recently and under heavy load, you may experience traffic loss or increase in latency. It is important that you scale your Application Gateway according to your traffic and with a bit of a buffer so that you are prepared for any traffic surges or spikes and minimizing the impact that it may have in your QoS. Application Gateway v1 SKU (Standard/WAF) supports manual scaling and v2 SKU (Standard_v2/WAF_v2) support manual and autoscaling. In case of manual scaling, increase your instance count and if autoscaling is enabled, make sure your maximum instance count is set to a higher value so Application Gateway can scale out as the traffic increases
 
-Learn more about [Application gateway - HotAppGateway (Make sure you have enough instances in your Application Gateway to support your traffic)](../application-gateway/high-traffic-support.md).
+Learn more about [Application gateway - HotAppGateway (Make sure you have enough instances in your Application Gateway to support your traffic)](https://aka.ms/hotappgw).
 
 ## SQL
 
@@ -707,19 +800,19 @@ Learn more about [Application gateway - HotAppGateway (Make sure you have enough
 
 We have detected that you are missing table statistics which may be impacting query performance. The query optimizer uses statistics to estimate the cardinality or number of rows in the query result which enables the query optimizer to create a high quality query plan.
 
-Learn more about [SQL data warehouse - CreateTableStatisticsSqlDW (Create statistics on table columns)](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-statistics.md).
+Learn more about [SQL data warehouse - CreateTableStatisticsSqlDW (Create statistics on table columns)](https://aka.ms/learnmorestatistics).
 
 ### Remove data skew to increase query performance
 
 We have detected distribution data skew greater than 15%. This can cause costly performance bottlenecks.
 
-Learn more about [SQL data warehouse - DataSkewSqlDW (Remove data skew to increase query performance)](/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-distribute#how-to-tell-if-your-distribution-column-is-a-good-choice).
+Learn more about [SQL data warehouse - DataSkewSqlDW (Remove data skew to increase query performance)](https://aka.ms/learnmoredataskew).
 
 ### Update statistics on table columns
 
 We have detected that you do not have up-to-date table statistics which may be impacting query performance. The query optimizer uses up-to-date statistics to estimate the cardinality or number of rows in the query result which enables the query optimizer to create a high quality query plan.
 
-Learn more about [SQL data warehouse - UpdateTableStatisticsSqlDW (Update statistics on table columns)](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-statistics.md).
+Learn more about [SQL data warehouse - UpdateTableStatisticsSqlDW (Update statistics on table columns)](https://aka.ms/learnmorestatistics).
 
 ### Right-size overutilized SQL Databases
 
@@ -731,37 +824,37 @@ Learn more about [SQL database - sqlRightsizePerformance (Right-size overutilize
 
 We have detected that you had high cache used percentage with a low hit percentage. This indicates high cache eviction which can impact the performance of your workload.
 
-Learn more about [SQL data warehouse - SqlDwIncreaseCacheCapacity (Scale up to optimize cache utilization with SQL Data Warehouse)](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-how-to-monitor-cache.md).
+Learn more about [SQL data warehouse - SqlDwIncreaseCacheCapacity (Scale up to optimize cache utilization with SQL Data Warehouse)](https://aka.ms/learnmoreadaptivecache).
 
 ### Scale up or update resource class to reduce tempdb contention with SQL Data Warehouse
 
 We have detected that you had high tempdb utilization which can impact the performance of your workload.
 
-Learn more about [SQL data warehouse - SqlDwReduceTempdbContention (Scale up or update resource class to reduce tempdb contention with SQL Data Warehouse)](/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-manage-monitor#monitor-tempdb).
+Learn more about [SQL data warehouse - SqlDwReduceTempdbContention (Scale up or update resource class to reduce tempdb contention with SQL Data Warehouse)](https://aka.ms/learnmoretempdb).
 
 ### Convert tables to replicated tables with SQL Data Warehouse
 
 We have detected that you may benefit from using replicated tables. When using replicated tables, this will avoid costly data movement operations and significantly increase the performance of your workload.
 
-Learn more about [SQL data warehouse - SqlDwReplicateTable (Convert tables to replicated tables with SQL Data Warehouse)](../synapse-analytics/sql-data-warehouse/design-guidance-for-replicated-tables.md).
+Learn more about [SQL data warehouse - SqlDwReplicateTable (Convert tables to replicated tables with SQL Data Warehouse)](https://aka.ms/learnmorereplicatedtables).
 
 ### Split staged files in the storage account to increase load performance
 
 We have detected that you can increase load throughput by splitting your compressed files that are staged in your storage account. A good rule of thumb is to split compressed files into 60 or more to maximize the parallelism of your load.
 
-Learn more about [SQL data warehouse - FileSplittingGuidance (Split staged files in the storage account to increase load performance)](/azure/synapse-analytics/sql/data-loading-best-practices#preparing-data-in-azure-storage).
+Learn more about [SQL data warehouse - FileSplittingGuidance (Split staged files in the storage account to increase load performance)](https://aka.ms/learnmorefilesplit).
 
 ### Increase batch size when loading to maximize load throughput, data compression, and query performance
 
 We have detected that you can increase load performance and throughput by increasing the batch size when loading into your database. You should consider using the COPY statement. If you are unable to use the COPY statement, consider increasing the batch size when using loading utilities such as the SQLBulkCopy API or BCP - a good rule of thumb is a batch size between 100K to 1M rows.
 
-Learn more about [SQL data warehouse - LoadBatchSizeGuidance (Increase batch size when loading to maximize load throughput, data compression, and query performance)](/azure/synapse-analytics/sql/data-loading-best-practices#increase-batch-size-when-using-sqlbulkcopy-api-or-bcp).
+Learn more about [SQL data warehouse - LoadBatchSizeGuidance (Increase batch size when loading to maximize load throughput, data compression, and query performance)](https://aka.ms/learnmoreincreasebatchsize).
 
 ### Co-locate the storage account within the same region to minimize latency when loading
 
 We have detected that you are loading from a region that is different from your SQL pool. You should consider loading from a storage account that is within the same region as your SQL pool to minimize latency when loading data.
 
-Learn more about [SQL data warehouse - ColocateStorageAccount (Co-locate the storage account within the same region to minimize latency when loading)](/azure/synapse-analytics/sql/data-loading-best-practices#preparing-data-in-azure-storage).
+Learn more about [SQL data warehouse - ColocateStorageAccount (Co-locate the storage account within the same region to minimize latency when loading)](https://aka.ms/learnmorestoragecolocation).
 
 ## Storage
 
@@ -769,13 +862,13 @@ Learn more about [SQL data warehouse - ColocateStorageAccount (Co-locate the sto
 
 When writing a block blob that is 256 MB or less (64 MB for requests using REST versions before 2016-05-31), you can upload it in its entirety with a single write operation using "Put Blob". Based on your aggregated metrics, we believe your storage account's write operations can be optimized.
 
-Learn more about [Storage Account - StorageCallPutBlob (Use \"Put Blob\" for blobs smaller than 256 MB)](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-block-blobs).
+Learn more about [Storage Account - StorageCallPutBlob (Use \""Put Blob\"" for blobs smaller than 256 MB)](https://aka.ms/understandblockblobs).
 
 ### Upgrade your Storage Client Library to the latest version for better reliability and performance
 
 The latest version of Storage Client Library/ SDK contains fixes to issues reported by customers and proactively identified through our QA process. The latest version also carries reliability and performance optimization in addition to new features that can improve your overall experience using Azure Storage.
 
-Learn more about [Storage Account - UpdateStorageDataMovementSDK (Upgrade your Storage Client Library to the latest version for better reliability and performance)](/nuget/consume-packages/install-use-packages-visual-studio).
+Learn more about [Storage Account - UpdateStorageDataMovementSDK (Upgrade your Storage Client Library to the latest version for better reliability and performance)](https://aka.ms/AA5wtca).
 
 ### Upgrade to Standard SSD Disks for consistent and improved performance
 
@@ -791,7 +884,7 @@ The latest version of Storage Client Library/ SDK contains fixes to issues repor
 
 One or more of your storage accounts has a high transaction rate per GB of block blob data stored. Use premium performance block blob storage instead of standard performance storage for your workloads that require fast storage response times and/or high transaction rates and potentially save on storage costs.
 
-Learn more about [Storage Account - PremiumBlobStorageAccount (Use premium performance block blob storage)](../storage/common/storage-account-overview.md).
+Learn more about [Storage Account - PremiumBlobStorageAccount (Use premium performance block blob storage)](https://aka.ms/usePremiumBlob).
 
 ### Convert Unmanaged Disks from Standard HDD to Premium SSD for performance
 
@@ -799,11 +892,14 @@ We have noticed your Unmanaged HDD Disk is approaching performance targets. Azur
 
 Learn more about [Storage Account - UMDHDDtoPremiumForPerformance (Convert Unmanaged Disks from Standard HDD to Premium SSD for performance)](/azure/virtual-machines/windows/disks-types#premium-ssd).
 
-### No Snapshots Detected
 
-We have observed that there are no snapshots of your file shares. This means you are not protected from accidental file deletion or file corruption. Please enable snapshots to protect your data. One way to do this is through Azure
+## Subscription
 
-Learn more about [Storage Account - EnableSnapshots (No Snapshots Detected)](../backup/azure-file-share-backup-overview.md).
+### Experience more predictable, consistent latency with a private connection to Azure
+
+Improve the performance, privacy, and reliability of your business-critical apps by extending your on-premises networks to Azure with Azure ExpressRoute. Establish private ExpressRoute connections directly from your WAN, through a cloud exchange facility, or through POP and IPVPN connections.
+
+Learn more about [Subscription - AzureExpressRoute (Experience more predictable, consistent latency with a private connection to Azure)](/azure/expressroute/expressroute-howto-circuit-portal-resource-manager).
 
 ## Synapse
 
@@ -811,13 +907,19 @@ Learn more about [Storage Account - EnableSnapshots (No Snapshots Detected)](../
 
 Clustered columnstore tables are organized in data into segments. Having high segment quality is critical to achieving optimal query performance on a columnstore table. Segment quality can be measured by the number of rows in a compressed row group.
 
-Learn more about [Synapse workspace - SynapseCCIGuidance (Tables with Clustered Columnstore Indexes (CCI) with less than 60 million rows)](../synapse-analytics/sql/best-practices-dedicated-sql-pool.md#optimize-clustered-columnstore-tables).
+Learn more about [Synapse workspace - SynapseCCIGuidance (Tables with Clustered Columnstore Indexes (CCI) with less than 60 million rows)](https://aka.ms/AzureSynapseCCIGuidance).
+
+### CCI Tables with Deleted Records Over the Recommended Threshold
+
+Deleting a row from a compressed row group only logically marks the row as deleted. The row remains in the compressed row group until the partition or table is rebuilt.
+
+Learn more about [Synapse workspace - SynapseCCIHealthDeletedRowgroups (CCI Tables with Deleted Records Over the Recommended Threshold)](https://aka.ms/AzureSynapseCCIDeletedRowGroups).
 
 ### Update SynapseManagementClient SDK Version
 
 New SynapseManagementClient is using .NET SDK 4.0 or above.
 
-Learn more about [Synapse workspace - UpgradeSynapseManagementClientSDK (Update SynapseManagementClient SDK Version)](/dotnet/api/microsoft.azure.management.synapse.synapsemanagementclient).
+Learn more about [Synapse workspace - UpgradeSynapseManagementClientSDK (Update SynapseManagementClient SDK Version)](https://aka.ms/UpgradeSynapseManagementClientSDK).
 
 ## Web
 
@@ -825,14 +927,13 @@ Learn more about [Synapse workspace - UpgradeSynapseManagementClientSDK (Update 
 
 Your app served more than 1000 requests per day for the past 3 days. Your app may benefit from the higher performance infrastructure available with the Premium V2 App Service tier. The Premium V2 tier features Dv2-series VMs with faster processors, SSD storage, and doubled memory-to-core ratio when compared to the previous instances. Learn more about upgrading to Premium V2 from our documentation.
 
-Learn more about [App service - AppServiceMoveToPremiumV2 (Move your App Service Plan to PremiumV2 for better performance)](../app-service/app-service-configure-premium-tier.md).
+Learn more about [App service - AppServiceMoveToPremiumV2 (Move your App Service Plan to PremiumV2 for better performance)](https://aka.ms/ant-premiumv2).
 
 ### Check outbound connections from your App Service resource
 
 Your app has opened too many TCP/IP socket connections. Exceeding ephemeral TCP/IP port connection limits can cause unexpected connectivity issues for your apps.
 
-Learn more about [App service - AppServiceOutboundConnections (Check outbound connections from your App Service resource)](/azure/app-service/app-service-best-practices#socketresources).
-
+Learn more about [App service - AppServiceOutboundConnections (Check outbound connections from your App Service resource)](https://aka.ms/antbc-socket).
 
 ## Next steps
 
