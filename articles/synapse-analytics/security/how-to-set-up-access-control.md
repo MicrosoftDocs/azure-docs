@@ -161,15 +161,15 @@ To create SQL pools, Apache Spark pools and integration runtimes, users must hav
 
     ![Add role assignment page in Azure portal.](../../../includes/role-based-access-control/media/add-role-assignment-page.png) 
 
-## STEP 6: Assign SQL Active Directory Admin role
+## STEP 6: Assign Active Directory Admin role
 
-The workspace creator is automatically set up as the SQL Active Directory Admin for the workspace.  Only a single user or group can be granted this role. In this step, you assign the SQL Active Directory Admin on the workspace to the `workspace1_SQLAdmins` security group.  Assigning this role gives this group highly privileged admin access to all SQL pools and databases in the workspace. 
+The workspace creator is automatically set up as the Active Directory Admin for the workspace.  Only a single user or group can be granted this role. In this step, you assign the Active Directory Admin on the workspace to the `workspace1_SQLAdmins` security group.  Assigning this role gives this group highly privileged admin access to all SQL pools and databases in the workspace. 
 
 The Azure Active Directory admin account controls access to dedicated SQL pools, while Synapse RBAC roles are used to control access to serverless pools. Configure Synapse RBAC roles via Synapse Studio, for more information, see [How to manage Synapse RBAC role assignments in Synapse Studio](../security/how-to-manage-synapse-rbac-role-assignments.md).
 
 - Open the Azure portal
 - Navigate to `workspace1`
-- Under **Settings**, select **SQL Active Directory admin**
+- Under **Settings**, select **Azure Active Directory**
 - Select **Set admin** and choose **`workspace1_SQLAdmins`**
 
 >[!Note]
