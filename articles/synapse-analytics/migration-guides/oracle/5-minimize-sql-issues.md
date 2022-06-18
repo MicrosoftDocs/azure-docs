@@ -300,7 +300,7 @@ In common with most database products, Oracle supports system functions and also
 
 ##### Stored procedures
 
-Most modern database products allow for procedures to be stored within the database -- in Oracle's case the PL/SQL language is provided for this purpose. A stored procedure typically contains SQL statements and some procedural logic and may return data or a status. SQL Azure Data Warehouse also supports stored procedures using T-SQL -- so if there are stored procedures to be migrated they must be recoded accordingly.
+Most modern database products allow for procedures to be stored within the database -- in Oracle's case the PL/SQL language is provided for this purpose. A stored procedure typically contains SQL statements and some procedural logic and may return data or a status. Azure Synapse also supports stored procedures using T-SQL -- so if there are stored procedures to be migrated they must be recoded accordingly.
 
 ##### Sequences
 
