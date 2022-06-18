@@ -29,7 +29,7 @@ Learn more about [Azure FarmBeats - FarmBeatsApiVersion (Upgrade to the latest F
 
 API Management service failed to refresh hostname certificate from Key Vault. Ensure that certificate exists in Key Vault and API Management service identity is granted secret read access. Otherwise, API Management service will not be able to retrieve certificate updates from Key Vault, which may lead to the service using stale certificate and runtime API traffic being blocked as a result.
 
-Learn more about [Api Management - HostnameCertRotationFail (Hostname certificate rotation failed)](../api-management/configure-custom-domain.md).
+Learn more about [Api Management - HostnameCertRotationFail (Hostname certificate rotation failed)](https://aka.ms/apimdocs/customdomain).
 
 ### SSL/TLS renegotiation blocked
 
@@ -37,14 +37,29 @@ SSL/TLS renegotiation attempt blocked. Renegotiation happens when a client certi
 
 Learn more about [Api Management - TlsRenegotiationBlocked (SSL/TLS renegotiation blocked)](../api-management/api-management-howto-mutual-certificates-for-clients.md).
 
-## Cache
+## App
+
+### Increase the minimal replica count for your container app
+
+We detected the minimal replica count set for your container app may be lower than optimal. Consider increasing the minimal replica count for better availability.
+
+Learn more about [Resource - ContainerAppMinimalReplicaCountTooLow (Increase the minimal replica count for your container app)](https://aka.ms/containerappscalingrules).
+
+## Cache for Redis
 
 ### Availability may be impacted from high memory fragmentation. Increase fragmentation memory reservation to avoid potential impact.
 
 Fragmentation and memory pressure can cause availability incidents during a failover or management operations. Increasing reservation of memory for fragmentation helps in reducing the cache failures when running under high memory pressure. Memory for fragmentation can be increased via maxfragmentationmemory-reserved setting available in advanced settings blade.
 
-Learn more about [Redis Cache Server - RedisCacheMemoryFragmentation (Availability may be impacted from high memory fragmentation. Increase fragmentation memory reservation to avoid potential impact.)](/azure/azure-cache-for-redis/cache-configure#memory-policies).
+Learn more about [Redis Cache Server - RedisCacheMemoryFragmentation (Availability may be impacted from high memory fragmentation. Increase fragmentation memory reservation to avoid potential impact.)](https://aka.ms/redis/recommendations/memory-policies).
 
+## CDN
+
+### Switch Secret version to ‘Latest’ for the Azure Front Door customer certificate
+
+We recommend to configure the Azure Front Door customer certificate secret to ‘Latest’ for the AFD to refer to the latest secret version in Azure Key Vault, so that the secret can be automatically rotated.
+
+Learn more about [Front Door Profile - SwitchVersionBYOC (Switch Secret version to ‘Latest’ for the Azure Front Door customer certificate)](/azure/frontdoor/standard-premium/how-to-configure-https-custom-domain#certificate-renewal-and-changing-certificate-types).
 ## Compute
 
 ### Enable Backups on your Virtual Machines
@@ -57,31 +72,31 @@ Learn more about [Virtual machine (classic) - EnableBackup (Enable Backups on yo
 
 We have identified that you are using standard disks with your premium-capable Virtual Machines and we recommend you consider upgrading the standard disks to premium disks. For any Single Instance Virtual Machine using premium storage for all Operating System Disks and Data Disks, we guarantee you will have Virtual Machine Connectivity of at least 99.9%. Consider these factors when making your upgrade decision. The first is that upgrading requires a VM reboot and this process takes 3-5 minutes to complete. The second is if the VMs in the list are mission-critical production VMs, evaluate the improved availability against the cost of premium disks.
 
-Learn more about [Virtual machine - MigrateStandardStorageAccountToPremium (Upgrade the standard disks attached to your premium-capable VM to premium disks)](/azure/virtual-machines/disks-types#premium-ssd).
+Learn more about [Virtual machine - MigrateStandardStorageAccountToPremium (Upgrade the standard disks attached to your premium-capable VM to premium disks)](https://aka.ms/aa_storagestandardtopremium_learnmore).
 
 ### Enable virtual machine replication to protect your applications from regional outage
 
 Virtual machines which do not have replication enabled to another region are not resilient to regional outages. Replicating the machines drastically reduce any adverse business impact during the time of an Azure region outage. We highly recommend enabling replication of all the business critical virtual machines from the below list so that in an event of an outage, you can quickly bring up your machines in remote Azure region.
 
-Learn more about [Virtual machine - ASRUnprotectedVMs (Enable virtual machine replication to protect your applications from regional outage)](../site-recovery/azure-to-azure-quickstart.md).
+Learn more about [Virtual machine - ASRUnprotectedVMs (Enable virtual machine replication to protect your applications from regional outage)](https://aka.ms/azure-site-recovery-dr-azure-vms).
 
 ### Upgrade VM from Premium Unmanaged Disks to Managed Disks at no additional cost
 
 We have identified that your VM is using premium unmanaged disks that can be migrated to managed disks at no additional cost. Azure Managed Disks provides higher resiliency, simplified service management, higher scale target and more choices among several disk types. This upgrade can be done through the portal in less than 5 minutes.
 
-Learn more about [Virtual machine - UpgradeVMToManagedDisksWithoutAdditionalCost (Upgrade VM from Premium Unmanaged Disks to Managed Disks at no additional cost)](../virtual-machines/managed-disks-overview.md).
+Learn more about [Virtual machine - UpgradeVMToManagedDisksWithoutAdditionalCost (Upgrade VM from Premium Unmanaged Disks to Managed Disks at no additional cost)](https://aka.ms/md_overview).
 
 ### Update your outbound connectivity protocol to Service Tags for Azure Site Recovery
 
 Using IP Address based filtering has been identified as a vulnerable way to control outbound connectivity for firewalls. It is advised to use Service Tags as an alternative for controlling connectivity. We highly recommend the use of Service Tags, to allow connectivity to Azure Site Recovery services for the machines.
 
-Learn more about [Virtual machine - ASRUpdateOutboundConnectivityProtocolToServiceTags (Update your outbound connectivity protocol to Service Tags for Azure Site Recovery)](/azure/site-recovery/azure-to-azure-about-networking#outbound-connectivity-using-service-tags).
+Learn more about [Virtual machine - ASRUpdateOutboundConnectivityProtocolToServiceTags (Update your outbound connectivity protocol to Service Tags for Azure Site Recovery)](https://aka.ms/azure-site-recovery-using-service-tags).
 
 ### Use Managed Disks to improve data reliability
 
 Virtual machines in an Availability Set with disks that share either storage accounts or storage scale units are not resilient to single storage scale unit failures during outages. Migrate to Azure Managed Disks to ensure that the disks of different VMs in the Availability Set are sufficiently isolated to avoid a single point of failure.
 
-Learn more about [Availability set - ManagedDisksAvSet (Use Managed Disks to improve data reliability)](../virtual-machines/managed-disks-overview.md).
+Learn more about [Availability set - ManagedDisksAvSet (Use Managed Disks to improve data reliability)](https://aka.ms/aa_avset_manageddisk_learnmore).
 
 ### Check Point Virtual Machine may lose Network Connectivity.
 
@@ -101,13 +116,13 @@ Learn more about [Virtual machine - SessionHostNeedsAssistanceForUrlCheck (Acces
 
 Our internal telemetry indicates that your PostgreSQL server may have inactive logical replication slots. THIS NEEDS IMMEDIATE ATTENTION. This can result in degraded server performance and unavailability due to WAL file retention and buildup of snapshot files. To improve performance and availability, we STRONGLY recommend that you IMMEDIATELY either delete the inactive replication slots, or start consuming the changes from these slots so that the slots' Log Sequence Number (LSN) advances and is close to the current LSN of the server.
 
-Learn more about [PostgreSQL server - OrcasPostgreSqlLogicalReplicationSlots (Improve PostgreSQL availability by removing inactive logical replication slots)](../postgresql/concepts-logical.md).
+Learn more about [PostgreSQL server - OrcasPostgreSqlLogicalReplicationSlots (Improve PostgreSQL availability by removing inactive logical replication slots)](https://aka.ms/azure_postgresql_logical_decoding).
 
 ### Improve PostgreSQL availability by removing inactive logical replication slots
 
 Our internal telemetry indicates that your PostgreSQL flexible server may have inactive logical replication slots. THIS NEEDS IMMEDIATE ATTENTION. This can result in degraded server performance and unavailability due to WAL file retention and buildup of snapshot files. To improve performance and availability, we STRONGLY recommend that you IMMEDIATELY either delete the inactive replication slots, or start consuming the changes from these slots so that the slots' Log Sequence Number (LSN) advances and is close to the current LSN of the server.
 
-Learn more about [Azure Database for PostgreSQL flexible server - OrcasPostgreSqlFlexibleServerLogicalReplicationSlots (Improve PostgreSQL availability by removing inactive logical replication slots)](../postgresql/flexible-server/concepts-logical.md#monitoring).
+Learn more about [Azure Database for PostgreSQL flexible server - OrcasPostgreSqlFlexibleServerLogicalReplicationSlots (Improve PostgreSQL availability by removing inactive logical replication slots)](https://aka.ms/azure_postgresql_flexible_server_logical_decoding).
 
 ## IoT Hub
 
@@ -115,7 +130,7 @@ Learn more about [Azure Database for PostgreSQL flexible server - OrcasPostgreSq
 
 Some or all of your devices are using outdated SDK and we recommend you upgrade to a supported version of SDK. See the details in the recommendation.
 
-Learn more about [IoT hub - UpgradeDeviceClientSdk (Upgrade device client SDK to a supported version for IotHub)](../iot-hub/iot-hub-devguide-sdks.md#azure-iot-hub-device-sdks).
+Learn more about [IoT hub - UpgradeDeviceClientSdk (Upgrade device client SDK to a supported version for IotHub)](https://aka.ms/iothubsdk).
 
 ## Cosmos DB
 
@@ -214,13 +229,13 @@ Learn more about [FluidRelay Server - UpgradeClientLibrary (Upgrade your Azure F
 
 Starting July 1, 2020, customers will not be able to create new Kafka clusters with Kafka 1.1 on HDInsight 4.0. Existing clusters will run as is without support from Microsoft. Consider moving to Kafka 2.1 on HDInsight 4.0 by June 30 2020 to avoid potential system/support interruption.
 
-Learn more about [HDInsight cluster - KafkaVersionRetirement (Deprecation of Kafka 1.1 in HDInsight 4.0 Kafka cluster)](../hdinsight/hdinsight-release-notes.md).
+Learn more about [HDInsight cluster - KafkaVersionRetirement (Deprecation of Kafka 1.1 in HDInsight 4.0 Kafka cluster)](https://aka.ms/hdiretirekafka).
 
 ### Deprecation of Older Spark Versions in HDInsight Spark cluster
 
 Starting July 1, 2020, customers will not be able to create new Spark clusters with Spark 2.1 and 2.2 on HDInsight 3.6, and Spark 2.3 on HDInsight 4.0. Existing clusters will run as is without support from Microsoft.
 
-Learn more about [HDInsight cluster - SparkVersionRetirement (Deprecation of Older Spark Versions in HDInsight Spark cluster)](../hdinsight/spark/migrate-versions.md).
+Learn more about [HDInsight cluster - SparkVersionRetirement (Deprecation of Older Spark Versions in HDInsight Spark cluster)](https://aka.ms/hdiretirespark).
 
 ### Enable critical updates to be applied to your HDInsight clusters
 
@@ -272,7 +287,7 @@ Learn more about [Kubernetes service - PodDisruptionBudgetsRecommended (Pod Disr
 
 Upgrade to the latest agent version for the best Azure Arc enabled Kubernetes experience, improved stability and new functionality.
 
-Learn more about [Kubernetes - Azure Arc - Arc-enabled K8s agent version upgrade (Upgrade to the latest agent version of Azure Arc-enabled Kubernetes)](../azure-arc/kubernetes/agent-upgrade.md).
+Learn more about [Kubernetes - Azure Arc - Arc-enabled K8s agent version upgrade (Upgrade to the latest agent version of Azure Arc-enabled Kubernetes)](https://aka.ms/ArcK8sAgentUpgradeDocs).
 
 ## Media Services
 
@@ -280,7 +295,7 @@ Learn more about [Kubernetes - Azure Arc - Arc-enabled K8s agent version upgrade
 
 Please be advised that your media account is about to hit its quota limits. Please review current usage of Assets, Content Key Policies and Stream Policies for the media account. To avoid any disruption of service, you should request quota limits to be increased for the entities that are closer to hitting quota limit. You can request quota limits to be increased by opening a ticket and adding relevant details to it. Please don't create additional Azure Media accounts in an attempt to obtain higher limits.
 
-Learn more about [Media Service - AccountQuotaLimit (Increase Media Services quotas or limits to ensure continuity of service.)](/azure/media-services/latest/limits-quotas-constraints-reference).
+Learn more about [Media Service - AccountQuotaLimit (Increase Media Services quotas or limits to ensure continuity of service.)](https://aka.ms/ams-quota-recommendation/).
 
 ## Networking
 
@@ -294,25 +309,25 @@ Learn more about [Application gateway - AppGateway (Upgrade your SKU or add more
 
 The VPN gateway Basic SKU is designed for development or testing scenarios. Please move to a production SKU if you are using the VPN gateway for production purposes. The production SKUs offer higher number of tunnels, BGP support, active-active, custom IPsec/IKE policy in addition to higher stability and availability.
 
-Learn more about [Virtual network gateway - BasicVPNGateway (Move to production gateway SKUs from Basic gateways)](/azure/vpn-gateway/vpn-gateway-about-vpn-gateway-settings#gwsku).
+Learn more about [Virtual network gateway - BasicVPNGateway (Move to production gateway SKUs from Basic gateways)](https://aka.ms/aa_basicvpngateway_learnmore).
 
 ### Add at least one more endpoint to the profile, preferably in another Azure region
 
 Profiles should have more than one endpoint to ensure availability if one of the endpoints fails. It is also recommended that endpoints be in different regions.
 
-Learn more about [Traffic Manager profile - GeneralProfile (Add at least one more endpoint to the profile, preferably in another Azure region)](../traffic-manager/traffic-manager-endpoint-types.md).
+Learn more about [Traffic Manager profile - GeneralProfile (Add at least one more endpoint to the profile, preferably in another Azure region)](https://aka.ms/AA1o0x4).
 
 ### Add an endpoint configured to "All (World)"
 
 For geographic routing, traffic is routed to endpoints based on defined regions. When a region fails, there is no pre-defined failover. Having an endpoint where the Regional Grouping is configured to "All (World)" for geographic profiles will avoid traffic black holing and guarantee service remains available.
 
-Learn more about [Traffic Manager profile - GeographicProfile (Add an endpoint configured to \"All (World)\")](../traffic-manager/traffic-manager-manage-endpoints.md).
+Learn more about [Traffic Manager profile - GeographicProfile (Add an endpoint configured to \""All (World)\"")](https://aka.ms/Rf7vc5).
 
 ### Add or move one endpoint to another Azure region
 
 All endpoints associated to this proximity profile are in the same region. Users from other regions may experience long latency when attempting to connect. Adding or moving an endpoint to another region will improve overall performance for proximity routing and provide better availability if all endpoints in one region fail.
 
-Learn more about [Traffic Manager profile - ProximityProfile (Add or move one endpoint to another Azure region)](../traffic-manager/traffic-manager-configure-performance-routing-method.md).
+Learn more about [Traffic Manager profile - ProximityProfile (Add or move one endpoint to another Azure region)](https://aka.ms/Ldkkdb).
 
 ### Implement multiple ExpressRoute circuits in your Virtual Network for cross premises resiliency
 
@@ -330,7 +345,7 @@ Learn more about [ExpressRoute circuit - ExpressRouteGatewayE2EMonitoring (Imple
 
 Try to avoid overriding the hostname when configuring Application Gateway.  Having a different domain on the frontend of Application Gateway than the one which is used to access the backend can potentially lead to cookies or redirect urls being broken.  Note that this might not be the case in all situations and that certain categories of backends (like REST API's) in general are less sensitive to this.  Please make sure the backend is able to deal with this or update the Application Gateway configuration so the hostname does not need to be overwritten towards the backend.  When used with App Service, attach a custom domain name to the Web App and avoid use of the *.azurewebsites.net host name towards the backend.
 
-Learn more about [Application gateway - AppGatewayHostOverride (Avoid hostname override to ensure site integrity)](/azure/application-gateway/troubleshoot-app-service-redirection-app-service-url#alternate-solution-use-a-custom-domain-name).
+Learn more about [Application gateway - AppGatewayHostOverride (Avoid hostname override to ensure site integrity)](https://aka.ms/appgw-advisor-usecustomdomain).
 
 ### Use ExpressRoute Global Reach to improve your design for disaster recovery
 
@@ -353,11 +368,17 @@ To mitigate the impact of Log4j2 vulnerability, we recommend these steps:
 
 Learn more about [Application gateway - AppGwLog4JCVEGenericNotification (Additional protection to mitigate Log4j2 vulnerability (CVE-2021-44228))](https://aka.ms/log4jcve).
 
+### Use NAT gateway for outbound connectivity
+
+Prevent risk of connectivity failures due to SNAT port exhaustion by using NAT gateway for outbound traffic from your virtual networks. NAT gateway scales dynamically and provides secure connections for traffic headed to the internet.
+
+Learn more about [Virtual network - natGateway (Use NAT gateway for outbound connectivity)](/azure/load-balancer/load-balancer-outbound-connections#2-associate-a-nat-gateway-to-the-subnet).
+
 ### Enable Active-Active gateways for redundancy
 
 In active-active configuration, both instances of the VPN gateway will establish S2S VPN tunnels to your on-premises VPN device. When a planned maintenance or unplanned event happens to one gateway instance, traffic will be switched over to the other active IPsec tunnel automatically.
 
-Learn more about [Virtual network gateway - VNetGatewayActiveActive (Enable Active-Active gateways for redundancy)](../vpn-gateway/vpn-gateway-highlyavailable.md).
+Learn more about [Virtual network gateway - VNetGatewayActiveActive (Enable Active-Active gateways for redundancy)](https://aka.ms/aa_vpnha_learnmore).
 
 ## Recovery Services
 
@@ -379,19 +400,19 @@ Learn more about [Recovery Services vault - Enable CRR (Enable Cross Region Rest
 
 You are close to exceeding storage quota of 2GB. Create a Standard search service. Indexing operations will stop working when storage quota is exceeded.
 
-Learn more about [Search service - BasicServiceStorageQuota90percent (You are close to exceeding storage quota of 2GB. Create a Standard search service.)](../search/search-limits-quotas-capacity.md).
+Learn more about [Search service - BasicServiceStorageQuota90percent (You are close to exceeding storage quota of 2GB. Create a Standard search service.)](https://aka.ms/azs/search-limits-quotas-capacity).
 
 ### You are close to exceeding storage quota of 50MB. Create a Basic or Standard search service.
 
 You are close to exceeding storage quota of 50MB. Create a Basic or Standard search service. Indexing operations will stop working when storage quota is exceeded.
 
-Learn more about [Search service - FreeServiceStorageQuota90percent (You are close to exceeding storage quota of 50MB. Create a Basic or Standard search service.)](../search/search-limits-quotas-capacity.md).
+Learn more about [Search service - FreeServiceStorageQuota90percent (You are close to exceeding storage quota of 50MB. Create a Basic or Standard search service.)](https://aka.ms/azs/search-limits-quotas-capacity).
 
 ### You are close to exceeding your available storage quota. Add additional partitions if you need more storage.
 
 You are close to exceeding your available storage quota. Add additional partitions if you need more storage. After exceeding storage quota, you can still query, but indexing operations will no longer work.
 
-Learn more about [Search service - StandardServiceStorageQuota90percent (You are close to exceeding your available storage quota. Add additional partitions if you need more storage.)](../search/search-limits-quotas-capacity.md).
+Learn more about [Search service - StandardServiceStorageQuota90percent (You are close to exceeding your available storage quota. Add additional partitions if you need more storage.)](https://aka.ms/azs/search-limits-quotas-capacity).
 
 ## Storage
 
@@ -405,7 +426,7 @@ Learn more about [Storage Account - StorageSoftDelete (Enable Soft Delete to pro
 
 We have identified that you are using Premium SSD Unmanaged Disks in Storage account(s) that are about to reach Premium Storage capacity limit. To avoid failures when the limit is reached, we recommend migrating to Managed Disks that do not have account capacity limit. This migration can be done through the portal in less than 5 minutes.
 
-Learn more about [Storage Account - StoragePremiumBlobQuotaLimit (Use Managed Disks for storage accounts reaching capacity limit)](/azure/storage/common/scalability-targets-standard-account#premium-performance-page-blob-storage).
+Learn more about [Storage Account - StoragePremiumBlobQuotaLimit (Use Managed Disks for storage accounts reaching capacity limit)](https://aka.ms/premium_blob_quota).
 
 ## Web
 
@@ -413,43 +434,43 @@ Learn more about [Storage Account - StoragePremiumBlobQuotaLimit (Use Managed Di
 
 Your App reached >90% CPU over the last couple of days. High CPU utilization can lead to runtime issues with your apps, to solve this you could scale out your app.
 
-Learn more about [App service - AppServiceCPUExhaustion (Consider scaling out your App Service Plan to avoid CPU exhaustion)](/azure/app-service/app-service-best-practices#CPUresources).
+Learn more about [App service - AppServiceCPUExhaustion (Consider scaling out your App Service Plan to avoid CPU exhaustion)](https://aka.ms/antbc-cpu).
 
 ### Fix the backup database settings of your App Service resource
 
 Your app's backups are consistently failing due to invalid DB configuration, you can find more details in backup history.
 
-Learn more about [App service - AppServiceFixBackupDatabaseSettings (Fix the backup database settings of your App Service resource)](/azure/app-service/app-service-best-practices#appbackup.).
+Learn more about [App service - AppServiceFixBackupDatabaseSettings (Fix the backup database settings of your App Service resource)](https://aka.ms/antbc).
 
 ### Consider scaling up your App Service Plan SKU to avoid memory exhaustion
 
 The App Service Plan containing your app reached >85% memory allocated. High memory consumption can lead to runtime issues with your apps. Investigate which app in the App Service Plan is exhausting memory and scale up to a higher plan with more memory resources if needed.
 
-Learn more about [App service - AppServiceMemoryExhaustion (Consider scaling up your App Service Plan SKU to avoid memory exhaustion)](/azure/app-service/app-service-best-practices#memoryresources).
+Learn more about [App service - AppServiceMemoryExhaustion (Consider scaling up your App Service Plan SKU to avoid memory exhaustion)](https://aka.ms/antbc-memory).
 
 ### Scale up your App Service resource to remove the quota limit
 
 Your app is part of a shared App Service plan and has met its quota multiple times. After meeting a quota, your web app can’t accept incoming requests. To remove the quota, upgrade to a Standard plan.
 
-Learn more about [App service - AppServiceRemoveQuota (Scale up your App Service resource to remove the quota limit)](../app-service/overview-hosting-plans.md).
+Learn more about [App service - AppServiceRemoveQuota (Scale up your App Service resource to remove the quota limit)](https://aka.ms/ant-asp).
 
 ### Use deployment slots for your App Service resource
 
 You have deployed your application multiple times over the last week. Deployment slots help you manage changes and help you reduce deployment impact to your production web app.
 
-Learn more about [App service - AppServiceUseDeploymentSlots (Use deployment slots for your App Service resource)](../app-service/deploy-staging-slots.md).
+Learn more about [App service - AppServiceUseDeploymentSlots (Use deployment slots for your App Service resource)](https://aka.ms/ant-staging).
 
 ### Fix the backup storage settings of your App Service resource
 
 Your app's backups are consistently failing due to invalid storage settings, you can find more details in backup history.
 
-Learn more about [App service - AppServiceFixBackupStorageSettings (Fix the backup storage settings of your App Service resource)](/azure/app-service/app-service-best-practices#appbackup).
+Learn more about [App service - AppServiceFixBackupStorageSettings (Fix the backup storage settings of your App Service resource)](https://aka.ms/antbc).
 
 ### Move your App Service resource to Standard or higher and use deployment slots
 
 You have deployed your application multiple times over the last week. Deployment slots help you manage changes and help you reduce deployment impact to your production web app.
 
-Learn more about [App service - AppServiceStandardOrHigher (Move your App Service resource to Standard or higher and use deployment slots)](../app-service/deploy-staging-slots.md).
+Learn more about [App service - AppServiceStandardOrHigher (Move your App Service resource to Standard or higher and use deployment slots)](https://aka.ms/ant-staging).
 
 ### Consider scaling out your App Service Plan to optimize user experience and availability.
 
@@ -468,7 +489,6 @@ Learn more about [Static Web App - StaticWebAppsUpgradeToStandardSKU (Consider u
 We identified the below thread resulted in an unhandled exception for your App and application code should be fixed to prevent impact to application availability. A crash happens when an exception in your code goes un-handled and terminates the process.
 
 Learn more about [App service - AppServiceProactiveCrashMonitoring (Application code should be fixed as worker process crashed due to Unhandled Exception)](https://azure.github.io/AppService/2020/08/11/Crash-Monitoring-Feature-in-Azure-App-Service.html).
-
 
 ## Next steps
 
