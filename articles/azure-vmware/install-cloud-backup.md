@@ -33,7 +33,7 @@ You'll need to install Cloud Backup for Virtual Machines through the Azure porta
 
     :::image type="content" source="./media/cloud-backup/run-commands-fields.jpg" alt-text="Image of the Run Command fields which are described in the table below." lightbox="./media/cloud-backup/run-commands-fields.jpg":::
 
-    | Field      | Value |
+    | Field | Value |
     | ------ | ----- |
     | ApplianceVirtualMachineName | VM name for the appliance.  |
     | EsxiCluster | Destination ESXi cluster name to be used for deploying the appliance. |
@@ -49,7 +49,7 @@ You'll need to install Cloud Backup for Virtual Machines through the Azure porta
     | MaintenanceUserPassword | Password of the appliance maintenance user. |
 
     >[!IMPORTANT]
-    >You can also install Cloud Backup for Virtual Machines using DHCP by running the command `NetAppCBSApplianceUsingDHCP`. If you install Cloud Backup for Virtual Machines using DHCP, you do not need to provide the values for the PrimaryDNS, Gateway, Netmask and ApplianceIPAddress fields. These values will be automatically generated. 
+    >You can also install Cloud Backup for Virtual Machines using DHCP by running the package `NetAppCBSApplianceUsingDHCP`. If you install Cloud Backup for Virtual Machines using DHCP, you do not need to provide the values for the PrimaryDNS, Gateway, Netmask and ApplianceIPAddress fields. These values will be automatically generated. 
 
 1. Check **Notifications** or the **Run Execution Status** tab to see the progress. For more information about the status of the execution, see [Run command in Azure VMware Solution](concepts-run-command.md).  
     

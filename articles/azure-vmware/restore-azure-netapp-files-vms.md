@@ -18,20 +18,20 @@ This topic covers how to:
 
 ## Restore VMs from backups
 
-When you restore a VM, you can overwrite the existing content with the backup copy that you select, or you can make a copy of the VM.
+When you restore a VM, you can overwrite the existing content with the backup copy that you select or you can restore to a new VM.
 
 You can restore VMs to the original datastore mounted on the original ESXi host (this overwrites the original VM).
 
 ### Prerequisites
 
-* A backup must exist.
+* A backup must exist. <br>
 You must have created a backup of the VM using the Cloud Backup for Virtual Machines before you can restore the VM.
 >[!NOTE]
 >Restore operations cannot finish successfully if there are snapshots of the VM that were performed by software other than the Cloud Backup for Virtual Machines.
-* The VM must not be in transit.
-The VM that you want to restore must not be in a state of vMotion or Storage vMotion.
-* High Availability (HA) configuration errors
-Ensure there are no HA configuration errors displayed on the vCenter ESXi Host Summary screen before restoring backups to a different location.
+* The VM must not be in transit. <br>
+    The VM that you want to restore must not be in a state of vMotion or Storage vMotion.
+* High Availability (HA) configuration errors <br>
+    Ensure there are no HA configuration errors displayed on the vCenter ESXi Host Summary screen before restoring backups to a different location.
 * Restoring to a different location
 
 ### Considerations for restoring VMs from backups
@@ -46,12 +46,11 @@ Ensure there are no HA configuration errors displayed on the vCenter ESXi Host S
 ### Restore a VM from a backup
 
 1.	In the VMware vSphere web client GUI, select **Menu** in the toolbar. Select **Inventory** and then  **Virtual Machines and Templates**.
-2.	In the left navigation, right-click a Virtual Machine, then select **NetApp Cloud Backup** in the drop-down list. Select **Restore** to initiate the wizard.
-3.	In the Restore wizard, on the **Select Backup** page, select the backup snapshot copy that you want to restore.
+1.	In the left navigation, right-click a Virtual Machine, then select **NetApp Cloud Backup** in the drop-down list. Select **Restore** to initiate the wizard.
+1.	In the Restore wizard, on the **Select Backup** page, select the backup snapshot copy that you want to restore.
     You can search for a specific backup name or a partial backup name, or you can filter the backup list by selecting the filter icon and then choosing a date and time range, selecting whether you want backups that contain VMware snapshots, whether you want mounted backups, and the location. Select **OK** to return to the wizard.
 1. On the **Select Scope** page, select **Entire Virtual Machine** in the **Restore scope** field, then select **Restore location**, and then enter the destination ESXi information where the backup should be mounted.
-1. 
-When restoring partial backups, the restore operation skips the Select Scope page.
+1. When restoring partial backups, the restore operation skips the Select Scope page.
 1. Enable **Restart VM** checkbox if you want the VM to be powered on after the restore operation.
 1. On the **Select Location** page, select the location for the restored datastore.
 1. Review the **Summary** page and then select **Finish**.
@@ -81,8 +80,8 @@ You cannot restore a datastore, but you can restore any VM in the datastore.
 1. Select the deleted VM from the backup list and then select **Restore**.
 1. On the **Select Scope** page, select **Entire Virtual Machine** in the **Restore scope field**, then select the restore location, and then enter the destination ESXi information where the backup should be mounted.
 1. Enable **Restart VM** checkbox if you want the VM to be powered on after the restore operation.
-1. On the **Select Location** page, select the location of the backup that you want to restore.
-1. Review the Summary page and then click Finish.
+1. On the **Select Location** page, select the location of the backup that you want to restore to.
+1. Review the **Summary** page and then select **Finish**.
 
 ## Restore VMDKs from backups
 

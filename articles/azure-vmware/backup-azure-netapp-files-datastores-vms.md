@@ -44,7 +44,7 @@ You must create backup policies before you can use Cloud Backup for Virtual Mach
 
     | Field | Action |
     | ---- | ---- |
-    | VM consistency | Check this box to quiesce the VMs and create a VMware snapshot each time the backup job runs. <br> When you check the VM consistency box, backup operations might take longer and require more storage space. In this scenario, the VMs are first quiesced, then VMware performs a VM consistent snapshot. Cloud Backup for Virtual Machines then performs its backup operation, and then VM operations are resumed. <br> VM guest memory is not included in VM consistency snapshots. |
+    | VM consistency | Check this box to pause the VMs and create a VMware snapshot each time the backup job runs. <br> When you check the VM consistency box, backup operations might take longer and require more storage space. In this scenario, the VMs are first paused, then VMware performs a VM consistent snapshot. Cloud Backup for Virtual Machines then performs its backup operation, and then VM operations are resumed. <br> VM guest memory is not included in VM consistency snapshots. |
     | Include datastores with independent disks	| Check this box to include any datastores with independent disks that contain temporary data in your backup. | 
     | Scripts | Enter the fully qualified path of the prescript or postscript that you want the Cloud Backup for Virtual Machines to run before or after backup operations. For example, you can run a script to update Simple Network Management Protocol (SNMP) traps, automate alerts, and send logs. The script path is validated at the time the script is executed. <br> **NOTE**: Prescripts and postscripts must be located on the virtual appliance VM. To enter multiple scripts, press **Enter** after each script path to list each script on a separate line. The semicolon (;) character is not allowed. |
 7. Select **Add** to save your policy.
@@ -80,7 +80,8 @@ You can add or remove resources from a resource group at any time.
     :::image type="content" source="./media/cloud-backup/vSphere-create-resource-group.jpg" alt-text="The vSphere Client Resource Group interface. At the top left, a red box highlights a button with a green plus sign that reads Create, instructing you to select this button." lightbox="./media/cloud-backup/vSphere-create-resource-group.jpg":::
     
 1. On the **General Info & Notification** page in the wizard, enter the required values.
-1. On the **Resources** page, do the following:
+1. On the **Resource** page, do the following:
+
     | Field | Action |
     | -- | ----- |
     | Scope | Select the type of resource you want to protect: <ul><li>Datastores</li><li>Virtual Machines</li></ul> |
@@ -110,7 +111,7 @@ You can add or remove resources from a resource group at any time.
 
     After you select **Finish**, the new resource group will be added to the resource group list.
 
-    If the quiesce operation fails for any of the VMs in the backup, then the backup is marked as not VM-consistent even if the policy selected has VM consistency selected. In this case, it's possible that some of the VMs were successfully quiesced.
+    If the pause operation fails for any of the VMs in the backup, then the backup is marked as not VM-consistent even if the policy selected has VM consistency selected. In this case, it's possible that some of the VMs were successfully paused.
 
 ### Other ways to create a resource group
 
@@ -140,7 +141,7 @@ Backup operations are performed on all the resources defined in a resource group
     1.1 If the resource group has multiple policies configured, then in the **Backup Now** dialog box, select the policy you want to use for this backup operation.
 1. Select **OK** to initiate the backup.
 1. **Optional:** Monitor the operation progress by clicking Recent Tasks at the bottom of the window or on the dashboard Job Monitor for more details.
-    If the quiesce operation fails for any of the VMs in the backup, then the backup completes with a warning and is marked as not VM-consistent even if the selected policy has VM consistency selected. In this case, it is possible that some of the VMs were successfully quiesced. In the job monitor, the failed VM details will show the quiesce as failed.
+    If the pause operation fails for any of the VMs in the backup, then the backup completes with a warning and is marked as not VM-consistent even if the selected policy has VM consistency selected. In this case, it is possible that some of the VMs were successfully paused. In the job monitor, the failed VM details will show the paused as failed.
 
 ## Next steps
 
