@@ -14,11 +14,11 @@ ms.date: 06/30/2022
 
 # Design and performance for Oracle migrations
 
-This article is part one of a seven part series that provides guidance on how to migrate from Oracle to Azure Synapse Analytics. This article provides best practices for design and performance.
+This article is part one of a seven-part series that provides guidance on how to migrate from Oracle to Azure Synapse Analytics. The focus of this article is best practices for design and performance.
 
 ## Overview
 
-Due to the cost and complexity of maintaining and upgrading legacy on-premises Oracle environments, many existing users of Oracle data warehouse systems want to take advantage of the innovations provided by newer environments such as cloud, IaaS, and PaaS. These environments let you delegate tasks like infrastructure maintenance and platform development to the cloud provider.
+Due to the cost and complexity of maintaining and upgrading legacy on-premises Oracle environments, many existing Oracle users want to take advantage of the innovations provided by newer cloud environments. The newer cloud environments, such as cloud, IaaS, and PaaS, let you delegate tasks like infrastructure maintenance and platform development to the cloud provider.
 
 >[!TIP]
 >More than just a database&mdash;the Azure environment includes a comprehensive set of capabilities and tools.
@@ -55,7 +55,7 @@ To maximize these benefits, migrate new or existing data and applications to the
 
 :::image type="content" source="../media/1-design-performance-migration/migration-steps.png" border="true" alt-text="Diagram showing the steps for preparing to migrate, migration, and post-migration.":::
 
-This article looks at schema migration with the goal of equivalent or better performance on Azure Synapse for your migrated Oracle data warehouse and data marts. This article applies specifically to migrations from an existing Oracle environment.
+This article provides general information and guidelines for performance optimization when migrating a data warehouse from an existing Oracle environment to Azure Synapse. The goal of performance optimization is to achieve the same or better data warehouse performance in Azure Synapse.
 
 ## Design considerations
 
@@ -75,12 +75,12 @@ Legacy Oracle environments have typically evolved over time to encompass multipl
 
 - Create a template for further migrations specific to the source Oracle environment and the current tools and processes that are already in place.
 
-A good candidate for an initial migration from an Oracle environment supports the preceding items. Typically, good candidates implement a BI/Analytics workload rather than an on-line transaction processing workload. Good candidates also have a data model, such as a star or snowflake schema, that can be migrated with minimal modification.
+A good candidate for an initial migration from an Oracle environment supports the preceding items. Typically, good candidates implement a BI/Analytics workload rather than an on-line transaction processing workload. Good candidates also have a data model, such as a star or snowflake schema, which can be migrated with minimal modification.
 
 >[!TIP]
 > Create an inventory of objects that need to be migrated and document the migration process.
 
-The volume of migrated data for the initial exercise should be large enough to demonstrate the capabilities and benefits of the Azure Synapse environment while quickly demonstrating value&mdash;typically in the 1-10 TB range.
+The volume of migrated data in an initial migration should be large enough to demonstrate the capabilities and benefits of the Azure Synapse environment while quickly demonstrating value&mdash;typically in the 1-10 TB range.
 
 To minimize the risk and reduce the implementation time for your initial project, confine the scope of the initial migration to just the data marts. Since this approach won't address the broader aspects like ETL migration and historical data migration, address those aspects in later phases of the project once the migrated data mart layer is backfilled with data and required build processes.
 
@@ -94,7 +94,7 @@ For a lift and shift migration, an existing data model like a star schema is mig
 
 - An existing Oracle environment with a single data mart to migrate, or
 - An existing Oracle environment with data that's already in a well-designed star or snowflake schema, or
-- When you're under time and cost pressures to move to a modern cloud environment. To automate aspects of the migration, use [Microsoft SQL Server Migration Assistant for Oracle](/download/details.aspx?id=54258) (SSMA).
+- When you're under time and cost pressures to move to a modern cloud environment. To automate aspects of the migration, use Microsoft [SQL Server Migration Assistant](/download/details.aspx?id=54258) (SSMA) for Oracle.
 
 >[!TIP]
 >Lift and shift is a good starting point even if subsequent phases implement changes to the data model.
@@ -138,7 +138,7 @@ When you migrate tables between different environments, typically only the raw d
 >[!TIP]
 >Use existing indexes to indicate candidates for indexing in the migrated warehouse.
 
-It's important to understand where performance optimizations, such as indexes, have been used in the source environment since they indicate where to add performance optimization in the new target environment. For example, if bit-mapped indexes are frequently used by queries within the source Oracle environment, it may indicate that a non-clustered index should be created within Azure Synapse. Other native performance optimization techniques, such as table replication, may be more applicable than a straight like-for-like index creation. You can use SSMA to get migration recommendations for table distribution and indexing.
+It's important to understand where performance optimizations, such as indexes, have been used in the source environment since they indicate where to add performance optimization in the new target environment. For example, if bit-mapped indexes are frequently used by queries within the source Oracle environment, it may indicate that a non-clustered index should be created within Azure Synapse. Other native performance optimization techniques, such as table replication, may be more applicable than a straight like-for-like index creation. You can use SSMA for Oracle to get migration recommendations for table distribution and indexing.
 
 #### Unsupported Oracle database object types
 
@@ -146,7 +146,7 @@ Oracle-specific features can generally be replaced by Azure Synapse features. Th
 
 - Indexing options: in Oracle, several indexing options, such as bit-mapped indexes, function-based indexes, and domain indexes, have no direct equivalent in Azure Synapse.
 
-  You can find out which columns are indexed and the index type by querying system catalog tables and views, such as `ALL_INDEXES`, `DBA_INDEXES`, `USER_INDEXES`, and `DBA_IND_COL`, or by using the built-in queries in Oracle SQL Developer.
+  You can find out which columns are indexed and the index type by querying system catalog tables and views, such as `ALL_INDEXES`, `DBA_INDEXES`, `USER_INDEXES`, and `DBA_IND_COL`, or by using the built-in queries in [Oracle SQL Developer](https://www.oracle.com/database/technologies/appdev/sqldeveloper-landing.html).
   
   :::image type="content" source="../media/1-design-performance-migration/oracle-sql-developer-queries-1.png" border="true" alt-text="Screenshot showing how to query system catalog tables and views in Oracle SQL Developer.":::
 
@@ -256,13 +256,13 @@ Third-party vendors offer tools and services to automate migration, including th
 
 #### SQL DML syntax differences
 
-There are a few differences in SQL Data Manipulation Language (DML) syntax between Oracle SQL and Azure Synapse (T-SQL). These differences are discussed in detail in [Minimize SQL issues for Oracle migrations](5-minimize-sql-issues.md#sql-ddl-differences-between-oracle-and-azure-synapse). In some cases, you can automate DML migration using Microsoft tools like [SQL Server Migration Assistant](/sql/ssma/sql-server-migration-assistant) (SSMA) for Oracle or [Azure Database Migration Services](/services/database-migration/), or by using [third-party](../../partner/data-integration.md) migration products and services.
+There are a few differences in SQL Data Manipulation Language (DML) syntax between Oracle SQL and Azure Synapse (T-SQL). These differences are discussed in detail in [Minimize SQL issues for Oracle migrations](5-minimize-sql-issues.md#sql-ddl-differences-between-oracle-and-azure-synapse). In some cases, you can automate DML migration using Microsoft tools like SSMA for Oracle or [Azure Database Migration Services](/services/database-migration/), or by using [third-party](../../partner/data-integration.md) migration products and services.
 
 #### Functions, stored procedures, and sequences
 
 If you migrate from a mature legacy data warehouse environment such as Oracle, you'll probably need to migrate elements other than simple tables and views. Functions, stored procedures, and sequences are examples of such elements in Oracle.
 
-Check whether the Azure environment contains facilities that replace the functionality of functions or stored procedures in the Oracle environment. If that's the case, then it's usually more efficient to use the built-in Azure facilities rather than recode the Oracle functions. [Data integration partners](../../partner/data-integration.md) like Attunity and WhereScape offer tools and services that can automate the migration of functions, stored procedures, and sequences.
+Check whether the Azure environment contains facilities that replace the functionality of functions or stored procedures in the Oracle environment. If that's the case, then usually it's more efficient to use the built-in Azure facilities rather than recode the Oracle functions. [Data integration partners](../../partner/data-integration.md) like Attunity and WhereScape offer tools and services that can automate the migration of functions, stored procedures, and sequences.
 
 As part of your preparation phase, create an inventory of objects to be migrated, define a method for handling them, and allocate appropriate resources in your project plan.
 
@@ -294,86 +294,94 @@ In Oracle, a sequence is a named database object created using `CREATESEQUENCE` 
 
 #### Data Definition Language (DDL) generation
 
-It is possible to edit existing Oracle CREATE TABLE and CREATE VIEW scripts to create the equivalent definitions (with modified data types if necessary as described above) -- typically this involves removing or modifying any extra Oracle-specific clauses (e.g. TABLESPACE).
+Typically, you can edit existing Oracle `CREATE TABLE` and `CREATE VIEW` scripts to create equivalent definitions in Azure Synapse. You might need to use some modified data types as mentioned in [Oracle data type mapping](#oracle-data-type-mapping) by removing or modifying Oracle-specific clauses, such as `TABLESPACE`.
 
-However, all the information that specifies the current definitions of tables and views within the existing Oracle environment is maintained within system catalog tables -- this is the best source of this information as it is bound to be up to date and complete. (Be aware that user-maintained documentation may not be in sync with the current table definitions).
+Within the Oracle environment, the system catalog tables specify the current table and view definition. Unlike user-maintained documentation, system catalog information is always complete and in sync with the current table definitions. You can access system catalog information by using utilities such as Oracle SQL Developer, which can generate `CREATE TABLE` DDL statements. You can edit those DDL statements so they apply to the equivalent tables in Azure Synapse.
 
-This information can be accessed via utilities such as SQL Developer and can be used to generate the CREATE TABLE DDL statements which can then be edited for the equivalent tables in Azure Synapse.
-
-SQL Server Migration Assistant for Oracle can be used to migrate tables from and existing Oracle environment to Azure Synapse, applying appropriate data type mappings and recommending table and distribution types.
+Alternatively, you can use SSMA for Oracle to migrate tables from an existing Oracle environment to Azure Synapse. SSMA for Oracle will apply the appropriate data type mappings and recommended table and distribution types.
 
 :::image type="content" source="../media/1-design-performance-migration/oracle-sql-server-migration-assistant-2.png" border="true" alt-text="Screenshot showing how to migrate tables from and existing Oracle environment to Azure Synapse using SQL Server Migration Assistant for Oracle.":::
 
-third-party migration and ETL tools also use the catalog information to achieve the same result.
+Third-party migration and ETL tools also use the system catalog information to achieve the same result.
 
 #### Data extraction from Oracle
 
-Use parallelism for the most efficient data extract
+For the Oracle tables that you want to migrate to Azure Synapse, you can extract raw table data to flat delimited files, such as CSV files, using standard Oracle utilities. Oracle SQL Developer, [SQLPlus](https://www.oracle.com/database/technologies/instant-client/downloads.html), and [SCLcl](https://www.oracle.com/database/technologies/appdev/sqlcl.html) can perform the extraction. Compress the flat delimited files using gzip, and upload them to Azure Blob Storage using AzCopy or Azure data transport tools like Azure Data Box.
 
-The raw data to be migrated from existing Oracle tables can be extracted to flat delimited files (e.g. comma-separated variables or CSV format) using standard Oracle utilities such as SQLPlus, SCLcl and SQL Developer. These files can be compressed using gzip and uploaded to Azure Blob Storage via AzCopy or by using Azure data transport facilities such as Azure Data Box.
+During a migration, extract table data as efficiently as possible&mdash;especially when extracting data from large fact tables. For Oracle tables, use parallelism to maximize extraction throughput. You can achieve parallelism by running multiple processes that individually extract discrete segments of data, or by using tools capable of automating parallel extraction through partitioning.
 
-Generally during a migration exercise, it is important to extract the data as efficiently as possible (especially for very large fact tables) and the recommended approach for this with Oracle is to use parallelism where possible to maximize the throughput for the extraction process. This may be achieved by running multiple individual extract process which extract discrete segments of data, or by using tools which are capable of automating parallel extraction based on partitioning.
+>[!TIP]
+>Use parallelism for the most efficient data extraction.
 
-If sufficient network bandwidth exists data can be extracted directly from an on-premises Oracle system into Azure Synapse tables or Azure Blob Data Storage by using Azure Data Factory processes or Azure Data Migration Services. This capability is also available from third-party data migration or ETL products such as Informatica and Talend.
+If sufficient network bandwidth exists, you can extract data from an on-premises Oracle system directly into Azure Synapse tables or Azure Blob Data Storage. To do so, use Data Factory processes, [Azure Database Migration Service](/services/database-migration), or third-party data migration or ETL products such as Informatica and Talend.
 
-Recommended data formats for the extracted data are delimited text files (also called Comma Separated Values or CSV or similar) or Optimized Row Columnar (ORC) or Parquet files.
+The recommended data format for extracted data files is delimited text such as CSV, Optimized Row Columnar (ORC), or Parquet.
 
-For more detailed information on the process of migrating data and ETL from an Oracle environment see the associated document 'Section 2.3. Data Migration ETL and Load from Oracle.
+For more information on migrating data and ETL from an Oracle environment, see [Data migration, ETL, and load for Oracle migrations](2-etl-load-migration-considerations.md).
 
 ## Performance recommendations for Oracle migrations
 
-The associated document 'Section 1 -- Design and Performance' gives general information and guidelines about use of performance optimization techniques for Azure Synapse. This section adds specific recommendations for use when migrating from an Oracle environment
+The goal of performance optimization is to achieve the same or better data warehouse performance after migration to Azure Synapse.
 
-#### Similarities in performance tuning approach concepts
+### Similarities in performance tuning approach concepts
 
-Many Oracle tuning concepts hold true for Azure Synapse
+Many performance tuning concepts for databases in Oracle hold true for Azure Synapse. For example:
 
-When moving from an Oracle environment many of the performance tuning concepts for Azure Synapse will be very familiar. For example:
+- To collocate data to be joined onto the same processing node, use data distribution.
 
-- Using data distribution to co-locate data to be joined onto the same processing node
+- To save storage space and accelerate query processing, use the smallest data type for a given column.
 
-- Using the smallest data type for a given column will save storage space and accelerate query processing
+- To optimize join processing and reduce the need for data transforms, ensure that columns to be joined have the same data type.
 
-- Ensuring data types of columns to be joined are identical will optimize join processing by reducing the need to transform data for matching
+- To help the optimizer produce the best execution plan, ensure statistics are up to date.
 
-- Ensuring statistics are up to date will help the optimizer produce the best execution plan
+- To ensure that resources are being efficiently used, monitor performance using the built-in database capabilities.
 
-- Monitoring performance using the built-in capabilities of the database to ensure that resources are being efficiently used.
+### Differences in performance tuning approach
 
-#### Differences in performance tuning approach
+> [!TIP]
+> Prioritize familiarity with Azure Synapse tuning options at the start of migration.
 
-Familiarity with Azure Synapse tuning options is an early priority in a migration exercise
+This section highlights low-level performance tuning implementation differences between Oracle and Azure Synapse.
 
-This section highlights lower level implementation differences between Oracle and Azure Synapse for performance tuning.
+#### Data distribution options
 
-##### Data distribution options
+For performance, Azure Synapse has a multi-node architecture and uses parallel processing. To optimize performance in Azure Synapse, you can specify a data distribution definition in `CREATE TABLE` statements using the `DISTRIBUTION` statement. For example, you can specify a hash-distributed table, which distributes table rows across compute nodes using a deterministic hash function. Many Oracle implementations, especially older on-premises systems, don't support this feature. 
 
-Azure Synapse is designed to exploit a multi-node architecture and parallel processing for performance, and to optimize this CREATE TABLEstatements in Azure Synapse allow for specification of a data distribution definition -- via 'DISTRIBUTION =' in Azure Synapse. ManyOracle implementations (especially older on-premises systems) do not include this consideration. Compared to Oracle, Azure Synapse provides an additional way to achieve 'local joins' for small table-large table joins (typically dimension table to fact table in a start schema model) is to replicate the smaller dimension table across all nodes, therefore ensuring any value of the join key of the larger table will have a matching dimension row locally available. The overhead of replicating the dimension tables is relatively low provided the tables are not very large -- in which case the hash distribution approach as described above is more appropriate.
+Unlike Oracle, Azure Synapse supports "local joins" between a small table and a large table through small table replication. For instance, consider a dimension table and a fact table within a start schema model. Azure Synapse can replicate the smaller dimension table across all nodes to ensure that the value of any join key for the large table has a matching dimension row locally available. The overhead of dimension table replication is relatively low, provided the dimension table is small. For larger dimension tables, the hash distribution approach is more appropriate. For more information, see [Design guidance for using replicated tables](../../sql-data-warehouse/design-guidance-for-replicated-tables.md) and [Guidance for designing distributed tables](../../sql-data-warehouse/sql-data-warehouse-tables-distribute.md).
 
-##### Data indexing
+#### Data indexing
 
-Azure Synapse provides a number of user definable indexing options, but these are different in operation and usage to the system managed zone maps in Oracle. Understand the different indexing options as described in [Indexes on dedicated SQL pool tables in Azure Synapse Analytics](../../sql-data-warehouse/sql-data-warehouse-tables-index.md).
+Azure Synapse provides several user-definable indexing options, which have a different operation and usage than system managed zone maps in Oracle. For more information about the different indexing options in Azure Synapse, see [Indexes on dedicated SQL pool tables](../../sql-data-warehouse/sql-data-warehouse-tables-index.md).
 
-Existing index definitions within the source Oracle environment can however provide a useful indication of how the data is currently used and provide an indication of candidate columns for indexing within theAzure Synapse environment. It is not usually necessary to migrate every index that exists in a legacy Oracle environment -- Oracle relies heavily on indexes to achieve acceptable performance whereas Azure Synapse has other features designed to provide excellent performance such as:
+The existing index definitions within the source Oracle environment provide you a useful indication of the data usage and which columns to index in the new Azure Synapse environment. Typically, it isn't necessary to migrate every index from a legacy Oracle environment because Azure Synapse, unlike Oracle, doesn't over-rely on indexes to achieve acceptable performance. Azure Synapse implements these features to achieve outstanding performance:
 
-- Parallel query processing
+- Parallel query processing.
 
-- In-memory data and result set caching
+- In-memory data and result set caching.
 
-- Data distribution to reduce I/O (e.g. replication of small dimension tables)
+- Data distribution to reduce I/O, such as replication of small dimension tables.
 
-##### Data partitioning
+#### Data partitioning
 
-In an enterprise data warehouse fact tables can contain many billions of rows and partitioning is a way to optimize the maintenance and querying of these tables by splitting them into separate parts to reduce the amount of data processed. The partitioning specification for a table is defined in the CREATE TABLE statement. Only 1 field per table can be used for partitioning, and this is frequently a date field as many queries will be filtered by date or a date range. Note that it is possible to change the partitioning of a table after initial load if necessary by recreating the table with the new distribution using the CREATE TABLE AS (or CTAS) statement. See 
-[Partitioning tables in dedicated SQL pool](../../sql-data-warehouse/sql-data-warehouse-tables-partition.md) for a detailed discussion of partitioning in Azure Synapse.
+In an enterprise data warehouse, fact tables can contain billions of rows. Partitioning optimizes the maintenance and querying of these tables by splitting them into separate parts to reduce the amount of data processed. The `CREATE TABLE` statement defines the partitioning specification for a table.
 
-##### PolyBase or COPY INTO for data loading
+Only one field per table can be used for partitioning. That field is frequently a date field since many queries are filtered by date or a date range. It's possible to change the partitioning of a table after initial load by recreating the table with the new distribution using the `CREATE TABLE AS` (CTAS) statement. See [Partitioning tables in dedicated SQL pool](/azure/sql-data-warehouse/sql-data-warehouse-tables-partition) for a detailed discussion of partitioning in Azure Synapse.
 
-PolyBase is a very efficient method for loading large amounts of data into the Warehouse as it is able to leverage parallel loading streams. COPY INTO is a new facility which is also very efficient and has the following capabilities: Retrieves data from all files from the folder and all its subfolders. Supports multiple locations from the same storage account, separated by comma Supports Azure Data Lake Storage (ADLS) Gen 2 and Azure Blob Storage. Supports CSV, PARQUET, ORC file formats
+#### PolyBase or COPY INTO for data loading
 
-##### Use resource classes for workload management
+PolyBase supports efficient loading of large amounts of data into a warehouse through parallel loading streams. For more information, see [PolyBase data loading strategy](../../sql/load-data-overview.md).
 
-Azure Synapse uses resource classes to manage workloads -- in general large resource classes provide better individual query performance while smaller resource classes enable higher levels of concurrency.Utilization can be monitored via Dynamic Management Views (DMVs) to ensure that the appropriate resources are being utilized efficiently.
+`COPY INTO` also supports high-throughput data ingestion, and has these capabilities:
+
+- Data retrieval from all files within a folder and subfolders. 
+- Data retrieval from multiple locations in the same storage account, specified by comma separated paths.
+- Supports Azure Data Lake Storage (ADLS) Gen 2 and Azure Blob Storage. 
+- Supports CSV, PARQUET, and ORC file formats.
+
+#### Use resource classes for workload management
+
+Azure Synapse uses resource classes to manage workloads. In general, large resource classes provide better individual query performance, while smaller resource classes provide higher levels of concurrency. You can monitor utilization using Dynamic Management Views (DMVs) to ensure that the applicable resources are efficiently utilized.
 
 ## Next steps
 

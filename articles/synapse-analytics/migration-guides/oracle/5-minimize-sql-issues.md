@@ -14,7 +14,7 @@ ms.date: 06/30/2022
 
 # Minimize SQL issues for Oracle migrations
 
-This article is part five of a seven part series that provides guidance on how to migrate from Oracle to Azure Synapse Analytics. This article provides best practices for minimizing SQL issues.
+This article is part five of a seven-part series that provides guidance on how to migrate from Oracle to Azure Synapse Analytics. The focus of this article is best practices for minimizing SQL issues.
 
 ## Minimizing SQL issues for Oracle migrations
 

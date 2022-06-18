@@ -1,5 +1,5 @@
 ---
-title: "Beyond Oracle migration, implementing a modern data warehouse in Microsoft Azure"
+title: "Beyond Oracle migration, implement a modern data warehouse in Microsoft Azure"
 description: Learn how a Oracle migration to Azure Synapse Analytics lets you integrate your data warehouse with the Microsoft Azure analytical ecosystem.
 ms.service: synapse-analytics
 ms.subservice: sql-dw
@@ -12,9 +12,9 @@ ms.reviewer: wiassaf
 ms.date: 06/30/2022
 ---
 
-# Beyond Oracle migration, implementing a modern data warehouse in Microsoft Azure
+# Beyond Oracle migration, implement a modern data warehouse in Microsoft Azure
 
-This article is part seven of a seven part series that provides guidance on how to migrate from Oracle to Azure Synapse Analytics. This article provides best practices for implementing modern data warehouses.
+This article is part seven of a seven-part series that provides guidance on how to migrate from Oracle to Azure Synapse Analytics. The focus of this article is best practices for implementing modern data warehouses.
 
 ## Beyond data warehouse migration to Azure
 
