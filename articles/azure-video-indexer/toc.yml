@@ -6,6 +6,8 @@
     href: video-indexer-overview.md
   - name: Language support
     href: language-support.md
+  - name: Limited Access features
+    href: limited-access-features.md
 - name: Quickstarts
   expanded: true
   items:
