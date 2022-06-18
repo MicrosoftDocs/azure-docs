@@ -22,7 +22,7 @@ The Azure Video Indexer service is made available to customers and partners unde
 
 ## Help and support 
 
-FAQ about Limited Access can be found [here](: https://aka.ms/limitedaccesscogservices).
+FAQ about Limited Access can be found [here](https://aka.ms/limitedaccesscogservices).
 
 If you need help with Azure Video Indexer, find support [here](/azure/cognitive-services/cognitive-services-support-options.md). 
 
