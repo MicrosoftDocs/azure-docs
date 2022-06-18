@@ -49,7 +49,7 @@ az vm list-skus --resource-type virtualMachines  --location $region --query "[?n
 $region = "southeastasia"
 $vmSize = "Standard_E64s_v3"
 $sku = (Get-AzComputeResourceSku | where {$_.Locations.Contains($region) -and ($_.Name -eq $vmSize) -and $_.LocationInfo[0].ZoneDetails.Count -gt 0})
-if($sku){$sku[0].LocationInfo[0].ZoneDetails} Else {Write-host "$vmSize is not supported with Ultra Disk in $region region"}
+if($sku){$sku[0].LocationInfo[0].ZoneDetails} Else {Write-host "$vmSize is not supported with premium SSD v2 in $region region"}
 ```
 
 The response will be similar to the form below, where X is the zone to use for deploying in your chosen region. X could be either 1, 2, or 3.

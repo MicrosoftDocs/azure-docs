@@ -94,7 +94,7 @@ Azure premium SSD v2 (preview) is designed for performance-sensitive workloads t
 
 ### Premium SSD v2 limitations
 
-Premium SSD v2 can't be used as OS disks, they can only be created as empty data disks. Premium SSD v2 also can't be used with some features and functionality, including disk snapshots, disk export, changing disk type, VM images, availability sets, Azure Dedicated Hosts, or Azure disk encryption. Azure Backup and Azure Site Recovery don't support premium SSD v2. In addition, only un-cached reads and un-cached writes are supported.
+Premium SSD v2 can't be used as an OS disk, they can only be created as empty data disks. Premium SSD v2 also can't be used with some features and functionality, including disk snapshots, disk export, changing disk type, VM images, availability sets, Azure Dedicated Hosts, or Azure disk encryption. Azure Backup and Azure Site Recovery don't support premium SSD v2. In addition, only un-cached reads and un-cached writes are supported.
 
 The only infrastructure redundancy options currently available to premium SSD v2 are availability zones. VMs using any other redundancy options can't attach a premium SSD v2.
 
@@ -124,7 +124,7 @@ Premium SSD v2 offers up to 32 TiB per region per subscription by default, but p
 
 Each premium SSD v2 has 3,000 IOPS as a baseline maximum. The capacity of a disk determines what you can set the IOPS to. For disks that a 4-6 GiB, the maximum you can set the IOPS to is 3,000 IOPS. After 6 GiB, the maximum you can set the IOPS to increases at a ratio of 500 IOPS per GiB, up to 80,000 IOPS. To be able to set 80,000 IOPS on an disk, that disk must have at least 160 GiB.
 
-The initial 3,000 IOPS don't increase the cost of the disk. Setting the IOPS higher than 3,000 will increase the cost per IOPS, see the pricing page for details.
+The initial 3,000 IOPS doesn't increase the cost of the disk. Setting the IOPS higher than 3,000 will increase the cost per IOPS, see the pricing page for details.
 
 #### Premium SSD v2 throughput
 
