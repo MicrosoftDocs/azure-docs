@@ -108,7 +108,7 @@ A deployment manifest is a JSON document that describes which modules to deploy,
    Configure each property with an appropriate value, as indicated by the placeholders. If you are using the IoT Edge simulator, set the values to the related environment variables for these properties as described by [deviceToCloudUploadProperties](how-to-store-data-blob.md#devicetoclouduploadproperties) and [deviceAutoDeleteProperties](how-to-store-data-blob.md#deviceautodeleteproperties).
 
    > [!TIP]
-   > The name for your `target` container has naming restrictions, for example using a `$` prefix is unsupported. To see all restrictions, view [Container Names](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata#container-names).
+   > The name for your `target` container has naming restrictions, for example using a `$` prefix is unsupported. To see all restrictions, view [Container Names](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata#container-names).
 
    ```json
    {
