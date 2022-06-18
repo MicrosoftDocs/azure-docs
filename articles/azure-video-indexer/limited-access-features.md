@@ -32,6 +32,6 @@ If you need help with Azure Video Indexer, find support [here](/azure/cognitive-
 
 ## Next steps
 
-Learn more about the legal terms that apply to this service [here](https://azure.microsoft.com/en-us/support/legal/). 
+Learn more about the legal terms that apply to this service [here](https://azure.microsoft.com/support/legal/). 
 
  
