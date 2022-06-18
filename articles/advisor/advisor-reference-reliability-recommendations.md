@@ -57,7 +57,7 @@ Learn more about [Redis Cache Server - RedisCacheMemoryFragmentation (Availabili
 
 ### Switch Secret version to ‘Latest’ for the Azure Front Door customer certificate
 
-We recommend to configure the Azure Front Door customer certificate secret to ‘Latest’ for the AFD to refer to the latest secret version in Azure Key Vault, so that the secret can be automatically rotated.
+We recommend configuring the Azure Front Door customer certificate secret to ‘Latest’ for the AFD to refer to the latest secret version in Azure Key Vault, so that the secret can be automatically rotated.
 
 Learn more about [Front Door Profile - SwitchVersionBYOC (Switch Secret version to ‘Latest’ for the Azure Front Door customer certificate)](/azure/frontdoor/standard-premium/how-to-configure-https-custom-domain#certificate-renewal-and-changing-certificate-types).
 ## Compute
