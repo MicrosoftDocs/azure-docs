@@ -192,6 +192,12 @@ For more information, see [Centrally discover and deploy Microsoft Sentinel out-
 |---------|---------|---------|---------|
 |**Exabeam Advanced Analytics** |[Data connector](data-connectors-reference.md#exabeam-advanced-analytics-preview), parser |Security - Others |Microsoft |
 
+## Facebook
+
+|Name    |Includes  |Categories |Supported by  |
+|---------|---------|---------|---------|
+|**Workplace from Facebook** |[Data connector](data-connectors-reference.md#workplace-from-facebook-preview), parser |Application | Microsoft|
+
 ## FalconForce
 
 |Name    |Includes  |Categories |Supported by  |
@@ -317,8 +323,11 @@ For more information, see [Centrally discover and deploy Microsoft Sentinel out-
 |Name    |Includes  |Categories |Supported by  |
 |---------|---------|---------|---------|
 |**DNS**| [Data connector](data-connectors-reference.md#windows-dns-server-preview), workbook, analytics rules, hunting queries|Networking|Microsoft|
-|**Microsoft Defender for Cloud**     | [Data connector](connect-defender-for-cloud.md), analytics rule|      Security - Threat Protection   |Microsoft         |
+|**Microsoft Defender for Cloud**     | [Data connector](data-connectors-reference.md#microsoft-defender-for-cloud), analytics rule|      Security - Threat Protection   |Microsoft         |
+|**Microsoft Defender for Cloud Apps**     | [Data connector](data-connectors-reference.md#microsoft-defender-for-cloud-apps), analytics rule| Security - Cloud Security  |Microsoft         |
 |**Microsoft Defender for Endpoint**     |   Hunting queries, parsers |      Security - Threat Protection   |Microsoft         |
+|**Microsoft Defender for Identity**     |   [Data connector](data-connectors-reference.md#microsoft-defender-for-identity) | Security - Threat Protection   |Microsoft         |
+|**Microsoft Defender for Office 365**     |   [Data connector](data-connectors-reference.md#microsoft-defender-for-office-365), workbook | Security - Threat Protection   |Microsoft         |
 |**Microsoft PowerBI**     | [Data connector](data-connectors-reference.md#microsoft-power-bi-preview) |      Application   |Microsoft         |
 |**Microsoft Project**     | [Data connector](data-connectors-reference.md#microsoft-project-preview) |      Application   |Microsoft         |
 | **Microsoft Purview** | [Data connector](data-connectors-reference.md#microsoft-purview), workbook, analytics rules <br><br>For more information, see [Tutorial: Integrate Microsoft Sentinel and Microsoft Purview](purview-solution.md). | Compliance, Security- Cloud Security, and Security- Information Protection | Microsoft |
@@ -332,6 +341,7 @@ For more information, see [Centrally discover and deploy Microsoft Sentinel out-
 | **Windows Firewall** | [Data connector](data-connectors-reference.md#windows-firewall), workbook | Security - Network| Microsoft |
 | **Windows Forwarded Events** | [Data connector](data-connectors-reference.md#windows-forwarded-events-preview), analytics rules | IT Operations| Microsoft |
 | **Windows Security Events** | [Data connector](data-connectors-reference.md#windows-security-events-via-ama), analytics rules, hunting queries, workbooks | Security - Threat Protection| Microsoft |
+|Syslog|Data connector, analytics rules, hunting queries, workbook|IT Operations|Microsoft|
 
 ## NetSkope
 
@@ -387,7 +397,6 @@ For more information, see [Centrally discover and deploy Microsoft Sentinel out-
 |---------|---------|---------|---------|
 |**PingFederate Solution** |Data connector, workbooks, analytics rules, hunting queries, parser| Identity|Microsoft |
 
-
 ## Proofpoint
 
 |Name    |Includes  |Categories |Supported by  |
@@ -405,15 +414,14 @@ For more information, see [Centrally discover and deploy Microsoft Sentinel out-
 
 |Name    |Includes  |Categories |Supported by  |
 |---------|---------|---------|---------|
-|**Qualys VM Solution** |Workbooks, analytics rules |Security - Vulnerability Management |Microsoft |
-
+|**Qualys VM** |Workbook, analytics rules |Compliance, Security - Vulnerability Management |Microsoft |
+|**Qualys VM Knowledgebase** |[Data connector](data-connectors-reference.md#qualys-vm-knowledgebase-kb-preview), parser |Security - Vulnerability Management |Microsoft |
 
 ## Rapid7
 
 |Name    |Includes  |Categories |Supported by  |
 |---------|---------|---------|---------|
 |**Rapid7 InsightVM CloudAPI Solution** |Data connector, parser|Security - Vulnerability Management |Microsoft |
-
 
 ## ReversingLabs
 
@@ -435,6 +443,11 @@ For more information, see [Centrally discover and deploy Microsoft Sentinel out-
 |---------|---------|---------|---------|
 |**RSA SecurID** |Data connector, parser |Security - Others, Identity |Microsoft |
 
+## Salesforce
+
+|Name    |Includes  |Categories |Supported by  |
+|---------|---------|---------|---------|
+|**Salesforce Service Cloud*** |[Data connector](data-connectors-reference.md#salesforce-service-cloud-preview), parser |Cloud Provider |Microsoft |
 
 ## SAP
 
@@ -480,6 +493,11 @@ For more information, see [Centrally discover and deploy Microsoft Sentinel out-
 |---------|---------|---------|---------|
 |**Sonrai Security - Microsoft Sentinel** |Data connector, workbooks, analytics rules   | Compliance|Sonrai Security |
 
+## Squid
+
+|Name    |Includes  |Categories |Supported by  |
+|---------|---------|---------|---------|
+|**SquidProxy** |[Data connector](data-connectors-reference.md#squid-proxy-preview), parser   | Networking| Microsoft |
 
 ## Slack
 
@@ -565,11 +583,17 @@ For more information, see [Centrally discover and deploy Microsoft Sentinel out-
 |---------|---------|---------|---------|
 |**Zimperium Mobile Threat Defense**|[Data connector](data-connectors-reference.md#zimperium-mobile-thread-defense-preview), workbook| Security - Threat Protection | [Zimperium](https://support.zimperium.com)|
 
+## Zoom
+
+|Name    |Includes  |Categories |Supported by  |
+|---------|---------|---------|---------|
+|**Zoom Reports**|[Data connector](data-connectors-reference.md#zoom-reports-preview), parser | Application| Microsoft|
+
 ## Zscaler
 
 |Name    |Includes  |Categories |Supported by  |
 |---------|---------|---------|---------|
-|**Zscaler Private Access**|Data connector, workbook, analytics rules, hunting queries, parser | Security - Network | Microsoft|
+|**Zscaler Private Access**|[Data connector](data-connectors-reference.md#zscaler-private-access-zpa-preview), workbook, analytics rules, hunting queries, parser | Security - Network | Microsoft|
 
 ## Next steps
 
