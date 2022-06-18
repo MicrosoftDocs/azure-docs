@@ -312,7 +312,7 @@ Activity log insights let you view information about changes to resources and re
 
 Before you use Activity log insights, you must [enable sending logs to your Log Analytics workspace](./diagnostic-settings.md).
 
-### How does Activity log insights work?
+### How do Activity log insights work?
 
 Activity logs you send to a [Log Analytics workspace](../logs/log-analytics-workspace-overview.md) are stored in a table called `AzureActivity`.
 
@@ -320,7 +320,7 @@ Activity log insights are a curated [Log Analytics workbook](../visualize/workbo
 
 :::image type="content" source="media/activity-log/activity-logs-insights-main-screen.png" lightbox= "media/activity-log/activity-logs-insights-main-screen.png" alt-text="Screenshot that shows Activity log insights dashboards.":::
 
-### View Activity log insights - Resource group or subscription level
+### View Activity log insights: Resource group or subscription level
 
 To view Activity log insights on a resource group or a subscription level:
 

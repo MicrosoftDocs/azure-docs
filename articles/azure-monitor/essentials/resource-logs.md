@@ -70,9 +70,9 @@ In this mode, all data from any diagnostic setting is collected in the [AzureDia
 
 Consider an example where diagnostic settings are collected in the same workspace for the following data types:
 
-- Audit logs of service 1 (have a schema that consists of columns A, B, and C)
-- Error logs of service 1 (have a schema that consists of columns D, E, and F)
-- Audit logs of service 2 (have a schema that consists of columns G, H, and I)
+- Audit logs of service 1 have a schema that consists of columns A, B, and C
+- Error logs of service 1 have a schema that consists of columns D, E, and F
+- Audit logs of service 2 have a schema that consists of columns G, H, and I
 
 The `AzureDiagnostics` table looks like this example:
 
