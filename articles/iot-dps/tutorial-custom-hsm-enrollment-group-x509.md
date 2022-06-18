@@ -29,6 +29,7 @@ This tutorial will demonstrate the [custom HSM sample](https://github.com/Azure/
 In this tutorial you'll complete the following objectives:
 
 > [!div class="checklist"]
+>
 > * Create a certificate chain of trust to organize a set of devices using X.509 certificates.
 > * Complete proof of possession with a signing certificate used with the certificate chain.
 > * Create a new group enrollment that uses the certificate chain
@@ -417,6 +418,31 @@ Run the following commands to create the root CA private key and the root CA cer
     winpty openssl req -new -x509 -config ./openssl_root_ca.cnf -passin pass:1234 -key ./private/azure-iot-test-only.root.ca.key.pem -subj '//CN=Azure IoT Hub CA Cert Test Only' -days 30 -sha256 -extensions v3_ca -out ./certs/azure-iot-test-only.root.ca.cert.pem
     ```
 
+1. Examine the root CA certificate:
+
+    ```bash
+    openssl x509 -noout -text -in ./certs/azure-iot-test-only.root.ca.cert.pem
+    ```
+
+    Observe that the **Issuer** and the **Subject** are both the root CA.
+
+    ```output
+    Certificate:
+        Data:
+            Version: 3 (0x2)
+            Serial Number:
+                1e:f9:92:63:74:8b:eb:d7:5c:69:65:3b:57:f2:a6:5b:9a:27:de:b1
+            Signature Algorithm: sha256WithRSAEncryption
+            Issuer: CN = Azure IoT Hub CA Cert Test Only
+            Validity
+                Not Before: Jun 18 00:14:41 2022 GMT
+                Not After : Jul 18 00:14:41 2022 GMT
+            Subject: CN = Azure IoT Hub CA Cert Test Only
+            Subject Public Key Info:
+                Public Key Algorithm: rsaEncryption
+                    RSA Public-Key: (4096 bit)
+    ```
+
 ### Create the intermediate CA certificate
 
 Run the following commands to create the intermediate CA private key and the intermediate CA certificate. You'll use this certificate and key to sign your device certificate(s).
@@ -438,6 +464,31 @@ Run the following commands to create the intermediate CA private key and the int
     ```bash
     winpty openssl ca -batch -config ./openssl_root_ca.cnf -passin pass:1234 -extensions v3_intermediate_ca -days 30 -notext -md sha256 -in ./csr/azure-iot-test-only.intermediate.csr.pem -out ./certs/azure-iot-test-only.intermediate.cert.pem
     ```
+
+1. Examine the intermediate CA certificate:
+
+    ```bash
+    openssl x509 -noout -text -in ./certs/azure-iot-test-only.intermediate.cert.pem
+    ```
+
+    Observe that the **Issuer** is the root CA, and the **Subject** is the intermediate CA.
+
+    ```output
+    Certificate:
+        Data:
+            Version: 3 (0x2)
+            Serial Number:
+                5e:58:46:28:f4:32:f7:f0:88:b4:db:e8:a8:26:d3:25
+            Signature Algorithm: sha256WithRSAEncryption
+            Issuer: CN = Azure IoT Hub CA Cert Test Only
+            Validity
+                Not Before: Jun 18 00:24:18 2022 GMT
+                Not After : Jul 18 00:24:18 2022 GMT
+            Subject: CN = Azure IoT Hub Intermediate Cert Test Only
+            Subject Public Key Info:
+                Public Key Algorithm: rsaEncryption
+                    RSA Public-Key: (4096 bit)
+     ```
 
 ### Create the device certificates
 
@@ -462,6 +513,31 @@ In this section you create the device certificates and the full chain device cer
     ```bash
     winpty openssl ca -batch -config ./openssl_device_intermediate_ca.cnf -passin pass:1234 -extensions usr_cert -days 30 -notext -md sha256 -in ./csr/device-01.csr.pem -out ./certs/device-01.cert.pem
     ```
+
+1. Examine the device certificate:
+
+    ```bash
+    openssl x509 -noout -text -in ./certs/device-01.cert.pem
+    ```
+
+    Observe that the **Issuer** is the intermediate CA, and the **Subject** is the device registration ID, `device-01`.
+
+    ```output
+    Certificate:
+        Data:
+            Version: 3 (0x2)
+            Serial Number:
+                5e:58:46:28:f4:32:f7:f0:88:b4:db:e8:a8:26:d3:25
+            Signature Algorithm: sha256WithRSAEncryption
+            Issuer: CN = Azure IoT Hub CA Cert Test Only
+            Validity
+                Not Before: Jun 18 00:24:18 2022 GMT
+                Not After : Jul 18 00:24:18 2022 GMT
+            Subject: CN = Azure IoT Hub Intermediate Cert Test Only
+            Subject Public Key Info:
+                Public Key Algorithm: rsaEncryption
+                    RSA Public-Key: (4096 bit)
+     ```
 
 1. The device must present the full certificate chain when it authenticates with DPS.
 
@@ -499,130 +575,21 @@ In this section you create the device certificates and the full chain device cer
     >[!NOTE]
     > This script uses the registration ID as the base filename for the private key and certificate files. If your registration ID contains characters that aren't valid filename characters, you'll need to modify the script accordingly.
 
-### Create root CA and intermediate CA certificates
-
-To create the root CA and intermediate CA certificates of the certificate chain:
-
-1. Open a Git Bash command prompt. Complete steps 1 and 2 using the Bash shell instructions that are located in [Managing test CA certificates for samples and tutorials](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md#managing-test-ca-certificates-for-samples-and-tutorials).
-
-    This creates a working directory for the certificate scripts, and generates the example root and intermediate certificate for the certificate chain using openssl. 
-    
-2. Notice in the output showing the location of the self-signed root certificate. This certificate will go through [proof of possession](how-to-verify-certificates.md) to verify ownership later.
-
-    ```output
-    Creating the Root CA Certificate
-    CA Root Certificate Generated At:
-    ---------------------------------
-        ./certs/azure-iot-test-only.root.ca.cert.pem
-    
-    Certificate:
-        Data:
-            Version: 3 (0x2)
-            Serial Number:
-                fc:cc:6b:ab:3b:9a:3e:fe
-        Signature Algorithm: sha256WithRSAEncryption
-            Issuer: CN=Azure IoT Hub CA Cert Test Only
-            Validity
-                Not Before: Oct 23 21:30:30 2020 GMT
-                Not After : Nov 22 21:30:30 2020 GMT
-            Subject: CN=Azure IoT Hub CA Cert Test Only
-    ```        
-    
-3. Notice in the output showing the location of the intermediate certificate that is signed/issued by the root certificate. This certificate will be used with the enrollment group you will create later.
-
-    ```output
-    Intermediate CA Certificate Generated At:
-    -----------------------------------------
-        ./certs/azure-iot-test-only.intermediate.cert.pem
-    
-    Certificate:
-        Data:
-            Version: 3 (0x2)
-            Serial Number: 1 (0x1)
-        Signature Algorithm: sha256WithRSAEncryption
-            Issuer: CN=Azure IoT Hub CA Cert Test Only
-            Validity
-                Not Before: Oct 23 21:30:33 2020 GMT
-                Not After : Nov 22 21:30:33 2020 GMT
-            Subject: CN=Azure IoT Hub Intermediate Cert Test Only
-    ```    
-    
-#### Create device certificates
-
-To create the device certificates signed by the intermediate certificate in the chain:
-
-1. Run the following command to create a new device/leaf certificate with a subject name you give as a parameter. Use the example subject name given for this tutorial, `custom-hsm-device-01`. This subject name will be the device ID for your IoT device. 
-
     > [!WARNING]
-    > Don't use a subject name with spaces in it. This subject name is the device ID for the IoT device being provisioned. 
-    > It must follow the rules for a device ID. For more information, see [Device identity properties](../iot-hub/iot-hub-devguide-identity-registry.md#device-identity-properties).
-
-    ```cmd
-    ./certGen.sh create_device_certificate_from_intermediate "custom-hsm-device-01"
-    ```
-
-    Notice the following output showing where the new device certificate is located. The device certificate is signed (issued) by the intermediate certificate.
-
-    ```output
-    -----------------------------------
-    ./certs/new-device.cert.pem: OK
-    Leaf Device Certificate Generated At:
-    ----------------------------------------
-        ./certs/new-device.cert.pem
-    
-    Certificate:
-        Data:
-            Version: 3 (0x2)
-            Serial Number: 9 (0x9)
-        Signature Algorithm: sha256WithRSAEncryption
-            Issuer: CN=Azure IoT Hub Intermediate Cert Test Only
-            Validity
-                Not Before: Nov 10 09:20:33 2020 GMT
-                Not After : Dec 10 09:20:33 2020 GMT
-            Subject: CN=custom-hsm-device-01
-    ```    
-    
-2. Run the following command to create a full certificate chain .pem file that includes the new device certificate for `custom-hsm-device-01`.
-
-    ```Bash
-    cd ./certs && cat new-device.cert.pem azure-iot-test-only.intermediate.cert.pem azure-iot-test-only.root.ca.cert.pem > new-device-01-full-chain.cert.pem && cd ..
-    ```
-
-    Use a text editor and open the certificate chain file, *./certs/new-device-01-full-chain.cert.pem*. The certificate chain text contains the full chain of all three certificates. You will use this text as the certificate chain with in the custom HSM device code later in this tutorial for `custom-hsm-device-01`.
-
-    The full chain text has the following format:
- 
-    ```output 
-    -----BEGIN CERTIFICATE-----
-        <Text for the device certificate includes public key>
-    -----END CERTIFICATE-----
-    -----BEGIN CERTIFICATE-----
-        <Text for the intermediate certificate includes public key>
-    -----END CERTIFICATE-----
-    -----BEGIN CERTIFICATE-----
-        <Text for the root certificate includes public key>
-    -----END CERTIFICATE-----
-    ```
-
-3. Notice the private key for the new device certificate is written to *./private/new-device.key.pem*. Rename this key file *./private/new-device-01.key.pem* for the `custom-hsm-device-01` device. The text for this key will be needed by the device during provisioning. The text will be added to the custom HSM example later.
-
-    ```bash
-    $ mv private/new-device.key.pem private/new-device-01.key.pem
-    ```
-
-    > [!WARNING]
-    > The text for the certificates only contains public key information. 
+    > The text for the certificates only contains public key information.
     >
-    > However, the device must also have access to the private key for the device certificate. This is necessary because the device must perform verification using that key at runtime when attempting provisioning. The sensitivity of this key is one of the main reasons it is recommended to use hardware-based storage in a real HSM to help secure private keys.
+    > However, the device must also have access to the private key for the device certificate. This is necessary because the device must perform verification using that key at runtime when it attempts to provision. The sensitivity of this key is one of the main reasons it is recommended to use hardware-based storage in a real HSM to help secure private keys.
 
-4. Delete *./certs/new-device.cert.pem*, and repeat steps 1-3 for a second device with device ID `custom-hsm-device-02`. You must delete *./certs/new-device.cert.pem* or certificate generation will fail for the second device. Only the full chain certificate files will be used by this article. Use the following values for the second device:
+The following files will be used in the rest of this tutorial:
 
-    |   Description                 |  Value  |
-    | :---------------------------- | :--------- |
-    | Subject Name                  | `custom-hsm-device-02` |
-    | Full certificate chain file   | *./certs/new-device-02-full-chain.cert.pem* |
-    | Private key filename          | *private/new-device-02.key.pem* |
-    
+|   Description                 |  File  |
+| ---------------------------- | --------- |
+| Root CA certificate.              | *certs/azure-iot-test-only.root.ca.cert.pem* |
+| Intermediate CA certificate   | *certs/azure-iot-test-only.intermediate.cert.pem* |
+| Device 1 private key          | *private/device-01.key.pem* |
+| Device 1 full chain certificate  | *certs/device-01-full-chain.cert.pem* |
+| Device 2 private key          | *private/device-02.key.pem* |
+| Device 2 full chain certificate  | *certs/device-01-full-chain.cert.pem* |
 
 ## Verify ownership of the root certificate
 
@@ -632,7 +599,7 @@ To create the device certificates signed by the intermediate certificate in the 
 
 1. Follow the instructions in [Automatic verification of intermediate or root CA through self-attestation](how-to-verify-certificates.md#automatic-verification-of-intermediate-or-root-ca-through-self-attestation) to upload the root certificate (`./certs/azure-iot-test-only.root.ca.cert.pem`). This is the recommended approach for this tutorial.
 
-### (Optional) Manually verify ownership of the root certificate
+### Manually verify ownership of the root certificate (optional)
 
 1. Using the directions from [Register the public part of an X.509 certificate and get a verification code](how-to-verify-certificates.md#register-the-public-part-of-an-x509-certificate-and-get-a-verification-code), upload the root certificate (`./certs/azure-iot-test-only.root.ca.cert.pem`) and get a verification code from DPS.
 
