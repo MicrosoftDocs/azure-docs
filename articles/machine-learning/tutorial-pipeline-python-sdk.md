@@ -368,4 +368,4 @@ If you're not going to use the endpoint, delete it to stop using the resource.  
 ## Next steps
 
 > [!div class="nextstepaction"]
-> Learn more about [Azure ML logging](https://github.com/Azure/azureml-examples/blob/sdk-preview/notebooks/mlflow/mlflow-v1-comparison.ipynb).
+> Learn more about Azure ML logging.
