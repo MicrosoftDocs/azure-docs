@@ -6,8 +6,6 @@ ms.date: 06/17/2022
 ms.author: juliako
 ---
 
-----
-
 # Limited Access features of Azure Video Indexer 
 
 Our vision is to empower developers and organizations to leverage AI to transform society in positive ways. We encourage responsible AI practices to protect the rights and safety of individuals. Microsoft facial recognition services are Limited Access in order to help prevent the misuse of the services in accordance with our [AI Principles](https://www.microsoft.com/ai/responsible-ai?SilentAuth=1&wa=wsignin1.0&activetab=pivot1%3aprimaryr6) and [facial recognition](https://blogs.microsoft.com/on-the-issues/2018/12/17/six-principles-to-guide-microsofts-facial-recognition-work/) principles. The Face Identify and Celebrity Recognition operations in Azure Video Indexer are Limited Access features that require registration.  
@@ -24,7 +22,7 @@ The Azure Video Indexer service is made available to customers and partners unde
 
 ## Help and support 
 
-<!-- FAQ about Limited Access can be found here. -->
+FAQ about Limited Access can be found [here](: https://aka.ms/limitedaccesscogservices).
 
 If you need help with Azure Video Indexer, find support [here](/azure/cognitive-services/cognitive-services-support-options.md). 
 
