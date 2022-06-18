@@ -358,7 +358,7 @@ Learn more about [MariaDB server - OrcasMariaDbConcurrentConnection (Scale the M
 
 Our internal telemetry shows that there is high churn in the buffer pool for this server which can result in slower query performance and increased IOPS. To improve performance,  review your workload queries to identify opportunities to minimize memory consumed.  If no such opportunity found, then we recommend moving to higher SKU with more memory or increase storage size to get more IOPS.
 
-Learn more about [MariaDB server - OrcasMariaDbMemoryCache (Move your MariaDB server to Memory Optimzed SKU)](https://aka.ms/mariadbpricing).
+Learn more about [MariaDB server - OrcasMariaDbMemoryCache (Move your MariaDB server to Memory Optimized SKU)](https://aka.ms/mariadbpricing).
 
 ### Increase the reliability of audit logs
 
@@ -442,7 +442,7 @@ Learn more about [Azure Database for MySQL flexible server - OrcasMeruMysqlCpuUp
 
 ### Improve performance by optimizing MySQL temporary-table sizing.
 
-Our internal telemetry indicates that your MySQL server may be incurring unncessary I/O overhead due to low temporary-table parameter settings. This may result in unnecessary disk-based transactions and reduced performance. We recommend that you increase the 'tmp_table_size' and 'max_heap_table_size' parameter values to reduce the number of disk-based transactions.
+Our internal telemetry indicates that your MySQL server may be incurring unnecessary I/O overhead due to low temporary-table parameter settings. This may result in unnecessary disk-based transactions and reduced performance. We recommend that you increase the 'tmp_table_size' and 'max_heap_table_size' parameter values to reduce the number of disk-based transactions.
 
 Learn more about [Azure Database for MySQL flexible server - OrcasMeruMysqlTmpTable (Improve performance by optimizing MySQL temporary-table sizing.)](https://dev.mysql.com/doc/refman/8.0/en/internal-temporary-tables.html#internal-temporary-tables-engines).
 
