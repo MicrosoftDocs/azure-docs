@@ -49,7 +49,7 @@ For more information, see [Centrally discover and deploy Microsoft Sentinel out-
 
 |Name    |Includes  |Categories |Supported by  |
 |---------|---------|---------|---------|
-|**Tomcat** |Data connector, parser | DevOps, application |[Microsoft |
+|**Tomcat** |Data connector, parser | DevOps, application |Microsoft |
 
 ## Arista Networks
 
