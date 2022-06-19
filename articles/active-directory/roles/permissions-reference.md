@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: reference
-ms.date: 05/20/2022
+ms.date: 06/17/2022
 ms.author: rolyon
 ms.reviewer: abhijeetsinha
 ms.custom: generated, it-pro, fasttrack-edit
@@ -70,6 +70,7 @@ This article lists the Azure AD built-in roles you can assign to allow managemen
 > | [Hybrid Identity Administrator](#hybrid-identity-administrator) | Can manage AD to Azure AD cloud provisioning, Azure AD Connect, Pass-through Authentication (PTA), Password hash synchronization (PHS), Seamless Single sign-on (Seamless SSO), and federation settings. | 8ac3fc64-6eca-42ea-9e69-59f4c7b60eb2 |
 > | [Identity Governance Administrator](#identity-governance-administrator) | Manage access using Azure AD for identity governance scenarios. | 45d8d3c5-c802-45c6-b32a-1d70b5e1e86e |
 > | [Insights Administrator](#insights-administrator) | Has administrative access in the Microsoft 365 Insights app. | eb1f4a8d-243a-41f0-9fbd-c7cdf6c5ef7c |
+> | [Insights Analyst](#insights-analyst) | Access the analytical capabilities in Microsoft Viva Insights and run custom queries. | 25df335f-86eb-4119-b717-0ff02de207e9 |
 > | [Insights Business Leader](#insights-business-leader) | Can view and share dashboards and insights via the Microsoft 365 Insights app. | 31e939ad-9672-4796-9c2e-873181342d2d |
 > | [Intune Administrator](#intune-administrator) | Can manage all aspects of the Intune product. | 3a2c62db-5318-420d-8d74-23affee5d9d5 |
 > | [Kaizala Administrator](#kaizala-administrator) | Can manage settings for Microsoft Kaizala. | 74ef975b-6605-40af-a5d2-b9539d836353 |
@@ -1283,7 +1284,9 @@ Users with this role can manage Azure AD identity governance configuration, incl
 
 ## Insights Administrator
 
-Users in this role can access the full set of administrative capabilities in the [Microsoft 365 Insights application](https://go.microsoft.com/fwlink/?linkid=2129521). This role has the ability to read directory information, monitor service health, file support tickets, and access the Insights Administrator settings aspects.
+Users in this role can access the full set of administrative capabilities in the Microsoft Viva Insights app. This role has the ability to read directory information, monitor service health, file support tickets, and access the Insights Administrator settings aspects.
+
+[Learn more](https://go.microsoft.com/fwlink/?linkid=2129521)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -1295,9 +1298,29 @@ Users in this role can access the full set of administrative capabilities in the
 > | microsoft.office365.supportTickets/allEntities/allTasks | Create and manage Microsoft 365 service requests |
 > | microsoft.office365.webPortal/allEntities/standard/read | Read basic properties on all resources in the Microsoft 365 admin center |
 
+## Insights Analyst
+
+Assign the Insights Analyst role to users who need to do the following:
+
+- Analyze data in the Microsoft Viva Insights app, but can't manage any configuration settings
+- Create, manage, and run queries 
+- View basic settings and reports in the Microsoft 365 admin center
+- Create and manage service requests in the Microsoft 365 admin center
+
+[Learn more](https://go.microsoft.com/fwlink/?linkid=2129521)
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | microsoft.insights/queries/allProperties/allTasks | Run and manage queries in Viva Insights |
+> | microsoft.office365.supportTickets/allEntities/allTasks | Create and manage Microsoft 365 service requests |
+> | microsoft.office365.webPortal/allEntities/standard/read | Read basic properties on all resources in the Microsoft 365 admin center |
+
 ## Insights Business Leader
 
-Users in this role can access a set of dashboards and insights via the [Microsoft 365 Insights application](https://go.microsoft.com/fwlink/?linkid=2129521). This includes full access to all dashboards and presented insights and data exploration functionality. Users in this role do not have access to product configuration settings, which is the responsibility of the Insights Administrator role.
+Users in this role can access a set of dashboards and insights via the Microsoft Viva Insights app. This includes full access to all dashboards and presented insights and data exploration functionality. Users in this role do not have access to product configuration settings, which is the responsibility of the Insights Administrator role.
+
+[Learn more](https://go.microsoft.com/fwlink/?linkid=2129521)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |

@@ -3,7 +3,7 @@ title: Use Azure Service Bus Explorer to run data operations (Preview)
 description: This article provides information on how to use the portal-based Azure Service Bus Explorer to access Azure Service Bus data. 
 ms.topic: how-to
 ms.custom: event-tier1-build-2022
-ms.date: 05/24/2022
+ms.date: 06/17/2022
 ms.author: egrootenboer
 ---
 
@@ -210,6 +210,9 @@ After peeking or receiving a message, we can re-send it, which will send a copy 
 1. Select the **Send** button to send the messages to the entity.
 
     :::image type="content" source="./media/service-bus-explorer/queue-resend-selected-messages.png" alt-text="Screenshot showing the re-send messages experience." lightbox="./media/service-bus-explorer/queue-resend-selected-messages.png":::
+    
+    > [!NOTE]
+    > If you resend a message in a dead-letter queue of a subscription, a copy of the message is sent to the topic. Therefore, all subscriptions will receive a copy of the message. 
 
 ## Switch authentication type
 
