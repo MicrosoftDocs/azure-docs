@@ -28,7 +28,7 @@ Contact us with any questions, suggestions, or issues about any of the following
 
 To ensure the security of data in transit to Azure Monitor, we strongly encourage you to configure the agent to use at least Transport Layer Security (TLS) 1.2. Older versions of TLS/Secure Sockets Layer (SSL) have been found to be vulnerable and while they still currently work to allow backwards compatibility, they are **not recommended**, and the industry is quickly moving to abandon support for these older protocols. 
 
-The [PCI Security Standards Council](https://www.pcisecuritystandards.org/) has set a [deadline of June 30th, 2018](https://www.pcisecuritystandards.org/pdfs/PCI_SSC_Migrating_from_SSL_and_Early_TLS_Resource_Guide.pdf) to disable older versions of TLS/SSL and upgrade to more secure protocols. Once Azure drops legacy support, if your agents cannot communicate over at least TLS 1.2 you would not be able to send data to Azure Monitor Logs. 
+The [PCI Security Standards Council](https://www.pcisecuritystandards.org/) has set a [deadline of June 30, 2018](https://www.pcisecuritystandards.org/pdfs/PCI_SSC_Migrating_from_SSL_and_Early_TLS_Resource_Guide.pdf) to disable older versions of TLS/SSL and upgrade to more secure protocols. Once Azure drops legacy support, if your agents can't communicate over at least TLS 1.2 you won't be able to send data to Azure Monitor Logs. 
 
 We recommend you do NOT explicit set your agent to only use TLS 1.2 unless absolutely necessary. Allowing the agent to automatically detect, negotiate, and take advantage of future security standards is preferable. Otherwise you may miss the added security of the newer standards and possibly experience problems if TLS 1.2 is ever deprecated in favor of those newer standards.    
 
@@ -37,12 +37,12 @@ We recommend you do NOT explicit set your agent to only use TLS 1.2 unless absol
 |Platform/Language | Support | More Information |
 | --- | --- | --- |
 |Linux | Linux distributions tend to rely on [OpenSSL](https://www.openssl.org) for TLS 1.2 support.  | Check the [OpenSSL Changelog](https://www.openssl.org/news/changelog.html) to confirm your version of OpenSSL is supported.|
-| Windows 8.0 - 10 | Supported, and enabled by default. | To confirm that you are still using the [default settings](/windows-server/security/tls/tls-registry-settings).  |
-| Windows Server 2012 - 2016 | Supported, and enabled by default. | To confirm that you are still using the [default settings](/windows-server/security/tls/tls-registry-settings) |
+| Windows 8.0 - 10 | Supported, and enabled by default. | To confirm that you're still using the [default settings](/windows-server/security/tls/tls-registry-settings).  |
+| Windows Server 2012 - 2016 | Supported, and enabled by default. | To confirm that you're still using the [default settings](/windows-server/security/tls/tls-registry-settings) |
 | Windows 7 SP1 and Windows Server 2008 R2 SP1 | Supported, but not enabled by default. | See the [Transport Layer Security (TLS) registry settings](/windows-server/security/tls/tls-registry-settings) page for details on how to enable.  |
 
 ## Data segregation
-After your data is ingested by Azure Monitor, the data is kept logically separate on each component throughout the service. All data is tagged per workspace. This tagging persists throughout the data lifecycle, and it is enforced at each layer of the service. Your data is stored in a dedicated database in the storage cluster in the region you have selected.
+After your data is ingested by Azure Monitor, the data is kept logically separate on each component throughout the service. All data is tagged per workspace. This tagging persists throughout the data lifecycle, and it's enforced at each layer of the service. Your data is stored in a dedicated database in the storage cluster in the region you've selected.
 
 ## Data retention
 Indexed log search data is stored and retained according to your pricing plan. For more information, see [Log Analytics Pricing](https://azure.microsoft.com/pricing/details/log-analytics/).
@@ -98,11 +98,11 @@ While very rare, Microsoft will notify each customer within one day if significa
 For more information about how Microsoft responds to security incidents, see [Microsoft Azure Security Response in the Cloud](https://gallery.technet.microsoft.com/Azure-Security-Response-in-dd18c678/file/150826/4/Microsoft%20Azure%20Security%20Response%20in%20the%20cloud.pdf).
 
 ## Compliance
-The Azure Monitor software development and service team's information security and governance program supports its business requirements and adheres to laws and regulations as described at [Microsoft Azure Trust Center](https://azure.microsoft.com/support/trust-center/) and [Microsoft Trust Center Compliance](https://www.microsoft.com/en-us/trustcenter/compliance/default.aspx). How Azure Monitor Logs establishes security requirements, identifies security controls, manages, and monitors risks are also described there. Annually, we review polices, standards, procedures, and guidelines.
+The Azure Monitor software development and service team's information security and governance program supports its business requirements and adheres to laws and regulations as described at [Microsoft Azure Trust Center](https://azure.microsoft.com/support/trust-center/) and [Microsoft Trust Center Compliance](https://www.microsoft.com/en-us/trustcenter/compliance/default.aspx). How Azure Monitor Logs establishes security requirements, identifies security controls, manages, and monitors risks are also described there. Annually, we review policies, standards, procedures, and guidelines.
 
 Each development team member receives formal application security training. Internally, we use a version control system for software development. Each software project is protected by the version control system.
 
-Microsoft has a security and compliance team that oversees and assesses all services in Microsoft. Information security officers make up the team and they are not associated with the engineering teams that develops Log Analytics. The security officers have their own management chain and conduct independent assessments of products and services to ensure security and compliance.
+Microsoft has a security and compliance team that oversees and assesses all services at Microsoft. Information security officers make up the team and they are not associated with the engineering teams that develop Log Analytics. The security officers have their own management chain and conduct independent assessments of products and services to ensure security and compliance.
 
 Microsoft's board of directors is notified by an annual report about all information security programs at Microsoft.
 
@@ -127,7 +127,7 @@ Azure Log Analytics meets the following requirements:
 >
 
 ## Cloud computing security data flow
-The following diagram shows a cloud security architecture as the flow of information from your company and how it is secured as is moves to Azure Monitor, ultimately seen by you in the Azure portal. More information about each step follows the diagram.
+The following diagram shows a cloud security architecture as the flow of information from your company and how it's secured as is moves to Azure Monitor, ultimately seen by you in the Azure portal. More information about each step follows the diagram.
 
 ![Image of Azure Monitor Logs data collection and security](./media/data-security/log-analytics-data-security-diagram.png)
 
@@ -139,11 +139,11 @@ For your organization to send data to Azure Monitor Logs, you configure a Window
 
 A Log Analytics workspace is where data is collected, aggregated, analyzed, and presented. A workspace is primarily used as a means to partition data, and each workspace is unique. For example, you might want to have your production data managed with one workspace and your test data managed with another workspace. Workspaces also help an administrator control user access to the data. Each workspace can have multiple user accounts associated with it, and each user account can access multiple Log Analytics workspaces. You create workspaces based on datacenter region.
 
-For Operations Manager, the Operations Manager management group establishes a connection with the Azure Monitor service. You then configure which agent-managed systems in the management group are allowed to collect and send data to the service. Depending on the solution you have enabled, data from these solutions are either sent directly from an Operations Manager management server to the Azure Monitor service, or because of the volume of data collected by the agent-managed system, are sent directly from the agent to the service. For systems not monitored by Operations Manager, each connects securely to the Azure Monitorservice directly.
+For Operations Manager, the Operations Manager management group establishes a connection with the Azure Monitor service. You then configure which agent-managed systems in the management group are allowed to collect and send data to the service. Depending on the solution you've enabled, data from these solutions are either sent directly from an Operations Manager management server to the Azure Monitor service, or because of the volume of data collected by the agent-managed system, are sent directly from the agent to the service. For systems not monitored by Operations Manager, each connects securely to the Azure Monitorservice directly.
 
 All communication between connected systems and the Azure Monitor service is encrypted. The TLS (HTTPS) protocol is used for encryption.  The Microsoft SDL process is followed to ensure Log Analytics is up-to-date with the most recent advances in cryptographic protocols.
 
-Each type of agent collects log data for Azure Monitor. The type of data that is collected is depends on the configuration of your workspace and other features of Azure Monitor. 
+Each type of agent collects log data for Azure Monitor. The type of data that is collected depends on the configuration of your workspace and other features of Azure Monitor. 
 
 ### 2. Send data from agents
 You register all agent types with an enrollment key and a secure connection is established between the agent and the Azure Monitor service using certificate-based authentication and TLS with port 443. Azure Monitor uses a secret store to generate and maintain keys. Private keys are rotated every 90 days and are stored in Azure and are managed by the Azure operations who follow strict regulatory and compliance practices.
@@ -156,7 +156,7 @@ With any agent reporting to an Operations Manager management group that is integ
 
 The Windows or management server agent cached data is protected by the operating system's credential store. If the service cannot process the data after two hours, the agents will queue the data. If the queue becomes full, the agent starts dropping data types, starting with performance data. The agent queue limit is a registry key so you can modify it, if necessary. Collected data is compressed and sent to the service, bypassing the Operations Manager management group databases, so it does not add any load to them. After the collected data is sent, it is removed from the cache.
 
-As described above, data from the management server or direct-connected agents is sent over TLS to Microsoft Azure datacenters. Optionally, you can use ExpressRoute to provide additional security for the data. ExpressRoute is a way to directly connect to Azure from your existing WAN network, such as a multi-protocol label switching (MPLS) VPN, provided by a network service provider. For more information, see [ExpressRoute](https://azure.microsoft.com/services/expressroute/).
+As described above, data from the management server or direct-connected agents is sent over TLS to Microsoft Azure datacenters. Optionally, you can use ExpressRoute to provide extra security for the data. ExpressRoute is a way to directly connect to Azure from your existing WAN network, such as a multi-protocol label switching (MPLS) VPN, provided by a network service provider. For more information, see [ExpressRoute](https://azure.microsoft.com/services/expressroute/).
 
 ### 3. The Azure Monitor service receives and processes data
 The Azure Monitor service ensures that incoming data is from a trusted source by validating certificates and the data integrity with Azure authentication. The unprocessed raw data is then stored in an Azure Event Hub in the region the data will eventually be stored at rest. The type of data that is stored depends on the types of solutions that were imported and used to collect data. Then, the Azure Monitor service processes the raw data and ingests it into the database.
@@ -169,7 +169,7 @@ Data in database storage cannot be altered once ingested but can be deleted via 
 To access your Log Analytics workspace, you sign into the Azure portal using the organizational account or Microsoft account that you set up previously. All traffic between the portal and Azure Monitor service is sent over a secure HTTPS channel. When using the portal, a session ID is generated on the user client (web browser) and data is stored in a local cache until the session is terminated. When terminated, the cache is deleted. Client-side cookies, which do not contain personally identifiable information, are not automatically removed. Session cookies are marked HTTPOnly and are secured. After a pre-determined idle period, the Azure portal session is terminated.
 
 
-## Additional Security features
+## Additional security features
 You can use these additional security features to further secure your Azure Monitor environment. These features require more administrator management. 
 - [Customer-managed (security) keys](../logs/customer-managed-keys.md) - You can use customer-managed keys to encrypt data sent to your Log Analytics workspaces. It requires use of Azure Key Vault. 
 - [Private / customer-managed Storage](./private-storage.md) - Manage your personally encrypted storage account and tell Azure Monitor to use it to store monitoring data 
