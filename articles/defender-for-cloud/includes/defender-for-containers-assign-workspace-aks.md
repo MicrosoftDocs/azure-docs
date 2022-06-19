@@ -40,9 +40,9 @@ Once the Defender profile has been deployed, a default workspace will be automat
 
     :::image type="content" source="../media/defender-for-containers/assignments-tab-aks.png" alt-text="Screenshot showing where to locate the assignments tab." lightbox="../media/defender-for-containers/assignments-tab-aks.png":::
 
-1. Select the [Policy not assigned](#policy-not-assigned) steps if the policy hasn't yet been assigned. Or, select the [Policy already assigned](#policy-already-assigned) steps if the policy is already assigned and you want to change it.
+1. Follow the [Create a new assignment with custom workspace](#create-a-new-assignment-with-custom-workspace) steps if the policy hasn't yet been assigned to the relevant scope. Or, follow the [Update assignment with custom workspace](#update-assignment-with-custom-workspace) steps if the policy is already assigned and you want to change it to use a custom workspace.
 
-#### Policy not assigned
+#### Create a new assignment with custom workspace
 
 If you policy hasn't been assigned, you'll see `Assignments (0)`.
 
@@ -62,14 +62,14 @@ If you policy hasn't been assigned, you'll see `Assignments (0)`.
 
 1. Select **Create**.
 
-#### Policy already assigned
+#### Update assignment with custom workspace
 
 If the policy has already been assigned to a workspace you'll see `Assignments (1)`.
 
 :::image type="content" source="../media/defender-for-containers/already-assigned.png" alt-text="Screenshot that shows Assignment (1), meaning a workspace has already been assigned." lightbox="../media/defender-for-containers/already-assigned.png":::
 
 > [!NOTE]
-> If you have more than one subscription the number may be higher
+> If you have more than one subscription the number may be higher.
 
 **To assign custom workspace**:
 

@@ -40,9 +40,9 @@ Once the Defender extension has been deployed, a default workspace will be autom
 
     :::image type="content" source="../media/defender-for-containers/assignments-tab-arc.png" alt-text="Screenshot that shows where the assignments tab is for ARC." lightbox="../media/defender-for-containers/assignments-tab-arc.png":::
 
-1. Select the [Policy not assigned](#policy-not-assigned) steps if the policy hasn't yet been assigned. Or, select the [Policy already assigned](#policy-already-assigned) steps if the policy is already assigned and you want to change it.
+1. Follow the [Create a new assignment with custom workspace](#create-a-new-assignment-with-custom-workspace) steps if the policy hasn't yet been assigned to the relevant scope. Or, follow the [Update assignment with custom workspace](#update-assignment-with-custom-workspace) steps if the policy is already assigned and you want to change it to use a custom workspace.
 
-#### Policy not assigned
+#### Create a new assignment with custom workspace 
 
 If policy hasn't been assigned assigned, you'll see `Assignments (0)`.
 
@@ -62,12 +62,12 @@ If policy hasn't been assigned assigned, you'll see `Assignments (0)`.
 
 1. Select **Create**.
 
-#### Policy already assigned
+#### Update assignment with custom workspace 
 
 If the policy has already been assigned to a workspace you'll see `Assignments (1)`. 
 
 > [!NOTE]
-> If you have more than one subscription the number may be higher
+> If you have more than one subscription the number may be higher. If you have a number 1 or higher, the assignment may still not be on the relevant scope. If this is the case, you will want to follow the [Create a new assignment with custom workspace](#create-a-new-assignment-with-custom-workspace) steps.
 
 :::image type="content" source="../media/defender-for-containers/already-assigned-arc.png" alt-text="Screenshot that shows Assignment (1), meaning a workspace has already been assigned for ARC." lightbox="../media/defender-for-containers/already-assigned-arc.png":::
 

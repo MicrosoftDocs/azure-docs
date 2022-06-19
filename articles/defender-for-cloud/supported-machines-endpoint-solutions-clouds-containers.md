@@ -2,7 +2,7 @@
 title: Microsoft Defender for Containers feature availability
 description: Learn about the availability of Microsoft Defender for Cloud containers features according to OS, machine type, and cloud deployment.
 ms.topic: overview
-ms.date: 06/08/2022
+ms.date: 06/19/2022
 ms.custom: references_regions
 ---
 
@@ -22,10 +22,10 @@ The **tabs** below show the features that are available, by environment, for Mic
 | Hardening | Control plane recommendations | ACR, AKS | GA | ✓ | Agentless | Free | Commercial clouds<br><br> National clouds: Azure Government, Azure China 21Vianet |
 | Hardening | Kubernetes data plane recommendations | AKS | GA | X | Azure Policy | Free | Commercial clouds<br><br> National clouds: Azure Government, Azure China 21Vianet |
 | Runtime protection| Threat detection (control plane)| AKS | GA | ✓ | Agentless | Defender for Containers | Commercial clouds<br><br> National clouds: Azure Government, Azure China 21Vianet |
-| Runtime protection| Threat detection (workload) | AKS | Preview | X | Defender profile | Defender for Containers | Commercial clouds |
+| Runtime protection| Threat detection (workload) | AKS | GA | X | Defender profile | Defender for Containers | Commercial clouds |
 | Discovery and provisioning | Discovery of unprotected clusters | AKS | GA | ✓ | Agentless | Free | Commercial clouds<br><br> National clouds: Azure Government, Azure China 21Vianet |
 | Discovery and provisioning | Collection of control plane threat data | AKS | GA | ✓ | Agentless | Defender for Containers | Commercial clouds<br><br> National clouds: Azure Government, Azure China 21Vianet |
-| Discovery and provisioning | Auto provisioning of Defender profile | AKS | Preview | X | Agentless | Defender for Containers | Commercial clouds<br><br> National clouds: Azure Government, Azure China 21Vianet |
+| Discovery and provisioning | Auto provisioning of Defender profile | AKS | GA | X | Agentless | Defender for Containers | Commercial clouds<br><br> National clouds: Azure Government, Azure China 21Vianet |
 | Discovery and provisioning | Auto provisioning of Azure policy add-on | AKS | GA | X | Agentless | Free | Commercial clouds<br><br> National clouds: Azure Government, Azure China 21Vianet |
 
 <sup><a name="footnote1"></a>1</sup> Specific features are in preview. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.

@@ -2,7 +2,7 @@
 title: Release notes for Microsoft Defender for Cloud
 description: A description of what's new and changed in Microsoft Defender for Cloud
 ms.topic: reference
-ms.date: 06/16/2022
+ms.date: 06/19/2022
 ---
 
 # What's new in Microsoft Defender for Cloud?
@@ -15,6 +15,24 @@ To learn about *planned* changes that are coming soon to Defender for Cloud, see
 
 > [!TIP]
 > If you're looking for items older than six months, you'll find them in the [Archive for What's new in Microsoft Defender for Cloud](release-notes-archive.md).
+
+## July 2022
+
+Update sin July include:
+
+[General availability (GA) of Defender for Containers AKS security profile](#general-availability-ga-of-defender-for-containers-aks-security-profile)
+
+### General availability (GA) of Defender for Containers AKS security profile
+
+The Defender profile is a Daemonset integrated into AKS clusters. The Defender profile is a requirement for Defender for Containers, which allows it to provide runtime protections and to collect signals from nodes.
+
+With this announcement, runtime protection - threat detection (workload) is also generally available.
+
+Learn more about the Defender for Container's [feature availability](supported-machines-endpoint-solutions-clouds-containers.md).
+
+You can also review [all available alerts](alerts-reference.md#alerts-k8scluster).
+
+If you were using the preview version, the `AKS-AzureDefender` feature flag is no longer required.
 
 ## June 2022
 
