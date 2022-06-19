@@ -21,7 +21,7 @@ To create a new Azure workbook:
 1. Combine any of these steps to include the elements you want to the workbook:
    - [Add text to your workbook](workbooks-add-text.md)
    - [Add parameters to your workbook](workbooks-parameters.md)
-   - Add queries to your workbook
+   - [Add queries to your workbook](workbooks-add-query.md)
    - [Combine data from different sources](workbooks-combine-data.md)
    - Add Metrics to your workbook
    - Add Links to your workbook

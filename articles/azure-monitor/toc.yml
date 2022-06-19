@@ -1404,7 +1404,9 @@ items:
           - name: Multi-value parameters
             href: visualize/workbooks-multi-value.md
         - name: Combine data from different sources
-          href: visualize/workbooks-combine-data.md       
+          href: visualize/workbooks-combine-data.md 
+        - name: Add a query to your workbook
+          href: visualize/workbooks-add-query.md      
     - name: Configuration
       items:
       - name: Deploy with Azure Resource Manager
