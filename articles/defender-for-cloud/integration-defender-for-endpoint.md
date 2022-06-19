@@ -21,8 +21,9 @@ Microsoft Defender for Endpoint is a holistic, cloud-delivered, endpoint securit
 > [!TIP]
 > Originally launched as **Windows Defender ATP**, in 2019, this EDR product was renamed **Microsoft Defender ATP**.
 >
-> At Ignite 2020, we launched the [Microsoft Defender for Cloud XDR suite](https://www.microsoft.com/security/business/threat-protection), and this EDR component was renamed **Microsoft Defender for Endpoint**.
+> At Ignite 2020, we launched the [Microsoft Defender for Cloud XDR suite](https://www.microsoft.com/security/business/threat-protection), and this EDR component was renamed **Microsoft Defender for Endpoint (MDE)**.
 
+For Windows Server 2012 R2 and 2016 on all platforms, Defender for Servers Plan 1 deploys [the new MDE unified solution](https://techcommunity.microsoft.com/t5/microsoft-defender-for-endpoint/defending-windows-server-2012-r2-and-2016/ba-p/2783292), which doesn't use or require installation of the Microsoft Monitoring Agent (MMA). Defender for Servers Plan 2 deploys the MDE unified solution for Windows servers in GCP and AWS. You can choose to deploy the MDE unified solution for Windows servers in Azure so that all Azure servers upgrade to the MDE unified solution, and existing installations of Log Analytics will stop collecting data.
 
 ## Availability
 
@@ -34,14 +35,13 @@ Microsoft Defender for Endpoint is a holistic, cloud-delivered, endpoint securit
 | Required roles and permissions:              | * To enable/disable the integration: **Security admin** or **Owner**<br>* To view Defender for Endpoint alerts in Defender for Cloud: **Security reader**, **Reader**, **Resource Group Contributor**, **Resource Group Owner**, **Security admin**, **Subscription owner**, or **Subscription Contributor** |
 | Clouds:                                      | :::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Azure Government (Windows only)<br>:::image type="icon" source="./media/icons/no-icon.png"::: Azure China 21Vianet <br>:::image type="icon" source="./media/icons/yes-icon.png"::: Connected AWS accounts                                                         |
 
-
 ## Benefits of integrating Microsoft Defender for Endpoint with Defender for Cloud
 
 Microsoft Defender for Endpoint protects your Windows and Linux machines whether they're hosted in Azure, hybrid clouds (on-premises), or AWS. Protections include:
 
 - **Advanced post-breach detection sensors**. Defender for Endpoint's sensors collect a vast array of behavioral signals from your machines.
 
-- **Vulnerability assessment from the Microsoft threat and vulnerability management solution**. With Microsoft Defender for Endpoint enabled, Defender for Cloud can show vulnerabilities discovered by the threat and vulnerability management module and also offer this module as a supported vulnerability assessment solution. Learn more in [Investigate weaknesses with Microsoft Defender for Endpoint's threat and vulnerability management](deploy-vulnerability-assessment-tvm.md).
+- **Vulnerability assessment from the Microsoft threat and vulnerability management solution**. With Microsoft Defender for Endpoint installed, Defender for Cloud can show vulnerabilities discovered by the threat and vulnerability management module and also offer this module as a supported vulnerability assessment solution. Learn more in [Investigate weaknesses with Microsoft Defender for Endpoint's threat and vulnerability management](deploy-vulnerability-assessment-tvm.md).
 
     This module also brings the software inventory features described in [Access a software inventory](asset-inventory.md#access-a-software-inventory) and can be automatically enabled for supported machines with [the auto deploy settings](auto-deploy-vulnerability-assessment.md).
 
@@ -64,7 +64,6 @@ When you use Defender for Cloud to monitor your machines, a Defender for Endpoin
 - **Location:** Data collected by Defender for Endpoint is stored in the geo-location of the tenant as identified during provisioning. Customer data - in pseudonymized form - may also be stored in the central storage and processing systems in the United States. After you've configured the location, you can't change it. If you have your own license for Microsoft Defender for Endpoint and need to move your data to another location, [contact Microsoft support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) to reset the tenant.
 - **Moving subscriptions:** If you've moved your Azure subscription between Azure tenants, some manual preparatory steps are required before Defender for Cloud will deploy Defender for Endpoint. For full details, [contact Microsoft support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
 
-
 ## Enable the Microsoft Defender for Endpoint integration
 
 ### Prerequisites
@@ -84,9 +83,6 @@ Confirm that your machine meets the necessary requirements for Defender for Endp
 
 1. If you've moved your subscription between Azure tenants, some manual preparatory steps are also required. For full details, [contact Microsoft support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
 
-
-
-
 ### Enable the integration
 
 ### [**Windows**](#tab/windows)
@@ -100,6 +96,11 @@ Confirm that your machine meets the necessary requirements for Defender for Endp
     :::image type="content" source="./media/integration-defender-for-endpoint/enable-integration-with-edr.png" alt-text="Enable the integration between Microsoft Defender for Cloud and Microsoft's EDR solution, Microsoft Defender for Endpoint":::
 
     Microsoft Defender for Cloud will automatically onboard your machines to Microsoft Defender for Endpoint. Onboarding might take up to 12 hours. For new machines created after the integration has been enabled, onboarding takes up to an hour.
+
+1. If you want all of your Azure Windows 2012 R2 and 2016 servers to use the MDE unified solution, select **Enable new unified solution**.
+
+    > [!NOTE]
+    > When you enable the MDE unified solution, you can't downgrade to the previous version of MDE.
 
 ### [**Linux**](#tab/linux)
 
@@ -120,7 +121,7 @@ If you've already enabled the integration with **Defender for Endpoint for Windo
     :::image type="content" source="./media/integration-defender-for-endpoint/integration-enabled.png" alt-text="The integration between Microsoft Defender for Cloud and Microsoft's EDR solution, Microsoft Defender for Endpoint is enabled":::
 
     > [!NOTE]
-    > If it isn't selected, use the instructions in [New users who've never enabled the integration with Microsoft Defender for Endpoint for Windows](#new-users-whove-never-enabled-the-integration-with-microsoft-defender-for-endpoint-for-windows).
+    > If it isn't selected, use the instructions in [New users who've never enabled the integration with Microsoft Defender for Endpoint for Windows](#new-users-who-never-enabled-the-integration-with-microsoft-defender-for-endpoint-for-windows).
 
 1. To add your Linux machines to your integration
 
@@ -293,10 +294,6 @@ If you've already got a license for **Microsoft Defender for Endpoint for Server
 To request your discount, [contact Defender for Cloud's support team](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview). You'll need to provide the relevant workspace ID, region, and number of Microsoft Defender for Endpoint for servers licenses applied for machines in the given workspace.
 
 The discount will be effective starting from the approval date, and won't take place retroactively.
-
-## Does Microsoft Defender for Servers support the new unified Microsoft Defender for Endpoint agent for Windows Server 2012 R2 and 2016?
-
-Defender for Servers Plan 1 deploys [the new Microsoft Defender for Endpoint solution stack](https://techcommunity.microsoft.com/t5/microsoft-defender-for-endpoint/defending-windows-server-2012-r2-and-2016/ba-p/2783292) for Windows Server 2012 R2 and 2016, which doesn't use or require installation of the Microsoft Monitoring Agent (MMA).
 
 ### How do I switch from a third-party EDR tool?
 Full instructions for switching from a non-Microsoft endpoint solution are available in the Microsoft Defender for Endpoint documentation: [Migration overview](/windows/security/threat-protection/microsoft-defender-atp/switch-to-microsoft-defender-migration).
