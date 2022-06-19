@@ -2,7 +2,7 @@
 title: Connect your AWS account to Microsoft Defender for Cloud
 description: Defend your AWS resources with Microsoft Defender for Cloud
 ms.topic: quickstart
-ms.date: 06/15/2022
+ms.date: 06/19/2022
 zone_pivot_groups: connect-aws-accounts
 ms.custom: mode-other
 ---
@@ -345,6 +345,55 @@ For other operating systems, the SSM Agent should be installed manually using th
 
 - [Install SSM Agent for a hybrid environment (Windows)](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-install-managed-win.html)
 - [Install SSM Agent for a hybrid environment (Linux)](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-install-managed-linux.html)
+
+### For the CSPM plan, what IAM permissions are needed to discover AWS resources?
+
+The following IAM permissions are needed to discover AWS resources:
+
+| DataCollector | AWS Permissions  |
+|--|--|
+| API Gateway | apigateway:GET |
+| Application Auto Scaling | application-autoscaling:Describe* |
+| Auto scaling | autoscaling-plans:Describe* <br> autoscaling:Describe* |
+| Certificate manager | acm-pca:Describe* <br> acm-pca:List* <br> acm:Describe* <br>acm:List* |
+| CloudFormation | cloudformation:Describe* <br> cloudformation:List* |
+| CloudFront | cloudfront:DescribeFunction <br> cloudfront:GetDistribution <br> cloudfront:GetDistributionConfig <br>cloudfront:List* |
+| CloudTrail | cloudtrail:Describe* <br> cloudtrail:GetEventSelectors <br> cloudtrail:List* <br> cloudtrail:LookupEvents |
+| CloudWatch | cloudwatch:Describe* <br> cloudwatch:List* |
+| CloudWatch logs | logs:DescribeLogGroups <br> logs:DescribeMetricFilters |
+| CodeBuild | codebuild:DescribeCodeCoverages <br> codebuild:DescribeTestCases <br> codebuild:List* |
+| Config Service | config:Describe* <br> config:List* |
+| DMS – database migration service | dms:Describe* <br> dms:List* |
+| DAX | dax:Describe* |
+| DynamoDB | dynamodb:Describe* <br> dynamodb:List* |
+| Ec2 | ec2:Describe* <br> ec2:GetEbsEncryptionByDefault |
+| ECR | ecr:Describe* <br> ecr:List* |
+| ECS | ecs:Describe* <br> ecs:List* |
+| EFS | elasticfilesystem:Describe* |
+| EKS | eks:Describe* <br> eks:List* |
+| Elastic Beanstalk | elasticbeanstalk:Describe* <br> elasticbeanstalk:List* |
+| ELB – elastic load balancing (v1/2) | elasticloadbalancing:Describe* |
+| Elastic search | es:Describe* <br> es:List* |
+| EMR – elastic map reduce | elasticmapreduce:Describe* <br> elasticmapreduce:GetBlockPublicAccessConfiguration <br> elasticmapreduce:List* <br> elasticmapreduce:View* |
+| GuardDute | guardduty:DescribeOrganizationConfiguration <br> guardduty:DescribePublishingDestination <br> guardduty:List* |
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ## Learn more
 
