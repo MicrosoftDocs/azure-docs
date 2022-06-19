@@ -135,26 +135,21 @@ The following columns are available for each device.
 
 ## View the device inventory
 
-This procedure describes how to view detected devices in the **Device inventory** page in an on-premises management console.
+To view detected devices in the **Device Inventory** page in an on-premises management console, sign-in to your on-premises management console, and then select **Device Inventory**. 
 
-1. Sign-in to your on-premises management console, and then select **Device inventory**.
+For example:
 
-<!--needs new screenshot-->
+:::image type="content" source="media/how-to-work-with-asset-inventory-information/device-inventory-data-table.png" alt-text="Screenshot of the on-premises management console Device Inventory page.":::
 
-:::image type="content" source="media/how-to-work-with-asset-inventory-information/device-inventory-data-table.png" alt-text="Screenshot of the device inventory data table.":::
+Use any of the following options to modify or filter the devices shown:
 
-    Use any of the following options to modify or filter the devices shown:
-
-<!--needs validation-->
-
-    |Option  |Steps  |
-    |---------|---------|
-    | **Sort devices** | To sort the grid by a specific column, select the **Sort** :::image type="icon" source="media/how-to-work-with-asset-inventory-information/alphabetical-order-icon.png" border="false"::: button in the column you want to sort by. Use the arrow buttons to move each column up and down. |
-    |**Filter devices shown**    |   In the column that you want to filter, select the **Filter** button :::image type="icon" source="media/how-to-work-with-asset-inventory-information/filter-a-column-icon.png" border="false":::. <br><br>In the **Filter** box, define your filter value.  <br><br>Filters aren't saved when you refresh the **Device inventory** page. |
-    | **Save a filter** | To save the current set of filters<br><br>TBD|
-    | **Load a saved filter** | TBD|
-
-    For more information, see [Device inventory column reference](#device-inventory-column-reference).
+|Option  |Steps  |
+|---------|---------|
+| **Sort devices** | To sort the grid by a specific column, select the **Sort** :::image type="icon" source="media/how-to-work-with-asset-inventory-information/alphabetical-order-icon.png" border="false"::: button in the column youwant to sort by. Use the arrow buttons that appear to sort ascending or descending. |
+|**Filter devices shown**    |   In the column that you want to filter, select the **Filter** button :::image type="icon" source="media/how-to-work-with-asset-inventory-information/filter-a-column-icon.png" border="false":::.<br><br>In the **Filter** box, define your filter value.  <br><br>Filters aren't saved when you refresh the **Device Inventory** page. |
+| **Save a filter** | To save the current set of filters, select the **Save As** button that appears in the filter row.|
+| **Load a saved filter** | Saved filters are listed on the left, in the **Groups** pane. <br><br>1. Select the **Options** :::image type="icon" source="media/how-to-work-with-asset-inventory-information/options-menu.png"border="false"::: button in the toolbar to display the **Groups** pane. <br>2. In the **Device Inventory Filters** list, select the saved filter you want to load.  |
+For more information, see [Device inventory column reference](#device-inventory-column-reference).
 
 ## Device inventory column reference
 
@@ -210,23 +205,22 @@ To enhance your data manually:
 
 1. Sign in to your on-premises management console, and select **Device inventory**.
 
-1. On the side, select the **Settings** :::image type="icon" source="media/how-to-work-with-asset-inventory-information/menu-icon.png" border="false"::: button to open the Device Inventory Settings dialog.
+1. On the top-right, select the **Settings** :::image type="icon" source="media/how-to-work-with-asset-inventory-information/menu-icon.png" border="false"::: button to open the **Device Inventory Settings** dialog.
 
 1. In the **Device Inventory Settings** dialog box, select **ADD CUSTOM COLUMN**.
 
-1. In the **Add Custom Column** dialog box, add the new column name (up to 250 characters UTF), and then select **Manual** > **SAVE**. The new item appears in the **Device Inventory Settings** dialog box. For example:
+1. In the **Add Custom Column** dialog box, add the new column name using up to 250 UTF characters.
 
-   :::image type="content" source="media/how-to-work-with-asset-inventory-information/add-custom-column.png" alt-text="Screenshot of adding a custom column to your inventory.":::
+1. Select **Manual** > **SAVE**. The new item appears in the **Device Inventory Settings** dialog box.
 
-1. In the upper-right corner of the **Device Inventory** window, select **Export CSV** :::image type="icon" source="media/how-to-work-with-asset-inventory-information/menu-icon-device-inventory.png" border="false"::: > **Export All Device Inventory**.
+1. In the upper-right corner of the **Device Inventory** window, select the **Import/Export file** :::image type="icon" source="media/how-to-work-with-asset-inventory-information/menu-icon-device-inventory.png" border="false"::: button > **Export All Device Inventory**.
 
-    A CSV file is generated. For example:
+    A CSV file is generated with the data displayed.
 
-   :::image type="content" source="media/how-to-work-with-asset-inventory-information/sample-exported-csv-file.png" alt-text="Screenshot of an exported CSV file.":::
+1. Download and open the CSV file for editing, and manually add your information to the new column.
 
-1. In the CSV file, manually add the information to the new column and save the file.
 
-1. Back in the **Device inventory** page, at the top-right, select :::image type="icon" source="media/how-to-work-with-asset-inventory-information/menu-icon-device-inventory.png" border="false"::: > **Import Manual Input Columns**, and browse to the CSV file.
+1. Back in the **Device inventory** page, at the top-right, select the **Import/Export file** :::image type="icon" source="media/how-to-work-with-asset-inventory-information/menu-icon-device-inventory.png" border="false"::: button again > **Import Manual Input Columns**. Browse to and select your edited CSV file.
 
 The new data appears in the **Device Inventory** grid.
 
@@ -238,24 +232,24 @@ To enhance your data using automation scripts:
 
 1. Sign in to your on-premises management console, and select **Device inventory**.
 
-1. On the side, select the **Settings** :::image type="icon" source="media/how-to-work-with-asset-inventory-information/menu-icon.png" border="false"::: button to open the Device Inventory Settings dialog.
+1. On the side, select the **Settings** :::image type="icon" source="media/how-to-work-with-asset-inventory-information/menu-icon.png" border="false"::: button to open the **Device Inventory Settings** dialog.
 
 1. In the **Device Inventory Settings** dialog box, select **ADD CUSTOM COLUMN**.
 
-1. In the **Add Custom Column** dialog box, add the new column name (up to 250 characters UTF), and then select **Automatic**. The **UPLOAD SCRIPT** and **TEST SCRIPT** options appear.
+1. In the **Add Custom Column** dialog box, add the new column name using up to 250 UTF characters.
 
-   :::image type="content" source="media/how-to-work-with-asset-inventory-information/add-custom-column-automatic.png" alt-text="Automatically add custom columns.":::
-
-1. Upload and test the script that you received from [Microsoft Support](https://support.serviceshub.microsoft.com/supportforbusiness/create?sapId=82c88f35-1b8e-f274-ec11-c6efdd6dd099).
+1. Select **Automatic**. When the **UPLOAD SCRIPT** and **TEST SCRIPT** buttons appear, upload and then test the script you'd received from [Microsoft Support](https://support.serviceshub.microsoft.com/supportforbusiness/create?sapId=82c88f35-1b8e-f274-ec11-c6efdd6dd099).
 
 The new data appears in the **Device Inventory** grid.
 
 ---
 
 
-## Retrieve information from the device inventory
+## Retrieve device inventory data via API
 
-You can retrieve an extensive range of device information detected by managed sensors and integrate that information with partner systems. For example, you can retrieve sensor, zone, site ID, IP address, MAC address, firmware, protocol, and vendor information. Filter information that you retrieve based on:
+You can retrieve an extensive range of device information detected by managed sensors and integrate that information with partner systems.
+
+For example, retrieve sensor, zone, site ID, IP address, MAC address, firmware, protocol, and vendor information, and then filter that information based on any of the following:
 
 - Authorized and unauthorized devices.
 
@@ -265,7 +259,7 @@ You can retrieve an extensive range of device information detected by managed se
 
 - Devices associated with specific sensors.
 
-Work with Defender for IoT API commands to retrieve and integrate this information. For more information, see [Defender for IoT API sensor and management console APIs](references-work-with-defender-for-iot-apis.md).
+For more information, see [Defender for IoT sensor and management console APIs](references-work-with-defender-for-iot-apis.md).
 
 ::: zone-end
 
