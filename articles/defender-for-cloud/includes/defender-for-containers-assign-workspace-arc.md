@@ -8,9 +8,9 @@ ms.author: elkrieger
 
 ## Default Log Analytics workspace for ARC
 
-The Log Analytics workspace is used by the Defender extension as a data pipeline to send data from the cluster to Defender for Cloud without retaining any data in the Log Analytics workspace itself. As a result, users will not be billed in this use case.
+The Log Analytics workspace is used by the Defender extension as a data pipeline to send data from the cluster to Defender for Cloud without retaining any data in the Log Analytics workspace itself. As a result, users won't be billed in this use case.
 
-The Defender extension uses a default Log Analytics workspace. If you do not already have a default Log Analytics workspace, Defender for Cloud will create a new resource group and default workspace when the Defender extension is installed. The default workspace is created based on your [region](../faq-data-collection-agents.yml).
+The Defender extension uses a default Log Analytics workspace. If you don't already have a default Log Analytics workspace, Defender for Cloud will create a new resource group and default workspace when the Defender extension is installed. The default workspace is created based on your [region](../faq-data-collection-agents.yml).
 
 The naming convention for the default Log Analytics workspace and resource group is:
 - **Workspace**: DefaultWorkspace-\[subscription-ID]-\[geo]
@@ -40,11 +40,11 @@ Once the Defender extension has been deployed, a default workspace will be autom
 
     :::image type="content" source="../media/defender-for-containers/assignments-tab-arc.png" alt-text="Screenshot that shows where the assignments tab is for ARC." lightbox="../media/defender-for-containers/assignments-tab-arc.png":::
 
-1. Select the [Policy not assigned](#policy-not-assigned) steps if the policy has not yet been assigned. Or, select the [Policy already assigned](#policy-already-assigned) steps if the policy is already assigned and you want to change it.
+1. Select the [Policy not assigned](#policy-not-assigned) steps if the policy hasn't yet been assigned. Or, select the [Policy already assigned](#policy-already-assigned) steps if the policy is already assigned and you want to change it.
 
 #### Policy not assigned
 
-If policy has not been assigned assigned, you will see `Assignments (0)`.
+If policy hasn't been assigned assigned, you'll see `Assignments (0)`.
 
 :::image type="content" source="../media/defender-for-containers/no-assignment-arc.png" alt-text="Screenshot showing that no workspace has been assigned for ARC." lightbox="../media/defender-for-containers/no-assignment-arc.png":::
 
@@ -54,9 +54,9 @@ If policy has not been assigned assigned, you will see `Assignments (0)`.
 
 1. In the **Parameters** tab, deselect the **Only show parameters that need input or review** option.
 
-1. Select a LogAnalyticsWorkspaceResource ID from the drop down menu.
+1. Select a LogAnalyticsWorkspaceResource ID from the drop-down menu.
 
-   :::image type="content" source="../media/defender-for-containers/drop-down-menu-arc.png" alt-text="Screenshot showing where the drop down menu is located for ARC." lightbox="../media/defender-for-containers/drop-down-menu-arc.png"::: 
+   :::image type="content" source="../media/defender-for-containers/drop-down-menu-arc.png" alt-text="Screenshot showing where the drop-down menu is located for ARC." lightbox="../media/defender-for-containers/drop-down-menu-arc.png"::: 
 
 1. Select **Review + create**.
 
@@ -64,7 +64,7 @@ If policy has not been assigned assigned, you will see `Assignments (0)`.
 
 #### Policy already assigned
 
-If the policy has already been assigned to a workspace you will see `Assignments (1)`. 
+If the policy has already been assigned to a workspace you'll see `Assignments (1)`. 
 
 > [!NOTE]
 > If you have more than one subscription the number may be higher
@@ -81,9 +81,9 @@ If the policy has already been assigned to a workspace you will see `Assignments
 
 1. In the **Parameters** tab, deselect the **Only show parameters that need input or review** option.
 
-1. Select a LogAnalyticsWorkspaceResource ID from the drop down menu.
+1. Select a LogAnalyticsWorkspaceResource ID from the drop-down menu.
 
-   :::image type="content" source="../media/defender-for-containers/drop-down-menu-arc.png" alt-text="Screenshot showing where the drop down menu is located for ARC." lightbox="../media/defender-for-containers/drop-down-menu-arc.png"::: 
+   :::image type="content" source="../media/defender-for-containers/drop-down-menu-arc.png" alt-text="Screenshot showing where the drop-down menu is located for ARC." lightbox="../media/defender-for-containers/drop-down-menu-arc.png"::: 
 
 1. Select **Review + create**.
 
