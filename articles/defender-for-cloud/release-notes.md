@@ -82,7 +82,7 @@ Microsoft Defender for Azure Cosmos DB continuously analyzes the telemetry strea
 
 Learn more about [Microsoft Defender for Azure Cosmos DB](concept-defender-for-cosmos.md).
 
-With the addition of support for Azure Cosmos DB, Defender for Cloud now provides one of the most comprehensive workload protection offerings for cloud-based databases. Security teams and database owners can now have a centralized experience to manage their database security for their environments. 
+With the addition of support for Azure Cosmos DB, Defender for Cloud now provides one of the most comprehensive workload protection offerings for cloud-based databases. Security teams and database owners can now have a centralized experience to manage their database security of their environments. 
 
 Learn how to [enable database protection](quickstart-enable-database-protections.md) for your databases today.
 
