@@ -211,7 +211,7 @@ Microsoft Sentinel's customizable, machine learning-based anomalies can identify
 - [Attempted computer brute force](#attempted-computer-brute-force)
 - [Attempted user account brute force](#attempted-user-account-brute-force)
 - [Attempted user account brute force per login type](#attempted-user-account-brute-force-per-login-type)
-- [Attempted user account bruteforce per failure reason](#attempted-user-account-bruteforce-per-failure-reason)
+- [Attempted user account brute force per failure reason](#attempted-user-account-brute-force-per-failure-reason)
 - [Detect machine generated network beaconing behavior](#detect-machine-generated-network-beaconing-behavior)
 - [Domain generation algorithm (DGA) on DNS domains](#domain-generation-algorithm-dga-on-dns-domains)
 - [Domain Reputation Palo Alto anomaly](#domain-reputation-palo-alto-anomaly)
@@ -242,9 +242,9 @@ Microsoft Sentinel's customizable, machine learning-based anomalies can identify
 
 ### Anomalous Azure AD sign-in sessions
 
-**Description:** The machine learning model groups the Azure AD sign-in logs on a per-user basis. The model is trained on the previous 6 days of user sign-in behavior. It indicates anomalous user sign-in sessions in the last day. 
+**Description:** The machine learning model groups the Azure AD sign-in logs on a per-user basis. The model is trained on the previous 6 days of user sign-in behavior. It indicates anomalous user sign-in sessions over the past day. 
 
-An autoencoder model is used. Its aim is to compress the user sign-in sessions into a bottleneck encoding. It then attempts to reconstruct the input sessions as best it can from the bottleneck encoding. The sessions with high reconstruction errors are assumed to be anomalous. ***THIS LEVEL OF EXPLANATION ISN'T NECESSARY, RIGHT?***
+<!-- An autoencoder model is used. Its aim is to compress the user sign-in sessions into a bottleneck encoding. It then attempts to reconstruct the input sessions as best it can from the bottleneck encoding. The sessions with high reconstruction errors are assumed to be anomalous. ***THIS LEVEL OF EXPLANATION ISN'T NECESSARY, RIGHT?*** -->
 
 | Attribute                        | Value                                                              |
 | -------------------------------- | ------------------------------------------------------------------ |
@@ -252,13 +252,13 @@ An autoencoder model is used. Its aim is to compress the user sign-in sessions i
 | **Data sources:**                | Azure Active Directory sign-in logs                                |
 | **MITRE ATT&CK tactics:**        | Initial Access                                                     |
 | **MITRE ATT&CK techniques:**     | T1078 - Valid Accounts<br>T1566 - Phishing<br>T1133 - External Remote Services |
-| **Entities:**                    | **Type:** Account<br><br>**Fields:** Name, UPN Suffix, AaadTenantId, AaaUserId,  isDomainJoined, LastVerdict |
+| **Entities:**                    | **Type:** Account<br>**Fields:** Name, UPN Suffix, AaadTenantId, AaaUserId,  isDomainJoined, LastVerdict |
 
 [Back to Machine learning-based anomalies list](#machine-learning-based-anomalies)
 
 ### Anomalous Azure operations
 
-**Description:** This detection algorithm generates anomaly of a caller who performed sequence of an operation(s) which is uncommon in their workspace. We collect and featurize last 21 days of operation happened in the workspace grouped by the caller as a training data for ML algorithm. The trained model is used to score the operation performed by the caller on the test date and we tag those caller as anomaly whose error score is greater than given thershold. From Security perspective, this anomaly will capture the caller along with operation performed on the test date which are not common in their workspace.
+**Description:** This detection algorithm collects 21 days' worth of data on Azure operations grouped by user to train this ML model. The algorithm then generates anomalies in the case of users who performed sequences of operations uncommon in their workspaces ***(TENANT, NOT WORKSPACE??? -YL)***. The trained ML model scores the operations performed by the user and considers anomalous those whose score is greater than the defined threshold.
 
 | Attribute                        | Value                                                              |
 | -------------------------------- | ------------------------------------------------------------------ |
@@ -272,7 +272,7 @@ An autoencoder model is used. Its aim is to compress the user sign-in sessions i
 
 ### Anomalous Code Execution (duplicate?)
 
-**Description:** Adversaries may abuse command and script interpreters to execute commands, scripts, or binaries. These interfaces and languages provide ways of interacting with computer systems and are a common feature across many different platforms.
+**Description:** Attackers may abuse command and script interpreters to execute commands, scripts, or binaries. These interfaces and languages provide ways of interacting with computer systems and are a common feature across many different platforms.
 
 | Attribute                        | Value                                                              |
 | -------------------------------- | ------------------------------------------------------------------ |
@@ -286,7 +286,7 @@ An autoencoder model is used. Its aim is to compress the user sign-in sessions i
 
 ### Anomalous local account creation
 
-**Description:** This algorithm is to detect anomalous local account creation on windows systems. Adversaries may create local accounts to maintain access to victim systems. This algorithm analyzes historical local account creation activity (14 days) by users and compare with current day to find similar activity from the users who were not previously seen in historical activity. You can further customize the allowlist to filter known users from triggering this anomaly.
+**Description:** This algorithm detects anomalous local account creation on Windows systems. Attackers may create local accounts to maintain access to targeted systems. This algorithm analyzes local account creation activity over the prior 14 days by users. It looks for similar activity on the current day from users who were not previously seen in historical activity. You can specify an allowlist to filter known users from triggering this anomaly.
 
 | Attribute                        | Value                                                              |
 | -------------------------------- | ------------------------------------------------------------------ |
@@ -294,14 +294,25 @@ An autoencoder model is used. Its aim is to compress the user sign-in sessions i
 | **Data sources:**                | Windows Security logs                                              |
 | **MITRE ATT&CK tactics:**        | Persistence                                                        |
 | **MITRE ATT&CK techniques:**     | T1136 - Create Account                                             |
-| **Entities:**                    | **Type:** Account<br><br>**Fields:** Name, isDomainJoined, IsValid, LastVerdict |
+| **Entities:**                    | **Type:** Account<br>**Fields:** Name, isDomainJoined, IsValid, LastVerdict |
 
 [Back to Machine learning-based anomalies list](#machine-learning-based-anomalies)
 
 ### Anomalous scanning activity
 
-**Description:** The Scanning Activity anomaly is looking to determine if there is potential port scanning anomaly in an environment coming from a single source IP to one or more destination IPs.  
-The algorithm takes into account whether the IP is public, meaning external, or private, meaning internal, and the event is marked accordingly. Only private to public or public to private is considered at this time. Scanning activity can indicate an attacker attempting to determine available services in an environment that can be potentially exploited and used for ingress or lateral movement. A high number of source ports and high number of destination ports from a single source IP to either a single or multiple destination IP or IPs can be interesting and indicate anomalous scanning. Additionally, if there is a high ratio of destination IPs to the single source IP this can indicate anomalous scanning. Configuration details - Job run default is daily, with hourly bins The algorithm uses the following defaults to limit the results based on hourly bins, each is configurable -> Included device actions - accept, allow, start -> Excluded ports - 53, 67, 80, 8080, 123, 137, 138, 443, 445, 3389 -> Distinct destination port count >= 600 -> Distinct source port count >= 600 -> Distinct source port count divided by distinct destination port, ratio converted to percent >= 99.99 -> Source IP (always 1) divided by destination IP, ratio converted to percent >= 99.99
+**Description:** This algorithm looks for port scanning activity, coming from a single source IP to one or more destination IPs, that is not normally seen in a given environment.
+
+The algorithm takes into account whether the IP is public/external or private/internal, and the event is marked accordingly. Only private-to-public or public-to-private activity is considered at this time. Scanning activity can indicate an attacker attempting to determine available services in an environment that can be potentially exploited and used for ingress or lateral movement. A high number of source ports and high number of destination ports from a single source IP to either a single or multiple destination IP or IPs can be interesting and indicate anomalous scanning. Additionally, if there is a high ratio of destination IPs to the single source IP this can indicate anomalous scanning.
+
+Configuration details:
+- Job run default is daily, with hourly bins.  
+    The algorithm uses the following configurable defaults to limit the results based on hourly bins.
+- Included device actions - accept, allow, start
+- Excluded ports - 53, 67, 80, 8080, 123, 137, 138, 443, 445, 3389
+- Distinct destination port count >= 600
+- Distinct source port count >= 600
+- Distinct source port count divided by distinct destination port, ratio converted to percent >= 99.99
+- Source IP (always 1) divided by destination IP, ratio converted to percent >= 99.99
 
 | Attribute                        | Value                                                              |
 | -------------------------------- | ------------------------------------------------------------------ |
@@ -309,14 +320,15 @@ The algorithm takes into account whether the IP is public, meaning external, or 
 | **Data sources:**                | CommonSecurityLog (PAN, Zscaler, CEF, CheckPoint, Fortinet)        |
 | **MITRE ATT&CK tactics:**        | Discovery                                                          |
 | **MITRE ATT&CK techniques:**     | T1046 - Network Service Scanning                                   |
-| **Entities:**                    | **Type:** IP<br><br>**Field:** IP                                  |
+| **Entities:**                    | **Type:** IP<br>**Field:** IP                                  |
 
 [Back to Machine learning-based anomalies list](#machine-learning-based-anomalies)
 
 ### Anomalous user activities in Office Exchange
 
-**Description:** This machine learning model groups the Office Exchange logs on a per-user basis into hourly buckets. We define one hour as a session. The model is trained on the previous 7 days of behavior across all regular (non-admin) users. It indicates anomalous user Office.  
-An autoencoder model is used. Its aim is to compress the user Office Exchange sessions into a bottleneck encoding. It then attempts to reconstruct the input sessions as best it can from the bottleneck encoding. The sessions with high reconstruction errors are assumed to be anomalous.xchange sessions in the last day.
+**Description:** This machine learning model groups the Office Exchange logs on a per-user basis into hourly buckets. We define one hour as a session. The model is trained on the previous 7 days of behavior across all regular (non-admin) users. It indicates anomalous user Office Exchange sessions in the last day.
+
+<!--An autoencoder model is used. Its aim is to compress the user Office Exchange sessions into a bottleneck encoding. It then attempts to reconstruct the input sessions as best it can from the bottleneck encoding. The sessions with high reconstruction errors are assumed to be anomalous. -->
 
 | Attribute                        | Value                                                              |
 | -------------------------------- | ------------------------------------------------------------------ |
@@ -324,13 +336,13 @@ An autoencoder model is used. Its aim is to compress the user Office Exchange se
 | **Data sources:**                | Office Activity log (Exchange)                                     |
 | **MITRE ATT&CK tactics:**        | Persistence<br>Collection                                          |
 | **MITRE ATT&CK techniques:**     | **Collection:**<br>T1114 - Email Collection<br>T1213 - Data from Information Repositories<br><br>**Persistence:**<br>T1098 - Account Manipulation<br>T1136 - Create Account<br>T1137 - Office Application Startup<br>T1505 - Server Software Component |
-| **Entities:**                    | **Type:** Account<br><br>**Fields:** Name, UPNSuffix, IsDomainJoined, LastVerdict |
+| **Entities:**                    | **Type:** Account<br>**Fields:** Name, UPNSuffix, IsDomainJoined, LastVerdict |
 
 [Back to Machine learning-based anomalies list](#machine-learning-based-anomalies)
 
 ### Anomalous user/app activities in Azure audit logs
 
-**Description:** This autoencoder model identifies anomalous user/app Azure sessions in audit logs for the last day. We define 10 minutes to be the length of a session. It groups the Azure audit logs on a per-user/app basis into sessions. It compresses these user/app Azure sessions into a bottleneck encoding. It then reconstructs the input sessions as best it can from the bottleneck encoding. If the sessions have high reconstruction errors, they are assumed to be anomalous. The model is trained on the previous 21 days of behavior across all users and apps. This algorithm checks for sufficient volume of data before training the model.
+**Description:** This algorithm identifies anomalous user/app Azure sessions in audit logs for the last day, based on the behavior of the previous 21 days across all users and apps. The algorithm checks for sufficient volume of data before training the model.
 
 | Attribute                        | Value                                                              |
 | -------------------------------- | ------------------------------------------------------------------ |
@@ -338,13 +350,13 @@ An autoencoder model is used. Its aim is to compress the user Office Exchange se
 | **Data sources:**                | Azure Active Directory audit logs                                  |
 | **MITRE ATT&CK tactics:**        | Collection<br>Discovery<br>Initial Access<br>Persistence<br>Privilege Escalation |
 | **MITRE ATT&CK techniques:**     | **Collection:**<br>T1530 - Data from Cloud Storage Object<br><br>**Discovery:**<br>T1087 - Account Discovery<br>T1538 - Cloud Service Dashboard<br>T1526 - Cloud Service Discovery<br>T1069 - Permission Groups Discovery<br>T1518 - Software Discovery<br><br>**Initial Access:**<br>T1190 - Exploit Public-Facing Application<br>T1078 - Valid Accounts<br><br>**Persistence:**<br>T1098 - Account Manipulation<br>T1136 - Create Account<br>T1078 - Valid Accounts<br><br>**Privilege Escalation:**<br>T1484 - Domain Policy Modification<br>T1078 - Valid Accounts  |
-| **Entities:**                    | **Type:** cloud-application<br><br>**Fields:** Name, InstanceName, LastVerdict |
+| **Entities:**                    | **Type:** cloud-application<br>**Fields:** Name, InstanceName, LastVerdict |
 
 [Back to Machine learning-based anomalies list](#machine-learning-based-anomalies)
 
 ### Anomalous W3CIIS logs activity
 
-**Description:** This anomaly indicates anomalous W3CIIS sessions within the last day, due to reasons such as a high number of distinct uri queries, specific http verbs or http statuses, user agents, or an unusually high number of logs in a session. The machine learning algorithm identifies unusual W3CIIS log events within an hourly session, grouped by site name and client IP. The model is trained on the previous 7 days of W3CIIS activity, using an autoencoder. The algorithm checks for sufficient volume of W3CIIS activity before training the model. The autoencoder compressess these site name/client IP sessions using a bottleneck encoding, and reconstructs the input sessions using a decoder. Sessions with high reconstruction errors are marked as anomalous.
+**Description:** This machine learning algorithm indicates anomalous IIS sessions over the past day. It will capture, for example, an unusually high number of distinct URI queries, user agents, or logs in a session, or of specific HTTP verbs or HTTP statuses in a session. The algorithm identifies unusual W3CIISLog events within an hourly session, grouped by site name and client IP. The model is trained on the previous 7 days of IIS activity. The algorithm checks for sufficient volume of IIS activity before training the model.
 
 | Attribute                        | Value                                                              |
 | -------------------------------- | ------------------------------------------------------------------ |
@@ -358,8 +370,7 @@ An autoencoder model is used. Its aim is to compress the user Office Exchange se
 
 ### Anomalous web request activity
 
-**Description:** This algorithm groups the W3CIIS logs into per site name and per URI stem hourly sessions. The machine learning model identifies the sessions with anomalous requests that triggered response code 5xx in the last day. 5xx codes are an indication that some application instability or error condition has been triggered by the request. They can be an indication that an attacker is probing the URI stem for vulnerabilities and configuration issues, performing some exploitation activity such as SQL injection, or leveraging an unpatched vulnerability.  
-The algorithm uses 6 days of data for training. It identifies unusual high volume of web requests that generated respond code 5xx in the last day.
+**Description:** This algorithm groups W3CIISLog events into hourly sessions grouped by site name and URI stem. The machine learning model identifies sessions with unusually high numbers of requests that triggered 5xx-class response codes in the last day. 5xx-class codes are an indication that some application instability or error condition has been triggered by the request. They can be an indication that an attacker is probing the URI stem for vulnerabilities and configuration issues, performing some exploitation activity such as SQL injection, or leveraging an unpatched vulnerability. This algorithm uses 6 days of data for training.
 
 | Attribute                        | Value                                                              |
 | -------------------------------- | ------------------------------------------------------------------ |
@@ -367,13 +378,13 @@ The algorithm uses 6 days of data for training. It identifies unusual high volum
 | **Data sources:**                | W3CIIS logs                                                        |
 | **MITRE ATT&CK tactics:**        | Initial Access<br>Persistence                                      |
 | **MITRE ATT&CK techniques:**     | **Initial Access:**<br>T1190 - Exploit Public-Facing Application<br><br>**Persistence:**<br>T1505 - Server Software Component                                |
-| **Entities:**                    | **Type:** IP<br><br>**Fields:** Address, LastVerdict               |
+| **Entities:**                    | **Type:** IP<br>**Fields:** Address, LastVerdict               |
 
 [Back to Machine learning-based anomalies list](#machine-learning-based-anomalies)
 
 ### Attempted computer brute force
 
-**Description:** This algorithm detects an unusually high volume of failed login attempts to each computer. The model is trained on the previous 21 days of security event ID 4625 on a computer. It indicates anomalous high volume of failed login attempts in the last day.
+**Description:** This algorithm detects an unusually high volume of failed login attempts (security event ID 4625) per computer over the past day. The model is trained on the previous 21 days of Windows security event logs.
 
 | Attribute                        | Value                                                              |
 | -------------------------------- | ------------------------------------------------------------------ |
@@ -381,13 +392,13 @@ The algorithm uses 6 days of data for training. It identifies unusual high volum
 | **Data sources:**                | Windows Security logs                                              |
 | **MITRE ATT&CK tactics:**        | Credential Access                                                  |
 | **MITRE ATT&CK techniques:**     | T1110 - Brute Force                                                |
-| **Entities:**                    | **Type:** Host<br><br>**Fields:** Hostname                         |
+| **Entities:**                    | **Type:** Host<br>**Fields:** Hostname                         |
 
 [Back to Machine learning-based anomalies list](#machine-learning-based-anomalies)
 
 ### Attempted user account brute force
 
-**Description:** This algorithm detects an unusually high volume of failed login attempts per user account. The model is trained on the previous 21 days of security event ID 4625 on an account. It indicates anomalous high volume of failed login attempts in the last day.
+**Description:** This algorithm detects an unusually high volume of failed login attempts (security event ID 4625) per user account over the past day. The model is trained on the previous 21 days of Windows security event logs.
 
 | Attribute                        | Value                                                              |
 | -------------------------------- | ------------------------------------------------------------------ |
@@ -395,13 +406,13 @@ The algorithm uses 6 days of data for training. It identifies unusual high volum
 | **Data sources:**                | Windows Security logs                                              |
 | **MITRE ATT&CK tactics:**        | Credential Access                                                  |
 | **MITRE ATT&CK techniques:**     | T1110 - Brute Force                                                |
-| **Entities:**                    | **Type:** Account<br><br>**Fields:** Name, IsDomainJoined          |
+| **Entities:**                    | **Type:** Account<br>**Fields:** Name, IsDomainJoined          |
 
 [Back to Machine learning-based anomalies list](#machine-learning-based-anomalies)
 
 ### Attempted user account brute force per login type
 
-**Description:** This algorithm detects an unusually high volume of failed login attempts per user account per logon type. The model is trained on the previous 21 days of security event ID 4625 on an account and a logon type. It indicates anomalous high volume of failed login attempts with certain logon type in the last day.
+**Description:** This algorithm detects an unusually high volume of failed login attempts (security event ID 4625) per user account per logon type over the past day. The model is trained on the previous 21 days of Windows security event logs.
 
 | Attribute                        | Value                                                              |
 | -------------------------------- | ------------------------------------------------------------------ |
@@ -409,11 +420,11 @@ The algorithm uses 6 days of data for training. It identifies unusual high volum
 | **Data sources:**                | Windows Security logs                                              |
 | **MITRE ATT&CK tactics:**        | Credential Access                                                  |
 | **MITRE ATT&CK techniques:**     | T1110 - Brute Force                                                |
-| **Entities:**                    | **Type:** Account<br><br>**Fields:** Name, IsDomainJoined          |
+| **Entities:**                    | **Type:** Account<br>**Fields:** Name, IsDomainJoined          |
 
 [Back to Machine learning-based anomalies list](#machine-learning-based-anomalies)
 
-### Attempted user account bruteforce per failure reason
+### Attempted user account brute force per failure reason
 
 **Description:** This algorithm detects an unusually high volume of failed login attempts per user account per failure reason. The model is trained on the previous 21 days of security event ID 4625 on an account and a failure reason. It indicates anomalous high volume of failed login attempts with certain failure reason in the last day.
 
@@ -423,7 +434,7 @@ The algorithm uses 6 days of data for training. It identifies unusual high volum
 | **Data sources:**                | Windows Security logs                                              |
 | **MITRE ATT&CK tactics:**        | Credential Access                                                  |
 | **MITRE ATT&CK techniques:**     | T1110 - Brute Force                                                |
-| **Entities:**                    | **Type:** Account<br><br>**Fields:** Name, IsDomainJoined          |
+| **Entities:**                    | **Type:** Account<br>**Fields:** Name, IsDomainJoined          |
 
 [Back to Machine learning-based anomalies list](#machine-learning-based-anomalies)
 
@@ -437,7 +448,7 @@ The algorithm uses 6 days of data for training. It identifies unusual high volum
 | **Data sources:**                | CommonSecurityLog (PAN)                                            |
 | **MITRE ATT&CK tactics:**        | Command and Control                                                |
 | **MITRE ATT&CK techniques:**     | T1071 - Application Layer Protocol<br>T1132 - Data Encoding<br>T1001 - Data Obfuscation<br>T1568 - Dynamic Resolution<br>T1573 - Encrypted Channel<br>T1008 - Fallback Channels<br>T1104 - Multi-Stage Channels<br>T1095 - Non-Application Layer Protocol<br>T1571 - Non-Standard Port<br>T1572 - Protocol Tunneling<br>T1090 - Proxy<br>T1205 - Traffic Signaling<br>T1102 - Web Service |
-| **Entities:**                    | **Type:** Network Connection<br><br>**Fields:** SourceIP, DestinationIP, DestinationPort, Protocol |
+| **Entities:**                    | **Type:** Network Connection<br>**Fields:** SourceIP, DestinationIP, DestinationPort, Protocol |
 
 [Back to Machine learning-based anomalies list](#machine-learning-based-anomalies)
 
@@ -451,7 +462,7 @@ The algorithm uses 6 days of data for training. It identifies unusual high volum
 | **Data sources:**                | DNS Events                                                         |
 | **MITRE ATT&CK tactics:**        | Command and Control                                                |
 | **MITRE ATT&CK techniques:**     | T1568 - Dynamic Resolution                                         |
-| **Entities:**                    | **Type:** IP<br><br>**Fields:** IP, Location, ASN                  |
+| **Entities:**                    | **Type:** IP<br>**Fields:** IP, Location, ASN                  |
 
 [Back to Machine learning-based anomalies list](#machine-learning-based-anomalies)
 
@@ -465,7 +476,7 @@ The algorithm uses 6 days of data for training. It identifies unusual high volum
 | **Data sources:**                | CommonSecurityLog (PAN)                                            |
 | **MITRE ATT&CK tactics:**        | Command and Control                                                |
 | **MITRE ATT&CK techniques:**     | T1568 - Dynamic Resolution                                         |
-| **Entities:**                    | **Type:** IP<br><br>**Fields:** Address, LastVerdict               |
+| **Entities:**                    | **Type:** IP<br>**Fields:** Address, LastVerdict               |
 
 [Back to Machine learning-based anomalies list](#machine-learning-based-anomalies)
 
@@ -479,7 +490,7 @@ The algorithm uses 6 days of data for training. It identifies unusual high volum
 | **Data sources:**                | CommonSecurityLog (PAN, Zscaler, CEF, CheckPoint, Fortinet)        |
 | **MITRE ATT&CK tactics:**        | Exfiltration                                                       |
 | **MITRE ATT&CK techniques:**     | T1030 - Data Transfer Size Limits<br>T1041 - Exfiltration Over C2 Channel<br>T1011 - Exfiltration Over Other Network Medium<br>T1567 - Exfiltration Over Web Service<br>T1029 - Scheduled Transfer<br>T1537 - Transfer Data to Cloud Account |
-| **Entities:**                    | **Type:** IP<br><br>**Field:** IP                                  |
+| **Entities:**                    | **Type:** IP<br>**Field:** IP                                  |
 
 [Back to Machine learning-based anomalies list](#machine-learning-based-anomalies)
 
@@ -493,7 +504,7 @@ The algorithm uses 6 days of data for training. It identifies unusual high volum
 | **Data sources:**                | CommonSecurityLog (PAN VPN)                                        |
 | **MITRE ATT&CK tactics:**        | Exfiltration                                                       |
 | **MITRE ATT&CK techniques:**     | T1030 - Data Transfer Size Limits<br>T1041 - Exfiltration Over C2 Channel<br>T1011 - Exfiltration Over Other Network Medium<br>T1567 - Exfiltration Over Web Service<br>T1029 - Scheduled Transfer<br>T1537 - Transfer Data to Cloud Account |
-| **Entities:**                    | **Type:** Account<br><br>**Fields:** Name, IsDomainJoined          |
+| **Entities:**                    | **Type:** Account<br>**Fields:** Name, IsDomainJoined          |
 
 [Back to Machine learning-based anomalies list](#machine-learning-based-anomalies)
 
@@ -591,7 +602,7 @@ The algorithm uses 6 days of data for training. It identifies unusual high volum
 | **Data sources:**                | Azure Information Protection logs                                  |
 | **MITRE ATT&CK tactics:**        | Collection                                                         |
 | **MITRE ATT&CK techniques:**     | T1530 - Data from Cloud Storage Object<br>T1213 - Data from Information Repositories<br>T1005 - Data from Local System<br>T1039 - Data from Network Shared Drive<br>T1114 - Email Collection |
-| **Entities:**                    | **Type:** Account<br><br>**Fields:** Name, AadTenantId, IsDomainJoined |
+| **Entities:**                    | **Type:** Account<br>**Fields:** Name, AadTenantId, IsDomainJoined |
 
 [Back to Machine learning-based anomalies list](#machine-learning-based-anomalies)
 
@@ -619,7 +630,7 @@ The algorithm uses 6 days of data for training. It identifies unusual high volum
 | **Data sources:**                | AWS CloudTrail logs                                                |
 | **MITRE ATT&CK tactics:**        | Initial Access                                                     |
 | **MITRE ATT&CK techniques:**     | T1078 - Valid Accounts                                             |
-| **Entities:**                    | **Type:** Account<br><br>**Fields:** Name, NTDomain, DnsDomain, UPNSuffix, Host, Sid, AadTenantId, AaadUserId, PUID, IsDomainJoined, ObjectGuid |
+| **Entities:**                    | **Type:** Account<br>**Fields:** Name, NTDomain, DnsDomain, UPNSuffix, Host, Sid, AadTenantId, AaadUserId, PUID, IsDomainJoined, ObjectGuid |
 
 [Back to Machine learning-based anomalies list](#machine-learning-based-anomalies)
 
@@ -647,7 +658,7 @@ The algorithm uses 6 days of data for training. It identifies unusual high volum
 | **Data sources:**                | AWS CloudTrail logs                                                |
 | **MITRE ATT&CK tactics:**        | Initial Access                                                     |
 | **MITRE ATT&CK techniques:**     | T1078 - Valid Accounts                                             |
-| **Entities:**                    | **Type:** Account<br><br>**Fields:** Name, IsDomainJoined, LastVerdict |
+| **Entities:**                    | **Type:** Account<br>**Fields:** Name, IsDomainJoined, LastVerdict |
 
 [Back to Machine learning-based anomalies list](#machine-learning-based-anomalies)
 
@@ -661,7 +672,7 @@ The algorithm uses 6 days of data for training. It identifies unusual high volum
 | **Data sources:**                | AWS CloudTrail logs                                                |
 | **MITRE ATT&CK tactics:**        | Initial Access                                                     |
 | **MITRE ATT&CK techniques:**     | T1078 - Valid Accounts                                             |
-| **Entities:**                    | **Type:** IP<br><br>**Fields:** Address, LastVerdict               |
+| **Entities:**                    | **Type:** IP<br>**Fields:** Address, LastVerdict               |
 
 [Back to Machine learning-based anomalies list](#machine-learning-based-anomalies)
 
@@ -675,7 +686,7 @@ The algorithm uses 6 days of data for training. It identifies unusual high volum
 | **Data sources:**                | Windows Security logs                                              |
 | **MITRE ATT&CK tactics:**        | Initial Access                                                     |
 | **MITRE ATT&CK techniques:**     | T1078 - Valid Accounts                                             |
-| **Entities:**                    | **Type:** Account<br><br>**Fields:** Name, IsDomainJoined          |
+| **Entities:**                    | **Type:** Account<br>**Fields:** Name, IsDomainJoined          |
 
 [Back to Machine learning-based anomalies list](#machine-learning-based-anomalies)
 
@@ -717,7 +728,7 @@ The algorithm uses 6 days of data for training. It identifies unusual high volum
 | **Data sources:**                | Windows Security logs                                              |
 | **MITRE ATT&CK tactics:**        | Initial Access                                                     |
 | **MITRE ATT&CK techniques:**     | T1078 - Valid Accounts                                             |
-| **Entities:**                    | **Type:** Account<br><br>**Fields:** Name, IsDomainJoined          |
+| **Entities:**                    | **Type:** Account<br>**Fields:** Name, IsDomainJoined          |
 
 [Back to Machine learning-based anomalies list](#machine-learning-based-anomalies)
 
@@ -745,7 +756,7 @@ The algorithm uses 6 days of data for training. It identifies unusual high volum
 | **Data sources:**                | CommonSecurityLog (PAN)                                            |
 | **MITRE ATT&CK tactics:**        | Discovery<br>Command and Control                                   |
 | **MITRE ATT&CK techniques:**     | **Discovery:**<br>T1046 - Network Service Scanning<br>T1135 - Network Share Discovery<br><br>**Command and Control:**<br>T1071 - Application Layer Protocol<br>T1095 - Non-Application Layer Protocol<br>T1571 - Non-Standard Port |
-| **Entities:**                    | **Type:** IP<br><br>**Field:** IP                                  |
+| **Entities:**                    | **Type:** IP<br>**Field:** IP                                  |
 
 [Back to Machine learning-based anomalies list](#machine-learning-based-anomalies)
 
@@ -773,7 +784,7 @@ The algorithm uses 6 days of data for training. It identifies unusual high volum
 | **Data sources:**                | CommonSecurityLog (PAN, Zscaler, CheckPoint, Fortinet)             |
 | **MITRE ATT&CK tactics:**        | Command and Control<br>Exfiltration                                |
 | **MITRE ATT&CK techniques:**     | **Command and Control:**<br>T1071 - Application Layer Protocol<br><br>**Exfiltration:**<br>T1030 - Data Transfer Size Limits                                  |
-| **Entities:**                    | **Type:** IP<br><br>**Fields:** Address, Location                  |
+| **Entities:**                    | **Type:** IP<br>**Fields:** Address, Location                  |
 
 [Back to Machine learning-based anomalies list](#machine-learning-based-anomalies)
 
@@ -787,7 +798,7 @@ The algorithm uses 6 days of data for training. It identifies unusual high volum
 | **Data sources:**                | CommonSecurityLog (PAN, Zscaler, CEF, CheckPoint, Fortinet)        |
 | **MITRE ATT&CK tactics:**        | Exfiltration                                                       |
 | **MITRE ATT&CK techniques:**     | T1030 - Data Transfer Size Limits                                  |
-| **Entities:**                    | **Type:** IP<br><br>**Field:** IP                                  |
+| **Entities:**                    | **Type:** IP<br>**Field:** IP                                  |
 
 [Back to Machine learning-based anomalies list](#machine-learning-based-anomalies)
 
@@ -801,7 +812,7 @@ The algorithm uses 6 days of data for training. It identifies unusual high volum
 | **Data sources:**                | CommonSecurityLog (PAN, Zscaler, CheckPoint, Fortinet)             |
 | **MITRE ATT&CK tactics:**        | Command and Control<br>Initial Access                              |
 | **MITRE ATT&CK techniques:**     | **Command and Control:**<br>T1071 - Application Layer Protocol<br><br>**Initial Access:**<br>T1189 - Drive-by Compromise                                      |
-| **Entities:**                    | **Type:** Network Connection, IP<br><br>**Field:** SourceIP, IP, DestinationIP, DestinationPort, Protocol |
+| **Entities:**                    | **Type:** Network Connection, IP<br>**Field:** SourceIP, IP, DestinationIP, DestinationPort, Protocol |
 
 [Back to Machine learning-based anomalies list](#machine-learning-based-anomalies)
 
