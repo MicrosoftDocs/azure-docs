@@ -169,7 +169,7 @@ Flexible servers that are configured with high availability, log data is replica
   2. If you just want to restore an object, you can then export the object from the restored database server and import it to your production database server.
   3. If you want to clone your database server for testing and development purposes, or you want to restore for any other purposes, you can perform point-in-time restore.
 
-## Zone redundant high availability - features
+## High availability - features
 
 * Standby replica will be deployed in an exact VM configuration same as the primary server, including vCores, storage, network settings (VNET, Firewall), etc.
 
@@ -177,7 +177,7 @@ Flexible servers that are configured with high availability, log data is replica
 
 * You can remove standby replica by disabling high availability.
 
-* You can only choose your availability zone for your primary database server. Standby zone is auto-selected.
+* For zone-redundant HA, you can choose your availability zones for your primary and standby database servers.
 
 * Operations such as stop, start, and restart are performed on both primary and standby database servers at the same time.
 
@@ -191,11 +191,11 @@ Flexible servers that are configured with high availability, log data is replica
   
 * Periodic maintenance activities such as minor version upgrades happen at the standby first and the service is failed over to reduce downtime.  
 
-## Zone redundant high availability - limitations
+## High availability - limitations
 
 * High availability is not supported with burstable compute tier.
 * High availability is supported only in regions where multiple zones are available.
-* Due to synchronous replication to another availability zone, applications can experience elevated write and commit latency.
+* Due to synchronous replication to the standby server, especially with zone-redundant HA, applications can experience elevated write and commit latency.
 
 * Standby replica cannot be used for read queries.
 
@@ -212,7 +212,7 @@ Flexible servers that are configured with high availability, log data is replica
 
 * If logical decoding or logical replication is configured with a HA configured flexible server, in the event of a failover to the standby server, the logical replication slots are not copied over to the standby server.  
 
-## Availability without high availability
+## Availability for non-HA servers
 
 For Flexible servers configured **without** high availability, the service still provides built-in availability, storage redundancy and resiliency to help to recover from any planned or unplanned downtime events.
 
@@ -257,7 +257,7 @@ Here are some failure scenarios that require user action to recover:
 
 * **Can I choose the availability zones for my primary and standby servers?** <br>
     If you choose same zone HA, then you can only choose the primary server. If you choose zone redundant HA, then you can choose both primary and standby AZs.
-    
+
 * **Is zone redundant HA available in all regions?** <br>
     Zone-redundant HA is available in regions that support multiple AZs in the region. For the latest region support, please see [this documentation](overview.md#azure-regions). We are continuously adding more regions and enabling multiple AZs. Note that same-zone HA is available in all regions. 
 
