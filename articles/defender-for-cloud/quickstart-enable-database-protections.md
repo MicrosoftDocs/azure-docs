@@ -3,12 +3,12 @@ title: Enable database protection for your subscription
 description: Learn how to enable Microsoft Defender for Cloud for all of your database types for your entire subscription. 
 titleSuffix: Microsoft Defender for Azure Cosmos DB
 ms.topic: quickstart
-ms.date: 03/21/2022
+ms.date: 06/19/2022
 ---
 
 # Quickstart: Microsoft Defender for Cloud database protection
 
-This article explains how to enable Microsoft Defender for Cloud's database (DB) protection for all database types that exist on your subscription.
+This article explains how to enable Microsoft Defender for Cloud's database (DB) protection for the most common database types that exist on your subscription.
 
 Workload protections are provided through the Microsoft Defender plans that are specific to the types of resources in your subscriptions.
 
