@@ -2,19 +2,18 @@
 title: Azure Monitor Logs data security | Microsoft Docs
 description: Learn about how Azure Monitor Logs protects your privacy and secures your data.
 ms.topic: conceptual
-author: bwren
-ms.author: bwren
+author: guywild
+ms.author: guywild
 ms.reviewer: MeirMen
 ms.date: 03/21/2022
 
 ---
 
 # Azure Monitor Logs data security
-This document is intended to provide information specific to [Azure Monitor Logs](../logs/data-platform-logs.md) to supplement the information on [Azure Trust Center](https://www.microsoft.com/en-us/trust-center?rtc=1).  
 
-This article explains how log data is collected, processed, and secured by Azure Monitor. You can use agents to connect to the web service, use System Center Operations Manager to collect operational data, or retrieve data from Azure diagnostics for use by Azure Monitor. 
+This article explains how Azure Monitor collects, processes, and secures log data, and describes security features you can use to further secure your Azure Monitor environment. The information in this article is specific to [Azure Monitor Logs](../logs/data-platform-logs.md) and supplements the information on [Azure Trust Center](https://www.microsoft.com/en-us/trust-center?rtc=1).  
 
-Azure Monitor Logs manages your cloud-based data securely by using the following methods:
+Azure Monitor Logs manages your cloud-based data securely using:
 
 * Data segregation
 * Data retention
@@ -22,12 +21,6 @@ Azure Monitor Logs manages your cloud-based data securely by using the following
 * Incident management
 * Compliance
 * Security standards certifications
-
-You can also use additional security features built into Azure Monitor. These features require more administrator management. 
-* Customer-managed (security) keys
-* Azure Private Storage
-* Private Link networking 
-* Azure support access limits set by Azure Lockbox
 
 Contact us with any questions, suggestions, or issues about any of the following information, including our security policies at [Azure support options](https://azure.microsoft.com/support/options/).
 
@@ -138,7 +131,7 @@ The following diagram shows a cloud security architecture as the flow of informa
 
 ![Image of Azure Monitor Logs data collection and security](./media/data-security/log-analytics-data-security-diagram.png)
 
-## 1. Sign up for Azure Monitor and collect data
+### 1. Sign up for Azure Monitor and collect data
 For your organization to send data to Azure Monitor Logs, you configure a Windows or Linux agent running on Azure virtual machines, or on virtual or physical computers in your environment or other cloud provider.  If you use Operations Manager, from the management group you configure the Operations Manager agent. Users (which might be you, other individual users, or a group of people) create one or more Log Analytics workspaces, and register agents by using one of the following accounts:
 
 * [Organizational ID](../../active-directory/fundamentals/sign-up-organization.md)
@@ -152,7 +145,7 @@ All communication between connected systems and the Azure Monitor service is enc
 
 Each type of agent collects log data for Azure Monitor. The type of data that is collected is depends on the configuration of your workspace and other features of Azure Monitor. 
 
-## 2. Send data from agents
+### 2. Send data from agents
 You register all agent types with an enrollment key and a secure connection is established between the agent and the Azure Monitor service using certificate-based authentication and TLS with port 443. Azure Monitor uses a secret store to generate and maintain keys. Private keys are rotated every 90 days and are stored in Azure and are managed by the Azure operations who follow strict regulatory and compliance practices.
 
 With Operations Manager, the management group registered with a Log Analytics workspace establishes a secure HTTPS connection with an Operations Manager management server.
@@ -165,14 +158,14 @@ The Windows or management server agent cached data is protected by the operating
 
 As described above, data from the management server or direct-connected agents is sent over TLS to Microsoft Azure datacenters. Optionally, you can use ExpressRoute to provide additional security for the data. ExpressRoute is a way to directly connect to Azure from your existing WAN network, such as a multi-protocol label switching (MPLS) VPN, provided by a network service provider. For more information, see [ExpressRoute](https://azure.microsoft.com/services/expressroute/).
 
-## 3. The Azure Monitor service receives and processes data
+### 3. The Azure Monitor service receives and processes data
 The Azure Monitor service ensures that incoming data is from a trusted source by validating certificates and the data integrity with Azure authentication. The unprocessed raw data is then stored in an Azure Event Hub in the region the data will eventually be stored at rest. The type of data that is stored depends on the types of solutions that were imported and used to collect data. Then, the Azure Monitor service processes the raw data and ingests it into the database.
 
 The retention period of collected data stored in the database depends on the selected pricing plan. For the *Free* tier, collected data is available for seven days. For the *Paid* tier, collected data is available for 31 days by default, but can be extended to 730 days. Data is stored encrypted at rest in Azure storage, to ensure data confidentiality, and the data is replicated within the local region using locally redundant storage (LRS). The last two weeks of data are also stored in SSD-based cache and this cache is encrypted.
 
 Data in database storage cannot be altered once ingested but can be deleted via [*purge* API path](personal-data-mgmt.md#delete). Although data cannot be altered, some certifications require that data is kept immutable and cannot be changed or deleted in storage. Data immutability can be achieved using [data export](logs-data-export.md) to a storage account that is configured as [immutable storage](../../storage/blobs/immutable-policy-configure-version-scope.md).
 
-## 4. Use Azure Monitor to access the data
+### 4. Use Azure Monitor to access the data
 To access your Log Analytics workspace, you sign into the Azure portal using the organizational account or Microsoft account that you set up previously. All traffic between the portal and Azure Monitor service is sent over a secure HTTPS channel. When using the portal, a session ID is generated on the user client (web browser) and data is stored in a local cache until the session is terminated. When terminated, the cache is deleted. Client-side cookies, which do not contain personally identifiable information, are not automatically removed. Session cookies are marked HTTPOnly and are secured. After a pre-determined idle period, the Azure portal session is terminated.
 
 
@@ -182,6 +175,12 @@ You can use these additional security features to further secure your Azure Moni
 - [Private / customer-managed Storage](./private-storage.md) - Manage your personally encrypted storage account and tell Azure Monitor to use it to store monitoring data 
 - [Private Link networking](./private-link-security.md) - Azure Private Link allows you to securely link Azure PaaS services (including Azure Monitor) to your virtual network using private endpoints. 
 - [Azure customer Lockbox](../../security/fundamentals/customer-lockbox-overview.md#supported-services-and-scenarios-in-preview) - Customer Lockbox for Microsoft Azure provides an interface for customers to review and approve or reject customer data access requests. It is used in cases where a Microsoft engineer needs to access customer data during a support request.
+
+## Tamper-proofing and immutability 
+
+Azure Monitor is an append-only data platform that includes provisions to delete data for compliance purposes. [Set a lock on your Log Analytics workspace](../../azure-resource-manager/management/lock-resources.md) to block all activities that could delete data: purge, table delete, and table- or workspace-level data retention changes. 
+
+To tamper-proof your monitoring solution, we recommend you [export data to an immutable storage solution](../../storage/blobs/immutable-storage-overview.md).
 
 
 ## Next steps
