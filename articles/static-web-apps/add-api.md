@@ -15,7 +15,7 @@ ms.custom: devx-track-js
 You can add serverless APIs to Azure Static Web Apps that are powered by Azure Functions. This article demonstrates how to add and deploy an API to an Azure Static Web Apps site.
 
 > [!NOTE]
-> The functions provided by default in Static Web Apps are pre-configured to provide secure API endpoints and only support HTTP-triggered functions. See [API support with Azure Functions](apis.md) for information on how they differ from standalone Azure Functions apps.
+> The functions provided by default in Static Web Apps are pre-configured to provide secure API endpoints and only support HTTP-triggered functions. See [API support with Azure Functions](apis-functions.md) for information on how they differ from standalone Azure Functions apps.
 
 ## Prerequisites
 

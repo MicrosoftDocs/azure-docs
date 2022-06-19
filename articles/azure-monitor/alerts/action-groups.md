@@ -5,9 +5,9 @@ author: dkamstra
 ms.topic: conceptual
 ms.date: 06/06/2022
 ms.author: dukek
-ms.custom:
-   - references_regions
-   - kr2b-contr-experiment
+ms.reviewer: dukek
+ms.custom: references_regions
+
 ---
 # Create and manage action groups in the Azure portal
 
