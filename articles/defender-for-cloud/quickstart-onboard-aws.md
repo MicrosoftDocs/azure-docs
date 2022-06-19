@@ -376,24 +376,20 @@ The following IAM permissions are needed to discover AWS resources:
 | Elastic search | es:Describe* <br> es:List* |
 | EMR – elastic map reduce | elasticmapreduce:Describe* <br> elasticmapreduce:GetBlockPublicAccessConfiguration <br> elasticmapreduce:List* <br> elasticmapreduce:View* |
 | GuardDute | guardduty:DescribeOrganizationConfiguration <br> guardduty:DescribePublishingDestination <br> guardduty:List* |
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+| IAM | iam:Generate* <br> iam:Get* <br> iam:List*<br> iam:Simulate* |
+| KMS | kms:Describe* <br> kms:List* |
+| LAMDBA | lambda:GetPolicy <br> lambda:List* |
+| Network firewall | network-firewall:DescribeFirewall <br> network-firewall:DescribeFirewallPolicy <br> network-firewall:DescribeLoggingConfiguration <br> network-firewall:DescribeResourcePolicy <br> network-firewall:DescribeRuleGroup <br> network-firewall:DescribeRuleGroupMetadata <br> network-firewall:ListFirewallPolicies <br> network-firewall:ListFirewalls <br> network-firewall:ListRuleGroups <br> network-firewall:ListTagsForResource |
+| RDS | rds:Describe* <br> rds:List* |
+| RedShift | redshift:Describe* |
+| S3 and S3Control | s3:DescribeJob <br> s3:GetEncryptionConfiguration <br> s3:GetBucketPublicAccessBlock <br> s3:GetBucketTagging <br> s3:GetBucketLogging <br> s3:GetBucketAcl <br> s3:GetBucketLocation <br> s3:GetBucketPolicy <br> s3:GetReplicationConfiguration <br> s3:GetAccountPublicAccessBlock <br> s3:GetObjectAcl <br> s3:GetObjectTagging <br> s3:List* |
+| SageMaker | sagemaker:Describe* <br> sagemaker:GetSearchSuggestions <br> sagemaker:List* <br> sagemaker:Search |
+| Secret manager | secretsmanager:Describe* <br> secretsmanager:List* |
+| Simple notification service – SNS | sns:Check* <br> sns:List* |
+| SSM | ssm:Describe* <br> ssm:List* |
+| SQS | sqs:List* <br> sqs:Receive* |
+| STS | sts:GetCallerIdentity |
+| WAF | waf-regional:Get* <br> waf-regional:List* <br> waf:List* <br> wafv2:CheckCapacity <br> wafv2:Describe* <br> wafv2:List* |
 
 ## Learn more
 
