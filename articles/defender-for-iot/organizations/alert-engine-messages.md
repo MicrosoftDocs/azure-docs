@@ -270,5 +270,14 @@ Operational engine alerts describe detected operational incidents, or malfunctio
 
 ## Next steps
 
-You can [Manage alert events](how-to-manage-the-alert-event.md).
-Learn how to [Forward alert information](how-to-forward-alert-information-to-partners.md).
+For more information, see:
+
+- [View and manage alerts on the Defender for IoT portal (Preview)](how-to-manage-cloud-alerts.md)
+- [Manage alerts](how-to-manage-the-alert-event.md)
+- [View alerts on your sensor](how-to-view-alerts.md)
+- [Accelerate alert workflows](how-to-accelerate-alert-incident-response.md)
+- [Forward alert information](how-to-forward-alert-information-to-partners.md)
+- [Work with alerts on the on-premises management console](how-to-work-with-alerts-on-premises-management-console.md)
+- [Alert management API reference for on-premises management consoles](api/management-alert-apis.md)
+- [Alert management API reference for OT monitoring sensors](api/sensor-alert-apis.md)
+
