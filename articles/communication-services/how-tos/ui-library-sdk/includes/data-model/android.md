@@ -67,7 +67,7 @@ Calls to `setRemoteParticipantViewData` return a result of `CallCompositeSetPart
 #### [Kotlin](#tab/kotlin)
 
 ```kotlin
-callComposite.setOnRemoteParticipantJoinedHandler { remoteParticipantJoinedEvent -> 
+callComposite.addOnRemoteParticipantJoinedEventHandler { remoteParticipantJoinedEvent -> 
                 remoteParticipantJoinedEvent.identifiers.forEach { identifier ->
                     // get displayName, bitmap for identifier
                     callComposite.setRemoteParticipantViewData(identifier,
@@ -79,7 +79,7 @@ callComposite.setOnRemoteParticipantJoinedHandler { remoteParticipantJoinedEvent
 #### [Java](#tab/java)
 
 ```java
-    callComposite.setOnRemoteParticipantJoinedHandler( (remoteParticipantJoinedEvent) -> {
+    callComposite.addOnRemoteParticipantJoinedEventHandler( (remoteParticipantJoinedEvent) -> {
                 for (CommunicationIdentifier identifier: remoteParticipantJoinedEvent.getIdentifiers()) {
                     // get displayName, bitmap for identifier
                     callComposite.setRemoteParticipantViewData(identifier,
