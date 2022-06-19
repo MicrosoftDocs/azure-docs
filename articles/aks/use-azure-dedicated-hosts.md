@@ -82,7 +82,7 @@ az vm list-skus -l eastus  -r hostGroups/hosts  -o table
 ```
 
 > [!NOTE]
-> First, when using host group, the nodepool fault domain count is always the same as the host group fault domain count. In order to use cluster auto-scaling to work with ADH and AKS, please make sure you host group fault domain count and capacity is enough.
+> First, when using host group, the nodepool fault domain count is always the same as the host group fault domain count. In order to use cluster auto-scaling to work with ADH and AKS, please make sure your host group fault domain count and capacity is enough.
 > Secondly, only change fault domain count from the default of 1 to any other number if you know what they are doing as a misconfiguration could lead to a unscalable configuration.
 
 ## Create a Host Group
