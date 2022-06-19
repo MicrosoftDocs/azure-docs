@@ -6,7 +6,7 @@ ms.date: 06/19/2022
 ms.author: elkrieger
 ---
 
-## Default Log Analytics workspace for ARC
+## Default Log Analytics workspace for Arc
 
 The Log Analytics workspace is used by the Defender extension as a data pipeline to send data from the cluster to Defender for Cloud without retaining any data in the Log Analytics workspace itself. As a result, users won't be billed in this use case.
 
@@ -18,7 +18,7 @@ The naming convention for the default Log Analytics workspace and resource group
 
 ### Assign a custom workspace
 
-Once the Defender extension has been deployed, a default workspace will be automatically assigned because of the auto-provision option. You can assign a custom workspace through Azure Policy.
+When you enable the auto-provision option, a default workspace will be automatically assigned. You can assign a custom workspace through Azure Policy.
 
 **To check if you have a workspace assigned**:
 
@@ -34,7 +34,7 @@ Once the Defender extension has been deployed, a default workspace will be autom
 
     :::image type="content" source="../media/defender-for-containers/policy-search-arc.png" alt-text="Screenshot that shows where to search for the policy by I D number for ARC." lightbox="../media/defender-for-containers/policy-search-arc.png":::
 
-1. Select **Configure Azure Kubernetes Service clusters to enable Defender profile**.
+1. Select **Configure Azure Arc enabled Kubernetes clusters to install Microsoft Defender for Cloud extension.**.
 
 1. Select **Assignments**.
 

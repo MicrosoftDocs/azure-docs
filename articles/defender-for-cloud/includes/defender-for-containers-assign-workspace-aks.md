@@ -18,7 +18,7 @@ The naming convention for the default Log Analytics workspace and resource group
 
 ### Assign a custom workspace
 
-Once the Defender profile has been deployed, a default workspace will be automatically assigned because of the auto-provision option. You can assign a custom workspace through Azure Policy.
+When you enable the auto-provision option, a default workspace will be automatically assigned. You can assign a custom workspace through Azure Policy.
 
 **To check if you have a workspace assigned**:
 

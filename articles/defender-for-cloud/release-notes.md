@@ -20,13 +20,15 @@ To learn about *planned* changes that are coming soon to Defender for Cloud, see
 
 Update sin July include:
 
-[General availability (GA) of Defender for Containers AKS security profile](#general-availability-ga-of-defender-for-containers-aks-security-profile)
+[General availability (GA) of the AKS security Defender profile for Defender for Containers](#general-availability-ga-of-the-aks-security-defender-profile-for-defender-for-containers)
 
-### General availability (GA) of Defender for Containers AKS security profile
+### General availability (GA) of the AKS security Defender profile for Defender for Containers
 
-The Defender profile is a Daemonset integrated into AKS clusters. The Defender profile is a requirement for Defender for Containers, which allows it to provide runtime protections and to collect signals from nodes.
+The AKS security Defender profile is a Daemonset enables Defender for Containers to provide runtime protections and to collect signals from nodes.
 
-With this announcement, runtime protection - threat detection (workload) is also generally available.
+With this announcement, the runtime protection - threat detection (workload) is also generally available.
+
+You can [deploy the Defender profile](/azure/defender-for-cloud/defender-for-containers-enable?tabs=aks-deploy-portal%2Ck8s-deploy-asc%2Ck8s-verify-asc%2Ck8s-remove-arc%2Caks-removeprofile-api&pivots=defender-for-container-aks#deploy-the-defender-profile) today on your AKS clusters.
 
 Learn more about the Defender for Container's [feature availability](supported-machines-endpoint-solutions-clouds-containers.md).
 
