@@ -226,7 +226,7 @@
       - name: Enable Defender for OSS RDBs and respond to alerts
         displayName: PG, PostgreSQL, MySQL, MariaDB, open-source relational databases, Azure Defender, OS RDBs, OSRDB
         href: defender-for-databases-usage.md
-    - name: Microsoft Defender for Azure Cosmos DB (Preview)
+    - name: Microsoft Defender for Azure Cosmos DB
       items: 
       - name: Overview of Microsoft Defender for Azure Cosmos DB
         href: concept-defender-for-cosmos.md
