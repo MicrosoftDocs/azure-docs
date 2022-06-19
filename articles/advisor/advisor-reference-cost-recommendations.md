@@ -151,7 +151,7 @@ Learn more about [Recovery Services vault - Optimize costs of database backup (U
 
 Large classic log data is detected on your storage accounts. You are billed on capacity of data stored in storage accounts including classic logs. You are recommended to check the retention policy of classic logs and update with necessary period to retain less log data. This would reduce unnecessary classic log data and save your billing cost from less capacity.
 
-Learn more about [Storage Account - XstoreLargeClassicLog (Revisit retention policy for classic log data in storage accounts)]( /azure/storage/common/manage-storage-analytics-logs#modify-retention-policy).
+Learn more about [Storage Account - XstoreLargeClassicLog (Revisit retention policy for classic log data in storage accounts)](/azure/storage/common/manage-storage-analytics-logs#modify-retention-policy).
 
 ## Reserved Instances
 

@@ -4,7 +4,7 @@ description: Shows the rules and restrictions for naming Azure resources.
 ms.topic: conceptual
 author: tfitzmac
 ms.author: tomfitz
-ms.date: 05/25/2022
+ms.date: 06/17/2022
 ---
 
 # Naming rules and restrictions for Azure resources
@@ -95,7 +95,7 @@ In the following tables, the term alphanumeric refers to:
 > | locks | scope of assignment | 1-90 | Alphanumerics, periods, underscores, hyphens, and parenthesis.<br><br>Can't end in period. |
 > | policyAssignments | scope of assignment | 1-128 display name<br><br>1-64 resource name<br><br>1-24 resource name at management group scope | Display name can contain any characters.<br><br>Resource name can't use:<br>`<>*%&:\?.+/` or control characters. <br><br>Can't end with period or space. |
 > | policyDefinitions | scope of definition | 1-128 display name<br><br>1-64 resource name | Display name can contain any characters.<br><br>Resource name can't use:<br>`<>*%&:\?.+/` or control characters. <br><br>Can't end with period or space. |
-> | policySetDefinitions | scope of definition | 1-128 display name<br><br>1-64 resource name<br><br>1-64 resource name at management group scope | Display name can contain any characters.<br><br>Resource name can't use:<br>`<>*%&:\?.+/` or control characters. <br><br>Can't end with period or space. |
+> | policySetDefinitions | scope of definition | 1-128 display name<br><br>1-64 resource name | Display name can contain any characters.<br><br>Resource name can't use:<br>`<>*%&:\?.+/` or control characters. <br><br>Can't end with period or space. |
 > | roleAssignments | tenant | 36 | Must be a globally unique identifier (GUID). |
 > | roleDefinitions | tenant | 36 | Must be a globally unique identifier (GUID). |
 
@@ -193,9 +193,9 @@ In the following tables, the term alphanumeric refers to:
 > | disks | resource group | 1-80 | Alphanumerics, underscores, and hyphens. |
 > | galleries | resource group | 1-80 | Alphanumerics and periods.<br><br>Start and end with alphanumeric. |
 > | galleries / applications | gallery | 1-80 | Alphanumerics, hyphens, and periods.<br><br>Start and end with alphanumeric. |
-> | galleries / applications/versions | application | 32-bit integer | Numbers and periods. |
+> | galleries / applications/versions | application | 32-bit integer | Numbers and periods.<br/>(Each segment is converted to an int32. So each segment has a max value of 2,147,483,647.)  |
 > | galleries / images | gallery | 1-80 | Alphanumerics, underscores, hyphens, and periods.<br><br>Start and end with alphanumeric. |
-> | galleries / images / versions | image | 32-bit integer | Numbers and periods. |
+> | galleries / images / versions | image | 32-bit integer | Numbers and periods.<br/>(Each segment is converted to an int32. So each segment has a max value of 2,147,483,647.) |
 > | images | resource group | 1-80 | Alphanumerics, underscores, periods, and hyphens.<br><br>Start with alphanumeric. End with alphanumeric or underscore. |
 > | snapshots | resource group | 1-80 | Alphanumerics, underscores, periods, and hyphens.<br><br>Start with alphanumeric. End with alphanumeric or underscore. |
 > | virtualMachines | resource group | 1-15 (Windows)<br>1-64 (Linux)<br><br>See note below. | Can't use spaces, control characters, or these characters:<br> `~ ! @ # $ % ^ & * ( ) = + _ [ ] { } \ | ; : . ' " , < > / ?`<br><br>Windows VMs can't include period or end with hyphen.<br><br>Linux VMs can't end with period or hyphen. |

@@ -38,7 +38,7 @@ Here is a comparison between client installer and VM extension for Azure Monitor
 | Windows 10, 11 desktops, workstations | Yes | Client installer (preview) | Installs the agent using a Windows MSI installer |
 | Windows 10, 11 laptops | Yes |  Client installer (preview) | Installs the agent using a Windows MSI installer. The installs works on laptops but the agent is **not optimized yet** for battery, network consumption |
 | Virtual machines, scale sets | No | [Virtual machine extension](./azure-monitor-agent-manage.md#virtual-machine-extension-details) | Installs the agent using Azure extension framework |
-| On-premise servers | No | [Virtual machine extension](./azure-monitor-agent-manage.md#virtual-machine-extension-details) (with Azure Arc agent) | Installs the agent using Azure extension framework, provided for on-premises by installing Arc agent |
+| On-premises servers | No | [Virtual machine extension](./azure-monitor-agent-manage.md#virtual-machine-extension-details) (with Azure Arc agent) | Installs the agent using Azure extension framework, provided for on-premises by installing Arc agent |
 
 
 ## Prerequisites

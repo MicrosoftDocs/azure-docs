@@ -3,14 +3,14 @@ title: Multiple frontends - Azure Load Balancer
 description: With this learning path, get started with an overview of multiple frontends on Azure Load Balancer
 services: load-balancer
 documentationcenter: na
-author: greg-lindsay
+author: mbender-ms
 ms.service: load-balancer
 ms.custom: seodec18
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/26/2022
-ms.author: greglin
+ms.author: mbender
 ---
 
 # Multiple frontends for Azure Load Balancer

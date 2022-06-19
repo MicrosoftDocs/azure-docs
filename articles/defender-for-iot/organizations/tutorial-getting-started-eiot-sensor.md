@@ -118,23 +118,18 @@ A sensor is needed to discover and continuously monitor Enterprise IoT devices. 
 
     :::image type="content" source="media/tutorial-get-started-eiot/onboard-sensor.png" alt-text="On the Getting Started page select Onboard sensor.":::
 
-1. Enter a name for the sensor.
+1. In the **Sensor name** field, enter a meaningful name for your sensor.
 
-    :::image type="content" source="media/tutorial-get-started-eiot/onboard-sensor-screen.png" alt-text="Enter the following information into the onboarding screen.":::
+1. From the **Subscription** drop-down menu, select the subscription where you want to add your sensor.
 
-1. Select a subscription from the drop-down menu.
+1. Select **Register**. A **Sensor registration successful** screen shows your next steps and the command you'll need to start the sensor installation.
 
-1. Enter a meaningful site name that will assist you in locating where the sensor is located.
-
-1. Enter a display name.
-
-1. Enter a zone name. If no name is entered, the name `default` will be applied.
-
-1. Select **Register**.
-
-1. Save the command provided to you.
+    For example:
 
     :::image type="content" source="media/tutorial-get-started-eiot/successful-registration.png" alt-text="Screenshot of the successful registration of an Enterprise IoT sensor.":::
+
+1. Copy the command to a safe location, and continue [below](#install-the-sensor).
+
 
 ## Install the sensor
 
@@ -210,23 +205,35 @@ The installation will now finish.
 
     Ensure that packets are being sent to the Event Hubs.
 
-## Configure the integration with Defender for Endpoint
+## View detected Enterprise IoT devices
 
-After you've set up your sensor and enabled the integration with Defender for Endpoint, you'll be able to view your Enterprise IoT devices in both Defender for IoT and in Defender for Endpoint. 
+You can view your devices and network information in the Defender for IoT **Device inventory** page.
 
-Alerts, vulnerabilities, and recommendations for Enterprise IoT devices are currently visible only in Defender for Endpoint.
-For more information, see [Enable Microsoft Defender for IoT integration](/microsoft-365/security/defender-endpoint/enable-microsoft-defender-for-iot-integration).
+Once you've validated your setup, the device inventory will start to populate with all of your devices after 15 minutes.
+
+**To view your populated device inventory:**
+
+1. Navigate to the [Azure portal](https://ms.portal.azure.com/).
+
+1. Search for, and select **Defender for IoT**.
+
+1. From the left side toolbar, select **Device inventory**.
+
+You can also view your sensors from the **Sites and sensors** page. Enterprise IoT sensors are all automatically added to the same site, named **Enterprise network**.
+
+For more information, see:
+
+- [Manage your IoT devices with the device inventory for organizations](how-to-manage-device-inventory-for-organizations.md)
+- [Manage sensors with Defender for IoT in the Azure portal](how-to-manage-sensors-on-the-cloud.md)
 
 > [!TIP]
 > If you don't see your Enterprise IoT data in Defender for IoT as expected, make sure that you're viewing the Azure portal with the correct subscriptions selected. For more information, see [Manage Azure portal settings](/azure/azure-portal/set-preferences).
 
-## View detected Enterprise IoT devices
+## Configure the integration with Defender for Endpoint
 
-Once you've validated your setup, you can view your devices in the Defender for IoT **Device inventory** page. Once you've enabled Defender for IoT in Defender for Endpoint, you can also view your devices in the Defender for Endpoint **Device inventory** page.
+After you've set up your sensor and enabled the integration with Defender for Endpoint, you'll also be able to view your Enterprise IoT devices in the Defender for Endpoint **Device inventory** page.
 
-- **To view devices in Defender for IoT**: in the Azure portal, go to **Defender for IoT > Device inventory**. For more information, see [Manage your IoT devices with the device inventory for organizations](how-to-manage-device-inventory-for-organizations.md).
-
-- **To view devices in Defender for Endpoint**: In the Microsoft 365 Defender portal, go to **Device Inventory** from the navigation menu. The device inventory opens on the Computers and Mobile tab. Navigate to and select the **IoT devices** tab. For more information, see [Defender for Endpoint device inventory](/microsoft-365/security/defender-endpoint/machines-view-overview).
+For more information, see [Defender for Endpoint device inventory](/microsoft-365/security/defender-endpoint/machines-view-overview).
 
 ## View alerts, vulnerabilities, and recommendations
 
@@ -234,10 +241,10 @@ Alerts, vulnerabilities, and recommendations for Enterprise IoT devices are curr
 
 For more information, see:
 
+- [Enable Microsoft Defender for IoT integration](/microsoft-365/security/defender-endpoint/enable-microsoft-defender-for-iot-integration)
 - [View and organize the Microsoft Defender for Endpoint Alerts queue](/microsoft-365/security/defender-endpoint/alerts-queue)
 - [Vulnerabilities in my organization](/microsoft-365/security/defender-vulnerability-management/)
 - [Security recommendations](/microsoft-365/security/defender-vulnerability-management/tvm-security-recommendation)
-
 
 ## Remove the sensor (optional)
 
