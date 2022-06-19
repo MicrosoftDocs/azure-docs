@@ -94,7 +94,7 @@ linkedServices | List of linked services passed to endpoint. | Array of linked s
 connectVia | The [integration runtime](./concepts-integration-runtime.md) to be used to connect to the data store. You can use the Azure integration runtime or the self-hosted integration runtime (if your data store is in a private network). If this property isn't specified, the service uses the default Azure integration runtime. | The integration runtime reference. | No 
 
 > [!NOTE]
-> REST endpoints that the web activity invokes must return a response of type JSON. The activity will timeout at 1 minute with an error if it does not receive a response from the endpoint. For endpoints that support [Asynchronous Request-Reply pattern](https://docs.microsoft.com/azure/architecture/patterns/async-request-reply), the web activity will continue to wait without timeing out (upto 7 day) or till the endpoints signals completion of the job. 
+> REST endpoints that the web activity invokes must return a response of type JSON. The activity will timeout at 1 minute with an error if it does not receive a response from the endpoint. For endpoints that support [Asynchronous Request-Reply pattern](/azure/architecture/patterns/async-request-reply), the web activity will continue to wait without timeing out (upto 7 day) or till the endpoints signals completion of the job. 
 
 The following table shows the requirements for JSON content:
 

@@ -2,8 +2,8 @@
 title: 'Tutorial: Create a cross-region load balancer using Azure PowerShell'
 titleSuffix: Azure Load Balancer
 description: Get started with this tutorial deploying a cross-region Azure Load Balancer using Azure PowerShell.
-author: greg-lindsay
-ms.author: greglin
+author: mbender-ms
+ms.author: mbender
 ms.service: load-balancer
 ms.topic: tutorial
 ms.date: 02/10/2021 

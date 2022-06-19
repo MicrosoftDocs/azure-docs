@@ -35,7 +35,7 @@ request:
 
 **Parameters**:
 
-| **Name** | **Type** | **Nullable** |
+| **Name** | **Type** | **Required / Optional** |
 |--|--|--|
 | **username** | String | Required |
 | **password** | String | Required |
@@ -74,13 +74,13 @@ response:
 **APIs**:
 
 ```rest
-curl -k -d '{"username": "<USER_NAME>","password": "<CURRENT_PASSWORD>","new_password": "<NEW_PASSWORD>"}' -H 'Content-Type: application/json'  https://<IP_ADDRESS>/api/external/authentication/set_password
+curl -k -X POST -d '{"username": "<USER_NAME>","password": "<CURRENT_PASSWORD>","new_password": "<NEW_PASSWORD>"}' -H 'Content-Type: application/json'  https://<IP_ADDRESS>/api/external/authentication/set_password
 ```
 
 **Example**:
 
 ```rest
-curl -k -d '{"username": "myUser","password": "1234@abcd","new_password": "abcd@1234"}' -H 'Content-Type: application/json'  https://127.0.0.1/api/external/authentication/set_password
+curl -k -X POST -d '{"username": "myUser","password": "1234@abcd","new_password": "abcd@1234"}' -H 'Content-Type: application/json'  https://127.0.0.1/api/external/authentication/set_password
 ```
 
 ---
@@ -111,7 +111,7 @@ request:
 
 **Parameters**:
 
-| **Name** | **Type** | **Nullable** |
+| **Name** | **Type** | **Required / Optional** |
 |--|--|--|
 | **admin_username** | String | Required |
 | **admin_password** | String | Required |
@@ -141,7 +141,7 @@ response:
 {
     "error": {
         "userDisplayErrorMessage": "The user 'test_user' doesn't exist",
-        "internalSystemErrorMessage": "The user 'yoavfe' doesn't exist"
+        "internalSystemErrorMessage": "The user 'test_user' doesn't exist"
     }
 }
 
@@ -154,13 +154,13 @@ response:
 **APIs**:
 
 ```rest
-curl -k -d '{"admin_username":"<ADMIN_USERNAME>","admin_password":"<ADMIN_PASSWORD>","username": "<USER_NAME>","new_password": "<NEW_PASSWORD>"}' -H 'Content-Type: application/json'  https://<IP_ADDRESS>/api/external/authentication/set_password_by_admin
+curl -k -X POST -d '{"admin_username":"<ADMIN_USERNAME>","admin_password":"<ADMIN_PASSWORD>","username": "<USER_NAME>","new_password": "<NEW_PASSWORD>"}' -H 'Content-Type: application/json'  https://<IP_ADDRESS>/api/external/authentication/set_password_by_admin
 ```
 
 **Example**:
 
 ```rest
-curl -k -d '{"admin_user":"adminUser","admin_password": "1234@abcd","username": "myUser","new_password": "abcd@1234"}' -H 'Content-Type: application/json'  https://127.0.0.1/api/external/authentication/set_password_by_admin
+curl -k -X POST -d '{"admin_user":"adminUser","admin_password": "1234@abcd","username": "myUser","new_password": "abcd@1234"}' -H 'Content-Type: application/json'  https://127.0.0.1/api/external/authentication/set_password_by_admin
 ```
 
 ---

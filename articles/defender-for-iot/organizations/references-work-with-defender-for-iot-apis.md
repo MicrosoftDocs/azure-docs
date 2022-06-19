@@ -76,6 +76,11 @@ nothing missing in v2
 >
 > To simply query data, use the regular, non-integration APIs instead, for either an on-premises management console to query all devices, or for a specific sensor to query devices from that sensor only.
 
+
+Epoch time
+
+In all Defender for IoT timestamp values, Epoch time is equal to 1/1/1970.
+
 ## Next steps
 
 For more information, see:
