@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: overview
-ms.date: 05/06/2022
+ms.date: 06/17/2022
 ms.author: aahi
 ms.custom: language-service-custom-ner, ignite-fall-2021, event-tier1-build-2022
 ---
@@ -54,13 +54,13 @@ Using custom NER typically involves several different steps.
     2. **Label consistently**:  The same entity should have the same label across all the files.
     3. **Label completely**: Label all the instances of the entity in all your files.
 
-3. **Train model**: Your model starts learning from your labeled data.
+3. **Train the model**: Your model starts learning from your labeled data.
 
-4. **View the model evaluation details**: After training is completed, view the model's evaluation details and its performance.
+4. **View the model's performance**: After training is completed, view the model's evaluation details and its performance.
 
-5. **Improve the model**: After reviewing model evaluation details, you can go ahead and learn how you can improve the model.
+5. **Improve the model**: After reviewing model's performance, you can then learn how you can improve the model.
 
-6. **Deploy model**: Deploying a model makes it available for use via the [Analyze API](https://aka.ms/ct-runtime-swagger).
+6. **Deploy the model**: Deploying a model makes it available for use via the [Analyze API](https://aka.ms/ct-runtime-swagger).
 
 8. **Extract entities**: Use your custom models for entity extraction tasks.
 
