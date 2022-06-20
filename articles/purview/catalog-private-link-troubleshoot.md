@@ -35,7 +35,10 @@ This guide summarizes known limitations related to using private endpoints for M
     |Portal     |Microsoft Purview Account         |mypurview-private-portal  |
     |Ingestion     |Managed Storage Account (Blob)         |mypurview-ingestion-blob  |
     |Ingestion     |Managed Storage Account (Queue)         |mypurview-ingestion-queue  |
-    |Ingestion     |Managed Event Hubs Namespace         |mypurview-ingestion-namespace  |
+    |Ingestion     |Managed Event Hubs Namespace*         |mypurview-ingestion-namespace  |
+
+  >[!NOTE]
+  > *Managed Event Hubs Namespace is only needed if it has been enabled on your Microsoft Purview account. You can check in **Managed Resources** under settings on your Microsoft Purview account page in the Azure Portal.
 
 2. If portal private endpoint is deployed, make sure you also deploy account private endpoint.
 
