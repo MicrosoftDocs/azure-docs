@@ -532,6 +532,7 @@ constructed_url = endpoint + path
 
 params = {
     'api-version': '3.0',
+    'from': 'en',
     'to': ['fr', 'zu']
 }
 
@@ -600,5 +601,3 @@ In this quickstart, you used the Translator service to translate text. Next, exp
 
 > [!div class="nextstepaction"]
 > [Use Text Translation APIs](text-translation-apis.md)
-
-

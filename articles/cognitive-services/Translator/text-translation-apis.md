@@ -327,7 +327,7 @@ You can use any text editor to write Go applications. We recommend using the lat
     1. Type the following command in your console:
 
         ```console
-        python translator-app.py
+        python text-translator.py
         ```
 
 ---
@@ -566,7 +566,7 @@ constructed_url = endpoint + path
 params = {
     'api-version': '3.0',
     'from': 'en',
-    'to': ['de', 'it']
+    'to': ['sw', 'it']
 }
 
 headers = {
@@ -578,7 +578,7 @@ headers = {
 
 # You can pass more than one object in body.
 body = [{
-    'text': 'Hello World!'
+    'text': 'Hello, friend! What did you do today?'
 }]
 
 request = requests.post(constructed_url, params=params, headers=headers, json=body)
@@ -838,7 +838,7 @@ constructed_url = endpoint + path
 
 params = {
     'api-version': '3.0',
-    'to': ['sw', 'it']
+    'to': ['en', 'it']
 }
 
 headers = {
@@ -850,7 +850,7 @@ headers = {
 
 # You can pass more than one object in body.
 body = [{
-    'text': 'Hello World!'
+    'text': 'Halo, rafiki! Ulifanya nini leo?'
 }]
 
 request = requests.post(constructed_url, params=params, headers=headers, json=body)
@@ -1119,7 +1119,7 @@ headers = {
 
 # You can pass more than one object in body.
 body = [{
-    'text': 'Ich würde wirklich gern Ihr Auto um den Block fahren ein paar Mal.'
+    'text': 'Hallo Freund! Was hast du heute gemacht?'
 }]
 
 request = requests.post(constructed_url, params=params, headers=headers, json=body)
@@ -1397,7 +1397,7 @@ headers = {
 
 # You can pass more than one object in body.
 body = [{
-    'text': 'Hello'
+    'text': 'Hello, friend! What did you do today?'
 }]
 request = requests.post(constructed_url, params=params, headers=headers, json=body)
 response = request.json()
@@ -1678,7 +1678,7 @@ headers = {
 
 # You can pass more than one object in body.
 body = [{
-    'text': 'สวัสดี'
+    'text': 'สวัสดีเพื่อน! วันนี้คุณทำอะไร'
 }]
 
 request = requests.post(constructed_url, params=params, headers=headers, json=body)
@@ -2485,7 +2485,7 @@ headers = {
 
 # You can pass more than one object in body.
 body = [{
-    'text': 'shark'
+    'text': 'sunlight'
 }]
 request = requests.post(constructed_url, params=params, headers=headers, json=body)
 response = request.json()
@@ -2904,8 +2904,8 @@ headers = {
 
 # You can pass more than one object in body.
 body = [{
-    'text': 'shark',
-    'translation': 'tiburón'
+    'text': 'sunlight',
+    'translation': 'luz solar'
 }]
 
 request = requests.post(constructed_url, params=params, headers=headers, json=body)
