@@ -4,7 +4,7 @@ description: Sample Azure Resource Manager templates to apply Azure Monitor diag
 ms.topic: sample
 author: bwren
 ms.author: bwren
-ms.date: 05/11/2022
+ms.date: 06/13/2022
 
 ---
 
@@ -29,10 +29,20 @@ The following sample creates a diagnostic setting for an Activity log by adding 
 
 ```bicep
 targetScope = 'subscription'
+
+@description('The name of the diagnostic setting.')
 param settingName string
+
+@description('The resource Id for the workspace.')
 param workspaceId string
+
+@description('The resource Id for the storage account.')
 param storageAccountId string
+
+@description('The resource Id for the event hub authorization rule.')
 param eventHubAuthorizationRuleId string
+
+@description('The name of teh event hub.')
 param eventHubName string
 
 resource setting 'Microsoft.Insights/diagnosticSettings@2021-05-01-preview' = {
@@ -84,23 +94,39 @@ resource setting 'Microsoft.Insights/diagnosticSettings@2021-05-01-preview' = {
 
 ```json
 {
+{
   "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "settingName": {
-      "type": "string"
+      "type": "string",
+      "metadata": {
+        "description": "The name of the diagnostic setting."
+      }
     },
     "workspaceId": {
-      "type": "string"
+      "type": "string",
+      "metadata": {
+        "description": "The resource Id for the workspace."
+      }
     },
     "storageAccountId": {
-      "type": "string"
+      "type": "string",
+      "metadata": {
+        "description": "The resource Id for the storage account."
+      }
     },
     "eventHubAuthorizationRuleId": {
-      "type": "string"
+      "type": "string",
+      "metadata": {
+        "description": "The resource Id for the event hub authorization rule."
+      }
     },
     "eventHubName": {
-      "type": "string"
+      "type": "string",
+      "metadata": {
+        "description": "The name of teh event hub."
+      }
     }
   },
   "resources": [
@@ -193,15 +219,31 @@ The following sample creates a diagnostic setting for an Azure Key Vault by addi
 # [Bicep](#tab/bicep)
 
 ```bicep
+@description('The name of the diagnostic setting.')
 param settingName string
+
+@description('The name of the key vault.')
 param vaultName string
+
+@description('The resource Id of the workspace.')
 param workspaceId string
+
+@description('The resource Id of the storage account.')
 param storageAccountId string
+
+@description('The resource Id for the event hub authorization rule.')
 param eventHubAuthorizationRuleId string
+
+@description('The name of the event hub.')
 param eventHubName string
 
-resource vaultName_Microsoft_Insights_settingName 'Microsoft.KeyVault/vaults/providers/diagnosticSettings@2021-05-01-preview' = {
-  name: '${vaultName}/Microsoft.Insights/${settingName}'
+resource vault 'Microsoft.KeyVault/managedHSMs@2021-11-01-preview' existing = {
+  name: vaultName
+}
+
+resource vaultName_Microsoft_Insights_settingName 'Microsoft.Insights/diagnosticSettings@2021-05-01-preview' = {
+  name: settingName
+  scope: vault
   properties: {
     workspaceId: workspaceId
     storageAccountId: storageAccountId
@@ -231,29 +273,48 @@ resource vaultName_Microsoft_Insights_settingName 'Microsoft.KeyVault/vaults/pro
   "contentVersion": "1.0.0.0",
   "parameters": {
     "settingName": {
-      "type": "string"
+      "type": "string",
+      "metadata": {
+        "description": "The name of the diagnostic setting."
+      }
     },
     "vaultName": {
-      "type": "string"
+      "type": "string",
+      "metadata": {
+        "description": "The name of the key vault."
+      }
     },
     "workspaceId": {
-      "type": "string"
+      "type": "string",
+      "metadata": {
+        "description": "The resource Id of the workspace."
+      }
     },
     "storageAccountId": {
-      "type": "string"
+      "type": "string",
+      "metadata": {
+        "description": "The resource Id of the storage account."
+      }
     },
     "eventHubAuthorizationRuleId": {
-      "type": "string"
+      "type": "string",
+      "metadata": {
+        "description": "The resource Id for the event hub authorization rule."
+      }
     },
     "eventHubName": {
-      "type": "string"
+      "type": "string",
+      "metadata": {
+        "description": "The name of the event hub."
+      }
     }
   },
   "resources": [
     {
-      "type": "Microsoft.KeyVault/vaults/providers/diagnosticSettings",
+      "type": "Microsoft.Insights/diagnosticSettings",
       "apiVersion": "2021-05-01-preview",
-      "name": "[format('{0}/Microsoft.Insights/{1}', parameters('vaultName'), parameters('settingName'))]",
+      "scope": "[format('Microsoft.KeyVault/managedHSMs/{0}', parameters('vaultName'))]",
+      "name": "[parameters('settingName')]",
       "properties": {
         "workspaceId": "[parameters('workspaceId')]",
         "storageAccountId": "[parameters('storageAccountId')]",
@@ -317,16 +378,39 @@ The following sample creates a diagnostic setting for an Azure SQL database by a
 # [Bicep](#tab/bicep)
 
 ```bicep
+@description('The name of the diagnostic setting.')
 param settingName string
+
+@description('The name of the Azure SQL database server.')
 param serverName string
+
+@description('The name of the SQL database.')
 param dbName string
+
+@description('The resource Id of the workspace.')
 param workspaceId string
+
+@description('The resource Id of the storage account.')
 param storageAccountId string
+
+@description('The resource Id of the event hub authorization rule.')
 param eventHubAuthorizationRuleId string
+
+@description('The name of the event hub.')
 param eventHubName string
 
-resource serverName_dbName_microsoft_insights_settingName 'microsoft.sql/servers/databases/providers/diagnosticSettings@2021-05-01-preview' = {
-  name: '${serverName}/${dbName}/microsoft.insights/${settingName}'
+resource dbServer 'Microsoft.Sql/servers@2021-11-01-preview' existing = {
+  name: serverName
+}
+
+resource db 'Microsoft.Sql/servers/databases@2021-11-01-preview' existing = {
+  parent: dbServer
+  name: dbName
+}
+
+resource serverName_dbName_microsoft_insights_settingName 'Microsoft.Insights/diagnosticSettings@2021-05-01-preview' = {
+  name: settingName
+  scope: db
   properties: {
     workspaceId: workspaceId
     storageAccountId: storageAccountId
@@ -385,7 +469,6 @@ resource serverName_dbName_microsoft_insights_settingName 'microsoft.sql/servers
       }
     ]
   }
-  dependsOn: []
 }
 ```
 
@@ -397,32 +480,54 @@ resource serverName_dbName_microsoft_insights_settingName 'microsoft.sql/servers
   "contentVersion": "1.0.0.0",
   "parameters": {
     "settingName": {
-      "type": "string"
+      "type": "string",
+      "metadata": {
+        "description": "The name of the diagnostic setting."
+      }
     },
     "serverName": {
-      "type": "string"
+      "type": "string",
+      "metadata": {
+        "description": "The name of the Azure SQL database server."
+      }
     },
     "dbName": {
-      "type": "string"
+      "type": "string",
+      "metadata": {
+        "description": "The name of the SQL database."
+      }
     },
     "workspaceId": {
-      "type": "string"
+      "type": "string",
+      "metadata": {
+        "description": "The resource Id of the workspace."
+      }
     },
     "storageAccountId": {
-      "type": "string"
+      "type": "string",
+      "metadata": {
+        "description": "The resource Id of the storage account."
+      }
     },
     "eventHubAuthorizationRuleId": {
-      "type": "string"
+      "type": "string",
+      "metadata": {
+        "description": "The resource Id of the event hub authorization rule."
+      }
     },
     "eventHubName": {
-      "type": "string"
+      "type": "string",
+      "metadata": {
+        "description": "The name of the event hub."
+      }
     }
   },
   "resources": [
     {
-      "type": "microsoft.sql/servers/databases/providers/diagnosticSettings",
+      "type": "Microsoft.Insights/diagnosticSettings",
       "apiVersion": "2021-05-01-preview",
-      "name": "[format('{0}/{1}/microsoft.insights/{2}', parameters('serverName'), parameters('dbName'), parameters('settingName'))]",
+      "scope": "[format('Microsoft.Sql/servers/{0}/databases/{1}', parameters('serverName'), parameters('dbName'))]",
+      "name": "[parameters('settingName')]",
       "properties": {
         "workspaceId": "[parameters('workspaceId')]",
         "storageAccountId": "[parameters('storageAccountId')]",
