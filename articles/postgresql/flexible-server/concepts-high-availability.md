@@ -26,11 +26,11 @@ High availability configuration enables automatic failover capability with zero 
 
 ## High availability architecture
 
-Azure Database for PostgreSQL Flexible server supports two high availability deployment models. One is zone-redundant HA and the other is same-zone HA. In both deployment models, when the application performs writes or commits, using PostgreSQL streaming replication, transaction logs (write-ahead logs a.k.a WAL) are written to the local disk and also replicated in *synchronous* mode to the standby replica. Once the logs are persisted on the standby replica, the application is acknowledged of the writes or commits. The standby server will be in recovery mode which keeps applying the logs, but the primary server does not wait for the apply to complete.
+Azure Database for PostgreSQL Flexible server supports two high availability deployment models. One is zone-redundant HA and the other is same-zone HA. In both deployment models, when the application performs writes or commits, using PostgreSQL streaming replication, transaction logs (write-ahead logs a.k.a WAL) are written to the local disk and also replicated in *synchronous* mode to the standby replica. Once the logs are persisted on the standby replica, the application is acknowledged of the writes or commits. The standby server will be in recovery mode which keeps applying the logs, but the primary server doesn't wait for the apply to complete at the standby server.
 
 ### Zone-redundant high availability
 
-This high availability deployment enables Flexible server to be highly available across availability zones. You can choose the region, availability zones for the primary and standby servers. The standby replica server is provisioned in the chosen availability zone in the same region with similar compute, storage, and network configuration as the primary server. Data files and transaction log files (write-ahead logs a.k.a WAL) are stored on locally redundant storage within each availability zone, which automatically stores as **three** data copies. This provides physical isolation of the entire stack between primary and standby servers. 
+This high availability deployment enables Flexible server to be highly available across availability zones. You can choose the region, availability zones for the primary and standby servers. The standby replica server is provisioned in the chosen availability zone in the same region with similar compute, storage, and network configuration as the primary server. Data files and transaction log files (write-ahead logs a.k.a WAL) are stored on locally redundant storage (LRS) within each availability zone, which automatically stores **three** data copies. This provides physical isolation of the entire stack between primary and standby servers. 
 
 >[!NOTE]
 > Not all regions support availability zone to deploy zone-redundant high availability. See this [Azure regions](./overview.md#azure-regions) list.
@@ -44,6 +44,30 @@ This model of high availability deployment enables Flexible server to be highly 
 
 Automatic backups are performed periodically from the primary database server, while the transaction logs are continuously archived to the backup storage from the standby replica. If the region supports availability zones, then backup data is stored on zone-redundant storage (ZRS). In regions that doesn't support availability zones, backup data is stored on local redundant storage (LRS).   
 :::image type="content" source="./media/business-continuity/concepts-same-zone-high-availability-architecture.png" alt-text="Same-zone high availability"::: 
+
+## Components and workflow
+
+### Transaction completion
+
+Application transaction triggered writes and commits are first logged to the WAL on the primary server. It is then streamed to the standby server using Postgres streaming protocol. Once the logs are persisted on the standby server storage, the primary server is acknowledged of write completion. Only then and the application is confirmed of the writes. This additional round-trip adds more latency to your application. The percentage of impact depends on the application. Note that this acknowledgement process does not wait for the logs to be applied at the standby server. The standby server is permanently in recovery mode until it is promoted.
+
+### Health check 
+
+Flexible server has a health monitoring in place that checks for the primary and standby health periodically. If that detects primary server is not reachable after multiple pings, it makes the decision to initiate an automatic failover or not. The algorithm is based on multiple data points to avoid any false positive situation. 
+
+### Failover modes
+
+There are two failover modes. 
+
+  1. With [**planned failovers**](#failover-process---planned-downtimes) (example: During maintenance window) where the failover is triggered with a known state in which the primary connections are drained, a clean shutdown is performed before the replication is severed. You can also use this to bring the primary server back to your preferred AZ. 
+ 
+  2. With [**unplanned failover**](#failover-process---unplanned-downtimes) (example: Primary server node crash), the primary is immediately fenced and hence any in-flight transactions are lost and to be retried by the application. 
+
+In both the failover modes, once the replication is severed, the standby server runs the recovery before being promoted as a primary, and opened for read/write. With automatic DNS entries updated with the new primary server endpoint, applications can connect to the server using the same server endpoint. A new standby server is established in the background and that don’t block your application connectivity.
+
+### Downtime
+
+In all cases, you must observe any downtime from your application/client side. Your application will be able to reconnect after a failover as soon as the DNS is updated. We take care of a few more aspects including LSN comparisons between primary and standby before fencing the writes. But with unplanned failovers, the time taken for the standby can be longer than 2 minutes in some cases due to the volume  of logs to recover before opening for read/write.
 
 ## HA status
 
@@ -108,7 +132,7 @@ Flexible server provides two methods for you to perform on-demand failover to th
 
 You can use this feature to simulate an unplanned outage scenario while running your production workload and observe your application downtime. Alternatively, in rare case where your primary server becomes unresponsive for whatever reason, you may use this feature. 
 
-This feature brings the primary server down and initiates the failover workflow in which the standby promote operation is performed. Once the standby completes the recovery process till the last committed data, it is promoted to be the primary server. DNS records are updated and your application can connect to the promoted primary server. Your application can continue to write to the primary while a new standby server is established in the background and that does not impact the uptime. 
+This feature brings the primary server down and initiates the failover workflow in which the standby promote operation is performed. Once the standby completes the recovery process till the last committed data, it is promoted to be the primary server. DNS records are updated and your application can connect to the promoted primary server. Your application can continue to write to the primary while a new standby server is established in the background and that doesn't impact the uptime. 
 
 The following are the steps during forced-failover:
 
@@ -208,7 +232,7 @@ Flexible servers that are configured with high availability, log data is replica
 
 * Configuring customer initiated management tasks cannot be scheduled during managed maintenance window.
 
-* Planned events such as scale compute and scale storage happens in the standby first and then on the primary server. Currently the server does not fail over for these planned operations. 
+* Planned events such as scale compute and scale storage happens in the standby first and then on the primary server. Currently the server doesn't fail over for these planned operations. 
 
 * If logical decoding or logical replication is configured with a HA configured flexible server, in the event of a failover to the standby server, the logical replication slots are not copied over to the standby server.  
 
