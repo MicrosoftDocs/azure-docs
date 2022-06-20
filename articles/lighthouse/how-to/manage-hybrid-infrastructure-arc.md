@@ -32,7 +32,7 @@ You can manage Kubernetes clusters that have been [connected to a customer's sub
 
 If your customer has created a service principal account to onboard Kubernetes clusters to Azure Arc, you can access this account so that you can [onboard and manage clusters](../../azure-arc/kubernetes/quickstart-connect-cluster.md). To do so, a user in the managing tenant must have been granted the [Kubernetes Cluster - Azure Arc Onboarding built-in role](../../role-based-access-control/built-in-roles.md#kubernetes-cluster---azure-arc-onboarding) when the subscription containing the service principal account was [onboarded to Azure Lighthouse](onboard-customer.md).
 
-You can deploy [configurations](../../azure-arc/kubernetes/tutorial-use-gitops-flux2.md) and [Helm charts](../../azure-arc/kubernetes/use-gitops-with-helm.md) using [GitOps for connected clusters](conceptual-gitops-flux2.md).
+You can deploy [configurations](../../azure-arc/kubernetes/tutorial-use-gitops-flux2.md) and [Helm charts](../../azure-arc/kubernetes/use-gitops-with-helm.md) using [GitOps for connected clusters](../../azure-arc/kubernetes/conceptual-gitops-flux2.md).
 
 You can also [monitor connected clusters](../..//azure-monitor/containers/container-insights-enable-arc-enabled-clusters.md) with Azure Monitor, and [use Azure Policy to apply cluster configurations at scale](../../azure-arc/kubernetes/use-azure-policy.md).
 
