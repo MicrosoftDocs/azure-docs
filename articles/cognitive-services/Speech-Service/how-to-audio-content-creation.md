@@ -18,7 +18,7 @@ ms.author: eur
 
 The tool is based on [Speech Synthesis Markup Language (SSML)](speech-synthesis-markup.md). It allows you to adjust text-to-speech output attributes in real time or batch synthesis, such as voice characters, voice styles, speaking speed, pronunciation, and prosody.
 
-You have easy access to a huge portfolio of [languages and voices](language-support.md#text-to-speech). These voices include state-of-the-art prebuilt neural voices and your custom neural voice, if you've built one.
+You have easy access to a broad portfolio of [languages and voices](language-support.md#text-to-speech). These voices include state-of-the-art prebuilt neural voices and your custom neural voice, if you've built one.
 
 To learn more, view the [Audio Content Creation tutorial video](https://youtu.be/ygApYuOOG6w).
 
