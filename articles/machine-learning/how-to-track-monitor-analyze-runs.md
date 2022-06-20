@@ -8,7 +8,7 @@ ms.subservice: mlops
 author: swinner95
 ms.author: shwinne
 ms.reviewer: sgilley
-ms.date: 04/28/2022
+ms.date: 06/17/2022
 ms.topic: how-to
 ms.custom: devx-track-python, devx-track-azurecli, event-tier1-build-2022
 ---
@@ -19,11 +19,11 @@ You can use [Azure Machine Learning studio](https://ml.azure.com) to monitor, or
 
 This article shows how to do the following tasks:
 
-* Add run display name. 
+* Add job display name. 
 * Create a custom view. 
-* Add a run description. 
+* Add a job description. 
 * Tag and find runs.
-* Run search over your run history. 
+* Run search over your run history.
 * Cancel or fail runs.
 * Monitor the run status by email notification.
  
