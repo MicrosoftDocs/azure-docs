@@ -8,13 +8,13 @@ ms.custom: mode-ui
 ROBOTS: noindex
 ---
 
-[Azure App Service](../overview.md) provides a highly scalable, self-patching web hosting service.  This quickstart tutorial shows how to deploy a PHP app to Azure App Service on Linux using the Azure portal.
+[Azure App Service](overview.md) provides a highly scalable, self-patching web hosting service.  This quickstart tutorial shows how to deploy a PHP app to Azure App Service on Linux using the Azure portal.
 
 This quickstart configures an App Service app in the **Free** tier and incurs no cost for your Azure subscription.
 
 This quickstart shows you how to make these changes within your browser, without having to install the development environment tools on your machine.
 
-![Screenshot of the sample app running in Azure, showing 'Hello World!'.](../media/quickstart-php/php-8-hello-world-in-browser.png)
+![Screenshot of the sample app running in Azure, showing 'Hello World!'.](media/quickstart-php/php-8-hello-world-in-browser.png)
 
 You can follow the steps here using a Mac, Windows, or Linux machine. Once the prerequisites are installed, it takes about five minutes to complete the steps.
 
@@ -29,11 +29,11 @@ To complete this quickstart you need:
 
 2. In the upper right corner, select **Fork**.
 
-    ![Screenshot of the Azure-Samples/php-docs-hello-world repo in GitHub, with the Fork option highlighted.](../media/quickstart-php/fork-php-docs-hello-world-repo.png)
+    ![Screenshot of the Azure-Samples/php-docs-hello-world repo in GitHub, with the Fork option highlighted.](media/quickstart-php/fork-php-docs-hello-world-repo.png)
 
 3. On the **Create a new fork** screen, confirm the **Owner** and **Repository name** fields. Select **Create fork**.
 
-    ![Screenshot of the Create a new fork page in GitHub for creating a new fork of Azure-Samples/php-docs-hello-world.](../media/quickstart-php/fork-details-php-docs-hello-world-repo.png)
+    ![Screenshot of the Create a new fork page in GitHub for creating a new fork of Azure-Samples/php-docs-hello-world.](media/quickstart-php/fork-details-php-docs-hello-world-repo.png)
 
     >[!NOTE]
     > This should take you to the new fork. Your fork URL will look something like this: https://github.com/YOUR_GITHUB_ACCOUNT_NAME/php-docs-hello-world
@@ -44,11 +44,11 @@ To complete this quickstart you need:
    
 2. At the top of the portal, type **app services** in the search box. Under **Services**, select **App Services**.
 
-    ![Screenshot of the Azure portal with 'app services' typed in the search text box. In the results, the App Services option under Services is highlighted.](../media/quickstart-php/azure-portal-search-for-app-services.png)
+    ![Screenshot of the Azure portal with 'app services' typed in the search text box. In the results, the App Services option under Services is highlighted.](media/quickstart-php/azure-portal-search-for-app-services.png)
 
 3. On the **App Services** page, select **Create**.
 
-    ![Screenshot of the App Services page in the Azure portal. The Create button in the action bar is highlighted.](../media/quickstart-php/azure-portal-create-app-service.png)
+    ![Screenshot of the App Services page in the Azure portal. The Create button in the action bar is highlighted.](media/quickstart-php/azure-portal-create-app-service.png)
 
 4. Fill out the **Create Web App** page as follows.
    - **Resource Group**: Create a resource group named *myResourceGroup*.
@@ -63,7 +63,7 @@ To complete this quickstart you need:
    
 6.  In the Spec Picker, select **Dev/Test** tab, select **F1**, and select the **Apply** button at the bottom of the page.
 
-    ![Screenshot of the Spec Picker for the App Service Plan pricing tiers in the Azure portal. Dev/Test, F1, and Apply are highlighted.](../media/quickstart-php/azure-portal-create-app-service-select-free-tier.png)   
+    ![Screenshot of the Spec Picker for the App Service Plan pricing tiers in the Azure portal. Dev/Test, F1, and Apply are highlighted.](media/quickstart-php/azure-portal-create-app-service-select-free-tier.png)   
 
 7.  Select the **Review + create** button at the bottom of the page.
 
@@ -73,7 +73,7 @@ To complete this quickstart you need:
   
 10. From the left navigation, select **Deployment Center**.
 
-    ![Screenshot of the App Service in the Azure Portal. The Deployment Center option in the Deployment section of the left navigation is highlighted.](../media/quickstart-php/azure-portal-configure-app-service-deployment-center.png)  
+    ![Screenshot of the App Service in the Azure Portal. The Deployment Center option in the Deployment section of the left navigation is highlighted.](media/quickstart-php/azure-portal-configure-app-service-deployment-center.png)  
 
 11. Under **Settings**, select a **Source**. For this quickstart, select *GitHub*.
 
@@ -84,18 +84,18 @@ To complete this quickstart you need:
 
 13. Select **Save**.
 
-    ![Screenshot of the Deployment Center for the App Service, focusing on the GitHub integration settings. The Save button in the action bar is highlighted.](../media/quickstart-php/azure-portal-configure-app-service-github-integration.png)  
+    ![Screenshot of the Deployment Center for the App Service, focusing on the GitHub integration settings. The Save button in the action bar is highlighted.](media/quickstart-php/azure-portal-configure-app-service-github-integration.png)  
 
     > [!TIP]
     > This quickstart uses GitHub. Additional continuous deployment sources include Bitbucket, Local Git, Azure Repos, and External Git. FTPS is also a supported deployment method.
     
 14. Once the GitHub integration is saved, from the left navigation of your app, select **Overview** > **URL**.
 
-    ![Screenshot of the App Service resource with the URL field highlighted.](../media/quickstart-php/azure-portal-app-service-url.png)  
+    ![Screenshot of the App Service resource with the URL field highlighted.](media/quickstart-php/azure-portal-app-service-url.png)  
 
 The PHP sample code is running in an Azure App Service Linux web app.
 
-![Screenshot of the sample app running in Azure, showing 'Hello World!'.](../media/quickstart-php/php-8-hello-world-in-browser.png)
+![Screenshot of the sample app running in Azure, showing 'Hello World!'.](media/quickstart-php/php-8-hello-world-in-browser.png)
 
 **Congratulations!** You've deployed your first PHP app to App Service using the Azure portal.
 
@@ -105,7 +105,7 @@ The PHP sample code is running in an Azure App Service Linux web app.
 
 2. On your repo page, press `.` to start Visual Studio code within your browser.
 
-![Screenshot of the forked php-docs-hello-world repo in GitHub with instructions to press the period key on this screen.](../media/quickstart-php/forked-github-repo-press-period.png)
+![Screenshot of the forked php-docs-hello-world repo in GitHub with instructions to press the period key on this screen.](media/quickstart-php/forked-github-repo-press-period.png)
 
 
     > [!NOTE]
@@ -121,29 +121,29 @@ The PHP sample code is running in an Azure App Service Linux web app.
 
 4. From the **Source Control** menu, select the **Stage Changes** button to stage the change.
 
-    ![Screenshot of Visual Studio Code in the browser, highlighting the Source Control navigation in the sidebar, then highlighting the Stage Changes button in the Source Control panel.](../media/quickstart-php/vscode-in-browser-stage-changes.png)
+    ![Screenshot of Visual Studio Code in the browser, highlighting the Source Control navigation in the sidebar, then highlighting the Stage Changes button in the Source Control panel.](media/quickstart-php/vscode-in-browser-stage-changes.png)
 
 5. Enter a commit message such as `Hello Azure`. Then, select **Commit and Push**.
     
-    ![Screenshot of Visual Studio Code in the browser, Source Control panel with a commit message of 'Hello Azure' and the Commit and Push button highlighted.](../media/quickstart-php/vscode-in-browser-commit-push.png)
+    ![Screenshot of Visual Studio Code in the browser, Source Control panel with a commit message of 'Hello Azure' and the Commit and Push button highlighted.](media/quickstart-php/vscode-in-browser-commit-push.png)
 
 6. Once deployment has completed, return to the browser window that opened during the **Browse to the app** step, and refresh the page.
 
-    ![Screenshot of the updated sample app running in Azure, showing 'Hello Azure!'](../media/quickstart-php/php-8-hello-azure-in-browser.png)
+    ![Screenshot of the updated sample app running in Azure, showing 'Hello Azure!'](media/quickstart-php/php-8-hello-azure-in-browser.png)
 
 ## 4 - Manage your new Azure app
 
 1. Go to the Azure portal to manage the web app you created. Search for and select **App Services**.
 
-    ![Screenshot of the Azure portal with 'app services' typed in the search text box. In the results, the App Services option under Services is highlighted.](../media/quickstart-php/azure-portal-search-for-app-services.png)
+    ![Screenshot of the Azure portal with 'app services' typed in the search text box. In the results, the App Services option under Services is highlighted.](media/quickstart-php/azure-portal-search-for-app-services.png)
 
 2. Select the name of your Azure app.
 
-    ![Screenshot of the App Services list in Azure. The name of the demo app service is highlighted.](../media/quickstart-php/app-service-list.png)
+    ![Screenshot of the App Services list in Azure. The name of the demo app service is highlighted.](media/quickstart-php/app-service-list.png)
 
     Your web app's **Overview** page will be displayed. Here, you can perform basic management tasks like **Browse**, **Stop**, **Restart**, and **Delete**.
 
-    ![Screenshot of the App Service overview page in Azure portal. In the action bar, the Browse, Stop, Swap (disabled), Restart, and Delete button group is highlighted.](../media/quickstart-php/app-service-detail.png)
+    ![Screenshot of the App Service overview page in Azure portal. In the action bar, the Browse, Stop, Swap (disabled), Restart, and Delete button group is highlighted.](media/quickstart-php/app-service-detail.png)
 
     The web app menu provides different options for configuring your app.
 
