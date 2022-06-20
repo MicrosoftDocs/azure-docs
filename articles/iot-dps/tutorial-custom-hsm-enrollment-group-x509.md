@@ -621,28 +621,32 @@ In this section you create the device certificates and the full chain device cer
 
 The following files will be used in the rest of this tutorial:
 
-|   Description                 |  File  |
-| ---------------------------- | --------- |
-| Root CA certificate.              | *certs/azure-iot-test-only.root.ca.cert.pem* |
-| Intermediate CA certificate   | *certs/azure-iot-test-only.intermediate.cert.pem* |
-| Device 1 private key          | *private/device-01.key.pem* |
-| Device 1 full chain certificate  | *certs/device-01-full-chain.cert.pem* |
-| Device 2 private key          | *private/device-02.key.pem* |
-| Device 2 full chain certificate  | *certs/device-01-full-chain.cert.pem* |
+|   Certificate                 |  File  | Description |
+| ---------------------------- | --------- | ---------- |
+| root CA certificate.              | *certs/azure-iot-test-only.root.ca.cert.pem* | Will be uploaded to DPS and verified. |
+| intermediate CA certificate   | *certs/azure-iot-test-only.intermediate.cert.pem* | Will be used to create an enrollment group in DPS. |
+| device-01 private key          | *private/device-01.key.pem* | Used by the device to verify ownership of the device certificate. |
+| device-01 full chain certificate  | *certs/device-01-full-chain.cert.pem* | Presented by the device to authenticate and register with DPS. |
+| device-02 private key          | *private/device-02.key.pem* | Used by the device to verify ownership of the device certificate. |
+| device-02 full chain certificate  | *certs/device-01-full-chain.cert.pem* | Presented by the device to authenticate and register with DPS. |
 
 ## Verify ownership of the root certificate
 
-For DPS to be able to validate the device's certificate chain, you must upload and verify ownership of the root CA certificate.
-
 > [!NOTE]
-> As of July 1st, 2021, you can perform automatic verification of certificates that you upload to DPS. This is the recommended approach for this tutorial.
+> As of July 1st, 2021, you can perform automatic verification of certificates that you upload to DPS.
 >
 
-### Automatically verify ownership of the root certificate (recommended)
+For DPS to be able to validate the device's certificate chain during authentication, you must upload and verify ownership of the root CA certificate. You can verify ownership automatically when you upload the root CA certificate to DPS, or you can verify ownership manually by creating and uploading an additional certificate based on a verification code that you receive from DPS and signed with the private key associated with the root CA certificate. For this tutorial, we recommend the verifying ownership automatically.
+
+### Automatically verify ownership of the root certificate
+
+To verify ownership of the certificate automatically, follow these steps:
 
 1. Follow the instructions in [Automatic verification of intermediate or root CA through self-attestation](how-to-verify-certificates.md#automatic-verification-of-intermediate-or-root-ca-through-self-attestation) to upload the root certificate (`./certs/azure-iot-test-only.root.ca.cert.pem`). This is the recommended approach for this tutorial.
 
 ### Manually verify ownership of the root certificate (optional)
+
+To verify ownership of the certificate manually, follow these steps:
 
 1. Using the directions from [Register the public part of an X.509 certificate and get a verification code](how-to-verify-certificates.md#register-the-public-part-of-an-x509-certificate-and-get-a-verification-code), upload the root certificate (`./certs/azure-iot-test-only.root.ca.cert.pem`) and get a verification code from DPS.
 
