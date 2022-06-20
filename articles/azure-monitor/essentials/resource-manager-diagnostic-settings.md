@@ -227,7 +227,7 @@ resource cluster 'Microsoft.Kusto/clusters@2022-02-01' existing = {
   name: clusterName
 }
 
-resource clusterName_Microsoft_Insights_settingName 'Microsoft.Insights/diagnosticSettings@2021-05-01-preview' = {
+resource setting 'Microsoft.Insights/diagnosticSettings@2021-05-01-preview' = {
   name: settingName
   scope: cluster
   properties: {
@@ -438,83 +438,128 @@ resource clusterName_Microsoft_Insights_settingName 'Microsoft.Insights/diagnost
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "clusterName": {
-            "value": "kustoClusterName"
-        },
-        "diagnosticSettingName": {
-            "value": "A new Diagnostic Settings configuration"
-        },
-        "workspaceId": {
-            "value": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/MyResourceGroup/providers/microsoft.operationalinsights/workspaces/MyWorkspace"
-        },
-        "storageAccountId": {
-            "value": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/MyResourceGroup/providers/Microsoft.Storage/storageAccounts/mystorageaccount"
-        },
-        "eventHubAuthorizationRuleId": {
-            "value": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/MyResourceGroup/providers/Microsoft.EventHub/namespaces/MyNameSpace/authorizationrules/RootManageSharedAccessKey"
-        },
-        "eventHubName": {
-            "value": "myEventhub"
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "clusterName": {
+      "value": "kustoClusterName"
+    },
+    "diagnosticSettingName": {
+      "value": "A new Diagnostic Settings configuration"
+    },
+    "workspaceId": {
+      "value": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/MyResourceGroup/providers/microsoft.operationalinsights/workspaces/MyWorkspace"
+    },
+    "storageAccountId": {
+      "value": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/MyResourceGroup/providers/Microsoft.Storage/storageAccounts/mystorageaccount"
+    },
+    "eventHubAuthorizationRuleId": {
+      "value": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/MyResourceGroup/providers/Microsoft.EventHub/namespaces/MyNameSpace/authorizationrules/RootManageSharedAccessKey"
+    },
+    "eventHubName": {
+      "value": "myEventhub"
     }
+  }
 }
 ```
 
 ### Template file - enabling the 'audit' category group
 
-```json
-{
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "clusterName": {
-            "type": "String"
-        },
-        "settingName": {
-            "type": "String"
-        },
-        "workspaceId": {
-            "type": "String"
-        },
-        "storageAccountId": {
-            "type": "String"
-        },
-        "eventHubAuthorizationRuleId": {
-            "type": "String"
-        },
-        "eventHubName": {
-            "type": "String"
+# [Bicep](#tab/bicep)
+
+```bicep
+param clusterName string
+param settingName string
+param workspaceId string
+param storageAccountId string
+param eventHubAuthorizationRuleId string
+param eventHubName string
+
+resource cluster 'Microsoft.Kusto/clusters@2022-02-01' existing = {
+  name: clusterName
+}
+
+resource setting 'Microsoft.Insights/diagnosticSettings@2021-05-01-preview' = {
+  name: settingName
+  scope: cluster
+  properties: {
+    workspaceId: workspaceId
+    storageAccountId: storageAccountId
+    eventHubAuthorizationRuleId: eventHubAuthorizationRuleId
+    eventHubName: eventHubName
+    logs: [
+      {
+        category: null
+        categoryGroup: 'audit'
+        enabled: true
+        retentionPolicy: {
+          enabled: false
+          days: 0
         }
-    },
-    "resources": [{
-            "type": "Microsoft.Kusto/clusters/providers/diagnosticSettings",
-            "apiVersion": "2021-05-01-preview",
-            "name": "[concat(parameters('clousterName'), '/Microsoft.Insights/', parameters('settingName'))]",
-            "dependsOn": [],
-            "properties": {
-                "workspaceId": "[parameters('workspaceId')]",
-                "storageAccountId": "[parameters('storageAccountId')]",
-                "eventHubAuthorizationRuleId": "[parameters('eventHubAuthorizationRuleId')]",
-                "eventHubName": "[parameters('eventHubName')]",
-                "metrics": [],
-                "logs": [{
-                        "category": null,
-                        "categoryGroup": "audit",
-                        "enabled": true,
-                        "retentionPolicy": {
-                            "enabled": false,
-                            "days": 0
-                        }
-                    }
-                ]
-            }
-        }
+      }
     ]
+  }
 }
 ```
+
+# [JSON](#tab/json)
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "clusterName": {
+      "type": "string"
+    },
+    "settingName": {
+      "type": "string"
+    },
+    "workspaceId": {
+      "type": "string"
+    },
+    "storageAccountId": {
+      "type": "string"
+    },
+    "eventHubAuthorizationRuleId": {
+      "type": "string"
+    },
+    "eventHubName": {
+      "type": "string"
+    }
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Insights/diagnosticSettings",
+      "apiVersion": "2021-05-01-preview",
+      "scope": "[format('Microsoft.Kusto/clusters/{0}', parameters('clusterName'))]",
+      "name": "[parameters('settingName')]",
+      "properties": {
+        "workspaceId": "[parameters('workspaceId')]",
+        "storageAccountId": "[parameters('storageAccountId')]",
+        "eventHubAuthorizationRuleId": "[parameters('eventHubAuthorizationRuleId')]",
+        "eventHubName": "[parameters('eventHubName')]",
+        "logs": [
+          {
+            "category": null,
+            "categoryGroup": "audit",
+            "enabled": true,
+            "retentionPolicy": {
+              "enabled": false,
+              "days": 0
+            }
+          }
+        ]
+      }
+    }
+  ]
+}
+```
+
+---
+
+## Diagnostic setting for Azure Key Vault
+
 
 The following sample creates a diagnostic setting for an Azure Key Vault by adding a resource of type `Microsoft.KeyVault/vaults/providers/diagnosticSettings` to the template.
 
@@ -548,7 +593,7 @@ resource vault 'Microsoft.KeyVault/managedHSMs@2021-11-01-preview' existing = {
   name: vaultName
 }
 
-resource vaultName_Microsoft_Insights_settingName 'Microsoft.Insights/diagnosticSettings@2021-05-01-preview' = {
+resource setting 'Microsoft.Insights/diagnosticSettings@2021-05-01-preview' = {
   name: settingName
   scope: vault
   properties: {
@@ -715,7 +760,7 @@ resource db 'Microsoft.Sql/servers/databases@2021-11-01-preview' existing = {
   name: dbName
 }
 
-resource serverName_dbName_microsoft_insights_settingName 'Microsoft.Insights/diagnosticSettings@2021-05-01-preview' = {
+resource setting 'Microsoft.Insights/diagnosticSettings@2021-05-01-preview' = {
   name: settingName
   scope: db
   properties: {
@@ -948,7 +993,7 @@ param storageAccountId string
 param eventHubAuthorizationRuleId string
 param eventHubName string
 
-resource sqlManagedInstanceName_microsoft_insights_diagnosticSettingName 'Microsoft.sql/managedInstances/providers/diagnosticSettings@2021-05-01-preview' = {
+resource setting 'Microsoft.sql/managedInstances/providers/diagnosticSettings@2021-05-01-preview' = {
   name: '${sqlManagedInstanceName}/microsoft.insights/${diagnosticSettingName}'
   properties: {
     workspaceId: diagnosticWorkspaceId
@@ -1078,8 +1123,18 @@ param storageAccountId string
 param eventHubAuthorizationRuleId string
 param eventHubName string
 
-resource sqlManagedInstanceName_sqlManagedDatabaseName_microsoft_insights_diagnosticSettingName 'Microsoft.sql/managedInstances/databases/providers/diagnosticSettings@2021-05-01-preview' = {
-  name: '${sqlManagedInstanceName}/${sqlManagedDatabaseName}/microsoft.insights/${diagnosticSettingName}'
+resource dbInstance 'Microsoft.Sql/managedInstances@2021-11-01-preview' existing = {
+  name:sqlManagedInstanceName
+}
+
+resource db 'Microsoft.Sql/managedInstances/databases@2021-11-01-preview' existing = {
+  name: sqlManagedDatabaseName
+  parent: dbInstance
+}
+
+resource setting 'Microsoft.Insights/diagnosticSettings@2021-05-01-preview' = {
+  name: diagnosticSettingName
+  scope: db
   properties: {
     workspaceId: diagnosticWorkspaceId
     storageAccountId: storageAccountId
@@ -1104,7 +1159,6 @@ resource sqlManagedInstanceName_sqlManagedDatabaseName_microsoft_insights_diagno
       }
     ]
   }
-  dependsOn: []
 }
 ```
 
@@ -1114,6 +1168,13 @@ resource sqlManagedInstanceName_sqlManagedDatabaseName_microsoft_insights_diagno
 {
   "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
+  "metadata": {
+    "_generator": {
+      "name": "bicep",
+      "version": "0.5.6.12127",
+      "templateHash": "10835183659402804631"
+    }
+  },
   "parameters": {
     "sqlManagedInstanceName": {
       "type": "string"
@@ -1139,9 +1200,10 @@ resource sqlManagedInstanceName_sqlManagedDatabaseName_microsoft_insights_diagno
   },
   "resources": [
     {
-      "type": "Microsoft.sql/managedInstances/databases/providers/diagnosticSettings",
+      "type": "Microsoft.Insights/diagnosticSettings",
       "apiVersion": "2021-05-01-preview",
-      "name": "[format('{0}/{1}/microsoft.insights/{2}', parameters('sqlManagedInstanceName'), parameters('sqlManagedDatabaseName'), parameters('diagnosticSettingName'))]",
+      "scope": "[format('Microsoft.Sql/managedInstances/{0}/databases/{1}', parameters('sqlManagedInstanceName'), parameters('sqlManagedDatabaseName'))]",
+      "name": "[parameters('diagnosticSettingName')]",
       "properties": {
         "workspaceId": "[parameters('diagnosticWorkspaceId')]",
         "storageAccountId": "[parameters('storageAccountId')]",
@@ -1221,8 +1283,13 @@ param storageAccountId string
 param eventHubAuthorizationRuleId string
 param eventHubName string
 
-resource recoveryServicesName_Microsoft_Insights_settingName 'microsoft.recoveryservices/vaults/providers/diagnosticSettings@2021-05-01-preview' = {
-  name: '${recoveryServicesName}/Microsoft.Insights/${settingName}'
+resource vault 'Microsoft.RecoveryServices/vaults@2021-08-01' existing = {
+  name: recoveryServicesName
+}
+
+resource setting 'Microsoft.Insights/diagnosticSettings@2021-05-01-preview' = {
+  name: settingName
+  scope: vault
   properties: {
     workspaceId: workspaceId
     storageAccountId: storageAccountId
@@ -1289,9 +1356,7 @@ resource recoveryServicesName_Microsoft_Insights_settingName 'microsoft.recovery
     ]
     logAnalyticsDestinationType: 'Dedicated'
   }
-  dependsOn: []
 }
-
 ```
 
 # [JSON](#tab/json)
@@ -1322,9 +1387,10 @@ resource recoveryServicesName_Microsoft_Insights_settingName 'microsoft.recovery
   },
   "resources": [
     {
-      "type": "microsoft.recoveryservices/vaults/providers/diagnosticSettings",
+      "type": "Microsoft.Insights/diagnosticSettings",
       "apiVersion": "2021-05-01-preview",
-      "name": "[format('{0}/Microsoft.Insights/{1}', parameters('recoveryServicesName'), parameters('settingName'))]",
+      "scope": "[format('Microsoft.RecoveryServices/vaults/{0}', parameters('recoveryServicesName'))]",
+      "name": "[parameters('settingName')]",
       "properties": {
         "workspaceId": "[parameters('workspaceId')]",
         "storageAccountId": "[parameters('storageAccountId')]",
@@ -1443,14 +1509,17 @@ param storageAccountId string
 param eventHubAuthorizationRuleId string
 param eventHubName string
 
-resource workspaceName_Microsoft_Insights_settingName 'Microsoft.OperationalInsights/workspaces/providers/diagnosticSettings@2021-05-01-preview' = {
-  name: '${workspaceName}/Microsoft.Insights/${settingName}'
+resource workspace 'Microsoft.OperationalInsights/workspaces@2021-12-01-preview' existing = {
+  name: workspaceName
+}
+resource setting 'Microsoft.Insights/diagnosticSettings@2021-05-01-preview' = {
+  name: settingName
+  scope: workspace
   properties: {
     workspaceId: workspaceId
     storageAccountId: storageAccountId
     eventHubAuthorizationRuleId: eventHubAuthorizationRuleId
     eventHubName: eventHubName
-    metrics: []
     logs: [
       {
         category: 'Audit'
@@ -1458,7 +1527,6 @@ resource workspaceName_Microsoft_Insights_settingName 'Microsoft.OperationalInsi
       }
     ]
   }
-  dependsOn: []
 }
 ```
 
@@ -1490,15 +1558,15 @@ resource workspaceName_Microsoft_Insights_settingName 'Microsoft.OperationalInsi
   },
   "resources": [
     {
-      "type": "Microsoft.OperationalInsights/workspaces/providers/diagnosticSettings",
+      "type": "Microsoft.Insights/diagnosticSettings",
       "apiVersion": "2021-05-01-preview",
-      "name": "[format('{0}/Microsoft.Insights/{1}', parameters('workspaceName'), parameters('settingName'))]",
+      "scope": "[format('Microsoft.OperationalInsights/workspaces/{0}', parameters('workspaceName'))]",
+      "name": "[parameters('settingName')]",
       "properties": {
         "workspaceId": "[parameters('workspaceId')]",
         "storageAccountId": "[parameters('storageAccountId')]",
         "eventHubAuthorizationRuleId": "[parameters('eventHubAuthorizationRuleId')]",
         "eventHubName": "[parameters('eventHubName')]",
-        "metrics": [],
         "logs": [
           {
             "category": "Audit",
