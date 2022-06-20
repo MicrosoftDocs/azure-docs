@@ -29,7 +29,7 @@ Theming on Android is handled via XML resource files. We expose the following re
 Contoso developers can implement a **Theme** within their apps like this one to supply the primary color and tints.
 
 ```XML
-<style name="Contoso.Theme.Calling" parent="AzureCommunicationUICalling.Theme">
+<style name="MyCompany.CallComposite" parent="AzureCommunicationUICalling.Theme">
     <item name="azure_communication_ui_calling_primary_color">#7800D4</item>
     <item name="azure_communication_ui_calling_primary_color_tint10">#882BD8</item>
     <item name="azure_communication_ui_calling_primary_color_tint20">#E0C7F4</item>
@@ -54,9 +54,25 @@ Contoso developers can implement a **Theme** within their apps like this one to 
 
 The theme style will be applied to pass the Theme resource ID to the ThemeConfiguration/Theme in the `CallCompositeBuilder`.
 
-```Kotlin
-CallCompositeBuilder().theme(ThemeConfiguration(R.style.Contoso_Theme_Calling))
+#### [Kotlin](#tab/kotlin)
+
+```kotlin
+val callComposite: CallComposite =
+        CallCompositeBuilder()
+            .theme(R.style.MyCompany_CallComposite)
+            .build()
 ```
+
+#### [Java](#tab/java)
+
+```java
+CallComposite callComposite = 
+    new CallCompositeBuilder()
+        .theme(R.style.MyCompany_CallComposite)
+        .build();
+```
+
+----
 
 #### Light/Dark modes
 

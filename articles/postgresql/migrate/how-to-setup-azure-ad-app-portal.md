@@ -11,6 +11,8 @@ ms.date: 05/09/2022
 
 # Set up Azure AD app to use with Single to Flexible server Migration
 
+[!INCLUDE[applies-to-postgres-single-flexible-server](../includes/applies-to-postgresql-single-flexible-server.md)]
+
 This quick start article shows you how to set up Azure Active Directory (Azure AD) app to use with Single to Flexible server migration. It's an important component of the Single to Flexible migration feature. See [Azure Active Directory app](../../active-directory/develop/howto-create-service-principal-portal.md) for details. Azure AD App helps with role-based access control (RBAC) as the migration infrastructure requires access to both the source and target servers, and is restricted by the roles assigned to the Azure Active Directory App. The Azure AD app instance once created, can be used to manage multiple migrations. To get started, create a new Azure Active Directory Enterprise App by doing the following steps:
 
 ## Create Azure AD App

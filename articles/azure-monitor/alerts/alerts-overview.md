@@ -6,7 +6,7 @@ ms.author: abbyweisberg
 ms.topic: overview 
 ms.date: 06/09/2022
 ms.custom: template-overview 
-ms.reviewer: harelb
+ms.reviewer: harelb    
 ---
 # What are Azure Monitor Alerts?
 
@@ -49,7 +49,7 @@ See [this article](alerts-types.md) for detailed information about each alert ty
 
 |Alert type|Description|
 |:---------|:---------|
-|[Metric alerts](alerts-types.md#metric-alerts)|Metric alerts evaluate resource metrics at regular intervals. Metrics can be platform metrics, custom metrics, logs from Azure Monitor converted to metrics or Application Insights metrics. Metric alerts have several additional features (link), such as the ability to apply multiple conditions and dynamic thresholds.|
+|[Metric alerts](alerts-types.md#metric-alerts)|Metric alerts evaluate resource metrics at regular intervals. Metrics can be platform metrics, custom metrics, logs from Azure Monitor converted to metrics or Application Insights metrics. Metric alerts have several additional features, such as the ability to apply multiple conditions and dynamic thresholds.|
 |[Log alerts](alerts-types.md#log-alerts)|Log alerts allow users to use a Log Analytics query to evaluate resource logs at a predefined frequency.|
 |[Activity log alerts](alerts-types.md#activity-log-alerts)|Activity log alerts are triggered when a new activity log event occurs that matches the defined conditions.|
 |[Smart detection alerts](alerts-types.md#smart-detection-alerts)|Smart detection on an Application Insights resource automatically warns you of potential performance problems and failure anomalies in your web application. You can migrate smart detection on your Application Insights resource to create alert rules for the different smart detection modules.|
