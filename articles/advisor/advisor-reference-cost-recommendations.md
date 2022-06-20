@@ -211,7 +211,7 @@ Learn more about [Subscription - RedisCacheReservedCapacity (Consider Cache for 
 
 ### Consider Azure Synapse Analytics (formerly SQL DW) reserved instance to save over your pay-as-you-go costs
 
-We analyze you Azure Synapse Analytics usage pattern over last 30 days and recommend reserved instance purchase that maximizes your savings. With reserved instance you can pre-purchase Synapse Analytics hourly usage and save over your on-demand costs. Reserved instance is a billing benefit and will automatically apply to new or existing deployments. Saving estimates are calculated for individual subscriptions and the usage pattern observed over last 30 days. Shared scope recommendations are available in reservation purchase experience and can increase savings further.
+We analyze your Azure Synapse Analytics usage pattern over last 30 days and recommend reserved instance purchase that maximizes your savings. With reserved instance you can pre-purchase Synapse Analytics hourly usage and save over your on-demand costs. Reserved instance is a billing benefit and will automatically apply to new or existing deployments. Saving estimates are calculated for individual subscriptions and the usage pattern observed over last 30 days. Shared scope recommendations are available in reservation purchase experience and can increase savings further.
 
 Learn more about [Subscription - SQLDWReservedCapacity (Consider Azure Synapse Analytics (formerly SQL DW) reserved instance to save over your pay-as-you-go costs)](https://aka.ms/rirecommendations).
 
