@@ -108,7 +108,7 @@ Otherwise create an x509 self-signed certificate storing it in AKV for remote si
 
 1. Create a certificate policy file
 
-    Once the certificate policy file is executed as below, it creates a valid signing certificate compatible with **notation** in AKV. 
+    Once the certificate policy file is executed as below, it creates a valid signing certificate compatible with **notation** in AKV. The EKU listed is for code-signing, but isn't required for notation to sign artifacts.
 
     ```bash
     cat <<EOF > ./my_policy.json
@@ -119,8 +119,6 @@ Otherwise create an x509 self-signed certificate storing it in AKV for remote si
         },
         "x509CertificateProperties": {
         "ekus": [
-            "1.3.6.1.5.5.7.3.1",
-            "1.3.6.1.5.5.7.3.2",
             "1.3.6.1.5.5.7.3.3"
         ],
         "subject": "CN=${KEY_SUBJECT_NAME}",
