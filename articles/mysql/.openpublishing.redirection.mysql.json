@@ -276,9 +276,9 @@
         "redirect_document_id": false
     },
     {
-        "source_path_from_root": "/articles/mysql/concepts-version-policy.md",
-        "redirect_url": "/azure/mysql/single-server/concepts-version-policy",
-        "redirect_document_id": false
+        "source_path_from_root": "/articles/mysql/single-server/concepts-version-policy.md",
+        "redirect_url": "/azure/mysql/concepts-version-policy",
+        "redirect_document_id": true
     },
     {
         "source_path_from_root": "/articles/mysql/connect-cpp.md",

@@ -6,8 +6,8 @@ ms.subservice: single-server
 author: mksuni
 ms.author: sumuth
 ms.topic: how-to
-
 ms.custom: devx-track-azurecli
+ms.date: 06/20/2022
 ---
 
 # Data encryption for Azure Database for MySQL by using the Azure portal
