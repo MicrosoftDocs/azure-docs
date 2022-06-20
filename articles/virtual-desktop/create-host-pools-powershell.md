@@ -25,7 +25,7 @@ If you haven't already done so, follow the instructions in [Set up the PowerShel
 Run the following cmdlet to sign in to the Azure Virtual Desktop environment:
 
 ```powershell
-New-AzWvdHostPool -ResourceGroupName <resourcegroupname> -Name <hostpoolname> -WorkspaceName <workspacename> -HostPoolType <Pooled|Personal> -LoadBalancerType <BreadthFirst|DepthFirst|Persistent> -Location <region> -DesktopAppGroupName <appgroupname> -PreferredAppGroupType Desktop
+New-AzWvdHostPool -ResourceGroupName <resourcegroupname> -Name <hostpoolname> -WorkspaceName <workspacename> -HostPoolType <Pooled|Personal> -LoadBalancerType <BreadthFirst|DepthFirst|Persistent> -Location <region> -DesktopAppGroupName <appgroupname> -PreferredAppGroupType <appgrouptype>
 ```
 
 This cmdlet will create the host pool, workspace and desktop app group. Additionally, it will register the desktop app group to the workspace. You can either create a workspace with this cmdlet or use an existing workspace.
