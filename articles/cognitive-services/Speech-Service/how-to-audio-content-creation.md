@@ -138,7 +138,7 @@ After you've reviewed your audio output and are satisfied with your tuning and a
 
 1. Select **Export** to create an audio creation task. 
 
-   We recommend **Export to Audio library**, because you could easily store, find, and search audio output on cloud and better integrate with your applications through Azure blob. You can also download the audio to your local disk directly.
+   We recommend **Export to Audio library** to easily store, find, and search audio output in the cloud. You can better integrate with your applications through Azure blob storage. You can also download the audio to your local disk directly.
    
 1. Choose the output format for your tuned audio. The **supported audio formats and sample rates** are listed in the following table:
 
