@@ -65,7 +65,7 @@ There are three workflows for deploying MLflow models to Azure ML:
 
 ### Which option to use?
 
-If you are familiar with MLflow or your platform support MLflow natively (like Azure Databricks) and you wish to continue using the same set of methods, use the `azureml-mlflow` plugin. If, on the other hand, you are more familiar with the [Azure ML CLI v2](#concept-v2.md), you want to automate deployments using CI/CD pipelines, or you want to keep deployments configuration in a git repository, we recommend you to use the [Azure ML CLI v2](#concept-v2.md). If you want to quickly deploy and test models trained with MLflow, you can use [Azure Machine Learning Studio](https://ml.azure.com) UI deployment.
+If you are familiar with MLflow or your platform support MLflow natively (like Azure Databricks) and you wish to continue using the same set of methods, use the `azureml-mlflow` plugin. If, on the other hand, you are more familiar with the [Azure ML CLI v2](concept-v2.md), you want to automate deployments using CI/CD pipelines, or you want to keep deployments configuration in a git repository, we recommend you to use the [Azure ML CLI v2](concept-v2.md). If you want to quickly deploy and test models trained with MLflow, you can use [Azure Machine Learning Studio](https://ml.azure.com) UI deployment.
 
 ## Deploy using the MLflow plugin 
 
