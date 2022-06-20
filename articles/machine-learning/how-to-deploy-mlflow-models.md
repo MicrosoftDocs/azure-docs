@@ -44,19 +44,20 @@ The following table shows the target support for MLflow models in Azure ML:
 | Deploying models logged with MLflow to real time inference | **&check;**<sup>1</sup> | **&check;**<sup>1</sup> | **&check;**<sup>1</sup> |
 | Deploying models logged with MLflow to batch inference | <sup>2</sup> | <sup>2</sup> | **&check;** |
 | Deploying models with ColSpec signatures | **&check;**<sup>4</sup> | **&check;**<sup>4</sup> | **&check;**<sup>4</sup> |
-| Deploying models with TensorSpec signatures | **&check;** | **&check;** | **&check;** |
+| Deploying models with TensorSpec signatures | **&check;**<sup>5</sup> | **&check;**<sup>5</sup> | **&check;**<sup>5</sup> |
 | Run models logged with MLflow in you local compute with Azure ML CLI v2 | **&check;** | **&check;** | <sup>3</sup> |
 | Debug online endpoints locally in Visual Studio Code (preview) |  |  |  |
 
 > [!NOTE]
-> - <sup>1</sup> Spark flavor is not supported at the moment.
+> - <sup>1</sup> Spark flavor is not supported at the moment for deployment.
 > - <sup>2</sup> We suggest you to use Azure Machine Learning Pipelines with Parallel Run Step.
-> - <sup>3</sup> For deploying MLflow models locally, use the command `mlflow models serve -m <MODEL_NAME>`. Configure the environment variable `MLFLOW_TRACKING_URI` with the URL of your tracking server.
-> - <sup>4</sup> Data type `mlflow.types.DataType.Binary` is not supported as column type. For models that works with images, we suggest you to use or (a) tensors inputs using the [TensorSpec input type](https://mlflow.org/docs/latest/python_api/mlflow.types.html#mlflow.types.TensorSpec), or (b) `Base64` encoding schemes with a `mlflow.types.DataType.String` column type, which is commonly used when there is a need to encode binary data that needs be stored and transferred over media.
+> - <sup>3</sup> For deploying MLflow models locally, use the MLflow CLI command `mlflow models serve -m <MODEL_NAME>`. Configure the environment variable `MLFLOW_TRACKING_URI` with the URL of your tracking server.
+> - <sup>4</sup> Data type `mlflow.types.DataType.Binary` is not supported as column type. For models that work with images, we suggest you to use or (a) tensors inputs using the [TensorSpec input type](https://mlflow.org/docs/latest/python_api/mlflow.types.html#mlflow.types.TensorSpec), or (b) `Base64` encoding schemes with a `mlflow.types.DataType.String` column type, which is commonly used when there is a need to encode binary data that needs be stored and transferred over media.
+> - <sup>5</sup> Tensors with unspecified shapes (`-1`) is only supported at the batch size by the moment. For instance, a signature with shape `(-1, -1, -1, 3)` is not supported but `(-1, 300, 300, 3)` is.
 
 ## Options
 
-There are three workflows for deploying models to Azure ML:
+There are three workflows for deploying MLflow models to Azure ML:
 
 - [Deploy using the MLflow plugin](#deploy-using-the-mlflow-plugin)
 - [Deploy using CLI (v2)](#deploy-using-cli-v2)
@@ -64,7 +65,7 @@ There are three workflows for deploying models to Azure ML:
 
 ### Which option to use?
 
-If you are familiar with MLflow or your platform support MLflow natively (like Azure Databricks) and you wish to continue using the same set of methods, use the `azureml-mlflow` plugin. If, on the other hand, you are more familiar with the Azure ML CLI, you want to automate deployments using CI/CD pipelines, or you want to keep deployments configuration in a git repository, we recommend you to use the Azure ML CLI v2. If you want to quickly test models 
+If you are familiar with MLflow or your platform support MLflow natively (like Azure Databricks) and you wish to continue using the same set of methods, use the `azureml-mlflow` plugin. If, on the other hand, you are more familiar with the [Azure ML CLI v2](#concept-v2.md), you want to automate deployments using CI/CD pipelines, or you want to keep deployments configuration in a git repository, we recommend you to use the [Azure ML CLI v2](#concept-v2.md). If you want to quickly deploy and test models trained with MLflow, you can use [Azure Machine Learning Studio](https://ml.azure.com) UI deployment.
 
 ## Deploy using the MLflow plugin 
 
@@ -321,8 +322,8 @@ The following input's types are supported in Azure ML when deploying models with
 | Tensor input formatted as in TF Serving’s API | **&check;** |  |
 
 > [!NOTE]
-> <sup>1</sup> We suggest you to use split orientation instead. Records orientation doesn't guarante column ordering preservation.
-> <sup>2</sup> We suggest you to explore batch inference for processing files.
+> - <sup>1</sup> We suggest you to use split orientation instead. Records orientation doesn't guarante column ordering preservation.
+> - <sup>2</sup> We suggest you to explore batch inference for processing files.
 
 ### Creating requests
 
