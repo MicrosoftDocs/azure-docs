@@ -6,9 +6,21 @@ ms.date: 03/24/2022
 ---
 
 # Server-side geo disaster recovery in Azure Event Grid
-Event Grid supports automatic geo-disaster recovery of metadata for topics, domains, and event subscriptions. Event Grid automatically syncs your event-related infrastructure to a paired region. If an entire Azure region goes down, the events will begin to flow to the geo-paired region with no intervention from you. 
 
-Note that event data is not replicated to the paired region. Only the metadata is replicated. If a region supports availability zones, the event data is replicated across availability zones though. 
+Event Grid supports automatic geo-disaster recovery of event subscription configuration data (metadata) for topics, system topics, domains, and partner topics. Event Grid automatically syncs your event-related infrastructure to a paired region. If an entire Azure region goes down, the events will begin to flow to the geo-paired region with no intervention from you. 
+
+> [!NOTE]
+> Event data is not replicated to the paired region, only the metadata is replicated. If a region supports availability zones, the event data is replicated across availability zones though. 
+
+Microsoft offers options to recover from a failue, you can opt to enable recovery to a paired region where available or disable recovery to a paired region to manage your own recovery. See [Azure cross-region replication pairings for all geographies](../availability-zones/cross-region-replication-azure.md#azure-cross-region-replication-pairings-for-all-geographies) to learn more about the supported paired regions. The failover is nearly instantaneous once initiated, or see [Build your own disaster recovery plan for Azure Event Grid topics and domains](https://docs.microsoft.com/en-us/azure/event-grid/custom-disaster-recovery) to learn more about how to implement your own failover strategy.
+
+Microsoft-initiated failover is exercised by Microsoft in rare situations to failover all the Event Grid resources from an affected region to the corresponding geo-paired region. This process is a default option and requires no intervention from the user. Microsoft reserves the right to make a determination of when this option will be exercised. This mechanism doesn't involve a user consent before the user's traffic is failed over. 
+
+## Availability zones
+
+Azure Event Grid event subscription configurations and events are automatically replicated across data centers in the availability zone, and replicated in the three availability zones (when available) in the region specified to provide automatic in-region recovery of your data in case of a failure in the region. See [Azure regions with availability zones](../availability-zones/az-overview.md#azure-regions-with-availability-zones) to learn more about the supported regions with availability zones.
+
+## Metrics
 
 Disaster recovery is measured with two metrics:
 
@@ -17,11 +29,11 @@ Disaster recovery is measured with two metrics:
 
 Event Grid’s automatic failover has different RPOs and RTOs for your metadata (topics, domains, event subscriptions.) and data (events). If you need different specification from the following ones, you can still implement your own [client-side fail over using the topic health apis](custom-disaster-recovery.md).
 
-## Recovery point objective (RPO)
+### Recovery point objective (RPO)
 - **Metadata RPO**: zero minutes. Anytime a resource is created in Event Grid, it's instantly replicated across regions. When a failover occurs, no metadata is lost.
 - **Data RPO**: If your system is healthy and caught up on existing traffic at the time of regional failover, the RPO for events is about 5 minutes.
 
-## Recovery time objective (RTO)
+### Recovery time objective (RTO)
 - **Metadata RTO**: Though generally it happens much more quickly, within 60 minutes, Event Grid will begin to accept create/update/delete calls for topics and subscriptions.
 - **Data RTO**: Like metadata, it generally happens much more quickly, however within 60 minutes, Event Grid will begin accepting new traffic after a regional failover.
 
