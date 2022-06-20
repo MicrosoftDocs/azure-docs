@@ -13,6 +13,7 @@ ms.custom: ignite-fall-2021, mode-other, event-tier1-build-2022
 # Comparing Container Apps with other Azure container options
 
 There are many options for teams to build and deploy cloud native and containerized applications on Azure. This article will help you understand which scenarios and use cases are best suited for Azure Container Apps and how it compares to other container options on Azure including:  
+- [Azure Container Apps](#azure-container-apps)
 - [Azure App Service](#azure-app-service)
 - [Azure Container Instances](#azure-container-instances)
 - [Azure Kubernetes Service](#azure-kubernetes-service)
