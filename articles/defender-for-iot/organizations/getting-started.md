@@ -69,21 +69,21 @@ For more information, see:
 - [Predeployment checklist](pre-deployment-checklist.md)
 - [Identify required appliances](how-to-identify-required-appliances.md)
 
-## Add Defender for IoT to a subscription 
+## Add a Defender for IoT plan to an Azure subscription 
 
-This procedure describes how to add a Defender for IoT plan to an Azure subscription. If you're planning to monitor both OT and enterprise IoT networks, we recommend using separate subscriptions for each one.
+This procedure describes how to add a Defender for IoT plan to an Azure subscription. 
 
-**To add a Defender for IoT plan to your subscription:**
+**To add a Defender for IoT plan to an Azure subscription:**
 
 1. In the Azure portal, go to **Defender for IoT** > **Plans and pricing**.
 
 1. Select **Add plan**.
 
-1. In the **Plan settings** pane, define the plan as follows:
+1. In the **Plan settings** pane, define the plan:
 
     - **Subscription**. Select the subscription where you would like to add a plan.
-    - Toggle on the **OT** and/or **Enterprise IoT** options as needed for your network types.
-    - **Price plan**. Select a monthly or annual commitment, or a [trial](how-to-manage-subscriptions.md#about-defender-for-iot-trials). Microsoft Defender for IoT provides a 30-day free trial for the first 1,000 committed devices for evaluation purposes.
+    - Toggle on the **OT - Operational / ICS networks** and/or **EIoT - Enterprise IoT for corporate networks**  options as needed for your network types.
+    - **Price plan**. Select a monthly or annual commitment, or a [trial](#about-defender-for-iot-trials). Microsoft Defender for IoT provides a 30-day free trial for the first 1,000 committed devices for evaluation purposes.
     
         For more information, see the [Microsoft Defender for IoT pricing page](https://azure.microsoft.com/pricing/details/iot-defender/).
 
@@ -93,11 +93,11 @@ This procedure describes how to add a Defender for IoT plan to an Azure subscrip
 
 1. Select **Next**.
 
-1. **Review & purchase**. Review your selections and **accept the terms and conditions**. 
+1. **Review & purchase**. Review the listed charges for your selections and **accept the terms and conditions**. 
 
 1. Select **Purchase**.
 
-Your subscription is shown in the **Plans and pricing** grid. For example:
+Your plan will be shown under the associated subscription in the **Plans and pricing** grid. For example:
 
 :::image type="content" source="media/getting-started/pricing.png" alt-text="Screenshot of the Plans and pricing page in Defender for IoT." lightbox="media/getting-started/pricing.png":::
 

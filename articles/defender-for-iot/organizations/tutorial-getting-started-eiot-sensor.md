@@ -34,7 +34,7 @@ In this tutorial, you learn how to:
 
 Before you start, make sure that you have:
 
-- Completed [Quickstart: Get started with Defender for IoT](getting-started.md) and that you've added a Defender for IoT plan to an Azure subscription. If you already have a subscription that has Defender for IoT onboarded for OT environments, you'll need to perform the same procedure again to add a new Enterprise IoT plan.
+- Completed [Quickstart: Get started with Defender for IoT](getting-started.md) and that you've added a Defender for IoT plan to an Azure subscription. If you already have a subscription that has Defender for IoT onboarded for OT environments, you'll need to edit the plan to add Enterprise IoT, see [how to edit a plan](how-to-manage-subscriptions.md#edit-a-plan).
 
 - The Azure permissions, as listed in [Quickstart: Getting Started with Defender for IoT](getting-started.md#permissions). 
 
@@ -211,9 +211,9 @@ You can view your devices and network information in the Defender for IoT **Devi
 
 Once you've validated your setup, the **Device inventory** page will start to populate with all of your devices after 15 minutes.
 
-**To view your populated device inventory:**
+**To view your Device inventory:**
 
-1. Navigate to the [Azure portal](https://ms.portal.azure.com/).
+1. Navigate to the [Azure portal](https://portal.azure.com/).
 
 1. Search for, and select **Defender for IoT**.
 
