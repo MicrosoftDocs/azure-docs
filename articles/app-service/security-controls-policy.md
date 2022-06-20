@@ -65,7 +65,7 @@ compliant with the specific standard.
   - Rename of policy to "Function apps should have remote debugging turned off"
   - Update scope of policy to exclude Logic apps
 - **Remote debugging should be turned off for Web Applications**
-  - Rename of policy to "App Service apps should have remote debugging turned o"
+  - Rename of policy to "App Service apps should have remote debugging turned off"
   - Update scope of policy to include all app types except Function apps
 - **Ensure that 'PHP version' is the latest, if used as a part of the WEB app**
   - Rename of policy to "App Service apps that use PHP should use the latest 'PHP version'"
