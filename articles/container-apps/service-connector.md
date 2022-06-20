@@ -59,14 +59,14 @@ Use Service Connector to create a new service connection in Container Apps using
 
 1. Select or enter the following settings.
 
-| Setting | Suggested value | Description |
-| --- | --- | --- |
-| **Container** | Your container name | Select your Container Apps. |
-| **Service type** | Blob Storage | This is the target service type. If you don't have a Storage Blob container, you can [create one](../storage/blobs/storage-quickstart-blobs-portal.md) or use another service type. |
-| **Subscription** | One of your subscriptions | The subscription containing your target service. The default value is the subscription for your container app. |
-| **Connection name** | Generated unique name | The connection name that identifies the connection between your container app and target service. |
-| **Storage account** | Your storage account name | The target storage account to which you want to connect. If you choose a different service type, select the corresponding target service instance. |
-| **Client type** | The app stack in your selected container | Your application stack that works with the target service you selected. The default value is **none**, which generates a list of configurations. If you know about the app stack or the client SDK in the container you selected, select the same app stack for the client type. |
+    | Setting | Suggested value | Description |
+    | --- | --- | --- |
+    | **Container** | Your container name | Select your Container Apps. |
+    | **Service type** | Blob Storage | This is the target service type. If you don't have a Storage Blob container, you can [create one](../storage/blobs/storage-quickstart-blobs-portal.md) or use another service type. |
+    | **Subscription** | One of your subscriptions | The subscription containing your target service. The default value is the subscription for your container app. |
+    | **Connection name** | Generated unique name | The connection name that identifies the connection between your container app and target service. |
+    | **Storage account** | Your storage account name | The target storage account to which you want to connect. If you choose a different service type, select the corresponding target service instance. |
+    | **Client type** | The app stack in your selected container | Your application stack that works with the target service you selected. The default value is **none**, which generates a list of configurations. If you know about the app stack or the client SDK in the container you selected, select the same app stack for the client type. |
 
 1. Select **Next: Authentication** to select the authentication type. Then select **Connection string** to use access key to connect your Blob Storage account.
 
