@@ -137,7 +137,7 @@ Azure Functions Core Tools lets you run an Azure Functions project on your local
 
 After you've verified that the function runs correctly on your local computer, it's time to publish the project to Azure.
 
-[!INCLUDE [functions-create-function-app-vs-code](../../../includes/functions-sign-in-vs-code.md)]
+[!INCLUDE [functions-sign-in-vs-code](../../../includes/functions-sign-in-vs-code.md)]
 
 [!INCLUDE [functions-publish-project-vscode](../../../includes/functions-publish-project-vscode.md)]
 
