@@ -287,7 +287,7 @@ productDirectory:
       azureCategories:
         - ai-machine-learning
         - media
-      url: /azure/azure-video-indexer/
+      url: ./azure-video-indexer/index.yml
     # Card
     - title: Azure Analysis Services
       summary: Enterprise-grade analytics engine as a service

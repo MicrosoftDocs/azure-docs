@@ -119,11 +119,7 @@ After you've called the [**Analyze document**](https://westus.dev.cognitive.micr
 #### GET request
 
 ```bash
-<<<<<<< HEAD
-curl -v -X GET "{endpoint}/formrecognizer/documentModels/{model name}/analyzeResults/{resultId}?api-version=2022-06-30-preview" -H "Ocp-Apim-Subscription-Key: {key}"
-=======
 curl -v -X GET "{endpoint}/formrecognizer/documentModels/{modelID}/analyzeResults/{resultId}?api-version=2022-06-30-preview" -H "Ocp-Apim-Subscription-Key: {key}"
->>>>>>> resolve-merge-conflict
 ```
 
 #### Examine the response

@@ -341,23 +341,17 @@
           href: http-proxy.md
         - name: Ingress
           items:
-            - name: Create a basic controller
-              href: ingress-basic.md
+            - name: Use ingress-nginx
+              items:
+                - name: Create an ingress controller
+                  href: ingress-basic.md
+                - name: Use TLS with an ingress controller
+                  href: ingress-tls.md
             - name: Use HTTP application routing
               href: http-application-routing.md
-            - name: Use internal network
-              href: ingress-internal-ip.md
             - name: Enable the AGIC add-on for an existing AKS cluster
               href: ../application-gateway/tutorial-ingress-controller-add-on-existing.md
               maintainContext: true
-            - name: Use TLS with your own certificates
-              href: ingress-own-tls.md
-            - name: Use TLS with Let's Encrypt
-              items:
-                - name: Use a dynamic public IP address
-                  href: ingress-tls.md
-                - name: Use a static public IP address
-                  href: ingress-static-ip.md
         - name: Egress
           items:
             - name: Restrict and control cluster egress traffic
