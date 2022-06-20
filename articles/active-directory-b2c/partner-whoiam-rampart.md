@@ -45,17 +45,17 @@ WhoIAM Rampart is built entirely in Azure and runs in your Azure environment. Th
 
 :::image type="content" source="media/partner-whoiam/whoiam-rampart-integration-scenario.png" alt-text="Diagram showing the WhoIAM Rampart integration scenario for Azure AD B2C." loc-scope="azure-active-directory-b2c" border="false" lightbox="media/partner-whoiam/whoiam-rampart-integration-scenario.png":::
 
-## Onboard with Rampart
+## Step 1 - Onboard with Rampart
 
 Contact [WhoIAM](https://www.whoiam.ai/contact-us/) to start the onboarding process. Automated templates will deploy all necessary Azure resources, and they'll configure your DevOps instance with the required code and configuration according to your needs.
 
-## Configure and integrate Rampart with Azure AD B2C
+## Step 2 - Configure and integrate Rampart with Azure AD B2C
 
 The tight integration of this solution with Azure AD B2C requires custom policies. WhoIAM provides these policies and assists with integrating them with your applications or existing policies, or both.
 
-For details on the custom policies provided by WhoIAM, see [Authorization policy execution](https://docs.gatekeeper.whoiamdemos.com/#/setup-guide?id=authorization-policy-execution).
+Follow the steps mention in [Authorization policy execution](https://docs.gatekeeper.whoiamdemos.com/#/setup-guide?id=authorization-policy-execution) for details on the custom policies provided by WhoIAM. 
 
-## Test the solution
+## Step 3 - Test the solution
 
 The image shows an example of how WhoIAM Rampart displays a list of app registrations in your Azure AD B2C tenant. WhoIAM validates the implementation by testing all features and health check status endpoints.
 
