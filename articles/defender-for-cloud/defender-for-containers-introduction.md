@@ -118,8 +118,9 @@ Learn more about Defender for Containers:
 - [Introducing Microsoft Defender for Containers](https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/introducing-microsoft-defender-for-containers/ba-p/2952317)
 - [Demonstrating Microsoft Defender for Cloud](https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/how-to-demonstrate-the-new-containers-features-in-microsoft/ba-p/3281172)
 - The release state of Defender for Containers is broken down by two dimensions: environment and feature. So, for example:
-  - Kubernetes data plane recommendations for AKS clusters is GA
-  - Kubernetes data plane recommendations for EKS clusters is Preview
+  - **Kubernetes data plane recommendations** for AKS clusters are GA
+  - **Kubernetes data plane recommendations** for EKS clusters are preview
+
   To view the status of the full matrix of features and environments, see [Microsoft Defender for Containers feature availability](supported-machines-endpoint-solutions-clouds-containers.md).
 
 ## Next steps
