@@ -7,7 +7,7 @@ author: cherylmc
 
 ms.service: virtual-wan
 ms.topic: how-to
-ms.date: 04/11/2022
+ms.date: 06/16/2022
 ms.author: cherylmc 
 
 ---
@@ -74,9 +74,9 @@ A User VPN configuration defines the parameters for connecting remote clients. I
 
 ## <a name="site"></a>Create an empty hub
 
-For this exercise, we create an empty virtual hub. In the next section, you add a gateway to an already existing hub. However, it's also possible to combine these steps and create the hub with the P2S gateway settings all at once.
+For this exercise, we create an empty virtual hub. In the next section, you add a gateway to an already existing hub. However, it's also possible to combine these steps and create the hub with the P2S gateway settings all at once. After configuring the settings, click **Review + create** to validate, then **Create**.
 
-[!INCLUDE [Create an empty hub](../../includes/virtual-wan-empty-hub-include.md)]
+[!INCLUDE [Create an empty hub](../../includes/virtual-wan-hub-basics.md)]
 
 ## <a name="hub"></a>Add a P2S gateway to a hub
 
