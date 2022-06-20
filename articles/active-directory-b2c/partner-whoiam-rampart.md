@@ -53,7 +53,7 @@ Contact [WhoIAM](https://www.whoiam.ai/contact-us/) to start the onboarding proc
 
 The tight integration of this solution with Azure AD B2C requires custom policies. WhoIAM provides these policies and assists with integrating them with your applications or existing policies, or both.
 
-Follow the steps mention in [Authorization policy execution](https://docs.gatekeeper.whoiamdemos.com/#/setup-guide?id=authorization-policy-execution) for details on the custom policies provided by WhoIAM. 
+Follow the steps mentioned in [Authorization policy execution](https://docs.gatekeeper.whoiamdemos.com/#/setup-guide?id=authorization-policy-execution) for details on the custom policies provided by WhoIAM. 
 
 ## Step 3 - Test the solution
 
