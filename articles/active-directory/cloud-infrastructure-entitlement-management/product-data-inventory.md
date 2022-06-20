@@ -4,8 +4,7 @@ description: How to display an inventory of created resources and licenses for y
 services: active-directory
 author: kenwith
 manager: rkarlin
-ms.service: active-directory
-ms.subservice: ciem
+ms.service: ciem
 ms.workload: identity
 ms.topic: how-to
 ms.date: 02/23/2022
