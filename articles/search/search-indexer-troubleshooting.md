@@ -8,7 +8,7 @@ author: mgottein
 ms.author: magottei
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/17/2021
+ms.date: 06/20/2022
 ---
 
 # Indexer troubleshooting guidance for Azure Cognitive Search
@@ -192,6 +192,19 @@ api-key: [admin key]
 ## Missing content from Cosmos DB
 
 Azure Cognitive Search has an implicit dependency on Cosmos DB indexing. If you turn off automatic indexing in Cosmos DB, Azure Cognitive Search returns a successful state, but fails to index container contents. For instructions on how to check settings and turn on indexing, see [Manage indexing in Azure Cosmos DB](../cosmos-db/how-to-manage-indexing-policy.md#use-the-azure-portal).
+
+
+## Indexer reflects a different document count than data source or index
+
+Indexer may show a different document count than either the data source, the index or count in your code in a point in time, depending on specific circumstances. Here are some examples of when this may occur:
+
+- The indexer has a Deleted Document Policy. The deleted documents get counted on the indexer end if they are indexed before they get deleted.
+- If the ID column in the data source is not unique. This is for data sources that have the concept of column, such as CosmosDB.
+- If the data source has a different query than the one you are using to estimate the number of records.
+- The counts are being checked in different intervals for each component of the pipeline: data source, indexer and index.
+- The index may take some minutes to show the real document count. 
+- The data source may have one single file that is mapped to many documents. This is the case for JSON lines and JSON arrays.
+ 
 
 ## Documents processed multiple times
 
