@@ -1881,3 +1881,12 @@ groups:
     title: Azure Pipelines
   - id: experience-ghactions
     title: GitHub Actions
+# Owner: bagol
+- id: on-prem-exp-d4iot
+  title: OT consoles
+  prompt: Choose an on-premises console
+  pivots:
+  - id: experience-sensor
+    title: OT sensor console
+  - id: experience-cm
+    title: On-premises management console
