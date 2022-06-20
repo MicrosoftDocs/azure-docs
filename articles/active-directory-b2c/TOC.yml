@@ -222,6 +222,8 @@
         href: force-password-reset.md
     - name: Profile editing policy
       href: add-profile-editing-policy.md
+    - name: Client credentials policy
+      href: client-credentials-grant-flow.md
     - name: Resource owner password credentials policy
       href: add-ropc-policy.md
       displayName: ROPC

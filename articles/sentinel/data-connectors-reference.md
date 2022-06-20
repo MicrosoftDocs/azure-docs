@@ -1,10 +1,10 @@
 ---
 title: Find your Microsoft Sentinel data connector | Microsoft Docs
 description: Learn about specific configuration steps for Microsoft Sentinel data connectors.
-author: batamig
+author: cwatson-cat
 ms.topic: reference
 ms.date: 01/04/2022
-ms.author: bagol
+ms.author: cwatson
 ms.custom: ignite-fall-2021
 ---
 
@@ -241,7 +241,7 @@ For more information, see the Cognito Detect Syslog Guide, which can be download
 | **Log Analytics table(s)** | [CommonSecurityLog](/azure/azure-monitor/reference/tables/commonsecuritylog) |
 | **DCR support** | [Workspace transformation DCR](../azure-monitor/logs/tutorial-ingestion-time-transformations.md) |
 | **Kusto function alias:** | ArubaClearPass |
-| **Kusto function URL:** | https://aka.ms/Sentinel-arubaclearpass-parser |
+| **Kusto function URL:** | https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/Aruba%20ClearPass/Parsers/ArubaClearPass.txt |
 | **Vendor documentation/<br>installation instructions** | Follow Aruba's instructions to [configure ClearPass](https://www.arubanetworks.com/techdocs/ClearPass/6.7/PolicyManager/Content/CPPM_UserGuide/Admin/syslogExportFilters_add_syslog_filter_general.htm). |
 | **Supported by** | Microsoft |
 
@@ -1910,12 +1910,12 @@ Microsoft Sentinel can apply machine learning (ML) to Security events data to id
 | **Data ingestion method** | [**Azure Functions and the REST API**](connect-azure-functions-template.md)<br><br>[Configure Webhooks](#configure-webhooks) <br>[Add Callback URL to Webhook configuration](#add-callback-url-to-webhook-configuration)|
 | **Log Analytics table(s)** | Workplace_Facebook_CL |
 | **DCR support** | Not currently supported |
-| **Azure Function App code** | https://aka.ms/Sentinel-WorkplaceFacebook-functionapp |
+| **Azure Function App code** | https://github.com/Azure/Azure-Sentinel/blob/master/Solutions/Workplace%20from%20Facebook/Data%20Connectors/WorkplaceFacebook/WorkplaceFacebookWebhooksSentinelConn.zip |
 | **API credentials** | <li>WorkplaceAppSecret<li>WorkplaceVerifyToken |
 | **Vendor documentation/<br>installation instructions** | <li>[Configure Webhooks](https://developers.facebook.com/docs/workplace/reference/webhooks)<li>[Configure permissions](https://developers.facebook.com/docs/workplace/reference/permissions) |
 | **Connector deployment instructions** | <li>[Single-click deployment](connect-azure-functions-template.md?tabs=ARM) via Azure Resource Manager (ARM) template<li>[Manual deployment](connect-azure-functions-template.md?tabs=MPY) |
 | **Kusto function alias** | Workplace_Facebook |
-| **Kusto function URL/<br>Parser config instructions** | https://aka.ms/Sentinel-WorkplaceFacebook-parser |
+| **Kusto function URL/<br>Parser config instructions** | https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/Workplace%20from%20Facebook/Parsers/Workplace_Facebook.txt |
 | **Application settings** | <li>WorkplaceAppSecret<li>WorkplaceVerifyToken<li>WorkspaceID<li>WorkspaceKey<li>logAnalyticsUri (optional) |
 | **Supported by** | Microsoft |
 

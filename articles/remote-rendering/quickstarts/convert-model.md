@@ -68,7 +68,7 @@ Fill out the form in the following manner:
 * Create a new Resource Group from the link below the drop-down box and name this **ARR_Tutorial**
 * For the **Storage account name**, enter a unique name here. **This name must be globally unique**, otherwise there will be a prompt that informs you that the name is already taken. In the scope of this quickstart, we name it **arrtutorialstorage**. Accordingly, you need to replace it with your name for any occurrence in this quickstart.
 * Select a **location** close to you. Ideally use the same location as used for setting up the rendering in the other quickstart.
-* **Performance** set to 'Standard'
+* **Performance** set to 'Premium'. 'Standard' works as well, but has lower loading time characteristics when a model is loaded by the runtime.
 * **Account kind** set to 'StorageV2 (general purpose v2)'
 * **Replication** set to 'Read-access geo-redundant storage (RA-GRS)'
 * **Access tier** set to 'Hot'

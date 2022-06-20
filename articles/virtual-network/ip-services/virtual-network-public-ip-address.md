@@ -89,13 +89,13 @@ Learn how to assign a public IP address to the following resources:
 
 - A [Windows](../../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) or [Linux](../../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) Virtual Machine on creation. Add IP to an [existing virtual machine](./virtual-network-network-interface-addresses.md#add-ip-addresses).
 - [Virtual Machine Scale Set](../../virtual-machine-scale-sets/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
-- [Public load balancer](/azure/virtual-network/ip-services/configure-public-ip-load-balancer)
+- [Public load balancer](./configure-public-ip-load-balancer.md)
 - [Cross-region load balancer](../../load-balancer/tutorial-cross-region-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
-- [Application Gateway](/azure/virtual-network/ip-services/configure-public-ip-application-gateway)
+- [Application Gateway](./configure-public-ip-application-gateway.md)
 - [Site-to-site connection using a VPN gateway](configure-public-ip-vpn-gateway.md)
-- [NAT gateway](/azure/virtual-network/ip-services/configure-public-ip-nat-gateway)
-- [Azure Bastion](/azure/virtual-network/ip-services/configure-public-ip-bastion)
-- [Azure Firewall](/azure/virtual-network/ip-services/configure-public-ip-firewall)
+- [NAT gateway](./configure-public-ip-nat-gateway.md)
+- [Azure Bastion](./configure-public-ip-bastion.md)
+- [Azure Firewall](./configure-public-ip-firewall.md)
 
 ## Region availability
 

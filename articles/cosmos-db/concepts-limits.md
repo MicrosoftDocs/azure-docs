@@ -164,6 +164,7 @@ An Azure Cosmos item can represent either a document in a collection, a row in a
 | Maximum length of numeric property value | IEEE754 double-precision 64-bit |
 | Maximum level of nesting for embedded objects / arrays | 128 |
 | Maximum TTL value |2147483647 |
+| Maximum precision/range for numbers in [JSON (to ensure safe interoperability)](https://www.rfc-editor.org/rfc/rfc8259#section-6) | [IEEE 754 binary64](https://www.rfc-editor.org/rfc/rfc8259#ref-IEEE754) |
 
 <sup>1</sup> Large document sizes up to 16 Mb are currently in preview with Azure Cosmos DB API for MongoDB only. Sign-up for the feature “Azure Cosmos DB API For MongoDB 16 MB Document Support” from [Preview Features the Azure portal](./access-previews.md), to try the new feature.
 

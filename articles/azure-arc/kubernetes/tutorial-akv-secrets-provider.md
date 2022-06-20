@@ -412,4 +412,4 @@ For more information about resolving common issues, see the open source troubles
 ## Next steps
 
 - Want to try things out? Get started quickly with an [Azure Arc Jumpstart scenario](https://aka.ms/arc-jumpstart-akv-secrets-provider) using Cluster API.
-- Learn more about [Azure Key Vault](/azure/key-vault/general/overview).
+- Learn more about [Azure Key Vault](../../key-vault/general/overview.md).

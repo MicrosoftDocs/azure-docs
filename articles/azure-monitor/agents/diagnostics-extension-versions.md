@@ -28,6 +28,7 @@ This article provides the version history of the [Azure Diagnostics extension fo
 |2.96              |1.8.1                          |"|
 |2.96              |1.9                            |"|
 |2.96              |1.11                           |"|
+|2.96              |1.21                           |"|
 
 
  Azure Diagnostics version 1.0 first shipped in a plug-in model -- meaning that when you installed the Azure SDK, you got the version of Azure diagnostics shipped with it.  
