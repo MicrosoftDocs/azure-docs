@@ -89,7 +89,7 @@ From this example accumulation of Minutes Not Available, here is the calculation
 
 ## Pricing and billing 
 
-Capacity Reservations are priced at the same rate as the underlying VM size. For example, if you create a reservation for quantity 10 for D2s_v3 VM then you will start getting billed for ten D2s_v3 VMs, even if the reservation is not being used.  
+Capacity Reservations are priced at the same rate as the underlying VM size. For example, if you create a reservation for ten D2s_v3 VMs then you will start getting billed for ten D2s_v3 VMs, even if the reservation is not being used.  
 
 If you then deploy a D2s_v3 VM and specify reservation property, the Capacity Reservation gets used. Once in use, you will only pay for the VM and nothing extra for the Capacity Reservation. Let’s say you deploy six D2s_v3 VMs against the previously mentioned Capacity Reservation. You will see a bill for six D2s_v3 VMs and four unused Capacity Reservation, both charged at the same rate as a D2s_v3 VM.  
 
