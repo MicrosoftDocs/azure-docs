@@ -40,7 +40,7 @@ With *kubenet*, only the nodes receive an IP address in the virtual network subn
 
 ![Kubenet network model with an AKS cluster](media/use-kubenet/kubenet-overview.png)
 
-Azure supports a maximum of 400 routes in a UDR, so you can't have an AKS cluster larger than 400 nodes. AKS [Virtual Nodes][virtual-nodes] and Azure Network Policies aren't supported with *kubenet*.  You can use [Calico Network Policies][calico-network-policies], as they are supported with kubenet.
+Azure supports a maximum of 400 routes in a UDR, so you can't have an AKS cluster larger than 400 nodes. AKS [Virtual Nodes][virtual-nodes] and Azure Network Policies aren't supported with *kubenet*. You can use [Calico Network Policies][calico-network-policies], as they are supported with kubenet.
 
 With *Azure CNI*, each pod receives an IP address in the IP subnet, and can directly communicate with other pods and services. Your clusters can be as large as the IP address range you specify. However, the IP address range must be planned in advance, and all of the IP addresses are consumed by the AKS nodes based on the maximum number of pods that they can support. Advanced network features and scenarios such as [Virtual Nodes][virtual-nodes] or Network Policies (either Azure or Calico) are supported with *Azure CNI*.
 
@@ -93,7 +93,7 @@ Use *Azure CNI* when:
 - You have available IP address space.
 - Most of the pod communication is to resources outside of the cluster.
 - You don't want to manage user defined routes for pod connectivity.
-- You need AKS advanced features such as virtual nodes or Azure Network Policy.  Use [Calico network policies][calico-network-policies].
+- You need AKS advanced features such as virtual nodes or Azure Network Policy. Use [Calico network policies][calico-network-policies].
 
 For more information to help you decide which network model to use, see [Compare network models and their support scope][network-comparisons].
 
@@ -105,7 +105,7 @@ To get started with using *kubenet* and your own virtual network subnet, first c
 az group create --name myResourceGroup --location eastus
 ```
 
-If you don't have an existing virtual network and subnet to use, create these network resources using the [az network vnet create][az-network-vnet-create] command. In the following example, the virtual network is named *myVnet* with the address prefix of *192.168.0.0/16*. A subnet is created named *myAKSSubnet* with the address prefix *192.168.1.0/24*.
+If you don't have an existing virtual network and subnet to use, create these network resources using the [az network vnet create][az-network-vnet-create] command. In the following example, the virtual network is named *myAKSVnet* with the address prefix of *192.168.0.0/16*. A subnet is created named *myAKSSubnet* with the address prefix *192.168.1.0/24*.
 
 ```azurecli-interactive
 az network vnet create \
