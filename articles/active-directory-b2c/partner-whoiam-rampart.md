@@ -15,7 +15,8 @@ ms.subservice: B2C
 
 # Configure WhoIAM Rampart with Azure Active Directory B2C
 
-In this sample tutorial, you'll learn how to integrate Azure Active Directory B2C (Azure AD B2C) authentication with Rampart by WhoIAM. Rampart provides a whole host of features for a fully integrated helpdesk and invitation-gated user registration experience. It allows support specialists to efficiently perform tasks like resetting passwords and multi-factor authentication without using Azure. It also enables apps and role-based access control (RBAC) for end-users of Azure AD B2C.
+In this sample tutorial, you'll learn how to integrate Azure Active Directory B2C (Azure AD B2C) authentication with Rampart by WhoIAM. Rampart provides features for a fully integrated helpdesk and invitation-gated user registration experience. It allows support specialists to perform tasks like resetting passwords and multi-factor authentication without using Azure. It also enables apps and role-based access control (RBAC) for end-users of Azure AD B2C.
+
 
 ## Prerequisites
 
