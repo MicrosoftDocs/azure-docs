@@ -18,9 +18,8 @@ The following sections identify the requirements to use Nutanix Clusters on Azur
 
 ## My Nutanix account requirements
 
-For more information, see [Creating My Nutanix Account
-](https://download.nutanix.com/documentation/hosted/Nutanix-Cloud-Clusters-Azure.pdf) in [Nutanix Cloud Clusters
-on Azure Deployment and User Guide](https://download.nutanix.com/documentation/hosted/Nutanix-Cloud-Clusters-Azure.pdf).
+For more information, see [NC2 ON AZURE SUBSCRIPTION AND
+BILLING] in [Nutanix Cloud Clusters on Azure Deployment and User Guide](https://download.nutanix.com/documentation/hosted/Nutanix-Cloud-Clusters-Azure.pdf).
 
 ## Networking requirements
 
