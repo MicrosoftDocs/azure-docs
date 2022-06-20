@@ -5,11 +5,11 @@ description: Learn how to set up an indexer connection to a Cosmos DB account us
 
 author: gmndrg
 ms.author: gimondra
-manager: nitinme
+manager: liamca
 
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 02/11/2022
+ms.date: 06/20/2022
 ---
 
 # Set up an indexer connection to a Cosmos DB database using a managed identity
