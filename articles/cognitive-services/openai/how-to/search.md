@@ -19,7 +19,7 @@ The search endpoint ([/search](../reference.md#search)) allows you to do a seman
 
 The "documents" can be words, sentences, paragraphs or even longer documents. For example, if you provide documents `["White House", "hospital", "school"]` and query "the president", you’ll get a different similarity score for each document. The higher the similarity score, the more semantically similar the document is to the query (in this example, "White House" will be most similar to "the president").
 
-## Providing Documents
+## Providing documents
 
 Up to 200 documents can be passed as part of the request using the documents parameter.
 
@@ -34,6 +34,6 @@ Each search query produces a different distribution of scores for a fixed group 
 
 If you need scores that don't vary by query, you can randomly sample 50-100 documents for a query and calculate the mean and standard deviation, then normalize new scores for that same query using that mean and standard deviation.
 
-## Next Steps
+## Next steps
 
 Learn more about the [underlying engines/models that power Azure OpenAI](../concepts/engines.md).
