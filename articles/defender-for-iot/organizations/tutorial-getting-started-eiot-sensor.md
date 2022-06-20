@@ -209,7 +209,7 @@ The installation will now finish.
 
 You can view your devices and network information in the Defender for IoT **Device inventory** page.
 
-Once you've validated your setup, the device inventory will start to populate with all of your devices after 15 minutes.
+Once you've validated your setup, the **Device inventory** page will start to populate with all of your devices after 15 minutes.
 
 **To view your populated device inventory:**
 
