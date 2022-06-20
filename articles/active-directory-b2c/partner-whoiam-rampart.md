@@ -75,4 +75,5 @@ For more information, review the following articles:
 - [Custom policies in Azure AD B2C overview](custom-policy-overview.md)
 
 
-- [Get started with custom policies in Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-user-flows?pivots=b2c-custom-policy)
+- [Get started with custom policies in Azure AD B2C](tutorial-create-user-flows.md?pivots=b2c-custom-policy)
+
