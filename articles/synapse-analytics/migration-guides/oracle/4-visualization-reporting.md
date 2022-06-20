@@ -14,7 +14,7 @@ ms.date: 06/30/2022
 
 # Visualization and reporting for Oracle migrations
 
-This article is part four of a seven part series that provides guidance on how to migrate from Oracle to Azure Synapse Analytics. This article provides best practices for visualization and reporting.
+This article is part four of a seven-part series that provides guidance on how to migrate from Oracle to Azure Synapse Analytics. The focus of this article is best practices for visualization and reporting.
 
 ## Access Azure Synapse Analytics using Microsoft and third-party BI tools
 

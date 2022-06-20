@@ -14,7 +14,7 @@ ms.date: 06/30/2022
 
 # Minimize SQL issues for Oracle migrations
 
-This article is part five of a seven part series that provides guidance on how to migrate from Oracle to Azure Synapse Analytics. This article provides best practices for minimizing SQL issues.
+This article is part five of a seven-part series that provides guidance on how to migrate from Oracle to Azure Synapse Analytics. The focus of this article is best practices for minimizing SQL issues.
 
 ## Minimizing SQL issues for Oracle migrations
 
@@ -300,7 +300,7 @@ In common with most database products, Oracle supports system functions and also
 
 ##### Stored procedures
 
-Most modern database products allow for procedures to be stored within the database -- in Oracle's case the PL/SQL language is provided for this purpose. A stored procedure typically contains SQL statements and some procedural logic and may return data or a status. SQL Azure Data Warehouse also supports stored procedures using T-SQL -- so if there are stored procedures to be migrated they must be recoded accordingly.
+Most modern database products allow for procedures to be stored within the database -- in Oracle's case the PL/SQL language is provided for this purpose. A stored procedure typically contains SQL statements and some procedural logic and may return data or a status. Azure Synapse also supports stored procedures using T-SQL -- so if there are stored procedures to be migrated they must be recoded accordingly.
 
 ##### Sequences
 

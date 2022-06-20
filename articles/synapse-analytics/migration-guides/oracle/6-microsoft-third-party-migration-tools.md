@@ -14,7 +14,7 @@ ms.date: 06/30/2022
 
 # Tools for Oracle data warehouse migration to Azure Synapse Analytics
 
-This article is part six of a seven part series that provides guidance on how to migrate from Oracle to Azure Synapse Analytics. This article provides best practices for Microsoft and third-party tools.
+This article is part six of a seven-part series that provides guidance on how to migrate from Oracle to Azure Synapse Analytics. The focus of this article is best practices for Microsoft and third-party tools.
 
 ## Data warehouse migration tools
 
@@ -125,7 +125,7 @@ However, PolyBase has some limitations. Rows to be loaded must be less than 1 MB
 
 ### Microsoft tools for Oracle migrations
 
-[SQL Server Migration Assistant](/sql/ssma/sql-server-migration-assistant) (SSMA) for Oracle can help you migrate from Oracle to Azure Synapse Analytics.
+[SQL Server Migration Assistant](/download/details.aspx?id=54258) (SSMA) for Oracle can help you migrate from Oracle to Azure Synapse Analytics.
 
 ## Microsoft partners can help you migrate your data warehouse to Azure Synapse Analytics
 
@@ -133,4 +133,4 @@ In addition to tools that can help you with various aspects of data warehouse mi
 
 ## Next steps
 
-To learn more about implementing modern data warehouses, see the next article in this series: [Beyond Oracle migration, implementing a modern data warehouse in Microsoft Azure](7-beyond-data-warehouse-migration.md).
+To learn more about implementing modern data warehouses, see the next article in this series: [Beyond Oracle migration, implement a modern data warehouse in Microsoft Azure](7-beyond-data-warehouse-migration.md).
