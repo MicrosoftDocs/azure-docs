@@ -18,13 +18,11 @@ Learn what's new in the service. These items may be release notes, videos, blog 
 
 ## June 2022
 
-### Responsible use of AI documentation for Face
-* The new set of Responsible Use of AI documentation aims to help system builders and their customers understand how our AI technology works, the choices system owners can make that influence system performance and behavior, and the importance of thinking about the whole system, including the technology, the people, and the environment. The Responsible Use of AI documentation is a part of a broader effort at Microsoft to put our AI principles into practice. To find out more, see [Responsible AI principles](/ai/responsible-ai/) from Microsoft.
-* The documentation includes: 
-    * An introduction to making use of Face API responsibly. Read more in [Transparency Note](/legal/cognitive-services/face/transparency-note?context=/azure/cognitive-services/computer-vision/context/context)
-    * Technical guidance for optimizing Face AI quality in your system. Read more in [Characteristics and Limitations](/legal/cognitive-services/face/characteristics-and-limitations?context=/azure/cognitive-services/computer-vision/context/context)
-    * Considerations for mitigation harmful outcomes. Read more in [Guidance for Integration and Responsible Use of Face](/legal/cognitive-services/face/guidance-integration-responsible-use?context=/azure/cognitive-services/computer-vision/context/context)
-    * Summary of what data the service processes, how the AI processes it and what is stored by the service. Read more in [Data and Privacy for Face](/legal/cognitive-services/face/data-privacy-security?context=/azure/cognitive-services/computer-vision/context/context)
+### Face transparency documentation
+* The [transparency documentation](https://aka.ms/faceraidocs) provides guidance to assist our customers to improve the accuracy and fairness of their systems by incorporating meaningful human review to detect and resolve cases of misidentification or other failures, providing support to people who believe their results were incorrect, and by identifying and addressing fluctuations in accuracy due to variation in operational conditions.
+
+### Fairlearn package and Microsoft's Fairness Dashboard
+* [The open-source Fairlearn package and Microsoft’s Fairness Dashboard](https://github.com/microsoft/responsible-ai-toolbox/tree/main/notebooks/cognitive-services-examples/face-verification) aims to support customers to measure the fairness of Microsoft’s facial verification algorithms on their own data - allowing them to identify and address potential fairness issues that could affect different demographic groups before they deploy their technology.
 
 ### Limited Access policy
 
