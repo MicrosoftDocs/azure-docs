@@ -133,7 +133,7 @@ class MainActivity : AppCompatActivity() {
         val communicationTokenCredential = CommunicationTokenCredential(communicationTokenRefreshOptions)
 
         val locator: CallCompositeJoinLocator = CallCompositeGroupCallLocator(UUID.fromString("GROUP_CALL_ID"))
-        val remoteOptions = CallCompositeRemoteOptions(locator, communicationTokenCredential, displayName)
+        val remoteOptions = CallCompositeRemoteOptions(locator, communicationTokenCredential, "DISPLAY_NAME")
 
         val callComposite: CallComposite = CallCompositeBuilder().build()
         callComposite.launch(this, remoteOptions)
@@ -366,7 +366,7 @@ The following `errorCode` values may be sent to the Error Handler
 #### [Kotlin](#tab/kotlin)
 
 ```kotlin
-callComposite.setOnErrorHandler { callCompositeErrorEvent ->
+callComposite.addOnErrorEventHandler { callCompositeErrorEvent ->
     println(callCompositeErrorEvent.errorCode)
 }
 ```
@@ -374,7 +374,7 @@ callComposite.setOnErrorHandler { callCompositeErrorEvent ->
 #### [Java](#tab/java)
 
 ```java
-callComposite.setOnErrorHandler(callCompositeErrorEvent -> {
+callComposite.addOnErrorEventHandler(callCompositeErrorEvent -> {
     System.out.println(callCompositeErrorEvent.getErrorCode());
 });
 ```

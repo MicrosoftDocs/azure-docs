@@ -4,12 +4,12 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: include
-ms.date: 06/06/2022
+ms.date: 06/13/2022
 ms.custom: devx-track-java, ignite-fall-2021
 ms.author: aahi
 ---
 
-[Reference documentation](/java/api/overview/azure/ai-textanalytics-readme?preserve-view=true&view=azure-java-stable) | [Library source code](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/textanalytics/azure-ai-textanalytics) | [Package](https://mvnrepository.com/artifact/com.azure/azure-ai-textanalytics/5.1.0) | [Samples](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/textanalytics/azure-ai-textanalytics/src/samples)
+[Reference documentation](/java/api/overview/azure/ai-textanalytics-readme?preserve-view=true&view=azure-java-stable) | [Library source code](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/textanalytics/azure-ai-textanalytics) | [Package](https://mvnrepository.com/artifact/com.azure/azure-ai-textanalytics/5.1.9) | [Samples](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/textanalytics/azure-ai-textanalytics/src/samples)
 
 ## Prerequisites
 
@@ -28,14 +28,14 @@ ms.author: aahi
 
 ### Add the client library
 
-Create a Maven project in your preferred IDE or development environment. Then add the following dependency to your project's *pom.xml* file. You can find the implementation syntax [for other build tools](https://mvnrepository.com/artifact/com.azure/azure-ai-textanalytics/5.1.0) online.
+Create a Maven project in your preferred IDE or development environment. Then add the following dependency to your project's *pom.xml* file. You can find the implementation syntax [for other build tools](https://mvnrepository.com/artifact/com.azure/azure-ai-textanalytics/5.1.9) online.
 
 ```xml
 <dependencies>
      <dependency>
         <groupId>com.azure</groupId>
         <artifactId>azure-ai-textanalytics</artifactId>
-        <version>5.1.0</version>
+        <version>5.1.9</version>
     </dependency>
 </dependencies>
 ```
@@ -63,16 +63,17 @@ public class Example {
 
     public static void main(String[] args) {
         TextAnalyticsClient client = authenticateClient(KEY, ENDPOINT);
+        sentimentAnalysisExample(client);
         sentimentAnalysisWithOpinionMiningExample(client);
     }
-    // Method to authenticate the client object with your key and endpoint
+    // Method to authenticate the client object with your key and endpoint.
     static TextAnalyticsClient authenticateClient(String key, String endpoint) {
         return new TextAnalyticsClientBuilder()
                 .credential(new AzureKeyCredential(key))
                 .endpoint(endpoint)
                 .buildClient();
     }
-    // Example method for sentiment in text
+    // Example method for sentiment in text.
     static void sentimentAnalysisExample(TextAnalyticsClient client)
     {
         // The text that need be analyzed.
@@ -95,7 +96,7 @@ public class Example {
                     sentenceSentiment.getConfidenceScores().getNegative());
         }
     }
-    // Example method for detecting opinions in text
+    // Example method for detecting opinions in text.
     static void sentimentAnalysisWithOpinionMiningExample(TextAnalyticsClient client)
     {
         // The document that needs be analyzed.
@@ -136,17 +137,17 @@ public class Example {
 ## Output
 
 ```console
-Recognized document sentiment: positive, positive score: 1.0, neutral score: 0.0, negative score: 0.0.
-Recognized sentence sentiment: positive, positive score: 1.0, neutral score: 0.0, negative score: 0.0.
-Recognized sentence sentiment: neutral, positive score: 0.21, neutral score: 0.77, negative score: 0.02.
+Recognized document sentiment: positive, positive score: 0.99, neutral score: 0.0, negative score: 0.0.
+Recognized sentence sentiment: positive, positive score: 0.99, neutral score: 0.0, negative score: 0.0.
+Recognized sentence sentiment: neutral, positive score: 0.25, neutral score: 0.72, negative score: 0.03.
 
 Document = Bad atmosphere. Not close to plenty of restaurants, hotels, and transit! Staff are not friendly and helpful.
-Recognized document sentiment: negative, positive score: 0.010000, neutral score: 0.140000, negative score: 0.850000.
-	Sentence sentiment: negative, positive score: 0.000000, neutral score: 0.000000, negative score: 1.000000.
+Recognized document sentiment: negative, positive score: 0.050000, neutral score: 0.030000, negative score: 0.920000.
+	Sentence sentiment: negative, positive score: 0.010000, neutral score: 0.000000, negative score: 0.990000.
 		Target sentiment: negative, target text: atmosphere
-			'negative' assessment sentiment because of "bad". Is the assessment negated: false.
-	Sentence sentiment: negative, positive score: 0.020000, neutral score: 0.440000, negative score: 0.540000.
-	Sentence sentiment: negative, positive score: 0.000000, neutral score: 0.000000, negative score: 1.000000.
+			'negative' assessment sentiment because of "Bad". Is the assessment negated: false.
+	Sentence sentiment: negative, positive score: 0.140000, neutral score: 0.080000, negative score: 0.780000.
+	Sentence sentiment: negative, positive score: 0.010000, neutral score: 0.000000, negative score: 0.990000.
 		Target sentiment: negative, target text: Staff
 			'negative' assessment sentiment because of "friendly". Is the assessment negated: true.
 			'negative' assessment sentiment because of "helpful". Is the assessment negated: true.

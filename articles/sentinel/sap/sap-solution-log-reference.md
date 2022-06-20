@@ -22,7 +22,7 @@ This article describes the functions, logs, and tables available as part of the 
 
 ## Functions available from the SAP solution
 
-This section describes the [functions](/azure/azure-monitor/logs/functions) that are available in your workspace after you've deployed the Continuous Threat Monitoring for SAP solution. Find these functions in the Microsoft Sentinel **Logs** page to use in your KQL queries, listed under **Workspace functions**.
+This section describes the [functions](../../azure-monitor/logs/functions.md) that are available in your workspace after you've deployed the Continuous Threat Monitoring for SAP solution. Find these functions in the Microsoft Sentinel **Logs** page to use in your KQL queries, listed under **Workspace functions**.
 
 Users are *strongly encouraged* to use the functions as the subjects of their analysis whenever possible, instead of the underlying logs or tables. These functions are intended to serve as the principal user interface to the data. They form the basis for all the built-in analytics rules and workbooks available to you out of the box. This allows for changes to be made to the data infrastructure beneath the functions, without breaking user-created content.
 

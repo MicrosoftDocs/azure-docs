@@ -3,7 +3,7 @@ title: Task hubs in Durable Functions - Azure
 description: Learn what a task hub is in the Durable Functions extension for Azure Functions. Learn how to configure task hubs.
 author: cgillum
 ms.topic: conceptual
-ms.date: 05/12/2021
+ms.date: 05/10/2022
 ms.author: azfuncdf
 ---
 
@@ -158,6 +158,23 @@ The task hub property in the `function.json` file is set via App Setting:
     "taskHub": "%MyTaskHub%",
     "type": "orchestrationClient",
     "direction": "in"
+}
+```
+
+# [Java](#tab/java)
+
+```java
+@FunctionName("HttpStart")
+public HttpResponseMessage httpStart(
+        @HttpTrigger(name = "req", route = "orchestrators/{functionName}") HttpRequestMessage<?> req,
+        @DurableClientInput(name = "durableContext", taskHub = "%MyTaskHub%") DurableClientContext durableContext,
+        @BindingName("functionName") String functionName,
+        final ExecutionContext context) {
+
+    DurableTaskClient client = durableContext.getClient();
+    String instanceId = client.scheduleNewOrchestrationInstance(functionName);
+    context.getLogger().info("Created new Java orchestration with instance ID = " + instanceId);
+    return durableContext.createCheckStatusResponse(req, instanceId);
 }
 ```
 

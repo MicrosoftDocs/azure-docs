@@ -3,7 +3,7 @@ title: Troubleshoot backup errors with Azure VMs
 description: In this article, learn how to troubleshoot errors encountered with backup and restore of Azure virtual machines.
 ms.reviewer: srinathv
 ms.topic: troubleshooting
-ms.date: 05/17/2022
+ms.date: 06/16/2022
 author: v-amallick
 ms.service: backup
 ms.author: v-amallick
@@ -196,8 +196,9 @@ Error message: VM creation failed due to Market Place purchase request being not
 
 Azure Backup supports backup and restore of VMs which are available in Azure Marketplace. This error occurs when you are trying to restore a VM (with a specific Plan/Publisher setting) which is no longer available in Azure Marketplace, [Learn more here](/legal/marketplace/participation-policy#offering-suspension-and-removal).
 
-* To resolve this issue, use the [restore disks](./backup-azure-arm-restore-vms.md#restore-disks) option during the restore operation and then use [PowerShell](./backup-azure-vms-automation.md#create-a-vm-from-restored-disks) or [Azure CLI](./tutorial-restore-disk.md) cmdlets to create the VM with the latest marketplace information corresponding to the VM.
-* If the publisher does not have any Marketplace information, you can use the data disks to retrieve your data and you can attach them to an existing VM.
+In this scenario, it may not be possible to create the VM from the restored disks.
+
+If the publisher doesn't have any Marketplace information, you can use the data disks to retrieve your data and you can attach them to an existing VM.
 
 ### ExtensionConfigParsingFailure - Failure in parsing the config for the backup extension
 
@@ -234,7 +235,7 @@ If you see permissions in the **MachineKeys** directory that are different than 
 ### ExtensionStuckInDeletionState - Extension state is not supportive to backup operation
 
 Error code: ExtensionStuckInDeletionState <br/>
-Error message: Extension state is not supportive to backup operation
+Error message: Extension state is not supportive to the backup operation
 
 The Backup operation failed due to inconsistent state of Backup Extension. To resolve this issue, follow these steps:
 
@@ -263,7 +264,7 @@ The snapshot operation failed as the snapshot limit has exceeded for some of the
 Error code: ExtensionFailedTimeoutVMNetworkUnresponsive<br/>
 Error message: Snapshot operation failed due to inadequate VM resources.
 
-Backup operation on the VM failed due to delay in network calls while performing the snapshot operation. To resolve this issue, perform Step 1. If the issue persists, try steps 2 and 3.
+The backup operation on the VM failed due to delay in network calls while performing the snapshot operation. To resolve this issue, perform Step 1. If the issue persists, try steps 2 and 3.
 
 **Step 1**: Create snapshot through Host
 
