@@ -28,6 +28,9 @@ This documentation contains the following types of articles:
 * The [conceptual articles](./concept-face-detection.md) provide in-depth explanations of the service's functionality and features.
 * The [tutorials](./enrollment-overview.md) are longer guides that show you how to use this service as a component in broader business solutions.
 
+For a more structured approach, follow a Microsoft Learn module for Face.
+* [Detect and analyze faces with the Face service](/learn/modules/detect-analyze-faces/)
+
 ## Example use cases
 
 **Identity verification**: Verify someone's identity against a government-issued ID card like a passport or driver's license or other enrollment image. You can use this verification to grant access to digital or physical services or to recover an account. Specific access scenarios include opening a new account, verifying a worker, or administering an online assessment. Identity verification can be done once when a person is onboarded, and repeated when they access a digital or physical service.

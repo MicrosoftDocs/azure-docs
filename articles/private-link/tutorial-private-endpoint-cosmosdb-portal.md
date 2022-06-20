@@ -6,7 +6,7 @@ author: asudbring
 ms.author: allensu
 ms.service: private-link
 ms.topic: tutorial
-ms.date: 06/14/2022
+ms.date: 06/16/2022
 ms.custom: template-tutorial #Required; leave this attribute/value as-is.
 ---
 
@@ -42,14 +42,14 @@ The bastion host will be used to connect securely to the virtual machine for tes
 
 2. In **Create virtual network**, enter or select this information in the **Basics** tab:
 
-    | **Setting**          | **Value**                                                           |
-    |------------------|-----------------------------------------------------------------|
-    | **Project Details**  |                                                                 |
-    | Subscription     | Select your Azure subscription                                  |
-    | Resource Group   | Select **myResourceGroup** |
-    | **Instance details** |                                                                 |
-    | Name             | Enter **myVNet**                                    |
-    | Region           | Select **East US** |
+    | Setting          | Value                         |
+    |------------------|-----------------------------------------|
+    | **Project Details**  |                                 |
+    | Subscription     | Select your Azure subscription.                        |
+    | Resource Group   | Select **myResourceGroup**. |
+    | **Instance details** |                                       |
+    | Name             | Enter **myVNet**.                          |
+    | Region           | Select **East US**. |
 
 3. Select the **IP Addresses** tab or select the **Next: IP Addresses** button at the bottom of the page.
 
@@ -57,7 +57,7 @@ The bastion host will be used to connect securely to the virtual machine for tes
 
     | Setting            | Value                      |
     |--------------------|----------------------------|
-    | IPv4 address space | Enter **10.1.0.0/16** |
+    | IPv4 address space | Enter **10.1.0.0/16**. |
 
 5. Under **Subnet name**, select the word **default**.
 
@@ -65,8 +65,8 @@ The bastion host will be used to connect securely to the virtual machine for tes
 
     | Setting            | Value                      |
     |--------------------|----------------------------|
-    | Subnet name | Enter **mySubnet** |
-    | Subnet address range | Enter **10.1.0.0/24** |
+    | Subnet name | Enter **mySubnet**. |
+    | Subnet address range | Enter **10.1.0.0/24**. |
 
 7. Select **Save**.
 
@@ -76,8 +76,8 @@ The bastion host will be used to connect securely to the virtual machine for tes
 
     | Setting            | Value                      |
     |--------------------|----------------------------|
-    | Bastion name | Enter **myBastionHost** |
-    | AzureBastionSubnet address space | Enter **10.1.1.0/24** |
+    | Bastion name | Enter **myBastionHost**. |
+    | AzureBastionSubnet address space | Enter **10.1.1.0/24**. |
     | Public IP Address | Select **Create new**. </br> For **Name**, enter **myBastionIP**. </br> Select **OK**. |
 
 
@@ -96,20 +96,20 @@ In this section, you'll create a virtual machine that will be used to test the p
     | Setting | Value                                          |
     |-----------------------|----------------------------------|
     | **Project Details** |  |
-    | Subscription | Select your Azure subscription |
-    | Resource Group | Select **myResourceGroup** |
+    | Subscription | Select your Azure subscription. |
+    | Resource Group | Select **myResourceGroup**. |
     | **Instance details** |  |
-    | Virtual machine name | Enter **myVM** |
-    | Region | Select **East US** |
-    | Availability Options | Select **No infrastructure redundancy required** |
-    | Security type | Select **Standard** |
-    | Image | Select **Windows Server 2019 Datacenter - Gen2** |
-    | Azure Spot instance | Select **No** |
-    | Size | Choose VM size or take default setting |
+    | Virtual machine name | Enter **myVM**. |
+    | Region | Select **East US**. |
+    | Availability Options | Select **No infrastructure redundancy required**. |
+    | Security type | Select **Standard**. |
+    | Image | Select **Windows Server 2019 Datacenter - Gen2**. |
+    | Azure Spot instance | Select **No**. |
+    | Size | Choose VM size or take default setting. |
     | **Administrator account** |  |
-    | Username | Enter a username |
-    | Password | Enter a password |
-    | Confirm password | Reenter password |
+    | Username | Enter a username. |
+    | Password | Enter a password. |
+    | Confirm password | Reenter password. |
 
 3. Select the **Networking** tab, or select **Next: Disks**, then **Next: Networking**.
   
@@ -118,10 +118,10 @@ In this section, you'll create a virtual machine that will be used to test the p
     | Setting | Value |
     |-|-|
     | **Network interface** |  |
-    | Virtual network | **myVNet** |
-    | Subnet | **mySubnet** |
+    | Virtual network | **myVNet**. |
+    | Subnet | **mySubnet**. |
     | Public IP | Select **None**. |
-    | NIC network security group | **Basic**|
+    | NIC network security group | **Basic**. |
     | Public inbound ports | Select **None**. |
    
 5. Select **Review + create**. 
