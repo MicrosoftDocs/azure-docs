@@ -4,12 +4,13 @@ titleSuffix: Azure AD B2C
 description: Learn how to integrate Azure AD B2C authentication with WhoIAM Rampart
 services: active-directory-b2c
 author: gargi-sinha
-manager: martinco
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 6/06/2022
+ms.date: 06/20/2022
 ms.author: gasinh
+ms.reviewer: kengaderdus
 ms.subservice: B2C
 ---
 
@@ -25,7 +26,6 @@ To get started, you'll need:
 - An Azure AD subscription. If you don't have one, get a [free account](https://azure.microsoft.com/free/)
 
 - An [Azure AD B2C tenant](tutorial-create-tenant.md) linked to your Azure subscription.
-
 
 - An Azure DevOps Server instance
 
