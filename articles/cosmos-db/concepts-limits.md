@@ -93,7 +93,7 @@ Depending on the current RU/s provisioned and resource settings, each resource c
 | --- | --- |
 | Maximum RU/s per container | 5,000 |
 | Maximum storage across all items per (logical) partition | 20 GB |
-| Maximum storage per container (SQL API, Mongo API, Table API, Gremlin API)| 50 GB<sup>1</sup>  |
+| Maximum storage per container (SQL API, Mongo API, Table API, Gremlin API)| 50 GB (default)<sup>1</sup>  |
 | Maximum storage per container (Cassandra API)| 30 GB (default)<sup>1</sup>  |
 
 
