@@ -41,7 +41,7 @@ For more information, see the [Microsoft Security Development Lifecycle practice
 | 10.5.3 | 10/2021 | 07/2022 |
 | 10.5.2 | 10/2021 | 07/2022 |
 
-## June 2022
+## July 2022
 
 ### Enterprise IoT purchase experience and Defender for Endpoint integration in GA
 
@@ -51,7 +51,7 @@ Defender for IoT's purchase experience for Enterprise IoT networks and the integ
 
 - While you can continue to view detected Enterprise IoT devices on the Defender for IoT **Device inventory** page in the Azure portal, now you can also view related alerts, vulnerabilities, and recommendations in the [Microsoft 365 Security portal](/microsoft-365/security/defender-endpoint/enable-microsoft-defender-for-iot-integration).
 
-- All Enterprise IoT sensors are now automatically added to the same site, named **Enterprise network**. When onboarding a new Enterprise IoT device, you only need to define a sensor name and select your subscription, without defining a site or zone.
+- All Enterprise IoT sensors are now automatically added to the same site in Defender for IoT, named **Enterprise network**. When onboarding a new Enterprise IoT device, you only need to define a sensor name and select your subscription, without defining a site or zone.
 
 > [!NOTE]
 > The Enterprise IoT network sensor and all detections remain in Public Preview.

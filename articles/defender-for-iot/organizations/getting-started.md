@@ -79,7 +79,7 @@ This procedure describes how to add a Defender for IoT plan to an Azure subscrip
 
 1. Select **Add plan**.
 
-1. In the **Plan settings** pane, define the plan:
+1. In the **Plan settings** pane, define the plan as follows:
 
     - **Subscription**. Select the subscription where you would like to add a plan.
     - Toggle on the **OT** and/or **Enterprise IoT** options as needed for your network types.
