@@ -18,18 +18,18 @@ Microsoft Sentinel uses two different models to create baselines and detect anom
 - [UEBA anomalies](#ueba-anomalies)
 - [Machine learning-based anomalies](#machine-learning-based-anomalies)
 
+> [!NOTE]
+> Anomalies are in **PREVIEW**. 
+
 ## UEBA anomalies
 
 Sentinel UEBA detects anomalies based on dynamic baselines created for each entity across various data inputs. Each entity's baseline behavior is set according to its own historical activities, those of its peers, and those of the organization as a whole. Anomalies can be triggered by the correlation of different attributes such as action type, geo-location, device, resource, ISP, and more.
-
-> [!NOTE]
-> Anomalies are in **PREVIEW**. 
 
 - [Anomalous Account Access Removal](#anomalous-account-access-removal)
 - [Anomalous Account Creation](#anomalous-account-creation)
 - [Anomalous Account Deletion](#anomalous-account-deletion)
 - [Anomalous Account Manipulation](#anomalous-account-manipulation)
-- [Anomalous Code Execution](#anomalous-code-execution)
+- [Anomalous Code Execution (UEBA)](#anomalous-code-execution-ueba)
 - [Anomalous Data Destruction](#anomalous-data-destruction)
 - [Anomalous Defensive Mechanism Modification](#anomalous-defensive-mechanism-modification)
 - [Anomalous Failed Sign-in](#anomalous-failed-sign-in)
@@ -53,7 +53,7 @@ Sentinel UEBA detects anomalies based on dynamic baselines created for each enti
 
 ### Anomalous Account Creation
 
-**Description:** Adversaries may create an <!-- additional? -->account to maintain access to targeted systems. With a sufficient level of access, creating such accounts may be used to establish secondary credentialed access without requiring persistent remote access tools to be deployed on the system.
+**Description:** Adversaries may create an account to maintain access to targeted systems. With a sufficient level of access, creating such accounts may be used to establish secondary credentialed access without requiring persistent remote access tools to be deployed on the system.
 
 | Attribute                        | Value                                                              |
 | -------------------------------- | ------------------------------------------------------------------ |
@@ -94,7 +94,7 @@ Sentinel UEBA detects anomalies based on dynamic baselines created for each enti
 
 [Back to UEBA anomalies list](#ueba-anomalies)
 
-### Anomalous Code Execution
+### Anomalous Code Execution (UEBA)
 
 **Description:** Adversaries may abuse command and script interpreters to execute commands, scripts, or binaries. These interfaces and languages provide ways of interacting with computer systems and are a common feature across many different platforms.
 
@@ -131,9 +131,9 @@ Sentinel UEBA detects anomalies based on dynamic baselines created for each enti
 | -------------------------------- | ------------------------------------------------------------------ |
 | **Anomaly type:**                | UEBA                                                               |
 | **Data sources:**                | Azure Activity logs                                                |
-| **MITRE ATT&CK tactics:**        | Defense Evasion **(Excel)**<br>Impact **(UI)**                     |
-| **MITRE ATT&CK techniques:**     | T1562 - Impair Defenses **(Excel)**<br>T1531 - Account Access Removal **(UI)** |
-| **MITRE ATT&CK sub-techniques:** | Disable or Modify Tools<br>Disable or Modify Cloud Firewall<br>**(Excel)** |
+| **MITRE ATT&CK tactics:**        | Defense Evasion                                                    |
+| **MITRE ATT&CK techniques:**     | T1562 - Impair Defenses                                            |
+| **MITRE ATT&CK sub-techniques:** | Disable or Modify Tools<br>Disable or Modify Cloud Firewall        |
 | **Activity:**                | Microsoft.Sql/managedInstances/databases/vulnerabilityAssessments/rules/baselines/delete<br>Microsoft.Sql/managedInstances/databases/vulnerabilityAssessments/delete<br>Microsoft.Network/networkSecurityGroups/securityRules/delete<br>Microsoft.Network/networkSecurityGroups/delete<br>Microsoft.Network/ddosProtectionPlans/delete<br>Microsoft.Network/ApplicationGatewayWebApplicationFirewallPolicies/delete<br>Microsoft.Network/applicationSecurityGroups/delete<br>Microsoft.Authorization/policyAssignments/delete<br>Microsoft.Sql/servers/firewallRules/delete<br>Microsoft.Network/firewallPolicies/delete<br>Microsoft.Network/azurefirewalls/delete |
 
 [Back to UEBA anomalies list](#ueba-anomalies)
@@ -174,8 +174,8 @@ Sentinel UEBA detects anomalies based on dynamic baselines created for each enti
 | -------------------------------- | ------------------------------------------------------------------ |
 | **Anomaly type:**                | UEBA                                                               |
 | **Data sources:**                | Azure Active Directory audit logs                                  |
-| **MITRE ATT&CK tactics:**        | Persistence **(Excel)**<br>Impact **(UI)**                         |
-| **MITRE ATT&CK techniques:**     | T1098 - Account Manipulation **(Excel)**<br>T1531 - Account Access Removal **(UI)** |
+| **MITRE ATT&CK tactics:**        | Persistence                                                        |
+| **MITRE ATT&CK techniques:**     | T1098 - Account Manipulation                                       |
 | **MITRE ATT&CK sub-techniques:** | Additional Azure Service Principal Credentials                     |
 | **Activity:**                    | Account provisioning/Application Management/Add app role assignment to service principal |
 
@@ -189,7 +189,7 @@ Sentinel UEBA detects anomalies based on dynamic baselines created for each enti
 | -------------------------------- | ------------------------------------------------------------------ |
 | **Anomaly type:**                | UEBA                                                               |
 | **Data sources:**                | Azure Active Directory sign-in logs<br>Windows Security logs       |
-| **MITRE ATT&CK tactics:**        | Persistence **(Excel)**<br>Impact **(UI)**                         |
+| **MITRE ATT&CK tactics:**        | Persistence                                                        |
 | **MITRE ATT&CK techniques:**     | T1078 - Valid Accounts                                             |
 | **Activity:**                    | **Azure AD:** Sign-in activity<br>**Windows Security:** Successful login (Event ID 4624) |
 
@@ -201,7 +201,7 @@ Microsoft Sentinel's customizable, machine learning-based anomalies can identify
 
 - [Anomalous Azure AD sign-in sessions](#anomalous-azure-ad-sign-in-sessions)
 - [Anomalous Azure operations](#anomalous-azure-operations)
-- [Anomalous Code Execution (duplicate?)](#anomalous-code-execution-duplicate)
+- [Anomalous Code Execution](#anomalous-code-execution)
 - [Anomalous local account creation](#anomalous-local-account-creation)
 - [Anomalous scanning activity](#anomalous-scanning-activity)
 - [Anomalous user activities in Office Exchange](#anomalous-user-activities-in-office-exchange)
@@ -244,8 +244,6 @@ Microsoft Sentinel's customizable, machine learning-based anomalies can identify
 
 **Description:** The machine learning model groups the Azure AD sign-in logs on a per-user basis. The model is trained on the previous 6 days of user sign-in behavior. It indicates anomalous user sign-in sessions over the past day. 
 
-<!-- An autoencoder model is used. Its aim is to compress the user sign-in sessions into a bottleneck encoding. It then attempts to reconstruct the input sessions as best it can from the bottleneck encoding. The sessions with high reconstruction errors are assumed to be anomalous. ***THIS LEVEL OF EXPLANATION ISN'T NECESSARY, RIGHT?*** -->
-
 | Attribute                        | Value                                                              |
 | -------------------------------- | ------------------------------------------------------------------ |
 | **Anomaly type:**                | Customizable machine learning                                      |
@@ -258,7 +256,7 @@ Microsoft Sentinel's customizable, machine learning-based anomalies can identify
 
 ### Anomalous Azure operations
 
-**Description:** This detection algorithm collects 21 days' worth of data on Azure operations grouped by user to train this ML model. The algorithm then generates anomalies in the case of users who performed sequences of operations uncommon in their workspaces ***(TENANT, NOT WORKSPACE??? -YL)***. The trained ML model scores the operations performed by the user and considers anomalous those whose score is greater than the defined threshold.
+**Description:** This detection algorithm collects 21 days' worth of data on Azure operations grouped by user to train this ML model. The algorithm then generates anomalies in the case of users who performed sequences of operations uncommon in their workspaces. The trained ML model scores the operations performed by the user and considers anomalous those whose score is greater than the defined threshold.
 
 | Attribute                        | Value                                                              |
 | -------------------------------- | ------------------------------------------------------------------ |
@@ -270,7 +268,7 @@ Microsoft Sentinel's customizable, machine learning-based anomalies can identify
 
 [Back to Machine learning-based anomalies list](#machine-learning-based-anomalies)
 
-### Anomalous Code Execution (duplicate?)
+### Anomalous Code Execution
 
 **Description:** Attackers may abuse command and script interpreters to execute commands, scripts, or binaries. These interfaces and languages provide ways of interacting with computer systems and are a common feature across many different platforms.
 
@@ -327,8 +325,6 @@ Configuration details:
 ### Anomalous user activities in Office Exchange
 
 **Description:** This machine learning model groups the Office Exchange logs on a per-user basis into hourly buckets. We define one hour as a session. The model is trained on the previous 7 days of behavior across all regular (non-admin) users. It indicates anomalous user Office Exchange sessions in the last day.
-
-<!--An autoencoder model is used. Its aim is to compress the user Office Exchange sessions into a bottleneck encoding. It then attempts to reconstruct the input sessions as best it can from the bottleneck encoding. The sessions with high reconstruction errors are assumed to be anomalous. -->
 
 | Attribute                        | Value                                                              |
 | -------------------------------- | ------------------------------------------------------------------ |
@@ -818,6 +814,8 @@ Configuration details:
 
 ## Next steps
 
-Learn about [machine learning-generated anomalies](soc-ml-anomalies.md) in Microsoft Sentinel and how to [work with anomaly rules](work-with-anomaly-rules.md).
+- Learn about [machine learning-generated anomalies](soc-ml-anomalies.md) in Microsoft Sentinel.
 
-[Investigate incidents](investigate-cases.md) with Microsoft Sentinel.
+- Learn how to [work with anomaly rules](work-with-anomaly-rules.md).
+
+- [Investigate incidents](investigate-cases.md) with Microsoft Sentinel.
