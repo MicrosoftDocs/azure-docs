@@ -22,7 +22,7 @@ In the guide below, you will:
 ## Prerequisites
 
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/dotnet).
-* We assume you already have an App Configuration store. If you want to create one, [create an App Configuration store](quickstart-aspnet-core-app.md).
+* We assume you already have an App Configuration store. If you want to create one, go to [create an App Configuration store](quickstart-aspnet-core-app.md).
 
 ## Sign in to Azure
 
@@ -86,7 +86,7 @@ This command will prompt your web browser to launch and load an Azure sign-in pa
     az appconfig show -n <name>
     ```
 
-    This command generates an output with information about your App Configuration store. Note down the values listed for `id` and `name`.
+    This command generates an output with information about your App Configuration store. Note down the values listed for `id`.
 
 1. Run the command below to create a private endpoint for your App Configuration store. Replace the placeholder texts `<resource-group>`, `<private-endpoint-name>`, `<vnet-name>`, `<private-connection-resource-id>`, `<connection-name>`, and `<location>` with your own information.
 
@@ -100,7 +100,7 @@ This command will prompt your web browser to launch and load an Azure sign-in pa
 > | -g                               | `<resource-group>`                 | AppConfigStore                                                                                                 | Create or select an existing resource group               |
 > | -n                               | `<private-endpoint-name>`          | MyPrivateEndpoint                                                                                              | Enter a name for your new private endpoint.               |
 > | --vnet-name                      | `<vnet-name>`                      | Myvnet                                                                                                         | Enter the name of an existing vnet.                       |
-> | --private-connection-resource-id | `<private-connection-resource-id>` | /subscriptions/123/resourceGroups/AppConfigStore/providers/Microsoft.AppConfiguration/configurationStores/AppConfigStore | The value is the ID you saved from your previous command. |
+> | --private-connection-resource-id | `<private-connection-resource-id>` | /subscriptions/123/resourceGroups/AppConfigStore/providers/Microsoft.AppConfiguration/configurationStores/AppConfigStore | This value is the ID you saved from the output of the previous command. |
 > | --connection-name                | `<connection-name>`                | MyConnection                                                                                                   | Enter a connection name.                                  |
 > | -l                               | `<location>`                       | centralus                                                                                                      | Enter an Azure region. Your private endpoint must be in the same region as your virtual network. |
 
