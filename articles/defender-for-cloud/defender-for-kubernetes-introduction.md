@@ -31,7 +31,7 @@ Host-level threat detection for your Linux AKS nodes is available if you enable 
 
 |Aspect|Details|
 |----|:----|
-|Release state:|General availability (GA)|
+|Release state:|Deprecated (Use [**Microsoft Defender for Containers**](defender-for-containers-introduction.md))|
 |Pricing:|**Microsoft Defender for Kubernetes** is billed as shown on the [pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/).|
 |Required roles and permissions:|**Security admin** can dismiss alerts.<br>**Security reader** can view findings.|
 |Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/yes-icon.png"::: National (Azure Government, Azure China 21Vianet)|

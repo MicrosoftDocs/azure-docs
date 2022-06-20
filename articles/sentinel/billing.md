@@ -123,7 +123,7 @@ If you're billed at Pay-As-You-Go rate, the following table shows how Microsoft 
 
 #### [Free data meters](#tab/free-data-meters)
 
-The following table shows how Microsoft Sentinel and Log Analytics costs appear in the **Service name** and **Meter** columns of your Azure bill for free data services. For more information, see [Viewing Data Allocation Benefits](../azure-monitor/usage-estimated-costs.md#viewing-data-allocation-benefits).
+The following table shows how Microsoft Sentinel and Log Analytics costs appear in the **Service name** and **Meter** columns of your Azure bill for free data services. For more information, see [View Data Allocation Benefits](../azure-monitor/usage-estimated-costs.md#view-data-allocation-benefits).
 
  Cost description | Service name | Meter |
 |--|--|--|
