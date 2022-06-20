@@ -4,6 +4,7 @@ description: Sample data collection rule for Azure Monitor agent
 ms.topic: sample
 ms.date: 02/15/2022
 ms.custom: references_region
+ms.reviewer: shseth
 
 ---
 
