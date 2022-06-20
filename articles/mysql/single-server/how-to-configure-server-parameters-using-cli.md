@@ -10,6 +10,7 @@ ms.topic: how-to
 ms.date: 10/1/2020 
 ms.custom: devx-track-azurecli
 ---
+
 # Configure server parameters in Azure Database for MySQL using the Azure CLI
 
 [!INCLUDE[applies-to-mysql-single-server](../includes/applies-to-mysql-single-server.md)]

@@ -9,6 +9,7 @@ ms.custom: mvc
 ms.topic: overview
 ms.date: 6/19/2021
 ---
+
 # Azure Database for MySQL Single Server
 
 [!INCLUDE[applies-to-mysql-single-server](../includes/applies-to-mysql-single-server.md)]

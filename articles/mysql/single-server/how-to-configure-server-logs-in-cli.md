@@ -10,6 +10,7 @@ ms.topic: how-to
 ms.date: 4/13/2020 
 ms.custom: devx-track-azurecli
 ---
+
 # Configure and access slow query logs by using Azure CLI
 
 [!INCLUDE[applies-to-mysql-single-server](../includes/applies-to-mysql-single-server.md)]

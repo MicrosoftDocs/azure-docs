@@ -7,7 +7,7 @@ ms.service: mysql
 ms.subservice: single-server
 ms.devlang: azurecli
 ms.topic: quickstart
-ms.date: 07/15/2020
+ms.date: 06/20/2022
 ms.custom: mvc, devx-track-azurecli, mode-api
 ---
 

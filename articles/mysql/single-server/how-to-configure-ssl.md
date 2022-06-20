@@ -10,6 +10,7 @@ ms.devlang: csharp, golang, java, javascript, php, python, ruby
 ms.custom: "devx-track-python, devx-track-csharp"
 ms.date: 07/08/2020
 ---
+
 # Configure SSL connectivity in your application to securely connect to Azure Database for MySQL
 
 [!INCLUDE[applies-to-mysql-single-server](../includes/applies-to-mysql-single-server.md)]

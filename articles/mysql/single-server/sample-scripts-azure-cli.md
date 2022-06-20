@@ -10,6 +10,7 @@ ms.custom: mvc, devx-track-azurecli, seo-azure-cli
 ms.date: 09/17/2021
 keywords: azure cli samples, azure cli code samples, azure cli script samples
 ---
+
 # Azure CLI samples for Azure Database for MySQL 
 
 [!INCLUDE[applies-to-mysql-single-server](../includes/applies-to-mysql-single-server.md)]
