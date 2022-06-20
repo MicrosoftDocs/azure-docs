@@ -9,7 +9,7 @@ ms.service: role-based-access-control
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: troubleshooting
-ms.date: 02/18/2022
+ms.date: 06/21/2022
 ms.author: rolyon
 ms.custom: seohack1, devx-track-azurecli, devx-track-azurepowershell
 ---
@@ -82,6 +82,10 @@ Azure supports up to **500** role assignments per management group. This limit i
 - If you are unable to delete a custom role and get the error message "There are existing role assignments referencing role (code: RoleDefinitionHasAssignments)", then there are role assignments still using the custom role. Remove those role assignments and try to delete the custom role again.
 - If you get the error message "Role definition limit exceeded. No more role definitions can be created (code: RoleDefinitionLimitExceeded)" when you try to create a new custom role, delete any custom roles that aren't being used. Azure supports up to **5000** custom roles in a directory. (For Azure Germany and Azure China 21Vianet, the limit is 2000 custom roles.)
 - If you get an error similar to "The client has permission to perform action 'Microsoft.Authorization/roleDefinitions/write' on scope '/subscriptions/{subscriptionid}', however the linked subscription was not found" when you try to update a custom role, check whether one or more [assignable scopes](role-definitions.md#assignablescopes) have been deleted in the directory. If the scope was deleted, then create a support ticket as there is no self-service solution available at this time.
+- When you attempt to create or update a custom role, you get an error similar to "The client '&lt;clientName&gt;' with object id '&lt;objectId&gt;' has permission to perform action 'Microsoft.Authorization/roleDefinitions/write' on scope '/subscriptions/&lt;subscriptionId&gt;'; however, it does not have permission to perform action 'Microsoft.Authorization/roleDefinitions/write' on the linked scope(s)'/subscriptions/&lt;subscriptionId1&gt;,/subscriptions/&lt;subscriptionId2&gt;,/subscriptions/&lt;subscriptionId3&gt;' or the linked scope(s)are invalid". This error usually indicates that you do not have permissions to one or more of the [assignable scopes](role-definitions.md#assignablescopes) in the custom role. You can try the following:
+    - Review [Who can create, delete, update, or view a custom role](custom-roles.md#who-can-create-delete-update-or-view-a-custom-role) and check that you have permissions to create or update the custom role for all assignable scopes.
+    - If you don't have permissions, ask your administrator to assign you a role that has the `Microsoft.Authorization/roleDefinitions/write` action, such as [Owner](built-in-roles.md#owner) or [User Access Administrator](built-in-roles.md#user-access-administrator), at the scope of the assignable scope.
+    - Check that all the assignable scopes in the custom role are valid. If not, remove any invalid assignable scopes.
 
 ## Custom roles and management groups
 
