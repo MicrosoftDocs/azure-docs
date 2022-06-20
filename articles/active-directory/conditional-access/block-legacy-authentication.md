@@ -103,9 +103,7 @@ The [Deprecation of Basic authentication in Exchange Online](/exchange/clients-a
 
 ## Important Considerations
 
-Clients that once relied on legacy authentication now support more secure modern authentication methods.
-
-Clients that support both legacy and modern authentication depending on client configuration. If you see **modern mobile**, **desktop client** or **browser** for a client in the Azure AD logs, it is using modern authentication. If it has a specific client or protocol name, such as **Exchange ActiveSync**, it is using legacy authentication to connect to Azure AD. The client types in conditional access, Azure AD Sign-in logs and the legacy authentication workbook use the client type to distinguish between modern and legacy authentication clients for you.
+Many clients that previously only supported legacy authentication now support modern authentication methods. Clients that support both legacy and modern authentication may require configuration update to move from legacy to modern authentication. If you see **modern mobile**, **desktop client** or **browser** for a client in the Azure AD logs, it is using modern authentication. If it has a specific client or protocol name, such as **Exchange ActiveSync**, it is using legacy authentication. The client types in conditional access, Azure AD Sign-in logs and the legacy authentication workbook use the client type to distinguish between modern and legacy authentication clients for you.
 
 - Clients that support modern authentication but are not configured to use modern authentication should be updated or reconfigured to use modern authentication.
 
@@ -115,10 +113,10 @@ If you're using Microsoft Intune, you might be able to change the authentication
 
 >[!Important]
 >
->**Exchange Active Sync and Certificate Based Authentication**
+>**Exchange Active Sync and Certificate-based authentication**
 >
->- Certificate based authentication is **NOT BASIC** authentication and **won't be blocked** by [Deprecation of Basic authentication in Exchange Online](/exchange/clients-and-mobile-in-exchange-online/deprecation-of-basic-authentication-exchange-online). 
->- Clients that don't support or haven't been configured to use modern authentication using a certificate are **legacy authentication and will be blocked** by conditional access.
+>- Certificate-based authentication (CBA) is **NOT BASIC** authentication and **won't be blocked** by [Deprecation of Basic authentication in Exchange Online](/exchange/clients-and-mobile-in-exchange-online/deprecation-of-basic-authentication-exchange-online). 
+>- Clients that don't support or haven't been configured to use modern authentication using a certificate are **legacy authentication and will be blocked** by conditional access policies configured to block legacy authentication.
 >
 >See [Overview of Azure AD certificate-based authentication (Preview)](../authentication/concept-certificate-based-authentication.md) for more information on using certificates with modern authentication and Azure AD.
 
