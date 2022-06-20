@@ -20,24 +20,24 @@ ms.reviewer: yuhko, saumadan, marsma
 
 # Enhance security with the principle of least privilege
 
-The information security principle of least privilege asserts that users and applications should be granted access only to the data and operations they require to perform their jobs. Follow the guidance here to help reduce the attack surface of an application and the impact of a security breach (the *blast radius*) should one occur in an Microsoft identity platform-integrated application.
+The information security principle of least privilege asserts that users and applications should be granted access only to the data and operations they require to perform their jobs. Follow the guidance here to help reduce the attack surface of an application and the impact of a security breach (the *blast radius*) should one occur in a Microsoft identity platform-integrated application.
 
 ## Recommendations at a glance
 
 - Prevent **overprivileged** applications by revoking *unused* and *reducible* permissions.
-- Use the identity platform's **consent** framework to require that a human consents to the request from the application to access protected data.
+- Use the identity platform's **consent** framework to require that a human consent to the request from the application to access protected data.
 - **Build** applications with least privilege in mind during all stages of development.
 - **Audit** the deployed applications periodically to identify the ones that are overprivileged.
 
 ## Overprivileged applications
 
-Any application that's been granted an **unused** or **reducible** permission is considered overprivileged. Unused and reducible permissions have the potential to provide unauthorized or unintended access to data or operations not required by the application or its users to perform their jobs. Avoid security risks posed by unused and reducible permissions by granting *just enough* permission: the permission with the least-permissive access required by an application or user to perform their required tasks.
+Any application that's been granted an **unused** or **reducible** permission is considered overprivileged. Unused and reducible permissions have the potential to provide unauthorized or unintended access to data or operations not required by the application or its users to perform their jobs. Avoid security risks posed by unused and reducible permissions by granting only the appropriate permissions. The appropriate permissions are the ones with the least-permissive access required by an application or user to perform their required tasks.
 
 ### Unused permissions
 
 An unused permission is a permission that's been granted to an application but whose API or operation exposed by that permission isn't called by the application when used as intended.
 
-- **Example**: An application displays a list of files stored in the signed-in user's OneDrive by calling the Microsoft Graph API and leveraging the [Files.Read](/graph/permissions-reference) permission. However, the application has also been granted the [Calendars.Read](/graph/permissions-reference#calendars-permissions) permission, yet it provides no calendar features and doesn't call the Calendars API.
+- **Example**: An application displays a list of files stored in the signed-in user's OneDrive by calling the Microsoft Graph API using the [Files.Read](/graph/permissions-reference) permission. However, the application has also been granted the [Calendars.Read](/graph/permissions-reference#calendars-permissions) permission, yet it provides no calendar features and doesn't call the Calendars API.
 
 - **Security risk**: Unused permissions pose a *horizontal privilege escalation* security risk. An entity that exploits a security vulnerability in the application could use an unused permission to gain access to an API or operation not normally supported or allowed by the application when it's used as intended.
 
@@ -61,7 +61,7 @@ Whenever an application that runs in a device requests access to protected data,
 
 ## Least privilege during application development
 
-When developing an application, the security of it and the user data that it accesses is the responsibility of the developer.
+The security of an application and the user data that it accesses is the responsibility of the developer.
 
 Adhere to these guidelines during application development to help avoid making it overprivileged:
 
@@ -81,7 +81,7 @@ Make these standard practices in an organization to help make sure that deployed
 - Use [Graph Explorer](https://developer.microsoft.com/graph/graph-explorer) and the [Microsoft Graph](/graph/overview) documentation for the required and least privileged permissions.
 - Audit privileges that are granted to users or applications.
 - Update the applications with the least privileged permission set.
-- Conduct permissions reviews regularly to make sure all authorized permissions are still relevant.
+- Review permissions regularly to make sure all authorized permissions are still relevant.
 
 ## Next steps
 

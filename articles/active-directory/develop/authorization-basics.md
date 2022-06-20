@@ -22,9 +22,9 @@ ms.reviewer: johngarland, mamarxen, ianbe, marsma
 
 **Authorization** (sometimes abbreviated as *AuthZ*) is used to set permissions that enable evaluation of access to resources or functionality. In contrast, **authentication** (sometimes abbreviated as *AuthN*) is focused on proving that an entity like a user or service is indeed who they claim to be.
 
-Authorization can include specifying what functionality, resources, or data an entity is allowed to access. Authorization also specifies what can be done with the data. This is often referred to as *access control*.
+Authorization can include specifying the functionality, resources, or data an entity is allowed to access. Authorization also specifies what can be done with the data. This authorization action is often referred to as *access control*.
 
-Authentication and authorization are concepts that are not limited to only users. Services or daemon applications are often built to make requests for resources as themselves rather than on behalf of a specific user. When discussing these topics, the term "entity" is used to refer to either a user or an application.
+Authentication and authorization are concepts that aren't limited to only users. Services or daemon applications are often built to make requests for resources as themselves rather than on behalf of a specific user. In this article, the term "entity" is used to refer to either a user or an application.
 
 ## Authorization approaches
 
@@ -49,9 +49,9 @@ In advanced RBAC implementations, roles may be mapped to collections of permissi
 
 ### Attribute-based access control
 
-Attribute-based access control (ABAC) is a more fine-grained access control mechanism. In this approach, rules are applied to attributes of the entity, the resources being accessed, and the current environment to determine whether access to some resources or functionality is permitted. An example might be only allowing users who are managers to access files identified with a metadata tag of "managers during working hours only" during the hours of 9AM - 5PM on working days. In this case, access is determined by examining the attribute (status as manager) of the user, the attribute (metadata tag on a file) of the resource, and also an environment attribute (the current time).
+Attribute-based access control (ABAC) is a more fine-grained access control mechanism. In this approach, rules are applied to the entity, the resources being accessed, and the current environment. The rules determine the level of access to resources and functionality. An example might be only allowing users who are managers to access files identified with a metadata tag of "managers during working hours only" during the hours of 9AM - 5PM on working days. In this case, access is determined by examining the attribute (status as manager) of the user, the attribute (metadata tag on a file) of the resource, and also an environment attribute (the current time).
 
-One advantage of ABAC is that more granular and dynamic access control can be achieved through rule and condition evaluations without the need to create large numbers of very specific roles and RBAC assignments.
+One advantage of ABAC is that more granular and dynamic access control can be achieved through rule and condition evaluations without the need to create large numbers of specific roles and RBAC assignments.
 
 One method for achieving ABAC with Azure Active Directory is using [dynamic groups](../enterprise-users/groups-create-rule.md). Dynamic groups allow administrators to dynamically assign users to groups based on specific user attributes with desired values.  For example, an Authors group could be created where all users with the job title Author are dynamically assigned to the Authors group. Dynamic groups can be used in combination with RBAC for authorization where you map roles to groups and dynamically assign users to groups.
 

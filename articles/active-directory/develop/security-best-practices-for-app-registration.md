@@ -17,7 +17,7 @@ ms.reviewer: saumadan, marsma
 
 # Security best practices for application properties in Azure Active Directory
 
-Security is an important concept when registering an application in Azure Active Directory (Azure AD) and is a critical part of its business use in the organization. Any misconfiguratiom of an application can result in downtime or compromise. Depending on the permissions added to an application, there can be organization-wide effects.
+Security is an important concept when registering an application in Azure Active Directory (Azure AD) and is a critical part of its business use in the organization. Any misconfiguration of an application can result in downtime or compromise. Depending on the permissions added to an application, there can be organization-wide effects.
 
 Because secure applications are essential to the organization, any downtime to them because of security issues can affect the business or some critical service that the business depends upon. So, it's important to allocate time and resources to ensure applications stay in a healthy and secure state always. Conduct a periodical security and health assessment of applications much like a Security Threat Model assessment for code. For a broader perspective on security for organizations, see the [security development lifecycle](https://www.microsoft.com/securityengineering/sdl) (SDL).
 
@@ -51,12 +51,12 @@ Scenarios that required **implicit flow** can now use **Auth code flow** to redu
 Consider the following guidance related to implicit flow:
 
 - Understand if [implicit flow is required](./v2-oauth2-implicit-grant-flow.md#suitable-scenarios-for-the-oauth2-implicit-grant). Don't use implicit flow unless [explicitly required](./v2-oauth2-implicit-grant-flow.md#suitable-scenarios-for-the-oauth2-implicit-grant).
-- If the application was configured to get access tokens using implicit flow, but doesn't actively use it, turn off the setting to protect from misuse.
+- If the application was configured to receive access tokens using implicit flow, but doesn't actively use them, turn off the setting to protect from misuse.
 - Use separate applications for valid implicit flow scenarios.
 
 ## Certificates and secrets
 
-Certificates and secrets, also known as credentials, are a vital part of an application when it is used as a confidential client. Under **Certificates and secrets** for the application in the Azure portal, certificates and secrets can be added or removed.
+Certificates and secrets, also known as credentials, are a vital part of an application when it's used as a confidential client. Under **Certificates and secrets** for the application in the Azure portal, certificates and secrets can be added or removed.
 
 :::image type="content" source="/media/active-directory-application-registration-best-practices/implict-grant-flow.png" alt-text="Screenshot that shows where the certificates and secrets are located.":::
 
@@ -71,7 +71,7 @@ Consider the following guidance related to certificates and secrets:
 
 ## Application ID URI
 
-The **Application ID URI** property of the application specifies the globally unique URI used to identify the web API. It is the prefix for scopes and in access tokens, it is the value of the audience claim it must use a verified customer owned domain. For multi-tenant applications the value must also be globally unique. Also referred to as an identifier URI. Under **Expose an API** for the application in the Azure portal, the **Application ID URI** property can be defined.
+The **Application ID URI** property of the application specifies the globally unique URI used to identify the web API. It's the prefix for scopes and in access tokens, it's also the value of the audience claim and it must use a verified customer owned domain. For multi-tenant applications, the value must also be globally unique. Also referred to as an identifier URI. Under **Expose an API** for the application in the Azure portal, the **Application ID URI** property can be defined.
 
 :::image type="content" source="/media/active-directory-application-registration-best-practices/app-id-uri.png" alt-text="Screenshot that shows where the Application I D U R I is located.":::
 
@@ -79,14 +79,14 @@ Consider the following guidance related to defining the Application ID URI:
 
 - The api or https URI schemes are recommended. Set the property in the supported formats to avoid URI collisions in your organization. Don't use wildcards.
 - Use a verified domain in Line of Business (LoB) applications.
-- Keep an inventory of the URIs in your organization to assist in maintaining security.
+- Keep an inventory of the URIs in your organization to help maintain security.
 - Use the Application ID URI to expose the WebApi in the organization and don't use the Application ID URI to identify the application, instead use the Application (client) ID property.
 
 [!INCLUDE [active-directory-identifierUri](../../../includes/active-directory-identifier-uri-patterns.md)]
 
 ## App ownership configuration
 
-Owners can manage all apsects of a registered application. It's important to regularly review the ownership of all applications in the organization. For more information, see [Azure AD access reviews](../governance/access-reviews-overview.md). Under **Owners** for the application in the Azure portal, the owners of the application can be managed.
+Owners can manage all aspects of a registered application. It's important to regularly review the ownership of all applications in the organization. For more information, see [Azure AD access reviews](../governance/access-reviews-overview.md). Under **Owners** for the application in the Azure portal, the owners of the application can be managed.
 
 :::image type="content" source="/media/active-directory-application-registration-best-practices/app-ownership.png" alt-text="Screenshot that shows where owners of the application are managed.":::
 
