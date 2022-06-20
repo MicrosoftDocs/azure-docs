@@ -1,5 +1,5 @@
 ---
-title: 'How-to use Azure OpenAI's search operation'
+title: How-to use Azure OpenAI's search operation
 titleSuffix: Azure OpenAI
 description: Learn how to search across documents with Azure OpenAI
 services: cognitive-services
@@ -10,8 +10,8 @@ ms.topic: how-to
 ms.date: 06/24/2022
 recommendations: false
 keywords:
-
 ---
+
 
 # How to use Azure OpenAI's search operation
 
