@@ -91,7 +91,7 @@ Learn how to [enable database protection](quickstart-enable-database-protections
 
 When you enable Defender for Servers Plan 1 or Plan 2, the machines in the subscription receive the Microsoft Defender for Endpoint (MDE) unified solution. The unified solution is not dependent on the Log Analytics Agent.
 
-Now, you can also [deploy the MDE unified solution to Windows 2012 R2 and 2016 servers on Azure](integration-defender-for-endpoint.md#users-with-defender-for-servers-enabled-and-microsoft-defender-for-endpoint-for-windows-deployed).
+Now, you can also [deploy the MDE unified solution to Windows 2012 R2 and 2016 servers on Azure](integration-defender-for-endpoint.md#users-with-defender-for-servers-enabled-and-microsoft-defender-for-endpoint-deployed).
 
 ## May 2022
 
