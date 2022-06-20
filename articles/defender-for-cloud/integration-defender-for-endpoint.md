@@ -122,7 +122,7 @@ If you've already enabled the integration with **Defender for Endpoint**, you ha
     Microsoft Defender for Cloud will automatically onboard your machines to Microsoft Defender for Endpoint. Onboarding might take up to 12 hours. For new machines created after the integration has been enabled, onboarding takes up to an hour.
 
     > [!NOTE]
-    > If you choose not to deploy the MDE unified solution to your Windows 2012 R2 and 2016 servers and then configure Defender for Servers Plan 1, the MDE unified solution is not deployed to those servers so that your existing deployment is not changed without your explicit consent.
+    > If you choose not to deploy the MDE unified solution to your Windows 2012 R2 and 2016 servers in Defender for Servers Plan 2 and then downgrade Defender for Servers to Plan 1, the MDE unified solution is not deployed to those servers so that your existing deployment is not changed without your explicit consent.
 
 ### Users who never enabled the integration with Microsoft Defender for Endpoint for Windows
 

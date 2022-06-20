@@ -24,6 +24,7 @@ Updates in June include:
 - [Filter security alerts by IP address](#filter-security-alerts-by-ip-address)
 - [General availability (GA) of Defender for SQL on machines for AWS and GCP environments](#general-availability-ga-of-defender-for-sql-on-machines-for-aws-and-gcp-environments)
 - [Alerts by resource group](#alerts-by-resource-group)
+- [Auto-provisioning of Microsoft Defender for Endpoint unified solution](#auto-provisioning-of-microsoft-defender-for-endpoint-unified-solution)
 
 ### Drive implementation of security recommendations to enhance your security posture
 
@@ -66,6 +67,12 @@ A new filter has been added which allows you to view all of the alerts for speci
 You can now also group your alerts by resource group to view all of your alerts for each of your resource groups. 
 
 :::image type="content" source="media/release-notes/group-by-resource.png" alt-text="Screenshot that shows how to view your alerts when they are grouped by resource group." lightbox="media/release-notes/group-by-resource.png":::
+
+### Auto-provisioning of Microsoft Defender for Endpoint unified solution
+
+When you enable Defender for Servers Plan 1 or Plan 2, the machines in the subscription receive the Microsoft Defender for Endpoint (MDE) unified solution. The unified solution is not dependent on the Log Analytics Agent.
+
+Now, you can also [deploy the MDE unified solution to Windows 2012 R2 and 2016 servers on Azure](integration-defender-for-endpoint.md#users-with-defender-for-servers-enabled-and-microsoft-defender-for-endpoint-for-windows-deployed).
 
 ## May 2022
 
