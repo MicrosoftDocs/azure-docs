@@ -85,16 +85,16 @@ Confirm that your machine meets the necessary requirements for Defender for Endp
 
 ### [**Windows**](#tab/windows)
 
-[The new MDE unified solution](https://techcommunity.microsoft.com/t5/microsoft-defender-for-endpoint/defending-windows-server-2012-r2-and-2016/ba-p/2783292) doesn't use or require installation of the Log Analytics agent. The unified solution is automatically deployed for all Windows cloud and on-premises servers, except for Windows 2012 R2 and 2016 servers on Azure that are protected by Defender for Servers Plan 2. You can choose to deploy the MDE unified solution to those machines also.
+[The new MDE unified solution](/microsoft-365/security/defender-endpoint/configure-server-endpoints?view=o365-worldwide#new-windows-server-2012-r2-and-2016-functionality-in-the-modern-unified-solution) doesn't use or require installation of the Log Analytics agent. The unified solution is automatically deployed for all Windows servers connected through Azure Arc and multicloud servers connected through the multicloud connectors, except for Windows 2012 R2 and 2016 servers on Azure that are protected by Defender for Servers Plan 2. You can choose to deploy the MDE unified solution to those machine.
 
 You'll deploy Defender for Endpoint to your Windows machines in one of two ways - depending on whether you've already deployed it to your Windows machines:
 
-- [Users with Defender for Servers enabled and Microsoft Defender for Endpoint for Windows deployed](#users-with-defender-for-servers-enabled-and-microsoft-defender-for-endpoint-for-windows-deployed)
-- [Users who never enabled the integration with Microsoft Defender for Endpoint for Windows](#users-who-never-enabled-the-integration-with-microsoft-defender-for-endpoint-for-windows)
+- [Users with Defender for Servers enabled and Microsoft Defender for Endpoint deployed](#users-with-defender-for-servers-enabled-and-microsoft-defender-for-endpoint-for-windows-deployed)
+- [Users who never enabled the integration with Microsoft Defender for Endpoint](#users-who-never-enabled-the-integration-with-microsoft-defender-for-endpoint-for-windows)
 
-### Users with Defender for Servers enabled and Microsoft Defender for Endpoint for Windows deployed
+### Users with Defender for Servers enabled and Microsoft Defender for Endpoint deployed
 
-If you've already enabled the integration with **Defender for Endpoint for Windows**, you have complete control over when and whether to deploy the MDE unified solution to your **Windows** machines.
+If you've already enabled the integration with **Defender for Endpoint**, you have complete control over when and whether to deploy the MDE unified solution to your **Windows** machines.
 
 1. From Defender for Cloud's menu, select **Environment settings** and select the subscription with the Windows machines that you want to receive Defender for Endpoint.
 
