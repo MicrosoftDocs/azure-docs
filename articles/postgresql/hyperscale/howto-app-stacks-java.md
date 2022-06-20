@@ -422,7 +422,7 @@ Executing the main class should now produce the following output:
 
 Finally, let's delete the data we previously inserted.
 
-Still in the "src/main/java/DemoApplication.java" file, after the "updateData" method, add the following method to delete data inside the database:
+Still in the `src/main/java/DemoApplication.java` file, after the `updateData` method, add the following method to delete data inside the database:
 
 ``` java
 private static void deleteData(Pharmacy todo, Connection connection) throws SQLException {
@@ -502,7 +502,7 @@ int c = (int) copyFromFile(connection,"C:\\Users\\pharmacies.csv", "pharmacy");
 log.info("Copied "+ c +" rows using COPY command");
 ```
 
-Executing the "main" class should now produce the following output:
+Executing the `main` class should now produce the following output:
 
 ```
 [INFO   ] Loading application properties
