@@ -6,18 +6,18 @@ author: saimicrosoft
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: how-to
-ms.date: 05/19/2022
+ms.date: 06/20/2022
 ---
 
 # Node.js app to connect and query Hyperscale (Citus)
 
 ## Overview
 
-In this document, you connect to a Hyperscale (citus) database using a Node.js application. It shows how to use SQL statements to query, insert, update, and delete data in the database. The steps in this article assume that you are familiar with developing using Node.js, and are new to working with Hyperscale(Citus).
+In this how-to, you'll connect to a Hyperscale (Citus) server group using a Node.js application. We'll see how to use SQL statements to query, insert, update, and delete data in the database. The steps in this article assume that you are familiar with developing using Node.js, and are new to working with Hyperscale (Citus).
 
 > [!TIP]
 >
-> Below experience to create a NodeJS app with Hyperscale (Citus) is same as working with PostgreSQL.
+> The process of creating a NodeJS app with Hyperscale (Citus) is the same as working with ordinary PostgreSQL.
 
 ## Setup
 
@@ -46,9 +46,9 @@ To get the database credentials, you can use the **Connection strings** tab in t
 
 ![Diagram showing NodeJS connection string](../media/howto-app-stacks/01-python-connection-string.png)
 
-### Running the JavaScript code in Node.js
+### Running JavaScript code in Node.js
 
-You may launch Node.js from the Bash shell, Terminal, or Windows Command Prompt by typing node, then run the example JavaScript code interactively by copy and pasting it onto the prompt. Alternatively, you may save the JavaScript code into a text file and launch node filename.js with the file name as a parameter to run it.
+You may launch Node.js from the Bash shell, Terminal, or Windows Command Prompt by typing `node`, then run the example JavaScript code interactively by copy and pasting it onto the prompt. Alternatively, you may save the JavaScript code into a text file and launch `node filename.js` with the file name as a parameter to run it.
 
 ## Connect, create table, insert data
 
@@ -124,12 +124,11 @@ function queryDatabase() {
 
 ## Super power of Distributed Tables
 
-Citus gives you [the super power of distributing your table](overview.md#the-superpower-of-distributed-tables) across multiple nodes for scalability. Below command enables you to distribute a table. More on create_distributed_table and distribution column [here](howto-build-scalable-apps-concepts.md#distribution-column-also-known-as-shard-key).
+Hyperscale (Citus) gives you [the super power of distributing tables](overview.md#the-superpower-of-distributed-tables) across multiple nodes for scalability. The command below enables you to distribute a table. You can learn more about `create_distributed_table` and the distribution column [here](howto-build-scalable-apps-concepts.md#distribution-column-also-known-as-shard-key).
 
 > [!TIP]
 >
-> Distributing your tables is optional if you are using single node citus (basic tier).
->
+> Distributing your tables is optional if you are using the Basic Tier of Hyperscale (Citus), which is a single-node server group.
 
 Use the following code to connect to the database and distribute the table.
 
@@ -265,19 +264,20 @@ function queryDatabase() {
 
 ## COPY command for super fast ingestion
 
-COPY command can yield [tremendous throughput](https://www.citusdata.com/blog/2016/06/15/copy-postgresql-distributed-tables) while ingesting data into Hyperscale (Citus). COPY command can ingest data in files. You can also micro-batch data in memory and use COPY for real-time ingestion.
+The COPY command can yield [tremendous throughput](https://www.citusdata.com/blog/2016/06/15/copy-postgresql-distributed-tables) while ingesting data into Hyperscale (Citus). The COPY command can ingest data in files, or from micro-batches of data in memory for real-time ingestion.
 
 ### COPY command to load data from a file
 
-Before running below code we should install
-[pg-copy-streams](https://www.npmjs.com/package/pg-copy-streams).  To do so,
+Before running below code, install
+[pg-copy-streams](https://www.npmjs.com/package/pg-copy-streams). To do so,
 run the node package manager (npm) for JavaScript from your command line.
 
 ```dotnetcli
 npm install pg-copy-streams
 ```
 
-The following code is an example for copying data from csv file to table.
+The following code is an example for copying data from a CSV file to a database table.
+It requires the file [pharmacies.csv](TODO.csv).
 
 ```javascript
 // copy.js
@@ -323,8 +323,9 @@ function queryDatabase() {
 
 ### COPY command to load data in-memory
 
-Before running below code we should install [through2](https://www.npmjs.com/package/through2) for continue the pipe chaining.
- To do so, run the node package manager (npm) for JavaScript from your command line.
+Before running the below code, install
+[through2](https://www.npmjs.com/package/through2). This package allows pipe
+chaining.  Install it with node package manager (npm) for JavaScript like this:
 
 ```dotnetcli
 npm install through2
