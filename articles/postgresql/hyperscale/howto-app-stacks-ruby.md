@@ -6,18 +6,18 @@ author: saimicrosoft
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: how-to
-ms.date: 05/19/2022
+ms.date: 06/20/2022
 ---
 
 # Ruby app to connect and query Hyperscale (Citus)
 
 ## Overview
 
-In this document, you connect to a Hyperscale (Citus) database using a Ruby application. It shows how to use SQL statements to query, insert, update, and delete data in the database. The steps in this article assume that you're familiar with developing using ruby, and are new to working with Hyperscale(Citus).
+In this how-to, you'll connect to a Hyperscale (Citus) server group using a Ruby application. We'll see how to use SQL statements to query, insert, update, and delete data in the database. The steps in this article assume that you are familiar with developing using Node.js, and are new to working with Hyperscale (Citus).
 
 > [!TIP]
 >
-> Below experience to create a Ruby app with Hyperscale (Citus) is same as working with PostgreSQL.
+> The process of creating a Ruby app with Hyperscale (Citus) is the same as working with ordinary PostgreSQL.
 
 ## Setup
 
@@ -38,26 +38,31 @@ To get the database credentials, you can use the **Connection strings** tab in t
 
 Use the following code to connect and create a table using CREATE TABLE SQL statement, followed by INSERT INTO SQL statements to add rows into the table.
 
-The code uses a PG::Connection object with constructor new to connect to Azure Database for PostgreSQL. Then it calls method exec() to run the DROP, CREATE TABLE, and INSERT INTO commands. The code checks for errors using the PG::Error class. Then it calls method close() to close the connection before terminating. See Ruby pg reference documentation for more information on these classes and methods.
+The code uses a `PG::Connection` object with constructor to connect to Hyperscale (Citus). Then it calls method `exec()` to run the DROP, CREATE TABLE, and INSERT INTO commands. The code checks for errors using the `PG::Error` class. Then it calls method `close()` to close the connection before terminating. See the [Ruby pg reference documentation](https://rubygems.org/gems/pg) for more information on these classes and methods.
 
 
 ```ruby
 require 'pg'
 begin
-     # Replace below argument with connection string from portal.
-     connection = PG::Connection.new("host=<server name> port=5432 dbname=citus user=citus password={your password} sslmode=require")
+    # NOTE: Replace the host and password arguments in the connection string.
+    # (The connection string can be obtained from the Azure portal)
+    connection = PG::Connection.new("host=<server name> port=5432 dbname=citus user=citus password={your password} sslmode=require")
     puts 'Successfully created connection to database'
+
     # Drop previous table of same name if one exists
     connection.exec('DROP TABLE IF EXISTS pharmacy;')
     puts 'Finished dropping table (if existed).'
+
     # Drop previous table of same name if one exists.
     connection.exec('CREATE TABLE pharmacy (pharmacy_id integer ,pharmacy_name text,city text,state text,zip_code integer);')
     puts 'Finished creating table.'
+
     # Insert some data into table.
     connection.exec("INSERT INTO pharmacy (pharmacy_id,pharmacy_name,city,state,zip_code) VALUES (0,'Target','Sunnyvale','California',94001);")
     connection.exec("INSERT INTO pharmacy (pharmacy_id,pharmacy_name,city,state,zip_code) VALUES (1,'CVS','San Francisco','California',94002);")
     puts 'Inserted 2 rows of data.'
-    # Creating index.
+
+    # Create index
     connection.exec("CREATE INDEX idx_pharmacy_id ON pharmacy(pharmacy_id);") 
 rescue PG::Error => e
     puts e.message
@@ -66,21 +71,24 @@ ensure
 end
 ```
 
-## Super power of Distributed Tables
+## Use the super power of distributed tables
 
-Citus gives you [the super power of distributing your table](overview.md#the-superpower-of-distributed-tables) across multiple nodes for scalability. Below command enables you to distribute a table. More on create_distributed_table and distribution column [here](howto-build-scalable-apps-concepts.md#distribution-column-also-known-as-shard-key).
+Hyperscale (Citus) gives you [the super power of distributing tables](overview.md#the-superpower-of-distributed-tables) across multiple nodes for scalability. The command below enables you to distribute a table. You can learn more about `create_distributed_table` and the distribution column [here](howto-build-scalable-apps-concepts.md#distribution-column-also-known-as-shard-key).
 
 > [!TIP]
 >
-> Distributing your tables is optional if you are using single node citus (basic tier).
->
-Use the following code to connect to the database and distribute the table.
+> Distributing your tables is optional if you are using the Basic Tier of Hyperscale (Citus), which is a single-node server group.
+
+Use the following code to connect to the database and distribute the table:
+
 ```ruby
 require 'pg'
 begin
-    # Replace below argument with connection string from portal.
-     connection = PG::Connection.new("host=<server name> port=5432 dbname=citus user=citus password={your password} sslmode=require")
+    # NOTE: Replace the host and password arguments in the connection string.
+    # (The connection string can be obtained from the Azure portal)
+    connection = PG::Connection.new("host=<server name> port=5432 dbname=citus user=citus password={your password} sslmode=require")
     puts 'Successfully created connection to database'
+
     # Super power of Distributed Tables.
     connection.exec("select create_distributed_table('pharmacy','pharmacy_id');") 
 rescue PG::Error => e
@@ -94,14 +102,16 @@ end
 
 Use the following code to connect and read the data using a SELECT SQL statement.
 
-The code uses a PG::Connection object with constructor new to connect to Azure Database for PostgreSQL. Then it calls method exec() to run the SELECT command, keeping the results in a result set. The result set collection is iterated over using the resultSet.each do loop, keeping the current row values in the row variable. The code checks for errors using the PG::Error class. Then it calls method close() to close the connection before terminating. See Ruby pg reference documentation for more information on these classes and methods.
+The code uses a `PG::Connection` object with constructor new to connect to Hyperscale (Citus). Then it calls method `exec()` to run the SELECT command, keeping the results in a result set. The result set collection is iterated using the `resultSet.each` do loop, keeping the current row values in the row variable. The code checks for errors using the `PG::Error` class. Then it calls method `close()` to close the connection before terminating. See the [Ruby pg reference documentation](https://rubygems.org/gems/pg) for more information on these classes and methods.
 
 ```ruby
 require 'pg'
 begin
-    # Replace below argument with connection string from portal.
+    # NOTE: Replace the host and password arguments in the connection string.
+    # (The connection string can be obtained from the Azure portal)
     connection = PG::Connection.new("host=<server name> port=5432 dbname=citus user=citus password={your password} sslmode=require")
-    puts 'Successfully created connection to database.'
+    puts 'Successfully created connection to database'
+
     resultSet = connection.exec('SELECT * from pharmacy')
     resultSet.each do |row|
         puts 'Data row = (%s, %s, %s, %s, %s)' % [row['pharmacy_id'], row['pharmacy_name'], row['city'], row['state'], row['zip_code ']]
@@ -114,19 +124,22 @@ end
 ```
 
 ## Update data
+
 Use the following code to connect and update the data using a UPDATE SQL statement.
 
-The code uses a PG::Connection object with constructor new to connect to Azure Database for PostgreSQL. Then it calls method exec() to run the UPDATE command. The code checks for errors using the PG::Error class. Then it calls method close() to close the connection before terminating. See [Ruby pg reference documentation](https://rubygems.org/gems/pg) for more information on these classes and methods.
+The code uses a `PG::Connection` object with constructor to connect to Hyperscale (Citus). Then it calls method `exec()` to run the UPDATE command. The code checks for errors using the `PG::Error` class. Then it calls method `close()` to close the connection before terminating. See the [Ruby pg reference documentation](https://rubygems.org/gems/pg) for more information on these classes and methods.
+
 ```ruby
 require 'pg'
 begin
-    # Replace below argument with connection string from portal.
-     connection = PG::Connection.new("host=<server name> port=5432 dbname=citus user=citus password={your password} sslmode=require")
-    puts 'Successfully created connection to database.'
+    # NOTE: Replace the host and password arguments in the connection string.
+    # (The connection string can be obtained from the Azure portal)
+    connection = PG::Connection.new("host=<server name> port=5432 dbname=citus user=citus password={your password} sslmode=require")
+    puts 'Successfully created connection to database'
+
     # Modify some data in table.
     connection.exec('UPDATE pharmacy SET city = %s WHERE pharmacy_id = %d;' % ['\'guntur\'',100])
     puts 'Updated 1 row of data.'
-    
 rescue PG::Error => e
     puts e.message
 ensure
@@ -135,20 +148,22 @@ end
 ```
 
 ## Delete data
+
 Use the following code to connect and read the data using a DELETE SQL statement.
 
-The code uses a PG::Connection object with constructor new to connect to Azure Database for PostgreSQL. Then it calls method exec() to run the UPDATE command. The code checks for errors using the PG::Error class. Then it calls method close() to close the connection before terminating.
+The code uses a `PG::Connection` object with constructor new to connect to Hyperscale (Citus). Then it calls method `exec()` to run the DELETE command. The code checks for errors using the `PG::Error` class. Then it calls method `close()` to close the connection before terminating. See the [Ruby pg reference documentation](https://rubygems.org/gems/pg) for more information on these classes and methods.
 
 ```ruby
 require 'pg'
 begin
-    # Replace below argument with connection string from portal.
-     connection = PG::Connection.new("host=<server name> port=5432 dbname=citus user=citus password={your password} sslmode=require")
-    puts 'Successfully created connection to database.'
-    # Modify some data in table.
+    # NOTE: Replace the host and password arguments in the connection string.
+    # (The connection string can be obtained from the Azure portal)
+    connection = PG::Connection.new("host=<server name> port=5432 dbname=citus user=citus password={your password} sslmode=require")
+    puts 'Successfully created connection to database'
+
+    # Delete some data in table.
     connection.exec('DELETE FROM pharmacy WHERE city = %s;' % ['\'guntur\''])
     puts 'Deleted 1 row of data.'
-    
 rescue PG::Error => e
     puts e.message
 ensure
@@ -158,22 +173,27 @@ end
 
 ## COPY command for super fast ingestion
 
-COPY command can yield [tremendous throughput](https://www.citusdata.com/blog/2016/06/15/copy-postgresql-distributed-tables) while ingesting data into Hyperscale (Citus). COPY command can ingest data in files. You can also micro-batch data in memory and use COPY for real-time ingestion.
+The COPY command can yield [tremendous throughput](https://www.citusdata.com/blog/2016/06/15/copy-postgresql-distributed-tables) while ingesting data into Hyperscale (Citus). The COPY command can ingest data in files, or from micro-batches of data in memory for real-time ingestion.
 
 ### COPY command to load data from a file
 
-The following code is an example for copying data from csv file to table.
+The following code is an example for copying data from a CSV file to a database table.
+
+It requires the file [pharmacies.csv](TODO.csv).
 
 ```ruby
 require 'pg'
 begin
-val = String('pharmacies.csv')
-    # Replace below argument with connection string from portal.
+    filename = String('pharmacies.csv')
+
+    # NOTE: Replace the host and password arguments in the connection string.
+    # (The connection string can be obtained from the Azure portal)
     connection = PG::Connection.new("host=<server name> port=5432 dbname=citus user=citus password={your password} sslmode=require")
-    puts 'Successfully created connection to database.'
+    puts 'Successfully created connection to database'
+
     # Copy the data from Csv to table.
     result = connection.copy_data "COPY pharmacy FROM STDIN with csv" do
-        File.open(val , 'r').each do |line|
+        File.open(filename , 'r').each do |line|
             connection.put_copy_data line
         end
     puts 'Copied csv data successfully .'
@@ -192,16 +212,17 @@ The following code is an example for copying in-memory data to a table.
 ```ruby
 require 'pg'
 begin
-    # Replace below argument with connection string from portal.
-    connection = PG::Connection.new("Server = <host> Database = citus; Port = 5432; User Id = citus; Password = {your password}; Ssl Mode = Require;")
-    puts 'Successfully created connection to database.'
+    # NOTE: Replace the host and password arguments in the connection string.
+    # (The connection string can be obtained from the Azure portal)
+    connection = PG::Connection.new("host=<server name> port=5432 dbname=citus user=citus password={your password} sslmode=require")
+    puts 'Successfully created connection to database'
+
     enco = PG::TextEncoder::CopyRow.new
     connection.copy_data "COPY pharmacy FROM STDIN", enco do
-     connection.put_copy_data [5000,'Target','Sunnyvale','California','94001']
-     connection.put_copy_data [5001, 'CVS','San Francisco','California','94002']
-     puts 'Copied inmemory data successfully .'
-end
-    
+        connection.put_copy_data [5000,'Target','Sunnyvale','California','94001']
+        connection.put_copy_data [5001, 'CVS','San Francisco','California','94002']
+        puts 'Copied inmemory data successfully .'
+    end
 rescue PG::Error => e
     puts e.message
 ensure
