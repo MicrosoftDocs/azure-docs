@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: how-to
-ms.date: 06/14/2022
+ms.date: 06/20/2022
 ms.author: lajanuar
 ms.devlang: csharp, golang, java, javascript, python
 ms.custom: cog-serv-seo-aug-2020, mode-other
@@ -2834,7 +2834,6 @@ public class TranslatorText {
 }
 ```
 
-
 ### [Node.js](#tab/nodejs)
 
 ```javascript
@@ -2913,8 +2912,6 @@ response = request.json()
 
 print(json.dumps(response, sort_keys=True, ensure_ascii=False, indent=4, separators=(',', ': ')))
 ```
-
-
 
 ---
 
