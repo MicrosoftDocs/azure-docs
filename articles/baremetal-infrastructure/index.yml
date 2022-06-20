@@ -157,7 +157,7 @@ landingContent:
          - text: What is BareMetal Infrastructure for NC2 on Azure?
            url: /nc2-public-preview/nc2-baremetal-overview.md
          - text: About the Public Preview
-           url: /nc2-public-preview/about-the-public-preview.md
+           url: workloads/nc2-public-preview/about-the-public-preview.md
          - text: FAQ
            url: /nc2-public-preview/faq.md
       - linkListType: get-started
