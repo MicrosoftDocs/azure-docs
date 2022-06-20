@@ -161,8 +161,8 @@ Some features of the [Analyze - Image](https://westcentralus.dev.cognitive.micro
 |Japanese  |`ja`|✅ | ✅| ✅|||||| |✅|✅|
 |Kazakh |`kk`| | ✅| |||||| |||
 |Korean |`ko`| | ✅| |||||| |||
-|Lithuanian |`It`| | ✅| |||||| |||
-|Latvian |`Iv`| | ✅| |||||| |||
+|Lithuanian |`lt`| | ✅| |||||| |||
+|Latvian |`lv`| | ✅| |||||| |||
 |Macedonian |`mk`| | ✅| |||||| |||
 |Malay  Malaysia |`ms`| | ✅| |||||| |||
 |Norwegian (Bokmal) |`nb`| | ✅| |||||| |||
@@ -170,7 +170,8 @@ Some features of the [Analyze - Image](https://westcentralus.dev.cognitive.micro
 |Polish |`pl`| | ✅| |||||| |||
 |Dari |`prs`| | ✅| |||||| |||
 | Portuguese-Brazil|`pt-BR`| | ✅| |||||| |||
-| Portuguese-Portugal |`pt`/`pt-PT`|✅ | ✅| ✅|||||| |✅|✅|
+| Portuguese-Portugal |`pt`|✅ | ✅| ✅|||||| |✅|✅|
+| Portuguese-Portugal |`pt-PT`| | ✅| |||||| |||
 |Romanian |`ro`| | ✅| |||||| |||
 |Russian |`ru`| | ✅| |||||| |||
 |Slovak |`sk`| | ✅| |||||| |||
@@ -182,5 +183,6 @@ Some features of the [Analyze - Image](https://westcentralus.dev.cognitive.micro
 |Turkish |`tr`| | ✅| |||||| |||
 |Ukrainian |`uk`| | ✅| |||||| |||
 |Vietnamese |`vi`| | ✅| |||||| |||
-|Chinese Simplified |`zh`/ `zh-Hans`|✅ | ✅| ✅|||||| |✅|✅|
+|Chinese Simplified |`zh`|✅ | ✅| ✅|||||| |✅|✅|
+|Chinese Simplified |`zh-Hans`| | ✅| |||||| |||
 |Chinese Traditional |`zh-Hant`| | ✅| |||||| |||

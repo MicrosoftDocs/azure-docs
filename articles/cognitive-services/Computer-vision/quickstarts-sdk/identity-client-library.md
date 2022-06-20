@@ -9,7 +9,7 @@ zone_pivot_groups: programming-languages-set-face
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 09/27/2021
+ms.date: 06/13/2022
 ms.author: pafarley
 ms.devlang: csharp, golang, javascript, python
 ms.custom: devx-track-python, devx-track-csharp, cog-serv-seo-aug-2020, mode-api

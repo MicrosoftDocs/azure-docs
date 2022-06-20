@@ -8,13 +8,14 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 05/27/2022
+ms.date: 06/15/2022
 ---
+
 # Preview features in Azure Cognitive Search
 
-This article is a comprehensive list of all features that are in public preview. Preview functionality is provided without a service level agreement, and is not recommended for production workloads. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+This article is a comprehensive list of all features that are in public preview. Preview functionality is provided under [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/), without a service level agreement, and isn't recommended for production workloads.
 
-Preview features that transition to general availability are removed from this list. If a feature isn't listed below, you can assume it is generally available. For announcements regarding general availability, see [Service Updates](https://azure.microsoft.com/updates/?product=search) or [What's New](whats-new.md).
+Preview features that transition to general availability are removed from this list. If a feature isn't listed below, you can assume it's generally available or retired. For announcements regarding general availability, see [Service Updates](https://azure.microsoft.com/updates/?product=search) or [What's New](whats-new.md).
 
 |Feature&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | Category | Description | Availability  |
 |---------|------------------|-------------|---------------|
@@ -33,7 +34,6 @@ Preview features that transition to general availability are removed from this l
 | [**featuresMode parameter**](/rest/api/searchservice/preview-api/search-documents#query-parameters) | Relevance (scoring) | Relevance score expansion to include details: per field similarity score, per field term frequency, and per field number of unique tokens matched. You can consume these data points in [custom scoring solutions](https://github.com/Azure-Samples/search-ranking-tutorial). | Add this query parameter using [Search Documents](/rest/api/searchservice/preview-api/search-documents), API versions 2021-04-30-Preview, 2020-06-30-Preview, or 2019-05-06-Preview. |
 | [**Azure Machine Learning (AML) skill**](cognitive-search-aml-skill.md) | AI enrichment (skills) | A new skill type to integrate an inferencing endpoint from Azure Machine Learning. Get started with [this tutorial](cognitive-search-tutorial-aml-custom-skill.md). | Use [Search Preview REST API](/rest/api/searchservice/), API versions 2021-04-30-Preview, 2020-06-30-Preview, or 2019-05-06-Preview. Also available in the portal, in skillset design, assuming Cognitive Search and Azure ML services are deployed in the same subscription. |
 | [**Incremental enrichment**](cognitive-search-incremental-indexing-conceptual.md) | AI enrichment (skills) | Adds caching to an enrichment pipeline, allowing you to reuse existing output if a targeted modification, such as an update to a skillset or another object, does not change the content. Caching applies only to enriched documents produced by a skillset.| Add this configuration setting using [Create or Update Indexer Preview REST API](/rest/api/searchservice/create-indexer), API versions 2021-04-30-Preview, 2020-06-30-Preview, or 2019-05-06-Preview. |
-| [**Debug Sessions**](cognitive-search-debug-session.md) | Portal, AI enrichment (skills) | An in-session skillset editor used to investigate and resolve issues with a skillset. Fixes applied during a debug session can be saved to a skillset in the service. | Portal only, using mid-page links on the Overview page to open a debug session. |
 | [**moreLikeThis**](search-more-like-this.md) | Query | Finds documents that are relevant to a specific document. This feature has been in earlier previews. | Add this query parameter in [Search Documents Preview REST API](/rest/api/searchservice/search-documents) calls, with API versions 2021-04-30-Preview, 2020-06-30-Preview, 2019-05-06-Preview, 2016-09-01-Preview, or 2017-11-11-Preview. |
 
 ## How to call a preview REST API

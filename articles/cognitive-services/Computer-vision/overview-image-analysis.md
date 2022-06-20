@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services 
 ms.subservice: computer-vision 
 ms.topic: overview
-ms.date: 06/21/2021
+ms.date: 06/13/2022
 ms.author: pafarley
 keywords: computer vision, computer vision applications, computer vision service
 ---
@@ -28,6 +28,9 @@ This documentation contains the following types of articles:
 * The [how-to guides](./how-to/call-analyze-image.md) contain instructions for using the service in more specific or customized ways.
 * The [conceptual articles](concept-tagging-images.md) provide in-depth explanations of the service's functionality and features.
 * The [tutorials](./tutorials/storage-lab-tutorial.md) are longer guides that show you how to use this service as a component in broader business solutions.
+
+For a more structured approach, follow a Microsoft Learn module for Image Analysis.
+* [Analyze images with the Computer Vision service](/learn/modules/analyze-images-computer-vision/)
 
 ## Image Analysis features
 
@@ -64,7 +67,9 @@ Generate a description of an entire image in human-readable language, using comp
 
 ### Detect faces
 
-Detect faces in an image and provide information about each detected face. Computer Vision returns the coordinates, rectangle, gender, and age for each detected face.<br/>Computer Vision provides a subset of the [Face](./index-identity.yml) service functionality. You can use the Face service for more detailed analysis, such as facial identification and pose detection. [Detect faces](concept-detecting-faces.md)
+Detect faces in an image and provide information about each detected face. Computer Vision returns the coordinates, rectangle, gender, and age for each detected face. [Detect faces](concept-detecting-faces.md)
+
+You can also use the dedicated [Face API](./index-identity.yml) for these purposes. It provides more detailed analysis, such as facial identification and pose detection.
 
 ### Detect image types
 

@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: how-to
-ms.date: 08/04/2021
+ms.date: 06/13/2022
 ms.author: pafarley
 ms.devlang: csharp
 ms.custom: devx-track-csharp
