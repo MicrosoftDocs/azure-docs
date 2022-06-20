@@ -138,7 +138,7 @@ You can use any text editor to write Go applications. We recommend using the lat
 
 1. Create a new GO file named **text-translator.go** from the **translator-text-app** directory.
 
-1. You will copy and paste the code samples into your **text-translator.go** file. Make sure you update the key and endpoint variables with values from your Azure portal Translator instance.
+1. You will copy and paste the code samples into your **text-translator.go** file. Make sure you update the key variable with the value from your Azure portal Translator instance.
 
 1. Once you've added a code sample to your application, your Go program can be executed in a command or terminal prompt. Make sure your prompt's path is set to the **translator-text-app** folder and use the following command:
 
@@ -240,7 +240,7 @@ You can use any text editor to write Go applications. We recommend using the lat
         gradle run
         ```
 
-##### [Node.js](#tab/nodejs)
+### [Node.js](#tab/nodejs)
 
 1. If you haven't done so already, install the latest version of [Node.js](https://nodejs.org/en/download/). Node Package Manager (npm) is included with the Node.js installation.
 
@@ -287,7 +287,7 @@ You can use any text editor to write Go applications. We recommend using the lat
     >
     > * You can also create a new file named `index.js` in your IDE and save it to the `translator-text-app` directory.
 
-1. You will copy and paste the code samples into your `index.js` file. **Make sure you update the key and endpoint variables with values from your Azure portal Translator instance**.
+1. You will copy and paste the code samples into your `index.js` file. **Make sure you update the key variable with the value from your Azure portal Translator instance**.
 
 1. Once you've added the code sample to your application, run your program:
 
@@ -514,14 +514,14 @@ public class TranslatorText {
 
 ```javascript
 const axios = require('axios').default;
-const { v4: uuidv4 } = require('uuid');
+    const { v4: uuidv4 } = require('uuid');
 
-var key = "<YOUR-TRANSLATOR-KEY>";
-var endpoint = "https://api.cognitive.microsofttranslator.com";
+    let key = "<your-translator-key>";
+    let endpoint = "https://api.cognitive.microsofttranslator.com";
 
 // Add your location, also known as region. The default is global.
 // This is required if using a Cognitive Services resource.
-var location = "<YOUR-RESOURCE-LOCATION>";
+    let location = "<YOUR-RESOURCE-LOCATION>";
 
 axios({
     baseURL: endpoint,
@@ -536,10 +536,10 @@ axios({
     params: {
         'api-version': '3.0',
         'from': 'en',
-        'to': ['de', 'it']
+        'to': ['sw', 'it']
     },
     data: [{
-        'text': 'Hello World!'
+        'text': 'Hello, friend! What did you do today?'
     }],
     responseType: 'json'
 }).then(function(response){
@@ -809,10 +809,10 @@ axios({
     },
     params: {
         'api-version': '3.0',
-        'to': ['sw', 'it']
+        'to': ['en', 'it']
     },
     data: [{
-        'text': 'Hello World!'
+        'text': 'Halo, rafiki! Ulifanya nini leo?'
     }],
     responseType: 'json'
 }).then(function(response){
@@ -1082,7 +1082,7 @@ axios({
         'api-version': '3.0'
     },
     data: [{
-        'text': 'Ich würde wirklich gern Ihr Auto um den Block fahren ein paar Mal.'
+        'text': 'Hallo Freund! Was hast du heute gemacht?'
     }],
     responseType: 'json'
 }).then(function(response){
@@ -1358,7 +1358,7 @@ axios({
         'toScript': 'latn'
     },
     data: [{
-        'text': 'Hello'
+        'text': 'Hello, friend! What did you do today?'
     }],
     responseType: 'json'
 }).then(function(response){
@@ -1638,7 +1638,7 @@ axios({
         'toScript': 'latn'
     },
     data: [{
-        'text': 'สวัสดี'
+        'text': 'สวัสดีเพื่อน! วันนี้คุณทำอะไร'
     }],
     responseType: 'json'
 }).then(function(response){
@@ -2446,7 +2446,7 @@ axios({
         'to': 'es'
     },
     data: [{
-        'text': 'shark'
+        'text': 'sunlight'
     }],
     responseType: 'json'
 }).then(function(response){
@@ -2864,8 +2864,8 @@ axios({
         'to': 'es'
     },
     data: [{
-        'text': 'shark',
-        'translation': 'tiburón'
+        'text': 'sunlight',
+        'translation': 'luz solar'
     }],
     responseType: 'json'
 }).then(function(response){
@@ -2873,8 +2873,8 @@ axios({
 })
 ```
 
-
 ### [Python](#tab/python)
+
 ```python
 import requests, uuid, json
 

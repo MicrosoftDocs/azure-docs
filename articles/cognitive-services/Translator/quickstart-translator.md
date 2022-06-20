@@ -109,7 +109,7 @@ The core operation of the Translator service is translating text. In this quicks
 
 1. Open the **Program.cs** file.
 
-1. Delete the pre-existing code, including the line `Console.Writeline("Hello World!")`. Copy and paste the code sample into your application's Program.cs file. Make sure you update the key and endpoint variables with values from your Azure portal Translator instance:
+1. Delete the pre-existing code, including the line `Console.Writeline("Hello World!")`. Copy and paste the code sample into your application's Program.cs file. Make sure you update the key variable with the value from your Azure portal Translator instance:
 
 ```csharp
 using System.Text;
@@ -178,7 +178,7 @@ You can use any text editor to write Go applications. We recommend using the lat
 
 1. Create a new GO file named **translation.go** from the **translator-app** directory.
 
-1. Copy and paste the provided code sample into your **translation.go** file. Make sure you update the key and endpoint variables with values from your Azure portal Translator instance:
+1. Copy and paste the provided code sample into your **translation.go** file. Make sure you update the key variable with the value from your Azure portal Translator instance:
 
 ```go
 package main
@@ -448,7 +448,7 @@ Once you've added a code sample to your application, navigate back to your main 
     >
     > * You can also create a new file named `index.js` in your IDE and save it to the `translator-app` directory.
 
-1. Add the following code sample to your `index.js` file. **Make sure you update the key and endpoint variables with values from your Azure portal Translator instance**:
+1. Add the following code sample to your `index.js` file. **Make sure you update the key variable with the value from your Azure portal Translator instance**:
 
 ```javascript
     const axios = require('axios').default;
@@ -459,7 +459,7 @@ Once you've added a code sample to your application, navigate back to your main 
 
     axios({
         baseURL: endpoint,
-        url: '/translate?api-version=3.0',
+        url: '/translate',
         method: 'post',
         headers: {
             'Ocp-Apim-Subscription-Key': key,
