@@ -20,6 +20,10 @@ If you're using [Azure Active Directory (Azure AD)](../active-directory/fundamen
 - Install the latest [Azure PowerShell module](/powershell/azure/install-az-ps).
 - Install the [pre-release version](https://aka.ms/DisksAzureADAuthSDK) of the Az.Storage PowerShell module.
 
+# [Azure CLI](#tab/azure-cli)
+- Email AzureDisks@microsoft .com to have the feature enabled on your subscription.
+- Install the latest [Azure CLI](/cli/azure/install-azure-cli) or use the [Azure Cloud Shell](https://shell.azure.com/).
+
 ---
 
 ## Restrictions
@@ -27,67 +31,10 @@ If you're using [Azure Active Directory (Azure AD)](../active-directory/fundamen
 - VHDs can't be uploaded to empty snapshots.
 - Only currently available in xyz regions.
 
-## Get started
-
-
-Create disk with DataAccessAuthMode set to AzureActiveDirectory.  
-
-$diskConfig = New-AzDiskConfig -Location 'eastus2euap' -AccountType 'Premium_LRS' -CreateOption 'Empty' -DiskSizeGB 32 -DataAccessAuthMode 'AzureActiveDirectory'  
-
-New-AzDisk -ResourceGroupName 'ResourceGroup01' -DiskName 'Disk01' -Disk $diskConfig  
-
-$disk = Get-AzDisk -ResourceGroupName 'ResourceGroup01' -DiskName 'Disk01'  
-
-  
-
-# $disk.Properties.DataAccessAuthMode.tostring()  
-
-"AzureActiveDirectory"  
-
-Export Disk and download using Az.Storage Powershell  
-
-$diskSas = Grant-AzDiskAccess 'ResourceGroup01' -DiskName 'Disk01' -DurationInSecond 86400 -Access 'Read'  
-
-Connect-AzAccount  
-
-Get-AzStorageBlobContent -Uri $diskSas.AccessSAS -Destination $downloadDest  
+## Create custom role
 
 # [PowerShell](#tab/azure-powershell)
-Before either uploading or downloading a disk, you have to set its `dataAccessAuthMode` to `AzureActiveDirectory`. 
-
-
-### upload configuration
-When uploading a disk, create the disk config with the `dataAccessAuthMode` set to `AzureActiveDirectory`.
-
-```azurepowershell
-$diskConfig = New-AzDiskConfig -Location '<yourRegion>' -AccountType '<yourDiskType> -CreateOption 'Empty' -DiskSizeGB 'desiredSize" -DataAccessAuthMode 'AzureActiveDirectory'
-
-New-AzDisk -ResourceGroupName 'yourRGName' -DiskName 'yourDiskName' -Disk $diskConfig
-
-```
-
-
-```azurepowershell
-# Declare variables
-$subscriptionID = "yourSubID"
-$resourceGroupName = "yourRGName"
-$diskName = "yourDiskName"
-
-#set context to the appropriate subscription
-set-AzContext -subscription $subscriptionID
-
-# Switch an existing disk to AzureActiveDirectory to enable Azure AD access
-New-AzDiskUpdateConfig -dataAccessAuthMode "AzureActiveDirectory" | Update-AzDisk -ResourceGroupName $resourceGroupName -DiskName $diskName;
-```
-
-# [Azure CLI](#tab/azure-cli)
-
-Cr
-
----
-
-
-Next, create a custom RBAC role with the necessary permissions.
+First, create a custom RBAC role with the necessary permissions.
 
 ```azurepowershell
 $role = [Microsoft.Azure.Commands.Resources.Models.Authorization.PSRoleDefinition]::new()
@@ -102,17 +49,102 @@ $role.AssignableScopes = '/subscriptions/'+$subscriptionId
 New-AzRoleDefinition -Role $role 
 ```
 
-After that, assign RBAC permissions, to allow the role to access your disk.
+# [Azure CLI](#tab/azure-cli)
+
+Cr
+
+---
+
+ $disk.Properties.DataAccessAuthMode.tostring()  
+
+"AzureActiveDirectory"  
+
+Export Disk and download using Az.Storage Powershell  
+
+$diskSas = Grant-AzDiskAccess 'ResourceGroup01' -DiskName 'Disk01' -DurationInSecond 86400 -Access 'Read'  
+
+Connect-AzAccount  
+
+Get-AzStorageBlobContent -Uri $diskSas.AccessSAS -Destination $downloadDest  
+
+## Upload a disk
+
+# [PowerShell](#tab/azure-powershell)
+
+### Prerequisites
+
+- Download the latest [version of AzCopy v10](../../storage/common/storage-use-azcopy-v10.md#download-and-install-azcopy).
+- [Install the Azure PowerShell module](/powershell/azure/install-Az-ps).
+- A fixed size VHD that [has been prepared for Azure](prepare-for-upload-vhd-image.md), stored locally.
+
+### Add-AzVHD
+
+If Azure AD is used to enforce upload restrictions on a subscription or at the account level, [Add-AzVHD](/powershell/module/az.compute/add-azvhd?view=azps-7.1.0&viewFallbackFrom=azps-5.4.0&preserve-view=true) only succeeds if attempted by a user that has the [appropriate RBAC role or necessary permissions](#create-custom-role).
+
+### Manual upload
+
+If you're manually uploading a disk, you'll need to make a few extra configurations to do it with Azure AD.
+
+### Configuration
+Create the disk config with `dataAccessAuthMode` set to `AzureActiveDirectory`.
 
 ```azurepowershell
-$myDisk=Get-AzDisk -DiskName $diskName -ResourceGroupName $resourceGroup
+$diskConfig = New-AzDiskConfig -Location '<yourRegion>' -AccountType '<yourDiskType> -CreateOption 'Empty' -DiskSizeGB 'desiredSize" -DataAccessAuthMode 'AzureActiveDirectory'
 
+New-AzDisk -ResourceGroupName 'yourRGName' -DiskName 'yourDiskName' -Disk $diskConfig
+```
+
+### Grant access to the disk
+Assign RBAC permissions, to allow the role to access your disk and generate a writeable SAS for the empty disk.
+
+```azurepowershell
 New-AzRoleAssignment -SignInName <email address of the user> `
 -RoleDefinitionName "Disks Data Operator" `
 -Scope $myDisk.Id
+
+$diskSas = Grant-AzDiskAccess -ResourceGroupName '<yourresourcegroupname>' -DiskName '<yourdiskname>' -DurationInSecond 86400 -Access 'Write'
+
+$disk = Get-AzDisk -ResourceGroupName '<yourresourcegroupname>' -DiskName '<yourdiskname>'
 ```
 
+### Upload a VHD
+
+You can use the SAS with AzCopy to upload a disk.
+
+```azcopy
+AzCopy.exe copy "c:\somewhere\mydisk.vhd" $diskSas.AccessSAS --blob-type PageBlob
+```
+
+After the upload completes, revoke the SAS to allow you to attach it to a VM.
+
+```azurepowershell
+Revoke-AzDiskAccess -ResourceGroupName '<yourresourcegroupname>' -DiskName '<yourdiskname>'
+```
+
+# [Azure CLI](#tab/azure-cli)
+
+Cr
+
+---
+
+
+
+## Download a disk
+
 To download a managed disk as VHD, generate the disk's SAS URI, and then authenticate yourself using Azure AD.
+
+```azurepowershell
+# Declare variables
+$subscriptionID = "yourSubID"
+$resourceGroupName = "yourRGName"
+$diskName = "yourDiskName"
+
+#set context to the appropriate subscription
+set-AzContext -subscription $subscriptionID
+
+# Switch an existing disk to AzureActiveDirectory to enable Azure AD access
+New-AzDiskUpdateConfig -dataAccessAuthMode "AzureActiveDirectory" | Update-AzDisk -ResourceGroupName $resourceGroupName -DiskName $diskName;
+```
 
 ```azurepowershell
 $diskSas = Grant-AzDiskAccess -ResourceGroupName $resourceGroup -DiskName
