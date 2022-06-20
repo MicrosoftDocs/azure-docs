@@ -31,19 +31,28 @@ This procedure describes how to use the Azure portal to contact vendors for pre-
 
 ## Onboard sensors
 
-Onboard a sensor by registering it with Microsoft Defender for IoT and downloading a sensor activation file.
+Onboard a sensor by registering it with Microsoft Defender for IoT. For OT sensors, you'll also need to download a sensor activation file.
 
-**Prerequisites**: Make sure that you've set up your sensor and configured your SPAN port or TAP. For more information, see [Defender for IoT installation](how-to-install-software.md).
+Select one of the following tabs, depending on the type of network you're working with.
+# [OT sensors](#tab/ot)
 
-**To onboard your sensor to Defender for IoT**:
+**Prerequisites**: Make sure that you've set up your sensor and configured your SPAN port or TAP. 
 
-1. In the Azure portal, navigate to **Defender for IoT** > **Getting started** and select **Set up OT/ICS Security**. Alternately, from the Defender for IoT **Sites and sensors** page, select **Onboard OT sensor**.
+For more information, see [Activate and set up your sensor](how-to-activate-and-set-up-your-sensor.md) and [Defender for IoT installation](how-to-install-software.md), or our [Tutorial: Get started with Microsoft Defender for IoT for OT security](tutorial-onboarding.md).
+
+**To onboard your OT sensor to Defender for IoT**:
+
+1. In the Azure portal, navigate to **Defender for IoT** > **Getting started** and select **Set up OT/ICS Security**.
+
+    :::image type="content" source="media/tutorial-onboarding/onboard-a-sensor.png" alt-text="Screenshot of the Set up O T/I C S Security button on the Get started page.":::
+
+    Alternately, from the Defender for IoT **Sites and sensors** page, select **Onboard OT sensor**.
 
 1. By default, on the **Set up OT/ICS Security** page, **Step 1: Did you set up a sensor?** and **Step 2: Configure SPAN port or TAP​** of the wizard are collapsed. If you haven't completed these steps, do so before continuing.
 
 1. In **Step 3: Register this sensor with Microsoft Defender for IoT** enter or select the following values for your sensor:
 
-    1. In the **Sensor name** field, enter a meaningful name for your sensor.  We recommend including your sensor's IP address as part of the name, or using another easily identifiable name, that can help you keep track between the registration name in the Azure portal and the IP address of the sensor shown in the sensor console.
+    1. In the **Sensor name** field, enter a meaningful name for your sensor.  We recommend including your sensor's IP address as part of the name, or using another easily identifiable name that can help you keep track between the registration name in the Azure portal and the IP address of the sensor shown in the sensor console.
 
     1. In the **Subscription** field, select your Azure subscription.
 
@@ -59,12 +68,38 @@ Onboard a sensor by registering it with Microsoft Defender for IoT and downloadi
 
 1. Select **Register**.
 
-A success message appears and your activation file is automatically downloaded, and your sensor is now shown under the configured site on the Defender for IoT **Sites and sensors** page.
+A success message appears and your activation file is automatically downloaded. Your sensor is now shown under the configured site on the Defender for IoT **Sites and sensors** page.
 
-However, until you activate your sensor, the sensor's status will show as **Pending Activation**.
+Until you activate your sensor, the sensor's status will show as **Pending Activation**.
 
 Make the downloaded activation file accessible to the sensor console admin so that they can activate the sensor. For more information, see [Upload new activation files](how-to-manage-individual-sensors.md#upload-new-activation-files).
 
+# [Enterprise IoT sensors](#tab/eiot)
+
+**To set up an Enterprise IoT sensor**:
+
+1. Navigate to the [Azure portal](https://portal.azure.com#home).
+
+1. Select **Set up Enterprise IoT Security**.
+
+    :::image type="content" source="media/tutorial-get-started-eiot/onboard-sensor.png" alt-text="Screenshot of the Set up Enterprise I O T Security button on the Get started page.":::
+
+1. In the **Sensor name** field, enter a meaningful name for your sensor.
+
+1. From the **Subscription** drop-down menu, select the subscription where you want to add your sensor.
+
+1. Select **Register**. A **Sensor registration successful** screen shows your next steps and the command you'll need to start the sensor installation.
+
+    For example:
+
+    :::image type="content" source="media/tutorial-get-started-eiot/successful-registration.png" alt-text="Screenshot of the successful registration of an Enterprise I O T sensor.":::
+
+1. Copy the command to a safe location, and continue with installing the sensor. For more information, see [Install the sensor](tutorial-getting-started-eiot-sensor.md#install-the-sensor).
+
+> [!NOTE]
+> As opposed to OT sensors, where you define your sensor's site, all Enterprise IoT sensors are automatically added to the **Enterprise network** site.
+
+---
 ## Manage on-boarded sensors
 
 Sensors that you've on-boarded to Defender for IoT are listed on the Defender for IoT **Sites and sensors** page. This page supports the following management tasks:
