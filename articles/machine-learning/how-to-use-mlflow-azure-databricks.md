@@ -120,7 +120,7 @@ You have to configure the MLflow tracking URI to point exclusively to Azure Mach
 
    # [Using the Azure ML SDK v2](#tab/sdkv2)
    
-   You can get the Azure ML MLflow tracking URI using the Azure ML SDK v2 for Python. Ensure you have the library `azure-ai-ml` installed in the cluster you are using:
+   You can get the Azure ML MLflow tracking URI using the [Azure Machine Learning SDK v2 for Python](concept-v2.md). Ensure you have the library `azure-ai-ml` installed in the cluster you are using:
    
    ```python
    from azure.ai.ml import MLClient
