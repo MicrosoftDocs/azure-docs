@@ -48,10 +48,12 @@ In this step, you'll create the mobile network site resource representing the ph
 
 1. Use the information you collected in [Collect access network values](collect-required-information-for-a-site.md#collect-access-network-values) to fill out the fields in the **Access network** section. Note the following:
 
-    - Use the same value for both the **N2 subnet** and **N3 subnet** fields (if this site will support 5G user equipment (UEs)).
+    - Use the same value for both the **N2 interface name** and **N3 interface name** fields (if this site will support 5G user equipment (UEs)).
+    - Use the same value for both the **N2 subnet** and **N3 subnet** fields (if this site will support 5G UEs).
     - Use the same value for both the **N2 gateway** and **N3 gateway** fields (if this site will support 5G UEs).
+    - Use the same value for both the **S1-MME interface name** and **S1-U interface name** fields (if this site will support 4G UEs).
     - Use the same value for both the **S1-MME subnet** and **S1-U subnet** fields (if this site will support 4G UEs).
-    - Use the same value for both the **S1-MME gateway** and **S1-U gateway** fields (if this site will support 4G UEs). 
+    - Use the same value for both the **S1-MME gateway** and **S1-U gateway** fields (if this site will support 4G UEs).
 
 1. Use the information you collected in [Collect data network values](collect-required-information-for-a-site.md#collect-data-network-values) to fill out the fields in the **Attached data networks** section. Note that you can only connect the packet core instance to a single data network.
 1. Select **Review + create**.
