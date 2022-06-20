@@ -39,28 +39,23 @@ Before you get started, make sure you have the following requirements in place:
 
 In this section, you use Visual Studio Code to create a local Azure Functions project in PowerShell. Later in this article, you'll publish your function code to Azure.
 
-1. Choose the Azure icon in the Activity bar, then in the **Azure: Functions** area, select the **Create new project...** icon.
+1. Choose the Azure icon in the Activity bar. Then in the **Workspace (local)** area, select the **+** button, choose **Create Function** in the dropdown. When prompted, choose **Create new project**.
 
-    ![Choose Create a new project](./media/functions-create-first-function-vs-code/create-new-project.png)
+    :::image type="content" source="./media/functions-create-first-function-vs-code/create-new-project.png" alt-text="Screenshot of create a new project window.":::
 
-1. Choose a directory location for your project workspace and choose **Select**.
-
-    > [!NOTE]
-    > These steps were designed to be completed outside of a workspace. In this case, do not select a project folder that is part of a workspace.
+1. Choose the directory location for your project workspace and choose **Select**. You should either create a new folder or choose an empty folder for the project workspace. Don't choose a project folder that is already part of a workspace.
 
 1. Provide the following information at the prompts:
 
-    + **Select a language for your function project**: Choose `PowerShell`.
+    |Prompt|Selection|
+    |--|--|
+    |**Select a language for your function project**|Choose `PowerShell`.|
+    |**Select a template for your project's first function**|Choose `HTTP trigger`.|
+    |**Provide a function name**|Type `HttpExample`.|
+    |**Authorization level**|Choose `Anonymous`, which enables anyone to call your function endpoint. To learn about authorization level, see [Authorization keys](functions-bindings-http-webhook-trigger.md#authorization-keys).|
+    |**Select how you would like to open your project**|Choose `Add to workspace`.|
 
-    + **Select a template for your project's first function**: Choose `HTTP trigger`.
-
-    + **Provide a function name**: Type `HttpExample`.
-
-    + **Authorization level**: Choose `Anonymous`, which enables anyone to call your function endpoint. To learn about authorization level, see [Authorization keys](functions-bindings-http-webhook-trigger.md#authorization-keys).
-
-    + **Select how you would like to open your project**: Choose `Add to workspace`.
-
-1. Using this information, Visual Studio Code generates an Azure Functions project with an HTTP trigger. You can view the local project files in the Explorer. To learn more about files that are created, see [Generated project files](functions-develop-vs-code.md#generated-project-files). 
+    Using this information, Visual Studio Code generates an Azure Functions project with an HTTP trigger. You can view the local project files in the Explorer. To learn more about files that are created, see [Generated project files](functions-develop-vs-code.md?tabs=powershell#generated-project-files). 
 
 [!INCLUDE [functions-run-function-test-local-vs-code](../../includes/functions-run-function-test-local-vs-code.md)]
 

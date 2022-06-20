@@ -36,16 +36,4 @@ In this section, you create a function app and related resources in your Azure s
 
     [!INCLUDE [functions-vs-code-create-tip](functions-vs-code-create-tip.md)]
 
-## Deploy the project to Azure
-
-> [!IMPORTANT]
-> Deploying to an existing function app always overwrites the contents of that app in Azure.
-
-1. Choose the Azure icon in the Activity bar, then in the **Workspace** area, select your project folder and select the **Deploy...** button.
-
-    :::image type="content" source="media/functions-publish-project-vscode/functions-vscode-deploy.png" alt-text="Deploy project from the Visual Studio Code workspace":::
-
-1. After deployment completes, select **View Output** to view the creation and deployment results, including the Azure resources that you created. If you miss the notification, select the bell icon in the lower right corner to see it again.
-
-    :::image type="content" source="media/functions-publish-project-vscode/function-create-notifications.png" alt-text="Screenshot of the View Output window.":::
-
+[!INCLUDE [functions-deploy-project-vs-code](functions-deploy-project-vs-code.md)]

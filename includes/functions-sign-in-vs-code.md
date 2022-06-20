@@ -11,12 +11,12 @@ ms.author: glenga
 
 Before you can publish your app, you must sign in to Azure.
 
-1. If you aren't already signed in, choose the Azure icon in the Activity bar. Then in the **Resources** area, choose **Sign in to Azure...**. If you don't yet have an Azure account, choose **Create and Azure Account...**. Students can choose **Create and Azure for Students Account...**.
+1. If you aren't already signed in, choose the Azure icon in the Activity bar. Then in the **Resources** area, choose **Sign in to Azure...**. 
 
     :::image type="content" source="./media/functions-sign-in-vs-code/functions-sign-into-azure.png" alt-text="Screenshot of the sign-in to Azure window within VS Code.":::
 
-    If you're already signed in and can see your existing subscriptions, go to the next section. 
+    If you're already signed in and can see your existing subscriptions, go to the next section. If you don't yet have an Azure account, choose **Create and Azure Account...**. Students can choose **Create and Azure for Students Account...**.
 
-2. When prompted in the browser, choose your Azure account and sign in using your Azure account credentials. If you create a new account, you can sign in after you successfully create your account.
+2. When prompted in the browser, choose your Azure account and sign in using your Azure account credentials. If you create a new account, you can sign in after your account is created.
 
 3. After you've successfully signed in, you can close the new browser window. The subscriptions that belong to your Azure account are displayed in the sidebar.
