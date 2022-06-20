@@ -4,7 +4,7 @@ description: Sample queries with new fields in the Traffic Analytics schema. Use
 services: network-watcher
 documentationcenter: na
 author: Harsha-CS
-manager: agummadi
+manager: vinigam
 editor: 
 
 ms.service: network-watcher
@@ -26,7 +26,7 @@ The [Traffic Analytics log schema](./traffic-analytics-schema.md) includes the f
 
 The new fields provide information about source and destination IPs, and they simplify queries.
 
-In the next few months, the following older fields will be deprecated:
+The following older fields will be deprecated in future:
 
 - `VMIP_s`
 - `Subscription_g`
@@ -42,7 +42,7 @@ The following three examples show how to replace the old fields with the new one
 
 ## Example 1: VMIP_s, Subscription_g, Region_s, Subnet_s, VM_s, NIC_s, and PublicIPs_s fields
 
-We don't have to infer source and destination cases from the `FlowDirection_s` field for AzurePublic and ExternalPublic flows. It can also be inappropriate to use the `FlowDirection_s` field for a network virtual appliance.
+The schema doesn't have to infer source and destination cases from the `FlowDirection_s` field for AzurePublic and ExternalPublic flows. It can also be inappropriate to use the `FlowDirection_s` field for a network virtual appliance.
 
 Previous Kusto query:
 
@@ -95,7 +95,7 @@ The old field used the following format:
 <Index value 0)>|<NSG_ RuleName>|<Flow Direction>|<Flow Status>|<FlowCount ProcessedByRule>
 ```
 
-We no longer aggregate data across a network security group (NSG). In the updated schema, `NSGList_s` contains only one NSG. Also, `NSGRules` contains only one rule. We removed the complicated formatting here and in other fields as shown in the following example.
+The schema no longer aggregates data across a network security group (NSG). In the updated schema, `NSGList_s` contains only one NSG. Also, `NSGRules` contains only one rule. The complicated formatting has been removed here and in other fields, as shown in the following example.
 
 Previous Kusto query:
 
@@ -126,7 +126,7 @@ FlowCountProcessedByRule = AllowedInFlows_d + DeniedInFlows_d + AllowedOutFlows_
 
 ## Example 3: FlowCount_d field
 
-Because we don't club data across the NSG, the `FlowCount_d` is simply:
+Because the schema doesn't club data across the NSG, the `FlowCount_d` is simply:
 
 `AllowedInFlows_d` + `DeniedInFlows_d` + `AllowedOutFlows_d` + `DeniedOutFlows_d`
 
@@ -139,7 +139,7 @@ To illustrate these conditions:
 - If the flow was inbound, one of the `InFlows_d` suffixed fields is populated.
 - If the flow was outbound, one of the `OutFlows_d` suffixed fields is populated.
 
-Depending on the conditions, we know which one of the four fields is populated.
+Depending on the conditions, it's clear which of the four fields is populated.
 
 ## Next steps
 
