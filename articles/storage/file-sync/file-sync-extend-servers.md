@@ -12,7 +12,7 @@ ms.subservice: files
 
 # Tutorial: Extend Windows file servers with Azure File Sync
 
-The article demonstrates the basic steps for extending the storage capacity of a Windows server by using Azure File Sync. Although the tutorial features Windows Server as an Azure virtual machine (VM), you would typically do this process for your on-premises servers. You can find instructions for deploying Azure File Sync in your own environment in the [Deploy Azure File Sync](file-sync-deployment-guide.md) article.
+The article demonstrates the basic steps for extending the storage capacity of a Windows server by using Azure File Sync. Although this tutorial features Windows Server as an Azure virtual machine (VM), you would typically do this process for your on-premises servers. You can find instructions for deploying Azure File Sync in your own environment in the [Deploy Azure File Sync](file-sync-deployment-guide.md) article.
 
 > [!div class="checklist"]
 > - Deploy the Storage Sync Service
@@ -33,7 +33,7 @@ Sign in to the [Azure portal](https://portal.azure.com).
 For this tutorial, you need to do the following before you can deploy Azure File Sync:
 
 - Create an Azure storage account and file share
-- Set up a Windows Server 2016 Datacenter VM
+- Set up a Windows Server 2019 Datacenter VM
 - Prepare the Windows Server VM for Azure File Sync
 
 ### Create a folder and .txt file
@@ -46,56 +46,55 @@ On your local computer, create a new folder named *FilesToSync* and add a text f
 
 ### Create a file share
 
-After you deploy an Azure storage account, you create a file share.
+After you deploy an Azure storage account, follow these steps to create a file share.
 
 1. In the Azure portal, select **Go to resource**.
-1. Select **Files** from the storage account pane.
-
-    ![Select Files](./media/storage-sync-files-extend-servers/click-files.png)
-
+1. From the menu at the left, select **Data storage** > **File shares**.
 1. Select **+ File Share**.
 
-    ![Select the add file share button](./media/storage-sync-files-extend-servers/create-file-share-portal2.png)
+1. Name the new file share *afsfileshare*, leave the tier set to *Transaction optimized*, and then select **Create**. You only need 5 TiB for this tutorial.
 
-1. Name the new file share *afsfileshare*. Enter "5120" for the **Quota**, and then select **Create**. The quota can be a maximum of 100 TiB, but you only need 5 TiB for this tutorial.
-
-    ![Provide a name and quota for the new file share](./media/storage-sync-files-extend-servers/create-file-share-portal3.png)
+    :::image type="content" source="media/storage-sync-files-extend-servers/create-file-share-portal.png" alt-text="Screenshot showing how to create a new file share using the Azure portal.":::
 
 1. Select the new file share. On the file share location, select **Upload**.
 
-    ![Upload a file](./media/storage-sync-files-extend-servers/create-file-share-portal5.png)
+    :::image type="content" source="media/storage-sync-files-extend-servers/create-file-share-portal5.png" alt-text="Screenshot showing where to find the Upload button for the new file share.":::
 
-1. Browse to the *FilesToSync* folder where you created your .txt file, select *mytestdoc.txt* and select **Upload**.
+1. Browse to the *FilesToSync* folder on your local machine where you created your .txt file, select *mytestdoc.txt* and select **Upload**.
 
-    ![Browse file share](./media/storage-sync-files-extend-servers/create-file-share-portal6.png)
+    :::image type="content" source="media/storage-sync-files-extend-servers/create-file-share-portal6.png" alt-text="Screenshot showing how to browse and upload a file to the new file share using the Azure portal.":::
 
-At this point, you've created a storage account and a file share with one file in it. Next, you deploy an Azure VM with Windows Server 2016 Datacenter to represent the on-premises server in this tutorial.
+At this point, you've created a storage account and a file share with one file in it. Next, you'll deploy an Azure VM with Windows Server 2019 Datacenter to represent the on-premises server in this tutorial.
 
 ### Deploy a VM and attach a data disk
 
-1. Go to the Azure portal and expand the menu on the left. Choose **Create a resource** in the upper left-hand corner.
-1. In the search box above the list of **Azure Marketplace** resources, search for **Windows Server 2016 Datacenter** and select it in the results. Choose **Create**.
-1. Go to the **Basics** tab. Under **Project details**, select the resource group you created for this tutorial.
+1. Select **Home** in the Azure portal and under **Azure services**, select **+ Create a resource**.
+1. Under **Popular Azure services**, select **Virtual machine** > **Create**.
+1. Under **Project details**, select your subscription and the resource group you created for this tutorial.
 
-   ![Enter basic information about your VM on the portal blade](./media/storage-sync-files-extend-servers/vm-resource-group-and-subscription.png)
+    :::image type="content" source="media/storage-sync-files-extend-servers/vm-project-and-instance-details.png" alt-text="Screenshot showing how to supply project and instance details when creating a VM for this tutorial.":::
 
 1. Under **Instance details**, provide a VM name. For example, use *myVM*.
-1. Don't change the default settings for **Region**, **Availability options**, **Image**, and **Size**.
-1. Under **Administrator account**, provide a **Username** and **Password** for the VM.
+1. Don't change the default settings for **Region**, **Availability options**, and **Security type**.
+1. Under **Image**, select **Windows Server 2019 Datacenter - Gen2**. Leave **Size** set to the default.
+1. Under **Administrator account**, provide a **Username** and **Password** for the VM. The username must be between 1 and 20 characters long and can't contain special characters \/""[]:|<>+=;,?*@& or end with '.' The password must be between 12 and 123 characters long, and must have 3 of the following: 1 lower case character, 1 upper case character, 1 number, and 1 special character.
+
+    :::image type="content" source="media/storage-sync-files-extend-servers/vm-username-and-password.png" alt-text="Screenshot showing how to set the username, password, and inbound port rules for the VM.":::
+
 1. Under **Inbound port rules**, choose **Allow selected ports** and then select **RDP (3389)** and **HTTP** from the drop-down menu.
 
 1. Before you create the VM, you need to create a data disk.
 
-   1. Select **Next:Disks**.
+   1. At the bottom of the page, select **Next:Disks**.
 
-      ![Add data disks](./media/storage-sync-files-extend-servers/vm-add-data-disk.png)
+      :::image type="content" source="media/storage-sync-files-extend-servers/vm-add-data-disk.png" alt-text="Screenshot showing how to select the Disks tab.":::
 
    1. On the **Disks** tab, under **Disk options**, leave the defaults.
-   1. Under **DATA DISKS**, select **Create and attach a new disk**.
+   1. Under **Data disks**, select **Create and attach a new disk**.
 
-   1. Use the default settings except for **Size (GiB)**, which you can change to **1 GiB** for this tutorial.
+   1. Use the default settings except for **Size**, which you can change to **4 GiB** for this tutorial by selecting **Change size**.
 
-      ![Data disk details](./media/storage-sync-files-extend-servers/vm-create-new-disk-details.png)
+      :::image type="content" source="media/storage-sync-files-extend-servers/create-data-disk.png" alt-text="Screenshot showing how to create a new data disk for your VM.":::
 
    1. Select **OK**.
 1. Select **Review + create**.
@@ -111,20 +110,21 @@ At this point, you've created a new virtual machine and attached a data disk. Ne
 
 ### Connect to your VM
 
-1. In the Azure portal, select **Connect** on the virtual machine properties page.
+1. In the Azure portal, select **Connect** > **RDP** on the VM properties page.
 
-   ![Connect to an Azure VM from the portal](./media/storage-sync-files-extend-servers/connect-vm.png)
+   :::image type="content" source="media/storage-sync-files-extend-servers/connect-vm.png" alt-text="Screenshot showing the Connect button on the Azure portal with RDP highlighted.":::
 
-1. On the **Connect to virtual machine** page, keep the default options to connect by **IP address** over port 3389. Select **Download RDP file**.
+1. On the **Connect** page, keep the default options to connect by **Public IP address** over port 3389. Select **Download RDP file**.
 
-   ![Download the RDP file](./media/storage-sync-files-extend-servers/download-rdp.png)
+   :::image type="content" source="media/storage-sync-files-extend-servers/download-rdp.png" alt-text="Screenshot showing how to connect with RDP.":::
 
-1. Open the downloaded RDP file and select **Connect** when prompted.
-1. In the **Windows Security** window, select **More choices** and then **Use a different account**. Type the username as *localhost\username*, enter the password you created for the virtual machine, and then select **OK**.
+1. Open the downloaded RDP file and select **Connect** when prompted. You might see a warning that says *The publisher of this remote connection can't be identified*. Click **Connect** anyway.
+
+1. In the **Windows Security** window that asks you to enter your credentials, select **More choices** and then **Use a different account**. Type the username as *localhost\username*, enter the password you created for the virtual machine, and then select **OK**.
 
    ![More choices](./media/storage-sync-files-extend-servers/local-host2.png)
 
-1. You might receive a certificate warning during the sign-in process. Select **Yes** or **Continue** to create the connection.
+1. You might receive a certificate warning during the sign-in process saying that the identity of the remote computer cannot be verified. Select **Yes** or **Continue** to create the connection.
 
 ### Prepare the Windows server
 
