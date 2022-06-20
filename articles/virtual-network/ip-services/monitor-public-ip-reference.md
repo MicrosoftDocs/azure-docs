@@ -9,13 +9,13 @@ ms.custom: subject-monitoring
 ms.date: 06/20/2022
 ---
 
-# Monitoring Public IP Addresses data reference
+# Monitoring Public IP addresses data reference
 
-See [Monitoring Public IP Address](monitor-public-ip.md) for details on collecting and analyzing monitoring data for Public IP Addresses.
+See [Monitoring Public IP address](monitor-public-ip.md) for details on collecting and analyzing monitoring data for Public IP addresses.
 
 ## Metrics
 
-This section lists all the automatically collected platform metrics collected for Public IP Address.  
+This section lists all the automatically collected platform metrics collected for Public IP addresses.  
 
 |Metric Type | Resource Provider / Type Namespace<br/> and link to individual metrics |
 |-------|-----|
@@ -36,11 +36,11 @@ Public IP Addresses have the following dimensions associated with its metrics.
 
 ## Resource logs
 
-This section lists the types of resource logs you can collect for Public IP Address. 
+This section lists the types of resource logs you can collect for Public IP addresses. 
 
 For reference, see a list of [all resource logs category types supported in Azure Monitor](/azure/azure-monitor/platform/resource-logs-schema).
 
-This section lists all the resource log category types collected for Public IP Address.  
+This section lists all the resource log category types collected for Public IP addresses.  
 
 |Resource Log Type | Resource Provider / Type Namespace<br/> and link to individual metrics |
 |-------|-----|
@@ -54,7 +54,7 @@ For more information, see [Azure Monitor Logs table reference organized by resou
 
 ### Diagnostics tables
 
-Public IP Address uses the [Azure Diagnostics](/azure/azure-monitor/reference/tables/azurediagnostics) table to store resource log information. The following columns are relevant.
+Public IP addresses use the [Azure Diagnostics](/azure/azure-monitor/reference/tables/azurediagnostics) table to store resource log information. The following columns are relevant.
 
 **Azure Diagnostics**
 
@@ -65,7 +65,7 @@ Public IP Address uses the [Azure Diagnostics](/azure/azure-monitor/reference/ta
 
 ## Activity log
 
-The following table lists the operations that Public IP Addresses may record in the Activity log. This is a subset of the possible entries your might find in the activity log.
+The following table lists the operations that Public IP addresses may record in the Activity log. This is a subset of the possible entries your might find in the activity log.
 
 | Namespace | Description |
 |:---|:---|
@@ -87,6 +87,6 @@ For more information on the schema of Activity Log entries, see [Activity Log sc
 
 ## See Also
 
-- See [Monitoring Azure Public IP Address](monitor-public-ip.md) for a description of monitoring Azure Public IP Address.
+- See [Monitoring Azure Public IP Address](monitor-public-ip.md) for a description of monitoring Azure Public IP addresses.
 
 - See [Monitoring Azure resources with Azure Monitor](/azure/azure-monitor/insights/monitor-azure-resources) for details on monitoring Azure resources.
