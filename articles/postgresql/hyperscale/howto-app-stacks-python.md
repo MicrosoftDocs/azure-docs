@@ -174,7 +174,7 @@ print("copying data completed")
 
 ### COPY command to load data in-memory
 
-The following code is an example for copying the data from in-memory to table.
+The following code is an example for copying in-memory data to table.
 
 ```python
 data = [[3,"Walgreens","Sunnyvale","California",94006], [4,"Target","Sunnyvale","California",94016]]
