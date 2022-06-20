@@ -106,6 +106,9 @@ Run the following commands on each host, as described below:
 
 1. Register the Hyper-V host to Azure Migrate.
 
+> [!NOTE]
+> If your Hyper-V host was previously registered with another Azure Migrate Project that you are not longer using or deleted, you will need to de-register it from that Project and register it in the new one. Follow the [Remove servers and disable protection](https://docs.microsoft.com/en-us/azure/site-recovery/site-recovery-manage-registration-and-protection?WT.mc_id=modinfra-39236-thmaure#unregister-a-connected-configuration-server) guide to so.
+
     ```
     "C:\Program Files\Microsoft Azure Site Recovery Provider\DRConfigurator.exe" /r /Credentials <key file path>
     ```
