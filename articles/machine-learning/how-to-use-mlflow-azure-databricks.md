@@ -154,6 +154,8 @@ You have to configure the MLflow tracking URI to point exclusively to Azure Mach
    > [!NOTE]
    > You can also get this URL by navigating to the [Azure ML Studio web portal](https://ml.azure.com) -> click on the uper-right corner -> View all properties in Azure Portal -> MLflow tracking URI.
 
+   ---
+
 #### Experiment's names in Azure Machine Learning
 
 When Azure Databricks is configured to exclusively track experiments in Azure Machine Learning workspace, the experiment's naming convention has to follow the one used by Azure Machine Learning. In Azure Databricks, experiments are named with the path to where the experiment is saved like `/Users/alice@contoso.com/iris-classifier`. However, in Azure Machine Learning you have to provide the experiment name directly. As in the previous example, the same experiment would be named `iris-classifier` directly:
