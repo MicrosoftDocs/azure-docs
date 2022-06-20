@@ -3,12 +3,12 @@ title: 'Tutorial: Design a server - Azure PowerShell - Azure Database for MySQL'
 description: This tutorial explains how to create and manage Azure Database for MySQL server and database using PowerShell.
 ms.service: mysql
 ms.subservice: single-server
+ms.topic: tutorial
 author: savjani
 ms.author: pariks
 ms.devlang: azurepowershell
-ms.topic: tutorial
-ms.date: 06/20/2022
 ms.custom: mvc, devx-track-azurepowershell
+ms.date: 06/20/2022
 ---
 
 # Tutorial: Design an Azure Database for MySQL using PowerShell

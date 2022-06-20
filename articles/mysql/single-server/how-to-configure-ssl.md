@@ -8,9 +8,7 @@ ms.author: pariks
 ms.topic: how-to
 ms.devlang: csharp, golang, java, javascript, php, python, ruby
 ms.custom: "devx-track-python, devx-track-csharp"
-ms.date: 06/20/202207/08/2020
-
-[ms.date](ms.date:06/20/2022)]
+ms.date: 06/20/2022
 ---
 
 # Configure SSL connectivity in your application to securely connect to Azure Database for MySQL

@@ -6,9 +6,7 @@ ms.subservice: single-server
 ms.topic: conceptual
 author: savjani
 ms.author: pariks
-ms.date: 06/20/202208/26/2020
-
-[ms.date](ms.date:06/20/2022)]
+ms.date: 06/20/2022
 ---
 
 # Choose the right MySQL Server option in Azure

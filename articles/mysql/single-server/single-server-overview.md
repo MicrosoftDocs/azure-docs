@@ -7,9 +7,7 @@ ms.subservice: single-server
 ms.author: pariks
 ms.custom: mvc
 ms.topic: overview
-ms.date: 06/20/20226/19/2021
-
-[ms.date](ms.date:06/20/2022)]
+ms.date: 06/20/2022
 ---
 
 # Azure Database for MySQL Single Server

@@ -6,9 +6,7 @@ ms.subservice: single-server
 author: Bashar-MSFT
 ms.author: bahusse
 ms.topic: how-to
-ms.date: 06/20/20223/15/2021
-
-[ms.date](ms.date:06/20/2022)]
+ms.date: 06/20/2022
 ---
 
 # Configure and access slow query logs from the Azure portal

@@ -7,9 +7,7 @@ author: savjani
 ms.author: pariks
 ms.topic: how-to
 ms.custom:
-ms.date: 06/20/20226/19/2021
-
-[ms.date](ms.date:06/20/2022)]
+ms.date: 06/20/2022
 ---
 
 # Minimal-downtime migration to Azure Database for MySQL

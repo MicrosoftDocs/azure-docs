@@ -6,9 +6,7 @@ ms.subservice: single-server
 author: savjani
 ms.author: pariks
 ms.topic: how-to
-ms.date: 06/20/20229/29/2020
-
-[ms.date](ms.date:06/20/2022)]
+ms.date: 06/20/2022
 ---
 
 # Configure and access audit logs for Azure Database for MySQL in the Azure portal

@@ -7,9 +7,7 @@ author: mksuni
 ms.author: sumuth
 ms.topic: how-to
 ms.custom: devx-track-azurecli
-ms.date: 06/20/202201/09/2020
-
-[ms.date](ms.date:06/20/2022)]
+ms.date: 06/20/2022
 ---
 
 # Create and manage Private Link for Azure Database for MySQL using CLI
