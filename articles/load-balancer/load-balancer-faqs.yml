@@ -3,11 +3,11 @@ metadata:
   title: Frequently asked questions - Azure Load Balancer
   description: Answers to frequently asked questions about the Azure Load Balancer. 
   services: load-balancer
-  author: erichrt
+  author: mbender-ms
   ms.service: load-balancer
   ms.topic: faq
   ms.date: 04/22/2020
-  ms.author: errobin
+  ms.author: mbender
 title: Load Balancer frequently asked questions
 summary: |
 
