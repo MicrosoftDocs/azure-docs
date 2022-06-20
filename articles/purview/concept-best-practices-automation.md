@@ -6,7 +6,7 @@ ms.author: tarifat
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: conceptual
-ms.date: 05/17/2022
+ms.date: 06/20/2022
 ---
 
 # Microsoft Purview automation best practices
