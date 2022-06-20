@@ -46,7 +46,7 @@ const insertOneResult = await client.db("adventureworks").collection("products")
 Drop the collection from the database to remove it permanently. However, the next insert or update operation that accesses the collection will create a new collection with that name.
 
 
-:::code language="javascript" source="~/samples-cosmosdb-mongodb-javascript/299-drop-collection/index.js" id="collection":::
+:::code language="javascript" source="~/samples-cosmosdb-mongodb-javascript/299-drop-collection/index.js" id="drop_collection":::
 
 The preceding code snippet displays the following example console output:
 
@@ -68,13 +68,10 @@ A document contains the information within a JSON schema. To insert a document, 
 
 :::code language="javascript" source="~/samples-cosmosdb-mongodb-javascript/203-insert-doc/index.js" id="database_object":::
 
-The preceding code snippet displays the following example console output for an **upsert**, when the document is new.
+The preceding code snippet displays the following example console output:
 
-:::code language="javascript" source="~/samples-cosmosdb-mongodb-javascript/203-insert-doc/index.js" id="console_result_insert":::
+:::code language="javascript" source="~/samples-cosmosdb-mongodb-javascript/203-insert-doc/index.js" id="console_result":::
 
-The preceding code snippet displays the following example console output for an **update**, when the document already exists.
-
-:::code language="javascript" source="~/samples-cosmosdb-mongodb-javascript/203-insert-doc/index.js" id="console_result_update":::
 
 ## Update a document
 
@@ -82,9 +79,13 @@ To update a document, specify the query used to find the document along with whi
 
 :::code language="javascript" source="~/samples-cosmosdb-mongodb-javascript/250-upsert-doc/index.js" id="upsert":::
 
-The preceding code snippet displays the following example console output:
+The preceding code snippet displays the following example console output for an insert:
 
-:::code language="javascript" source="~/samples-cosmosdb-mongodb-javascript/203-insert-doc/index.js" id="console_result":::
+:::code language="javascript" source="~/samples-cosmosdb-mongodb-javascript/250-upsert-doc/index.js" id="console_result_insert":::
+
+The preceding code snippet displays the following example console output for an update:
+
+:::code language="javascript" source="~/samples-cosmosdb-mongodb-javascript/250-upsert-doc/index.js" id="console_result_update":::
 
 ## Bulk updates to a collection
 
@@ -96,7 +97,7 @@ You can perform several operations with the **bulkWrite** operation. The followi
 * deleteOne
 * deleteMany
 
-:::code language="javascript" source="~/samples-cosmosdb-mongodb-javascript/251-bulk_write/index.js" id="upsert":::
+:::code language="javascript" source="~/samples-cosmosdb-mongodb-javascript/251-bulk_write/index.js" id="bulk_write":::
 
 The preceding code snippet displays the following example console output:
 

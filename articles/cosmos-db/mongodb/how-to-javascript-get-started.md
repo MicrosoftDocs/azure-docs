@@ -212,4 +212,4 @@ The following guides show you how to use each of these classes to build your app
 Now that you've connected to a MongoDB API account, use the next guide to create and manage databases.
 
 > [!div class="nextstepaction"]
-> [Create a database in Azure Cosmos DB MongoDB API using JavaScript](how-to-javascript-create-database.md)
+> [Create a database in Azure Cosmos DB MongoDB API using JavaScript](how-to-javascript-manage-databases.md)

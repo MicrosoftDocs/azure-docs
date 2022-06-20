@@ -74,7 +74,7 @@ A database is created when it is accessed. The most common way to access a new d
 const insertOneResult = await client.db("adventureworks").collection("products").insertOne(doc);
 ```
 
-Learn more about working with [collections](how-to-javascript-manage-collections.md) and [documents](how-to-javascript-manage-documents.md).
+Learn more about working with [collections](how-to-javascript-manage-collections.md) and documents.
 
 ## Drop a database
 
