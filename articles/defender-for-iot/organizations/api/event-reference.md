@@ -1,3 +1,10 @@
+---
+title: Supported events API types and titles - Microsoft Defender for IoT
+description: Learn about the supported values for the type and title parameters used in the events API.
+ms.date: 06/20/2022
+ms.topic: reference
+---
+
 # Supported event types and titles
 
 
