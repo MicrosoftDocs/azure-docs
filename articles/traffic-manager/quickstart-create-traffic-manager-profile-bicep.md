@@ -4,7 +4,7 @@ description: This quickstart article describes how to create an Azure Traffic Ma
 services: traffic-manager
 author: schaffererin
 ms.author: v-eschaffer
-ms.date: 06/17/2022
+ms.date: 06/20/2022
 ms.topic: quickstart
 ms.service: traffic-manager
 ms.custom: devx-track-azurepowershell, subject-armqs, mode-arm
@@ -105,7 +105,7 @@ Use Azure CLI or Azure PowerShell to validate the deployment.
     # [CLI](#tab/CLI)
 
     ```azurecli-interactive
-    
+    az network traffic-manager endpoint update --name {endpointName} --type externalEndpoints --profile-name ExternalEndpointExample --resource-group exampleRG --endpoint-status Disabled
     ```
 
     # [PowerShell](#tab/PowerShell)
