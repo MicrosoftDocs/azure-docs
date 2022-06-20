@@ -300,7 +300,7 @@ To use this playbook, make sure that you have the required role applied, valid c
 
 1. With the playbook opened as a Logic app, select **Logic app designer**. If you have invalid connection details, you may have warning signs in both of the **Connections** steps. For example:
 
-    :::image type="content" source="media/iot-solution/connection-steps.png" alt-text="Screenshot of the default A D 4 I O T AutoAlertStatusSync playbook.":::
+    :::image type="content" source="media/iot-solution/connection-steps.png" alt-text="Screenshot of the default A D 4 I O T AutoAlertStatusSync playbook." lightbox="media/iot-solution/connection-steps.png":::
 
 1. Select a **Connections** step to expand it and add a valid connection as needed.
 
