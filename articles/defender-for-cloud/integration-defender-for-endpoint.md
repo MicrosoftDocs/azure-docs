@@ -79,6 +79,8 @@ Confirm that your machine meets the necessary requirements for Defender for Endp
     > [!IMPORTANT]
     > Defender for Cloud's integration with Microsoft Defender for Endpoint is enabled by default. So when you enable enhanced security features, you give consent for Microsoft Defender for Servers to access the Microsoft Defender for Endpoint data related to vulnerabilities, installed software, and alerts for your endpoints.
 
+1. For Windows servers, make sure that your servers meet the requirements for [onboarding Microsoft Defender for Endpoint](microsoft-365/security/defender-endpoint/configure-server-endpoints?view=o365-worldwide#windows-server-2012-r2-and-windows-server-2016)
+
 1. If you've moved your subscription between Azure tenants, some manual preparatory steps are also required. For full details, [contact Microsoft support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
 
 ### Enable the integration
@@ -100,7 +102,7 @@ If you've already enabled the integration with **Defender for Endpoint**, you ha
 
 1. Select **Integrations**. You'll know that the integration is enabled if the checkbox for **Allow Microsoft Defender for Endpoint to access my data** is selected as shown:
 
-    :::image type="content" source="./media/integration-defender-for-endpoint/integration-enabled.png" alt-text="The integration between Microsoft Defender for Cloud and Microsoft's EDR solution, Microsoft Defender for Endpoint, is enabled":::
+    :::image type="content" source="media/integration-defender-for-endpoint/unified-solution-enabled.png" alt-text="The integration between Microsoft Defender for Cloud and Microsoft's EDR solution, Microsoft Defender for Endpoint, is enabled." lightbox="media/integration-defender-for-endpoint/unified-solution-enabled.png":::
 
     > [!NOTE]
     > If it isn't selected, use the instructions in [Users who've never enabled the integration with Microsoft Defender for Endpoint for Windows](#users-who-never-enabled-the-integration-with-microsoft-defender-for-endpoint-for-windows).
