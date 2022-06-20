@@ -12,6 +12,8 @@ items:
       href: ./how-to/completions.md
     - name: Work with code (Codex)
       href: ./how-to/work-with-code.md
+    - name: Generate embeddings
+      href: ./how-to/embeddings.md
     - name: Search
       href: ./how-to/search.md
     - name: Business continuity & disaster recovery (BCDR)
