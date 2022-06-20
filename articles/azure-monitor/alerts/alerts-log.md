@@ -85,7 +85,9 @@ You can also [create log alert rules using Azure Resource Manager templates](../
    |---------|---------|
    |Number of violations|The number of violations that have to occur to trigger the alert.|
    |Evaluation period|The amount of time within which those violations have to occur. |
-   |Override query time range| Enter a value for this field if the alert evaluation period is different than the query time range.| 
+   |Override query time range| Enter a value for this field if the alert evaluation period is different than the query time range. The alert time range is limited to a maximum of two days. Even if the query contains an **ago** command with a time range of longer than 2 days, the 2 day maximum time range is applied. For example, even if the query text contains **ago(7d)**, the query only scans up to 2 days of data.
+
+If you use **ago** command in the query, the range is automatically set to two days. You can also change time range manually in cases the query requires more data than the alert evaluation even if there is no **ago** command in the query.| 
 
    :::image type="content" source="media/alerts-log/alerts-rule-preview-advanced-options.png" alt-text="Screenshot of the advanced options section of a new log alert rule.":::
 
