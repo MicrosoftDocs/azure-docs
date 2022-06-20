@@ -95,10 +95,10 @@ To write queries against the [new workspace-based table structure/schema](#works
 
 To ensure the queries successfully run, validate that the query's fields align with the [new schema fields](#appmetrics).
 
-If you have multiple Application Insights resources store their telemetry in one Log Analytics workspace but you only want to query data from one specific Application Insights resource, you have two options:
+If you have multiple Application Insights resources store their telemetry in one Log Analytics workspace resource but you only want to query data from one specific Application Insights resource, you have two options:
 
-1. Navigate to the desired Application Insights resource and query data directly from there
-2. When you query data from the Log Analytics UI, filter by ```_ResourceId``` to select a specific Application Insights resource
+1. In Azure portal, navigate to the desired Application Insights resource and open the **Logs** tab. All queries from this tab will automatically pull data from the Application Insights resource you selected
+2. In Azure portal, navigate to the Log Analytics workspace resource that you configured as a destination for your Application Insights telemetry. To filter telemetry from a specific Application Insights resource, you can use a built-in ```_ResourceId``` property in all application specific tables
 
 Notice that if you query directly from the Log Analytics UI within your workspace, you'll only see the data that is ingested post migration. To see both your classic Application Insights data + new data ingested after migration in a unified query experience use the Logs (Analytics) query view from within your migrated Application Insights resource.
 
