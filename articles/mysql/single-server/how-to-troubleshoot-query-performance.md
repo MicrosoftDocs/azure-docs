@@ -6,9 +6,7 @@ ms.subservice: single-server
 author: savjani
 ms.author: pariks
 ms.topic: troubleshooting
-ms.date: 06/20/20223/30/2022
-
-[ms.date](ms.date:06/20/2022)]
+ms.date: 06/20/2022
 ---
 
 # Profile query performance in Azure Database for MySQL using EXPLAIN

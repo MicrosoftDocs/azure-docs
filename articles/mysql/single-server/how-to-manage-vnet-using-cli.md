@@ -7,9 +7,7 @@ author: mksuni
 ms.author: sumuth
 ms.devlang: azurecli
 ms.topic: how-to
-ms.date: 06/20/202202/10/2022 
-
-[ms.date](ms.date:06/20/2022)]
+ms.date: 06/20/2022
 ms.custom: devx-track-azurecli
 ---
 

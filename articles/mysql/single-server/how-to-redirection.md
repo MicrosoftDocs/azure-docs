@@ -6,9 +6,7 @@ ms.subservice: single-server
 author: savjani
 ms.author: pariks
 ms.topic: how-to
-ms.date: 06/20/20226/8/2020
-
-[ms.date](ms.date:06/20/2022)]
+ms.date: 06/20/2022
 ---
 
 # Connect to Azure Database for MySQL with redirection

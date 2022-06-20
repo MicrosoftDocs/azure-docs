@@ -7,9 +7,7 @@ ms.subservice: single-server
 author: savjani
 ms.author: pariks
 ms.topic: troubleshooting
-ms.date: 06/20/202201/13/2021
-
-[ms.date](ms.date:06/20/2022)]
+ms.date: 06/20/2022
 ---
 
 # Troubleshoot replication latency in Azure Database for MySQL

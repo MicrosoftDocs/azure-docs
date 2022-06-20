@@ -6,9 +6,7 @@ ms.subservice: single-server
 author: mksuni
 ms.author: sumuth
 ms.topic: troubleshooting
-ms.date: 06/20/202202/13/2020
-
-[ms.date](ms.date:06/20/2022)]
+ms.date: 06/20/2022
 ---
 
 # Troubleshoot data encryption in Azure Database for MySQL
