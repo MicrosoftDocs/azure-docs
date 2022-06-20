@@ -100,7 +100,7 @@ Create a Windows Server 2019 virtual machine.
     | **Administrator account** |            |
     | Username | Enter a username. |
     | Password | Enter a password. |
-    | Confirm password    | Reenter password. |
+    | Confirm password    | Reenter the password. |
     | **Inbound port rules**  |   |
     | Public inbound ports | Select **None**. |
 
