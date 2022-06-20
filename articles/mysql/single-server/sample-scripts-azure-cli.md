@@ -7,9 +7,12 @@ ms.service: mysql
 ms.devlang: azurecli
 ms.topic: sample
 ms.custom: mvc, devx-track-azurecli, seo-azure-cli
-ms.date: 09/17/2021
+ms.date: 06/20/202209/17/2021
+
+[ms.date](ms.date:06/20/2022)]
 keywords: azure cli samples, azure cli code samples, azure cli script samples
 ---
+
 # Azure CLI samples for Azure Database for MySQL 
 
 [!INCLUDE[applies-to-mysql-single-server](../includes/applies-to-mysql-single-server.md)]

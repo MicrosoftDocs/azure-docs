@@ -1,12 +1,12 @@
 ---
 title: Azure Database for MySQL - Single Server service tiers
 description: Learn about the various service tiers for Azure Database for MySQL including compute generations, storage types, storage size, vCores, memory, and backup retention periods.
-author: savjani
-ms.author: pariks
 ms.service: mysql
 ms.subservice: single-server
 ms.topic: conceptual
-ms.date: 02/07/2022
+author: savjani
+ms.author: pariks
+ms.date: 06/20/2022
 ---
 
 # Azure Database for MySQL - Single Server service tiers

@@ -6,7 +6,7 @@ ms.subservice: single-server
 author: Bashar-MSFT
 ms.author: bahusse
 ms.topic: how-to
-ms.date: 1/28/2021
+ms.date: 06/20/2022
 ---
 
 # Major version upgrade in Azure Database for MySQL Single Server
