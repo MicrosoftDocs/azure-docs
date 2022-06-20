@@ -414,9 +414,22 @@ Run the following commands to create the root CA private key and the root CA cer
 
 1. Create the root CA certificate:
 
+    # [Windows](#tab/windows)
+
     ```bash
     winpty openssl req -new -x509 -config ./openssl_root_ca.cnf -passin pass:1234 -key ./private/azure-iot-test-only.root.ca.key.pem -subj '//CN=Azure IoT Hub CA Cert Test Only' -days 30 -sha256 -extensions v3_ca -out ./certs/azure-iot-test-only.root.ca.cert.pem
     ```
+
+    > [!IMPORTANT]
+    > The extra forward slash given for the subject name (`//CN=Azure IoT Hub CA Cert Test Only`) is only required to escape the string with Git on Windows platforms.
+
+    # [Linux](#tab/linux)
+
+    ```bash
+    openssl req -new -x509 -config ./openssl_root_ca.cnf -passin pass:1234 -key ./private/azure-iot-test-only.root.ca.key.pem -subj '/CN=Azure IoT Hub CA Cert Test Only' -days 30 -sha256 -extensions v3_ca -out ./certs/azure-iot-test-only.root.ca.cert.pem
+    ```
+
+    ---
 
 1. Examine the root CA certificate:
 
@@ -455,9 +468,22 @@ Run the following commands to create the intermediate CA private key and the int
 
 1. Create the intermediate CA certificate signing request (CSR):
 
+    # [Windows](#tab/windows)
+
     ```bash
     winpty openssl req -new -sha256 -passin pass:1234 -config ./openssl_device_intermediate_ca.cnf -subj '//CN=Azure IoT Hub Intermediate Cert Test Only' -key ./private/azure-iot-test-only.intermediate.key.pem -out ./csr/azure-iot-test-only.intermediate.csr.pem
     ```
+
+    > [!IMPORTANT]
+    > The extra forward slash given for the subject name (`//CN=Azure IoT Hub Intermediate Cert Test Only`) is only required to escape the string with Git on Windows platforms.
+
+    # [Linux](#tab/linux)
+
+    ```bash
+    openssl req -new -sha256 -passin pass:1234 -config ./openssl_device_intermediate_ca.cnf -subj '/CN=Azure IoT Hub Intermediate Cert Test Only' -key ./private/azure-iot-test-only.intermediate.key.pem -out ./csr/azure-iot-test-only.intermediate.csr.pem
+    ```
+
+    ---
 
 1. Sign the intermediate certificate with the root CA certificate
 
@@ -504,9 +530,22 @@ In this section you create the device certificates and the full chain device cer
 
     The subject common name (CN) of the device certificate must be set to the [Registration ID](./concepts-service.md#registration-id) that your device will use to register with DPS. The registration ID is a case-insensitive string (up to 128 characters long) of alphanumeric characters plus the special characters: `'-'`, `'.'`, `'_'`, `':'`. The last character must be alphanumeric or dash (`'-'`). The common name must adhere to this format. For group enrollments, the registration ID is also used as the device ID in IoT Hub. The subject common name is set in the `-subj` parameter in the following command.
 
+    # [Windows](#tab/windows)
+
     ```bash
     winpty openssl req -config ./openssl_device_intermediate_ca.cnf -key ./private/device-01.key.pem -subj //CN=device-01 -new -sha256 -out ./csr/device-01.csr.pem
     ```
+
+    > [!IMPORTANT]
+    > The extra forward slash given for the subject name (`//CN=device-01`) is only required to escape the string with Git on Windows platforms.
+
+    # [Linux](#tab/linux)
+
+    ```bash
+    openssl req -config ./openssl_device_intermediate_ca.cnf -key ./private/device-01.key.pem -subj /CN=device-01 -new -sha256 -out ./csr/device-01.csr.pem
+    ```
+
+    ---
 
 1. Sign the device certificate.
 
@@ -593,9 +632,13 @@ The following files will be used in the rest of this tutorial:
 
 ## Verify ownership of the root certificate
 
+For DPS to be able to validate the device's certificate chain, you must upload and verify ownership of the root CA certificate.
+
 > [!NOTE]
 > As of July 1st, 2021, you can perform automatic verification of certificates that you upload to DPS. This is the recommended approach for this tutorial.
 >
+
+### Automatically verify ownership of the root certificate (recommended)
 
 1. Follow the instructions in [Automatic verification of intermediate or root CA through self-attestation](how-to-verify-certificates.md#automatic-verification-of-intermediate-or-root-ca-through-self-attestation) to upload the root certificate (`./certs/azure-iot-test-only.root.ca.cert.pem`). This is the recommended approach for this tutorial.
 
