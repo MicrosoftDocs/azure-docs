@@ -154,7 +154,7 @@ Replace it with the following JSON object:
 Next deploy the template by using Azure PowerShell or CLI. The following example shows how to deploy the template with a CLI command:
 
 ```azurecli
-az group deployment create -g <ResourceGroup> --template-file <ProvisionTemplateFilePath>
+az deployment group create -g <ResourceGroup> --template-file <ProvisionTemplateFilePath>
 ```
 
 ## What to expect during and after migration?
