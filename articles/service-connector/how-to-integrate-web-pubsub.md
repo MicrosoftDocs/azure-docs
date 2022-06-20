@@ -29,39 +29,36 @@ This page shows all the supported compute services, clients, and authentication 
 
 ## Default environment variable names or application properties
 
-Use the environment variable names and application properties listed below to connect an Azure service to Web PubSub using .NET, Java, Node.js, or Python. For each example below, replace the placeholder texts `<name>`, `<client-id>`, `<client-secret`, `<access-key>, and `<tenant-id>` with your resource name, client ID, client secret, access-key, and tenant ID.
+Use the environment variable names and application properties listed below to connect an Azure service to Web PubSub using .NET, Java, Node.js, or Python. For each example below, replace the placeholder texts `<name>`, `<client-id>`, `<client-secret`, `<access-key>`, and `<tenant-id>` with your resource name, client ID, client secret, access-key, and tenant ID.
 
 ### System-assigned managed identity
 
-> [!div class="mx-tdBreakAll"]
-> | Default environment variable name | Description           | Sample value                 |
-> | --------------------------------- | --------------------- | ---------------------------- |
-> | AZURE_WEBPUBSUB_HOST              | Azure Web PubSub host | `<name>.webpubsub.azure.com` |
+| Default environment variable name | Description           | Sample value                 |
+| --------------------------------- | --------------------- | ---------------------------- |
+| AZURE_WEBPUBSUB_HOST              | Azure Web PubSub host | `<name>.webpubsub.azure.com` |
 
 ### User-assigned managed identity
 
-> [!div class="mx-tdBreakAll"]
-> | Default environment variable name | Description                          | Sample value                      |
-> | --------------------------------- | ------------------------------------ | --------------------------------- |
-> | AZURE_WEBPUBSUB_HOST              | Azure Web PubSub host                | `<name>.webpubsub.azure.com`      |
-> | AZURE_WEBPUBSUB_CLIENTID          | Azure Web PubSub client ID           | `<client-id>`                     |
+| Default environment variable name | Description                          | Sample value                      |
+| --------------------------------- | ------------------------------------ | --------------------------------- |
+| AZURE_WEBPUBSUB_HOST              | Azure Web PubSub host                | `<name>.webpubsub.azure.com`      |
+| AZURE_WEBPUBSUB_CLIENTID          | Azure Web PubSub client ID           | `<client-id>`                     |
 
 ### Secret/connection string
 
 > [!div class="mx-tdBreakAll"]
-> | Default environment variable name | Description                              | Sample value                                                                      |
-> | --------------------------------- | -----------------------------------------| --------------------------------------------------------------------------------- |
+> | Default environment variable name | Description                              | Sample value |
+> | --------------------------------- | -----------------------------------------| -------------|
 > | AZURE_WEBPUBSUB_CONNECTIONSTRING  | Azure Web PubSub connection string       | `Endpoint=https://<name>.webpubsub.azure.com;AccessKey=<access-key>;Version=1.0;` |
 
 ### Service principal
 
-> [!div class="mx-tdBreakAll"]
-> | Default environment variable name | Description                          | Sample value                 |
-> | --------------------------------- | -------------------------------------| -----------------------------|
-> | AZURE_WEBPUBSUB_HOST              | Azure Web PubSub host                | `<name>.webpubsub.azure.com` |
-> | AZURE_WEBPUBSUB_CLIENTID          | Azure Web PubSub client ID           | `<client-id>`                |
-> | AZURE_WEBPUBSUB_CLIENTSECRET      | Azure Web PubSub client secret       | `<client-secret>`            |
-> | AZURE_WEBPUBSUB_TENANTID          | Azure Web PubSub tenant ID           | `<tenant-id>`                |
+| Default environment variable name | Description                          | Sample value                 |
+| --------------------------------- | -------------------------------------| -----------------------------|
+| AZURE_WEBPUBSUB_HOST              | Azure Web PubSub host                | `<name>.webpubsub.azure.com` |
+| AZURE_WEBPUBSUB_CLIENTID          | Azure Web PubSub client ID           | `<client-id>`                |
+| AZURE_WEBPUBSUB_CLIENTSECRET      | Azure Web PubSub client secret       | `<client-secret>`            |
+| AZURE_WEBPUBSUB_TENANTID          | Azure Web PubSub tenant ID           | `<tenant-id>`                |
 
 ## Next steps
 
