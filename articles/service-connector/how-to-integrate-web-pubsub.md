@@ -1,5 +1,5 @@
 ---
-title: Integrate Azure Web PubSub with Service Connector
+title: Integrate Azure Web PubSub with service connector
 description: Integrate Azure Web PubSub into your application with Service Connector
 author: maud-lv
 ms.author: malev
@@ -8,9 +8,9 @@ ms.topic: how-to
 ms.date: 06/16/2022
 ---
 
-# Integrate Azure Web PubSub with Service Connector
+# Integrate Azure Web PubSub with service connector
 
-This page shows all the supported compute services, clients, and authentication types to connect services to Azure Web PubSub instances, using Service Connector. This page also shows the default environment variable names and application properties needed to create service connections. You might still be able to connect to an Azure Web PubSub instance using other programming languages, without using Service Connector. Learn more about the [Service Connector environment variable naming conventions](concept-service-connector-internals.md).
+This page shows all the supported compute services, clients, and authentication types to connect services to Azure Web PubSub instances, using Service Connector. This page also shows the default environment variable names and application properties needed to create service connections. You might still be able to connect to an Azure Web PubSub instance using other programming languages, without using Service Connector. Learn more about the [service connector environment variable naming conventions](concept-service-connector-internals.md).
 
 ## Supported compute services
 
