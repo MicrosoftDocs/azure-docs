@@ -181,6 +181,17 @@ The following columns are available for each device.
 | **Discovered** | When this device was first seen in the network. |
 | **PLC mode (preview)** | The PLC operating mode includes the Key state (physical) and run state (logical). Possible **Key** states include, Run, Program, Remote, Stop, Invalid, Programming Disabled.Possible Run. The possible **Run** states are Run, Program, Stop, Paused, Exception, Halted, Trapped, Idle, Offline. if both states are the same, only one state is presented. |
 
+## Export the device inventory to CSV
+
+Export your device inventory to a CSV file to manage or share data outside of the OT sensor.
+
+To export device inventory data, select the **Import/Export file** :::image type="icon" source="media/how-to-work-with-asset-inventory-information/menu-icon-device-inventory.png" border="false"::: button, and then select one of the following:
+
+- **Export Device Inventory View**: Exports only the devices currently displayed, with the current filter applied
+- **Export All Device Inventory**: Exports the entire device inventory, with no filtering
+
+Save the exported file locally.
+
 ## Enhance device inventory data
 
 Enhance the data in your device inventory with information from other sources, such as CMDBs, DNS, firewalls, and Web APIs. Use enhanced data to learn things such as:
