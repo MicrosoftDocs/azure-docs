@@ -6,10 +6,8 @@ ms.service: mysql
 ms.subservice: single-server
 ms.topic: quickstart
 ms.author: jukullam
-ms.date: 06/20/202205/09/2022
-
-[ms.date](ms.date:06/20/2022)]
 ms.custom: github-actions-azure, mode-other
+ms.date: 06/20/2022
 ---
 
 # Quickstart: Use GitHub Actions to connect to Azure MySQL

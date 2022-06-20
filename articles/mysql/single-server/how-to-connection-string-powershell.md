@@ -7,9 +7,7 @@ author: savjani
 ms.author: pariks
 ms.custom: mvc, devx-track-azurepowershell
 ms.topic: how-to
-ms.date: 06/20/20228/5/2020
-
-[ms.date](ms.date:06/20/2022)]
+ms.date: 06/20/2022
 ---
 
 # How to generate an Azure Database for MySQL connection string with PowerShell

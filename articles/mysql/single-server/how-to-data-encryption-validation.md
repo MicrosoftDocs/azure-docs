@@ -6,9 +6,7 @@ ms.subservice: single-server
 author: mksuni
 ms.author: sumuth
 ms.topic: how-to
-ms.date: 06/20/202204/28/2020
-
-[ms.date](ms.date:06/20/2022)]
+ms.date: 06/20/2022
 ---
 
 # Validating data encryption for Azure Database for MySQL
