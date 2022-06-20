@@ -6,9 +6,7 @@ ms.subservice: single-server
 author: mksuni
 ms.author: sumuth
 ms.topic: troubleshooting
-ms.date: 06/20/202209/21/2020
-
-[ms.date](ms.date:06/20/2022)]
+ms.date: 06/20/2022
 ---
 
 # Troubleshoot database corruption in Azure Database for MySQL
