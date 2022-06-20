@@ -75,7 +75,7 @@ When you select a node size for a managed compute resource in Azure Machine Lear
 There are a few exceptions and limitations to choosing a VM size:
 
 * Some VM series aren't supported in Azure Machine Learning.
-* There are some VM series, such as GPUs and other special SKUs, which are not automatically available to choose.  You'll see these when you ask to view all compute resources.  Then you'll need to request quota for these advanced compute resources. For more information about quota, see [Request quota increases](how-to-manage-quotas#request-quota-increases).
+* There are some VM series, such as GPUs and other special SKUs, which are not automatically available to choose.  You'll see these when you ask to view all compute resources.  Then you'll need to request quota for these advanced compute resources. For more information about quota, see [Request quota increases](how-to-manage-quotas.md#request-quota-increases).
 * 
 See the following table to learn more about supported series and restrictions.
 
