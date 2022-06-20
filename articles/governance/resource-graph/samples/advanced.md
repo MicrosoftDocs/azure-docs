@@ -1,8 +1,10 @@
 ---
 title: Advanced query samples
 description: Use Azure Resource Graph to run some advanced queries, including working with columns, listing tags used, and matching resources with regular expressions.
-ms.date: 10/01/2021
+ms.date: 06/15/2022
 ms.topic: sample
+ms.author: timwarner
+author: timwarner-msft
 ---
 # Advanced Resource Graph query samples
 
@@ -601,7 +603,7 @@ Search-AzGraph -Query "Resources | where type =~ 'microsoft.network/networkinter
 
 ## <a name="vm-powerstate"></a>Summarize virtual machine by the power states extended property
 
-This query uses the [extended properties](../concepts/query-language.md#extended-properties) on
+This query uses the [extended properties](../concepts/query-language.md#extended-properties-preview) on
 virtual machines to summarize by power states.
 
 ```kusto

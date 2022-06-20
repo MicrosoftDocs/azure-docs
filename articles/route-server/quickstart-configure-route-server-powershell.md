@@ -16,8 +16,7 @@ This article helps you configure Azure Route Server to peer with a Network Virtu
 
 :::image type="content" source="media/quickstart-configure-route-server-portal/environment-diagram.png" alt-text="Diagram of Route Server deployment environment using the Azure PowerShell." border="false":::
 
-> [!IMPORTANT]
-> If you have an Azure Route Server created before September 1st and it doesn't have a public IP address asssociated, you'll need to recreate the Route Server so it can obtain an IP address for management purpose.
+[!INCLUDE [route server preview note](../../includes/route-server-note-preview-date.md)]
 
 ## Prerequisites
 

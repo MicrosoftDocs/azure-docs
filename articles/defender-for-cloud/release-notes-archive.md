@@ -88,7 +88,7 @@ If you've [configured automations](workflow-automation.md) or defined [alert sup
 
 Access from a Tor exit node might indicate a threat actor trying to hide their identity.
 
-The alert is now tuned to generate only for authenticated access, which results in higher accuracy and confidence that the activity is malicious. This enhancement reduces the benign positive rate.  
+The alert is now tuned to generate only for authenticated access, which results in higher accuracy and confidence that the activity is malicious. This enhancement reduces the benign positive rate.
 
 An outlying pattern will have high severity, while less anomalous patterns will have medium severity.
 
@@ -1371,7 +1371,7 @@ Learn more about how to [Explore and manage your resources with asset inventory]
 Updates in January include:
 
 - [Azure Security Benchmark is now the default policy initiative for Azure Security Center](#azure-security-benchmark-is-now-the-default-policy-initiative-for-azure-security-center)
-- [Vulnerability assessment for on-premise and multicloud machines is released for general availability (GA)](#vulnerability-assessment-for-on-premise-and-multicloud-machines-is-released-for-general-availability-ga)
+- [Vulnerability assessment for on-premises and multicloud machines is released for general availability (GA)](#vulnerability-assessment-for-on-premises-and-multicloud-machines-is-released-for-general-availability-ga)
 - [Secure score for management groups is now available in preview](#secure-score-for-management-groups-is-now-available-in-preview)
 - [Secure score API is released for general availability (GA)](#secure-score-api-is-released-for-general-availability-ga)
 - [Dangling DNS protections added to Azure Defender for App Service](#dangling-dns-protections-added-to-azure-defender-for-app-service)
@@ -1404,7 +1404,7 @@ To learn more, see the following pages:
 - [Learn more about Azure Security Benchmark](/security/benchmark/azure/introduction)
 - [Customize the set of standards in your regulatory compliance dashboard](update-regulatory-compliance-packages.md)
 
-### Vulnerability assessment for on-premise and multicloud machines is released for general availability (GA)
+### Vulnerability assessment for on-premises and multicloud machines is released for general availability (GA)
 
 In October, we announced a preview for scanning Azure Arc-enabled servers with [Azure Defender for Servers](defender-for-servers-introduction.md)' integrated vulnerability assessment scanner (powered by Qualys).
 
@@ -1654,7 +1654,7 @@ The Security Center experience within SQL provides access to the following Secur
 
 - **Security recommendations** – Security Center periodically analyzes the security state of all connected Azure resources to identify potential security misconfigurations. It then provides recommendations on how to remediate those vulnerabilities and improve organizations’ security posture.
 - **Security alerts** – a detection service that continuously monitors Azure SQL activities for threats such as SQL injection, brute-force attacks, and privilege abuse. This service triggers detailed and action-oriented security alerts in Security Center and provides options for continuing investigations with Azure Sentinel, Microsoft’s Azure-native SIEM solution.
-- **Findings** – a vulnerability assessment service that continuously monitors Azure SQL configurations and helps remediate vulnerabilities. Assessment scans provide an overview of Azure SQL security states together with detailed security findings.  
+- **Findings** – a vulnerability assessment service that continuously monitors Azure SQL configurations and helps remediate vulnerabilities. Assessment scans provide an overview of Azure SQL security states together with detailed security findings.
 
 :::image type="content" source="media/release-notes/microsoft-defender-for-cloud-experience-in-sql.png" alt-text="Azure Security Center's security features for SQL are available from within Azure SQL":::
 
@@ -1838,13 +1838,13 @@ You can now see whether or not your subscriptions have the default Security Cent
 
 Updates in October include:
 
-- [Vulnerability assessment for on-premise and multicloud machines (preview)](#vulnerability-assessment-for-on-premise-and-multicloud-machines-preview)
+- [Vulnerability assessment for on-premises and multicloud machines (preview)](#vulnerability-assessment-for-on-premises-and-multicloud-machines-preview)
 - [Azure Firewall recommendation added (preview)](#azure-firewall-recommendation-added-preview)
 - [Authorized IP ranges should be defined on Kubernetes Services recommendation updated with quick fix](#authorized-ip-ranges-should-be-defined-on-kubernetes-services-recommendation-updated-with-quick-fix)
 - [Regulatory compliance dashboard now includes option to remove standards](#regulatory-compliance-dashboard-now-includes-option-to-remove-standards)
 - [Microsoft.Security/securityStatuses table removed from Azure Resource Graph (ARG)](#microsoftsecuritysecuritystatuses-table-removed-from-azure-resource-graph-arg)
 
-### Vulnerability assessment for on-premise and multicloud machines (preview)
+### Vulnerability assessment for on-premises and multicloud machines (preview)
 
 [Azure Defender for Servers](defender-for-servers-introduction.md)' integrated vulnerability assessment scanner (powered by Qualys) now scans Azure Arc-enabled servers.
 
@@ -1957,9 +1957,9 @@ properties: {
 Query that references SecurityStatuses:
 
 ```kusto
-SecurityResources 
+SecurityResources
 | where type == 'microsoft.security/securitystatuses' and properties.type == 'virtualMachine'
-| where name in ({vmnames}) 
+| where name in ({vmnames})
 | project name, resourceGroup, policyAssesments = properties.policyAssessments, resourceRegion = location, id, resourceDetails = properties.resourceDetails
 ```
 
@@ -1975,7 +1975,7 @@ source =~ "aws", properties.additionalData.AzureResourceId,
 source =~ "gcp", properties.additionalData.AzureResourceId,
 extract("^(.+)/providers/Microsoft.Security/assessments/.+$",1,id)))))
 | extend resourceGroup = tolower(tostring(split(resourceId, "/")[4]))
-| where resourceName in ({vmnames}) 
+| where resourceName in ({vmnames})
 | project resourceName, resourceGroup, resourceRegion = location, id, resourceDetails = properties.additionalData
 ```
 
@@ -2585,7 +2585,7 @@ Custom policies are now part of the Security Center recommendations experience, 
 
 Create a custom initiative in Azure Policy, add policies to it and onboard it to Azure Security Center, and visualize it as recommendations.
 
-We've now also added the option to edit the custom recommendation metadata. Metadata options include severity, remediation steps, threats information, and more.  
+We've now also added the option to edit the custom recommendation metadata. Metadata options include severity, remediation steps, threats information, and more.
 
 Learn more about [enhancing your custom recommendations with detailed information](custom-security-policies.md#enhance-your-custom-recommendations-with-detailed-information).
 
@@ -2624,7 +2624,7 @@ Now, you can add standards such as:
 - **Canada Federal PBMM**
 - **Azure CIS 1.1.0 (new)** (which is a more complete representation of Azure CIS 1.1.0)
 
-In addition, we've recently added the [Azure Security Benchmark](/security/benchmark/azure/introduction), the Microsoft-authored Azure-specific guidelines for security and compliance best practices based on common compliance frameworks. Additional standards will be supported in the dashboard as they become available.  
+In addition, we've recently added the [Azure Security Benchmark](/security/benchmark/azure/introduction), the Microsoft-authored Azure-specific guidelines for security and compliance best practices based on common compliance frameworks. Additional standards will be supported in the dashboard as they become available.
 
 Learn more about [customizing the set of standards in your regulatory compliance dashboard](update-regulatory-compliance-packages.md).
 

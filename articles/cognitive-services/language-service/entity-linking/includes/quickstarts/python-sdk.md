@@ -3,7 +3,7 @@ author: aahill
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: include
-ms.date: 06/07/2022
+ms.date: 06/13/2022
 ms.author: aahi
 ms.custom: ignite-fall-2021
 ---
@@ -43,13 +43,13 @@ Create a new Python file and copy the below code. Remember to replace the `key` 
 [!INCLUDE [find the key and endpoint for a resource](../../../includes/find-azure-resource-info.md)]
 
 ```python
-key = "paste-your-key-here"
 endpoint = "paste-your-endpoint-here"
+key = "paste-your-key-here"
 
 from azure.ai.textanalytics import TextAnalyticsClient
 from azure.core.credentials import AzureKeyCredential
 
-# Authenticate the client using your key and endpoint 
+# Authenticate the client using your key and endpoint. 
 def authenticate_client():
     ta_credential = AzureKeyCredential(key)
     text_analytics_client = TextAnalyticsClient(
@@ -59,7 +59,7 @@ def authenticate_client():
 
 client = authenticate_client()
 
-# Example function for recognizing entities and providing a link to an online data source
+# Example function for recognizing entities and providing a link to an online data source.
 def entity_linking_example(client):
 
     try:

@@ -48,11 +48,15 @@ However, these external scalers aren't supported as part of the add-on and rely 
 ## Next steps
 
 * [Enable the KEDA add-on with an ARM template][keda-arm]
+* [Enable the KEDA add-on with the Azure CLI][keda-cli]
+* [Troubleshoot KEDA add-on problems][keda-troubleshoot]
 * [Autoscale a .NET Core worker processing Azure Service Bus Queue message][keda-sample]
 
 <!-- LINKS - internal -->
 [aks-support-policy]: support-policies.md
+[keda-cli]: keda-deploy-add-on-cli.md
 [keda-arm]: keda-deploy-add-on-arm.md
+[keda-troubleshoot]: keda-troubleshoot.md
 
 <!-- LINKS - external -->
 [keda-scalers]: https://keda.sh/docs/latest/scalers/

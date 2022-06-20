@@ -75,7 +75,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
    ![Screenshot shows to edit Basic S A M L Configuration.](common/edit-urls.png "Basic Configuration")
 
-1. On the **Basic SAML Configuration** section, Upload the **Service Provider metadata file** which you can download from the [URL](https://api.javelo.io/omniauth/<CustomerSPIdentifier>_saml/metadata) and perform the following steps:
+1. On the **Basic SAML Configuration** section, Upload the **Service Provider metadata file** which you can download from the `https://api.javelo.io/omniauth/<CustomerSPIdentifier>_saml/metadata` and perform the following steps:
 
 	a. Click **Upload metadata file**.
 

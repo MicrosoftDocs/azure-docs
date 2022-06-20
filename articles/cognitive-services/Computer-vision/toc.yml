@@ -154,6 +154,8 @@ items:
   items:
   - name: Face overview
     href: overview-identity.md
+  - name: Pricing
+    href: https://azure.microsoft.com/pricing/details/cognitive-services/face-api
   - name: Face quickstart
     href: quickstarts-sdk/identity-client-library.md
   - name: Samples

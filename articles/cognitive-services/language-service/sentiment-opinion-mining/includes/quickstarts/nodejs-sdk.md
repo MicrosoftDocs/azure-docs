@@ -64,10 +64,10 @@ Open the file and copy the below code. Remember to replace the `key` variable wi
 const { TextAnalyticsClient, AzureKeyCredential } = require("@azure/ai-text-analytics");
 const key = '<paste-your-key-here>';
 const endpoint = '<paste-your-endpoint-here>';
-// Authenticate the client with your key and endpoint
+// Authenticate the client with your key and endpoint.
 const textAnalyticsClient = new TextAnalyticsClient(endpoint,  new AzureKeyCredential(key));
 
-// Example method for detecting sentiment in text
+// Example method for detecting sentiment in text.
 async function sentimentAnalysis(client){
 
     const sentimentInput = [
@@ -90,7 +90,7 @@ async function sentimentAnalysis(client){
 }
 sentimentAnalysis(textAnalyticsClient)
 
-// Example method for detecting opinions in text 
+// Example method for detecting opinions in text.
 async function sentimentAnalysisWithOpinionMining(client){
 
   const sentimentInput = [
@@ -130,7 +130,7 @@ async function sentimentAnalysisWithOpinionMining(client){
     }
   }
 }
-sentimentAnalysisWithOpinionMining(textAnalyticsClient)
+sentimentAnalysisWithOpinionMining(textAnalyticsClient);
 ```
 
 > [!div class="nextstepaction"]

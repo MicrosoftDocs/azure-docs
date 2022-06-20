@@ -14,7 +14,7 @@ ms.author: genli
 
 # Prepare a Windows VHD or VHDX to upload to Azure
 
-**Applies to:** :heavy_check_mark: Windows VMs 
+**Applies to:** :heavy_check_mark: Windows VMs
 
 Before you upload a Windows virtual machine (VM) from on-premises to Azure, you must prepare the
 virtual hard disk (VHD or VHDX). Azure supports both generation 1 and generation 2 VMs that are in
@@ -126,7 +126,7 @@ After the SFC scan completes, install Windows Updates and restart the computer.
 1. For VMs with legacy operating systems (Windows Server 2012 R2 or Windows 8.1 and below), make sure the latest Hyper-V Integration Component Services are installed. For more information, see [Hyper-V integration components update for Windows VM](https://support.microsoft.com/topic/hyper-v-integration-components-update-for-windows-virtual-machines-8a74ffad-576e-d5a0-5a2f-d6fb2594f990).
 
 > [!NOTE]
-> In a scenario where VMs are to be set up with a disaster recovery solution between the on-premise VMware server and Azure, the Hyper-V Integration Component Services can't be used. If that’s the case, please contact the VMware support to migrate the VM to Azure and make it co-reside in VMware server.
+> In a scenario where VMs are to be set up with a disaster recovery solution between the on-premises VMware server and Azure, the Hyper-V Integration Component Services can't be used. If that’s the case, please contact the VMware support to migrate the VM to Azure and make it co-reside in VMware server.
 
 ## Check the Windows services
 
@@ -340,7 +340,7 @@ Make sure the VM is healthy, secure, and RDP accessible:
    ```powershell
    netstat.exe -anob
    ```
-   
+
    The following is an example.
 
    ```powershell
@@ -488,7 +488,7 @@ In particular, Sysprep requires the drives to be fully decrypted before executio
 ### Generalize a VHD
 
 >[!NOTE]
-> If you're creating a generalized image from an existing Azure VM, we recommend to remove the VM extensions 
+> If you're creating a generalized image from an existing Azure VM, we recommend to remove the VM extensions
 > before running the sysprep.
 
 >[!NOTE]
@@ -538,7 +538,7 @@ Use one of the methods in this section to convert and resize your virtual disk t
 1. Resize the virtual disk to meet Azure requirements:
 
    1. Disks in Azure must have a virtual size aligned to 1 MiB. If your VHD is a fraction of 1 MiB, you'll need to resize the disk to  a multiple of 1 MiB. Disks that are fractions of a MiB cause errors when creating images from the uploaded VHD. To verify the size you can use the PowerShell [Get-VHD](/powershell/module/hyper-v/get-vhd) cmdlet to show "Size", which must be a multiple of 1 MiB in Azure, and "FileSize", which will be equal to "Size" plus 512 bytes for the VHD footer.
-   
+
       ```powershell
       $vhd = Get-VHD -Path C:\test\MyNewVM.vhd
       $vhd.Size % 1MB
@@ -546,12 +546,12 @@ Use one of the methods in this section to convert and resize your virtual disk t
       $vhd.FileSize - $vhd.Size
       512
       ```
-   
-   1. The maximum size allowed for the OS VHD with a generation 1 VM is 2,048 GiB (2 TiB), 
+
+   1. The maximum size allowed for the OS VHD with a generation 1 VM is 2,048 GiB (2 TiB),
    1. The maximum size for a data disk is 32,767 GiB (32 TiB).
 
 > [!NOTE]
-> - If you are preparing a Windows OS disk after you convert to a fixed disk and resize if needed, create a VM that uses the disk. Start and sign in to the VM and continue with the sections in this article to finish preparing it for uploading.  
+> - If you are preparing a Windows OS disk after you convert to a fixed disk and resize if needed, create a VM that uses the disk. Start and sign in to the VM and continue with the sections in this article to finish preparing it for uploading.
 > - If you are preparing a data disk you may stop with this section and proceed to uploading your disk.
 
 ### Use Hyper-V Manager to convert the disk

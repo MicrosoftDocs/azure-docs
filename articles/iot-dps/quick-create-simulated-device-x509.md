@@ -581,6 +581,10 @@ In this section, you'll use your Windows command prompt.
     ```
 
     If you want to pass the certificate and password as a parameter, you can use the following format.
+    
+   >[!NOTE]
+   >Additional parameters can be passed along while running the application to change the TransportType (-t) and the GlobalDeviceEndpoint (-g).
+    
 
     ```cmd
     dotnet run -- -s 0ne00000A0A -c certificate.pfx -p 1234
