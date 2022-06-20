@@ -32,7 +32,7 @@ Availability zone redundancy is available for Standard logic apps, which are pow
 
 ### [Consumption (preview)](#tab/consumption)
 
-Availability zone redundancy is currently in *preview* for Consumption logic apps. During preview, the following considerations apply:
+Availability zone redundancy is currently in *preview* for Consumption logic apps, which run in multi-tenant Azure Logic Apps. During preview, the following considerations apply:
 
 * You can enable availability zone redundancy *only for new* Consumption logic app workflows that you create in the following Azure regions, which will expand as available:
 
@@ -82,8 +82,6 @@ With HTTP-based actions, certificates exported or created with AES256 encryption
 
 ## Enable availability zones
 
-<a name="standard"></a>
-
 ### [Standard](#tab/standard)
 
 1. In the [Azure portal](https://portal.azure.com), start creating a Standard logic app. On the **Create Logic App** page, stop after you select **Standard** as the plan type for your logic app.
@@ -103,8 +101,6 @@ With HTTP-based actions, certificates exported or created with AES256 encryption
 1. Finish creating your logic app.
 
 1. If you use a firewall and haven't set up access for traffic through the required IP addresses, make sure to complete that [requirement](#prerequisites).
-
-<a name="consumption"></a>
 
 ### [Consumption (preview)](#tab/consumption)
 
