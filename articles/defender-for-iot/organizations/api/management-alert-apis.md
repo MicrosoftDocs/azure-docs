@@ -148,6 +148,8 @@ curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" 'https://127.0.0.1/
 
 Use this API to take specified action on a specific alert detected by Defender for IoT.
 
+For example, you can use this API to create a forwarding rule that forwards data to QRadar. For more information, see [Integrate Qradar with Microsoft Defender for IoT](../tutorial-qradar.md).
+
 **URI**: `/external/v1/alerts/<UUID>`
 
 ### PUT
