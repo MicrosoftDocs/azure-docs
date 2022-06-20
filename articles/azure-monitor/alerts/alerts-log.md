@@ -87,13 +87,13 @@ You can also [create log alert rules using Azure Resource Manager templates](../
    |Evaluation period|The amount of time within which those violations have to occur. |
    |Override query time range| Enter a value for this field if the alert evaluation period is different than the query time range. The alert time range is limited to a maximum of two days. Even if the query contains an **ago** command with a time range of longer than 2 days, the 2 day maximum time range is applied. For example, even if the query text contains **ago(7d)**, the query only scans up to 2 days of data.
 
-If you use **ago** command in the query, the range is automatically set to two days. You can also change time range manually in cases the query requires more data than the alert evaluation even if there is no **ago** command in the query.| 
+   If you use **ago** command in the query, the range is automatically set to two days. You can also change time range manually in cases the query requires more data than the alert evaluation even if there is no **ago** command in the query.| 
 
    :::image type="content" source="media/alerts-log/alerts-rule-preview-advanced-options.png" alt-text="Screenshot of the advanced options section of a new log alert rule.":::
 
 1. The **Preview** chart shows query evaluations results over time. You can change the chart period or select different time series that resulted from unique alert splitting by dimensions.
 
-    :::image type="content" source="media/alerts-log/alerts-create-alert-rule-preview.png" alt-text="Screenshot of a preview of a new alert rule.":::
+   :::image type="content" source="media/alerts-log/alerts-create-alert-rule-preview.png" alt-text="Screenshot of a preview of a new alert rule.":::
 
 1. From this point on, you can select the **Review + create** button at any time. 
 1. In the **Actions** tab, select or create the required [action groups](./action-groups.md).
