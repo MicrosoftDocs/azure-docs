@@ -23,8 +23,6 @@ Microsoft Defender for Endpoint is a holistic, cloud-delivered, endpoint securit
 >
 > At Ignite 2020, we launched the [Microsoft Defender for Cloud XDR suite](https://www.microsoft.com/security/business/threat-protection), and this EDR component was renamed **Microsoft Defender for Endpoint (MDE)**.
 
-For Windows Server 2012 R2 and 2016 on all platforms, Defender for Servers Plan 1 deploys [the new MDE unified solution](https://techcommunity.microsoft.com/t5/microsoft-defender-for-endpoint/defending-windows-server-2012-r2-and-2016/ba-p/2783292), which doesn't use or require installation of the Microsoft Monitoring Agent (MMA). Defender for Servers Plan 2 deploys the MDE unified solution for Windows servers in GCP and AWS. You can choose to deploy the MDE unified solution for Windows servers in Azure so that all Azure servers upgrade to the MDE unified solution, and existing installations of Log Analytics will stop collecting data.
-
 ## Availability
 
 | Aspect                                       | Details                                                                                                                                                                                                                                                                               |
@@ -87,20 +85,56 @@ Confirm that your machine meets the necessary requirements for Defender for Endp
 
 ### [**Windows**](#tab/windows)
 
+[The new MDE unified solution](https://techcommunity.microsoft.com/t5/microsoft-defender-for-endpoint/defending-windows-server-2012-r2-and-2016/ba-p/2783292) doesn't use or require installation of the Log Analytics agent. The unified solution is automatically deployed for all Windows cloud and on-premises servers, except for Windows 2012 R2 and 2016 servers on Azure that are protected by Defender for Servers Plan 2. You can choose to deploy the MDE unified solution to those machines also.
+
+You'll deploy Defender for Endpoint to your Windows machines in one of two ways - depending on whether you've already deployed it to your Windows machines:
+
+- [Users with Defender for Servers enabled and Microsoft Defender for Endpoint for Windows deployed](#users-with-defender-for-servers-enabled-and-microsoft-defender-for-endpoint-for-windows-deployed)
+- [Users who never enabled the integration with Microsoft Defender for Endpoint for Windows](#users-who-never-enabled-the-integration-with-microsoft-defender-for-endpoint-for-windows)
+
+### Users with Defender for Servers enabled and Microsoft Defender for Endpoint for Windows deployed
+
+If you've already enabled the integration with **Defender for Endpoint for Windows**, you have complete control over when and whether to deploy the MDE unified solution to your **Windows** machines.
+
 1. From Defender for Cloud's menu, select **Environment settings** and select the subscription with the Windows machines that you want to receive Defender for Endpoint.
+
+1. Select **Integrations**. You'll know that the integration is enabled if the checkbox for **Allow Microsoft Defender for Endpoint to access my data** is selected as shown:
+
+    :::image type="content" source="./media/integration-defender-for-endpoint/integration-enabled.png" alt-text="The integration between Microsoft Defender for Cloud and Microsoft's EDR solution, Microsoft Defender for Endpoint, is enabled":::
+
+    > [!NOTE]
+    > If it isn't selected, use the instructions in [Users who've never enabled the integration with Microsoft Defender for Endpoint for Windows](#users-who-never-enabled-the-integration-with-microsoft-defender-for-endpoint-for-windows).
+
+1. To deploy the MDE unified solution to your Windows Server 2012 R2 and 2016 machines:
+
+    1. Select **Enable unified solution**.
+    1. Select **Save**.
+    1. In the confirmation prompt, verify the information and select **Enable** to continue. 
+
+    :::image type="content" source="./media/integration-defender-for-endpoint/enable-unified-solution-result.png" alt-text="Confirming the use of the MDE unified solution for Windows Server 2012 R2 and 2016 machines":::
+
+    Microsoft Defender for Cloud will:
+
+    - Stop the existing MDE process in the Log Analytics agent that collects data for Defender for Servers.
+    - Install the MDE unified solution for all existing and new Windows Server 2012 R2 and 2016 machines.
+    - Remove the **Enable unified solution** from the Integrations options.
+
+    Microsoft Defender for Cloud will automatically onboard your machines to Microsoft Defender for Endpoint. Onboarding might take up to 12 hours. For new machines created after the integration has been enabled, onboarding takes up to an hour.
+
+    > [!NOTE]
+    > If you choose not to deploy the MDE unified solution to your Windows 2012 R2 and 2016 servers and then configure Defender for Servers Plan 1, the MDE unified solution is not deployed to those servers so that your existing deployment is not changed without your explicit consent.
+
+### Users who never enabled the integration with Microsoft Defender for Endpoint for Windows
+
+If you've never enabled the integration for Windows, the **Allow Microsoft Defender for Endpoint to access my data** option will enable Defender for Cloud to deploy Defender for Endpoint to *both* your Windows and Linux machines.
+
+1. From Defender for Cloud's menu, select **Environment settings** and select the subscription with the machines that you want to receive Defender for Endpoint.
 
 1. Select **Integrations**.
 
 1. Select **Allow Microsoft Defender for Endpoint to access my data**, and select **Save**.
 
-    :::image type="content" source="./media/integration-defender-for-endpoint/enable-integration-with-edr.png" alt-text="Enable the integration between Microsoft Defender for Cloud and Microsoft's EDR solution, Microsoft Defender for Endpoint":::
-
-    Microsoft Defender for Cloud will automatically onboard your machines to Microsoft Defender for Endpoint. Onboarding might take up to 12 hours. For new machines created after the integration has been enabled, onboarding takes up to an hour.
-
-1. If you want all of your Azure Windows 2012 R2 and 2016 servers to use the MDE unified solution, select **Enable new unified solution**.
-
-    > [!NOTE]
-    > When you enable the MDE unified solution, you can't downgrade to the previous version of MDE.
+The MDE agent unified solution is deployed to all of the machines in the selected subscription.
 
 ### [**Linux**](#tab/linux)
 
@@ -123,11 +157,11 @@ If you've already enabled the integration with **Defender for Endpoint for Windo
     > [!NOTE]
     > If it isn't selected, use the instructions in [New users who've never enabled the integration with Microsoft Defender for Endpoint for Windows](#new-users-who-never-enabled-the-integration-with-microsoft-defender-for-endpoint-for-windows).
 
-1. To add your Linux machines to your integration
+1. To add your Linux machines to your integration:
 
     1. Select **Enable for Linux machines**.
     1. Select **Save**.
-    1. In the confirmation prompt, verify the information and select **Enable** if you're happy to continue. 
+    1. In the confirmation prompt, verify the information and select **Enable** to continue. 
 
     :::image type="content" source="./media/integration-defender-for-endpoint/enable-for-linux-result.png" alt-text="Confirming the integration between Defender for Cloud and Microsoft's EDR solution, Microsoft Defender for Endpoint for Linux":::
 
