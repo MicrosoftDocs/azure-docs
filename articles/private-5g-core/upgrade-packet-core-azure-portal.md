@@ -24,7 +24,7 @@ Each Azure Private 5G Core Preview site contains a packet core instance, which i
 
 ## View the current packet core version
 
-To check which version your packet core instance is currently at, and whether there is a newer version available:
+To check which version your packet core instance is currently running, and whether there is a newer version available:
 
 1. Sign in to the Azure portal at [https://aka.ms/AP5GCPortal](https://aka.ms/AP5GCPortal).
 1. Search for and select the **Mobile Network** resource representing the private mobile network.
