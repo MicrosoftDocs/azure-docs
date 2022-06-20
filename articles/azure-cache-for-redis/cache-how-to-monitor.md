@@ -28,7 +28,7 @@ For more information about the different `INFO` values used for each cache metri
 
 ## View cache metrics
 
-To view cache metrics, [find your cache](cache-configure.md#configure-azure-cache-for-redis-settings) in the [Azure portal](https://portal.azure.com). Azure Cache for Redis provides some built-in charts under **Overview** in the Resource menu. 
+To view cache metrics, [find your cache](cache-configure.md#configure-azure-cache-for-redis-settings) in the [Azure portal](https://portal.azure.com). Azure Cache for Redis provides some built-in charts under **Overview** in the Resource menu.
 
 :::image type="content" source="./media/cache-how-to-monitor/cache-overview-metrics.png" alt-text="Screen showing two charts: Memory Usage and Redis Server Load.":::
 
@@ -44,7 +44,7 @@ On the left, select **Overview**. You see following pre-configured monitoring ch
 
 The **Monitoring** section in the Resource menu contains **Insights**. When you select **Insights**, you see groupings of three types of charts: **Overview**, **Performance** and **Operations**.
 
-:::image type="content" source="./media/cache-how-to-monitor/redis-cache-monitoring-part.png" alt-text="Screenshot showing Monitoring Insights selected in the Resource menu.":::
+:::image type="content" source="./media/cache-how-to-monitor/cache-monitoring-part.png" alt-text="Screenshot showing Monitoring Insights selected in the Resource menu.":::
 
 Each tab contains status tiles and charts. These tiles and charts are a starting point for your metrics. If you wish to expand beyond **Insights**, you can define your own alerts, metrics, diagnostic settings and workbooks.
 
@@ -58,7 +58,7 @@ For scenarios where you don't need the full flexibility of Azure Monitor for Azu
 
 In the Resource menu on the left, select **Metrics** under **Monitoring**. Here, you design your own chart for your cache, defining the metric type and aggregation type. Once you have defined the metric, you can send it to a workbook.
 
-:::image type="content" source="./media/cache-how-to-monitor/redis-cache-monitor.png" alt-text="Screenshot with metrics showing in the resource manager":::
+:::image type="content" source="./media/cache-how-to-monitor/cache-monitor.png" alt-text="Screenshot with metrics showing in the resource manager":::
 
 For more information on working with metrics using Azure Monitor, see [Overview of metrics in Microsoft Azure](../azure-monitor/data-platform.md).
 
@@ -76,7 +76,7 @@ Configure a storage account to use with to store your metrics. Once you have cre
 1. Under the table heading **metric**, check box beside the line items you want to store, such as **AllMetrics**. Specify a **Retention (days)** policy. The maximum days retention you can specify is **365 days**. However, if you want to keep the metrics data forever, set **Retention (days)** to **0**.
 1. Select **Save**.
 
-:::image type="content" source="./media/cache-how-to-monitor/redis-cache-diagnostics.png" alt-text="Redis diagnostics":::
+:::image type="content" source="./media/cache-how-to-monitor/cache-diagnostics.png" alt-text="Redis diagnostics":::
 
 >[!NOTE]
 >In addition to archiving your cache metrics to storage, you can also [stream them to an Event hub or send them to Azure Monitor logs](../azure-monitor/essentials/rest-api-walkthrough.md#retrieve-metric-values).
@@ -152,8 +152,12 @@ You can configure to receive alerts based on metrics and activity logs. Azure Mo
 
 To configure alerts for your cache, select **Alerts** under Monitoring on the Resource menu.
 
-:::image type="content" source="./media/cache-how-to-monitor/cache-monitoring.png" alt-text="Monitoring":::
+:::image type="content" source="./media/cache-how-to-monitor/cache-monitoring.png" alt-text="Screenshot showing how to create an alert.":::
 
 For more information about configuring and using Alerts, see [Overview of Alerts](../azure-monitor/alerts/alerts-classic-portal.md).
 
 ## Next steps
+
+- [Azure Monitor for Azure Cache for Redis](../azure-monitor/insights/redis-cache-insights-overview.md)
+- [Azure Monitor Metrics REST API](../azure-monitor/essentials/stream-monitoring-data-event-hubs.md)
+- [`INFO`](https://redis.io/commands/info)
