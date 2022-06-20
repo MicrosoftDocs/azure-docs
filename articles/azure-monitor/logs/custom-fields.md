@@ -76,17 +76,13 @@ The following section walks through a complete example of creating a custom fiel
 
 We enter the following query to return all events from Service Control Manager that have an Event ID of 7036 which is the event that indicates a service starting or stopping.
 
-![Screenshot shows a query for an event source and ID.](media/custom-fields/query.png)
+![Screenshot showing a query for an event source and ID.](media/custom-fields/query.png)
 
-We then select and expand any record with event ID 7036.
+We then right-click on any record with event ID 7036 and select Extract fields from `Event`.
 
-![Source record](media/custom-fields/source-record.png)
+![Screenshot showing the Copy and Extract fields options, which are available when you right-click a record from the list of results.](media/custom-fields/extract-fields.png)
 
-We define custom fields by clicking the ellipsis next to the top property.
-
-![Extract fields](media/custom-fields/extract-fields.png)
-
-The **Field Extraction Wizard** is opened, and the **EventLog** and **EventID** fields are selected in the **Main Example** column.  This indicates that the custom field will be defined for events from the System log with an event ID of 7036.  This is sufficient so we don’t need to select any other fields.
+The **Field Extraction Wizard** opens with the **EventLog** and **EventID** fields selected in the **Main Example** column.  This indicates that the custom field will be defined for events from the System log with an event ID of 7036.  This is sufficient so we don’t need to select any other fields.
 
 ![Main example](media/custom-fields/main-example.png)
 
