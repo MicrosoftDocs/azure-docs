@@ -14,11 +14,7 @@ Event Grid supports automatic geo-disaster recovery of event subscription config
 
 Microsoft offers options to recover from a failue, you can opt to enable recovery to a paired region where available or disable recovery to a paired region to manage your own recovery. See [Azure cross-region replication pairings for all geographies](../availability-zones/cross-region-replication-azure.md#azure-cross-region-replication-pairings-for-all-geographies) to learn more about the supported paired regions. The failover is nearly instantaneous once initiated, or see [Build your own disaster recovery plan for Azure Event Grid topics and domains](https://docs.microsoft.com/en-us/azure/event-grid/custom-disaster-recovery) to learn more about how to implement your own failover strategy.
 
-Microsoft-initiated failover is exercised by Microsoft in rare situations to failover all the Event Grid resources from an affected region to the corresponding geo-paired region. This process is a default option and requires no intervention from the user. Microsoft reserves the right to make a determination of when this option will be exercised. This mechanism doesn't involve a user consent before the user's traffic is failed over. 
-
-## Availability zones
-
-Azure Event Grid event subscription configurations and events are automatically replicated across data centers in the availability zone, and replicated in the three availability zones (when available) in the region specified to provide automatic in-region recovery of your data in case of a failure in the region. See [Azure regions with availability zones](../availability-zones/az-overview.md#azure-regions-with-availability-zones) to learn more about the supported regions with availability zones.
+Microsoft-initiated failover is exercised by Microsoft in rare situations to failover all the Event Grid resources from an affected region to the corresponding geo-paired region. This process is a default option and requires no intervention from the user. Microsoft reserves the right to make a determination of when this option will be exercised. This mechanism doesn't involve a user consent before the user's traffic is failed over.
 
 ## Metrics
 
