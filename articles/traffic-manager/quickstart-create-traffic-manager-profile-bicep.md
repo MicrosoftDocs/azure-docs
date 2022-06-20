@@ -37,14 +37,14 @@ One Azure resource is defined in the Bicep file:
 
     # [CLI](#tab/CLI)
 
-    ```azurecli
+    ```azurecli-interactive
     az group create --name exampleRG --location eastus
     az deployment group create --resource-group exampleRG --template-file main.bicep --parameters uniqueDnsName=<dns-name>
     ```
 
     # [PowerShell](#tab/PowerShell)
 
-    ```azurepowershell
+    ```azurepowershell-interactive
     New-AzResourceGroup -Name exampleRG -Location eastus
     New-AzResourceGroupDeployment -ResourceGroupName exampleRG -TemplateFile ./main.bicep -uniqueDnsName "<dns-name>"
     ```
@@ -60,29 +60,63 @@ One Azure resource is defined in the Bicep file:
 
 ## Validate the deployment
 
-1. Determine the DNS name of the Traffic Manager profile using [Get-AzTrafficManagerProfile](/powershell/module/az.trafficmanager/get-aztrafficmanagerprofile).
+Use Azure CLI or Azure PowerShell to validate the deployment.
 
-    ```azurepowershell-interactive
-    Get-AzTrafficManagerProfile -Name ExternalEndpointExample -ResourceGroupName $resourceGroupName | Select RelativeDnsName
+1. Determine the DNS name of the Traffic Manager profile.
+
+    # [CLI](#tab/CLI)
+
+    ```azurecli-interactive
+    az network traffic-manager profile show -name ExternalEndpointExample -resource-group exampleRG 
     ```
 
-    Copy the **RelativeDnsName** value. The DNS name of your Traffic Manager profile is `<relativednsname>.trafficmanager.net`.
+    Copy the **fqdn** value. The DNS name of your Traffic Manager profile is `<relativeDnsName>.trafficmanager.net`.
 
-1. From a local PowerShell run the following command by replacing the **{relativeDNSname}** variable with `<relativednsname>.trafficmanager.net`.
+    # [PowerShell](#tab/PowerShell)
 
-    ```powershell
+    ```azurepowershell-interactive
+    Get-AzTrafficManagerProfile -Name ExternalEndpointExample -ResourceGroupName exampleRG | Select RelativeDnsName
+    ```
+
+    Copy the **RelativeDnsName** value. The DNS name of your Traffic Manager profile is `<relativeDnsName>.trafficmanager.net`.
+
+    ---
+
+2. Run the following command by replacing the **{relativeDnsName}** variable with `<relativeDnsName>.trafficmanager.net`.
+
+    # [CLI](#tab/CLI)
+
+    ```azurecli-interactive
+    
+    ```
+
+    # [PowerShell](#tab/PowerShell)
+
+    ```powershell-interactive
     Resolve-DnsName -Name {relativeDNSname} | Select-Object NameHost | Select -First 1
     ```
 
+    ---
+
     You should get a NameHost of either `www.microsoft.com` or `docs.microsoft.com` depending on which region is closer to you.
 
-1. To check if you can resolve to the other endpoint, disable the endpoint for the target you got in the last step. Replace the **{endpointName}** with either **endpoint1** or **endpoint2** to disable the target for `www.microsoft.com` or `docs.microsoft.com` respectively.
+3. To check if you can resolve to the other endpoint, disable the endpoint for the target you got in the last step. Replace the **{endpointName}** with either **endpoint1** or **endpoint2** to disable the target for `www.microsoft.com` or `docs.microsoft.com` respectively.
 
-    ```azurepowershell-interactive
-    Disable-AzTrafficManagerEndpoint -Name {endpointName} -Type ExternalEndpoints -ProfileName ExternalEndpointExample -ResourceGroupName $resourceGroupName -Force
+    # [CLI](#tab/CLI)
+
+    ```azurecli-interactive
+    
     ```
 
-1. Run the command from Step 2 again in a local PowerShell. This time you should get the other NameHost for the other endpoint.
+    # [PowerShell](#tab/PowerShell)
+
+    ```azurepowershell-interactive
+    Disable-AzTrafficManagerEndpoint -Name {endpointName} -Type ExternalEndpoints -ProfileName ExternalEndpointExample -ResourceGroupName exampleRG -Force
+    ```
+
+    ---
+
+4. Run the command from Step 2 again in Azure CLI or Azure PowerShell. This time, you should get the other NameHost for the other endpoint.
 
 ## Clean up resources
 
@@ -90,13 +124,13 @@ When you no longer need the Traffic Manager profile, use the Azure portal, Azure
 
 # [CLI](#tab/CLI)
 
-```azurecli
+```azurecli-interactive
 az group delete --name exampleRG
 ```
 
 # [PowerShell](#tab/PowerShell)
 
-```powershell
+```azurepowershell-interactive
 Remove-AzResourceGroup -Name exampleRG
 ```
 
