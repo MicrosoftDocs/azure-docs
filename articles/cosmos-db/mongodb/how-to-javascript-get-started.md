@@ -199,8 +199,8 @@ The following guides show you how to use each of these classes to build your app
 
 | Guide | Description |
 |--|---|
-| [Create a database](how-to-javascript-create-database.md) | Create databases |
-| [Create a collection](how-to-javascript-create-collection.md) | Create collections |
+| [Create a database](how-to-javascript-manage-databases.md) | Create databases |
+| [Create a collection](how-to-javascript-manage-collections.md) | Create collections |
 
 ## See also
 

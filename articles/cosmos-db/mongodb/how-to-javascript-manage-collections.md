@@ -125,4 +125,4 @@ The preceding code snippet displays the following example console output:
 ## See also
 
 - [Get started with Azure Cosmos DB MongoDB API and JavaScript](how-to-javascript-get-started.md)
-- [Create a database](how-to-javascript-create-database.md)
+- [Create a database](how-to-javascript-manage-databases.md)
