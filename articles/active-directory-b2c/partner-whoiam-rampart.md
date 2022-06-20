@@ -24,7 +24,8 @@ To get started, you'll need:
 
 - An Azure AD subscription. If you don't have one, get a [free account](https://azure.microsoft.com/free/)
 
-- An [Azure AD B2C tenant](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-tenant) linked to your Azure subscription
+- An [Azure AD B2C tenant](tutorial-create-tenant.md) linked to your Azure subscription.
+
 
 - An Azure DevOps Server instance
 
