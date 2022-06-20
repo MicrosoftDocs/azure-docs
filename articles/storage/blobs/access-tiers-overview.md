@@ -5,7 +5,7 @@ description: Azure storage offers different access tiers so that you can store y
 author: tamram
 
 ms.author: tamram
-ms.date: 05/18/2022
+ms.date: 06/16/2022
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
@@ -67,6 +67,7 @@ The following operations are supported for blobs in the Archive tier:
 
 - [Copy Blob](/rest/api/storageservices/copy-blob)
 - [Delete Blob](/rest/api/storageservices/delete-blob)
+- [Undelete Blob](/rest/api/storageservices/undelete-blob)
 - [Find Blobs by Tags](/rest/api/storageservices/find-blobs-by-tags)
 - [Get Blob Metadata](/rest/api/storageservices/get-blob-metadata)
 - [Get Blob Properties](/rest/api/storageservices/get-blob-properties)

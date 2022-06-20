@@ -99,7 +99,7 @@ The Network Insights workbook allows you to take advantage of the latest capabil
 
 * Flexible canvas to support creation of custom rich [visualizations](../visualize/workbooks-overview.md#visualizations).
 
-* Ability to consume and [share workbook templates](../visualize/workbooks-overview.md#workbooks-versus-workbook-templates) with wider community.
+* Ability to consume and [share workbook templates](../visualize/workbooks-templates.md) with wider community.
 
 To find more information about the capabilities of the new workbook solution check out [Workbooks-overview](../visualize/workbooks-overview.md)
 
