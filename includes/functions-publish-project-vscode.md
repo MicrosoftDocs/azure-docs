@@ -7,7 +7,7 @@ ms.author: glenga
 ms.custom: devdivchpfy22
 ---
 
-## Create the function app in Azure
+## <a name="publish-the-project-to-azure"></a>Create the function app in Azure
 
 In this section, you create a function app and related resources in your Azure subscription.
 
