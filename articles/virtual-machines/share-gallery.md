@@ -21,7 +21,7 @@ There are three main ways to share images in an Azure Compute Gallery, depending
 | Who? | Option |
 |----|----|
 | [Specific people, groups, or service principals](#rbac) | Role-based access control (RBAC) lets you share resources to specific people, groups, or service principals on a granular level. |
-| [Subscriptions or tenants](#direct_sharing) | Direct sharing lets you share to everyone in a subscription or tenant. |
+| [Subscriptions or tenants](#direct-sharing) | Direct sharing lets you share to everyone in a subscription or tenant. |
 | [Everyone](#community) | Community gallery lets you share your entire gallery publicly, to all Azure users. |
 
 
@@ -95,7 +95,7 @@ Share with a subscription or tenant using direct sharing.
 > Azure Compute Gallery – direct sharing is currently in PREVIEW and subject to the [Preview Terms for Azure Compute Gallery](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 > 
 > To use direct sharing, you need to register for the preview at [https://aka.ms/communitygallery-preview](https://aka.ms/communitygallery-preview). In addition, all of the subscriptions that you want to share with need to also be part of the preview.
-> 
+> "featureName":"SIGSharing","providerNamespace":"Microsoft.Compute" xxxx
 > During the preview, you need to create a new gallery, with the property `sharingProfile.permissions` set to `Groups`. When using the CLI to create a gallery, use the `--permissions groups` parameter. You can't use an existing gallery, the property can't currently be updated.
 
 
@@ -166,130 +166,85 @@ az sig share remove \
 
 Create a gallery for subscription or tenant-level sharing using the Azure REST API.
 
-
 ```rest
-PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{rgName}/providers/Microsoft.Compute/galleries/{gallery-name}?api-version=2020-09-30 
+PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{rgName}/providers/Microsoft.Compute/galleries/{gallery-name}?api-version=2020-09-30
 
+{
+	"properties": {
+		"sharingProfile": {
+			"permissions": "Groups"
+		}
+	},
+	"location": "{location}
+}
  
-
-{ 
-
-"properties": { 
-
-"sharingProfile": { 
-
-"permissions": "Groups" 
-
-} 
-
-}, 
-
-"location": "{location}" 
-
-} 
 ```
- 
+
 
 Share a gallery to subscription or tenant.
 
 
 ```rest
-POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{rgName}/providers/Microsoft.Compute/galleries/{galleryName}/share?api-version=2020-09-30 
+POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{rgName}/providers/Microsoft.Compute/galleries/{galleryName}/share?api-version=2020-09-30
 
- 
+{
+  "operationType": "Add",
+  "groups": [
+    {
+      "type": "Subscriptions",
+      "ids": [
+        "{SubscriptionID}"
+      ]
+    },
+    {
+      "type": "AADTenants",
+      "ids": [
+        "{tenantID}"
+      ]
+    }
+  ]
+}
 
-{ 
-
-"operationType": "Add", 
-
-"groups":[  
-
-{ 
-
-"type": "Subscriptions", 
-
-"ids": [ 
-
-"{subscriptionId1}", 
-
-"{subscriptionId2}" 
-
-], 
-
-"type": "AADTenants", 
-
-"ids": [ 
-
-"{tenantId1}", 
-
-"{tenantId2}" 
-
-] 
-
-} 
-
-] 
-
-} 
 ```
  
 
 Remove access for a subscription or tenant.
 
 ```rest
-POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{rgName}/providers/Microsoft.Compute/galleries/{galleryName}/share?api-version=2020-09-30 
+POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{rgName}/providers/Microsoft.Compute/galleries/{galleryName}/share?api-version=2020-09-30
 
- 
+{
+	"operationType": "Remove",
+	"groups":[ 
+		{
+			"type": "Subscriptions",
+			"ids": [
+				"{subscriptionId1}",
+				"{subscriptionId2}"
+			],
+},
+{
+			"type": "AADTenants",
+			"ids": [
+				"{tenantId1}",
+				"{tenantId2}"
+			]
+		}
+	]
+}
 
-{ 
-
-"operationType": "Remove", 
-
-"groups":[  
-
-{ 
-
-"type": "Subscriptions", 
-
-"ids": [ 
-
-"{subscriptionId1}", 
-
-"{subscriptionId2}" 
-
-], 
-
-"type": "AADTenants", 
-
-"ids": [ 
-
-"{tenantId1}", 
-
-"{tenantId2}" 
-
-] 
-
-} 
-
-] 
-
-} 
 ```
- 
+
 
 Reset sharing to clear everything in the `sharingProfile`.
 
 ```rest
 POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{rgName}/providers/Microsoft.Compute/galleries/{galleryName}/share?api-version=2020-09-30 
 
- 
-
 { 
-
  "operationType" : "Reset", 
-
 } 
-
+```
 
 ---
 

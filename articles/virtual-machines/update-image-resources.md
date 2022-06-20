@@ -350,6 +350,35 @@ az sig image-version list-community \
    -o table
 ```
 
+
+## Direct shared galleries
+
+> [!IMPORTANT]
+> Direct sharing galleries is currently in PREVIEW and subject to the [Preview Terms for Azure Compute Gallery](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+
+List all of the image definitions that are shared directly with you, use [az sig image-definition list-shared](/cli/azure/sig/image-definition#az-sig-image-definition-list-shared). 
+
+In this example, we list all of the images in the *ContosoImage* gallery in *West US* and by name, the unique ID that is needed to create a VM, OS and OS state.
+
+```azurecli-interactive 
+ az sig image-definition list-shared \
+   --gallery-unique-name "ContosoImages-1a2b3c4d-1234-abcd-1234-1a2b3c4d5e6f" \
+   --location westus \
+   --query [*]."{Name:name,ID:uniqueId,OS:osType,State:osState}" -o table
+```
+
+List image versions shared in a community gallery using [az sig image-version list-community](/cli/azure/sig/image-version#az-sig-image-version-list-community):
+
+```azurecli-interactive
+az sig image-version list-community \
+   --location westus \
+   --public-gallery-name "ContosoImages-1a2b3c4d-1234-abcd-1234-1a2b3c4d5e6f" \
+   --gallery-image-definition myImageDefinition \
+   --query [*]."{Name:name,UniqueId:uniqueId}" \
+   -o table
+```
+
 ## Next steps
 
 [Azure Image Builder (preview)](./image-builder-overview.md) can help automate image version creation, you can even use it to update and [create a new image version from an existing image version](./linux/image-builder-gallery-update-image-version.md).
