@@ -45,6 +45,13 @@ Open your terminal or command window and navigate to the directory where you wou
 mvn archetype:generate -DgroupId=com.communication.quickstart -DartifactId=communication-quickstart -DarchetypeArtifactId=maven-archetype-quickstart -DarchetypeVersion=1.4 -DinteractiveMode=false
 ```
 
+If you use Windows PowerShell, run instead:
+
+```console
+mvn archetype:generate -D"groupId=com.communication.quickstart" -D"artifactId=communication-quickstart" -D"archetypeArtifactId=maven-archetype-quickstart" -D"archetypeVersion=1.4" -D"interactiveMode=false"
+```
+
+
 The `generate` goal creates a directory with the same name as the `artifactId` value. Under this directory, the **src/main/java** directory contains the project source code, the **src/test/java directory** contains the test source, and the **pom.xml** file is the project's Project Object Model (POM).
 
 ### Install the package
@@ -197,8 +204,18 @@ You can use the `setTag` method to apply a tag to the delivery report.
 
 1. Run the following `mvn` command to execute the app.
 
+
+If you use terminal or command window:
+
    ```console
 
    mvn exec:java -Dexec.mainClass="com.communication.quickstart.App" -Dexec.cleanupDaemonThreads=false
 
    ```
+
+
+If you use Windows PowerShell:
+
+```console
+mvn exec:java -D"exec.mainClass="com.communication.quickstart.App"" -D"exec.cleanupDaemonThreads=false"
+```
