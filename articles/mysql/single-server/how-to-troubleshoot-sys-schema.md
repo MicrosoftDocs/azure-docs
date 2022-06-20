@@ -6,9 +6,7 @@ ms.subservice: single-server
 author: savjani
 ms.author: pariks
 ms.topic: troubleshooting
-ms.date: 06/20/20223/10/2022
-
-[ms.date](ms.date:06/20/2022)]
+ms.date: 06/20/2022
 ---
 
 # Tune performance and maintain databases in Azure Database for MySQL using the sys_schema

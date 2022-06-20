@@ -6,9 +6,7 @@ ms.subservice: single-server
 author: savjani
 ms.author: pariks
 ms.topic: how-to
-ms.date: 06/20/202210/09/2020
-
-[ms.date](ms.date:06/20/2022)]
+ms.date: 06/20/2022
 ---
 
 # Restore a deleted Azure Database for MySQL server

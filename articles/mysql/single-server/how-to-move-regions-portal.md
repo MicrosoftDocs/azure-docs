@@ -7,9 +7,7 @@ author: savjani
 ms.author: pariks
 ms.topic: how-to
 ms.custom: subject-moving-resources
-ms.date: 06/20/202206/26/2020
-
-[ms.date](ms.date:06/20/2022)]
+ms.date: 06/20/2022
 #Customer intent: As an Azure service administrator, I want to move my service resources to another Azure region.
 ---
 

@@ -8,9 +8,7 @@ ms.author: shriramm
 ms.reviewer: maghan
 ms.topic: how-to
 ms.custom:
-ms.date: 06/20/202210/12/2021
-
-[ms.date](ms.date:06/20/2022)]
+ms.date: 06/20/2022
 ---
 
 # Select the right tools for migration to Azure Database for MySQL

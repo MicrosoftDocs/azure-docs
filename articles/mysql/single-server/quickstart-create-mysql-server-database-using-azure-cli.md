@@ -7,9 +7,7 @@ author: savjani
 ms.author: pariks
 ms.devlang: azurecli
 ms.topic: quickstart
-ms.date: 06/20/202207/15/2020
-
-[ms.date](ms.date:06/20/2022)]
+ms.date: 06/20/2022
 ms.custom: mvc, devx-track-azurecli, mode-api
 ---
 

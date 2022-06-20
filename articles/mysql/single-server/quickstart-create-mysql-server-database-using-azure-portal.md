@@ -7,9 +7,7 @@ author: savjani
 ms.author: pariks
 ms.custom: mvc, mode-ui
 ms.topic: quickstart
-ms.date: 06/20/202211/04/2020
-
-[ms.date](ms.date:06/20/2022)]
+ms.date: 06/20/2022
 ---
 
 # Quickstart: Create an Azure Database for MySQL server by using the Azure portal
