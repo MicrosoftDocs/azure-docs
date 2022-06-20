@@ -3,7 +3,7 @@ title: Configure custom domain suffix for App Service Environment
 description: Configure a custom domain suffix for the Azure App Service Environment.
 author: seligj95
 ms.topic: tutorial
-ms.date: 06/17/2022
+ms.date: 07/01/2022
 ms.author: jordanselig
 zone_pivot_groups: app-service-environment-portal-arm
 ---
@@ -28,17 +28,14 @@ The custom domain suffix is for the App Service Environment. This feature is dif
 
 ## Prerequisites
 
-- Custom domain suffix is only a feature for the ILB variation of App Service Environment v3.
-- If you don't have a custom domain, you can [purchase an App Service domain](../manage-custom-dns-buy-domain.md).
+- ILB variation of App Service Environment v3.
 - Valid SSL/TLS certificate must be stored in an Azure Key Vault. For more information on using certificates with App Service, see [Add a TLS/SSL certificate in Azure App Service](../configure-ssl-certificate.md).
 
 ### Managed identity
 
 A [managed identity](../../active-directory/managed-identities-azure-resources/overview.md) is used to authenticate against the Azure Key Vault where the SSL/TLS certificate is stored. If you don't currently have a managed identity associated with your App Service Environment, you'll need to configure one. 
 
-You can use either a system assigned or user assigned managed identity. Ensure the managed identity has sufficient permissions for both the App Service Environment and the Azure Key Vault. To create a user assigned managed identity, see [manage user-assigned managed identities](../../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md). If you'd like to use a system assigned managed identity and don't already have one assigned, the Custom domain suffix portal experience will guide you through the creation process. 
-
-<!-- what are the minimum permissions -->
+You can use either a system assigned or user assigned managed identity. Ensure the managed identity has sufficient permissions for both the App Service Environment and the Azure Key Vault. At minimum, you need to give the managed identity read access to the Azure Key Vault. To create a user assigned managed identity, see [manage user-assigned managed identities](../../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md). If you'd like to use a system assigned managed identity and don't already have one assigned, the Custom domain suffix portal experience will guide you through the creation process.
 
 Ensure the managed identity also has the appropriate access policy set for the Azure Key Vault. At a minimum, the managed identity will need all "Get" permissions on the key vault.
 
@@ -87,10 +84,7 @@ You'll need to configure the managed identity and ensure it exists before assign
     "identity": {
         "type": "UserAssigned",
         "userAssignedIdentities": {
-            "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/asev3-cdns-rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ase-cdns-managed-identity": {
-                "principalId": "00000000-0000-0000-0000-000000000000",
-                "clientId": "00000000-0000-0000-0000-000000000000"
-            }
+            "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/asev3-cdns-rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ase-cdns-managed-identity"
         }
     },
     "properties": {
@@ -115,9 +109,7 @@ You'll need to configure the managed identity and ensure it exists before assign
     "name": ...,
     "location": ...,
     "identity": {
-        "type": "SystemAssigned",
-        "tenantId": "00000000-0000-0000-0000-000000000000",
-        "principalId": "00000000-0000-0000-0000-000000000000"
+        "type": "SystemAssigned"
     }
     "properties": {
         "customDnsSuffixConfiguration": {
@@ -152,13 +144,13 @@ After configuring the custom domain suffix for your App Service Environment, you
 
 :::image type="content" source="./media/custom-domain-suffix/app-custom-domain-sample.png" alt-text="Sample custom domain for an app created by App Service Environment custom domain suffix feature.":::
 
-Apps on the ILB App Service Environment can be accessed over HTTPS and the connections will be secured using the default certificate you selected. The certificate will be used when apps on the App Service Environment are addressed using a combination of the application name plus the custom domain suffix. For example, *https://mycustomapp.internal-contoso.com* would use the TLS/SSL certificate for **.internal-contoso.com*.
+Apps on the ILB App Service Environment can be accessed securely over HTTPS by going to either the custom domain you configured or the default domain *appserviceenvironment.net* like in the previous image. The ability to access your apps using the default App Service Environment domain and your custom domain is a unique feature that is only supported on App Service Environment v3.
 
 However, just like apps running on the public multi-tenant service, you can also configure custom host names for individual apps, and then configure unique SNI [TLS/SSL certificate bindings for individual apps](./overview-certificates.md#tls-settings).
 
 ## Troubleshooting
 
-If your permissions or network settings for your managed identity, key vault, or App Service Environment aren't set appropriately, you won't be able to configure a custom domain suffix and you'll receive an error similar to the example below. Review the [prerequisites](#prerequisites) to ensure you've set the needed permissions.
+If your permissions or network settings for your managed identity, key vault, or App Service Environment aren't set appropriately, you won't be able to configure a custom domain suffix and you'll receive an error similar to the example below. Review the [prerequisites](#prerequisites) to ensure you've set the needed permissions. You'll also see a similar error message if the App Service platform detects that your certificate is degraded or expired.
 
 :::image type="content" source="./media/custom-domain-suffix/custom-domain-suffix-error.png" alt-text="Sample custom domain suffix error message.":::
 
