@@ -72,7 +72,7 @@ For more examples of queries across multiple Log Analytics workspaces, see [Crea
 
 ## View alerts across customers
 
-You can view [alerts](../../azure-monitor/alerts/alerts-overview.md) for the delegated subscriptions in customer tenants that your manage.
+You can view [alerts](../../azure-monitor/alerts/alerts-overview.md) for delegated subscriptions in the customer tenants that you manage.
 
 From your managing tenant, you can [create, view, and manage activity log alerts](../../azure-monitor/alerts/alerts-activity-log.md) in the Azure portal or through APIs and management tools.
 
