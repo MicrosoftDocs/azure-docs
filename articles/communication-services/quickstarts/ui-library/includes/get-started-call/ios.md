@@ -23,7 +23,7 @@ Azure Communication UI [open source library](https://github.com/Azure/communicat
 
 ### Creating the Xcode project
 
-In Xcode, create a new iOS project and select the **App** template. We'll be using UIKit storyboards. You're not going to create tests during this quickstart. Feel free to uncheck **Include Tests**.
+In Xcode, create a new **iOS** project and select the **App** template. We'll be using UIKit storyboards. You're not going to create tests during this quickstart. Feel free to uncheck **Include Tests**.
 
 ![Screenshot showing the New Project template selection within Xcode.](../../media/xcode-new-project-template-select.png)
 
@@ -33,22 +33,23 @@ Name the project `UILibraryQuickStart` and select `Storyboard` under the `Interf
 
 ### Install the package and dependencies with CocoaPods
 
-1. Create a Podfile in your project root directory by running `pod init`.
+1. (Optional) For MacBook with M1, install and enable [Rosetta](https://support.apple.com/en-us/HT211861) in Xcode.
+2. Create a Podfile in your project root directory by running `pod init`.
     - If encounter error, update [CocoaPods](https://guides.cocoapods.org/using/getting-started.html) to latest version
-2. Add the following to your Podfile:
-
+3. Add the following to your Podfile:
+    - Replace `UILibraryQuickStart` with your project name
 ```
 platform :ios, '14.0'
 
 target 'UILibraryQuickStart' do
     use_frameworks!
-    pod 'AzureCommunicationUICalling', '1.0.0-beta.1'
+    pod 'AzureCommunicationUICalling', '1.0.0-beta.2'
 end
 ```
 
-3. Run `pod install --repo-update`.
-4. Open the generated `.xcworkspace` with Xcode.
-5. (Optional) For Mackbook Pro M1, install and enable [Rosetta](https://support.apple.com/en-us/HT211861) in Xcode.
+4. Run `pod install --repo-update`.
+5. Open the generated `.xcworkspace` with Xcode.
+
 
 ### Request access to the microphone, camera, etc.
 
@@ -62,6 +63,8 @@ Right-click the `Info.plist` entry of the project tree and select **Open As** > 
 <key>NSMicrophoneUsageDescription</key>
 <string></string>
 ```
+
+![Screenshot showing the Info plist sourc code in Xcode.](../../media/xcode-info-plist-source-code.png)
 
 To verify requesting the permission is added correctly, view the `Info.plist` as **Open As** > **Property List** and should expect to see the following:
 
@@ -108,10 +111,10 @@ class ViewController: UIViewController {
 
         let communicationTokenCredential = try! CommunicationTokenCredential(token: "<USER_ACCESS_TOKEN>")
 
-        let options = GroupCallOptions(credential: communicationTokenCredential,
-                                       groupId: UUID(uuidString: "<GROUP_CALL_ID>")!,
-                                       displayName: "<DISPLAY_NAME>")
-        callComposite?.launch(with: options)
+        let remoteOptions = RemoteOptions(for: .groupCall(groupId: UUID(uuidString: "<GROUP_CALL_ID>")!),
+                                          credential: communicationTokenCredential,
+                                          displayName: "<DISPLAY_NAME>")
+        callComposite?.launch(remoteOptions: remoteOptions)
     }
 }
 ```
@@ -133,11 +136,10 @@ The following classes and interfaces handle some of the major features of the Az
 | Name                                                                        | Description                                                                                  |
 | --------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
 | [CallComposite](#create-call-composite) | The composite renders a call experience with participant gallery and controls. |
-| [CallCompositeOptions](#create-call-composite) | Includes options such as the theme configuration and the events handler. |
-| [GroupCallOptions](#group-call) | The options for joining a group call, such as groupId. |
-| [TeamsMeetingOptions](#teams-meeting) | The options for joining a Team's meeting, such as the meeting link. |
-| [ThemeConfiguration](#apply-theme-configuration) | Allows you to customize the theme. |
-| [LocalizationConfiguration](#apply-localization-configuration) | Allows you to set the language for the composite. |
+| [CallCompositeOptions](#create-call-composite) | Includes options such as the theme options and the events handler. |
+| [RemoteOptions](#setup-group-call-or-teams-meeting-options) | The remote options send to AzureCommunicationService for joining a [group call](#group-call) or [Team's meeting](#teams-meeting). |
+| [ThemeOptions](#apply-theme-options) | Allows you to customize the theme. |
+| [LocalizationOptions](#apply-localization-options) | Allows you to set the language for the composite. |
 
 ## UI Library functionality
 
@@ -169,23 +171,25 @@ Depending on what type of Call/Meeting you would like to set up, use the appropr
 
 #### Group call
 
-Initialize a `GroupCallOptions` instance inside the `startCallComposite` function. Replace `<GROUP_CALL_ID>` with your group ID for your call and `<DISPLAY_NAME>` with your name.
+Initialize a `RemoteOptions` instance for `.groupCall` locator inside the `startCallComposite` function. Replace `<GROUP_CALL_ID>` with your group ID for your call and `<DISPLAY_NAME>` with your name.
+
+Learn more about group call [here](../../../../how-tos/calling-sdk/manage-calls.md).
 
 ```swift
 // let uuid = UUID() to create a new call
 let uuid = UUID(uuidString: "<GROUP_CALL_ID>")!
-let options = GroupCallOptions(credential: communicationTokenCredential,
-                               groupId: uuid,
-                               displayName: "<DISPLAY_NAME>")
+let remoteOptions = RemoteOptions(for: .groupCall(groupId: uuid),
+                                  credential: communicationTokenCredential,
+                                  displayName: "<DISPLAY_NAME>")
 ```
 
 #### Teams meeting
 
-Initialize a `TeamsMeetingOptions` instance inside the `startCallComposite` function. Replace `<TEAMS_MEETING_LINK>` with your group ID for your call and `<DISPLAY_NAME>` with your name.
+Initialize a `RemoteOptions` instance for `.teamsMeeting` locator inside the `startCallComposite` function. Replace `<TEAMS_MEETING_LINK>` with your Teams meeting link for your call and `<DISPLAY_NAME>` with your name.
 
 ```swift
-let options = TeamsMeetingOptions(credential: communicationTokenCredential,
-                                  meetingLink: "<TEAMS_MEETING_LINK>",
+let remoteOptions = RemoteOptions(for: .teamsMeeting(teamsLink: "<TEAMS_MEETING_LINK>"),
+                                  credential: communicationTokenCredential,
                                   displayName: "<DISPLAY_NAME>")
 ```
 
@@ -200,7 +204,7 @@ You can also get the required meeting information from the **Join Meeting** URL 
 Call `launch` on the `CallComposite` instance inside the `startCallComposite` function
 
 ```swift
-callComposite?.launch(with: options)
+callComposite?.launch(remoteOptions: remoteOptions)
 ```
 
 ### Subscribe to events
@@ -208,16 +212,17 @@ callComposite?.launch(with: options)
 You can implement the closures to act on the events. An event for when the composite ended with an error is an example.
 
 ```swift
-callComposite?.setTarget(didFail: { error in
-    print("didFail with error:\(error)")
-})
+callComposite?.events.onError = { error in
+    print("CallComposite failed with error:\(error)")
+}
 ```
-### Apply theme configuration
 
-You can customize the theme by creating a custom theme configuration that implements the ThemeConfiguration protocol. You then include an instance of that new class in your CallCompositeOptions.
+### Apply theme options
+
+You can customize the theme by creating custom theme options that implement the ThemeOptions protocol. You then include an instance of that new class in your CallCompositeOptions.
 
 ```swift
-class CustomThemeConfiguration: ThemeConfiguration {
+class CustomThemeOptions: ThemeOptions {
    var primaryColor: UIColor {
        return UIColor.red
    }
@@ -225,24 +230,28 @@ class CustomThemeConfiguration: ThemeConfiguration {
 ```
 
 ```swift
-let callCompositeOptions = CallCompositeOptions(theme: CustomThemeConfiguration())
+let callCompositeOptions = CallCompositeOptions(theme: CustomThemeOptions())
 ```
 
-### Apply localization configuration
+For more on how theming works, check out the [Theming guide](../../../../how-tos/ui-library-sdk/theming.md).
 
-You can change the language by creating a custom localization configuration and include it to your `CallCompositeOptions`.  By default, all text labels use our English (`CommunicationUISupportedLocale.en`) strings. If desired, `LocalizationConfiguration` can be used to set a different `locale`. Out of the box, the UI library includes a set of `locale` usable with the UI components. `LocalizationConfiguration.supportedLanguages` provides a list of all supported languages. 
+### Apply localization options
+
+You can change the language by creating custom localization options and include it to your `CallCompositeOptions`.  By default, all text labels use our English (`SupportedLocale.en`) strings. If desired, `LocalizationOptions` can be used to set a different `locale`. Out of the box, the UI library includes a set of `locale` usable with the UI components. `SupportedLocale.values` provides a list of all supported languages. 
 
 For the example below, the composite will be localized to French (`fr`). 
 
 ```swift
-// Creating swift Locale struct
-var localizationConfiguration = LocalizationConfiguration(locale: Locale(identifier: "fr-FR"))
+// Option1: Use intellisense to get supported locales by the UI Library
+let localizationOptions = LocalizationOptions(locale: SupportedLocale.frFR)
 
-// Use intellisense CommunicationUISupportedLocale to get supported Locale struct
-localizationConfiguration = LocalizationConfiguration(locale: CommunicationUISupportedLocale.frFR)
+// Option2: Swift Locale struct, if locale not supported by UI Library, will default to English
+let localizationOptions = LocalizationOptions(locale: Locale(identifier: "fr-FR"))
 
-let callCompositeOptions = CallCompositeOptions(localizationConfiguration: localizationConfiguration) 
+let callCompositeOptions = CallCompositeOptions(localization: localizationOptions) 
 ```
+
+For more on localization and list of supported languages, check out the [Localization guide](../../../../how-tos/ui-library-sdk/localization.md).
 
 ## Add notifications into your mobile app
 

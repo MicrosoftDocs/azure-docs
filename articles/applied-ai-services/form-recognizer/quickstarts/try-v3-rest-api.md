@@ -84,7 +84,7 @@ Before you run the cURL command, make the following changes:
 #### POST request
 
 ```bash
-curl -v -i POST "{endpoint}/formrecognizer/documentModels/{modelID}:analyze?api-version=2022-06-30" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: {key}" --data-ascii "{'urlSource': '{your-document-url}'}"
+curl -v -i POST "{endpoint}/formrecognizer/documentModels/{modelID}:analyze?api-version=2022-06-30-preview" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: {key}" --data-ascii "{'urlSource': '{your-document-url}'}"
 ```
 
 #### Reference table
@@ -119,11 +119,7 @@ After you've called the [**Analyze document**](https://westus.dev.cognitive.micr
 #### GET request
 
 ```bash
-<<<<<<< HEAD
-curl -v -X GET "{endpoint}/formrecognizer/documentModels/{model name}/analyzeResults/{resultId}?api-version=2022-06-30" -H "Ocp-Apim-Subscription-Key: {key}"
-=======
-curl -v -X GET "{endpoint}/formrecognizer/documentModels/{modelID}/analyzeResults/{resultId}?api-version=2022-01-30-preview" -H "Ocp-Apim-Subscription-Key: {key}"
->>>>>>> resolve-merge-conflict
+curl -v -X GET "{endpoint}/formrecognizer/documentModels/{modelID}/analyzeResults/{resultId}?api-version=2022-06-30-preview" -H "Ocp-Apim-Subscription-Key: {key}"
 ```
 
 #### Examine the response

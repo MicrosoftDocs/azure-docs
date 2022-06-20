@@ -5,6 +5,7 @@ ms.topic: conceptual
 ms.date: 10/12/2021
 ms.devlang: python
 ms.custom: devx-track-python
+ms.reviewer: mmcc
 ---
 
 # Set up Azure Monitor for your Python application

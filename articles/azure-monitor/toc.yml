@@ -91,8 +91,6 @@ items:
           href: app/resource-manager-web-app.md
         - name: Azure Functions
           href: app/resource-manager-function-app.md
-        - name: Manage with Azure CLI
-          href: insights/azure-cli-application-insights-component.md
     - name: Container insights
       href: containers/resource-manager-container-insights.md
     - name: Data collection rules
@@ -117,12 +115,10 @@ items:
       href: agents/data-collection-rule-sample-agent.md
     - name: Custom logs
       href: logs/data-collection-rule-sample-custom-logs.md
-  - name: Azure CLI
-    href: cli-samples.md
   - name: Monitor Logs in Azure CLI
     href: logs\azure-cli-log-analytics-workspace-sample.md
-  - name: Azure PowerShell
-    href: powershell-samples.md
+  - name: Configure workspaces using PowerShell
+    href: logs/powershell-workspace-configuration.md
   - name: Azure Resource Graph queries
     href: ./resource-graph-samples.md
   - name: Azure CLI metric alerts
@@ -258,14 +254,8 @@ items:
       - name: Overview
         displayName: Log Analytics workspace
         href: logs/log-analytics-workspace-overview.md
-      - name: Create
-        items:
-        - name: Azure portal
-          href: logs/quick-create-workspace.md
-        - name: PowerShell
-          href: logs/powershell-workspace-configuration.md
-        - name: Resource Manager template
-          href: logs/resource-manager-workspace.md
+      - name: Create workspaces
+        href: logs/quick-create-workspace.md
       - name: Configure
         items:
         - name: Manage access
@@ -1008,24 +998,6 @@ items:
         href: app/standard-metrics.md
     - name: Transaction search
       href: app/diagnostic-search.md
-    - name: Snapshot Debugger
-      items:
-      - name: Overview
-        displayName: snapshot, debug, debugger, snapshot debugger, snapshotdebugger
-        href: app/snapshot-debugger.md
-      - name: Enable Snapshot Debugger for an App Service
-        href: app/snapshot-debugger-appservice.md
-      - name: Enable Snapshot Debugger for a Function App
-        href: app/snapshot-debugger-function-app.md
-      - name: Enable Snapshot Debugger for other environments
-        href: app/snapshot-debugger-vm.md
-      - name: Upgrade Snapshot Debugger
-        href: app/snapshot-debugger-upgrade.md
-      - name: Configure BYOS (Bring Your Own Storage)
-        href: profiler/profiler-bring-your-own-storage.md
-      - name: Snapshot Debugger troubleshooting
-        displayName: troubleshoot, troubleshooting
-        href: app/snapshot-debugger-troubleshoot.md
     - name: Smart Detection
       href: app/proactive-diagnostics.md
       items:
@@ -1180,6 +1152,24 @@ items:
       href: profiler/profiler-trackrequests.md
     - name: Troubleshooting
       href: profiler/profiler-troubleshooting.md
+  - name: Snapshot Debugger
+    items:
+    - name: Overview
+      displayName: snapshot, debug, debugger, snapshot debugger, snapshotdebugger
+      href: snapshot-debugger/snapshot-debugger.md
+    - name: Enable Snapshot Debugger for an App Service
+      href: snapshot-debugger/snapshot-debugger-app-service.md
+    - name: Enable Snapshot Debugger for a Function App
+      href: snapshot-debugger/snapshot-debugger-function-app.md
+    - name: Enable Snapshot Debugger for other environments
+      href: snapshot-debugger/snapshot-debugger-vm.md
+    - name: Upgrade Snapshot Debugger
+      href: snapshot-debugger/snapshot-debugger-upgrade.md
+    - name: Configure BYOS (Bring Your Own Storage)
+      href: profiler/profiler-bring-your-own-storage.md
+    - name: Snapshot Debugger troubleshooting
+      displayName: troubleshoot, troubleshooting
+      href: snapshot-debugger/snapshot-debugger-troubleshoot.md
   - name: Change Analysis
     items:
     - name: Overview
@@ -1198,8 +1188,6 @@ items:
     items:
     - name: Overview
       href: vm/vminsights-overview.md
-    - name: General Availability FAQ
-      href: vm/vminsights-ga-release-faq.yml
     - name: FAQ
       href: /azure/azure-monitor/faq#vm-insights
     - name: Configure workspace
@@ -1241,7 +1229,7 @@ items:
       - name: Troubleshoot
         href: vm/vminsights-health-troubleshoot.md
     - name: Analyze data with log queries
-      href: vm/vminsights-log-search.md
+      href: vm/vminsights-log-query.md
     - name: Monitor changes
       href: vm/vminsights-change-analysis.md
     - name: Visualize data with workbooks
@@ -1358,48 +1346,67 @@ items:
   - name: Workbooks
     items:
     - name: Overview
-      displayName: Workbooks
-      href: visualize/workbooks-overview.md
-    - name: Visualizations
+      href: visualize/workbooks-overview.md 
+    - name: Working with workbooks
       items:
-      - name: Text
-        href: visualize/workbooks-text-visualizations.md
-      - name: Chart
-        href: visualize/workbooks-chart-visualizations.md
-      - name: Grid
-        href: visualize/workbooks-grid-visualizations.md
-      - name: Tile
-        href: visualize/workbooks-tile-visualizations.md
-      - name: Tree
-        href: visualize/workbooks-tree-visualizations.md
-      - name: Graph
-        href: visualize/workbooks-graph-visualizations.md
-      - name: Map
-        href: visualize/workbooks-map-visualizations.md
-      - name: Honey comb
-        href: visualize/workbooks-honey-comb.md
-      - name: Composite bar
-        href: visualize/workbooks-composite-bar.md
-    - name: Data sources
-      href: visualize/workbooks-data-sources.md
-    - name: Parameters
+        - name: Getting Started with workbooks
+          href: visualize/workbooks-getting-started.md
+        - name: Data sources
+          href: visualize/workbooks-data-sources.md         
+        - name: Visualizations
+          items:
+          - name: Overview
+            href: visualize/workbooks-visualizations.md         
+          - name: Text
+            href: visualize/workbooks-text-visualizations.md
+          - name: Chart
+            href: visualize/workbooks-chart-visualizations.md
+          - name: Grid
+            href: visualize/workbooks-grid-visualizations.md
+          - name: Tile
+            href: visualize/workbooks-tile-visualizations.md
+          - name: Tree
+            href: visualize/workbooks-tree-visualizations.md
+          - name: Graph
+            href: visualize/workbooks-graph-visualizations.md
+          - name: Map
+            href: visualize/workbooks-map-visualizations.md
+          - name: Honey comb
+            href: visualize/workbooks-honey-comb.md
+          - name: Composite bar
+            href: visualize/workbooks-composite-bar.md
+        - name: Workbook Result Limits
+          href: visualize/workbooks-limits.md
+    - name: Creating a new workbook
       items:
-      - name: Parameter summary
-        href: visualize/workbooks-parameters.md
-      - name: Drop down parameters
-        href: visualize/workbooks-dropdowns.md
-      - name: Interactive parameters
-        href: visualize/workbooks-interactive.md
-      - name: Time parameters
-        href: visualize/workbooks-time.md
-      - name: Text parameters
-        href: visualize/workbooks-text.md
-      - name: Resource parameters
-        href: visualize/workbooks-resources.md
+        - name: Using workbook templates
+          href: visualize/workbooks-templates.md
+        - name: Create a new workbook
+          href: visualize/workbooks-create-workbook.md
+        - name: Add text to your workbook
+          href: visualize/workbooks-add-text.md
+        - name: Add parameters to your workbook
+          items:
+          - name: Workbook parameters
+            href: visualize/workbooks-parameters.md
+          - name: Time parameters
+            href: visualize/workbooks-time.md
+          - name: Drop down parameters
+            href: visualize/workbooks-dropdowns.md
+          - name: Options group parameters
+            href: visualize/workbooks-options-group.md
+          - name: Text parameters
+            href: visualize/workbooks-text.md
+          - name: Criteria
+            href: visualize/workbooks-criteria.md
+          - name: Resource parameters
+            href: visualize/workbooks-resources.md
+          - name: Multi-value parameters
+            href: visualize/workbooks-multi-value.md
+        - name: Combine data from different sources
+          href: visualize/workbooks-combine-data.md       
     - name: Configuration
       items:
-      - name: Access control
-        href: visualize/workbooks-access-control.md
       - name: Deploy with Azure Resource Manager
         href: visualize/workbooks-automate.md
       - name: Groups
@@ -1564,7 +1571,7 @@ items:
       - name: Web app extension
         href: app/web-app-extension-release-notes.md
       - name: Snapshot Debugger
-        href: app/snapshot-collector-release-notes.md
+        href: snapshot-debugger/snapshot-collector-release-notes.md
     - name: Data model
       items:
       - name: Overview

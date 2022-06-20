@@ -5,8 +5,16 @@ ms.topic: conceptual
 ms.date: 03/31/2022
 ---
 
-# Partner Events overview for customers - Azure Event Grid (preview)
-Event Grid's **Partner Events** allows customers to **subscribe to events** that originate in a registered system using the same mechanism they would use for any other event source on Azure, such as an Azure service. Those registered systems integrate with Event Grid are known as "partners". This feature also enables customers to **send events** to partner systems that support receiving and routing events to customer's solutions/endpoints in their platform. Typically, partners are software-as-a-service (SaaS) or [ERP](https://en.wikipedia.org/wiki/Enterprise_resource_planning) providers, but they might be corporate platforms wishing to make their events available to internal teams. They purposely integrate with Event Grid to realize end-to-end customer use cases that end on Azure (customers subscribe to events sent by partner) or end on a partner system (customers subscribe to Microsoft events sent by Azure Event Grid). Customers bank on Azure Event Grid to send events published by a partner to supported destinations such as webhooks, Azure Functions, Azure Event Hubs, or Azure Service Bus, to name a few. Customers also rely on Azure Event Grid to route events that originate in Microsoft services, such as Azure Storage, Outlook, Teams, or Azure AD, to partner systems where customer's solutions can react to them. With Partner Events, customers can build event-driven solutions across platforms and network boundaries to receive or send events reliably, securely and at a scale.
+# Partner Events overview for customers - Azure Event Grid
+Azure Event Grid's **Partner Events** allows customers to **subscribe to events** that originate in a registered system using the same mechanism they would use for any other event source on Azure, such as an Azure service. Those registered systems integrate with Event Grid are known as "partners".
+
+This feature also enables customers to **send events** to partner systems that support receiving and routing events to customer's solutions/endpoints in their platform. Typically, partners are software-as-a-service (SaaS) or [ERP](https://en.wikipedia.org/wiki/Enterprise_resource_planning) providers, but they might be corporate platforms wishing to make their events available to internal teams.
+
+They purposely integrate with Event Grid to realize end-to-end customer use cases that end on Azure (customers subscribe to events sent by partner) or end on a partner system (customers subscribe to Microsoft events sent by Azure Event Grid). Customers bank on Azure Event Grid to send events published by a partner to supported destinations such as webhooks, Azure Functions, Azure Event Hubs, or Azure Service Bus, to name a few.
+
+Customers also rely on Azure Event Grid to route events that originate in Microsoft services, such as Azure Storage, Outlook, Teams, or Azure AD, to partner systems where customer's solutions can react to them.
+
+With Partner Events, customers can build event-driven solutions across platforms and network boundaries to receive or send events reliably, securely and at a scale.
 
 > [!NOTE]
 > If you're new to Event Grid, see the following articles that provide you with knowledge on foundational concepts: 
@@ -44,7 +52,7 @@ The process to send events to a partner is similar to that of receiving events f
 You may want to use the Partner Events feature if you've one or more of the following requirements.
 
 - You want to subscribe to events that originate in a [partner](#available-partners) system and route them to event handlers on Azure or to any application or service with a public endpoint.
-- You want to take advantage of the rich set Event Grid's[destinations/event handlers](overview.md#event-handlers) that react to events from partners.
+- You want to take advantage of the rich set Event Grid's [destinations/event handlers](overview.md#event-handlers) that react to events from partners.
 - You want to forward events raised by your custom application on Azure, an Azure service, or a Microsoft service to your application or service hosted by the [partner](#available-partners) system. For example, you may want to send Azure AD, Teams, SharePoint, or Azure Storage events to a partner system on which you're a tenant for processing. 
 - You need a resilient push delivery mechanism with send-retry support and at-least once semantics.
 - You want to use [Cloud Events 1.0](https://cloudevents.io/) schema for your events. 
@@ -53,11 +61,21 @@ You may want to use the Partner Events feature if you've one or more of the foll
 ## Available partners
 A partner must go through an [onboarding process](onboard-partner.md) before a customer can start receiving or sending events to partners. Following is the list of available partners and whether their services were designed to send events to or receive events from Event Grid.
 
+### Microsoft partners
+| Partner              | Sends events to Azure?  | Receives events from Azure?   |
+| :--------------------|:-----------------------:|:----------------------:|
+| Microsoft Graph API* |   Yes                   | N/A                    |
+
+#### Microsoft Graph API
+Through Microsoft Graph API, you can get events from a diverse set of Microsoft services such as [Azure AD](azure-active-directory-events.md), [Microsoft Outlook](outlook-events.md), [Teams](teams-events.md), **SharePoint**, and so on. For a complete list of event sources, see [Microsoft Graph API's change notifications documentation](/graph/webhooks#supported-resources).
+
+### Non-Microsoft partners
 | Partner       | Sends events to Azure?  | Receives events from Azure?   |
 | :------------ |:-----------------------:|:----------------------:|
 | Auth0         |  Yes                    | N/A                    |
 
 ### Auth0
+
 [Auth0](https://auth0.com) is a managed authentication platform for businesses to authenticate, authorize, and secure access for applications, devices, and users. You can create an [Auth0 partner topic](auth0-overview.md) to connect your Auth0 and Azure accounts. This integration allows you to react to, log, and monitor Auth0 events in real time. To try it out, see [Integrate Azure Event Grid with Auto0](auth0-how-to.md).
 
 ## Verified partners

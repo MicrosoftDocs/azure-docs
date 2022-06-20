@@ -6,6 +6,7 @@ ms.author: harelbr
 services: monitoring
 ms.topic: conceptual
 ms.date: 5/18/2022
+ms.reviwer: harelbr
 ---
 
 # Supported resources for metric alerts in Azure Monitor

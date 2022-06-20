@@ -639,7 +639,7 @@ az aks nodepool add \
 To verify your node pool is FIPS-enabled, use [az aks show][az-aks-show] to check the *enableFIPS* value in *agentPoolProfiles*.
 
 ```azurecli-interactive
-az aks show --resource-group myResourceGroup --cluster-name myAKSCluster --query="agentPoolProfiles[].{Name:name enableFips:enableFips}" -o table
+az aks show --resource-group myResourceGroup --name myAKSCluster --query="agentPoolProfiles[].{Name:name enableFips:enableFips}" -o table
 ```
 
 The following example output shows the *fipsnp* node pool is FIPS-enabled and *nodepool1* isn't.
@@ -665,7 +665,7 @@ aks-nodepool1-12345678-vmss000000   Ready    agent   34m     v1.19.9
 In the above example, the nodes starting with `aks-fipsnp` are part of the FIPS-enabled node pool. Use `kubectl debug` to run a deployment with an interactive session on one of those nodes in the FIPS-enabled node pool.
 
 ```azurecli-interactive
-kubectl debug node/aks-fipsnp-12345678-vmss000000 -it --image=mcr.microsoft.com/aks/fundamental/base-ubuntu:v0.0.11
+kubectl debug node/aks-fipsnp-12345678-vmss000000 -it --image=mcr.microsoft.com/dotnet/runtime-deps:6.0
 ```
 
 From the interactive session, you can verify the FIPS cryptographic libraries are enabled:

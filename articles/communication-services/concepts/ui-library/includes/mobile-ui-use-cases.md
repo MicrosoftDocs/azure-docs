@@ -28,6 +28,7 @@ Composites enable developers to easily integrate a whole calling experience into
 |                                                                                                 | Video preview available throughout call for local user |
 |                                                                                                 | Default avatars available when video is off            |
 |                                                                                                 | Shared screen content displayed on participant gallery |
+|                                                                                                 | Participant Avatar Customization                |
 |                                                                                     | Participant roster                                     |
 | Call configuration                                                                              | Microphone device management                           |
 |                                                                                                 | Camera device management                               |
@@ -36,6 +37,7 @@ Composites enable developers to easily integrate a whole calling experience into
 | Call Controls                                                                                   | Mute/unmute call                                       |
 |                                                                                                 | Video on/off on call                                   |
 |                                                                                                 | End call                                               |
+|                                                                                                 | Hold/Resume Call on Audio Interruption                 |
 
 ## Supported Identities
 
@@ -73,11 +75,15 @@ The calling composite offers to adapt to any screen size that would bring suppor
 
 ## Localization
 
-Localization is a key to making products that can be used across the world and by people who speak different languages. The Mobile UI Library now provides support for 13 languages: ***English, Spanish, French, German, Italian, Japanese, Korean, Dutch, Portuguese, Russian, Turkish and Chinese*** and RTL capabilities. [How to add localization to your app.](../../../how-tos/ui-library-sdk/localization.md)
+Localization is a key to making products that can be used across the world and by people who speak different languages. The Mobile UI Library now provides support for 12 languages: ***English, Spanish, French, German, Italian, Japanese, Korean, Dutch, Portuguese, Russian, Turkish and Chinese*** and RTL capabilities. [How to add localization to your app.](../../../how-tos/ui-library-sdk/localization.md)
 
-## Data Model Injection
+## Accessibility
 
-The Mobile UI Library gives the developers the ability to provide a more customized experience. At launch, developers can now inject an optional Local Data Options. This object can contain an image that represents the avatar to render, and a display name they can optionally display instead. None of this information will be sent to Azure Communication Services and will be only held locally in the Mobile UI library. [How to inject user data model.](../../../how-tos/ui-library-sdk/data-model.md)
+Accessibility is a key focus of the calling libraries. Screen Readers are supported to make important announcements regarding calling status and to help ensure that visibility impaired users can effectively participate in using the application.
+
+## Participant View Customization
+
+The Mobile UI Library gives the developers the ability to modify both Local and Remote Participants and how they are displayed in the call. On call launch the developer can supply a local avatar and custom display name to show to the local user. For Remote Users, methods are available to allow customization of avatars as they join the meetings. [How to customize participant views.](../../../how-tos/ui-library-sdk/data-model.md)
 
 ## Recommended Architecture
 
@@ -100,7 +106,7 @@ These client libraries also require the context for the call they'll join. Simil
 |Platform | Versions|
 |---------|---------|
 | iOS     | iOS 14+ |
-| Android | v21+    |
+| Android | Api 21+ |
 
 > [!div class="nextstepaction"]
 > [Quickstart guides](../../../quickstarts/ui-library/get-started-composites.md)

@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 10/27/2021
+ms.date: 06/13/2022
 ms.author: pafarley
 ms.custom: seodec18
 ---
@@ -22,7 +22,7 @@ The Detect API applies tags based on the objects or living things identified in 
 
 ## Object detection example
 
-The following JSON response illustrates what Computer Vision returns when detecting objects in the example image.
+The following JSON response illustrates what the Analyze API returns when detecting objects in the example image.
 
 ![A woman using a Microsoft Surface device in a kitchen](./Images/windows-kitchen.jpg)
 
