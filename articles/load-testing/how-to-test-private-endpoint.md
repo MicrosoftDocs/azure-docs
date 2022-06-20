@@ -131,7 +131,86 @@ While your load test runs, Azure Load Testing creates the following resources in
 - Network Security Group (NSG)
 - Azure Load Balancer
 
+## Troubleshooting
+
+### Starting the load test fails with `Test cannot be started`
+
+To start a load test, you must have sufficient permissions to deploy Azure Load Testing to the virtual network. You require the [Network Contributor](/azure/role-based-access-control/built-in-roles#network-contributor) role, or a parent of this role, on the virtual network. See [Check access for a user to Azure resources](/azure/role-based-access-control/check-access) to verify your permissions.
+
+If you're using the Azure Load Testing REST API to start a load test, check that you're using a valid subnet ID. The subnet must be in the same Azure region as your Azure Load Testing resource.
+
+### The load test is stuck in `Provisioning` state and then goes to `Failed`
+
+1. Verify that your subscription is registered with `Microsoft.Batch`.
+
+    Run the following Azure CLI command to verify the status. The result should be `Registered`.
+
+    ```azurecli
+    az provider show --namespace Microsoft.Batch --query registrationState
+    ```
+
+1. Verify that Microsoft Batch node management and the Azure Load Testing IPs can make inbound connections to the test engine VMs.
+
+    1. Enable [Network Watcher](/azure/network-watcher/network-watcher-monitoring-overview) for the virtual network region.
+
+        ```azurecli
+        az network watcher configure \
+                  --resource-group NetworkWatcherRG \
+                  --locations eastus \
+                  --enabled
+        ```
+
+    1. Create a temporary VM  with a Public IP in the subnet you're using for the Azure Load Testing service. You'll only use this VM to diagnose the network connectivity and delete it afterwards. The VM can be of any type.
+
+        ```azurecli
+        az vm create \
+              --resource-group myResourceGroup \
+              --name myVm \
+              --image UbuntuLTS \
+              --generate-ssh-keys \
+              --subnet mySubnet
+        ```
+
+    1. Test the inbound connectivity to the temporary VM from the `BatchNodeManagement` service tag.
+
+        1. In the [Azure portal](https://portal.azure.com), go to **Network Watcher**.
+        1. On the left pane, select **NSG Diagnostic**.
+        1. Enter the details of the VM you created in the previous step.
+        1. Select **Service Tag** for the **Source type**, and then select **BatchNodeManagement** for the **Service tag**.
+        1. The **Destination IP address** is the IP address of the VM you created in previous step.
+        1. For **Destination port**, you have to validate two ports: **29876** and **29877**. Enter one value at a time and move to the next step.
+        1. Press **Check** to verify that the network security group is not blocking traffic.
+
+            :::image type="content" source="media/how-to-test-private-endpoint/test-nsg-connectivity.png" alt-text="Screenshot that shows the N S G Diagnotic page to test network connectivity.":::
+
+            If the traffic status is **Denied**, you'll have to [modify the Network Security Group (NSG) rules](/azure/virtual-network/manage-network-security-group) to allow traffic for the **BatchNodeManagement** service tag.
+
+    1. Test the inbound connectivity from the Azure Load Testing service.
+
+        1. Stay on the **NSG Diagnostic** page.
+        1. Enter the details of the VM you created in the previous step.
+        1. Select **IPv4 address/CIDR** for the **Source type**.
+        1. For **IPv4 address/CIDR**, enter the [IP address of the Azure Load Testing](#azure-load-testing-outbound-ip-addresses-per-region) service region you're using.
+        1. For **Destination IP address**, enter the IP address of the VM you created in previous step.
+        1. For **Destination port**, enter **8080**.
+        1. Press **Check** to verify that the network security group is not blocking traffic.
+
+    1. Delete the temporary VM you created earlier.
+
+### The test executes and results in a 100% error rate
+
+Possible cause: there are connectivity issues between the subnet in which you deployed Azure Load Testing and the subnet in which the application endpoint is hosted.
+
+1. You might deploy a temporary VM in the subnet used by Azure Load Testing and then use the [curl](https://curl.se/) tool to test connectivity to the application endpoint. Verify that there are no firewall or NSG rules that are blocking traffic.
+
+1. Verify the [Azure Load Testing results file](./how-to-export-test-results.md) for error response messages:
+
+    |Response message  | Action  |
+    |---------|---------|
+    | **Non http response code java.net.unknownhostexception** | Possible cause is a DNS resolution issue. If you’re using Azure Private DNS, verify that the DNS is set up correctly for both the subnet in which Azure Load Testing instances are injected, as well as the application subnet. |
+    | **Non http response code SocketTimeout**     | Possible cause is when there’s a firewall blocking connections from the subnet in which Azure Load Testing instances are injected to your application subnet.  |
+
 ## Next steps
 
-- Learn more about the scenarios for [deploying Azure Load Testing in your virtual network](./concept-azure-load-testing-vnet-injection.md).
+- Learn more about the [scenarios for deploying Azure Load Testing in a virtual network](./concept-azure-load-testing-vnet-injection.md).
 - Learn how to [Monitor server-side application metrics](./how-to-monitor-server-side-metrics.md).
