@@ -52,11 +52,11 @@ LUIS uses two kinds of keys:
 
 For this guide, you need the prediction key type. This guide uses the example Home Automation LUIS app, which you can create by following the [Use prebuilt Home automation app](../luis/luis-get-started-create-app.md) quickstart. If you've created a LUIS app of your own, you can use it instead.
 
-When you create a LUIS app, LUIS automatically generates a authoring key so you can test the app using text queries. This key doesn't enable the Speech service integration and won't work with this guide. Create a LUIS resource in the Azure dashboard and assign it to the LUIS app. You can use the free subscription tier for this guide.
+When you create a LUIS app, LUIS automatically generates an authoring key so you can test the app using text queries. This key doesn't enable the Speech service integration and won't work with this guide. Create a LUIS resource in the Azure dashboard and assign it to the LUIS app. You can use the free subscription tier for this guide.
 
 After you create the LUIS resource in the Azure dashboard, log into the [LUIS portal](https://www.luis.ai/home), choose your application on the **My Apps** page, then switch to the app's **Manage** page. Finally, select **Azure Resources** in the sidebar.
 
-:::image type="content" source="media/sdk/luis-keys-endpoints-page.png" alt-text="A screenshot of the LUIS portal keys and endpoint settings." lightbox="media/sdk/luis-keys-endpoints-page.png":::
+:::image type="content" source="media/sdk/luis-keys-endpoints-page.png" alt-text="Shows a screenshot of the LUIS portal keys and endpoint settings." lightbox="media/sdk/luis-keys-endpoints-page.png":::
 
 On the **Azure Resources** page:
 
@@ -237,7 +237,7 @@ For example, if you say "Turn off the lights", pause, and then say "Turn on the 
 
 ![Audio file LUIS recognition results](media/sdk/luis-results-2.png)
 
-The Speech SDK team actively maintains a large set of examples in an open-source repository. For the sample source code repository, see the <a href="https://aka.ms/csspeech/samples" target="_blank">Microsoft Cognitive Services Speech SDK on GitHub <span class="docon docon-navigate-external x-hidden-focus"></span></a>. There are samples for C#, C++, Java, Python, Objective-C, Swift, JavaScript, UWP, Unity, and Xamarin. Look for the code from this article in the **samples/csharp/sharedcontent/console** folder.
+The Speech SDK team actively maintains a large set of examples in an open-source repository. For the sample source code repository, see the [Azure Cognitive Services Speech SDK on GitHub](https://aka.ms/csspeech/samples). There are samples for C#, C++, Java, Python, Objective-C, Swift, JavaScript, UWP, Unity, and Xamarin. Look for the code from this article in the **samples/csharp/sharedcontent/console** folder.
 
 ## Next steps
 

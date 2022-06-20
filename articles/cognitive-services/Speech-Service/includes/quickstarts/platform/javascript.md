@@ -10,11 +10,11 @@ ms.author: eur
 
 This guide shows how to install the [Speech SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) for JavaScript. 
 
-The Speech SDK for JavaScript is available as an npm package. See <a href="https://www.npmjs.com/package/microsoft-cognitiveservices-speech-sdk" target="_blank">microsoft-cognitiveservices-speech-sdk </a> and its companion GitHub repository <a href="https://github.com/Microsoft/cognitive-services-speech-sdk-js" target="_blank">cognitive-services-speech-sdk-js</a>.
+The Speech SDK for JavaScript is available as an npm package. See [microsoft-cognitiveservices-speech-sdk](https://www.npmjs.com/package/microsoft-cognitiveservices-speech-sdk) and its companion GitHub repository [cognitive-services-speech-sdk-js](https://github.com/Microsoft/cognitive-services-speech-sdk-js).
 
 ## Platform requirements
 
-Make sure to consider the various architectural implications between Node.js and client web browsers. For example, the <a href="https://en.wikipedia.org/wiki/Document_Object_Model" target="_blank">document object model (DOM) </a> isn't available for server-side applications just as the <a href="https://nodejs.org/api/fs.html" target="_blank">file system</a> isn't available to client-side applications.
+Make sure to consider the various architectural implications between Node.js and client web browsers. For example, the [document object model (DOM)](https://en.wikipedia.org/wiki/Document_Object_Model) isn't available for server-side applications just as the [Node.js file system](https://nodejs.org/api/fs.html) isn't available to client-side applications.
 
 ## Install the Speech SDK
 
@@ -36,7 +36,7 @@ This guide shows how to install the [Speech SDK](~/articles/cognitive-services/s
     npm install microsoft-cognitiveservices-speech-sdk
     ```
 
-For more information, see the <a href="https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/javascript/node" target="_blank">Node.js samples</a>.
+For more information, see the [Node.js samples](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/javascript/node).
 
 #### [Browser-based](#tab/browser)
 
@@ -57,7 +57,7 @@ This guide shows how to install the [Speech SDK](~/articles/cognitive-services/s
 
 ### HTML script tag
 
-Download and extract the <a href="https://aka.ms/csspeech/jsbrowserpackage" target="_blank">Speech SDK for JavaScript</a> *microsoft.cognitiveservices.speech.sdk.bundle.js* file. Place it in a folder that your HTML file can access.
+Download and extract the *microsoft.cognitiveservices.speech.sdk.bundle.js* file from the [Speech SDK for JavaScript](https://aka.ms/csspeech/jsbrowserpackage). Place it in a folder that your HTML file can access.
 
 ```html
 <script src="microsoft.cognitiveservices.speech.sdk.bundle.js"></script>;
@@ -66,14 +66,14 @@ Download and extract the <a href="https://aka.ms/csspeech/jsbrowserpackage" targ
 > [!TIP]
 > If you're targeting a web browser and using the `<script>` tag, the `sdk` prefix is not needed. The `sdk` prefix is an alias that's used to name the `require` module.
 
-Alternatively, you could directly include a `<script>` tag in the HTMLs `<head>` element, relying on the <a href="https://www.jsdelivr.com/package/npm/microsoft-cognitiveservices-speech-sdk" target="_blank">**JSDelivr** NPM syndicate</a>.
+Alternatively, you could directly include a `<script>` tag in the HTMLs `<head>` element, relying on the [JSDelivr NPM syndicate](https://www.jsdelivr.com/package/npm/microsoft-cognitiveservices-speech-sdk).
 
 ```html
 <script src="https://cdn.jsdelivr.net/npm/microsoft-cognitiveservices-speech-sdk@latest/distrib/browser/microsoft.cognitiveservices.speech.sdk.bundle-min.js">
 </script>
 ```
 
-For more information, see the <a href="https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/javascript/browser" target="_blank">browser-based samples</a>.
+For more information, see the [browser-based samples](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/javascript/browser).
 
 ---
 
@@ -85,7 +85,7 @@ Add the following import statement to use the Speech SDK in your JavaScript proj
 import * as sdk from "microsoft-cognitiveservices-speech-sdk";
 ```
 
-For more information on `import`, see <a href="https://javascript.info/import-export" target="_blank">Export and Import</a> on the JavaScript website.
+For more information on `import`, see [Export and Import](https://javascript.info/import-export) on the JavaScript website.
 
 Alternatively, you could use a require statement:
 
@@ -93,4 +93,4 @@ Alternatively, you could use a require statement:
 const sdk = require("microsoft-cognitiveservices-speech-sdk");
 ```
 
-For more information on `require`, see <a href="https://nodejs.org/en/knowledge/getting-started/what-is-require/" target="_blank">What is require?</a> on the Node.js website.
+For more information on `require`, see [What is require?](https://nodejs.org/en/knowledge/getting-started/what-is-require/) on the Node.js website.

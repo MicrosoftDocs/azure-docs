@@ -53,7 +53,7 @@ If a sample is not available in your preferred programming language, you can sel
 
 ### GitHub samples
 
-In depth samples are available in the <a href="https://aka.ms/csspeech/samples" target="_blank">Azure-Samples/cognitive-services-speech-sdk<span class="docon docon-navigate-external x-hidden-focus"></span></a> repository on GitHub. There are samples for C# (including UWP, Unity, and Xamarin), C++, Java, JavaScript (including Browser and Node.js), Objective-C, Python, and Swift. Code samples for Go are available in the <a href="https://github.com/Microsoft/cognitive-services-speech-sdk-go" target="_blank">Microsoft/cognitive-services-speech-sdk-go<span class="docon docon-navigate-external x-hidden-focus"></span></a> repository on GitHub.
+In depth samples are available in the [Azure-Samples/cognitive-services-speech-sdk](https://aka.ms/csspeech/samples) repository on GitHub. There are samples for C# (including UWP, Unity, and Xamarin), C++, Java, JavaScript (including Browser and Node.js), Objective-C, Python, and Swift. Code samples for Go are available in the [Microsoft/cognitive-services-speech-sdk-go](https://github.com/Microsoft/cognitive-services-speech-sdk-go) repository on GitHub.
 
 ## Help options
 
