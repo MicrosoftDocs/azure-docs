@@ -49,7 +49,7 @@ Automatic backups are performed periodically from the primary database server, w
 
 ### Transaction completion
 
-Application transaction triggered writes and commits are first logged to the WAL on the primary server. It is then streamed to the standby server using Postgres streaming protocol. Once the logs are persisted on the standby server storage, the primary server is acknowledged of write completion. Only then and the application is confirmed of the writes. This additional round-trip adds more latency to your application. The percentage of impact depends on the application. Note that this acknowledgement process does not wait for the logs to be applied at the standby server. The standby server is permanently in recovery mode until it is promoted.
+Application transaction triggered writes and commits are first logged to the WAL on the primary server. It is then streamed to the standby server using Postgres streaming protocol. Once the logs are persisted on the standby server storage, the primary server is acknowledged of write completion. Only then and the application is confirmed of the writes. This additional round-trip adds more latency to your application. The percentage of impact depends on the application. This acknowledgement process does not wait for the logs to be applied at the standby server. The standby server is permanently in recovery mode until it is promoted.
 
 ### Health check 
 
@@ -283,7 +283,7 @@ Here are some failure scenarios that require user action to recover:
     If you choose same zone HA, then you can only choose the primary server. If you choose zone redundant HA, then you can choose both primary and standby AZs.
 
 * **Is zone redundant HA available in all regions?** <br>
-    Zone-redundant HA is available in regions that support multiple AZs in the region. For the latest region support, please see [this documentation](overview.md#azure-regions). We are continuously adding more regions and enabling multiple AZs. Note that same-zone HA is available in all regions. 
+    Zone-redundant HA is available in regions that support multiple AZs in the region. For the latest region support, please see [this documentation](overview.md#azure-regions). We are continuously adding more regions and enabling multiple AZs.  Same-zone HA is available in all supported regions. 
 
 * **Can I deploy both zone redundant HA and same zone HA at the same time?** <br>
     No. You can deploy only one of those options.
