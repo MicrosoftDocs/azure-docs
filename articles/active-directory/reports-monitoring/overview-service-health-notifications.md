@@ -13,7 +13,7 @@ ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 06/13/2022
+ms.date: 06/15/2022
 ms.author: markvi
 ms.reviewer: davey  
 
@@ -53,7 +53,7 @@ Most of the built-in admin roles will have access to see these notifications. Fo
 
 ## What you should know 
 
-Service Health events allow the addition of alerts and notifications to be applied to subscription events. Currently, this isn't yet supported with tenant events, but will be coming soon. Until notifications are supported, both tenant events and subscription events to all subscriptions in an impacted tenant will be issued in the event of an outage.  
+Service Health events allow the addition of alerts and notifications to be applied to subscription events. Currently, this isn't yet supported with tenant events, but will be coming soon. 
 
 
  

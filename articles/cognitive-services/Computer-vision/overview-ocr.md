@@ -26,6 +26,9 @@ This documentation contains the following types of articles:
 <!--* The [conceptual articles](how-to/call-read-api.md) provide in-depth explanations of the service's functionality and features.
 * The [tutorials](./tutorials/storage-lab-tutorial.md) are longer guides that show you how to use this service as a component in broader business solutions. -->
 
+For a more structured approach, follow a Microsoft Learn module for OCR.
+* [Read Text in Images and Documents with the Computer Vision Service](/learn/modules/read-text-images-documents-with-computer-vision-service/)
+
 ## Read API 
 
 The Computer Vision [Read API](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/5d986960601faab4bf452005) is Azure's latest OCR technology ([learn what's new](./whats-new.md)) that extracts printed text (in several languages), handwritten text (in several languages), digits, and currency symbols from images and multi-page PDF documents. It's optimized to extract text from text-heavy images and multi-page PDF documents with mixed languages. It supports extracting both printed and handwritten text in the same image or document.

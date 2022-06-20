@@ -56,7 +56,7 @@ AKS uses several managed identities for built-in services and add-ons.
 ## Create an AKS cluster using a managed identity
 
 > [!NOTE]
-> AKS will create a system-assigned kubelet identity in the Node resource group if you do not [specify your own kubelet managed identity](#Use a pre-created kubelet managed identity).
+> AKS will create a system-assigned kubelet identity in the Node resource group if you do not [specify your own kubelet managed identity][Use a pre-created kubelet managed identity].
 
 You can create an AKS cluster using a system-assigned managed identity by running the following CLI command.
 
@@ -451,6 +451,7 @@ Use [Azure Resource Manager templates ][aks-arm-template] to create a managed id
 [aks-arm-template]: /azure/templates/microsoft.containerservice/managedclusters
 
 <!-- LINKS - internal -->
+[install-azure-cli]: /cli/azure/install-azure-cli
 [az-identity-create]: /cli/azure/identity#az_identity_create
 [az-identity-list]: /cli/azure/identity#az_identity_list
 [az-feature-list]: /cli/azure/feature#az_feature_list

@@ -12,9 +12,10 @@ ms.custom: devx-track-csharp, devx-track-azurecli, subject-rbac-steps
 ---
 
 # Use system-assigned managed identities to access Azure Cosmos DB data
+
 [!INCLUDE [appliesto-sql-api](includes/appliesto-sql-api.md)]
 
-In this article, you'll set up a *robust, key rotation agnostic* solution to access Azure Cosmos DB keys by using [managed identities](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md) and [data plane role-based access control](how-to-setup-rbac.md). The example in this article uses Azure Functions, but you can use any service that supports managed identities. 
+In this article, you'll set up a *robust, key rotation agnostic* solution to access Azure Cosmos DB keys by using [managed identities](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md) and [data plane role-based access control](how-to-setup-rbac.md). The example in this article uses Azure Functions, but you can use any service that supports managed identities.
 
 You'll learn how to create a function app that can access Azure Cosmos DB data without needing to copy any Azure Cosmos DB keys. The function app will trigger when an HTTP request is made and then list all of the existing databases.
 
@@ -95,7 +96,7 @@ In this step, you'll create two databases.
 
 In this step, you'll query the document endpoint for the SQL API account.
 
-1. Use ``az cosmosdb show`` with the **query** parameter set to ``documentEndpoint``. Record the result. You'll use this value in a later step. 
+1. Use ``az cosmosdb show`` with the **query** parameter set to ``documentEndpoint``. Record the result. You'll use this value in a later step.
 
     ```azurecli-interactive
     az cosmosdb show \
@@ -121,7 +122,7 @@ In this step, you'll query the document endpoint for the SQL API account.
 
 In this step, you'll assign a role to the function app's system-assigned managed identity. Azure Cosmos DB has multiple built-in roles that you can assign to the managed identity. For this solution, you'll use the [Cosmos DB Built-in Data Reader](how-to-setup-rbac.md#built-in-role-definitions) role.
 
-> [!TIP] 
+> [!TIP]
 > When you assign roles, assign only the needed access. If your service requires only reading data, then assign the **Cosmos DB Built-in Data Reader** role to the managed identity. For more information about the importance of least privilege access, see the [Lower exposure of privileged accounts](../security/fundamentals/identity-management-best-practices.md#lower-exposure-of-privileged-accounts) article.
 
 1. Use ``az cosmosdb show`` with the **query** parameter set to ``id``. Store the result in a shell variable named ``scope``.
@@ -170,7 +171,19 @@ In this step, you'll assign a role to the function app's system-assigned managed
     }
     ```
 
-1. Use [``az role assignment create``](/cli/azure/cosmosdb/sql/role/assignment#az-cosmosdb-sql-role-assignment-create) to assign the ``Cosmos DB Built-in Data Reader`` role to the system-assigned managed identity.
+1. Use [``az cosmosdb sql role definition create``](/cli/azure/cosmosdb/sql/role/definition#az-cosmosdb-sql-role-definition-create) to create a new role definition named ``Read Cosmos Metadata`` using the custom JSON object.
+
+    ```azurecli-interactive
+    az cosmosdb sql role definition create \
+        --resource-group $resourceGroupName \
+        --account-name $cosmosName \
+        --body @definition.json
+    ```
+
+    > [!NOTE]
+    > In this example, the role definition is defined in a file named **definition.json**.
+
+1. Use [``az role assignment create``](/cli/azure/cosmosdb/sql/role/assignment#az-cosmosdb-sql-role-assignment-create) to assign the ``Read Cosmos Metadata`` role to the system-assigned managed identity.
 
     ```azurecli-interactive
     az cosmosdb sql role assignment create \
@@ -267,7 +280,7 @@ We now have a function app that has a system-assigned managed identity with the 
     }
     ```
 
-## (Optional) Run the function locally 
+## (Optional) Run the function locally
 
 In a local environment, the [``DefaultAzureCredential``](/dotnet/api/azure.identity.defaultazurecredential) class will use various local credentials to determine the current identity. While running locally isn't required for the how-to, you can develop locally using your own identity or a service principal.
 
@@ -286,7 +299,7 @@ In a local environment, the [``DefaultAzureCredential``](/dotnet/api/azure.ident
     > [!NOTE]
     > This JSON object has been shortened for brevity. This JSON object also includes a sample value that assumes your account name is ``msdocs-cosmos-app``.
 
-1. Run the function app 
+1. Run the function app
 
     ```azurecli
     func start
@@ -315,6 +328,6 @@ Once published, the ``DefaultAzureCredential`` class will use credentials from t
 
 ## Next steps
 
-* [Certificate-based authentication with Azure Cosmos DB and Azure Active Directory](certificate-based-authentication.md)
-* [Secure Azure Cosmos DB keys using Azure Key Vault](access-secrets-from-keyvault.md)
-* [Security baseline for Azure Cosmos DB](security-baseline.md)
+- [Certificate-based authentication with Azure Cosmos DB and Azure Active Directory](certificate-based-authentication.md)
+- [Secure Azure Cosmos DB keys using Azure Key Vault](access-secrets-from-keyvault.md)
+- [Security baseline for Azure Cosmos DB](security-baseline.md)
