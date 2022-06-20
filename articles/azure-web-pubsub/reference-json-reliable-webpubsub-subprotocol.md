@@ -34,7 +34,7 @@ When using `json.reliable.webpubsub.azure.v1` subprotocol, the client must follo
 
 [!INCLUDE [json-requests](includes/reference-json-requests.md)]
 
-### Sequence Ack
+### Sequence Ack {#sequenceAckMessage}
 
 Format:
 
@@ -53,7 +53,7 @@ Reliable PubSub WebSocket client must send sequence ack message once it received
 
 Messages received by the client can be several types: `ack`, `message`, and `system`. Messages with type `message` have `sequenceId` property. Client must send [Sequence Ack](#sequence-ack) to the service once it receives a message.
 
-### Ack response
+### Ack response {#ackMessage}
 
 If the request contains `ackId`, the service will return an ack response for this request. The client implementation should handle this ack mechanism, including waiting for the ack response for an `async` `await` operation, and having a timeout check when the ack response is not received during a certain period.
 
@@ -149,7 +149,7 @@ If the REST API is sending a string `Hello World` using `application/json` conte
 
 The Web PubSub service can also send system-related responses to the client. 
 
-#### Connected
+#### Connected {#connectedMessage}
 
 When the connection connects to service.
 
@@ -171,7 +171,7 @@ wss://<service-endpoint>/client/hubs/<hub>?awps_connection_id=<connectionId>&awp
 
 Find more details in [Reconnection](./howto-develop-reliable-clients.md#reconnection)
 
-#### Disconnected
+#### Disconnected {#disconnectedMessage}
 
 When the server closes the connection, or when the service declines the client.
 
