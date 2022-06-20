@@ -169,9 +169,11 @@ If you want to monitor a particular server role instance, you can filter by serv
 
 ## Secure the control channel
 
-Live Metrics custom filters allow you to control which of your application's telemetry is streamed to the Live Metrics view in Azure portal. The filters criteria is sent to the apps that are instrumented with the Application Insights SDK. The filter value could potentially contain sensitive information such as CustomerID. To keep this value secured and prevent potential disclosure to unauthorized applications, you need to set up an authenticated channel with Azure AD, see [Configuring and enabling Azure AD based authentication](https://docs.microsoft.com/en-us/azure/azure-monitor/app/azure-ad-authentication?tabs=net#configuring-and-enabling-azure-ad-based-authentication).
+Live Metrics custom filters allow you to control which of your application's telemetry is streamed to the Live Metrics view in Azure portal. The filters criteria is sent to the apps that are instrumented with the Application Insights SDK. The filter value could potentially contain sensitive information such as CustomerID. To keep this value secured and prevent potential disclosure to unauthorized applications, you have two options:
 
-It is also possible to set up an authenticated channel by configuring a secret API key, but we recommend to use Azure AD.
+Recommended: Secure live-metrics channel using [Azure AD authentication](https://docs.microsoft.com/en-us/azure/azure-monitor/app/azure-ad-authentication?tabs=net#configuring-and-enabling-azure-ad-based-authentication)
+
+Legacy (no longer recommended): Set up an authenticated channel by configuring a secret API key as explained below
 
 > [!NOTE]
 > Currently, you can only set up an authenticated channel using manual instrumentation (SDK) and cannot authenticate servers using Azure service integration (or auto instrumentation).
@@ -179,14 +181,24 @@ It is also possible to set up an authenticated channel by configuring a secret A
 > [!WARNING]
 > Notice that a warning will show if you try to use filters without an authenticated channel. It is possible to overwrite the warning temporarily, but this is not a permanent solution. We also recommend not to do so, to avoid the risk of disclosing sensitive information.
 
-### Create an API Key
+Securing the control channel is not necessary if you recognize and trust all the connected servers. This option is made available so that you can try custom filters without having to set up an authenticated channel. If you choose this option, you will have to authorize the connected servers once every new session or when a new server comes online. We strongly discourage the use of unsecured channels and will disable this option 6 months after you start using it. To use custom filters without a secure channel, simply click on any of the filter icons and authorize the connected servers. The “Authorize connected servers” dialog displays the date (highlighted below) after which this option will be disabled.
+
+:::image type="content" source="media/live-stream/live-stream-auth.png" alt-text="Screenshot displaying the authorize connected servers dialog." lightbox="media/live-stream/live-stream-auth.png":::
+
+> [!NOTE]
+> We strongly recommend that you set up the authenticated channel before entering potentially sensitive information like CustomerID in the filter criteria.
+>
+
+### Legacy option: Secure live-metric authenticated channel using secret API key
+
+#### Create API key
 
 ![API key > Create API key](./media/live-stream/api-key.png)
 ![Create API Key tab. Select "authenticate SDK control channel" then "generate key"](./media/live-stream/create-api-key.png)
 
-### Add API key to Configuration
+#### Add API key to Configuration
 
-### ASP.NET
+##### ASP.NET
 
 In the applicationinsights.config file, add the AuthenticationApiKey to the QuickPulseTelemetryModule:
 
@@ -196,7 +208,7 @@ In the applicationinsights.config file, add the AuthenticationApiKey to the Quic
 </Add>
 ```
 
-### ASP.NET Core
+##### ASP.NET Core
 
 For [ASP.NET Core](./asp-net-core.md) applications, follow the instructions below.
 
@@ -220,7 +232,7 @@ public void ConfigureServices(IServiceCollection services)
 
 More information on configuring ASP.NET Core applications can be found in our guidance on [configuring telemetry modules in ASP.NET Core](./asp-net-core.md#configuring-or-removing-default-telemetrymodules).
 
-### WorkerService
+##### WorkerService
 
 For [WorkerService](./worker-service.md) applications, follow the instructions below.
 
@@ -238,19 +250,11 @@ Next, add the following line before the call `services.AddApplicationInsightsTel
 
 More information on configuring WorkerService applications can be found in our guidance on [configuring telemetry modules in WorkerServices](./worker-service.md#configuring-or-removing-default-telemetrymodules).
 
-### Azure Function Apps
+##### Azure Function Apps
 
 For Azure Function Apps (v2), securing the channel with an API key can be accomplished with an environment variable.
 
 Create an API key from within your Application Insights resource and go to **Settings > Configuration** for your Function App. Select **New application setting** and enter a name of `APPINSIGHTS_QUICKPULSEAUTHAPIKEY` and a value that corresponds to your API key.
-
-Securing the control channel is not necessary if you recognize and trust all the connected servers. This option is made available so that you can try custom filters without having to set up an authenticated channel. If you choose this option, you will have to authorize the connected servers once every new session or when a new server comes online. We strongly discourage the use of unsecured channels and will disable this option 6 months after you start using it. To use custom filters without a secure channel, simply click on any of the filter icons and authorize the connected servers. The “Authorize connected servers” dialog displays the date (highlighted below) after which this option will be disabled.
-
-:::image type="content" source="media/live-stream/live-stream-auth.png" alt-text="Screenshot displaying the authorize connected servers dialog." lightbox="media/live-stream/live-stream-auth.png":::
-
-> [!NOTE]
-> We strongly recommend that you set up the authenticated channel before entering potentially sensitive information like CustomerID in the filter criteria.
->
 
 ## Supported features table
 
