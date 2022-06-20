@@ -26,9 +26,9 @@ Learn what's new in the service. These items may be release notes, videos, blog 
     * Considerations for mitigation harmful outcomes. Read more in [Guidance for Integration and Responsible Use of Face](/legal/cognitive-services/face/guidance-integration-responsible-use?context=/azure/cognitive-services/computer-vision/context/context)
     * Summary of what data the service processes, how the AI processes it and what is stored by the service. Read more in [Data and Privacy for Face](/legal/cognitive-services/face/data-privacy-security?context=/azure/cognitive-services/computer-vision/context/context)
 
-### Face restricted access
+### Limited Access policy
 
-* Access to Face API features is now restricted and requires approval for responsible use in line with Microsoft's principles for face recognition. Use the [Face Recognition Limited Access Review](https://aka.ms/facerecognition) form to apply for access. Once approved for your use case; no further actions or changes are required to continuing using these services. These changes will not impact all existing customers immediately. They will have one year within which to apply for continued access to the face recognition services based on their use cases provided. Face detection for detecting the location(s) of faces in images without any biometric template processing will remain generally available without requiring special approval. For details on the process, see the [Responsible AI documentation](/legal/cognitive-services/computer-vision/limited-access-identity?context=/azure/cognitive-services/computer-vision/context/context). 
+* As a part of aligning Face to the updated Responsible AI Standard, a new [Limited Access policy](https://aka.ms/AAh91ff) has been implemented for the Face API and Computer Vision. Existing customers have one year to apply and receive approval for continued access to the facial recognition services based on their provided use cases. See details on Limited Access for Face [here](<TODO: the right link for Face Limited Access doc in RAI section>) and for Computer Vision [here](<TODO: the right link for Computer Vision Limited Access doc in RAI section>)```.
 
 ## May 2022
 
