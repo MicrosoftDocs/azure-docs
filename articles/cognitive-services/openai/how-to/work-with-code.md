@@ -11,7 +11,7 @@ ms.date: 06/24/2022
 keywords: 
 ---
 
-# How to use the Codex models with Azure OpenAI
+# Codex models and Azure OpenAI
 
 The Codex model series is a descendant of our GPT-3 series that's been trained on both natural language and billions of lines of code. It's most capable in Python and proficient in over a dozen languages including JavaScript, Go, Perl, PHP, Ruby, Swift, TypeScript, SQL, and even Shell.
 
@@ -68,9 +68,9 @@ for (var i = 0; i < 50; i++) {
 // What does Function 1 do?
 ```
 
-### Best practices
+## Best practices
 
-#### Start with a comment, data or code
+### Start with a comment, data or code
 
 You can experiment using one of the Codex models in our playground (styling instructions as comments when needed.)
 
@@ -97,7 +97,7 @@ This approach scales even to the point where you can provide Codex with a commen
 
 When you show Codex the database schema, it's able to make an informed guess about how to format a query.
 
-#### Specify the programming language
+### Specify the programming language
 
 Codex understands dozens of different programming languages. Many share similar conventions for comments, functions and other programming syntax. By specifying the language and what version in a comment, Codex is better able to provide a completion for what you want. That said, Codex is fairly flexible with style and syntax. Here's an example for R and python.
 
@@ -111,7 +111,7 @@ Codex understands dozens of different programming languages. Many share similar 
 # Calculate the mean distance between an array of points
 ```
 
-#### Prompt Codex with what you want it to do
+### Prompt Codex with what you want it to do
 
 If you want Codex to create a webpage, placing the first line of code in an HTML document (`<!DOCTYPE html>`) after your comment tells Codex what it should do next. The same method works for creating a function from a comment (following the comment with a new line starting with func or def).
 
@@ -130,7 +130,7 @@ Or if we want to write a function we could start the prompt as follows and Codex
 def counter
 ```
 
-#### Specifying libraries will help Codex understand what you want
+### Specifying libraries will help Codex understand what you want
 
 Codex is aware of a large number of libraries, APIs and modules. By telling Codex which ones to use, either from a comment or importing them into your code, Codex will make suggestions based upon them instead of alternatives.
 
@@ -144,7 +144,7 @@ By specifying the version, you can make sure Codex uses the most current library
 > [!NOTE]
 > Codex can suggest helpful libraries and APIs, but always be sure to do your own research to make sure that they're safe for your application.
 
-#### Comment style can affect code quality
+### Comment style can affect code quality
 
 With some languages, the style of comments can improve the quality of the output. For example, when working with Python, in some cases using doc strings (comments wrapped in triple quotes) can give higher quality results than using the pound (`#`) symbol.
 
@@ -154,7 +154,7 @@ Create an array of users and email addresses
 """
 ```
 
-#### Comments inside of functions can be helpful
+### Comments inside of functions can be helpful
 
 Recommended coding standards usually suggest placing the description of a function inside the function. Using this format helps Codex more clearly understand what you want the function to do.
 
@@ -165,7 +165,7 @@ def getUserBalance(id):
     """
 ```
 
-#### Provide examples for more precise results
+### Provide examples for more precise results
 
 If you have a particular style or format you need Codex to use, providing examples or demonstrating it in the first part of the request will help Codex more accurately match what you need.
 
@@ -176,13 +176,13 @@ Create a list of random animals and species
 animals  = [ {"name": "Chomper", "species": "Hamster"}, {"name":
 ```
 
-#### Lower temperatures give more precise results
+### Lower temperatures give more precise results
 
 Setting the API temperature to 0, or close to zero (such as 0.1 or 0.2) tends to give better results in most cases. Unlike GPT-3, where a higher temperature can provide useful creative and random results, higher temperatures with Codex may give you really random or erratic responses.
 
 In cases where you need Codex to provide different potential results, start at zero and then increment upwards by 0.1 until you find suitable variation.
 
-#### Organize tasks into functions
+### Organize tasks into functions
 
 We can get Codex to write functions by specifying what the function should do in as precise terms as possible in comment. For example, by writing the following comment, Codex creates a JavaScript timer function that's triggered when a user presses a button:
 
@@ -219,7 +219,7 @@ var weather = [
 ];
 ```
 
-#### Compound functions and small applications
+### Compound functions and small applications
 
 We can provide Codex with a comment consisting of a complex request like creating a random name generator or performing tasks with user input and Codex can generate the rest provided there are enough tokens.
 
@@ -231,17 +231,17 @@ Use the lists to generate stories about what I saw at the zoo in each city
 */
 ```
 
-#### Limit completion size for more precise results or lower latency
+### Limit completion size for more precise results or lower latency
 
 Requesting longer completions in Codex can lead to imprecise answers and repetition. Limit the size of the query by reducing max_tokens and setting stop tokens. For instance, add `\n` as a stop sequence to limit completions to one line of code. Smaller completions also incur less latency.
 
-#### Use streaming to reduce latency
+### Use streaming to reduce latency
 
 Large Codex queries can take tens of seconds to complete. To build applications that require lower latency, such as coding assistants that perform autocompletion, consider using streaming. Responses will be returned before the model finishes generating the entire completion. Applications that need only part of a completion can reduce latency by cutting off a completion either programmatically or by using creative values for `stop`.
 
 Users can combine streaming with duplication to reduce latency by requesting more than one solution from the API, and using the first response returned. Do this by setting `n > 1`. This approach consumes more token quota, so use carefully (for example, by using reasonable settings for `max_tokens` and `stop`).
 
-#### Use Codex to explain code
+### Use Codex to explain code
 
 Codex's ability to create and understand code allows us to use it to perform tasks like explaining what the code in a file does. One way to accomplish this is by putting a comment after a function that starts with "This function" or "This application is." Codex will usually interpret this as the start of an explanation and complete the rest of the text.
 
@@ -249,7 +249,7 @@ Codex's ability to create and understand code allows us to use it to perform tas
 /* Explain what the previous function is doing: It
 ```
 
-#### Explaining an SQL query
+### Explaining an SQL query
 
 In this example, we use Codex to explain in a human readable format what an SQL query is doing.
 
@@ -265,7 +265,7 @@ HAVING COUNT(employee.id) > 10;
 --
 ```
 
-#### Writing unit tests
+### Writing unit tests
 
 Creating a unit test can be accomplished in Python simply by adding the comment "Unit test" and starting a function.
 
@@ -278,7 +278,7 @@ def sum_numbers(a, b):
 def
 ```
 
-#### Checking code for errors
+### Checking code for errors
 
 By using examples, you can show Codex how to identify errors in code. In some cases no examples are required, however demonstrating the level and detail to provide a description can help Codex understand what to look for and how to explain it. (A check by Codex for errors shouldn't replace careful review by the user. )
 
@@ -286,7 +286,7 @@ By using examples, you can show Codex how to identify errors in code. In some ca
 /* Explain why the previous function doesn't work. */
 ```
 
-#### Using source data to write database functions
+### Using source data to write database functions
 
 Just as a human programmer would benefit from understanding the database structure and the column names, Codex can use this data to help you write accurate query requests. In this example, we insert the schema for a database and tell Codex what to query the database for.
 
@@ -301,7 +301,7 @@ Just as a human programmer would benefit from understanding the database structu
 # Create a query for all albums by Adele
 ```
 
-#### Converting between languages
+### Converting between languages
 
 You can get Codex to convert from one language to another by following a simple format where you list the language of the code you want to convert in a comment, followed by the code and then a comment with the language you want it translated into.
 
@@ -316,7 +316,7 @@ You can get Codex to convert from one language to another by following a simple 
 # R version
 ```
 
-#### Rewriting code for a library or framework
+### Rewriting code for a library or framework
 
 If you want Codex to make a function more efficient, you can provide it with the code to rewrite followed by an instruction on what format to use.
 
