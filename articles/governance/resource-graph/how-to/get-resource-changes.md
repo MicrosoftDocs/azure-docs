@@ -1,7 +1,7 @@
 ---
 title: Get resource changes
 description: Understand how to find when a resource was changed and query the list of resource configuration changes at scale
-ms.date: 03/08/2022
+ms.date: 06/16/2022
 ms.topic: how-to
 ---
 # Get resource changes
@@ -37,10 +37,10 @@ Monitor.
 > Resource configuration changes is for Azure Resource Manager properties. For tracking changes inside
 > a virtual machine, see Azure Automation's
 > [Change tracking](../../../automation/change-tracking/overview.md) or Azure Policy's
-> [Guest Configuration for VMs](../../policy/concepts/guest-configuration.md).
+> [Guest Configuration for VMs](../../policy/concepts/guest-configuration.md). To view examples of how to query Guest Configuration resources in Resource Graph, view [Azure Resource Graph queries by category - Azure Policy Guest Configuration](../samples/samples-by-category.md#azure-policy-guest-configuration).
 
 > [!IMPORTANT]
-> Resource configuration changes only supports changes to resource types from the [Resources table](..//reference/supported-tables-resources.md#resources) in Resource Graph. This does not yet include changes to the resource container resources, such as Subscriptions and Resource groups. Changes are queryable for fourteen days.
+> Resource configuration changes only supports changes to resource types from the [Resources table](..//reference/supported-tables-resources.md#resources) in Resource Graph. This does not yet include changes to the resource container resources, such as Subscriptions and Resource groups. Changes are queryable for fourteen days. For longer retention, you can [integrate your Resource Graph query with Azure Logic Apps](../tutorials/logic-app-calling-arg.md) and export query result to any of the Azure data stores (e.g., Log Analytics) for your desired retention.
 
 ## Find detected change events and view change details
 
