@@ -121,7 +121,7 @@ You may need to make changes to your plan, such as to update the number of commi
 1. Make your changes as needed: 
    - Update the number of committed devices
    - Update the number of sites (OT only)
-   - Remove OT or EIoT from the plan by turning off the OT or EIoT toggle. 
+   - Remove an OT or Enterprise IoT network from your plan by toggling off the **OT - operational / ICS networks** or **EIoT - enterprise IoT for corporate networks** options as needed. 
 
 1. Select **Next**.
 
