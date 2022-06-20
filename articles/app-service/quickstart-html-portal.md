@@ -7,13 +7,13 @@ ms.custom: mode-ui
 ROBOTS: noindex
 ---
 
-[Azure App Service](../overview.md) provides a highly scalable, self-patching web hosting service. This quickstart shows how to deploy a basic HTML+CSS site to Azure App Service using the Azure portal.
+[Azure App Service](overview.md) provides a highly scalable, self-patching web hosting service. This quickstart shows how to deploy a basic HTML+CSS site to Azure App Service using the Azure portal.
 
-This quickstart configures an App Service app in the **Free** tier and incurs no cost for your Azure subscription.
+This quickstart configures a static web App in the **Free** tier and incurs no cost for your Azure subscription.
 
 This quickstart shows you how to make these changes within your browser, without having to install the development environment tools on your machine.
 
-![Screenshot of the sample app running in Azure, showing 'Hello World!'.](../media/quickstart-php/php-8-hello-world-in-browser.png)
+![Screenshot of the sample app running in Azure, showing 'Hello World!'.](media/quickstart-html-portal/html-docs-hello-world-in-browser.png)
 
 You can follow the steps here using a Mac, Windows, or Linux machine. Once the prerequisites are installed, it takes about five minutes to complete the steps.
 
@@ -28,7 +28,7 @@ To complete this quickstart you need:
 
 2. In the upper right corner, select **Fork**.
 
-    ![Screenshot of the Azure-Samples/html-docs-hello-world repo in GitHub, with the Fork option highlighted.](../media/quickstart-php/fork-php-docs-hello-world-repo.png)
+    ![Screenshot of the Azure-Samples/html-docs-hello-world repo in GitHub, with the Fork option highlighted.](media/quickstart-html-portal/fork-html-docs-hello-world-repo.png)
 
 3. On the **Create a new fork** screen, confirm the **Owner** and **Repository name** fields. Select **Create fork**.
 
@@ -41,11 +41,11 @@ To complete this quickstart you need:
    
 2. At the top of the portal, type **static web apps** in the search box. Under **Services**, select **Static Web Apps**.
 
-    ![Screenshot of the Azure portal with 'app services' typed in the search text box. In the results, the App Services option under Services is highlighted.](../media/quickstart-php/azure-portal-search-for-app-services.png)
+    ![Screenshot of the Azure portal with 'static web apps' typed in the search text box. In the results, the Static Web Apps option under Services is highlighted.](media/quickstart-html-portal/azure-portal-search-for-static-web-apps.png)
 
 3. On the **Static Web Apps** page, select **Create**.
 
-    ![Screenshot of the App Services page in the Azure portal. The Create button in the action bar is highlighted.](../media/quickstart-php/azure-portal-create-app-service.png)
+    ![Screenshot of the Static Web Apps page in the Azure portal. The Create button in the action bar is highlighted.](media/quickstart-html-portal/azure-portal-create-static-web-app.png)
 
 4. Fill out the **Create Web App** page as follows.
    - **Resource Group**: Create a resource group named *myResourceGroup*.
@@ -67,55 +67,53 @@ To complete this quickstart you need:
 
 The sample static app is running.
 
-![Screenshot of the sample app running in Azure, showing 'Hello World!'.](../media/quickstart-php/php-8-hello-world-in-browser.png)
+![Screenshot of the sample app running in Azure, showing 'Hello World!'.](media/quickstart-html-portal/html-docs-hello-world-in-browser.png)
 
 **Congratulations!** You've deployed your first static web app using the Azure portal.
 
 ## 3 - Update in GitHub and redeploy the code
 
-1. Browse to your GitHub fork of php-docs-hello-world.
+1. Browse to your GitHub fork of html-docs-hello-world.
 
 2. On your repo page, press `.` to start Visual Studio code within your browser.
 
-![Screenshot of the forked php-docs-hello-world repo in GitHub with instructions to press the period key on this screen.](../media/quickstart-php/forked-github-repo-press-period.png)
+![Screenshot of the forked html-docs-hello-world repo in GitHub with instructions to press the period key on this screen.](media/quickstart-html-portal/forked-github-repo-press-period.png)
 
 
-    > [!NOTE]
-    > The URL will change from GitHub.com to GitHub.dev. This feature only works with repos that have files. This does not work on empty repos.
+> [!NOTE]
+> The URL will change from GitHub.com to GitHub.dev. This feature only works with repos that have files. This does not work on empty repos.
 
 3. Edit **index.html** so that it shows "Azure App Service" instead of "Azure App Service - Sample Static HTML Site".
 
-    ```php
-    <?php
-        echo "Hello Azure!";
-    ?>
+    ```html
+    <h1>Azure App Service</h1>
     ```
 
 4. From the **Source Control** menu, select the **Stage Changes** button to stage the change.
 
-    ![Screenshot of Visual Studio Code in the browser, highlighting the Source Control navigation in the sidebar, then highlighting the Stage Changes button in the Source Control panel.](../media/quickstart-php/vscode-in-browser-stage-changes.png)
+    ![Screenshot of Visual Studio Code in the browser, highlighting the Source Control navigation in the sidebar, then highlighting the Stage Changes button in the Source Control panel.](media/quickstart-html-portal/vscode-in-browser-stage-changes.png)
 
 5. Enter a commit message such as `Updated static site`. Then, select **Commit and Push**.
     
-    ![Screenshot of Visual Studio Code in the browser, Source Control panel with a commit message of 'Hello Azure' and the Commit and Push button highlighted.](../media/quickstart-php/vscode-in-browser-commit-push.png)
+    ![Screenshot of Visual Studio Code in the browser, Source Control panel with a commit message of 'Hello Azure' and the Commit and Push button highlighted.](media/quickstart-html-portal/vscode-in-browser-commit-push.png)
 
 6. Once deployment has completed, return to the browser window that opened during the **Browse to the app** step, and refresh the page.
 
-    ![Screenshot of the updated sample app running in Azure, showing 'Hello Azure!'](../media/quickstart-php/php-8-hello-azure-in-browser.png)
+    ![Screenshot of the updated sample app running in Azure, showing 'Hello Azure!'](media/quickstart-html-portal/updated-html-docs-hello-world-in-browser.png)
 
 ## 4 - Manage your new Azure app
 
-1. Go to the Azure portal to manage the web app you created. Search for and select **Static Web Sites**.
+1. Go to the Azure portal to manage the web app you created. Search for and select **Static Web Apps**.
 
-    ![Screenshot of the Azure portal with 'app services' typed in the search text box. In the results, the App Services option under Services is highlighted.](../media/quickstart-php/azure-portal-search-for-app-services.png)
+    ![Screenshot of the Azure portal with 'static web apps' typed in the search text box. In the results, the Static Web Apps option under Services is highlighted.](media/quickstart-html-portal/azure-portal-search-for-static-web-apps.png)
 
-2. Select the name of your Azure app.
+2. Select the name of your static web app.
 
-    ![Screenshot of the App Services list in Azure. The name of the demo app service is highlighted.](../media/quickstart-php/app-service-list.png)
+    ![Screenshot of the Static Web Apps list in Azure. The name of the demo static web app is highlighted.](media/quickstart-html-portal/app-service-list.png)
 
-    Your web app's **Overview** page will be displayed. Here, you can perform basic management tasks like **Browse**, **Stop**, **Restart**, and **Delete**.
+    Your web app's **Overview** page will be displayed. Here, you can manage the deployment token for your static web app, in case you need to reset the token.
 
-    ![Screenshot of the App Service overview page in Azure portal. In the action bar, the Browse, Stop, Swap (disabled), Restart, and Delete button group is highlighted.](../media/quickstart-php/app-service-detail.png)
+    ![Screenshot of the App Service overview page in Azure portal. In the action bar, the Manage deployment token option is highlighted.](media/quickstart-html-portal/app-service-detail.png)
 
     The web app menu provides different options for configuring your app.
 
