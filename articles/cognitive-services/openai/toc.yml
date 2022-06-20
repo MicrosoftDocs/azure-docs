@@ -10,6 +10,8 @@ items:
   items:
     - name: Completions
       href: ./how-to/completions.md
+    - name: Work with code (Codex)
+      href: ./how-to/work-with-code.md
     - name: Generate embeddings
       href: ./how-to/embeddings.md
     - name: Search
