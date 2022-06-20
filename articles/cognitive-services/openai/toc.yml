@@ -10,6 +10,8 @@ items:
   items:
     - name: Completions
       href: ./how-to/completions.md
+    - name: Business continuity & disaster recovery (BCDR)
+      href: ./how-to/business-continuity-disaster-recovery.md
 - name: Concepts
   items:
     - name: Azure OpenAI Engines
