@@ -78,7 +78,7 @@ We enter the following query to return all events from Service Control Manager t
 
 ![Screenshot showing a query for an event source and ID.](media/custom-fields/query.png)
 
-We then right-click on any record with event ID 7036 and select Extract fields from `Event`.
+We then right-click on any record with event ID 7036 and select **Extract fields from `Event`**.
 
 ![Screenshot showing the Copy and Extract fields options, which are available when you right-click a record from the list of results.](media/custom-fields/extract-fields.png)
 
