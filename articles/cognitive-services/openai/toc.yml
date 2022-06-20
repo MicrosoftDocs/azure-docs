@@ -10,6 +10,8 @@ items:
   items:
     - name: Completions
       href: ./how-to/completions.md
+    - name: Generate embeddings
+      href: ./how-to/embeddings.md
     - name: Search
       href: ./how-to/search.md
     - name: Business continuity & disaster recovery (BCDR)
