@@ -295,7 +295,7 @@ chatAsyncClient.addEventHandler(ChatEventType.CHAT_MESSAGE_RECEIVED, (ChatEvent 
 ### Push notifications
 
 > [!NOTE]
-> Chat push notifications are supported for Android SDK in version starting from 1.1.0-beta.4 and 1.1.0. There is known issue regarding to renew registration before version 1.2.0. Please use version with the fix if possible. Steps 8 to 13 are only needed for versions with the fix.
+> Chat push notifications are supported for Android SDK in versions starting from 1.1.0-beta.4 and 1.1.0. It is recommended that you use version 1.2.0 or newer, as older versions have a known issue with the registration renewal. Steps from 8 to 12 are only needed for versions with the fix.
 
 Push notifications let clients to be notified for incoming messages and other operations occurring in a chat thread in situations where the mobile app is not running in the foreground. Azure Communication Services supports a [list of events that you can subscribe to](../../../concepts/chat/concepts.md#push-notifications).
 
@@ -442,25 +442,7 @@ Push notifications let clients to be notified for incoming messages and other op
    });
 ```
 
-8. Create a class, which contains all the constant string to be used in your application(MainActivity class and MyAppConfiguration class):
-
-```java
-    public class ApplicationConstants {
-        // Replace FIRST_USER_ID and SECOND_USER_ID with valid communication user identifiers from your ACS instance.
-        public final static String FIRST_USER_ID = "";
-        public final static String SECOND_USER_ID = "";
-        // Replace userAccessToken with a valid communication service token for your ACS instance.
-        public static final String FIRST_USER_ACCESS_TOKEN = "";
-        public static final String ENDPOINT = "";
-        public static final String SDK_VERSION = "1.2.0-beta.1";
-        public final static String SDK_NAME = "azure-communication-com.azure.android.communication.chat";
-        public final static String APPLICATION_ID = "Chat_Test_App";
-        public final static String TAG = "[Chat Test App]";
-        public final static CommunicationTokenCredential COMMUNICATION_TOKEN_CREDENTIAL = new CommunicationTokenCredential(FIRST_USER_ACCESS_TOKEN);
-    }
-```
-
-9. Adding xmlns:tools field in AndroidManifest.xml:
+8. Adding xmlns:tools field in AndroidManifest.xml:
 
 ```
     <manifest xmlns:android="http://schemas.android.com/apk/res/android"
@@ -468,7 +450,7 @@ Push notifications let clients to be notified for incoming messages and other op
     package="com.azure.android.communication.chat.sampleapp">
 ```
 
-10. Disable worker manager default initializer in AndroidManifest.xml:
+9. Disable worker manager default initializer in AndroidManifest.xml:
 
 ```
     <!-- Disable the default initializer of  WorkManager so that we could override it in MyAppConfiguration  -->
@@ -486,14 +468,14 @@ Push notifications let clients to be notified for incoming messages and other op
     <!--  End of Disabling  default initializer of  WorkManager -->
 ```
 
-11. Add worker manager dependency in build.gradle:
+10. Add worker manager dependency in build.gradle:
 
 ```
     def work_version = "2.7.1"
     implementation "androidx.work:work-runtime:$work_version"
 ```
 
-12. Add a custom worker manager initializer by creating a class implementing Configuration.Provider:
+11. Add a custom worker manager initializer by creating a class implementing Configuration.Provider:
 
 ```java
 public class MyAppConfiguration extends Application implements Configuration.Provider {
@@ -521,7 +503,7 @@ public class MyAppConfiguration extends Application implements Configuration.Pro
 }
 ```
 
-13. Adding android: name field, which is the class name of step 11, into AndroidManifest.xml:
+12. Adding android: name field, which is the class name of step 11, into AndroidManifest.xml:
 
 ```
 <application
