@@ -162,7 +162,7 @@ Business considerations may require that you apply your existing IoT sensors to 
 
 1. [Onboard a new plan to the new subscription you want to use](#onboard-a-defender-for-iot-plan-to-a-subscription) To avoid double billing, onboard the new plan as a [trial](#about-defender-for-iot-trials) until you've removed the sensors from the old subscription. 
 1. Register your sensors under the new subscription. For more information, see [Set up an Enterprise IoT sensor](tutorial-getting-started-eiot-sensor.md#set-up-an-enterprise-iot-sensor).
-1. Upload a new activation file for your sensors, see [Upload new activation files](how-to-manage-individual-sensors.md#upload-new-activation-files).
+1. [Upload a new activation](how-to-manage-individual-sensors.md#upload-new-activation-files) file for your sensors.
 1. Remove the sensor identities from the legacy subscription. For more information, see [Manage on-boarded sensors](how-to-manage-sensors-on-the-cloud.md#manage-on-boarded-sensors).
 1. If relevant, [cancel the Defender for IoT plan](#cancel-a-defender-for-iot-plan-from-a-subscription) from the legacy subscription.
 
