@@ -155,30 +155,30 @@ landingContent:
       - linkListType: overview
         links:
          - text: What is BareMetal Infrastructure for NC2 on Azure?
-           url: /nc2-public-preview/nc2-baremetal-overview.md
+           url: workloads/nc2-public-preview/nc2-baremetal-overview.md
          - text: About the Public Preview
            url: workloads/nc2-public-preview/about-the-public-preview.md
          - text: FAQ
-           url: /nc2-public-preview/faq.md
+           url: workloads/nc2-public-preview/faq.md
       - linkListType: get-started
         links:
          - text: Getting started
-           url: /nc2-public-preview/getting-started.md
+           url: workloads/nc2-public-preview/getting-started.md
          - text: Use cases and supported scenarios
-           url: /nc2-public-preview/use-cases-and-supported-scenarios.md  
+           url: workloads/nc2-public-preview/use-cases-and-supported-scenarios.md  
          - text: Requirements
-           url: /nc2-public-preview/requirements.md
+           url: workloads/nc2-public-preview/requirements.md
          - text: Supported instances and regions
            url: /nc2-public-preview/supported-instances-and-regions.md
          - text: SKUs
-           url: /nc2-public-preview/skus.md
+           url: workloads/nc2-public-preview/skus.md
       - linkListType: architecture
         links:
          - text: Architecture
-           url: /nc2-public-preview/architecture.md 
+           url: workloads/nc2-public-preview/architecture.md 
       - linkListType: concept
         links:
          - text: Solution design
-           url: /nc2-public-preview/solution-design.md
+           url: workloads/nc2-public-preview/solution-design.md
 
 
