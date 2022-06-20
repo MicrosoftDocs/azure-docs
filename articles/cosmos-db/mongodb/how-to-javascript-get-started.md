@@ -9,6 +9,7 @@ ms.devlang: javascript
 ms.topic: how-to
 ms.date: 06/20/2022
 ms.custom: devx-track-js
+
 ---
 
 # Get started with Azure Cosmos DB MongoDB API and JavaScript
