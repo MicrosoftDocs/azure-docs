@@ -6,39 +6,37 @@ author: saimicrosoft
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: how-to
-ms.date: 05/19/2022
+ms.date: 06/20/2022
 ---
 
 # Java app to connect and query Hyperscale (Citus)
 
 ## Overview
 
-In this document, you connect to a Hyperscale (Citus) database using a java application. It shows how to use SQL statements to query, insert, update, and delete data in the database. The steps in this article assume that you are familiar with developing using java and [JDBC](https://en.wikipedia.org/wiki/Java_Database_Connectivity),
- and are new to working with Hyperscale (Citus).
+In this document, you'll learn how to connect to a Hyperscale (Citus) server group using a Java application. You'll see how to use SQL statements to query, insert, update, and delete data in the database. The steps in this article assume that you're familiar with developing using Java and [JDBC](https://en.wikipedia.org/wiki/Java_Database_Connectivity), and are new to working with Hyperscale (Citus).
 
 > [!TIP]
 >
-> Below experience to create a java app with Hyperscale (Citus) is same as working with PostgreSQL.
-
+> The process of creating a Java app with Hyperscale (Citus) is the same as working with ordinary PostgreSQL.
 
 ## Prerequisites
 
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free)
 * Create a Hyperscale (Citus) database using this link [Create Hyperscale (Citus) server group](quickstart-create-portal.md)
-*  A supported [Java Development Kit](../../developer/java/fundamentals/java-support-on-azure), version 8 (included in Azure Cloud Shell).
+* A supported [Java Development Kit](https://docs.microsoft.com/azure/developer/java/fundamentals/java-support-on-azure), version 8 (included in Azure Cloud Shell).
 * The [Apache Maven](https://maven.apache.org/) build tool.
 
 ## Setup
 
 ### Get Database Connection Information
 
-To get the database credentials, you can use the **Connection strings** tab in the Azure portal. See below screenshot.
+To get the database credentials, you can use the **Connection strings** tab in the Azure portal. Replace the password placeholder with the actual password. See below screenshot.
 
 ![Diagram showing Java connection string](../media/howto-app-stacks/02-java-connection-string.png)
 
 ### Create a new Java project
 
-Using your favorite IDE, create a new Java project with groupId **test** and artifactId **crud**. Add a pom.xml file in its root directory:
+Using your favorite IDE, create a new Java project with groupId **test** and artifactId **crud**. Add a `pom.xml` file in its root directory:
 
 ```XML
 <?xml version="1.0" encoding="UTF-8"?>
@@ -91,16 +89,16 @@ Using your favorite IDE, create a new Java project with groupId **test** and art
     </plugins>
   </build>
 </project>
-
 ```
-This file is [Apache Maven](https://maven.apache.org/) that configures our project to use:
+
+This file configures [Apache Maven](https://maven.apache.org/) to use:
 
 * Java 18
 * A recent PostgreSQL driver for Java
 
 ### Prepare a configuration file to connect to Hyperscale (Citus)
 
-Create a src/main/resources/application.properties file, and add:
+Create a `src/main/resources/application.properties` file, and add:
 
 ``` properties
 url=jdbc:postgresql://<host>:5432/citus?ssl=true&sslmode=require
@@ -111,13 +109,14 @@ password=<password>
 Replace the  \<host\> using the Connection string that you gathered previously. Replace \<password\> with the password that you set for the database.
 
 > [!NOTE]
-> We append ?ssl=true&sslmode=require to the configuration property url, to tell the JDBC driver to use TLS (Transport Layer Security) when connecting to the database. It is mandatory to use TLS with Hyperscale (Citus), and it is a good security practice.
+>
+> We append `?ssl=true&sslmode=require` to the configuration property url, to tell the JDBC driver to use TLS (Transport Layer Security) when connecting to the database. It's mandatory to use TLS with Hyperscale (Citus), and it is a good security practice.
 
 ## Create tables in Hyperscale (Citus)
 
 ### Create an SQL file to generate the database schema
 
-We'll use a src/main/resources/schema.sql file in order to create a database schema. Create that file, with the following content:
+We'll use a `src/main/resources/schema.sql` file in order to create a database schema. Create that file, with the following content:
 
 ``` SQL
 DROP TABLE IF EXISTS public.pharmacy;
@@ -125,80 +124,81 @@ CREATE TABLE  public.pharmacy(pharmacy_id integer,pharmacy_name text ,city text 
 CREATE INDEX idx_pharmacy_id ON public.pharmacy(pharmacy_id);
 ```
 
-###  Super power of Distributed Tables
+### Use the super power of distributed tables
 
-Citus gives you [the super power of distributing your table](overview.md#the-superpower-of-distributed-tables) across multiple nodes for scalability. Below command enables you to distribute a table. More on create_distributed_table and distribution column [here](howto-build-scalable-apps-concepts.md#distribution-column-also-known-as-shard-key).
+Hyperscale (Citus) gives you [the super power of distributing tables](overview.md#the-superpower-of-distributed-tables) across multiple nodes for scalability. The command below enables you to distribute a table. You can learn more about `create_distributed_table` and the distribution column [here](howto-build-scalable-apps-concepts.md#distribution-column-also-known-as-shard-key).
 
 > [!TIP]
 >
-> Distributing table is optional if you are using single node citus (basic tier).
->
+> Distributing your tables is optional if you are using the Basic Tier of Hyperscale (Citus), which is a single-node server group.
 
-Append the below command to the schema.sql file in the previous section if you wanted to distribute your table.
+Append the below command to the `schema.sql` file in the previous section if you wanted to distribute your table.
 
 ```SQL
 select create_distributed_table('public.pharmacy','pharmacy_id');
 ```
 
-### Connect to the database and create schema
+### Connect to the database, and create schema
 
-Next, add the Java code that will use JDBC to store and retrieve data from your PostgreSQL server.
+Next, add the Java code that will use JDBC to store and retrieve data from your Hyperscale (Citus) server group.
 
-Create a src/main/java/DemoApplication.java file, that contains:
+Create a `src/main/java/DemoApplication.java` file, that contains:
 
 ``` java
-    package test.crud;
-    import java.io.IOException;
-    import java.sql.*;
-    import java.util.*;
-    import java.util.logging.Logger;
-    import java.io.FileInputStream;
-    import java.io.FileOutputStream;
-    import org.postgresql.copy.CopyManager;
-    import org.postgresql.core.BaseConnection;
-    import java.io.IOException;
-    import java.io.Reader;
-    import java.io.StringReader;
-    public class DemoApplication {
+package test.crud;
+import java.io.IOException;
+import java.sql.*;
+import java.util.*;
+import java.util.logging.Logger;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import org.postgresql.copy.CopyManager;
+import org.postgresql.core.BaseConnection;
+import java.io.IOException;
+import java.io.Reader;
+import java.io.StringReader;
 
-        private static final Logger log;
+public class DemoApplication {
 
-        static {
-            System.setProperty("java.util.logging.SimpleFormatter.format", "[%4$-7s] %5$s %n");
-            log =Logger.getLogger(DemoApplication.class.getName());
-        }
-        public static void main(String[] args)throws Exception
-        {
-            log.info("Loading application properties");
-            Properties properties = new Properties();
-            properties.load(DemoApplication.class.getClassLoader().getResourceAsStream("application.properties"));
-            log.info("Connecting to the database");
-            Connection connection = DriverManager.getConnection(properties.getProperty("url"), properties);
-            log.info("Database connection test: " + connection.getCatalog());
-            log.info("Creating table");
-            log.info("Creating index");
-            log.info("distributing table");
-            Scanner scanner = new Scanner(DemoApplication.class.getClassLoader().getResourceAsStream("schema.sql"));
-            Statement statement = connection.createStatement();
-            while (scanner.hasNextLine()) {
-                statement.execute(scanner.nextLine());
-            }
-            log.info("Closing database connection");
-            connection.close();
-        }
+    private static final Logger log;
 
+    static {
+        System.setProperty("java.util.logging.SimpleFormatter.format", "[%4$-7s] %5$s %n");
+        log =Logger.getLogger(DemoApplication.class.getName());
     }
+    public static void main(String[] args)throws Exception
+    {
+        log.info("Loading application properties");
+        Properties properties = new Properties();
+        properties.load(DemoApplication.class.getClassLoader().getResourceAsStream("application.properties"));
+        log.info("Connecting to the database");
+        Connection connection = DriverManager.getConnection(properties.getProperty("url"), properties);
+        log.info("Database connection test: " + connection.getCatalog());
+        log.info("Creating table");
+        log.info("Creating index");
+        log.info("distributing table");
+        Scanner scanner = new Scanner(DemoApplication.class.getClassLoader().getResourceAsStream("schema.sql"));
+        Statement statement = connection.createStatement();
+        while (scanner.hasNextLine()) {
+            statement.execute(scanner.nextLine());
+        }
+        log.info("Closing database connection");
+        connection.close();
+    }
+
+}
 ```
 
-Above code will use the **application.properties** and the **schema.sql** files to connect to Hyperscale (Citus) and create the schema.
+The above code will use the **application.properties** and **schema.sql** files to connect to Hyperscale (Citus) and create the schema.
 
 > [!NOTE]
-> The database credentials are stored in the user and password properties of the application.properties file. Those credentials are used when executing DriverManager.getConnection(properties.getProperty("url"), properties);, as the properties file is passed as an argument.
+>
+> The database credentials are stored in the user and password properties of the application.properties file. Those credentials are used when executing `DriverManager.getConnection(properties.getProperty("url"), properties);`, as the properties file is passed as an argument.
 
 You can now execute this main class with your favorite tool:
 
-* Using your IDE, you should be able to right-click on the DemoApplication class and execute it.
-* Using Maven, you can run the application by executing: mvn exec:java -Dexec.mainClass="com.example.demo.DemoApplication".
+* Using your IDE, you should be able to right-click on the `DemoApplication` class and execute it.
+* Using Maven, you can run the application by executing: `mvn exec:java -Dexec.mainClass="com.example.demo.DemoApplication"`.
 
 The application should connect to the Hyperscale (Citus), create a database schema, and then close the connection, as you should see in the console logs:
 
@@ -212,7 +212,7 @@ The application should connect to the Hyperscale (Citus), create a database sche
 
 ## Create a domain class
 
-Create a new Pharmacy Java class, next to the DemoApplication class, and add the following code:
+Create a new `Pharmacy` Java class, next to the `DemoApplication` class, and add the following code:
 
 ``` Java
 public class Pharmacy {
@@ -283,11 +283,11 @@ public class Pharmacy {
 }
 ```
 
-This class is a domain model mapped on the Pharmacy table that you created when executing the schema.sql script.
+This class is a domain model mapped on the `Pharmacy` table that you created when executing the `schema.sql` script.
 
 ## Insert data into Hyperscale (Citus)
 
-In the src/main/java/DemoApplication.java file, after the main method, add the following method to insert data into the database:
+In the `src/main/java/DemoApplication.java` file, after the `main` method, add the following method to insert data into the database:
 
 ``` Java
 private static void insertData(Pharmacy todo, Connection connection) throws SQLException {
@@ -308,8 +308,8 @@ private static void insertData(Pharmacy todo, Connection connection) throws SQLE
 You can now add the two following lines in the main method:
 
 ```java
-    Pharmacy todo = new Pharmacy(0,"Target","Sunnyvale","California",94001);
-    insertData(todo, connection);
+Pharmacy todo = new Pharmacy(0,"Target","Sunnyvale","California",94001);
+insertData(todo, connection);
 ```
 
 Executing the main class should now produce the following output:
@@ -329,7 +329,8 @@ Executing the main class should now produce the following output:
 
 Let's read the data previously inserted, to validate that our code works correctly.
 
-In the src/main/java/DemoApplication.java file, after the insertData method, add the following method to read data from the database:
+In the `src/main/java/DemoApplication.java` file, after the `insertData` method, add the following method to read data from the database:
+
 ```  java
 private static Pharmacy readData(Connection connection) throws SQLException {
     log.info("Read data");
@@ -372,9 +373,10 @@ Executing the main class should now produce the following output:
 ```
 
 ## Updating data in Hyperscale (Citus)
+
 Let's update the data we previously inserted.
 
-Still in the src/main/java/DemoApplication.java file, after the readData method, add the following method to update data inside the database:
+Still in the `src/main/java/DemoApplication.java` file, after the `readData` method, add the following method to update data inside the database:
 
 ``` java
 private static void updateData(Pharmacy todo, Connection connection) throws SQLException {
@@ -420,7 +422,7 @@ Executing the main class should now produce the following output:
 
 Finally, let's delete the data we previously inserted.
 
-Still in the src/main/java/DemoApplication.java file, after the updateData method, add the following method to delete data inside the database:
+Still in the "src/main/java/DemoApplication.java" file, after the "updateData" method, add the following method to delete data inside the database:
 
 ``` java
 private static void deleteData(Pharmacy todo, Connection connection) throws SQLException {
@@ -461,11 +463,13 @@ Executing the main class should now produce the following output:
 
 ## COPY command for super fast ingestion
 
-COPY command can yield [tremendous throughput](https://www.citusdata.com/blog/2016/06/15/copy-postgresql-distributed-tables) while ingesting data into Hyperscale (Citus). COPY command can ingest data in files. You can also micro-batch data in memory and use COPY for real-time ingestion.
+The COPY command can yield [tremendous throughput](https://www.citusdata.com/blog/2016/06/15/copy-postgresql-distributed-tables) while ingesting data into Hyperscale (Citus). The COPY command can ingest data in files, or from micro-batches of data in memory for real-time ingestion.
 
 ### COPY command to load data from a file
 
-The following code is an example for copying data from csv file to table using COPY command.
+The following code is an example for copying data from a CSV file to a database table.
+
+It requires the file [pharmacies.csv](TODO.csv).
 
 ```java
 public static long copyFromFile(Connection connection, String filePath, String tableName)
@@ -498,7 +502,7 @@ int c = (int) copyFromFile(connection,"C:\\Users\\pharmacies.csv", "pharmacy");
 log.info("Copied "+ c +" rows using COPY command");
 ```
 
-Executing the main class should now produce the following output:
+Executing the "main" class should now produce the following output:
 
 ```
 [INFO   ] Loading application properties
@@ -522,7 +526,7 @@ Executing the main class should now produce the following output:
 
 ### COPY command to load data in-memory
 
-The following code is an example for copying the data from in-memory to table.
+The following code is an example for copying in-memory data to table.
 
 ```java
 private static void inMemory(Connection connection) throws SQLException,IOException {
