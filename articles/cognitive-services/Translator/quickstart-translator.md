@@ -501,7 +501,7 @@ Once you've added the code sample to your application, run your program:
 
 > [!TIP]
 >
-> If you're new to Python, try the [**Introduction to Python**](https://docs.microsoft.com/learn/paths/beginner-python/) Microsoft Learn module.
+> If you're new to Python, try the [**Introduction to Python**](/learn/paths/beginner-python/) Microsoft Learn module.
 
 1. Open a terminal window and use pip to install the Requests library and uuid0 package:
 
@@ -592,12 +592,13 @@ After a successful call, you should see the following response:
     }
 ]
 
+```
 
-That's it, congratulations!
+That's it, congratulations! You have learned to use the Translator service to translate text.
 
 ## Next step
 
-In this quickstart, you used the Translator service to translate text. Next, explore the how-to documentation to learn about more Translation txt capabilities: 
+ Explore the how-to documentation to learn about more Translation service capabilities:
 
 > [!div class="nextstepaction"]
-> [Use Text Translation APIs](text-translation-apis.md)
+> [Use Text Translation APIs](translator-text-apis.md)

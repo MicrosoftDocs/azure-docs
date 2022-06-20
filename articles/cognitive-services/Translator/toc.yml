@@ -50,7 +50,7 @@ items:
     - name: Create a Translator resource
       href: how-to-create-translator-resource.md
     - name: Use the Text Translator APIs
-      href: use-text-translator-apis.md
+      href: translator-text-apis.md
     - name: Migrate to V3 Text API
       href: migrate-to-v3.md
     - name: Add profanity filtering
