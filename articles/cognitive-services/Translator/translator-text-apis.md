@@ -305,7 +305,7 @@ You can use any text editor to write Go applications. We recommend using the lat
 
 > [!TIP]
 >
-> If you're new to Python, try the [**Introduction to Python**](https://docs.microsoft.com/learn/paths/beginner-python/) Microsoft Learn module.
+> If you're new to Python, try the [**Introduction to Python**](/learn/paths/beginner-python/) Microsoft Learn module.
 
 1. Open a terminal window and use pip to install the Requests library and uuid0 package:
 
