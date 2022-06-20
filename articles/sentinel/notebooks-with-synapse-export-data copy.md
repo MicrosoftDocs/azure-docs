@@ -9,15 +9,15 @@ ms.date: 6/20/2022
 
 # Export historical log data from Microsoft Sentinel for big data analytics
 
-Do a one-time export, transform, and partition of historical data in your Azure Log Analytics workspace by using a notebook in Microsoft Sentinel. Then set up continuous data exports by using the Microsoft Sentinel data export tool.
+Do a one-time export, transform, and partition of historical data in your Azure Log Analytics workspace by using a notebook in Microsoft Sentinel. 
 
 ## Prerequisites
 
-The historical data export notebook uses Azure Synapse to work with data at scale.
+To export historical log data from Microsoft Sentinel, you'll need complete the tasks in the following list. The historical data export notebook uses Azure Synapse to work with data at scale.
 
 - [Review the required roles and permissions](notebooks-with-synapse.md#prerequisites)
 - [Connect to an Azure Machine Learning workspace](notebooks-with-synapse.md#connect-to-an-azure-machine-learning-workspace)
-- [Create an Azure Synapse workspace](notebooks-with-synapse.md#create-an-azure-synapse-workspace)
+- [Create an Azure Synapse workspace](notebooks-with-synapse.md#create-an-azure-synapse-workspace) that's linked to Azure Data Lake Storage Gen2 storage
 - [Configure your Azure Synapse Analytics integration](notebooks-with-synapse.md#configure-your-azure-synapse-analytics-integration)
 - [Set up continuous data export from Log Analytics](../azure-monitor/logs/logs-data-export.md)
 
@@ -37,52 +37,48 @@ The historical data export notebook uses Azure Synapse to work with data at scal
 
 ## Configure the data to export
 
+The notebook **Export Historical Data** gives you step-by-step instructions to export a subset of data from your Log Analytics workspace. Currently, data can only be exported from one table at a time.
+
+To get started, specify the subset of logs you want to export. Use a table name or a specific Kusto Query Language query. Run some exploratory queries in your log analytics workspace to determine which subset of columns or rows you want to export.
+
 ## Set the time range
+
+Set the time range from which you want to export data. Specify an end datetime and the number of days before that end datetime to start the query. If you set up a continuous data export rule, set the end datetime to the time when the continuous export was started. To get that time, check the creation time of the export storage container.
+
+Before you run the data export, use the notebook to determine the size of data to be exported and the number of blobs that will be written. You'll want to do this to gauge the costs associated with the data export.
+
+The notebook uses batched, asynchronous calls to the Log Analytics REST API to retrieve data. Due to throttling and rate-limiting, you might need to adjust the default value of the query batch size.Review the detailed notes in the notebook on how to set that value.
+
+Initially, run the cell with only a few days of data to make sure that the cell output contains the expected the expected set of columns and rows.
 
 ## Write data to Azure Data Lake
 
-## Partition data by using Spark
+After you run the queries, you can persist the data to Azure Data Lake Gen2 storage. Fill in the details of your storage account in the notebook cell. Any Azure storage account can be used here, but the hierarchical namespace used by Azure Data Lake Gen2 makes moving and repartitioning log data in downstream tasks much more efficient.
 
-Review and run the cells in the notebook to start hunting.
+You can view and rotate access keys for your storage account by going to the **Access Keys** page in  Azure Storage. Always store and retrieve your keys securely by using a service like Azure Key Vault. Never stored keys as plaintext. You can use other Azure authentication methods like shared access signature (SAS tokens). For more information, see [Authorize requests to Azure Storage](/rest/api/storageservices/authorize-requests-to-azure-storage).
 
-1. Run the cells in the notebook's initial steps to load the required Python libraries and functions and to authenticate to Azure resources.
+## Partition data by using Apache Spark
 
-1. When you get to the cell labeled **Start a Spark Session**, run the cell to start using your Azure Synapse session. Use your Apache Spark pool as the compute for your data preparation and data wrangle tasks instead of using your Azure ML compute.
+You might want to partition the data to allow for more performant data reads. The last section of the notebook re-partitions the exported data by timestamp. This means it splits the data rows across multiple files in multiple directories with rows of data grouped by timestamp. The notebook uses a *year/month/day/hour/five-minute-interval* directory structure for partitions.
 
-1. Run the subsequent cells to configure and run your queries on the data that's now stored in your Azure Data Lake Storage. For example, [update your lookback period](#define-your-data-lookback-period) to include data from a specific time range.
+Encoding the timestamp values in the file path provides two key benefits:
 
-1. When you're done with your query, export the results from Azure Data Lake Storage back into your Log Analytics workspace.
+- The continuously exported and historical log data can be read from in a unified way by any notebooks or data pipelines that consume this data.
+- We can minimize the number of required file reads when loading data from a specific time range in downstream tasks.
 
-    The following code, shown in the **Export results from ADLS** step saves your query results as a single JSON file. Define your directory name and run the cell:
+For a year's worth of historical log data, we may be writing files for over 100,000 separate partitions.So we rely on the multi-executor parallelism in Spark to do this efficiently.
 
-    ```python
-    %%synapse
-    dir_name = "<dir-name>"  # specify desired directory name
-    new_path = adls_path + dir_name
-    csl_beacon_pd = csl_beacon_df.coalesce(1).write.format("json").save(new_path)
-    ```
+In order to run code on a Synapse Spark pool, specify the name of the linked Azure Synapse workspace and Synapse Spark pool to use.
 
-1. After you have exported your data, you can stop your Spark session. After you've stopped your Spark session, and subsequent queries are run using the default Azure ML compute indicated in the **Compute** field at the top of the page.
+After you start the Spark session, run the code in a notebook cell on the Spark pool by using the `%%synapse` cell magic at the start of the cell.
 
-    Run the cell in the **Stop Spark Session** step:
 
-    ```python
-    %synapse stop
-    ```
+If you encounter **UsageError: Line magic function `%synapse` not found**, make sure that you ran the notebook setup cells at the top of the notebook, and that the **azureml-synapse** package was installed successfully.
 
-1. Export your JSON file with your query results from Azure Data Lake Storage to a local file system.
+The last few cells of the notebook write the historical logs to the same location as the continuously exported data, in the same format and with the same partition scheme.
 
-    Use the code in the **Export results from ADLS to local filesystem**, **Download the files from ADLS**, and **Display results** steps to save your JSON file locally and view them.
+You're now able to process, transform and analyze security log data at scale using Sentinel and Synapse notebooks. Get started by cloning one of our template guided hunting notebooks from the Templates tab under the Notebooks in Sentinel. 
 
-1. After you've saved your results locally, you can enrich them with extra data and run visualizations. For example, the **Azure Synapse - Detect potential network beaconing using Apache Spark** notebook provides extra steps, to take the following actions:
-
-    - Enrich results with IP address GeoLocation, WhoIs, and other threat intelligence data, to have a more complete picture of the anomalous network behaviors.
-    - Run MSTICPy visualizations to map locations while looking at the distribution of remote network connections or other events.
-
-    The results can be written back to Microsoft Sentinel for further investigation. For example, you can create custom incidents, watchlists, or hunting bookmarks from the results.
-
-    Use these steps as they are to detect potential network beaconing, or use them as a template and modify them for your organization's needs.
-    
 ## Next steps
 
 For more information, see:
