@@ -34,7 +34,7 @@ The following image shows a view of the back panel of the HPE Edgeline EL300.
 |CPU|Intel Core i7-8650U (1.9GHz/4-core/15W)|
 |Chipset|Intel® Q170 Platform Controller Hub|
 |Memory|8 GB DDR4 2133 MHz Wide Temperature SODIMM|
-|Storage|128 GB 3ME3 Wide Temperature mSATA SSD|
+|Storage|256-GB SATA 6G Read Intensive M.2 2242 3 year warranty wide temperature SSD|
 |Network controller|6x Gigabit Ethernet ports by Intel® I219|
 |Device access|4 USBs: Two fronts; two rears; 1 internal|
 |Power Adapter|250V/10A|
