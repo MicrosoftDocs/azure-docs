@@ -10,12 +10,12 @@ ms.date: 05/06/2022
 ---
 # Monitor Azure Cache for Redis
 
-Azure Cache for Redis uses [Azure Monitor](../azure-monitor/index.yml) to provide several options for monitoring your cache instances. These tools enable you to monitor the health of your Azure Cache for Redis instances and help you manage your caching applications.
+Azure Cache for Redis uses [Azure Monitor](../azure-monitor/index.yml) to provide several options for monitoring your cache instances. Use these tools to monitor the health of your Azure Cache for Redis instances and to help you manage your caching applications.
 
 Use Azure Monitor to:
 
 - view metrics
-- pin metrics charts to the Startboard <!-- this is dashboard now - right? -->
+- pin metrics charts to the dashboard
 - customize the date and time range of monitoring charts
 - add and remove metrics from the charts
 - and set alerts when certain conditions are met
@@ -28,61 +28,47 @@ For more information about the different `INFO` values used for each cache metri
 
 ## View cache metrics
 
-To view cache metrics, [browse](cache-configure.md#configure-azure-cache-for-redis-settings) to your cache instance in the [Azure portal](https://portal.azure.com).  Azure Cache for Redis provides some built-in charts on the left using **Overview** and **Redis metrics**. Each chart can be customized by adding or removing metrics and changing the reporting interval. <!-- There is no Redis Metrics - I assume this is replaced by everything under Montitoring in the resource menu? would it be better to direct them to Insights? -->
+To view cache metrics, [find your cache](cache-configure.md#configure-azure-cache-for-redis-settings) in the [Azure portal](https://portal.azure.com). Azure Cache for Redis provides some built-in charts under **Overview** in the Resource menu. 
 
-:::image type="content" source="./media/cache-how-to-monitor/redis-cache-redis-metrics-blade.png" alt-text="Six graphs are shown. One of them is Cache Hits and Cache Misses past hour.":::
-<!-- replace this -->
+:::image type="content" source="./media/cache-how-to-monitor/cache-overview-metrics.png" alt-text="Screen showing two charts: Memory Usage and Redis Server Load.":::
 
-## View pre-configured metrics charts
+You can see more metrics under **Monitoring** on the left. A groups of ready-made charts are available under **Insights**. Select **Metrics** to see, create, or customize a chart by adding metrics, removing metrics, and changing the reporting interval.
 
-On the left, **Overview** has the following pre-configured monitoring charts.
+:::image type="content" source="media/cache-how-to-monitor/cache-monitor-metrics.png" alt-text="Screenshot of monitoring metrics selected in the Resource menu.":::
 
+## View charts under **Overview**
 
-- [Monitoring charts](#monitoring-charts)
-- [Usage charts](#usage-charts)
-<!-- Do not see any entries under Overview. It has Memory Usage and Redis Server load-->
+On the left, select **Overview**. You see following pre-configured monitoring charts: **Memory Usage**, and **Redis Server Load**. To see more charts or create our own, see **Monitoring** in the Resource menu.
 
-### Monitoring charts
+## Use **Insights** from **Monitoring** for predefined charts
 
-The **Monitoring** section---in **Overview** on the left---has **Hits and Misses**, **Gets and Sets**, **Connections**, and **Total Commands** charts.
+The **Monitoring** section in the Resource menu contains **Insights**. When you select **Insights**, you see groupings of three types of charts: **Overview**, **Performance** and **Operations**.
 
-:::image type="content" source="./media/cache-how-to-monitor/redis-cache-monitoring-part.png" alt-text="Monitoring charts":::
-<!-- I don't see this in Overview -->
+:::image type="content" source="./media/cache-how-to-monitor/redis-cache-monitoring-part.png" alt-text="Screenshot showing Monitoring Insights selected in the Resource menu.":::
 
-### Usage charts
-
-The **Usage** section---in **Overview** on the left---has **Redis Server Load**, **Memory Usage**, **Network Bandwidth**, and **CPU Usage** charts, and also displays the **Pricing tier** for the cache instance.
-<!-- I see  **Redis Server Load**, **Memory Usage* only. I am looking at a Premium cache. Does it vary at all by tier? -->
-
-:::image type="content" source="./media/cache-how-to-monitor/redis-cache-usage-part.png" alt-text="Usage charts":::
-<!-- Very colorful!! But not there anymore. Network Bandwidth, CPU Usage and Pricing Tier are not in the UI I see Status that displays the tier. -->
-
-The **Pricing tier** displays the cache pricing tier, and can be used to [scale](cache-how-to-scale.md) the cache to a different pricing tier.
+Each tab contains status tiles and charts. These tiles and charts are a starting point for your metrics. If you wish to expand beyond **Insights**, you can define your own alerts, metrics, diagnostic settings and workbooks.
 
 ## View metrics charts for all your caches with Azure Monitor for Azure Cache for Redis
-<!-- I see only **Monitoring** in the Resource menu now. -->
-Use [Azure Monitor for Azure Cache for Redis](../azure-monitor/insights/redis-cache-insights-overview.md) (preview) <!-- Is this Preview? --> for a view of the overall performance, failures, capacity, and operational health of all your Azure Cache for Redis resources. View metrics in a customizable, unified, and interactive experience that lets you drill down into details for individual resources. Azure Monitor for Azure Cache for Redis is based on the [workbooks feature of Azure Monitor](../azure-monitor/visualize/workbooks-overview.md) that provides rich visualizations for metrics and other data. To learn more, see the [Explore Azure Monitor for Azure Cache for Redis](../azure-monitor/insights/redis-cache-insights-overview.md) article.
-<!-- this seems to have changed considerably -->
+
+Use [Azure Monitor for Azure Cache for Redis](../azure-monitor/insights/redis-cache-insights-overview.md) for a view of the overall performance, failures, capacity, and operational health of all your Azure Cache for Redis resources. View metrics in a customizable, unified, and interactive experience that lets you drill down into details for individual resources. Azure Monitor for Azure Cache for Redis is based on the [workbooks feature of Azure Monitor](../azure-monitor/visualize/workbooks-overview.md) that provides rich visualizations for metrics and other data. To learn more, see the [Explore Azure Monitor for Azure Cache for Redis](../azure-monitor/insights/redis-cache-insights-overview.md) article.
 
 ## View metrics with Azure Monitor metrics explorer
-<!-- Nothing in the UI talks about a metrics explorer -->
-For scenarios where you don't need the full flexibility of Azure Monitor for Azure Cache for Redis, you can instead view metrics and create custom charts using the Azure Monitor metrics explorer. Select **Metrics** from the **Resource menu**, and customize your chart using your preferred metrics, reporting interval, chart type, and more.
 
-In the left navigation pane of contoso55, Metrics is an option under Monitoring and is highlighted. On Metrics, is a list of metrics. Cache hits and Cache misses are selected.
+For scenarios where you don't need the full flexibility of Azure Monitor for Azure Cache for Redis, you can instead view metrics and create custom charts using the Azure Monitor metrics explorer. Select **Metrics** from the Resource menu, and customize your chart using your preferred metrics, reporting interval, chart type, and more.
+
+In the Resource menu on the left, select **Metrics** under **Monitoring**. Here, you design your own chart for your cache, defining the metric type and aggregation type. Once you have defined the metric, you can send it to a workbook.
 
 :::image type="content" source="./media/cache-how-to-monitor/redis-cache-monitor.png" alt-text="Screenshot with metrics showing in the resource manager":::
-<!-- Seems like maybe we point the user to Insights here because it has some predefined charts? -->
 
 For more information on working with metrics using Azure Monitor, see [Overview of metrics in Microsoft Azure](../azure-monitor/data-platform.md).
-<!-- the resource menu seemes to be simply **Monitoring** now. However, you can create "Workbooks". And one of the predefined ones seems to be Insights. Is that only for Redis? -->
 
 ## Export cache metrics
 
 By default, cache metrics in Azure Monitor are [stored for 30 days](../azure-monitor/essentials/data-platform-metrics.md) and then deleted. To persist your cache metrics for longer than 30 days, you can [designate a storage account](../azure-monitor/essentials/resource-logs.md#send-to-azure-storage) and specify a **Retention (days)** policy for your cache metrics.
 
-To configure a storage account for your cache metrics:
+Configure a storage account to use with to store your metrics. Once you have created a storge account, configure a storage account for your cache metrics:
 
-1. In the **Azure Cache for Redis** page, under the **Monitoring** heading, select **Diagnostics**.
+1. In the **Azure Cache for Redis** page, under the **Monitoring** heading, select **Diagnostics settings**.
 1. Select **+ Add diagnostic setting**.
 1. Name the settings.
 1. Check **Archive to a storage account**. You’ll be charged normal data rates for storage and transactions when you send diagnostics to a storage account.
@@ -90,7 +76,6 @@ To configure a storage account for your cache metrics:
 1. Under the table heading **metric**, check box beside the line items you want to store, such as **AllMetrics**. Specify a **Retention (days)** policy. The maximum days retention you can specify is **365 days**. However, if you want to keep the metrics data forever, set **Retention (days)** to **0**.
 1. Select **Save**.
 
-<!--  I probably repro this with the new UI if I can create a useful storage account. -->
 :::image type="content" source="./media/cache-how-to-monitor/redis-cache-diagnostics.png" alt-text="Redis diagnostics":::
 
 >[!NOTE]
@@ -105,31 +90,32 @@ To access your metrics, you can view them in the Azure portal as previously desc
 
 ## Available metrics and reporting intervals
 
-<!-- This all seems unchanged.  -->
+You can create your own custom chart to track the metrics you want to see. To create new metrics
 
 Cache metrics are reported using several reporting intervals, including **Past hour**, **Today**, **Past week**, and **Custom**. On the left, you find the **Metric** selection for each metrics chart displays the average, minimum, and maximum values for each metric in the chart, and some metrics display a total for the reporting interval.
 
-Each metric includes two versions. One metric measures performance for the entire cache, and for caches that use [clustering](cache-how-to-premium-clustering.md), a second version of the metric that includes `(Shard 0-9)` in the name measures performance for a single shard in a cache. For example if a cache has four shards, `Cache Hits` is the total number of hits for the entire cache, and `Cache Hits (Shard 3)` is just the hits for that shard of the cache.
+Each metric includes two versions. One metric measures performance for the entire cache, and for caches that use [clustering](cache-how-to-premium-clustering.md). A second version of the metric, which includes `(Shard 0-9)` in the name, measures performance for a single shard in a cache. For example if a cache has four shards, `Cache Hits` is the total number of hits for the entire cache, and `Cache Hits (Shard 3)` measures is just the hits for that shard of the cache.
+
+### Aggregation types
+
+When you're seeing the aggregation type:
+
+- **Count** show 2, it indicates the metric received 2 data points for your time granularity (1 minute).
+- **Max** shows the maximum value of a data point in the time granularity,
+- **Min** shows the minimum value of a data point in the time granularity,
+- **Average** shows the average value of all data points in the time granularity.
+- **Sum** shows the sum of all data points in the time granularity and may be misleading depending on the specific metric.
+
+Under normal conditions, **Average** and **Max** are similar because only one node emits these metrics (the master node). In a scenario where the number of connected clients changes rapidly, **Max**, **Average**, and **Min** would show very different values and this is also expected behavior.
+
+Generally, **Average** shows you a smooth chart of your desired metric and reacts well to changes in time granularity. **Max** and **Min** can hide large changes in the metric if the time granularity is large but can be used with a small time granularity to help pinpoint exact times when large changes occur in the metric.
+
+The types **Count** and **“Sum** can be misleading for certain metrics (connected clients included).
+
+Hence, we suggest to have a look at the **Average** metrics and not the **Sum** metrics.
 
 > [!NOTE]
-> When you're seeing the aggregation type :
->
-> - Count” show 2, it indicates the metric received 2 data points for your time granularity (1 minute).
-> - “Max” shows the maximum value of a data point in the time granularity,
-> - “Min” shows the minimum value of a data point in the time granularity,
-> - “Average” shows the average value of all data points in the time granularity.
-> - “Sum” shows the sum of all data points in the time granularity and may be misleading depending on the specific metric.
-> Under normal conditions, “Average” and “Max” will be very similar because only one node emits these metrics (the master node). In a scenario where the number of connected clients changes rapidly, “Max,” “Average,” and “Min” would show very different values and this is also expected behavior.
->
-> Generally, “Average” will show you a smooth chart of your desired metric and reacts well to changes in time granularity. “Max” and “Min” may hide large changes in the metric if the time granularity is large but can be used with a small time granularity to help pinpoint exact times when large changes occur in the metric.
->
-> “Count” and “Sum” may be misleading for certain metrics (connected clients included).
->
-> Hence, we suggested you to have a look at the Average metrics and not the Sum metrics.
-
-> [!NOTE]
-> Even when the cache is idle with no connected active client applications, you may see some cache activity, such as connected clients, memory usage, and operations being performed. This activity is normal during the operation of an Azure Cache for Redis instance.
->
+> Even when the cache is idle with no connected active client applications, you might see some cache activity, such as connected clients, memory usage, and operations being performed. This activity is normal during the operation of an instance of Azure Cache for Redis.
 >
 
 | Metric | Description |
@@ -164,10 +150,10 @@ You can configure to receive alerts based on metrics and activity logs. Azure Mo
 - Call a webhook
 - Invoke an Azure Logic App
 
-To configure Alert rules for your cache, select **Alert rules** from the **Resource menu**.
-<!-- Now is just **Alerts** -->
+To configure alerts for your cache, select **Alerts** under Monitoring on the Resource menu.
 
-:::image type="content" source="./media/cache-how-to-monitor/redis-cache-monitoring.png" alt-text="Monitoring":::
-<!-- I do not see this part of UI at all -->
+:::image type="content" source="./media/cache-how-to-monitor/cache-monitoring.png" alt-text="Monitoring":::
 
 For more information about configuring and using Alerts, see [Overview of Alerts](../azure-monitor/alerts/alerts-classic-portal.md).
+
+## Next steps
