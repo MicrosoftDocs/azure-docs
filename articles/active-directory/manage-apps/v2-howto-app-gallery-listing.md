@@ -32,7 +32,7 @@ To publish your application in the gallery, you need to complete the following t
 	- For Open ID Connect, the application must be multitenanted and the [Azure AD consent framework](../develop/consent-framework.md) must be properly implemented for the application. 
 - Supporting provisioning is optional, but highly recommended. To learn more about the Azure AD SCIM implementation, see [build a SCIM endpoint and configure user provisioning with Azure AD](../app-provisioning/use-scim-to-provision-users-and-groups.md).
 
-- For MDM app listing, you need to create a multi-tenant app in the your production Azure AD tenant. This creates a representation for your app in our system and assigns it an App ID.
+-  For listing your MDM app for Windows Platform, you need to create a multi-tenant app in your production Azure AD tenant. This creates a representation for your app in our system and assigns it an App ID.
 
 You can get a free test account with all the premium Azure AD features - 90 days free and can get extended as long as you do dev work with it: [Join the Microsoft 365 Developer Program](/office/developer-program/microsoft-365-developer-program).
 
@@ -102,7 +102,7 @@ Here's the flow of customer-requested applications.
 
 For any escalations, send email to the [Azure AD SSO Integration Team](mailto:SaaSApplicationIntegrations@service.microsoft.com), and a response is sent as soon as possible.
 
-## Submit an Update Request to your application
+## Update or Remove the application from the Gallery
 
 You can submit your application update request in the [Microsoft Application Network portal](https://microsoft.sharepoint.com/teams/apponboarding/Apps). The first time you try to sign into the portal you are presented with one of two screens. 
 
