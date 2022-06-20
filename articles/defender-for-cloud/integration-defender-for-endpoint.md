@@ -334,7 +334,7 @@ Full instructions for switching from a non-Microsoft endpoint solution are avail
 
 ### Which Microsoft Defender for Endpoint plan is supported in Defender for Servers?
 
-Defender for Servers Plan 1 provides the capabilities of [Microsoft Defender for Endpoint Plan 1](/microsoft-365/security/defender-endpoint/defender-endpoint-plan-1.md?view=o365-worldwide). Defender for Servers Plan 2 provides the capabilities of [Microsoft Defender for Endpoint Plan 2](/microsoft-365/security/defender-endpoint/microsoft-defender-endpoint.md?view=o365-worldwide).
+Defender for Servers Plan 1 provides the capabilities of [Microsoft Defender for Endpoint Plan 1](/microsoft-365/security/defender-endpoint/defender-endpoint-plan-1?view=o365-worldwide). Defender for Servers Plan 2 provides the capabilities of [Microsoft Defender for Endpoint Plan 2](/microsoft-365/security/defender-endpoint/microsoft-defender-endpoint?view=o365-worldwide).
 
 ## Next steps
 
