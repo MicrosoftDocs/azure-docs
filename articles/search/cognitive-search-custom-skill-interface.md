@@ -134,7 +134,7 @@ When you create a Web API enricher, you can describe HTTP headers and parameters
     "skills": [
       {
         "@odata.type": "#Microsoft.Skills.Custom.WebApiSkill",
-        "name": "myCustomSkill"
+        "name": "myCustomSkill",
         "description": "This skill calls an Azure function, which in turn calls TA sentiment",
         "uri": "https://indexer-e2e-webskill.azurewebsites.net/api/DateExtractor?language=en",
         "context": "/document",

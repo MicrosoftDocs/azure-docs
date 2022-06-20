@@ -2,6 +2,7 @@
 title: Configure storage policy
 description:  Learn how to configure storage policy for your Azure VMware Solution virtual machines.
 ms.topic: how-to
+ms.service: azure-vmware
 ms.date: 04/11/2022
 
 #Customer intent: As an Azure service administrator, I want set the VMware vSAN storage policies to determine how storage is allocated to the VM.
@@ -117,6 +118,11 @@ You'll run the `Set-LocationStoragePolicy` cmdlet to Modify vSAN based storage p
 ## Specify storage policy for a cluster
 
 You'll run the `Set-ClusterDefaultStoragePolicy` cmdlet to specify default storage policy for a cluster,
+
+
+>[!NOTE]
+>Changing the storage policy of the default management cluster (Cluster-1) isn't allowed.
+
 
 1. Select **Run command** > **Packages** > **Set-ClusterDefaultStoragePolicy**.
 

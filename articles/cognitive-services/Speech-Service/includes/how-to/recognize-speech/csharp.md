@@ -15,7 +15,7 @@ ms.custom: devx-track-csharp
 
 To call the Speech service by using the Speech SDK, you need to create a [`SpeechConfig`](/dotnet/api/microsoft.cognitiveservices.speech.speechconfig) instance. This class includes information about your subscription, like your key and associated location/region, endpoint, host, or authorization token. 
 
-Create a `SpeechConfig` instance by using your key and location/region. For more information, see [Find keys and location/region](../../../overview.md#find-keys-and-locationregion).
+Create a `SpeechConfig` instance by using your key and location/region. Create a Speech resource on the [Azure portal](https://portal.azure.com). For more information, see [Create a new Azure Cognitive Services resource](~/articles/cognitive-services/cognitive-services-apis-create-account.md?tabs=speech#create-a-new-azure-cognitive-services-resource).
 
 ```csharp
 using System;
@@ -278,3 +278,13 @@ speechConfig.SpeechRecognitionLanguage = "it-IT";
 
 The [`SpeechRecognitionLanguage`](/dotnet/api/microsoft.cognitiveservices.speech.speechconfig.speechrecognitionlanguage) property expects a language-locale format string. You can provide any value in the **Locale** column in the [list of supported locales/languages](../../../language-support.md).
 
+
+## Use a custom endpoint
+
+With [Custom Speech](../../../custom-speech-overview.md), you can upload your own data, test and train a custom model, compare accuracy between models, and deploy a model to a custom endpoint. The following example shows how to set a custom endpoint.
+
+```csharp
+var speechConfig = SpeechConfig.FromSubscription("YourSubscriptionKey", "YourServiceRegion");
+speechConfig.EndpointId = "YourEndpointId";
+var speechRecognizer = new SpeechRecognizer(speechConfig);
+```

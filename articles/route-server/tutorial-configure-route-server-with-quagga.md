@@ -1,8 +1,8 @@
 ---
 title: "Tutorial: Configure peering between Azure Route Server and Quagga network virtual appliance"
 description: This tutorial shows you how to configure an Azure Route Server and peer it with a Quagga network virtual appliance.
-author: duongau
-ms.author: duau
+author: halkazwini
+ms.author: halkazwini
 ms.service: route-server
 ms.topic: tutorial
 ms.date: 08/23/2021

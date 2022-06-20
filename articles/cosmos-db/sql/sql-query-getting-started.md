@@ -1,12 +1,13 @@
 ---
 title: Getting started with SQL queries in Azure Cosmos DB
 description: Learn how to use SQL queries to query data from Azure Cosmos DB. You can upload sample data to a container in Azure Cosmos DB and query it. 
-author: timsander1
+author: seesharprun
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 08/26/2021
-ms.author: tisande
+ms.author: sidandrews
+ms.reviewer: jucocchi
 
 ---
 # Getting started with SQL queries

@@ -20,7 +20,7 @@ Configuring OAuth 2.0 user authorization in the test console of the developer po
 
 ## Prerequisites
 
-This article shows you how to configure your API Management service instance to use OAuth 2.0 authorization in the developer portal's test console, but doesn't show you how to configure an OAuth 2.0 provider. 
+This article shows you how to configure your API Management service instance to use OAuth 2.0 authorization in the developer portal's test console, but it doesn't show you how to configure an OAuth 2.0 provider. 
 
 If you haven't yet created an API Management service instance, see [Create an API Management service instance][Create an API Management service instance].
 
@@ -68,6 +68,15 @@ When configuring OAuth 2.0 user authorization in the test console of the develop
 
   Depending on your scenarios, you may configure more or less restrictive token scopes for other client applications that you create to access backend APIs.
 * **Take extra care if you enable the Client Credentials flow**. The test console in the developer portal, when working with the Client Credentials flow, doesn't ask for credentials. An access token could be inadvertently exposed to developers or anonymous users of the developer console. 
+
+## Keeping track of key information
+
+Throughout this tutorial you'll be asked to record key information to reference later on:
+
+- **Backend Application (client) ID**: The GUID of the application that represents the backend API
+- **Backend Application Scopes**: One or more scopes you may create to access the API. The scope format is `api://<Backend Application (client) ID>/<Scope Name>` (for example, api://1764e900-1827-4a0b-9182-b2c1841864c2/Read)
+- **Client Application (client) ID**: The GUID of the application that represents the developer portal
+- **Client Application Secret Value**: The GUID that serves as the secret for interaction with the client application in Azure Active Directory 
 
 ## Register applications with the OAuth server
 
@@ -204,12 +213,12 @@ Optionally:
 
         `https://login.microsoftonline.com/<tenant_id>/oauth2/token` (v1)
 
-    * If you use **v1** endpoints, add a body parameter:
-          * Name: **resource**.
+    * If you use **v1** endpoints, add a body parameter:  
+          * Name: **resource**.  
           * Value: the back-end app **Application (client) ID**.
-    * If you use **v2** endpoints:
-          * Enter the back-end app scope you created in the **Default scope** field.
-          * Set the value for the [`accessTokenAcceptedVersion`](../active-directory/develop/reference-app-manifest.md#accesstokenacceptedversion-attribute) property to `2` in the [application manifest](../active-directory/develop/reference-app-manifest.md) for both the backend-app and the client-app registrations.
+    * If you use **v2** endpoints:  
+          * Enter the back-end app scope you created in the **Default scope** field.  
+          * Set the value for the [`accessTokenAcceptedVersion`](../active-directory/develop/reference-app-manifest.md#accesstokenacceptedversion-attribute) property to `2` in the [application manifest](../active-directory/develop/reference-app-manifest.md) for both the backend-app and the client-app registrations.  
 
     * Accept the default settings for **Client authentication methods** and **Access token sending method**. 
 
@@ -231,6 +240,9 @@ Optionally:
 1. Select **Create** to save the API Management OAuth 2.0 authorization server configuration. 
 
 1. [Republish](api-management-howto-developer-portal-customize.md#publish) the developer portal.
+
+    > [!NOTE]
+    > When making OAuth 2.0-related changes, it is important that you remember to (re-)publish the developer portal after every modification as relevant changes (for example, scope change) otherwise cannot propagate into the portal and subsequently be used in trying out the APIs.
 
 After saving the OAuth 2.0 server configuration, configure APIs to use this configuration, as shown in the next section.
 

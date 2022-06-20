@@ -1,6 +1,5 @@
 ---
 title: Authorization basics
-titleSuffix: Microsoft identity platform
 description: Learn about the basics of authorization in the Microsoft identity platform.
 services: active-directory
 author: davidmu1

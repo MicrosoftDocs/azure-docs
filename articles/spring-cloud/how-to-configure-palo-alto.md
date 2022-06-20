@@ -1,25 +1,28 @@
 ---
-title: How to configure Palo Alto for Azure Spring Cloud
-description: How to configure Palo Alto for Azure Spring Cloud
+title: How to configure Palo Alto for Azure Spring Apps
+description: How to configure Palo Alto for Azure Spring Apps
 author: KarlErickson
 ms.author: karler
 ms.topic: how-to
 ms.service: spring-cloud
 ms.date: 09/17/2021
-ms.custom: devx-track-java, devx-track-azurecli
+ms.custom: devx-track-java, devx-track-azurecli, event-tier1-build-2022
 ---
 
-# How to configure Palo Alto for Azure Spring Cloud
+# How to configure Palo Alto for Azure Spring Apps
+
+> [!NOTE]
+> Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
 
 **This article applies to:** ✔️ Java ✔️ C#
 
 **This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
 
-This article describes how to use Azure Spring Cloud with a Palo Alto firewall.
+This article describes how to use Azure Spring Apps with a Palo Alto firewall.
 
-For example, the [Azure Spring Cloud reference architecture](./reference-architecture.md) includes an Azure Firewall to secure your applications. However, if your current deployments include a Palo Alto firewall, you can omit the Azure Firewall from the Azure Spring Cloud deployment and use Palo Alto instead, as described in this article.
+For example, the [Azure Spring Apps reference architecture](./reference-architecture.md) includes an Azure Firewall to secure your applications. However, if your current deployments include a Palo Alto firewall, you can omit the Azure Firewall from the Azure Spring Apps deployment and use Palo Alto instead, as described in this article.
 
-You should keep configuration information, such as rules and address wildcards, in CSV files in a Git repository. This article shows you how to use automation to apply these files to Palo Alto. To understand the configuration to be applied to Palo Alto, see [Customer responsibilities for running Azure Spring Cloud in VNET](./vnet-customer-responsibilities.md). 
+You should keep configuration information, such as rules and address wildcards, in CSV files in a Git repository. This article shows you how to use automation to apply these files to Palo Alto. To understand the configuration to be applied to Palo Alto, see [Customer responsibilities for running Azure Spring Apps in VNET](./vnet-customer-responsibilities.md). 
 
 > [!Note]
 > In describing the use of REST APIs, this article uses the PowerShell variable syntax to indicate names and values that are left to your discretion. Be sure to use the same values in all the steps.
@@ -43,25 +46,25 @@ The [Reference Architecture Guide for Azure](https://www.paloaltonetworks.com/re
 
 The rest of this article assumes you have the following two pre-configured network zones:
 
-* `Trust`, containing the interface connected to a virtual network peered with the Azure Spring Cloud virtual network.
+* `Trust`, containing the interface connected to a virtual network peered with the Azure Spring Apps virtual network.
 * `UnTrust`, containing the interface to the public internet created earlier in the VM-Series deployment guide.
 
 ## Prepare CSV files
 
 Next, create three CSV files.
 
-Name the first file *AzureSpringCloudServices.csv*. This file should contain ingress ports for Azure Spring Cloud. The values in the following example are for demonstration purposes only. For all of the required values, see the [Azure Spring Cloud network requirements](./vnet-customer-responsibilities.md#azure-spring-cloud-network-requirements) section of [Customer responsibilities for running Azure Spring Cloud in VNET](./vnet-customer-responsibilities.md).
+Name the first file *AzureSpringAppsServices.csv*. This file should contain ingress ports for Azure Spring Apps. The values in the following example are for demonstration purposes only. For all of the required values, see the [Azure Spring Apps network requirements](./vnet-customer-responsibilities.md#azure-spring-apps-network-requirements) section of [Customer responsibilities for running Azure Spring Apps in VNET](./vnet-customer-responsibilities.md).
 
 ```CSV
 name,protocol,port,tag
-ASC_1194,udp,1194,AzureSpringCloud
-ASC_443,tcp,443,AzureSpringCloud
-ASC_9000,tcp,9000,AzureSpringCloud
-ASC_445,tcp,445,AzureSpringCloud
-ASC_123,udp,123,AzureSpringCloud
+ASC_1194,udp,1194,AzureSpringApps
+ASC_443,tcp,443,AzureSpringApps
+ASC_9000,tcp,9000,AzureSpringApps
+ASC_445,tcp,445,AzureSpringApps
+ASC_123,udp,123,AzureSpringApps
 ```
 
-Name the second file *AzureSpringCloudUrlCategories.csv*. This file should contain the addresses (with wildcards) that should be available for egress from Azure Spring Cloud. The values in the following example are for demonstration purposes only. For up-to-date values, see [Azure Spring Cloud FQDN requirements/application rules](./vnet-customer-responsibilities.md#azure-spring-cloud-fqdn-requirementsapplication-rules).
+Name the second file *AzureSpringAppsUrlCategories.csv*. This file should contain the addresses (with wildcards) that should be available for egress from Azure Spring Apps. The values in the following example are for demonstration purposes only. For up-to-date values, see [Azure Spring Apps FQDN requirements/application rules](./vnet-customer-responsibilities.md#azure-spring-apps-fqdn-requirementsapplication-rules).
 
 ```CSV
 name,description
@@ -125,10 +128,10 @@ $url = "https://${PaloAltoIpAddress}/restapi/v9.1/Objects/ServiceGroups?location
 Invoke-RestMethod -Method Delete -Uri $url -Headers $paloAltoHeaders -SkipCertificateCheck
 ```
 
-Delete each Palo Alto service (as defined in *AzureSpringCloudServices.csv*) as shown in the following example:
+Delete each Palo Alto service (as defined in *AzureSpringAppsServices.csv*) as shown in the following example:
 
 ```powershell
-Get-Content .\AzureSpringCloudServices.csv | ConvertFrom-Csv | select name | ForEach-Object {
+Get-Content .\AzureSpringAppsServices.csv | ConvertFrom-Csv | select name | ForEach-Object {
     $url = "https://${PaloAltoIpAddress}/restapi/v9.1/Objects/Services?location=vsys&vsys=vsys1&name=${_}"
     Invoke-RestMethod -Method Delete -Uri $url -Headers $paloAltoHeaders -SkipCertificateCheck
 }
@@ -136,7 +139,7 @@ Get-Content .\AzureSpringCloudServices.csv | ConvertFrom-Csv | select name | For
 
 ## Create a service and service group
 
-To automate the creation of services based on the *AzureSpringCloudServices.csv* file you created earlier, use the following example.
+To automate the creation of services based on the *AzureSpringAppsServices.csv* file you created earlier, use the following example.
 
 ```powershell
 # Define a function to create and submit a Palo Alto service creation request
@@ -181,8 +184,8 @@ function New-PaloAltoService {
     }
 }
 
-# Now invoke that function for every row in AzureSpringCloudServices.csv
-Get-Content ./AzureSpringCloudServices.csv | ConvertFrom-Csv | New-PaloAltoService
+# Now invoke that function for every row in AzureSpringAppsServices.csv
+Get-Content ./AzureSpringAppsServices.csv | ConvertFrom-Csv | New-PaloAltoService
 ```
 
 Next, create a Service Group for these services, as shown in the following example:
@@ -212,7 +215,7 @@ function New-PaloAltoServiceGroup {
         $requestBody = @{ 'entry' = [ordered] @{
                 '@name'   = $ServiceGroupName
                 'members' = @{ 'member' = $names }
-                'tag'     = @{ 'member' = 'AzureSpringCloud' }
+                'tag'     = @{ 'member' = 'AzureSpringApps' }
             }
         }
 
@@ -222,27 +225,27 @@ function New-PaloAltoServiceGroup {
     }
 }
 
-# Run that function for all services in AzureSpringCloudServices.csv.
-Get-Content ./AzureSpringCloudServices.csv | ConvertFrom-Csv | New-PaloAltoServiceGroup -ServiceGroupName 'AzureSpringCloud_SG'
+# Run that function for all services in AzureSpringAppsServices.csv.
+Get-Content ./AzureSpringAppsServices.csv | ConvertFrom-Csv | New-PaloAltoServiceGroup -ServiceGroupName 'AzureSpringApps_SG'
 ```
 
 ## Create custom URL categories
 
-Next, define custom URL categories for the service group to enable egress from Azure Spring Cloud, as shown in the following example.
+Next, define custom URL categories for the service group to enable egress from Azure Spring Apps, as shown in the following example.
 
 ```powershell
 # Read Service entries from CSV to enter into Palo Alto
-$csvImport = Get-Content ${PSScriptRoot}/AzureSpringCloudUrls.csv | ConvertFrom-Csv
+$csvImport = Get-Content ${PSScriptRoot}/AzureSpringAppsUrls.csv | ConvertFrom-Csv
 
 # Convert name column of CSV to add to the Custom URL Group in Palo Alto
 $requestBody = @{ 'entry' = [ordered] @{
-        '@name' = 'AzureSpringCloud_SG'
+        '@name' = 'AzureSpringApps_SG'
         'list'  = @{ 'member' = $csvImport.name }
         'type'  = 'URL List'
     }
 } | ConvertTo-Json -Depth 9
 
-$url = "https://${PaloAltoIpAddress}/restapi/v9.1/Objects/CustomURLCategories?location=vsys&vsys=vsys1&name=AzureSpringCloud_SG"
+$url = "https://${PaloAltoIpAddress}/restapi/v9.1/Objects/CustomURLCategories?location=vsys&vsys=vsys1&name=AzureSpringApps_SG"
 
 try {
     $existingObject = Invoke-RestMethod -Method Get -Uri $url  -SkipCertificateCheck -Headers $paloAltoHeaders
@@ -262,7 +265,7 @@ Next, create a JSON file to contain a security rule. Name the file *SecurityRule
 {
     "entry": [
         {
-            "@name": "azureSpringCloudRule",
+            "@name": "AzureSpringAppsRule",
             "@location": "vsys",
             "@vsys": "vsys1",
             "to": {
@@ -287,7 +290,7 @@ Next, create a JSON file to contain a security rule. Name the file *SecurityRule
             },
             "service": {
                 "member": [
-                    "AzureSpringCloud_SG"
+                    "AzureSpringApps_SG"
                 ]
             },
             "hip-profiles": {
@@ -319,7 +322,7 @@ Next, create a JSON file to contain a security rule. Name the file *SecurityRule
 Now, apply this rule to Palo Alto, as shown in the following example.
 
 ```powershell
-$url = "https://${PaloAltoIpAddress}/restapi/v9.1/Policies/SecurityRules?location=vsys&vsys=vsys1&name=azureSpringCloudRule"
+$url = "https://${PaloAltoIpAddress}/restapi/v9.1/Policies/SecurityRules?location=vsys&vsys=vsys1&name=AzureSpringAppsRule"
 
 # Delete the rule if it already exists
 try {
@@ -371,9 +374,9 @@ $url = "https://${PaloAltoIpAddress}/api/?type=commit&cmd=<commit></commit>"
 Invoke-RestMethod -Method Get -Uri $url  -SkipCertificateCheck -Headers $paloAltoHeaders
 ```
 
-## Configure the Security Rules for Azure Spring Cloud subnets
+## Configure the Security Rules for Azure Spring Apps subnets
 
-Next, add network security rules to enable traffic from Palo Alto to access Azure Spring Cloud. The following examples reference the spoke Network Security Groups (NSGs) created by the Reference Architecture: `nsg-spokeapp` and `nsg-spokeruntime`.
+Next, add network security rules to enable traffic from Palo Alto to access Azure Spring Apps. The following examples reference the spoke Network Security Groups (NSGs) created by the Reference Architecture: `nsg-spokeapp` and `nsg-spokeruntime`.
 
 Run the following Azure CLI commands in a PowerShell window to create the necessary network security rule for each of these NSGs, where `$PaloAltoAddressPrefix` is the Classless Inter-Domain Routing (CIDR) address of Palo Alto's private IPs.
 
@@ -396,17 +399,17 @@ az network nsg rule create `
 
 ## Configure the next hop
 
-After you've configured Palo Alto, configure Azure Spring Cloud to have Palo Alto as its next hop for outbound internet access. You can use the following Azure CLI commands in a PowerShell window for this configuration. Be sure to provide values for the following variables:
+After you've configured Palo Alto, configure Azure Spring Apps to have Palo Alto as its next hop for outbound internet access. You can use the following Azure CLI commands in a PowerShell window for this configuration. Be sure to provide values for the following variables:
 
-* `$AppResourceGroupName`: The name of the resource group containing your Azure Spring Cloud.
-* `$AzureSpringCloudServiceSubnetRouteTableName`: The name of the Azure Spring Cloud service/runtime subnet route table. In the reference architecture, this is set to `rt-spokeruntime`.
-* `$AzureSpringCloudAppSubnetRouteTableName`: The name of the Azure Spring Cloud app subnet route table. In the reference architecture, this is set to `rt-spokeapp`.
+* `$AppResourceGroupName`: The name of the resource group containing your Azure Spring Apps.
+* `$AzureSpringAppsServiceSubnetRouteTableName`: The name of the Azure Spring Apps service/runtime subnet route table. In the reference architecture, this is set to `rt-spokeruntime`.
+* `$AzureSpringAppsAppSubnetRouteTableName`: The name of the Azure Spring Apps app subnet route table. In the reference architecture, this is set to `rt-spokeapp`.
 
 ```azurecli
 az network route-table route create `
     --resource-group ${AppResourceGroupName} `
     --name default `
-    --route-table-name ${AzureSpringCloudServiceSubnetRouteTableName} `
+    --route-table-name ${AzureSpringAppsServiceSubnetRouteTableName} `
     --address-prefix 0.0.0.0/0 `
     --next-hop-type VirtualAppliance `
     --next-hop-ip-address ${PaloAltoIpAddress} `
@@ -415,7 +418,7 @@ az network route-table route create `
 az network route-table route create `
     --resource-group ${AppResourceGroupName} `
     --name default `
-    --route-table-name ${AzureSpringCloudAppSubnetRouteTableName} `
+    --route-table-name ${AzureSpringAppsAppSubnetRouteTableName} `
     --address-prefix 0.0.0.0/0 `
     --next-hop-type VirtualAppliance `
     --next-hop-ip-address ${PaloAltoIpAddress} `
@@ -426,6 +429,6 @@ Your configuration is now complete.
 
 ## Next steps
 
-* [Stream Azure Spring Cloud app logs in real-time](./how-to-log-streaming.md)
-* [Application Insights Java In-Process Agent in Azure Spring Cloud](./how-to-application-insights.md)
-* [Automate application deployments to Azure Spring Cloud](./how-to-cicd.md)
+* [Stream Azure Spring Apps app logs in real-time](./how-to-log-streaming.md)
+* [Application Insights Java In-Process Agent in Azure Spring Apps](./how-to-application-insights.md)
+* [Automate application deployments to Azure Spring Apps](./how-to-cicd.md)

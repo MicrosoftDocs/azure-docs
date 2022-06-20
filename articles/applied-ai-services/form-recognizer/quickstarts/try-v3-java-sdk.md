@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
-ms.date: 03/31/2022
+ms.date: 06/13/2022
 ms.author: lajanuar
 recommendations: false
 ---
@@ -16,9 +16,9 @@ recommendations: false
 # Get started: Form Recognizer Java SDK (beta)
 
 >[!NOTE]
-> Form Recognizer beta version is currently in public preview. Some features may not be supported or have limited capabilities.
+> Form Recognizer beta version—4.0.0-beta.5—is currently in public preview. Some features may not be supported or have limited capabilities.
 
-[Reference documentation](/java/api/overview/azure/ai-formrecognizer-readme?view=azure-java-preview&preserve-view=true) | [Library source code](https://github.com/Azure/azure-sdk-for-java/tree/azure-ai-formrecognizer_4.0.0-beta.4/sdk/formrecognizer/azure-ai-formrecognizer/) | [Package (Maven)](https://search.maven.org/artifact/com.azure/azure-ai-formrecognizer/4.0.0-beta.4/jar) | [Samples](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/formrecognizer/azure-ai-formrecognizer/src/samples/README.md)
+[Reference documentation](/java/api/overview/azure/ai-formrecognizer-readme?view=azure-java-preview&preserve-view=true) | [Library source code](https://github.com/Azure/azure-sdk-for-java/tree/azure-ai-formrecognizer_4.0.0-beta.5/sdk/formrecognizer/azure-ai-formrecognizer/) | [Package (Maven)](https://search.maven.org/artifact/com.azure/azure-ai-formrecognizer/4.0.0-beta.5/jar) | [Samples](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/formrecognizer/azure-ai-formrecognizer/src/samples/README.md)
 
 Get started with Azure Form Recognizer using the Java programming language. Azure Form Recognizer is a cloud-based Azure Applied AI Service that uses machine learning to extract key-value pairs, text, and tables from your documents. You can easily call Form Recognizer models by integrating our client library SDks into your workflows and applications. We recommend that you use the free service when you're learning the technology. Remember that the number of free pages is limited to 500 per month.
 
@@ -45,7 +45,7 @@ In this quickstart you'll use following features to analyze and extract data and
 
 * If you aren't using VS Code, make sure you have the following installed in your development environment:
 
-  * A [**Java Development Kit** (JDK)](https://www.oracle.com/java/technologies/downloads/) version 8 or later.
+  * A [**Java Development Kit** (JDK)](https://wiki.openjdk.java.net/display/jdk8u) version 8 or later. For more information, *see* [supported Java Versions and update schedule](/azure/developer/java/fundamentals/java-support-on-azure#supported-java-versions-and-update-schedule).
 
   * [**Gradle**](https://gradle.org/), version 6.8 or later.
 
@@ -96,7 +96,7 @@ This quickstart uses the Gradle dependency manager. You can find the client libr
         mavenCentral()
     }
     dependencies {
-        implementation(group = "com.azure", name = "azure-ai-formrecognizer", version = "4.0.0-beta.4")
+        implementation(group = "com.azure", name = "azure-ai-formrecognizer", version = "4.0.0-beta.5")
     }
     ```
 
@@ -624,7 +624,10 @@ That's it, congratulations!
 
 In this quickstart, you used the Form Recognizer Java SDK to analyze various forms and documents in different ways. Next, explore the reference documentation to learn about Form Recognizer API in more depth.
 
-## Next step
+## Next steps
 
 > [!div class="nextstepaction"]
-> [Learn more about Form Recognizer REST API v3.0](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-2/operations/AnalyzeDocument)
+> [Form Recognizer REST API v3.0 (preview)](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-06-30-preview/operations/AnalyzeDocument)
+
+> [!div class="nextstepaction"]
+> [Form Recognizer Java reference library](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-ai-formrecognizer/4.0.0-beta.5/index.html)

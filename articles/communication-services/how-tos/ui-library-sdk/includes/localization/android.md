@@ -14,55 +14,95 @@ Azure Communication UI [open source library](https://github.com/Azure/communicat
 
 ### Available Languages
 
-The following table of `languageCode` with out of the box translations. If you want to localize the composite, pass the `languageCode` into `LocalizationConfiguration` as options into `CallComposite`.
+The following is table of `CallCompositeSupportedLocale` with out of the box translations. If you want to localize the composite, pass the `Locale` from `CallCompositeSupportedLocale` into `CallCompositeLocalizationOptions` as options into `CallComposite`.
 
-|Language| LanguageCode|
+|Language| CallCompositeSupportedLocale|
 |---------|---------|
-|German| LanguageCode.GERMAN|
-|Japanese| LanguageCode.JAPANESE|
-|English| LanguageCode.ENGLISH_US|
-|Chinese (Traditional)| LanguageCode.CHINESE_TRADITIONAL|
-|Spanish |LanguageCode.SPANISH|
-|Chinese (Simplified) |LanguageCode.CHINESE_SIMPLIFIED|
-|Italian |LanguageCode.ITALIAN|
-|English (United Kingdom) |LanguageCode.ENGLISH_UK|
-|Korean |LanguageCode.KOREAN|
-|Turkish |LanguageCode.TURKISH|
-|Russian |LanguageCode.RUSSIAN|
-|French |LanguageCode.FRENCH|
-|Dutch |LanguageCode.DUTCH|
-|Portuguese |LanguageCode.BRAZILIAN_PORTUGUESE|
+|German| CallCompositeSupportedLocale.DE|
+|Japanese| CallCompositeSupportedLocale.JA|
+|English| CallCompositeSupportedLocale.EN_US|
+|Chinese (Traditional)| CallCompositeSupportedLocale.ZH_TW|
+|Spanish |CallCompositeSupportedLocale.ES|
+|Chinese (Simplified) |CallCompositeSupportedLocale.ZH_CN|
+|Italian |CallCompositeSupportedLocale.IT|
+|English (United Kingdom) |CallCompositeSupportedLocale.EN_UK|
+|Korean |CallCompositeSupportedLocale.KO|
+|Turkish |CallCompositeSupportedLocale.TR|
+|Russian |CallCompositeSupportedLocale.RU|
+|French |CallCompositeSupportedLocale.FR|
+|Dutch |CallCompositeSupportedLocale.NL|
+|Portuguese |CallCompositeSupportedLocale.PT_BR|
 
 ### Localization Provider
 
-`LocalizationConfiguration` is an options wrapper that sets all the strings for Mobile UI Library components using a `languageCode`. By default, all text labels use English strings. If desired `LocalizationConfiguration` can be used to set a different `language`. Out of the box, the UI library includes a set of `language` usable with the UI components and composites.
+`CallCompositeLocalizationOptions` is an options wrapper that sets all the strings for Mobile UI Library components using a `CallCompositeSupportedLocale`. By default, all text labels use English strings. If desired `CallCompositeLocalizationOptions` can be used to set a different language by passing a `Locale` object from `CallCompositeSupportedLocale`. Out of the box, the UI library includes a set of `Locale` usable with the UI components and composites.
 
-You can also obtain list of `languageCode` by the static function `LanguageCode.values()`.
+You can also obtain list of `Locale` by the static function `CallCompositeSupportedLocale.getSupportedLocales()`.
 
 :::image type="content" source="media/android-localization.png" alt-text="Android localization":::
 
 #### Usage
 
-To use the `LocalizationConfiguration`, specify a `language` and pass it to the `CallCompositeOptions`. For the example below, we'll  localize the composite to French.
+To use the `CallCompositeLocalizationOptions`, specify a `CallCompositeSupportedLocale` and pass it to the `CallCompositeBuilder`. For the example below, we'll localize the composite to French.
 
-```Kotlin
-val callComposite: CallComposite =  CallCompositeBuilder().localization(LocalizationConfiguration(LanguageCode.FRENCH)).build()
+#### [Kotlin](#tab/kotlin)
+
+```kotlin
+import com.azure.android.communication.ui.calling.models.CallCompositeLocalizationOptions
+import com.azure.android.communication.ui.calling.models.CallCompositeSupportedLocale
+
+// CallCompositeSupportedLocale provides list of supported locale
+val callComposite: CallComposite =
+            CallCompositeBuilder().localization(
+                CallCompositeLocalizationOptions(CallCompositeSupportedLocale.FR)
+            ).build()
 ```
+
+#### [Java](#tab/java)
+
+```java
+import com.azure.android.communication.ui.calling.models.CallCompositeLocalizationOptions;
+import com.azure.android.communication.ui.calling.models.CallCompositeSupportedLocale;
+
+// CallCompositeSupportedLocale provides list of supported locale
+CallComposite callComposite = 
+    new CallCompositeBuilder()
+        .localization(new CallCompositeLocalizationOptions(CallCompositeSupportedLocale.FR))
+        .build();
+```
+
+-----
 
 ### Layout Direction
 
-Certain cultures (Arabic, Hebrew, etc.) may need for localization to have right-to-left layout. You can specify the `layoutDirection` as part of the `LocalizationConfiguration`. The layout of the composite will be mirrored but the text will remain in the direction of the string.
+Certain cultures (Arabic, Hebrew, etc.) may need for localization to have right-to-left layout. You can specify the `layoutDirection` as part of the `CallCompositeLocalizationOptions`. The layout of the composite will be mirrored but the text will remain in the direction of the string.
 
-```Koltin
-val callComposite: CallComposite =  CallCompositeBuilder().localization(LocalizationConfiguration(LanguageCode.FRENCH,LaytoutDirection.RTL)).build()
+#### [Kotlin](#tab/kotlin)
+
+```kotlin
+import com.azure.android.communication.ui.calling.models.CallCompositeLocalizationOptions
+import com.azure.android.communication.ui.calling.models.CallCompositeSupportedLocale
+
+// CallCompositeSupportedLocale provides list of supported locale
+val callComposite: CallComposite =
+            CallCompositeBuilder().localization(
+                CallCompositeLocalizationOptions(CallCompositeSupportedLocale.FR, LayoutDirection.LTR)
+            ).build()
+```
+
+#### [Java](#tab/java)
+
+```java
+import com.azure.android.communication.ui.calling.models.CallCompositeLocalizationOptions;
+import com.azure.android.communication.ui.calling.models.CallCompositeSupportedLocale;
+
+// CallCompositeSupportedLocale provides list of supported locale
+CallComposite callComposite = 
+    new CallCompositeBuilder()
+        .localization(new CallCompositeLocalizationOptions(CallCompositeSupportedLocale.FR, LayoutDirection.LTR))
+        .build();
 ```
 
 |`LayoutDirection.RTL` | `LayoutDirection.LTR`     |
 | -------------------------------------------------------- | --------------------------------------------------------------- |
 | :::image type="content" source="media/android-rtl.png" alt-text="Android RTL"::: | :::image type="content" source="media/android-ltr.png" alt-text="Android LTR":::  |
-
-### Customizing Translations
-
-To override a particular string, you can find the list of localization keys here for the key-value pair. You can specify the `languageCode` to be one of the supported languages, and when a key isn't provided, will fall back to our supported translation string. If you specified an unsupported language, you should provide translations for all the keys for that language, and will fall back to English strings when a key isn't provided.
-
-Create a `string.xml` file (or other filename) with the key-value pair for selected keys you want to override.

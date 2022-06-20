@@ -2,12 +2,10 @@
 title: 'How to enable OpenVPN for P2S VPN gateways'
 titleSuffix: Azure VPN Gateway
 description: Learn how to enable OpenVPN Protocol on VPN gateways for point-to-site configurations.
-services: vpn-gateway
 author: cherylmc
-
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 04/20/2022
+ms.date: 05/16/2022
 ms.author: cherylmc
 
 ---
@@ -45,6 +43,6 @@ This article helps you set up **OpenVPN® Protocol** on Azure VPN Gateway. This 
 
 ## Next steps
 
-To configure clients for OpenVPN, see [Configure OpenVPN clients](vpn-gateway-howto-openvpn-clients.md).
+To configure clients for OpenVPN, see Configure OpenVPN clients for [Windows](point-to-site-vpn-client-cert-windows.md), [macOS and IOS](point-to-site-vpn-client-cert-mac.md), and [Linux](point-to-site-vpn-client-cert-linux.md).
 
 **"OpenVPN" is a trademark of OpenVPN Inc.**

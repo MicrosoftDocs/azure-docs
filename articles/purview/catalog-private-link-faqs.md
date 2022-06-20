@@ -6,7 +6,7 @@ ms.author: zeinam
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 05/05/2022
+ms.date: 05/06/2022
 # Customer intent: As a Microsoft Purview admin, I want to set up private endpoints and managed vnets for my Microsoft Purview account for secure access or ingestion.
 ---
 # FAQ about Microsoft Purview private endpoints and Managed VNets
@@ -139,8 +139,10 @@ At least one account and portal private endpoints are required, if public access
 At least one account, portal and ingestion private endpoint are required, if public access in Microsoft Purview account is set to **deny** and you are planning to scan additional data sources using a self-hosted integration runtime.
 
 ### What inbound and outbound communications are allowed through public endpoint for Microsoft Purview Managed VNets?
+
 No inbound communication is allowed into a Managed VNet from public network.
 All ports are opened for outbound communications.
+In Microsoft Purview, a Managed VNet can be used to privately connect to Azure data sources to extract metadata during scan.
 
 ### Why do I receive the following error message when I try to launch Microsoft Purview governance portal from my machine?
 

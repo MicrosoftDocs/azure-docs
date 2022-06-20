@@ -25,6 +25,17 @@ The end of a single utterance is determined by listening for silence at the end.
 
 With the `Recognizing` event, you can get the offset and duration of the speech being recognized. Offset and duration per word are not available while recognition is in progress. Each `Recognizing` event comes with a textual estimate of the speech recognized so far.
 
+This code snippet shows how to get the offset and duration from a `Recognizing` event. 
+
+```cpp
+speechRecognizer->Recognizing.Connect([](const SpeechRecognitionEventArgs& e)
+    {
+        cout << "Recognizing:" << e.Result->Text << std::endl;
+        cout << "Offset in Ticks:" << e.Result->Offset() << std::endl;
+        cout << "Duration in Ticks:" << e.Result->Duration() << std::endl;
+    });
+```
+
 ### Recognized offset and duration
 Once an utterance has been recognized, you can get the offset and duration of the recognized speech. With the `Recognized` event, you can also get the offset and duration per word. To request the offset and duration per word, first you must set the corresponding `SpeechConfig` property as shown here:
 

@@ -4,7 +4,7 @@ description: Options for managing the Azure Monitor agent (AMA) on Azure virtual
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 03/09/2022
+ms.date: 05/10/2022
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 
 ---
@@ -163,7 +163,7 @@ Update-AzConnectedExtension -ResourceGroupName $env.ResourceGroupName -MachineNa
 ```
 ---
 
-The **recommendation** is to enable automatic update of the agent by enabling the [Automatic Extension Upgrade (preview)](../../azure-arc/servers/manage-automatic-vm-extension-upgrade.md#enabling-automatic-extension-upgrade-preview) feature, using the following PowerShell commands.
+The **recommendation** is to enable automatic update of the agent by enabling the [Automatic Extension Upgrade (preview)](../../azure-arc/servers/manage-automatic-vm-extension-upgrade.md#enable-automatic-extension-upgrade) feature, using the following PowerShell commands.
 # [Windows](#tab/PowerShellWindowsArc)
 ```powershell
 Update-AzConnectedMachineExtension -ResourceGroup <resource-group-name> -MachineName <arc-server-name> -Name AMAWindows -EnableAutomaticUpgrade
@@ -254,7 +254,7 @@ az connectedmachine upgrade-extension --extension-targets "{\"Microsoft.Azure.Mo
 ```
 ---
 
-The **recommendation** is to enable automatic update of the agent by enabling the [Automatic Extension Upgrade (preview)](../../azure-arc/servers/manage-automatic-vm-extension-upgrade.md#enabling-automatic-extension-upgrade-preview) feature, using the following PowerShell commands.
+The **recommendation** is to enable automatic update of the agent by enabling the [Automatic Extension Upgrade (preview)](../../azure-arc/servers/manage-automatic-vm-extension-upgrade.md#enable-automatic-extension-upgrade) feature, using the following PowerShell commands.
 # [Windows](#tab/CLIWindowsArc)
 ```azurecli
 az connectedmachine extension update --name AzureMonitorWindowsAgent --machine-name <arc-server-name> --resource-group <resource-group-name> --enable-auto-upgrade true

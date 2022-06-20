@@ -45,13 +45,6 @@ const locator = {
 const call = callAgent.join(locator);
 ```
 
-Join by using meeting id (this is currently in limited preview):
-
-```js
-const locator = { meetingId: '<MEETING_ID>'}
-const call = callAgent.join(locator);
-```
-
 ## Next steps
 - [Learn how to manage calls](./manage-calls.md)
 - [Learn how to manage video](./manage-video.md)

@@ -28,6 +28,7 @@ Databricks pre-purchase applies to all Databricks workloads and tiers. You can t
 | Jobs Compute | 0.15 | 0.30 |
 | Jobs Light Compute | 0.07 | 0.22 |
 | SQL Compute | NA | 0.22 |
+| Delta Live Tables | NA | 0.30 (core), 0.38 (pro), 0.54 (advanced) |
 
 For example, when a quantity of Data Analytics – Standard tier is consumed, the pre-purchased Databricks commit units is deducted by 0.4 units. When a quantity of Data Engineering Light – Standard tier is used, the pre-purchased Databricks commit unit is deducted by 0.07 units.
 

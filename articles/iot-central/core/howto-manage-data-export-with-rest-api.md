@@ -12,7 +12,8 @@ services: iot-central
 
 # How to use the IoT Central REST API to manage data exports
 
-The IoT Central REST API lets you develop client applications that integrate with IoT Central applications. You can use the REST API to create and manage [data exports](howto-export-data.md) in your IoT Central application.
+The IoT Central REST API lets you develop client applications that integrate with IoT Central applications. You can use the REST API to create and manage [data exports](howto-export-to-blob-storage.md).
+ in your IoT Central application.
 
 Every IoT Central REST API call requires an authorization header. To learn more, see [How to authenticate and authorize IoT Central REST API calls](howto-authorize-rest-api.md).
 
@@ -51,7 +52,7 @@ The request body has some required fields:
 
 * `displayName`: Display name of the destination.
 * `type`:  Type of destination object which can be one of: `blobstorage@v1`, `dataexplorer@v1`, `eventhubs@v1`, `servicebusqueue@v1`, `servicebustopic@v1`, `webhook@v1`.
-* `connectionString`:The connection string for accessing the destination resource.
+* `connectionString`: The connection string for accessing the destination resource.
 * `containerName`: For a blob storage destination, the name of the container where data should be written.
 
 The response to this request looks like the following example: 

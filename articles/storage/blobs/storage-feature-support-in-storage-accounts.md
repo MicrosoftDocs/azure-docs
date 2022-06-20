@@ -5,7 +5,7 @@ author: normesta
 ms.subservice: blobs
 ms.service: storage
 ms.topic: conceptual
-ms.date: 02/24/2022
+ms.date: 06/13/2022
 ms.author: normesta
 ---
 
@@ -20,7 +20,7 @@ The items that appear in these tables will change over time as support continues
 | Storage feature | Blob Storage (default support) | Data Lake Storage Gen2 <sup>1</sup>   | NFS 3.0 <sup>1</sup>  | SFTP <sup>1</sup> |
 |---------------|-------------------|---|---|--|
 | [Access tier - archive](access-tiers-overview.md) | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
-| [Access tier - cold](access-tiers-overview.md)	| ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png)| ![Yes](../media/icons/yes-icon.png) |
+| [Access tier - cool](access-tiers-overview.md)	| ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png)| ![Yes](../media/icons/yes-icon.png) |
 | [Access tier - hot](access-tiers-overview.md) | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
 | [Anonymous public access](anonymous-read-access-configure.md) | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png)| ![Yes](../media/icons/yes-icon.png) |
 | [Azure Active Directory security](authorize-access-azure-active-directory.md) | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
@@ -29,7 +29,7 @@ The items that appear in these tables will change over time as support continues
 | [Blob snapshots](snapshots-overview.md) | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png)  <sup>2</sup> | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
 | [Blob Storage APIs](reference.md) | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png)  <sup>3</sup> | ![Yes](../media/icons/yes-icon.png) <sup>3</sup>| ![Yes](../media/icons/yes-icon.png) <sup>3</sup> |
 | [Blob Storage Azure CLI commands](storage-quickstart-blobs-cli.md) | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
-| [Blob Storage events](storage-blob-event-overview.md) | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png)  <sup>3</sup>  | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
+| [Blob Storage events](storage-blob-event-overview.md) | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png)  <sup>3</sup>  | ![No](../media/icons/no-icon.png) | ![Yes](../media/icons/yes-icon.png) |
 | [Blob Storage PowerShell commands](storage-quickstart-blobs-powershell.md) | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
 | [Blob versioning](versioning-overview.md) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
 | [Blobfuse](storage-how-to-mount-container-linux.md) | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
@@ -37,7 +37,7 @@ The items that appear in these tables will change over time as support continues
 | [Custom domains](storage-custom-domain-name.md) | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png)  <sup>2</sup> | ![Yes](../media/icons/yes-icon.png)  <sup>2</sup> | ![Yes](../media/icons/yes-icon.png)  <sup>2</sup> |
 | [Customer-managed account failover](../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
 | [Customer-managed keys (encryption)](../common/customer-managed-keys-overview.md?toc=/azure/storage/blobs/toc.json) | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
-| [Customer-provided keys (encryption)](encryption-customer-provided-keys.md) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) | ![Yes](../media/icons/yes-icon.png) |
+| [Customer-provided keys (encryption)](encryption-customer-provided-keys.md) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
 | [Data redundancy options](../common/storage-redundancy.md?toc=/azure/storage/blobs/toc.json) | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
 | [Encryption scopes](encryption-scope-overview.md) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
 | [Immutable storage](immutable-storage-overview.md) | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png)  <sup>2</sup> | ![Yes](../media/icons/yes-icon.png)  <sup>2</sup> | ![Yes](../media/icons/yes-icon.png)  <sup>2</sup> |
@@ -66,7 +66,7 @@ The items that appear in these tables will change over time as support continues
 | Storage feature | Blob Storage (default support) | Data Lake Storage Gen2 <sup>1</sup> | NFS 3.0 <sup>1</sup> | SFTP <sup>1</sup> |
 |---------------|-------------------|---|---|--|
 | [Access tier - archive](access-tiers-overview.md)  | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
-| [Access tier - cold](access-tiers-overview.md) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
+| [Access tier - cool](access-tiers-overview.md) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
 | [Access tier - hot](access-tiers-overview.md) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
 | [Anonymous public access](anonymous-read-access-configure.md) | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
 | [Azure Active Directory security](authorize-access-azure-active-directory.md) | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
@@ -75,7 +75,7 @@ The items that appear in these tables will change over time as support continues
 | [Blob snapshots](snapshots-overview.md) | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png)  <sup>2</sup> | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
 | [Blob Storage APIs](reference.md) | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png)  <sup>3</sup> | ![Yes](../media/icons/yes-icon.png) <sup>3</sup>| ![Yes](../media/icons/yes-icon.png) <sup>3</sup> |
 | [Blob Storage Azure CLI commands](storage-quickstart-blobs-cli.md) | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
-| [Blob Storage events](storage-blob-event-overview.md) | ![Yes](../media/icons/yes-icon.png)  <sup>3</sup>  | ![Yes](../media/icons/yes-icon.png) <sup>3</sup>| ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
+| [Blob Storage events](storage-blob-event-overview.md) | ![Yes](../media/icons/yes-icon.png)  <sup>3</sup>  | ![Yes](../media/icons/yes-icon.png) <sup>3</sup>| ![No](../media/icons/no-icon.png) | ![Yes](../media/icons/yes-icon.png) |
 | [Blob Storage PowerShell commands](storage-quickstart-blobs-powershell.md) | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
 | [Blob versioning](versioning-overview.md) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
 | [Blobfuse](storage-how-to-mount-container-linux.md) | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
@@ -83,7 +83,7 @@ The items that appear in these tables will change over time as support continues
 | [Custom domains](storage-custom-domain-name.md) | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png)  <sup>2</sup> | ![Yes](../media/icons/yes-icon.png)  <sup>2</sup> | ![Yes](../media/icons/yes-icon.png)  <sup>2</sup> |
 | [Customer-managed account failover](../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
 | [Customer-managed keys (encryption)](../common/customer-managed-keys-overview.md?toc=/azure/storage/blobs/toc.json)  | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
-| [Customer-provided keys (encryption)](encryption-customer-provided-keys.md) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) | ![Yes](../media/icons/yes-icon.png) |
+| [Customer-provided keys (encryption)](encryption-customer-provided-keys.md) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
 | [Data redundancy options](../common/storage-redundancy.md?toc=/azure/storage/blobs/toc.json) | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
 | [Encryption scopes](encryption-scope-overview.md) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
 | [Immutable storage](immutable-storage-overview.md) | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png)  <sup>2</sup> | ![Yes](../media/icons/yes-icon.png)  <sup>2</sup> | ![Yes](../media/icons/yes-icon.png)  <sup>2</sup> |

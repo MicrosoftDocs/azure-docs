@@ -3,6 +3,7 @@ title: 'Quickstart: Create an Azure DB for MySQL - Flexible Server - ARM templat
 description: In this Quickstart, learn how to create an Azure Database for MySQL - Flexible Server using ARM template.
 author: mksuni
 ms.service: mysql
+ms.subservice: flexible-server
 ms.topic: quickstart
 ms.custom: subject-armqs, devx-track-azurepowershell, mode-arm
 ms.author: sumuth
@@ -11,9 +12,9 @@ ms.date: 10/23/2020
 
 # Quickstart: Use an ARM template to create an Azure Database for MySQL - Flexible Server
 
-[[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
+[!INCLUDE [applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
-Azure Database for MySQL - Flexible Server is a managed service that you use to run, manage, and scale highly available MySQL databases in the cloud. You can use an Azure Resource Manager template (ARM template) to provision a flexible server to deploy multiple servers or multiple databases on a server.
+[!INCLUDE [About Azure Database for MySQL - Flexible Server](../includes/azure-database-for-mysql-flexible-server-abstract.md)]
 
 [!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
 

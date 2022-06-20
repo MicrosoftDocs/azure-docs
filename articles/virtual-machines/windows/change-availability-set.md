@@ -31,14 +31,12 @@ This article was last tested on 2/12/2019 using the [Azure Cloud Shell](https://
 ## Change the availability set 
 
 The following script provides an example of gathering the required information, deleting the original VM and then recreating it in a new availability set.
-The below scenario also covers an optional portion where we create a snapshot of the VM's OS disk in order to create disk from the snapshot to have a backup because when the VM gets deleted, the OS disk will also be deleted along with it.
 
 ```powershell
 # Set variables
     $resourceGroup = "myResourceGroup"
     $vmName = "myVM"
     $newAvailSetName = "myAvailabilitySet"
-    $snapshotName = "MySnapShot"
 
 # Get the details of the VM to be moved to the Availability Set
     $originalVM = Get-AzVM `
@@ -59,29 +57,9 @@ The below scenario also covers an optional portion where we create a snapshot of
        -PlatformUpdateDomainCount 2 `
        -Sku Aligned
     }
-    
-# Get Current VM OS Disk metadata
-    $osDiskid = $originalVM.StorageProfile.OsDisk.ManagedDisk.Id
-    $osDiskName = $originalVM.StorageProfile.OsDisk.Name
 
-# Create Disk Snapshot (optional)
-    $snapshot = New-AzSnapshotConfig -SourceUri $osDiskid `
-    -Location $originalVM.Location `
-    -CreateOption copy
-    
-    $newsnap = New-AzSnapshot `
-    -Snapshot $snapshot `
-    -SnapshotName $snapshotName `
-    -ResourceGroupName $resourceGroup
-    
 # Remove the original VM
     Remove-AzVM -ResourceGroupName $resourceGroup -Name $vmName
-
-# Create disk out of snapshot (optional)
-    $osDisk = New-AzDisk -DiskName $osDiskName -Disk `
-    (New-AzDiskConfig  -Location $originalVM.Location -CreateOption Copy `
-    -SourceResourceId $newsnap.Id) `
-    -ResourceGroupName $resourceGroup
 
 # Create the basic configuration for the replacement VM.
     $newVM = New-AzVMConfig `
@@ -129,9 +107,6 @@ The below scenario also covers an optional portion where we create a snapshot of
        -Location $originalVM.Location `
        -VM $newVM `
        -DisableBginfoExtension
-       
-# Delete Snapshot (optional)
-    Remove-AzSnapshot -ResourceGroupName $resourceGroup -SnapshotName $snapshotName -Force
 ```
 
 ## Next steps

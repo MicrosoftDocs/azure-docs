@@ -11,6 +11,7 @@ ms.date: 11/30/2021
 
 # Limits in Azure Database for PostgreSQL - Flexible Server
 
+[!INCLUDE [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 
 The following sections describe capacity and functional limits in the database service. If you'd like to learn about resource (compute, memory, storage) tiers, see the [compute and storage](concepts-compute-storage.md) article.
 

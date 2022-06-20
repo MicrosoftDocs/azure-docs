@@ -333,15 +333,13 @@ If you have multiple phrases to add, call `.addPhrase()` for each phrase to add 
 
 # [Custom speech-to-text](#tab/cstt)
 
-The custom speech-to-text container relies on a Custom Speech model. The custom model has to have been [trained](how-to-custom-speech-train-model.md) by using the [Custom Speech portal](https://speech.microsoft.com/customspeech).
+The custom speech-to-text container relies on a Custom Speech model. The custom model has to have been [trained](how-to-custom-speech-train-model.md) by using the [Speech Studio](https://aka.ms/speechstudio/customspeech).
 
-The custom speech **Model ID** is required to run the container. It can be found on the **Training** page of the Custom Speech portal. From the Custom Speech portal, go to the **Training** page and select the model.
-<br>
+The custom speech **Model ID** is required to run the container. For more information about how to get the model ID, see [Custom Speech model lifecycle](how-to-custom-speech-model-and-endpoint-lifecycle.md).
 
 ![Screenshot that shows the Custom Speech training page.](media/custom-speech/custom-speech-model-training.png)
 
 Obtain the **Model ID** to use as the argument to the `ModelId` parameter of the `docker run` command.
-<br>
 
 ![Screenshot that shows Custom Speech model details.](media/custom-speech/custom-speech-model-details.png)
 
@@ -350,7 +348,7 @@ The following table represents the various `docker run` parameters and their cor
 | Parameter | Description |
 |---------|---------|
 | `{VOLUME_MOUNT}` | The host computer [volume mount](https://docs.docker.com/storage/volumes/), which Docker uses to persist the custom model. An example is *C:\CustomSpeech* where the C drive is located on the host machine. |
-| `{MODEL_ID}` | The custom speech **Model ID** from the **Training** page of the Custom Speech portal. |
+| `{MODEL_ID}` | The custom speech model ID. For more information, see [Custom Speech model lifecycle](how-to-custom-speech-model-and-endpoint-lifecycle.md). |
 | `{ENDPOINT_URI}` | The endpoint is required for metering and billing. For more information, see [Gather required parameters](#gather-required-parameters). |
 | `{API_KEY}` | The API key is required. For more information, see [Gather required parameters](#gather-required-parameters). |
 

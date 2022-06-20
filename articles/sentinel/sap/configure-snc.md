@@ -143,19 +143,25 @@ This section explains how to import a certificate so that it's trusted by your A
     --sapgenpse <path to sapgenpse> \
     --server-cert <path to server certificate public key> \
     ```
+    
     If the client certificate is in .crt/.key format, use the following switches:
+    
     ```bash
     --client-cert <path to client certificate public key> \
     --client-key <path to client certificate private key> \
     ```
-    If client certificate is in .pfx or .p12 format
+    
+    If the client certificate is in .pfx or .p12 format:
+    
     ```bash
     --client-pfx <pfx filename>
     --client-pfx-passwd <password>
     ```
-    If client certificate issued by enterprise CA, add the switch for **each** CA in the trust chain
+
+    If the client certificate was issued by an enterprise CA, add this switch for **each** CA in the trust chain:
+
     ```bash
-    --cacert <path to ca certificate> # 
+    --cacert <path to ca certificate>
     ```
 
     For example:

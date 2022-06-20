@@ -111,4 +111,4 @@ Azure Communication Services will feed into Azure Monitor logging data for under
 
 - [Azure Data Subject Requests for the GDPR and CCPA](/microsoft-365/compliance/gdpr-dsr-azure)
 - [Microsoft Trust Center](https://www.microsoft.com/trust-center/privacy/data-location)
-- [Azure Interactive Map - Where is my customer data?](https://azuredatacentermap.azurewebsites.net/)
+- [Azure Interactive Map - Where is my customer data?](https://infrastructuremap.microsoft.com/)

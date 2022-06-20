@@ -1,7 +1,7 @@
 ---
-title: 'About Point-to-Site VPN client profiles for Azure AD authentication'
+title: 'P2S VPN client profile config files - Azure AD authentication'
 titleSuffix: Azure VPN Gateway
-description: Learn about P2S VPN client profile files for Azure AD authentication.
+description: Learn how to generate P2S VPN client profile configuration files for Azure AD authentication.
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
@@ -9,9 +9,9 @@ ms.date: 05/04/2022
 ms.author: cherylmc
 
 ---
-# Generate P2S Azure VPN client profile files - Azure AD authentication
+# Generate P2S Azure VPN Client profile config files - Azure AD authentication
 
-After you install the Azure VPN Client, you configure the VPN client profile. Client profile files contain information that's necessary to configure a VPN connection. This article helps you obtain and understand the information needed to configure an Azure VPN Client profile.
+After you install the Azure VPN Client, you configure the VPN client profile. Client profile config files contain information that's necessary to configure a VPN connection. This article helps you obtain and understand the information needed to configure an Azure VPN Client profile for Azure VPN Gateway point-to-site configurations that use Azure AD authentication.
 
 ## <a name="generate"></a>Generate profile files
 
@@ -21,7 +21,7 @@ You can generate VPN client profile configuration files using PowerShell, or by 
 
 1. In the Azure portal, navigate to the virtual network gateway for the virtual network that you want to connect to.
 1. On the virtual network gateway page, select **Point-to-site configuration**.
-1. At the top of the Point-to-site configuration page, select **Download VPN client**. It takes a few minutes for the client configuration package to generate.
+1. At the top of the point-to-site configuration page, select **Download VPN client**. It takes a few minutes for the client configuration package to generate.
 1. Your browser indicates that a client configuration zip file is available. It's named the same name as your gateway. Unzip the file to view the folders.
 
 ### PowerShell

@@ -2399,19 +2399,20 @@ This container image has the following tags available. You can also find a full 
 
 # [Latest version](#tab/current)
 
-* Release notes for version `1.7.0`:
-    * Update dependencies
+* Release notes for version `1.9.0`:
+    * Bug fixes
 
 
 | Image Tags                                  | Notes                                                                      |
 |---------------------------------------------|:---------------------------------------------------------------------------|
 | `latest`                       |      |
-| `1.7.0-amd64-preview`                       |      |
+| `1.9.0-amd64-preview`                       |      |
 
 # [Previous versions](#tab/previous)
 
 | Image Tags                                  | Notes                                                                      |
 |---------------------------------------------|:---------------------------------------------------------------------------|
+| `1.7.0-amd64-preview`                       |      |
 | `1.6.1-amd64-preview`                       |      |
 | `1.5.0-amd64-preview`                       |      |
 | `1.3.0-amd64-preview`                       |      |
