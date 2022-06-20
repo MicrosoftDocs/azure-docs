@@ -164,7 +164,7 @@ Yes. The results are under [Sub-Assessments REST API](/rest/api/securitycenter/s
 
 ### What registry types are scanned? What types are billed?
 
-For a list of the types of container registries supported by Microsoft Defender for container registries, see [Availability](https://docs.microsoft.com/azure/defender-for-cloud/supported-machines-endpoint-solutions-clouds-containers#additional-information).
+For a list of the types of container registries supported by Microsoft Defender for container registries, see [Availability](supported-machines-endpoint-solutions-clouds-containers.md#additional-information).
 
 If you connect unsupported registries to your Azure subscription, Defender for Containers won't scan them and won't bill you for them.
 
