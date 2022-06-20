@@ -107,19 +107,17 @@ Many clients that previously only supported legacy authentication now support mo
 
 - Clients that support modern authentication but are not configured to use modern authentication should be updated or reconfigured to use modern authentication.
 
-- Clients that don't support modern authentication should be replaced.
-
-If you're using Microsoft Intune, you might be able to change the authentication type using the email profile you push or deploy to your devices. If you are using iOS devices (iPhones and iPads) you should take a look at [Add e-mail settings for iOS and iPadOS devices in Microsoft Intune](/mem/intune/configuration/email-settings-ios).
+- All clients that don't support modern authentication should be replaced.
 
 >[!Important]
 >
 >**Exchange Active Sync with Certificate-based authentication**
 >
->- Certificate-based authentication (CBA) is **NOT basic** authentication and **won't be blocked** by [Deprecation of Basic authentication in Exchange Online](/exchange/clients-and-mobile-in-exchange-online/deprecation-of-basic-authentication-exchange-online). 
->- Clients that don't support or haven't been configured to use modern authentication using a certificate are **legacy authentication and will be blocked** by Conditional Access policies configured to block legacy authentication.
+>Certificate-based authentication (CBA) is NOT **basic** authentication and **won't be blocked** by [Deprecation of Basic authentication in Exchange Online](/exchange/clients-and-mobile-in-exchange-online/deprecation-of-basic-authentication-exchange-online). However, all clients that don't support or haven't been configured to use modern authentication (including Exchange Active Sync with a certificate) are **legacy** authentication and **will be blocked** by Conditional Access policies configured to block legacy authentication.
 >
 >See [Overview of Azure AD certificate-based authentication (Preview)](../authentication/concept-certificate-based-authentication.md) for more information on using certificates with modern authentication and Azure AD.
 
+If you're using Microsoft Intune, you might be able to change the authentication type using the email profile you push or deploy to your devices. If you are using iOS devices (iPhones and iPads) you should take a look at [Add e-mail settings for iOS and iPadOS devices in Microsoft Intune](/mem/intune/configuration/email-settings-ios).
 
 ## Block legacy authentication
 
