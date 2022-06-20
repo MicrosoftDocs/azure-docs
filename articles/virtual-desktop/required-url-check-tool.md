@@ -24,7 +24,7 @@ You need the following things to use the Required URL Check tool:
 - RDAgent version 1.0.2944.400 or higher
 - The `WVDAgentUrlTool.exe` file must be in the same folder as the `WVDAgentUrlTool.config` file
 
-### Use the Required URL Check tool
+## Use the Required URL Check tool
 
 To use the Required URL Check tool:
 
