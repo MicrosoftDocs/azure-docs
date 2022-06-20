@@ -5,10 +5,10 @@ author: seesharprun
 ms.author: sidandrews
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
-ms.devlang: csharp
+ms.devlang: javascript
 ms.topic: how-to
-ms.date: 06/08/2022
-ms.custom: devx-track-csharp
+ms.date: 06/20/2022
+ms.custom: devx-track-js
 ---
 
 # Manage a collection of documents in Azure Cosmos DB MongoDB API using JavaScript
