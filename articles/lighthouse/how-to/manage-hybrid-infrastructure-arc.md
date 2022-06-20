@@ -11,7 +11,7 @@ ms.topic: how-to
 
 [Azure Arc](../../azure-arc/overview.md) helps simplify complex and distributed environments across on-premises, edge and multicloud, enabling deployment of Azure services anywhere and extending Azure management to any infrastructure.
 
-With [Azure Arc–enabled servers](../../azure-arc/servers/overview.md), customers can manage any Windows and Linux machines hosted outside of Azure on their corporate network, in the same way they manage native Azure virtual machines. By linking a hybrid machine to Azure, it becomes connected and is treated as a resource in Azure. Through Azure Lighthouse, service providers can then manage these non-Azure machines along with their customers' Azure resources.
+With [Azure Arc–enabled servers](../../azure-arc/servers/overview.md), customers can manage Windows and Linux machines hosted outside of Azure on their corporate network, in the same way they manage native Azure virtual machines. Through Azure Lighthouse, service providers can then manage these connected non-Azure machines along with their customers' Azure resources.
 
 [Azure Arc–enabled Kubernetes](../../azure-arc/kubernetes/overview.md) lets customers attach and configure Kubernetes clusters outside of Azure. When a Kubernetes cluster is connected to Azure Arc, it appears in the Azure portal with an Azure Resource Manager ID and a managed identity. Clusters are attached to standard Azure subscriptions, are located in a resource group, and can receive tags just like any other Azure resource.
 
