@@ -66,48 +66,7 @@ After you've verified that the function runs correctly on your local computer, i
 
 [!INCLUDE [functions-sign-in-vs-code](../../includes/functions-sign-in-vs-code.md)]
 
-## Create the function app in Azure
-
-In this section, you create a function app and related resources in your Azure subscription.
-
-1. Choose the Azure icon in the Activity bar. Then in the **Resources** area, select the **+** icon and choose the **Create Function App in Azure** option.
-
-    ![Create a resource in your Azure subscription](../../includes/media/functions-publish-project-vscode/function-app-create-resource.png)
-
-1. Provide the following information at the prompts:
-
-    |Prompt|Selection|
-    |--|--|
-    |**Select folder**| Choose a folder from your workspace or browse to one that contains your function app. You won't see this if you already have a valid function app opened.|
-    |**Select subscription**| Choose the subscription to use. You won't see this if you only have one subscription.|
-    |**Enter a globally unique name for the function app**| Type a name that is valid in a URL path. The name you type is validated to make sure that it's unique in Azure Functions.|
-    |**Select a runtime stack**| Choose the version of Python you've been running on locally. You can use the `python3 --version` command to check your version.|
-    |**Select a location for new resources**| For better performance, choose a [region](https://azure.microsoft.com/regions/) near you.|
-
-    The extension shows the status of individual resources as they are being created in Azure in the **Azure: Activity Log** panel.
-
-    ![Log of Azure resource creation](../../includes/media/functions-publish-project-vscode/resource-activity-log.png) 
-
-1. When the creation is complete, the following Azure resources are created in your subscription. The resources are named based on your function app name:
-
-    [!INCLUDE [functions-vs-code-created-resources](../../includes/functions-vs-code-created-resources.md)]
-
-    A notification is displayed after your function app is created and the deployment package is applied.
-
-    [!INCLUDE [functions-vs-code-create-tip](../../includes/functions-vs-code-create-tip.md)]
-
-## Deploy the project to Azure
-
-> [!IMPORTANT]
-> Deploying to an existing function app overwrites the content of that app in Azure.
-
-1. Choose the Azure icon in the Activity bar, then in the **Workspace** area, select your project folder and select the **Deploy...** button.
-
-    :::image type="content" source="media/functions-create-first-function-vs-code/functions-vscode-deploy.png" alt-text="Deploy project from the Visual Studio Code workspace":::
-
-1. After deployment completes, select **View Output** to view the creation and deployment results, including the Azure resources that you created. If you miss the notification, select the bell icon in the lower right corner to see it again.
-
-    :::image type="content" source="./media/functions-create-first-function-vs-code/function-create-notifications.png" alt-text="Screenshot of the View Output window.":::
+[!INCLUDE [functions-publish-project-vscode](../../includes/functions-publish-project-vscode.md)]
 
 [!INCLUDE [functions-vs-code-run-remote](../../includes/functions-vs-code-run-remote.md)]
 
