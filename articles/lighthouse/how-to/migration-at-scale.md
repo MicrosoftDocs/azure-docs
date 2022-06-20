@@ -27,7 +27,7 @@ Depending on your scenario, you may wish to create the Azure Migrate in the cust
 
 One option when using Azure Lighthouse is to create the Azure Migrate project in the customer tenant. Users in the managing tenant can then select the customer subscription when creating a migration project. From the managing tenant, the service provider can perform the necessary migration operations. This may include deploying the Azure Migrate appliance to discover the workloads, assessing workloads by grouping VMs and calculating cloud-related costs, reviewing VM readiness, and performing the migration.
 
-In this scenario, no resources will be created and stored in the managing tenant, even though the discovery and assessment steps can be initiated and executed from that tenant. All of the resources, such as migration projects, assessment reports for on-prem workloads, and migrated resources at the target destination, will be deployed in the customer subscription. However, the service provider can access all customer projects from their own tenant and portal experience.
+In this scenario, no resources will be created and stored in the managing tenant, even though the discovery and assessment steps can be initiated and executed from that tenant. All of the resources, such as migration projects, assessment reports for on-premises workloads, and migrated resources at the target destination, will be deployed in the customer subscription. However, the service provider can access all customer projects from their own tenant and portal experience.
 
 This approach minimizes context switching for service providers working across multiple customers, while letting customers keep all of their resources in their own tenants.
 
@@ -55,7 +55,7 @@ This approach enables services providers to start migration discovery and assess
 
 The workflow for this model will be similar to the following:
 
-1. The customer is [onboarded to Azure Lighthouse](onboard-customer.md). The Contributor built-in role is required for the identity that will be used with Azure Migrate. See the [delegated-resource-management-azmigrate](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/delegated-resource-management-azmigrate) sample template for an example using this role. Be usre to modify the parameter file to reflect your environment before deploying the template.
+1. The customer is [onboarded to Azure Lighthouse](onboard-customer.md). The Contributor built-in role is required for the identity that will be used with Azure Migrate. See the [delegated-resource-management-azmigrate](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/delegated-resource-management-azmigrate) sample template for an example using this role. Be sure to modify the parameter file to reflect your environment before deploying the template.
 1. The designated user signs into the managing tenant in the Azure portal, then goes to Azure Migrate. This user [creates an Azure Migrate project](../../migrate/create-manage-projects.md) in a subscription belonging to the managing tenant.
 1. The user then [performs steps for discovery and assessment](../../migrate/tutorial-discover-vmware.md). The on-premises VMs will be discovered and assessed within the migration project created in the managing tenant, then migrated from there.
 
