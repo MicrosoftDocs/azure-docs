@@ -159,7 +159,7 @@ Learn more about [Kubernetes service - UpdateServicePrincipal (Update cluster's 
 
 ### Monitoring addon workspace is deleted
 
-Monitoring addon workspace is deleted. Correct issues to setup monitoring addon.
+Monitoring addon workspace is deleted. Correct issues to set up monitoring addon.
 
 Learn more about [Kubernetes service - MonitoringAddonWorkspaceIsDeleted (Monitoring addon workspace is deleted)](https://aka.ms/aks-disable-monitoring-addon).
 
@@ -287,7 +287,7 @@ Learn more about [Application gateway - AppGwAdvisorRecommendationForKeyVaultErr
 
 ### Application Gateway does not have enough capacity to scale out
 
-We've detected that your Application Gateway subnet does not have enough capacity for allowing scale out during high traffic conditions, which can cause downtime.
+We've detected that your Application Gateway subnet does not have enough capacity for allowing scale-out during high traffic conditions, which can cause downtime.
 
 Learn more about [Application gateway - AppgwRestrictedSubnetSpace (Application Gateway does not have enough capacity to scale out)](https://aka.ms/application-gateway-faq).
 
