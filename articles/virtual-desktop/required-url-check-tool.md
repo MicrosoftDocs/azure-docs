@@ -10,10 +10,10 @@ manager: femila
 
 # Required URL Check tool
 
-In order to deploy and make Azure Virtual Desktop available to your users, you must allow specific URLs that your session host virtual machines (VMs) can access them anytime. You can find the list of URLs at [Required URL list](safe-url-list.md). The Required URL Check tool will validate these URLs and show whether your session host VMs can access them. If not, then the tool will list the inaccessible URLs so you can unblock them and then retest, if needed.
+In order to deploy and make Azure Virtual Desktop available to your users, you must allow specific URLs that your session host virtual machines (VMs) can access them anytime. You can find the list of URLs in [Required URL list](safe-url-list.md). The Required URL Check tool will validate these URLs and show whether your session host VMs can access them. If not, then the tool will list the inaccessible URLs so you can unblock them and then retest, if needed.
 
 > [!NOTE]
-> - You can only use the Required URL Check tool for deployments in commercial clouds.
+> - You can only use the Required URL Check tool for deployments in the Azure public cloud, it does not check access for sovereign clouds.
 > - The Required URL Check tool can't verify URLs that wildcard entries are unblocked, only specific entries within those wildcards, so make sure the wildcard entries are unblocked first.
 
 ## Prerequisites
