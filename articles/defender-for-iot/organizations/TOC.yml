@@ -231,6 +231,8 @@
         href: api/sensor-alert-apis.md
       - name: Vulnerability management
         href: api/sensor-vulnerability-apis.md
+      - name: Event types and titles
+        href: event-reference.md
     - name: General management API reference
       items:
       - name: Authentication and password management

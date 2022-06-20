@@ -39,7 +39,7 @@ A list of alerts with the following fields:
 | Name | Type | Nullable / Not nullable | List of values |
 |--|--|--|--|
 | **ID** | Numeric | Not nullable | - |
-| **time** | Numeric | Not nullable | Milliseconds from Epoch time, in UTC format |
+| **time** | Numeric | Not nullable | Milliseconds from [Epoch time](../references-work-with-defender-for-iot-apis.md#epoch-time), in UTC format |
 | **title** | String | Not nullable | - |
 | **message** | String | Not nullable | - |
 | **severity** | String | Not nullable | `Warning`, `Minor`, `Major`, or `Critical` |
@@ -139,7 +139,7 @@ Use this API to request a list of events reported to the event timeline.
 |Name  |Description  |Example  | Required / Optional |
 |---------|---------|---------|---------|
 |**minutesTimeFrame**     |  Filter results by a given time frame during which events were reported. Defined backwards from the current time.  <br>Maximum = `4320` (3 days). Any larger value is treated as 4320, with no error      |   `/api/v1/events?minutesTimeFrame=20`      |Optional |
-|**type**     |   Get results of a given type only.  81 supported types, any other will be ignored. For more information, see <x>.    |      `/api/v1/events?type=DEVICE_CONNECTION_CREATED` <br><br>  `/api/v1/events?type=REMOTE_ACCESS&minutesTimeFrame`|Optional |
+|**type**     |   Filter results for a specific type only. Any value other than supported types is ignored. For more information, see [Supported event types and titles](event-reference.md).    |      `/api/v1/events?type=DEVICE_CONNECTION_CREATED` <br><br>  `/api/v1/events?type=REMOTE_ACCESS&minutesTimeFrame`|Optional |
 
 # [Response](#tab/events-response)
 
@@ -151,9 +151,9 @@ Event fields include:
 
 | Name | Type | Nullable / Not nullable | List of values |
 |--|--|--|--|--|
-| **timestamp** | Numeric | Not nullable | Milliseconds from Epoch, in UTC format |
-| **type** | String | Not nullable | One of the supported types <SEE ELSEWHERE>  GET THIS FROM HADAR |
-| **title** | String | Not nullable | One of the supported types (in brown) GET THIS FROM HADAR |
+| **timestamp** | Numeric | Not nullable | Milliseconds from [Epoch time](../references-work-with-defender-for-iot-apis.md#epoch-time), in UTC format |
+| **type** | String | Not nullable | One of the [supported types](event-reference.md) |
+| **title** | String | Not nullable | One of the [supported titles](event-reference.md) |
 | **severity** | String | Not nullable | `INFO`, `NOTICE`, or `ALERT` |
 | **owner** | String | Nullable | String. If the event was created manually, this field will include the username that created the event. |
 | **content** | String | Not nullable | String that describes the event. |
