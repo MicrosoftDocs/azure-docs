@@ -98,7 +98,7 @@ To ensure the queries successfully run, validate that the query's fields align w
 If you have multiple Application Insights resources store their telemetry in one Log Analytics workspace but you only want to query data from one specific Application Insights resource, you have two options:
 
 1. Navigate to the Application Insights resource and query data directly from there, which will pull back logs from the shared Log Analytics workspace
-2. When you query data from within the Log Analytics UI, use fields like AppRoleName or \_ResourceId to identify the specific Application Insights resource
+2. When you query data from within the Log Analytics UI, use fields like ```AppRoleName``` or ```_ResourceId``` to identify the Application Insights resource
 
 Notice that if you query directly from the Log Analytics UI within your workspace, you'll only see the data that is ingested post migration. To see both your classic Application Insights data + new data ingested after migration in a unified query experience use the Logs (Analytics) query view from within your migrated Application Insights resource.
 
