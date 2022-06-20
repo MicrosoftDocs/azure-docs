@@ -162,6 +162,26 @@ LogRhythm, a leader in next-generation security information and event management
 
 If you're a LogRhythm customer and are ready to start your Azure journey, you'll need to install and configure the LogRhythm Open Collector and Azure Event Hubs integration. For more information, see the [documentation on configuring Azure Monitor and the Open Collector](https://logrhythm.com/six-tips-for-securing-your-azure-cloud-environment/). 
 
+## Logz.io
+
+![Logz.io logo](./media/partners/logzio.png)
+
+Logz.io delivers the observability that today’s developers need to continuously innovate and optimize their modern applications. As a massively scalable, analytics-driven cloud native platform, Logz.io specifically provides DevOps teams with the visibility and data needed to address their most complex, microservices-driven Azure applications.
+
+As modern cloud environments generate overwhelming data volumes, Logz.io makes it easy to organize observability data into dedicated environments for every team, while identifying and eliminating noisy data that clutters the critical data. The result is a more secure, cost efficient, and productive way to implement cross-organizational observability.
+
+Logz.io provides you with seamless experience to provision Logz.io accounts and configure Azure resources to send logs to Logz.io from Azure portal through its direct integration with Azure.  
+
+With the integration you can 
+-	Provision a new Logz.io account from Azure client interfaces like Azure Portal Azure PowerShell and SDK
+-	Configure your Azure resources to send logs to Logz.io—a fully managed setup with no infrastructure for customers to setup and operate
+-	Seamlessly send logs and metrics to Logz.io. With the integration, you had to set up event hubs and write Azure Functions to receive logs from Azure Monitor and send them to Logz.io.
+-	Easily install the Logz.io agent on virtual machines hosts through a single-click
+-	Streamline single-sign on (SSO) to Logz.io. Previously, a separate sign-on from the Logz.io was required.
+-	Get unified billing of Logz.io SaaS through Azure subscription invoicing
+
+The Logz.io integration with Azure is available in Azure Marketplace 
+
 ## Microfocus
 
 ![Microfocus logo.](./media/partners/microfocus.png)
