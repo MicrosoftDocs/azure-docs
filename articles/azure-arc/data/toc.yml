@@ -124,7 +124,7 @@ items:
           href: service-tiers.md
     - name: How-to
       items:
-        - name: Deploy & connect
+        - name: Create & connect
           items:
             - name: Create with CLI
               href: create-sql-managed-instance.md
