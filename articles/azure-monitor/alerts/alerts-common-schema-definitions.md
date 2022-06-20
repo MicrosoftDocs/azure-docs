@@ -276,18 +276,18 @@ Any alert instance describes the resource that was affected and the cause of the
             ]
           ]
         }
+      ],
+      "dataSources": [
+        {
+          "resourceId": "/subscriptions/a5ea55e2-7482-49ba-90b3-60e7496dd873/resourcegroups/test/providers/microsoft.operationalinsights/workspaces/test",
+          "tables": [
+            "Heartbeat"
+          ]
+        }
       ]
     },
-    "dataSources": [
-      {
-        "resourceId": "/subscriptions/a5ea55e2-7482-49ba-90b3-60e7496dd873/resourcegroups/test/providers/microsoft.operationalinsights/workspaces/test",
-        "tables": [
-          "Heartbeat"
-        ]
-      }
-    ],
-  "IncludedSearchResults": "True",
-  "AlertType": "Metric measurement"
+    "IncludedSearchResults": "True",
+    "AlertType": "Metric measurement"
   }
 }
 ```
