@@ -14,7 +14,7 @@ ms.date: 06/30/2022
 
 # Data migration, ETL, and load for Oracle migrations
 
-This article is part two of a seven-part series that provides guidance on how to migrate from Oracle to Azure Synapse Analytics, with best practices for ETL and load migration.
+This article is part two of a seven-part series that provides guidance on how to migrate from Oracle to Azure Synapse Analytics. The focus of this article is best practices for ETL and load migration.
 
 ## Data migration considerations
 
@@ -22,7 +22,7 @@ There are many factors to consider when migrating data, ETL, and loads from a le
 
 ### Initial decisions about data migration from Oracle
 
-When migrating from an Oracle environment, consider the following migration questions.
+When planning a migration from an Oracle environment, consider the following data-related questions:
 
 - Should unused table structures be migrated?
 
@@ -177,42 +177,42 @@ You can get an accurate number for the volume of data to be migrated for a given
 
 Some Oracle data types are not directly supported in Azure Synapse. The following table shows these data types, together with the recommended approach for mapping them.
 
-| Oracle data type                 | Azure Synapse data type           |
-|----------------------------------|-----------------------------------|
-| BFILE                            | Not supported in Azure Synapse Analytics but can map to VARBINARY (MAX)    |
-| BINARY_FLOAT                     | Not supported in Azure Synapse Analytics but can map to FLOAT              |
-| BINARY_DOUBLE                    | Not supported in Azure Synapse Analytics but can map to DOUBLE             |
-| BLOB                             | BLOB data type isn't directly supported but can be replaced with VARBINARY(MAX)  |
-| CHAR                             | CHAR                              |
-| CLOB                             | CBLOB data type isn\'t directly supported but can be replaced with VARCHAR(MAX)  |
-| DATE                             | DATE in Oracle can contain time information as well. Depending on usage it can map to DATE or TIMESTAMP  |
-| DECIMAL                          | DECIMAL                           |
-| DOUBLE                           | PRECISION DOUBLE                  |
-| FLOAT                            | FLOAT                             |
-| INTEGER                          | INT                               |
-| INTERVAL YEAR TO MONTH           | INTERVAL data types aren't supported in Azure Synapse Analytics, but date calculations can be done with the date comparison functions (e.g. DATEDIFF and DATEADD)  |
-| INTERVAL DAY TO SECOND           | INTERVAL data types aren't supported in Azure Synapse Analytics, but date calculations can be done with the date comparison functions (e.g. DATEDIFF and DATEADD)  |
-| LONG                             | Not supported in Azure Synapse Analytics but can map to VARCHAR(MAX)          |
-| LONG RAW                         | Not supported in Azure Synapse Analytics but can map to VARBINARY(MAX)    |
-| NCHAR                            | NCHAR                             |
-| NVARCHAR2                        | NVARCHAR                          |
-| NUMBER                           | NUMBER                            |
-| NCLOB                            | NCLOB data type isn't directly supported but can be replaced with NVARCHAR(MAX)  |
-| NUMERIC                          | NUMERIC                           |
-| ORD media data types             | Not supported in Azure Synapse Analytics        |
-| RAW                              | Not supported in Azure Synapse Analytics but could map to VARBINARY           |
-| REAL                             | REAL                              |
-| ROWID                            | Not supported in Azure Synapse Analytics but may map to GUID as this is similar   |
-| SDO                              | Geospatial data types Not supported in Azure Synapse Analytics                    |
-| SMALLINT                         | SMALLINT                          |
-| TIMESTAMP                        | DATETIME2 and CURRENT_TIMESTAMP function  |
-| TIMESTAMP WITH LOCAL TIME        | TIME WITH LOCAL TIME ZONE is not supported in Azure Synapse Analytics, but can map to DATETIMEOFFSET  |
-| TIMESTAMP WITH TIME ZONE         | TIME WITH TIME ZONE isn't supported because TIME is stored using \"wall clock\" time only without a time zone offset  |
-| URIType                          | URIType is not supported but a URI can be stored in a VARCHAR                    |
-| UROWID                           | Not supported in Azure Synapse Analytics but may map to GUID as this is similar  |
-| VARCHAR                          | VARCHAR                           |
-| VARCHAR2                         | VARCHAR                           |
-| XMLType                          | XMLType is not supported in Azure Synapse Analytics, but XML data could be accommodated in a VARCHAR   |
+| Oracle data type | Azure Synapse data type |
+|-|-|
+| BFILE | Not supported. Map to VARBINARY (MAX). |
+| BINARY_FLOAT | Not supported. Map to FLOAT. |
+| BINARY_DOUBLE | Not supported. Map to DOUBLE. |
+| BLOB | Not directly supported. Replace with VARBINARY(MAX). |
+| CHAR | CHAR |
+| CLOB | Not directly supported. Replace with VARCHAR(MAX). |
+| DATE | DATE in Oracle can also contain time information. Depending on usage map to DATE or TIMESTAMP. |
+| DECIMAL | DECIMAL |
+| DOUBLE | PRECISION DOUBLE |
+| FLOAT | FLOAT |
+| INTEGER | INT |
+| INTERVAL YEAR TO MONTH | INTERVAL data types aren't supported. Use date comparison functions, such as DATEDIFF or DATEADD, for date calculations. |
+| INTERVAL DAY TO SECOND | INTERVAL data types aren't supported. Use date comparison functions, such as DATEDIFF or DATEADD, for date calculations. |
+| LONG | Not supported. Map to VARCHAR(MAX). |
+| LONG RAW | Not supported. Map to VARBINARY(MAX). |
+| NCHAR | NCHAR |
+| NVARCHAR2 | NVARCHAR |
+| NUMBER | NUMBER |
+| NCLOB | Not directly supported. Replace with NVARCHAR(MAX). |
+| NUMERIC | NUMERIC |
+| ORD media data types | Not supported |
+| RAW | Not supported. Map to VARBINARY. |
+| REAL | REAL |
+| ROWID | Not supported. Map to GUID, which is similar. |
+| SDO Geospatial data types | Not supported |
+| SMALLINT | SMALLINT |
+| TIMESTAMP | DATETIME2 or the CURRENT_TIMESTAMP() function |
+| TIMESTAMP WITH LOCAL TIME ZONE | Not supported. Map to DATETIMEOFFSET. |
+| TIMESTAMP WITH TIME ZONE | Not supported because TIME is stored using wall-clock time without a time zone offset. |
+| URIType | Not supported. Store in a VARCHAR. |
+| UROWID | Not supported. Map to GUID, which is similar. |
+| VARCHAR | VARCHAR |
+| VARCHAR2 | VARCHAR |
+| XMLType | Not supported. Store XML data in a VARCHAR. |
 | User-defined types: Oracle allows the definition of user-defined objects that can contain a series of individual fields, each with their own definition and default values. These user-defined objects can then be referenced within a table definition in the same way as built-in data types (e.g. NUMBER or VARCHAR).    | Azure Synapse does not currently support this feature. If the data to be migrated includes user-defined data types, they must be either "flattened" into a conventional table definition, or normalized to a separate table in the case of arrays of data.   |
 
 > [!TIP]
