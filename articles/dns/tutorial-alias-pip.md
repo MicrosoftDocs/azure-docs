@@ -136,7 +136,7 @@ Install IIS web server on **Web-01**.
 1. Open *Web-01.rdp*, and select **Connect**.
 1. Enter the username and password entered during virtual machine creation.
 1. On the **Server Manager** dashboard, select **Manage** then **Add Roles and Features**.
-1. Select **Server Roles** or select **Next** three times. On the **Server Roles** page, select **Web Server (IIS)**.
+1. Select **Server Roles** or select **Next** three times. On the **Server Roles** screen, select **Web Server (IIS)**.
 1. Select **Add Features**, and then select **Next**.
 
     :::image type="content" source="./media/tutorial-alias-pip/iis-web-server-installation.png" alt-text="Screenshot of Add Roles and Features Wizard in Windows Server 2019 showing how to install the I I S Web Server by adding Web Server role.":::
