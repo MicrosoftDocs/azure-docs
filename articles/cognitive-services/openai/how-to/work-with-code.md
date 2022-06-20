@@ -92,7 +92,7 @@ This approach scales even to the point where you can provide Codex with a commen
 # Table playlist_track, columns = [PlaylistId, TrackId]
 # Table tracks, columns = [TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice]
 
-# Create a query for all albums by Adele
+# Create a query for all albums with more than 10 tracks
 ```
 
 When you show Codex the database schema, it's able to make an informed guess about how to format a query.
@@ -298,7 +298,7 @@ Just as a human programmer would benefit from understanding the database structu
 # Table playlist_track, columns = [PlaylistId, TrackId]
 # Table tracks, columns = [TrackId, Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice]
 
-# Create a query for all albums by Adele
+# Create a query for all albums with more than 10 tracks
 ```
 
 ### Converting between languages
