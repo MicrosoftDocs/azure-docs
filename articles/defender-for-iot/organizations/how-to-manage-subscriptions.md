@@ -92,7 +92,7 @@ This section describes how to add a Defender for IoT plan to a subscription.
 
 1. Select **Next**.
 
-1. **Review & purchase**. Review your selections and **accept the terms and conditions**. 
+1. **Review & purchase**. Review the listed charges for your selections and **accept the terms and conditions**. 
 
 1. Select **Purchase**.
 
