@@ -73,7 +73,7 @@ This section walks through migrating a classic Application Insights resource to 
     
      ![Migrate resource button](./media/convert-classic-resource/migrate.png)
 
-3. Choose the Log Analytics Workspace where you want all future ingested Application Insights telemetry to be stored.
+3. Choose the Log Analytics Workspace where you want all future ingested Application Insights telemetry to be stored. This can either be a Log Analytics workspace in the same subscription, or in a different subscription that shares the same Azure AD tenant. It does not need to be in the same resource group.
 
      ![Migration wizard UI with option to select targe workspace](./media/convert-classic-resource/migration.png)
     
