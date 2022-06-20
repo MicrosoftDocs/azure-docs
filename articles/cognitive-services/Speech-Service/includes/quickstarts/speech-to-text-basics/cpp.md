@@ -75,7 +75,7 @@ Follow these steps to create a new console application and install the Speech SD
 1. In `main.cpp`, replace `YourSubscriptionKey` with your Speech resource key, and replace `YourServiceRegion` with your Speech resource region. 
 1. To change the speech recognition language, replace `en-US` with another [supported language](~/articles/cognitive-services/speech-service/supported-languages.md). For example, `es-ES` for Spanish (Spain). The default language is `en-US` if you don't specify a language. For details about how to identify one of multiple languages that might be spoken, see [language identification](~/articles/cognitive-services/speech-service/language-identification.md). 
 
-Build and run your new console application to start speech recognition from a microphone.
+[Build and run](/cpp/build/vscpp-step-2-build) your new console application to start speech recognition from a microphone.
 
 Speak into your microphone when prompted. What you speak should be output as text: 
 

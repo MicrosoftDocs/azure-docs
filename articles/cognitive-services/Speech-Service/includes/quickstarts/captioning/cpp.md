@@ -45,7 +45,7 @@ Follow these steps to create a new console application and install the Speech SD
     --key YourSubscriptionKey --region YourServiceRegion --input c:\caption\caption.this.mp4 --format any --output c:\caption\caption.output.txt - --srt --recognizing --threshold 5 --profanity mask --phrases "Contoso;Jessie;Rehaan"
     ```
     Replace `YourSubscriptionKey` with your Speech resource key, and replace `YourServiceRegion` with your Speech resource [region](~/articles/cognitive-services/speech-service/regions.md), such as `westus` or `northeurope`. Make sure that the paths specified by `--input` and `--output` are valid. Otherwise you must change the paths.
-1. Build and run the console application. The output file with complete captions is written to `c:\caption\caption.output.txt`. Intermediate results are shown in the console:
+1. [Build and run](/cpp/build/vscpp-step-2-build) the console application. The output file with complete captions is written to `c:\caption\caption.output.txt`. Intermediate results are shown in the console:
     ```console
     00:00:00,180 --> 00:00:01,600
     Welcome to

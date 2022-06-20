@@ -98,7 +98,7 @@ Follow these steps to create a new console application and install the Speech SD
 1. In `Program.cs`, replace `YourSubscriptionKey` with your Speech resource key, and replace `YourServiceRegion` with your Speech resource region.
 1. To change the speech synthesis language, replace `en-US-JennyNeural` with another [supported voice](~/articles/cognitive-services/speech-service/supported-languages.md#prebuilt-neural-voices). All neural voices are multilingual and fluent in their own language and English. For example, if the input text in English is "I'm excited to try text to speech" and you set `es-ES-ElviraNeural`, the text is spoken in English with a Spanish accent. If the voice does not speak the language of the input text, the Speech service won't output synthesized audio.
 
-Run your new console application to start speech synthesis to the default speaker.
+[Build and run](/cpp/build/vscpp-step-2-build) your new console application to start speech synthesis to the default speaker.
 
 ```console
 dotnet run
