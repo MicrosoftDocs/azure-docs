@@ -4,11 +4,11 @@ description: This article lists the security alerts visible in Microsoft Defende
 ms.topic: reference
 ms.author: elkrieger
 author: ElazarK
-ms.date: 06/19/2022
+ms.date: 06/20/2022
 ---
 # Security alerts - a reference guide
 
-This article lists the security alerts you might get from Microsoft Defender for Cloud and any Microsoft Defender plans you've enabled. The alerts shown in your environment depend on the resources and services you're protecting, as well as your customized configuration.
+This article lists the security alerts you might get from Microsoft Defender for Cloud and any Microsoft Defender plans you've enabled. The alerts shown in your environment depend on the resources and services you're protecting, and your customized configuration.
 
 At the bottom of this page, there's a table describing the Microsoft Defender for Cloud kill chain aligned with version 9 of the [MITRE ATT&CK matrix](https://attack.mitre.org/versions/v9/).
 
