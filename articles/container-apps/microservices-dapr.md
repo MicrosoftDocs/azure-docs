@@ -210,6 +210,7 @@ Your state store is configured using the Dapr component described in *statestore
 
 ## Deploy the service application (HTTP web server)
 
+
 # [Bash](#tab/bash)
 
 ```azurecli
@@ -247,6 +248,8 @@ az containerapp create `
 ```
 
 ---
+
+By default, the image is pulled from [Docker Hub](https://hub.docker.com/r/dapriosamples/hello-k8s-node).
 
 This command deploys:
 
@@ -287,7 +290,9 @@ az containerapp create `
 
 ---
 
-This command deploys `pythonapp` that also runs with a Dapr sidecar that is used to look up and securely call the Dapr sidecar for `nodeapp`. As this app is headless there's no `--target-port` to start a server, nor is there a need to enable ingress.
+By default, the image is pulled from [Docker Hub](https://hub.docker.com/r/dapriosamples/hello-k8s-python).
+
+This command deploys `pythonapp` that also runs with a Dapr sidecar that is used to look up and securely call the Dapr sidecar for `nodeapp`. As this app is headless there's no `--target-port` to start a server, nor is there a need to enable ingress.  
 
 ## Verify the result
 
