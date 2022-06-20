@@ -150,4 +150,4 @@ The following additional information and reports are available for MFA events, i
 
 ## Next steps
 
-This article provided an overview of the sign-ins activity report. For more detailed information on what this report contains and understand the data, see [sign-in activity reports in Azure AD](../reports-monitoring/concept-sign-ins.md).
+This article provided an overview of the sign-ins activity report. For more detailed information on what this report contains, see [sign-in activity reports in Azure AD](../reports-monitoring/concept-sign-ins.md).
