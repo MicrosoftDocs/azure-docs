@@ -107,9 +107,8 @@ The PHP sample code is running in an Azure App Service Linux web app.
 
 ![Screenshot of the forked php-docs-hello-world repo in GitHub with instructions to press the period key on this screen.](media/quickstart-php/forked-github-repo-press-period.png)
 
-
-    > [!NOTE]
-    > The URL will change from GitHub.com to GitHub.dev. This feature only works with repos that have files. This does not work on empty repos.
+> [!NOTE]
+> The URL will change from GitHub.com to GitHub.dev. This feature only works with repos that have files. This does not work on empty repos.
 
 3. Edit **index.php** so that it shows "Hello Azure!" instead of "Hello World!"
 
