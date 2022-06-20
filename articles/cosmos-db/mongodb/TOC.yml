@@ -290,16 +290,10 @@
           items: 
             - name: Get started
               href: how-to-javascript-get-started.md
-            - name: Work with the server
-              href: how-to-javascript-get-server-information.md
             - name: Work with databases
-              items: 
-                - name: Create a database
-                  href: how-to-javascript-create-database.md
-            - name: Work with collections
-              items: 
-                - name: Create a collection
-                  href: how-to-javascript-create-collection.md         
+              href: how-to-javascript-manage-databases.md
+            - name: Work with collections amd docs
+              href: how-to-javascript-manage-collections.md         
     - name: Connect using Mongoose
       href: connect-using-mongoose.md
     - name: Distribute reads globally

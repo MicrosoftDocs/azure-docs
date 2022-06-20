@@ -274,11 +274,12 @@ In the ``index.js`` file, add the following code to support the asynchronous ope
 ```javascript
 async function main(){
 
-// The remaining operations are added here
-// in the main function
+    // The remaining operations are added here
+    // in the main function
 
 }
 
+// close the connection in the `finally` function
 main()
   .then(console.log)
   .catch(console.error)
