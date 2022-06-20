@@ -23,7 +23,7 @@ You can use Codex for a variety of tasks including:
 - Add comments
 - Rewrite code for efficiency
 
-## How to use the codex models
+## How to use the Codex models
 
 Here are a few examples of using Codex that can be tested in the [Azure OpenAI Studio's](https://oai.azure.com) playground with a deployment of a code series model such as `code-cushman-001`.
 
@@ -338,6 +338,6 @@ button.onclick = function() {
 // React version:
 ```
 
-## Next Steps
+## Next steps
 
 Learn more about the [underlying engines/models that power Azure OpenAI](../concepts/engines.md).
