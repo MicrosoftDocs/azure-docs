@@ -69,7 +69,7 @@ After you select the deploy button, the Azure Arc data controller initiates the 
 
 ## Connect to Azure Arc-enabled SQL Managed Instance from Azure Data Studio
 
-1. View all the Azure SQL Managed Instances provisioned to this data controller. Use the following command:
+View all the Azure SQL Managed Instances provisioned to this data controller. Use the following command:
 
   ```azurecli
   az sql mi-arc list --k8s-namespace <namespace> --use-k8s
@@ -78,7 +78,6 @@ After you select the deploy button, the Azure Arc data controller initiates the 
   Output should look like this, copy the ServerEndpoint (including the port number) from here.
 
   ```console
-
   Name          Replicas    ServerEndpoint     State
   ------------  ----------  -----------------  -------
   sqlinstance1  1/1         25.51.65.109:1433  Ready
