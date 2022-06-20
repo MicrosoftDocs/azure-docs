@@ -8,7 +8,7 @@ ms.subservice: core
 ms.topic: tutorial
 author: sdgilley
 ms.author: sgilley
-ms.date: 01/05/2022
+ms.date: 06/14/2022
 ms.custom: sdkv1, event-tier1-build-2022
 #Customer intent: As a professional data scientist, I can build an image classification model with Azure Machine Learning by using Python in a Jupyter Notebook.
 ---
@@ -66,6 +66,7 @@ You complete the following experiment setup and run steps in Azure Machine Learn
 
 1. A list of folders shows each user who accesses the workspace. Select your folder to clone the **tutorials**  folder there.
 
+
 ## <a name="open"></a> Open the cloned notebook
 
 1. Open the **tutorials** folder that was cloned into your **User files** section.
@@ -79,7 +80,25 @@ You complete the following experiment setup and run steps in Azure Machine Learn
 
 1. On the top bar, select the compute instance you created during the  [Quickstart: Get started with Azure Machine Learning](quickstart-create-resources.md)  to use for running the notebook.
 
-This tutorial and accompanying **utils.py** file is also available on [GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/tutorials) if you wish to use it on your own [local environment](how-to-configure-environment.md#local). If you aren't using the compute instance, run `pip install azureml-sdk[notebooks] azureml-opendatasets matplotlib` to install dependencies for this tutorial. 
+## Install packages
+
+Once the compute instance is running and the kernel appears, add a new code cell to install packages needed for this tutorial.  
+
+1. At the top of the notebook, add a code cell.
+    :::image type="content" source="media/tutorial-train-deploy-notebook/add-code-cell.png" alt-text="Screenshot of add code cell for notebook.":::
+
+1. Add the following into the cell and then run the cell, either by using the **Run** tool or by using **Shift+Enter**.
+
+    ```bash
+    %pip install scikit-learn==0.22.1
+    %pip install scipy==1.5.2
+    ```
+
+You may see a few install warnings.  These can safely be ignored.
+
+## Run the notebook
+
+This tutorial and accompanying **utils.py** file is also available on [GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/tutorials) if you wish to use it on your own [local environment](how-to-configure-environment.md#local). If you aren't using the compute instance, add `%pip install azureml-sdk[notebooks] azureml-opendatasets matplotlib` to the install above.
 
 > [!Important]
 > The rest of this article contains the same content as you see in the notebook.  

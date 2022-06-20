@@ -52,7 +52,7 @@ sections:
           There are two methods to limit who can order Azure Stack devices:
 
           - For individual permissions, device ordering is limited to users with contributor access to the subscription.
-          - Use custom roles to restrict access control. For more information, see [Azure custom roles](https://docs.microsoft.com/azure/role-based-access-control/custom-roles) and [Create an Azure Edge Hardware Center](azure-edge-hardware-center-create-order.md#prerequisites).
+          - Use custom roles to restrict access control. For more information, see [Azure custom roles](../role-based-access-control/custom-roles.md) and [Create an Azure Edge Hardware Center](azure-edge-hardware-center-create-order.md#prerequisites).
 
       - question: |
           I created an order via the Azure Edge Hardware Center. Can I now cancel the order?
