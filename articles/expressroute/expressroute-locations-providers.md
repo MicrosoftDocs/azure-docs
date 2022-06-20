@@ -125,6 +125,7 @@ The following table shows connectivity locations and the service providers for e
 | **Taipei** | Chief Telecom | 2 | n/a | Supported | Chief Telecom, Chunghwa Telecom, FarEasTone |
 | **Tokyo** | [Equinix TY4](https://www.equinix.com/locations/asia-colocation/japan-colocation/tokyo-data-centers/ty4/) | 2 | Japan East | n/a | Aryaka Networks, AT&T NetBond, BBIX, British Telecom, CenturyLink Cloud Connect, Colt, Equinix, Intercloud, Internet Initiative Japan Inc. - IIJ, Megaport, NTT Communications, NTT EAST, Orange, Softbank, Telehouse - KDDI, Verizon </br></br> **We are currently unable to support new ExpressRoute circuits in Tokyo. Please create new circuits in Tokyo2 or Osaka.* |
 | **Tokyo2** | [AT TOKYO](https://www.attokyo.com/) | 2 | Japan East | Supported | AT TOKYO, China Unicom Global, Colt, Fibrenoire, IX Reach, Megaport, PCCW Global Limited, Tokai Communications |
+| **Tokyo3** | [NEC](https://www.nec.com/en/global/solutions/cloud/inzai_datacenter.html) | 2 | Japan East | Supported | |
 | **Toronto** | [Cologix TOR1](https://www.cologix.com/data-centers/toronto/tor1/) | 1 | Canada Central | Supported | AT&T NetBond, Bell Canada, CenturyLink Cloud Connect, Cologix, Equinix, IX Reach Megaport, Telus, Verizon, Zayo |
 | **Toronto2** | [Allied REIT](https://www.alliedreit.com/property/905-king-st-w/) | 1 | Canada Central | Supported | |
 | **Vancouver** | [Cologix VAN1](https://www.cologix.com/data-centers/vancouver/van1/) | 1 | n/a | Supported | Bell Canada, Cologix, Megaport, Telus, Zayo |
