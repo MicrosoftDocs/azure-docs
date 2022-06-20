@@ -3,7 +3,7 @@ title: Tutorial - Provision X.509 devices to Azure IoT Hub using a custom Hardwa
 description: This tutorial uses enrollment groups. In this tutorial, you learn how to provision X.509 devices using a custom Hardware Security Module (HSM) and the C device SDK for Azure IoT Hub Device Provisioning Service (DPS).
 author: kgremban
 ms.author: kgremban
-ms.date: 05/24/2021
+ms.date: 06/20/2022
 ms.topic: tutorial
 ms.service: iot-dps
 services: iot-dps 
@@ -397,7 +397,7 @@ In this section you, will generate an X.509 certificate chain of three certifica
 1. Create the directory structure, the index file, and the serial number file used by OpenSSL commands in this article:
 
     ```bash
-    mkdir certs csr intermediateCerts newcerts private
+    mkdir certs csr newcerts private
     touch index.txt
     openssl rand -hex 16 > serial
     ```
@@ -409,7 +409,7 @@ Run the following commands to create the root CA private key and the root CA cer
 1. Create the root CA private key:
 
     ```bash
-    winpty openssl genrsa -aes256 -passout pass:1234 -out ./private/azure-iot-test-only.root.ca.key.pem 4096
+    openssl genrsa -aes256 -passout pass:1234 -out ./private/azure-iot-test-only.root.ca.key.pem 4096
     ```
 
 1. Create the root CA certificate:
@@ -463,7 +463,7 @@ Run the following commands to create the intermediate CA private key and the int
 1. Create the intermediate CA private key:
 
     ```bash
-    winpty openssl genrsa -aes256 -passout pass:1234 -out ./private/azure-iot-test-only.intermediate.key.pem 4096
+    openssl genrsa -aes256 -passout pass:1234 -out ./private/azure-iot-test-only.intermediate.key.pem 4096
     ```
 
 1. Create the intermediate CA certificate signing request (CSR):
@@ -488,7 +488,7 @@ Run the following commands to create the intermediate CA private key and the int
 1. Sign the intermediate certificate with the root CA certificate
 
     ```bash
-    winpty openssl ca -batch -config ./openssl_root_ca.cnf -passin pass:1234 -extensions v3_intermediate_ca -days 30 -notext -md sha256 -in ./csr/azure-iot-test-only.intermediate.csr.pem -out ./certs/azure-iot-test-only.intermediate.cert.pem
+    openssl ca -batch -config ./openssl_root_ca.cnf -passin pass:1234 -extensions v3_intermediate_ca -days 30 -notext -md sha256 -in ./csr/azure-iot-test-only.intermediate.csr.pem -out ./certs/azure-iot-test-only.intermediate.cert.pem
     ```
 
 1. Examine the intermediate CA certificate:
@@ -523,7 +523,7 @@ In this section you create the device certificates and the full chain device cer
 1. Create the device private key.
 
     ```bash
-    winpty openssl genrsa -out ./private/device-01.key.pem 4096
+    openssl genrsa -out ./private/device-01.key.pem 4096
     ```
 
 1. Create the device certificate CSR.
@@ -533,7 +533,7 @@ In this section you create the device certificates and the full chain device cer
     # [Windows](#tab/windows)
 
     ```bash
-    winpty openssl req -config ./openssl_device_intermediate_ca.cnf -key ./private/device-01.key.pem -subj //CN=device-01 -new -sha256 -out ./csr/device-01.csr.pem
+    winpty openssl req -config ./openssl_device_intermediate_ca.cnf -key ./private/device-01.key.pem -subj '//CN=device-01' -new -sha256 -out ./csr/device-01.csr.pem
     ```
 
     > [!IMPORTANT]
@@ -542,7 +542,7 @@ In this section you create the device certificates and the full chain device cer
     # [Linux](#tab/linux)
 
     ```bash
-    openssl req -config ./openssl_device_intermediate_ca.cnf -key ./private/device-01.key.pem -subj /CN=device-01 -new -sha256 -out ./csr/device-01.csr.pem
+    openssl req -config ./openssl_device_intermediate_ca.cnf -key ./private/device-01.key.pem -subj '/CN=device-01' -new -sha256 -out ./csr/device-01.csr.pem
     ```
 
     ---
@@ -550,7 +550,7 @@ In this section you create the device certificates and the full chain device cer
 1. Sign the device certificate.
 
     ```bash
-    winpty openssl ca -batch -config ./openssl_device_intermediate_ca.cnf -passin pass:1234 -extensions usr_cert -days 30 -notext -md sha256 -in ./csr/device-01.csr.pem -out ./certs/device-01.cert.pem
+    openssl ca -batch -config ./openssl_device_intermediate_ca.cnf -passin pass:1234 -extensions usr_cert -days 30 -notext -md sha256 -in ./csr/device-01.csr.pem -out ./certs/device-01.cert.pem
     ```
 
 1. Examine the device certificate:
@@ -581,7 +581,7 @@ In this section you create the device certificates and the full chain device cer
 1. The device must present the full certificate chain when it authenticates with DPS.
 
     ```bash
-    winpty cat ./certs/device-01.cert.pem ./certs/azure-iot-test-only.intermediate.cert.pem ./certs/azure-iot-test-only.root.ca.cert.pem > ./certs/device-01-full-chain.cert.pem
+    cat ./certs/device-01.cert.pem ./certs/azure-iot-test-only.intermediate.cert.pem ./certs/azure-iot-test-only.root.ca.cert.pem > ./certs/device-01-full-chain.cert.pem
     ```  
 
     Use a text editor and open the certificate chain file, *./certs/device-01-full-chain.cert.pem*. The certificate chain text contains the full chain of all three certificates. You will use this text as the certificate chain with in the custom HSM device code later in this tutorial for `device-01`.
@@ -619,15 +619,15 @@ In this section you create the device certificates and the full chain device cer
     >
     > However, the device must also have access to the private key for the device certificate. This is necessary because the device must perform verification using that key at runtime when it attempts to provision. The sensitivity of this key is one of the main reasons it is recommended to use hardware-based storage in a real HSM to help secure private keys.
 
-The following files will be used in the rest of this tutorial:
+You'll use the following files in the rest of this tutorial:
 
 |   Certificate                 |  File  | Description |
 | ---------------------------- | --------- | ---------- |
 | root CA certificate.              | *certs/azure-iot-test-only.root.ca.cert.pem* | Will be uploaded to DPS and verified. |
 | intermediate CA certificate   | *certs/azure-iot-test-only.intermediate.cert.pem* | Will be used to create an enrollment group in DPS. |
-| device-01 private key          | *private/device-01.key.pem* | Used by the device to verify ownership of the device certificate. |
+| device-01 private key          | *private/device-01.key.pem* | Used by the device to verify ownership of the device certificate during authentication with DPS. |
 | device-01 full chain certificate  | *certs/device-01-full-chain.cert.pem* | Presented by the device to authenticate and register with DPS. |
-| device-02 private key          | *private/device-02.key.pem* | Used by the device to verify ownership of the device certificate. |
+| device-02 private key          | *private/device-02.key.pem* | Used by the device to verify ownership of the device certificate during authentication with DPS. |
 | device-02 full chain certificate  | *certs/device-01-full-chain.cert.pem* | Presented by the device to authenticate and register with DPS. |
 
 ## Verify ownership of the root certificate
@@ -710,13 +710,13 @@ To add the signing certificates to the certificate store in Windows-based device
     root CA certificate:
 
     ```bash
-    winpty openssl pkcs12 -inkey ./private/azure-iot-test-only.root.ca.key.pem -in ./certs/azure-iot-test-only.root.ca.cert.pem -export -passin pass:1234 -passout pass:1234 -out ./certs/root.pfx
+    openssl pkcs12 -inkey ./private/azure-iot-test-only.root.ca.key.pem -in ./certs/azure-iot-test-only.root.ca.cert.pem -export -passin pass:1234 -passout pass:1234 -out ./certs/root.pfx
     ```
 
     intermediate CA certificate:
 
     ```bash
-    winpty openssl pkcs12 -inkey ./private/azure-iot-test-only.intermediate.key.pem -in ./certs/azure-iot-test-only.intermediate.cert.pem -export -passin pass:1234 -passout pass:1234 -out ./certs/intermediate.pfx
+    openssl pkcs12 -inkey ./private/azure-iot-test-only.intermediate.key.pem -in ./certs/azure-iot-test-only.intermediate.cert.pem -export -passin pass:1234 -passout pass:1234 -out ./certs/intermediate.pfx
     ```
 
 2. Right-click the Windows **Start** button. Then left-click **Run**. Enter *certmgr.msc* and click **Ok** to start certificate manager MMC snap-in.
