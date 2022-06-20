@@ -102,7 +102,7 @@ Create two Windows Server 2019 virtual machines.
     | **Administrator account** |  |
     | Username  | Enter a username. |
     | Password  | Enter a password. |
-    | Confirm password  | Reenter password. |
+    | Confirm password  | Reenter the password. |
     | **Inbound port rules** |    |
     | Public inbound ports | Select **None**. |
 
