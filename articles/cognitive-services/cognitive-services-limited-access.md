@@ -29,7 +29,7 @@ The following services are Limited Access:
 - [Speaker Recognition](/legal/cognitive-services/speech-service/speaker-recognition/limited-access-speaker-recognition?context=/azure/cognitive-services/speech-service/context/context): All features 
 - Face API: Identify and Verify features
 - Computer Vision: Celebrity Recognition feature 
-- Azure Video Indexer: Celebrity Recognition and Face Identify features 
+- [Azure Video Indexer](/azure/azure-video-indexer/limited-access-features): Celebrity Recognition and Face Identify features 
 
 Features of these services that are not listed above are available without registration. 
 
