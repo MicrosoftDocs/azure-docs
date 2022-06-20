@@ -34,7 +34,7 @@ Below is the list of URLs your session host VMs need to access for Azure Virtual
 | `www.microsoft.com` | 80 | Certificates | N/A |
 
 > [!IMPORTANT]
-> We have finished transitioning the URLs we use for Agent traffic. We no longer support the URLs below. To avoid your session host VMs from showing *Needs Assistance* related to this, please allow **\*.prod.warm.ingest.monitor.core.windows.net** if you have not already. Please remove these URLs if you have previously explicitly allowed them:
+> We have finished transitioning the URLs we use for Agent traffic. We no longer support the URLs below. To avoid your session host VMs from showing *Needs Assistance* related to this, please allow `\*.prod.warm.ingest.monitor.core.windows.net` if you have not already. Please remove these URLs if you have previously explicitly allowed them:
 > 
 > | Address | Outbound TCP port | Purpose | Service Tag |
 > |--|--|--|--|
@@ -73,7 +73,7 @@ The following table lists optional URLs that your session host virtual machines 
 | `ocsp.msocsp.com` | 80 | Certificates | N/A |
 
 > [!IMPORTANT]
-> We have finished transitioning the URLs we use for Agent traffic. We no longer support the URLs below. To avoid your session host VMs from showing *Needs Assistance* related to this, please allow **\*.prod.warm.ingest.monitor.core.usgovcloudapi.net**, if you have not already. Please remove these URLs if you have previously explicitly allowed them:
+> We have finished transitioning the URLs we use for Agent traffic. We no longer support the URLs below. To avoid your session host VMs from showing *Needs Assistance* related to this, please allow `\*.prod.warm.ingest.monitor.core.usgovcloudapi.net`, if you have not already. Please remove these URLs if you have previously explicitly allowed them:
 > 
 > | Address | Outbound TCP port | Purpose | Service Tag |
 > |--|--|--|--|
