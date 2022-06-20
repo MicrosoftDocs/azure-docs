@@ -275,7 +275,7 @@ This example shows how you can deploy an MLflow model to an online endpoint usin
 
     # [Models page](#tab/models)
 
-    1. Select the MLflow model, and then select __Deploy__. When prompted, select __Deploy to real-time endpoint (preview)__.
+    1. Select the MLflow model, and then select __Deploy__. When prompted, select __Deploy to real-time endpoint__.
 
         :::image type="content" source="media/how-to-deploy-mlflow-models-online-endpoints/deploy-from-models-ui.png" lightbox="media/how-to-deploy-mlflow-models-online-endpoints/deploy-from-models-ui.png" alt-text="Screenshot showing how to deploy model from Models UI":::
 
@@ -399,10 +399,10 @@ The following data types are supported for batch inference.
 To learn more, review these articles:
 
 - [Deploy models with REST (preview)](how-to-deploy-with-rest.md)
-- [Create and use online endpoints (preview) in the studio](how-to-use-managed-online-endpoint-studio.md)
-- [Safe rollout for online endpoints (preview)](how-to-safely-rollout-managed-endpoints.md)
+- [Create and use online endpoints in the studio](how-to-use-managed-online-endpoint-studio.md)
+- [Safe rollout for online endpoints](how-to-safely-rollout-managed-endpoints.md)
 - [How to autoscale managed online endpoints](how-to-autoscale-endpoints.md)
-- [Use batch endpoints (preview) for batch scoring](how-to-use-batch-endpoint.md)
+- [Use batch endpoints for batch scoring](how-to-use-batch-endpoint.md)
 - [View costs for an Azure Machine Learning managed online endpoint (preview)](how-to-view-online-endpoints-costs.md)
 - [Access Azure resources with an online endpoint and managed identity (preview)](how-to-access-resources-from-endpoints-managed-identities.md)
 - [Troubleshoot online endpoint deployment](how-to-troubleshoot-managed-online-endpoints.md)
