@@ -379,6 +379,8 @@ items:
     items:
     - name: Build your skills with Microsoft Learn
       href: /learn/browse/?products=azure-event-grid
+    - name: FAQ
+      href: event-grid-faq.yml
     - name: Azure Roadmap
       href: https://azure.microsoft.com/roadmap/
     - name: Pricing

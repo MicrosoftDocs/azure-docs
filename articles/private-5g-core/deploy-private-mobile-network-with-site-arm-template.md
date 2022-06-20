@@ -116,7 +116,7 @@ The following Azure resources are defined in the template.
     - A **Service** resource representing the default service. 
     - A **SIM Policy** resource representing the default SIM policy.
     - One or more **SIM** resources representing physical SIMs or eSIMs (if you provisioned any).
-    - A **SIM group** resource (if you provisioned any SIMs). 
+    - A **SIM Group** resource (if you provisioned any SIMs). 
 
     :::image type="content" source="media/create-full-private-5g-core-deployment-arm-template/full-deployment-resource-group.png" alt-text="Screenshot of the Azure portal showing a resource group containing the resources for a full Azure Private 5G Core deployment." lightbox="media/create-full-private-5g-core-deployment-arm-template/full-deployment-resource-group.png":::
 

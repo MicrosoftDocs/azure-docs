@@ -41,7 +41,7 @@ To perform the migration, you need `Microsoft.DocumentDB/databaseAccounts/write`
 
 ## Pricing after migration
 
-After you migrate your account to continuous backup mode, the cost with this mode is different when compared to the periodic backup mode. The continuous mode backup cost is cheaper than periodic mode. To learn more, see the [continuous backup mode pricing](continuous-backup-restore-introduction.md#continuous-backup-pricing) example.
+After you migrate your account to continuous backup mode, the cost with this mode is different when compared to the periodic backup mode. The continuous mode backup cost can vary from periodic mode. To learn more, see [continuous backup mode pricing](continuous-backup-restore-introduction.md#continuous-backup-pricing).
 
 ## <a id="portal"></a> Migrate using portal
 
