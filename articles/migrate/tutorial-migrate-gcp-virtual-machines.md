@@ -275,6 +275,10 @@ A Mobility service agent must be installed on the source GCP VMs to be migrated.
 
     :::image type="content" source="./media/tutorial-migrate-physical-virtual-machines/disks-inline.png" alt-text="Screenshot shows the Disks tab of the Replicate dialog box." lightbox="./media/tutorial-migrate-physical-virtual-machines/disks-expanded.png":::
 
+1. In **Tags**, choose to add tags to your Virtual machines, Disks, and NICs.
+
+    :::image type="content" source="./media/tutorial-migrate-vmware/tags-inline.png" alt-text="Screenshot shows the tags tab of the Replicate dialog box." lightbox="./media/tutorial-migrate-vmware/tags-expanded.png":::
+
 16. In **Review and start replication**, review the settings, and click **Replicate** to start the initial replication for the servers.
 
 > [!NOTE]
