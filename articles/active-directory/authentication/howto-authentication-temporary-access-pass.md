@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 05/24/2022
+ms.date: 06/17/2022
 
 ms.author: justinha
 author: tilarso 
@@ -82,7 +82,7 @@ These roles can perform the following actions related to a Temporary Access Pass
    
    ![Screenshot of Temporary Access Pass details.](./media/how-to-authentication-temporary-access-pass/details.png)
 
-The following commands show how to create and get a Temporary Access Pass by using PowerShell:
+The following commands show how to create and get a Temporary Access Pass by using PowerShell. 
 
 ```powershell
 # Create a Temporary Access Pass for a user
@@ -105,6 +105,8 @@ Id                                   CreatedDateTime       IsUsable IsUsableOnce
 c5dbd20a-8b8f-4791-a23f-488fcbde3b38 5/22/2022 11:19:17 PM False    True         60                NotYetValid           23/05/2022 6:00:00 AM
 
 ```
+
+For more information, see [New-MgUserAuthenticationTemporaryAccessPassMethod](/powershell/module/microsoft.graph.identity.signins/new-mguserauthenticationtemporaryaccesspassmethod?view=graph-powershell-beta) and [Get-MgUserAuthenticationTemporaryAccessPassMethod](/powershell/module/microsoft.graph.identity.signins/get-mguserauthenticationtemporaryaccesspassmethod?view=graph-powershell-beta).
 
 ## Use a Temporary Access Pass
 
@@ -169,6 +171,8 @@ You can also use PowerShell:
 # Remove a user's Temporary Access Pass
 Remove-MgUserAuthenticationTemporaryAccessPassMethod -UserId user3@contoso.com -TemporaryAccessPassAuthenticationMethodId c5dbd20a-8b8f-4791-a23f-488fcbde3b38
 ```
+
+For more information, see [Remove-MgUserAuthenticationTemporaryAccessPassMethod](/powershell/module/microsoft.graph.identity.signins/remove-mguserauthenticationtemporaryaccesspassmethod?view=graph-powershell-beta).
 
 ## Replace a Temporary Access Pass 
 

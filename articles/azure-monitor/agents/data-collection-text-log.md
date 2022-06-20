@@ -3,6 +3,7 @@ title: Collect text and IIS logs with Azure Monitor agent (preview)
 description: Configure collection of filed-based text logs using a data collection rule on virtual machines with the Azure Monitor agent.
 ms.topic: conceptual
 ms.date: 06/06/2022
+ms.reviewer: shseth
 
 ---
 
