@@ -39,7 +39,7 @@ Being able to quickly see which Azure resources are associated with a user-assig
 - In the left-hand menu, select the **Associated Resources** link
 - A list of the Azure resources associated with the managed identity will be displayed
 
-:::image type="content" source="media/how-to-view-associated-resources-for-an-identity/associated-resources-list-cropped.png" alt-text="List of associated resources for a user-assigned managed identity.":::
+:::image type="content" source="media/viewing-associated-resources/associated-resources-list-cropped.png" alt-text="Screenshow showing a list of associated resources for a user-assigned managed identity.":::
 
 Select the resource name to be brought to its summary page.
 
@@ -164,7 +164,7 @@ Invoke-AzRestMethod -Path "/subscriptions/XXX-XXX-XXX-XXX/resourceGroups/test-rg
 ## Delete a user-assigned managed identity
 When you start to delete a user-assigned managed identity in the portal, you'll see a list of up to 10 of the identity's associated resources, with the full count at the top of the screen. This list allows you to see which resources will be affected by deleting the identity. You'll be asked to confirm your decision.
 
-:::image type="content" source="media/how-to-view-associated-resources-for-an-identity/associated-resources-delete.png" alt-text="Delete confirmation for a user-assigned managed identity.":::
+:::image type="content" source="media/viewing-associated-resources/associated-resources-delete.png" alt-text="Screenshot showing the delete confirmation screen for a user-assigned managed identity.":::
 
 This confirmation process is only available in the portal. To view an identity's resources before deleting it using the REST API, retrieve the list of resources manually in advance.
 
