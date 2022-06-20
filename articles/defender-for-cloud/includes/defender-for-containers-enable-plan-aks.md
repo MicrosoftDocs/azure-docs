@@ -1,9 +1,9 @@
 ---
-author: bmansheim
-ms.author: benmansheim
+author: ElazarK
+ms.author: elkrieger
 ms.service: defender-for-cloud
 ms.topic: include
-ms.date: 05/26/2022
+ms.date: 06/19/2022
 ---
 
 ## Enable the plan
@@ -171,10 +171,10 @@ Request body parameters:
 1. To verify that the profile was successfully added, run the following command on your machine with the `kubeconfig` file pointed to your cluster:
 
     ```console
-    kubectl get pods -n azuredefender
+    kubectl get pods -n kube-system
     ```
 
-    When the profile is added, you should see a pod called `azuredefender-XXXXX` in `Running` state. It might take a few minutes for pods to be added.
+    When the profile is added, you should see a pods called `azuredefender-XXXXX` in `Running` state. It might take a few minutes for pods to be added.
 
 ### [**Resource Manager**](#tab/aks-deploy-arm)
 
