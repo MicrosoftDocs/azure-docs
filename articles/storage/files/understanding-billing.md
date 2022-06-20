@@ -144,9 +144,13 @@ Similarly, if you put a highly accessed workload in the cool tier, you'll pay a 
 Your workload and activity level will determine the most cost efficient tier for your standard file share. In practice, the best way to pick the most cost efficient tier involves looking at the actual resource consumption of the share (data stored, write transactions, etc.). For standard file shares, we recommend starting in the transaction optimized tier during the initial migration into Azure Files, and then picking the correct tier based on usage after the migration is complete. Transaction usage during migration is not typically indicative of normal transaction usage.
 
 ### What are transactions?
-Transactions are operations or requests against Azure Files to upload, download, or otherwise manipulate the contents of the file share. Every action taken on a file share translates to one or more transactions, and on standard shares that use the pay-as-you-go billing model, that translates to transaction costs.
+When you mount an Azure file share on a computer using SMB, the Azure file share is exposed on your computer as if it were local storage. This means that applications, scripts, and other programs that you have on your computer can access the files and folders on the Azure file share without needing to know that they are stored in Azure. 
 
-There are five basic transaction categories: write, list, read, other, and delete. All operations done via the REST API or SMB are bucketed into one of these categories:
+When you read or write to a file, the application you are using performs a series of API calls to the file system API provided by your operating system. These calls are then interpreted by your operating system into SMB protocol transactions, which are sent over the wire to Azure Files to fulfil. One operation from an end-user perspective, such as reading a file start to finish, may be translated into multiple SMB transactions served by Azure Files.
+
+As a principle, the pay-as-you-go billing model used by standard file shares bills based on usage. SMB and FileREST transactions made by the applications, scripts, and other programs used by your users and value-added cloud services that you add to your share, such as Azure File Sync or Azure Backup, represent usage of your file share and show up as part of your bill. Transactions are grouped into five different transaction categories which have different prices based on their impact on the Azure file share. These categories are: write, list, read, other, and delete. 
+
+The following table shows the categorization of each transaction:
 
 | Transaction bucket | Management operations | Data operations |
 |-|-|-|
