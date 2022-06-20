@@ -22,7 +22,7 @@ Azure portal provides a simple client URL Generator to generate a temp URL for q
 With this live demo, you could join or leave a group and send messages to the group members easily:
 
 > [!div class="nextstepaction"]
-> [Open the demo](https://azure.github.io/azure-webpubsub/demos/clientpubsub.html)
+> [Open the demo](https://aka.ms/awps/quicktry)
 
 > [!NOTE]
 >  **Client Access URL** is a convenience tool provided in the portal to simplify your getting-started experience, you can also use this Client Access URL to do some quick connect test. To write your own application, we provide SDKs in 4 languages to help you generate the URL. 
