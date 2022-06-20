@@ -292,6 +292,7 @@ With an AKS cluster deployed into your existing virtual network subnet, you can 
 
 <!-- LINKS - Internal -->
 [install-azure-cli]: /cli/azure/install-azure-cli
+[az-identity-create]: /cli/azure/identity#az_identity_create
 [aks-network-concepts]: concepts-network.md
 [aks-network-nsg]: concepts-network.md#network-security-groups
 [az-group-create]: /cli/azure/group#az_group_create
