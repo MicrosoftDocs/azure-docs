@@ -37,7 +37,7 @@ The Nvidia extension always installs the latest driver. The following links to p
 
 For Windows Server 2022, Windows Server 2019, Windows Server 2016 1607, 1709,  Windows 10 and Windows 11:
 - [GRID 14.1 (512.78)](https://go.microsoft.com/fwlink/?linkid=874181) (.exe)
-- [GRID 13.1 (472.39)]([https://download.microsoft.com/download/f/0/1/f0121609-68b4-48af-8426-ef454d4d2376/471.68_grid_win10_server2016_server2019_server-azure-swl.exe](https://download.microsoft.com/download/3/2/2/322f99aa-57f3-4539-b5fc-718f8c0e2579/472.39_grid_win11_win10_64bit_Azure-SWL.exe)) (.exe) 
+- [GRID 13.1 (472.39)](https://download.microsoft.com/download/3/2/2/322f99aa-57f3-4539-b5fc-718f8c0e2579/472.39_grid_win11_win10_64bit_Azure-SWL.exe) (.exe) 
 
 For Windows Server 2012 R2: 
 - [GRID 13.1 (472.39)](https://download.microsoft.com/download/7/3/5/735a46dd-7d61-4852-8e34-28bce7f68727/472.39_grid_win8_win7_64bit_Azure-SWL.exe) (.exe)
