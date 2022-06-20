@@ -72,6 +72,7 @@ For more information, review the following articles:
 
 - [WhoIAM Rampart documentation](https://docs.gatekeeper.whoiamdemos.com/#/setup-guide?id=authorization-policy-execution)
 
-- [Custom policies in Azure AD B2C overview](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-overview)
+- [Custom policies in Azure AD B2C overview](custom-policy-overview.md)
+
 
 - [Get started with custom policies in Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-user-flows?pivots=b2c-custom-policy)
