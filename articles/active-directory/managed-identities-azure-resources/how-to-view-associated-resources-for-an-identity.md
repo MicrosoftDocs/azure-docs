@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/31/2022
+ms.date: 06/20/2022
 ms.author: barclayn
 ms.collection: M365-identity-device-management
 ---
@@ -36,10 +36,10 @@ Being able to quickly see which Azure resources are associated with a user-assig
 
 - From the **Azure portal** search for **Managed Identities**.
 - Select a managed identity
-- In the left-hand menu, select the **Associated Resources** link
+- In the left-hand menu, select the **Associated resources** link
 - A list of the Azure resources associated with the managed identity will be displayed
 
-:::image type="content" source="media/viewing-associated-resources/associated-resources-list-cropped.png" alt-text="Screenshow showing a list of associated resources for a user-assigned managed identity.":::
+:::image type="content" source="media/viewing-associated-resources/associated-resources-list-cropped.png" alt-text="Screenshot showing a list of associated resources for a user-assigned managed identity.":::
 
 Select the resource name to be brought to its summary page.
 
@@ -47,7 +47,6 @@ Select the resource name to be brought to its summary page.
 Filter the resources by typing in the filter box at the top of the summary page. You can filter by the name, type, resource group, and subscription ID.
 
 Select the column title to sort alphabetically, ascending or descending.
-
 
 ### REST API 
 
@@ -57,7 +56,9 @@ The list of associated resources can also be accessed using the REST API. This e
  - Resource group of the user-assigned managed identity
  
 *Request format*
-```https://management.azure.com/subscriptions/{resourceID of user-assigned identity}/listAssociatedResources?$filter={filter}&$orderby={orderby}&$skip={skip}&$top={top}&$skiptoken={skiptoken}&api-version=2021-09-30-preview ```
+```
+https://management.azure.com/subscriptions/{resourceID of user-assigned identity}/listAssociatedResources?$filter={filter}&$orderby={orderby}&$skip={skip}&$top={top}&$skiptoken={skiptoken}&api-version=2021-09-30-preview 
+```
 
 *Parameters*
 
@@ -69,12 +70,12 @@ The list of associated resources can also be accessed using the REST API. This e
 | $top  |  10 | The number of resources to return. 0 will return only a count of the resources.  |
 
 Below is a sample request to the REST API:
-```
+```http
 POST https://management.azure.com/subscriptions/aab111d1-1111-43e2-8d11-3bfc47ab8111/resourceGroups/devrg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/devIdentity/listAssociatedResources?$filter={filter}&$orderby={orderby}&$skip={skip}&$top={top}&skipToken={skipToken}&api-version=2021-09-30-preview 
 ```
 
 Below is a sample response from the REST API:
-```
+```json
 {
 	"totalCount": 2,
 	"value": [{
@@ -152,7 +153,7 @@ The response will look like this:
 ```
 
 ### REST API using PowerShell
-There is no specific PowerShell command for returning the associated resources of a managed identity, but you can use the REST API in PowerShell by using the following commandlet:
+There's no specific PowerShell command for returning the associated resources of a managed identity, but you can use the REST API in PowerShell by using the following command:
 
 ```PowerShell
 Invoke-AzRestMethod -Path "/subscriptions/XXX-XXX-XXX-XXX/resourceGroups/test-rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/test-identity-name/listAssociatedResources?api-version=2021-09-30-PREVIEW&%24orderby=name%20asc&%24skip=0&%24top=100" -Method Post
@@ -162,18 +163,18 @@ Invoke-AzRestMethod -Path "/subscriptions/XXX-XXX-XXX-XXX/resourceGroups/test-rg
 > All resources associated with an identity will be returned, regardless of the user's permissions. The user only needs to have access to read the managed identity. This means that more resources may be visible than the user can see elsewhere in the portal. This is to provide full visibility of the identity's usage. If the user doesn't have access to an associated resource, an error will be displayed if they try to access it from the list.
 
 ## Delete a user-assigned managed identity
-When you start to delete a user-assigned managed identity in the portal, you'll see a list of up to 10 of the identity's associated resources, with the full count at the top of the screen. This list allows you to see which resources will be affected by deleting the identity. You'll be asked to confirm your decision.
+When you select the delete button for a user-assigned managed identity, you'll see a list of up to 10 associated resources for that identity. The full count will be displayed at the top of the pane. This list allows you to see which resources will be affected by deleting the identity. You'll be asked to confirm your decision.
 
 :::image type="content" source="media/viewing-associated-resources/associated-resources-delete.png" alt-text="Screenshot showing the delete confirmation screen for a user-assigned managed identity.":::
 
 This confirmation process is only available in the portal. To view an identity's resources before deleting it using the REST API, retrieve the list of resources manually in advance.
 
 ## Limitations
- - API requests for associated resources are limited to one per second per tenant. If you exceed this limit, you may receive a `HTTP 429` error. This limit does not apply to retrieving a list of user-assigned managed identities.
- - Azure Resources types that are in preview, or their support for Managed identities is in preview, may not appear in the associated resources list until fully generally available. This includes Service Fabric clusters, Blueprints, and Machine learning services.
- - This is limited to tenants with fewer than 5,000 subscriptions. An error will be displayed if the tenant has greater than 5,000 subscriptions.
+ - API requests for associated resources are limited to one per second per tenant. If you exceed this limit, you may receive a `HTTP 429` error. This limit doesn't apply to retrieving a list of user-assigned managed identities.
+ - Azure Resources types that are in preview, or their support for Managed identities is in preview, may not appear in the associated resources list until fully generally available. This list includes Service Fabric clusters, Blueprints, and Machine learning services.
+ - This functionality is limited to tenants with fewer than 5,000 subscriptions. An error will be displayed if the tenant has greater than 5,000 subscriptions.
  - The list of associated resources will display the resource type, not display name.
- - Azure Policy assignments appear in the list, but their name is not displayed correctly.
+ - Azure Policy assignments appear in the list, but their names aren't displayed correctly.
  - This functionality isn't yet available through PowerShell.
 
 ## Next steps
