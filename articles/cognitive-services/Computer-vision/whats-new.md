@@ -19,18 +19,20 @@ Learn what's new in the service. These items may be release notes, videos, blog 
 ## June 2022
 
 ### Face transparency documentation
-* The [transparency documentation](https://aka.ms/faceraidocs) provides guidance to assist our customers to improve the accuracy and fairness of their systems by incorporating meaningful human review to detect and resolve cases of misidentification or other failures, providing support to people who believe their results were incorrect, and by identifying and addressing fluctuations in accuracy due to variation in operational conditions.
+* The [transparency documentation](https://aka.ms/faceraidocs) provides guidance to assist our customers to improve the accuracy and fairness of their systems by incorporating meaningful human review to detect and resolve cases of misidentification or other failures, providing support to people who believe their results were incorrect, and identifying and addressing fluctuations in accuracy due to variations in operational conditions.
+
 ### Retirement of sensitive attributes
 
-* We have retired facial analysis capabilities that purport to infer emotional states and identity attributes such as gender, age, smile, facial hair, hair and makeup. 
+* We have retired facial analysis capabilities that purport to infer emotional states and identity attributes, such as gender, age, smile, facial hair, hair and makeup. 
 * Facial detection capabilities, (including detecting blur, exposure, glasses, headpose, landmarks, noise, occlusion, facial bounding box) will remain generally available and do not require an application.
 
 ### Fairlearn package and Microsoft's Fairness Dashboard
-* [The open-source Fairlearn package and Microsoft’s Fairness Dashboard](https://github.com/microsoft/responsible-ai-toolbox/tree/main/notebooks/cognitive-services-examples/face-verification) aims to support customers to measure the fairness of Microsoft’s facial verification algorithms on their own data - allowing them to identify and address potential fairness issues that could affect different demographic groups before they deploy their technology.
+
+* [The open-source Fairlearn package and Microsoft’s Fairness Dashboard](https://github.com/microsoft/responsible-ai-toolbox/tree/main/notebooks/cognitive-services-examples/face-verification) aims to support customers to measure the fairness of Microsoft's facial verification algorithms on their own data, allowing them to identify and address potential fairness issues that could affect different demographic groups before they deploy their technology.
 
 ### Limited Access policy
 
-* As a part of aligning Face to the updated Responsible AI Standard, a new [Limited Access policy](https://aka.ms/AAh91ff) has been implemented for the Face API and Computer Vision. Existing customers have one year to apply and receive approval for continued access to the facial recognition services based on their provided use cases. See details on Limited Access for Face [here](<TODO: the right link for Face Limited Access doc in RAI section>) and for Computer Vision [here](<TODO: the right link for Computer Vision Limited Access doc in RAI section>)```.
+* As a part of aligning Face to the updated Responsible AI Standard, a new [Limited Access policy](https://aka.ms/AAh91ff) has been implemented for the Face API and Computer Vision. Existing customers have one year to apply and receive approval for continued access to the facial recognition services based on their provided use cases. See details on Limited Access for Face [here](/legal/cognitive-services/computer-vision/limited-access-identity?context=/azure/cognitive-services/computer-vision/context/context) and for Computer Vision [here](/legal/cognitive-services/computer-vision/limited-access?context=/azure/cognitive-services/computer-vision/context/context).
 
 ## May 2022
 
