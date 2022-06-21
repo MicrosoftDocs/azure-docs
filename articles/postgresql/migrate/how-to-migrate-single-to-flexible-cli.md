@@ -34,8 +34,8 @@ This quick start article shows you how to use Single to Flexible Server migratio
 ### Setup Azure CLI
 
 1. Install the latest Azure CLI for your corresponding operating system from the [Azure CLI install page](/cli/azure/install-azure-cli)
-2. In case Azure CLI is already installed, check the version by issuing **az version** command. The version should be **2.28.0 or above** to use the migration CLI commands. If not, update your Azure CLI using this [link](/cli/azure/update-azure-cli.md).
-3. Once you have the right Azure CLI version, run the **az login** command. A browser page is opened with Azure sign-in page to authenticate. Provide your Azure credentials to do a successful authentication. For other ways to sign with Azure CLI, visit this [link](/cli/azure/authenticate-azure-cli.md).
+2. In case Azure CLI is already installed, check the version by issuing **az version** command. The version should be **2.28.0 or above** to use the migration CLI commands. If not, update your Azure CLI using this [link](/cli/azure/update-azure-cli).
+3. Once you have the right Azure CLI version, run the **az login** command. A browser page is opened with Azure sign-in page to authenticate. Provide your Azure credentials to do a successful authentication. For other ways to sign with Azure CLI, visit this [link](/cli/azure/authenticate-azure-cli).
    
       ```bash
       az login

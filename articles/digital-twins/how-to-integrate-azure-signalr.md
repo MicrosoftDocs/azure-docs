@@ -64,9 +64,9 @@ In this section, you'll set up two Azure functions:
 * *negotiate* - A HTTP trigger function. It uses the *SignalRConnectionInfo* input binding to generate and return valid connection information.
 * *broadcast* - An [Event Grid](../event-grid/overview.md) trigger function. It receives Azure Digital Twins telemetry data through the event grid, and uses the output binding of the SignalR instance you created in the previous step to broadcast the message to all connected client applications.
 
-Start Visual Studio (or another code editor of your choice), and open the code solution in the *digital-twins-samples-master > ADTSampleApp* folder. Then do the following steps to create the functions:
+Start Visual Studio or another code editor of your choice, and open the code solution in the *digital-twins-samples-master > ADTSampleApp* folder. Then do the following steps to create the functions:
 
-1. In the *SampleFunctionsApp* project, create a new C# class called *SignalRFunctions.cs*. For instructions on how to create a new class, see [Develop Azure Functions using Visual Studio](../azure-functions/functions-develop-vs.md#add-a-function-to-your-project).
+1. In the *SampleFunctionsApp* project, create a new C# class called *SignalRFunctions.cs*.
 
 1. Replace the contents of the class file with the following code:
     
@@ -79,7 +79,9 @@ Start Visual Studio (or another code editor of your choice), and open the code s
 
     Running this command should resolve any dependency issues in the class.
 
-1. Publish your function to Azure. You can publish it to the same app service/function app that you used in the end-to-end tutorial [prerequisite](#prerequisites), or create a new one—but you may want to use the same one to minimize duplication. For instructions on how to publish a function using Visual Studio, see [Develop Azure Functions using Visual Studio](../azure-functions/functions-develop-vs.md#publish-to-azure).
+1. Publish the function to Azure, using your preferred method.
+
+    For instructions on how to publish the function using **Visual Studio**, see [Develop Azure Functions using Visual Studio](../azure-functions/functions-develop-vs.md#publish-to-azure). For instructions on how to publish the function using **Visual Studio Code**, see [Create a C# function in Azure using Visual Studio Code](../azure-functions/create-first-function-vs-code-csharp.md?tabs=in-process#publish-the-project-to-azure). For instructions on how to publish the function using the **Azure CLI**, see [Create a C# function in Azure from the command line](../azure-functions/create-first-function-cli-csharp.md?tabs=azure-cli%2Cin-process#deploy-the-function-project-to-azure). 
 
 ### Configure the function
 
@@ -168,7 +170,7 @@ Next, set permissions in your function app in the Azure portal:
 
 During the end-to-end tutorial prerequisite, you [configured the device simulator](tutorial-end-to-end.md#configure-and-run-the-simulation) to send data through an IoT Hub and to your Azure Digital Twins instance.
 
-Now, all you have to do is start the simulator project, located in *digital-twins-samples-master > DeviceSimulator > DeviceSimulator.sln*. If you're using Visual Studio, you can open the project and then run it with this button in the toolbar:
+Now, start the simulator project located in *digital-twins-samples-master > DeviceSimulator > DeviceSimulator.sln*. If you're using Visual Studio, you can open the project and then run it with this button in the toolbar:
 
 :::image type="content" source="media/how-to-integrate-azure-signalr/start-button-simulator.png" alt-text="Screenshot of the Visual Studio start button with the DeviceSimulator project open.":::
 

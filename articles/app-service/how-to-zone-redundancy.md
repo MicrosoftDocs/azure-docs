@@ -60,7 +60,7 @@ You can create a zone redundant App Service using the [Azure CLI](/cli/azure/ins
 To enable zone redundancy using the Azure CLI, include the `--zone-redundant` parameter when you create your App Service plan. You can also include the `--number-of-workers` parameter to specify capacity. If you don't specify a capacity, the platform defaults to three. Capacity should be set based on the workload requirement, but no less than three. A good rule of thumb to choose capacity is to ensure sufficient instances for the application such that losing one zone of instances leaves sufficient capacity to handle expected load.
 
 ```azurecli
-az appservice plan create --resource-group MyResourceGroup --name MyPlan --zone-redundant --number-of-workers 6
+az appservice plan create --resource-group MyResourceGroup --name MyPlan --sku P1v2 --zone-redundant --number-of-workers 6
 ```
 
 > [!TIP]
