@@ -98,12 +98,12 @@ When you are creating a spark job definition, you need to use Apache Spark confi
 
 You can import .txt/.conf/.json config in three formats and then convert it to artifact and publish it. And can also export to one of these three formats.  
 
-- Import
+- Import .txt/.conf/.json configuration from local.
 
    ![Screenshot that import config.](./media/apache-spark-azure-create-spark-configuration/import-config.png)
 
 
-- Export
+- Export .txt/.conf/.json configuration to local.
 
    ![Screenshot that export config.](./media/apache-spark-azure-create-spark-configuration/export-config.png)
 
