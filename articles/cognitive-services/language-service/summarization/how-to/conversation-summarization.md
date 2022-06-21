@@ -38,6 +38,40 @@ When using this feature, the API results are available for 24 hours from the tim
 
 When you submit data to conversation summarization, we recommend sending one chat log per request, for better latency.
  
+### Get summaries from speech transcriptions 
+
+Conversation summarization also enables you to get summaries from speech transcripts by using the [Speech service](../../../Speech-Service/). The following example shows a short conversation that you might include in your API requests.
+
+```json
+"conversations":[
+   {
+      "id":"abcdefgh-1234-1234-1234-1234abcdefgh",
+      "language":"En",
+      "modality":"transcript",
+      "conversationItems":[
+         {
+            "modality":"transcript",
+            "participantId":"speaker",
+            "id":"12345678-abcd-efgh-1234-abcd123456",
+            "content":{
+               "text":"Hi.",
+               "lexical":"hi",
+               "itn":"hi",
+               "maskedItn":"hi",
+               "audioTimings":[
+                  {
+                     "word":"hi",
+                     "offset":4500000,
+                     "duration":2800000
+                  }
+               ]
+            }
+         }
+      ]
+   }
+]
+```
+
 ## Getting conversation summarization results
 
 When you get results from language detection, you can stream the results to an application or save the output to a file on the local system.

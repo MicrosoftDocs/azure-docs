@@ -18,7 +18,7 @@ ms.custom: references_regions
 >     * UK South
 > 
 > For conversation summarization only:
-> * To use conversation summarization, you must submit an [online request and have it approved](https://aka.ms/applyforconversationsummarization/).
+> * To use conversation summarization, you must [submit an online request and have it approved](https://aka.ms/applyforconversationsummarization/).
 > * Conversation summarization is only available using:
 >     * REST API
 >     * Python 
