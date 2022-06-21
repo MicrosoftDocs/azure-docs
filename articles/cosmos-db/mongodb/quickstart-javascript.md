@@ -244,9 +244,12 @@ You'll use the following MongoDB classes to interact with these resources:
 ## Code examples
 
 - [Authenticate the client](#authenticate-the-client)
-- [Create a database](#create-a-database)
-- [Create a collection](#create-a-collection)
+- [Get database instance](#get-database-instance)
+- [Get collection instance](#get-collection-instance)
+- [Chained instances](#chained-instances)
 - [Create an doc](#create-a-doc)
+- [Create an index](#create-an-index)
+- [Create a doc](#create-a-doc)
 - [Get an doc](#get-a-doc)
 - [Query docs](#query-docs)
 
