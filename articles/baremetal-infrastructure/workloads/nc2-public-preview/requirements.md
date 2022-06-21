@@ -36,4 +36,4 @@ gateway-external-api.console.nutanix.com.
 * Prism Central instance deployed on NC2 on Azure to manage the Nutanix clusters in Azure
 
 > [!div class="nextstepaction"]
-> [Getting started with NC2-on-Azure](getting-started.md)
+> [Supported instances and regions](getting-started.md)

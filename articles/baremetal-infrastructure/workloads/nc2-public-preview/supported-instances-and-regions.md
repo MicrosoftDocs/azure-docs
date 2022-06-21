@@ -42,4 +42,4 @@ This public preview release supports the following Azure regions:
 Learn more about Nutanix:
 
 > [!div class="nextstepaction"]
-> [About the PUblic Preview](about-the-public-preview.md)
+> [SKUs](skus.md)

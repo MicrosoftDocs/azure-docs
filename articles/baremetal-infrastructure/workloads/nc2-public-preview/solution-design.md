@@ -45,4 +45,4 @@ The following table describes what’s supported for each network features confi
 Learn more about Nutanix:
 
 > [!div class="nextstepaction"]
-> [About the Public Preview](about-the-public-preview.md)
+> [Architecture](architecture.md)

@@ -50,4 +50,4 @@ For more information about Production Support tiers and SLAs, see Product Suppor
 Technically, yes. Raise a support ticket from Azure portal to get this functionality enabled.
 
 > [!div class="nextstepaction"]
-> [About the Public Preview](about-the-public-preview.md)
+> [Getting started](getting-started.md)

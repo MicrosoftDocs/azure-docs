@@ -65,4 +65,4 @@ Nutanix (for software-related issues) and Microsoft (for infrastructure-related 
 Learn more about Nutanix on Azure:
 
 > [!div class="nextstepaction"]
-> [Nutanix Baremetal Overview](nc2-baremetal-overview.md)
+> [Use cases and supported scenarios](use-cases-and-supported-scenarios.md)

@@ -17,4 +17,4 @@ ms.date: 07/01/2021
 |Network|100 Gbps (four links * 25 Gbps)|100 Gbps (four links * 25 Gbps)|
 
 > [!div class="nextstepaction"]
-> [About the Public Preview](about-the-public-preview.md)
+> [FAQ](faq.md)

@@ -46,4 +46,4 @@ Move applications to the cloud and modernize your infrastructure.
 Applications move with no changes, allowing for flexible operations and minimum downtime.
 
 > [!div class="nextstepaction"]
-> [Getting started with NC2 on Azure](getting-started.md)
+> [Solution design](solution-design.md)

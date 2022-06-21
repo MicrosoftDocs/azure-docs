@@ -40,5 +40,5 @@ This virtual network is peered with both the PC virtual network and Cluster Mana
 Learn more about Nutanix:
 
 > [!div class="nextstepaction"]
-> [About the Public Preview](about-the-public-preview.md)
+> [Requirements](requirements.md)
 
