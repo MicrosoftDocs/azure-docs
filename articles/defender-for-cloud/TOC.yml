@@ -199,7 +199,7 @@
       displayName: workflow
       href: workflow-automation.md
 
-- name: Workload-specific protections
+- name: Protect your workloads
   items:
   - name: Defender for Servers
     displayName: hybrid, arc, Defender for Servers
