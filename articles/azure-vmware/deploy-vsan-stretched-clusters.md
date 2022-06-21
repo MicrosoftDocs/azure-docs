@@ -13,11 +13,16 @@ In this article, you'll learn how to implement a vSAN stretched cluster for an A
 
 ## Background
 
-Azure’s global infrastructure is broken up into Regions. Each region supports the services for a given geography. Within each region, Azure builds isolated, and redundant islands of infrastructure called availability zones (AZ). An AZ acts as a boundary for resource management. The compute and other resources available to an AZ are finite and may become exhausted by customer demands. An AZ is built to be independently resilient, meaning failures in one AZ doesn't impact other AZs.
+Azure’s global infrastructure is broken up into Regions. Each region supports the services for a given geography. Within each region, Azure builds isolated, and redundant islands of infrastructure called availability zones (AZ). An AZ acts as a boundary for resource management. The compute and other resources available to an AZ are finite and may become exhausted by customer demands. An AZ is built to be independently resilient, meaning failures in one AZ doesn't affect other AZs.
 
 With Azure VMware Solution, ESXi hosts deployed in a standard vSphere cluster traditionally reside in a single Azure Availability Zone (AZ) and are protected by vSphere high availability (HA). However, it doesn't protect the workloads against an Azure AZ failure. To protect against an AZ failure, a single vSAN cluster can be enabled to span two separate availability zones, called a [vSAN stretched cluster](https://docs.vmware.com/VMware-vSphere/6.7/com.vmware.vsphere.vsan-planning.doc/GUID-1BDC7194-67A7-4E7C-BF3A-3A0A32AEECA9.html).
 
-Stretched clusters allow the configuration of vSAN Fault Domains across two AZs to notify vCenter that hosts reside in each Availability Zone. Each Fault Domain is named after the AZ it resides within to increase clarity. When you stretch a vSAN cluster across two AZs within a region, should an AZ go down, it's treated as a vSphere HA event and the virtual machine is restarted in the other AZ. Stretched clusters improve an application’s availability and provides a zero RPO recovery for enterprise applications without needing to redesign them, or to deploy expensive disaster recovery (DR) solutions. Stretched clusters enable developers to focus on core application requirements and capabilities, instead of infrastructure availability.
+Stretched clusters allow the configuration of vSAN fault domains across two AZs to notify vCenter that hosts reside in each Availability Zone (AZ). Each fault domain is named after the AZ it resides within to increase clarity. When you stretch a vSAN cluster across two AZs within a region, should an AZ go down, it's treated as a vSphere HA event and the virtual machine is restarted in the other AZ. 
+
+**Stretch cluster benefits:**
+- Improve an application’s availability
+- Provide a zero RPO recovery for enterprise applications without needing to redesign them, or to deploy expensive disaster recovery (DR) solutions.
+- Enable developers to focus on core application requirements and capabilities, instead of infrastructure availability.
 
 To protect against split-brain scenarios and help measure site health, a managed vSAN Witness is created in a third AZ. With a copy of the data in each AZ, vSphere HA attempts to recover from any failure using a simple restart of the virtual machine.
 
@@ -73,10 +78,23 @@ Once stretched clusters are made generally available, it's expected that all the
 
 The following scenarios are supported:
 
+- Workload connectivity to internet from both AZs via Customer vWAN or On-premises datacenter
+- Private DNS resolution
+- Placement policies (except for VM-AZ affinity)
+- Cluster scale-out and scale-in
+- The following SPBM policies are supported, with a PFTT of “Dual Site Mirroring” and SFTT of “RAID 1 (Mirroring)” enabled as the default policies for the cluster: 
+    - Site disaster tolerance settings (PFTT):
+        - Dual site mirroring
+        - None - keep data on preferred
+        - None - keep data on non-preferred
+    - Local failures to tolerate (SFTT):
+        - 1 failure – RAID 1 (Mirroring)
+        - 1 failure – RAID 5 (Erasure coding), requires a minimum of 4 hosts in each AZ
+        - 2 failures – RAID 1 (Mirroring)
+        - 2 failures – RAID 6 (Erasure coding), requires a minimum of 6 hosts in each AZ
+        - 3 failures – RAID 1 (Mirroring) 
 
-
-
-During the phase of creating the private cloud and enabling the first stretched cluster via the Azure portal, you need to open a [support ticket](https://rc.portal.azure.com/#create/Microsoft.Support) from the Azure portal. to perform the following actions:
+During the phase of creating the private cloud and enabling the first stretched cluster via the Azure portal, you need to open a [support ticket](https://rc.portal.azure.com/#create/Microsoft.Support) from the Azure portal to perform the following actions:
 
 - HCX installation, deployment, removal, and support for migration
 - Connect a private cloud in another region to a Stretched Cluster private cloud
@@ -103,14 +121,14 @@ As of now, the only 3 regions listed above are planned for support of stretched 
 
 **What kind of SLA does Azure VMware Solution provide with the stretched clusters limited availability release?**
 
-A private cloud created with a vSAN stretched cluster is designed to offer a 99.99% infrastructure availability commitment when the following condititions exist:
-- A minimum of 6 nodes are deployed in the cluster (3 in each availability zone).
-- When a VM storage policy of PFTT of "Dual-Site Mirroring" and a SFTT of 1 is used by the workload VMs.
-- Note that compliance with the **Additional Requirements** captured in the [SLA details of Azure VMware Solution](https://azure.microsoft.com/support/legal/sla/azure-vmware/v1_1/) is also required to achieve the availability goals.
+A private cloud created with a vSAN stretched cluster is designed to offer a 99.99% infrastructure availability commitment when the following conditions exist:
+- A minimum of 6 nodes are deployed in the cluster (3 in each availability zone)
+- When a VM storage policy of PFTT of "Dual-Site Mirroring" and an SFTT of 1 is used by the workload VMs
+- Compliance with the **Additional Requirements** captured in the [SLA details of Azure VMware Solution](https://azure.microsoft.com/support/legal/sla/azure-vmware/v1_1/) is required to achieve the availability goals
 
 **Do I get to choose the availability zone in which a private cloud is deployed?**
 
-No. A stretched cluster is created between two availability zones, while the third zone is used for deploying the witness node. Because all of the zones are effectively used for deploying a stretched cluster environment, a choice is not provided to the customer. Instead, the customer chooses to deploy hosts in multiple AZs at the time of private cloud creation.
+No. A stretched cluster is created between two availability zones, while the third zone is used for deploying the witness node. Because all of the zones are effectively used for deploying a stretched cluster environment, a choice isn't provided to the customer. Instead, the customer chooses to deploy hosts in multiple AZs at the time of private cloud creation.
 
 **What are the limitations I should be aware of?**
 
@@ -118,22 +136,30 @@ No. A stretched cluster is created between two availability zones, while the thi
 - Scale-out and scale-in of stretched clusters can only happen in pairs. A minimum of 6 nodes and a maximum of 16 nodes are supported in a Stretched Cluster environment.
 - Customer workload VMs are restarted with a medium vSphere HA priority. Management VMs have the highest restart priority.
 - The solution relies on vSphere HA and vSAN for restarts and replication. Recovery time objective (RTO) is determined by the amount of time it takes vSphere HA to restart a VM on the surviving AZ after the failure of a single AZ.
-- Preview features for non-stretched private cloud environments are not supported in a stretched cluster environment. For example, external storage options like disk pools and Azure NetApp Files (ANF), Customer Management Keys, Public IP via NSX Edge, and others.
+- Preview features for non-stretched private cloud environments aren't supported in a stretched cluster environment. For example, external storage options like disk pools and Azure NetApp Files (ANF), Customer Management Keys, Public IP via NSX Edge, and others.
 - A non-stretched private cloud can't connect to a stretched private cloud in the same region.
-- Disaster recovery addons like, SRM, Zerto, and Jetstream are currently not supported in a stretched cluster environment.
+- Disaster recovery addons like, SRM, Zerto, and JetStream are currently not supported in a stretched cluster environment.
 
 **What kind of latencies should I expect between the availability zones (AZ)s?**
 
-vSAN Stretched Clusters operate within a 5 ms RTT between the AZs that host the workload VMs and the Azure VMware Solution stretched cluster deployment caters to that guiding principle. Keep this in mind when deploying applications (with SFTT of dual site mirroring, which uses synchronous writes) that have stringent latency requirements.
+vSAN Stretched Clusters operate within a 5 ms RTT between the AZs that host the workload VMs. The Azure VMware Solution stretched cluster deployment caters to that guiding principle. Keep this information in mind when deploying applications (with SFTT of dual site mirroring, which uses synchronous writes) that have stringent latency requirements.
 
 **Can I mix stretched and non-stretched clusters in my private cloud?**
 
 No. A mix of stretched and non-stretched clusters aren't supported within the same private cloud. A stretched or non-stretched cluster environment is selected when you create the private cloud. Once a private cloud has been created with a stretched cluster, it's assumed that all clusters created within that private cloud are stretched in nature.
 
-**How much does this solution cost?**
+**How much does the solution cost?**
 
-During the scope of the limited availability, customers will be charged for only 6 nodes per stretched cluster. This is the minimum number of nodes required to deploy a stretched cluster. Note that, even if you deploy 8+ nodes, you will continue to be charged only for the minimum number of nodes (6) (per stretched cluster) during the duration of the limited availability. Once stretched cluster is made generally available, customers will be charged based on the number of nodes deployed within the private cloud.
+During the scope of the limited availability, customers will be charged for only 6 nodes per stretched cluster. This is the minimum number of nodes required to deploy a stretched cluster. If you deploy 8+ nodes, you'll continue to be charged only for the minimum number of nodes (6) (per stretched cluster) during the duration of the limited availability. Once stretched cluster is made generally available, customers will be charged based on the number of nodes deployed within the private cloud.
 
 **Will I be charged for the witness node and for inter-AZ traffic?**
 
 No. While in limited availability, customers won't see a charge for the witness node and the inter-AZ traffic. The witness node is entirely service managed, and Azure VMware Solution provides the required lifecycle management of the witness node. As the entire solution is service managed, the customer only needs to identify the appropriate SPBM policy to set for the workload virtual machines. The rest is managed by Microsoft.
+
+**Which SKUs are available?**
+
+Stretched clusters will solely be supported on the AV36 SKU.
+
+**If vSphere 6.7 is [EOGS by October 15, 2022](https://lifecycle.vmware.com/#/), how will my private cloud be upgraded to vSphere 7.0?**
+
+At launch, Stretched Clusters will be deployed on vSphere 6.7 U3. We intend to upgrade all Stretched Cluster private clouds to vSphere 7.0 prior to the EOGS timeline published by VMware.
