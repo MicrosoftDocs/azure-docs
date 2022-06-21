@@ -90,7 +90,8 @@ Replace `<yourdiskname>`, `<yourresourcegroupname>`, `<yourregion>` with values 
 
 > [!TIP]
 > If you're creating an OS disk, add `--hyper-v-generation <yourGeneration>` to `az disk create`.
-> If you're using Azure AD to secure disk uploads, add `-dataAccessAuthmode 'AzureActiveDirectory'`
+> 
+> If you're using Azure AD to secure disk uploads, add `-dataAccessAuthmode 'AzureActiveDirectory'`.
 
 ```azurecli
 az disk create -n <yourdiskname> -g <yourresourcegroupname> -l <yourregion> --os-type Linux --for-upload --upload-size-bytes 34359738880 --sku standard_lrs
