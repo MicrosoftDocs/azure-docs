@@ -1,6 +1,6 @@
 ---
 title: Python app to connect and query Hyperscale (Citus)
-description: Learn to query Hyperscale (Citus) using Ruby
+description: Learn to query Hyperscale (Citus) using Python
 ms.author: sasriram
 author: saimicrosoft
 ms.service: postgresql
