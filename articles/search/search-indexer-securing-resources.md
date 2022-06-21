@@ -13,7 +13,7 @@ ms.date: 06/20/2022
 
 # Indexer access to content protected by Azure network security
 
-If your search application requirements include an Azure virtual network, this article explains how a search indexer can access content that's protected by network security. It describes the outbound traffic patterns and indexer execution environments. It also covers the network protections supported by Cognitive Search and factors that might influence feature adoption. Finally, because Azure Storage is used for both data access and persistent storage, this article also covers considerations that are specific to search and storage connectivity.
+If your search application requirements include an Azure virtual network, this concept article explains how a search indexer can access content that's protected by network security. It describes the outbound traffic patterns and indexer execution environments. It also covers the network protections supported by Cognitive Search and factors that might influence your approach. Finally, because Azure Storage is used for both data access and persistent storage, this article also covers network considerations that are specific to search and storage connectivity.
 
 Looking for step-by-step instructions instead? See [How to configure firewall rules to allow indexer access](search-indexer-howto-access-ip-restricted.md) or [How to make outbound connections through a private endpoint](search-indexer-howto-access-private.md).
 
