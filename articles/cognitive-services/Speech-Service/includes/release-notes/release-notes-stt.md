@@ -6,6 +6,26 @@ ms.date: 01/08/2022
 ms.author: eur
 ---
 
+### 2022-Jun release
+
+#### New Speech-to-text-locales:
+
+Below is the list of 10 new locales. There are 6 new locales from Asia, Armenian, Azerbaijani, Georgian, Kazakh, Mongolian and 4 new locales from Europe, including Basque and Galician at Broder of Spain, Italian in Switzerlan and Albanian. See the complete language list [here](../../language-support.md).
+
+| Locale  | Language                          |
+|---------|-----------------------------------|
+| `sq-AL`         | Albanian (Albania)                |
+|  `hy-AM`         | Armenian (Armenia)                |
+|  `az-AZ`         | Azerbaijani (Azerbaijan)          |
+|  `eu-ES`         | Basque (Spain)                    |
+|  `gl-ES`         | Galician (Spain)                  |
+| `ka-GE`         | Georgian (Georgia)                |
+|  `it-CH`         | Italian (Switzerland)             |
+|  `kk-KZ`         | Kazakh (Kazakhstan)               |
+|  `mn-MN`         | Mongolian (Mongolia)              |
+|  `ne-NP`         | Nepali (Nepal)                    |
+
+
 ### 2022-April release
 
 #### New Speech-to-text-locales:
@@ -15,6 +35,7 @@ Below is a list of the new locales. See the complete language list [here](../../
 | Locale  | Language                          |
 |---------|-----------------------------------|
 | `bn-IN` | Bengali (India)                   |
+
 
 ### 2022-January release
 
