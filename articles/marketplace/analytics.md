@@ -7,7 +7,7 @@ ms.topic: conceptual
 author: rajap
 ms.author: rajap
 ms.reviewer: sroy
-ms.date: 06/01/2021
+ms.date: 06/21/2022
 ---
 
 # Access analytic reports for the commercial marketplace in Partner Center
