@@ -83,7 +83,7 @@ Image Builder requires a Managed Identity, which it uses to read source custom i
 
 The VM that is created can be configured to be in a specific VNET.
 Provide the resource id of a pre-existing subnet in the 'VNet Configuration (Optional)' input field when configuring the task.
-Omit if no specific virtual network needs to be used. Review https://docs.microsoft.com/en-us/azure/virtual-machines/linux/image-builder-networking for more information.
+Omit if no specific virtual network needs to be used. Review https://docs.microsoft.com/azure/virtual-machines/linux/image-builder-networking for more information.
 
 ### Source
 
