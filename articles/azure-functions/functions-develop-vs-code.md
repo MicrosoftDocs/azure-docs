@@ -339,7 +339,7 @@ The following steps publish your project to a new function app created with adva
     | Select a runtime stack. | Choose the language version on which you've been running locally. |
     | Select an OS. | Choose either Linux or Windows. Python apps must run on Linux |
     | Select a resource group for new resources. | Choose **Create new resource group** and type a resource group name, like `myResourceGroup`, and then select enter. You can also select an existing resource group. |
-    | Select a location for new resources. | region | Select a location in a [region](https://azure.microsoft.com/regions/) near you or near other services that your functions access. |
+    | Select a location for new resources. | Select a location in a [region](https://azure.microsoft.com/regions/) near you or near other services that your functions access. |
     | Select a hosting plan. | Choose **Consumption** for serverless [Consumption plan hosting](consumption-plan.md), where you are only charged when your functions run. |
     | Select a storage account. | Choose **Create new storage account** and at the prompt, type a globally unique name for the new storage account used by your function app and then select Enter. Storage account names must be between 3 and 24 characters long and can contain only numbers and lowercase letters. You can also select an existing account. |
     | Select an Application Insights resource for your app. | Choose **Create new Application Insights resource** and at the prompt, type a name for the instance used to store runtime data from your functions.| 
@@ -358,7 +358,7 @@ The function URL is copied to the clipboard, along with any required keys passed
 
 When the extension gets the URL of functions in Azure, it uses your Azure account to automatically retrieve the keys it needs to start the function. [Learn more about function access keys](security-concepts.md#function-access-keys). Starting non-HTTP triggered functions requires using the admin key.
 
-## Deploy project files
+## <a name="republish-project-files"></a>Deploy project files
 
 We recommend setting-up [continuous deployment](functions-continuous-deployment.md) so that your function app in Azure is updated when you update source files in the connected source location. You can also deploy your project files from Visual Studio Code.
 
