@@ -121,7 +121,7 @@ ms.author: eur
 | Chinese (Mandarin, Simplified) | `zh-CN-LN` | Female | `zh-CN-LN-XiaobeiNeural` <sup>New</sup> | General, Liaoning accent |
 
 * Improved quality for `en-SG-LunaNeural` and `en-SG-WayneNeural`
-* 48kHz output support for Public Preview
+* 48kHz output support for Public Preview with en-US-JennyNeural, en-US-AriaNeural, and zh-CN-XiaoxiaoNeural
 
 ### 2022-May release
 
