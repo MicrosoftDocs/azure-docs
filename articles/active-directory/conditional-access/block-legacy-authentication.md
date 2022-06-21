@@ -101,7 +101,7 @@ The [Deprecation of Basic authentication in Exchange Online](/exchange/clients-a
 
 ## Important Considerations
 
-Many clients that previously only supported legacy authentication now support modern authentication. Clients that support both legacy and modern authentication may require configuration update to move from legacy to modern authentication. If you see **modern mobile**, **desktop client** or **browser** for a client in the Azure AD logs, it is using modern authentication. If it has a specific client or protocol name, such as **Exchange ActiveSync**, it is using legacy authentication. The client types in conditional access, Azure AD Sign-in logs and the legacy authentication workbook distinguish between modern and legacy authentication clients for you.
+Many clients that previously only supported legacy authentication now support modern authentication. Clients that support both legacy and modern authentication may require configuration update to move from legacy to modern authentication. If you see **modern mobile**, **desktop client** or **browser** for a client in the Azure AD logs, it is using modern authentication. If it has a specific client or protocol name, such as **Exchange ActiveSync**, it is using legacy authentication. The client types in Conditional Access, Azure AD Sign-in logs and the legacy authentication workbook distinguish between modern and legacy authentication clients for you.
 
 - Clients that support modern authentication but are not configured to use modern authentication should be updated or reconfigured to use modern authentication.
 
