@@ -1660,7 +1660,7 @@ dateDifference('<startDate>', '<endDate>')
 
 | Return value | Type | Description |
 | ------------ | ---- | ----------- |
-| <*timespan*> | String | The string version of a timestamp that represents a the difference between the two dates. |
+| <*timespan*> | String | The difference between the two timestamps, which is a timestamp in string format. If `startDate` is more recent than `endDate`, the result is a negative value. |
 ||||
 
 *Example*
