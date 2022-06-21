@@ -274,19 +274,28 @@ If the HTTP status is `200 OK`, the body of the response contains an audio file 
 
 This is a list of supported audio formats that are sent in each request as the `X-Microsoft-OutputFormat` header. Each format incorporates a bit rate and encoding type. The Speech service supports 24-kHz, 16-kHz, and 8-kHz audio outputs. Prebuilt neural voices are created from samples that use a 24-khz sample rate. All voices can upsample or downsample to other sample rates when synthesizing.
 
-|Audio                             |OGG                      |Raw                          |Riff                     |WebM                             |
-|----------------------------------|-------------------------|-----------------------------|-------------------------|---------------------------------|
-|audio-16khz-16bit-32kbps-mono-opus|ogg-16khz-16bit-mono-opus|raw-8khz-8bit-mono-alaw      |riff-8khz-8bit-mono-alaw |webm-16khz-16bit-mono-opus       |
-|audio-16khz-32kbitrate-mono-mp3   |ogg-24khz-16bit-mono-opus|raw-8khz-8bit-mono-mulaw     |riff-8khz-8bit-mono-mulaw|webm-24khz-16bit-24kbps-mono-opus|
-|audio-16khz-64kbitrate-mono-mp3   |ogg-48khz-16bit-mono-opus|raw-8khz-8bit-mono-mulaw     |riff-8khz-16bit-mono-pcm |webm-24khz-16bit-mono-opus       |
-|audio-16khz-128kbitrate-mono-mp3  |                         |raw-8khz-16bit-mono-pcm      |riff-24khz-16bit-mono-pcm|
-|audio-24khz-16bit-24kbps-mono-opus|                         |raw-16khz-16bit-mono-pcm     |riff-48khz-16bit-mono-pcm|
-|audio-24khz-16bit-48kbps-mono-opus|                         |raw-16khz-16bit-mono-truesilk|
-|audio-24khz-48kbitrate-mono-mp3   |                         |raw-24khz-16bit-mono-pcm     |
-|audio-24khz-96kbitrate-mono-mp3   |                         |raw-24khz-16bit-mono-truesilk|
-|audio-24khz-160kbitrate-mono-mp3  |                         |raw-48khz-16bit-mono-pcm     |
-|audio-48khz-96kbitrate-mono-mp3   |                         |                             |
-|audio-48khz-192kbitrate-mono-mp3  |                         |                             |
+|Streaming                       |Non-Streaming            |Unknown                           |
+|--------------------------------|-------------------------|----------------------------------|
+|raw-16khz-16bit-mono-pcm        |                         |audio-16khz-16bit-32kbps-mono-opus|
+|raw-8khz-8bit-mono-mulaw        |                         |audio-24khz-16bit-24kbps-mono-opus|
+|raw-16khz-16bit-mono-truesilk   |                         |audio-24khz-16bit-48kbps-mono-opus|
+|audio-16khz-128kbitrate-mono-mp3|                         |audio-48khz-96kbitrate-mono-mp3   |
+|audio-16khz-64kbitrate-mono-mp3 |                         |audio-48khz-192kbitrate-mono-mp3  |
+|audio-16khz-32kbitrate-mono-mp3 |                         |ogg-16khz-16bit-mono-opus         |
+|audio-24khz-160kbitrate-mono-mp3|                         |ogg-48khz-16bit-mono-opus         |
+|audio-24khz-96kbitrate-mono-mp3 |                         |raw-8khz-8bit-mono-alaw           |
+|audio-24khz-48kbitrate-mono-mp3 |                         |raw-8khz-16bit-mono-pcm           |
+|ogg-24khz-16bit-mono-opus       |                         |raw-24khz-16bit-mono-pcm          |
+|                                |                         |raw-24khz-16bit-mono-truesilk     |
+|                                |                         |raw-48khz-16bit-mono-pcm          |
+|                                |                         |riff-8khz-8bit-mono-alaw          |
+|                                |                         |riff-8khz-8bit-mono-mulaw         |
+|                                |                         |riff-8khz-16bit-mono-pcm          |
+|                                |                         |riff-24khz-16bit-mono-pcm         |
+|                                |                         |riff-48khz-16bit-mono-pcm         |
+|                                |                         |webm-16khz-16bit-mono-opus        |
+|                                |                         |webm-24khz-16bit-24kbps-mono-opus |
+|                                |                         |webm-24khz-16bit-mono-opus        |  
 
 > [!NOTE]
 > en-US-AriaNeural, en-US-JennyNeural and zh-CN-XiaoxiaoNeural are available in public preview in 48Khz output.
