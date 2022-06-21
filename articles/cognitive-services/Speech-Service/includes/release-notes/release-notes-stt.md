@@ -10,7 +10,7 @@ ms.author: eur
 
 #### New Speech-to-text-locales:
 
-Below is the list of 10 new locales. There are 6 new locales from Asia, Armenian, Azerbaijani, Georgian, Kazakh, Mongolian and 4 new locales from Europe, including Basque and Galician at Broder of Spain, Italian in Switzerland and Albanian. See the complete language list [here](../../language-support.md).
+Added 10 new locales as shown in the following table. See the complete language list [here](../../language-support.md).
 
 | Locale  | Language                          |
 |---------|-----------------------------------|
