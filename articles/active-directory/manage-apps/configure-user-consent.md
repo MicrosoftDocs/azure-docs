@@ -24,7 +24,7 @@ Before an application can access your organization's data, a user must grant the
 To reduce the risk of malicious applications attempting to trick users into granting them access to your organization's data, we recommend that you allow user consent only for applications that have been published by a [verified publisher](../develop/publisher-verification-overview.md).
 
 >[!IMPORTANT]
->As from September 30, 2022, Microsoft will enforce all new tenants to **Follow Latest Microsoft Recommendation** as the new default consent setting. End-users will no longer be able to grant consent to multi-tenant applications without publisher verification and applications that request permissions beyond Microsoft determined low-impact permissions.
+>As from September 30, 2022, the new default consent setting for new tenants will be to Follow Microsoft's Recommendation. Microsoft's initial recommendation at that time will be that end-users can’t consent to multi-tenant applications without publisher verification if the application  requests basic permissions like sign-in and read user profile permissions.
 
 ## Prerequisites
 
