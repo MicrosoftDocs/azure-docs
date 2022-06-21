@@ -144,7 +144,7 @@ select create_distributed_table('public.pharmacy','pharmacy_id');
 
 Next, add the Java code that will use JDBC to store and retrieve data from your Hyperscale (Citus) server group.
 
-Create a `src/main/java/DemoApplication.java` file, that contains:
+Create a `src/main/java/DemoApplication.java` file that contains:
 
 ``` java
 package test.crud;

@@ -15,7 +15,7 @@ ms.date: 06/20/2022
 
 ## Overview
 
-In this how-to, you'll connect to a Hyperscale (Citus) server group using a Ruby application. We'll see how to use SQL statements to query, insert, update, and delete data in the database. The steps in this article assume that you are familiar with developing using Node.js, and are new to working with Hyperscale (Citus).
+In this how-to article, you'll connect to a Hyperscale (Citus) server group using a Ruby application. We'll see how to use SQL statements to query, insert, update, and delete data in the database. The steps in this article assume that you're familiar with developing using Node.js, and are new to working with Hyperscale (Citus).
 
 > [!TIP]
 >
@@ -40,7 +40,7 @@ To get the database credentials, you can use the **Connection strings** tab in t
 
 Use the following code to connect and create a table using CREATE TABLE SQL statement, followed by INSERT INTO SQL statements to add rows into the table.
 
-The code uses a `PG::Connection` object with constructor to connect to Hyperscale (Citus). Then it calls method `exec()` to run the DROP, CREATE TABLE, and INSERT INTO commands. The code checks for errors using the `PG::Error` class. Then it calls method `close()` to close the connection before terminating. See the [Ruby pg reference documentation](https://rubygems.org/gems/pg) for more information on these classes and methods.
+The code uses a `PG::Connection` object with constructor to connect to Hyperscale (Citus). Then it calls method `exec()` to run the DROP, CREATE TABLE, and INSERT INTO commands. The code checks for errors using the `PG::Error` class. Then it calls method `close()` to close the connection before terminating. For more information about these classes and methods, see the [Ruby pg reference documentation](https://rubygems.org/gems/pg).
 
 
 ```ruby
@@ -104,7 +104,7 @@ end
 
 Use the following code to connect and read the data using a SELECT SQL statement.
 
-The code uses a `PG::Connection` object with constructor new to connect to Hyperscale (Citus). Then it calls method `exec()` to run the SELECT command, keeping the results in a result set. The result set collection is iterated using the `resultSet.each` do loop, keeping the current row values in the row variable. The code checks for errors using the `PG::Error` class. Then it calls method `close()` to close the connection before terminating. See the [Ruby pg reference documentation](https://rubygems.org/gems/pg) for more information on these classes and methods.
+The code uses a `PG::Connection` object with constructor new to connect to Hyperscale (Citus). Then it calls method `exec()` to run the SELECT command, keeping the results in a result set. The result set collection is iterated using the `resultSet.each` do loop, keeping the current row values in the row variable. The code checks for errors using the `PG::Error` class. Then it calls method `close()` to close the connection before terminating. For more information about these classes and methods, see the [Ruby pg reference documentation](https://rubygems.org/gems/pg).
 
 ```ruby
 require 'pg'
@@ -129,7 +129,7 @@ end
 
 Use the following code to connect and update the data using a UPDATE SQL statement.
 
-The code uses a `PG::Connection` object with constructor to connect to Hyperscale (Citus). Then it calls method `exec()` to run the UPDATE command. The code checks for errors using the `PG::Error` class. Then it calls method `close()` to close the connection before terminating. See the [Ruby pg reference documentation](https://rubygems.org/gems/pg) for more information on these classes and methods.
+The code uses a `PG::Connection` object with constructor to connect to Hyperscale (Citus). Then it calls method `exec()` to run the UPDATE command. The code checks for errors using the `PG::Error` class. Then it calls method `close()` to close the connection before terminating. For more information about these classes and methods, see the [Ruby pg reference documentation](https://rubygems.org/gems/pg).
 
 ```ruby
 require 'pg'
@@ -153,7 +153,7 @@ end
 
 Use the following code to connect and read the data using a DELETE SQL statement.
 
-The code uses a `PG::Connection` object with constructor new to connect to Hyperscale (Citus). Then it calls method `exec()` to run the DELETE command. The code checks for errors using the `PG::Error` class. Then it calls method `close()` to close the connection before terminating. See the [Ruby pg reference documentation](https://rubygems.org/gems/pg) for more information on these classes and methods.
+The code uses a `PG::Connection` object with constructor new to connect to Hyperscale (Citus). Then it calls method `exec()` to run the DELETE command. The code checks for errors using the `PG::Error` class. Then it calls method `close()` to close the connection before terminating. For more information about these classes and methods, see the [Ruby pg reference documentation](https://rubygems.org/gems/pg).
 
 ```ruby
 require 'pg'
