@@ -175,7 +175,7 @@ Recommended: Secure live-metrics channel using [Azure AD authentication](https:/
 
 Legacy (no longer recommended): Set up an authenticated channel by configuring a secret API key as explained below
 
-It is possible to try custom filters without having to set up an authenticated channel. To use custom filters without a secure channel, simply click on any of the filter icons and authorize the connected servers. If you choose this option, you will have to authorize the connected servers once every new session or when a new server comes online.
+It is possible to try custom filters without having to set up an authenticated channel. Simply click on any of the filter icons and authorize the connected servers. Notice that if you choose this option, you will have to authorize the connected servers once every new session or when a new server comes online.
 
 > [!WARNING]
 > We strongly discourage the use of unsecured channels and will disable this option 6 months after you start using it. The “Authorize connected servers” dialog displays the date (highlighted below) after which this option will be disabled.
