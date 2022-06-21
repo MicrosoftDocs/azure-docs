@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: Tutorial to build an Azure Digital Twins scenario using a sample command-line application
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 02/23/2022
+ms.date: 06/21/2022
 ms.topic: tutorial
 ms.service: digital-twins
 
@@ -36,11 +36,13 @@ In this tutorial, you will...
 
 ### Run the sample project
 
-Now that the app and authentication are set up, run the project with this button in the toolbar:
+Now that the app and authentication are set up, open a local console window that you'll use to run the project. Navigate in the console to the *AdtSampleApp\SampleClientApp* folder, and run the project with this dotnet command:
 
-:::image type="content" source="media/tutorial-command-line/app/start-button-sample.png" alt-text="Screenshot of the Visual Studio start button (SampleClientApp project)." lightbox="media/tutorial-command-line/app/start-button-sample.png":::
+```cmd/sh
+dotnet run
+```
 
-A console window will open, carry out authentication, and wait for a command. 
+The project will start running, carry out authentication, and wait for a command. 
 
 Here's a screenshot of what the project console looks like:
 
@@ -49,7 +51,7 @@ Here's a screenshot of what the project console looks like:
 > [!TIP]
 > For a list of all the possible commands you can use with this project, enter `help` in the project console and press return.
 
-Once you've confirmed the app is running successfully, close the console window to stop running the app for now. You'll run it again later in the article.
+Once you've confirmed the app is running successfully, close the console window to stop running the app for now. You'll run it again later in the tutorial.
 
 ## Model a physical environment with DTDL
 
@@ -62,9 +64,9 @@ Models are similar to classes in object-oriented programming languages; they pro
 > [!NOTE]
 > DTDL also allows for the definition of commands on digital twins. However, commands are not currently supported in the Azure Digital Twins service.
 
-In your Visual Studio window where the *AdtE2ESample.sln* project is open, use the **Solution Explorer** pane to navigate to the *AdtSampleApp\SampleClientApp\Models folder*. This folder contains sample models.
+In the sample project folder that you downloaded earlier, navigate into the *AdtSampleApp\SampleClientApp\Models* folder. This folder contains sample models.
 
-Select *Room.json* to open it in the editing window, and change it in the following ways:
+Open *Room.json* for editing, and make the following changes to the code:
 
 [!INCLUDE [digital-twins-tutorial-model-create.md](../../includes/digital-twins-tutorial-model-create.md)]
 
