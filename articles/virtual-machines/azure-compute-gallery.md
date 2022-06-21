@@ -81,7 +81,29 @@ The regions that a resource is replicated to can be updated after creation time.
 ![Graphic showing how you can replicate images](./media/shared-image-galleries/replication.png)
 
 <a name=community></a>
-## Community gallery (preview)
+
+## Sharing
+
+There are three main ways to share images in an Azure Compute Gallery, depending on who you want to share with:
+
+| Who? | Option |
+|----|----|
+| [Specific people, groups, or service principals](#rbac) | Role-based access control (RBAC) lets you share resources to specific people, groups, or service principals on a granular level. |
+| [Subscriptions or tenants](#direct-sharing) | Direct sharing lets you share to everyone in a subscription or tenant. |
+| [Everyone](#community) | Community gallery lets you share your entire gallery publicly, to all Azure users. |
+
+### RBAC
+
+As the Azure Compute Gallery, definition, and version are all resources, they can be shared using the built-in native Azure Roles-based Access Control (RBAC) roles. Using Azure RBAC roles you can share these resources to other users, service principals, and groups. You can even share access to individuals outside of the tenant they were created within. Once a user has access to the resource version, they can use it to deploy a VM or a Virtual Machine Scale Set.  Here is the sharing matrix that helps understand what the user gets access to:
+
+| Shared with User     | Azure Compute Gallery | Image Definition | Image version |
+|----------------------|----------------------|--------------|----------------------|
+| Azure Compute Gallery | Yes                  | Yes          | Yes                  |
+| Image Definition     | No                   | Yes          | Yes                  |
+
+We recommend sharing at the Gallery level for the best experience. We do not recommend sharing individual image versions. For more information about Azure RBAC, see [Assign Azure roles](../role-based-access-control/role-assignments-portal.md).
+
+### Community gallery (preview)
 
 
 > [!IMPORTANT]
@@ -92,7 +114,7 @@ The regions that a resource is replicated to can be updated after creation time.
 
 Sharing images to the community is a new capability in Azure Compute Gallery. In the preview, you can make your image galleries public, and share them to all Azure customers. When a gallery is marked as a community gallery, all images under the gallery become available to all Azure customers as a new resource type under Microsoft.Compute/communityGalleries. All Azure customers can see the galleries and use them to create VMs. Your original resources of the type `Microsoft.Compute/galleries` are still under your subscription, and private.
 
-### Why share to the community?
+#### Why share to the community?
 
 As a content publisher, you might want to share a gallery to the community:
 
@@ -104,7 +126,7 @@ As a content publisher, you might want to share a gallery to the community:
 
 - You don’t want to deal with the complexity of multi-tenant authentication when sharing with multiple tenants on Azure.
 
-### How sharing with the community works
+#### How sharing with the community works
 
 You [create a gallery resource](create-gallery.md#create-a-community-gallery-preview) under `Microsoft.Compute/Galleries` and choose `community` as a sharing option.
 
@@ -128,7 +150,7 @@ Information from your image definitions will also be publicly available, like wh
 > If you stop sharing your gallery during the preview, you won't be able to re-share it.
 
 
-### Limitations for images shared to the community
+#### Limitations for images shared to the community
 
 There are some limitations for sharing your gallery to the community:
 - Encrypted images aren't supported.
@@ -140,7 +162,7 @@ There are some limitations for sharing your gallery to the community:
 > [!IMPORTANT]
 > Microsoft does not provide support for images you share to the community.
 
-### Community-shared images FAQ
+#### Community-shared images FAQ
 
 **Q: What are the charges for using a gallery that is shared to the community?**
 
@@ -169,11 +191,11 @@ There are some limitations for sharing your gallery to the community:
 **A**: Only the content publishers have control over the regions their images are available in. If you don’t find an image in a specific region, reach out to the publisher directly.
 
 
-## Direct sharing to a tenant or subscription
+### Direct sharing to a tenant or subscription
 
-Give subscription-level or tenant-level access to gallery using direct sharing.
+Give specific subscriptions or tenants access to an Azure Compute Gallery using direct sharing.
 
-### Limitations
+#### Limitations
 
 During the preview:
 - You can only share to subscriptions that are also in the preview.
@@ -182,16 +204,6 @@ During the preview:
 - The user or service principal that will share must be a member of the `Owner` role definition. Only an `Owner` at the scope of the gallery or higher will be able to enable group-based sharing.
 - You need to create a new gallery,  with the property `sharingProfile.permissions` set to `Groups`. When using the CLI to create a gallery, use the `--permissions groups` parameter. You can't use an existing gallery, the property can't currently be updated.
 
-## Explicit sharing using RBAC roles
-
-As the Azure Compute Gallery, definition, and version are all resources, they can be shared using the built-in native Azure Roles-based Access Control (RBAC) roles. Using Azure RBAC roles you can share these resources to other users, service principals, and groups. You can even share access to individuals outside of the tenant they were created within. Once a user has access to the resource version, they can use it to deploy a VM or a Virtual Machine Scale Set.  Here is the sharing matrix that helps understand what the user gets access to:
-
-| Shared with User     | Azure Compute Gallery | Image Definition | Image version |
-|----------------------|----------------------|--------------|----------------------|
-| Azure Compute Gallery | Yes                  | Yes          | Yes                  |
-| Image Definition     | No                   | Yes          | Yes                  |
-
-We recommend sharing at the Gallery level for the best experience. We do not recommend sharing individual image versions. For more information about Azure RBAC, see [Assign Azure roles](../role-based-access-control/role-assignments-portal.md).
 
 ## Activity Log
 The [Activity log](../azure-monitor/essentials/activity-log.md) displays recent activity on the gallery, image, or version including any configuration changes and when it was created and deleted.  View the activity log in the Azure portal, or create a [diagnostic setting to send it to a Log Analytics workspace](../azure-monitor/essentials/activity-log.md#send-to-log-analytics-workspace), where you can view events over time or analyze them with other collected data

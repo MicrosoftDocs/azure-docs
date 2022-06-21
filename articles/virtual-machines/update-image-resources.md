@@ -27,9 +27,6 @@ az sig list -o table
 ```
 
 
-
-
-
 **List the image definitions**
 
 List the image definitions in your gallery, including information about OS type and status, using [az sig image-definition list](/cli/azure/sig/image-definition#az-sig-image-definition-list).
@@ -38,8 +35,6 @@ List the image definitions in your gallery, including information about OS type 
 ```azurecli-interactive 
 az sig image-definition list --resource-group myGalleryRG --gallery-name myGallery -o table
 ```
-
-
 
 
 **List image versions** 
