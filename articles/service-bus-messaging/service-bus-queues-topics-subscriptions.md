@@ -18,7 +18,7 @@ A related benefit is **load-leveling**, which enables producers and consumers to
 Using queues to intermediate between message producers and consumers provides an inherent loose coupling between the components. Because producers and consumers aren't aware of each other, a consumer can be upgraded without having any effect on the producer.
 
 ### Create queues
-You can create queues using the [Azure portal](service-bus-quickstart-portal.md), [PowerShell](service-bus-quickstart-powershell.md), [CLI](service-bus-quickstart-cli.md), or [ARM templates](service-bus-resource-manager-namespace-queue.md). Then, send and receive messages using clients written in [C#](service-bus-dotnet-get-started-with-queues.md), [Java](service-bus-java-how-to-use-queues.md), [Python](service-bus-python-how-to-use-queues.md), and [JavaScript](service-bus-nodejs-how-to-use-queues.md). 
+You can create queues using the [Azure portal](service-bus-quickstart-portal.md), [PowerShell](service-bus-quickstart-powershell.md), [CLI](service-bus-quickstart-cli.md), or [Azure Resource Manager templates (ARM templates)](service-bus-resource-manager-namespace-queue.md). Then, send and receive messages using clients written in [C#](service-bus-dotnet-get-started-with-queues.md), [Java](service-bus-java-how-to-use-queues.md), [Python](service-bus-python-how-to-use-queues.md), and [JavaScript](service-bus-nodejs-how-to-use-queues.md). 
 
 ### Receive modes
 You can specify two different modes in which Service Bus receives messages.
