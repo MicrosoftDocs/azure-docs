@@ -110,7 +110,7 @@ This command may take a few minutes to run. While running, it displays informati
 }
 ```
 
-Make a note of the `resourceGroup` value. You need it for the [clean up resources](#clean-up-resources) section.
+Make a note of the `resourceGroup` value. You need it for the [clean up resources](#5---clean-up-resources) section.
 
 In a browser, go to the app URL in the `app_url`.
 
@@ -225,7 +225,7 @@ When you're finished with the sample app, you can remove all of the resources fo
 
 ### [CLI](#tab/cli)
 
-Delete the resource group by running the following command in the Cloud Shell. Remember that the resource group name was automatically generated for you in the [create a web app](#create-a-web-app) step.
+Delete the resource group by running the following command in the Cloud Shell. Remember that the resource group name was automatically generated for you in the [create a web app](#2---deploy-the-sample-app-to-azure) step.
 
 ```azurecli
 az group delete --name appsvc_rg_Windows_westeurope
