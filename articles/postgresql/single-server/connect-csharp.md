@@ -14,6 +14,8 @@ ms.date: 10/18/2020
 
 # Quickstart: Use .NET (C#) to connect and query data in Azure Database for PostgreSQL - Single Server
 
+[!INCLUDE [applies-to-postgresql-single-server](../includes/applies-to-postgresql-single-server.md)]
+
 This quickstart demonstrates how to connect to an Azure Database for PostgreSQL using a C# application. It shows how to use SQL statements to query, insert, update, and delete data in the database. The steps in this article assume that you are familiar with developing using C#, and that you are new to working with Azure Database for PostgreSQL.
 
 ## Prerequisites
@@ -121,8 +123,6 @@ namespace Driver
 }
 ```
 
-[Having issues? Let us know.](https://aka.ms/postgres-doc-feedback)
-
 ## Step 2: Read data
 Use the following code to connect and read the data using a **SELECT** SQL statement. The code uses NpgsqlCommand class with method:
 - [Open()](https://www.npgsql.org/doc/api/Npgsql.NpgsqlConnection.html#Npgsql_NpgsqlConnection_Open) to establish a connection to PostgreSQL.
@@ -195,8 +195,6 @@ namespace Driver
 }
 ```
 
-[Having issues? Let us know.](https://aka.ms/postgres-doc-feedback)
-
 ## Step 3: Update data
 Use the following code to connect and update the data using an **UPDATE** SQL statement. The code uses NpgsqlCommand class with method:
 - [Open()](https://www.npgsql.org/doc/api/Npgsql.NpgsqlConnection.html#Npgsql_NpgsqlConnection_Open) to establish a connection to PostgreSQL.
@@ -258,8 +256,6 @@ namespace Driver
 
 
 ```
-
-[Having issues? Let us know.](https://aka.ms/postgres-doc-feedback)
 
 ## Step 4: Delete data
 Use the following code to connect and delete data using a **DELETE** SQL statement.
@@ -337,4 +333,3 @@ az group delete \
 > [!div class="nextstepaction"]
 > [Manage Azure Database for MySQL server using CLI](./how-to-manage-server-cli.md)
 
-[Cannot find what you are looking for? Let us know.](https://aka.ms/postgres-doc-feedback)

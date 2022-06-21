@@ -31,7 +31,7 @@ In this article, you learn how to:
 ## Prerequisites
 
 * An Azure account with an active subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-* An Azure Load Testing resource. To create a Load Testing resource, see [Create and run a load test](./quickstart-create-and-run-load-test.md#create_resource).
+* An Azure Load Testing resource. To create a Load Testing resource, see [Create and run a load test](./quickstart-create-and-run-load-test.md#create-an-azure-load-testing-resource).
 * An Apache JMeter test script (JMX).
 * (Optional) Apache JMeter GUI to author your test script. To install Apache JMeter, see [Apache JMeter Getting Started](https://jmeter.apache.org/usermanual/get-started.html).
 
@@ -46,18 +46,26 @@ To edit your JMeter script by using the Apache JMeter GUI:
   1. Select the **CSV Data Set Config** element in your test plan.
 
   1. Update the **Filename** information and remove any file path reference.
-
-        :::image type="content" source="media/how-to-read-csv-data/update-csv-data-set-config.png" alt-text="Screenshot that shows the test runs to compare.":::
-    
-  1. Repeat the previous steps for every CSV Data Set Config element.
   
-  1. Save the JMeter script.
+  1. Optionally, enter the CSV field names in **Variable Names**, when you split the CSV file across test engines.
+
+        Azure Load Testing doesn't preserve the header row when splitting your CSV file. Provide the variable names in the **CSV Data Set Config** element instead of using a header row.
+
+        :::image type="content" source="media/how-to-read-csv-data/update-csv-data-set-config.png" alt-text="Screenshot that shows the JMeter UI to configure a C S V Data Set Config element.":::
+    
+  1. Repeat the previous steps for every **CSV Data Set Config** element in the script.
+  
+  1. Save the JMeter script and add it to your [test plan](./how-to-create-manage-test.md#test-plan).
 
 To edit your JMeter script by using Visual Studio Code or your editor of preference:
 
   1. Open the JMX file in Visual Studio Code.
 
-  1. For each `CSVDataSet`, update the `filename` element and remove any file path reference.
+  1. For each `CSVDataSet`: 
+
+      1. Update the `filename` element and remove any file path reference.
+
+      1. Add the CSV field names as a comma-separated list in `variableNames`.
 
         ```xml
         <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="Search parameters" enabled="true">
@@ -73,11 +81,14 @@ To edit your JMeter script by using Visual Studio Code or your editor of prefere
         </CSVDataSet>
         ```
 
-  1. Save the JMeter script.
+  1. Save the JMeter script and add it to your [test plan](./how-to-create-manage-test.md#test-plan).
 
 ## Add a CSV file to your load test
 
 When you reference an external file in your JMeter script, upload this file to your load test. When the load starts, Azure Load Testing copies all files to a single folder on each of the test engines instances.
+
+> [!IMPORTANT]
+> Azure Load Testing doesn't preserve the header row when splitting your CSV file. Before you add the CSV file to the load test, remove the header row from the file.
 
 ::: zone pivot="experience-azp"
 
@@ -135,11 +146,14 @@ To add a CSV file to your load test:
 
 ## Split CSV input data across test engines
 
-By default, Azure Load Testing copies and processes your input files unmodified across all test engine instances. Azure Load Testing enables you to split the CSV input data evenly across all engine instances. You don't have to make any modifications to the JMX test script.
+By default, Azure Load Testing copies and processes your input files unmodified across all test engine instances. Azure Load Testing enables you to split the CSV input data evenly across all engine instances. If you have multiple CSV files, each file will be split evenly.
 
 For example, if you have a large customer CSV input file, and the load test runs on 10 parallel test engines, then each instance will process 1/10th of the customers.
 
-If you have multiple CSV files, each file will be split evenly.
+> [!IMPORTANT]
+> Azure Load Testing doesn't preserve the header row when splitting your CSV file. 
+> 1. [Configure your JMeter script](#configure-your-jmeter-script) to use variable names when reading the CSV file. 
+> 1. Remove the header row from the CSV file before you add it to the load test.
 
 To configure your load test to split input CSV files:
 

@@ -440,7 +440,7 @@ The `ph` element is used for phonetic pronunciation in SSML documents. The `ph` 
 Phonetic alphabets are composed of phones, which are made up of letters, numbers, or characters, sometimes in combination. Each phone describes a unique sound of speech. This is in contrast to the Latin alphabet, where any letter might represent multiple spoken sounds. Consider the different pronunciations of the letter "c" in the words "candy" and "cease" or the different pronunciations of the letter combination "th" in the words "thing" and "those."
 
 > [!NOTE]
-> At this time, the phonemes tag isn't supported for five voices: et-EE-AnuNeural, ga-IE-OrlaNeural, lt-LT-OnaNeural, lv-LV-EveritaNeural, and mt-MT-GarceNeural.
+> Phonemes tag may not work on all locales.
 
 **Syntax**
 
@@ -771,6 +771,9 @@ Any audio included in the SSML document must meet these requirements:
 * The combined total time for all text and audio files in a single response can't exceed 600 seconds.
 * The audio must not contain any customer-specific or other sensitive information.
 
+> [!NOTE]
+> The 'audio' element is not supported by the Long Audio API.
+
 **Syntax**
 
 ```xml
@@ -806,6 +809,9 @@ You can use the `mstts:backgroundaudio` element to add background audio to your 
 If the background audio provided is shorter than the text-to-speech or the fade out, it loops. If it's longer than the text-to-speech, it stops when the fade out has finished.
 
 Only one background audio file is allowed per SSML document. You can intersperse `audio` tags within the `voice` element to add more audio to your SSML document.
+
+> [!NOTE]
+> The `mstts:backgroundaudio` element is not supported by the Long Audio API.
 
 **Syntax**
 

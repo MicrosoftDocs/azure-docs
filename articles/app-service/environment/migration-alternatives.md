@@ -37,15 +37,15 @@ App Service Environment v3 uses Isolated v2 App Service plans that are priced an
 
 ## Back up and restore
 
-The [back up](../manage-backup.md) and [restore](../web-sites-restore.md) feature allows you to keep your app configuration, file content, and database connected to your app when migrating to your new environment. Make sure you review the [requirements and restrictions](../manage-backup.md#requirements-and-restrictions) of this feature.
+The [back up and restore](../manage-backup.md) feature allows you to keep your app configuration, file content, and database connected to your app when migrating to your new environment. Make sure you review the [details](../manage-backup.md#automatic-vs-custom-backups) of this feature.
 
-The step-by-step instructions in the current documentation for [back up](../manage-backup.md) and [restore](../web-sites-restore.md) should be sufficient to allow you to use this feature. When restoring, the **Storage** option lets you select any backup ZIP file from any existing Azure Storage account container in your subscription. A sample of a restore configuration is given in the following screenshot.
+The step-by-step instructions in the current documentation for [backup and restore](../manage-backup.md) should be sufficient to allow you to use this feature. When restoring, the **Storage** option lets you select any backup ZIP file from any existing Azure Storage account container in your subscription. A sample of a restore configuration is given in the following screenshot.
 
 ![back up and restore sample](./media/migration/back-up-restore-sample.png)
 
 |Benefits     |Limitations    |
 |---------|---------|
-|Quick - should only take 5-10 minutes per app        |Support is limited to [certain database types](../manage-backup.md#what-gets-backed-up)         |
+|Quick - should only take 5-10 minutes per app        |Support is limited to [certain database types](../manage-backup.md#automatic-vs-custom-backups)         |
 |Multiple apps can be restored at the same time (restoration needs to be configured for each app individually)       |Old and new environments as well as supporting resources (for example apps, databases, storage accounts, and containers) must all be in the same subscription        |
 |In-app MySQL databases are automatically backed up without any configuration        |Backups can be up to 10 GB of app and database content, up to 4 GB of which can be the database backup. If the backup size exceeds this limit, you get an error.        |
 |Can restore the app to a snapshot of a previous state         |Using a [firewall enabled storage account](../../storage/common/storage-network-security.md) as the destination for your backups isn't supported   |
@@ -54,7 +54,7 @@ The step-by-step instructions in the current documentation for [back up](../mana
 
 ## Clone your app to an App Service Environment v3
 
-[Cloning your apps](../app-service-web-app-cloning.md) is another feature that can be used to get your **Windows** apps onto your App Service Environment v3. There are limitations with cloning apps. These limitations are the same as those for the App Service Backup feature, see [Back up an app in Azure App Service](../manage-backup.md#requirements-and-restrictions).
+[Cloning your apps](../app-service-web-app-cloning.md) is another feature that can be used to get your **Windows** apps onto your App Service Environment v3. There are limitations with cloning apps. These limitations are the same as those for the App Service Backup feature, see [Back up an app in Azure App Service](../manage-backup.md#whats-included-in-an-automatic-backup).
 
 > [!NOTE]
 > Cloning apps is supported on Windows App Service only.
@@ -76,7 +76,7 @@ To clone an app using the [Azure portal](https://www.portal.azure.com), navigate
 |Benefits     |Limitations     |
 |---------|---------|
 |Can be automated using PowerShell        |Only supported on Windows App Service        |
-|Multiple apps can be cloned at the same time (cloning needs to be configured for each app individually or using a script)       |Support is limited to [certain database types](../manage-backup.md#what-gets-backed-up)         |
+|Multiple apps can be cloned at the same time (cloning needs to be configured for each app individually or using a script)       |Support is limited to [certain database types](../manage-backup.md#automatic-vs-custom-backups)         |
 |Can integrate with [Azure Traffic Manager](../../traffic-manager/traffic-manager-overview.md) and [Azure Application Gateway](../../application-gateway/overview.md) to distribute traffic across old and new environments       |Old and new environments as well as supporting resources (for example apps, databases, storage accounts, and containers) must all be in the same subscription        |
 
 ## Manually create your apps on an App Service Environment v3

@@ -213,12 +213,13 @@ Once your Azure Blob Storage account is created, you'll create a template where 
 
 ### Create Azure Resource Manager (ARM) template
 
-Create an ARM template to deploy a Container Apps environment including:
+Create an ARM template to deploy a Container Apps environment that includes:
 
 * the associated Log Analytics workspace
-* Application Insights resource for distributed tracing
+* the Application Insights resource for distributed tracing
 * a dapr component for the state store
-* two dapr-enabled container apps
+* the two dapr-enabled container apps: [hello-k8s-node](https://hub.docker.com/r/dapriosamples/hello-k8s-node) and [hello-k8s-python](https://hub.docker.com/r/dapriosamples/hello-k8s-python)
+  
 
 Save the following file as _hello-world.json_:
 
@@ -343,7 +344,7 @@ Save the following file as _hello-world.json_:
         "managedEnvironmentId": "[resourceId('Microsoft.App/managedEnvironments/', parameters('environment_name'))]",
         "configuration": {
           "ingress": {
-            "external": true,
+            "external": false,
             "targetPort": 3000
           },
           "dapr": {
@@ -358,6 +359,12 @@ Save the following file as _hello-world.json_:
             {
               "image": "dapriosamples/hello-k8s-node:latest",
               "name": "hello-k8s-node",
+              "env": [
+                { 
+                   "name": "APP_PORT",
+                   "value": "3000"
+                }
+              ],  
               "resources": {
                 "cpu": 0.5,
                 "memory": "1.0Gi"
@@ -416,12 +423,12 @@ Save the following file as _hello-world.json_:
 
 ### Create Azure Bicep templates
 
-Create a bicep template to deploy a Container Apps environment including:
+Create a bicep template to deploy a Container Apps environment that includes:
 
 * the associated Log Analytics workspace
-* Application Insights resource for distributed tracing
+* the Application Insights resource for distributed tracing
 * a dapr component for the state store
-* the two dapr-enabled container apps
+* the two dapr-enabled container apps: [hello-k8s-node](https://hub.docker.com/r/dapriosamples/hello-k8s-node) and [hello-k8s-python](https://hub.docker.com/r/dapriosamples/hello-k8s-python)
 
 Save the following file as _hello-world.bicep_:
 
@@ -512,7 +519,7 @@ resource nodeapp 'Microsoft.App/containerApps@2022-03-01' = {
     managedEnvironmentId: environment.id
     configuration: {
       ingress: {
-        external: true
+        external: false
         targetPort: 3000
       }
       dapr: {
@@ -527,6 +534,12 @@ resource nodeapp 'Microsoft.App/containerApps@2022-03-01' = {
         {
           image: 'dapriosamples/hello-k8s-node:latest'
           name: 'hello-k8s-node'
+          env: [
+            {
+              name: 'APP_PORT'
+              value: '3000'
+            }
+          ]
           resources: {
             cpu: json('0.5')
             memory: '1.0Gi'

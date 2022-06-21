@@ -5,6 +5,7 @@ ms.topic: conceptual
 ms.date: 06/07/2019
 ms.devlang: csharp, java, javascript, python
 ms.custom: "devx-track-python, devx-track-csharp"
+ms.reviewer: rijolly
 ---
 
 # Telemetry correlation in Application Insights

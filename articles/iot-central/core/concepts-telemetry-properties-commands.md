@@ -3,7 +3,7 @@ title: Telemetry, property, and command payloads in Azure IoT Central | Microsof
 description: Azure IoT Central device templates let you specify the telemetry, properties, and commands of a device must implement. Understand the format of the data a device can exchange with IoT Central.
 author: dominicbetts
 ms.author: dobett
-ms.date: 12/27/2021
+ms.date: 06/08/2022
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central

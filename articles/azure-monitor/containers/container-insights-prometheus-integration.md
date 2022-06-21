@@ -3,6 +3,7 @@ title: Configure Container insights Prometheus Integration | Microsoft Docs
 description: This article describes how you can configure the Container insights agent to scrape metrics from Prometheus with your Kubernetes cluster.
 ms.topic: conceptual
 ms.date: 04/22/2020
+ms.reviewer: aul
 ---
 
 # Configure scraping of Prometheus metrics with Container insights

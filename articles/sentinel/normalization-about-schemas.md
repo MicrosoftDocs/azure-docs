@@ -177,18 +177,7 @@ For example:
 | **FQDN** | `appserver.contoso.com` | \<empty\> | 
 
 
-When the value provided by the source is an FQDN, or when the value may be either and FQDN or a short hostname, the parser should calculate the 4 values. The following code snippet would perform this calculation, in this case setting the `Dvc` fields based on ab input in the `Host` field
-
-``` KQL
-    | extend SplitHostname = split(Host,".")
-    | extend 
-        DvcDomain = tostring(strcat_array(array_slice(SplitHostname, 1, -1), '.')),
-        DvcFQDN = iif (array_length(SplitHostname) > 1, Hostname, ''),
-        DvcDomainType = iif (array_length(SplitHostname) > 1, 'FQDN', '')
-    | extend
-        DvcHostname = tostring(SplitHostname[0])    
-    | project-away SplitHostname
-```
+When the value provided by the source is an FQDN, or when the value may be either and FQDN or a short hostname, the parser should calculate the 4 values. Use the ASIM helper functions `_ASIM_ResolveFQDN`, `_ASIM_ResolveSrcFQDN`, `_ASIM_ResolveDstFQDN`, and `_ASIM_ResolveDvcFQDN` to easily set all four fields based on a single input value. For more information, see [ASIM helper functions](normalization-functions.md).
 
 
 #### The device ID
@@ -214,7 +203,7 @@ The allowed values for a device ID type are:
 | **VectraId** | A Vectra AI assigned resource ID.|
 | **Other** | An ID type not listed above.| 
 
-For example, the Azure Monitor [VM Insights solution](../azure-monitor/vm/vminsights-log-search.md) provides network sessions information in the `VMConnection`. The table provides an Azure Resource ID in the `_ResourceId` field and a VM insights specific device ID in the `Machine` field. Use the following mapping to represent those IDs:
+For example, the Azure Monitor [VM Insights solution](../azure-monitor/vm/vminsights-log-query.md) provides network sessions information in the `VMConnection`. The table provides an Azure Resource ID in the `_ResourceId` field and a VM insights specific device ID in the `Machine` field. Use the following mapping to represent those IDs:
 
 | Field | Map to  |
 | ----- | ----- | 

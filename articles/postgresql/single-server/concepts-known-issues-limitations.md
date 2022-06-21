@@ -11,6 +11,8 @@ ms.date: 11/30/2021
 
 # Azure Database for PostgreSQL - Known issues and limitations
 
+[!INCLUDE [applies-to-postgresql-single-server](../includes/applies-to-postgresql-single-server.md)]
+
 This page provides a list of known issues in Azure Database for PostgreSQL that could impact your application. It also lists any mitigation and recommendations to work around the issue.
 
 ## Intelligent Performance - Query Store
