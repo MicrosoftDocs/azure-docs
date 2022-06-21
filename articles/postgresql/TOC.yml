@@ -688,7 +688,19 @@
   - name: How-to guides
     items:
     - name: Connect and query
-      href: hyperscale/howto-connect.md
+      items:
+        - name: Psql client
+          href: hyperscale/howto-connect.md
+        - name: Python
+          href: hyperscale/howto-app-stacks-python.md
+        - name: Node.js
+          href: hyperscale/howto-app-stacks-nodejs.md
+        - name: C#
+          href: hyperscale/howto-app-stacks-Csharp.md
+        - name: Java
+          href: hyperscale/howto-app-stacks-java.md
+        - name: Ruby
+          href: hyperscale/howto-app-stacks-ruby.md
     - name: Build scalable apps
       items:
       - name: Overview
@@ -769,18 +781,6 @@
         displayName: read-only, hyperscale
       - name: Useful diagnostic queries
         href: hyperscale/howto-useful-diagnostic-queries.md
-      - name: App Stacks - Sample apps
-        items:
-        - name: python
-          href: hyperscale/howto-app-stacks-python.md
-        - name: Node.js
-          href: hyperscale/howto-app-stacks-nodejs.md
-        - name: C#
-          href: hyperscale/howto-app-stacks-Csharp.md
-        - name: Java
-          href: hyperscale/howto-app-stacks-java.md
-        - name: Ruby
-          href: hyperscale/howto-app-stacks-ruby.md
   - name: Reference
     items:
       - name: PostgreSQL versions
