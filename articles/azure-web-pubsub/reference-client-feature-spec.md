@@ -5,7 +5,7 @@ author: zackliu
 ms.author: chenyl
 ms.service: azure-web-pubsub
 ms.topic: conceptual 
-ms.date: 6/17/2022
+ms.date: 6/21/2022
 ---
 
 #  Client Feature Spec
