@@ -34,14 +34,14 @@ The next sections discuss these points within the context of a migration from Or
 
 #### Migrate unused tables?
 
->[!TIP]
->In legacy systems, it's not unusual for tables to become redundant over time&mdash;these don't need to be migrated in most cases.
-
 It makes sense to only migrate tables that are in use. Tables that aren't active can be archived rather than migrated, so that the data is available if needed in the future. It's best to use system metadata and log files rather than documentation to determine which tables are in use, because documentation can be out of date.
 
 Oracle system catalog tables and logs contain information that can be used to determine when a given table was last accessed&mdash;which in turn can be used to decide whether or not a table is a candidate for migration.
 
 If you've licensed the [Oracle Diagnostic Pack](https://www.oracle.com/technetwork/database/enterprise-edition/overview/diagnostic-pack-11g-datasheet-1-129197.pdf), then you have access to Active Session History, which you can use to determine when a table was last accessed.
+
+>[!TIP]
+>In legacy systems, it's not unusual for tables to become redundant over time&mdash;these don't need to be migrated in most cases.
 
 Here's an example query that looks for the usage of a specific table within a given time window:
 
@@ -75,17 +75,14 @@ This query may take a while to run if you have been running numerous queries.
 
 #### What's the best migration approach to minimize risk and impact on users?
 
-> [!TIP]
-> Migrate the existing model as-is initially, even if a change to the data model is planned in the future.
-
-This question comes up frequently since companies may want to lower the impact of changes on the data warehouse data model to improve agility. Companies often see an opportunity to further modernize or transform their data during an ETL migration. This approach carries a higher risk because it changes multiple factors simultaneously, making it difficult to compare the outcomes of the old system vs the new. Making data model changes here could also impact upstream or downstream ETL jobs to other systems. Because of that risk, it's better to redesign on this scale after the data warehouse migration.
+This question comes up frequently since companies may want to lower the impact of changes on the data warehouse data model to improve agility. Companies often see an opportunity to further modernize or transform their data during an ETL migration. This approach carries a higher risk because it changes multiple factors simultaneously, making it difficult to compare the outcomes of the old system versus the new. Making data model changes here could also impact upstream or downstream ETL jobs to other systems. Because of that risk, it's better to redesign on this scale after the data warehouse migration.
 
 Even if a data model is intentionally changed as part of the overall migration, it's good practice to migrate the existing model as-is to Azure Synapse, rather than do any re-engineering on the new platform. This approach has the advantage of minimizing the effect on existing production systems, while also benefiting from the performance and elastic scalability of the Azure platform for one-off re-engineering tasks.
 
-#### Data mart migration: stay physical or go virtual?
-
 > [!TIP]
-> Virtualizing data marts can save on storage and processing resources.
+> Migrate the existing model as-is initially, even if a change to the data model is planned in the future.
+
+#### Data mart migration: stay physical or go virtual?
 
 In legacy Oracle data warehouse environments, it's common practice to create many data marts that are structured to provide good performance for ad hoc self-service queries and reports for a given department or business function within an organization. A data mart typically consists of a subset of the data warehouse that contains aggregated versions of the data in a form that enables users to easily query that data with fast response times via user-friendly query tools such as Oracle BI EE, Microsoft Power BI, Tableau, or MicroStrategy. This form is generally a dimensional data model, and one use of data marts is to expose the data in a usable form even if the underlying warehouse data model is something different, such as a data vault.
 
@@ -94,9 +91,9 @@ You can use separate data marts for individual business units within an organiza
 If these data marts are implemented as physical tables, they'll require extra storage resources and processing to build and refresh them regularly. Also, the data in the mart will only be as up to date as the last refresh operation, and so may be unsuitable for highly volatile data dashboards.
 
 > [!TIP]
-> The performance and scalability of Azure Synapse enables virtualization without sacrificing performance.
+> Virtualizing data marts can save on storage and processing resources.
 
-With the advent of lower-cost scalable MPP architectures, such as Azure Synapse, and their inherent performance characteristics, you can provide data mart functionality without having to instantiate the mart as a set of physical tables. This functionality is achieved by effectively virtualizing the data marts via SQL views onto the main data warehouse, or via a virtualization layer using features such as views in Azure or third-party virtualization products such as **Denodo**. This approach simplifies or eliminates the need for extra storage and aggregation processing and reduces the overall number of database objects to be migrated.
+With the advent of lower-cost scalable MPP architectures, such as Azure Synapse, and their inherent performance characteristics, you can provide data mart functionality without having to instantiate the mart as a set of physical tables. This functionality is achieved by effectively virtualizing the data marts via SQL views onto the main data warehouse, or via a virtualization layer using features such as views in Azure or third-party virtualization products such as [Denodo](https://www.denodo.com/). This approach simplifies or eliminates the need for extra storage and aggregation processing and reduces the overall number of database objects to be migrated.
 
 There's another potential benefit of this approach. By implementing the aggregation and join logic within a virtualization layer, and presenting external reporting tools via a virtualized view, the processing required to create these views is pushed down into the data warehouse, which is generally the best place to run joins, aggregations, and other related operations on large data volumes.
 
@@ -109,6 +106,9 @@ The primary drivers for implementing a virtual data mart over a physical data ma
 - Elimination of ETL jobs to migrate and simplify data warehouse architecture in a virtualized environment.
 
 - Performance: although physical data marts have historically performed better, virtualization products now implement intelligent caching techniques to mitigate this difference.
+
+> [!TIP]
+> The performance and scalability of Azure Synapse enables virtualization without sacrificing performance.
 
 ### Data migration from Oracle
 
@@ -131,9 +131,9 @@ SELECT
 FROM dual
 ```
 
-The database size equals the size of (data files + temp files + online/offline redo log files + control files). Overall DB size includes used space and free space.
+The database size equals the size of `data files + temp files + online/offline redo log files + control files`. Overall database size includes used space and free space.
 
-Here's an example query that will give a breakdown of disk space used by table data and indexes:
+The following example query gives a breakdown of the disk space used by table data and indexes:
 
 ```sql
 SELECT
@@ -172,14 +172,11 @@ You can get an accurate number for the volume of data to be migrated for a given
 
 #### Oracle data type mapping
 
-> [!TIP]
-> Assess the impact of unsupported data types as part of the preparation phase.
-
 Some Oracle data types aren't directly supported in Azure Synapse. The following table shows these data types, together with the recommended approach for mapping them.
 
-| **Oracle data type** | **Azure Synapse data type** |
+| Oracle data type | Azure Synapse data type |
 |-|-|
-| BFILE | Not supported. Map to VARBINARY (MAX). |
+| BFILE | Not supported. Map to VARBINARY(MAX). |
 | BINARY_FLOAT | Not supported. Map to FLOAT. |
 | BINARY_DOUBLE | Not supported. Map to DOUBLE. |
 | BLOB | Not directly supported. Replace with VARBINARY(MAX). |
@@ -213,13 +210,14 @@ Some Oracle data types aren't directly supported in Azure Synapse. The following
 | VARCHAR | VARCHAR |
 | VARCHAR2 | VARCHAR |
 | XMLType | Not supported. Store XML data in a VARCHAR. |
-| User-defined types: Oracle allows the definition of user-defined objects that can contain a series of individual fields, each with their own definition and default values. These user-defined objects can then be referenced within a table definition in the same way as built-in data types (for example, NUMBER or VARCHAR).    | Azure Synapse doesn't currently support this feature. If the data to be migrated includes user-defined data types, they must be either "flattened" into a conventional table definition, or normalized to a separate table in the case of arrays of data.   |
+
+Oracle also supports defining user-defined objects that can contain a series of individual fields, each with their own definition and default values. Those objects can then be referenced within a table definition in the same way as built-in data types like `NUMBER` or `VARCHAR`. Azure Synapse doesn't currently support user-defined types. If the data you need to migrate includes user-defined data types, either "flatten" them into a conventional table definition, or if they're arrays of data, normalize them in a separate table.
 
 #### Use SQL queries to find data types
 
-By querying the Oracle static data dictionary view DBA_TAB_COLUMNS, you can determine which data types are in use in a schema and whether or not any of these data types need to be changed. Use SQL queries to find the columns with data types that don't map directly to data types in Azure Synapse Analytics, and also to count the number of occurrences of each data type in any Oracle schema that don't map directly. Using the results from these queries in combination with the data type comparison table, you can determine which data types need to be changed in a Synapse environment.
+By querying the Oracle static data dictionary view `DBA_TAB_COLUMNS`, you can determine which data types are in use in a schema and whether any of those data types need to be changed. Use SQL queries to find the columns in any Oracle schema with data types that don't map directly to data types in Azure Synapse, and also to count the number of occurrences of each data type that doesn't map directly. By using the results from these queries in combination with the data type comparison table, you can determine which data types need to be changed in a Synapse environment.
 
-To find the columns with data types that don't map to data types in Azure Synapse Analytics, use the following query replacing \<owner_name\> with the relevant owner of your schema:
+To find the columns with data types that don't map to data types in Azure Synapse, run the following query after you replace `<owner_name>` with the relevant owner of your schema:
 
 ```sql
 SELECT owner, table_name, column_name, data_type
@@ -241,90 +239,90 @@ GROUP BY data_type 
 ORDER BY data_type;
 ```
 
-Microsoft offers SQL Server Migration Assistant (SSMA) to automate migration of data warehouses from legacy Oracle environments, including the mapping of data types. As well, you can use Azure Migration Services to help with the migration process. Third-party vendors also offer tools and services to automate migration. If Oracle Data Integrator or a third-party ETL tool, such as Informatica or Talend, is already in use in the Oracle environment, they can implement any required data transformations. The next section explores migration of existing ETL processes.
+Microsoft offers SQL Server Migration Assistant (SSMA) for Oracle to automate migration of data warehouses from legacy Oracle environments, including the mapping of data types. You can also use [Azure Database Migration Services](/services/database-migration/) to help plan and perform a migration from environments like Oracle. Third-party vendors also offer tools and services to automate migration. If [Oracle Data Integrator](https://www.oracle.com/middleware/technologies/data-integrator.html) (ODI) or a third-party ETL tool, such as [Informatica](https://www.informatica.com/) or [Talend](https://www.talend.com/), is already in use in the Oracle environment, you can use that tool to implement any required data transformations. The next section explores migration of existing ETL processes.
 
 ## ETL migration considerations
 
 ### Initial decisions about Oracle ETL migration
 
-> [!TIP]
-> Plan the approach to ETL migration ahead of time and leverage Azure facilities where appropriate.
+For ETL/ELT processing, legacy Oracle data warehouses often use custom-built scripts, ODI, or a third-party ETL tool such as Informatica or Talend. Sometimes, there's a combination of approaches that has evolved over time. When planning a migration to Azure Synapse, you need to determine the best way to implement the required ETL/ELT processing in the new environment, while minimizing the cost and risk involved.
 
-For ETL/ELT processing, legacy Oracle data warehouses may use custom-built scripts, Oracle Data Integrator (ODI), or a third-party ETL tool such as Informatica or Talend. Sometimes, there's a combination of approaches that has evolved over time. When planning a migration to Azure Synapse, you need to determine the best way to implement the required ETL/ELT processing in the new environment, while minimizing the cost and risk involved.
-
-The following sections discuss migration options and make recommendations for various use cases. This flowchart summarizes one approach:
+The following flowchart summarizes one approach:
 
 :::image type="content" source="../media/2-etl-load-migration-considerations/migration-options-flowchart.png" border="true" alt-text="Flowchart of migration options and recommendations.":::
 
 The first step is always to build an inventory of ETL/ELT processes that need to be migrated. With the standard "built-in" Azure features, some existing processes may not need to move. For planning purposes, it's important to understand the scale of the migration to be performed.
 
+> [!TIP]
+> Plan the approach to ETL migration ahead of time and leverage Azure facilities where appropriate.
+
 In the flowchart, decision 1 depends on whether you're migrating to a completely Azure-native environment. If so, we recommend that you re-engineer the ETL processing using [Pipelines and activities in Azure Data Factory](../../../data-factory/concepts-pipelines-activities.md?msclkid=b6ea2be4cfda11ec929ac33e6e00db98&tabs=data-factory) or [Azure Synapse Pipelines](../../get-started-pipelines.md?msclkid=b6e99db9cfda11ecbaba18ca59d5c95c). If you're not moving to a completely Azure-native environment, then decision 2 depends on whether an existing third-party ETL tool is already in use.
 
-In the Oracle environment, some (or all) of the ETL processing may be performed by custom scripts using Oracle-specific utilities such as SQL\*Developer, SQL\*Loader or Data Pump. The approach in this case is to re-engineer using ADF.
+In the Oracle environment, some (or all) of the ETL processing may be performed by custom scripts using Oracle-specific utilities such as SQL\*Developer, SQL\*Loader or Data Pump. The approach in this case is to re-engineer using Azure Data Factory.
 
-If Oracle Data Integrator (ODI) or a third-party ETL tool such as Informatica or Talend is already in use&mdash;especially if there's a large investment in skills or several existing workflows and schedules use that tool&mdash;then decision 3 is whether the tool can efficiently support Azure Synapse as a target environment. Ideally, the tool will include "native" connectors that can use Azure facilities like PolyBase or [COPY INTO](/sql/t-sql/statements/copy-into-transact-sql), for the most efficient data loading. There's a way to call an external process, such as PolyBase or COPY INTO, and pass in the appropriate parameters. In this case, use existing skills and workflows, with Azure Synapse as the new target environment.
+If ODI or a third-party ETL tool such as Informatica or Talend is already in use&mdash;especially if there's a large investment in skills or several existing workflows and schedules use that tool&mdash;then decision 3 is whether the tool can efficiently support Azure Synapse as a target environment. Ideally, the tool will include native connectors that can use Azure facilities like [PolyBase](/sql/relational-databases/polybase) or [COPY INTO](/sql/t-sql/statements/copy-into-transact-sql), for the most efficient data loading. But even without native connectors, there's generally a way that you can call external processes, such as PolyBase or COPY INTO, and pass in applicable parameters. In this case, use existing skills and workflows, with Azure Synapse as the new target environment.
 
-If you're using ODI for ELT processing, then ODI Knowledge Modules would be needed for Azure Synapse Analytics. If these modules aren't available to you in your organization, but you have ODI, then you can use ODI to generate flat files that can be moved to Azure and ingested into Azure Data Lake Storage Gen2 for loading into Azure Synapse Analytics.
+If you're using ODI for ELT processing, then ODI Knowledge Modules would be needed for Azure Synapse. If these modules aren't available to you in your organization, but you have ODI, then you can use ODI to generate flat files that can be moved to Azure and ingested into Azure Data Lake Storage for loading into Azure Synapse.
 
 > [!TIP]
 > Consider running ETL tools in Azure to leverage performance, scalability, and cost benefits.
 
-If you decide to retain an existing third-party ETL tool, you can run that tool within the Azure environment (rather than on an existing on-premises ETL server), and have Azure Data Factory handle the overall orchestration of the existing workflows. So, decision 4 is whether to leave the existing tool running as-is or move it into the Azure environment to achieve cost, performance, and scalability benefits.
+If you decide to retain an existing third-party ETL tool, you can run that tool within the Azure environment (rather than on an existing on-premises ETL server), and have Data Factory handle the overall orchestration of the existing workflows. So, decision 4 is whether to leave the existing tool running as-is or move it into the Azure environment to achieve cost, performance, and scalability benefits.
 
 ### Re-engineer existing Oracle-specific scripts
 
-> [!TIP]
-> The inventory of ETL tasks to be migrated should include scripts and stored procedures.
-
-If some or all of the existing Oracle warehouse ETL/ELT processing is handled by custom scripts that utilize Oracle-specific utilities, such as SQL\*Plus, SQL\*Developer, SQL\*Loader, or Data Pump, then you'll need to recode these scripts for the new Azure Synapse environment. Similarly, if ETL processes have been implemented using stored procedures in Oracle, then these processes will also have to be recoded.
+If some or all of the existing Oracle warehouse ETL/ELT processing is handled by custom scripts that use Oracle-specific utilities, such as SQL\*Plus, SQL\*Developer, SQL\*Loader, or Data Pump, then you'll need to recode these scripts for the new Azure Synapse environment. Similarly, if ETL processes have been implemented using stored procedures in Oracle, then these processes will also have to be recoded.
 
 Some elements of the ETL process are easy to migrate, for example, by simple bulk data load into a staging table from an external file. It may even be possible to automate those parts of the process, for example, by using Azure Synapse COPY INTO or PolyBase instead of SQL\*Loader. Other parts of the process that contain arbitrary complex SQL and/or stored procedures will take more time to re-engineer.
 
 > [!TIP]
-> Use EXPLAIN to find SQL incompatibilities.
+> The inventory of ETL tasks to be migrated should include scripts and stored procedures.
 
 One way of testing Oracle SQL for compatibility with Azure Synapse is to capture some representative SQL statements from a join of 
-Oracle v\$active\_session_history and v\$SQL to get the sql_text, then prefix those queries with EXPLAIN. Assuming a like-for-like migrated data model in Azure Synapse, run those EXPLAIN statements in Azure Synapse. Any incompatible SQL will give an error. You can use this information to determine the scale of the re-coding task.
+Oracle v\$active\_session_history and v\$SQL to get the sql_text, then prefix those queries with `EXPLAIN`. Assuming a like-for-like migrated data model in Azure Synapse, run those `EXPLAIN` statements in Azure Synapse. Any incompatible SQL will give an error. You can use this information to determine the scale of the re-coding task.
+
+> [!TIP]
+> Use `EXPLAIN` to find SQL incompatibilities.
+
+In the worst case, manual re-coding may be necessary. However, there are products and services available from Microsoft partners to assist with re-engineering Oracle-specific code. For example, [Ispirer](https://www.ispirer.com/products/Oracle-to-azure-sql-data-warehouse-migration) offers tools and services to migrate Oracle SQL and stored procedures to Azure Synapse.
 
 > [!TIP]
 > Partners offer products and skills to assist in re-engineering Oracle-specific code.
 
-In the worst case, manual re-coding may be necessary. However, there are products and services available from Microsoft partners to assist with re-engineering Oracle-specific code. For example, [Ispirer](https://www.ispirer.com/products/Oracle-to-azure-sql-data-warehouse-migration) offers tools and services to migrate Oracle SQL and stored procedures to Azure Synapse.
-
 ### Use existing third-party ETL tools
+
+In many cases, the existing legacy data warehouse system will already be populated and maintained by a third-party ETL product, such as Informatica or Talend. See [Azure Synapse Analytics data integration partners](../../partner/data-integration.md) for a list of current Microsoft data integration partners for Azure Synapse.
+
+ The Oracle community frequently uses several popular ETL products. The following paragraphs discuss the most popular ETL tools for Oracle warehouses. You can run all of those products within a VM in Azure, and use them to read and write Azure databases and files.
 
 > [!TIP]
 > Leverage investment in existing third-party tools to reduce cost and risk.
 
-In many cases, the existing legacy data warehouse system will already be populated and maintained by a third-party ETL product, such as Informatica or Talend. The Oracle community frequently uses several popular ETL products. See [Azure Synapse Analytics data integration partners](../../partner/data-integration.md) for a list of current Microsoft data integration partners for Azure Synapse.
-
-The following paragraphs discuss the most popular ETL tools currently in use with Oracle warehouses. You can run all of these products within a VM in Azure, and use them to read and write Azure databases and files.
-
 #### Ab Initio
 
-Ab Initio is a Business Intelligence platform comprised of six data processing products: Co\>Operating System, The Component Library, Graphical Development Environment, Enterprise Meta\>Environment, Data Profiler, and Conduct\>It. 
+[Ab Initio](https://www.abinitio.com/) is a Business Intelligence platform comprised of six data processing products: Co\>Operating System, The Component Library, Graphical Development Environment, Enterprise Meta\>Environment, Data Profiler, and Conduct\>It. 
 
-As a powerful GUI-based, parallel processing tool for ETL data management and analysis, Ab Initio can run in a VM within Azure and can read/write Azure Storage for files and SQL Server databases via the 'Input Table', 'Output Table', and 'Run SQL' Ab Initio components.
+As a powerful GUI-based, parallel processing tool for ETL data management and analysis, Ab Initio can run in a VM within Azure and can read/write Azure Storage for files and SQL Server databases via the *Input Table*, *Output Table*, and *Run SQL* Ab Initio components.
 
 #### Qlik
 
-[Qlik CloudBeam](https://www.attunity.com/products/cloudbeam/attunity-cloudbeam-azure/) for Azure Synapse enables automated and optimized data loading from many enterprise databases into Microsoft Azure Synapse&mdash;quickly, easily, and affordably. CloudBeam is available in the Microsoft Azure Marketplace.
+[Qlik CloudBeam](https://www.attunity.com/products/cloudbeam/attunity-cloudbeam-azure/) for Azure Synapse supports automated and optimized data loading from many enterprise databases into Microsoft Azure Synapse&mdash;quickly, easily, and affordably. CloudBeam is available in the Microsoft Azure Marketplace.
 
-[Qlik Replicate for Microsoft Migrations](https://www.qlik.com/us/products/technology/microsoft) is for Microsoft customers who want to migrate data from popular commercial and open-source databases to the Microsoft Data Platform, including Oracle to Azure Synapse.
+[Qlik Replicate for Microsoft Migrations](https://www.qlik.com/us/products/technology/microsoft) is for Microsoft customers who want to migrate data from popular commercial and open-source databases to the Microsoft data platform, including Oracle to Azure Synapse.
 
 Qlik benefits for Azure Synapse include:
 
-- Continuous database to Azure Synapse loading
+- Continuous database to Azure Synapse loading.
 
-- Quick transfer speeds with guaranteed delivery
+- Quick transfer speeds with guaranteed delivery.
 
-- Intuitive administration and scheduling
+- Intuitive administration and scheduling.
 
-- Data integrity assurance by way of check mechanisms
+- Data integrity assurance by way of check mechanisms.
 
-- Monitoring for peace-of-mind, control, and auditing
+- Monitoring for peace-of-mind, control, and auditing.
 
-- Industry-standard SSL encryption for security
+- Industry-standard SSL encryption for security.
 
 #### Informatica
 
@@ -400,7 +398,7 @@ Once the database tables to be migrated have been created in Azure Synapse, you 
 - **File Extract**: Extract the data from the Oracle tables to flat delimited files, normally in CSV format. There are several ways:
 
     - Use standard Oracle SQLPlus, SQL Developer, or SQLcl
-    - Use Oracle Data Integrator (ODI) to generate flat files
+    - Use ODI to generate flat files
     - Use Azure Data Factory Oracle Connector parallel copy to unload Oracle tables in parallel to enable loading of data by partitions
     - Use third-party tooling such as [Informatica Fast Clone](https://docs.informatica.com/data-replication/fast-clone/10-0/installation-guide/installation-overview/fast-clone-installation-overview.html) direct path (fastest method) or conventional path unload
     - Use a third-party ETL tool such as Informatica or Talend
@@ -449,11 +447,11 @@ To summarize, our recommendations for migrating data and associated ETL processe
 
 - Identify and understand the most efficient tools for data extraction and loading in both Oracle and Azure environments. Use the appropriate tools in each phase of the process.
 
-- Use Azure facilities, such as Azure Data Factory, to orchestrate and automate the migration process while minimizing impact on the Oracle system.
+- Use Azure facilities, such as Data Factory, to orchestrate and automate the migration process while minimizing impact on the Oracle system.
 
 ## Appendices: Example techniques for extracting Oracle data
 
-Many techniques can be used to extract Oracle data when migrating from Oracle to Azure Synapse Analytics. More details on Oracle SQL Developer and Azure Data Factory Oracle Connector are included below:
+Many techniques can be used to extract Oracle data when migrating from Oracle to Azure Synapse. More details on Oracle SQL Developer and Azure Data Factory Oracle Connector are included below:
 
 ### Oracle SQL Developer Data Extract
 
@@ -471,7 +469,7 @@ For relatively small tables, this option could be useful if there are any proble
 
 ### Using Azure Data Factory Oracle Connector parallel copy 
 
-You can also use the Oracle Connector in Azure Data Factory (ADF) to unload large Oracle tables in parallel, in order to enable loading of data by partitions. The Azure Data Factory Oracle connector provides built-in data partitioning to copy data from Oracle in parallel. You can find data partitioning options on the Source tab of the copy activity.
+You can also use the Oracle Connector in Azure Data Factory to unload large Oracle tables in parallel, in order to enable loading of data by partitions. The Azure Data Factory Oracle connector provides built-in data partitioning to copy data from Oracle in parallel. You can find data partitioning options on the Source tab of the copy activity.
 
 :::image type="content" source="../media/2-etl-load-migration-considerations/azure-data-factory-source-tab.png" border="true" alt-text="Screenshot of Azure Data Factory Oracle partition options in the source tab.":::
 
@@ -479,7 +477,7 @@ When you enable partitioned copy, ADF runs parallel queries against your Oracle 
 
 If you use ADF, we recommended that you enable parallel copy with data partitioning, especially when you plan to migrate large amounts of data from your Oracle database. The following are suggested configurations for different scenarios. When you copy data into file-based data store, writing to a folder as multiple files (only specify folder name) is faster than writing to a single file.
 
-| **Scenario** | **Suggested settings** |
+| Scenario | Suggested settings |
 |--|--|
 | Full load from large table, with physical partitions | **Partition option**: Physical partitions of table.<br><br> During execution, ADF automatically detects the physical partitions, and copies data by partitions. |
 | Full load from large table, without physical partitions, while with an integer column for data partitioning | **Partition options**: Dynamic range partition.<br><br> **Partition column**: Specify the column used to partition data. If not specified, the primary key column is used. |

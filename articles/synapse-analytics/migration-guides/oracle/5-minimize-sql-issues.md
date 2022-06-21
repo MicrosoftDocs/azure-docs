@@ -107,7 +107,7 @@ Oracle-specific features can often be replaced by Azure Synapse features. Howeve
 
 - **User-defined types**: Oracle supports defining user-defined objects that can contain a series of individual fields, each with their own definition and default values. Those objects can then be referenced within a table definition in the same way as built-in data types like `NUMBER` or `VARCHAR`.
 
-  Azure Synapse doesn't currently support this feature. If the data you need to migrate includes user-defined data types, either "flatten" them into a conventional table definition, or if arrays of data, normalize them in a separate table.
+  Azure Synapse doesn't currently support user-defined types. If the data you need to migrate includes user-defined data types, either "flatten" them into a conventional table definition, or if they're arrays of data, normalize them in a separate table.
 
 ### Oracle data type mapping
 
@@ -153,7 +153,7 @@ Most Oracle data types have a direct equivalent in Azure Synapse. The following 
 >[!TIP]
 >Assess the number and type of unsupported data types during your preparation phase.
 
-Third-party vendors offer tools and services to automate migration, including the mapping of data types. If a third-party ETL tool, such as Informatica or Talend, is already in use in the Oracle environment, use that tool to implement any required data transformations.
+Third-party vendors offer tools and services to automate migration, including the mapping of data types. If a third-party ETL tool, such as [Informatica](https://www.informatica.com/) or [Talend](https://www.talend.com/), is already in use in the Oracle environment, use that tool to implement any required data transformations.
 
 #### Data Definition Language (DDL) generation
 

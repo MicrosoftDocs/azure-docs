@@ -169,7 +169,7 @@ Oracle-specific features can often be replaced by Azure Synapse features. Howeve
 
   When you configure the Azure Synapse environment, it makes sense to only implement in-use indexes. Azure Synapse currently supports the index types shown here:
 
-  :::image type="content" source="../media/1-design-performance-migration/azure-synapse-analytics-index-types.png" border="true" alt-text="Screenshot showing the index types that Azure Synapse Analytics supports.":::
+  :::image type="content" source="../media/1-design-performance-migration/azure-synapse-analytics-index-types.png" border="true" alt-text="Screenshot showing the index types that Azure Synapse supports.":::
 
   Azure Synapse features, such as parallel query processing and in-memory caching of data and results, make it likely that fewer indexes are required for data warehouse applications to achieve performance goals. We recommend that you use the following index types in Azure Synapse:
 
@@ -259,7 +259,7 @@ Most Oracle data types have a direct equivalent in Azure Synapse. The following 
 >[!TIP]
 >Assess the number and type of unsupported data types during the migration preparation phase.
 
-Third-party vendors offer tools and services to automate migration, including the mapping of data types. If a third-party ETL tool, such as Informatica or Talend, is already in use in the Oracle environment, use that tool to implement any required data transformations.
+Third-party vendors offer tools and services to automate migration, including the mapping of data types. If a third-party ETL tool, such as [Informatica](https://www.informatica.com/) or [Talend](https://www.talend.com/), is already in use in the Oracle environment, use that tool to implement any required data transformations.
 
 #### SQL DML syntax differences
 
@@ -375,13 +375,13 @@ You can only use one field per table for partitioning. That field is frequently 
 
 #### PolyBase or COPY INTO for data loading
 
-PolyBase supports efficient loading of large amounts of data to a data warehouse by using parallel loading streams. For more information, see [PolyBase data loading strategy](../../sql/load-data-overview.md).
+[PolyBase](/sql/relational-databases/polybase) supports efficient loading of large amounts of data to a data warehouse by using parallel loading streams. For more information, see [PolyBase data loading strategy](../../sql/load-data-overview.md).
 
 `COPY INTO` also supports high-throughput data ingestion, and:
 
 - Data retrieval from all files within a folder and subfolders.
 - Data retrieval from multiple locations in the same storage account. You can specify multiple locations by using comma separated paths.
-- Azure Data Lake Storage (ADLS) Gen 2 and Azure Blob Storage.
+- Azure Data Lake Storage (ADLS) and Azure Blob Storage.
 - CSV, PARQUET, and ORC file formats.
 
 #### Use resource classes for workload management
