@@ -11,6 +11,8 @@ ms.date: 06/20/2022
 
 # C# app to connect and query Hyperscale (Citus)
 
+[!INCLUDE[applies-to-postgresql-hyperscale](../includes/applies-to-postgresql-hyperscale.md)]
+
 ## Overview
 
 In this document, you'll learn how to connect to a Hyperscale (Citus) database using a C# application. You'll see how to use SQL statements to query, insert, update, and delete data in the database. The steps in this article assume that you're familiar with developing using C#, and are new to working with Hyperscale (Citus).
