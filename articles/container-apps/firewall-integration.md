@@ -47,19 +47,4 @@ As the following rules require allowing all IPs, use a Firewall solution to lock
 | Any | \* | Infrastructure subnet address space | Allow communication between IPs in the infrastructure subnet. This address is passed as a parameter when you create an environment. For example, `10.0.0.0/21`. |
 
 ## Firewall configuration
-
-### Outbound FQDN dependencies
-
-| FQDN | Protocol | Port | Description |
-|--|--|--|--|
-| `*.hcp.<REGION>.azmk8s.io` | HTTPS | `443` | Required for internal AKS secure connection between nodes and control plane. |
-| `mcr.microsoft.com` | HTTPS | `443` | Required to access images in Microsoft Container Registry (MCR). This registry contains first-party images and charts (for example, coreDNS). These images are required for the correct creation and functioning of the cluster, including scale and upgrade operations. |
-| `*.data.mcr.microsoft.com` | HTTPS | `443` | Required for MCR storage backed by the Azure content delivery network (CDN). |
-| `management.azure.com` | HTTPS | `443` | Required for Kubernetes operations against the Azure API. |
-| `login.microsoftonline.com` | HTTPS | `443` | Required for Azure Active Directory authentication. |
-| `packages.microsoft.com` | HTTPS | `443` | This address is the Microsoft packages repository used for cached apt-get operations. Example packages include Moby, PowerShell, and Azure CLI. |
-| `acs-mirror.azureedge.net` | HTTPS | `443` | This address is for the repository required to download and install required binaries like `kubenet` and Azure Container Networking Interface. |
-| `dc.services.visualstudio.com` | HTTPS | `443` | This endpoint is used for metrics and monitoring using Azure Monitor. |
-| `*.ods.opinsights.azure.com` | HTTPS | `443` | This endpoint is used by Azure Monitor for ingesting log analytics data. |
-| `*.oms.opinsights.azure.com` | HTTPS | `443` | This endpoint is used by `omsagent`, which is used to authenticate the log analytics service. |
-| `*.monitoring.azure.com` | HTTPS | `443` | This endpoint is used to send metrics data to Azure Monitor. |
+Using custom user-defined routes (UDRs) or ExpressRoutes, other than with UDRs of selected destinations that you own, are not yet supported for Container App Environments with VNETs. 
