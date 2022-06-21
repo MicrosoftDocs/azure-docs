@@ -118,7 +118,7 @@ Use Azure CLI or Azure PowerShell to validate the deployment.
 
     ---
 
-4. Run the command from Step 2 again in Azure CLI or Azure PowerShell. This time, you should get the other NameHost for the other endpoint.
+4. Run the command from Step 2 again in Azure CLI or Azure PowerShell. This time, you should get the other canonical name/NameHost for the other endpoint.
 
 ## Clean up resources
 
