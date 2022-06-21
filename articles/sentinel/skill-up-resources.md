@@ -514,5 +514,3 @@ Microsoft Sentinel provides a great platform for implementing your own Machine L
 
 To start with bringing your own ML to Microsoft Sentinel, watch the [video](https://www.youtube.com/watch?v=QDIuvZbmUmc), and read the [blog post](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/build-your-own-machine-learning-detections-in-the-ai-immersed/ba-p/1750920). You might also want to refer to the [BYOML documentation](https://docs.microsoft.com/en-us/azure/sentinel/bring-your-own-ml).
 
-## Sentinel Skill-up FAQ
-
