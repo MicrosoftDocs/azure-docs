@@ -14,24 +14,10 @@ keywords:
 ## Prerequisites
 
 - An Azure subscription
-- Access granted to service in the desired azure subscription. This service is currently invite only. You can fill out a new use case request here: <https://aka.ms/oai/access>. Please open an issue on this repo to contact us if you have an issue
+- Access granted to service in the desired Azure subscription. This service is currently invite only. You can fill out a new use case request here: <https://aka.ms/oai/access>. Please open an issue on this repo to contact us if you have an issue
 - [Python 3.x](https://www.python.org/)
 - The following python libraries: os, requests, json
-- An Azure OpenAI Service Resource.
-
-## Deploy a model
-
-Before you can generate text or inference you need to deploy a model. This is done by clicking the 'create new deployment' on the deployments page. From here you can select from one of our many available models. For getting started we recommend `text-davinci-002` for users in South Central and `text-davinci-001` for users in West Europe (text-davinci-002 is not available in this region). 
-
-1. Go to the [Azure OpenAI Studio](https://oai.azure.com)
-
-1. Login with the resource you want to use
-
-1. Click on the 'Manage deployments in your resource' button to navigate to the Deployments page
-
-1. Create a new deployment called `text-davinci-002` and choose the `text-davinci-002` model from the drop down
-
-  >NOTE: Text-davinci-002 is only available in South Central US. If you are in a diffrent region, please choose `text-davinci-001`
+- An Azure OpenAI Service resource with a model deployed.
 
 ## Set up the client
 
@@ -41,12 +27,10 @@ Before you can generate text or inference you need to deploy a model. This is do
 pip install openai
 ```
 
-
-
 ## Set-up & Authenticate the client
 
 1. Get your API keys and endpoint 
- Go to the your resource in the Azure portal. The Endpoint and Keys can be found in the 'Essentials' Section as shown below. Copy your endpoint and access key as you will need both for authenticating your API calls. 
+ Go to your resource in the Azure portal. The Endpoint and Keys can be found in the 'Essentials' Section as shown below. Copy your endpoint and access key as you'll need both for authenticating your API calls. 
 
     ![Screenshot of the overview blade for an OpenAI Resource in the Azure Portal with the endpoint & access keys location circled in red](../images/OverviewBlade.jpg)
 
@@ -97,10 +81,10 @@ Sending a test completion job
 ```
 
 ## Clean up resources
-If you want to clean up and remove an OpenAI resource, you can delete the resource or resource group. Deleteing the resource group also deletees any other resources assocaited with it. 
+If you want to clean up and remove an OpenAI resource, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it. 
 
 - [Portal](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#clean-up-resources)
 - [Azure CLI](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli#clean-up-resources)
 
 # Next Steps
-Learn more about how to generate the best completsion in our [How-to guide on completions](../How-to/Completions.md).
+Learn more about how to generate the best completion in our [How-to guide on completions](../How-to/Completions.md).
