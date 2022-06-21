@@ -26,19 +26,30 @@ items:
     href: billing.md
   - name: Azure Storage compliance offerings
     href: compliance-offerings.md
-- name: Quickstarts
-  items: 
-
 - name: How-To
   items: 
   - name: Deploy
     items: 
+    - name: Create a storage mover resource
+      href: resource-create.md
+    - name: Deploy a storage mover agent
+      href: agent-deploy.md
+  - name: Network
+    items:    
+    - name: Configure network endpoints
+      href: network-endpoints-configure.md
+    - name: Configure agent proxy and firewall settings
+      href: network-firewall-configure.md
+  - name: Manage
+    items:
+      - name: Register or unregister an agent
+        href: agent-manage.md
+- name: Tutorials
+  items:      
     - name: Migrate an NFS share to an Azure blob container
       href: migrate-nfs-share.md
     - name: When to use alternate migration solutions
       href: alternate-solutions.md
-
-
 - name: Resources
   items:
   - name: Samples
