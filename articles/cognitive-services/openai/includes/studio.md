@@ -19,7 +19,7 @@ keywords:
 
 ## Go to the Azure OpenAI Studio
 
-Navigate to the Azure OpenAI Studio: <https://oai.azure.com/> and sign-in with credentials that have access to the OpenAI resource you've created. During the sign-in workflow, select the appropriate Directory, Azure Subscription and OpenAI resource. 
+Navigate to the Azure OpenAI Studio: <https://oai.azure.com/> and sign-in with credentials that have access to the OpenAI resource you've created. During the sign-in workflow, select the appropriate Directory, Azure Subscription and OpenAI resource.
 
 ## Landing page
 
@@ -35,9 +35,10 @@ You'll first land on our main page for the Azure OpenAI Studio and from here you
 From here, select 'create new deployment' button in the banner at the top. If you don't see this, you already have a deployment and can proceed to the 'playground' step
 
 ## Deployments
-Before you can generate text or inference you need to deploy a model. This is done by clicking the 'create new deployment' on the deployments page. From here you can select from one of our many available models. For getting started we recommend `text-davinci-002` for users in South Central and `text-davinci-001` for users in West Europe (text-davinci-002 isn't available in this region). 
 
-Once this is complete, select the 'Playground' button on the left nav to start experimenting. 
+Before you can generate text or inference you need to deploy a model. This is done by clicking the 'create new deployment' on the deployments page. From here you can select from one of our many available models. For getting started we recommend `text-davinci-002` for users in South Central and `text-davinci-001` for users in West Europe (text-davinci-002 isn't available in this region).
+
+Once this is complete, select the 'Playground' button on the left nav to start experimenting.
 
 ## Playground
 
@@ -47,20 +48,22 @@ The best way to start exploring completions is through our Playground. It's simp
 
 1. Choose from a few pre-loaded examples to get started
 1. Select a deployment to use
-1. Enter the text you want to send to the completions API here. Generations will also be appended to this text. 
+1. Enter the text you want to send to the completions API here. Generations will also be appended to this text.
 1. Selecting the Generate button will send the entered text to the completions API and stream the results back to the text box.
 1. Select the 'undo' button to undo the prior generation call
-1. Select the 'regenerate' button to do an undo & generation call together. 
+1. Select the 'regenerate' button to do an undo & generation call together.
 1. View the code you could use to make the same call with our python SDK, curl or other REST API client
-1. Configure the parameters of the completions call to improve the performance of your task. You can read more about each parameter in our [REST API](../Reference/RESTAPI.md). 
+1. Configure the parameters of the completions call to improve the performance of your task. You can read more about each parameter in our [REST API](../reference.md).
 
-Now that you've familiarized yourself with the playground, get started generating text by loading the INSERT sample. Then select `Generate`. 
+Now that you've familiarized yourself with the playground, get started generating text by loading the INSERT sample. Then select `Generate`.
 
 ## Clean up resources
-If you want to clean up and remove an OpenAI resource, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it. 
 
-- [Portal](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#clean-up-resources)
-- [Azure CLI](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli#clean-up-resources)
+If you want to clean up and remove an OpenAI resource, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it.
+
+- [Portal](/azure/cognitive-services/cognitive-services-apis-create-account#clean-up-resources)
+- [Azure CLI](/azure/cognitive-services/cognitive-services-apis-create-account-cli#clean-up-resources)
 
 ## Next steps
-Learn more about how to generate the best completion in our [How-to guide on completions](../How-to/Completions.md).
+
+Learn more about how to generate the best completion in our [How-to guide on completions](../how-to/completions.md).

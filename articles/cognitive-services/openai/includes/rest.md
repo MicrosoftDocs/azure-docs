@@ -14,24 +14,23 @@ keywords:
 ## Prerequisites
 
 - An Azure subscription
-- Access granted to service in the desired azure subscription. This service is currently invite only. You can fill out a new use case request here: <https://aka.ms/oai/access>. Please open an issue on this repo to contact us if you have an issue
+- Access granted to service in the desired Azure subscription. This service is currently invite only. You can fill out a new use case request here: <https://aka.ms/oai/access>. Please open an issue on this repo to contact us if you have an issue
 - [Python 3.x](https://www.python.org/)
 - The following python libraries: os, requests, json
 - An Azure OpenAI Service resource with a model deployed.
 
 ## Set-up & Authenticate the client
 
-1. Get your API keys and endpoint 
- Go to the your resource in the Azure portal. The Endpoint and Keys can be found in the 'Essentials' Section as shown below. Copy your endpoint and access key as you will need both for authenticating your API calls. 
+1. Get your API keys and endpoint
+ Go to your resource in the Azure portal. The Endpoint and Keys can be found in the 'Essentials' Section as shown below. Copy your endpoint and access key as you'll need both for authenticating your API calls.
 
     ![Screenshot of the overview blade for an OpenAI Resource in the Azure Portal with the endpoint & access keys location circled in red](../images/OverviewBlade.jpg)
 
-1. Create a new Python application. 
+1. Create a new Python application.
 
 Create a new python file called quickstart.py. Then open it up in your preferred editor or IDE.
 
-1. Replace the contents of quickstart.py with the following code. 
-
+1. Replace the contents of quickstart.py with the following code.
 
     ```python
     import os
@@ -87,10 +86,12 @@ Create a new python file called quickstart.py. Then open it up in your preferred
   ```
 
 ## Clean up resources
-If you want to clean up and remove an OpenAI resource, you can delete the resource or resource group. Deleteing the resource group also deletees any other resources assocaited with it. 
 
-- [Portal](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#clean-up-resources)
-- [Azure CLI](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli#clean-up-resources)
+If you want to clean up and remove an OpenAI resource, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it. 
 
-# Next Steps
-Learn more about how to generate the best completsion in our [How-to guide on completions](../How-to/Completions.md).
+- [Portal](/azure/cognitive-services/cognitive-services-apis-create-account#clean-up-resources)
+- [Azure CLI](/azure/cognitive-services/cognitive-services-apis-create-account-cli#clean-up-resources)
+
+## Next steps
+
+Learn more about how to generate the best completion in our [How-to guide on completions](../how-to/completions.md).
