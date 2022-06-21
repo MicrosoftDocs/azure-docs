@@ -28,6 +28,9 @@ Workspace-based Application Insights allows you to take advantage of all the lat
 * [Commitment Tiers](../logs/cost-logs.md#commitment-tiers) enable you to save as much as 30% compared to the Pay-As-You-Go price. Otherwise, Pay-as-you-go data ingestion and data retention are billed similarly in Log Analytics as they are in Application Insights. 
 * Faster data ingestion via Log Analytics streaming ingestion.
 
+> [!NOTE]
+> After migrating to a workspace-based Application Insights resource, all telemetry will be aggregated across multiple resources in a common Log Analytics workspace. You will still be able to pull data from a specific Application Insights resource though, [as described here](#understanding-log-queries).
+
 ## Migration process
 
 When you migrate to a workspace-based resource, no data is transferred from your classic resource's storage to the new workspace-based storage. Choosing to migrate will change the location where new data is written to a Log Analytics workspace while preserving access to your classic resource data. 
@@ -85,7 +88,7 @@ Once your resource is migrated, you'll see the corresponding workspace info in t
 Clicking the blue link text will take you to the associated Log Analytics workspace where you can take advantage of the new unified workspace query environment.
 
 > [!NOTE]
-> After migrating to a workspace-based Application Insights resource we recommend using the [workspace's daily cap](../logs/daily-cap.md) to limit ingestion and costs instead of the cap in Application Insights.
+> After migrating to a workspace-based Application Insights resource, we recommend using the [workspace's daily cap](../logs/daily-cap.md) to limit ingestion and costs instead of the cap in Application Insights.
 
 ## Understanding log queries
 
