@@ -66,15 +66,19 @@ Connection connects to the Azure Web PubSub Service using a websocket connection
 
 4. A client MAY receive `ConnectedMessage` after recovery. The client library SHOULD update local `reconnectionToken` after received `ConnectedMessage`. Client libraries MUST only trigger a `connected` callback when receives `ConnectedMessage` the first time after making a new connection. In particular, the library MUST NOT trigger `connected` callback after connection recovery.
 
-### 2.3 Connection disconnection and recovery
-
-Connection recovery is specific to reliable subprotocols. Client libraries SHOULD implement reliable subprotocols and make it as the default subprotocols to provide a high reliable experience.
+### 2.3 Connection drop
 
 Connections may drop after connected:
 
-1. The connection receives a `DisconnectedMessage` and then the transport will be closed.
+1. The connection receives a `DisconnectedMessage` and then the transport will be closed. Client libraries SHOULD record property `message` in `DisconnectedMessage` as the reason of disconnection.
 
 2. The transport is disconnected unexpectedly.
+
+When connection drops, client libraries SHOULD mark all messages sent but not receive `AckMessage` as failed. If the connection is using non-reliable protocols, connection state will be removed from the service. The client library MAY support auto reconnecting by making a new connection. 
+
+### 2.4 Connection recovery
+
+Connection recovery is specific to reliable subprotocols. Client libraries SHOULD implement reliable subprotocols and make it as the default subprotocols to provide a high reliable experience.
 
 After connection drop, the client library SHOULD attempt to recover the connection. The Web PubSub Service will keep the connection state in service side for at least 30 seconds. And the service makes sure all group info that the connection joined will be retained and all messages not delivered will be queued.
 
@@ -102,6 +106,8 @@ In order to recovery the connection, the client library MUST:
 
     2. The recovery attempts last more than 30 seconds.
 
+If the recovery failed, the client library MUST reset the local sequenceId and mark all messages sent but not receive `AckMessage` as failed. 
+
 ## 3. Groups and messages
 
 A group is a subset of connections to the hub. Client connections can join groups and send messages to groups. Group info is attached to a connection (identified by `connectionId`). That means the service won't save your group info and you SHOULD save group info in your business layer and join groups that the connection belongs to when a new connection is connected.
@@ -110,7 +116,7 @@ A group is a subset of connections to the hub. Client connections can join group
 
 1. `JoinGroupMessage`, `LeaveGroupMessage`, `SendToGroupMessage` and `EventMessage` has `ackId` property. The `ackId` property is an optional property. Only when the `ackId` property is provided in message, the service will give an ack response. Otherwise, it's fire-and-forget. Even there're errors, you have no way to get notified. 
 
-2. `ackId` is a uint64 number and should be unique within a client with the same connectionId. The service records the ackId and messages with the same ackId will be treated as the same message. The service refuses to execute the same message more than once, which is useful in retry to avoid duplicated messages.
+2. `ackId` is a uint64 number and should be unique within a client with the same connectionId. It's designed for idempotent publishing. The service records the ackId and messages with the same ackId will be treated as the same message. The service refuses to execute the same message more than once, which is useful in retry to avoid duplicated messages.
 
 3. Client libraries that support reliable protocols MUST support ackId. And in this case, client libraries MUST provide a callback (or other language-idiomatic equivalent, such as async method in C#) to get the result of message execution. The service will response with `AckMessage`, and the result will be one of the following:
 
@@ -120,21 +126,23 @@ A group is a subset of connections to the hub. Client connections can join group
 
 If the client library supports auto retry, it MUST NOT retry once `success` is false and `error.name` is `Duplicate`. In this case, the message with the same `ackId` has already been executed by the service.
 
-4. It's unnecessary to add timer for every message. Instead the client library can rely on: the service will send an `AckMessage`. Or the websocket transport will fail. Once recovering or reconnecting, the client SHOULD treat messages that not receive `AckMessage` as failed.
+4. Client libraries MAY support library-generated `ackId` function. In this case, client libraries can have a base id by random, and add incremental number to the base id for each message.
+
+5. It's unnecessary to add timer for every message. Instead the client library can rely on: the service will send an `AckMessage` or the websocket transport will fail. Once connection drop, the client SHOULD treat messages that not receive `AckMessage` as failed.
 
 ### 3.2 SequenceId
 
 Once the client connection is using reliable subprotocols, many messages from the service will contains `sequenceId` property.
 
-1. `sequenceId` is a non-zero uint64 incremental number within a connectionId. s all messages sent to the client connection an order. Service use this `sequenceId` to get the knowledge of how many messages the client has been received. As the `sequenceId` is incremental and the transport layer guarantee the order, once the service has acknowledged the `sequenceId` `x` is received, the service can know all messages before `x` has been received.
+1. `sequenceId` is a non-zero uint64 incremental number within a connectionId and gives all messages sent to the client connection an order. Service use this `sequenceId` to get the knowledge of how many messages the client has been received. As the `sequenceId` is incremental and the transport layer guarantee the order, once the service has acknowledged the `sequenceId` `x` is received, the service can know all messages before `x` has been received.
 
-2. Client libraries that support reliable protocols MUST handle `sequenceId` by sending a `SequenceAckMessage` to the service. As the service will queue all the message that not ack-ed, it has a capacity of 1000 messages or 16 MB. Once queued message exceed the capacity, the service will close the connection. Therefore, client libraries SHOULD response `SequenceAckMessage` as soon as possible.
+2. Client libraries that support reliable protocols MUST handle `sequenceId` by sending a `SequenceAckMessage` to the service. As the service will queue all the message that not ack-ed, it has a capacity of 1000 messages or 16 MB. Once queued messages exceed the capacity, the service will close the connection and in this case, the connection is unrecoverable. Therefore, client libraries SHOULD response `SequenceAckMessage` as soon as possible.
 
-3. Client libraries SHOULD response `SequenceAckMessage` once received the message rather than after processing the message, which is different from the client of many MessageQueue. It's RECOMMENDED to transparently response rather than having an explicit function to let user do it.
+3. Client libraries SHOULD response `SequenceAckMessage` once received the message rather than after processing the message, which is different from the client of many MessageQueues. It's RECOMMENDED to transparently response rather than having an explicit function to let user do it.
 
-4. Client libraries SHOULD set `sequenceId` in `SequenceAckMessage` to the largest `sequenceId` number ever received in messages. The service may send older queued message after recovery, responding with the largest `sequenceId` number can help the service to skip received messages.
+4. Client libraries SHOULD record the largest `sequenceId` ever received in messages in local and set `sequenceId` in `SequenceAckMessage` to this largest number. The service may send older queued message after recovery, responding with the largest `sequenceId` number can help the service to skip received messages.
 
-5. The client library MAY support periodically response the `SequenceAckMessage` to avoid sending response for every received message.
+5. Client libraries MAY support periodically response the `SequenceAckMessage` to avoid sending response for every received message. But the period SHOULD NOT be too long to cause the queue exceed the capacity.
 
 ### 3.3 Join group and leave group
 
@@ -146,73 +154,61 @@ Once the client connection is using reliable subprotocols, many messages from th
 
 ### 3.4 Send group messages
 
-1. Client libraries SHOULD have the `sendToGroup` function with and without `ackId` separately.
+1. Client libraries SHOULD have the `sendToGroup` function with fire-and-forget and idempotent publishing separately.
 
 2. When `sendToGroup` is called, a `SendToGroupMessage` will be sent to the service. If the `ackId` property is set, means client expects the send result. If the client library supports reliable protocols, the function is REQUIRED. Client libraries SHOULD provide a callback (or other language-idiomatic equivalent) to get the result of broadcasting message.
 
 ### 3.5 Send event messages
 
-1. Client libraries SHOULD have the `sendEvent` function with and without `ackId` separately.
+1. Client libraries SHOULD have the `sendEvent` function with fire-and-forget and idempotent publishing separately.
 
 2. When `sendToGroup` is called, a `EventMessage` will be sent to the service. If the `ackId` property is set, means client expects the send result. If the client library supports reliable protocols, the function is REQUIRED. Client libraries SHOULD provide a callback (or other language-idiomatic equivalent) to get the result of event message.
 
 ## 4. Message Object Reference
 
-Different subprotocols have different format for message. Find the reference to messages.
+Different subprotocols have different format for message. Find the reference to messages format.
 
-### 4.1 ConnectedMessage
+# [json.reliable.webpubsub.azure.v1](#tab/json-reliable)
 
-- [json.reliable.webpubsub.azure.v1](./reference-json-reliable-webpubsub-subprotocol.md#connected)
-- [protobuf.reliable.webpubsub.azure.v1](./reference-protobuf-reliable-webpubsub-subprotocol.md#connected)
-- [json.webpubsub.azure.v1](./reference-json-webpubsub-subprotocol.md#connected)
-- [protobuf.webpubsub.azure.v1](./reference-protobuf-webpubsub-subprotocol.md#connected)
+- [ConnectedMessage](./reference-json-reliable-webpubsub-subprotocol.md#connected)
+- [DisconnectedMessage](./reference-json-reliable-webpubsub-subprotocol.md#disconnected)
+- [JoinGroupMessage](./reference-json-reliable-webpubsub-subprotocol.md#join-groups)
+- [LeaveGroupMessage](./reference-json-reliable-webpubsub-subprotocol.md#leave-groups)
+- [SendToGroupMessage](./reference-json-reliable-webpubsub-subprotocol.md#publish-messages)
+- [EventMessage](./reference-json-reliable-webpubsub-subprotocol.md#send-custom-events)
+- [AckMessage](./reference-json-reliable-webpubsub-subprotocol.md#ack-response)
+- [SequenceAckMessage](./reference-json-reliable-webpubsub-subprotocol.md#sequence-ack)
 
-### 4.2 DisconnectedMessage
+# [protobuf.reliable.webpubsub.azure.v1](#tab/protobuf-reliable)
 
-- [json.reliable.webpubsub.azure.v1](./reference-json-reliable-webpubsub-subprotocol.md#disconnected)
-- [protobuf.reliable.webpubsub.azure.v1](./reference-protobuf-reliable-webpubsub-subprotocol.md#disconnected)
-- [json.webpubsub.azure.v1](./reference-json-webpubsub-subprotocol.md#disconnected)
-- [protobuf.webpubsub.azure.v1](./reference-protobuf-webpubsub-subprotocol.md#disconnected)
+- [ConnectedMessage](./reference-protobuf-reliable-webpubsub-subprotocol.md#connected)
+- [DisconnectedMessage](./reference-protobuf-reliable-webpubsub-subprotocol.md#disconnected)
+- [JoinGroupMessage](./reference-protobuf-reliable-webpubsub-subprotocol.md#join-groups)
+- [LeaveGroupMessage](./reference-protobuf-reliable-webpubsub-subprotocol.md#leave-groups)
+- [SendToGroupMessage](./reference-protobuf-reliable-webpubsub-subprotocol.md#publish-messages)
+- [EventMessage](./reference-protobuf-reliable-webpubsub-subprotocol.md#send-custom-events)
+- [AckMessage](./reference-protobuf-reliable-webpubsub-subprotocol.md#ack-response)
+- [SequenceAckMessage](./reference-protobuf-reliable-webpubsub-subprotocol.md#sequence-ack)
 
-### 4.3 JoinGroupMessage
+# [json.webpubsub.azure.v1](#tab/json)
 
-- [json.reliable.webpubsub.azure.v1](./reference-json-reliable-webpubsub-subprotocol.md#join-groups)
-- [protobuf.reliable.webpubsub.azure.v1](./reference-protobuf-reliable-webpubsub-subprotocol.md#join-groups)
-- [json.webpubsub.azure.v1](./reference-json-webpubsub-subprotocol.md#join-groups)
-- [protobuf.webpubsub.azure.v1](./reference-protobuf-webpubsub-subprotocol.md#join-groups)
+- [ConnectedMessage](./reference-json-webpubsub-subprotocol.md#connected)
+- [DisconnectedMessage](./reference-json-webpubsub-subprotocol.md#disconnected)
+- [JoinGroupMessage](./reference-json-webpubsub-subprotocol.md#join-groups)
+- [LeaveGroupMessage](./reference-json-webpubsub-subprotocol.md#leave-groups)
+- [SendToGroupMessage](./reference-json-webpubsub-subprotocol.md#publish-messages)
+- [EventMessage](./reference-json-webpubsub-subprotocol.md#send-custom-events)
+- [AckMessage](./reference-json-webpubsub-subprotocol.md#ack-response)
 
-### 4.4 LeaveGroupMessage
+# [protobuf.webpubsub.azure.v1](#tab/protobuf)
 
-- [json.reliable.webpubsub.azure.v1](./reference-json-reliable-webpubsub-subprotocol.md#leave-groups)
-- [protobuf.reliable.webpubsub.azure.v1](./reference-protobuf-reliable-webpubsub-subprotocol.md#leave-groups)
-- [json.webpubsub.azure.v1](./reference-json-webpubsub-subprotocol.md#leave-groups)
-- [protobuf.webpubsub.azure.v1](./reference-protobuf-webpubsub-subprotocol.md#leave-groups)
-
-### 4.5 SendToGroupMessage
-
-- [json.reliable.webpubsub.azure.v1](./reference-json-reliable-webpubsub-subprotocol.md#publish-messages)
-- [protobuf.reliable.webpubsub.azure.v1](./reference-protobuf-reliable-webpubsub-subprotocol.md#publish-messages)
-- [json.webpubsub.azure.v1](./reference-json-webpubsub-subprotocol.md#publish-messages)
-- [protobuf.webpubsub.azure.v1](./reference-protobuf-webpubsub-subprotocol.md#publish-messages)
-
-### 4.6 EventMessage
-
-- [json.reliable.webpubsub.azure.v1](./reference-json-reliable-webpubsub-subprotocol.md#send-custom-events)
-- [protobuf.reliable.webpubsub.azure.v1](./reference-protobuf-reliable-webpubsub-subprotocol.md#send-custom-events)
-- [json.webpubsub.azure.v1](./reference-json-webpubsub-subprotocol.md#send-custom-events)
-- [protobuf.webpubsub.azure.v1](./reference-protobuf-webpubsub-subprotocol.md#send-custom-events)
-
-### 4.7 AckMessage
-
-- [json.reliable.webpubsub.azure.v1](./reference-json-reliable-webpubsub-subprotocol.md#ack-response)
-- [protobuf.reliable.webpubsub.azure.v1](./reference-protobuf-reliable-webpubsub-subprotocol.md#ack-response)
-- [json.webpubsub.azure.v1](./reference-json-webpubsub-subprotocol.md#ack-response)
-- [protobuf.webpubsub.azure.v1](./reference-protobuf-webpubsub-subprotocol.md#ack-response)
-
-### 4.8 SequenceAckMessage
-
-- [json.reliable.webpubsub.azure.v1](./reference-json-reliable-webpubsub-subprotocol.md#sequence-ack)
-- [protobuf.reliable.webpubsub.azure.v1](./reference-protobuf-reliable-webpubsub-subprotocol.md#sequence-ack)
+- [ConnectedMessage](./reference-protobuf-webpubsub-subprotocol.md#connected)
+- [DisconnectedMessage](./reference-protobuf-webpubsub-subprotocol.md#disconnected)
+- [JoinGroupMessage](./reference-protobuf-webpubsub-subprotocol.md#join-groups)
+- [LeaveGroupMessage](./reference-protobuf-webpubsub-subprotocol.md#leave-groups)
+- [SendToGroupMessage](./reference-protobuf-webpubsub-subprotocol.md#publish-messages)
+- [EventMessage](./reference-protobuf-webpubsub-subprotocol.md#send-custom-events)
+- [AckMessage](./reference-protobuf-webpubsub-subprotocol.md#ack-response)
 
 ## Next steps
 
