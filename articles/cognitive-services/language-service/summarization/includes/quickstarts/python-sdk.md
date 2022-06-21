@@ -39,7 +39,9 @@ pip install azure-ai-textanalytics==5.2.0b4
 
 # [Conversation summarization](#tab/conversation-summarization)
 
+```console
 pip install azure-ai-language-conversations==1.1.0b1
+```
 
 ---
 
