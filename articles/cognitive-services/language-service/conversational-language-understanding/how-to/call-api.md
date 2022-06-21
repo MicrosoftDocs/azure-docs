@@ -44,10 +44,6 @@ First you will need to get your resource key and endpoint:
 
 # [Client libraries (Azure SDK)](#tab/azure-sdk)
 
-First you will need to get your resource key and endpoint:
-
-[!INCLUDE [Get keys and endpoint Azure Portal](../includes/get-keys-endpoint-azure.md)]
-
 ### Use the client libraries (Azure SDK)
 
 You can also use the client libraries provided by the Azure SDK to send requests to your model. 
