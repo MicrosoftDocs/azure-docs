@@ -268,6 +268,36 @@ Get the `operation-location` from the response header. The value will look simil
 https://your-language-endpoint-here/language/analyze-conversations/jobs/12345678-1234-1234-1234-12345678
 ```
 
+**Note:** besides chat text as shown the above, this feature can operate on speech transcript as well. It allows seamless integreation with <a href="https://docs.microsoft.com/en-us/azure/cognitive-services/Speech-Service/overview">Cognitive Service for Speech</a>. Here is an example to show you what conversation and converstionItem of a speech transcript input looks like
+```
+"conversations":[
+   {
+      "id":"2b601070-f418-4684-a3f8-e58b48f5d72e",
+      "language":"En",
+      "modality":"transcript",
+      "conversationItems":[
+         {
+            "modality":"transcript",
+            "participantId":"speaker",
+            "id":"11f80016-dcb7-4ae5-9b55-2486c88be2d1",
+            "content":{
+               "text":"Hi.",
+               "lexical":"hi",
+               "itn":"hi",
+               "maskedItn":"hi",
+               "audioTimings":[
+                  {
+                     "word":"hi",
+                     "offset":4500000,
+                     "duration":2800000
+                  }
+               ]
+            }
+         }
+      ]
+   }
+]
+```
 To get the results of the request, use the following cURL command. Be sure to replace `my-job-id` with the numerical ID value you received from the previous `operation-location` response header:
 
 ```bash
