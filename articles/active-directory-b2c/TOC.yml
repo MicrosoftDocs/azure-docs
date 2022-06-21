@@ -508,6 +508,8 @@
         href: partner-n8identity.md
       - name: Saviynt 
         href: partner-saviynt.md
+      - name: WhoIAM Rampart
+        href: partner-whoiam-rampart.md
   - name: Logs 
     items:
     - name: Audit logs
