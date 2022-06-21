@@ -9,7 +9,7 @@ ms.subservice:
 author: kendalvandyke
 ms.author: kendalv 
 ms.reviewer: jroth
-ms.date: 11/24/2020
+ms.date: 6/21/2022
 ---
 # Azure SQL Edge release notes 
 
