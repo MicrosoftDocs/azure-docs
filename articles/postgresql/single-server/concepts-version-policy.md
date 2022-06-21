@@ -11,6 +11,8 @@ ms.custom: fasttrack-edit
 ---
 # Azure Database for PostgreSQL versioning policy
 
+[!INCLUDE [applies-to-postgresql-single-server](../includes/applies-to-postgresql-single-server.md)]
+
 This page describes the Azure Database for PostgreSQL versioning policy, and is applicable to these deployment modes:
 
 * Single Server

@@ -13,6 +13,8 @@ ms.date: 05/17/2022
 
 # Quickstart: Use Rust to interact with Azure Database for PostgreSQL - Single Server
 
+[!INCLUDE [applies-to-postgresql-single-server](../includes/applies-to-postgresql-single-server.md)]
+
 In this article, you will learn how to use the [PostgreSQL driver for Rust](https://github.com/sfackler/rust-postgres) to connect and query data in Azure Database for PostgreSQL. You can explore CRUD (create, read, update, delete) operations implemented in sample code, and run the application locally to see it in action.
 
 ## Prerequisites

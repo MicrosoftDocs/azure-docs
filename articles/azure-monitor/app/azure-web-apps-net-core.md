@@ -89,7 +89,7 @@ To enable telemetry collection with Application Insights, only the Application s
 |App setting name |  Definition | Value |
 |-----------------|:------------|-------------:|
 |ApplicationInsightsAgent_EXTENSION_VERSION | Main extension, which controls runtime monitoring. | `~2` for Windows or `~3` for Linux |
-|XDT_MicrosoftApplicationInsights_Mode |  In default mode, only essential features are enabled to insure optimal performance. | `disabled` or `recommended`. |
+|XDT_MicrosoftApplicationInsights_Mode |  In default mode, only essential features are enabled to ensure optimal performance. | `disabled` or `recommended`. |
 |XDT_MicrosoftApplicationInsights_PreemptSdk | For ASP.NET Core apps only. Enables Interop (interoperation) with Application Insights SDK. Loads the extension side-by-side with the SDK and uses it to send telemetry (disables the Application Insights SDK). |`1`|
 
 
@@ -100,11 +100,11 @@ To enable telemetry collection with Application Insights, only the Application s
 
 ### Upgrade from versions 2.8.9 and up
 
-Upgrading from version 2.8.9 happens automatically, without any additional actions. The new monitoring bits are delivered in the background to the target app service, and on application restart they'll be picked up.
+Upgrading from version 2.8.9 happens automatically, without any extra actions. The new monitoring bits are delivered in the background to the target app service, and on application restart they'll be picked up.
 
 To check which version of the extension you're running, go to `https://yoursitename.scm.azurewebsites.net/ApplicationInsights`.
 
-:::image type="content"source="./media/azure-web-apps/extension-version.png" alt-text="Screenshot of the URL path to check the version of the extension you are running." border="false"::: 
+:::image type="content"source="./media/azure-web-apps/extension-version.png" alt-text="Screenshot of the URL path to check the version of the extension you're running." border="false"::: 
 
 ### Upgrade from versions 1.0.0 - 2.6.5
 
@@ -141,10 +141,9 @@ Below is our step-by-step troubleshooting guide for extension/agent based monito
 
          If a similar value isn't present, it means the application isn't currently running or isn't supported. To ensure that the application is running, try manually visiting the application url/application endpoints, which will allow the runtime information to become available.
 
-    - Confirm that `IKeyExists` is `true`
-        If it is `false`, add `APPINSIGHTS_INSTRUMENTATIONKEY` and `APPLICATIONINSIGHTS_CONNECTION_STRING` with your ikey guid to your application settings.
+    - Confirm that `IKeyExists` is `true`. If it's `false`, add `APPINSIGHTS_INSTRUMENTATIONKEY` and `APPLICATIONINSIGHTS_CONNECTION_STRING` with your ikey GUID to your application settings.
 
-    -  In case your application refers to any Application Insights packages, for example if you've previously instrumented (or attempted to instrument) your app with the [ASP.NET Core SDK](./asp-net-core.md), enabling the App Service integration may not take effect and the data may not appear in Application Insights. To fix the issue, in portal turn on "Interop with Application Insights SDK" and you'll start seeing the data in Application Insights. 
+    -  If your application refers to any Application Insights packages, enabling the App Service integration may not take effect and the data may not appear in Application Insights. An example would be if you've previously instrumented, or attempted to instrument, your app with the [ASP.NET Core SDK](./asp-net-core.md). To fix the issue, in portal turn on "Interop with Application Insights SDK" and you'll start seeing the data in Application Insights.
     - 
         > [!IMPORTANT]
         > This functionality is in preview 
@@ -158,97 +157,26 @@ Below is our step-by-step troubleshooting guide for extension/agent based monito
 
 # [Linux](#tab/linux)
 
-1. Check that `ApplicationInsightsAgent_EXTENSION_VERSION` app setting is set to a value of "~3".
-2. Navigate to */home\LogFiles\ApplicationInsights\status* and open *status_557de146e7fa_27_1.json*.
+1. Check that `ApplicationInsightsAgent_EXTENSION_VERSION` app setting is set to a value of "~2"
+1. Browse to https:// your site name .scm.azurewebsites.net/ApplicationInsights
+1. Within this site, confirm:
+   * The status source exists and looks like: `Status source /var/log/applicationinsights/status_abcde1234567_89_0.json` 
+   * `Auto-Instrumentation enabled successfully`, is displayed. If a similar value isn't present, it means the application isn't running or isn't supported. To ensure that the application is running, try manually visiting the application url/application endpoints, which will allow the runtime information to become available.
+   * `IKeyExists` is `true`. If it's `false`, add `APPINSIGHTS_INSTRUMENTATIONKEY` and `APPLICATIONINSIGHTS_CONNECTION_STRING` with your ikey GUID to your application settings.
 
-    Confirm that `AppAlreadyInstrumented` is set to false, `AiHostingStartupLoaded` to true and `IKeyExists` to true.
-
-    Below is an example of the JSON file:
-
-    ```json
-        "AppType":".NETCoreApp,Version=v6.0",
-                
-        "MachineName":"557de146e7fa",
-                
-        "PID":"27",
-                
-        "AppDomainId":"1",
-                
-        "AppDomainName":"dotnet6demo",
-                
-        "InstrumentationEngineLoaded":false,
-                
-        "InstrumentationEngineExtensionLoaded":false,
-                
-        "HostingStartupBootstrapperLoaded":true,
-                
-        "AppAlreadyInstrumented":false,
-                
-        "AppDiagnosticSourceAssembly":"System.Diagnostics.DiagnosticSource, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51",
-                
-        "AiHostingStartupLoaded":true,
-                
-        "IKeyExists":true,
-                
-        "IKey":"00000000-0000-0000-0000-000000000000",
-                
-        "ConnectionString":"InstrumentationKey=00000000-0000-0000-0000-000000000000;IngestionEndpoint=https://westus-0.in.applicationinsights.azure.com/"
-    
-    ```
-    
-    If `AppAlreadyInstrumented` is true this indicates that the extension detected that some aspect of the SDK is already present in the Application, and will back-off.
-
-##### No Data
-
-1. List and identify the process that is hosting an app. Navigate to your terminal and on the command line type `ps ax`. 
-    
-    The output should be similar to: 
-
-   ```bash
-     PID TTY      STAT   TIME COMMAND
-    
-        1 ?        SNs    0:00 /bin/bash /opt/startup/startup.sh
-    
-       19 ?        SNs    0:00 /usr/sbin/sshd
-    
-       27 ?        SNLl   5:52 dotnet dotnet6demo.dll
-    
-       50 ?        SNs    0:00 sshd: root@pts/0
-    
-       53 pts/0    SNs+   0:00 -bash
-    
-       55 ?        SNs    0:00 sshd: root@pts/1
-    
-       57 pts/1    SNs+   0:00 -bash
-   ``` 
-
-
-1. Then list environment variables from app process. On the command line type `cat /proc/27/environ | tr '\0' '\n`.
-    
-    The output should be similar to: 
-
-    ```bash
-    ASPNETCORE_HOSTINGSTARTUPASSEMBLIES=Microsoft.ApplicationInsights.StartupBootstrapper
-    
-    DOTNET_STARTUP_HOOKS=/DotNetCoreAgent/2.8.39/StartupHook/Microsoft.ApplicationInsights.StartupHook.dll
-    
-    APPLICATIONINSIGHTS_CONNECTION_STRING=InstrumentationKey=00000000-0000-0000-0000-000000000000;IngestionEndpoint=https://westus-0.in.applicationinsights.azure.com/
-    
-    ```
-    
-1. Validate that `ASPNETCORE_HOSTINGSTARTUPASSEMBLIES`, `DOTNET_STARTUP_HOOKS`, and `APPLICATIONINSIGHTS_CONNECTION_STRING` are set.
+:::image type="content" source="media/azure-web-apps-net-core/auto-instrumentation-status.png" alt-text="Screenshot displaying auto instrumentation status web page." lightbox="media/azure-web-apps-net-core/auto-instrumentation-status.png":::
 
 ---
 
-#### Default website deployed with web apps does not support automatic client-side monitoring
+#### Default website deployed with web apps doesn't support automatic client-side monitoring
 
-When you create a web app with the `ASP.NET Core` runtimes in Azure App Services, it deploys a single static HTML page as a starter website. The static webpage also loads a ASP.NET managed web part in IIS. This allows for testing codeless server-side monitoring, but doesn't support automatic client-side monitoring.
+When you create a web app with the `ASP.NET Core` runtimes in Azure App Services, it deploys a single static HTML page as a starter website. The static webpage also loads an ASP.NET managed web part in IIS. This behavior allows for testing codeless server-side monitoring, but doesn't support automatic client-side monitoring.
 
 If you wish to test out codeless server and client-side monitoring for ASP.NET Core in an Azure App Services web app, we recommend following the official guides for [creating a ASP.NET Core web app](../../app-service/quickstart-dotnetcore.md). Then use the instructions in the current article to enable monitoring.
 
 [!INCLUDE [azure-web-apps-troubleshoot](../../../includes/azure-monitor-app-insights-azure-web-apps-troubleshoot.md)]
 
-### PHP and WordPress are not supported
+### PHP and WordPress aren't supported
 
 PHP and WordPress sites aren't supported. There's currently no officially supported SDK/agent for server-side monitoring of these workloads. However, manually instrumenting client-side transactions on a PHP or WordPress site by adding the client-side JavaScript to your web pages can be accomplished by using the [JavaScript SDK](./javascript.md).
 
@@ -256,9 +184,9 @@ The table below provides a more detailed explanation of what these values mean, 
 
 |Problem Value |Explanation |Fix |
 |---- |----|---|
-| `AppAlreadyInstrumented:true` | This value indicates that the extension detected that some aspect of the SDK is already present in the Application, and will back-off. It can be due to a reference to `Microsoft.ApplicationInsights.AspNetCore`, or `Microsoft.ApplicationInsights`  | Remove the references. Some of these references are added by default from certain Visual Studio templates, and older versions of Visual Studio may add references to `Microsoft.ApplicationInsights`. |
+| `AppAlreadyInstrumented:true` | This value indicates that the extension detected that some aspect of the SDK is already present in the Application, and will back-off. It can be due to a reference to `Microsoft.ApplicationInsights.AspNetCore`, or `Microsoft.ApplicationInsights`  | Remove the references. Some of these references are added by default from certain Visual Studio templates, and older versions of Visual Studio reference `Microsoft.ApplicationInsights`. |
 |`AppAlreadyInstrumented:true` | This value can also be caused by the presence of Microsoft.ApplicationsInsights dll in the app folder from a previous deployment. | Clean the app folder to ensure that these dlls are removed. Check both your local app's bin directory, and the wwwroot directory on the App Service. (To check the wwwroot directory of your App Service web app: Advanced Tools (Kudu) > Debug console > CMD > home\site\wwwroot). |
-|`IKeyExists:false`|This value indicates that the instrumentation key is not present in the AppSetting, `APPINSIGHTS_INSTRUMENTATIONKEY`. Possible causes: The values may have been accidentally removed, forgot to set the values in automation script, etc. | Make sure the setting is present in the App Service application settings. |
+|`IKeyExists:false`|This value indicates that the instrumentation key isn't present in the AppSetting, `APPINSIGHTS_INSTRUMENTATIONKEY`. Possible causes: The values may have been accidentally removed, forgot to set the values in automation script, etc. | Make sure the setting is present in the App Service application settings. |
 
 ## Release notes
 
