@@ -51,9 +51,9 @@ When planning to use Azure facilities to manage the migration process, create me
 
 ## SQL DDL differences between Oracle and Azure Synapse
 
-### SQL Data Definition Language (DDL)
+### SQL Data Definition Language
 
-The ANSI SQL standard defines the basic syntax for DDL commands. Some DDL Commands common to both Oracle and Azure Synapse, like `CREATE TABLE` and `CREATE VIEW`, have been extended to provide implementation-specific features such as indexing, table distribution, and partitioning options.
+The ANSI SQL standard defines the basic syntax for Data Definition Language (DDL) commands. Some DDL commands, like `CREATE TABLE` and `CREATE VIEW`, are common to both Oracle and Azure Synapse, but have been extended to provide implementation-specific features such as indexing, table distribution, and partitioning options.
 
 >[!TIP]
 >SQL DDL commands `CREATE TABLE` and `CREATE VIEW` have standard core elements but are also used to define implementation-specific options.

@@ -35,7 +35,7 @@ Microsoft Azure is a globally available, highly secure, scalable cloud environme
 
 :::image type="content" source="../media/1-design-performance-migration/azure-synapse-ecosystem.png" border="true" alt-text="Chart showing the Azure Synapse ecosystem of supporting tools and capabilities.":::
 
-Azure Synapse provides best-of-breed relational database performance by using techniques such as massively parallel processing (MPP) and automatic in-memory caching. You can see the results of these techniques in independent benchmarks such as the one run recently by [GigaOm](https://research.gigaom.com/report/data-warehouse-cloud-benchmark/), which compares Azure Synapse to other popular cloud data warehouse offerings. Customers who have migrated to the Azure Synapse environment have seen many benefits, including:
+Azure Synapse provides best-of-breed relational database performance by using techniques such as MPP and automatic in-memory caching. You can see the results of these techniques in independent benchmarks such as the one run recently by [GigaOm](https://research.gigaom.com/report/data-warehouse-cloud-benchmark/), which compares Azure Synapse to other popular cloud data warehouse offerings. Customers who migrate to the Azure Synapse environment see many benefits, including:
 
 - Improved performance and price/performance.
 
@@ -51,40 +51,40 @@ Azure Synapse provides best-of-breed relational database performance by using te
 
 - Lower overall TCO, better cost control, and streamlined operational expenditure (OPEX).
 
-To maximize these benefits, migrate new or existing data and applications to the Azure Synapse platform. In many organizations, migration will include moving an existing data warehouse from a legacy on-premises platform, such as Oracle, to Azure Synapse. At a high level, the migration process includes these steps:
+To maximize these benefits, migrate new or existing data and applications to the Azure Synapse platform. In many organizations, migration includes moving an existing data warehouse from a legacy on-premises platform, such as Oracle, to Azure Synapse. At a high level, the migration process includes these steps:
 
 :::image type="content" source="../media/1-design-performance-migration/migration-steps.png" border="true" alt-text="Diagram showing the steps for preparing to migrate, migration, and post-migration.":::
 
-This article provides general information and guidelines for performance optimization when migrating a data warehouse from an existing Oracle environment to Azure Synapse. The goal of performance optimization is to achieve the same or better data warehouse performance in Azure Synapse.
+This article provides general information and guidelines for performance optimization when migrating a data warehouse from an existing Oracle environment to Azure Synapse. The goal of performance optimization is to achieve the same or better data warehouse performance in Azure Synapse after the migration.
 
 ## Design considerations
 
 ### Migration scope
 
-When preparing for a migration from an Oracle environment, consider the following migration choices.
+When preparing to migrate from an Oracle environment, consider the following migration choices.
 
 #### Choose the workload for the initial migration
 
 Typically, legacy Oracle environments have evolved over time to encompass multiple subject areas and mixed workloads. When you're deciding where to start on a migration project, choose an area where you'll be able to:
 
-- Prove the viability of migration to Azure Synapse by quickly delivering benefits from the new environment.
+- Prove the viability of migration to Azure Synapse by quickly delivering the benefits of the new environment.
 
-- Allow the in-house technical staff to gain relevant experience with the processes and tools that they'll use when they migrate other areas.
+- Allow your in-house technical staff to gain relevant experience with the processes and tools that they'll use when they migrate other areas.
 
-- Create a template for further migrations that is specific to the source Oracle environment and the current tools and processes that are already in place.
+- Create a template for further migrations that's specific to the source Oracle environment and the current tools and processes that are already in place.
 
-A good candidate for an initial migration from an Oracle environment supports the preceding items. Candidates usually implement a BI/Analytics workload rather than an on-line transaction processing workload. Good candidates also have a data model, such as a star or snowflake schema, that can be migrated with minimal modification.
+A good candidate for an initial migration from an Oracle environment supports the preceding items. Candidates usually implement a BI/Analytics workload rather than an online transaction processing (OLTP) workload. Good candidates also have a data model, such as a star or snowflake schema, that can be migrated with minimal modification.
 
 >[!TIP]
 > Create an inventory of objects that need to be migrated, and document the migration process.
 
-The volume of migrated data in an initial migration should be large enough to demonstrate the capabilities and benefits of the Azure Synapse environment but small enough to quickly demonstrate value. A size in the 1-10 TB range is typical.
+The volume of migrated data in an initial migration should be large enough to demonstrate the capabilities and benefits of the Azure Synapse environment but not too large to quickly demonstrate value. A size in the 1-10 TB range is typical.
 
-Try to minimize the risk, effort, and time needed to see the benefits of migration to the Azure cloud environment. To minimize the risk and reduce the implementation time of your project, confine the scope of the initial migration to just the data marts. This approach won't address broader migration aspects, such as ETL migration and historical data migration. But, you can address those aspects in later phases of the project once the migrated data mart layer is backfilled with data and the required build processes.
+Try to minimize the risk, effort, and time needed to see the benefits of migration to the Azure cloud environment. To minimize the risk and reduce project implementation time, confine the scope of the initial migration to just the data marts. This approach won't address broader migration aspects, such as ETL migration and historical data migration. However, you can address those aspects in later phases of the project once the migrated data mart layer is backfilled with data and the required build processes.
 
 #### Lift and shift as-is vs a phased approach that incorporates changes
 
-In general, there are two types of migration regardless of the purpose and scope of the planned migration:
+In general, there are two types of migration regardless of the purpose and scope of the planned migration: lift and shift as-is and a phased approach that incorporates changes.
 
 ##### Lift and shift
 
@@ -97,9 +97,9 @@ In a lift and shift migration, an existing data model, like a star schema, is mi
 >[!TIP]
 >Lift and shift is a good starting point, even if subsequent phases implement changes to the data model.
 
-##### Phased approach incorporating modifications
+##### Phased approach that incorporates modifications
 
-If a legacy data warehouse has evolved over a long period of time, you might need to re-engineer it to maintain the required performance levels. You might also have to re-engineer to support new data like Internet of Things (IoT) streams. As part of the re-engineering process, migrate to Azure Synapse to get the benefits of a scalable cloud environment. Migration could include a change in the underlying data model, such as a move from an Inmon model to a data vault.
+If a legacy data warehouse has evolved over a long period of time, you might need to re-engineer it to maintain the required performance levels. You might also have to re-engineer to support new data like Internet of Things (IoT) streams. As part of the re-engineering process, migrate to Azure Synapse to get the benefits of a scalable cloud environment. Migration can include a change in the underlying data model, such as a move from an Inmon model to a data vault.
 
 Microsoft recommends moving your existing data model as-is to Azure and using the performance and flexibility of the Azure environment to apply the re-engineering changes. That way, you can use Azure's capabilities to make the changes without impacting the existing source system.
 
@@ -107,15 +107,15 @@ Microsoft recommends moving your existing data model as-is to Azure and using th
 
 You can automate and orchestrate the migration process by using the capabilities of the Azure environment. This approach minimizes the performance hit on the existing Oracle environment, which may already be running close to capacity.
 
-SSMA for Oracle can automate many parts of the migration process and it supports Azure Synapse as a target environment.
+[SQL Server Migration Assistant](/download/details.aspx?id=54258) (SSMA) for Oracle can automate many parts of the migration process and supports Azure Synapse as a target environment.
 
 :::image type="content" source="../media/1-design-performance-migration/oracle-sql-server-migration-assistant-1.png" border="true" alt-text="Screenshot showing how SQL Server Migration Assistant for Oracle can automate many parts of the migration process.":::
 
-Azure Data Factory is a cloud-based data integration service that supports creating data-driven workflows in the cloud to orchestrate and automate data movement and data transformation. You can use Data Factory to create and schedule data-driven workflows (pipelines) that ingest data from disparate data stores. Data Factory can process and transform the data by using compute services such as Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics, and Azure Machine Learning.
+Azure Data Factory is a cloud-based data integration service that supports creating data-driven workflows in the cloud that orchestrate and automate data movement and data transformation. You can use Data Factory to create and schedule data-driven workflows (pipelines) that ingest data from disparate data stores. Data Factory can process and transform the data by using compute services such as Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics, and Azure Machine Learning.
 
-Azure also includes Migration Services to help you plan and perform a migration from environments like Oracle. [SQL Server Migration Assistant](/download/details.aspx?id=54258) (SSMA) for Oracle can automate migration of Oracle databases, including in some cases functions and procedural code.
+Azure also includes [Azure Database Migration Services](/services/database-migration/) to help you plan and perform a migration from environments like Oracle. SSMA for Oracle can automate migration of Oracle databases, including in some cases functions and procedural code.
 
-When planning to use Azure facilities to manage the migration process, create metadata that lists all the data tables that need to be migration and their location.
+When planning to use Azure facilities to manage the migration process, create metadata that lists all the data tables to be migrated and their location.
 
 ### Design differences between Oracle and Azure Synapse
 
@@ -123,9 +123,9 @@ As mentioned earlier, there are some basic differences in approach between Oracl
 
 #### Multiple databases vs single database and schemas
 
-The Oracle environment often contains multiple separate databases. For instance, there could be separate databases for data ingestion and staging tables, for core warehouse tables, and for data marts&mdash;sometimes called a semantic layer. Processing, such as ETL or ELT pipelines, might implement cross-database joins and move data between the separate databases.
+The Oracle environment often contains multiple separate databases. For instance, there could be separate databases for: data ingestion and staging tables, core warehouse tables, and data marts&mdash;sometimes called a semantic layer. Processing, such as ETL or ELT pipelines, might implement cross-database joins and move data between the separate databases.
 
-In contrast, the Azure Synapse environment contains a single database and uses schemas to separate the tables into logically separate groups. We recommend that you use a series of schemas within the target Azure Synapse database to mimic the separate databases migrated from the Oracle environment. If the Oracle environment already uses schemas, you may need to use a new naming convention when you move the existing Oracle tables and views to the new environment. For example, you could concatenate the existing Oracle schema and table names into the new Azure Synapse table name, and use schema names in the new environment to maintain the original separate database names. Although you can use SQL views on top of the underlying tables to maintain the logical structures, there are potential downsides to this approach:
+In contrast, the Azure Synapse environment contains a single database and uses schemas to separate tables into logically separate groups. We recommend that you use a series of schemas within the target Azure Synapse database to mimic the separate databases migrated from the Oracle environment. If the Oracle environment already uses schemas, you may need to use a new naming convention when you move the existing Oracle tables and views to the new environment. For example, you could concatenate the existing Oracle schema and table names into the new Azure Synapse table name, and use schema names in the new environment to maintain the original separate database names. Although you can use SQL views on top of the underlying tables to maintain the logical structures, there are potential downsides to this approach:
 
 - Views in Azure Synapse are read-only, so any updates to the data must take place on the underlying base tables.
 
@@ -136,16 +136,16 @@ In contrast, the Azure Synapse environment contains a single database and uses s
 
 #### Table considerations
 
-When you migrate tables between different environments, typically only the raw data and the metadata that describes it physically migrates. Other database elements from the source system, such as indexes, usually aren't migrated because they might be unnecessary or implemented differently in the new environment.
+When you migrate tables between different environments, typically only the raw data and the metadata that describes it physically migrate. Other database elements from the source system, such as indexes, usually aren't migrated because they might be unnecessary or implemented differently in the new environment.
 
-Performance optimizations in the source environment, such as indexes, indicate where you might add performance optimization in the new target environment. For example, if bit-mapped indexes are frequently used in queries within the source Oracle environment, that suggests that a non-clustered index should be created within Azure Synapse. Other native performance optimization techniques like table replication may be more applicable than straight like-for-like index creation. SSMA for Oracle can provide migration recommendations for table distribution and indexing.
+Performance optimizations in the source environment, such as indexes, indicate where you might add performance optimization in the new environment. For example, if bit-mapped indexes are frequently used in queries within the source Oracle environment, that suggests that a non-clustered index should be created within Azure Synapse. Other native performance optimization techniques like table replication may be more applicable than straight like-for-like index creation. SSMA for Oracle can be used to provide migration recommendations for table distribution and indexing.
 
 >[!TIP]
 >Existing indexes indicate candidates for indexing in the migrated warehouse.
 
 #### Unsupported Oracle database object types
 
-Oracle-specific features can often be replaced by Azure Synapse features. However, some Oracle database objects aren't directly supported in Azure Synapse. The following list of unsupported Oracle database objects describes how you can achieve an equivalent functionality in Azure Synapse:
+Oracle-specific features can often be replaced by Azure Synapse features. However, some Oracle database objects aren't directly supported in Azure Synapse. The following list of unsupported Oracle database objects describes how you can achieve an equivalent functionality in Azure Synapse.
 
 - **Various indexing options**: in Oracle, several indexing options, such as bit-mapped indexes, function-based indexes, and domain indexes, have no direct equivalent in Azure Synapse.
 
@@ -155,7 +155,7 @@ Oracle-specific features can often be replaced by Azure Synapse features. Howeve
   
     :::image type="content" source="../media/1-design-performance-migration/oracle-sql-developer-queries-1.png" border="true" alt-text="Screenshot showing how to query system catalog tables and views in Oracle SQL Developer.":::
 
-    You can run the following query to finds all indexes of a given type:
+    Or, run the following query to find all indexes of a given type:
 
     ```sql
     SELECT \* FROM dba_indexes WHERE index_type LIKE 'FUNCTION-BASED%';
@@ -171,49 +171,49 @@ Oracle-specific features can often be replaced by Azure Synapse features. Howeve
 
   :::image type="content" source="../media/1-design-performance-migration/azure-synapse-analytics-index-types.png" border="true" alt-text="Screenshot showing the index types that Azure Synapse Analytics supports.":::
 
-  Azure Synapse features, such as parallel query processing and in-memory caching of data and results, make it likely that fewer indexes are required for data warehouse applications to achieve your performance goals. We recommend that you use these index types in Azure Synapse:
+  Azure Synapse features, such as parallel query processing and in-memory caching of data and results, make it likely that fewer indexes are required for data warehouse applications to achieve performance goals. We recommend that you use the following index types in Azure Synapse:
 
-  - **Clustered columnstore indexes**: when no index options are specified for a table, Azure Synapse by default creates a clustered columnstore index. Clustered columnstore tables offer the highest level of data compression, the best overall query performance, and generally outperform clustered index or heap tables. Clustered columnstore tables are usually the best choice for large tables. For these reasons, choose clustered columnstore when you're unsure how to index your table. However, there are some scenarios where clustered columnstore tables aren't the best option:
+  - **Clustered columnstore indexes**: when no index options are specified for a table, Azure Synapse by default creates a clustered columnstore index. Clustered columnstore tables offer the highest level of data compression, best overall query performance, and generally outperform clustered index or heap tables. A clustered columnstore index is usually the best choice for large tables. Choose clustered columnstore when you're unsure how to index your table. However, there are some scenarios where clustered columnstore indexes aren't the best option:
 
     - Tables with varchar(max), nvarchar(max), or varbinary(max) data types, because a clustered columnstore index doesn't support those data types. Instead, consider using a heap or clustered index.
     - Tables with transient data, because columnstore tables might be less efficient than heap or temporary tables.
     - Small tables with less than 100 million rows. Instead, consider using heap tables.
 
-  - **Clustered and nonclustered indexes**: clustered indexes can outperform clustered columnstore tables when a single row needs to be quickly retrieved. For queries where a single row lookup, or just a few row lookups, must perform at extreme speed, consider using a cluster index or nonclustered secondary index. The disadvantage of using a clustered index is that only queries that use a highly selective filter on the clustered index column will benefit. To improve filtering on other columns, you can add a nonclustered index to other columns. However, each index that you add to a table uses more space and increases the processing time to load.
+  - **Clustered and nonclustered indexes**: clustered indexes can outperform clustered columnstore indexes when a single row needs to be quickly retrieved. For queries where a single row lookup, or just a few row lookups, must perform at extreme speed, consider using a cluster index or nonclustered secondary index. The disadvantage of using a clustered index is that only queries with a highly selective filter on the clustered index column will benefit. To improve filtering on other columns, you can add a nonclustered index to the other columns. However, each index that you add to a table uses more space and increases the processing time to load.
   
-  - **Heap tables**: when you're temporarily landing data on Azure Synapse, you might find that using a heap table makes the overall process faster. This is because loading data to heap tables is faster than loading data to index tables, and in some cases the subsequent read can be done from cache. If you're loading data only to stage it before running more transformations, it's much faster to load it to a heap table than a clustered columnstore table. Also, loading data to a [temporary table](../../sql-data-warehouse/sql-data-warehouse-tables-temporary.md) is faster than loading a table to permanent storage. For small lookup tables of less than 100 million rows, heap tables are usually the right choice. Cluster columnstore tables begin to achieve optimal compression when they contain more than 100 million rows.
+  - **Heap tables**: when you're temporarily landing data on Azure Synapse, you might find that using a heap table makes the overall process faster. This is because loading data to heap tables is faster than loading data to index tables, and in some cases subsequent reads can be done from cache. If you're loading data only to stage it before running more transformations, it's much faster to load it to a heap table than a clustered columnstore table. Also, loading data to a [temporary table](../../sql-data-warehouse/sql-data-warehouse-tables-temporary.md) is faster than loading a table to permanent storage. For small lookup tables with less than 100 million rows, heap tables are usually the right choice. Cluster columnstore tables begin to achieve optimal compression when they contain more than 100 million rows.
 
-- **Clustered tables**: Oracle tables can be organized so that table rows that are frequently accessed together (based on a common value) are physically stored together. This strategy reduces disk I/O when data is retrieved. Oracle also has a hash-cluster option for individual tables, which applies a hash value to the cluster key and physically stores rows with the same hash value together. To list clusters within an Oracle database, use the `SELECT \* FROM DBA_CLUSTERS;` query. To determine whether a table is within a cluster, use the query `SELECT \* FROM TAB;`, which shows the table name and cluster ID for each table.
+- **Clustered tables**: Oracle tables can be organized so that table rows that are frequently accessed together (based on a common value) are physically stored together to reduce disk I/O when data is retrieved. Oracle also provides a hash-cluster option for individual tables, which applies a hash value to the cluster key and physically stores rows with the same hash value together. To list clusters within an Oracle database, use the `SELECT \* FROM DBA_CLUSTERS;` query. To determine whether a table is within a cluster, use the `SELECT \* FROM TAB;` query, which shows the table name and cluster ID for each table.
 
-  In Azure Synapse, you can achieve a similar result by using materialized and/or replicated tables, because those table types minimize the I/O required at query run time.
+  In Azure Synapse, you can achieve similar results by using materialized and/or replicated tables, because those table types minimize the I/O required at query run time.
 
-- **Materialized views**: Oracle supports materialized views and recommends one or more of them for large tables with many columns where only a few columns are regularly used in queries. Materialized views are automatically refreshed by the system when data in the base table is updated.
+- **Materialized views**: Oracle supports materialized views and recommends using one or more for large tables with many columns where only a few columns are regularly used in queries. Materialized views are automatically refreshed by the system when data in the base table is updated.
 
-  In 2019, Microsoft announced that Azure Synapse will support materialized views with the same functionality as in Oracle, and materialized views are now a preview feature in Azure Synapse.
+  In 2019, Microsoft announced that Azure Synapse will support materialized views with the same functionality as in Oracle. Materialized views are now a preview feature in Azure Synapse.
 
 - **In-database triggers**: In Oracle, a trigger can be configured to automatically run when a triggering event occurs. Triggering events can be:
 
-  - A data manipulation language (DML) statement, such as `INSERT`, `UPDATE`, or `DELETE`, that runs on a table. If you defined a trigger that fires before an `INSERT` statement on a customer table, the trigger will fire once before a new row is inserted into the customer table.
+  - A data manipulation language (DML) statement, such as `INSERT`, `UPDATE`, or `DELETE`, runs on a table. If you defined a trigger that fires before an `INSERT` statement on a customer table, the trigger will fire once before a new row is inserted into the customer table.
 
-  - A data definition language (DDL) statement, such as `CREATE` or `ALTER`, runs. This triggering event is often used for auditing purposes to record schema changes.
+  - A DDL statement, such as `CREATE` or `ALTER`, runs. This trigger is often used for auditing purposes to record schema changes.
 
-  - A system event such as startup or shutdown of the Oracle database.
+  - A system event, such as startup or shutdown of the Oracle database.
 
-  - A user event such as login or logout.
+  - A user event, such as login or logout.
 
-  You can get a list of the triggers defined in an Oracle database by querying the `ALL_TRIGGERS`, `DBA_TRIGGERS`, or `USER_TRIGGERS` views. The next screenshot shows a `DBA_TRIGGERS` query in Oracle SQL Developer.
+  You can get a list of the triggers defined in an Oracle database by querying the `ALL_TRIGGERS`, `DBA_TRIGGERS`, or `USER_TRIGGERS` views. The following screenshot shows a `DBA_TRIGGERS` query in Oracle SQL Developer.
 
   :::image type="content" source="../media/1-design-performance-migration/oracle-sql-developer-triggers.png" border="true" alt-text="Screenshot showing how to query for a list of triggers in Oracle SQL Developer.":::
 
   Azure Synapse doesn't support Oracle database triggers. However, you can add equivalent functionality by using Data Factory, although doing so will require you to refactor the processes that use triggers.
 
-- **Synonyms**: Oracle supports defining synonyms as alternative names for several database object types. Those types include tables, views, sequences, procedures, stored functions, packages, materialized views, Java class schema objects, user-defined objects, or another synonym.
+- **Synonyms**: Oracle supports defining synonyms as alternative names for several database object types. Those object types include: tables, views, sequences, procedures, stored functions, packages, materialized views, Java class schema objects, user-defined objects, or another synonym.
 
-  Azure Synapse doesn't currently support defining synonyms, although if a synonym in Oracle refers to a table or view, then you can define a view in Azure Synapse to match the alternative name. If a synonym in Oracle refers to a function or stored procedure, then you can replace the synonym in Azure Synapse by creating another function or stored procedure that calls the target.
+  Azure Synapse doesn't currently support defining synonyms, although if a synonym in Oracle refers to a table or view, then you can define a view in Azure Synapse to match the alternative name. If a synonym in Oracle refers to a function or stored procedure, then in Azure Synapse you can create another function or stored procedure, with a name to match the synonym, that calls the target.
 
-- **User-defined types**: Oracle supports defining user-defined objects that can contain a series of individual fields, each with their own definition and default values. Those objects can then be referenced within a table definition in the same way as built-in data types like `NUMBER` or `VARCHAR`. You can get a list of user-defined types within an Oracle database by querying `ALL_TYPES`, `DBA_TYPES`, or `USER_TYPES` views.
+- **User-defined types**: Oracle supports user-defined objects that can contain a series of individual fields, each with their own definition and default values. Those objects can be referenced within a table definition in the same way as built-in data types like `NUMBER` or `VARCHAR`. You can get a list of user-defined types within an Oracle database by querying the `ALL_TYPES`, `DBA_TYPES`, or `USER_TYPES` views.
 
-  Azure Synapse doesn't currently support this feature. If the data you need to migrate includes user-defined data types, either "flatten" them into a conventional table definition, or if arrays of data, normalize them in a separate table.
+  Azure Synapse doesn't currently support user-defined types. If the data you need to migrate includes user-defined data types, either "flatten" them into a conventional table definition, or if they're arrays of data, normalize them in a separate table.
 
 #### Oracle data type mapping
 
@@ -257,17 +257,17 @@ Most Oracle data types have a direct equivalent in Azure Synapse. The following 
 | XMLType | Not supported. Store XML data in a VARCHAR. |
 
 >[!TIP]
->Assess the number and type of unsupported data types during the preparation phase.
+>Assess the number and type of unsupported data types during the migration preparation phase.
 
 Third-party vendors offer tools and services to automate migration, including the mapping of data types. If a third-party ETL tool, such as Informatica or Talend, is already in use in the Oracle environment, use that tool to implement any required data transformations.
 
 #### SQL DML syntax differences
 
-There are some SQL DML syntax differences between Oracle SQL and Azure Synapse T-SQL. The differences are discussed in detail in [Minimize SQL issues for Oracle migrations](5-minimize-sql-issues.md#sql-ddl-differences-between-oracle-and-azure-synapse). In some cases, you can automate DML migration using Microsoft tools like SSMA for Oracle or [Azure Database Migration Services](/services/database-migration/), or by using [third-party](../../partner/data-integration.md) migration products and services.
+SQL DML syntax differences exist between Oracle SQL and Azure Synapse T-SQL. Those differences are discussed in detail in [Minimize SQL issues for Oracle migrations](5-minimize-sql-issues.md#sql-ddl-differences-between-oracle-and-azure-synapse). In some cases, you can automate DML migration using Microsoft tools like SSMA for Oracle or Azure Database Migration Services, or by using [third-party](../../partner/data-integration.md) migration products and services.
 
 #### Functions, stored procedures, and sequences
 
-If you migrate from a mature data warehouse environment like Oracle, you'll probably need to migrate elements other than simple tables and views, such as functions, stored procedures, and sequences. For those elements, check whether tools within the Azure environment can replace their functionality because it's usually more efficient to use built-in Azure facilities than recode the Oracle functions. [Data integration partners](../../partner/data-integration.md) like Attunity and WhereScape offer tools and services that automate the migration of functions, stored procedures, and sequences.
+When migrating from a mature data warehouse environment like Oracle, you'll probably need to migrate elements other than simple tables and views. For functions, stored procedures, and sequences check whether tools within the Azure environment can replace their functionality because it's usually more efficient to use built-in Azure tools than to recode the Oracle functions. [Data integration partners](../../partner/data-integration.md) like [Attunity](https://www.qlik.com/) and [WhereScape](https://www.wherescape.com/) offer tools and services that automate migration of functions, stored procedures, and sequences.
 
 As part of your preparation phase, create an inventory of objects that need to be migrated, define a method for handling them, and allocate appropriate resources in your migration plan.
 
@@ -275,48 +275,50 @@ The following sections further discuss the migration of functions, stored proced
 
 ##### Functions
 
-As with most database products, Oracle supports system functions and user-defined functions within a SQL implementation. When you migrate a legacy database platform to Azure Synapse, common system functions can usually be migrated without change. Some system functions might have a slightly different syntax, but any required changes can be automated. You can get a list of functions within an Oracle database by querying the `ALL_OBJECTS` view with the appropriate `WHERE` clause. You can use Oracle SQL Developer to get a list of functions, as shown in the next screenshot.
+As with most database products, Oracle supports system and user-defined functions within a SQL implementation. When you migrate a legacy database platform to Azure Synapse, common system functions can usually be migrated without change. Some system functions might have a slightly different syntax, but any required changes can be automated. You can get a list of functions within an Oracle database by querying the `ALL_OBJECTS` view with the appropriate `WHERE` clause. You can use Oracle SQL Developer to get a list of functions, as shown in the following screenshot.
 
 :::image type="content" source="../media/1-design-performance-migration/oracle-sql-developer-functions.png" border="true" alt-text="Screenshot showing how to query for a list of functions in Oracle SQL Developer.":::
 
-For Oracle system functions or arbitrary user-defined functions that have no equivalent in Azure Synapse, recode those functions using the language available in the target environment. Oracle user-defined functions are coded in PL/SQL, Java, or C. Azure Synapse uses the popular Transact-SQL language to implement user-defined functions.
+For Oracle system functions or arbitrary user-defined functions that have no equivalent in Azure Synapse, recode those functions using a target environment language. Oracle user-defined functions are coded in PL/SQL, Java, or C. Azure Synapse uses the Transact-SQL language to implement user-defined functions.
 
 ##### Stored procedures
 
-Most modern database products support storing procedures within the database. Oracle provides the PL/SQL language for this purpose. A stored procedure typically contains both SQL statements and procedural logic and returns data or a status. You can get a list of stored procedures within an Oracle database by querying the `ALL_OBJECTS` view with the appropriate `WHERE` clause. You can use Oracle SQL Developer to get a list of stored procedures, as shown in the next screenshot.
+Most modern database products support storing procedures within the database. Oracle provides the PL/SQL language for this purpose. A stored procedure typically contains both SQL statements and procedural logic, and returns data or a status. You can get a list of stored procedures within an Oracle database by querying the `ALL_OBJECTS` view with the appropriate `WHERE` clause. You can use Oracle SQL Developer to get a list of stored procedures, as shown in the next screenshot.
 
 :::image type="content" source="../media/1-design-performance-migration/oracle-sql-developer-procedures.png" border="true" alt-text="Screenshot showing how to query for a list of stored procedures in Oracle SQL Developer.":::
 
-Azure Synapse supports stored procedures using T-SQL, so you'll need to recode any migrated stored procedures.
+Azure Synapse supports stored procedures using T-SQL, so you'll need to recode any migrated stored procedures in that language.
 
 ##### Sequences
 
-In Oracle, a sequence is a named database object, created using `CREATESEQUENCE`. A sequence provides unique numeric values via the `CURRVAL` and `NEXTVAL` methods. You can use the generated unique numbers as surrogate key values for primary keys. Azure Synapse doesn't implement `CREATE SEQUENCE`, but you can handle sequences using `IDENTITY` columns or SQL code that generates the next sequence number in a series.
+In Oracle, a sequence is a named database object, created using `CREATESEQUENCE`. A sequence provides unique numeric values via the `CURRVAL` and `NEXTVAL` methods. You can use the generated unique numbers as surrogate key values for primary keys. Azure Synapse doesn't implement `CREATE SEQUENCE`, but you can implement sequences using `IDENTITY` columns or SQL code that generates the next sequence number in a series.
 
 ### Extracting metadata and data from an Oracle environment
 
-#### Data Definition Language (DDL) generation
+#### Data Definition Language generation
 
-You can edit existing Oracle `CREATE TABLE` and `CREATE VIEW` scripts to achieve equivalent definitions in Azure Synapse. To do so, you might need to use [modified data types](#oracle-data-type-mapping) and remove or modify Oracle-specific clauses, such as `TABLESPACE`.
+The ANSI SQL standard defines the basic syntax for Data Definition Language (DDL) commands. Some DDL commands, like `CREATE TABLE` and `CREATE VIEW`, are common to both Oracle and Azure Synapse, but have been extended to provide implementation-specific features such as indexing, table distribution, and partitioning options.
 
-Within the Oracle environment, system catalog tables specify the current table and view definition. Unlike user-maintained documentation, system catalog information is always complete and in sync with the current table definitions. You can access system catalog information by using utilities such as Oracle SQL Developer. Oracle SQL Developer can generate `CREATE TABLE` DDL statements that you can edit to make them apply to equivalent tables in Azure Synapse.
+You can edit existing Oracle `CREATE TABLE` and `CREATE VIEW` scripts to achieve equivalent definitions in Azure Synapse. To do so, you might need to use [modified data types](#oracle-data-type-mapping) and remove or modify Oracle-specific clauses such as `TABLESPACE`.
 
-Alternatively, you can use SSMA for Oracle to migrate tables from an existing Oracle environment to Azure Synapse. SSMA for Oracle will apply the appropriate data type mappings and the recommended table and distribution types, as shown in the next screenshot.
+Within the Oracle environment, system catalog tables specify the current table and view definition. Unlike user-maintained documentation, system catalog information is always complete and in sync with current table definitions. You can access system catalog information using utilities such as Oracle SQL Developer. Oracle SQL Developer can generate `CREATE TABLE` DDL statements that you can edit so they apply to the equivalent tables in Azure Synapse.
+
+Or, you can use SSMA for Oracle to migrate tables from an existing Oracle environment to Azure Synapse. SSMA for Oracle will apply the appropriate data type mappings and recommended table and distribution types, as shown in the following screenshot.
 
 :::image type="content" source="../media/1-design-performance-migration/oracle-sql-server-migration-assistant-2.png" border="true" alt-text="Screenshot showing how to migrate tables from and existing Oracle environment to Azure Synapse using SQL Server Migration Assistant for Oracle.":::
 
-Third-party migration and ETL tools can also use the system catalog information to achieve the same result.
+You can also use third-party migration and ETL tools that process system catalog information to achieve similar results.
 
 #### Data extraction from Oracle
 
-You can extract raw table data from Oracle tables to flat delimited files, such as CSV files, using standard Oracle utilities such as Oracle SQL Developer, [SQLPlus](https://www.oracle.com/database/technologies/instant-client/downloads.html), and [SCLcl](https://www.oracle.com/database/technologies/appdev/sqlcl.html). You can compress the flat delimited files using gzip, and upload them to Azure Blob Storage using AzCopy or Azure data transport tools like Azure Data Box.
+You can extract raw table data from Oracle tables to flat delimited files, such as CSV files, using standard Oracle utilities like Oracle SQL Developer, [SQLPlus](https://www.oracle.com/database/technologies/instant-client/downloads.html), and [SCLcl](https://www.oracle.com/database/technologies/appdev/sqlcl.html). Then, you can compress the flat delimited files using gzip, and upload the compressed files to Azure Blob Storage using AzCopy or Azure data transport tools like Azure Data Box.
 
 Extract table data as efficiently as possible&mdash;especially when migrating large fact tables. For Oracle tables, use parallelism to maximize extraction throughput. You can achieve parallelism by running multiple processes that individually extract discrete segments of data, or by using tools capable of automating parallel extraction through partitioning.
 
 >[!TIP]
 >Use parallelism for the most efficient data extraction.
 
-If sufficient network bandwidth is available, you can extract data from an on-premises Oracle system directly into Azure Synapse tables or Azure Blob Data Storage. To do so, use Data Factory processes, [Azure Database Migration Service](/services/database-migration), or third-party data migration or ETL products, such as Informatica and Talend.
+If sufficient network bandwidth is available, you can extract data from an on-premises Oracle system directly into Azure Synapse tables or Azure Blob Data Storage. To do so, use Data Factory processes, Azure Database Migration Service, or third-party data migration or ETL products, such as Informatica and Talend.
 
 Extracted data files should contain delimited text in CSV, Optimized Row Columnar (ORC), or Parquet format.
 
@@ -328,9 +330,9 @@ The goal of performance optimization is same or better data warehouse performanc
 
 ### Similarities in performance tuning approach concepts
 
-Many performance tuning concepts for databases in Oracle hold true for Azure Synapse. For example:
+Many performance tuning concepts for Oracle databases hold true for Azure Synapse databases. For example:
 
-- Use data distribution to collocate data to be joined onto the same processing node.
+- Use data distribution to collocate data-to-be-joined onto the same processing node.
 
 - Use the smallest data type for a given column to save storage space and accelerate query processing.
 
@@ -338,10 +340,10 @@ Many performance tuning concepts for databases in Oracle hold true for Azure Syn
 
 - To help the optimizer produce the best execution plan, ensure statistics are up to date.
 
-- Monitor performance using the built-in database capabilities in order to ensure that resources are being used efficiently.
+- Monitor performance using built-in database capabilities to ensure that resources are being used efficiently.
 
 > [!TIP]
-> Prioritize familiarity with Azure Synapse tuning options at the start of migration.
+> Prioritize familiarity with Azure Synapse tuning options at the start of a migration.
 
 ### Differences in performance tuning approach
 
@@ -349,15 +351,15 @@ This section highlights low-level performance tuning implementation differences 
 
 #### Data distribution options
 
-For performance reasons, Azure Synapse was designed with multi-node architecture and uses parallel processing. To optimize performance in Azure Synapse, you can define a data distribution option in `CREATE TABLE` statements using the `DISTRIBUTION` statement. For example, you can specify a hash-distributed table, which distributes table rows across compute nodes by using a deterministic hash function. Many Oracle implementations, especially older on-premises systems, don't support this feature.
+For performance, Azure Synapse was designed with multi-node architecture and uses parallel processing. To optimize table performance in Azure Synapse, you can define a data distribution option in `CREATE TABLE` statements using the `DISTRIBUTION` statement. For example, you can specify a hash-distributed table, which distributes table rows across compute nodes by using a deterministic hash function. Many Oracle implementations, especially older on-premises systems, don't support this feature.
 
-Unlike Oracle, Azure Synapse supports "local joins" between a small table and a large table through small table replication. For instance, consider a dimension table and a fact table within a start schema model. Azure Synapse can replicate the smaller dimension table across all nodes to ensure that the value of any join key for the large table has a matching dimension row locally available. The overhead of dimension table replication is relatively low if the dimension table is small. For larger dimension tables, the hash distribution approach is more appropriate. For more information on data distribution options, see [Design guidance for using replicated tables](../../sql-data-warehouse/design-guidance-for-replicated-tables.md) and [Guidance for designing distributed tables](../../sql-data-warehouse/sql-data-warehouse-tables-distribute.md).
+Unlike Oracle, Azure Synapse supports "local joins" between a small table and a large table through small table replication. For instance, consider a small dimension table and a large fact table within a star schema model. Azure Synapse can replicate the smaller dimension table across all nodes to ensure that the value of any join key for the large table has a matching, locally available dimension row. The overhead of dimension table replication is relatively low for a small dimension table. For large dimension tables, a hash distribution approach is more appropriate. For more information on data distribution options, see [Design guidance for using replicated tables](../../sql-data-warehouse/design-guidance-for-replicated-tables.md) and [Guidance for designing distributed tables](../../sql-data-warehouse/sql-data-warehouse-tables-distribute.md).
 
 #### Data indexing
 
-Azure Synapse provides several user-definable indexing options, which have a different operation and usage to system managed zone maps in Oracle. For more information about the different indexing options in Azure Synapse, see [Indexes on dedicated SQL pool tables](../../sql-data-warehouse/sql-data-warehouse-tables-index.md).
+Azure Synapse supports several user-definable indexing options that have a different operation and usage compared to system-managed zone maps in Oracle. For more information about the different indexing options in Azure Synapse, see [Indexes on dedicated SQL pool tables](../../sql-data-warehouse/sql-data-warehouse-tables-index.md).
 
-Index definitions within a source Oracle environment provide a useful indication of both data usage and the columns to index in the new Azure Synapse environment. Typically, it isn't necessary to migrate every index from a legacy Oracle environment because Azure Synapse doesn't over-rely on indexes to achieve acceptable performance. To achieve outstanding performance, Azure Synapse implements the following features:
+Index definitions within a source Oracle environment provide a useful indication of data usage and the candidate columns for indexing in the Azure Synapse environment. Typically, you won't need to migrate every index from a legacy Oracle environment because Azure Synapse doesn't over-rely on indexes and implements the following features to achieve outstanding performance:
 
 - Parallel query processing.
 
@@ -367,15 +369,15 @@ Index definitions within a source Oracle environment provide a useful indication
 
 #### Data partitioning
 
-In an enterprise data warehouse, fact tables can contain billions of rows. Partitioning optimizes the maintenance and querying of these tables by splitting them into separate parts to reduce the amount of data processed. The `CREATE TABLE` statement defines the partitioning specification for a table.
+In an enterprise data warehouse, fact tables can contain billions of rows. Partitioning optimizes the maintenance and querying of these tables by splitting them into separate parts to reduce the amount of data processed. In Azure Synapse, the `CREATE TABLE` statement defines the partitioning specification for a table.
 
-You can only use one field per table for partitioning. That field is frequently a date field because many queries are filtered by date or a date range. It's possible to change the partitioning of a table after initial load by recreating the table with the new distribution using a `CREATE TABLE AS` (CTAS) statement. For a detailed discussion of partitioning in Azure Synapse, see [Partitioning tables in dedicated SQL pool](/azure/sql-data-warehouse/sql-data-warehouse-tables-partition).
+You can only use one field per table for partitioning. That field is frequently a date field because many queries are filtered by date or a date range. It's possible to change the partitioning of a table after initial load by using the `CREATE TABLE AS` (CTAS) statement to recreate the table with a new distribution. For a detailed discussion of partitioning in Azure Synapse, see [Partitioning tables in dedicated SQL pool](/azure/sql-data-warehouse/sql-data-warehouse-tables-partition).
 
 #### PolyBase or COPY INTO for data loading
 
-PolyBase supports efficient loading of large amounts of data to a data warehouse through parallel loading streams. For more information, see [PolyBase data loading strategy](../../sql/load-data-overview.md).
+PolyBase supports efficient loading of large amounts of data to a data warehouse by using parallel loading streams. For more information, see [PolyBase data loading strategy](../../sql/load-data-overview.md).
 
-`COPY INTO` supports high-throughput data ingestion and:
+`COPY INTO` also supports high-throughput data ingestion, and:
 
 - Data retrieval from all files within a folder and subfolders.
 - Data retrieval from multiple locations in the same storage account. You can specify multiple locations by using comma separated paths.
