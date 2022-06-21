@@ -57,11 +57,11 @@ This document demonstrates how to install Azure SQL Managed Instance - Azure Arc
     |**Point in time retention (days)** | How long you want to keep your point in time backups. | Optional |
 
      > [!WARNING]
-     > You need to specify a ReadWriteMany (RWX) capable storage class needs to be specified for backups. Learn more about [access modes](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#access-modes).
+     > You need to specify a ReadWriteMany (RWX) capable storage class for backups. Learn more about [access modes](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#access-modes).
      >
-     > If you don't specify a storage class is specified for backups, the deployment uses the default storage class in Kubernetes. If this storage class isn't RWX capable, the deployment may not succeed.
+     > If you don't specify a storage class for backups, the deployment uses the default storage class in Kubernetes. If this storage class isn't RWX capable, the deployment may not succeed.
 
-   After you've set all of the required values, Azure Data Studio enables the **Deploy** button. If this control is not enabled, verify that you have all required settings configured.
+   After you've set all of the required values, Azure Data Studio enables the **Deploy** button. If this control is disabled, verify that you have all required settings configured.
 
 1. Select the **Deploy** button to create the managed instance.
 
@@ -84,7 +84,7 @@ View all the Azure SQL Managed Instances provisioned to this data controller. Us
   ```
 
 1. In Azure Data Studio, under **Connections** tab, select the **New Connection** on the **Servers** view
-1. In the **Connection** blade, paste the ServerEndpoint into the Server textbox
+1. Under **Connection**>**Server**, paste the ServerEndpoint 
 1. Select **SQL Login** as the Authentication type
 1. Enter *sa* as the user name
 1. Enter the password for the `sa` account
