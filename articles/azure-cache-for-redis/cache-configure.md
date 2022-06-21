@@ -161,8 +161,6 @@ Redis keyspace notifications are configured on the **Advanced settings** on the 
 
 For more information, see [Redis Keyspace Notifications](https://redis.io/topics/notifications). For sample code, see the [KeySpaceNotifications.cs](https://github.com/rustd/RedisSamples/blob/master/HelloWorld/KeySpaceNotifications.cs) file in the [Hello world](https://github.com/rustd/RedisSamples/tree/master/HelloWorld) sample.
 
-<a name="recommendations"></a>
-
 ## Azure Cache for Redis Advisor
 
 The **Azure Cache for Redis Advisor** on the left displays recommendations for your cache. During normal operations, no recommendations are displayed.
@@ -177,7 +175,7 @@ Further information can be found on the **Recommendations** on the left.
 
 :::image type="content" source="media/cache-configure/redis-cache-recommendations.png" alt-text="Recommendations":::)
 
-You can monitor these metrics on the [Monitoring charts](cache-how-to-monitor.md#monitoring-charts) and [Usage charts](cache-how-to-monitor.md#usage-charts) sections of the **Azure Cache for Redis** on the left.
+You can monitor these metrics on the [Monitoring](cache-how-to-monitor.md) section of the Resource menu on the left.
 
 Each pricing tier has different limits for client connections, memory, and bandwidth. If your cache approaches maximum capacity for these metrics over a sustained period of time, a recommendation is created. For more information about the metrics and limits reviewed by the **Recommendations** tool, see the following table:
 
@@ -185,7 +183,7 @@ Each pricing tier has different limits for client connections, memory, and bandw
 | --- | --- |
 | Network bandwidth usage |[Cache performance - available bandwidth](./cache-planning-faq.yml#azure-cache-for-redis-performance) |
 | Connected clients |[Default Redis server configuration - max clients](#maxclients) |
-| Server load |[Usage charts - Redis Server Load](cache-how-to-monitor.md#usage-charts) |
+| Server load |[Redis Server Load](cache-how-to-monitor.md#view-cache-metrics) |
 | Memory usage |[Cache performance - size](./cache-planning-faq.yml#azure-cache-for-redis-performance) |
 
 To upgrade your cache, select **Upgrade now** to change the pricing tier and [scale](#scale) your cache. For more information on choosing a pricing tier, see [Choosing the right tier](cache-overview.md#choosing-the-right-tier)
