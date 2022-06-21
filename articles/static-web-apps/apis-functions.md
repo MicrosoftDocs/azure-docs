@@ -56,7 +56,7 @@ Logs are only available if you add [Application Insights](monitor.md).
 
 ## Constraints
 
-In addition to the Static Web Apps API [constaints](apis-overview.md#constraints), the following restrictions are also applicable to Azure Functions APIs:
+In addition to the Static Web Apps API [constraints](apis-overview.md#constraints), the following restrictions are also applicable to Azure Functions APIs:
 
 | Managed functions | Bring your own functions |
 |---|---|
