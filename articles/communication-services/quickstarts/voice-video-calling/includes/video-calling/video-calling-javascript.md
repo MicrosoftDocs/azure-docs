@@ -22,7 +22,7 @@ If you'd like to skip ahead to the end, you can download this quickstart as a sa
   az communication identity issue-access-token --scope voip --connection-string "yourConnectionString"
   ```
 
-  For details, see [Use Azure CLI to Create and Manage Access Tokens](../../access-tokens.md?pivots=platform-azcli).
+  For details, see [Use Azure CLI to Create and Manage Access Tokens](../../../access-tokens.md?pivots=platform-azcli).
 
 ## Setting up
 ### Create a new Node.js application

@@ -18,7 +18,7 @@ ms.author: rifox
 - [Java Development Kit (JDK)](/azure/developer/java/fundamentals/java-jdk-install) version 8 or above.
 - [Apache Maven](https://maven.apache.org/download.cgi).
 - Create an Azure Communication Services resource. For details, see [Create an Azure Communication Services resource](../../create-communication-resource.md). You'll need to record your resource **endpoint and connection string** for this quickstart.
-- A [User Access Token](../../access-tokens.md). Be sure to set the scope to "chat", and note the token string as well as the user_id string. You can also use the Azure CLI and run the command below with your connection string to create a user and an access token.
+- A [User Access Token](../../access-tokens.md). Be sure to set the scope to **chat**, and **note the token string as well as the user_id string**. You can also use the Azure CLI and run the command below with your connection string to create a user and an access token.
 
   ```azurecli-interactive
   az communication identity issue-access-token --scope chat --connection-string "yourConnectionString"

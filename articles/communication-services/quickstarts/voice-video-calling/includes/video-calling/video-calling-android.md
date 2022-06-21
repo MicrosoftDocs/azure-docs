@@ -21,7 +21,7 @@ If you want to get started with sample code, you can [download the sample app](h
   az communication identity issue-access-token --scope voip --connection-string "yourConnectionString"
   ```
 
-  For details, see [Use Azure CLI to Create and Manage Access Tokens](../../access-tokens.md?pivots=platform-azcli).
+  For details, see [Use Azure CLI to Create and Manage Access Tokens](../../../access-tokens.md?pivots=platform-azcli).
 
 ## Create an Android app with an empty activity
 

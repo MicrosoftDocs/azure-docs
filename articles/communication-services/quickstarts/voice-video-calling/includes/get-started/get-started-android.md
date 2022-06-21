@@ -25,7 +25,7 @@ You can download the sample app from [GitHub](https://github.com/Azure-Samples/c
   az communication identity issue-access-token --scope voip --connection-string "yourConnectionString"
   ```
 
-  For details, see [Use Azure CLI to Create and Manage Access Tokens](../../access-tokens.md?pivots=platform-azcli).
+  For details, see [Use Azure CLI to Create and Manage Access Tokens](../../../access-tokens.md?pivots=platform-azcli).
   
 ## Setting up
 
