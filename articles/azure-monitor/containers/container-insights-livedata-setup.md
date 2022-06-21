@@ -4,6 +4,7 @@ description: This article describes how to set up the real-time view of containe
 ms.topic: conceptual
 ms.date: 05/24/2022
 ms.custom: references_regions
+ms.reviewer: aul
 ---
 
 # How to configure Live Data in Container insights

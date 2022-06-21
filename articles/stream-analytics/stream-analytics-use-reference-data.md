@@ -3,7 +3,7 @@ title: Use reference data for lookups in Azure Stream Analytics
 description: This article describes how to use reference data to look up or correlate data in an Azure Stream Analytics job's query design.
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 06/25/2021
+ms.date: 06/17/2022
 ---
 # Use reference data for lookups in Stream Analytics
 
@@ -145,7 +145,7 @@ Support for compression isn't available for reference data. For reference datase
 
 ## Join multiple reference datasets in a job
 
-You can join only one stream input with one reference data input in a single step of your query. To join multiple reference datasets, break down your query into multiple steps. Here's an example:
+You can only join a reference data input to a streaming input. So to join multiple reference datasets, break down your query into multiple steps. Here's an example:
 
 ```SQL  
 With Step1 as (

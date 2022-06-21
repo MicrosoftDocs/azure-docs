@@ -142,8 +142,6 @@
         href: migrate-application-authentication-to-azure-active-directory.md
       - name: Use the AD FS application activity report
         href: migrate-adfs-application-activity.md
-      - name: Migration resources
-        href: migration-resources.md
       - name: Migrate applications from Okta to Azure AD 
         items:
         - name: Migrate applications from Okta to Azure AD
@@ -246,6 +244,8 @@
     items:
         - name: Video learning
           href: app-management-videos.md
+        - name: Migration resources
+          href: migration-resources.md
         - name: Support and help options for developers
           href: ../develop/developer-support-help-options.md?context=%2fazure%2factive-directory%2fmanage-apps%2fcontext%2fmanage-apps-context
         - name: Azure feedback forum

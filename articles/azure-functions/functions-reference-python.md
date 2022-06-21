@@ -469,7 +469,7 @@ The [Context](/python/api/azure-functions/azure.functions.context) class has the
 
 - `trace_context`: Context for distributed tracing. For more information, see [Trace Context](https://www.w3.org/TR/trace-context/) on the W3C website.
 
-- `retry_context`: Context for retries to the function. For more information, see [Retry policies](./functions-bindings-errors.md#retry-policies-preview).
+- `retry_context`: Context for retries to the function. For more information, see [Retry policies](./functions-bindings-errors.md#retry-policies).
 
 ## Global variables
 

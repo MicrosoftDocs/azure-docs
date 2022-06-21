@@ -12,6 +12,8 @@ ms.date: 09/17/2021
 ---
 # Azure CLI samples for Azure Database for PostgreSQL - Single Server
 
+[!INCLUDE [applies-to-postgresql-single-server](../includes/applies-to-postgresql-single-server.md)]
+
 The following table includes links to sample Azure CLI scripts for Azure Database for PostgreSQL.
 
 | Sample link | Description |

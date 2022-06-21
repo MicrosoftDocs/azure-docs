@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 02/02/2022
+ms.date: 06/13/2022
 ms.author: eur
 ms.custom: references_regions, ignite-fall-2021
 ---
@@ -28,6 +28,7 @@ To improve accuracy, customization is available for some languages and base mode
 | Language                          | Locale (BCP-47) |
 |-----------------------------------|-----------------|
 | Afrikaans (South Africa)          | `af-ZA`         |
+| Albanian (Albania)                | `sq-AL`         |
 | Amharic (Ethiopia)                | `am-ET`         |
 | Arabic (Algeria)                  | `ar-DZ`         |
 | Arabic (Bahrain), modern standard | `ar-BH`         |
@@ -47,6 +48,9 @@ To improve accuracy, customization is available for some languages and base mode
 | Arabic (Tunisia)                  | `ar-TN`         |
 | Arabic (United Arab Emirates)     | `ar-AE`         |
 | Arabic (Yemen)                    | `ar-YE`         |
+| Armenian (Armenia)                | `hy-AM`         |
+| Azerbaijani (Azerbaijan)          | `az-AZ`         |
+| Basque (Spain)                    | `eu-ES`         |
 | Bengali (India)                   | `bn-IN`         |
 | Bulgarian (Bulgaria)              | `bg-BG`         |
 | Burmese (Myanmar)                 | `my-MM`         |
@@ -81,6 +85,8 @@ To improve accuracy, customization is available for some languages and base mode
 | French (Canada)                   | `fr-CA`         |
 | French (France)                   | `fr-FR`         |
 | French (Switzerland)              | `fr-CH`         |
+| Galician (Spain)                  | `gl-ES`         |
+| Georgian (Georgia)                | `ka-GE`         |
 | German (Austria)                  | `de-AT`         |
 | German (Germany)                  | `de-DE`         |
 | German (Switzerland)              | `de-CH`         |
@@ -93,9 +99,11 @@ To improve accuracy, customization is available for some languages and base mode
 | Indonesian (Indonesia)            | `id-ID`         |
 | Irish (Ireland)                   | `ga-IE`         |
 | Italian (Italy)                   | `it-IT`         |
+| Italian (Switzerland)             | `it-CH`         |
 | Japanese (Japan)                  | `ja-JP`         |
 | Javanese (Indonesia)              | `jv-ID`         |
 | Kannada (India)                   | `kn-IN`         |
+| Kazakh (Kazakhstan)               | `kk-KZ`         |
 | Khmer (Cambodia)                  | `km-KH`         |
 | Korean (Korea)                    | `ko-KR`         |
 | Lao (Laos)                        | `lo-LA`         |
@@ -105,6 +113,8 @@ To improve accuracy, customization is available for some languages and base mode
 | Malay (Malaysia)                  | `ms-MY`         |
 | Maltese (Malta)                   | `mt-MT`         |
 | Marathi (India)                   | `mr-IN`         |
+| Mongolian (Mongolia)              | `mn-MN`         |
+| Nepali (Nepal)                    | `ne-NP`         |
 | Norwegian (Bokmål, Norway)        | `nb-NO`         |
 | Persian (Iran)                    | `fa-IR`         |
 | Polish (Poland)                   | `pl-PL`         |
@@ -789,7 +799,7 @@ Use the following table to determine supported styles and roles for each neural 
 |en-US-GuyNeural|`angry`, `cheerful`, `excited`, `friendly`, `hopeful`, `newscast`, `sad`, `shouting`, `terrified`, `unfriendly`, `whispering`|||
 |en-US-JaneNeural <sup>Public preview</sup>|`angry`, `cheerful`, `excited`, `friendly`, `hopeful`, `sad`, `shouting`, `terrified`, `unfriendly`, `whispering`|||
 |en-US-JasonNeural <sup>Public preview</sup>|`angry`, `cheerful`, `excited`, `friendly`, `hopeful`, `sad`, `shouting`, `terrified`, `unfriendly`, `whispering`|||
-|en-US-JennyNeural|`angry`, `assistant`, `chat`, `cheerful`,`customerservice`, `excited`, `friendly`, `hopeful`, `newscast`, `sad`, `shouting`, `terrified`, , `unfriendly`, `whispering`|||
+|en-US-JennyNeural|`angry`, `assistant`, `chat`, `cheerful`,`customerservice`, `excited`, `friendly`, `hopeful`, `newscast`, `sad`, `shouting`, `terrified`, `unfriendly`, `whispering`|||
 |en-US-NancyNeural <sup>Public preview</sup>|`angry`, `cheerful`, `excited`, `friendly`, `hopeful`, `sad`, `shouting`, `terrified`, `unfriendly`, `whispering`|||
 |en-US-SaraNeural|`angry`, `cheerful`, `excited`, `friendly`, `hopeful`, `sad`, `shouting`, `terrified`, `unfriendly`, `whispering`|||
 |en-US-TonyNeural <sup>Public preview</sup>|`angry`, `cheerful`, `excited`, `friendly`, `hopeful`, `sad`, `shouting`, `terrified`, `unfriendly`, `whispering`|||
@@ -925,6 +935,7 @@ The following table lists the released languages and public preview languages.
 |English (United Kingdom)|`en-GB`<sup>Public preview</sup> |
 |English (United States)|`en-US`<sup>General available</sup>|
 |French (France)|`fr-FR`<sup>Public preview</sup> |
+|German (Germany)|`de-DE`<sup>Public preview</sup> |
 |Spanish (Spain)|`es-ES`<sup>Public preview</sup> |
 
 > [!NOTE]
