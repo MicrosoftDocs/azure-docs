@@ -233,7 +233,7 @@ for await (const thread of threads) {
 
 ## Send a message to a chat thread
 
-Use `sendMessage` method to sends a message to a thread identified by threadId.
+Use `sendMessage` method to send a message to a thread identified by threadId.
 
 `sendMessageRequest` is used to describe the message request:
 
@@ -242,8 +242,8 @@ Use `sendMessage` method to sends a message to a thread identified by threadId.
 `sendMessageOptions` is used to describe the operation optional params:
 
 - Use `senderDisplayName` to specify the display name of the sender;
-- Use `type` to specify the message type, such as 'text' or 'html' ;
-- Use `metadata` optionally to include any other data you want to send along with the message. This field provides a mechanism for developers to extend chat message functionality and add custom information for your use case. For example, when sharing a file link in the message, you might want to add 'hasAttachment:true' in metadata so that recipient's application can parse that and display accordingly.
+- Use `type` to specify the message type, such as 'text' or 'html';
+- Use `metadata` optionally to include any other data you want to send along with the message. This field provides a mechanism for developers to extend chat message functionality and add custom information for your use case. For example, when sharing a file link in the message, you might want to add 'hasAttachment: true' in metadata so that recipient's application can parse that and display accordingly.
 
 `SendChatMessageResult` is the response returned from sending a message, it contains an ID, which is the unique ID of the message.
 
@@ -301,7 +301,7 @@ for await (const message of messages) {
 Add this code in place of the `<LIST MESSAGES IN A CHAT THREAD>` comment in **client.js**.
 Refresh your tab, in the console you should find the list of messages sent in this chat thread.
 
-`listMessages` returns different types of messages which can be identified by `chatMessage.type`. 
+`listMessages` returns different types of messages that can be identified by `chatMessage.type`. 
 
 For more details, see [Message Types](../../../concepts/chat/concepts.md#message-types).
 
@@ -345,7 +345,7 @@ Add this code in place of the `<LIST PARTICIPANTS IN A THREAD>` comment in **cli
 
 ## Remove user from a chat thread
 
-Similar to adding a participant, you can remove participants from a chat thread. In order to remove, you'll need to track the IDs of the participants you have added.
+Similar to adding a participant, you can remove participants from a chat thread. In order to remove, you'll need to track the IDs of the participants you've added.
 
 Use `removeParticipant` method where `participant` is the communication user to be removed from the thread.
 

@@ -12,7 +12,7 @@ az extension add --name communication
 ```
 
 ### Sign in to Azure CLI
-You will need to [sign in to Azure CLI](/cli/azure/authenticate-azure-cli). You can do this through the terminal using the ```az login``` command and providing your credentials.
+You will need to [sign in to Azure CLI](/cli/azure/authenticate-azure-cli). You can sign in running the ```az login``` command from the terminal and providing your credentials.
 
 ### Create an ACS resource and get your connection string
 If you don't have an ACS resource, you create one by running the command below.

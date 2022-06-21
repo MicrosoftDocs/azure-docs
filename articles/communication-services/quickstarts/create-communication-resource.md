@@ -53,7 +53,7 @@ After navigating to your Communication Services resource, select **Keys** from t
 
 You can also access key information using Azure CLI, like your resource group or the keys for a specific resource. 
 
-Install [Azure CLI](/cli/azure/install-azure-cli-windows?tabs=azure-cli) and use the following command to login. You will need to provide your credentials to connect with your Azure account.
+Install [Azure CLI](/cli/azure/install-azure-cli-windows?tabs=azure-cli) and use the following command to login. You'll need to provide your credentials to connect with your Azure account.
 ```azurepowershell-interactive
 az login
 ```
@@ -65,7 +65,7 @@ az communication list --resource-group "<resourceGroup>"
 az communication list-key --name "<communicationName>" --resource-group "<resourceGroup>"
 ```
 
-If you would like to select a specific subscription you can also specify the ```--subscription``` flag and provide the subscription ID.
+If you would like to select a specific subscription, you can also specify the ```--subscription``` flag and provide the subscription ID.
 ```azurepowershell-interactive
 az communication list --resource-group  "resourceGroup>"  --subscription "<subscriptionId>"
 
@@ -93,11 +93,11 @@ Open a console window and enter the following command:
 setx COMMUNICATION_SERVICES_CONNECTION_STRING "<yourConnectionString>"
 ```
 
-After you add the environment variable, you may need to restart any running programs that will need to read the environment variable, including the console window. For example, if you are using Visual Studio as your editor, restart Visual Studio before running the example.
+After you add the environment variable, you may need to restart any running programs that will need to read the environment variable, including the console window. For example, if you're using Visual Studio as your editor, restart Visual Studio before running the example.
 
 #### [macOS](#tab/unix)
 
-Edit your **.zshrc**, and add the environment variable:
+Edit your **`.zshrc`**, and add the environment variable:
 
 ```bash
 export COMMUNICATION_SERVICES_CONNECTION_STRING="<yourConnectionString>"
@@ -107,7 +107,7 @@ After you add the environment variable, run `source ~/.zshrc` from your console 
 
 #### [Linux](#tab/linux)
 
-Edit your **.bash_profile**, and add the environment variable:
+Edit your **`.bash_profile`**, and add the environment variable:
 
 ```bash
 export COMMUNICATION_SERVICES_CONNECTION_STRING="<yourConnectionString>"

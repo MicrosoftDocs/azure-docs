@@ -27,7 +27,7 @@ You can download the sample app from [GitHub](https://github.com/Azure-Samples/c
 
 [!INCLUDE [Calling with JavaScript](./get-started-javascript-setup.md)]
 
-Here's the html, that we need to add to the `index.html` file which we created:
+Here's the html, that we need to add to the `index.html` file that we created:
 
 ```html
 <!DOCTYPE html>
@@ -96,7 +96,7 @@ The following classes and interfaces handle some of the major features of the Az
 
 ## Authenticate the client
 
-You need to input a valid user access token for your resource into the text field and click 'Submit'. Refer to the [user access token](../../../access-tokens.md) documentation if you don't already have a token available. Using the `CallClient`, initialize a `CallAgent` instance with a `CommunicationTokenCredential`, that will enable us to make and receive calls. 
+You need to input a valid user access token for your resource into the text field and click 'Submit'. Refer to the [user access token](../../../access-tokens.md) documentation if you don't already have a token available. Using the `CallClient`, initialize a `CallAgent` instance with a `CommunicationTokenCredential` that will enable us to make and receive calls. 
 
 Add the following code to **app.js**:
 
