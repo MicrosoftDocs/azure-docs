@@ -268,7 +268,7 @@ The Server Registration UI should open automatically after you install the Azure
 
 A sync group defines the sync topology for a set of files. A sync group must contain one cloud endpoint, which represents an Azure file share. A sync group also must contain one or more server endpoints. A server endpoint represents a path on a registered server. To create a sync group:
 
-1. In the [Azure portal](https://portal.azure.com/), select **+ Sync group** from the Storage Sync Service. Use *afssyncservice02* for this tutorial.
+1. In the [Azure portal](https://portal.azure.com/), select **+ Sync group** from the Storage Sync Service you deployed.
 
    :::image type="content" source="media/storage-sync-files-extend-servers/add-sync-group.png" alt-text="Screenshot showing how to create a new sync group in the Azure portal.":::
 
@@ -276,10 +276,10 @@ A sync group defines the sync topology for a set of files. A sync group must con
 
    | Value | Description |
    | ----- | ----- |
-   | **Sync group name** | This name must be unique within the Storage Sync Service, but can be any name that is logical for you. Use *afssyncgroup* for this tutorial.|
+   | **Sync group name** | This name must be unique within the Storage Sync Service, but can be any name that is logical for you.|
    | **Subscription** | The subscription where you deployed the Storage Sync Service for this tutorial. |
-   | **Storage account** | Choose **Select storage account**. On the pane that appears, select the storage account that has the Azure file share you created. Use *afsstoracct101918* for this tutorial. |
-   | **Azure file share** | The name of the Azure file share you created. Use *afsfileshare* for this tutorial. |
+   | **Storage account** | Choose **Select storage account**. On the pane that appears, select the storage account that has the Azure file share you created. |
+   | **Azure file share** | The name of the Azure file share you created. |
 
 1. Select **Create**.
 
@@ -297,8 +297,8 @@ A server endpoint represents a specific location on a registered server. For exa
 
    | Value | Description |
    | ----- | ----- |
-   | **Registered server** | The name of the server you created. Use *afsvm101918* for this tutorial. |
-   | **Path** | The Windows Server path to the drive you created. Use *f:\filestosync* in this tutorial. |
+   | **Registered server** | The name of the server you created. For example, *myVM*. |
+   | **Path** | The Windows Server path to the drive you created. For example, *f:\filestosync*. |
    | **Cloud Tiering** | Leave disabled for this tutorial. |
    | **Volume Free Space** | Leave blank for this tutorial. |
 
