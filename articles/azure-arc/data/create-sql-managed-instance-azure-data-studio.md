@@ -24,6 +24,7 @@ This document demonstrates how to install Azure SQL Managed Instance - Azure Arc
 3. From the deployment options, select **Azure SQL managed instance**.
   > [!NOTE]
   > You may be prompted to install the appropriate CLI here if it is not currently installed.
+  
 4. Select **Select**.
 
    Azure Data Studio opens **Azure SQL managed instance**. 
