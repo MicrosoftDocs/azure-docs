@@ -16,25 +16,7 @@ Configure [App Services](../../app-service/configure-language-java.md#set-java-r
 
 ## Spring Boot
 
-Add the JVM arg `-javaagent:path/to/applicationinsights-agent-3.2.11.jar` somewhere before `-jar`, for example:
-
-```
-java -javaagent:path/to/applicationinsights-agent-3.2.11.jar -jar <myapp.jar>
-```
-
-## Spring Boot via Docker entry point
-
-If you're using the *exec* form, add the parameter `"-javaagent:path/to/applicationinsights-agent-3.2.11.jar"` to the parameter list somewhere before the `"-jar"` parameter, for example:
-
-```
-ENTRYPOINT ["java", "-javaagent:path/to/applicationinsights-agent-3.2.11.jar", "-jar", "<myapp.jar>"]
-```
-
-If you're using the *shell* form, add the JVM arg `-javaagent:path/to/applicationinsights-agent-3.2.11.jar` somewhere before `-jar`, for example:
-
-```
-ENTRYPOINT java -javaagent:path/to/applicationinsights-agent-3.2.11.jar -jar <myapp.jar>
-```
+Please read the Spring Boot documentation [here](../azure-monitor/app/java-in-process-agent.md).
 
 ## Tomcat 8 (Linux)
 
