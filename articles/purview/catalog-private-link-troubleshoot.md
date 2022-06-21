@@ -6,7 +6,7 @@ ms.author: zeinam
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 01/12/2022
+ms.date: 06/21/2022
 # Customer intent: As a Microsoft Purview admin, I want to set up private endpoints for my Microsoft Purview account, for secure access.
 ---
 
@@ -20,7 +20,8 @@ This guide summarizes known limitations related to using private endpoints for M
 - Scanning Azure Multiple Sources using self-hosted integration runtime isn't supported.
 - Using Azure integration runtime to scan data sources behind private endpoint isn't supported.
 - The ingestion private endpoints can be created via the Microsoft Purview governance portal experience described in the preceding steps. They can't be created from the Private Link Center.
-- Creating a DNS record for ingestion private endpoints inside existing Azure DNS Zones, while the Azure Private DNS Zones are located in a different subscription than the private endpoints isn't supported via the Microsoft Purview governance portal experience. A record can be added manually in the destination DNS Zones in the other subscription. 
+- Creating a DNS record for ingestion private endpoints inside existing Azure DNS Zones, while the Azure Private DNS Zones are located in a different subscription than the private endpoints isn't supported via the Microsoft Purview governance portal experience. A record can be added manually in the destination DNS Zones in the other subscription.
+- If you enable a managed event hub after deploying an ingestion private endpoint, you'll need to redeploy the ingestion private endpoint.
 - Self-hosted integration runtime machine must be deployed in the same VNet or a peered VNet where Microsoft Purview account and ingestion private endpoints are deployed.
 - We currently don't support scanning a cross-tenant Power BI tenant, which has a private endpoint configured with public access blocked.
 - For limitation related to Private Link service, see [Azure Private Link limits](../azure-resource-manager/management/azure-subscription-service-limits.md#private-link-limits).
