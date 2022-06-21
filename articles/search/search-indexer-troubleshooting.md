@@ -220,11 +220,11 @@ Azure Cognitive Search has an implicit dependency on Cosmos DB indexing. If you 
 Indexer may show a different document count than either the data source, the index or count in your code in a point in time, depending on specific circumstances. Here are some possible causes of why this may occur:
 
 - The indexer has a Deleted Document Policy. The deleted documents get counted on the indexer end if they are indexed before they get deleted.
-- If the ID column in the data source is not unique. This is for data sources that have the concept of column, such as CosmosDB.
-- If the data source has a different query than the one you are using to estimate the number of records.
+- If the ID column in the data source is not unique. This is for data sources that have the concept of column, such as Cosmos DB.
+- If the data source definition has a different query than the one you are using to estimate the number of records. In example, in your data base you are querying all your data base record count, while in the data source definition query you may be selecting just a subset of records to index.
 - The counts are being checked in different intervals for each component of the pipeline: data source, indexer and index.
 - The index may take some minutes to show the real document count. 
-- The data source may have one single file that is mapped to many documents. This is the case for JSON lines and JSON arrays.
+- The data source has a file that's mapped to many documents. This condition can occur when [indexing blobs](search-howto-index-json-blobs.md) and "parsingMode" is set to **`jsonArray`** and **`jsonLines`**.
 - Due to [documents processed multiple times](#documents-processed-multiple-times).
  
 
