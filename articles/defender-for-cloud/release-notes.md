@@ -85,7 +85,7 @@ Learn more about [Microsoft Defender for Azure Cosmos DB](concept-defender-for-c
 
 With the addition of support for Azure Cosmos DB, Defender for Cloud now provides one of the most comprehensive workload protection offerings for cloud-based databases. Security teams and database owners can now have a centralized experience to manage their database security of their environments. 
 
-Learn how to [enable database protection](quickstart-enable-database-protections.md) for your databases today.
+Learn how to [enable protections](enable-enhanced-security.md) for your databases.
 
 ### Auto-provisioning of Microsoft Defender for Endpoint unified solution
 
@@ -237,6 +237,9 @@ Updates in March include:
     - [Drive implementation of security recommendations to enhance your security posture](#drive-implementation-of-security-recommendations-to-enhance-your-security-posture)
     - [Filter security alerts by IP address](#filter-security-alerts-by-ip-address)
     - [General availability (GA) of Defender for SQL on machines for AWS and GCP environments](#general-availability-ga-of-defender-for-sql-on-machines-for-aws-and-gcp-environments)
+    - [Alerts by resource group](#alerts-by-resource-group)
+    - [General availability (GA) for Microsoft Defender for Azure Cosmos DB](#general-availability-ga-for-microsoft-defender-for-azure-cosmos-db)
+    - [Auto-provisioning of Microsoft Defender for Endpoint unified solution](#auto-provisioning-of-microsoft-defender-for-endpoint-unified-solution)
   - [May 2022](#may-2022)
     - [Multicloud settings of Servers plan are now available in connector level](#multicloud-settings-of-servers-plan-are-now-available-in-connector-level)
     - [Changes to vulnerability assessment](#changes-to-vulnerability-assessment)
