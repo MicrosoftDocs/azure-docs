@@ -2,7 +2,7 @@
 title: Authenticate from an application - Azure Relay (Preview)
 description: This article provides information about authenticating an application with Azure Active Directory to access Azure Relay resources. 
 ms.topic: article
-ms.date: 07/02/2021
+ms.date: 06/21/2022
 ---
 
 # Authenticate and authorize an application with Azure Active Directory to access Azure Relay entities (Preview)
