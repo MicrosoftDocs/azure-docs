@@ -292,15 +292,15 @@ Use the [``MongoClient.connect``](https://mongodb.github.io/node-mongodb-native/
 
 :::code language="javascript" source="~/samples-cosmosdb-mongodb-javascript/001-quickstart/index.js" id="connect_client":::
 
-### Create a database
+### Get database instance
 
-Use the [``MongoClient.db``](https://mongodb.github.io/node-mongodb-native/4.5/classes/MongoClient.html#db) class to create a new database if it doesn't already exist. This method will return a reference to the existing or newly created database.
+Use the [``MongoClient.db``](https://mongodb.github.io/node-mongodb-native/4.5/classes/MongoClient.html#db) gets a reference to a database. 
 
 :::code language="javascript" source="~/samples-cosmosdb-mongodb-javascript/001-quickstart/index.js" id="new_database" :::
 
-### Create a collection
+### Get collection instance
 
-The [``Db.collection``](https://mongodb.github.io/node-mongodb-native/4.5/classes/Db.html#collection) creates a new collection if it doesn't already exist. This method returns a reference to the collection.
+The [``MongoClient.Db.collection``](https://mongodb.github.io/node-mongodb-native/4.5/classes/Db.html#collection) gets a reference to a collection.
 
 :::code language="javascript" source="~/samples-cosmosdb-mongodb-javascript/001-quickstart/index.js" id="new_collection":::
 
@@ -335,6 +335,10 @@ In Azure Cosmos DB, you can perform a less-expensive [point read](https://devblo
 After you insert a doc, you can run a query to get all docs that match a specific filter. This example finds all docs that match a specific category: `gear-surf-surfboards`. Once the query is defined, call [``Collection.find``](https://mongodb.github.io/node-mongodb-native/4.5/classes/Collection.html#find) to get a [``FindCursor``](https://mongodb.github.io/node-mongodb-native/4.7/classes/FindCursor.html) result. Convert the cursor into an array to use JavaScript array methods.
 
 :::code language="javascript" source="~/samples-cosmosdb-mongodb-javascript/001-quickstart/index.js" id="query_docs" :::
+
+Troubleshooting:
+
+* If you get an error such as `The index path corresponding to the specified order-by item is excluded.`, make sure you [created the index](#create-an-index).
 
 ## Run the code
 
