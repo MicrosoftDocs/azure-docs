@@ -18,7 +18,7 @@ This template provides the basic structure of a HOW-TO article. A HOW-TO article
 
 -->
 
-# Create an Azure Storage Mover resource
+# Deploy an Azure Storage Mover agent
 
 <!-- 
 

@@ -21,7 +21,7 @@ This template provides the basic structure of a concept article.
 
 Set expectations for what the content covers, so customers know the content meets their needs. The heading should NOT begin with a verb.-->
 
-# Top level heading
+# Compliance Offerings
 
 <!-- 
 2. Introductory paragraph\

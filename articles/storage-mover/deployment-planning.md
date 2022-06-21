@@ -6,10 +6,9 @@ services: storage-mover
 author: stevenmatthew
 
 ms.service: storage-mover
-ms.topic: conceptual
 ms.author: shaas
 ms.topic: conceptual
-ms.date: 06/13/2022
+ms.date: 06/21/2022
 ms.custom: template-concept
 ---
 

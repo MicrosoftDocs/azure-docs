@@ -5,7 +5,7 @@ author: stevenmatthew
 ms.author: shaas
 ms.service: storage-mover
 ms.topic: tutorial
-ms.date: 06/13/2022
+ms.date: 06/21/2022
 ms.custom: template-tutorial
 ---
 
@@ -65,7 +65,7 @@ The Agent uses a managed identity created when the Agent registered to Azure. Th
 unique to the Agent and its lifetime is linked to the Agent. This identity will also show in the access 
 logs.
 
-Reference the Microsoft docs for an [Overview of Azure Managed Identities](../active-directory/managed-identities-azure-resources/overview).
+Reference the Microsoft docs for an [Overview of Azure Managed Identities](../active-directory/managed-identities-azure-resources/overview.md).
 
 ## Run the script
 

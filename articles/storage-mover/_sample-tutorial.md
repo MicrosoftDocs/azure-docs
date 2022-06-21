@@ -19,7 +19,7 @@ This template provides the basic structure of a TUTORIAL article. A TUTORIAL art
 
 Start with "Tutorial: ". Make the first word following "Tutorial: " a verb. -->
 
-# Tutorial: Configure a migration agent
+# Tutorial: Sample Tutorial
 
 <!-- 2. Introductory paragraph 
 

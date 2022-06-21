@@ -18,7 +18,7 @@ This template provides the basic structure of a QUICKSTART article. A QUICKSTART
 
 Must start with "Quickstart: "; the first word following "Quickstart: " should be a verb. Identify both the technology/service and the language or framework, if applicable.-->
 
-# Quickstart: Configure an Azure Storage Mover migration agent
+# Quickstart: Sample Quickstart
 
 <!-- 
 2. Introductory paragraph 
