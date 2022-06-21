@@ -29,7 +29,7 @@ Workspace-based Application Insights allows you to take advantage of all the lat
 * Faster data ingestion via Log Analytics streaming ingestion.
 
 > [!NOTE]
-> After migrating, you will be able to query Application Insights telemetry independently, even if you point multiple Application Insights resources to the same Log Analytics workspace. Additionally, you will be able to aggregate telemetry across multiple Application Insights resources as needed by writing your query in the Log Analytics workspace.
+> After migrating to a workspace-based Application Insights resource, you will still be able to query Application Insights telemetry independently, even though telemetry will be aggregated across multiple Application Insights resources in the Log Analytics workspace.
 
 ## Migration process
 
@@ -76,7 +76,7 @@ This section walks through migrating a classic Application Insights resource to 
     
      ![Migrate resource button](./media/convert-classic-resource/migrate.png)
 
-3. Choose the Log Analytics workspace where you want all future ingested Application Insights telemetry to be stored. It can either be a Log Analytics workspace in the same subscription, or in a different subscription that shares the same Azure AD tenant. The Log Analytics workspace does not have to be in the same resource group.
+3. Choose the Log Analytics workspace where you want all future ingested Application Insights telemetry to be stored. It can either be a Log Analytics workspace in the same subscription, or in a different subscription that shares the same Azure AD tenant. The Log Analytics workspace does not have to be in the same resource group as the Application Insights resource.
 
      ![Migration wizard UI with option to select targe workspace](./media/convert-classic-resource/migration.png)
     
@@ -98,10 +98,10 @@ To write queries against the [new workspace-based table structure/schema](#works
 
 To ensure the queries successfully run, validate that the query's fields align with the [new schema fields](#appmetrics).
 
-If you have multiple Application Insights resources store their telemetry in one Log Analytics workspace resource but you only want to query data from one specific Application Insights resource, you have two options:
+If you have multiple Application Insights resources store their telemetry in one Log Analytics workspace but you only want to query data from one specific Application Insights resource, you have two options:
 
-1. In Azure portal, navigate to the desired Application Insights resource and open the **Logs** tab. All queries from this tab will automatically pull data from the Application Insights resource you selected
-2. In Azure portal, navigate to the Log Analytics workspace resource that you configured as a destination for your Application Insights telemetry. To filter telemetry from a specific Application Insights resource, you can use a built-in ```_ResourceId``` property in all application specific tables
+1. Go to the desired Application Insights resource and open the **Logs** tab. All queries from this tab will automatically pull data from the selected Application Insights resource.
+2. From the Log Analytics workspace resource that you configured as the destination for your Application Insights telemetry, go to the **Logs** tab. To query telemetry from a specific Application Insights resource, filter for the built-in ```_ResourceId``` property which is available in all application specific tables.
 
 Notice that if you query directly from the Log Analytics UI within your workspace, you'll only see the data that is ingested post migration. To see both your classic Application Insights data + new data ingested after migration in a unified query experience use the Logs (Analytics) query view from within your migrated Application Insights resource.
 
