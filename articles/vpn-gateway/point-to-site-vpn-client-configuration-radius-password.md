@@ -1,18 +1,18 @@
 ---
-title: 'Configure a VPN client for P2S RADIUS: password-auth'
+title: 'Configure a VPN client for P2S RADIUS: password authentication'
 titleSuffix: Azure VPN Gateway
 description: Learn how to configure a VPN client for point-to-site VPN configurations that use RADIUS username/password authentication.
 ms.service: vpn-gateway
 ms.topic: how-to
 author: cherylmc
 ms.author: cherylmc 
-ms.date: 05/09/2022
+ms.date: 05/11/2022
 ---
 # Configure a VPN client for point-to-site: RADIUS - password authentication
 
 To connect to a virtual network over point-to-site (P2S), you need to configure the client device that you'll connect from. You can create P2S VPN connections from Windows, macOS, and Linux client devices. This article helps you create and install the VPN client configuration for username/password RADIUS authentication.
 
-When you're using RADIUS authentication, there are multiple authentication options: username/password authentication, certificate authentication, and other authentication types. To configure a VPN client, you use client configuration files that contain the required settings. The VPN client configuration is different for each type of authentication.
+When you're using RADIUS authentication, there are multiple authentication instructions: [certificate authentication](point-to-site-vpn-client-configuration-radius-certificate.md), [password authentication](point-to-site-vpn-client-configuration-radius-password.md). and [other authentication methods and protocols](point-to-site-vpn-client-configuration-radius-other.md). The VPN client configuration is different for each type of authentication. To configure a VPN client, you use client configuration files that contain the required settings.
 
 >[!NOTE]
 > [!INCLUDE [TLS](../../includes/vpn-gateway-tls-change.md)]

@@ -5,6 +5,7 @@ description: 'Securely use Azure Machine Learning: authentication, authorization
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: enterprise-readiness
+ms.custom: event-tier1-build-2022
 ms.topic: conceptual
 ms.author: aashishb
 author: aashishb
@@ -46,7 +47,7 @@ Each workspace has an associated system-assigned [managed identity](../active-di
 
 The system-assigned managed identity is used for internal service-to-service authentication between Azure Machine Learning and other Azure resources. The identity token is not accessible to users and cannot be used by them to gain access to these resources. Users can only access the resources through [Azure Machine Learning control and data plane APIs](how-to-assign-roles.md), if they have sufficient RBAC permissions.
 
-The managed identity needs Contributor permissions on the resource group containing the workspace in order to provision the associated resources, and to [deploy Azure Container Instances for web service endpoints](how-to-deploy-azure-container-instance.md).
+The managed identity needs Contributor permissions on the resource group containing the workspace in order to provision the associated resources, and to [deploy Azure Container Instances for web service endpoints](v1/how-to-deploy-azure-container-instance.md).
 
 We don't recommend that admins revoke the access of the managed identity to the resources mentioned in the preceding table. You can restore access by using the [resync keys operation](how-to-change-storage-access-key.md).
 
@@ -87,7 +88,9 @@ For more information, see the following documents:
 * [Virtual network isolation and privacy overview](how-to-network-security-overview.md)
 * [Secure workspace resources](how-to-secure-workspace-vnet.md)
 * [Secure training environment](how-to-secure-training-vnet.md)
-* [Secure inference environment](how-to-secure-inferencing-vnet.md)
+* For securing inference, see the following documents:
+    * If using CLI v1 or SDK v1 - [Secure inference environment](how-to-secure-inferencing-vnet.md)
+    * If using CLI v2 or SDK v2 - [Network isolation for managed online endpoints](how-to-secure-online-endpoint.md)
 * [Use studio in a secured virtual network](how-to-enable-studio-virtual-network.md)
 * [Use custom DNS](how-to-custom-dns.md)
 * [Configure firewall](how-to-access-azureml-behind-firewall.md)

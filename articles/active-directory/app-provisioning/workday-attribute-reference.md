@@ -3,7 +3,7 @@ title: Workday attribute reference for Azure Active Directory
 description: Learn which which attributes that you can fetch from Workday using XPATH queries in Azure Active Directory.
 services: active-directory
 author: kenwith
-manager: karenhoran
+manager: rkarlin
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: reference

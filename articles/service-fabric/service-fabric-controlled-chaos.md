@@ -2,7 +2,7 @@
 title: Induce Chaos in Service Fabric clusters 
 description: Using Fault Injection and Cluster Analysis Service APIs to manage Chaos in the cluster.
 ms.topic: conceptual
-ms.date: 03/26/2021
+ms.date: 05/31/2022
 ms.custom: devx-track-csharp
 ---
 # Induce controlled Chaos in Service Fabric clusters
@@ -290,7 +290,7 @@ Connect-ServiceFabricCluster $clusterConnectionString
 $events = @{}
 $now = [System.DateTime]::UtcNow
 
-Start-ServiceFabricChaos -TimeToRunMinute $timeToRunMinute -MaxConcurrentFaults $maxConcurrentFaults -MaxClusterStabilizationTimeoutSec $maxClusterStabilizationTimeSecs -EnableMoveReplicaFaults -WaitTimeBetweenIterationsSec $waitTimeBetweenIterationsSec -WaitTimeBetweenFaultsSec $waitTimeBetweenFaultsSec -ClusterHealthPolicy $clusterHealthPolicy -ChaosTargetFilter $chaosTargetFilter
+Start-ServiceFabricChaos -TimeToRunMinute $timeToRunMinute -MaxConcurrentFaults $maxConcurrentFaults -MaxClusterStabilizationTimeoutSec $maxClusterStabilizationTimeSecs -EnableMoveReplicaFaults -WaitTimeBetweenIterationsSec $waitTimeBetweenIterationsSec -WaitTimeBetweenFaultsSec $waitTimeBetweenFaultsSec -ClusterHealthPolicy $clusterHealthPolicy -ChaosTargetFilter $chaosTargetFilter -Context $context
 
 while($true)
 {

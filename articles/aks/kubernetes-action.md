@@ -4,7 +4,7 @@ description:  Learn how to use GitHub Actions to deploy your container to Kubern
 services: container-service
 author: azooinmyluggage
 ms.topic: article
-ms.date: 01/05/2022
+ms.date: 05/16/2022
 ms.author: atulmal
 ms.custom: github-actions-azure
 ---
@@ -28,13 +28,15 @@ For a workflow targeting AKS, the file has three sections:
 
 |Section  |Tasks  |
 |---------|---------|
-|**Authentication** | Login to a private container registry (ACR) |
+|**Authentication** | Generate deployment credentials. |
 |**Build** | Build & push the container image  |
 |**Deploy** | 1. Set the target AKS cluster |
 | |2. Create a generic/docker-registry secret in Kubernetes cluster  |
 ||3. Deploy to the Kubernetes cluster|
 
 ## Create a service principal
+
+# [Service principal](#tab/userlevel)
 
 You can create a [service principal](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) by using the [az ad sp create-for-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac) command in the [Azure CLI](/cli/azure/). You can run this command using [Azure Cloud Shell](https://shell.azure.com/) in the Azure portal or by selecting the **Try it** button.
 
@@ -55,7 +57,57 @@ In the above command, replace the placeholders with your subscription ID, and re
 ```
 Copy this JSON object, which you can use to authenticate from GitHub.
 
+# [Open ID Connect](#tab/openid)
+
+Open ID Connect is an authentication method that uses short-lived tokens. Setting up [Open ID Connect with GitHub Actions](https://docs.github.com/en/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect) is more complex process that offers hardened security. 
+
+1.  If you do not have an existing application, register a [new Active Directory application and service principal that can access resources](../active-directory/develop/howto-create-service-principal-portal.md). Create the Active Directory application. 
+
+    ```azurecli-interactive
+    az ad app create --display-name myApp
+    ```
+
+    This command will output JSON with an `appId` that is your `client-id`. Save the value to use as the `AZURE_CLIENT_ID` GitHub secret later. 
+
+    You'll use the `objectId` value when creating federated credentials with Graph API and reference it as the `APPLICATION-OBJECT-ID`.
+
+1. Create a service principal. Replace the `$appID` with the appId from your JSON output. 
+
+    This command generates JSON output with a different `objectId` and will be used in the next step. The new  `objectId` is the `assignee-object-id`. 
+    
+    Copy the `appOwnerTenantId` to use as a GitHub secret for `AZURE_TENANT_ID` later. 
+
+    ```azurecli-interactive
+     az ad sp create --id $appId
+    ```
+
+1. Create a new role assignment by subscription and object. By default, the role assignment will be tied to your default subscription. Replace `$subscriptionId` with your subscription ID, `$resourceGroupName` with your resource group name, and `$assigneeObjectId` with the generated `assignee-object-id`. Learn [how to manage Azure subscriptions with the Azure CLI](/cli/azure/manage-azure-subscriptions-azure-cli). 
+
+    ```azurecli-interactive
+    az role assignment create --role contributor --subscription $subscriptionId --assignee-object-id  $assigneeObjectId --scopes /subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.Web/sites/--assignee-principal-type ServicePrincipal
+    ```
+
+1. Run the following command to [create a new federated identity credential](/graph/api/application-post-federatedidentitycredentials?view=graph-rest-beta&preserve-view=true) for your active directory application.
+
+    * Replace `APPLICATION-OBJECT-ID` with the **objectId (generated while creating app)** for your Active Directory application.
+    * Set a value for `CREDENTIAL-NAME` to reference later.
+    * Set the `subject`. The value of this is defined by GitHub depending on your workflow:
+      * Jobs in your GitHub Actions environment: `repo:< Organization/Repository >:environment:< Name >`
+      * For Jobs not tied to an environment, include the ref path for branch/tag based on the ref path used for triggering the workflow: `repo:< Organization/Repository >:ref:< ref path>`.  For example, `repo:n-username/ node_express:ref:refs/heads/my-branch` or `repo:n-username/ node_express:ref:refs/tags/my-tag`.
+      * For workflows triggered by a pull request event: `repo:< Organization/Repository >:pull_request`.
+    
+    ```azurecli
+    az rest --method POST --uri 'https://graph.microsoft.com/beta/applications/<APPLICATION-OBJECT-ID>/federatedIdentityCredentials' --body '{"name":"<CREDENTIAL-NAME>","issuer":"https://token.actions.githubusercontent.com","subject":"repo:organization/repository:ref:refs/heads/main","description":"Testing","audiences":["api://AzureADTokenExchange"]}' 
+    ```
+    
+To learn how to create a Create an active directory application, service principal, and federated credentials in Azure portal, see [Connect GitHub and Azure](/azure/developer/github/connect-from-azure#use-the-azure-login-action-with-openid-connect).
+
+---
+
+
 ## Configure the GitHub secrets
+
+# [Service principal](#tab/userlevel)
 
 Follow the steps to configure the secrets:
 
@@ -74,6 +126,28 @@ Follow the steps to configure the secrets:
 
     :::image type="content" source="media/kubernetes-action/kubernetes-secrets.png" alt-text="Screenshot shows existing secrets for a repository.":::
 
+# [OpenID Connect](#tab/openid)
+
+You need to provide your application's **Client ID**, **Tenant ID**, and **Subscription ID** to the login action. These values can either be provided directly in the workflow or can be stored in GitHub secrets and referenced in your workflow. Saving the values as GitHub secrets is the more secure option.
+
+1. Open your GitHub repository and go to **Settings**.
+
+1. Select **Settings > Secrets > New secret**.
+
+1. Create secrets for `AZURE_CLIENT_ID`, `AZURE_TENANT_ID`, and `AZURE_SUBSCRIPTION_ID`. Use these values from your Active Directory application for your GitHub secrets:
+
+    |GitHub Secret  | Active Directory Application  |
+    |---------|---------|
+    |AZURE_CLIENT_ID     |      Application (client) ID   |
+    |AZURE_TENANT_ID     |     Directory (tenant) ID    |
+    |AZURE_SUBSCRIPTION_ID     |     Subscription ID    |
+
+1. Similarly, define the following additional secrets for the container registry credentials and set them in Docker login action. 
+
+    - REGISTRY_USERNAME
+    - REGISTRY_PASSWORD
+
+---
 
 ##  Build a container image and deploy to Azure Kubernetes Service cluster
 
@@ -145,6 +219,8 @@ Before you can deploy to AKS, you'll need to set target Kubernetes namespace and
 
 Complete your deployment with the `azure/k8s-deploy@v1` action. Replace the environment variables with values for your application. 
 
+# [Service principal](#tab/userlevel)
+
 ```yaml
 
 on: [push]
@@ -210,6 +286,83 @@ jobs:
           ${{ env.SECRET }}
         namespace: ${{ env.NAMESPACE }}
 ```
+
+# [Open ID Connect](#tab/openid)
+
+The Azure Kubernetes Service set context action ([azure/aks-set-context](https://github.com/Azure/aks-set-context)) can be used to set cluster context before other actions like [k8s-deploy](https://github.com/Azure/k8s-deploy). For Open ID Connect, you'll use the Azure Login action before set context.
+
+```yaml
+
+on: [push]
+
+# Environment variables available to all jobs and steps in this workflow
+env:
+  REGISTRY_NAME: {registry-name}
+  CLUSTER_NAME: {cluster-name}
+  CLUSTER_RESOURCE_GROUP: {resource-group-name}
+  NAMESPACE: {namespace-name}
+  SECRET: {secret-name}
+  APP_NAME: {app-name}
+  
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@main
+    
+    # Connect to Azure Container Registry (ACR)
+    - uses: azure/docker-login@v1
+      with:
+        login-server: ${{ env.REGISTRY_NAME }}.azurecr.io
+        username: ${{ secrets.REGISTRY_USERNAME }} 
+        password: ${{ secrets.REGISTRY_PASSWORD }}
+    
+    # Container build and push to a Azure Container Registry (ACR)
+    - run: |
+        docker build . -t ${{ env.REGISTRY_NAME }}.azurecr.io/${{ env.APP_NAME }}:${{ github.sha }}
+        docker push ${{ env.REGISTRY_NAME }}.azurecr.io/${{ env.APP_NAME }}:${{ github.sha }}
+      working-directory: ./<path-to-Dockerfile-directory>
+    
+    - uses: azure/login@v1
+      with:
+        client-id: ${{ secrets.AZURE_CLIENT_ID }}
+        tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+        subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+
+    # Set the target Azure Kubernetes Service (AKS) cluster. 
+    - uses: azure/aks-set-context@v2.0
+      with:
+        cluster-name: ${{ env.CLUSTER_NAME }}
+        resource-group: ${{ env.CLUSTER_RESOURCE_GROUP }}
+    
+    # Create namespace if doesn't exist
+    - run: |
+        kubectl create namespace ${{ env.NAMESPACE }} --dry-run=client -o json | kubectl apply -f -
+    
+    # Create image pull secret for ACR
+    - uses: azure/k8s-create-secret@v1
+      with:
+        container-registry-url: ${{ env.REGISTRY_NAME }}.azurecr.io
+        container-registry-username: ${{ secrets.REGISTRY_USERNAME }}
+        container-registry-password: ${{ secrets.REGISTRY_PASSWORD }}
+        secret-name: ${{ env.SECRET }}
+        namespace: ${{ env.NAMESPACE }}
+        arguments: --force true
+    
+    # Deploy app to AKS
+    - uses: azure/k8s-deploy@v1
+      with:
+        manifests: |
+          ${{ github.workspace }}/manifests/deployment.yaml
+          ${{ github.workspace }}/manifests/service.yaml
+        images: |
+          ${{ env.REGISTRY_NAME }}.azurecr.io/${{ env.APP_NAME }}:${{ github.sha }}
+        imagepullsecrets: |
+          ${{ env.SECRET }}
+        namespace: ${{ env.NAMESPACE }}
+```
+---
+
 
 ## Clean up resources
 

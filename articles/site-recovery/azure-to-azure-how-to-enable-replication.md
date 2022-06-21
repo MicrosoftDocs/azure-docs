@@ -29,6 +29,9 @@ Enable replication. This procedure assumes that the primary Azure region is East
 2. Note the following fields:
    - **Source**: The point of origin of the VMs, which in this case is **Azure**.
    - **Source location**: The Azure region from where you want to protect your VMs. For this illustration, the source location is 'East Asia'
+   >[!NOTE]
+     >For cross-regional disaster recovery, the source location should be different from the Recovery Services Vault and it's Resource Group's location. However, it can be same as any of them for zonal disaster recovery.
+     >
    - **Deployment model**: Azure deployment model of the source machines.
    - **Source subscription**: The subscription to which your source VMs belong. This can be any subscription within the same Azure Active Directory tenant where your recovery services vault exists.
    - **Resource Group**: The resource group to which your source virtual machines belong. All the VMs under the selected resource group are listed for protection in the next step.
@@ -69,6 +72,8 @@ Enable replication. This procedure assumes that the primary Azure region is East
      - No app-consistent snapshots.
 
      ![Screenshot that displays the enable replication parameters.](./media/azure-to-azure-how-to-enable-replication/enabled-rwizard-3.PNG)
+
+5.  After the VMs are enabled for replication, you can check the status of VM health under **Replicated items**. The time taken for initial replication depends on various factors such as the disk size, used storage on the disks, etc. Data transfer happens at ~23% of the disk throughput. Initial replication creates snapshot of disk and transfer that snapshot.
 
 ### Enable replication for added disks
 

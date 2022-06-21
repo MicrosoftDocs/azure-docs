@@ -5,7 +5,7 @@ services: storage
 author: tamram
 
 ms.author: tamram
-ms.date: 04/15/2022
+ms.date: 05/13/2022
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
@@ -45,7 +45,7 @@ For more information on pricing differences between standard-priority and high-p
 
 ## Copy an archived blob to an online tier
 
-The first option for moving a blob from the Archive tier to an online tier is to copy the archived blob to a new destination blob that is in either the Hot or Cool tier. You can use either the [Copy Blob](/rest/api/storageservices/copy-blob) operation to copy the blob. When you copy an archived blob to a new blob an online tier, the source blob remains unmodified in the Archive tier.
+The first option for moving a blob from the Archive tier to an online tier is to copy the archived blob to a new destination blob that is in either the Hot or Cool tier. You can use the [Copy Blob](/rest/api/storageservices/copy-blob) operation to copy the blob. When you copy an archived blob to a new blob an online tier, the source blob remains unmodified in the Archive tier.
 
 You must copy the archived blob to a new blob with a different name or to a different container. You cannot overwrite the source blob by copying to the same blob.
 

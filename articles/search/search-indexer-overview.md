@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 02/01/2022
+ms.date: 06/06/2022
 ---
 
 # Indexers in Azure Cognitive Search
@@ -19,7 +19,7 @@ Indexers are cloud-only, with individual indexers for [supported data sources](#
 
 You can run indexers on demand or on a recurring data refresh schedule that runs as often as every five minutes. More frequent updates require a ['push model'](search-what-is-data-import.md) that simultaneously updates data in both Azure Cognitive Search and your external data source.
 
-## How to use indexers
+## Indexer scenarios and use cases
 
 You can use an indexer as the sole means for data ingestion, or as part of a combination of techniques that load and optionally transform or enrich content along the way. The following table summarizes the main scenarios.
 

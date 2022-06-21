@@ -1,16 +1,22 @@
 ---
 title: Microsoft Defender for SQL - the benefits and features
 description: Learn about the benefits and features of Microsoft Defender for SQL.
-ms.date: 01/06/2022
+ms.date: 06/01/2022
 ms.topic: overview
-ms.author: benmansheim
-author: bmansheim
 ms.custom: references_regions
 ---
 
 # Introduction to Microsoft Defender for SQL
 
-Microsoft Defender for SQL includes two Microsoft Defender plans that extend Microsoft Defender for Cloud's [data security package](/azure/azure-sql/database/azure-defender-for-sql) to secure your databases and their data wherever they're located. Microsoft Defender for SQL includes functionalities for discovering and mitigating potential database vulnerabilities, and detecting anomalous activities that could indicate a threat to your databases.
+Microsoft Defender for SQL includes two Microsoft Defender plans that extend Microsoft Defender for Cloud's [data security package](/azure/azure-sql/database/azure-defender-for-sql) to protect your SQL estate regardless of where it is located (Azure, multicloud or Hybrid environments). Microsoft Defender for SQL includes functions that can be used to discover and mitigate potential database vulnerabilities. Defender for SQL can also detect anomalous activities that may be an indication of a threat to your databases.
+
+To protect SQL databases in hybrid and multicloud environments, Defender for Cloud uses Azure Arc. Azure ARC connects your hybrid and multicloud machines. You can check out the following articles for more information:
+
+- [Connect your non-Azure machines to Microsoft Defender for Cloud](quickstart-onboard-machines.md)
+
+- [Connect your AWS accounts to Microsoft Defender for Cloud](quickstart-onboard-aws.md)
+
+- [Connect your GCP project to Microsoft Defender for Cloud](quickstart-onboard-gcp.md)
 
 ## Availability
 
@@ -27,17 +33,33 @@ Microsoft Defender for SQL includes two Microsoft Defender plans that extend Mic
 **Microsoft Defender for SQL** comprises two separate Microsoft Defender plans:
 
 - **Microsoft Defender for Azure SQL database servers** protects:
+
     - [Azure SQL Database](/azure/azure-sql/database/sql-database-paas-overview)
+
     - [Azure SQL Managed Instance](/azure/azure-sql/managed-instance/sql-managed-instance-paas-overview)
+
     - [Dedicated SQL pool in Azure Synapse](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md)
 
 - **Microsoft Defender for SQL servers on machines** extends the protections for your Azure-native SQL Servers to fully support hybrid environments and protect SQL servers (all supported version) hosted in Azure, other cloud environments, and even on-premises machines:
+
     - [SQL Server on Virtual Machines](https://azure.microsoft.com/services/virtual-machines/sql-server/)
+    
     - On-premises SQL servers:
+
         - [Azure Arc-enabled SQL Server (preview)](/sql/sql-server/azure-arc/overview)
+        
         - [SQL Server running on Windows machines without Azure Arc](../azure-monitor/agents/agent-windows.md)
+        
+    - Multicloud SQL servers:
+
+        - [Connect your AWS accounts to Microsoft Defender for Cloud](quickstart-onboard-aws.md)
+
+        - [Connect your GCP project to Microsoft Defender for Cloud](quickstart-onboard-gcp.md)
 
 When you enable either of these plans, all supported resources that exist within the subscription are protected. Future resources created on the same subscription will also be protected. 
+
+> [!NOTE]
+> Microsoft Defender for SQL database currently works for read-write replicas only.
 
 ## What are the benefits of Microsoft Defender for SQL?
 

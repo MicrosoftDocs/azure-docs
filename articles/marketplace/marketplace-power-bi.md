@@ -20,7 +20,6 @@ Before you begin, review these links, which provide templates, tips, and samples
 - [Tips for authoring a Power BI app](/power-bi/service-template-apps-tips)
 - [Samples](/power-bi/service-template-apps-samples)
 
-
 ## Publishing benefits
 
 Benefits of publishing to the commercial marketplace:
@@ -80,7 +79,6 @@ This is the only licensing option available for Power BI app offers:
 | Licensing option | Transaction process |
 | --- | --- |
 | Get it now (free) | List your offer to customers for free. |
-|
 
 \* As the publisher, you support all aspects of the software license transaction, including (but not limited to) order, fulfillment, metering, billing, invoicing, payment, and collection.
 
