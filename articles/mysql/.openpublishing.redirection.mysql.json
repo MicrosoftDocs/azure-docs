@@ -741,11 +741,6 @@
         "redirect_document_id": false
     },
     {
-        "source_path_from_root": "/articles/mysql/single-server/concepts-supported-versions.md",
-        "redirect_url": "/azure/mysql/concepts-version-policy",
-        "redirect_document_id": false
-    },
-    {
         "source_path_from_root": "/articles/mysql/flexible-server/concepts-compute-storage.md",
         "redirect_url": "/azure/mysql/flexible-server/concepts-service-tiers-storage",
         "redirect_document_id": true
