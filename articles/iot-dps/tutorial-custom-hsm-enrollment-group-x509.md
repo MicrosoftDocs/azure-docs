@@ -13,18 +13,16 @@ ms.custom: mvc
 
 # Tutorial: Provision multiple X.509 devices using enrollment groups
 
-In this tutorial, you will learn how to provision groups of IoT devices that use X.509 certificates for authentication. Sample device code from the [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) will be executed on your development machine to simulate provisioning of X.509 devices. On real devices, device code would be deployed and run from the IoT device.
-
-Make sure you've at least completed the steps in [Set up IoT Hub Device Provisioning Service with the Azure portal](quick-setup-auto-provision.md) before continuing with this tutorial. Also, if you're unfamiliar with the process of autoprovisioning, review the [provisioning](about-iot-dps.md#provisioning-process) overview.
+In this tutorial, you'll learn how to provision groups of IoT devices that use X.509 certificates for authentication. Sample device code from the [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) will be executed on your development machine to simulate provisioning of X.509 devices. On real devices, device code would be deployed and run from the IoT device.
 
 The Azure IoT Device Provisioning Service supports two types of enrollments for provisioning devices:
 
 * [Enrollment groups](concepts-service.md#enrollment-group): Used to enroll multiple related devices.
 * [Individual Enrollments](concepts-service.md#individual-enrollment): Used to enroll a single device.
 
-This tutorial is similar to the previous tutorials demonstrating how to use enrollment groups to provision sets of devices. However, X.509 certificates will be used in this tutorial instead of symmetric keys. Review the previous tutorials in this section for a simple approach using [symmetric keys](./concepts-symmetric-key-attestation.md).
+In this tutorial, you'll use an enrollment group to provision a set of devices that authenticate using X.509 certificates. To learn how to provision a set of devices using [symmetric keys](./concepts-symmetric-key-attestation.md), see [How to provision devices using symmetric key enrollment groups](how-to-legacy-device-symm-key.md). If you're unfamiliar with the process of autoprovisioning, review the [provisioning](about-iot-dps.md#provisioning-process) overview.
 
-This tutorial will demonstrate the [custom HSM sample](https://github.com/Azure/azure-iot-sdk-c/tree/master/provisioning_client/samples/custom_hsm_example) that provides a stub implementation for interfacing with hardware-based secure storage. A [Hardware Security Module (HSM)](./concepts-service.md#hardware-security-module) is used for secure, hardware-based storage of device secrets. An HSM can be used with symmetric key, X.509 certificate, or TPM attestation to provide secure storage for secrets. Hardware-based storage of device secrets is not required, but strongly recommended to help protect sensitive information like your device certificate's private key.
+This tutorial uses the [custom HSM sample](https://github.com/Azure/azure-iot-sdk-c/tree/master/provisioning_client/samples/custom_hsm_example), which provides a stub implementation for interfacing with hardware-based secure storage. A [Hardware Security Module (HSM)](./concepts-service.md#hardware-security-module) is used for secure, hardware-based storage of device secrets. An HSM can be used with symmetric key, X.509 certificate, or TPM attestation to provide secure storage for secrets. Hardware-based storage of device secrets isn't required, but strongly recommended to help protect sensitive information like your device certificate's private key.
 
 In this tutorial you'll complete the following objectives:
 
@@ -36,9 +34,11 @@ In this tutorial you'll complete the following objectives:
 > * Set up the development environment for provisioning a device using code from the [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c)
 > * Provision a device using the certificate chain with the custom Hardware Security Module (HSM) sample in the SDK.
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
-
 ## Prerequisites
+
+* If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
+
+* Complete the steps in [Set up IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md).
 
 The following prerequisites are for a Windows development environment used to simulate the devices. For Linux or macOS, see the appropriate section in [Prepare your development environment](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md) in the SDK documentation.
 
@@ -96,7 +96,7 @@ In this section, you'll prepare a development environment used to build the [Azu
     ```
 
     >[!TIP]
-    >If `cmake` does not find your C++ compiler, you may get build errors while running the above command. If that happens, try running the command in the [Visual Studio command prompt](/dotnet/framework/tools/developer-command-prompt-for-vs).
+    >If `cmake` doesn't find your C++ compiler, you may get build errors while running the above command. If that happens, try running the command in the [Visual Studio command prompt](/dotnet/framework/tools/developer-command-prompt-for-vs).
 
 7. When the build succeeds, the last few output lines look similar to the following output:
 
@@ -120,7 +120,7 @@ In this section you, will generate an X.509 certificate chain of three certifica
 
 :::image type="content" source="./media/tutorial-custom-hsm-enrollment-group-x509/example-device-cert-chain.png" alt-text="Diagram that shows relationship of root C A, intermediate C A, and device certificates." border="false":::
 
-[Root certificate](concepts-x509-attestation.md#root-certificate): You will complete [proof of possession](how-to-verify-certificates.md) to verify the root certificate. This verification will enable DPS to trust that certificate and verify certificates signed by it.
+[Root certificate](concepts-x509-attestation.md#root-certificate): You'll complete [proof of possession](how-to-verify-certificates.md) to verify the root certificate. This verification will enable DPS to trust that certificate and verify certificates signed by it.
 
 [Intermediate Certificate](concepts-x509-attestation.md#intermediate-certificate): It's common for intermediate certificates to be used to group devices logically by product lines, company divisions, or other criteria. This tutorial will use a certificate chain composed of one intermediate certificate. The intermediate certificate will be signed by the root certificate. This certificate will also be used on the enrollment group created in DPS to logically group a set of devices. This configuration allows managing a whole group of devices that have device certificates signed by the same intermediate certificate. You can create enrollment groups for enabling or disabling a group of devices. For more information on disabling a group of devices, see [Disallow an X.509 intermediate or root CA certificate by using an enrollment group](how-to-revoke-device-access-portal.md#disallow-an-x509-intermediate-or-root-ca-certificate-by-using-an-enrollment-group)
 
@@ -586,7 +586,7 @@ In this section you create the device certificates and the full chain device cer
     cat ./certs/device-01.cert.pem ./certs/azure-iot-test-only.intermediate.cert.pem ./certs/azure-iot-test-only.root.ca.cert.pem > ./certs/device-01-full-chain.cert.pem
     ```  
 
-    Use a text editor and open the certificate chain file, *./certs/device-01-full-chain.cert.pem*. The certificate chain text contains the full chain of all three certificates. You will use this text as the certificate chain with in the custom HSM device code later in this tutorial for `device-01`.
+    Use a text editor and open the certificate chain file, *./certs/device-01-full-chain.cert.pem*. The certificate chain text contains the full chain of all three certificates. You'll use this text as the certificate chain with in the custom HSM device code later in this tutorial for `device-01`.
 
     The full chain text has the following format:
 
@@ -703,7 +703,7 @@ On non-Windows devices, you can pass the certificate chain from the code as the 
 On Windows-based devices, you must add the signing certificates (root and intermediate) to a Windows [certificate store](/windows/win32/secauthn/certificate-stores). Otherwise, the signing certificates won't be transported to DPS by a secure channel with Transport Layer Security (TLS).
 
 > [!TIP]
-> It is also possible to use OpenSSL instead of secure channel (Schannel) with the C SDK. For more information on using OpenSSL, see [Using OpenSSL in the SDK](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md#using-openssl-in-the-sdk).
+> It's also possible to use OpenSSL instead of secure channel (Schannel) with the C SDK. For more information on using OpenSSL, see [Using OpenSSL in the SDK](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md#using-openssl-in-the-sdk).
 
 To add the signing certificates to the certificate store in Windows-based devices:
 
@@ -790,7 +790,7 @@ In this section, you update the sample code with your Device Provisioning Servic
 
 The specifics of interacting with actual secure hardware-based storage vary depending on the device hardware. The certificate chains used by the simulated devices in this tutorial will be hardcoded in the custom HSM stub code. In a real-world scenario, the certificate chain would be stored in the actual HSM hardware to provide better security for sensitive information. Methods similar to the stub methods used in this sample would then be implemented to read the secrets from that hardware-based storage.
 
-While HSM hardware is not required, it is recommended to protect sensitive information, like the certificate's private key. If an actual HSM was being called by the sample, the private key would not be present in the source code. Having the key in the source code exposes the key to anyone that can view the code. This is only done in this article to assist with learning.
+While HSM hardware isn't required, it is recommended to protect sensitive information, like the certificate's private key. If an actual HSM was being called by the sample, the private key wouldn't be present in the source code. Having the key in the source code exposes the key to anyone that can view the code. This is only done in this article to assist with learning.
 
 To update the custom HSM stub code to simulate the identity of the device with ID `device-01`, perform the following steps:
 
