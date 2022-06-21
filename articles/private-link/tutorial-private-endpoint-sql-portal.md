@@ -148,8 +148,6 @@ In this section, you'll create a SQL server in Azure.
     | Database name  | Enter **mysqldatabase**. |
     | Server | Select **Create new**. |
 
-    :::image type="content" source="./media/tutorial-private-endpoint-sql-portal/create-sql-database-basics-tab-upper-inline.png" alt-text="Screenshot of Create S Q L Database page showing the setting values used." lightbox="./media/tutorial-private-endpoint-sql-portal/create-sql-database-basics-tab-expanded.png":::
-
 1. In **Create SQL Database Server**, enter or select this information:
 
     | Setting | Value |
@@ -164,6 +162,8 @@ In this section, you'll create a SQL server in Azure.
     | Confirm password | Reenter password. |
     
 1. Select **OK**.
+
+    :::image type="content" source="./media/tutorial-private-endpoint-sql-portal/create-sql-database-basics-tab-upper-inline.png" alt-text="Screenshot of Create S Q L Database page showing the setting values used up to creating the S Q L server." lightbox="./media/tutorial-private-endpoint-sql-portal/create-sql-database-basics-tab-upper-expanded.png":::
 
 1. In the **Basics** tab, enter or select this information after creating the SQL database server:
 
