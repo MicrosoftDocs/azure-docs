@@ -33,7 +33,7 @@ This article describes security best practices for the following application pro
 
 It's important to keep Redirect URIs of your application up to date. Under **Authentication** for the application in the Azure portal, a platform must be selected for the application and then the **Redirect URI** property can be defined.
 
-:::image type="content" source="/media/active-directory-application-registration-best-practices/redirect-uri.png" alt-text="Screenshot that shows where the redirect U R I property is located.":::
+:::image type="content" source="./media/active-directory-application-registration-best-practices/redirect-uri.png" alt-text="Screenshot that shows where the redirect U R I property is located.":::
 
 Consider the following guidance for redirect URIs:
 
