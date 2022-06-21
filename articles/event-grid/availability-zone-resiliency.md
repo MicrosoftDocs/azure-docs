@@ -19,7 +19,7 @@ With availability zones, you can design and operate applications and databases t
 
 If a region supports availability zones, the event data is replicated across availability zones though.
 
-:::image type="content" source="../availability-zones/media/availability-zones-region-geography.png" alt-text="Image showing the availability zones that protect against localized disasters and regional or large geography disasters by using another region.":::
+:::image type="content" source="../availability-zones/media/availability-zones-region-geography.png" alt-text="Diagram that shows availability zones that protect against localized disasters and regional or large geography disasters by using another region.":::
 
 ## Next steps
 
