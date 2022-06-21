@@ -67,7 +67,7 @@ The following image shows a properly configured distributed availability group:
 
 
    > [!NOTE]
-   > Ensure the SQL Instances have different names for both primary and secondary sites, and the `shared-name` value should be identical on both sites.
+   > Ensure the SQL instances have different names for both primary and secondary sites, and the `shared-name` value should be identical on both sites.
    
     ```azurecli
     az sql instance-failover-group-arc create --shared-name <name of failover group> --name <name for primary DAG resource> --mi <local SQL managed instance name> --role primary --partner-mi <partner SQL managed instance name>  --partner-mirroring-url tcp://<secondary IP> --partner-mirroring-cert-file <secondary.pem> --k8s-namespace <namespace> --use-k8s
