@@ -82,9 +82,9 @@ Azure Cognitive Search has the concept of an *indexer execution environment* tha
 
 For optimum processing, a search service will determine an internal execution environment to set up the operation. Depending on the number and types of tasks assigned, the indexer will run in one of two environments:
 
-- A private execution environment that's specific to a search service. Indexers running in such environments share resources with other indexing and query workloads on the same search service. Typically, only indexers that perform text-based indexing (without skillsets) run in this environment.
+- The *private execution environment* is internal to a search service. Indexers running in the private environment share computing resources with other indexing and query workloads on the same search service. Typically, only indexers that perform text-based indexing (without skillsets) run in this environment.
 
-- A multi-tenant environment hosting indexers that are resource intensive - such as indexers with skillsets, indexers processing large documents, indexers processing a large volume of documents, and so on. This environment is used to offload computationally intensive processing, leaving service-specific resources available for routine operations. This multi-tenant environment is managed and secured by Microsoft, at no extra cost, and isn't subject to any network provisions under your control.
+- The *multi-tenant environment* is managed and secured by Microsoft, at no extra cost, and isn't subject to any network provisions under your control. This environment is used to offload computationally intensive processing, leaving service-specific resources available for routine operations. Examples of resource-intensive indexing include indexers with skillsets, processing large documents, or processing a high volume of documents.
 
 The following section explains the IP configuration for admitting requests from either execution environment.
 
@@ -118,7 +118,11 @@ In light of the above constrains, your choices for achieving search integration 
 
 - Configure an inbound firewall rule on your Azure resource that admits indexer requests for data.
 
-- Configure an outbound connection from Cognitive Search that makes indexer connections using a [private endpoint](../private-link/private-endpoint-overview.md). The search service connection to your protected resource is through a *shared private link*. A shared private link is an [Azure Private Link](../private-link/private-link-overview.md) resource that's created, managed, and used from within Cognitive Search. If your resources are fully locked down (running on a protected virtual network, or otherwise not available over a public connection), a private endpoint is your only choice.
+- Configure an outbound connection that makes indexer connections using a [private endpoint](../private-link/private-endpoint-overview.md). 
+
+  The search service connection to your protected resource is through a *shared private link*. A shared private link is an [Azure Private Link](../private-link/private-link-overview.md) resource that's created, managed, and used from within Cognitive Search. If your resources are fully locked down (running on a protected virtual network, or otherwise not available over a public connection), a private endpoint is your only choice.
+
+  Connections through a private endpoint must originate from the search service's private execution environment. To meet this requirement, you'll have to disable multi-tenant execution. This step is described in [Make outbound connections through a private endpoint](search-indexer-howto-access-private.md).
 
 Configuring an IP firewall is free. A private endpoint, which is based on Azure Private Link, has a billing impact.
 
@@ -128,28 +132,29 @@ Configuring an IP firewall is free. A private endpoint, which is based on Azure 
 
 - Inbound and outbound connections are subject to [Azure Private Link pricing](https://azure.microsoft.com/pricing/details/private-link/).
 
+### Choosing a private endpoint
+
+This section summarizes the steps for setting up a private endpoint for outbound indexer connections. The summary highlights the main steps, which might help you decide whether a private endpoint is right for you. Detailed steps are covered in [How to make outbound connections through a private endpoint](search-indexer-howto-access-private.md).
+
 ### Step 1: Create a private endpoint to the secure resource
 
-In Azure Cognitive Search, you can create a shared private link using either the portal or a [management API](/rest/api/searchmanagement/2021-04-01-preview/shared-private-link-resources/create-or-update). 
+You'll create a shared private link using either the portal or a [Management API](/rest/api/searchmanagement/2021-04-01-preview/shared-private-link-resources/create-or-update).
 
-Traffic that goes over this (outbound) private endpoint connection will originate only from the virtual network that's in the search service specific "private" indexer execution environment.
+In Azure Cognitive Search, your search service must be at least the Basic tier for text-based indexers, and S2 for indexers with skillsets.
 
-Azure Cognitive Search will validate that callers of this API have Azure RBAC role permissions to approve private endpoint connection requests to the secure resource. For example, if you request a private endpoint connection to a storage account with read-only permissions, this call will be rejected.
+A private endpoint connection will accept content from the private indexer execution environment, but not the multi-tenant environment. You'll' disable multi-tenant execution in step 3 to meet this requirement.
 
 ### Step 2: Approve the private endpoint connection
 
 When the (asynchronous) operation that creates a shared private link resource completes, a private endpoint connection will be created in a "Pending" state. No traffic flows over the connection yet.
 
-The customer is then expected to locate this request on their secure resource and "Approve" it. Typically, this can be done either via the Azure portal or via the [REST API](/rest/api/virtualnetwork/privatelinkservices/updateprivateendpointconnection).
+You'll need to locate and approve this request on your secure resource. Depending on the resource, you can complete this task using Azure portal. Otherwise, use the [Private Link Service REST API](/rest/api/virtualnetwork/privatelinkservices/updateprivateendpointconnection).
 
 ### Step 3: Force indexers to run in the "private" environment
 
-An approved private endpoint allows outgoing calls from the search service to a resource that has some form of network level access restrictions (for example a storage account data source that is configured to only be accessed from certain virtual networks) to succeed.
+For private endpoint connections, it's mandatory to set the `executionEnvironment` of the indexer to `"Private"`. This step ensures that all indexer execution is confined to the private environment provisioned within the search service.
 
-This means any indexer that is able to reach out to such a data source over the private endpoint will succeed.
-If the private endpoint isn't approved, or if the indexer doesn't utilize the private endpoint connection then the indexer run will end up in `transientFailure`.
-
-To enable indexers to access resources via private endpoint connections, it's mandatory to set the `executionEnvironment` of the indexer to `"Private"` to ensure that all indexer runs will be able to utilize the private endpoint. This is because private endpoints are provisioned within the private search service-specific environment.
+This setting is scoped to an indexer and not the search service. If you want all indexers to connect over private endpoints, each one must have the following configuration:
 
 ```json
     {
@@ -165,12 +170,12 @@ To enable indexers to access resources via private endpoint connections, it's ma
     }
 ```
 
-These steps are described in greater detail in [Indexer connections through a private endpoint](search-indexer-howto-access-private.md).
+Once you have an approved private endpoint to a resource, indexers that are set to be *private* attempt to obtain access via the private endpoint connection. 
 
-Once you have an approved private endpoint to a resource, indexers that are set to be *private* attempt to obtain access via the private endpoint connection.
+Azure Cognitive Search will validate that callers of the private endpoint have Azure RBAC role permissions to approve private endpoint connection requests to the secure resource. For example, if you request a private endpoint connection to a storage account with read-only permissions, this call will be rejected.
+
+If the private endpoint isn't approved, or if the indexer didn't use the private endpoint connection, you'll find a `transientFailure` error message in indexer execution history.
 
 ## Next steps
 
-- [How to make indexer connections through IP firewalls](search-indexer-howto-access-ip-restricted.md)
-- [How to make indexer connections using the trusted service exception](search-indexer-howto-access-trusted-service-exception.md)
 - [How to make indexer connections to a private endpoint](search-indexer-howto-access-private.md)
