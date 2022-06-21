@@ -35,5 +35,9 @@ gateway-external-api.console.nutanix.com.
 * Only the Nutanix AHV hypervisor on Nutanix clusters running in Azure
 * Prism Central instance deployed on NC2 on Azure to manage the Nutanix clusters in Azure
 
+## Next step
+
+Learn more:
+
 > [!div class="nextstepaction"]
 > [Supported instances and regions](supported-instances-and-regions.md)

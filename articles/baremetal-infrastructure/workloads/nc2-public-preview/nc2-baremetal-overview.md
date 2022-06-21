@@ -42,5 +42,9 @@ Thus users can use Prism to manage everything they would want to manage, while n
 
 ## Next step
 
+## Next steps
+
+Learn more:
+
 > [!div class="nextstepaction"]
 > [Getting started with NC2-on-Azure](getting-started.md)

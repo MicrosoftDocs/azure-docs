@@ -40,9 +40,9 @@ The following table describes what’s supported for each network features confi
 |Load balancers for NC2 on Azure traffic|No|
 |Dual stack (IPv4 and IPv6) virtual network|IPv4 only supported|
 
-## Next steps
+## Next step
 
-Learn more about Nutanix:
+Learn more:
 
 > [!div class="nextstepaction"]
 > [Architecture](architecture.md)

@@ -37,9 +37,9 @@ This public preview release supports the following Azure regions:
 
 ** This region will be supported for GA.
 
-## Next steps
+## Next step
 
-Learn more about Nutanix:
+Learn more:
 
 > [!div class="nextstepaction"]
 > [SKUs](skus.md)

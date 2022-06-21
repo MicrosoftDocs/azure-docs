@@ -30,5 +30,9 @@ BareMetal Infrastructure for Oracle SKUs range from two sockets up to four socke
 
 Learn about the storage offered by BareMetal Infrastructure for Oracle.
 
+## Next steps
+
+Learn more:
+
 > [!div class="nextstepaction"]
 > [Storage on BareMetal for Oracle workloads](oracle-baremetal-storage.md)

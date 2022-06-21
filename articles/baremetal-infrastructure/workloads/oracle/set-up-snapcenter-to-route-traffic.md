@@ -125,5 +125,9 @@ EMS data collection is enabled by default and runs every seven days after your i
 
 Learn how to configure SnapCenter:
 
+## Next steps
+
+Learn more:
+
 > [!div class="nextstepaction"]
 > [Configure SnapCenter](configure-snapcenter-oracle-baremetal.md)

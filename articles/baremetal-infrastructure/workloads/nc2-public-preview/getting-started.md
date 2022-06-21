@@ -23,5 +23,9 @@ on Azure Deployment and User Guide](https://download.nutanix.com/documentation/h
 
 For more information about using NC2 on Azure, see (insert Nutanix user guide link).
 
+## Next step
+
+Learn more:
+
 > [!div class="nextstepaction"]
 > [About the Public Preview](about-the-public-preview.md)

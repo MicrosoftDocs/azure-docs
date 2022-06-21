@@ -62,7 +62,7 @@ Nutanix (for software-related issues) and Microsoft (for infrastructure-related 
 
 ## Next steps
 
-Learn more about Nutanix on Azure:
+Learn more:
 
 > [!div class="nextstepaction"]
 > [Use cases and supported scenarios](use-cases-and-supported-scenarios.md)
