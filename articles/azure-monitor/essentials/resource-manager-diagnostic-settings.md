@@ -94,7 +94,6 @@ resource setting 'Microsoft.Insights/diagnosticSettings@2021-05-01-preview' = {
 
 ```json
 {
-{
   "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
@@ -560,7 +559,6 @@ resource setting 'Microsoft.Insights/diagnosticSettings@2021-05-01-preview' = {
 
 ## Diagnostic setting for Azure Key Vault
 
-
 The following sample creates a diagnostic setting for an Azure Key Vault by adding a resource of type `Microsoft.KeyVault/vaults/providers/diagnosticSettings` to the template.
 
 > [!IMPORTANT]
@@ -993,8 +991,13 @@ param storageAccountId string
 param eventHubAuthorizationRuleId string
 param eventHubName string
 
-resource setting 'Microsoft.sql/managedInstances/providers/diagnosticSettings@2021-05-01-preview' = {
-  name: '${sqlManagedInstanceName}/microsoft.insights/${diagnosticSettingName}'
+resource instance 'Microsoft.Sql/managedInstances@2021-11-01-preview' existing = {
+  name: sqlManagedInstanceName
+}
+
+resource setting 'Microsoft.Insights/diagnosticSettings@2021-05-01-preview' = {
+  name: diagnosticSettingName
+  scope: instance
   properties: {
     workspaceId: diagnosticWorkspaceId
     storageAccountId: storageAccountId
@@ -1015,7 +1018,6 @@ resource setting 'Microsoft.sql/managedInstances/providers/diagnosticSettings@20
       }
     ]
   }
-  dependsOn: []
 }
 ```
 
@@ -1025,6 +1027,7 @@ resource setting 'Microsoft.sql/managedInstances/providers/diagnosticSettings@20
 {
   "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
+  "metadata": {
   "parameters": {
     "sqlManagedInstanceName": {
       "type": "string"
@@ -1047,9 +1050,10 @@ resource setting 'Microsoft.sql/managedInstances/providers/diagnosticSettings@20
   },
   "resources": [
     {
-      "type": "Microsoft.sql/managedInstances/providers/diagnosticSettings",
+      "type": "Microsoft.Insights/diagnosticSettings",
       "apiVersion": "2021-05-01-preview",
-      "name": "[format('{0}/microsoft.insights/{1}', parameters('sqlManagedInstanceName'), parameters('diagnosticSettingName'))]",
+      "scope": "[format('Microsoft.Sql/managedInstances/{0}', parameters('sqlManagedInstanceName'))]",
+      "name": "[parameters('diagnosticSettingName')]",
       "properties": {
         "workspaceId": "[parameters('diagnosticWorkspaceId')]",
         "storageAccountId": "[parameters('storageAccountId')]",
@@ -1295,7 +1299,6 @@ resource setting 'Microsoft.Insights/diagnosticSettings@2021-05-01-preview' = {
     storageAccountId: storageAccountId
     eventHubAuthorizationRuleId: eventHubAuthorizationRuleId
     eventHubName: eventHubName
-    metrics: []
     logs: [
       {
         category: 'AzureBackupReport'
@@ -1396,7 +1399,6 @@ resource setting 'Microsoft.Insights/diagnosticSettings@2021-05-01-preview' = {
         "storageAccountId": "[parameters('storageAccountId')]",
         "eventHubAuthorizationRuleId": "[parameters('eventHubAuthorizationRuleId')]",
         "eventHubName": "[parameters('eventHubName')]",
-        "metrics": [],
         "logs": [
           {
             "category": "AzureBackupReport",
