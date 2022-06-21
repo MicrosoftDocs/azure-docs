@@ -104,8 +104,6 @@ At this point, you've created a storage account and a file share with one file i
 
 1. After your VM deployment is complete, select **Go to resource**.
 
-   ![Go to resource](./media/storage-sync-files-extend-servers/vm-gotoresource.png)
-
 At this point, you've created a new virtual machine and attached a data disk. Next you connect to the VM.
 
 ### Connect to your VM
@@ -150,7 +148,7 @@ Now you can add the data disk to the VM.
 
 1. While still in the **Windows Server 2019 Datacenter** VM, select **Files and storage services** > **Volumes** > **Disks**.
 
-   :::image type="content" source="media/storage-sync-files-extend-servers/your-disk.png" alt-text="Screenshot showing how to bring the data disk online and create a volume.":::
+   :::image type="content" source="media/storage-sync-files-extend-servers/your-disk.png" alt-text="Screenshot showing how to bring the data disk online and create a volume." lightbox="media/storage-sync-files-extend-servers/your-disk.png":::
 
 1. Right-click the 4 GiB disk named **Msft Virtual Disk** and select **New volume**.
 1. Complete the wizard. Use the default settings and make note of the assigned drive letter.
@@ -197,13 +195,13 @@ Next, in the Windows Server 2019 Datacenter VM, install the Azure PowerShell mod
 
 At this point, you've set up your environment for the tutorial. Close the PowerShell window. You're ready to deploy the Storage Sync Service.
 
-## Deploy the service
+## Deploy the Storage Sync Service
 
 To deploy Azure File Sync, you first place a **Storage Sync Service** resource into a resource group for your selected subscription. The Storage Sync Service inherits access permissions from its subscription and resource group.
 
 1. In the Azure portal, select **Create a resource** and then search for **Azure File Sync**.
 1. In the search results, select **Azure File Sync**.
-1. Select **Create** to open the **Deploy Storage Sync** tab.
+1. Select **Create** to open the **Deploy Azure File Sync** tab.
 
    :::image type="content" source="media/storage-sync-files-extend-servers/deploy-storage-sync-service.png" alt-text="Screenshot showing how to deploy the Storage Sync Service in the Azure portal.":::
 
@@ -249,9 +247,8 @@ Registering your Windows server with a Storage Sync Service establishes a trust 
 
 The Server Registration UI should open automatically after you install the Azure File Sync agent. If it doesn't, you can open it manually from its file location: `C:\Program Files\Azure\StorageSyncAgent\ServerRegistration.exe.`
 
-1. When the Server Registration UI opens in the VM, select **OK**.
-1. Select **Sign-in** to begin.
-1. Sign in with your Azure account credentials and select **Sign-in**.
+1. When the Server Registration UI opens in the VM, select **Sign-in**.
+1. Sign in with your Azure account credentials.
 1. Provide the following information:
 
    | Value | Description |
