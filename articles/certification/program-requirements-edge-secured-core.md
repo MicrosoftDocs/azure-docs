@@ -4,13 +4,13 @@ description: Edge Secured-core Certification program requirements
 author: cbroad
 ms.author: cbroad
 ms.topic: conceptual 
-ms.date: 05/15/2021
+ms.date: 06/21/2021
 ms.custom: Edge Secured-core Certification Requirements
 ms.service: certification
 zone_pivot_groups: app-service-platform-windows-linux
 ---
 
-# Azure Certified Device - Edge Secured-core (Preview) #
+# Azure Certified Device - Edge Secured-core #
 
 ## Edge Secured-Core certification requirements ##
 
