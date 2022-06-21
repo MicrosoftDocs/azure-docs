@@ -5,18 +5,18 @@ author: hrshelar
 ms.service: orbital
 ms.topic: how-to
 ms.custom: ga
-ms.date: 06/13/2022
+ms.date: 06/21/2022
 ms.author: mikailasmith
 ---
 
 # Receive real-time telemetry
 
-An Azure Orbital Ground station emits telemetry events can be used to analyze the ground station operation during a contact. You can configure your contact profile to send such telemetry events to Azure Event Hubs. The steps below describe how to create an Event Hubs and grant Azure Orbital access to send events to it.
+An Azure Orbital Ground station emits telemetry events that can be used to analyze the ground station operation during a contact. You can configure your contact profile to send such telemetry events to Azure Event Hubs. The steps in this article describe how to create and sent events to Event Hubs.
 
 ## Configure Event Hubs
 
 1. In your subscription, go to Resource Provider settings and register Microsoft.Orbital as a provider
-1. Create an Azure Event Hubs  in your subscription.
+1. Create an Azure Event Hubs in your subscription.
 1. From the left menu, select Access Control (IAM). Under Grant Access to this Resource, select Add Role Assignment
 1. Select Azure Event Hubs Data Sender.
 1. Assign access to 'User, group, or service principal'
@@ -40,17 +40,17 @@ Schedule a contact using the Contact Profile that you previously configured for 
 Once the contact begins, you should begin seeing data in your Event Hubs soon after.
 
 ## Verifying telemetry data
+
 You can verify both the presence and content of incoming telemetry data multiple ways.
 
-*Portal: Event Hubs Capture*.
-Confirm data flow.
+### Portal: Event Hubs Capture
+
 To verify that events are being received in your Event Hubs, you can check the graphs present on the Event Hubs namespace Overview page. This view shows data across all Event Hubs instances within a namespace. You can navigate to the Overview page of a specific instance to see the graphs for that instance.
 
-*Verify content of telemetry data*.
-You can enable Event Hub’s Capture feature that will automatically deliver the telemetry data to an Azure Blob storage account of your choosing.
-Follow the instructions [here](/azure/event-hubs/event-hubs-capture-enable-through-portal) to enable Capture.
-Once enabled, you can check your container and view/download the data.
+### Verify content of telemetry data
 
+You can enable Event Hubs Capture feature that will automatically deliver the telemetry data to an Azure Blob storage account of your choosing.
+Follow the [instructions to enable Capture](/azure/event-hubs/event-hubs-capture-enable-through-portal). Once enabled, you can check your container and view/download the data.
 
 ## Event Hubs consumer
 
@@ -65,7 +65,7 @@ We have provided sample code (to add) based on the Python guide that includes co
 
 ## Understanding telemetry points
 
-The ground station provides telemetry using Avro as a schema. The file is located here (to add): 
+The ground station provides telemetry using Avro as a schema. The file is located at (to add): 
 
 
 ## Next steps

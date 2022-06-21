@@ -1,11 +1,11 @@
 ---
 title: Prepare network to send and receive data
-description: Learn how to deliver and receive data from Orbital
+description: Learn how to deliver and receive data from Orbital.
 author: hrshelar
 ms.service: orbital
 ms.topic: how-to
 ms.custom: ga
-ms.date: 06/13/2022
+ms.date: 06/21/2022
 ms.author: hrshelar
 ---
 
@@ -13,7 +13,7 @@ ms.author: hrshelar
 
 The Orbital GSaaS platform interfaces with your resources using VNET injection, which is used in both uplink and downlink directions. This page describes how to ensure your Subnet and Orbital GSaaS objects are configured correctly.
 
-Ensure the objects comply with the recommendations below. Note, these steps don't have to be conducted serially.
+Ensure the objects comply with the recommendations in this article. Note, these steps don't have to be followed in order.
 
 ## Prepare subnet for VNET injection
 
@@ -31,7 +31,7 @@ Steps:
 Prerequisites:
 - The subnet/vnet is in the same region as the contact profile
 
-Make sure the following contact profile properties are set as follows:
+Make sure the contact profile properties are set as follows:
 
 1. subnetId (under networkConfiguration): The full ID to the delegated subnet, which can be found inside the VNET's JSON view
 1. For each link
@@ -39,13 +39,13 @@ Make sure the following contact profile properties are set as follows:
     1. port: Needs to be within 49152 and 65535 range and need to be unique across all links in the contact profile.
 
 > [!NOTE]
-> You can have multiple links/channels in a contact profile, and you can have multiple IPs. But the combination of port/protocol needs to be unique. You cannot have two identical ports, even if you have two different destination IPs. 
+> You can have multiple links/channels in a contact profile, and you can have multiple IPs. But the combination of port/protocol needs to be unique. You can't have two identical ports, even if you have two different destination IPs. 
 
 ## Scheduling the contact
 
-The platform pre-reserves IPs in the subnet when the contact is scheduled. These IPs represent the platform side endpoints for each link. IPs will be unique between contacts and if multiple concurrent contacts are using the same subnet, we guarantee those IPs to be distinct. The service will fail to schedule the contact and an error will be returned if the service runs out of IPs or cannot allocate an IP.
+The platform pre-reserves IPs in the subnet when the contact is scheduled. These IPs represent the platform side endpoints for each link. IPs will be unique between contacts, and if multiple concurrent contacts are using the same subnet, we guarantee those IPs to be distinct. The service will fail to schedule the contact and an error will be returned if the service runs out of IPs or can't allocate an IP.
 
-When you create a contact, you can find these IPs by viewing the contact properties. Click on JSON view in the portal or use the GET contact API call to view the contact properties. The parameters of interest are below:
+When you create a contact, you can find these IPs by viewing the contact properties. Select JSON view in the portal or use the GET contact API call to view the contact properties. The parameters of interest are below:
 
 | Parameter                          | Usage                                                                      |
 |------------------------------------|----------------------------------------------------------------------------|
