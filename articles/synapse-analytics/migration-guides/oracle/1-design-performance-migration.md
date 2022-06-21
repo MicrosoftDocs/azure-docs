@@ -161,7 +161,7 @@ Oracle-specific features can often be replaced by Azure Synapse features. Howeve
     SELECT \* FROM dba_indexes WHERE index_type LIKE 'FUNCTION-BASED%';
     ```
 
-  - Querying the `dba_index_usage` or `v$object_usage` views when monitoring has been enabled. You can query those views in Oracle SQL Developer, as shown in the following screenshot.
+  - Querying the `dba_index_usage` or `v$object_usage` views when monitoring is enabled. You can query those views in Oracle SQL Developer, as shown in the following screenshot.
 
     :::image type="content" source="../media/1-design-performance-migration/oracle-sql-developer-queries-2.png" border="true" alt-text="Screenshot showing how to find out which indexes are used in Oracle SQL Developer.":::
 
@@ -207,7 +207,7 @@ Oracle-specific features can often be replaced by Azure Synapse features. Howeve
 
   Azure Synapse doesn't support Oracle database triggers. However, you can add equivalent functionality by using Data Factory, although doing so will require you to refactor the processes that use triggers.
 
-- **Synonyms**: Oracle supports defining synonyms as alternative names for several database object types. Those types include tables, views, sequences, procedures, stored functions, packages, materialized views, Java class schema objects, or user-defined objects.
+- **Synonyms**: Oracle supports defining synonyms as alternative names for several database object types. Those types include tables, views, sequences, procedures, stored functions, packages, materialized views, Java class schema objects, user-defined objects, or another synonym.
 
   Azure Synapse doesn't currently support defining synonyms, although if a synonym in Oracle refers to a table or view, then you can define a view in Azure Synapse to match the alternative name. If a synonym in Oracle refers to a function or stored procedure, then you can replace the synonym in Azure Synapse by creating another function or stored procedure that calls the target.
 
@@ -257,13 +257,13 @@ Most Oracle data types have a direct equivalent in Azure Synapse. The following 
 | XMLType | Not supported. Store XML data in a VARCHAR. |
 
 >[!TIP]
->Assess the number and type of unsupported data types during your preparation phase.
+>Assess the number and type of unsupported data types during the preparation phase.
 
 Third-party vendors offer tools and services to automate migration, including the mapping of data types. If a third-party ETL tool, such as Informatica or Talend, is already in use in the Oracle environment, use that tool to implement any required data transformations.
 
 #### SQL DML syntax differences
 
-There are a few SQL DML syntax differences between Oracle SQL and Azure Synapse T-SQL. The differences are discussed in detail in [Minimize SQL issues for Oracle migrations](5-minimize-sql-issues.md#sql-ddl-differences-between-oracle-and-azure-synapse). In some cases, you can automate DML migration using Microsoft tools like SSMA for Oracle or [Azure Database Migration Services](/services/database-migration/), or by using [third-party](../../partner/data-integration.md) migration products and services.
+There are some SQL DML syntax differences between Oracle SQL and Azure Synapse T-SQL. The differences are discussed in detail in [Minimize SQL issues for Oracle migrations](5-minimize-sql-issues.md#sql-ddl-differences-between-oracle-and-azure-synapse). In some cases, you can automate DML migration using Microsoft tools like SSMA for Oracle or [Azure Database Migration Services](/services/database-migration/), or by using [third-party](../../partner/data-integration.md) migration products and services.
 
 #### Functions, stored procedures, and sequences
 
