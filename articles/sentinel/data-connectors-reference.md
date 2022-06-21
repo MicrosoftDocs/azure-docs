@@ -352,6 +352,8 @@ Before setting up the new Azure Activity log connector, you must disconnect the 
 | **Recommended diagnostics** | DDoSProtectionNotifications<br>DDoSMitigationFlowLogs<br>DDoSMitigationReports |
 | **Supported by** | Microsoft |
 
+> [!NOTE]
+> The **Status** for Azure DDoS Protection Data Connector changes to **Connected** only when the protected resources are under a DDoS attack.
 
 ## Azure Defender
 
