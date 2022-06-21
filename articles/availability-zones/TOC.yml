@@ -18,6 +18,8 @@
     items:
     - name: App service environment
       href: migrate-app-service-env.md
+    - name: App service
+      href: migrate-app-service.md
     - name: Virtual machines and virtual machine scale sets
       href: migrate-vm.md
     - name: Storage accounts
