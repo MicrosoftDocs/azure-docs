@@ -96,8 +96,8 @@
       href: postgresql-database-output.md
     - name: Azure SQL Database
       href: sql-database-output.md
-    - name: SQL Database performance
-      href: stream-analytics-sql-output-perf.md
+      - name: SQL Database performance
+        href: stream-analytics-sql-output-perf.md
     - name: Azure Synapse Analytics
       href: azure-synapse-analytics-output.md
     - name: Blob storage & Azure Data Lake Gen 2
