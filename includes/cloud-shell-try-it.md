@@ -24,6 +24,6 @@ To run the code in this article in Azure Cloud Shell:
 
 1. Select the **Copy** button on a code block to copy the code.
 
-1. Paste the code into the Cloud Shell session by selecting **Ctrl**+**Shift**+**V** on Windows and Linux, or by selecting **Cmd**+**Shift**+**V** on macOS.
+1. Paste the code into the Cloud Shell session by selecting Ctrl+Shift+V on Windows and Linux, or by selecting Cmd+Shift+V on macOS.
 
 1. Select **Enter** to run the code.

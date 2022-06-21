@@ -154,6 +154,11 @@
         "source_path_from_root": "/articles/purview/how-to-enable-data-use-governance.md",
         "redirect_url": "/azure/purview/how-to-enable-data-use-management",
         "redirect_document_id": true
-      }
+      },
+      {
+        "source_path_from_root": "/articles/purview/register-scan-azure-sql-database-managed-instance.md",
+        "redirect_url": "/azure/purview/register-scan-azure-sql-managed-instance",
+        "redirect_document_id": true
+      }     
 ]
 }

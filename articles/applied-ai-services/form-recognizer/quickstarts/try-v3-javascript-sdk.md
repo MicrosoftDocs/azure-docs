@@ -7,30 +7,29 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
-ms.date: 03/16/2022
+ms.date: 06/13/2022
 ms.author: lajanuar
 recommendations: false
-ms.custom: ignite-fall-2021, mode-api
 ---
 <!-- markdownlint-disable MD025 -->
 # Get Started: Form Recognizer JavaScript SDK (beta)
 
 >[!NOTE]
-> Form Recognizer beta version is currently in public preview. Some features may not be supported or have limited capabilities.
+> Form Recognizer beta version—4.0.0-beta.4—is currently in public preview. Some features may not be supported or have limited capabilities.
 
-[Reference documentation](/javascript/api/@azure/ai-form-recognizer/?view=azure-node-preview&preserve-view=true) | [Library source code](https://github.com/Azure/azure-sdk-for-js/tree/@azure/ai-form-recognizer_4.0.0-beta.3/sdk/formrecognizer/ai-form-recognizer/) | [Package (npm)](https://www.npmjs.com/package/@azure/ai-form-recognizer/v/4.0.0-beta.3) | [Samples](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/formrecognizer/ai-form-recognizer/samples/v4-beta/javascript/README.md)
+[Reference documentation](/javascript/api/@azure/ai-form-recognizer/?view=azure-node-preview&preserve-view=true) | [Library source code](https://github.com/Azure/azure-sdk-for-js/tree/@azure/ai-form-recognizer_4.0.0-beta.4/sdk/formrecognizer/ai-form-recognizer) | [Package (npm)](https://www.npmjs.com/package/@azure/ai-form-recognizer/v/4.0.0-beta.4) | [Samples](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/formrecognizer/ai-form-recognizer/samples/v4-beta)
 
-Get started with Azure Form Recognizer using the JavaScript programming language. Azure Form Recognizer is a cloud-based Azure Applied AI Service that uses machine learning to extract key-value pairs, text, and tables from your documents. You can easily call Form Recognizer models by integrating our client library SDks into your workflows and applications. We recommend that you use the free service when you're learning the technology. Remember that the number of free pages is limited to 500 per month.
+Get started with Azure Form Recognizer using the JavaScript programming language. Azure Form Recognizer is a cloud-based Azure Applied AI Service that uses machine learning to extract key-value pairs, text, and tables from your documents. You can easily call Form Recognizer models by integrating our client library SDKs into your workflows and applications. We recommend that you use the free service when you're learning the technology. Remember that the number of free pages is limited to 500 per month.
 
 To learn more about Form Recognizer features and development options, visit our [Overview](../overview.md#form-recognizer-features-and-development-options) page.
 
 In this quickstart you'll use following features to analyze and extract data and values from forms and documents:
 
-* [🆕 **General document**](#general-document-model)—Analyze and extract common fields from specific document types using a pre-trained invoice model.
+* [🆕 **General document**](#general-document-model)—Analyze and extract key-value pairs, selection marks, and entities from documents.
 
 * [**Layout**](#layout-model)—Analyze and extract tables, lines, words, and selection marks like radio buttons and check boxes in forms documents, without the need to train a model.
 
-* [**Prebuilt Invoice**](#prebuilt-model)—Analyze and extract common fields from specific document types using a pre-trained model.
+* [**Prebuilt Invoice**](#prebuilt-model)—Analyze and extract common fields from specific document types using a pre-trained invoice model.
 
 ## Prerequisites
 
@@ -73,7 +72,7 @@ In this quickstart you'll use following features to analyze and extract data and
 1. Install the `ai-form-recognizer` client library and `azure/identity` npm packages:
 
     ```console
-    npm install @azure/ai-form-recognizer@4.0.0-beta.3 @azure/identity
+    npm install @azure/ai-form-recognizer@4.0.0-beta.4 @azure/identity
     ```
 
     * Your app's `package.json` file will be updated with the dependencies.
@@ -121,9 +120,9 @@ Extract text, tables, structure, key-value pairs, and named entities from docume
 
   const { AzureKeyCredential, DocumentAnalysisClient } = require("@azure/ai-form-recognizer");
 
-  // set `<your-endpoint>` and `<your-key>` variables with the values from the Azure portal
-  const key = "<your-endpoint>";
-  const endpoint = "<your-key>";
+  // set `<your-key>` and `<your-endpoint>` variables with the values from the Azure portal.
+  const key = "<your-key>";
+  const endpoint = "<your-endpoint>";
 
   // sample document
   const formUrl = "https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-layout.pdf"
@@ -231,9 +230,9 @@ Extract text, selection marks, text styles, table structures, and bounding regio
 
  const { AzureKeyCredential, DocumentAnalysisClient } = require("@azure/ai-form-recognizer");
 
-    // set `<your-endpoint>` and `<your-key>` variables with the values from the Azure portal
-    const key = "<your-endpoint>";
-    const endpoint = "<your-key>";
+    // set `<your-key>` and `<your-endpoint>` variables with the values from the Azure portal.
+    const key = "<your-key>";
+    const endpoint = "<your-endpoint>";
 
     // sample document
   const formUrl = "https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-layout.pdf"
@@ -324,9 +323,9 @@ In this example, we'll analyze an invoice using the **prebuilt-invoice** model.
   // using the PrebuiltModels object, rather than the raw model ID, adds strong typing to the model's output
   const { PrebuiltModels } = require("@azure/ai-form-recognizer");
 
-  // set `<your-endpoint>` and `<your-key>` variables with the values from the Azure portal
-      const key = "<your-endpoint>";
-      const endpoint = "<your-key>";
+  // set `<your-key>` and `<your-endpoint>` variables with the values from the Azure portal.
+      const key = "<your-key>";
+      const endpoint = "<your-endpoint>";
 
   // sample document
   const invoiceUrl = "https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-invoice.pdf";
@@ -419,7 +418,7 @@ In this quickstart, you used the Form Recognizer JavaScript SDK to analyze vario
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [REST API v3.0reference documentation](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/AnalyzeDocument)
+> [Form Recognizer REST API v3.0 (preview)](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-06-30-preview/operations/AnalyzeDocument)
 
 > [!div class="nextstepaction"]
-> [Form Recognizer JavaScript reference library](https://azuresdkdocs.blob.core.windows.net/$web/javascript/azure-ai-form-recognizer/4.0.0-beta.1/index.html)
+> [Form Recognizer JavaScript reference library](https://azuresdkdocs.blob.core.windows.net/$web/javascript/azure-ai-form-recognizer/4.0.0-beta.4/index.html)

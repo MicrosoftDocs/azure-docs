@@ -110,6 +110,8 @@
         href: groups-dynamic-rule-more-efficient.md
       - name: Change group membership type  
         href: groups-change-type.md
+    - name: Group as memberOf a dynamic group
+      href: groups-dynamic-rule-member-of.md
     - name: Add members in bulk
       href: groups-bulk-import-members.md
     - name: Remove members in bulk

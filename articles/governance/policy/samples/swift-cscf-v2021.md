@@ -7,7 +7,7 @@ ms.custom: generated
 ms.author: timwarner
 author: timwarner-msft
 ---
-# Details of the [Preview]: SWIFT CSCF v2021 Regulatory Compliance built-in initiative
+# Details of the SWIFT CSP v2021 Regulatory Compliance built-in initiative
 
 The following article details how the Azure Policy Regulatory Compliance built-in initiative
 definition maps to **compliance domains** and **controls** in [Preview]: SWIFT CSCF v2021.

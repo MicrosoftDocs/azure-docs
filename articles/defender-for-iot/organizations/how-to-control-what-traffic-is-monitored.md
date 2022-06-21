@@ -156,7 +156,7 @@ If you're working with dynamic networks, you handle IP address changes that occu
 
 Changes might happen, for example, when a DHCP server assigns IP addresses.
 
-Defining dynamic IP addresses on each sensor enables comprehensive, transparent support in instances of IP address changes. This ensures comprehensive reporting for each unique device.
+Defining dynamic IP addresses on each sensor enables comprehensive, transparent support in instances of IP address changes.  This activity ensures comprehensive reporting for each unique device.
 
 The sensor console presents the most current IP address associated with the device and indicates which devices are dynamic. For example:
 

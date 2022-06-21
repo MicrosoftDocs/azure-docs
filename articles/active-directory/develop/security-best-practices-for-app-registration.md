@@ -1,8 +1,8 @@
 ---
-title: Best practices for Azure AD application registration configuration - Microsoft identity platform
+title: Best practices for Azure AD application registration configuration
 description: Learn about a set of best practices and general guidance on Azure AD application registration configuration.
 services: active-directory
-author: Chrispine-Chiedo
+author: CelesteDG
 manager: CelesteDG
 
 ms.service: active-directory
@@ -11,7 +11,7 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 07/8/2021
 ms.custom: template-concept
-ms.author: cchiedo
+ms.author: celested
 ms.reviewer: saumadan, marsma
 ---
 

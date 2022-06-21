@@ -40,8 +40,6 @@ To control the number of disks used by the worker nodes in a Kafka cluster, use 
     ],
 ```
 
-You can find a complete template that demonstrates how to configure managed disks at [https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-kafka-mirror-cluster-in-vnet-v2.1.json](https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-kafka-mirror-cluster-in-vnet-v2.1.json).
-
 ## Next steps
 
 For more information on working with Apache Kafka on HDInsight, see the following documents:

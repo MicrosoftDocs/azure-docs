@@ -1,11 +1,13 @@
 ---
-title: Attach or detach a shared image gallery in Azure Lab Services (deprecated) | Microsoft Docs
-description: This article describes how to attach a shared image gallery to a lab in Azure Lab Services. (deprecated)
+title: Attach or detach a shared image gallery to a lab account in Azure Lab Services  | Microsoft Docs
+description: This article describes how to attach a shared image gallery to a lab account in Azure Lab Services. 
 ms.topic: how-to
 ms.date: 09/11/2020
 ---
 
-# Attach or detach a shared image gallery in Azure Lab Services (deprecated)
+# Attach or detach a shared image gallery to a lab account in Azure Lab Services
+
+[!INCLUDE [preview note](./includes/lab-services-labaccount-focused-article.md)]
 
 This article shows you how to attach or detach a shared image gallery to a lab account.
 
