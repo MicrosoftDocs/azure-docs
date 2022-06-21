@@ -5,7 +5,7 @@ services: private-link
 author: asudbring
 ms.service: private-link
 ms.topic: tutorial
-ms.date: 06/20/2022
+ms.date: 06/21/2022
 ms.author: allensu
 ms.custom: fasttrack-edit, template-tutorial
 # Customer intent: As someone with a basic network background, but is new to Azure, I want to create a private endpoint on a SQL server so that I can securely connect to it.
