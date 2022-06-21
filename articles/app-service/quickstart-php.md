@@ -11,8 +11,6 @@ zone_pivot_groups: app-service-platform-windows-linux
 
 # Create a PHP web app in Azure App Service
 
-You can deploy a PHP web app from a Git repository to Azure App Service using the Azure portal. Learn more with our [Quickstart: Create a PHP app using Azure App Service (Azure portal).](quickstart-php-portal.md).
-
 ::: zone pivot="platform-windows"  
 [!INCLUDE [quickstart-php-windows-](./includes/quickstart-php/quickstart-php-windows-pivot.md)]
 ::: zone-end  
@@ -69,6 +67,8 @@ You can create the web app using the [Azure CLI](/cli/azure/get-started-with-azu
 
 >[!NOTE]
 > This should take you to the new fork. Your fork URL will look something like this: https://github.com/YOUR_GITHUB_ACCOUNT_NAME/php-docs-hello-world
+
+---
 
 ## 2 - Deploy your application code to Azure
 
@@ -238,6 +238,7 @@ The PHP sample code is running in an Azure App Service.
 
     ![Screenshot of the updated sample app running in Azure, showing 'Hello Azure!'](media/quickstart-php/php-8-hello-azure-in-browser.png)
 
+---
 
 ## 4 - Manage your new Azure app
 
@@ -274,6 +275,7 @@ This command may take a minute to run.
 1. From your App Service **Overview** page, select the resource group you created.
 
 2. From the resource group page, select **Delete resource group**. Confirm the name of the resource group to finish deleting the resources.
+
 ---
 
 ## Next steps
