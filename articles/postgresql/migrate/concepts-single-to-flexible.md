@@ -196,5 +196,5 @@ After you finish the prerequisites, migrate the data and schemas by using one of
 
 ## Next steps
 
-- [Migrate to Flexible Server by busing the Azure portal](../migrate/how-to-migrate-single-to-flexible-portal.md)
+- [Migrate to Flexible Server by using the Azure portal](../migrate/how-to-migrate-single-to-flexible-portal.md)
 - [Migrate to Flexible Server by using the Azure CLI](../migrate/how-to-migrate-single-to-flexible-cli.md)
