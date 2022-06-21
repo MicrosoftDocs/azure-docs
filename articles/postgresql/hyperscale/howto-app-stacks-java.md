@@ -23,7 +23,7 @@ In this document, you'll learn how to connect to a Hyperscale (Citus) server gro
 
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free)
 * Create a Hyperscale (Citus) database using this link [Create Hyperscale (Citus) server group](quickstart-create-portal.md)
-* A supported [Java Development Kit](https://docs.microsoft.com/azure/developer/java/fundamentals/java-support-on-azure), version 8 (included in Azure Cloud Shell).
+* A supported [Java Development Kit](/azure/developer/java/fundamentals/java-support-on-azure), version 8 (included in Azure Cloud Shell).
 * The [Apache Maven](https://maven.apache.org/) build tool.
 
 ## Setup
