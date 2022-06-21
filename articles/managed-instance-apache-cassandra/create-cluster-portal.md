@@ -80,7 +80,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 1. To browse through the cluster nodes, navigate to the cluster resource and open the **Data Center** pane to view them:
 
-   :::image type="content" source="./media/create-cluster-portal/datacenter.png" alt-text="Screenshot of datacenter nodes." lightbox="./media/create-cluster-portal/datacenter-1.png" border="true":::
+   :::image type="content" source="./media/create-cluster-portal/datacenter.png" alt-text="Screenshot of datacenter nodes." lightbox="./media/create-cluster-portal/datacenter.png" border="true":::
 
 ## Scale a datacenter
 
