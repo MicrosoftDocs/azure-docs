@@ -75,15 +75,28 @@ After the Device Update agent is running on an IoT device, you must add the devi
    
    `sudo /usr/bin/AducIotAgent --register--content-handler <full path to the handler file> --update-type <update type name>`
 
-1. You will need the file `sample-du-simulator-data.json` from the downloaded `Tutorial_Simulator.zip` in the prerequisites. Run the following command to create and edit the `du-simulator-data.json` file in the tmp folder:
+1. You will need the file `sample-du-simulator-data.json` from the downloaded `Tutorial_Simulator.zip` in the prerequisites. 
+
+   Open the file `sample-du-simulator-data.json` and copy contents to clipboard:
+   
+   ```sh
+   nano sample-du-simulator-data.json
+   ```
+   
+   Select the contents of the file and press **Ctrl+C**. Press **Ctrl+X** to close the file and don't save changes.
+   
+   Run the following command to create and edit the `du-simulator-data.json` file in the tmp folder:
 
    ```sh
    sudo nano /tmp/du-simulator-data.json
+   ```
+   Press **Ctrl+V** to paste the contents into the editor. Select **Ctrl+X** to save the changes, and then **Y**.
+   
+   Change permissions:
+   ```sh
    sudo chown adu:adu /tmp/du-simulator-data.json
    sudo chmod 664 /tmp/du-simulator-data.json
    ```
-
-   Copy the contents from the downloaded file into the `du-simulator-data.json` file. Select **Ctrl+X** to save the changes.
   
    If /tmp doesn't exist, then:
 
