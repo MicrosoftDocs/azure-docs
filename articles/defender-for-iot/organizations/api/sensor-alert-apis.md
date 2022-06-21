@@ -26,8 +26,8 @@ Use this API to request a list of all the alerts that the Defender for IoT senso
 |Name  |Description  |Example  | Required / Optional |
 |---------|---------|---------|---------|
 |**state**     | Get only handled or unhandled alerts. Supported values: <br>- `handled`<br>- `unhandled`  <br>All other values return an error message.     |  `/api/v1/alerts?state=handled`       |Optional |
-|**fromTime**     |   Get alerts created starting at a given time, in milliseconds and UTC format.      |    `/api/v1/alerts?fromTime=<epoch>`     | Optional |
-|**toTime**     |  Get alerts created only before at a given time, in milliseconds and UTC format.        | `/api/v1/alerts?toTime=<epoch>`        |  Optional |
+|**fromTime**     |   Get alerts created starting at a given time, in milliseconds and UTC timezone.      |    `/api/v1/alerts?fromTime=<epoch>`     | Optional |
+|**toTime**     |  Get alerts created only before at a given time, in milliseconds and UTC timezone.        | `/api/v1/alerts?toTime=<epoch>`        |  Optional |
 |**type**     |  Get alerts of a specific type only. Supported values: <br>- `unexpected new devices` <br>- `disconnections`  <br>All other values are ignored.     |  `/api/v1/alerts?type=disconnections`       |Optional |
 
 # [Response](#tab/alerts-response)
@@ -39,7 +39,7 @@ A list of alerts with the following fields:
 | Name | Type | Nullable / Not nullable | List of values |
 |--|--|--|--|
 | **ID** | Numeric | Not nullable | - |
-| **time** | Numeric | Not nullable | Milliseconds from [Epoch time](../references-work-with-defender-for-iot-apis.md#epoch-time), in UTC format |
+| **time** | Numeric | Not nullable | Milliseconds from [Epoch time](../references-work-with-defender-for-iot-apis.md#epoch-time), in UTC timezone |
 | **title** | String | Not nullable | - |
 | **message** | String | Not nullable | - |
 | **severity** | String | Not nullable | `Warning`, `Minor`, `Major`, or `Critical` |
@@ -151,7 +151,7 @@ Event fields include:
 
 | Name | Type | Nullable / Not nullable | List of values |
 |--|--|--|--|--|
-| **timestamp** | Numeric | Not nullable | Milliseconds from [Epoch time](../references-work-with-defender-for-iot-apis.md#epoch-time), in UTC format |
+| **timestamp** | Numeric | Not nullable | Milliseconds from [Epoch time](../references-work-with-defender-for-iot-apis.md#epoch-time), in UTC timezone |
 | **type** | String | Not nullable | One of the [supported types](event-reference.md) |
 | **title** | String | Not nullable | One of the [supported titles](event-reference.md) |
 | **severity** | String | Not nullable | `INFO`, `NOTICE`, or `ALERT` |
@@ -213,65 +213,6 @@ curl -k -H "Authorization: <AUTH_TOKEN>" 'https://<IP_ADDRESS>/api/v1/events?min
 curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" 'https://127.0.0.1/api/v1/events?minutesTimeFrame=20&type=DEVICE_CONNECTION_CREATED'`
 ```
 ---
-HERE WE STOPPED
-
-## pcap (Retrieve alert PCAP)
-
-Use this API to retrieve a PCAP file related to an alert.
-
-This endpoint does not use a regular access token for authorization. Instead, it requires a special token created by the `/external/v2/alerts/pcap` API endpoint on the CM.
-
-**URI**: `/api/v2/alerts/pcap`
-
-### GET
-
-# [Request](#tab/pcap-request)
-
-**Query parameters**:
-
-|Name  |Description  |Example  |
-|---------|---------|---------|
-|**id**     |   The Xsense Alert ID      |   `/api/v2/alerts/pcap/<id>`      |
-
-
-# [Response](#tab/pcap-response)
-
-**Type**: JSON
-
-One of the following messages:
-
-
-|Name  |Description  |
-|---------|---------|
-|**Success**     | Binary file containing PCAP data        |
-|**Failure**     |  JSON object that contains error message       |
-
-
-**Response example**: Error
-
-```json
-{
-  "error": "PCAP file is not available"
-}
-```
-
-# [Curl command](#tab/pcap-curl)
-
-**Type**: GET
-
-**APIs**:
-
-```rest
-curl -k -H "Authorization: <AUTH_TOKEN>" 'https://<IP_ADDRESS>/api/v2/alerts/pcap/<ID>'
-```
-
-**Example**:
-
-```
-curl -k -H "Authorization: d2791f58-2a88-34fd-ae5c-2651fe30a63c" 'https://10.1.0.2/api/v2/alerts/pcap/1'
-```
----
-
 
 ## Next steps
 
