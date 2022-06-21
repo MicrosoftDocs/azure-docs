@@ -115,6 +115,6 @@ Let's say you wish to have the Control Bar with strings from our English (US) lo
 
 Create a `string.xml` file (or other filename) with the key-value pair for selected keys you want to override. In the example below, we're overriding the key `azure_communication_ui_calling_setup_view_button_join_call`.
 
-:::image type="content" source="media/android-localization-project.png" alt-text="Android localization setup project":::
+:::image type="content" source="media/android-localization-project.png" alt-text="Screenshot that shows the Android localization setup project":::
 
-:::image type="content" source="media/android-localization-custom-label.png" alt-text="Android example custom label":::
+:::image type="content" source="media/android-localization-custom-label.png" alt-text="Screenshot that shows the Android example custom label":::
