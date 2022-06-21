@@ -2,7 +2,7 @@
 title: Geo disaster recovery in Azure Event Grid | Microsoft Docs
 description: Describes how Azure Event Grid supports geo disaster recovery (GeoDR) automatically. 
 ms.topic: conceptual
-ms.date: 03/24/2022
+ms.date: 06/21/2022
 ---
 
 # Server-side geo disaster recovery in Azure Event Grid
@@ -10,7 +10,7 @@ ms.date: 03/24/2022
 Event Grid supports automatic geo-disaster recovery of event subscription configuration data (metadata) for topics, system topics, domains, and partner topics. Event Grid automatically syncs your event-related infrastructure to a paired region. If an entire Azure region goes down, the events will begin to flow to the geo-paired region with no intervention from you. 
 
 > [!NOTE]
-> Event data is not replicated to the paired region, only the metadata is replicated. If a region supports availability zones, the event data is replicated across availability zones though. 
+> Event data is not replicated to the paired region, only the metadata is replicated.
 
 Microsoft offers options to recover from a failure, you can opt to enable recovery to a paired region where available or disable recovery to a paired region to manage your own recovery. See [Azure cross-region replication pairings for all geographies](../availability-zones/cross-region-replication-azure.md#azure-cross-region-replication-pairings-for-all-geographies) to learn more about the supported paired regions. The failover is nearly instantaneous once initiated. To learn more about how to implement your own failover strategy, see [Build your own disaster recovery plan for Azure Event Grid topics and domains](custom-disaster-recovery.md) .
 
@@ -40,4 +40,5 @@ Event Grid’s automatic failover has different RPOs and RTOs for your metadata 
 
 
 ## Next steps
+
 If you want to implement your own client-side failover logic, see [# Build your own disaster recovery for custom topics in Event Grid](custom-disaster-recovery.md)
