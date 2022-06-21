@@ -10,7 +10,7 @@ ms.date: 6/17/2022
 
 #  Client Feature Spec
 
-This document outlines the complete feature set of the pub sub client of Azure Web PubSub Service. It is expected that every client library developer refers to this document to ensure that their client library provides the same API and features.
+This document outlines the complete feature set of the pub sub client of Azure Web PubSub Service. It is expected that every client library developer refers to this document to ensure that their client library provides the right behavior and features
 
 The Web PubSub Service supports predefined subprotocols and custom subprotocols. The spec focus on predefined subprotocols and client libraries should mainly focus on implement features that predefined subprotocols support.
 
@@ -18,11 +18,25 @@ The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "S
 
 Although that protocol is published, we reserve the right to change the protocol and drop support for superseded protocol versions at any time. Of course, we don’t want to make life difficult for client library developers, so any incompatible changes will be very carefully considered, but nonetheless developers must regard the protocol definition as being subject to change.
 
-## 1. Connection
+## 1. Auth
+
+### 1.1 Access token
+
+1. The client uses token based auth. When making a new connection, token MUST be in the query string `access_token`.
+
+2. The TTL of access token only effects the time you're making the new connection. In particular, the service won't terminate the connection if the access token expires after connected.
+
+### 1.2 Reconnection token
+
+1. Reconnection token is for connection recovery. It's provided by the `reconnectionToken` property in `ConnectedMessage` and it's only available in reliable protocols.
+
+2. Reconnection token has a TTL (~ 1 week) and has a limited scope. It can be only used to recover the corresponding connection.
+
+## 2. Connection
 
 Connection connects to the Azure Web PubSub Service using a websocket connection. The connection is designed to  multiplex operations across different groups within one hub.
 
-### 1.1 Connect
+### 2.1 Connect
 
 1. Client libraries SHOULD contains a `connect` function. It's used to explicitly connects to the Web PubSub Service if not already connected.
 
@@ -42,7 +56,7 @@ Connection connects to the Azure Web PubSub Service using a websocket connection
 
 6. Client libraries SHOULD provide callback on getting `access_token`. It's because of clients usually need to get access token from separate authentication server in callback.
 
-### 1.2 Connected
+### 2.2 Connected
 
 1. The client connection is considered connected once the websocket connection is open and the initial `ConnectedMessage` has been received.
 
@@ -52,7 +66,7 @@ Connection connects to the Azure Web PubSub Service using a websocket connection
 
 4. A client MAY receive `ConnectedMessage` after recovery. The client library SHOULD update local `reconnectionToken` after received `ConnectedMessage`. Client libraries MUST only trigger a `connected` callback when receives `ConnectedMessage` the first time after making a new connection. In particular, the library MUST NOT trigger `connected` callback after connection recovery.
 
-### 1.3 Connection disconnection and recovery
+### 2.3 Connection disconnection and recovery
 
 Connection recovery is specific to reliable subprotocols. Client libraries SHOULD implement reliable subprotocols and make it as the default subprotocols to provide a high reliable experience.
 
@@ -82,11 +96,17 @@ In order to recovery the connection, the client library MUST:
 
     3. Receive websocket closure with websocket status code 1008. In this case, the recovery is failed. Usually, it's because the connection expires the retain timeout. Or the service meets some unrecoverable errors. And the client library MUST make a new connection.
 
-## 2. Groups and messages
+3. The client library MUST stop try recovering the connection, instead making a new connection when:
+
+    1. The service response with websocket status code 1008
+
+    2. The recovery attempts last more than 30 seconds.
+
+## 3. Groups and messages
 
 A group is a subset of connections to the hub. Client connections can join groups and send messages to groups. Group info is attached to a connection (identified by `connectionId`). That means the service won't save your group info and you SHOULD save group info in your business layer and join groups that the connection belongs to when a new connection is connected.
 
-### 2.1 Ack messages
+### 3.1 Ack messages
 
 1. `JoinGroupMessage`, `LeaveGroupMessage`, `SendToGroupMessage` and `EventMessage` has `ackId` property. The `ackId` property is an optional property. Only when the `ackId` property is provided in message, the service will give an ack response. Otherwise, it's fire-and-forget. Even there're errors, you have no way to get notified. 
 
@@ -102,7 +122,7 @@ If the client library supports auto retry, it MUST NOT retry once `success` is f
 
 4. It's unnecessary to add timer for every message. Instead the client library can rely on: the service will send an `AckMessage`. Or the websocket transport will fail. Once recovering or reconnecting, the client SHOULD treat messages that not receive `AckMessage` as failed.
 
-### 2.2 SequenceId
+### 3.2 SequenceId
 
 Once the client connection is using reliable subprotocols, many messages from the service will contains `sequenceId` property.
 
@@ -116,7 +136,7 @@ Once the client connection is using reliable subprotocols, many messages from th
 
 5. The client library MAY support periodically response the `SequenceAckMessage` to avoid sending response for every received message.
 
-### 2.3 Join group and leave group
+### 3.3 Join group and leave group
 
 1. Client libraries SHOULD have the `joinGroup` function, and `leaveGroup` function.
 
@@ -124,72 +144,76 @@ Once the client connection is using reliable subprotocols, many messages from th
 
 3. It's RECOMMENDED that `JoinGroupMessage` and `LeaveGroupMessage` always use with `ackId` to avoid fire-and-forget. Client libraries SHOULD provide a callback (or other language-idiomatic equivalent) to get the result of join leave group operation.
 
-### 2.4 Send group messages
+### 3.4 Send group messages
 
 1. Client libraries SHOULD have the `sendToGroup` function with and without `ackId` separately.
 
 2. When `sendToGroup` is called, a `SendToGroupMessage` will be sent to the service. If the `ackId` property is set, means client expects the send result. If the client library supports reliable protocols, the function is REQUIRED. Client libraries SHOULD provide a callback (or other language-idiomatic equivalent) to get the result of broadcasting message.
 
-### 2.5 Send event messages
+### 3.5 Send event messages
 
 1. Client libraries SHOULD have the `sendEvent` function with and without `ackId` separately.
 
 2. When `sendToGroup` is called, a `EventMessage` will be sent to the service. If the `ackId` property is set, means client expects the send result. If the client library supports reliable protocols, the function is REQUIRED. Client libraries SHOULD provide a callback (or other language-idiomatic equivalent) to get the result of event message.
 
-## 3. Message Object Reference
+## 4. Message Object Reference
 
 Different subprotocols have different format for message. Find the reference to messages.
 
-### 3.1 ConnectedMessage
+### 4.1 ConnectedMessage
 
 - [json.reliable.webpubsub.azure.v1](./reference-json-reliable-webpubsub-subprotocol.md#connected)
 - [protobuf.reliable.webpubsub.azure.v1](./reference-protobuf-reliable-webpubsub-subprotocol.md#connected)
 - [json.webpubsub.azure.v1](./reference-json-webpubsub-subprotocol.md#connected)
 - [protobuf.webpubsub.azure.v1](./reference-protobuf-webpubsub-subprotocol.md#connected)
 
-### 3.2 DisconnectedMessage
+### 4.2 DisconnectedMessage
 
 - [json.reliable.webpubsub.azure.v1](./reference-json-reliable-webpubsub-subprotocol.md#disconnected)
 - [protobuf.reliable.webpubsub.azure.v1](./reference-protobuf-reliable-webpubsub-subprotocol.md#disconnected)
 - [json.webpubsub.azure.v1](./reference-json-webpubsub-subprotocol.md#disconnected)
 - [protobuf.webpubsub.azure.v1](./reference-protobuf-webpubsub-subprotocol.md#disconnected)
 
-### 3.3 JoinGroupMessage
+### 4.3 JoinGroupMessage
 
 - [json.reliable.webpubsub.azure.v1](./reference-json-reliable-webpubsub-subprotocol.md#join-groups)
 - [protobuf.reliable.webpubsub.azure.v1](./reference-protobuf-reliable-webpubsub-subprotocol.md#join-groups)
 - [json.webpubsub.azure.v1](./reference-json-webpubsub-subprotocol.md#join-groups)
 - [protobuf.webpubsub.azure.v1](./reference-protobuf-webpubsub-subprotocol.md#join-groups)
 
-### 3.4 LeaveGroupMessage
+### 4.4 LeaveGroupMessage
 
 - [json.reliable.webpubsub.azure.v1](./reference-json-reliable-webpubsub-subprotocol.md#leave-groups)
 - [protobuf.reliable.webpubsub.azure.v1](./reference-protobuf-reliable-webpubsub-subprotocol.md#leave-groups)
 - [json.webpubsub.azure.v1](./reference-json-webpubsub-subprotocol.md#leave-groups)
 - [protobuf.webpubsub.azure.v1](./reference-protobuf-webpubsub-subprotocol.md#leave-groups)
 
-### 3.5 SendToGroupMessage
+### 4.5 SendToGroupMessage
 
 - [json.reliable.webpubsub.azure.v1](./reference-json-reliable-webpubsub-subprotocol.md#publish-messages)
 - [protobuf.reliable.webpubsub.azure.v1](./reference-protobuf-reliable-webpubsub-subprotocol.md#publish-messages)
 - [json.webpubsub.azure.v1](./reference-json-webpubsub-subprotocol.md#publish-messages)
 - [protobuf.webpubsub.azure.v1](./reference-protobuf-webpubsub-subprotocol.md#publish-messages)
 
-### 3.6 EventMessage
+### 4.6 EventMessage
 
 - [json.reliable.webpubsub.azure.v1](./reference-json-reliable-webpubsub-subprotocol.md#send-custom-events)
 - [protobuf.reliable.webpubsub.azure.v1](./reference-protobuf-reliable-webpubsub-subprotocol.md#send-custom-events)
 - [json.webpubsub.azure.v1](./reference-json-webpubsub-subprotocol.md#send-custom-events)
 - [protobuf.webpubsub.azure.v1](./reference-protobuf-webpubsub-subprotocol.md#send-custom-events)
 
-### 3.7 AckMessage
+### 4.7 AckMessage
 
 - [json.reliable.webpubsub.azure.v1](./reference-json-reliable-webpubsub-subprotocol.md#ack-response)
 - [protobuf.reliable.webpubsub.azure.v1](./reference-protobuf-reliable-webpubsub-subprotocol.md#ack-response)
 - [json.webpubsub.azure.v1](./reference-json-webpubsub-subprotocol.md#ack-response)
 - [protobuf.webpubsub.azure.v1](./reference-protobuf-webpubsub-subprotocol.md#ack-response)
 
-### 3.8 SequenceAckMessage
+### 4.8 SequenceAckMessage
 
 - [json.reliable.webpubsub.azure.v1](./reference-json-reliable-webpubsub-subprotocol.md#sequence-ack)
 - [protobuf.reliable.webpubsub.azure.v1](./reference-protobuf-reliable-webpubsub-subprotocol.md#sequence-ack)
+
+## Next steps
+
+[!INCLUDE [next step](includes/include-next-step.md)]
