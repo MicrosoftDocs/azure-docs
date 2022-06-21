@@ -16,305 +16,305 @@ ms.date: 06/30/2022
 
 This article is part five of a seven-part series that provides guidance on how to migrate from Oracle to Azure Synapse Analytics. The focus of this article is best practices for minimizing SQL issues.
 
-## Minimizing SQL issues for Oracle migrations
+## Overview
 
-This article looks at SQL syntax migration with a goal of equivalent or better performance of your migrated Oracle data warehouse and data marts on Azure Synapse. This article applies specifically to migrations from an existing Oracle environment.
+### Characteristics of Oracle environments
 
-#### Characteristics of Oracle environments
+Oracle's initial database product, released in 1979, was a commercial SQL relational database for on-line transaction processing (OLTP) applications&mdash;with much lower transaction rates than today. Since that initial release, the Oracle environment has evolved to become far more complex and encompasses numerous features. The features include: client-server architectures, distributed databases, parallel processing, data analytics, high availability, data warehousing, data in memory techniques, and support for cloud-based instances.
 
-Oracle pioneered the 'data warehouse appliance' concept in the early 2000's
+>[!TIP]
+>Oracle pioneered the "data warehouse appliance" concept in the early 2000's.
 
-The initial Oracle database product was released in 1979 and was designed as a commercial implementation of a SQL relational database that could handle on-line transaction processing (OLTP) applications (of course, the typical transaction rates required were much lower then). Since that initial release the product has evolved to become the complex environment of today, encompassing features such as client-server architectures, distributed databases, parallel processing, data analytics, high availability, data warehousing, data in memory techniques and support for cloud-based instances.
+Due to the cost and complexity of maintaining and upgrading legacy on-premises Oracle environments, many existing Oracle users want to take advantage of the innovations provided by cloud environments. Modern cloud environments, such as cloud, IaaS, and PaaS, let you delegate tasks like infrastructure maintenance and platform development to the cloud provider.
 
-Given the cost and complexity of maintaining and upgrading legacy on-premises Oracle environments, many existing users of Oracle data warehouse systems are now looking to take advantage of the innovations provided by newer environments (e.g. cloud, IaaS, PaaS) and to delegate tasks such as infrastructure maintenance and platform development to the cloud provider.
+Many data warehouses that support complex analytic SQL queries on large data volumes use Oracle technologies. These data warehouses commonly have a dimensional data model, such as star or snowflake schemas, and use data marts for individual departments.
 
-Most existing Oracle installations are on-premises, and therefore many users are considering migrating some or all of their Oracle data to Azure Synapse to gain the benefits of a move to a modern cloud environment.
+>[!TIP]
+>Many existing Oracle installations are data warehouses that use a dimensional data model.
 
-Many existing Oracle installation are data warehouses using a dimensional data model
+The combination of SQL and dimensional data models in Oracle simplifies migration to Azure Synapse because the SQL and basic data model concepts are transferable. Microsoft recommends moving your existing data model as-is to Azure to reduce risk, effort, and migration time. Although your migration plan might include a change in the underlying data model, such as a move from an Inmon model to a data vault, it makes sense to initially perform an as-is migration. After the initial migration, you can then make changes within the Azure cloud environment to take advantage of the built-in features, performance, elastic scalability, and cost benefits.
 
-Oracle technology has often been used to implement a data warehouse, supporting complex analytic queries on large data volumes using SQL. Dimensional data models (star or snowflake schemas) are common, as is the implementation of 'data marts' for individual departments.
-
-This combination of SQL and dimensional data models simplifies migration to Azure Synapse as the basic concepts and SQL skills are transferable. The recommended approach is to migrate the existing data model 'as-is' to reduce risk and time taken. Even if the eventual intention is to make changes to the data model (e.g. moving to a Data Vault model) it makes sense to initially perform an 'as-is' migration and then make changes within the Azure cloud environment, leveraging the performance, elastic scalability and cost advantages there.
-
-While the SQL language has been standardized, individual vendors have in some cases implemented proprietary extensions -- this document is intended to highlight potential SQL differences which may be encountered during migration from a legacy Oracle environment and to provide workarounds to those.
+Although the SQL language is standardized, individual vendors sometimes implement proprietary extensions. As a result, you might find [SQL differences](#sql-dml-differences-between-oracle-and-azure-synapse) during your migration that require workarounds in Azure Synapse.
 
 #### Use Azure facilities to implement a metadata-driven migration
 
-Automate the migration process by using Azure Data Factory capabilities
+You can automate and orchestrate the migration process by using the capabilities of the Azure environment. This approach minimizes the performance hit on the existing Oracle environment, which may already be running close to capacity.
 
-It makes sense to automate and orchestrate the migration process by making use of the capabilities in the Azure environment. This approach also minimizes the impact on the existing Oracle environment (which may already running close to full capacity).
+Azure Data Factory is a cloud-based data integration service that supports creating data-driven workflows in the cloud to orchestrate and automate data movement and data transformation. You can use Data Factory to create and schedule data-driven workflows (pipelines) that ingest data from disparate data stores. Data Factory can process and transform the data by using compute services such as Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics, and Azure Machine Learning.
 
-Azure Data Factory is a cloud-based data integration service that allows creation of data-driven workflows in the cloud for orchestrating and automating data movement and data transformation. Using Azure Data Factory, you can create and schedule data-driven workflows (called pipelines) that can ingest data from disparate data stores. It can process and transform the data by using compute services such as Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics, and Azure Machine Learning.
+Azure also includes Migration Services to help you plan and perform a migration from environments like Oracle. [SQL Server Migration Assistant](/download/details.aspx?id=54258) (SSMA) for Oracle can automate migration of Oracle databases, including in some cases functions and procedural code.
 
-Azure also includes Database Migration Services to help in planning and executing a migration from environments such as Oracle, and SQL Server Migration Assistant for Oracle can automate migration of Oracle databases and some cases functions and procedural code.
+>[!TIP]
+>Automate the migration process by using Azure Data Factory capabilities.
 
-By creating metadata to list the data tables to be migrated and their location, it is possible to use these Azure facilities to manage and automate some or all of the migration process.
+When planning to use Azure facilities to manage the migration process, create metadata that lists all the data tables that need to be migrated and their location.
 
-### SQL DDL differences between Oracle and Azure Synapse
+## SQL DDL differences between Oracle and Azure Synapse
 
-#### SQL Data Definition Language (DDL)
+### SQL Data Definition Language (DDL)
 
-SQL DDL commands CREATE TABLE and CREATE VIEW have standard core elements but are also used to define implementation-specific options
+The ANSI SQL standard defines the basic syntax for DDL commands. Some DDL Commands common to both Oracle and Azure Synapse, like `CREATE TABLE` and `CREATE VIEW`, have been extended to provide implementation-specific features such as indexing, table distribution, and partitioning options.
 
-The ANSI SQL standard defines the basic syntax for DDL commands such as CREATE TABLE and CREATE VIEW which are used within both Oracle and Azure Synapse, but these commands have also been extended to allow definition of implementation-specific features such as indexing, table distribution and partitioning options.
+>[!TIP]
+>SQL DDL commands `CREATE TABLE` and `CREATE VIEW` have standard core elements but are also used to define implementation-specific options.
 
-The following sections discuss the Oracle-specific options which need to be considered during migration to Azure Synapse.
+The following sections discuss the Oracle-specific options that need to be considered during a migration to Azure Synapse.
 
-#### Table/view considerations
+### Table/view considerations
 
-Use existing indexes to give an indication of candidates for indexing in the migrated warehouse
+When you migrate tables between different environments, typically only the raw data and the metadata that describes it physically migrates. Other database elements from the source system, such as indexes and log files, usually aren't migrated because they might be unnecessary or implemented differently in the new environment. For example, the `TEMPORARY` option within Oracle's `CREATE TABLE` syntax is equivalent to prefixing a table name with the `#` character in Azure Synapse.
 
-When migrating SQL tables between different technologies it is generally only the raw data (and the metadata that describes it) that gets physically moved between the 2 environments. Other database elements from the source system (e.g. indexes, log files) are not directly migrated as these may not be needed, or may be implemented differently within the new target environment. For example, the TEMPORARY option within Oracle's CREATE TABLE syntax is equivalent to prefixing the table name with a '#' character in Azure Synapse.
+Performance optimizations in the source environment, such as indexes, indicate where you might add performance optimization in the new target environment. For example, if bit-mapped indexes are frequently used in queries within the source Oracle environment, this information suggests that a non-clustered index should be created within Azure Synapse. Other native performance optimization techniques like table replication may be more applicable than straight like-for-like index creation. SSMA for Oracle can provide migration recommendations for table distribution and indexing.
 
-However, it is important to understand where performance optimizations such as indexes have been used in the source environment as this information can give useful indication of where performance optimization might be added in the new target environment. For example, if bit-mapped indexes has been created within the source Oracle environment, it may indicate that a non-clustered index should be created within the migrated Azure Synapse -- but also be aware that other native performance optimization techniques (such as table replication or materialized views) may be more applicable than a straight 'like for like' creation of indexes.
+>[!TIP]
+>Existing indexes indicate candidates for indexing in the migrated warehouse.
 
-A SQL view definition contains SQL data manipulation language (DML) statements which define the view (typically one or more SELECT statements), and so migration of the CREATE VIEW statement will need to take account of any differences in DML between Oracle and Azure Synapse (e.g. differences in built-in functions such as DATEDIFF). These are discussed in more detail in the sections below.
+SQL view definitions contain SQL data manipulation language (DML) statements that define the view, typically with one or more `SELECT` statements. When you migrate `CREATE VIEW` statements, take into account the DML differences between Oracle and Azure Synapse, which are discussed [later](#sql-dml-differences-between-oracle-and-azure-synapse) in this article.
 
-#### Unsupported Oracle database object types
+### Unsupported Oracle database object types
 
-Oracle-specific features can be replaced by Azure Synapse features
+Oracle-specific features can often be replaced by Azure Synapse features. However, some Oracle database objects aren't directly supported in Azure Synapse. The following list of unsupported Oracle database objects describes how you can achieve an equivalent functionality in Azure Synapse:
 
-Oracle implements some database objects that are not directly supported in Azure Synapse, but there are generally methods to achieve the same functionality within the new environment:
+- **Indexing options**: in Oracle, several indexing options, such as bit-mapped indexes, function-based indexes, and domain indexes, have no direct equivalent in Azure Synapse. Although Azure Synapse doesn't support these index types, you can achieve a similar reduction in disk I/O and improve query performance by using user-defined index types and/or partitioning.
 
-- Various indexing options -- In Oracle there are several indexing options which have no direct equivalent in Azure Synapse. For example, bit-mapped indexes, function-based indexes and domain indexes.
+  You can find out which columns are indexed and the index type by querying system catalog tables and views, such as `ALL_INDEXES`, `DBA_INDEXES`, `USER_INDEXES`, and `DBA_IND_COL`. Or, you can query the `dba_index_usage` or `v$object_usage` views when monitoring is enabled.
 
-Azure Synapse does not specifically include these index types, but similar results (i.e. reduction of disk I/O to improve performance when running queries) can be achieved by using other (user-defined) index types and/or partitioning. It is possible to find out which columns are indexed and the index type by querying system catalog tables and views such as ALL_INDEXES, DBA_INDEXES and USER_INDEXES. It is also possible to find which indexes are actually used by querying the v\$object_usage view if monitoring has been enabled. It is not unusual for a data warehouse migrated to Synapse to need fewer indexes than the original Oracle data warehouse due to implementation features such as parallel query processing, result set caching which can provide excellent performance without the need for indexes.
+  Azure Synapse features, such as parallel query processing and in-memory caching of data and results, make it likely that fewer indexes are required for data warehouse applications to achieve excellent performance goals.
 
-- Clustered tables -- In Oracle tables can be organized so that rows of tables that are frequently accessed together (based on a common value) are physically stored together, reducing disk I/O when this data is retrieved. There is also a hash-cluster option for individual tables, where a hash value is applied to the cluster key and rows with the same hash value are stored physically close together.
+- **Clustered tables**: Oracle tables can be organized so that table rows that are frequently accessed together (based on a common value) are physically stored together. This strategy reduces disk I/O when data is retrieved. Oracle also has a hash-cluster option for individual tables, which applies a hash value to the cluster key and physically stores rows with the same hash value together.
 
-In Azure Synapse a similar effect can be achieved by use of partitioning and/or use of other indexes.
+  In Azure Synapse, you can achieve a similar effect by partitioning and/or using other indexes.
 
-- Materialized views -- Oracle supports materialized views and recommends that 1 (or more) of these is created over large tables that have many columns where only a few of those columns are regularly used in queries. Materialized views are automatically maintained by the system when data in the base table is updates.
+- **Materialized views**: Oracle supports materialized views and recommends one or more of them for large tables with many columns where only a few columns are regularly used in queries. Materialized views are automatically refreshed by the system when data in the base table is updated.
 
-As of May 2019, Microsoft has announced that Azure Synapse will support materialized views which have the same functionality as Oracle -- this feature is now available in preview.
+  In 2019, Microsoft announced that Azure Synapse will support materialized views with the same functionality as in Oracle, and materialized views are now a preview feature in Azure Synapse.
 
-- In-database triggers -- A trigger in Oracle is executed automatically when a triggering event takes place. The event can be any of the following:
+- **In-database triggers**: In Oracle, a trigger can be configured to automatically run when a triggering event occurs. Triggering events can be:
 
-- A data manipulation language (DML) statement executed against a table e.g., INSERT, UPDATE, or DELETE. For example, if you define a trigger that fires before an INSERT statement on the customers table, the trigger will fire once before a new row is inserted into the customers table.
+  - A DML statement, such as `INSERT`, `UPDATE`, or `DELETE`, that runs on a table. If you defined a trigger that fires before an `INSERT` statement on a customer table, the trigger will fire once before a new row is inserted into the customer table.
 
-- A data definition language (DDL) statement executes e.g., CREATE or ALTER statement. These triggers are often used for auditing purposes to record changes of the schema.
+  - A data definition language (DDL) statement, such as `CREATE` or `ALTER`, runs. This triggering event is often used for auditing purposes to record schema changes.
 
-- A system event such as startup or shutdown of the Oracle Database.
+  - A system event such as startup or shutdown of the Oracle database.
 
-- A user event such as login or logout.
+  - A user event such as login or logout.
 
-Azure Synapse does not currently support this functionality within the database -- however equivalent functionality can be incorporated using Azure Data Factory though this will require refactoring of processes that use triggers.
+  Azure Synapse doesn't support Oracle database triggers. However, you can add equivalent functionality by using Data Factory, although doing so will require you to refactor the processes that use triggers.
 
-- Synonyms -- Oracle allows the definition of synonyms which are alternative names for a table, view, sequence, procedure, stored function, package, materialized view, Java class schema object, user-defined object type, or another synonym.
+- **Synonyms**: Oracle supports defining synonyms as alternative names for several database object types. Those types include tables, views, sequences, procedures, stored functions, packages, materialized views, Java class schema objects, user-defined objects, or another synonym.
 
-Azure Synapse does not currently support this feature -- if the synonym refers to a table or view, then a view can be defined to provide an alternative name. If the synonym refers to a function or stored procedure then another function or procedure which calls the target can replace the synonym.
+  Azure Synapse doesn't currently support defining synonyms, although if a synonym in Oracle refers to a table or view, then you can define a view in Azure Synapse to match the alternative name. If a synonym in Oracle refers to a function or stored procedure, then you can replace the synonym in Azure Synapse by creating another function or stored procedure that calls the target.
 
-- User-defined types -- Oracle allows the definition of user-defined objects which can contain a series of individual fields, each with their own definition and default values. These user-defined objects can then be referenced within a table definition in the same way as built-in data types (e.g. NUMBER or VARCHAR).
+- **User-defined types**: Oracle supports defining user-defined objects that can contain a series of individual fields, each with their own definition and default values. Those objects can then be referenced within a table definition in the same way as built-in data types like `NUMBER` or `VARCHAR`.
 
-Azure Synapse does not currently support this feature -- if the data to be migrated includes user-defined data types, they must be either 'flattened' into a conventional table definition, or normalized to a separate table in the case of arrays of data.
+  Azure Synapse doesn't currently support this feature. If the data you need to migrate includes user-defined data types, either "flatten" them into a conventional table definition, or if arrays of data, normalize them in a separate table.
 
-#### Oracle data type mapping
+### Oracle data type mapping
 
-Assess the impact of unsupported data types as part of the preparation phase
+Most Oracle data types have a direct equivalent in Azure Synapse. The following table shows the recommended approach for mapping Oracle data types to Azure Synapse.
 
-Most Oracle data types have a direct equivalent in the Azure Synapse -- below is a table which shows these data types together with the recommended approach for mapping these.
-
-&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;-- Oracle Data Type Azure Synapse Data Type &mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;- &mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash; BFILE Not supported in Azure Synapse Analytics but can map to VARBINARY (MAX)
-
-BINARY_FLOAT Not supported in Azure Synapse Analytics but can map to FLOAT
-
-BINARY_DOUBLE Not supported in Azure Synapse Analytics but can map to DOUBLE
-
-BLOB BLOB data type isn\'t directly supported but can be replaced with VARBINARY(MAX)
-
-CHAR CHAR
-
-CLOB CBLOB data type isn\'t directly supported but can be replaced with VARCHAR(MAX)
-
-DATE DATE in Oracle an contain time information as well. Therefore depending on usage it can map to DATE or TIMESTAMP
-
-DECIMAL DECIMAL
-
-DOUBLE PRECISION DOUBLE
-
-FLOAT FLOAT
-
-INTEGER INT
-
-INTERVAL YEAR TO MONTH INTERVAL data types aren\'t supported in Azure Synapse Analytics. but date calculations can be done with the date comparison functions (e.g. DATEDIFF and DATEADD)
-
-INTERVAL DAY TO SECOND INTERVAL data types aren\'t supported in Azure Synapse Analytics. but date calculations can be done with the date comparison functions (e.g. DATEDIFF and DATEADD)
-
-LONG  Not supported in Azure Synapse Analytics but can map to VARCHAR(MAX)
-
-LONG RAW Not supported in Azure Synapse Analytics but can map to VARBINARY(MAX)
-
-NCHAR NCHAR
-
-NVARCHAR2 NVARCHAR
-
-NUMBER  NUMBER
-
-NCLOB NCLOB data type isn\'t directly supported but can be replaced with NVARCHAR(MAX)
-
-NUMERIC NUMERIC
-
-ORD media data types Not supported in Azure Synapse Analytics
-
-RAW Not supported in Azure Synapse Analytics but could map to VARBINARY
-
-REAL REAL
-
-ROWID Not supported in Azure Synapse Analytics but may map to GUID as this is similar
-
-SDO Geospatial data types Not supported in Azure Synapse Analytics
-
-SMALLINT SMALLINT
-
-TIMESTAMP DATETIME2 and CURRENT_TIMESTAMP function
-
-TIMESTAMP WITH LOCAL TIME TIME WITH LOCAL TIME ZONE is not supported ZONE in Azure Synapse Analytics but can map to DATETIMEOFFSET
-
-TIMESTAMP WITH TIME ZONE TIME WITH TIME ZONE isn\'t supported because TIME is stored using \"wall clock\" time only without a time zone offset
-
-URIType URIType is not supported but a URI can be stored in a VARCHAR
-
-UROWID Not supported in Azure Synapse Analytics but may map to GUID as this is similar
-
-VARCHAR VARCHAR
-
-VARCHAR2  VARCHAR
-
-XMLType XMLType is not supported in Azure Synapse Analytics but XML data could be accommodated in a VARCHAR &mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;--
+| Oracle Data Type | Azure Synapse Data Type |
+|-|-|
+| BFILE | Not supported. Map to VARBINARY (MAX). |
+| BINARY_FLOAT | Not supported. Map to FLOAT. |
+| BINARY_DOUBLE | Not supported. Map to DOUBLE. |
+| BLOB | Not directly supported. Replace with VARBINARY(MAX). |
+| CHAR | CHAR |
+| CLOB | Not directly supported. Replace with VARCHAR(MAX). |
+| DATE | DATE in Oracle can also contain time information. Depending on usage map to DATE or TIMESTAMP. |
+| DECIMAL | DECIMAL |
+| DOUBLE | PRECISION DOUBLE |
+| FLOAT | FLOAT |
+| INTEGER | INT |
+| INTERVAL YEAR TO MONTH | INTERVAL data types aren't supported. Use date comparison functions, such as DATEDIFF or DATEADD, for date calculations. |
+| INTERVAL DAY TO SECOND | INTERVAL data types aren't supported. Use date comparison functions, such as DATEDIFF or DATEADD, for date calculations. |
+| LONG | Not supported. Map to VARCHAR(MAX). |
+| LONG RAW | Not supported. Map to VARBINARY(MAX). |
+| NCHAR | NCHAR |
+| NVARCHAR2 | NVARCHAR |
+| NUMBER | NUMBER |
+| NCLOB | Not directly supported. Replace with NVARCHAR(MAX). |
+| NUMERIC | NUMERIC |
+| ORD media data types | Not supported |
+| RAW | Not supported. Map to VARBINARY. |
+| REAL | REAL |
+| ROWID | Not supported. Map to GUID, which is similar. |
+| SDO Geospatial data types | Not supported |
+| SMALLINT | SMALLINT |
+| TIMESTAMP | DATETIME2 or the CURRENT_TIMESTAMP() function |
+| TIMESTAMP WITH LOCAL TIME ZONE | Not supported. Map to DATETIMEOFFSET. |
+| TIMESTAMP WITH TIME ZONE | Not supported because TIME is stored using wall-clock time without a time zone offset. |
+| URIType | Not supported. Store in a VARCHAR. |
+| UROWID | Not supported. Map to GUID, which is similar. |
+| VARCHAR | VARCHAR |
+| VARCHAR2 | VARCHAR |
+| XMLType | Not supported. Store XML data in a VARCHAR. |
+
+>[!TIP]
+>Assess the number and type of unsupported data types during your preparation phase.
+
+Third-party vendors offer tools and services to automate migration, including the mapping of data types. If a third-party ETL tool, such as Informatica or Talend, is already in use in the Oracle environment, use that tool to implement any required data transformations.
 
 #### Data Definition Language (DDL) generation
 
-Use existing Oracle metadata to automate the generation of CREATE TABLE and CREATE VIEW DDL for Azure Synapse
+>[!TIP]
+>Use existing Oracle metadata to automate the generation of CREATE TABLE and CREATE VIEW DDL for Azure Synapse.
 
-It is possible to edit existing Oracle CREATE TABLE and CREATE VIEW scripts to create the equivalent definitions (with modified data types as described above if necessary) -- typically this involves removing or modifying any extra Oracle-specific clauses (e.g. TABLESPACE definition).
+You can edit existing Oracle `CREATE TABLE` and `CREATE VIEW` scripts to achieve equivalent definitions in Azure Synapse. To do so, you might need to use [modified data types](#oracle-data-type-mapping) and remove or modify Oracle-specific clauses, such as `TABLESPACE`.
 
-However, all the information that specifies the current definitions of tables and views within the existing Oracle environment is maintained within system catalog tables. This is the best source of this information as it is bound to be up to date and complete. Be aware that user-maintained documentation may not be in sync with the current table definitions.
-
-This information can be accessed via utilities such as SQL Developer and can be used to generate the CREATE TABLE DDL statements which can then be edited for the equivalent tables in Azure Synapse. See screenshot below:
+Within the Oracle environment, system catalog tables specify the current table and view definition. Unlike user-maintained documentation, system catalog information is always complete and in sync with the current table definitions. You can access system catalog information by using utilities such as Oracle SQL Developer. Oracle SQL Developer can generate `CREATE TABLE` DDL statements that you can edit to make them apply to equivalent tables in Azure Synapse, as shown in the next screenshot.
 
 :::image type="content" source="../media/5-minimize-sql-issues/oracle-sql-developer-ddl.png" border="true" alt-text="Screenshot showing the create table statement generated by Oracle SQL Developer.":::
 
-This generated the following CREATE TABLE statement:
+Oracle SQL Developer outputs the following `CREATE TABLE` statement, which contains Oracle-specific clauses:
 
 :::image type="content" source="../media/5-minimize-sql-issues/notepad-create-table-statement.png" border="true" alt-text="Screenshot showing the Quick DDL menu option in Oracle SQL Developer.":::
 
-This contains Oracle-specific clauses that need to be removed before running on Azure Synapse, and it also may be required to perform some data type mapping before creating the table. Therefore another approach is to generate CREATE TABLE statements form the information in the Oracle catalog tables which performs this automatically. The automated approach also means that this process can be done quickly and consistently for many tables. This can be achieved via SQL queries, or migration tools from Microsoft (Azure Database Migration Services or SSMA) or third parties.
+Remove the Oracle-specific clauses and map any unsupported data types before running on Azure Synapse.
 
-Third party tools and services can automate data mapping tasks
+Alternatively, you can automate generating `CREATE TABLE` statements from the information within Oracle catalog tables by using SQL queries, SSMA, or third-party migration tools. This approach is the fastest and most consistent way to generate `CREATE TABLE` statements for many tables.
 
-There are third party vendors who offer tools and services to automate migration including the mapping of data types as described above. Also, if a third party ETL tool such as Informatica or Talend is already in use in the Oracle environment, these can implement any required data transformations.
+>[!TIP]
+>Third-party tools and services can automate data mapping tasks.
 
-### SQL DML differences between Oracle and Azure Synapse
+Third-party vendors offer tools and services to automate migration, including the mapping of data types. If a third-party ETL tool, such as Informatica or Talend, is already in use in the Oracle environment, use that tool to implement any required data transformations.
 
-#### SQL Data Manipulation Language (DML)
+## SQL DML differences between Oracle and Azure Synapse
 
-SQL DML commands SELECT, INSERT and UPDATE have standard core elements but may also implement different syntax options
+### SQL Data Manipulation Language
 
-The ANSI SQL standard defines the basic syntax for DML commands such as SELECT, INSERT, UPDATE and DELETE which are used within both Oracle and Azure Synapse, but in some cases there are implementation differences.
+The ANSI SQL standard defines the basic syntax for DML commands, such as `SELECT`, `INSERT`, `UPDATE`, and `DELETE`. Although Oracle and Azure Synapse both support DDL commands, in some cases they implement the same command differently.
 
-The following sections discuss the Oracle-specific DML commands which need to be considered during migration to Azure Synapse.
+>[!TIP]
+>The standard SQL DML commands `SELECT`, `INSERT`, and `UPDATE` can have additional syntax options in different database environments.
 
-#### SQL DML syntax differences
+The following sections discuss the Oracle-specific DML commands that need to be considered during a migration to Azure Synapse.
 
-There are some differences in SQL Data Manipulation Language (DML) syntax between Oracle SQL and Azure Synapse to be aware of when migrating:
+### SQL DML syntax differences
 
-- DUAL table -- in Oracle there is a system table which consists of exactly one column named 'dummy', and one record (with the value 'X'). It is used when a query requires a table name (for syntax reasons) but the actual contents of the table is not needed -- e.g.
+There are some SQL DML syntax differences between Oracle SQL and Azure Synapse T-SQL:
 
-SELECT sysdate from dual; The Azure Synapse equivalent of this is simply SELECT GETDATE(); During a migration it may be simpler to create an equivalent DUAL table in Azure Synapse -- this can be done as follows: CREATE TABLE DUAL\ (\ DUMMY VARCHAR(1)\ )\ GO\ INSERT INTO DUAL (DUMMY)\ VALUES (\'X\')\ GO
+- `DUAL` table: Oracle has a system table named `DUAL` that consists of exactly one column named `dummy`, and one record with the value `X`. That system table is used when a query requires a table name for syntax reasons, but the table content isn't needed.
 
-- NULL values -- in Oracle the empty string (i.e. a CHAR or VARCHAR string of length 0) is equivalent to a NULL value -- this is not the case in Azure Synapse (or indeed most other databases). Therefore care must be taken when migrating data and processes which store and handle these values to ensure consistency.
+  An example Oracle query that uses the `dummy` table is `SELECT sysdate from dual;`. The Azure Synapse equivalent is `SELECT GETDATE();`. To simplify migration, you could create an equivalent `DUAL` table in Azure Synapse:
 
-- Oracle outer join syntax -- While more recent versions of Oracle support ANSI outer join syntax, older Oracle systems used a proprietary syntax for outer joins which uses a plus sign ('+') within the SQL statement and if migrating an older Oracle environment these may still be in place. A simple example is shown below:
+  ```sql
+  CREATE TABLE DUAL
+  (
+    DUMMY VARCHAR(1)
+  )
+  GO
+  INSERT INTO DUAL (DUMMY)
+  VALUES ('X')
+  GO
+  ```
 
-Old Oracle syntax:
+- `NULL` values: a `NULL` value in Oracle is an empty string, represented by a `CHAR` or `VARCHAR` string type of length `0`. In Azure Synapse and most other databases, [`NULL`](/sql/t-sql/language-elements/null-and-unknown-transact-sql) means something different. Be careful when migrating data, or processes that handle or store data, to ensure that `NULL` values are handled consistently.
 
-SELECT d.deptno, e.job FROM dept d, emp e WHERE d.deptno = e.deptno (+) AND e.job (+) = \'CLERK\' GROUP BY d.deptno, e.job; ANSI standard syntax: SELECT d.deptno, e.job FROM dept d LEFT OUTER JOIN emp e ON d.deptno = e.deptno and e.job = \'CLERK\' GROUP BY d.deptno, e.job ORDER BY d.deptno, e.job;
+- Oracle outer join syntax: although more recent versions of Oracle support ANSI outer join syntax, older Oracle systems use a proprietary syntax for outer joins that uses a plus sign (`+`) within the SQL statement. If you're migrating an older Oracle environment, you might encounter the older syntax. For example:
 
-- DATE data -- Oracle DATE data type can store date and time, whereas in Azure Synapse there are separate DATE, TIME and DATETIME data types. When migrating it is good practice to examine the usage of Oracle DATE columns to determine whether time data is being stored in there, or only the date. If no time data is being stored, map the column to DATE , otherwise to DATETIME.
+  ```SQL
+  SELECT
+      d.deptno, e.job
+  FROM
+      dept d,
+      emp e
+  WHERE
+      d.deptno = e.deptno (+)
+      AND e.job (+) = 'CLERK'
+  GROUP BY
+      d.deptno, e.job;
+	```
 
-- DATE arithmetic -- Oracle allows subtraction of one date from another date (for example, SELECT date '2018-12-31' -- date '2018-1201' from dual;). In Azure Synapse, to do this same type of date comparison, use the DATEDIFF function (for example, SELECT DATEDIFF(day, '2018-12-01', '2018-12-31')). Oracle can also subtract integers from dates, for example, SELECT hire_date, (hire_date-1) FROM employees. In Azure Synapse the DATEADD function is used to add or subtract units from dates.
+  The equivalent ANSI standard syntax is:
 
-- Updates via VIEWS -- Oracle allows inserts, updates, and deletes to be executed against a view, which will then update the underlying table. In Azure Synapse, you must execute inserts, updates, and deletes against a base table and not against a view. It may be necessary to re-engineer ETL processing if this feature is used.
+  ```SQL
+  SELECT
+      d.deptno, e.job
+  FROM
+      dept d
+      LEFT OUTER JOIN emp e ON d.deptno = e.deptno
+      and e.job = 'CLERK'
+  GROUP BY
+      d.deptno,
+      e.job
+  ORDER BY
+      d.deptno, e.job;
+  ```
 
-- Built-in functions -- there are differences in the syntax or usage of some built-in functions -- see table below:
+- `DATE` data: in Oracle, the `DATE` data type can store both date and time. Azure Synapse stores date and time in separate `DATE`, `TIME`, and `DATETIME` data types. When migrating Oracle `DATE` columns, check whether they store both date and time or just a date. If they only store a date, then map the column to `DATE`, otherwise to `DATETIME`.
 
-&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;-- **Oracle Function** **Description** **Synapse equivalent** &mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;- &mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash; &mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;-- ADD_MONTHS Add specified number of DATEADD months 
+- `DATE` arithmetic: Oracle supports subtracting one date from another, for example `SELECT date '2018-12-31' -- date '2018-1201' from dual;`. In Azure Synapse, you can subtract dates by using the `DATEDIFF()` function, for example `SELECT DATEDIFF(day, '2018-12-01', '2018-12-31');`.
 
-CAST Convert one built-in CAST data type into another 
+  Oracle can subtract integers from dates, for example `SELECT hire_date, (hire_date-1) FROM employees;`. In Azure Synapse, you can add or subtract integers from dates by using the `DATEADD()` function.
 
-DECODE Evaluate a list of CASE Expression conditions 
+- Updates via views: in Oracle you can run insert, update, and delete operations against a view to update the underlying table. In Azure Synapse, you run those operations against a base table&mdash;not a view. You might have to re-engineer ETL processing if an Oracle table is updated through a view.
 
-EMPTY_BLOB Create an empty BLOB 0x Constant (Empty value binary string)
+- Built-in functions: the following table shows the differences in the syntax or usage of some built-in functions:
 
-EMPTY_CLOB Create an empty CLOB or \'\' (Empty string) NCLOB value 
+| Oracle Function | Description | Synapse equivalent |
+|-|-|-|
+| ADD_MONTHS | Add a specified number of months | DATEADD |
+| CAST | Convert one built-in data type into another | CAST |
+| DECODE | Evaluate a list of conditions | CASE expression |
+| EMPTY_BLOB | Create an empty BLOB value | '0x' constant (empty binary string) |
+| EMPTY_CLOB | Create an empty CLOB or NCLOB value | '' (empty string) |
+| INITCAP | Capitalize the first letter of each word | User-defined function |
+| INSTR | Find position of a substring in a string | CHARINDEX |
+| LAST_DAY | Get the last date of month | EOMONTH |
+| LENGTH | Get string length in characters | LEN |
+| LPAD | Left-pad string to the specified length | Expression using REPLICATE, RIGHT and LEFT |
+| MOD | Get the remainder of a division of one number by another | % operator |
+| MONTHS_BETWEEN | Get the number of months between two dates | DATEDIFF |
+| NVL | Replace NULL with expression  | ISNULL |
+| SUBSTR | Return a substring from a string | SUBSTRING |
+| TO_CHAR for datetime | Convert datetime to string | CONVERT |
+| TO_DATE | Convert a string to datetime | CONVERT |
+| TRANSLATE | One-to-one single character substitution | Expressions using REPLACE or a user-defined function |
+| TRIM | Trim leading or trailing characters | LTRIM and RTRIM |
+| TRUNC for datetime | Truncate datetime | Expressions using CONVERT |
+| UNISTR | Convert Unicode code points to characters | Expressions using NCHAR |
 
-INITCAP Capitalize the first User-defined function letter of each word 
+### Functions, stored procedures, and sequences
 
-INSTR Find position of CHARINDEX substring in string 
+If you migrate from a mature data warehouse environment like Oracle, you'll probably need to migrate elements other than simple tables and views, such as functions, stored procedures, and sequences. For those elements, check whether tools within the Azure environment can replace their functionality because it's usually more efficient to use built-in Azure facilities than recode the Oracle functions.
 
-LAST_DAY Get last date of month EOMONTH
+>[!TIP]
+>Assess the number and type of unsupported data types during the preparation phase.
 
-LENGTH Get string length in LEN characters 
+As part of your preparation phase, create an inventory of objects that need to be migrated, define a method for handling them, and allocate appropriate resources in your migration plan.
 
-LPAD Left-pad string to the Expression using specified length REPLICATE, RIGHT and LEFT
+[Data integration partners](../../partner/data-integration.md) like Attunity and WhereScape offer tools and services that automate the migration of functions, stored procedures, and sequences.
 
-MOD Get the remainder of \% Operator division of one number by another 
+Microsoft tools like SSMA for Oracle or [Azure Database Migration Services](/services/database-migration/), or [third-party](../../partner/data-integration.md) migration products and services like Attunity and WhereScape can automate the migration of functions, stored procedures, and sequences.
 
-MONTHS_BETWEEN Get number of months DATEDIFF between two dates 
+>[!TIP]
+>Third-party products and services can automate migration of non-data elements.
 
-NVL Replace NULL with ISNULL expression 
+The following sections further discuss the migration of functions, stored procedures, and sequences.
 
-SUBSTR Return a substring from SUBSTRING string 
+#### Functions
 
-TO_CHAR for Datetime Convert datetime to CONVERT string 
+In common with most database products, Oracle supports system functions and also user-defined functions within the SQL implementation. When migrating to another database platform such as Azure Synapse common system functions are generally available and can be migrated without change. Some system functions may have slightly different syntax but the required changes can be automated in this case. For system functions where there's no equivalent, of for arbitrary user-defined functions these may need to be recoded using the language(s) available in the target environment. Oracle user-defined functions are coded in PL/SQL, Java or C languages whereas Azure Synapse uses the popular Transact-SQL language for implementation of user-defined functions.
 
-TO_DATE Convert string to CONVERT datetime 
-
-TRANSLATE One-to-one single Expressions using character substitution REPLACE or User defined function
-
-TRIM Trim leading or trailing LTRIM and RTRIM characters 
-
-TRUNC for Datetime Truncate datetime Expressions using CONVERT
-
-UNISTR Convert Unicode code Expressions using NCHAR points to characters &mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;--
-
-#### Functions, stored procedures and sequences
-
-Assess the number and type of non-data objects to be migrated as part of the preparation phase
-
-When migrating from a mature legacy data warehouse environment such as Oracle there are often elements other than simple tables and views which need to be migrated to the new target environment. Examples of this in Oracle are Functions, Stored Procedures, and Sequences.
-
-As part of the preparation phase, an inventory of these objects which are to be migrated should be created and the method of handling them defined, with an appropriate allocation of resources assigned in the project plan.
-
-It may be that there are facilities in the Azure environment that replace the functionality implemented as functions or stored procedures in the Oracle environment -- in which case it is generally more efficient to use the built-in Azure facilities rather than re-coding the Oracle functions.
-
-third part products and services can automate migration of non-data elements
-
-Microsoft tools such as Azure Database Migration Services or SSMA and some third party vendors offer tools and services that can automate the migration of these -- see for example see Attunity or WhereScape migration products.
-
-See below for more information on each of these elements:
-
-##### Functions
-
-In common with most database products, Oracle supports system functions and also user-defined functions within the SQL implementation. When migrating to another database platform such as Azure Synapse common system functions are generally available and can be migrated without change. Some system functions may have slightly different syntax but the required changes can be automated in this case. For system functions where there is no equivalent, of for arbitrary user-defined functions these may need to be re-coded using the language(s) available in the target environment. Oracle user-defined functions are coded in PL/SQL, Java or C languages whereas Azure Synapse uses the popular Transact-SQL language for implementation of user-defined functions.
-
-##### Stored procedures
+#### Stored procedures
 
 Most modern database products allow for procedures to be stored within the database -- in Oracle's case the PL/SQL language is provided for this purpose. A stored procedure typically contains SQL statements and some procedural logic and may return data or a status. Azure Synapse also supports stored procedures using T-SQL -- so if there are stored procedures to be migrated they must be recoded accordingly.
 
-##### Sequences
+#### Sequences
 
-In Oracle a sequence is a named database object created via CREATE SEQUENCE that can provide the unique value via the NEXT VALUE FOR method. These can be used to generate unique numbers that can be used as surrogate key values for primary key values. Within Azure Synapse there is no CREATE SEQUENCE so sequences are handled via use of IDENTITY columns or using SQL code to create the next sequence number in a series.
+In Oracle a sequence is a named database object created via CREATE SEQUENCE that can provide the unique value via the NEXT VALUE FOR method. These can be used to generate unique numbers that can be used as surrogate key values for primary key values. Within Azure Synapse there's no CREATE SEQUENCE so sequences are handled via use of IDENTITY columns or using SQL code to create the next sequence number in a series.
 
-#### Use EXPLAIN to validate legacy SQL
+### Use EXPLAIN to validate legacy SQL
 
-Use real queries from the existing system query logs to find potential migration issues
+>[!TIP]
+>Use real queries from the existing system query logs to find potential migration issues.
 
-One way of testing legacy Oracle SQL for compatibility with Azure Synapse is to capture some representative SQL statements from the legacy system query history logs, then prefix those queries with 'EXPLAIN ' and then (assuming a 'like for like' migrated data model in Azure Synapse with the same table and column names) run those EXPLAIN statements in Azure Synapse. Any incompatible SQL will give an error -- and this information can be used to determine the scale of the re-coding task. This approach doesn't require that data is loaded into the Azure environment, only that the relevant tables and views have been created.
+One way of testing legacy Oracle SQL for compatibility with Azure Synapse is to capture some representative SQL statements from the legacy system query history logs, then prefix those queries with 'EXPLAIN ' and then (assuming a 'like for like' migrated data model in Azure Synapse with the same table and column names) run those EXPLAIN statements in Azure Synapse. Any incompatible SQL will give an error -- and this information can be used to determine the scale of the recoding task. This approach doesn't require that data is loaded into the Azure environment, only that the relevant tables and views have been created.
 
 ## Summary
 
-Typical existing legacy Oracle installations are implemented in a way which makes migration to Azure Synapse relatively easy -- i.e. they use SQL for analytical queries on large data volumes, and are generally in some form of dimensional data model. All of these factors make it a good candidate for migration to Azure Synapse.
+Typical existing legacy Oracle installations are implemented in a way that makes migration to Azure Synapse relatively easy -- i.e. they use SQL for analytical queries on large data volumes, and are generally in some form of dimensional data model. All of these factors make it a good candidate for migration to Azure Synapse.
 
 Recommendations for minimizing the task of migrating the actual SQL code are as follows:
 
@@ -326,7 +326,7 @@ Recommendations for minimizing the task of migrating the actual SQL code are as 
 
 - Automate the process wherever possible to minimize errors, risk and time for the migration. Use Microsoft facilities such as Azure Database Migration Services and SSMA where possible to achieve this.
 
-- Consider using specialist third party tools and services to streamline the migration 
+- Consider using specialist third-party tools and services to streamline the migration.
 
 ## Next steps
 
