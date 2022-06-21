@@ -244,7 +244,7 @@ Connect to Azure Storage through Azure Files share to extract content serialized
 
 ## Data sources from our Partners
 
-Data source connectors are also provided by third-party Microsoft partners. See our [Terms of Use statement](search-data-sources-terms-of-use.md) and check the partner licensing and usage instructions before using a data source. These third-party Microsoft Partner source connectors are implemented and supported by each partner and are not part of Cognitive Search built-in indexers. 
+Data source connectors are also provided by third-party Microsoft partners. See our [Terms of Use statement](search-data-sources-terms-of-use.md) and check the partner licensing and usage instructions before using a data source. These third-party Microsoft Partner data source connectors are implemented and supported by each partner and are not part of Cognitive Search built-in indexers. 
 
 :::row:::
 :::column span="":::
