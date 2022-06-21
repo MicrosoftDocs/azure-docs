@@ -8,45 +8,45 @@ ms.author: laghimpe
 ms.custom: fasttrack-edit
 ---
 
-# Skill-up training resources
+# Micrososft Sentinel skill-up training 
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 This article walks you through a Microsoft Sentinel level 400 training to help you skill up on Microsoft Sentinel. The training includes 21 modules that contain relevant product documentation, blog posts and other resources. Please make sure to check the most recent links for the documentation. 
 
-The modules listed below are split into five groups following the life cycle of a Security Operation Center (SOC):
+The modules listed below are split into five parts following the life cycle of a Security Operation Center (SOC):
 
 [Part 1: Overview](#part-1-overview)
-- Module 0: Other learning and support options
-- Module 1: Get started with Microsoft Sentinel
-- Module 2: How is Microsoft Sentinel used?
+- [Module 0: Other learning and support options ](#module-0-other-learning-and-support-options)
+- [Module 1: Get started with Microsoft Sentinel](#module-1-get-started-with-microsoft-sentinel)
+- [Module 2: How is Microsoft Sentinel used?](#module-2-how-is-microsoft-sentinel-used)
 
 [Part 2: Architecting & Deploying](#part-2-architecting--deploying)
-- Module 3: Workspace and tenant architecture
-- Module 4: Data collection
-- Module 5: Log Management
-- Module 6: Enrichment: TI, Watchlists, and more
-- Module 7: Log transformation
-- Module 8: Migration
-- Module 9: ASIM and Normalization
+- [Module 3: Workspace and tenant architecture](#module-3-wokrspace-and-tenant-architecture)
+- [Module 4: Data collection](#module-4-data-collection)
+- [Module 5: Log Management](#module-5-log-management)
+- [Module 6: Enrichment: TI, Watchlists, and more](#module-6-enrichment-ti-watchlists-and-more)
+- [Module 7: Log transformation](#module-7-log-transformation)
+- [Module 8: Migration](#module-8-migration)
+- [Module 9: ASIM and Normalization](#module-9-advanced-siem-information-model-asim-and-normalization)
 
 [Part 3: Creating Content](#part-3-creating-content)
-- Module 10: The Kusto Query Language (KQL)
-- Module 11: Analytics
-- Module 12: SOAR
-- Module 13: Workbooks, reporting, and visualization
-- Module 14: Notebooks
-- Module 15: Use cases and solutions
+- [Module 10: The Kusto Query Language (KQL)](#module-10-the-kusto-query-language-kql)
+- [Module 11: Analytics](#module-11-analytics)
+- [Module 12: Implementing SOAR](#module-12-implementing-soar)
+- [Module 13: Workbooks, reporting, and visualization](#module-13-workbooks-reporting-and-visualization)
+- [Module 14: Notebooks](#module-14-notebooks)
+- [Module 15: Use cases and solutions](#module-15-use-cases-and-solutions)
 
 [Part 4: Operating](#part-4-operating)
-- Module 16: A day in a SOC analyst's life, incident management, and investigation
-- Module 17: Hunting
-- Module 18: User and Entity Behavior Analytics (UEBA) 
-- Module 19: Monitoring Microsoft Sentinel's health
+- [Module 16: A day in a SOC analyst's life, incident management, and investigation](#module-16-handling-incidents)
+- [Module 17: Hunting](#module-17-hunting)
+- [Module 18: User and Entity Behavior Analytics (UEBA)](#module-18-user-and-entity-behavior-analytics-ueba)
+- [Module 19: Monitoring Microsoft Sentinel's health](#module-19-monitoring-microsoft-sentinels-health)
 
 [Part 5: Advanced Topics](#part-5-advanced-topics)
-- Module 20: Extending and Integrating using Microsoft Sentinel APIs
-- Module 21: Bring your own ML
+- [Module 20: Extending and Integrating using Microsoft Sentinel APIs](#module-20-extending-and-integrating-using-microsoft-sentinel-apis)
+- [Module 21: Bring your own ML](#module-21-bring-your-own-ml)
 
 ## Part 1: Overview
 
@@ -184,6 +184,7 @@ While 'how many workspaces and which ones to use' is the first architecture ques
 
 Watch the webinar: Manage Your Log Lifecycle with New Methods for Ingestion, Archival, Search, and Restoration, [here](https://www.youtube.com/watch?v=LgGpSJxUGoc&ab_channel=MicrosoftSecurityCommunity).
 
+
 This suite of features contains:
 
 * **Basic ingestion tier**: new pricing tier for Azure Log Analytics that allows for logs to be ingested at a lower cost. This data is only retained in the workspace for 8 days total.
@@ -202,6 +203,7 @@ Need more depth? Watch the Improving the Breadth and Coverage of Threat Hunting 
 If you prefer another long-term retention solution, [export from Microsoft Sentinel / Log Analytics to Azure Storage and Event Hub](https://docs.microsoft.com/en-us/cli/azure/monitor/log-analytics/workspace/data-export?view=azure-cli-latest&viewFallbackFrom=azure-cli-latest) or [move Logs to Long-Term Storage using Logic Apps](https://docs.microsoft.com/en-us/azure/azure-monitor/logs/logs-export-logic-app). The latter advantage is that it can export historical data.
 Lastly, you can set fine-grained retention periods using [table-level retention Settings](https://techcommunity.microsoft.com/t5/core-infrastructure-and-security/azure-log-analytics-data-retention-by-type-in-real-life/ba-p/1416287). More details [here](https://docs.microsoft.com/en-us/azure/azure-monitor/logs/data-retention-archive?tabs=portal-1%2Cportal-2#configure-the-default-workspace-retention-policy).
 
+
 **Log Security**
 
 * Use [resource RBAC](https://techcommunity.microsoft.com/t5/azure-sentinel/controlling-access-to-azure-sentinel-data-resource-rbac/ba-p/1301463) or [table Level RBAC](https://docs.microsoft.com/en-us/azure/azure-monitor/logs/manage-access?tabs=portal#table-level-rbac) to enable multiple teams to use a single workspace.
@@ -209,9 +211,11 @@ Lastly, you can set fine-grained retention periods using [table-level retention 
 * Learn how to [audit workspace queries and Microsoft Sentinel use, using alerts workbooks and queries](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/auditing-microsoft-sentinel-activities/ba-p/1718328).
 * Use [private links](https://docs.microsoft.com/en-us/azure/azure-monitor/logs/private-link-security) to ensure logs never leave your private network.
 
+
 **Dedicated cluster**
 
 Use a [dedicated workspace cluster](https://docs.microsoft.com/en-us/azure/azure-monitor/logs/logs-dedicated-clusters) if your projected data ingestion is around or more than 500 GB per day. A dedicated cluster enables you to secure resources for your Microsoft Sentinel data, which enables better query performance for large data sets.
+
 
 ### Module 6: Enrichment: TI, Watchlists, and more
 
@@ -258,6 +262,7 @@ Read ["Utilize Watchlists to Drive Efficiency During Microsoft Sentinel Investig
 
 Watch the **Use Watchlists to Manage Alerts, Reduce Alert Fatigue and improve
 SOC efficiency** webinar. [YouTube](https://youtu.be/148mr8anqtI), [Presentation](https://1drv.ms/b/s!AnEPjr8tHcNmk1qPwVKXkyKwqsM5?e=jLlNmP).
+
 
 ### Module 7: Log transformation
 
@@ -426,7 +431,7 @@ You can find dozens of workbooks in the [Workbooks folder](https://github.com/Az
 
 Workbooks can serve for reporting. For more advanced reporting capabilities such as reports scheduling and distribution or pivot tables, you might want to use:
 * Power BI, which natively [integrates with Log Analytics and Sentinel](https://docs.microsoft.com/en-us/azure/azure-monitor/logs/log-powerbi).
-* Excel, which can use [Log Analytics and Sentinel as the data source](https://docs.microsoft.com/en-us/azure/azure-monitor/logs/log-excel) (and watch a [video](https://www.youtube.com/watch?v=Rx7rJhjzTZA) on how to do this).
+* Excel, which can use [Log Analytics and Sentinel as the data source](https://docs.microsoft.com/en-us/azure/azure-monitor/logs/log-excel) (and see a a [video](https://www.youtube.com/watch?v=Rx7rJhjzTZA) on how).
 * Jupyter notebooks covered later in the hunting module are also a great visualization tool.
 
 ### Module 14: Notebooks
@@ -513,4 +518,3 @@ To learn more about Microsoft Sentinel APIs, watch the [short introductory video
 Microsoft Sentinel provides a great platform for implementing your own Machine Learning algorithms. We call it Bring-Your-Own-ML(BYOML for short). This is intended for advanced users. If you are looking for built-in behavioral analytics, use our ML Analytic rules, UEBA module, or write your own behavioral analytics KQL based analytics rules.
 
 To start with bringing your own ML to Microsoft Sentinel, watch the [video](https://www.youtube.com/watch?v=QDIuvZbmUmc), and read the [blog post](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/build-your-own-machine-learning-detections-in-the-ai-immersed/ba-p/1750920). You might also want to refer to the [BYOML documentation](https://docs.microsoft.com/en-us/azure/sentinel/bring-your-own-ml).
-
