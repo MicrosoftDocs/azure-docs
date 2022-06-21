@@ -140,7 +140,7 @@ To publish a Stream Analytics job on IoT Edge, call the POST method using the Ed
 |------|-----------|
 |POST|`https://management.azure.com/subscriptions/{\**subscriptionid**}/resourceGroups/{**resourcegroupname**}/providers/Microsoft.StreamAnalytics/streamingjobs/{**jobname**}/publishedgepackage?api-version=2017-04-01-preview`|
 
-This asynchronous operation returns a status of 202 until the job has been successfully published. The location response header contains the URI used to get the status of the process. While the process is running, a call to the URI in the location header returns a status of 202. When the process finishes, the URI in the location header returns a status of 200. 
+The previous call to the Edge Package Publish API triggers an asynchronous operation and returns a status of 202. The **location** response header contains the URI used to get the status of that asynchronous operation. A call to the URI in the **location** header returns a status of 202 to indicate the asynchronous operation is still in progress. When the operation is completed, the call to the URI in the **location** header returns a status of 200. 
 
 Example of an Edge package publish call using **curl**: 
 
@@ -148,20 +148,20 @@ Example of an Edge package publish call using **curl**:
 curl -d -X POST https://management.azure.com/subscriptions/{subscriptionid}/resourceGroups/{resourcegroupname}/providers/Microsoft.StreamAnalytics/streamingjobs/{jobname}/publishedgepackage?api-version=2017-04-01-preview
 ```
  
-After making the POST call, you should expect a response with an empty body. Look for the URL located in the HEAD of the response and record it for further use.
- 
-Example of the URL from the HEAD of response:
+After making the POST call, you should expect a response with an empty body. Look for the URI in the **location** header of the response, and record it for further use.
+
+Example of the URI from the **location** header of response:
 
 ```
-https://management.azure.com/subscriptions/{**subscriptionid**}/resourcegroups/{**resourcegroupname**}/providers/Microsoft.StreamAnalytics/StreamingJobs/{**resourcename**}/OperationResults/023a4d68-ffaf-4e16-8414-cb6f2e14fe23?api-version=2017-04-01-preview 
+https://management.azure.com/subscriptions/{**subscriptionid**}/resourcegroups/{**resourcegroupname**}/providers/Microsoft.StreamAnalytics/StreamingJobs/{**resourcename**}/OperationResults/{**guidAssignedToTheAsynchronousOperation**}?api-version=2017-04-01-preview
 ```
-A 
-Wait for one to two minutes before running the following command to make an API call with the URL you found in the HEAD of the response. Retry the command if you do not get a 200 response.
+
+Wait from a few seconds to a couple of minutes before making a call to the API whose URI you found in the **location** header of the response to the Edge Package Publish API, and repeat the cycle of waiting and retrying until you get a 200 response.
  
 Example of making API call with returned URL with **curl**:
 
 ```bash
-curl -d –X GET https://management.azure.com/subscriptions/{subscriptionid}/resourceGroups/{resourcegroupname}/providers/Microsoft.StreamAnalytics/streamingjobs/{resourcename}/publishedgepackage?api-version=2017-04-01-preview 
+curl -d –X GET https://management.azure.com/subscriptions/{**subscriptionid**}/resourcegroups/{**resourcegroupname**}/providers/Microsoft.StreamAnalytics/StreamingJobs/{**resourcename**}/OperationResults/{**guidAssignedToTheAsynchronousOperation**}?api-version=2017-04-01-preview
 ```
 
 The response includes the information you need to add to the Edge deployment script. The examples below show what information you need to collect and where to add it in the deployment manifest.
@@ -247,7 +247,7 @@ Sample of Deployment Manifest:
 } 
 ```
 
-After the configuration of the deployment manifest, refer to [Deploy Azure IoT Edge modules with Azure CLI](../iot-edge/how-to-deploy-modules-cli.md) for deployment.
+After having configured the deployment manifest, refer to [Deploy Azure IoT Edge modules with Azure CLI](../iot-edge/how-to-deploy-modules-cli.md) for deployment.
 
 
 ## Next steps 
