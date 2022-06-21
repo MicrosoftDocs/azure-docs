@@ -1,11 +1,11 @@
 ### YamlMime:Landing
  
-title: Learn about Azure Video Indexer (formerly Azure Video Analyzer for Media)
-summary: Azure Video Indexer (formerly Azure Video Analyzer for Media) is a cloud application, part of Azure Applied AI Services, built on Azure Media Services and Azure Cognitive Services (such as the Face, Translator, Computer Vision, and Speech). It enables you to extract the insights from your videos using Azure Video Indexer video and audio models.
+title: Learn about Azure Video Indexer
+summary: Azure Video Indexer is a cloud application, part of Azure Applied AI Services, built on Azure Media Services and Azure Cognitive Services (such as the Face, Translator, Computer Vision, and Speech). It enables you to extract the insights from your videos using Azure Video Indexer video and audio models.
 
 metadata:
-  title: Azure Video Indexer (formerly Azure Video Analyzer for Media) documentation
-  description: Azure Video Indexer (formerly Azure Video Analyzer for Media) is a cloud application, part of Azure Applied AI Services, built on Azure Media Services and Azure Cognitive Services (such as the Face, Translator, Computer Vision, and Speech). It enables you to extract the insights from your videos using Azure Video Indexer video and audio models.
+  title: Azure Video Indexer documentation
+  description: Azure Video Indexer is a cloud application, part of Azure Applied AI Services, built on Azure Media Services and Azure Cognitive Services (such as the Face, Translator, Computer Vision, and Speech). It enables you to extract the insights from your videos using Azure Video Indexer video and audio models.
   services: azure-video-indexer
   ms.service: azure-video-indexer
   ms.topic: landing-page # Required
@@ -20,7 +20,7 @@ landingContent:
 # Cards and links should be based on top customer tasks or top subjects
 # Start card title with a verb
   # Card (optional)
-  - title: About Azure Video Indexer (formerly Azure Video Analyzer for Media)
+  - title: About Azure Video Indexer
     linkLists:
       - linkListType: overview
         links:

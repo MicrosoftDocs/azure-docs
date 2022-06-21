@@ -5,6 +5,7 @@ ms.topic: sample
 author: bwren
 ms.author: bwren
 ms.date: 02/07/2022
+ms.reviewer: shseth
 
 ---
 
@@ -78,7 +79,7 @@ The following sample creates an association between an Azure virtual machine and
   "contentVersion": "1.0.0.0",
   "parameters": {
       "vmName": {
-        "value": "my-windows-vm"
+        "value": "my-azure-vm"
       },
       "associationName": {
         "value": "my-windows-vm-my-dcr"
@@ -142,7 +143,7 @@ The following sample creates an association between an Azure Arc-enabled server 
   "contentVersion": "1.0.0.0",
   "parameters": {
       "vmName": {
-        "value": "my-windows-vm"
+        "value": "my-hybrid-vm"
       },
       "associationName": {
         "value": "my-windows-vm-my-dcr"

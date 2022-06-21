@@ -106,7 +106,7 @@ To use managed identity, you must have a premium-tier cache.
 
 ## Enable managed identity using the Azure CLI
 
-Use the Azure CLI for creating a new cache with managed identity or updating an existing cache to use managed identity. For more information, see [az redis create](/cli/azure/redis?view=azure-cli-latest.md) or [az redis identity](/cli/azure/redis/identity?view=azure-cli-latest).
+Use the Azure CLI for creating a new cache with managed identity or updating an existing cache to use managed identity. For more information, see [az redis create](/cli/azure/redis?view=azure-cli-latest.md&preserve-view=true) or [az redis identity](/cli/azure/redis/identity?view=azure-cli-latest&preserve-view=true).
 
 For example, to update a cache to use system-managed identity use the following CLI command:
 
@@ -117,7 +117,7 @@ az redis identity assign \--mi-system-assigned \--name MyCacheName \--resource-g
 
 ## Enable managed identity using Azure PowerShell
 
-Use Azure PowerShell for creating a new cache with managed identity or updating an existing cache to use managed identity. For more information, see [New-AzRedisCache](/powershell/module/az.rediscache/new-azrediscache?view=azps-7.1.0) or [Set-AzRedisCache](/powershell/module/az.rediscache/set-azrediscache?view=azps-7.1.0).
+Use Azure PowerShell for creating a new cache with managed identity or updating an existing cache to use managed identity. For more information, see [New-AzRedisCache](/powershell/module/az.rediscache/new-azrediscache?view=azps-7.1.0&preserve-view=true) or [Set-AzRedisCache](/powershell/module/az.rediscache/set-azrediscache?view=azps-7.1.0&preserve-view=true).
 
 For example, to update a cache to use system-managed identity, use the following PowerShell command:
 

@@ -89,6 +89,8 @@
         href: container-registry-helm-repos.md
       - name: Push and pull supply chain artifacts (preview)
         href: container-registry-oras-artifacts.md
+      - name: Sign and verify containers with notation (preview)
+        href: container-registry-tutorial-sign-build-push.md
       - name: View repositories
         href: container-registry-repositories.md
       - name: Import container images
@@ -185,7 +187,7 @@
           items:
           - name: Scan with Microsoft Defender for Cloud
             href: scan-images-defender.md
-          - name: Scan with GitHub actions
+          - name: Scan with GitHub Actions
             href: github-action-scan.md
     - name: Troubleshoot
       expanded: false

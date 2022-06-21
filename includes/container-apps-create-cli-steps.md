@@ -59,6 +59,22 @@ az provider register --namespace Microsoft.App
 
 ---
 
+Register the `Microsoft.OperationalInsights` provider for the [Azure Monitor Log Analytics Workspace](../articles/container-apps/observability.md?tabs=bash#azure-monitor-log-analytics) if you have not used it before.
+
+# [Bash](#tab/bash)
+
+```azurecli
+az provider register --namespace Microsoft.OperationalInsights
+```
+
+# [PowerShell](#tab/powershell)
+
+```azurecli
+az provider register --namespace Microsoft.OperationalInsights
+```
+
+---
+
 Next, set the following environment variables:
 
 # [Bash](#tab/bash)

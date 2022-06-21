@@ -1,6 +1,6 @@
 ---
 title: "How to use the read model with C#/.NET programming language"
-description: Use the Form Recognizer prebuilt-read model and C# to extract printed and handwritten text from documents.
+description: Use the Form Recognizer prebuilt-read model and C# to extract printed (typeface) and handwritten text from documents.
 author: laujan
 manager: nitinme
 ms.service: applied-ai-services
@@ -80,7 +80,7 @@ To interact with the Form Recognizer service, you'll need to create an instance 
 
 1. Open the **Program.cs** file.
 
-2. Delete the pre-existing code, including the line `Console.Writeline("Hello World!")`, and copy the following code sample to paste into your application. **Make sure you update the key and endpoint variables with values from your Form Recognizer instance in the Azure portal**:
+2. Delete the pre-existing code, including the line `Console.Writeline("Hello World!")`, and copy the following code sample to paste into your application. **Make sure you update the key and endpoint variables with values from your Azure portal Form Recognizer instance**:
 
 ```csharp
 using Azure;

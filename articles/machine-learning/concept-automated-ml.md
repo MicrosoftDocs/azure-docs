@@ -9,7 +9,7 @@ ms.topic: conceptual
 author: blackmist
 ms.author: larryfr
 ms.date: 03/15/2022
-ms.custom: automl
+ms.custom: automl, event-tier1-build-2022
 ---
 
 # What is automated machine learning (AutoML)?
@@ -39,12 +39,12 @@ The following settings allow you to configure your automated ML experiment.
 |**Split data into train/validation sets**| ✓|✓
 |**Supports ML tasks: classification, regression, & forecasting**| ✓| ✓
 |**Supports computer vision tasks (preview): image classification, object detection & instance segmentation**| ✓| 
+|**NLP-Text**| ✓| ✓
 |**Optimizes based on primary metric**| ✓| ✓
 |**Supports Azure ML compute as compute target** | ✓|✓
 |**Configure forecast horizon, target lags & rolling window**|✓|✓
 |**Set exit criteria** |✓|✓ 
 |**Set concurrent iterations**| ✓|✓
-|**Drop columns**| ✓|✓
 |**Block algorithms**|✓|✓
 |**Cross validation** |✓|✓
 |**Supports training on Azure Databricks clusters**| ✓|
@@ -74,7 +74,6 @@ These settings allow you to review and control your experiment runs and its chil
 |**Run summary table**| ✓|✓|
 |**Cancel runs & child runs**| ✓|✓|
 |**Get guardrails**| ✓|✓|
-|**Pause & resume runs**| ✓| |
 
 ## When to use AutoML: classification, regression, forecasting, computer vision & NLP
 
@@ -197,7 +196,7 @@ The following diagram illustrates this process.
 
 You can also inspect the logged run information, which [contains metrics](how-to-understand-automated-ml.md) gathered during the run. The training run produces a Python serialized object (`.pkl` file) that contains the model and data preprocessing.
 
-While model building is automated, you can also [learn how important or relevant features are](how-to-configure-auto-train.md#explain) to the generated models.
+While model building is automated, you can also [learn how important or relevant features are](./v1/how-to-configure-auto-train-v1.md#explain) to the generated models.
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE2Xc9t]
 
@@ -217,6 +216,7 @@ Consider these factors when choosing your compute target:
  * **Choose a remote ML compute cluster**: If you are training with larger datasets like in production training creating models which need longer trains, remote compute will provide much better end-to-end time performance because `AutoML` will parallelize trains across the cluster's nodes. On a remote compute, the start-up time for the internal infrastructure will add around 1.5 minutes per child run, plus additional minutes for the cluster infrastructure if the VMs are not yet up and running.
 
 ### Pros and cons
+
 Consider these pros and cons when choosing to use local vs. remote.
 
 |  | Pros (Advantages)  |Cons (Handicaps)  |
@@ -257,7 +257,7 @@ To help confirm that such bias isn't applied to the final recommended model, aut
 
 Learn how to [configure AutoML experiments to use test data (preview) with the SDK](how-to-configure-cross-validation-data-splits.md#provide-test-data-preview) or with the [Azure Machine Learning studio](how-to-use-automated-ml-for-ml-models.md#create-and-run-experiment).
 
-You can also [test any existing automated ML model (preview)](how-to-configure-auto-train.md#test-existing-automated-ml-model)), including models from child runs, by providing your own test data or by setting aside a portion of your training data. 
+You can also [test any existing automated ML model (preview)](./v1/how-to-configure-auto-train-v1.md#test-existing-automated-ml-model)), including models from child runs, by providing your own test data or by setting aside a portion of your training data. 
 
 ## Feature engineering
 
@@ -290,7 +290,7 @@ Automated machine learning supports ensemble models, which are enabled by defaul
 
 The [Caruana ensemble selection algorithm](http://www.niculescu-mizil.org/papers/shotgun.icml04.revised.rev2.pdf) with sorted ensemble initialization is used to decide which models to use within the ensemble. At a high level, this algorithm initializes the ensemble with up to five models with the best individual scores, and verifies that these models are within 5% threshold of the best score to avoid a poor initial ensemble. Then for each ensemble iteration, a new model is added to the existing ensemble and the resulting score is calculated. If a new model improved the existing ensemble score, the ensemble is updated to include the new model.
 
-See the [how-to](how-to-configure-auto-train.md#ensemble) for changing default ensemble settings in automated machine learning.
+See the [how-to](./v1/how-to-configure-auto-train-v1.md#ensemble) for changing default ensemble settings in automated machine learning.
 
 <a name="use-with-onnx"></a>
 
@@ -298,7 +298,7 @@ See the [how-to](how-to-configure-auto-train.md#ensemble) for changing default e
 
 With Azure Machine Learning, you can use automated ML to build a Python model and have it converted to the ONNX format. Once the models are in the ONNX format, they can be run on a variety of platforms and devices. Learn more about [accelerating ML models with ONNX](concept-onnx.md).
 
-See how to convert to ONNX format [in this Jupyter notebook example](https://github.com/Azure/azureml-examples/tree/main/python-sdk/tutorials/automl-with-azureml/classification-bank-marketing-all-features). Learn which [algorithms are supported in ONNX](how-to-configure-auto-train.md#supported-models).
+See how to convert to ONNX format [in this Jupyter notebook example](https://github.com/Azure/azureml-examples/tree/main/python-sdk/tutorials/automl-with-azureml/classification-bank-marketing-all-features). Learn which [algorithms are supported in ONNX](how-to-configure-auto-train.md#supported-algorithms).
 
 The ONNX runtime also supports C#, so you can use the model built automatically in your C# apps without any need for recoding or any of the network latencies that REST endpoints introduce. Learn more about [using an AutoML ONNX model in a .NET application with ML.NET](./how-to-use-automl-onnx-model-dotnet.md) and [inferencing ONNX models with the ONNX runtime C# API](https://onnxruntime.ai/docs/api/csharp-api.html). 
 
