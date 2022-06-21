@@ -67,6 +67,10 @@ In this quickstart you'll use following features to analyze and extract data and
     ```console
     mkdir form-recognizer-app && form-recognizer-app
     ```
+    
+    ```powershell
+    mkdir translator-text-app; cd translator-text-app
+   ```
 
 1. Run the `gradle init` command from your working directory. This command will create essential build files for Gradle, including *build.gradle.kts*, which is used at runtime to create and configure your application.
 
