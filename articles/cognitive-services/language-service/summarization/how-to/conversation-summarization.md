@@ -37,7 +37,11 @@ You submit documents to the API as strings of text. Analysis is performed upon r
 When using this feature, the API results are available for 24 hours from the time the request was ingested, and is indicated in the response. After this time period, the results are purged and are no longer available for retrieval.
 
 When you submit data to conversation summarization, we recommend sending one chat log per request, for better latency.
- 
+
+### Get summaries from text chats
+
+You can use conversation summarization to get sumamries from 2-person chats between customer service agents, and customers. To see an example using text chats, see the [quickstart article](../quickstart.md).
+
 ### Get summaries from speech transcriptions 
 
 Conversation summarization also enables you to get summaries from speech transcripts by using the [Speech service's speech-to-text feature](../../../Speech-Service/call-center-transcription.md). The following example shows a short conversation that you might include in your API requests.
