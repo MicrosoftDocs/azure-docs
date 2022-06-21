@@ -133,6 +133,12 @@ Azure Private 5G Core supports the following algorithms for ciphering and integr
 - 128-bit Snow3G
 - 128-bit Advanced Encryption System (AES) encryption
 
+### UE-to-UE traffic
+
+Azure Private 5G Core supports traffic flow from UE to UE through the user plane, allowing machine-to-machine (M2M) communication between 5G devices for a range of applications including robot control.
+
+An external router is responsible for hairpinning traffic from UE to UE over the N6 interface. This means that traffic leaving the UPF destined to a UE IP address will be routed back to the UPF’s N6 IP address.
+
 ### Index to RAT/Frequency Selection Priority (RFSP)
 
 The packet core instance can provide a RAN with an RFSP Index. The RAN can match the RFSP Index to its local configuration to apply specific radio resource management (RRM) policies, such as cell reselection or frequency layer redirection.
