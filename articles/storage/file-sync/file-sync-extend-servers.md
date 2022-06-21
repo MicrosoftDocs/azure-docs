@@ -247,7 +247,10 @@ Registering your Windows server with a Storage Sync Service establishes a trust 
 
 The Server Registration UI should open automatically after you install the Azure File Sync agent. If it doesn't, you can open it manually from its file location: `C:\Program Files\Azure\StorageSyncAgent\ServerRegistration.exe.`
 
-1. When the Server Registration UI opens in the VM, select **Sign-in**.
+1. When the Server Registration UI opens in the VM, select **Sign in**.
+
+   :::image type="content" source="media/storage-sync-files-extend-servers/server-registration.png" alt-text="Screenshot showing the Server Registration U I to register with an existing Storage Sync Service.":::
+
 1. Sign in with your Azure account credentials.
 1. Provide the following information:
 
