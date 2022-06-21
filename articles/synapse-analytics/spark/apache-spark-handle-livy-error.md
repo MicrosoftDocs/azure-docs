@@ -14,13 +14,13 @@ ms.author: nidutta
 Sometimes an application on Spark fails due to various reasons. These reasons could be system or user related, and debugging these errors involves significant effort from the user and support engineer to identify the root cause and resolution.
 To make this process easier, whenever a job fails on Azure Synapse Analytics, the error handling feature parses and checks the logs on the backend to identify the root cause and display it to the user on the monitoring pane along with the steps to take to resolve the issue.
 
-![Screenshot of model output.](./media/apache-spark-error-classification/apache-spark-new-error-view.png)
+![Screenshot of New error codes.](./media/apache-spark-error-classification/apache-spark-new-error-view.png)
 
 ## What has changed from previous experience
 
 Before this change, all errors in failing jobs on Synapse were surfaced to the user in the monitoring pane with the generic error code `LIVY_JOB_STATE_DEAD`. 
 
-![Screenshot of model output.](./media/apache-spark-error-classification/apache-spark-old-error-view.png)
+![Screenshot of old error codes.](./media/apache-spark-error-classification/apache-spark-old-error-view.png)
 
 This error code gives no further insight into the failing job and requires digging into the driver, executor , Spark Event and Livy logs to identify the root cause of the failure. To make this easier, we have introduced the change described above that aims to improve the debugging experience of the user by replacing the generic error code by a more precise error code that describes the cause of failure alongwith steps that can be taken to fix the issue.
 
@@ -60,24 +60,28 @@ Each error code falls under one of the following four buckets:
 
     Please refer to the following pages for package management documentation:
 
-    For Notebook scenarios: https://docs.microsoft.com/en-us/azure/synapse-analytics/spark/apache-spark-manage-scala-packages 
+    For Notebook scenarios: https://docs.microsoft.com/azure/synapse-analytics/spark/apache-spark-manage-scala-packages 
 
-    For Spark batch scenarios (see section 6): https://docs.microsoft.com/en-us/azure/synapse-analytics/spark/apache-spark-job-definitions#create-an-apache-spark-job-definition-for-apache-sparkscala 
+    For Spark batch scenarios (see section 6): https://docs.microsoft.com/azure/synapse-analytics/spark/apache-spark-job-definitions#create-an-apache-spark-job-definition-for-apache-sparkscala 
 
     Ensure all code dependencies are included in the JARs Synapse runs. If you do not or cannot include third party JARs with your own code, ensure that all dependencies are included in the workspace packages for the Spark pool you are executing code on or included in the "Reference files" listing for the Spark batch submission. See attached documentation.
-    Spark_Ambiguous_Executor_MaxExecutorFailures
+
+3. **Spark_Ambiguous_Executor_MaxExecutorFailures**
+
     Application failed because too many executors failed. The number of acceptable executor failures is controlled by the config spark.yarn.max.executor.failures.
 
     To investigate this failure, look at the executor logs and error codes.
 
-3. **Spark_Ambiguous_JDBC_ConnectionFailed**
+4. **Spark_Ambiguous_JDBC_ConnectionFailed**
 
     Connection to the SQL server has failed.
 
     Ensure the hostname is correct in your SQL server database connection string.
     Ensure the port is properly specified for the database connection.
     Ensure the firewall settings configured on your SQL Server allow connections from your Synapse workspace.
-    Spark_Ambiguous_JDBC_SQLServerException
+
+5. **Spark_Ambiguous_JDBC_SQLServerException**
+
     An error occurred during the execution of SQL statement.
 
     Ensure that any SQL statements you are issuing have valid syntax.
@@ -85,29 +89,21 @@ Each error code falls under one of the following four buckets:
     Ensure that the columns referenced in your code exist in the target tables.
     Check the logs for this Spark application by clicking the Monitor tab in left side of the Synapse Studio UI, select "Apache Spark Applications" from the "Activities" section, and find your Spark job from this list. Inspect the logs available in the "Logs" tab in the bottom part of this page.
 
-4. **Spark_Ambiguous_SparkSQL_AnalysisException**
+6. **Spark_Ambiguous_SparkSQL_AnalysisException**
 
     No TSG is available yet for this error code. This usually means there is a semantic error in the query.
 
-5. **Spark_Ambiguous_TypeChecker_IncompatibleJar**
+7. **Spark_Ambiguous_TypeChecker_IncompatibleJar**
 
     No TSG is available yet for this error code.
 
-6. **Spark_Ambiguous_Unknown_AllNodesDisallowed**
+8. **Spark_Ambiguous_Unknown_AllNodesDisallowed**
 
     No TSG is available yet for this error code.
 
-7. **Spark_Ambiguous_Unknown_ClassInstantiationError**
+9. **Spark_Ambiguous_Unknown_ClassInstantiationError**
 
     Error instantiating class. Please inspect the namespace of the class and determine if your application code references that class. If so, make sure that your application code constructs the class correctly.
-
-8. **Spark_Ambiguous_Unknown_ClassNotFound**
-
-    Error instantiating class. Please inspect the namespace of the class and determine if your application code references that class. If so, make sure that you are providing the required JAR when submitting your application.
-
-9. **Spark_Ambiguous_UserApp_IllegalStateException**
-
-    No TSG is available yet for this error code.
 
 10. **Spark_Ambiguous_UserApp_JobAborted**
 
@@ -249,7 +245,7 @@ Each error code falls under one of the following four buckets:
 
     This is typically a system error. However, if you're using an external Metastore, please ensure the setup specified at:
 
-    https://docs.microsoft.com/en-us/azure/hdinsight/share-hive-metastore-with-synapse 
+    https://docs.microsoft.com/azure/hdinsight/share-hive-metastore-with-synapse 
 
     is followed.
 
@@ -286,7 +282,7 @@ Each error code falls under one of the following four buckets:
 
     The application is attempting to create a directory or file on a storage path that already exists.
 
-    Please follow the documentation here: https://docs.microsoft.com/en-us/azure/synapse-analytics/get-started-analyze-storage  on how to correctly work with data in a storage account and locate the existing directory or file.
+    Please follow the documentation here: https://docs.microsoft.com/azure/synapse-analytics/get-started-analyze-storage  on how to correctly work with data in a storage account and locate the existing directory or file.
 
     To overwrite the existing file, set mode("overwrite") on the DataFrameWriter. For more information, please see the mode section of Spark DataFrameWriter here: https://spark.apache.org/docs/latest/api/java/org/apache/spark/sql/DataFrameWriter.html#mode-org.apache.spark.sql.SaveMode- .
 
@@ -300,7 +296,7 @@ Each error code falls under one of the following four buckets:
 
     Under Access Control (IAM), assign the role "Storage Blob Data contributor" to yourself as well as to the workspace managed identity.
 
-    More details can be found here: https://docs.microsoft.com/en-us/azure/synapse-analytics/security/how-to-grant-workspace-managed-identity-permissions#grant-permissions-to-managed-identity-after-workspace-creation 
+    More details can be found here: https://docs.microsoft.com/azure/synapse-analytics/security/how-to-grant-workspace-managed-identity-permissions#grant-permissions-to-managed-identity-after-workspace-creation 
 
 37. **Spark_User_ADLS_OutputDirectoryAlreadyExist**
 
@@ -318,7 +314,7 @@ Each error code falls under one of the following four buckets:
 
     The application is attempting to access a path in storage that does not exist.
 
-    Please follow the documentation here: https://docs.microsoft.com/en-us/azure/synapse-analytics/get-started-analyze-storage  on how to correctly work with data in a storage account and verify the correct input path.
+    Please follow the documentation here: https://docs.microsoft.com/azure/synapse-analytics/get-started-analyze-storage  on how to correctly work with data in a storage account and verify the correct input path.
 
 41. **Spark_User_HDFS_UnsupportedFileSystem**
 
@@ -356,7 +352,7 @@ Each error code falls under one of the following four buckets:
 
     Please validate that you have entered the correct credentials.
 
-    For more information on how to setup Synapse SQL with JDBC, please visit: https://docs.microsoft.com/en-us/azure/synapse-analytics/sql/connect-overview  https://docs.microsoft.com/en-us/azure/synapse-analytics/sql/connection-strings 
+    For more information on how to setup Synapse SQL with JDBC, please visit: https://docs.microsoft.com/azure/synapse-analytics/sql/connect-overview  https://docs.microsoft.com/azure/synapse-analytics/sql/connection-strings 
 
 44. **Spark_User_Jackson_CouldNotResolveTypeId**
 
@@ -378,7 +374,7 @@ Each error code falls under one of the following four buckets:
 
     LinkedServiceName is not provided in spark configuration. Please set spark.storage.synapse.linkedServiceName
 
-    For more information on how to use ADLS Gen2 storage with linked services, please visit: https://docs.microsoft.com/en-us/azure/synapse-analytics/spark/apache-spark-secure-credentials-with-tokenlibrary?pivots=programming-language-scala#adls-gen2-storage-with-linked-services 
+    For more information on how to use ADLS Gen2 storage with linked services, please visit: https://docs.microsoft.com/azure/synapse-analytics/spark/apache-spark-secure-credentials-with-tokenlibrary?pivots=programming-language-scala#adls-gen2-storage-with-linked-services 
 
 49. **Spark_User_MetaStore_NoSuchDatabase**
 
@@ -552,9 +548,9 @@ Each error code falls under one of the following four buckets:
 
     Locate the dependency in question after "java.lang.NoSuchMethodError:" in the driver error stacktrace.
 
-    If the dependency is missing, please visit the below link for instructions on how to include it in your application. For Notebook scenarios: https://docs.microsoft.com/en-us/  azure/synapse-analytics/spark/apache-spark-manage-scala-packages
+    If the dependency is missing, please visit the below link for instructions on how to include it in your application. For Notebook scenarios: https://docs.microsoft.com/  azure/synapse-analytics/spark/apache-spark-manage-scala-packages
 
-    For Spark batch scenarios (see section 6): https://docs.microsoft.com/en-us/azure/synapse-analytics/spark/  apache-spark-job-definitions# create-an-apache-spark-job-definition-for-apache-sparkscala
+    For Spark batch scenarios (see section 6): https://docs.microsoft.com/azure/synapse-analytics/spark/  apache-spark-job-definitions# create-an-apache-spark-job-definition-for-apache-sparkscala
 
     If the dependency is incompatible with Spark and Scala version of your spark pool, please replace the dependency with the compatible versions. For example, Spark 2.4 requires Scala 2.11 and Spark 3.1 requires Scala 2.12.
 
@@ -618,7 +614,7 @@ Each error code falls under one of the following four buckets:
 
     abfss://file_system@account_name.dfs.core.windows.net/<path>/<path>/<file_name>
 
-    For more information regarding the ABFS URI scheme, please consult this doc: https://docs.microsoft.com/en-us/azure/storage/blobs/data-lake-storage-introduction-abfs-uri 
+    For more information regarding the ABFS URI scheme, please consult this doc: https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction-abfs-uri 
 
     If you are certain that you want to read from a WASB URI, then you will need to provide a SAS token. To do so, register your Azure Storage account as a Linked Service on the workspace, then use this function to get the SAS token:
 
@@ -628,7 +624,7 @@ Each error code falls under one of the following four buckets:
 
     spark.conf.set("fs.azure.sas.<container name>.<storage account name>.blob.core.windows.net", token)
 
-    A full example is provided in this doc: https://docs.microsoft.com/en-us/azure/synapse-analytics/spark/apache-spark-development-using-notebooks?tabs=classical#read-a-csv-from-azure-blob-storage-as-a-spark-dataframe 
+    A full example is provided in this doc: https://docs.microsoft.com/azure/synapse-analytics/spark/apache-spark-development-using-notebooks?tabs=classical#read-a-csv-from-azure-blob-storage-as-a-spark-dataframe 
 
 95. **Spark_User_WASB_PathDoesNotExist**
 
@@ -639,6 +635,15 @@ Each error code falls under one of the following four buckets:
     Ensure that you do not mean to fully qualify your URL to reference some other storage account.
     If you do mean to use the Synapse provided storage, ensure that you have successfully written a file or table by the name you're using to read.
     Check the logs for this Spark application by clicking the Monitor tab in left side of the Synapse Studio UI, select "Apache Spark Applications" from the "Activities" section, and find your Spark job from this list. Inspect the logs available in the "Logs" tab in the bottom part of this page to identify the exact storage URL that is encountering this issue.
+
+96. **Spark_Ambiguous_Unknown_ClassNotFound**
+
+    Error instantiating class. Please inspect the namespace of the class and determine if your application code references that class. If so, make sure that you are providing the required JAR when submitting your application.
+
+97. **Spark_Ambiguous_UserApp_IllegalStateException**
+
+    No TSG is available yet for this error code.
+
 
 > [!NOTE]
 > If you have built any tooling around Synapse job monitoring that checks for a failing job by checking against the error code `LIVY_JOB_STATE_DEAD`, that would no longer work as the returned error codes would be different as mentioned above. Please modify any scripts accordingly.
