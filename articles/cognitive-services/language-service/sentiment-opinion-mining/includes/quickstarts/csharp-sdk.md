@@ -54,7 +54,7 @@ namespace Example
         private static readonly AzureKeyCredential credentials = new AzureKeyCredential("replace-with-your-key-here");
         private static readonly Uri endpoint = new Uri("replace-with-your-endpoint-here");
         
-        // Example method for detecting sentiment from text 
+        // Example method for detecting sentiment from text. 
         static void SentimentAnalysisExample(TextAnalyticsClient client)
         {
             string inputText = "I had the best day of my life. I wish you were there with me.";
@@ -71,7 +71,7 @@ namespace Example
             }
         }
 
-        // Example method for detecting opinions text 
+        // Example method for detecting opinions text. 
         static void SentimentAnalysisWithOpinionMiningExample(TextAnalyticsClient client)
         {
             var documents = new List<string>

@@ -186,13 +186,13 @@ items:
     - name: Client libraries and SDKs
       items:
       - name: .NET
-        href: https://azuresdkdocs.blob.core.windows.net/$web/dotnet/Azure.AI.FormRecognizer/4.0.0-beta.3/index.html
+        href: https://azuresdkdocs.blob.core.windows.net/$web/dotnet/Azure.AI.FormRecognizer/4.0.0-beta.4/index.html
       - name: Python
-        href: https://azuresdkdocs.blob.core.windows.net/$web/python/azure-ai-formrecognizer/3.2.0b3/index.html
+        href: https://azuresdkdocs.blob.core.windows.net/$web/python/azure-ai-formrecognizer/3.2.0b5/index.html
       - name: Java
-        href: https://azuresdkdocs.blob.core.windows.net/$web/java/azure-ai-formrecognizer/4.0.0-beta.4/index.html
+        href: https://azuresdkdocs.blob.core.windows.net/$web/java/azure-ai-formrecognizer/4.0.0-beta.5/index.html
       - name: JavaScript
-        href: https://azuresdkdocs.blob.core.windows.net/$web/javascript/azure-ai-form-recognizer/4.0.0-beta.3/index.html
+        href: https://azuresdkdocs.blob.core.windows.net/$web/javascript/azure-ai-form-recognizer/4.0.0-beta.4/index.html
   - name: Azure Form Recognizer REST API v2.1
     items:
     - name: REST API v2.1 reference

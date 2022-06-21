@@ -78,24 +78,6 @@ It takes a while for the cache to create. You can monitor progress on the Azure 
 
 :::image type="content" source="media/cache-how-to-premium-vnet/redis-cache-vnet-info.png" alt-text="Virtual network":::
 
-To connect to your Azure Cache for Redis instance when you use a virtual network, specify the host name of your cache in the connection string, as shown in the following example:
-
-```csharp
-private static Lazy<ConnectionMultiplexer>
-    lazyConnection = new Lazy<ConnectionMultiplexer> (() =>
-    {
-        return ConnectionMultiplexer.Connect("contoso5premium.redis.cache.windows.net,abortConnect=false,ssl=true,password=password");
-    });
-
-public static ConnectionMultiplexer Connection
-{
-    get
-    {
-        return lazyConnection.Value;
-    }
-}
-```
-
 ## Azure Cache for Redis virtual network FAQ
 
 The following list contains answers to commonly asked questions about Azure Cache for Redis scaling.

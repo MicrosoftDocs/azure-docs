@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
-ms.date: 03/31/2022
+ms.date: 06/13/2022
 ms.author: lajanuar
 recommendations: false
 ---
@@ -16,9 +16,9 @@ recommendations: false
 # Get started: Form Recognizer Java SDK (beta)
 
 >[!NOTE]
-> Form Recognizer beta version is currently in public preview. Some features may not be supported or have limited capabilities.
+> Form Recognizer beta version—4.0.0-beta.5—is currently in public preview. Some features may not be supported or have limited capabilities.
 
-[Reference documentation](/java/api/overview/azure/ai-formrecognizer-readme?view=azure-java-preview&preserve-view=true) | [Library source code](https://github.com/Azure/azure-sdk-for-java/tree/azure-ai-formrecognizer_4.0.0-beta.4/sdk/formrecognizer/azure-ai-formrecognizer/) | [Package (Maven)](https://search.maven.org/artifact/com.azure/azure-ai-formrecognizer/4.0.0-beta.4/jar) | [Samples](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/formrecognizer/azure-ai-formrecognizer/src/samples/README.md)
+[Reference documentation](/java/api/overview/azure/ai-formrecognizer-readme?view=azure-java-preview&preserve-view=true) | [Library source code](https://github.com/Azure/azure-sdk-for-java/tree/azure-ai-formrecognizer_4.0.0-beta.5/sdk/formrecognizer/azure-ai-formrecognizer/) | [Package (Maven)](https://search.maven.org/artifact/com.azure/azure-ai-formrecognizer/4.0.0-beta.5/jar) | [Samples](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/formrecognizer/azure-ai-formrecognizer/src/samples/README.md)
 
 Get started with Azure Form Recognizer using the Java programming language. Azure Form Recognizer is a cloud-based Azure Applied AI Service that uses machine learning to extract key-value pairs, text, and tables from your documents. You can easily call Form Recognizer models by integrating our client library SDks into your workflows and applications. We recommend that you use the free service when you're learning the technology. Remember that the number of free pages is limited to 500 per month.
 
@@ -45,9 +45,9 @@ In this quickstart you'll use following features to analyze and extract data and
 
 * If you aren't using VS Code, make sure you have the following installed in your development environment:
 
-  * A [**Java Development Kit** (JDK)](https://wiki.openjdk.java.net/display/jdk8u) version 8 or later. For more information, *see* [supported Java Versions and update schedule](/azure/developer/java/fundamentals/java-support-on-azure#supported-java-versions-and-update-schedule).
+  * A [**Java Development Kit** (JDK)](/java/openjdk/download#openjdk-17) version 8 or later. For more information, *see* [Microsoft Build of OpenJDK](https://www.microsoft.com/openjdk).
 
-  * [**Gradle**](https://gradle.org/), version 6.8 or later.
+  * [**Gradle**](https://docs.gradle.org/current/userguide/installation.html), version 6.8 or later.
 
 * A Cognitive Services or Form Recognizer resource. Once you have your Azure subscription, create a [single-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) or [multi-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) Form Recognizer resource in the Azure portal to get your key and endpoint. You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
 
@@ -67,6 +67,10 @@ In this quickstart you'll use following features to analyze and extract data and
     ```console
     mkdir form-recognizer-app && form-recognizer-app
     ```
+    
+    ```powershell
+    mkdir translator-text-app; cd translator-text-app
+   ```
 
 1. Run the `gradle init` command from your working directory. This command will create essential build files for Gradle, including *build.gradle.kts*, which is used at runtime to create and configure your application.
 
@@ -76,7 +80,7 @@ In this quickstart you'll use following features to analyze and extract data and
 
 1. When prompted to choose a **DSL**, select **Kotlin**.
 
-1. Accept the default project name (form-recognizer-app)
+1. Accept the default project name (form-recognizer-app) by selecting **Return** or **Enter**.
 
 ### Install the client library
 
@@ -96,7 +100,7 @@ This quickstart uses the Gradle dependency manager. You can find the client libr
         mavenCentral()
     }
     dependencies {
-        implementation(group = "com.azure", name = "azure-ai-formrecognizer", version = "4.0.0-beta.4")
+        implementation(group = "com.azure", name = "azure-ai-formrecognizer", version = "4.0.0-beta.5")
     }
     ```
 
@@ -145,7 +149,7 @@ Extract text, tables, structure, key-value pairs, and named entities from docume
 > * We've added the file URI value to the `documentUrl` variable in the main method.
 > * For simplicity, all the entity fields that the service returns are not shown here. To see the list of all supported fields and corresponding types, see our [General document](../concept-general-document.md#named-entity-recognition-ner-categories) concept page.
 
-**Add the following code sample to the `FormRecognizer.java` file. Make sure you update the key and endpoint variables with values from your Form Recognizer instance in the Azure portal:**
+**Add the following code sample to the `FormRecognizer.java` file. Make sure you update the key and endpoint variables with values from your Azure portal Form Recognizer instance:**
 
 ```java
 
@@ -290,7 +294,7 @@ Extract text, selection marks, text styles, table structures, and bounding regio
 > * To analyze a given file at a URI, you'll use the `beginAnalyzeDocumentFromUrl` method and pass `prebuilt-layout` as the model Id. The returned value is an `AnalyzeResult` object containing data about the submitted document.
 > * We've added the file URI value to the `documentUrl` variable in the main method.
 
-**Add the following code sample to the `FormRecognizer.java` file. Make sure you update the key and endpoint variables with values from your Form Recognizer instance in the Azure portal:**
+**Add the following code sample to the `FormRecognizer.java` file. Make sure you update the key and endpoint variables with values from your Azure portal Form Recognizer instance:**
 
 ```java
 
@@ -429,7 +433,7 @@ Analyze and extract common fields from specific document types using a prebuilt 
 > * To analyze a given file at a URI, you'll use the `beginAnalyzeDocuments` method and pass `PrebuiltModels.Invoice` as the model Id. The returned value is a `result` object containing data about the submitted document.
 > * For simplicity, all the key-value pairs that the service returns are not shown here. To see the list of all supported fields and corresponding types, see our [Invoice](../concept-invoice.md#field-extraction) concept page.
 
-**Add the following code sample to the `FormRecognizer.java` file. Make sure you update the key and endpoint variables with values from your Form Recognizer instance in the Azure portal:**
+**Add the following code sample to the `FormRecognizer.java` file. Make sure you update the key and endpoint variables with values from your Azure portal Form Recognizer instance:**
 
 ```java
 
@@ -624,7 +628,10 @@ That's it, congratulations!
 
 In this quickstart, you used the Form Recognizer Java SDK to analyze various forms and documents in different ways. Next, explore the reference documentation to learn about Form Recognizer API in more depth.
 
-## Next step
+## Next steps
 
 > [!div class="nextstepaction"]
-> [Learn more about Form Recognizer REST API v3.0](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-2/operations/AnalyzeDocument)
+> [Form Recognizer REST API v3.0 (preview)](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-06-30-preview/operations/AnalyzeDocument)
+
+> [!div class="nextstepaction"]
+> [Form Recognizer Java reference library](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-ai-formrecognizer/4.0.0-beta.5/index.html)

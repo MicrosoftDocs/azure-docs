@@ -12,6 +12,8 @@ ms.date: 02/11/2021
 
 # Quickstart: Use an ARM template to create an Azure Database for PostgreSQL - single server
 
+[!INCLUDE [applies-to-postgresql-single-server](../includes/applies-to-postgresql-single-server.md)]
+
 Azure Database for PostgreSQL is a managed service that you use to run, manage, and scale highly available PostgreSQL databases in the cloud. In this quickstart, you use an Azure Resource Manager template (ARM template) to create an Azure Database for PostgreSQL - single server in the Azure portal, PowerShell, or Azure CLI.
 
 [!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
@@ -24,14 +26,20 @@ If your environment meets the prerequisites and you're familiar with using ARM t
 
 # [Portal](#tab/azure-portal)
 
+[!INCLUDE [applies-to-postgresql-single-server](../includes/applies-to-postgresql-single-server.md)]
+
 An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/).
 
 # [PowerShell](#tab/PowerShell)
+
+[!INCLUDE [applies-to-postgresql-single-server](../includes/applies-to-postgresql-single-server.md)]
 
 * An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/).
 * If you want to run the code locally, [Azure PowerShell](/powershell/azure/).
 
 # [CLI](#tab/CLI)
+
+[!INCLUDE [applies-to-postgresql-single-server](../includes/applies-to-postgresql-single-server.md)]
 
 * An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/).
 * If you want to run the code locally, [Azure CLI](/cli/azure/).
@@ -59,6 +67,8 @@ More Azure Database for PostgreSQL template samples can be found in [Azure Quick
 ## Deploy the template
 
 # [Portal](#tab/azure-portal)
+
+[!INCLUDE [applies-to-postgresql-single-server](../includes/applies-to-postgresql-single-server.md)]
 
 Select the following link to deploy the Azure Database for PostgreSQL server template in the Azure portal:
 
@@ -97,6 +107,8 @@ On the **Deploy Azure Database for PostgreSQL with VNet** page:
 
 # [PowerShell](#tab/PowerShell)
 
+[!INCLUDE [applies-to-postgresql-single-server](../includes/applies-to-postgresql-single-server.md)]
+
 Use the following interactive code to create a new Azure Database for PostgreSQL server using the template. The code prompts you for the new server name, the name and location of a new resource group, and an administrator account name and password.
 
 To run the code in Azure Cloud Shell, select **Try it** at the upper corner of any code block.
@@ -120,6 +132,8 @@ Read-Host -Prompt "Press [ENTER] to continue: "
 
 # [CLI](#tab/CLI)
 
+[!INCLUDE [applies-to-postgresql-single-server](../includes/applies-to-postgresql-single-server.md)]
+
 Use the following interactive code to create a new Azure Database for PostgreSQL server using the template. The code prompts you for the new server name, the name and location of a new resource group, and an administrator account name and password.
 
 To run the code in Azure Cloud Shell, select **Try it** at the upper corner of any code block.
@@ -142,6 +156,8 @@ read -p "Press [ENTER] to continue: "
 
 # [Portal](#tab/azure-portal)
 
+[!INCLUDE [applies-to-postgresql-single-server](../includes/applies-to-postgresql-single-server.md)]
+
 Follow these steps to see an overview of your new Azure Database for PostgreSQL server:
 
 1. In the [Azure portal](https://portal.azure.com), search for and select **Azure Database for PostgreSQL servers**.
@@ -149,6 +165,8 @@ Follow these steps to see an overview of your new Azure Database for PostgreSQL 
 2. In the database list, select your new server. The **Overview** page for your new Azure Database for PostgreSQL server appears.
 
 # [PowerShell](#tab/PowerShell)
+
+[!INCLUDE [applies-to-postgresql-single-server](../includes/applies-to-postgresql-single-server.md)]
 
 Run the following interactive code to view details about your Azure Database for PostgreSQL server. You'll have to enter the name of the new server.
 
@@ -159,6 +177,8 @@ Read-Host -Prompt "Press [ENTER] to continue: "
 ```
 
 # [CLI](#tab/CLI)
+
+[!INCLUDE [applies-to-postgresql-single-server](../includes/applies-to-postgresql-single-server.md)]
 
 Run the following interactive code to view details about your Azure Database for PostgreSQL server. You'll have to enter the name and the resource group of the new server.
 
@@ -205,6 +225,8 @@ When it's no longer needed, delete the resource group, which deletes the resourc
 
 # [Portal](#tab/azure-portal)
 
+[!INCLUDE [applies-to-postgresql-single-server](../includes/applies-to-postgresql-single-server.md)]
+
 1. In the [Azure portal](https://portal.azure.com), search for and select **Resource groups**.
 
 2. In the resource group list, choose the name of your resource group.
@@ -215,6 +237,8 @@ When it's no longer needed, delete the resource group, which deletes the resourc
 
 # [PowerShell](#tab/PowerShell)
 
+[!INCLUDE [applies-to-postgresql-single-server](../includes/applies-to-postgresql-single-server.md)]
+
 ```azurepowershell-interactive
 $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
 Remove-AzResourceGroup -Name $resourceGroupName
@@ -222,6 +246,8 @@ Read-Host -Prompt "Press [ENTER] to continue: "
 ```
 
 # [CLI](#tab/CLI)
+
+[!INCLUDE [applies-to-postgresql-single-server](../includes/applies-to-postgresql-single-server.md)]
 
 ```azurecli-interactive
 read -p "Enter the Resource Group name: " resourceGroupName &&

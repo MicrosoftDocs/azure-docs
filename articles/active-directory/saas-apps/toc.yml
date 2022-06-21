@@ -368,7 +368,7 @@
       - name: Carbonite Endpoint Backup
         href: carbonite-endpoint-backup-tutorial.md
       - name: CWT
-        href: carlsonwagonlit-tutorial.md
+        href: cwt-tutorial.md
       - name: Catchpoint
         href: catchpoint-tutorial.md
       - name: CBRE ServiceInsight
@@ -1006,6 +1006,8 @@
         href: highground-tutorial.md
       - name: Hightail
         href: hightail-tutorial.md
+      - name: Hive Learning
+        href: hive-learning-tutorial.md
       - name: Hirebridge ATS
         href: hirebridge-ats-tutorial.md
       - name: Hiretual-SSO
@@ -2176,7 +2178,7 @@
       items:
       - name: T&E Express
         href: tyeexpress-tutorial.md
-      - name: Tableau Online
+      - name: Tableau Cloud
         href: tableauonline-tutorial.md
       - name: Tableau Server
         href: tableauserver-tutorial.md

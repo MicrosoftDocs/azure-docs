@@ -6,7 +6,7 @@ ms.author: malev
 ms.service: service-connector
 ms.custom: event-tier1-build-2022
 ms.topic: how-to
-ms.date: 05/03/2022
+ms.date: 06/13/2022
 ---
 
 # Integrate Service Bus with Service Connector
@@ -16,6 +16,7 @@ This page shows the supported authentication types and client types of Azure Ser
 ## Supported compute services
 
 - Azure App Service
+- Azure Container Apps
 - Azure Spring Cloud
 
 ## Supported authentication types and client types
