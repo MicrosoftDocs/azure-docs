@@ -30,11 +30,7 @@ Take advantage of your domain expertise on top of Azure Digital Twins to build c
 * Use a robust event system to build dynamic business logic and data processing
 * Integrate with Azure data, analytics, and AI services to help you track the past and then predict the future
 
-## Azure Digital Twins capabilities
-
-Here's a summary of the features provided by Azure Digital Twins.
-
-### Open modeling language
+## Open modeling language
 
 In Azure Digital Twins, you define the digital entities that represent the people, places, and things in your physical environment using custom twin types called [models](concepts-models.md). 
 
@@ -47,7 +43,7 @@ You can think of these model definitions as a specialized vocabulary to describe
 
 DTDL is also used for data models throughout other Azure IoT services, including [IoT Plug and Play](../iot-develop/overview-iot-plug-and-play.md) and [Time Series Insights](../time-series-insights/overview-what-is-tsi.md). This compatibility helps you connect your Azure Digital Twins solution with other parts of the Azure ecosystem.
 
-### Live execution environment
+## Live execution environment
 
 Digital models in Azure Digital Twins are live, up-to-date representations of the real world. Using the relationships in your custom DTDL models, you'll connect twins into a live graph representing your environment.
 
@@ -59,7 +55,7 @@ Azure Digital Twins provides a rich event system to keep that graph current with
 
 You can also extract insights from the live execution environment, using Azure Digital Twins' powerful *query API​*. The API lets you query with extensive search conditions, including property values, relationships, relationship properties, model information, and more. You can also combine queries, gathering a broad range of insights about your environment and answering custom questions that are important to you.
 
-### Input from IoT and business systems
+## Input from IoT and business systems
 
 To keep the live execution environment of Azure Digital Twins up to date with the real world, you can use [IoT Hub](../iot-hub/about-iot-hub.md) to connect your solution to IoT and IoT Edge devices. These hub-managed devices are represented as part of your twin graph, and provide the data that drives your model.
 
@@ -67,7 +63,7 @@ You can create a new IoT Hub for this purpose with Azure Digital Twins, or [conn
 
 You can also drive Azure Digital Twins from other data sources, using REST APIs or connectors to other services like [Logic Apps](../logic-apps/logic-apps-overview.md).
 
-### Output data for storage and analytics
+## Output data for storage and analytics
 
 The data in your Azure Digital Twins model can be routed to downstream Azure services for more analytics or storage. 
 
@@ -99,11 +95,15 @@ The following diagram shows where Azure Digital Twins lies in the context of a l
 
 :::image type="content" source="media/overview/solution-context.png" alt-text="Diagram showing input sources, output services, and two-way communication with both client apps and external compute resources." border="false" lightbox="media/overview/solution-context.png":::
 
-## Service limits
+## Resources
+
+Here are some resources that may be useful while working with Azure Digital Twins. You can view more resources under the **Resources** header in the table of contents for this documentation set.
+
+### Service limits
 
 You can read about the service limits of Azure Digital Twins in the [Azure Digital Twins service limits article](reference-service-limits.md). This resource can be useful while working with the service to understand the service's functional and rate limitations, as well as which limits can be adjusted if necessary.
 
-## Terminology
+### Terminology
 
 You can view a list of common IoT terms and their uses across the Azure IoT services, including Azure Digital Twins, in the [Azure IoT Glossary](../iot-fundamentals/iot-glossary.md?toc=/azure/digital-twins/toc.json&bc=/azure/digital-twins/breadcrumb/toc.json). This resource may be a useful reference while you get started with Azure Digital Twins and building an IoT solution.
 

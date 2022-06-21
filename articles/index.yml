@@ -164,7 +164,7 @@ productDirectory:
       imageSrc: https://static.docs.com/ui/media/product/azure/cognitive-services.svg
       azureCategories:
         - ai-machine-learning
-      url: cognitive-services/face/index.yml
+      url: cognitive-services/computer-vision/index-identity.yml
     # Card
     - title: Form Recognizer
       summary: The AI-powered document extraction service that understands your forms
@@ -287,7 +287,7 @@ productDirectory:
       azureCategories:
         - ai-machine-learning
         - media
-      url: /azure-video-indexer/index.yml
+      url: ./azure-video-indexer/index.yml
     # Card
     - title: Azure Analysis Services
       summary: Enterprise-grade analytics engine as a service
@@ -399,13 +399,6 @@ productDirectory:
       azureCategories:
         - analytics
       url: /power-bi/developer/azure-pbie-what-is-power-bi-embedded
-    # Card
-    - title: R Server for HDInsight
-      summary: Predictive analytics, machine learning, and statistical modeling for big data
-      imageSrc: https://static.docs.com/ui/media/product/azure/hdinsight.svg
-      azureCategories:
-        - analytics
-      url: hdinsight/r-server/r-server-overview.md
     # Card
     - title: Azure Cosmos DB
       summary: Fast NoSQL database with open APIs for any scale
@@ -1488,7 +1481,7 @@ productDirectory:
       url: storsimple/index.yml
     # Card
     - title: Azure SignalR Service
-      summary: Add real-time web functionalities easily
+      summary: Add real-time web functionality easily
       imageSrc: https://static.docs.com/ui/media/product/azure/signalr-service.svg
       azureCategories:
         - web
@@ -1500,13 +1493,20 @@ productDirectory:
       azureCategories:
         - networking
       url: orbital/index.yml
-
+    # Card
+    - title: Azure Web PubSub
+      summary: Easily build real-time messaging web applications using WebSockets and the publish-subscribe pattern
+      imageSrc: ./media/index/web-pubsub.svg
+      azureCategories:
+        - integration
+        - web
+      url: azure-web-pubsub/index.yml
 tools:
   title: Languages and tools
   items:
     # Card
     - title: Python
-      imageSrc: https://docs.microsoft.com/media/logos/logo_python.svg
+      imageSrc: /media/logos/logo_python.svg
       url: /azure/developer/python/
     # Card
     - title: .NET
@@ -1514,27 +1514,27 @@ tools:
       url: /dotnet/azure/
     # Card
     - title: JavaScript
-      imageSrc: https://docs.microsoft.com/media/logos/logo_js.svg
+      imageSrc: /media/logos/logo_js.svg
       url: /azure/developer/javascript/
     # Card
     - title: Java
-      imageSrc: https://docs.microsoft.com/media/logos/logo_java.svg
+      imageSrc: /media/logos/logo_java.svg
       url: /azure/developer/java/
     # Card
     - title: Go
-      imageSrc: https://docs.microsoft.com/media/logos/logo_Go-lightblue.svg
+      imageSrc: /media/logos/logo_Go-lightblue.svg
       url: /azure/developer/go/
     # Card
     - title: REST API
-      imageSrc: https://docs.microsoft.com/media/logos/logo_REST.svg
+      imageSrc: /media/logos/logo_REST.svg
       url: /rest/api/
     # Card
     - title: Azure PowerShell
-      imageSrc: https://docs.microsoft.com/media/logos/logo_powershell.svg
+      imageSrc: /media/logos/logo_powershell.svg
       url: /powershell/azure/
     # Card
     - title: Azure CLI
-      imageSrc: https://docs.microsoft.com/media/logos/logo_CLIgeneric.svg
+      imageSrc: /media/logos/logo_CLIgeneric.svg
       url: /cli/azure/
     # Card
     - title: ARM templates
@@ -1546,11 +1546,11 @@ tools:
       url: azure-resource-manager/bicep/index.yml
     # Card
     - title: Jenkins
-      imageSrc: https://docs.microsoft.com/media/logos/logo_jenkins.svg
+      imageSrc: /media/logos/logo_jenkins.svg
       url: /azure/developer/jenkins
     # Card
     - title: Terraform
-      imageSrc: https://docs.microsoft.com/media/logos/logo_terraform.svg
+      imageSrc: /media/logos/logo_terraform.svg
       url: /azure/developer/terraform/
 
 additionalContent:

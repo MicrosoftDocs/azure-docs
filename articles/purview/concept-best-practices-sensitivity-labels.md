@@ -62,7 +62,7 @@ The following sections walk you through the process of implementing labeling for
 - Capture all test cases for your labels. Test your label policies with all applications you want to secure.
 - Promote sensitivity label policies to the Microsoft Purview Data Map.
 - Run test scans from the Microsoft Purview Data Map on different data sources like hybrid cloud and on-premises to identify sensitivity labels.
-- Gather and consider insights, for example, by using Microsoft Purview Insights. Use alerting mechanisms to mitigate potential breaches of regulations.
+- Gather and consider insights, for example, by using Microsoft Purview Data Estate Insights. Use alerting mechanisms to mitigate potential breaches of regulations.
 
 By using sensitivity labels with Microsoft Purview Data Map, you can extend information protection beyond the border of your Microsoft data estate to your on-premises, hybrid cloud, multicloud, and software as a service (SaaS) scenarios.
 

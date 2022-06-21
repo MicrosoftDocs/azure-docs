@@ -3,7 +3,7 @@ title: Azure Enterprise enrollment invoices
 description: This article explains how to manage and act on your Azure Enterprise invoice.
 author: bandersmsft
 ms.author: banders
-ms.date: 12/03/2021
+ms.date: 05/31/2022
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
@@ -204,7 +204,7 @@ If an Amendment M503 is signed, you can move any agreement from any frequency to
 
 ### Request an invoice copy
 
-To request a copy of your invoice, contact your partner.
+If you're an indirect enterprise agreement customer, contact your partner to request a copy of your invoice.
 
 ## Credits and adjustments
 

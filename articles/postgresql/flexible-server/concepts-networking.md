@@ -4,12 +4,15 @@ description: Learn about connectivity and networking options in the Flexible Ser
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: conceptual
-ms.author: nlarin
-author: niklarin
+ms.author: gennadyk
+author: GennadNY
+ms.reviewer: 
 ms.date: 11/30/2021
 ---
 
 # Networking overview for Azure Database for PostgreSQL - Flexible Server 
+
+[!INCLUDE [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 
 This article describes connectivity and networking concepts for Azure Database for PostgreSQL - Flexible Server. 
 

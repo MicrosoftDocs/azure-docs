@@ -2,14 +2,14 @@
 title: Bicep modules
 description: Describes how to define a module in a Bicep file, and how to use module scopes.
 ms.topic: conceptual
-ms.date: 04/08/2022
+ms.date: 05/10/2022
 ---
 
 # Bicep modules
 
-Bicep enables you to organize deployments into modules. A module is just a Bicep file that is deployed from another Bicep file. With modules, you improve the readability of your Bicep files by encapsulating complex details of your deployment. You can also easily reuse modules for different deployments.
+Bicep enables you to organize deployments into modules. A module is a Bicep file (or an ARM JSON template) that is deployed from another Bicep file. With modules, you improve the readability of your Bicep files by encapsulating complex details of your deployment. You can also easily reuse modules for different deployments.
 
-To share modules with other people in your organization, create a [template spec](../templates/template-specs.md), [public registry](https://github.com/Azure/bicep-registry-modules), or [private registry](private-module-registry.md). Template specs and modules in the registry are only available to users with the correct permissions.
+To share modules with other people in your organization, create a [template spec](../bicep/template-specs.md), [public registry](https://github.com/Azure/bicep-registry-modules), or [private registry](private-module-registry.md). Template specs and modules in the registry are only available to users with the correct permissions.
 
 > [!TIP]
 > The choice between module registry and template specs is mostly a matter of preference. There are a few things to consider when you choose between the two:
@@ -41,9 +41,13 @@ So, a simple, real-world example would look like:
 
 ::: code language="bicep" source="~/azure-docs-bicep-samples/syntax-samples/modules/local-file-definition.bicep" :::
 
+You can also use an ARM JSON template as a module:
+
+::: code language="bicep" source="~/azure-docs-bicep-samples/syntax-samples/modules/local-file-definition-json.bicep" :::
+
 Use the symbolic name to reference the module in another part of the Bicep file. For example, you can use the symbolic name to get the output from a module. The symbolic name may contain a-z, A-Z, 0-9, and underscore (`_`). The name can't start with a number. A module can't have the same name as a parameter, variable, or resource.
 
-The path can be either a local file or a file in a registry. For more information, see [Path to module](#path-to-module).
+The path can be either a local file or a file in a registry. The local file can be either a Bicep file or an ARM JSON template. For more information, see [Path to module](#path-to-module).
 
 The **name** property is required. It becomes the name of the nested deployment resource in the generated template.
 

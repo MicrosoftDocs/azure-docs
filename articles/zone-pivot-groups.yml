@@ -297,59 +297,6 @@ groups:
     title: C++
   - id: programming-language-python
     title: Python
-# To be enabled later.
-#  - id: programmer-tool-spx
-#    title: CLI
-- id: programming-languages-set-twenty-three
-# Owner: erhopf
-  title: Programming languages
-  prompt: Choose a programming language or CLI
-  pivots:
-  - id: programming-language-csharp
-    title: C#
-  - id: programming-language-cpp
-    title: C++
-  - id: programming-language-go
-    title: Go
-  - id: programming-language-java
-    title: Java
-  - id: programming-language-nodejs
-    title: Node.js
-  - id: programming-language-browserjs
-    title: JavaScript (browser)
-  - id: programming-languages-objectivec-swift
-    title: Objective-C/Swift
-  - id: programming-language-python
-    title: Python
-  - id: programming-language-curl
-    title: REST
-  - id: programmer-tool-spx
-    title: CLI
-- id: programming-languages-set-twenty-four
-# Owner: yulili
-  title: Programming languages
-  prompt: Choose a programming language or CLI
-  pivots:
-  - id: programming-language-csharp
-    title: C#
-  - id: programming-language-cpp
-    title: C++
-  - id: programming-language-go
-    title: Go
-  - id: programming-language-java
-    title: Java
-  - id: programming-language-nodejs
-    title: Node.js
-  - id: programming-language-browserjs
-    title: JavaScript (browser)
-  - id: programming-languages-objectivec-swift
-    title: Objective-C/Swift
-  - id: programming-language-python
-    title: Python
-  - id: programming-language-curl
-    title: REST
-  - id: programmer-tool-spx
-    title: CLI
 - id: programming-languages-set-twenty-six
 # Owner: dobett
   title: Programming languages
@@ -704,10 +651,10 @@ groups:
     title: C++
   - id: programming-language-java
     title: Java
-  - id: programming-language-python
-    title: Python
   - id: programming-language-javascript
     title: JavaScript
+  - id: programming-language-python
+    title: Python
   - id: programming-language-more
     title: More languages...
 - id: programming-languages-set-two-with-js-spx
@@ -740,10 +687,10 @@ groups:
     title: Go
   - id: programming-language-java
     title: Java
-  - id: programming-language-python
-    title: Python
   - id: programming-language-javascript
     title: JavaScript
+  - id: programming-language-python
+    title: Python
   - id: programming-language-more
     title: More languages...
 - id: programming-languages-set-two-with-js-go-spx
@@ -761,10 +708,10 @@ groups:
     title: Go
   - id: programming-language-java
     title: Java
-  - id: programming-language-python
-    title: Python
   - id: programming-language-javascript
     title: JavaScript
+  - id: programming-language-python
+    title: Python
   - id: programming-language-more
     title: More languages...
 - id: programming-languages-speech-services-one-nomore
@@ -780,10 +727,10 @@ groups:
     title: Go
   - id: programming-language-java
     title: Java
-  - id: programming-language-python
-    title: Python
   - id: programming-language-javascript
     title: JavaScript
+  - id: programming-language-python
+    title: Python
 - id: programming-languages-speech-services-one-nomore-no-go
 # Owner: erhopf
   title: Programming languages
@@ -795,10 +742,10 @@ groups:
     title: C++
   - id: programming-language-java
     title: Java
-  - id: programming-language-python
-    title: Python
   - id: programming-language-javascript
     title: JavaScript
+  - id: programming-language-python
+    title: Python
 - id: programming-languages-speech-services-nomore-variant
 # Owner: erhopf
   title: Programming languages
@@ -810,10 +757,10 @@ groups:
     title: C++
   - id: programming-language-java
     title: Java
-  - id: programming-language-python
-    title: Python
   - id: programming-language-javascript
     title: JavaScript
+  - id: programming-language-python
+    title: Python
   - id: programming-language-objectivec
     title: Objective-C
 - id: programming-languages-speech-sdk
@@ -833,11 +780,11 @@ groups:
     title: JavaScript
   - id: programming-language-objectivec
     title: Objective-C
-  - id: programming-language-swift
-    title: Swift
   - id: programming-language-python
     title: Python
-- id: programming-languages-speech-services
+  - id: programming-language-swift
+    title: Swift
+- id: programming-languages-speech-sdk-cli
 # Owner: eur
   title: Programming languages
   prompt: Choose a programming language
@@ -854,13 +801,47 @@ groups:
     title: JavaScript
   - id: programming-language-objectivec
     title: Objective-C
-  - id: programming-language-swift
-    title: Swift
   - id: programming-language-python
     title: Python
+  - id: programming-language-swift
+    title: Swift
+  - id: programming-language-cli
+    title: CLI
+- id: programming-languages-speech-services
+# Owner: eur
+  title: Programming languages
+  prompt: Choose a programming language or tool
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-cpp
+    title: C++
+  - id: programming-language-go
+    title: Go
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-objectivec
+    title: Objective-C
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-swift
+    title: Swift
   - id: programming-language-cli
     title: CLI
   - id: programming-language-rest
+    title: REST
+- id: speech-studio-cli-rest
+# Owner: eur
+  title: Programming languages
+  prompt: Choose a tool or API
+  pivots:
+  - id: speech-studio
+    title: Speech Studio
+  - id: speech-cli
+    title: CLI
+  - id: rest-api
     title: REST
 - id: programming-languages-set-nineteen
   title: Programming languages
@@ -943,25 +924,6 @@ groups:
     title: Java
   - id: programming-language-javascript
     title: JavaScript
-  - id: programming-language-python
-    title: Python
-  - id: programming-language-spx
-    title: CLI
-- id: speech-full-stack-objectivec-swift
-# Owner: erhopf
-  title: Programming languages
-  prompt: Choose a programming language
-  pivots:
-  - id: programming-language-csharp
-    title: C#
-  - id: programming-language-cpp
-    title: C++
-  - id: programming-language-java
-    title: Java
-  - id: programming-language-javascript
-    title: JavaScript
-  - id: programming-languages-objectivec-swift
-    title: Objective-C/Swift
   - id: programming-language-python
     title: Python
   - id: programming-language-spx
@@ -1084,27 +1046,6 @@ groups:
     title: JavaScript
   - id: programming-language-go
     title: Go
-  - id: programming-language-python
-    title: Python
-  - id: programming-language-spx
-    title: CLI
-- id: speech-full-stack-go-objectivec-swift
-  # Owner: erhopf
-  title: Programming languages
-  prompt: Choose a programming language
-  pivots:
-  - id: programming-language-csharp
-    title: C#
-  - id: programming-language-cpp
-    title: C++
-  - id: programming-language-go
-    title: Go
-  - id: programming-language-java
-    title: Java
-  - id: programming-language-javascript
-    title: JavaScript
-  - id: programming-languages-objectivec-swift
-    title: Objective-C/Swift
   - id: programming-language-python
     title: Python
   - id: programming-language-spx
@@ -1627,16 +1568,16 @@ groups:
   title: Data Box shipping
   prompt: Choose shipping location
   pivots:
-  - id: north-america
-    title: North America
+  - id: americas
+    title: Americas
   - id: europe
     title: Europe
-  - id: asia-australia
-    title: Asia, Australia
+  - id: asia
+    title: Asia
   - id: africa
     title: Africa
-  - id: self-managed
-    title: Self-managed
+  - id: australia
+    title: Australia
 # Owner: timlt
 - id: iot-develop-toolset
   title: IoT Devices
@@ -1708,6 +1649,15 @@ groups:
     title: Azure Resource Manager (ARM) template
   - id: container-apps-bicep
     title: Bicep
+# Owner: cshoe
+- id: container-apps-config-types
+  title: Configuration method
+  prompt: Select a configuration method
+  pivots:
+  - id: aca-cli
+    title: Azure CLI
+  - id: aca-arm
+    title: Azure Resource Manager (ARM) template
 # Owner: cshoe
 - id: container-apps-registry-types
   title: Registry types
@@ -1791,6 +1741,15 @@ groups:
     title: Azure Resource Manager
   - id: aro-bicep
     title: Bicep   
+# Owner: cshoe
+- id: container-apps-image-build-type
+  title: Container build method
+  prompt: Choose how you want to build your containers
+  pivots:
+  - id: acr-remote
+    title: Cloud build
+  - id: docker-local
+    title: Local build (requires Docker)
  # Owner: rahulmehta
 - id: azure-red-hat-openshift-service-principal
   title: Azure CLI and Azure portal
@@ -1818,3 +1777,23 @@ groups:
     title: .Net
   - id: framework-spring
     title: Spring Framework
+# Owner: nicktrog
+- id: load-testing-config
+  title: Experience
+  prompt: Choose an experience
+  pivots:
+  - id: experience-azp
+    title: Azure portal
+  - id: experience-pipelines
+    title: Azure Pipelines
+  - id: experience-ghactions
+    title: GitHub Actions
+# Owner: bagol
+- id: on-prem-exp-d4iot
+  title: OT consoles
+  prompt: Choose an on-premises console
+  pivots:
+  - id: experience-sensor
+    title: OT sensor console
+  - id: experience-cm
+    title: On-premises management console

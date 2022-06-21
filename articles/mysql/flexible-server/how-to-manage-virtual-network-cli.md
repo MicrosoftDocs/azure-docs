@@ -4,6 +4,7 @@ description: Create and manage virtual networks for Azure Database for MySQL - F
 author: savjani
 ms.author: pariks
 ms.service: mysql
+ms.subservice: flexible-server
 ms.topic: how-to
 ms.date: 9/21/2020
 ---

@@ -160,8 +160,7 @@ A CSP can purchase an offer in Partner Center in their end customer's currency s
 | Vietnam                             | VN        | USD          | EUR, USD, VND |
 | Yemen                               | YE        | USD          | EUR, USD, YER |
 | Zambia                              | ZM        | USD          | EUR, USD, ZMW |
-| Zimbabwe                            | ZW        | USD          | EUR, USD|
-|   |   |   |
+| Zimbabwe                            | ZW        | USD          | EUR, USD |
 
 \* For customers in Brazil, the commercial marketplace through Cloud Solution Providers (CSP) uses USD.
 

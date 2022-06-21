@@ -2,11 +2,11 @@
 title: 'Default route injection in spoke VNets'
 description: Learn about how Azure Route Server injects routes in VNets.
 services: route-server
-author: erjosito
+author: halkazwini
 ms.service: route-server
 ms.topic: conceptual
 ms.date: 02/03/2022
-ms.author: jomore
+ms.author: halkazwini
 ---
 
 # Default route injection in spoke VNets

@@ -34,7 +34,7 @@ FIM baselines start by identifying characteristics of a known-good state for the
 
 
 |Policy Name                 | Registry Setting|
-|---------------------------------------|-------------|
+|----------------------------|-----------------|
 |Domain controller: Refuse machine account password changes| MACHINE\System\CurrentControlSet\Services  \Netlogon\Parameters\RefusePasswordChange|
 |Domain member: Digitally encrypt or sign secure channel data (always)|MACHINE\System\CurrentControlSet\Services  \Netlogon\Parameters\RequireSignOrSeal|
 |Domain member: Digitally encrypt secure channel data (when possible)|MACHINE\System\CurrentControlSet\Services  \Netlogon\Parameters\SealSecureChannel|
@@ -51,7 +51,7 @@ FIM baselines start by identifying characteristics of a known-good state for the
 
 To configure FIM to monitor registry baselines:
 
-1. In the **Add Windows Registry for Change Tracking** window, in the **Windows Registry Key** text box, enter the following registry key:
+- In the **Add Windows Registry for Change Tracking** window, in the **Windows Registry Key** text box, enter the following registry key:
 
     ```
     HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Netlogon\Parameters
@@ -73,36 +73,27 @@ In the example in the following figure,
 File Integrity Monitoring data resides within the Azure Log Analytics / ConfigurationChange table set.  
 
  1. Set a time range to retrieve a summary of changes by resource.
-In the following example, we are retrieving all changes in the last fourteen days in the categories of registry and files:
 
-    <code>
+    In the following example, we are retrieving all changes in the last fourteen days in the categories of registry and files:
 
-    > ConfigurationChange
-
-    > | where TimeGenerated > ago(14d)
-
-    > | where ConfigChangeType in ('Registry', 'Files')
-
-    > | summarize count() by Computer, ConfigChangeType
-
-    </code>
+    ```
+    ConfigurationChange
+    | where TimeGenerated > ago(14d)
+    | where ConfigChangeType in ('Registry', 'Files')
+    | summarize count() by Computer, ConfigChangeType
+    ```
 
 1. To view details of the registry changes:
 
     1. Remove **Files** from the **where** clause, 
     1. Remove the summarization line and replace it with an ordering clause:
 
-    <code>
-
-    > ConfigurationChange
-
-    > | where TimeGenerated > ago(14d)
-
-    > | where ConfigChangeType in ('Registry')
-
-    > | order by Computer, RegistryKey
-
-    </code>
+    ```
+    ConfigurationChange
+    | where TimeGenerated > ago(14d)
+    | where ConfigChangeType in ('Registry')
+    | order by Computer, RegistryKey
+    ```
 
 Reports can be exported to CSV for archival and/or channeled to a Power BI report.  
 

@@ -191,6 +191,8 @@ The following properties can be set for CORS:
 
 [**Create Index**](/rest/api/searchservice/create-index) creates the physical data structures (files and inverted indices) on your search service. Once the index is created, your ability to effect changes using [**Update Index**](/rest/api/searchservice/update-index) is contingent upon whether your modifications invalidate those physical structures. Most field attributes can't be changed once the field is created in your index.
 
+Alternatively, you can [create an index alias](search-how-to-alias.md) that serves as a stable reference in your application code. Instead of updating your code, you can update an index alias to point to newer index versions.
+
 To minimize churn in the design process, the following table describes which elements are fixed and flexible in the schema. Changing a fixed element requires an index rebuild, whereas flexible elements can be changed at any time without impacting the physical implementation. 
 
 | Element | Can be updated? |

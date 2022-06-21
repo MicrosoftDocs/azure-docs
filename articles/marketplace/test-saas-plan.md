@@ -83,7 +83,6 @@ _Query parameters:_
 | quantity | You can enter 1 for quantity as the test value |
 | dimension | Enter the name of the dimension defined in the metered plan |
 | planId | Enter the metered plan ID |
-|||
 
 ### View the response
 

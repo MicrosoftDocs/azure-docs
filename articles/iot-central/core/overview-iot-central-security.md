@@ -82,7 +82,7 @@ Managed identities are more secure because:
 
 To learn more, see:
 
-- [Export IoT data to cloud destinations using data export](howto-export-data.md)
+- [Export IoT data to cloud destinations using blob storage](howto-export-to-blob-storage.md)
 - [Configure a managed identity in the Azure portal](howto-manage-iot-central-from-portal.md#configure-a-managed-identity)
 - [Configure a managed identity using the Azure CLI](howto-manage-iot-central-from-cli.md#configure-a-managed-identity)
 

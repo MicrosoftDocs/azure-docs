@@ -7,7 +7,7 @@ ms.topic: article
 author: smannepalle
 ms.author: smannepalle
 ms.reviewer: sroy
-ms.date: 04/26/2022
+ms.date: 05/05/2022
 ---
 
 # Customers dashboard in commercial marketplace analytics
@@ -84,9 +84,11 @@ Submit feedback about the report/dashboard along with an optional screenshot.
 
 ### Month range
 
+A month range selection is at the top-right corner of each page.
+
 :::image type="content" source="media/customer-dashboard/month-range.png" alt-text="Screenshot showing the duration filter menu option on the Insights screen of the Customers dashboard.":::
 
-A month range selection is at the top-right corner of each page. Customize the output of graphs by selecting a month range based on the last **six** or **12** months, or by selecting a **custom** month range with a maximum duration of 12 months. The default month range is six months.
+ Customize the output of graphs by selecting a month range based on the last **six** or **12** months, or by selecting a **custom** month range with a maximum duration of 12 months. The default month range is six months.
 
 ### Customer page dashboard filters
 

@@ -13,7 +13,7 @@ ms.custom: [mqtt, 'Role: Cloud Development', 'Role: IoT Device']
 
 # Upload files with IoT Hub
 
-There are many scenarios where you can't easily map your device data into the relatively small device-to-cloud messages that IoT Hub accepts. For example, sending large media files or sending large telemetry batches either uploaded by intermittently connected devices or that have been aggregated and compressed to save bandwidth.
+There are many scenarios where you can't easily map your device data into the relatively small device-to-cloud messages that IoT Hub accepts. For example, sending large media files like video; or, sending large telemetry batches either uploaded by intermittently connected devices or that have been aggregated and compressed to save bandwidth.
 
 When you need to upload large files from a device, you can still use the security and reliability of IoT Hub. Instead of brokering messages through itself, however, IoT Hub acts as a dispatcher to an associated Azure storage account. IoT Hub can also provide notification to backend services when a device completes a file upload.
 
