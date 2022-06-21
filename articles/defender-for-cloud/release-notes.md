@@ -52,7 +52,7 @@ Using the multicloud onboarding experience, you can enable and enforce databases
 
 Learn how to protect and connect your [AWS environment](quickstart-onboard-aws.md) and your [GCP organization](quickstart-onboard-gcp.md) with Microsoft Defender for Cloud.
 
-## Alerts by resource group
+### Alerts by resource group
 
 The ability to filter, sort and group by resource group has been added to the Security alerts page. 
 
