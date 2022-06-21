@@ -58,9 +58,10 @@ Your certificate must be a wildcard certificate for the selected custom domain n
 1. Select the managed identity you've defined for your App Service Environment. You can use either a system assigned or user assigned managed identity. You'll be able to configure your managed identity if you haven't done so already directly from the custom domain suffix page using the "Add identity" option in the managed identity selection box.
 :::image type="content" source="./media/custom-domain-suffix/managed-identity-selection.png" alt-text="Configuration pane to select and update the managed identity for the App Service Environment.":::
 1. Select the certificate for the custom domain suffix.
-1. Select "Save" at the top of the page.
-
+1. Select "Save" at the top of the page. To see the latest configuration updates, you may need to refresh your browser page.
 :::image type="content" source="./media/custom-domain-suffix/custom-domain-suffix-portal-experience.png" alt-text="Overview of the custom domain suffix portal experience.":::
+1. It will take a few minutes for the custom domain suffix configuration to be set. Select "Refresh" at the top of the page to check the status. The banner will update with the latest progress. Once complete, the banner will state that the custom domain suffix is configured.
+:::image type="content" source="./media/custom-domain-suffix/custom-domain-suffix-success.png" alt-text="Sample custom domain suffix success page.":::
 
 ::: zone-end
 
