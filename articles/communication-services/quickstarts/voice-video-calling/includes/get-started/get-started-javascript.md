@@ -18,12 +18,14 @@ You can download the sample app from [GitHub](https://github.com/Azure-Samples/c
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - [Node.js](https://nodejs.org/) active Long Term Support(LTS) versions are recommended.
-- An active Communication Services resource. [Create a Communication Services resource](../../../create-communication-resource.md).
-- A User Access Token to instantiate the call client. Learn how to [create and manage user access tokens](../../../access-tokens.md). You can also use the Azure CLI to create a user and an access token.
+- An active Communication Services resource. [Create a Communication Services resource](../../../create-communication-resource.md). You'll need to **record your connection string** for this quickstart.
+- A User Access Token to instantiate the call client. Learn how to [create and manage user access tokens](../../../access-tokens.md). You can also use the Azure CLI and run the command below with your connection string to create a user and an access token.
 
   ```azurecli-interactive
-  az communication identity issue-access-token --scope voip
+  az communication identity issue-access-token --scope voip --connection-string "yourConnectionString"
   ```
+
+  For details, see [Use Azure CLI to Create and Manage Access Tokens](../../access-tokens.md?pivots=platform-azcli).
 
 [!INCLUDE [Calling with JavaScript](./get-started-javascript-setup.md)]
 

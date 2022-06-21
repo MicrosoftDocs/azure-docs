@@ -12,20 +12,19 @@ ms.custom: include file
 ms.author: rifox
 ---
 
-## Sample Code
-Find the finalized code for this quickstart on [GitHub](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/add-chat).
-
 ## Prerequisites
 Before you get started, make sure to:
 
 - Create an Azure account with an active subscription. For details, see [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Install [Node.js](https://nodejs.org/en/download/) Active LTS and Maintenance LTS versions.
-- Create an Azure Communication Services resource. For details, see [Create an Azure Communication Services resource](../../create-communication-resource.md). You'll need to **record your resource endpoint** for this quickstart.
-- Create *three* Azure Communication Services Users and issue them a user access token [User Access Token](../../access-tokens.md). Be sure to set the scope to **chat**, and **note the token string as well as the userId string**. The full demo creates a thread with two initial participants and then adds a third participant to the thread. You can also use the Azure CLI to create a user and an access token.
+- Create an Azure Communication Services resource. For details, see [Create an Azure Communication Services resource](../../create-communication-resource.md). You'll need to **record your resource endpoint and connection string** for this quickstart.
+- Create *three* Azure Communication Services Users and issue them a [User Access Token](../../access-tokens.md). Be sure to set the scope to **chat**, and **note the token string as well as the user_id string**. The full demo creates a thread with two initial participants and then adds a third participant to the thread. You can also use the Azure CLI and run the command below with your connection string to create a user and an access token.
 
   ```azurecli-interactive
-  az communication identity issue-access-token --scope chat
+  az communication identity issue-access-token --scope chat --connection-string "yourConnectionString"
   ```
+
+  For details, see [Use Azure CLI to Create and Manage Access Tokens](../../access-tokens.md?pivots=platform-azcli).
 
 ## Setting up
 
@@ -62,33 +61,11 @@ The `--save` option lists the library as a dependency in your **package.json** f
 
 ### Set up the app framework
 
-This quickstart uses webpack to bundle the application assets. Run the following command to install the webpack, webpack-cli and webpack-dev-server npm packages and list them as development dependencies in your **package.json**:
+This quickstart uses parcel to bundle the application assets. Run the following command to install it and list it as a development dependency in your **package.json**:
 
 ```console
-npm install webpack webpack-cli webpack-dev-server --save-dev
+npm install parcel --save-dev
 ```
-
-Create a `webpack.config.js` file in the root directory. Copy the following configuration into this file:
-
-```
-module.exports = {
-  entry: "./client.js",
-  output: {
-    filename: "bundle.js"
-  },
-  devtool: "inline-source-map",
-  mode: "development"
-}
-```
-
-Add a `start` script to your `package.json`, we'll use this for running the app. Inside the `scripts` section of `package.json` add the following:
-
-```
-"scripts": {
-  "start": "webpack serve --config ./webpack.config.js"
-}
-```
-
 Create an **index.html** file in the root directory of your project. We'll use this file as a template to add chat capability using the Azure Communication Chat SDK for JavaScript.
 
 ```html
@@ -100,7 +77,7 @@ Create an **index.html** file in the root directory of your project. We'll use t
   <body>
     <h4>Azure Communication Services</h4>
     <h1>Chat Quickstart</h1>
-    <script src="./bundle.js"></script>
+    <script src="./client.js" type="module"></script>
   </body>
 </html>
 ```
@@ -121,7 +98,7 @@ import { ChatClient } from '@azure/communication-chat';
 import { AzureCommunicationTokenCredential } from '@azure/communication-common';
 
 // Your unique Azure Communication service endpoint
-let endpointUrl = 'https://<RESOURCE_NAME>.communication.azure.com';
+let endpointUrl = '<replace with your resource endpoint>';
 // The user access token generated as part of the pre-requisites
 let userAccessToken = '<USER_ACCESS_TOKEN>';
 
@@ -134,12 +111,12 @@ console.log('Azure Communication Chat client created!');
 
 ### Run the code
 
-Run the following command to bundle application host in on a local webserver:
+Run the following command to run your application:
 ```console
-npm run start
+npx parcel index.html
 ```
-Open your browser and navigate to http://localhost:8080/.
-In the developer tools console within your browser you should see following:
+
+Open your browser and navigate to http://localhost:1234/. In the developer tools console within your browser you should see following:
 
 ```console
 Azure Communication Chat client created!
@@ -372,3 +349,6 @@ chatClient.on('realTimeNotificationDisconnected', () => {
   // your code here
 });
 ```
+
+## Sample Code
+Find the finalized code for this quickstart on [GitHub](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/add-chat).
