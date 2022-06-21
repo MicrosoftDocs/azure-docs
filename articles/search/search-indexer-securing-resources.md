@@ -13,7 +13,7 @@ ms.date: 06/20/2022
 
 # Indexer access to content protected by Azure network security
 
-If your search application requirements include an Azure virtual network, this article explains how a search indexer can access content that's protected by network security. It describes supported scenarios and options. Because Azure Storage is used for both data access and persistent storage, this article also covers considerations that are specific to search and storage connectivity.
+If your search application requirements include an Azure virtual network, this article explains how a search indexer can access content that's protected by network security. It describes the outbound traffic patterns and indexer execution environments. It also covers the network protections supported by Cognitive Search and factors that might influence feature adoption. Finally, because Azure Storage is used for both data access and persistent storage, this article also covers considerations that are specific to search and storage connectivity.
 
 Looking for step-by-step instructions instead? See [How to configure firewall rules to allow indexer access](search-indexer-howto-access-ip-restricted.md) or [How to make outbound connections through a private endpoint](search-indexer-howto-access-private.md).
 
@@ -55,26 +55,6 @@ Your Azure resources could be protected using any number of the network isolatio
 | SQL Server on Azure virtual machines | Supported | N/A |
 | SQL Managed Instance | Supported | N/A |
 | Azure Functions | Supported | Supported, only for certain tiers of Azure functions |
-
-## Access to a network-protected storage account
-
-A search service stores indexes and synonym lists. For other features that require storage, Cognitive Search takes a dependency on Azure Storage. Enrichment caching, debug sessions, and knowledge stores fall into this category. The location of each service, and any network protections in place for storage, will determine your data access strategy.
-
-### Same-region services
-
-In Azure Storage, access through a firewall requires that the request originates from a different region. If Azure Storage and Azure Cognitive Search are in the same region, you can bypass the IP restrictions on the storage account by accessing data under the system identity of the search service. 
-
-There are two options for supporting data access using the system identity:
-
-- Configure search to run as a [trusted service](search-indexer-howto-access-trusted-service-exception.md) and use the [trusted service exception](../storage/common/storage-network-security.md#trusted-access-based-on-a-managed-identity) in Azure Storage.
-
-- Configure a [resource instance rule](../storage/common/storage-network-security.md#grant-access-from-azure-resource-instances) in Azure Storage that admits inbound requests from an Azure resource.
-
-The above options depend on Azure Active Directory for authentication, which means that the connection must be made with an Azure AD login. Currently, only a Cognitive Search [system-assigned managed identity](search-howto-managed-identities-data-sources.md#create-a-system-managed-identity) is supported for same-region connections through a firewall.
-
-### Services in different regions
-
-When search and storage are in different regions, you can use the previously mentioned options or set up IP rules that admit requests from your service. Depending on the workload, you might need to set up rules for multiple execution environments as described in the next section.
 
 ## Indexer execution environment
 
@@ -180,6 +160,29 @@ Azure Cognitive Search will validate that callers of the private endpoint have a
 
 If the private endpoint isn't approved, or if the indexer didn't use the private endpoint connection, you'll find a `transientFailure` error message in indexer execution history.
 
+## Access to a network-protected storage account
+
+A search service stores indexes and synonym lists. For other features that require storage, Cognitive Search takes a dependency on Azure Storage. Enrichment caching, debug sessions, and knowledge stores fall into this category. The location of each service, and any network protections in place for storage, will determine your data access strategy.
+
+### Same-region services
+
+In Azure Storage, access through a firewall requires that the request originates from a different region. If Azure Storage and Azure Cognitive Search are in the same region, you can bypass the IP restrictions on the storage account by accessing data under the system identity of the search service. 
+
+There are two options for supporting data access using the system identity:
+
+- Configure search to run as a [trusted service](search-indexer-howto-access-trusted-service-exception.md) and use the [trusted service exception](../storage/common/storage-network-security.md#trusted-access-based-on-a-managed-identity) in Azure Storage.
+
+- Configure a [resource instance rule](../storage/common/storage-network-security.md#grant-access-from-azure-resource-instances) in Azure Storage that admits inbound requests from an Azure resource.
+
+The above options depend on Azure Active Directory for authentication, which means that the connection must be made with an Azure AD login. Currently, only a Cognitive Search [system-assigned managed identity](search-howto-managed-identities-data-sources.md#create-a-system-managed-identity) is supported for same-region connections through a firewall.
+
+### Services in different regions
+
+When search and storage are in different regions, you can use the previously mentioned options or set up IP rules that admit requests from your service. Depending on the workload, you might need to set up rules for multiple execution environments as described in the next section.
+
 ## Next steps
 
+Now that you're familiar with indexer data access options for solutions deployed in an Azure virtual network, review either of the following how-to articles as your next step:
+
 - [How to make indexer connections to a private endpoint](search-indexer-howto-access-private.md)
+- [How to make indexer connections through an IP firewall](search-indexer-howto-access-ip-restricted.md)
