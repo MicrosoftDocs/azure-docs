@@ -88,11 +88,11 @@ The core operation of the Translator service is translating text. In this quicks
 
 1. Right-click on your translator_quickstart project and select **Manage NuGet Packages...** .
 
-    :::image type="content" source="media/quickstarts/manage-nuget.png" alt-text="{Screenshot of the NuGet package search box.}":::
+    :::image type="content" source="media/quickstarts/manage-nuget.png" alt-text="Screenshot of the NuGet package search box.":::
 
 1. Select the Browse tab and type Newtonsoft.json.
 
-    :::image type="content" source="media/quickstarts/newtonsoft.png" alt-text="{Screenshot of the NuGet package install window.}":::
+    :::image type="content" source="media/quickstarts/newtonsoft.png" alt-text="Screenshot of the NuGet package install window.":::
 
 1. Select install from the right package manager window to add the package to your project.
 
@@ -317,7 +317,7 @@ Once you've added a code sample to your application, your Go program can be exec
 
    You'll create the following directory structure:
 
-    :::image type="content" source="media/quickstarts/java-directories-2.png" alt-text="Screenshot: Java directory structure":::
+    :::image type="content" source="media/quickstarts/java-directories-2.png" alt-text="Screenshot: Java directory structure.":::
 
 1. Navigate to the `java` directory and create a file named **`TranslatorText.java`**.
 
@@ -405,9 +405,9 @@ Once you've added a code sample to your application, navigate back to your main 
 
 1. If you haven't done so already, install the latest version of [Node.js](https://nodejs.org/en/download/). Node Package Manager (npm) is included with the Node.js installation.
 
-> [!TIP]
->
-> If you're new to Node.js, try the [**Introduction to Node.js**](/learn/modules/intro-to-nodejs/) Microsoft Learn module.
+    > [!TIP]
+    >
+    > If you're new to Node.js, try the [**Introduction to Node.js**](/learn/modules/intro-to-nodejs/) Microsoft Learn module.
 
 1. In a console window (such as cmd, PowerShell, or Bash), create and navigate to a new directory for your app named `translator-app`.
 
@@ -499,9 +499,9 @@ Once you've added the code sample to your application, run your program:
 
 1. If you haven't done so already, install the latest version of [Python 3.x](https://www.python.org/downloads/). The Python installer package (pip) is included with the Python installation.
 
-> [!TIP]
->
-> If you're new to Python, try the [**Introduction to Python**](/learn/paths/beginner-python/) Microsoft Learn module.
+    > [!TIP]
+    >
+    > If you're new to Python, try the [**Introduction to Python**](/learn/paths/beginner-python/) Microsoft Learn module.
 
 1. Open a terminal window and use pip to install the Requests library and uuid0 package:
 
@@ -509,8 +509,8 @@ Once you've added the code sample to your application, run your program:
        pip install requests uuid
     ```
 
-> [!NOTE]
-> We will also use a Python built-in package called json. It's used to work with JSON data.
+    > [!NOTE]
+    > We will also use a Python built-in package called json. It's used to work with JSON data.
 
 1. Create a new Python file called **translator-app.py** in your preferred editor or IDE.
 
