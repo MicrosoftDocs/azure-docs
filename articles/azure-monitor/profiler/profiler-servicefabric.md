@@ -30,6 +30,8 @@ In this article, you will:
 
 1. Locate `WadCfg` in the [Azure Diagnostics](../agents/diagnostics-extension-overview.md) extension in the deployment template file.
 
+   :::image type="content" source="./media/profiler-servicefabric/search-wadcfg.png" alt-text="Screenshot of where to place the Application Insights instrumentation key." :::
+
 1. Add the following `SinksConfig` section as a child element of `WadCfg`. Replace the `ApplicationInsightsProfiler` property value with your own Application Insights instrumentation key:  
 
   ```json
