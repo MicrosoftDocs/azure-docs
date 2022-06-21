@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: Learn how to set up event routes from Azure Digital Twins to Azure Time Series Insights.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 02/23/2022
+ms.date: 06/21/2022
 ms.topic: how-to
 ms.service: digital-twins
 
