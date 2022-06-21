@@ -92,6 +92,9 @@ To limit the view to Azure Monitor charges, [create a filter](../cost-management
 - Log Analytics
 - Insight and Analytics
 
+>[!NOTE]
+>Usage for Azure Monitor Logs (Log Analytics) can be billed with the **Log Analytics** service (for Pay-as-you-go data ingestion and data retention), or with the **Azure Monitor** service (for Commitment Tiers, Basic Logs and Data Export) or with the **Insight and Analytics** service when using the legacy Per Node pricing tier.  Except for a small set of legacy resources, Application Insights data ingestion and retention are billed as the **Log Analytics** service.
+
 Other services such as Microsoft Defender for Cloud and Microsoft Sentinel also bill their usage against Log Analytics workspace resources, so you might want to add them to your filter. See [Common cost analysis uses](../cost-management-billing/costs/cost-analysis-common-uses.md) for information on how to use this view.
 
 ![Screenshot that shows Cost Management with cost information.](./media/usage-estimated-costs/010.png)
