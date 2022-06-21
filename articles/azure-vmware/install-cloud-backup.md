@@ -85,7 +85,7 @@ Before you initiate the upgrade, you must:
 
 ## Change vCenter account password 
 
-If you need to reset the vCenter account:
+You can execute this command to reset the vCenter account password:
 
 1. Select **Run command** > **Packages** > **NetApp.CBS.AVS** > **Invoke-ResetNetAppCBSApplianceVCenterPasswordA**.
 
@@ -95,5 +95,5 @@ If you need to reset the vCenter account:
 
 ## Next steps
 
-* [Back up Azure NetApp Files datastores and VMs using Cloud Backup](backup-azure-netapp-files-datastores-vms.md) 
-* [Restore VMs using Cloud Backup](restore-azure-netapp-files-vms.md)
+* [Back up Azure NetApp Files datastores and VMs using Cloud Backup for Virtual Machines](backup-azure-netapp-files-datastores-vms.md) 
+* [Restore VMs using Cloud Backup for Virtual Machines](restore-azure-netapp-files-vms.md)

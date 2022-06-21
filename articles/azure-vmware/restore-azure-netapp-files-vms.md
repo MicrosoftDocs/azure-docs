@@ -32,7 +32,6 @@ You must have created a backup of the VM using the Cloud Backup for Virtual Mach
     The VM that you want to restore must not be in a state of vMotion or Storage vMotion.
 * High Availability (HA) configuration errors <br>
     Ensure there are no HA configuration errors displayed on the vCenter ESXi Host Summary screen before restoring backups to a different location.
-* Restoring to a different location
 
 ### Considerations for restoring VMs from backups
 
@@ -52,7 +51,7 @@ You must have created a backup of the VM using the Cloud Backup for Virtual Mach
 1. On the **Select Scope** page, select **Entire Virtual Machine** in the **Restore scope** field, then select **Restore location**, and then enter the destination ESXi information where the backup should be mounted.
 1. When restoring partial backups, the restore operation skips the Select Scope page.
 1. Enable **Restart VM** checkbox if you want the VM to be powered on after the restore operation.
-1. On the **Select Location** page, select the location for the restored datastore.
+1. On the **Select Location** page, select the location for the primary or secondary location.
 1. Review the **Summary** page and then select **Finish**.
 1. **Optional:** Monitor the operation progress by clicking Recent Tasks at the bottom of the screen.
 1. Although the VMs are restored, they are not automatically added to their former resource groups. Therefore, you must manually add the restored VMs to the appropriate resource groups.
@@ -124,3 +123,17 @@ You can use the maintenance console to restore a specific backup of the MySQL da
 1. At the prompt “Restore using the most recent backup,” enter **n**.
 1. At the prompt “Backup to restore from,” enter the backup name, and then select **Enter**.
     The selected backup MySQL database will be restored to its original location.
+
+If you need to change the MySQL database backup configuration, you can modify:
+* The backup location
+* The number of backups kept
+* The time of day the backup is recorded
+
+1. Open a maintenance console window.
+1. From the main menu, enter option **1) Application Configuration**.
+1. From the Application Configuration menu, enter option **6) MySQL backup and restore**.
+1. From the MySQL Backup & Restore Configuration, menu, enter option **1) Configure MySQL backup**.
+
+
+    :::image type="content" source="./media/cloud-backup/mysql-backup-configuration.png" alt-text="The maintenance window shows menu options: 1. Configure MySql Backup. 2. List MySQL backups. 3. Create MySQL backup. 4. Restore MySQL backup. b. Back. x. Exit. A prompt reads Enter your choice. The user has entered the number one. There are then options to enter backup location, the number of backups to keep, and the time of backup, which can be entered in the format of hh:mm (am/pm)." lightbox="./media/cloud-backup/mysql-backup-configuration.png":::
+
