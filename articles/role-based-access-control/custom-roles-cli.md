@@ -55,7 +55,7 @@ az role definition list --custom-role-only true --output json --query '[].{roleN
 
 ## List a custom role definition
 
-To list a custom role definition, use [az role definition list](/cli/azure/role/definition#az-role-definition-list). This is the same command you would use for a built-in role.
+To list a custom role definition, use [az role definition list](/cli/azure/role/definition#az-role-definition-list). This command is the same command you would use for a built-in role.
 
 ```azurecli
 az role definition list --name {roleName}
