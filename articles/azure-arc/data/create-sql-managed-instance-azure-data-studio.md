@@ -37,9 +37,9 @@ This document demonstrates how to install Azure SQL Managed Instance - Azure Arc
 
     |Setting    | Description | Required or optional
     |-------|-------|-------|
-    |**Target Azure Controller** | Name of the Azure Arc data controller | Required |
-    |**Instance name** | Managed instance name | Required |
-    |**Username** | System administrator user name | Required |
+    |**Target Azure Controller** | Name of the Azure Arc data controller. | Required |
+    |**Instance name** | Managed instance name. | Required |
+    |**Username** | System administrator user name. | Required |
     |**System administrator password** | SQL authentication password for the managed instance. The passwords must be at least eight characters long and contain characters from three of the following four categories: Latin uppercase letters, Latin lowercase letters, numbers, and non-alphanumeric characters.<br/></br> Confirm the password. | Required |
     |**Service tier** | Specify the appropriate service tier: Business Critical or General Purpose. | Required |
     |**I already have a SQL Server License** | Select if this managed instance will use a license from your organization.  | Optional |
@@ -52,9 +52,9 @@ This document demonstrates how to install Azure SQL Managed Instance - Azure Arc
     |**Storage Class (Backups)** | Select from the list. Specify a ReadWriteMany (RWX) capable storage class for backups. Learn more about [access modes](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#access-modes). If this storage class isn't RWX capable, the deployment may not succeed. | Required |
     |**Volume Size in Gi (Backups)** | The size of the storage volume to be used for database backups in gibibytes. | Required |
     |**Cores Request** | The number of cores to request for the managed instance. Integer. | Optional |
-    |**Cores Limit** | The request for the capacity for the managed instance in gigabytes. Integer | Optional |
-    |**Memory Request** | Select from the list | Required |
-    |**Point in time retention (days)** | How long you want to keep your point in time backups. | Optional |
+    |**Cores Limit** | The request for the capacity for the managed instance in gigabytes. Integer. | Optional |
+    |**Memory Request** | Select from the list. | Required |
+    |**Point in time retention (days)** | The number of days to keep your point in time backups. | Optional |
 
    After you've set all of the required values, Azure Data Studio enables the **Deploy** button. If this control is disabled, verify that you have all required settings configured.
 
