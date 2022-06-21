@@ -8,7 +8,7 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 layout: LandingPage
-ms.date: 01/25/2022
+ms.date: 06/21/2022
 
 ---
 
@@ -385,7 +385,9 @@ Extract searchable data and metadata from a Snowflake database and populate an i
 
 ## Data sources from our Partners
 
-Data source connectors are also provided by third-party Microsoft partners. See our [Terms of Use statement](search-data-sources-terms-of-use.md) and check the partner licensing and usage instructions before using a data source.
+Data source connectors are also provided by third-party Microsoft partners. See our [Terms of Use statement](search-data-sources-terms-of-use.md) and check the partner licensing and usage instructions before using a data source. 
+
+The following data source connectors are implemented by each of the partners listed below and they are supported directly by the respective partner. These are not part of Cognitive Search built-in indexers.
 
 :::row:::
 :::column span="":::
