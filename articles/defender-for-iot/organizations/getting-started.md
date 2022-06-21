@@ -47,7 +47,7 @@ If you're using a legacy version of the sensor traffic and are connecting throug
 
 If you're working with an OT network, we recommend that you identify system requirements and plan your system architecture before you start, even if you plan to start with a trial subscription.
 
-If you're setting up network monitoring for enterprise IoT systems, you can skip directly to [Add Defender for IoT to a subscription](#add-defender-for-iot-to-a-subscription).
+If you're setting up network monitoring for enterprise IoT systems, you can skip directly to [Add a Defender for IoT plan to an Azure subscription](#add-a-defender-for-iot-plan-to-an-azure-subscription).
 
 **When working with an OT network**:
 
@@ -83,7 +83,7 @@ This procedure describes how to add a Defender for IoT plan to an Azure subscrip
 
     - **Subscription**. Select the subscription where you would like to add a plan.
     - Toggle on the **OT - Operational / ICS networks** and/or **EIoT - Enterprise IoT for corporate networks**  options as needed for your network types.
-    - **Price plan**. Select a monthly or annual commitment, or a [trial](#about-defender-for-iot-trials). Microsoft Defender for IoT provides a 30-day free trial for the first 1,000 committed devices for evaluation purposes.
+    - **Price plan**. Select a monthly or annual commitment, or a [trial](how-to-manage-subscriptions.md#about-defender-for-iot-trials). Microsoft Defender for IoT provides a 30-day free trial for the first 1,000 committed devices for evaluation purposes.
     
         For more information, see the [Microsoft Defender for IoT pricing page](https://azure.microsoft.com/pricing/details/iot-defender/).
 
