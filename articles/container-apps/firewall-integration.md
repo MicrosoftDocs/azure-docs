@@ -47,4 +47,5 @@ As the following rules require allowing all IPs, use a Firewall solution to lock
 | Any | \* | Infrastructure subnet address space | Allow communication between IPs in the infrastructure subnet. This address is passed as a parameter when you create an environment. For example, `10.0.0.0/21`. |
 
 ## Firewall configuration
+
 Using custom user-defined routes (UDRs) or ExpressRoutes, other than with UDRs of selected destinations that you own, are not yet supported for Container App Environments with VNETs. 
