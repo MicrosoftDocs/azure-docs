@@ -5,7 +5,7 @@ author: stevenmatthew
 ms.author: shaas
 ms.service: storage-mover
 ms.topic: conceptual
-ms.date: 06/14/2022
+ms.date: 06/21/2022
 ms.custom: template-concept
 ---
 
