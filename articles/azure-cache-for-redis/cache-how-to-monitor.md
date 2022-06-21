@@ -28,17 +28,25 @@ For more information about the different `INFO` values used for each cache metri
 
 ## View cache metrics
 
-To view cache metrics, [find your cache](cache-configure.md#configure-azure-cache-for-redis-settings) in the [Azure portal](https://portal.azure.com). Azure Cache for Redis provides some built-in charts under **Overview** in the Resource menu.
+The Resource menu shows some simple metrics in two places: **Overview** and **Monitoring**.
+
+To view basic cache metrics, [find your cache](cache-configure.md#configure-azure-cache-for-redis-settings) in the [Azure portal](https://portal.azure.com). On the left, select **Overview**. You see the following pre-configured monitoring charts: **Memory Usage**, and **Redis Server Load**. These are useful summaries that allow you to take a quick look at the state of your cache.
 
 :::image type="content" source="./media/cache-how-to-monitor/cache-overview-metrics.png" alt-text="Screen showing two charts: Memory Usage and Redis Server Load.":::
 
-You can see more metrics under **Monitoring** on the left. A groups of ready-made charts are available under **Insights**. Select **Metrics** to see, create, or customize a chart by adding metrics, removing metrics, and changing the reporting interval.
+For more in depth information, you can see more metrics under **Monitoring** on the left. Select **Metrics** to see, create, or customize a chart by adding metrics, removing metrics, and changing the reporting interval. 
 
 :::image type="content" source="media/cache-how-to-monitor/cache-monitor-metrics.png" alt-text="Screenshot of monitoring metrics selected in the Resource menu.":::
 
-## View charts under **Overview**
+The other options under **Monitoring**, provide other ways to view an and use the metrics for your caches.
 
-On the left, select **Overview**. You see following pre-configured monitoring charts: **Memory Usage**, and **Redis Server Load**. To see more charts or create our own, see **Monitoring** in the Resource menu.
+|Seletion  | Description  |
+|---------|---------|
+| **Insights**   |         |
+| **Alerts**     |         |
+| **Metrics**     |         |
+| **Advisor Recommendations** |         |
+| **Workbooks**     |    Organize your metrics into groups that provide the information in coherent way.     |
 
 ## Use **Insights** from **Monitoring** for predefined charts
 
