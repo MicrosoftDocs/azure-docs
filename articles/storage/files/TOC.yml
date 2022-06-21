@@ -264,8 +264,6 @@
     href: /azure/templates/microsoft.storage/allversions
   - name: Samples
     href: https://azure.microsoft.com/documentation/samples/?service=storage&term=file
-  - name: Reference Architectures
-    href: azure-files-reference-architectures.md
 - name: Resources
   items:
   - name: Azure updates
