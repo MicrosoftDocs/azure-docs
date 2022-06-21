@@ -40183,6 +40183,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/app-service/environment/overview-zone-redundancy.md",
+      "redirect_url": "/azure/availability-zones/migrate-app-service-environment",
+      "redirect_document_id": true
+    },
+    {
       "source_path_from_root": "/articles/app-service/how-to-zone-redundancy.md",
       "redirect_url": "/azure/availability-zones/migrate-app-service",
       "redirect_document_id": true
