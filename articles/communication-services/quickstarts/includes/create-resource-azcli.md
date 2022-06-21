@@ -23,7 +23,7 @@ az communication create --name "<communicationName>" --location "Global" --data-
 
 If you would like to select a specific subscription you can also specify the ```--subscription``` flag and provide the subscription ID.
 ```azurepowershell-interactive
-az communication create --name "<communicationName>" --location "Global" --data-location "United States" --resource-group "<resourceGroup> --subscription "<subscriptionID>"
+az communication create --name "<communicationName>" --location "Global" --data-location "United States" --resource-group "<resourceGroup> --subscription "<subscriptionId>"
 ```
 
 You can configure your Communication Services resource with the following options:
@@ -41,11 +41,11 @@ To add tags to your Communication Services resource, run the following commands.
 ```azurepowershell-interactive
 az communication update --name "<communicationName>" --tags newTag="newVal1" --resource-group "<resourceGroup>"
 
-az communication update --name "<communicationName>" --tags newTag="newVal2" --resource-group "<resourceGroup>" --subscription "<subscriptionID>"
+az communication update --name "<communicationName>" --tags newTag="newVal2" --resource-group "<resourceGroup>" --subscription "<subscriptionId>"
 
 az communication show --name "<communicationName>" --resource-group "<resourceGroup>"
 
-az communication show --name "<communicationName>" --resource-group "<resourceGroup>" --subscription "<subscriptionID>"
+az communication show --name "<communicationName>" --resource-group "<resourceGroup>" --subscription "<subscriptionId>"
 ```
 
 For information on additional commands, see [az communication](/cli/azure/communication).

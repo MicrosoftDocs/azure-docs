@@ -67,9 +67,9 @@ az communication list-key --name "<communicationName>" --resource-group "<resour
 
 If you would like to select a specific subscription you can also specify the ```--subscription``` flag and provide the subscription ID.
 ```azurepowershell-interactive
-az communication list --resource-group  "resourceGroup>"  --subscription "<subscriptionID>"
+az communication list --resource-group  "resourceGroup>"  --subscription "<subscriptionId>"
 
-az communication list-key --name "<communicationName>" --resource-group "resourceGroup>" --subscription "<subscriptionID>"
+az communication list-key --name "<communicationName>" --resource-group "resourceGroup>" --subscription "<subscriptionId>"
 ```
 
 ## Store your connection string
@@ -90,7 +90,7 @@ To configure an environment variable, open a console window and select your oper
 Open a console window and enter the following command:
 
 ```console
-setx COMMUNICATION_SERVICES_CONNECTION_STRING "<yourconnectionstring>"
+setx COMMUNICATION_SERVICES_CONNECTION_STRING "<yourConnectionString>"
 ```
 
 After you add the environment variable, you may need to restart any running programs that will need to read the environment variable, including the console window. For example, if you are using Visual Studio as your editor, restart Visual Studio before running the example.
@@ -100,7 +100,7 @@ After you add the environment variable, you may need to restart any running prog
 Edit your **.zshrc**, and add the environment variable:
 
 ```bash
-export COMMUNICATION_SERVICES_CONNECTION_STRING="<yourconnectionstring>"
+export COMMUNICATION_SERVICES_CONNECTION_STRING="<yourConnectionString>"
 ```
 
 After you add the environment variable, run `source ~/.zshrc` from your console window to make the changes effective. If you created the environment variable with your IDE open, you may need to close and reopen the editor, IDE, or shell in order to access the variable.
@@ -110,7 +110,7 @@ After you add the environment variable, run `source ~/.zshrc` from your console 
 Edit your **.bash_profile**, and add the environment variable:
 
 ```bash
-export COMMUNICATION_SERVICES_CONNECTION_STRING="<yourconnectionstring>"
+export COMMUNICATION_SERVICES_CONNECTION_STRING="<yourConnectionString>"
 ```
 
 After you add the environment variable, run `source ~/.bash_profile` from your console window to make the changes effective. If you created the environment variable with your IDE open, you may need to close and reopen the editor, IDE, or shell in order to access the variable.

@@ -65,7 +65,7 @@ To configure an environment variable, open a terminal or command window and sele
 Open a console window and enter the following command:
 
 ```console
-setx AZURE_COMMUNICATION_CONNECTION_STRING "<yourconnectionstring>"
+setx AZURE_COMMUNICATION_CONNECTION_STRING "<yourConnectionString>"
 ```
 
 After you add the environment variable, you may need to restart any running programs that will need to read the environment variable, including the console window. For example, if you're using Visual Studio as your editor, restart Visual Studio before running the example.
@@ -75,7 +75,7 @@ After you add the environment variable, you may need to restart any running prog
 Edit your **.zshrc**, and add the environment variable:
 
 ```bash
-export AZURE_COMMUNICATION_CONNECTION_STRING="<yourconnectionstring>"
+export AZURE_COMMUNICATION_CONNECTION_STRING="<yourConnectionString>"
 ```
 
 After you add the environment variable, run `source ~/.zshrc` from your console window to make the changes effective. If you created the environment variable with your IDE open, you may need to close and reopen the editor, IDE, or shell in order to access the variable.
@@ -85,7 +85,7 @@ After you add the environment variable, run `source ~/.zshrc` from your console 
 Edit your **.bash_profile**, and add the environment variable:
 
 ```bash
-export AZURE_COMMUNICATION_CONNECTION_STRING="<yourconnectionstring>"
+export AZURE_COMMUNICATION_CONNECTION_STRING="<yourConnectionString>"
 ```
 
 After you add the environment variable, run `source ~/.bash_profile` from your console window to make the changes effective. If you created the environment variable with your IDE open, you may need to close and reopen the editor, IDE, or shell in order to access the variable.
@@ -105,7 +105,7 @@ az account show
 If you need to change subscription, you can do that by running the following command.
 
 ```azurecli-interactive
-az account set --subscription <yoursubcriptionid>
+az account set --subscription "<yourSubcriptionId>"
 ```
 
 You need to replace `<yoursubscriptionid>` with your actual subscription ID, which you can find in the Subscriptions section in Azure Portal.
@@ -115,7 +115,7 @@ You need to replace `<yoursubscriptionid>` with your actual subscription ID, whi
 > [!NOTE]
 > The connection string environment variable must be set to try out operations in the embedded Docs Shell. 
 > ```bash
-> export AZURE_COMMUNICATION_CONNECTION_STRING="<yourconnectionstring>"
+> export AZURE_COMMUNICATION_CONNECTION_STRING="<yourConnectionString>"
 > ```
 
 ## Send a 1:1 SMS message
@@ -123,7 +123,7 @@ You need to replace `<yoursubscriptionid>` with your actual subscription ID, whi
 To send an SMS message to a list of recipients, call the `send-sms` method from the sms module with a single recipient phone number. 
 
 ```azurecli-interactive
-az communication sms send-sms --sender "from-phone-number" --recipient "to-phone-number" --message "Hello world via SMS for Azure CLI!"
+az communication sms send-sms --sender "<from-phone-number>" --recipient "<to-phone-number>" --message "Hello world via SMS for Azure CLI!"
 ```
 
 Make these replacements in the code:
@@ -139,7 +139,7 @@ Make these replacements in the code:
 To send an SMS message to a single recipient, call the `send-sms` method from the sms module with multiple recipient phone numbers. 
 
 ```azurecli-interactive
-az communication sms send-sms --sender "from-phone-number" --recipient "to-phone-number-1" "to-phone-number-2" "to-phone-number-3" --message "Hello world via SMS for Azure CLI!"
+az communication sms send-sms --sender "<from-phone-number>" --recipient "<to-phone-number-1>" "<to-phone-number-2>" "<to-phone-number-3>" --message "Hello world via SMS for Azure CLI!"
 ```
 
 Make these replacements in the code:
