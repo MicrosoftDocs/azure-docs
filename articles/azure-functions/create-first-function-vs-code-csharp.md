@@ -51,19 +51,19 @@ In this section, you use Visual Studio Code to create a local Azure Functions pr
 
     |Prompt|Selection|
     |--|--|
-    |**Select a language**|Select `C#`.|
-    | **Select a .NET runtime** | Select `.NET 6`.|
-    |**Select a template for your project's first function**|Select `HTTP trigger`.|
-    |**Provide a function name**|Enter `HttpExample`.|
-    |**Provide a namespace** | Enter `My.Functions`. |
-    |**Authorization level**|Select `Anonymous`, which enables anyone to call your function endpoint. To learn about authorization level, see [Authorization keys](functions-bindings-http-webhook-trigger.md#authorization-keys).|
+    |**Select a language**|Choose `C#`.|
+    |**Select a .NET runtime** | Select `.NET 6`.|
+    |**Select a template for your project's first function**|Choose `HTTP trigger`.|
+    |**Provide a function name**|Type `HttpExample`.|
+    |**Provide a namespace** | Type `My.Functions`. |
+    |**Authorization level**|Choose `Anonymous`, which enables anyone to call your function endpoint. To learn about authorization level, see [Authorization keys](functions-bindings-http-webhook-trigger.md#authorization-keys).|
     |**Select how you would like to open your project**|Select `Add to workspace`.|
 
     # [.NET 6 Isolated](#tab/isolated-process)
 
     |Prompt|Selection|
     |--|--|
-    |**Select a language for your function project**|Choose `C#`.|
+    |**Select a language**|Choose `C#`.|
     | **Select a .NET runtime** | Choose `.NET 6 Isolated`.|
     |**Select a template for your project's first function**|Choose `HTTP trigger`.|
     |**Provide a function name**|Type `HttpExample`.|

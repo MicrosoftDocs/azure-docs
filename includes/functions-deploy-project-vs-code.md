@@ -7,8 +7,6 @@ ms.author: glenga
 ms.custom: devdivchpfy22
 ---
 
-## Deploy the project to Azure
-
 > [!IMPORTANT]
 > Deploying to an existing function app always overwrites the contents of that app in Azure.
 
