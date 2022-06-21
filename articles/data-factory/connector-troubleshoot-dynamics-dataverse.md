@@ -148,7 +148,7 @@ This article provides suggestions to troubleshoot common problems with the Dynam
  
 - **Message**: `The attribute type 'Lookup' of field %attributeName; is not supported` 
  
-- **Cause**: When loading data to the Dynamics sink, Azure Data Factory (ADF) by design would impose validation on the lookup attribute's metadata. However, there's the known issue of certain Dynamics entities not having valid lookup attribute metadata that holds a list of targets, which would fail ADF's validation.
+- **Cause**: When loading data to Dynamics sink, Azure Data Factory imposes validation on lookup attribute's metadata. However, there's the known issue of certain Dynamics entities not having valid lookup attribute metadata that holds a list of targets, which would fail the validation.
 
 - **Recommendation**: Contact Dynamics support team to mitigate the issue.
 
