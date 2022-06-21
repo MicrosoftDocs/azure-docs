@@ -75,7 +75,7 @@ You only need to register a device once in your IoT Central application.
 
 ### Provision a device
 
-When a device first tries to connect to your IoT Central application, it starts the process by connecting to the Device Provisioning Service (DPS). DPS checks the device's credentials and, if they're valid, provisions the device with the connection string for one of IoT Central's internal IoT Hubs. DPS uses the _group enrollment_ configurations in your IoT Central application to manage this provisioning process for you.
+When a device first tries to connect to your IoT Central application, it starts the process by connecting to the Device Provisioning Service (DPS). DPS checks the device's credentials and, if they're valid, provisions the device with the connection string for one of IoT Central's internal IoT hubs. DPS uses the _group enrollment_ configurations in your IoT Central application to manage this provisioning process for you.
 
 > [!TIP]
 > The device also sends the **ID scope** value that tells DPS which IoT Central application the device is connecting to. You can look up the **ID scope** in your IoT Central application on the **Permissions > Device connection groups** page.
