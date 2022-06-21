@@ -17,3 +17,5 @@ items:
   items: 
     - name: Identify issues with end-to-end web tests
       href: tutorial-identify-issues-with-end-to-end-web-tests.md
+    - name: Automate end-to-end testing with GitHub Actions
+      href: tutorial-automate-end-to-end-testing-with-github-actions.md
