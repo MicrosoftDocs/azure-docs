@@ -1646,7 +1646,7 @@ And returns this result: `"hello"`
 
 ### dateDifference
 
-Return the difference between two timestamps as a timespan. `startDate` is subtracted from `endDate`; the result will be negative if `startDate` is more recent than `endDate`.
+Return the difference between two timestamps as a timespan. This function subtracts `startDate` from `endDate`, and returns the result as timestamp in string format.
 
 ```
 dateDifference('<startDate>', '<endDate>')
