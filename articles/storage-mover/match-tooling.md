@@ -1,5 +1,5 @@
 ---
-title: Matching your migration needs to available tooling
+title: Match your migration needs to available tooling
 description: Learn about which tool to use for your migration
 services: storage-mover
 author: stevenmatthew
@@ -9,14 +9,14 @@ ms.topic: overview
 ms.date: 06/21/2022
 ms.author: shaas
 
-ms.custom: Matching your migration needs to available tooling
+ms.custom: Match your migration needs to available tooling
 ---
 
 <!-- 1. H1
 ##Docs Required##
  
 Set expectations for what the content covers, so customers know the content meets their needs.-->
-# Migration basics
+# Match your migration needs to available tooling
 
 <!-- 2. Introductory paragraph 
 ##Docs Required##
