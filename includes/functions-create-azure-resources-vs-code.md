@@ -17,12 +17,12 @@ In this section, you create a function app and related resources in your Azure s
 
     |Prompt|Selection|
     |--|--|
-    |**Select subscription**| Choose the subscription to use. You won't see this when you have only one subscription visible under **Resources**. |
+    |**Select subscription**| Choose the subscription to use. You won't see this prompt when you have only one subscription visible under **Resources**. |
     |**Enter a globally unique name for the function app**| Type a name that is valid in a URL path. The name you type is validated to make sure that it's unique in Azure Functions.|
     |**Select a runtime stack**| Choose the language version on which you've been running locally. |
     |**Select a location for new resources**| For better performance, choose a [region](https://azure.microsoft.com/regions/) near you.|
 
-    The extension shows the status of individual resources as they are being created in Azure in the **Azure: Activity Log** panel.
+    The extension shows the status of individual resources as they're being created in Azure in the **Azure: Activity Log** panel.
 
     ![Log of Azure resource creation](media/functions-publish-project-vscode/resource-activity-log.png) 
 
