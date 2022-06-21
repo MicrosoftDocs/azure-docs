@@ -44,7 +44,7 @@ This article assumes that you're familiar with the [basic concepts](overview.md)
 
 ## Scenario description
 
-Azure AD supports the most widely used authentication and authorization protocols. Legacy authentication is when the authentication doesn't communicate with the identity provider, such as Azure AD, directly. This authentication pattern includes basic authentication, a widely used industry-standard method for collecting user name and password information. Typically, legacy authentication clients can't enforce any type of second factor authentication. Examples of applications that commonly or only use legacy authentication are:
+Azure AD supports the most widely used authentication and authorization protocols including legacy authentication. Legacy authentication is when the authentication doesn't communicate with the identity provider, such as Azure AD, directly. This authentication pattern includes basic authentication, a widely used industry-standard method for collecting user name and password information. Typically, clients using legacy authentication can't prompt users for second factor authentication or other authentication requirements needed to satisfy conditional access policies. Examples of applications that commonly or only use legacy authentication are:
 
 - Microsoft Office 2013 or older.
 - Apps using mail protocols like POP, IMAP, and SMTP AUTH.
@@ -54,8 +54,6 @@ For more information about modern authentication support in Office, see [How mod
 Single factor authentication (for example, username and password) isn't enough these days. Passwords are bad as they're easy to guess and we (humans) are bad at choosing good passwords. Passwords are also vulnerable to various attacks, like phishing and password spray. One of the easiest things you can do to protect against password threats is to implement multifactor authentication (MFA). With MFA, even if an attacker gets in possession of a user's password, the password alone isn't sufficient to successfully authenticate and access the data.
 
 How can you prevent apps using legacy authentication from accessing your tenant's resources? The recommendation is to just block them with a Conditional Access policy. If necessary, you allow only certain users and specific network locations to use apps that are based on legacy authentication.
-
-Conditional Access policies are enforced after the first-factor authentication has been completed. Therefore, Conditional Access isn't intended as a first line defense for scenarios like denial-of-service (DoS) attacks, but can utilize signals from these events (for example, the sign-in risk level, location of the request, and so on) to determine access.
 
 ## Implementation
 
