@@ -42,7 +42,7 @@ In this tutorial you'll complete the following objectives:
 
 The following prerequisites are for a Windows development environment used to simulate the devices. For Linux or macOS, see the appropriate section in [Prepare your development environment](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md) in the SDK documentation.
 
-* Install [Visual Studio](https://visualstudio.microsoft.com/vs/) 2022 with the ['Desktop development with C++'](/cpp/ide/using-the-visual-studio-ide-for-cpp-desktop-development) workload enabled. Visual Studio 2015, Visual Studio 2017, and Visual Studio 19 are also supported. For Linux or macOS, see the appropriate section in [Prepare your development environment](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md) in the SDK documentation.
+* Install [Visual Studio](https://visualstudio.microsoft.com/vs/) 2022 with the ['Desktop development with C++'](/cpp/ide/using-the-visual-studio-ide-for-cpp-desktop-development) workload enabled. Visual Studio 2015, Visual Studio 2017, and Visual Studio 19 are also supported.
 
 * Install the latest [CMake build system](https://cmake.org/download/). Make sure you check the option that adds the CMake executable to your path.
 
@@ -70,7 +70,7 @@ In this section, you'll prepare a development environment used to build the [Azu
 
 3. Copy the tag name for the latest release of the Azure IoT C SDK.
 
-4. In your Windows command prompt, run the following commands to clone the latest release of the [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) GitHub repository. (replace `<release-tag>` with the tag you copied in the previous step).
+4. In your Windows command prompt, run the following commands to clone the latest release of the [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) GitHub repository. Replace `<release-tag>` with the tag you copied in the previous step.
 
     ```cmd
     git clone -b <release-tag> https://github.com/Azure/azure-iot-sdk-c.git
@@ -100,7 +100,7 @@ In this section, you'll prepare a development environment used to build the [Azu
 
 7. When the build succeeds, the last few output lines look similar to the following output:
 
-    ```cmd
+    ```output
     cmake -Duse_prov_client:BOOL=ON -Dhsm_custom_lib=c:/azure-iot-sdk-c/cmake/provisioning_client/samples/custom_hsm_example/Debug/custom_hsm_example.lib ..
     -- Building for: Visual Studio 17 2022
     -- Selecting Windows SDK version 10.0.19041.0 to target Windows 10.0.22000.
@@ -446,12 +446,12 @@ Run the following commands to create the root CA private key and the root CA cer
         Data:
             Version: 3 (0x2)
             Serial Number:
-                1e:f9:92:63:74:8b:eb:d7:5c:69:65:3b:57:f2:a6:5b:9a:27:de:b1
+                1d:93:13:0e:54:07:95:1d:8c:57:4f:12:14:b9:5e:5f:15:c3:a9:d4
             Signature Algorithm: sha256WithRSAEncryption
             Issuer: CN = Azure IoT Hub CA Cert Test Only
             Validity
-                Not Before: Jun 18 00:14:41 2022 GMT
-                Not After : Jul 18 00:14:41 2022 GMT
+                Not Before: Jun 20 22:52:23 2022 GMT
+                Not After : Jul 20 22:52:23 2022 GMT
             Subject: CN = Azure IoT Hub CA Cert Test Only
             Subject Public Key Info:
                 Public Key Algorithm: rsaEncryption
@@ -506,12 +506,12 @@ Run the following commands to create the intermediate CA private key and the int
         Data:
             Version: 3 (0x2)
             Serial Number:
-                5e:58:46:28:f4:32:f7:f0:88:b4:db:e8:a8:26:d3:25
+                d9:55:87:57:41:c8:4c:47:6c:ee:ba:83:5d:ae:db:39
             Signature Algorithm: sha256WithRSAEncryption
             Issuer: CN = Azure IoT Hub CA Cert Test Only
             Validity
-                Not Before: Jun 18 00:24:18 2022 GMT
-                Not After : Jul 18 00:24:18 2022 GMT
+                Not Before: Jun 20 22:54:01 2022 GMT
+                Not After : Jul 20 22:54:01 2022 GMT
             Subject: CN = Azure IoT Hub Intermediate Cert Test Only
             Subject Public Key Info:
                 Public Key Algorithm: rsaEncryption
@@ -568,13 +568,13 @@ In this section you create the device certificates and the full chain device cer
         Data:
             Version: 3 (0x2)
             Serial Number:
-                5e:58:46:28:f4:32:f7:f0:88:b4:db:e8:a8:26:d3:25
+                d9:55:87:57:41:c8:4c:47:6c:ee:ba:83:5d:ae:db:3a
             Signature Algorithm: sha256WithRSAEncryption
-            Issuer: CN = Azure IoT Hub CA Cert Test Only
+            Issuer: CN = Azure IoT Hub Intermediate Cert Test Only
             Validity
-                Not Before: Jun 18 00:24:18 2022 GMT
-                Not After : Jul 18 00:24:18 2022 GMT
-            Subject: CN = Azure IoT Hub Intermediate Cert Test Only
+                Not Before: Jun 20 22:55:39 2022 GMT
+                Not After : Jul 20 22:55:39 2022 GMT
+            Subject: CN = device-01
             Subject Public Key Info:
                 Public Key Algorithm: rsaEncryption
                     RSA Public-Key: (4096 bit)
@@ -638,7 +638,7 @@ You'll use the following files in the rest of this tutorial:
 > As of July 1st, 2021, you can perform automatic verification of certificates that you upload to DPS.
 >
 
-For DPS to be able to validate the device's certificate chain during authentication, you must upload and verify ownership of the root CA certificate. You can verify ownership automatically when you upload the root CA certificate to DPS, or you can verify ownership manually by creating and uploading an additional certificate based on a verification code that you receive from DPS and signed with the private key associated with the root CA certificate. For this tutorial, we recommend the verifying ownership automatically.
+For DPS to be able to validate the device's certificate chain during authentication, you must upload and verify ownership of the root CA certificate. You can verify ownership automatically when you upload the root CA certificate to DPS, or you can verify ownership manually by creating and uploading an additional certificate based on a verification code that you receive from DPS and signed with the private key associated with the root CA certificate. For this tutorial, we recommend verifying ownership automatically.
 
 ### Automatically verify ownership of the root certificate
 
