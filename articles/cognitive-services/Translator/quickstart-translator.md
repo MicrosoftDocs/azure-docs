@@ -62,9 +62,9 @@ The core operation of the Translator service is translating text. In this quicks
 
 1. Make sure you have the current version of [Visual Studio IDE](https://visualstudio.microsoft.com/vs/).
 
-> [!TIP]
->
-> If you're new to Visual Studio, try the [**Introduction to Visual Studio**](/learn/modules/go-get-started/) Microsoft Learn module.
+   > [!TIP]
+   >
+   > If you're new to Visual Studio, try the [**Introduction to Visual Studio**](/learn/modules/go-get-started/) Microsoft Learn module.
 
 1. Open Visual Studio.
 
