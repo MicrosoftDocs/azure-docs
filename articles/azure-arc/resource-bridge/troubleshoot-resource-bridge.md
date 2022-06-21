@@ -11,7 +11,7 @@ This article provides information on troubleshooting and resolving issues that m
 
 ## Logs
 
-For any issues encountered with the Azure Arc resource bridge, you can collect logs for further investigation. To collect the logs, use the Azure CLI [az arcappliance logs](/cli/azure/arcappliance/logs?view=azure-cli-latest) command. This command needs to be run from the client machine fro which you've deployed the Azure Arc resource bridge.
+For any issues encountered with the Azure Arc resource bridge, you can collect logs for further investigation. To collect the logs, use the Azure CLI [az arcappliance logs](/cli/azure/arcappliance/logs) command. This command needs to be run from the client machine fro which you've deployed the Azure Arc resource bridge.
 
 The `az arcappliance logs` command requires SSH to the Azure Arc resource bridge VM. The SSH key is saved to the client machine where the deployment of the appliance was performed from. If you are going to use a different client machine to run the Azure CLI command, you need to make sure the following files are copied to the new client machine:
 
@@ -39,7 +39,7 @@ az arcappliance logs <provider> --out-dir <path to specified output directory> -
 
 ## Az Arcappliance prepare fails when deploying to VMware
 
-The **arcappliance** extension for Azure CLI enables a [prepare](/cli/azure/arcappliance/prepare?view=azure-cli-latest) command, which enables you to download an OVA template to your vSphere environment. This OVA file is used to deploy the Azure Arc resource bridge. The `az arcappliance prepare` command uses the vSphere SDK and can result in the following error:
+The **arcappliance** extension for Azure CLI enables a [prepare](/cli/azure/arcappliance/prepare) command, which enables you to download an OVA template to your vSphere environment. This OVA file is used to deploy the Azure Arc resource bridge. The `az arcappliance prepare` command uses the vSphere SDK and can result in the following error:
 
 ```azurecli
 $ az arcappliance prepare vmware --config-file <path to config> 
