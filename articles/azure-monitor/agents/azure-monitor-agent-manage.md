@@ -4,7 +4,7 @@ description: Options for managing the Azure Monitor agent (AMA) on Azure virtual
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 06/16/2022
+ms.date: 06/21/2022
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 
 ---
@@ -272,7 +272,7 @@ az connectedmachine extension update --name AzureMonitorLinuxAgent --machine-nam
 Use the following policies and policy initiatives to **automatically install the agent and associate it with a data collection rule**, every time you create a virtual machine, scale set, or Arc-enabled server.
 
 > [!NOTE]
-> As per Microsoft Identity best practices, all policy instructions for Azure Monitor agent deployment rely on **user-assigned managed identity for virtual machines and scale-sets**. This is the more scalable and resilient managed identity options for these resources.  
+> As per Microsoft Identity best practices, policies for installing  Azure Monitor agent on **virtual machines and scale-sets** rely on **user-assigned managed identity**. This is the more scalable and resilient managed identity options for these resources.  
 > For **Arc-enabled servers**, policies rely on only **system-assigned managed identity** as the only supported option today. 
 
 ### Built-in policy initiatives
