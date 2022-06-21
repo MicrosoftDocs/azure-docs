@@ -2,7 +2,7 @@
 title: Tutorial - Back up SQL Server databases to Azure 
 description: In this tutorial, learn how to back up a SQL Server database running on an Azure VM to an Azure Backup Recovery Services vault.
 ms.topic: tutorial
-ms.date: 01/07/2022
+ms.date: 06/21/2022
 author: v-amallick
 ms.service: backup
 ms.author: v-amallick
@@ -40,7 +40,8 @@ Each option has advantages and disadvantages
 **Option** | **Advantages** | **Disadvantages**
 --- | --- | ---
 Allow IP ranges | No additional costs. | Complex to manage because the IP address ranges change over time. <br/><br/> Provides access to the whole of Azure, not just Azure Storage.
-Use an HTTP proxy   | Granular control in the proxy over the storage URLs is allowed. <br/><br/> Single point of internet access to VMs. <br/><br/> Not subject to Azure IP address changes. | Additional costs to run a VM with the proxy software.
+Use an HTTP proxy   | Granular control in the proxy over the storage URLs is allowed. <br/><br/> Single point of internet access to VMs.  | Additional costs to run a VM with the proxy software.
+Allow access to service FQDNs/IPs | No additional costs.   <br><br>  Works with all network security appliances and firewalls. <br><br> You can also use service endpoints for *Storage* and *Azure Active Directory*. However, for Azure Backup, you need to assign the access to the corresponding IPs/FQDNs. | A broad set of IPs or FQDNs may be required to be accessed.   
 
 ### Set VM permissions
 
