@@ -250,7 +250,6 @@ Microsoft Sentinel's customizable, machine learning-based anomalies can identify
 | **Data sources:**                | Azure Active Directory sign-in logs                                |
 | **MITRE ATT&CK tactics:**        | Initial Access                                                     |
 | **MITRE ATT&CK techniques:**     | T1078 - Valid Accounts<br>T1566 - Phishing<br>T1133 - External Remote Services |
-| **Entities:**                    | **Type:** Account<br>**Fields:** Name, UPN Suffix, AaadTenantId, AaaUserId,  isDomainJoined, LastVerdict |
 
 [Back to Machine learning-based anomalies list](#machine-learning-based-anomalies)
 
@@ -264,7 +263,6 @@ Microsoft Sentinel's customizable, machine learning-based anomalies can identify
 | **Data sources:**                | Azure Activity logs                                                |
 | **MITRE ATT&CK tactics:**        | Initial Access                                                     |
 | **MITRE ATT&CK techniques:**     | T1190 - Exploit Public-Facing Application                          |
-| **Entities:**                    |                                                                    |
 
 [Back to Machine learning-based anomalies list](#machine-learning-based-anomalies)
 
@@ -278,7 +276,6 @@ Microsoft Sentinel's customizable, machine learning-based anomalies can identify
 | **Data sources:**                | Azure Activity logs                                                |
 | **MITRE ATT&CK tactics:**        | Execution                                                          |
 | **MITRE ATT&CK techniques:**     | T1059 - Command and Scripting Interpreter                          |
-| **Entities:**                    |                                                                    |
 
 [Back to Machine learning-based anomalies list](#machine-learning-based-anomalies)
 
@@ -292,7 +289,6 @@ Microsoft Sentinel's customizable, machine learning-based anomalies can identify
 | **Data sources:**                | Windows Security logs                                              |
 | **MITRE ATT&CK tactics:**        | Persistence                                                        |
 | **MITRE ATT&CK techniques:**     | T1136 - Create Account                                             |
-| **Entities:**                    | **Type:** Account<br>**Fields:** Name, isDomainJoined, IsValid, LastVerdict |
 
 [Back to Machine learning-based anomalies list](#machine-learning-based-anomalies)
 
@@ -318,7 +314,6 @@ Configuration details:
 | **Data sources:**                | CommonSecurityLog (PAN, Zscaler, CEF, CheckPoint, Fortinet)        |
 | **MITRE ATT&CK tactics:**        | Discovery                                                          |
 | **MITRE ATT&CK techniques:**     | T1046 - Network Service Scanning                                   |
-| **Entities:**                    | **Type:** IP<br>**Field:** IP                                      |
 
 [Back to Machine learning-based anomalies list](#machine-learning-based-anomalies)
 
@@ -332,7 +327,6 @@ Configuration details:
 | **Data sources:**                | Office Activity log (Exchange)                                     |
 | **MITRE ATT&CK tactics:**        | Persistence<br>Collection                                          |
 | **MITRE ATT&CK techniques:**     | **Collection:**<br>T1114 - Email Collection<br>T1213 - Data from Information Repositories<br><br>**Persistence:**<br>T1098 - Account Manipulation<br>T1136 - Create Account<br>T1137 - Office Application Startup<br>T1505 - Server Software Component |
-| **Entities:**                    | **Type:** Account<br>**Fields:** Name, UPNSuffix, IsDomainJoined, LastVerdict |
 
 [Back to Machine learning-based anomalies list](#machine-learning-based-anomalies)
 
@@ -346,7 +340,6 @@ Configuration details:
 | **Data sources:**                | Azure Active Directory audit logs                                  |
 | **MITRE ATT&CK tactics:**        | Collection<br>Discovery<br>Initial Access<br>Persistence<br>Privilege Escalation |
 | **MITRE ATT&CK techniques:**     | **Collection:**<br>T1530 - Data from Cloud Storage Object<br><br>**Discovery:**<br>T1087 - Account Discovery<br>T1538 - Cloud Service Dashboard<br>T1526 - Cloud Service Discovery<br>T1069 - Permission Groups Discovery<br>T1518 - Software Discovery<br><br>**Initial Access:**<br>T1190 - Exploit Public-Facing Application<br>T1078 - Valid Accounts<br><br>**Persistence:**<br>T1098 - Account Manipulation<br>T1136 - Create Account<br>T1078 - Valid Accounts<br><br>**Privilege Escalation:**<br>T1484 - Domain Policy Modification<br>T1078 - Valid Accounts  |
-| **Entities:**                    | **Type:** cloud-application<br>**Fields:** Name, InstanceName, LastVerdict |
 
 [Back to Machine learning-based anomalies list](#machine-learning-based-anomalies)
 
@@ -360,7 +353,6 @@ Configuration details:
 | **Data sources:**                | W3CIIS logs                                                        |
 | **MITRE ATT&CK tactics:**        | Initial Access<br>Persistence                                      |
 | **MITRE ATT&CK techniques:**     | **Initial Access:**<br>T1190 - Exploit Public-Facing Application<br><br>**Persistence:**<br>T1505 - Server Software Component                                |
-| **Entities:**                    |                                                                    |
 
 [Back to Machine learning-based anomalies list](#machine-learning-based-anomalies)
 
@@ -374,7 +366,6 @@ Configuration details:
 | **Data sources:**                | W3CIIS logs                                                        |
 | **MITRE ATT&CK tactics:**        | Initial Access<br>Persistence                                      |
 | **MITRE ATT&CK techniques:**     | **Initial Access:**<br>T1190 - Exploit Public-Facing Application<br><br>**Persistence:**<br>T1505 - Server Software Component                                |
-| **Entities:**                    | **Type:** IP<br>**Fields:** Address, LastVerdict                   |
 
 [Back to Machine learning-based anomalies list](#machine-learning-based-anomalies)
 
@@ -388,7 +379,6 @@ Configuration details:
 | **Data sources:**                | Windows Security logs                                              |
 | **MITRE ATT&CK tactics:**        | Credential Access                                                  |
 | **MITRE ATT&CK techniques:**     | T1110 - Brute Force                                                |
-| **Entities:**                    | **Type:** Host<br>**Fields:** Hostname                             |
 
 [Back to Machine learning-based anomalies list](#machine-learning-based-anomalies)
 
@@ -402,7 +392,6 @@ Configuration details:
 | **Data sources:**                | Windows Security logs                                              |
 | **MITRE ATT&CK tactics:**        | Credential Access                                                  |
 | **MITRE ATT&CK techniques:**     | T1110 - Brute Force                                                |
-| **Entities:**                    | **Type:** Account<br>**Fields:** Name, IsDomainJoined              |
 
 [Back to Machine learning-based anomalies list](#machine-learning-based-anomalies)
 
@@ -416,7 +405,6 @@ Configuration details:
 | **Data sources:**                | Windows Security logs                                              |
 | **MITRE ATT&CK tactics:**        | Credential Access                                                  |
 | **MITRE ATT&CK techniques:**     | T1110 - Brute Force                                                |
-| **Entities:**                    | **Type:** Account<br>**Fields:** Name, IsDomainJoined              |
 
 [Back to Machine learning-based anomalies list](#machine-learning-based-anomalies)
 
@@ -430,7 +418,6 @@ Configuration details:
 | **Data sources:**                | Windows Security logs                                              |
 | **MITRE ATT&CK tactics:**        | Credential Access                                                  |
 | **MITRE ATT&CK techniques:**     | T1110 - Brute Force                                                |
-| **Entities:**                    | **Type:** Account<br>**Fields:** Name, IsDomainJoined              |
 
 [Back to Machine learning-based anomalies list](#machine-learning-based-anomalies)
 
@@ -444,7 +431,6 @@ Configuration details:
 | **Data sources:**                | CommonSecurityLog (PAN)                                            |
 | **MITRE ATT&CK tactics:**        | Command and Control                                                |
 | **MITRE ATT&CK techniques:**     | T1071 - Application Layer Protocol<br>T1132 - Data Encoding<br>T1001 - Data Obfuscation<br>T1568 - Dynamic Resolution<br>T1573 - Encrypted Channel<br>T1008 - Fallback Channels<br>T1104 - Multi-Stage Channels<br>T1095 - Non-Application Layer Protocol<br>T1571 - Non-Standard Port<br>T1572 - Protocol Tunneling<br>T1090 - Proxy<br>T1205 - Traffic Signaling<br>T1102 - Web Service |
-| **Entities:**                    | **Type:** Network Connection<br>**Fields:** SourceIP, DestinationIP, DestinationPort, Protocol |
 
 [Back to Machine learning-based anomalies list](#machine-learning-based-anomalies)
 
@@ -458,7 +444,6 @@ Configuration details:
 | **Data sources:**                | DNS Events                                                         |
 | **MITRE ATT&CK tactics:**        | Command and Control                                                |
 | **MITRE ATT&CK techniques:**     | T1568 - Dynamic Resolution                                         |
-| **Entities:**                    | **Type:** IP<br>**Fields:** IP, Location, ASN                      |
 
 [Back to Machine learning-based anomalies list](#machine-learning-based-anomalies)
 
@@ -472,7 +457,6 @@ Configuration details:
 | **Data sources:**                | CommonSecurityLog (PAN)                                            |
 | **MITRE ATT&CK tactics:**        | Command and Control                                                |
 | **MITRE ATT&CK techniques:**     | T1568 - Dynamic Resolution                                         |
-| **Entities:**                    | **Type:** IP<br>**Fields:** Address, LastVerdict                   |
 
 [Back to Machine learning-based anomalies list](#machine-learning-based-anomalies)
 
@@ -486,7 +470,6 @@ Configuration details:
 | **Data sources:**                | CommonSecurityLog (PAN, Zscaler, CEF, CheckPoint, Fortinet)        |
 | **MITRE ATT&CK tactics:**        | Exfiltration                                                       |
 | **MITRE ATT&CK techniques:**     | T1030 - Data Transfer Size Limits<br>T1041 - Exfiltration Over C2 Channel<br>T1011 - Exfiltration Over Other Network Medium<br>T1567 - Exfiltration Over Web Service<br>T1029 - Scheduled Transfer<br>T1537 - Transfer Data to Cloud Account |
-| **Entities:**                    | **Type:** IP<br>**Field:** IP                                      |
 
 [Back to Machine learning-based anomalies list](#machine-learning-based-anomalies)
 
@@ -500,7 +483,6 @@ Configuration details:
 | **Data sources:**                | CommonSecurityLog (PAN VPN)                                        |
 | **MITRE ATT&CK tactics:**        | Exfiltration                                                       |
 | **MITRE ATT&CK techniques:**     | T1030 - Data Transfer Size Limits<br>T1041 - Exfiltration Over C2 Channel<br>T1011 - Exfiltration Over Other Network Medium<br>T1567 - Exfiltration Over Web Service<br>T1029 - Scheduled Transfer<br>T1537 - Transfer Data to Cloud Account |
-| **Entities:**                    | **Type:** Account<br>**Fields:** Name, IsDomainJoined              |
 
 [Back to Machine learning-based anomalies list](#machine-learning-based-anomalies)
 
@@ -514,7 +496,6 @@ Configuration details:
 | **Data sources:**                | CommonSecurityLog (PAN VPN)                                        |
 | **MITRE ATT&CK tactics:**        | Exfiltration                                                       |
 | **MITRE ATT&CK techniques:**     | T1030 - Data Transfer Size Limits<br>T1041 - Exfiltration Over C2 Channel<br>T1011 - Exfiltration Over Other Network Medium<br>T1567 - Exfiltration Over Web Service<br>T1029 - Scheduled Transfer<br>T1537 - Transfer Data to Cloud Account |
-| **Entities:**                    |                                                                    |
 
 [Back to Machine learning-based anomalies list](#machine-learning-based-anomalies)
 
@@ -528,7 +509,6 @@ Configuration details:
 | **Data sources:**                | CommonSecurityLog (PAN VPN)                                        |
 | **MITRE ATT&CK tactics:**        | Credential Access<br>Initial Access<br>Lateral Movement            |
 | **MITRE ATT&CK techniques:**     | T1133 - External Remote Services                                   |
-| **Entities:**                    |                                                                    |
 
 [Back to Machine learning-based anomalies list](#machine-learning-based-anomalies)
 
@@ -542,7 +522,6 @@ Configuration details:
 | **Data sources:**                | CommonSecurityLog (PAN VPN)                                        |
 | **MITRE ATT&CK tactics:**        | Defense Evasion<br>Initial Access                                  |
 | **MITRE ATT&CK techniques:**     | T1078 - Valid Accounts                                             |
-| **Entities:**                    |                                                                    |
 
 [Back to Machine learning-based anomalies list](#machine-learning-based-anomalies)
 
@@ -556,7 +535,6 @@ Configuration details:
 | **Data sources:**                | Office Activity log (Exchange)                                     |
 | **MITRE ATT&CK tactics:**        | Collection                                                         |
 | **MITRE ATT&CK techniques:**     | T1074 - Data Staged                                                |
-| **Entities:**                    |                                                                    |
 
 [Back to Machine learning-based anomalies list](#machine-learning-based-anomalies)
 
@@ -570,7 +548,6 @@ Configuration details:
 | **Data sources:**                | DNS Events                                                         |
 | **MITRE ATT&CK tactics:**        | Command and Control                                                |
 | **MITRE ATT&CK techniques:**     | T1568 - Dynamic Resolution                                         |
-| **Entities:**                    |                                                                    |
 
 [Back to Machine learning-based anomalies list](#machine-learning-based-anomalies)
 
@@ -584,7 +561,6 @@ Configuration details:
 | **Data sources:**                | CommonSecurityLog (PAN VPN)                                        |
 | **MITRE ATT&CK tactics:**        | Initial Access<br>Credential Access                                |
 | **MITRE ATT&CK techniques:**     | T1133 - External Remote Services<br>T1078 - Valid Accounts         |
-| **Entities:**                    |                                                                    |
 
 [Back to Machine learning-based anomalies list](#machine-learning-based-anomalies)
 
@@ -598,7 +574,6 @@ Configuration details:
 | **Data sources:**                | Azure Information Protection logs                                  |
 | **MITRE ATT&CK tactics:**        | Collection                                                         |
 | **MITRE ATT&CK techniques:**     | T1530 - Data from Cloud Storage Object<br>T1213 - Data from Information Repositories<br>T1005 - Data from Local System<br>T1039 - Data from Network Shared Drive<br>T1114 - Email Collection |
-| **Entities:**                    | **Type:** Account<br>**Fields:** Name, AadTenantId, IsDomainJoined |
 
 [Back to Machine learning-based anomalies list](#machine-learning-based-anomalies)
 
@@ -612,7 +587,6 @@ Configuration details:
 | **Data sources:**                | AWS CloudTrail logs                                                |
 | **MITRE ATT&CK tactics:**        | Initial Access                                                     |
 | **MITRE ATT&CK techniques:**     | T1078 - Valid Accounts                                             |
-| **Entities:**                    |                                                                    |
 
 [Back to Machine learning-based anomalies list](#machine-learning-based-anomalies)
 
@@ -626,7 +600,6 @@ Configuration details:
 | **Data sources:**                | AWS CloudTrail logs                                                |
 | **MITRE ATT&CK tactics:**        | Initial Access                                                     |
 | **MITRE ATT&CK techniques:**     | T1078 - Valid Accounts                                             |
-| **Entities:**                    | **Type:** Account<br>**Fields:** Name, NTDomain, DnsDomain, UPNSuffix, Host, Sid, AadTenantId, AaadUserId, PUID, IsDomainJoined, ObjectGuid |
 
 [Back to Machine learning-based anomalies list](#machine-learning-based-anomalies)
 
@@ -640,7 +613,6 @@ Configuration details:
 | **Data sources:**                | AWS CloudTrail logs                                                |
 | **MITRE ATT&CK tactics:**        | Initial Access                                                     |
 | **MITRE ATT&CK techniques:**     | T1078 - Valid Accounts                                             |
-| **Entities:**                    |                                                                    |
 
 [Back to Machine learning-based anomalies list](#machine-learning-based-anomalies)
 
@@ -654,7 +626,6 @@ Configuration details:
 | **Data sources:**                | AWS CloudTrail logs                                                |
 | **MITRE ATT&CK tactics:**        | Initial Access                                                     |
 | **MITRE ATT&CK techniques:**     | T1078 - Valid Accounts                                             |
-| **Entities:**                    | **Type:** Account<br>**Fields:** Name, IsDomainJoined, LastVerdict |
 
 [Back to Machine learning-based anomalies list](#machine-learning-based-anomalies)
 
@@ -668,7 +639,6 @@ Configuration details:
 | **Data sources:**                | AWS CloudTrail logs                                                |
 | **MITRE ATT&CK tactics:**        | Initial Access                                                     |
 | **MITRE ATT&CK techniques:**     | T1078 - Valid Accounts                                             |
-| **Entities:**                    | **Type:** IP<br>**Fields:** Address, LastVerdict                   |
 
 [Back to Machine learning-based anomalies list](#machine-learning-based-anomalies)
 
@@ -682,7 +652,6 @@ Configuration details:
 | **Data sources:**                | Windows Security logs                                              |
 | **MITRE ATT&CK tactics:**        | Initial Access                                                     |
 | **MITRE ATT&CK techniques:**     | T1078 - Valid Accounts                                             |
-| **Entities:**                    | **Type:** Account<br>**Fields:** Name, IsDomainJoined              |
 
 [Back to Machine learning-based anomalies list](#machine-learning-based-anomalies)
 
@@ -696,7 +665,6 @@ Configuration details:
 | **Data sources:**                | Windows Security logs                                              |
 | **MITRE ATT&CK tactics:**        | Initial Access                                                     |
 | **MITRE ATT&CK techniques:**     | T1078 - Valid Accounts                                             |
-| **Entities:**                    |                                                                    |
 
 [Back to Machine learning-based anomalies list](#machine-learning-based-anomalies)
 
@@ -710,7 +678,6 @@ Configuration details:
 | **Data sources:**                | Windows Security logs                                              |
 | **MITRE ATT&CK tactics:**        | Initial Access                                                     |
 | **MITRE ATT&CK techniques:**     | T1078 - Valid Accounts                                             |
-| **Entities:**                    |                                                                    |
 
 [Back to Machine learning-based anomalies list](#machine-learning-based-anomalies)
 
@@ -724,7 +691,6 @@ Configuration details:
 | **Data sources:**                | Windows Security logs                                              |
 | **MITRE ATT&CK tactics:**        | Initial Access                                                     |
 | **MITRE ATT&CK techniques:**     | T1078 - Valid Accounts                                             |
-| **Entities:**                    | **Type:** Account<br>**Fields:** Name, IsDomainJoined              |
 
 [Back to Machine learning-based anomalies list](#machine-learning-based-anomalies)
 
@@ -738,7 +704,6 @@ Configuration details:
 | **Data sources:**                | Windows Security logs                                              |
 | **MITRE ATT&CK tactics:**        | Initial Access                                                     |
 | **MITRE ATT&CK techniques:**     | T1078 - Valid Accounts                                             |
-| **Entities:**                    |                                                                    |
 
 [Back to Machine learning-based anomalies list](#machine-learning-based-anomalies)
 
@@ -752,7 +717,6 @@ Configuration details:
 | **Data sources:**                | CommonSecurityLog (PAN)                                            |
 | **MITRE ATT&CK tactics:**        | Discovery<br>Command and Control                                   |
 | **MITRE ATT&CK techniques:**     | **Discovery:**<br>T1046 - Network Service Scanning<br>T1135 - Network Share Discovery<br><br>**Command and Control:**<br>T1071 - Application Layer Protocol<br>T1095 - Non-Application Layer Protocol<br>T1571 - Non-Standard Port |
-| **Entities:**                    | **Type:** IP<br>**Field:** IP                                      |
 
 [Back to Machine learning-based anomalies list](#machine-learning-based-anomalies)
 
@@ -766,7 +730,6 @@ Configuration details:
 | **Data sources:**                | Azure Information Protection logs                                  |
 | **MITRE ATT&CK tactics:**        | Collection                                                         |
 | **MITRE ATT&CK techniques:**     | T1530 - Data from Cloud Storage Object<br>T1213 - Data from Information Repositories<br>T1005 - Data from Local System<br>T1039 - Data from Network Shared Drive<br>T1114 - Email Collection |
-| **Entities:**                    |                                                                    |
 
 [Back to Machine learning-based anomalies list](#machine-learning-based-anomalies)
 
@@ -780,7 +743,6 @@ Configuration details:
 | **Data sources:**                | CommonSecurityLog (PAN, Zscaler, CheckPoint, Fortinet)             |
 | **MITRE ATT&CK tactics:**        | Command and Control<br>Exfiltration                                |
 | **MITRE ATT&CK techniques:**     | **Command and Control:**<br>T1071 - Application Layer Protocol<br><br>**Exfiltration:**<br>T1030 - Data Transfer Size Limits                                  |
-| **Entities:**                    | **Type:** IP<br>**Fields:** Address, Location                      |
 
 [Back to Machine learning-based anomalies list](#machine-learning-based-anomalies)
 
@@ -794,7 +756,6 @@ Configuration details:
 | **Data sources:**                | CommonSecurityLog (PAN, Zscaler, CEF, CheckPoint, Fortinet)        |
 | **MITRE ATT&CK tactics:**        | Exfiltration                                                       |
 | **MITRE ATT&CK techniques:**     | T1030 - Data Transfer Size Limits                                  |
-| **Entities:**                    | **Type:** IP<br>**Field:** IP                                      |
 
 [Back to Machine learning-based anomalies list](#machine-learning-based-anomalies)
 
@@ -808,7 +769,6 @@ Configuration details:
 | **Data sources:**                | CommonSecurityLog (PAN, Zscaler, CheckPoint, Fortinet)             |
 | **MITRE ATT&CK tactics:**        | Command and Control<br>Initial Access                              |
 | **MITRE ATT&CK techniques:**     | **Command and Control:**<br>T1071 - Application Layer Protocol<br><br>**Initial Access:**<br>T1189 - Drive-by Compromise                                      |
-| **Entities:**                    | **Type:** Network Connection, IP<br>**Field:** SourceIP, IP, DestinationIP, DestinationPort, Protocol |
 
 [Back to Machine learning-based anomalies list](#machine-learning-based-anomalies)
 
