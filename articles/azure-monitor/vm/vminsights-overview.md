@@ -4,7 +4,7 @@ description: Overview of VM insights, which monitors the health and performance 
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 06/08/2022
+ms.date: 06/21/2022
 ---
 
 # Overview of VM insights
