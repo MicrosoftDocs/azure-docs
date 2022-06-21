@@ -297,59 +297,6 @@ groups:
     title: C++
   - id: programming-language-python
     title: Python
-# To be enabled later.
-#  - id: programmer-tool-spx
-#    title: CLI
-- id: programming-languages-set-twenty-three
-# Owner: erhopf
-  title: Programming languages
-  prompt: Choose a programming language or CLI
-  pivots:
-  - id: programming-language-csharp
-    title: C#
-  - id: programming-language-cpp
-    title: C++
-  - id: programming-language-go
-    title: Go
-  - id: programming-language-java
-    title: Java
-  - id: programming-language-nodejs
-    title: Node.js
-  - id: programming-language-browserjs
-    title: JavaScript (browser)
-  - id: programming-languages-objectivec-swift
-    title: Objective-C/Swift
-  - id: programming-language-python
-    title: Python
-  - id: programming-language-curl
-    title: REST
-  - id: programmer-tool-spx
-    title: CLI
-- id: programming-languages-set-twenty-four
-# Owner: yulili
-  title: Programming languages
-  prompt: Choose a programming language or CLI
-  pivots:
-  - id: programming-language-csharp
-    title: C#
-  - id: programming-language-cpp
-    title: C++
-  - id: programming-language-go
-    title: Go
-  - id: programming-language-java
-    title: Java
-  - id: programming-language-nodejs
-    title: Node.js
-  - id: programming-language-browserjs
-    title: JavaScript (browser)
-  - id: programming-languages-objectivec-swift
-    title: Objective-C/Swift
-  - id: programming-language-python
-    title: Python
-  - id: programming-language-curl
-    title: REST
-  - id: programmer-tool-spx
-    title: CLI
 - id: programming-languages-set-twenty-six
 # Owner: dobett
   title: Programming languages
@@ -593,6 +540,8 @@ groups:
     title: JavaScript
   - id: programming-language-rest-api
     title: REST API
+  - id: vision-studio
+    title: Vision Studio
 - id: programming-languages-set-diberry-3core
   title: Programming languages
   prompt: Choose a programming language
@@ -705,6 +654,8 @@ groups:
     title: Python
   - id: programming-language-rest-api
     title: REST API
+  - id: vision-studio
+    title: Vision Studio
 - id: programming-languages-set-two-with-js
 # Owner: erhopf
   title: Programming languages
@@ -716,10 +667,10 @@ groups:
     title: C++
   - id: programming-language-java
     title: Java
-  - id: programming-language-python
-    title: Python
   - id: programming-language-javascript
     title: JavaScript
+  - id: programming-language-python
+    title: Python
   - id: programming-language-more
     title: More languages...
 - id: programming-languages-set-two-with-js-spx
@@ -752,10 +703,10 @@ groups:
     title: Go
   - id: programming-language-java
     title: Java
-  - id: programming-language-python
-    title: Python
   - id: programming-language-javascript
     title: JavaScript
+  - id: programming-language-python
+    title: Python
   - id: programming-language-more
     title: More languages...
 - id: programming-languages-set-two-with-js-go-spx
@@ -773,10 +724,10 @@ groups:
     title: Go
   - id: programming-language-java
     title: Java
-  - id: programming-language-python
-    title: Python
   - id: programming-language-javascript
     title: JavaScript
+  - id: programming-language-python
+    title: Python
   - id: programming-language-more
     title: More languages...
 - id: programming-languages-speech-services-one-nomore
@@ -792,10 +743,10 @@ groups:
     title: Go
   - id: programming-language-java
     title: Java
-  - id: programming-language-python
-    title: Python
   - id: programming-language-javascript
     title: JavaScript
+  - id: programming-language-python
+    title: Python
 - id: programming-languages-speech-services-one-nomore-no-go
 # Owner: erhopf
   title: Programming languages
@@ -807,10 +758,10 @@ groups:
     title: C++
   - id: programming-language-java
     title: Java
-  - id: programming-language-python
-    title: Python
   - id: programming-language-javascript
     title: JavaScript
+  - id: programming-language-python
+    title: Python
 - id: programming-languages-speech-services-nomore-variant
 # Owner: erhopf
   title: Programming languages
@@ -822,10 +773,10 @@ groups:
     title: C++
   - id: programming-language-java
     title: Java
-  - id: programming-language-python
-    title: Python
   - id: programming-language-javascript
     title: JavaScript
+  - id: programming-language-python
+    title: Python
   - id: programming-language-objectivec
     title: Objective-C
 - id: programming-languages-speech-sdk
@@ -845,10 +796,10 @@ groups:
     title: JavaScript
   - id: programming-language-objectivec
     title: Objective-C
-  - id: programming-language-swift
-    title: Swift
   - id: programming-language-python
     title: Python
+  - id: programming-language-swift
+    title: Swift
 - id: programming-languages-speech-sdk-cli
 # Owner: eur
   title: Programming languages
@@ -866,16 +817,16 @@ groups:
     title: JavaScript
   - id: programming-language-objectivec
     title: Objective-C
-  - id: programming-language-swift
-    title: Swift
   - id: programming-language-python
     title: Python
+  - id: programming-language-swift
+    title: Swift
   - id: programming-language-cli
     title: CLI
 - id: programming-languages-speech-services
 # Owner: eur
   title: Programming languages
-  prompt: Choose a programming language
+  prompt: Choose a programming language or tool
   pivots:
   - id: programming-language-csharp
     title: C#
@@ -889,10 +840,10 @@ groups:
     title: JavaScript
   - id: programming-language-objectivec
     title: Objective-C
-  - id: programming-language-swift
-    title: Swift
   - id: programming-language-python
     title: Python
+  - id: programming-language-swift
+    title: Swift
   - id: programming-language-cli
     title: CLI
   - id: programming-language-rest
@@ -989,25 +940,6 @@ groups:
     title: Java
   - id: programming-language-javascript
     title: JavaScript
-  - id: programming-language-python
-    title: Python
-  - id: programming-language-spx
-    title: CLI
-- id: speech-full-stack-objectivec-swift
-# Owner: erhopf
-  title: Programming languages
-  prompt: Choose a programming language
-  pivots:
-  - id: programming-language-csharp
-    title: C#
-  - id: programming-language-cpp
-    title: C++
-  - id: programming-language-java
-    title: Java
-  - id: programming-language-javascript
-    title: JavaScript
-  - id: programming-languages-objectivec-swift
-    title: Objective-C/Swift
   - id: programming-language-python
     title: Python
   - id: programming-language-spx
@@ -1130,27 +1062,6 @@ groups:
     title: JavaScript
   - id: programming-language-go
     title: Go
-  - id: programming-language-python
-    title: Python
-  - id: programming-language-spx
-    title: CLI
-- id: speech-full-stack-go-objectivec-swift
-  # Owner: erhopf
-  title: Programming languages
-  prompt: Choose a programming language
-  pivots:
-  - id: programming-language-csharp
-    title: C#
-  - id: programming-language-cpp
-    title: C++
-  - id: programming-language-go
-    title: Go
-  - id: programming-language-java
-    title: Java
-  - id: programming-language-javascript
-    title: JavaScript
-  - id: programming-languages-objectivec-swift
-    title: Objective-C/Swift
   - id: programming-language-python
     title: Python
   - id: programming-language-spx
