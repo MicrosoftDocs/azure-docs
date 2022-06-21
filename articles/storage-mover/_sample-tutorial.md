@@ -1,6 +1,6 @@
 ---
-title: Sample tutorial #Required; page title is displayed in search results. Include the brand.
-description: Description #Required; article description that is displayed in search results. 
+title: Sample tutorial title#Required; page title is displayed in search results. Include the brand.
+description: Sample tutorial Description #Required; article description that is displayed in search results. 
 author: stevenmatthew
 ms.author: shaas
 ms.service: storage-mover

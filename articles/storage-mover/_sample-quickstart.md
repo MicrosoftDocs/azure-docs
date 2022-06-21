@@ -1,6 +1,6 @@
 ---
-title: Sample Quickstart #Required; page title is displayed in search results. Include the brand.
-description: Description #Required; article description that is displayed in search results. 
+title: Sample Quickstart Title #Required; page title is displayed in search results. Include the brand.
+description: Sample Quickstart Description #Required; article description that is displayed in search results. 
 author: stevenmatthew
 ms.author: shaas
 ms.service: storage-mover
@@ -62,7 +62,7 @@ Only include the Cloud Shell section if ALL commands can be run in the cloud she
 
 ## Open Azure Cloud Shell
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it)]
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 <!-- 
 6. H2s
