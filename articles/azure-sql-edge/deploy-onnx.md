@@ -6,9 +6,10 @@ keywords: deploy SQL Edge
 ms.prod: sql
 ms.technology: machine-learning
 ms.topic: quickstart
-author: dphansen
-ms.author: davidph
-ms.date: 05/06/2021
+author: WilliamDAssafMSFT
+ms.author: wiassaf
+ms.reviewer: hudequei
+ms.date: 06/21/2022
 ms.custom: mode-other
 ---
 
@@ -27,8 +28,8 @@ This quickstart is based on **scikit-learn** and uses the [Boston Housing datase
 * Install Python packages needed for this quickstart:
 
   1. Open [New Notebook](/sql/azure-data-studio/sql-notebooks) connected to the Python 3 Kernel. 
-  1. Click **Manage Packages**
-  1. In the **Installed** tab, look for the following Python packages in the list of installed packages. If any of these packages are not installed, select the **Add New** tab, search for the package, and click **Install**.
+  1. Select **Manage Packages**
+  1. In the **Installed** tab, look for the following Python packages in the list of installed packages. If any of these packages are not installed, select the **Add New** tab, search for the package, and select **Install**.
      - **scikit-learn**
      - **numpy**
      - **onnxmltools**
