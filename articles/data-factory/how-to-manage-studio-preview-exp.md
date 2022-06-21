@@ -15,7 +15,7 @@ ms.date: 06/21/2022
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-You can choose whether you would like to enable preview experiences in your data factory studio.
+You can choose whether you would like to enable preview experiences in your Azure Data Factory.
 
 ## How to enable/disable preview experience
 
@@ -51,7 +51,7 @@ There are two ways to enable preview experiences.
 ### Dataflow Data first experimental view
 
 UI (user interfaces) changes have been made to mapping data flows. These changes were made to simplify and streamline the dataflow creation process so that you can focus on what your data looks like. 
-The dataflow authoring experience remains the same as detailed [here](https://docs.microsoft.com/en-us/azure/data-factory/concepts-data-flow-overview), except for certain areas detailed below. 
+The dataflow authoring experience remains the same as detailed [here](https://docs.microsoft.com/azure/data-factory/concepts-data-flow-overview), except for certain areas detailed below. 
 
 #### Configuration panel
 
@@ -83,17 +83,19 @@ Columns can be rearranged by dragging a column by its header. You can also sort 
   
 ### Pipeline experimental view
 
-UI changes have been made to activities in the pipeline editor canvas. These changes were made to simplify and streamline the pipeline creation process so that you can focus on transforming your data. 
+UI (user interface) changes have been made to activities in the pipeline editor canvas. These changes were made to simplify and streamline the pipeline creation process. 
 
 #### Adding activities
 
-You now have the option to add an activity using the add button in the bottom right corner of an activity in the pipeline editor canvas. Clicking the button will open a drop-down list of all activities that you can add. Select an activity by using the search box or scrolling through the listed activities. The selected activity will be added to the canvas and automatically linked with the previous activity on success. 
+You now have the option to add an activity using the add button in the bottom right corner of an activity in the pipeline editor canvas. Clicking the button will open a drop-down list of all activities that you can add. 
+
+Select an activity by using the search box or scrolling through the listed activities. The selected activity will be added to the canvas and automatically linked with the previous activity on success. 
 
 :::image type="content" source="media/how-to-manage-studio-preview-exp/adf-preview-exp-10.png" alt-text="Screenshot of new pipeline activity adding experience with a drop down list to select activities.":::
   
 #### ForEach activity container
 
-You can now view the activities contained in your ForEach loop. 
+You can now view the activities contained in your ForEach activity. 
 
 :::image type="content" source="media/how-to-manage-studio-preview-exp/adf-preview-exp-11.png" alt-text="Screenshot of new ForEach activity container.":::
   
