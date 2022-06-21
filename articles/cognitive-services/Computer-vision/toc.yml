@@ -6,6 +6,8 @@ items:
   items:
   - name: What is Computer Vision?
     href: overview.md
+  - name: Vision Studio
+    href: overview-vision-studio.md
   - name: Language support
     href: language-support.md
   - name: Pricing
