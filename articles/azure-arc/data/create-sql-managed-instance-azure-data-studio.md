@@ -52,7 +52,7 @@ This document demonstrates how to install Azure SQL Managed Instance - Azure Arc
     |**Storage Class (Backups)** | Select from the list | Required |
     |**Volume Size in Gi (Backups)** | The size of the storage volume to be used for database backups in gibibytes. | Required |
     |**Cores Request** | The number of cores to request for the managed instance. Integer. | Optional |
-    |**Cores Limit** | The request for the capacity for the managed instance in gigabytes (GB). Integer | Optional |
+    |**Cores Limit** | The request for the capacity for the managed instance in gigabytes. Integer | Optional |
     |**Memory Request** | Select from the list | Required |
     |**Point in time retention (days)** | How long you want to keep your point in time backups. | Optional |
 
