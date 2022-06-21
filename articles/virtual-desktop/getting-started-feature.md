@@ -22,20 +22,24 @@ You can see the list of [resources that will be deployed](#resources-that-will-b
 
 Please review the [Prerequisites for Azure Virtual Desktop](prerequisites.md) to start for a general idea of what's required, however there are some differences when using the getting started feature that you'll need to meet. Select a tab below to show instructions that are most relevant to your scenario.
 
+> [!TIP]
+> If you don't already have other Azure resources, we recommend you select the **New Azure AD DS** tab. This scenario will deploy everything you need to be ready to connect to a full virtual desktop session. If you already have AD DS or Azure AD DS, select the relevant tab for your scenario instead.
+
 # [New Azure AD DS](#tab/new-aadds)
 
 At a high level, you'll need:
 
-- An Azure account with an active subscription. The getting started feature doesn't currently support accounts with multi-factor authentication, or MSA, B2B, or guest accounts.
+- An Azure account with an active subscription
 - An account with the [global administrator Azure AD role](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md) assigned on the Azure tenant and the [owner role](../role-based-access-control/role-assignments-portal.md) assigned on subscription you're going to use.
 - No existing Azure AD DS domain deployed in your Azure tenant.
 - User names you choose must not include any keywords [that the username guideline list doesn't allow](../virtual-machines/windows/faq.yml#what-are-the-username-requirements-when-creating-a-vm-), and you must use a unique user name that's not already in your Azure AD subscription.
+- The user name for AD Domain join UPN should be a unique one that doesn't already exist in Azure AD. The getting started feature doesn't support using existing Azure AD user names when also deploying Azure AD DS.
 
 # [Existing AD DS](#tab/existing-adds)
 
 At a high level, you'll need:
 
-- An Azure account with an active subscription. The getting started feature doesn't currently support accounts with multi-factor authentication, or MSA, B2B, or guest accounts.
+- An Azure account with an active subscription.
 - An account with the [global administrator Azure AD role](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md) assigned on the Azure tenant and the [owner role](../role-based-access-control/role-assignments-portal.md) assigned on subscription you're going to use.
 - An AD DS domain controller deployed in Azure in the same subscription as the one you choose to use with the getting started feature. Using multiple subscriptions isn't supported. Make sure you know the fully qualified domain name (FQDN).
 - Domain admin credentials for your existing AD DS domain
@@ -50,7 +54,7 @@ At a high level, you'll need:
 
 At a high level, you'll need:
 
-- An Azure account with an active subscription. The getting started feature doesn't currently support accounts with multi-factor authentication, or MSA, B2B, or guest accounts.
+- An Azure account with an active subscription.
 - An account with the [global administrator Azure AD role](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md) assigned on the Azure tenant and the [owner role](../role-based-access-control/role-assignments-portal.md) assigned on subscription you're going to use.
 - Azure AD DS deployed in the same tenant and subscription. Peered subscriptions aren't supported. Make sure you know the fully qualified domain name (FQDN).
 - Your domain admin user needs to have the same UPN suffix in Azure AD and Azure AD DS. This means your Azure AD DS name is the same as your `.onmicrosoft.com` tenant name or you've added the domain name used for Azure AD DS as a verified custom domain name to Azure AD.
@@ -59,6 +63,9 @@ At a high level, you'll need:
 - A virtual network in the same Azure region you want to deploy Azure Virtual Desktop to. We recommend that you [create a new virtual network](../virtual-network/quick-create-portal.md) for Azure Virtual Desktop and use [virtual network peering](../virtual-network/virtual-network-peering-overview.md) to peer it with the virtual network  or Azure AD DS. You also need to make sure you [configure DNS servers](../active-directory-domain-services/tutorial-configure-networking.md#configure-dns-servers-in-the-peered-virtual-network) to resolve your Azure AD DS domain name from this virtual network for Azure Virtual Desktop.
 
 ---
+
+> [!IMPORTANT]
+> The getting started feature doesn't currently support accounts that use multi-factor authentication. It also does not support personal Microsoft accounts (MSA) or [Azure AD B2B collaboration](../active-directory/external-identities/user-properties.md) users (either member or guest accounts).
 
 ## Deployment steps
 
@@ -81,9 +88,9 @@ Here's how to deploy Azure Virtual Desktop and a new Azure AD DS domain using th
    | Identity service type | Azure AD Domain Services. |
    | Resource group | Enter a name. This will be used as the prefix for the resource groups that are deployed. |
    | Location | The Azure region where your Azure Virtual Desktop resources will be deployed. |
-   | Azure admin user name | The user principal name (UPN) of the account with the global administrator Azure AD role assigned on the Azure tenant and the owner role on the subscription that you selected. |
-   | Azure admin password | The password for the Azure admin account. The getting started feature doesn't currently support accounts with multi-factor authentication. |
-   | Domain admin user name | The user principal name (UPN) for a new Azure AD account that will be added to a new *AAD DC Administrators* group and used to manage your Azure AD DS domain. The UPN suffix will be used as the Azure AD DS domain name.<br /><br />Make sure this user name meets the requirements noted in the prerequisites. |
+   | Azure admin user name | The user principal name (UPN) of the account with the global administrator Azure AD role assigned on the Azure tenant and the owner role on the subscription that you selected.<br /><br />Make sure this account meets the requirements noted in the [prerequisites](#prerequisites). |
+   | Azure admin password | The password for the Azure admin account. |
+   | Domain admin user name | The user principal name (UPN) for a new Azure AD account that will be added to a new *AAD DC Administrators* group and used to manage your Azure AD DS domain. The UPN suffix will be used as the Azure AD DS domain name.<br /><br />Make sure this user name meets the requirements noted in the [prerequisites](#prerequisites). |
    | Domain admin password | The password for the domain admin account. |
 
 1. On the **Virtual machines** tab, complete the following information, then select **Next: Assignments >**:
@@ -105,7 +112,7 @@ Here's how to deploy Azure Virtual Desktop and a new Azure AD DS domain using th
    | Parameter | Value/Description |
    |--|--|
    | Create test user account | Tick the box if you want a new user account created during deployment for testing purposes. |
-   | Test user name | The user principal name (UPN) of the test account you want to be created, for example `testuser@contoso.com`. This user will be created in your new Azure AD tenant, synchronized to Azure AD DS, and made a member of the **AVDValidationUsers** security group that is also created during deployment. It must contain a valid UPN suffix for your domain that is also [added as a verified custom domain name in Azure AD](../active-directory/fundamentals/add-custom-domain.md).<br /><br />Make sure this user name meets the requirements noted in the prerequisites. |
+   | Test user name | The user principal name (UPN) of the test account you want to be created, for example `testuser@contoso.com`. This user will be created in your new Azure AD tenant, synchronized to Azure AD DS, and made a member of the **AVDValidationUsers** security group that is also created during deployment. It must contain a valid UPN suffix for your domain that is also [added as a verified custom domain name in Azure AD](../active-directory/fundamentals/add-custom-domain.md).<br /><br />Make sure this user name meets the requirements noted in the [prerequisites](#prerequisites). |
    | Test password | The password to be used for the test account. |
    | Confirm password | Confirmation of the password to be used for the test account. |
 
@@ -134,9 +141,9 @@ Here's how to deploy Azure Virtual Desktop using the getting started feature whe
    | Location | The Azure region where your Azure Virtual Desktop resources will be deployed. |
    | Virtual network | The virtual network in the same Azure region you want to connect your Azure Virtual Desktop resources to. This must have connectivity to your AD DS domain controller in Azure and be able to resolve its FQDN. |
    | Subnet | The subnet of the virtual network you want to connect your Azure Virtual Desktop resources to. |
-   | Azure admin user name | The user principal name (UPN) of the account with the global administrator Azure AD role assigned on the Azure tenant and the owner role on the subscription that you selected. |
-   | Azure admin password | The password for the Azure admin account. The getting started feature doesn't currently support accounts with multi-factor authentication. |
-   | Domain admin user name | The user principal name (UPN) of the domain admin account in your AD DS domain. The UPN suffix doesn't need to be added as a custom domain in Azure AD. |
+   | Azure admin user name | The user principal name (UPN) of the account with the global administrator Azure AD role assigned on the Azure tenant and the owner role on the subscription that you selected.<br /><br />Make sure this account meets the requirements noted in the [prerequisites](#prerequisites). |
+   | Azure admin password | The password for the Azure admin account. |
+   | Domain admin user name | The user principal name (UPN) of the domain admin account in your AD DS domain. The UPN suffix doesn't need to be added as a custom domain in Azure AD.<br /><br />Make sure this account meets the requirements noted in the [prerequisites](#prerequisites). |
    | Domain admin password | The password for the domain admin account. |
 
 1. On the **Virtual machines** tab, complete the following information, then select **Next: Assignments >**:
@@ -149,7 +156,7 @@ Here's how to deploy Azure Virtual Desktop using the getting started feature whe
    | Virtual machine size | The [Azure virtual machine size](../virtual-machines/sizes.md) used for your session host(s). |
    | Name prefix | The name prefix for your session host(s). Each session host will have a hyphen and then a number added to the end, for example **avd-sh-1**. This name prefix can be a maximum of 11 characters and will also be used as the device name in the operating system. |
    | Number of virtual machines | The number of session hosts you want to deploy at this time. You can add more later. |
-   | Specify domain or unit | Select **Yes** if:<br /><ul><li>The FQDN of your domain is different to the UPN suffix of the domain admin user in the previous step.</li><li>You want to create the computer account in a specific Organizational Unit (OU).</li></ul><br />If you select **Yes** and you only want to specify an OU, you must enter a value for **Domain to join**, even if that is the same as the UPN suffix of the domain admin user in the previous step. Organizational Unit path is optional and if it's left empty, the computer account will be placed in the *Users* container.<br /><br />Select **No** to use the suffix of the Active Directory domain join UPN as the FQDN. For example, the user `vmjoiner@contoso.com` has a UPN suffix of `contoso.com`. The computer account will be placed in the Users container. |
+   | Specify domain or unit | Select **Yes** if:<br /><ul><li>The FQDN of your domain is different to the UPN suffix of the domain admin user in the previous step.</li><li>You want to create the computer account in a specific Organizational Unit (OU).</li></ul><br />If you select **Yes** and you only want to specify an OU, you must enter a value for **Domain to join**, even if that is the same as the UPN suffix of the domain admin user in the previous step. Organizational Unit path is optional and if it's left empty, the computer account will be placed in the *Users* container.<br /><br />Select **No** to use the suffix of the Active Directory domain join UPN as the FQDN. For example, the user `vmjoiner@contoso.com` has a UPN suffix of `contoso.com`. The computer account will be placed in the *Users* container. |
    | Domain controller resource group | The resource group that contains your domain controller virtual machine from the drop-down list. The resource group must be in the same subscription you selected earlier. |
    | Domain controller virtual machine | Your domain controller virtual machine from the drop-down list. This is required for creating or assigning the initial user and group. |
    | Link Azure template | Tick the box if you want to [link a separate ARM template](../azure-resource-manager/templates/linked-templates.md) for custom configuration on your session host(s) during deployment. You can specify inline deployment script, desired state configuration, and custom script extension. Provisioning other Azure resources in the template isn't supported.<br /><br />Untick the box if you don't want to link a separate ARM template during deployment. |
@@ -161,7 +168,7 @@ Here's how to deploy Azure Virtual Desktop using the getting started feature whe
    | Parameter | Value/Description |
    |--|--|
    | Create test user account | Tick the box if you want a new user account created during deployment for testing purposes. |
-   | Test user name | The user principal name (UPN) of the test account you want to be created, for example `testuser@contoso.com`. This user will be created in your AD DS domain, synchronized to Azure AD, and made a member of the **AVDValidationUsers** security group that is also created during deployment. It must contain a valid UPN suffix for your domain that is also [added as a verified custom domain name in Azure AD](../active-directory/fundamentals/add-custom-domain.md).<br /><br />Make sure this user name meets the requirements noted in the prerequisites. |
+   | Test user name | The user principal name (UPN) of the test account you want to be created, for example `testuser@contoso.com`. This user will be created in your AD DS domain, synchronized to Azure AD, and made a member of the **AVDValidationUsers** security group that is also created during deployment. It must contain a valid UPN suffix for your domain that is also [added as a verified custom domain name in Azure AD](../active-directory/fundamentals/add-custom-domain.md).<br /><br />Make sure this user name meets the requirements noted in the [prerequisites](#prerequisites). |
    | Test password | The password to be used for the test account. |
    | Confirm password | Confirmation of the password to be used for the test account. |
    | Assign existing users or groups | You can select existing users or groups by ticking the box and selecting **Add Azure AD users or user groups**. Select Azure AD users or user groups, then select **Select**. These users and groups must be [hybrid identities](../active-directory/hybrid/whatis-hybrid-identity.md), which means the user account is synchronized between your AD DS domain and Azure AD. Admin accounts aren’t able to sign in to the virtual desktop. |
@@ -191,9 +198,9 @@ Here's how to deploy Azure Virtual Desktop using the getting started feature whe
    | Location | The Azure region where your Azure Virtual Desktop resources will be deployed. |
    | Virtual network | The virtual network in the same Azure region you want to connect your Azure Virtual Desktop resources to. This must have connectivity to your Azure AD DS domain and be able to resolve its FQDN. |
    | Subnet | The subnet of the virtual network you want to connect your Azure Virtual Desktop resources to. |
-   | Azure admin user name | The user principal name (UPN) of the account with the global administrator Azure AD role assigned on the Azure tenant and the owner role on the subscription that you selected. |
-   | Azure admin password | The password for the Azure admin account. The getting started feature doesn't currently support accounts with multi-factor authentication. |
-   | Domain admin user name | The user principal name (UPN) of the admin account to manage your Azure AD DS domain. The UPN suffix of the user in Azure AD must match the Azure AD DS domain name. |
+   | Azure admin user name | The user principal name (UPN) of the account with the global administrator Azure AD role assigned on the Azure tenant and the owner role on the subscription that you selected.<br /><br />Make sure this account meets the requirements noted in the [prerequisites](#prerequisites). |
+   | Azure admin password | The password for the Azure admin account. |
+   | Domain admin user name | The user principal name (UPN) of the admin account to manage your Azure AD DS domain. The UPN suffix of the user in Azure AD must match the Azure AD DS domain name.<br /><br />Make sure this account meets the requirements noted in the [prerequisites](#prerequisites). |
    | Domain admin password | The password for the domain admin account. |
 
 1. On the **Virtual machines** tab, complete the following information, then select **Next: Assignments >**:
@@ -215,7 +222,7 @@ Here's how to deploy Azure Virtual Desktop using the getting started feature whe
    | Parameter | Value/Description |
    |--|--|
    | Create test user account | Tick the box if you want a new user account created during deployment for testing purposes. |
-   | Test user name | The user principal name (UPN) of the test account you want to be created, for example `testuser@contoso.com`. This user will be created in your Azure AD tenant, synchronized to Azure AD DS, and made a member of the **AVDValidationUsers** security group that is also created during deployment. It must contain a valid UPN suffix for your domain that is also [added as a verified custom domain name in Azure AD](../active-directory/fundamentals/add-custom-domain.md).<br /><br />Make sure this user name meets the requirements noted in the prerequisites. |
+   | Test user name | The user principal name (UPN) of the test account you want to be created, for example `testuser@contoso.com`. This user will be created in your Azure AD tenant, synchronized to Azure AD DS, and made a member of the **AVDValidationUsers** security group that is also created during deployment. It must contain a valid UPN suffix for your domain that is also [added as a verified custom domain name in Azure AD](../active-directory/fundamentals/add-custom-domain.md).<br /><br />Make sure this user name meets the requirements noted in the [prerequisites](#prerequisites). |
    | Test password | The password to be used for the test account. |
    | Confirm password | Confirmation of the password to be used for the test account. |
    | Assign existing users or groups | You can select existing users or groups by ticking the box and selecting **Add Azure AD users or user groups**. Select Azure AD users or user groups, then select **Select**. These users and groups must be in the synchronization scope configured for Azure AD DS. Admin accounts aren’t able to sign in to the virtual desktop. |
