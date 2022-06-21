@@ -94,6 +94,7 @@ $diskConfig = New-AzDiskConfig -Location '<yourRegion>' -AccountType '<yourDiskT
 New-AzDisk -ResourceGroupName 'yourRGName' -DiskName 'yourDiskName' -Disk $diskConfig
 ```
 
+
 ### Grant access to the disk
 Assign RBAC permissions, to allow the role to access your disk and generate a writeable SAS for the empty disk.
 
