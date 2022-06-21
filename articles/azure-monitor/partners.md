@@ -175,7 +175,7 @@ Logz.io provides you with seamless experience to provision Logz.io accounts and 
 With the integration you can 
 -	Provision a new Logz.io account from Azure client interfaces like Azure Portal Azure PowerShell and SDK
 -	Configure your Azure resources to send logs to Logz.io—a fully managed setup with no infrastructure for customers to setup and operate
--	Seamlessly send logs and metrics to Logz.io. With the integration, you had to set up event hubs and write Azure Functions to receive logs from Azure Monitor and send them to Logz.io.
+-	Seamlessly send logs and metrics to Logz.io. Without the integration, you had to set up event hubs and write Azure Functions to receive logs from Azure Monitor and send them to Logz.io.
 -	Easily install the Logz.io agent on virtual machines hosts through a single-click
 -	Streamline single-sign on (SSO) to Logz.io. Previously, a separate sign-on from the Logz.io was required.
 -	Get unified billing of Logz.io SaaS through Azure subscription invoicing
