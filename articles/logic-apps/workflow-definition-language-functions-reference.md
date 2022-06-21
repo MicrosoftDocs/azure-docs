@@ -273,10 +273,10 @@ For the full reference about each function, see the
 | [convertFromUtc](../logic-apps/workflow-definition-language-functions-reference.md#convertFromUtc) | Convert a timestamp from Universal Time Coordinated (UTC) to the target time zone. |
 | [convertTimeZone](../logic-apps/workflow-definition-language-functions-reference.md#convertTimeZone) | Convert a timestamp from the source time zone to the target time zone. |
 | [convertToUtc](../logic-apps/workflow-definition-language-functions-reference.md#convertToUtc) | Convert a timestamp from the source time zone to Universal Time Coordinated (UTC). |
+| [dateDifference](../logic-apps/workflow-definition-language-functions-reference.md#dateDifference) | Return the difference between two dates as a timespan. |
 | [dayOfMonth](../logic-apps/workflow-definition-language-functions-reference.md#dayOfMonth) | Return the day of the month component from a timestamp. |
 | [dayOfWeek](../logic-apps/workflow-definition-language-functions-reference.md#dayOfWeek) | Return the day of the week component from a timestamp. |
 | [dayOfYear](../logic-apps/workflow-definition-language-functions-reference.md#dayOfYear) | Return the day of the year component from a timestamp. |
-| [dateDifference](../logic-apps/workflow-definition-language-functions-reference.md#dateDifference) | Return the difference between two dates as a timespan. |
 | [formatDateTime](../logic-apps/workflow-definition-language-functions-reference.md#formatDateTime) | Return the date from a timestamp. |
 | [getFutureTime](../logic-apps/workflow-definition-language-functions-reference.md#getFutureTime) | Return the current timestamp plus the specified time units. See also [addToTime](../logic-apps/workflow-definition-language-functions-reference.md#addToTime). |
 | [getPastTime](../logic-apps/workflow-definition-language-functions-reference.md#getPastTime) | Return the current timestamp minus the specified time units. See also [subtractFromTime](../logic-apps/workflow-definition-language-functions-reference.md#subtractFromTime). |
