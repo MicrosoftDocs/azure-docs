@@ -217,10 +217,13 @@ with client:
 
 ```
 
+> [!div class="nextstepaction"]
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=PYTHON&Pillar=Language&Product=Summarization&Page=quickstart&Section=Code-example" target="_target">I ran into an issue</a>
+
 ### Output
 
 ```console
-issue: Customer tried to set up wifi connection for Smart Brew 300 medication machine, but it didn't work
+issue: Customer tried to set up wifi connection for Smart Brew 300 espresso machine, but it didn't work
 resolution: Asked customer to try the following steps | Asked customer for the power light | Helped customer to connect to the machine
 ```
 ---
