@@ -266,8 +266,9 @@ Do the following steps in the Azure portal to order a device:
     1. Check the box corresponding to the agreement to privacy terms. When you select the checkbox, the order information is validated.
 
     1. Once the order is validated, select **Order**.
+    
+        :::image type="content" source="media/data-box-order-portal/data-box-import-10.png" alt-text="Screenshot of the Review Plus Order tab for a Data Box order. The validation status, terms checkbox, and Order button are highlighted.":::
 
-    [Screenshot of the Review Plus Order tab for a Data Box order. The validation status, terms checkbox, and Order button are highlighted.](media/data-box-order-portal/data-box-import-10.png)
 
     The order takes a few minutes to be created. Your completed order will look similar to this one. You can select **Go to resource** to open the order.
 
