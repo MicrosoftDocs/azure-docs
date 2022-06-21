@@ -7,7 +7,7 @@ ms.reviewer: mjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: sample
-ms.date: 06/16/2022
+ms.date: 06/21/2022
 ms.custom: kr2b-contr-experiment
 ---
 
@@ -50,7 +50,7 @@ This script uses the following commands:
 - [az group create](/cli/azure/group#az-group-create) creates a resource group to store all resources.
 - [az cosmosdb create](/cli/azure/cosmosdb#az-cosmosdb-create) creates an Azure Cosmos DB account for SQL API.
 - [az cosmosdb sql database create](/cli/azure/cosmosdb/sql/database#az-cosmosdb-sql-database-create) creates an Azure Cosmos SQL (Core) database.
-- [az cosmosdb sql container create](/cli/azure/cosmosdb/sql/container#az-cosmosdb-sql-container-create) with `--max-throughput 4000` creates an Azure Cosmos SQL (Core) container with autoscale capability.
+- [az cosmosdb sql container create](/cli/azure/cosmosdb/sql/container#az-cosmosdb-sql-container-create) with `--max-throughput 1000` creates an Azure Cosmos SQL (Core) container with autoscale capability.
 
 ## Clean up resources
 

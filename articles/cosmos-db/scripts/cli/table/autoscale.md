@@ -7,7 +7,7 @@ ms.reviewer: mjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.topic: sample
-ms.date: 06/16/2022
+ms.date: 06/21/2022
 ms.custom: kr2b-contr-experiment
 ---
 
@@ -49,7 +49,7 @@ This script uses the following commands:
 
 - [az group create](/cli/azure/group#az-group-create) creates a resource group to store all resources.
 - [az cosmosdb create](/cli/azure/cosmosdb#az-cosmosdb-create) with `--capabilities EnableTable` creates an Azure Cosmos DB account for Table API.
-- [az cosmosdb table create](/cli/azure/cosmosdb/table#az-cosmosdb-table-create) with `--max-throughput 4000` creates an Azure Cosmos DB Table API table with autoscale capabilities.
+- [az cosmosdb table create](/cli/azure/cosmosdb/table#az-cosmosdb-table-create) with `--max-throughput 1000` creates an Azure Cosmos DB Table API table with autoscale capabilities.
 
 ## Clean up resources
 
