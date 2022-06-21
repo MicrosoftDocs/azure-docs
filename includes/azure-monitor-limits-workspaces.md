@@ -13,7 +13,7 @@ ms.custom: "include file"
 
 **Data collection volume and retention** 
 
-| Pricing Tier | Limit per day | Data retention | Comment |
+| Pricing tier | Limit per day | Data retention | Comment |
 |:---|:---|:---|:---|
 | [Pay-as-you-go](https://docs.microsoft.com/azure/azure-monitor/logs/cost-logs#pricing-model)<br>(introduced April 2018) | No limit | up to 730 days interactive retention /<br> up to 7 years [data archive](https://docs.microsoft.com/azure/azure-monitor/logs/data-retention-archive) | Data retention beyond 31 days is available for additional charges. Learn more about [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor). |
 | [Commitment tiers](https://docs.microsoft.com/azure/azure-monitor/logs/cost-logs#commitment-tiers)<br>(introduced November 2019) | No limit | up to 730 days interactive retention /<br> up to 7 years [data archive](https://docs.microsoft.com/azure/azure-monitor/logs/data-retention-archive) | Data retention beyond 31 days is available for additional charges. Learn more about [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor). |
