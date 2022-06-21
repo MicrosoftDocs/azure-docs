@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: Learn how to stream Azure Digital Twins telemetry to clients using Azure SignalR
 author: dejimarquis
 ms.author: aymarqui # Microsoft employees only
-ms.date: 02/22/2022
+ms.date: 06/21/2022
 ms.topic: how-to
 ms.service: digital-twins
 
