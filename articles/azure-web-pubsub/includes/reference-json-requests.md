@@ -6,7 +6,7 @@ ms.topic: include
 ms.date: 08/06/2021
 ---
 
-### Join groups {#joinGroupMessage}
+### Join groups
 
 Format:
 
@@ -20,7 +20,7 @@ Format:
 
 * `ackId` is the identity of each request and should be unique. The service sends a [ack response message](#ack-response) to notify the process result of the request. More details can be found at [AckId and Ack Response](../concept-client-protocols.md#ackid-and-ack-response)
 
-### Leave groups {#leaveGroupMessage}
+### Leave groups
 
 Format:
 
@@ -34,7 +34,7 @@ Format:
 
 * `ackId` is the identity of each request and should be unique. The service sends a [ack response message](#ack-response) to notify the process result of the request. More details can be found at [AckId and Ack Response](../concept-client-protocols.md#ackid-and-ack-response)
 
-### Publish messages {#sendToGroupMessage}
+### Publish messages
 
 Format:
 
@@ -129,7 +129,7 @@ Format:
 ```
 * What the raw client in this group `<group_name>` receives is the **binary** data in the binary frame.
 
-### Send custom events {#eventMessage}
+### Send custom events
 
 Format:
 

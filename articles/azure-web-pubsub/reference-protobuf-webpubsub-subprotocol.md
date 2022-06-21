@@ -132,7 +132,7 @@ message DownstreamMessage {
 
 Messages received by the client can be in any of three types: `ack`, `message`, or `system`. 
 
-### Ack response {#ackMessage}
+### Ack response
 
 If the request contains `ackId`, the service returns an ack response for this request. The client implementation should handle this ack mechanism, including:
 * Waiting for the ack response for an `async` `await` operation. 
@@ -159,11 +159,11 @@ The sender's `dataType` will cause one of the following messages to be sent:
 
 The Web PubSub service can also send system-related responses to the client. 
 
-#### Connected {#connectedMessage}
+#### Connected
 
 When the client connects to the service, you receive a `DownstreamMessage.SystemMessage.ConnectedMessage` message.
 
-#### Disconnected {#disconnectedMessage}
+#### Disconnected
 
 When the server closes the connection or the service declines the client, you receive a `DownstreamMessage.SystemMessage.DisconnectedMessage` message.
 

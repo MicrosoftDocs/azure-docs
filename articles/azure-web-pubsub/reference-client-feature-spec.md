@@ -142,54 +142,54 @@ Different subprotocols have different format for message. Find the reference to 
 
 ### 3.1 ConnectedMessage
 
-- [json.reliable.webpubsub.azure.v1](./reference-json-reliable-webpubsub-subprotocol.md#connectedMessage)
-- [protobuf.reliable.webpubsub.azure.v1](./reference-protobuf-reliable-webpubsub-subprotocol.md#connectedMessage)
-- [json.webpubsub.azure.v1](./reference-json-webpubsub-subprotocol.md#connectedMessage)
-- [protobuf.webpubsub.azure.v1](./reference-protobuf-webpubsub-subprotocol.md#connectedMessage)
+- [json.reliable.webpubsub.azure.v1](./reference-json-reliable-webpubsub-subprotocol.md#connected)
+- [protobuf.reliable.webpubsub.azure.v1](./reference-protobuf-reliable-webpubsub-subprotocol.md#connected)
+- [json.webpubsub.azure.v1](./reference-json-webpubsub-subprotocol.md#connected)
+- [protobuf.webpubsub.azure.v1](./reference-protobuf-webpubsub-subprotocol.md#connected)
 
 ### 3.2 DisconnectedMessage
 
-- [json.reliable.webpubsub.azure.v1](./reference-json-reliable-webpubsub-subprotocol.md#disconnectedMessage)
-- [protobuf.reliable.webpubsub.azure.v1](./reference-protobuf-reliable-webpubsub-subprotocol.md#disconnectedMessage)
-- [json.webpubsub.azure.v1](./reference-json-webpubsub-subprotocol.md#disconnectedMessage)
-- [protobuf.webpubsub.azure.v1](./reference-protobuf-webpubsub-subprotocol.md#disconnectedMessage)
+- [json.reliable.webpubsub.azure.v1](./reference-json-reliable-webpubsub-subprotocol.md#disconnected)
+- [protobuf.reliable.webpubsub.azure.v1](./reference-protobuf-reliable-webpubsub-subprotocol.md#disconnected)
+- [json.webpubsub.azure.v1](./reference-json-webpubsub-subprotocol.md#disconnected)
+- [protobuf.webpubsub.azure.v1](./reference-protobuf-webpubsub-subprotocol.md#disconnected)
 
 ### 3.3 JoinGroupMessage
 
-- [json.reliable.webpubsub.azure.v1](./reference-json-reliable-webpubsub-subprotocol.md#joinGroupMessage)
-- [protobuf.reliable.webpubsub.azure.v1](./reference-protobuf-reliable-webpubsub-subprotocol.md#joinGroupMessage)
-- [json.webpubsub.azure.v1](./reference-json-webpubsub-subprotocol.md#joinGroupMessage)
-- [protobuf.webpubsub.azure.v1](./reference-protobuf-webpubsub-subprotocol.md#joinGroupMessage)
+- [json.reliable.webpubsub.azure.v1](./reference-json-reliable-webpubsub-subprotocol.md#join-groups)
+- [protobuf.reliable.webpubsub.azure.v1](./reference-protobuf-reliable-webpubsub-subprotocol.md#join-groups)
+- [json.webpubsub.azure.v1](./reference-json-webpubsub-subprotocol.md#join-groups)
+- [protobuf.webpubsub.azure.v1](./reference-protobuf-webpubsub-subprotocol.md#join-groups)
 
 ### 3.4 LeaveGroupMessage
 
-- [json.reliable.webpubsub.azure.v1](./reference-json-reliable-webpubsub-subprotocol.md#leaveGroupMessage)
-- [protobuf.reliable.webpubsub.azure.v1](./reference-protobuf-reliable-webpubsub-subprotocol.md#leaveGroupMessage)
-- [json.webpubsub.azure.v1](./reference-json-webpubsub-subprotocol.md#leaveGroupMessage)
-- [protobuf.webpubsub.azure.v1](./reference-protobuf-webpubsub-subprotocol.md#leaveGroupMessage)
+- [json.reliable.webpubsub.azure.v1](./reference-json-reliable-webpubsub-subprotocol.md#leave-groups)
+- [protobuf.reliable.webpubsub.azure.v1](./reference-protobuf-reliable-webpubsub-subprotocol.md#leave-groups)
+- [json.webpubsub.azure.v1](./reference-json-webpubsub-subprotocol.md#leave-groups)
+- [protobuf.webpubsub.azure.v1](./reference-protobuf-webpubsub-subprotocol.md#leave-groups)
 
 ### 3.5 SendToGroupMessage
 
-- [json.reliable.webpubsub.azure.v1](./reference-json-reliable-webpubsub-subprotocol.md#sendToGroupMessage)
-- [protobuf.reliable.webpubsub.azure.v1](./reference-protobuf-reliable-webpubsub-subprotocol.md#sendToGroupMessage)
-- [json.webpubsub.azure.v1](./reference-json-webpubsub-subprotocol.md#sendToGroupMessage)
-- [protobuf.webpubsub.azure.v1](./reference-protobuf-webpubsub-subprotocol.md#sendToGroupMessage)
+- [json.reliable.webpubsub.azure.v1](./reference-json-reliable-webpubsub-subprotocol.md#publish-messages)
+- [protobuf.reliable.webpubsub.azure.v1](./reference-protobuf-reliable-webpubsub-subprotocol.md#publish-messages)
+- [json.webpubsub.azure.v1](./reference-json-webpubsub-subprotocol.md#publish-messages)
+- [protobuf.webpubsub.azure.v1](./reference-protobuf-webpubsub-subprotocol.md#publish-messages)
 
 ### 3.6 EventMessage
 
-- [json.reliable.webpubsub.azure.v1](./reference-json-reliable-webpubsub-subprotocol.md#eventMessage)
-- [protobuf.reliable.webpubsub.azure.v1](./reference-protobuf-reliable-webpubsub-subprotocol.md#eventMessage)
-- [json.webpubsub.azure.v1](./reference-json-webpubsub-subprotocol.md#eventMessage)
-- [protobuf.webpubsub.azure.v1](./reference-protobuf-webpubsub-subprotocol.md#eventMessage)
+- [json.reliable.webpubsub.azure.v1](./reference-json-reliable-webpubsub-subprotocol.md#send-custom-events)
+- [protobuf.reliable.webpubsub.azure.v1](./reference-protobuf-reliable-webpubsub-subprotocol.md#send-custom-events)
+- [json.webpubsub.azure.v1](./reference-json-webpubsub-subprotocol.md#send-custom-events)
+- [protobuf.webpubsub.azure.v1](./reference-protobuf-webpubsub-subprotocol.md#send-custom-events)
 
 ### 3.7 AckMessage
 
-- [json.reliable.webpubsub.azure.v1](./reference-json-reliable-webpubsub-subprotocol.md#ackMessage)
-- [protobuf.reliable.webpubsub.azure.v1](./reference-protobuf-reliable-webpubsub-subprotocol.md#ackMessage)
-- [json.webpubsub.azure.v1](./reference-json-webpubsub-subprotocol.md#ackMessage)
-- [protobuf.webpubsub.azure.v1](./reference-protobuf-webpubsub-subprotocol.md#ackMessage)
+- [json.reliable.webpubsub.azure.v1](./reference-json-reliable-webpubsub-subprotocol.md#ack-response)
+- [protobuf.reliable.webpubsub.azure.v1](./reference-protobuf-reliable-webpubsub-subprotocol.md#ack-response)
+- [json.webpubsub.azure.v1](./reference-json-webpubsub-subprotocol.md#ack-response)
+- [protobuf.webpubsub.azure.v1](./reference-protobuf-webpubsub-subprotocol.md#ack-response)
 
 ### 3.8 SequenceAckMessage
 
-- [json.reliable.webpubsub.azure.v1](./reference-json-reliable-webpubsub-subprotocol.md#sequenceAckMessage)
-- [protobuf.reliable.webpubsub.azure.v1](./reference-protobuf-reliable-webpubsub-subprotocol.md#sequenceAckMessage)
+- [json.reliable.webpubsub.azure.v1](./reference-json-reliable-webpubsub-subprotocol.md#sequence-ack)
+- [protobuf.reliable.webpubsub.azure.v1](./reference-protobuf-reliable-webpubsub-subprotocol.md#sequence-ack)

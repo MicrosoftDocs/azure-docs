@@ -35,7 +35,7 @@ For a simple WebSocket client, the *server* is a MUST HAVE role to handle the ev
 
 Messages received by the client can be several types: `ack`, `message`, and `system`: 
 
-### Ack response {#ackMessage}
+### Ack response
 
 If the request contains `ackId`, the service will return an ack response for this request. The client implementation should handle this ack mechanism, including waiting for the ack response for an `async` `await` operation, and having a timeout check when the ack response is not received during a certain period.
 
@@ -126,7 +126,7 @@ If the REST API is sending a string `Hello World` using `application/json` conte
 
 The Web PubSub service can also send system-related responses to the client. 
 
-#### Connected {#connectedMessage}
+#### Connected
 
 When the connection connects to service.
 
@@ -139,7 +139,7 @@ When the connection connects to service.
 }
 ```
 
-#### Disconnected {#disconnectedMessage}
+#### Disconnected
 
 When the server closes the connection, or when the service declines the client.
 

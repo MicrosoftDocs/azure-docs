@@ -1,4 +1,4 @@
-### Join groups {#joinGroupMessage}
+### Join groups
 
 Format:
 
@@ -6,7 +6,7 @@ Set `join_group_message.group` to the group name.
 
 * `ackId` is the identity of each request and should be unique. The service sends a [ack response message](#ack-response) to notify the process result of the request. More details can be found at [AckId and Ack Response](../concept-client-protocols.md#ackid-and-ack-response)
 
-### Leave groups {#leaveGroupMessage}
+### Leave groups
 
 Format:
 
@@ -14,7 +14,7 @@ Set `leave_group_message.group` to the group name.
 
 * `ackId` is the identity of each request and should be unique. The service sends a [ack response message](#ack-response) to notify the process result of the request. More details can be found at [AckId and Ack Response](../concept-client-protocols.md#ackid-and-ack-response)
 
-### Publish messages {#sendToGroupMessage}
+### Publish messages
 
 Format:
 
@@ -121,7 +121,7 @@ Set `send_to_group_message.group` to `group`, and set `send_to_group_message.dat
     01 02 03
     ```
 
-### Send custom events {#eventMessage}
+### Send custom events
 
 There's an implicit `dataType`, which can be `protobuf`, `text`, or `binary`, depending on the `dataType` you set. The receiver clients can use `dataType` to handle the content correctly.
 

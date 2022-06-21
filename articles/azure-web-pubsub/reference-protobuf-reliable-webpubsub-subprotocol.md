@@ -91,7 +91,7 @@ message MessageData {
 
 [!INCLUDE [reference-protobuf-requests](includes/reference-protobuf-requests.md)]
 
-### Sequence Ack {#sequenceAckMessage}
+### Sequence Ack
 
 Reliable PubSub WebSocket client must send `SequenceAckMessage` once it received a message from the service. Find more in [How to create reliable clients](./howto-develop-reliable-clients.md#subscriber)
  
@@ -146,7 +146,7 @@ message DownstreamMessage {
 }
 ```
 
-### Ack response {#ackMessage}
+### Ack response
 
 If the request contains `ackId`, the service returns an ack response for this request. The client implementation should handle this ack mechanism, including:
 * Waiting for the ack response for an `async` `await` operation. 
@@ -175,7 +175,7 @@ The sender's `dataType` will cause one of the following messages to be sent:
 
 The Web PubSub service can also send system-related responses to the client. 
 
-#### Connected {#connectedMessage}
+#### Connected
 
 When the client connects to the service, you receive a `DownstreamMessage.SystemMessage.ConnectedMessage` message.
 `connection_id` and `reconnection_token` are used for reconnection. Make connect request with uri for reconnection:
@@ -186,7 +186,7 @@ wss://<service-endpoint>/client/hubs/<hub>?awps_connection_id=<connectionId>&awp
 
 Find more details in [Reconnection](./howto-develop-reliable-clients.md#reconnection)
 
-#### Disconnected {#disconnectedMessage}
+#### Disconnected
 
 When the server closes the connection or the service declines the client, you receive a `DownstreamMessage.SystemMessage.DisconnectedMessage` message.
 
