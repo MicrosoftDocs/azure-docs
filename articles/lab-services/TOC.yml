@@ -1,25 +1,37 @@
 - name: Azure Lab Services docs
   href: index.yml
 - name: Overview
+  expanded: true
   items:
   - name: About Lab Services
     href: lab-services-overview.md
   - name: What's New in Lab Services?
     href: lab-services-whats-new.md
 - name: Quickstarts
+  expanded: true
   items:
     - name: Create a lab plan (admin)
+      expanded: true
       items:
       - name: Azure portal
         href: quick-create-lab-plan-portal.md
+      - name: ARM template
+        href: quick-create-lab-plan-template.md
       - name: PowerShell
         href: quick-create-lab-plan-powershell.md
+      - name: Bicep
+        href: quick-create-lab-plan-bicep.md
     - name: Create a lab (educator)
+      expanded: true
       items:
       - name: Azure Lab Services website
         href: quick-create-lab-portal.md
+      - name: ARM template
+        href: quick-create-lab-template.md
       - name: PowerShell
         href: quick-create-lab-powershell.md
+      - name: Bicep
+        href: quick-create-lab-bicep.md
 - name: Tutorials
   items:
   - name: Set up a lab plan (admin)
@@ -30,7 +42,7 @@
     href: tutorial-connect-lab-virtual-machine.md
   - name: Track usage of a lab
     href: tutorial-track-usage.md
-  - name: Set up a lab account 
+  - name: Set up a lab account
     href: tutorial-setup-lab-account.md
 - name: Concepts
   items:
@@ -227,9 +239,15 @@
         href: how-to-create-schedules-within-teams.md
       - name: Access a VM (student view)
         href: how-to-access-vm-for-students-within-teams.md
-  - name: Earlier releases 
+  - name: Earlier releases
     items:
-    - name: Create & configure lab accounts 
+    - name: Labs architecture fundamentals
+      href: classroom-labs-fundamentals-1.md
+    - name: Administrator guide
+      href: administrator-guide-1.md
+    - name: Lab account creation guide
+      href: account-setup-guide.md
+    - name: Create & configure lab accounts
       items:
       - name: Create and manage labs
         href: how-to-manage-classroom-labs.md        
@@ -251,11 +269,9 @@
         href: how-to-add-user-lab-owner.md
       - name: Manage labs in a lab account
         href: manage-labs-1.md
-    - name: Administrator guide
-      href: administrator-guide-1.md
-    - name: Lab account creation guide
-      href: account-setup-guide.md
-    - name: Az.LabServices PowerShell module on GitHub
+    - name: Set up GPU VMs when using lab accounts
+      href: how-to-setup-lab-gpu-1.md
+    - name: Az.LabServices PowerShell module for lab accounts
       href: reference-powershell-module.md     
 - name: Reference
   items:

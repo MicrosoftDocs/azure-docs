@@ -4,7 +4,7 @@ description: Learn how to use a .NET isolated process to run your C# functions i
 
 ms.service: azure-functions
 ms.topic: conceptual 
-ms.date: 05/12/2022
+ms.date: 05/24/2022
 ms.custom: template-concept 
 recommendations: false
 #Customer intent: As a developer, I need to know how to create functions that run in an isolated process so that I can run my function code on current (not LTS) releases of .NET.
@@ -44,7 +44,7 @@ A .NET isolated function project is basically a .NET console app project that ta
 + Program.cs file that's the entry point for the app.
 + Any code files [defining your functions](#bindings).
  
-For complete examples, see the [.NET 6 isolated sample project](https://github.com/Azure/azure-functions-dotnet-worker/tree/main/samples/FunctionApp) and the [.NET Framework 4.8 isolated sample project](https://github.com/Azure/azure-functions-dotnet-worker/tree/main/samples/NetFxWorker).
+For complete examples, see the [.NET 6 isolated sample project](https://github.com/Azure/azure-functions-dotnet-worker/tree/main/samples/FunctionApp) and the [.NET Framework 4.8 isolated sample project](https://go.microsoft.com/fwlink/p/?linkid=2197310).
 
 > [!NOTE]
 > To be able to publish your isolated function project to either a Windows or a Linux function app in Azure, you must set a value of `dotnet-isolated` in the remote [FUNCTIONS_WORKER_RUNTIME](functions-app-settings.md#functions_worker_runtime) application setting. To support [zip deployment](deployment-zip-push.md) and [running from the deployment package](run-functions-from-deployment-package.md) on Linux, you also need to update the `linuxFxVersion` site config setting to `DOTNET-ISOLATED|6.0`. To learn more, see [Manual version updates on Linux](set-runtime-version.md#manual-version-updates-on-linux). 
@@ -260,7 +260,7 @@ This section describes the current state of the functional and behavioral differ
 | Output binding types |  `IAsyncCollector`, [DocumentClient], [BrokeredMessage], and other client-specific types | Simple types, JSON serializable types, and arrays. |
 | Multiple output bindings | Supported | [Supported](#multiple-output-bindings) |
 | HTTP trigger | [HttpRequest]/[ObjectResult] | [HttpRequestData]/[HttpResponseData] |
-| Durable Functions | [Supported](durable/durable-functions-overview.md) | Not supported | 
+| Durable Functions | [Supported](durable/durable-functions-overview.md) | [Supported (public preview)](https://github.com/microsoft/durabletask-dotnet#usage-with-azure-functions) | 
 | Imperative bindings | [Supported](functions-dotnet-class-library.md#binding-at-runtime) | Not supported |
 | function.json artifact | Generated | Not generated |
 | Configuration | [host.json](functions-host-json.md) | [host.json](functions-host-json.md) and custom initialization |
@@ -268,6 +268,7 @@ This section describes the current state of the functional and behavioral differ
 | Middleware | Not supported | Supported |
 | Cold start times | Typical | Longer, because of just-in-time start-up. Run on Linux instead of Windows to reduce potential delays. |
 | ReadyToRun | [Supported](functions-dotnet-class-library.md#readytorun) | _TBD_ | 
+| Application Insights dependencies | [Supported](functions-monitoring.md#dependencies) | Not Supported |
 
 ## Next steps
 

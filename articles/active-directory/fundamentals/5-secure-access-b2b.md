@@ -76,7 +76,7 @@ You can use an allowlist or blocklist to [restrict invitations to B2B users](../
 > Limiting to a predefined  domain may inadvertently prevent authorized collaboration with organizations, which have other domains for their users. For example, if doing business with an organization Contoso, the initial point of contact with Contoso might be one of their US-based employees who has an email with a ".com" domain. However, if you only allow the ".com" domain you may inadvertently omit their Canadian employees who have ".ca" domain.
 
 > [!IMPORTANT]
-> These lists do not apply to users who are already in your directory. By default, they also do not apply to OneDrive for Business and SharePoint allow/blocklists which are separate unless you enable the [SharePoint/OneDrive B2B integration](https://docs.microsoft.com/sharepoint/sharepoint-azureb2b-integration).  
+> These lists do not apply to users who are already in your directory. By default, they also do not apply to OneDrive for Business and SharePoint allow/blocklists which are separate unless you enable the [SharePoint/OneDrive B2B integration](/sharepoint/sharepoint-azureb2b-integration).  
 
 Some organizations use a list of known ‘bad actor’ domains provided by their managed security provider for their blocklist. For example, if the organization is legitimately doing business with Contoso and using a .com domain, there may be an unrelated organization that has been using the Contoso .org domain and attempting a phishing attack to impersonate Contoso employees. 
 

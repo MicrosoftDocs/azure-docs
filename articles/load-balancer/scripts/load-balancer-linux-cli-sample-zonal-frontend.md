@@ -3,7 +3,7 @@ title: Load balance VMs within a zone - Azure CLI
 description: This Azure CLI script example shows how to load balance traffic to VMs within a specific availability zone
 services: load-balancer
 documentationcenter: load-balancer
-author: asudbring
+author: mbender-ms
 manager: kumudD
 # Customer intent: As an IT administrator, I want to create a load balancer that load balances incoming internet traffic to virtual machines within a specific zone in a region.
 ms.assetid:
@@ -13,7 +13,7 @@ ms.topic: sample
 ms.tgt_pltfrm: 
 ms.workload: infrastructure
 ms.date: 03/04/2022
-ms.author: allensu 
+ms.author: mbender 
 ms.custom: devx-track-azurecli
 ---
 

@@ -1,7 +1,6 @@
 ---
 title: Add password-based single sign-on to an application
 description: Add password-based single sign-on to an application in Azure Active Directory.
-titleSuffix: Azure AD
 services: active-directory
 author: AllisonAm
 manager: CelesteDG
