@@ -90,7 +90,7 @@ Use Azure CLI or Azure PowerShell to validate the deployment.
     nslookup -type=cname {relativeDnsName}
     ```
 
-    You should get a canonical name of either `www.microsoft.com` or `docs.microsoft.com` depending on which region is closer to you.az 
+    You should get a canonical name of either `www.microsoft.com` or `docs.microsoft.com` depending on which region is closer to you.
 
     # [PowerShell](#tab/PowerShell)
 
