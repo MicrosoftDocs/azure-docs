@@ -20,6 +20,8 @@ keywords: facial recognition, facial recognition software, facial analysis, face
 > [!WARNING]
 > On June 11, 2020, Microsoft announced that it will not sell facial recognition technology to police departments in the United States until strong regulation, grounded in human rights, has been enacted. As such, customers may not use facial recognition features or functionality included in Azure Services, such as Face or Video Indexer, if a customer is, or is allowing use of such services by or for, a police department in the United States. When you create a new Face resource, you must acknowledge and agree in the Azure Portal that you will not use the service by or for a police department in the United States and that you have reviewed the Responsible AI documentation and will use this service in accordance with it.
 
+[!INCLUDE [Gate notice](./includes/identity-gate-notice.md)]
+
 The Azure Face service provides AI algorithms that detect, recognize, and analyze human faces in images. Facial recognition software is important in many different scenarios, such as identity verification, touchless access control, and face blurring for privacy.
 
 This documentation contains the following types of articles:
@@ -46,8 +48,7 @@ Face detection is required as a first step in all the other scenarios. The Detec
 
 Optionally, face detection can extract a set of face-related attributes, such as head pose, age, emotion, facial hair, and glasses. These attributes are general predictions, not actual classifications. Some attributes are useful to ensure that your application is getting high-quality face data when users add themselves to a Face service. For example, your application could advise users to take off their sunglasses if they're wearing sunglasses.
 
-> [!NOTE]
-> The face detection feature is also available through the [Computer Vision service](../computer-vision/overview.md). However, if you want to use other Face operations like Identify, Verify, Find Similar, or Face grouping, you should use this service instead.
+[!INCLUDE [Sensitive attributes notice](./includes/identity-sensitive-attributes.md)]
 
 For more information on face detection and analysis, see the [Face detection](concept-face-detection.md) concepts article. Also see the [Detect API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) reference documentation.
 
