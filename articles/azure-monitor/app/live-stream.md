@@ -171,15 +171,14 @@ If you want to monitor a particular server role instance, you can filter by serv
 
 Live Metrics custom filters allow you to control which of your application's telemetry is streamed to the Live Metrics view in Azure portal. The filters criteria is sent to the apps that are instrumented with the Application Insights SDK. The filter value could potentially contain sensitive information such as CustomerID. To keep this value secured and prevent potential disclosure to unauthorized applications, you have two options:
 
-Recommended: Secure live-metrics channel using [Azure AD authentication](https://docs.microsoft.com/en-us/azure/azure-monitor/app/azure-ad-authentication?tabs=net#configuring-and-enabling-azure-ad-based-authentication)
+Recommended: Secure live-metrics channel using [Azure AD authentication](https://docs.microsoft.com/azure/azure-monitor/app/azure-ad-authentication?tabs=net#configuring-and-enabling-azure-ad-based-authentication)
 
 Legacy (no longer recommended): Set up an authenticated channel by configuring a secret API key as explained below
 
-> [!NOTE]
-> A warning will show if you try to use filters without an authenticated channel. It is possible to overwrite the warning temporarily. This option is made available so that you can try custom filters without having to set up an authenticated channel. If you choose this option, you will have to authorize the connected servers once every new session or when a new server comes online. To use custom filters without a secure channel, simply click on any of the filter icons and authorize the connected servers. The “Authorize connected servers” dialog displays the date (highlighted below) after which this option will be disabled.
+It is possible to try custom filters without having to set up an authenticated channel. To use custom filters without a secure channel, simply click on any of the filter icons and authorize the connected servers. If you choose this option, you will have to authorize the connected servers once every new session or when a new server comes online.
 
 > [!WARNING]
-> We strongly discourage the use of unsecured channels and will disable this option 6 months after you start using it. We recommend that you set up the authenticated channel before entering potentially sensitive information like CustomerID in the filter criteria.
+> We strongly discourage the use of unsecured channels and will disable this option 6 months after you start using it. The “Authorize connected servers” dialog displays the date (highlighted below) after which this option will be disabled.
 
 :::image type="content" source="media/live-stream/live-stream-auth.png" alt-text="Screenshot displaying the authorize connected servers dialog." lightbox="media/live-stream/live-stream-auth.png":::
 
