@@ -1,7 +1,7 @@
 ---
 title: Create a static persistent volume with Azure Blob storage in Azure Kubernetes Service (AKS)
 titleSuffix: Azure Kubernetes Service
-description: Learn how to manually create a persistent volume with Azure Blob storage for use with multiple concurrent pods in Azure Kubernetes Service (AKS)
+description: Learn how to create a static persistent volume with Azure Blob storage for use with multiple concurrent pods in Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
 ms.date: 06/17/2022
@@ -12,7 +12,7 @@ ms.date: 06/17/2022
 
 Container-based applications often need to access and persist data in an external data volume. If multiple pods need concurrent access to the same storage volume, you can use Azure Blob storage to connect using [blobfuse][blobfuse-overview] or [Network File System][nfs-overview] (NFS).
 
-This article shows you how to manually create an Azure Blob storage container and attach it to a pod in AKS.
+This article shows you how to create an Azure Blob storage container and attach it to a pod in AKS.
 
 For more information on Kubernetes volumes, see [Storage options for applications in AKS][concepts-storage].
 
