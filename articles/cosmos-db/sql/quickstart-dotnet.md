@@ -52,12 +52,12 @@ This quickstart will create a single Azure Cosmos DB account using the SQL API.
 
     ```azurecli-interactive
     # Variable for resource group name
-    resourceGroupName="msdocs-cosmos-dotnet-quickstart-rg"
+    resourceGroupName="msdocs-cosmos-quickstart-rg"
     location="westus"
 
     # Variable for account name with a randomnly generated suffix
     let suffix=$RANDOM*$RANDOM
-    accountName="msdocs-dotnet-$suffix"
+    accountName="msdocs-$suffix"
     ```
 
 1. If you haven't already, sign in to the Azure CLI using the [``az login``](/cli/azure/reference-index#az-login) command.
@@ -106,12 +106,12 @@ This quickstart will create a single Azure Cosmos DB account using the SQL API.
 
     ```azurepowershell-interactive
     # Variable for resource group name
-    $RESOURCE_GROUP_NAME = "msdocs-cosmos-dotnet-quickstart-rg"
+    $RESOURCE_GROUP_NAME = "msdocs-cosmos-quickstart-rg"
     $LOCATION = "West US"
     
     # Variable for account name with a randomnly generated suffix
     $SUFFIX = Get-Random
-    $ACCOUNT_NAME = "msdocs-dotnet-$SUFFIX"
+    $ACCOUNT_NAME = "msdocs-$SUFFIX"
     ```
 
 1. If you haven't already, sign in to Azure PowerShell using the [``Connect-AzAccount``](/powershell/module/az.accounts/connect-azaccount) cmdlet.
@@ -165,7 +165,7 @@ This quickstart will create a single Azure Cosmos DB account using the SQL API.
 #### [Portal](#tab/azure-portal)
 
 > [!TIP]
-> For this quickstart, we recommend using the resource group name ``msdocs-cosmos-dotnet-quickstart-rg``.
+> For this quickstart, we recommend using the resource group name ``msdocs-cosmos-quickstart-rg``.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -390,11 +390,15 @@ Create an item in the container by calling [``Container.UpsertItemAsync``](/dotn
 
 :::code language="csharp" source="~/azure-cosmos-dotnet-v3/001-quickstart/Program.cs" id="new_item" highlight="3-4,12":::
 
+For more information on creating, upserting, or replacing items, see [Create an item in Azure Cosmos DB SQL API using .NET](how-to-dotnet-create-item.md).
+
 ### Get an item
 
 In Azure Cosmos DB, you can perform a point read operation by using both the unique identifier (``id``) and partition key fields. In the SDK, call [``Container.ReadItemAsync<>``](/dotnet/api/microsoft.azure.cosmos.container.readitemasync) passing in both values to return a deserialized instance of your C# type.
 
 :::code language="csharp" source="~/azure-cosmos-dotnet-v3/001-quickstart/Program.cs" id="read_item" highlight="3-4":::
+
+For more information about reading items and parsing the response, see [Read an item in Azure Cosmos DB SQL API using .NET](how-to-dotnet-read-item.md).
 
 ### Query items
 
@@ -448,7 +452,7 @@ Remove-AzResourceGroup @parameters
 1. Navigate to the resource group you previously created in the Azure portal.
 
     > [!TIP]
-    > In this quickstart, we recommended the name ``msdocs-cosmos-dotnet-quickstart-rg``.
+    > In this quickstart, we recommended the name ``msdocs-cosmos-quickstart-rg``.
 1. Select **Delete resource group**.
 
    :::image type="content" source="media/delete-account-portal/delete-resource-group-option.png" lightbox="media/delete-account-portal/delete-resource-group-option.png" alt-text="Screenshot of the Delete resource group option in the navigation bar for a resource group.":::
