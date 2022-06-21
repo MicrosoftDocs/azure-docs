@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.author: lagayhar
 author: lgayhardt
 ms.date: 10/21/2021
-ms.custom: designer, FY21Q4-aml-seo-hack, contperf-fy21q4
+ms.custom: designer, FY21Q4-aml-seo-hack, contperf-fy21q4, event-tier1-build-2022
 ---
 
 # What is Azure Machine Learning designer? 
@@ -26,7 +26,7 @@ The designer uses your Azure Machine Learning [workspace](concept-workspace.md) 
 + [Pipelines](#pipeline)
 + [Datasets](#datasets)
 + [Compute resources](#compute)
-+ [Registered models](concept-azure-machine-learning-architecture.md#models)
++ [Registered models](v1/concept-azure-machine-learning-architecture.md#models)
 + [Published pipelines](#publish)
 + [Real-time endpoints](#deploy)
 
@@ -41,13 +41,13 @@ Use a visual canvas to build an end-to-end machine learning workflow. Train, tes
 + [Publish](#publish) your pipelines to a REST **pipeline endpoint** to submit a new pipeline that runs with different parameters and datasets.
     + Publish a **training pipeline** to reuse a single pipeline to train multiple models while changing parameters and datasets.
     + Publish a **batch inference pipeline** to make predictions on new data by using a previously trained model.
-1. [Deploy](#deploy) a **real-time inference pipeline** to a real-time endpoint to make predictions on new data in real time.
++ [Deploy](#deploy) a **real-time inference pipeline** to an online endpoint to make predictions on new data in real time.
 
 ![Workflow diagram for training, batch inference, and real-time inference in the designer](./media/concept-designer/designer-workflow-diagram.png)
 
 ## Pipeline
 
-A [pipeline](concept-azure-machine-learning-architecture.md#ml-pipelines) consists of datasets and analytical components, which you connect. Pipelines have many uses: you can make a pipeline that trains a single model, or one that trains multiple models. You can create a pipeline that makes predictions in real time or in batch, or make a pipeline that only cleans data. Pipelines let you reuse your work and organize your projects.
+A [pipeline](v1/concept-azure-machine-learning-architecture.md#ml-pipelines) consists of datasets and analytical components, which you connect. Pipelines have many uses: you can make a pipeline that trains a single model, or one that trains multiple models. You can create a pipeline that makes predictions in real time or in batch, or make a pipeline that only cleans data. Pipelines let you reuse your work and organize your projects.
 
 ### Pipeline draft
 
@@ -66,7 +66,7 @@ When you're ready to run your pipeline draft, you submit a pipeline run.
 
 Each time you run a pipeline, the configuration of the pipeline and its results are stored in your workspace as a **pipeline run**. You can go back to any pipeline run to inspect it for troubleshooting or auditing. **Clone** a pipeline run to create a new pipeline draft for you to edit.
 
-Pipeline runs are grouped into [experiments](concept-azure-machine-learning-architecture.md#experiments) to organize run history. You can set the experiment for every pipeline run. 
+Pipeline runs are grouped into [experiments](v1/concept-azure-machine-learning-architecture.md#experiments) to organize run history. You can set the experiment for every pipeline run. 
 
 ## Datasets
 
@@ -85,7 +85,7 @@ For some help navigating through the library of machine learning algorithms avai
 
 ## <a name="compute"></a> Compute resources
 
-Use compute resources from your workspace to run your pipeline and host your deployed models as real-time endpoints or pipeline endpoints (for batch inference). The supported compute targets are:
+Use compute resources from your workspace to run your pipeline and host your deployed models as online endpoints or pipeline endpoints (for batch inference). The supported compute targets are:
 
 | Compute target | Training | Deployment |
 | ---- |:----:|:----:|
@@ -96,9 +96,9 @@ Compute targets are attached to your [Azure Machine Learning workspace](concept-
 
 ## Deploy
 
-To perform real-time inferencing, you must deploy a pipeline as a **real-time endpoint**. The real-time endpoint creates an interface between an external application and your scoring model. A call to a real-time endpoint returns prediction results to the application in real time. To make a call to a real-time endpoint, you pass the API key that was created when you deployed the endpoint. The endpoint is based on REST, a popular architecture choice for web programming projects.
+To perform real-time inferencing, you must deploy a pipeline as a [online endpoint](concept-endpoints.md#what-are-online-endpoints). The online endpoint creates an interface between an external application and your scoring model. A call to an online endpoint returns prediction results to the application in real time. To make a call to an online endpoint, you pass the API key that was created when you deployed the endpoint. The endpoint is based on REST, a popular architecture choice for web programming projects.
 
-Real-time endpoints must be deployed to an Azure Kubernetes Service cluster.
+Online endpoints must be deployed to an Azure Kubernetes Service cluster.
 
 To learn how to deploy your model, see [Tutorial: Deploy a machine learning model with the designer](tutorial-designer-automobile-price-deploy.md).
 
@@ -106,7 +106,7 @@ To learn how to deploy your model, see [Tutorial: Deploy a machine learning mode
 
 ## Publish
 
-You can also publish a pipeline to a **pipeline endpoint**. Similar to a real-time endpoint, a pipeline endpoint lets you submit new pipeline runs from external applications using REST calls. However, you cannot send or receive data in real time using a pipeline endpoint.
+You can also publish a pipeline to a **pipeline endpoint**. Similar to an online endpoint, a pipeline endpoint lets you submit new pipeline runs from external applications using REST calls. However, you cannot send or receive data in real time using a pipeline endpoint.
 
 Published pipelines are flexible, they can be used to train or retrain models, [perform batch inferencing](how-to-run-batch-predictions-designer.md), process new data, and much more. You can publish multiple pipelines to a single pipeline endpoint and specify which pipeline version to run.
 

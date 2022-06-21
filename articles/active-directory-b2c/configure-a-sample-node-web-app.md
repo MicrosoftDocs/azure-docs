@@ -8,7 +8,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/31/2022
+ms.date: 06/08/2022
 ms.author: kengaderdus
 ms.subservice: B2C
 ---
@@ -113,7 +113,7 @@ Open your web app in a code editor such as Visual Studio Code. Under the project
 |Key  |Value  |
 |---------|---------|
 |`APP_CLIENT_ID`|The **Application (client) ID** for the web app you registered in [step 2.1](#step-2-register-a-web-application). |
-|`APP_CLIENT_SECRET`|The client secret for the web app you created in [step 2.2](#step-22-create-a-web-app-client-secret) |
+|`APP_CLIENT_SECRET`|The client secret value for the web app you created in [step 2.2](#step-22-create-a-web-app-client-secret) |
 |`SIGN_UP_SIGN_IN_POLICY_AUTHORITY`|The **Sign in and sign up** user flow authority such as `https://<your-tenant-name>.b2clogin.com/<your-tenant-name>.onmicrosoft.com/<sign-in-sign-up-user-flow-name>`. Replace `<your-tenant-name>` with the name of your tenant and `<sign-in-sign-up-user-flow-name>` with the name of your Sign in and Sign up user flow such as `B2C_1_susi`. Learn how to [Get your tenant name](tenant-management.md#get-your-tenant-name). |
 |`RESET_PASSWORD_POLICY_AUTHORITY`| The **Reset password** user flow authority such as `https://<your-tenant-name>.b2clogin.com/<your-tenant-name>.onmicrosoft.com/<reset-password-user-flow-name>`. Replace `<your-tenant-name>` with the name of your tenant and `<reset-password-user-flow-name>` with the name of your Reset password user flow such as `B2C_1_reset_password_node_app`.|
 |`EDIT_PROFILE_POLICY_AUTHORITY`|The **Profile editing** user flow authority such as `https://<your-tenant-name>.b2clogin.com/<your-tenant-name>.onmicrosoft.com/<profile-edit-user-flow-name>`. Replace `<your-tenant-name>` with the name of your tenant and `<reset-password-user-flow-name>` with the name of your reset password user flow such as `B2C_1_edit_profile_node_app`. |

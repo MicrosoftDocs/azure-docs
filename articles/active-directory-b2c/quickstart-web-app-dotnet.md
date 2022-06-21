@@ -85,7 +85,7 @@ Azure Active Directory B2C provides functionality to allow users to update their
 
     The ASP.NET web application includes an Azure AD access token in the request to the protected web API resource to perform operations on the user's to-do list items.
 
-You've successfully used your Azure AD B2C user account to make an authorized call an Azure AD B2C protected web API.
+You've successfully used your Azure AD B2C user account to make an authorized call to an Azure AD B2C protected web API.
 
 
 ## Next steps

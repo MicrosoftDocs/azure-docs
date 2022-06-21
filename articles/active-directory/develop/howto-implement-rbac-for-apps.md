@@ -1,9 +1,8 @@
 ---
 title: Implement role-based access control in apps
-titleSuffix: Microsoft identity platform
 description: Learn how to implement role-based access control in your applications.
 services: active-directory
-author: Chrispine-Chiedo
+author: CelesteDG
 manager: CelesteDG
  
 ms.service: active-directory
@@ -11,7 +10,7 @@ ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity 
 ms.date: 09/17/2021
-ms.author: cchiedo
+ms.author: celested
 ms.reviewer: johngarland, mamarxen, ianbe, marsma
 
 #Customer intent: As an application developer, I want to learn how to implement role-based access control in my apps so I can ensure that only those users with the right access privileges can access my app's functionality.

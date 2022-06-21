@@ -94,7 +94,7 @@ Consult the [Role recommendations](#role-recommendations) section for best pract
 
 - **Log Analytics RBAC**. You can use the Log Analytics advanced Azure role-based access control across the data in your Microsoft Sentinel workspace. This includes both data type-based Azure RBAC and resource-context Azure RBAC. For more information, see:
 
-    - [Manage log data and workspaces in Azure Monitor](../azure-monitor/logs/manage-access.md#manage-access-using-workspace-permissions)
+    - [Manage log data and workspaces in Azure Monitor](../azure-monitor/logs/manage-access.md#azure-rbac)
 
     - [Resource-context RBAC for Microsoft Sentinel](resource-context-rbac.md)
     - [Table-level RBAC](https://techcommunity.microsoft.com/t5/azure-sentinel/table-level-rbac-in-azure-sentinel/ba-p/965043)

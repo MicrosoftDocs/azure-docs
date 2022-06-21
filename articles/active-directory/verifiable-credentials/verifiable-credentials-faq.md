@@ -2,16 +2,18 @@
 title: Frequently asked questions - Azure Verifiable Credentials (preview)
 description: Find answers to common questions about Verifiable Credentials
 author: barclayn
-manager: karenhoran
-ms.service: active-directory
+manager: rkarlin
+ms.service: decentralized-identity
 ms.subservice: verifiable-credentials
 ms.topic: conceptual
-ms.date: 04/28/2022
+ms.date: 06/02/2022
 ms.author: barclayn
 # Customer intent: As a developer I am looking for information on how to enable my users to control their own information 
 ---
 
 # Frequently Asked Questions (FAQ) (preview)
+
+[!INCLUDE [Verifiable Credentials announcement](../../../includes/verifiable-credentials-brand.md)]
 
 This page contains commonly asked questions about Verifiable Credentials and Decentralized Identity. Questions are organized into the following sections.
 
@@ -53,7 +55,7 @@ We implement [the Decentralized Identity Foundation's Well Known DID Configurati
 
 ### Why does the Verifiable Credential preview use ION as its DID method, and therefore Bitcoin to provide decentralized public key infrastructure?
 
-ION is a decentralized, permissionless, scalable decentralized identifier Layer 2 network that runs atop Bitcoin. It achieves scalability without including a special crypto asset token, trusted validators, or centralized consensus mechanisms. We use Bitcoin for the base Layer 1 substrate because of the strength of the decentralized network to provide a high degree of immutability for a chronological event record system.
+Microsoft now offers two different trust systems, Web and ION. You may choose to use either one of them during tenant onboarding. ION is a decentralized, permissionless, scalable decentralized identifier Layer 2 network that runs atop Bitcoin. It achieves scalability without including a special crypto asset token, trusted validators, or centralized consensus mechanisms. We use Bitcoin for the base Layer 1 substrate because of the strength of the decentralized network to provide a high degree of immutability for a chronological event record system.
 
 ## Using the preview
 

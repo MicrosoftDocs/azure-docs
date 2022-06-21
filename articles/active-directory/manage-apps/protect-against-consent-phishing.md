@@ -1,9 +1,8 @@
 ---
 title: Protecting against consent phishing
-titleSuffix: Azure AD
 description: Learn ways of mitigating against app-based consent phishing attacks using Azure AD.
 services: active-directory
-author: Chrispine-Chiedo
+author: CelesteDG
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -11,7 +10,7 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/09/2021
 ms.custom: template-concept
-ms.author: cchiedo
+ms.author: celested
 ms.reviewer: tilarso
 
 #Customer intent: As a developer, I want to learn how to protect against app-based consent phishing attacks so I can protect my users from malicious threat actors.

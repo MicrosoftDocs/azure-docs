@@ -5,7 +5,8 @@ author: flang-msft
 ms.author: franlanglois
 ms.service: cache
 ms.topic: conceptual
-ms.date: 09/30/2020
+ms.date: 06/09/2021
+
 ---
 
 # Deploy a machine learning model to Azure Functions with Azure Cache for Redis
@@ -48,7 +49,7 @@ You’ll be able to deploy a machine learning model to Azure Functions with any 
 
    | Setting      | Suggested value  | Description |
    | ------------ |  ------- | -------------------------------------------------- |
-   | **DNS name** | Enter a globally unique name. | The cache name must be a string between 1 and 63 characters. The string can contain only numbers, letters, or hyphens. The name must start and end with a number or letter, and can't contain consecutive hyphens. Your cache instance's *host name* will be *\<DNS name>.redis.cache.windows.net*. |
+   | **DNS name** | Enter a globally unique name. | The cache name must be a string between 1 and 63 characters. The string can contain only numbers, letters, or hyphens. The name must start and end with a number or letter, and can't contain consecutive hyphens. Your cache instance's _host name_ will be _\<DNS name>.redis.cache.windows.net_. |
    | **Subscription** | Drop down and select your subscription. | The subscription under which to create this new Azure Cache for Redis instance. |
    | **Resource group** | Drop down and select a resource group, or select **Create new** and enter a new resource group name. | Name for the resource group in which to create your cache and other resources. By putting all your app resources in one resource group, you can easily manage or delete them together. |
    | **Location** | Drop down and select a location. | Select a [region](https://azure.microsoft.com/regions/) near other services that will use your cache. |
@@ -78,7 +79,7 @@ It takes a while for the cache to create. You can monitor progress on the Azure 
 
 Before deploying, you must define what is needed to run the model as a web service. The following list describes the core items needed for a deployment:
 
-* An __entry script__. This script accepts requests, scores the request using the model, and returns the results.
+* An **entry script**. This script accepts requests, scores the request using the model, and returns the results.
 
     > [!IMPORTANT]
     > The entry script is specific to your model; it must understand the format of the incoming request data, the format of the data expected by your model, and the format of the data returned to clients.
@@ -122,7 +123,7 @@ For more information on entry script, see [Define scoring code.](../machine-lear
 
 * **Dependencies**, such as helper scripts or Python/Conda packages required to run the entry script or model
 
-These entities are encapsulated into an __inference configuration__. The inference configuration references the entry script and other dependencies.
+These entities are encapsulated into an **inference configuration**. The inference configuration references the entry script and other dependencies.
 
 > [!IMPORTANT]
 > When creating an inference configuration for use with Azure Functions, you must use an [Environment](/python/api/azureml-core/azureml.core.environment%28class%29) object. Please note that if you are defining a custom environment, you must add azureml-defaults with version >= 1.0.45 as a pip dependency. This package contains the functionality needed to host the model as a web service. The following example demonstrates creating an environment object and using it with an inference configuration:
@@ -146,7 +147,7 @@ For more information on environments, see [Create and manage environments for tr
 For more information on inference configuration, see [Deploy models with Azure Machine Learning](../machine-learning/how-to-deploy-and-where.md?tabs=python#define-an-inference-configuration).
 
 > [!IMPORTANT]
-> When deploying to Functions, you do not need to create a __deployment configuration__.
+> When deploying to Functions, you do not need to create a **deployment configuration**.
 
 ## Install the SDK preview package for Functions support
 
@@ -206,7 +207,7 @@ When `show_output=True`, the output of the Docker build process is shown. Once t
     }
     ```
 
-    Save the value for __username__ and one of the __passwords__.
+    Save the value for **username** and one of the **passwords**.
 
 1. If you don't already have a resource group or app service plan to deploy the service, the these commands demonstrate how to create both:
 

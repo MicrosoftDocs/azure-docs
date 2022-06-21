@@ -11,6 +11,8 @@ ms.date: 02/28/2022
 
 # Choose distribution columns in Azure Database for PostgreSQL – Hyperscale (Citus)
 
+[!INCLUDE[applies-to-postgresql-hyperscale](../includes/applies-to-postgresql-hyperscale.md)]
+
 Choosing each table's distribution column is one of the most important modeling
 decisions you'll make. Azure Database for PostgreSQL – Hyperscale (Citus)
 stores rows in shards based on the value of the rows' distribution column.
