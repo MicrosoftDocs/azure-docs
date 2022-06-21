@@ -172,7 +172,10 @@ When creating an instance using either `az sql mi-arc create` or `az postgres ar
 |`--storage-class-data`, `-d`|Used to specify the storage class for all data files including transaction log files|
 |`--storage-class-logs`, `-g`|Used to specify the storage class for all log files|
 |`--storage-class-data-logs`|Used to specify the storage class for the database transaction log files.|
-|`--storage-class-backups`|Used to specify the storage class for all backup files.|
+|`--storage-class-backups`|Used to specify the storage class for all backup files. Use a ReadWriteMany (RWX) capable storage class for backups. Learn more about [access modes](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#access-modes). |
+
+> [!WARNING]
+> If you don't specify a storage class for backups, the deployment uses the default storage class in Kubernetes. If this storage class isn't RWX capable, the deployment may not succeed.
 
 The table below lists the paths inside the Azure SQL Managed Instance container that is mapped to the persistent volume for data and logs:
 
