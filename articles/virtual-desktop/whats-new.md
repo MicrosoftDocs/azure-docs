@@ -372,7 +372,7 @@ You can now configure Start VM on Connect (preview) in the Azure portal. With th
 
 ### Required URL Check tool 
 
-The Azure Virtual Desktop agent, version 1.0.2944.400 includes a tool that validates URLs and displays whether the virtual machine can access the URLs it needs to function. If any required URLs are accessible, the tool will list them so you can unblock them, if needed. Learn more at our [Safe URL list](safe-url-list.md#required-url-check-tool).
+The Azure Virtual Desktop agent, version 1.0.2944.400 includes a tool that validates URLs and displays whether the virtual machine can access the URLs it needs to function. If any required URLs are accessible, the tool will list them so you can unblock them, if needed. Learn more at [Required URL Check tool](required-url-check-tool.md).
 
 ### Updates to the Azure portal UI for Azure Virtual Desktop
 
