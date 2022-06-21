@@ -91,56 +91,32 @@ Before setting up your Automation account resource, consider your network isolat
 
 ### Connect to a private endpoint
 
-Create a private endpoint to connect our network. You can create it in the [Azure portal Private Link center](https://portal.azure.com/#blade/Microsoft_Azure_Network/PrivateLinkCenterBlade/privateendpoints). Once your changes to publicNetworkAccess and Private Link are applied, it can take up to 35 minutes for them to take effect.
+Follow the steps below to create a private endpoint for your Automation account.
 
-In this section, you'll create a private endpoint for your Automation account.
+1. Go to [Azure portal Private Link center](https://portal.azure.com/#blade/Microsoft_Azure_Network/PrivateLinkCenterBlade/privateendpoints) to create a private endpoint to connect our network. Once your changes to public Network Access and Private Link are applied, it can take up to 35 minutes for them to take effect.
 
-1. On the upper-left side of the screen, select **Create a resource > Networking > Private Link Center**.
+1. In **Private Link Center**, select **Create private endpoint**.
 
-2. In **Private Link Center - Overview**, on the option to **Build a private connection to a service**, select **Start**.
+    :::image type="content" source="./media/private-link-security/create-private-endpoint.png" alt-text="Screenshot of how to create a private endpoint.":::
 
-3. In **Create a virtual machine - Basics**, enter or select the following information:
+1. In **Basics**, enter your **Subscription**, **Resource group**, **Name**, **Network Interface Name**, **Region** and select **Next: Resource**.
 
-    | Setting | Value |
-    | ------- | ----- |
-    | **PROJECT DETAILS** | |
-    | Subscription | Select your subscription. |
-    | Resource group | Select **myResourceGroup**. You created this in the previous section.  |
-    | **INSTANCE DETAILS** |  |
-    | Name | Enter your *PrivateEndpoint*. |
-    | Region | Select **YourRegion**. |
-    |||
+    :::image type="content" source="./media/private-link-security/create-private-endpoint-basics.png" alt-text="Screenshot of how to create a private endpoint in Basics tab.":::
 
-4. Select **Next: Resource**.
+1. In **Resource**, In **Connection method**, select the default option - *Connect to an Azure resource in my directory*. Enter the **Subscription**, **Resource type**, and **Resource**. The **Target sub-resource** can either be *Webhook* or *DSCAndHybridWorker* as per your scenario. Select **Next : Virtual Network**.
+ 
+    :::image type="content" source="./media/private-link-security/create-private-endpoint-resource-inline.png" alt-text="Screenshot of how to create a private endpoint in Resource tab." lightbox="./media/private-link-security/create-private-endpoint-resource-expanded.png":::
 
-5. In **Create a private endpoint - Resource**, enter or select the following information:
+1. In **Virtual Network**, select *Virtual network*, *Subnet*. Enable the checkbox for *Enable network policies for all private endpoints in this subnet*, select *Dynamically allocate IP address* and select ****Next : DNS**.
 
-    | Setting | Value |
-    | ------- | ----- |
-    |Connection method  | Select connect to an Azure resource in my directory.|
-    | Subscription| Select your subscription. |
-    | Resource type | Select **Microsoft.Automation/automationAccounts**. |
-    | Resource |Select *myAutomationAccount*|
-    |Target subresource |Select *Webhook* or *DSCAndHybridWorker* depending on your scenario.|
-    |||
+    :::image type="content" source="./media/private-link-security/create-private-endpoint-virtual-network-inline.png" alt-text="Screenshot of how to create a private endpoint in Virtual network tab." lightbox="./media/private-link-security/create-private-endpoint-virtual-network-expanded.png":::
 
-6. Select **Next: Configuration**.
+1. In **DNS**, the data is populated as per the information entered in the **Basics**, **Resource**, **Virtual Network** and it creates a Private DNS zone. Select the *Integrate with private DNS Zone*, *Subscription* and *Resource group* and select **Next : Tags**
 
-7. In **Create a private endpoint - Configuration**, enter or select the following information:
+    :::image type="content" source="./media/private-link-security/create-private-endpoint-dns-inline.png" alt-text="Screenshot of how to create a private endpoint in Virtual network tab." lightbox="./media/private-link-security/create-private-endpoint-dns-expanded.png":::
 
-    | Setting | Value |
-    | ------- | ----- |
-    |**NETWORKING**| |
-    | Virtual network| Select *MyVirtualNetwork*. |
-    | Subnet | Select *mySubnet*. |
-    |**PRIVATE DNS INTEGRATION**||
-    |Integrate with private DNS zone |Select **Yes**. |
-    |Private DNS Zone |Select *(New)privatelink.azure-automation.net* |
-    |||
+1. In **Tags**, you can categorize resources. Select *Name* and *Value* and select **Review + create**. You're taken to the **Review + create** page where Azure validates your configuration.
 
-8. Select **Review + create**. You're taken to the **Review + create** page where Azure validates your configuration.
-
-9. When you see the **Validation passed** message, select **Create**.
 
 In the **Private Link Center**, select **Private endpoints** to view your private link resource.
 
