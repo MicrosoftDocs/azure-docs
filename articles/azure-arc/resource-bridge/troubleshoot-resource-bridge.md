@@ -1,7 +1,7 @@
 ---
 title: Troubleshoot Azure Arc resource bridge (preview) issues
 description: This article tells how to troubleshoot and resolve issues with the Azure Arc resource bridge (preview) when trying to deploy or connect to the service.
-ms.date: 11/09/2021
+ms.date: 06/21/2022
 ms.topic: conceptual
 ---
 
@@ -11,9 +11,9 @@ This article provides information on troubleshooting and resolving issues that m
 
 ## Logs
 
-For any issues encountered with the Azure Arc resource bridge, you can collect logs for further investigation. To collect the logs, use the Azure CLI [Az arcappliance log](placeholder for published ref API) command. This command needs to be run from the client machine where you've deployed the Azure Arc resource bridge from.
+For any issues encountered with the Azure Arc resource bridge, you can collect logs for further investigation. To collect the logs, use the Azure CLI [az arcappliance logs](/cli/azure/arcappliance/logs?view=azure-cli-latest) command. This command needs to be run from the client machine fro which you've deployed the Azure Arc resource bridge.
 
-The `Az arcappliance log` command requires SSH to the Azure Arc resource bridge VM. The SSH key is saved to the client machine where the deployment of the appliance was performed from. If you are going to use a different client machine to run the Azure CLI command, you need to make sure the following files are copied to the new client machine:
+The `az arcappliance logs` command requires SSH to the Azure Arc resource bridge VM. The SSH key is saved to the client machine where the deployment of the appliance was performed from. If you are going to use a different client machine to run the Azure CLI command, you need to make sure the following files are copied to the new client machine:
 
 ```azurecli
 $HOME\.KVA\.ssh\logkey.pub
@@ -39,7 +39,7 @@ az arcappliance logs <provider> --out-dir <path to specified output directory> -
 
 ## Az Arcappliance prepare fails when deploying to VMware
 
-The **arcappliance** extension for Azure CLI enables a prepare command, which enables you to download an OVA template to your vSphere environment. This OVA file is used to deploy the Azure Arc resource bridge. The `az arcappliance prepare` command uses the vSphere SDK and can result in the following error:
+The **arcappliance** extension for Azure CLI enables a [prepare](/cli/azure/arcappliance/prepare?view=azure-cli-latest) command, which enables you to download an OVA template to your vSphere environment. This OVA file is used to deploy the Azure Arc resource bridge. The `az arcappliance prepare` command uses the vSphere SDK and can result in the following error:
 
 ```azurecli
 $ az arcappliance prepare vmware --config-file <path to config> 
@@ -96,7 +96,7 @@ When you run the Azure CLI commands the following error may be returned, *The re
 
 ### Resolution
 
-Sign into Azure again using the `Az login` command.
+Sign into Azure again using the `az login` command.
 
 ## Next steps
 
@@ -106,4 +106,4 @@ If you don't see your problem here or you can't resolve your issue, try one of t
 
 * Connect with [@AzureSupport](https://twitter.com/azuresupport), the official Microsoft Azure account for improving customer experience. Azure Support connects the Azure community to answers, support, and experts.
 
-* File an Azure support incident. Go to the [Azure support site](https://azure.microsoft.com/support/options/), and select **Get Support**.
+* [Open an Azure support request](/azure/azure-portal/supportability/how-to-create-azure-support-request).
