@@ -73,7 +73,7 @@ These are the new alerts:
 For more information, see:
 
 - [Threat matrix for storage services](https://www.microsoft.com/security/blog/2021/04/08/threat-matrix-for-storage/)
-- [Introduction to Microsoft Defender for Storage](defender-for-storage-introduction.md)
+- [Overview of Microsoft Defender for Storage](defender-for-storage-introduction.md)
 - [List of alerts provided by Microsoft Defender for Storage](alerts-reference.md#alerts-azurestorage)
 
 ### Improvements to alerts for Microsoft Defender for Storage

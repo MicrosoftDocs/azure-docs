@@ -73,6 +73,14 @@ See the [OCR how-to guide](how-to/call-read-api.md#determine-how-to-process-the-
 * To help system builders and their customers capture high quality images which are necessary for high quality outputs from Face API, we’re introducing a new quality attribute **QualityForRecognition** to help decide whether an image is of sufficient quality to attempt face recognition. The value is an informal rating of low, medium, or high. The new attribute is only available when using any combinations of detection models `detection_01` or `detection_03`, and recognition models `recognition_03` or `recognition_04`. Only "high" quality images are recommended for person enrollment and quality above "medium" is recommended for identification scenarios. To learn more about the new quality attribute, see [Face detection and attributes](concept-face-detection.md) and see how to use it with [QuickStart](./quickstarts-sdk/identity-client-library.md?pivots=programming-language-csharp&tabs=visual-studio).
 
 
+## June 2022
+
+### Vision Studio launch
+
+Vision Studio is UI tool that lets you explore, build, and integrate features from Azure Cognitive Services for Vision into your applications.
+
+Language Studio provides you with a platform to try several service features, and see what they return in a visual manner. It also provides you with an easy-to-use experience to create custom projects and models to work on your data. Using the Studio, you can get started without needing to write code, and then use the available client libraries and REST APIs in your application.
+
 ## September 2021
 
 ### OCR (Read) API Public Preview supports 122 languages
@@ -161,7 +169,7 @@ See the [Read API how-to guide](how-to/call-read-api.md) to learn more.
 
 
 ### New Face API detection model
-* The new Detection 03 model is the most accurate detection model currently available. If you're a new a customer, we recommend using this model. Detection 03 improves both recall and precision on smaller faces found within images (64x64 pixels). Additional improvements include an overall reduction in false positives and improved detection on rotated face orientations. Combining Detection 03 with the new Recognition 04 model will provide improved recognition accuracy as well. See [Specify a face detection model](./how-to/specify-detection-model.md) for more details.
+* The new Detection 03 model is the most accurate detection model currently available. If you're a new customer, we recommend using this model. Detection 03 improves both recall and precision on smaller faces found within images (64x64 pixels). Additional improvements include an overall reduction in false positives and improved detection on rotated face orientations. Combining Detection 03 with the new Recognition 04 model will provide improved recognition accuracy as well. See [Specify a face detection model](./how-to/specify-detection-model.md) for more details.
 ### New detectable Face attributes
 * The `faceMask` attribute is available with the latest Detection 03 model, along with the additional attribute `"noseAndMouthCovered"` which detects whether the face mask is worn as intended, covering both the nose and mouth. To use the latest mask detection capability, users need to specify the detection model in the API request: assign the model version with the _detectionModel_ parameter to `detection_03`. See [Specify a face detection model](./how-to/specify-detection-model.md) for more details.
 ### New Face API Recognition Model
