@@ -1,6 +1,6 @@
 ---
 title: Resiliency in Azure Event Grid | Microsoft Docs
-description: Describes how Azure Event Grid supports geo disaster recovery (GeoDR) automatically. 
+description: Describes how Azure Event Grid supports resiliency.
 ms.topic: conceptual
 ms.date: 06/21/2022
 ---
