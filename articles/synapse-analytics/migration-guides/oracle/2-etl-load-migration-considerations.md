@@ -75,16 +75,16 @@ This query may take a while to run if you have been running numerous queries.
 
 #### What's the best migration approach to minimize risk and impact on users?
 
-This question comes up frequently since companies may want to lower the impact of changes on the data warehouse data model to improve agility. Companies often see an opportunity to further modernize or transform their data during an ETL migration. This approach carries a higher risk because it changes multiple factors simultaneously, making it difficult to compare the outcomes of the old system versus the new. Making data model changes here could also impact upstream or downstream ETL jobs to other systems. Because of that risk, it's better to redesign on this scale after the data warehouse migration.
+This question comes up frequently because companies may want to lower the impact of changes on the data warehouse data model to improve agility. Companies often see an opportunity to further modernize or transform their data during an ETL migration. This approach carries a higher risk because it changes multiple factors simultaneously, making it difficult to compare the outcomes of the old system versus the new. Making data model changes here could also affect upstream or downstream ETL jobs to other systems. Because of that risk, it's better to redesign on this scale after the data warehouse migration.
 
-Even if a data model is intentionally changed as part of the overall migration, it's good practice to migrate the existing model as-is to Azure Synapse, rather than do any re-engineering on the new platform. This approach has the advantage of minimizing the effect on existing production systems, while also benefiting from the performance and elastic scalability of the Azure platform for one-off re-engineering tasks.
+Even if a data model is intentionally changed as part of the overall migration, it's good practice to migrate the existing model as-is to Azure Synapse, rather than do any re-engineering on the new platform. This approach minimizes the effect on existing production systems, while benefiting from the performance and elastic scalability of the Azure platform for one-off re-engineering tasks.
 
 > [!TIP]
 > Migrate the existing model as-is initially, even if a change to the data model is planned in the future.
 
 #### Data mart migration: stay physical or go virtual?
 
-In legacy Oracle data warehouse environments, it's common practice to create many data marts that are structured to provide good performance for ad hoc self-service queries and reports for a given department or business function within an organization. A data mart typically consists of a subset of the data warehouse that contains aggregated versions of the data in a form that enables users to easily query that data with fast response times via user-friendly query tools such as Oracle BI EE, Microsoft Power BI, Tableau, or MicroStrategy. This form is generally a dimensional data model, and one use of data marts is to expose the data in a usable form even if the underlying warehouse data model is something different, such as a data vault.
+In legacy Oracle data warehouse environments, it's common practice to create many data marts that are structured to provide good performance for ad hoc self-service queries and reports for a given department or business function within an organization. A data mart typically consists of a subset of the data warehouse that contains aggregated versions of the data in a form that enables users to easily query that data with fast response times. Users can use user-friendly query tools such as Oracle BI EE, Microsoft Power BI, Tableau, or MicroStrategy. The form of the data in a data mart is generally a dimensional data model. One use of data marts is to expose the data in a usable form even if the underlying warehouse data model is something different, such as a data vault.
 
 You can use separate data marts for individual business units within an organization to implement robust data security regimes. Restrict access to specific data marts that are relevant to users, and eliminate, obfuscate, or anonymize sensitive data.
 
@@ -93,9 +93,9 @@ If these data marts are implemented as physical tables, they'll require extra st
 > [!TIP]
 > Virtualizing data marts can save on storage and processing resources.
 
-With the advent of lower-cost scalable MPP architectures, such as Azure Synapse, and their inherent performance characteristics, you can provide data mart functionality without having to instantiate the mart as a set of physical tables. This functionality is achieved by effectively virtualizing the data marts via SQL views onto the main data warehouse, or via a virtualization layer using features such as views in Azure or third-party virtualization products such as [Denodo](https://www.denodo.com/). This approach simplifies or eliminates the need for extra storage and aggregation processing and reduces the overall number of database objects to be migrated.
+With the advent of lower-cost scalable MPP architectures, such as Azure Synapse, and their inherent performance characteristics, you can provide data mart functionality without instantiating the mart as a set of physical tables. One method is to effectively virtualize the data marts via SQL views onto the main data warehouse. Another way is to virtualize the data marts via a virtualization layer using features like views in Azure or third-party virtualization products like [Denodo](https://www.denodo.com/). This approach simplifies or eliminates the need for extra storage and aggregation processing and reduces the overall number of database objects to be migrated.
 
-There's another potential benefit of this approach. By implementing the aggregation and join logic within a virtualization layer, and presenting external reporting tools via a virtualized view, the processing required to create these views is pushed down into the data warehouse, which is generally the best place to run joins, aggregations, and other related operations on large data volumes.
+There's another potential benefit of this approach. By implementing the aggregation and join logic within a virtualization layer, and presenting external reporting tools via a virtualized view, the processing required to create these views is pushed down into the data warehouse. The data warehouse is generally the best place to run joins, aggregations, and other related operations on large data volumes.
 
 The primary drivers for implementing a virtual data mart over a physical data mart are:
 
@@ -114,7 +114,7 @@ The primary drivers for implementing a virtual data mart over a physical data ma
 
 #### Understand your data
 
-As part of migration planning, you should understand in detail the volume of data to be migrated since that can impact decisions about the migration approach. Use system metadata to determine the physical space taken up by the raw data within the tables to be migrated. In this context, raw data means the amount of space used by the data rows within a table, excluding overhead such as indexes and compression. The largest fact tables will typically comprise more than 95% of the data.
+As part of migration planning, you should understand in detail the volume of data to be migrated since that can affect decisions about the migration approach. Use system metadata to determine the physical space taken up by the raw data within the tables to be migrated. In this context, raw data means the amount of space used by the data rows within a table, excluding overhead such as indexes and compression. The largest fact tables will typically comprise more than 95% of the data.
 
 This query will give you the total database size in Oracle:
 
@@ -215,7 +215,7 @@ Oracle also supports defining user-defined objects that can contain a series of 
 
 #### Use SQL queries to find data types
 
-By querying the Oracle static data dictionary view `DBA_TAB_COLUMNS`, you can determine which data types are in use in a schema and whether any of those data types need to be changed. Use SQL queries to find the columns in any Oracle schema with data types that don't map directly to data types in Azure Synapse, and also to count the number of occurrences of each data type that doesn't map directly. By using the results from these queries in combination with the data type comparison table, you can determine which data types need to be changed in a Synapse environment.
+By querying the Oracle static data dictionary `DBA_TAB_COLUMNS` view, you can determine which data types are in use in a schema and whether any of those data types need to be changed. Use SQL queries to find the columns in any Oracle schema with data types that don't map directly to data types in Azure Synapse. Similarly, you can use queries to count the number of occurrences of each Oracle data type that doesn't map directly to Azure Synapse. By using the results from these queries in combination with the data type comparison table, you can determine which data types need to be changed in a Synapse environment.
 
 To find the columns with data types that don't map to data types in Azure Synapse, run the following query after you replace `<owner_name>` with the relevant owner of your schema:
 
@@ -239,7 +239,7 @@ GROUP BY data_type 
 ORDER BY data_type;
 ```
 
-Microsoft offers SQL Server Migration Assistant (SSMA) for Oracle to automate migration of data warehouses from legacy Oracle environments, including the mapping of data types. You can also use [Azure Database Migration Services](/services/database-migration/) to help plan and perform a migration from environments like Oracle. Third-party vendors also offer tools and services to automate migration. If [Oracle Data Integrator](https://www.oracle.com/middleware/technologies/data-integrator.html) (ODI) or a third-party ETL tool, such as [Informatica](https://www.informatica.com/) or [Talend](https://www.talend.com/), is already in use in the Oracle environment, you can use that tool to implement any required data transformations. The next section explores migration of existing ETL processes.
+Microsoft offers [SQL Server Migration Assistant](/sql/ssma/oracle/sql-server-migration-assistant-for-oracle-oracletosql.md) (SSMA) for Oracle to automate migration of data warehouses from legacy Oracle environments, including the mapping of data types. You can also use [Azure Database Migration Services](/services/database-migration/) to help plan and perform a migration from environments like Oracle. Third-party vendors also offer tools and services to automate migration. If [Oracle Data Integrator](https://www.oracle.com/middleware/technologies/data-integrator.html) (ODI) or a third-party ETL tool, such as [Informatica](https://www.informatica.com/) or [Talend](https://www.talend.com/), is already in use in the Oracle environment, you can use that tool to implement any required data transformations. The next section explores migration of existing ETL processes.
 
 ## ETL migration considerations
 
@@ -262,7 +262,7 @@ In the Oracle environment, some (or all) of the ETL processing may be performed 
 
 If ODI or a third-party ETL tool such as Informatica or Talend is already in use&mdash;especially if there's a large investment in skills or several existing workflows and schedules use that tool&mdash;then decision 3 is whether the tool can efficiently support Azure Synapse as a target environment. Ideally, the tool will include native connectors that can use Azure facilities like [PolyBase](/sql/relational-databases/polybase) or [COPY INTO](/sql/t-sql/statements/copy-into-transact-sql), for the most efficient data loading. But even without native connectors, there's generally a way that you can call external processes, such as PolyBase or COPY INTO, and pass in applicable parameters. In this case, use existing skills and workflows, with Azure Synapse as the new target environment.
 
-If you're using ODI for ELT processing, then ODI Knowledge Modules would be needed for Azure Synapse. If these modules aren't available to you in your organization, but you have ODI, then you can use ODI to generate flat files that can be moved to Azure and ingested into Azure Data Lake Storage for loading into Azure Synapse.
+If you're using ODI for ELT processing, then ODI Knowledge Modules would be needed for Azure Synapse. If these modules aren't available to you in your organization, but you have ODI, then you can use ODI to generate flat files. Those flat files can then be moved to Azure and ingested into Azure Data Lake Storage for loading into Azure Synapse.
 
 > [!TIP]
 > Consider running ETL tools in Azure to leverage performance, scalability, and cost benefits.
@@ -271,7 +271,7 @@ If you decide to retain an existing third-party ETL tool, you can run that tool 
 
 ### Re-engineer existing Oracle-specific scripts
 
-If some or all of the existing Oracle warehouse ETL/ELT processing is handled by custom scripts that use Oracle-specific utilities, such as SQL\*Plus, SQL\*Developer, SQL\*Loader, or Data Pump, then you'll need to recode these scripts for the new Azure Synapse environment. Similarly, if ETL processes have been implemented using stored procedures in Oracle, then these processes will also have to be recoded.
+If some or all of the existing Oracle warehouse ETL/ELT processing is handled by custom scripts that use Oracle-specific utilities, such as SQL\*Plus, SQL\*Developer, SQL\*Loader, or Data Pump, then you need to recode these scripts for the Azure Synapse environment. Similarly, if ETL processes have been implemented using stored procedures in Oracle, then you need to recode those processes.
 
 Some elements of the ETL process are easy to migrate, for example, by simple bulk data load into a staging table from an external file. It may even be possible to automate those parts of the process, for example, by using Azure Synapse COPY INTO or PolyBase instead of SQL\*Loader. Other parts of the process that contain arbitrary complex SQL and/or stored procedures will take more time to re-engineer.
 
@@ -279,12 +279,12 @@ Some elements of the ETL process are easy to migrate, for example, by simple bul
 > The inventory of ETL tasks to be migrated should include scripts and stored procedures.
 
 One way of testing Oracle SQL for compatibility with Azure Synapse is to capture some representative SQL statements from a join of 
-Oracle v\$active\_session_history and v\$SQL to get the sql_text, then prefix those queries with `EXPLAIN`. Assuming a like-for-like migrated data model in Azure Synapse, run those `EXPLAIN` statements in Azure Synapse. Any incompatible SQL will give an error. You can use this information to determine the scale of the re-coding task.
+Oracle v\$active\_session_history and v\$SQL to get the sql_text, then prefix those queries with `EXPLAIN`. Assuming a like-for-like migrated data model in Azure Synapse, run those `EXPLAIN` statements in Azure Synapse. Any incompatible SQL will give an error. You can use this information to determine the scale of the recoding task.
 
 > [!TIP]
 > Use `EXPLAIN` to find SQL incompatibilities.
 
-In the worst case, manual re-coding may be necessary. However, there are products and services available from Microsoft partners to assist with re-engineering Oracle-specific code. For example, [Ispirer](https://www.ispirer.com/products/Oracle-to-azure-sql-data-warehouse-migration) offers tools and services to migrate Oracle SQL and stored procedures to Azure Synapse.
+In the worst case, manual recoding may be necessary. However, there are products and services available from Microsoft partners to assist with re-engineering Oracle-specific code. For example, [Ispirer](https://www.ispirer.com/products/Oracle-to-azure-sql-data-warehouse-migration) offers tools and services to migrate Oracle SQL and stored procedures to Azure Synapse.
 
 > [!TIP]
 > Partners offer products and skills to assist in re-engineering Oracle-specific code.
@@ -302,7 +302,7 @@ In many cases, the existing legacy data warehouse system will already be populat
 
 [Ab Initio](https://www.abinitio.com/) is a Business Intelligence platform comprised of six data processing products: Co\>Operating System, The Component Library, Graphical Development Environment, Enterprise Meta\>Environment, Data Profiler, and Conduct\>It. 
 
-As a powerful GUI-based, parallel processing tool for ETL data management and analysis, Ab Initio can run in a VM within Azure and can read/write Azure Storage for files and SQL Server databases via the *Input Table*, *Output Table*, and *Run SQL* Ab Initio components.
+Ab Initio is a powerful UI-based, parallel processing tool for ETL data management and analysis. You can run Ab Initio in a VM within Azure and read/write Azure Storage files and SQL Server databases via the *Input Table*, *Output Table*, and *Run SQL* Ab Initio components.
 
 #### Qlik
 
@@ -322,7 +322,7 @@ Qlik benefits for Azure Synapse include:
 
 - Monitoring for peace-of-mind, control, and auditing.
 
-- Industry-standard SSL encryption for security.
+- Industry-standard TLS/SSL encryption for security.
 
 #### Informatica
 
@@ -330,7 +330,7 @@ Qlik benefits for Azure Synapse include:
 
 - [Informatica Fast Clone](https://docs.informatica.com/data-replication/fast-clone/10-0/installation-guide/installation-overview/fast-clone-installation-overview.html) is a high-performance data cloning tool for unloading and moving Oracle data quickly to other databases and warehouse appliances in a heterogeneous environment. Fast Clone supports the following unload methods: 
 
-    - **Direct path unload** reads data directly from Oracle data files, without using the Oracle Call Interface (OCI). This method is much faster than the conventional path unload method. However, you can't use the direct path unload method to run unload jobs from a system that is remote from the Oracle source, perform SQL JOIN operations on two or more tables, nor unload data from views or cluster tables. 
+    - **Direct path unload** reads data directly from Oracle data files, without using the Oracle Call Interface (OCI). This method is much faster than the conventional path unload method. However, you can't use the direct path unload method to: run unload jobs from a system that is remote from the Oracle source, perform SQL join operations on two or more tables, or unload data from views or cluster tables. 
 
     - **Conventional path unload** uses the OCI to retrieve metadata and data from the Oracle source. This method is slower than the direct path unload method, but it doesn't have the limitations of the direct path unload method. 
 
@@ -344,7 +344,7 @@ Qlik benefits for Azure Synapse include:
 
 [Hitachi Vantara Pentaho](https://www.ashnik.com/pentaho-cloud-deployment-with-microsoft-azure/) provides data integration, OLAP services, reporting, information dashboards, data mining, and extract, transform, load (ETL) capabilities.
 
-Pentaho Data Integration (PDI) provides ETL capabilities that facilitate capturing, cleansing, and storing data using a uniform and consistent format that's accessible and relevant to end users and IoT technologies.
+Pentaho Data Integration (PDI) provides ETL capabilities for capturing, cleansing, and storing data using a uniform and consistent format that's accessible and relevant to end users and IoT technologies.
 
 PDI is commonly used for:
 
@@ -362,7 +362,7 @@ PDI is available in Azure Marketplace and has connectors available for Azure ser
 
 #### Talend
 
-[Talend Cloud](https://www.talend.com/solutions/information-technology/azure-cloud-integration/) is a unified, comprehensive, and highly scalable integration platform as-a-service (iPaaS) that makes it easy to collect, govern, transform, and share data. Within a single interface, you can use Big Data integration, Data Preparation, API Services, and Data Stewardship applications to provide trusted, governed data across your organization. Talend offers more than 900 connectors and components, built-in data quality, and native support for the latest big data and cloud technologies, in addition to software development lifecycle (SDLC) support for enterprises, at a predictable price.
+[Talend Cloud](https://www.talend.com/solutions/information-technology/azure-cloud-integration/) is a unified, comprehensive, and highly scalable integration platform as-a-service (iPaaS) that makes it easy to collect, govern, transform, and share data. Within a single interface, you can use big data integration, data preparation, API services, and data stewardship applications to provide trusted, governed data across your organization. Talend offers more than 900 connectors and components, built-in data quality, and native support for the latest big data and cloud technologies, in addition to software development lifecycle (SDLC) support for enterprises, at a predictable price.
 
 With just a few clicks, you can deploy the remote engine to run integration tasks natively with your Azure account from cloud to cloud, on-premises to cloud, or cloud to on-premises, completely within your environment for enhanced performance and security.
 
@@ -380,54 +380,59 @@ WhereScape automation is tailored for use with Microsoft SQL Server, Microsoft A
 
 ### Choices available when loading data from Oracle
 
-When it comes to migrating data from an Oracle data warehouse, there are some basic questions that need to be resolved. You'll need to decide how the data will be physically moved from the existing on-premises Oracle environment into Azure Synapse in the cloud, and which tools will be used to perform the transfer and load. Consider the following questions, which are discussed in the next sections.
+When migrating data from an Oracle data warehouse, you'll need to decide how data will be physically moved from the existing on-premises environment into Azure Synapse in the cloud, and which tools will be used to perform the transfer and load. Consider the following questions, which are discussed in the next sections.
 
 - Will you extract the data to files, or move it directly via a network connection?
 
 - Will you orchestrate the process from the source system, or from the Azure target environment?
 
-- Which tools will you use to automate and manage the process?
+- Which tools will you use to automate and manage the migration process?
 
 #### Transfer data via files or network connection?
 
-> [!TIP]
-> Understand the data volumes to be migrated and the available network bandwidth, since these factors influence the migration approach decision.
-
 Once the database tables to be migrated have been created in Azure Synapse, you can move the data that populates those tables out of the legacy Oracle system and into the new environment. There are two basic approaches:
 
-- **File Extract**: Extract the data from the Oracle tables to flat delimited files, normally in CSV format. There are several ways:
+- **File Extract**: extract the data from the Oracle tables to flat delimited files, normally in CSV format. You can extract table data in several ways:
 
-    - Use standard Oracle SQLPlus, SQL Developer, or SQLcl
-    - Use ODI to generate flat files
-    - Use Azure Data Factory Oracle Connector parallel copy to unload Oracle tables in parallel to enable loading of data by partitions
-    - Use third-party tooling such as [Informatica Fast Clone](https://docs.informatica.com/data-replication/fast-clone/10-0/installation-guide/installation-overview/fast-clone-installation-overview.html) direct path (fastest method) or conventional path unload
-    - Use a third-party ETL tool such as Informatica or Talend
+    - Use standard Oracle tools such as SQLPlus, SQL Developer, and SQLcl.
+    - Use ODI to generate flat files.
+    - Use Oracle connector in Data Factory to unload Oracle tables in parallel to enable data loading by partitions.
+    - Use third-party tooling such as [Informatica Fast Clone](https://docs.informatica.com/data-replication/fast-clone/10-0/installation-guide/installation-overview/fast-clone-installation-overview.html) direct path (fastest method) or conventional path unload.
+    - Use a third-party ETL tool such as Informatica or Talend.
 
-    Further information on some of these approaches is covered in the appendices.
+    For examples of how to extract Oracle table data, see the article [appendix](#appendix-example-techniques-for-extracting-oracle-data).
 
-    This approach requires space to land the extracted data files. The space could be local to the Oracle source database (if sufficient storage is available), or remote in Azure Blob Storage. The best performance is achieved when a file is written locally, since that avoids network overhead.
+    This approach requires space to land the extracted data files. The space could be local to the Oracle source database if sufficient storage is available, or remote in Azure Blob Storage. The best performance is achieved when a file is written locally since that avoids network overhead.
 
-    To minimize storage and network transfer requirements, it's good practice to compress the extracted data files using a utility like gzip.
+    To minimize storage and network transfer requirements, compress the extracted data files using a utility like gzip.
 
-    Once extracted, the flat files can be moved into Azure Blob Storage. Microsoft provides various options to move large volumes of data, including AzCopy for moving files across the network into Azure Storage, Azure ExpressRoute for moving bulk data over a private network connection, and Azure Data Box for files moving to a physical storage device that's then shipped to an Azure data center for loading. For more information, see [data transfer](/azure/architecture/data-guide/scenarios/data-transfer.md).
+    After extraction, move the flat files into Azure Blob Storage. Microsoft provides various options to move large volumes of data, including:
+    - AzCopy for moving files across the network into Azure Storage.
+    - Azure ExpressRoute for moving bulk data over a private network connection.
+    - Azure Data Box for moving files to a physical storage device that you ship to an Azure data center for loading.
+    
+    For more information, see [Transfer data to and from Azure](/azure/architecture/data-guide/scenarios/data-transfer).
 
-- **Direct extract and load across network**: The target Azure environment sends a data extract request, normally via a SQL command, to the legacy Oracle system to extract the data. The results are sent across the network and loaded directly into Azure Synapse, with no need to land the data into intermediate files. The limiting factor in this scenario is normally the bandwidth of the network connection between the Oracle database and the Azure environment. For very large data volumes, this approach may not be practical.
+- **Direct extract and load across network**: the target Azure environment sends a data extract request, normally via a SQL command, to the legacy Oracle system to extract the data. The results are sent across the network and loaded directly into Azure Synapse, with no need to land the data into intermediate files. The limiting factor in this scenario is normally the bandwidth of the network connection between the Oracle database and the Azure environment. For very large data volumes, this approach may not be practical.
+
+> [!TIP]
+> Understand the data volumes to be migrated and the available network bandwidth, because these factors influence the migration approach decision.
 
 There's also a hybrid approach that uses both methods. For example, you can use the direct network extract approach for smaller dimension tables and samples of the larger fact tables to quickly provide a test environment in Azure Synapse. For large-volume historical fact tables, you can use the file extract and transfer approach using Azure Data Box.
 
 #### Orchestrate from Oracle or Azure?
 
-The recommended approach when moving to Azure Synapse is to orchestrate the data extract and loading from the Azure environment using [SQL Server Migration Assistant](/sql/ssma/oracle/sql-server-migration-assistant-for-oracle-oracletosql.md) (SSMA) or [Azure Data Factory](../../../data-factory/concepts-pipelines-activities.md?msclkid=b6ea2be4cfda11ec929ac33e6e00db98&tabs=data-factory), and associated utilities, such as PolyBase or COPY INTO, for the most efficient data loading. This approach leverages Azure capabilities and provides an easy method to build reusable data loading pipelines.
+The recommended approach when moving to Azure Synapse is to orchestrate data extraction and loading from the Azure environment using SSMA or Data Factory](../../../data-factory/concepts-pipelines-activities.md?msclkid=b6ea2be4cfda11ec929ac33e6e00db98&tabs=data-factory). Use the associated utilities, such as PolyBase or COPY INTO for the most efficient data loading. This approach benefits from built-in Azure capabilities and reduces the effort to build reusable data load pipelines. You can use metadata-driven data load pipelines to automate the migration process. 
 
-Other benefits of this approach include reduced impact on the Oracle system during the data load process, since the management and loading process is running in Azure, and the ability to automate the process by using metadata-driven data load pipelines.
+The recommended approach also minimizes the performance hit on the existing Oracle environment during the data load process, because the management and load process runs in Azure.
 
-#### Which tools can be used?
+#### Existing data migration tools
 
-The task of data transformation and movement is the basic function of all ETL products, such as ODI or Informatica, and also more modern data warehouse automation products such as WhereScape. If one of these products is already in use in the existing Oracle environment, then you may be able to use the existing ETL tool to simplify data migration from Oracle to Azure Synapse. This approach assumes that the ETL tool supports Azure Synapse as a target environment. 
+Data transformation and movement is the basic function of all ETL products, such as ODI, Informatica, and more modern data warehouse automation products like WhereScape. If one of these products is already in use in the existing Oracle environment and it supports Azure Synapse as a target environment, then use that tool to simplify data migration from Oracle to Azure Synapse.
 
-Even if an existing ETL tool isn't in place, consider using a tool to simplify the migration task. Tools such as [Attunity Replicate](https://www.attunity.com/products/replicate/) are designed to simplify the task of data migration.
+Even if an existing ETL tool isn't in place, consider using an ETL tool to simplify the migration task. Tools such as [Qlik Replicate](https://www.qlik.com/us/products/qlik-replicate) (formerly Attunity Replicate) are designed to simplify the task of data migration.
 
-Finally, if using an ETL tool, consider running that tool within the Azure environment to benefit from Azure cloud performance, scalability, and cost. This approach also frees up resources in the Oracle data center.
+Finally, if you plan to use an ETL tool, consider running that tool within the Azure environment to take advantage of Azure cloud performance, scalability, and cost. This approach also frees up resources in the Oracle data center.
 
 ## Summary
 
@@ -443,48 +448,39 @@ To summarize, our recommendations for migrating data and associated ETL processe
 
 - Consider using an Oracle instance in an Azure VM as a stepping stone to offload migration from the legacy Oracle environment.
 
-- Leverage standard "built-in" Azure features to minimize the migration workload.
+- Use standard built-in Azure features to minimize the migration workload.
 
-- Identify and understand the most efficient tools for data extraction and loading in both Oracle and Azure environments. Use the appropriate tools in each phase of the process.
+- Identify and understand the most efficient tools for data extraction and load in both Oracle and Azure environments. Use the appropriate tools in each phase of the process.
 
 - Use Azure facilities, such as Data Factory, to orchestrate and automate the migration process while minimizing impact on the Oracle system.
 
-## Appendices: Example techniques for extracting Oracle data
+## Appendix: Examples of techniques to extract Oracle data
 
-Many techniques can be used to extract Oracle data when migrating from Oracle to Azure Synapse. More details on Oracle SQL Developer and Azure Data Factory Oracle Connector are included below:
+You can use several techniques to extract Oracle data when migrating from Oracle to Azure Synapse. The next sections demonstrate how to extract Oracle data using Oracle SQL Developer and the Oracle connector in Data Factory.
 
-### Oracle SQL Developer Data Extract
+### Use Oracle SQL Developer for data extraction
 
-SQL Developer GUI has an export option that allows export to many formats, including CSV, using a simple GUI-based method:
+You can use the Oracle SQL Developer UI to export table data to many formats, including CSV:
 
 :::image type="content" source="../media/2-etl-load-migration-considerations/oracle-sql-developer-export-option.png" border="true" alt-text="Screenshot of the SQL Developer GUI export wizard.":::
 
-Other export options include JSON and XML. There's also an option in the GUI that allows you to build a "cart" that consists of a set of table names. You can then apply the export to the entire set:
+Other export options include JSON and XML. You can use the UI to add a set of table names to a "cart", then apply the export to the entire set in the cart:
 
 :::image type="content" source="../media/2-etl-load-migration-considerations/oracle-sql-developer-export-option-2.png" border="true" alt-text="Screenshot of the SQL Developer GUI cart option.":::
 
-This Oracle data export capability is also available via Oracle SQL Developer command line option. It can be automated as part of a shell script.
+You can also use Oracle SQL Developer command line option to export Oracle data. This option supports automation using a shell script.
 
-For relatively small tables, this option could be useful if there are any problems getting a direct connection extract working.
+For relatively small tables, you might find this technique useful if you run into problems extracting data through a direct connection.
 
-### Using Azure Data Factory Oracle Connector parallel copy 
+### Use the Oracle connector in Azure Data Factory for parallel copy
 
-You can also use the Oracle Connector in Azure Data Factory to unload large Oracle tables in parallel, in order to enable loading of data by partitions. The Azure Data Factory Oracle connector provides built-in data partitioning to copy data from Oracle in parallel. You can find data partitioning options on the Source tab of the copy activity.
+You can use the Oracle connector in Data Factory to unload large Oracle tables in parallel. The Oracle connector provides built-in data partitioning to copy data from Oracle in parallel. You can find the data partitioning options in the **Source** tab of the copy activity.
 
 :::image type="content" source="../media/2-etl-load-migration-considerations/azure-data-factory-source-tab.png" border="true" alt-text="Screenshot of Azure Data Factory Oracle partition options in the source tab.":::
 
-When you enable partitioned copy, ADF runs parallel queries against your Oracle source to load data by partitions. The parallel degree is controlled by the [parallel copies](../../../data-factory/copy-activity-performance.md#parallel-copy) setting on the copy activity. For example, if you set parallelCopies to "eight", ADF concurrently generates and runs eight queries based on your specified partition option and settings, and each query retrieves a portion of data from your Oracle database.
+For information on how to configure the Oracle connector for parallel copy, see [Parallel copy from Oracle](/azure/data-factory/connector-oracle?tabs=data-factory#parallel-copy-from-oracle).
 
-If you use ADF, we recommended that you enable parallel copy with data partitioning, especially when you plan to migrate large amounts of data from your Oracle database. The following are suggested configurations for different scenarios. When you copy data into file-based data store, writing to a folder as multiple files (only specify folder name) is faster than writing to a single file.
-
-| Scenario | Suggested settings |
-|--|--|
-| Full load from large table, with physical partitions | **Partition option**: Physical partitions of table.<br><br> During execution, ADF automatically detects the physical partitions, and copies data by partitions. |
-| Full load from large table, without physical partitions, while with an integer column for data partitioning | **Partition options**: Dynamic range partition.<br><br> **Partition column**: Specify the column used to partition data. If not specified, the primary key column is used. |
-| Load a large amount of data by using a custom query, with physical partitions | **Partition option:** Physical partitions of table.<br> **Query**: SELECT \* FROM \<TABLENAME\> PARTITION(\"?AdfTabularPartitionName\") WHERE \<your_additional_where_clause\><br><br> **Partition name**: Specify the partition name(s) to copy data from. If not specified, ADF automatically detects the physical partitions on the table you specified in the Oracle dataset.<br><br> During execution, ADF replaces ?AdfTabularPartitionName with the actual partition name, and sends to Oracle. |
-| Load a large amount of data by using a custom query, without physical partitions, while with an integer column for data partitioning | **Partition options**: Dynamic range partition.<br> **Query**: SELECT \* FROM \<TABLENAME\> WHERE ?AdfRangePartitionColumnName \<= ?AdfRangePartitionUpbound AND ?AdfRangePartitionColumnName \>= ?AdfRangePartitionLowbound AND \<your_additional_where_clause\><br><br> **Partition column**: Specify the column used to partition data. You can partition against the column with integer data type.<br><br> **Partition upper bound** and **partition lower bound**: Specify if you want to filter against partition column to retrieve data only between the lower and upper range.<br><br> During execution, ADF replaces ?AdfRangePartitionColumnName, ?AdfRangePartitionUpbound, and ?AdfRangePartitionLowbound with the actual column name and value ranges for each partition, and sends to Oracle.<br> For example, if your partition column \"ID\" is set with the lower bound as 1 and the upper bound as 80, with parallel copy set as 4, ADF retrieves data by four partitions. Their IDs are between \[1, 20\], \[21, 40\], \[41, 60\], and \[61, 80\], respectively. |
-
-More information on ADF copy activity performance and scalability can be found in the [Copy activity performance and scalability guide](../../../data-factory/copy-activity-performance.md).
+For more information on Data Factory copy activity performance and scalability, see [Copy activity performance and scalability guide](../../../data-factory/copy-activity-performance.md).
 
 ## Next steps
 

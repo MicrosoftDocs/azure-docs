@@ -191,7 +191,7 @@ Oracle-specific features can often be replaced by Azure Synapse features. Howeve
 
   In 2019, Microsoft announced that Azure Synapse will support materialized views with the same functionality as in Oracle. Materialized views are now a preview feature in Azure Synapse.
 
-- **In-database triggers**: In Oracle, a trigger can be configured to automatically run when a triggering event occurs. Triggering events can be:
+- **In-database triggers**: in Oracle, a trigger can be configured to automatically run when a triggering event occurs. Triggering events can be:
 
   - A data manipulation language (DML) statement, such as `INSERT`, `UPDATE`, or `DELETE`, runs on a table. If you defined a trigger that fires before an `INSERT` statement on a customer table, the trigger will fire once before a new row is inserted into the customer table.
 
