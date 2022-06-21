@@ -122,4 +122,18 @@ No. A stretched cluster is created between two availability zones, while the thi
 - A non-stretched private cloud can't connect to a stretched private cloud in the same region.
 - Disaster recovery addons like, SRM, Zerto, and Jetstream are currently not supported in a stretched cluster environment.
 
-**
+**What kind of latencies should I expect between the availability zones (AZ)s?**
+
+vSAN Stretched Clusters operate within a 5 ms RTT between the AZs that host the workload VMs and the Azure VMware Solution stretched cluster deployment caters to that guiding principle. Keep this in mind when deploying applications (with SFTT of dual site mirroring, which uses synchronous writes) that have stringent latency requirements.
+
+**Can I mix stretched and non-stretched clusters in my private cloud?**
+
+No. A mix of stretched and non-stretched clusters aren't supported within the same private cloud. A stretched or non-stretched cluster environment is selected when you create the private cloud. Once a private cloud has been created with a stretched cluster, it's assumed that all clusters created within that private cloud are stretched in nature.
+
+**How much does this solution cost?**
+
+During the scope of the limited availability, customers will be charged for only 6 nodes per stretched cluster. This is the minimum number of nodes required to deploy a stretched cluster. Note that, even if you deploy 8+ nodes, you will continue to be charged only for the minimum number of nodes (6) (per stretched cluster) during the duration of the limited availability. Once stretched cluster is made generally available, customers will be charged based on the number of nodes deployed within the private cloud.
+
+**Will I be charged for the witness node and for inter-AZ traffic?**
+
+No. While in limited availability, customers won't see a charge for the witness node and the inter-AZ traffic. The witness node is entirely service managed, and Azure VMware Solution provides the required lifecycle management of the witness node. As the entire solution is service managed, the customer only needs to identify the appropriate SPBM policy to set for the workload virtual machines. The rest is managed by Microsoft.
