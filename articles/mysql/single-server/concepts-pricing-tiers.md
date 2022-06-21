@@ -25,7 +25,7 @@ You can create an Azure Database for MySQL server in one of three different serv
 
 To choose a pricing tier, use the following table as a starting point.
 
-| Pricing tier | Target workloads |
+| Service tier | Target workloads |
 |:-------------|:-----------------|
 | Basic | Workloads that require light compute and I/O performance. Examples include servers used for development or testing or small-scale infrequently used applications. |
 | General Purpose | Most business workloads that require balanced compute and memory with scalable I/O throughput. Examples include servers for hosting web and mobile apps and other enterprise applications.|
@@ -112,11 +112,10 @@ General purpose storage v2 is supported in the following Azure regions:
 > *For these Azure regions, you will have an option to create server in both General purpose storage v1 and v2. For the servers created with General purpose storage v2 in public preview, following are the limitations, <br /> 
 > * Geo-Redundant Backup will not be supported<br /> 
 > * The replica server should be in the regions which support General purpose storage v2. <br /> 
-	
 
 ### How can I determine which storage type my server is running on?
 
-You can find the storage type of your server by going in the Pricing tier blade in portal. 
+You can find the storage type of your server by going to **Settings** > **Compute + storage** page 
 * If the server is provisioned using Basic SKU, the storage type is Basic storage.
 * If the server is provisioned using General Purpose or Memory Optimized SKU, the storage type is General Purpose storage
    *  If the maximum storage that can be provisioned on your server is up to 4-TB, the storage type is General Purpose storage v1.

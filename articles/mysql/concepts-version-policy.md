@@ -7,7 +7,7 @@ ms.service: mysql
 ms.subservice: single-server
 ms.topic: conceptual
 ms.custom: fasttrack-edit
-ms.date: 11/03/2020
+ms.date: 06/21/2022
 ---
 
 # Azure Database for MySQL version support policy
@@ -49,7 +49,7 @@ Azure Database for MySQL automatically performs minor version upgrades to the Az
 The table below provides the retirement details for MySQL major versions. The dates follow the [MySQL versioning policy](https://www.mysql.com/support/eol-notice.html).
 
 | Version | What's New | Azure support start date | Retirement date|
-| ----- | ----- | ------ | ----- |
+| ------- | ---------- | ------------------------ | -------------- |
 | [MySQL 5.6](https://dev.mysql.com/doc/relnotes/mysql/5.6/en/)| [Features](https://dev.mysql.com/doc/relnotes/mysql/5.6/en/news-5-6-49.html)  | March 20, 2018 | February 2021
 | [MySQL 5.7](https://dev.mysql.com/doc/relnotes/mysql/5.7/en/) | [Features](https://dev.mysql.com/doc/relnotes/mysql/5.7/en/news-5-7-31.html) | March 20, 2018 | October 2023
 | [MySQL 8](https://mysqlserverteam.com/whats-new-in-mysql-8-0-generally-available/) | [Features](https://dev.mysql.com/doc/relnotes/mysql/8.0/en/news-8-0-21.html)) | December 11, 2019 | April 2026
