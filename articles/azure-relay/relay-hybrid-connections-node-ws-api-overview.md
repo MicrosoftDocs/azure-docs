@@ -10,13 +10,13 @@ ms.custom: devx-track-js
 
 ## Overview
 
-The [hyco-ws](https://www.npmjs.com/package/hyco-ws) Node package for Azure Relay Hybrid Connections is built on and extends the [ws](https://www.npmjs.com/package/ws) NPM package. This package re-exports all exports of that base package and adds new exports that enable integration with the Azure Relay service Hybrid Connections feature. 
+The [`hyco-ws`](https://www.npmjs.com/package/hyco-ws) Node package for Azure Relay Hybrid Connections is built on and extends the [`ws`](https://www.npmjs.com/package/ws) NPM package. This package re-exports all exports of that base package and adds new exports that enable integration with the Azure Relay service Hybrid Connections feature. 
 
 Existing applications that `require('ws')` can use this package with `require('hyco-ws')` instead, which also enables hybrid scenarios in which an application can listen for WebSocket connections locally from "inside the firewall" and via Hybrid Connections, all at the same time.
   
 ## Documentation
 
-The APIs are [documented in the main ws package](https://github.com/websockets/ws/blob/master/doc/ws.md). This article describes how this package differs from that baseline. 
+The APIs are [documented in the main `ws` package](https://github.com/websockets/ws/blob/master/doc/ws.md). This article describes how this package differs from that baseline. 
 
 The key differences between the base package and this 'hyco-ws' is that it adds a new server class, exported via `require('hyco-ws').RelayedServer`, and a few helper methods.
 
