@@ -290,7 +290,7 @@ In this section, you publish your project to Azure in a function app running Lin
 
 ---
 
-## Publish the project to Azure
+## Create the function app in Azure
 
 In this section, you create a function app and related resources in your Azure subscription. 
 

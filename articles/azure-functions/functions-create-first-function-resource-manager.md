@@ -92,7 +92,7 @@ Replace `<RESOURCE_GROUP_NAME>` with the name of your resource group.
 
 ## Next steps
 
-Now that you've created your function app resources, you can deploy your code to the existing app by using one of the following tools: 
+Now that you've created your function app resources in Azure, you can deploy your code to the existing app by using one of the following tools: 
 
 * [Visual Studio Code](functions-develop-vs-code.md#republish-project-files)
 * [Visual Studio](functions-develop-vs.md#publish-to-azure)

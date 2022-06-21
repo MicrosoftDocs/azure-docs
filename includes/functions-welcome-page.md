@@ -13,6 +13,6 @@ ms.custom: devdivchpfy22
 
 1. Open a browser and enter the following URL: **\<https://<appName.azurewebsites.net\>**. Make sure to replace **<\appName\>** with the unique name created for your function app.
 
-When you visit the URL, you should see a page like this:
+    When you visit the URL, you should see a page like this:
 
-:::image type="content" source="../articles/azure-functions/media/functions-create-first-function-bicep/function-app-bicep.png" alt-text="Function app welcome page" border="false":::
+    :::image type="content" source="../articles/azure-functions/media/functions-create-first-function-bicep/function-app-bicep.png" alt-text="Function app welcome page" border="false":::
