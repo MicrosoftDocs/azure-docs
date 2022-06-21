@@ -99,7 +99,7 @@ To work with strings, you can use these string functions and also some [collecti
 | [formatNumber](../logic-apps/workflow-definition-language-functions-reference.md#formatNumber) | Return a number as a string based on the specified format |
 | [guid](../logic-apps/workflow-definition-language-functions-reference.md#guid) | Generate a globally unique identifier (GUID) as a string. |
 | [indexOf](../logic-apps/workflow-definition-language-functions-reference.md#indexof) | Return the starting position for a substring. |
-| [isFloat](../logic-apps/workflow-definition-language-functions-reference.md#isInt) | Return a boolean that indicates whether a string is a floating point number. |
+| [isFloat](../logic-apps/workflow-definition-language-functions-reference.md#isInt) | Return a boolean that indicates whether a string is a floating-point number. |
 | [isInt](../logic-apps/workflow-definition-language-functions-reference.md#isInt) | Return a boolean that indicates whether a string is an integer. |
 | [lastIndexOf](../logic-apps/workflow-definition-language-functions-reference.md#lastindexof) | Return the starting position for the last occurrence of a substring. |
 | [length](../logic-apps/workflow-definition-language-functions-reference.md#length) | Return the number of items in a string or array. |
@@ -1236,7 +1236,7 @@ chunk([<collection>], '<length>')
 
 | Return value | Type | Description |
 | ------------ | ---- | ----------- |
-| <*collection*> | Array | An array of chunks of the specified length |
+| <*collection*> | Array | An array of chunks with the specified length |
 ||||
 
 *Example 1*
@@ -2631,7 +2631,7 @@ And returns this result: `10`
 
 ### isFloat
 
-Return a boolean indicating whether a string is a floating point number. By default, this function uses the invariant culture for the floating-point format. An RFC 4646 culture code may be supplied to identify floating points represented in other formats.
+Return a boolean indicating whether a string is a floating-point number. By default, this function uses the invariant culture for the floating-point format. To identify floating-point numbers represented in other locale-specific formats, you can optionally specify an RFC 4646 locale code.
 
 ```
 isFloat('<string>', '<locale>'?)
@@ -2645,7 +2645,7 @@ isFloat('<string>', '<locale>'?)
 
 | Return value | Type | Description |
 | ------------ | ---- | ----------- |
-| <*boolean-result*> | Boolean | A boolean indicating whether the string is a floating point number |
+| <*boolean-result*> | Boolean | A boolean that indicates whether the string is a floating-point number |
 
 *Example 1*
 
@@ -2659,7 +2659,7 @@ And returns this result: `true`
 
 *Example 2*
 
-This example checks whether a string is a floating-point number in the German culture:
+This example checks whether a string is a floating-point number in the German locale:
 
 ```
 isFloat('10.000,00', 'de-DE')
@@ -2671,7 +2671,7 @@ And returns this result: `true`
 
 ### isInt
 
-Return a boolean indicating whether a string is an integer.
+Return a boolean that indicates whether a string is an integer.
 
 ```
 isInt('<string>')
