@@ -7,7 +7,7 @@ ms.reviewer: mjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
-ms.date: 06/17/2022
+ms.date: 06/21/2022
 ms.custom: kr2b-contr-experiment
 ---
 
@@ -19,7 +19,7 @@ This article walks you through installing and using the Azure Cosmos DB ODBC dri
 
 Azure Cosmos DB is a schemaless database, which enables rapid application development and lets you iterate on data models without being confined to a strict schema. A single Azure Cosmos database can contain JSON documents of various structures. To analyze or report on this data, you might need to flatten the data to fit into a schema.
 
-The ODBC driver renormalizes Azure Cosmos DB data into tables and views that fit your data analytics and reporting needs. The renormalized schemas let you use ODBC-compliant tools to access the data. The schemas have no impact on the underlying data, and don't require developers to adhere to them. The ODBC driver helps make Azure Cosmos DB databases useful for data analysts as well as development teams.
+The ODBC driver normalizes Azure Cosmos DB data into tables and views that fit your data analytics and reporting needs. The normalized schemas let you use ODBC-compliant tools to access the data. The schemas have no impact on the underlying data, and don't require developers to adhere to them. The ODBC driver helps make Azure Cosmos DB databases useful for data analysts as well as development teams.
 
 You can do SQL operations against the normalized tables and views, including group by queries, inserts, updates, and deletes. The driver is ODBC 3.8 compliant and supports ANSI SQL-92 syntax.
 
