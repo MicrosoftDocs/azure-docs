@@ -44,3 +44,14 @@ This article provides suggestions to troubleshoot common problems with the Snowf
     - Direct copy: Make sure to grant access permission to Snowflake in the other source/sink. 
     - Staged copy: The staging Azure Blob storage linked service must use shared access signature authentication. When you generate the shared access signature, make sure to set the allowed permissions and IP addresses to Snowflake in the staging Azure Blob storage. For more details, see [Generating-a-sas-token - Snowflake Documentation](https://docs.snowflake.com/en/user-guide/data-load-azure-config.html#option-2-generating-a-sas-token).
 
+## Next steps
+
+For more troubleshooting help, try these resources:
+
+- [Connector troubleshooting guide](connector-troubleshoot-guide.md)
+- [Data Factory blog](https://azure.microsoft.com/blog/tag/azure-data-factory/)
+- [Data Factory feature requests](/answers/topics/azure-data-factory.html)
+- [Azure videos](https://azure.microsoft.com/resources/videos/index/?sort=newest&services=data-factory)
+- [Microsoft Q&A page](/answers/topics/azure-data-factory.html)
+- [Stack Overflow forum for Data Factory](https://stackoverflow.com/questions/tagged/azure-data-factory)
+- [Twitter information about Data Factory](https://twitter.com/hashtag/DataFactory)
