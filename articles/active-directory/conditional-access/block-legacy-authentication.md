@@ -116,9 +116,6 @@ Many clients that previously only supported legacy authentication now support mo
 >For more Information on implementing support for CBA with Azure AD and modern authentication See: [How to configure Azure AD certificate-based authentication (Preview)](../authentication/how-to-certificate-based-authentication.md). As another option, CBA performed at a federation server can be used with modern authentication."
 
 
- and follow steps detailed in  [How to configure Azure AD certificate-based authentication (Preview)](../authentication/how-to-certificate-based-authentication.md). 
-
-
 If you're using Microsoft Intune, you might be able to change the authentication type using the email profile you push or deploy to your devices. If you're using iOS devices (iPhones and iPads), you should take a look at [Add e-mail settings for iOS and iPadOS devices in Microsoft Intune](/mem/intune/configuration/email-settings-ios).
 
 ## Block legacy authentication
