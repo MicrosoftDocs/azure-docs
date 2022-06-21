@@ -22,18 +22,18 @@ Use this article to get started with Azure OpenAI with step by step instructions
 
 ::: zone pivot="programming-language-studio"
 
-[!INCLUDE [Studio quickstart](/includes/studio.md)]
+[!INCLUDE [Studio quickstart](includes/studio.md)]
 
 ::: zone-end
 
 ::: zone pivot="programming-language-python"
 
-[!INCLUDE [Python SDK quickstart](/includes/python.md)]
+[!INCLUDE [Python SDK quickstart](includes/python.md)]
 
 ::: zone-end
 
 ::: zone pivot="rest-api"
 
-[!INCLUDE [REST API quickstart](/includes/rest.md)]
+[!INCLUDE [REST API quickstart](includes/rest.md)]
 
 ::: zone-end
