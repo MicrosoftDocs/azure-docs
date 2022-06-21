@@ -364,7 +364,7 @@ We recommend setting-up [continuous deployment](functions-continuous-deployment.
 
 When you publish from Visual Studio Code, you take advantage of the [Zip deploy](functions-deployment-technologies.md#zip-deploy) technology.
 
-[!INCLUDE [functions-publish-project-vscode](../../includes/functions-publish-powershell-project-vscode.md)]
+[!INCLUDE [functions-deploy-project-vs-code](../../includes/functions-deploy-project-vs-code.md)]
 
 ## Run functions
 
