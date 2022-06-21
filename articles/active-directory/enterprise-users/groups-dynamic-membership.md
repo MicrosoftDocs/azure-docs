@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: enterprise-users
 ms.workload: identity
 ms.topic: overview
-ms.date: 06/08/2022
+ms.date: 06/20/2022
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
@@ -384,24 +384,30 @@ The following device attributes can be used.
  Device attribute  | Values | Example
  ----- | ----- | ----------------
  accountEnabled | true false | device.accountEnabled -eq true
- displayName | any string value | device.displayName -eq "Rob iPhone"
- deviceOSType | any string value | (device.deviceOSType -eq "iPad") -or (device.deviceOSType -eq "iPhone")<br>device.deviceOSType -contains "AndroidEnterprise"<br>device.deviceOSType -eq "AndroidForWork"<br>device.deviceOSType -eq "Windows"
- deviceOSVersion | any string value | device.deviceOSVersion -eq "9.1"<br>device.deviceOSVersion -startsWith "10.0.1"
  deviceCategory | a valid device category name | device.deviceCategory -eq "BYOD"
+ deviceId | a valid Azure AD device ID | device.deviceId -eq "d4fe7726-5966-431c-b3b8-cddc8fdb717d"
+ deviceManagementAppId | a valid MDM application ID in Azure AD | device.deviceManagementAppId -eq "0000000a-0000-0000-c000-000000000000" for Intune MDM app ID
  deviceManufacturer | any string value | device.deviceManufacturer -eq "Samsung"
  deviceModel | any string value | device.deviceModel -eq "iPad Air"
+ displayName | any string value | device.displayName -eq "Rob iPhone"
+ deviceOSType | any string value | (device.deviceOSType -eq "iPad") -or (device.deviceOSType -eq "iPhone")<br>device.deviceOSType -contains "AndroidEnterprise" <br>device.deviceOSType -eq "AndroidForWork"<br>device.deviceOSType -eq "Windows"
+ deviceOSVersion | any string value | device.deviceOSVersion -eq "9.1"<br>device.deviceOSVersion -startsWith "10.0.1"
  deviceOwnership | Personal, Company, Unknown | device.deviceOwnership -eq "Company"
+ devicePhysicalIds | any string value used by Autopilot, such as all Autopilot devices, OrderID, or PurchaseOrderID  | device.devicePhysicalIDs -any _ -contains "[ZTDId]"<br>(device.devicePhysicalIds -any _ -eq "[OrderID]:179887111881"<br>(device.devicePhysicalIds -any _ -eq "[PurchaseOrderId]:76222342342"
+ deviceTrustType | AzureAD, ServerAD, Workplace | device.deviceOwnership -eq "AzureAD"
  enrollmentProfileName | Apple Device Enrollment Profile name, Android Enterprise Corporate-owned dedicated device Enrollment Profile name, or Windows Autopilot profile name | device.enrollmentProfileName -eq "DEP iPhones"
+ extensionAttribute1 | any string value | device.extensionAttribute1 -eq "some string value"
  isRooted | true false | device.isRooted -eq true
  managementType | MDM (for mobile devices) | device.managementType -eq "MDM"
  memberOf | Any string value (valid group object ID) | device.memberof -any (group.objectId -in ['value']) 
- deviceId | a valid Azure AD device ID | device.deviceId -eq "d4fe7726-5966-431c-b3b8-cddc8fdb717d"
  objectId | a valid Azure AD object ID | device.objectId -eq "76ad43c9-32c5-45e8-a272-7b58b58f596d"
- devicePhysicalIds | any string value used by Autopilot, such as all Autopilot devices, OrderID, or PurchaseOrderID  | device.devicePhysicalIDs -any _ -contains "[ZTDId]"<br>(device.devicePhysicalIds -any _ -eq "[OrderID]:179887111881"<br>(device.devicePhysicalIds -any _ -eq "[PurchaseOrderId]:76222342342"
+ profileType | a valid [profile type](https://docs.microsoft.com/graph/api/resources/device?view=graph-rest-1.0#properties) in Azure AD | device.profileType -eq "RegisteredDevice"
  systemLabels | any string matching the Intune device property for tagging Modern Workplace devices | device.systemLabels -contains "M365Managed"
 
 > [!NOTE]
-> For the deviceOwnership when creating Dynamic Groups for devices you need to set the value equal to "Company". On Intune the device ownership is represented instead as Corporate. Refer to [OwnerTypes](/intune/reports-ref-devices#ownertypes) for more details. 
+> When using deviceOwnership to create Dynamic Groups for devices, you need to set the value equal to "Company". On Intune the device ownership is represented instead as Corporate. Refer to [OwnerTypes](/intune/reports-ref-devices#ownertypes) for more details. 
+> When using deviceTrustType to create Dynamic Groups for devices, you need to set the value equal to "AzureAD" to represent Azure AD joined devices, "ServerAD" to represent Hybrid Azure AD joined devices or "Workplace" to represent Azure AD registered devices.
+> When using extensionAttribute1-15 to create Dynamic Groups for devices you need to set the value for extensionAttribute1-15 on the device. Learn more on [how to write extensionAttributes on an Azure AD device object](https://docs.microsoft.com/graph/api/device-update?view=graph-rest-1.0&tabs=http#example-2--write-extensionattributes-on-a-device)  
 
 ## Next steps
 
