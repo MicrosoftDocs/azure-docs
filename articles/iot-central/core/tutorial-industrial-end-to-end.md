@@ -8,15 +8,16 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 
+#Customer intent: As a solution builder, I want to deploy a complete industrial IoT solution that uses IoT Central so that I understand how IoT Central enables industrial IoT scenarios.
 ---
 
 # Explore an industrial IoT scenario with IoT Central
 
-The solution shows how to use Azure IoT Central to ingest industrial IoT data from edge resources and then export the data to Azure Data Explorer (ADX) for further analysis. The sample provisions a number of resources such as:
+The solution shows how to use Azure IoT Central to ingest industrial IoT data from edge resources and then export the data to Azure Data Explorer (ADX) for further analysis. The sample deploys and configures resources such as:
 
 - An Azure virtual machine to host the Azure IoT Edge runtime.
-- An IoT Central application to ingest OPCUA data, transform it, and export it to ADX.
-- An ADX environment to store, manipulate, and explore the OPCUA data.
+- An IoT Central application to ingest OPC-UA data, transform it, and export it to ADX.
+- An ADX environment to store, manipulate, and explore the OPC-UA data.
 
 The following diagram shows the data flow in the scenario and highlights the key capabilities of IoT Central that are relevant to industrial solutions:
 
@@ -24,10 +25,17 @@ The following diagram shows the data flow in the scenario and highlights the key
 
 The sample uses a custom tool to deploy and configure all of the resources. The tool shows you what resources it deploys and provides links to further information.
 
+In this tutorial, you learn how to:
+
+> [!div class="checklist"]
+> * Deploy an end-to-end industrial IoT solution
+> * Use the **IoT Central Solution Builder** tool to deploy a solution
+> * Create a customized deployment
+
 ## Prerequisites
 
 - Azure subscription.
-- Local machine to run the **IoT Central Solution Builder** tool. Pre-built binaries are available for Windows and MacOS.
+- Local machine to run the **IoT Central Solution Builder** tool. Pre-built binaries are available for Windows and macOS.
 - Local installation of Git. If you need to build the **IoT Central Solution Builder** tool instead of using one of the pre-built binaries.
 - Text editor. If you want to edit the configuration file to customize your solution.
 
@@ -57,9 +65,9 @@ To create an Active Directory app registration in your Azure subscription:
   > [!TIP]
   > If you want to use a different subscription, use the [az account](/cli/azure/account?view=azure-cli-latest#az-account-set&preserve-view=true) command.
 
-- Make a note of the `id` value from the previous command. This is your *subscription Id*. You use this value later in the tutorial.
+- Make a note of the `id` value from the previous command. This value is your *subscription ID*. You use this value later in the tutorial.
 
-- Make a note of the `tenantId` value from the previous command. This is your *tenant Id*. You use this value later in the tutorial.
+- Make a note of the `tenantId` value from the previous command. This value is your *tenant ID*. You use this value later in the tutorial.
 
 - To create an Active Directory app registration, run the following command:
 
@@ -77,7 +85,7 @@ To create an Active Directory app registration in your Azure subscription:
   > [!NOTE]
   > The display name must be unique in your subscription.
 
-- Make a note of the `appId` value from the output of the previous command. This is your *application (client) id*. You use this value later in the tutorial.
+- Make a note of the `appId` value from the output of the previous command. This value is your *application (client) ID*. You use this value later in the tutorial.
 
 To install the **IoT Central Solution Builder** tool:
 
@@ -88,9 +96,9 @@ To configure the **IoT Central Solution Builder** tool:
 - Start the **IoT Central Solution Builder** tool. <!-- TODO: What's the recommended way to launch the tool? -->
 - Select **Action > Edit Azure config**:
 
-  :::image type="content" source="media/tutorial-industrial-end-to-end/iot-central-solution-builder-azure-config.png" alt-text="Screenshot that shows the edit azure config menu option in the I O T solution builder tool.":::
+  :::image type="content" source="media/tutorial-industrial-end-to-end/iot-central-solution-builder-azure-config.png" alt-text="Screenshot that shows the edit Azure config menu option in the I O T solution builder tool.":::
 
-- Enter the application id, subscription Id, and tenant Id that you made a note of previously. Select **OK**.
+- Enter the application ID, subscription ID, and tenant ID that you made a note of previously. Select **OK**.
 
 - Select **Action > Sign in**. Sign in with the same credentials you used to create the Active Directory app registration.
 
@@ -128,30 +136,84 @@ To deploy the solution:
 
   :::image type="content" source="media/tutorial-industrial-end-to-end/azure-portal-resources.png" alt-text="Screenshot that shows the deployed resources in the Azure portal.":::
 
-## Walk through solution
+To customize the deployed solution, you can edit the `adxconfig-opcpub.json` configuration file and then run the tool.
+
+## Walk through the solution
+
+The configuration file run by the tool defines the Azure resources to deploy and any required configuration. The tool runs the steps in the configuration file in sequence. Some steps are dependent on previous steps.
 
 The following sections describe the resources you deployed and what they do:
 
-### OPCUA simulator
+> [!NOTE]
+> The order here follows the data as it flows from the IoT Edge device to IoT Central, and then on to Azure Data Explorer.
 
 ### IoT Edge
 
+The tool deploys the IoT Edge 1.2 runtime to an Azure virtual machine. The installation script that the tool runs edits the IoT Edge *config.toml* file to add the following values from IoT Central:
+
+- **Id scope** for the IoT Central app.
+- **Device Id** for the gateway device registered in the IoT Central app.
+- **Symmetric key** for the gateway device registered in the IoT Central app.
+
+The IoT Edge deployment manifest defines four custom modules:
+
+- [metricscollector](../../iot-edge/how-to-collect-and-transport-metrics.md?view=iotedge-2020-11&tabs=iotcentral&preserve-view=true) - sends metrics from the IoT Edge device to the IoT Central application.
+- [opcplc](https://github.com/Azure-Samples/iot-edge-opc-plc) - generates simulated OPC-UA data.
+- [opcpublisher](https://github.com/Azure/Industrial-IoT/blob/main/docs/modules/publisher.md) - forwards OPC-UA data from an OPC-UA server to the **MiabGWModule**.
+- [MiabGwModule](https://github.com/iot-for-all/iotc-miab-gateway) - gateway that sends OPC-UA data to your IoT Central app, and handles commands sent from your IoT Central app.
+
+You can see the deployment manifest in the tool configuration file. The manifest is part of the device template that the tool adds to your IoT Central application.
+
+### Simulated OPC-UA telemetry
+
+The [opcplc](https://github.com/Azure-Samples/iot-edge-opc-plc) module on the IoT Edge device generates simulated OPC-UA data for the solution. This module implements an OPC-UA server with multiple nodes that generate random data and anomalies. The module also lets you configure user defined nodes.
+
 ### Device templates and devices
 
-Include device model and deployment manifest that configures the IoT Edge runtime.
+The solution uses a single device template called **Manufacturing In A Box Gateway** in your IoT Central application. The device template models the IoT Edge gateway and defines a single module with four interfaces: <!-- TODO: Five? IoT Edge Metrics standard interface for the metrics..? -->
 
-Include running modules list for gateway device.
+- **IoT Central Module Device Information Interface**. This standard interface defines read-only properties such as **Processor architecture**, **Operating system**, and **Software version** that the device reports to IoT Central.
+- **IoT Central Module Settings**. This interface defines two writable properties that let you switch on telemetry and routing debugging on the IoT Edge device.
+- **IoT Central Module Interface**. This interface defines the telemetry that the IoT Edge device sends such as module status and heartbeat. This telemetry lets you monitor the health of the IoT Edge device.
+- **Manufacturing In A Box Gateway**. This interface lets you manage the downstream OPC-UA servers connected to the gateway. The interface includes commands such as the **Provision OPC Device** command that the tool calls during the configuration process.
+
+There are two devices registered in your IoT Central application:
+
+- **opc-anomaly-device**. This device isn't assigned to a device template. The device represents the OPC-UA server implemented in the **opcplc** IoT Edge module. This OPC-UA server generates simulated OPC-UA data. Because the device isn't associated with a device template, IoT Central marks the telemetry as **Unmodeled**. <!-- TODO: Add a screenshot here that shows the unmodeled data. -->
+- **industrial-connect-gw**. This device is assigned to the **Manufacturing In A Box Gateway** device template. Use this device to monitor the health of the gateway and manage the downstream OPC-UA servers. The configuration file run by the tool calls the **cmProvisionOpcDevice** command to provision the downstream OPC-UA server.
 
 ### Data export configuration
 
+The solution uses the IoT Central data export capability to export OPC-UA data. Data export continuously sends the telemetry received from the OPC-UA server to an Azure Data Explorer environment. To identify the telemetry from the OPC-UA server, the data export uses a filter. The data export uses a transformation to map the raw telemetry into a tabular structure suitable for Azure Data Explorer to ingest.
+
 ### Azure Data Explorer
 
-- Tables
-- Functions
-- Sample analysis queries
+The solution uses Azure Data Explore to store and analyze the OPC-UA telemetry. The solution uses two tables and a function to process the data as it arrives:
 
-## Customize the scenario
+- The **rawOpcData** table receives the data from the IoT Central data export. The solution configures this table for streaming ingestion.
+- The **opcDeviceData** table stores the transformed data.
+- The **extractOpcTagData** function processes the data as it arrives in the **rawOpcData** table and adds transformed records to the **opcDeviceData** table.
+
+The solution includes several sample queries that generate plots from the data in the **opcDeviceData** table.
+
+## Customize the solution
+
+The **IoT Central Solution Builder** tool uses a JSON configuration file to define the sequence of steps to run. To customize the solution, edit the configuration file. You can't modify an existing solution with the tool, you can only deploy a new solution.
+
+The example configuration file adds all the resources to the same resource group in your solution. To remove a deployed solution, delete the resource group.
+
+Each step in the configuration file defines one of the following actions:
+
+- Use an Azure Resource Manager template to deploy an Azure resource. For example, the sample configuration file uses a Resource Manager template to deploy the Azure virtual machine that hosts the IoT Edge runtime.
+- Make a REST API call to deploy or configure a resource. For example, the sample configuration file uses REST APIs to create and configure the IoT Central application.
 
 ## Tidy up
 
+To avoid unnecessary charges, delete the resource group created by the tool when you've finished exploring the solution.
+
 ## Next steps
+
+In this tutorial, you learned how to deploy an end-to-end industrial IoT scenario that uses IoT Central. To learn more about industrial IoT solutions with IoT Central, see:
+
+> [!div class="nextstepaction"]
+> [Industrial IoT patterns with Azure IoT Central](./concepts-iiot-architecture.md)
