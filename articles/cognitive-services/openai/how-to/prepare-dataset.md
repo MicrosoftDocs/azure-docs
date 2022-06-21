@@ -243,7 +243,7 @@ A similar technique could be used for creating a virtual character with a partic
 
 Generative tasks have a potential to leak training data when requesting completions from the model, so additional care needs to be taken that this is addressed appropriately. For example personal or sensitive company information should be replaced by generic information or not be included into fine-tuning in the first place.
 
-# Next steps
+## Next steps
 
 Learn more about the [underlying engines/models that power Azure OpenAI](../concepts/engines.md).
 <!--TODO: Fine tune your model with our [How-to guide](./FineTunes.md) -->
