@@ -31,9 +31,17 @@ ms.custom: ignite-fall-2021
 
 After installing Python, you can install the client library with:
 
+# [Document summarization](#tab/document-summarization)
+
 ```console
 pip install azure-ai-textanalytics==5.2.0b4
 ```
+
+# [Conversation summarization](#tab/conversation-summarization)
+
+pip install azure-ai-language-conversations==1.1.0b1
+
+---
 
 > [!div class="nextstepaction"]
 > <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=PYTHON&Pillar=Language&Product=Summarization&Page=quickstart&Section=Set-up-the-environment" target="_target">I ran into an issue</a>
@@ -139,7 +147,7 @@ with client:
                                 "participantId": "Agent_1"
                             },
                             {
-                                "text": "Hi, I tried to set up wifi connection for Smart Brew 300 espresso machine, but it didn’t work.",
+                                "text": "Hi, I tried to set up wifi connection for Smart Brew 300 coffee machine, but it didn’t work.",
                                 "id": "2",
                                 "role": "Customer",
                                 "participantId": "Customer_1"
@@ -223,7 +231,7 @@ with client:
 ### Output
 
 ```console
-issue: Customer tried to set up wifi connection for Smart Brew 300 espresso machine, but it didn't work
+issue: Customer tried to set up wifi connection for Smart Brew 300 coffee machine, but it didn't work
 resolution: Asked customer to try the following steps | Asked customer for the power light | Helped customer to connect to the machine
 ```
 ---
