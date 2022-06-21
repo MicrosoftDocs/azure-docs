@@ -101,9 +101,9 @@ To ensure the queries successfully run, validate that the query's fields align w
 If you have multiple Application Insights resources store their telemetry in one Log Analytics workspace but you only want to query data from one specific Application Insights resource, you have two options:
 
 1. Go to the desired Application Insights resource and open the **Logs** tab. All queries from this tab will automatically pull data from the selected Application Insights resource.
-2. From the Log Analytics workspace resource that you configured as the destination for your Application Insights telemetry, go to the **Logs** tab. To query telemetry from a specific Application Insights resource, filter for the built-in ```_ResourceId``` property that is available in all application specific tables.
+2. From the Log Analytics workspace that you configured as the destination for your Application Insights telemetry, open to the **Logs** tab. To query data from a specific Application Insights resource, filter for the built-in ```_ResourceId``` property that is available in all application specific tables.
 
-Notice that if you query directly from the Log Analytics UI within your workspace, you'll only see the data that is ingested post migration. To see both your classic Application Insights data + new data ingested after migration in a unified query experience use the Logs (Analytics) query view from within your migrated Application Insights resource.
+Notice that if you query directly from the Log Analytics workspace, you'll only see data that is ingested post migration. To see both your classic Application Insights data and the new data ingested after migration in a unified query experience, use the **Logs** tab from within your migrated Application Insights resource.
 
 > [!NOTE]
 > If you rename your Application Insights resource after migrating to workspace-based model, the Application Insights Logs tab will no longer show the telemetry collected before renaming. You will be able to see all data (old and new) on the Logs tab of the associated Log Analytics resource.
