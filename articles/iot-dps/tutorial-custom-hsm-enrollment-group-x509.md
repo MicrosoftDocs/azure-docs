@@ -118,8 +118,6 @@ In this section, you'll prepare a development environment used to build the [Azu
 
 In this section you, will generate an X.509 certificate chain of three certificates for testing each device with this tutorial. The certificates will have the following hierarchy.
 
-![Tutorial device certificate chain](./media/tutorial-custom-hsm-enrollment-group-x509/example-device-cert-chain.png#lightbox)
-
 :::image type="content" source="./media/tutorial-custom-hsm-enrollment-group-x509/example-device-cert-chain.png" alt-text="Diagram that shows relationship of root C A, intermediate C A, and device certificates." border="false":::
 
 [Root certificate](concepts-x509-attestation.md#root-certificate): You will complete [proof of possession](how-to-verify-certificates.md) to verify the root certificate. This verification will enable DPS to trust that certificate and verify certificates signed by it.
