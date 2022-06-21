@@ -5,7 +5,7 @@ author: hrshelar
 ms.service: orbital
 ms.topic: conceptual
 ms.custom: ga
-ms.date: 06/15/2022
+ms.date: 06/21/2022
 ms.author: hrshelar
 
 ---

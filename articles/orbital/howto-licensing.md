@@ -1,11 +1,11 @@
 ---
-title: License your spacecraft
+title: License your spacecraft - Azure Orbital
 description: Learn how to license your spacecraft with Orbital.
 author: hrshelar
 ms.service: orbital
 ms.topic: how-to
 ms.custom: ga
-ms.date: 06/13/2022
+ms.date: 06/21/2022
 ms.author: hrshelar
 ---
 
@@ -24,8 +24,8 @@ To initiate the spacecraft licensing process, you'll need:
 
 The process starts by initiating the licensing request via the Azure portal.
 
-1. Navigate to the spacecraft object and click on New Support Request under the Support + troubleshooting category to the left.
-1. Choose the following fields:
+1. Navigate to the spacecraft object and select New Support Request under the Support + troubleshooting category to the left.
+1. Complete the following fields:
     1. Summary: Provide a relevant ticket title.
     1. Issue type: Technical.
     1. Subscription: Choose your current subscription.
@@ -48,13 +48,13 @@ Fill out all relevant fields in this form as it helps speeds up the process. Whe
 
 ## Step 3 - Await feedback from our regulatory team
 
-Based on the details provided in the steps above our regulatory team will make an assessment on time and cost to onboard your spacecraft to all requested ground stations. This step will take a few weeks to execute.
+Based on the details provided in the steps above, our regulatory team will make an assessment on time and cost to onboard your spacecraft to all requested ground stations. This step will take a few weeks to execute.
 
-Once the determination is made, we'll confirm the cost with you and ask you to authorize proceeding.
+Once the determination is made, we'll confirm the cost with you and ask you to authorize before proceeding.
 
 ## Step 4 - Orbital requests the relevant licensing
 
-Upon authorization, you'll be billed amounts determined in Step 3 and our regulatory team will seek the relevant licenses to enable your spacecraft with the desired ground stations. This step will take 2 to 6 months to execute.
+Upon authorization, you'll be billed and our regulatory team will seek the relevant licenses to enable your spacecraft with the desired ground stations. This step will take 2 to 6 months to execute.
 
 ## Step 5 - Spacecraft is authorized
 
