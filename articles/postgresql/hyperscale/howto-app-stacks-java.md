@@ -573,3 +573,8 @@ Executing the main class should now produce the following output:
 [INFO   ] Copying in-memory data into table
 [INFO   ] Closing database connection
 ```
+
+## Next steps
+
+Learn to [build scalable applications](howto-build-scalable-apps-overview.md)
+with Hyperscale (Citus).

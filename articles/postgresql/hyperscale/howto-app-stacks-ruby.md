@@ -229,3 +229,8 @@ ensure
     connection.close if connection
 end
 ```
+
+## Next steps
+
+Learn to [build scalable applications](howto-build-scalable-apps-overview.md)
+with Hyperscale (Citus).
