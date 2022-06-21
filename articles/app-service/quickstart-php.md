@@ -30,7 +30,7 @@ To complete this quickstart, you need:
 
 ## 1 - Get the sample repository
 
-### [CLI](#tab/cli)
+### [Azure CLI](#tab/cli)
 
 You can create the web app using the [Azure CLI](/cli/azure/get-started-with-azure-cli) in Cloud Shell, and you use Git to deploy sample PHP code to the web app.
 
@@ -72,7 +72,7 @@ You can create the web app using the [Azure CLI](/cli/azure/get-started-with-azu
 
 ## 2 - Deploy your application code to Azure
 
-### [CLI](#tab/cli)
+### [Azure CLI](#tab/cli)
 
 Azure CLI has a command [`az webapp up`](/cli/azure/webapp#az_webapp_up) that will create the necessary resources and deploy your application in a single step.
 
@@ -189,7 +189,7 @@ The PHP sample code is running in an Azure App Service.
 
 ## 3 - Update and redeploy the app
 
-### [CLI](#tab/cli)
+### [Azure CLI](#tab/cli)
 
 1. Using a local text editor, open the `index.php` file within the PHP app, and make a small change to the text within the string next to `echo`:
 
@@ -259,7 +259,7 @@ The PHP sample code is running in an Azure App Service.
 
 When you're finished with the sample app, you can remove all of the resources for the app from Azure. It will not incur extra charges and keep your Azure subscription uncluttered. Removing the resource group also removes all resources in the resource group and is the fastest way to remove all Azure resources for your app.
 
-### [CLI](#tab/cli)
+### [Azure CLI](#tab/cli)
 
 Delete the resource group by using the [az group delete](/cli/azure/group#az-group-delete) command.
 
