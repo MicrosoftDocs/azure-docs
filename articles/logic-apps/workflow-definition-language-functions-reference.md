@@ -276,6 +276,7 @@ For the full reference about each function, see the
 | [dayOfMonth](../logic-apps/workflow-definition-language-functions-reference.md#dayOfMonth) | Return the day of the month component from a timestamp. |
 | [dayOfWeek](../logic-apps/workflow-definition-language-functions-reference.md#dayOfWeek) | Return the day of the week component from a timestamp. |
 | [dayOfYear](../logic-apps/workflow-definition-language-functions-reference.md#dayOfYear) | Return the day of the year component from a timestamp. |
+| [dateDifference](../logic-apps/workflow-definition-language-functions-reference.md#dateDifference) | Return the difference between two dates as a timespan. |
 | [formatDateTime](../logic-apps/workflow-definition-language-functions-reference.md#formatDateTime) | Return the date from a timestamp. |
 | [getFutureTime](../logic-apps/workflow-definition-language-functions-reference.md#getFutureTime) | Return the current timestamp plus the specified time units. See also [addToTime](../logic-apps/workflow-definition-language-functions-reference.md#addToTime). |
 | [getPastTime](../logic-apps/workflow-definition-language-functions-reference.md#getPastTime) | Return the current timestamp minus the specified time units. See also [subtractFromTime](../logic-apps/workflow-definition-language-functions-reference.md#subtractFromTime). |
@@ -1641,6 +1642,37 @@ dataUriToString('data:text/plain;charset=utf-8;base64,aGVsbG8=')
 
 And returns this result: `"hello"`
 
+<a name="dateDifference"></a>
+
+### dateDifference
+
+Return the difference between two timestamps as a timespan. `startDate` is subtracted from `endDate`; the result will be negative if `startDate` is more recent than `endDate`.
+
+```
+dateDifference('<startDate>', '<endDate>')
+```
+
+| Parameter | Required | Type | Description |
+| --------- | -------- | ---- | ----------- |
+| <*startDate*> | Yes | String | A string that contains a timestamp |
+| <*endDate*> | Yes | String | A string that contains a timestamp |
+|||||
+
+| Return value | Type | Description |
+| ------------ | ---- | ----------- |
+| <*timespan*> | String | The string version of a timestamp that represents a the difference between the two dates. |
+||||
+
+*Example*
+
+This example finds the difference between two dates:
+
+```
+dateDifference('2015-02-08', '2018-07-30')
+```
+
+And returns this result: `"1268.00:00:00"`
+
 <a name="dayOfMonth"></a>
 
 ### dayOfMonth
@@ -1851,7 +1883,7 @@ decodeUriComponent('<value>')
 
 | Return value | Type | Description |
 | ------------ | ---- | ----------- |
-| <*decoded-uri*> | String | The updated string with the decoded escape characters |
+| <*decoded-uri*> | String | The upd string with the decoded escape characters |
 ||||
 
 *Example*
