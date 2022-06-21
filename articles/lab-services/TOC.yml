@@ -151,8 +151,6 @@
       href: manage-labs.md
     - name: Configure firewall settings
       href: how-to-configure-firewall-settings.md
-    - name: Configure auto-shutdown settings
-      href: how-to-enable-shutdown-disconnect.md
     - name: Configure regions for labs
       href: create-and-configure-labs-admin.md
   - name: Create & configure labs (educator)
@@ -193,6 +191,8 @@
       href: instructor-access-virtual-machines.md
     - name: Set and reset passwords 
       href: how-to-set-virtual-machine-passwords.md
+    - name: Configure auto-shutdown settings
+      href: how-to-enable-shutdown-disconnect.md      
     - name: View support information
       href: lab-creator-support-information.md
   - name: Connect to VMs in labs (student)

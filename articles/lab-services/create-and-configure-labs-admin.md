@@ -13,12 +13,12 @@ ms.custom: template-how-to
 
 This article shows you how to configure the locations where you can create labs by enabling or disabling regions associated with the lab plan. Enabling a region allows lab creators to create labs within that region. You cannot create labs in disabled regions. 
 
-When you create a lab plan, you have to set an initial region for the labs, but you can enable or disable more regions for your lab at any time. If you create a lab plan by using the Azure portal, the Allowed Regions property is initially set to the same region as the location of the lab plan. If you create a lab plan by using any of the automation methods (PowerShell, SDKs, or APIs), you must set the region when you create the lab plan. 
+When you create a lab plan, you have to set an initial region for the labs, but you can enable or disable more regions for your lab at any time. If you create a lab plan by using the Azure portal, enable regions initially includes the same region as the location of the lab plan. If you create a lab plan by using the API or SDKs, you must set the AllowedRegion property when you create the lab plan. 
 
 You might need to change the region for your labs in these circumstances:
 - Regulatory compliance. Choosing where your data resides, such as European organizations choosing specific regions to help ensure that they are General Data Protection Regulation (GDPR) compliant. For more information about GDPR, see [General Data Protection Regulation summary](/compliance/regulatory/gdpr).
 - Service availability. Providing the optimal lab experience for your students by ensuring the Azure Lab Service is available in the region closest to them. For more information about service availability, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=lab-services).
-- Quota availability. If the region you want doesn't have capacity for the number of VMs you require, you can request VM capacity for your labs. The extra capacity may be in a region already associated with your lab plan, or in a new region. When capacity becomes available in a new region, you can add the new region to your lab plan. For more information about requesting capacity, see [VM Subscription Limits and Regional Capacity](https://techcommunity.microsoft.com/t5/azure-lab-services-blog/vm-subscription-limits-and-regional-capacity/ba-p/1845553).
+- New region. You may acquire quota in a region different than the regions already enabled.
 
 ## Prerequisites
 
