@@ -67,10 +67,10 @@ Use Azure CLI or Azure PowerShell to validate the deployment.
     # [CLI](#tab/CLI)
 
     ```azurecli-interactive
-    az network traffic-manager profile show -name ExternalEndpointExample -resource-group exampleRG 
+    az network traffic-manager profile show --name ExternalEndpointExample --resource-group exampleRG 
     ```
 
-    Copy the **fqdn** value. The DNS name of your Traffic Manager profile is `<relativeDnsName>.trafficmanager.net`.
+    From the output, copy the **fqdn** value. It'll be in the following format: `<relativeDnsName>.trafficmanager.net`. This value is also the DNS name of your Traffic Manager profile.
 
     # [PowerShell](#tab/PowerShell)
 
@@ -87,13 +87,15 @@ Use Azure CLI or Azure PowerShell to validate the deployment.
     # [CLI](#tab/CLI)
 
     ```azurecli-interactive
-    
+    nslookup -type=cname {relativeDnsName}
     ```
+
+    You should get a canonical name of either `www.microsoft.com` or `docs.microsoft.com` depending on which region is closer to you.az 
 
     # [PowerShell](#tab/PowerShell)
 
     ```powershell-interactive
-    Resolve-DnsName -Name {relativeDNSname} | Select-Object NameHost | Select -First 1
+    Resolve-DnsName -Name {relativeDnsname} | Select-Object NameHost | Select -First 1
     ```
 
     ---
@@ -105,7 +107,7 @@ Use Azure CLI or Azure PowerShell to validate the deployment.
     # [CLI](#tab/CLI)
 
     ```azurecli-interactive
-    az network traffic-manager endpoint update --name {endpointName} --type externalEndpoints --profile-name ExternalEndpointExample --resource-group exampleRG --endpoint-status Disabled
+    az network traffic-manager endpoint update --name {endpointName} --type externalEndpoints --profile-name ExternalEndpointExample --resource-group exampleRG --endpoint-status "Disabled"
     ```
 
     # [PowerShell](#tab/PowerShell)
