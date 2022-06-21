@@ -279,7 +279,7 @@ npm install pg-copy-streams
 ```
 
 The following code is an example for copying data from a CSV file to a database table.
-It requires the file [pharmacies.csv](TODO.csv).
+It requires the file [pharmacies.csv](https://download.microsoft.com/download/d/8/d/d8d5673e-7cbf-4e13-b3e9-047b05fc1d46/pharmacies.csv).
 
 ```javascript
 // copy.js
