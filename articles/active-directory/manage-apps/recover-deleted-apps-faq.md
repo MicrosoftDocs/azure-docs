@@ -32,7 +32,7 @@ You find the deleted applications by using one of the following approaches. You 
  
 Recently deleted application objects can be found under the **Deleted applications** tab on the App registrations blade of Azure portal.
 
-  :::image type="content" source="media/delete-application-portal/recover-deleted-apps.png" alt-text="Browse in the enterprise application gallery for the application that you want to add.":::
+  :::image type="content" source="media/delete-application-portal/recover-deleted-apps.png" alt-text="Screenshot shows list of deleted items.":::
  
 - Using the Microsoft Graph API
 
@@ -64,7 +64,7 @@ When you restore an application from the App registrations UI, it recovers the a
 
 After recovering an SP, you may initially see the error in the following screenshot. This issue will resolve itself between 40 mins and 1 day. If you would like the provisioning job to start immediately, you can hit restart to force the provisioning service to run again. Hitting restart will trigger an initial cycle that can take time for customers with 100 K+ users or group memberships. 
  
-:::image type="content" source="media/delete-application-portal/recover-user-provisioning.png" alt-text="Browse in the enterprise application gallery for the application that you want to add.":::
+:::image type="content" source="media/delete-application-portal/recover-user-provisioning.png" alt-text="Screenshot of recovering user provisioning data.":::
 
 ## I recovered my application that was configured for application proxy. I can’t see app proxy configurations after the recovery. How can I recover it back?
 

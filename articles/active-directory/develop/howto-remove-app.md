@@ -32,7 +32,7 @@ In the following sections, you learn how to:
 
 ## Remove an application authored by you or your organization
 
-Applications that you or your organization have registered are represented by both an application object and service principal object in your tenant. For more information, see [Application Objects and Service Principal Objects](./app-objects-and-service-principals.md).
+Applications that you or your organization have registered are represented by both an application object and service principal object in your tenant. For more information, see [Application objects and service principal objects](./app-objects-and-service-principals.md).
 
 > [!NOTE]
 > Deleting an application will also delete its service principal object in the application's home directory. For multi-tenant applications, service principal objects in other directories will not be deleted.
