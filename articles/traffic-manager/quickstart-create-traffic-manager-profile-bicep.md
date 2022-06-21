@@ -98,9 +98,9 @@ Use Azure CLI or Azure PowerShell to validate the deployment.
     Resolve-DnsName -Name {relativeDnsname} | Select-Object NameHost | Select -First 1
     ```
 
-    ---
-
     You should get a NameHost of either `www.microsoft.com` or `docs.microsoft.com` depending on which region is closer to you.
+
+    ---
 
 3. To check if you can resolve to the other endpoint, disable the endpoint for the target you got in the last step. Replace the **{endpointName}** with either **endpoint1** or **endpoint2** to disable the target for `www.microsoft.com` or `docs.microsoft.com` respectively.
 
