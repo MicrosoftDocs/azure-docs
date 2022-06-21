@@ -4,10 +4,10 @@ description: Learn how to extend Windows file servers with Azure File Sync, from
 author: khdownie
 ms.service: storage
 ms.topic: tutorial
-ms.date: 04/13/2021
+ms.date: 06/21/2022
 ms.author: kendownie
 ms.subservice: files
-#Customer intent: As an IT Administrator, I want see how to extend Windows file servers with Azure File Sync, so I can evaluate the process for extending storage capacity of my Windows servers.
+#Customer intent: As an IT administrator, I want see how to extend Windows file servers with Azure File Sync, so I can evaluate the process for extending the storage capacity of my Windows servers.
 ---
 
 # Tutorial: Extend Windows file servers with Azure File Sync
@@ -120,39 +120,39 @@ At this point, you've created a new virtual machine and attached a data disk. Ne
 
 1. Open the downloaded RDP file and select **Connect** when prompted. You might see a warning that says *The publisher of this remote connection can't be identified*. Click **Connect** anyway.
 
-1. In the **Windows Security** window that asks you to enter your credentials, select **More choices** and then **Use a different account**. Type the username as *localhost\username*, enter the password you created for the virtual machine, and then select **OK**.
+1. In the **Windows Security** window that asks you to enter your credentials, select **More choices** and then **Use a different account**. Enter *localhost\username* in the **email address** field, enter the password you created for the VM, and then select **OK**.
 
-   ![More choices](./media/storage-sync-files-extend-servers/local-host2.png)
+   :::image type="content" source="media/storage-sync-files-extend-servers/local-host2.png" alt-text="Screenshot showing how to enter your login credentials for the VM.":::
 
 1. You might receive a certificate warning during the sign-in process saying that the identity of the remote computer cannot be verified. Select **Yes** or **Continue** to create the connection.
 
-### Prepare the Windows server
+### Prepare the Windows server VM
 
-For the Windows Server 2016 Datacenter server, disable Internet Explorer Enhanced Security Configuration. This step is required only for initial server registration. You can re-enable it after the server has been registered.
+For the Windows Server 2019 Datacenter VM, disable Internet Explorer Enhanced Security Configuration. This step is required only for initial server registration. You can re-enable it after the server has been registered.
 
-In the Windows Server 2016 Datacenter VM, Server Manager opens automatically.  If Server Manager doesn't open by default, search for it in Start Menu.
+In the Windows Server 2019 Datacenter VM, Server Manager opens automatically. If Server Manager doesn't open by default, search for it in Start Menu.
 
 1. In **Server Manager**, select **Local Server**.
 
-   !["Local Server" on the left side of the Server Manager UI](media/storage-sync-files-extend-servers/prepare-server-disable-ieesc-1.png)
+   :::image type="content" source="media/storage-sync-files-extend-servers/prepare-server-disable-ieesc-1.png" alt-text="Screenshot showing how to locate Local Server on the left side of the Server Manager UI.":::
 
-1. On the **Properties** pane, select the link for **IE Enhanced Security Configuration**.
+1. On the **Properties** pane, find the entry for **IE Enhanced Security Configuration** and click **On**.
 
-    ![The "IE Enhanced Security Configuration" pane in the Server Manager UI](media/storage-sync-files-extend-servers/prepare-server-disable-ieesc-2.png)
+   :::image type="content" source="media/storage-sync-files-extend-servers/prepare-server-disable-ieesc-2.png" alt-text="Screenshot showing the Internet Explorer Enhanced Security Configuration pane in the Server Manager UI.":::
 
-1. In the **Internet Explorer Enhanced Security Configuration** dialog box, select **Off** for **Administrators** and **Users**.
+1. In the **Internet Explorer Enhanced Security Configuration** dialog box, select **Off** for **Administrators** and **Users**, and then select **OK**.
 
-    ![The Internet Explorer Enhanced Security Configuration pop-window with "Off" selected](media/storage-sync-files-extend-servers/prepare-server-disable-ieesc-3.png)
+   :::image type="content" source="media/storage-sync-files-extend-servers/prepare-server-disable-ieesc-3.png" alt-text="Screenshot showing the Internet Explorer Enhanced Security Configuration pop-window with Off selected.":::
 
 Now you can add the data disk to the VM.
 
 ### Add the data disk
 
-1. While still in the **Windows Server 2016 Datacenter** VM, select **Files and storage services** > **Volumes** > **Disks**.
+1. While still in the **Windows Server 2019 Datacenter** VM, select **Files and storage services** > **Volumes** > **Disks**.
 
-    ![Data disk](media/storage-sync-files-extend-servers/your-disk.png)
+   :::image type="content" source="media/storage-sync-files-extend-servers/your-disk.png" alt-text="Screenshot showing how to bring the data disk online and create a volume.":::
 
-1. Right-click the 1 GiB disk named **Msft Virtual Disk** and select **New volume**.
+1. Right-click the 4 GiB disk named **Msft Virtual Disk** and select **New volume**.
 1. Complete the wizard. Use the default settings and make note of the assigned drive letter.
 1. Select **Create**.
 1. Select **Close**.
@@ -168,11 +168,11 @@ Now you can add the data disk to the VM.
 
 1. Close **File Explorer** and **Server Manager**.
 
-### Download the Azure PowerShell module
+### Install the Azure PowerShell module
 
-Next, in the Windows Server 2016 Datacenter VM, install the Azure PowerShell module on the server.
+Next, in the Windows Server 2019 Datacenter VM, install the Azure PowerShell module on the server. The `Az` module is a rollup module for the Azure PowerShell cmdlets. Installing it downloads all the available Azure Resource Manager modules and makes their cmdlets available for use.
 
-1. In the VM, open an elevated PowerShell window.
+1. In the VM, open an elevated PowerShell window (run as administrator).
 1. Run the following command:
 
    ```powershell
@@ -194,8 +194,6 @@ Next, in the Windows Server 2016 Datacenter VM, install the Azure PowerShell mod
    ```
 
 1. Answer **Yes** or **Yes to All** to continue with the installation.
-
-The `Az` module is a rollup module for the Azure PowerShell cmdlets. Installing it downloads all the available Azure Resource Manager modules and makes their cmdlets available for use.
 
 At this point, you've set up your environment for the tutorial. You're ready to deploy the Storage Sync Service.
 
