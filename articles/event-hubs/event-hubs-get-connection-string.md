@@ -10,7 +10,7 @@ To communicate with an event hub in a namespace, you need a connection string fo
 
 The connection string for a namespace has the following components embedded within it,
 
-* Fully qualified domain name** of the Event Hubs namespace you created (it includes the Event Hubs namespace name followed by servicebus.windows.net)
+* Fully qualified domain name of the Event Hubs namespace you created (it includes the Event Hubs namespace name followed by servicebus.windows.net)
 * Name of the shared access key 
 * Value of the shared access key
 
