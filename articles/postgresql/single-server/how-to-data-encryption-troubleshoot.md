@@ -12,6 +12,8 @@ ms.date: 02/13/2020
 
 # Troubleshoot data encryption in Azure Database for PostgreSQL - Single Server
 
+[!INCLUDE [applies-to-postgresql-single-server](../includes/applies-to-postgresql-single-server.md)]
+
 This article helps you identify and resolve common issues that can occur in the single-server deployment of Azure Database for PostgreSQL when configured with data encryption using a customer-managed key.
 
 ## Introduction

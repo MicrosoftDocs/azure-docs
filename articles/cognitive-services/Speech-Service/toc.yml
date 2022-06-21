@@ -56,8 +56,6 @@ items:
       href: get-started-speech-to-text.md
     - name: How to recognize speech
       href: how-to-recognize-speech.md
-    - name: Set recognition source language
-      href: how-to-specify-source-language.md
     - name: Get speech recognition results
       href: get-speech-recognition-results.md
     - name: How to use batch transcription
@@ -141,16 +139,12 @@ items:
       href: how-to-audio-content-creation.md 
 - name: Speech translation
   items:
-    - name: Speech translation documentation
-      href: index-speech-translation.yml
     - name: Speech translation overview
       href: speech-translation.md
     - name: Speech translation quickstart
       href: get-started-speech-translation.md
-    - name: Translate and synthesize text with REST APIs
-      href: /learn/modules/python-flask-build-ai-web-app
-    - name: Speech translation FAQ
-      href: https://www.microsoft.com/translator/faq.aspx
+    - name: How to recognize and translate speech
+      href: how-to-translate-speech.md
 - name: Intent recognition
   items:
     - name: Intent recognition documentation
@@ -200,6 +194,12 @@ items:
         href: call-center-transcription.md
       - name: Ingestion Client
         href: ingestion-client.md
+    - name: Pronunciation Assessment
+      items:
+        - name: Pronunciation Assessment in Speech Studio
+          href: pronunciation-assessment-tool.md
+        - name: How to use Pronunciation Assessment
+          href: how-to-pronunciation-assessment.md
     - name: Conversation transcription
       items:
         - name: Conversation Transcription overview
@@ -284,8 +284,6 @@ items:
   items:
     - name: Language identification
       href: language-identification.md
-    - name: Use Pronunciation Assessment
-      href: how-to-pronunciation-assessment.md
     - name: Audio configuration
       items:
       - name: How to use the audio input stream

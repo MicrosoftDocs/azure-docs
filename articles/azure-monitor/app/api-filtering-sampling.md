@@ -5,7 +5,7 @@ ms.topic: conceptual
 ms.date: 11/23/2016
 ms.devlang: csharp, javascript, python
 ms.custom: "devx-track-js, devx-track-csharp"
-ms.reviwer: cithomas
+ms.reviewer: cithomas
 ---
 
 # Filter and preprocess telemetry in the Application Insights SDK

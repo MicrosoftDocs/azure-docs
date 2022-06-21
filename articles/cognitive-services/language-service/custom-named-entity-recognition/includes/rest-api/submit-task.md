@@ -25,7 +25,7 @@ Use this **POST** request to start a text classification task.
 
 |Key|Value|
 |--|--|
-|Ocp-Apim-Subscription-Key| Your subscription key that provides access to this API.|
+|Ocp-Apim-Subscription-Key| Your key that provides access to this API.|
 
 #### Body
 

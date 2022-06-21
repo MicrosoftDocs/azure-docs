@@ -2,8 +2,8 @@
 title: Deploy Bitnami virtual appliances
 description: Learn about the virtual appliances packed by Bitnami to deploy in your Azure VMware Solution private cloud.
 ms.topic: how-to
+ms.service: azure-vmware
 ms.date: 04/11/2022
-
 ---
 
 # Bitnami appliance deployment

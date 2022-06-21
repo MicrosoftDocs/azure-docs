@@ -1,17 +1,17 @@
 ---
-title: How to use Defender for Containers to identify vulnerabilities
+title: How to use Defender for Containers to identify vulnerabilities in Microsoft Defender for Cloud
 description: Learn how to use Defender for Containers to scan images in your registries
 author: bmansheim
 ms.author: benmansheim
-ms.date: 04/28/2022
+ms.date: 06/08/2022
 ms.topic: how-to
 ---
 
 # Use Defender for Containers to scan your ACR images for vulnerabilities
 
-This page explains how to use the built-in vulnerability scanner to scan the container images stored in your Azure Resource Manager-based Azure Container Registry.
+This page explains how to use Defender for Containers to scan the container images stored in your Azure Resource Manager-based Azure Container Registry, as part of the protections provided within Microsoft Defender for Cloud.
 
-When the scanner, powered by Qualys, reports vulnerabilities to Defender for Cloud, Defender for Cloud presents the findings and related information as recommendations. In addition, the findings include related information such as remediation steps, relevant CVEs, CVSS scores, and more. You can view the identified vulnerabilities for one or more subscriptions, or for a specific registry.
+To enable scanning of vulnerabilities in containers, you have to [enable Defender for Containers](defender-for-containers-enable.md). When the scanner, powered by Qualys, reports vulnerabilities, Defender for Cloud presents the findings and related information as recommendations. In addition, the findings include related information such as remediation steps, relevant CVEs, CVSS scores, and more. You can view the identified vulnerabilities for one or more subscriptions, or for a specific registry.
 
 > [!TIP]
 > You can also scan container images for vulnerabilities as the images are built in your CI/CD GitHub workflows. Learn more in [Identify vulnerable container images in your CI/CD workflows](defender-for-containers-cicd.md).
@@ -26,11 +26,11 @@ There are four triggers for an image scan:
 
 - **Continuous scan**- This trigger has two modes:
 
-    - A continuous scan based on an image pull.  This scan is performed every seven days after an image was pulled, and only for 30 days after the image was pulled. This mode doesn't require the security profile, or extension.
+  - A continuous scan based on an image pull.  This scan is performed every seven days after an image was pulled, and only for 30 days after the image was pulled. This mode doesn't require the security profile, or extension.
 
-    -  (Preview) Continuous scan for running images. This scan is performed every seven days for as long as the image runs. This mode runs instead of  the above mode when the Defender profile, or extension is running on the cluster.
+  - (Preview) Continuous scan for running images. This scan is performed every seven days for as long as the image runs. This mode runs instead of  the above mode when the Defender profile, or extension is running on the cluster.
 
-This scan typically completes within 2 minutes, but it might take up to 40 minutes. For every vulnerability identified, Defender for Cloud provides actionable recommendations, along with a severity classification, and guidance for how to remediate the issue. 
+This scan typically completes within 2 minutes, but it might take up to 40 minutes. For every vulnerability identified, Defender for Cloud provides actionable recommendations, along with a severity classification, and guidance for how to remediate the issue.
 
 Defender for Cloud filters, and classifies findings from the scanner. When an image is healthy, Defender for Cloud marks it as such. Defender for Cloud generates security recommendations only for images that have issues to be resolved. By only notifying when there are problems, Defender for Cloud reduces the potential for unwanted informational alerts.
 
@@ -38,7 +38,7 @@ Defender for Cloud filters, and classifies findings from the scanner. When an im
 
 To enable vulnerability scans of images stored in your Azure Resource Manager-based Azure Container Registry:
 
-1. Enable **Defender for Containers** for your subscription. Defender for Cloud is now ready to scan images in your registries.
+1. [Enable Defender for Containers](defender-for-containers-enable.md) for your subscription. Defender for Containers is now ready to scan images in your registries.
 
     >[!NOTE]
     > This feature is charged per image.
@@ -152,25 +152,30 @@ To create a rule:
 
 ## FAQ
 
-### How does Defender for Cloud scan an image?
-Defender for Cloud pulls the image from the registry and runs it in an isolated sandbox with the Qualys scanner. The scanner extracts a list of known vulnerabilities.
+### How does Defender for Containers scan an image?
+
+Defender for Containers pulls the image from the registry and runs it in an isolated sandbox with the Qualys scanner. The scanner extracts a list of known vulnerabilities.
 
 Defender for Cloud filters and classifies findings from the scanner. When an image is healthy, Defender for Cloud marks it as such. Defender for Cloud generates security recommendations only for images that have issues to be resolved. By only notifying you when there are problems, Defender for Cloud reduces the potential for unwanted informational alerts.
 
 ### Can I get the scan results via REST API?
+
 Yes. The results are under [Sub-Assessments REST API](/rest/api/securitycenter/subassessments/list/). Also, you can use Azure Resource Graph (ARG), the Kusto-like API for all of your resources: a query can fetch a specific scan.
 
 ### What registry types are scanned? What types are billed?
+
 For a list of the types of container registries supported by Microsoft Defender for container registries, see [Availability](defender-for-container-registries-introduction.md#availability).
 
-If you connect unsupported registries to your Azure subscription, Defender for Cloud won't scan them and won't bill you for them.
+If you connect unsupported registries to your Azure subscription, Defender for Containers won't scan them and won't bill you for them.
 
 ### Can I customize the findings from the vulnerability scanner?
+
 Yes. If you have an organizational need to ignore a finding, rather than remediate it, you can optionally disable it. Disabled findings don't impact your secure score or generate unwanted noise.
 
 [Learn about creating rules to disable findings from the integrated vulnerability assessment tool](defender-for-containers-usage.md#disable-specific-findings).
 
 ### Why is Defender for Cloud alerting me to vulnerabilities about an image that isn’t in my registry?
+
 Some images may reuse tags from an image that was already scanned. For example, you may reassign the tag “Latest” every time you add an image to a digest. In such cases, the ‘old’ image does still exist in the registry and may still be pulled by its digest. If the image has security findings and is pulled, it'll expose security vulnerabilities.
 
 ## Next steps

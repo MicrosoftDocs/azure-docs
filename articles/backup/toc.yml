@@ -556,7 +556,7 @@
       href: backup-azure-dataprotection-use-rest-api-create-update-backup-vault.md
     - name: Query backup information using ARG
       href: query-backups-using-azure-resource-graph.md
-    - name: Resource Manager templates
+    - name: Resource Manager and Bicep templates
       href: backup-rm-template-samples.md
   - name: Security and Ransomware protection
     items:

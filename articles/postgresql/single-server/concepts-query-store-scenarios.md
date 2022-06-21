@@ -10,9 +10,11 @@ ms.date: 5/6/2019
 ---
 # Usage scenarios for Query Store
 
-**Applies to:** Azure Database for PostgreSQL - Single Server versions 9.6, 10, 11
+[!INCLUDE [applies-to-postgresql-single-server](../includes/applies-to-postgresql-single-server.md)]
 
-You can use Query Store in a wide variety of scenarios in which tracking and maintaining predictable workload performance is critical. Consider the following examples: 
+
+You can use Query Store in a wide variety of scenarios in which tracking and maintaining predictable workload performance is critical. Consider the following examples:
+
 - Identifying and tuning top expensive queries 
 - A/B testing 
 - Keeping performance stable during upgrades 

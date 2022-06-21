@@ -242,9 +242,10 @@ If you have enabled the appliance for private endpoint connectivity, use the fol
 
 |**DNS mappings containing Private endpoint URLs**  | **Details** |
 |--- | ---|
-|*.disc.privatelink.test.migration.windowsazure.com | Azure Migrate Discovery service endpoint
-|*.asm.privatelink.test.migration.windowsazure.com  | Azure Migrate Assessment service endpoint  
-|*.hub.privatelink.test.migration.windowsazure.com  | Azure Migrate hub endpoint to receive data from other Microsoft or external [independent software vendor (ISV)](./migrate-services-overview.md#isv-integration) offerings
+|*.disc.privatelink.prod.migration.windowsazure.com | Azure Migrate Discovery service endpoint
+|*.asm.privatelink.prod.migration.windowsazure.com  | Azure Migrate Assessment service endpoint  
+|*.hub.privatelink.prod.migration.windowsazure.com  | Azure Migrate hub endpoint to receive data from other Microsoft or external [independent software vendor (ISV)](./migrate-services-overview.md#isv-integration) offerings
+|*.privatelink.siterecovery.windowsazure.com | Azure Site Recovery service endpoint to orchestrate replications
 |*.vault.azure.net | Key Vault endpoint
 |*.blob.core.windows.net | Storage account endpoint for dependency and performance data  
 

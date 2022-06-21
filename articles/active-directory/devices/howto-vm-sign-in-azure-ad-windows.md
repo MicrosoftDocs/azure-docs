@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: how-to
-ms.date: 04/01/2022
+ms.date: 06/16/2022
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -425,6 +425,27 @@ If you haven't deployed Windows Hello for Business and if that isn't an option f
 > Windows Hello for Business PIN authentication with RDP has been supported by Windows 10 for several versions, however support for Biometric authentication with RDP was added in Windows 10 version 1809. Using Windows Hello for Business authentication during RDP is only available for deployments that use cert trust model and currently not available for key trust model.
  
 Share your feedback about this feature or report issues using it on the [Azure AD feedback forum](https://feedback.azure.com/d365community/forum/22920db1-ad25-ec11-b6e6-000d3a4f0789).
+
+### Missing application
+
+If the Azure Windows VM Sign-In application is missing from Conditional Access, use the following steps to remediate the issue:
+
+1. Check to make sure the application isn't in the tenant by:
+   1. Sign in to the **Azure portal**.
+   1. Browse to **Azure Active Directory** > **Enterprise applications**
+   1. Remove the filters to see all applications, and search for "VM". If you don't see Azure Windows VM Sign-In as a result, the service principal is missing from the tenant.
+
+Another way to verify it is via Graph PowerShell:
+
+1. [Install the Graph PowerShell SDK](/powershell/microsoftgraph/installation) if you haven't already done so. 
+1. `Connect-MgGraph -Scopes "ServicePrincipalEndpoint.ReadWrite.All","Application.ReadWrite.All"`
+1. Sign-in with a Global Admin account
+1. Consent to permission prompt
+1. `Get-MgServicePrincipal -ConsistencyLevel eventual -Search '"DisplayName:Azure Windows VM Sign-In"'`
+   1. If this command results in no output and returns you to the PowerShell prompt, you can create the Service Principal with the following Graph PowerShell command:
+   1. `New-MgServicePrincipal -AppId 372140e0-b3b7-4226-8ef9-d57986796201`
+   1. Successful output will show that the AppID and the Application Name Azure Windows VM Sign-In was created.
+1. Sign out of Graph PowerShell when complete with the following command: `Disconnect-MgGraph`
 
 ## Next steps
 

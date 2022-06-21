@@ -2,6 +2,7 @@
 title: Deploy Arc for Azure VMware Solution (Preview)
 description: Learn how to set up and enable Arc for your Azure VMware Solution private cloud.
 ms.topic: how-to 
+ms.service: azure-vmware
 ms.date: 04/11/2022
 ms.custom: references_regions
 ---

@@ -159,6 +159,9 @@ A drawback with the traditional CNI is the exhaustion of pod IP addresses as the
 
 ### Additional prerequisites
 
+> [!NOTE]
+> When using dynamic allocation of IPs, exposing an application as a Private Link Service using a Kubernetes Load Balancer Service is not supported.
+
 The [prerequisites][prerequisites] already listed for Azure CNI still apply, but there are a few additional limitations:
 
 * Only linux node clusters and node pools are supported.
@@ -279,7 +282,7 @@ The following questions and answers apply to the **Azure CNI network configurati
 
 * *Can I assign Pod subnets from a different VNet altogether?*
 
-  The pod subnet should be from the same VNet as the cluster.  
+  No, the pod subnet should be from the same VNet as the cluster.  
 
 * *Can some node pools in a cluster use the traditional CNI while others use the new CNI?*
 
@@ -305,7 +308,8 @@ Learn more about networking in AKS in the following articles:
 [services]: https://kubernetes.io/docs/concepts/services-networking/service/
 [portal]: https://portal.azure.com
 [cni-networking]: https://github.com/Azure/azure-container-networking/blob/master/docs/cni.md
-[kubenet]: https://kubernetes.io/docs/concepts/cluster-administration/network-plugins/#kubenet
+[kubenet]: concepts-network.md#kubenet-basic-networking
+
 
 <!-- LINKS - Internal -->
 [az-aks-create]: /cli/azure/aks#az_aks_create

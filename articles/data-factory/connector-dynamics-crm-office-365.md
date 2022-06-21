@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.author: jianleishen
 author: jianleishen
 ms.custom: synapse
-ms.date: 04/24/2022
+ms.date: 06/01/2022
 ---
 # Copy and transform data in Dynamics 365 (Microsoft Dataverse) or Dynamics CRM using Azure Data Factory or Azure Synapse Analytics
 
@@ -68,7 +68,7 @@ To use this connector with Azure AD service-principal authentication, you must s
 
 [!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
-## Create a linked service to Dynamics 365 using UI
+## Create a linked service to Dynamics 365 (Microsoft Dataverse) or Dynamics CRM using UI
 
 Use the following steps to create a linked service to Dynamics 365 in the Azure portal UI.
 
@@ -82,9 +82,11 @@ Use the following steps to create a linked service to Dynamics 365 in the Azure 
 
     :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Screenshot of creating a new linked service with Azure Synapse UI.":::
 
-2. Search for Dynamics and select the Dynamics 365 connector.
+2. Search for Dynamics or Dataverse and select the Dynamics 365 (Microsoft Dataverse) or Dynamics CRM connector.
 
     :::image type="content" source="media/connector-dynamics-crm-office-365/dynamics-crm-office-365-connector.png" alt-text="Screenshot of the Dynamics 365 connector.":::    
+
+    :::image type="content" source="media/connector-dynamics-crm-office-365/dataverse-connector.png" alt-text="Screenshot of the Dataverse connector.":::  
 
 1. Configure the service details, test the connection, and create the new linked service.
 
