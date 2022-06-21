@@ -120,6 +120,8 @@ In this section you, will generate an X.509 certificate chain of three certifica
 
 ![Tutorial device certificate chain](./media/tutorial-custom-hsm-enrollment-group-x509/example-device-cert-chain.png#lightbox)
 
+:::image type="content" source="./media/tutorial-custom-hsm-enrollment-group-x509/example-device-cert-chain.png" alt-text="Diagram that shows relationship of root C A, intermediate C A, and device certificates." border="false":::
+
 [Root certificate](concepts-x509-attestation.md#root-certificate): You will complete [proof of possession](how-to-verify-certificates.md) to verify the root certificate. This verification will enable DPS to trust that certificate and verify certificates signed by it.
 
 [Intermediate Certificate](concepts-x509-attestation.md#intermediate-certificate): It's common for intermediate certificates to be used to group devices logically by product lines, company divisions, or other criteria. This tutorial will use a certificate chain composed of one intermediate certificate. The intermediate certificate will be signed by the root certificate. This certificate will also be used on the enrollment group created in DPS to logically group a set of devices. This configuration allows managing a whole group of devices that have device certificates signed by the same intermediate certificate. You can create enrollment groups for enabling or disabling a group of devices. For more information on disabling a group of devices, see [Disallow an X.509 intermediate or root CA certificate by using an enrollment group](how-to-revoke-device-access-portal.md#disallow-an-x509-intermediate-or-root-ca-certificate-by-using-an-enrollment-group)
@@ -127,6 +129,8 @@ In this section you, will generate an X.509 certificate chain of three certifica
 [Device certificates](concepts-x509-attestation.md#end-entity-leaf-certificate): The device (leaf) certificates will be signed by the intermediate certificate and stored on the device along with its private key. Ideally these sensitive items would be stored securely with an HSM. Each device will present its certificate and private key, along with the certificate chain when attempting provisioning.
 
 ### Set up the X.509 OpenSSL environment
+
+In this section, you'll create the openssl configuration files, directory structure, and other files used by the openssl commands.
 
 1. In your Git Bash command prompt, navigate to a folder where you want to generate the X.509 certificates and keys you'll use in this tutorial.
 
@@ -394,7 +398,7 @@ In this section you, will generate an X.509 certificate chain of three certifica
     extendedKeyUsage = critical, OCSPSigning
     ```
 
-1. Create the directory structure, the index file, and the serial number file used by OpenSSL commands in this article:
+1. Create the directory structure, the database file (index.txt), and the serial number file (serial) used by OpenSSL commands in this article:
 
     ```bash
     mkdir certs csr newcerts private
@@ -417,7 +421,7 @@ Run the following commands to create the root CA private key and the root CA cer
     # [Windows](#tab/windows)
 
     ```bash
-    winpty openssl req -new -x509 -config ./openssl_root_ca.cnf -passin pass:1234 -key ./private/azure-iot-test-only.root.ca.key.pem -subj '//CN=Azure IoT Hub CA Cert Test Only' -days 30 -sha256 -extensions v3_ca -out ./certs/azure-iot-test-only.root.ca.cert.pem
+    openssl req -new -x509 -config ./openssl_root_ca.cnf -passin pass:1234 -key ./private/azure-iot-test-only.root.ca.key.pem -subj '//CN=Azure IoT Hub CA Cert Test Only' -days 30 -sha256 -extensions v3_ca -out ./certs/azure-iot-test-only.root.ca.cert.pem
     ```
 
     > [!IMPORTANT]
@@ -471,7 +475,7 @@ Run the following commands to create the intermediate CA private key and the int
     # [Windows](#tab/windows)
 
     ```bash
-    winpty openssl req -new -sha256 -passin pass:1234 -config ./openssl_device_intermediate_ca.cnf -subj '//CN=Azure IoT Hub Intermediate Cert Test Only' -key ./private/azure-iot-test-only.intermediate.key.pem -out ./csr/azure-iot-test-only.intermediate.csr.pem
+    openssl req -new -sha256 -passin pass:1234 -config ./openssl_device_intermediate_ca.cnf -subj '//CN=Azure IoT Hub Intermediate Cert Test Only' -key ./private/azure-iot-test-only.intermediate.key.pem -out ./csr/azure-iot-test-only.intermediate.csr.pem
     ```
 
     > [!IMPORTANT]
@@ -533,7 +537,7 @@ In this section you create the device certificates and the full chain device cer
     # [Windows](#tab/windows)
 
     ```bash
-    winpty openssl req -config ./openssl_device_intermediate_ca.cnf -key ./private/device-01.key.pem -subj '//CN=device-01' -new -sha256 -out ./csr/device-01.csr.pem
+    openssl req -config ./openssl_device_intermediate_ca.cnf -key ./private/device-01.key.pem -subj '//CN=device-01' -new -sha256 -out ./csr/device-01.csr.pem
     ```
 
     > [!IMPORTANT]
@@ -743,7 +747,7 @@ Your signing certificates are now trusted on the Windows-based device and the fu
 
 3. In the **Add Enrollment Group** panel, enter the following information, then press the **Save** button.
 
-      ![Add enrollment group for X.509 attestation in the portal](./media/tutorial-custom-hsm-enrollment-group-x509/custom-hsm-enrollment-group-x509.png#lightbox)
+    :::image type="content" source="./media/tutorial-custom-hsm-enrollment-group-x509/custom-hsm-enrollment-group-x509.png" alt-text="Screenshot that shows adding an enrollment group in the portal.":::
 
     | Field        | Value           |
     | :----------- | :-------------- |
@@ -759,7 +763,7 @@ In this section, you update the sample code with your Device Provisioning Servic
 
 1. In the Azure portal, select the **Overview** tab for your Device Provisioning Service and note the **_ID Scope_** value.
 
-    ![Extract Device Provisioning Service endpoint information from the portal blade](./media/quick-create-simulated-device-x509/copy-id-scope.png) 
+    :::image type="content" source="./media/tutorial-custom-hsm-enrollment-group-x509/copy-id-scope.png" alt-text="Screenshot that shows the ID scope on the DPS overview pane.":::
 
 2. Launch Visual Studio and open the new solution file that was created in the `cmake` directory you created in the root of the azure-iot-sdk-c git repository. The solution file is named `azure_iot_sdks.sln`.
 
@@ -874,19 +878,15 @@ To update the custom HSM stub code to simulate the identity of the device with I
     Provisioning Status: PROV_DEVICE_REG_STATUS_CONNECTED
     Provisioning Status: PROV_DEVICE_REG_STATUS_ASSIGNING
 
-    Registration Information received from service: MyExampleHub.azure-devices.net, deviceId: device-01
+    Registration Information received from service: contoso-hub-2.azure-devices.net, deviceId: device-01
     Press enter key to exit:
     ```
-
-1. In the portal, navigate to the IoT hub linked to your provisioning service and select the **IoT devices** tab. On successful provisioning of the X.509 device to the hub, its device ID appears on the **IoT devices** blade, with *STATUS* as **enabled**. You might need to press the **Refresh** button at the top.
-
-    ![Custom HSM device is registered with the IoT hub](./media/tutorial-custom-hsm-enrollment-group-x509/hub-provisioned-custom-hsm-x509-device.png) 
 
 1. Repeat the steps in [Configure the custom HSM stub code](#configure-the-custom-hsm-stub-code) for your second device (`device-02`) and run the sample again. Use the following values for that device:
 
     |   Description                 |  Value  |
     | :---------------------------- | :--------- |
-    | `COMMON_NAME`                 | `"device-02"` |
+    | Common name                | `"device-02"` |
     | Full certificate chain        | Generate the text using *./certs/device-02-full-chain.cert.pem* |
     | Private key                   | Generate the text using  *./private/device-02.key.pem* |
 
@@ -900,7 +900,7 @@ To update the custom HSM stub code to simulate the identity of the device with I
     Provisioning Status: PROV_DEVICE_REG_STATUS_CONNECTED
     Provisioning Status: PROV_DEVICE_REG_STATUS_ASSIGNING
 
-    Registration Information received from service: MyExampleHub.azure-devices.net, deviceId: device-01
+    Registration Information received from service: contoso-hub-2.azure-devices.net, deviceId: device-02
     Press enter key to exit:
     ```
 
