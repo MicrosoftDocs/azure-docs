@@ -16,7 +16,7 @@ Configure [App Services](../../app-service/configure-language-java.md#set-java-r
 
 ## Spring Boot
 
-Please read the Spring Boot documentation [here](../azure-monitor/app/java-in-process-agent.md).
+Please read the Spring Boot documentation [here](../app/java-in-process-agent.md).
 
 ## Tomcat 8 (Linux)
 
