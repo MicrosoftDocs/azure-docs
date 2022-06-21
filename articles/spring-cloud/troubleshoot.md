@@ -106,7 +106,7 @@ Before you onboard your application, ensure that it meets the following criteria
 * We recommended that you disable or remove the embedded *Config Server* and *Spring Service Registry* services from the application package.
 * If any Azure resources are to be bound via *Service Binding*, make sure the target resources are up and running.
 
-### The detail info of exit codes about deployment
+### My application exited with an error code
 
 When you create a deployment unsuccessfully and maybe you get some exit codes.
 ![](./media/deploymentError.png)
