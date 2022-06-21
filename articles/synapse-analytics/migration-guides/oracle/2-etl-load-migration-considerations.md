@@ -400,7 +400,7 @@ Once the database tables to be migrated have been created in Azure Synapse, you 
     - Use third-party tooling such as [Informatica Fast Clone](https://docs.informatica.com/data-replication/fast-clone/10-0/installation-guide/installation-overview/fast-clone-installation-overview.html) direct path (fastest method) or conventional path unload.
     - Use a third-party ETL tool such as Informatica or Talend.
 
-    For examples of how to extract Oracle table data, see the article [appendix](#appendix-example-techniques-for-extracting-oracle-data).
+    For examples of how to extract Oracle table data, see the article [appendix](#appendix-examples-of-techniques-to-extract-oracle-data).
 
     This approach requires space to land the extracted data files. The space could be local to the Oracle source database if sufficient storage is available, or remote in Azure Blob Storage. The best performance is achieved when a file is written locally since that avoids network overhead.
 
