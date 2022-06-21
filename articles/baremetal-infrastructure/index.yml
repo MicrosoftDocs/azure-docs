@@ -149,7 +149,7 @@ landingContent:
           - text: Buy an SAP HANA Large Instances reservation
             url: /azure/cost-management-billing/reservations/prepay-hana-large-instances-reserved-capacity
 
-            # card 4
+# card 4
   - title: BareMetal Infrastructure for NC2 
     linkLists: 
       - linkListType: overview
