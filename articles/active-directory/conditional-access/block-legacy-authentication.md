@@ -44,7 +44,7 @@ This article assumes that you're familiar with the [basic concepts](overview.md)
 
 ## Scenario description
 
-Azure AD supports the most widely used authentication and authorization protocols including legacy authentication. Legacy authentication is when the authentication doesn't communicate with the identity provider, such as Azure AD, directly. This authentication pattern includes basic authentication, a widely used industry-standard method for collecting user name and password information. Typically, clients using legacy authentication can't prompt users for second factor authentication or other authentication requirements needed to satisfy conditional access policies. Examples of applications that commonly or only use legacy authentication are:
+Azure AD supports the most widely used authentication and authorization protocols including legacy authentication. Legacy authentication can't prompt users for second factor authentication or other authentication requirements needed to satisfy conditional access policies, directly. This authentication pattern includes basic authentication, a widely used industry-standard method for collecting user name and password information.  Examples of applications that commonly or only use legacy authentication are:
 
 - Microsoft Office 2013 or older.
 - Apps using mail protocols like POP, IMAP, and SMTP AUTH.
@@ -111,9 +111,8 @@ Many clients that previously only supported legacy authentication now support mo
 >
 >**Exchange Active Sync with Certificate-based authentication**
 >
->Certificate-based authentication (CBA) is NOT **basic** authentication and **won't be blocked** by [Deprecation of Basic authentication in Exchange Online](/exchange/clients-and-mobile-in-exchange-online/deprecation-of-basic-authentication-exchange-online). However, all clients that don't support or haven't been configured to use modern authentication (including Exchange Active Sync with a certificate) are **legacy** authentication and **will be blocked** by Conditional Access policies configured to block legacy authentication.
->
->See [Overview of Azure AD certificate-based authentication (Preview)](../authentication/concept-certificate-based-authentication.md) for more information on using certificates with modern authentication and Azure AD.
+>When implementing Exchange Active Sync (EAS) with certificate, configure clients to use modern authentication and follow steps detailed in  [How to configure Azure AD certificate-based authentication (Preview)](../authentication/how-to-certificate-based-authentication.md). Clients not using modern authentication for EAS with CBA **are not blocked** with [Deprecation of Basic authentication in Exchange Online](/exchange/clients-and-mobile-in-exchange-online/deprecation-of-basic-authentication-exchange-online). However, these clients **are blocked** by Conditional Access policies configured to block legacy authentication.
+
 
 If you're using Microsoft Intune, you might be able to change the authentication type using the email profile you push or deploy to your devices. If you are using iOS devices (iPhones and iPads) you should take a look at [Add e-mail settings for iOS and iPadOS devices in Microsoft Intune](/mem/intune/configuration/email-settings-ios).
 
