@@ -111,7 +111,9 @@ Many clients that previously only supported legacy authentication now support mo
 >
 >**Exchange Active Sync with Certificate-based authentication**
 >
->When implementing Exchange Active Sync (EAS) with certificate, configure clients to use modern authentication and follow steps detailed in  [How to configure Azure AD certificate-based authentication (Preview)](../authentication/how-to-certificate-based-authentication.md). Clients not using modern authentication for EAS with CBA **are not blocked** with [Deprecation of Basic authentication in Exchange Online](/exchange/clients-and-mobile-in-exchange-online/deprecation-of-basic-authentication-exchange-online). However, these clients **are blocked** by Conditional Access policies configured to block legacy authentication.
+>When implementing Exchange Active Sync (EAS) with certificate, configure clients to use modern authentication and configure certificate-based authentication support, for example using [Overview of Azure AD certificate-based authentication (Preview)](../authentication/how-to-certificate-based-authentication.md).
+>
+>Clients not using modern authentication that are configured with certificate for EAS **are not blocked** with [Deprecation of Basic authentication in Exchange Online](/exchange/clients-and-mobile-in-exchange-online/deprecation-of-basic-authentication-exchange-online). However, these clients **are blocked** by Conditional Access policies configured to block legacy authentication.
 
 
 If you're using Microsoft Intune, you might be able to change the authentication type using the email profile you push or deploy to your devices. If you are using iOS devices (iPhones and iPads) you should take a look at [Add e-mail settings for iOS and iPadOS devices in Microsoft Intune](/mem/intune/configuration/email-settings-ios).
