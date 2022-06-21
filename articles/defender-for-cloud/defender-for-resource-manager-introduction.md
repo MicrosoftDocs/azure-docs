@@ -45,31 +45,6 @@ Microsoft Defender for Resource Manager protects against issues including:
 
 A full list of the alerts provided by Microsoft Defender for Resource Manager is on the [alerts reference page](alerts-reference.md#alerts-resourcemanager).
 
-
- ## How to investigate alerts from Microsoft Defender for Resource Manager
-
-Security alerts from Microsoft Defender for Resource Manager are based on threats detected by monitoring Azure Resource Manager operations. Defender for Cloud uses internal log sources of Azure Resource Manager as well as Azure Activity log, a platform log in Azure that provides insight into subscription-level events.
-
-Learn more about [Azure Activity log](../azure-monitor/essentials/activity-log.md).
-
-To investigate security alerts from Microsoft Defender for Resource Manager:
-
-1. Open Azure Activity log.
-
-    :::image type="content" source="media/defender-for-resource-manager-introduction/opening-azure-activity-log.png" alt-text="How to open Azure Activity log.":::
-
-1. Filter the events to:
-    - The subscription mentioned in the alert
-    - The timeframe of the detected activity
-    - The related user account (if relevant)
-
-1. Look for suspicious activities.
-
-> [!TIP]
-> For a better, richer investigation experience, stream your Azure activity logs to Microsoft Sentinel as described in [Connect data from Azure Activity log](../sentinel/data-connectors-reference.md#azure-activity).
-
-
-
 ## Next steps
 
 In this article, you learned about Microsoft Defender for Resource Manager.

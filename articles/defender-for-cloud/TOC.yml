@@ -320,7 +320,7 @@
       href: defender-for-container-registries-introduction.md
   - name: Defender for App Service
     items:
-    - name: Protect your Azure App Service web apps and APIs
+    - name: Overview
       displayName: Azure Defender for App Service, defender for app
       href: defender-for-app-service-introduction.md
     - name: Enable Defender for App Service
@@ -331,7 +331,7 @@
       displayName: blob, adls, files, Microsoft Defender for Storage, Defender for Storage
       href: defender-for-storage-introduction.md
     - name: Enable Defender for Storage
-      href: enable-enhanced-security.md
+      href: ../../storage/common/azure-defender-storage-configure.md#set-up-microsoft-defender-for-cloud?toc=/azure/storage/blobs/toc.json
     - name: Exclude a storage account
       displayName: blob, adls, files, Microsoft Defender for Storage, Defender for Storage
       href: defender-for-storage-exclude.md
@@ -363,7 +363,7 @@
     - name: Enable Defender for DNS
       href: enable-enhanced-security.md
     - name: Respond to Microsoft Defender for DNS alerts
-      href: defender-for-dns-introduction.md#respond-to-microsoft-defender-for-dns-alerts
+      href: defender-for-dns-alerts.md
 
 - name: Reference
   items:
