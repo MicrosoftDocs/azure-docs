@@ -1665,7 +1665,7 @@ dateDifference('<startDate>', '<endDate>')
 
 *Example*
 
-This example finds the difference between two dates:
+This example subtracts the first value from the second value:
 
 ```
 dateDifference('2015-02-08', '2018-07-30')
