@@ -304,6 +304,14 @@ The [``MongoClient.Db.collection``](https://mongodb.github.io/node-mongodb-nativ
 
 :::code language="javascript" source="~/samples-cosmosdb-mongodb-javascript/001-quickstart/index.js" id="new_collection":::
 
+### Chained instances
+
+You can chain the client, database, and collection together. This is more convenient if you need to access multiple databases or collections. 
+
+```javascript
+const db = await client.db(`adventureworks`).collection('products').updateOne(query, update, options)
+```
+
 ### Create an index
 
 Use the [``Collection.createIndex``](https://mongodb.github.io/node-mongodb-native/4.7/classes/Collection.html#createIndex) to create an index on the document's properties you intend to use for sorting with the MongoDB's [``FindCursor.sort``](https://mongodb.github.io/node-mongodb-native/4.7/classes/FindCursor.html#sort) method.
