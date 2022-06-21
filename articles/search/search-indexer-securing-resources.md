@@ -13,7 +13,7 @@ ms.date: 06/20/2022
 
 # Indexer access to content protected by Azure network security
 
-If your Azure Cognitive Search solution runs in an Azure virtual network, this article explains the concepts behind  indexer access to content that's protected by IP firewalls or private endpoints. It describes supported scenarios and options. Because Azure Storage is used for both data access and persistent storage, this article also covers considerations that are specific to search and storage connectivity.
+If your search application requirements include an Azure virtual network, this article explains how a search indexer can access content that's protected by network security. It describes supported scenarios and options. Because Azure Storage is used for both data access and persistent storage, this article also covers considerations that are specific to search and storage connectivity.
 
 Looking for step-by-step instructions instead? See [How to configure firewall rules to allow indexer access](search-indexer-howto-access-ip-restricted.md) or [How to make outbound connections through a private endpoint](search-indexer-howto-access-private.md).
 
@@ -82,13 +82,13 @@ Azure Cognitive Search has the concept of an *indexer execution environment* tha
 
 For any given indexer run, Azure Cognitive Search determines the best environment in which to run the indexer. Depending on the number and types of tasks assigned, the indexer will run in one of two environments:
 
-- The *private execution environment* is internal to a search service. 
+- A *private execution environment* that's internal to a search service. 
 
   Indexers running in the private environment share computing resources with other indexing and query workloads on the same search service. Typically, only indexers that perform text-based indexing (without skillsets) run in this environment.
 
-- The *multi-tenant environment* is managed and secured by Microsoft, at no extra cost, and isn't subject to any network provisions under your control. 
+- A *multi-tenant environment* that's managed and secured by Microsoft at no extra cost. It isn't subject to any network provisions under your control. 
 
-  This environment is used to offload computationally intensive processing, leaving service-specific resources available for routine operations. Examples of resource-intensive indexing include indexers with skillsets, processing large documents, or processing a high volume of documents.
+  This environment is used to offload computationally intensive processing, leaving service-specific resources available for routine operations. Examples of resource-intensive indexer jobs include attaching skillsets, processing large documents, or processing a high volume of documents.
 
 The following section explains the IP configuration for admitting requests from either execution environment.
 
@@ -136,17 +136,17 @@ Configuring an IP firewall is free. A private endpoint, which is based on Azure 
 
 - Inbound and outbound connections are subject to [Azure Private Link pricing](https://azure.microsoft.com/pricing/details/private-link/).
 
-### Choosing a private endpoint
+### Working with a private endpoint
 
-This section summarizes the steps for setting up a private endpoint for outbound indexer connections. The summary highlights the main steps, which might help you decide whether a private endpoint is right for you. Detailed steps are covered in [How to make outbound connections through a private endpoint](search-indexer-howto-access-private.md).
+This section summarizes the main steps for setting up a private endpoint for outbound indexer connections. This summary might help you decide whether a private endpoint is the best choice for your scenario. Detailed steps are covered in [How to make outbound connections through a private endpoint](search-indexer-howto-access-private.md).
 
 ### Step 1: Create a private endpoint to the secure resource
 
-You'll create a shared private link using either the portal or a [Management API](/rest/api/searchmanagement/2021-04-01-preview/shared-private-link-resources/create-or-update).
+You'll create a shared private link using either the portal pages of your search service or through the [Management API](/rest/api/searchmanagement/2020-08-01/shared-private-link-resources/create-or-update).
 
 In Azure Cognitive Search, your search service must be at least the Basic tier for text-based indexers, and S2 for indexers with skillsets.
 
-A private endpoint connection will accept content from the private indexer execution environment, but not the multi-tenant environment. You'll' disable multi-tenant execution in step 3 to meet this requirement.
+A private endpoint connection will accept requests from the private indexer execution environment, but not the multi-tenant environment. You'll need to disable multi-tenant execution as described in step 3 to meet this requirement.
 
 ### Step 2: Approve the private endpoint connection
 
@@ -174,9 +174,9 @@ This setting is scoped to an indexer and not the search service. If you want all
     }
 ```
 
-Once you have an approved private endpoint to a resource, indexers that are set to be *private* attempt to obtain access via the private endpoint connection. 
+Once you have an approved private endpoint to a resource, indexers that are set to be *private* attempt to obtain access via the private link that was created and approved for the Azure resource. 
 
-Azure Cognitive Search will validate that callers of the private endpoint have Azure RBAC role permissions to approve private endpoint connection requests to the secure resource. For example, if you request a private endpoint connection to a storage account with read-only permissions, this call will be rejected.
+Azure Cognitive Search will validate that callers of the private endpoint have appropriate Azure RBAC role permissions. For example, if you request a private endpoint connection to a storage account with read-only permissions, this call will be rejected.
 
 If the private endpoint isn't approved, or if the indexer didn't use the private endpoint connection, you'll find a `transientFailure` error message in indexer execution history.
 
