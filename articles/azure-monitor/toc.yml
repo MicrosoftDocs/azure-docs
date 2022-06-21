@@ -1138,7 +1138,7 @@ items:
         href: profiler/profiler-servicefabric.md
       - name: Azure VM
         href: profiler/profiler-vm.md
-      - name: Linux App services (preview)
+      - name: Linux App services
         href: profiler/profiler-aspnetcore-linux.md
       - name: ASP.NET Core Container
         href: profiler/profiler-containers.md
