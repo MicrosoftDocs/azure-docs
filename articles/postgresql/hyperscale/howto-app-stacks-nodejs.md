@@ -1,6 +1,6 @@
 ---
 title: Node.js app to connect and query Hyperscale (Citus)
-description: Learn building a simple app on Hyperscale (Citus) using Node.js
+description: Learn to query Hyperscale (Citus) using Node.js
 ms.author: sasriram
 author: saimicrosoft
 ms.service: postgresql
