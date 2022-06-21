@@ -38,12 +38,13 @@ ENTRYPOINT java -javaagent:path/to/applicationinsights-agent-3.2.11.jar -jar <my
 ## Programmatic configuration
 
 To use the programmatic configuration and attach the Application Insights agent for Java during the application startup, you must add the following dependency.
-
+```xml
 <dependency>
     <groupId>com.microsoft.azure</groupId>
     <artifactId>applicationinsights-runtime-attach</artifactId>
     <version>3.2.12</version>
 </dependency>
+```
 
 You halso also to invoke the `attach()`of the `com.microsoft.applicationinsights.attach.ApplicationInsights` class.
 
