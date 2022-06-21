@@ -117,7 +117,6 @@ These are the available licensing options for VM offers:
 | --- | --- |
 | Usage-based | Also known as pay-as-you-go. This licensing model lets you bill your customers per hour through various pricing options. |
 | BYOL | The Bring Your Own Licensing option lets your customers bring existing software licenses to Azure. * |
-|
 
 `*` As the publisher, you support all aspects of the software license transaction, including (but not limited to) order, fulfillment, metering, billing, invoicing, payment, and collection.
 
@@ -133,7 +132,6 @@ The following are types of trials that can be configured to help identify custom
 | ------------ | ------------- |
 | Free trial | Offer your customers a one-, three- or six-month free trial. |
 | Test drive | This option lets your customers evaluate your solution at no additional cost to them. They don't need to be an existing Azure customer to engage with the trial experience. Learn more about [test drives](#test-drive). |
-|
 
 > [!NOTE]
 > The licensing model along with any trial opportunities you select will determine the additional information you'll need to provide when you create the offer in Partner Center.

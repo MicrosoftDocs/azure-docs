@@ -1,5 +1,5 @@
 ---
-title: 'Configure Azure VPN Client for P2S OpenVPN protocol connections: Azure AD authentication: Windows'
+title: 'Configure Azure VPN Client - Azure AD authentication - Windows'
 description: Learn how to configure the Azure VPN Client to connect to a VNet using VPN Gateway point-to-site VPN, OpenVPN protocol connections, and Azure AD authentication from a Windows computer.
 titleSuffix: Azure VPN Gateway
 author: cherylmc
@@ -9,7 +9,7 @@ ms.date: 05/05/2022
 ms.author: cherylmc
 
 ---
-# Configure Azure VPN Client for P2S OpenVPN protocol connections - Azure AD authentication - Windows
+# Configure an Azure VPN Client - Azure AD authentication - Windows
 
 This article helps you configure the Azure VPN Client on a Windows computer to connect to a virtual network using a VPN Gateway point-to-site VPN and Azure Active Directory authentication. Before you can connect and authenticate using Azure AD, you must first configure your Azure AD tenant. For more information, see [Configure an Azure AD tenant](openvpn-azure-ad-tenant.md). For more information about point-to-site, see [About point-to-site VPN](point-to-site-about.md).
 

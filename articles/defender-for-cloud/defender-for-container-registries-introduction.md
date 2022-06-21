@@ -15,7 +15,7 @@ To protect the Azure Resource Manager based registries in your subscription, ena
 ## Availability
 
 > [!IMPORTANT]
-> Microsoft Defender for container registries has been replaced with **Microsoft Defender for Containers**. If you've already enabled Defender for container registries on a subscription, you can continue to use it. However, you won't get Defender for Containers' improvements and new features.
+> Microsoft Defender for container registries has been replaced with [**Microsoft Defender for Containers**](defender-for-containers-introduction.md). If you've already enabled Defender for container registries on a subscription, you can continue to use it. However, you won't get Defender for Containers' improvements and new features.
 >
 > This plan is no longer available for subscriptions where it isn't already enabled.
 >
@@ -23,11 +23,11 @@ To protect the Azure Resource Manager based registries in your subscription, ena
 >
 > :::image type="content" source="media/defender-for-containers/enable-defender-for-containers.png" alt-text="Enable Microsoft Defender for Containers from the Defender plans page.":::
 >
-> Learn more about this change in [the release note](release-notes.md#microsoft-defender-for-containers-plan-released-for-general-availability-ga).
+> Learn more about this change in [the release note](release-notes-archive.md#microsoft-defender-for-containers-plan-released-for-general-availability-ga).
 
 |Aspect|Details|
 |----|:----|
-|Release state:|Generally available (GA)|
+|Release state:|Deprecated (Use [**Microsoft Defender for Containers**](defender-for-containers-introduction.md))|
 |Pricing:|**Microsoft Defender for container registries** is billed as shown on the [pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/)|
 |Supported registries and images:|Linux images in ACR registries accessible from the public internet with shell access<br>[ACR registries protected with Azure Private Link](../container-registry/container-registry-private-link.md)|
 |Unsupported registries and images:|Windows images<br>'Private' registries (unless access is granted to [Trusted Services](../container-registry/allow-access-trusted-services.md#trusted-services))<br>Super-minimalist images such as [Docker scratch](https://hub.docker.com/_/scratch/) images, or "Distroless" images that only contain an application and its runtime dependencies without a package manager, shell, or OS<br>Images with [Open Container Initiative (OCI) Image Format Specification](https://github.com/opencontainers/image-spec/blob/master/spec.md)|
@@ -90,7 +90,7 @@ If you connect unsupported registries to your Azure subscription, Defender for C
 ### Can I customize the findings from the vulnerability scanner?
 Yes. If you have an organizational need to ignore a finding, rather than remediate it, you can optionally disable it. Disabled findings don't impact your secure score or generate unwanted noise.
 
-[Learn about creating rules to disable findings from the integrated vulnerability assessment tool](defender-for-container-registries-usage.md#disable-specific-findings).
+[Learn about creating rules to disable findings from the integrated vulnerability assessment tool](defender-for-containers-usage.md#disable-specific-findings).
 
 ### Why is Defender for Cloud alerting me to vulnerabilities about an image that isn’t in my registry?
 Defender for Cloud provides vulnerability assessments for every image pushed or pulled in a registry. Some images may reuse tags from an image that was already scanned. For example, you may reassign the tag “Latest” every time you add an image to a digest. In such cases, the ‘old’ image does still exist in the registry and may still be pulled by its digest. If the image has security findings and is pulled, it'll expose security vulnerabilities.
@@ -98,4 +98,4 @@ Defender for Cloud provides vulnerability assessments for every image pushed or 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Scan your images for vulnerabilities](defender-for-container-registries-usage.md)
+> [Scan your images for vulnerabilities](defender-for-containers-usage.md)

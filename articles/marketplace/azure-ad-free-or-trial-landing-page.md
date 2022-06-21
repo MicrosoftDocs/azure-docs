@@ -75,7 +75,6 @@ As part of the [OpenID Connect](../active-directory/develop/v2-protocols-oidc.md
 | oid | Identifier in the Microsoft identity system that uniquely identifies the user across applications. Microsoft Graph will return this value as the ID property for a given user account. |
 | tid | Identifier that represents the Azure AD tenant the user is from. In the case of an MSA identity, this will always be `9188040d-6c67-4c5b-b112-36a304b66dad`. For more information, see the note in the next section: Use Microsoft Graph API. |
 | sub | Identifier that uniquely identifies the user in this specific application. |
-|||
 
 ## Use the Microsoft Graph API
 
@@ -90,7 +89,6 @@ The ID token contains basic information to identify the user, but your activatio
 | mobilePhone | Primary cellular telephone number for the user. |
 | preferredLanguage | ISO 639-1 code for the user's preferred language. |
 | surname | Last name of the user. |
-|||
 
 Additional properties—such as the name of the user's company or the user's location (country)—can be selected for inclusion in the request. For more details, see [Properties for the user resource type](/graph/api/resources/user#properties).
 

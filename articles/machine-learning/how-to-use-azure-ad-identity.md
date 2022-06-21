@@ -8,9 +8,9 @@ author: BlackMist
 ms.reviewer: aashishb
 ms.service: machine-learning
 ms.subservice: enterprise-readiness
+ms.custom: event-tier1-build-2022
 ms.date: 10/21/2021
 ms.topic: how-to
-
 ---
 
 # Use Azure AD identity with your machine learning web service in Azure Kubernetes Service
@@ -19,7 +19,7 @@ In this how-to, you learn how to assign an Azure Active Directory (Azure AD) ide
 
 ## Prerequisites
 
-- The [Azure CLI extension for the Machine Learning service](reference-azure-machine-learning-cli.md), the [Azure Machine Learning SDK for Python](/python/api/overview/azure/ml/intro), or the [Azure Machine Learning Visual Studio Code extension](how-to-setup-vs-code.md).
+- The [Azure CLI extension for the Machine Learning service](v1/reference-azure-machine-learning-cli.md), the [Azure Machine Learning SDK for Python](/python/api/overview/azure/ml/intro), or the [Azure Machine Learning Visual Studio Code extension](how-to-setup-vs-code.md).
 
 - Access to your AKS cluster using the `kubectl` command. For more information, see [Connect to the cluster](../aks/learn/quick-kubernetes-deploy-cli.md#connect-to-the-cluster)
 
@@ -146,4 +146,3 @@ blob_data.readall()
 ## Next steps
 
 * For more information on how to use the Python Azure Identity client library, see the [repository](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/identity/azure-identity#azure-identity-client-library-for-python) on GitHub.
-* For a detailed guide on deploying models to Azure Kubernetes Service clusters, see the [how-to](how-to-deploy-azure-kubernetes-service.md).

@@ -9,9 +9,9 @@
     href: whats-new-docs.md
 - name: Quickstarts
   items:
-  - name: Add guest users in the portal
+  - name: Add a guest and send an invitation
     href: b2b-quickstart-add-guest-users-portal.md
-  - name: Add guest users with PowerShell
+  - name: Add and invite guests with PowerShell
     href: b2b-quickstart-invite-powershell.md
 - name: Tutorials
   items:
@@ -78,6 +78,8 @@
     - name: Cross-tenant access settings (Preview)
       displayName: XTAS, XTAP, inbound, outbound, organizational settings, trust settings
       href: cross-tenant-access-settings-b2b-collaboration.md
+    - name: Microsoft cloud settings (Preview)
+      href: cross-cloud-settings.md
     - name: External collaboration settings
       displayName: guest access, guest invite restrictions, self-service, domains
       href: external-collaboration-settings-configure.md

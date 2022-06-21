@@ -3,7 +3,7 @@ title: What is Azure IoT Central | Microsoft Docs
 description: Azure IoT Central is an IoT application platform that simplifies the creation of IoT solutions. It helps to reduce the burden and cost of IoT management operations, and development. This article provides an overview of the features of Azure IoT Central.
 author: dominicbetts
 ms.author: dobett
-ms.date: 12/22/2021
+ms.date: 06/09/2022
 ms.topic: overview
 ms.service: iot-central
 services: iot-central
@@ -99,7 +99,7 @@ Build [custom rules](tutorial-create-telemetry-rules.md) based on device state a
 
 ## Integrate with other services
 
-As an application platform, IoT Central lets you transform your IoT data into the business insights that drive actionable outcomes. [Rules](./tutorial-create-telemetry-rules.md), [data export](./howto-export-data.md), and the [public REST API](/learn/modules/manage-iot-central-apps-with-rest-api/) are examples of how you can integrate IoT Central with line-of-business applications:
+As an application platform, IoT Central lets you transform your IoT data into the business insights that drive actionable outcomes. [Rules](./tutorial-create-telemetry-rules.md), [data export](./howto-export-to-blob-storage.md), and the [public REST API](/learn/modules/manage-iot-central-apps-with-rest-api/) are examples of how you can integrate IoT Central with line-of-business applications:
 
 ![How IoT Central can transform your IoT data](media/overview-iot-central/transform.png)
 

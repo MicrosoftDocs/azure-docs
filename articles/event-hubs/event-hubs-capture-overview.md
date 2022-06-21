@@ -2,7 +2,7 @@
 title: Capture streaming events - Azure Event Hubs | Microsoft Docs
 description: This article provides an overview of the Capture feature that allows you to capture events streaming through Azure Event Hubs. 
 ms.topic: article
-ms.date: 02/16/2021
+ms.date: 05/31/2022
 ---
 
 # Capture events through Azure Event Hubs in Azure Blob Storage or Azure Data Lake Storage
@@ -27,6 +27,9 @@ Event Hubs Capture enables you to specify your own Azure Blob storage account an
 
 Captured data is written in [Apache Avro][Apache Avro] format: a compact, fast, binary format that provides rich data structures with inline schema. This format is widely used in the Hadoop ecosystem, Stream Analytics, and Azure Data Factory. More information about working with Avro is available later in this article.
 
+> [!NOTE]
+> When you use no code editor in the Azure portal, you can capture streaming data in Event Hubs in an Azure Data Lake Storage Gen2 account in the **Parquet** format. For more information, see [How to: capture data from Event Hubs in Parquet format](../stream-analytics/capture-event-hub-data-parquet.md?toc=%2Fazure%2Fevent-hubs%2Ftoc.json) and [Tutorial: capture Event Hubs data in Parquet format and analyze with Azure Synapse Analytics](../stream-analytics/event-hubs-parquet-capture-tutorial.md?toc=%2Fazure%2Fevent-hubs%2Ftoc.json).
+
 ### Capture windowing
 
 Event Hubs Capture enables you to set up a window to control capturing. This window is a minimum size and time configuration with a "first wins policy," meaning that the first trigger encountered causes a capture operation. If you have a fifteen-minute, 100 MB capture window and send 1 MB per second, the size window triggers before the time window. Each partition captures independently and writes a completed block blob at the time of capture, named for the time at which the capture interval was encountered. The storage naming convention is as follows:
@@ -41,13 +44,13 @@ The date values are padded with zeroes; an example filename might be:
 https://mystorageaccount.blob.core.windows.net/mycontainer/mynamespace/myeventhub/0/2017/12/08/03/03/17.avro
 ```
 
-In the event that your Azure storage blob is temporarily unavailable, Event Hubs Capture will retain your data for the data retention period configured on your event hub and back fill the data once your storage account is available again.
+If your Azure storage blob is temporarily unavailable, Event Hubs Capture will retain your data for the data retention period configured on your event hub and back fill the data once your storage account is available again.
 
 ### Scaling throughput units or processing units
 
 In the standard tier of Event Hubs, the traffic is controlled by [throughput units](event-hubs-scalability.md#throughput-units) and in the premium tier Event Hubs, it's controlled by [processing units](event-hubs-scalability.md#processing-units). Event Hubs Capture copies data directly from the internal Event Hubs storage, bypassing throughput unit or processing unit egress quotas and saving your egress for other processing readers, such as Stream Analytics or Spark.
 
-Once configured, Event Hubs Capture runs automatically when you send your first event, and continues running. To make it easier for your downstream processing to know that the process is working, Event Hubs writes empty files when there is no data. This process provides a predictable cadence and marker that can feed your batch processors.
+Once configured, Event Hubs Capture runs automatically when you send your first event, and continues running. To make it easier for your downstream processing to know that the process is working, Event Hubs writes empty files when there's no data. This process provides a predictable cadence and marker that can feed your batch processors.
 
 ## Setting up Event Hubs Capture
 
@@ -124,7 +127,7 @@ Apache Avro has complete Getting Started guides for [Java][Java] and [Python][Py
 
 Event Hubs Capture is metered similarly to [throughput units](event-hubs-scalability.md#throughput-units) (standard tier) or [processing units](event-hubs-scalability.md#processing-units) (in premium tier): as an hourly charge. The charge is directly proportional to the number of throughput units or processing units purchased for the namespace. As throughput units or processing units are increased and decreased, Event Hubs Capture meters increase and decrease to provide matching performance. The meters occur in tandem. For pricing details, see [Event Hubs pricing](https://azure.microsoft.com/pricing/details/event-hubs/). 
 
-Capture does not consume egress quota as it is billed separately. 
+Capture doesn't consume egress quota as it is billed separately. 
 
 ## Integration with Event Grid 
 

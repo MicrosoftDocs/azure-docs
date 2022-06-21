@@ -189,13 +189,13 @@ Check that the zipped file is secure, before you deploy it.
 
         **Scenario** | **Download** | **SHA256**
         --- | --- | ---
-        Hyper-V (8.91 GB) | [Latest version](https://go.microsoft.com/fwlink/?linkid=2140422) |  AE53454E448064839AEBFDE1EE6DBF63222686CFB37B7E2E125D44A8B24EB504
+        Hyper-V (8.91 GB) | [Latest version](https://go.microsoft.com/fwlink/?linkid=2191848) |  AE53454E448064839AEBFDE1EE6DBF63222686CFB37B7E2E125D44A8B24EB504
 
     - For Azure Government:
 
         **Scenario*** | **Download** | **SHA256**
         --- | --- | ---
-        Hyper-V (85.8 MB) | [Latest version](https://go.microsoft.com/fwlink/?linkid=2140424) |  277C53620DB299F57E3AC5A65569E9720F06190A245476810B36BF651C8B795B
+        Hyper-V (85.8 MB) | [Latest version](https://go.microsoft.com/fwlink/?linkid=2191847) |  277C53620DB299F57E3AC5A65569E9720F06190A245476810B36BF651C8B795B
 
 ### 3. Create an appliance
 

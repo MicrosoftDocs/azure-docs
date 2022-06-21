@@ -1,11 +1,13 @@
 ---
-title: Configure automatic shutdown of VMs in Azure Lab Services (deprecated)
+title: Configure automatic shutdown of VMs for a lab account in Azure Lab Services 
 description: This article describes how to configure automatic shutdown of VMs in the lab account. 
 ms.topic: how-to
 ms.date: 08/17/2020
 ---
 
-# Configure automatic shutdown of VMs for a lab account (deprecated)
+# Configure automatic shutdown of VMs for a lab account
+
+[!INCLUDE [preview note](./includes/lab-services-labaccount-focused-article.md)]
 
 You can enable several auto-shutdown cost control features to proactively prevent additional costs when the virtual machines are not being actively used. The combination of the following three automatic shutdown and disconnect features catches most of the cases where users accidentally leave their virtual machines running:
 

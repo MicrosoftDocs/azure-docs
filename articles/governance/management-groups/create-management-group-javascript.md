@@ -77,24 +77,24 @@ wherever JavaScript can be used, including [bash on Windows 10](/windows/wsl/ins
 1. Create a new file named _index.js_ and enter the following code.
 
    ```javascript
-   const argv = require("yargs").argv;
-   const { DefaultAzureCredential } = require("@azure/identity");
-   const { ManagementGroupsAPI } = require("@azure/arm-managementgroups");
+      const argv = require("yargs").argv;
+      const { InteractiveBrowserCredential } = require("@azure/identity");
+      const { ManagementGroupsAPI } = require("@azure/arm-managementgroups");
 
-   if (argv.groupID && argv.displayName) {
-       const createMG = async () => {
-          const credentials = new DefaultAzureCredential();
-          const client = new ManagementGroupsAPI(credentials);
-          const result = await client.managementGroups.beginCreateOrUpdateAndWait(
-             groupId: argv.groupID,
-             {
-                 displayName: argv.displayName
-             }
-          );
-          console.log(result);
-       };
+      if (argv.groupID && argv.displayName) {
+         const createMG = async () => {
+            const credentials = new InteractiveBrowserCredential();
+            const client = new ManagementGroupsAPI(credentials);
+            const result = await client.managementGroups.beginCreateOrUpdateAndWait(
+               argv.groupID,
+               {
+                  displayName: argv.displayName
+               }
+            );
+            console.log(result);
+         };
 
-       createMG();
+      createMG();
    }
    ```
 

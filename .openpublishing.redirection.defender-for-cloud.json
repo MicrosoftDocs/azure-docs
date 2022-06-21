@@ -16,6 +16,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/security-center/security-center-identity-access.md",
+            "redirect_url": "/azure/defender-for-cloud/multi-factor-authentication-enforcement",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/security-center/security-center-policy-definitions.md",
             "redirect_url": "/azure/defender-for-cloud/policy-reference",
             "redirect_document_id": false
@@ -683,6 +688,16 @@
         {
             "source_path_from_root": "/articles/defender-for-cloud/defender-for-kubernetes-azure-arc.md",
             "redirect_url": "/azure/defender-for-cloud/defender-for-containers-enable?pivots=defender-for-container-arc#protect-arc-enabled-kubernetes-clusters",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-cloud/defender-for-container-registries-cicd.md",
+            "redirect_url": "/azure/defender-for-cloud/defender-for-containers-cicd",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-cloud/defender-for-container-registries-usage.md",
+            "redirect_url": "/azure/defender-for-cloud/defender-for-containers-usage",
             "redirect_document_id": true
         }
       ]

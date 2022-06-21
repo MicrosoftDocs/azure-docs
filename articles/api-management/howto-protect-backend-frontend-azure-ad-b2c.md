@@ -182,27 +182,26 @@ Open the Azure AD B2C blade in the portal and do the following steps.
 
 1. Two extra areas in the function app need to be configured (Authorization and Network Restrictions).
 1. Firstly Let's configure Authentication / Authorization, so navigate back to the root blade of the function app via the breadcrumb.
-1. Next select 'Authentication / Authorization' (under 'Settings').
-1. Turn on the App Service Authentication feature.
-1. Set the Action to take when request is not authenticated dropdown to "Log in with Azure Active Directory".
-1. Under 'Authentication Providers', choose ‘Azure Active Directory’.
-1. Choose ‘Advanced’ from the Management Mode switch.
-1. Paste the Backend application's [Application] Client ID (from Azure AD B2C) into the ‘Client ID’ box
+1. Next select 'Authentication' (under 'Settings').
+1. Click 'Add Identity Provider'
+1. From the Identity Provider dropdown, select 'Microsoft'
+1. For App Registration, select 'Provide the details of an existing app registration'
+1. Paste the Backend application's client ID (from Azure AD B2C) into the ‘Application (client) ID’ box (we recorded this configuration earlier).
 1. Paste the Well-known open-id configuration endpoint from the sign-up and sign-in policy into the Issuer URL box (we recorded this configuration earlier).
-1. Click 'Show Secret' and paste the Backend application's client secret into the appropriate box.
-1. Select OK, which takes you back to the identity provider selection blade/screen.
-1. Leave [Token Store](../app-service/overview-authentication-authorization.md#token-store) enabled under advanced settings (default).
+1. Paste the Backend application's client secret into the appropriate box (we recorded this configuration earlier).
+1. For 'Unauthenticated requests', select 'HTTP 401 Unauthorized: recommended for APIs'
+1. Leave [Token Store](../app-service/overview-authentication-authorization.md#token-store) enabled (default).
 1. Click 'Save' (at the top left of the blade).
 
    > [!IMPORTANT]
    > Now your Function API is deployed and should throw 401 responses if the correct JWT is not supplied as an Authorization: Bearer header, and should return data when a valid request is presented.  
-   > You added additional defense-in-depth security in EasyAuth by configuring the 'Login With Azure AD' option to handle unauthenticated requests. Be aware that this will change the unauthorized request behavior between the Backend Function App and Frontend SPA as EasyAuth will issue a 302 redirect to Azure Active Directory instead of a 401 Not Authorized response, we will correct this by using API Management later.  
+   > You added additional defense-in-depth security in EasyAuth by configuring the 'Login With Azure AD' option to handle unauthenticated requests. 
    >
    > We still have no IP security applied, if you have a valid key and OAuth2 token, anyone can call this from anywhere - ideally we want to force all requests to come via API Management.  
    > 
    > If you're using APIM Consumption tier then [there isn't a dedicated Azure API Management Virtual IP](./api-management-howto-ip-addresses.md#ip-addresses-of-consumption-tier-api-management-service) to allow-list with the functions access-restrictions. In the Azure API Management Standard SKU and above [the VIP is single tenant and for the lifetime of the resource](./api-management-howto-ip-addresses.md#changes-to-the-ip-addresses). For the Azure API Management Consumption tier, you can lock down your API calls via the shared secret function key in the portion of the URI you copied above. Also, for the Consumption tier - steps 12-17 below do not apply.
 
-1. Close the 'Authentication / Authorization' blade 
+1. Close the 'Authentication' blade from the App Service / Functions portal.
 1. Open the *API Management blade of the portal*, then open *your instance*.
 1. Record the Private VIP shown on the overview tab.
 1. Return to the *Azure Functions blade of the portal* then open *your instance* again.

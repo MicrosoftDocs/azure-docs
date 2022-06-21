@@ -4,6 +4,7 @@ description: This article describes how to configure MySQL server parameters in 
 author: savjani
 ms.author: pariks
 ms.service: mysql
+ms.subservice: flexible-server
 ms.topic: how-to
 ms.date: 11/10/2020
 ---

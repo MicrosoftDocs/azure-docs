@@ -71,7 +71,7 @@ The following are the property descriptions:
 | type | "ServiceFabricLinuxNode" or "ServiceFabricWindowsNode" | Identifies OS Service Fabric is bootstrapping to |
 | autoUpgradeMinorVersion | true or false | Enable Auto Upgrade of SF Runtime Minor Versions |
 | publisher | Microsoft.Azure.ServiceFabric | Name of the Service Fabric extension publisher |
-| clusterEndpont | string | URI:PORT to Management endpoint |
+| clusterEndpoint | string | URI:PORT to Management endpoint |
 | nodeTypeRef | string | Name of nodeType |
 | durabilityLevel | bronze, silver, gold, platinum | Time allowed to pause immutable Azure Infrastructure |
 | enableParallelJobs | true or false | Enable Compute ParallelJobs like remove VM and reboot VM in the same scale set in parallel |

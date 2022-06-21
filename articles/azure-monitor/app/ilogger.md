@@ -4,6 +4,7 @@ description: Learn how to use Application Insights with the ILogger interface in
 ms.topic: conceptual
 ms.date: 05/20/2021
 ms.devlang: csharp
+ms.reviewer: casocha
 ---
 
 # Application Insights logging with .NET
@@ -496,7 +497,7 @@ public class MyController : ApiController
 ```
 
 > [!NOTE]
-> If you use the `Microsoft.ApplicationInsights.AspNetCore` package to enable Application Insights, modify this code to get `TelemetryClient` directly in the constructor. For an example, see [this FAQ](./asp-net-core.md#frequently-asked-questions).
+> If you use the `Microsoft.ApplicationInsights.AspNetCore` package to enable Application Insights, modify this code to get `TelemetryClient` directly in the constructor. For an example, see [this FAQ](../faq.yml).
 
 ### What Application Insights telemetry type is produced from ILogger logs? Where can I see ILogger logs in Application Insights?
 

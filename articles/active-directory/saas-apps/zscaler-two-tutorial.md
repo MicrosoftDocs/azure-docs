@@ -119,6 +119,8 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
    ![Copy configuration URLs](common/copy-configuration-urls.png)
 
+> [!VIDEO https://www.youtube.com/embed/7SU5S0WtNNk]
+
 ### Create an Azure AD test user
 
 In this section, you'll create a test user in the Azure portal called B.Simon.

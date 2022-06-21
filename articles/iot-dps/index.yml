@@ -33,7 +33,7 @@ landingContent:
     linkLists:
       - linkListType: quickstart
         links:
-          - text: Set up a DPS using the Azure Portal
+          - text: Set up DPS using the Azure portal
             url: quick-setup-auto-provision.md
           - text: Provision a simulated symmetric key device
             url: quick-create-simulated-device-symm-key.md

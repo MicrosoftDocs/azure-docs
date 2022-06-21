@@ -4,8 +4,9 @@ description: Integrate Service Bus into your application with Service Connector
 author: maud-lv
 ms.author: malev
 ms.service: service-connector
+ms.custom: event-tier1-build-2022
 ms.topic: how-to
-ms.date: 02/21/2022
+ms.date: 06/13/2022
 ---
 
 # Integrate Service Bus with Service Connector
@@ -15,6 +16,7 @@ This page shows the supported authentication types and client types of Azure Ser
 ## Supported compute services
 
 - Azure App Service
+- Azure Container Apps
 - Azure Spring Cloud
 
 ## Supported authentication types and client types
@@ -81,7 +83,7 @@ This page shows the supported authentication types and client types of Azure Ser
 | Default environment variable name       | Description           | Sample value                                   |
 | --------------------------------------- | --------------------- | ---------------------------------------------- |
 | spring.cloud.azure.servicebus.namespace | Service Bus namespace | `{ServiceBusNamespace}.servicebus.windows.net` |
-| spring.cloud.azure.client-id            | Your client ID        | `{yourClientID}                      `         |
+| spring.cloud.azure.client-id            | Your client ID        | `{yourClientID}`         |
 
 #### Spring Boot service principal
 
