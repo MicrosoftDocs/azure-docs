@@ -15,7 +15,7 @@ ms.custom: has-adal-ref, synapse
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-This article provides suggestions to troubleshoot common problems with the Snowflake connector in Azure Data Factory (ADF) and Azure Synapse. 
+This article provides suggestions to troubleshoot common problems with the Snowflake connector in Azure Data Factory and Azure Synapse. 
 
 ## Error message: IP % is not allowed to access Snowflake. Contact your local security administrator.
 
@@ -29,7 +29,7 @@ This article provides suggestions to troubleshoot common problems with the Snowf
 
     - If you configure a [self-hosted integration runtime](create-self-hosted-integration-runtime.md) to connect to Snowflake, make sure to add your self-hosted integration runtime IPs to the allowed list in Snowflake. 
     - If you use an Azure Integration Runtime and the access is restricted to IPs approved in the firewall rules, you can add [Azure Integration Runtime IPs](azure-integration-runtime-ip-addresses.md) to the allowed list in Snowflake.
-    - If you use a managed private endpoint and a network policy is in place on your Snowflake account, ensure the Synapse/ADF Managed VNet CIDR is allowed. For more steps, refer to [How To: Set up a managed private endpoint from Azure Data Factory or Synapse to Snowflake](https://community.snowflake.com/s/article/How-to-set-up-a-managed-private-endpoint-from-Azure-Data-Factory-or-Synapse-to-Snowflake). 
+    - If you use a managed private endpoint and a network policy is in place on your Snowflake account, ensure the Synapse/Azure Data Factory Managed VNet CIDR is allowed. For more steps, refer to [How To: Set up a managed private endpoint from Azure Data Factory or Synapse to Snowflake](https://community.snowflake.com/s/article/How-to-set-up-a-managed-private-endpoint-from-Azure-Data-Factory-or-Synapse-to-Snowflake). 
 
 ## Error message: Failed to access remote file: access denied.
 
@@ -39,10 +39,10 @@ This article provides suggestions to troubleshoot common problems with the Snowf
 
 - **Cause**: The error pops up by the Snowflake copy command and is caused by missing access permission on source/sink when execute Snowflake copy commands. 
 
-- **Recommendation**:  Check your source/sink to make sure that you have granted proper access permission to Snowflake. 
+- **Recommendation**: Check your source/sink to make sure that you have granted proper access permission to Snowflake. 
 
     - Direct copy: Make sure to grant access permission to Snowflake in the other source/sink. 
-    - Staged copy: The staging Azure Blob storage linked service must use shared access signature authentication. When you generate the shared access signature, make sure to set the allowed permissions and IP addresses to Snowflake in the staging Azure Blob storage. For more details, see [Generating-a-sas-token - Snowflake Documentation](https://docs.snowflake.com/en/user-guide/data-load-azure-config.html#option-2-generating-a-sas-token).
+    - Staged copy: The staging Azure Blob storage linked service must use shared access signature authentication. When you generate the shared access signature, make sure to set the allowed permissions and IP addresses to Snowflake in the staging Azure Blob storage. To learn more about this, see this [article](https://docs.snowflake.com/en/user-guide/data-load-azure-config.html#option-2-generating-a-sas-token).
 
 ## Next steps
 
