@@ -16,13 +16,13 @@ Azure Cognitive Search supports fuzzy search, a type of query that compensates f
 
 ## What is fuzzy search?
 
-It's a query expansion exercise that produces a match on terms having a similar composition. When a fuzzy search is specified, the search engine builds a graph (based on [deterministic finite automaton theory](https://en.wikipedia.org/wiki/Deterministic_finite_automaton)) of similarly composed terms, for all whole terms in the query. For example, if your query includes three terms "university of washington", a graph is created for every term  in the query `search=university~ of~ washington~` (there is no stop-word removal in fuzzy search, so "of" gets a graph).
+It's a query expansion exercise that produces a match on terms having a similar composition. When a fuzzy search is specified, the search engine builds a graph (based on [deterministic finite automaton theory](https://en.wikipedia.org/wiki/Deterministic_finite_automaton)) of similarly composed terms, for all whole terms in the query. For example, if your query includes three terms "university of washington", a graph is created for every term  in the query `search=university~ of~ washington~` (there's no stop-word removal in fuzzy search, so "of" gets a graph).
 
 The graph consists of up to 50 expansions, or permutations, of each term, capturing both correct and incorrect variants in the process. The engine then returns the topmost relevant matches in the response. 
 
 For a term like "university", the graph might have "unversty, universty, university, universe, inverse". Any documents that match on those in the graph are included in results. In contrast with other queries that analyze the text to handle different forms of the same word ("mice" and "mouse"), the comparisons in a fuzzy query are taken at face value without any linguistic analysis on the text. "Universe" and "inverse", which are semantically different, will match because the syntactic discrepancies are small.
 
-A match succeeds if the discrepancies are limited to two or fewer edits, where an edit is an inserted, deleted, substituted, or transposed character. The string correction algorithm that specifies the differential is the [Damerau-Levenshtein distance](https://en.wikipedia.org/wiki/Damerau%E2%80%93Levenshtein_distance) metric, described as the "minimum number of operations (insertions, deletions, substitutions, or transpositions of two adjacent characters) required to change one word into the other". 
+A match succeeds if the discrepancies are limited to two or fewer edits, where an edit is an inserted, deleted, substituted, or transposed character. The string correction algorithm that specifies the differential is the [Damerau-Levenshtein distance](https://en.wikipedia.org/wiki/Damerau%E2%80%93Levenshtein_distance) metric. It's described as the "minimum number of operations (insertions, deletions, substitutions, or transpositions of two adjacent characters) required to change one word into the other". 
 
 In Azure Cognitive Search:
 
@@ -30,11 +30,11 @@ In Azure Cognitive Search:
 
 + The default distance of an edit is 2. A value of `~0` signifies no expansion (only the exact term is considered a match), but you could specify `~1` for one degree of difference, or one edit. 
 
-+ A fuzzy query can expand a term up to 50 additional permutations. This limit is not configurable, but you can effectively reduce the number of expansions by decreasing the edit distance to 1.
++ A fuzzy query can expand a term up to 50 permutations. This limit isn't configurable, but you can effectively reduce the number of expansions by decreasing the edit distance to 1.
 
 + Responses consist of documents containing a relevant match (up to 50).
 
-During query processing, fuzzy queries do not undergo [lexical analysis](search-lucene-query-architecture.md#stage-2-lexical-analysis). The query input is added directly to the query tree and expanded to create a graph of terms. The only transformation performed is lower casing.
+During query processing, fuzzy queries don't undergo [lexical analysis](search-lucene-query-architecture.md#stage-2-lexical-analysis). The query input is added directly to the query tree and expanded to create a graph of terms. The only transformation performed is lower casing.
 
 Collectively, the graphs are submitted as match criteria against tokens in the index. As you can imagine, fuzzy search is inherently slower than other query forms. The size and complexity of your index can determine whether the benefits are enough to offset the latency of the response.
 
@@ -47,9 +47,9 @@ Collectively, the graphs are submitted as match criteria against tokens in the i
 
 Make sure the index includes text fields that are conducive to fuzzy search, such as names, categories, descriptions, or tags. 
 
-Analyzers are not used to create an expansion graph, but that doesn't mean analyzers should be ignored in fuzzy search scenarios. Analyzers are important for tokenization during indexing, where tokens are used for both full text search and for matching against the graph.
+Analyzers aren't used to create an expansion graph, but that doesn't mean analyzers should be ignored in fuzzy search scenarios. Analyzers are important for tokenization during indexing, where tokens are used for both full text search and for matching against the graph.
 
-As always, if test queries are not producing the matches you expect, you could try varying the indexing analyzer, setting it to a [language analyzer](index-add-language-analyzers.md), to see if you get better results. Some languages, particularly those with vowel mutations, can benefit from the inflection and irregular word forms generated by the Microsoft natural language processors. In some cases, using the right language analyzer can make a difference in whether a term is tokenized in a way that is compatible with the value provided by the user.
+As always, if test queries aren't producing the matches you expect, you could try varying the indexing analyzer, setting it to a [language analyzer](index-add-language-analyzers.md), to see if you get better results. Some languages, particularly those with vowel mutations, can benefit from the inflection and irregular word forms generated by the Microsoft natural language processors. In some cases, using the right language analyzer can make a difference in whether a term is tokenized in a way that is compatible with the value provided by the user.
 
 ## How to use fuzzy search
 
@@ -75,7 +75,7 @@ POST https://[service name].search.windows.net/indexes/hotels-sample-index/docs/
 
    Include an optional parameter, a number between 0 and 2 (default), if you want to specify the edit distance (`~1`). For example, "blue~" or "blue~1" would return "blue", "blues", and "glue".
 
-In Azure Cognitive Search, besides the term and distance (maximum of 2), there are no additional parameters to set on the query.
+In Azure Cognitive Search, besides the term and distance (maximum of 2), there are no other parameters to set on the query.
 
 ## Testing fuzzy search
 
@@ -84,7 +84,7 @@ For simple testing, we recommend [Search explorer](search-explorer.md) or [Postm
 When results are ambiguous, [hit highlighting](search-pagination-page-layout.md#hit-highlighting) can help you identify the match in the response. 
 
 > [!NOTE]
-> The use of hit highlighting to identify fuzzy matches has limitations and only works for basic fuzzy search. If your index has scoring profiles, or if you layer the query with additional syntax, hit highlighting might fail to identify the match. 
+> The use of hit highlighting to identify fuzzy matches has limitations and only works for basic fuzzy search. If your index has scoring profiles, or if you layer the query with more syntax, hit highlighting might fail to identify the match. 
 
 ### Example 1: fuzzy search with the exact term
 
