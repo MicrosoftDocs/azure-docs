@@ -13,7 +13,7 @@ This rule finds possible exposure of secrets in the settings property of a custo
 
 Use the following value in the [Bicep configuration file](bicep-config-linter.md) to customize rule settings:
 
-`use-protectedsettings-for-commandtoexecute-secrets`
+`protect-commandtoexecute-secrets`
 
 ## Solution
 
