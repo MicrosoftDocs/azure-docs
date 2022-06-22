@@ -23,8 +23,10 @@ You need to open some outgoing ports in your server's firewall to allow the Appl
 
 | Purpose | URL | IP | Ports |
 | --- | --- | --- | --- |
-| Telemetry |dc.applicationinsights.azure.com<br/>dc.applicationinsights.microsoft.com<br/>dc.services.visualstudio.com<br/>*.in.applicationinsights.azure.com | | 443 |
-| Live Metrics Stream | live.applicationinsights.azure.com<br/>rt.applicationinsights.microsoft.com<br/>rt.services.visualstudio.com|23.96.28.38<br/>13.92.40.198<br/>40.112.49.101<br/>40.117.80.207<br/>157.55.177.6<br/>104.44.140.84<br/>104.215.81.124<br/>23.100.122.113| 443 |
+| Telemetry | dc.applicationinsights.azure.com<br/>dc.applicationinsights.microsoft.com<br/>dc.services.visualstudio.com<br/>*.in.applicationinsights.azure.com | 443 |
+| Live Metrics Stream | live.applicationinsights.azure.com<br/>rt.applicationinsights.microsoft.com<br/>rt.services.visualstudio.com<br/>{region}.livediagnostics.monitor.azure.com |13.92.40.198<br/>40.112.49.101<br/>40.117.80.207<br/>157.55.177.6<br/>104.44.140.84<br/>104.215.81.124<br/>23.100.122.113 | 443 |
+
+Example for {region}: en-us
 
 ## Status Monitor
 
@@ -80,6 +82,18 @@ Download [US Government cloud IP addresses](https://www.microsoft.com/download/d
 #### Azure China cloud
 
 Download [China cloud IP addresses](https://www.microsoft.com/download/details.aspx?id=57062).
+
+#### Global addresses (Azure public cloud)
+
+```
+20.49.111.32/29
+
+2603:1030:210::1c0/123
+
+13.73.253.112/29
+
+2603:1030:807::1c0/123
+```
 
 #### Addresses grouped by region (Azure public cloud)
 
