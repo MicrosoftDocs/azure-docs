@@ -54,7 +54,6 @@ And invoke the `attach()` method of the `com.microsoft.applicationinsights.attac
 We provide you an example below:
 
 ```java
-
 @SpringBootApplication
 public class SpringBootApp {
 
