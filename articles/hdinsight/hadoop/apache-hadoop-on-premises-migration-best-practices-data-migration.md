@@ -5,7 +5,7 @@ ms.reviewer: ashishth
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
-ms.date: 11/22/2019
+ms.date: 05/06/2022
 ---
 
 # Migrate on-premises Apache Hadoop clusters to Azure HDInsight - data migration best practices
@@ -17,7 +17,7 @@ This article gives recommendations for data migration to Azure HDInsight. It's p
 There are two main options to migrate data from on-premises to Azure environment:
 
 * Transfer data over network with TLS
-    * Over internet - You can transfer data to Azure storage over a regular internet connection using any one of several tools such as: Azure Storage Explorer, AzCopy, Azure Powershell, and Azure CLI. For more information, see [Moving data to and from Azure Storage](../../storage/common/storage-choose-data-transfer-solution.md).
+    * Over internet - You can transfer data to Azure storage over a regular internet connection using any one of several tools such as: Azure Storage Explorer, AzCopy, Azure PowerShell, and Azure CLI. For more information, see [Moving data to and from Azure Storage](../../storage/common/storage-choose-data-transfer-solution.md).
 
     * Express Route - ExpressRoute is an Azure service that lets you create private connections between Microsoft datacenters and infrastructure that’s on your premises or in a colocation facility. ExpressRoute connections don't go over the public Internet, and offer higher security, reliability, and speeds with lower latencies than typical connections over the Internet. For more information, see [Create and modify an ExpressRoute circuit](../../expressroute/expressroute-howto-circuit-portal-resource-manager.md).
 

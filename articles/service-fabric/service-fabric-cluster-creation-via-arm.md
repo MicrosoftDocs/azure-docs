@@ -4,7 +4,8 @@ description: Learn how to set up a secure Service Fabric cluster in Azure using 
 
 ms.topic: conceptual
 ms.date: 08/16/2018 
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, devx-track-azurecli 
+ms.devlang: azurecli
 ---
 # Create a Service Fabric cluster using Azure Resource Manager 
 > [!div class="op_single_selector"]

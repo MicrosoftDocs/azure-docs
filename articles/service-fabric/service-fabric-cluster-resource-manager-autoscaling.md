@@ -81,7 +81,7 @@ serviceDescription.ScalingPolicies.Add(policy);
 serviceDescription.ServicePackageActivationMode = ServicePackageActivationMode.ExclusiveProcess
 await fabricClient.ServiceManager.CreateServiceAsync(serviceDescription);
 ```
-### Using Powershell
+### Using PowerShell
 ```posh
 $mechanism = New-Object -TypeName System.Fabric.Description.PartitionInstanceCountScaleMechanism
 $mechanism.MinInstanceCount = 1
@@ -161,7 +161,7 @@ serviceUpdate.ScalingPolicies = new List<ScalingPolicyDescription>;
 serviceUpdate.ScalingPolicies.Add(policy);
 await fabricClient.ServiceManager.UpdateServiceAsync(new Uri("fabric:/AppName/ServiceName"), serviceUpdate);
 ```
-### Using Powershell
+### Using PowerShell
 ```posh
 $mechanism = New-Object -TypeName System.Fabric.Description.AddRemoveIncrementalNamedPartitionScalingMechanism
 $mechanism.MinPartitionCount = 1

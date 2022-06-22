@@ -13,7 +13,9 @@ ms.date: 09/01/2021
 
 # Private network access with Azure Private Link (preview) 
 
-[Azure Private Link](/azure/private-link/private-link-overview) is a service that enables you to access Azure resources (like [Azure Event Hubs](/azure/event-hubs/event-hubs-about), [Azure Storage](/azure/storage/common/storage-introduction), and [Azure Cosmos DB](/azure/cosmos-db/introduction)) and Azure-hosted customer and partner services over a private endpoint in your [Azure Virtual Network (VNet)](/azure/virtual-network/virtual-networks-overview). 
+[!INCLUDE [retirement](../../includes/tsi-retirement.md)]
+
+[Azure Private Link](../private-link/private-link-overview.md) is a service that enables you to access Azure resources (like [Azure Event Hubs](../event-hubs/event-hubs-about.md), [Azure Storage](../storage/common/storage-introduction.md), and [Azure Cosmos DB](../cosmos-db/introduction.md)) and Azure-hosted customer and partner services over a private endpoint in your [Azure Virtual Network (VNet)](../virtual-network/virtual-networks-overview.md). 
 
 Similarly, you can use private endpoints for your Time Series Insights instance to allow clients located in your virtual network to securely access the instance over Private Link. 
 
@@ -31,4 +33,4 @@ Once a private endpoint is enabled and public access is restricted customer will
 
 ## Next steps
 
-* For more information, see [How to configure private endpoints for TSI Environment](./how-to-private-links.md) 
+* For more information, see [How to configure private endpoints for TSI Environment](./how-to-private-links.md)

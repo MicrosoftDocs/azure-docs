@@ -2,8 +2,8 @@
 title: Configure a custom container
 description: Learn how to configure a custom container in Azure App Service. This article shows the most common configuration tasks. 
 
-ms.topic: article
-ms.date: 08/25/2021 
+ms.topic: how-to
+ms.date: 10/22/2021
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 zone_pivot_groups: app-service-containers-windows-linux
 ---
@@ -35,24 +35,24 @@ For your custom Windows image, you must choose the right [parent image (base ima
 
 It takes some time to download a parent image during app start-up. However, you can reduce start-up time by using one of the following parent images that are already cached in Azure App Service:
 
-- [mcr.microsoft.com/windows/servercore](https://hub.docker.com/_/microsoft-windows-servercore):2004
+- [mcr.microsoft.com/windows/servercore](https://hub.docker.com/_/microsoft-windows-servercore):20H2
 - [mcr.microsoft.com/windows/servercore](https://hub.docker.com/_/microsoft-windows-servercore):ltsc2019
-- [mcr.microsoft.com/dotnet/framework/aspnet](https://hub.docker.com/_/microsoft-dotnet-framework-aspnet/):4.8-windowsservercore-2004
+- [mcr.microsoft.com/dotnet/framework/aspnet](https://hub.docker.com/_/microsoft-dotnet-framework-aspnet/):4.8-windowsservercore-20H2
 - [mcr.microsoft.com/dotnet/framework/aspnet](https://hub.docker.com/_/microsoft-dotnet-framework-aspnet/):4.8-windowsservercore-ltsc2019
-- [mcr.microsoft.com/dotnet/core/runtime](https://hub.docker.com/_/microsoft-dotnet-core-runtime/):3.1-nanoserver-2004
-- [mcr.microsoft.com/dotnet/core/runtime](https://hub.docker.com/_/microsoft-dotnet-core-runtime/):3.1-nanoserver-1909
-- [mcr.microsoft.com/dotnet/core/runtime](https://hub.docker.com/_/microsoft-dotnet-core-runtime/):3.1-nanoserver-1903
-- [mcr.microsoft.com/dotnet/core/runtime](https://hub.docker.com/_/microsoft-dotnet-core-runtime/):3.1-nanoserver-1809
-- [mcr.microsoft.com/dotnet/core/aspnet](https://hub.docker.com/_/microsoft-dotnet-core-aspnet/):3.1-nanoserver-2004
-- [mcr.microsoft.com/dotnet/core/aspnet](https://hub.docker.com/_/microsoft-dotnet-core-aspnet/):3.1-nanoserver-1909
-- [mcr.microsoft.com/dotnet/core/aspnet](https://hub.docker.com/_/microsoft-dotnet-core-aspnet/):3.1-nanoserver-1903
-- [mcr.microsoft.com/dotnet/core/aspnet](https://hub.docker.com/_/microsoft-dotnet-core-aspnet/):3.1-nanoserver-1809
+- [mcr.microsoft.com/dotnet/runtime](https://hub.docker.com/_/microsoft-dotnet-runtime/):5.0-nanoserver-20H2
+- [mcr.microsoft.com/dotnet/runtime](https://hub.docker.com/_/microsoft-dotnet-runtime/):5.0-nanoserver-1809
+- [mcr.microsoft.com/dotnet/aspnet](https://hub.docker.com/_/microsoft-dotnet-aspnet/):5.0-nanoserver-20H2
+- [mcr.microsoft.com/dotnet/aspnet](https://hub.docker.com/_/microsoft-dotnet-aspnet/):5.0-nanoserver-1809
+- [mcr.microsoft.com/dotnet/runtime](https://hub.docker.com/_/microsoft-dotnet-runtime/):3.1-nanoserver-20H2
+- [mcr.microsoft.com/dotnet/runtime](https://hub.docker.com/_/microsoft-dotnet-runtime/):3.1-nanoserver-1809
+- [mcr.microsoft.com/dotnet/aspnet](https://hub.docker.com/_/microsoft-dotnet-aspnet/):3.1-nanoserver-20H2
+- [mcr.microsoft.com/dotnet/aspnet](https://hub.docker.com/_/microsoft-dotnet-aspnet/):3.1-nanoserver-1809
 
 ::: zone-end
 
 ## Change the Docker image of a custom container
 
-To change an existing custom container app from the current Docker image to a new image, use the following command:
+To change an existing custom container from the current Docker image to a new image, use the following command:
 
 ```azurecli-interactive
 az webapp config container set --name <app-name> --resource-group <group-name> --docker-custom-image-name <docker-hub-repo>/<image>
@@ -68,6 +68,68 @@ az webapp config container set --name <app-name> --resource-group <group-name> -
 
 For *\<username>* and *\<password>*, supply the login credentials for your private registry account.
 
+## Use managed identity to pull image from Azure Container Registry
+
+Use the following steps to configure your web app to pull from ACR using managed identity. The steps will use system-assigned managed identity, but you can use user-assigned managed identity as well.
+
+1. Enable [the system-assigned managed identity](./overview-managed-identity.md) for the web app by using the [`az webapp identity assign`](/cli/azure/webapp/identity#az-webapp-identity-assign) command:
+
+    ```azurecli-interactive
+    az webapp identity assign --resource-group <group-name> --name <app-name> --query principalId --output tsv
+    ```
+    Replace `<app-name>` with the name you used in the previous step. The output of the command (filtered by the --query and --output arguments) is the service principal ID of the assigned identity, which you use shortly.
+1. Get the resource ID of your Azure Container Registry:
+    ```azurecli-interactive
+    az acr show --resource-group <group-name> --name <registry-name> --query id --output tsv
+    ```
+    Replace `<registry-name>` with the name of your registry. The output of the command (filtered by the --query and --output arguments) is the resource ID of the Azure Container Registry.
+1. Grant the managed identity permission to access the container registry:
+
+    ```azurecli-interactive
+    az role assignment create --assignee <principal-id> --scope <registry-resource-id> --role "AcrPull"
+    ```
+
+    Replace the following values:
+    - `<principal-id>` with the service principal ID from the `az webapp identity assign` command
+    - `<registry-resource-id>` with the ID of your container registry from the `az acr show` command
+
+    For more information about these permissions, see [What is Azure role-based access control](../role-based-access-control/overview.md).
+
+1. Configure your app to use the managed identity to pull from Azure Container Registry.
+
+    ```azurecli-interactive
+    az webapp config set --resource-group <group-name> --name <app-name> --generic-configurations '{"acrUseManagedIdentityCreds": true}'
+    ```
+
+    Replace the following values:
+    - `<app-name>` with the name of your web app.
+    >[!Tip]
+    > If you are using PowerShell console to run the commands, you will need to escape the strings in the `--generic-configurations` argument in this and the next step. For example: `--generic-configurations '{\"acrUseManagedIdentityCreds\": true'`
+1. (Optional) If your app uses a [user-assigned managed identity](overview-managed-identity.md#add-a-user-assigned-identity), make sure this is configured on the web app and then set an additional `acrUserManagedIdentityID` property to specify its client ID:
+    
+    ```azurecli-interactive
+    az identity show --resource-group <group-name> --name <identity-name> --query clientId --output tsv
+    ```
+    Replace the `<identity-name>` of your user-assigned managed identity and use the output `<client-id>` to configure the user-assigned managed identity ID.
+
+    ```azurecli-interactive
+    az  webapp config set --resource-group <group-name> --name <app-name> --generic-configurations '{"acrUserManagedIdentityID": "<client-id>"}'
+    ```
+
+You are all set, and the web app will now use managed identity to pull from Azure Container Registry. 
+
+::: zone pivot="container-linux"
+
+## Use an image from a network protected registry
+
+To connect and pull from a registry inside a virtual network or on-premises, your app will need to be connected to a virtual network using the VNet integration feature. This is also need for Azure Container Registry with private endpoint. When your network and DNS resolution is configured, you enable the routing of the image pull through the VNet by setting the App Setting `WEBSITE_PULL_IMAGE_OVER_VNET=true`:
+
+```azurecli-interactive
+az webapp config appsettings set --resource-group <group-name> --name <app-name> --settings WEBSITE_PULL_IMAGE_OVER_VNET=true
+```
+
+::: zone-end
+
 ## I don't see the updated container
 
 If you change your Docker container settings to point to a new container, it may take a few minutes before the app serves HTTP requests from the new container. While the new container is being pulled and started, App Service continues to serve requests from the old container. Only when the new container is started and ready to receive requests does App Service start sending requests to it.
@@ -80,7 +142,7 @@ If the app changes compute instances for any reason, such as scaling up and down
 
 ## Configure port number
 
-By default, App Service assumes your custom container is listening on port 80. If your container listens to a different port, set the `WEBSITES_PORT` app setting in your App Service app. You can set it via the [Cloud Shell](https://shell.azure.com). In Bash:
+By default, App Service assumes your custom container is listening on either port 80 or port 8080. If your container listens to a different port, set the `WEBSITES_PORT` app setting in your App Service app. You can set it via the [Cloud Shell](https://shell.azure.com). In Bash:
 
 ```azurecli-interactive
 az webapp config appsettings set --resource-group <group-name> --name <app-name> --settings WEBSITES_PORT=8000
@@ -134,21 +196,27 @@ This method works both for single-container apps or multi-container apps, where 
 
 ::: zone pivot="container-windows"
 
-You can use the *C:\home* directory in your app's file system to persist files across restarts and share them across instances. The `C:\home` in your app is provided to enable your container app to access persistent storage.
+You can use the *C:\home* directory in your custom container file system to persist files across restarts and share them across instances. The `C:\home` directory is provided to enable your custom container to access persistent storage.
 
-When persistent storage is disabled, writes to the `C:\home` directory aren't persisted. [Docker host logs and container logs](#access-diagnostic-logs) are saved in a default persistent shared storage that is not attached to the container. When persistent storage is enabled, all writes to the `C:\home` directory are persisted and can be accessed by all instances of a scaled-out app, and log are accessible at `C:\home\LogFiles`.
+When persistent storage is disabled, then writes to the `C:\home` directory are not persisted across app restarts or across multiple instances. When persistent storage is enabled, all writes to the `C:\home` directory are persisted and can be accessed by all instances of a scaled-out app. Additionally, any contents inside the `C:\home` directory of the container are overwritten by any existing files already present on the persistent storage when the container starts.
+
+The only exception is the `C:\home\LogFiles` directory, which is used to store the container and application logs. This folder will always persist upon app restarts if [application logging is enabled](troubleshoot-diagnostic-logs.md?#enable-application-logging-windows) with the **File System** option, independently of the persistent storage being enabled or disabled. In other words, enabling or disabling the persistent storage will not affect the application logging behavior.
 
 ::: zone-end
 
 ::: zone pivot="container-linux"
 
-You can use the */home* directory in your app's file system to persist files across restarts and share them across instances. The `/home` in your app is provided to enable your container app to access persistent storage.
+You can use the */home* directory in your custom container file system to persist files across restarts and share them across instances. The `/home` directory is provided to enable your custom container to access persistent storage. Saving data within `/home` will contribute to the [storage space quota](../azure-resource-manager/management/azure-subscription-service-limits.md#app-service-limits) included with your App Service Plan.
 
-When persistent storage is disabled, then writes to the `/home` directory aren't persisted across app restarts or across multiple instances. The only exception is the `/home/LogFiles` directory, which is used to store the Docker and container logs. When persistent storage is enabled, all writes to the `/home` directory are persisted and can be accessed by all instances of a scaled-out app.
+When persistent storage is disabled, then writes to the `/home` directory are not persisted across app restarts or across multiple instances. When persistent storage is enabled, all writes to the `/home` directory are persisted and can be accessed by all instances of a scaled-out app. Additionally, any contents inside the `/home` directory of the container are overwritten by any existing files already present on the persistent storage when the container starts.
+
+The only exception is the `/home/LogFiles` directory, which is used to store the container and application logs. This folder will always persist upon app restarts if [application logging is enabled](troubleshoot-diagnostic-logs.md#enable-application-logging-linuxcontainer) with the **File System** option, independently of the persistent storage being enabled or disabled. In other words, enabling or disabling the persistent storage will not affect the application logging behavior.
+
+It is recommended to write data to `/home` or a [mounted azure storage path](configure-connect-to-azure-storage.md?tabs=portal&pivots=container-linux). Data written outside these paths will not be persistent during restarts and will be saved to platform-managed host disk space separate from the App Service Plans file storage quota.
 
 ::: zone-end
 
-By default, persistent storage is disabled and the setting is not exposed in the app settings. To enable it, set the `WEBSITES_ENABLE_APP_SERVICE_STORAGE` app setting via the [Cloud Shell](https://shell.azure.com). In Bash:
+By default, persistent storage is disabled on custom containers and the setting is exposed in the app settings. To enable it, set the `WEBSITES_ENABLE_APP_SERVICE_STORAGE` app setting value to `true` via the [Cloud Shell](https://shell.azure.com). In Bash:
 
 ```azurecli-interactive
 az webapp config appsettings set --resource-group <group-name> --name <app-name> --settings WEBSITES_ENABLE_APP_SERVICE_STORAGE=true
@@ -195,7 +263,7 @@ There are several ways to access Docker logs:
 - [In Azure portal](#in-azure-portal)
 - [From the Kudu console](#from-the-kudu-console)
 - [With the Kudu API](#with-the-kudu-api)
-- [Send logs to Azure monitor](troubleshoot-diagnostic-logs.md#send-logs-to-azure-monitor-preview)
+- [Send logs to Azure monitor](troubleshoot-diagnostic-logs.md#send-logs-to-azure-monitor)
 
 ### In Azure portal
 
@@ -324,28 +392,10 @@ SSH enables secure communication between a container and a client. In order for 
     ```
     #!/bin/sh
 
-    if [ ! -f "/etc/ssh/ssh_host_rsa_key" ]; then
-        # generate fresh rsa key
-        ssh-keygen -f /etc/ssh/ssh_host_rsa_key -N '' -t rsa
-    fi
-
-    if [ ! -f "/etc/ssh/ssh_host_dsa_key" ]; then
-        # generate fresh dsa key
-        ssh-keygen -f /etc/ssh/ssh_host_dsa_key -N '' -t dsa
-    fi
-
-    if [ ! -f "/etc/ssh/ssh_host_ecdsa_key" ]; then
-        # generate fresh ecdsa key
-        ssh-keygen -f /etc/ssh/ssh_host_ecdsa_key -N '' -t dsa
-    fi
-
-    if [ ! -f "/etc/ssh/ssh_host_ed25519_key" ]; then
-        # generate fresh ecdsa key
-        ssh-keygen -f /etc/ssh/ssh_host_ed25519_key -N '' -t dsa
-    fi
+    ssh-keygen -A
 
     #prepare run dir
-        if [ ! -d "/var/run/sshd" ]; then
+    if [ ! -d "/var/run/sshd" ]; then
         mkdir -p /var/run/sshd
     fi
     ```
@@ -393,7 +443,7 @@ SSH enables secure communication between a container and a client. In order for 
 
 Multi-container apps like WordPress need persistent storage to function properly. To enable it, your Docker Compose configuration must point to a storage location *outside* your container. Storage locations inside your container don't persist changes beyond app restart.
 
-Enable persistent storage by setting the `WEBSITES_ENABLE_APP_SERVICE_STORAGE` app setting, using the [az webapp config appsettings set](/cli/azure/webapp/config/appsettings#az_webapp_config_appsettings_set) command in [Cloud Shell](https://shell.azure.com).
+Enable persistent storage by setting the `WEBSITES_ENABLE_APP_SERVICE_STORAGE` app setting, using the [az webapp config appsettings set](/cli/azure/webapp/config/appsettings#az-webapp-config-appsettings-set) command in [Cloud Shell](https://shell.azure.com).
 
 ```azurecli-interactive
 az webapp config appsettings set --resource-group <group-name> --name <app-name> --settings WEBSITES_ENABLE_APP_SERVICE_STORAGE=TRUE
@@ -444,6 +494,13 @@ The following lists show supported and unsupported Docker Compose configuration 
 - networks (ignored)
 - secrets (ignored)
 - ports other than 80 and 8080 (ignored)
+
+#### Syntax Limitations
+
+- the "version x.x" always needs to be the first yaml statement in the file
+- the ports section must use quoted numbers
+- the image > volume section must be quoted and cannot have a permissions definitions
+- the volumes section must not have an empty curly brace after the volume name
 
 > [!NOTE]
 > Any other options not explicitly called out are ignored in Public Preview.

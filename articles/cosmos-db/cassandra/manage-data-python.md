@@ -8,8 +8,7 @@ ms.subservice: cosmosdb-cassandra
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 08/13/2020
-ms.custom: devx-track-python
-
+ms.custom: devx-track-python, mode-api
 ---
 # Quickstart: Build a Cassandra app with Python SDK and Azure Cosmos DB
 [!INCLUDE[appliesto-cassandra-api](../includes/appliesto-cassandra-api.md)]
@@ -28,7 +27,7 @@ In this quickstart, you create an Azure Cosmos DB Cassandra API account, and use
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio). Or [try Azure Cosmos DB for free](https://azure.microsoft.com/try/cosmosdb/) without an Azure subscription.
+- An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio). Or [try Azure Cosmos DB for free](/azure/cosmos-db/try-free) without an Azure subscription.
 - [Python 2.7 or 3.6+](https://www.python.org/downloads/).
 - [Git](https://git-scm.com/downloads).
 - [Python Driver for Apache Cassandra](https://github.com/datastax/python-driver).
@@ -177,4 +176,3 @@ In this quickstart, you learned how to create an Azure Cosmos DB account with Ca
 
 > [!div class="nextstepaction"]
 > [Import Cassandra data into Azure Cosmos DB](migrate-data.md)
-

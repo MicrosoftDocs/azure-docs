@@ -2,12 +2,12 @@
 title: Outbound-only load balancer configuration
 titleSuffix: Azure Load Balancer
 description: In this article, learn about how to create an internal load balancer with outbound NAT
-author: asudbring
+author: mbender-ms
 ms.custom: seodec18
 ms.service: load-balancer
 ms.topic: how-to
 ms.date: 08/21/2021
-ms.author: allensu
+ms.author: mbender
 ---
 
 # Outbound-only load balancer configuration
@@ -21,7 +21,7 @@ This configuration provides outbound NAT for an internal load balancer scenario,
 >
 > To deploy an outbound only load balancer configuration with Azure Virtual Network NAT and a NAT gateway, see [Tutorial: Integrate NAT gateway with an internal load balancer - Azure portal](../virtual-network/nat-gateway/tutorial-nat-gateway-load-balancer-internal-portal.md).
 >
-> For more information about outbound connections in Azure and default outbound access, see [Source Network Address Translation (SNAT) for outbound connections](load-balancer-outbound-connections.md) and [Default outbound access](../virtual-network/default-outbound-access.md).
+> For more information about outbound connections in Azure and default outbound access, see [Source Network Address Translation (SNAT) for outbound connections](load-balancer-outbound-connections.md) and [Default outbound access](../virtual-network/ip-services/default-outbound-access.md).
 
 :::image type="content" source="./media/egress-only/load-balancer-egress-only.png" alt-text="Figure depicts a egress only load balancer configuration" border="true":::
 
@@ -177,7 +177,7 @@ In this section, you'll create the public load balancer.
 8. Select **IP address** for the **IP type**.
 
     > [!NOTE]
-    > For more information on IP prefixes, see [Azure Public IP address prefix](../virtual-network/public-ip-address-prefix.md).
+    > For more information on IP prefixes, see [Azure Public IP address prefix](../virtual-network/ip-services/public-ip-address-prefix.md).
 
 9. Select **Create new** in **Public IP address**.
 
@@ -364,4 +364,3 @@ In this article, you created an "egress only" configuration with a combination o
 This configuration allows you to load balance incoming internal traffic to your backend pool while still preventing any public inbound connections.
 
 For more information about Azure Load Balancer and Azure Bastion, see [What is Azure Load Balancer?](load-balancer-overview.md) and [What is Azure Bastion?](../bastion/bastion-overview.md).
-

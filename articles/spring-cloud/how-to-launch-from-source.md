@@ -1,30 +1,35 @@
 ---
-title: "How to - Launch your Spring Cloud application from source code"
-description: In this quickstart, learn how to launch your Azure Spring Cloud application directly from your source code
+title: How to Deploy Spring Boot applications from Azure CLI
+description: In this quickstart, learn how to launch your application in Azure Spring Apps directly from your source code
 author: karlerickson
 ms.service: spring-cloud
 ms.topic: quickstart
-ms.date: 09/03/2020
+ms.date: 11/12/2021
 ms.author: karler
-ms.custom: devx-track-java, devx-track-azurecli
+ms.custom: devx-track-java, devx-track-azurecli, mode-api, event-tier1-build-2022
 ---
 
-# How to Launch your Spring Cloud application from source code
+# How to Deploy Spring Boot applications from Azure CLI
 
-**This article applies to:** ✔️ Java
+> [!NOTE]
+> Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
 
-Azure Spring Cloud enables Spring Cloud based microservice applications on Azure.
+**This article applies to:** ✔️ Java ❌ C#
 
-You can launch applications directly from java source code or from a pre-built JAR. This article explains the deployment procedures.
+**This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
+
+Azure Spring Apps enables Spring Boot applications on Azure.
+
+You can launch applications directly from Java source code or from a pre-built JAR. This article explains the deployment procedures.
 
 This quickstart explains how to:
 
 > [!div class="checklist"]
 > * Provision a service instance
 > * Set a configuration server for an instance
-> * Build a microservices application locally
-> * Deploy each microservice
-> * Assign public endpoint for your application
+> * Build an application locally
+> * Deploy each application
+> * Assign a public endpoint for your application
 
 ## Prerequisites
 
@@ -41,10 +46,10 @@ Before you begin, ensure that your Azure subscription has the required dependenc
 
 ## Install the Azure CLI extension
 
-Install the Azure Spring Cloud extension for the Azure CLI with the following command
+Install the Azure Spring Apps extension for the Azure CLI with the following command
 
 ```azurecli
-az extension add --name spring-cloud
+az extension add --name spring
 ```
 
 ## Provision a service instance using the Azure CLI
@@ -57,58 +62,60 @@ az account list -o table
 az account set --subscription
 ```
 
-Create a resource group to contain your Azure Spring Cloud service. You can learn more about [Azure Resource Groups](../azure-resource-manager/management/overview.md).
+Create a resource group to contain your service in Azure Spring Apps. You can learn more about [Azure Resource Groups](../azure-resource-manager/management/overview.md).
 
 ```azurecli
-az group create --location eastus --name <resource group name>
+az group create --location eastus --name <resource-group-name>
 ```
 
-Run the following commands to provision an instance of Azure Spring Cloud. Prepare a name for your Azure Spring Cloud service. The name must be between 4 and 32 characters and can contain only lowercase letters, numbers, and hyphens. The first character of the service name must be a letter and the last character must be either a letter or a number.
+Run the following commands to provision an instance of Azure Spring Apps. Prepare a name for your service in Azure Spring Apps. The name must be between 4 and 32 characters and can contain only lowercase letters, numbers, and hyphens. The first character of the service name must be a letter and the last character must be either a letter or a number.
 
 ```azurecli
-az spring-cloud create -n <resource name> -g <resource group name>
+az spring create --resource-group <resource-group-name> --name <resource-name>
 ```
 
 The service instance will take about five minutes to deploy.
 
-Set your default resource group name and Azure Spring Cloud instance name using the following commands:
+Set your default resource group name and Azure Spring Apps instance name using the following commands:
 
 ```azurecli
-az config set defaults.group=<service group name>
-az config set defaults.spring-cloud=<service instance name>
+az config set defaults.group=<service-group-name>
+az config set defaults.spring-cloud=<service-instance-name>
 ```
 
-## Create the Azure Spring Cloud application
+## Create the application in Azure Spring Apps
 
-The following command creates an Azure Spring Cloud application in your subscription.  This creates an empty service to which we can upload our application.
+The following command creates an application in Azure Spring Apps in your subscription.  This creates an empty service to which you can upload your application.
 
 ```azurecli
-az spring-cloud app create -n <app-name>
+az spring app create --name <app-name>
 ```
 
-## Deploy your Spring Cloud application
+## Deploy your Spring Boot application
 
 You can deploy your application from a pre-built JAR or from a Gradle or Maven repository.  Find instructions for each case below.
 
-### Deploy a built JAR
+### Deploy a pre-built JAR
 
 To deploy from a JAR built on your local machine, ensure that your build produces a [fat-JAR](https://docs.spring.io/spring-boot/docs/current/reference/html/howto-build.html#howto-create-an-executable-jar-with-maven).
 
 To deploy the fat-JAR to an active deployment
 
 ```azurecli
-az spring-cloud app deploy -n <app-name> --jar-path <path-to-fat-JAR, for example "target\hellospring-0.0.1-SNAPSHOT.jar">
+az spring app deploy --name <app-name> --jar-path <path-to-fat-JAR>
 ```
 
 To deploy the fat-JAR to a specific deployment
 
 ```azurecli
-az spring-cloud app deployment create --app <app-name> -n <deployment-name> --jar-path <path-to-fat-JAR, for example "target\hellospring-0.0.1-SNAPSHOT.jar">
+az spring app deployment create --app <app-name> \
+    --name <deployment-name> \
+    --jar-path <path-to-fat-JAR>
 ```
 
 ### Deploy from source code
 
-Azure Spring Cloud uses [kpack](https://github.com/pivotal/kpack) to build your project.  You can use Azure CLI to upload your source code, build your project using kpack, and deploy it to the target application.
+Azure Spring Apps uses [kpack](https://github.com/pivotal/kpack) to build your project.  You can use Azure CLI to upload your source code, build your project using kpack, and deploy it to the target application.
 
 > [!WARNING]
 > The project must produce only one JAR file with a `main-class` entry in the `MANIFEST.MF` in `target` (for Maven deployments) or `build/libs` (for Gradle deployments).  Multiple JAR files with `main-class` entries will cause the deployment to fail.
@@ -117,14 +124,15 @@ For single module Maven / Gradle projects:
 
 ```azurecli
 cd <path-to-maven-or-gradle-source-root>
-az spring-cloud app deploy -n <app-name>
+az spring app deploy --name <app-name>
 ```
 
 For Maven / Gradle projects with multiple modules, repeat for each module:
 
 ```azurecli
 cd <path-to-maven-or-gradle-source-root>
-az spring-cloud app deploy -n <app-name> --target-module <relative-path-to-module>
+az spring app deploy --name <app-name> \
+    --target-module <relative-path-to-module>
 ```
 
 ### Show deployment logs
@@ -132,7 +140,7 @@ az spring-cloud app deploy -n <app-name> --target-module <relative-path-to-modul
 Review the kpack build logs using the following command:
 
 ```azurecli
-az spring-cloud app show-deploy-log -n <app-name> [-d <deployment-name>]
+az spring app show-deploy-log --name <app-name>
 ```
 
 > [!NOTE]
@@ -155,12 +163,12 @@ In this quickstart, you learned how to:
 > [!div class="checklist"]
 > * Provision a service instance
 > * Set a configuration server for an instance
-> * Build a microservices application locally
-> * Deploy each microservice
+> * Build an application locally
+> * Deploy each application
 > * Edit environment variables for applications
 > * Assign public IP for your application gateway
 
 > [!div class="nextstepaction"]
-> [Spring Cloud logs, metrics, tracing](./quickstart-logs-metrics-tracing.md)
+> [Quickstart: Monitoring Azure Spring Apps with logs, metrics, and tracing](./quickstart-logs-metrics-tracing.md)
 
-More samples are available on GitHub: [Azure Spring Cloud Samples](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples/tree/master/service-binding-cosmosdb-sql).
+More samples are available on GitHub: [Azure Spring Apps Samples](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples/tree/master/service-binding-cosmosdb-sql).

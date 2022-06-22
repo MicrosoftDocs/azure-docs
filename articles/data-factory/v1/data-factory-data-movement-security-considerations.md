@@ -5,7 +5,7 @@ author: nabhishek
 ms.service: data-factory
 ms.subservice: v1
 ms.topic: conceptual
-ms.date: 01/10/2018
+ms.date: 10/22/2021
 ms.author: abnarain
 robots: noindex
 ---
@@ -165,7 +165,7 @@ Some data stores in the cloud also require approving of IP address of the machin
 
 The following cloud data stores require approving of IP address of the gateway machine. Some of these data stores, by default, may not require approving of the IP address. 
 
-- [Azure SQL Database](../../azure-sql/database/firewall-configure.md) 
+- [Azure SQL Database](/azure/azure-sql/database/firewall-configure) 
 - [Azure Synapse Analytics](../../synapse-analytics/sql-data-warehouse/create-data-warehouse-portal.md)
 - [Azure Data Lake Store](../../data-lake-store/data-lake-store-secure-data.md#set-ip-address-range-for-data-access)
 - [Azure Cosmos DB](../../cosmos-db/how-to-configure-firewall.md)

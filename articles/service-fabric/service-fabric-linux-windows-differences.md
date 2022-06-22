@@ -13,10 +13,10 @@ There are some features that are supported on Windows, but not yet on Linux. Eve
 * Console redirection (not supported in Linux or Windows production clusters)
 * The Fault Analysis Service (FAS) on Linux
 * DNS service for Service Fabric services (DNS service is supported for containers on Linux)
-* CLI command equivalents of certain Powershell commands (list below, most of which apply only to standalone clusters)
+* CLI command equivalents of certain PowerShell commands (list below, most of which apply only to standalone clusters)
 * [Differences in log implementation that may affect scalability](service-fabric-concepts-scalability.md#choosing-a-platform)
 
-## Powershell cmdlets that do not work against a Linux Service Fabric cluster
+## PowerShell cmdlets that do not work against a Linux Service Fabric cluster
 
 * Invoke-ServiceFabricChaosTestScenario
 * Invoke-ServiceFabricFailoverTestScenario
@@ -77,5 +77,5 @@ There are some features that are supported on Windows, but not yet on Linux. Eve
 * [Prepare your development environment on OSX](service-fabric-get-started-mac.md)
 * [Create and deploy your first Service Fabric Java application on Linux using Yeoman](service-fabric-create-your-first-linux-application-with-java.md)
 * [Create and deploy your first Service Fabric Java application on Linux using Service Fabric Plugin for Eclipse](service-fabric-get-started-eclipse.md)
-* [Create your first CSharp application on Linux](service-fabric-create-your-first-linux-application-with-csharp.md)
+* [Create your first C# application on Linux](service-fabric-create-your-first-linux-application-with-csharp.md)
 * [Use the Service Fabric CLI to manage your applications](service-fabric-application-lifecycle-sfctl.md)

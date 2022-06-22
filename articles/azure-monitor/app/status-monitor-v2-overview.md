@@ -2,10 +2,8 @@
 title: Azure Application Insights Agent overview | Microsoft Docs
 description: An overview of Application Insights Agent. Monitor website performance without redeploying the website. Works with ASP.NET web apps hosted on-premises, in VMs, or on Azure.
 ms.topic: conceptual
-author: TimothyMothra
-ms.author: tilee
 ms.date: 09/16/2019
-
+ms.reviewer: abinetabate
 ---
 
 # Deploy Azure Monitor Application Insights Agent for on-premises servers
@@ -18,7 +16,7 @@ It replaces Status Monitor.
 Telemetry is sent to the Azure portal, where you can [monitor](./app-insights-overview.md) your app.
 
 > [!NOTE]
-> The module currently supports codeless instrumentation of .NET and .NET Core web apps hosted with IIS. Use an SDK to instrument Java and Node.js applications.
+> The module currently supports codeless instrumentation of ASP.NET and ASP.NET Core web apps hosted with IIS. Use an SDK to instrument Java and Node.js applications.
 
 ## PowerShell Gallery
 
@@ -68,6 +66,23 @@ Each of these options is described in the [detailed instructions](status-monitor
       ```Kusto
       union * | summarize count() by cloud_RoleName, cloud_RoleInstance
       ```
+
+
+## Release notes
+
+### 2.0.0-beta3
+
+- Update ApplicationInsights .NET/.NET Core SDK to 2.20.1-redfield.
+- Enable SQL query collection.
+
+### 2.0.0-beta2
+
+- Updated ApplicationInsights .NET/.NET Core SDK to 2.18.1-redfield.
+
+### 2.0.0-beta1
+
+- Added ASP.NET Core Auto-Instrumentation feature.
+
 
 ## Next steps
 

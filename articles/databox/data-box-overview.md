@@ -8,8 +8,9 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: overview
-ms.date: 07/22/2021
+ms.date: 05/06/2022
 ms.author: alkohli
+ms.custom: references_regions
 #Customer intent: As an IT admin, I need to understand what Data Box is and how it works so I can use it to import on-premises data into Azure or export data from Azure.
 ---
 # What is Azure Data Box?
@@ -24,13 +25,13 @@ Data Box is ideally suited to transfer data sizes larger than 40 TBs in scenario
 
 Here are the various scenarios where Data Box can be used to import data to Azure.
 
- - **One time migration** - when large amount of on-premises data is moved to Azure. 
+ - **Onetime migration** - when a large amount of on-premises data is moved to Azure. 
      - Moving a media library from offline tapes into Azure to create an online media library.
-     - Migrating your VM farm, SQL server, and applications to Azure
-     - Moving historical data to Azure for in-depth analysis and reporting using HDInsight
+     - Migrating your VM farm, SQL server, and applications to Azure.
+     - Moving historical data to Azure for in-depth analysis and reporting using HDInsight.
 
  - **Initial bulk transfer** - when an initial bulk transfer is done using Data Box (seed) followed by incremental transfers over the network. 
-     - For example, backup solutions partners such as Commvault and Data Box are used to move initial large historical backup to Azure. Once complete, the incremental data is transferred via network to Azure storage.
+     - For example, backup solutions partners such as Commvault and Data Box are used to move initial large historical backup to Azure. Once complete, the incremental data is transferred via network to Microsoft Azure Storage.
 
 - **Periodic uploads** - when large amount of data is generated periodically and needs to be moved to Azure. For example in energy exploration, where video content is generated on oil rigs and windmill farms. 
 
@@ -113,7 +114,7 @@ The Data Box includes the following components:
 
 A typical import flow includes the following steps:
 
-1. **Order** - Create an order in the Azure portal, provide shipping information, and the destination Azure storage account for your data. If the device is available, Azure prepares and ships the device with a shipment tracking ID.
+1. **Order** - Create an order in the Azure portal, provide shipping information, and the destination storage account for your data. If the device is available, Azure prepares and ships the device with a shipment tracking ID.
 
 2. **Receive** - Once the device is delivered, cable the device for network and power using the specified cables. (The power cable is included with the device. You'll need to procure the data cables.) Turn on and connect to the device. Configure the device network and mount shares on the host computer from where you want to copy the data.
 
@@ -128,7 +129,7 @@ Throughout this process, you are notified via email on all status changes. For m
 
 A typical export flow includes the following steps:
 
-1. **Order** - Create an export order in the Azure portal, provide shipping information, and the source Azure storage account for your data. If the device is available, Azure prepares a device. Data is copied from your Azure Storage account to the Data Box. Once the data copy is complete, Microsoft ships the device with a shipment tracking ID.
+1. **Order** - Create an export order in the Azure portal, provide shipping information, and the source storage account for your data. If the device is available, Azure prepares a device. Data is copied from your storage account to the Data Box. Once the data copy is complete, Microsoft ships the device with a shipment tracking ID.
 
 2. **Receive** - Once the device is delivered, cable the device for network and power using the specified cables. (The power cable is included with the device. You'll need to procure the data cables.) Turn on and connect to the device. Configure the device network and mount shares on the host computer to which you want to copy the data.
 
@@ -142,7 +143,7 @@ Throughout the export process, you are notified via email on all status changes.
 
 ## Region availability
 
-Data Box can transfer data based on the region in which service is deployed, the country or region you ship the device to, and the target Azure storage account where you transfer the data.
+Data Box can transfer data based on the region in which service is deployed, the country or region you ship the device to, and the target storage account where you transfer the data.
 
 ### For import
 
@@ -151,6 +152,19 @@ Data Box can transfer data based on the region in which service is deployed, the
     For import orders, Data Box can also be deployed in the Azure Government Cloud. For more information, see [What is Azure Government?](../azure-government/documentation-government-welcome.md). 
 
 - **Destination storage accounts** - The storage accounts that store the data are available in all Azure regions where the service is available.
+
+
+## Data resiliency
+
+The Data Box service is geographical in nature and has a single active deployment in one region within each country or commerce boundary. For data resiliency, a passive instance of the service is maintained in a different region, usually within the same country or commerce boundary. In a few cases, the paired region is outside the country or commerce boundary.
+
+In the extreme event of any Azure region being affected by a disaster, the Data Box service will be made available through the corresponding paired region. Both ongoing and new orders will be tracked and fulfilled through the service via the paired region. Failover is automatic, and is handled by Microsoft.
+
+For regions paired with a region within the same country or commerce boundary, no action is required. Microsoft is responsible for recovery, which could take up to 72 hours.
+
+For regions that don’t have a paired region within the same geographic or commerce boundary, the customer will be notified to create a new Data Box order from a different, available region and copy their data to Azure in the new region. New orders would be required for the Brazil South, Southeast Asia, and East Asia regions.
+
+For more information, see [Business continuity and disaster recovery (BCDR): Azure Paired Regions](../best-practices-availability-paired-regions.md).
 
 
 ## Next steps

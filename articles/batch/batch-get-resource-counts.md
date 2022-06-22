@@ -1,8 +1,9 @@
 ---
 title: Count states for tasks and nodes
 description: Count the state of Azure Batch tasks and compute nodes to help manage and monitor Batch solutions.
-ms.date: 09/10/2021
+ms.date: 12/13/2021
 ms.topic: how-to
+ms.devlang: csharp
 ms.custom: seodec18
 ---
 # Monitor Batch solutions by counting tasks and nodes by state
@@ -11,7 +12,7 @@ To monitor and manage large-scale Azure Batch solutions, you may need to determi
 
 - [Get Task Counts](/rest/api/batchservice/job/gettaskcounts) gets an aggregate count of active, running, and completed tasks in a job, and of tasks that succeeded or failed. By counting tasks in each state, you can more easily display job progress to a user, or detect unexpected delays or failures that may affect the job.
 
-- [List Pool Node Counts](/rest/api/batchservice/account/listpoolnodecounts) gets the number of dedicated and low-priority compute nodes in each pool that are in various states: creating, idle, offline, preempted, rebooting, reimaging, starting, and others. By counting nodes in each state, you can determine when you have adequate compute resources to run your jobs, and identify potential issues with your pools.
+- [List Pool Node Counts](/rest/api/batchservice/account/listpoolnodecounts) gets the number of dedicated and [Spot compute nodes](batch-spot-vms.md) in each pool that are in various states: creating, idle, offline, preempted, rebooting, reimaging, starting, and others. By counting nodes in each state, you can determine when you have adequate compute resources to run your jobs, and identify potential issues with your pools.
 
 Note that at times, the numbers returned by these operations may not be up to date. If you need to be sure that a count is accurate, use a list query to count these resources. List queries also let you get information about other Batch resources such as applications. For more information about applying filters to list queries, see [Create queries to list Batch resources efficiently](batch-efficient-list-queries.md).
 
@@ -41,13 +42,13 @@ You can use a similar pattern for REST and other supported languages to get task
 
 ## Node state counts
 
-The List Pool Node Counts operation counts compute nodes by the following states in each pool. Separate aggregate counts are provided for dedicated nodes and low-priority nodes in each pool.
+The List Pool Node Counts operation counts compute nodes by the following states in each pool. Separate aggregate counts are provided for dedicated nodes and Spot nodes in each pool.
 
 - **Creating**: An Azure-allocated VM that has not yet started to join a pool.
 - **Idle**: An available compute node that is not currently running a task.
 - **LeavingPool**: A node that is leaving the pool, either because the user explicitly removed it or because the pool is resizing or autoscaling down.
 - **Offline**: A node that Batch cannot use to schedule new tasks.
-- **Preempted**: A low-priority node that was removed from the pool because Azure reclaimed the VM. A `preempted` node can be reinitialized when replacement low-priority VM capacity is available.
+- **Preempted**: A Spot node that was removed from the pool because Azure reclaimed the VM. A `preempted` node can be reinitialized when replacement Spot VM capacity is available.
 - **Rebooting**: A node that is restarting.
 - **Reimaging**: A node on which the operating system is being reinstalled.
 - **Running** : A node that is running one or more tasks (other than the start task).
@@ -70,11 +71,11 @@ foreach (var nodeCounts in batchClient.PoolOperations.ListPoolNodeCounts())
     Console.WriteLine("Dedicated node count in Idle state: {0}", nodeCounts.Dedicated.Idle);
     Console.WriteLine("Dedicated node count in Offline state: {0}", nodeCounts.Dedicated.Offline);
 
-    Console.WriteLine("Total low priority node count: {0}", nodeCounts.LowPriority.Total);
+    Console.WriteLine("Total Spot node count: {0}", nodeCounts.LowPriority.Total);
 
-    // Get low-priority node counts in Running and Preempted states; you can get additional states.
-    Console.WriteLine("Low-priority node count in Running state: {0}", nodeCounts.LowPriority.Running);
-    Console.WriteLine("Low-priority node count in Preempted state: {0}", nodeCounts.LowPriority.Preempted);
+    // Get Spot node counts in Running and Preempted states; you can get additional states.
+    Console.WriteLine("Spot node count in Running state: {0}", nodeCounts.LowPriority.Running);
+    Console.WriteLine("Spot node count in Preempted state: {0}", nodeCounts.LowPriority.Preempted);
 }
 ```
 
@@ -91,11 +92,11 @@ foreach (var nodeCounts in batchClient.PoolOperations.ListPoolNodeCounts(new ODA
     Console.WriteLine("Dedicated node count in Idle state: {0}", nodeCounts.Dedicated.Idle);
     Console.WriteLine("Dedicated node count in Offline state: {0}", nodeCounts.Dedicated.Offline);
 
-    Console.WriteLine("Total low priority node count: {0}", nodeCounts.LowPriority.Total);
+    Console.WriteLine("Total Spot node count: {0}", nodeCounts.LowPriority.Total);
 
-    // Get low-priority node counts in Running and Preempted states; you can get additional states.
-    Console.WriteLine("Low-priority node count in Running state: {0}", nodeCounts.LowPriority.Running);
-    Console.WriteLine("Low-priority node count in Preempted state: {0}", nodeCounts.LowPriority.Preempted);
+    // Get Spot node counts in Running and Preempted states; you can get additional states.
+    Console.WriteLine("Spot node count in Running state: {0}", nodeCounts.LowPriority.Running);
+    Console.WriteLine("Spot node count in Preempted state: {0}", nodeCounts.LowPriority.Preempted);
 }
 ```
 

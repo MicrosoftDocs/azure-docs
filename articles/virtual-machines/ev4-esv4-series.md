@@ -1,12 +1,10 @@
 ---
 title: Ev4 and Esv4-series - Azure Virtual Machines
 description: Specifications for the Ev4, and Esv4-series VMs.
-author: brbell
-ms.author: brbell
-ms.reviewer: cynthn
-ms.custom: mimckitt
+author: andysports8
+ms.author: shuji
 ms.service: virtual-machines
-ms.subservice: vm-sizes-memory
+ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 6/8/2020
 
@@ -16,14 +14,14 @@ ms.date: 6/8/2020
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 
-The Ev4 and Esv4-series runs on the Intel&reg; Xeon&reg; Platinum 8272CL (Cascade Lake) processors in a hyper-threaded configuration, are ideal for various memory-intensive enterprise applications and feature up to 504GiB of RAM. It features an all core Turbo clock speed of 3.4 GHz.
+The Ev4 and Esv4-series run on the 3rd Generation Intel® Xeon® Platinum 8370C (Ice Lake) or the Intel&reg; Xeon&reg; Platinum 8272CL (Cascade Lake) processors in a hyper-threaded configuration, are ideal for various memory-intensive enterprise applications and feature up to 504GiB of RAM. It features an all core Turbo clock speed of 3.4 GHz.
 
 > [!NOTE]
 > For frequently asked questions, refer to  [Azure VM sizes with no local temp disk](azure-vms-no-temp-disk.yml).
 
 ## Ev4-series
 
-Ev4-series sizes run on the Intel Xeon&reg; Platinum 8272CL (Cascade Lake). The Ev4-series instances are ideal for memory-intensive enterprise applications. Ev4-series VMs feature Intel&reg; Hyper-Threading Technology.
+Ev4-series sizes run on the 3rd Generation Intel® Xeon® Platinum 8370C (Ice Lake) or the Intel Xeon&reg; Platinum 8272CL (Cascade Lake). The Ev4-series instances are ideal for memory-intensive enterprise applications. Ev4-series VMs feature Intel&reg; Hyper-Threading Technology.
 
 Remote Data disk storage is billed separately from virtual machines. To use premium storage disks, use the Esv4 sizes. The pricing and billing meters for Esv4 sizes are the same as Ev4-series.
 
@@ -35,9 +33,10 @@ Remote Data disk storage is billed separately from virtual machines. To use prem
 [VM Generation Support](generation-2.md): Generation 1<br>
 [Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md): Supported <br>
 [Ephemeral OS Disks](ephemeral-os-disks.md): Not Supported <br>
+[Nested Virtualization](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization): Supported <br>
 <br>
 
-| Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max NICs|Expected Network bandwidth (Mbps) |
+| Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max NICs|Expected network bandwidth  (Mbps) |
 |---|---|---|---|---|---|---|
 | Standard_E2_v4<sup>1</sup>  | 2 | 16   | Remote Storage Only | 4 | 2|5000  |
 | Standard_E4_v4  | 4 | 32  | Remote Storage Only | 8 | 2|10000  |
@@ -53,7 +52,7 @@ Remote Data disk storage is billed separately from virtual machines. To use prem
 
 ## Esv4-series
 
-Esv4-series sizes run on the Intel&reg; Xeon&reg; Platinum 8272CL (Cascade Lake). The Esv4-series instances are ideal for memory-intensive enterprise applications. Evs4-series VMs feature Intel&reg; Hyper-Threading Technology. Remote Data disk storage is billed separately from virtual machines.
+Esv4-series sizes run on the 3rd Generation Intel® Xeon® Platinum 8370C (Ice Lake) or the Intel&reg; Xeon&reg; Platinum 8272CL (Cascade Lake). The Esv4-series instances are ideal for memory-intensive enterprise applications. Evs4-series VMs feature Intel&reg; Hyper-Threading Technology. Remote Data disk storage is billed separately from virtual machines.
 
 [ACU](acu.md): 195-210<br>
 [Premium Storage](premium-storage-performance.md): Supported<br>
@@ -63,10 +62,11 @@ Esv4-series sizes run on the Intel&reg; Xeon&reg; Platinum 8272CL (Cascade Lake)
 [VM Generation Support](generation-2.md): Generation 1 and 2<br>
 [Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md): Supported <br>
 [Ephemeral OS Disks](ephemeral-os-disks.md): Not Supported <br>
+[Nested Virtualization](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization): Supported <br>
 <br>
 
 
-| Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max uncached disk throughput: IOPS/MBps | Max burst uncached disk throughput: IOPS/MBps<sup>1</sup> |Max NICs|Expected Network bandwidth (Mbps) |
+| Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max uncached disk throughput: IOPS/MBps | Max burst uncached disk throughput: IOPS/MBps<sup>1</sup> |Max NICs|Expected network bandwidth  (Mbps) |
 |---|---|---|---|---|---|---|---|---|
 | Standard_E2s_v4<sup>4</sup>  | 2 | 16  | Remote Storage Only | 4 | 3200/48 | 4000/200 | 2|5000  |
 | Standard_E4s_v4  | 4 | 32  | Remote Storage Only | 8 | 6400/96 | 8000/200 | 2|10000  |
@@ -76,7 +76,7 @@ Esv4-series sizes run on the Intel&reg; Xeon&reg; Platinum 8272CL (Cascade Lake)
 | Standard_E32s_v4 | 32 | 256 | Remote Storage Only | 32 | 51200/768  | 64000/1600 | 8|16000 |
 | Standard_E48s_v4 | 48 | 384 | Remote Storage Only | 32 | 76800/1152 | 80000/2000 | 8|24000 |
 | Standard_E64s_v4 <sup>2</sup> | 64 | 504| Remote Storage Only | 32 | 80000/1200 | 80000/2000 | 8|30000 |
-| Standard_E80is_v4 <sup>3</sup> | 80 | 504 | Remote Storage Only | 32 | 80000/1200 | 80000/2000 | 8|30000 |
+| Standard_E80is_v4 <sup>3</sup> | 80 | 504 | Remote Storage Only | 64 | 80000/1200 | 80000/2000 | 8|30000 |
 
 <sup>1</sup>  Esv4-series VMs can [burst](./disk-bursting.md) their disk performance and get up to their bursting max for up to 30 minutes at a time.<br>
 <sup>2</sup> [Constrained core sizes available)](./constrained-vcpu.md).<br>
@@ -97,7 +97,7 @@ Esv4-series sizes run on the Intel&reg; Xeon&reg; Platinum 8272CL (Cascade Lake)
 
 Pricing Calculator: [Pricing Calculator](https://azure.microsoft.com/pricing/calculator/)
 
-More information on Disks Types : [Disk Types](./disks-types.md#ultra-disk)
+More information on Disks Types : [Disk Types](./disks-types.md#ultra-disks)
 
 
 ## Next steps

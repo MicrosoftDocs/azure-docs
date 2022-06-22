@@ -6,7 +6,7 @@ description: This page contains a list of cognitive skills that are considered d
 author: LiamCavanagh
 ms.author: liamca
 ms.service: cognitive-search
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 09/16/2021
 ---
 

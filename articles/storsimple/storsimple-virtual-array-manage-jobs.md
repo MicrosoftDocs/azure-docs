@@ -9,7 +9,6 @@ editor: ''
 
 ms.assetid: 31879821-b599-4609-a7f4-d4b0f658a933
 ms.service: storsimple
-ms.devlang: NA
 ms.topic: how-to
 ms.tgt_pltfrm: NA
 ms.workload: na

@@ -3,7 +3,7 @@ title: Manage modules in Azure Automation
 description: This article tells how to use PowerShell modules to enable cmdlets in runbooks and DSC resources in DSC configurations.
 services: automation
 ms.subservice: shared-capabilities
-ms.date: 04/28/2021
+ms.date: 11/01/2021
 ms.topic: conceptual 
 ms.custom: devx-track-azurepowershell
 ---
@@ -38,7 +38,7 @@ These are known limitations with the sandbox. The recommended workaround is to d
 
 All new Automation accounts have the latest version of the PowerShell Az module imported by default. The Az module replaces AzureRM and is the recommended module to use with Azure. **Default modules** in the new Automation account includes the existing 24 AzureRM modules and 60+ Az modules.
 
-There is a native option to update modules to the latest Az module by the user for Automation accounts. The operation will handle all the module dependencies at the backend thereby removing the hassles of updating the modules [manually](../automation-update-azure-modules.md#update-az-modules) or executing the runbook to [update Azure modules](../automation-update-azure-modules.md#obtain-a-runbook-to-use-for-updates).  
+There is a native option to update modules to the latest Az module by the user for Automation accounts. The operation will handle all the module dependencies at the backend thereby removing the hassles of updating the modules [manually](../automation-update-azure-modules.md#update-az-modules) or executing the runbook to [update Azure modules](../automation-update-azure-modules.md#update-az-modules-through-runbook).  
 
 If the existing Automation account has only AzureRM modules, the [Update Az modules](../automation-update-azure-modules.md#update-az-modules) option will update the Automation account with the user selected version of the Az module.  
 
@@ -147,19 +147,29 @@ Importing an Az module into your Automation account doesn't automatically import
 
 You can import the Az modules into the Automation account from the Azure portal. Because [Az.Accounts](https://www.powershellgallery.com/packages/Az.Accounts/1.1.0) is a dependency for the other Az modules, be sure to import this module before any others.
 
+> [!NOTE]
+>  With the introduction of **PowerShell 7.1 (preview)** support, the **Browse gallery** option has been updated with the following changes:
+
+-  **Browse gallery** is available on  **Process Automation** > **Modules** blade. 
+-  The **Modules** page displays two new columns - **Module version** and **Runtime version**
+
 1. Sign in to the Azure [portal](https://portal.azure.com).
 1. Search for and select **Automation Accounts**.
 1. On the **Automation Accounts** page, select your Automation account from the list.
 1. From your Automation account, under **Shared Resources**, select **Modules**.
-1. Select **Browse Gallery**.  
-1. In the search bar, enter the module name (for example, `Az.Accounts`).
-1. On the PowerShell Module page, select **Import** to import the module into your Automation account.
+1. Select **Add a module**. In the **Add a module** page, you can select either of the following options:
+      1. **Browse for file** - selects a file from your local machine.
+      1. **Browse from Gallery** - you can browse and select an existing module from gallery.
+1. Click **Select** to select a module.
+1. Select **Runtime version** and click **Import**.
 
-    ![Screenshot of importing modules into your Automation account](../media/modules/import-module.png)
+      :::image type="content" source="../media/modules/import-module.png" alt-text="Screenshot of importing modules into your Automation account.":::
+
+1. On the **Modules** page, you can view the imported module under the Automation account.
 
 You can also do this import through the [PowerShell Gallery](https://www.powershellgallery.com), by searching for the module to import. When you find the module, select it, and choose the **Azure Automation** tab. Select **Deploy to Azure Automation**.
 
-![Screenshot of importing modules directly from PowerShell Gallery](../media/modules/import-gallery.png)
+:::image type="content" source="../media/modules/import-gallery.png" alt-text="Screenshot of importing modules directly from PowerShell Gallery.":::
 
 ### Test your runbooks
 

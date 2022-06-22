@@ -1,16 +1,16 @@
 ---
 title: Log metrics in the designer
 titleSuffix: Azure Machine Learning
-description: Monitor your Azure ML designer experiments. Enable logging using the Execute Python Script module and view the logged results in the studio.
+description: Monitor your Azure ML designer experiments. Enable logging using the Execute Python Script component and view the logged results in the studio.
 services: machine-learning
 author: likebupt
 ms.author: keli19
 ms.reviewer: peterlu
 ms.service: machine-learning
 ms.subservice: core
-ms.date: 01/11/2021
+ms.date: 10/21/2021
 ms.topic: how-to
-ms.custom: designer
+ms.custom: designer, sdkv1, event-tier1-build-2022
 ---
 
 # Enable logging in Azure Machine Learning designer pipelines
@@ -22,15 +22,17 @@ For more information on logging metrics using the SDK authoring experience, see 
 
 ## Enable logging with Execute Python Script
 
-Use the [Execute Python Script](./algorithm-module-reference/execute-python-script.md) module to enable logging in designer pipelines. Although you can log any value with this workflow, it's especially useful to log metrics from the __Evaluate Model__ module to track model performance across runs.
+Use the [Execute Python Script](./algorithm-module-reference/execute-python-script.md) component to enable logging in designer pipelines. Although you can log any value with this workflow, it's especially useful to log metrics from the __Evaluate Model__ component to track model performance across runs.
 
-The following example shows you how to log the mean squared error of two trained models using the Evaluate Model and Execute Python Script modules.
+The following example shows you how to log the mean squared error of two trained models using the Evaluate Model and Execute Python Script components.
 
-1. Connect an __Execute Python Script__ module to the output of the __Evaluate Model__ module.
+1. Connect an __Execute Python Script__ component to the output of the __Evaluate Model__ component.
 
-    ![Connect Execute Python Script module to Evaluate Model module](./media/how-to-log-view-metrics/designer-logging-pipeline.png)
+    ![Connect Execute Python Script component to Evaluate Model component](./media/how-to-log-view-metrics/designer-logging-pipeline.png)
 
 1. Paste the following code into the __Execute Python Script__ code editor to log the mean absolute error for your trained model. You can use a similar pattern to log any other value in the designer:
+
+    [!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
 
     ```python
     # dataframe1 contains the values from Evaluate Model
@@ -48,13 +50,13 @@ The following example shows you how to log the mean squared error of two trained
         
         # Log left output port result of Evaluate Model. This also works when evaluate only 1 model.
         parent_run.log(name='Mean_Absolute_Error (left port)', value=dataframe1['Mean_Absolute_Error'][0])
-        # Log right output port result of Evaluate Model. The following line should be deleted if you only connect one Score Module to the` left port of Evaluate Model module.
+        # Log right output port result of Evaluate Model. The following line should be deleted if you only connect one Score component to the` left port of Evaluate Model component.
         parent_run.log(name='Mean_Absolute_Error (right port)', value=dataframe1['Mean_Absolute_Error'][1])
 
         return dataframe1,
     ```
     
-This code uses the Azure Machine Learning Python SDK to log values. It uses Run.get_context() to get the context of the current run. It then logs values to that context with the run.parent.log() method. It uses `parent` to log values to the parent pipeline run rather than the module run.
+This code uses the Azure Machine Learning Python SDK to log values. It uses Run.get_context() to get the context of the current run. It then logs values to that context with the run.parent.log() method. It uses `parent` to log values to the parent pipeline run rather than the component run.
 
 For more information on how to use the Python SDK to log values, see [Enable logging in Azure ML training runs](how-to-log-view-metrics.md).
 
@@ -62,7 +64,7 @@ For more information on how to use the Python SDK to log values, see [Enable log
 
 After the pipeline run completes, you can see the *Mean_Absolute_Error* in the Experiments page.
 
-1. Navigate to the **Experiments** section.
+1. Navigate to the **Jobs** section.
 1. Select your experiment.
 1. Select the run in your experiment you want to view.
 1. Select **Metrics**.

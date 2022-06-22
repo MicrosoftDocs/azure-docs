@@ -1,11 +1,11 @@
 ### YamlMime:Landing
-title: Azure Database for PostgreSQL - Hyperscale (Citus) documentation
-summary: "Azure Database for PostgreSQL is a fully managed database-as-a-service based on the open-source Postgres relational database engine. The Hyperscale (Citus) deployment option scales queries across multiple machines using sharding, to serve applications that require greater scale and performance."
+title: Hyperscale (Citus) documentation
+summary: "Hyperscale (Citus) is PostgreSQL extended with the superpower of distributed tables. It's a fully managed service designed to build highly scalable relational apps."
 metadata:
   description: "Azure Database for PostgreSQL is a relational database service in the Microsoft cloud that is built for developers based on the open-source PostgreSQL database engine."
   author: jonels-msft
   ms.author: jonels
-  ms.date: 09/27/2020
+  ms.date: 04/28/2022
   ms.service: postgresql
   ms.subservice: hyperscale-citus
   ms.topic: landing-page
@@ -16,85 +16,83 @@ landingContent:
   # Card
   - title: Get started
     linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Hyperscale (Citus)?
+            url: overview.md
       - linkListType: quickstart
         links:
-          - text: Create server group using the Azure Portal
-            url: ../quickstart-create-hyperscale-portal.md
-      - linkListType: concept
-        links:
-          - text: Server group nodes and tables
-            url: ../concepts-hyperscale-nodes.md
-      - linkListType: tutorial
-        links:
-          - text: Design a multi-tenant database
-            url: ../tutorial-design-database-hyperscale-multi-tenant.md
-          - text: Design a real-time analytics dashboard
-            url: ../tutorial-design-database-hyperscale-realtime.md
-
-  # Card
-  - title: Connect and query
-    linkLists:
-      - linkListType: concept
-        links:
-          - text: Understand the firewall
-            url: ../concepts-hyperscale-firewall-rules.md
-          - text: Configure TLS
-            url: ../concepts-hyperscale-ssl-connection-security.md
+          - text: Hyperscale quickstart
+            url: quickstart-create-portal.md
       - linkListType: how-to-guide
         links:
-          - text: Firewall rules
-            url: ../howto-hyperscale-manage-firewall-using-portal.md
-          - text: Troubleshoot connection issues
-            url: ../howto-hyperscale-troubleshoot-common-connection-issues.md
+          - text: Building scalable apps
+            url: howto-build-scalable-apps-overview.md
 
   # Card
   - title: Scale
     linkLists:
-      - linkListType: concept
-        links:
-          - text: Nodes and tables
-            url: ../concepts-hyperscale-nodes.md
-          - text: Choose distribution columns
-            url: ../concepts-hyperscale-choose-distribution-column.md
       - linkListType: how-to-guide
         links:
           - text: Scale server group
-            url: ../howto-hyperscale-scale-grow.md
-          - text: Distribute tables
-            url: ../howto-hyperscale-modify-distributed-tables.md
-          - text: Create alerts on metrics
-            url: ../howto-hyperscale-alert-on-metric.md
+            url: howto-scale-grow.md
+          - text: Manage read replicas
+            url: howto-read-replicas-portal.md
+      - linkListType: concept
+        links:
+          - text: Connection pooling
+            url: concepts-connection-pool.md
+
+  # Card
+  - title: Resilience
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Configure high availability
+            url: howto-high-availability.md
+          - text: Point-in-time restore
+            url: howto-restore-portal.md
+
+  # Card
+  - title: Connect and query
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Public access
+            url: howto-manage-firewall-using-portal.md
+          - text: Private access
+            url: howto-private-access.md
+          - text: Configure TLS
+            url: howto-ssl-connection-security.md
+      - linkListType: how-to-guide
+        links:
+          - text: Troubleshoot connection issues
+            url: howto-troubleshoot-common-connection-issues.md
 
   # Card
   - title: Administer
     linkLists:
-      - linkListType: concept
-        links:
-          - text: Backup and restore
-            url: ../concepts-hyperscale-backup.md
-          - text: Monitor and tune
-            url: ../concepts-hyperscale-monitoring.md
-          - text: High availability
-            url: ../concepts-hyperscale-high-availability.md
-          - text: Reserved capacity
-            url: ../concepts-hyperscale-reserved-pricing.md
       - linkListType: how-to-guide
         links:
-          - text: Create database users
-            url: ../howto-hyperscale-create-users.md
-          - text: Configure high availability
-            url: ../howto-hyperscale-high-availability.md
+          - text: View metrics
+            url: howto-monitoring.md
+          - text: Enable alerts
+            url: howto-alert-on-metric.md
           - text: Access database logs
-            url: ../howto-hyperscale-logging.md
+            url: howto-logging.md
+          - text: Run diagnostic queries
+            url: howto-useful-diagnostic-queries.md
 
   # Card
   - title: Reference
     linkLists:
       - linkListType: reference
         links:
+          - text: Overview of functionality
+            url: reference-overview.md
           - text: SQL API functions
-            url: ../reference-hyperscale-functions.md
+            url: reference-functions.md
           - text: Server parameters
-            url: ../reference-hyperscale-parameters.md
+            url: reference-parameters.md
           - text: System tables
-            url: ../reference-hyperscale-metadata.md
+            url: reference-metadata.md

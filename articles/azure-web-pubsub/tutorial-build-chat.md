@@ -5,7 +5,7 @@ author: vicancy
 ms.author: lianwei
 ms.service: azure-web-pubsub
 ms.topic: tutorial 
-ms.date: 08/16/2021
+ms.date: 11/01/2021
 ---
 
 # Tutorial: Create a chat app with Azure Web PubSub service
@@ -47,7 +47,7 @@ Copy the fetched **ConnectionString** and it will be used later in this tutorial
 
 # [C#](#tab/csharp)
 
-* [ASP.NET Core 3.1 or above](/aspnet/core)
+* [ASP.NET Core 6](/aspnet/core)
 
 # [JavaScript](#tab/javascript)
 
@@ -55,8 +55,8 @@ Copy the fetched **ConnectionString** and it will be used later in this tutorial
 
 # [Java](#tab/java)
 
-- [Java Development Kit (JDK)](/java/azure/jdk/) version 8 or above
-- [Apache Maven](https://maven.apache.org/download.cgi)
+* [Java Development Kit (JDK)](/java/azure/jdk/) version 8 or above
+* [Apache Maven](https://maven.apache.org/download.cgi)
 
 ---
 
@@ -68,7 +68,7 @@ In this tutorial, we'll build a real-time chat web application. In a real web ap
 
 # [C#](#tab/csharp)
 
-We'll use [ASP.NET Core](/aspnet/core) to host the web pages and handle incoming requests.
+We'll use [ASP.NET Core 6](/aspnet/core) to host the web pages and handle incoming requests.
 
 First let's create an empty ASP.NET Core app.
 
@@ -76,85 +76,103 @@ First let's create an empty ASP.NET Core app.
 
     ```bash
     dotnet new web
-    dotnet add package Azure.Messaging.WebPubSub --prerelease
+    dotnet add package Microsoft.Azure.WebPubSub.AspNetCore --version 1.0.0-beta.3
     ```
+2.  Replace the default app.MapGet() in Program.cs with following code snippet.
 
-2.  Then add `app.UseStaticFiles();` before `app.UseRouting();` in `Startup.cs` to support static files. Remove the default `endpoints.MapGet` inside `app.UseEndpoints`.
-
-    ```csharp
-    public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+    ``` csharp
+    if (app.Environment.IsDevelopment())
     {
-        if (env.IsDevelopment())
-        {
-            app.UseDeveloperExceptionPage();
-        }
-
-        app.UseStaticFiles();
-
-        app.UseRouting();
-
-        app.UseEndpoints(endpoints =>
-        {
-        });
+        app.UseDeveloperExceptionPage();
     }
+
+    app.UseStaticFiles();
+    app.UseRouting();
+
+    app.UseEndpoints(endpoints =>
+    {
+    });
     ```
 
 3.  Also create an HTML file and save it as `wwwroot/index.html`, we'll use it for the UI of the chat app later.
 
     ```html
     <html>
-    <body>
-      <h1>Azure Web PubSub Chat</h1>
-    </body>
-
+      <body>
+        <h1>Azure Web PubSub Chat</h1>
+      </body>
     </html>
     ```
-
+    
 You can test the server by running `dotnet run --urls http://localhost:8080` and access http://localhost:8080/index.html in browser.
 
 You may remember in the [publish and subscribe message tutorial](./tutorial-pub-sub-messages.md) the subscriber uses an API in Web PubSub SDK to generate an access token from connection string and use it to connect to the service. This is usually not safe in a real world application as connection string has high privilege to do any operation to the service so you don't want to share it with any client. Let's change this access token generation process to a REST API at server side, so client can call this API to request an access token every time it needs to connect, without need to hold the connection string.
 
-1.  Install Microsoft.Extensions.Azure
+1.  Install dependencies.
 
     ```bash
     dotnet add package Microsoft.Extensions.Azure
     ```
-2. DI the service client inside `ConfigureServices` and don't forget to replace `<connection_string>` with the one of your services.
+
+2.  Add a `Sample_ChatApp` class to handle hub events. Add DI for the service middleware and service client. Don't forget to replace `<connection_string>` with the one of your services. 
 
     ```csharp
-    public void ConfigureServices(IServiceCollection services)
+    using Microsoft.Azure.WebPubSub.AspNetCore;
+
+    var builder = WebApplication.CreateBuilder(args);
+
+    builder.Services.AddWebPubSub(
+        o => o.ServiceEndpoint = new ServiceEndpoint("<connection_string>"))
+        .AddWebPubSubServiceClient<Sample_ChatApp>();
+
+    var app = builder.Build();
+
+    if (app.Environment.IsDevelopment())
     {
-        services.AddAzureClients(builder =>
-        {
-            builder.AddWebPubSubServiceClient("<connection_string>", "chat");
-        });
+        app.UseDeveloperExceptionPage();
+    }
+
+    app.UseDefaultFiles();
+    app.UseStaticFiles();
+    app.UseRouting();
+
+    app.UseEndpoints(endpoints =>
+    {
+    });
+
+    app.Run();
+
+    sealed class Sample_ChatApp : WebPubSubHub
+    {
     }
     ```
-2.  Add a `/negotiate` API to the server inside `app.UseEndpoints` to generate the token
+
+  `AddWebPubSubServiceClient<THub>()` is used to inject the service client `WebPubSubServiceClient<THub>`, with which we can use in negotiation step to generate client connection token and in hub methods to invoke service REST APIs when hub events are triggered.
+
+4.  Add a `/negotiate` API to the server inside `app.UseEndpoints` to generate the token.
 
     ```csharp
     app.UseEndpoints(endpoints =>
-    {
-        endpoints.MapGet("/negotiate", async context =>
-        {
-            var id = context.Request.Query["id"];
-            if (id.Count != 1)
-            {
-                context.Response.StatusCode = 400;
-                await context.Response.WriteAsync("missing user id");
-                return;
-            }
-            var serviceClient = context.RequestServices.GetRequiredService<WebPubSubServiceClient>();
-            await context.Response.WriteAsync(serviceClient.GenerateClientAccessUri(userId: id).AbsoluteUri);
-        });
+    {    
+      endpoints.MapGet("/negotiate", async  (WebPubSubServiceClient<Sample_ChatApp> serviceClient, HttpContext context) =>
+      {
+          var id = context.Request.Query["id"];
+          if (id.Count != 1)
+          {
+              context.Response.StatusCode = 400;
+              await context.Response.WriteAsync("missing user id");
+              return;
+          }
+          await context.Response.WriteAsync(serviceClient.GetClientAccessUri(userId: id).AbsoluteUri);
+      });
     });
     ```
 
-    This token generation code is similar to the one we used in the [publish and subscribe message tutorial](./tutorial-pub-sub-messages.md), except we pass one more argument (`userId`) when generating the token. User ID can be used to identify the identity of client so when you receive a message you know where the message is coming from.
+  This token generation code is similar to the one we used in the [publish and subscribe message tutorial](./tutorial-pub-sub-messages.md), except we pass one more argument (`userId`) when generating the token. User ID can be used to identify the identity of client so when you receive a message you know where the message is coming from.
 
-    You can test this API by running `dotnet run --urls http://localhost:8080` and accessing `http://localhost:8080/negotiate?id=<user-id>` and it will give you the full url of the Azure Web PubSub with an access token.
+  You can test this API by running `dotnet run --urls http://localhost:8080` and accessing `http://localhost:8080/negotiate?id=<user-id>` and it will give you the full url of the Azure Web PubSub with an access token.
 
-3.  Then update `index.html` to include the following script to get the token from server and connect to service
+5.  Then update `index.html` to include the following script to get the token from server and connect to service.
  
     ```html
     <html>
@@ -174,12 +192,11 @@ You may remember in the [publish and subscribe message tutorial](./tutorial-pub-
     </html>
     ```
 
-    If you are using Chrome, you can test it by opening the home page, input your user name. press F12 to open the Developer Tools window, switch to **Console** table and you'll see `connected` being printed in browser console.
-
+  If you are using Chrome, you can test it by opening the home page, input your user name. Press F12 to open the Developer Tools window, switch to **Console** table and you'll see `connected` being printed in browser console.
 
 # [JavaScript](#tab/javascript)
 
-We'll use [express.js](https://expressjs.com/), a popular web framework for node.js to achieve this job.
+We'll use [express.js](https://expressjs.com/), a popular web framework for Node.js to achieve this job.
 
 First create an empty express app.
 
@@ -230,9 +247,10 @@ You may remember in the [publish and subscribe message tutorial](./tutorial-pub-
     const { WebPubSubServiceClient } = require('@azure/web-pubsub');
 
     const app = express();
-    const hubName = 'chat';
+    const hubName = 'Sample_ChatApp';
+    const port = 8080;
 
-    let serviceClient = new WebPubSubServiceClient(process.argv[2], hubName);
+    let serviceClient = new WebPubSubServiceClient(process.env.WebPubSubConnectionString, hubName);
 
     app.get('/negotiate', async (req, res) => {
       let id = req.query.id;
@@ -240,7 +258,7 @@ You may remember in the [publish and subscribe message tutorial](./tutorial-pub-
         res.status(400).send('missing user id');
         return;
       }
-      let token = await serviceClient.getAuthenticationToken({ userId: id });
+      let token = await serviceClient.getClientAccessToken({ userId: id });
       res.json({
         url: token.url
       });
@@ -252,7 +270,14 @@ You may remember in the [publish and subscribe message tutorial](./tutorial-pub-
 
     This token generation code is similar to the one we used in the [publish and subscribe message tutorial](./tutorial-pub-sub-messages.md), except we pass one more argument (`userId`) when generating the token. User ID can be used to identify the identity of client so when you receive a message you know where the message is coming from.
 
-    You can test this API by running `node server "<connection-string>"` and accessing `http://localhost:8080/negotiate?id=<user-id>` and it will give you the full url of the Azure Web PubSub with an access token.
+    Run the below command to test this API:
+
+    ```bash
+    export WebPubSubConnectionString="<connection-string>"
+    node server
+    ```
+
+    Access `http://localhost:8080/negotiate?id=<user-id>` and it will give you the full url of the Azure Web PubSub with an access token.
 
 3.  Then update `index.html` with the following script to get the token from server and connect to service
  
@@ -275,7 +300,7 @@ You may remember in the [publish and subscribe message tutorial](./tutorial-pub-
     </html>
     ```
 
-    If you are using Chrome, you can test it by opening the home page, input your user name. press F12 to open the Developer Tools window, switch to **Console** table and you'll see `connected` being printed in browser console.
+    If you are using Chrome, you can test it by opening the home page, input your user name. Press F12 to open the Developer Tools window, switch to **Console** table and you'll see `connected` being printed in browser console.
 
 # [Java](#tab/java)
 
@@ -366,7 +391,7 @@ You may remember in the [publish and subscribe message tutorial](./tutorial-pub-
     <dependency>
         <groupId>com.azure</groupId>
         <artifactId>azure-messaging-webpubsub</artifactId>
-        <version>1.0.0-beta.2</version>
+        <version>1.0.0</version>
     </dependency>
     ```
 
@@ -375,11 +400,11 @@ You may remember in the [publish and subscribe message tutorial](./tutorial-pub-
     ```java
     package com.webpubsub.tutorial;
     
-    import com.azure.messaging.webpubsub.WebPubSubClientBuilder;
     import com.azure.messaging.webpubsub.WebPubSubServiceClient;
-    import com.azure.messaging.webpubsub.models.GetAuthenticationTokenOptions;
-    import com.azure.messaging.webpubsub.models.WebPubSubAuthenticationToken;
-    
+    import com.azure.messaging.webpubsub.WebPubSubServiceClientBuilder;
+    import com.azure.messaging.webpubsub.models.GetClientAccessTokenOptions;
+    import com.azure.messaging.webpubsub.models.WebPubSubClientAccessToken;
+    import com.azure.messaging.webpubsub.models.WebPubSubContentType;
     import io.javalin.Javalin;
     
     public class App {
@@ -391,9 +416,9 @@ You may remember in the [publish and subscribe message tutorial](./tutorial-pub-
             }
     
             // create the service client
-            WebPubSubServiceClient client = new WebPubSubClientBuilder()
+            WebPubSubServiceClient service = new WebPubSubServiceClientBuilder()
                     .connectionString(args[0])
-                    .hub("chat")
+                    .hub("Sample_ChatApp")
                     .buildClient();
     
             // start a server
@@ -410,9 +435,10 @@ You may remember in the [publish and subscribe message tutorial](./tutorial-pub-
                     ctx.result("missing user id");
                     return;
                 }
-                GetAuthenticationTokenOptions option = new GetAuthenticationTokenOptions();
+                GetClientAccessTokenOptions option = new GetClientAccessTokenOptions();
                 option.setUserId(id);
-                WebPubSubAuthenticationToken token = client.getAuthenticationToken(option);
+                WebPubSubClientAccessToken token = service.getClientAccessToken(option);
+    
                 ctx.result(token.getUrl());
                 return;
             });
@@ -448,7 +474,7 @@ You may remember in the [publish and subscribe message tutorial](./tutorial-pub-
     </html>
     ```
 
-    If you are using Chrome, you can test it by opening the home page, input your user name. press F12 to open the Developer Tools window, switch to **Console** table and you'll see `connected` being printed in browser console.
+    If you are using Chrome, you can test it by opening the home page, input your user name. Press F12 to open the Developer Tools window, switch to **Console** table and you'll see `connected` being printed in browser console.
 
 ---
 
@@ -461,63 +487,49 @@ Events are delivered to server in the form of Webhook. Webhook is served and exp
 Azure Web PubSub follows [CloudEvents](./reference-cloud-events.md) to describe the event data. 
 
 # [C#](#tab/csharp)
-For now, you need to implement the event handler by your own in C#, the steps are straight forward following [the protocol spec](./reference-cloud-events.md) and illustrated below.
 
-1. Add event handlers inside `UseEndpoints`. Specify the endpoint path for the events, let's say `/eventhandler`. 
+Here we're using Web PubSub middleware SDK, there is already an implementation to parse and process CloudEvents schema, so we don't need to deal with these details. Instead, we can focus on the inner business logic in the hub methods. 
 
-2. First we'd like to handle the abuse protection OPTIONS requests, we check if the header contains `WebHook-Request-Origin` header, and we return the header `WebHook-Allowed-Origin`. For simplicity for demo purpose, we return `*` to allow all the origins.
+1. Add event handlers inside `UseEndpoints`. Specify the endpoint path for the events, let's say `/eventhandler`. The `UseEndpoints` should look like follows:
     ```csharp
     app.UseEndpoints(endpoints =>
     {
-        // abuse protection
-        endpoints.Map("/eventhandler", async context =>
+        endpoints.MapGet("/negotiate", async  (WebPubSubServiceClient<Sample_ChatApp> serviceClient, HttpContext context) =>
         {
-            if (context.Request.Method == "OPTIONS")
+            var id = context.Request.Query["id"];
+            if (id.Count != 1)
             {
-                if (context.Request.Headers["WebHook-Request-Origin"].Count > 0)
-                {
-                    context.Response.Headers["WebHook-Allowed-Origin"] = "*";
-                    context.Response.StatusCode = 200;
-                    return;
-                }
+                context.Response.StatusCode = 400;
+                await context.Response.WriteAsync("missing user id");
+                return;
             }
+            await context.Response.WriteAsync(serviceClient.GetClientAccessUri(userId: id).AbsoluteUri);
         });
+
+        endpoints.MapWebPubSubHub<Sample_ChatApp>("/eventhandler/{*path}");
     });
     ```
 
-3. Then we'd like to check if the incoming requests are the events we expect. Let's say we now care about the system `connected` event, which should contain the header `ce-type` as `azure.webpubsub.sys.connected`. We add the logic after abuse protection:
+2. Go the `Sample_ChatApp` we created in previous step. Add a constructor to work with `WebPubSubServiceClient<Sample_ChatApp>` so we can use to invoke service. And override `OnConnectedAsync()` method to respond when `connected` event is triggered.
+
     ```csharp
-    app.UseEndpoints(endpoints =>
+    sealed class Sample_ChatApp : WebPubSubHub
     {
-        // abuse protection
-        endpoints.Map("/eventhandler", async context =>
+        private readonly WebPubSubServiceClient<Sample_ChatApp> _serviceClient;
+
+        public Sample_ChatApp(WebPubSubServiceClient<Sample_ChatApp> serviceClient)
         {
-            if (context.Request.Method == "OPTIONS")
-            {
-                if (context.Request.Headers["WebHook-Request-Origin"].Count > 0)
-                {
-                    context.Response.Headers["WebHook-Allowed-Origin"] = "*";
-                    context.Response.StatusCode = 200;
-                    return;
-                }
-            }
-            else if (context.Request.Method == "POST")
-            {
-                // get the userId from header
-                var userId = context.Request.Headers["ce-userId"];
-                if (context.Request.Headers["ce-type"] == "azure.webpubsub.sys.connected")
-                {
-                    // the connected event
-                    Console.WriteLine($"{userId} connected");
-                    context.Response.StatusCode = 200;
-                    return;
-                }
-            }
-        });
-    });
+            _serviceClient = serviceClient;
+        }
+
+        public override async Task OnConnectedAsync(ConnectedEventRequest request)
+        {
+            await _serviceClient.SendToAllAsync($"[SYSTEM] {request.ConnectionContext.UserId} joined.");
+        }
+    }
     ```
 
-In the above code, we simply print a message to console when a client is connected. You can see we use `context.Request.Headers["ce-userId"]` so we can see the identity of the connected client.
+In the above code, we use the service client to broadcast a notification message to all of whom is joined.
 
 # [JavaScript](#tab/javascript)
 
@@ -532,7 +544,7 @@ npm install --save @azure/web-pubsub-express
 ```javascript
 const { WebPubSubEventHandler } = require('@azure/web-pubsub-express');
 
-let handler = new WebPubSubEventHandler(hubName, ['*'], {
+let handler = new WebPubSubEventHandler(hubName, {
   path: '/eventhandler',
   onConnected: async req => {
     console.log(`${req.context.userId} connected`);
@@ -585,7 +597,7 @@ In the above code, we simply print a message to console when a client is connect
 
 ### Expose localhost
 
-Then we need to set the Webhook URL in the service so it can know where to call when there is a new event. But there is a problem that our server is running on localhost so does not have an internet accessible endpoint. Here we use [ngrok](https://ngrok.com/) to expose our localhost to internet.
+Then we need to set the Webhook URL in the service so it can know where to call when there is a new event. But there is a problem that our server is running on localhost so does not have an internet accessible endpoint. There are several tools available on the internet to expose localhost to the internet, for example, [ngrok](https://ngrok.com), [loophole](https://loophole.cloud/docs/), or [TunnelRelay](https://github.com/OfficeDev/microsoft-teams-tunnelrelay). Here we use [ngrok](https://ngrok.com/).
 
 1.  First download ngrok from https://ngrok.com/download, extract the executable to your local folder or your system bin folder.
 2.  Start ngrok
@@ -594,22 +606,21 @@ Then we need to set the Webhook URL in the service so it can know where to call 
     ngrok http 8080
     ```
 
-ngrok will print a URL (`https://<domain-name>.ngrok.io`) that can be accessed from internet.
+ngrok will print a URL (`https://<domain-name>.ngrok.io`) that can be accessed from internet. In above step we listens the `/eventhandler` path, so next we'd like the service to send events to `https://<domain-name>.ngrok.io/eventhandler`.
 
 ### Set event handler
 
-Then we update the service event handler and set the Webhook URL.
+Then we update the service event handler and set the Webhook URL to `https://<domain-name>.ngrok.io/eventhandler`. Event handlers can be set from either the portal or the CLI as [described in this article](howto-develop-eventhandler.md#configure-event-handler), here we set it through CLI.
 
-Use the Azure CLI [az webpubsub event-handler hub](/cli/azure/webpubsub/event-handler/hub) command to update the event handler settings:
+Use the Azure CLI [az webpubsub hub create](/cli/azure/webpubsub/hub#az-webpubsub-hub-update) command to create the event handler settings for the chat hub
 
   > [!Important]
   > Replace &lt;your-unique-resource-name&gt; with the name of your Web PubSub resource created from the previous steps.
-  > Replace &lt;domain-name&lt; with the name ngrok printed.
+  > Replace &lt;domain-name&gt; with the name ngrok printed.
 
 ```azurecli-interactive
-az webpubsub event-handler hub update -n "<your-unique-resource-name>" -g "myResourceGroup" --hub-name chat --template url-template="https://<domain-name>.ngrok.io/eventHandler" user-event-pattern="*" system-event-pattern="connected"
+az webpubsub hub create -n "<your-unique-resource-name>" -g "myResourceGroup" --hub-name "Sample_ChatApp" --event-handler url-template="https://<domain-name>.ngrok.io/eventHandler" user-event-pattern="*" system-event="connected"
 ```
-
 
 After the update is completed, open the home page http://localhost:8080/index.html, input your user name, you’ll see the connected message printed in the server console.
 
@@ -619,50 +630,35 @@ Besides system events like `connected` or `disconnected`, client can also send m
 
 # [C#](#tab/csharp)
 
-The `ce-type` of `message` event is always `azure.webpubsub.user.message`, details see [Event message](./reference-cloud-events.md#message).
+Implement the OnMessageReceivedAsync() method in Sample_ChatApp.
 
-1. Handle message event
+1. Handle message event.
 
     ```csharp
-    app.UseEndpoints(endpoints =>
+    sealed class Sample_ChatApp : WebPubSubHub
     {
-        // abuse protection
-        endpoints.Map("/eventhandler", async context =>
+        private readonly WebPubSubServiceClient<Sample_ChatApp> _serviceClient;
+
+        public Sample_ChatApp(WebPubSubServiceClient<Sample_ChatApp> serviceClient)
         {
-            var serviceClient = context.RequestServices.GetRequiredService<WebPubSubServiceClient>();
-            if (context.Request.Method == "OPTIONS")
-            {
-                if (context.Request.Headers["WebHook-Request-Origin"].Count > 0)
-                {
-                    context.Response.Headers["WebHook-Allowed-Origin"] = "*";
-                    context.Response.StatusCode = 200;
-                    return;
-                }
-            }
-            else if (context.Request.Method == "POST")
-            {
-                // get the userId from header
-                var userId = context.Request.Headers["ce-userId"];
-                if (context.Request.Headers["ce-type"] == "azure.webpubsub.sys.connected")
-                {
-                    // the connected event
-                    Console.WriteLine($"{userId} connected");
-                    context.Response.StatusCode = 200;
-                    return;
-                }
-                else if (context.Request.Headers["ce-type"] == "azure.webpubsub.user.message")
-                {
-                    using var stream = new StreamReader(context.Request.Body);
-                    await serviceClient.SendToAllAsync($"[{userId}] {await stream.ReadToEndAsync()}");
-                    context.Response.StatusCode = 200;
-                    return;
-                }
-            }
-        });
-    });
+            _serviceClient = serviceClient;
+        }
+
+        public override async Task OnConnectedAsync(ConnectedEventRequest request)
+        {
+            await _serviceClient.SendToAllAsync($"[SYSTEM] {request.ConnectionContext.UserId} joined.");
+        }
+
+        public override async ValueTask<UserEventResponse> OnMessageReceivedAsync(UserEventRequest request, CancellationToken cancellationToken)
+        {
+            await _serviceClient.SendToAllAsync($"[{request.ConnectionContext.UserId}] {request.Data}");
+
+            return request.CreateResponse($"[SYSTEM] ack.");
+        }
+    }
     ```
 
-    This event handler uses `WebPubSubServiceClient.SendToAllAsync()` to broadcast the received message to all clients.
+    This event handler uses `WebPubSubServiceClient.SendToAllAsync()` to broadcast the received message to all clients. You can see in the end we returned `UserEventResponse`, which contains a message directly to the caller and make the WebHook request success. If you have extra logic to validate and would like to break this call, you can throw an exception here. The middleware will deliver the exception message to service and service will drop current client connection. Do not forget to include the `using Microsoft.Azure.WebPubSub.Common;` statement at the begining of the `Program.cs` file.
 
 2.  Update `index.html` to add the logic to send message from user to server and display received messages in the page.
 
@@ -703,50 +699,16 @@ The `ce-type` of `message` event is always `azure.webpubsub.user.message`, detai
 
     You can see in the above code we use `WebSocket.send()` to send message and `WebSocket.onmessage` to listen to message from service.
 
-3.  Finally update the `onConnected` handler to broadcast the connected event to all clients so they can see who joined the chat room.
-
-    ```csharp
-    app.UseEndpoints(endpoints =>
-    {
-        // abuse protection
-        endpoints.Map("/eventhandler", async context =>
-        {
-            if (context.Request.Method == "OPTIONS")
-            {
-                if (context.Request.Headers["WebHook-Request-Origin"].Count > 0)
-                {
-                    context.Response.Headers["WebHook-Allowed-Origin"] = "*";
-                    context.Response.StatusCode = 200;
-                    return;
-                }
-            }
-            else if (context.Request.Method == "POST")
-            {
-                // get the userId from header
-                var userId = context.Request.Headers["ce-userId"];
-                if (context.Request.Headers["ce-type"] == "azure.webpubsub.sys.connected")
-                {
-                    // the connected event
-                    Console.WriteLine($"{userId} connected");
-                    await serviceClient.SendToAllAsync($"[SYSTEM] {userId} joined.");
-                    context.Response.StatusCode = 200;
-                    return;
-                }
-            }
-        });
-    });
-    ```
-
 Now run the server using `dotnet run --urls http://localhost:8080` and open multiple browser instances to access http://localhost:8080/index.html, then you can chat with each other.
 
-The complete code sample of this tutorial can be found [here][code-csharp].
+The complete code sample of this tutorial can be found [here][code-csharp-net6], the ASP.NET Core 3.1 version [here][code-csharp].
 
 # [JavaScript](#tab/javascript)
 
 1. Add a new `handleUserEvent` handler
 
     ```javascript
-    let handler = new WebPubSubEventHandler(hubName, ['*'], {
+    let handler = new WebPubSubEventHandler(hubName, {
       path: '/eventhandler',
       onConnected: async req => {
         console.log(`${req.context.userId} connected`);
@@ -805,7 +767,7 @@ The complete code sample of this tutorial can be found [here][code-csharp].
 3. `sendToAll` accepts object as an input and send JSON text to the clients. In real scenarios, we probably need complex object to carry more information about the message. Finally update the handlers to broadcast JSON objects to all clients:
 
     ```javascript
-    let handler = new WebPubSubEventHandler(hubName, ['*'], {
+    let handler = new WebPubSubEventHandler(hubName, {
       path: '/eventhandler',
       onConnected: async req => {
         console.log(`${req.context.userId} connected`);
@@ -884,7 +846,7 @@ The `ce-type` of `message` event is always `azure.webpubsub.user.message`, detai
         } else if ("azure.webpubsub.user.message".equals(event)) {
             String id = ctx.header("ce-userId");
             String message = ctx.body();
-            client.sendToAll(String.format("[%s] %s", id, message), WebPubSubContentType.TEXT_PLAIN);
+            service.sendToAll(String.format("[%s] %s", id, message), WebPubSubContentType.TEXT_PLAIN);
         }
         ctx.status(200);
     });
@@ -940,11 +902,11 @@ The `ce-type` of `message` event is always `azure.webpubsub.user.message`, detai
         String event = ctx.header("ce-type");
         if ("azure.webpubsub.sys.connected".equals(event)) {
             String id = ctx.header("ce-userId");
-            client.sendToAll(String.format("[SYSTEM] %s joined", id), WebPubSubContentType.TEXT_PLAIN);
+            service.sendToAll(String.format("[SYSTEM] %s joined", id), WebPubSubContentType.TEXT_PLAIN);
         } else if ("azure.webpubsub.user.message".equals(event)) {
             String id = ctx.header("ce-userId");
             String message = ctx.body();
-            client.sendToAll(String.format("[%s] %s", id, message), WebPubSubContentType.TEXT_PLAIN);
+            service.sendToAll(String.format("[%s] %s", id, message), WebPubSubContentType.TEXT_PLAIN);
         }
         ctx.status(200);
     });
@@ -974,3 +936,4 @@ Check other tutorials to further dive into how to use the service.
 [code-js]: https://github.com/Azure/azure-webpubsub/tree/main/samples/javascript/chatapp/
 [code-java]: https://github.com/Azure/azure-webpubsub/tree/main/samples/java/chatapp/
 [code-csharp]: https://github.com/Azure/azure-webpubsub/tree/main/samples/csharp/chatapp/
+[code-csharp-net6]: https://github.com/Azure/azure-webpubsub/tree/main/samples/csharp/chatapp-net6/

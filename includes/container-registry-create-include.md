@@ -2,7 +2,7 @@
 author: dlepow
 ms.service: container-registry
 ms.topic: include
-ms.date: 02/24/2021
+ms.date: 09/10/2021
 ms.author: danlep
 ---
 ## Create container registry - CLI

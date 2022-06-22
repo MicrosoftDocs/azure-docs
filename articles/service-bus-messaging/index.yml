@@ -13,7 +13,7 @@ metadata:
   ms.collection: collection
   author: spelluru #Required; your GitHub user alias, with correct capitalization.
   ms.author: spelluru #Required; microsoft alias of author; optional team alias.
-  ms.date: 08/27/2021 #Required; mm/dd/yyyy format.
+  ms.date: 01/11/2022 #Required; mm/dd/yyyy format.
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
@@ -96,6 +96,20 @@ landingContent:
             url: service-bus-php-how-to-use-topics-subscriptions.md
 
   # Card
+  - title: Learn modules
+    linkLists:
+      - linkListType: learn
+        links:
+          - text: Choose a messaging model in Azure to loosely connect your services
+            url: /learn/modules/choose-a-messaging-model-in-azure-to-connect-your-services/
+          - text: Implement message-based communication workflows with Azure Service Bus
+            url: /learn/modules/implement-message-workflows-with-service-bus/
+          - text: Discover Azure message queues
+            url: /learn/modules/discover-azure-message-queue/
+          - text: Enable asynchronous messaging in Java apps by using JMS and Azure Service Bus
+            url: /learn/modules/cloud-scale-messaging-with-jms-service-bus/
+
+  # Card
   - title: Monitor and manage
     linkLists:
       - linkListType: how-to-guide      
@@ -124,3 +138,5 @@ landingContent:
             url: service-bus-managed-service-identity.md            
           - text: Authenticate an application with Azure Active Directory
             url: authenticate-application.md
+          - text: Enforce minimum required TLS version
+            url: transport-layer-security-enforce-minimum-version.md

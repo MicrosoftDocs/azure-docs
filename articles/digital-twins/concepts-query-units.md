@@ -2,10 +2,10 @@
 # Mandatory fields.
 title: Query Units in Azure Digital Twins
 titleSuffix: Azure Digital Twins
-description: Understand the billing concept of Query Units in Azure Digital Twins
+description: Learn about the billing concept of Query Units in Azure Digital Twins
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 9/16/2021
+ms.date: 03/01/2022
 ms.topic: conceptual
 ms.service: digital-twins
 
@@ -17,14 +17,16 @@ ms.service: digital-twins
 
 # Query Units in Azure Digital Twins 
 
-An Azure Digital Twins **Query Unit (QU)** is a unit of on-demand computation that's used to execute your [Azure Digital Twins queries](how-to-query-graph.md) using the [Query API](/rest/api/digital-twins/dataplane/query). 
+This article covers Query Units, how they're used by Azure Digital Twins, and how to find the Query Unit consumption in Azure Digital Twins.
 
-It abstracts away the system resources like CPU, IOPS and memory that are required to perform query operations supported by Azure Digital Twins, allowing you to track usage in Query Units instead.
+An Azure Digital Twins *Query Unit (QU)* is a unit of on-demand computation that's used to execute your [Azure Digital Twins queries](how-to-query-graph.md) using the [Query API](/rest/api/digital-twins/dataplane/query). 
 
-The amount of Query Units consumed to execute a query is affected by...
+It abstracts away the system resources like CPU, IOPS, and memory that are required to perform query operations supported by Azure Digital Twins, allowing you to track usage in Query Units instead.
 
-* the complexity of the query
-* the size of the result set (so a query returning 10 results will consume more QUs than a query of similar complexity that returns just one result)
+The amount of Query Units consumed to execute a query is affected by:
+
+* The complexity of the query
+* The size of the result set (so a query returning 10 results will consume more QUs than a query of similar complexity that returns just one result)
 
 This article explains how to understand Query Units and track Query Unit consumption.
 

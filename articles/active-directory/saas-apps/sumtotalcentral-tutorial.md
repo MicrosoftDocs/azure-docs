@@ -37,7 +37,7 @@ In this tutorial, you configure and test Azure AD single sign-on in a test envir
 
 * SumTotalCentral supports **SP** initiated SSO
 
-* Once you configure SumTotalCentral you can enforce Session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad)
+* Once you configure SumTotalCentral you can enforce Session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-aad).
     
 > [!NOTE]
 > Identifier of this application is a fixed string value so only one instance can be configured in one tenant.

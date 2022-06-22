@@ -1,22 +1,22 @@
 ---
 title: Reference - Azure Policy guest configuration baseline for Linux
 description: Details of the Linux baseline on Azure implemented through Azure Policy guest configuration.
-ms.date: 08/24/2021
+ms.date: 06/21/2022
 ms.topic: reference
 ms.custom: generated
+ms.author: timwarner
+author: timwarner-msft
 ---
 # Linux security baseline
 
 This article details the configuration settings for Linux guests as applicable in the following
-implementations:
+Azure Policy definitions:
 
-- **\[Preview\]: Linux machines should meet requirements for the Azure compute security baseline**
-  Azure Policy guest configuration definition
-- **Vulnerabilities in security configuration on your machines should be remediated** in Azure
-  Security Center
+- Linux machines should meet requirements for the Azure compute security baseline
+- Vulnerabilities in security configuration on your machines should be remediated
 
 For more information, see [Azure Policy guest configuration](../concepts/guest-configuration.md) and
-[Overview of the Azure Security Benchmark (V2)](../../../security/benchmarks/overview.md).
+[Overview of the Azure Security Benchmark (V3)](../../../security/benchmarks/overview.md).
 
 ## General security controls
 
@@ -141,7 +141,7 @@ For more information, see [Azure Policy guest configuration](../concepts/guest-c
 |Ensure permissions on /etc/cron.hourly are configured.<br /><sub>(95)</sub> |Description: Granting write access to this directory for non-privileged users could provide them the means for gaining unauthorized elevated privileges. Granting read access to this directory could give an unprivileged user insight in how to gain elevated privileges or circumvent auditing controls. |Set the owner and group of /etc/chron.hourly to root and permissions to 0700 or run '/opt/microsoft/omsagent/plugin/omsremediate -r fix-cron-file-perms |
 |Ensure permissions on /etc/cron.monthly are configured.<br /><sub>(96)</sub> |Description: Granting write access to this directory for non-privileged users could provide them the means for gaining unauthorized elevated privileges. Granting read access to this directory could give an unprivileged user insight in how to gain elevated privileges or circumvent auditing controls. |Set the owner and group of /etc/chron.monthly to root and permissions to 0700 or run '/opt/microsoft/omsagent/plugin/omsremediate -r fix-cron-file-perms |
 |Ensure permissions on /etc/cron.weekly are configured.<br /><sub>(97)</sub> |Description: Granting write access to this directory for non-privileged users could provide them the means for gaining unauthorized elevated privileges. Granting read access to this directory could give an unprivileged user insight in how to gain elevated privileges or circumvent auditing controls. |Set the owner and group of /etc/chron.weekly to root and permissions to 0700 or run '/opt/microsoft/omsagent/plugin/omsremediate -r fix-cron-file-perms |
-|Ensure at/cron is restricted to authorized users<br /><sub>(98)</sub> |Description: On many systems, only the system administrator is authorized to schedule `cron` jobs. Using the `cron.allow` file to control who can run `cron` jobs enforces this policy. It is easier to manage an allow list than a deny list. In a deny list, you could potentially add a user ID to the system and forget to add it to the deny files. |replace /etc/cron.deny and /etc/at.deny with their respective `allow` files |
+|Ensure at/cron is restricted to authorized users<br /><sub>(98)</sub> |Description: On many systems, only the system administrator is authorized to schedule `cron` jobs. Using the `cron.allow` file to control who can run `cron` jobs enforces this policy. It is easier to manage an allowlist than a denylist. In a denylist, you could potentially add a user ID to the system and forget to add it to the deny files. |Replace /etc/cron.deny and /etc/at.deny with their respective `allow` files or run '/opt/microsoft/omsagent/plugin/omsremediate -r fix-cron-job-allow' |
 |SSH must be configured and managed to meet best practices. - '/etc/ssh/sshd_config Protocol = 2'<br /><sub>(106.1)</sub> |Description: An attacker could use flaws in an earlier version of the SSH protocol to gain access |Run the command '/opt/microsoft/omsagent/plugin/omsremediate -r configure-ssh-protocol'. This will set 'Protocol 2' in the file '/etc/ssh/sshd_config' |
 |SSH must be configured and managed to meet best practices. - '/etc/ssh/sshd_config IgnoreRhosts = yes'<br /><sub>(106.3)</sub> |Description: An attacker could use flaws in the Rhosts protocol to gain access |Run the command '/usr/local/bin/azsecd remediate (/opt/microsoft/omsagent/plugin/omsremediate) -r enable-ssh-ignore-rhosts'. This will add the line 'IgnoreRhosts yes' to the file '/etc/ssh/sshd_config' |
 |Ensure SSH LogLevel is set to INFO<br /><sub>(106.5)</sub> |Description: SSH provides several logging levels with varying amounts of verbosity. `DEBUG `is specifically _not_ recommended other than strictly for debugging SSH communications since it provides so much data that it is difficult to identify important security information. `INFO `level is the basic level that only records login activity of SSH users. In many situations, such as Incident Response, it is important to determine when a particular user was active on a system. The logout record can eliminate those users who disconnected, which helps narrow the field. |Edit the `/etc/ssh/sshd_config` file to set the parameter as follows:         ```         LogLevel INFO         ``` |
@@ -169,7 +169,8 @@ For more information, see [Azure Policy guest configuration](../concepts/guest-c
 |The ldap service should be disabled.<br /><sub>(124)</sub> |Description: An attacker could manipulate the LDAP service on this host to distribute false data to LDAP clients |Uninstall the slapd package (apt-get remove slapd) |
 |The rpcgssd service should be disabled.<br /><sub>(126)</sub> |Description: An attacker could use a flaw in rpcgssd/nfs to gain access |Disable the rpcgssd service or run '/opt/microsoft/omsagent/plugin/omsremediate -r disable-rpcgssd' |
 |The rpcidmapd service should be disabled.<br /><sub>(127)</sub> |Description: An attacker could use a flaw in idmapd/nfs to gain access |Disable the rpcidmapd service or run '/opt/microsoft/omsagent/plugin/omsremediate -r disable-rpcidmapd' |
-|The portmap service should be disabled.<br /><sub>(129)</sub> |Description: An attacker could use a flaw in portmap to gain access |Disable the rpcbind service or run '/opt/microsoft/omsagent/plugin/omsremediate -r disable-rpcbind' |
+|The portmap service should be disabled.<br /><sub>(129.1)</sub> |Description: An attacker could use a flaw in portmap to gain access |Disable the rpcbind service or run '/opt/microsoft/omsagent/plugin/omsremediate -r disable-rpcbind' |
+|The Network File System (NFS) service should be disabled.<br /><sub>(129.2)</sub> |Description: An attacker could use nfs to mount shares and execute/copy files. |Disable the nfs service or run '/opt/microsoft/omsagent/plugin/omsremediate -r disable-nfs' |
 |The rpcsvcgssd service should be disabled.<br /><sub>(130)</sub> |Description: An attacker could use a flaw in rpcsvcgssd to gain access |Remove the line 'NEED_SVCGSSD = yes' from the file '/etc/inetd.conf' |
 |The named service should be disabled.<br /><sub>(131)</sub> |Description: An attacker could use the DNS service to distribute false data to clients |Uninstall the bind9 package (apt-get remove bind9) |
 |The bind package should be uninstalled.<br /><sub>(132)</sub> |Description: An attacker could use the DNS service to distribute false data to clients |Uninstall the bind9 package (apt-get remove bind9) |
@@ -187,7 +188,6 @@ For more information, see [Azure Policy guest configuration](../concepts/guest-c
 |Ensure system accounts are non-login<br /><sub>(157.15)</sub> |Description: It is important to make sure that accounts that are not being used by regular users are prevented from being used to provide an interactive shell. By default, Ubuntu sets the password field for these accounts to an invalid string, but it is also recommended that the shell field in the password file be set to `/usr/sbin/nologin`. This prevents the account from potentially being used to run any commands. |Set the shell for any accounts returned by the audit script to `/sbin/nologin` |
 |Ensure default group for the root account is GID 0<br /><sub>(157.16)</sub> |Description: Using GID 0 for the `_root_ `account helps prevent `_root_`-owned files from accidentally becoming accessible to non-privileged users. |Run the following command to set the `root` user default group to GID `0` : ``` # usermod -g 0 root ``` |
 |Ensure root is the only UID 0 account<br /><sub>(157.18)</sub> |Description: This access must be limited to only the default `root `account and only from the system console. Administrative access must be through an unprivileged account using an approved mechanism. |Remove any users other than `root` with UID `0` or assign them a new UID if appropriate. |
-|Remove unnecessary packages<br /><sub>(158)</sub> |Description:  |Run '/opt/microsoft/omsagent/plugin/omsremediate -r remove-landscape-common |
 |Remove unnecessary accounts<br /><sub>(159)</sub> |Description: For compliance |Remove the unnecessary accounts |
 |Ensure auditd service is enabled<br /><sub>(162)</sub> |Description: The capturing of system events provides system administrators with information to allow them to determine if unauthorized access to their system is occurring. |Install audit package (systemctl enable auditd) |
 |Run AuditD service<br /><sub>(163)</sub> |Description: The capturing of system events provides system administrators with information to allow them to determine if unauthorized access to their system is occurring. |Run AuditD service (systemctl start auditd) |

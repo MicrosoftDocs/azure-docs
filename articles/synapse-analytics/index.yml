@@ -5,13 +5,12 @@ summary: Azure Synapse is a limitless analytics service that brings together ent
 metadata:
   title: Azure Synapse Analytics # Required; page title displayed in search results. Include the brand. < 60 chars.
   description: Azure Synapse is a limitless analytics service that brings together enterprise data warehousing and Big Data analytics. It gives you the freedom to query data on your terms, using either serverless on-demand or provisioned resources—at scale. # Required; article description that is displayed in search results. < 160 chars.
-  services: synapse-analytics
   ms.service: synapse-analytics #Required; service per approved list. service slug assigned to your service by ACOM.
   ms.subservice: overview 
   ms.topic: landing-page # Required
   ms.collection: collection
-  author: julieMSFT #Required; your GitHub user alias, with correct capitalization.
-  ms.author: jrasnick #Required; microsoft alias of author; optional team alias.
+  author: WilliamDAssafMSFT #Required; your GitHub user alias, with correct capitalization.
+  ms.author: wiassaf #Required; microsoft alias of author; optional team alias.
   ms.date: 12/01/2020 #Required; mm/dd/yyyy format.
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
@@ -26,6 +25,8 @@ landingContent:
         links:
           - text: What is Azure Synapse
             url: overview-what-is.md
+          - text: What's new?
+            url: whats-new.md
           - text: Terminology
             url: overview-terminology.md
           - text: FAQ
@@ -70,6 +71,30 @@ landingContent:
             url: get-started-monitor.md
           - text: STEP 9 - Explore the Knowledge center
             url: get-started-knowledge-center.md
+
+  # Card
+  - title: Data Explorer
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Data Explorer in Azure Synapse Analytics
+            url: data-explorer/data-explorer-overview.md
+      - linkListType: quickstart
+        links:
+          - text: Create a Data Explorer pool using the Synapse Studio
+            url: data-explorer/data-explorer-create-pool-studio.md
+
+  # Card
+  - title: Database templates
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Database templates in Azure Synapse Analytics
+            url: database-designer/overview-database-templates.md
+      - linkListType: quickstart
+        links:
+          - text: Create a new Lake database leveraging database templates
+            url: database-designer/quick-start-create-lake-database.md
 
   # Card
   - title: Apache Spark
@@ -137,7 +162,7 @@ landingContent:
   #         - text: Dedicated SQL pool (formerly SQL DW) architecture
   #           url: ./sql-data-warehouse/massively-parallel-processing-mpp-architecture.md
   #         - text: Reference Architecture
-  #           url: https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/data/enterprise-bi-synapse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json
+  #           url: /azure/architecture/reference-architectures/data/enterprise-bi-synapse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json
 
 
 

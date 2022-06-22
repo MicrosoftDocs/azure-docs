@@ -25,6 +25,8 @@ landingContent:
         links:
           - text: Migrate using Azure Data Studio
             url: migration-using-azure-data-studio.md
+          - text: Get Azure recommendation for migration using Azure Data Studio
+            url: ads-sku-recommend.md
           - text: Database migration scenario status
             url: resource-scenario-status.md
           - text: Overview of prerequisites
@@ -72,6 +74,10 @@ landingContent:
             url: resource-network-topologies.md
           - text: Custom roles for online migrations from SQL Server to SQL Managed Instance
             url: resource-custom-roles-sql-db-managed-instance.md            
+          - text: Custom roles for online migrations from SQL Server to SQL Managed Instance using Azure Data Studio
+            url: resource-custom-roles-sql-db-managed-instance-ads.md            
+          - text: Custom roles for online migrations from SQL Server to VM's using Azure Data Studio
+            url: resource-custom-roles-sql-db-virtual-machine-ads.md            
       - linkListType: video
         links:
           - text: Migrate SQL Server 2008 to SQL Managed Instance
@@ -126,10 +132,3 @@ landingContent:
             url: /sql/dea/database-experimentation-assistant-overview
           - text: Data Access Migration Toolkit
             url: https://marketplace.visualstudio.com/items?itemName=ms-databasemigration.data-access-migration-toolkit
-# Card 5
-  - title: Migrate Oracle to Azure
-    linkLists:
-      - linkListType: video
-        links:
-          - text: Migrate to SQL Database single database
-            url: /azure/postgresql/howto-migrate-from-oracle

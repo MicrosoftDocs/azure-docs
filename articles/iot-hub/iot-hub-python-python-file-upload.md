@@ -1,13 +1,13 @@
 ---
 title: Upload files from devices to Azure IoT Hub with Python | Microsoft Docs
 description: How to upload files from a device to the cloud using Azure IoT device SDK for Python. Uploaded files are stored in an Azure storage blob container.
-author: robinsh
+author: kgremban
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: python
 ms.topic: conceptual
 ms.date: 07/18/2021
-ms.author: robinsh
+ms.author: kgremban
 ms.custom: mqtt, devx-track-python
 ---
 
@@ -21,7 +21,14 @@ This article shows how to use the [file upload capabilities of IoT Hub](iot-hub-
 
 * Use the Python client to upload a file through your IoT hub.
 
-The [Send telemetry from a device to an IoT hub](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-python) quickstart demonstrates the basic device-to-cloud messaging functionality of IoT Hub. However, in some scenarios you cannot easily map the data your devices send into the relatively small device-to-cloud messages that IoT Hub accepts. When you need to upland files from a device, you can still use the security and reliability of IoT Hub.
+The [Send telemetry from a device to an IoT hub](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-python) quickstart and [Send cloud-to-device messages with IoT Hub](iot-hub-python-python-c2d.md) tutorial show the basic device-to-cloud and cloud-to-device messaging functionality of IoT Hub. The [Configure Message Routing with IoT Hub](tutorial-routing.md) tutorial shows a way to reliably store device-to-cloud messages in Microsoft Azure blob storage. However, in some scenarios, you can't easily map the data your devices send into the relatively small device-to-cloud messages that IoT Hub accepts. For example:
+
+* Videos
+* Large files that contain images
+* Vibration data sampled at high frequency
+* Some form of pre-processed data.
+
+These files are typically batch processed in the cloud using tools such as [Azure Data Factory](../data-factory/introduction.md) or the [Hadoop](../hdinsight/index.yml) stack. When you need to upland files from a device, you can still use the security and reliability of IoT Hub. This tutorial shows you how.
 
 At the end of this tutorial, you run the Python console app:
 

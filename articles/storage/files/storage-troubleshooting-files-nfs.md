@@ -1,18 +1,21 @@
 ---
-title: Troubleshoot Azure NFS file share problems - Azure Files
-description: Troubleshoot Azure NFS file share problems.
-author: jeffpatt24
+title: Troubleshoot NFS file share problems - Azure Files
+description: Troubleshoot NFS Azure file share problems.
+author: khdownie
 ms.service: storage
 ms.topic: troubleshooting
-ms.date: 09/15/2020
-ms.author: jeffpatt
+ms.date: 05/25/2022
+ms.author: kendownie
 ms.subservice: files
 ms.custom: references_regions, devx-track-azurepowershell
 ---
 
-# Troubleshoot Azure NFS file share problems
+# Troubleshoot NFS Azure file share problems
 
-This article lists some common problems related to Azure NFS file shares (preview). It provides potential causes and workarounds when these problems are encountered. This article also covers known issues in public preview.
+This article lists some common problems and known issues related to NFS Azure file shares. It provides potential causes and workarounds when these problems are encountered.
+
+> [!IMPORTANT]
+> NFS Azure file shares are not supported for Windows clients.
 
 ## Applies to
 | File share type | SMB | NFS |
@@ -30,40 +33,16 @@ Azure Files disallows alphanumeric UID/GID. So idmapping must be disabled.
 Even if idmapping has been correctly disabled, the settings for disabling idmapping gets overridden in some cases. For example, when the Azure Files encounters a bad file name, it sends back an error. Upon seeing this particular error code, NFS v 4.1 Linux client decides to re-enable idmapping and the future requests are sent again with alphanumeric UID/GID. For a list of unsupported characters on Azure Files, see this [article](/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata). Colon is one of the unsupported characters. 
 
 ### Workaround
-Check that idmapping is disabled and nothing is re-enabling it, then perform the following:
+Check that idmapping is disabled and nothing is re-enabling it, then perform the following steps:
 
 - Unmount the share
-- Disable id-mapping with # echo Y > /sys/module/nfs/parameters/nfs4_disable_idmapping
+- Disable idmapping with # echo Y > /sys/module/nfs/parameters/nfs4_disable_idmapping
 - Mount the share back
-- If running rsync, run rsync with "—numeric-ids" argument from directory which do not have any bad dir/file name.
+- If running rsync, run rsync with the "—numeric-ids" argument from a directory that does not have a bad dir/file name.
 
 ## Unable to create an NFS share
 
-### Cause 1: Subscription is not enabled
-
-Your subscription may not have been registered for the Azure Files NFS preview. You will need to run a few more commandlets from either Cloud Shell or a local terminal to enable the feature.
-
-> [!NOTE]
-> You may have to wait up to 30 minutes for the registration to complete.
-
-
-#### Solution
-
-Use the following script to register the feature and resource provider, replace `<yourSubscriptionIDHere>` before running the script:
-
-```azurepowershell
-Connect-AzAccount
-
-#If your identity is associated with more than one subscription, set an active subscription
-$context = Get-AzSubscription -SubscriptionId <yourSubscriptionIDHere>
-Set-AzContext $context
-
-Register-AzProviderFeature -FeatureName AllowNfsFileShares -ProviderNamespace Microsoft.Storage
-
-Register-AzResourceProvider -ProviderNamespace Microsoft.Storage
-```
-
-### Cause 2: Unsupported storage account settings
+### Cause 1: Unsupported storage account settings
 
 NFS is only available on storage accounts with the following configuration:
 
@@ -75,15 +54,7 @@ NFS is only available on storage accounts with the following configuration:
 
 Follow the instructions in our article: [How to create an NFS share](storage-files-how-to-create-nfs-shares.md).
 
-### Cause 3: The storage account was created prior to registration completing
-
-In order for a storage account to use the feature, it must be created once the subscription has completed registration for NFS. It may take up to 30 minutes for registration to complete.
-
-#### Solution
-
-Once registration completes, follow the instructions in our article: [How to create an NFS share](storage-files-how-to-create-nfs-shares.md).
-
-## Cannot connect to or mount an Azure NFS file share
+## Cannot connect to or mount an NFS Azure file share
 
 ### Cause 1: Request originates from a client in an untrusted network/untrusted IP
 
@@ -111,13 +82,13 @@ The following diagram depicts connectivity using public endpoints.
 
 ### Cause 2: Secure transfer required is enabled
 
-Double encryption is not supported for NFS shares yet. Azure provides a layer of encryption for all data in transit between Azure datacenters using MACSec. NFS shares can only be accessed from trusted virtual networks and over VPN tunnels. No additional transport layer encryption is available on NFS shares.
+Double encryption isn't supported for NFS shares yet. Azure provides a layer of encryption for all data in transit between Azure datacenters using MACSec. NFS shares can only be accessed from trusted virtual networks and over VPN tunnels. No additional transport layer encryption is available on NFS shares.
 
 #### Solution
 
 Disable secure transfer required in your storage account's configuration blade.
 
-:::image type="content" source="media/storage-files-how-to-mount-nfs-shares/storage-account-disable-secure-transfer.png" alt-text="Screenshot of storage account configuration blade, disabling secure transfer required.":::
+:::image type="content" source="media/storage-files-how-to-mount-nfs-shares/disable-secure-transfer.png" alt-text="Screenshot of storage account configuration blade, disabling secure transfer required.":::
 
 ### Cause 3: nfs-common package is not installed
 Before running the mount command, install the package by running the distro-specific command from below.
@@ -126,7 +97,7 @@ To check if the NFS package is installed, run: `rpm qa | grep nfs-utils`
 
 #### Solution
 
-If the package is not installed, install the package on your distribution.
+If the package isn't installed, install the package on your distribution.
 
 ##### Ubuntu or Debian
 
@@ -150,45 +121,16 @@ The NFS protocol communicates to its server over port 2049, make sure that this 
 
 #### Solution
 
-Verify that port 2049 is open on your client by running the following command: `telnet <storageaccountnamehere>.file.core.windows.net 2049`. If the port is not open, open it.
-
-## ls (list files) command shows incorrect/inconsistent results
-
-### Cause: Inconsistency between cached values and server file metadata values when the file handle is open
-Sometimes the "list files" or "df" or "find" command displays a non-zero size as expected and in the very next list files command instead shows size 0 or an old time stamp. This is a known issue due to inconsistent caching of file metadata values while the file is open. You may use one of the following workarounds to resolve this:
-
-#### Workaround 1: For fetching file size, use wc -c instead of ls -l
-Using wc -c will always fetch the latest value from the server and won't have any inconsistency.
-
-#### Workaround 2: Use "noac" mount flag
-Remount the file system using the "noac" flag with your mount command. This will always fetch all the metadata values from the server. There may be some minor perf overhead for all metadata operations if this workaround is used.
-
-
-## Unable to mount an NFS share that is restored back from soft-deleted state
-There is a known issue during preview where NFS shares gets soft deleted despite the platform not fully supporting it. These shares will routinely get deleted upon its expiration. You can also early-delete them by "undelete share + disable soft-delete + delete share" flow. However, if you try to recover and use the shares, you will get access denied or permission denied or NFS I/O error on the client.
-
-## ls –la throws I/O error
-
-### Cause: A known bug that has been fixed in newer Linux Kernel
-On older kernels, NFS4ERR_NOT_SAME causes the client to stop enumerating (instead of restarting for the directory). Newer kernels would be unblocked right away, unfortunately, for distros like SUSE, there is no patch for SUSE Enterprise Linux Server 12 or 15 that would bring the kernel-up-to-date to this fix.  The patch is available in kernel 5.12+.  The patch for the client-side fix is described here [PATCH v3 15/17 NFS: Handle NFS4ERR_NOT_SAME and NFSERR_BADCOOKIE from readdir calls](https://www.spinics.net/lists/linux-nfs/msg80096.html).
-
-#### Workaround: Use latest kernel workaround while the fix reaches the region hosting your storage account
-The patch is available in kernel 5.12+.
+Verify that port 2049 is open on your client by running the following command: `telnet <storageaccountnamehere>.file.core.windows.net 2049`. If the port isn't open, open it.
 
 ## ls hangs for large directory enumeration on some kernels
 
 ### Cause: A bug was introduced in Linux kernel v5.11 and was fixed in v5.12.5.  
-Some kernel versions have a bug which causes directory listings to result in an endless READDIR sequences. Very small directories where all entries can be shipped in one call will not have the problem.
+Some kernel versions have a bug that causes directory listings to result in an endless READDIR sequence. Very small directories where all entries can be shipped in one call won't have the problem.
 The bug was introduced in Linux kernel v5.11 and was fixed in v5.12.5. So anything in between has the bug. RHEL 8.4 is known to have this kernel version.
 
 #### Workaround: Downgrading or upgrading the kernel
-Downgrading or upgrading the kernel to anytyhing outside the affected kernel will resolve the issue
-
-## df and find command shows inconsistent results on clients other than where the writes happen
-This is a known issue. Microsoft is actively working to resolve it.
-
-## Application fails with error "Underlying file changed by an external force" when using exclusive OPEN 
-This is a known issue. Microsoft is actively working to resolve it.
+Downgrading or upgrading the kernel to anything outside the affected kernel will resolve the issue
 
 ## Need help? Contact support.
 If you still need help, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your problem resolved quickly.

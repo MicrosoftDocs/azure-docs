@@ -2,7 +2,7 @@
 title: WebHook event delivery
 description: This article describes WebHook event delivery and endpoint validation when using webhooks. 
 ms.topic: conceptual
-ms.date: 09/29/2021
+ms.date: 10/13/2021
 ---
 
 
@@ -16,11 +16,12 @@ Like many other services that support webhooks, Event Grid requires you to prove
 - Azure Functions with [Event Grid Trigger](../azure-functions/functions-bindings-event-grid.md)
 
 ## Endpoint validation with Event Grid events
+
 If you're using any other type of endpoint, such as an HTTP trigger based Azure function, your endpoint code needs to participate in a validation handshake with Event Grid. Event Grid supports two ways of validating the subscription.
 
-1. **Synchronous handshake**: At the time of event subscription creation, Event Grid sends a subscription validation event to your endpoint. The schema of this event is similar to any other Event Grid event. The data portion of this event includes a `validationCode` property. Your application verifies that the validation request is for an expected event subscription, and returns the validation code in the response synchronously. This handshake mechanism is supported in all Event Grid versions.
+- **Synchronous handshake**: At the time of event subscription creation, Event Grid sends a subscription validation event to your endpoint. The schema of this event is similar to any other Event Grid event. The data portion of this event includes a `validationCode` property. Your application verifies that the validation request is for an expected event subscription, and returns the validation code in the response synchronously. This handshake mechanism is supported in all Event Grid versions.
 
-2. **Asynchronous handshake**: In certain cases, you can't return the ValidationCode in response synchronously. For example, if you use a third-party service (like [`Zapier`](https://zapier.com) or [IFTTT](https://ifttt.com/)), you can't programmatically respond with the validation code.
+- **Asynchronous handshake**: In certain cases, you can't return the ValidationCode in response synchronously. For example, if you use a third-party service (like [`Zapier`](https://zapier.com) or [IFTTT](https://ifttt.com/)), you can't programmatically respond with the validation code.
 
    Starting with version 2018-05-01-preview, Event Grid supports a manual validation handshake. If you're creating an event subscription with an SDK or tool that uses API version 2018-05-01-preview or later, Event Grid sends a `validationUrl` property in the data portion of the subscription validation event. To complete the handshake, find that URL in the event data and do a GET request to it. You can use either a REST client or your web browser.
 
@@ -70,7 +71,7 @@ To prove endpoint ownership, echo back the validation code in the `validationRes
 }
 ```
 
-You must return an **HTTP 200 OK** response status code. **HTTP 202 Accepted** is not recognized as a valid Event Grid subscription validation response. The HTTP request must complete within 30 seconds. If the operation doesn't finish within 30 seconds, then the operation will be canceled and it may be reattempted after 5 seconds. If all the attempts fail, then it will be treated as validation handshake error.
+You must return an **HTTP 200 OK** response status code. **HTTP 202 Accepted** isn't recognized as a valid Event Grid subscription validation response. The HTTP request must complete within 30 seconds. If the operation doesn't finish within 30 seconds, then the operation will be canceled and it may be reattempted after 5 seconds. If all the attempts fail, then it will be treated as validation handshake error.
 
 Or, you can manually validate the subscription by sending a GET request to the validation URL. The event subscription stays in a pending state until validated. The validation Url uses port 553. If your firewall rules block port 553 then rules may need to be updated for successful manual handshake.
 
@@ -79,12 +80,8 @@ For an example of handling the subscription validation handshake, see a [C# samp
 ## Endpoint validation with CloudEvents v1.0
 CloudEvents v1.0 implements its own [abuse protection semantics](webhook-event-delivery.md) using the **HTTP OPTIONS** method. You can read more about it [here](https://github.com/cloudevents/spec/blob/v1.0/http-webhook.md#4-abuse-protection). When using the CloudEvents schema for output, Event Grid uses with the CloudEvents v1.0 abuse protection in place of the Event Grid validation event mechanism.
 
-## Event subscriptions considerations
-
-To prevent issues during the creation of the subscription use this reference to validate the compatibility between topic and subscription schemas. When a topic is created an incoming event schema is defined, as well as an outgoing event schema is defined when subscription is created.
-
-> [!NOTE]
-> This compatibility table reference applies for: Custom Topics and Event Domains.
+## Event schema compatibility
+When a topic is created, an incoming event schema is defined. And, when a subscription is created, an outgoing event schema is defined. The following table shows you the compatibility allowed when creating a subscription. 
 
 | Incoming event schema | Outgoing event schema | Supported |
 | ---- | ---- | ---- |

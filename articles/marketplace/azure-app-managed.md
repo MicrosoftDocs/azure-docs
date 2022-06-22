@@ -1,13 +1,13 @@
 ---
 title: Configure a managed application plan
-description: Configure a managed application plan for your Azure application offer in Partner Center (Azure Marketplace). 
-author: aarathin
-ms.author: aarathin
+description: Configure a managed application plan for an Azure application offer in Partner Center. 
+author: macerru
+ms.author: macerr
 ms.reviewer: dannyevers
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-ms.date: 06/01/2021
+ms.date: 03/29/2022
 ---
 
 # Configure a managed application plan
@@ -59,11 +59,6 @@ Prices are set in USD (USD = United States Dollar) are converted into the local 
 ### Set custom prices (optional)
 
 Prices set in USD (USD = United States Dollar) are converted into the local currency of all selected markets using the current exchange rates when saved. Validate these prices before publishing by exporting the pricing spreadsheet and reviewing the price in each market. If you would like to set custom prices in an individual market, modify and import the pricing spreadsheet.
-
-Review your prices carefully before publishing, as there are some restrictions on what can change after a plan is published.
-
-> [!NOTE]
-> After a price for a market in your plan is published, it can't be changed later.
 
 To set custom prices in an individual market, export, modify, and then import the pricing spreadsheet. You're responsible for validating this pricing and owning these settings. For detailed information, see [Custom prices](plans-pricing.md#custom-prices).
 
@@ -150,6 +145,8 @@ To learn more about deployment modes, see [Azure Resource Manager deployment mod
 ### Provide a notification endpoint URL
 
 In the **Notification Endpoint URL** box, provide an HTTPS Webhook endpoint to receive notifications about all CRUD operations on managed application instances of this plan version.
+
+Azure appends `/resource` to the end of your webhook URI before calling it. So, your webhook URL must end in `/resource`, but don't include `/resource` in the URL you enter into the **Notification Endpoint URL** box. For more information about the webhook URL, see [Plan a managed application](plan-azure-app-managed-app.md#notification-endpoint-url).
 
 ### Customize allowed customer actions (optional)
 

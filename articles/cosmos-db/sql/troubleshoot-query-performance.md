@@ -1,13 +1,13 @@
 ---
 title: Troubleshoot query issues when using Azure Cosmos DB 
 description: Learn how to identify, diagnose, and troubleshoot Azure Cosmos DB SQL query issues.
-author: timsander1
+author: seesharprun
 ms.service: cosmos-db
 ms.topic: troubleshooting
-ms.date: 02/16/2021
-ms.author: tisande
+ms.date: 04/04/2022
+ms.author: sidandrews
+ms.reviewer: jucocchi
 ms.subservice: cosmosdb-sql
-ms.reviewer: sngun
 ---
 # Troubleshoot query issues when using Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
@@ -27,11 +27,7 @@ This article provides examples that you can re-create by using the [nutrition da
 
 Before reading this guide, it is helpful to consider common SDK issues that aren't related to the query engine.
 
-- Follow these [SDK Performance tips](performance-tips.md).
-    - [.NET SDK troubleshooting guide](troubleshoot-dot-net-sdk.md)
-    - [Java SDK troubleshooting guide](troubleshoot-java-sdk-v4-sql.md)
-- The SDK allows setting a `MaxItemCount` for your queries but you can't specify a minimum item count.
-    - Code should handle any page size, from zero to the `MaxItemCount`.
+- Follow these [SDK Performance tips for query](performance-tips-query-sdk.md).
 - Sometimes queries may have empty pages even when there are results on a future page. Reasons for this could be:
     - The SDK could be doing multiple network calls.
     - The query might be taking a long time to retrieve the documents.
@@ -95,11 +91,11 @@ Here's an example of scan query that wasn't entirely served by the index:
 
 Query:
 
- ```sql
+```sql
 SELECT VALUE c.description
 FROM c
 WHERE UPPER(c.description) = "BABYFOOD, DESSERT, FRUIT DESSERT, WITHOUT ASCORBIC ACID, JUNIOR"
- ```
+```
 
 Query metrics:
 

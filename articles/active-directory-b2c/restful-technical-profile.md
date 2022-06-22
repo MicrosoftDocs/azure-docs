@@ -3,14 +3,14 @@ title: Define a RESTful technical profile in a custom policy
 titleSuffix: Azure AD B2C
 description: Define a RESTful technical profile in a custom policy in Azure Active Directory B2C.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 05/03/2021
-ms.author: mimart
+ms.date: 06/08/2022
+ms.author: kengaderdus
 ms.subservice: B2C
 ---
 
@@ -119,7 +119,7 @@ The technical profile also returns claims, that aren't returned by the identity 
 | ClaimUsedForRequestPayload| No | Name of a string claim that contains the payload to be sent to the REST API. |
 | DebugMode | No | Runs the technical profile in debug mode. Possible values: `true`, or `false` (default). In debug mode, the REST API can return more information. See the [Returning error message](#returning-validation-error-message) section. |
 | IncludeClaimResolvingInClaimsHandling  | No | For input and output claims, specifies whether [claims resolution](claim-resolver-overview.md) is included in the technical profile. Possible values: `true`, or `false` (default). If you want to use a claims resolver in the technical profile, set this to `true`. |
-| ResolveJsonPathsInJsonTokens  | No | Indicates whether the technical profile resolves JSON paths. Possible values: `true`, or `false` (default). Use this metadata to read data from a nested JSON element. In an [OutputClaim](technicalprofiles.md#output-claims), set the `PartnerClaimType` to the JSON path element you want to output. For example: `firstName.localized`, or `data.0.to.0.email`.|
+| ResolveJsonPathsInJsonTokens  | No | Indicates whether the technical profile resolves JSON paths. Possible values: `true`, or `false` (default). Use this metadata to read data from a nested JSON element. In an [OutputClaim](technicalprofiles.md#output-claims), set the `PartnerClaimType` to the JSON path element you want to output. For example: `firstName.localized`, or `data[0].to[0].email`.|
 | UseClaimAsBearerToken| No| The name of the claim that contains the bearer token.|
 
 ## Error handling
@@ -223,7 +223,7 @@ If the type of authentication is set to `ApiKeyHeader`, the **CryptographicKeys*
 | The name of the HTTP header, such as `x-functions-key`, or `x-api-key`. | Yes | The key that is used to authenticate. |
 
 > [!NOTE]
-> At this time, Azure AD B2C supports only one HTTP header for authentication. If your RESTful call requires multiple headers, such as a client ID and client secret, you will need to proxy the request in some manner.
+> At this time, Azure AD B2C supports only one HTTP header for authentication. If your RESTful call requires multiple headers, such as a client ID and client secret value, you will need to proxy the request in some manner.
 
 ```xml
 <TechnicalProfile Id="REST-API-SignUp">
@@ -259,7 +259,7 @@ Your REST API may need to return an error message, such as 'The user was not fou
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
 | version | Yes | Your REST API version. For example: 1.0.1 |
-| status | Yes | Must be 409 |
+| status | Yes | An HTTP response status codes-like number, and must be 409 |
 | code | No | An error code from the RESTful endpoint provider, which is displayed when `DebugMode` is enabled. |
 | requestId | No | A request identifier from the RESTful endpoint provider, which is displayed when `DebugMode` is enabled. |
 | userMessage | Yes | An error message that is shown to the user. |

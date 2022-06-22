@@ -4,17 +4,16 @@ metadata:
   description: Common questions and answers about Azure and Azure Active Directory, password management, and application access.
   services: active-directory
   author: ajburnle
-  manager: daveba
+  manager: karenhoran
   ms.assetid: b8207760-9714-4871-93d5-f9893de31c8f
   ms.service: active-directory
   ms.subservice: fundamentals
   ms.workload: identity
-  ms.topic: troubleshooting
+  ms.topic: faq
   ms.date: 11/12/2018
   ms.author: ajburnle
   ms.custom: "it-pro, seodec18"
   ms.collection: M365-identity-device-management
-    
 title: Frequently asked questions about Azure Active Directory
 summary: |
   Azure Active Directory (Azure AD) is a comprehensive identity as a service (IDaaS) solution that spans all aspects of identity, access management, and security.

@@ -1,6 +1,5 @@
 ---
-title: Configure protected web API apps | Azure
-titleSuffix: Microsoft identity platform
+title: Configure protected web API apps
 description: Learn how to build a protected web API and configure your application's code.
 services: active-directory
 author: jmprieur
@@ -9,10 +8,8 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
-ms.workload: identity
-ms.date: 07/15/2020
+ms.date: 05/12/2022
 ms.author: jmprieur
-ms.custom: aaddev 
 #Customer intent: As an application developer, I want to know how to write a protected web API using the Microsoft identity platform for developers.
 ---
 
@@ -90,7 +87,7 @@ This section describes how to configure a bearer token.
 
 #### Case where you used a custom App ID URI for your web API
 
-If you've accepted the App ID URI proposed by the app registration portal, you don't need to specify the audience (see [Application ID URI and scopes](scenario-protected-web-api-app-registration.md#application-id-uri-and-scopes)). Otherwise, you should add an `Audience` property whose value is the App ID URI for your web API.
+If you've accepted the default App ID URI proposed by the Azure portal, you don't need to specify the audience (see [Application ID URI and scopes](scenario-protected-web-api-app-registration.md#scopes-and-the-application-id-uri)). Otherwise, add an `Audience` property whose value is the App ID URI for your web API.
 
 ```Json
 {
@@ -120,7 +117,7 @@ You can create a web API from scratch by using Microsoft.Identity.Web project te
 
 #### Starting from an existing ASP.NET Core 3.1 application
 
-Today, ASP.NET Core 3.1 uses the Microsoft.AspNetCore.AzureAD.UI library. The middleware is initialized in the Startup.cs file.
+ASP.NET Core 3.1 uses the Microsoft.AspNetCore.Authentication.JwtBearer library. The middleware is initialized in the Startup.cs file.
 
 ```csharp
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -205,7 +202,8 @@ This table describes the validators:
 
 The validators are associated with properties of the **TokenValidationParameters** class. The properties are initialized from the ASP.NET and ASP.NET Core configuration.
 
-In most cases, you don't need to change the parameters. Apps that aren't single tenants are exceptions. These web apps accept users from any organization or from personal Microsoft accounts. Issuers in this case must be validated. Microsoft.Identity.Web takes care of the issuer validation as well. For details see Microsoft.Identity.Web [AadIssuerValidator](https://github.com/AzureAD/microsoft-identity-web/blob/master/src/Microsoft.Identity.Web/Resource/AadIssuerValidator.cs).
+In most cases, you don't need to change the parameters. Apps that aren't single tenants are exceptions. These web apps accept users from any organization or from personal Microsoft accounts. Issuers in this case must be validated. Microsoft.Identity.Web takes care of the issuer validation as well.
+
 
 In ASP.NET Core, if you want to customize the token validation parameters, use the following snippet in your *Startup.cs*:
 

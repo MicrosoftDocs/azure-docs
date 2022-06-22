@@ -25,7 +25,7 @@ Use the Anomaly Detector client library for Python to:
 * [Python 3.x](https://www.python.org/)
 * The [Pandas data analysis library](https://pandas.pydata.org/)
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services)
-* Once you have your Azure subscription, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAnomalyDetector"  title="Create an Anomaly Detector resource"  target="_blank">create an Anomaly Detector resource </a> in the Azure portal to get your key and endpoint. Wait for it to deploy and click the **Go to resource** button.
+* Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesAnomalyDetector"  title="Create an Anomaly Detector resource"  target="_blank">create an Anomaly Detector resource </a> in the Azure portal to get your key and endpoint. Wait for it to deploy and click the **Go to resource** button.
     * You will need the key and endpoint from the resource you create to connect your application to the Anomaly Detector API. You'll paste your key and endpoint into the code below later in the quickstart.
     You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
 
@@ -34,7 +34,7 @@ Use the Anomaly Detector client library for Python to:
 
 [!INCLUDE [anomaly-detector-environment-variables](../environment-variables.md)]
 
-### Create a new python application
+### Create a new Python application
 
  Create a new Python file and import the following libraries.
 
@@ -102,7 +102,7 @@ Load your data file with the Pandas library's `read_csv()` method, and make an e
 
 ```python
 series = []
-data_file = pd.read_csv(TIME_SERIES_DATA_PATH, header=None, encoding='utf-8', parse_dates=[0])
+data_file = pd.read_csv(TIME_SERIES_DATA_PATH, header=None, encoding='utf-8', date_parser=[0])
 for index, row in data_file.iterrows():
     series.append(TimeSeriesPoint(timestamp=row[0], value=row[1]))
 ```
@@ -112,6 +112,14 @@ Create a `DetectRequest` object with your time series, and the `TimeGranularity`
 ```python
 request = DetectRequest(series=series, granularity=TimeGranularity.daily)
 ```
+
+Input argument descriptions:
+'series': required in request. must be array/list type, and have more than 12 points and no more than 8640 points. must sorted by timestamp in ascending order and cannot have duplicated timestamp. 
+'granularity': required in request. can only be one of the following: ['daily', 'minutely', 'hourly', 'weekly', 'monthly', 'yearly', 'secondly'].
+'customInterval': must be an integer > 0.
+'period': must be an integer >= 0.
+'maxAnomalyRatio': must be less than 50% of the series points (0 < maxAnomalyRatio < 0.5).
+'sensitivity': must be an integer between 0 and 99.
 
 ## Detect anomalies in the entire data set
 

@@ -1,6 +1,5 @@
 ---
-title: Xamarin Android code configuration and troubleshooting (MSAL.NET) | Azure
-titleSuffix: Microsoft identity platform
+title: Xamarin Android code configuration and troubleshooting (MSAL.NET)
 description: Learn about considerations for using Xamarin Android with the Microsoft Authentication Library for .NET (MSAL.NET).
 services: active-directory
 author: jmprieur
@@ -126,7 +125,7 @@ To use System WebView as a fallback for interactive authentication when you've c
 </activity>
 ```
 
-Substitute the package name that you registered in the Azure portal for the `android:host=` value. Substitute the key hash that you registered in the Azure portal for the `android:path=` value. The signature hash should *not* be URL encoded. Ensure that a leading forward slash (`/`) appears at the beginning of your signature hash.
+Substitute the package name that you registered in the Azure portal for the `android:host=` value. Substitute the key hash that you registered in the Azure portal for the `android:path=` value. The signature hash should **not** be URL-encoded. Ensure that a leading forward slash (`/`) appears at the beginning of your signature hash.
 
 ### Xamarin.Forms 4.3.x manifest
 

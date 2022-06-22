@@ -75,7 +75,7 @@ To import the library into your project using the [Maven](https://maven.apache.o
 ```
 
 
-### Setup the placeholders
+### Set up the placeholders
 
 Open and edit the file `MainActivity.java`. In this Quickstart, we'll add our code to `MainActivity`, and view the output in the console. This quickstart does not address building a UI. At the top of file, import the `Communication common`, `Communication chat`, and other system libraries:
 
@@ -107,6 +107,7 @@ Copy the following code into class `MainActivity` in file `MainActivity.java`:
     private static final String APPLICATION_ID = "Chat Quickstart App";
     private static final String SDK_NAME = "azure-communication-com.azure.android.communication.chat";
     private static final String TAG = "Chat Quickstart App";
+    private ChatAsyncClient chatAsyncClient;
 
     private void log(String msg) {
         Log.i(TAG, msg);
@@ -161,7 +162,7 @@ Replace the comment `<CREATE A CHAT CLIENT>` with the following code (put the im
 ```java
 import com.azure.android.core.http.policy.UserAgentPolicy;
 
-ChatAsyncClient chatAsyncClient = new ChatClientBuilder()
+chatAsyncClient = new ChatClientBuilder()
     .endpoint(endpoint)
     .credential(new CommunicationTokenCredential(firstUserAccessToken))
     .addPolicy(new UserAgentPolicy(APPLICATION_ID, SDK_NAME, sdkVersion))
@@ -258,6 +259,8 @@ chatMessageId = chatThreadAsyncClient.sendMessage(chatMessageOptions).get().getI
 ```
 
 ## Receive chat messages from a chat thread
+
+### Real-time notifications
 With real-time signaling, you can subscribe to new incoming messages and update the current messages in memory accordingly. Azure Communication Services supports a [list of events that you can subscribe to](../../../concepts/chat/concepts.md#real-time-notifications).
 
 Replace the comment `<RECEIVE CHAT MESSAGES>` with the following code (put the import statements at top of the file):
@@ -289,6 +292,155 @@ chatAsyncClient.addEventHandler(ChatEventType.CHAT_MESSAGE_RECEIVED, (ChatEvent 
 > 
 > Note with above update, if the application tries to touch any of the notification API like `chatAsyncClient.startRealtimeNotifications()` or `chatAsyncClient.addEventHandler()`, there will be a runtime error.
 
+### Push notifications
+
+> [!NOTE]
+> Currently chat push notifications are only supported for Android SDK in version 1.1.0-beta.4.
+
+Push notifications let clients to be notified for incoming messages and other operations occurring in a chat thread in situations where the mobile app is not running in the foreground. Azure Communication Services supports a [list of events that you can subscribe to](../../../concepts/chat/concepts.md#push-notifications).
+
+1. Set up Firebase Cloud Messaging with ChatQuickstart project. Complete steps `Create a Firebase project`, `Register your app with Firebase`, `Add a Firebase configuration file`, `Add Firebase SDKs to your app`, and `Edit your app manifest` in [Firebase Documentation](https://firebase.google.com/docs/cloud-messaging/android/client).
+
+2. Create a Notification Hub within the same subscription as your Communication Services resource, configure your Firebase Cloud Messaging settings for the hub, and link the Notification Hub to your Communication Services resource. See [Notification Hub provisioning](../../../concepts/notifications.md#notification-hub-provisioning).
+3. Create a new file `MyFirebaseMessagingService.java` in the same path of file `MainActivity.java`. Copy the following code into file `MyFirebaseMessagingService.java`. You need to replace `<your_package_name>` with the package name used in `MainActivity.java`. You can use your own value for `<your_intent_name>`. This value would be used in step 6 below.
+
+   ```java
+      package <your_package_name>;
+
+      import android.content.Intent;
+      import android.util.Log;
+
+      import androidx.localbroadcastmanager.content.LocalBroadcastManager;
+
+      import com.azure.android.communication.chat.models.ChatPushNotification;
+      import com.google.firebase.messaging.FirebaseMessagingService;
+      import com.google.firebase.messaging.RemoteMessage;
+
+      import java.util.concurrent.Semaphore;
+
+      public class MyFirebaseMessagingService extends FirebaseMessagingService {
+          private static final String TAG = "MyFirebaseMsgService";
+          public static Semaphore initCompleted = new Semaphore(1);
+
+          @Override
+          public void onMessageReceived(RemoteMessage remoteMessage) {
+              try {
+                  Log.d(TAG, "Incoming push notification.");
+
+                  initCompleted.acquire();
+
+                  if (remoteMessage.getData().size() > 0) {
+                      ChatPushNotification chatPushNotification =
+                          new ChatPushNotification().setPayload(remoteMessage.getData());
+                      sendPushNotificationToActivity(chatPushNotification);
+                  }
+
+                  initCompleted.release();
+              } catch (InterruptedException e) {
+                  Log.e(TAG, "Error receiving push notification.");
+              }
+          }
+
+          private void sendPushNotificationToActivity(ChatPushNotification chatPushNotification) {
+              Log.d(TAG, "Passing push notification to Activity: " + chatPushNotification.getPayload());
+              Intent intent = new Intent("<your_intent_name>");
+              intent.putExtra("PushNotificationPayload", chatPushNotification);
+              LocalBroadcastManager.getInstance(this).sendBroadcast(intent);
+          }
+      }
+
+   ```
+
+4. At the top of file `MainActivity.java`, add the following import:
+
+   ```java
+      import android.content.BroadcastReceiver;
+      import android.content.Context;
+      import android.content.Intent;
+      import android.content.IntentFilter;
+
+      import androidx.localbroadcastmanager.content.LocalBroadcastManager;
+      import com.azure.android.communication.chat.models.ChatPushNotification;
+      import com.google.android.gms.tasks.OnCompleteListener;
+      import com.google.android.gms.tasks.Task;
+      import com.google.firebase.messaging.FirebaseMessaging;
+   ```
+
+5. Add the following code into class `MainActivity`:
+
+   ```java
+      private BroadcastReceiver firebaseMessagingReceiver = new BroadcastReceiver() {
+          @Override
+          public void onReceive(Context context, Intent intent) {
+              ChatPushNotification pushNotification =
+                  (ChatPushNotification) intent.getParcelableExtra("PushNotificationPayload");
+
+              Log.d(TAG, "Push Notification received in MainActivity: " + pushNotification.getPayload());
+
+              boolean isHandled = chatAsyncClient.handlePushNotification(pushNotification);
+              if (!isHandled) {
+                  Log.d(TAG, "No listener registered for incoming push notification!");
+              }
+          }
+      };
+
+
+      private void startFcmPushNotification() {
+          FirebaseMessaging.getInstance().getToken()
+              .addOnCompleteListener(new OnCompleteListener<String>() {
+                  @Override
+                  public void onComplete(@NonNull Task<String> task) {
+                      if (!task.isSuccessful()) {
+                          Log.w(TAG, "Fetching FCM registration token failed", task.getException());
+                          return;
+                      }
+
+                      // Get new FCM registration token
+                      String token = task.getResult();
+
+                      // Log and toast
+                      Log.d(TAG, "Fcm push token generated:" + token);
+                      Toast.makeText(MainActivity.this, token, Toast.LENGTH_SHORT).show();
+
+                      chatAsyncClient.startPushNotifications(token, new Consumer<Throwable>() {
+                          @Override
+                          public void accept(Throwable throwable) {
+                              Log.w(TAG, "Registration failed for push notifications!", throwable);
+                          }
+                      });
+                  }
+              });
+      }
+
+   ```
+
+6. Update function `onCreate` in class `MainActivity`.
+
+   ```java
+      @Override
+      protected void onCreate(Bundle savedInstanceState) {
+          super.onCreate(savedInstanceState);
+          setContentView(R.layout.activity_main);
+    
+          LocalBroadcastManager
+              .getInstance(this)
+              .registerReceiver(
+                  firebaseMessagingReceiver,
+                  new IntentFilter("<your_intent_name>"));
+      }
+   ```
+
+7. Put the following code below comment `<RECEIVE CHAT MESSAGES>`:
+
+```java
+   startFcmPushNotification();
+
+   chatAsyncClient.addPushNotificationHandler(CHAT_MESSAGE_RECEIVED, (ChatEvent payload) -> {
+       Log.i(TAG, "Push Notification CHAT_MESSAGE_RECEIVED.");
+       ChatMessageReceivedEvent event = (ChatMessageReceivedEvent) payload;
+       // You code to handle ChatMessageReceived event
+   });
+```
 
 ## Add a user as a participant to the chat thread
 

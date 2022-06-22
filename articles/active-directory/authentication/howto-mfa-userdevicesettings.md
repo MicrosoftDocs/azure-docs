@@ -10,7 +10,7 @@ ms.date: 11/04/2020
 
 ms.author: justinha
 author: justinha
-manager: daveba
+manager: karenhoran
 ms.reviewer: michmcla, dawoo
 
 ms.collection: M365-identity-device-management
@@ -79,7 +79,7 @@ Remove a specific phone method for a user
 Remove-MgUserAuthenticationPhoneMethod -UserId balas@contoso.com -PhoneAuthenticationMethodId 3179e48a-750b-4051-897c-87b9720928f7
 ```
 
-Authentication methods can also be managed using Microsoft Graph APIs, more information can be found in the document [Azure AD authentication methods API overview](/graph/api/resources/authenticationmethods-overview?view=graph-rest-beta&preserve-view=true)
+Authentication methods can also be managed using Microsoft Graph APIs, more information can be found in the document [Azure AD authentication methods API overview](/graph/api/resources/authenticationmethods-overview)
 
 ## Manage user authentication options
 

@@ -10,6 +10,9 @@ ms.date: 11/09/2020
 # Tutorial: Add your knowledge base to Power Virtual Agents
 Create and extend a [Power Virtual Agents](https://powervirtualagents.microsoft.com/) bot to provide answers from your knowledge base.
 
+> [!NOTE]
+> The integration demonstrated in this tutorial is in preview and is not intended for deployment to production environments.
+
 In this tutorial, you learn how to:
 
 <!-- green checkmark -->
@@ -21,6 +24,8 @@ In this tutorial, you learn how to:
 > * Add a Power Automate flow to your solution
 > * Publish Power Virtual Agents
 > * Test Power Virtual Agents, and recieve an answer from your QnA Maker knowledge base
+
+[!INCLUDE [Custom question answering](../includes/new-version.md)]
 
 ## Integrate an agent with a knowledge base
 

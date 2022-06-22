@@ -7,10 +7,13 @@ ms.reviewer: jburchel
 ms.service: data-factory
 ms.subservice: v1
 ms.topic: conceptual
-ms.date: 01/10/2018
+ms.date: 10/22/2021
 ---
 
 # Compute environments supported by Azure Data Factory version 1
+
+[!INCLUDE[ML Studio (classic) retirement](../../../includes/machine-learning-studio-classic-deprecation.md)] 
+
 > [!NOTE]
 > This article applies to version 1 of Azure Data Factory. If you are using the current version of the Data Factory service, see [Compute linked services in](../compute-linked-services.md).
 
@@ -260,7 +263,7 @@ You can create a Batch linked service to register a Batch pool of virtual machin
 
 If you are new to using the Batch service:
 
-* Learn about [Azure Batch basics](../../azure-sql/database/sql-database-paas-overview.md).
+* Learn about [Azure Batch basics](/azure/azure-sql/database/sql-database-paas-overview).
 * Learn about the [New-AzureBatchAccount](/previous-versions/azure/mt125880(v=azure.100)) cmdlet. Use this cmdlet to create a Batch account. Or, you can create the Batch account by using the [Azure portal](../../batch/batch-account-create-portal.md). For detailed information about using the cmdlet, see [Using PowerShell to manage a Batch account](/archive/blogs/windowshpc/using-azure-powershell-to-manage-azure-batch-account).
 * Learn about the [New-AzureBatchPool](/previous-versions/azure/mt125936(v=azure.100)) cmdlet. Use this cmdlet to create a Batch pool.
 
@@ -304,6 +307,9 @@ Another option is to provide the **batchUri** endpoint. For example:
 | linkedServiceName | The name of the storage linked service that's associated with this Batch linked service. This linked service is used for staging files that are required to run the activity, and to store activity execution logs. | Yes      |
 
 ## ML Studio (classic) linked service
+
+[!INCLUDE[ML Studio (classic) retirement](../../../includes/machine-learning-studio-classic-deprecation.md)] 
+
 You can create an ML Studio (classic) linked service to register a Studio (classic) batch scoring endpoint to a data factory.
 
 ### Example

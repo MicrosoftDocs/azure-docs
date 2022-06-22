@@ -3,15 +3,16 @@ title: Configure QnA Maker service - QnA Maker
 description: This document outlines advanced configurations for your QnA Maker resources.
 ms.service: cognitive-services
 ms.subservice: qna-maker
-ms.topic: conceptual
-ms.date: 05/04/2021
+ms.topic: how-to
+ms.date: 08/25/2021
+ms.custom: ignite-fall-2021
 ---
 
 # Configure QnA Maker resources
 
 The user can configure QnA Maker to use a different Cognitive search resource. They can also configure App service settings if they are using QnA Maker GA.
 
-# [QnA Maker GA (stable release)](#tab/v1)
+[!INCLUDE [Custom question answering](../includes/new-version.md)]
 
 ## Configure QnA Maker to use different Cognitive Search resource
 
@@ -45,30 +46,7 @@ If you create a QnA service through Azure Resource Manager templates, you can cr
 
 Learn more about how to configure the App Service [Application settings](../../../app-service/configure-common.md#configure-app-settings).
 
-# [Custom question answering (preview release)](#tab/v2)
-
-### Configure Text Analytics resource with Custom question answering feature to use a different Cognitive Search resource
-
-> [!NOTE]
-> If you change the Azure Search service associated with Text Analytics, you will lose access to all the knowledge bases already present in it. Make sure you export the existing knowledge bases before you change the Azure Search service.
-
-
-If you create a Text Analytics resource and its dependencies (such as Search) through the portal, a Search service is created for you and linked to the Text Analytics resource. After these resources are created, you can update the Search resource in the **Features** tab.
-
-1.  Go to your Text Analytics resource in the Azure portal.
-
-2.  Select **Features** and select the Azure Cognitive Search service you want to link with your Text Analytics resource.
-
-> [!div class="mx-imgBorder"]
-> ![Add QnA to TA](../media/qnamaker-how-to-upgrade-qnamaker/update-custom-qna-feature.png)
-
-3.  Click **Save**.
-
----
-
 ## Get the latest runtime updates
-
-# [QnA Maker GA (stable release)](#tab/v1)
 
 The QnAMaker runtime is part of the Azure App Service instance that's deployed when you [create a QnAMaker service](./set-up-qnamaker-service-azure.md) in the Azure portal. Updates are made periodically to the runtime. The QnA Maker App Service instance is in auto-update mode after the April 2019 site extension release (version 5+). This update is designed to take care of ZERO downtime during upgrades.
 
@@ -88,16 +66,8 @@ You can check your current version at https://www.qnamaker.ai/UserSettings. If y
 1. Restart App Service. The update process should finish in a couple of seconds. Any dependent applications or bots that use this QnAMaker service will be unavailable to end users during this restart period.
 
     ![Restart of the QnAMaker App Service instance](../media/qnamaker-how-to-upgrade-qnamaker/qnamaker-appservice-restart.png)
-    
-# [Custom question answering (preview release)](#tab/v2)
-
-App service is not deployed with Custom question answering.
-
----
 
 ## Configure App service idle setting to avoid timeout
-
-# [QnA Maker GA (stable release)](#tab/v1)
 
 The app service, which serves the QnA Maker prediction runtime for a published knowledge base, has an idle timeout configuration, which defaults to automatically time out if the service is idle. For QnA Maker, this means your prediction runtime generateAnswer API occasionally times out after periods of no traffic.
 
@@ -116,15 +86,7 @@ In order to keep the prediction endpoint app loaded even when there is no traffi
 
 Learn more about how to configure the App Service [General settings](../../../app-service/configure-common.md#configure-general-settings).
 
-# [Custom question answering (preview release)](#tab/v2)
-
-App service is not deployed with Custom question answering.
-
----
-
 ## Business continuity with traffic manager
-
-# [QnA Maker GA (stable release)](#tab/v1)
 
 The primary objective of the business continuity plan is to create a resilient knowledge base endpoint, which would ensure no down time for the Bot or the application consuming it.
 
@@ -133,9 +95,9 @@ The primary objective of the business continuity plan is to create a resilient k
 
 The high-level idea as represented above is as follows:
 
-1. Set up two parallel [QnA Maker services](set-up-qnamaker-service-azure.md) in [Azure paired regions](../../../best-practices-availability-paired-regions.md).
+1. Set up two parallel [QnA Maker services](set-up-qnamaker-service-azure.md) in [Azure paired regions](../../../availability-zones/cross-region-replication-azure.md).
 
-1. [Backup](../../../app-service/manage-backup.md) your primary QnA Maker App service and [restore](../../../app-service/web-sites-restore.md) it in the secondary setup. This will ensure that both setups work with the same hostname and keys.
+1. [Backup](../../../app-service/manage-backup.md) your primary QnA Maker App service and [restore](../../../app-service/manage-backup.md) it in the secondary setup. This will ensure that both setups work with the same hostname and keys.
 
 1. Keep the primary and secondary Azure search indexes in sync. Use the GitHub sample [here](https://github.com/pchoudhari/QnAMakerBackupRestore) to see how to backup-restore Azure indexes.
 
@@ -146,9 +108,3 @@ The high-level idea as represented above is as follows:
 1. You would need to create a Transport Layer Security (TLS), previously known as Secure Sockets Layer (SSL), certificate for your traffic manager endpoint. [Bind the TLS/SSL certificate](../../../app-service/configure-ssl-bindings.md) in your App services.
 
 1. Finally, use the traffic manager endpoint in your Bot or App.
-
-# [Custom question answering (preview release)](#tab/v2)
-
-App service is not deployed with Custom question answering.
-
----

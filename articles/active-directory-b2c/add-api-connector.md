@@ -5,11 +5,11 @@ services: active-directory-b2c
 ms.service: active-directory
 ms.subservice: B2C
 ms.topic: how-to
-ms.date: 08/24/2021
+ms.date: 11/09/2021
 
-ms.author: mimart
-author: msmimart
-manager: celestedg
+ms.author: kengaderdus
+author: kengaderdus
+manager: CelesteDG
 ms.custom: "it-pro"
 zone_pivot_groups: b2c-policy-type
 ---
@@ -72,6 +72,7 @@ Content-type: application/json
      }
  ],
  "displayName": "John Smith",
+ "objectId": "11111111-0000-0000-0000-000000000000",
  "givenName":"John",
  "surname":"Smith",
  "jobTitle":"Supplier",
@@ -142,6 +143,7 @@ Content-type: application/json
      }
  ],
  "displayName": "John Smith",
+ "objectId": "11111111-0000-0000-0000-000000000000",
  "givenName":"John",
  "lastName":"Smith",
  "step": "PostFederationSignup",
@@ -195,6 +197,7 @@ Content-type: application/json
      }
  ],
  "displayName": "John Smith",
+ "objectId": "11111111-0000-0000-0000-000000000000",
  "givenName":"John",
  "surname":"Smith",
  "jobTitle":"Supplier",
@@ -259,7 +262,7 @@ Content-type: application/json
 {
  "clientId": "231c70e8-8424-48ac-9b5d-5623b9e4ccf3",
  "step": "PreTokenApplicationClaims",
- "ui_locales":"en-US"
+ "ui_locales":"en-US",
  "email": "johnsmith@fabrikam.onmicrosoft.com",
  "identities": [
      {

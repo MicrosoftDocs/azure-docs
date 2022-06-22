@@ -2,11 +2,11 @@
 title: Azure Marketplace
 description: Describes how EA customers can use Azure Marketplace
 author: bandersmsft
-ms.reviewer: baolcsva
+ms.reviewer: sapnakeshari
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.topic: conceptual
-ms.date: 09/15/2021
+ms.date: 06/08/2022
 ms.author: banders
 ---
 
@@ -16,7 +16,7 @@ This article explains how EA customers and partners can view marketplace charges
 
 ## Azure Marketplace for EA customers
 
-For direct customers, Azure Marketplace charges are visible on the Azure Enterprise portal. Azure Marketplace purchases and consumption are billed outside of Azure Prepayment on a quarterly or monthly cadence and in arrears.
+For direct customers, Azure Marketplace charges are visible on the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_GTM/ModernBillingMenuBlade/BillingAccounts). Azure Marketplace purchases and consumption are billed outside of Azure Prepayment on a quarterly or monthly cadence and in arrears. See [Manage Azure Marketplace on Azure portal](direct-ea-administration.md#enable-azure-marketplace-purchases).
 
 Indirect customers can find their Azure Marketplace subscriptions on the **Manage Subscriptions** page of the Azure Enterprise portal, but pricing will be hidden. Customers should contact their Licensing Solutions Provider (LSP) for information on Azure Marketplace charges.
 
@@ -28,13 +28,16 @@ Some third-party reseller services available on Azure Marketplace now consume yo
 
 ### Partners
 
+> [!NOTE]
+> The Azure Marketplace price list feature in the EA portal is retired.
+
 LSPs can download an Azure Marketplace price list from the price sheet page in the Azure Enterprise portal. Select the **Marketplace Price list** link in the upper right. Azure Marketplace price list shows all available services and their prices.
 
 To download the price list:
 
 1. In the Azure Enterprise portal, go to **Reports** > **Price Sheet**.
 1. In the top-right corner, find the link to Azure Marketplace price list under your username.
-1. Right-click the link and select **Save Target As**.
+1. Select and hold (or right-click) the link and select **Save Target As**.
 1. On the **Save** window, change the title of the document to `AzureMarketplacePricelist.zip`, which will change the file from an .xlsx to a .zip file.
 1. After the download is complete, you'll have a zip file with country-specific price lists.
 1. LSPs should reference the individual country file for country-specific pricing. LSPs can use the **Notifications** tab to be aware of SKUs that are net new or retired.
@@ -47,12 +50,21 @@ Enterprise administrators can disable or enable Azure Marketplace purchases for 
 
 Although customers can convert their direct Azure subscriptions to Azure EA by associating them to their enrollment in the Azure Enterprise portal, this action doesn't automatically convert the child subscriptions.
 
-To enable Azure Marketplace purchases:
+To enable Azure Marketplace purchases on Azure Enterprise Portal:
 
 1. Sign in to the Azure Enterprise portal as an enterprise administrator.
 1. Go to **Manage**.
 1. Under **Enrollment Detail**, select the pencil icon next to the **Azure Marketplace** line item.
 1. Toggle **Enabled/Disabled** or Free **BYOL SKUs Only** as appropriate.
+1. Select **Save**.
+
+Direct customer can enable Azure Marketplace purchase in Azure portal:
+
+1. Sign in to the Azure portal.
+1. Navigate to **Cost Management + Billing**.
+1. In the left menu, select Billing scopes and then select a billing account scope.
+1. In the left menu, select **Policies**.
+1. Under Azure Marketplace, set the policy to **On**.
 1. Select **Save**.
 
 > [!NOTE]
@@ -67,7 +79,7 @@ The following services are billed hourly under an Enterprise Agreement instead o
 
 ### Azure RemoteApp
 
-If you have an Enterprise Agreement, you pay for Azure RemoteApp based on your Enterprise Agreement price level. There aren't additional charges. The standard price includes an initial 40 hours. The unlimited price covers an initial 80 hours. RemoteApp stops emitting usage over 80 hours.
+If you have an Enterprise Agreement, you pay for Azure RemoteApp based on your Enterprise Agreement price level. There aren't extra charges. The standard price includes an initial 40 hours. The unlimited price covers an initial 80 hours. RemoteApp stops emitting usage over 80 hours.
 
 ## Next steps
 

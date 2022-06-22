@@ -8,7 +8,8 @@ ms.date: 01/27/2021
 ms.topic: article
 ms.service: virtual-machines
 ms.subservice: image-builder
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, devx-track-azurecli 
+ms.devlang: azurecli
 ---
 
 # Azure Image Builder Service DevOps Task (preview)
@@ -28,7 +29,7 @@ There are two Azure VM Image Builder (AIB) DevOps Tasks:
 ## Prerequisites
 
 > [!NOTE]
-> The AIB task does not currently support Windows Restarts, running elevated commands as Administrator, which means it is not suitable for Windows Virtual Desktop scenarios or Windows customizations that require the above. If you wish to use DevOps with Image Builder, you should nest the template into an Azure Resource Manager task, use AZ CLI or PowerShell tasks.
+> The AIB task does not currently support Windows Restarts, running elevated commands as Administrator, which means it is not suitable for Azure Virtual Desktop scenarios or Windows customizations that require the above. If you wish to use DevOps with Image Builder, you should nest the template into an Azure Resource Manager task, use AZ CLI or PowerShell tasks.
 
 * Install the [Stable DevOps Task from Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=AzureImageBuilder.devOps-task-for-azure-image-builder).
 * You must have a VSTS DevOps account, and a Build Pipeline created
@@ -47,7 +48,7 @@ There are two Azure VM Image Builder (AIB) DevOps Tasks:
     New-AzStorageAccount -ResourceGroupName $strResourceGroup -Name $storageAccName -Location $location -SkuName Standard_LRS
     ```
 
-    ```bash
+    ```azurecli
     # Az CLI
     location=westus
     scriptStorageAcc=aibstordot$(date +'%s')
@@ -73,14 +74,16 @@ Use the resource group where the temporary image template artifact will be store
  
 ### Location
 
-The location is the region where the Image Builder will run. Only a set number of [regions](../image-builder-overview.md#regions) are supported. The source images must be present in this location. For example, if you are using Shared Image Gallery, a replica must exist in that region.
+The location is the region where the Image Builder will run. Only a set number of [regions](../image-builder-overview.md#regions) are supported. The source images must be present in this location. For example, if you are using Azure Compute Gallery, a replica must exist in that region.
 
 ### Managed Identity (Required)
 Image Builder requires a Managed Identity, which it uses to read source custom images, connect to Azure Storage, and create custom images. See [Learn about Azure Image Builder](../image-builder-overview.md#permissions) for more details.
 
 ### VNET Support
 
-Currently the DevOps task does not support specifying an existing Subnet, this is on the roadmap, but if you want to utilize an existing VNET, you can use an ARM template, with an Image Builder template nested inside, please see the Windows Image Builder template examples on how this is achieved, or alternatively use [AZ AIB PowerShell](../windows/image-builder-powershell.md).
+The VM that is created can be configured to be in a specific VNET.
+Provide the resource id of a pre-existing subnet in the 'VNet Configuration (Optional)' input field when configuring the task.
+Omit if no specific virtual network needs to be used. Review https://docs.microsoft.com/azure/virtual-machines/linux/image-builder-networking for more information.
 
 ### Source
 
@@ -89,12 +92,12 @@ The source images must be of the supported Image Builder OSs. You can choose exi
     ```json
     /subscriptions/<subscriptionID>/resourceGroups/<rgName>/providers/Microsoft.Compute/images/<imageName>
     ```
-* Azure Shared Image Gallery - You need to pass in the resourceId of the image version, for example:
+* Azure Azure Compute Gallery - You need to pass in the resourceId of the image version, for example:
     ```json
     /subscriptions/$subscriptionID/resourceGroups/$sigResourceGroup/providers/Microsoft.Compute/galleries/$sigName/images/$imageDefName/versions/<versionNumber>
     ```
 
-    If you need to get the latest Shared Image Gallery version, you can have an AZ PowerShell or AZ CLI task before that will get the latest version and set a DevOps variable. Use the variable in the AZ VM Image Builder DevOps task. For more information, see the [examples](https://github.com/danielsollondon/azvmimagebuilder/tree/master/solutions/8_Getting_Latest_SIG_Version_ResID#getting-the-latest-image-version-resourceid-from-shared-image-gallery).
+    If you need to get the latest Azure Compute Gallery (formerly known as Shared Image Gallery) version, you can have an AZ PowerShell or AZ CLI task before that will get the latest version and set a DevOps variable. Use the variable in the AZ VM Image Builder DevOps task. For more information, see the [examples](https://github.com/danielsollondon/azvmimagebuilder/tree/master/solutions/8_Getting_Latest_SIG_Version_ResID#getting-the-latest-image-version-resourceid-from-shared-image-gallery).
 
 * (Marketplace) Base Image
     There is a drop-down list of popular images, these will always use the 'latest' version of the supported OS's. 
@@ -229,9 +232,9 @@ There are 3 distribute types supported.
 
 * Locations
 
-#### Azure Shared Image Gallery
+#### Azure Compute Gallery
 
-The Shared Image Gallery **must** already exist.
+The Azure Compute Gallery **must** already exist.
 
 * ResourceID: 
     ```bash

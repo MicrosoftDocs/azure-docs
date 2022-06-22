@@ -7,7 +7,7 @@ author: aahill
 manager: nitinme
 ms.custom: seodec18, devx-track-azurecli
 ms.service: cognitive-services
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/18/2020
 ms.author: aahi
 #Customer intent: As a potential customer, I want to know more about how Cognitive Services provides and supports Docker containers for each service.

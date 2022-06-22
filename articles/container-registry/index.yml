@@ -98,3 +98,17 @@ landingContent:
         links:
           - text: Automate image builds     
             url: container-registry-tutorial-quick-task.md
+  - title: Connected registry (Preview)
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: About connected registry
+            url: intro-connected-registry.md
+          - text: Connected registry and IoT Edge
+            url: overview-connected-registry-and-iot-edge.md
+      - linkListType: quickstart
+        links:
+          - text: Create a connected registry - CLI
+            url: quickstart-connected-registry-cli.md
+          - text: Create a connected registry - Portal
+            url: quickstart-connected-registry-portal.md

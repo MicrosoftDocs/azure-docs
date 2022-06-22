@@ -118,7 +118,8 @@ You can create a network service endpoint in your virtual network for "Storage" 
 - Select 'Microsoft.Storage' under 'Service' and the required subnets under 'Subnets' field and click 'Add'
 
 >[!NOTE]
->Do not restrict virtual network access to your storage accounts used for ASR. You should allow access from 'All networks'
+>If you are using firewall enabled cache storage account or target storage account, ensure you ['Allow trusted Microsoft services'](../storage/common/storage-network-security.md). Also, ensure that you allow access to at least one subnet of source Vnet.
+
 
 ### Forced tunneling
 

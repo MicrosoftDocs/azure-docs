@@ -4,16 +4,15 @@ titleSuffix: Azure Load Balancer
 description: Overview of Azure Load Balancer features, architecture, and implementation. Learn how the Load Balancer works and how to use it in the cloud.
 services: load-balancer
 documentationcenter: na
-author: asudbring
+author: mbender-ms
 ms.service: load-balancer
 # Customer intent: As an IT administrator, I want to learn more about the Azure Load Balancer service and what I can use it for. 
-ms.devlang: na
 ms.topic: overview
 ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 1/25/2021
-ms.author: allensu
+ms.author: mbender
 
 ---
 
@@ -61,7 +60,7 @@ Key scenarios that you can accomplish using Azure Standard Load Balancer include
 
 - Employ **[port forwarding](./tutorial-load-balancer-port-forwarding-portal.md)** to access virtual machines in a virtual network by public IP address and port.
 
-- Enable support for **[load-balancing](../virtual-network/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md)** of **[IPv6](../virtual-network/ipv6-overview.md)**.
+- Enable support for **[load-balancing](./virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md)** of **[IPv6](../virtual-network/ip-services/ipv6-overview.md)**.
 
 - Standard load balancer provides multi-dimensional metrics through [Azure Monitor](../azure-monitor/overview.md).  These metrics can be filtered, grouped, and broken out for a given dimension.  They provide current and historic insights into performance and health of your service. [Insights for Azure Load Balancer](./load-balancer-insights.md) offers a preconfigured dashboard with useful visualizations for these metrics.  Resource Health is also supported. Review **[Standard load balancer diagnostics](load-balancer-standard-diagnostics.md)** for more details.
 
@@ -95,6 +94,8 @@ Subscribe to the RSS feed and view the latest Azure Load Balancer feature update
 
 ## Next steps
 
-See [Create a public standard load balancer](quickstart-load-balancer-standard-public-portal.md) to get started with using a load balancer.
+* See [Create a public standard load balancer](quickstart-load-balancer-standard-public-portal.md) to get started with using a load balancer.
 
-For more information on Azure Load Balancer limitations and components, see [Azure Load Balancer components](./components.md) and [Azure Load Balancer concepts](./concepts.md)
+* For more information on Azure Load Balancer limitations and components, see [Azure Load Balancer components](./components.md) and [Azure Load Balancer concepts](./concepts.md)
+
+* [Learn module: Introduction to Azure Load Balancer](/learn/paths/intro-to-azure-application-delivery-services).

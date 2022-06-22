@@ -37,7 +37,7 @@ To complete this tutorial, you need to:
 - Download and install [SQL Server 2016 or later](https://www.microsoft.com/sql-server/sql-server-downloads).
 - Enable the TCP/IP protocol, which is disabled by default during SQL Server Express installation, by following the instructions in the article [Enable or Disable a Server Network Protocol](/sql/database-engine/configure-windows/enable-or-disable-a-server-network-protocol#SSMSProcedure).
 - [Restore the AdventureWorks2016 database to the SQL Server instance.](/sql/samples/adventureworks-install-configure#restore-to-sql-server)
-- Create a database in Azure SQL Database, which you do by following the details in the article [Create a database in Azure SQL Database using the Azure portal](../azure-sql/database/single-database-create-quickstart.md). For purposes of this tutorial, the name of the Azure SQL Database is assumed to be **AdventureWorksAzure**, but you can provide whatever name you wish.
+- Create a database in Azure SQL Database, which you do by following the details in the article [Create a database in Azure SQL Database using the Azure portal](/azure/azure-sql/database/single-database-create-quickstart). For purposes of this tutorial, the name of the Azure SQL Database is assumed to be **AdventureWorksAzure**, but you can provide whatever name you wish.
 
     > [!NOTE]
     > If you use SQL Server Integration Services (SSIS) and want to migrate the catalog database for your SSIS projects/packages (SSISDB) from SQL Server to Azure SQL Database, the destination SSISDB will be created and managed automatically on your behalf when you provision SSIS in Azure Data Factory (ADF). For more information about migrating SSIS packages, see the article [Migrate SQL Server Integration Services packages to Azure](./how-to-migrate-ssis-packages.md).
@@ -61,7 +61,7 @@ To complete this tutorial, you need to:
 - Open your Windows firewall to allow Azure Database Migration Service to access the source SQL Server, which by default is TCP port 1433. If your default instance is listening on some other port, add that to the firewall.
 - If you're running multiple named SQL Server instances using dynamic ports, you may wish to enable the SQL Browser Service and allow access to UDP port 1434 through your firewalls so that Azure Database Migration Service can connect to a named instance on your source server.
 - When using a firewall appliance in front of your source database(s), you may need to add firewall rules to allow Azure Database Migration Service to access the source database(s) for migration.
-- Create a server-level IP [firewall rule](../azure-sql/database/firewall-configure.md) for Azure SQL Database to allow Azure Database Migration Service access to the target databases. Provide the subnet range of the virtual network used for Azure Database Migration Service.
+- Create a server-level IP [firewall rule](/azure/azure-sql/database/firewall-configure) for Azure SQL Database to allow Azure Database Migration Service access to the target databases. Provide the subnet range of the virtual network used for Azure Database Migration Service.
 - Ensure that the credentials used to connect to source SQL Server instance have [CONTROL SERVER](/sql/t-sql/statements/grant-server-permissions-transact-sql) permissions.
 - Ensure that the credentials used to connect to target Azure SQL Database instance have [CONTROL DATABASE](/sql/t-sql/statements/grant-database-permissions-transact-sql) permission on the target databases.
 
@@ -215,36 +215,7 @@ To migrate the **AdventureWorks2016** schema to a single database or pooled data
 
 [!INCLUDE [resource-provider-register](../../includes/database-migration-service-resource-provider-register.md)]   
 
-## Create an Azure Database Migration Service instance
-
-1. In the Azure portal menu or on the **Home** page, select **Create a resource**. Search for and select **Azure Database Migration Service**.
-
-    ![Azure Marketplace](media/tutorial-sql-server-to-azure-sql/portal-marketplace.png)
-
-2. On the **Azure Database Migration Service** screen, select **Create**.
-
-    ![Create Azure Database Migration Service instance](media/tutorial-sql-server-to-azure-sql/dms-create-1.png)
-  
-3. On the **Create Migration Service** basics screen:
-
-     - Select the subscription.
-     - Create a new resource group or choose an existing one.
-     - Specify a name for the instance of the Azure Database Migration Service.
-     - Select the location in which you want to create the instance of Azure Database Migration Service.
-     - Choose **Azure** as the service mode.
-     - Select a pricing tier. For more information on costs and pricing tiers, see the [pricing page](https://aka.ms/dms-pricing).
-
-    ![Configure Azure Database Migration Service instance basics settings](media/tutorial-sql-server-to-azure-sql/dms-settings-2.png)
-
-     - Select **Next: Networking**.
-
-4. On the **Create Migration Service** networking screen:
-
-    - Select an existing virtual network or create a new one. The virtual network provides Azure Database Migration Service with access to the source SQL Server and the target Azure SQL Database instance. For more information about how to create a virtual network in the Azure portal, see the article [Create a virtual network using the Azure portal](../virtual-network/quick-create-portal.md).
-
-    ![Configure Azure Database Migration Service instance networking settings](media/tutorial-sql-server-to-azure-sql/dms-settings-3.png)
-
-    - Select **Review + Create** to review the details and then select **Create** to create the service.
+[!INCLUDE [instance-create](../../includes/database-migration-service-instance-create.md)]   
 
 ## Create a migration project
 
@@ -341,4 +312,4 @@ Select either all databases or specific databases that you want to migrate to Az
 ## Additional resources
 
 - For information about Azure Database Migration Service, see the article [What is Azure Database Migration Service?](./dms-overview.md).
-- For information about Azure SQL Database, see the article [What is the Azure SQL Database service?](../azure-sql/database/sql-database-paas-overview.md).
+- For information about Azure SQL Database, see the article [What is the Azure SQL Database service?](/azure/azure-sql/database/sql-database-paas-overview).

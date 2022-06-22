@@ -3,33 +3,27 @@ title: 'Quickstart: Direct web traffic using the portal'
 titleSuffix: Azure Application Gateway
 description: In this quickstart, you learn how to use the Azure portal to create an Azure Application Gateway that directs web traffic to virtual machines in a backend pool.
 services: application-gateway
-author: vhorne
-ms.author: victorh
-ms.date: 06/14/2021
+author: greg-lindsay
+ms.author: greglin
+ms.date: 06/10/2022
 ms.topic: quickstart
 ms.service: application-gateway
-ms.custom:
-  - mvc
-  - mode-portal
+ms.custom: mvc, mode-ui
 ---
 
 # Quickstart: Direct web traffic with Azure Application Gateway - Azure portal
 
-In this quickstart, you use the Azure portal to create an application gateway. Then you test it to make sure it works correctly. 
-
-The application gateway directs application web traffic to specific resources in a backend pool. You assign listeners to ports, create rules, and add resources to a backend pool. For the sake of simplicity, this article uses a simple setup with a public front-end IP, a basic listener to host a single site on the application gateway, a basic request routing rule, and two virtual machines in the backend pool.
+In this quickstart, you use the Azure portal to create an [Azure Application Gateway](overview.md) and test it to make sure it works correctly. You will assign listeners to ports, create rules, and add resources to a backend pool. For the sake of simplicity, a simple setup is used with a public front-end IP address, a basic listener to host a single site on the application gateway, a basic request routing rule, and two virtual machines (VMs) in the backend pool.
 
 :::image type="content" source="media/quick-create-portal/application-gateway-qs-resources.png" alt-text="application gateway resources":::
 
-You can also complete this quickstart using [Azure PowerShell](quick-create-powershell.md) or [Azure CLI](quick-create-cli.md).
+For more information about the components of an application gateway, see [Application gateway components](application-gateway-components.md). 
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+You can also complete this quickstart using [Azure PowerShell](quick-create-powershell.md) or [Azure CLI](quick-create-cli.md).
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-
-## Sign in to the Azure portal
+An Azure account with an active subscription is required.  If you don't already have an account, you can [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 Sign in to the [Azure portal](https://portal.azure.com) with your Azure account.
 
@@ -38,7 +32,6 @@ Sign in to the [Azure portal](https://portal.azure.com) with your Azure account.
 You'll create the application gateway using the tabs on the **Create an application gateway** page.
 
 1. On the Azure portal menu or from the **Home** page, select **Create a resource**. The **New** window appears.
-
 2. Select **Networking** and then select **Application Gateway** in the **Featured** list.
 
 ### Basics tab

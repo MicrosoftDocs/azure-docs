@@ -142,7 +142,7 @@ The objective of this section is to create a user called B.Simon in Lessonly.com
 There is no action item for you in this section. A new user will be created during an attempt to access Lessonly.com if it doesn't exist yet.
 
 > [!NOTE]
-> If you need to create an user manually, you need to contact the [Lessonly.com support team](mailto:support@lessonly.com).
+> If you need to create a user manually, you need to contact the [Lessonly.com support team](mailto:support@lessonly.com).
 
 ## Test SSO
 
@@ -156,4 +156,4 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 ## Next steps
 
-Once you configure Lesson.ly you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+Once you configure Lesson.ly you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-any-app).

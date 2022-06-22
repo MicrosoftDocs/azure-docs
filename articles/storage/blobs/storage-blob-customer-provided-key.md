@@ -6,10 +6,11 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/18/2020
+ms.date: 05/09/2022
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
+ms.devlang: csharp
 ms.custom: devx-track-csharp
 ---
 

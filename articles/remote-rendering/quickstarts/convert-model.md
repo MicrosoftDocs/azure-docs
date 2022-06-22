@@ -4,8 +4,8 @@ description: Quickstart that shows the conversion steps for a custom model.
 author: florianborn71
 ms.author: flborn
 ms.date: 01/23/2020
-ms.topic: quickstart 
-ms.custom: devx-track-azurepowershell
+ms.topic: quickstart
+ms.custom: devx-track-azurepowershell, mode-other
 ---
 
 # Quickstart: Convert a model for rendering
@@ -46,7 +46,7 @@ You need:
 
 If you do not have an account yet, go to [https://azure.microsoft.com/get-started/](https://azure.microsoft.com/get-started/), click on the free account option, and follow the instructions.
 
-Once you have an Azure account, go to [https://ms.portal.azure.com/#home](https://ms.portal.azure.com/#home).
+Once you have an Azure account, go to [https://portal.azure.com/#home](https://portal.azure.com/#home).
 
 ### Storage account creation
 
@@ -68,7 +68,7 @@ Fill out the form in the following manner:
 * Create a new Resource Group from the link below the drop-down box and name this **ARR_Tutorial**
 * For the **Storage account name**, enter a unique name here. **This name must be globally unique**, otherwise there will be a prompt that informs you that the name is already taken. In the scope of this quickstart, we name it **arrtutorialstorage**. Accordingly, you need to replace it with your name for any occurrence in this quickstart.
 * Select a **location** close to you. Ideally use the same location as used for setting up the rendering in the other quickstart.
-* **Performance** set to 'Standard'
+* **Performance** set to 'Premium'. 'Standard' works as well, but has lower loading time characteristics when a model is loaded by the runtime.
 * **Account kind** set to 'StorageV2 (general purpose v2)'
 * **Replication** set to 'Read-access geo-redundant storage (RA-GRS)'
 * **Access tier** set to 'Hot'
@@ -202,11 +202,15 @@ The conversion script generates a *Shared Access Signature (SAS)* URI for the co
 The SAS URI created by the conversion script will only be valid for 24 hours. However, after it expired you do not need to convert your model again. Instead, you can create a new SAS in the portal as described in the next steps:
 
 1. Go to the [Azure portal](https://www.portal.azure.com)
-1. Click on your **Storage account** resource:
+2. Click on your **Storage account** resource:
+
 ![Screenshot that highlights the selected Storage account resource.](./media/portal-storage-accounts.png)
-1. In the following screen, click on **Storage explorer** in the left panel and find your output model (*.arrAsset* file) in the *arroutput* blob storage container. Right-click on the file and select **Get Shared Access Signature** from the context menu:
-![Signature Access](./media/portal-storage-explorer.png)
-1. A new screen opens where you can select an expiry date. Press **Create**, and copy the URI that is shown in the next dialog. This new URI replaces the temporary URI that the script created.
+
+3. In the following screen, click on **Storage explorer** in the left panel and find your output model (*.arrAsset* file) in the *arroutput* blob storage container. Right-click on the file and select **Get Shared Access Signature** from the context menu:
+
+   ![Signature Access](./media/portal-storage-explorer.png)
+
+4. A new screen opens where you can select an expiry date. Press **Create**, and copy the URI that is shown in the next dialog. This new URI replaces the temporary URI that the script created.
 
 ## Next steps
 

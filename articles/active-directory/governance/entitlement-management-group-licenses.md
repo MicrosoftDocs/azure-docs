@@ -7,7 +7,6 @@ author: sama
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.subservice: compliance
 ms.date: 08/18/2021
@@ -53,7 +52,7 @@ For more information, see [License requirements](entitlement-management-overview
 
 1. Select **Next: Resource roles** to go to the **Resource roles** tab.
 
-2. On this tab, you select the resources and the resource role to include in the access package. In this scenario, select **Groups and Teams** and search for your group that has assigned [Office licenses](/azure/active-directory/enterprise-users/licensing-groups-assign).
+2. On this tab, you select the resources and the resource role to include in the access package. In this scenario, select **Groups and Teams** and search for your group that has assigned [Office licenses](../enterprise-users/licensing-groups-assign.md).
 
 3. In the **Role** list, select **Member**.
 
@@ -97,11 +96,11 @@ For more information, see [License requirements](entitlement-management-overview
  
     In this scenario, you want all employees to review whether they still need a license for Office each year.
 
-    1.	Under **Require access reviews**, select **Yes**.
-    2.	You can leave **Starting on** set to the current date. This date is when the access review will start. After you create an access review, you can't update its start date.
-    3.	Under **Review frequency**, select **Annually**, because the review will occur once per year. The **Review frequency** box is where you determine how often the access review runs.
-    4.	Specify a **Duration (in days)**.  The duration box is where you indicate how many days each occurrence of the access review series will run.
-    5.	Under **Reviewers**, select **Manager**.
+    1. Under **Require access reviews**, select **Yes**.
+    2. You can leave **Starting on** set to the current date. This date is when the access review will start. After you create an access review, you can't update its start date.
+    3. Under **Review frequency**, select **Annually**, because the review will occur once per year. The **Review frequency** box is where you determine how often the access review runs.
+    4. Specify a **Duration (in days)**.  The duration box is where you indicate how many days each occurrence of the access review series will run.
+    5. Under **Reviewers**, select **Manager**.
 
 ## Step 6: Review and create your access package
 
@@ -139,4 +138,4 @@ In this step, you can delete the Office Licenses access package.
 
 Learn how to create access packages to manage access to other types of resources, like applications and sites: 
 
-[Manage access to resources in Azure AD entitlement management](/azure/active-directory/governance/entitlement-management-access-package-first)
+[Manage access to resources in Azure AD entitlement management](./entitlement-management-access-package-first.md)

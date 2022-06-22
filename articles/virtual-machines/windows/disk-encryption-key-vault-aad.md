@@ -6,14 +6,14 @@ ms.service: virtual-machines
 ms.subservice: disks
 ms.topic: how-to
 ms.author: mbaldwin
-ms.date: 03/15/2019
+ms.date: 12/06/2021
 
 ms.custom: seodec18, devx-track-azurecli, devx-track-azurepowershell
 
 ---
 # Creating and configuring a key vault for Azure Disk Encryption with Azure AD (previous release)
 
-**Applies to:** :heavy_check_mark: Windows VMs 
+**Applies to:** :heavy_check_mark: Windows VMs
 
 **The new release of Azure Disk Encryption eliminates the requirement for providing an Azure AD application parameter to enable VM disk encryption. With the new release, you are no longer required to provide Azure AD credentials during the enable encryption step. All new VMs must be encrypted without the Azure AD application parameters using the new release. To view instructions to enable VM disk encryption using the new release, see [Azure Disk Encryption](disk-encryption-overview.md). VMs that were already encrypted with Azure AD application parameters are still supported and should continue to be maintained with the AAD syntax.**
 
@@ -63,16 +63,16 @@ You can create a key vault with Azure PowerShell using the [New-AzKeyVault](/pow
 
 
 ### Create a key vault with Azure CLI
-You can manage your key vault with Azure CLI using the [az keyvault](/cli/azure/keyvault#commands) commands. To create a key vault, use [az keyvault create](/cli/azure/keyvault#az_keyvault_create).
+You can manage your key vault with Azure CLI using the [az keyvault](/cli/azure/keyvault#commands) commands. To create a key vault, use [az keyvault create](/cli/azure/keyvault#az-keyvault-create).
 
-1. Create a new resource group, if needed, with [az group create](/cli/azure/group#az_group_create). To  list locations, use [az account list-locations](/cli/azure/account#az_account_list)
+1. Create a new resource group, if needed, with [az group create](/cli/azure/group#az-group-create). To  list locations, use [az account list-locations](/cli/azure/account#az-account-list)
 
      ```azurecli-interactive
      # To list locations: az account list-locations --output table
      az group create -n "MyKeyVaultResourceGroup" -l "East US"
      ```
 
-3. Create a new key vault using [az keyvault create](/cli/azure/keyvault#az_keyvault_create).
+3. Create a new key vault using [az keyvault create](/cli/azure/keyvault#az-keyvault-create).
 
      ```azurecli-interactive
      az keyvault create --name "MySecureVault" --resource-group "MyKeyVaultResourceGroup" --location "East US"
@@ -101,7 +101,7 @@ To execute the following commands, get and use the [Azure AD PowerShell module](
      $aadClientSecret = "My AAD client secret"
      $aadClientSecretSec = ConvertTo-SecureString -String $aadClientSecret -AsPlainText -Force
      $azureAdApplication = New-AzADApplication -DisplayName "My Application Display Name" -HomePage "https://MyApplicationHomePage" -IdentifierUris "https://MyApplicationUri" -Password $aadClientSecretSec
-     $servicePrincipal = New-AzADServicePrincipal –ApplicationId $azureAdApplication.ApplicationId
+     $servicePrincipal = New-AzADServicePrincipal –ApplicationId $azureAdApplication.ApplicationId -Role Contributor
      ```
 
 3. The $azureAdApplication.ApplicationId is the Azure AD ClientID and the $aadClientSecret is the client secret that you will use later to enable Azure Disk Encryption. Safeguard the Azure AD client secret appropriately. Running `$azureAdApplication.ApplicationId` will show you the ApplicationID.
@@ -114,11 +114,11 @@ You can manage your service principals with Azure CLI using the [az ad sp](/cli/
 1. Create a new service principal.
 
      ```azurecli-interactive
-     az ad sp create-for-rbac --name "ServicePrincipalName" --password "My-AAD-client-secret" --skip-assignment
+     az ad sp create-for-rbac --name "ServicePrincipalName" --password "My-AAD-client-secret" --role Contributor --scopes /subscriptions/<subscription_id>
      ```
 3.  The appId returned is the Azure AD ClientID used in other commands. It's also the SPN you'll use for az keyvault set-policy. The password is the client secret that you should use later to enable Azure Disk Encryption. Safeguard the Azure AD client secret appropriately.
 
-### Set up an Azure AD app and service principal though the Azure portal
+### Set up an Azure AD app and service principal through the Azure portal
 Use the steps from the [Use portal to create an Azure Active Directory application and service principal that can access resources](../../active-directory/develop/howto-create-service-principal-portal.md) article to create an Azure AD application. Each step listed below will take you directly to the article section to complete.
 
 1. [Verify required permissions](../../active-directory/develop/howto-create-service-principal-portal.md#permissions-required-for-registering-an-app)
@@ -148,7 +148,7 @@ Your Azure AD application needs rights to access the keys or secrets in the vaul
      ```
 
 ### Set the key vault access policy for the Azure AD app with Azure CLI
-Use [az keyvault set-policy](/cli/azure/keyvault#az_keyvault_set_policy) to set the access policy. For more information, see [Manage Key Vault using CLI 2.0](../../key-vault/general/manage-with-cli2.md#authorizing-an-application-to-use-a-key-or-secret).
+Use [az keyvault set-policy](/cli/azure/keyvault#az-keyvault-set-policy) to set the access policy. For more information, see [Manage Key Vault using CLI 2.0](../../key-vault/general/manage-with-cli2.md#authorizing-an-application-to-use-a-key-or-secret).
 
 Give the service principal you created via the Azure CLI access to get secrets and wrap keys with the following command:
 
@@ -194,7 +194,7 @@ The Azure platform needs access to the encryption keys or secrets in your key va
      ```
 
 ### Set key vault advanced access policies using the Azure CLI
-Use [az keyvault update](/cli/azure/keyvault#az_keyvault_update) to enable disk encryption for the key vault.
+Use [az keyvault update](/cli/azure/keyvault#az-keyvault-update) to enable disk encryption for the key vault.
 
  - **Enable Key Vault for disk encryption:** Enabled-for-disk-encryption is required.
 
@@ -267,7 +267,7 @@ Before using the PowerShell script, you should be familiar with the Azure Disk E
 	 $aadClientSecret =  'MyAADClientSecret';
      $aadClientSecretSec = ConvertTo-SecureString -String $aadClientSecret -AsPlainText -Force;
      $azureAdApplication = New-AzADApplication -DisplayName "<My Application Display Name>" -HomePage "<https://MyApplicationHomePage>" -IdentifierUris "<https://MyApplicationUri>" -Password $aadClientSecretSec
-     $servicePrincipal = New-AzADServicePrincipal –ApplicationId $azureAdApplication.ApplicationId;
+     $servicePrincipal = New-AzADServicePrincipal –ApplicationId $azureAdApplication.ApplicationId -Role Contributor;
      $aadClientID = $azureAdApplication.ApplicationId;
 
  #Step 3: Enable the vault for disk encryption and set the access policy for the Azure AD application.
@@ -323,7 +323,7 @@ If you would like to use certificate authentication, you can upload one to your 
    $CertValue = [System.Convert]::ToBase64String($cert.GetRawCertData())
 
    $AzureAdApplication = New-AzADApplication -DisplayName "<My Application Display Name>" -HomePage "<https://MyApplicationHomePage>" -IdentifierUris "<https://MyApplicationUri>" -CertValue $CertValue
-   $ServicePrincipal = New-AzADServicePrincipal -ApplicationId $AzureAdApplication.ApplicationId
+   $ServicePrincipal = New-AzADServicePrincipal -ApplicationId $AzureAdApplication.ApplicationId -Role Contributor
 
    $AADClientID = $AzureAdApplication.ApplicationId
    $aadClientCertThumbprint= $cert.Thumbprint
@@ -397,7 +397,7 @@ If you would like to use certificate authentication and wrap the encryption key 
    $CertValue = [System.Convert]::ToBase64String($cert.GetRawCertData())
 
    $AzureAdApplication = New-AzADApplication -DisplayName "<My Application Display Name>" -HomePage "<https://MyApplicationHomePage>" -IdentifierUris "<https://MyApplicationUri>" -CertValue $CertValue
-   $ServicePrincipal = New-AzADServicePrincipal -ApplicationId $AzureAdApplication.ApplicationId
+   $ServicePrincipal = New-AzADServicePrincipal -ApplicationId $AzureAdApplication.ApplicationId -Role Contributor
 
    $AADClientID = $AzureAdApplication.ApplicationId
    $aadClientCertThumbprint= $cert.Thumbprint

@@ -14,7 +14,7 @@ ms.custom: devx-track-azurecli
 
 # Use Azure CLI to manage ACLs in Azure Data Lake Storage Gen2
 
-This article shows you how to use the [Azure Command-Line Interface (CLI)](/cli/azure/) to get, set, and update the access control lists of directories and files.
+This article shows you how to use the [Azure CLI](/cli/azure/) to get, set, and update the access control lists of directories and files.
 
 ACL inheritance is already available for new child items that are created under a parent directory. But you can also add, update, and remove ACLs recursively on the existing child items of a parent directory without having to make these changes individually for each child item.
 
@@ -75,7 +75,7 @@ ACL inheritance is already available for new child items that are created under 
 
 ## Get ACLs
 
-Get the ACL of a **directory** by using the [az storage fs access show](/cli/azure/storage/fs#az_storage_fs_show) command.
+Get the ACL of a **directory** by using the [az storage fs access show](/cli/azure/storage/fs#az-storage-fs-show) command.
 
 This example gets the ACL of a directory, and then prints the ACL to the console.
 
@@ -83,7 +83,7 @@ This example gets the ACL of a directory, and then prints the ACL to the console
 az storage fs access show -p my-directory -f my-file-system --account-name mystorageaccount --auth-mode login
 ```
 
-Get the access permissions of a **file** by using the [az storage fs access show](/cli/azure/storage/fs#az_storage_fs_show) command.
+Get the access permissions of a **file** by using the [az storage fs access show](/cli/azure/storage/fs#az-storage-fs-show) command.
 
 This example gets the ACL of a file and then prints the ACL to the console.
 
@@ -110,7 +110,7 @@ This section shows you how to:
 
 ### Set an ACL
 
-Use the [az storage fs access set](/cli/azure/storage/fs/access#az_storage_fs_access_set) command to set the ACL of a **directory**.
+Use the [az storage fs access set](/cli/azure/storage/fs/access#az-storage-fs-access-set) command to set the ACL of a **directory**.
 
 This example sets the ACL on a directory for the owning user, owning group, or other users, and then prints the ACL to the console.
 
@@ -124,7 +124,7 @@ This example sets the *default* ACL on a directory for the owning user, owning g
 az storage fs access set --acl "default:user::rw-,group::rw-,other::-wx" -p my-directory -f my-file-system --account-name mystorageaccount --auth-mode login
 ```
 
-Use the [az storage fs access set](/cli/azure/storage/fs/access#az_storage_fs_access_set) command to set the acl of a **file**.
+Use the [az storage fs access set](/cli/azure/storage/fs/access#az-storage-fs-access-set) command to set the acl of a **file**.
 
 This example sets the ACL on a file for the owning user, owning group, or other users, and then prints the ACL to the console.
 
@@ -143,7 +143,7 @@ In this example, the owning user and owning group have only read and write permi
 
 ### Set ACLs recursively
 
-Set ACLs recursively by using the [az storage fs access set-recursive](/cli/azure/storage/fs/access#az_storage_fs_access_set_recursive) command.
+Set ACLs recursively by using the [az storage fs access set-recursive](/cli/azure/storage/fs/access#az-storage-fs-access-set-recursive) command.
 
 This example sets the ACL of a directory named `my-parent-directory`. These entries give the owning user read, write, and execute permissions, gives the owning group only read and execute permissions, and gives all others no access. The last ACL entry in this example gives a specific user with the object ID "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" read and execute permissions.
 
@@ -167,7 +167,7 @@ This section shows you how to:
 
 ### Update an ACL
 
-Another way to set this permission is to use the [az storage fs access set](/cli/azure/storage/fs/access#az_storage_fs_access_set) command.
+Another way to set this permission is to use the [az storage fs access set](/cli/azure/storage/fs/access#az-storage-fs-access-set) command.
 
 Update the ACL of a directory or file by setting the `-permissions` parameter to the short form of an ACL.
 
@@ -203,7 +203,7 @@ az storage fs access set --owner xxxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -p my-dir
 
 ### Update ACLs recursively
 
-Update ACLs recursively by using the [az storage fs access update-recursive](/cli/azure/storage/fs/access#az_storage_fs_access_update_recursive) command.
+Update ACLs recursively by using the [az storage fs access update-recursive](/cli/azure/storage/fs/access#az-storage-fs-access-update-recursive) command.
 
 This example updates an ACL entry with write permission.
 
@@ -218,7 +218,7 @@ az storage fs access update-recursive --acl "user:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxx
 
 You can remove one or more ACL entries recursively. To remove an ACL entry, create a new ACL object for ACL entry to be removed, and then use that object in remove ACL operation. Do not get the existing ACL, just provide the ACL entries to be removed.
 
-Remove ACL entries by using the [az storage fs access remove-recursive](/cli/azure/storage/fs/access#az_storage_fs_access_remove_recursive) command.
+Remove ACL entries by using the [az storage fs access remove-recursive](/cli/azure/storage/fs/access#az-storage-fs-access-remove-recursive) command.
 
 This example removes an ACL entry from the root directory of the container.
 

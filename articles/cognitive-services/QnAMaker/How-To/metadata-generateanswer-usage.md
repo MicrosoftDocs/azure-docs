@@ -6,20 +6,25 @@ services: cognitive-services
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/09/2020
-ms.custom: "devx-track-js, devx-track-csharp"
+ms.custom: devx-track-js, devx-track-csharp, ignite-fall-2021
 ---
 
 # Get an answer with the GenerateAnswer API
 
 To get the predicted answer to a user's question, use the GenerateAnswer API. When you publish a knowledge base, you can see information about how to use this API on the **Publish** page. You can also configure the API to filter answers based on metadata tags, and test the knowledge base from the endpoint with the test query string parameter.
 
+[!INCLUDE [Custom question answering](../includes/new-version.md)]
+
 <a name="generateanswer-api"></a>
 
 ## Get answer predictions with the GenerateAnswer API
 
 You use the [GenerateAnswer API](/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer) in your bot or application to query your knowledge base with a user question, to get the best match from the question and answer pairs.
+
+> [!NOTE]
+> This documentation does not apply to the latest release. To learn about using the latest question answering APIs consult the [question answering quickstart guide](../../language-service/question-answering/quickstart/sdk.md).
 
 <a name="generateanswer-endpoint"></a>
 
@@ -33,15 +38,7 @@ To get your endpoint details:
     ![Screenshot of My knowledge bases](../media/qnamaker-how-to-metadata-usage/my-knowledge-bases.png)
 1. Get your GenerateAnswer endpoint details.
 
-    # [QnA Maker GA (stable release)](#tab/v1)
-
     ![Screenshot of endpoint details](../media/qnamaker-how-to-metadata-usage/view-code.png)
-
-    # [Custom question answering (preview release)](#tab/v2)
-
-    ![Screenshot of endpoint details managed](../media/qnamaker-how-to-metadata-usage/view-code-managed.png)
-
-    ---
 
 You can also get your endpoint details from the **Settings** tab of your knowledge base.
 
@@ -171,47 +168,7 @@ The previous JSON requested only answers that are at 30% or above the threshold 
 
 ## Get precise answers with GenerateAnswer API
 
-# [QnA Maker GA (stable release)](#tab/v1)
-
 We offer precise answer feature only with the QnA Maker managed version.
-
-# [Custom question answering (preview release)](#tab/v2)
-
-The user can enable [precise answers](../reference-precise-answering.md) when using the Text Analytics resource with Custom question answering feature. The answerSpanRequest parameter has to be updated for the same.
-
-```json
-{
-    "question": "How long it takes to charge surface pro 4?",
-    "top": 3,
-    "answerSpanRequest": {
-        "enable": true,
-        "topAnswersWithSpan": 1
-    }
-}
-```
-
-Similarly, the users can choose to disable precise answers by not setting the answerSpanRequest parameter.
-
-```json
-{
-    "question": "How long it takes to charge surface pro 4?",
-    "top": 3
-}
-```
-### Bot settings
-
-If you want to configure precise answer settings for your bot service, navigate to the App service resource for you bot. Then you have to update the configurations by adding the following setting.
-
-- EnablePreciseAnswer
-- DisplayPreciseAnswerOnly
-
-|Display configuration|EnablePreciseAnswer|DisplayPreciseAnswerOnly|
-|:--|--|--|
-|Precise Answers Only|true|true|
-|Long Answers Only|false|false|
-|Both Long and Precise Answers|true|false|
-
----
 
 ## Common HTTP errors
 

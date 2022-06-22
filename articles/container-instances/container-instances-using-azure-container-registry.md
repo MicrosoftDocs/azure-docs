@@ -1,15 +1,18 @@
 ---
-title: Deploy container image from Azure Container Registry
-description: Learn how to deploy containers in Azure Container Instances by pulling container images from an Azure container registry.
+title: Deploy container image from Azure Container Registry using a service principal
+description: Learn how to deploy containers in Azure Container Instances by pulling container images from an Azure container registry using a service principal.
+ms.topic: how-to
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: container-instances
 services: container-instances
-ms.topic: article
-ms.date: 07/02/2020
+ms.date: 06/17/2022
 ms.custom: mvc, devx-track-azurecli
 ---
 
-# Deploy to Azure Container Instances from Azure Container Registry
+# Deploy to Azure Container Instances from Azure Container Registry using a service principal
 
-[Azure Container Registry](../container-registry/container-registry-intro.md) is an Azure-based, managed container registry service used to store private Docker container images. This article describes how to pull container images stored in an Azure container registry when deploying to Azure Container Instances. A recommended way to configure registry access is to create an Azure Active Directory service principal and password, and store the login credentials in an Azure key vault.
+[Azure Container Registry](../container-registry/container-registry-intro.md) is an Azure-based, managed container registry service used to store private Docker container images. This article describes how to pull container images stored in an Azure container registry when deploying to Azure Container Instances. One way to configure registry access is to create an Azure Active Directory service principal and password, and store the login credentials in an Azure key vault.
 
 ## Prerequisites
 
@@ -19,8 +22,7 @@ ms.custom: mvc, devx-track-azurecli
 
 ## Limitations
 
-* You can't authenticate to Azure Container Registry to pull images during container group deployment by using a [managed identity](container-instances-managed-identity.md) configured in the same container group.
-* You can't pull images from [Azure Container Registry](../container-registry/container-registry-vnet.md) deployed into an Azure Virtual Network at this time.
+* The [Azure Container Registry](../container-registry/container-registry-vnet.md) must have [Public Access set to 'All Networks'](../container-registry/container-registry-access-selected-networks.md). To use an Azure container registry with Public Access set to 'Select Networks' or 'None', visit [ACI's article for using Managed-Identity based authentication with ACR](../container-registry/container-registry-authentication-managed-identity.md).
 
 ## Configure registry authentication
 
@@ -50,19 +52,22 @@ az keyvault create -g $RES_GROUP -n $AKV_NAME
 
 Now create a service principal and store its credentials in your key vault.
 
-The following command uses [az ad sp create-for-rbac][az-ad-sp-create-for-rbac] to create the service principal, and [az keyvault secret set][az-keyvault-secret-set] to store the service principal's **password** in the vault.
+The following commands use [az ad sp create-for-rbac][az-ad-sp-create-for-rbac] to create the service principal, and [az keyvault secret set][az-keyvault-secret-set] to store the service principal's **password** in the vault. Be sure to take note of the service principal's **appId** upon creation.
 
 ```azurecli
-# Create service principal, store its password in vault (the registry *password*)
+# Create service principal
+az ad sp create-for-rbac \
+  --name http://$ACR_NAME-pull \
+  --scopes $(az acr show --name $ACR_NAME --query id --output tsv) \
+  --role acrpull
+
+SP_ID=xxxx # Replace with your service principal's appId
+
+# Store the registry *password* in the vault
 az keyvault secret set \
   --vault-name $AKV_NAME \
   --name $ACR_NAME-pull-pwd \
-  --value $(az ad sp create-for-rbac \
-                --name http://$ACR_NAME-pull \
-                --scopes $(az acr show --name $ACR_NAME --query id --output tsv) \
-                --role acrpull \
-                --query password \
-                --output tsv)
+  --value $(az ad sp show --id $SP_ID --query password --output tsv)
 ```
 
 The `--role` argument in the preceding command configures the service principal with the *acrpull* role, which grants it pull-only access to the registry. To grant both push and pull access, change the `--role` argument to *acrpush*.
@@ -74,7 +79,7 @@ Next, store the service principal's *appId* in the vault, which is the **usernam
 az keyvault secret set \
     --vault-name $AKV_NAME \
     --name $ACR_NAME-pull-usr \
-    --value $(az ad sp show --id http://$ACR_NAME-pull --query appId --output tsv)
+    --value $(az ad sp show --id $SP_ID --query appId --output tsv)
 ```
 
 You've created an Azure key vault and stored two secrets in it:

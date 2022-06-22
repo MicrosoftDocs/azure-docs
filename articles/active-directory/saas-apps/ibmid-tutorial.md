@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with IBMid | Microsoft Docs'
+title: 'Tutorial: Azure AD SSO integration with IBMid'
 description: Learn how to configure single sign-on between Azure Active Directory and IBMid.
 services: active-directory
 author: jeevansd
@@ -9,12 +9,12 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 06/22/2021
+ms.date: 04/08/2022
 ms.author: jeedes
 
 ---
 
-# Tutorial: Azure Active Directory single sign-on (SSO) integration with IBMid
+# Tutorial: Azure AD SSO integration with IBMid
 
 In this tutorial, you'll learn how to integrate IBMid with Azure Active Directory (Azure AD). When you integrate IBMid with Azure AD, you can:
 
@@ -98,7 +98,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 1. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
     In the **Sign-on URL** text box, type the URL:
-    `https://myibm.ibm.com/`
+    `https://login.ibm.com`
 
 1. Click **Save**.
 
@@ -114,7 +114,6 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	| firstName | user.givenname |
 	| lastName | user.surname |
     | emailAddress | user.mail |
-
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Federation Metadata XML** and select **Download** to download the certificate and save it on your computer.
 
@@ -172,7 +171,6 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 You can also use Microsoft My Apps to test the application in any mode. When you click the IBMid tile in the My Apps, if configured in SP mode you would be redirected to the application sign on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the IBMid for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
-
 ## Next steps
 
-Once you configure IBMid you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+Once you configure IBMid you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-any-app).

@@ -17,12 +17,12 @@ Here are suggestions for where you can get help when developing your Azure IoT s
 ## Create an Azure support request
 
 <div class='icon is-large'>
-    <img alt='Azure support' src='https://docs.microsoft.com/media/logos/logo_azure.svg'>
+    <img alt='Azure support' src='/media/logos/logo_azure.svg'>
 </div>
 
 Explore the range of [Azure support options and choose the plan](https://azure.microsoft.com/support/plans) that best fits, whether you're a developer just starting your cloud journey or a large organization deploying business-critical, strategic applications. Azure customers can create and manage support requests in the Azure portal.
 
-* [Azure portal](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)
+* [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)
 * [Azure portal for the United States government](https://portal.azure.us)
 
 ## Post a question on Microsoft Q&A
@@ -47,7 +47,7 @@ If you can't find an answer to your problem using search, submit a new question 
 ## Post a question on Stack Overflow
 
 <div class='icon is-large'>
-    <img alt='Stack Overflow' src='https://docs.microsoft.com/media/logos/logo_stackoverflow.svg'>
+    <img alt='Stack Overflow' src='/media/logos/logo_stackoverflow.svg'>
 </div>
 
 For answers on your developer questions from the largest community developer ecosystem, ask your question on Stack Overflow.
@@ -62,18 +62,17 @@ If you do submit a new question to Stack Overflow, please use one or more of the
  - [Azure RTOS](https://stackoverflow.com/questions/tagged/azure-rtos)
  - [Azure Sphere](https://stackoverflow.com/questions/tagged/azure-sphere)
  - [Azure Time Series Insights](https://stackoverflow.com/questions/tagged/azure-timeseries-insights)
- - [Azure Maps](https://stackoverflow.com/questions/tagged/azure-maps)
  - [Azure Percept](https://stackoverflow.com/questions/tagged/azure-percept)
 
 ## Stay informed of updates and new releases
 
 <div class='icon is-large'>
-    <img alt='Stay informed' src='https://docs.microsoft.com/media/common/i_blog.svg'>
+    <img alt='Stay informed' src='/media/common/i_blog.svg'>
 </div>
 
 Learn about important product updates, roadmap, and announcements in [Azure Updates](https://azure.microsoft.com/updates/?category=iot).
 
-News and information about Azure IoT is shared at the [Azure blog](https://azure.microsoft.com/blog/topics/internet-of-things/) and on the [Internet of Things Show on Channel 9](https://channel9.msdn.com/Shows/Internet-of-Things-Show).
+News and information about Azure IoT is shared at the [Azure blog](https://azure.microsoft.com/blog/topics/internet-of-things/) and on the [Internet of Things Show on Channel 9](/Shows/Internet-of-Things-Show).
 
 Also, share your experiences, engage and learn from experts in the [Internet of Things Tech Community](https://techcommunity.microsoft.com/t5/Internet-of-Things-IoT/ct-p/IoT).
 

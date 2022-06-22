@@ -8,6 +8,7 @@ ms.date: 12/21/2020
 ms.topic: how-to
 ms.service: storage
 ms.subservice: queues
+ms.devlang: javascript
 ms.custom: seo-javascript-september2019, devx-track-js
 ---
 

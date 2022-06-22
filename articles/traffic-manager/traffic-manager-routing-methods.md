@@ -2,14 +2,13 @@
 title: Azure Traffic Manager - traffic routing methods
 description: This article helps you understand the different traffic routing methods used by Traffic Manager
 services: traffic-manager
-author: duongau
+author: asudbring
 ms.service: traffic-manager
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/21/2021
-ms.author: duau
+ms.author: allensu
 ---
 
 # Traffic Manager routing methods
@@ -130,9 +129,9 @@ As explained in [How Traffic Manager Works](traffic-manager-how-it-works.md), Tr
 
 * [Is it guaranteed that Traffic Manager can correctly determine the exact geographic location of the user in every case?](./traffic-manager-faqs.md#is-it-guaranteed-that-traffic-manager-can-correctly-determine-the-exact-geographic-location-of-the-user-in-every-case)
 
-* [Does an endpoint need to be physically located in the same region as the one it's configured with for geographic routing?](./traffic-manager-faqs.md#does-an-endpoint-need-to-be-physically-located-in-the-same-region-as-the-one-it-is-configured-with-for-geographic-routing)
+* [Does an endpoint need to be physically located in the same region as the one it's configured with for geographic routing?](./traffic-manager-faqs.md#does-an-endpoint-need-to-be-physically-located-in-the-same-region-as-the-one-its-configured-with-for-geographic-routing)
 
-* [Can I assign geographic regions to endpoints in a profile that isn't configured to do geographic routing?](./traffic-manager-faqs.md#can-i-assign-geographic-regions-to-endpoints-in-a-profile-that-is-not-configured-to-do-geographic-routing)
+* [Can I assign geographic regions to endpoints in a profile that isn't configured to do geographic routing?](./traffic-manager-faqs.md#can-i-assign-geographic-regions-to-endpoints-in-a-profile-that-isnt-configured-to-do-geographic-routing)
 
 * [Why am I getting an error when I try to change the routing method of an existing profile to Geographic?](./traffic-manager-faqs.md#why-am-i-getting-an-error-when-i-try-to-change-the-routing-method-of-an-existing-profile-to-geographic)
 

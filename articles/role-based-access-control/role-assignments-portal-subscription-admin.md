@@ -3,11 +3,11 @@ title: Assign a user as an administrator of an Azure subscription - Azure RBAC
 description: Learn how to make a user an administrator of an Azure subscription using the Azure portal and Azure role-based access control (Azure RBAC).
 services: active-directory
 author: rolyon
-manager: mtillman
+manager: karenhoran
 ms.service: role-based-access-control
 ms.topic: how-to
 ms.workload: identity
-ms.date: 06/25/2021
+ms.date: 10/15/2021
 ms.author: rolyon
 ms.custom: subject-rbac-steps
 ---
@@ -44,11 +44,11 @@ To make a user an administrator of an Azure subscription, assign them the [Owner
 
 1. Click the **Role assignments** tab to view the role assignments at this scope.
 
-1. Click **Add** > **Add role assignment (Preview)**.
+1. Click **Add** > **Add role assignment**.
 
    If you don't have permissions to assign roles, the Add role assignment option will be disabled.
 
-    ![Screenshot of Add > Add role assignment menu for preview experience.](./media/shared/add-role-assignment-menu-preview.png)
+    ![Screenshot of Add > Add role assignment menu.](./media/shared/add-role-assignment-menu.png)
 
     The Add role assignment page opens.
 
@@ -60,7 +60,7 @@ The [Owner](built-in-roles.md#owner) role grant full access to manage all resour
 
     You can search for a role by name or by description. You can also filter roles by type and category.
 
-   ![Screenshot of Add role assignment page with Roles tab for preview experience.](./media/shared/roles.png)
+   ![Screenshot of Add role assignment page with Roles tab.](./media/shared/roles.png)
 
 1. Click **Next**.
 
@@ -68,7 +68,7 @@ The [Owner](built-in-roles.md#owner) role grant full access to manage all resour
 
 1. On the **Members** tab, select **User, group, or service principal**.
 
-   ![Screenshot of Add role assignment page with Add members tab for preview experience.](./media/shared/members.png)
+   ![Screenshot of Add role assignment page with Add members tab.](./media/shared/members.png)
 
 1. Click **Select members**.
 
@@ -76,7 +76,7 @@ The [Owner](built-in-roles.md#owner) role grant full access to manage all resour
 
     You can type in the **Select** box to search the directory for display name or email address.
 
-   ![Screenshot of Select members pane for preview experience.](./media/shared/select-members.png)
+   ![Screenshot of Select members pane.](./media/shared/select-members.png)
 
 1. Click **Save** to add the user to the Members list.
 
@@ -94,7 +94,7 @@ The [Owner](built-in-roles.md#owner) role grant full access to manage all resour
 
    After a few moments, the user is assigned the Owner role for the subscription.
 
-    ![Screenshot of role assignment list after assigning role for preview experience.](./media/role-assignments-portal-subscription-admin/sub-role-assignments-owner.png)
+    ![Screenshot of role assignment list after assigning role.](./media/role-assignments-portal-subscription-admin/sub-role-assignments-owner.png)
 
 ## Next steps
 

@@ -1,3 +1,4 @@
+items:
 - name: Certificates
   href: index.yml
 
@@ -20,8 +21,11 @@
     href: quick-create-net.md
   - name: Node.js
     href: quick-create-node.md
+    displayName: az ad sp create-for-rbac, az keyvault set-policy    
   - name: Python
     href: quick-create-python.md
+  - name: Go
+    href: quick-create-go.md
   - name: Java
     href: quick-create-java.md
 - name: Samples
@@ -29,12 +33,6 @@
   - name: Key Vault Code Samples
     href: /samples/browse/?expanded=azure&products=azure-key-vault
 
-- name: Tutorials 
-  items:
-  - name: Import a certificate
-    href: tutorial-import-certificate.md
-  - name: Configure certificate rotation
-    href: tutorial-rotate-certificates.md
 - name: Concepts 
   items:
   - name: Get started with Key Vault certificates
@@ -50,15 +48,18 @@
     
 - name: How-to guides 
   items:
+  - name: Import a certificate
+    href: tutorial-import-certificate.md
+  - name: Configure certificate rotation
+    href: tutorial-rotate-certificates.md
   - name: Integrating Key Vault with DigiCert CA
     href: how-to-integrate-certificate-authority.md
-  - name: Troubleshooting - Import certificates
-    href: import-cert-faqs.yml
   - name: Export certificate from key vault
     href: how-to-export-certificate.md
-
 - name: Reference
   items:
+  - name: Frequently asked questions
+    href: faq.yml
   - name: Azure PowerShell
     href: /powershell/module/az.keyvault/#key_vault
   - name: Azure CLI
@@ -99,4 +100,4 @@
   - name: Blog
     href: /archive/blogs/kv/
   - name: Product Feedback
-    href: https://feedback.azure.com/forums/906355-azure-key-vault
+    href: https://feedback.azure.com/d365community/forum/285c5ae0-f524-ec11-b6e6-000d3a4f0da0

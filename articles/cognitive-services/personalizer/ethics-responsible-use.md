@@ -2,8 +2,8 @@
 title: Ethics and responsible use - Personalizer
 titleSuffix: Azure Cognitive Services
 description: These guidelines are aimed at helping you to implement personalization in a way that helps you build trust in your company and service. Be sure to pause to research, learn and deliberate on the impact of the personalization on people's lives. When in doubt, seek guidance.
-author: jeffmend
-ms.author: jeffme
+author: jcodella
+ms.author: jacodel
 ms.manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
@@ -72,7 +72,7 @@ Consider the effect of these features:
 * **User demographics**: Features regarding sex, gender, age, race, religion: These features may be not allowed in certain applications for regulatory reasons, and it may not be ethical to personalize around them because the personalization would propagate generalizations and bias. An example of this bias propagation is a job posting for engineering not being shown to elderly or gender-based audiences.
 * **Locale information**: In many places of the world, location information (such as a zip code, postal code, or neighborhood name) can be highly correlated with income, race and religion.
 * **User Perception of Fairness**: Even in cases where your application is making sound decisions, consider the effect of users perceiving that content displayed in your application changes in a way that appears to be correlated to features that would be discriminatory.
-* **Unintended Bias in Features**:       There are types of biases that may be introduced by using features that only affect a subset of the population. This requires extra attention if features are being generated algorithmically, such as when using image analysis to extract items in a picture or text analytics to discover entities in text. Make yourself aware of the characteristics of the services you use to create these features.
+* **Unintended Bias in Features**:       There are types of biases that may be introduced by using features that only affect a subset of the population. This requires extra attention if features are being generated algorithmically, such as when using image analysis to extract items in a picture or text analysis to discover entities in text. Make yourself aware of the characteristics of the services you use to create these features.
 
 Apply the following practices when choosing features to send in contexts and actions to Personalizer:
 

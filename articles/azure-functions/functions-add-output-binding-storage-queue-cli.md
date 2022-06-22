@@ -1,9 +1,10 @@
 ---
-title: Connect Azure Functions to Azure Storage using command line tools 
-description: Learn how to connect Azure Functions to an Azure Storage queue by adding an output binding to your command line project. 
+title: Connect Azure Functions to Azure Storage using command line tools
+description: Learn how to connect Azure Functions to an Azure Storage queue by adding an output binding to your command line project.
 ms.date: 02/07/2020
 ms.topic: quickstart
-ms.custom: devx-track-python
+ms.devlang: csharp, java, javascript, powershell, python, typescript
+ms.custom: devx-track-python, mode-other
 zone_pivot_groups: programming-languages-set-functions
 ---
 
@@ -117,15 +118,11 @@ mvn azure-functions:deploy
 
     # [Browser](#tab/browser)
     
-    Copy the complete **Invoke URL** shown in the output of the publish command into a browser address bar, appending the query parameter `&name=Functions`. The browser should display similar output as when you ran the function locally.
-
-    ![The output of the function runs on Azure in a browser](./media/functions-add-output-binding-storage-queue-cli/function-test-cloud-browser.png)
+    Copy the complete **Invoke URL** shown in the output of the publish command into a browser address bar, appending the query parameter `&name=Functions`. The browser should display the same output as when you ran the function locally.
 
     # [curl](#tab/curl)
     
-    Run [`curl`](https://curl.haxx.se/) with the **Invoke URL**, appending the parameter `&name=Functions`. The output of the command should be the text, "Hello Functions."
-    
-    ![The output of the function runs on Azure using CURL](./media/functions-add-output-binding-storage-queue-cli/function-test-cloud-curl.png)
+    Run [`curl`](https://curl.haxx.se/) with the **Invoke URL**, appending the parameter `&name=Functions`. The output should be the same as when you ran the function locally.
 
     --- 
 

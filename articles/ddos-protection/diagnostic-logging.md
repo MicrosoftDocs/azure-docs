@@ -3,25 +3,24 @@ title: Azure DDoS Protection Standard reports and flow logs
 description: Learn how to configure reports and flow logs.
 services: ddos-protection
 documentationcenter: na
-author: aletheatoh
+author: AbdullahBell
 ms.service: ddos-protection
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/28/2020
-ms.author: yitoh
+ms.author: abell
 
 ---
 
 # View and configure DDoS diagnostic logging
 
-Azure DDoS Protection standard provides detailed attack insights and visualization with DDoS Attack Analytics. Customers protecting their virtual networks against DDoS attacks have detailed visibility into attack traffic and actions taken to mitigate the attack via attack mitigation reports & mitigation flow logs. Rich telemetry is exposed via Azure Monitor including detailed metrics during the duration of a DDoS attack. Alerting can be configured for any of the Azure Monitor metrics exposed by DDoS Protection. Logging can be further integrated with [Azure Sentinel](../sentinel/data-connectors-reference.md#azure-ddos-protection), Splunk (Azure Event Hubs), OMS Log Analytics, and Azure Storage for advanced analysis via the Azure Monitor Diagnostics interface.
+Azure DDoS Protection standard provides detailed attack insights and visualization with DDoS Attack Analytics. Customers protecting their virtual networks against DDoS attacks have detailed visibility into attack traffic and actions taken to mitigate the attack via attack mitigation reports & mitigation flow logs. Rich telemetry is exposed via Azure Monitor including detailed metrics during the duration of a DDoS attack. Alerting can be configured for any of the Azure Monitor metrics exposed by DDoS Protection. Logging can be further integrated with [Microsoft Sentinel](../sentinel/data-connectors-reference.md#azure-ddos-protection), Splunk (Azure Event Hubs), OMS Log Analytics, and Azure Storage for advanced analysis via the Azure Monitor Diagnostics interface.
 
 The following diagnostic logs are available for Azure DDoS Protection Standard: 
 
 - **DDoSProtectionNotifications**: Notifications will notify you anytime a public IP resource is under attack, and when attack mitigation is over.
-- **DDoSMitigationFlowLogs**: Attack mitigation flow logs allow you to review the dropped traffic, forwarded traffic and other interesting datapoints during an active DDoS attack in near-real time. You can ingest the constant stream of this data into Azure Sentinel or to your third-party SIEM systems via event hub for near-real time monitoring, take potential actions and address the need of your defense operations.
+- **DDoSMitigationFlowLogs**: Attack mitigation flow logs allow you to review the dropped traffic, forwarded traffic and other interesting datapoints during an active DDoS attack in near-real time. You can ingest the constant stream of this data into Microsoft Sentinel or to your third-party SIEM systems via event hub for near-real time monitoring, take potential actions and address the need of your defense operations.
 - **DDoSMitigationReports**: Attack mitigation reports uses the Netflow protocol data which is aggregated to provide detailed information about the attack on your resource. Anytime a public IP resource is under attack, the report generation will start as soon as the mitigation starts. There will be an incremental report generated every 5 mins and a post-mitigation report for the whole mitigation period. This is to ensure that in an event the DDoS attack continues for a longer duration of time, you will be able to view the most current snapshot of mitigation report every 5 minutes and a complete summary once the attack mitigation is over. 
 - **AllMetrics**: Provides all possible metrics available during the duration of a DDoS attack. 
 
@@ -161,11 +160,11 @@ This [built-in policy](https://portal.azure.com/#blade/Microsoft_Azure_Policy/Po
 
 ## View log data in workbooks
 
-### Azure Sentinel data connector
+### Microsoft Sentinel data connector
 
-You can connect logs to Azure Sentinel, view and analyze your data in workbooks, create custom alerts, and incorporate it into investigation processes. To connect to Azure Sentinel, see [Connect to Azure Sentinel](../sentinel/data-connectors-reference.md#azure-ddos-protection). 
+You can connect logs to Microsoft Sentinel, view and analyze your data in workbooks, create custom alerts, and incorporate it into investigation processes. To connect to Microsoft Sentinel, see [Connect to Microsoft Sentinel](../sentinel/data-connectors-reference.md#azure-ddos-protection). 
 
-![Azure Sentinel DDoS Connector](./media/ddos-attack-telemetry/azure-sentinel-ddos.png)
+![Microsoft Sentinel DDoS Connector](./media/ddos-attack-telemetry/azure-sentinel-ddos.png)
 
 ### Azure DDoS Protection Workbook
 

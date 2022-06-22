@@ -4,7 +4,7 @@ description: This article provides an overview of the processing of runbooks in 
 services: automation
 ms.subservice: process-automation
 ms.date: 09/15/2021
-ms.topic: conceptual 
+ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
 ---
 
@@ -34,7 +34,7 @@ When runbooks are designed to authenticate and run against resources in Azure, t
 
 You can also use a [Hybrid Runbook Worker](automation-hybrid-runbook-worker.md) to run runbooks directly on the computer that hosts the role and against local resources in the environment. Azure Automation stores and manages runbooks and then delivers them to one or more assigned computers.
 
-Enabling the Azure Firewall on [Azure Storage](../storage/common/storage-network-security.md), [Azure Key Vault](../key-vault/general/network-security.md), or [Azure SQL](../azure-sql/database/firewall-configure.md) blocks access from Azure Automation runbooks for those services. Access will be blocked even when the firewall exception to allow trusted Microsoft services is enabled, as Automation is not a part of the trusted services list. With an enabled firewall, access can only be made by using a Hybrid Runbook Worker and a [virtual network service endpoint](../virtual-network/virtual-network-service-endpoints-overview.md).
+Enabling the Azure Firewall on [Azure Storage](../storage/common/storage-network-security.md), [Azure Key Vault](../key-vault/general/network-security.md), or [Azure SQL](/azure/azure-sql/database/firewall-configure) blocks access from Azure Automation runbooks for those services. Access will be blocked even when the firewall exception to allow trusted Microsoft services is enabled, as Automation is not a part of the trusted services list. With an enabled firewall, access can only be made by using a Hybrid Runbook Worker and a [virtual network service endpoint](../virtual-network/virtual-network-service-endpoints-overview.md).
 
 >[!NOTE]
 >To run on a Linux Hybrid Runbook Worker, your scripts must be signed and the worker configured accordingly. Alternatively, [signature validation must be turned off](automation-linux-hrw-install.md#turn-off-signature-validation).
@@ -69,10 +69,10 @@ Your runbooks must include logic to deal with [resources](/rest/api/resources/re
 
 ## Security
 
-Azure Automation uses the [Azure Security Center (ASC)](../security-center/security-center-introduction.md) to provide security for your resources and detect compromise in Linux systems. Security is provided across your workloads, whether resources are in Azure or not. See 
+Azure Automation uses the [Microsoft Defender for Cloud](../defender-for-cloud/defender-for-cloud-introduction.md) to provide security for your resources and detect compromise in Linux systems. Security is provided across your workloads, whether resources are in Azure or not. See 
 [Introduction to authentication in Azure Automation](automation-security-overview.md).
 
-ASC places constraints on users who can run any scripts, either signed or unsigned, on a VM. If you are a user with root access to a VM, you must explicitly configure the machine with a digital signature or turn it off. Otherwise, you can only run a script to apply operating system updates after creating an Automation account and enabling the appropriate feature.
+Defender for Cloud places constraints on users who can run any scripts, either signed or unsigned, on a VM. If you are a user with root access to a VM, you must explicitly configure the machine with a digital signature or turn it off. Otherwise, you can only run a script to apply operating system updates after creating an Automation account and enabling the appropriate feature.
 
 ## Subscriptions
 

@@ -1,10 +1,10 @@
 ---
-author: msmimart
+author: kengaderdus
 ms.service: active-directory-b2c
 ms.subservice: B2C
 ms.topic: include
 ms.date: 06/11/2021
-ms.author: mimart
+ms.author: kengaderdus
 # Used by Azure AD B2C app integration articles under "App integration".
 ---
 When users try to sign in to your app, the app starts an authentication request to the authorization endpoint via a [user flow](../articles/active-directory-b2c/user-flow-overview.md). The user flow defines and controls the user experience. After users complete the user flow, Azure AD B2C generates a token and then redirects users back to your application.

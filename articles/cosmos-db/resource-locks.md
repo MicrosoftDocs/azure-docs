@@ -1,13 +1,15 @@
 ---
 title: Prevent Azure Cosmos DB resources from being deleted or changed
 description: Use Azure Resource Locks to prevent Azure Cosmos DB resources from being deleted or changed. 
-author: markjbrown
+author: seesharprun
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 05/13/2021
-ms.author: mjbrown 
-ms.custom: devx-track-azurepowershell
+ms.author: sidandrews
+ms.reviewer: mjbrown 
+ms.custom: devx-track-azurepowershell, devx-track-azurecli 
+ms.devlang: azurecli
 ---
 
 # Prevent Azure Cosmos DB resources from being deleted or changed
@@ -110,6 +112,17 @@ When applying a lock to an Azure Cosmos DB resource, use the following formats:
 ]
 ```
 
+## Samples
+
+Manage resource locks for Azure Cosmos DB:
+
+- Cassandra API keyspace and table [Azure CLI](scripts\cli\cassandra\lock.md) | [Azure PowerShell](scripts\powershell\cassandra\lock.md)
+- Gremlin API database and graph [Azure CLI](scripts\cli\gremlin\lock.md) | [Azure PowerShell](scripts\powershell\gremlin\lock.md)
+- MongoDB API database and collection [Azure CLI](scripts\cli\mongodb\lock.md)| [Azure PowerShell](scripts\powershell\mongodb\lock.md)
+- Core (SQL) API database and container [Azure CLI](scripts\cli\sql\lock.md) | [Azure PowerShell](scripts\powershell\sql\lock.md)
+- Table API table [Azure CLI](scripts\cli\table\lock.md) | [Azure PowerShell](scripts\powershell\table\lock.md)
+
 ## Next steps
 
 - [Overview of Azure Resource Manager Locks](../azure-resource-manager/management/lock-resources.md)
+- [How to audit Azure Cosmos DB control plane operations](audit-control-plane-logs.md)

@@ -7,6 +7,7 @@ ms.topic: tutorial
 ms.date: 02/20/2018
 ms.author: rogarana
 ms.subservice: blobs 
+ms.devlang: csharp
 ms.custom: devx-track-azurepowershell
 ---
 

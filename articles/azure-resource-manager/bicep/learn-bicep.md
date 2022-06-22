@@ -2,41 +2,63 @@
 title: Discover Bicep on Microsoft Learn
 description: Provides an overview of the units that are available on Microsoft Learn for Bicep.
 ms.topic: conceptual
-ms.date: 08/26/2021
+ms.date: 12/03/2021
 ---
 # Bicep on Microsoft Learn
 
 Ready to see how Bicep can help simplify and accelerate your deployments to Azure? Check out the many hands-on courses on Microsoft Learn.
 
+> [!TIP]
+> Want to learn Bicep live from subject matter experts? [Learn Live with our experts every Tuesday (Pacific time) beginning March 8, 2022.](/events/learntv/learnlive-iac-and-bicep/)
+
 ## Get started
 
-These two learning paths will help you get started:
+If you're new to Bicep, a great way to get started is by taking this module on Microsoft Learn.
+
+There you'll learn how Bicep makes it easier to define how your Azure resources should be configured and deployed in a way that's automated and repeatable. You’ll deploy several Azure resources so you can see for yourself how Bicep works. We provide free access to Azure resources to help you practice the concepts.
+
+[<img src="media/learn-bicep/build-first-bicep-template.svg" width="101" height="120" alt="The badge for the Build your first Bicep template module on Microsoft Learn." role="presentation"></img>](/learn/modules/build-first-bicep-template/)
+
+[Build your first Bicep template](/learn/modules/build-first-bicep-template/)
+
+## Learn more
+
+To learn even more about Bicep's features, take these learning paths:
 
 :::row:::
 :::column:::
-<img src="media/learn-bicep/bicep-deploy-manage.svg" width="101" height="120" alt="The trophy for the Deploy and manage resources in Azure by using Bicep learning path." role="presentation"></img>
+  [<img src="media/learn-bicep/fundamentals-bicep.svg" width="101" height="120" alt="The trophy for the Fundamentals of Bicep learning path." role="presentation"></img>](/learn/paths/fundamentals-bicep/)
 
-[Part 1: Deploy and manage resources in Azure by using Bicep](/learn/paths/bicep-deploy/)
-
+  [Part 1: Fundamentals of Bicep](/learn/paths/fundamentals-bicep/)
 :::column-end:::
 :::column:::
-<img src="media/learn-bicep/bicep-collaborate.svg" width="101" height="120" alt="The trophy for the Build Azure infrastructure in a team environment by using Bicep learning path." role="presentation"></img>
+  [<img src="media/learn-bicep/intermediate-bicep.svg" width="101" height="120" alt="The trophy for the Intermediate Bicep learning path." role="presentation"></img>](/learn/paths/intermediate-bicep/)
 
-[Part 2: Build Azure infrastructure in a team environment by using Bicep](/learn/paths/bicep-collaborate/)
+  [Part 2: Intermediate Bicep](/learn/paths/intermediate-bicep/)
+:::column-end:::
+:::column:::
+  [<img src="media/learn-bicep/advanced-bicep.svg" width="101" height="120" alt="The trophy for the Advanced Bicep learning path." role="presentation"></img>](/learn/paths/advanced-bicep/)
 
+  [Part 3: Advanced Bicep](/learn/paths/advanced-bicep/)
 :::column-end:::
 :::row-end:::
 
-## Azure Pipelines and GitHub Actions modules
+## Use Bicep in a deployment pipeline
 
-In addition to the preceding learning paths, the following modules contain Bicep content related to Azure Pipelines and GitHub Actions.
+After that, you might be interested in adding your Bicep code to a deployment pipeline. Take one of these two learning paths based on the tool you want to use:
 
-| Learn module | Description |
-| ------------ | ----------- |
-| [Build your first Bicep deployment pipeline by using Azure Pipelines](/learn/modules/build-first-bicep-deployment-pipeline-using-azure-pipelines/) | Build a basic deployment pipeline for Bicep code. Use a service connection to securely identify your pipeline to Azure. Configure when the pipeline runs by using triggers. |
-| [Build your first Bicep deployment workflow by using GitHub Actions](/learn/modules/build-first-bicep-deployment-pipeline-using-github-actions/) | Build a basic deployment workflow for Bicep code. Use a secret to securely identify your GitHub Actions workflow to Azure, and then set when the workflow runs by using triggers and schedules. |
-| [Authenticate your Azure deployment pipeline by using service principals](/learn/modules/authenticate-azure-deployment-pipeline-service-principals/) | Service principals enable your deployment pipelines to authenticate securely with Azure. In this module, you'll learn what service principals are, how they work, and how to create them. You'll also learn how to grant them permission to your Azure resources so that your pipelines can deploy your Bicep files. |
-| [Test your Bicep code by using Azure Pipelines](/learn/modules/test-bicep-code-using-azure-pipelines/) | Validate and test your Bicep code in your deployment pipeline. You'll use linting, preflight validation, and the what-if operation to validate your Azure changes before you deploy, and you'll test your resources after each deployment. |
+:::row:::
+:::column:::
+  [<img src="media/learn-bicep/bicep-azure-pipelines.svg" width="101" height="120" alt="The trophy for the Deploy Azure resources using Bicep and Azure Pipelines learning path." role="presentation"></img>](/learn/paths/bicep-azure-pipelines/)
+    
+  [Option 1: Deploy Azure resources by using Bicep and Azure Pipelines](/learn/paths/bicep-azure-pipelines/)
+:::column-end:::
+:::column:::
+  [<img src="media/learn-bicep/bicep-github-actions.svg" width="101" height="120" alt="The trophy for the Deploy Azure resources using Bicep and GitHub Actions learning path." role="presentation"></img>](/learn/paths/bicep-github-actions/)
+
+  [Option 2: Deploy Azure resources by using Bicep and GitHub Actions](/learn/paths/bicep-github-actions/)
+:::column-end:::
+:::row-end:::
 
 ## Next steps
 

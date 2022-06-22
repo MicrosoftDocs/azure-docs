@@ -1,10 +1,10 @@
 ---
 title: Model Conversion Error Codes
 description: Model conversion error codes for the Azure Object Anchors service.
-author: jastenze
+author: vriveras
 manager: vriveras
 
-ms.author: jastenze
+ms.author: virivera
 ms.date: 04/20/2021
 ms.topic: overview
 ms.service: azure-object-anchors
@@ -21,14 +21,14 @@ For common modes of model conversion failure, the `Azure.MixedReality.ObjectAnch
 | INVALID_JOB_ID | The provided ID for the asset conversion job to be created was set to the default all-zero GUID. | If a GUID is specified when creating an asset conversion job, ensure it is not the default all-zero GUID. |
 | INVALID_GRAVITY | The gravity vector provided when creating the asset conversion job was a fully zeroed vector. | When starting an asset conversion, provide the gravity vector that corresponds to the uploaded asset. |
 | INVALID_SCALE | The provided scale factor was not a positive non-zero value. | When starting an asset conversion, provide the scalar value that corresponds to the measurement unit scale (with regard to meters) of the uploaded asset. |
-| ASSET_SIZE_TOO_LARGE | The intermediate .PLY file generated from the asset or its serialized equivalent was too large. | Refer to the asset size guidelines before submitting an asset for conversion to ensure conformity: aka.ms/aoa/faq |
-| ASSET_DIMENSIONS_OUT_OF_BOUNDS | The dimensions of the asset exceeded the physical dimension limit. This can be a sign of an improperly set scale for the asset when creating a job. | Refer to the asset size guidelines before submitting an asset for conversion to ensure conformity, and ensure the provided scale corresponds to the uploaded asset: aka.ms/aoa/faq |
+| ASSET_SIZE_TOO_LARGE | The intermediate .PLY file generated from the asset or its serialized equivalent was too large. | Refer to the [asset size guidelines](faq.md) before submitting an asset for conversion to ensure conformity. |
+| ASSET_DIMENSIONS_OUT_OF_BOUNDS | The dimensions of the asset exceeded the physical dimension limit. This can be a sign of an improperly set scale for the asset when creating a job. | Inspect the `ScaledAssetDimensions` property in your `AssetConversionProperties` object: it will contain the actual dimensions of the asset that were calculated after applying scale (in meters). Then, refer to the [asset size guidelines](faq.md) before submitting an asset for conversion to ensure conformity, and ensure the provided scale corresponds to the uploaded asset. |
 | ZERO_FACES | The intermediate .PLY file generated from the asset was determined to have no faces, making it invalid for conversion. | Ensure the asset is a valid mesh. |
 | INVALID_FACE_VERTICES | The intermediate .PLY file generated from the asset contained faces that referenced nonexistent vertices. | Ensure the asset file is validly constructed. |
-| ZERO_TRAJECTORIES_GENERATED | The camera trajectories generated from the uploaded asset were empty. | Refer to the asset guidelines before submitting an asset for conversion to ensure conformity: aka.ms/aoa/faq |
-| TOO_MANY_RIG_POSES | The number of rig poses in the intermediate .PLY file exceeded service limits. | Refer to the asset size guidelines before submitting an asset for conversion to ensure conformity: aka.ms/aoa/faq |
+| ZERO_TRAJECTORIES_GENERATED | The camera trajectories generated from the uploaded asset were empty. | Refer to the [asset guidelines](faq.md) before submitting an asset for conversion to ensure conformity. |
+| TOO_MANY_RIG_POSES | The number of rig poses in the intermediate .PLY file exceeded service limits. | Refer to the [asset size guidelines](faq.md) before submitting an asset for conversion to ensure conformity. |
 | SERVICE_ERROR | An unknown service error occurred. | Contact a member of the Object Anchors service team if the issue persists: https://github.com/Azure/azure-object-anchors/issues |
-| ASSET_CANNOT_BE_CONVERTED | The provided asset was corrupted, malformed, or otherwise unable to be converted in its provided format. | Ensure the asset is a validly constructed file of the specified type, and refer to the asset size guidelines before submitting an asset for conversion to ensure conformity: aka.ms/aoa/faq |
+| ASSET_CANNOT_BE_CONVERTED | The provided asset was corrupted, malformed, or otherwise unable to be converted in its provided format. | Ensure the asset is a validly constructed file of the specified type, and refer to the [asset size guidelines](faq.md) before submitting an asset for conversion to ensure conformity. |
 
 Any errors that occur outside the actual asset conversion jobs will be thrown as exceptions. Most notably, the `Azure.RequestFailedException` can be thrown for service calls that receive an unsuccessful (4xx or 5xx) or unexpected HTTP response code. For further details on these exceptions, examine the `Status`, `ErrorCode`, or `Message` fields on the exception.
 

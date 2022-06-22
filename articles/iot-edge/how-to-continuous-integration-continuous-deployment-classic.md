@@ -1,9 +1,9 @@
 ---
 title: Continuous integration and continuous deployment to Azure IoT Edge devices (classic editor) - Azure IoT Edge
 description: Set up continuous integration and continuous deployment using the classic editor - Azure IoT Edge with Azure DevOps, Azure Pipelines
-author: kgremban
+author: PatAltimore
 
-ms.author: kgremban
+ms.author: patricka
 ms.date: 08/26/2021
 ms.topic: conceptual
 ms.service: iot-edge
@@ -178,6 +178,5 @@ This pipeline is now configured to run automatically when you push new code to y
 
 ## Next steps
 
-* IoT Edge DevOps sample in [Azure DevOps Starter for IoT Edge](how-to-devops-starter.md)
 * Understand the IoT Edge deployment in [Understand IoT Edge deployments for single devices or at scale](module-deployment-monitoring.md)
 * Walk through the steps to create, update, or delete a deployment in [Deploy and monitor IoT Edge modules at scale](how-to-deploy-at-scale.md).

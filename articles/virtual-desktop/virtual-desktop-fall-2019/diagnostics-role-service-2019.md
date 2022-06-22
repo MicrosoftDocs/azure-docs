@@ -10,7 +10,7 @@ manager: femila
 # Identify and diagnose issues in Azure Virtual Desktop (classic)
 
 >[!IMPORTANT]
->This content applies to Azure Virtual Desktop (classic), which doesn't support Azure Resource Manager Azure Virtual Desktop objects. If you're trying to manage Azure Resource Manager Azure Virtual Desktop objects, see [this article](../diagnostics-role-service.md).
+>This content applies to Azure Virtual Desktop (classic), which doesn't support Azure Resource Manager Azure Virtual Desktop objects. If you're trying to manage Azure Resource Manager Azure Virtual Desktop objects, see [this article](../troubleshoot-set-up-overview.md).
 
 Azure Virtual Desktop offers a diagnostics feature that allows the administrator to identify issues through a single interface. The Azure Virtual Desktop roles log a diagnostic activity whenever a user interacts with the system. Each log contains relevant information such as the Azure Virtual Desktop roles involved in the transaction, error messages, tenant information, and user information. Diagnostic activities are created by both end-user and administrative actions, and can be categorized into three main buckets:
 

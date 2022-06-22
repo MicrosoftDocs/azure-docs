@@ -6,7 +6,7 @@ services: cognitive-services
 author: nitinme
 manager: nitinme
 ms.service: cognitive-services
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/02/2021
 ms.author: nitinme
 ---

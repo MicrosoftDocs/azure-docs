@@ -69,11 +69,8 @@ landingContent:
             url: search-get-started-portal.md
           - text: Create a demo app
             url: search-create-app-portal.md
-          - text: Translate text and recognize entities
+          - text: Create a skillset for AI enrichment
             url: cognitive-search-quickstart-blob.md
-          - text: Apply OCR and image analysis
-            url: cognitive-search-quickstart-ocr.md
-
 
   # Card
   - title: Index data
@@ -101,11 +98,11 @@ landingContent:
       - linkListType: concept
         links:
           - text: Skillsets
-            url: cognitive-search-defining-skillset.md
+            url: cognitive-search-working-with-skillsets.md
           - text: Knowledge stores
             url: knowledge-store-concept-intro.md
           - text: Projections
-            url: knowledge-store-projections-examples.md
+            url: knowledge-store-projection-overview.md
       - linkListType: how-to-guide
         links:
           - text: Attach Cognitive Services

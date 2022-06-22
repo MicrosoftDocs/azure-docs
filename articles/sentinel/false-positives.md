@@ -1,17 +1,18 @@
 ---
-title: Handle false positives in Azure Sentinel
-description: Learn how to resolve false positives in Azure Sentinel by creating automation rules or modifying analytics rules to specify exceptions.
+title: Handle false positives in Microsoft Sentinel
+description: Learn how to resolve false positives in Microsoft Sentinel by creating automation rules or modifying analytics rules to specify exceptions.
 author: batamig
 ms.author: bagol
-ms.service: azure-sentinel
 ms.topic: how-to
-ms.date: 05/11/2021
-
+ms.date: 11/09/2021
+ms.custom: ignite-fall-2021
 ---
 
-# Handle false positives in Azure Sentinel
+# Handle false positives in Microsoft Sentinel
 
-[Azure Sentinel analytics rules](detect-threats-built-in.md) notify you when something suspicious occurs in your network. No analytics rule is perfect, and you're bound to get some false positives that need handling. This article describes how to handle false positives, either by using automation or by modifying scheduled analytics rules.
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
+
+[Microsoft Sentinel analytics rules](detect-threats-built-in.md) notify you when something suspicious occurs in your network. No analytics rule is perfect, and you're bound to get some false positives that need handling. This article describes how to handle false positives, either by using automation or by modifying scheduled analytics rules.
 
 ## False positive causes and prevention
 
@@ -42,34 +43,38 @@ The simplest way to add an exception is to [add an automation rule](automate-inc
 
 To add an automation rule to handle a false positive:
 
-1. In Azure Sentinel, under **Incidents**, select the incident you want to create an exception for.
+1. In Microsoft Sentinel, under **Incidents**, select the incident you want to create an exception for.
 1. Select **Create automation rule**.
 1. In the **Create new automation rule** sidebar, optionally modify the new rule name to identify the exception, rather than just the alert rule name.
-1. Under **Conditions**, optionally add more **Analytic rule name**s to apply the exception to.
+1. Under **Conditions**, optionally add more **Analytics rule name**s to apply the exception to.
+    Select the drop-down box containing the analytics rule name and select more analytics rules from the list.
 1. The sidebar presents the specific entities in the current incident that might have caused the false positive. Keep the automatic suggestions, or modify them to fine-tune the exception. For example, you could change a condition on an IP address to apply to an entire subnet.
 
-   :::image type="content" source="media/false-positives/create-rule.png" alt-text="Screenshot showing how to create an automation rule for an incident in Azure Sentinel.":::
+   :::image type="content" source="media/false-positives/create-rule.png" alt-text="Screenshot showing how to create an automation rule for an incident in Microsoft Sentinel.":::
 
-1. After you define the trigger, you can continue to define what the rule does:
+1. After you're satisfied with the conditions, you can continue to define what the rule does:
 
-   :::image type="content" source="media/false-positives/apply-rule.png" alt-text="Screenshot showing how to finish creating and applying an automation rule in Azure Sentinel.":::
+   :::image type="content" source="media/false-positives/apply-rule.png" alt-text="Screenshot showing how to finish creating and applying an automation rule in Microsoft Sentinel.":::
 
    - The rule is already configured to close an incident that meets the exception criteria.
+   - You can keep the specified closing reason as is, or you can change it if another reason is more appropriate.
    - You can add a comment to the automatically closed incident that explains the exception. For example, you could specify that the incident originated from known administrative activity.
    - By default, the rule is set to expire automatically after 24 hours. This expiration might be what you want, and reduces the chance of false negative errors. If you want a longer exception, set **Rule expiration** to a later time.
+
+1. You can add more actions if you want. For example, you can add a tag to the incident, or you can run a playbook to send an email or a notification or to synchronize with an external system.
 
 1. Select **Apply** to activate the exception.
 
 > [!TIP]
-> You can also create an automation rule from scratch, without starting from an incident. Select **Automation** from the Azure Sentinel left navigation menu, and then select **Create** > **Add new rule**.
+> You can also create an automation rule from scratch, without starting from an incident. Select **Automation** from the Microsoft Sentinel left navigation menu, and then select **Create** > **Add new rule**. [Learn more about automation rules](automate-incident-handling-with-automation-rules.md).
 
 ## Add exceptions by modifying analytics rules
 
-Another option for implementing exceptions is to modify the analytics rule query. You can include exceptions directly in the rule, or preferably, when possible, use a reference to a [watchlist](watchlists.md#use-watchlists-in-analytics-rules). You can then manage the exception list in the watchlist.
+Another option for implementing exceptions is to modify the analytics rule query. You can include exceptions directly in the rule, or preferably, when possible, use a reference to a [watchlist](watchlists-queries.md#create-an-analytics-rule-with-a-watchlist). You can then manage the exception list in the watchlist.
 
 ### Modify the query
 
-To edit existing analytics rules, select **Automation** from the Azure Sentinel left navigation menu. Select the rule you want to edit, and then select **Edit** at lower right to open the **Analytics Rules Wizard**.
+To edit existing analytics rules, select **Automation** from the Microsoft Sentinel left navigation menu. Select the rule you want to edit, and then select **Edit** at lower right to open the **Analytics Rules Wizard**.
 
 For detailed instructions on using the **Analytics Rules Wizard** to create and edit analytics rules, see [Create custom analytics rules to detect threats](detect-threats-custom.md).
 
@@ -143,6 +148,6 @@ let subnets = _GetWatchlist('subnetallowlist');
 
 For more information, see:
 - [Use UEBA data to analyze false positives](investigate-with-ueba.md#use-ueba-data-to-analyze-false-positives)
-- [Automate incident handling in Azure Sentinel with automation rules](automate-incident-handling-with-automation-rules.md)
+- [Automate incident handling in Microsoft Sentinel with automation rules](automate-incident-handling-with-automation-rules.md)
 - [Create custom analytics rules to detect threats](detect-threats-custom.md)
-- [Use Azure Sentinel watchlists](watchlists.md)
+- [Use Microsoft Sentinel watchlists](watchlists.md)

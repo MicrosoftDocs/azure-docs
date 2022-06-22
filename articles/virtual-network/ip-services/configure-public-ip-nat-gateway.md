@@ -26,9 +26,9 @@ Finally, you'll change the IP configuration from a public IP address to an IP pr
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-- Two standard SKU public IP addresses in your subscription. The IP addresses can't be associated with any resources. For more information on creating a standard SKU public IP address, see [Create a public IP - Azure portal](../../virtual-network/create-public-ip-portal.md).
+- Two standard SKU public IP addresses in your subscription. The IP addresses can't be associated with any resources. For more information on creating a standard SKU public IP address, see [Create a public IP - Azure portal](./create-public-ip-portal.md).
     - For the purposes of the examples in this article, name the new public IP addresses **myStandardPublicIP-1** and **myStandardPublicIP-2**.
-- A public IP prefix in your subscription. For more information on creating a public IP prefix, see [Create a public IP address prefix using the Azure portal](../../virtual-network/create-public-ip-prefix-portal.md).
+- A public IP prefix in your subscription. For more information on creating a public IP prefix, see [Create a public IP address prefix using the Azure portal](./create-public-ip-prefix-portal.md).
     - For the purposes of the example in this article, name the new public IP prefix **myPublicIPPrefixNAT**.
 
 ## Create NAT gateway existing public IP
@@ -65,7 +65,7 @@ In this section, you'll create a NAT gateway resource. You'll select the IP addr
 7. Select **Create**.
 
 > [!NOTE]
-> This is a simple deployment of a NAT gateway. For advanced configuration and setup, see [Tutorial: Create a NAT gateway using the Azure portal](../nat-gateway/tutorial-create-nat-gateway-portal.md)
+> This is a simple deployment of a NAT gateway. For advanced configuration and setup, see [Quickstart: Create a NAT gateway using the Azure portal](../nat-gateway/quickstart-create-nat-gateway-portal.md)
 >
 > For more information on Azure Virtual Network NAT, see [What is Azure Virtual Network NAT?](../nat-gateway/nat-overview.md)
 
@@ -144,4 +144,4 @@ In this section, you'll change the outbound IP configuration to use a public IP 
 In this article, you learned how to create a load NAT gateway and use an existing public IP. You replaced the IP address in a NAT gateway outbound IP configuration. Finally, you changed an outbound IP configuration to use a public IP prefix.
 
 - For more information about Azure Virtual Network NAT, see [What is Azure Virtual Network NAT?](../nat-gateway/nat-overview.md)
-- To learn more about public IP addresses in Azure, see [Public IP addresses](../../virtual-network/public-ip-addresses.md).
+- To learn more about public IP addresses in Azure, see [Public IP addresses](./public-ip-addresses.md).

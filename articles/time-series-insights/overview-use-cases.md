@@ -15,6 +15,8 @@ ms.custom: seodec18
 
 # Azure Time Series Insights Gen2 use cases
 
+[!INCLUDE [retirement](../../includes/tsi-retirement.md)]
+
 This article summarizes several common use cases for Azure Time Series Insights Gen2. The recommendations in this article serve as a starting point to develop your applications and solutions with Azure Time Series Insights Gen2.
 
 Specifically, this article answers the following questions:

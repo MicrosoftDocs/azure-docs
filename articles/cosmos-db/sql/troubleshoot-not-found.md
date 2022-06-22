@@ -7,7 +7,8 @@ ms.subservice: cosmosdb-sql
 ms.date: 05/26/2021
 ms.author: jawilley
 ms.topic: troubleshooting
-ms.reviewer: sngun
+ms.reviewer: mjbrown
+ms.custom: ignite-fall-2021
 ---
 
 # Diagnose and troubleshoot Azure Cosmos DB not found exceptions
@@ -61,7 +62,7 @@ string containerRid = selfLinkSegments[3];
 Container containerByRid = this.cosmosClient.GetContainer(databaseRid, containerRid);
 
 // Invalid characters are listed here.
-//https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.resource.id#remarks
+// https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.resource.id#remarks
 FeedIterator<JObject> invalidItemsIterator = this.Container.GetItemQueryIterator<JObject>(
     @"select * from t where CONTAINS(t.id, ""/"") or CONTAINS(t.id, ""#"") or CONTAINS(t.id, ""?"") or CONTAINS(t.id, ""\\"") ");
 while (invalidItemsIterator.HasMoreResults)

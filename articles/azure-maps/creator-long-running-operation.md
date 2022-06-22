@@ -1,15 +1,14 @@
 ---
-title: Azure Maps Long-Running Operation API 
+title: Azure Maps Long-Running Operation API
 description: Learn about long-running asynchronous background processing in Azure Maps
-author: anastasia-ms 
-ms.author: v-stharr 
+author: stevemunk
+ms.author: v-munksteve
 ms.date: 12/07/2020
-ms.topic: conceptual 
-ms.service: azure-maps 
-services: azure-maps 
- 
-ms.custom: mvc 
---- 
+ms.topic: conceptual
+ms.service: azure-maps
+services: azure-maps
+ms.custom: mvc
+---
 
 # Creator Long-Running Operation API
 

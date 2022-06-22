@@ -1,18 +1,20 @@
 ---
-
 title: 'Security in Azure Database for PostgreSQL - Flexible Server'
-description:  Learn about security in the Flexible Server deployment option for Azure Database for PostgreSQL.
-author: gennadNY 
+description: Learn about security in the Flexible Server deployment option for Azure Database for PostgreSQL.
+author: gennadNY
 ms.author: gennadyk
 ms.service: postgresql
-ms.custom: mvc
+ms.subservice: flexible-server
+ms.custom: mvc, mode-other
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 10/01/2021
+ms.date: 11/30/2021
 ---
 
 
 # Security in Azure Database for PostgreSQL - Flexible Server
+
+[!INCLUDE [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 
 Multiple layers of security are available to help protect the data on your Azure Database for PostgreSQL server. This article outlines those security options.
 
@@ -75,10 +77,10 @@ oid            | 24827
 
 ```
 
-[Audit logging](../concepts-audit.md) is also available with Flexible Server to track activity in your databases. 
+[Audit logging](concepts-audit.md) is also available with Flexible Server to track activity in your databases. 
 
 > [!NOTE]
-> Azure Database for PostgreSQL - Flexible Server currently doesn't support [Azure Defender protection](../../security-center/azure-defender.md). 
+> Azure Database for PostgreSQL - Flexible Server currently doesn't support [Microsoft Defender for Cloud protection](../../security-center/azure-defender.md). 
 
 ## Updating passwords
 

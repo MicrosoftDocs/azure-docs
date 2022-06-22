@@ -1,10 +1,10 @@
 ---
 title: Common errors - Azure IoT Edge | Microsoft Docs 
 description: Use this article to resolve common issues encountered when deploying an IoT Edge solution
-author: kgremban
+author: PatAltimore
 
-ms.author: kgremban
-ms.date: 03/01/2021
+ms.author: patricka
+ms.date: 02/28/2022
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -70,7 +70,7 @@ By default, IoT Edge starts modules in their own isolated container network. The
 
 **Option 1: Set DNS server in container engine settings**
 
-Specify the DNS server for your environment in the container engine settings, which will apply to all container modules started by the engine. Create a file named `daemon.json` specifying the DNS server to use. For example:
+Specify the DNS server for your environment in the container engine settings, which will apply to all container modules started by the engine. Create a file named `daemon.json`, then specify the DNS server to use. For example:
 
 ```json
 {
@@ -78,7 +78,7 @@ Specify the DNS server for your environment in the container engine settings, wh
 }
 ```
 
-The above example sets the DNS server to a publicly accessible DNS service. If the edge device can't access this IP from its environment, replace it with DNS server address that is accessible.
+This DNS server is set to a publicly accessible DNS service. However some networks, such as corporate networks, have their own DNS servers installed and won't allow access to public DNS servers. Therefore, if your edge device can't access a public DNS server, replace it with an accessible DNS server address.
 
 <!-- 1.1 -->
 :::moniker range="iotedge-2018-06"
@@ -130,6 +130,9 @@ You can set DNS server for each module's *createOptions* in the IoT Edge deploym
 }
 ```
 
+> [!WARNING]
+> If you use this method and specify the wrong DNS address, *edgeAgent* loses connection with IoT Hub and can't receive new deployments to fix the issue. To resolve this issue, you can reinstall the IoT Edge runtime. Before you install a new instance of IoT Edge, be sure to remove any *edgeAgent* containers from the previous installation.
+
 Be sure to set this configuration for the *edgeAgent* and *edgeHub* modules as well.
 
 ## IoT Edge hub fails to start
@@ -150,7 +153,7 @@ Or
 ```output
 info: edgelet_docker::runtime -- Starting module edgeHub...
 warn: edgelet_utils::logging -- Could not start module edgeHub
-warn: edgelet_utils::logging -- 	caused by: failed to create endpoint edgeHub on network nat: hnsCall failed in Win32:  
+warn: edgelet_utils::logging --     caused by: failed to create endpoint edgeHub on network nat: hnsCall failed in Win32:  
         The process cannot access the file because it is being used by another process. (0x20)
 ```
 
@@ -314,6 +317,27 @@ Windows Registry Editor Version 5.00
 "TypesSupported"=dword:00000007
 ```
 
+## DPS client error
+
+**Observed behavior:**
+
+IoT Edge fails to start with error message `failed to provision with IoT Hub, and no valid device backup was found dps client error.`
+
+**Root cause:**
+
+A group enrollment is used to provision an IoT Edge device to an IoT Hub. The IoT Edge device is moved to a different hub. The registration is deleted in DPS. A new registration is created in DPS for the new hub. The device is not reprovisioned.
+
+**Resolution:**
+
+1. Verify your DPS credentials are correct.
+1. Apply your configuration using `sudo iotedge apply config`.
+1. If the device isn't reprovisioned, restart the device using `sudo iotedge system restart`.
+1. If the device isn't reprovisioned, force reprovisioning using `sudo iotedge system reprovision`.
+
+To automatically reprovision, set `dynamic_reprovisioning: true` in the device configuration file. Setting this flag to true opts in to the dynamic re-provisioning feature. IoT Edge detects situations where the device appears to have been reprovisioned in the cloud by monitoring its own IoT Hub connection for certain errors. IoT Edge responds by shutting itself and all Edge modules down. The next time the daemon starts up, it will attempt to reprovision this device with Azure to receive the new IoT Hub provisioning information.
+
+When using external provisioning, the daemon will also notify the external provisioning endpoint about the re-provisioning event before shutting down. For more information, see [IoT Hub device reprovisioning concepts](../iot-dps/concepts-device-reprovision.md).
+
 :::moniker-end
 <!-- end 1.1 -->
 
@@ -389,7 +413,68 @@ Only use one type of deployment mechanism per device, either an automatic deploy
 
 For more information, see [Understand IoT Edge automatic deployments for single devices or at scale](module-deployment-monitoring.md).
 
-<!-- <1.2> -->
+## IoT Edge module reports connectivity errors
+
+**Observed behavior:**
+
+IoT Edge modules that connect directly to cloud services, including the runtime modules, stop working as expected and return errors around connection or networking failures.
+
+**Root cause:**
+
+Containers rely on IP packet forwarding in order to connect to the internet so that they can communicate with cloud services. IP packet forwarding is enabled by default in Docker, but if it gets disabled then any modules that connect to cloud services will not work as expected. For more information, see [Understand container communication](https://apimirror.com/docker~1.12/engine/userguide/networking/default_network/container-communication/index) in the Docker documentation.
+
+**Resolution:**
+
+Use the following steps to enable IP packet forwarding.
+
+<!--1.1-->
+:::moniker range="iotedge-2018-06"
+
+On Windows:
+
+1. Open the **Run** application.
+
+1. Enter `regedit` in the text box and select **Ok**.
+
+1. In the **Registry Editor** window, browse to **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters**.
+
+1. Look for the **IPEnableRouter** parameter.
+
+   1. If the parameter exists, set the value of the parameter to **1**.
+
+   1. If the parameter doesn't exist, add it as a new parameter with the following settings:
+
+      | Setting | Value |
+      | ------- | ----- |
+      | Name    | IPEnableRouter |
+      | Type    | REG_DWORD |
+      | Value   | 1 |
+
+1. Close the registry editor window.
+
+1. Restart your system to apply the changes.
+
+On Linux:
+:::moniker-end
+<!-- end -->
+
+1. Open the **sysctl.conf** file.
+
+   ```bash
+   sudo nano /etc/sysctl.conf
+   ```
+
+1. Add the following line to the file.
+
+   ```input
+   net.ipv4.ip_forward=1
+   ```
+
+1. Save and close the file.
+
+1. Restart the network service and docker service to apply the changes.
+
+<!-- 1.2 -->
 ::: moniker range=">=iotedge-2020-11"
 
 ## IoT Edge behind a gateway cannot perform HTTP requests and start edgeAgent module
@@ -406,8 +491,51 @@ IoT Edge devices behind a gateway get their module images from the parent IoT Ed
 
 Make sure the parent IoT Edge device can receive incoming requests from the child IoT Edge device. Open network traffic on ports 443 and 6617 for requests coming from the child device.
 
+## IoT Edge behind a gateway cannot connect when migrating from one IoT hub to another
+
+**Observed behavior:**
+
+When attempting to migrate a hierarchy of IoT Edge devices from one IoT hub to another, the top level parent IoT Edge device can connect to IoT Hub, but downstream IoT Edge devices cannot. The logs report `Unable to authenticate client downstream-device/$edgeAgent with module credentials`. 
+
+**Root cause:**
+
+The credentials for the downstream devices were not updated properly when the migration to the new IoT hub happened. Because of this, `edgeAgent` and `edgeHub` modules were set to have authentication type of `none` (default if not set explicitly). During connection, the modules on the downstream devices use old credentials, causing the authentication to fail.
+
+**Resolution:**
+
+When migrating to the new IoT hub (assuming not using DPS), follow these steps in order:
+1. Follow [this guide to export and then import device identities](../iot-hub/iot-hub-bulk-identity-mgmt.md) from the old IoT hub to the new one 
+1. Reconfigure all IoT Edge deployments and configurations in the new IoT hub
+1. Reconfigure all parent-child device relationships in the new IoT hub
+1. Update each device to point to the new IoT hub hostname (`iothub_hostname` under `[provisioning]` in `config.toml`)
+1. If you chose to exclude authentication keys during the device export, reconfigure each device with the new keys given by the new IoT hub (`device_id_pk` under `[provisioning.authentication]` in `config.toml`)
+1. Restart the top-level parent Edge device first, make sure it's up and running
+1. Restart each device in hierarchy level by level from top to the bottom
+
 :::moniker-end
 <!-- end 1.2 -->
+
+## Security daemon couldn't start successfully
+
+**Observed behavior:**
+
+The security daemon fails to start and module containers aren't created. The `edgeAgent`, `edgeHub` and other custom modules aren't started by IoT Edge service. In `aziot-edged` logs, you see this error:
+
+> - The daemon could not start up successfully: Could not start management service
+>  - caused by: An error occurred for path /var/run/iotedge/mgmt.sock
+>  - caused by: Permission denied (os error 13)
+
+
+**Root cause:**
+
+For all Linux distros except CentOS 7, IoT Edge's default configuration is to use `systemd` socket activation. A permission error happens if you change the configuration file to not use socket activation but leave the URLs as `/var/run/iotedge/*.sock`, since the `iotedge` user can't write to `/var/run/iotedge` meaning it can't unlock and mount the sockets itself. 
+
+**Resolution:**
+
+You do not need to disable socket activation on a distro where socket activation is supported. However, if you prefer to not use socket activation at all, put the sockets in `/var/lib/iotedge/`. To do this 
+1. Run `systemctl disable iotedge.socket iotedge.mgmt.socket` to disable the socket units so that systemd doesn't start them unnecessarily
+1. Change the iotedge config to use `/var/lib/iotedge/*.sock` in both `connect` and `listen` sections
+1. If you already have modules, they have the old `/var/run/iotedge/*.sock` mounts, so `docker rm -f` them.
 
 ## Next steps
 

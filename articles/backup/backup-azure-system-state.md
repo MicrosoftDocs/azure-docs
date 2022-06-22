@@ -177,7 +177,7 @@ After the initial backup is completed, the **Job completed** status appears in t
 
 ## Questions?
 
-If you have questions, [send us feedback](https://feedback.azure.com/forums/258995-azure-backup).
+If you have questions, [send us feedback](https://feedback.azure.com/d365community/forum/153aa817-0725-ec11-b6e6-000d3a4f0858).
 
 ## Next steps
 

@@ -18,6 +18,7 @@ Servers are delivered to customers with compatible versions. However, during OS/
 | --- | --- | --- | --- | --- |
 | Red Hat | RHEL 7.6 | 3.2.3i | 2.3.0.53 | 1.6.0.34 |
 | Red Hat | RHEL 7.6 | 4.1.1b | 2.3.0.53 | 1.6.0.34 |
+| Red Hat | RHEL 7.6 | 4.1.1b | 4.0.0.8  | 2.0.0.60 |
 
 ## Next steps
 

@@ -4,7 +4,8 @@ description: Explains the different factors that affect latency in collecting lo
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 07/18/2019
+ms.reviewer: eternovsky
+ms.date: 03/21/2022
 
 ---
 
@@ -12,73 +13,99 @@ ms.date: 07/18/2019
 Azure Monitor is a high scale data service that serves thousands of customers sending terabytes of data each month at a growing pace. There are often questions about the time it takes for log data to become available after it's collected. This article explains the different factors that affect this latency.
 
 ## Typical latency
-Latency refers to the time that data is created on the monitored system and the time that it comes available for analysis in Azure Monitor. The typical latency to ingest log data is between 20 sec and 3 minutes. However, the specific latency for any particular data will vary depending on a variety of factors explained below.
+Latency refers to the time that data is created on the monitored system and the time that it comes available for analysis in Azure Monitor. The typical latency to ingest log data is **between 20 seconds and 3 minutes**. However, the specific latency for any particular data will vary depending on a variety of factors explained below.
 
 
 ## Factors affecting latency
 The total ingestion time for a particular set of data can be broken down into the following high-level areas. 
 
-- Agent time - The time to discover an event, collect it, and then send it to Azure Monitor Logs ingestion point as a log record. In most cases, this process is handled by an agent. Additional latency may be introduced by network.
-- Pipeline time - The time for the ingestion pipeline to process the log record. This includes parsing the properties of the event and potentially adding calculated information.
-- Indexing time – The time spent to ingest a log record into Azure Monitor big data store.
+- **Agent time** - The time to discover an event, collect it, and then send it to Azure Monitor Logs ingestion point as a log record. In most cases, this process is handled by an agent. Additional latency may be introduced by the network.
+- **Pipeline time** - The time for the ingestion pipeline to process the log record. This includes parsing the properties of the event and potentially adding calculated information.
+- **Indexing time** - The time spent to ingest a log record into Azure Monitor big data store.
 
 Details on the different latency introduced in this process are described below.
 
 ### Agent collection latency
+
+**Time varies**
+
 Agents and management solutions use different strategies to collect data from a virtual machine, which may affect the latency. Some specific examples include the following:
 
-- Windows events, syslog events, and performance metrics are collected immediately. Linux performance counters are polled at 30-second intervals.
-- IIS logs and custom logs are collected once their timestamp changes. For IIS logs, this is influenced by the [rollover schedule configured on IIS](../agents/data-sources-iis-logs.md). 
-- Active Directory Replication solution performs its assessment every five days, while the Active Directory Assessment solution performs a weekly assessment of your Active Directory infrastructure. The agent will collect these logs only when assessment is complete.
+| Type of data  | Collection frequency  | Notes |
+|:--------------|:----------------------|:------|
+| Windows events, syslog events, and performance metrics | collected immediately| | 
+| Linux performance counters | polled at 30-second intervals| |
+| IIS logs and text logs | collected once their timestamp changes | For IIS logs, this is influenced by the [rollover schedule configured on IIS](../agents/data-sources-iis-logs.md). |
+| Active Directory Replication solution | Assessment every five days | The agent collects these logs only when assessment is complete.|
+| Active Directory Assessment solution | weekly assessment of your Active Directory infrastructure | The agent collects these logs only when assessment is complete.|
 
 ### Agent upload frequency
+
+**Under 1 minute**
+
 To ensure the Log Analytics agent is lightweight, the agent buffers logs and periodically uploads them to Azure Monitor. Upload frequency varies between 30 seconds and 2 minutes depending on the type of data. Most data is uploaded in under 1 minute. 
 
 ### Network
+
+**Varies**
+
 Network conditions may negatively affect the latency of this data to reach Azure Monitor Logs ingestion point.
 
-### Azure activity logs, resource logs and metrics
+### Azure metrics, resource logs, activity log
+
+**30 seconds to 15 minutes**
+
 Azure data adds additional time to become available at Azure Monitor Logs ingestion point for processing:
 
-- Resource logs typically add 30-90 seconds, depending on the Azure service. Some Azure services (specifically, Azure SQL Database and Azure Virtual Network) currently report their logs at 5 min intervals. Work is in progress to improve this further. See the [query below](#checking-ingestion-time) to examine this latency in your environment
-- Azure platform metrics take additional 3 minutes to be exported to Azure Monitor Logs ingestion point.
-- Activity log data may take additional 10-15 minutes, if legacy integration is used. We recommend to use subscription-level diagnostic settings to ingest Activity Logs into  Azure Monitor Logs, which incurs additional latency of about 30 seconds.
+- **Azure platform metrics** are available in under a minute in the metrics database, but take additional 3 minutes to be exported to the Azure Monitor Logs ingestion point.
+- **Resource logs** typically add 30-90 seconds, depending on the Azure service. Some Azure services (specifically, Azure SQL Database and Azure Virtual Network) currently report their logs at 5 min intervals. Work is in progress to improve this further. See the [query below](#checking-ingestion-time) to examine this latency in your environment
+- **Activity log** data is ingested in 30 seconds when you use the recommended subscription-level diagnostic settings to send them into Azure Monitor Logs. However, they may take 10-15 minutes if you instead use the legacy integration.  
 
 ### Management solutions collection
+
+**Varies**
+
 Some solutions do not collect their data from an agent and may use a collection method that introduces additional latency. Some solutions collect data at regular intervals without attempting near-real time collection. Specific examples include the following:
 
 - Microsoft 365 solution polls activity logs using the Management Activity API, which currently does not provide any near-real time latency guarantees.
 - Windows Analytics solutions (Update Compliance for example) data is collected by the solution at a daily frequency.
 
-Refer to the documentation for each solution to determine its collection frequency.
+Refer to the [documentation for each solution](../insights/solutions.md) to determine its collection frequency.
 
 ### Pipeline-process time
+
+**30 to 60 seconds**
 
 Once available at ingestion point, data takes additional 30-60 seconds to be available for querying.
 
 Once log records are ingested into the Azure Monitor pipeline (as identified in the [_TimeReceived](./log-standard-columns.md#_timereceived) property), they're written to temporary storage to ensure tenant isolation and to make sure that data isn't lost. This process typically adds 5-15 seconds. Some management solutions implement heavier algorithms to aggregate data and derive insights as data is streaming in. For example, the Network Performance Monitoring aggregates incoming data over 3-minute intervals, effectively adding 3-minute latency. Another process that adds latency is the process that handles custom logs. In some cases, this process might add few minutes of latency to logs that are collected from files by the agent.
 
 ### New custom data types provisioning
+
 When a new type of custom data is created from a [custom log](../agents/data-sources-custom-logs.md) or the [Data Collector API](../logs/data-collector-api.md), the system creates a dedicated storage container. This is a one-time overhead that occurs only on the first appearance of this data type.
 
 ### Surge protection
+
+**Typically less than 1 minute but can be more** 
+
 The top priority of Azure Monitor is to ensure that no customer data is lost, so the system has built-in protection for data surges. This includes buffers to ensure that even under immense load, the system will keep functioning. Under normal load, these controls add less than a minute, but in extreme conditions and failures they could add significant time while ensuring data is safe.
 
 ### Indexing time
+
+**5 minutes or less**
+
 There is a built-in balance for every big data platform between providing analytics and advanced search capabilities as opposed to providing immediate access to the data. Azure Monitor allows you to run powerful queries on billions of records and get results within a few seconds. This is made possible because the infrastructure transforms the data dramatically during its ingestion and stores it in unique compact structures. The system buffers the data until enough of it is available to create these structures. This must be completed before the log record appears in search results.
 
 This process currently takes about 5 minutes when there is low volume of data but less time at higher data rates. This seems counterintuitive, but this process allows optimization of latency for high-volume production workloads.
-
-
 
 ## Checking ingestion time
 Ingestion time may vary for different resources under different circumstances. You can use log queries to identify specific behavior of your environment. The following table specifies how you can determine the different times for a record as it's created and sent to Azure Monitor.
 
 | Step | Property or Function | Comments |
 |:---|:---|:---|
-| Record created at data source | [TimeGenerated](./log-standard-columns.md#timegenerated) <br>If the data source doesn't set this value, then it will be set to the same time as _TimeReceived. |
+| Record created at data source | [TimeGenerated](./log-standard-columns.md#timegenerated) <br>If the data source doesn't set this value, then it will be set to the same time as _TimeReceived. | If at processing time, the Time Generated value is older than 3 days the row will be dropped. |
 | Record received by Azure Monitor ingestion endpoint | [_TimeReceived](./log-standard-columns.md#_timereceived) | This field is not optimized for mass processing and should not be used to filter large datasets. |
-| Record stored in workspace and available for queries | [ingestion_time()](/azure/kusto/query/ingestiontimefunction) | It is recommended to use ingestion_time() if there is a need to filter only records that where ingested in a certain time window. In such case, it is recommended to add also TimeGenerated filter with a larger range. |
+| Record stored in workspace and available for queries | [ingestion_time()](/azure/kusto/query/ingestiontimefunction) | It is recommended to use ingestion_time() if there is a need to filter only records that were ingested in a certain time window. In such case, it is recommended to add also TimeGenerated filter with a larger range. |
 
 ### Ingestion latency delays
 You can measure the latency of a specific record by comparing the result of the [ingestion_time()](/azure/kusto/query/ingestiontimefunction) function to the _TimeGenerated_ property. This data can be used with various aggregations to find how ingestion latency behaves. Examine some percentile of the ingestion time to get insights for large amount of data. 

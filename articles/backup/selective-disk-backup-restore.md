@@ -2,8 +2,11 @@
 title: Selective disk backup and restore for Azure virtual machines
 description: In this article, learn about selective disk backup and restore using the Azure virtual machine backup solution.
 ms.topic: conceptual
-ms.date: 05/13/2021
-ms.custom: references_regions , devx-track-azurecli, devx-track-azurepowershell
+ms.date: 11/10/2021
+ms.custom: references_regions, devx-track-azurecli, devx-track-azurepowershell3
+author: v-amallick
+ms.service: backup
+ms.author: v-amallick
 ---
  
 # Selective disk backup and restore for Azure virtual machines
@@ -63,7 +66,7 @@ az backup protection enable-for-vm  --resource-group {ResourceGroup} --vault-nam
 ### Modify protection for already backed up VMs with Azure CLI
 
 ```azurecli
-az backup protection update-for-vm --resource-group {resourcegroup} --vault-name {vaultname} -c {vmname} -i {vmname} --backup-management-type AzureIaasVM --disk-list-setting exclude --diskslist {LUN number(s) separated by space}
+az backup protection update-for-vm --resource-group {resourcegroup} --vault-name {vaultname} -c {vmname} -i {vmname} --disk-list-setting exclude --diskslist {LUN number(s) separated by space}
 ```
 
 ### Backup only OS disk during configure backup with Azure CLI
@@ -181,9 +184,9 @@ Each recovery point has the information of the included and excluded disks:
 ### Remove disk exclusion settings and get protected item with Azure CLI
 
 ```azurecli
-az backup protection update-for-vm --vault-name {vaultname} --resource-group {resourcegroup} -c {vmname} -i {vmname} --backup-management-type AzureIaasVM --disk-list-setting resetexclusionsettings
+az backup protection update-for-vm --vault-name {vaultname} --resource-group {resourcegroup} -c {vmname} -i {vmname} --disk-list-setting resetexclusionsettings
 
-az backup item show -c {vmname} -n {vmname} --vault-name {vaultname} --resource-group {resourcegroup} --backup-management-type AzureIaasVM
+az backup item show -c {vmname} -n {vmname} --vault-name {vaultname} --resource-group {resourcegroup}
 ```
 
 When you execute these commands, you'll see `"diskExclusionProperties": null`.

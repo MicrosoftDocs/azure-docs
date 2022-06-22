@@ -3,7 +3,7 @@ title: Detect memory leak - Azure Application Insights smart detection
 description: Monitor applications with Azure Application Insights for potential memory leaks.
 ms.topic: conceptual
 ms.date: 12/12/2017
-
+ms.reviewer: yagil
 ---
 # Memory leak detection (preview)
 

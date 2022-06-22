@@ -4,7 +4,7 @@ description: Learn how to enable Synapse link for Azure Cosmos DB accounts, crea
 author: Rodrigossz
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 07/12/2021
+ms.date: 11/02/2021
 ms.author: rosouz
 ms.custom: references_regions, synapse-cosmos-db, devx-track-azurepowershell
 ---
@@ -14,15 +14,17 @@ ms.custom: references_regions, synapse-cosmos-db, devx-track-azurepowershell
 
 [Azure Synapse Link for Azure Cosmos DB](synapse-link.md) is a cloud-native hybrid transactional and analytical processing (HTAP) capability that enables you to run near real-time analytics over operational data in Azure Cosmos DB. Synapse Link creates a tight seamless integration between Azure Cosmos DB and Azure Synapse Analytics.
 
-Azure Synapse Link is available for Azure Cosmos DB SQL API containers or for Azure Cosmos DB API for Mongo DB collections. Use the following steps to run analytical queries with the Azure Synapse Link for Azure Cosmos DB:
+Azure Synapse Link is available for Azure Cosmos DB SQL API or for Azure Cosmos DB API for Mongo DB accounts. Use the following steps to run analytical queries with the Azure Synapse Link for Azure Cosmos DB:
 
-* [Enable Synapse Link for your Azure Cosmos DB accounts](#enable-synapse-link)
-* [Create an analytical store enabled Azure Cosmos DB container](#create-analytical-ttl)
-* [Optional - Update analytical store ttl for an Azure Cosmos DB container](#update-analytical-ttl)
-* [Connect your Azure Cosmos DB database to a Synapse workspace](#connect-to-cosmos-database)
-* [Query the analytical store using Synapse Spark](#query-analytical-store-spark)
-* [Query the analytical store using serverless SQL pool](#query-analytical-store-sql-on-demand)
-* [Use serverless SQL pool to analyze and visualize data in Power BI](#analyze-with-powerbi)
+* [Enable Azure Synapse Link for your Azure Cosmos DB accounts](#enable-synapse-link)
+* [Create an analytical store enabled container](#create-analytical-ttl)
+* [Enable analytical store in an existing container](#update-analytical-ttl)
+* [Optional - Update analytical store ttl for a container](#update-analytical-ttl)
+* [Optional - Disable analytical store in a container](#disable-analytical-store) 
+* [Connect your Azure Cosmos database to an Azure Synapse workspace](#connect-to-cosmos-database)
+* [Query the analytical store using Azure Synapse Spark Pool](#query-analytical-store-spark)
+* [Query the analytical store using Azure Synapse serverless SQL pool](#query-analytical-store-sql-on-demand)
+* [Use Azure Synapse serverless SQL pool to analyze and visualize data in Power BI](#analyze-with-powerbi)
 
 You can also checkout the learn module on how to [configure Azure Synapse Link for Azure Cosmos DB.](/learn/modules/configure-azure-synapse-link-with-azure-cosmos-db/)
 
@@ -53,29 +55,30 @@ You can also checkout the learn module on how to [configure Azure Synapse Link f
 1. Your account is now enabled to use Synapse Link. Next see how to create analytical store enabled containers to automatically start replicating your operational data from the transactional store to the analytical store.
 
 > [!NOTE]
-> Turning on Synapse Link does not turn on the analytical store automatically. Once you enable Synapse Link on the Cosmos DB account, enable analytical store on containers when you create them, to start replicating your operation data to analytical store. 
+> Turning on Synapse Link does not turn on the analytical store automatically. Once you enable Synapse Link on the Cosmos DB account, enable analytical store on containers to start using Synapse Link. 
 
-### Azure CLI
+### Command-Line Tools
 
-The following links shows how to enabled Synapse Link by using Azure CLI:
+Enable Synapse Link in your Cosmos DB SQL API or MongoDB API account using Azure CLI or PowerShell.
 
-* [Create a new Azure Cosmos DB account with Synapse Link enabled](/cli/azure/cosmosdb#az_cosmosdb_create-optional-parameters)
-* [Update an existing Azure Cosmos DB account to enable Synapse Link](/cli/azure/cosmosdb#az_cosmosdb_update-optional-parameters)
+#### Azure CLI
 
-### PowerShell
+Use `--enable-analytical-storage true` for both **create** or **update** operations. You also need to choose the representation schema type. For SQL API accounts you can use `--analytical-storage-schema-type` with the values `FullFidelity` or `WellDefined`. For MongoDB API accounts, always use `--analytical-storage-schema-type FullFidelity`.
+
+* [Create a new Azure Cosmos DB account with Synapse Link enabled](/cli/azure/cosmosdb#az-cosmosdb-create-optional-parameters)
+* [Update an existing Azure Cosmos DB account to enable Synapse Link](/cli/azure/cosmosdb#az-cosmosdb-update-optional-parameters)
+
+#### PowerShell
+
+Use `EnableAnalyticalStorage true` for both **create** or **update** operations. You also need to choose the representation schema type. For SQL API accounts you can use `--analytical-storage-schema-type` with the values `FullFidelity` or `WellDefined`. For MongoDB API accounts, always use `-AnalyticalStorageSchemaType FullFidelity`.
 
 * [Create a new Azure Cosmos DB account with Synapse Link enabled](/powershell/module/az.cosmosdb/new-azcosmosdbaccount#description)
 * [Update an existing Azure Cosmos DB account to enable Synapse Link](/powershell/module/az.cosmosdb/update-azcosmosdbaccount)
 
 
-The following links shows how to enabled Synapse Link by using PowerShell:
+## <a id="create-analytical-ttl"></a> Create an analytical store enabled container
 
-## <a id="create-analytical-ttl"></a> Create an Azure Cosmos container with analytical store
-
-You can turn on analytical store on an Azure Cosmos container while creating the container. You can use the Azure portal or configure the `analyticalTTL` property during container creation by using the Azure Cosmos DB SDKs.
-
-> [!NOTE]
-> Currently you can enable analytical store for **new** containers (both in new and existing accounts). You can migrate data from your exisitng containers to new containers using [Azure Cosmos DB migration tools.](cosmosdb-migrationchoices.md)
+You can turn on analytical store when creating an Azure Cosmos DB container by using one of the following options.
 
 ### Azure portal
 
@@ -83,19 +86,23 @@ You can turn on analytical store on an Azure Cosmos container while creating the
 
 1. Navigate to your Azure Cosmos DB account and open the **Data Explorer** tab.
 
-1. Select **New Container** and enter a name for your database, container, partition key and throughput details. Turn on the **Analytical store** option. After you enable the analytical store, it creates a container with `AnalyicalTTL` property set to the default value of  -1 (infinite retention). This analytical store that retains all the historical versions of records.
+1. Select **New Container** and enter a name for your database, container, partition key and throughput details. Turn on the **Analytical store** option. After you enable the analytical store, it creates a container with `analytical TTL` property set to the default value of  -1 (infinite retention). This analytical store that retains all the historical versions of records and can be changed later.
 
-   :::image type="content" source="./media/configure-synapse-link/create-container-analytical-store.png" alt-text="Turn on analytical store for Azure Cosmos container":::
+   :::image type="content" source="./media/configure-synapse-link/create-container-analytical-store.png" alt-text="Turn on analytical store for Azure Cosmos DB container":::
 
 1. If you have previously not enabled Synapse Link on this account, it will prompt you to do so because it's a pre-requisite to create an analytical store enabled container. If prompted, select **Enable Synapse Link**. This process can take 1 to 5 minutes to complete.
 
-1. Select **OK**, to create an analytical store enabled Azure Cosmos container.
+1. Select **OK**, to create an analytical store enabled Azure Cosmos DB container.
 
 1. After the container is created, verify that analytical store has been enabled by clicking **Settings**, right below Documents in Data Explorer, and check if the **Analytical Store Time to Live** option is turned on.
 
-### .NET SDK
+### Azure Cosmos DB SDKs
 
-The following code creates a container with analytical store by using the .NET SDK. Set the analytical TTL property to the required value. For the list of allowed values, see the [analytical TTL supported values](analytical-store-introduction.md#analytical-ttl) article:
+Set the `analytical TTL` property to the required value to create an analytical store enabled container. For the list of allowed values, see the [analytical TTL supported values](analytical-store-introduction.md#analytical-ttl) article.
+
+#### .NET SDK
+
+The following code creates a container with analytical store by using the .NET SDK. Set the `AnalyticalStoreTimeToLiveInSeconds` property to the required value in seconds or use `-1` for infinite retention. This setting can be changed later.
 
 ```csharp
 // Create a container with a partition key, and analytical TTL configured to -1 (infinite retention)
@@ -109,9 +116,10 @@ CosmosClient cosmosClient = new CosmosClient("myConnectionString");
 await cosmosClient.GetDatabase("myDatabase").CreateContainerAsync(properties);
 ```
 
-### Java V4 SDK
+#### Java V4 SDK
 
-The following code creates a container with analytical store by using the Java V4 SDK. Set the `AnalyticalStoreTimeToLiveInSeconds` property to the required value:
+The following code creates a container with analytical store by using the Java V4 SDK. Set the `AnalyticalStoreTimeToLiveInSeconds` property to the required value in seconds or use `-1` for infinite retention. This setting can be changed later.
+
 
 ```java
 // Create a container with a partition key and  analytical TTL configured to  -1 (infinite retention) 
@@ -122,23 +130,15 @@ containerProperties.setAnalyticalStoreTimeToLiveInSeconds(-1);
 container = database.createContainerIfNotExists(containerProperties, 400).block().getContainer();
 ```
 
-### Python V4 SDK
+#### Python V4 SDK
 
-Python 2.7 and Azure Cosmos DB SDK 4.1.0 are the minimum versions required, and the SDK is only compatible with the SQL API.
-
-The first step is to make sure that you are using at least version 4.1.0 of the [Azure Cosmos DB Python SDK](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cosmos/azure-cosmos):
-
-```python
-import azure.cosmos as cosmos
-
-print (cosmos.__version__)
-```
-The next step creates a container with analytical store by using the Azure Cosmos DB Python SDK:
+The following code creates a container with analytical store by using the Python V4 SDK. Set the `analytical_storage_ttl` property to the required value in seconds or use `-1` for infinite retention. This setting can be changed later.
 
 ```python
 # Azure Cosmos DB Python SDK, for SQL API only.
 # Creating an analytical store enabled container.
 
+import azure.cosmos as cosmos
 import azure.cosmos.cosmos_client as cosmos_client
 import azure.cosmos.exceptions as exceptions
 from azure.cosmos.partition_key import PartitionKey
@@ -148,23 +148,17 @@ KEY = 'your-cosmos-db-account-key'
 DATABASE = 'your-cosmos-db-database-name'
 CONTAINER = 'your-cosmos-db-container-name'
 
+# Client
 client = cosmos_client.CosmosClient(HOST,  KEY )
-# setup database for this sample. 
-# If doesn't exist, creates a new one with the name informed above.
+
+# Database client
 try:
     db = client.create_database(DATABASE)
 
 except exceptions.CosmosResourceExistsError:
     db = client.get_database_client(DATABASE)
 
-# Creating the container with analytical store enabled, using the name informed above.
-# If a container with the same name exists, an error is returned.
-#
-# The 3 options for the analytical_storage_ttl parameter are:
-# 1) 0 or Null or not informed (Not enabled).
-# 2) -1 (The data will be stored in analytical store infinitely).
-# 3) Any other number is the actual ttl, in seconds.
-
+# Creating the container with analytical store enabled
 try:
     container = db.create_container(
         id=CONTAINER,
@@ -177,30 +171,72 @@ try:
 except exceptions.CosmosResourceExistsError:
     print('A container with already exists')
 ```
+### Command-Line Tools
+
+Set the `analytical TTL` property to the required value to create an analytical store enabled container. For the list of allowed values, see the [analytical TTL supported values](analytical-store-introduction.md#analytical-ttl) article.
+
+#### Azure CLI
+
+The following options create a container with analytical store by using Azure CLI. Set the `--analytical-storage-ttl` property to the required value in seconds or use `-1` for infinite retention. This setting can be changed later.
+
+* [Create an Azure Cosmos DB MongoDB collection](/cli/azure/cosmosdb/mongodb/collection#az-cosmosdb-mongodb-collection-create-examples)
+* [Create an Azure Cosmos DB SQL API container](/cli/azure/cosmosdb/sql/container#az-cosmosdb-sql-container-create) 
+
+#### PowerShell
+
+The following options create a container with analytical store by using PowerShell. Set the `-AnalyticalStorageTtl` property to the required value in seconds or use `-1` for infinite retention. This setting can be changed later.
+
+* [Create an Azure Cosmos DB MongoDB collection](/powershell/module/az.cosmosdb/new-azcosmosdbmongodbcollection#description)
+* [Create an Azure Cosmos DB SQL API container](/powershell/module/az.cosmosdb/new-azcosmosdbsqlcontainer)
+
+
+## <a id="update-analytical-ttl"></a> Enable analytical store in an existing container
+
+> [!NOTE]
+> You can turn on analytical store on existing Azure Cosmos DB SQL API containers. This capability is general available and can be used for production workloads.
+
+Please note the following details when enabling Azure Synapse Link on your existing containers:
+
+* The same performance isolation of the analytical store auto-sync process applies to the initial sync and there is no performance impact on your OLTP workload.
+
+* A container's initial sync with analytical store total time will vary depending on the data volume and on the documents complexity. This process can take anywhere from a few seconds to multiple days. Please use the Azure portal to monitor the migration progress.
+
+* The throughput of your container, or database account, also influences the total initial sync time. Although RU/s are not used in this migration, the total RU/s available influences the performance of the process. You can temporarily increase your environment's available RUs to speed up the process.
+
+* You won't be able to query analytical store of an existing container while Synapse Link is being enabled on that container. Your OLTP workload isn't impacted and you can keep on reading data normally. Data ingested after the start of the initial sync will be merged into analytical store by the regular analytical store auto-sync process.
+
+* Currently existing MongoDB API collections are not supported. The alternative is to migrate the data into a new collection, created with analytical store turned on.
+ 
+### Azure portal
+
+1. Sign in to the [Azure portal](https://portal.azure.com/).
+2. Navigate to your Azure Cosmos DB account and open the **Azure Synapse Link"** tab in the **Integrations** left navigation section. In this tab you can enable Synapse Link in your database account and you can enable Synapse Link on your existing containers.
+4. After you click the blue **Enable Synapse Link on your container(s)** button, you will start to see the progress of your containers initial sync progress.
+5. Optionally, you can go to the  **Power BI** tab, also in the **Integrations** section, to create Power BI dashboards on your Synapse Link enabled containers.
+
+
+### Command-Line Tools
+
+Set the `analytical TTL` property to `-1` for infinite retention or use a positive integer to specify the number of seconds that the data will be retain in analytical store. For more information, see the [analytical TTL supported values](analytical-store-introduction.md#analytical-ttl) article.
+
 
 ### Azure CLI
 
-The following links show how to create an analytical store enabled containers by using Azure CLI:
-
-* [Azure Cosmos DB API for Mongo DB](/cli/azure/cosmosdb/mongodb/collection#az_cosmosdb_mongodb_collection_create-examples)
-* [Azure Cosmos DB SQL API](/cli/azure/cosmosdb/sql/container#az_cosmosdb_sql_container_create)
+* Use [az cosmosdb sql container update](/cli/azure/cosmosdb/sql/container#az-cosmosdb-sql-container-update) to update `--analytical-storage-ttl`.
+* Check the migration status in the Azure portal.
 
 ### PowerShell
 
-The following links show how to create an analytical store enabled containers by using PowerShell:
-
-* [Azure Cosmos DB API for Mongo DB](/powershell/module/az.cosmosdb/new-azcosmosdbmongodbcollection#description)
-* [Azure Cosmos DB SQL API](/cli/azure/cosmosdb/sql/container#az_cosmosdb_sql_container_create)
-
+* Use [Update Analytical ttl](/powershell/module/az.cosmosdb/update-azcosmosdbsqlcontainer) to update `-AnalyticalStorageTtl`.
+* Check the migration status in the Azure portal.
 
 ## <a id="update-analytical-ttl"></a> Optional - Update the analytical store time to live
 
-After the analytical store is enabled with a particular TTL value, you may want to update it to a different valid value later. You can update the value by using the Azure portal, Azure CLI, PowerShell, or Cosmos DB SDKs. For information on the various Analytical TTL config options, see the [analytical TTL supported values](analytical-store-introduction.md#analytical-ttl) article.
-
+After the analytical store is enabled with a particular TTL value, you may want to update it to a different valid value. You can update the value by using the Azure portal, Azure CLI, PowerShell, or Cosmos DB SDKs. For information on the various Analytical TTL config options, see the [analytical TTL supported values](analytical-store-introduction.md#analytical-ttl) article.
 
 ### Azure portal
 
-If you created an analytical store enabled container through the Azure portal, it contains a default analytical TTL of -1. Use the following steps to update this value:
+If you created an analytical store enabled container through the Azure portal, it contains a default `analytical TTL` of `-1`. Use the following steps to update this value:
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) or the [Azure Cosmos DB Explorer](https://cosmos.azure.com/).
 1. Navigate to your Azure Cosmos DB account and open the **Data Explorer** tab.
@@ -246,8 +282,8 @@ Currently not supported.
 
 The following links show how to update containers analytical TTL by using Azure CLI:
 
-* [Azure Cosmos DB API for Mongo DB](/cli/azure/cosmosdb/mongodb/collection#az_cosmosdb_mongodb_collection_update)
-* [Azure Cosmos DB SQL API](/cli/azure/cosmosdb/sql/container#az_cosmosdb_sql_container_update)
+* [Azure Cosmos DB API for Mongo DB](/cli/azure/cosmosdb/mongodb/collection#az-cosmosdb-mongodb-collection-update)
+* [Azure Cosmos DB SQL API](/cli/azure/cosmosdb/sql/container#az-cosmosdb-sql-container-update)
 
 ### PowerShell
 
@@ -256,6 +292,11 @@ The following links show how to update containers analytical TTL by using PowerS
 * [Azure Cosmos DB API for Mongo DB](/powershell/module/az.cosmosdb/update-azcosmosdbmongodbcollection)
 * [Azure Cosmos DB SQL API](/powershell/module/az.cosmosdb/update-azcosmosdbsqlcontainer)
 
+## <a id="disable-analytical-store"></a> Optional - Disable analytical store in a container
+
+Analytical store can be disabled in SQL API containers using `Update-AzCosmosDBSqlContainer` PowerShell command, by updating `-AnalyticalStorageTtl` (analytical Time-To-Live) to `0`. Please note that currently this action can't be undone. If analytical store is disabled in a container, it can never be re-enabled. 
+
+Currently you can't be disabled in MongoDB API collections.
 
 ## <a id="connect-to-cosmos-database"></a> Connect to a Synapse workspace
 
@@ -273,8 +314,13 @@ Serverless SQL pool allows you to query and analyze data in your Azure Cosmos DB
 
 ## <a id="analyze-with-powerbi"></a>Use serverless SQL pool to analyze and visualize data in Power BI
 
-You can create a serverless SQL pool database and views over Synapse Link for Azure Cosmos DB. Later you can query the Azure Cosmos containers and then build a model with Power BI over those views to reflect that query. There is no performance or cost impact to your transactional workloads, and no complexity of managing ETL pipelines. You can use either [DirectQuery](/power-bi/connect-data/service-dataset-modes-understand#directquery-mode) or [import](/power-bi/connect-data/service-dataset-modes-understand#import-mode) modes. To learn more, see how to use [Serverless SQL pool to analyze Azure Cosmos DB data with Synapse Link](synapse-link-power-bi.md) article.
+You can use integrated BI experience in Azure Cosmos DB portal, to build BI dashboards using Synapse Link with just a few clicks. To learn more, see [how to build BI dashboards using Synapse Link](integrated-power-bi-synapse-link.md). This integrated experience will create simple T-SQL views in Synapse serverless SQL pools, for your Cosmos DB containers. You can build BI dashboards over these views, which will query your Azure Cosmos DB containers in real-time, using [Direct Query](/power-bi/connect-data/service-dataset-modes-understand#directquery-mode), reflecting latest changes to your data. There is no performance or cost impact to your transactional workloads, and no complexity of managing ETL pipelines.
 
+If you want to use advance T-SQL views with joins across your containers or build BI dashboards in import](/power-bi/connect-data/service-dataset-modes-understand#import-mode) mode, see how to use [Serverless SQL pool to analyze Azure Cosmos DB data with Synapse Link](synapse-link-power-bi.md) article.
+
+## Configure custom partitioning
+
+Custom partitioning enables you to partition analytical store data on fields that are commonly used as filters in analytical queries resulting in improved query performance. To learn more, see the [introduction to custom partitioning](custom-partitioning-analytical-store.md) and [how to configure custom partitioning](configure-custom-partitioning.md) articles.
 
 ## Azure Resource Manager template
 

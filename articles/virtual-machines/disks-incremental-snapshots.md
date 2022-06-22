@@ -4,10 +4,11 @@ description: Learn about incremental snapshots for managed disks, including how 
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 08/10/2021
+ms.date: 04/11/2022
 ms.author: rogarana
-ms.subservice: disks 
-ms.custom: devx-track-azurepowershell
+ms.subservice: disks
+ms.custom: devx-track-azurepowershell, ignite-fall-2021, devx-track-azurecli 
+ms.devlang: azurecli
 ---
 
 # Create an incremental snapshot for managed disks
@@ -71,7 +72,7 @@ Once that is installed, login to your PowerShell session with `Connect-AzAccount
 To create an incremental snapshot with Azure PowerShell, set the configuration with [New-AzSnapShotConfig](/powershell/module/az.compute/new-azsnapshotconfig) with the `-Incremental` parameter and then pass that as a variable to [New-AzSnapshot](/powershell/module/az.compute/new-azsnapshot) through the `-Snapshot` parameter.
 
 ```PowerShell
-$diskName = "yourDiskNameHere>"
+$diskName = "yourDiskNameHere"
 $resourceGroupName = "yourResourceGroupNameHere"
 $snapshotName = "yourDesiredSnapshotNameHere"
 
@@ -144,6 +145,9 @@ You can also use Azure Resource Manager templates to create an incremental snaps
 ```
 ---
 
+
 ## Next steps
+
+See [Copy an incremental snapshot to a new region](disks-copy-incremental-snapshot-across-regions.md) to learn how to copy an incremental snapshot across regions.
 
 If you'd like to see sample code demonstrating the differential capability of incremental snapshots, using .NET, see [Copy Azure Managed Disks backups to another region with differential capability of incremental snapshots](https://github.com/Azure-Samples/managed-disks-dotnet-backup-with-incremental-snapshots).

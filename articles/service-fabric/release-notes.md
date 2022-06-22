@@ -18,6 +18,51 @@ The following resources are also available:
 - <a href="/azure/service-fabric/service-fabric-versions" target="blank">Supported Versions</a> 
 - <a href="https://azure.microsoft.com/resources/samples/?service=service-fabric&sort=0" target="blank">Code Samples</a>
 
+## Service Fabric 9.0
+
+We are excited to announce that 9.0 release of the Service Fabric runtime has started rolling out to the various Azure regions along with tooling and SDK updates. The updates for .NET SDK, Java SDK and Service Fabric runtime are available through Web Platform Installer, NuGet packages and Maven repositories.
+
+### Key announcements
+- **General Availability** Support for .NET 6.0
+- **General Availability** Support for Ubuntu 20.04
+- **General Availability** Support for Multi-AZ within a single VM Scale Set (VMSS)
+- Added support for IHost, IHostBuilder and Minimal Hosting Model
+- Enabling opt-in option for Data Contract Serialization (DCS) based remoting exception
+- Support creation of End-to-End Developer Experience for Linux development on Windows using WSL2
+- Support for parallel recursive queries to Service Fabric DNS Service
+- Support for Managed KeyVaultReference
+- Expose Container ID for currently deployed code packages
+- Added Fabric_InstanceId environment variable for stateless guest applications
+- Exposed API for reporting MoveCost
+- Enforce a configurable Max value on the InstanceCloseDelayDuration
+- Added ability to enumerate actor reminders
+- Made updates to platform events
+- Introduced a property in Service Fabric runtime that can be set via SFRP as the ARM resource ID
+- Exposed application type provision timestamp
+- Support added for Service Fabric Resource Provider (SFRP) metadata to application type + version entities, starting with ARM resource ID
+
+### Service Fabric 9.0 releases
+| Release date | Release | More info |
+|---|---|---|
+| April 29, 2022 | [Azure Service Fabric 9.0](https://techcommunity.microsoft.com/t5/azure-service-fabric-blog/azure-service-fabric-9-0-release/ba-p/3299108)  | [Release notes](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_90.md)|
+| June 06, 2022 | [Azure Service Fabric 9.0 First Refresh Release](https://techcommunity.microsoft.com/t5/azure-service-fabric-blog/microsoft-azure-service-fabric-9-0-first-refresh-release/ba-p/3469489)  | [Release notes](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_90CU1.md)|
+
+
+## Service Fabric 8.2
+
+We are excited to announce that 8.2 release of the Service Fabric runtime has started rolling out to the various Azure regions along with tooling and SDK updates. The updates for .NET SDK, Java SDK and Service Fabric runtime are available through Web Platform Installer, NuGet packages and Maven repositories.
+
+### Key announcements
+- Expose an API in Cluster Manager to note if upgrade is impactful
+
+### Service Fabric 8.2 releases
+| Release date | Release | More info |
+|---|---|---|
+| October 29, 2021 | [Azure Service Fabric 8.2](https://techcommunity.microsoft.com/t5/azure-service-fabric/azure-service-fabric-8-2-release/ba-p/2895108)  | [Release notes](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_82.md)|
+| December 16, 2021 | [Azure Service Fabric 8.2 First Refresh Release](https://techcommunity.microsoft.com/t5/azure-service-fabric-blog/azure-service-fabric-8-2-first-refresh-release/ba-p/3040415)  | [Release notes](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_82CU1.md)|
+| February 12, 2022 | [Azure Service Fabric 8.2 Second Refresh Release](https://techcommunity.microsoft.com/t5/azure-service-fabric-blog/azure-service-fabric-8-2-second-refresh-release/ba-p/3095454)  | [Release notes](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_82CU2.md)|
+| June 06, 2022 | [Azure Service Fabric 8.2 Third Refresh Release](https://techcommunity.microsoft.com/t5/azure-service-fabric-blog/azure-service-fabric-8-2-third-refresh-release/ba-p/3469508)  | [Release notes](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_82CU3.md)|
+
 
 ## Service Fabric 8.1
 
@@ -38,6 +83,7 @@ We are excited to announce that 8.1 release of the Service Fabric runtime has st
 | August 13, 2021 | [Azure Service Fabric 8.1 First Refresh Release](https://techcommunity.microsoft.com/t5/azure-service-fabric/azure-service-fabric-8-1-first-refresh-release/ba-p/2638798) | [Release notes](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_81CU1.md) |
 | September 09, 2021 | [Azure Service Fabric 8.1 Second Refresh Release](https://techcommunity.microsoft.com/t5/azure-service-fabric/azure-service-fabric-8-1-second-refresh-release/ba-p/2734904) | [Release notes](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_81CU2.md) |
 | October 06 2021 | [Azure Service Fabric 8.1 Third Refresh Release](https://techcommunity.microsoft.com/t5/azure-service-fabric/azure-service-fabric-8-1-third-refresh-release/ba-p/2816117) | [Release notes](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_81CU3.md) |
+
 
 
 ## Service Fabric 8.0

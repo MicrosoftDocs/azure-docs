@@ -3,14 +3,14 @@ title: User migration approaches
 titleSuffix: Azure AD B2C
 description: Migrate user accounts from another identity provider to Azure AD B2C by using the pre migration or seamless migration methods.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
 ms.date: 04/27/2021
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
 ---
 # Migrate users to Azure AD B2C
@@ -83,7 +83,7 @@ Not all information in the legacy identity provider should be migrated to your A
   - Sensitive data like credit card numbers, social security numbers (SSN), medical records, or other data regulated by government or industry compliance bodies.
   - Marketing or communication preferences, user behaviors, and insights.
 
-### Directory clean-up
+### Directory cleanup
 
 Before you start the migration process, take the opportunity to clean up your directory.
 

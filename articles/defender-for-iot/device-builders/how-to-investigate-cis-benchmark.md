@@ -1,7 +1,7 @@
 ---
 title: Investigate CIS benchmark recommendation
 description: Perform basic and advanced investigations based on OS baseline recommendations.
-ms.date: 08/11/2021
+ms.date: 11/09/2021
 ms.topic: how-to
 ---
 
@@ -9,15 +9,18 @@ ms.topic: how-to
 
 Perform basic and advanced investigations based on OS baseline recommendations.
 
+> [!NOTE]
+> The Microsoft Defender for IoT legacy experience under IoT Hub has been replaced by our new Defender for IoT standalone experience, in the Defender for IoT area of the Azure portal. The legacy experience under IoT Hub will not be supported after **March 31, 2023**.
+
 ## Basic OS baseline security recommendation investigation  
 
-You can investigate OS baseline recommendations by navigating to your Azure Defender for IoT portal, under the **IoT Hub**. For more information, see how to [Investigate security recommendations](quickstart-investigate-security-recommendations.md).
+You can investigate OS baseline recommendations by navigating to [Defender for IoT in the Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/Getting_Started). For more information, see how to [Investigate security recommendations](quickstart-investigate-security-recommendations.md).
 
 ## Advanced OS baseline security recommendation investigation  
 
 This section describes how to better understand the OS baseline test results, and querying events in Azure Log Analytics.  
 
-The advanced OS baseline security recommendation investigation is only supported by using log analytics. Connect Defender for IoT to a Log Analytics workspace before continuing. For more information on advanced OS baseline security recommendations, see how to [Configure Azure Defender for IoT agent-based solution](how-to-configure-agent-based-solution.md).
+The advanced OS baseline security recommendation investigation is only supported by using log analytics. Connect Defender for IoT to a Log Analytics workspace before continuing. For more information on advanced OS baseline security recommendations, see how to [Configure Microsoft Defender for IoT agent-based solution](how-to-configure-agent-based-solution.md).
 
 To query your IoT security events in Log Analytics for alerts:
 

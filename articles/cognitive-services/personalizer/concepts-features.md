@@ -2,8 +2,8 @@
 title: "Features: Action and context - Personalizer" 
 titleSuffix: Azure Cognitive Services
 description: Personalizer uses features, information about actions and context, to make better ranking suggestions. Features can be very generic, or specific to an item.
-author: jeffmend
-ms.author: jeffme
+author: jcodella
+ms.author: jacodel
 ms.manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
@@ -160,7 +160,7 @@ For example:
 You can use several other [Azure Cognitive Services](https://www.microsoft.com/cognitive-services), like
 
 * [Entity Linking](../text-analytics/index.yml)
-* [Text Analytics](../text-analytics/overview.md)
+* [Language service](../language-service/index.yml)
 * [Emotion](../face/overview.md)
 * [Computer Vision](../computer-vision/overview.md)
 

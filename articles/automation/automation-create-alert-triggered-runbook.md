@@ -45,7 +45,7 @@ Because the data that's provided by each type of alert is different, each alert 
 
 ## Assign permissions to managed identities
 
-Assign permissions to the appropriate [managed identity](./automation-security-overview.md#managed-identities-preview) to allow it to stop a virtual machine. The runbook can use either the Automation account's system-assigned managed identity or a user-assigned managed identity. Steps are provided to assign permissions to each identity. The steps below use PowerShell. If you prefer using the Portal, see [Assign Azure roles using the Azure portal](./../role-based-access-control/role-assignments-portal.md).
+Assign permissions to the appropriate [managed identity](./automation-security-overview.md#managed-identities) to allow it to stop a virtual machine. The runbook can use either the Automation account's system-assigned managed identity or a user-assigned managed identity. Steps are provided to assign permissions to each identity. The steps below use PowerShell. If you prefer using the Portal, see [Assign Azure roles using the Azure portal](./../role-based-access-control/role-assignments-portal.md).
 
 1. Sign in to Azure interactively using the [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) cmdlet and follow the instructions.
 
@@ -103,7 +103,7 @@ As described in the preceding section, each type of alert has a different schema
 
 This example uses an alert from an Azure virtual machine (VM). It retrieves the VM data from the payload, and then uses that information to stop the VM. The connection must be set up in the Automation account where the runbook is run. When using alerts to trigger runbooks, it's important to check the alert status in the runbook that is triggered. The runbook triggers each time the alert changes state. Alerts have multiple states, with the two most common being Activated and Resolved. Check for state in your runbook logic to ensure the runbook doesn't run more than once. The example in this article shows how to look for alerts with state Activated only.
 
-The runbook uses the Automation account's [system-assigned managed identity](./automation-security-overview.md#managed-identities-preview) to authenticate with Azure to perform the management action against the VM. The runbook can be easily modified to use a user-assigned managed identity.
+The runbook uses the Automation account [system-assigned managed identity](./automation-security-overview.md#managed-identities) to authenticate with Azure to perform the management action against the VM. The runbook can be easily modified to use a user-assigned managed identity.
 
 Use this example to create a runbook called **Stop-AzureVmInResponsetoVMAlert**. You can modify the PowerShell script, and use it with many different resources.
 
@@ -283,10 +283,22 @@ Ensure your VM is running. Navigate to the runbook **Stop-AzureVmInResponsetoVMA
 
    :::image type="content" source="./media/automation-create-alert-triggered-runbook/job-result-portal.png" alt-text="Showing output from job.":::
 
+## Common Azure VM management operations
+
+Azure Automation provides scripts for common Azure VM management operations like restart VM, stop VM, delete VM, scale up and down scenarios in Runbook gallery. The scripts can also be found in the Azure Automation [GitHub repository](https://github.com/azureautomation) You can also use these scripts as mentioned in the above steps. 
+
+|**Azure VM management operations** | **Details**|
+|--- | ---|
+[Stop-Azure-VM-On-Alert](https://github.com/azureautomation/Stop-Azure-VM-On-Alert) | This runbook will stop an Azure Resource Manager VM in response to an Azure alert trigger. </br></br> Input is alert data with information needed to identify which VM to stop.</br></br> The runbook must be called from an Azure alert via a webhook. </br></br> Latest version of Az module should be added to the automation account. </br></br> Managed Identity should be enabled and contributor access to the automation account should be given.
+[Restart-Azure-VM-On-Alert](https://github.com/azureautomation/Restart-Azure-VM-On-Alert) | This runbook will stop an Azure Resource Manager VM in response to an Azure alert trigger. </br></br> Input is alert data with information needed to identify which VM to stop.</br></br> The runbook must be called from an Azure alert via a webhook. </br></br> Latest version of Az module should be added to the automation account. </br></br> Managed Identity should be enabled and contributor access to the automation account should be given.
+[Delete-Azure-VM-On-Alert](https://github.com/azureautomation/Delete-Azure-VM-On-Alert) | This runbook will stop an Azure Resource Manager VM in response to an Azure alert trigger. </br></br> Input is alert data with information needed to identify which VM to stop.</br></br> The runbook must be called from an Azure alert via a webhook. </br></br> Latest version of Az module should be added to the automation account. </br></br> Managed Identity should be enabled and contributor access to the automation account should be given.
+[ScaleDown-Azure-VM-On-Alert](https://github.com/azureautomation/ScaleDown-Azure-VM-On-Alert) | This runbook will stop an Azure Resource Manager VM in response to an Azure alert trigger. </br></br> Input is alert data with information needed to identify which VM to stop.</br></br> The runbook must be called from an Azure alert via a webhook. </br></br> Latest version of Az module should be added to the automation account. </br></br> Managed Identity should be enabled and contributor access to the automation account should be given.
+[ScaleUp-Azure-VM-On-Alert](https://github.com/azureautomation/ScaleUp-Azure-VM-On-Alert) | This runbook will stop an Azure Resource Manager VM in response to an Azure alert trigger. </br></br> Input is alert data with information needed to identify which VM to stop.</br></br> The runbook must be called from an Azure alert via a webhook. </br></br> Latest version of Az module should be added to the automation account. </br></br> Managed Identity should be enabled and contributor access to the automation account should be given.
+
 
 ## Next steps
 
-* To discover different ways to start a runbook, see [Start a runbook](./start-runbooks.md).
-* To create an activity log alert, see [Create activity log alerts](../azure-monitor/alerts/activity-log-alerts.md).
-* To learn how to create a near real-time alert, see [Create an alert rule in the Azure portal](../azure-monitor/alerts/alerts-metric.md?toc=/azure/azure-monitor/toc.json).
+* Discover different ways to start a runbook, see [Start a runbook](./start-runbooks.md).
+* Create an activity log alert, see [Create activity log alerts](../azure-monitor/alerts/activity-log-alerts.md).
+* Learn how to create a near real-time alert, see [Create an alert rule in the Azure portal](../azure-monitor/alerts/alerts-metric.md?toc=/azure/azure-monitor/toc.json).
 

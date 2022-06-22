@@ -4,23 +4,22 @@ description: Guidance on how to deploy an Azure Database for PostgreSQL - Flexib
 author: shreyaaithal 
 ms.author: shaithal
 ms.service: postgresql
+ms.subservice: flexible-server
 ms.topic: how-to 
-ms.date: 08/23/2021 
+ms.date: 11/30/2021
 ms.custom: template-how-to 
 ---
 
 
 # Use an Azure free account to try Azure Database for PostgreSQL - Flexible Server for free
 
-Azure Database for PostgreSQL - Flexible Server (Preview) is a managed service that you use to run, manage, and scale highly available PostgreSQL databases in the cloud. With an Azure free account, you can use Flexible Server for **free for 12 months** with **monthly limits** of up to:
+[!INCLUDE [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
+
+Azure Database for PostgreSQL - Flexible Server is a managed service that you use to run, manage, and scale highly available PostgreSQL databases in the cloud. With an Azure free account, you can use Flexible Server for **free for 12 months** with **monthly limits** of up to:
 - **750 hours** of **Burstable B1MS** instance, enough hours to run a database instance continuously each month.
 - **32 GB storage and 32 GB backup storage**.
 
 This article shows you how to create and use a flexible server for free using an [Azure free account](https://azure.microsoft.com/free/). 
-
-> [!IMPORTANT]
-> Azure Database for PostgreSQL - Flexible Server is currently in public preview.
-
 
 ## Prerequisites
 
@@ -48,7 +47,7 @@ To complete this tutorial, you need:
 
 1. Select **Create**.
 
-1. On the **Select Azure Database for PostgreSQL deployment option** page, select **Flexible Server (Preview)**.
+1. On the **Select Azure Database for PostgreSQL deployment option** page, select **Flexible Server **.
     
     :::image type="content" source="media/how-to-deploy-on-azure-free-account/select-postgresql-deployment-option.png" alt-text="Screenshot that shows the Flexible Server Deployment Option to be chosen.":::
 
@@ -89,7 +88,7 @@ To complete this tutorial, you need:
     
     With public access, access to your server is limited to allowed IP addresses that you include in a firewall rule. This method prevents external applications and tools from connecting to the server and any databases on the server, unless you create a rule to open the firewall for a specific IP address or range.
     
-    With private access (VNet Integration), access to your server is limited to your virtual network. For more information about connectivity methods, see Networking overview.
+    With private access (VNet Integration), access to your server is limited to your virtual network. For more information about connectivity methods, [**see Networking overview**](./concepts-networking.md).
     
     For the purposes of this tutorial, enable public access to connect to the server.
 
@@ -154,9 +153,9 @@ You're not charged for Azure Database for PostgreSQL - Flexible Server services 
     - Unlikely to Exceed: You're unlikely to exceed the limit for the meter.
     - Exceeds on \<Date\>: You're likely to exceed the limit for the meter on \<Date\>.
 
-    >[!IMPORTANT]
-    >With an Azure free account, you also get $200 in credit to use in 30 days. During this time, any usage beyond the free monthly amounts of services will be deducted from this credit.
-    >At the end of your first 30 days or after you spend your $200 credit (whichever comes first), you'll only pay for what you use beyond the free monthly amounts of services. To keep getting free services after 30 days, move to pay-as-you-go pricing. If you don't move to pay as you go, you can't purchase Azure services beyond your $200 credit—and eventually your account and services will be disabled.
+    > [!IMPORTANT]
+    > With an Azure free account, you also get $200 in credit to use in 30 days. During this time, any usage beyond the free monthly amounts of services will be deducted from this credit.
+    > At the end of your first 30 days or after you spend your $200 credit (whichever comes first), you'll only pay for what you use beyond the free monthly amounts of services. To keep getting free services after 30 days, move to pay-as-you-go pricing. If you don't move to pay as you go, you can't purchase Azure services beyond your $200 credit—and eventually your account and services will be disabled.
     >For more information, see [**Azure free account FAQ**](https://azure.microsoft.com/free/free-account-faq/).
 
 
@@ -180,4 +179,3 @@ Alternatively, if you don't expect to need these resources in the future, you ca
 
 > [!div class="nextstepaction"]
 >[Deploy a Django app with App Service and PostgreSQL](tutorial-django-app-service-postgres.md)
-

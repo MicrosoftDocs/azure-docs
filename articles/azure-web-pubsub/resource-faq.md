@@ -5,7 +5,7 @@ author: yjin81
 ms.author: yajin1
 ms.service: azure-web-pubsub
 ms.topic: overview 
-ms.date: 04/26/2021
+ms.date: 11/11/2021
 ---
 
 # Azure Web PubSub service FAQ
@@ -13,19 +13,7 @@ ms.date: 04/26/2021
 This is the FAQ of Azure Web PubSub service. 
 
 ## Is Azure Web PubSub service ready for production use?
-
-The Azure Web PubSub service is in public preview state and doesn't have a committed SLA. 
-
-## When will Azure Web PubSub service be ready for production use?
-
-The product team is actively working on Azure Web PubSub service GA. 
-When GA, the service will support:
-- Azure Active Directory support
-- API Management integration
-- Binary Pub/Sub WebSocket subprotocol
-- Azure Resource Log Integration
-
-Contact the product team if you want more details on GA features.
+Yes, Azure Web PubSub service is generally available.
 
 ## How do I choose between Azure SignalR Service and Azure Web PubSub service?
 

@@ -7,7 +7,7 @@ ms.topic: overview
 ms.subservice: sql
 ms.date: 04/15/2020 
 ms.author: stefanazaric 
-ms.reviewer: jrasnick
+ms.reviewer: sngun
 ms.custom: devx-track-csharp
 ---
 

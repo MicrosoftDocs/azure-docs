@@ -3,14 +3,14 @@ title: Twilio Verify App with Azure Active Directory B2C
 titleSuffix: Azure AD B2C
 description: Learn how to integrate a sample online payment app in Azure AD B2C with the Twilio Verify API. Comply with PSD2 (Payment Services Directive 2) transaction requirements through dynamic linking and strong customer authentication.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
 ms.date: 09/20/2021
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
 ---
 
@@ -44,7 +44,7 @@ The following components make up the Twilio solution:
 | 2     | The user initiates a high risk transaction, such as a transfer of $50.00. The user's current access token is evaluated for the PolicyId to determine if the user has already authenticated via a Step-Up custom policy.     |
 | 3     | The application records the transaction value and payee, $50.00 and John Doe, and generates a signed token. This token is called an `id_token_hint` and contains the claim `amount:$500, payee:john doe`. The `id_token_hint` is sent along with the request to the Azure AD B2C custom policy, which is integrated with Twilio.     |
 | 4     | Azure AD B2C verifies the signature of the id_token_hint by checking the applications `/.well-known` OpenId Connect endpoint. After verifying, it extracts the claims from this token, notably the `amount` and `payee`. The user will see a page to verify their mobile phone number via SMS message.     |
-| 5     | The user requests to verify their phone number via SMS message, and Azure AD B2C makes a REST API request to Twilio's Verify API endpoint. It also sends the transaction `amount` and `payee` as part of the PSD2 process to generate the One-Time-Passcode (OTP). Twilio sends an SMS message to the user's registered phone number.     |
+| 5     | The user requests to verify their phone number via SMS message, and Azure AD B2C makes a REST API request to the Twilio Verify API endpoint. It also sends the transaction `amount` and `payee` as part of the PSD2 process to generate the One-Time-Passcode (OTP). Twilio sends an SMS message to the user's registered phone number.     |
 | 6     |  The user enters the OTP received in their SMS message and submits it to Azure AD B2C. Azure AD B2C makes an API request with this OTP to Twilio's verify API to verify that the OTP is correct. Finally a token is issued to the application, with a new PolicyId signifying the user has stepped-up their authentication.    |
 |      |      |
 
@@ -61,22 +61,24 @@ The following components make up the Twilio solution:
 1. Open the B2C-WebAPI-DotNet solution and replace the following values with your own tenant-specific values in the web.config:
 
     ```xml
-   <add key="ida:Tenant" value="yourtenant.onmicrosoft.com" />
-   <add key="ida:TenantId" value="d6f33888-0000-4c1f-9b50-1590f171fc70" />
-   <add key="ida:ClientId" value="6bd98cc8-0000-446a-a05e-b5716ef2651b" />
-   <add key="ida:ClientSecret" value="secret" />
-   <add key="ida:AadInstance" value="https://yourtenant.b2clogin.com/tfp/{0}/{1}" />
-   <add key="ida:RedirectUri" value="https://your hosted psd2 demo app url/" />
-   ```
+    <add key="ida:Tenant" value="yourtenant.onmicrosoft.com" />
+    <add key="ida:TenantId" value="d6f33888-0000-4c1f-9b50-1590f171fc70" />
+    <add key="ida:ClientId" value="6bd98cc8-0000-446a-a05e-b5716ef2651b" />
+    <add key="ida:ClientSecret" value="secret" />
+    <add key="ida:AadInstance" value="https://yourtenant.b2clogin.com/tfp/{0}/{1}" />
+    <add key="ida:RedirectUri" value="https://your hosted psd2 demo app url/" />
+    ```
 
 1. The [web app](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/Twilio-VerifyAPI/source-code/PSD2%20Demo%20App) also hosts the ID token hint generator and metadata endpoint.
+
    - Create your signing certificate as described in this [sample description](https://github.com/azure-ad-b2c/samples/tree/master/policies/invite#creating-a-signing-certificate).
+
    - Update the following lines based on your certificate in the web.config:
    
-   ```xml
-   <add key="ida:SigningCertThumbprint" value="4F39D6014818082CBB763E5BA5F230E545212E89" />
-   <add key="ida:SigningCertAlgorithm" value="RS256" />
-   ```
+     ```xml
+     <add key="ida:SigningCertThumbprint" value="4F39D6014818082CBB763E5BA5F230E545212E89" />
+     <add key="ida:SigningCertAlgorithm" value="RS256" />
+     ```
 
 1. Upload the demo application to your hosting provider of choice. Guidance for Azure App Service is provided in [this sample description](https://github.com/azure-ad-b2c/samples/tree/master/policies/invite#hosting-the-application-in-azure-app-service), including instructions for uploading your certificate.
 

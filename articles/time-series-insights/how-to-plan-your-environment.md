@@ -15,6 +15,8 @@ ms.custom: seodec18
 
 # Plan your Azure Time Series Insights Gen2 environment
 
+[!INCLUDE [retirement](../../includes/tsi-retirement.md)]
+
 This article describes best practices to plan and get started quickly by using Azure Time Series Insights Gen2.
 
 ## Best practices for planning and preparation

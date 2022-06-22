@@ -5,11 +5,12 @@ description: Learn how network traffic flows between components when your Azure 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: enterprise-readiness
+ms.custom: event-tier1-build-2022
 ms.topic: conceptual
 ms.author: jhirono
 author: jhirono
 ms.reviewer: larryfr
-ms.date: 09/22/2021
+ms.date: 04/08/2022
 ---
 
 # Network traffic flow when using a secured workspace
@@ -53,9 +54,19 @@ This article assumes the following configuration:
 | [Access workspace from studio](#scenario-access-workspace-from-studio) | NA | <ul><li>Azure Active Directory</li><li>Azure Front Door</li><li>Azure Machine Learning service</li></ul> | You may need to use a custom DNS server. For more information, see [Use your workspace with a custom DNS](how-to-custom-dns.md). | 
 | [Use AutoML, designer, dataset, and datastore from studio](#scenario-use-automl-designer-dataset-and-datastore-from-studio) | NA | NA | <ul><li>Workspace service principal configuration</li><li>Allow access from trusted Azure services</li></ul>For more information, see [How to secure a workspace in  a virtual network](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts). | 
 | [Use compute instance and compute cluster](#scenario-use-compute-instance-and-compute-cluster) | <ul><li>Azure Machine Learning service on port 44224</li><li>Azure Batch Management service on ports 29876-29877</li></ul> | <ul><li>Azure Active Directory</li><li>Azure Resource Manager</li><li>Azure Machine Learning service</li><li>Azure Storage Account</li><li>Azure Key Vault</li></ul> | If you use a firewall, create user-defined routes. For more information, see [Configure inbound and outbound traffic](how-to-access-azureml-behind-firewall.md). | 
-| [Use Azure Kubernetes Service](#scenario-use-azure-kubernetes-service) | NA | For information on the outbound configuration for AKS, see [How to deploy to Azure Kubernetes Service](how-to-deploy-azure-kubernetes-service.md#understand-connectivity-requirements-for-aks-inferencing-cluster). | Configure the Internal Load Balancer. For more information, see [How to deploy to Azure Kubernetes Service](how-to-deploy-azure-kubernetes-service.md#understand-connectivity-requirements-for-aks-inferencing-cluster). | 
+| [Use Azure Kubernetes Service](#scenario-use-azure-kubernetes-service) | NA | For information on the outbound configuration for AKS, see [How to deploy to Azure Kubernetes Service](v1/how-to-deploy-azure-kubernetes-service.md#understand-connectivity-requirements-for-aks-inferencing-cluster). | Configure the Internal Load Balancer. For more information, see [How to deploy to Azure Kubernetes Service](v1/how-to-deploy-azure-kubernetes-service.md#understand-connectivity-requirements-for-aks-inferencing-cluster). | 
 | [Use Docker images managed by Azure Machine Learning](#scenario-use-docker-images-managed-by-azure-ml) | NA | <ul><li>Microsoft Container Registry</li><li>`viennaglobal.azurecr.io` global container registry</li></ul> | If the Azure Container Registry for your workspace is behind the VNet, configure the workspace to use a compute cluster to build images. For more information, see [How to secure a workspace in a virtual network](how-to-secure-workspace-vnet.md#enable-azure-container-registry-acr). | 
 
+> [!IMPORTANT]
+> Azure Machine Learning uses multiple storage accounts. Each stores different data, and has a different purpose:
+>
+> * __Your storage__: The Azure Storage Account(s) in your Azure subscription are used to store your data and artifacts such as models, training data, training logs, and Python scripts. For example, the _default_ storage account for your workspace is in your subscription. The Azure Machine Learning compute instance and compute clusters access __file__ and __blob__ data in this storage over ports 445 (SMB) and 443 (HTTPS).
+> 
+>    When using a __compute instance__ or __compute cluster__, your storage account is mounted as a __file share__ using the SMB protocol. The compute instance and cluster use this file share to store the data, models, Jupyter notebooks, datasets, etc. The compute instance and cluster use the private endpoint when accessing the storage account.
+>
+> * __Microsoft storage__: The Azure Machine Learning compute instance and compute clusters rely on Azure Batch, and access storage located in a Microsoft subscription. This storage is used only for the management of the compute instance/cluster. None of your data is stored here. The compute instance and compute cluster access the __blob__, __table__, and __queue__ data in this storage, using port 443 (HTTPS).
+>
+> Machine Learning also stores metadata in an Azure Cosmos DB instance. By default, this instance is hosted in a Microsoft subscription and managed by Microsoft. You can optionally use an Azure Cosmos DB instance in your Azure subscription. For more information, see [Data encryption with Azure Machine Learning](concept-data-encryption.md#azure-cosmos-db).
 
 ## Scenario: Access workspace from studio
 
@@ -82,14 +93,14 @@ The following features of Azure Machine Learning studio use _data profiling_:
 * AutoML: View a data preview/profile and choose a target column.
 * Labeling
 
-Data profiling depends on the Azure Machine Learning managed service being able to access the default Azure Storage Account for your workspace. The managed service _does not exist in your VNet_, so cannot directly access the storage account in the VNet. Instead, the workspace uses a service principal to access storage.
+Data profiling depends on the Azure Machine Learning managed service being able to access the default Azure Storage Account for your workspace. The managed service _doesn't exist in your VNet_, so can’t directly access the storage account in the VNet. Instead, the workspace uses a service principal to access storage.
 
 > [!TIP]
 > You can provide a service principal when creating the workspace. If you do not, one is created for you and will have the same name as your workspace.
 
 To allow access to the storage account, configure the storage account to allow a __resource instance__ for your workspace or select the __Allow Azure services on the trusted services list to access this storage account__. This setting allows the managed service to access storage through the Azure data center network. 
 
-Next, add the service principal for the workspace to the __Reader__ role to the private endpoint of the storage account. This role is used to verify the workspace and storage subnet information. If they are the same, access is allowed. Finally, the service principal also requires __Blob data contributor__ access to the storage account.
+Next, add the service principal for the workspace to the __Reader__ role to the private endpoint of the storage account. This role is used to verify the workspace and storage subnet information. If they're the same, access is allowed. Finally, the service principal also requires __Blob data contributor__ access to the storage account.
 
 For more information, see the Azure Storage Account section of [How to secure a workspace in a virtual network](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts).
 
@@ -97,7 +108,7 @@ For more information, see the Azure Storage Account section of [How to secure a 
 
 ## Scenario: Use compute instance and compute cluster
 
-Azure Machine Learning compute instance and compute cluster are managed services hosted by Microsoft. They are built on top of the Azure Batch service. While they exist in a Microsoft managed environment, they are also injected into your VNet.
+Azure Machine Learning compute instance and compute cluster are managed services hosted by Microsoft. They're built on top of the Azure Batch service. While they exist in a Microsoft managed environment, they're also injected into your VNet.
 
 When you create a compute instance or compute cluster, the following resources are also created in your VNet:
 
@@ -119,9 +130,33 @@ If you use Visual Studio Code on a compute instance, you must allow other outbou
 
 :::image type="content" source="./media/concept-secure-network-traffic-flow/compute-instance-and-cluster.png" alt-text="Diagram of traffic flow when using compute instance or cluster":::
 
+## Scenario: Use online endpoints
+
+Securing an online endpoint with a private endpoint is a preview feature.
+
+[!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
+
+__Inbound__ communication with the scoring URL of the online endpoint can be secured using the `public_network_access` flag on the endpoint. Setting the flag to `disabled` restricts the online endpoint to receiving traffic only from the virtual network. For secure inbound communications, the Azure Machine Learning workspace's private endpoint is used.
+
+__Outbound__ communication from a deployment can be secured on a per-deployment basis by using the `egress_public_network_access` flag. Outbound communication in this case is from the deployment to Azure Container Registry, storage blob, and workspace. Setting the flag to `true` will restrict communication with these resources to the virtual network.
+
+> [!NOTE]
+> For secure outbound communication, a private endpoint is created for each deployment where `egress_public_network_access` is set to `disabled`.
+
+Visibility of the endpoint is also governed by the `public_network_access` flag of the Azure Machine Learning workspace. If this flag is `disabled`, then the scoring endpoints can only be accessed from virtual networks that contain a private endpoint for the workspace. If it is `enabled`, then the scoring endpoint can be accessed from the virtual network and public networks.
+
+### Supported configurations
+
+| Configuration | Inbound </br> (Endpoint property) | Outbound </br> (Deployment property) | Supported? |
+| -------- | -------------------------------- | --------------------------------- | --------- |
+| secure inbound with secure outbound | `public_network_access` is disabled | `egress_public_network_access` is disabled   | Yes |
+| secure inbound with public outbound | `public_network_access` is disabled | `egress_public_network_access` is enabled  | Yes |
+| public inbound with secure outbound | `public_network_access` is enabled | `egress_public_network_access` is disabled    | Yes |
+| public inbound with public outbound | `public_network_access` is enabled | `egress_public_network_access` is enabled  | Yes |
+
 ## Scenario: Use Azure Kubernetes Service
 
-For information on the outbound configuration required for Azure Kubernetes Service, see the connectivity requirements section of [How to deploy to Azure Kubernetes Service](how-to-deploy-azure-kubernetes-service.md#understand-connectivity-requirements-for-aks-inferencing-cluster).
+For information on the outbound configuration required for Azure Kubernetes Service, see the connectivity requirements section of [How to deploy to Azure Kubernetes Service](v1/how-to-deploy-azure-kubernetes-service.md#understand-connectivity-requirements-for-aks-inferencing-cluster).
 
 > [!NOTE]
 > The Azure Kubernetes Service load balancer is not the same as the load balancer created by Azure Machine Learning. If you want to host your model as a secured application, only available on the VNet, use the internal load balancer created by Azure Machine Learning. If you want to allow public access, use the public load balancer created by Azure Machine Learning.
@@ -130,9 +165,9 @@ If your model requires extra inbound or outbound connectivity, such as to an ext
 
 ## Scenario: Use Docker images managed by Azure ML
 
-Azure Machine Learning provides Docker images that can be used to train models or perform inference. If you don't specify your own images, the ones provided by Azure Machine Learning are used. These images are hosted on the Microsoft Container Registry (MCR). They are also hosted on a geo-replicated Azure Container Registry named `viennaglobal.azurecr.io`.
+Azure Machine Learning provides Docker images that can be used to train models or perform inference. If you don't specify your own images, the ones provided by Azure Machine Learning are used. These images are hosted on the Microsoft Container Registry (MCR). They're also hosted on a geo-replicated Azure Container Registry named `viennaglobal.azurecr.io`.
 
-If you provide your own docker images, such as on an Azure Container Registry that you provide, you do not need the outbound communication with MCR or `viennaglobal.azurecr.io`.
+If you provide your own docker images, such as on an Azure Container Registry that you provide, you don't need the outbound communication with MCR or `viennaglobal.azurecr.io`.
 
 > [!TIP]
 > If your Azure Container Registry is secured in the VNet, it cannot be used by Azure Machine Learning to build Docker images. Instead, you must designate an Azure Machine Learning compute cluster to build images. For more information, see [How to secure a workspace in a virtual network](how-to-secure-workspace-vnet.md#enable-azure-container-registry-acr).

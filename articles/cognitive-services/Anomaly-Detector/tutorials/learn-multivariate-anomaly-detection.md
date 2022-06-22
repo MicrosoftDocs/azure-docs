@@ -10,6 +10,7 @@ ms.subservice: anomaly-detector
 ms.topic: tutorial
 ms.date: 06/27/2021
 ms.author: juaduan
+ms.devlang: python
 ---
 
 # Tutorial: Learn Multivariate Anomaly Detection in one hour
@@ -35,7 +36,7 @@ In this tutorial, you'll:
 ## 1. Create an Anomaly Detector resource that supports MVAD
 
 * Create an Azure subscription if you don't have one - [Create one for free](https://azure.microsoft.com/free/cognitive-services)
-* Once you have your Azure subscription, [create an Anomaly Detector resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAnomalyDetector) in the Azure portal to get your API key and API endpoint.
+* Once you have your Azure subscription, [create an Anomaly Detector resource](https://portal.azure.com/#create/Microsoft.CognitiveServicesAnomalyDetector) in the Azure portal to get your API key and API endpoint.
 
 > [!NOTE]
 > During preview stage, MVAD is available in limited regions only. Please bookmark [What's new in Anomaly Detector](../whats-new.md)  to keep up to date with MVAD region roll-outs. You could also file a GitHub issue or contact us at [AnomalyDetector@microsoft.com](mailto:AnomalyDetector@microsoft.com) to request for specific regions.

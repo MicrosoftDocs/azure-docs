@@ -1,9 +1,9 @@
 ---
-author: PatrickFarley
+author: eric-urban
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 12/29/2020
-ms.author: pafarley
+ms.author: eur
 ms.custom: devx-track-js
 ---
 
@@ -12,7 +12,7 @@ ms.custom: devx-track-js
 Before you get started:
 
 > [!div class="checklist"]
-> * <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices" target="_blank">Create an Azure Speech resource </a>
+> * <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices" target="_blank">Create an Azure Speech resource </a>
 > * [Setup your development environment and create an empty project](../../../../quickstarts/setup-platform.md)
 
 ## Start with some boilerplate code
@@ -140,7 +140,7 @@ Now we'll add some basic UI for input boxes, reference the Speech SDK's JavaScri
 Before you can initialize a `SpeechRecognizer` object, you need to create a configuration that uses your subscription key and subscription region. Insert this code in the `startRecognizeOnceAsyncButton.addEventListener()` method.
 
 > [!NOTE]
-> The Speech SDK will default to recognizing using en-us for the language, see [Specify source language for speech to text](../../../../how-to-specify-source-language.md) for information on choosing the source language.
+> The Speech SDK will default to recognizing using en-us for the language, see [How to recognize speech](../../../../how-to-recognize-speech.md) for information on choosing the source language.
 
 
 ```JavaScript

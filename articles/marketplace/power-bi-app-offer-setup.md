@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: keferna
 ms.author: keferna
-ms.date: 09/27/2021
+ms.date: 03/28/2022
 ---
 
 # Create a Power BI app offer
@@ -20,10 +20,6 @@ Before you start, create a commercial marketplace account in [Partner Center](./
 Review [Plan a Power BI offer](marketplace-power-bi.md). It will explain the technical requirements for this offer and list the information and assets you’ll need when you create it.
 
 ## Create a new offer
-
-[!INCLUDE [Workspaces view note](./includes/preview-interface.md)]
-
-#### [Workspaces view](#tab/workspaces-view)
 
 1. Sign in to [Partner Center](https://go.microsoft.com/fwlink/?linkid=2166002).
 
@@ -40,35 +36,25 @@ Review [Plan a Power BI offer](marketplace-power-bi.md). It will explain the tec
 
 If **Power BI App** isn't shown or enabled, your account doesn't have permission to create this offer type. Please check that you've met all the [requirements](./marketplace-dynamics-365.md) for this offer type, including registering for a developer account.
 
-#### [Current view](#tab/current-view)
-
-1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
-2. In the left-nav menu, select **Commercial Marketplace** > **Overview**.
-3. On the Overview page, select **+ New offer** > **Power BI app**.
-
-    :::image type="content" source="media/power-bi/new-offer-power-bi-app.png" alt-text="The left pane menu options and the 'New offer' button.":::
-
-> [!IMPORTANT]
-> After an offer is published, any edits you make to it in Partner Center appear on Microsoft AppSource only after you republish the offer. Be sure to always republish an offer after changing it.
-
-If **Power BI App** isn't shown or enabled, your account doesn't have permission to create this offer type. Please check that you've met all the [requirements](marketplace-dynamics-365.md) for this offer type, including registering for a developer account.
-
----
-
 ## New offer
 
-Enter an **Offer ID**. This is a unique identifier for each offer in your account.
+1. Enter an **Offer ID**. This is a unique identifier for each offer in your account.
 
-- This ID is visible to customers in the web address for the offer and in Azure Resource Manager templates, if applicable.
-- Use only lowercase letters and numbers. The ID can include hyphens and underscores, but no spaces, and is limited to 50 characters. For example, if your Publisher ID is `testpublisherid` and you enter **test-offer-1**, the offer web address will be `https://appsource.microsoft.com/product/dynamics-365/testpublisherid.test-offer-1`.
-- The Offer ID can't be changed after you select **Create**.
+    - This ID is visible to customers in the web address for the offer and in Azure Resource Manager templates, if applicable.
+    - Use only lowercase letters and numbers. The ID can include hyphens and underscores, but no spaces, and is limited to 50 characters. For example, if your Publisher ID is `testpublisherid` and you enter **test-offer-1**, the offer web address will be `https://appsource.microsoft.com/product/dynamics-365/testpublisherid.test-offer-1`.
+    - The Offer ID can't be changed after you select **Create**.
 
-Enter an **Offer alias**. This is the name used for the offer in Partner Center.
+1. Enter an **Offer alias**. This is the name used for the offer in Partner Center.
 
-- This name isn't used on AppSource. It is different from the offer name and other values shown to customers.
-- This name can't be changed after you select **Create**.
+    - This name isn't used on AppSource. It is different from the offer name and other values shown to customers.
+    - This name can't be changed after you select **Create**.
 
-Select **Create** to generate the offer. Partner Center opens the **Offer setup** page.
+1. Associate the new offer with a _publisher_. A publisher represents an account for your organization. You may have a need to create the offer under a particular publisher. If you don’t, you can simply accept the publisher account you’re signed in to.
+
+    > [!NOTE]
+    > The selected publisher must be enrolled in the [**Commercial Marketplace program**](marketplace-faq-publisher-guide.yml#how-do-i-sign-up-to-be-a-publisher-in-the-microsoft-commercial-marketplace-) and cannot be modified after the offer is created.
+
+1. Select **Create** to generate the offer. Partner Center opens the **Offer setup** page.
 
 ## Alias
 

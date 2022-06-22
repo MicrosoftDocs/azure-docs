@@ -1,94 +1,106 @@
 ---
-title: Create a lab using Azure DevTest Labs and Azure Resource Manager template
-description: In this quickstart, you create a lab in Azure DevTest Labs by using an Azure Resource Manager template (ARM template). A lab admin sets up a lab, creates VMs in the lab, and configures policies.
+title: Create a lab in Azure DevTest Labs by using an Azure Resource Manager template
+description: Use an Azure Resource Manager (ARM) template to create a lab that has a virtual machine in Azure DevTest Labs.
 ms.topic: quickstart
-ms.custom: subject-armqs
-ms.date: 06/26/2020
+ms.author: rosemalcolm
+author: RoseHJM
+ms.custom: subject-armqs, mode-arm
+ms.date: 01/03/2022
 ---
 
-# Quickstart: Set up a lab by using Azure DevTest Labs ARM template
-In this quickstart, you create a lab with a Windows Server 2019 Datacenter VM by using an Azure Resource Manager template (ARM template). 
+# Quickstart: Use an ARM template to create a lab in DevTest Labs
 
-[!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
+This quickstart uses an Azure Resource Manager (ARM) template to create a lab in Azure DevTest Labs that has one Windows Server 2019 Datacenter virtual machine (VM) in it.
 
-In this quickstart, you do the following actions:
+In this quickstart, you take the following actions:
 
 > [!div class="checklist"]
-> * Review the template 
-> * Deploy the template
-> * Verify the template
-> * Cleanup resources
-
-If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal.
-
-[![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.devtestlab%2Fdtl-create-lab-windows-vm%2Fazuredeploy.json)
+> * Review the ARM template.
+> * Deploy the ARM template to create a lab and VM.
+> * Verify the deployment.
+> * Clean up resources.
 
 ## Prerequisites
 
-If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
+If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Review the template
 
-The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/dtl-create-lab-windows-vm/).
+[!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-:::code language="json" source="~/quickstart-templates/quickstarts/microsoft.devtestlab/dtl-create-lab-windows-vm/azuredeploy.json":::
+DevTest Labs can use ARM templates for many tasks, from creating and provisioning labs to adding users. This quickstart uses the [Creates a lab with a claimed VM](https://azure.microsoft.com/resources/templates/dtl-create-lab-windows-vm-claimed) ARM template from the [Azure Quickstart Templates gallery](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Devtestlab). The template defines the following resource types:
 
-The resources defined in the template include:
+- [Microsoft.DevTestLab/labs](/azure/templates/microsoft.devtestlab/labs) creates the lab.
+- [Microsoft.DevTestLab/labs/virtualnetworks](/azure/templates/microsoft.devtestlab/labs/virtualnetworks) creates a virtual network.
+- [Microsoft.DevTestLab/labs/virtualmachines](/azure/templates/microsoft.devtestlab/labs/virtualmachines) creates the lab VM.
 
-- [**Microsoft.DevTestLab/labs**](/azure/templates/microsoft.devtestlab/labs)
-- [**Microsoft.DevTestLab labs/virtualnetworks**](/azure/templates/microsoft.devtestlab/labs/virtualnetworks)
-- [**Microsoft.DevTestLab labs/virtualmachines**](/azure/templates/microsoft.devtestlab/labs/virtualmachines)
+:::code language="json" source="~/quickstart-templates/quickstarts/microsoft.devtestlab/dtl-create-lab-windows-vm-claimed/azuredeploy.json":::
 
-To find more template samples, see [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Devtestlab).
+The [Azure Quickstart Templates gallery](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Devtestlab) and [Azure Quickstart Templates public GitHub repository](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.devtestlab) have several other DevTest Labs ARM quickstart templates.
+
+The [Azure Lab Services Community public GitHub repository](https://github.com/Azure/azure-devtestlab/tree/master) also has many DevTest Labs [artifacts](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts), [environments](https://github.com/Azure/azure-devtestlab/tree/master/Environments), [PowerShell scripts](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/Scripts), and [quickstart ARM templates](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/QuickStartTemplates) you can use or customize for your needs.
 
 ## Deploy the template
-To run the deployment automatically, click the following button. 
 
-[![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.devtestlab%2Fdtl-create-lab-windows-vm%2Fazuredeploy.json)
+1. Select the following **Deploy to Azure** button to sign in to the Azure portal and open the quickstart ARM template:
 
-1. Create a **new resource group** so that it's easy to clean up later.
-1. Select a **location** for the resource group. 
-1. Enter a **name for the lab**. 
-1. Enter a **name for the VM**. 
-1. Enter a **user name** who can access the VM. 
-1. Enter **password** for the user. 
-1. Select **I agree to the terms and conditions stated above**. 
-1. Then, select **Purchase**.
+   [![Button that deploys the ARM template to Azure.](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.devtestlab%2Fdtl-create-lab-windows-vm-claimed%2Fazuredeploy.json)
 
-    :::image type="content" source="./media/create-lab-windows-vm-template/deploy-template-page.png" alt-text="Deploy Template page":::
+1. On the **Creates a lab in Azure DevTest Labs with a claimed VM** screen, complete the following items:
+
+   - **Resource group**: Select an existing resource group from the dropdown list, or create a new resource group so it's easy to clean up later.
+   - **Region**: If you created a new resource group, select a location for the resource group and lab.
+   - **Lab Name**: Enter a name for the new lab.
+   - **Vm Name**: Enter a name for the new VM.
+   - **User Name**: Enter a name for the user who can access the VM.
+   - **Password**: Enter a password for the VM user.
+
+1. Select **Review + create**, and when validation passes, select **Create**.
+
+   :::image type="content" source="./media/create-lab-windows-vm-template/deploy-template-page.png" alt-text="Screenshot of the Create a lab page.":::
+
+1. During the deployment, you can select the **Notifications** icon at the top of the screen to see deployment progress on the template **Overview** page. Deployment, especially creating a VM, takes a while.
 
 ## Validate the deployment
-1. Select **Notifications** at the top to see the status of the deployment, and click **Deployment in progress** link.
 
-    :::image type="content" source="./media/create-lab-windows-vm-template/deployment-notification.png" alt-text="Deployment notification":::
-2. On the **Deployment - Overview** page, wait until the deployment is complete. This operation (especially, creating a VM) takes some time to complete. Then, select your **Go to resource group** or the **name of the resource group** as shown in the following image: 
+1. When the deployment is complete, select **Go to resource group** from the template **Overview** page or from **Notifications**.
 
-    :::image type="content" source="./media/create-lab-windows-vm-template/navigate-resource-group.png" alt-text="Navigate to resource group":::
-3. On the **Resource group** page, you see the list of resources in the resource group. Confirm that you see your lab of type: `DevTest Lab` in the resources. You also see the dependent resources such as virtual network and virtual machine in the resource group. 
+   :::image type="content" source="./media/create-lab-windows-vm-template/navigate-resource-group.png" alt-text="Screenshot that shows deployment complete and the Go to resource group button.":::
 
-    :::image type="content" source="./media/create-lab-windows-vm-template/resource-group-home-page.png" alt-text="Resource group's home page":::
-4. Select your lab from the list of resource to see the home page for your lab. Confirm that you see the Windows Server 2019 Datacenter VM in the **My virtual machines** list. In the following image, the **Essentials** section is minimized. 
+1. The **Resource group** page lists the resources in the resource group, including your lab and its dependent resources like virtual networks and VMs. Select the **DevTest Lab** resource to go to the lab's **Overview** page.
 
-    :::image type="content" source="./media/create-lab-windows-vm-template/lab-home-page.png" alt-text="Home page for the lab":::
+   :::image type="content" source="./media/create-lab-windows-vm-template/resource-group-overview.png" alt-text="Screenshot of resource group overview.":::
 
-    > [!IMPORTANT] 
-    > Keep this page open and follow instructions in the next section to clean up resources to avoid costs for running the lab and the VM on Azure. If you want to go through the next tutorial to test accessing the VM in the lab, clean up resources after you go through that tutorial. 
+1. On the lab **Overview** page, you can see the VM under **My virtual machines**.
+
+   :::image type="content" source="./media/create-lab-windows-vm-template/lab-home-page.png" alt-text="Screenshot that shows the lab Overview page with the virtual machine.":::
+
+> [!NOTE]
+> The deployment also creates a resource group for the VM. The resource group contains VM resources like the IP address, network interface, and disk. The resource group appears in your subscription's **Resource groups** list with the name **\<lab name>-\<vm name>-\<numerical string>**.
 
 ## Clean up resources
 
-1. First, delete the lab so that you can delete the resource group. You won't be able to delete the resource group with a lab in it. To delete the lab, select **Delete** on the toolbar. 
+When you're done using these lab resources, delete them to avoid further charges. You can't delete a resource group that has a lab in it, so delete the lab first:
 
-    :::image type="content" source="./media/create-lab-windows-vm-template/delete-lab-button.png" alt-text="Delete lab button":::
- 2. On the confirmation page, type the **lab name**, and select **Delete**. 
- 3. Wait until the lab is deleted. Select the **bell** icon to see notification from the delete operation. This process takes some time. Confirm the lab deletion, and then select the **resource group** on the breadcrumb menu. 
- 
-    :::image type="content" source="./media/create-lab-windows-vm-template/confirm-lab-deletion.png" alt-text="Confirm deletion of VM in notifications":::
- 1. On the **Resource group** page, select **Delete resource group** from the toolbar. On the confirmation page, type the **resource group name**, and select **Delete**. Check the notifications to confirm that the resource group is deleted.
- 
-    :::image type="content" source="./media/create-lab-windows-vm-template/delete-resource-group-button.png" alt-text="Delete resource group button":::
+1. On the lab overview page, select **Delete** from the top menu.
+
+   :::image type="content" source="./media/create-lab-windows-vm-template/portal-lab-delete.png" alt-text="Screenshot of lab delete button.":::
+
+1. On the **Are you sure you want to delete it** page, enter the lab name, and then select **Delete**.
+
+   During the deletion, you can select **Notifications** at the top of your screen to view progress. Deleting the lab takes a while.
+
+You can now delete the resource group that contained the lab, which deletes all resources in the resource group.
+
+1. Select the resource group that contained the lab from your subscription's **Resource groups** list.
+
+1. At the top of the page, select **Delete resource group**.
+
+1. On the **Are you sure you want to delete "\<resource group name>"** page, enter the resource group name, and then select **Delete**.
 
 ## Next steps
-In this quickstart, you created a lab with a VM. To learn about how to access the lab, advance to the next tutorial:
+
+In this quickstart, you created a lab that has a Windows VM. To learn how to connect to and manage lab VMs, see the next tutorial:
 
 > [!div class="nextstepaction"]
-> [Tutorial: Access the lab](tutorial-use-custom-lab.md)
+> [Tutorial: Work with lab VMs](tutorial-use-custom-lab.md)

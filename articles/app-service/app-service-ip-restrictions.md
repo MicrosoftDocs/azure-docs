@@ -1,20 +1,19 @@
 ---
 title: Azure App Service access restrictions 
 description: Learn how to secure your app in Azure App Service by setting up access restrictions. 
-author: ccompy
+author: madsd
 
 ms.assetid: 3be1f4bd-8a81-4565-8a56-528c037b24bd
 ms.topic: article
-ms.date: 12/17/2020
-ms.author: ccompy
-ms.custom: seodec18, devx-track-azurepowershell
+ms.date: 03/21/2022
+ms.author: madsd
 
 ---
 # Set up Azure App Service access restrictions
 
 By setting up access restrictions, you can define a priority-ordered allow/deny list that controls network access to your app. The list can include IP addresses or Azure Virtual Network subnets. When there are one or more entries, an implicit *deny all* exists at the end of the list.
 
-The access restriction capability works with all Azure App Service-hosted workloads. The workloads can include web apps, API apps, Linux apps, Linux container apps, and Functions.
+The access restriction capability works with all Azure App Service-hosted workloads. The workloads can include web apps, API apps, Linux apps, Linux custom containers and Functions.
 
 When a request is made to your app, the FROM address is evaluated against the rules in your access restriction list. If the FROM address is in a subnet that's configured with service endpoints to Microsoft.Web, the source subnet is compared against the virtual network rules in your access restriction list. If the address isn't allowed access based on the rules in the list, the service replies with an [HTTP 403](https://en.wikipedia.org/wiki/HTTP_403) status code.
 
@@ -34,6 +33,8 @@ To add an access restriction rule to your app, do the following:
 
 1. Sign in to the Azure portal.
 
+1. Select the app that you wan't to add access restrictions to.
+
 1. On the left pane, select **Networking**.
 
 1. On the **Networking** pane, under **Access Restrictions**, select **Configure Access Restrictions**.
@@ -45,6 +46,20 @@ To add an access restriction rule to your app, do the following:
    :::image type="content" source="media/app-service-ip-restrictions/access-restrictions-browse.png" alt-text="Screenshot of the Access Restrictions page in the Azure portal, showing the list of access restriction rules defined for the selected app.":::
 
    The list displays all the current restrictions that are applied to the app. If you have a virtual network restriction on your app, the table shows whether the service endpoints are enabled for Microsoft.Web. If no restrictions are defined on your app, the app is accessible from anywhere.
+
+### Permissions
+
+You must have at least the following Role-based access control permissions on the subnet or at a higher level to configure access restrictions through Azure portal, CLI or when setting the site config properties directly:
+
+| Action | Description |
+|-|-|
+| Microsoft.Web/sites/config/read | Get Web App configuration settings |
+| Microsoft.Web/sites/config/write | Update Web App's configuration settings |
+| Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/action* | Joins resource such as storage account or SQL database to a subnet |
+
+**only required when adding a virtual network (service endpoint) rule.*
+
+If you are adding a service endpoint-based rule and the virtual network is in a different subscription than the app, you must ensure that the subscription with the virtual network is registered for the Microsoft.Web resource provider. You can explicitly register the provider [by following this documentation](../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider), but it will also automatically be registered when creating the first web app in a subscription.
 
 ### Add an access restriction rule
 
@@ -99,19 +114,7 @@ With service endpoints, you can configure your app with application gateways or 
 
    :::image type="content" source="media/app-service-ip-restrictions/access-restrictions-service-tag-add.png?v2" alt-text="Screenshot of the 'Add Restriction' pane with the Service Tag type selected.":::
 
-Each service tag represents a list of IP ranges from Azure services. A list of these services and links to the specific ranges can be found in the [service tag documentation][servicetags].
-
-All available service tags are supported in access restriction rules. For simplicity, only a list of the most common tags are available through the Azure portal. Use Azure Resource Manager templates or scripting to configure more advanced rules like regional scoped rules. These are the tags available through Azure portal:
-
-* ActionGroup
-* ApplicationInsightsAvailability
-* AzureCloud
-* AzureCognitiveSearch
-* AzureEventGrid
-* AzureFrontDoor.Backend
-* AzureMachineLearning
-* AzureTrafficManager
-* LogicApps
+All available service tags are supported in access restriction rules. Each service tag represents a list of IP ranges from Azure services. A list of these services and links to the specific ranges can be found in the [service tag documentation][servicetags]. Use Azure Resource Manager templates or scripting to configure more advanced rules like regional scoped rules.
 
 ### Edit a rule
 

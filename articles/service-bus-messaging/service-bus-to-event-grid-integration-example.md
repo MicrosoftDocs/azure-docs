@@ -6,7 +6,6 @@ author: spelluru
 ms.topic: tutorial
 ms.date: 10/04/2021
 ms.author: spelluru
-ms.custom: devx-track-csharp
 ---
 
 # Tutorial: Respond to Azure Service Bus events received via Azure Event Grid by using Azure Logic Apps

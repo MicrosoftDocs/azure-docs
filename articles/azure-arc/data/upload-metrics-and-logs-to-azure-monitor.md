@@ -7,9 +7,8 @@ ms.subservice: azure-arc-data
 author: twright-msft
 ms.author: twright
 ms.reviewer: mikeray
-ms.date: 07/30/2021
+ms.date: 11/03/2021
 ms.topic: how-to
-zone_pivot_groups: client-operating-system-macos-and-linux-windows-powershell
 ---
 
 # Upload usage data, metrics, and logs to Azure
@@ -21,6 +20,8 @@ Before you can upload usage data, metrics, or logs you need to:
 * Install tools 
 * [Register the `Microsoft.AzureArcData` resource provider](#register-the-resource-provider) 
 * [Create the service principal](#create-service-principal)
+
+[!INCLUDE [azure-arc-angle-bracket-example](../../../includes/azure-arc-angle-bracket-example.md)]
 
 ## Install tools
 
@@ -85,7 +86,7 @@ Example output:
 
 Save the `appId`, `password`, and `tenant` values in an environment variable for use later. 
 
-::: zone pivot="client-operating-system-windows-command"
+# [Windows](#tab/windows)
 
 ```console
 SET SPN_CLIENT_ID=<appId>
@@ -93,9 +94,7 @@ SET SPN_CLIENT_SECRET=<password>
 SET SPN_TENANT_ID=<tenant>
 ```
 
-::: zone-end
-
-::: zone pivot="client-operating-system-macos-and-linux"
+# [macOS & Linux](#tab/linux)
 
 ```console
 export SPN_CLIENT_ID='<appId>'
@@ -103,9 +102,7 @@ export SPN_CLIENT_SECRET='<password>'
 export SPN_TENANT_ID='<tenant>'
 ```
 
-::: zone-end
-
-::: zone pivot="client-operating-system-powershell"
+# [PowerShell](#tab/powershell)
 
 ```console
 $Env:SPN_CLIENT_ID="<appId>"
@@ -113,7 +110,7 @@ $Env:SPN_CLIENT_SECRET="<password>"
 $Env:SPN_TENANT_ID="<tenant>"
 ```
 
-::: zone-end
+---
 
 After you have created the service principal, assign the service principal to the appropriate role. 
 
@@ -121,7 +118,7 @@ After you have created the service principal, assign the service principal to th
 
 Run this command to assign the service principal to the `Monitoring Metrics Publisher` role on the subscription where your database instance resources are located:
 
-::: zone pivot="client-operating-system-windows-command"
+# [Windows](#tab/windows)
 
 > [!NOTE]
 > You need to use double quotes for role names when running from a Windows environment.
@@ -130,23 +127,20 @@ Run this command to assign the service principal to the `Monitoring Metrics Publ
 az role assignment create --assignee <appId> --role "Monitoring Metrics Publisher" --scope subscriptions/<SubscriptionID>/resourceGroups/<resourcegroup>
 
 ```
-::: zone-end
 
-::: zone pivot="client-operating-system-macos-and-linux"
+# [macOS & Linux](#tab/linux)
 
 ```azurecli
 az role assignment create --assignee <appId> --role 'Monitoring Metrics Publisher' --scope subscriptions/<SubscriptionID>/resourceGroups/<resourcegroup>
 ```
 
-::: zone-end
+# [PowerShell](#tab/powershell)
 
-::: zone pivot="client-operating-system-powershell"
-
-```powershell
+```azurecli
 az role assignment create --assignee <appId> --role 'Monitoring Metrics Publisher' --scope subscriptions/<SubscriptionID>/resourceGroups/<resourcegroup>
 ```
 
-::: zone-end
+---
 
 Example output:
 
@@ -166,7 +160,7 @@ Example output:
 ## Verify service principal role
 
 ```azurecli
-az role assignment list -o table
+az role assignment list --scope subscriptions/<SubscriptionID>/resourceGroups/<resourcegroup> -o table
 ```
 
 With the service principal assigned to the appropriate role, you can proceed to upload metrics, or user data. 
@@ -187,7 +181,10 @@ The specific steps for uploading logs, metrics, or usage data vary depending abo
 
 Create, read, update, and delete (CRUD) operations on Azure Arc-enabled data services are logged for billing and monitoring purposes. There are background services that monitor for these CRUD operations and calculate the consumption appropriately. The actual calculation of usage or consumption happens on a scheduled basis and is done in the background. 
 
-Upload the usage only once per day. When usage information is exported and uploaded multiple times within the same 24 hour period, only the resource inventory is updated in Azure portal but not the resource usage.
+Upload the usage only once per day. When usage information is exported and uploaded multiple times within the same 24 hour period, only the resource inventory is updated in Azure portal but not the resource usage. 
+
+> [!NOTE]
+> Note that usage data is automatically uploaded for Azure Arc data controller deployed in **direct** connected mode. 
 
 For uploading metrics, Azure monitor only accepts the last 30 minutes of data ([Learn more](../../azure-monitor/essentials/metrics-store-custom-rest-api.md#troubleshooting)). The guidance for uploading metrics is to upload the metrics immediately after creating the export file so you can view the entire data set in Azure portal. For instance, if you exported the metrics at 2:00 PM and ran the upload command at 2:50 PM. Since Azure Monitor only accepts data for the last 30 minutes, you may not see any data in the portal. 
 

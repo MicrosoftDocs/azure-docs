@@ -4,7 +4,7 @@ description: Describes different options for parsing log data in Azure Monitor r
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 12/04/2018
+ms.date: 10/20/2021
 
 ---
 

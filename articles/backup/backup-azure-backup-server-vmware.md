@@ -462,9 +462,9 @@ To configure the disk exclusion, follow the steps below:
   1. On the VMware console, go to VM settings for which you want to exclude the disk.
   2. Select the disk that you want to exclude and note the path for that disk.
 
-        For example, to exclude the Hard Disk 2 from the TestVM4, the path for Hard Disk 2 is **[datastore1] TestVM4/TestVM4\_1.vmdk**.
+     For example, to exclude the Hard Disk 2 from the TestVM4, the path for Hard Disk 2 is **[datastore1] TestVM4/TestVM4\_1.vmdk**.
 
-        ![Hard disk to be excluded](./media/backup-azure-backup-server-vmware/test-vm.png)
+     ![Hard disk to be excluded](./media/backup-azure-backup-server-vmware/test-vm.png)
 
 ### Configure MABS Server
 
@@ -472,93 +472,93 @@ Navigate to the MABS server where the VMware VM is configured for protection to 
 
   1. Get the details of the VMware host that's protected on the MABS server.
 
-        ```powershell
-        $psInfo = get-DPMProductionServer
-        $psInfo
-        ```
+     ```powershell
+     $psInfo = get-DPMProductionServer
+     $psInfo
+     ```
 
-        ```output
-        ServerName   ClusterName     Domain            ServerProtectionState
-        ----------   -----------     ------            ---------------------
-        Vcentervm1                   Contoso.COM       NoDatasourcesProtected
-        ```
+     ```output
+     ServerName   ClusterName     Domain            ServerProtectionState
+     ----------   -----------     ------            ---------------------
+     Vcentervm1                   Contoso.COM       NoDatasourcesProtected
+     ```
 
   2. Select the VMware host and list the VMs protection for the VMware host.
 
-        ```powershell
-        $vmDsInfo = get-DPMDatasource -ProductionServer $psInfo[0] -Inquire
-        $vmDsInfo
-        ```
+     ```powershell
+     $vmDsInfo = get-DPMDatasource -ProductionServer $psInfo[0] -Inquire
+     $vmDsInfo
+     ```
 
-        ```output
-        Computer     Name     ObjectType
-        --------     ----     ----------
-        Vcentervm1  TestVM2      VMware
-        Vcentervm1  TestVM1      VMware
-        Vcentervm1  TestVM4      VMware
-        ```
+     ```output
+     Computer     Name     ObjectType
+     --------     ----     ----------
+     Vcentervm1  TestVM2      VMware
+     Vcentervm1  TestVM1      VMware
+     Vcentervm1  TestVM4      VMware
+     ```
 
   3. Select the VM for which you want to exclude a disk.
 
-        ```powershell
-        $vmDsInfo[2]
-        ```
+     ```powershell
+     $vmDsInfo[2]
+     ```
 
-        ```output
-        Computer     Name      ObjectType
-        --------     ----      ----------
-        Vcentervm1   TestVM4   VMware
-        ```
+     ```output
+     Computer     Name      ObjectType
+     --------     ----      ----------
+     Vcentervm1   TestVM4   VMware
+     ```
 
   4. To exclude the disk, navigate to the `Bin` folder and run the *ExcludeDisk.ps1* script with the following parameters:
 
-        > [!NOTE]
-        > Before running this command, stop the DPMRA service on the MABS server. Otherwise, the script returns success, but doesn't update the exclusion list. Ensure there are no jobs in progress before stopping the service.
+     > [!NOTE]
+     > Before running this command, stop the DPMRA service on the MABS server. Otherwise, the script returns success, but doesn't update the exclusion list. Ensure there are no jobs in progress before stopping the service.
 
      **To add/remove the disk from exclusion, run the following command:**
 
-      ```powershell
-      ./ExcludeDisk.ps1 -Datasource $vmDsInfo[0] [-Add|Remove] "[Datastore] vmdk/vmdk.vmdk"
-      ```
+     ```powershell
+     ./ExcludeDisk.ps1 -Datasource $vmDsInfo[0] [-Add|Remove] "[Datastore] vmdk/vmdk.vmdk"
+     ```
 
      **Example**:
 
      To add the disk exclusion for TestVM4, run the following command:
 
-       ```powershell
-      C:\Program Files\Microsoft Azure Backup Server\DPM\DPM\bin> ./ExcludeDisk.ps1 -Datasource $vmDsInfo[2] -Add "[datastore1] TestVM4/TestVM4\_1.vmdk"
-       ```
+     ```powershell
+     C:\Program Files\Microsoft Azure Backup Server\DPM\DPM\bin> ./ExcludeDisk.ps1 -Datasource $vmDsInfo[2] -Add "[datastore1] TestVM4/TestVM4\_1.vmdk"
+     ```
 
-      ```output
-       Creating C:\Program Files\Microsoft Azure Backup Server\DPM\DPM\bin\excludedisk.xml
-       Disk : [datastore1] TestVM4/TestVM4\_1.vmdk, has been added to disk exclusion list.
-      ```
+     ```output
+     Creating C:\Program Files\Microsoft Azure Backup Server\DPM\DPM\bin\excludedisk.xml
+     Disk : [datastore1] TestVM4/TestVM4\_1.vmdk, has been added to disk exclusion list.
+     ```
 
   5. Verify that the disk has been added for exclusion.
 
      **To view the existing exclusion for specific VMs, run the following command:**
 
-        ```powershell
-        ./ExcludeDisk.ps1 -Datasource $vmDsInfo[0] [-view]
-        ```
+     ```powershell
+     ./ExcludeDisk.ps1 -Datasource $vmDsInfo[0] [-view]
+     ```
 
      **Example**
 
-        ```powershell
-        C:\Program Files\Microsoft Azure Backup Server\DPM\DPM\bin> ./ExcludeDisk.ps1 -Datasource $vmDsInfo[2] -view
-        ```
+     ```powershell
+     C:\Program Files\Microsoft Azure Backup Server\DPM\DPM\bin> ./ExcludeDisk.ps1 -Datasource $vmDsInfo[2] -view
+     ```
 
-        ```output
-        <VirtualMachine>
-        <UUID>52b2b1b6-5a74-1359-a0a5-1c3627c7b96a</UUID>
-        <ExcludeDisk>[datastore1] TestVM4/TestVM4\_1.vmdk</ExcludeDisk>
-        </VirtualMachine>
-        ```
+     ```output
+     <VirtualMachine>
+       <UUID>52b2b1b6-5a74-1359-a0a5-1c3627c7b96a</UUID>
+       <ExcludeDisk>[datastore1] TestVM4/TestVM4\_1.vmdk</ExcludeDisk>
+     </VirtualMachine>
+     ```
 
-     Once you configure the  protection for this VM, the excluded disk won't be listed during protection.
+     Once you configure the protection for this VM, the excluded disk won't be listed during protection.
 
-        > [!NOTE]
-        > If you are performing these steps for an already protected VM, you need to run the consistency check manually after adding the disk for exclusion.
+     > [!NOTE]
+     > If you are performing these steps for an already protected VM, you need to run the consistency check manually after adding the disk for exclusion.
 
 ### Remove the disk from exclusion
 

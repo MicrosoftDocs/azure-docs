@@ -3,9 +3,10 @@ title: Create an Azure Files file share with a domain controller - Azure
 description: Set up an FSLogix profile container on an Azure file share in an existing Azure Virtual Desktop host pool with your Active Directory domain.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 06/05/2020
+ms.date: 12/08/2021
 ms.author: helohr
 manager: femila
+ms.custom: subject-rbac-steps
 ---
 # Create a profile container with Azure Files and AD DS
 
@@ -32,7 +33,7 @@ To set up a storage account:
 4. Enter the following information into the  **Create storage account** page:
 
     - Create a new resource group.
-    - Enter a unique name for your storage account.
+    - Enter a unique name for your storage account. This storage account name currently has a limit of 15 characters.
     - For **Location**, we recommend you choose the same location as the Azure Virtual Desktop host pool.
     - For **Performance**, select **Standard**. (Depending on your IOPS requirements. For more information, see [Storage options for FSLogix profile containers in Azure Virtual Desktop](store-fslogix-profile.md).)
     - For **Account type**, select **StorageV2** or **FileStorage** (only available if Performance tier is Premium).
@@ -84,19 +85,25 @@ To assign Azure role-based access control (Azure RBAC) permissions:
 
 1. Open the Azure portal.
 
-2. Open the storage account you created in [Set up a storage account](#set-up-a-storage-account).
+1. Open the storage account you created in [Set up a storage account](#set-up-a-storage-account).
 
-3. Select **File shares**, then select the name of the file share you plan to use.
+1. Select **File shares**, then select the name of the file share you plan to use.
 
-4. Select **Access Control (IAM)**.
+1. Select **Access control (IAM)**.
 
-5. Select **Add a role assignment**.
+1. Select **Add** > **Add role assignment** to open the **Add role assignment** page.
 
-6. In the **Add role assignment** tab, select **Storage File Data SMB Share Elevated Contributor** for the administrator account.
+1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
 
-     To assign users permissions for their FSLogix profiles, follow these same instructions. However, when you get to step 5, select **Storage File Data SMB Share Contributor** instead.
+    | Setting | Value |
+    | --- | --- |
+    | Role | Storage File Data SMB Share Elevated Contributor |
+    | Assign access to | User, group, or service principal |
+    | Members | \<Name of the administrator account> |
 
-7. Select **Save**.
+    To assign users permissions for their FSLogix profiles, select the **Storage File Data SMB Share Contributor** role instead.
+
+    ![Screenshot showing Add role assignment page in Azure portal.](../../includes/role-based-access-control/media/add-role-assignment-page.png)
 
 ## Assign users permissions on the Azure file share
 
@@ -192,7 +199,7 @@ To configure FSLogix on your session host VM:
 
 2. [Download and install FSLogix](/fslogix/install-ht).
 
-5. Follow the instructions in [Configure profile container registry settings](/fslogix/configure-profile-container-tutorial#configure-profile-container-registry-settings):
+3. Follow the instructions in [Configure profile container registry settings](/fslogix/configure-profile-container-tutorial#configure-profile-container-registry-settings):
 
     - Navigate to **Computer** > **HKEY_LOCAL_MACHINE** > **SOFTWARE** > **FSLogix**.
 
@@ -204,7 +211,7 @@ To configure FSLogix on your session host VM:
 
     - Set the value of **VHDLocations** to the UNC path you generated in [Get the UNC path](#get-the-unc-path).
 
-6. Restart the VM.
+4. Restart the VM.
 
 ## Testing
 

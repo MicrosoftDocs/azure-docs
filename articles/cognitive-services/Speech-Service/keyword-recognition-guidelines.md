@@ -10,7 +10,6 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/30/2021
 ms.author: hasshah
-ms.custom: devx-track-csharp
 ---
 
 # Recommendations and guidelines for keyword recognition
@@ -37,13 +36,13 @@ Creating an effective keyword is vital to ensuring your product will consistentl
 
 With a multi-stage keyword recognition scenario where [Keyword Verification](keyword-recognition-overview.md#keyword-verification) is used, applications can choose when the end-user is notified of a keyword detection. The recommendation for rendering any visual or audible indicator is to rely upon on responses from the Keyword Verification service:
 
-![User experience guideline when optimizing for accuracy.](media/custom-keyword/keyword-verification-ux-accuracy.png)
+![User experience guideline when optimizing for accuracy.](media/custom-keyword/kw-verification-ux-accuracy.png)
 
 This ensures the optimal experience in terms of accuracy to minimize the user-perceived impact of false accepts but incurs additional latency.
 
 For applications that require latency optimization, applications can provide light and unobtrusive indicators to the end-user based on the on-device keyword recognition. For example, lighting an LED pattern or pulsing an icon. The indicators can continue to exist if Keyword Verification responds with a keyword accept, or can be dismissed if the response is a keyword reject:
 
-![User experience guideline when optimizing for latency.](media/custom-keyword/keyword-verification-ux-latency.png)
+![User experience guideline when optimizing for latency.](media/custom-keyword/kw-verification-ux-latency.png)
 
 ## Next steps
 

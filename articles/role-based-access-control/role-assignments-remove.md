@@ -3,13 +3,14 @@ title: Remove Azure role assignments - Azure RBAC
 description: Learn how to remove access to Azure resources for users, groups, service principals, or managed identities using Azure portal, Azure PowerShell, Azure CLI, or REST API.
 services: active-directory
 author: rolyon
-manager: daveba
+manager: karenhoran
 ms.service: role-based-access-control
 ms.topic: how-to
 ms.workload: identity
 ms.date: 02/15/2021
 ms.author: rolyon 
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, devx-track-azurecli 
+ms.devlang: azurecli
 ---
 
 # Remove Azure role assignments
@@ -74,7 +75,7 @@ If you get the error message: "The provided information does not map to a role a
 
 ## Azure CLI
 
-In Azure CLI, you remove a role assignment by using [az role assignment delete](/cli/azure/role/assignment#az_role_assignment_delete).
+In Azure CLI, you remove a role assignment by using [az role assignment delete](/cli/azure/role/assignment#az-role-assignment-delete).
 
 The following example removes the [Virtual Machine Contributor](built-in-roles.md#virtual-machine-contributor) role assignment from the *patlong\@contoso.com* user on the *pharma-sales* resource group:
 

@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: Learn how to use the parser library to parse DTDL models.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 9/2/2021
+ms.date: 02/23/2022
 ms.topic: how-to
 ms.service: digital-twins
 ms.custom: contperf-fy21q3
@@ -18,7 +18,9 @@ ms.custom: contperf-fy21q3
 
 # Parse and validate models with the DTDL parser library
 
-[Models](concepts-models.md) in Azure Digital Twins are defined using the JSON-LD-based Digital Twins Definition language (DTDL). **It is recommended to validate your models offline before uploading them to your Azure Digital Twins instance.**
+This article describes how to parse and validate Azure Digital Twins models using the DTDL validator sample or the .NET parser library.
+
+[Models](concepts-models.md) in Azure Digital Twins are defined using the JSON-LD-based Digital Twins Definition language (DTDL). It is recommended to validate your models offline before uploading them to your Azure Digital Twins instance.
 
 To help you validate your models, a .NET client-side DTDL parsing library is provided on NuGet: [Microsoft.Azure.DigitalTwins.Parser](https://nuget.org/packages/Microsoft.Azure.DigitalTwins.Parser/). 
 
@@ -26,7 +28,11 @@ You can use the parser library directly in your C# code, or use the language-agn
 
 ## Use the DTDL validator sample
 
-The [DTDL Validator](/samples/azure-samples/dtdl-validator/dtdl-validator) is a sample project that can validate model documents to make sure the DTDL is valid. It's built on the .NET parser library and is language-agnostic. You can get it with the *Download ZIP* button at the sample link.
+The [DTDL Validator](/samples/azure-samples/dtdl-validator/dtdl-validator) is a sample project that can validate model documents to make sure the DTDL is valid. It's built on the .NET parser library and is language-agnostic. 
+
+You can view the code in GitHub by selecting the **Browse code** button at the sample link, and you can download the project from GitHub by selecting the **Code** button followed by **Download ZIP**.
+
+:::image type="content" source="media/how-to-parse-models/download-repo-zip.png" alt-text="Screenshot of the DTDL-Validator repo on GitHub, highlighting the steps to download it as a zip." lightbox="media/how-to-parse-models/download-repo-zip.png":::
 
 The source code shows examples for how to use the parser library. You can use the validator sample as a command line utility to validate a directory tree of DTDL files. It also provides an interactive mode.
 

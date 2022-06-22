@@ -3,17 +3,21 @@ title: Train with MLflow Projects
 titleSuffix: Azure Machine Learning
 description:  Set up MLflow with Azure Machine Learning to log metrics and artifacts from ML models
 services: machine-learning
-author: cjgronlund
-ms.author: cgronlun
+author: blackmist
+ms.author: larryfr
 ms.service: machine-learning
 ms.subservice: core
-ms.reviewer: nibaccam
 ms.date: 06/16/2021
 ms.topic: conceptual
-ms.custom: how-to, devx-track-python
+ms.custom: how-to, devx-track-python, sdkv1, event-tier1-build-2022
 ---
 
-# Train ML models with MLflow Projects and Azure Machine Learning
+# Train ML models with MLflow Projects and Azure Machine Learning (preview)
+
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
+
+
+[!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
 In this article, learn how to enable MLflow's tracking URI and logging API, collectively known as [MLflow Tracking](https://mlflow.org/docs/latest/quickstart.html#using-the-tracking-api), to submit training jobs with [MLflow Projects](https://www.mlflow.org/docs/latest/projects.html) and Azure Machine Learning backend support. You can submit jobs locally with Azure Machine Learning tracking or migrate your runs to the cloud like via an [Azure Machine Learning Compute](./how-to-create-attach-compute-cluster.md).
 
@@ -172,7 +176,7 @@ If you don't plan to use the logged metrics and artifacts in your workspace, the
 
 1. In the Azure portal, select **Resource groups** on the far left.
 
-   ![Delete in the Azure portal](./media/how-to-use-mlflow/delete-resources.png)
+   ![Delete in the Azure portal](./v1/media/how-to-use-mlflow/delete-resources.png)
 
 1. From the list, select the resource group you created.
 

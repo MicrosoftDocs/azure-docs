@@ -1,8 +1,8 @@
 ---
 title: Show traffic on a map | Microsoft Azure Maps
 description: Find out how to add traffic data to maps. Learn about flow data, and see how to use the Azure Maps Web SDK to add incident data and flow data to maps.
-author: anastasia-ms
-ms.author: v-stharr
+author: stevemunk
+ms.author: v-munksteve
 ms.date: 07/29/2019
 ms.topic: conceptual
 ms.service: azure-maps

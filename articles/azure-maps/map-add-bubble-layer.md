@@ -1,8 +1,8 @@
 ---
 title: Add a Bubble layer to a map | Microsoft Azure Maps
 description: Learn how to render points on maps as circles with fixed sizes. See how to use the Azure Maps Web SDK to add and customize bubble layers for this purpose.
-author: anastasia-ms
-ms.author: v-stharr
+author: stevemunk
+ms.author: v-munksteve
 ms.date: 07/29/2019
 ms.topic: conceptual
 ms.service: azure-maps

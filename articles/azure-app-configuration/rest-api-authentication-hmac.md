@@ -5,6 +5,7 @@ author: AlexandraKemperMS
 ms.author: alkemper
 ms.service: azure-app-configuration
 ms.topic: reference
+ms.devlang: csharp, golang, java, javascript, powershell, python
 ms.date: 08/17/2020
 ---
 
@@ -176,8 +177,8 @@ WWW-Authenticate: HMAC-SHA256 error="invalid_token" error_description="XXX is re
 
 *Prerequisites*: [Crypto-JS](https://code.google.com/archive/p/crypto-js/)
 
-```js
-function signRequest(host, 
+```javascript
+function signRequest(host,
                      method,      // GET, PUT, POST, DELETE
                      url,         // path+query
                      body,        // request body (undefined of none)
@@ -194,7 +195,7 @@ function signRequest(host,
 
         //
         // String-To-Sign
-        var stringToSign = 
+        var stringToSign =
             verb + '\n' +                              // VERB
             url + '\n' +                               // path_and_query
             utcNow + ';' + host + ';' + contentHash;   // Semicolon separated SignedHeaders values
@@ -299,7 +300,7 @@ public CloseableHttpResponse signRequest(HttpUriRequest request, String credenti
     return httpClient.execute(request);
 }
 
-private static Map<String, String> generateHeader(HttpUriRequest request, String credential, String secret) 
+private static Map<String, String> generateHeader(HttpUriRequest request, String credential, String secret)
         throws URISyntaxException, IOException {
     String requestTime = GMT_DATE_FORMAT.format(new Date());
 
@@ -366,46 +367,46 @@ import (
 
 //SignRequest Setup the auth header for accessing Azure App Configuration service
 func SignRequest(id string, secret string, req *http.Request) error {
-	method := req.Method
-	host := req.URL.Host
-	pathAndQuery := req.URL.Path
-	if req.URL.RawQuery != "" {
-		pathAndQuery = pathAndQuery + "?" + req.URL.RawQuery
-	}
+    method := req.Method
+    host := req.URL.Host
+    pathAndQuery := req.URL.Path
+    if req.URL.RawQuery != "" {
+        pathAndQuery = pathAndQuery + "?" + req.URL.RawQuery
+    }
 
-	content, err := ioutil.ReadAll(req.Body)
-	if err != nil {
-		return err
-	}
-	req.Body = ioutil.NopCloser(bytes.NewBuffer(content))
+    content, err := ioutil.ReadAll(req.Body)
+    if err != nil {
+        return err
+    }
+    req.Body = ioutil.NopCloser(bytes.NewBuffer(content))
 
-	key, err := base64.StdEncoding.DecodeString(secret)
-	if err != nil {
-		return err
-	}
+    key, err := base64.StdEncoding.DecodeString(secret)
+    if err != nil {
+        return err
+    }
 
-	timestamp := time.Now().UTC().Format(http.TimeFormat)
-	contentHash := getContentHashBase64(content)
-	stringToSign := fmt.Sprintf("%s\n%s\n%s;%s;%s", strings.ToUpper(method), pathAndQuery, timestamp, host, contentHash)
-	signature := getHmac(stringToSign, key)
+    timestamp := time.Now().UTC().Format(http.TimeFormat)
+    contentHash := getContentHashBase64(content)
+    stringToSign := fmt.Sprintf("%s\n%s\n%s;%s;%s", strings.ToUpper(method), pathAndQuery, timestamp, host, contentHash)
+    signature := getHmac(stringToSign, key)
 
-	req.Header.Set("x-ms-content-sha256", contentHash)
-	req.Header.Set("x-ms-date", timestamp)
-	req.Header.Set("Authorization", "HMAC-SHA256 Credential="+id+", SignedHeaders=x-ms-date;host;x-ms-content-sha256, Signature="+signature)
+    req.Header.Set("x-ms-content-sha256", contentHash)
+    req.Header.Set("x-ms-date", timestamp)
+    req.Header.Set("Authorization", "HMAC-SHA256 Credential="+id+", SignedHeaders=x-ms-date;host;x-ms-content-sha256, Signature="+signature)
 
-	return nil
+    return nil
 }
 
 func getContentHashBase64(content []byte) string {
-	hasher := sha256.New()
-	hasher.Write(content)
-	return base64.StdEncoding.EncodeToString(hasher.Sum(nil))
+    hasher := sha256.New()
+    hasher.Write(content)
+    return base64.StdEncoding.EncodeToString(hasher.Sum(nil))
 }
 
 func getHmac(content string, key []byte) string {
-	hmac := hmac.New(sha256.New, key)
-	hmac.Write([]byte(content))
-	return base64.StdEncoding.EncodeToString(hmac.Sum(nil))
+    hmac := hmac.New(sha256.New, key)
+    hmac.Write([]byte(content))
+    return base64.StdEncoding.EncodeToString(hmac.Sum(nil))
 }
 ```
 
@@ -422,12 +423,12 @@ import six
 def sign_request(host,
                 method,     # GET, PUT, POST, DELETE
                 url,        # Path + Query
-                body,       # Request body 
+                body,       # Request body
                 credential, # Access Key ID
                 secret):    # Access Key Value
     verb = method.upper()
 
-    utc_now = str(datetime.utcnow().strftime("%b, %d %Y %H:%M:%S ")) + "GMT"
+    utc_now = str(datetime.utcnow().strftime("%a, %d %b %Y %H:%M:%S ")) + "GMT"
 
     if six.PY2:
         content_digest = hashlib.sha256(bytes(body)).digest()

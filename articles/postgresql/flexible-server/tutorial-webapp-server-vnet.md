@@ -1,21 +1,22 @@
 ---
 title: 'Tutorial: Create Azure Database for PostgreSQL - Flexible Server and Azure App Service Web App in same virtual network'
 description: Quickstart guide to create Azure Database for PostgreSQL - Flexible Server with Web App in a virtual network
-author: mksuni
-ms.author: sumuth
 ms.service: postgresql
+ms.subservice: flexible-server
+ms.author: sunila
+author: sunilagarwal
+ms.reviewer: ""
 ms.devlang: azurecli
 ms.topic: tutorial
-ms.date: 06/30/2021
+ms.date: 11/30/2021
 ms.custom: mvc, devx-track-azurecli
 ---
 
 # Tutorial: Create an Azure Database for PostgreSQL - Flexible Server with App Services Web App in Virtual network
 
-> [!IMPORTANT]
-> Azure Database for PostgreSQL - Flexible Server is in preview
+[!INCLUDE [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 
-This tutorial shows you how create a Azure App Service Web app with Azure Database for PostgreSQL - Flexible Server (Preview) inside a [Virtual network](../../virtual-network/virtual-networks-overview.md).
+This tutorial shows you how create a Azure App Service Web app with Azure Database for PostgreSQL - Flexible Server  inside a [Virtual network](../../virtual-network/virtual-networks-overview.md).
 
 In this tutorial you will learn how to:
 >[!div class="checklist"]
@@ -59,7 +60,6 @@ Here is the sample output.
 ```json
 Local context is turned on. Its information is saved in working directory /home/jane. You can run `az local-context off` to turn it off.
 Command argument values from local context: --resource-group demoresourcegroup, --location: eastus
-Command group 'postgres flexible-server' is in preview. It may be changed/removed in a future release.
 Checking the existence of the resource group ''...
 Creating Resource group 'demoresourcegroup ' ...
 Creating new vnet "demoappvnet" in resource group "demoresourcegroup" ...
@@ -122,7 +122,7 @@ az webapp vnet-integration add --resource-group demoresourcegroup -n  mywebapp -
 ```
 
 ## Configure environment variables to connect the database
-With the code now deployed to App Service, the next step is to connect the app to the flexible server in Azure. The app code expects to find database information in a number of environment variables. To set environment variables in App Service, use [az webapp config appsettings set](/cli/azure/webapp/config/appsettings#az_webapp_config_appsettings_set) command.
+With the code now deployed to App Service, the next step is to connect the app to the flexible server in Azure. The app code expects to find database information in a number of environment variables. To set environment variables in App Service, use [az webapp config appsettings set](/cli/azure/webapp/config/appsettings#az-webapp-config-appsettings-set) command.
 
   
 ```azurecli

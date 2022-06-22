@@ -131,7 +131,7 @@ New-AzCloudService
     $virtualNetwork = New-AzVirtualNetwork -Name “ContosoVNet” -Location “East US” -ResourceGroupName “ContosOrg” -AddressPrefix "10.0.0.0/24" -Subnet $subnet 
     ```
  
-4. Create a public IP address and set the DNS label property of the public IP address. Cloud Services (extended support) only supports [Basic](../virtual-network/public-ip-addresses.md#basic) SKU Public IP addresses. Standard SKU Public IPs do not work with Cloud Services.
+4. Create a public IP address and set the DNS label property of the public IP address. Cloud Services (extended support) only supports [Basic](../virtual-network/ip-services/public-ip-addresses.md#sku) SKU Public IP addresses. Standard SKU Public IPs do not work with Cloud Services.
 If you are using a Static IP, you need to reference it as a Reserved IP in Service Configuration (.cscfg) file.
 
     ```azurepowershell-interactive

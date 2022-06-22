@@ -79,6 +79,8 @@ sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule require
 > [!NOTE]
 > When using SAS authentication with Kafka clients, established connections aren't disconnected when the SAS key is regenerated. 
 
+> [!NOTE]
+> [Generated shared access signature tokens](authenticate-shared-access-signature.md#generate-a-shared-access-signature-token) are not supported when using the Event Hubs for Apache Kafka endpoint.
 
 #### Samples 
 For a **tutorial** with step-by-step instructions to create an event hub and access it using SAS or OAuth, see [Quickstart: Data streaming with Event Hubs using the Kafka protocol](event-hubs-quickstart-kafka-enabled-event-hubs.md).

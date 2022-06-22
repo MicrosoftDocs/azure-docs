@@ -1,46 +1,32 @@
 ---
-title: Troubleshooting batch endpoints (preview)
+title: Troubleshooting batch endpoints
 titleSuffix: Azure Machine Learning
 description: Tips to help you succeed with batch endpoints.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: mlops
 ms.topic: troubleshooting
-ms.custom: troubleshooting, devplatv2
+ms.custom: troubleshooting, devplatv2, cliv2, event-tier1-build-2022
 ms.reviewer: laobri
-ms.author: tracych
-author: tracych
-ms.date: 05/05/2021
+ms.author: larryfr
+author: blackmist
+ms.date: 03/31/2022
 #Customer intent: As an ML Deployment Pro, I want to figure out why my batch endpoint doesn't run so that I can fix it.
-
 ---
-# Troubleshooting batch endpoints (preview)
+# Troubleshooting batch endpoints
 
-Learn how to troubleshoot and solve, or work around, common errors you may come across when using [batch endpoints](how-to-use-batch-endpoint.md) (preview) for batch scoring.
+[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
- [!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
+
+Learn how to troubleshoot and solve, or work around, common errors you may come across when using [batch endpoints](how-to-use-batch-endpoint.md) for batch scoring.
 
 The following table contains common problems and solutions you may see during batch endpoint development and consumption.
 
 | Problem | Possible solution |
 |--|--|
 | Code configuration or Environment is missing. | Ensure you provide the scoring script and an environment definition if you're using a non-MLflow model. No-code deployment is supported for the MLflow model only. For more, see [Track ML models with MLflow and Azure Machine Learning](how-to-use-mlflow.md)|
-| Failure to update model, code, environment, and compute for an existing batch endpoint. | Create a new batch endpoint with a new name. Updating these assets for an existing batch endpoint isn't yet supported. |
-| The resource wasn't found. | Ensure you use `--type batch` in your CLI command. If this argument isn't specified, the default `online` type is used.|
-| Unsupported input data. | Batch endpoint accepts input data in three forms: 1) registered data 2) data in the cloud 3) data in local. Ensure you're using the right format. For more, see [Use batch endpoints (preview) for batch scoring](how-to-use-batch-endpoint.md)|
-| The provided endpoint name exists or is being deleted. | Create a new batch endpoint with a new name. The command `endpoint delete` marks the endpoint for deletion. The same name cannot be reused to create a new endpoint in the same region. |
+| Unsupported input data. | Batch endpoint accepts input data in three forms: 1) registered data 2) data in the cloud 3) data in local. Ensure you're using the right format. For more, see [Use batch endpoints for batch scoring](how-to-use-batch-endpoint.md)|
 | Output already exists. | If you configure your own output location, ensure you provide a new output for each endpoint invocation. |
-
-##  Scoring script requirements
-
-If you're using a non-MLflow model, you'll need to provide a scoring script. The scoring script must contain two functions:
-
-- `init()`: Use this function for any costly or common preparation for later inference. For example, use it to load the model into a global object. This function will be called once at the beginning of the process.
--  `run(mini_batch)`: This function will run for each `mini_batch` instance.
-    -  `mini_batch`: The `mini_batch` value is a list of file paths.
-    -  `response`: The `run()` method should return a pandas DataFrame or an array. These returned elements are appended to the common output file. Each returned output element indicates one successful run of an input element in the input mini-batch. Make sure that enough data is included in the run result to map a single input to the run output result. Run output will be written in the output file but isn't guaranteed to be in order, so you should use some key in the output to map it to the correct input.
-
-:::code language="python" source="~/azureml-examples-cli-preview/cli/endpoints/batch/mnist/code/digit_identification.py" :::
 
 ## Understanding logs of a batch scoring job
 
@@ -52,7 +38,7 @@ Option 1: Stream logs to local console
 
 You can run the following command to stream system-generated logs to your console. Only logs in the `azureml-logs` folder will be streamed.
 
-```bash
+```azurecli
 az ml job stream -name <job_name>
 ```
 
@@ -122,7 +108,7 @@ arg_parser.add_argument("--logging_level", type=str, help="logging level")
 args, unknown_args = arg_parser.parse_known_args()
 print(args.logging_level)
 
-# Initialize python logger
+# Initialize Python logger
 logger = logging.getLogger(__name__)
 logger.setLevel(args.logging_level.upper())
 logger.info("Info log statement")

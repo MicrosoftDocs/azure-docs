@@ -1,13 +1,12 @@
 ---
 title: Create a data source for Android maps | Microsoft Azure Maps
 description: "Find out how to create a data source for a map. Learn about the data sources that the Azure Maps Android SDK uses: GeoJSON sources and vector tiles."
-author: anastasia-ms
-ms.author: v-stharr
+author: stevemunk
+ms.author: v-munksteve
 ms.date: 2/26/2021
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
-manager: cpendle
 zone_pivot_groups: azure-maps-android
 ---
 

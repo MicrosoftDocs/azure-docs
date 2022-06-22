@@ -1,9 +1,9 @@
 ---
 title: Best practices for Azure Maps Route Service in Microsoft Azure Maps 
 description: Learn how to route vehicles by using Route Service from Microsoft Azure Maps.
-author: anastasia-ms
-ms.author: v-stharr
-ms.date: 09/02/2020
+author: stevemunk
+ms.author: v-munksteve
+ms.date: 10/28/2021
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
@@ -82,7 +82,7 @@ The next sections demonstrate how to make calls to the Route APIs using the disc
 In the first example below the departure time is set to the future, at the time of writing.
 
 ```http
-https://atlas.microsoft.com/route/directions/json?subscription-key=<Your-Azure-Maps-Primary-Subscription-Key>&api-version=1.0&query=51.368752,-0.118332:51.385426,-0.128929&travelMode=car&traffic=true&departAt=2025-03-29T08:00:20&computeTravelTimeFor=all
+https://atlas.microsoft.com/route/directions/json?subscription-key={Your-Azure-Maps-Primary-Subscription-key}&api-version=1.0&query=51.368752,-0.118332:51.385426,-0.128929&travelMode=car&traffic=true&departAt=2025-03-29T08:00:20&computeTravelTimeFor=all
 ```
 
 The response contains a summary element, like the one below. Because the departure time is set to the future, the **trafficDelayInSeconds** value is zero. The **travelTimeInSeconds** value is calculated using time-dependent historic traffic data. So, in this case, the **travelTimeInSeconds** value is equal to the **historicTrafficTravelTimeInSeconds** value.
@@ -105,7 +105,7 @@ The response contains a summary element, like the one below. Because the departu
 In the second example below, we have a real-time routing request, where departure time is now. It's not explicitly specified in the URL because it's the default value.
 
 ```http
-https://atlas.microsoft.com/route/directions/json?subscription-key=<Your-Azure-Maps-Primary-Subscription-Key>&api-version=1.0&query=47.6422356,-122.1389797:47.6641142,-122.3011268&travelMode=car&traffic=true&computeTravelTimeFor=all
+https://atlas.microsoft.com/route/directions/json?subscription-key={Your-Azure-Maps-Primary-Subscription-key}&api-version=1.0&query=47.6422356,-122.1389797:47.6641142,-122.3011268&travelMode=car&traffic=true&computeTravelTimeFor=all
 ```
 
 The response contains a summary as shown below. Because of congestions, the **trafficDelaysInSeconds** value is greater than zero. It's also greater than **historicTrafficTravelTimeInSeconds**.
@@ -156,7 +156,7 @@ Azure Maps Routing APIs support commercial vehicle routing, covering commercial 
 The sample request below queries a route for a commercial truck. The truck is carrying class 1 hazardous waste material.
 
 ```http
-https://atlas.microsoft.com/route/directions/json?subscription-key=<Your-Azure-Maps-Primary-Subscription-Key>&api-version=1.0&vehicleWidth=2&vehicleHeight=2&vehicleCommercial=true&vehicleLoadType=USHazmatClass1&travelMode=truck&instructionsType=text&query=51.368752,-0.118332:41.385426,-0.128929
+https://atlas.microsoft.com/route/directions/json?subscription-key={Your-Azure-Maps-Primary-Subscription-key}&api-version=1.0&vehicleWidth=2&vehicleHeight=2&vehicleCommercial=true&vehicleLoadType=USHazmatClass1&travelMode=truck&instructionsType=text&query=51.368752,-0.118332:41.385426,-0.128929
 ```
 
 The Route API returns directions that accommodate the dimensions of the truck and the hazardous waste. You can read the route instructions by expanding the `guidance` element.
@@ -168,7 +168,7 @@ The Route API returns directions that accommodate the dimensions of the truck an
 Changing the US Hazmat Class, from the above query, will result in a different route to accommodate this change.
 
 ```http
-https://atlas.microsoft.com/route/directions/json?subscription-key=<Your-Azure-Maps-Primary-Subscription-Key>&api-version=1.0&vehicleWidth=2&vehicleHeight=2&vehicleCommercial=true&vehicleLoadType=USHazmatClass9&travelMode=truck&instructionsType=text&query=51.368752,-0.118332:41.385426,-0.128929
+https://atlas.microsoft.com/route/directions/json?subscription-key={Your-Azure-Maps-Primary-Subscription-key}&api-version=1.0&vehicleWidth=2&vehicleHeight=2&vehicleCommercial=true&vehicleLoadType=USHazmatClass9&travelMode=truck&instructionsType=text&query=51.368752,-0.118332:41.385426,-0.128929
 ```
 
 The response below is for a truck carrying a class 9 hazardous material, which is less dangerous than a class 1 hazardous material. When you expand the `guidance` element to read the directions, you'll notice that the directions aren't the same. There are more route instructions for the truck carrying class 1 hazardous material.
@@ -188,7 +188,7 @@ With the Azure Maps Route Direction APIs, developers can request details for eac
 The following query sets the `sectionType` to `traffic`. It requests the sections that contain traffic information from Seattle to San Diego.
 
 ```http
-https://atlas.microsoft.com/route/directions/json?subscription-key=<Your-Azure-Maps-Primary-Subscription-Key>&api-version=1.0&sectionType=traffic&query=47.6062,-122.3321:32.7157,-117.1611
+https://atlas.microsoft.com/route/directions/json?subscription-key={Your-Azure-Maps-Primary-Subscription-key}&api-version=1.0&sectionType=traffic&query=47.6062,-122.3321:32.7157,-117.1611
 ```
 
 The response contains the sections that are suitable for traffic along the given coordinates.
@@ -216,7 +216,7 @@ If you want to optimize the best order to visit the given waypoints, then you ne
 The following query requests the path for six waypoints, with the `computeBestOrder` parameter set to `false`. It's also the default value for the `computeBestOrder` parameter.
 
 ```http
-https://atlas.microsoft.com/route/directions/json?api-version=1.0&subscription-key=<Your-Azure-Maps-Primary-Subscription-Key>&computeBestOrder=false&query=47.606544,-122.336502:47.759892,-122.204821:47.670682,-122.120415:47.480133,-122.213369:47.615556,-122.193689:47.676508,-122.206054:47.495472,-122.360861
+https://atlas.microsoft.com/route/directions/json?api-version=1.0&subscription-key={Your-Azure-Maps-Primary-Subscription-key}&computeBestOrder=false&query=47.606544,-122.336502:47.759892,-122.204821:47.670682,-122.120415:47.480133,-122.213369:47.615556,-122.193689:47.676508,-122.206054:47.495472,-122.360861
 ```
 
 The response describes the path length to be 140,851 meters, and that it would take 9,991 seconds to travel that path.
@@ -227,8 +227,6 @@ The image below illustrates the path resulting from this query. This path is one
 
 ![Non-optimized image](media/how-to-use-best-practices-for-routing/non-optimized-image-img.png)
 
-
-
 This route waypoint order is: 0, 1, 2, 3, 4, 5, and 6.
 
 ### Sample query
@@ -236,7 +234,7 @@ This route waypoint order is: 0, 1, 2, 3, 4, 5, and 6.
 The following query requests the path for the same six waypoints, as in the above sample. This time, the `computeBestOrder` parameter set to `true` (the traveling salesman optimization).
 
 ```http
-https://atlas.microsoft.com/route/directions/json?api-version=1.0&subscription-key=<Your-Azure-Maps-Primary-Subscription-Key>&computeBestOrder=true&query=47.606544,-122.336502:47.759892,-122.204821:47.670682,-122.120415:47.480133,-122.213369:47.615556,-122.193689:47.676508,-122.206054:47.495472,-122.360861
+https://atlas.microsoft.com/route/directions/json?api-version=1.0&subscription-key={Your-Azure-Maps-Primary-Subscription-key}&computeBestOrder=true&query=47.606544,-122.336502:47.759892,-122.204821:47.670682,-122.120415:47.480133,-122.213369:47.615556,-122.193689:47.676508,-122.206054:47.495472,-122.360861
 ```
 
 The response describes the path length to be 91,814 meters, and that it would take 7,797 seconds to travel that path. The travel distance and the travel time are both lower here because the API returned the optimized route.

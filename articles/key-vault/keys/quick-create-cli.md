@@ -3,15 +3,13 @@ title: Create and retrieve attributes of a key in Azure Key Vault - Azure CLI
 description: Quickstart showing how to set and retrieve a key from Azure Key Vault using Azure CLI
 author: msmbaldwin
 tags: azure-resource-manager
-
 ms.service: key-vault
 ms.subservice: keys
 ms.topic: quickstart
 ms.date: 01/27/2021
-ms.author: mbaldwin 
-ms.custom: devx-track-azurecli
-
-#Customer intent:As a security admin who is new to Azure, I want to use Key Vault to securely store keys and passwords in Azure
+ms.author: mbaldwin
+ms.custom: devx-track-azurecli, mode-api
+#Customer intent: As a security admin who is new to Azure, I want to use Key Vault to securely store keys and passwords in Azure
 ---
 # Quickstart: Set and retrieve a key from Azure Key Vault using Azure CLI
 
@@ -25,7 +23,7 @@ In this quickstart, you create a key vault in Azure Key Vault with Azure CLI. Az
 
 ## Create a resource group
 
-[!INCLUDE [Create a resource group](../../../includes/key-vault-cli-rg-creation.md)]
+[!INCLUDE [Create a resource group](../../../includes/cli-rg-create.md)]
 
 ## Create a key vault
 
@@ -54,7 +52,7 @@ Now, you have created a Key Vault, stored a key, and retrieved it.
 
 ## Clean up resources
 
-[!INCLUDE [Create a key vault](../../../includes/key-vault-cli-delete-resources.md)]
+[!INCLUDE [Create a key vault](../../../includes/cli-rg-delete.md)]
 
 ## Next steps
 

@@ -1,15 +1,14 @@
 ---
 title: Partitioning tables in dedicated SQL pool 
-description: Recommendations and examples for using table partitions in dedicated SQL pool 
-services: synapse-analytics
-author: XiaoyuMSFT
+description: Recommendations and examples for using table partitions in dedicated SQL pool.
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw 
-ms.date: 08/19/2021
-ms.author: xiaoyul
-ms.reviewer: igorstan, wiassaf
+ms.date: 11/02/2021
+author: WilliamDAssafMSFT
+ms.author: wiassaf
+ms.reviewer: 
 ms.custom: seo-lt-2019, azure-synapse
 ---
 
@@ -37,13 +36,13 @@ Partitioning can also be used to improve query performance. A query that applies
 
 For example, if the sales fact table is partitioned into 36 months using the sales date field, then queries that filter on the sale date can skip searching in partitions that don't match the filter.
 
-## Sizing partitions
+## Partition sizing
 
 While partitioning can be used to improve performance some scenarios, creating a table with **too many** partitions can hurt performance under some circumstances.  These concerns are especially true for clustered columnstore tables. 
 
 For partitioning to be helpful, it is important to understand when to use partitioning and the number of partitions to create. There is no hard fast rule as to how many partitions are too many, it depends on your data and how many partitions you are loading simultaneously. A successful partitioning scheme usually has tens to hundreds of partitions, not thousands.
 
-When creating partitions on **clustered columnstore** tables, it is important to consider how many rows belong to each partition. For optimal compression and performance of clustered columnstore tables, a minimum of 1 million rows per distribution and partition is needed. Before partitions are created, dedicated SQL pool already divides each table into 60 distributed databases. 
+When creating partitions on **clustered columnstore** tables, it is important to consider how many rows belong to each partition. For optimal compression and performance of clustered columnstore tables, a minimum of 1 million rows per distribution and partition is needed. Before partitions are created, dedicated SQL pool already divides each table into 60 distributions. 
 
 Any partitioning added to a table is in addition to the distributions created behind the scenes. Using this example, if the sales fact table contained 36 monthly partitions, and given that a dedicated SQL pool has 60 distributions, then the sales fact table should contain 60 million rows per month, or 2.1 billion rows when all months are populated. If a table contains fewer than the recommended minimum number of rows per partition, consider using fewer partitions in order to increase the number of rows per partition. 
 
@@ -55,7 +54,7 @@ Dedicated SQL pool introduces a way to define partitions that is simpler than SQ
 
 While the syntax of partitioning may be slightly different from SQL Server, the basic concepts are the same. SQL Server and dedicated SQL pool support one partition column per table, which can be ranged partition. To learn more about partitioning, see [Partitioned Tables and Indexes](/sql/relational-databases/partitions/partitioned-tables-and-indexes?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
 
-The following example uses the [CREATE TABLE](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) statement to partition the FactInternetSales table on the OrderDateKey column:
+The following example uses the [CREATE TABLE](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) statement to partition the `FactInternetSales` table on the `OrderDateKey` column:
 
 ```sql
 CREATE TABLE [dbo].[FactInternetSales]
@@ -77,18 +76,17 @@ WITH
                     ,20030101,20040101,20050101
                     )
                 )
-)
-;
+);
 ```
 
-## Migrating partitioning from SQL Server
+## Migrate partitions from SQL Server
 
 To migrate SQL Server partition definitions to dedicated SQL pool simply:
 
 - Eliminate the SQL Server [partition scheme](/sql/t-sql/statements/create-partition-scheme-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
 - Add the [partition function](/sql/t-sql/statements/create-partition-function-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) definition to your CREATE TABLE.
 
-If you are migrating a partitioned table from a SQL Server instance, the following SQL can help you to figure out the number of rows that in each partition. Keep in mind that if the same partitioning granularity is used in dedicated SQL pool, the number of rows per partition decreases by a factor of 60.  
+If you are migrating a partitioned table from a SQL Server instance, the following SQL can help you to figure out the number of rows in each partition. Keep in mind that if the same partitioning granularity is used in dedicated SQL pool, the number of rows per partition decreases by a factor of 60.  
 
 ```sql
 -- Partition information for a SQL Server Database
@@ -120,15 +118,14 @@ GROUP BY    s.[name]
 ,           p.[partition_number]
 ,           p.[rows]
 ,           rv.[value]
-,           p.[data_compression_desc]
-;
+,           p.[data_compression_desc];
 ```
 
 ## Partition switching
 
 Dedicated SQL pool supports partition splitting, merging, and switching. Each of these functions is executed using the [ALTER TABLE](/sql/t-sql/statements/alter-table-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) statement.
 
-To switch partitions between two tables, you must ensure that the partitions align on their respective boundaries and that the table definitions match. As check constraints are not available to enforce the range of values in a table, the source table must contain the same partition boundaries as the target table. If the partition boundaries are not then same, then the partition switch will fail as the partition metadata will not be synchronized.
+To switch partitions between two tables, you must ensure that the partitions align on their respective boundaries and that the table definitions match. As check constraints are not available to enforce the range of values in a table, the source table must contain the same partition boundaries as the target table. If the partition boundaries are not the same, then the partition switch will fail as the partition metadata will not be synchronized.
 
 A partition split requires the respective partition (not necessarily the whole table) to be empty if the table has a clustered columnstore index (CCI). Other partitions in the same table can contain data. A partition that contains data cannot be split, it will result in error: `ALTER PARTITION statement failed because the partition is not empty. Only empty partitions can be split in when a columnstore index exists on the table. Consider disabling the columnstore index before issuing the ALTER PARTITION statement, then rebuilding the columnstore index after ALTER PARTITION is complete.` As a workaround to split a partition containing data, see [How to split a partition that contains data](#how-to-split-a-partition-that-contains-data). 
 
@@ -157,11 +154,11 @@ WITH
                     (20000101
                     )
                 )
-)
-;
+);
 
 INSERT INTO dbo.FactInternetSales
 VALUES (1,19990101,1,1,1,1,1,1);
+
 INSERT INTO dbo.FactInternetSales
 VALUES (1,20000101,1,1,1,1,1,1);
 ```
@@ -179,8 +176,7 @@ JOIN    sys.tables     t    ON    p.[object_id]   = t.[object_id]
 JOIN    sys.schemas    s    ON    t.[schema_id]   = s.[schema_id]
 JOIN    sys.indexes    i    ON    p.[object_id]   = i.[object_Id]
                             AND   p.[index_Id]    = i.[index_Id]
-WHERE t.[name] = 'FactInternetSales'
-;
+WHERE t.[name] = 'FactInternetSales';
 ```
 
 The following split command receives an error message:
@@ -189,31 +185,32 @@ The following split command receives an error message:
 ALTER TABLE FactInternetSales SPLIT RANGE (20010101);
 ```
 
+```
 Msg 35346, Level 15, State 1, Line 44
 SPLIT clause of ALTER PARTITION statement failed because the partition is not empty. Only empty partitions can be split in when a columnstore index exists on the table. Consider disabling the columnstore index before issuing the ALTER PARTITION statement, then rebuilding the columnstore index after ALTER PARTITION is complete.
+```
 
 However, you can use `CTAS` to create a new table to hold the data.
 
 ```sql
 CREATE TABLE dbo.FactInternetSales_20000101
     WITH    (   DISTRIBUTION = HASH(ProductKey)
-            ,   CLUSTERED COLUMNSTORE INDEX
+            ,   CLUSTERED COLUMNSTORE INDEX              
             ,   PARTITION   (   [OrderDateKey] RANGE RIGHT FOR VALUES
                                 (20000101
                                 )
                             )
-            )
+)
 AS
 SELECT *
 FROM    FactInternetSales
-WHERE   1=2
-;
+WHERE   1=2;
 ```
 
 As the partition boundaries are aligned, a switch is permitted. This will leave the source table with an empty partition that you can subsequently split.
 
 ```sql
-ALTER TABLE FactInternetSales SWITCH PARTITION 2 TO  FactInternetSales_20000101 PARTITION 2;
+ALTER TABLE FactInternetSales SWITCH PARTITION 2 TO FactInternetSales_20000101 PARTITION 2;
 
 ALTER TABLE FactInternetSales SPLIT RANGE (20010101);
 ```
@@ -233,8 +230,7 @@ AS
 SELECT  *
 FROM    [dbo].[FactInternetSales_20000101]
 WHERE   [OrderDateKey] >= 20000101
-AND     [OrderDateKey] <  20010101
-;
+AND     [OrderDateKey] <  20010101;
 
 ALTER TABLE dbo.FactInternetSales_20000101_20010101 SWITCH PARTITION 2 TO dbo.FactInternetSales PARTITION 2;
 ```
@@ -244,6 +240,7 @@ Once you have completed the movement of the data, it is a good idea to refresh t
 ```sql
 UPDATE STATISTICS [dbo].[FactInternetSales];
 ```
+Finally, in the case of a one-time partition switch to move data, you could drop the tables created for the partition switch, `FactInternetSales_20000101_20010101` and `FactInternetSales_20000101`. Alternatively, you may want to keep empty tables for regular, automated partition switches.
 
 ### Load new data into partitions that contain data in one step
 
@@ -302,8 +299,7 @@ To avoid your table definition from **rusting** in your source control system, y
     (   CLUSTERED COLUMNSTORE INDEX
     ,   DISTRIBUTION = HASH([ProductKey])
     ,   PARTITION   (   [OrderDateKey] RANGE RIGHT FOR VALUES () )
-    )
-    ;
+    );
     ```
 
 1. `SPLIT` the table as part of the deployment process:
@@ -330,8 +326,7 @@ To avoid your table definition from **rusting** in your source control system, y
         SELECT CAST(20030101 AS INT)
         UNION ALL
         SELECT CAST(20040101 AS INT)
-    ) a
-    ;
+    ) a;
 
      -- Iterate over the partition boundaries and split the table
 
@@ -340,8 +335,7 @@ To avoid your table definition from **rusting** in your source control system, y
     ,       @q NVARCHAR(4000)                          --query
     ,       @p NVARCHAR(20)     = N''                  --partition_number
     ,       @s NVARCHAR(128)    = N'dbo'               --schema
-    ,       @t NVARCHAR(128)    = N'FactInternetSales' --table
-    ;
+    ,       @t NVARCHAR(128)    = N'FactInternetSales' --table;
 
     WHILE @i <= @c
     BEGIN

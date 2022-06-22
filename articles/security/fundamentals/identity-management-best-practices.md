@@ -10,7 +10,6 @@ editor: TomSh
 ms.assetid: 07d8e8a8-47e8-447c-9c06-3a88d2713bc1
 ms.service: security
 ms.subservice: security-fundamentals
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
@@ -215,7 +214,7 @@ You can use [Azure RBAC](../../role-based-access-control/overview.md) to assign 
 **Best practice**: Grant the appropriate permissions to security teams that have direct operational responsibilities.
 **Detail**: Review the Azure built-in roles for the appropriate role assignment. If the built-in roles don't meet the specific needs of your organization, you can create [Azure custom roles](../../role-based-access-control/custom-roles.md). As with built-in roles, you can assign custom roles to users, groups, and service principals at subscription, resource group, and resource scopes.
 
-**Best practices**: Grant Azure Security Center access to security roles that need it. Security Center allows security teams to quickly identify and remediate risks.
+**Best practices**: Grant Microsoft Defender for Cloud access to security roles that need it. Defender for Cloud allows security teams to quickly identify and remediate risks.
 **Detail**: Add security teams with these needs to the Azure RBAC [Security Admin](../../role-based-access-control/built-in-roles.md#security-admin) role so they can view security policies, view security states, edit security policies, view alerts and recommendations, and dismiss alerts and recommendations. You can do this by using the root management group or the segment management group, depending on the scope of responsibilities.
 
 Organizations that don’t enforce data access control by using capabilities like Azure RBAC might be giving more privileges than necessary to their users. This can lead to data compromise by allowing users to access types of data (for example, high business impact) that they shouldn’t have.

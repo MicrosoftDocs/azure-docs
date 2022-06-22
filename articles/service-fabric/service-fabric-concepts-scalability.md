@@ -11,7 +11,7 @@ ms.custom: devx-track-csharp
 # Scaling in Service Fabric
 Azure Service Fabric makes it easy to build scalable applications by managing the services, partitions, and replicas on the nodes of a cluster. Running many workloads on the same hardware enables maximum resource utilization, but also provides flexibility in terms of how you choose to scale your workloads. This Channel 9 video describes how you can build scalable microservices applications:
 
-> [!VIDEO https://channel9.msdn.com/Events/Connect/2017/T116/player]
+> [!VIDEO https://docs.microsoft.com/Events/Connect/2017/T116/player]
 
 Scaling in Service Fabric is accomplished several different ways:
 
@@ -33,7 +33,7 @@ updateDescription.InstanceCount = 50;
 await fabricClient.ServiceManager.UpdateServiceAsync(new Uri("fabric:/app/service"), updateDescription);
 ```
 
-Powershell:
+PowerShell:
 
 ```posh
 Update-ServiceFabricService -Stateless -ServiceName $serviceName -InstanceCount 50
@@ -50,7 +50,7 @@ serviceDescription.InstanceCount = -1;
 await fc.ServiceManager.CreateServiceAsync(serviceDescription);
 ```
 
-Powershell:
+PowerShell:
 
 ```posh
 New-ServiceFabricService -ApplicationName $applicationName -ServiceName $serviceName -ServiceTypeName $serviceTypeName -Stateless -PartitionSchemeSingleton -InstanceCount "-1"

@@ -6,14 +6,15 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: tutorial
-ms.date: 08/25/2021
+ms.date: 05/31/2022
 
 ms.author: justinha
 author: justinha
-ms.reviewer: rhicock
+ms.reviewer: tilarso
 
 ms.collection: M365-identity-device-management
 ms.custom: contperf-fy20q4
+adobe-target: true
 
 # Customer intent: As an Azure AD Administrator, I want to learn how to enable and use password writeback so that when end-users reset their password through a web browser their updated password is synchronized back to my on-premises AD environment.
 ---
@@ -42,12 +43,12 @@ To complete this tutorial, you need the following resources and privileges:
 * A working Azure AD tenant with at least an Azure AD Premium P1 or trial license enabled.
     * If needed, [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
     * For more information, see [Licensing requirements for Azure AD SSPR](concept-sspr-licensing.md).
-* An account with *global administrator* privileges.
+* An account with [Hybrid Identity Administrator](../roles/permissions-reference.md#hybrid-identity-administrator).  
 * Azure AD configured for self-service password reset.
     * If needed, [complete the previous tutorial to enable Azure AD SSPR](tutorial-enable-sspr.md).
 * An existing on-premises AD DS environment configured with a current version of Azure AD Connect.
     * If needed, configure Azure AD Connect using the [Express](../hybrid/how-to-connect-install-express.md) or [Custom](../hybrid/how-to-connect-install-custom.md) settings.
-    * To use password writeback, your Domain Controllers must be Windows Server 2016 or later.
+    * To use password writeback, domain controllers can run any supported version of Windows Server.
 
 ## Configure account permissions for Azure AD Connect
 
@@ -60,7 +61,7 @@ To correctly work with SSPR writeback, the account specified in Azure AD Connect
 * **Write permissions** on `pwdLastSet`
 * **Extended rights** for "Unexpire Password" on the root object of *each domain* in that forest, if not already set.
 
-If you don't assign these permissions, writeback may appear to be configured correctly, but users encounter errors when they manage their on-premises passwords from the cloud. Permissions must be applied to **This object and all descendant objects** for "Unexpire Password" to appear.  
+If you don't assign these permissions, writeback may appear to be configured correctly, but users encounter errors when they manage their on-premises passwords from the cloud. When setting "Unexpire Password" permissions in Active Directory, it must be applied to **This object and all descendant objects**, **This object only**, or **All descendant objects**, or the "Unexpire Password" permission can't be displayed.
 
 > [!TIP]
 >
@@ -91,7 +92,7 @@ Password policies in the on-premises AD DS environment may prevent password rese
 If you update the group policy, wait for the updated policy to replicate, or use the `gpupdate /force` command.
 
 > [!Note]
-> For passwords to be changed immediately, password writeback must be set to 0. However, if users adhere to the on-premises policies, and the *Minimum password age* is set to a value greater than zero, password writeback still works after the on-premises policies are evaluated.
+> If you need to allow users to change or reset passwords more than one time per day, *Minimum password age* must be set to 0. Password writeback will work after on-premises password policies are successfully evaluated.
 
 ## Enable password writeback in Azure AD Connect
 
@@ -118,7 +119,7 @@ With password writeback enabled in Azure AD Connect, now configure Azure AD SSPR
 
 To enable password writeback in SSPR, complete the following steps:
 
-1. Sign in to the [Azure portal](https://portal.azure.com) using a global administrator account.
+1. Sign in to the [Azure portal](https://portal.azure.com) using a Hybrid Identity Administrator account.
 1. Search for and select **Azure Active Directory**, select **Password reset**, then choose **On-premises integration**.
 1. Set the option for **Write back passwords to your on-premises directory?** to *Yes*.
 1. Set the option for **Allow users to unlock accounts without resetting their password?** to *Yes*.
@@ -146,6 +147,9 @@ If you no longer want to use any password functionality, complete the following 
 1. On the **Optional features** page, deselect the box next to **Password writeback** and select **Next**.
 1. On the **Ready to configure** page, select **Configure** and wait for the process to finish.
 1. When you see the configuration finish, select **Exit**.
+
+> [!IMPORTANT]
+> Enabling password writeback for the first time may trigger password change events 656 and 657, even if a password change has not occurred. This is because all password hashes are re-synchronized after a password hash synchronization cycle has run.
 
 ## Next steps
 

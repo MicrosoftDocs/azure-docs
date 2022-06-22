@@ -8,6 +8,7 @@ ms.date: 10/08/2020
 ms.topic: how-to
 ms.service: storage
 ms.subservice: queues
+ms.devlang: csharp
 ms.custom: devx-track-csharp
 ---
 
@@ -492,5 +493,5 @@ Now that you've learned the basics of Queue Storage, follow these links to learn
 - View more feature guides to learn about additional options for storing data in Azure.
   - [Get started with Azure Table Storage using .NET](../../cosmos-db/tutorial-develop-table-dotnet.md) to store structured data.
   - [Get started with Azure Blob Storage using .NET](../blobs/storage-quickstart-blobs-dotnet.md) to store unstructured data.
-  - [Connect to SQL Database by using .NET (C#)](../../azure-sql/database/connect-query-dotnet-core.md) to store relational data.
+  - [Connect to SQL Database by using .NET (C#)](/azure/azure-sql/database/connect-query-dotnet-core) to store relational data.
 - Learn how to simplify the code you write to work with Azure Storage by using the [Azure WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki).

@@ -2,7 +2,7 @@
 title: Outputs in templates
 description: Describes how to define output values in an Azure Resource Manager template (ARM template).
 ms.topic: conceptual
-ms.date: 05/18/2021 
+ms.date: 01/19/2022
 ms.custom: devx-track-azurepowershell
 ---
 
@@ -11,6 +11,9 @@ ms.custom: devx-track-azurepowershell
 This article describes how to define output values in your Azure Resource Manager template (ARM template). You use outputs when you need to return values from the deployed resources.
 
 The format of each output value must resolve to one of the [data types](data-types.md).
+
+> [!TIP]
+> We recommend [Bicep](../bicep/overview.md) because it offers the same capabilities as ARM templates and the syntax is easier to use. To learn more, see [outputs](../bicep/outputs.md).
 
 ## Define output values
 

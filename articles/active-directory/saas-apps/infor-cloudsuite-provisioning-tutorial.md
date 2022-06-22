@@ -27,7 +27,7 @@ The objective of this tutorial is to demonstrate the steps to be performed in In
 The scenario outlined in this tutorial assumes that you already have the following prerequisites:
 
 * An Azure AD tenant
-* [A Infor CloudSuite tenant](https://www.infor.com/products)
+* [An Infor CloudSuite tenant](https://www.infor.com/products)
 * A user account in Infor CloudSuite with Admin permissions.
 
 ## Assigning users to Infor CloudSuite

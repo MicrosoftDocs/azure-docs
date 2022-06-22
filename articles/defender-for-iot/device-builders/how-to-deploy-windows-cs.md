@@ -2,7 +2,7 @@
 title: Install C# agent on Windows device 
 description: Learn about how to install Defender for IoT agent on 32-bit or 64-bit Windows devices.
 ms.topic: conceptual
-ms.date: 05/26/2021
+ms.date: 03/28/2022
 ---
 
 # Deploy a Defender for IoT C#-based security agent for Windows
@@ -126,5 +126,5 @@ To turn on logging:
 * Read the Defender for IoT service [Overview](overview.md)
 * Learn more about Defender for IoT [What is agent-based solution for device builders](architecture-agent-based.md)
 * Enable the [service](quickstart-onboard-iot-hub.md)
-* Read the [Azure Defender for IoT agent frequently asked questions](resources-agent-frequently-asked-questions.md)
+* Read the [Microsoft Defender for IoT agent frequently asked questions](resources-agent-frequently-asked-questions.md)
 * Understand [alerts](concept-security-alerts.md)

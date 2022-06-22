@@ -4,7 +4,7 @@ description: Learn about ultra disks for Azure VMs
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 08/17/2021
+ms.date: 06/06/2022
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions, devx-track-azurecli, devx-track-azurepowershell
@@ -14,7 +14,7 @@ ms.custom: references_regions, devx-track-azurecli, devx-track-azurepowershell
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 
-This article explains how to deploy and use an ultra disk, for conceptual information about ultra disks, refer to [What disk types are available in Azure?](disks-types.md#ultra-disk).
+This article explains how to deploy and use an ultra disk, for conceptual information about ultra disks, refer to [What disk types are available in Azure?](disks-types.md#ultra-disks).
 
 Azure ultra disks offer high throughput, high IOPS, and consistent low latency disk storage for Azure IaaS virtual machines (VMs). This new offering provides top of the line performance at the same availability levels as our existing disks offerings. One major benefit of ultra disks is the ability to dynamically change the performance of the SSD along with your workloads without the need to restart your VMs. Ultra disks are suited for data-intensive workloads such as SAP HANA, top tier databases, and transaction-heavy workloads.
 
@@ -486,4 +486,4 @@ Update-AzDisk -ResourceGroupName $resourceGroup -DiskName $diskName -DiskUpdate 
 ## Next steps
 
 - [Use Azure ultra disks on Azure Kubernetes Service (preview)](../aks/use-ultra-disks.md).
-- [Migrate log disk to an ultra disk](../azure-sql/virtual-machines/windows/storage-migrate-to-ultradisk.md).
+- [Migrate log disk to an ultra disk](/azure/azure-sql/virtual-machines/windows/storage-migrate-to-ultradisk).

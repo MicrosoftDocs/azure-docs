@@ -6,9 +6,8 @@ metadata:
   ms.author: rymend	
   ms.service: azure-education
   ms.subservice: education-hub
-  ms.topic: overview	
+  ms.topic: faq
   ms.date:  08/31/2021	
-    
 title: Frequently asked questions about the Education Hub
 summary: This article addresses frequent questions about Azure for Students, Azure for Students Starter, and Azure Dev Tools for Teaching.
 
@@ -62,7 +61,7 @@ sections:
       - question: |
           How do I download the software developer tools?
         answer: |
-          Your Azure for Students subscription provides you with access to certain software developer tools. You must have a current, active Azure for Students subscription to access and download the software developer tools. Go to the  [Education Hub](https://ms.portal.azure.com/#blade/Microsoft_Azure_Education/EducationMenuBlade/software) to download the software developer tools by using your Azure for Students subscription.
+          Your Azure for Students subscription provides you with access to certain software developer tools. You must have a current, active Azure for Students subscription to access and download the software developer tools. Go to the  [Education Hub](https://portal.azure.com/#blade/Microsoft_Azure_Education/EducationMenuBlade/software) to download the software developer tools by using your Azure for Students subscription.
           
       - question: |
           What is Microsoft Learn?
@@ -120,7 +119,7 @@ sections:
           
           You must have a current, active Azure for Students subscription in order to access the software developer tools.
           
-          You can download this software in the [Education Hub](https://ms.portal.azure.com/#blade/Microsoft_Azure_Education/EducationMenuBlade/software).
+          You can download this software in the [Education Hub](https://portal.azure.com/#blade/Microsoft_Azure_Education/EducationMenuBlade/software).
           
       - question: |
           What is Microsoft Learn?
@@ -139,7 +138,7 @@ sections:
       - question: |
           Can I associate my course credits with an existing subscription?
         answer: |
-          You can associate your course credits with an existing subscription on the account that is entitled to the offer. Contact [Azure Support](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) to associate your course credits.
+          You can associate your course credits with an existing subscription on the account that is entitled to the offer. Contact [Azure Support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) to associate your course credits.
           
       - question: |
           Why do I see a $0 balance in the Azure portal?
@@ -168,7 +167,7 @@ sections:
       - question: |
           Can I move my course credits to another account?
         answer: |
-          Yes, you can move a course credits entitlement to another account. To do so, contact [Azure Support](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
+          Yes, you can move a course credits entitlement to another account. To do so, contact [Azure Support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
           
       - question: |
           Are Azure Marketplace applications covered by course credits?
@@ -236,7 +235,7 @@ sections:
         answer: |
           Your Microsoft Azure Dev Tools for Teaching subscription provides you with access to certain software developer tools. These tools are available to download for free.
           
-          You can download this software in the [Education Hub Software section](https://ms.portal.azure.com/#blade/Microsoft_Azure_Education/EducationMenuBlade/software).
+          You can download this software in the [Education Hub Software section](https://portal.azure.com/#blade/Microsoft_Azure_Education/EducationMenuBlade/software).
           
       - question: |
           How do we distribute software to our students?

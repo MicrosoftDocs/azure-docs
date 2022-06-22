@@ -4,7 +4,7 @@ description: Describes the recommended workflow when migrating Azure resources a
 author: joshuawaddell
 ms.author: jowaddel
 ms.topic: conceptual
-ms.date: 09/09/2021
+ms.date: 03/16/2022
 ---
 # Migrate to Bicep
 
@@ -14,7 +14,7 @@ When you have existing JSON Azure Resource Manager templates (ARM templates) and
 
 :::image type="content" source="./media/migrate/five-phases.png" alt-text="Diagram of the five phases for migrating Azure resources to Bicep: convert, migrate, refactor, test, and deploy." border="false":::
 
-The first step in the process is to capture your Azure resources as a JSON file, if one doesn't already exist. You then decompile the JSON file to an initial Bicep file, which you improve upon by refactoring. When you have a working file, you test and deploy using a process that minimizes the risk of breaking changes to your Azure environment.
+The first step in the process is to capture an initial representation of your Azure resources. If required, you then decompile the JSON file to an initial Bicep file, which you improve upon by refactoring. When you have a working file, you test and deploy using a process that minimizes the risk of breaking changes to your Azure environment.
 
 :::image type="content" source="./media/migrate/migrate-bicep.png" alt-text="Diagram of the recommended workflow for migrating Azure resources to Bicep." border="false":::
 
@@ -26,9 +26,12 @@ In the _convert_ phase of migrating your resources to Bicep, the goal is to capt
 
 The convert phase consists of two steps, which you complete in sequence:
 
-1. **Capture a JSON representation of your Azure resources.** If you have an existing JSON template that you're converting to Bicep, the first step is easy - you already have your source template. If you're converting Azure resources deployed through the portal or another tool, you need to *export* the resource definitions and then convert them to Bicep. You can use the Azure portal, Azure CLI, and Azure PowerShell cmdlets to export single resources, multiple resources, and entire resource groups.
+1. **Capture a representation of your Azure resources.** If you have an existing JSON template that you're converting to Bicep, the first step is easy - you already have your source template. If you're converting Azure resources that were deployed by using the portal or another tool, you need to capture the resource definitions. You can capture a JSON representation of your resources using the Azure portal, Azure CLI, or Azure PowerShell cmdlets to *export* single resources, multiple resources, and entire resource groups. You can use the **Insert Resource** command within Visual Studio Code to import a Bicep representation of your Azure resource.
 
-1. **Convert the JSON representation to Bicep using the _decompile_ command.** [The Bicep tooling includes the `decompile` command to convert templates.](decompile.md) You can invoke the `decompile` command from either the Azure CLI, or from the Bicep CLI. The decompilation process is a best-effort process and doesn't guarantee a full mapping from JSON to Bicep. You may need to revise the generated Bicep file to meet your template best practices before using the file to deploy resources.
+1. **If required, convert the JSON representation to Bicep using the _decompile_ command.** [The Bicep tooling includes the `decompile` command to convert templates.](decompile.md) You can invoke the `decompile` command from either the Azure CLI, or from the Bicep CLI. The decompilation process is a best-effort process and doesn't guarantee a full mapping from JSON to Bicep. You may need to revise the generated Bicep file to meet your template best practices before using the file to deploy resources.
+
+> [!NOTE]
+> You can import a resource by opening the Visual Studio Code command palette. Use <kbd>Ctrl+Shift+P</kbd> on Windows and Linux and <kbd>⌘+Shift+P</kbd> on macOS.
 
 ## Phase 2: Migrate
 
@@ -40,7 +43,7 @@ The migrate phase consists of three steps, which you complete in sequence:
 
 1. **Copy each resource from your decompiled template.** Copy each resource individually from the converted Bicep file to the new Bicep file. This process helps you resolve any issues on a per-resource basis and to avoid any confusion as your template grows in size.
 
-1. **Identify and recreate any missing resources.** Not all Azure resource types can be exported through the Azure portal, Azure CLI, or Azure PowerShell. For example, virtual machine extensions such as the DependencyAgentWindows and MMAExtension (Microsoft Monitoring Agent) aren't supported resource types for export. For any resource that wasn't exported, such as virtual machine extensions, you'll need to recreate those resources in your new Bicep file. There are several tools and approaches you can use to recreate resources, including [Azure Resource Explorer](/azure/azure-resource-manager/templates/view-resources?azure-portal=true#use-resource-explorer), the [Bicep and ARM template reference documentation](/azure/templates/?azure-portal=true), and the [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates?azure-portal=true) site.
+1. **Identify and recreate any missing resources.** Not all Azure resource types can be exported through the Azure portal, Azure CLI, or Azure PowerShell. For example, virtual machine extensions such as the DependencyAgentWindows and MMAExtension (Microsoft Monitoring Agent) aren't supported resource types for export. For any resource that wasn't exported, such as virtual machine extensions, you'll need to recreate those resources in your new Bicep file. There are several tools and approaches you can use to recreate resources, including [Azure Resource Explorer](../templates/export-template-portal.md?azure-portal=true), the [Bicep and ARM template reference documentation](/azure/templates/?azure-portal=true), and the [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates?azure-portal=true) site.
 
 ## Phase 3: Refactor
 
@@ -71,7 +74,7 @@ The deploy phase consists of eight steps, which you complete in any order:
 
 In the _test_ phase of migrating your resources to Bicep, the goal is to verify the integrity of your migrated templates and to perform a test deployment.
 
-The test phase consists of two steps:, which you complete in sequence:
+The test phase consists of two steps, which you complete in sequence:
 
 1. **Run the ARM template deployment what-if operation.** To help you verify your converted templates before deployment, you can use the [Azure Resource Manager template deployment what-if operation](../templates/deploy-what-if.md). It compares the current state of your environment with the desired state that is defined in the template. The tool outputs the list of changes that will occur *without* applying the changes to your environment. You can use what-if with both incremental and complete mode deployments. Even if you plan to deploy your template using incremental mode, it's a good idea to run your what-if operation in complete mode.
 

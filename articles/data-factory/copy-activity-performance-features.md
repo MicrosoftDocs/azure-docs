@@ -8,8 +8,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-
-ms.date: 09/29/2021
+ms.date: 01/27/2022
 
 ---
 
@@ -18,6 +17,12 @@ ms.date: 09/29/2021
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 This article outlines the copy activity performance optimization features that you can leverage in Azure Data Factory and Synapse pipelines.
+
+## Configuring performance features with UI
+
+When you select a Copy activity on the pipeline editor canvas and choose the Settings tab in the activity configuration area below the canvas, you will see options to configure all of the performance features detailed below.
+
+:::image type="content" source="media/copy-activity-performance/copy-activity-performance-configuration-with-ui.png" alt-text="Shows the Copy activity performance features on the Settings tab for the activity in the pipeline editor.":::
 
 ## Data Integration Units
 

@@ -25,6 +25,9 @@
       href: tutorial-net-virtual-machine.md
     - name: Use Azure Key Vault with a virtual machine in Python
       href: tutorial-python-virtual-machine.md
+    - name: Use Azure Key Vault with a virtual machine in JavaScript
+      href: tutorial-javascript-virtual-machine.md 
+      displayName: az keyvault create, az keyvault secret set, az vm create, az vm identity assign, az keyvault set-policy
   - name: Azure App Service
     items:
     - name: Use Azure Key Vault with a Web App in .NET
@@ -132,7 +135,7 @@
       href: azure-policy.md
     - name: Troubleshoot issues with implementing Azure Key Vault with Azure Policy
       href: troubleshoot-azure-policy-for-key-vault.md
-    - name: Back up Individual Key Vault Objects
+    - name: Back up and restore objects
       href: backup.md
   - name: Secure
     items:
@@ -181,7 +184,7 @@
   - name: Node.js
     href: /javascript/api/overview/azure/key-vault-index
   - name: Python
-    href: /python/api/overview/azure/key-vault-index
+    href: /python/api/overview/azure/keyvault-keys-readme
   - name: REST
     href: /rest/api/keyvault
   - name: Resource Manager template
@@ -210,4 +213,4 @@
   - name: Blog
     href: /archive/blogs/kv/
   - name: Product Feedback
-    href: https://feedback.azure.com/forums/906355-azure-key-vault
+    href: https://feedback.azure.com/d365community/forum/285c5ae0-f524-ec11-b6e6-000d3a4f0da0

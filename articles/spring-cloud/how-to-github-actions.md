@@ -1,18 +1,25 @@
 ---
-title:  Azure Spring Cloud CI/CD with GitHub Actions
-description: How to build up CI/CD workflow for Azure Spring Cloud with GitHub Actions
+title: Use Azure Spring Apps CI/CD with GitHub Actions
+description: How to build up a CI/CD workflow for Azure Spring Apps with GitHub Actions
 author: karlerickson
 ms.author: karler
 ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 09/08/2020
-ms.custom: devx-track-java, devx-track-azurecli
+ms.custom: devx-track-java, devx-track-azurecli, event-tier1-build-2022
 zone_pivot_groups: programming-languages-spring-cloud
 ---
 
-# Azure Spring Cloud CI/CD with GitHub Actions
+# Use Azure Spring Apps CI/CD with GitHub Actions
 
-GitHub Actions support an automated software development lifecycle workflow. With GitHub Actions for Azure Spring Cloud you can create workflows in your repository to build, test, package, release, and deploy to Azure.
+> [!NOTE]
+> Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
+
+**This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
+
+This article shows you how to build up a CI/CD workflow for Azure Spring Apps with GitHub Actions.
+
+GitHub Actions support an automated software development lifecycle workflow. With GitHub Actions for Azure Spring Apps you can create workflows in your repository to build, test, package, release, and deploy to Azure.
 
 ## Prerequisites
 
@@ -25,13 +32,19 @@ You need an Azure service principal credential to authorize Azure login action. 
 
 ```azurecli
 az login
-az ad sp create-for-rbac --role contributor --scopes /subscriptions/<SUBSCRIPTION_ID> --sdk-auth
+az ad sp create-for-rbac \
+    --role contributor \
+    --scopes /subscriptions/<SUBSCRIPTION_ID> \
+    --sdk-auth
 ```
 
 To access to a specific resource group, you can reduce the scope:
 
 ```azurecli
-az ad sp create-for-rbac --role contributor --scopes /subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP> --sdk-auth
+az ad sp create-for-rbac \
+    --role contributor \
+    --scopes /subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP> \
+    --sdk-auth
 ```
 
 The command should output a JSON object:
@@ -54,17 +67,25 @@ Set the secret name to `AZURE_CREDENTIALS` and its value to the JSON string that
 
 ![Set secret data](./media/github-actions/actions2.png)
 
-You can also get the Azure login credential from Key Vault in GitHub actions as explained in [Authenticate Azure Spring with Key Vault in GitHub Actions](./github-actions-key-vault.md).
+You can also get the Azure login credential from Key Vault in GitHub Actions as explained in [Authenticate Azure Spring with Key Vault in GitHub Actions](./github-actions-key-vault.md).
 
 ## Provision service instance
 
-To provision your Azure Spring Cloud service instance, run the following commands using the Azure CLI.
+To provision your Azure Spring Apps service instance, run the following commands using the Azure CLI.
 
 ```azurecli
-az extension add --name spring-cloud
-az group create --location eastus --name <resource group name>
-az spring-cloud create -n <service instance name> -g <resource group name>
-az spring-cloud config-server git set -n <service instance name> --uri https://github.com/xxx/Azure-Spring-Cloud-Samples --label main --search-paths steeltoe-sample/config
+az extension add --name spring
+az group create \
+    --name <resource-group-name> \
+    --location eastus 
+az spring create \
+    --resource-group <resource-group-name> \
+    --name <service-instance-name> 
+az spring config-server git set \
+    --name <service-instance-name> \
+    --uri https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples \
+    --label main \
+    --search-paths steeltoe-sample/config
 ```
 
 ## Build the workflow
@@ -73,15 +94,15 @@ The workflow is defined using the following options.
 
 ### Prepare for deployment with Azure CLI
 
-The command `az spring-cloud app create` is currently not idempotent. After you run it once, you'll get an error if you run the same command again. We recommend this workflow on existing Azure Spring Cloud apps and instances.
+The command `az spring app create` is currently not idempotent. After you run it once, you'll get an error if you run the same command again. We recommend this workflow on existing Azure Spring Apps apps and instances.
 
 Use the following Azure CLI commands for preparation:
 
 ```azurecli
-az config set defaults.group=<service group name>
-az config set defaults.spring-cloud=<service instance name>
-az spring-cloud app create --name planet-weather-provider
-az spring-cloud app create --name solar-system-weather
+az config set defaults.group=<service-group-name>
+az config set defaults.spring-cloud=<service-instance-name>
+az spring app create --name planet-weather-provider
+az spring app create --name solar-system-weather
 ```
 
 ### Deploy with Azure CLI directly
@@ -130,18 +151,18 @@ jobs:
 
       - name: install Azure CLI extension
         run: |
-          az extension add --name spring-cloud --yes
+          az extension add --name spring --yes
 
       - name: Build and package planet-weather-provider app
         working-directory: ${{env.working-directory}}/src/planet-weather-provider
         run: |
           dotnet publish
-          az spring-cloud app deploy -n planet-weather-provider --runtime-version NetCore_31 --main-entry Microsoft.Azure.SpringCloud.Sample.PlanetWeatherProvider.dll --artifact-path ./publish-deploy-planet.zip -s ${{ env.service-name }} -g ${{ env.resource-group-name }}
+          az spring app deploy -n planet-weather-provider --runtime-version NetCore_31 --main-entry Microsoft.Azure.SpringCloud.Sample.PlanetWeatherProvider.dll --artifact-path ./publish-deploy-planet.zip -s ${{ env.service-name }} -g ${{ env.resource-group-name }}
       - name: Build solar-system-weather app
         working-directory: ${{env.working-directory}}/src/solar-system-weather
         run: |
           dotnet publish
-          az spring-cloud app deploy -n solar-system-weather --runtime-version NetCore_31 --main-entry Microsoft.Azure.SpringCloud.Sample.SolarSystemWeather.dll --artifact-path ./publish-deploy-solar.zip -s ${{ env.service-name }} -g ${{ env.resource-group-name }}
+          az spring app deploy -n solar-system-weather --runtime-version NetCore_31 --main-entry Microsoft.Azure.SpringCloud.Sample.SolarSystemWeather.dll --artifact-path ./publish-deploy-solar.zip -s ${{ env.service-name }} -g ${{ env.resource-group-name }}
 ```
 
 ::: zone-end
@@ -154,13 +175,19 @@ You need an Azure service principal credential to authorize Azure login action. 
 
 ```azurecli
 az login
-az ad sp create-for-rbac --role contributor --scopes /subscriptions/<SUBSCRIPTION_ID> --sdk-auth
+az ad sp create-for-rbac \
+    --role contributor \
+    --scopes /subscriptions/<SUBSCRIPTION_ID> \
+    --sdk-auth
 ```
 
 To access to a specific resource group, you can reduce the scope:
 
 ```azurecli
-az ad sp create-for-rbac --role contributor --scopes /subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP> --sdk-auth
+az ad sp create-for-rbac \
+    --role contributor \
+    --scopes /subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP> \
+    --sdk-auth
 ```
 
 The command should output a JSON object:
@@ -183,131 +210,174 @@ Set the secret name to `AZURE_CREDENTIALS` and its value to the JSON string that
 
 ![Set secret data](./media/github-actions/actions2.png)
 
-You can also get the Azure login credential from Key Vault in GitHub actions as explained in [Authenticate Azure Spring with Key Vault in GitHub Actions](./github-actions-key-vault.md).
+You can also get the Azure login credential from Key Vault in GitHub Actions as explained in [Authenticate Azure Spring with Key Vault in GitHub Actions](./github-actions-key-vault.md).
 
 ## Provision service instance
 
-To provision your Azure Spring Cloud service instance, run the following commands using the Azure CLI.
+To provision your Azure Spring Apps service instance, run the following commands using the Azure CLI.
 
 ```azurecli
-az extension add --name spring-cloud
+az extension add --name spring
 az group create --location eastus --name <resource group name>
-az spring-cloud create -n <service instance name> -g <resource group name>
-az spring-cloud config-server git set -n <service instance name> --uri https://github.com/xxx/piggymetrics --label config
+az spring create -n <service instance name> -g <resource group name>
+az spring config-server git set -n <service instance name> --uri https://github.com/xxx/piggymetrics --label config
 ```
 
-## Build the workflow
+## End-to-end sample workflows
 
-The workflow is defined using the following options.
+The following examples demonstrate common usage scenarios.
 
-### Prepare for deployment with Azure CLI
-The command `az spring-cloud app create` is currently not idempotent.  We recommend this workflow on existing Azure Spring Cloud apps and instances.
+### Deploying
 
-Use the following Azure CLI commands for preparation:
+The following sections show you various options for deploying your app.
 
-```azurecli
-az config set defaults.group=<service group name>
-az config set defaults.spring-cloud=<service instance name>
-az spring-cloud app create --name gateway
-az spring-cloud app create --name auth-service
-az spring-cloud app create --name account-service
-```
+#### To production
 
-### Deploy with Azure CLI directly
+Azure Spring Apps supports deploying to deployments with built artifacts (e.g., JAR or .NET Core ZIP) or source code archive.
+The following example deploys to the default production deployment in Azure Spring Apps using JAR file built by Maven. This is the only possible deployment scenario when using the Basic SKU:
 
-Create the *.github/workflow/main.yml* file in the repository:
-
-```yaml
+```yml
 name: AzureSpringCloud
 on: push
-
 env:
-  GROUP: <resource group name>
-  SERVICE_NAME: <service instance name>
+  ASC_PACKAGE_PATH: ${{ github.workspace }}
+  AZURE_SUBSCRIPTION: <azure subscription name>
 
 jobs:
-  build-and-deploy:
+  deploy_to_production:
     runs-on: ubuntu-latest
+    name: deploy to production with artifact
     steps:
+      - name: Checkout GitHub Action
+        uses: actions/checkout@v2
+        
+      - name: Set up JDK 1.8
+        uses: actions/setup-java@v1
+        with:
+          java-version: 1.8
 
-    - uses: actions/checkout@main
+      - name: maven build, clean
+        run: |
+          mvn clean package
 
-    - name: Set up JDK 1.8
-      uses: actions/setup-java@v1
-      with:
-        java-version: 1.8
+      - name: Login via Azure CLI
+        uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
 
-    - name: maven build, clean
-      run: |
-        mvn clean package -DskipTests
-
-    - name: Azure Login
-      uses: azure/login@v1
-      with:
-        creds: ${{ secrets.AZURE_CREDENTIALS }}
-
-    - name: Install ASC AZ extension
-      run: az extension add --name spring-cloud
-
-    - name: Deploy with AZ CLI commands
-      run: |
-        az config set defaults.group=$GROUP
-        az config set defaults.spring-cloud=$SERVICE_NAME
-        az spring-cloud app deploy -n gateway --jar-path ${{ github.workspace }}/gateway/target/gateway.jar
-        az spring-cloud app deploy -n account-service --jar-path ${{ github.workspace }}/account-service/target/account-service.jar
-        az spring-cloud app deploy -n auth-service --jar-path ${{ github.workspace }}/auth-service/target/auth-service.jar
+      - name: deploy to production with artifact
+        uses: azure/spring-cloud-deploy@v1
+        with:
+          azure-subscription: ${{ env.AZURE_SUBSCRIPTION }}
+          action: Deploy
+          service-name: <service instance name>
+          app-name: <app name>
+          use-staging-deployment: false
+          package: ${{ env.ASC_PACKAGE_PATH }}/**/*.jar
 ```
 
-### Deploy with Azure CLI action
+The following example deploys to the default production deployment in Azure Spring Apps using source code.
 
-The az `run` command will use the latest version of Azure CLI. If there are breaking changes, you can also use a specific version of Azure CLI with azure/CLI `action`.
-
-> [!Note]
-> This command will run in a new container, so `env` will not work, and cross action file access may have extra restrictions.
-
-Create the *.github/workflow/main.yml* file in the repository:
-
-```yaml
+```yml
 name: AzureSpringCloud
 on: push
+env:
+  ASC_PACKAGE_PATH: ${{ github.workspace }}
+  AZURE_SUBSCRIPTION: <azure subscription name>
 
 jobs:
-  build-and-deploy:
+  deploy_to_production:
     runs-on: ubuntu-latest
+    name: deploy to production with soruce code
     steps:
+      - name: Checkout GitHub Action
+        uses: actions/checkout@v2
 
-    - uses: actions/checkout@main
+      - name: Login via Azure CLI
+        uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
 
-    - name: Set up JDK 1.8
-      uses: actions/setup-java@v1
-      with:
-        java-version: 1.8
+      - name: deploy to production step with soruce code
+        uses: azure/spring-cloud-deploy@v1
+        with:
+          azure-subscription: ${{ env.AZURE_SUBSCRIPTION }}
+          action: deploy
+          service-name: <service instance name>
+          app-name: <app name>
+          use-staging-deployment: false
+          package: ${{ env.ASC_PACKAGE_PATH }}
+```
 
-    - name: maven build, clean
-      run: |
-        mvn clean package -DskipTests
+#### Blue-green
 
-    - name: Azure Login
-      uses: azure/login@v1
-      with:
-        creds: ${{ secrets.AZURE_CREDENTIALS }}
+The following examples deploy to an existing staging deployment. This deployment won't receive production traffic until it is set as a production deployment. You can set use-staging-deployment true to find the staging deployment automatically or just allocate specific deployment-name. We will only focus on the spring-cloud-deploy action and leave out the preparatory jobs in the rest of the article.
 
-    - name: Azure CLI script
-      uses: azure/CLI@v1
-      with:
-        azcliversion: 2.0.75
-        inlineScript: |
-          az extension add --name spring-cloud
-          az config set defaults.group=<service group name>
-          az config set defaults.spring-cloud=<service instance name>
-          az spring-cloud app deploy -n gateway --jar-path $GITHUB_WORKSPACE/gateway/target/gateway.jar
-          az spring-cloud app deploy -n account-service --jar-path $GITHUB_WORKSPACE/account-service/target/account-service.jar
-          az spring-cloud app deploy -n auth-service --jar-path $GITHUB_WORKSPACE/auth-service/target/auth-service.jar
+```yml
+# environment preparation configurations omitted
+    steps:
+      - name: blue green deploy step use-staging-deployment
+        uses: azure/spring-cloud-deploy@v1
+        with:
+          azure-subscription: ${{ env.AZURE_SUBSCRIPTION }}
+          action: deploy
+          service-name: <service instance name>
+          app-name: <app name>
+          use-staging-deployment: true
+          package: ${{ env.ASC_PACKAGE_PATH }}/**/*.jar
+```
+
+```yml
+# environment preparation configurations omitted
+    steps:
+      - name: blue green deploy step with deployment-name
+        uses: azure/spring-cloud-deploy@v1
+        with:
+          azure-subscription: ${{ env.AZURE_SUBSCRIPTION }}
+          action: deploy
+          service-name: <service instance name>
+          app-name: <app name>
+          deployment-name: staging
+          package: ${{ env.ASC_PACKAGE_PATH }}/**/*.jar
+```
+
+For more information on blue-green deployments, including an alternative approach, see [Blue-green deployment strategies](./concepts-blue-green-deployment-strategies.md).
+
+### Setting production deployment
+
+The following example will set the current staging deployment as production, effectively swapping which deployment will receive production traffic.
+
+```yml
+# environment preparation configurations omitted
+    steps:
+      - name: set production deployment step
+        uses: azure/spring-cloud-deploy@v1
+        with:
+          azure-subscription: ${{ env.AZURE_SUBSCRIPTION }}
+          action: set-production
+          service-name: <service instance name>
+          app-name: <app name>
+          use-staging-deployment: true
+```
+### Deleting a staging deployment
+
+The "Delete Staging Deployment" action allows you to delete the deployment not receiving production traffic. This frees up resources used by that deployment and makes room for a new staging deployment:
+
+```yml
+# environment preparation configurations omitted
+    steps:
+      - name: Delete staging deployment step
+        uses: azure/spring-cloud-deploy@v1
+        with:
+          azure-subscription: ${{ env.AZURE_SUBSCRIPTION }}
+          action: delete-staging-deployment
+          service-name: <service instance name>
+          app-name: <app name>
 ```
 
 ## Deploy with Maven Plugin
 
-Another option is to use the [Maven Plugin](./quickstart.md) for deploying the Jar and updating App settings. The command `mvn azure-spring-cloud:deploy` is idempotent and will automatically create Apps if needed. You don't need to create corresponding apps in advance.
+Another option is to use the [Maven Plugin](./quickstart.md) for deploying the Jar and updating App settings. The command `mvn azure-spring-apps:deploy` is idempotent and will automatically create Apps if needed. You don't need to create corresponding apps in advance.
 
 ```yaml
 name: AzureSpringCloud
@@ -336,9 +406,9 @@ jobs:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
 
     # Maven deploy, make sure you have correct configurations in your pom.xml
-    - name: deploy to Azure Spring Cloud using Maven
+    - name: deploy to Azure Spring Apps using Maven
       run: |
-        mvn azure-spring-cloud:deploy
+        mvn azure-spring-apps:deploy
 ```
 
 ::: zone-end
@@ -357,6 +427,6 @@ If your action runs in error, for example, if you haven't set the Azure credenti
 
 ## Next steps
 
-* [Key Vault for Spring Cloud GitHub actions](./github-actions-key-vault.md)
-* [Azure Active Directory service principals](/cli/azure/ad/sp#az_ad_sp_create_for_rbac)
+* [Authenticate Azure Spring Apps with Azure Key Vault in GitHub Actions](./github-actions-key-vault.md)
+* [Azure Active Directory service principals](/cli/azure/ad/sp#az-ad-sp-create-for-rbac)
 * [GitHub Actions for Azure](https://github.com/Azure/actions/)

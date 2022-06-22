@@ -3,12 +3,20 @@ title: Azure PowerShell - Secure WebHook delivery with Azure AD Application in A
 description: Describes how to deliver events to HTTPS endpoints protected by Azure AD Application using Azure Event Grid
 ms.devlang: powershell
 ms.topic: sample
-ms.date: 09/29/2021
+ms.date: 10/14/2021
 ---
 
 # Secure WebHook delivery with Azure AD Application in Azure Event Grid
 
 This script provides the configuration to deliver events to HTTPS endpoints protected by Azure AD Application using Azure Event Grid.
+
+Here are the high level steps from the script:
+
+1. Create a service principal for **Microsoft.EventGrid** if it doesn't already exist.
+1. Create a role named **AzureEventGridSecureWebhookSubscriber** in the **Azure AD app for your Webhook**.
+1. Create a service principal for the **event subscription writer app** if it doesn't already exist.
+1. Add service principal of event subscription writer Azure AD app to the AzureEventGridSecureWebhookSubscriber role 
+1. Add service principal of Microsoft.EventGrid to the AzureEventGridSecureWebhookSubscriber role as well
 
 ## Sample script - stable
 

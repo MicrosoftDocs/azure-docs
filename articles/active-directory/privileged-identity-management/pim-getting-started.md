@@ -4,7 +4,7 @@ description: Learn how to enable and get started using Azure AD Privileged Ident
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: KarenH444
+manager: karenhoran
 editor: ''
 
 ms.service: active-directory

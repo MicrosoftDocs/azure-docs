@@ -3,6 +3,7 @@ title: Use Azure Event Grid with events in CloudEvents schema
 description: Describes how to use the CloudEvents schema for events in Azure Event Grid. The service supports events in the JSON implementation of CloudEvents. 
 ms.topic: conceptual
 ms.date: 07/22/2021
+ms.devlang: csharp, javascript
 ms.custom: devx-track-js, devx-track-csharp, devx-track-azurecli, devx-track-azurepowershell
 ---
 
@@ -11,7 +12,7 @@ In addition to its [default event schema](event-schema.md), Azure Event Grid nat
 
 CloudEvents simplifies interoperability by providing a common event schema for publishing and consuming cloud-based events. This schema allows for uniform tooling, standard ways of routing and handling events, and universal ways of deserializing the outer event schema. With a common schema, you can more easily integrate work across platforms.
 
-CloudEvents is being built by several [collaborators](https://github.com/cloudevents/spec/blob/master/community/contributors.md), including Microsoft, through the [Cloud Native Computing Foundation](https://www.cncf.io/). It's currently available as version 1.0.
+CloudEvents is being built by several [collaborators](https://github.com/cloudevents/spec/blob/main/docs/contributors.md), including Microsoft, through the [Cloud Native Computing Foundation](https://www.cncf.io/). It's currently available as version 1.0.
 
 This article describes how to use the CloudEvents schema with Event Grid.
 
@@ -199,5 +200,5 @@ module.exports = function (context, req) {
 ## Next steps
 
 * For information about monitoring event deliveries, see [Monitor Event Grid message delivery](monitor-event-delivery.md).
-* We encourage you to test, comment on, and [contribute to CloudEvents](https://github.com/cloudevents/spec/blob/master/community/CONTRIBUTING.md).
+* We encourage you to test, comment on, and [contribute to CloudEvents](https://github.com/cloudevents/spec/blob/main/docs/CONTRIBUTING.md).
 * For more information about creating an Azure Event Grid subscription, see [Event Grid subscription schema](subscription-creation-schema.md).

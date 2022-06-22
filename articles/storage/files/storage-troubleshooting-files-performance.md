@@ -1,11 +1,11 @@
 ---
 title: Azure file shares performance troubleshooting guide
 description: Troubleshoot known performance issues with Azure file shares. Discover potential causes and associated workarounds when these problems are encountered.
-author: jeffpatt24
+author: khdownie
 ms.service: storage
 ms.topic: troubleshooting
 ms.date: 07/06/2021
-ms.author: jeffpatt
+ms.author: kendownie
 ms.subservice: files
 #Customer intent: As a < type of user >, I want < what? > so that < why? >.
 ---
@@ -18,7 +18,7 @@ This article lists some common problems related to Azure file shares. It provide
 |-|:-:|:-:|
 | Standard file shares (GPv2), LRS/ZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
 | Standard file shares (GPv2), GRS/GZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
-| Premium file shares (FileStorage), LRS/ZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Premium file shares (FileStorage), LRS/ZRS | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
 
 ## High latency, low throughput, and general performance issues
 
@@ -76,8 +76,8 @@ To determine whether most of your requests are metadata-centric, start by follow
 #### Workaround
 
 - Check to see whether the application can be modified to reduce the number of metadata operations.
-- Add a virtual hard disk (VHD) on the file share and mount the VHD over SMB from the client to perform file operations against the data. This approach works for single writer/reader scenarios or scenarios with multiple readers and no writers. Because the file system is owned by the client rather than Azure Files, this allows metadata operations to be local. The setup offers performance similar to that of a local directly attached storage.
-    -   To mount a VHD on a Windows client, use the [Mount-DiskImage](/powershell/module/storage/mount-diskimage) Powershell cmdlet.
+- Add a virtual hard disk (VHD) on the file share and mount the VHD from the client to perform file operations against the data. This approach works for single writer/reader scenarios or scenarios with multiple readers and no writers. Because the file system is owned by the client rather than Azure Files, this allows metadata operations to be local. The setup offers performance similar to that of a local directly attached storage.
+    -   To mount a VHD on a Windows client, use the [Mount-DiskImage](/powershell/module/storage/mount-diskimage) PowerShell cmdlet.
     -   To mount a VHD on Linux, consult the documentation for your Linux distribution.     
 
 ### Cause 3: Single-threaded application
@@ -119,6 +119,7 @@ One potential cause is a lack of SMB multi-channel support for standard file sha
 - Obtaining a VM with a bigger core might help improve throughput.
 - Running the client application from multiple VMs will increase throughput.
 - Use REST APIs where possible.
+- For NFS file shares, nconnect is available, in preview. Not recommended for production workloads.
 
 ## Throughput on Linux clients is significantly lower than that of Windows clients
 
@@ -214,7 +215,7 @@ Recent changes to SMB Multichannel config settings without a remount.
 
 ### Cause  
 
-High number file change notification on file shares can result in significant high latencies. This typically occurs with web sites hosted on file shares with deep nested directory structure. A typical scenario is IIS hosted web application where file change notification is setup for each directory in the default configuration. Each change ([ReadDirectoryChangesW](/windows/win32/api/winbase/nf-winbase-readdirectorychangesw)) on the share that SMB client is registered for  pushes a change notification from the file service to the client, which takes system resources, and issue worsens with the number of changes. This can cause share throttling and thus, result in higher client side latency. 
+High number file change notification on file shares can result in significant high latencies. This typically occurs with web sites hosted on file shares with deep nested directory structure. A typical scenario is IIS hosted web application where file change notification is setup for each directory in the default configuration. Each change ([ReadDirectoryChangesW](/windows/win32/api/winbase/nf-winbase-readdirectorychangesw)) on the share that the client is registered for pushes a change notification from the file service to the client, which takes system resources, and issue worsens with the number of changes. This can cause share throttling and thus, result in higher client side latency. 
 
 To confirm, you can use Azure Metrics in the portal - 
 
@@ -222,7 +223,7 @@ To confirm, you can use Azure Metrics in the portal -
 1. In the left menu, under Monitoring, select Metrics. 
 1. Select File as the metric namespace for your storage account scope. 
 1. Select Transactions as the metric. 
-1. Add a filter for ResponseType and check to see if any requests have a response code of SuccessWithThrottling (for SMB) or ClientThrottlingError (for REST).
+1. Add a filter for ResponseType and check to see if any requests have a response code of SuccessWithThrottling (for SMB or NFS) or ClientThrottlingError (for REST).
 
 ### Solution 
 
@@ -278,6 +279,9 @@ To confirm, you can use Azure Metrics in the portal -
 13. Click **Create alert rule** to create the alert.
 
 To learn more about configuring alerts in Azure Monitor, see [Overview of alerts in Microsoft Azure](../../azure-monitor/alerts/alerts-overview.md).
+
+## Slow performance when unzipping files in SMB file shares
+Depending on the exact compression method and unzip operation used, decompression operations may perform more slowly on an Azure file share than on your local disk. This is often because unzipping tools perform a number of metadata operations in the process of performing the decompression of a compressed archive. For the best performance, we recommend copying the compressed archive from the Azure file share to your local disk, unzipping there, and then using a copy tool such as Robocopy (or AzCopy) to copy back to the Azure file share. Using a copy tool like Robocopy can compensate for the decreased performance of metadata operations in Azure Files relative to your local disk by using multiple threads to copy data in parallel. 
 
 ## How to create alerts if a premium file share is trending toward being throttled
 

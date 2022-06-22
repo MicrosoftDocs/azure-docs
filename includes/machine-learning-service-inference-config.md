@@ -23,7 +23,7 @@ You can include full specifications of an Azure Machine Learning [environment](/
         "docker": {
             "arguments": [],
             "baseDockerfile": null,
-            "baseImage": "mcr.microsoft.com/azureml/base:intelmpi2018.3-ubuntu16.04",
+            "baseImage": "mcr.microsoft.com/azureml/intelmpi2018.3-ubuntu18.04",
             "enabled": false,
             "sharedVolumes": true,
             "shmSize": null

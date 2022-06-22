@@ -22,7 +22,7 @@ This sample was built for developers and makes it very easy for you to get start
 ## Get started with the web calling sample
 
 > [!IMPORTANT]
-> [This sample is available **on Github**.](https://github.com/Azure-Samples/communication-services-web-calling-tutorial/).
+> [This sample is available **on GitHub**.](https://github.com/Azure-Samples/communication-services-web-calling-tutorial/).
 
 Follow the /Project/readme.md to set up the project and run it locally on your machine.
 Once the [web calling sample](https://github.com/Azure-Samples/communication-services-web-calling-tutorial) is running on your machine, you'll see the following landing page:
@@ -80,7 +80,7 @@ This sample also provides code snippets for the following capabilities:
 
 For more information, see the following articles:
 
-- Familiarize yourself with [using the Calling SDK](../quickstarts/voice-video-calling/calling-client-samples.md)
+- Familiarize yourself with [using the Calling SDK](../quickstarts/voice-video-calling/getting-started-with-calling.md)
 - Learn more about [how calling works](../concepts/voice-video-calling/about-call-types.md)
 - Review the [API Reference docs](/javascript/api/azure-communication-services/@azure/communication-calling/)
 - Review the [Contoso Med App](https://github.com/Azure-Samples/communication-services-contoso-med-app) sample

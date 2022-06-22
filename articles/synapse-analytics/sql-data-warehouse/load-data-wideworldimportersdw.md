@@ -1,15 +1,14 @@
 ---
 title: 'Tutorial: Load data using Azure portal & SSMS'
 description: Tutorial uses Azure portal and SQL Server Management Studio to load the WideWorldImportersDW data warehouse from a global Azure blob to an Azure Synapse Analytics SQL pool.
-services: synapse-analytics
-author: julieMSFT 
+author: joannapea 
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw 
 ms.date: 01/12/2021
-ms.author: jrasnick
-ms.reviewer: igorstan
+ms.author: joanpo
+ms.reviewer: wiassaf
 ms.custom: seo-lt-2019, synapse-analytics
 ---
 

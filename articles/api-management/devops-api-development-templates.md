@@ -16,6 +16,10 @@ This article shows you how to use API DevOps with Azure API Management, through 
 
 For details, tools, and code samples to implement the DevOps approach described in this article, see the open-source [Azure API Management DevOps Resource Kit](https://github.com/Azure/azure-api-management-devops-resource-kit) in GitHub. Because customers bring a wide range of engineering cultures and existing automation solutions, the approach isn't a one-size-fits-all solution.
 
+For architectural guidance, see:
+
+* **API Management landing zone accelerator**: [Reference architecture](/azure/architecture/example-scenario/integration/app-gateway-internal-api-management-function?toc=%2Fazure%2Fapi-management%2Ftoc.json&bc=/azure/api-management/breadcrumb/toc.json) and [design guidance](/azure/cloud-adoption-framework/scenarios/app-platform/api-management/landing-zone-accelerator?toc=%2Fazure%2Fapi-management%2Ftoc.json&bc=/azure/api-management/breadcrumb/toc.json)
+
 ## The problem
 
 Organizations today normally have multiple deployment environments (such as development, testing, and production) and use separate API Management instances for each environment. Some instances are shared by multiple development teams, who are responsible for different APIs with different release cadences.
@@ -53,9 +57,9 @@ API developers face challenges when working with Resource Manager templates:
 
 * API developers often work with the [OpenAPI Specification](https://github.com/OAI/OpenAPI-Specification) and might not be familiar with Resource Manager schemas. Authoring templates manually might be error-prone. 
 
-   A tool called [Creator](https://github.com/Azure/azure-api-management-devops-resource-kit/blob/master/src/APIM_ARMTemplate/README.md#Creator) in the resource kit can help automate the creation of API templates based on an Open API Specification file. Additionally, developers can supply API Management policies for an API in XML format. 
+   A tool called [Creator](https://github.com/Azure/azure-api-management-devops-resource-kit/blob/main/src/README.md#creator) in the resource kit can help automate the creation of API templates based on an Open API Specification file. Additionally, developers can supply API Management policies for an API in XML format. 
 
-* For customers who are already using API Management, another challenge is to extract existing configurations into Resource Manager templates. For those customers, a tool called [Extractor](https://github.com/Azure/azure-api-management-devops-resource-kit/blob/master/src/APIM_ARMTemplate/README.md#extractor) in the resource kit can help generate templates by extracting configurations from their API Management instances.  
+* For customers who are already using API Management, another challenge is to extract existing configurations into Resource Manager templates. For those customers, a tool called [Extractor](https://github.com/Azure/azure-api-management-devops-resource-kit/blob/main/src/README.md#Extractor) in the resource kit can help generate templates by extracting configurations from their API Management instances.  
 
 ## Workflow
 

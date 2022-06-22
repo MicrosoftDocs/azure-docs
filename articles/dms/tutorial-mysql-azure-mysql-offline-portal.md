@@ -19,7 +19,7 @@ ms.date: 04/11/2021
 You can use Azure Database Migration Service to perform a one-time full database migration on-premises MySQL instance to [Azure Database for MySQL](../mysql/index.yml) with high speed data migration capability. In this tutorial, we will migrate a sample database from an on-premises instance of MySQL 5.7 to Azure Database for MySQL (v5.7) by using an offline migration activity in Azure Database Migration Service. Although the articles assumes the source to be a MySQL database instance and target to be Azure Database for MySQL, it can be used to migrate from one Azure Database for MySQL to another just by changing the source server name and credentials. Also, migration from lower version MySQL servers (v5.6 and above) to higher versions is also supported.
 
 > [!IMPORTANT]
-> For online migrations, you can use open-source tools such as [MyDumper/MyLoader](https://centminmod.com/mydumper.html) with [data-in replication](../mysql/concepts-data-in-replication.md). 
+> For online migrations, you can use open-source tools such as [MyDumper/MyLoader](https://github.com/maxbube/mydumper) with [data-in replication](../mysql/concepts-data-in-replication.md). 
 
 > [!NOTE]
 > For a PowerShell-based scriptable version of this migration experience, see [scriptable offline migration to Azure Database for MySQL](./migrate-mysql-to-azure-mysql-powershell.md).
@@ -59,7 +59,7 @@ To complete this tutorial, you need to:
 * Ensure that your virtual network Network Security Group rules don't block the outbound port 443 of ServiceTag for ServiceBus, Storage and AzureMonitor. For more detail on virtual network NSG traffic filtering, see the article [Filter network traffic with network security groups](../virtual-network/virtual-network-vnet-plan-design-arm.md).
 * Open your Windows firewall to allow connections from Virtual Network for Azure Database Migration Service to access the source MySQL Server, which by default is TCP port 3306.
 * When using a firewall appliance in front of your source database(s), you may need to add firewall rules to allow connections from Virtual Network for Azure Database Migration Service to access the source database(s) for migration.
-* Create a server-level [firewall rule](../azure-sql/database/firewall-configure.md) or [configure VNET service endpoints](../mysql/howto-manage-vnet-using-portal.md) for target Azure Database for MySQL to allow Virtual Network for Azure Database Migration Service access to the target databases.
+* Create a server-level [firewall rule](/azure/azure-sql/database/firewall-configure) or [configure VNET service endpoints](../mysql/howto-manage-vnet-using-portal.md) for target Azure Database for MySQL to allow Virtual Network for Azure Database Migration Service access to the target databases.
 * The source MySQL must be on supported MySQL community edition. To determine the version of MySQL instance, in the MySQL utility or MySQL Workbench, run the following command:
 
     ```

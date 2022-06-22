@@ -1,21 +1,19 @@
 ---
 title: Problems signing in to a Microsoft application
-titleSuffix: Azure AD
 description: Troubleshoot common problems faced when signing in to first-party Microsoft Applications using Azure AD (like Microsoft 365).
 services: active-directory
-author: davidmu1
+author: AlAmaral
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 09/10/2018
-ms.author: davidmu
-ms.reviewer: alamaral
+ms.author: alamaral
 ms.collection: M365-identity-device-management
 ---
 
-# Problems signing in to a Microsoft application in Azure Active Directory
+# Problems signing in to a Microsoft application
 
 Microsoft Applications (like Exchange, SharePoint, Yammer, etc.) are assigned and managed a bit differently than 3rd party SaaS applications or other applications you integrate with Azure AD for single sign on.
 

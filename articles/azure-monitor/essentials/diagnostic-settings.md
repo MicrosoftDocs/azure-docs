@@ -1,67 +1,104 @@
 ---
-title: Create diagnostic settings to send platform logs and metrics to different destinations
+title: Diagnostic settings in Azure Monitor
 description: Send Azure Monitor platform metrics and logs to Azure Monitor Logs, Azure storage, or Azure Event Hubs using a diagnostic setting.
-author: bwren
-ms.author: bwren
+author: rboucher
+ms.author: robb
 services: azure-monitor
 ms.topic: conceptual
-ms.date: 06/09/2021
+ms.date: 03/07/2022
 ---
 
-# Create diagnostic settings to send platform logs and metrics to different destinations
-[Platform logs](./platform-logs-overview.md) in Azure, including the Azure Activity log and resource logs, provide detailed diagnostic and auditing information for Azure resources and the Azure platform they depend on. [Platform metrics](./data-platform-metrics.md) are collected by default and typically stored in the Azure Monitor metrics database. This article provides details on creating and configuring diagnostic settings to send platform metrics and platform logs to different destinations.
+# Diagnostic settings in Azure Monitor
+This article provides details on creating and configuring diagnostic settings to send Azure platform metrics and logs to different destinations.
 
-> [!IMPORTANT]
-> Before you create a diagnostic setting for the Activity log, you should first disable any legacy configuration. See [Legacy collection methods](../essentials/activity-log.md#legacy-collection-methods) for details.
+[Platform metrics](./metrics-supported.md) are sent automatically to [Azure Monitor Metrics](./data-platform-metrics.md) by default and without configuration.
+
+[Platform logs](./platform-logs-overview.md) provide detailed diagnostic and auditing information for Azure resources and the Azure platform they depend on. 
+   - **Resource logs** are not collected until they are routed to a destination. 
+   - The **Activity Log** exists on its own but can be routed to other locations. 
 
 Each Azure resource requires its own diagnostic setting, which defines the following criteria:
 
-- Categories of logs and metric data sent to the destinations defined in the setting. The available categories will vary for different resource types.
-- One or more destinations to send the logs. Current destinations include Log Analytics workspace, Event Hubs, and Azure Storage.
+- **Sources** - The type of metric and log data to send to the destinations defined in the setting. The available types vary by resource type.
+- **Destinations** - One or more destinations to send to.
 
 A single diagnostic setting can define no more than one of each of the destinations. If you want to send data to more than one of a particular destination type (for example, two different Log Analytics workspaces), then create multiple settings. Each resource can have up to 5 diagnostic settings.
 
-The following video walks you through routing platform logs with diagnostic settings.
+The following video walks you through routing resource platform logs with diagnostic settings. The video was done at an earlier time and doesn't include the following:
+ - There are now 4 destinations. You can send platform metrics and logs to certain Azure Monitor partners. 
+ - A new feature called category groups was introduced in Nov 2021. 
+
+Information on these newer features is included in this article. 
+
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4AvVO]
 
-> [!NOTE]
-> [Platform metrics](./metrics-supported.md) are sent automatically to [Azure Monitor Metrics](./data-platform-metrics.md). Diagnostic settings can be used to send metrics for certain Azure services into Azure Monitor Logs for analysis with other monitoring data using [log queries](../logs/log-query-overview.md) with certain limitations. 
->  
->  
-> Sending multi-dimensional metrics via diagnostic settings is not currently supported. Metrics with dimensions are exported as flattened single dimensional metrics, aggregated across dimension values. *For example*: The 'IOReadBytes' metric on a Blockchain can be explored and charted on a per node level. However, when exported via diagnostic settings, the metric exported represents as all read bytes for all nodes. In addition, due to internal limitations not all metrics are exportable to Azure Monitor Logs / Log Analytics. For more information, see the [list of exportable metrics](./metrics-supported-export-diagnostic-settings.md). 
->  
->  
-> To get around these limitations for specific metrics, we suggest you manually extract them using the [Metrics REST API](/rest/api/monitor/metrics/list) and import them into Azure Monitor Logs using the [Azure Monitor Data collector API](../logs/data-collector-api.md).  
+## Sources
 
+Here are the source options.
+
+### Metrics
+
+The **AllMetrics** setting routes a resource's platform metrics to additional destinations. This option may not be present for all resource providers.  
+
+### Resource Logs
+
+With logs, you can select the log categories you want to route individually or choose a category group.
+
+> [!NOTE]
+> Category groups do not apply to metrics. Not all resources have category groups available.
+
+**Category groups** allow you to dynamically collect resource logs based on predefined groupings instead of selecting individual log categories. Microsoft defines the groupings to help monitor specific use cases across all Azure services. Over time, the categories in the group may be updated as new logs are rolled out or as assessments change. When logs categories are added or removed from a category group, your log collection is modified automatically without you having to update your diagnostic settings.
+
+When you use category groups, you: 
+- No longer can individually select resource logs based on individual category types
+- No longer can apply retention settings to logs sent to Azure Storage
+
+Currently, there are two category groups:
+- **All** - Every resource log offered by the resource.
+- **Audit** - All resource logs that record customer interactions with data or the settings of the service.
+
+### Activity Log
+See [Activity Log settings](#activity-log-settings) section below. 
 
 ## Destinations
 Platform logs and metrics can be sent to the destinations in the following table. 
 
 | Destination | Description |
 |:---|:---|
-| [Log Analytics workspace](../logs/design-logs-deployment.md) | Sending logs and metrics to a Log Analytics workspace allows you to analyze them with other monitoring data collected by Azure Monitor using powerful log queries and also to leverage other Azure Monitor features such as alerts and visualizations. |
-| [Event hubs](../../event-hubs/index.yml) | Sending logs and metrics to Event Hubs allows you to stream data to external systems such as third-party SIEMs and other log analytics solutions.  |
-| [Azure storage account](../../storage/blobs/index.yml) | Archiving logs and metrics to an Azure storage account is useful for audit, static analysis, or backup. Compared to Azure Monitor Logs and a Log Analytics workspace, Azure storage is less expensive and logs can be kept there indefinitely.  |
+| [Log Analytics workspace](../logs/workspace-design.md) | Metrics are converted to log form. This option may not be available for all resource types. Sending them to the Azure Monitor Logs store (which is searchable via Log Analytics) helps you to integrate them into queries, alerts, and visualizations with existing log data.  
+| [Azure storage account](../../storage/blobs/index.yml) | Archiving logs and metrics to an Azure storage account is useful for audit, static analysis, or backup. Compared to Azure Monitor Logs and a Log Analytics workspace, Azure storage is less expensive and logs can be kept there indefinitely.  | 
+| [Event Hubs](../../event-hubs/index.yml) | Sending logs and metrics to Event Hubs allows you to stream data to external systems such as third-party SIEMs  and other Log Analytics solutions.  |
+| [Azure Monitor partner integrations](../../partner-solutions/overview.md)| Specialized integrations between Azure Monitor and other non-Microsoft monitoring platforms. Useful when you are already using one of the partners.  |
 
+## Activity Log settings
 
-### Destination requirements
+The Activity Log uses a diagnostic setting, but has it's own user interface because it applies to the whole subscription rather than individual resources. The destination information listed below still applies.  For more information, see the [Azure Activity Log](activity-log.md). 
 
-Any destinations for the diagnostic setting must be created before creating the diagnostic settings. The destination does not have to be in the same subscription as the resource sending logs as long as the user who configures the setting has appropriate Azure RBAC access to both subscriptions. Using Azure Lighthouse, it is also possible to have diagnostic settings sent to a workspace in another Azure Active Directory tenant. The following table provides unique requirements for each destination including any regional restrictions.
+## Requirements and limitations
+
+### Metrics as a source
+There are certain limitations with exporting metrics.
+
+- **Sending multi-dimensional metrics via diagnostic settings is not currently supported** - Metrics with dimensions are exported as flattened single dimensional metrics, aggregated across dimension values. *For example*: The 'IOReadBytes' metric on a Blockchain can be explored and charted on a per node level. However, when exported via diagnostic settings, the metric exported shows all read bytes for all nodes.
+- **Not all metrics are exportable with diagnostic settings** -  Due to internal limitations not all metrics are exportable to Azure Monitor Logs / Log Analytics. For more information, see the exportable column in the [list of supported metrics](./metrics-supported.md)
+
+To get around these limitations for specific metrics, you can manually extract them using the [Metrics REST API](/rest/api/monitor/metrics/list) and import them into Azure Monitor Logs using the [Azure Monitor Data collector API](../logs/data-collector-api.md).
+
+### Destination limitations
+
+Any destinations for the diagnostic setting must be created before creating the diagnostic settings. The destination does not have to be in the same subscription as the resource sending logs as long as the user who configures the setting has appropriate Azure RBAC access to both subscriptions. Using Azure Lighthouse, it is also possible to have diagnostic settings sent to a workspace, storage account or Event Hub in another Azure Active Directory tenant. The following table provides unique requirements for each destination including any regional restrictions.
 
 | Destination | Requirements |
 |:---|:---|
 | Log Analytics workspace | The workspace does not need to be in the same region as the resource being monitored.|
-| Event hubs | The shared access policy for the namespace defines the permissions that the streaming mechanism has. Streaming to Event Hubs requires Manage, Send, and Listen permissions. To update the diagnostic setting to include streaming, you must have the ListKey permission on that Event Hubs authorization rule.<br><br>The event hub namespace needs to be in the same region as the resource being monitored if the resource is regional. |
-| Azure storage account | You should not use an existing storage account that has other, non-monitoring data stored in it so that you can better control access to the data. If you are archiving the Activity log and resource logs together though, you may choose to use the same storage account to keep all monitoring data in a central location.<br><br>To send the data to immutable storage, set the immutable policy for the storage account as described in [Set and manage immutability policies for Blob storage](../../storage/blobs/immutable-policy-configure-version-scope.md). You must follow all steps in this article including enabling protected append blobs writes.<br><br>The storage account needs to be in the same region as the resource being monitored if the resource is regional. |
+| Azure storage account | Do not use an existing storage account that has other, non-monitoring data stored in it so that you can better control access to the data. If you are archiving the Activity log and resource logs together though, you may choose to use the same storage account to keep all monitoring data in a central location.<br><br>To send the data to immutable storage, set the immutable policy for the storage account as described in [Set and manage immutability policies for Blob storage](../../storage/blobs/immutable-policy-configure-version-scope.md). You must follow all steps in this linked article including enabling protected append blobs writes.<br><br>The storage account needs to be in the same region as the resource being monitored if the resource is regional.|
+| Event Hubs | The shared access policy for the namespace defines the permissions that the streaming mechanism has. Streaming to Event Hubs requires Manage, Send, and Listen permissions. To update the diagnostic setting to include streaming, you must have the ListKey permission on that Event Hubs authorization rule.<br><br>The event hub namespace needs to be in the same region as the resource being monitored if the resource is regional. <br><br> Diagnostic settings can't access Event Hubs resources when virtual networks are enabled. You have to enable the *Allow trusted Microsoft services* to bypass this firewall setting in Event Hub, so that Azure Monitor (Diagnostic Settings) service is granted access to your Event Hubs resources.|
+| Partner integrations | Varies by partner.  Check the [Azure Monitor partner integrations documentation](../../partner-solutions/overview.md) for details.  
 
-> [!NOTE]
-> Azure Data Lake Storage Gen2 accounts are not currently supported as a destination for diagnostic settings even though they may be listed as a valid option in the Azure portal.
+## Create diagnostic settings
+You can create and edit diagnostic settings using multiple methods.
 
-> [!NOTE]
-> Azure Monitor (Diagnostic Settings) can't access Event Hubs resources when virtual networks are enabled. You have to enable the Allow trusted Microsoft services to bypass this firewall setting in Event Hub, so that Azure Monitor (Diagnostic Settings) service is granted access to your Event Hubs resources. 
-
-
-## Create in Azure portal
+# [Azure portal](#tab/portal)
 
 You can configure diagnostic settings in the Azure portal either from the Azure Monitor menu or from the menu for the resource.
 
@@ -85,21 +122,13 @@ You can configure diagnostic settings in the Azure portal either from the Azure 
 
    If there are existing settings on the resource, you see a list of settings already configured. Either click **Add diagnostic setting** to add a new setting or **Edit setting** to edit an existing one. Each setting can have no more than one of each of the destination types.
 
-   ![Add diagnostic setting - existing settings](media/diagnostic-settings/edit-setting.png)
+   :::image type="Add diagnostic setting - existing settings" source="media/diagnostic-settings/edit-setting.png" alt-text="Add a diagnostic setting for existing settings":::
 
 3. Give your setting a name if it doesn't already have one.
 
-    ![Add diagnostic setting](media/diagnostic-settings/setting-new-blank.png)
+      :::image type="Add diagnostic setting" source="media/diagnostic-settings/setting-new-blank.png" alt-text="Name your diagnostic setting":::
 
-4. **Category details (what to route)** - Check the box for each category of data you want to send to destinations specified later. The list of categories varies for each Azure service.
-
-     - **AllMetrics** routes a resource's platform metrics into the Azure Logs store, but in log form. These metrics are usually sent only to the Azure Monitor metrics time-series database. Sending them to the Azure Monitor Logs store (which is searchable via Log Analytics) helps you to integrate them into queries which search across other logs. This option may not be available for all resource types. When it is supported, [Azure Monitor supported metrics](./metrics-supported.md) lists what metrics are collected for what resource types.
-
-       > [!NOTE]
-       > See limitation for routing metrics to Azure Monitor Logs earlier in this article.  
-
-
-     - **Logs** lists the different categories available depending on the resource type. Check any categories that you would like to route to a destination.
+4. **Logs and metrics to route** - For logs, either choose a category group or check the individual boxes for each category of data you want to send to the destinations specified later. The list of categories varies for each Azure service. Choose *allMetrics* if you want to store metrics into Azure Monitor Logs as well. 
 
 5. **Destination details** - Check the box for each destination. When you check each box, options appear to allow you to add additional information.
 
@@ -107,10 +136,10 @@ You can configure diagnostic settings in the Azure portal either from the Azure 
 
     1. **Log Analytics** - Enter the subscription and workspace.  If you don't have a workspace, you need to [create one before proceeding](../logs/quick-create-workspace.md).
 
-    1. **Event hubs** - Specify the following criteria:
-       - The subscription which the event hub is part of
-       - The Event hub namespace - If you do not yet have one, you'll need [to create one](../../event-hubs/event-hubs-create.md)
-       - An Event hub name (optional) to send all data to. If you don't specify a name, an event hub is created for each log category. If you are sending multiple categories, you may want to specify a name to limit the number of event hubs created. See [Azure Event Hubs quotas and limits](../../event-hubs/event-hubs-quotas.md) for details.
+    1. **Event Hubs** - Specify the following criteria:
+       - The subscription that the event hub is part of
+       - The Event Hub namespace - If you do not yet have one, you'll need [to create one](../../event-hubs/event-hubs-create.md)
+       - An Event Hub name (optional) to send all data to. If you don't specify a name, an event hub is created for each log category. If you are sending multiple categories, you may want to specify a name to limit the number of event hubs created. See [Azure Event Hubs quotas and limits](../../event-hubs/event-hubs-quotas.md) for details.
        - An Event Hub policy (optional) A policy defines the permissions that the streaming mechanism has. For more information, see [Event-hubs-features](../../event-hubs/event-hubs-features.md#publisher-policy).
 
     1. **Storage** - Choose the subscription, storage account, and retention policy.
@@ -118,17 +147,17 @@ You can configure diagnostic settings in the Azure portal either from the Azure 
         ![Send to Storage](media/diagnostic-settings/storage-settings-new.png)
 
         > [!TIP]
-        > Consider setting the retention policy to 0 and manually deleting your data from storage using a scheduled job to avoid possible confusion in the future.
+        > Consider setting the retention policy to 0 and either use [Azure Storage Lifecycle Policy](../../storage/blobs/lifecycle-management-policy-configure.md) or delete your data from storage using a scheduled job. These strategies are likely to provide more consistent behavior. 
         >
-        > First, if you are using storage for archiving, you generally want your data around for more than 365 days. Second, if you choose a retention policy that is greater than 0, the expiration date is attached to the logs at the time of storage. You can't change the date for those logs once stored.
-        >
-        > For example, if you set the retention policy for *WorkflowRuntime* to 180 days and then 24 hours later set it to 365 days, the logs stored during those first 24 hours will be automatically deleted after 180 days, while all subsequent logs of that type will be automatically deleted after 365 days. Changing the retention policy later doesn't make the first 24 hours of logs stay around for 365 days.
+        > First, if you are using storage for archiving, you generally want your data around for more than 365 days. Second, if you choose a retention policy that is greater than 0, the expiration date is attached to the logs at the time of storage. You can't change the date for those logs once stored. For example, if you set the retention policy for *WorkflowRuntime* to 180 days and then 24 hours later set it to 365 days, the logs stored during those first 24 hours will be automatically deleted after 180 days, while all subsequent logs of that type will be automatically deleted after 365 days. Changing the retention policy later doesn't make the first 24 hours of logs stay around for 365 days.
 
+     1. **Partner integration** - You must first install a partner integration into your subscription. Configuration options will vary by partner. For more information, see [Azure Monitor Partner integrations](../../partner-solutions/overview.md). 
+    
 6. Click **Save**.
 
 After a few moments, the new setting appears in your list of settings for this resource, and logs are streamed to the specified destinations as new event data is generated. It may take up to 15 minutes between when an event is emitted and when it [appears in a Log Analytics workspace](../logs/data-ingestion-time.md).
 
-## Create using PowerShell
+# [PowerShell](#tab/powershell)
 
 Use the [Set-AzDiagnosticSetting](/powershell/module/az.monitor/set-azdiagnosticsetting) cmdlet to create a diagnostic setting with [Azure PowerShell](../powershell-samples.md). See the documentation for this cmdlet for descriptions of its parameters.
 
@@ -141,16 +170,17 @@ Following is an example PowerShell cmdlet to create a diagnostic setting using a
 Set-AzDiagnosticSetting -Name KeyVault-Diagnostics -ResourceId /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myresourcegroup/providers/Microsoft.KeyVault/vaults/mykeyvault -Category AuditEvent -MetricCategory AllMetrics -Enabled $true -StorageAccountId /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/mystorageaccount -WorkspaceId /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/oi-default-east-us/providers/microsoft.operationalinsights/workspaces/myworkspace  -EventHubAuthorizationRuleId /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myresourcegroup/providers/Microsoft.EventHub/namespaces/myeventhub/authorizationrules/RootManageSharedAccessKey
 ```
 
-## Create using Azure CLI
+# [CLI](#tab/cli)
 
-Use the [az monitor diagnostic-settings create](/cli/azure/monitor/diagnostic-settings#az_monitor_diagnostic_settings_create) command to create a diagnostic setting with [Azure CLI](/cli/azure/monitor). See the documentation for this command for descriptions of its parameters.
+Use the [az monitor diagnostic-settings create](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create) command to create a diagnostic setting with [Azure CLI](/cli/azure/monitor). See the documentation for this command for descriptions of its parameters.
 
 > [!IMPORTANT]
 > You cannot use this method for the Azure Activity log. Instead, use [Create diagnostic setting in Azure Monitor using a Resource Manager template](./resource-manager-diagnostic-settings.md) to create a Resource Manager template and deploy it with CLI.
 
-Following is an example CLI command to create a diagnostic setting using all three destinations. The syntax is slightly difference depending on your client.
+Following is an example CLI command to create a diagnostic setting using all three destinations. The syntax is slightly different depending on your client.
 
-# [CMD](#tab/CMD)
+**CMD client**
+
 ```azurecli
 az monitor diagnostic-settings create  ^
 --name KeyVault-Diagnostics ^
@@ -161,7 +191,9 @@ az monitor diagnostic-settings create  ^
 --workspace /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/myresourcegroup/providers/microsoft.operationalinsights/workspaces/myworkspace ^
 --event-hub-rule /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myresourcegroup/providers/Microsoft.EventHub/namespaces/myeventhub/authorizationrules/RootManageSharedAccessKey
 ```
-# [PowerShell](#tab/PowerShell)
+
+**PowerShell client**
+
 ```azurecli
 az monitor diagnostic-settings create  `
 --name KeyVault-Diagnostics `
@@ -172,7 +204,9 @@ az monitor diagnostic-settings create  `
 --workspace /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/myresourcegroup/providers/microsoft.operationalinsights/workspaces/myworkspace `
 --event-hub-rule /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myresourcegroup/providers/Microsoft.EventHub/namespaces/myeventhub/authorizationrules/RootManageSharedAccessKey
 ```
-# [Bash](#tab/Bash)
+
+**Bash client**
+
 ```azurecli
 az monitor diagnostic-settings create  \
 --name KeyVault-Diagnostics \
@@ -183,37 +217,32 @@ az monitor diagnostic-settings create  \
 --workspace /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/myresourcegroup/providers/microsoft.operationalinsights/workspaces/myworkspace \
 --event-hub-rule /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myresourcegroup/providers/Microsoft.EventHub/namespaces/myeventhub/authorizationrules/RootManageSharedAccessKey
 ```
----
 
-## Create using Resource Manager template
+# [Resource Manager](#tab/arm)
 See [Resource Manager template samples for diagnostic settings in Azure Monitor](./resource-manager-diagnostic-settings.md) to create or update diagnostic settings with a Resource Manager template.
 
-## Create using REST API
+## [REST API](#tab/api)
 See [Diagnostic Settings](/rest/api/monitor/diagnosticsettings) to create or update diagnostic settings using the [Azure Monitor REST API](/rest/api/monitor/).
 
-## Create using Azure Policy
-Since a diagnostic setting needs to be created for each Azure resource, Azure Policy can be used to automatically create a diagnostic setting as each resource is created. See [Deploy Azure Monitor at scale using Azure Policy](../deploy-scale.md) for details.
+# [Azure Policy](#tab/policy)
+See [Create diagnostic settings at scale using Azure Policy](diagnostic-settings-policy.md) for details on using Azure Policy to create diagnostic settings at scale.
 
-## Error: Metric category is not supported
-When deploying a diagnostic setting, you receive the following error message:
+---
+## Troubleshooting
 
-   "Metric category '*xxxx*' is not supported"
+### Metric category is not supported
 
-For example: 
+When deploying a diagnostic setting, you receive an error message, similar to *Metric category 'xxxx' is not supported*. You may receive this error even though your previous deployment succeeded. 
 
-   "Metric category 'ActionsFailed' is not supported"
+The problem occurs when using a Resource Manager template, REST API, Azure CLI, or Azure PowerShell. Diagnostic settings created via the Azure portal are not affected as only the supported category names are presented.
 
-where previously your deployment succeeded. 
+The problem is caused by a recent change in the underlying API. Metric categories other than 'AllMetrics' are not supported and never were except for a few specific Azure services. In the past, other category names were ignored when deploying a diagnostic setting. The Azure Monitor backend redirected these categories to 'AllMetrics'.  As of February 2021, the backend was updated to specifically confirm the metric category provided is accurate. This change has caused some deployments to fail.
 
-The problem occurs when using a Resource Manager template, the diagnostic settings REST API, Azure CLI or Azure PowerShell. Diagnostic settings created via the Azure portal are not affected as only the supported category names are presented.
+If you receive this error, update your deployments to replace any metric category names with 'AllMetrics' to fix the issue. If the deployment was previously adding multiple categories, only one with the 'AllMetrics' reference should be kept. If you continue to have the problem, contact Azure support through the Azure portal. 
 
-The problem is caused by a recent change in the underlying API. Metric categories other than 'AllMetrics' are not supported and never were except for a few very specific Azure services. In the past, other category names were ignored when deploying a diagnostic setting. The Azure Monitor backend simply redirected these categories to 'AllMetrics'.  As of February 2021, the backend was updated to specifically confirm the metric category provided is accurate. This change has caused some deployments to fail.
+### Setting disappears due to non-ASCII characters in resourceID
 
-If you receive this error, update your deployments to replace any metric category names with 'AllMetrics' to fix the issue. If the deployment was previously adding multiple categories, only one with the 'AllMetrics' reference should be kept. If you continue to have the problem, please contact Azure support through the Azure portal. 
-
-## Error: Setting disappears due to non-ASCII characters in resourceID
-
-Diagnostic settings do not support resourceIDs with non-ASCII characters (for example, Preproducción). Since you cannot rename resources in Azure, your only option is to create a new resource without the non-ASCII characters. If the characters are in a resource group, you can move the resources under it to a new one. Otherwise, you'll need to recreate the resource. 
+Diagnostic settings do not support resourceIDs with non-ASCII characters (for example, Preproducción). Since you cannot rename resources in Azure, your only option is to create a new resource without the non-ASCII characters. If the characters are in a resource group, you can move the resources under it to a new one. Otherwise, you'll need to recreate the resource.
 
 ## Next steps
 

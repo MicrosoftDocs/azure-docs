@@ -65,7 +65,7 @@ az group create -n $imageResourceGroup -l $location
 
 If you do not have an existing VNET\Subnet\NSG, use the following script to create one.
 
-```bash
+```azurecli
 
 # Create a resource group
 
@@ -149,9 +149,9 @@ sed -i -e "s/<vnetRgName>/$vnetRgName/g" aibRoleNetworking.json
 
 ## Set permissions on the resource group
 
-Image Builder will use the [user-identity](../../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md#user-assigned-managed-identity) provided to inject the image into the Azure Shared Image Gallery (SIG). In this example, you will create an Azure role definition that has the granular actions to perform distributing the image to the SIG. The role definition will then be assigned to the user-identity.
+Image Builder will use the [user-identity](../../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md#user-assigned-managed-identity) provided to inject the image into the Azure Compute Gallery (formerly known as Shared Image Gallery). In this example, you will create an Azure role definition that has the granular actions to perform distributing the image to the SIG. The role definition will then be assigned to the user-identity.
 
-```bash
+```azurecli
 # create user assigned identity for image builder
 idenityName=aibBuiUserId$(date +'%s')
 az identity create -g $imageResourceGroup -n $idenityName
@@ -176,7 +176,7 @@ sed -i -e "s/Azure Image Builder Service Networking Role/$netRoleDefName/g" aibR
 
 Instead of granting Image Builder lower granularity and increased privilege, you can create two roles. One gives the builder permissions to create an image, the other allows it to connect the build VM and load balancer to your VNET.
 
-```bash
+```azurecli
 # create role definitions
 az role definition create --role-definition ./aibRoleImageCreation.json
 az role definition create --role-definition ./aibRoleNetworking.json
@@ -262,7 +262,7 @@ If you want to now try recustomizing the image version to create a new version o
 
 The following deletes the image that was created, along with all of the other resource files. Make sure you are finished with this deployment before deleting the resources.
 
-When deleting image gallery resources, you need delete all of the image versions before you can delete the image definition used to create them. To delete a gallery, you first need to have deleted all of the image definitions in the gallery.
+When deleting gallery resources, you need delete all of the image versions before you can delete the image definition used to create them. To delete a gallery, you first need to have deleted all of the image definitions in the gallery.
 
 Delete the image builder template.
 
@@ -302,4 +302,4 @@ If you created a VNET for this quickstart, you can delete the VNET if it's no lo
 
 ## Next steps
 
-Learn more about [Azure Shared Image Galleries](../shared-image-galleries.md).
+Learn more about [Azure Compute Galleries](../shared-image-galleries.md).

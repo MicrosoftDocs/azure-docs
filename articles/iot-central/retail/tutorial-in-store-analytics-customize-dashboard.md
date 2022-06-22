@@ -6,9 +6,9 @@ ms.service: iot-central
 ms.subservice: iot-central-retail
 ms.topic: tutorial
 ms.custom: [iot-storeAnalytics-checkout, iot-p0-scenario]
-ms.author: timlt
-author: timlt
-ms.date: 08/24/2021
+author: dominicbetts
+ms.author: dobett
+ms.date: 06/14/2022
 ---
 
 # Tutorial: Customize the dashboard and manage devices in Azure IoT Central
@@ -55,7 +55,7 @@ To customize the image tile that displays a brand image on the dashboard:
 
 1. Select **Edit** on the dashboard toolbar. 
 
-1. Select **Configure** on the image tile that displays the Northwind brand image. 
+1. Select **Edit** on the image tile that displays the Northwind brand image. 
 
     :::image type="content" source="media/tutorial-in-store-analytics-customize-dashboard/brand-image-edit.png" alt-text="Azure IoT Central edit brand image.":::
 

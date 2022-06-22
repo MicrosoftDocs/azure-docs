@@ -3,13 +3,13 @@ title: Troubleshoot account lockout in Azure AD Domain Services | Microsoft Docs
 description: Learn how to troubleshoot common problems that cause user accounts to be locked out in Azure Active Directory Domain Services.
 services: active-directory-ds
 author: justinha
-manager: daveba
+manager: karenhoran
 
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 07/06/2020
+ms.date: 12/15/2021
 ms.author: justinha
 
 #Customer intent: As a directory administrator, I want to troubleshoot why user accounts are locked out in an Azure Active Directory Domain Services managed domain.
@@ -82,10 +82,10 @@ AADDomainServicesAccountManagement
 | sort by TimeGenerated asc
 ```
 
-**Note**
-
 You may find on 4776 and 4740 event details of "Source Workstation: " empty. This is because the bad password happened over Network logon via some other devices.
-For Example: If you have RADIUS server, which can forward the auth to AAD DS. To confirm that Enable RDP to DC backend configure netlogon logs.
+
+For example, a RADIUS server can forward the authentication to Azure AD DS. 
+
 
 03/04 19:07:29 [LOGON] [10752] contoso: SamLogon: Transitive Network logon of contoso\Nagappan.Veerappan from  (via LOB11-RADIUS) Entered 
 
@@ -95,14 +95,13 @@ For Example: If you have RADIUS server, which can forward the auth to AAD DS. To
 
 03/04 19:07:35 [LOGON] [10753] contoso: SamLogon: Transitive Network logon of contoso\Nagappan.Veerappan from  (via LOB11-RADIUS) Returns 0xC000006A
 
-Enable RDP to your DCs in NSG to backend to configure diagnostics capture (i.e netlogon).
-[Inbound security rules](alert-nsg.md#inbound-security-rules)
 
-If you have modified the default NSG already, follow these steps:
-[Port 3389 - management using remote desktop](network-considerations.md#port-3389---management-using-remote-desktop)
+Enable RDP to your DCs in NSG to backend to configure diagnostics capture (netlogon). For more information about requirements, see
+[Inbound security rules](alert-nsg.md#inbound-security-rules).
 
-To enable Netlogon log on any server, follow these steps:
-[Enabling debug logging for the Netlogon service](/troubleshoot/windows-client/windows-security/enable-debug-logging-netlogon-service)
+If you have modified the default NSG already, follow [Port 3389 - management using remote desktop](network-considerations.md#port-3389---management-using-remote-desktop).
+
+To enable Netlogon log on any server, follow [Enabling debug logging for the Netlogon service](/troubleshoot/windows-client/windows-security/enable-debug-logging-netlogon-service).
 
 ## Next steps
 

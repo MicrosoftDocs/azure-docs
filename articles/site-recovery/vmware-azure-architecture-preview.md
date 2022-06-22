@@ -65,8 +65,11 @@ If you're using a URL-based firewall proxy to control outbound connectivity, all
     - For VMware VMs, replication is block-level, near-continuous, using the Mobility service agent running on the VM.
     - Any replication policy settings are applied:
         - **RPO threshold**. This setting does not affect replication. It helps with monitoring. An event is raised, and optionally an email sent, if the current RPO exceeds the threshold limit that you specify.
-        - **Recovery point retention**. This setting specifies how far back in time you want to go when a disruption occurs. Maximum retention on premium storage is 24 hours. On standard storage it's 72 hours.
+        - **Recovery point retention**. This setting specifies how far back in time you want to go when a disruption occurs. Maximum retention is 15 days.
         - **App-consistent snapshots**. App-consistent snapshot can be taken every 1 to 12 hours, depending on your app needs. Snapshots are standard Azure blob snapshots. The Mobility agent running on a VM requests a VSS snapshot in accordance with this setting, and bookmarks that point-in-time as an application consistent point in the replication stream.
+        >[!NOTE]
+        >High recovery point retention period may have an implication on the storage cost since more recovery points may need to be saved. 
+        
 
 2. Traffic replicates to Azure storage public endpoints over the internet. Alternately, you can use Azure ExpressRoute with [Microsoft peering](../expressroute/expressroute-circuit-peerings.md#microsoftpeering). Replicating traffic over a site-to-site virtual private network (VPN) from an on-premises site to Azure isn't supported.
 3. Initial replication operation ensures that entire data on the machine at the time of enable replication is sent to Azure. After initial replication finishes, replication of delta changes to Azure begins. Tracked changes for a machine are sent to the process server.
@@ -96,7 +99,7 @@ When you enable Azure VM replication, by default Site Recovery creates a new rep
 
 **Policy setting** | **Details** | **Default**
 --- | --- | ---
-**Recovery point retention** | Specifies how long Site Recovery keeps recovery points | 72 hours
+**Recovery point retention** | Specifies how long Site Recovery keeps recovery points | 3 days
 **App-consistent snapshot frequency** | How often Site Recovery takes an app-consistent snapshot. | Every 4 hours
 
 ### Managing replication policies

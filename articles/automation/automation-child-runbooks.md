@@ -3,7 +3,7 @@ title: Create modular runbooks in Azure Automation
 description: This article explains how to create a runbook that another runbook calls.
 services: automation
 ms.subservice: process-automation
-ms.date: 09/22/2021
+ms.date: 10/29/2021
 ms.topic: how-to 
 ms.custom: devx-track-azurepowershell
 #Customer intent: As a developer, I want create modular runbooks so that I can be more efficient.
@@ -38,7 +38,7 @@ The parameters of a child runbook called inline can be of any data type, includi
 
 ### Runbook types
 
-Only certain runbook types can call each other:
+Currently, PowerShell 5.1 and 7.1 (preview) are supported and only certain runbook types can call each other:
 
 * A [PowerShell runbook](automation-runbook-types.md#powershell-runbooks) and a [graphical runbook](automation-runbook-types.md#graphical-runbooks) can call each other inline, because both are PowerShell based.
 * A [PowerShell Workflow runbook](automation-runbook-types.md#powershell-workflow-runbooks) and a graphical PowerShell Workflow runbook can call each other inline, because both are PowerShell Workflow based.

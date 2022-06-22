@@ -9,7 +9,6 @@ tags: azure-resource-manager
 # Customer intent: I need to monitor communication between a VM and another VM. If the communication fails, I need to know why, so that I can resolve the problem. 
 
 ms.service: network-watcher
-ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services

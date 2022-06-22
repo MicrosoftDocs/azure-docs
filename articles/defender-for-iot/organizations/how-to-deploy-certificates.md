@@ -1,13 +1,13 @@
 ---
 title: Deploy certificates
 description: Learn how to set up and deploy certificates for Defender for IoT.
-ms.date: 08/29/2021
+ms.date: 02/06/2022
 ms.topic: how-to
 ---
 
 # About certificates
 
-This article provides information needed when creating and deploying certificates for Azure Defender for IoT. A security, PKI or other qualified certificate lead should handle certificate creation and deployment.
+This article provides information needed when creating and deploying certificates for Microsoft Defender for IoT. A security, PKI or other qualified certificate lead should handle certificate creation and deployment.
 
 Defender for IoT uses SSL/TLS certificates to secure communication between the following system components: 
 
@@ -18,7 +18,7 @@ Defender for IoT uses SSL/TLS certificates to secure communication between the f
 
 Defender for IoT Admin users can upload a certificate  to sensor consoles and their on-premises management console from the SSL/TLS Certificates dialog box.
 
-:::image type="content" source="media/how-to-deploy-certificates/certificate-upload.png" alt-text="Certificate-upload dialog box.":::
+:::image type="content" source="media/how-to-activate-and-set-up-your-sensor/wizard-upload-activation-certificates-1.png" alt-text="Screenshot of an initial sensor sign in certificate page.":::
 
 ## About certificate generation methods
 
@@ -105,13 +105,16 @@ Some organizational security policies may block access to this port. If your org
 
 Defender for IoT requires that each CA-signed certificate contains a .key file and a .crt file. These files are uploaded to the sensor and On-premises management console after login. Some organizations may require .pem file. Defender for IoT does not require this file type.
 
-**.crt – certificate container file**  
+**.crt – certificate container file**
+
 A .pem, or .der formatted file with a different extension. The file is recognized by Windows Explorer as a certificate. The .pem file is not recognized by Windows Explorer.
 
-**.key – Private key file**  
+**.key – Private key file**
+
 A key file is in the same format as a PEM file, but it has a different extension.
 
-**.pem – certificate container file (optional)** 
+**.pem – certificate container file (optional)**
+
 PEM is a text file that contains Base64 encoding of the certificate text, a plain-text header & a footer that marks the beginning and end of the certificate.
 
 You may need to convert existing files types to supported types. See [Convert existing files to supported files](#convert-existing-files-to-supported-files) for details.
@@ -149,7 +152,7 @@ When using a key length of 4096 bits, the SSL handshake at the start of each con
 
 ### Certificate chain file requirements (if .pem is used)
 
-A .pem file containing the certificates of all the certificate authorities in the chain of trust that led to your certificate.  
+A .pem file containing the certificates of all the certificate authorities in the chain of trust that led to your certificate. 
 
 Bag attributes are supported in the certificate chain file.
 
@@ -169,7 +172,7 @@ You can also convert existing certificate files if you do not want to create new
 
 You can compare your certificate to the sample certificate below. Verify that the same fields exits and that the order of the fields is the same.
 
-:::image type="content" source="media/how-to-deploy-certificates/sample-certificate.png" alt-text="sample-certificate.":::
+:::image type="content" source="media/how-to-deploy-certificates/sample-certificate.png" alt-text="Screenshot of a sample certificate.":::
 
 ## Test certificates you create
 
@@ -189,11 +192,12 @@ This section describes how to convert existing certificates files to supported f
 
 |**Description** | **CLI command** |
 |--|--|
-| Convert .crt file to .pem file   | `openssl x509 -inform PEM -in <full path>/<pem-file-name>.pem -out <fullpath>/<crt-file-name>.crt`  | 
+| Convert .crt file to .pem file   | `openssl x509 -inform PEM -in <full path>/<pem-file-name>.crt -out <fullpath>/<crt-file-name>.pem`  | 
 | Convert .pem file to .crt file   | `openssl x509 -inform PEM -in <full path>/<pem-file-name>.pem -out <fullpath>/<crt-file-name>.crt` |  
-| Convert a PKCS#12 file (.pfx .p12) containing a private key and certificates to .pem   | `openssl pkcs12 -in keyStore.pfx -out keyStore.pem -nodes`. You can add -nocerts to only output the private key, or add -nokeys to only output the certificates.  |  
+| Convert a PKCS#12 file (.pfx .p12) containing a private key and certificates to .pem   | `openssl pkcs12 -in keyStore.pfx -out keyStore.pem -nodes`. You can add -nocerts to only output the private key, or add -nokeys to only output the certificates.  | 
+|  Convert .cer file to .crt file  |  `openssl x509 -inform PEM -in <filepath>/certificate.cer -out certificate.crt` <br> Make sure to specify the full path. <br><br>**Note**: Other options are available for the -inform flag. The value is usually `DER` or `PEM` but might also be `P12` or another value. For more information, see [`openssl-format-options`]( https://www.openssl.org/docs/manmaster/man1/openssl-format-options.html) and [openssl-x509]( https://www.openssl.org/docs/manmaster/man1/openssl-x509.html). |
 
-## Troubleshooting  
+## Troubleshooting
 
 This section covers various issues that may occur during certificate upload and validation, and steps to take to resolve the issues.
 
@@ -220,3 +224,7 @@ If the conversion fails:
 - Use the conversion commands described in [Convert existing files to supported files](#convert-existing-files-to-supported-files).
 - Make sure the file parameters are accurate. See, [File type requirements](#file-type-requirements) and  [Certificate File Parameter Requirements](#certificate-file-parameter-requirements) for details.  
 - Consult your certificate lead.
+
+## Next steps
+
+For more information, see [Identify required appliances](how-to-identify-required-appliances.md).

@@ -3,14 +3,13 @@ title: Troubleshoot Azure Load Balancer resource health, frontend, and backend a
 description: Use the available metrics to diagnose your degraded or unavailable Azure Standard Load Balancer.
 services: load-balancer
 documentationcenter: na
-author: KumudD
+author: mbender-ms
 ms.service: load-balancer
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/14/2020
-ms.author: kumud
+ms.author: mbender
 ---
 
 # Troubleshoot resource health, and inbound availability issues 
@@ -57,8 +56,8 @@ Let's say we check our health probe status and find out that all instances are s
 * Review the Network Security Groups applied to our backend resources. Ensure that there are no rules of a higher priority than AllowAzureLoadBalancerInBound that will block the health probe
   * You can do this by visiting the Networking blade of your backend VMs or Virtual Machine Scale Sets
   * If you find this NSG issue is the case, move the existing Allow rule or create a new high priority rule to allow AzureLoadBalancer traffic
-* Check your OS. Ensure your VMs are listening on the probe port and review their OS firewall rules to ensure they are not blocking the probe traffic originating from IP address 168.63.129.16
-  * You can check listening ports by running netstat -a the Windows command prompt or netstat -l in a Linux terminal
+* Check your OS. Ensure your VMs are listening on the probe port and review their OS firewall rules to ensure they are not blocking the probe traffic originating from IP address `168.63.129.16`
+  * You can check listening ports by running `netstat -a` from a Windows command prompt or `netstat -l` from a Linux terminal
 * Don't place a firewall NVA VM in the backend pool of the load balancer, use [user-defined routes](../virtual-network/virtual-networks-udr-overview.md#user-defined) to route traffic to backend instances through the firewall
 * Ensure you're using the right protocol, if using HTTP to probe a port listening for a non-HTTP application the probe will fail
 

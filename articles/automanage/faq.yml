@@ -2,19 +2,17 @@
 metadata:
   title: Azure Automanage for virtual machines FAQ
   description: Answers to frequently asked questions about Azure Automanage for virtual machines.
-  author: deanwe
-  ms.service: virtual-machines
-  ms.subservice: automanage
+  author: mmccrory
+  ms.service: automanage
   ms.workload: infrastructure
-  ms.topic: troubleshooting
-  ms.date: 02/22/2021
-  ms.author: deanwe
-    
+  ms.topic: faq
+  ms.date: 12/10/2021
+  ms.author: memccror
 title: Frequently asked questions for Azure Automanage for VMs
 summary: |
   This article provides answers to some of the most common questions about [Azure Automanage for virtual machines](automanage-virtual-machines.md).
   
-  If your Azure issue is not addressed in this article, visit the Azure forums on [MSDN and Stack Overflow](https://azure.microsoft.com/support/forums/). You can post your issue in these forums, or post to [@AzureSupport on Twitter](https://twitter.com/AzureSupport). You can also submit an Azure support request. To submit a support request, on the [Azure support page](https://azure.microsoft.com/support/options/), select **Get support**.
+  If your Azure issue is not addressed in this article, visit the Azure forums on [Microsoft Q & A and Stack Overflow](https://azure.microsoft.com/support/forums/). You can post your issue in these forums, or post to [@AzureSupport on Twitter](https://twitter.com/AzureSupport). You can also submit an Azure support request. To submit a support request, on the [Azure support page](https://azure.microsoft.com/support/options/), select **Get support**.
   
   
 
@@ -34,9 +32,9 @@ sections:
       - question: |
           What Azure RBAC permission is needed to enable Automanage?
         answer: |
-          If you are enabling Automanage on an VM with an existing Automanage Account, you need Contributor role to the Resource Group where the VM resides.
+          If you are enabling Automanage, you need Contributor role to the Resource Group where the VM resides.
           
-          If you are using a new Automanage Account when enabling, you must have either the Owner role or have Contributor + User Access Administrator role to the subscription.
+          If you are enabling Automanage for the first time on a subscription, you must have either the Owner role or have Contributor + User Access Administrator role to the subscription.
           
           
       - question: |
@@ -51,14 +49,19 @@ sections:
           Automanage enrolls, configures, and monitors throughout the lifecycle of the VM the services listed [here](automanage-virtual-machines.md).
           
       - question: |
-          Does Azure Automanage work with Azure Arc-enabled VMs?
+          Does Azure Automanage work with Azure Arc-enabled servers?
         answer: |
-          Automanage currently does not support Arc-enabled VMs.
+          Yes, Automanage supports Arc-enabled servers with a limited set of [services](automanage-arc.md)
+
+      - question: |
+          What does the status "Needs upgrade" mean?
+        answer: |
+          Automanage supports a new API for onboarding (version 2021-04-30-preview or later). If you are on the previous version of Automanage (version 2020-06-30-preview), you need to disable Automanage and then re-enable it. You will automatically be onboarded to the latest version.
 
       - question: |
           Can I customize configurations on Azure Automanage?
         answer: |
-          Customers can customize settings for specific services, like Azure Backup retention, through configuration preferences. For the full list of settings that can be changed, see our documentation [here](automanage-virtual-machines.md#customizing-an-environment-using-preferences).
+          Customers can customize settings for specific services, like Azure Backup retention, through custom profiles. For the full list of settings that can be changed, see our documentation [here](automanage-virtual-machines.md#custom-profiles).
           
           
       - question: |
@@ -94,7 +97,14 @@ sections:
       - question: |
           What is an Automanage account?
         answer: |
-          The Automanage Account is an MSI (Managed Service Identity) that provides the security context or the identity under which the automated operations occur.
+          The Automanage Account is only used for machines that were onboarded using an earlier version of Automanage (version 2020-06-30-preview). It is an MSI (Managed Service Identity) that provides the security context or the identity under which the automated operations occur.
+
+          
+      - question: |
+          What is a Configuration Preference?
+        answer: |
+          The Configuration Preference is only used for machines that were onboarded using an earlier version of Automanage (version 2020-06-30-preview). It supports customizing a subset of settings. This has been upgraded to Custom Profiles in the latest version of Automanage.
+          
           
           
       - question: |
@@ -126,7 +136,7 @@ sections:
       - question: |
           How can I get troubleshooting support for Automanage?
         answer: |
-          You can file a [technical support case ticket](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). For the **Service** option, search for and select *Automanage* under the *Monitoring and Management* section.
+          You can file a [technical support case ticket](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). For the **Service** option, search for and select *Automanage* under the *Monitoring and Management* section.
           
 additionalContent: |
 

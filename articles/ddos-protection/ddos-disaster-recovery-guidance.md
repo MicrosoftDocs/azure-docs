@@ -3,13 +3,12 @@ title: Azure DDoS Protection Standard business continuity | Microsoft Docs
 description: Learn what to do in the event of an Azure service disruption impacting Azure DDoS Protection Standard.
 services: ddos-protection
 documentationcenter: na
-author: aletheatoh
+author: AbdullahBell
 ms.service: ddos-protection
-ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/16/2021
-ms.author: yitoh
+ms.author: abell
 ms.topic: article
 ---
 # Azure DDoS Protection Standard – business continuity

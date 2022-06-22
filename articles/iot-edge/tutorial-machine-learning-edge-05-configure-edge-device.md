@@ -1,9 +1,9 @@
 ---
 title: 'Tutorial: Configure an Azure IoT Edge device - Machine learning on IoT Edge'
 description: In this tutorial, you'll configure an Azure virtual machine running Linux as an Azure IoT Edge device that acts as a transparent gateway.
-author: kgremban
+author: PatAltimore
 
-ms.author: kgremban
+ms.author: patricka
 ms.date: 2/5/2020
 ms.topic: tutorial
 ms.service: iot-edge
@@ -138,7 +138,7 @@ You can deploy the virtual machine using the Azure portal or Azure CLI. We will 
    | **Resource group** | An existing or newly created Resource Group to contain the virtual machine and it's associated resources. |
    | **DNS Label Prefix** | A required value of your choosing that is used to prefix the hostname of the virtual machine. |
    | **Admin Username** | A username, which will be provided root privileges on deployment. |
-   | **Device Connection String** | A [device connection string](./how-to-register-device.md) for a device that was created within your intended [IoT Hub](../iot-hub/about-iot-hub.md). |
+   | **Device Connection String** | A [device connection string](./how-to-provision-single-device-linux-symmetric.md#view-registered-devices-and-retrieve-provisioning-information) for a device that was created within your intended [IoT Hub](../iot-hub/about-iot-hub.md). |
    | **VM Size** | The [size](../cloud-services/cloud-services-sizes-specs.md) of the virtual machine to be deployed
    | **Ubuntu OS Version** | The version of the Ubuntu OS to be installed on the base virtual machine. |
    | **Location** | The [geographic region](https://azure.microsoft.com/global-infrastructure/locations/) to deploy the virtual machine into, this value defaults to the location of the selected Resource Group. |

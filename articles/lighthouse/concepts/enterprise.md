@@ -1,7 +1,7 @@
 ---
 title: Azure Lighthouse in enterprise scenarios
 description: The capabilities of Azure Lighthouse can be used to simplify cross-tenant management within an enterprise which uses multiple Azure AD tenants.
-ms.date: 09/08/2021
+ms.date: 06/09/2022
 ms.topic: conceptual
 ---
 
@@ -15,7 +15,7 @@ For most organizations, management is easier with a single Azure AD tenant. Havi
 
 Some organizations may need to use multiple Azure AD tenants. This might be a temporary situation, as when acquisitions have taken place and a long-term tenant consolidation strategy hasn't been defined yet. Other times, organizations may need to maintain multiple tenants on an ongoing basis due to wholly independent subsidiaries, geographical or legal requirements, or other considerations.
 
-In cases where a multi-tenant architecture is required, Azure Lighthouse can help centralize and streamline management operations. By using Azure Lighthouse, users in one managing tenant can perform [cross-tenant management functions](cross-tenant-management-experience.md) in a centralized, scalable manner.
+In cases where a [multitenant architecture](/azure/architecture/guide/multitenant/overview) is required, Azure Lighthouse can help centralize and streamline management operations. By using Azure Lighthouse, users in one managing tenant can perform [cross-tenant management functions](cross-tenant-management-experience.md) in a centralized, scalable manner.
 
 ## Tenant management architecture
 
@@ -45,6 +45,12 @@ Since enterprise users will typically have direct access to the enterprise’s t
 
 If you prefer, tenants within an enterprise can be onboarded by [publishing a Managed Services offer to Azure Marketplace](../how-to/publish-managed-services-offers.md). To ensure that the offer is only available to the appropriate tenants, be sure that your plans are marked as private. With a private plan, you provide the subscription IDs for each tenant that you plan to onboard, and no one else will be able to get your offer.
 
+## Azure AD B2C
+
+[Azure Active Directory B2C (Azure AD B2C)](../../active-directory-b2c/overview.md) provides business-to-customer identity as a service. When you delegate a resource group through Azure Lighthouse, you can use Azure Monitor to route Azure Active Directory B2C (Azure AD B2C) sign-in and auditing logs to different monitoring solutions. You can retain the logs for long-term use, or integrate with third-party security information and event management (SIEM) tools to gain insights into your environment.
+
+For more information, see [Monitor Azure AD B2C with Azure Monitor](../../active-directory-b2c/azure-monitor.md).
+
 ## Terminology notes
 
 For cross-tenant management within the enterprise, references to service providers in the Azure Lighthouse documentation can be understood to apply to the managing tenant within an enterprise—that is, the tenant that includes the users who will manage resources in other tenants through Azure Lighthouse. Similarly, any references to customers can be understood to apply to the tenants that are delegating resources to be managed through users in the managing tenant.
@@ -55,5 +61,6 @@ Continuing with that example, Tenant A users with the appropriate permissions ca
 
 ## Next steps
 
+- Explore options for [resource organization in multitenant architectures](/azure/architecture/guide/multitenant/approaches/resource-organization).
 - Learn about [cross-tenant management experiences](cross-tenant-management-experience.md).
 - Learn more about [how Azure Lighthouse works](architecture.md).

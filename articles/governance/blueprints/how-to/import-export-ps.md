@@ -103,7 +103,7 @@ manually created blueprint definition in the
 blueprint definition to a different management group or subscription.
 
 For examples of built-in blueprint definitions, see the
-[Azure Blueprint GitHub repo](https://github.com/Azure/azure-blueprints/tree/master/samples/001-builtins).
+[Azure Blueprints GitHub repo](https://github.com/Azure/azure-blueprints/tree/master/samples/001-builtins).
 
 - **Name** [required]
   - Specifies the name for the new blueprint definition

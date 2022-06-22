@@ -3,14 +3,10 @@ title: Create an Azure Automation account using a Resource Manager template
 titleSuffix: Azure Automation
 description: This article shows how to create an Automation account by using the Azure Resource Manager template.
 services: automation
-ms.author: magoedte
 ms.date: 08/27/2021
 ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.custom:
-  - mvc
-  - subject-armqs
-  - mode-arm
+ms.custom: mvc, subject-armqs, mode-arm
 ---
 
 # Create an Azure Automation account using a Resource Manager template
@@ -39,7 +35,7 @@ If you're new to Azure Automation and Azure Monitor, it's important that you und
 
 * Review [workspace mappings](how-to/region-mappings.md) to specify the supported regions inline or in a parameter file. Only certain regions are supported for linking a Log Analytics workspace and an Automation account in your subscription.
 
-* If you're new to Azure Monitor Logs and haven't deployed a workspace already, review the [workspace design guidance](../azure-monitor/logs/design-logs-deployment.md). This document will help you learn about access control, and help you understand the recommended design implementation strategies for your organization.
+* If you're new to Azure Monitor Logs and haven't deployed a workspace already, review the [workspace design guidance](../azure-monitor/logs/workspace-design.md). This document will help you learn about access control, and help you understand the recommended design implementation strategies for your organization.
 
 ## Review the template
 

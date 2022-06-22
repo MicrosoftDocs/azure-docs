@@ -15,7 +15,7 @@ The Start/Stop VMs during off-hours feature start or stops enabled Azure VMs. It
 > [!NOTE]
 > Before you install this version (v1), we would like you to know about the [next version](../azure-functions/start-stop-vms/overview.md), which is in preview right now. This new version (v2) offers all the same functionality as this one, but is designed to take advantage of newer technology in Azure. It adds some of the commonly requested features from customers, such as multi-subscription support from a single Start/Stop instance. 
 >
-> Start/Stop VMs during off-hours (v1) will deprecate on 5/21/2022. 
+> Start/Stop VMs during off-hours (v1) will be deprecated soon and the date will be announced once V2 moves to general availability (GA). 
 
 This feature uses [Start-AzVm](/powershell/module/az.compute/start-azvm) cmdlet to start VMs. It uses [Stop-AzVM](/powershell/module/az.compute/stop-azvm) for stopping VMs.
 
@@ -37,7 +37,7 @@ The following are limitations with the current feature:
 
 - The runbooks for the Start/Stop VMs during off hours feature work with an [Azure Run As account](./automation-security-overview.md#run-as-accounts). The Run As account is the preferred authentication method because it uses certificate authentication instead of a password that might expire or change frequently.
 
-- An [Azure Monitor Log Analytics workspace](../azure-monitor/logs/design-logs-deployment.md) that stores the runbook job logs and job stream results in a workspace to query and analyze. The Automation account and Log Analytics workspace need to be in the same subscription and supported region. The workspace needs to already exist, you cannot create a new workspace during deployment of this feature.
+- An [Azure Monitor Log Analytics workspace](../azure-monitor/logs/log-analytics-workspace-overview.md) that stores the runbook job logs and job stream results in a workspace to query and analyze. The Automation account and Log Analytics workspace need to be in the same subscription and supported region. The workspace needs to already exist, you cannot create a new workspace during deployment of this feature.
 
 We recommend that you use a separate Automation account for working with VMs enabled for the Start/Stop VMs during off-hours feature. Azure module versions are frequently upgraded, and their parameters might change. The feature isn't upgraded on the same cadence and it might not work with newer versions of the cmdlets that it uses. Before importing the updated modules into your production Automation account(s), we recommend you import them into a test Automation account to verify there aren't any compatibility issues.
 
@@ -76,7 +76,6 @@ To enable VMs for the Start/Stop VMs during off-hours feature using an existing 
 
 You can enable VMs for the Start/Stop VMs during off-hours feature using a new Automation account and Log Analytics workspace. In this case, you need the permissions defined in the previous section and the permissions defined in this section. You also require the following roles:
 
-- Co-Administrator on subscription. This role is required to create the Classic Run As account if you are going to manage classic VMs. [Classic Run As accounts](automation-create-standalone-account.md#create-a-classic-run-as-account) are no longer created by default.
 - Membership in the [Azure AD](../active-directory/roles/permissions-reference.md) Application Developer role. For more information on configuring Run As Accounts, see [Permissions to configure Run As accounts](automation-security-overview.md#permissions).
 - Contributor on the subscription or the following permissions.
 
@@ -135,7 +134,7 @@ The following table lists the variables created in your Automation account. Only
 |External_AutoStop_Threshold | The threshold for the Azure Alert rule specified in the variable `External_AutoStop_MetricName`. Percentage values range from 1 to 100.|
 |External_AutoStop_TimeAggregationOperator | The time aggregation operator applied to the selected window size to evaluate the condition. Acceptable values are `Average`, `Minimum`, `Maximum`, `Total`, and `Last`.|
 |External_AutoStop_TimeWindow | The size of the window during which Azure analyzes selected metrics for triggering an alert. This parameter accepts input in timespan format. Possible values are from 5 minutes to 6 hours.|
-|External_EnableClassicVMs| Value specifying if classic VMs are targeted by the feature. The default value is True. Set this variable to False for Azure Cloud Solution Provider (CSP) subscriptions. Classic VMs require a [Classic Run As account](automation-create-standalone-account.md#create-a-classic-run-as-account).|
+|External_EnableClassicVMs| Value specifying if classic VMs are targeted by the feature. The default value is True. Set this variable to False for Azure Cloud Solution Provider (CSP) subscriptions.|
 |External_ExcludeVMNames | Comma-separated list of VM names to exclude, limited to 140 VMs. If you add more than 140 VMs to the list, VMs specified for exclusion might be inadvertently started or stopped.|
 |External_Start_ResourceGroupNames | Comma-separated list of one or more resource groups that are targeted for start actions.|
 |External_Stop_ResourceGroupNames | Comma-separated list of one or more resource groups that are targeted for stop actions.|
@@ -168,8 +167,6 @@ Don't enable all schedules, because doing so might create overlapping schedule a
 ## Use the feature with classic VMs
 
 If you are using the Start/Stop VMs during off-hours feature for classic VMs, Automation processes all your VMs sequentially per cloud service. VMs are still processed in parallel across different cloud services. 
-
-For use of the feature with classic VMs, you need a Classic Run As account, which is not created by default. For instructions on creating a Classic Run As account, see [Create a Classic Run As account](automation-create-standalone-account.md#create-a-classic-run-as-account).
 
 If you have more than 20 VMs per cloud service, here are some recommendations:
 

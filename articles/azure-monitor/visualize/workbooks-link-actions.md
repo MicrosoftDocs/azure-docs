@@ -3,9 +3,6 @@ title: Azure Monitor Workbooks link actions
 description: How to use link actions in Azure Monitor Workbooks
 ms.topic: conceptual
 ms.date: 01/07/2021
-
-author: lgayhardt
-ms.author: lagayhar
 ---
 
 # Link actions
@@ -173,5 +170,4 @@ When the workbook link is opened, the new workbook view will be passed all of th
 
 ## Next steps
 
-- [Control](../visualize/workbooks-access-control.md) and share access to your workbook resources.
-- Learn how to use [groups in workbooks](../visualize/workbooks-groups.md).
+ - [Getting started with Azure Workbooks](workbooks-getting-started.md).

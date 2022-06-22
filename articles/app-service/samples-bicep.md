@@ -11,7 +11,7 @@ ms.custom: mvc, fasttrack-edit
 ---
 # Bicep files for App Service
 
-The following table includes links to Bicep files for Azure App Service. For quickstarts and further information about Bicep, see [Bicep documentation](/azure/azure-resource-manager/bicep/).
+The following table includes links to Bicep files for Azure App Service. For quickstarts and further information about Bicep, see [Bicep documentation](../azure-resource-manager/bicep/index.yml).
 
 To learn about the Bicep syntax and properties for App Services resources, see [Microsoft.Web resource types](/azure/templates/microsoft.web/allversions).
 

@@ -21,6 +21,9 @@ The Key Vault VM extension is now supported on the Azure Cloud Services (extende
 ## How can I leverage the Key Vault VM extension?
 The following tutorial will show you how to install the Key Vault VM extension on PaaSV1 services by first creating a bootstrap certificate in your vault to get a token from AAD that will help in the authentication of the extension with the vault. Once the authentication process is set up and the extension is installed all latest certificates will be pulled down automatically at regular polling intervals. 
 
+> [!NOTE]
+> The Key Vault VM extension downloads all the certificates in the windows certificate store or to the location provided by "certificateStoreLocation" property in the VM extension settings. Currently, the KV VM extension grants access to the private key of the certificate only to the local system admin account. 
+
 
 ## Prerequisites 
 To use the Azure Key Vault VM extension, you need to have an Azure Active Directory tenant. For more information on setting up a new Active Directory tenant, see [Setup your AAD tenant](../active-directory/develop/quickstart-create-new-tenant.md)
@@ -48,46 +51,63 @@ To use the Azure Key Vault VM extension, you need to have an Azure Active Direct
     - If you are using RBAC preview, search for the name of the AAD app you created and assign it to the Key Vault Secrets User (preview) role.
     - If you are using vault access policies, then assign **Secret-Get** permissions to the AAD app you created. For more information, see [Assign access policies](../key-vault/general/assign-access-policy-portal.md)
 
-7. Install first version of the certificates created in the first step and the Key Vault VM extension using the ARM template as shown below:
+7. Install first 
+step and the Key Vault VM extension using the ARM template snippet for `cloudService` resource as shown below:
 
     ```json
+    {
+        "osProfile":
         {
-       "osProfile":{
-          "secrets":[
-             {
-                "sourceVault":{
-                   "id":"[parameters('sourceVaultValue')]"
-                },
-                "vaultCertificates":[
-                   {
-                      "certificateUrl":"[parameters('bootstrpCertificateUrlValue')]"
-                   }
-                ]
-             }
-          ]
-       }{
-          "name":"KVVMExtensionForPaaS",
-          "properties":{
-             "type":"KeyVaultForPaaS",
-             "autoUpgradeMinorVersion":true,
-             "typeHandlerVersion":"1.0",
-             "publisher":"Microsoft.Azure.KeyVault",
-             "settings":{
-                "secretsManagementSettings":{
-                   "pollingIntervalInS":"3600",
-                   "certificateStoreName":"My",
-                   "certificateStoreLocation":"LocalMachine",
-                   "linkOnRenewal":false,
-                   "requireInitialSync":false, 
-                   "observedCertificates":"[parameters('keyVaultObservedCertificates']"
-                },
-                "authenticationSettings":{
-                   "clientId":"Your AAD app ID",
-                   "clientCertificateSubjectName":"Your boot strap certificate subject name [Do not include the 'CN=' in the subject name]"
+            "secrets":
+            [
+                {
+                    "sourceVault":
+                    {
+                        "id": "[parameters('sourceVaultValue')]"
+                    },
+                    "vaultCertificates":
+                    [
+                        {
+                            "certificateUrl": "[parameters('bootstrpCertificateUrlValue')]"
+                        }
+                    ]
                 }
-             }
-          }
-       }
+            ]
+        },
+        "extensionProfile":
+        {
+            "extensions":
+            [
+                {
+                    "name": "KVVMExtensionForPaaS",
+                    "properties":
+                    {
+                        "type": "KeyVaultForPaaS",
+                        "autoUpgradeMinorVersion": true,
+                        "typeHandlerVersion": "1.0",
+                        "publisher": "Microsoft.Azure.KeyVault",
+                        "settings":
+                        {
+                            "secretsManagementSettings":
+                            {
+                                "pollingIntervalInS": "3600",
+                                "certificateStoreName": "My",
+                                "certificateStoreLocation": "LocalMachine",
+                                "linkOnRenewal": false,
+                                "requireInitialSync": false,
+                                "observedCertificates": "[parameters('keyVaultObservedCertificates']"
+                            },
+                            "authenticationSettings":
+                            {
+                                "clientId": "Your AAD app ID",
+                                "clientCertificateSubjectName": "Your boot strap certificate subject name [Do not include the 'CN=' in the subject name]"
+                            }
+                        }
+                    }
+                }
+            ]
+        }
+    }
     ```
     You might need to specify the certificate store for boot strap certificate in ServiceDefinition.csdef like below:
     

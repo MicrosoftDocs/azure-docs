@@ -1,10 +1,10 @@
 ---
 title: Built-in policy definitions
 description: Lists Azure Policy built-in policy definitions for Azure Synapse Analytics. These built-in policy definitions provide common approaches to managing your Azure resources.
-ms.date: 10/11/2021
+ms.date: 05/11/2022
 ms.topic: reference
-author: julieMSFT
-ms.author: jrasnick
+author: WilliamDAssafMSFT
+ms.author: wiassaf
 ms.service: synapse-analytics
 ms.custom: subject-policy-reference
 ---

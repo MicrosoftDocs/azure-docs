@@ -88,7 +88,7 @@ To use the RDP extension from Azure DevOps Services, include the following detai
 
 1. After your build steps, add the **Azure Cloud Service Deployment** step and set its properties.
 
-1. After the deployment step, add an **Azure Powershell** step, set its **Display name** property to "Azure Deployment: Enable RDP Extension" (or another suitable name), and select your appropriate Azure subscription.
+1. After the deployment step, add an **Azure PowerShell** step, set its **Display name** property to "Azure Deployment: Enable RDP Extension" (or another suitable name), and select your appropriate Azure subscription.
 
 1. Set **Script Type** to "Inline" and paste the code below into the **Inline Script** field. (You can also create a `.ps1` file in your project with this script, set **Script Type** to "Script File Path", and set **Script Path** to point to the file.)
 

@@ -34,7 +34,17 @@ You can use the Stored Procedure Activity to invoke a stored procedure in one of
 >
 > When copying data from Azure SQL Database or SQL Server or Azure Synapse Analytics, you can configure **SqlSource** in copy activity to invoke a stored procedure to read data from the source database by using the **sqlReaderStoredProcedureName** property. For more information, see the following connector articles: [Azure SQL Database](connector-azure-sql-database.md), [SQL Server](connector-sql-server.md), [Azure Synapse Analytics](connector-azure-sql-data-warehouse.md)          
 
- 
+ ## Create a Stored Procedure activity with UI
+
+To use a Stored Procedure activity in a pipeline, complete the following steps:
+
+1. Search for _Stored Procedure_ in the pipeline Activities pane, and drag a Stored Procedure activity to the pipeline canvas.
+1. Select the new Stored Procedure activity on the canvas if it is not already selected, and its  **Settings** tab, to edit its details.
+
+   :::image type="content" source="media/transform-data-using-stored-procedure/stored-procedure-activity.png" alt-text="Shows the UI for a Stored Procedure activity.":::
+
+1. Select an existing or create a new linked service to an Azure SQL Database, Azure Synapse Analytics, or SQL Server.
+1. Choose a stored procedure, and provide any parameters for its execution.
 
 ## Syntax details
 Here is the JSON format for defining a Stored Procedure Activity:
@@ -88,5 +98,4 @@ See the following articles that explain how to transform data in other ways:
 * [Hadoop Streaming Activity](transform-data-using-hadoop-streaming.md)
 * [Spark Activity](transform-data-using-spark.md)
 * [.NET custom activity](transform-data-using-dotnet-custom-activity.md)
-* [ML Studio (classic) Batch Execution Activity](transform-data-using-machine-learning.md)
 * [Stored procedure activity](transform-data-using-stored-procedure.md)

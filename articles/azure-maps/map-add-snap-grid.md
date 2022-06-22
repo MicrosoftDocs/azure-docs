@@ -1,8 +1,8 @@
 ---
 title: Add snap grid to the map | Microsoft Azure Maps
 description: How to add a snap grid to a map using Azure Maps Web SDK
-author: anastasia-ms
-ms.author: v-stharr
+author: stevemunk
+ms.author: v-munksteve
 ms.date: 07/20/2021
 ms.topic: conceptual
 ms.service: azure-maps

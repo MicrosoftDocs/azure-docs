@@ -1,11 +1,10 @@
 ---
 title: Azure Automanage Account
 description: Learn how an Automanage Account works and how to create one.
-ms.service: virtual-machines
-ms.subservice: automanage
+ms.service: automanage
 ms.workload: infrastructure
 ms.topic: conceptual
-ms.date: 04/07/2021
+ms.date: 12/10/2021
 ---
 
 # Automanage Accounts

@@ -3,13 +3,13 @@ title: 'Quickstart: Translate speech-to-speech, Java (Windows, Linux) - Speech s
 titleSuffix: Azure Cognitive Services
 description: TBD
 services: cognitive-services
-author: PatrickFarley
+author: eric-urban
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: include
 ms.date: 12/09/2019
-ms.author: pafarley
+ms.author: eur
 ---
 
 ## Prerequisites
@@ -17,7 +17,7 @@ ms.author: pafarley
 Before you get started, make sure to:
 
 > [!div class="checklist"]
-> * [Create an Azure Speech Resource](../../../../overview.md#try-the-speech-service-for-free)
+> * [Create a Speech resource](~/articles/cognitive-services/cognitive-services-apis-create-account.md#get-the-keys-for-your-resource)
 > * [Setup your development environment and create an empty project](../../../../quickstarts/setup-platform.md?tabs=jre)
 
 ## Add sample code
@@ -106,7 +106,7 @@ Before you get started, make sure to:
                if (cancellation.getReason() == CancellationReason.Error) {
                    System.out.println("CANCELED: ErrorCode=" + cancellation.getErrorCode());
                    System.out.println("CANCELED: ErrorDetails=" + cancellation.getErrorDetails());
-                   System.out.println("CANCELED: Did you update the subscription info?");
+                   System.out.println("CANCELED: Did you set the speech resource key and region values?");
                }
            }
 

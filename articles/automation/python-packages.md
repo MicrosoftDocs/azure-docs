@@ -3,28 +3,32 @@ title: Manage Python 2 packages in Azure Automation
 description: This article tells how to manage Python 2 packages in Azure Automation.
 services: automation
 ms.subservice: process-automation
-ms.date: 08/13/2021
+ms.date: 10/29/2021
 ms.topic: conceptual
 ms.custom: devx-track-python
 ---
 
 # Manage Python 2 packages in Azure Automation
 
-Azure Automation allows you to run Python 2 runbooks on Azure and on Linux Hybrid Runbook Workers. To help in simplification of runbooks, you can use Python packages to import the modules that you need. This article describes how to manage and use Python packages in Azure Automation.
+This article describes how to import, manage, and use Python 2 packages in Azure Automation running on the Azure sandbox environment and Hybrid Runbook Workers. To help simplify runbooks, you can use Python packages to import the modules you need.
+
+For information on managing Python 3 packages, see [Manage Python 3 packages](./python-3-packages.md).
 
 ## Import packages
 
-In your Automation account, select **Python 2 packages** under **Shared Resources**. Click **+ Add a Python 2 package**.
+1. In your Automation account, select **Python packages** under **Shared Resources**. Click **+ Add a Python package**.
 
-:::image type="content" source="media/python-packages/add-python-package.png" alt-text="Screenshot of the Python 2 packages page shows Python 2 packages in the left menu and Add a Python 2 package highlighted.":::
+    :::image type="content" source="media/python-packages/add-python-package.png" alt-text="Screenshot of the Python packages page shows Python packages in the left menu and Add a Python package highlighted.":::
 
-On the Add Python 2 Package page, select a local package to upload. The package can be a **.whl** or **.tar.gz** file. When the package is selected, click **OK** to upload it.
+2. On the **Add Python Package** page, select a local package to upload. The package can be a **.whl** or **.tar.gz** file. 
+3. Enter the name and select the **Runtime version** as 2.x.x
+4. Select **Import**.
 
-:::image type="content" source="media/python-packages/upload-package.png" alt-text="Screenshot shows the Add Python 2 Package page with an uploaded tar.gz file selected.":::
+   :::image type="content" source="media/python-packages/upload-package.png" alt-text="Screenshot shows the Add Python Package page with an uploaded tar.gz file selected.":::
 
-Once a package has been imported, it's listed on the Python 2 packages page in your Automation account. If you need to remove a package, select the package and click **Delete**.
+After a package has been imported, it's listed on the **Python packages** page in your Automation account. To remove a package, select the package and click **Delete**.
 
-:::image type="content" source="media/python-packages/package-list.png" alt-text="Screenshot shows the Python 2 packages page after a package has been imported.":::
+:::image type="content" source="media/python-packages/package-list.png" alt-text="Screenshot shows the Python 2.7.x packages page after a package has been imported.":::
 
 ## Import packages with dependencies
 
@@ -53,7 +57,7 @@ Once the packages are downloaded, you can import them into your automation accou
 
 The runbook allows you to specify what package to download. For example, use of the `Azure` parameter downloads all Azure modules and all dependencies (about 105).
 
-Once the runbook is complete, you can check the **Python 2 packages** under **Shared Resources** in your Automation account to verify that the package has been imported correctly.
+After the runbook is complete, you can check the **Python packages** under **Shared Resources** in your Automation account to verify that the package has been imported correctly.
 
 ## Use a package in a runbook
 

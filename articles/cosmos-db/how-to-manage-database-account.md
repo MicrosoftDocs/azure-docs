@@ -1,12 +1,13 @@
 ---
 title: Learn how to manage database accounts in Azure Cosmos DB
 description: Learn how to manage Azure Cosmos DB resources by using the Azure portal, PowerShell, CLI, and Azure Resource Manager templates
-author: markjbrown
+author: seesharprun
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 09/13/2021
-ms.author: mjbrown
+ms.author: sidandrews
+ms.reviewer: mjbrown
 ---
 
 # Manage an Azure Cosmos account using the Azure portal
@@ -25,7 +26,7 @@ This article describes how to manage various tasks on an Azure Cosmos account us
 ## Add/remove regions from your database account
 
 > [!TIP]
-> When a new region is added, all data must be fully replicated and committed into the new region before the region is marked as available. The amount of time this operation takes will depend upon how much data is stored within the account.
+> When a new region is added, all data must be fully replicated and committed into the new region before the region is marked as available. The amount of time this operation takes will depend upon how much data is stored within the account. If an [asynchronous throughput scaling operation](scaling-provisioned-throughput-best-practices.md#background-on-scaling-rus) is in progress, the throughput scale-up operation will be paused and will resume automatically when the add/remove region operation is complete. 
 
 1. Sign in to [Azure portal](https://portal.azure.com).
 
@@ -49,9 +50,9 @@ Open the **Replicate Data Globally** tab and select **Enable** to enable multi-r
 
 :::image type="content" source="./media/how-to-manage-database-account/single-to-multi-master.png" alt-text="Azure Cosmos account configures multi-region writes screenshot":::
 
-## <a id="automatic-failover"></a>Enable automatic failover for your Azure Cosmos account
+## <a id="automatic-failover"></a>Enable service-managed failover for your Azure Cosmos account
 
-The Automatic failover option allows Azure Cosmos DB to failover to the region with the highest failover priority with no user action should a region become unavailable. When automatic failover is enabled, region priority can be modified. Account must have two or more regions to enable automatic failover.
+The Service-Managed failover option allows Azure Cosmos DB to failover to the region with the highest failover priority with no user action should a region become unavailable. When service-managed failover is enabled, region priority can be modified. Account must have two or more regions to enable service-managed failover.
 
 1. From your Azure Cosmos account, open the **Replicate data globally** pane.
 
@@ -70,7 +71,7 @@ The Automatic failover option allows Azure Cosmos DB to failover to the region w
 After a Cosmos account is configured for automatic failover, the failover priority for regions can be changed.
 
 > [!IMPORTANT]
-> You cannot modify the write region (failover priority of zero) when the account is configured for automatic failover. To change the write region, you must disable automatic failover and do a manual failover.
+> You cannot modify the write region (failover priority of zero) when the account is configured for service-managed failover. To change the write region, you must disable service-managed failover and do a manual failover.
 
 1. From your Azure Cosmos account, open the **Replicate data globally** pane.
 
@@ -90,6 +91,9 @@ After a Cosmos account is configured for automatic failover, the failover priori
 
 > [!IMPORTANT]
 > The Azure Cosmos account must be configured for manual failover for this operation to succeed.
+
+> [!NOTE]
+> If you perform a manual failover operation while an [asynchronous throughput scaling operation](scaling-provisioned-throughput-best-practices.md#background-on-scaling-rus) is in progress, the throughput scale-up operation will be paused. It will resume automatically when the failover operation is complete.
 
 1. Go to your Azure Cosmos account, and open the **Replicate data globally** menu.
 

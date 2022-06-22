@@ -1,10 +1,10 @@
 ---
-author: msmimart
+author: kengaderdus
 ms.service: active-directory-b2c
 ms.subservice: B2C
 ms.topic: include
 ms.date: 10/16/2019
-ms.author: mimart
+ms.author: kengaderdus
 # Typically used by articles that include app registration, API permission, or automated tool (e.g. script) configuration.
 ---
 #### [App registrations](#tab/app-reg-ga/) 

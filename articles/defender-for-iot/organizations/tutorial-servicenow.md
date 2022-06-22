@@ -1,16 +1,23 @@
 ---
-title: Integrate ServiceNow with Azure Defender for IoT
-description: In this tutorial, learn how to integrate ServiceNow with Azure Defender for IoT.
-author: ElazarK
-ms.author: v-ekrieg
+title: Integrate ServiceNow with Microsoft Defender for IoT
+description: In this tutorial, learn how to integrate ServiceNow with Microsoft Defender for IoT.
 ms.topic: tutorial
-ms.date: 07/27/2021
+ms.date: 11/22/2021
 ms.custom: template-tutorial
 ---
 
-# Tutorial: Integrate ServiceNow with Azure Defender for IoT
+# Tutorial: Integrate ServiceNow with Microsoft Defender for IoT
 
-This tutorial will help you learn how to integrate, and use ServiceNow with Azure Defender for IoT.
+> [!Note]
+> A new [Operational Technology Manager](https://store.servicenow.com/sn_appstore_store.do#!/store/application/31eed0f72337201039e2cb0a56bf65ef/1.1.2?referer=%2Fstore%2Fsearch%3Flistingtype%3Dallintegrations%25253Bancillary_app%25253Bcertified_apps%25253Bcontent%25253Bindustry_solution%25253Boem%25253Butility%25253Btemplate%26q%3Doperational%2520technology%2520manager&sl=sh) integration is now available from the ServiceNow store. The new integration streamlines Microsoft Defender for IoT sensor appliances, OT assets, network connections, and vulnerabilities to ServiceNow’s Operational Technology (OT) data model.
+>
+>Please read the ServiceNow’s supporting links and docs for the ServiceNow's terms of service.
+>
+>Microsoft Defender for IoT's current integration is not affected by the new integration and Microsoft keeps supporting it.  
+>
+> For more information, please see the [Service Graph Connector (SGC)](https://store.servicenow.com/sn_appstore_store.do#!/store/application/ddd4bf1b53f130104b5cddeeff7b1229) and [Vulnerability Response (VR)](https://store.servicenow.com/sn_appstore_store.do#!/store/application/463a7907c3313010985a1b2d3640dd7e) integrations with Microsoft Defender for IoT on the ServiceNow store.
+
+This tutorial will help you learn how to integrate, and use ServiceNow with Microsoft Defender for IoT.
 
 The Defender for IoT integration with ServiceNow provides a new level of centralized visibility, monitoring, and control for the IoT and OT landscape. These bridged platforms enable automated device visibility and threat management to previously unreachable ICS & IoT devices.
 
@@ -23,7 +30,7 @@ In this tutorial, you learn how to:
 > * Set up Defender for IoT to communicate with ServiceNow
 > * Create access tokens in ServiceNow
 > * Send Defender for IoT device attributes to ServiceNow
-> * Set up the integration using a HTTPS proxy
+> * Set up the integration using an HTTPS proxy
 > * View Defender for IoT detections in ServiceNow
 > * View connected devices
 
@@ -38,7 +45,7 @@ Access to ServiceNow and Defender for IoT
 - Defender for IoT patch 2.8.11.1 or above.
 
 > [!Note]
-> If you are already working with a Defender for IoT and ServiceNow integration, and upgrade using the on-premises management console, pervious data received from Defender for IoT sensors should be cleared from ServiceNow.
+>If you are already working with a Defender for IoT and ServiceNow integration and upgrade using the on-premises management console. In that case, the previous data from Defender for IoT sensors should be cleared from ServiceNow.
 
 ### Architecture
 
@@ -50,7 +57,7 @@ Access to ServiceNow and Defender for IoT
 
 ## Download the Defender for IoT application in ServiceNow
 
-To access the Defender for IoT application within ServiceNow, you will need to download the application form the ServiceNow application store. 
+To access the Defender for IoT application within ServiceNow, you will need to download the application from the ServiceNow application store. 
 
 **To access the Defender for IoT application in ServiceNow**:
 
@@ -123,7 +130,7 @@ Defender for IoT alerts will now appear as incidents in ServiceNow.
 
 A token is needed in order to allow ServiceNow to communicate with Defender for IoT.
 
-You will need the `Client ID` and `Client Secret` that you entered when creating the Defender for IoT Forwarding rules. The Forwarding rules forward alert information to ServiceNow, and when configuring Defender for IoT to push device attributes to ServiceNow tables.
+You'll need the `Client ID` and `Client Secret` that you entered when creating the Defender for IoT Forwarding rules. The Forwarding rules forward alert information to ServiceNow, and when configuring Defender for IoT to push device attributes to ServiceNow tables.
 
 ## Send Defender for IoT device attributes to ServiceNow
 
@@ -157,9 +164,9 @@ Verify that the on-premises management console is connected to the ServiceNow in
 
 :::image type="content" source="media/tutorial-servicenow/sync-confirmation.png" alt-text="Screenshot of the communication occurring by looking at the last sync.":::
 
-## Set up the integrations using a HTTPS proxy
+## Set up the integrations using an HTTPS proxy
 
-When setting up the Defender for IoT and ServiceNow integration, the on-premises management console and the ServiceNow server communicate using port 443. If the ServiceNow server is behind a proxy, the default port cannot be used.
+When setting up the Defender for IoT and ServiceNow integration, the on-premises management console and the ServiceNow server communicate using port 443. If the ServiceNow server is behind a proxy, the default port can't be used.
 
 Defender for IoT supports an HTTPS proxy in the ServiceNow integration by enabling the change of the default port used for integration.
 
@@ -219,7 +226,6 @@ There are no resources to clean up.
 
 ## Next steps
 
-In this tutorial, you learned how to get started with the ServiceNow integration. Continue on to learn about our [Cisco integration](./integration-forescout.md).
+In this article, you learned how to get started with the ServiceNow integration. Continue on to learn about our [Cisco integration](./tutorial-forescout.md).
 
-> [!div class="nextstepaction"]
-> [Next steps button](./integration-forescout.md)
+

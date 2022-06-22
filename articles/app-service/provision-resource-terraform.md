@@ -5,6 +5,7 @@ author: seligj95
 ms.author: msangapu
 ms.topic: article
 ms.date: 8/26/2021
+ms.tool: terraform
 ms.custom: subject-terraform
 ---
 
@@ -141,10 +142,10 @@ Terraform provides many features for managing, building, deploying, and updating
 When no longer needed, either [delete the resource group](../azure-resource-manager/management/delete-resource-group.md?tabs=azure-portal#delete-resource-group) or head back to your terminal/command line and execute `terraform destroy` to delete all resources associated with this quickstart.
 
 > [!NOTE]
-> You can find more Azure App Service Terraform samples [here](/azure/app-service/samples-terraform). You can find even more Terraform samples across all of the Azure services [here](https://github.com/hashicorp/terraform-provider-azurerm/tree/main/examples).
+> You can find more Azure App Service Terraform samples [here](./samples-terraform.md). You can find even more Terraform samples across all of the Azure services [here](https://github.com/hashicorp/terraform-provider-azurerm/tree/main/examples).
 ## Next steps
 
 > [!div class="nextstepaction"] 
 > [Learn more about using Terraform in Azure](/azure/terraform)
 > [!div class="nextstepaction"] 
-> [Terraform samples for Azure App Service](/azure/app-service/samples-terraform)
+> [Terraform samples for Azure App Service](./samples-terraform.md)

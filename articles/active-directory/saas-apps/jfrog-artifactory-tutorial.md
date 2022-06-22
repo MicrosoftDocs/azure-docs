@@ -76,7 +76,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     b. In the **Reply URL** text box, type a URL using the following pattern:
     
     - For Artifactory Self-hosted: `https://<servername>.jfrog.io/artifactory/webapp/saml/loginResponse`
-    - For Artifactory SaaS: `https://<servername>.jfrog.io/<servername>/webapp/saml/loginResponse`
+    - For Artifactory SaaS: `https://<servername>.jfrog.io/artifactory/webapp/saml/loginResponse`
 
 1. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
@@ -164,4 +164,4 @@ You can also use Microsoft My Apps to test the application in any mode. When you
 
 ## Next steps
 
-Once you configure JFrog Artifactory you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+Once you configure JFrog Artifactory you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-any-app).

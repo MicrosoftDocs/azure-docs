@@ -1,24 +1,31 @@
 ---
-title: Create a virtual machine in Azure DevTest Labs with Azure PowerShell
-description: Learn how to use Azure DevTest Labs to create and manage virtual machines with Azure PowerShell.
+title: Create a lab virtual machine by using Azure PowerShell
+description: Learn how to use Azure PowerShell to create and manage virtual machines in Azure DevTest Labs.
 ms.topic: how-to
-ms.date: 06/26/2020 
+ms.author: rosemalcolm
+author: RoseHJM
+ms.date: 03/17/2022
 ms.custom: devx-track-azurepowershell
 ---
 
-# Create a virtual machine with DevTest Labs using Azure PowerShell
-This article shows you how to create a virtual machine in Azure DevTest Labs by using Azure PowerShell. You can use PowerShell scripts to automate creation of virtual machines in a lab in Azure DevTest Labs. 
+# Create DevTest Labs VMs by using Azure PowerShell
+
+This article shows you how to create an Azure DevTest Labs virtual machine (VM) in a lab by using Azure PowerShell. You can use PowerShell scripts to automate lab VM creation.
 
 ## Prerequisites
-Before you begin:
 
-- [Create a lab](devtest-lab-create-lab.md) if you don't want to use an existing lab to test the script or commands in this article. 
-- [Install Azure PowerShell](/powershell/azure/install-az-ps) or use Azure Cloud Shell that's integrated into the Azure portal. 
+You need the following prerequisites to work through this article:
 
-## PowerShell script
-The sample script in this section uses the [Invoke-AzResourceAction](/powershell/module/az.resources/invoke-azresourceaction) cmdlet.  This cmdlet takes the lab's resource ID, name of the action to perform (`createEnvironment`), and the parameters necessary perform that action. The parameters are in a hash table that contains all the virtual machine description properties. 
+- Access to a lab in DevTest Labs. [Create a lab](devtest-lab-create-lab.md), or use an existing lab.
+- Azure PowerShell. [Install Azure PowerShell](/powershell/azure/install-az-ps), or [use Azure Cloud Shell](../cloud-shell/quickstart-powershell.md) in the Azure portal.
 
-```powershell
+## PowerShell VM creation script
+
+The PowerShell [Invoke-AzResourceAction](/powershell/module/az.resources/invoke-azresourceaction) cmdlet invokes the `createEnvironment` action with the lab's resource ID and VM parameters. The parameters are in a hash table that contains all the VM properties. The properties are different for each type of VM. To get the properties for the VM type you want, see [Get VM properties](#get-vm-properties).
+
+This sample script creates a Windows Server 2019 Datacenter VM. The sample also includes properties to add a second data disk under `dataDiskParameters`.
+
+ ```powershell
 [CmdletBinding()]
 
 Param(
@@ -44,21 +51,17 @@ try {
        throw "Unable to find lab $LabName resource group $LabResourceGroup in subscription $SubscriptionId."
     }
 
-    #For this example, we are getting the first allowed subnet in the first virtual network
-    #  for the lab.
-    #If a specific virtual network is needed use | to find it. 
-    #ie $virtualNetwork = @(Get-AzResource -ResourceType  'Microsoft.DevTestLab/labs/virtualnetworks' -ResourceName $LabName -ResourceGroupName $lab.ResourceGroupName -ApiVersion $API_VERSION) | Where-Object Name -EQ "SpecificVNetName"
-
     $virtualNetwork = @(Get-AzResource -ResourceType  'Microsoft.DevTestLab/labs/virtualnetworks' -ResourceName $LabName -ResourceGroupName $lab.ResourceGroupName -ApiVersion $API_VERSION)[0]
+
+    #The preceding command puts the VM in the first allowed subnet in the first virtual network for the lab.
+    #If you need to use a specific virtual network, use | to find the network. For example:
+    #$virtualNetwork = @(Get-AzResource -ResourceType  'Microsoft.DevTestLab/labs/virtualnetworks' -ResourceName $LabName -ResourceGroupName $lab.ResourceGroupName -ApiVersion $API_VERSION) | Where-Object Name -EQ "SpecificVNetName"
 
     $labSubnetName = $virtualNetwork.properties.allowedSubnets[0].labSubnetName
 
-    #Prepare all the properties needed for the createEnvironment
-    # call used to create the new VM.
-    # The properties will be slightly different depending on the base of the vm
-    # (a marketplace image, custom image or formula).
-    # The setup of the virtual network to be used may also affect the properties.
-    # This sample includes the properties to add an additional disk under dataDiskParameters
+    #Prepare all the properties needed for the createEnvironment call.
+    # The properties are slightly different depending on the type of VM base.
+    # The virtual network setup might also affect the properties.
     
     $parameters = @{
        "name"      = $NewVmName;
@@ -66,13 +69,13 @@ try {
        "properties" = @{
           "labVirtualNetworkId"     = $virtualNetwork.ResourceId;
           "labSubnetName"           = $labSubnetName;
-          "notes"                   = "Windows Server 2016 Datacenter";
+          "notes"                   = "Windows Server 2019 Datacenter";
           "osType"                  = "windows"
-          "expirationDate"          = "2019-12-01"
+          "expirationDate"          = "2022-12-01"
           "galleryImageReference"   = @{
              "offer"     = "WindowsServer";
              "publisher" = "MicrosoftWindowsServer";
-             "sku"       = "2016-Datacenter";
+             "sku"       = "2019-Datacenter";
              "osType"    = "Windows";
              "version"   = "latest"
           };
@@ -91,8 +94,8 @@ try {
        }
     }
     
-    #The following line is the same as invoking
-    # https://azure.github.io/projects/apis/#!/Labs/Labs_CreateEnvironment rest api
+    #The following line has the same effect as invoking the
+    # https://azure.github.io/projects/apis/#!/Labs/Labs_CreateEnvironment REST API
 
     Invoke-AzResourceAction -ResourceId $lab.ResourceId -Action 'createEnvironment' -Parameters $parameters -ApiVersion $API_VERSION -Force -Verbose
 }
@@ -101,114 +104,121 @@ finally {
 }
 ```
 
-The properties for the virtual machine in the above script allow us to create a virtual machine with Windows Server 2016 DataCenter as the OS. For each type of virtual machine, these properties will be slightly different. The [Define virtual machine](#define-virtual-machine) section shows you how to determine which properties to use in this script.
-
-The following command provides an example of running the script saved in a file name: Create-LabVirtualMachine.ps1. 
+Save the preceding script in a file named *Create-LabVirtualMachine.ps1*. Run the script by using the following command. Enter your own values for the placeholders.
 
 ```powershell
- PS> .\Create-LabVirtualMachine.ps1 -ResourceGroupName 'MyLabResourceGroup' -LabName 'MyLab' -userName 'AdminUser' -password 'Password1!' -VMName 'MyLabVM'
+.\Create-LabVirtualMachine.ps1 -ResourceGroupName '<lab resource group name>' -LabName '<lab name>' -userName '<VM administrative username>' -password '<VM admin password>' -VMName '<VM name to create>'
 ```
 
-## Define virtual machine
-This section shows you how to get the properties that are specific to a type of virtual machine that you want to create. 
+## Get VM properties
 
-### Use Azure portal
-You can generate an Azure Resource Manager template when creating a VM in the Azure portal. You don't need to complete the process of creating the VM. You only follow the steps until you see the template. This is the best way to get the necessary JSON description if you do not already have a lab VM created. 
+This section shows how to get the specific properties for the type of VM you want to create. You can get the properties from an Azure Resource Manager (ARM) template in the Azure portal, or by calling the DevTest Labs Azure REST API.
 
-1. Navigate to the [Azure portal](https://portal.azure.com).
-2. Select **All Services** on the left navigational menu.
-3. Search for and select **DevTest Labs** from the list of services. 
-4. On the **DevTest Labs** page, select your lab in the list of labs.
-5. On the home page for your lab, select **+ Add** on the toolbar. 
-6. Select a **base image** for the VM. 
-7. Select **automation options** at the bottom of the page above the **Submit** button. 
-8. You see the **Azure Resource Manager template** for creating the virtual machine. 
-9. The JSON segment in the **resources** section has the definition for the image type you selected earlier. 
+### Use the Azure portal to get VM properties
 
-    ```json
-    {
-      "apiVersion": "2018-10-15-preview",
-      "type": "Microsoft.DevTestLab/labs/virtualmachines",
-      "name": "[variables('vmName')]",
-      "location": "[resourceGroup().location]",
-      "properties": {
-        "labVirtualNetworkId": "[variables('labVirtualNetworkId')]",
-        "notes": "Windows Server 2019 Datacenter",
-        "galleryImageReference": {
-          "offer": "WindowsServer",
-          "publisher": "MicrosoftWindowsServer",
-          "sku": "2019-Datacenter",
-          "osType": "Windows",
-          "version": "latest"
-        },
-        "size": "[parameters('size')]",
-        "userName": "[parameters('userName')]",
-        "password": "[parameters('password')]",
-        "isAuthenticationWithSshKey": false,
-        "labSubnetName": "[variables('labSubnetName')]",
-        "disallowPublicIpAddress": true,
-        "storageType": "Standard",
-        "allowClaim": false,
-        "networkInterface": {
-          "sharedPublicIpAddressConfiguration": {
-            "inboundNatRules": [
-              {
-                "transportProtocol": "tcp",
-                "backendPort": 3389
-              }
-            ]
+Creating a VM in the Azure portal generates an Azure Resource Manager (ARM) template that shows the VM's properties. Once you choose a VM base, you can see the ARM template and get the properties without actually creating the VM. This method is the easiest way to get the JSON VM description if you don't already have a lab VM of that type.
+
+1. In the [Azure portal](https://portal.azure.com), on the **Overview** page for your lab, select **Add** on the top toolbar.
+1. On the **Choose a base** page, select the VM type you want. Depending on lab settings, the VM base can be an Azure Marketplace image, a custom image, a formula, or an environment.
+1. On the **Create lab resource** page, optionally [add artifacts](add-artifact-vm.md) and configure any other settings you want on the **Basic settings** and **Advanced settings** tabs.
+1. On the **Advanced settings** tab, select **View ARM template** at the bottom of the page.
+1. On the **View Azure Resource Manager template** page, review the JSON template for creating the VM. The **resources** section has the VM properties.
+
+   For example, the following `resources` section has the properties for a Windows Server 2022 Datacenter VM:
+   ```json
+     "resources": [
+          {
+               "apiVersion": "2018-10-15-preview",
+               "type": "Microsoft.DevTestLab/labs/virtualmachines",
+               "name": "[variables('vmName')]",
+               "location": "[resourceGroup().location]",
+               "properties": {
+                    "labVirtualNetworkId": "[variables('labVirtualNetworkId')]",
+                    "notes": "Windows Server 2022 Datacenter: Azure Edition Core",
+                    "galleryImageReference": {
+                         "offer": "WindowsServer",
+                         "publisher": "MicrosoftWindowsServer",
+                         "sku": "2022-datacenter-azure-edition-core",
+                         "osType": "Windows",
+                         "version": "latest"
+                    },
+                    "size": "[parameters('size')]",
+                    "userName": "[parameters('userName')]",
+                    "password": "[parameters('password')]",
+                    "isAuthenticationWithSshKey": false,
+                    "labSubnetName": "[variables('labSubnetName')]",
+                    "disallowPublicIpAddress": true,
+                    "storageType": "Standard",
+                    "allowClaim": false,
+                    "networkInterface": {
+                         "sharedPublicIpAddressConfiguration": {
+                              "inboundNatRules": [
+                                   {
+                                        "transportProtocol": "tcp",
+                                        "backendPort": 3389
+                                   }
+                              ]
+                         }
+                    }
+               }
           }
-        }
-      }
-    }
-    ```
+     ],
+   ```
 
-In this example, you see how to get a definition of an Azure Market Place image. You can get a definition of a custom image, a formula, or an environment in the same way. Add any artifacts needed for the virtual machine, and set any advanced settings required. After providing values for the required fields, and any optional fields, before selecting the **Automation options** button.
+1. Copy and save the template to use in future PowerShell automation, and transfer the properties to the PowerShell VM creation script.
 
-### Use Azure REST API
-The following procedure gives you steps to get properties of an image by using the REST API: These steps work only for an existing VM in a lab. 
+   
 
-1. Navigate to the [Virtual Machines - list](/rest/api/dtl/virtualmachines/list) page, select **Try it** button. 
-2. Select your **Azure subscription**.
-3. Enter the **resource group for the lab**.
-4. Enter the **name of the lab**. 
-5. Select **Run**.
-6. You see the **properties for the image** based on which the VM was created. 
+### Use the DevTest Labs Azure REST API to get VM properties
 
-## Set expiration date
-In scenarios such as training, demos and trials, you may want to create virtual machines and delete them automatically after a fixed duration so that you don’t incur unnecessary costs. You can set an expiration date for a VM while creating it using PowerShell as shown in the example [PowerShell script](#powershell-script) section.
+You can also call the DevTest Labs REST API to get the properties of existing lab VMs. You can use those properties to create more lab VMs of the same types.
 
-Here is a sample PowerShell script that sets expiration date for all existing VMs in a lab:
+1. On the [Virtual Machines - list](/rest/api/dtl/virtualmachines/list) page, select **Try it** above the first code block.
+1. On the **REST API Try It** page:
+   - Under **labName**, enter your lab name.
+   - Under **labResourceGroup**, enter the lab resource group name.
+   - Under **subscriptionId**, select the lab's Azure subscription.
+1. Select **Run**. 
+1. In the **Response** section under **Body**, view the properties for all the existing VMs in the lab.
+
+## Set VM expiration date
+
+In training, demo, and trial scenarios, you can avoid unnecessary costs by deleting VMs automatically on a certain date. You can set the VM `expirationDate` property when you create a VM. The PowerShell VM creation script earlier in this article sets an expiration date under `properties`:
+
+```json
+          "expirationDate"          = "2022-12-01"
+```
+
+You can also set expiration dates on existing VMs by using PowerShell. The following PowerShell script sets an expiration date for an existing lab VM if it doesn't already have an expiration date:
 
 ```powershell
-# Values to change
-$subscriptionId = '<Enter the subscription Id that contains lab>'
-$labResourceGroup = '<Enter the lab resource group>'
-$labName = '<Enter the lab name>'
-$VmName = '<Enter the VmName>'
-$expirationDate = '<Enter the expiration date e.g. 2019-12-16>'
+# Enter your own values:
+$subscriptionId = '<Lab subscription Id>'
+$labResourceGroup = '<Lab resource group>'
+$labName = '<Lab name>'
+$VmName = '<VM name>'
+$expirationDate = '<Expiration date, such as 2022-12-16>'
 
-# Log into your Azure account
-Login-AzureRmAccount
+# Sign in to your Azure account
 
-Select-AzureRmSubscription -SubscriptionId $subscriptionId
+Select-AzSubscription -SubscriptionId $subscriptionId
 $VmResourceId = "subscriptions/$subscriptionId/resourcegroups/$labResourceGroup/providers/microsoft.devtestlab/labs/$labName/virtualmachines/$VmName"
 
-$vm = Get-AzureRmResource -ResourceId $VmResourceId -ExpandProperties
+$vm = Get-AzResource -ResourceId $VmResourceId -ExpandProperties
 
-# Get all the Vm properties
+# Get the Vm properties
 $VmProperties = $vm.Properties
 
 # Set the expirationDate property
 If ($VmProperties.expirationDate -eq $null) {
-    $VmProperties | Add-Member -MemberType NoteProperty -Name expirationDate -Value $expirationDate
+    $VmProperties | Add-Member -MemberType NoteProperty -Name expirationDate -Value $expirationDate -Force
 } Else {
     $VmProperties.expirationDate = $expirationDate
 }
 
-Set-AzureRmResource -ResourceId $VmResourceId -Properties $VmProperties -Force
+Set-AzResource -ResourceId $VmResourceId -Properties $VmProperties -Force
 ```
 
-
 ## Next steps
-See the following content: [Azure PowerShell documentation for Azure DevTest Labs](/powershell/module/az.devtestlabs/)
+
+[Az.DevTestLabs PowerShell reference](/powershell/module/az.devtestlabs/)

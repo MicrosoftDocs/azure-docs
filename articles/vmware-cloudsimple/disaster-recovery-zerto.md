@@ -1,4 +1,4 @@
---- 
+---
 title: Azure VMware Solution by CloudSimple - Use Private Cloud as disaster site for on-premises workloads
 description: Describes how to set up your CloudSimple Private Cloud as a disaster recovery site for on-premises VMware workloads
 author: suzizuber

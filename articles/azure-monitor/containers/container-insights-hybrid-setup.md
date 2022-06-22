@@ -3,6 +3,7 @@ title: Configure Hybrid Kubernetes clusters with Container insights | Microsoft 
 description: This article describes how you can configure Container insights to monitor Kubernetes clusters hosted on Azure Stack or other environment.
 ms.topic: conceptual
 ms.date: 06/30/2020
+ms.reviewer: aul
 ---
 
 # Configure hybrid Kubernetes clusters with Container insights
@@ -31,9 +32,7 @@ The following configurations are officially supported with Container insights. I
 
 Before you start, make sure that you have the following:
 
-- A [Log Analytics workspace](../logs/design-logs-deployment.md).
-
-    Container insights supports a Log Analytics workspace in the regions listed in Azure [Products by region](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=monitor). To create your own workspace, it can be created through [Azure Resource Manager](../logs/resource-manager-workspace.md), through [PowerShell](../logs/powershell-sample-create-workspace.md?toc=%2fpowershell%2fmodule%2ftoc.json), or in the [Azure portal](../logs/quick-create-workspace.md).
+- [Log Analytics workspace](../logs/design-logs-deployment.md). Container insights supports a Log Analytics workspace in the regions listed in Azure [Products by region](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=monitor). To create your own workspace, it can be created through [Azure Resource Manager](../logs/resource-manager-workspace.md), through [PowerShell](../logs/powershell-workspace-configuration.md?toc=%2fpowershell%2fmodule%2ftoc.json), or in the [Azure portal](../logs/quick-create-workspace.md).
 
     >[!NOTE]
     >Enable monitoring of multiple clusters with the same cluster name to same Log Analytics workspace is not supported. Cluster names must be unique.
@@ -41,7 +40,7 @@ Before you start, make sure that you have the following:
 
 - You are a member of the **Log Analytics contributor role** to enable container monitoring. For more information about how to control access to a Log Analytics workspace, see [Manage access to workspace and log data](../logs/manage-access.md).
 
-- To view the monitoring data, you need to have [*Log Analytics reader*](../logs/manage-access.md#manage-access-using-azure-permissions) role in the Log Analytics workspace, configured with Container insights.
+- To view the monitoring data, you need to have [*Log Analytics reader*](../logs/manage-access.md#azure-rbac) role in the Log Analytics workspace, configured with Container insights.
 
 - [HELM client](https://helm.sh/docs/using_helm/) to onboard the Container insights chart for the specified Kubernetes cluster.
 
@@ -197,7 +196,7 @@ To first identify the full resource ID of your Log Analytics workspace required 
     }
     ```
 
-7. Edit the values for **workspaceResourceId** using the value you copied in step 3, and for **workspaceRegion** copy the **Region** value after running the Azure CLI command [az monitor log-analytics workspace show](/cli/azure/monitor/log-analytics/workspace#az_monitor-log-analytics-workspace-list&preserve-view=true).
+7. Edit the values for **workspaceResourceId** using the value you copied in step 3, and for **workspaceRegion** copy the **Region** value after running the Azure CLI command [az monitor log-analytics workspace show](/cli/azure/monitor/log-analytics/workspace#az-monitor-log-analytics-workspace-list&preserve-view=true).
 
 8. Save this file as containerSolutionParams.json to a local folder.
 

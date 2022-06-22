@@ -6,12 +6,12 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: how-to
-ms.date: 09/22/2021
+ms.date: 01/25/2022
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: karenhoran
-ms.reviewer: jlu, shreyamalik
+ms.reviewer: vmahtani
 
 ms.collection: M365-identity-device-management
 ---
@@ -27,11 +27,11 @@ Administrators will have the opportunity to monitor user sign-ins where CAE is a
 1.	Browse to **Azure Active Directory** > **Sign-ins**. 
 1.	Apply the **Is CAE Token** filter. 
 
-[ ![Add a filter to the Sitn-ins log to see where CAE is being applied or not](./media/howto-continuous-access-evaluation-troubleshoot/azure-ad-sign-ins-log-apply-filter.png) ](./media/howto-continuous-access-evaluation-troubleshoot/azure-ad-sign-ins-log-apply-filter.png#lightbox)
+[ ![Add a filter to the Sign-ins log to see where CAE is being applied or not](./media/howto-continuous-access-evaluation-troubleshoot/azure-ad-sign-ins-log-apply-filter.png) ](./media/howto-continuous-access-evaluation-troubleshoot/azure-ad-sign-ins-log-apply-filter.png#lightbox)
 
 From here, admins will be presented with information about their user’s sign-in events. Select any sign-in to see details about the session, like which Conditional Access policies were applied and is CAE enabled. 
 
-A given sign-in attempt may display on either the interactive or non-interactive tab. Administrators may need to check both tabs as they track their user’s sign-ins.
+There are multiple sign-in requests for each authentication. Some will be shown on the interactive tab, while others will be shown on the non-interactive tab. CAE will only be displayed as true for one of the requests, and it can be on the interactive tab or non-interactive tab. Admins need to check both tabs to confirm whether the user's authentication is CAE enabled or not. 
 
 ### Searching for specific sign-in attempts
 
@@ -57,7 +57,7 @@ The **Continuous access evaluation insights** workbook contains the following ta
 
 ![Workbook table 1 showing potential IP address mismatches](./media/howto-continuous-access-evaluation-troubleshoot/continuous-access-evaluation-insights-workbook-table-1.png)
 
-The potential IP address mismatch between Azure AD & resource provider table allows admins to investigate sessions where the IP address detected by Azure AD doesn't match with the IP address detected by the Resource Provider. 
+The potential IP address mismatch between Azure AD & resource provider table allows admins to investigate sessions where the IP address detected by Azure AD doesn't match with the IP address detected by the resource provider. 
 
 This workbook table sheds light on these scenarios by displaying the respective IP addresses and whether a CAE token was issued during the session. 
 

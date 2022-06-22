@@ -4,13 +4,14 @@ description: Learn how to use Java and JDBC with an Azure Database for MySQL Fle
 author: mksuni
 ms.author: sumuth
 ms.service: mysql
-ms.custom: mvc, devcenter, devx-track-azurecli
+ms.subservice: flexible-server
+ms.custom: mvc, devcenter, devx-track-azurecli, mode-api
 ms.topic: quickstart
 ms.devlang: java
 ms.date: 01/16/2021
 ---
 
-# Quickstart: Use Java and JDBC with Azure Database for MySQL Flexible Server
+# Use Java and JDBC with Azure Database for MySQL Flexible Server
 
 [[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 

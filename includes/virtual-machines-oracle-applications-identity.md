@@ -1,6 +1,6 @@
 ---
 author: dlepow
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
 ms.topic: include
 ms.date: 07/10/2019
 ms.author: danlep
@@ -13,4 +13,4 @@ OHS acts as a reverse proxy to the application tier, which means that all the re
 
 With this setup, a user already logged in to Azure AD can navigate to the JD Edwards EnterpriseOne or PeopleSoft application without logging in again, through Oracle Identity Cloud Service. Customers that deploy this solution gain the benefits of single sign-on, including a single set of credentials, an improved sign-on experience, improved security, and reduced help-desk cost.
 
-To learn more about setting up single sign-on for JD Edwards EnterpriseOne or PeopleSoft with Azure AD, see the associated [Oracle whitepaper](https://cloud.oracle.com/iaas/whitepapers/deploy_peoplesoft_jdedwards_across_oci_azure.pdf).
+To learn more about setting up single sign-on for JD Edwards EnterpriseOne or PeopleSoft with Azure AD, see the associated [Oracle whitepaper](https://www.oracle.com/a/ocom/docs/applications/jdedwards/jde-on-oci-strategy-updates-2020.pdf).

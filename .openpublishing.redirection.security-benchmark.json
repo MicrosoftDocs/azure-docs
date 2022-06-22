@@ -517,6 +517,11 @@
         "redirect_document_id": false
     },
     {
+        "source_path_from_root": "/articles/virtual-network/nat-gateway/nat-security-baseline.md",
+        "redirect_url": "/security/benchmark/azure/baselines/virtual-network-nat-security-baseline",
+        "redirect_document_id": false
+    },
+    {
         "source_path_from_root": "/articles/virtual-network/nat-security-baseline.md",
         "redirect_url": "/security/benchmark/azure/baselines/virtual-network-nat-security-baseline",
         "redirect_document_id": false
@@ -526,6 +531,17 @@
         "redirect_url": "/security/benchmark/azure/baselines/virtual-wan-security-baseline",
         "redirect_document_id": false
     },
+    {
+        "source_path_from_root": "/articles/virtual-desktop/security-baseline.md",
+        "redirect_url": "/security/benchmark/azure/baselines/virtual-desktop-security-baseline",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/cloud-services/security-baseline.md",
+        "redirect_url": "/security/benchmark/azure/baselines/cloud-services-security-baseline",
+        "redirect_document_id": false
+    },
+
     {
         "source_path_from_root": "/articles/vpn-gateway/security-baseline.md",
         "redirect_url": "/security/benchmark/azure/baselines/vpn-gateway-security-baseline",

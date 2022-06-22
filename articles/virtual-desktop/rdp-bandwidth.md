@@ -2,10 +2,10 @@
 title: Remote Desktop Protocol bandwidth requirements Azure Virtual Desktop - Azure
 titleSuffix: Azure
 description: Understanding RDP bandwidth requirements for Azure Virtual Desktop.
-author: gundarev
+author: femila
 ms.topic: conceptual
 ms.date: 11/16/2020
-ms.author: denisgun
+ms.author: femila
 ---
 # Remote Desktop Protocol (RDP) bandwidth requirements
 
@@ -93,7 +93,7 @@ In most scenarios, there's no need to limit bandwidth utilization as limiting ma
 In such cases, you could limit an RDP outbound network traffic by specifying a throttle rate in QoS Policy.
 
   >[!NOTE]
-  > [Make sure that RDP Shortpath is enabled](./shortpath.md) - throttle rate-limiting are not supported for reverse connect transport.
+  > [Make sure that RDP Shortpath for managed networks is enabled](./shortpath.md) - throttle rate-limiting are not supported for reverse connect transport.
 
 ### Implement throttle rate limiting on session host using Group Policy
 
@@ -133,10 +133,10 @@ The new policies you've created won't take effect until Group Policy has been re
 
 ### Implement throttle rate limiting on session host using PowerShell
 
-You can set throttle rate for RDP Shortpath using the PowerShell cmdlet below:
+You can set throttle rate for RDP Shortpath for managed networks using the PowerShell cmdlet below:
 
 ```powershell
-New-NetQosPolicy -Name "RDP Shortpath" -AppPathNameMatchCondition "svchost.exe" -IPProtocolMatchCondition UDP -IPSrcPortStartMatchCondition 3390 -IPSrcPortEndMatchCondition 3390 -DSCPAction 46 -NetworkProfile All
+New-NetQosPolicy -Name "RDP Shortpath for managed networks" -AppPathNameMatchCondition "svchost.exe" -IPProtocolMatchCondition UDP -IPSrcPortStartMatchCondition 3390 -IPSrcPortEndMatchCondition 3390  -ThrottleRateActionBitsPerSecond 10mb -NetworkProfile All
 ```
 
 ## Next steps

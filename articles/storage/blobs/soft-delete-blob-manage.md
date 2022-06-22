@@ -10,6 +10,7 @@ ms.topic: how-to
 ms.date: 07/23/2021
 ms.author: tamram
 ms.subservice: blobs
+ms.devlang: csharp
 ms.custom: "devx-track-csharp"
 ---
 
@@ -129,13 +130,6 @@ Not applicable. Blob versioning is supported only in the Azure Storage client li
 ## Manage soft-deleted blobs and directories (hierarchical namespace)
 
 You can restore soft deleted blobs and directories in accounts that have a hierarchical namespace.
-
-> [!IMPORTANT]
-> Soft delete in accounts that have the hierarchical namespace feature enabled is currently in PREVIEW, and is available globally in all Azure regions.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
->
->
-> To enroll in the preview, see [this form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR4mEEwKhLjlBjU3ziDwLH-pUOVRVOUpDRUtHVUtDUUtMVTZUR0tUMjZWNy4u).
 
 ### Manage soft-deleted blobs with the Azure portal
 

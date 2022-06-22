@@ -3,7 +3,7 @@ title: Performance guide for Azure Web PubSub Service
 description: An overview of the performance and benchmark of Azure Web PubSub Service. Key metrics to consider when planning the capacity.
 ms.service: azure-web-pubsub
 ms.topic: conceptual
-ms.date: 5/12/2021
+ms.date: 11/08/2021
 ms.author: biqian
 author: bjqian
 ---
@@ -14,6 +14,18 @@ One of the key benefits of using Azure Web PubSub Service is the ease of scaling
 
 In this guide, we'll introduce the factors that affect Web PubSub upstream application performance. We'll describe typical performance in different use-case scenarios. 
 
+## Quick evaluation using metrics
+   Before going through the factors that impact the performance, let's first introduce an easy way to monitor the pressure of your service. There's a metrics called **Server Load** on the Portal.
+   
+  <kbd>![Screenshot of the Server Load metric of Azure Web PubSub on Portal. The metrics shows Server Load is at about 8 percent usage. ](./media/concept-performance/server-load.png  "Server Load")</kbd>
+
+
+   It shows the computing pressure of your Azure Web PubSub service. You could test on your own scenario and check this metrics to decide whether to scale up. The latency inside Azure Web PubSub service would remain low if the Server Load is below 70%. 
+   
+> [!NOTE]
+> If you are using unit 50 or unit 100 **and** your scenario is mainly sending to small groups (group size <100), you need to check [sending to small group](#small-group) for reference. In those scenarios there is large routing cost which is not included in the Server Load.
+   
+   Below are detailed concepts for evaluating performance.
 ## Term definitions
 
 *Inbound*: The incoming message to Azure Web PubSub Service.
@@ -155,7 +167,7 @@ In this case, the app server writes back the original message back in the http r
 
 
 
-### Rest API
+### REST API
 
 Azure Web PubSub provides powerful [APIs](/rest/api/webpubsub/) to manage clients and deliver real-time messages.
 

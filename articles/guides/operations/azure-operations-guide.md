@@ -137,7 +137,7 @@ One of the benefits of using Azure is that you can deploy your applications into
 
 ### Azure portal
 
-The Azure portal is a web-based application that can be used to create, manage, and remove Azure resources and services. The Azure portal is located at [portal.azure.com](https://portal.azure.com). It includes a customizable dashboard and tooling for managing Azure resources. It also provides billing and subscription information. For more information, see [Microsoft Azure portal overview](https://azure.microsoft.com/documentation/articles/azure-portal-overview/) and [Manage Azure resources through portal](../../azure-resource-manager/management/manage-resources-portal.md).
+The Azure portal is a web-based application that can be used to create, manage, and remove Azure resources and services. The Azure portal is located at [portal.azure.com](https://portal.azure.com). It includes a customizable dashboard and tooling for managing Azure resources. It also provides billing and subscription information. For more information, see [Microsoft Azure portal overview](../../azure-portal/azure-portal-overview.md) and [Manage Azure resources through portal](../../azure-resource-manager/management/manage-resources-portal.md).
 
 ### Resources
 
@@ -153,15 +153,15 @@ An Azure Resource Manager template is a JavaScript Object Notation (JSON) file t
 
 ### Automation
 
-In addition to creating, managing, and deleting resources by using the Azure portal, you can automate these activities by using PowerShell or the Azure command-line interface (CLI).
+In addition to creating, managing, and deleting resources by using the Azure portal, you can automate these activities by using PowerShell or the Azure CLI.
 
 #### Azure PowerShell
 
 Azure PowerShell is a set of modules that provide cmdlets for managing Azure. You can use the cmdlets to create, manage, and remove Azure services. The cmdlets can help you can achieve consistent, repeatable, and hands-off deployments. For more information, see [How to install and configure Azure PowerShell](/powershell/azure/install-Az-ps).
 
-#### Azure command-line interface
+#### Azure CLI
 
-The Azure command-line interface is a tool that you can use to create, manage, and remove Azure resources from the command line. The Azure CLI is available for Linux, Mac OS X, and Windows. For more information and technical details, see [Install the Azure CLI](/cli/azure/install-azure-cli).
+The Azure CLI provides a command-line experience for creating, managing, and deleting Azure resources. The Azure CLI is available for Windows, Linux, and macOS. For more information and technical details, see [Install the Azure CLI](/cli/azure/install-azure-cli).
 
 #### REST APIs
 
@@ -331,13 +331,13 @@ In addition to deploying Azure compute resources individually, you can use the A
 
 #### Command-line interface (CLI)
 
-As with the PowerShell module, the Azure command-line interface provides deployment automation and can be used on Windows, OS X, or Linux systems. When you're using the Azure CLI **vm quick-create** command, all related virtual machine resources (including storage and networking) and the virtual machine itself are deployed. For more information, see [Create a Linux VM in Azure by using the CLI](../../virtual-machines/linux/quick-create-cli.md).
+As with the PowerShell module, the Azure CLI provides deployment automation and can be used on Windows, OS X, or Linux systems. When you're using the Azure CLI **vm quick-create** command, all related virtual machine resources (including storage and networking) and the virtual machine itself are deployed. For more information, see [Create a Linux VM in Azure by using the CLI](../../virtual-machines/linux/quick-create-cli.md).
 
 Likewise, you can use the Azure CLI to deploy an Azure Resource Manager template. For more information, see [Deploy resources with Resource Manager templates and Azure CLI](../../azure-resource-manager/templates/deploy-cli.md).
 
 ### Access and security for virtual machines
 
-Accessing a virtual machine from the Internet requires the associated network interface, or load balancer if applicable, to be configured with a public IP address. The public IP address includes a DNS name that will resolve to the virtual machine or load balancer. For more information, see [IP addresses in Azure](../../virtual-network/public-ip-addresses.md).
+Accessing a virtual machine from the Internet requires the associated network interface, or load balancer if applicable, to be configured with a public IP address. The public IP address includes a DNS name that will resolve to the virtual machine or load balancer. For more information, see [IP addresses in Azure](../../virtual-network/ip-services/public-ip-addresses.md).
 
 You manage access to the virtual machine over the public IP address by using a network security group (NSG) resource. An NSG acts like a firewall and allows or denies traffic across the network interface or subnet on a set of defined ports. For instance, to create a Remote Desktop session with an Azure VM, you need to configure the NSG to allow inbound traffic on port 3389. For more information, see [Opening ports to a VM in Azure using the Azure portal](../../virtual-machines/windows/nsg-quickstart-portal.md).
 
@@ -399,7 +399,7 @@ In addition to deploying Azure resources individually, you can use the Azure Pow
 
 #### Command-line interface (CLI)
 
-As with the PowerShell module, the Azure command-line Interface provides deployment automation and can be used on Windows, macOS, or Linux systems. You can use the Azure CLI **storage account create** command to create a storage account. For more information, see [Using the Azure CLI with Azure Storage.](../../storage/blobs/storage-quickstart-blobs-cli.md)
+As with the PowerShell module, the Azure CLI provides deployment automation and can be used on Windows, macOS, or Linux systems. You can use the Azure CLI **storage account create** command to create a storage account. For more information, see [Using the Azure CLI with Azure Storage.](../../storage/blobs/storage-quickstart-blobs-cli.md)
 
 Likewise, you can use the Azure CLI to deploy an Azure Resource Manager template. For more information, see [Deploy resources with Resource Manager templates and Azure CLI](../../azure-resource-manager/templates/deploy-cli.md).
 

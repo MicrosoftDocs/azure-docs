@@ -3,15 +3,15 @@ title: Set up a resource owner password credentials flow
 titleSuffix: Azure AD B2C
 description: Learn how to set up the resource owner password credentials (ROPC) flow in Azure Active Directory B2C.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
 ms.date: 09/12/2021
 ms.custom: project-no-code
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
 ---
@@ -37,7 +37,7 @@ The following flows are not supported:
 
 When using the ROPC flow, consider the following:
 
-- ROPC doesn’t work when there is any interruption to the authentication flow that needs user interaction. For example, when a password has expired or needs to be changed, [multi-factor authentication](multi-factor-authentication.md) is required, or when more information needs to be collected during sign-in (for example, user consent).
+- ROPC doesn’t work when there is any interruption to the authentication flow that needs user interaction. For example, when a password has expired or needs to be changed, [multifactor authentication](multi-factor-authentication.md) is required, or when more information needs to be collected during sign-in (for example, user consent).
 - ROPC supports local accounts only. Users can’t sign in with [federated identity providers](add-identity-provider.md) like Microsoft, Google+, Twitter, AD-FS, or Facebook.
 - [Session Management](session-behavior.md), including [keep me signed-in (KMSI)](session-behavior.md#enable-keep-me-signed-in-kmsi), is not applicable.
 
@@ -66,6 +66,9 @@ When using the ROPC flow, consider the following:
 ::: zone-end
 
 ::: zone pivot="b2c-custom-policy"
+
+## Pre-requisite 
+If you've not done so, learn about custom policy starter pack in [Get started with custom policies in Active Directory B2C](tutorial-create-user-flows.md).
 
 ##  Create a resource owner policy
 

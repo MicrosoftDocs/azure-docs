@@ -7,7 +7,7 @@ ms.reviewer: jburchel
 ms.service: data-factory
 ms.subservice: v1
 ms.topic: conceptual
-ms.date: 01/10/2018
+ms.date: 10/22/2021
 ms.custom: devx-track-csharp
 ---
 
@@ -31,7 +31,7 @@ With the Batch service, you define Azure compute resources to execute your appli
 
  If you aren't familiar with Batch, the following articles help you understand the architecture/implementation of the solution described in this article:   
 
-* [Basics of Batch](../../azure-sql/database/sql-database-paas-overview.md)
+* [Basics of Batch](/azure/azure-sql/database/sql-database-paas-overview)
 * [Batch feature overview](../../batch/batch-service-workflow-features.md)
 
 Optionally, to learn more about Batch, see [the Batch documentation](../../batch/index.yml).
@@ -115,7 +115,7 @@ Create a Batch pool with at least two compute nodes.
    f. Select **OK** to create the pool.
 
 #### Azure Storage Explorer
-You use [Azure Storage Explorer 6](https://azurestorageexplorer.codeplex.com/) or [CloudXplorer](https://clumsyleaf.com/products/cloudxplorer) (from ClumsyLeaf Software) to inspect and alter the data in your Storage projects. You also can inspect and alter the data in the logs of your cloud-hosted applications.
+You use [Azure Storage Explorer 6](https://azure.microsoft.com/features/storage-explorer/) or [CloudXplorer](https://clumsyleaf.com/products/cloudxplorer) (from ClumsyLeaf Software) to inspect and alter the data in your Storage projects. You also can inspect and alter the data in the logs of your cloud-hosted applications.
 
 1. Create a container named **mycontainer** with private access (no anonymous access).
 
@@ -409,20 +409,19 @@ This section provides more details about the code in the Execute method.
     {
     // Get the list of input blobs from the input storage client object.
     BlobResultSegment blobList = inputClient.ListBlobsSegmented(folderPath,
-
-                         true,
-                                   BlobListingDetails.Metadata,
-                                   null,
-                                   continuationToken,
-                                   null,
-                                   null);
+                                    true,
+                                    BlobListingDetails.Metadata,
+                                    null,
+                                    continuationToken,
+                                    null,
+                                    null);
     // Return a string derived from parsing each blob.
 
      output = Calculate(blobList, logger, folderPath, ref continuationToken, "Microsoft");
 
     } while (continuationToken != null);
-
     ```
+
    For more information, see the documentation for the [ListBlobsSegmented](/java/api/com.microsoft.azure.storage.blob.cloudblobcontainer.listblobssegmented) method.
 
 1. The code for working through the set of blobs logically goes within the do-while loop. In the **Execute** method, the do-while loop passes the list of blobs to a method named **Calculate**. The method returns a string variable named **output** that is the result of having iterated through all the blobs in the segment.
@@ -443,7 +442,8 @@ This section provides more details about the code in the Execute method.
     ```csharp
     folderPath = GetFolderPath(outputDataset);
     ```
-   The GetFolderPath method casts the DataSet object to an AzureBlobDataSet, which has a property named FolderPath.
+
+    The GetFolderPath method casts the DataSet object to an AzureBlobDataSet, which has a property named FolderPath.
 
     ```csharp
     AzureBlobDataset blobDataset = dataArtifact.Properties.TypeProperties as AzureBlobDataset;
@@ -730,8 +730,6 @@ In this step, you create a pipeline with one activity, the custom activity you c
 
 > [!IMPORTANT]
 > If you haven't uploaded **file.txt** to input folders in the blob container, do so before you create the pipeline. The **isPaused** property is set to false in the pipeline JSON, so the pipeline runs immediately because the **start** date is in the past.
->
->
 
 1. In the Data Factory Editor, select **New pipeline** on the command bar. If you don't see the command, select the ellipsis symbol to display it.
 
@@ -780,6 +778,7 @@ In this step, you create a pipeline with one activity, the custom activity you c
       }
     }
     ```
+
    Note the following points:
 
    * Only one activity is in the pipeline, and it's of the type **DotNetActivity**.
@@ -825,9 +824,10 @@ In this step, you test the pipeline by dropping files into the input folders. St
 
    Five output files are listed, one for each input slice. Each of the output files has content similar to the following output:
 
-    ```
+    ```output
     2 occurrences(s) of the search term "Microsoft" were found in the file inputfolder/2015-11-16-00/file.txt.
     ```
+
    The following diagram illustrates how the data factory slices map to tasks in Batch. In this example, a slice has only one run.
 
    :::image type="content" source="./media/data-factory-data-processing-using-batch/image16.png" alt-text="Slice mapping diagram":::
@@ -963,7 +963,7 @@ After you process data, you can consume it with online tools such as Power BI. H
   * [Use custom activities in a Data Factory pipeline](data-factory-use-custom-activities.md)
 * [Azure Batch](https://azure.microsoft.com/documentation/services/batch/)
 
-  * [Basics of Batch](../../azure-sql/database/sql-database-paas-overview.md)
+  * [Basics of Batch](/azure/azure-sql/database/sql-database-paas-overview)
   * [Overview of Batch features](../../batch/batch-service-workflow-features.md))
   * [Create and manage a Batch account in the Azure portal](../../batch/batch-account-create-portal.md)
   * [Get started with the Batch client library for .NET](../../batch/quick-run-dotnet.md)

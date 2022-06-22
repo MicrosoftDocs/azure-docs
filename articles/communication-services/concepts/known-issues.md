@@ -11,128 +11,165 @@ ms.topic: conceptual
 ms.service: azure-communication-services
 ---
 
-# Known issues
-This article provides information about limitations and known issues related to the Azure Communication Services Calling SDKs and Azure Communication Services Call Automation APIs
+# Known issues in the SDKs and APIs
+
+This article provides information about limitations and known issues related to the Azure Communication Services Calling SDKs and Communication Services Call Automation APIs.
 
 > [!IMPORTANT]
-> There are multiple factors that can affect the quality of your calling experience. Refer to the **[network requirements](./voice-video-calling/network-requirements.md)** documentation to learn more about Communication Services network configuration and testing best practices.
+> There are multiple factors that can affect the quality of your calling experience. To learn more about Communication Services network configuration and testing best practices, see [Network recommendations](./voice-video-calling/network-requirements.md).
 
-## Azure Communication Services Calling SDKs
+## JavaScript SDK
 
-### JavaScript SDK
+The following sections provide information about known issues associated with the Communication Services JavaScript voice and video calling SDKs.
 
-This section provides information about known issues associated with the Azure Communication Services JavaScript voice and video calling SDKs.
+### Chrome M98 - regression 
 
-#### Refreshing a page doesn't immediately remove the user from their call
+Chrome version 98 introduced a regression with anormal generation of video keyframes that impacts resolution of a sent video stream negatively for majority (70%+) of users.
+- This is a known regression introduced on [Chromium](https://bugs.chromium.org/p/chromium/issues/detail?id=1295815)
+
+### Some Android devices failing call scenarios except for group calls.
+
+A number of specific Android devices fail to start, accept calls, and meetings. The devices that run into this issue, won't recover and will fail on every attempt. These are mostly Samsung model A devices, particularly models A326U, A125U and A215U.
+- This is a known regression introduced on [Chromium](https://bugs.chromium.org/p/webrtc/issues/detail?id=13223).
+
+### iOS 15.1 users joining group calls or Microsoft Teams meetings.
+
+* Sometimes when incoming PSTN is received the tab with the call or meeting will hang. Related webkit bugs [here](https://bugs.webkit.org/show_bug.cgi?id=233707) and [here](https://bugs.webkit.org/show_bug.cgi?id=233708#c0).
+
+### Local microphone/camera mutes when certain interruptions occur on iOS Safari and Android Chrome.
+
+This problem can occur if another application or the operating system takes over the control of the microphone or camera. Here are a few examples that might happen while a user is in the call:
+
+- An incoming call arrives via PSTN (Public Switched Telephone Network), and it captures the microphone device access.
+- A user plays a YouTube video, for example, or starts a FaceTime call. Switching to another native application can capture access to the microphone or camera.
+- A user enables Siri, which will capture access to the microphone.
+
+On iOS for example, while on an ACS call, if a PSTN call comes in, then a microphoneMutedUnexepectedly bad UFD will be raised and audio will stop flowing in the ACS call and the call will be marked as muted. Once the PSTN call is over, the user will have to go and unmute the ACS call for audio to start flowing again in the ACS call. In the case of Android Chrome when a PSTN call comes in, audio will stop flowing in the ACS call and the ACS call will not be marked as muted. Once the PSTN call is finished, android chrome will regain audio automatically and audio will start flowing normally again in the ACS call.
+
+In case camera is on and an interruption occurs, ACS call may or may not loose the camera. If lost then camera will be marked as off and user will have to go turn it back on after the interruption has released the camera.
+
+Occasionally, microphone or camera devices won't be released on time, and that can cause issues with the original call. For example, if the user tries to unmute while watching a YouTube video, or if a PSTN call is active simultaneously.
+
+Incoming video streams won't stop rendering if the user is on iOS 15.2+ and is using SDK version 1.4.1-beta.1+, the unmute/start video steps will still be required to re-start outgoing audio and video. 
+
+For iOS 15.4+, audio and video should be able to auto recover on most of the cases. On some edge cases, to unmute, an api to 'unmute' must be called by the application (can be as a result of user action) to recover the outgoing audio.
+
+### iOS with Safari crashes and refreshes the page if a user tries to switch from front camera to back camera.
+
+Azure Communication Services Calling SDK version 1.2.3-beta.1 introduced a bug that affects all of the calls made from iOS Safari. The problem occurs when a user tries to switch the camera video stream from front to back. Switching camera results in Safari browser to crash and reload the page.
+
+This issue is fixed in Azure Communication Services Calling SDK version 1.3.1-beta.1 +
+
+* iOS Safari version: 15.1
+
+### Refreshing a page doesn't immediately remove the user from their call
 
 If a user is in a call and decides to refresh the page, the Communication Services media service won't remove this user immediately from the call. It will wait for the user to rejoin. The user will be removed from the call after the media service times out.
 
-It's best to build user experiences that don't require end users to refresh the page of your application while in a call. If a user refreshes the page, reuse the same Communication Services user ID after they return back to the application.
+It's best to build user experiences that don't require end users to refresh the page of your application while in a call. If a user refreshes the page, reuse the same Communication Services user ID after that user returns back to the application. By rejoining with the same user ID, the user is represented as the same, existing object in the `remoteParticipants` collection. From the perspective of other participants in the call, the user remains in the call during the time it takes to refresh the page, up to a minute or two.
 
-From the perspective of other participants in the call, the user will remain in the call for a minute or two.
+If the user was sending video before refreshing, the `videoStreams` collection will keep the previous stream information until the service times out and removes it. In this scenario, the application might decide to observe any new streams added to the collection, and render one with the highest `id`. 
 
-If the user rejoins with the same Communication Services user ID, they'll be represented as the same, existing object in the `remoteParticipants` collection.
+### It's not possible to render multiple previews from multiple devices on web
 
-If the user was sending video before refreshing, the `videoStreams` collection will keep the previous stream information until the service times out and removes it. In this scenario, the application may decide to observe any new streams added to the collection and render one with the highest `id`. 
+This is a known limitation. For more information, see [Calling SDK overview](./voice-video-calling/calling-sdk-features.md).
 
+### Enumerating devices isn't possible in Safari when the application runs on iOS or iPadOS
 
-#### It's not possible to render multiple previews from multiple devices on web
-This is a known limitation. For more information, see the [calling SDK overview](./voice-video-calling/calling-sdk-features.md).
+Applications can't enumerate or select speaker devices (like Bluetooth) on Safari iOS or iPadOS. This is a known limitation of these operating systems.
 
-#### Enumerating devices isn't possible in Safari when the application runs on iOS or iPadOS
+If you're using Safari on macOS, your app won't be able to enumerate or select speakers through the Communication Services device manager. In this scenario, you must select devices via the operating system. If you use Chrome on macOS, the app can enumerate or select devices through the Communication Services device manager.
 
-Applications can't enumerate/select mic/speaker devices (like Bluetooth) on Safari iOS/iPad. This is a known operating system limitation.
+* iOS Safari version: 15.1
 
-If you're using Safari on macOS, your app won't be able to enumerate/select speakers through the Communication Services Device Manager. In this scenario, devices must be selected via the OS. If you use Chrome on macOS, the app can enumerate/select devices through the Communication Services Device Manager.
+### Repeatedly switching video devices might cause video streaming to stop temporarily
 
-#### Audio connectivity is lost when receiving SMS messages or calls during an ongoing VoIP call
-This problem may occur due to multiple reasons:
+Switching between video devices might cause your video stream to pause while the stream is acquired from the selected device. Switching between devices frequently can cause performance degradation. It's best for developers to stop one device stream before starting another.
 
-- Some mobile browsers don't maintain connectivity while in the background state. This can lead to a degraded call experience if the VoIP call was interrupted by an event that pushes your application into the background. 
-- Sometimes, an SMS or PSTN call captures the audio sound, and doesn't release audio back to the VoIP call. Apple fixed this issue in iOS versions 14.4.1+. 
+### Bluetooth headset microphone isn't detected or audible during the call on Safari on iOS
 
-<br/>Client library: Calling (JavaScript)
-<br/>Browsers: Safari, Chrome
-<br/>Operating System: iOS, Android
+Bluetooth headsets aren't supported by Safari on iOS. Your Bluetooth device won't be listed in available microphone options, and other participants won't be able to hear you if you try using Bluetooth over Safari.
 
-#### Repeatedly switching video devices may cause video streaming to temporarily stop
+This is a known operating system limitation. With Safari on macOS and iOS/iPadOS, it's not possible to enumerate or select speaker devices through Communication Services device manager. This is because Safari doesn't support the enumeration or selection of speakers. In this scenario, use the operating system to update your device selection.
 
-Switching between video devices may cause your video stream to pause while the stream is acquired from the selected device.
+### Rotation of a device can create poor video quality
 
-##### Possible causes
-Switching between devices frequently can cause performance degradation. Developers are encouraged to stop one device stream before starting another.
+When users rotate a device, this movement can degrade the quality of video that is streaming.
 
-#### Bluetooth headset microphone is not detected therefore is not audible during the call on Safari on iOS
-Bluetooth headsets aren't supported by Safari on iOS. Your Bluetooth device won't be listed in available microphone options and other participants won't be able to hear you if you try using Bluetooth over Safari.
+The environment in which this problem occurs is the following:
 
-##### Possible causes
-This is a known macOS/iOS/iPadOS operating system limitation. 
+- Devices affected: Google Pixel 5, Google Pixel 3a, Apple iPad 8, and Apple iPad X
+- Client library: Calling (JavaScript)
+- Browsers: Safari, Chrome
+- Operating systems: iOS, Android
 
-With Safari on **macOS** and **iOS/iPadOS**, it is not possible to enumerating/selecting speaker devices through the Communication Services Device Manager since speakers enumeration/selection is not supported by Safari. In this scenario, your device selection should be updated via the operating system.
+### Camera switching makes the screen freeze 
 
-#### Rotation of a device can create poor video quality
-Users may experience degraded video quality when devices are rotated.
+When a Communication Services user joins a call by using the JavaScript calling SDK, and then selects the camera switch button, the UI might become unresponsive. The user must then refresh the application, or push the browser to the background.
 
-<br/>Devices affected: Google Pixel 5, Google Pixel 3a, Apple iPad 8, and Apple iPad X
-<br/>Client library: Calling (JavaScript)
-<br/>Browsers: Safari, Chrome
-<br/>Operating System: iOS, Android
+The environment in which this problem occurs is the following:
 
+- Devices affected: Google Pixel 4a
+- Client library: Calling (JavaScript)
+- Browser: Chrome
+- Operating systems: iOS, Android
 
-#### Camera switching makes the screen freeze 
-When a Communication Services user joins a call using the JavaScript calling SDK and then hits the camera switch button, the UI may become unresponsive until the application is refreshed or browser is pushed to the background by user.
+### Video signal problem when the call is in connecting state 
 
-<br/>Devices affected: Google Pixel 4a
-<br/>Client library: Calling (JavaScript)
-<br/>Browsers: Chrome
-<br/>Operating System: iOS, Android
+If a user turns video on and off quickly while the call is in the *Connecting* state, this might lead to a problem with the stream acquired for the call. It's best for developers to build their apps in a way that doesn't require video to be turned on and off while the call is in the *Connecting* state. Degraded video performance might occur in the following scenarios:
 
+ - If the user starts with audio, and then starts and stops video, while the call is in the *Connecting* state.
+ - If the user starts with audio, and then starts and stops video, while the call is in the *Lobby* state.
 
-##### Possible causes
-Under investigation.
+### Enumerating or accessing devices for Safari on macOS and iOS 
 
-#### If the video signal was stopped while the call is in "connecting" state, the video will not be sent after the call started 
-If users decide to quickly turn video on/off while call is in `Connecting` state - this may lead to problem with stream acquired for the call. We encourage developers to build their apps in a way that doesn't require video to be turned on/off while call is in `Connecting` state. This issue may cause degraded video performance in the following scenarios:
+In certain environments, you might notice that device permissions are reset after some period of time. On macOS and iOS, Safari doesn't keep permissions for a long time unless there is a stream acquired. The simplest way to work around this is to call the `DeviceManager.askDevicePermission()` API, before calling the device manager's device enumeration APIs. These enumeration APIs include `DeviceManager.getCameras()`, `DeviceManager.getSpeakers()`, and `DeviceManager.getMicrophones()`. If the permissions are there, the user won't see anything. If the permissions aren't there, the user will be prompted for the permissions again.
 
- - If the user starts with audio and then start and stop video while the call is in `Connecting` state.
- - If the user starts with audio and then start and stop video while the call is in `Lobby` state.
+The environment in which this problem occurs is the following:
 
-##### Possible causes
-Under investigation.
+- Device affected: iPhone
+- Client library: Calling (JavaScript)
+- Browser: Safari
+- Operating system: iOS
 
-#### Enumerating/accessing devices for Safari on MacOS and iOS 
-If access to devices are granted, after some time, device permissions are reset. Safari on MacOS and on iOS does not keep permissions for very long time unless there is a stream acquired. The simplest way to work around this is to call DeviceManager.askDevicePermission() API before calling the device manager's device enumeration APIs (DeviceManager.getCameras(), DeviceManager.getSpeakers(), and DeviceManager.getMicrophones()). If the permissions are there, then user will not see anything, if not, it will re-prompt.
+### Delay in rendering remote participant videos
 
-<br/>Devices affected: iPhone
-<br/>Client library: Calling (JavaScript)
-<br/>Browsers: Safari
-<br/>Operating System: iOS
+During an ongoing group call, suppose that _User A_ sends video, and then _User B_ joins the call. Sometimes, User B doesn't see video from User A, or User A's video begins rendering after a long delay. A network environment configuration problem might cause this delay. For more information, see [Network recommendations](./voice-video-calling/network-requirements.md).
 
-####  Sometimes it takes a long time to render remote participant videos
-During an ongoing group call, _User A_ sends video and then _User B_ joins the call. Sometimes, User B doesn't see video from User A, or User A's video begins rendering after a long delay. This issue could be caused by a network environment that requires further configuration. Refer to the [network requirements](./voice-video-calling/network-requirements.md) documentation for network configuration guidance.
+### Using third-party libraries during the call might result in audio loss
 
-#### Using 3rd party libraries to access GUM during the call may result in audio loss
-Using getUserMedia separately inside the application will result in losing audio stream since a third party library takes over device access from ACS library.
-Developers are encouraged to do the following:
-1. Don't use 3rd party libraries that are using internally GetUserMedia API during the call.
-2. If you still need to use 3rd party library, only way to recover is to either change the selected device (if the user has more than one) or restart the call.
+If you use `getUserMedia` separately inside the application, the audio stream is lost. This is because a third-party library takes over device access from the Azure Communication Services library.
 
-<br/>Browsers: Safari
-<br/>Operating System: iOS
+- Don't use third-party libraries that are using the `getUserMedia` API internally during the call.
+- If you still need to use a third-party library, the only way to recover the audio stream is to change the selected device (if the user has more than one), or to restart the call.
 
-##### Possible causes
-In some browsers (Safari for example), acquiring your own stream from the same device will have a side-effect of running into race conditions. Acquiring streams from other devices may lead the user into insufficient USB/IO bandwidth, and sourceUnavailableError rate will skyrocket.  
+The environment in which this problem occurs is the following:
 
+- Browser: Safari
+- Operating system: iOS
 
-## Azure Communication Services Call Automation APIs
+The cause of this problem might be that acquiring your own stream from the same device will have a side effect of running into race conditions. Acquiring streams from other devices might lead the user into insufficient USB/IO bandwidth, and the `sourceUnavailableError` rate will skyrocket.  
 
-Following are the known issues in the Azure Communication Services Call Automation APIs
+### Support for simulcast
 
-- The only authentication supported at this time for server applications is using a connection string.
+Simulcast is a technique by which a client encodes the same video stream twice, in different resolutions and bitrates. The client then lets Communication Services decide which stream a client should receive. The Communication Services calling library SDK for Windows, Android, or iOS supports sending simulcast streams. The Communication Services Web SDK doesn't currently support sending simulcast streams out.
 
-- Calls should be make only between entities of the same Azure Communication Service resource. Cross resource communication is blocked.
+## Communication Services Call Automation APIs
 
-- Calls between Teams' tenant users and Azure Communication Service user or server application entities are not allowed.
+The following are known issues in the Communication Services Call Automation APIs:
 
-- If an application dials out to two or more PSTN identities and then quits the call, the call between the other PSTN entities would be dropped.
+- The only authentication currently supported for server applications is to use a connection string.
+
+- Make calls only between entities of the same Communication Services resource. Cross-resource communication is blocked.
+
+- Calls between tenant users of Microsoft Teams and Communication Services users or server application entities aren't allowed.
+
+- If an application dials out to two or more PSTN identities and then quits the call, the call between the other PSTN entities drops.
+
+## Group call limitations for JS web Calling SDK users		
+
+Up to 100 users can join a group call using the JS web calling SDK. 
+
+## Android API emulators
+When utilizing Android API emulators on Android 5.0 (API level 21) and Android 5.1 (API level 22) some crashes are expected.  
 

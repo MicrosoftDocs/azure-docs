@@ -21,13 +21,14 @@ Azure Disk Encryption helps protect and safeguard your data to meet your organiz
 
 Azure Disk Encryption is zone resilient, the same way as Virtual Machines. For details, see [Azure Services that support Availability Zones](../../availability-zones/az-region.md).
 
-If you use [Azure Security Center](../../security-center/index.yml), you're alerted if you have VMs that aren't encrypted. The alerts show as High Severity and the recommendation is to encrypt these VMs.
+If you use [Microsoft Defender for Cloud](../../security-center/index.yml), you're alerted if you have VMs that aren't encrypted. The alerts show as High Severity and the recommendation is to encrypt these VMs.
 
-![Azure Security Center disk encryption alert](../media/disk-encryption/security-center-disk-encryption-fig1.png)
+![Microsoft Defender for Cloud disk encryption alert](../media/disk-encryption/security-center-disk-encryption-fig1.png)
 
 > [!WARNING]
 > - If you have previously used Azure Disk Encryption with Azure AD to encrypt a VM, you must continue use this option to encrypt your VM. See [Azure Disk Encryption with Azure AD (previous release)](disk-encryption-overview-aad.md) for details. 
 > - Certain recommendations might increase data, network, or compute resource usage, resulting in additional license or subscription costs. You must have a valid active Azure subscription to create resources in Azure in the supported regions.
+> - Do not use BitLocker to manually decrypt a VM or disk that was encrypted through Azure Disk Encryption.
 
 You can learn the fundamentals of Azure Disk Encryption for Windows in just a few minutes with the [Create and encrypt a Windows VM with Azure CLI quickstart](disk-encryption-cli-quickstart.md) or the [Create and encrypt a Windows VM with Azure PowerShell quickstart](disk-encryption-powershell-quickstart.md).
 
@@ -46,6 +47,8 @@ Azure Disk Encryption is not available on [Basic, A-series VMs](https://azure.mi
 - Windows 10 Enterprise multi-session.  
  
 > [!NOTE]
+> Windows Server 2022 does not support an RSA 2048 bit key. For more details, see [FAQ: What size should I use for my key encryption key?](disk-encryption-faq.yml#what-size-should-i-use-for-my-key-encryption-key--kek--)
+>
 > Windows Server 2008 R2 requires the .NET Framework 4.5 to be installed for encryption; install it from Windows Update with the optional update Microsoft .NET Framework 4.5.2 for Windows Server 2008 R2 x64-based systems ([KB2901983](https://www.catalog.update.microsoft.com/Search.aspx?q=KB2901983)).  
 >  
 > Windows Server 2012 R2 Core and Windows Server 2016 Core requires the bdehdcfg component to be installed on the VM for encryption.

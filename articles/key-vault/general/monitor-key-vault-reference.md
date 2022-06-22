@@ -20,12 +20,12 @@ This section lists all the automatically collected platform metrics collected fo
 
 |Metric Type | Resource Provider / Type Namespace<br/> and link to individual metrics |
 |-------|-----|
-| Key Vault | [Microsoft.KeyVault/vaults](/azure/azure-monitor/essentials/metrics-supported#microsoftkeyvaultvaults) |
-| Managed HSM | [Microsoft.KeyVault/managedhsms](/azure/azure-monitor/essentials/resource-logs-categories#microsoftkeyvaultmanagedhsms) 
+| Key Vault | [Microsoft.KeyVault/vaults](../../azure-monitor/essentials/metrics-supported.md#microsoftkeyvaultvaults) |
+| Managed HSM | [Microsoft.KeyVault/managedhsms](../../azure-monitor/essentials/resource-logs-categories.md#microsoftkeyvaultmanagedhsms) 
 
 ### Key Vault metrics
 
-Resource Provider and Type: [Microsoft.KeyVault/vaults](/azure/azure-monitor/essentials/metrics-supported#microsoftkeyvaultvaults)
+Resource Provider and Type: [Microsoft.KeyVault/vaults](../../azure-monitor/essentials/metrics-supported.md#microsoftkeyvaultvaults)
 
 | Name | Metric | Unit | Type | Description |
 |:-------|:-----|:------------|:------------------|
@@ -35,11 +35,11 @@ Resource Provider and Type: [Microsoft.KeyVault/vaults](/azure/azure-monitor/ess
 | Overall Service Api Latency | ServiceApiLatency | MilliSeconds | Average | Overall latency of service API requests |
 | Total Service Api Results | ServiceApiResult | Count | Count | Number of total service API results |
 
-For more information, see a list of [all platform metrics supported in Azure Monitor](/azure/azure-monitor/essentials/metrics-supported).
+For more information, see a list of [all platform metrics supported in Azure Monitor](../../azure-monitor/essentials/metrics-supported.md).
 
 ## Metric dimensions
 
-For more information on what metric dimensions are, see [Multi-dimensional metrics](/azure/azure-monitor/essentials/data-platform-metrics#multi-dimensional-metrics).
+For more information on what metric dimensions are, see [Multi-dimensional metrics](../../azure-monitor/essentials/data-platform-metrics.md#multi-dimensional-metrics).
 
 Key Vault has the following dimensions associated with its metrics:
 
@@ -53,12 +53,12 @@ Key Vault has the following dimensions associated with its metrics:
 
 This section lists the types of resource logs you can collect for Key Vault.
 
-For reference, see a list of [Microsoft.KeyVault/vaults](/azure/azure-monitor/essentials/resource-logs-categories#microsoftkeyvaultvaults).  For full details, see [Azure Key Vault logging](logging.md).
+For reference, see a list of [Microsoft.KeyVault/vaults](../../azure-monitor/essentials/resource-logs-categories.md#microsoftkeyvaultvaults).  For full details, see [Azure Key Vault logging](logging.md).
 
 |Resource Log Type | Resource Provider / Type Namespace<br/> and link to individual metrics |
 |-------|-----|
-| Key Vault | [Microsoft.KeyVault/vaults](/azure/azure-monitor/essentials/resource-logs-categories#microsoftkeyvaultmanagedhsms) |
-| Managed HSM | [Microsoft.KeyVault/managedhsms](/azure/azure-monitor/essentials/resource-logs-categories#microsoftkeyvaultvaults) 
+| Key Vault | [Microsoft.KeyVault/vaults](../../azure-monitor/essentials/resource-logs-categories.md#microsoftkeyvaultmanagedhsms) |
+| Managed HSM | [Microsoft.KeyVault/managedhsms](../../azure-monitor/essentials/resource-logs-categories.md#microsoftkeyvaultvaults) 
 
 ## Azure Monitor Logs tables
 
@@ -95,4 +95,4 @@ Key Vault uses the [Azure Diagnostics](/azure/azure-monitor/reference/tables/azu
 ## See also
 
 - See [Monitoring Azure Key Vault](monitor-key-vault.md) for a description of monitoring Azure Key Vault.
-- See [Monitoring Azure resources with Azure Monitor](/azure/azure-monitor/essentials/monitor-azure-resource) for details on monitoring Azure resources.
+- See [Monitoring Azure resources with Azure Monitor](../../azure-monitor/essentials/monitor-azure-resource.md) for details on monitoring Azure resources.

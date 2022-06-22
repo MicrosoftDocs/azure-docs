@@ -8,8 +8,7 @@ ms.topic: quickstart
 ms.workload: infrastructure
 ms.date: 06/04/2020
 ms.author: cynthn
-ms.custom: subject-armqs
-
+ms.custom: subject-armqs, mode-arm
 ---
 
 # Quickstart: Create a Windows virtual machine using an ARM template

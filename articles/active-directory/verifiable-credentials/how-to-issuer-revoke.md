@@ -1,19 +1,21 @@
 ---
-title: How to Revoke a Verifiable Credential as an Issuer - Azure Active Directory Verifiable Credentials
+title: How to Revoke a Verifiable Credential as an Issuer - Azure Active Directory Verifiable Credentials (preview)
 description: Learn how to revoke a Verifiable Credential that you've issued
 documentationCenter: ''
 author: barclayn
-manager: daveba
-ms.service: active-directory
+manager: rkarlin
+ms.service: decentralized-identity
 ms.topic: how-to
 ms.subservice: verifiable-credentials
-ms.date: 04/01/2021
+ms.date: 06/03/2022
 ms.author: barclayn
 
 #Customer intent: As an administrator, I am trying to learn the process of revoking verifiable credentials that I have issued
 ---
 
-# Revoke a previously issued verifiable credential (Preview)
+# Revoke a previously issued verifiable credential (preview)
+
+[!INCLUDE [Verifiable Credentials announcement](../../../includes/verifiable-credentials-brand.md)]
 
 As part of the process of working with verifiable credentials (VCs), you not only have to issue credentials, but sometimes you also have to revoke them. In this article we go over the **Status** property part of the VC specification and take a closer look at the revocation process, why we may want to revoke credentials and some data and privacy implications.
 
@@ -78,10 +80,20 @@ See below for an example of how the Rules file is modified to include the index.
   "attestations": {
     "idTokens": [
       { 
-        "mapping": {
-          "Name": { "claim": "name" },
-          "email": { "claim": "email", "indexed": true}
-        },
+        "mapping": [
+           { 
+             "outputClaim": "Name", 
+             "inputClaim": "name",
+             "required": true,
+             "indexed": false                 
+           },
+           { 
+             "outputClaim": "email", 
+             "inputClaim": "email",
+             "required": true,
+             "indexed": true                 
+           }
+        ],
         "configuration": "https://login.microsoftonline.com/tenant-id-here7/v2.0/.well-known/openid-configuration",
         "client_id": "c0d6b785-7a08-494e-8f63-c30744c3be2f",
         "redirect_uri": "vcclient://openid"
@@ -96,7 +108,7 @@ See below for an example of how the Rules file is modified to include the index.
 ```
 
 >[!NOTE]
->Only one attribute can be indexed from a Rules file.  
+>Only one attribute can be indexed from a rules claims mapping.  
 
 ## How do I revoke a verifiable credential
 

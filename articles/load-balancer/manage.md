@@ -1,12 +1,12 @@
 ---
 title: Azure Load Balancer portal settings
 description: Get started learning about Azure Load Balancer portal settings
-author: asudbring
+author: mbender-ms
 ms.service: load-balancer
 ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 08/16/2021
-ms.author: allensu
+ms.author: mbender
 ---
 
 # Azure Load Balancer portal settings
@@ -49,7 +49,7 @@ If you select **Public** as your type, you'll see the following information:
 | ------- | ------- |
 | Name | The name of the frontend that will be added to the load balancer. |
 | IP version | **IPv4** </br> **IPv6** </br> Load balancer supports IPv4 and IPv6 frontends. </br> For more information see, [load Balancer and IPv6](load-balancer-ipv6-overview.md). |
-| IP type | **IP address** </br> **IP prefix** </br> Load balancer supports an IP address or an IP prefix for the frontend IP address. For more information, see [Azure Public IP address prefix](../virtual-network/public-ip-address-prefix.md). |
+| IP type | **IP address** </br> **IP prefix** </br> Load balancer supports an IP address or an IP prefix for the frontend IP address. For more information, see [Azure Public IP address prefix](../virtual-network/ip-services/public-ip-address-prefix.md). |
 
 :::image type="content" source="./media/manage/add-frontend-public.png" alt-text="Screenshot of add frontend IP configuration." border="true":::
 
@@ -63,7 +63,7 @@ If you select **IP address** for **IP type**, you'll see the following informati
 | Tier | **Regional** </br> **Global** </br> Depending on type of load balancer tier will determine what is selected. Regional for traditional load balancer, global for cross-region. |
 | Assignment | **Static** is auto selected for standard. </br> Basic public IPs have two types: **Dynamic** and **Static**. </br> Dynamic public IP addresses aren't assigned until creation. </br> IPs can be lost if the resource is deleted. </br> Static IP addresses are recommended. |
 | Availability zone | Select **Zone-redundant** to create a resilient load balancer. </br> To create a zonal load balancer, select a specific zone from **1**, **2**, or **3**. </br> Standard load balancer and public IPs support zones. </br> Learn more about [load balancer and availability zones](load-balancer-standard-availability-zones.md). </br> You won't see zone selection for basic. Basic load balancer doesn't support zones. |
-| Routing preference | Select **Microsoft Network**. </br> Microsoft Network means that traffic is routed via the Microsoft global network. </br> Internet means that traffic is routed through the internet service provider network. </br> Learn more about [Routing Preferences](../virtual-network/routing-preference-overview.md)|
+| Routing preference | Select **Microsoft Network**. </br> Microsoft Network means that traffic is routed via the Microsoft global network. </br> Internet means that traffic is routed through the internet service provider network. </br> Learn more about [Routing Preferences](../virtual-network/ip-services/routing-preference-overview.md)|
 
 :::image type="content" source="./media/manage/create-public-ip.png" alt-text="Screenshot of create public IP." border="true":::
 
@@ -157,11 +157,11 @@ If you selected **Create new** in the health probe configuration of the load-bal
 
 :::image type="content" source="./media/manage/add-health-probe.png" alt-text="Screenshot of add health probe." border="true":::
 
-In the **Inbound rules** tab of the create load balancer portal page, select **+ Add a an inbound nat rule** to open the creation page.
+In the **Inbound rules** tab of the create load balancer portal page, select **+ Add an inbound NAT rule** to open the creation page.
 
-#### **+ Add a an inbound nat rule**
+#### **+ Add an inbound NAT rule**
 
-The following is displayed in the **+ Add inbound NAT rule** creation page:
+The following is displayed in the **+ Add an inbound NAT rule** creation page:
 
 | Setting | Details |
 | ---------- | ---------- |
@@ -218,7 +218,7 @@ If you want to add a frontend IP configuration to your load balancer, go to your
 | ---------- | ---------- |
 | Name | The name of your frontend IP configuration. |
 | IP version | The IP address version you'd like your frontend to have. </br> Load balancer supports both IPv4 and IPv6 frontend IP configurations. |
-| IP type | IP type determines if a single IP address is associated with your frontend or a range of IP addresses using an IP Prefix. </br> A [public IP prefix](../virtual-network/public-ip-address-prefix.md) assists when you need to connect to the same endpoint repeatedly. The prefix ensures enough ports are given to assist with SNAT port issues. |
+| IP type | IP type determines if a single IP address is associated with your frontend or a range of IP addresses using an IP Prefix. </br> A [public IP prefix](../virtual-network/ip-services/public-ip-address-prefix.md) assists when you need to connect to the same endpoint repeatedly. The prefix ensures enough ports are given to assist with SNAT port issues. |
 | Public IP address (or Prefix if you selected prefix above) | Select or create a new public IP (or prefix) for your load balancer frontend. |
 
 :::image type="content" source="./media/manage/frontend.png" alt-text="Create frontend ip configuration page." border="true":::

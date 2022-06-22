@@ -1,16 +1,15 @@
 ---
 title: 'Quickstart: Scale compute in dedicated SQL pool (formerly SQL DW) - T-SQL'
 description: Scale compute in dedicated SQL pool (formerly SQL DW) using T-SQL and SQL Server Management Studio (SSMS). Scale out compute for better performance, or scale back compute to save costs.
-services: synapse-analytics
-author: Antvgski
+author: kedodd
+ms.author: kedodd
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: quickstart
-ms.subservice: sql-dw 
-ms.date: 04/17/2018
-ms.author: anvang
-ms.reviewer: igorstan
-ms.custom: seo-lt-2019, azure-synapse 
+ms.subservice: sql-dw
+ms.date: 03/09/2022
+ms.reviewer: wiassaf
+ms.custom: seo-lt-2019, azure-synapse, mode-other
 ---
 
 # Quickstart: Scale compute for dedicated SQL pool (formerly SQL DW) in Azure Synapse Analytics using T-SQL

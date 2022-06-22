@@ -7,6 +7,7 @@ ms.topic: quickstart
 ms.date: 07/10/2020
 author: manishmsfte
 ms.author: mansha
+ms.custom: mode-api
 ---
 # Quickstart: Create, query, and traverse an Azure Cosmos DB graph database using the Gremlin console
 [!INCLUDE[appliesto-gremlin-api](../includes/appliesto-gremlin-api.md)]
@@ -26,7 +27,7 @@ This quickstart demonstrates how to create an Azure Cosmos DB [Gremlin API](grap
 
 :::image type="content" source="./media/create-graph-console/gremlin-console.png" alt-text="Azure Cosmos DB from the Apache Gremlin console":::
 
-The Gremlin console is Groovy/Java based and runs on Linux, Mac, and Windows. You can download it from the [Apache TinkerPop site](https://tinkerpop.apache.org/downloads.html).
+The Gremlin console is Groovy/Java based and runs on Linux, Mac, and Windows. You can download it from the [Apache TinkerPop site](https://tinkerpop.apache.org/download.html).
 
 ## Prerequisites
 
@@ -34,7 +35,7 @@ You need to have an Azure subscription to create an Azure Cosmos DB account for 
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-You also need to install the [Gremlin Console](https://tinkerpop.apache.org/downloads.html). The **recommended version is v3.4.3** or earlier. (To use Gremlin Console on Windows, you need to install [Java Runtime](https://www.oracle.com/technetwork/java/javase/overview/index.html)).
+You also need to install the [Gremlin Console](https://tinkerpop.apache.org/download.html). The **recommended version is v3.4.13**. (To use Gremlin Console on Windows, you need to install [Java Runtime](https://www.oracle.com/technetwork/java/javase/overview/index.html), minimum requires Java 8 but it is preferable to use Java 11).
 
 ## Create a database account
 
@@ -71,7 +72,7 @@ You also need to install the [Gremlin Console](https://tinkerpop.apache.org/down
    ```yaml
    hosts: [your_database_server.gremlin.cosmos.azure.com] 
    port: 443
-   username: /dbs/your_database_account/colls/your_collection
+   username: /dbs/your_database/colls/your_collection
    password: your_primary_key
    connectionPool: {
      enableSsl: true
@@ -97,7 +98,7 @@ Great! Now that we finished the setup, let's start running some console commands
 
 Let's try a simple count() command. Type the following into the console at the prompt:
 
-```java
+```console
 g.V().count()
 ```
 
@@ -107,7 +108,7 @@ Let's begin by adding five person vertices for *Thomas*, *Mary Kay*, *Robin*, *B
 
 Input (Thomas):
 
-```java
+```console
 g.addV('person').property('firstName', 'Thomas').property('lastName', 'Andersen').property('age', 44).property('userid', 1).property('pk', 'pk')
 ```
 
@@ -119,7 +120,7 @@ Output:
 
 Input (Mary Kay):
 
-```java
+```console 
 g.addV('person').property('firstName', 'Mary Kay').property('lastName', 'Andersen').property('age', 39).property('userid', 2).property('pk', 'pk')
 
 ```
@@ -133,7 +134,7 @@ Output:
 
 Input (Robin):
 
-```java
+```console 
 g.addV('person').property('firstName', 'Robin').property('lastName', 'Wakefield').property('userid', 3).property('pk', 'pk')
 ```
 
@@ -145,7 +146,7 @@ Output:
 
 Input (Ben):
 
-```java
+```console 
 g.addV('person').property('firstName', 'Ben').property('lastName', 'Miller').property('userid', 4).property('pk', 'pk')
 
 ```
@@ -158,7 +159,7 @@ Output:
 
 Input (Jack):
 
-```java
+```console
 g.addV('person').property('firstName', 'Jack').property('lastName', 'Connor').property('userid', 5).property('pk', 'pk')
 ```
 
@@ -173,7 +174,7 @@ Next, let's add edges for relationships between our people.
 
 Input (Thomas -> Mary Kay):
 
-```java
+```console
 g.V().hasLabel('person').has('firstName', 'Thomas').addE('knows').to(g.V().hasLabel('person').has('firstName', 'Mary Kay'))
 ```
 
@@ -185,7 +186,7 @@ Output:
 
 Input (Thomas -> Robin):
 
-```java
+```console
 g.V().hasLabel('person').has('firstName', 'Thomas').addE('knows').to(g.V().hasLabel('person').has('firstName', 'Robin'))
 ```
 
@@ -197,7 +198,7 @@ Output:
 
 Input (Robin -> Ben):
 
-```java
+```console
 g.V().hasLabel('person').has('firstName', 'Robin').addE('knows').to(g.V().hasLabel('person').has('firstName', 'Ben'))
 ```
 
@@ -212,7 +213,7 @@ Output:
 Let's update the *Thomas* vertex with a new age of *45*.
 
 Input:
-```java
+```console
 g.V().hasLabel('person').has('firstName', 'Thomas').property('age', 45)
 ```
 Output:
@@ -229,7 +230,7 @@ First, let's try a query with a filter to return only people who are older than 
 
 Input (filter query):
 
-```java
+```console
 g.V().hasLabel('person').has('age', gt(40))
 ```
 
@@ -243,7 +244,7 @@ Next, let's project the first name for the people who are older than 40 years ol
 
 Input (filter + projection query):
 
-```java
+```console 
 g.V().hasLabel('person').has('age', gt(40)).values('firstName')
 ```
 
@@ -259,7 +260,7 @@ Let's traverse the graph to return all of Thomas's friends.
 
 Input (friends of Thomas):
 
-```java
+```console
 g.V().hasLabel('person').has('firstName', 'Thomas').outE('knows').inV().hasLabel('person')
 ```
 
@@ -274,7 +275,7 @@ Next, let's get the next layer of vertices. Traverse the graph to return all the
 
 Input (friends of friends of Thomas):
 
-```java
+```console
 g.V().hasLabel('person').has('firstName', 'Thomas').outE('knows').inV().hasLabel('person').outE('knows').inV().hasLabel('person')
 ```
 Output:
@@ -289,7 +290,7 @@ Let's now delete a vertex from the graph database.
 
 Input (drop Jack vertex):
 
-```java
+```console 
 g.V().hasLabel('person').has('firstName', 'Jack').drop()
 ```
 
@@ -299,7 +300,7 @@ Finally, let's clear the database of all vertices and edges.
 
 Input:
 
-```java
+```console
 g.E().drop()
 g.V().drop()
 ```

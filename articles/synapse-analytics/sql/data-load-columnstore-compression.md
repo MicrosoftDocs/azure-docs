@@ -1,15 +1,14 @@
 ---
 title: Improve columnstore index performance 
 description: Reduce memory requirements or increase the available memory to maximize the number of rows a columnstore index compresses into each rowgroup.
-services: synapse-analytics
-author: julieMSFT 
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql
-ms.date: 04/15/2020
-ms.author: jrasnick
-ms.reviewer: igorstan
+ms.date: 10/18/2021
+author: WilliamDAssafMSFT
+ms.author: wiassaf
+ms.reviewer: 
 ms.custom: azure-synapse
 ---
 
@@ -37,13 +36,13 @@ For more information on bulk loading, see [Bulk load into a clustered columnstor
 
 ## How to monitor rowgroup quality
 
-The DMV sys.dm_pdw_nodes_db_column_store_row_group_physical_stats ([sys.dm_db_column_store_row_group_physical_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-column-store-row-group-physical-stats-transact-sql?view=azure-sqldw-latest&preserve-view=true) contains the view definition matching SQL DB) that exposes useful information such as number of rows in rowgroups and the reason for trimming if there was trimming. You can create the following view as a handy way to query this DMV to get information on rowgroup trimming.
+The dynamic management view (DMV) ([sys.dm_db_column_store_row_group_physical_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-column-store-row-group-physical-stats-transact-sql?view=azure-sqldw-latest&preserve-view=true) contains the view definition matching SQL DB) that exposes useful information such as number of rows in rowgroups and the reason for trimming if there was trimming. You can create the following view as a handy way to query this DMV to get information on rowgroup trimming.
 
 ```sql
-create view dbo.vCS_rg_physical_stats
-as
-with cte
-as
+CREATE VIEW dbo.vCS_rg_physical_stats
+AS
+WITH cte
+AS
 (
 select   tb.[name]                    AS [logical_table_name]
 ,        rg.[row_group_id]            AS [row_group_id]
@@ -60,11 +59,11 @@ JOIN    sys.[dm_pdw_nodes_db_column_store_row_group_physical_stats] rg      ON  
                                                                             AND rg.[pdw_node_id]   = nt.[pdw_node_id]
                                         AND rg.[distribution_id]    = nt.[distribution_id]
 )
-select *
-from cte;
+SELECT *
+FROM cte;
 ```
 
-The trim_reason_desc tells whether the rowgroup was trimmed(trim_reason_desc = NO_TRIM implies there was no trimming and row group is of optimal quality). The following trim reasons indicate premature trimming of the rowgroup:
+The `trim_reason_desc` column indicates whether the rowgroup was trimmed (trim_reason_desc = NO_TRIM implies there was no trimming and row group is of optimal quality). The following trim reasons indicate premature trimming of the rowgroup:
 
 - BULKLOAD: This trim reason is used when the incoming batch of rows for the load had less than 1 million rows. The engine will create compressed row groups if there are greater than 100,000 rows being inserted (as opposed to inserting into the delta store) but sets the trim reason to BULKLOAD. In this scenario, consider increasing your batch load to include more rows. Also, reevaluate your partitioning scheme to ensure it is not too granular as row groups cannot span partition boundaries.
 - MEMORY_LIMITATION: To create row groups with 1 million rows, a certain amount of working memory is required by the engine. When available memory of the loading session is less than the required working memory, row groups get prematurely trimmed. The following sections explain how to estimate memory required and allocate more memory.
@@ -83,9 +82,6 @@ The maximum required memory to compress one rowgroup is, approximately, as follo
 > Where short-string-columns use string data types of <= 32 bytes and long-string-columns use string data types of > 32 bytes.
 
 Long strings are compressed with a compression method designed for compressing text. This compression method uses a *dictionary* to store text patterns. The maximum size of a dictionary is 16 MB. There is only one dictionary for each long string column in the rowgroup.
-
-For an in-depth discussion of columnstore memory requirements, see the
-video [Synapse SQL scaling: configuration and guidance](https://channel9.msdn.com/Events/Ignite/2016/BRK3291).
 
 ## Ways to reduce memory requirements
 

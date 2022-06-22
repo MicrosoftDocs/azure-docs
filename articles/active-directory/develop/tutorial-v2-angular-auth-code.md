@@ -1,6 +1,5 @@
 ---
-title: "Tutorial: Create an Angular app that uses the Microsoft identity platform for authentication using auth code flow | Azure"
-titleSuffix: Microsoft identity platform
+title: "Tutorial: Create an Angular app that uses the Microsoft identity platform for authentication using auth code flow"
 description: In this tutorial, you build an Angular single-page app (SPA) using auth code flow that uses the Microsoft identity platform to sign in users and get an access token to call the Microsoft Graph API on their behalf.
 services: active-directory
 author: jo-arroyo
@@ -10,7 +9,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: tutorial
 ms.workload: identity
-ms.date: 04/14/2021
+ms.date: 03/25/2022
 ms.author: joarroyo
 ms.custom: aaddev, devx-track-js
 ---
@@ -105,8 +104,8 @@ Register your **Redirect URI** value as **http://localhost:4200/** and type as '
         AppRoutingModule,
         MsalModule.forRoot( new PublicClientApplication({
           auth: {
-            clientId: 'Enter_the_Application_Id_here', // This is your client ID
-            authority: 'Enter_the_Cloud_Instance_Id_Here'/'Enter_the_Tenant_Info_Here', // This is your tenant ID
+            clientId: 'Enter_the_Application_Id_here', // Application (client) ID from the app registration
+            authority: 'Enter_the_Cloud_Instance_Id_Here/Enter_the_Tenant_Info_Here', // The Azure cloud instance and the app's sign-in audience (tenant ID, common, organizations, or consumers)
             redirectUri: 'Enter_the_Redirect_Uri_Here'// This is your redirect URI
           },
           cache: {
@@ -220,7 +219,7 @@ Register your **Redirect URI** value as **http://localhost:4200/** and type as '
         MsalModule.forRoot( new PublicClientApplication({
           auth: {
             clientId: 'Enter_the_Application_Id_here',
-            authority: 'Enter_the_Cloud_Instance_Id_Here'/'Enter_the_Tenant_Info_Here',
+            authority: 'Enter_the_Cloud_Instance_Id_Here/Enter_the_Tenant_Info_Here',
             redirectUri: 'Enter_the_Redirect_Uri_Here'
           },
           cache: {
@@ -261,7 +260,7 @@ Register your **Redirect URI** value as **http://localhost:4200/** and type as '
 
 Add the code from the following sections to invoke login using a pop-up window or a full-frame redirect: 
 
-### Sign in using popups
+### Sign in using pop-ups
 
 1. Change the code in *src/app/app.component.ts* to the following to sign in a user using a pop-up window:
 
@@ -344,7 +343,7 @@ Add the code from the following sections to invoke login using a pop-up window o
         MsalModule.forRoot( new PublicClientApplication({
           auth: {
             clientId: 'Enter_the_Application_Id_here',
-            authority: 'Enter_the_Cloud_Instance_Id_Here'/'Enter_the_Tenant_Info_Here', 
+            authority: 'Enter_the_Cloud_Instance_Id_Here/Enter_the_Tenant_Info_Here',
             redirectUri: 'Enter_the_Redirect_Uri_Here'
           },
           cache: {
@@ -551,7 +550,7 @@ In order to render certain UI only for authenticated users, components have to s
 
 ### Angular Guard
 
-MSAL Angular provides `MsalGuard`, a class you can use to protect routes and require authentication before accessing the protected route. The steps below add the `MsalGuard` to the `Profile` route. Protecting the `Profile` route means that even if a user does not sign in using the `Login` button, if they try to access the `Profile` route or click the `Profile` button, the `MsalGuard` will prompt the user to authenticate via popup or redirect before showing the `Profile` page.
+MSAL Angular provides `MsalGuard`, a class you can use to protect routes and require authentication before accessing the protected route. The steps below add the `MsalGuard` to the `Profile` route. Protecting the `Profile` route means that even if a user does not sign in using the `Login` button, if they try to access the `Profile` route or click the `Profile` button, the `MsalGuard` will prompt the user to authenticate via pop-up or redirect before showing the `Profile` page.
 
 `MsalGuard` is a convenience class you can use improve the user experience, but it should not be relied upon for security. Attackers can potentially get around client-side guards, and you should ensure that the server does not return any data the user should not access.
 
@@ -592,7 +591,7 @@ MSAL Angular provides `MsalGuard`, a class you can use to protect routes and req
         MsalModule.forRoot( new PublicClientApplication({
           auth: {
             clientId: 'Enter_the_Application_Id_here',
-            authority: 'Enter_the_Cloud_Instance_Id_Here'/'Enter_the_Tenant_Info_Here', 
+            authority: 'Enter_the_Cloud_Instance_Id_Here/Enter_the_Tenant_Info_Here',
             redirectUri: 'Enter_the_Redirect_Uri_Here'
           },
           cache: {
@@ -926,9 +925,9 @@ export class AppComponent implements OnInit, OnDestroy {
 }
 ```
 
-### Sign out using popups
+### Sign out using pop-ups
 
-Update the code in *src/app/app.component.ts* to sign out a user using popups:
+Update the code in *src/app/app.component.ts* to sign out a user using pop-ups:
 
 ```javascript
 import { Component, OnInit, OnDestroy, Inject } from '@angular/core';

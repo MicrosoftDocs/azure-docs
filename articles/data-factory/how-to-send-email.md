@@ -58,9 +58,12 @@ For the **Send Email (V2)** action, customize how you wish to format the email, 
 
 :::image type="content" source="media/how-to-send-email/logic-app-email-action.png" alt-text="Shows the Logic App workflow designer for the Send Email (V2) action.":::
 
-Save the workflow. Make a note of the Workflow URL for your new workflow then:
+Save the workflow. Browse to the Overview page for the workflow.  Make a note of the Workflow URL for your new workflow then, highlighted in the image below:
 
 :::image type="content" source="media/how-to-send-email/logic-app-workflow-url.png" alt-text="Shows the Logic App workflow Overview tab with the Workflow URL highlighted.":::
+
+> [!NOTE]
+> To find the Workflow URL you must browse to the workflow itself, not just the logic app that contains it.  From the Workflows page of your logic app instance, choose the workflow and then navigate to its Overview page. 
 
 ## Create a pipeline to trigger your Logic App email workflow
 
@@ -108,6 +111,6 @@ make your messages dynamic. For example:  
 The above expressions will return the relevant error messages from a Copy activity failure, which can be redirected then to your Web activity that sends the email. Refer to the
 [Copy activity output properties](copy-activity-monitoring.md) article for more details.
 
-## Next Steps
+## Next steps
 
 [How to send Teams notifications from a pipeline](how-to-send-notifications-to-teams.md)

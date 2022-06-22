@@ -22,6 +22,21 @@ The HDInsight Streaming Activity in an Azure Data Factory or Synapse Analytics [
 
 To learn more, read through the introduction articles to [Azure Data Factory](introduction.md) and [Synapse Analytics](../synapse-analytics/overview-what-is.md) and do the [Tutorial: transform data](tutorial-transform-data-spark-powershell.md) before reading this article. 
 
+## Add an HDInsight Streaming activity to a pipeline with UI
+
+To use an HDInsight Streaming activity to a pipeline, complete the following steps:
+
+1. Search for _Streaming_ in the pipeline Activities pane, and drag a Streaming activity to the pipeline canvas.
+1. Select the new Streaming activity on the canvas if it is not already selected.
+1. Select the  **HDI Cluster** tab to select or create a new linked service to an HDInsight cluster that will be used to execute the Streaming activity.
+
+   :::image type="content" source="media/transform-data-using-hadoop-streaming/streaming-activity.png" alt-text="Shows the UI for a Streaming activity.":::
+
+1. Select the **File** tab to specify the mapper and reducer names for your streaming job, and select or create a new linked service to an Azure Storage account that will the mapper, reducer, input, and output files for the job.  You can also configure advanced details including debugging configuration, arguments, and parameters to be passed to the job.
+
+   :::image type="content" source="media/transform-data-using-hadoop-streaming/streaming-script-configuration.png" alt-text="Shows the UI for the File tab for a Streaming activity.":::
+
+
 ## JSON sample
 ```json
 {
@@ -89,5 +104,4 @@ See the following articles that explain how to transform data in other ways:
 * [MapReduce activity](transform-data-using-hadoop-map-reduce.md)
 * [Spark activity](transform-data-using-spark.md)
 * [.NET custom activity](transform-data-using-dotnet-custom-activity.md)
-* [ML Studio (classic) Batch Execution activity](transform-data-using-machine-learning.md)
 * [Stored procedure activity](transform-data-using-stored-procedure.md)

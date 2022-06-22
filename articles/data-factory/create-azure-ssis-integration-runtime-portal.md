@@ -1,32 +1,52 @@
 ---
-title: Use the Azure portal to create an integration runtime 
-description: Learn how to use the Azure portal to create an Azure-SSIS integration runtime in Azure Data Factory so you can deploy and run SSIS packages in Azure.
+title: Create an Azure-SSIS integration runtime via Azure portal
+description: Learn how to create an Azure-SSIS integration runtime in Azure Data Factory via Azure portal so you can deploy and run SSIS packages in Azure.
 ms.service: data-factory
 ms.subservice: integration-services
 ms.topic: conceptual
-ms.date: 09/27/2021
+ms.date: 02/15/2022
 author: swinarko
 ms.author: sawinark 
 ms.custom: devx-track-azurepowershell
 ---
 
-# Use the Azure portal to create an integration runtime
+# Create an Azure-SSIS integration runtime via Azure portal 
 
-In this section, you use the Azure portal, specifically the Data Factory user interface (UI) or app, to create an Azure-SSIS IR.
+[!INCLUDE[appliesto-adf-asa-preview-md](includes/appliesto-adf-asa-preview-md.md)]
 
-## Create a data factory
+This article shows you how to create an Azure-SQL Server Integration Services (SSIS) integration runtime (IR) in Azure Data Factory (ADF) or Synapse Pipelines via Azure portal.
 
-To create your data factory via the Azure portal, follow the step-by-step instructions in [Create a data factory via the UI](./quickstart-create-data-factory-portal.md#create-a-data-factory). Select **Pin to dashboard** while doing so, to allow quick access after its creation. 
-
-After your data factory is created, open its overview page in the Azure portal. Select the **Author & Monitor** tile to open its **Let's get started** page on a separate tab. There, you can continue to create your Azure-SSIS IR.   
+> [!NOTE] 
+> Azure-SSIS IR in Azure Synapse Analytics is in public preview, please check [limitations](https://aka.ms/AAfq9i3) for preview.
 
 ## Provision an Azure-SSIS integration runtime
+
+# [Azure Data Factory](#tab/data-factory)
+
+Create your data factory via the Azure portal, follow the step-by-step instructions in [Create a data factory via the UI](./quickstart-create-data-factory-portal.md#create-a-data-factory). Select **Pin to dashboard** while doing so, to allow quick access after its creation. 
+
+After your data factory is created, open its overview page in the Azure portal. Select the **Author & Monitor** tile to open its **Let's get started** page on a separate tab. There, you can continue to create your Azure-SSIS IR. 
 
 On the home page, select the **Configure SSIS** tile to open the **Integration runtime setup** pane.
 
    :::image type="content" source="./media/doc-common-process/get-started-page.png" alt-text="Screenshot that shows the ADF home page.":::
 
    The **Integration runtime setup** pane has three pages where you successively configure general, deployment, and advanced settings.
+
+# [Azure Synapse](#tab/synapse-analytics)
+
+1. On the home page of the Azure Synapse UI, select the Manage tab from the leftmost pane.
+
+   :::image type="content" source="media/doc-common-process/get-started-page-manage-button-synapse.png" alt-text="Screenshot of the home page Manage button.":::
+
+1. Select **Integration runtimes** on the left pane, and then select **+New**.
+
+   :::image type="content" source="media/doc-common-process/manage-new-integration-runtime-synapse.png" alt-text="Screenshot of create an integration runtime.":::
+
+1. On the following page, select **Azure-SSIS** to create an SSIS IR, and then select **Continue**.
+   :::image type="content" source="media/tutorial-create-azure-ssis-runtime-portal/new-sssis-integration-runtime-synapse.png" alt-text="Screenshot of create an SSIS IR.":::
+
+---
 
 ### General settings page
 
@@ -96,7 +116,7 @@ If you select the check box, complete the following steps to bring your own data
 Select **Test connection** when applicable, and if it's successful, select **Continue**.
 
 > [!NOTE]
-> If you use Azure SQL Database server to host SSISDB, your data will be stored in geo-redundant storage for backups by default. If you don't want your data to be replicated in other regions, please follow the instructions to [Configure backup storage redundancy by using PowerShell](../azure-sql/database/automated-backups-overview.md?tabs=single-database#configure-backup-storage-redundancy-by-using-powershell).
+> If you use Azure SQL Database server to host SSISDB, your data will be stored in geo-redundant storage for backups by default. If you don't want your data to be replicated in other regions, please follow the instructions to [Configure backup storage redundancy by using PowerShell](/azure/azure-sql/database/automated-backups-overview?tabs=single-database#configure-backup-storage-redundancy-by-using-powershell).
    
 #### Creating Azure-SSIS IR package stores
 
@@ -185,9 +205,9 @@ On the **Advanced settings** page of **Integration runtime setup** pane, complet
   
          Your added express custom setups will appear on the **Advanced settings** page. To remove them, you can select their check boxes and then select **Delete**.
 
-   1. Select the **Select a VNet for your Azure-SSIS Integration Runtime to join, allow ADF to create certain network resources, and optionally bring your own static public IP addresses** check box to choose whether you want to join your integration runtime to a virtual network. 
+   1. Select the **Select a VNet for your Azure-SSIS Integration Runtime to join, allow ADF to create certain network resources, and optionally bring your own static public IP addresses** check box to choose whether you want to join your Azure-SSIS IR to a virtual network. 
 
-      Select it if you use an Azure SQL Database server with IP firewall rules/virtual network service endpoints or a managed instance with private endpoint to host SSISDB, or if you require access to on-premises data (that is, you have on-premises data sources or destinations in your SSIS packages) without configuring a self-hosted IR. For more information, see [Join Azure-SSIS IR to a virtual network](./join-azure-ssis-integration-runtime-virtual-network.md). 
+      Select it if you use Azure SQL Database server configured with a virtual network service endpoint/IP firewall rule/private endpoint or Azure SQL Managed Instance that joins a virtual network to host SSISDB, or if you require access to on-premises data (that is, you have on-premises data sources/destinations in your SSIS packages) without configuring a self-hosted IR. For more information, see [Join Azure-SSIS IR to a virtual network](join-azure-ssis-integration-runtime-virtual-network.md). 
 
       If you select the check box, complete the following steps.
 
@@ -197,19 +217,27 @@ On the **Advanced settings** page of **Integration runtime setup** pane, complet
 
       1. For **Location**, the same location of your integration runtime is selected.
 
-      1. For **Type**, select the type of your virtual network: classic or Azure Resource Manager. We recommend that you select an Azure Resource Manager virtual network, because classic virtual networks will be deprecated soon.
+      1. For **Type**, select the type of your virtual network: **Azure Resource Manager Virtual Network**/classic virtual network. We recommend that you select **Azure Resource Manager Virtual Network**, because classic virtual network will be deprecated soon.
 
-      1. For **VNet Name**, select the name of your virtual network. It should be the same one used for your Azure SQL Database server with virtual network service endpoints or managed instance with private endpoint to host SSISDB. Or it should be the same one connected to your on-premises network. Otherwise, it can be any virtual network to bring your own static public IP addresses for Azure-SSIS IR.
+      1. For **VNet Name**, select the name of your virtual network. It should be the same one used to configure a virtual network service endpoint/private endpoint for your Azure SQL Database server that hosts SSISDB. Or it should be the same one joined by your Azure SQL Managed Instance that hosts SSISDB. Or it should be the same one connected to your on-premises network. Otherwise, it can be any virtual network to bring your own static public IP addresses for Azure-SSIS IR.
 
-      1. For **Subnet Name**, select the name of subnet for your virtual network. It should be the same one used for your Azure SQL Database server with virtual network service endpoints to host SSISDB. Or it should be a different subnet from the one used for your managed instance with private endpoint to host SSISDB. Otherwise, it can be any subnet to bring your own static public IP addresses for Azure-SSIS IR.
+      1. For **Subnet Name**, select the name of subnet for your virtual network. It should be the same one used to configure a virtual network service endpoint for your Azure SQL Database server that hosts SSISDB. Or it should be a different subnet from the one joined by your Azure SQL Managed Instance that hosts SSISDB. Otherwise, it can be any subnet to bring your own static public IP addresses for Azure-SSIS IR.
 
-      1. Select the **Bring static public IP addresses for your Azure-SSIS Integration Runtime** check box to choose whether you want to bring your own static public IP addresses for Azure-SSIS IR, so you can allow them on the firewall for your data sources.
+      1. For **VNet injection method**, select the method of your virtual network injection: **Express**/**Standard**. 
+   
+         To compare these methods, see the [Compare the standard and express virtual network injection methods](azure-ssis-integration-runtime-virtual-network-configuration.md#compare) article. 
+   
+         If you select **Express**, see the [Express virtual network injection method](azure-ssis-integration-runtime-express-virtual-network-injection.md) article. 
+      
+         If you select **Standard**, see the [Standard virtual network injection method](azure-ssis-integration-runtime-standard-virtual-network-injection.md) article.  With this method, you can also:
 
-         If you select the check box, complete the following steps.
+         1. Select the **Bring static public IP addresses for your Azure-SSIS Integration Runtime** check box to choose whether you want to bring your own static public IP addresses for Azure-SSIS IR, so you can allow them on the firewall of your data stores.
 
-         1. For **First static public IP address**, select the first static public IP address that meets the requirements for your Azure-SSIS IR. If you don't have any, click **Create new** link to create static public IP addresses on Azure portal and then click the refresh button here, so you can select them.
+            If you select the check box, complete the following steps.
+
+            1. For **First static public IP address**, select the first static public IP address that [meets the requirements](azure-ssis-integration-runtime-standard-virtual-network-injection.md#ip) for your Azure-SSIS IR. If you don't have any, click the **Create new** link to create static public IP addresses on Azure portal and then click the refresh button here, so you can select them.
 	  
-         1. For **Second static public IP address**, select the second static public IP address that meets the requirements for your Azure-SSIS IR. If you don't have any, click **Create new** link to create static public IP addresses on Azure portal and then click the refresh button here, so you can select them.
+            1. For **Second static public IP address**, select the second static public IP address that [meets the requirements](azure-ssis-integration-runtime-standard-virtual-network-injection.md#ip) for your Azure-SSIS IR. If you don't have any, click the **Create new** link to create static public IP addresses on Azure portal and then click the refresh button here, so you can select them.
 
    1. Select the **Set up Self-Hosted Integration Runtime as a proxy for your Azure-SSIS Integration Runtime** check box to choose whether you want to configure a self-hosted IR as proxy for your Azure-SSIS IR. For more information, see [Set up a self-hosted IR as proxy](./self-hosted-integration-runtime-proxy-ssis.md). 
 
@@ -223,12 +251,12 @@ On the **Advanced settings** page of **Integration runtime setup** pane, complet
 
       1. For **Staging Path**, specify a blob container in your selected Azure Blob storage account or leave it empty to use a default one for staging.
 
-   1. Select **VNet Validation** > **Continue**. 
+   1. Select **VNet Validation**. If the validation is successful, select **Continue**. 
 
-On the **Summary** section, review all provisioning settings, bookmark the recommended documentation links, and select **Finish** to start the creation of your integration runtime.
+On the **Summary** page, review all settings for your Azure-SSIS IR, bookmark the recommended documentation links, and select **Finish** to start the creation of your integration runtime.
 
 > [!NOTE]
-> Excluding any custom setup time, this process should finish within 5 minutes. But it might take 20-30 minutes for the Azure-SSIS IR to join a virtual network.
+> Excluding any custom setup time, this process should finish within 5 minutes. But it might take 20-30 minutes for the Azure-SSIS IR to join a virtual network with standard injection method.
 >
 > If you use SSISDB, the Data Factory service will connect to your database server to prepare SSISDB. It also configures permissions and settings for your virtual network, if specified, and joins your Azure-SSIS IR to the virtual network.
 >
@@ -260,16 +288,16 @@ On the **Connections** pane of **Manage** hub, switch to the **Integration runti
  
 ## Next steps
 
-- [Learn how to provision an Azure-SSIS IR using Azure PowerShell](create-azure-ssis-integration-runtime-powershell.md).
-- [Learn how to provision an Azure-SSIS IR using an Azure Resource Manager template](create-azure-ssis-integration-runtime-resource-manager-template.md).
-- [Deploy and run your SSIS packages in Azure Data Factory](create-azure-ssis-integration-runtime-deploy-packages.md).
+- [Create an Azure-SSIS IR via Azure PowerShell](create-azure-ssis-integration-runtime-powershell.md).
+- [Create an Azure-SSIS IR via Azure Resource Manager template](create-azure-ssis-integration-runtime-resource-manager-template.md).
+- [Deploy and run your SSIS packages on Azure-SSIS IR](create-azure-ssis-integration-runtime-deploy-packages.md).
 
-See other Azure-SSIS IR topics in this documentation:
+For more information about Azure-SSIS IR, see the following articles: 
 
-- [Azure-SSIS integration runtime](concepts-integration-runtime.md#azure-ssis-integration-runtime). This article provides information about integration runtimes in general, including Azure-SSIS IR.
+- [Azure-SSIS IR](concepts-integration-runtime.md#azure-ssis-integration-runtime). This article provides general conceptual information about IRs, including Azure-SSIS IR. 
 - [Monitor an Azure-SSIS IR](monitor-integration-runtime.md#azure-ssis-integration-runtime). This article shows you how to retrieve and understand information about your Azure-SSIS IR.
 - [Manage an Azure-SSIS IR](manage-azure-ssis-integration-runtime.md). This article shows you how to stop, start, or delete your Azure-SSIS IR. It also shows you how to scale out your Azure-SSIS IR by adding more nodes.
 - [Deploy, run, and monitor SSIS packages in Azure](/sql/integration-services/lift-shift/ssis-azure-deploy-run-monitor-tutorial)   
 - [Connect to SSISDB in Azure](/sql/integration-services/lift-shift/ssis-azure-connect-to-catalog-database)
-- [Connect to on-premises data sources with Windows authentication](/sql/integration-services/lift-shift/ssis-azure-connect-with-windows-auth) 
-- [Schedule package executions in Azure](/sql/integration-services/lift-shift/ssis-azure-schedule-packages)
+- [Connect to on-premises data stores with Windows authentication](/sql/integration-services/lift-shift/ssis-azure-connect-with-windows-auth) 
+- [Schedule SSIS package executions in Azure](/sql/integration-services/lift-shift/ssis-azure-schedule-packages)

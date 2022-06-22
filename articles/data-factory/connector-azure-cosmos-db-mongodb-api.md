@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 09/09/2021
+ms.date: 02/17/2022
 ---
 
 # Copy data to or from Azure Cosmos DB's API for MongoDB using Azure Data Factory or Synapse Analytics
@@ -48,7 +48,7 @@ Use the following steps to create a linked service to Azure Cosmos DB's API for 
 
     :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Create a new linked service with Azure Synapse UI.":::
 
-2. Search for Cosmos and select the Azure Cosmos DB's API for MongoDB connector.
+2. Search for Azure Cosmos DB (MongoDB API) and select the Azure Cosmos DB's API for MongoDB connector.
 
     :::image type="content" source="media/connector-azure-cosmos-db-mongodb-api/azure-cosmos-db-mongodb-api-connector.png" alt-text="Select the Azure Cosmos DB's API for MongoDB connector.":::    
 

@@ -5,8 +5,8 @@ services: cognitive-services
 author: mhamilton723
 manager: nitinme
 ms.service: cognitive-services
-ms.topic: overview
-ms.date: 07/09/2020
+ms.topic: conceptual
+ms.date: 10/28/2021
 ms.author: marhamil
 ---
 
@@ -31,7 +31,7 @@ Cognitive Services for Big Data can use services from any region in the world, a
 |Service Name|Service Description|
 |:-----------|:------------------|
 |[Computer Vision](../computer-vision/index.yml "Computer Vision")| The Computer Vision service provides you with access to advanced algorithms for processing images and returning information. |
-|[Face](../face/index.yml "Face")| The Face service provides access to advanced face algorithms, enabling face attribute detection and recognition. |
+|[Face](../computer-vision/index-identity.yml "Face")| The Face service provides access to advanced face algorithms, enabling face attribute detection and recognition. |
 
 ### Speech
 
@@ -49,7 +49,7 @@ Cognitive Services for Big Data can use services from any region in the world, a
 
 |Service Name|Service Description|
 |:-----------|:------------------|
-|[Text Analytics](../text-analytics/index.yml "Text Analytics")| The Text Analytics service provides natural language processing over raw text for sentiment analysis, key-phrase extraction, and language detection.|
+|[Language service](../language-service/index.yml "Language service")| The Language service provides natural language processing over raw text for sentiment analysis, key-phrase extraction, and language detection.|
 
 ### Search
 
@@ -118,7 +118,7 @@ Cognitive Services for Big Data is an example of how we can integrate intelligen
 ## Blog posts
 
 - [Learn more about how Cognitive Services work on Apache Spark&trade;](https://azure.microsoft.com/blog/dear-spark-developers-welcome-to-azure-cognitive-services/)
-- [Saving Snow Leopards with Deep Learning and Computer Vision on Spark](http://www.datawizard.io/2017/06/27/saving-snow-leopards-with-deep-learning-and-computer-vision-on-spark/)
+- [Saving Snow Leopards with Deep Learning and Computer Vision on Spark](/archive/blogs/machinelearning/saving-snow-leopards-with-deep-learning-and-computer-vision-on-spark)
 - [Microsoft Research Podcast: MMLSpark, empowering AI for Good with Mark Hamilton](https://blubrry.com/microsoftresearch/49485070/092-mmlspark-empowering-ai-for-good-with-mark-hamilton/)
 - [Academic Whitepaper: Large Scale Intelligent Microservices](https://arxiv.org/abs/2009.08044)
 

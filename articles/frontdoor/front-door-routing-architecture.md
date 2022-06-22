@@ -5,37 +5,170 @@ services: front-door
 documentationcenter: ''
 author: duongau
 ms.service: frontdoor
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/28/2020
+ms.date: 01/27/2022
 ms.author: duau
+zone_pivot_groups: front-door-tiers
 ---
 
 # Routing architecture overview
 
-When Azure Front Door receives your client requests, it will do one of two things. Either answer them if you enable caching or forward them to the appropriate application backend as a reverse proxy.
+Front Door traffic routing takes place over multiple stages. First, traffic is routed from the client to Front Door. Then, Front Door uses your configuration to determine the origin to send the traffic to. The Front Door web application firewall, routing rules, rules engine, and caching configuration all affect the routing process.
 
-## <a name = "anycast"></a>Selecting the Front Door environment for traffic routing (Anycast)
+The following diagram illustrates the routing architecture:
 
-Traffic routed to the Azure Front Door environments uses [Anycast](https://en.wikipedia.org/wiki/Anycast) for both DNS (Domain Name System) and HTTP (Hypertext Transfer Protocol) traffic, which allows for user requests to reach the closest environment in the fewest network hops. This architecture offers better round-trip times for end users by maximizing the benefits of Split TCP. Front Door organizes its environments into primary and fallback "rings". The outer ring has environments that are closer to users, offering lower latencies.  The inner ring has environments that can handle the failover for the outer ring environment in case any issues happen. The outer ring is the preferred target for all traffic and the inner ring is to handle traffic overflow from the outer ring. Each frontend host or domain served by Front Door gets assigned a primary VIP (Virtual Internet Protocol addresses), which gets announced by environments in both the inner and outer ring. A fallback VIP is only announced by environments in the inner ring. 
+::: zone pivot="front-door-standard-premium"
 
-This architecture ensures that requests from your end users always reach the closest Front Door environment. Even if the preferred Front Door environment is unhealthy all traffic automatically moves to the next closest environment.
+![Diagram that shows the Front Door routing architecture, including each step and decision point.](media/front-door-routing-architecture/routing-process-standard-premium.png)
 
-## <a name = "splittcp"></a>Connecting to Front Door environment (Split TCP)
+::: zone-end
 
-[Split TCP](https://en.wikipedia.org/wiki/Performance-enhancing_proxy) is a technique to reduce latencies and TCP problems by breaking a connection that would incur a high round-trip time into smaller pieces. With Front Door environments closer to end users, TCP connections terminates inside the Front Door environment. A TCP connection that has a large round-trip time (RTT) to the application backend gets split into two separate connections. The "short connection" between the end user and the Front Door environment means the connection gets established over three short roundtrips instead of three long round trips, which results in saving latency. The "long connection" between the Front Door environment and the backend can be pre-established and then reused across other end users requests save connectivity time. The effect of Split TCP is multiplied when establishing a SSL/TLS (Transport Layer Security) connection as there are more round trips to secure a connection.
+::: zone pivot="front-door-classic"
 
-## Processing request to match a routing rule
-After establishing a connection and completing a TLS handshake, the first step after a request lands on a Front Door environment is to  match it to routing rule. The matching is determined by configurations on Front Door to which particular routing rule to match the request to. Read about how Front Door does [route matching](front-door-route-matching.md) to learn more.
+![Diagram that shows the Front Door routing architecture, including each step and decision point.](media/front-door-routing-architecture/routing-process-classic.png)
 
-## Identifying available backends in the backend pool for the routing rule
-Once Front Door has matched a routing rule for an incoming request, the next step is to get health probe status for the backend pool associated with the routing rule if there's no caching. Read about how Front Door monitors backend health using [Health Probes](front-door-health-probes.md) to learn more.
+::: zone-end
 
-## Forwarding the request to your application backend
-Finally, assuming caching isn't configured, the user request is forwarded to the "best" backend based on your [routing method](front-door-routing-methods.md) configuration.
+The rest of this article describes these steps in detail.
+
+## Select and connect to the Front Door edge location
+
+The user or client application initiates a connection to Front Door. The connection terminates at an edge location close to the user. Front Door's edge location processes the request.
+
+For more information about how requests are made to Front Door, see [Front Door traffic acceleration](front-door-traffic-acceleration.md).
+
+::: zone pivot="front-door-standard-premium"
+
+## Match request to a Front Door profile
+
+When Front Door receives an HTTP request, it uses the request's `Host` header to match the request to the correct customer's Front Door profile. If the request is using a [custom domain name](standard-premium/how-to-add-custom-domain.md), the domain name must be registered with Front Door to enable requests to get matched to your profile.
+
+::: zone-end
+
+::: zone pivot="front-door-classic"
+
+## Match request to a front door
+
+When Front Door receives an HTTP request, it uses the request's `Host` header to match the request to the correct customer's Front Door instance. If the request is using a [custom domain name](front-door-custom-domain.md), the domain name must be registered with Front Door to enable requests to get matched to your Front door.
+
+::: zone-end
+
+The client and server perform a TLS handshake using the TLS certificate you've configured for your custom domain name, or by using the Front Door certificate when the `Host` header ends with `*.azurefd.net`.
+
+## Evaluate WAF rules
+
+::: zone pivot="front-door-standard-premium"
+
+If your domain has enabled the Web Application Firewall, WAF rules are evaluated.
+
+::: zone-end
+
+::: zone pivot="front-door-classic"
+
+If your frontend has enabled the Web Application Firewall, WAF rules are evaluated.
+
+::: zone-end
+
+If a rule has been violated, Front Door returns an error to the client and the request processing stops.
+
+::: zone pivot="front-door-standard-premium"
+
+## Match a route
+
+Front Door matches the request to a route. Learn more about the [route matching process](front-door-route-matching.md).
+
+The route specifies the [origin group](standard-premium/concept-origin.md) that the request should be sent to.
+
+::: zone-end
+
+::: zone pivot="front-door-classic"
+
+## Match a routing rule
+
+Front Door matches the request to a routing rule. Learn more about the [route matching process](front-door-route-matching.md).
+
+The route specifies the [backend pool](front-door-backend-pool.md) that the request should be sent to.
+
+::: zone-end
+
+::: zone pivot="front-door-standard-premium"
+
+## Evaluate rule sets
+
+If you have defined [rule sets](front-door-rules-engine.md) for the route, they're executed in the order they're configured. [Rule sets can override the origin group](front-door-rules-engine-actions.md#RouteConfigurationOverride) specified in a route. Rule sets can also trigger a redirection response to the request instead of forwarding it to an origin.
+
+::: zone-end
+
+::: zone pivot="front-door-classic"
+
+## Evaluate rules engines
+
+If you have defined [rules engines](front-door-rules-engine.md) for the route, they're executed in the order they're configured. [Rules engines can override the backend pool](front-door-rules-engine-actions.md#route-configuration-overrides) specified in a routing rule. Rules engines can also trigger a redirection response to the request instead of forwarding it to a backend.
+
+::: zone-end
+
+## Return cached response
+
+::: zone pivot="front-door-standard-premium"
+
+If the Front Door routing rule has [caching](front-door-caching.md) enabled, and the Front Door edge location's cache includes a valid response for the request, then Front Door returns the cached response.
+
+If caching is disabled or no response is available, the request is forwarded to the origin.
+
+::: zone-end
+
+::: zone pivot="front-door-classic"
+
+If the Front Door routing rule has [caching](front-door-caching.md) enabled, and the Front Door edge location's cache includes a valid response for the request, then Front Door returns the cached response.
+
+If caching is disabled or no response is available, the request is forwarded to the backend.
+
+::: zone-end
+
+::: zone pivot="front-door-standard-premium"
+
+## Select origin
+
+Front Door selects an origin to use within the origin group. Origin selection is based on several factors, including:
+
+- The health of each origin, which Front Door monitors by using [health probes](front-door-health-probes.md).
+- The [routing method](front-door-routing-methods.md) for your origin group.
+- Whether you have enabled [session affinity](front-door-routing-methods.md#affinity)
+
+## Forward request to origin
+
+Finally, the request is forwarded to the origin.
+
+::: zone-end
+
+::: zone pivot="front-door-classic"
+
+## Select backend
+
+Front Door selects a backend to use within the backend pool. Backend selection is based on several factors, including:
+
+- The health of each backend, which Front Door monitors by using [health probes](front-door-health-probes.md).
+- The [routing method](front-door-routing-methods.md) for your backend pool.
+- Whether you have enabled [session affinity](front-door-routing-methods.md#affinity)
+
+## Forward request to backend
+
+Finally, the request is forwarded to the backend.
+
+::: zone-end
 
 ## Next steps
 
+::: zone pivot="front-door-standard-premium"
+
+- Learn how to [create a Front Door profile](standard-premium/create-front-door-portal.md).
+
+::: zone-end
+
+::: zone pivot="front-door-classic"
+
 - Learn how to [create a Front Door](quickstart-create-front-door.md).
+
+::: zone-end

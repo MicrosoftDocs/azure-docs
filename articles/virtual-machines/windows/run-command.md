@@ -1,23 +1,26 @@
 ---
-title: Run PowerShell scripts in a Windows VM in Azure
+title: Run scripts in a Windows VM in Azure using action Run Commands
 description: This topic describes how to run PowerShell scripts within an Azure Windows virtual machine by using the Run Command feature
+services: automation
 ms.service: virtual-machines
 ms.collection: windows
-author: bobbytreed
-ms.author: robreed
-ms.date: 06/22/2021
+author: cynthn
+ms.author: cynthn
+ms.date: 10/28/2021
 ms.topic: how-to  
-ms.custom: devx-track-azurepowershell
+ms.reviewer: jushiman
+ms.custom: devx-track-azurepowershell, devx-track-azurecli 
+ms.devlang: azurecli
 
 ---
-# Run PowerShell scripts in your Windows VM by using Run Command
+# Run scripts in your Windows VM by using action Run Commands
 
 The Run Command feature uses the virtual machine (VM) agent to run PowerShell scripts within an Azure Windows VM. You can use these scripts for general machine or application management. They can help you to quickly diagnose and remediate VM access and network issues and get the VM back to a good state.
 
 
 ## Benefits
 
-You can access your virtual machines in multiple ways. Run Command can run scripts on your virtual machines remotely by using the VM agent. You use Run Command through the Azure portal, [REST API](/rest/api/compute/virtual-machines-run-commands/run-command), or [PowerShell](/powershell/module/az.compute/invoke-azvmruncommand) for Windows VMs.
+You can access your virtual machines in multiple ways. Run Command can run scripts on your virtual machines remotely by using the VM agent. You use Run Command through the Azure portal, [REST API](/rest/api/compute/virtual-machine-run-commands), or [PowerShell](/powershell/module/az.compute/invoke-azvmruncommand) for Windows VMs.
 
 This capability is useful in all scenarios where you want to run a script within a virtual machine. It's one of the only ways to troubleshoot and remediate a virtual machine that doesn't have the RDP or SSH port open because of improper network or administrative user configuration.
 
@@ -65,7 +68,7 @@ The entity was not found in this Azure location
 
 ## Azure CLI
 
-The following example uses the [az vm run-command](/cli/azure/vm/run-command#az_vm_run_command_invoke) command to run a shell script on an Azure Windows VM.
+The following example uses the [az vm run-command](/cli/azure/vm/run-command#az-vm-run-command-invoke) command to run a shell script on an Azure Windows VM.
 
 ```azurecli-interactive
 # script.ps1
@@ -101,6 +104,8 @@ The following example uses the [Invoke-AzVMRunCommand](/powershell/module/az.com
 ```azurepowershell-interactive
 Invoke-AzVMRunCommand -ResourceGroupName '<myResourceGroup>' -Name '<myVMName>' -CommandId 'RunPowerShellScript' -ScriptPath '<pathToScript>' -Parameter @{"arg1" = "var1";"arg2" = "var2"}
 ```
+> [!NOTE]
+> Parameter values can be string type only and the script is responsible for converting them to other types if needed.
 
 ## Limiting access to Run Command
 

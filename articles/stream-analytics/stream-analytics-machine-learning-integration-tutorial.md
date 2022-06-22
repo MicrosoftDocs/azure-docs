@@ -1,5 +1,5 @@
 ---
-title: Azure Stream Analytics integration with Azure Machine Learning Studio (classic)
+title: Azure Stream Analytics integration with Machine Learning Studio (classic)
 description: This article describes how to quickly set up a simple Azure Stream Analytics job that integrates Azure Machine Learning Studio (classic), using a user-defined function.
 ms.service: stream-analytics
 author: sidramadoss
@@ -9,12 +9,14 @@ ms.date: 08/12/2020
 ms.custom: seodec18
 ---
 
-# Do sentiment analysis with Azure Stream Analytics and Azure Machine Learning Studio (classic)
+# Do sentiment analysis with Azure Stream Analytics and Machine Learning Studio (classic)
 
-This article shows you how to set up a simple Azure Stream Analytics job that uses Azure Machine Learning Studio (classic) for sentiment analysis. You use a Studio (classic) sentiment analytics model from the Cortana Intelligence Gallery to analyze streaming text data and determine the sentiment score.
+[!INCLUDE [ML Studio (classic) retirement](../../includes/machine-learning-studio-classic-deprecation.md)]
+
+This article shows you how to set up a simple Azure Stream Analytics job that uses Machine Learning Studio (classic) for sentiment analysis. You use a Studio (classic) sentiment analytics model from the Cortana Intelligence Gallery to analyze streaming text data and determine the sentiment score.
 
 > [!TIP]
-> It is highly recommended to use [Azure Machine Learning UDFs](machine-learning-udf.md) instead of Azure Machine Learning Studio (classic) UDF for improved performance and reliability.
+> It is highly recommended to use [Azure Machine Learning UDFs](machine-learning-udf.md) instead of Machine Learning Studio (classic) UDF for improved performance and reliability.
 
 You can apply what you learn from this article to scenarios such as these:
 
@@ -73,7 +75,7 @@ Now that the sample data is in a blob, you can enable the sentiment analysis mod
 
 2. Select **Open in Studio (classic)**.  
    
-   ![Stream Analytics Azure Machine Learning Studio (classic), open Studio (classic)](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-open-ml-studio.png)  
+   ![Stream Analytics Machine Learning Studio (classic), open Studio (classic)](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-open-ml-studio.png)  
 
 3. Sign in to go to the workspace. Select a location.
 
@@ -95,7 +97,7 @@ Now that the sample data is in a blob, you can enable the sentiment analysis mod
 
 7. In the **Apps** column, select the **Excel 2010 or earlier workbook** link to download an Excel workbook. The workbook contains the API key and the URL that you need later to set up the Stream Analytics job.
 
-    ![Stream Analytics Azure Machine Learning Studio (classic), quick glance](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-quick-glance.png)  
+    ![Stream Analytics Machine Learning Studio (classic), quick glance](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-quick-glance.png)  
 
 ## Create a Stream Analytics job that uses the Studio (classic) model
 
@@ -209,7 +211,7 @@ You can now start the Stream Analytics job.
 
 3. Open the generated CSV file. You see something like the following example:  
 
-   ![Stream Analytics Azure Machine Learning Studio (classic), CSV view](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-csv-view.png)  
+   ![Stream Analytics Machine Learning Studio (classic), CSV view](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-csv-view.png)  
 
 ### View metrics
 

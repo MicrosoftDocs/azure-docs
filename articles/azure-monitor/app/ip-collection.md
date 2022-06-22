@@ -4,6 +4,7 @@ description: Understand how Application Insights handles IP addresses and geoloc
 ms.topic: conceptual
 ms.date: 09/23/2020
 ms.custom: devx-track-js, devx-track-azurepowershell
+ms.reviewer: saars
 ---
 
 # Geolocation and IP address handling
@@ -15,6 +16,9 @@ This article explains how geolocation lookup and IP address handling work in App
 By default, IP addresses are temporarily collected but not stored in Application Insights. The basic process is as follows:
 
 When telemetry is sent to Azure, Application Insights uses the IP address to do a geolocation lookup by using [GeoLite2 from MaxMind](https://dev.maxmind.com/geoip/geoip2/geolite2/). Application Insights uses the results of this lookup to populate the fields `client_City`, `client_StateOrProvince`, and `client_CountryOrRegion`. The address is then discarded, and `0.0.0.0` is written to the `client_IP` field. 
+
+> [!NOTE] 
+> Application Insights uses an older version of the GeoLite2 database. If you experience accuracy issues with IP to geolocation mappings, then as a workaround you can disable IP masking and utilize another geomapping service to convert the client_IP field of the underlying telemetry to a more accurate geolocation. We are currently working on an update to improve the geolocation accuracy.
 
 The telemetry types are:
 
@@ -95,9 +99,9 @@ If you only need to modify the behavior for a single Application Insights resour
     
     A list of properties is returned as a result. One of the properties should read `DisableIpMasking: true`. If you run the PowerShell commands before deploying the new property with Azure Resource Manager, the property won't exist.
 
-### Rest API
+### REST API
 
-The [Rest API](/rest/api/azure/) payload to make the same modifications is as follows:
+The [REST API](/rest/api/azure/) payload to make the same modifications is as follows:
 
 ```
 PATCH https://management.azure.com/subscriptions/<sub-id>/resourceGroups/<rg-name>/providers/microsoft.insights/components/<resource-name>?api-version=2018-05-01-preview HTTP/1.1

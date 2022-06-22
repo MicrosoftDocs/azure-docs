@@ -2,8 +2,9 @@
  title: Azure Cosmos DB global distribution
  description: Learn how to replicate data globally with Azure Cosmos DB in the Azure portal
  services: cosmos-db
- author: SnehaGunda
- ms.author: sngun
+ author: seesharprun
+ ms.author: sidandrews
+ms.reviewer: mjbrown
  ms.service: cosmos-db
  ms.topic: include
  ms.date: 12/26/2018
@@ -30,7 +31,7 @@ There are two common scenarios for configuring two or more regions:
 
 For delivering low-latency to end users, it is recommended that you deploy both the application and Azure Cosmos DB in the regions that correspond to where the application's users are located.
 
-For BCDR, it is recommended to add regions based on the region pairs described in the [Business continuity and disaster recovery (BCDR): Azure Paired Regions](../../best-practices-availability-paired-regions.md) article.
+For BCDR, it is recommended to add regions based on the region pairs described in the [Cross-region replication in Azure: Business continuity and disaster recovery](../../availability-zones/cross-region-replication-azure.md) article.
 
 <!--
 

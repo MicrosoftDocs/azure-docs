@@ -3,13 +3,14 @@ title: How to recognize intents from speech using the Speech SDK C#
 titleSuffix: Azure Cognitive Services
 description: In this guide, you learn how to recognize intents from speech using the Speech SDK for C#.
 services: cognitive-services
-author: PatrickFarley
+author: eric-urban
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: conceptual
-ms.date: 02/10/2020
-ms.author: pafarley
+ms.topic: how-to
+ms.date: 02/08/2022
+ms.author: eur
+ms.devlang: csharp
 ms.custom: devx-track-csharp
 ---
 
@@ -42,40 +43,86 @@ Be sure you have the following items before you begin this guide:
 
 LUIS integrates with the Speech service to recognize intents from speech. You don't need a Speech service subscription, just LUIS.
 
-LUIS uses three kinds of keys:
+LUIS uses two kinds of keys:
 
 | Key type  | Purpose                                               |
 | --------- | ----------------------------------------------------- |
 | Authoring | Lets you create and modify LUIS apps programmatically |
-| Starter   | Lets you test your LUIS application using text only   |
-| Endpoint  | Authorizes access to a particular LUIS app            |
+| Prediction | Used to access the LUIS application in runtime       |
 
-For this guide, you need the endpoint key type. This guide uses the example Home Automation LUIS app, which you can create by following the [Use prebuilt Home automation app](../luis/luis-get-started-create-app.md) quickstart. If you've created a LUIS app of your own, you can use it instead.
+For this guide, you need the prediction key type. This guide uses the example Home Automation LUIS app, which you can create by following the [Use prebuilt Home automation app](../luis/luis-get-started-create-app.md) quickstart. If you've created a LUIS app of your own, you can use it instead.
 
-When you create a LUIS app, LUIS automatically generates a starter key so you can test the app using text queries. This key doesn't enable the Speech service integration and won't work with this guide. Create a LUIS resource in the Azure dashboard and assign it to the LUIS app. You can use the free subscription tier for this guide.
+When you create a LUIS app, LUIS automatically generates an authoring key so you can test the app using text queries. This key doesn't enable the Speech service integration and won't work with this guide. Create a LUIS resource in the Azure dashboard and assign it to the LUIS app. You can use the free subscription tier for this guide.
 
-After you create the LUIS resource in the Azure dashboard, log into the [LUIS portal](https://www.luis.ai/home), choose your application on the **My Apps** page, then switch to the app's **Manage** page. Finally, select **Keys and Endpoints** in the sidebar.
+After you create the LUIS resource in the Azure dashboard, log into the [LUIS portal](https://www.luis.ai/home), choose your application on the **My Apps** page, then switch to the app's **Manage** page. Finally, select **Azure Resources** in the sidebar.
 
-![LUIS portal keys and endpoint settings](media/sdk/luis-keys-endpoints-page.png)
+:::image type="content" source="media/sdk/luis-keys-endpoints-page.png" alt-text="Shows a screenshot of the LUIS portal keys and endpoint settings." lightbox="media/sdk/luis-keys-endpoints-page.png":::
 
-On the **Keys and Endpoint settings** page:
+On the **Azure Resources** page:
 
-1. Scroll down to the **Resources and Keys** section and select **Assign resource**.
-1. In the **Assign a key to your app** dialog box, make the following changes:
+Select the icon next to a key to copy it to the clipboard. (You may use either key.)
 
-   - Under **Tenant**, choose **Microsoft**.
-   - Under **Subscription Name**, choose the Azure subscription that contains the LUIS resource you want to use.
-   - Under **Key**, choose the LUIS resource that you want to use with the app.
+## Create the project and add the workload
 
-   In a moment, the new subscription appears in the table at the bottom of the page.
+To create a Visual Studio project for Windows development, you need to create the project, set up Visual Studio for .NET desktop development, install the Speech SDK, and choose the target architecture.
 
-1. Select the icon next to a key to copy it to the clipboard. (You may use either key.)
+To start, create the project in Visual Studio, and make sure that Visual Studio is set up for .NET desktop development:
 
-![LUIS app subscription keys](media/sdk/luis-keys-assigned.png)
+1. Open Visual Studio 2019.
 
-## Create a speech project in Visual Studio
+1. In the Start window, select **Create a new project**. 
 
-[!INCLUDE [Create project](../../../includes/cognitive-services-speech-service-create-speech-project-vs-csharp.md)]
+1. In the **Create a new project** window, choose **Console App (.NET Framework)**, and then select **Next**.
+
+1. In the **Configure your new project** window, enter *helloworld* in **Project name**, choose or create the directory path in **Location**, and then select **Create**.
+
+1. From the Visual Studio menu bar, select **Tools** > **Get Tools and Features**, which opens Visual Studio Installer and displays the **Modifying** dialog box.
+
+1. Check whether the **.NET desktop development** workload is available. If the workload hasn't been installed, select the check box next to it, and then select **Modify** to start the installation. It may take a few minutes to download and install.
+
+   If the check box next to **.NET desktop development** is already selected, select **Close** to exit the dialog box.
+
+   ![Enable .NET desktop development](~/articles/cognitive-services/speech-service/media/sdk/vs-enable-net-desktop-workload.png)
+
+1. Close Visual Studio Installer.
+
+### Install the Speech SDK
+
+The next step is to install the [Speech SDK NuGet package](https://aka.ms/csspeech/nuget), so you can reference it in the code.
+
+1. In the Solution Explorer, right-click the **helloworld** project, and then select **Manage NuGet Packages** to show the NuGet Package Manager.
+
+   ![NuGet Package Manager](~/articles/cognitive-services/speech-service/media/sdk/vs-nuget-package-manager.png)
+
+1. In the upper-right corner, find the **Package Source** drop-down box, and make sure that **nuget.org** is selected.
+
+1. In the upper-left corner, select **Browse**.
+
+1. In the search box, type *Microsoft.CognitiveServices.Speech* and select **Enter**.
+
+1. From the search results, select the **Microsoft.CognitiveServices.Speech** package, and then select **Install** to install the latest stable version.
+
+   ![Install Microsoft.CognitiveServices.Speech NuGet package](~/articles/cognitive-services/speech-service/media/sdk/qs-csharp-dotnet-windows-03-nuget-install-1.0.0.png)
+
+1. Accept all agreements and licenses to start the installation.
+
+   After the package is installed, a confirmation appears in the **Package Manager Console** window.
+
+### Choose the target architecture
+
+Now, to build and run the console application, create a platform configuration matching your computer's architecture.
+
+1. From the menu bar, select **Build** > **Configuration Manager**. The **Configuration Manager** dialog box appears.
+
+   ![Configuration Manager dialog box](~/articles/cognitive-services/speech-service/media/sdk/vs-configuration-manager-dialog-box.png)
+
+1. In the **Active solution platform** drop-down box, select **New**. The **New Solution Platform** dialog box appears.
+
+1. In the **Type or select the new platform** drop-down box:
+   - If you're running 64-bit Windows, select **x64**.
+   - If you're running 32-bit Windows, select **x86**.
+
+1. Select **OK** and then **Close**.
 
 ## Add the code
 
@@ -114,7 +161,7 @@ Next, you add code to the project.
 
    | Placeholder | Replace with |
    | ----------- | ------------ |
-   | `YourLanguageUnderstandingSubscriptionKey` | Your LUIS endpoint key. Again, you must get this item from your Azure dashboard, not a "starter key." You can find it on your app's **Keys and Endpoints** page (under **Manage**) in the [LUIS portal](https://www.luis.ai/home). |
+   | `YourLanguageUnderstandingSubscriptionKey` | Your LUIS key. Again, you must get this item from your Azure dashboard. You can find it on your app's **Azure Resources** page (under **Manage**) in the [LUIS portal](https://www.luis.ai/home). |
    | `YourLanguageUnderstandingServiceRegion` | The short identifier for the region your LUIS subscription is in, such as `westus` for West US. See [Regions](regions.md). |
    | `YourLanguageUnderstandingAppId` | The LUIS app ID. You can find it on your app's **Settings** page in the [LUIS portal](https://www.luis.ai/home). |
 
@@ -124,12 +171,12 @@ The following sections include a discussion of the code.
 
 ## Create an intent recognizer
 
-First, you need to create a speech configuration from your LUIS endpoint key and region. You can use speech configurations to create recognizers for the various capabilities of the Speech SDK. The speech configuration has multiple ways to specify the subscription you want to use; here, we use `FromSubscription`, which takes the subscription key and region.
+First, you need to create a speech configuration from your LUIS prediction key and region. You can use speech configurations to create recognizers for the various capabilities of the Speech SDK. The speech configuration has multiple ways to specify the subscription you want to use; here, we use `FromSubscription`, which takes the subscription key and region.
 
 > [!NOTE]
 > Use the key and region of your LUIS subscription, not a Speech service subscription.
 
-Next, create an intent recognizer using `new IntentRecognizer(config)`. Since the configuration already knows which subscription to use, you don't need to specify the subscription key and endpoint again when creating the recognizer.
+Next, create an intent recognizer using `new IntentRecognizer(config)`. Since the configuration already knows which subscription to use, you don't need to specify the subscription key again when creating the recognizer.
 
 ## Import a LUIS model and add intents
 
@@ -184,16 +231,14 @@ To try out these features, delete or comment out the body of the `RecognizeInten
 
 [!code-csharp[Intent recognition by using events from a file](~/samples-cognitive-services-speech-sdk/samples/csharp/sharedcontent/console/intent_recognition_samples.cs#intentContinuousRecognitionWithFile)]
 
-Revise the code to include your LUIS endpoint key, region, and app ID and to add the Home Automation intents, as before. Change `whatstheweatherlike.wav` to the name of your recorded audio file. Then build, copy the audio file to the build directory, and run the application.
+Revise the code to include your LUIS prediction key, region, and app ID and to add the Home Automation intents, as before. Change `whatstheweatherlike.wav` to the name of your recorded audio file. Then build, copy the audio file to the build directory, and run the application.
 
 For example, if you say "Turn off the lights", pause, and then say "Turn on the lights" in your recorded audio file, console output similar to the following may appear:
 
 ![Audio file LUIS recognition results](media/sdk/luis-results-2.png)
 
-[!INCLUDE [Download the sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
-Look for the code from this article in the **samples/csharp/sharedcontent/console** folder.
+The Speech SDK team actively maintains a large set of examples in an open-source repository. For the sample source code repository, see the [Azure Cognitive Services Speech SDK on GitHub](https://aka.ms/csspeech/samples). There are samples for C#, C++, Java, Python, Objective-C, Swift, JavaScript, UWP, Unity, and Xamarin. Look for the code from this article in the **samples/csharp/sharedcontent/console** folder.
 
 ## Next steps
 
-> [!div class="nextstepaction"]
 > [Quickstart: Recognize speech from a microphone](./get-started-speech-to-text.md?pivots=programming-language-csharp&tabs=dotnetcore)

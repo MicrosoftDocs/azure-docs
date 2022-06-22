@@ -3,12 +3,12 @@ title: Language support
 titleSuffix: Azure Cognitive Services
 description: Azure Cognitive Services enables you to build applications that see, hear, speak with, and understand your users. Between these services, more than three dozen languages are supported, allowing users to communicate with your application in natural ways.
 services: cognitive-services
-author: erhopf
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 03/31/2020
-ms.author: erhopf
+ms.date: 10/28/2021
+ms.author: pafarley
 ms.custom: seodec18
 ---
 
@@ -20,20 +20,20 @@ These Cognitive Services are language agnostic and don't have limitations based 
 
 * [Anomaly Detector (Preview)](./anomaly-detector/index.yml)
 * [Custom Vision](./custom-vision-service/index.yml)
-* [Face](./face/index.yml)
+* [Face](./computer-vision/index-identity.yml)
 * [Personalizer](./personalizer/index.yml)
 
 ## Vision
 
 * [Computer Vision](./computer-vision/language-support.md)
 * [Ink Recognizer (Preview)](/previous-versions/azure/cognitive-services/Ink-Recognizer/language-support)
-* [Video Indexer](../azure-video-analyzer/video-analyzer-for-media-docs/language-identification-model.md#guidelines-and-limitations)
+* [Video Indexer](../azure-video-indexer/language-identification-model.md#guidelines-and-limitations)
 
 ## Language
 
 * [Language Understanding (LUIS)](./luis/luis-language-support.md)
 * [QnA Maker](./qnamaker/overview/language-support.md)
-* [Text Analytics](./text-analytics/language-support.md)
+* [Language service](./text-analytics/language-support.md)
 * [Translator](./translator/language-support.md)
 
 ## Speech

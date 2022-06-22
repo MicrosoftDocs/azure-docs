@@ -11,7 +11,6 @@ ms.assetid:
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: reference
 ms.date: 08/04/2021
 ms.author: phjensen

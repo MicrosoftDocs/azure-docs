@@ -1,13 +1,13 @@
 ---
 title: Prerequisites to programmatically access analytics data
-description: Learn the requirements you need to meet before you can programmatically access commercial marketplace analytics data.
+description: Learn the requirements you need to meet before you can programmatically access commercial marketplace analytics data in Partner Center.
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 author: smannepalle
 ms.author: smannepalle
 ms.reviewer: sroy
-ms.date: 3/08/2021
+ms.date: 03/14/2022
 ---
 
 # Prerequisites to programmatically access analytics data
@@ -24,13 +24,13 @@ Regular user credentials cannot be used for programmatic access of commercial ma
 
 ## Associate the Azure AD application to the Partner Center tenant
 
-The Azure AD application you created in Azure portal needs to be linked to your Partner Center account. The steps are as follows:
+The Azure AD application you created in the Azure portal needs to be linked to your Partner Center account. The steps are as follows:
 
 1. Sign in to [Partner Center](https://go.microsoft.com/fwlink/?linkid=2165507).
 1. In the upper right, select the gear icon and then select **Account settings**.
 1. In the **Account settings** menu, select **User management**.
-1. Select **Azure AD applications** and then select **+ Create Azure AD application**.
-1. Select the Azure AD application you created on Azure portal and then select **Next**.
+1. Select **Azure AD applications** then **+ Create Azure AD application**.
+1. Select the Azure AD application you created on the Azure portal, then **Next**.
 1. Select the **Manager(Windows)** checkbox and then select **Add**.
 
     :::image type="content" source="./media/analytics-programmatic-access/azure-ad-roles.png" alt-text="Illustrates the Create Azure AD application page with the check boxes for selecting roles.":::

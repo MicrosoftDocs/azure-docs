@@ -3,7 +3,7 @@ title: Tutorial - Integrate a single forest with a single Azure AD tenant
 description: This topic describes the pre-requisites and the hardware requirements cloud sync.
 services: active-directory
 author: billmath
-manager: daveba
+manager: karenhoran
 ms.service: active-directory
 ms.workload: identity
 ms.topic: tutorial

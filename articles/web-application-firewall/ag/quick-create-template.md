@@ -8,7 +8,7 @@ ms.service: web-application-firewall
 ms.topic: quickstart
 ms.date: 09/16/2020
 ms.author: victorh
-ms.custom: subject-armqs, devx-track-azurepowershell
+ms.custom: subject-armqs, devx-track-azurepowershell, mode-arm
 ---
 
 # Quickstart: Create an Azure WAF v2 on Application Gateway using an ARM template

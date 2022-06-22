@@ -6,7 +6,7 @@ ms.author: chugu
 ms.service: data-factory
 ms.subservice: integration-services
 ms.topic: conceptual
-ms.date: 9/3/2019
+ms.date: 10/22/2021
 ---
 
 # Migrate on-premises SSIS workloads to SSIS in ADF

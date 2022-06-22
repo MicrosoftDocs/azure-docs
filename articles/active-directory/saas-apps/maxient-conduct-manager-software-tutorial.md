@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Maxient Conduct Manager Software | Microsoft Docs'
+title: 'Tutorial: Azure AD SSO integration with Maxient Conduct Manager Software'
 description: Learn how to configure single sign-on between Azure Active Directory and Maxient Conduct Manager Software.
 services: active-directory
 author: jeevansd
@@ -9,19 +9,16 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/18/2019
+ms.date: 12/01/2021
 ms.author: jeedes
 ---
 
-# Tutorial: Azure Active Directory single sign-on (SSO) integration with Maxient Conduct Manager Software
+# Tutorial: Azure AD SSO integration with Maxient Conduct Manager Software
 
 In this tutorial, you'll learn how to integrate Maxient Conduct Manager Software with Azure Active Directory (Azure AD). When you integrate Maxient Conduct Manager Software with Azure AD, you can:
 
-* Utilize Azure AD to authenticate your users for the Maxient Conduct Manager Software
+* Utilize Azure AD to authenticate your users for the Maxient Conduct Manager Software.
 * Enable your users to be automatically signed-in to Maxient Conduct Manager Software with their Azure AD accounts.
-
-
-To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## Prerequisites
 
@@ -34,41 +31,39 @@ To get started, you need the following items:
 
 In this tutorial, you will configure your Azure AD for use with Maxient Conduct Manager Software.
 
-
-* Maxient Conduct Manager Software supports **SP and IDP** initiated SSO
+* Maxient Conduct Manager Software supports **SP and IDP** initiated SSO.
 
 > [!NOTE]
 > Identifier of this application is a fixed string value so only one instance can be configured in one tenant.
 
-## Adding Maxient Conduct Manager Software from the gallery
+## Add Maxient Conduct Manager Software from the gallery
 
 To configure the integration of Maxient Conduct Manager Software into Azure AD, you need to add Maxient Conduct Manager Software from the gallery to your list of managed SaaS apps.
 
-1. Sign in to the [Azure portal](https://portal.azure.com) using either a work or school account, or a personal Microsoft account.
+1. Sign in to the Azure portal using either a work or school account, or a personal Microsoft account.
 1. On the left navigation pane, select the **Azure Active Directory** service.
 1. Navigate to **Enterprise Applications** and then select **All Applications**.
 1. To add new application, select **New application**.
 1. In the **Add from the gallery** section, type **Maxient Conduct Manager Software** in the search box.
 1. Select **Maxient Conduct Manager Software** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
-
-## Configure and test Azure AD single sign-on for Maxient Conduct Manager Software
+## Configure and test Azure AD SSO for Maxient Conduct Manager Software
 
 Configure and test Azure AD SSO with Maxient Conduct Manager Software. For SSO to work, you need to establish a connection between Azure AD and the Maxient Conduct Manager Software.
 
-To configure and test Azure AD SSO with Maxient Conduct Manager Software, complete the following building blocks:
+To configure and test Azure AD SSO with Maxient Conduct Manager Software, perform the following steps:
 
-1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to authenticate for use with the Maxient Conduct Manager Software
-   - **[Set "User Assignment Required?" to No](#set-user-assignment-required-to-no)** - to allow everyone at your institution to be able to authenticate.
-1. **[Test Azure AD Setup With Maxient](#test-with-maxient)** - to verify whether the configuration works, and the correct attributes are being released
+1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to authenticate for use with the Maxient Conduct Manager Software.
+   1. **[Set "User Assignment Required?" to No](#set-user-assignment-required-to-no)** - to allow everyone at your institution to be able to authenticate.
+1. **[Test Azure AD Setup With Maxient](#test-with-maxient)** - to verify whether the configuration works, and the correct attributes are being released.
 
 ## Configure Azure AD SSO
 
 Follow these steps to enable Azure AD SSO in the Azure portal.
 
-1. In the [Azure portal](https://portal.azure.com/), on the **Maxient Conduct Manager Software** application integration page, find the **Manage** section and select **single sign-on**.
+1. In the Azure portal, on the **Maxient Conduct Manager Software** application integration page, find the **Manage** section and select **single sign-on**.
 1. On the **Select a single sign-on method** page, select **SAML**.
-1. On the **Set up single sign-on with SAML** page, click the edit/pen icon for **Basic SAML Configuration** to edit the settings.
+1. On the **Set up single sign-on with SAML** page, click the pencil icon for **Basic SAML Configuration** to edit the settings.
 
    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
@@ -100,12 +95,6 @@ It is important to note that this step is **REQUIRED** for Maxient to function p
 
 If a support ticket has not already been opened with a Maxient Implementation/Support representative, send an email to [support@maxient.com](mailto:support@maxient.com) with the subject "Campus Based Authentication/Azure Setup - \<\<School Name\>\>". In the body of the email, provide the **App Federation Metadata Url**. Maxient staff will respond with a test link to verify the proper attributes are being released.  
 	
-## Additional resources
+## Next steps
 
-- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](./tutorial-list.md)
-
-- [What is application access and single sign-on with Azure Active Directory? ](../manage-apps/what-is-single-sign-on.md)
-
-- [What is conditional access in Azure Active Directory?](../conditional-access/overview.md)
-
-- [Try Maxient Conduct Manager Software with Azure AD](https://aad.portal.azure.com/)
+Once you configure Maxient Conduct Manager Software you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-aad).

@@ -28,7 +28,7 @@ When an actor is deactivated, the following occurs:
 >
 
 ### Actor garbage collection
-When an actor is deactivated, references to the actor object are released and it can be garbage collected normally by the common language runtime (CLR) or java virtual machine (JVM) garbage collector. Garbage collection only cleans up the actor object; it does **not** remove state stored in the actor's State Manager. The next time the actor is activated, a new actor object is created and its state is restored.
+When an actor is deactivated, references to the actor object are released and it can be garbage collected normally by the common language runtime (CLR) or Java virtual machine (JVM) garbage collector. Garbage collection only cleans up the actor object; it does **not** remove state stored in the actor's State Manager. The next time the actor is activated, a new actor object is created and its state is restored.
 
 What counts as “being used” for the purpose of deactivation and garbage collection?
 

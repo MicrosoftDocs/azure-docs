@@ -3,15 +3,15 @@ title: Pass an identity provider access token to your app
 titleSuffix: Azure AD B2C
 description: Learn how to pass an access token for OAuth 2.0 identity providers as a claim in a user flow in Azure Active Directory B2C.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 09/16/2021
+ms.date: 03/10/2022
 ms.custom: project-no-code
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
 ---
@@ -30,7 +30,7 @@ Azure AD B2C supports passing the access token of [OAuth 2.0](add-identity-provi
 
 ::: zone pivot="b2c-custom-policy"
 
-Azure AD B2C supports passing the access token of [OAuth 2.0](authorization-code-flow.md) and [OpenID Connect](openid-connect.md) identity providers. For all other identity providers, the claim is returned blank.
+Azure AD B2C supports passing the access token of [OAuth 2.0](authorization-code-flow.md) and [OpenID Connect](openid-connect.md) identity providers. For all other identity providers, the claim is returned blank. For more details, check out the identity providers federation [Live demo](https://github.com/azure-ad-b2c/unit-tests/tree/main/Identity-providers).
 
 ::: zone-end
 

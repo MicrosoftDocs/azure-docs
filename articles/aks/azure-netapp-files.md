@@ -3,7 +3,7 @@ title: Integrate Azure NetApp Files with Azure Kubernetes Service | Microsoft Do
 description: Learn how to provision Azure NetApp Files with Azure Kubernetes Service.
 services: container-service
 ms.topic: article
-ms.date: 10/07/2021
+ms.date: 10/18/2021
 
 #Customer intent: As a cluster operator or developer, I want to learn how to use Azure NetApp Files to provision volumes for Kubernetes environments.
 ---
@@ -14,14 +14,14 @@ A persistent volume represents a piece of storage that has been provisioned for 
 
 [Azure NetApp Files][anf] is an enterprise-class, high-performance, metered file storage service running on Azure. Kubernetes users have two options when it comes to using Azure NetApp Files volumes for Kubernetes workloads:
 
-* Create Azure NetApp Files volumes **statically**: In this scenario, the creation of volumes is achieved external to AKS; volumes are created using `az`/Azure UI and are then exposed to Kubernetes by the creation of a `PersistentVolume`. Statically created ANF volumes have lots of limitations (for example, inability to be expanded, needing to be over-provisioned, and so on) and are not recommended for most use cases.
+* Create Azure NetApp Files volumes **statically**: In this scenario, the creation of volumes is achieved external to AKS; volumes are created using `az`/Azure UI and are then exposed to Kubernetes by the creation of a `PersistentVolume`. Statically created Azure NetApp Files volumes have lots of limitations (for example, inability to be expanded, needing to be over-provisioned, and so on) and are not recommended for most use cases.
 * Create Azure NetApp Files volumes **on-demand**, orchestrating through Kubernetes: This method is the **preferred** mode of operation for creating multiple volumes directly through Kubernetes and is achieved using [Astra Trident](https://docs.netapp.com/us-en/trident/index.html). Astra Trident is a CSI-compliant dynamic storage orchestrator that helps provision volumes natively through Kubernetes.
 
-Using a CSI driver to directly consume Azure NetApp Files volumes from AKS workloads is **highly recommended** for most use cases. This requirement is fulfilled using Astra Trident, an open-source dynamic storage orchestrator for Kubernetes. Astra Trident is an enterprise-grade storage orchestrator purpose-built for Kubernetes, fully supported by NetApp. It simplifies access to storage across Kubernetes environments by automating storage provisioning. Consumers can take advantage of Astra Trident's CSI driver for Azure NetApp Files to abstract underlying details and create/expand/snapshot volumes on-demand.
+Using a CSI driver to directly consume Azure NetApp Files volumes from AKS workloads is **highly recommended** for most use cases. This requirement is fulfilled using Astra Trident, an open-source dynamic storage orchestrator for Kubernetes. Astra Trident is an enterprise-grade storage orchestrator purpose-built for Kubernetes, fully supported by NetApp. It simplifies access to storage from Kubernetes clusters by automating storage provisioning. You can take advantage of Astra Trident's Container Storage Interface (CSI) driver for Azure NetApp Files to abstract underlying details and create, expand, and snapshot volumes on-demand. Also, using Astra Trident enables you to use [Astra Control Service](https://cloud.netapp.com/astra-control) built on top of Astra Trident to backup, recover, move, and manage the application-data lifecycle of your AKS workloads across clusters within and across Azure regions to meet your business and service continuity needs.
 
 ## Before you begin
 
-This article assumes that you have an existing AKS cluster. If you need an AKS cluster, see the AKS quickstart [using the Azure CLI][aks-quickstart-cli] or [using the Azure portal][aks-quickstart-portal].
+This article assumes that you have an existing AKS cluster. If you need an AKS cluster, see the AKS quickstart [using the Azure CLI][aks-quickstart-cli], [using Azure PowerShell][aks-quickstart-powershell], or [using the Azure portal][aks-quickstart-portal].
 
 > [!IMPORTANT]
 > Your AKS cluster must also be [in a region that supports Azure NetApp Files][anf-regions].
@@ -283,7 +283,7 @@ Before proceeding to the next step, you will need to:
 This section walks you through the installation of Astra Trident using the operator. You can also choose to install using one of its other methods:
 
 * [Helm chart](https://docs.netapp.com/us-en/trident/trident-get-started/kubernetes-deploy-operator.html).
-* [tridentctl](https://docs.netapp.com/us-en/trident/trident-get-started/kubernetes-deploy-tridentctl.html).
+* [`tridentctl`](https://docs.netapp.com/us-en/trident/trident-get-started/kubernetes-deploy-tridentctl.html).
 
 See to [Deploying Trident](https://docs.netapp.com/us-en/trident/trident-get-started/kubernetes-deploy.html) to understand how each option works and identify the one that works best for you.
 
@@ -373,7 +373,7 @@ secret/backend-tbc-anf-secret created
 tridentbackendconfig.trident.netapp.io/backend-tbc-anf created
 ```
 
-Before running the command, you will need to update `backend-anf.yaml` to include details about the Azure NetApp Files subscription, such as:
+Before running the command, you need to update `backend-anf.yaml` to include details about the Azure NetApp Files subscription, such as:
 
 * `subscriptionID` for the Azure subscription with Azure NetApp Files enabled. The 
 * `tenantID`, `clientID`, and `clientSecret` from an [App Registration](../active-directory/develop/howto-create-service-principal-portal.md) in Azure Active Directory (AD) with sufficient permissions for the Azure NetApp Files service. The App Registration must carry the `Owner` or `Contributor` role that’s predefined by Azure.
@@ -512,12 +512,17 @@ Astra Trident supports many features with Azure NetApp Files, such as:
 * [On-demand volume snapshots](https://docs.netapp.com/us-en/trident/trident-use/vol-snapshots.html)
 * [Importing volumes](https://docs.netapp.com/us-en/trident/trident-use/vol-import.html)
 
+## Using Azure tags
+
+For more details on using Azure tags, see [Use Azure tags in Azure Kubernetes Service (AKS)][use-tags].
+
 ## Next steps
 
 * For more information on Azure NetApp Files, see [What is Azure NetApp Files][anf].
 
-[aks-quickstart-cli]: kubernetes-walkthrough.md
-[aks-quickstart-portal]: kubernetes-walkthrough-portal.md
+[aks-quickstart-cli]: ./learn/quick-kubernetes-deploy-cli.md
+[aks-quickstart-portal]: ./learn/quick-kubernetes-deploy-portal.md
+[aks-quickstart-powershell]: ./learn/quick-kubernetes-deploy-powershell.md
 [aks-nfs]: azure-nfs-volume.md
 [anf]: ../azure-netapp-files/azure-netapp-files-introduction.md
 [anf-delegate-subnet]: ../azure-netapp-files/azure-netapp-files-delegate-subnet.md
@@ -535,3 +540,4 @@ Astra Trident supports many features with Azure NetApp Files, such as:
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 [kubectl-describe]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#describe
 [kubectl-exec]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#exec
+[use-tags]: use-tags.md

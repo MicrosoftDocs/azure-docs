@@ -1,95 +1,110 @@
 ---
-title: Create a lab
-description: This article walks you through the process of creating a lab using the Azure portal and Azure DevTest Labs. 
-ms.topic: how-to
-ms.date: 10/12/2020
+title: 'Quickstart: Create a lab in the Azure portal'
+description: Learn how to quickly create a lab in Azure DevTest Labs by using the Azure portal.
+ms.topic: quickstart
+ms.author: rosemalcolm
+author: RoseHJM
+ms.date: 03/03/2022
+ms.custom: mode-ui
 ---
 
-# Create a lab in Azure DevTest Labs
+# Quickstart: Create a lab in the Azure portal
 
-A lab in Azure DevTest Labs is the infrastructure that encompasses a group of resources, such as Virtual Machines (VMs), that lets you better manage those resources by specifying limits and quotas. This article walks you through the process of creating a lab using the Azure portal.
+This quickstart walks you through creating a lab in Azure DevTest Labs by using the Azure portal. [Azure DevTest Labs](https://azure.microsoft.com/services/devtest-lab) is a service for easily creating, using, and managing infrastructure-as-a-service (IaaS) virtual machines (VMs) and platform-as-a-service (PaaS) environments in a lab context.
 
-## Prerequisites
+## Prerequisite
 
-To create a lab, you need:
+- At least [Contributor](../role-based-access-control/built-in-roles.md#contributor) access to an Azure subscription. If you don't have an Azure account, [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-* An Azure subscription. To learn about Azure purchase options, see [How to buy Azure](https://azure.microsoft.com/pricing/purchase-options/) or [Free one-month trial](https://azure.microsoft.com/pricing/free-trial/). You must be the owner of the subscription to create the lab.
+## Create a lab
 
-## Get started with Azure DevTest Labs in minutes
+1. In the [Azure portal](https://portal.azure.com), search for and select *devtest labs*.
+1. On the **DevTest Labs** page, select **Create**. The **Create DevTest Lab** page appears.
+1. On the **Basic Settings** tab, provide the following information:
+   - **Subscription**: Change the subscription if you want to use a different subscription for the lab.
+   - **Resource group**: Select an existing resource group from the dropdown list, or select **Create new** to create a new resource group so it's easy to delete later.
+   - **Lab Name**: Enter a name for the lab.
+   - **Location**: If you're creating a new resource group, select an Azure region for the resource group and lab.
+   - **Public environments**: Leave **On** for access to the [DevTest Labs public environment repository](https://github.com/Azure/azure-devtestlab/tree/master/Environments). Set to **Off** to disable access. For more information, see [Enable public environments when you create a lab](devtest-lab-create-environment-from-arm.md#enable-public-environments-when-you-create-a-lab).
 
-By clicking the following link, you will be transferred to the Azure portal page that allows you to start creating a new lab in Azure DevTest Labs.
+   :::image type="content" source="./media/devtest-lab-create-lab/portal-create-basic-settings.png" alt-text="Screenshot of the Basic Settings tab in the Create DevTest Labs form.":::
 
-[Get started with Azure DevTest Labs in minutes](https://go.microsoft.com/fwlink/?LinkID=627034&clcid=0x409)
-
-## Fill out settings for your new account
-
-On the **Create a DevTest Labs** page, fill out the following settings.
+1. Optionally, select the [Auto-shutdown](#auto-shutdown-tab), [Networking](#networking-tab), or [Tags](#tags-tab) tabs at the top of the page, and customize those settings. You can also apply or change most of these settings after lab creation.
+1. After you complete all settings, select **Review + create** at the bottom of the page.
+1. If the settings are valid, **Succeeded** appears at the top of the **Review + create** page. Review the settings, and then select **Create**.
 
 > [!TIP]
-> At the bottom of each page, you will find a link that allows you to **download a template for automation**.
+> Select **Download a template for automation** at the bottom of the page to view and download the lab configuration as an Azure Resource Manager (ARM) template. You can use the ARM template to create more labs.
 
-### Basic settings
+### Auto-shutdown tab
 
-By default you see the **Basic settings** tab. 
+Auto-shutdown helps save lab costs by shutting down all lab VMs at a certain time of day. To configure auto-shutdown:
 
-![basic settings](./media/devtest-lab-create-lab/basic-settings.png)
+1. On the **Create DevTest Lab** page, select the **Auto-shutdown** tab.
+1. Fill out the following information:
+   - **Enabled**: Select **On** to enable auto shutdown.
+   - **Scheduled shutdown** and **Time zone**: Specify the daily time and time zone to shut down all lab VMs.
+   - **Send notification before auto-shutdown**: Select **Yes** or **No** for the option to post or send a notification 30 minutes before the auto-shutdown time.
+   - **Webhook URL** and **Email address**: If you choose to send notifications, enter a webhook URL endpoint or semicolon-separated list of email addresses where you want the notification to post or be sent. For more information, see [Configure auto shutdown for labs and VMs](devtest-lab-auto-shutdown.md).
 
-Fill out these values:
+   :::image type="content" source="./media/devtest-lab-create-lab/portal-create-auto-shutdown.png" alt-text="Screenshot of the Auto-shutdown tab in the Create DevTest Labs form.":::
 
-|Name|Description|
-|---|---|
-|**Subscription** | Required. Select the **Subscription** to associate with the lab.|
-|**Resource group**| Required. Enter a **name for the resource group** for the lab. Create a new one if one doesn't exist.|
-|**Lab name**| Required. Enter a **name** for the lab.|
-|**Location**|Required. Select a location in which to store the lab.|
-|**Public environments**| See [Configure and use public environments](devtest-lab-configure-use-public-environments.md).
+### Networking tab
 
-### Auto-shutdown settings
+Azure DevTest Labs creates a new default virtual network for each lab. If you have another virtual network, you can choose to use it for the new lab instead of the default. For more information, see [Add a virtual network in Azure DevTest Labs](devtest-lab-configure-vnet.md).
 
-Switch to the **Auto-shutdown** page to see its settings. Auto-shutdown allows you to automatically shut down all machines in a lab at a scheduled time each day.
+To configure networking:
 
-![Auto-shutdown tab](./media/devtest-lab-create-lab/auto-shutdown.png)
+1. On the **Create DevTest Lab** page, select the **Networking** tab.
+1. For **Virtual Network**, select a different virtual network from the dropdown list. For **Subnet**, if necessary, select a subnet from the dropdown list.
+1. For **Isolate lab resources**, select **Yes** to completely isolate lab resources to the selected network. For more information, see [Network isolation in DevTest Labs](network-isolation.md).
 
-On the page, you can enable **Auto-shutdown** and define the parameters for the automatic shutting down of all the lab's VMs. The auto-shutdown feature is mainly a cost-saving feature whereby you can specify when you want the VM to automatically be shut down. You can change auto-shutdown settings after creating the lab by following the steps outlined in the article [Manage all policies for a lab in Azure DevTest Labs](./devtest-lab-set-lab-policy.md#set-auto-shutdown).
+:::image type="content" source="./media/devtest-lab-create-lab/portal-create-networking.png" alt-text="Screenshot of the Networking tab in the Create DevTest Labs form.":::
 
-### Networking
+### Tags tab
 
-When creating a lab, a default network will be created for you. Switch to the **Networking** tab to changed/configure the setting as you like. For example, select an existing virtual network.
+You can assign tags that apply to all lab resources. Tags can help you manage and track resources. For more information, see [Add tags to a lab](devtest-lab-add-tag.md).
 
-![Networking tab ](./media/devtest-lab-create-lab/networking.png)
+To add tags:
 
-### Tags
+1. On the **Create DevTest Lab** page, select the **Tags** tab.
+1. Under **Name** and **Value**, select or enter one or more case-sensitive name-value pairs to help identify resources.
 
-Enter **NAME** and **VALUE** information for **Tags** if you want to create custom tagging that is added to every resource you will create in the lab. Tags are useful to help you manage and organize lab resources by category. For more information about tags, including how to add tags after creating the lab, see [Add tags to a lab](devtest-lab-add-tag.md).
+:::image type="content" source="./media/devtest-lab-create-lab/portal-create-tags.png" alt-text="Screenshot of the Tags tab in the Create DevTest Labs form.":::
 
-![Tags tab ](./media/devtest-lab-create-lab/tags.png)
+## Verify lab creation
 
-### Review and create
+After you select **Create**, you can monitor the lab creation process in **Notifications** at top right in the portal.
 
-Once done, select **Create**. You can monitor the status of the lab creation process by watching the **Notifications** area at the top-right of the portal page. 
+:::image type="content" source="./media/devtest-lab-create-lab/creation-notification.png" alt-text="Screenshot of DevTest Labs deployment notification.":::
 
-![Create tab](./media/devtest-lab-create-lab/create-1.png)
+When the deployment finishes, select **Go to resource**. The lab's **Overview** page appears.
 
-## Completed the creation
+:::image type="content" source="./media/devtest-lab-create-lab/lab-home-page.png" alt-text="Screenshot of DevTest Labs overview page.":::
 
-Once completed, the **Go to resource** button appears at the bottom of the page and in the notification window. Alternatively, refresh the **DevTest Labs** page to see the newly created lab in the list of labs.  
+You can now add and configure VMs, environments, users, and policies for the lab.
 
-![Creating the service](./media/devtest-lab-create-lab/create-2.png)
+## Clean up resources
 
-Press **Go to resource** button and you will be brought to the home page of your new DevTest Labs account.
+When you're done using the lab, delete it and its resources to avoid further charges.
 
-![Resource](./media/devtest-lab-create-lab/go-to-resource.png)
+1. On the lab **Overview** page, select **Delete** from the top menu.
 
-You can also search for **DevTest Labs** in the Azure portal. Select your new account from the list and get to the home page. 
+   :::image type="content" source="./media/devtest-lab-create-lab/portal-lab-delete.png" alt-text="Screenshot of lab delete button.":::
 
-![Created the service](./media/devtest-lab-create-lab/created.png)
+1. On the **Are you sure you want to delete it** page, enter the lab name, and then select **Delete**.
+
+   During the deletion process, you can select **Notifications** at the top of your screen to view progress. Deleting a lab can take a while.
+
+If you created a resource group for the lab, you can now delete the resource group. You can't delete a resource group that has a lab in it. Deleting the resource group that contained the lab deletes all resources in the resource group.
+
+1. Select the resource group that contained the lab from your subscription's **Resource groups** list.
+1. At the top of the page, select **Delete resource group**.
+1. On the **Are you sure you want to delete "\<resource group name>"** page, enter the resource group name, and then select **Delete**.
 
 ## Next steps
 
-Once you've created your lab, here are some next steps to consider:
+To learn how to add VMs to your lab, go on to the next article:
 
-* [Secure access to a lab](devtest-lab-add-devtest-user.md)
-* [Set lab policies](devtest-lab-set-lab-policy.md)
-* [Create a lab template](devtest-lab-create-template.md)
-* [Create custom artifacts for your VMs](devtest-lab-artifact-author.md)
-* [Add a VM to a lab](devtest-lab-add-vm.md)
+> [!div class="nextstepaction"]
+> [Create and add virtual machines to a lab in Azure DevTest Labs](devtest-lab-add-vm.md)

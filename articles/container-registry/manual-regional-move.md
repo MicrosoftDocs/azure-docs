@@ -77,7 +77,7 @@ For more information, see [Use exported template from the Azure portal](../azure
 
 ### Create resource group 
 
-Create a resource group for the target registry using the [az group create](/cli/azure/group#az_group_create). The following example creates a resource group named *myResourceGroup* in the *eastus* location. 
+Create a resource group for the target registry using the [az group create](/cli/azure/group#az-group-create). The following example creates a resource group named *myResourceGroup* in the *eastus* location. 
 
 ```azurecli
 az group create --name myResourceGroup --location eastus
@@ -85,10 +85,10 @@ az group create --name myResourceGroup --location eastus
 
 ### Deploy target registry in new region
 
-Use the [az deployment group create](/cli/azure/deployment/group#az_deployment_group_create) command to deploy the target registry, using the template:
+Use the [az deployment group create](/cli/azure/deployment/group#az-deployment-group-create) command to deploy the target registry, using the template:
 
 ```azurecli
-az deployment group --resource-group myResourceGroup \
+az deployment group create --resource-group myResourceGroup \
    --template-file template.json --name mydeployment
 ```
 
@@ -97,9 +97,9 @@ az deployment group --resource-group myResourceGroup \
 
 ## Import registry content in target registry
 
-After creating the registry in the target region, use the [az acr import](/cli/azure/acr#az_acr_import) command, or the equivalent PowerShell command `Import-AzContainerImage`, to import images and other artifacts you want to preserve from the source registry to the target registry. For command examples, see [Import container images to a container registry](container-registry-import-images.md).
+After creating the registry in the target region, use the [az acr import](/cli/azure/acr#az-acr-import) command, or the equivalent PowerShell command `Import-AzContainerImage`, to import images and other artifacts you want to preserve from the source registry to the target registry. For command examples, see [Import container images to a container registry](container-registry-import-images.md).
 
-* Use the Azure CLI commands [az acr repository list](/cli/azure/acr/repository#az_acr_repository_list) and [az acr repository show-tags](/cli/azure/acr/repository#az_acr_repository_show_tags), or Azure PowerShell equivalents, to help enumerate the contents of your source registry.
+* Use the Azure CLI commands [az acr repository list](/cli/azure/acr/repository#az-acr-repository-list) and [az acr repository show-tags](/cli/azure/acr/repository#az-acr-repository-show-tags), or Azure PowerShell equivalents, to help enumerate the contents of your source registry.
 * Run the import command for individual artifacts, or script it to run over a list of artifacts.
 
 The following sample Azure CLI script enumerates the source repositories and tags and then imports the artifacts to a target registry in the same Azure subscription. Modify as needed to import specific repositories or tags. To import from a registry in a different subscription or tenant, see examples in [Import container images to a container registry](container-registry-import-images.md).

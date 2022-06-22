@@ -5,13 +5,13 @@ services: static-web-apps
 author: craigshoemaker
 ms.service: static-web-apps
 ms.topic: how-to
-ms.date: 05/07/2021
+ms.date: 01/14/2022
 ms.author: cshoe
 ---
 
 # Bring your own functions to Azure Static Web Apps
 
-Azure Static Web Apps APIs are supported by two possible configurations: managed functions and bring your own functions. See the [API reference](apis.md) for details between the two configurations.
+Azure Static Web Apps APIs are supported by two possible configurations: managed functions and bring your own functions. See the [overview](apis-functions.md) for details between the two configurations.
 
 This article demonstrates how to link an existing Azure Functions app to an Azure Static Web Apps resource.
 
@@ -46,7 +46,7 @@ Before you associate an existing Functions app, you first need to adjust to conf
 
 1. From the _Environment_ dropdown, select **Production**.
 
-1. Next to the _Functions source_ label, select **Link to a Function app**.
+1. Next to the _Functions type_ label, select **Link to a Function app**.
 
 1. From the _Subscription_ dropdown, select your Azure subscription name.
 

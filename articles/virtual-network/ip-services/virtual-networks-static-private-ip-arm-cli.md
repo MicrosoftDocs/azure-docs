@@ -7,7 +7,8 @@ ms.service: virtual-network
 ms.subservice: ip-services
 ms.topic: how-to
 ms.date: 10/01/2021
-ms.custom: template-how-to 
+ms.custom: template-how-to , devx-track-azurecli 
+ms.devlang: azurecli
 ---
 
 # Create a virtual machine with a static private IP address using the Azure CLI
@@ -23,7 +24,7 @@ A virtual machine (VM) is automatically assigned a private IP address from a ran
 
 An Azure resource group is a logical container into which Azure resources are deployed and managed.
 
-Create a resource group with [az group create](/cli/azure/group#az_group_create) named **myResourceGroup** in the **eastus2** location.
+Create a resource group with [az group create](/cli/azure/group#az-group-create) named **myResourceGroup** in the **eastus2** location.
 
 ```azurecli-interactive
   az group create \
@@ -33,7 +34,7 @@ Create a resource group with [az group create](/cli/azure/group#az_group_create)
 
 ## Create a virtual machine
 
-Create a virtual machine with [az vm create](/cli/azure/vm#az_vm_create). 
+Create a virtual machine with [az vm create](/cli/azure/vm#az-vm-create). 
 
 The following command creates a Windows Server virtual machine. When prompted, provide a username and password to be used as the credentials for the virtual machine:
 
@@ -52,7 +53,7 @@ The following command creates a Windows Server virtual machine. When prompted, p
 
 In this section, you'll change the private IP address from **dynamic** to **static** for the virtual machine you created previously. 
 
-Use [az network nic ip-config update](/cli/azure/network/nic/ip-config#az_network_nic_ip_config_update) to update the network interface configuration.
+Use [az network nic ip-config update](/cli/azure/network/nic/ip-config#az-network-nic-ip-config-update) to update the network interface configuration.
 
 The following command changes the private IP address of the virtual machine to static:
 
@@ -69,7 +70,7 @@ The following command changes the private IP address of the virtual machine to s
 
 ## Clean up resources
 
-When no longer needed, you can use [az group delete](/cli/azure/group#az_group_delete) to remove the resource group and all of the resources it contains:
+When no longer needed, you can use [az group delete](/cli/azure/group#az-group-delete) to remove the resource group and all of the resources it contains:
 
 ```azurecli-interactive
   az group delete --name myResourceGroup --yes

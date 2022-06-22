@@ -2,7 +2,7 @@
 title: OS and runtime patching cadence
 description: Learn how Azure App Service updates the OS and runtimes, what runtimes and patch level your apps has, and how you can get update announcements.
 ms.topic: article
-ms.date: 02/02/2018
+ms.date: 01/21/2021
 ms.custom: seodec18, devx-track-azurecli
 
 ---
@@ -52,10 +52,13 @@ When a new major or minor version is added, it is installed side by side with th
 ```azurecli-interactive
 az webapp config set --net-framework-version v4.7 --resource-group <groupname> --name <appname>
 az webapp config set --php-version 7.0 --resource-group <groupname> --name <appname>
-az webapp config appsettings set --settings WEBSITE_NODE_DEFAULT_VERSION=8.9.3 --resource-group <groupname> --name <appname>
+az webapp config appsettings set --settings WEBSITE_NODE_DEFAULT_VERSION=~14 --resource-group <groupname> --name <appname>
 az webapp config set --python-version 3.8 --resource-group <groupname> --name <appname>
 az webapp config set --java-version 1.8 --java-container Tomcat --java-container-version 9.0 --resource-group <groupname> --name <appname>
 ```
+> [!NOTE] 
+> This example uses the recommended "tilde syntax" to target the latest available version of Node.js 16 runtime on Windows App Service.
+> 
 
 ## How can I query OS and runtime update status on my instances?  
 

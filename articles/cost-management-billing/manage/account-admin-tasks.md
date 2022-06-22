@@ -2,12 +2,12 @@
 title: Account Administrator tasks in the Azure portal
 description: Describes how to perform payment operations in Azure portal
 author: bandersmsft
-ms.reviewer: judupont
+ms.reviewer: lishepar
 tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 09/15/2021
+ms.date: 12/10/2021
 ms.author: banders
 ms.custom: contperf-fy21q2
 ---
@@ -21,12 +21,15 @@ This article explains how to perform the following tasks in the Azure portal:
 
 You must be the Account Administrator to perform any of these tasks.
 
-## Accounts portal is retiring
+## Accounts portal is retired
 
-Accounts portal will retire and customers will be redirected to the Azure portal by December 31, 2021. The features supported in the Accounts portal will be migrated to the Azure portal. This article explains how to perform some of the most common operations in the Azure portal.
+Accounts portal was retired December 31, 2021. The features supported in the Accounts portal were migrated to the Azure portal. This article explains how to perform some of the most common operations in the Azure portal.
 
 
 ## Navigate to your subscription's payment methods
+
+> [!NOTE]
+> The Reserve Bank of India has new regulations for storing credit card information that may impact credit card users in India. For more information, see [Reserve Bank of India](../understand/pay-bill.md#reserve-bank-of-india).
 
 1. Sign in to the Azure portal as the Account Administrator.
 
@@ -71,17 +74,17 @@ To change the active payment method to a credit card that is already saved:
 
     ![Screenshot that shows box checked next to credit card](./media/account-admin-tasks/subscription-checked-payment-method-x.png)
 
-1. Click **Set active** in the command bar.
+1. Select **Set active** in the command bar.
 
     ![Screenshot that shows set active button](./media/account-admin-tasks/subscription-checked-payment-method-set-active.png)
 
 ### Edit credit card details
 
-To edit credit card details such as the expiration date or address, click on the credit card that you'd like to edit. A credit card form will appear on the right.
+To edit credit card details such as the expiration date or address, select the credit card that you'd like to edit. A credit card form will appear on the right.
 
 ![Screenshot that shows credit card selected](./media/account-admin-tasks/subscription-edit-payment-method-x.png)
 
-Update the credit card details and click **Save**.
+Update the credit card details and select **Save**.
 
 ### Remove a credit card from the account
 
@@ -89,7 +92,7 @@ Update the credit card details and click **Save**.
 
     ![Screenshot that shows box checked next to credit card](./media/account-admin-tasks/subscription-checked-payment-method-x.png)
 
-1. Click **Delete** in the command bar.
+1. Select **Delete** in the command bar.
 
     ![Screenshot that shows delete button](./media/account-admin-tasks/subscription-checked-payment-method-delete.png)
 
@@ -104,13 +107,13 @@ If you are eligible to pay by invoice (check/wire transfer), you can switch your
     ![Screenshot shows Payment methods page with Pay by invoice selected.](./media/account-admin-tasks/subscription-payment-methods-pay-by-invoice.png)
 
 1. Enter the address for the invoice payment method.
-1. Click **Next**.
+1. Select **Next**.
 
 If you want to be approved to pay by invoice, see [learn how to pay by invoice](pay-by-invoice.md).
 
 ### Edit invoice payment address
 
-To edit the address of your invoice payment method, click on **Invoice** in the list of payment methods for your subscription. The address form will open on the right.
+To edit the address of your invoice payment method, select **Invoice** in the list of payment methods for your subscription. The address form will open on the right.
 
 ## Remove spending limit
 
@@ -130,7 +133,7 @@ The spending limit isn’t available for subscriptions with commitment plans or 
     > [!NOTE]
     > If you don't see some of your Visual Studio subscriptions here, it might be because you changed a subscription directory at some point. For these subscriptions, you need to switch the directory to the original directory (the directory in which you initially signed up). Then, repeat step 2.
 
-1. In the Subscription overview, click the orange banner to remove the spending limit.
+1. In the Subscription overview, select the orange banner to remove the spending limit.
 
     ![Screenshot that shows remove spending limit banner](./media/account-admin-tasks/msdn-remove-spending-limit-banner-x.png)
 
@@ -138,9 +141,9 @@ The spending limit isn’t available for subscriptions with commitment plans or 
 
    ![Screenshot that shows remove spending limit blade](./media/account-admin-tasks/remove-spending-limit-blade-x.png)
 
-1. Click **Select payment method** to choose a payment method for your subscription. This will become the active payment method for your subscription.
+1. Select **Select payment method** to choose a payment method for your subscription. This will become the active payment method for your subscription.
 
-1. Click **Finish**.
+1. Select **Finish**.
 
 ## Add credits to Azure in Open subscription
 
@@ -172,13 +175,65 @@ If you have an Azure in Open Licensing subscription, you can add credits to your
 
 1. If you chose product key:
     - Enter the product key
-    - Click **Validate**
+    - Select **Validate**
 
 1. If you chose credit card:
-    - Click **Select payment method** to add a credit card or select an existing one.
+    - Select **Select payment method** to add a credit card or select an existing one.
     - Specify the amount of credits you want to add.
 
-1. Click **Apply**
+1. Select **Apply**
+
+## Usage details files comparison
+
+Use the following information to find the mapping between the fields available in the v1 and v2 versions of the files from the Accounts portal and the latest version of the usage details file in the Azure portal.
+
+| V1 | V2 | Azure portal |
+| --- | --- | --- |
+| Additional Info | Additional Info | AdditionalInfo |
+| Currency | Currency | BillingCurrency |
+| Billing Period | Billing Period | BillingPeriodEndDate |
+| Billing Period | Billing Period | BillingPeriodStartDate |
+| Service | Consumed Service | ConsumedService |
+| Value | Value | Cost |
+| Usage Date | Usage Date | Date |
+| Name | Meter Category | MeterCategory |
+| ResourceGuid | Meter Id | MeterId |
+| Region | Meter Region | MeterRegion |
+| Resource | Meter Name | MeterName  |
+| Type | Meter Sub-category | MeterSubcategory |
+| Consumed | Consumed Quantity | Quantity |
+| Component | Resource Group | ResourceGroup |
+|   | Instance Id | ResourceId |
+| Sub Region | Resource Location | ResourceLocation |
+| Service Info 1 | Service Info 1 | ServiceInfo1 |
+| Service Info 2 | Service Info 2 | ServiceInfo2 |
+| Subscription ID | Subscription ID | SubscriptionId |
+| Subscription Name | Subscription Name | SubscriptionName |
+|   | Tags | Tags |
+| Unit | Unit | UnitOfMeasure |
+| | Rate | UnitPrice |
+
+For more information about the fields available in the latest usage details file, see [Understand the terms in your Azure usage and charges file](../understand/understand-usage.md).
+
+The following fields are from v1 and v2 versions of the files from the Accounts portal. They are no longer available in the latest usage details file.
+
+| V1 | V2 |
+| --- | --- |
+| Order Id | Order Id |
+| Description | Description |
+| Billing Date(Anniversary Date) | Billing Date(Anniversary Date) |
+| Offer Name | Offer Name |
+| Service Name | Service Name |
+| Subs Status | Subs Status |
+| Subs Extra Status | Subs Extra Status |
+| Provisioning Status | Provisioning Status |
+| SKU | SKU |
+| Included | Included Quantity |
+| Billable | Overage Quantity |
+| Within Commitment | Within Commitment |
+| Commitment Rate | Commitment Rate |
+| Overage | Overage |
+| Component |  |
 
 ## Troubleshooting
 We do not support virtual or prepaid cards. If you are getting errors when adding or updating a valid credit card, try opening your browser in private mode.

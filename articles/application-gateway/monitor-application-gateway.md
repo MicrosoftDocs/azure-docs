@@ -1,8 +1,8 @@
 ---
 title: Monitoring Azure Application Gateway 
 description: Start here to learn how to monitor Azure Application Gateway 
-author: vhorne
-ms.author: victorh
+author: greg-lindsay
+ms.author: greglin
 ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 06/10/2021

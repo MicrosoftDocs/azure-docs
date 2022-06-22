@@ -4,7 +4,8 @@ description: Understand how and where to configure resources.
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: reference
-ms.date: 11/9/2020
+ms.date: 11/02/2021
+ms.custom: ignite-fall-2021
 ---
 
 # Service configuration
@@ -12,8 +13,6 @@ ms.date: 11/9/2020
 Each version of QnA Maker uses a different set of Azure resources (services). This article describes the supported customizations for these services. 
 
 ## App Service
-
-# [QnA Maker GA (stable release)](#tab/v1)
 
 QnA Maker uses the App Service to provide the query runtime used by the [generateAnswer API](/rest/api/cognitiveservices/qnamaker4.0/runtime/generateanswer).
 
@@ -33,17 +32,11 @@ You can set an individual setting either through the Application Settings list, 
 
 You need to **restart** the service from the **Overview** page of the Azure portal, once you are done making changes.
 
-# [Custom question answering (preview release)](#tab/v2)
-
-App Service customizations do not apply to Custom question answering (preview).
-
----
-
 ## QnA Maker Service
 
 The QnA Maker service provides configuration for the following users to collaborate on a single QnA Maker service, and all its knowledge bases.
 
-Learn [how to add collaborators](./reference-role-based-access-control.md) to your service.
+Learn [how to add collaborators](./index.yml) to your service.
 
 ## Change Azure Cognitive Search
 
@@ -55,27 +48,11 @@ Learn [how to change the text of your default answers](How-To/change-default-ans
 
 ## Telemetry
 
-# [QnA Maker GA (stable release)](#tab/v1)
-
 Application Insights is used for monitoring telemetry with QnA Maker GA. There are no configuration settings specific to QnA Maker.
-
-# [Custom question answering (preview release)](#tab/v2)
-
-Learn [how to add telemetry to your Custom question answering (Preview) service](How-To/get-analytics-knowledge-base.md). 
-
----
 
 ## App Service Plan
 
-# [QnAMaker GA (stable release)](#tab/v1)
-
 App Service Plan has no configuration settings specific to QnA Maker.
-
-# [Custom question answering (preview release)](#tab/v2)
-
-App Service Plan is not used with Custom question answering (preview).
-
----
 
 ## Next steps
 

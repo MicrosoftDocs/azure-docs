@@ -3,13 +3,14 @@ title: 'Continuous Deployment with Azure DevOps (Preview)'
 titleSuffix: Azure Cognitive Services
 description: In this article, you learn how to set up continuous deployment for your Custom Commands applications. You create the scripts to support the continuous deployment workflows.
 services: cognitive-services
-author: xiaojul
-manager: yetian
+author: eric-urban
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/18/2020
-ms.author: xiaojul
+ms.author: eur
+ms.custom: cogserv-non-critical-speech
 ---
 
 # Continuous Deployment with Azure DevOps
@@ -34,7 +35,7 @@ The scripts are hosted at [Cognitive Services Voice Assistant - Custom Commands]
 1. In **Configure** section, select "Starter pipeline"
 1. Next you'll get an editor with a YAML file, replace the "steps" section with this script.
 
-    ```YAML
+    ```yaml
     steps:
     - task: Bash@3
       displayName: 'Export source app'
@@ -121,7 +122,7 @@ The scripts are hosted at [Cognitive Services Voice Assistant - Custom Commands]
 1. In **Configure** section, select "Starter pipeline"
 1. Next you'll get an editor with a YAML file, replace the "steps" section with this script.
 
-    ```YAML
+    ```yaml
     steps:
     - task: Bash@3
       displayName: 'Import app'

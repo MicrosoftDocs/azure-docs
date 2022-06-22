@@ -277,7 +277,7 @@ Different releases may have different parameters so verify the necessary paramet
 | `domainName` | Name of the custom domain name to use (if applicable). Set to "none" if not deploying fully private cluster |  | none |
 | `masterClusterDnsType` | Domain type for OpenShift web console. 'default' will use DNS label of master infra public IP. 'custom' allows you to define your own name | default <br> custom | default |
 | `masterClusterDns` | The custom DNS name to use to access the OpenShift web console if you selected 'custom' for `masterClusterDnsType` |  | console.contoso.com |
-| `routingSubDomainType` | If set to 'nipio', `routingSubDomain` will use nip.io.  Use 'custom' if you have your own domain that you want to use for routing | nipio <br> custom | nipio |
+| `routingSubDomainType` | If set to `nipio`, `routingSubDomain` will use `nip.io`.  Use 'custom' if you have your own domain that you want to use for routing | `nipio` <br> custom | `nipio` |
 | `routingSubDomain` | The wildcard DNS name you want to use for routing if you selected 'custom' for `routingSubDomainType` |  | apps.contoso.com |
 | `virtualNetworkNewOrExisting` | Select whether to use an existing Virtual Network or create a new Virtual Network | existing <br> new | new |
 | `virtualNetworkResourceGroupName` | Name of the Resource Group for the new Virtual Network if you selected 'new' for `virtualNetworkNewOrExisting` |  | resourceGroup().name |

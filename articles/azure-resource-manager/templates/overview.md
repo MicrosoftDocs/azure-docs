@@ -2,7 +2,7 @@
 title: Templates overview
 description: Describes the benefits using Azure Resource Manager templates (ARM templates) for deployment of resources.
 ms.topic: conceptual
-ms.date: 03/12/2021
+ms.date: 05/26/2022
 ---
 
 # What are ARM templates?
@@ -13,11 +13,12 @@ To meet these challenges, you can automate deployments and use the practice of i
 
 To implement infrastructure as code for your Azure solutions, use Azure Resource Manager templates (ARM templates). The template is a JavaScript Object Notation (JSON) file that defines the infrastructure and configuration for your project. The template uses declarative syntax, which lets you state what you intend to deploy without having to write the sequence of programming commands to create it. In the template, you specify the resources to deploy and the properties for those resources.
 
-We've introduced a new language named Bicep that's used to develop ARM template JSON. Bicep files and JSON templates offer the same capabilities. You can convert templates between the two languages. Bicep provides a syntax that's easier to use for creating templates. For more information, see [What is Bicep?](../bicep/overview.md).
+> [!TIP]
+> We've introduced a new language named [Bicep](../bicep/overview.md) that offers the same capabilities as ARM templates but with a syntax that's easier to use. Each Bicep file is automatically converted to an ARM template during deployment. If you're considering infrastructure as code options, we recommend looking at Bicep. For more information, see [What is Bicep?](../bicep/overview.md).
 
 To learn about how you can get started with ARM templates, see the following video.
 
-> [!VIDEO https://channel9.msdn.com/Shows/Azure-Enablement/How-and-why-to-learn-about-ARM-templates/player]
+> [!VIDEO https://docs.microsoft.com/Shows/Azure-Enablement/How-and-why-to-learn-about-ARM-templates/player]
 
 ## Why choose ARM templates?
 

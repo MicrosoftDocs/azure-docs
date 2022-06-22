@@ -53,7 +53,7 @@ New-AzBatchAccount –AccountName <account_name> –Location "Central US" –Res
 
 **Get-AzBatchAccountKeys** shows the access keys associated with an Azure Batch account. For example, run the following to get the primary and secondary keys of the account you created.
 
- ```powershell
+```powershell
 $Account = Get-AzBatchAccountKeys –AccountName <account_name>
 
 $Account.PrimaryAccountKey

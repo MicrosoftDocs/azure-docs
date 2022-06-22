@@ -2,9 +2,8 @@
 title: Troubleshooting Azure Diagnostics extension
 description: Troubleshoot problems when using Azure diagnostics in Azure Virtual Machines, Service Fabric, or Cloud Services.
 ms.topic: conceptual
-author: bwren
-ms.author: bwren
-ms.date: 05/08/2019
+ms.date: 03/31/2022
+ms.reviewer: JeffWo
 
 ---
 
@@ -16,7 +15,7 @@ This article describes troubleshooting information that's relevant to using Azur
 
 **Diagnostics Plugin (DiagnosticsPlugin.exe)**: Configures, launches, and manages the lifetime of the monitoring agent. It is the main process that is launched by the launcher.
 
-**Monitoring Agent (MonAgent\*.exe processes)**: Monitors, collects, and transfers the diagnostics data.  
+**Monitoring Agent (MonAgent\*.exe processes)**: Monitors, collects, and transfers the diagnostics data.
 
 ## Log/artifact paths
 Following are the paths to some important logs and artifacts. We refer to this information throughout the rest of the document.
@@ -73,13 +72,12 @@ If there's no data for the specific metric, check **Diagnostics Configuration** 
 
 If the configuration is set correctly but you still can't see the metric data, use the following guidelines to help you troubleshoot.
 
-
 ## Azure Diagnostics is not starting
 For information about why Azure Diagnostics failed to start, see the **DiagnosticsPluginLauncher.log** and **DiagnosticsPlugin.log** files in the log files location that was provided earlier.
 
 If these logs indicate `Monitoring Agent not reporting success after launch`, it means there was a failure launching MonAgentHost.exe. Look at the logs in the location that's indicated for `MonAgentHost log file` in the previous section.
 
-The last line of the log files contains the exit code.  
+The last line of the log files contains the exit code.
 
 ```
 DiagnosticsPluginLauncher.exe Information: 0 : [4/16/2016 6:24:15 AM] DiagnosticPlugin exited with code 0
@@ -107,7 +105,6 @@ If this doesn't solve the problem, try to:
 2. Remove directory C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics
 3. Install agent again
 
-
 ### Part of the data is missing
 If you are getting some data but not all, it means that the data collection/transfer pipeline is set correctly. Follow the subsections here to narrow down the issue.
 
@@ -117,7 +114,7 @@ The Diagnostics configuration contains instructions for a particular type of dat
 #### Is the host generating data?
 - **Performance counters**: Open perfmon and check the counter.
 
-- **Trace logs**:  Remote access into the VM and add a TextWriterTraceListener to the app’s config file.  See https://msdn.microsoft.com/library/sk36c28t.aspx to set up the text listener.  Make sure the `<trace>` element has `<trace autoflush="true">`.<br />
+- **Trace logs**:  Remote access into the VM and add a TextWriterTraceListener to the app's config file.  See https://msdn.microsoft.com/library/sk36c28t.aspx to set up the text listener.  Make sure the `<trace>` element has `<trace autoflush="true">`.<br />
 If you don't see trace logs being generated, see More about trace logs missing.
 
 - **ETW traces**: Remote access into the VM and install PerfView.  In PerfView, run **File** > **User Command** > **Listen etwprovder1** > **etwprovider2**, and so on. The **Listen** command is case-sensitive, and there cannot be spaces between the comma-separated list of ETW providers. If the command fails to run, you can select the **Log** button in the bottom right of the Perfview tool to see what  attempted to run and what the result was.  Assuming the input is correct, a new window pops up. In a few seconds, you begin seeing ETW traces.
@@ -162,7 +159,7 @@ The tables in Azure storage that hold ETW events are named by using the followin
 
 Here is an example:
 
-```XML
+```xml
         <EtwEventSourceProviderConfiguration provider="prov1">
           <Event id="1" />
           <Event id="2" eventDestination="dest1" />
@@ -253,12 +250,12 @@ The monitoring agent collects logs and artifacts as `.tsf` files. The `.tsf` fil
 ```
 A new file called `<relevantLogFile>.csv` is created in the same path as the corresponding `.tsf` file.
 
->[!NOTE]
+> [!NOTE]
 > You only need to run this utility against the main .tsf file (for example, PerformanceCountersTable.tsf). The accompanying files (for example, PerformanceCountersTables_\*\*001.tsf, PerformanceCountersTables_\*\*002.tsf, and so on) are automatically processed.
 
 ### More about missing trace logs
 
->[!NOTE]
+> [!NOTE]
 > The following information applies mostly to Azure Cloud Services unless you have configured the DiagnosticsMonitorTraceListener on an application that's running on your IaaS VM.
 
 - Make sure the **DiagnosticMonitorTraceListener** is configured in the web.config or app.config.  This is configured by default in cloud service projects. However, some customers comment it out, which causes the trace statements to not be collected by diagnostics.
@@ -267,7 +264,7 @@ A new file called `<relevantLogFile>.csv` is created in the same path as the cor
 
 - Make sure you are using **Diagnostics.Trace.TraceXXX** instead of **Diagnostics.Debug.WriteXXX.** The Debug statements are removed from a release build.
 
-- Make sure the compiled code actually has the **Diagnostics.Trace lines** (use Reflector, ildasm, or ILSpy to verify). **Diagnostics.Trace** commands are removed from the compiled binary unless you use the TRACE conditional compilation symbol. This is a common problem that occurs when you're using msbuild to build a project.   
+- Make sure the compiled code actually has the **Diagnostics.Trace lines** (use Reflector, ildasm, or ILSpy to verify). **Diagnostics.Trace** commands are removed from the compiled binary unless you use the TRACE conditional compilation symbol. This is a common problem that occurs when you're using msbuild to build a project.
 
 ## Known issues and mitigations
 Here is a list of known issues with known mitigations:

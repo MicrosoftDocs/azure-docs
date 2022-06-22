@@ -31,7 +31,7 @@ In this tutorial, you learn how to:
 
 ## Create a resource group
 
-In Azure, you allocate related resources to a resource group. Create a resource group by using [az group create](/cli/azure/group#az_group_create). The following example creates a resource group named *myResourceGroup* in the *canadacentral* location (region). 
+In Azure, you allocate related resources to a resource group. Create a resource group by using [az group create](/cli/azure/group#az-group-create). The following example creates a resource group named *myResourceGroup* in the *canadacentral* location (region). 
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location canadacentral
@@ -47,7 +47,7 @@ In the following example, you'll be deploying a new AKS cluster named *myCluster
 az aks create -n myCluster -g myResourceGroup --network-plugin azure --enable-managed-identity 
 ```
 
-To configure additional parameters for the `az aks create` command, visit references [here](/cli/azure/aks#az_aks_create). 
+To configure additional parameters for the `az aks create` command, visit references [here](/cli/azure/aks#az-aks-create). 
 
 ## Deploy a new Application Gateway 
 
@@ -56,7 +56,7 @@ You'll now deploy a new Application Gateway, to simulate having an existing Appl
 When using an AKS cluster and Application Gateway in separate virtual networks, the address spaces of the two virtual networks must not overlap. The default address space that an AKS cluster deploys in is 10.0.0.0/8, so we set the Application Gateway virtual network address prefix to 11.0.0.0/8. 
 
 ```azurecli-interactive
-az network public-ip create -n myPublicIp -g MyResourceGroup --allocation-method Static --sku Standard
+az network public-ip create -n myPublicIp -g myResourceGroup --allocation-method Static --sku Standard
 az network vnet create -n myVnet -g myResourceGroup --address-prefix 11.0.0.0/8 --subnet-name mySubnet --subnet-prefix 11.1.0.0/16 
 az network application-gateway create -n myApplicationGateway -l canadacentral -g myResourceGroup --sku Standard_v2 --public-ip-address myPublicIp --vnet-name myVnet --subnet mySubnet
 ```

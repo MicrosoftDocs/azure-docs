@@ -7,7 +7,8 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: how-to
 ms.date: 10/14/2020
-ms.custom: devx-track-js
+ms.devlang: csharp, java
+ms.custom: devx-track-csharp, devx-track-java
 ---
 # Find the request unit charge for operations executed in Azure Cosmos DB Cassandra API
 [!INCLUDE[appliesto-cassandra-api](../includes/appliesto-cassandra-api.md)]

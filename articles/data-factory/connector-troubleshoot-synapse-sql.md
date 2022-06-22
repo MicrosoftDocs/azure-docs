@@ -6,7 +6,7 @@ author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: troubleshooting
-ms.date: 10/01/2021
+ms.date: 10/13/2021
 ms.author: jianleishen
 ms.custom: has-adal-ref, synapse
 ---
@@ -24,12 +24,12 @@ This article provides suggestions to troubleshoot common problems with the Azure
 
     | Cause analysis                                               | Recommendation                                               |
     | :----------------------------------------------------------- | :----------------------------------------------------------- |
-    | For Azure SQL, if the error message contains the string "SqlErrorNumber=47073", it means that public network access is denied in the connectivity setting. | On the Azure SQL firewall, set the **Deny public network access** option to *No*. For more information, see [Azure SQL connectivity settings](../azure-sql/database/connectivity-settings.md#deny-public-network-access). |
-    | For Azure SQL, if the error message contains an SQL error code such as "SqlErrorNumber=[errorcode]", see the Azure SQL troubleshooting guide. | For a recommendation, see [Troubleshoot connectivity issues and other errors with Azure SQL Database and Azure SQL Managed Instance](../azure-sql/database/troubleshoot-common-errors-issues.md). |
+    | For Azure SQL, if the error message contains the string "SqlErrorNumber=47073", it means that public network access is denied in the connectivity setting. | On the Azure SQL firewall, set the **Deny public network access** option to *No*. For more information, see [Azure SQL connectivity settings](/azure/azure-sql/database/connectivity-settings#deny-public-network-access). |
+    | For Azure SQL, if the error message contains an SQL error code such as "SqlErrorNumber=[errorcode]", see the Azure SQL troubleshooting guide. | For a recommendation, see [Troubleshoot connectivity issues and other errors with Azure SQL Database and Azure SQL Managed Instance](/azure/azure-sql/database/troubleshoot-common-errors-issues). |
     | Check to see whether port 1433 is in the firewall allowlist. | For more information, see [Ports used by SQL Server](/sql/sql-server/install/configure-the-windows-firewall-to-allow-sql-server-access#ports-used-by-). |
     | If the error message contains the string "SqlException", SQL Database the error indicates that some specific operation failed. | For more information, search by SQL error code in [Database engine errors](/sql/relational-databases/errors-events/database-engine-events-and-errors). For further help, contact Azure SQL support. |
     | If this is a transient issue (for example, an instable network connection), add retry in the activity policy to mitigate. | For more information, see [Pipelines and activities](./concepts-pipelines-activities.md#activity-policy). |
-    | If the error message contains the string "Client with IP address '...' is not allowed to access the server", and you're trying to connect to Azure SQL Database, the error is usually caused by an Azure SQL Database firewall issue. | In the Azure SQL Server firewall configuration, enable the **Allow Azure services and resources to access this server** option. For more information, see [Azure SQL Database and Azure Synapse IP firewall rules](../azure-sql/database/firewall-configure.md). |
+    | If the error message contains the string "Client with IP address '...' is not allowed to access the server", and you're trying to connect to Azure SQL Database, the error is usually caused by an Azure SQL Database firewall issue. | In the Azure SQL Server firewall configuration, enable the **Allow Azure services and resources to access this server** option. For more information, see [Azure SQL Database and Azure Synapse IP firewall rules](/azure/azure-sql/database/firewall-configure). |
     
 ## Error code: SqlOperationFailed
 
@@ -88,10 +88,12 @@ This article provides suggestions to troubleshoot common problems with the Azure
 
 - **Message**: `The specified Stored Procedure is not valid. It could be caused by that the stored procedure doesn't return any data. Invalid Stored Procedure script: '%scriptName;'.`
 
-- **Cause**: The specified stored procedure is invalid. The cause might be that the stored procedure doesn't return any data.
+- **Causes and recommendations**: Different causes may lead to this error. Check below list for possible cause analysis and related recommendation.
 
-- **Recommendation**:  Validate the stored procedure by using SQL Tools. Make sure that the stored procedure can return data.
-
+  | Cause analysis                                               | Recommendation                                             |
+  | :----------------------------------------------------------- | :----------------------------------------------------------- |
+  | The specified stored procedure is invalid. | Validate the stored procedure by using SQL Tools. Make sure that the stored procedure can return data.  |
+  | The Lookup activity requires the stored procedure to return some value, but the stored procedure code doesn't return any value. | Use the Stored Procedure Activity if the stored procedure is expected to return no data. |
 
 ## Error code: SqlInvalidDbQueryString
 

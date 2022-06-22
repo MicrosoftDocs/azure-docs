@@ -24,10 +24,10 @@ Azure Monitor has several throttling limits to protect against users sending an 
 
 | Measure | Limit per user | Description |
 |:---|:---|:---|
-| Concurrent queries | 5 | If there are already 5 queries running for the user, any new queries are placed in a per-user concurrency queue. When one of the running queries ends, the next query will be pulled from the queue and started. This does not include queries from alert rules.
+| Concurrent queries | 5 | A user can run up to 5 concurrent queries, any additional query will be added to a queue. When one of the running queries finishes, the first query in the queue is pulled from the queue and starts running. Note: Alerts queries are not part of this limit.
 | Time in concurrency queue | 3 minutes | If a query sits in the queue for more than 3 minutes without being started, it will be terminated with an HTTP error response with code 429. |
-| Total queries in concurrency queue | 200 | Once the number of queries in the queue reaches 200, any additional queries will by rejected with an HTTP error code 429. This number is in addition to the 5 queries that can be running simultaneously. |
-| Query rate | 200 queries per 30 seconds | This is the overall rate that queries can be submitted by a single user to all workspaces.  This limit applies to programmatic queries or queries initiated by visualization parts such as Azure dashboards and the Log Analytics workspace summary page. |
+| Total queries in concurrency queue | 200 | Once the number of queries in the queue reach 200, the next query will be rejected with an HTTP error code 429. This number is in addition to the five queries that can be running simultaneously. |
+| Query rate | 200 queries per 30 seconds | Overall rate of queries that can be submitted by a single user to all workspaces. This limit applies to programmatic queries or queries initiated by visualization parts such as Azure dashboards and the Log Analytics workspace summary page. |
 
 - Optimize your queries as described in [Optimize log queries in Azure Monitor](../articles/azure-monitor/logs/query-optimization.md).
 - Dashboards and workbooks can contain multiple queries in a single view that generate a burst of queries every time they load or refresh. Consider breaking them up into multiple views that load on demand. 

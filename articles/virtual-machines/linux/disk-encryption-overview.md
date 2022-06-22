@@ -20,9 +20,9 @@ Azure Disk Encryption helps protect and safeguard your data to meet your organiz
 
 Azure Disk Encryption is zone resilient, the same way as Virtual Machines. For details, see [Azure Services that support Availability Zones](../../availability-zones/az-region.md).
 
-If you use [Azure Security Center](../../security-center/index.yml), you're alerted if you have VMs that aren't encrypted. The alerts show as High Severity and the recommendation is to encrypt these VMs.
+If you use [Microsoft Defender for Cloud](../../security-center/index.yml), you're alerted if you have VMs that aren't encrypted. The alerts show as High Severity and the recommendation is to encrypt these VMs.
 
-![Azure Security Center disk encryption alert](media/disk-encryption/security-center-disk-encryption-fig1.png)
+![Microsoft Defender for Cloud disk encryption alert](media/disk-encryption/security-center-disk-encryption-fig1.png)
 
 > [!WARNING]
 > - If you have previously used Azure Disk Encryption with Azure AD to encrypt a VM, you must continue to use this option to encrypt your VM. See [Azure Disk Encryption with Azure AD (previous release)](disk-encryption-overview-aad.md) for details. 
@@ -70,6 +70,8 @@ Linux server distributions that are not endorsed by Azure do not support Azure D
 | Canonical | Ubuntu 16.04 | 16.04-DAILY-LTS | Canonical:UbuntuServer:16.04-DAILY-LTS:latest | OS and data disk |
 | Canonical | Ubuntu 14.04.5</br>[with Azure tuned kernel updated to 4.15 or later](disk-encryption-troubleshooting.md) | 14.04.5-LTS | Canonical:UbuntuServer:14.04.5-LTS:latest | OS and data disk |
 | Canonical | Ubuntu 14.04.5</br>[with Azure tuned kernel updated to 4.15 or later](disk-encryption-troubleshooting.md) | 14.04.5-DAILY-LTS | Canonical:UbuntuServer:14.04.5-DAILY-LTS:latest | OS and data disk |
+| RedHat | RHEL 8.4 | 8.4 | RedHat:RHEL:8.4:latest | OS and data disk (see note below) |
+| RedHat | RHEL 8.3 | 8.3 | RedHat:RHEL:8.3:latest | OS and data disk (see note below) |
 | RedHat | RHEL 8-LVM | 8-LVM | RedHat:RHEL:8-LVM:8.2.20200905 | OS and data disk (see note below) |
 | RedHat | RHEL 8.2 | 8.2 | RedHat:RHEL:8.2:latest | OS and data disk (see note below) |
 | RedHat | RHEL 8.1 | 8.1 | RedHat:RHEL:8.1:latest | OS and data disk (see note below) |
@@ -85,6 +87,8 @@ Linux server distributions that are not endorsed by Azure do not support Azure D
 | RedHat | RHEL 6.8 | 6.8 | RedHat:RHEL:6.8:latest | Data disk (see note below) |
 | RedHat | RHEL 6.7 | 6.7 | RedHat:RHEL:6.7:latest | Data disk (see note below) |
 | OpenLogic | CentOS 8-LVM | 8-LVM | OpenLogic:CentOS-LVM:8-LVM:latest | OS and data disk |
+| OpenLogic | CentOS 8.4 | 8_4 | OpenLogic:CentOS:8_4:latest | OS and data disk |
+| OpenLogic | CentOS 8.3 | 8_3 | OpenLogic:CentOS:8_3:latest | OS and data disk |
 | OpenLogic | CentOS 8.2 | 8_2 | OpenLogic:CentOS:8_2:latest | OS and data disk |
 | OpenLogic | CentOS 8.1 | 8_1 | OpenLogic:CentOS:8_1:latest | OS and data disk |
 | OpenLogic | CentOS 7-LVM | 7-LVM | OpenLogic:CentOS-LVM:7-LVM:7.9.2021020400 | OS and data disk |

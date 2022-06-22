@@ -1,70 +1,35 @@
 ---
-title: Azure Internet of Things (IoT) solution options
-description: Guidance on choosing between a platform services or managed app platform approach to building an IoT solution. The platform service approach uses services such as IoT Hub and Digital Twins as building blocks. The managed app platform approach uses IoT Central to quickly get started.
+title: Get started with Azure IoT
+description: Guidance on how to get started on your IoT journey. Why you should start with the application platform as a service (aPaaS) model.
 author: dominicbetts
 ms.service: iot-fundamentals
 services: iot-fundamentals
 ms.topic: overview
-ms.date: 02/05/2020
+ms.date: 02/03/2022
 ms.author: dobett
 ---
 
-# What is the right IoT solution for your business?
+# Get started with Azure IoT
 
-To build an IoT solution for your business, you typically choose to use either the *platform services* or the *managed app platform* approach.
+IoT solutions require a combination of technologies to connect devices, events, and actions to cloud applications. Microsoft provides open-source [Device SDKs](../iot-develop/about-iot-sdks.md) that you can use to build the apps that run on your devices. However, there are many options for building and deploying your IoT cloud solutions. To simplify onboarding to Azure IoT, the recommended approach aims to accelerate time to value and eliminate key challenges.
 
-Platform services provide the building blocks for customized and flexible IoT applications. You have more options to choose and code when you connect devices, and ingest, store, and analyze your data. Azure IoT platform services include the products Azure IoT Hub and Azure Digital Twins.
+## Start as high as you can, with Azure IoT Central
 
-A managed app platform lets you get started building apps more quickly than platform services by reducing the number of decisions needed to achieve results. The managed app platform takes care of most elements of your solution, so you can focus on adding industry knowledge, and scaling and connecting devices. Azure IoT Central is a managed app platform.
+You should start your IoT journey with Azure IoT Central, the Azure application platform as a service (aPaaS) offering. Starting as high as possible in the Azure IoT technology stack lets you focus your time on using IoT data to create business value instead of simply getting your IoT data.
 
-To choose between these two approaches, you should consider:
+:::image type="content" source="media/iot-solution-options/azure-iot-central.svg" alt-text="Diagram that shows how Azure IoT Central is built on top of PaaS services." border="false":::
 
-- How you want to manage your solution.
-- What level of customization and control you want over your solution.
-- What pricing structure you want.
+IoT Central accelerates assembly and operation by pre-assembling platform as a service (PaaS) components. With an out-of-the box web UI and API surface, you can easily monitor device conditions, create rules, and manage millions of devices and their data remotely throughout their life cycles. Furthermore, you can act on device insights by extending IoT intelligence into line-of-business applications. Azure IoT Central also offers built-in disaster recovery, multitenancy, global availability, and a predictable cost structure.
 
-## Management
+## Go as low as you must, with powerful Azure PaaS Services
 
-Where do you want to spend your system management time and resources? 
+Some scenarios may need a higher degree of control and customization than Azure IoT Central provides. In these cases, Azure also offers individual platform as a service (PaaS) cloud services that you can use to build a custom IoT solution:
 
-- Choose the platform services approach to have full control over the underlying services in your solution. For example, you want to:
-
-    - Manage scaling and securing services to meet your needs.
-    - Make use of in-house or partner expertise to onboard devices and provision services.
-
-- Choose the managed app platform approach to take advantage of a platform that handles scale, security, and management of your IoT applications and devices.
-
-## Control
-
-What elements of your solution do you want to customize?
-
-- Choose the platform services approach for total customization and control over the solution architecture.
-
-- Choose the managed app platform approach to customize branding, dashboards, user roles, devices, and telemetry. However, you don't want to handle the underlying IoT system management overhead.
-
-## Pricing
-
-What pricing structure best fits your needs?
-
-- Choose the platform services approach to fine-tune services and control my overall costs.
-
-- Choose the managed app platform approach for a simple, predictable pricing structure.
-
-## Summary
-
-The platform services approach is appropriate for a business with cloud solution and device expertise that wants to:
-
-- Fine-tune the services in the solution.
-- Have a high degree of control over the services in the solution.
-- Fully customize the solution.
-
-The managed app platform approach is appropriate for a business that:
-
-- Doesn't want to dedicate extensive resources to system design, development, and management.
-- Does want a predictable pricing structure.
-- Does want some customization capabilities.
+:::image type="content" source="media/iot-solution-options/azure-iot-onboarding.png" alt-text="Diagram that shows key Azure IoT PaaS services that you can use to build a custom solution." border="false":::
 
 ## Next steps
+
+For a more comprehensive comparison of the PaaS and aPaaS solution approaches, see [What's the difference between aPaaS and PaaS solution offerings?](iot-solution-apaas-paas.md).
 
 For a more comprehensive explanation of the different services and platforms, and how they're used, see [Azure IoT services and technologies](iot-services-and-technologies.md).
 

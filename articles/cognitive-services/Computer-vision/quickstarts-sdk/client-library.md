@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Read client library or REST API"
+title: "Quickstart: Optical character recognition (OCR)"
 titleSuffix: Azure Cognitive Services
 description: Learn how to use Optical character recognition (OCR) in your application through a native client library in the language of your choice.
 services: cognitive-services
@@ -8,18 +8,17 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 07/30/2021
+ms.date: 06/13/2022
 ms.author: pafarley
-ms.custom: [devx-track-python, devx-track-js, devx-track-csharp, cog-serv-seo-aug-2020]
+ms.devlang: csharp, golang, java, javascript, python
+ms.custom: devx-track-python, devx-track-js, devx-track-csharp, cog-serv-seo-aug-2020, mode-api
 zone_pivot_groups: programming-languages-computer-vision
 keywords: computer vision, computer vision service
 ---
 
-# Quickstart: Use the Read client library or REST API
+# Quickstart: Optical character recognition (OCR)
 
-Get started with the Read REST API or client libraries. The Read service provides you with AI algorithms for extracting visible text from images and returning it as structured strings. Follow these steps to install a package to your application and try out the sample code for basic tasks.
-
-
+Get started with the Computer Vision Read REST API or client libraries. The Read API provides you with AI algorithms for extracting text from images and returning it as structured strings. Follow these steps to install a package to your application and try out the sample code for basic tasks.
 
 ::: zone pivot="programming-language-csharp"
 
@@ -45,14 +44,14 @@ Get started with the Read REST API or client libraries. The Read service provide
 
 ::: zone-end
 
-::: zone pivot="programming-language-go"
-
-[!INCLUDE [Go SDK quickstart](../includes/quickstarts-sdk/go-sdk.md)]
-
-::: zone-end
-
 ::: zone pivot="programming-language-rest-api"
 
 [!INCLUDE [REST API quickstart](../includes/curl-quickstart.md)]
+
+::: zone-end
+
+::: zone pivot="vision-studio"
+
+[!INCLUDE [Vision Studio quickstart](../includes/ocr-studio-quickstart.md)]
 
 ::: zone-end

@@ -15,12 +15,12 @@ ms.custom: devx-track-python
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]
-> * [.NET V2 SDK Examples](sql-api-dotnet-samples.md)
 > * [.NET V3 SDK Examples](sql-api-dotnet-v3sdk-samples.md)
 > * [Java V4 SDK Examples](sql-api-java-sdk-samples.md)
 > * [Spring Data V3 SDK Examples](sql-api-spring-data-sdk-samples.md)
 > * [Node.js Examples](sql-api-nodejs-samples.md)
 > * [Python Examples](sql-api-python-samples.md)
+> * [.NET V2 SDK Examples (Legacy)](sql-api-dotnet-v2sdk-samples.md)
 > * [Azure Code Sample Gallery](https://azure.microsoft.com/resources/samples/?sort=0&service=cosmos-db)
 
 Sample solutions that do CRUD operations and other common operations on Azure Cosmos DB resources are included in the [azure-documentdb-python](https://github.com/Azure/azure-documentdb-python) GitHub repository. This article provides:
@@ -36,7 +36,7 @@ Sample solutions that do CRUD operations and other common operations on Azure Co
         * [Visual Studio Monthly Credits](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers)
         * [Azure Cosmos DB Free Tier](../free-tier.md)
     * Without an Azure active subscription:
-        * [Try Azure Cosmos DB for free](https://azure.microsoft.com/try/cosmosdb/), a tests environment that lasts for 30 days.
+        * [Try Azure Cosmos DB for free](../try-free.md), a tests environment that lasts for 30 days.
         * [Azure Cosmos DB Emulator](https://aka.ms/cosmosdb-emulator) 
 - [Python 2.7 or 3.6+](https://www.python.org/downloads/), with the `python` executable in your `PATH`.
 - [Visual Studio Code](https://code.visualstudio.com/).

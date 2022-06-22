@@ -5,7 +5,7 @@ ms.topic: conceptual
 ms.date: 07/29/2021
 ---
 
-# Manage resource management private links with REST API
+# Manage resource management private links with REST API (preview)
 
 This article explains how you to work with existing resource management private links. It shows REST API operations for getting and deleting existing resources.
 

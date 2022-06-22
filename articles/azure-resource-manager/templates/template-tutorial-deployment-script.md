@@ -8,7 +8,6 @@ author: mumian
 ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.date: 07/02/2021
 ms.topic: tutorial
 ms.author: jgao

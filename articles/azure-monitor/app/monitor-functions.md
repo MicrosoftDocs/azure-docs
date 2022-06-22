@@ -2,10 +2,8 @@
 title: Monitor applications running on Azure Functions with Application Insights - Azure Monitor | Microsoft Docs
 description: Azure Monitor seamlessly integrates with your application running on Azure Functions, and allows you to monitor the performance and spot the problems with your apps in no time.
 ms.topic: conceptual
-author: MS-jgol
-ms.author: jgol
 ms.date: 08/27/2021
-
+ms.reviewer: abinetabate
 ---
 
 # Monitoring Azure Functions with Azure Monitor Application Insights
@@ -15,6 +13,8 @@ ms.date: 08/27/2021
 Application Insights collects log, performance, and error data, and automatically detects performance anomalies. Application Insights includes powerful analytics tools to help you diagnose issues and to understand how your functions are used. When you have the visibility into your application data, you can continuously improve performance and usability. You can even use Application Insights during local function app project development. 
 
 The required Application Insights instrumentation is built into Azure Functions. The only thing you need is a valid instrumentation key to connect your function app to an Application Insights resource. The instrumentation key should be added to your application settings when your function app resource is created in Azure. If your function app doesn't already have this key, you can set it manually. For more information read more about [monitoring Azure Functions](../../azure-functions/functions-monitoring.md?tabs=cmd).
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
 
 ## Distributed tracing for Java applications (public preview)
 
@@ -39,10 +39,17 @@ Add the following application settings with below values, then click Save on the
 XDT_MicrosoftApplicationInsights_Java -> 1
 ApplicationInsightsAgent_EXTENSION_VERSION -> ~2
 ```
+> [!IMPORTANT]
+> This feature will have a cold start implication of 8-9 seconds in the Windows Consumption plan.
 
-#### Linux
+#### Linux Dedicated/Premium
 ```
 ApplicationInsightsAgent_EXTENSION_VERSION -> ~3
+```
+
+#### Linux Consumption
+```
+APPLICATIONINSIGHTS_ENABLE_AGENT: true
 ```
 
 ## Distributed tracing for Python Function apps

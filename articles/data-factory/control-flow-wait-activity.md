@@ -11,11 +11,21 @@ ms.topic: conceptual
 ms.date: 09/09/2021
 ---
 
-# Execute wait activity in Azure Data Factory and Synapse Analytics
+# Execute Wait activity in Azure Data Factory and Synapse Analytics
 When you use a Wait activity in a pipeline, the pipeline waits for the specified period of time before continuing with execution of subsequent activities. 
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
+## Create a Wait activity with UI
+
+To use a Wait activity in a pipeline, complete the following steps:
+
+1. Search for _Wait_ in the pipeline Activities pane, and drag a Wait activity to the pipeline canvas.
+1. Select the new Wait activity on the canvas if it is not already selected, and its  **Settings** tab, to edit its details.
+
+   :::image type="content" source="media/control-flow-wait-activity/wait-activity.png" alt-text="Shows the UI for a Wait activity.":::
+
+1. Enter a number of seconds for the activity to wait. This can be a literal number, or any combination of dynamic [expressions, functions](control-flow-expression-language-functions.md), [system variables](control-flow-system-variables.md), or [outputs from other activities](how-to-expression-language-functions.md#examples-of-using-parameters-in-expressions).
 
 ## Syntax
 

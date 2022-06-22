@@ -2,8 +2,8 @@
 title: Use REST to manage ML resources
 titleSuffix: Azure Machine Learning
 description: How to use REST APIs to create, run, and delete Azure Machine Learning resources, such as a workspace, or register models.
-author: lobrien
-ms.author: laobri
+author: blackmist
+ms.author: larryfr
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -25,8 +25,8 @@ In this article, you learn how to:
 > * Create a properly-formatted REST request using service principal authentication
 > * Use GET requests to retrieve information about Azure ML's hierarchical resources
 > * Use PUT and POST requests to create and modify resources
+> * Use PUT requests to create Azure ML workspaces
 > * Use DELETE requests to clean up resources 
-> * Use key-based authorization to score deployed models
 
 ## Prerequisites
 
@@ -216,7 +216,7 @@ You can explore the REST API using the general pattern of:
 | subscriptions/YOUR-SUBSCRIPTION-ID/ | subscriptions/abcde123-abab-abab-1234-0123456789abc/ |
 | resourceGroups/YOUR-RESOURCE-GROUP/ | resourceGroups/MyResourceGroup/ |
 | providers/operation-provider/ | providers/Microsoft.MachineLearningServices/ |
-| provider-resource-path/ | workspaces/MLWorkspace/MyWorkspace/FirstExperiment/runs/1/ |
+| provider-resource-path/ | workspaces/MyWorkspace/experiments/FirstExperiment/runs/1/ |
 | operations-endpoint/ | artifacts/metadata/ |
 
 
@@ -265,28 +265,9 @@ curl -X PUT \
 
 A successful request will get a `201 Created` response, but note that this response simply means that the provisioning process has begun. You'll need to poll (or use the portal) to confirm its successful completion.
 
-### Train a model
-
-To train a model using REST, see [Train models with REST (preview)](how-to-train-with-rest.md). 
-
-### Delete resources you no longer need
-
-Some, but not all, resources support the DELETE verb. Check the [API Reference](/rest/api/azureml/) before committing to the REST API for deletion use-cases. To delete a model, for instance, you can use:
-
-```bash
-curl
-  -X DELETE \
-'https://<REGIONAL-API-SERVER>/modelmanagement/v1.0/subscriptions/<YOUR-SUBSCRIPTION-ID>/resourceGroups/<YOUR-RESOURCE-GROUP>/providers/Microsoft.MachineLearningServices/workspaces/<YOUR-WORKSPACE-NAME>/models/<YOUR-MODEL-ID>?api-version=2021-03-01-preview' \
-  -H 'Authorization:Bearer <YOUR-ACCESS-TOKEN>' 
-```
-
-## Use REST to score a deployed model
-
-To score a deployed model using REST, see [Consume an Azure Machine Learning model deployed as a web service](how-to-consume-web-service.md).
-
 ## Create a workspace using REST 
 
-Every Azure ML workspace has a dependency on four other Azure resources: a container registry with administration enabled, a key vault, an Application Insights resource, and a storage account. You can't create a workspace until these resources exist. Consult the REST API reference for the details of creating each such resource.
+Every Azure ML workspace has a dependency on four other Azure resources: an Azure Container Registry resource, Azure Key Vault, Azure Application Insights, and an Azure Storage account. You can't create a workspace until these resources exist. Consult the REST API reference for the details of creating each such resource.
 
 To create a workspace, PUT a call similar to the following to `management.azure.com`. While this call requires you to set a large number of variables, it's structurally identical to other calls that this article has discussed. 
 
@@ -298,6 +279,9 @@ curl -X PUT \
   -H 'Content-Type: application/json' \
   -d '{
     "location": "AZURE-LOCATION>",
+    "identity" : {
+        "type" : "systemAssigned"
+    },
     "properties": {
         "friendlyName" : "<YOUR-WORKSPACE-FRIENDLY-NAME>",
         "description" : "<YOUR-WORKSPACE-DESCRIPTION>",
@@ -309,14 +293,109 @@ providers/Microsoft.ContainerRegistry/registries/<YOUR-REGISTRY-NAME>",
 providers/Microsoft.insights/components/<YOUR-APPLICATION-INSIGHTS-NAME>",
         "storageAccount" : "/subscriptions/<YOUR-SUBSCRIPTION-ID>/resourceGroups/<YOUR-RESOURCE-GROUP>/\
 providers/Microsoft.Storage/storageAccounts/<YOUR-STORAGE-ACCOUNT-NAME>"
-    },
-    "identity" : {
-        "type" : "systemAssigned"
     }
 }'
 ```
 
 You should receive a `202 Accepted` response and, in the returned headers, a `Location` URI. You can GET this URI for information on the deployment, including helpful debugging information if there's a problem with one of your dependent resources (for instance, if you forgot to enable admin access on your container registry). 
+
+## Create a workspace using a user-assigned managed identity 
+
+When creating workspace, you can specify a user-assigned managed identity that will be used to access the associated resources: ACR, KeyVault, Storage, and App Insights. To create a workspace with user-assigned managed identity, use the below request body. 
+
+```bash
+curl -X PUT \
+  'https://management.azure.com/subscriptions/<YOUR-SUBSCRIPTION-ID>/resourceGroups/<YOUR-RESOURCE-GROUP>\
+/providers/Microsoft.MachineLearningServices/workspaces/<YOUR-NEW-WORKSPACE-NAME>?api-version=2021-03-01-preview' \
+  -H 'Authorization: Bearer <YOUR-ACCESS-TOKEN>' \
+  -H 'Content-Type: application/json' \
+  -d '{
+    "location": "AZURE-LOCATION>",
+    "identity": {
+      "type": "SystemAssigned,UserAssigned",
+      "userAssignedIdentities": {
+        "/subscriptions/<YOUR-SUBSCRIPTION-ID>/resourceGroups/<YOUR-RESOURCE-GROUP>/\
+providers/Microsoft.ManagedIdentity/userAssignedIdentities/<YOUR-MANAGED-IDENTITY>": {}
+      }
+    },
+    "properties": {
+        "friendlyName" : "<YOUR-WORKSPACE-FRIENDLY-NAME>",
+        "description" : "<YOUR-WORKSPACE-DESCRIPTION>",
+        "containerRegistry" : "/subscriptions/<YOUR-SUBSCRIPTION-ID>/resourceGroups/<YOUR-RESOURCE-GROUP>/\
+providers/Microsoft.ContainerRegistry/registries/<YOUR-REGISTRY-NAME>",
+        keyVault" : "/subscriptions/<YOUR-SUBSCRIPTION-ID>/resourceGroups/<YOUR-RESOURCE-GROUP>\
+/providers/Microsoft.Keyvault/vaults/<YOUR-KEYVAULT-NAME>",
+        "applicationInsights" : "subscriptions/<YOUR-SUBSCRIPTION-ID>/resourceGroups/<YOUR-RESOURCE-GROUP>/\
+providers/Microsoft.insights/components/<YOUR-APPLICATION-INSIGHTS-NAME>",
+        "storageAccount" : "/subscriptions/<YOUR-SUBSCRIPTION-ID>/resourceGroups/<YOUR-RESOURCE-GROUP>/\
+providers/Microsoft.Storage/storageAccounts/<YOUR-STORAGE-ACCOUNT-NAME>"
+    }
+}'
+```
+
+## Create a workspace using customer-managed encryption keys
+
+By default, metadata for the workspace is stored in an Azure Cosmos DB instance that Microsoft maintains. This data is encrypted using Microsoft-managed keys. Instead of using the Microsoft-managed key, you can also provide your own key. Doing so creates an [additional set of resources](./concept-data-encryption.md#azure-cosmos-db) in your Azure subscription to store your data.
+
+To create a workspaces that uses your keys for encryption, you need to meet the following prerequisites:
+
+* The Azure Machine Learning service principal must have contributor access to your Azure subscription.
+* You must have an existing Azure Key Vault that contains an encryption key.
+* The Azure Key Vault must exist in the same Azure region where you will create the Azure Machine Learning workspace.
+* The Azure Key Vault must have soft delete and purge protection enabled to protect against data loss in case of accidental deletion.
+* You must have an access policy in Azure Key Vault that grants get, wrap, and unwrap access to the Azure Cosmos DB application.
+
+To create a workspaces that uses a user-assigned managed identity and customer-managed keys for encryption, use the below request body. When using an user-assigned managed identity for the workspace, also set the `userAssignedIdentity` property to the resource ID of the managed identity.
+
+```bash
+curl -X PUT \
+  'https://management.azure.com/subscriptions/<YOUR-SUBSCRIPTION-ID>/resourceGroups/<YOUR-RESOURCE-GROUP>\
+/providers/Microsoft.MachineLearningServices/workspaces/<YOUR-NEW-WORKSPACE-NAME>?api-version=2021-03-01-preview' \
+  -H 'Authorization: Bearer <YOUR-ACCESS-TOKEN>' \
+  -H 'Content-Type: application/json' \
+  -d '{
+    "location": "eastus2euap",
+    "identity": {
+      "type": "SystemAssigned"
+    },
+    "properties": {
+      "friendlyName": "<YOUR-WORKSPACE-FRIENDLY-NAME>",
+      "description": "<YOUR-WORKSPACE-DESCRIPTION>",
+      "containerRegistry" : "/subscriptions/<YOUR-SUBSCRIPTION-ID>/resourceGroups/<YOUR-RESOURCE-GROUP>/\
+providers/Microsoft.ContainerRegistry/registries/<YOUR-REGISTRY-NAME>",
+      "keyVault" : "/subscriptions/<YOUR-SUBSCRIPTION-ID>/resourceGroups/<YOUR-RESOURCE-GROUP>\
+/providers/Microsoft.Keyvault/vaults/<YOUR-KEYVAULT-NAME>",
+      "applicationInsights" : "subscriptions/<YOUR-SUBSCRIPTION-ID>/resourceGroups/<YOUR-RESOURCE-GROUP>/\
+providers/Microsoft.insights/components/<YOUR-APPLICATION-INSIGHTS-NAME>",
+      "storageAccount" : "/subscriptions/<YOUR-SUBSCRIPTION-ID>/resourceGroups/<YOUR-RESOURCE-GROUP>/\
+providers/Microsoft.Storage/storageAccounts/<YOUR-STORAGE-ACCOUNT-NAME>",
+      "encryption": {
+        "status": "Enabled",
+        "identity": {
+          "userAssignedIdentity": null
+        },      
+        "keyVaultProperties": {
+           "keyVaultArmId": "/subscriptions/<YOUR-SUBSCRIPTION-ID>/resourceGroups/<YOUR-RESOURCE-GROUP>/\
+providers/Microsoft.KeyVault/vaults/<YOUR-VAULT>",
+           "keyIdentifier": "https://<YOUR-VAULT>.vault.azure.net/keys/<YOUR-KEY>/<YOUR-KEY-VERSION>",
+           "identityClientId": ""
+        }
+      },
+      "hbiWorkspace": false
+    }
+}'
+```
+
+### Delete resources you no longer need
+
+Some, but not all, resources support the DELETE verb. Check the [API Reference](/rest/api/azureml/) before committing to the REST API for deletion use-cases. To delete a model, for instance, you can use:
+
+```bash
+curl
+  -X DELETE \
+'https://<REGIONAL-API-SERVER>/modelmanagement/v1.0/subscriptions/<YOUR-SUBSCRIPTION-ID>/resourceGroups/<YOUR-RESOURCE-GROUP>/providers/Microsoft.MachineLearningServices/workspaces/<YOUR-WORKSPACE-NAME>/models/<YOUR-MODEL-ID>?api-version=2021-03-01-preview' \
+  -H 'Authorization:Bearer <YOUR-ACCESS-TOKEN>' 
+```
 
 ## Troubleshooting
 

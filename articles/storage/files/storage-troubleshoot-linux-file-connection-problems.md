@@ -1,11 +1,11 @@
 ---
 title: Troubleshoot Azure Files problems in Linux | Microsoft Docs
 description: Troubleshooting Azure Files problems in Linux. See common issues related to Azure Files when you connect from Linux clients, and see possible resolutions.
-author: jeffpatt24
+author: khdownie
 ms.service: storage
 ms.topic: troubleshooting
 ms.date: 10/16/2018
-ms.author: jeffpatt
+ms.author: kendownie
 ms.subservice: files
 ---
 # Troubleshoot Azure Files problems in Linux (SMB)
@@ -106,9 +106,9 @@ To close open handles for a file share, directory or file, use the [Close-AzStor
         - [Fpart](https://github.com/martymac/fpart) - Sorts files and packs them into partitions.
         - [Fpsync](https://github.com/martymac/fpart/blob/master/tools/fpsync) - Uses Fpart and a copy tool to spawn multiple instances to migrate data from src_dir to dst_url.
         - [Multi](https://github.com/pkolano/mutil) - Multi-threaded cp and md5sum based on GNU coreutils.
-- Setting the file size in advance, instead of making every write an extending write, helps improve copy speed in scenarios where the file size is known. If extending writes need to be avoided, you can set a destination file size with `truncate - size <size><file>` command. After that, `dd if=<source> of=<target> bs=1M conv=notrunc`command will copy a source file without having to repeatedly update the size of the target file. For example, you can set the destination file size for every file you want to copy (assume a share is mounted under /mnt/share):
-    - `$ for i in `` find * -type f``; do truncate --size ``stat -c%s $i`` /mnt/share/$i; done`
-    - and then - copy files without extending writes in parallel: `$find * -type f | parallel -j6 dd if={} of =/mnt/share/{} bs=1M conv=notrunc`
+- Setting the file size in advance, instead of making every write an extending write, helps improve copy speed in scenarios where the file size is known. If extending writes need to be avoided, you can set a destination file size with `truncate --size <size> <file>` command. After that, `dd if=<source> of=<target> bs=1M conv=notrunc`command will copy a source file without having to repeatedly update the size of the target file. For example, you can set the destination file size for every file you want to copy (assume a share is mounted under /mnt/share):
+    - `for i in `` find * -type f``; do truncate --size ``stat -c%s $i`` /mnt/share/$i; done`
+    - and then copy files without extending writes in parallel: `find * -type f | parallel -j6 dd if={} of =/mnt/share/{} bs=1M conv=notrunc`
 
 <a id="error115"></a>
 ## "Mount error(115): Operation now in progress" when you mount Azure Files by using SMB 3.x
@@ -205,10 +205,11 @@ The force flag **f** in COPYFILE results in executing **cp -p -f** on Unix. This
 
 Use the storage account user for copying the files:
 
-- `Useadd : [storage account name]`
-- `Passwd [storage account name]`
-- `Su [storage account name]`
-- `Cp -p filename.txt /share`
+- `str_acc_name=[storage account name]`
+- `sudo useradd $str_acc_name`
+- `sudo passwd $str_acc_name`
+- `su $str_acc_name`
+- `cp -p filename.txt /share`
 
 ## ls: cannot access '&lt;path&gt;': Input/output error
 

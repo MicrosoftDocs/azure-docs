@@ -3,6 +3,8 @@
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/dotnet/).
 - Install the [Azure Az PowerShell Module](/powershell/azure/)
 
+Note that if you're planning on using phone numbers, you can't use the free trial account. Check that your subscription meets all the [requirements](../../concepts/telephony/plan-solution.md) if you plan to purchase phone numbers before creating your resource. 
+
 ## Create Azure Communication Services resource
 
 To create an Azure Communication Services resource, [sign in to Azure CLI](/cli/azure/authenticate-azure-cli). You can do this through the terminal using the ```Connect-AzAccount``` command and providing your credentials.
@@ -26,7 +28,7 @@ PS C:\> New-AzCommunicationService -ResourceGroupName ContosoResourceProvider1 -
 
 You can configure your Communication Services resource with the following options:
 
-* The resource group
+* The [resource group](../../../azure-resource-manager/management/manage-resource-groups-powershell.md)
 * The name of the Communication Services resource
 * The geography the resource will be associated with
 

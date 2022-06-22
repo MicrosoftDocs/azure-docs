@@ -1,15 +1,13 @@
 ---
 title: Supported data sources in Azure Data Catalog
 description: This article lists specifications of the currently supported data sources for Azure Data Catalog.
-author: JasonWHowell
-ms.author: jasonh
 ms.service: data-catalog
 ms.topic: conceptual
-ms.date: 08/01/2019
+ms.date: 02/24/2022
 ---
 # Supported data sources in Azure Data Catalog
 
-[!INCLUDE [Azure Purview redirect](../../includes/data-catalog-use-purview.md)]
+[!INCLUDE [Microsoft Purview redirect](../../includes/data-catalog-use-purview.md)]
 
 You can publish metadata by using a public API or a click-once registration tool, or by manually entering information directly to the Azure Data Catalog web portal. The following table summarizes all data sources that are supported by the catalog today, and the publishing capabilities for each. Also listed are the external data tools that each data source can launch from our portal "open-in" experience. The second table contains a more technical specification of each data-source connection property.
 
@@ -192,7 +190,7 @@ You can publish metadata by using a public API or a click-once registration tool
       <td>✓</td>
       <td>✓</td>
       <td>Browser</td>
-      <td>Native mode servers only. SharePoint mode is not supported. SQL Server 2008 and later versions only</td>
+      <td>Native mode servers only. SharePoint mode isn't supported. SQL Server 2008 and later versions only</td>
     </tr>
     <tr>
       <td>SQL Server table</td>
@@ -368,7 +366,7 @@ You can publish metadata by using a public API or a click-once registration tool
       <td>✓</td>
       <td>✓</td>
       <td></td>
-      <td>Only legacy collections from Azure DocumentDB and SQL API collections in Azure Cosmos DB are compatible. Newer Cosmos DB APIs are not yet supported. Choose Azure DocumentDB in the Data Source list.</td>
+      <td>Only legacy collections from Azure DocumentDB and SQL API collections in Azure Cosmos DB are compatible. Newer Cosmos DB APIs aren't yet supported. Choose Azure DocumentDB in the Data Source list.</td>
     </tr>
     <tr>
       <td>Generic ODBC table</td>
@@ -436,7 +434,7 @@ You can publish metadata by using a public API or a click-once registration tool
     </tr>
 </table>
 
-If you want to see a specific data source supported, suggest it (or voice your support if it has already been suggested) by going to the [Data Catalog on the Azure Feedback Forums](https://feedback.azure.com/forums/906052-data-catalog).
+If you want to see a specific data source supported, suggest it (or voice your support if it has already been suggested) by going to the [Data Catalog on the Azure Feedback Forums](https://feedback.azure.com/d365community/forum/3bedd14b-6b26-ec11-b6e6-000d3a4f032c).
 
 
 ## Data-source reference specification
@@ -1246,14 +1244,12 @@ If you want to see a specific data source supported, suggest it (or voice your s
       <td>Container</td>
       <td>Model</td>
       <td>
-        <font size="2">
           Protocol: mssql-mds
           <br>Authentication: {windows}
           <br>Address:
           <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url
           <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; model
           <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; version
-        
       </td>
     </tr>
     <tr>
@@ -1261,7 +1257,6 @@ If you want to see a specific data source supported, suggest it (or voice your s
       <td>Table</td>
       <td>Entity</td>
       <td>
-        <font size="2">
           Protocol: mssql-mds
           <br>Authentication: {windows}
           <br>Address:
@@ -1269,7 +1264,6 @@ If you want to see a specific data source supported, suggest it (or voice your s
           <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; model
           <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; version
           <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; entity
-        
       </td>
     </tr>
     <tr>

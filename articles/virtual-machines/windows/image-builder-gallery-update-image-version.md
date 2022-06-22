@@ -7,14 +7,14 @@ ms.reviewer: cynthn
 ms.date: 03/02/2021
 ms.topic: how-to
 ms.service: virtual-machines
-ms.subervice: image-builder
+ms.subservice: image-builder
 ms.collection: windows
 ---
 # Create a new Windows VM image version from an existing image version using Azure Image Builder
 
 **Applies to:** :heavy_check_mark: Windows VMs
 
-This article shows you how to take an existing image version in a [Shared Image Gallery](../shared-image-galleries.md), update it, and publish it as a new image version to the gallery.
+This article shows you how to take an existing image version in an [Azure Compute Gallery](../shared-image-galleries.md) (formerly known as Shared Image Gallery), update it, and publish it as a new image version to the gallery.
 
 We will be using a sample .json template to configure the image. The .json file we are using is here: [helloImageTemplateforSIGfromWinSIG.json](https://raw.githubusercontent.com/azure/azvmimagebuilder/master/quickquickstarts/2_Creating_a_Custom_Win_Shared_Image_Gallery_Image_from_SIG/helloImageTemplateforSIGfromWinSIG.json). 
 
@@ -45,7 +45,7 @@ az provider register -n Microsoft.Network
 
 ## Set variables and permissions
 
-If you used [Create an image and distribute to a Shared Image Gallery](image-builder-gallery.md) to create your Shared Image Gallery, you've already created the variables we need. If not, please setup some variables to be used for this example.
+If you used [Create an image and distribute to an Azure Compute Gallery](image-builder-gallery.md) to create your Azure Compute Gallery, you've already created the variables we need. If not, please setup some variables to be used for this example.
 
 Image builder will only support creating custom images in the same Resource Group as the source managed image. Update the resource group name in this example to be the same resource group as your source managed image.
 
@@ -56,7 +56,7 @@ sigResourceGroup=myIBWinRG
 location=westus
 # Additional region to replicate the image to - we are using East US in this example
 additionalregion=eastus
-# name of the shared image gallery - in this example we are using myGallery
+# name of the Azure Compute Gallery - in this example we are using myGallery
 sigName=my22stSIG
 # name of the image definition to be created - in this example we are using myImageDef
 imageDefName=winSvrimages
@@ -91,7 +91,7 @@ As you had set the user-identity up in the previous example, you just need to ge
 imgBuilderId=$(az identity list -g $sigResourceGroup --query "[?contains(name, 'aibBuiUserId')].id" -o tsv)
 ```
 
-If you already have your own Shared Image Gallery, and did not follow the previous example, you will need to assign permissions for Image Builder to access the Resource Group, so it can access the gallery. Please review the steps in the [Create an image and distribute to a Shared Image Gallery](image-builder-gallery.md) example.
+If you already have your own Azure Compute Gallery, and did not follow the previous example, you will need to assign permissions for Image Builder to access the Resource Group, so it can access the gallery. Please review the steps in the [Create an image and distribute to an Azure Compute Gallery](image-builder-gallery.md) example.
 
 
 ## Modify helloImage example

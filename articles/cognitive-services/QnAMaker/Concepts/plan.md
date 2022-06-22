@@ -4,18 +4,19 @@ description: Learn how to plan your QnA Maker app. Understand how QnA Maker work
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 11/09/2020
+ms.date: 11/02/2021
+ms.custom: ignite-fall-2021
 ---
 
 # Plan your QnA Maker app
 
 To plan your QnA Maker app, you need to understand how QnA Maker works and interacts with other Azure services. You should also have a solid grasp of knowledge base concepts.
 
+[!INCLUDE [Custom question answering](../includes/new-version.md)]
+
 ## Azure resources
 
 Each [Azure resource](azure-resources.md#resource-purposes) created with QnA Maker has a specific purpose. Each resource has its own purpose, limits, and [pricing tier](azure-resources.md#pricing-tier-considerations). It's important to understand the function of these resources so that you can use that knowledge into your planning process.
-
-# [QnA Maker GA (stable release)](#tab/v1)
 
 | Resource | Purpose |
 |--|--|
@@ -24,30 +25,9 @@ Each [Azure resource](azure-resources.md#resource-purposes) created with QnA Mak
 | [App Service resource and App Plan Service](azure-resources.md#app-service-and-app-service-plan) resource | Query prediction endpoint |
 | [Application Insights](azure-resources.md#application-insights) resource | Query prediction telemetry |
 
-
-# [Custom question answering (preview release)](#tab/v2)
-
-| Resource | Purpose |
-|--|--|
-| [Text Analytics](azure-resources.md#qna-maker-resource) resource | Authoring, query prediction endpoint and telemetry|
-| [Cognitive Search](azure-resources.md#cognitive-search-resource) resource | Data storage and search |
-
----
 ### Resource planning
 
-# [QnA Maker GA (stable release)](#tab/v1)
-
 The free tier, `F0`, of each resource works and can provide both the authoring and query prediction experience. You can use this tier to learn authoring and query prediction. When you move to a production or live scenario, reevaluate your resource selection.
-
-# [Custom question answering (preview release)](#tab/v2)
-
-Custom question answering (Preview) is a free feature, and the throughput is currently capped at 10 transactions per second for both management APIs and prediction APIs. To target 10 transactions per second for your service, we recommend the S1 (one instance) SKU of Azure Cognitive Search.
-
-### Text Analytics resource
-
-A single Text Analytics resource with the custom question answering feature enabled can host more than one knowledge base. The number of knowledge bases is determined by the Cognitive Search pricing tier's quantity of supported indexes. Learn more about the [relationship of indexes to knowledge bases](azure-resources.md#index-usage).
-
----
 
 ### Knowledge base size and throughput
 
@@ -79,40 +59,17 @@ A knowledge base is directly tied its QnA Maker resource. It holds the question 
 
 ### Language considerations
 
-# [QnA Maker GA (stable release)](#tab/v1)
-
 The first knowledge base created on your QnA Maker resource sets the language for the resource. You can only have one language for a QnA Maker resource.
 
 You can structure your QnA Maker resources by language or you can use [Translator](../../translator/translator-overview.md) to change a query from another language into the knowledge base's language before sending the query to the query prediction endpoint.
 
-# [Custom question answering (preview release)](#tab/v2)
-
-You can now have knowledge bases in different languages within the same Text Analytics resource where the custom question answering feature is enabled. When you create the first knowledge base, you can choose whether you want to use the resource for knowledge bases in a single language or multiple languages.
-
-![QnA Maker managed (Preview) multi-lingual knowledge base selection](../media/qnamaker-create-publish-knowledge-base/connect-knowledgebase-custom-qna.png)
-
-> [!NOTE]
-> If you enable multiple languages per knowledge base, you cannot create as many knowledge bases in your Text Analytics resource. For [more details on language settings limitations](./azure-resources.md).
-
----
-
 ### Ingest data sources
-
-# [QnA Maker GA (stable release)](#tab/v1)
 
 You can use one of the following ingested [data sources](../Concepts/data-sources-and-content.md) to create a knowledge base:
 
 * Public URL
 * Private SharePoint URL
 * File
-
-# [Custom question answering (preview release)](#tab/v2)
-
-Custom question answering also supports unstructured content. You can upload a file that has unstructured content.
-
-Currently we do not support URLs for unstructured content.
-
----
 
 The ingestion process converts [supported content types](../reference-document-format-guidelines.md) to markdown. All further editing of the *answer* is done with markdown. After you create a knowledge base, you can edit [QnA pairs](question-answer-set.md) in the QnA Maker portal with [rich text authoring](../how-to/edit-knowledge-base.md#rich-text-editing-for-answer).
 
@@ -132,7 +89,7 @@ A bot personality is recommended if your bot connects to your knowledge base. Yo
 
 Conversation flow usually begins with a salutation from a user, such as `Hi` or `Hello`. Your knowledge base can answer with a general answer, such as `Hi, how can I help you`, and it can also provide a selection of follow-up prompts to continue the conversation.
 
-You should design your conversational flow with a loop in mind so that a user knows how to use your bot and isn't abandoned by the bot in the conversation. [Follow-up prompts](../how-to/multiturn-conversation.md) provide linking between QnA pairs, which allow for the conversational flow.
+You should design your conversational flow with a loop in mind so that a user knows how to use your bot and isn't abandoned by the bot in the conversation. [Follow-up prompts](../how-to/multi-turn.md) provide linking between QnA pairs, which allow for the conversational flow.
 
 ### Authoring with collaborators
 
@@ -189,15 +146,7 @@ There's a [two-phase answer ranking](query-knowledge-base.md#how-qna-maker-proce
 
 ### Service updates
 
-# [QnA Maker GA (stable release)](#tab/v1)
-
 Apply the [latest runtime updates](../how-to/configure-QnA-Maker-resources.md#get-the-latest-runtime-updates) to automatically manage service updates.
-
-# [Custom question answering (preview release)](#tab/v2)
-
-In Custom question answering (Preview), the runtime is managed by the QnA Maker service itself. So service updates are not applicable.
-
----
 
 ### Scaling, throughput, and resiliency
 
@@ -205,16 +154,7 @@ Scaling, throughput, and resiliency are determined by the [Azure resources](../h
 
 ### Analytics with Application Insights
 
-# [QnA Maker GA (stable release)](#tab/v1)
-
 All queries to your knowledge base are stored in Application Insights. Use our [top queries](../how-to/get-analytics-knowledge-base.md) to understand your metrics.
-
-# [Custom question answering (preview release)](#tab/v2)
-
-For Custom question answering, telemetry is offered through the [Azure Monitor service](../../../azure-monitor/index.yml). Use our [top queries](../how-to/get-analytics-knowledge-base.md) to understand your metrics.
-
-
----
 
 ## Development lifecycle
 

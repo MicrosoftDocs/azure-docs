@@ -3,7 +3,7 @@ title: Release Notes for Azure web app extension - Application Insights
 description: Releases notes for Azure Web Apps Extension for runtime instrumentation with Application Insights.
 ms.topic: conceptual
 ms.date: 06/26/2020
-
+ms.reviewer: rajrang
 ---
 
 # Release notes for Azure Web App extension for Application Insights
@@ -21,6 +21,26 @@ Learn more about [Azure Web App Extension for Application Insights](azure-web-ap
     - Uninstall private site extensions since it's no longer supported.
 
 ## Release notes
+
+### 2.8.42
+
+- JAVA extension: Upgraded to [Java Agent 3.2.0](https://github.com/microsoft/ApplicationInsights-Java/releases/tag/3.2.0) from 2.5.1.
+- Node.js extension: Updated AI SDK to [2.1.8](https://github.com/microsoft/ApplicationInsights-node.js/releases/tag/2.1.8) from 2.1.7. Added support for User and System assigned AAD Managed Identities.
+- .NET Core: Added self-contained deployments and .NET 6.0 support using [.NET Startup Hook](https://github.com/dotnet/runtime/blob/main/docs/design/features/host-startup-hook.md).
+
+### 2.8.41
+
+- Node.js extension: Updated AI SDK to [2.1.7](https://github.com/microsoft/ApplicationInsights-node.js/releases/tag/2.1.7) from 2.1.3.
+- .NET Core: Removed out-of-support version (2.1). Supported versions are 3.1 and 5.0.
+
+### 2.8.40
+
+- JAVA extension: Upgraded to [Java Agent 3.1.1 (GA)](https://github.com/microsoft/ApplicationInsights-Java/releases/tag/3.1.1) from 3.0.2.
+- Node.js extension: Updated AI SDK to [2.1.3](https://github.com/microsoft/ApplicationInsights-node.js/releases/tag/2.1.3) from 1.8.8.
+
+### 2.8.39
+
+- .NET Core: Added .NET Core 5.0 support.
 
 ### 2.8.38
 

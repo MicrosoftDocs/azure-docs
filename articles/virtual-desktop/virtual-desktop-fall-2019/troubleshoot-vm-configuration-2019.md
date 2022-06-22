@@ -172,7 +172,7 @@ When the Azure Virtual Desktop Agent is first installed on session host VMs (eit
 
 ## Troubleshooting issues with the Azure Virtual Desktop side-by-side stack
 
-The Azure Virtual Desktop side-by-side stack is automatically installed with Windows Server 2019. Use Microsoft Installer (MSI) to install the side-by-side stack on Microsoft Windows Server 2016 or Windows Server 2012 R2. For Microsoft Windows 10, the Azure Virtual Desktop side-by-side stack is enabled with **enablesxstackrs.ps1**.
+The Azure Virtual Desktop side-by-side stack is automatically installed with Windows Server 2019 and newer. Use Microsoft Installer (MSI) to install the side-by-side stack on Microsoft Windows Server 2016 or Windows Server 2012 R2. For Microsoft Windows 10, the Azure Virtual Desktop side-by-side stack is enabled with **enablesxstackrs.ps1**.
 
 There are three main ways the side-by-side stack gets installed or enabled on session host pool VMs:
 

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure AD SSO integration with Palo Alto Networks - Admin UI | Microsoft Docs'
+title: 'Tutorial: Azure AD SSO integration with Palo Alto Networks - Admin UI'
 description: Learn how to configure single sign-on between Azure Active Directory and Palo Alto Networks - Admin UI.
 services: active-directory
 author: jeevansd
@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 09/08/2021
+ms.date: 06/08/2022
 ms.author: jeedes
 ---
 # Tutorial: Azure AD SSO integration with Palo Alto Networks - Admin UI
@@ -26,6 +26,7 @@ To get started, you need the following items:
 
 * An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
 * Palo Alto Networks - Admin UI single sign-on (SSO) enabled subscription.
+* It is a requirement that the service should be public available. Please refer [this](../develop/single-sign-on-saml-protocol.md) page for more information.
 
 ## Scenario description
 
@@ -107,7 +108,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 	> [!NOTE]
     > For more information about the attributes, see the following articles:
-    > * [Administrative role profile for Admin UI (adminrole)](https://www.paloaltonetworks.com/documentation/80/pan-os/pan-os/firewall-administration/manage-firewall-administrators/configure-an-admin-role-profile)
+    > * [Administrative role profile for Admin UI (adminrole)](https://docs.paloaltonetworks.com/pan-os/8-1/pan-os-admin/firewall-administration/manage-firewall-administrators/configure-an-admin-role-profile)
     > * [Device access domain for Admin UI (accessdomain)](https://docs.paloaltonetworks.com/pan-os/8-0/pan-os-web-interface-help/device/device-access-domain.html)
 
 1. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Federation Metadata XML** from the given options as per your requirement and save it on your computer.
@@ -243,4 +244,4 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 ## Next steps
 
-Once you configure Palo Alto Networks - Admin UI you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+Once you configure Palo Alto Networks - Admin UI you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-any-app).

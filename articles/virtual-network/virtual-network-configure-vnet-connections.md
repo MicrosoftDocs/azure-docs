@@ -9,7 +9,6 @@ editor: ''
 
 ms.assetid: 0433a4f4-b5a0-476d-b398-1506c57eafa2
 ms.service: virtual-network
-ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services

@@ -78,6 +78,9 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
     b. In the **Identifier (Entity ID)** text box, type the URL:
     `https://app.asana.com/`
+    
+    c. In the **Reply URL (Assertion Consumer Service URL)** text box, type the URL:
+    `https://app.asana.com/-/saml/consume`
 
 5. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Certificate (Base64)** from the given options as per your requirement and save it on your computer.
 
@@ -155,4 +158,4 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 ## Next steps
 
-Once you configure Asana you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+Once you configure Asana you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-any-app).

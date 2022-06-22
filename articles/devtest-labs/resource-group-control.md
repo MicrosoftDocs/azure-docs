@@ -1,18 +1,20 @@
 ---
-title: Specify resource group for VMs
+title: Specify resource group for Azure VMs in DevTest Labs
 description: Learn how to specify a resource group for VMs in a lab in Azure DevTest Labs. 
 ms.topic: how-to
-ms.date: 06/26/2020
+ms.author: rosemalcolm
+author: RoseHJM
+ms.date: 10/18/2021
 ---
 
 # Specify a resource group for lab virtual machines in Azure DevTest Labs
 
-As a lab owner, you can configure your lab virtual machines to be created in a specific resource group. This feature helps you in the following scenarios:
+By default, Azure DevTest Labs creates a new resource group whenever a new virtual machine is created. As a lab owner, you can configure your lab virtual machines to be created in a specific resource group. This feature helps you in the following scenarios:
 
 - Have fewer resource groups created by labs in your subscription.
 - Have your labs operate within a fixed set of resource groups that you configure.
 - Work around restrictions and approvals required for creating resource groups within your Azure subscription.
-- Consolidate all your lab resources within a single resource group to simplify tracking those resources and applying [policies](../governance/policy/overview.md) to manage resources at the resource group level.
+- Combine all your lab resources within a single resource group to simplify tracking those resources and applying [policies](../governance/policy/overview.md) to manage resources at the resource group level.
 
 With this feature, you can use a script to specify a new or existing resource group within your Azure subscription for all your lab VMs. Currently, Azure DevTest Labs supports this feature through an API.
 

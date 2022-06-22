@@ -1,11 +1,9 @@
 ---
 title: 'Tutorial: Get started with Azure Synapse Analytics - visualize workspace data with Power BI' 
 description: In this tutorial, you'll learn how to use Power BI to visualize data in Azure Synapse Analytics. 
-services: synapse-analytics
 author: saveenr
 ms.author: saveenr
-manager: julieMSFT
-ms.reviewer: jrasnick
+ms.reviewer: sngun
 ms.service: synapse-analytics
 ms.subservice: business-intelligence
 ms.topic: tutorial

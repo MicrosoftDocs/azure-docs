@@ -1,6 +1,5 @@
 ---
-title: Use brokers with Xamarin iOS & Android | Azure
-titleSuffix: Microsoft identity platform
+title: Use brokers with Xamarin iOS & Android
 description: Learn how to setup Xamarin iOS applications that can use the Microsoft Authenticator and the Microsoft Authentication Library for .NET (MSAL.NET). Also learn how to migrate from Azure AD Authentication Library for .NET (ADAL.NET) to the Microsoft Authentication Library for .NET (MSAL.NET).
 author: jmprieur
 manager: CelesteDG
@@ -130,7 +129,7 @@ In the URL scheme, `BundleId` uniquely identifies the app: `$"msauth.(BundleId)"
 > [!NOTE]
 > This URL scheme becomes part of the redirect URI that uniquely identifies your app when it receives the response from the broker.
 
-```XML
+```xml
  <key>CFBundleURLTypes</key>
     <array>
       <dict>
@@ -152,7 +151,7 @@ MSAL uses `–canOpenURL:` to check whether the broker is installed on the devic
 
 Add `msauthv2` to the `LSApplicationQueriesSchemes` section of the *Info.plist* file, as in the following example:
 
-```XML
+```xml
 <key>LSApplicationQueriesSchemes</key>
     <array>
       <string>msauthv2</string>

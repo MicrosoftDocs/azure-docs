@@ -251,3 +251,30 @@ State can be one of
     ```java
     List<RemoteVideoStream> videoStreams = remoteParticipant.getVideoStreams(); // [RemoteVideoStream, RemoteVideoStream, ...]
     ```
+## Using Foreground Services
+
+In cases when you want to run a user visible task even when your application is in background, you can use [Foreground Services](https://developer.android.com/guide/components/foreground-services).
+
+Using Foreground Services, you can for example, keeps a user visible notification when your application has an active call. This way, even if the user goes to the homescreen or removes the application from the [recent's screen](https://developer.android.com/guide/components/activities/recents), the call will continue to be active.
+
+If you don't use a Foreground Service while in a call, navigating to the homescreen can keep the call active, but removing the application from the recent's screen can stop the call if the Android OS kills your application's process.
+
+You should start the Foreground Service when you start/join a call, for example:
+
+```java
+call = callAgent.startCall(context, participants, options);
+startService(yourForegroundServiceIntent);
+```
+
+And stop the Foreground Service when you hangup the call or the call's status is Disconnected, for example:
+
+```java
+call.hangUp(new HangUpOptions()).get();
+stopService(yourForegroundServiceIntent);
+```
+
+### Notes on using Foreground Services
+
+Keep in mind that scenarios like stopping an already running Foreground Service when the app is removed from the recent's list, will remove the user visible notification and the Android OS can keep your application process alive for some extra period of time, meaning that the call can still be active during this period.
+
+If your application is stopping the Foreground Service on the service `onTaskRemoved` method for example, your application can start/stop audio and video according to your [Activity Lifecycle](https://developer.android.com/guide/components/activities/activity-lifecycle) like stopping audio and video when your activity is destroyed with the `onDestroy` method override.

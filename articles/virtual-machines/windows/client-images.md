@@ -1,13 +1,13 @@
 ---
 title: Use Windows client images in Azure 
 description: How to use Visual Studio subscription benefits to deploy Windows 7, Windows 8, or Windows 10 in Azure for dev/test scenarios
-author: mimckitt
+author: ebolton-cyber
+ms.author: edewebolton
 ms.subservice: imaging
 ms.service: virtual-machines
 ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 12/15/2017
-ms.author: mimckitt
 
 ---
 # Use Windows client in Azure for dev/test scenarios
@@ -39,6 +39,8 @@ The following table details the offer IDs that are eligible to deploy Windows cl
 | [Visual Studio Enterprise subscribers](https://azure.microsoft.com/offers/ms-azr-0063p/) |0063P | Windows 10 Enterprise N (x64) <br> Windows 8.1 Enterprise N (x64) <br> Windows 7 Enterprise N with SP1 (x64) |
 | [Visual Studio Enterprise (BizSpark) subscribers](https://azure.microsoft.com/offers/ms-azr-0064p/) |0064P | Windows 10 Enterprise N (x64) <br> Windows 8.1 Enterprise N (x64) <br> Windows 7 Enterprise N with SP1 (x64) |
 | [Enterprise Dev/Test](https://azure.microsoft.com/offers/ms-azr-0148p/) |0148P | Windows 10 Enterprise N (x64) <br> Windows 8.1 Enterprise N (x64) <br> Windows 7 Enterprise N with SP1 (x64) |
+
+For more information, see [Understand Microsoft offer types](../../cost-management-billing/costs/understand-cost-mgt-data.md#supported-microsoft-azure-offers)
 
 ## Check your Azure subscription
 If you do not know your offer ID, you can obtain it through the Azure portal.  

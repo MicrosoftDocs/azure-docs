@@ -7,7 +7,7 @@ author: mrbullwinkle
 manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: metrics-advisor
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 09/14/2020
 ms.author: mbullwin
 ---

@@ -19,9 +19,9 @@ For a set of security recommendations that follow the [Azure Security Benchmark]
 
 This section guides you on configuring and running your function app as securely as possible. 
 
-### Security Center
+### Defender for Cloud
 
-Security Center integrates with your function app in the portal. It provides, for free, a quick assessment of potential configuration-related security vulnerabilities. Function apps running in a dedicated plan can also use the real-time security features of Security Center, for an additional cost. To learn more, see [Protect your Azure App Service web apps and APIs](../security-center/defender-for-app-service-introduction.md). 
+Defender for Cloud integrates with your function app in the portal. It provides, for free, a quick assessment of potential configuration-related security vulnerabilities. Function apps running in a dedicated plan can also use Defender for Cloud's enhanced security features for an additional cost. To learn more, see [Protect your Azure App Service web apps and APIs](../defender-for-cloud/defender-for-app-service-introduction.md). 
 
 ### Log and monitor
 
@@ -29,7 +29,7 @@ One way to detect attacks is through activity monitoring and logging analytics. 
 
 Functions also integrates with Azure Monitor Logs to enable you to consolidate function app logs with system events for easier analysis. You can use diagnostic settings to configure streaming export of platform logs and metrics for your functions to the destination of your choice, such as a Logs Analytics workspace. To learn more, see [Monitoring Azure Functions with Azure Monitor Logs](functions-monitor-log-analytics.md). 
 
-For enterprise-level threat detection and response automation, stream your logs and events to a Logs Analytics workspace. You can then connect Azure Sentinel to this workspace. To learn more, see [What is Azure Sentinel](../sentinel/overview.md).  
+For enterprise-level threat detection and response automation, stream your logs and events to a Logs Analytics workspace. You can then connect Microsoft Sentinel to this workspace. To learn more, see [What is Microsoft Sentinel](../sentinel/overview.md).  
 
 For more security recommendations for observability, see the [Azure security baseline for Azure Functions](security-baseline.md#logging-and-monitoring). 
 
@@ -71,14 +71,33 @@ To learn more about access keys, see the [HTTP trigger binding article](function
 
 #### Secret repositories
 
-By default, keys are stored in a Blob storage container in the account provided by the `AzureWebJobsStorage` setting. You can use specific application settings to override this behavior and store keys in a different location.
+By default, keys are stored in a Blob storage container in the account provided by the `AzureWebJobsStorage` setting. You can use the [AzureWebJobsSecretStorageType](functions-app-settings.md#azurewebjobssecretstoragetype) setting to override this behavior and store keys in a different location.
 
-|Location  |Setting | Value | Description  |
-|---------|---------|---------|---------|
-|Different storage account     |  `AzureWebJobsSecretStorageSas`       | `<BLOB_SAS_URL>` | Stores keys in Blob storage of a second storage account, based on the provided SAS URL. Keys are encrypted before being stored using a secret unique to your function app. |
-|File system   | `AzureWebJobsSecretStorageType`   |  `files`       | Keys are persisted on the file system, encrypted before storage using a secret unique to your function app. |
-|Azure Key Vault  | `AzureWebJobsSecretStorageType`<br/>`AzureWebJobsSecretStorageKeyVaultName` | `keyvault`<br/>`<VAULT_NAME>` | The vault must have an access policy corresponding to the system-assigned managed identity of the hosting resource. The access policy should grant the identity the following secret permissions: `Get`,`Set`, `List`, and `Delete`. <br/>When running locally, the developer identity is used, and settings must be in the [local.settings.json file](functions-develop-local.md#local-settings-file). | 
-|Kubernetes Secrets  |`AzureWebJobsSecretStorageType`<br/>`AzureWebJobsKubernetesSecretName` (optional) | `kubernetes`<br/>`<SECRETS_RESOURCE>` | Supported only when running the Functions runtime in Kubernetes. When `AzureWebJobsKubernetesSecretName` isn't set, the repository is considered read-only. In this case, the values must be generated before deployment. The Azure Functions Core Tools generates the values automatically when deploying to Kubernetes.|
+|Location  | Value | Description  | 
+|---------|---------|---------|
+|Second storage account | `blob` | Stores keys in Blob storage of a different storage account, based on the SAS URL in  [AzureWebJobsSecretStorageSas](functions-app-settings.md#azurewebjobssecretstoragesas).  |
+|File system  | `files` | Keys are persisted on the file system, which is the default in Functions v1.x. |
+|Azure Key Vault | `keyvault` | The key vault set in [AzureWebJobsSecretStorageKeyVaultUri](functions-app-settings.md#azurewebjobssecretstoragekeyvaulturi) is used to store keys. To learn more, see [Use Key Vault references for Azure Functions](../app-service/app-service-key-vault-references.md?toc=/azure/azure-functions/toc.json).  | 
+|Kubernetes Secrets  |`kubernetes` | The resource set in [AzureWebJobsKubernetesSecretName](functions-app-settings.md#azurewebjobskubernetessecretname) is used to store keys. Supported only when running the Functions runtime in Kubernetes. The [Azure Functions Core Tools](functions-run-local.md) generates the values automatically when deploying to Kubernetes.|
+
+When using Key Vault for key storage, the app settings you need depend on the managed identity type. Functions runtime version 3.x only supports system-assigned managed identities.
+
+# [Version 4.x](#tab/v4)
+
+| Setting name | System-assigned | User-assigned | App registration | 
+| --- | --- | --- | --- |
+| [AzureWebJobsSecretStorageKeyVaultUri](functions-app-settings.md#azurewebjobssecretstoragekeyvaulturi) | ✓ | ✓ | ✓ | 
+| [AzureWebJobsSecretStorageKeyVaultClientId](functions-app-settings.md#azurewebjobssecretstoragekeyvaultclientid) | X | ✓ |✓ |
+| [AzureWebJobsSecretStorageKeyVaultClientSecret](functions-app-settings.md#azurewebjobssecretstoragekeyvaultclientsecret) | X | X | ✓ |
+| [AzureWebJobsSecretStorageKeyVaultTenantId](functions-app-settings.md#azurewebjobssecretstoragekeyvaulttenantid) | X | X | ✓ |
+
+# [Version 3.x](#tab/v3)
+
+| Setting name | System-assigned | User-assigned | App registration | 
+| --- | --- | --- | --- |
+| [AzureWebJobsSecretStorageKeyVaultName](functions-app-settings.md#azurewebjobssecretstoragekeyvaultname) | ✓ | X | X |
+
+---
 
 ### Authentication/authorization
 
@@ -94,7 +113,7 @@ As with any application or service, the goal is run your function app with the l
 
 Functions supports built-in [Azure role-based access control (Azure RBAC)](../role-based-access-control/overview.md). Azure roles supported by Functions are [Contributor](../role-based-access-control/built-in-roles.md#contributor), [Owner](../role-based-access-control/built-in-roles.md#owner), and [Reader](../role-based-access-control/built-in-roles.md#owner). 
 
-Permissions are effective at the function app level. The Contributor role is required to perform most function app-level tasks. Only the Owner role can delete a function app. 
+Permissions are effective at the function app level. The Contributor role is required to perform most function app-level tasks. You also need the Contributor role along with the [Monitoring Reader permission](../azure-monitor/roles-permissions-security.md#monitoring-reader) to be able to view log data in Application Insights. Only the Owner role can delete a function app.  
 
 #### Organize functions by privilege 
 

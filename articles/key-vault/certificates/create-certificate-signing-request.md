@@ -145,5 +145,5 @@ Example
 - [Authentication, requests, and responses](../general/authentication-requests-and-responses.md)
 - [Key Vault Developer's Guide](../general/developers-guide.md)
 - [Azure Key Vault REST API reference](/rest/api/keyvault)
-- [Vaults - Create or Update](/rest/api/keyvault/vaults/createorupdate)
-- [Vaults - Update Access Policy](/rest/api/keyvault/vaults/updateaccesspolicy)
+- [Vaults - Create or Update](/rest/api/keyvault/keyvault/vaults/create-or-update)
+- [Vaults - Update Access Policy](/rest/api/keyvault/keyvault/vaults/update-access-policy)

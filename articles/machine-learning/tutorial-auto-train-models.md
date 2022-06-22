@@ -6,14 +6,16 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: automl
 ms.topic: tutorial
-author: cartacioS
-ms.author: sacartac
+author: blackmist
+ms.author: larryfr
 ms.reviewer: nibaccam
-ms.date: 10/01/2021
-ms.custom: devx-track-python, automl, FY21Q4-aml-seo-hack, contperf-fy21q4
+ms.date: 10/21/2021
+ms.custom: devx-track-python, automl, FY21Q4-aml-seo-hack, contperf-fy21q4, sdkv1, event-tier1-build-2022
 ---
 
 # Tutorial: Train a regression model with AutoML and Python
+
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
 
 In this tutorial, you learn how to train a regression model with the Azure Machine Learning Python SDK using Azure Machine Learning automated ML. This regression model predicts NYC taxi fares. 
 
@@ -46,7 +48,7 @@ If you don’t have an Azure subscription, create a free account before you begi
 
 This tutorial is also available on [GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/tutorials) if you wish to run it in your own [local environment](how-to-configure-environment.md#local). 
 To get the required packages, 
-* [Install the full `automl` client](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/README.md#setup-using-a-local-conda-environment).
+* [Install the full `automl` client](https://github.com/Azure/azureml-examples/blob/main/python-sdk/tutorials/automl-with-azureml/README.md#setup-using-a-local-conda-environment).
 * Run `pip install azureml-opendatasets azureml-widgets` to get the required packages.
 
 ## Download and prepare data
@@ -386,4 +388,4 @@ In this automated machine learning tutorial, you did the following tasks:
 > * Trained by using an automated regression model locally with custom parameters.
 > * Explored and reviewed training results.
 
-[Deploy your model](tutorial-deploy-models-with-aml.md) with Azure Machine Learning.
+[Tutorial: Train and deploy a model](tutorial-train-deploy-notebook.md) with Azure Machine Learning.

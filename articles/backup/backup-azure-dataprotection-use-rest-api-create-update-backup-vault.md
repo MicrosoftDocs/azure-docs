@@ -7,7 +7,7 @@ ms.assetid: 93861379-5bec-4ed5-95d2-46f534a115fd
 ---
 # Create Azure Backup vault using REST API
 
-Azure Backup's new Data Protection platform provides enhanced capabilities for backup and restore for newer workloads such as blobs in storage accounts, managed disk and PostGre SQL server's PaaS platform. It aims to minimize management overhead while making it easy for organizing backups. A 'Backup vault' is the cornerstone of the Data protection platform and this is different from the 'Recovery Services' vault.
+Azure Backup's new Data Protection platform provides enhanced capabilities for backup and restore for newer workloads such as blobs in storage accounts, managed disk and PostgreSQL server's PaaS platform. It aims to minimize management overhead while making it easy for organizing backups. A 'Backup vault' is the cornerstone of the Data protection platform and this is different from the 'Recovery Services' vault.
 
 The steps to create an Azure Backup vault using REST API are outlined in [create vault REST API](/rest/api/dataprotection/backup-vaults/create-or-update) documentation. Let's use this document as a reference to create a vault called "testBkpVault" in "West US" and under 'TestBkpVaultRG' resource group.
 

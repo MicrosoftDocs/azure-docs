@@ -6,10 +6,8 @@ author: dlepow
 ms.author: danlep
 ms.date: 10/06/2020
 ms.topic: quickstart
-ms.service: azure-resource-manager
-ms.custom:
-  - subject-armqs
-  - mode-arm
+ms.service: container-registry
+ms.custom: subject-armqs, mode-arm
 ---
 
 # Quickstart: Create a geo-replicated container registry by using an ARM template

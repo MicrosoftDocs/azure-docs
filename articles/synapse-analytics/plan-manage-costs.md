@@ -1,8 +1,8 @@
 ---
 title: Plan to manage costs for Azure Synapse Analytics
 description: Learn how to plan for and manage costs for Azure Synapse Analytics by using cost analysis in the Azure portal.
-author: julieMSFT
-ms.author: jrasnick
+author: WilliamDAssafMSFT
+ms.author: wiassaf
 ms.custom: subject-cost-optimization
 ms.service: synapse-analytics
 ms.subservice: overview
@@ -38,7 +38,7 @@ When you create or use Azure Synapse Analytics resources, you might get charged 
 - Data Exploration & Data Warehousing 
     - Dedicated SQL Pool - You're charged for it based on the number of DWU blocks and hours running.
     - Storage - You're charged for it based on the number of TBs stored.
-    - Serverless SQL pool - You're charged by the TB of dat processed.
+    - Serverless SQL pool - You're charged by the TB of data processed.
 - Apache Spark Pool - You're charged for the number of instances and the hours running.
 - Data Integration 
     - Orchestration Activity Runs - You are charged based on the number of activity runs.
@@ -62,6 +62,10 @@ After you delete Azure Synapse resources, the following resources might continue
 ### Using Azure Prepayment credit with Azure Synapse 
 
 You can pay for Azure Synapse charges with your Azure Prepayment credit. However, you can't use Azure Prepayment credit to pay for charges for third-party products and services including those from the Azure Marketplace.
+
+### Pre-purchase plan for Azure Synapse
+
+You can save on your Azure Synapse Analytics costs when you pre-purchase Azure Synapse commit units (SCU) for one year. You can use the pre-purchased SCUs at any time during the purchase term. For more information see [Optimize Azure Synapse Analytics costs with a Pre-Purchase Plan](../cost-management-billing/reservations/synapse-analytics-pre-purchase-plan.md)
 
 
 ## Review estimated costs in the Azure portal

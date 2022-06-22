@@ -21,7 +21,7 @@ This article introduces you to Change Tracking and Inventory in Azure Automation
 > [!NOTE]
 > To track Azure Resource Manager property changes, see the Azure Resource Graph [change history](../../governance/resource-graph/how-to/get-resource-changes.md).
 
-Change Tracking and Inventory makes use of [Azure Security Center File Integrity Monitoring (FIM)](../../security-center/security-center-file-integrity-monitoring.md) to examines operating system and application files, and Windows Registry. While FIM monitors those entities, Change Tracking and Inventory natively tracks:
+Change Tracking and Inventory makes use of [Microsoft Defender for Cloud File Integrity Monitoring (FIM)](../../security-center/security-center-file-integrity-monitoring.md) to examine operating system and application files, and Windows Registry. While FIM monitors those entities, Change Tracking and Inventory natively tracks:
 
 - Software changes
 - Windows services
@@ -29,7 +29,7 @@ Change Tracking and Inventory makes use of [Azure Security Center File Integrity
 
 Enabling all features included in Change Tracking and Inventory might cause additional charges. Before proceeding, review [Automation Pricing](https://azure.microsoft.com/pricing/details/automation/) and [Azure Monitor Pricing](https://azure.microsoft.com/pricing/details/monitor/).
 
-Change Tracking and Inventory forwards data to Azure Monitor Logs, and this collected data is stored in a Log Analytics workspace. The File Integrity Monitoring (FIM) feature is available only when **Azure Defender for servers** is enabled. See Azure Security Center [Pricing](../../security-center/security-center-pricing.md) to learn more. FIM uploads data to the same Log Analytics workspace as the one created to store data from Change Tracking and Inventory. We recommend that you monitor your linked Log Analytics workspace to keep track of your exact usage. For more information about analyzing Azure Monitor Logs data usage, see [Manage usage and cost](../../azure-monitor/logs/manage-cost-storage.md).
+Change Tracking and Inventory forwards data to Azure Monitor Logs, and this collected data is stored in a Log Analytics workspace. The File Integrity Monitoring (FIM) feature is available only when **Microsoft Defender for servers** is enabled. See Microsoft Defender for Cloud [Pricing](../../security-center/security-center-pricing.md) to learn more. FIM uploads data to the same Log Analytics workspace as the one created to store data from Change Tracking and Inventory. We recommend that you monitor your linked Log Analytics workspace to keep track of your exact usage. For more information about analyzing Azure Monitor Logs data usage, see [Analyze usage in Log Analytics workspace](../../azure-monitor/logs/analyze-usage.md).
 
 Machines connected to the Log Analytics workspace use the [Log Analytics agent](../../azure-monitor/agents/log-analytics-agent.md) to collect data about changes to installed software, Windows services, Windows registry and files, and Linux daemons on monitored servers. When data is available, the agent sends it to Azure Monitor Logs for processing. Azure Monitor Logs applies logic to the received data, records it, and makes it available for analysis.
 
@@ -161,7 +161,7 @@ The following table shows the tracked item limits per machine for Change Trackin
 |Services|250|
 |Daemons|250|
 
-The average Log Analytics data usage for a machine using Change Tracking and Inventory is approximately 40 MB per month, depending on your environment. With the Usage and Estimated Costs feature of the Log Analytics workspace, you can view the data ingested by Change Tracking and Inventory in a usage chart. Use this data view to evaluate your data usage and determine how it affects your bill. See [Understand your usage and estimate costs](../../azure-monitor/logs/manage-cost-storage.md#understand-your-usage-and-estimate-costs).
+The average Log Analytics data usage for a machine using Change Tracking and Inventory is approximately 40 MB per month, depending on your environment. With the Usage and Estimated Costs feature of the Log Analytics workspace, you can view the data ingested by Change Tracking and Inventory in a usage chart. Use this data view to evaluate your data usage and determine how it affects your bill. See [Understand your usage and estimate costs](../../azure-monitor/logs/usage-estimated-costs.md#Understand your usage and optimize your pricing tier).
 
 ### Windows services data
 

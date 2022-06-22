@@ -7,7 +7,8 @@ ms.date: 09/01/2021
 ms.topic: how-to
 ms.service: virtual-machines
 ms.subservice: disks
-ms.custom: references_regions, devx-track-azurepowershell
+ms.custom: references_regions, devx-track-azurepowershell, devx-track-azurecli 
+ms.devlang: azurecli
 ---
 
 # Deploy a managed disk that uses zone-redundant storage
@@ -21,22 +22,6 @@ For conceptual information on ZRS, see [Zone-redundant storage for managed disks
 [!INCLUDE [disk-storage-zrs-limitations](../../includes/disk-storage-zrs-limitations.md)]
 
 # [Azure portal](#tab/portal)
-
-### Prerequisites
-
-You must enable the feature for your subscription. Use the following steps to enable the feature for your subscription:
-
-1.	Execute the following command to register the feature for your subscription
-
-    ```powershell
-     Register-AzProviderFeature -FeatureName "SsdZrsManagedDisks" -ProviderNamespace "Microsoft.Compute" 
-    ```
-
-1.	Confirm that the registration state is **Registered** (it may take a few minutes) using the following command before trying out the feature.
-
-    ```powershell
-     Get-AzProviderFeature -FeatureName "SsdZrsManagedDisks" -ProviderNamespace "Microsoft.Compute"  
-    ```
 
 ### Create a VM with a ZRS OS disk
 
@@ -73,22 +58,6 @@ You've now deployed a VM with a ZRS OS disk.
 You have now created a managed disk that uses ZRS.
 
 # [Azure CLI](#tab/azure-cli)
-
-#### Prerequisites
-
-You must enable the feature for your subscription. Use the following steps to enable the feature for your subscription:
-
-1.	Execute the following command to register the feature for your subscription
-
-    ```azurecli
-    az feature register --namespace Microsoft.Compute --name SsdZrsManagedDisks
-    ```
- 
-2.	Confirm that the registration state is **Registered** (it may take a few minutes) using the following command before trying out the feature.
-
-    ```azurecli
-    az feature show --namespace Microsoft.Compute --name SsdZrsManagedDisks
-    ```
 
 #### Create a VM with ZRS disks
 
@@ -180,23 +149,6 @@ az vmss create -g $rgName \
 ```
 # [Azure PowerShell](#tab/azure-powershell)
 
-
-#### Prerequisites
-
-You must enable the feature for your subscription. Use the following steps to enable the feature for your subscription:
-
-1.	Execute the following command to register the feature for your subscription
-
-    ```powershell
-     Register-AzProviderFeature -FeatureName "SsdZrsManagedDisks" -ProviderNamespace "Microsoft.Compute" 
-    ```
-
-1.	Confirm that the registration state is **Registered** (it may take a few minutes) using the following command before trying out the feature.
-
-    ```powershell
-     Get-AzProviderFeature -FeatureName "SsdZrsManagedDisks" -ProviderNamespace "Microsoft.Compute"  
-    ```
-    
 #### Create a VM with ZRS disks
 
 ```powershell
@@ -301,8 +253,7 @@ $vm1 = New-AzVm `
         -SubnetName $($vmNamePrefix+"_subnet") `
         -SecurityGroupName $($vmNamePrefix+"01_sg") `
         -PublicIpAddressName $($vmNamePrefix+"01_ip") `
-        -Credential $credential `
-        -OpenPorts 80,3389
+        -Credential $credential 
 
 
 $vm1 = Add-AzVMDataDisk -VM $vm1 -Name $sharedDiskName -CreateOption Attach -ManagedDiskId $sharedDisk.Id -Lun 0

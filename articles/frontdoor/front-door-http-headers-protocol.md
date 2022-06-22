@@ -5,7 +5,6 @@ services: frontdoor
 documentationcenter: ''
 author: duongau
 ms.service: frontdoor
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
@@ -22,7 +21,10 @@ This article outlines the protocol that Front Door supports with parts of the ca
 >Front Door doesn't certify any HTTP headers that aren't documented here.
 
 ## Client to Front Door
+
 Front Door accepts most headers for the incoming request without modifying them. Some reserved headers are removed from the incoming request if sent, including headers with the X-FD-* prefix.
+
+The debug request header, "X-Azure-DebugInfo", provides additional debugging information about the Front Door. You need to send "X-Azure-DebugInfo: 1" request header from client to Front Door to receive [optional response headers](#optional-debug-response-headers) from Front Door to client. 
 
 ## Front Door to backend
 
@@ -50,6 +52,8 @@ Any headers sent to Front Door from the backend are also passed through to the c
 | ------------- | ------------- |
 | X-Azure-Ref |  *X-Azure-Ref: 0zxV+XAAAAABKMMOjBv2NT4TY6SQVjC0zV1NURURHRTA2MTkANDM3YzgyY2QtMzYwYS00YTU0LTk0YzMtNWZmNzA3NjQ3Nzgz* </br> This is a unique reference string that identifies a request served by Front Door, which is critical for troubleshooting as it's used to search access logs.|
 | X-Cache | *X-Cache:* This header describes the caching status of the request <br/> - *X-Cache: TCP_HIT* : The first byte of the request is a cache hit in the Front Door edge. <br/> - *X-Cache: TCP_REMOTE_HIT*: The first byte of the request is a cache hit in the regional cache (origin shield layer) but a miss in the edge cache. <br/> - *X-Cache: TCP_MISS*: The first byte of the request is a cache miss, and the content is served from the origin. <br/> - *X-Cache: PRIVATE_NOSTORE* : Request cannot be cached as Cache-Control response header is set to either private or no-store. <br/> - *X-Cache: CONFIG_NOCACHE*: Request is configured to not cache in the Front Door profile. |
+
+### Optional debug response headers
 
 You need to send "X-Azure-DebugInfo: 1" request header to enable the following optional response headers.
 

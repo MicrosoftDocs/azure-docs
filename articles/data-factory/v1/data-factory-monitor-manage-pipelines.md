@@ -7,7 +7,7 @@ ms.reviewer: jburchel
 ms.service: data-factory
 ms.subservice: v1
 ms.topic: conceptual
-ms.date: 04/30/2018 
+ms.date: 10/22/2021
 ms.custom: devx-track-azurepowershell
 ---
 
@@ -164,7 +164,7 @@ You can reset the slice to go back from the **Ready** or **Failed** state to the
 You can manage your pipelines by using Azure PowerShell. For example, you can pause and resume pipelines by running Azure PowerShell cmdlets. 
 
 > [!NOTE] 
-> The diagram view does not support pausing and resuming pipelines. If you want to use an user interface, use the monitoring and managing application. For details about using the application, see [monitor and manage Data Factory pipelines by using the Monitoring and Management app](data-factory-monitor-manage-app.md) article. 
+> The diagram view does not support pausing and resuming pipelines. If you want to use a user interface, use the monitoring and managing application. For details about using the application, see [monitor and manage Data Factory pipelines by using the Monitoring and Management app](data-factory-monitor-manage-app.md) article. 
 
 You can pause/suspend pipelines by using the **Suspend-AzDataFactoryPipeline** PowerShell cmdlet. This cmdlet is useful when you don't want to run your pipelines until an issue is fixed. 
 
@@ -209,19 +209,22 @@ If the activity run fails in a pipeline, the dataset that is produced by the pip
    :::image type="content" source="./media/data-factory-monitor-manage-pipelines/activity-run-details-with-error.png" alt-text="Activity run details blade with error":::     
 
 #### Use PowerShell to debug an error
+
 1. Launch **PowerShell**.
-2. Run the **Get-AzDataFactorySlice** command to see the slices and their statuses. You should see a slice with the status of **Failed**.        
+2. Run the **Get-AzDataFactorySlice** command to see the slices and their statuses. You should see a slice with the status of **Failed**.
 
-	```powershell   
-	Get-AzDataFactorySlice [-ResourceGroupName] <String> [-DataFactoryName] <String> [-DatasetName] <String> [-StartDateTime] <DateTime> [[-EndDateTime] <DateTime> ] [-Profile <AzureProfile> ] [ <CommonParameters>]
-	```   
-   For example:
+    ```powershell
+    Get-AzDataFactorySlice [-ResourceGroupName] <String> [-DataFactoryName] <String> [-DatasetName] <String> [-StartDateTime] <DateTime> [[-EndDateTime] <DateTime> ] [-Profile <AzureProfile> ] [ <CommonParameters>]
+    ```
 
-	```powershell   
-	Get-AzDataFactorySlice -ResourceGroupName ADF -DataFactoryName LogProcessingFactory -DatasetName EnrichedGameEventsTable -StartDateTime 2014-05-04 20:00:00
-	```
+    For example:
+
+    ```powershell
+    Get-AzDataFactorySlice -ResourceGroupName ADF -DataFactoryName LogProcessingFactory -DatasetName EnrichedGameEventsTable -StartDateTime 2014-05-04 20:00:00
+    ```
 
    Replace **StartDateTime** with start time of your pipeline. 
+
 3. Now, run the **Get-AzDataFactoryRun** cmdlet to get details about the activity run for the slice.
 
 	```powershell   
@@ -231,14 +234,15 @@ If the activity run fails in a pipeline, the dataset that is produced by the pip
 
     For example:
 
-	```powershell   
+    ```powershell
     Get-AzDataFactoryRun -ResourceGroupName ADF -DataFactoryName LogProcessingFactory -DatasetName EnrichedGameEventsTable -StartDateTime "5/5/2014 12:00:00 AM"
-	```
+    ```
 
     The value of StartDateTime is the start time for the error/problem slice that you noted from the previous step. The date-time should be enclosed in double quotes.
+
 4. You should see output with details about the error that is similar to the following:
 
-	```   
+    ```output
     Id                      : 841b77c9-d56c-48d1-99a3-8c16c3e77d39
     ResourceGroupName       : ADF
     DataFactoryName         : LogProcessingFactory3
@@ -259,12 +263,13 @@ If the activity run fails in a pipeline, the dataset that is produced by the pip
     ActivityName            : PigEnrichLogs
     PipelineName            : EnrichGameLogsPipeline
     Type                    :
-	```
+    ```
+
 5. You can run the **Save-AzDataFactoryLog** cmdlet with the Id value that you see from the output, and download the log files by using the **-DownloadLogsoption** for the cmdlet.
 
-	```powershell
-	Save-AzDataFactoryLog -ResourceGroupName "ADF" -DataFactoryName "LogProcessingFactory" -Id "841b77c9-d56c-48d1-99a3-8c16c3e77d39" -DownloadLogs -Output "C:\Test"
-	```
+    ```powershell
+    Save-AzDataFactoryLog -ResourceGroupName "ADF" -DataFactoryName "LogProcessingFactory" -Id "841b77c9-d56c-48d1-99a3-8c16c3e77d39" -DownloadLogs -Output "C:\Test"
+    ```
 
 ## Rerun failures in a pipeline
 

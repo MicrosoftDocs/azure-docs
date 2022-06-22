@@ -9,6 +9,7 @@ ms.author: chpalm
 ms.date: 06/30/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
+ms.custom: references_regions
 ---
 
 # Region availability and data residency
@@ -17,7 +18,25 @@ Azure Communication Services is committed to helping our customers meet their pr
 
 ## Data residency
 
-When creating an Communication Services resource, you specify a **geography** (not an Azure data center). All chat messages, and resource data stored by Communication Services at rest will be retained in that geography, in a data center selected internally by Communication Services. Data may transit or be processed in other geographies. These global endpoints are necessary to provide a high-performance, low-latency experience to end-users no matter their location.
+When [creating](../quickstarts/create-communication-resource.md) an Azure Communication Services resource, you specify a **geography** (not an Azure data center). All chat messages, and resource data stored by Communication Services at rest will be retained in that geography, in a data center selected internally by Communication Services. Data may transit or be processed in other geographies. These global endpoints are necessary to provide a high-performance, low-latency experience to end-users no matter their location.
+
+The list of geographies you can choose from includes:
+- Africa
+- Asia Pacific
+- Australia
+- Brazil
+- Canada
+- Europe
+- France
+- Germany
+- India
+- Japan
+- Korea
+- Norway
+- Switzerland
+- United Arab Emirates
+- United Kingdom
+- United States
 
 > [!NOTE]
 > For PSTN & SMS, call and message data records required for the operation and billing of the service, may be stored in the United States.
@@ -42,7 +61,7 @@ There are two categories of Communication Service data:
 
 ### Identities
 
-Azure Communication Services maintains a directory of identities, use the [DeleteIdentity](/rest/api/communication/communicationidentity/delete) API to remove them. Deleting an identity will revoke all associated access tokens and delete their chat messages. For more information on how to remove an identity [see this page](../quickstarts/access-tokens.md).
+Azure Communication Services maintains a directory of identities, use the [DeleteIdentity](/rest/api/communication/communicationidentity/communication-identity/delete) API to remove them. Deleting an identity will revoke all associated access tokens and delete their chat messages. For more information on how to remove an identity [see this page](../quickstarts/access-tokens.md).
 
 - DeleteIdentity
 
@@ -59,7 +78,7 @@ Azure Communication Services maintains a directory of phone numbers associated w
 
 ### Chat
 
-Chat threads and messages are retained until explicitly deleted. A fully idle thread with no participants will be automatically deleted after 30 days. Use [Chat APIs](/rest/api/communication/chat/chatthread) to get, list, update, and delete messages.
+Chat threads and messages are retained until explicitly deleted. Use [Chat APIs](/rest/api/communication/chat/chatthread) to get, list, update, and delete messages.
 
 - `Get Thread`
 - `Get Message`
@@ -86,10 +105,10 @@ Call recordings are stored temporarily in the same geography that was selected f
 
 ## Azure Monitor and Log Analytics
 
-Azure Communication Services will feed into Azure Monitor logging data for understanding operational health and utilization of the service. Some of these logs include Communication Service identities and phone numbers as field data. To delete any potentially personal data [use these procedures for Azure Monitor](../../azure-monitor/logs/personal-data-mgmt.md). You may also want to configure [the default retention period for Azure Monitor](../../azure-monitor/logs/manage-cost-storage.md).
+Azure Communication Services will feed into Azure Monitor logging data for understanding operational health and utilization of the service. Some of these logs include Communication Service identities and phone numbers as field data. To delete any potentially personal data [use these procedures for Azure Monitor](../../azure-monitor/logs/personal-data-mgmt.md). You may also want to configure [the default retention period for Azure Monitor](../../azure-monitor/logs/data-retention-archive.md).
 
 ## Additional resources
 
 - [Azure Data Subject Requests for the GDPR and CCPA](/microsoft-365/compliance/gdpr-dsr-azure)
 - [Microsoft Trust Center](https://www.microsoft.com/trust-center/privacy/data-location)
-- [Azure Interactive Map - Where is my customer data?](https://azuredatacentermap.azurewebsites.net/)
+- [Azure Interactive Map - Where is my customer data?](https://infrastructuremap.microsoft.com/)

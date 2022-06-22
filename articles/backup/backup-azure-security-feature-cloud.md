@@ -2,8 +2,11 @@
 title: Soft delete for Azure Backup
 description: Learn how to use security features in Azure Backup to make backups more secure.
 ms.topic: conceptual
-ms.date: 04/30/2020 
+ms.date: 02/07/2022
 ms.custom: devx-track-azurepowershell
+author: v-amallick
+ms.service: backup
+ms.author: v-amallick
 ---
 # Soft delete for Azure Backup
 
@@ -27,6 +30,9 @@ Soft delete is enabled by default on newly created vaults to protect backup data
 To disable soft delete on a vault, you must have the Backup Contributor role for that vault (you should have permissions to perform Microsoft.RecoveryServices/Vaults/backupconfig/write on the vault). If you disable this feature, all future deletions of protected items will result in immediate removal, without the ability to restore. Backup data that exists in soft deleted state before disabling this feature, will remain in soft deleted state for the period of 14 days. If you wish to permanently delete these immediately, then you need to undelete and delete them again to get permanently deleted.
 
 It's important to remember that once soft delete is disabled, the feature is disabled for all the types of workloads. For example, it's not possible to disable soft delete only for SQL server or SAP HANA DBs while keeping it enabled for virtual machines in the same vault. You can create separate vaults for granular control.
+
+>[!Tip]
+>To receive alerts/notifications when a user in the organization disables soft-delete for a vault, use [Azure Monitor alerts for Azure Backup](backup-azure-monitoring-built-in-monitor.md#azure-monitor-alerts-for-azure-backup-preview). As the disable of soft-delete is a potential destructive operation, we recommend you to use alert system for this scenario to monitor all such operations and take actions on any unintended operations.
 
 ### Disabling soft delete using Azure portal
 

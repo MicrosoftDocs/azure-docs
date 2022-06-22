@@ -1,8 +1,12 @@
 ---
 title: Resource availability by region
 description: Availability of compute and memory resources for the Azure Container Instances service in different Azure regions.
-ms.topic: article
-ms.date: 04/27/2020
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: container-instances
+services: container-instances
+ms.topic: conceptual
+ms.date: 06/17/2022
 ms.custom: references_regions
 
 ---
@@ -24,37 +28,48 @@ The following regions and maximum resources are available to container groups wi
 > [!IMPORTANT]
 > The maximum resources in a region are different depending on your deployment. For example, a region may have a different maximum CPU and memory size in an Azure virtual network deployment than for a general deployment. That same region may also have a different set of maximum values for a deployment with GPU resources. Verify your deployment type before checking the below tables for the maximum values in your region.
 
-| Region | Max CPU | Max Memory (GB) | VNET Max CPU | VNET Max Memory (GB) | Storage (GB) | GPU SKUs (preview) |
-| -------- | :---: | :---: | :----: | :-----: | :-------: | :----: |
-| Australia East | 4 | 16 | 4 | 16 | 50 | N/A |
-| Australia Southeast | 4 | 14 | N/A | N/A | 50 | N/A |
-| Brazil South | 4 | 16 | 2 | 8 | 50 | N/A |
-| Canada Central | 4 | 16 | 4 | 16 | 50 | N/A |
-| Canada East | 4 | 16 | 4 | 16 | 50 | N/A |
-| Central India | 4 | 16 | 4 | 4 | 50 | V100 |
-| Central US | 4 | 16 | 4 | 16 | 50 | N/A |
-| East Asia | 4 | 16 | 4 | 16 | 50 | N/A |
-| East US | 4 | 16 | 4 | 16 | 50 | K80, P100, V100 |
-| East US 2 | 4 | 16 | 4 | 16 | 50 | N/A |
-| France Central | 4 | 16 | 4 | 16 | 50 | N/A |
-| Germany West Central | 4 | 16 | N/A | N/A | 50 | N/A |
-| Japan East | 2 | 8 | 4 | 16 | 50 | N/A |
-| Japan West | 4 | 16 | N/A | N/A | 50 | N/A |
-| Korea Central | 4 | 16 | N/A | N/A | 50 | N/A |
-| North Central US | 2 | 3.5 | 4 | 16 | 50 | K80, P100, V100 |
-| North Europe | 4 | 16 | 4 | 16 | 50 | K80 |
-| Norway East | 4 | 16 | N/A | N/A | 50 | N/A |
-| South Central US | 4 | 16 | 4 | 16 | 50 | V100 |
-| Southeast Asia | 4 | 16 | 4 | 16 | 50 | P100, V100 |
-| South India | 4 | 16 | N/A | N/A | 50 | K80 |
-| Switzerland North | 4 | 16 | N/A | N/A | 50 | N/A |
-| UK South | 4 | 16 | 4 | 16 | 50 | N/A |
-| UK West | 4 | 16 | N/A | N/A | 50 | N/A |
-| UAE North | 4 | 16 | N/A | N/A | 50 | N/A |
-| West Central US| 4 | 16 | 4 | 16 | 50 | N/A |
-| West Europe | 4 | 16 | 4 | 16 | 50 | K80, P100, V100 |
-| West US | 4 | 16 | 4 | 16 | 50 | N/A |
-| West US 2 | 4 | 16 | 4 | 16 | 50 | K80, P100, V100 |
+> [!NOTE]
+> Some regions don't support availability zones (denoted by a 'N/A' in the table below), and some regions have availability zones, but ACI doesn't currently leverage the capability (denoted by an 'N' in the table below). For more information, see [Azure regions with availability zones][az-region-support].
+
+| Region | Max CPU | Max Memory (GB) | VNET Max CPU | VNET Max Memory (GB) | Storage (GB) | GPU SKUs (preview) | Availability Zone support |
+| -------- | :---: | :---: | :----: | :-----: | :-------: | :----: | :----: |
+| Australia East | 4 | 16 | 4 | 16 | 50 | N/A | Y |
+| Australia Southeast | 4 | 14 | N/A | N/A | 50 | N/A | N |
+| Brazil South | 4 | 16 | 2 | 8 | 50 | N/A | Y |
+| Canada Central | 4 | 16 | 4 | 16 | 50 | N/A | N |
+| Canada East | 4 | 16 | N/A | N/A | 50 | N/A | N |
+| Central India | 4 | 16 | 4 | 4 | 50 | V100 | N |
+| Central US | 4 | 16 | 4 | 16 | 50 | N/A | Y |
+| East Asia | 4 | 16 | 4 | 16 | 50 | N/A | N |
+| East US | 4 | 16 | 4 | 16 | 50 | K80, P100, V100 | Y |
+| East US 2 | 4 | 16 | 4 | 16 | 50 | N/A | Y |
+| France Central | 4 | 16 | 4 | 16 | 50 | N/A | Y|
+| Germany West Central | 4 | 16 | N/A | N/A | 50 | N/A | Y |
+| Japan East | 4 | 16 | 4 | 16 | 50 | N/A | Y |
+| Japan West | 4 | 16 | N/A | N/A | 50 | N/A | N |
+| Jio India West | 4 | 16 | N/A | N/A | 50 | N/A | N |
+| Korea Central | 4 | 16 | N/A | N/A | 50 | N/A | N |
+| North Central US | 2 | 3.5 | 4 | 16 | 50 | K80, P100, V100 | N |
+| North Europe | 4 | 16 | 4 | 16 | 50 | K80 | Y |
+| Norway East | 4 | 16 | N/A | N/A | 50 | N/A | N |
+| Norway West | 4 | 16 | N/A | N/A | 50 | N/A | N |
+| South Africa North | 4 | 16 | N/A | N/A | 50 | N/A | N |
+| South Central US | 4 | 16 | 4 | 16 | 50 | V100 | Y |
+| Southeast Asia | 4 | 16 | 4 | 16 | 50 | P100, V100 | Y |
+| South India | 4 | 16 | N/A | N/A | 50 | K80 | N |
+| Sweden Central | 4 | 16 | N/A | N/A | 50 | N/A | N |
+| Sweden South | 4 | 16 | N/A | N/A | 50 | N/A | N |
+| Switzerland North | 4 | 16 | N/A | N/A | 50 | N/A | N |
+| Switzerland West | 4 | 16 | N/A | N/A | 50 | N/A | N |
+| UK South | 4 | 16 | 4 | 16 | 50 | N/A | Y|
+| UK West | 4 | 16 | N/A | N/A | 50 | N/A | N |
+| UAE North | 4 | 16 | N/A | N/A | 50 | N/A | N |
+| West Central US| 4 | 16 | 4 | 16 | 50 | N/A | N |
+| West Europe | 4 | 16 | 4 | 16 | 50 | K80, P100, V100 | Y |
+| West India | 4 | 16 | N/A | N/A | 50 | N/A | N |
+| West US | 4 | 16 | 4 | 16 | 50 | N/A | N |
+| West US 2 | 4 | 16 | 4 | 16 | 50 | K80, P100, V100 | Y |
+| West US 3 | 4 | 16 | N/A | N/A | 50 | N/A | N |
 
 The following maximum resources are available to a container group deployed with [GPU resources](container-instances-gpu.md) (preview).
 
@@ -72,68 +87,67 @@ The following maximum resources are available to a container group deployed with
 
 ## Windows container groups
 
-The following regions and maximum resources are available to container groups with [supported and preview](/azure/container-instances/container-instances-faq#what-windows-base-os-images-are-supported) Windows Server containers.
+The following regions and maximum resources are available to container groups with [supported and preview](./container-instances-faq.yml) Windows Server containers.
 
 > [!IMPORTANT]
 > At this time, deployments with Windows container groups are not supported in an Azure virtual network deployment.
 
-###  Windows Server 2016
+### Windows Server 2016
 
 > [!NOTE]
-> See [Host and container version compatibility](/virtualization/windowscontainers/deploy-containers/update-containers#host-and-container-version-compatibility) for more information on 1B, 2B, and 3B hosts.
+> 1B and 2B hosts have been deprecated for Windows Server 2016. See [Host and container version compatibility](/virtualization/windowscontainers/deploy-containers/update-containers#host-and-container-version-compatibility) for more information on 1B, 2B, and 3B hosts.
 
-| Region | 1B/2B Max CPU | 1B/2B Max Memory (GB) |3B Max CPU | 3B Max Memory (GB) | Storage (GB) |
-| -------- | :---: | :---: | :----: | :-----: | :-------: |
-| Australia East | 2 | 8 | 2 | 8 | 20 |
-| Brazil South | 4 | 16 | 4 | 16 | 20 |
-| Canada Central | 2 | 8 | 2 | 3.5 | 20 |
-| Central India | 2 | 3.5 | 2 | 3.5 | 20 |
-| Central US | 2 | 8 | 2 | 3.5 | 20 |
-| East Asia | 2 | 3.5 | 2 | 3.5 | 20 |
-| East US | 2 | 8 | 2 | 8 | 20 |
-| East US 2 | 2 | 8 | 4 | 16 | 20 |
-| Japan East | 4 | 16 | 4 | 16 | 20 |
-| Korea Central | 4 | 16 | 4 | 16 | 20 |
-| North Central US | 2 | 8 | 4 | 16 | 20 |
-| North Europe | 2 | 8 | 2 | 8 | 20 |
-| South Central US | 2 | 8 | 2 | 8 | 20 |
-| Southeast Asia | N/A | N/A | 2 | 3.5 | 20 |
-| South India | 2 | 3.5 | 2 | 3.5 | 20 |
-| UK South | 2 | 8 | 2 | 3.5 | 20 |
-| West Central US | 2 | 8 | 2 | 8 | 20 |
-| West Europe | 4 | 16 | 4 | 16 | 20 |
-| West US | 2 | 8 | 2 | 8 | 20 |
-| West US 2 | 2 | 8 | 2 | 3.5 | 20 |
-
+| Region |3B Max CPU | 3B Max Memory (GB) | Storage (GB) |
+| -------- | :----: | :-----: | :-------: |
+| Australia East | 2 | 8 | 20 |
+| Brazil South | 4 | 16 | 20 |
+| Canada Central  | 2 | 3.5 | 20 |
+| Central India | 2 | 3.5 | 20 |
+| Central US | 2 | 3.5 | 20 |
+| East Asia | 2 | 3.5 | 20 |
+| East US | 2 | 8 | 20 |
+| East US 2 | 4 | 16 | 20 |
+| Japan East | 4 | 16 | 20 |
+| Korea Central | 4 | 16 | 20 |
+| North Central US | 4 | 16 | 20 |
+| North Europe | 2 | 8 | 20 |
+| South Central US | 2 | 8 | 20 |
+| Southeast Asia | 2 | 3.5 | 20 |
+| South India | 2 | 3.5 | 20 |
+| UK South | 2 | 3.5 | 20 |
+| West Central US | 2 | 8 | 20 |
+| West Europe | 4 | 16 | 20 |
+| West US | 2 | 8 | 20 |
+| West US 2 | 2 | 3.5 | 20 |
 
 ### Windows Server 2019 LTSC
 
 > [!NOTE]
-> See [Host and container version compatibility](/virtualization/windowscontainers/deploy-containers/update-containers#host-and-container-version-compatibility) for more information on 1B, 2B, and 3B hosts.
+> 1B and 2B hosts have been deprecated for Windows Server 2019 LTSC. See [Host and container version compatibility](/virtualization/windowscontainers/deploy-containers/update-containers#host-and-container-version-compatibility) for more information on 1B, 2B, and 3B hosts.
 
-| Region | 1B/2B Max CPU | 1B/2B Max Memory (GB) |3B Max CPU | 3B Max Memory (GB) | Storage (GB) |
-| -------- | :---: | :---: | :----: | :-----: | :-------: |
-| Australia East | 4 | 16 | 4 | 16 | 20 |
-| Brazil South | 4 | 16 | 4 | 16 | 20 |
-| Canada Central | 4 | 16 | 4 | 16 | 20 |
-| Central India | 4 | 16 | 4 | 16 | 20 |
-| Central US | 4 | 16 | 4 | 16 | 20 |
-| East Asia | 4 | 16 | 4 | 16 | 20 |
-| East US | 4 | 16 | 4 | 16 | 20 |
-| East US 2 | 2 | 3.5 | 2 | 3.5 | 20 |
-| France Central | 4 | 16 | 4 | 16 | 20 |
-| Japan East | N/A | N/A | 4 | 16 | 20 |
-| Korea Central | 4 | 16 | 4 | 16 | 20 |
-| North Central US | 4 | 16 | 4 | 16 | 20 |
-| North Europe | 4 | 16 | 4 | 16 | 20 |
-| South Central US | 4 | 16 | 4 | 16 | 20 |
-| Southeast Asia | 4 | 16 | 4 | 16 | 20 |
-| South India | 4 | 16 | 4 | 16 | 20 |
-| UK South | 4 | 16 | 4 | 16 | 20 |
-| West Central US | 4 | 16 | 4 | 16 | 20 |
-| West Europe | 4 | 16 | 4 | 16 | 20 |
-| West US | 4 | 16 | 4 | 16 | 20 |
-| West US 2 | 2 | 8 | 4 | 16 | 20 |
+| Region | 3B Max CPU | 3B Max Memory (GB) | Storage (GB) | Availability Zone support |
+| -------- | :----: | :-----: | :-------: |
+| Australia East | 4 | 16 | 20 | Y |
+| Brazil South | 4 | 16 | 20 | Y |
+| Canada Central | 4 | 16 | 20 | N |
+| Central India | 4 | 16 | 20 | N |
+| Central US | 4 | 16 | 20 | Y |
+| East Asia | 4 | 16 | 20 | N |
+| East US | 4 | 16 | 20 | Y |
+| East US 2 | 2 | 3.5 | 20 | Y |
+| France Central | 4 | 16 | 20 | Y |
+| Japan East | 4 | 16 | 20 | Y |
+| Korea Central | 4 | 16 | 20 | N |
+| North Central US | 4 | 16 | 20 | N |
+| North Europe | 4 | 16 | 20 | Y |
+| South Central US | 4 | 16 | 20 | Y |
+| Southeast Asia | 4 | 16 | 20 | Y |
+| South India | 4 | 16 | 20 | N |
+| UK South | 4 | 16 | 20 | Y |
+| West Central US | 4 | 16 | 20 | N |
+| West Europe | 4 | 16 | 20 | Y |
+| West US | 4 | 16 | 20 | N |
+| West US 2 | 4 | 16 | 20 | Y |
 
 ## Next steps
 
@@ -142,4 +156,5 @@ Let the team know if you'd like to see additional regions or increased resource 
 For information on troubleshooting container instance deployment, see [Troubleshoot deployment issues with Azure Container Instances](container-instances-troubleshooting.md).
 
 
-[azure-support]: https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest
+[azure-support]: https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest
+[az-region-support]: ../availability-zones/az-overview.md#regions

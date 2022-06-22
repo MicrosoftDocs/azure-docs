@@ -250,7 +250,7 @@ data factory from the resources list.
 
 ## Create a linked service and test the connection
 
-1. Go to the **Manage** tab and then go to the **Managed private endpoints** section.
+1. Go to the **Manage** tab and then go to the **Linked services** section.
 2. Select + **New** under **Linked Service**.
 3. Select the **SQL Server** tile from the list and select **Continue**.    
 
@@ -264,6 +264,9 @@ data factory from the resources list.
 6. Then click **Test connection**.
 
     :::image type="content" source="./media/tutorial-managed-virtual-network/linked-service-3.png" alt-text="Screenshot that shows the SQL server linked service creation page.":::
+
+> [!Note] 
+> If you have more than one SQL Server and need to define multiple load balancer rules and IP table records with different ports, make sure you explicitly add the port name after the FQDN when you edit Linked Service. The NAT VM will handle the port translation. If it's not explicitly specified, the connection will always time-out.
 
 ## Troubleshooting
 

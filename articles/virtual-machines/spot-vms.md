@@ -18,7 +18,7 @@ ms.reviewer: cynthn
 
 Using Azure Spot Virtual Machines allows you to take advantage of our unused capacity at a significant cost savings. At any point in time when Azure needs the capacity back, the Azure infrastructure will evict Azure Spot Virtual Machines. Therefore, Azure Spot Virtual Machines are great for workloads that can handle interruptions like batch processing jobs, dev/test environments, large compute workloads, and more.
 
-The amount of available capacity can vary based on size, region, time of day, and more. When deploying Azure Spot Virtual Machines, Azure will allocate the VMs if there is capacity available, but there is no SLA for these VMs. A Azure Spot Virtual Machine offers no high availability guarantees. At any point in time when Azure needs the capacity back, the Azure infrastructure will evict Azure Spot Virtual Machines with 30 seconds notice. 
+The amount of available capacity can vary based on size, region, time of day, and more. When deploying Azure Spot Virtual Machines, Azure will allocate the VMs if there is capacity available, but there is no SLA for these VMs. An Azure Spot Virtual Machine offers no high availability guarantees. At any point in time when Azure needs the capacity back, the Azure infrastructure will evict Azure Spot Virtual Machines with 30 seconds notice. 
 
 
 ## Eviction policy
@@ -59,7 +59,7 @@ The following [offer types](https://azure.microsoft.com/support/legal/offer-deta
 -	Enterprise Agreement 
 -	Pay-as-you-go offer code (003P)
 -	Sponsored (0036P and 0136P)
-- For Cloud Service Provider (CSP), contact your partner
+- For Cloud Service Provider (CSP), see the [Partner Center](/partner-center/azure-plan-get-started) or contact your partner directly.
 
 
 ## Pricing
@@ -86,7 +86,7 @@ You can see historical pricing and eviction rates per size in a region in the po
 
 ##  Frequently asked questions
 
-**Q:** Once created, is a Azure Spot Virtual Machine the same as regular standard VM?
+**Q:** Once created, is an Azure Spot Virtual Machine the same as regular standard VM?
 
 **A:** Yes, except there is no SLA for Azure Spot Virtual Machines and they can be evicted at any time.
 

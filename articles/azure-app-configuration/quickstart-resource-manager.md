@@ -2,12 +2,12 @@
 title: Create an Azure App Configuration store by using Azure Resource Manager template (ARM template)
 titleSuffix: Azure App Configuration
 description: Learn how to create an Azure App Configuration store by using Azure Resource Manager template (ARM template).
-author: GrantMeStrength
-ms.author: jken
+author: maud-lv
+ms.author: malev
 ms.date: 06/09/2021
 ms.service: azure-app-configuration
 ms.topic: quickstart
-ms.custom: subject-armqs, devx-track-azurepowershell
+ms.custom: subject-armqs, devx-track-azurepowershell, mode-arm
 ---
 
 # Quickstart: Create an Azure App Configuration store by using an ARM template
@@ -18,6 +18,9 @@ This quickstart describes how to :
 - Create key-values in an App Configuration store using ARM template.
 - Read key-values in an App Configuration store from ARM template.
 
+> [!TIP]
+> Feature flags and Key Vault references are special types of key-values. Check out the [Next steps](#next-steps) for examples of creating them using the ARM template.
+
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
 If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal.
@@ -27,6 +30,13 @@ If your environment meets the prerequisites and you're familiar with using ARM t
 ## Prerequisites
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+
+## Authorization
+
+Accessing key-value data inside an ARM template requires an Azure Resource Manager role, such as contributor or owner. Access via one of the Azure App Configuration [data plane roles](concept-enable-rbac.md) currently is not supported.
+
+> [!NOTE]
+> Key-value data access inside an ARM template is disabled if access key authentication is disabled. For more information, see [disable access key authentication](./howto-disable-access-key-authentication.md#limitations).
 
 ## Review the template
 
@@ -61,9 +71,6 @@ Two Azure resources are defined in the template:
 > ```azurecli-interactive
 > az appconfig update -g MyResourceGroup -n MyAppConfiguration --enable-public-network true
 > ```
-
-> [!NOTE]
-> There is a limitation where key-value data access inside an ARM template is disabled if access key authentication is disabled. See [disable access key authentication](./howto-disable-access-key-authentication.md#limitations) for more details.
 
 ## Deploy the template
 
@@ -108,5 +115,5 @@ Write-Host "Press [ENTER] to continue..."
 
 To learn about adding feature flag and Key Vault reference to an App Configuration store, check below ARM template examples.
 
-- [app-configuration-store-ff](https://azure.microsoft.com/resources/templates/app-configuration-store-ff/)
-- [app-configuration-store-keyvaultref](https://azure.microsoft.com/resources/templates/app-configuration-store-keyvaultref/)
+- [ARM template for feature flag](https://azure.microsoft.com/resources/templates/app-configuration-store-ff/)
+- [ARM template for Key Vault reference](https://azure.microsoft.com/resources/templates/app-configuration-store-keyvaultref/)

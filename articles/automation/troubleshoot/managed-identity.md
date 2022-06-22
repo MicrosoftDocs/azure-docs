@@ -1,15 +1,37 @@
 ---
-title: Troubleshoot Azure Automation managed identity issues (preview)
+title: Troubleshoot Azure Automation managed identity issues
 description: This article tells how to troubleshoot and resolve issues when using a managed identity with an Automation account.
 services: automation
 ms.subservice:
-ms.date: 06/28/2021
+ms.date: 10/26/2021
 ms.topic: troubleshooting
 ---
 
-# Troubleshoot Azure Automation managed identity issues (preview)
+# Troubleshoot Azure Automation managed identity issues
 
-This article discusses solutions to problems that you might encounter when you use a managed identity with your Automation account. For general information about using managed identity with Automation accounts, see [Azure Automation account authentication overview](../automation-security-overview.md#managed-identities-preview).
+This article discusses solutions to problems that you might encounter when you use a managed identity with your Automation account. For general information about using managed identity with Automation accounts, see [Azure Automation account authentication overview](../automation-security-overview.md#managed-identities).
+
+## Scenario: Runbook fails with "this.Client.SubscriptionId cannot be null." error message
+
+### Issue
+
+Your runbook using a managed identity Connect-AzAccount -Identity which attempts to manage Azure objects, fails to work successfully and logs the following error - `this.Client.SubscriptionId cannot be null.`
+
+```error
+get-azvm : 'this.Client.SubscriptionId' cannot be null. At line:5 char:1 + get-azvm + ~~~~~~~~ + CategoryInfo : CloseError: (:) [Get-AzVM], ValidationException + FullyQualifiedErrorId : Microsoft.Azure.Commands.Compute.GetAzureVMCommand
+```
+
+### Cause
+
+This can happen when the Managed Identity (or other account used in the runbook) has not been granted any permissions to access the subscription.
+
+### Resolution
+Grant the Managed Identity (or other account used in the runbook) an appropriate role membership in the subscription. [Learn more](../enable-managed-identity-for-automation.md#assign-role-to-a-system-assigned-managed-identity)
+
+:::image type="content" source="../media/troubleshoot-runbooks/managed-identity-role-assignments.png" alt-text=" Screenshot that shows the assigning of Azure Role assignments.":::
+
+:::image type="content" source="../media/troubleshoot-runbooks/azure-add-role-assignment-inline.png" alt-text="Screenshot that shows how to add role assignment." lightbox="../media/troubleshoot-runbooks/azure-add-role-assignment-expanded.png":::
+
 
 ## Scenario: Fail to get MSI token for account
 
@@ -68,7 +90,7 @@ If the issue is that you didn't enable the identity before trying to use it, you
 
 ### Resolution
 
-You must enable an identity for your Automation account before you can use the managed identity service. See [Enable a managed identity for your Azure Automation account (preview)](../enable-managed-identity-for-automation.md)
+You must enable an identity for your Automation account before you can use the managed identity service. See [Enable a managed identity for your Azure Automation account](../enable-managed-identity-for-automation.md)
 
 ## Next steps
 

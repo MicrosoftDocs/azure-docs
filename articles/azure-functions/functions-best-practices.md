@@ -4,6 +4,7 @@ description: Learn best practices for designing, deploying, and maintaining effi
 ms.assetid: 9058fb2f-8a93-4036-a921-97a0772f503c
 ms.topic: conceptual
 ms.date: 08/30/2021
+ms.devlang: csharp, java, javascript, powershell, python
 # Customer intent: As a developer, I want to understand how to correctly design, deploy, and maintain my functions so I can run them in the most safe and efficient way possible.
 ---
 # Best practices for reliable Azure Functions
@@ -102,6 +103,8 @@ Consider these options for a successful deployment:
 + Consider using [continuous deployment](functions-continuous-deployment.md) to connect deployments to your source control solution. Continuous deployments also let you run from the deployment package.
 
 + For [Premium plan hosting](functions-premium-plan.md), consider adding a warmup trigger to reduce latency when new instances are added. To learn more, see [Azure Functions warm-up trigger](functions-bindings-warmup.md). 
+
++ To minimize deployment downtime and to be able to roll back deployments, consider using deployment slots. To learn more, see [Azure Functions deployment slots](functions-deployment-slots.md).
 
 ## Write robust functions
 

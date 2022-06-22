@@ -8,6 +8,7 @@ ms.date: 08/19/2020
 ms.topic: how-to
 ms.service: storage
 ms.subservice: queues
+ms.devlang: java
 ms.custom: devx-track-java
 ---
 

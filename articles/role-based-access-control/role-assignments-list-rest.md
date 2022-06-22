@@ -4,7 +4,7 @@ description: Learn how to determine what resources users, groups, service princi
 services: active-directory
 documentationcenter: na
 author: rolyon
-manager: mtillman
+manager: karenhoran
 ms.service: role-based-access-control
 ms.workload: multiple
 ms.tgt_pltfrm: rest-api

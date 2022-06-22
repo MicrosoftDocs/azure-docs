@@ -2,13 +2,10 @@
 title: Azure Monitor workbook composite bar renderer 
 description: Learn about all the Azure Monitor workbook Composite Bar Renderer visualization. 
 services: azure-monitor
-author: lgayhardt
-
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 9/04/2020
-ms.author: lagayhar
 ---
 
 # Composite bar renderer
@@ -188,5 +185,4 @@ The Composite bar view for Graph with the above settings will look like this:
 
 ## Next steps
 
-* [Deploy](../visualize/workbooks-automate.md) workbooks with Azure Resource Manager.
-* [Control](./workbooks-access-control.md) and share access to your workbook resources.
+ - [Getting started with Azure Workbooks](workbooks-getting-started.md).

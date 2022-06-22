@@ -28,7 +28,7 @@ This article shows you how to use the Data Factory Copy Data tool to load data f
 ## Prerequisites
 
 * Azure subscription: If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
-* Azure Storage account with Data Lake Storage Gen2 enabled: If you don't have a Storage account, [create an account](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM).
+* Azure Storage account with Data Lake Storage Gen2 enabled: If you don't have a Storage account, [create an account](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM).
 * AWS account with an S3 bucket that contains data: This article shows how to copy data from Amazon S3. You can use other data stores by following similar steps.
 
 ## Create a data factory

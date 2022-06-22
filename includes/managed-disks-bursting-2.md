@@ -5,13 +5,13 @@
  author: albecker1
  ms.service: virtual-machines
  ms.topic: include
- ms.date: 06/02/2021
+ ms.date: 11/09/2021
  ms.author: albecker1
  ms.custom: include file
 ---
-### On-demand bursting (preview)
+### On-demand bursting
 
-Premium SSDs using the on-demand bursting model of disk bursting can burst beyond original provisioned targets, as often as needed by their workload, up to the max burst target. For example, on a 1-TiB P30 disk, the provisioned IOPS is 5000 IOPS. When disk bursting is enabled on this disk, your workloads can issue IOs to this disk up to the max burst performance of 30,000 IOPS and 1,000 MBps.
+Premium SSDs using the on-demand bursting model of disk bursting can burst beyond original provisioned targets, as often as needed by their workload, up to the max burst target. For example, on a 1-TiB P30 disk, the provisioned IOPS is 5000 IOPS. When disk bursting is enabled on this disk, your workloads can issue IOs to this disk up to the max burst performance of 30,000 IOPS and 1,000 MBps. For the max burst targets on each supported disk, see [Scalability and performance targets for VM disks](../articles/virtual-machines/disks-scalability-targets.md#premium-ssd-managed-disks-per-disk-limits).
 
 If you expect your workloads to frequently run beyond the provisioned perf target, disk bursting won't be cost-effective. In this case, we recommend that you change your disk's performance tier to a [higher tier](../articles/virtual-machines/disks-performance-tiers.md) instead, for better baseline performance. Review your billing details and assess that against the traffic pattern of your workloads.
 
@@ -60,20 +60,9 @@ For premium SSDs, credit-based bursting is available for disk sizes P20 and smal
 
 ## Virtual machine-level bursting
 
-VM-level bursting only uses the credit-based model for bursting, it is enabled by default for all VMs that support it.
 
-VM-level bursting is enabled in all regions in the Azure Public Cloud on these supported sizes: 
-- [Dsv4-series](../articles/virtual-machines/dv4-dsv4-series.md)
-- [Dasv4-series](../articles/virtual-machines/dav4-dasv4-series.md)
-- [Ddsv4-series](../articles/virtual-machines/ddv4-ddsv4-series.md)
-- [Esv4-series](../articles/virtual-machines/ev4-esv4-series.md)
-- [Easv4-series](../articles/virtual-machines/eav4-easv4-series.md)
-- [Edsv4-series](../articles/virtual-machines/edv4-edsv4-series.md)
-- [B-series](../articles/virtual-machines/sizes-b-series-burstable.md)
-- [Fsv2-series](../articles/virtual-machines/fsv2-series.md)
-- [Dsv3-series](../articles/virtual-machines/dv3-dsv3-series.md)
-- [Esv3-series](../articles/virtual-machines/ev3-esv3-series.md)
-- [Lsv2-series](../articles/virtual-machines/lsv2-series.md)
+VM-level bursting only uses the credit-based model for bursting, it is enabled by default for most Premium Storage supported VMs.
+
 
 ## Bursting flow
 
@@ -93,29 +82,6 @@ There are three states your resource can be in with bursting enabled:
 
 The following examples show how bursting works with various VM and disk combinations. To make the examples easy to follow, we will focus on MB/s, but the same logic is applied independently to IOPS.
 
-### Non-burstable virtual machine with burstable disks
-**VM and disk combination:** 
-- Standard_D8as_v4 
-    - Uncached MB/s: 192
-- P4 OS Disk
-    - Provisioned MB/s: 25
-    - Max burst MB/s: 170 
-- 2 P10 Data Disks 
-    - Provisioned MB/s: 100
-    - Max burst MB/s: 170
-
- When the VM boots up it retrieves data from the OS disk. Since the OS disk is part of a VM that is booting, the OS disk will be full of bursting credits. These credits will allow the OS disk burst its startup at 170 MB/s second.
-
-![VM sends a request for 192 MB/s of throughput to OS disk, OS disk responds with 170 MB/s data.](media/managed-disks-bursting/nonbursting-vm-bursting-disk/nonbursting-vm-bursting-disk-startup.jpg)
-
-After the boot up is complete, an application is then run on the VM and has a non-critical workload. This workload requires 15 MB/S that gets spread evenly across all the disks.
-
-![Application sends request for 15 MB/s of throughput to VM, VM takes request and sends each of its disks a request for 5 MB/s, each disk returns 5 MB/s, VM returns 15 MB/s to application.](media/managed-disks-bursting/nonbursting-vm-bursting-disk/nonbursting-vm-bursting-disk-idling.jpg)
-
-Then the application needs to process a batched job that requires 192 MB/s. 2 MB/s are used by the OS disk and the rest are evenly split between the data disks.
-
-![Application sends request for 192 MB/s of throughput to VM, VM takes request and sends the bulk of its request to the data disks (95 MB/s each) and 2 MB/s to the OS disk, the data disks burst to meet the demand and all disks return the requested throughput to the VM, which returns it to the application.](media/managed-disks-bursting/nonbursting-vm-bursting-disk/nonbursting-vm-bursting-disk-bursting.jpg)
-
 ### Burstable virtual machine with non-burstable disks
 **VM and disk combination:** 
 - Standard_L8s_v2 
@@ -123,8 +89,10 @@ Then the application needs to process a batched job that requires 192 MB/s. 2 MB
     - Max burst MB/s: 1,280
 - P50 OS Disk
     - Provisioned MB/s: 250 
+    - On-Demand Bursting: **not enabled**
 - 2 P50 Data Disks 
     - Provisioned MB/s: 250
+    - On-Demand Bursting: **not enabled**
 
  After the initial boot up, an application is run on the VM and has a non-critical workload. This workload requires 30 MB/s that gets spread evenly across all the disks.
 ![Application sends request for 30 MB/s of throughput to VM, VM takes request and sends each of its disks a request for 10 MB/s, each disk returns 10 MB/s, VM returns 30 MB/s to application.](media/managed-disks-bursting/bursting-vm-nonbursting-disk/burst-vm-nonbursting-disk-normal.jpg)
@@ -132,6 +100,7 @@ Then the application needs to process a batched job that requires 192 MB/s. 2 MB
 Then the application needs to process a batched job that requires 600 MB/s. The Standard_L8s_v2 bursts to meet this demand and then requests to the disks get evenly spread out to P50 disks.
 
 ![Application sends request for 600 MB/s of throughput to VM, VM takes bursts to take the request and sends each of its disks a request for 200 MB/s, each disk returns 200 MB/s, VM bursts to return 600 MB/s to application.](media/managed-disks-bursting/bursting-vm-nonbursting-disk/burst-vm-nonbursting-disk-bursting.jpg)
+
 ### Burstable virtual machine with burstable disks
 **VM and disk combination:** 
 - Standard_L8s_v2 

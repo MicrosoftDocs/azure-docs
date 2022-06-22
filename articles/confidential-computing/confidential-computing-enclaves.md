@@ -1,47 +1,41 @@
 ---
-title: Confidential computing virtual machines on Azure
+title: Build with SGX enclaves - Azure Virtual Machines
 description: Learn about Intel SGX hardware to enable your confidential computing workloads.
-services: virtual-machines
-author: JenCook
+author: stempesta
 ms.service: virtual-machines
-ms.subservice: confidential-computing
+ms.subservice: workloads
 ms.workload: infrastructure
 ms.topic: conceptual
-ms.date: 9/3/2020
-ms.author: JenCook
+ms.date: 11/01/2021
+ms.author: stempesta
+ms.custom: ignite-fall-2021
 ---
 
-# Azure confidential computing virtual machines (VMs) overview
+# Build with SGX enclaves 
 
+Azure confidential computing offers [DCsv2-series](../virtual-machines/dcv2-series.md) and [DCsv3/DCdsv3-series](../virtual-machines/dcv3-series.md)* virtual machines (VMs). These VMs have [Intel® Software Guard Extensions (SGX)](https://intel.com/sgx). 
 
-Azure is the first cloud provider to offer confidential computing in a virtualized environment. We've developed virtual machines that act as an abstraction layer between the hardware and your application. You can run workloads at scale and with redundancy and availability options.  
+Intel SGX technology allows customers to create enclaves that protect data, and keep data encrypted while the CPU processes the data. The operating system (OS) and hypervisor can't access the data. Data center administrators with physical access also can't access the data.
 
-## Intel SGX-enabled Virtual Machines
+## Enclaves concept
 
-In Azure confidential computing virtual machines, a part of the CPU's hardware is reserved for a portion of code and data in your application. This restricted portion is the enclave. 
+Enclaves are secured portions of the hardware's processor and memory. You can't view data or code inside the enclave, even with a debugger. If untrusted code tries to change content in enclave memory, SGX disables the environment and denies the operations. These unique capabilities help you protect your secrets from being accessible in the clear.  
 
-![VM model](media/overview/hardware-backed-enclave.png)
+![Diagram of the VM model, showing data secured in the enclaves.](media/overview/hardware-backed-enclave.png)
 
-Azure confidential computing infrastructure is currently comprised of a specialty SKU of virtual machines (VMs). These VMs run on Intel processors with Software Guard Extension (Intel SGX). [Intel SGX](https://intel.com/sgx) is the component that allows the increased protection that we light up with confidential computing. 
+Think of an enclave as a secured lockbox. You put encrypted code and data inside the lockbox. From the outside, you can't see anything. You give the enclave a key to decrypt the data. The enclave processes and re-encrypts the data, before sending the data back out.
 
-Today, Azure offers the [DCsv2-Series](../virtual-machines/dcv2-series.md) built on Intel SGX technology for hardware-based enclave creation. You can build secure enclave-based applications to run in the DCsv2-series of VMs to protect your application data and code in use. 
+Each enclave has an encrypted page cache (EPC) with a set size. The EPC determines the amount of memory that an enclave can hold. [DCsv2-series](../virtual-machines/dcv2-series.md) VMs hold up to 168 MiB. [DCsv3/DCdsv3-series](../virtual-machines/dcv3-series.md)* VMs hold up to 256 GB for more memory-intensive workloads.
 
-[Read more](virtual-machine-solutions.md) about deploying Azure confidential computing virtual machines with hardware-based trusted enclaves.
+> [!NOTE]
+> *DCsv3 and DCdsv3 are in **public preview** as of November 1, 2021.
 
-## Enclaves
+For more information, see [how to deploy Intel SGX VMs with hardware-based trusted enclaves](virtual-machine-solutions-sgx.md).
 
-Enclaves are secured portions of the hardware’s processor and memory. There's no way to view data or code inside the enclave, even with a debugger. If untrusted code attempts modify the content in enclave memory, the environment gets disabled and the operations are denied.
+## Developing for enclaves
 
-Fundamentally, think of an enclave as a secured box. You put encrypted code and data in the box. From the outside of the box, you can't see anything. You give the enclave a key to decrypt the data, the data is then processed and encrypted again, before being sent out of the enclave.
-
-Each enclave has a set size of encrypted page cache (EPC) that determines the amount of memory each enclave can hold. Larger DCsv2 virtual machines have more EPC memory. Read the [DCsv2 specifications](../virtual-machines/dcv2-series.md) page for the maximum EPC per VM Size.
-
-
-
-### Developing applications to run inside enclaves
-When developing applications, you can use [software tools](application-development.md) to shield portions of your code and data inside the enclave. These tools will ensure your code and data can't be viewed or modified by anyone outside the trusted environment. 
+You can use various [software tools for developing applications that run in enclaves](application-development.md). These tools help you shield portions of your code and data inside the enclave. Make sure nobody outside your trusted environment can view or modify your data with these tools.
 
 ## Next Steps
-- [Read best practices](virtual-machine-solutions.md) for deploying solutions on Azure confidential computing virtual machines.
-- [Deploy a DCsv2-Series virtual machine](quick-create-portal.md)
+- [Deploy a DCsv2 or DCsv3/DCdsv3-series virtual machine](quick-create-portal.md)
 - [Develop an enclave-aware application](application-development.md) using the OE SDK
