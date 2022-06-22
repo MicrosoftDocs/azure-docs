@@ -5,7 +5,7 @@ services: virtual-machines-linux,virtual-machines-windows
 author: msjuergent
 manager: bburns
 tags: azure-resource-manager
-keywords: 'Azure, SQL Server, SAP, AlwaysOn'
+keywords: 'Azure, SQL Server, SAP, AlwaysOn, Always On'
 ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
