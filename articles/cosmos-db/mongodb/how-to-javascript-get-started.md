@@ -86,7 +86,7 @@ Refer to the [Troubleshooting guide](error-codes-solutions.md) for connection is
 > [!TIP]
 > For this guide, we recommend using the resource group name ``msdocs-cosmos``.
 
-[!INCLUDE [Portal - get connection string](<./includes/portal-get-connection-string.md>)]
+[!INCLUDE [Portal - get connection string](<./includes/portal-get-connection-string-from-sign-in.md>)]
 
 ---
 
