@@ -6,7 +6,7 @@ services: web-application-firewall
 author: schaffererin
 ms.service: web-application-firewall
 ms.topic: quickstart
-ms.date: 06/17/2022
+ms.date: 06/22/2022
 ms.author: v-eschaffer
 ms.custom: subject-armqs, devx-track-azurepowershell, mode-arm
 ---
@@ -64,7 +64,7 @@ Multiple Azure resources are defined in the Bicep file:
     ---
 
 > [!NOTE]
-> You'll be prompted to enter **adminPassword**, which is the password for the admin account on the backend servers.
+> You'll be prompted to enter **adminPassword**, which is the password for the admin account on the backend servers. The password must be between 8-123 characters long and must contain at least three of the following: an uppercase character, a lowercase character, a numeric digit, or a special character.
 
 When the deployment finishes, you should see a message indicating the deployment succeeded. The deployment can take 10 minutes or longer to complete.
 
@@ -72,30 +72,12 @@ When the deployment finishes, you should see a message indicating the deployment
 
 Although IIS isn't required to create the application gateway, it's installed on the backend servers to verify if Azure successfully created a WAF v2 on the application gateway.
 
-Use IIS to test the application gateway:
+Use IIS and Azure PowerShell to test the application gateway:
 
-1. Find the public IP address for the application gateway on its **Overview** page.![Record application gateway public IP address](../../application-gateway/media/application-gateway-create-gateway-portal/application-gateway-record-ag-address.png).
+1. Find the public IP address for the application gateway on its **Overview** page.![Record application gateway public IP address](../../application-gateway/media/application-gateway-create-gateway-bicep/application-gateway-record-ag-address-bicep.png).
 2. Copy the public IP address, and then paste it into the address bar of your browser to browse that IP address.
 3. Check the response. A **403 Forbidden** response verifies that the WAF was successfully created and is blocking connections to the backend pool.
 4. Change the custom rule to **Allow traffic** using Azure CLI or Azure PowerShell, replacing your resource group name.
-    
-    # [CLI](#tab/CLI)
-
-    ```azurecli
-    
-    az network application-gateway show --name $fwPolicyName --resource-group $rgName
-    az network application-gateway waf-policy show --name $fwPolicyName --resource-group $rgName
-   
-    # Update the resources
-    $pol[0].CustomRules[0].Action = "allow"
-    $appGW.FirewallPolicy = $pol
-
-    # Push your changes to Azure
-    #Set-AzApplicationGatewayFirewallPolicy -Name $fwPolicyName -ResourceGroupName $rgName -CustomRule $pol.CustomRules
-    az network application-gateway waf-policy update --name $fwPolicyName --resource-group $rgName
-
-    Set-AzApplicationGateway -ApplicationGateway $appGW
-    ```
 
     # [PowerShell](#tab/PowerShell)
 
