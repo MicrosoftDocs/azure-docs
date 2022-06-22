@@ -22,8 +22,8 @@ items:
       href: ./how-to/business-continuity-disaster-recovery.md
 - name: Concepts
   items:
-    - name: Azure OpenAI Engines
-      href: ./concepts/engines.md
+    - name: Azure OpenAI Models
+      href: ./concepts/models.md
 - name: Reference
   items:
     - name: REST API
