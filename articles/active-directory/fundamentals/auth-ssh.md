@@ -17,13 +17,13 @@ ms.collection: M365-identity-device-management
 ---
 # SSH  
 
-Secure Shell (SSH) is a network protocol that provides encryption for operating network services securely over an unsecured network. SSH also provides a command-line sign in, executes remote commands, and securely transfer files. It's commonly used in Unix-based systems such as Linux®. SSH replaces the Telnet protocol, which doesn't provide encryption in an unsecured network. 
+Secure Shell (SSH) is a network protocol that provides encryption for operating network services securely over an unsecured network. SSH also provides a command-line sign-in, executes remote commands, and securely transfer files. It's commonly used in Unix-based systems such as Linux®. SSH replaces the Telnet protocol, which doesn't provide encryption in an unsecured network. 
 
 Azure Active Directory (Azure AD) provides a Virtual Machine (VM) extension for Linux®-based systems running on Azure, and a client extension that integrates with [Azure CLI](/cli/azure/) and the OpenSSH client.
 
 ## Use when 
 
-* Working with Linux®-based VMs that require remote sign in
+* Working with Linux®-based VMs that require remote sign-in
 
 * Executing remote commands in Linux®-based systems
 
@@ -39,7 +39,7 @@ Azure Active Directory (Azure AD) provides a Virtual Machine (VM) extension for 
 
 * **Web browser**: The component that the user interacts with to authenticate their Azure CLI session. It communicates with the Identity Provider (Azure AD) to securely authenticate and authorize the user.
 
-* **OpenSSH Client**: Used by Azure CLI, or (optionally) directly by the end user, to initiate a connection to the Linux VM.
+* **OpenSSH Client**: This client is used by Azure CLI, or (optionally) directly by the end user, to initiate a connection to the Linux VM.
 
 * **Azure AD**: Authenticates the identity of the user and issues short-lived OpenSSH user certificates to their Azure CLI client.
 
