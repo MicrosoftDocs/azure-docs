@@ -22,7 +22,7 @@ This article discusses connection methods for existing legacy Oracle environment
 
 This article assumes that there's a requirement to migrate the existing methods of connection and user/role/permission structure as-is. If not, use the Azure portal to create and manage a new security regime.
 
-For more information on [Azure Synapse security](../../sql-data-warehouse/sql-data-warehouse-overview-manage-security.md#authorization) options, see [Security whitepaper](../../guidance/security-white-paper-introduction.md).
+For more information about [Azure Synapse security](../../sql-data-warehouse/sql-data-warehouse-overview-manage-security.md#authorization) options, see [Security whitepaper](../../guidance/security-white-paper-introduction.md).
 
 ### Connection and authentication
 
@@ -45,13 +45,13 @@ With external authentication, the user account is maintained by the Oracle datab
 
 - **Network authentication**: With this approach, more authentication mechanisms are available, such as smart cards, fingerprints, Kerberos, or the operating system. Many network authentication services, such as Kerberos, support single sign-on, so that users have fewer passwords to remember.
 
-##### Global authentication and authorization 
+##### Global authentication and authorization
 
 Oracle Advanced Security enables centralized management of user-related information, including authorizations, in an LDAP-based directory service. Users can be identified in the database as global users, which means that they're authenticated by SSL and that the management of these users is done outside of the database by the centralized directory service. 
 
 This approach provides strong authentication using SSL, Kerberos, or Windows-native authentication, and enables centralized management of users and privileges across the enterprise. Administration is easier since it's not necessary to create a schema for every user in every database in the enterprise. Single sign-on is also supported, so that users only need to sign on once to access multiple databases and services.
 
-##### Proxy authentication and authorization 
+##### Proxy authentication and authorization
 
 You can designate a middle-tier server to proxy clients in a secure fashion. Oracle provides various options for proxy authentication: 
 
@@ -106,7 +106,7 @@ SQL Developer also has built-in options to display this information in the Repor
 
 :::image type="content" source="../media/3-security-access-operations/oracle-sql-developer-reports-1.png" border="true" alt-text="Screenshot showing a Reports view for user roles in Oracle SQL Developer.":::
 
-Modify the example SELECT statement to produce a result set that is a series of CREATE USER and CREATE GROUP statements by including the appropriate text as a literal within the SELECT statement.
+You can modify the example SELECT statement to produce a result set that is a series of CREATE USER and CREATE GROUP statements. Simply include the appropriate text as a literal within the SELECT statement.
 
 There's no way to retrieve existing passwords, so you need to implement a scheme for allocating new initial passwords on Azure Synapse.
 
@@ -142,9 +142,6 @@ DBA_COL_PRIVS<br> ALL_COL_PRIVS<br> USER_COL_PRIVS | DBA view describes all colu
 | SESSION_PRIVS | This view lists the privileges that are currently enabled for the user. |
 | SESSION_ROLES | This view lists the roles that are currently enabled for the user. |
 
-> [!TIP] 
-> There are equivalent Azure Synapse permissions for basic database operations such as DML and DDL.
-
 Oracle supports various types of privilege:
 
 **System privileges**: These privileges allow the grantee to perform standard administrator tasks in the database. These privileges are generally restricted to only trusted users, and many of them are specific to Oracle operations.
@@ -158,6 +155,9 @@ Oracle supports various types of privilege:
 **Procedure privileges**: Procedures, including standalone procedures and functions, can be granted to the EXECUTE privilege. They can be mapped directly to their equivalent in Azure Synapse.
 
 **Type privileges**: You can grant system privileges to named types (object types, VARRAYs, and nested tables). These privileges are typically specific to Oracle features that have no equivalent in Azure Synapse.
+
+> [!TIP] 
+> There are equivalent Azure Synapse permissions for basic database operations such as DML and DDL.
 
 These tables list common Oracle privileges that have a direct equivalent in Azure Synapse. Migration of these privileges could be automated by generating equivalent scripts for Synapse from the Oracle catalog tables as described above.
 
@@ -188,7 +188,7 @@ These tables list common Oracle privileges that have a direct equivalent in Azur
 | Truncate | Allows the user to delete all rows from a table. Applies only to tables. | TRUNCATE |
 | Update | Allows the user to modify table rows. Applies to tables only. | UPDATE |
 
-For more full details of Azure Synapse permissions, see [Database engine permissions](/sql/relational-databases/security/permissions-database-engine.md).
+For more details about Azure Synapse permissions, see [Database engine permissions](/sql/relational-databases/security/permissions-database-engine.md).
 
 #### Migrating users, roles, and privileges
 
@@ -281,12 +281,12 @@ For more information, see [Azure Synapse operations and management options](../.
 
 ### High availability (HA) and disaster recovery (DR)
 
-Oracle originally became available in 1979 and has evolved since then to incorporate many features required by enterprise customers, including options for high availability and disaster recovery. The latest announcement in this area is Maximum Availability Architecture (MAA), which includes reference architectures for four levels of high availability and disaster recovery:
+Oracle originally became available in 1979 and has evolved since then to incorporate many features required by enterprise customers, including options for high availability and disaster recovery. The latest announcement in this area is Maximum Availability Architecture (MAA), which includes reference architectures for four levels of HA and DR:
 
-    Bronze Tier: A single-instance HA architecture
-    Silver Tier: High availability with automatic failover
-    Gold Tier: Comprehensive high availability and disaster recovery
-    Platinum Tier: Zero outage for platinum-ready applications
+- **Bronze tier**: A single-instance HA architecture
+- **Silver tier**: High availability with automatic failover
+- **Gold tier**: Comprehensive HA and DR
+- **Platinum tier**: Zero outage for platinum-ready applications
 
 > [!TIP]
 > Azure Synapse creates snapshots automatically to ensure fast recovery time.
@@ -312,20 +312,20 @@ Oracle provides utilities such as Enterprise Manager and Database Resource Manag
 > [!TIP]
 > A production data warehouse typically has mixed workloads with different resource usage characteristics running concurrently.
 
-Many of these features can be automated so that the system becomes (to a degree) self-tuning.
+Many of these features can be automated so that the system becomes self-tuning, to a degree.
 
 > [!TIP]
 > Low-level and system-wide metrics are automatically logged within Azure.
 
-Resource utilization statistics for Azure Synapse are automatically logged within the system. The metrics include usage statistics for CPU, memory, cache, I/O, and temporary workspace for each query. Connectivity information (for example, failed connection attempts) is also logged.
+Resource utilization statistics for Azure Synapse are automatically logged within the system. The metrics include usage statistics for CPU, memory, cache, I/O, and temporary workspace for each query. Connectivity information, such as failed connection attempts, is also logged.
 
 The basic workload management concepts within Synapse are:
 
-1. Workload classification: To assign a request to a workload group and setting importance levels.
+1. Workload classification: Assign a request to a workload group and set importance levels.
 
-2. Workload importance: To influence the order in which a request gets access to resources. By default, queries are released from the queue on a first-in, first-out basis as resources become available. Workload importance allows higher priority queries to receive resources immediately regardless of queue.
+2. Workload importance: Influence the order in which a request gets access to resources. By default, queries are released from the queue on a first-in, first-out basis as resources become available. Workload importance allows higher priority queries to receive resources immediately regardless of queue.
 
-3. Workload isolation: To reserve resources for a workload group. Maximum and minimum usage can be assigned for varying resources. The amount of resources a group of requests can consume can be limited, and a timeout value can be set to automatically kill runaway queries.
+3. Workload isolation: Reserve resources for a workload group. Maximum and minimum usage can be assigned for varying resources. The amount of resources a group of requests can consume can be limited, and a timeout value can be set to automatically kill runaway queries.
 
 Azure Synapse provides a set of Dynamic Management Views (DMVs) for monitoring of all aspects of workload management. These views are useful when actively troubleshooting and identifying performance bottlenecks with your workload.
 
@@ -333,7 +333,7 @@ In Azure Synapse, resource classes are pre-determined resource limits that gover
 
 See [Workload management with resource classes in Azure Synapse Analytics](../../sql-data-warehouse/resource-classes-for-workload-management.md) for detailed information.
 
-The collected information can be used for capacity planning, for example, determining the resources required for additional users or application workload. You can also use it to plan scale up or scale down of compute resources for cost-effective support of "peaky" workloads.
+The collected information can be used for capacity planning, for example, determining the resources required for additional users or application workload. You can also use it to plan scale up/down of compute resources for cost-effective support of "peaky" workloads.
 
 ### Scale compute resources
 
