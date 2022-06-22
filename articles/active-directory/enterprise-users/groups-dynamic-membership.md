@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: enterprise-users
 ms.workload: identity
 ms.topic: overview
-ms.date: 06/20/2022
+ms.date: 06/22/2022
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
@@ -397,6 +397,20 @@ The following device attributes can be used.
  deviceTrustType | AzureAD, ServerAD, Workplace | device.deviceOwnership -eq "AzureAD"
  enrollmentProfileName | Apple Device Enrollment Profile name, Android Enterprise Corporate-owned dedicated device Enrollment Profile name, or Windows Autopilot profile name | device.enrollmentProfileName -eq "DEP iPhones"
  extensionAttribute1 | any string value | device.extensionAttribute1 -eq "some string value"
+ extensionAttribute2 | any string value | device.extensionAttribute2 -eq "some string value"
+ extensionAttribute3 | any string value | device.extensionAttribute3 -eq "some string value"
+ extensionAttribute4 | any string value | device.extensionAttribute4 -eq "some string value"
+ extensionAttribute5 | any string value | device.extensionAttribute5 -eq "some string value"
+ extensionAttribute6 | any string value | device.extensionAttribute6 -eq "some string value"
+ extensionAttribute7 | any string value | device.extensionAttribute7 -eq "some string value"
+ extensionAttribute8 | any string value | device.extensionAttribute8 -eq "some string value"
+ extensionAttribute9 | any string value | device.extensionAttribute9 -eq "some string value"
+ extensionAttribute10 | any string value | device.extensionAttribute10 -eq "some string value"
+ extensionAttribute11 | any string value | device.extensionAttribute11 -eq "some string value"
+ extensionAttribute12 | any string value | device.extensionAttribute12 -eq "some string value"
+ extensionAttribute13 | any string value | device.extensionAttribute13 -eq "some string value"
+ extensionAttribute14 | any string value | device.extensionAttribute14 -eq "some string value"
+ extensionAttribute15 | any string value | device.extensionAttribute15 -eq "some string value"
  isRooted | true false | device.isRooted -eq true
  managementType | MDM (for mobile devices) | device.managementType -eq "MDM"
  memberOf | Any string value (valid group object ID) | device.memberof -any (group.objectId -in ['value']) 
