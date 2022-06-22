@@ -42,18 +42,18 @@ npx install-peerdeps @fluidframework/azure-client
 
 > [!TIP]
 > During Public Preview, the versions of **@fluidframework/azure-client** and **fluid-framework** will match. That is, if
-> the current release of **@fluidframework/azure-client** is 0.52, then it will be compatible with **fluid-framework** 0.52. The inverse is also true.
+> the current release of **@fluidframework/azure-client** is 1.0.1, then it will be compatible with **fluid-framework** 1.0.1. The inverse is also true.
 
 ## Compatibility table
 
 | npm package                         | Minimum version | API                                                              |
 | ----------------------------------  | :-------------- | :--------------------------------------------------------------- |
-| @fluidframework/azure-client        | [0.52][]      | [API](https://fluidframework.com/docs/apis/azure-client/)        |
-| fluid-framework                     | [0.52][]      | [API](https://fluidframework.com/docs/apis/fluid-framework/)     |
-| @fluidframework/azure-service-utils | [0.52][]      | [API](https://fluidframework.com/docs/apis/azure-service-utils/) |
-| @fluidframework/test-client-utils   | [0.52][]      | [API](https://fluidframework.com/docs/apis/test-client-utils/)   |
+| @fluidframework/azure-client        | [1.0.1][]       | [API](https://fluidframework.com/docs/apis/azure-client/)        |
+| fluid-framework                     | [1.0.1][]       | [API](https://fluidframework.com/docs/apis/fluid-framework/)     |
+| @fluidframework/azure-service-utils | [1.0.1][]       | [API](https://fluidframework.com/docs/apis/azure-service-utils/) |
+| @fluidframework/test-client-utils   | [1.0.1][]       | [API](https://fluidframework.com/docs/apis/test-client-utils/)   |
 
-[0.52]: https://fluidframework.com/docs/updates/v0.52/
+[1.0.1]: https://fluidframework.com/docs/updates/v1.0/
 
 ## Next steps
 
