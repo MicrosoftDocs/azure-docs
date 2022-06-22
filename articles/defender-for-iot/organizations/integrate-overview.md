@@ -7,7 +7,7 @@ ms.topic: overview
 
 # Integrations with partner services
 
-Integrate Microsoft Defender for Iot with partner services to view partner data in Defender for IoT, or to view Defender for IoT in a partner service.
+Integrate Microsoft Defender for Iot with partner services to view partner data in Defender for IoT, or to view Defender for IoT data in a partner service.
 
 ## Supported integrations
 
