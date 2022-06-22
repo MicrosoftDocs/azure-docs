@@ -205,7 +205,7 @@ The installation will now finish.
 
     Ensure that packets are being sent to the Event Hubs.
 
-## View detected Enterprise IoT devices
+## View detected Enterprise IoT devices in Azure
 
 You can view your devices and network information in the Defender for IoT **Device inventory** page.
 
@@ -229,19 +229,17 @@ For more information, see:
 > [!TIP]
 > If you don't see your Enterprise IoT data in Defender for IoT as expected, make sure that you're viewing the Azure portal with the correct subscriptions selected. For more information, see [Manage Azure portal settings](/azure/azure-portal/set-preferences).
 
-## Configure the integration with Defender for Endpoint
+## Integrate with Microsoft Defender for Endpoint
 
-After you've set up your sensor and enabled the integration with Defender for Endpoint, you'll also be able to view your Enterprise IoT devices in the Defender for Endpoint **Device inventory** page.
+After you've set up your sensor, configure the integration with Microsoft Defender for Endpoint to also view your Enterprise IoT device data in Defender for Endpoint.
 
-For more information, see [Defender for Endpoint device inventory](/microsoft-365/security/defender-endpoint/machines-view-overview).
+For more information, see [Enable Microsoft Defender for IoT integration](/microsoft-365/security/defender-endpoint/enable-microsoft-defender-for-iot-integration).
 
-## View alerts, vulnerabilities, and recommendations
+### View detected devices, alerts, vulnerabilities, and recommendations in Defender for Endpoint
 
-Alerts, vulnerabilities, and recommendations for Enterprise IoT devices are currently visible only in Defender for Endpoint.
+After you've configured the integration, you can view detected devices and related alerts, vulnerabilities, and recommendations in Defender for Endpoint. For more information, see:
 
-For more information, see:
-
-- [Enable Microsoft Defender for IoT integration](/microsoft-365/security/defender-endpoint/enable-microsoft-defender-for-iot-integration)
+- [Defender for Endpoint device inventory](/microsoft-365/security/defender-endpoint/machines-view-overview)
 - [View and organize the Microsoft Defender for Endpoint Alerts queue](/microsoft-365/security/defender-endpoint/alerts-queue)
 - [Vulnerabilities in my organization](/microsoft-365/security/defender-vulnerability-management/)
 - [Security recommendations](/microsoft-365/security/defender-vulnerability-management/tvm-security-recommendation)
