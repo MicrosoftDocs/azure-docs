@@ -243,7 +243,7 @@ More features are available when you use the remote compute, as shown in the tab
 | Azure ML Pipeline workflow support                         | ✓      |       |
 | Continue a job                                             | ✓      |       |
 | Forecasting                                                | ✓      | ✓     |
-| Create and job experiments in notebooks                    | ✓      | ✓     |
+| Create and run experiments in notebooks                    | ✓      | ✓     |
 | Register and visualize experiment's info and metrics in UI | ✓      | ✓     |
 | Data guardrails                                            | ✓      | ✓     |
 

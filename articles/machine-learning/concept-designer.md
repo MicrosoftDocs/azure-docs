@@ -64,7 +64,7 @@ When you're ready to run your pipeline draft, you submit a pipeline job.
 
 ### Pipeline job
 
-Each time you job a pipeline, the configuration of the pipeline and its results are stored in your workspace as a **pipeline job**. You can go back to any pipeline job to inspect it for troubleshooting or auditing. **Clone** a pipeline job to create a new pipeline draft for you to edit.
+Each time you run a pipeline, the configuration of the pipeline and its results are stored in your workspace as a **pipeline job**. You can go back to any pipeline job to inspect it for troubleshooting or auditing. **Clone** a pipeline job to create a new pipeline draft for you to edit.
 
 Pipeline jobs are grouped into [experiments](v1/concept-azure-machine-learning-architecture.md#experiments) to organize job history. You can set the experiment for every pipeline job. 
 
@@ -110,7 +110,7 @@ You can also publish a pipeline to a **pipeline endpoint**. Similar to an online
 
 Published pipelines are flexible, they can be used to train or retrain models, [perform batch inferencing](how-to-run-batch-predictions-designer.md), process new data, and much more. You can publish multiple pipelines to a single pipeline endpoint and specify which pipeline version to run.
 
-A published pipeline jobs on the compute resources you define in the pipeline draft for each component.
+A published pipeline runs on the compute resources you define in the pipeline draft for each component.
 
 The designer creates the same [PublishedPipeline](/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.publishedpipeline) object as the SDK.
 
