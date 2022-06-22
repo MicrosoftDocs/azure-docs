@@ -171,9 +171,8 @@ If you want to monitor a particular server role instance, you can filter by serv
 
 Live Metrics custom filters allow you to control which of your application's telemetry is streamed to the Live Metrics view in Azure portal. The filters criteria is sent to the apps that are instrumented with the Application Insights SDK. The filter value could potentially contain sensitive information such as CustomerID. To keep this value secured and prevent potential disclosure to unauthorized applications, you have two options:
 
-Recommended: Secure Live Metrics channel using [Azure AD authentication](./azure-ad-authentication.md#configuring-and-enabling-azure-ad-based-authentication)
-
-Legacy (no longer recommended): Set up an authenticated channel by configuring a secret API key as explained below
+- Recommended: Secure Live Metrics channel using [Azure AD authentication](./azure-ad-authentication.md#configuring-and-enabling-azure-ad-based-authentication)
+- Legacy (no longer recommended): Set up an authenticated channel by configuring a secret API key as explained below
 
 It is possible to try custom filters without having to set up an authenticated channel. Simply click on any of the filter icons and authorize the connected servers. Notice that if you choose this option, you will have to authorize the connected servers once every new session or when a new server comes online.
 
