@@ -128,6 +128,8 @@
           href: routing-methods.md
         - name: Routing limits
           href: front-door-routing-limits.md
+      - name: Endpoint
+        href: endpoint.md
       - name: Origin
         href: origin.md?pivots=front-door-standard-premium
       - name: Wildcard domain
