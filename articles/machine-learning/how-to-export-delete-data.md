@@ -12,7 +12,6 @@ ms.topic: how-to
 
 ---
 
-[//]: # (needs PM review; is it job_id or run_id)
 
 # Export or delete your Machine Learning service workspace data
 

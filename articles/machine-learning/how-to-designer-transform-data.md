@@ -12,8 +12,6 @@ ms.topic: how-to
 ms.custom: designer
 ---
 
-[//]: # (needs PM review)
-
 # Transform data in Azure Machine Learning designer
 
 

@@ -14,7 +14,6 @@ ms.custom: devx-track-python, deploy, devx-track-azurecli, contperf-fy21q2, cont
 adobe-target: true
 ---
 
-[//]: # (needs PM review, is Run now a Job in the code?)
 
 # Deploy machine learning models to Azure
 
