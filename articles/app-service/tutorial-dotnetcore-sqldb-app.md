@@ -194,7 +194,7 @@ az sql server firewall-rule create --resource-group msdocs-core-sql --server <yo
 
 ---
 
-Next, update the *appsettings.json* file in the sample project with the [connection string Azure SQL Database](#5---connect-the-app-to-the-database). The update allows us to run migrations locally against our database hosted in Azure. Replace the username and password placeholders with the values you chose when creating your database.
+Next, update the *appsettings.json* file in the sample project with the [connection string Azure SQL Database](#4---connect-the-app-to-the-database). The update allows us to run migrations locally against our database hosted in Azure. Replace the username and password placeholders with the values you chose when creating your database.
 
 ```json
 "AZURE_SQL_CONNECTIONSTRING": "Data Source=<your-server-name>.database.windows.net,1433;Initial Catalog=coreDb;User ID=<username>;Password=<password>"
@@ -221,7 +221,7 @@ If you receive the error `Client with IP address xxx.xxx.xxx.xxx is not allowed 
 
 ## 6 - Deploy to the App Service
 
-We're now ready to deploy our .NET app to the App Service.
+That we're able to create the schema in the database means that our .NET app can connect to the database successfully. We're now ready to deploy our .NET app to the App Service.
 
 ### [Deploy using Visual Studio](#tab/visualstudio-deploy)
 
