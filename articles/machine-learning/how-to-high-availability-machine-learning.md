@@ -13,8 +13,6 @@ ms.reviewer: larryfr
 ms.date: 10/21/2021
 ---
 
-[//]: # (needs PM review; is code changing?)
-
 # Failover for business continuity and disaster recovery
 
 To maximize your uptime, plan ahead to maintain business continuity and prepare for disaster recovery with Azure Machine Learning. 

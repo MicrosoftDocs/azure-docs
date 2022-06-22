@@ -12,8 +12,6 @@ ms.topic: how-to
 ms.custom: github-actions-azure
 ---
 
-[//]: # (needs PM review is the code changing? )
-
 # Use GitHub Actions with Azure Machine Learning
 
 Get started with [GitHub Actions](https://docs.github.com/en/actions) to train a model on Azure Machine Learning. 
