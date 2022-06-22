@@ -33,11 +33,8 @@ For more information, see the [Microsoft Security Development Lifecycle practice
 
 | Version | Date released | End support date |
 |--|--|--|
-<<<<<<< HEAD
 | 22.2.3 | 07/2022 | 04/2023 |
-=======
 | 22.1.5 | 06/2022 | 03/2022 |
->>>>>>> 9fd815fd77c5e48228cd1dd5ef8909e1b3e56e57
 | 22.1.4 | 04/2022 | 12/2022 |
 | 22.1.3 | 03/2022 | 11/2022 |
 | 22.1.1 | 02/2022 | 10/2022 |
@@ -46,7 +43,6 @@ For more information, see the [Microsoft Security Development Lifecycle practice
 | 10.5.3 | 10/2021 | 07/2022 |
 | 10.5.2 | 10/2021 | 07/2022 |
 
-<<<<<<< HEAD
 ## July 2022
 
 **Sensor version**: 22.2.3
@@ -68,13 +64,11 @@ For more information, see:
 - [Manage alerts from the sensor console](how-to-manage-the-alert-event.md)
 - [Work with alerts on the on-premises management console](how-to-work-with-alerts-on-premises-management-console.md)
 
-=======
 ## June
 
 **Sensor software version**: 22.1.5
 
 - Bug fixes related to OT monitoring software updates and sensor-cloud connections.
->>>>>>> 9fd815fd77c5e48228cd1dd5ef8909e1b3e56e57
 
 ## May 2022
 
