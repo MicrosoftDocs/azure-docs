@@ -21,6 +21,7 @@ To improve the security of Linux virtual machines (VMs) in Azure, you can integr
 
 > [!IMPORTANT]
 > This capability is now generally available! [The previous version that made use of device code flow was deprecated August 15, 2021](../../virtual-machines/linux/login-using-aad.md). To migrate from the old version to this version, see the section, [Migration from previous preview](#migration-from-previous-preview).
+
 There are many security benefits of using Azure AD with openSSH certificate-based authentication to log in to Linux VMs in Azure, including:
 
 - Use your Azure AD credentials to log in to Azure Linux VMs.
@@ -57,7 +58,8 @@ It's not supported to use this extension on Azure Kubernetes Service (AKS) clust
 If you choose to install and use the CLI locally, you must be running the Azure CLI version 2.22.1 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
 
 > [!NOTE]
-> This is functionality is also available for [Azure Arc-enabled servers](../../azure-arc/servers/ssh-arc-overview.md).
+> This functionality is also available for [Azure Arc-enabled servers](../../azure-arc/servers/ssh-arc-overview.md).
+
 ## Requirements for login with Azure AD using openSSH certificate-based authentication
 
 To enable Azure AD login using SSH certificate-based authentication for Linux VMs in Azure, ensure the following network, virtual machine, and client (ssh client) requirements are met.
@@ -98,16 +100,17 @@ Ensure your VM is configured with the following functionality:
 
 Ensure your client meets the following requirements:
 
-- SSH client must support OpenSSH based certificates for authentication. You can use Az CLI (2.21.1 or higher) with OpenSSH (included in Windows 10 version 1803 or higher) or Azure Cloud Shell to meet this requirement. 
-- SSH extension for Az CLI. You can install this using `az extension add --name ssh`. You don’t need to install this extension when using Azure Cloud Shell as it comes pre-installed.
-- If you’re using any other SSH client other than Az CLI or Azure Cloud Shell that supports OpenSSH certificates, you’ll still need to use Az CLI with SSH extension to retrieve ephemeral SSH cert and optionally a config file and then use the config file with your SSH client.
+- SSH client must support OpenSSH based certificates for authentication. You can use Azure CLI (2.21.1 or higher) with OpenSSH (included in Windows 10 version 1803 or higher) or Azure Cloud Shell to meet this requirement. 
+- SSH extension for Azure CLI. You can install this using `az extension add --name ssh`. You don’t need to install this extension when using Azure Cloud Shell as it comes pre-installed.
+- If you’re using any other SSH client other than Azure CLI or Azure Cloud Shell that supports OpenSSH certificates, you’ll still need to use Azure CLI with SSH extension to retrieve ephemeral SSH cert and optionally a config file and then use the config file with your SSH client.
 - TCP connectivity from the client to either the public or private IP of the VM (ProxyCommand or SSH forwarding to a machine with connectivity also works).
 
 > [!IMPORTANT]
 > SSH clients based on PuTTy do not support openSSH certificates and cannot be used to login with Azure AD openSSH certificate-based authentication.
+
 ## Enabling Azure AD login in for Linux VM in Azure
 
-To use Azure AD login in for Linux VM in Azure, you need to first enable Azure AD login option for your Linux VM, configure Azure role assignments for users who are authorized to login in to the VM and then use SSH client that supports OpensSSH such as Az CLI or Az Cloud Shell to SSH to your Linux VM. There are multiple ways you can enable Azure AD login for your Linux VM, as an example you can use:
+To use Azure AD login in for Linux VM in Azure, you need to first enable Azure AD login option for your Linux VM, configure Azure role assignments for users who are authorized to login in to the VM and then use SSH client that supports OpensSSH such as Azure CLI or Azure Cloud Shell to SSH to your Linux VM. There are multiple ways you can enable Azure AD login for your Linux VM, as an example you can use:
 
 - Azure portal experience when creating a Linux VM
 - Azure Cloud Shell experience when creating a Windows VM or for an existing Linux VM
@@ -179,7 +182,7 @@ There are multiple ways you can configure role assignments for VM, as an example
 - Azure AD Portal experience
 - Azure Cloud Shell experience
 
-> [!Note]
+> [!NOTE]
 > The Virtual Machine Administrator Login and Virtual Machine User Login roles use dataActions and can be assigned at the management group, subscription, resource group, or resource scope. It is recommended that the roles be assigned at the management group, subscription or resource level and not at the individual VM level to avoid risk of running out of [Azure role assignments limit](../../role-based-access-control/troubleshooting.md#azure-role-assignments-limit) per subscription.
 ### Using Azure AD Portal experience
 
@@ -217,11 +220,11 @@ az role assignment create \
 > If your Azure AD domain and logon username domain do not match, you must specify the object ID of your user account with the `--assignee-object-id`, not just the username for `--assignee`. You can obtain the object ID for your user account with [az ad user list](/cli/azure/ad/user#az-ad-user-list).
 For more information on how to use Azure RBAC to manage access to your Azure subscription resources, see the article [Steps to assign an Azure role](../../role-based-access-control/role-assignments-steps.md).
 
-## Install SSH extension for Az CLI
+## Install SSH extension for Azure CLI
 
-If you’re using Azure Cloud Shell, then no other setup is needed as both the minimum required version of Az CLI and SSH extension for Az CLI are already included in the Cloud Shell environment.
+If you’re using Azure Cloud Shell, then no other setup is needed as both the minimum required version of Azure CLI and SSH extension for Azure CLI are already included in the Cloud Shell environment.
 
-Run the following command to add SSH extension for Az CLI
+Run the following command to add SSH extension for Azure CLI
 
 ```azurecli
 az extension add --name ssh
@@ -238,10 +241,11 @@ az extension show --name ssh
 You can enforce Conditional Access policies such as require multi-factor authentication, require compliant or hybrid Azure AD joined device for the device running SSH client, and checking for risk before authorizing access to Linux VMs in Azure that are enabled with Azure AD login in. The application that appears in Conditional Access policy is called "Azure Linux VM Sign-In".
 
 > [!NOTE]
-> Conditional Access policy enforcement requiring device compliance or Hybrid Azure AD join on the client device running SSH client only works with Az CLI running on Windows and macOS. It is not supported when using Az CLI on Linux or Azure Cloud Shell.
+> Conditional Access policy enforcement requiring device compliance or Hybrid Azure AD join on the client device running SSH client only works with Azure CLI running on Windows and macOS. It is not supported when using Azure CLI on Linux or Azure Cloud Shell.
+
 ## Login using Azure AD user account to SSH into the Linux VM
 
-### Using Az CLI
+### Using Azure CLI
 
 First do az login and then az ssh vm.
 
@@ -257,15 +261,15 @@ The following example automatically resolves the appropriate IP address for the 
 az ssh vm -n myVM -g AzureADLinuxVM
 ```
 
-If prompted, enter your Azure AD login credentials at the login page, perform an MFA, and/or satisfy device checks. You’ll only be prompted if your az CLI session doesn’t already meet any required Conditional Access criteria. Close the browser window, return to the SSH prompt, and you’ll be automatically connected to the VM.
+If prompted, enter your Azure AD login credentials at the login page, perform an MFA, and/or satisfy device checks. You’ll only be prompted if your Azure CLI session doesn’t already meet any required Conditional Access criteria. Close the browser window, return to the SSH prompt, and you’ll be automatically connected to the VM.
 
 You’re now signed in to the Azure Linux virtual machine with the role permissions as assigned, such as VM User or VM Administrator. If your user account is assigned the Virtual Machine Administrator Login role, you can use sudo to run commands that require root privileges.
 
-### Using Az Cloud Shell
+### Using Azure Cloud Shell
 
-You can use Az Cloud Shell to connect to VMs without needing to install anything locally to your client machine. Start Cloud Shell by clicking the shell icon in the upper right corner of the Azure portal.
+You can use Azure Cloud Shell to connect to VMs without needing to install anything locally to your client machine. Start Cloud Shell by clicking the shell icon in the upper right corner of the Azure portal.
 
-Az Cloud Shell will automatically connect to a session in the context of the signed in user. During the Azure AD Login for Linux Preview, **you must run az login again and go through an interactive sign in flow**.
+Azure Cloud Shell will automatically connect to a session in the context of the signed in user. During the Azure AD Login for Linux Preview, **you must run az login again and go through an interactive sign in flow**.
 
 ```azurecli
 az login
@@ -278,7 +282,8 @@ az ssh vm -n myVM -g AzureADLinuxVM
 ```
 
 > [!NOTE]
-> Conditional Access policy enforcement requiring device compliance or Hybrid Azure AD join is not supported when using Az Cloud Shell.
+> Conditional Access policy enforcement requiring device compliance or Hybrid Azure AD join is not supported when using Azure Cloud Shell.
+
 ### Login using Azure AD service principal to SSH into the Linux VM
 
 Azure CLI supports authenticating with a service principal instead of a user account. Since service principals are account not tied to any particular user, customers can use them to SSH to a VM to support any automation scenarios they may have. The service principal must have VM Administrator or VM User rights assigned. Assign permissions at the subscription or resource group level. 
@@ -299,7 +304,7 @@ Use the following example to authenticate to Azure CLI using the service princip
 az login --service-principal -u <sp-app-id> -p <password-or-cert> --tenant <tenant-id>
 ```
 
-Once authentication with a service principal is complete, use the normal Az CLI SSH commands to connect to the VM.
+Once authentication with a service principal is complete, use the normal Azure CLI SSH commands to connect to the VM.
 
 ```azurecli
 az ssh vm -n myVM -g AzureADLinuxVM
@@ -349,6 +354,7 @@ az ssh vm --ip 10.11.123.456
 
 > [!NOTE]
 > You cannot automatically determine the virtual machine scale set VM's IP addresses using the `--resource-group` and `--name` switches.
+
 ## Migration from previous preview
 
 For customers who are using previous version of Azure AD login for Linux that was based on device code flow, complete the following steps using Azure CLI.
@@ -386,7 +392,7 @@ Some common errors when you try to SSH with Azure AD credentials include no Azur
 
 ### Couldn’t retrieve token from local cache
 
-You must run az login again and go through an interactive sign in flow. Review the section [Using Az Cloud Shell](#using-az-cloud-shell).
+You must run az login again and go through an interactive sign in flow. Review the section [Using Azure Cloud Shell](#using-az-cloud-shell).
 
 ### Access denied: Azure role not assigned
 
