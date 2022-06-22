@@ -1,0 +1,45 @@
+---
+title: Support matrix for web apps migration
+description: Support matrix for web apps migration
+author: vineetvikram
+ms.author: vivikram
+ms.service: #Required; service per approved list. slug assigned by ACOM.
+ms.topic: conceptual
+ms.date: 06/22/2022
+ms.custom: template-concept
+---
+
+# Support matrix for web apps migration
+
+This article summarizes support settings and limitations for agentless migration of web apps to Azure App Service [Azure Migrate: Migration and modernization](migrate-services-overview.md#azure-migrate-server-migration-tool) . If you're looking for information about assessing web apps for migration to Azure App Service, review the [assessment support matrix](concepts-azure-webapps-assessment-calculation.md).
+
+## Migration options
+
+You can perform agentless migration of ASP.NET web apps at-scale to [Azure App Service](https://azure.microsoft.com/services/app-service/) using Azure Migrate. Agent based migration is not supported.
+
+## Limitations
+
+- Currently At-Scale Discovery, Assessment and Migration is supported for ASP.NET web apps deployed to on-premises IIS servers hosted on VMWare Environment.
+- You can select up to 5 App Service Plans as part of single migration.
+- Currently we do not support selecting existing App service plans during the migration flow.
+- You can migrate web apps up to max 2 GB in size including content stored in mapped virtual directory.
+- Currently we do not support migrating UNC directory content.
+- You need Windows PowerShell 4.0 installed on VM’s hosting the IIS web servers from which you plan to migrate ASP.NET web apps to Azure App Services.
+- Currently the migration flow does not support VNet integrated scenarios.
+
+## ASP.NET web apps migration requirements
+
+Azure Migrate now supports agentless at-scale migration of ASP.NET web apps to [Azure App Service](https://azure.microsoft.com/services/app-service/). Performing [web apps assessment](./tutorial-assess-webapps.md) is mandatory for migration web apps using the integrated flow in Azure Migrate.
+
+Support | Details
+--- | ---
+**Supported servers** | Currently supported only for windows servers running IIS in your VMware environment.
+**Windows servers** | Windows Server 2008 R2 and later are supported.
+**Linux servers** | Currently not supported.
+**IIS access** | Web apps discovery requires a local admin user account.
+**IIS versions** | IIS 7.5 and later are supported.
+**PowerShell version** | PowerShell 4.0
+
+## Next steps
+
+* Learn how to [perform at-scale agentless migration of ASP.NET web apps to Azure App Service](./tutorials-migrate-webapps.md).
