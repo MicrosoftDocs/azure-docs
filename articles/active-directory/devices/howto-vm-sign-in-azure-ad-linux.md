@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: how-to
-ms.date: 11/22/2021
+ms.date: 06/20/2022
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -39,12 +39,13 @@ The following Linux distributions are currently supported during the preview of 
 
 | Distribution | Version |
 | --- | --- |
+| Common Base Linux Mariner (CBL-Mariner) | CBL-Mariner 1, CBL-Mariner 2 |
 | CentOS | CentOS 7, CentOS 8 |
-| Debian | Debian 9, Debian 10 |
+| Debian | Debian 9, Debian 10, Debian 11 |
 | openSUSE | openSUSE Leap 42.3, openSUSE Leap 15.1+ |
 | RedHat Enterprise Linux (RHEL) | RHEL 7.4 to RHEL 7.10, RHEL 8.3+ |
 | SUSE Linux Enterprise Server (SLES) | SLES 12, SLES 15.1+ |
-| Ubuntu Server | Ubuntu Server 16.04 to Ubuntu Server 20.04 |
+| Ubuntu Server | Ubuntu Server 16.04 to Ubuntu Server 22.04 |
 
 The following Azure regions are currently supported for this feature:
 

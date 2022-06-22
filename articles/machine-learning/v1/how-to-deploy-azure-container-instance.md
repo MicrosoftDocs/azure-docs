@@ -49,7 +49,7 @@ For information on quota and region availability for ACI, see [Quotas and region
 
 ## Limitations
 
-When your Azure Machine Learning workspace is configured with a private endpoint, deploying to Azure Container Instances in a VNet is not supported. Instead, consider using a [Managed online endpoint with network isolation](/azure/machine-learning/how-to-secure-online-endpoint).
+When your Azure Machine Learning workspace is configured with a private endpoint, deploying to Azure Container Instances in a VNet is not supported. Instead, consider using a [Managed online endpoint with network isolation](../how-to-secure-online-endpoint.md).
 
 ## Deploy to ACI
 

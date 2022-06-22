@@ -4,12 +4,12 @@ description: Learn how Microsoft Defender provides advanced threat protection on
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 02/03/2022
+ms.date: 06/21/2022
 ms.author: thweiss
 author: ThomasWeiss
 ---
 
-# Microsoft Defender for Cosmos DB (Preview)
+# Microsoft Defender for Cosmos DB
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
 
 Microsoft Defender for Cosmos DB provides an extra layer of security intelligence that detects unusual and potentially harmful attempts to access or exploit Azure Cosmos DB accounts. This layer of protection allows you to address threats, even without being a security expert, and integrate them with central security monitoring systems.
@@ -27,9 +27,11 @@ For a full investigation experience of the security alerts, we recommended enabl
 
 Microsoft Defender for Cosmos DB detects anomalous activities indicating unusual and potentially harmful attempts to access or exploit databases. It can currently trigger the following alerts:
 
-- **Access from unusual locations**: This alert is triggered when there is a change in the access pattern to an Azure Cosmos DB account, where someone has connected to the Azure Cosmos DB endpoint from an unusual geographical location. In some cases, the alert detects a legitimate action, meaning a new application or developer’s maintenance operation. In other cases, the alert detects a malicious action from a former employee, external attacker, etc.
+- **Potential SQL injection attacks**: Due to the structure and capabilities of Azure Cosmos DB queries, many known SQL injection attacks can’t work in Azure Cosmos DB. However, there are some variations of SQL injections that can succeed and may result in exfiltrating data from your Azure Cosmos DB accounts. Defender for Azure Cosmos DB detects both successful and failed attempts, and helps you harden your environment to prevent these threats.
 
-- **Unusual data extraction**: This alert is triggered when a client is extracting an unusual amount of data from an Azure Cosmos DB account. It can be the symptom of some data exfiltration performed to transfer all the data stored in the account to an external data store.
+- **Anomalous database access patterns**: For example, access from a TOR exit node, known suspicious IP addresses, unusual applications, and unusual locations.
+
+- **Suspicious database activity**: For example, suspicious key-listing patterns that resemble known malicious lateral movement techniques and suspicious data extraction patterns.
 
 ## Configure Microsoft Defender for Cosmos DB
 
@@ -66,7 +68,7 @@ Use the following PowerShell cmdlets:
 # [ARM template](#tab/arm-template)
 
 Use an Azure Resource Manager (ARM) template to set up Azure Cosmos DB with Azure Defender protection enabled. For more information, see
-[Create a CosmosDB Account with Advanced Threat Protection](https://azure.microsoft.com/resources/templates/microsoft-defender-cosmosdb-create-account/).
+[Create a Cosmos DB Account with Advanced Threat Protection](https://azure.microsoft.com/resources/templates/microsoft-defender-cosmosdb-create-account/).
 
 # [Azure Policy](#tab/azure-policy)
 
@@ -92,13 +94,7 @@ Use an Azure Policy to enable Azure Defender for Cosmos DB.
 
 When Azure Cosmos DB activity anomalies occur, a security alert is triggered with information about the suspicious security event. 
 
- From Microsoft Defender for Cloud, you can review and manage your current [security alerts](../../security-center/security-center-alerts-overview.md).  Click on a specific alert in [Defender for Cloud](https://portal.azure.com/#blade/Microsoft_Azure_Security/SecurityMenuBlade/0) to view possible causes and recommended actions to investigate and mitigate the potential threat. The following image shows an example of alert details provided in Defender for Cloud.
-
- :::image type="content" source="./media/defender-for-cosmos-db/cosmos-db-alert-details.png" alt-text="Threat details":::
-
-An email notification is also sent with the alert details and recommended actions. The following image shows an example of an alert email.
-
- :::image type="content" source="./media/defender-for-cosmos-db/cosmos-db-alert.png" alt-text="Alert details":::
+ From Microsoft Defender for Cloud, you can review and manage your current [security alerts](../../security-center/security-center-alerts-overview.md).  Click on a specific alert in [Defender for Cloud](https://portal.azure.com/#blade/Microsoft_Azure_Security/SecurityMenuBlade/0) to view possible causes and recommended actions to investigate and mitigate the potential threat. An email notification is also sent with the alert details and recommended actions.
 
 ## Azure Cosmos DB alerts
 
@@ -106,5 +102,5 @@ An email notification is also sent with the alert details and recommended action
 
 ## Next steps
 
+* Learn more about [Microsoft Defender for Cosmos DB](../../defender-for-cloud/concept-defender-for-cosmos.md)
 * Learn more about [Diagnostic logging in Azure Cosmos DB](../cosmosdb-monitor-resource-logs.md)
-* Learn more about [Microsoft Defender for Cloud](../../security-center/security-center-introduction.md)
