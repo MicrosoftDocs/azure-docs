@@ -17,6 +17,9 @@ Azure Cognitive Search supports IP rules for inbound access through a firewall, 
 
 You can set IP rules in the Azure portal, as described in this article, on search services provisioned at the Basic tier and above. Alternatively, you can use the [Management REST API version 2020-03-13](/rest/api/searchmanagement/), [Azure PowerShell](/powershell/module/az.search), or [Azure CLI](/cli/azure/search).
 
+> [!NOTE]
+> The "Allow access from Portal" exception has been removed. To access a search service protected by an IP firewall through the portal, [allow access from a specific client](#allow-access-from-your-client)
+
 <a id="configure-ip-policy"></a> 
 
 ## Set IP ranges in Azure portal
@@ -35,9 +38,15 @@ By default, when IP rules are configured, some features of the Azure portal are 
 
 To retain service administration through the portal, select the "Allow access" option under **Exceptions**. Alternatively, use the [VS Code Extension](https://aka.ms/vscode-search) to manage content.
 
+<a id="allow-access-from-your-client"></a> 
+
 ## Allow access from your client
 
-Client applications that push indexing and query requests to the search service must be represented in an IP range. On Azure, you can generally determine the IP address by pinging the FQDN of a service (for example, `ping <your-search-service-name>.search.windows.net` will return the IP address of a search service). 
+Client applications that push indexing and query requests to the search service must be represented in an IP range. On Azure, you can generally determine the IP address by pinging the FQDN of a service (for example, `ping <your-search-service-name>.search.windows.net` will return the IP address of a search service).
+
+The Azure Portal has similar restrictions to other client applications. Add your client IP address to allow access to the service from the Azure Portal on your current computer.
+
+:::image type="content" source="media/service-configure-firewall/enable-current-ip.png" alt-text="Screenshot showing how to allow your client IP on the Azure Portal" border="true":::
 
 Providing IP addresses for clients ensures that the request is not rejected outright, but for successful access to content and operations, authorization is also necessary. Use one of the following methodologies to authenticate your request:
 
