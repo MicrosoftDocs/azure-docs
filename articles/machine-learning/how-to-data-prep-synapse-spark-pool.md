@@ -14,7 +14,6 @@ ms.custom: devx-track-python, data4ml, synapse-azureml, contperf-fy21q4, sdkv1, 
 #Customer intent: As a data scientist, I want to prepare my data at scale, and to train my machine learning models from a single notebook using Azure Machine Learning.
 ---
 
-
 # Data wrangling with Apache Spark pools (preview) 
 
 [!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
@@ -314,7 +313,7 @@ run = exp.submit(config=script_run_config)
 run
 ```
 
-For additional details, like the `dataprep.py` script used in this example, see the [example notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/azure-synapse/spark_run_on_synapse_spark_pool.ipynb).
+For additional details, like the `dataprep.py` script used in this example, see the [example notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/azure-synapse/spark_job_on_synapse_spark_pool.ipynb).
 
 After your data is prepared, you can then use it as input for your training jobs. In the aforementioned code example, the `registered_dataset` is what you would specify as your input data for training jobs. 
 
