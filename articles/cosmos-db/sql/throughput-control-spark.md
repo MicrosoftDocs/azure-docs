@@ -73,7 +73,7 @@ In the above example, the `targetThroughputThreshold` is defined as **0.95**, so
     }
 ```
 > [!NOTE]
-> Throughput control does not do RU pre-calculation of each operation. Instead, it tracks the RU usages after the operation based on the response header. As such, throughput control is based an approximation - and does not guarantee that amount of throughput will be available. 
+> Throughput control does not do RU pre-calculation of each operation. Instead, it tracks the RU usages after the operation based on the response header. As such, throughput control is based on an approximation - and does not guarantee that amount of throughput will be available for the group at any given time. 
 
 > [!WARNING]
 > The `targetThroughputThreshold` is **immutable**. If you change the target throughput threshold value, this will create a new throughput control group. You need to restart all Spark jobs that are using the group to ensure they all consume the new threshold.
