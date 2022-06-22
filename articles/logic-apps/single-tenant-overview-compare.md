@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: conceptual
-ms.date: 06/13/2022
+ms.date: 06/10/2022
 ms.custom: ignite-fall-2021
 ---
 
@@ -193,15 +193,9 @@ The single-tenant model and **Logic App (Standard)** resource type include many 
 
 * Create logic apps and their workflows from [hundreds of managed connectors](/connectors/connector-reference/connector-reference-logicapps-connectors) for Software-as-a-Service (SaaS) and Platform-as-a-Service (PaaS) apps and services plus connectors for on-premises systems.
 
-  * More managed connectors are now available as built-in operations and run similarly to other built-in operations, such as Azure Functions. Built-in operations run natively on the single-tenant Azure Logic Apps runtime. For example, new built-in operations include Azure Service Bus, Azure Event Hubs, SQL Server, MQ, DB2, and IBM Host File.
+  * More managed connectors are now available as built-in connectors in Standard logic app workflows. The built-in versions run natively on the single-tenant Azure Logic Apps runtime. Some built-in connectors are also [*service provider-based* connectors](custom-connector-overview.md#service-provider-interface-implementation). For a list, review the [Built-in connectors for Standard logic apps](#built-connectors-standard) section later in this article.
 
-    > [!NOTE]
-    > For the built-in SQL Server version, only the **Execute Query** action can directly connect to Azure 
-    > virtual networks without using the [on-premises data gateway](logic-apps-gateway-connection.md).
-
-  * You can create your own built-in connectors for any service that you need by using the [single-tenant Azure Logic Apps extensibility framework](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-built-in-connector/ba-p/1921272). Similar to built-in connectors such as Azure Service Bus and SQL Server, custom built-in connectors provide higher throughput, low latency, and local connectivity because they run in the same process as the single-tenant runtime. However, custom built-in connectors aren't similar to [custom managed connectors](../connectors/apis-list.md#custom-connectors-and-apis), which aren't currently supported.
-
-    The authoring capability is currently available only in Visual Studio Code, but isn't enabled by default. To create these connectors, [switch your project from extension bundle-based (Node.js) to NuGet package-based (.NET)](create-single-tenant-workflows-visual-studio-code.md#enable-built-in-connector-authoring). For more information, see [Azure Logic Apps Running Anywhere - Built-in connector extensibility](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-built-in-connector/ba-p/1921272).
+  * You can create your own custom built-in connectors for any service that you need by using the single-tenant Azure Logic Apps extensibility framework. Similar to built-in connectors such as Azure Service Bus and SQL Server, custom built-in connectors provide higher throughput, low latency, and local connectivity because they run in the same process as the single-tenant runtime. However, custom built-in connectors aren't similar to [custom managed connectors](../connectors/apis-list.md#custom-connectors-and-apis), which aren't currently supported. For more information, review [Custom connector overview](custom-connector-overview.md#custom-connector-standard) and [Create custom built-in connectors for Standard logic apps in single-tenant Azure Logic Apps](create-custom-built-in-connector-standard.md).
 
   * You can use the following actions for Liquid Operations and XML Operations without an integration account. These operations include the following actions:
 
@@ -241,6 +235,27 @@ The single-tenant model and **Logic App (Standard)** resource type include many 
   * [Azure Logic Apps Running Anywhere - Networking possibilities with Azure Logic Apps](https://techcommunity.microsoft.com/t5/integrations-on-azure/logic-apps-anywhere-networking-possibilities-with-logic-app/ba-p/2105047)
 
 * Regenerate access keys for managed connections used by individual workflows in a **Logic App (Standard)** resource. For this task, [follow the same steps for the **Logic Apps (Consumption)** resource but at the individual workflow level](logic-apps-securing-a-logic-app.md#regenerate-access-keys), not the logic app resource level.
+
+<a name="built-connectors-standard"></a>
+
+## Built-in connectors for Standard
+
+In single-tenant Azure Logic Apps, a [built-in connector with specific attributes](custom-connector-overview.md#service-provider-interface-implementation) is called a *service provider*. Some built-in connectors support only a single way to authenticate a connection to the underlying service. Other built-in connectors can offer a choice, such as using a connection string, Azure Active Directory (Azure AD), or a managed identity. All built-in connectors run in the same process as the redesigned Azure Logic Apps runtime.
+
+The following list contains the current and expanding gallery of service provider-based built-in connectors available for Standard logic app workflows:
+
+* Azure Blob
+* Azure Cosmos DB
+* Azure Queue
+* Azure Table Storage
+* DB2
+* Event Hubs
+* FTP
+* IBM Host File
+* MQ
+* Service Bus
+* SFTP
+* SQL server
 
 <a name="limited-unavailable-unsupported"></a>
 
