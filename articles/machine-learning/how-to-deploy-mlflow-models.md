@@ -22,7 +22,7 @@ ms.devlang: azurecli
 > * [v1](./v1/how-to-deploy-mlflow-models.md)
 > * [v2 (current version)](how-to-deploy-mlflow-models-online-endpoints.md)
 
-In this article, learn how to deploy your [MLflow](https://www.mlflow.org) model to Azure ML for both real-time and batch inference. Azure ML supports no-code deployment of models created and logged with MLflow. This means that you don't have to provide a scoring script or an environment. Those models can be deployed to ACI (Azure Container Instances), AKS (Azure Kubernetes Services) or our managed inference services (usually referred as MIR).
+In this article, learn how to deploy your [MLflow](https://www.mlflow.org) model to Azure ML for both real-time and batch inference. Azure ML supports no-code deployment of models created and logged with MLflow. This means that you don't have to provide a scoring script or an environment. Those models can be deployed to ACI (Azure Container Instances), AKS (Azure Kubernetes Services) or our managed inference services (referred as MIR).
 
 For no-code-deployment, Azure Machine Learning 
 
@@ -34,7 +34,7 @@ For no-code-deployment, Azure Machine Learning
     * `pandas`
     * The scoring script baked into the image.
 
-## Supported targets for MLflow models:
+## Supported targets for MLflow models
 
 The following table shows the target support for MLflow models in Azure ML:
 
@@ -55,7 +55,9 @@ The following table shows the target support for MLflow models in Azure ML:
 > - <sup>4</sup> Data type `mlflow.types.DataType.Binary` is not supported as column type. For models that work with images, we suggest you to use or (a) tensors inputs using the [TensorSpec input type](https://mlflow.org/docs/latest/python_api/mlflow.types.html#mlflow.types.TensorSpec), or (b) `Base64` encoding schemes with a `mlflow.types.DataType.String` column type, which is commonly used when there is a need to encode binary data that needs be stored and transferred over media.
 > - <sup>5</sup> Tensors with unspecified shapes (`-1`) is only supported at the batch size by the moment. For instance, a signature with shape `(-1, -1, -1, 3)` is not supported but `(-1, 300, 300, 3)` is.
 
-## Options
+For more information about how to specify requests to online-endpoints or the supported file types in batch-endpoints, check [Considerations when deploying to real time inference](#considerations-when-deploying-to-real-time-inference) and [Considerations when deploying to batch inference](#considerations-when-deploying-to-batch-inference).
+
+## Deployment tools
 
 There are three workflows for deploying MLflow models to Azure ML:
 
@@ -65,7 +67,7 @@ There are three workflows for deploying MLflow models to Azure ML:
 
 ### Which option to use?
 
-If you are familiar with MLflow or your platform support MLflow natively (like Azure Databricks) and you wish to continue using the same set of methods, use the `azureml-mlflow` plugin. If, on the other hand, you are more familiar with the [Azure ML CLI v2](concept-v2.md), you want to automate deployments using CI/CD pipelines, or you want to keep deployments configuration in a git repository, we recommend you to use the [Azure ML CLI v2](concept-v2.md). If you want to quickly deploy and test models trained with MLflow, you can use [Azure Machine Learning Studio](https://ml.azure.com) UI deployment.
+If you are familiar with MLflow or your platform support MLflow natively (like Azure Databricks) and you wish to continue using the same set of methods, use the `azureml-mlflow` plugin. On the other hand, if you are more familiar with the [Azure ML CLI v2](concept-v2.md), you want to automate deployments using automation pipelines, or you want to keep deployments configuration in a git repository; we recommend you to use the [Azure ML CLI v2](concept-v2.md). If you want to quickly deploy and test models trained with MLflow, you can use [Azure Machine Learning Studio](https://ml.azure.com) UI deployment.
 
 ## Deploy using the MLflow plugin 
 
@@ -151,7 +153,7 @@ The following sample creates a deployment using an ACI:
 
 Deployments can be generated using both the Python API for MLflow or MLflow CLI. In both cases, a JSON configuration file needs to be indicated with the details of the deployment you want to achieve. The full specification of this configuration can be found at [Managed online deployment schema (v2)](reference-yaml-deployment-managed-online.md).
 
-#### Configuration example for an Managed Inference Service deployment (real time)
+#### Configuration example for a Managed Inference Service deployment (real time)
 
 ```json
 {
@@ -210,7 +212,7 @@ You can use Azure ML CLI v2 to deploy models trained and logged with MLflow to M
 
 [!INCLUDE [clone repo & set defaults](../../includes/machine-learning-cli-prepare.md)]
 
-In this code snippets used in this article, the `ENDPOINT_NAME` environment variable contains the name of the endpoint to create and use. To set this, use the following command from the CLI. Replace `<YOUR_ENDPOINT_NAME>` with the name of your endpoint:
+In this code snippet used in this article, the `ENDPOINT_NAME` environment variable contains the name of the endpoint to create and use. To set this, use the following command from the CLI. Replace `<YOUR_ENDPOINT_NAME>` with the name of your endpoint:
 
 :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint-mlflow.sh" ID="set_endpoint_name":::
 
@@ -325,9 +327,11 @@ The following input's types are supported in Azure ML when deploying models with
 > - <sup>1</sup> We suggest you to use split orientation instead. Records orientation doesn't guarante column ordering preservation.
 > - <sup>2</sup> We suggest you to explore batch inference for processing files.
 
+Regardless of the input type used, Azure Machine Learning requires inputs to be provided in a JSON payload, within a dictionary key `input_data`. Note that such key is not required when serving models using the command `mlflow models serve` and hence payloads can't be used interchangeably.
+
 ### Creating requests
 
-Your inputs should be submitted inside the a JSON payload containing a dictionary with key `input_data`.
+Your inputs should be submitted inside a JSON payload containing a dictionary with key `input_data`.
 
 #### Payload example for a JSON-serialized pandas DataFrames in the split orientation
 
