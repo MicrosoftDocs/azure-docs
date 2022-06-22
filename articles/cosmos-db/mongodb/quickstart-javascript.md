@@ -1,5 +1,5 @@
 ---
-title: Quickstart - Azure Cosmos DB MongoDB API for JavaScript with mongoDB drier
+title: Quickstart - Azure Cosmos DB MongoDB API for JavaScript with MongoDB drier
 description: Learn how to build a JavaScript app to manage Azure Cosmos DB MongoDB API account resources in this quickstart.
 author: diberry
 ms.author: diberry
@@ -7,19 +7,19 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: javascript
 ms.topic: quickstart
-ms.date: 06/10/2022
+ms.date: 06/21/2022
 ms.custom: devx-track-js
 ---
 
-# Quickstart: Azure Cosmos DB MongoDB API for JavaScript with mongoDB driver
+# Quickstart: Azure Cosmos DB MongoDB API for JavaScript with MongoDB driver
 [!INCLUDE[appliesto-mongodb-api](../includes/appliesto-mongodb-api.md)]
 
-Get started with the mongoDB npm package to create databases, collections, and docs within your account. Follow these steps to  install the package and try out example code for basic tasks.
+Get started with the MongoDB npm package to create databases, collections, and docs within your Cosmos DB resource. Follow these steps to  install the package and try out example code for basic tasks.
 
 > [!NOTE]
 > The [example code snippets](https://github.com/Azure-Samples/cosmos-db-mongodb-api-javascript-samples) are available on GitHub as a JavaScript project.
 
-[MongoDB API reference documentation](https://docs.mongodb.com/drivers/node) | [mongodb Package (NuGet)](https://www.npmjs.com/package/mongodb)
+[MongoDB API reference documentation](https://docs.mongodb.com/drivers/node) | [MongoDB Package (NuGet)](https://www.npmjs.com/package/mongodb)
 
 ## Prerequisites
 
@@ -34,7 +34,7 @@ Get started with the mongoDB npm package to create databases, collections, and d
 
 ## Setting up
 
-This section walks you through creating an Azure Cosmos account and setting up a project that uses the mongoDB npm package. 
+This section walks you through creating an Azure Cosmos account and setting up a project that uses the MongoDB npm package. 
 
 ### Create an Azure Cosmos DB account
 
@@ -49,7 +49,7 @@ This quickstart will create a single Azure Cosmos DB account using the MongoDB A
     resourceGroupName="msdocs-cosmos-javascript-quickstart-rg"
     location="westus"
 
-    # Variable for account name with a randomnly generated suffix
+    # Variable for account name with a randomly generated suffix
     let suffix=$RANDOM*$RANDOM
     accountName="msdocs-javascript-$suffix"
     ```
@@ -147,7 +147,7 @@ This quickstart will create a single Azure Cosmos DB account using the MongoDB A
 
 1. On the **New** page, search for and select **Azure Cosmos DB**.
 
-1. On the **Select API option** page, select the **Create** option within the **MongoDB** section. Azure Cosmos DB has five APIs: SQL, MongoDB, Gremlin, Table, and Cassandra. [Learn more about the MongoDB API](/azure/cosmos-db/mongodb/introduction.md).
+1. On the **Select API option** page, select the **Create** option within the **MongoDB** section. Azure Cosmos DB has five APIs: SQL, MongoDB, Gremlin, Table, and Cassandra. [Learn more about the MongoDB API](/azure/cosmos-db/mongodb/mongodb-introduction).
 
    :::image type="content" source="media/quickstart-javascript/cosmos-api-choices.png" lightbox="media/quickstart-javascript/cosmos-api-choices.png" alt-text="Screenshot of select A P I option page for Azure Cosmos D B.":::
 
@@ -186,7 +186,7 @@ This quickstart will create a single Azure Cosmos DB account using the MongoDB A
 
 ### Create a new JavaScript app
 
-Create a new JavaScript application in an empty folder using your preferred terminal. Use the [``npm init``](https://docs.npmjs.com/cli/v8/commands/npm-init) command specifying the **console** template.
+Create a new JavaScript application in an empty folder using your preferred terminal. Use the [``npm init``](https://docs.npmjs.com/cli/v8/commands/npm-init) command to begin the prompts to create the `package.json` file. Accept the defaults for the prompts. 
 
 ```console
 npm init
@@ -244,15 +244,17 @@ You'll use the following MongoDB classes to interact with these resources:
 ## Code examples
 
 - [Authenticate the client](#authenticate-the-client)
-- [Create a database](#create-a-database)
-- [Create a collection](#create-a-collection)
-- [Create an doc](#create-a-doc)
+- [Get database instance](#get-database-instance)
+- [Get collection instance](#get-collection-instance)
+- [Chained instances](#chained-instances)
+- [Create an index](#create-an-index)
+- [Create a doc](#create-a-doc)
 - [Get an doc](#get-a-doc)
 - [Query docs](#query-docs)
 
 The sample code described in this article creates a database named ``adventureworks`` with a collection named ``products``. The ``products`` collection is designed to contain product details such as name, category, quantity, and a sale indicator. Each product also contains a unique identifier.
 
-For this procedure, the database will not use sharding or a partition key. 
+For this procedure, the database will not use sharding. 
 
 ### Authenticate the client
 
@@ -288,30 +290,45 @@ The following code snippets should be added into the *main* function in order to
 
 ### Connect to the database
 
-Use the [``MongoClient.connect``](https://mongodb.github.io/node-mongodb-native/4.5/classes/MongoClient.html#connect) method to connect to your Cosmos DB API for MongoDB resource. This method will return a reference to the existing or newly created database.
+Use the [``MongoClient.connect``](https://mongodb.github.io/node-mongodb-native/4.5/classes/MongoClient.html#connect) method to connect to your Cosmos DB API for MongoDB resource. This method returns a reference to the database.
 
 :::code language="javascript" source="~/samples-cosmosdb-mongodb-javascript/001-quickstart/index.js" id="connect_client":::
 
-### Create a database
+### Get database instance
 
-Use the [``MongoClient.db``](https://mongodb.github.io/node-mongodb-native/4.5/classes/MongoClient.html#db) method to create a new database if it doesn't already exist. This method will return a reference to the existing or newly created database.
+Use the [``MongoClient.db``](https://mongodb.github.io/node-mongodb-native/4.5/classes/MongoClient.html#db) gets a reference to a database. 
 
 :::code language="javascript" source="~/samples-cosmosdb-mongodb-javascript/001-quickstart/index.js" id="new_database" :::
 
-### Create a collection
+### Get collection instance
 
-The [``Db.collection``](https://mongodb.github.io/node-mongodb-native/4.5/classes/Db.html#collection) creates a new collection if it doesn't already exist. This method returns a reference to the collection.
+The [``MongoClient.Db.collection``](https://mongodb.github.io/node-mongodb-native/4.5/classes/Db.html#collection) gets a reference to a collection.
 
 :::code language="javascript" source="~/samples-cosmosdb-mongodb-javascript/001-quickstart/index.js" id="new_collection":::
 
+### Chained instances
+
+You can chain the client, database, and collection together. This is more convenient if you need to access multiple databases or collections. 
+
+```javascript
+const db = await client.db(`adventureworks`).collection('products').updateOne(query, update, options)
+```
+
+### Create an index
+
+Use the [``Collection.createIndex``](https://mongodb.github.io/node-mongodb-native/4.7/classes/Collection.html#createIndex) to create an index on the document's properties you intend to use for sorting with the MongoDB's [``FindCursor.sort``](https://mongodb.github.io/node-mongodb-native/4.7/classes/FindCursor.html#sort) method.
+
+:::code language="javascript" source="~/samples-cosmosdb-mongodb-javascript/001-quickstart/index.js" id="create_index":::
+
 ### Create a doc
 
-Create a doc with the *product* properties for the adventureworks database:
-    * An _id property for the unique identifier of the product.
-    * A *category* property. This can be used as the logical partition key.
-    * A *name* property.
-    * An inventory *quantity* property.
-    * A *sale* property, indicating whether the product is on sale.
+Create a doc with the *product* properties for the `adventureworks` database:
+
+* An _id property for the unique identifier of the product.
+* A *category* property. This can be used as the logical partition key.
+* A *name* property.
+* An inventory *quantity* property.
+* A *sale* property, indicating whether the product is on sale.
 
 :::code language="javascript" source="~/samples-cosmosdb-mongodb-javascript/001-quickstart/index.js" id="new_doc":::
 
@@ -325,30 +342,27 @@ In Azure Cosmos DB, you can perform a less-expensive [point read](https://devblo
 
 ### Query docs
 
-After you insert a doc, you can run a query to get all docs that match a specific filter. This example finds all docs that match a specific category: `gear-surf-surfboards`. Once the query is defined, call [``Collection.find``](https://mongodb.github.io/node-mongodb-native/4.5/classes/Collection.html#find) to get a result. 
+After you insert a doc, you can run a query to get all docs that match a specific filter. This example finds all docs that match a specific category: `gear-surf-surfboards`. Once the query is defined, call [``Collection.find``](https://mongodb.github.io/node-mongodb-native/4.5/classes/Collection.html#find) to get a [``FindCursor``](https://mongodb.github.io/node-mongodb-native/4.7/classes/FindCursor.html) result. Convert the cursor into an array to use JavaScript array methods.
 
 :::code language="javascript" source="~/samples-cosmosdb-mongodb-javascript/001-quickstart/index.js" id="query_docs" :::
 
+Troubleshooting:
+
+* If you get an error such as `The index path corresponding to the specified order-by item is excluded.`, make sure you [created the index](#create-an-index).
+
 ## Run the code
 
-This app creates a MongoDB API database and collection. The example then creates a doc and then reads the exact same doc back. Finally, the example issues a query that should only return that single doc. With each step, the example outputs metadata to the console about the steps it has performed.
+This app creates a MongoDB API database and collection and creates a doc and then reads the exact same doc back. Finally, the example issues a query that should only return that single doc. With each step, the example outputs information to the console about the steps it has performed.
 
 To run the app, use a terminal to navigate to the application directory and run the application.
 
-```dotnetcli
+```console
 node index.js
 ```
 
 The output of the app should be similar to this example:
 
-```output
-New database:   adventureworks
-New collection: products
-Created doc:    68719518391     [gear-surf-surfboards]
-Read doc:       68719518391     [gear-surf-surfboards]
-1 filtered doc: 68719518391     [gear-surf-surfboards]
-done
-```
+:::code language="console" source="~/samples-cosmosdb-mongodb-javascript/001-quickstart/index.js" id="console_result" :::
 
 ## Clean up resources
 
@@ -378,7 +392,7 @@ Remove-AzResourceGroup @parameters
 1. Navigate to the resource group you previously created in the Azure portal.
 
     > [!TIP]
-    > In this quickstart, we recommended the name ``msdocs-cosmos-dotnet-quickstart-rg``.
+    > In this quickstart, we recommended the name ``msdocs-cosmos-javascript-quickstart-rg``.
 1. Select **Delete resource group**.
 
    :::image type="content" source="media/quickstart-javascript/delete-resource-group-option.png" lightbox="media/quickstart-javascript/delete-resource-group-option.png" alt-text="Screenshot of the Delete resource group option in the navigation bar for a resource group.":::
@@ -391,7 +405,7 @@ Remove-AzResourceGroup @parameters
 
 ## Next steps
 
-In this quickstart, you learned how to create an Azure Cosmos DB MongoDB API account, create a database, and create a collection using the mongoDB driver. You can now dive deeper into the Cosmos DB MongoDB API to import more data, perform complex queries, and manage your Azure Cosmos DB MongoDB resources.
+In this quickstart, you learned how to create an Azure Cosmos DB MongoDB API account, create a database, and create a collection using the MongoDB driver. You can now dive deeper into the Cosmos DB MongoDB API to import more data, perform complex queries, and manage your Azure Cosmos DB MongoDB resources.
 
 > [!div class="nextstepaction"]
 > [Migrate MongoDB to Azure Cosmos DB API for MongoDB offline](/azure/dms/tutorial-mongodb-cosmos-db?toc=%2Fazure%2Fcosmos-db%2Ftoc.json%3Ftoc%3D%2Fazure%2Fcosmos-db%2Ftoc.json)

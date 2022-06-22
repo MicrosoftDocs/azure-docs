@@ -22,8 +22,10 @@
   expanded: true
   items:
   - name: Front Door
+    expanded: true
     items:
     - name: Standard/Premium
+      expanded: true
       items:
       - name: Create a Front Door - Portal
         href: create-front-door-portal.md
