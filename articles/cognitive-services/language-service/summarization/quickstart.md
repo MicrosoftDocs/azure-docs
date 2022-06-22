@@ -63,4 +63,4 @@ If you want to clean up and remove a Cognitive Services subscription, you can de
 ## Next steps
 
 * [How to call document summarization](./how-to/document-summarization.md)
-* [How to call converstion summarization](./how-to/conversation-summarization.md)
+* [How to call conversation summarization](./how-to/conversation-summarization.md)

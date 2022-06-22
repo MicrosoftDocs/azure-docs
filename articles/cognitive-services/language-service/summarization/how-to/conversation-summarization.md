@@ -26,7 +26,7 @@ The AI models used by the API are provided by the service, you just have to send
 
 The conversation summarization API uses natural language processing techniques to locate key issues and resolutions in text-based chat logs. Conversation summarization will return issues and resolutions found from the text input.
 
-There's another feature in Azure Cognitive Service for Language, [document summarization](../overview.md?tabs=document-summarization), that can summarize sentences from large documents. When you're deciding between document summarization and conversation summarization, consider the following points:
+There's another feature in Azure Cognitive Service for Language named [document summarization](../overview.md?tabs=document-summarization) that can summarize sentences from large documents. When you're deciding between document summarization and conversation summarization, consider the following points:
 * Extractive summarization returns sentences that collectively represent the most important or relevant information within the original content.
 * Conversation summarization returns summaries based on full chat logs including a reason for the chat (a problem), and the resolution. For example, a chat log between a customer and a customer service agent.
 
@@ -34,13 +34,13 @@ There's another feature in Azure Cognitive Service for Language, [document summa
 
 You submit documents to the API as strings of text. Analysis is performed upon receipt of the request. Because the API is [asynchronous](../../concepts/use-asynchronously.md), there may be a delay between sending an API request and receiving the results.  For information on the size and number of requests you can send per minute and second, see the data limits below.
 
-When using this feature, the API results are available for 24 hours from the time the request was ingested, and is indicated in the response. After this time period, the results are purged and are no longer available for retrieval.
+When you use this feature, the API results are available for 24 hours from the time the request was ingested, and is indicated in the response. After this time period, the results are purged and are no longer available for retrieval.
 
 When you submit data to conversation summarization, we recommend sending one chat log per request, for better latency.
 
 ### Get summaries from text chats
 
-You can use conversation summarization to get sumamries from 2-person chats between customer service agents, and customers. To see an example using text chats, see the [quickstart article](../quickstart.md).
+You can use conversation summarization to get summaries from 2-person chats between customer service agents, and customers. To see an example using text chats, see the [quickstart article](../quickstart.md).
 
 ### Get summaries from speech transcriptions 
 
@@ -90,7 +90,7 @@ The following text is an example of content you might submit for summarization. 
 
 Summarization is performed upon receipt of the request by creating a job for the API backend. If the job succeeded, the output of the API will be returned. The output will be available for retrieval for 24 hours. After this time, the output is purged. Due to multilingual and emoji support, the response may contain text offsets. See [how to process offsets](../../concepts/multilingual-emoji-support.md) for more information.
 
-Using the above example, the API might return the following summarized sentences:
+In the above example, the API might return the following summarized sentences:
 
 |Summarized text  | Aspect |
 |---------|----|
