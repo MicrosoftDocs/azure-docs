@@ -43,8 +43,8 @@ We offer two SKUs: AN36 and AN36P. For specifications, see [SKUs](skus.md).
 
 ### More benefits
 
-* MACC credits
-* Nutanix BYOL  
+* Microsoft Azure Consumption Contract (MACC) credits
+* Nutanix Bring your own License (BYOL)  
 
 #### Upcoming benefits
 
