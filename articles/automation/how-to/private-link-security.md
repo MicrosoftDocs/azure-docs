@@ -131,14 +131,14 @@ Once your changes to public Network Access and Private Link are applied, it can 
     - **Subscription** 
     - **Resource group** and select **Next : Tags**
 
-    :::image type="content" source="./media/private-link-security/create-private-endpoint-dns-inline.png" alt-text="Screenshot of how to create a private endpoint in Virtual network tab." lightbox="./media/private-link-security/create-private-endpoint-dns-expanded.png":::
+    :::image type="content" source="./media/private-link-security/create-private-endpoint-dns-inline.png" alt-text="Screenshot of how to create a private endpoint in DNS tab." lightbox="./media/private-link-security/create-private-endpoint-dns-expanded.png":::
 
 1. On **Tags**, you can categorize resources. Select **Name** and **Value** and select **Review + create**. You're taken to the **Review + create** page where Azure validates your configuration.
 
 
 On the **Private Link Center**, select **Private endpoints** to view your private link resource.
 
-![Automation resource private link](./media/private-link-security/private-link-automation-resource.png)
+:::image type="content" source="./media/private-link-security/private-link-automation-resource-inline.png" alt-text="Screenshot Automation resource private link." lightbox="./media/private-link-security/private-link-automation-resource-expanded.png":::
 
 Select the resource to see all the details. This creates a new private endpoint for your Automation account and assigns it a private IP from your virtual network. The **Connection status** shows as **approved**.
 
