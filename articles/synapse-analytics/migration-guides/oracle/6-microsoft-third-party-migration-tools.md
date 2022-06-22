@@ -32,58 +32,57 @@ Several tools from Microsoft and third-party partner vendors can help you migrat
 
 - Third-party data warehouse migration tools to migrate schema and data to Azure Synapse.
 
-- Third-party tools to minimize the impact on SQL differences between your existing data warehouse DBMS and Azure Synapse.
+- Third-party tools to bridge the SQL differences between your existing data warehouse DBMS and Azure Synapse.
 
 The following sections discuss these tools in more detail.
 
 ## Microsoft data migration tools
 
-> [!TIP]
-> Data Factory includes tools to help migrate your data and your entire data warehouse to Azure.
-
 Microsoft offers several tools to help you migrate your existing data warehouse to Azure Synapse, such as:
 
-- Microsoft Azure Data Factory.
+- Azure Data Factory.
 
 - Microsoft services for physical data transfer.
 
 - Microsoft services for data ingestion.
 
+> [!TIP]
+> Data Factory includes tools to help migrate your data and your entire data warehouse to Azure.
+
 ### Microsoft Azure Data Factory
 
-Microsoft Azure Data Factory is a fully managed, pay-as-you-use, hybrid data integration service for highly scalable ETL and ELT processing. It uses Spark to process and analyze data in parallel and in memory to maximize throughput.
+Data Factory is a fully managed, pay-as-you-use, hybrid data integration service for highly scalable ETL and ELT processing. It uses Spark to process and analyze data in parallel and in memory to maximize throughput.
 
 > [!TIP]
 > Data Factory allows you to build scalable data integration pipelines code-free.
 
-[Azure Data Factory connectors](../../../data-factory/connector-overview.md?msclkid=00086e4acff211ec9263dee5c7eb6e69) connect to external data sources and databases and have templates for common data integration tasks. A visual front-end, browser-based UI enables non-programmers to create and run process pipelines to ingest, transform, and load data. More experienced programmers have the option to incorporate custom code, such as Python programs.
+[Data Factory connectors](../../../data-factory/connector-overview.md?msclkid=00086e4acff211ec9263dee5c7eb6e69) support connections to external data sources and databases, and include templates for common data integration tasks. A visual front-end, browser-based UI enables non-programmers to create and run [pipelines](../../data-explorer/ingest-data/data-explorer-ingest-data-pipeline.md) to ingest, transform, and load data. More experienced programmers can incorporate custom code, such as Python programs.
 
 > [!TIP]
 > Data Factory enables collaborative development between business and IT professionals.
 
-Data Factory is also an orchestration tool. It's the best Microsoft tool to automate the end-to-end migration process to reduce risk and make the migration process easily repeatable. The following diagram shows a Data Factory mapping data flow.
+Data Factory is also an orchestration tool and is the best Microsoft tool to automate the end-to-end migration process. Automation reduces the risk, effort, and time to migrate, and make the migration process easily repeatable. The following diagram shows a mapping data flow in Data Factory.
 
-:::image type="content" source="../media/6-microsoft-3rd-party-migration-tools/azure-data-factory-mapping-dataflows.png" border="true" alt-text="Screenshot showing an example of an Azure Data Factory mapping dataflow." lightbox="../media/6-microsoft-3rd-party-migration-tools/azure-data-factory-mapping-dataflows-lrg.png":::
+:::image type="content" source="../media/6-microsoft-3rd-party-migration-tools/azure-data-factory-mapping-dataflows.png" border="true" alt-text="Screenshot showing an example of a Data Factory mapping dataflow." lightbox="../media/6-microsoft-3rd-party-migration-tools/azure-data-factory-mapping-dataflows-lrg.png":::
 
-The next screenshot shows a Data Factory wrangling data flow.
+The following screenshot shows a wrangling data flow in Data Factory.
 
-:::image type="content" source="../media/6-microsoft-3rd-party-migration-tools/azure-data-factory-wrangling-dataflows.png" border="true" alt-text="Screenshot showing an example of Azure Data Factory wrangling dataflows.":::
+:::image type="content" source="../media/6-microsoft-3rd-party-migration-tools/azure-data-factory-wrangling-dataflows.png" border="true" alt-text="Screenshot showing an example of Data Factory wrangling dataflows.":::
 
-You can develop simple or comprehensive ETL and ELT processes without coding or maintenance with a few clicks. These processes ingest, move, prepare, transform, and process your data. You can design and manage scheduling and triggers in Azure Data Factory to build an automated data integration and loading environment. In Data Factory, you can define, manage, and schedule PolyBase bulk data load processes.
+In Data Factory, you can develop simple or comprehensive ETL and ELT processes without coding or maintenance with a few clicks. Those processes ingest, move, prepare, transform, and process your data. You can design and manage scheduling and triggers in Data Factory to build an automated data integration and loading environment. In Data Factory, you can define, manage, and schedule PolyBase bulk data load processes.
 
 > [!TIP]
 > Data Factory includes tools to help migrate your data and your entire data warehouse to Azure.
 
-You can use Data Factory to implement and manage a hybrid environment that includes on-premises, cloud, streaming and SaaS data&mdash;for example, from applications like Salesforce&mdash;in a secure and consistent way.
+You can use Data Factory to implement and manage a hybrid environment with on-premises, cloud, streaming, and SaaS data in a secure and consistent way. SaaS data could come from applications such as Salesforce.
 
-A new capability in Data Factory is wrangling data flows. This opens up Data Factory to business users who want to visually discover, explore, and prepare data at scale without writing code. This capability, similar to Microsoft Excel Power Query or Microsoft Power BI dataflows, offers self-service data preparation. Business users can prepare and integrate data through a spreadsheet-style user interface with drop-down transform options.
+Wrangling data flows is a new capability in Data Factory. This capability opens up Data Factory to business users who want to visually discover, explore, and prepare data at scale without writing code. Similar to Microsoft Excel, Power Query, or Microsoft Power BI dataflows, wrangling data flows offer self-service data preparation. Business users can prepare and integrate data through a spreadsheet-style UI with drop-down transform options.
 
-Azure Data Factory is the recommended approach for implementing data integration and ETL/ELT processes for an Azure Synapse environment, especially if existing legacy processes need to be refactored.
+Data Factory is the recommended approach for implementing data integration and ETL/ELT processes in an Azure Synapse environment, especially if existing legacy processes need to be refactored.
 
 ### Microsoft services for physical data transfer
 
-> [!TIP]
-> Microsoft offers a range of products and services to assist with data transfer.
+The following sections discuss a range of products and services that Microsoft offers to assist customers with data transfer.
 
 #### Azure ExpressRoute
 
@@ -115,9 +114,9 @@ PolyBase provides the fastest and most scalable method of loading bulk data into
 PolyBase can also directly read from files compressed with gzip&mdash;this reduces the physical volume of data moved during the load process. PolyBase supports popular data formats such as delimited text, ORC, and Parquet.
 
 > [!TIP]
-> Invoke PolyBase from Azure Data Factory as part of a migration pipeline.
+> Invoke PolyBase from Data Factory as part of a migration pipeline.
 
-PolyBase is tightly integrated with Azure Data Factory to enable data load ETL/ELT processes to be rapidly developed and scheduled through a visual GUI, leading to higher productivity and fewer errors than hand-written code.
+PolyBase is tightly integrated with Data Factory to enable data load ETL/ELT processes to be rapidly developed and scheduled through a visual GUI, leading to higher productivity and fewer errors than hand-written code.
 
 PolyBase is the recommended data load method for Azure Synapse, especially for high-volume data. PolyBase loads data using the `CREATE TABLE AS` or `INSERT...SELECT` statements&mdash;CTAS achieves the highest possible throughput as it minimizes the amount of logging required. Compressed delimited text files are the most efficient input format. For maximum throughput, split very large input files into multiple smaller files and load these in parallel. For fastest loading to a staging table, define the target table as type `HEAP` and use round-robin distribution.
 
