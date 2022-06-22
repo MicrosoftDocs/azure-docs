@@ -290,8 +290,10 @@
               href: functions-develop-local.md
             - name: Visual Studio Code development
               href: functions-develop-vs-code.md
+              displayName: VS Code, VS
             - name: Visual Studio development
               href: functions-develop-vs.md
+              displayName: VS
             - name: Core Tools development
               href: functions-run-local.md
               displayName: local, runtime
