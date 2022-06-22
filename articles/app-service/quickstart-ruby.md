@@ -22,9 +22,9 @@ ms.custom: mvc, cli-validate, seodec18, devx-track-azurecli, mode-other
 
 ### [Azure CLI](#tab/cli)
 
-If you are running this locally, you will need:
+If you are running the sample code locally, you will need:
 
-* <a href="https://www.ruby-lang.org/en/documentation/installation/#rubyinstaller" target="_blank">Install Ruby 2.6 or higher</a>
+* <a href="https://www.ruby-lang.org/en/documentation/installation/#rubyinstaller" target="_blank">Install Ruby 2.7 or higher</a>
 * <a href="https://git-scm.com/" target="_blank">Install Git</a>
 
 You will not need to install these if you are using the Cloud Shell.
@@ -216,8 +216,6 @@ http://<app-name>.azurewebsites.net
 
 1. Select the **Review + create** button at the bottom of the page.
 
-    ![Screenshot of the Create Web App screen. The Review + create button is highlighted.](media/quickstart-ruby/azure-portal-create-app-service-review-create.png)   
-
 1. After validation runs, select the **Create** button at the bottom of the page. This will create an Azure resource group, app service plan, and app service.
 
 1. After the Azure resources are created, select **Go to resource**.
@@ -285,8 +283,8 @@ The Ruby sample code is running in an Azure App Service Linux web app.
     ```
 
 > [!NOTE]
-> Make sure your `git push` statement includes `azure main` so that you are pushing directly to the Azure Git deployment URL.
-> You may also need to set your `user.name` and `user.email` Git config values when you commit the changes. You can do that with `git config user.name "YOUR NAME"` and `git config user.email "YOUR EMAIL"`.
+> * Make sure your `git push` statement includes `azure main` so that you are pushing directly to the Azure Git deployment URL.
+> * You may also need to set your `user.name` and `user.email` Git config values when you commit the changes. You can do that with `git config user.name "YOUR NAME"` and `git config user.email "YOUR EMAIL"`.
 
 
 ### [Portal](#tab/portal)
@@ -337,6 +335,9 @@ The Ruby sample code is running in an Azure App Service Linux web app.
     ![Screenshot of the App Services list in Azure. The name of the demo app service is highlighted.](media/quickstart-ruby/app-service-list.png)
 
 Your web app's **Overview** page will be displayed. Here, you can perform basic management tasks like **Browse**, **Stop**, **Restart**, and **Delete**.
+
+![Screenshot of the App Service overview page in Azure portal. In the action bar, the Browse, Stop, Swap (disabled), Restart, and Delete button group is highlighted.](media/quickstart-ruby/app-service-details.png)
+
 
 ## 5 - Clean up resources
 
