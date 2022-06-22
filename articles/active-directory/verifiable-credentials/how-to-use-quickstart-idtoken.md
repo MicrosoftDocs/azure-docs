@@ -7,7 +7,7 @@ manager: rkarlin
 ms.service: decentralized-identity
 ms.topic: how-to
 ms.subservice: verifiable-credentials
-ms.date: 06/16/2022
+ms.date: 06/22/2022
 ms.author: barclayn
 
 #Customer intent: As an administrator, I am looking for information to help me disable 
@@ -22,7 +22,7 @@ ms.author: barclayn
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-A [rules definition](rules-and-display-definitions-model#rulesmodel-type) using the [idTokens attestation](rules-and-display-definitions-model#idtokenattestation-type) will produce an issuance flow where the user will be required to do an interactive sign in to an OIDC identity provider in the Authenticator. Claims in the id_token the identity provider returns can be used to populate the issued verifiable credential. The claims mapping section in the rules definition specify which claims are used. 
+A [rules definition](rules-and-display-definitions-model#rulesmodel-type) using the [idTokens attestation](rules-and-display-definitions-model#idtokenattestation-type) will produce an issuance flow where the user will be required to do an interactive sign-in to an OIDC identity provider in the Authenticator. Claims in the id_token the identity provider returns can be used to populate the issued verifiable credential. The claims mapping section in the rules definition specifies which claims are used. 
 
 ## Create a Custom credential with the idTokens attestation type
 
@@ -132,7 +132,7 @@ The JSON attestation definition should contain the **idTokens** name, the [OIDC 
 The **clientId** attribute is the AppId of a registered application in the OIDC identity provider. For **Azure Active Directory**, you create the application via these steps.
 
 1. Navigate to [Azure Active Directory in portal.azure.com](https://portal.azure.com/#view/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/~/RegisteredApps).
-1. Select **App registrations** and click on **+New registration** and give the app a name 
+1. Select **App registrations** and select on **+New registration** and give the app a name 
 1. Let the selection of **Accounts in this directory only** if you only want accounts in your tenant to be able to sign in
 1. In **Redirect URI (optional)**, select **Public client/native (mobile & desktop)** and enter value **vcclient://openid**
  
@@ -141,7 +141,7 @@ If you want to be able to test what claims are in the token, do the following
 1. **+Add platform**
 1. **Web**
 1. Enter **https://jwt.ms** as **Redirect URI** and select **ID Tokens (used for implicit and hybrid flows)**
-1. Click on **Configure**
+1. Select on **Configure**
 
 Once you are done testing your id_token, you should consider removing **https://jwt.ms** and the support for **implicit and hybrid flows**.
 
@@ -157,9 +157,9 @@ For **Azure Active Directory B2C**, the app registration process is the same but
 
 ## Claims in id_token from Identity Provider
 
-In order to successfully populate your VC with the expected claims, they need to exist in the id_token the identity provider returns. If the claims do not exist, there will be no value in the issued VC. Remember that most OIDC identity providers do not emit a claim in an id_token if the claim has a null value in the user's profile, so make sure you include the claim in the id_token definition and that the user has a value for the claim in the user profile.
+In order to successfully populate your VC with the expected claims, they need to exist in the id_token the identity provider returns. If the claims don't exist, there will be no value in the issued VC. Remember that most OIDC identity providers don't issue a claim in an id_token if the claim has a null value in the user's profile, so make sure you include the claim in the id_token definition and that the user has a value for the claim in the user profile.
 
-For **Azure Active Directory**, see documentation [Provide optional clainms to your app](../../active-directory/develop/active-directory-optional-claims) on how to configure what claims to include in your token. The configuration is per application, so the configuration you make should be for the app with AppId specified in the **clientId** in the rules definition.
+For **Azure Active Directory**, see documentation [Provide optional claims to your app](../../active-directory/develop/active-directory-optional-claims) on how to configure what claims to include in your token. The configuration is per application, so the configuration you make should be for the app with AppId specified in the **clientId** in the rules definition.
 
 To match the above Display & Rules definition, you should have your application manifest having its **optionalClaims** looking like below.
 
@@ -195,9 +195,9 @@ To match the above Display & Rules definition, you should have your application 
     "saml2Token": []
 },
 ```
-For **Azure Active Directory B2C**, configuring additional claims in your id_token depends on if your B2C policy is a **User Flow** or a **Custom Policy**. For documentation on User Flows, see [Set up a sign-up and sign-in flow in Azure Active Directory B2C](../../active-directory-b2c/add-sign-up-and-sign-in-policy?pivots=b2c-user-flow) and for Custom Policy, see documentation [Provide optional claims to your app](../../active-directory-b2c/configure-tokens?pivots=b2c-custom-policy#provide-optional-claims-to-your-app).  
+For **Azure Active Directory B2C**, configuring other claims in your id_token depends on if your B2C policy is a **User Flow** or a **Custom Policy**. For documentation on User Flows, see [Set up a sign-up and sign-in flow in Azure Active Directory B2C](../../active-directory-b2c/add-sign-up-and-sign-in-policy?pivots=b2c-user-flow) and for Custom Policy, see documentation [Provide optional claims to your app](../../active-directory-b2c/configure-tokens?pivots=b2c-custom-policy#provide-optional-claims-to-your-app).  
 
-For other identity providers, please see the relevant documentation.
+For other identity providers, see the relevant documentation.
 
 ## Configure the samples to issue and verify your Custom credential
 

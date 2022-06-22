@@ -7,7 +7,7 @@ manager: rkarlin
 ms.service: decentralized-identity
 ms.topic: how-to
 ms.subservice: verifiable-credentials
-ms.date: 06/16/2022
+ms.date: 06/22/2022
 ms.author: barclayn
 
 #Customer intent: As an administrator, I am looking for information to help me disable 
@@ -101,7 +101,7 @@ The JSON attestation definition should contain the **selfIssued** name and the c
 
 ## Claims input during issuance
 
-During issuance, the Microsoft Authenticator will prompt the user to enter values for the specified claims. There is no validation of user input.
+During issuance, the Microsoft Authenticator will prompt the user to enter values for the specified claims. There's no validation of user input.
 
 ![selfIssued claims input](media/how-to-use-quickstart-selfissued\selfIssued-claims-input.png)
 
