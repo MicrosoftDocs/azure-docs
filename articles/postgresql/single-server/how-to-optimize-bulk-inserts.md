@@ -9,10 +9,14 @@ author: dianaputnam
 ms.date: 5/6/2019
 ---
 
-# Optimize bulk inserts and use transient data on an Azure Database for PostgreSQL - Single Server 
+# Optimize bulk inserts and use transient data on an Azure Database for PostgreSQL - Single Server
+
+[!INCLUDE [applies-to-postgresql-single-server](../includes/applies-to-postgresql-single-server.md)]
+
 This article describes how you can optimize bulk insert operations and use transient data on an Azure Database for PostgreSQL server.
 
 ## Use unlogged tables
+
 If you have workload operations that involve transient data or that insert large datasets in bulk, consider using unlogged tables.
 
 Unlogged tables is a PostgreSQL feature that can be used effectively to optimize bulk inserts. PostgreSQL uses Write-Ahead Logging (WAL). It provides atomicity and durability, by default. Atomicity, consistency, isolation, and durability make up the ACID properties. 
@@ -20,6 +24,7 @@ Unlogged tables is a PostgreSQL feature that can be used effectively to optimize
 Inserting into an unlogged table means that PostgreSQL does inserts without writing into the transaction log, which itself is an I/O operation. As a result, these tables are considerably faster than ordinary tables.
 
 Use the following options to create an unlogged table:
+
 - Create a new unlogged table by using the syntax `CREATE UNLOGGED TABLE <tableName>`.
 - Convert an existing logged table to an unlogged table by using the syntax `ALTER TABLE <tableName> SET UNLOGGED`.  
 

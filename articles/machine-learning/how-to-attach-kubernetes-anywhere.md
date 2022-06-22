@@ -95,6 +95,8 @@ The UI experience to deploy extension is only available for **[Arc Kubernetes](.
 
    :::image type="content" source="media/how-to-attach-arc-kubernetes/deploy-extension-from-ui-extension-detail.png" alt-text="Screenshot of installed AzureML extensions listing in Azure portal.":::
 
+---
+
 ### Key considerations for AzureML extension deployment
 
 AzureML extension deployment allows you to specify configuration settings needed for different workload support. Before AzureML extension deployment, **please read following carefully to avoid unnecessary extension deployment errors**:

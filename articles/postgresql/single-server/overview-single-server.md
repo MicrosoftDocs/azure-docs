@@ -11,6 +11,8 @@ ms.date: 11/30/2021
 ---
 # Azure Database for PostgreSQL Single Server
 
+[!INCLUDE [applies-to-postgresql-single-server](../includes/applies-to-postgresql-single-server.md)]
+
 [Azure Database for PostgreSQL](./overview.md) powered by the PostgreSQL community edition is available in three deployment modes:
 
 - [Single Server](./overview-single-server.md)
