@@ -16,7 +16,6 @@ The following table lists available integrations for Microsoft Defender for IoT,
 
 |Partner service  |Description | Learn more  |
 |---------|---------|---------|
-|**Axonius Cybersecurity Asset Management**    | Import and manage device inventory discovered by Defender for IoT in your Axonius instance. | [Axonius documentation](https://docs.axonius.com/docs/azure-defender-for-iot)       |
 |**Aruba ClearPass**     | Share Defender for IoT data with ClearPass Security Exchange and update the ClearPass Policy Manager Endpoint Database with Defender for IoT data. | [Integrate ClearPass with Microsoft Defender for IoT](tutorial-clearpass.md)       |
 |**CyberArk**     | Send CyberArk PSM syslog data on remote sessions and verification failures to Defender for IoT for data correlation.   | [Integrate CyberArk with Microsoft Defender for IoT](tutorial-cyberark.md)       |
 |**Forescout**     | Automate actions in Forescout based on activity detected by Defender for IoT, and correlate Defender for IoT data with other *Forescout eyeExtended* modules that oversee monitoring, incident management, and device control.  | [Integrate Forescout with Microsoft Defender for IoT](tutorial-forescout.md)      |
@@ -25,6 +24,7 @@ The following table lists available integrations for Microsoft Defender for IoT,
 |**QRadar**     |Forward Defender for IoT alerts to IBM QRadar.   | [Integrate Qradar with Microsoft Defender for IoT](tutorial-qradar.md)      |
 |**ServiceNow**     |  View Defender for IoT device detections, attributes, and connections in ServiceNow.   | [Integrate ServiceNow with Microsoft Defender for IoT](tutorial-servicenow.md)    |
 | **Splunk** | Send Defender for IoT alerts to Splunk | [Integrate Splunk with Microsoft Defender for IoT](tutorial-splunk.md) |
+|**Axonius Cybersecurity Asset Management**    | Import and manage device inventory discovered by Defender for IoT in your Axonius instance. | [Axonius documentation](https://docs.axonius.com/docs/azure-defender-for-iot)       |
 
 ## Next steps
 
