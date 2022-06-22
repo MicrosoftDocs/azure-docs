@@ -80,5 +80,3 @@ Welcome to what's new in Azure Active Directory application management documenta
 - [Tutorial: Configure F5 BIG-IP SSL-VPN for Azure AD SSO](f5-aad-password-less-vpn.md)
 - [Tutorial: Manage application access and security](tutorial-manage-access-security.md)
 - [What is application management in Azure Active Directory?](what-is-application-management.md)
-
-
