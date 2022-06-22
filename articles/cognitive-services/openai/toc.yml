@@ -14,8 +14,6 @@ items:
       href: ./how-to/work-with-code.md
     - name: Generate embeddings
       href: ./how-to/embeddings.md
-    - name: Search
-      href: ./how-to/search.md
     - name: Managed identity
       href: ./how-to/managed-identity.md
     - name: Business continuity & disaster recovery (BCDR)
