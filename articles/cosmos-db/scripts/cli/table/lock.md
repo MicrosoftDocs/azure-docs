@@ -15,7 +15,7 @@ ms.custom: kr2b-contr-experiment
 
 [!INCLUDE[appliesto-table-api](../../../includes/appliesto-table-api.md)]
 
-The script in this article demonstrates performing resource lock operations for a Table API table.
+The script in this article demonstrates performing resource lock operations for a Table API table. 
 
 > [!IMPORTANT]
 > To enable resource locking, the Azure Cosmos DB account must have the `disableKeyBasedMetadataWriteAccess` property enabled. This property prevents any changes to resources from clients that connect via account keys, such as the Cosmos DB Table SDK, Azure Storage Table SDK, or Azure portal. For more information, see [Preventing changes from SDKs](../../../role-based-access-control.md#prevent-sdk-changes).
@@ -24,7 +24,8 @@ The script in this article demonstrates performing resource lock operations for 
 
 - You need an [Azure Cosmos DB Table API account, database, and table created](create.md). [!INCLUDE [quickstarts-free-trial-note](../../../../../includes/quickstarts-free-trial-note.md)]
 
-- To create or delete resource locks, you must have the **Owner** role in your Azure subscription.
+  > [!IMPORTANT]
+  > To create or delete resource locks, you must have the **Owner** role in your Azure subscription.
 
 - This script requires Azure CLI version 2.12.1 or later.
 
@@ -64,6 +65,8 @@ az group delete --name $resourceGroup
 
 ## Next steps
 
-- [Lock resources to prevent unexpected changes](../../../../azure-resource-manager/management/lock-resources.md)
+- [Prevent Azure Cosmos DB resources from being deleted or changed](../../resource-locks.md)
+- [Lock resources to prevent unexpected changes](/azure/azure-resource-manager/management/lock-resources)
+- [How to audit Azure Cosmos DB control plane operations](../../audit-control-plane-logs.md)
 - [Azure Cosmos DB CLI documentation](/cli/azure/cosmosdb)
 - [Azure Cosmos DB CLI GitHub repository](https://github.com/Azure-Samples/azure-cli-samples/tree/master/cosmosdb)
