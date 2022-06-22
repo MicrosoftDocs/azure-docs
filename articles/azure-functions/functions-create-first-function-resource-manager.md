@@ -1,7 +1,7 @@
 ---
 title: Create your first function using Azure Resource Manager templates
 description: Create and deploy to Azure a simple HTTP triggered serverless function by using an Azure Resource Manager template (ARM template).
-ms.date: 3/5/2020
+ms.date: 06/22/2022
 ms.topic: quickstart
 ms.service: azure-functions
 ms.custom: subject-armqs, devx-track-azurepowershell, mode-arm

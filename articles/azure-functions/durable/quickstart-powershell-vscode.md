@@ -3,7 +3,7 @@ title: Create your first durable function in Azure Functions using PowerShell
 description: Create and publish an Azure Durable Function in PowerShell using Visual Studio Code.
 author: anthonychu
 ms.topic: quickstart
-ms.date: 08/10/2020
+ms.date: 06/22/2022
 ms.reviewer: azfuncdf, antchu
 ms.devlang: powershell
 ms.custom: mode-api
