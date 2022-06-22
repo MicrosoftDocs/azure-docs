@@ -24,6 +24,7 @@ If you're looking for the latest release notes, you'll find them in the [What's 
 | [Multiple changes to identity recommendations](#multiple-changes-to-identity-recommendations) | June 2022 |
 | [Deprecating three VM alerts](#deprecating-three-vm-alerts) | June 2022|
 | [Deprecating the "API App should only be accessible over HTTPS" policy](#deprecating-the-api-app-should-only-be-accessible-over-https-policy)|June 2022|
+| Deprecate API App policies for App Service | July 2022 |
 
 ### GA support for Arc-enabled Kubernetes clusters
 
@@ -134,6 +135,24 @@ These alerts are used to notify a user about suspicious activity connected to a 
 The policy `API App should only be accessible over HTTPS` is set to be deprecated. This policy will be replaced with `Web Application should only be accessible over HTTPS`, which will be renamed to `App Service apps should only be accessible over HTTPS`.
 
 To learn more about policy definitions for Azure App Service, see [Azure Policy built-in definitions for Azure App Service](../azure-app-configuration/policy-reference.md)
+
+### Deprecate API App policies for App Service
+
+**Estimated date for change:** July 2022
+
+We will be deprecating the following policies:
+
+- `Ensure API app has 'Client Certificates (Incoming client certificates)' set to 'On'`
+- `Ensure that 'Python version' is the latest, if used as a part of the API app`
+- `CORS should not allow every resource to access your API App`
+- `Managed identity should be used in your API App`
+- `Remote debugging should be turned off for API Apps`
+- `Ensure that 'PHP version' is the latest, if used as a part of the API app`
+- `FTPS only should be required in your API App`
+- `Ensure that 'Java version' is the latest, if used as a part of the API app`
+- `Latest TLS version should be used in your API App`
+
+Each of these policies has a corresponding policy that already exists and has been changed to include API apps.
 
 ## Next steps
 
