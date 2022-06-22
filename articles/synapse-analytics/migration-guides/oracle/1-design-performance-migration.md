@@ -265,7 +265,7 @@ Third-party vendors offer tools and services to automate migration, including th
 
 #### SQL DML syntax differences
 
-SQL DML syntax differences exist between Oracle SQL and Azure Synapse T-SQL. Those differences are discussed in detail in [Minimize SQL issues for Oracle migrations](5-minimize-sql-issues.md#sql-ddl-differences-between-oracle-and-azure-synapse). In some cases, you can automate DML migration using Microsoft tools like SSMA for Oracle or Azure Database Migration Services, or by using [third-party](../../partner/data-integration.md) migration products and services.
+SQL DML syntax differences exist between Oracle SQL and Azure Synapse T-SQL. Those differences are discussed in detail in [Minimize SQL issues for Oracle migrations](5-minimize-sql-issues.md#sql-ddl-differences-between-oracle-and-azure-synapse). In some cases, you can automate DML migration by using Microsoft tools like SSMA for Oracle and Azure Database Migration Services, or [third-party](../../partner/data-integration.md) migration products and services.
 
 #### Functions, stored procedures, and sequences
 
