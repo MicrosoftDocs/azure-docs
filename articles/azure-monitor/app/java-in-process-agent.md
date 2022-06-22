@@ -33,9 +33,9 @@ Download the [applicationinsights-agent-3.3.0.jar](https://github.com/microsoft/
 
 > [!WARNING]
 > 
-> If you're upgrading from 3.2.x to 3.3.0-BETA:
+> If you're upgrading from 3.2.x to 3.3.0:
 > 
->    -  Starting from 3.3.0-BETA, `LoggingLevel` is not captured by default as part of Traces' custom dimension since that data is already captured in the `SeverityLevel` field. For details on how to re-enable this if needed, please see the [config options](./java-standalone-config.md#logginglevel)
+>    -  Starting from 3.3.0, `LoggingLevel` is not captured by default as part of Traces' custom dimension since that data is already captured in the `SeverityLevel` field. For details on how to re-enable this if needed, please see the [config options](./java-standalone-config.md#logginglevel)
 >
 > If you're upgrading from 3.1.x:
 > 
