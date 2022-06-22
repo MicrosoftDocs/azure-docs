@@ -20,7 +20,7 @@ to create, read, update, and delete data.
 
 * [Python](howto-app-stacks-python.md)
 * [Node JS](howto-app-stacks-nodejs.md)
-* [C#](howto-app-stacks-Csharp.md)
+* [C#](howto-app-stacks-csharp.md)
 * [Java](howto-app-stacks-java.md)
 * [Ruby](howto-app-stacks-ruby.md)
 

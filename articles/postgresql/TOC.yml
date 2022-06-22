@@ -698,7 +698,7 @@
         - name: Node.js
           href: hyperscale/howto-app-stacks-nodejs.md
         - name: C#
-          href: hyperscale/howto-app-stacks-Csharp.md
+          href: hyperscale/howto-app-stacks-csharp.md
         - name: Java
           href: hyperscale/howto-app-stacks-java.md
         - name: Ruby
