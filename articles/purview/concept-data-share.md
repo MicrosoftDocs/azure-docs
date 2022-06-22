@@ -59,8 +59,9 @@ Microsoft Purview Data Sharing can help with various data sharing scenarios, inc
 * Automate sharing of big data (for example: IoT data, scientific data, satellite and surveillance images or videos, financial market data) in near real time and without data duplication. 
 * Share data between different departments within the organization.
 
+## Next Steps
 
-## More resources
+* [Quickstart: share data](quickstart-data-share.md)
 * [FAQ for data sharing](how-to-data-share-faq.md)
 * [How to share data](how-to-share-data.md)
 * [How to receive a data share](how-to-receive-share.md)
