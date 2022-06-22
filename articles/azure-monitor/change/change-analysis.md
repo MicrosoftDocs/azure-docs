@@ -34,7 +34,7 @@ Building on the power of [Azure Resource Graph](../../governance/resource-graph/
 > [!NOTE]
 > Change Analysis is currently only available in Public Azure Cloud.
 
-## Overview
+## Change Analysis architecture 
 
 Change Analysis detects various types of changes, from the infrastructure layer through application deployment. Change Analysis is a subscription-level Azure resource provider that:
 - Checks resource changes in the subscription. 
@@ -157,17 +157,9 @@ For web app in-guest changes, separate enablement is required for scanning code 
 > [!NOTE]
 > You may not immediately see web app in-guest file changes and configuration changes. Restart your web app and you should be able to view changes within 30 minutes. If not, refer to [the troubleshooting guide](./change-analysis-troubleshoot.md#cannot-see-in-guest-changes-for-newly-enabled-web-app).
 
-1. Select **Availability and Performance**.
+1. Navigate to Azure Monitor's Change Analysis UI in the portal. 
 
-   :::image type="content" source="./media/change-analysis/availability-and-performance.png" alt-text="Screenshot of the Availability and Performance troubleshooting options":::
-    
-2. Select **Application Changes (Preview)**.
-
-   :::image type="content" source="./media/change-analysis/application-changes.png" alt-text="Screenshot of the Application Changes button":::
-
-   The link leads to Azure Monitor's Change Analysis UI scoped to the web app. 
-
-3. Enable web app in-guest change tracking by either:
+1. Enable web app in-guest change tracking by either:
 
    - Selecting **Enable Now** in the banner, or
 
@@ -177,7 +169,7 @@ For web app in-guest changes, separate enablement is required for scanning code 
    
      :::image type="content" source="./media/change-analysis/configure-button.png" alt-text="Screenshot of the Application Changes options from the top menu"::: 
 
-4. Toggle on **Change Analysis** status and select **Save**.
+1. Toggle on **Change Analysis** status and select **Save**.
 
    :::image type="content" source="./media/change-analysis/change-analysis-on.png" alt-text="Screenshot of the Enable Change Analysis user interface":::   
   
@@ -221,10 +213,9 @@ $webapp_list = Get-AzWebApp | Where-Object {$_.kind -eq 'app'}
 foreach ($webapp in $webapp_list)
 {
     $tags = $webapp.Tags
-    $tags[“hidden-related:diagnostics/changeAnalysisScanEnabled”]=$true
+    $tags["hidden-related:diagnostics/changeAnalysisScanEnabled"]=$true
     Set-AzResource -ResourceId $webapp.Id -Tag $tags -Force
 }
-
 ```
 
 ## Next steps
