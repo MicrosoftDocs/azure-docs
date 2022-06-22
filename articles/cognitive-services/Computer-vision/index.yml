@@ -12,7 +12,7 @@ metadata:
   ms.topic: hub-page # Required
   author: PatrickFarley #Required; your GitHub user alias, with correct capitalization.
   ms.author: pafarley #Required; microsoft alias of author; optional team alias.
-  ms.date: 02/28/2022 #Required; mm/dd/yyyy format.
+  ms.date: 06/13/2022 #Required; mm/dd/yyyy format.
 
 highlightedContent:
   # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
@@ -23,6 +23,9 @@ highlightedContent:
       - title: What's new in Computer Vision?
         itemType: whats-new
         url: whats-new.md
+      - title: Vision Studio
+        itemType: get-started
+        url: overview-vision-studio.md
       - title: Language support
         itemType: reference
         url: language-support.md
@@ -43,6 +46,9 @@ conceptualContent:
         - itemType: deploy
           text: Use the Read OCR container
           url: computer-vision-how-to-install-containers.md
+        - itemType: learn
+          text: Microsoft Learn
+          url: https://docs.microsoft.com/learn/modules/read-text-images-documents-with-computer-vision-service/
         - itemType: reference
           text: OCR API reference
           url: https://centraluseuap.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/5d986960601faab4bf452005
@@ -69,6 +75,9 @@ conceptualContent:
         - itemType: tutorial
           text: Generate metadata for images
           url: Tutorials/storage-lab-tutorial.md
+        - itemType: learn
+          text: Microsoft Learn
+          url: /learn/modules/analyze-images-computer-vision/
         - itemType: reference
           text: Image Analysis API reference
           url: https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f21b
@@ -81,7 +90,7 @@ conceptualContent:
           text: About Face service
           url: overview-identity.md
         - itemType: quickstart
-          text: Get started with Azure Identity
+          text: Get started with Face
           url: quickstarts-sdk/identity-client-library.md
         - itemType: how-to-guide
           text: Detect faces in an image
@@ -95,6 +104,9 @@ conceptualContent:
         - itemType: tutorial
           text: Add users to a Face service
           url: Tutorials/build-enrollment-app.md
+        - itemType: learn
+          text: Microsoft Learn
+          url: /learn/modules/detect-analyze-faces/
         - itemType: reference
           text: Face API reference
           url: /rest/api/face/

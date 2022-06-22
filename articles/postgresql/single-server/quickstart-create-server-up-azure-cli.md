@@ -12,6 +12,8 @@ ms.date: 01/25/2022
 ---
 # Quickstart: Use the az postgres up command to create an Azure Database for PostgreSQL - Single Server
 
+[!INCLUDE [applies-to-postgresql-single-server](../includes/applies-to-postgresql-single-server.md)]
+
 Azure Database for PostgreSQL is a managed service that enables you to run, manage, and scale highly available PostgreSQL databases in the cloud. The Azure CLI is used to create and manage Azure resources from the command line or in scripts. This quickstart shows you how to use the [az postgres up](/cli/azure/postgres#az-postgres-up) command to create an Azure Database for PostgreSQL server using the Azure CLI. In addition to creating the server, the `az postgres up` command creates a sample database, a root user in the database, opens the firewall for Azure services, and creates default firewall rules for the client computer. These defaults help to expedite the development process.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
