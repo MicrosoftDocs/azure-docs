@@ -207,11 +207,12 @@ services.AddDbContext<MyDatabaseContext>(options =>
         options.UseSqlServer(Configuration.GetConnectionString("AZURE_SQL_CONNECTIONSTRING")));
 ```
 
-Run the following commands to install the necessary CLI tools for Entity Framework Core. Create an initial database migration file and apply those changes to update the database:
+From a local terminal, run the following commands to install the necessary CLI tools for Entity Framework Core, create an initial database migration file, and apply those changes to update the database:
 
 ```dotnetcli
-dotnet tool install -g dotnet-ef \
-dotnet ef migrations add InitialCreate \
+cd <sample-root>\DotNetCoreSqlDb
+dotnet tool install -g dotnet-ef
+dotnet ef migrations add InitialCreate
 dotnet ef database update
 ```
 
