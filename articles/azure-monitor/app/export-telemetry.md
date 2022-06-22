@@ -11,7 +11,7 @@ ms.reviewer: mmcc
 Want to keep your telemetry for longer than the standard retention period? Or process it in some specialized way? Continuous Export is ideal for this purpose. The events you see in the Application Insights portal can be exported to storage in Microsoft Azure in JSON format. From there, you can download your data and write whatever code you need to process it.  
 
 > [!IMPORTANT]
-> * Continuous export has been deprecated and is only supported for classic Application Insights resources.
+> * On Februry 29, 2024, continuous export will  been deprecated as part of the classic Application Insights deprecation.
 > * When [migrating to a workspace-based Application Insights resource](convert-classic-resource.md), you must use [diagnostic settings](#diagnostic-settings-based-export) for exporting telemetry. All [workspace-based Application Insights resources](./create-workspace-resource.md) must use [diagnostic settings](./create-workspace-resource.md#export-telemetry).
 > * Diagnostic settings export may increase costs. ([more information](export-telemetry.md#diagnostic-settings-based-export))
 
