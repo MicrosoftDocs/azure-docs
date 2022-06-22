@@ -96,7 +96,7 @@ transformations:
         encoding: 'ascii'
 ```
 
-Therefore, the MLTable folder would have the MLTable deinifition file plus the data file (the bank_marketing_train_data.csv file in this case).
+Therefore, the MLTable folder would have the MLTable definition file plus the data file (the bank_marketing_train_data.csv file in this case).
 
 The following shows two ways of creating an MLTable.
 - A. Providing your training data and MLTable definition file from your local folder and it'll be automatically uploaded into the cloud (default Workspace Datastore)
