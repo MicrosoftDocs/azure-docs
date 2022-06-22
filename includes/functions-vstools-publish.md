@@ -13,7 +13,7 @@ ms.custom: devdivchpfy22
 
 1. Select **Azure Function App (Windows)** for the **Specific target**, which creates a function app that runs on Windows, and then select **Next**.
 
-    :::image type="content" source="media/functions-vstools-publish/fucntions-vs-specific-target.png" alt-text="Screenshot of publish window with specific target.":::
+    :::image type="content" source="media/functions-vstools-publish/functions-vs-specific-target.png" alt-text="Screenshot of publish window with specific target.":::
 
 1. In the **Function Instance**, choose **Create a new Azure Function...**
 
@@ -30,7 +30,7 @@ ms.custom: devdivchpfy22
     | **Location** | Location of the app service | Choose a **Location** in a [region](https://azure.microsoft.com/regions/) near you or other services your functions access. |
     | **[Azure Storage](../articles/azure-functions/storage-considerations.md)** | General-purpose storage account | An Azure storage account is required by the Functions runtime. Select **New** to configure a general-purpose storage account. You can also choose an existing account that meets the [storage account requirements](../articles/azure-functions/storage-considerations.md#storage-account-requirements).  |
 
-    :::image type="content" source="./media/functions-vstools-publish/functions-vs-functionapp.png" alt-text="Screenshot of Create App Service dialog.":::
+    :::image type="content" source="./media/functions-vstools-publish/functions-vs-function-app.png" alt-text="Screenshot of Create App Service dialog.":::
 
 1. Select **Create** to create a function app and its related resources in Azure. The status of resource creation is shown in the lower-left of the window.
 
