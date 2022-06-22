@@ -80,9 +80,9 @@ A good candidate for an initial migration from an Oracle environment supports th
 
 The volume of migrated data in an initial migration should be large enough to demonstrate the capabilities and benefits of the Azure Synapse environment but not too large to quickly demonstrate value. A size in the 1-10 TB range is typical.
 
-Try to minimize the risk, effort, and time needed to see the benefits of migration to the Azure cloud environment. To minimize the risk and reduce project implementation time, confine the scope of the initial migration to just the data marts. This approach won't address broader migration aspects, such as ETL migration and historical data migration. However, you can address those aspects in later phases of the project once the migrated data mart layer is backfilled with data and the required build processes.
+One approach to an initial migration project is to minimize the risk, effort, and time needed to see the benefits of migration to the Azure cloud environment. This approach limits the scope of the initial migration to just the data marts and doesn't address broader migration aspects, such as ETL migration and historical data migration. However, you can address those aspects in later phases of the project once the migrated data mart layer is backfilled with data and the required build processes.
 
-#### Lift and shift as-is vs a phased approach that incorporates changes
+#### Lift and shift migration vs a phased approach
 
 In general, there are two types of migration regardless of the purpose and scope of the planned migration: lift and shift as-is and a phased approach that incorporates changes.
 
@@ -97,7 +97,7 @@ In a lift and shift migration, an existing data model, like a star schema, is mi
 >[!TIP]
 >Lift and shift is a good starting point, even if subsequent phases implement changes to the data model.
 
-##### Phased approach that incorporates modifications
+##### Phased approach that incorporates changes
 
 If a legacy data warehouse has evolved over a long period of time, you might need to re-engineer it to maintain the required performance levels. You might also have to re-engineer to support new data like Internet of Things (IoT) streams. As part of the re-engineering process, migrate to Azure Synapse to get the benefits of a scalable cloud environment. Migration can include a change in the underlying data model, such as a move from an Inmon model to a data vault.
 
@@ -267,7 +267,7 @@ SQL DML syntax differences exist between Oracle SQL and Azure Synapse T-SQL. Tho
 
 #### Functions, stored procedures, and sequences
 
-When migrating from a mature data warehouse environment like Oracle, you'll probably need to migrate elements other than simple tables and views. For functions, stored procedures, and sequences check whether tools within the Azure environment can replace their functionality because it's usually more efficient to use built-in Azure tools than to recode the Oracle functions. [Data integration partners](../../partner/data-integration.md) like [Attunity](https://www.qlik.com/) and [WhereScape](https://www.wherescape.com/) offer tools and services that automate migration of functions, stored procedures, and sequences.
+When migrating from a mature data warehouse environment like Oracle, you'll probably need to migrate elements other than simple tables and views. For functions, stored procedures, and sequences check whether tools within the Azure environment can replace their functionality because it's usually more efficient to use built-in Azure tools than to recode the Oracle functions. [Data integration partners](../../partner/data-integration.md) offer tools and services that automate migration of functions, stored procedures, and sequences.
 
 As part of your preparation phase, create an inventory of objects that need to be migrated, define a method for handling them, and allocate appropriate resources in your migration plan.
 
@@ -377,7 +377,7 @@ You can only use one field per table for partitioning. That field is frequently 
 
 [PolyBase](/sql/relational-databases/polybase) supports efficient loading of large amounts of data to a data warehouse by using parallel loading streams. For more information, see [PolyBase data loading strategy](../../sql/load-data-overview.md).
 
-`COPY INTO` also supports high-throughput data ingestion, and:
+[COPY INTO](/sql/t-sql/statements/copy-into-transact-sql) also supports high-throughput data ingestion, and:
 
 - Data retrieval from all files within a folder and subfolders.
 - Data retrieval from multiple locations in the same storage account. You can specify multiple locations by using comma separated paths.
