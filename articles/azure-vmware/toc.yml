@@ -156,14 +156,14 @@
       href: disaster-recovery-using-vmware-site-recovery-manager.md
     - name: Deploy Zerto disaster recovery
       href: deploy-zerto-disaster-recovery.md
-  - name: Deploy vSAN stretched clusters
-    href: deploy-vsan-stretched-clusters.md
   - name: Deploy virtual desktops
     items:
     - name: Deploy Horizon on Azure VMware Solution
       href: azure-vmware-solution-horizon.md
     - name: Deploy Citrix on Azure VMware Solution
       href: azure-vmware-solution-citrix.md
+  - name: Deploy vSAN stretched clusters
+    href: deploy-vsan-stretched-clusters.md
   - name: Move resources
     items:
     - name: Move Azure VMware Solution subscriptions
