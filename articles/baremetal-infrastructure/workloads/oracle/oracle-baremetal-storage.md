@@ -29,10 +29,6 @@ BareMetal Infrastructure storage offers these premium storage capabilities:
 
 Learn about BareMetal Infrastructure patching considerations.
 
-## Next steps
-
-Learn more:
-
 > [!div class="nextstepaction"]
 > [Patching considerations for BareMetal for Oracle](oracle-baremetal-patching.md)
 
