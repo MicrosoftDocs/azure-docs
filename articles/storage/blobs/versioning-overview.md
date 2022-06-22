@@ -130,8 +130,6 @@ The following diagram shows how modifying a blob after versioning is disabled cr
 
 Blob versioning and blob soft delete are part of the recommended data protection configuration for storage accounts. For more information about Microsoft's recommendations for data protection, see [Recommended data protection configuration](#recommended-data-protection-configuration) in this article, as well as [Data protection overview](data-protection-overview.md).
 
-Microsoft recommends enabling both versioning and blob soft delete for your storage accounts for optimal data protection. For more information about blob soft delete, see [Soft delete for Azure Storage blobs](./soft-delete-blob-overview.md).
-
 ### Overwriting a blob
 
 If blob versioning and blob soft delete are both enabled for a storage account, then overwriting a blob automatically creates a new version. The new version is not soft-deleted and is not removed when the soft-delete retention period expires. No soft-deleted snapshots are created.
