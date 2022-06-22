@@ -49,7 +49,7 @@ Review and run the cells in the notebook to start hunting.
 
 1. When you get to the cell labeled **Start a Spark Session**, run the cell to start using your Azure Synapse session. Use your Apache Spark pool as the compute for your data preparation and data wrangle tasks instead of using your Azure ML compute.
 
-1. Run the subsequent cells to configure and run your queries on the data that's now stored in your Azure Data Lake Storage. For example, [update your lookback period](#define-your-data-lookback-period) to include data from a specific time range.
+1. Run the subsequent cells to configure and run your queries on the data that's now stored in your Azure Data Lake Storage. For example, [update your look back period](notebooks-with-synapse.md#define-your-data-lookback-period) to include data from a specific time range.
 
 1. When you're done with your query, export the results from Azure Data Lake Storage back into your Log Analytics workspace.
 
