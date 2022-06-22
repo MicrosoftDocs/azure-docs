@@ -748,7 +748,7 @@ productDirectory:
       azureCategories:
         - developer-tools
         - devops
-      url: lab-services/index.yml
+      url: devtest-labs/index.yml
     # Card
     - title: Azure Lab Services
       summary: Set up labs for classrooms, trials, development and testing, and other scenarios
