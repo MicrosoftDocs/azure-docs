@@ -29,7 +29,7 @@ Workspace-based Application Insights allows you to take advantage of all the lat
 * Faster data ingestion via Log Analytics streaming ingestion.
 
 > [!NOTE]
-> After migrating to a workspace-based Application Insights resource, all telemetry will be aggregated across multiple resources in a common Log Analytics workspace. You will still be able to pull data from a specific Application Insights resource though, [as described here](#understanding-log-queries).
+> After migrating to a workspace-based Application Insights resource, telemetry from multiple Application Insights resources may be stored in a common Log Analytics workspace. You will still be able to pull data from a specific Application Insights resource, [as described here](#understanding-log-queries).
 
 ## Migration process
 
@@ -100,8 +100,8 @@ To ensure the queries successfully run, validate that the query's fields align w
 
 If you have multiple Application Insights resources store their telemetry in one Log Analytics workspace but you only want to query data from one specific Application Insights resource, you have two options:
 
-1. Go to the desired Application Insights resource and open the **Logs** tab. All queries from this tab will automatically pull data from the selected Application Insights resource.
-2. Go to the Log Analytics workspace that you configured as the destination for your Application Insights telemetry and open the **Logs** tab. To query data from a specific Application Insights resource, filter for the built-in ```_ResourceId``` property that is available in all application specific tables.
+- Option 1: Go to the desired Application Insights resource and open the **Logs** tab. All queries from this tab will automatically pull data from the selected Application Insights resource.
+- Option 2: Go to the Log Analytics workspace that you configured as the destination for your Application Insights telemetry and open the **Logs** tab. To query data from a specific Application Insights resource, filter for the built-in ```_ResourceId``` property that is available in all application specific tables.
 
 Notice that if you query directly from the Log Analytics workspace, you'll only see data that is ingested post migration. To see both your classic Application Insights data and the new data ingested after migration in a unified query experience, use the **Logs** tab from within your migrated Application Insights resource.
 
