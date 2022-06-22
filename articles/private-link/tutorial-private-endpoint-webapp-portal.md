@@ -6,7 +6,7 @@ author: asudbring
 ms.author: allensu
 ms.service: private-link
 ms.topic: tutorial
-ms.date: 06/21/2022
+ms.date: 06/22/2022
 ms.custom: template-tutorial #Required; leave this attribute/value as-is.
 ---
 
@@ -126,7 +126,7 @@ In this section, you'll create a virtual machine that will be used to test the p
     | Virtual network | Select **myVNet**. |
     | Subnet | Select **mySubnet**. |
     | Public IP | Select **None**. |
-    | NIC network security group | Select **Basic**|
+    | NIC network security group | Select **Basic**. |
     | Public inbound ports | Select **None**. |
    
 5. Select **Review + create**. 
@@ -146,14 +146,14 @@ In this section, you'll create a web app.
     | Setting | Value                                          |
     |-----------------------|----------------------------------|
     | **Project Details** |  |
-    | Subscription | Select your Azure subscription |
-    | Resource Group | Select **myResourceGroup** |
+    | Subscription | Select your Azure subscription. |
+    | Resource Group | Select **myResourceGroup**. |
     | **Instance details** |  |
     | Name | Enter **mywebapp**. If the name is unavailable, enter a unique name. |
     | Publish | Select **Code**. |
     | Runtime stack | Select **.NET Core 3.1 (LTS)**. |
     | Operating System | Select **Windows**. |
-    | Region | Select **East US** |
+    | Region | Select **East US**. |
     | **App Service Plan** |  |
     | Windows Plan (East US) | Select **Create new**. </br> Enter **myServicePlan** in **Name**. </br> select **OK**. |
     | Sku and size | Select **Change size**. </br> Select **P2V2** in the **Spec Picker** page. </br> Select **Apply**. |
@@ -181,7 +181,7 @@ In this section, you'll create a web app.
     | Setting | Value |
     | ------- | ----- |
     | Name | Enter **mywebappendpoint**. |
-    | Subscription | Select your subscription. |
+    | Subscription | Select your Azure subscription. |
     | Virtual network | Select **myVNet**. |
     | Subnet | Select **mySubnet**. |
     | Integrate with private DNS zone | Select **Yes**. |
