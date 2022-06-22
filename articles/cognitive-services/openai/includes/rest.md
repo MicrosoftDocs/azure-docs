@@ -14,7 +14,7 @@ keywords:
 ## Prerequisites
 
 - An Azure subscription
-- Access granted to service in the desired Azure subscription. This service is currently invite only. You can fill out a new use case request here: <https://aka.ms/oai/access>. Please open an issue on this repo to contact us if you have an issue
+- Access granted to service in the desired Azure subscription. This service is currently invite only. You can fill out a new use case request here: <https://aka.ms/oai/access>.
 - [Python 3.x](https://www.python.org/)
 - The following python libraries: os, requests, json
 - An Azure OpenAI Service resource with a model deployed.

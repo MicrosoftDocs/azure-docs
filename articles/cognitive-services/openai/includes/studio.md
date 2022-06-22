@@ -19,13 +19,13 @@ keywords:
 
 ## Go to the Azure OpenAI Studio
 
-Navigate to the Azure OpenAI Studio: <https://oai.azure.com/> and sign-in with credentials that have access to the OpenAI resource you've created. During the sign-in workflow, select the appropriate Directory, Azure Subscription and OpenAI resource.
+Navigate to the Azure OpenAI Studio: <https://oai.azure.com/> and sign-in with credentials that have access to the OpenAI resource you've created. During the sign-in workflow, select the appropriate Directory, Azure Subscription and Azure OpenAI resource.
 
 ## Landing page
 
 You'll first land on our main page for the Azure OpenAI Studio and from here you can navigate to several different features highlighted in the picture below.
 
-![Screenshot of the landing page of the Azure OpenAI Studio with sections highlighted](../images/StudioLandingpage.jpg)
+![Screenshot of the landing page of the Azure OpenAI Studio with sections highlighted](../media/quickstarts/studio.png)
 
 1. Resources without a deployment will be prompted to create one. This is required to be able to inference with your models
 1. Get started with a few simple examples that demonstrate the capabilities of the service
@@ -44,7 +44,7 @@ Once this is complete, select the 'Playground' button on the left nav to start e
 
 The best way to start exploring completions is through our Playground. It's simply a text box where you can submit a prompt to generate a completion. From this page you can easily iterate and experiment with the capabilities. The following is an overview of the features available to you on this page:
 
-![Screenshot of the playground page of the Azure OpenAI Studio with sections highlighted](../images/StudioPlayground.jpg)
+![Screenshot of the playground page of the Azure OpenAI Studio with sections highlighted](../media/quickstarts/playground.png)
 
 1. Choose from a few pre-loaded examples to get started
 1. Select a deployment to use
