@@ -33,7 +33,7 @@ Computer Vision can power many digital asset management (DAM) scenarios. DAM is 
 
 ## Getting started
 
-Use [Vision Studio](https://vision.cognitive.azure.com/) to try out Computer Vision features quickly in your web browser.
+Use [Vision Studio](https://portal.vision.cognitive.azure.com/) to try out Computer Vision features quickly in your web browser.
 
 To get started building Computer Vision into your app, follow a quickstart.
 * [Quickstart: Optical character recognition (OCR)](quickstarts-sdk/client-library.md)

@@ -21,7 +21,7 @@ This will take you to the GitHub repo for the samples, which you can download as
 
 :::image type="content" source="../articles/digital-twins/media/includes/download-repo-zip.png" alt-text="Screenshot of the digital-twins-samples repo on GitHub, highlighting the steps to download it as a zip." lightbox="../articles/digital-twins/media/includes/download-repo-zip.png":::
 
-This will download a .zip folder to your machine as *digital-twins-samples-master.zip*. Unzip the folder and extract the files.
+This will download a .zip folder to your machine as *digital-twins-samples-main.zip*. Unzip the folder and extract the files.
 
 ### Prepare an Azure Digital Twins instance
 

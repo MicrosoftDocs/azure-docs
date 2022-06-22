@@ -1025,7 +1025,7 @@ groups:
   - id: container-windows
     title: Windows container
   - id: code-windows
-    title: Windows code    
+    title: Windows code
 - id: programming-languages-spring-cloud
 # Owner: bmitchell287
   title: Programming languages
