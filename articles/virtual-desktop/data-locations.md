@@ -4,7 +4,7 @@ description: A brief overview of which locations Azure Virtual Desktop's data an
 author: Heidilohr
 ms.topic: conceptual
 ms.custom: references_regions
-ms.date: 06/07/2022
+ms.date: 06/22/2022
 ms.author: helohr
 manager: femila
 ---
@@ -19,7 +19,7 @@ Azure Virtual Desktop stores various information for service objects, such as ho
 
 ## Customer input
 
-To set up Azure Virtual Desktop, you must create host pools and other service objects. During configuration, you must enter information such as the host pool name, application group name, and so on. This information is considered "customer input." Customer input is stored in the geography associated with the Azure region the resource is created in. The stored data includes all data that you input into the host pool deployment process and any data you add after deployment while making configuration changes to Azure Virtual Desktop objects. Basically, stored data is the same data you can access using the Azure Virtual Desktop portal, PowerShell, or Azure command-line interface (CLI). To ascertain this data using PowerShell as an example, review the PowerShell commands you can use to retrieve this "customer input" data that the [Azure Virtual Desktop service stores](https://docs.microsoft.com/powershell/module/az.desktopvirtualization/?view=azps-8.0.0)
+To set up Azure Virtual Desktop, you must create host pools and other service objects. During configuration, you must enter information such as the host pool name, application group name, and so on. This information is considered "customer input." Customer input is stored in the geography associated with the Azure region the resource is created in. The stored data includes all data that you input into the host pool deployment process and any data you add after deployment while making configuration changes to Azure Virtual Desktop objects. Basically, stored data is the same data you can access using the Azure Virtual Desktop portal, PowerShell, or Azure command-line interface (CLI). For example, you can review the [available PowerShell commands](/powershell/module/az.desktopvirtualization/?view=azps-8.0.0&preserve-view=true) to get an idea of what customer input data the Azure Virtual Desktop service stores.
 
 Azure Resource Manager paths to service objects are considered organizational information, so data residency doesn't apply to them. Data about Azure Resource Manager paths is stored outside of the chosen geography.
 
@@ -44,7 +44,8 @@ Storing service-generated data is currently supported in the following geographi
 - Europe (EU)
 - United Kingdom (UK)
 - Canada (CA)
-- Japan (JP) \**in Public Preview*
+- Japan (JP) (preview)
+- Australia (AU) (preview)
 
 In addition, service-generated data is aggregated from all locations where the service infrastructure is, and sent to the US geography. The data sent to the US includes scrubbed data, but not customer data.
 

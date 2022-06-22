@@ -53,7 +53,3 @@ This feature can be used in the Azure AD portal, Microsoft Graph, and in PowerSh
     1. Example device rule: `device.memberof -any (group.objectId -in ['groupId', 'groupId'])`
 1. Select **OK**.
 1. Select **Create group**.
-
-## Next steps
-
-To report an issue, contact us in the [Teams channel](https://teams.microsoft.com/l/channel/19%3a39Q7HFuexXXE3Vh90woJRNQQBbZl1YyesJHIEquuQCw1%40thread.tacv2/General?groupId=bfd3bfb8-e0db-4e9e-9008-5d7ba8c996b0&tenantId=72f988bf-86f1-41af-91ab-2d7cd011db47).

@@ -900,7 +900,7 @@ Azure Video Indexer makes an inference of main topics from transcripts. When pos
      }
   ]
 },
-` ` `
+
 ```
 
 ## Next steps
