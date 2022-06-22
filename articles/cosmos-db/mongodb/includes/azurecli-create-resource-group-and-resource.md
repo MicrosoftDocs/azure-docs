@@ -1,13 +1,21 @@
+---
+author: diberry
+ms.service: cosmos-db
+ms.subservice: cosmosdb-mongo
+ms.topic: include
+ms.date: 06/13/2019
+ms.author: diberry
+---
 1. Create shell variables for *accountName*, *resourceGroupName*, and *location*.
 
     ```azurecli-interactive
     # Variable for resource group name
-    resourceGroupName="msdocs-cosmos-javascript-quickstart-rg"
+    resourceGroupName="msdocs-cosmos-quickstart-rg"
     location="westus"
 
     # Variable for account name with a randomnly generated suffix
     let suffix=$RANDOM*$RANDOM
-    accountName="msdocs-javascript-$suffix"
+    accountName="msdocs-$suffix"
     ```
 
 1. If you haven't already, sign in to the Azure CLI using the [``az login``](/cli/azure/reference-index#az-login) command.

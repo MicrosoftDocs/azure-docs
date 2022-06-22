@@ -1,5 +1,13 @@
+---
+author: diberry
+ms.service: cosmos-db
+ms.subservice: cosmosdb-mongo
+ms.topic: include
+ms.date: 06/13/2019
+ms.author: diberry
+---
 > [!TIP]
-> For this quickstart, we recommend using the resource group name ``msdocs-cosmos-javascript-quickstart-rg``.
+> For this quickstart, we recommend using the resource group name ``msdocs-cosmos-quickstart-rg``.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -7,7 +15,7 @@
 
 1. On the **New** page, search for and select **Azure Cosmos DB**.
 
-1. On the **Select API option** page, select the **Create** option within the **MongoDB** section. Azure Cosmos DB has five APIs: SQL, MongoDB, Gremlin, Table, and Cassandra. [Learn more about the MongoDB API](../introduction.md).
+1. On the **Select API option** page, select the **Create** option within the **MongoDB** section. Azure Cosmos DB has five APIs: SQL, MongoDB, Gremlin, Table, and Cassandra. [Learn more about the MongoDB API](../../introduction.md).
 
    :::image type="content" source="../media/quickstart-javascript/cosmos-api-choices.png" lightbox="../media/quickstart-javascript/cosmos-api-choices.png" alt-text="Screenshot of select A P I option page for Azure Cosmos D B.":::
 

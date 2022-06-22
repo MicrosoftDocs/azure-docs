@@ -1,13 +1,21 @@
+---
+author: diberry
+ms.service: cosmos-db
+ms.subservice: cosmosdb-mongo
+ms.topic: include
+ms.date: 06/13/2019
+ms.author: diberry
+---
 1. Create shell variables for *ACCOUNT_NAME*, *RESOURCE_GROUP_NAME*, and **LOCATION**.
 
     ```azurepowershell-interactive
     # Variable for resource group name
-    $RESOURCE_GROUP_NAME = "msdocs-cosmos-javascript-quickstart-rg"
+    $RESOURCE_GROUP_NAME = "msdocs-cosmos-quickstart-rg"
     $LOCATION = "West US"
     
     # Variable for account name with a randomnly generated suffix
     $SUFFIX = Get-Random
-    $ACCOUNT_NAME = "msdocs-javascript-$SUFFIX"
+    $ACCOUNT_NAME = "msdocs-$SUFFIX"
     ```
 
 1. If you haven't already, sign in to Azure PowerShell using the [``Connect-AzAccount``](/powershell/module/az.accounts/connect-azaccount) cmdlet.

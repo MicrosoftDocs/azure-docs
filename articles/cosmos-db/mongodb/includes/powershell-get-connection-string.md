@@ -1,3 +1,11 @@
+---
+author: diberry
+ms.service: cosmos-db
+ms.subservice: cosmosdb-mongo
+ms.topic: include
+ms.date: 06/13/2019
+ms.author: diberry
+---
 1. Find the *CONNECTION STRING* from the list of keys and connection strings for the account with the [``Get-AzCosmosDBAccountKey``](/powershell/module/az.cosmosdb/get-azcosmosdbaccountkey) cmdlet.
 
     ```azurepowershell-interactive
