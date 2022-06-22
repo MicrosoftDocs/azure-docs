@@ -13,8 +13,6 @@ ms.date: 06/20/2022
 
 [!INCLUDE[applies-to-postgresql-hyperscale](../includes/applies-to-postgresql-hyperscale.md)]
 
-## Overview
-
 Select your development language to learn how to connect to Hyperscale (Citus)
 to create, read, update, and delete data.
 
@@ -24,7 +22,7 @@ to create, read, update, and delete data.
 * [Java](howto-app-stacks-java.md)
 * [Ruby](howto-app-stacks-ruby.md)
 
-## Next steps
+**Next steps**
 
 Learn to [build scalable applications](howto-build-scalable-apps-overview.md)
 with Hyperscale (Citus).
