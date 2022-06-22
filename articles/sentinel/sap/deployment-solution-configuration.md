@@ -48,7 +48,7 @@ Threat Monitoring for SAP solution configuration is accomplished by providing cu
 > If you edit a watchlist and find it is empty, please wait a few minutes and retry opening the watchlist for editing.
 
 ### SAP - Systems watchlist
-SAP - Systems watchlist defines which SAP Systems are present in the monitored environment. For every system, specify it's SID, whether it is production system or a dev/test environment, as well as a description
+SAP - Systems watchlist defines which SAP Systems are present in the monitored environment. For every system, specify its SID, whether it is a production system or a dev/test environment, as well as a description.
 This information is then leveraged by some analytic rules, which may react differently if relevant events appear in a Development or a Production system
 
 ### SAP - Networks watchlist
