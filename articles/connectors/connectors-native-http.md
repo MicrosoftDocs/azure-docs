@@ -165,8 +165,6 @@ For example, if you're working in Visual Studio Code, follow these steps:
    > 
    > For more information, review [Find the thumbprint - Azure App Service](../app-service/configure-ssl-certificate-in-code.md#find-the-thumbprint).
 
-![image](https://user-images.githubusercontent.com/105737541/174128938-cedfb73f-b701-41b8-b2eb-8552faab0580.png)
-
 For more information, review the following documentation:
 
 * [Edit host and app settings for logic apps in single-tenant Azure Logic Apps](../logic-apps/edit-app-settings-host-settings.md#manage-app-settings)
