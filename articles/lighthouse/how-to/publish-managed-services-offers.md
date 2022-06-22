@@ -48,7 +48,7 @@ Once a customer adds your offer, they will be able to delegate one or more subsc
 
 Once you've completed all of the sections, your next step is to publish the offer. After you initiate the publishing process, your offer will go through several validation and publishing steps. For more information, see [Review and publish an offer to the commercial marketplace](../../marketplace/review-publish-offer.md)
 
-You can [publish an updated version of your offer](../../marketplace/update-existing-offer.md) at any time. For example, you may want to add a new role definition to a previously-published offer. When you do so, customers who have already added the offer will see an icon in the **Service providers** page in the Azure portal that lets them know an update is available. Each customer will be able to [review the changes and update to the new version](view-manage-service-providers.md#update-service-provider-offers).
+You can [publish an updated version of your offer](../../marketplace/update-existing-offer.md) at any time. For example, you may want to add a new role definition to a previously published offer. When you do so, customers who have already added the offer will see an icon in the **Service providers** page in the Azure portal that lets them know an update is available. Each customer will be able to [review the changes and update to the new version](view-manage-service-providers.md#update-service-provider-offers).
 
 ## The customer onboarding process
 

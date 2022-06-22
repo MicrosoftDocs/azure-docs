@@ -65,7 +65,7 @@ After you've assigned the Monitoring Reader role at root scope to the desired ac
 
 ## View delegation changes in the Azure portal
 
-Users who has been assigned the Monitoring Reader role at root scope can view delegation changes directly in the Azure portal.
+Users who have been assigned the Monitoring Reader role at root scope can view delegation changes directly in the Azure portal.
 
 1. Navigate to the **My customers** page, then select **Activity log** from the left-hand navigation menu.
 1. Ensure that **Directory Activity** is selected in the filter near the top of the screen.
