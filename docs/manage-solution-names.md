@@ -1,7 +1,7 @@
 ---
 title: Manage names in Partner Center
 description: You can use the **Manage product names** page to view all the names that you've reserved for your solution, reserve additional names (for other languages or to change the name of your solution), and delete names you don't need.
-ms.author: mingshen
+ms.author: siraghav
 ms.localizationpriority: medium
 ---
 

@@ -2,13 +2,15 @@
 title: View acquisitions report
 description: Analyze your app or add-in performance and see funnel and acquisitions metrics.
 ms.localizationpriority: medium
-ms.author: mingshen
+ms.author: siraghav
 ms.reviewer: dannyevers
 ms.date: 01/10/2022
 ---
 
-# View the Acquisitions report in the dashboard![image](https://user-images.githubusercontent.com/62076972/134597753-6fd281d2-9cdd-4ba0-b45d-645ca18e22d1.png)
-
+# View the Acquisitions report in the dashboard
+<!--- [
+[image](https://user-images.githubusercontent.com/62076972/134597753-6fd281d2-9cdd-4ba0-b45d-645ca18e22d1.png)
+]() --->
 
 The _Acquisitions report_ in the Partner Center dashboard lets you see who has acquired and installed your add-in, app, or visual, and shows info about how customers have arrived at your Microsoft AppSource listing.
 

@@ -1,7 +1,7 @@
 ---
 title: Specify availability for your Office solution
 description: You can define the markets, visibility, and publishing schedule for your solution on the Pricing and availability page in Partner Center.
-ms.author: mingshen
+ms.author: siraghav
 ms.localizationpriority: medium
 ---
 

@@ -2,7 +2,7 @@
 title: Publish your app to the Microsoft app stores
 description: Publish your app using the Microsoft app store inside of Outlook, Excel, PowerPoint, and Sharepoint, or distribute it through AppSource.
 ms.localizationpriority: medium
-ms.author: mingshen
+ms.author: siraghav
 ms.date: 11/24/2020
 ---
 

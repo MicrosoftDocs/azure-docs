@@ -2,7 +2,7 @@
 title: Monetize your Microsoft 365 add-in or app through Microsoft Commercial Marketplace
 description: This article describes how to sell your app through Microsoft by using Partner Center to submit your service for purchase as a SaaS offer.
 ms.localizationpriority: high
-ms.author: mingshen
+ms.author: siraghav
 ms.date: 08/19/2021
 ---
 
