@@ -638,6 +638,9 @@
       href: how-to-debug-visual-studio-code.md
     - name: Troubleshoot SerializationError
       href: how-to-troubleshoot-serialization-error.md
+    - name: Troubleshoot descriptor error
+      displayName: descriptors cannot not be created directly
+      href: how-to-troubleshoot-protobuf-descriptor-error.md
 - name: Reference
   items: 
     - name: Python SDK
