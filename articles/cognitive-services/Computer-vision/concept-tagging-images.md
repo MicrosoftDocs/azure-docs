@@ -23,7 +23,7 @@ After you upload an image or specify an image URL, the Analyze API can output ta
 Try out the image tagging features quickly and easily in your browser using Vision Studio.
 
 > [!div class="nextstepaction"]
-> [Try Vision Studio](https://vision.cognitive.azure.com/)
+> [Try Vision Studio](https://portal.vision.cognitive.azure.com/)
 
 ## Image tagging example
 

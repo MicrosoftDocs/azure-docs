@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-flows
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 04/20/2022
+ms.date: 06/10/2022
 ---
 
 # User defined functions (Preview) in mapping data flow 
@@ -23,6 +23,8 @@ Whenever you find yourself building the same logic in an expression across multi
 
 > [!IMPORTANT]
 > User defined functions and mapping data flow libraries are currently in public preview.
+
+[!VIDEO https://www.microsoft.com/videoplayer/embed/RWJd3T]
 
 ## Getting started
 
