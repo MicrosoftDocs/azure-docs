@@ -186,7 +186,7 @@ This quickstart will create a single Azure Cosmos DB account using the MongoDB A
 
 ### Create a new JavaScript app
 
-Create a new JavaScript application in an empty folder using your preferred terminal. Use the [``npm init``](https://docs.npmjs.com/cli/v8/commands/npm-init) command specifying the **console** template.
+Create a new JavaScript application in an empty folder using your preferred terminal. Use the [``npm init``](https://docs.npmjs.com/cli/v8/commands/npm-init) command to begin the prompts to create the `package.json` file. Accept the defaults for the prompts. 
 
 ```console
 npm init
