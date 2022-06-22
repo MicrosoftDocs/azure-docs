@@ -1375,6 +1375,8 @@ items:
             href: visualize/workbooks-honey-comb.md
           - name: Composite bar
             href: visualize/workbooks-composite-bar.md
+          - name: Remderers
+            href: visualize/workbooks-renderers.md
         - name: Workbook Result Limits
           href: visualize/workbooks-limits.md
     - name: Creating a new workbook
@@ -1383,9 +1385,9 @@ items:
           href: visualize/workbooks-templates.md
         - name: Create a new workbook
           href: visualize/workbooks-create-workbook.md
-        - name: Add text to your workbook
-          href: visualize/workbooks-add-text.md
-        - name: Add parameters to your workbook
+        - name: Add workbook elements
+          href: visualize/workbooks-add-workbook-elements.md
+        - name: Working with parameters
           items:
           - name: Workbook parameters
             href: visualize/workbooks-parameters.md
@@ -1402,11 +1404,7 @@ items:
           - name: Resource parameters
             href: visualize/workbooks-resources.md
           - name: Multi-value parameters
-            href: visualize/workbooks-multi-value.md
-        - name: Combine data from different sources
-          href: visualize/workbooks-combine-data.md 
-        - name: Add a query to your workbook
-          href: visualize/workbooks-add-query.md      
+            href: visualize/workbooks-multi-value.md     
     - name: Configuration
       items:
       - name: Deploy with Azure Resource Manager

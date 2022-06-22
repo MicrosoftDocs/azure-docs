@@ -10,7 +10,7 @@ ms.topic: conceptual
 ms.date: 10/23/2019
 ---
 
-# Creating Workbook parameters
+# Workbook parameters
 
 Parameters allow workbook authors to collect input from the consumers and reference it in other parts of the workbook – usually to scope the result set or setting the right visual. It is a key capability that allows authors to build interactive reports and experiences. 
 
