@@ -18,7 +18,7 @@ ms.devlang: csharp, golang, java, javascript, python
 
 # Quickstart: Azure Cognitive Services Translator
 
-In this quickstart, you learn to use the Translator service to [translate text](reference/v3-0-translate.md) using the programming language of your choice and the REST API.
+In this quickstart, you'll get started using the Translator service to [translate text](reference/v3-0-translate.md) with a programming language of your choice and the REST API.
 
 ## Prerequisites
 
