@@ -64,7 +64,7 @@ For our example we will fill in:
 Q:What is the fastest the mile has ever been run in competition?
 ```
 
-:::image type="content" source="../media/quickstarts/question.png" alt-text="Screenshot of the playground page of the Azure OpenAI Studio with sections highlighted" lightbox="../media/quickstarts/question.png":::
+:::image type="content" source="../media/quickstarts/question.png" alt-text="Screenshot of the playground page of the Azure OpenAI Studio with the following text - Q: What is the fastest the mile has ever been run in competition?" lightbox="../media/quickstarts/question.png":::
 
 Then select `Generate`.
 
