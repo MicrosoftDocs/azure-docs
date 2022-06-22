@@ -28,7 +28,9 @@ It analyzes SAP system data to detect threats such as privilege escalation, unap
 - Build your own detections to monitor sensitive transactions and other business risks
 
 
-Solution retreives a wide variety of SAP Log Sources:
+### Log sources
+
+The solution's data connector retreives a wide variety of SAP Log Sources:
 - ABAP Security Audit Log 
 - ABAP Change Documents Log 
 - ABAP Spool Log 
