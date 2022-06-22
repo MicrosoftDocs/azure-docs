@@ -27,9 +27,9 @@ keywords:
 pip install openai
 ```
 
-## Set-up & Authenticate the client
+## Authenticate the client
 
-### Retrieve Key and Endpoint
+### Retrieve key and endpoint
 
 To successfully make a call against the Azure OpenAI service, you'll need the following:
 
@@ -43,7 +43,7 @@ Go to your resource in the Azure portal. The **Endpoint and Keys** can be found 
 
 :::image type="content" source="../media/quickstarts/endpoint.png" alt-text="Screenshot of the overview blade for an OpenAI Resource in the Azure Portal with the endpoint & access keys location circled in red" lightbox="../media/quickstarts/endpoint.png":::
 
-### Create a new Python application
+## Create a new Python application
 
 1. Create a new python file called quickstart.py. Then open it up in your preferred editor or IDE.
 
@@ -83,10 +83,11 @@ Sending a test completion job
 "When I go to the store, I want a can of black beans"
 ```
 
-2. Run the code a few more times to see what other types of responses you get as the response won't always be the same.
+Run the code a few more times to see what other types of responses you get as the response won't always be the same.
 
-> [!NOTE]
-> Since our example of `When I go to the store, I want a` provides very little context, it is expected for the model to not always return the type of results we would want. We are also intentionally limiting the response up to the first newline `\n` character, so occasional truncated responses of `When I go to the store, I want a` may occur as the model's response in that instance was split over multiple lines. If you run the code m If you wish to see the larger responses you can remove `.split('\n')[0]` from your code and play with the max number of tokens. 
+### Understanding your results
+
+Since our example of `When I go to the store, I want a` provides very little context, it is normal for the model to not always return expected results. We are also intentionally limiting the response up to the first newline `\n` character, so occasional truncated responses with only our prompt text may occur as the model's response in that instance was split over multiple lines. If you wish to see the larger responses you can remove `.split('\n')[0]` from your code and adjust the max number of tokens.
 
 ## Clean up resources
 

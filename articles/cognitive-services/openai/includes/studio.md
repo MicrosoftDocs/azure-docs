@@ -47,16 +47,32 @@ The best way to start exploring completions is through our Playground. It's simp
 
 :::image type="content" source="../media/quickstarts/playground.png" alt-text="Screenshot of the playground page of the Azure OpenAI Studio with sections highlighted" lightbox="../media/quickstarts/playground.png":::
 
-1. Choose from a few pre-loaded examples to get started
-1. Select a deployment to use
-1. Enter the text you want to send to the completions API here. Generations will also be appended to this text.
-1. Selecting the Generate button will send the entered text to the completions API and stream the results back to the text box.
-1. Select the 'undo' button to undo the prior generation call
-1. Select the 'regenerate' button to do an undo & generation call together.
-1. View the code you could use to make the same call with our python SDK, curl or other REST API client
-1. Configure the parameters of the completions call to improve the performance of your task. You can read more about each parameter in our [REST API](../reference.md).
+- Choose from a few pre-loaded examples to get started
+- Select a deployment to use
+- Enter the text you want to send to the completions API here. Generations will also be appended to this text.
+- Selecting the Generate button will send the entered text to the completions API and stream the results back to the text box.
+- Select the 'undo' button to undo the prior generation call
+- Select the 'regenerate' button to do an undo & generation call together.
+- View the code you could use to make the same call with our python SDK, curl or other REST API client
+- Configure the parameters of the completions call to improve the performance of your task. You can read more about each parameter in our [REST API](../reference.md).
 
-Now that you've familiarized yourself with the playground, get started generating text by loading the INSERT sample. Then select `Generate`.
+Now that you've familiarized yourself with the playground, get started generating text by loading the Q&A example and add in your own unique question.
+
+For our example we will fill in:
+
+```
+Q:What is the fastest the mile has ever been run in competition?
+```
+
+:::image type="content" source="../media/quickstarts/question.png" alt-text="Screenshot of the playground page of the Azure OpenAI Studio with sections highlighted" lightbox="../media/quickstarts/question.png":::
+
+Then select `Generate`.
+
+You should get a result that looks like:
+
+```
+A: The fastest mile has ever been run in competition is 3 minutes and 43 seconds.
+```
 
 ## Clean up resources
 

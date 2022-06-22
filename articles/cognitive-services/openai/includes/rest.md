@@ -19,9 +19,9 @@ keywords:
 - The following python libraries: os, requests, json
 - An Azure OpenAI Service resource with a model deployed.
 
-## Set-up & Authenticate the client
+## Authenticate the client
 
-### Retrieve Key and Endpoint
+### Retrieve key and endpoint
 
 To successfully make a call against the Azure OpenAI service, you'll need the following:
 
@@ -35,7 +35,7 @@ Go to your resource in the Azure portal. The **Endpoint and Keys** can be found 
 
 :::image type="content" source="../media/quickstarts/endpoint.png" alt-text="Screenshot of the overview blade for an OpenAI Resource in the Azure Portal with the endpoint & access keys location circled in red" lightbox="../media/quickstarts/endpoint.png":::
 
-### Create a new Python application
+## Create a new Python application
 
 Create a new python file called quickstart.py. Then open it up in your preferred editor or IDE.
 
@@ -74,26 +74,26 @@ Create a new python file called quickstart.py. Then open it up in your preferred
     python quickstart.py
     ```
 
-## Output
+### Output
 
-  The output from the completions API will look as follows.
+The output from the completions API will look as follows.
 
-  ```json
+```json
   {
     "id": "id of your call",
     "object": "text_completion",
     "created": 1589478378,
     "model": "model used",
     "choices": [
-      {
+        {
         "text": " there was a girl who",
         "index": 0,
         "logprobs": null,
         "finish_reason": "length"
-      }
+        }
     ]
-  }
-  ```
+    }
+```
 
 ## Clean up resources
 
