@@ -118,23 +118,15 @@ az network vnet subnet create `
 
 ---
 
-With the virtual network created, you can retrieve the IDs for both the VNET and the infrastructure subnet.
+With the virtual network created, you can retrieve the IDs for the infrastructure subnet.
 
 # [Bash](#tab/bash)
-
-```bash
-VNET_RESOURCE_ID=`az network vnet show --resource-group ${RESOURCE_GROUP} --name ${VNET_NAME} --query "id" -o tsv | tr -d '[:space:]'`
-```
 
 ```bash
 INFRASTRUCTURE_SUBNET=`az network vnet subnet show --resource-group ${RESOURCE_GROUP} --vnet-name $VNET_NAME --name infrastructure-subnet --query "id" -o tsv | tr -d '[:space:]'`
 ```
 
 # [PowerShell](#tab/powershell)
-
-```powershell
-$VNET_RESOURCE_ID=(az network vnet show --resource-group $RESOURCE_GROUP --name $VNET_NAME --query "id" -o tsv)
-```
 
 ```powershell
 $INFRASTRUCTURE_SUBNET=(az network vnet subnet show --resource-group $RESOURCE_GROUP --vnet-name $VNET_NAME --name infrastructure-subnet --query "id" -o tsv)
