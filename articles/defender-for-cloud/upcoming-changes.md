@@ -24,7 +24,7 @@ If you're looking for the latest release notes, you'll find them in the [What's 
 | [Multiple changes to identity recommendations](#multiple-changes-to-identity-recommendations) | June 2022 |
 | [Deprecating three VM alerts](#deprecating-three-vm-alerts) | June 2022|
 | [Deprecating the "API App should only be accessible over HTTPS" policy](#deprecating-the-api-app-should-only-be-accessible-over-https-policy)|June 2022|
-| Deprecate API App policies for App Service | July 2022 |
+| [Deprecate API App policies for App Service](#deprecate-api-app-policies-for-app-service) | July 2022 |
 
 ### GA support for Arc-enabled Kubernetes clusters
 
