@@ -14,11 +14,7 @@ recommendations: false
 
 # Quickstart: Deploy a model and generate text using Azure OpenAI
 
-Use this article to get started with Azure OpenAI with step by step instructions to:
-
-1. Create a resource
-2. Deploy a model
-3. Make a completions call to generate texts
+Use this article to get started making your first calls to the Azure OpenAI service.
 
 ::: zone pivot="programming-language-studio"
 
