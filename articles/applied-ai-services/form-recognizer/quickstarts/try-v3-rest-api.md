@@ -79,7 +79,7 @@ Before you run the cURL command, make the following changes:
 
 1. Using the table below as a reference, replace `{modelID}` and `{your-document-url}` with your desired values.
 
-1. You'll need a document file at a URL. For this quickstart, you can use the sample forms provided in the below table for each feature.
+1. You'll need a document file at a URL. For this quickstart, you can use the sample forms provided in the table below for each feature.
 
 #### POST request
 
