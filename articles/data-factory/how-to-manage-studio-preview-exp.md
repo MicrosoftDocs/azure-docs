@@ -51,7 +51,7 @@ There are two ways to enable preview experiences.
 ### Dataflow Data first experimental view
 
 UI (user interfaces) changes have been made to mapping data flows. These changes were made to simplify and streamline the dataflow creation process so that you can focus on what your data looks like. 
-The dataflow authoring experience remains the same as detailed [here](https://docs.microsoft.com/azure/data-factory/concepts-data-flow-overview), except for certain areas detailed below. 
+The dataflow authoring experience remains the same as detailed [here](aka.ms/adfdataflows), except for certain areas detailed below. 
 
 #### Configuration panel
 
