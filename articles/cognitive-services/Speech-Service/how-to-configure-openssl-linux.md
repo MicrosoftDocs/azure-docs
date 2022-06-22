@@ -18,6 +18,9 @@ ROBOTS: NOINDEX
 
 With the Speech SDK, [OpenSSL](https://www.openssl.org) is dynamically configured to the host-system version. 
 
+> [!NOTE]
+> This article is only applicable where the Speech SDK is [supported on Linux](speech-sdk.md#supported-languages).
+
 To ensure connectivity, verify that OpenSSL certificates have been installed in your system. Run a command:
 ```bash
 openssl version -d
@@ -201,5 +204,5 @@ Some Linux distributions don't have a `TMP` or `TMPDIR` environment variable def
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [About the Speech SDK](speech-sdk.md)
+- [Speech SDK overview](speech-sdk.md)
+- [Install the Speech SDK](quickstarts/setup-platform.md)
