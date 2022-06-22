@@ -216,9 +216,7 @@ http://<app-name>.azurewebsites.net
     ![Screenshot of the Spec Picker for the App Service Plan pricing tiers in the Azure portal. Dev/Test, F1, and Apply are highlighted.](media/quickstart-ruby/azure-portal-create-app-service-select-free-tier.png)   
 
 4. Select the **Review + create** button at the bottom of the page.
-
-    ![Screenshot of the Create Web App screen. The Review + create button is highlighted.](media/quickstart-ruby/azure-portal-create-app-service-review-create.png)   
-
+    
 5. After validation runs, select the **Create** button at the bottom of the page. This will create an Azure resource group, app service plan, and app service.
 
 6. After the Azure resources are created, select **Go to resource**.
@@ -339,7 +337,7 @@ The Ruby sample code is running in an Azure App Service Linux web app.
 
 Your web app's **Overview** page will be displayed. Here, you can perform basic management tasks like **Browse**, **Stop**, **Restart**, and **Delete**.
 
-![Screenshot of the App Service overview page in Azure portal. In the action bar, the Browse, Stop, Swap (disabled), Restart, and Delete button group is highlighted.](media/quickstart-ruby/app-service-detail.png)
+![Screenshot of the App Service overview page in Azure portal. In the action bar, the Browse, Stop, Swap (disabled), Restart, and Delete button group is highlighted.](media/quickstart-ruby/app-service-details.png)
 
 
 ## 5 - Clean up resources
