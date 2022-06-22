@@ -1379,7 +1379,7 @@ items:
             href: visualize/workbooks-renderers.md
         - name: Workbook Result Limits
           href: visualize/workbooks-limits.md
-    - name: Creating a new workbook
+    - name: Creating a workbook
       items:
         - name: Using workbook templates
           href: visualize/workbooks-templates.md
