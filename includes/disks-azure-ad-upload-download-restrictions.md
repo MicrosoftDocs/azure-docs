@@ -9,6 +9,4 @@
  ms.author: rogarana
  ms.custom: include file
 ---
-
 - VHDs can't be uploaded to empty snapshots.
-- Only currently available in xyz regions.
