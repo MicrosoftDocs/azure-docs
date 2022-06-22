@@ -31,8 +31,8 @@ To protect against split-brain scenarios and help measure site health, a managed
 
 In summary, stretched clusters simplify protection needs by providing the same trusted controls and capabilities in addition to the scale and flexibility of the Azure infrastructure.
 
-It's important to understand that stretched cluster private clouds only offer an extra layer of resiliency and don't address all failure scenarios.
-- For example: Stretch cluster private clouds don't protect against region-level failures within Azure or data loss scenarios resulting from application issues or poorly planned storage policies.
+It's important to understand that stretched cluster private clouds only offer an extra layer of resiliency, they don't address all failure scenarios.
+- For example: Stretch cluster private clouds don't protect against region-level failures within Azure or data loss scenarios caused by application issues or poorly planned storage policies.
 
 A stretched cluster provides protection against a single zonal failure but isn't designed to provide protection against double or progressive failures.
 - For example: Despite various layers of redundancy built into the fabric, if an inter-AZ failure results in the partitioning of the secondary site, vSphere HA starts powering off the workload VMs on the secondary site. See the Secondary site partitioning scenario in the diagram below.
