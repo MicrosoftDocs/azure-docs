@@ -3,6 +3,7 @@ title: Configure Hybrid Kubernetes clusters with Container insights | Microsoft 
 description: This article describes how you can configure Container insights to monitor Kubernetes clusters hosted on Azure Stack or other environment.
 ms.topic: conceptual
 ms.date: 06/30/2020
+ms.reviewer: aul
 ---
 
 # Configure hybrid Kubernetes clusters with Container insights

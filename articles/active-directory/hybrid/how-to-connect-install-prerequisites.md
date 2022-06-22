@@ -51,7 +51,7 @@ For more information on setting the PowerShell execution policy, see [Set-Execut
 ### Azure AD Connect server
 The Azure AD Connect server contains critical identity data. It's important that administrative access to this server is properly secured. Follow the guidelines in [Securing privileged access](/windows-server/identity/securing-privileged-access/securing-privileged-access). 
 
-The Azure AD Connect server must be treated as a Tier 0 component as documented in the [Active Directory administrative tier model](/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material). We recommend hardening the Azure AD Connect server as a Control Plane asset by following the guidance provided in [Secure Privileged Access]( https://docs.microsoft.com/security/compass/overview) 
+The Azure AD Connect server must be treated as a Tier 0 component as documented in the [Active Directory administrative tier model](/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material). We recommend hardening the Azure AD Connect server as a Control Plane asset by following the guidance provided in [Secure Privileged Access](/security/compass/overview) 
 
 To read more about securing your Active Directory environment, see [Best practices for securing Active Directory](/windows-server/identity/ad-ds/plan/security-best-practices/best-practices-for-securing-active-directory).
 
@@ -73,7 +73,7 @@ To read more about securing your Active Directory environment, see [Best practic
 ### Harden your Azure AD Connect server 
 We recommend that you harden your Azure AD Connect server to decrease the security attack surface for this critical component of your IT environment. Following these recommendations will help to mitigate some security risks to your organization.
 
-- We recommend hardening the Azure AD Connect server as a Control Plane (formerly Tier 0) asset by following the guidance provided in [Secure Privileged Access]( https://docs.microsoft.com/security/compass/overview) and [Active Directory administrative tier model](/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material).
+- We recommend hardening the Azure AD Connect server as a Control Plane (formerly Tier 0) asset by following the guidance provided in [Secure Privileged Access](/security/compass/overview) and [Active Directory administrative tier model](/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material).
 - Restrict administrative access to the Azure AD Connect server to only domain administrators or other tightly controlled security groups.
 - Create a [dedicated account for all personnel with privileged access](/windows-server/identity/securing-privileged-access/securing-privileged-access). Administrators shouldn't be browsing the web, checking their email, and doing day-to-day productivity tasks with highly privileged accounts.
 - Follow the guidance provided in [Securing privileged access](/windows-server/identity/securing-privileged-access/securing-privileged-access). 
