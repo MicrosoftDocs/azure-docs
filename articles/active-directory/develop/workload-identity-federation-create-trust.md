@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
-ms.date: 03/30/2022
+ms.date: 06/22/2022
 ms.author: ryanwi
 ms.custom: aaddev
-ms.reviewer: dastruck, udayh, vakarand
+ms.reviewer: shkhalid, udayh, vakarand
 #Customer intent: As an application developer, I want to configure a federated credential on an app registration so I can create a trust relationship with an external identity provider and use workload identity federation to access Azure AD protected resources without managing secrets.
 ---
 
-# Configure an app to trust an external identity provider (preview)
+# Configure an app to trust an external identity provider
 
 This article describes how to create a trust relationship between an application in Azure Active Directory (Azure AD) and an external identity provider (IdP).  You can then configure an external software workload to exchange a token from the external IdP for an access token from Microsoft identity platform. The external workload can access Azure AD protected resources without needing to manage secrets (in supported scenarios).  To learn more about the token exchange workflow, read about [workload identity federation](workload-identity-federation.md).  You establish the trust relationship by configuring a federated identity credential on your app registration by using Microsoft Graph or the Azure portal.
 
