@@ -39,6 +39,7 @@ Track your SAP solution deployment journey through this series of articles:
    - [Configure SAP data connector to use SNC](configure-snc.md)
 
 ## Configure watchlists
+
 Threat Monitoring for SAP solution configuration is accomplished by providing customer-specific information in the provisioned watchlists.
 
 > [!NOTE]
