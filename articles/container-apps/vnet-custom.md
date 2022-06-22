@@ -118,7 +118,7 @@ az network vnet subnet create `
 
 ---
 
-With the virtual network created, you can retrieve the IDs for the infrastructure subnet.
+With the virtual network created, you can retrieve the ID for the infrastructure subnet.
 
 # [Bash](#tab/bash)
 
