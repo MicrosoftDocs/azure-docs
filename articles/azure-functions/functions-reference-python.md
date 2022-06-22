@@ -136,7 +136,7 @@ from ..shared_code import my_first_helper_function #(deprecated beyond top-level
 
 ## Triggers and inputs
 
-Inputs are divided into two categories in Azure Functions: trigger input and other input. Although they're different in the *function.json* file, usage is identical in Python code. When functions are running locally, connection strings or secrets for trigger and input sources map to values in the *local.settings.json* file. When functions are running in Azure, those connection strings or secrets map to values in the application settings.
+Inputs are divided into two categories in Azure Functions: trigger input and other binding input. Although they're different in the *function.json* file, usage is identical in Python code. When functions are running locally, connection strings or secrets required by trigger and input sources are maintained in the `Values` collection of the *local.settings.json* file. When functions are running in Azure, those same connection strings or secrets are stored securely as [application settings](functions-how-to-use-azure-function-app-settings.md#settings).
 
 The following example code demonstrates the difference between the two:
 
