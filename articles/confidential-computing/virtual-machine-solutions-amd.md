@@ -24,7 +24,7 @@ You can create confidential VMs that run on AMD processors in the following size
 
 | Size family          | Description                                                                         |
 | ------------------ | ----------------------------------------------------------------------------------- |
-| **DCasv5-series**  | Confidential VM with remote storage only. No local temporary desk.                  |
+| **DCasv5-series**  | Confidential VM with remote storage only. No local temporary disk.                  |
 | **DCadsv5-series** | Confidential VM with a local temporary disk.                                        |
 | **ECasv5-series**  | Memory-optimized confidential VM with remote storage only. No local temporary disk. |
 | **ECadsv5-series** | Memory-optimized confidential VM with a local temporary disk.                       |
