@@ -72,14 +72,12 @@ When the deployment finishes, you should see a message indicating the deployment
 
 Although IIS isn't required to create the application gateway, it's installed on the backend servers to verify if Azure successfully created a WAF v2 on the application gateway.
 
-Use IIS and Azure PowerShell to test the application gateway:
+Use IIS to test the application gateway:
 
 1. Find the public IP address for the application gateway on its **Overview** page.![Record application gateway public IP address](../../application-gateway/media/application-gateway-create-gateway-bicep/application-gateway-record-ag-address-bicep.png).
 2. Copy the public IP address, and then paste it into the address bar of your browser to browse that IP address.
 3. Check the response. A **403 Forbidden** response verifies that the WAF was successfully created and is blocking connections to the backend pool.
-4. Change the custom rule to **Allow traffic** using Azure CLI or Azure PowerShell, replacing your resource group name.
-
-    # PowerShell
+4. Change the custom rule to **Allow traffic** using Azure PowerShell.
 
     ```azurepowershell
     
