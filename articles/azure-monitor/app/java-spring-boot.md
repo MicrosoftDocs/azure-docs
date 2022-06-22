@@ -70,4 +70,4 @@ If you want to use a JSON configuration:
 
 
 > [!TIP]
-> To allow potential investigations on Application Insights agent for Java, please provide a  path to `applicationinsights.log`. More on [this page](../app/java-standalone-config.md) in the _Self-diagnostics_ part.
+> With a programmatic configuration, the `applicationinsights.log` file containing the agent logs is located in the directory from where the JVM is launched (user directory). This default behavior can be changed (see the _Self-diagnostics_ part of [this page](../app/java-standalone-config.md)).
