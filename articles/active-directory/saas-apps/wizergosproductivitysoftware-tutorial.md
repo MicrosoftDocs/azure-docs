@@ -190,7 +190,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 ### Create Wizergos Productivity Software test user
 
-In this section, you create a user called Britta Simon in Wizergos Productivity Software. Work with [Wizergos Productivity Software support team](mailTo:support@wizergos.com) to add the users in the Wizergos Productivity Software platform.
+In this section, you create a user called Britta Simon in Wizergos Productivity Software. Work with [Wizergos Productivity Software support team](mailto:support@wizergos.com) to add the users in the Wizergos Productivity Software platform.
 
 ### Test single sign-on 
 
