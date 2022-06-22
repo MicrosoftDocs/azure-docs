@@ -45,11 +45,18 @@ export HTTPS_PROXY=myserver:8080
 
 ## Exporting proxy settings on nodes
 
-If the nodes started by CycleCloud also need to have traffic routed through a proxy server, modify the [configuration](~/cluster-references/configuration-reference.md) section of a cluster definition to change the proxy settings.
+If the nodes started by CycleCloud also need to have traffic routed through a proxy server, we suggest the use of [cloud-init](~/how-to/cloud-init.md) to help configure your proxy settings as needed. For example:
 
 ```ini
-[[[configuration]]]
-http_proxy = 10.0.0.1
-https_proxy = 10.0.0.1
-no_proxy = 169.254.169.254
+[node scheduler]
+CloudInit = '''#cloud-config
+write_files:
+- content: |
+    export http_proxy=10.12.0.5:3128
+    export https_proxy=10.12.0.5:3128
+    export no_proxy=169.254.169.254  # special rule exempting Azure metadata URL from proxy
+  owner: root:root
+  permissions: '0644'
+  path: /etc/profile.d/proxy.sh
+'''
 ```
