@@ -15,19 +15,19 @@ This article lists limits in different areas of Azure Fluid Relay.
 
 ## Distributed Data Structures
 
-The Fluid Framework offers a variety of [distributed data structures (DDSes)](https://fluidframework.com/docs/data-structures/overview/). The Azure Fluid Relay does not support the [experimental DDSes](https://fluidframework.com/docs/data-structures/experimental/).
+The Fluid Framework offers various [distributed data structures (DDSes)](https://fluidframework.com/docs/data-structures/overview/). The Azure Fluid Relay doesn't support the [experimental DDSes](https://fluidframework.com/docs/data-structures/experimental/).
 
 ## Fluid sessions
 
-The maximum number of simultaneous users in one session on Azure Fluid Relay is 100 users. Note that this is simultaneous users. What this means is that the 101st user will not be allowed to join the session, but if a few users leave the session, that user will be able to join because the number of simultaneous users at that point will be less than the limit. 
+The maximum number of simultaneous users in one session on Azure Fluid Relay is 100 users. This limit is on simultaneous users. What this means is that the 101st user won't be allowed to join the session. But if a few users leave the session, that user will be able to join because the number of simultaneous users at that point will be less than the limit. 
 
 ## Fluid Summaries
 
-Incremental summaries that can be uploaded to Azure Fluid Relay cannot exceed 28 MB in size. More info [here](https://fluidframework.com/docs/concepts/summarizer).
+Incremental summaries that can be uploaded to Azure Fluid Relay can't exceed 28 MB in size. More info [here](https://fluidframework.com/docs/concepts/summarizer).
 
 ## Signals
 
-The Fluid Framework has a concept of Signals that can be sent to participating clients in the session. More info [here](https://fluidframework.com/docs/concepts/signals/). The Azure Fluid Relay does not support the Signals.
+The Fluid Framework has a concept of Signals that can be sent to participating clients in the session. More info [here](https://fluidframework.com/docs/concepts/signals/). The Azure Fluid Relay doesn't support the Signals.
 
 ## Need help?
 
