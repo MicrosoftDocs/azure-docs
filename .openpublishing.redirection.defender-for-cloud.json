@@ -586,12 +586,12 @@
             "redirect_document_id": true
         },
         {
-            "source_path_from_root": "/articles/defender-for-cloud/quickstart-enable-database-protections.md",
-            "redirect_url": "/azure/defender-for-cloud/defender-for-sql-enable-azure-sql-protections",
+            "source_path_from_root": "/articles/defender-for-cloud/defender-for-sql-enable-azure-sql-protections.md",
+            "redirect_url": "/azure/defender-for-cloud/quickstart-enable-database-protections",
             "redirect_document_id": true
         },
         {
-            "source_path_from_root": "/articles/defender-for-cloud/quickstart-enable-defender-for-cosmos.md ",
+            "source_path_from_root": "/articles/defender-for-cloud/quickstart-enable-defender-for-cosmos.md",
             "redirect_url": "/azure/defender-for-cloud/defender-for-databases-enable-cosmos-protections",
             "redirect_document_id": true
         },
