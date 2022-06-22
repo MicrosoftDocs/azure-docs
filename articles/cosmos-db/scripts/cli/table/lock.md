@@ -65,8 +65,8 @@ az group delete --name $resourceGroup
 
 ## Next steps
 
-- [Prevent Azure Cosmos DB resources from being deleted or changed](../../resource-locks.md)
+- [Prevent Azure Cosmos DB resources from being deleted or changed](../../../resource-locks.md)
 - [Lock resources to prevent unexpected changes](/azure/azure-resource-manager/management/lock-resources)
-- [How to audit Azure Cosmos DB control plane operations](../../audit-control-plane-logs.md)
+- [How to audit Azure Cosmos DB control plane operations](../../../audit-control-plane-logs.md)
 - [Azure Cosmos DB CLI documentation](/cli/azure/cosmosdb)
 - [Azure Cosmos DB CLI GitHub repository](https://github.com/Azure-Samples/azure-cli-samples/tree/master/cosmosdb)
