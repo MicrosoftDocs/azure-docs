@@ -30,7 +30,7 @@ You define app roles by using the [Azure portal](https://portal.azure.com) durin
 > [!IMPORTANT]
 > Currently if you add a service principal to a group, and then assign an app role to that group, Azure AD does not add the `roles` claim to tokens it issues.
 
-App roles are declared using the app roles by using[App roles UI](#app-roles-ui) in the Azure portal:
+App roles are declared using the app roles by using [App roles UI](#app-roles-ui) in the Azure portal:
 
 The number of roles you add counts toward application manifest limits enforced by Azure Active Directory. For information about these limits, see the [Manifest limits](./reference-app-manifest.md#manifest-limits) section of [Azure Active Directory app manifest reference](reference-app-manifest.md).
 
