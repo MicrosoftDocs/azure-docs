@@ -45,6 +45,9 @@ To use the [portal](https://portal.azure.com):
    1. Select **PGAUDIT**.
    
       :::image type="content" source="./media/concepts-audit/share-preload-parameter.png" alt-text="Screenshot that shows Azure Database for PostgreSQL enabling shared_preload_libraries for PGAUDIT.":::
+      
+   1. Search for **azure.extensions**.
+   2. Select **PGAUDIT**.
 
    1. Restart the server to apply the change.
    1. Check that `pgaudit` is loaded in `shared_preload_libraries` by executing the following query in psql:
