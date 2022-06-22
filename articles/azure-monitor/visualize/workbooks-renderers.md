@@ -1,16 +1,14 @@
 ---
-title: Azure Workbook renderers
-description: Learn about all the Azure Monitor workbook renderers.
+title: Azure Workbook rendering options
+description: Learn about all the Azure Monitor workbook rendering options.
 services: azure-monitor
 ms.topic: conceptual
 ms.date: 06/22/2022
 ms.author: abbyweisberg
 ---
 
-# Renderers
-These renders can be used with grids, tiles, and graphs to produce the visualizations in optimal format.
-
-
+# Rendering Options
+These rendering options can be used with grids, tiles, and graphs to produce the visualizations in optimal format.
 ## Column renderers
 
 | Column Renderer | Explanation | Additional Options |
@@ -25,7 +23,7 @@ These renders can be used with grids, tiles, and graphs to produce the visualiza
 | Composite bar| Renders a composite bar using the specified columns in that row. Refer [Composite Bar](workbooks-composite-bar.md) for details. | Columns with corresponding colors to render the bar and a label to display at the top of the bar. |
 |Spark bars| Renders a spark bar in the cell based on the values of a dynamic array in the cell. For example, the Trend column from the screenshot at the top. | Color palette and min/max value used for scaling. |
 |Spark lines| Renders a spark line in the cell based on the values of a dynamic array in the cell. | Color palette and min/max value used for scaling. |
-|Icon| Renders icons based on the text values in the cell. Supported values include:<br><ul><li>cancelled</li><li>critical</li><li>disabled</li><li>error</li><li>failed</li> <li>info</li><li>none</li><li>pending</li><li>stopped</li><li>question</li><li>success</li><li>unknown</li><li>warning</li><li>uninitialized</li><li>resource</li><li>up</li> <li>down</li><li>left</li><li>right</li><li>trendup</li><li>trenddown</li><li>4</li><li>3</li><li>2</li><li>1</li><li>Sev0</li><li>Sev1</li><li>Sev2</li><li>Sev3</li><li>Sev4</li><li>Fired</li><li>Resolved</li><li>Available</li><li>Unavailable</li><li>Degraded</li><li>Unknown</li><li>Blank</li></ul>.|  |
+|Icon| Renders icons based on the text values in the cell. Supported values include:<br><ul><li>cancelled</li><li>critical</li><li>disabled</li><li>error</li><li>failed</li> <li>info</li><li>none</li><li>pending</li><li>stopped</li><li>question</li><li>success</li><li>unknown</li><li>warning</li><li>uninitialized</li><li>resource</li><li>up</li> <li>down</li><li>left</li><li>right</li><li>trendup</li><li>trenddown</li><li>4</li><li>3</li><li>2</li><li>1</li><li>Sev0</li><li>Sev1</li><li>Sev2</li><li>Sev3</li><li>Sev4</li><li>Fired</li><li>Resolved</li><li>Available</li><li>Unavailable</li><li>Degraded</li><li>Unknown</li><li>Blank</li></ul>|  |
 | Link | Renders a link that when clicked or performs a configurable action. Use this if you **only** want the item to be a link.  Any of the other types can *also* be a link by using the **Make this item a link** setting. For more information see [Link Actions](#link-actions) below. |  |
 | Location | Renders a friendly Azure region name based on a region ids. |  |
 | Resource type | Renders a friendly resource type string based on a resource type id  |  |
@@ -47,13 +45,13 @@ The instructions below will show you how to use thresholds with links to assign 
 1. Change the **Data source** to "JSON" and **Visualization** to "Grid".
 1. Enter the following query.
 
-```json
-[ 
-    { "name": "warning", "link": "Community-Workbooks/Performance/Performance Counter Analysis" },
-    { "name": "info", "link": "Community-Workbooks/Performance/Performance Insights" },
-    { "name": "error", "link": "Community-Workbooks/Performance/Apdex" }
-]
-```
+  ```json
+    [ 
+        { "name": "warning", "link": "Community-Workbooks/Performance/Performance Counter Analysis" },
+        { "name": "info", "link": "Community-Workbooks/Performance/Performance Insights" },
+        { "name": "error", "link": "Community-Workbooks/Performance/Apdex" }
+    ]
+  ```
 
 1. Run query.
 1. Select **Column Settings** to open the settings.
@@ -77,10 +75,10 @@ The instructions below will show you how to use thresholds with links to assign 
         - Under **Template Id comes from**, choose **Column**.
         - Under **Column** choose **link**.
 
-    ![Screenshot of link settings with the above settings.](./media/workbooks-grid-visualizations/make-this-item-a-link.png)
+  ![Screenshot of link settings with the above settings.](./media/workbooks-grid-visualizations/make-this-item-a-link.png)
 
-1. Select "link" from **Columns**. Under Settings next to **Column renderer**, select **(Hide column)**.
-1. To change the display name of the "name" column select the **Labels** tab. On the row with "name" as its **Column ID**, under **Column Label** enter the name you want displayed.
+1. Select **link** from **Columns**. Under **Settings**, next to **Column renderer**, select **(Hide column)**.
+1. To change the display name of the **name** column select the **Labels** tab. On the row with **name** as its **Column ID**, under **Column Label** enter the name you want displayed.
 2. Select **Apply**.
 
-![Screenshot of a thresholds in grid with the above settings](./media/workbooks-grid-visualizations/thresholds-workbooks-links.png)
+  ![Screenshot of a thresholds in grid with the above settings](./media/workbooks-grid-visualizations/thresholds-workbooks-links.png)
