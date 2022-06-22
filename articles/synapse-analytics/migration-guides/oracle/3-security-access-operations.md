@@ -71,23 +71,23 @@ Azure Synapse supports two basic options for connection and authorization: SQL a
 
 ### Users, roles, and permissions
 
-Both Oracle and Azure Synapse implement database access control via a combination of users, roles, and permissions. You can use standard SQL CREATE USER and CREATE ROLE/GROUP statements to define users and roles. GRANT and REVOKE statements assign or remove permissions to those users and/or roles.
+Both Oracle and Azure Synapse implement database access control via a combination of users, roles, and permissions. You can use standard `SQL CREATE USER` and `CREATE ROLE/GROUP` statements to define users and roles. `GRANT` and `REVOKE` statements assign or remove permissions to those users and/or roles.
 
 > [!TIP]
 > Planning is essential for a successful migration project, starting with high-level approach decisions.
 
-Conceptually, the two databases are similar, and it might be possible to automate the migration of existing user IDs, groups, and permissions to some degree. Extract the legacy user and group information from the Oracle system catalog tables, then generate matching equivalent CREATE USER and CREATE ROLE statements to be run in Azure Synapse to recreate the same user/role hierarchy.
+Conceptually, the two databases are similar, and it might be possible to automate the migration of existing user IDs, groups, and permissions to some degree. Extract the legacy user and group information from the Oracle system catalog tables, then generate matching equivalent `CREATE USER` and `CREATE ROLE` statements to be run in Azure Synapse to recreate the same user/role hierarchy.
 
 > [!TIP] 
 > If possible, automate migration processes to reduce elapsed time and scope for error.
 
-After data extraction, use Oracle system catalog tables to generate equivalent GRANT statements to assign permissions (where an equivalent one exists).
+After data extraction, use Oracle system catalog tables to generate equivalent `GRANT` statements to assign permissions (where an equivalent one exists).
 
 :::image type="content" source="../media/3-security-access-operations/automating-migration-privileges.png" border="true" alt-text="Chart showing how to automate the migration of privileges from an existing system.":::
 
 #### Users and roles
 
-The information about current users and groups in an Oracle system is held in system catalog views ALL_USERS or DBA_USERS. These views can be queried in the normal way via SQL\*Plus or SQL Developer.
+The information about current users and groups in an Oracle system is held in system catalog views `ALL_USERS` or `DBA_USERS`. These views can be queried in the normal way via SQL\*Plus or SQL Developer.
 
 Basic examples include:
 
@@ -106,7 +106,7 @@ SQL Developer also has built-in options to display this information in the Repor
 
 :::image type="content" source="../media/3-security-access-operations/oracle-sql-developer-reports-1.png" border="true" alt-text="Screenshot showing a Reports view for user roles in Oracle SQL Developer.":::
 
-You can modify the example SELECT statement to produce a result set that is a series of CREATE USER and CREATE GROUP statements. Simply include the appropriate text as a literal within the SELECT statement.
+You can modify the example `SELECT` statement to produce a result set that is a series of `CREATE USER` and `CREATE GROUP` statements. Simply include the appropriate text as a literal within the `SELECT` statement.
 
 There's no way to retrieve existing passwords, so you need to implement a scheme for allocating new initial passwords on Azure Synapse.
 
@@ -115,11 +115,11 @@ There's no way to retrieve existing passwords, so you need to implement a scheme
 
 #### Permissions
 
-In an Oracle system, the system view DBA_ROLE_PRIVS holds the access rights for users and roles. Query these tables (if the user has SELECT access to those tables) to obtain current lists of access rights defined within the system.
+In an Oracle system, the system view `DBA_ROLE_PRIVS` holds the access rights for users and roles. Query these tables (if the user has `SELECT` access to those tables) to obtain current lists of access rights defined within the system.
 
 :::image type="content" source="../media/3-security-access-operations/oracle-sql-developer-reports-2.png" border="true" alt-text="Screenshot showing a Reports view for user access rights in Oracle SQL Developer.":::
 
-You can create queries to produce a script that's a series of CREATE and GRANT statements for Azure Synapse, based on the existing Oracle privileges:
+You can create queries to produce a script that's a series of `CREATE` and `GRANT` statements for Azure Synapse, based on the existing Oracle privileges:
 
 :::image type="content" source="../media/3-security-access-operations/oracle-sql-developer-reports-3.png" border="true" alt-text="Screenshot showing how to create a script of CREATE and GRANT statements in Oracle SQL Developer.":::
 
@@ -152,9 +152,9 @@ Oracle supports various types of privilege:
 
 **View privileges**: You can apply DML object privileges to views, similar to tables. These privileges can be mapped directly to their equivalent in Azure Synapse.
 
-**Procedure privileges**: Procedures, including standalone procedures and functions, can be granted to the EXECUTE privilege. They can be mapped directly to their equivalent in Azure Synapse.
+**Procedure privileges**: Procedures, including standalone procedures and functions, can be granted to the `EXECUTE` privilege. They can be mapped directly to their equivalent in Azure Synapse.
 
-**Type privileges**: You can grant system privileges to named types (object types, VARRAYs, and nested tables). These privileges are typically specific to Oracle features that have no equivalent in Azure Synapse.
+**Type privileges**: You can grant system privileges to named types (object types, `VARRAYs`, and nested tables). These privileges are typically specific to Oracle features that have no equivalent in Azure Synapse.
 
 > [!TIP] 
 > There are equivalent Azure Synapse permissions for basic database operations such as DML and DDL.
@@ -192,19 +192,19 @@ For more details about Azure Synapse permissions, see [Database engine permissio
 
 #### Migrating users, roles, and privileges
 
-You've seen that CREATE USER, CREATE ROLE, and GRANT SQL commands are commonly used to create and manage users, roles, and privileges in Oracle and Azure Synapse. While many Oracle-specific operations, typically involving system management, also have grantable privileges, these operations don't need to be migrated to Synapse since they're either not applicable or the equivalent functionality is automatic or managed outside the database.
+You've seen that `CREATE USER`, `CREATE ROLE`, and `GRANT SQL` commands are commonly used to create and manage users, roles, and privileges in Oracle and Azure Synapse. While many Oracle-specific operations, typically involving system management, also have grantable privileges, these operations don't need to be migrated to Synapse since they're either not applicable or the equivalent functionality is automatic or managed outside the database.
 
 However, at the core of an Oracle data warehouse, there's a subset of privileges that have a direct equivalent in the Azure Synapse environment. You can automate the migration of these privileges. If you intend to maintain the existing environment in terms of users, roles, and privileges into the new Azure Synapse environment, you can automate migration using the following process:
 
 1. Migrate Oracle schema, table, and view definitions to Synapse environment. At this point, only the table definitions are required. For example, no data needs to be moved.
 
-2. Extract the existing user IDs for migration from the Oracle system tables, generate a script of CREATE USER statements for Synapse, and then run that script. Passwords can't be extracted, so some method of generating new initial passwords must be incorporated.
+2. Extract the existing user IDs for migration from the Oracle system tables, generate a script of `CREATE USER` statements for Synapse, and then run that script. Passwords can't be extracted, so some method of generating new initial passwords must be incorporated.
 
-3. Extract the existing roles from the Oracle system tables, generate a script of equivalent CREATE ROLE statements, and then run this script in the Synapse environment.
+3. Extract the existing roles from the Oracle system tables, generate a script of equivalent `CREATE ROLE` statements, and then run this script in the Synapse environment.
 
-4. Extract the user/role combinations from the Oracle system tables, generate a script with the equivalent GRANT or roles to users in Synapse, and then run that script.
+4. Extract the user/role combinations from the Oracle system tables, generate a script with the equivalent `GRANT` or roles to users in Synapse, and then run that script.
 
-5. Finally, extract the relevant privilege information from the Oracle system tables, then generate a script to GRANT the appropriate privileges to the users and roles in Synapse.
+5. Finally, extract the relevant privilege information from the Oracle system tables, then generate a script to `GRANT` the appropriate privileges to the users and roles in Synapse.
 
 ## Operational considerations
 
@@ -237,14 +237,14 @@ The following sections compare Oracle and Azure Synapse options for various oper
 
 ### Housekeeping tasks
 
-In most legacy data warehouse environments, regular "housekeeping" tasks are time-consuming. You can reclaim disk storage space by removing old versions of updated or deleted rows, or by reorganizing data, log files, or index blocks for efficiency (for example, ALTER TABLE.... SHRINK SPACE in Oracle).
+In most legacy data warehouse environments, regular "housekeeping" tasks are time-consuming. You can reclaim disk storage space by removing old versions of updated or deleted rows, or by reorganizing data, log files, or index blocks for efficiency (for example, `ALTER TABLE`.... `SHRINK SPACE` in Oracle).
 
 > [!TIP]
 > Housekeeping tasks keep a production warehouse operating efficiently and optimize use of resources such as storage.
 
 Collecting statistics is also a potentially time-consuming task, required after a bulk data ingest to provide the query optimizer with up-to-date data on which to base query execution plans.
 
-Oracle introduced a feature called the [Optimizer Statistics Advisor](https://docs.oracle.com/en/database/oracle/oracle-database/19/tgsql/optimizer-statistics-advisor.html), which works through a list of rules provided by Oracle that represent "best practices" for optimizer statistics. The advisor checks each rule and, where necessary, generates findings, recommendations, and actions that involve calls to the DBMS_STATS package to take corrective measures. The list of rules can be displayed using the V$STATS_ADVISOR_RULES view as shown:
+Oracle introduced a feature called the [Optimizer Statistics Advisor](https://docs.oracle.com/en/database/oracle/oracle-database/19/tgsql/optimizer-statistics-advisor.html), which works through a list of rules provided by Oracle that represent "best practices" for optimizer statistics. The advisor checks each rule and, where necessary, generates findings, recommendations, and actions that involve calls to the `DBMS_STATS` package to take corrective measures. The list of rules can be displayed using the `V$STATS_ADVISOR_RULES` view as shown:
 
 :::image type="content" source="../media/3-security-access-operations/optimizer-statistics-advisor-rules.png" border="true" alt-text="Screenshot showing how to display a list of rules by using the Optimizer Statistics Advisor.":::
 
