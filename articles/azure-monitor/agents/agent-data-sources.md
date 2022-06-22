@@ -12,7 +12,7 @@ ms.reviewer: luki
 # Log Analytics agent data sources in Azure Monitor
 The data that Azure Monitor collects from virtual machines with the legacy [Log Analytics](./log-analytics-agent.md) agent is defined by the data sources that you configure on the [Log Analytics workspace](../logs/data-platform-logs.md).   Each data source creates records of a particular type with each type having its own set of properties.
 
-[!INCLUDE [Log Analytics agent deprecation](../log-analytics-agent-deprecation.md)]
+[!INCLUDE [Log Analytics agent deprecation](../../../includes/log-analytics-agent-deprecation.md)]
 
 ![Log data collection](media/agent-data-sources/overview.png)
 
