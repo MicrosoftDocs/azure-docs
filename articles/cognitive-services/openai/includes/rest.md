@@ -43,23 +43,25 @@ Create a new python file called quickstart.py. Then open it up in your preferred
     import os
     import requests
     import json
+
     apiKey = "REPLACE_WITH_YOUR_API_KEY_HERE"
     base_url = "REPLACE_WITH_YOUR_ENDPOINT_HERE"
     deploymentName ="REPLACE_WITH_YOUR_DEPLOYMENT_NAME_HERE"
 
     url = base_url + "openai/deployments/" + deploymentName + "/completions?api-version=2022-06-01-preview"
-        prompt = "Once upon a time"
-        payload = {        
-            "prompt":prompt
+    prompt = "Once upon a time"
+    payload = {        
+        "prompt":prompt
         }
 
-        r = requests.post(url, 
+    r = requests.post(url, 
           headers={
             "api-key": apiKey,
             "Content-Type": "application/json"
           },
           json = payload
         )
+
     response = json.loads(r.text)
     formatted_response = json.dumps(response, indent=4)
 
