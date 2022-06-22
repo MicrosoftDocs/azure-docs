@@ -19,6 +19,10 @@ This article explains the concept of Face recognition, its related operations, a
 
 Verification is one-to-one matching that takes two faces and returns whether they are the same face, and identification is one-to-many matching that takes a single face as input and returns a set of matching candidates. Face recognition is important in implementing the identity verification scenario, which enterprises and apps can use to verify that a (remote) user is who they claim to be.
 
+Try out the capabilities of face recognition quickly and easily using Vision Studio.
+> [!div class="nextstepaction"]
+> [Try Vision Studio](https://vision.cognitive.azure.com/)
+
 ## Related data structures
 
 The recognition operations use mainly the following data structures. These objects are stored in the cloud and can be referenced by their ID strings. ID strings are always unique within a subscription, but name fields may be duplicated.
