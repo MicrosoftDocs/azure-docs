@@ -4,7 +4,7 @@ description: Learn about controlling throughput for bulk data movements in the A
 author: TheovanKraay
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/22/2022
 ms.author: thvankra
 
@@ -13,7 +13,7 @@ ms.author: thvankra
 # Azure Cosmos DB Spark Connector - throughput control
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
 
-The [Spark Connector](create-sql-api-spark.md) allows you to communicate with Azure Cosmos DB using Apache Spark. This article describes how to use the throughput control feature. Check out our [Spark samples in GitHub](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/cosmos/azure-cosmos-spark_3_2-12/Samples), which all make use of throughput control.
+The [Spark Connector](create-sql-api-spark.md) allows you to communicate with Azure Cosmos DB using [Apache Spark](https://spark.apache.org/). This article describes how the throughput control feature works. Check out our [Spark samples in GitHub](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/cosmos/azure-cosmos-spark_3_2-12/Samples) to get started using throughput control.
 
 ## Why is throughput control important?
 
@@ -32,10 +32,11 @@ Throughput control enables the capability for more granular level RU rate limiti
 
 ## How does throughput control work?
 
-Throughput control for the Spark Connector is configured by first creating a container that will define throughput control metadata, with a partition key of `groupId`, and `ttl` enabled. Here we create this container, and call it `ThroughputControl`:
+Throughput control for the Spark Connector is configured by first creating a container that will define throughput control metadata, with a partition key of `groupId`, and `ttl` enabled. Here we create this container using Spark SQL, and call it `ThroughputControl`:
 
 
-```scala
+```sql
+    %sql
     CREATE TABLE IF NOT EXISTS cosmosCatalog.`database-v4`.ThroughputControl 
     USING cosmos.oltp
     OPTIONS(spark.cosmos.database = 'database-v4')
