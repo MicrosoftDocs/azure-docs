@@ -1,18 +1,18 @@
 ---
-title: Tutorial - Visualize IoT device data from IoT Hub using Azure Web PubSub service and Azure Functions
-description: A tutorial to walk through how to use Azure Web PubSub service and Azure Functions to monitor device data from IoT Hub.
+title: Tutorial - Visualize IoT device data from IoT Hub by using Azure Web PubSub service and Azure Functions
+description: A tutorial for how to use Azure Web PubSub service and Azure Functions to monitor device data from IoT Hub.
 author: vicancy
 ms.author: lianwei
 ms.service: azure-web-pubsub
 ms.topic: tutorial 
-ms.date: 06/01/2022
+ms.date: 06/17/2022
 ---
 
 # Tutorial: Visualize IoT device data from IoT Hub using Azure Web PubSub service and Azure Functions
 
-In this tutorial, you learn how to use Azure Web PubSub service and Azure Functions to build a serverless application with real-time data visualization from IoT Hub. 
+In this tutorial, you'll learn how to use Azure Web PubSub service and Azure Functions to build a serverless application with real-time data visualization from IoT Hub.
 
-In this tutorial, you learn how to:
+In this tutorial you will:
 
 > [!div class="checklist"]
 > * Build a serverless data visualization app
@@ -22,7 +22,6 @@ In this tutorial, you learn how to:
 ## Prerequisites
 
 # [JavaScript](#tab/javascript)
-
 * A code editor, such as [Visual Studio Code](https://code.visualstudio.com/)
 
 * [Node.js](https://nodejs.org/en/download/), version 10.x.
@@ -68,11 +67,12 @@ If you already have a Web PubSub instance in your Azure subscription, you can sk
 ```
 
 3. Create an `index` function to read and host a static web page for clients.
+
     ```bash
     func new -n index -t HttpTrigger
     ```
    # [JavaScript](#tab/javascript)
-   - Update `index/index.js` with following code that serve the html content as a static site.
+   -  `index/index.js` with following code that serve the html content as a static site.
         ```js
         var fs = require("fs");
         var path = require("path");
