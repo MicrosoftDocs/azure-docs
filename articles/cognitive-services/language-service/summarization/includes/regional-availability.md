@@ -11,7 +11,7 @@ ms.custom: references_regions
 ---
 
 > [!NOTE]
-> For document summarization and conversation summarisation:
+> For document summarization and conversation summarization:
 > * These features are only available through Language resources in the following regions:
 >     * North Europe
 >     * East US
