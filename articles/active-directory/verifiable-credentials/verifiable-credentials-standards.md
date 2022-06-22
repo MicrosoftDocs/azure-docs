@@ -7,7 +7,7 @@ manager: rkarlin
 ms.service: decentralized-identity
 ms.subservice: verifiable-credentials
 ms.topic: how-to
-ms.date: 06/16/2021
+ms.date: 06/22/2022
 ms.author: barclayn
 # Customer intent: As a developer I am looking for information around the open standards supported by Microsoft Entra verified ID
 ---
@@ -52,7 +52,8 @@ Entra Verified ID supports the following Key Types for the JWS signature verific
 |Ed25519|EdDSA|
 
 ## Interoperability
-Microsoft is also collaborating with organizations that are members of Decentralized Identity Foundation (DIF), the W3C Credentials Community Group, and the wider identity community to build Verifiable Credentials Interoperability profile to support standards based issuance, revocation, presentation and wallet portability.
+
+Microsoft is collaborating with organizations members of Decentralized Identity Foundation (DIF), the W3C Credentials Community Group, and the wider identity community. Our collaboration efforts aim to build a Verifiable Credentials Interoperability profile to support standards based issuance, revocation, presentation and wallet portability.
 
 Today, we have a working JWT VC presentation profile that supports interoperable presentation of Verifiable Credentials between Wallets and Verifiers/RPs. Join us at DIF Claims and Credentials working group: [aka.ms/vcinterop](https://aka.ms/vcinterop)
 
