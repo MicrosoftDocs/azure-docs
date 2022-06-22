@@ -240,22 +240,11 @@ The single-tenant model and **Logic App (Standard)** resource type include many 
 
 ## Built-in connectors for Standard
 
-In single-tenant Azure Logic Apps, a [built-in connector with specific attributes](custom-connector-overview.md#service-provider-interface-implementation) is called a *service provider*. Some built-in connectors support only a single way to authenticate a connection to the underlying service. Other built-in connectors can offer a choice, such as using a connection string, Azure Active Directory (Azure AD), or a managed identity. All built-in connectors run in the same process as the redesigned Azure Logic Apps runtime.
+A Standard logic app workflow has many of the same built-in connectors as a Consumption logic app workflow, but not all. Vice versa, a Standard logic app workflow has many built-in connectors that aren't available in a Consumption logic app workflow.
 
-The following list contains the current and expanding gallery of service provider-based built-in connectors available for Standard logic app workflows:
+For example, a Standard logic app workflow has both managed connectors and built-in connectors for Azure Blob, Azure Cosmos DB, Azure Event Hubs, Azure Service Bus, DB2, FTP, MQ, SFTP, SQL Server, and others. Although a Consumption logic app workflow doesn't have these same built-in connector versions, other built-in connectors such as Azure API Management, Azure App Services, and Batch, are available.
 
-* Azure Blob
-* Azure Cosmos DB
-* Azure Queue
-* Azure Table Storage
-* DB2
-* Event Hubs
-* FTP
-* IBM Host File
-* MQ
-* Service Bus
-* SFTP
-* SQL server
+In single-tenant Azure Logic Apps, [built-in connectors with specific attributes are informally known as *service providers*](custom-connector-overview.md#service-provider-interface-implementation). Some built-in connectors support only a single way to authenticate a connection to the underlying service. Other built-in connectors can offer a choice, such as using a connection string, Azure Active Directory (Azure AD), or a managed identity. All built-in connectors run in the same process as the redesigned Azure Logic Apps runtime. For more information, review the [built-in connector list for Standard logic app workflows](../connectors/built-in.md).
 
 <a name="limited-unavailable-unsupported"></a>
 
