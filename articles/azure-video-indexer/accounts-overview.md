@@ -10,6 +10,23 @@ ms.author: juliako
 
 This article gives an overview of Azure Video Indexer accounts and provides links to other articles for more details.
 
+## Differences between classic, ARM, trial accounts
+
+A trail Azure Video Indexer account has limitation on number of videos, support and SLA. Classic and ARM (Azure resource manager) are both paid account with same capabilities and pricing, the only difference is that classic accounts are managed by Azure Video Indexer and ARM account are managed by Azure resource manager.
+
+### Indexing
+
+* Free trial account: up to 10 hours of free indexing for website users, and up to 40 hours of free indexing for API users.
+* Paid unlimited account: for larger scale indexing, create a new Video Indexer account connected to a paid Microsoft Azure subscription.
+
+For more details, see [Pricing](https://azure.microsoft.com/en-us/pricing/details/video-indexer/).
+
+### Create accounts
+
+* [Get started with Azure Video Indexer in Azure portal](create-account-portal.md)
+* [Create classic accounts](connect-to-azure.md)
+* [Connect an existing classic paid Azure Video Indexer account to ARM-based account](connect-classic-account-to-arm.md)
+
 ## Limited access features
 
 This section talks about limited access features in Azure Video Indexer.
@@ -23,3 +40,4 @@ This section talks about limited access features in Azure Video Indexer.
 
 ## Next steps
 
+[Pricing](https://azure.microsoft.com/en-us/pricing/details/video-indexer/)
