@@ -598,7 +598,15 @@ That's it, congratulations! You have learned to use the Translator service to tr
 
 ## Next step
 
- Explore the how-to documentation to learn about more Translation service capabilities:
+ Explore how-to documentation and dive deeper into Translation service capabilities:
 
-> [!div class="nextstepaction"]
-> [Use Text Translation APIs](translator-text-apis.md)
+* [**Translate text**](translator-text-apis#translate-text)
+
+* [**Transliterate text**](translator-text-apis#transliterate-text)
+
+* [**Detect and identify language**](translator-text-apis#detect-language)
+
+* [**Get sentence length**](translator-text-apis#get-sentence-length)
+
+* [**Dictionary lookup and alternate translations**](translator-text-apis#dictionary-examples-translations-in-context)
+
