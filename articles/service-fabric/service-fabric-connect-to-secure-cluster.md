@@ -208,6 +208,9 @@ static X509Credentials GetCredentials(string clientCertThumb, string serverCertT
 
 The following example uses Azure Active Directory for client identity and server certificate for server identity.
 
+> [!WARNING]
+>Prior to the Service Fabric SDK 9.0 release, interactive AAD login didn't work. Update to version 9.0 or later to make use of this feature.
+
 A dialog window automatically pops up for interactive sign-in upon connecting to the cluster.
 
 ```csharp
@@ -237,7 +240,7 @@ The following example relies on Microsoft.IdentityModel.Clients.ActiveDirectory,
 > [!IMPORTANT]
 > The [Microsoft.IdentityModel.Clients.ActiveDirectory](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory) NuGet package and Azure AD Authentication Library (ADAL) have been deprecated. No new features have been added since June 30, 2020.   We strongly encourage you to upgrade, see the [migration guide](../active-directory/develop/msal-migration.md) for more details.
 
-For more information on AAD token acquisition, see [Microsoft.Identity.Client](/dotnet/api/microsoft.identity.client?view=azure-dotnet).
+For more information on AAD token acquisition, see [Microsoft.Identity.Client](/dotnet/api/microsoft.identity.client?view=azure-dotnet&preserve-view=true).
 
 ```csharp
 string tenantId = "C15CFCEA-02C1-40DC-8466-FBD0EE0B05D2";
