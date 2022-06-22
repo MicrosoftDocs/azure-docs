@@ -59,7 +59,7 @@ First, you'll use the AdtSampleApp solution from the sample project to build the
 
 :::image type="content" source="media/tutorial-end-to-end/building-scenario-a.png" alt-text="Diagram of an excerpt from the full building scenario diagram highlighting the Azure Digital Twins instance section.":::
 
-In a local console window, navigate into the *AdtE2ESample\SampleClientApp* folder. Run the *SampleClientApp* project with this dotnet command:
+Open a local **console window** and navigate into the *digital-twins-samples-main\AdtE2ESample\SampleClientApp* folder. Run the *SampleClientApp* project with this dotnet command:
 
 ```cmd/sh
 dotnet run
@@ -86,7 +86,7 @@ You can verify the twins that were created by running the following command, whi
 Query
 ```
 
-You can now stop running the project. Keep the console window open at this location, though, as you'll use the project again later in the tutorial.
+You can now stop running the project. Keep the console window open at this location, though, as you'll use this app again later in the tutorial.
 
 ## Set up the sample function app
 
@@ -94,13 +94,13 @@ The next step is setting up an [Azure Functions app](../azure-functions/function
 * *ProcessHubToDTEvents*: processes incoming IoT Hub data and updates Azure Digital Twins accordingly
 * *ProcessDTRoutedData*: processes data from digital twins, and updates the parent twins in Azure Digital Twins accordingly
 
-In this section, you'll publish the pre-written function app, and ensure the function app can access Azure Digital Twins by assigning it an Azure Active Directory (Azure AD) identity. Completing these steps will allow the rest of the tutorial to use the functions inside the function app. 
+In this section, you'll publish the pre-written function app, and ensure the function app can access Azure Digital Twins by assigning it an Azure Active Directory (Azure AD) identity.
 
-The function app is part of the sample project you downloaded, located in the *AdtE2ESample\SampleFunctionsApp* folder.
+The function app is part of the sample project you downloaded, located in the *digital-twins-samples-main\AdtE2ESample\SampleFunctionsApp* folder.
 
 ### Publish the app
 
-To publish the function app to Azure, you'll first need to create a storage account, then create the function app in Azure, and finally publish the functions to the Azure function app. This section completes these actions using the Azure CLI.
+To publish the function app to Azure, you'll need to create a storage account, then create the function app in Azure, and finally publish the functions to the Azure function app. This section completes these actions using the Azure CLI.
 
 1. Create an Azure storage account by running the following command:
 
@@ -116,17 +116,17 @@ To publish the function app to Azure, you'll first need to create a storage acco
 
 1. Next, you'll zip up the functions and publish them to your new Azure function app.
 
-    1. Open a console window on your machine, and navigate into the *AdtE2ESample\SampleFunctionsApp* folder inside your downloaded sample project.
+    1. Open a console window on your machine, and navigate into the *digital-twins-samples-main\AdtE2ESample\SampleFunctionsApp* folder inside your downloaded sample project.
     
-    1. In your command prompt, run the following command to publish the project locally:
+    1. In the console, run the following command to publish the project locally:
 
         ```cmd/sh
         dotnet publish -c Release
         ```
 
-        This command publishes the project to the *digital-twins-samples-master\AdtSampleApp\SampleFunctionsApp\bin\Release\netcoreapp3.1\publish* directory.
+        This command publishes the project to the *digital-twins-samples-main\AdtSampleApp\SampleFunctionsApp\bin\Release\netcoreapp3.1\publish* directory.
 
-    1. Create a zip of the published files that are located in the *digital-twins-samples-master\AdtSampleApp\SampleFunctionsApp\bin\Release\netcoreapp3.1\publish* directory. Name the zipped folder *publish.zip*.
+    1. Create a zip of the published files that are located in the *digital-twins-samples-main\AdtSampleApp\SampleFunctionsApp\bin\Release\netcoreapp3.1\publish* directory. Name the zipped folder *publish.zip*.
         
         >[!TIP] 
         >If you're using PowerShell, you can create the zip by copying the full path to that *\publish* directory and pasting it into the following command:
@@ -298,7 +298,7 @@ az iot hub device-identity connection-string show --device-id thermostat67 --hub
 
 Next, plug these values into the device simulator code in your local project to connect the simulator into this IoT hub and IoT hub device.
 
-Navigate on your local machine to the downloaded sample folder, and into the *DeviceSimulator\DeviceSimulator* folder. Open the *AzureIoTHub.cs* file for editing. Change the following connection string values to the values you gathered above:
+Navigate on your local machine to the downloaded sample folder, and into the *digital-twins-samples-main\DeviceSimulator\DeviceSimulator* folder. Open the *AzureIoTHub.cs* file for editing. Change the following connection string values to the values you gathered above:
 
 ```csharp
 iotHubConnectionString = <your-hub-connection-string>
@@ -307,7 +307,7 @@ deviceConnectionString = <your-device-connection-string>
 
 Save the file.
 
-Now, to see the results of the data simulation that you've set up, navigate to *DeviceSimulator\DeviceSimulator* in a local console window.
+Now, to see the results of the data simulation that you've set up, navigate to *digital-twins-samples-main\DeviceSimulator\DeviceSimulator* in a local console window.
 
 >[!NOTE]
 > You should now have two open console windows: one that's open to the the *DeviceSimulator\DeviceSimulator* folder, and one from earlier that's still open to the *AdtSampleApp\SampleClientApp* folder.
@@ -332,7 +332,7 @@ To see the data from the Azure Digital Twins side, switch to your other console 
 
 Once the project is running and accepting commands, run the following command to get the temperatures being reported by the digital twin thermostat67:
 
-```cmd
+```cmd/sh
 ObserveProperties thermostat67 Temperature
 ```
 
