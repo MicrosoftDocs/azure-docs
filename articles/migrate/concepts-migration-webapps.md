@@ -3,7 +3,7 @@ title: Support matrix for web apps migration
 description: Support matrix for web apps migration
 author: vineetvikram
 ms.author: vivikram
-ms.service: #Required; service per approved list. slug assigned by ACOM.
+ms.service: azure
 ms.topic: conceptual
 ms.date: 06/22/2022
 ms.custom: template-concept
@@ -42,4 +42,4 @@ Support | Details
 
 ## Next steps
 
-* Learn how to [perform at-scale agentless migration of ASP.NET web apps to Azure App Service](./tutorials-migrate-webapps.md).
+* Learn how to [perform at-scale agentless migration of ASP.NET web apps to Azure App Service](./tutorial-migrate-webapps.md).

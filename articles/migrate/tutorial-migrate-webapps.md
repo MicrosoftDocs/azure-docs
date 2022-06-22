@@ -3,7 +3,7 @@ title: At-scale migration of ASP.NET web apps to Azure App Service using Azure M
 description: At-scale migration of ASP.NET web apps to Azure App Service using Azure Migrate
 author: vineetvikram
 ms.author: vivikram
-ms.service: #Required; service per approved list. slug assigned by ACOM.
+ms.service: azure
 ms.topic: tutorial
 ms.date: 06/21/2022
 ms.custom: template-tutorial
@@ -65,7 +65,6 @@ Once web apps are assessed, they can be migrated using the integrated migration 
 
     > [!NOTE]
     > Apps with the status of "Ready" are tagged for migration by default. Apps tagged as "Ready with conditions" can be migrated by updating "Will Migrate" to **Yes** as shown in the next few steps.
-    >
 
 1. Select the web apps to migrate and then select **Edit**.
 
@@ -75,7 +74,6 @@ Once web apps are assessed, they can be migrated using the integrated migration 
 
     > [!NOTE]
     > Up to 5 App Service Plans can be migrated at a time.
-    >
 
     :::image type="content" source="./media/tutorial-migrate-webapps/edit-multiple-details.png" alt-text="Screenshot of Azure Migrate Edit apps":::
 
@@ -83,24 +81,20 @@ Once web apps are assessed, they can be migrated using the integrated migration 
 1. In the **App Service Plans** tab, verify the App Service Plan details.
 
     > [!NOTE]
-    >
     > Depending on your web app requirements, you may wish to edit the number of apps in an App Service Plan or update the pricing tier. Follow these steps to update these details:
-    >1. Select the **Edit** button ![Screenshot of Azure Migrate web apps edit icon](./media/tutorial-migrate-webapps/edit-icon.png)
-    >
-    >1. In **Edit plan** , select the **Target name** and **Pricing tier**, then select the **Ok** button.
-    >
-    >     :::image type="content" source="./media/tutorial-migrate-webapps/app-service-plan-edit-details.png" alt-text="Screenshot of App Service Plan Edit details":::
+    > 1. Select the **Edit** button ![Screenshot of Azure Migrate web apps edit icon](./media/tutorial-migrate-webapps/edit-icon.png)
+    > 1. In **Edit plan** , select the **Target name** and **Pricing tier**, then select the **Ok** button.
+    >    :::image type="content" source="./media/tutorial-migrate-webapps/app-service-plan-edit-details.png" alt-text="Screenshot of App Service Plan Edit details":::
 
 1. Once the App Service Plans are verified, select the **Next: Review + create** button.
 1. Azure Migrate will now validate the migration settings. Validation may take a few minutes to run. Once complete, review the details and select **Migrate**. 
 
     > [!NOTE]
     > To download the migration summary, select the **Download CSV** button.
-    >
+    
+   Once the migration is initiated, you can track the status using Azure Resource Manager Deployment Experience as shown below.
 
-Once the migration is initiated, you can track the status using Azure Resource Manager Deployment Experience as shown below.
-
-    :::image type="content" source="./media/tutorial-migrate-webapps/web-apps-deployments.png" alt-text="Screenshot of Azure Migrate deployment":::
+   :::image type="content" source="./media/tutorial-migrate-webapps/web-apps-deployments.png" alt-text="Screenshot of Azure Migrate deployment":::
 
 ## Post migration steps
 
