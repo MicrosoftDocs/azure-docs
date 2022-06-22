@@ -9,11 +9,9 @@ ms.topic: overview
 
 Integrate Microsoft Defender for Iot with partner services to view partner data in Defender for IoT, or to view Defender for IoT in a partner service.
 
-Defender for IoT detects anomalous behavior in IoT, and ICS networks and delivers that information to FortiGate, and FortiSIEM, as follows:
-
 ## Supported integrations
 
-The following table lists supported integrations for Microsoft Defender for IoT, as well as links for specific configuration information.
+The following table lists available integrations for Microsoft Defender for IoT, as well as links for specific configuration information.
 
 
 |Partner service  |Description | Learn more  |
@@ -25,7 +23,7 @@ The following table lists supported integrations for Microsoft Defender for IoT,
 |**Fortinet**     | Send Defender for IoT data to Fortinet services for: <br><br>- Enhanced network visibility in FortiSIEM<br>- Extra abilities in FortiGate to stop anomalous behavior    | [Integrate Fortinet with Microsoft Defender for IoT](tutorial-fortinet.md)     |
 |**Palo Alto**     |Use Defender for IoT data to block critical threats with Palo Alto firewalls, either with automatic blocking or with blocking recommendations.   | [Integrate Palo-Alto with Microsoft Defender for IoT](tutorial-palo-alto.md)      |
 |**QRadar**     |Forward Defender for IoT alerts to IBM QRadar.   | [Integrate Qradar with Microsoft Defender for IoT](tutorial-qradar.md)      |
-|**ServiceNow**     |  View Defender for IoT detections in ServiceNow.   | [Integrate ServiceNow with Microsoft Defender for IoT](tutorial-servicenow.md)    |
+|**ServiceNow**     |  View Defender for IoT device detections, attributes, and connections in ServiceNow.   | [Integrate ServiceNow with Microsoft Defender for IoT](tutorial-servicenow.md)    |
 | **Splunk** | Send Defender for IoT alerts to Splunk | [Integrate Splunk with Microsoft Defender for IoT](tutorial-splunk.md) |
 
 ## Next steps
