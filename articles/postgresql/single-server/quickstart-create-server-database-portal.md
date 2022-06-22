@@ -12,6 +12,8 @@ ms.date: 10/18/2020
 
 # Quickstart: Create an Azure Database for PostgreSQL server by using the Azure portal
 
+[!INCLUDE [applies-to-postgresql-single-server](../includes/applies-to-postgresql-single-server.md)]
+
 Azure Database for PostgreSQL is a managed service that you use to run, manage, and scale highly available PostgreSQL databases in the cloud. This quickstart shows you how to create a single Azure Database for PostgreSQL server and connect to it.
 
 ## Prerequisites

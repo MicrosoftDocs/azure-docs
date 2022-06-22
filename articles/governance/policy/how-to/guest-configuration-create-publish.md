@@ -27,7 +27,7 @@ package public, you can include a
 [SAS token](../../../storage/common/storage-sas-overview.md)
 in the URL or implement a
 [service endpoint](../../../storage/common/storage-network-security.md#grant-access-from-a-virtual-network)
-for machines in a private netw
+for machines in a private network.
 
 If you don't have a storage account, use the following example to create one.
 

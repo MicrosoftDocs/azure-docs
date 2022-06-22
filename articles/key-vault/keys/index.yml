@@ -58,6 +58,8 @@ landingContent:
     linkLists:
       - linkListType: tutorial
         links:
+          - text: Configure key auto-rotation
+            url: how-to-configure-key-rotation.md
           - text: Import HSM-protected keys (overview)
             url: hsm-protected-keys.md
 

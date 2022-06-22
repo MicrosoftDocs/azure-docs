@@ -4,11 +4,8 @@ description: Sample Azure Resource Manager templates to create associations betw
 ms.topic: sample
 author: bwren
 ms.author: bwren
-ms.date: 06/10/2022
-
 ---
 
-# Resource Manager template samples for data collection rules in Azure Monitor
 
 This article includes sample [Azure Resource Manager templates](../../azure-resource-manager/templates/syntax.md) to create an association between a [data collection rule](../essentials/data-collection-rule-overview.md) and the [Azure Monitor agent](./azure-monitor-agent-overview.md). Each sample includes a template file and a parameters file with sample values to provide to the template.
 
@@ -48,7 +45,7 @@ resource vm 'Microsoft.Compute/virtualMachines@2021-11-01' existing = {
   name: vmName
 }
 
-resource vmName_microsoft_insights_associationName 'Microsoft.Insights/dataCollectionRuleAssociations@2021-09-01-preview' = {
+resource association 'Microsoft.Insights/dataCollectionRuleAssociations@2021-09-01-preview' = {
   name: associationName
   scope: vm
   properties: {
@@ -143,7 +140,7 @@ resource vm 'Microsoft.Compute/virtualMachines@2021-11-01' existing = {
   name: vmName
 }
 
-resource vmName_microsoft_insights_associationName 'Microsoft.Insights/dataCollectionRuleAssociations@2021-09-01-preview' = {
+resource association 'Microsoft.Insights/dataCollectionRuleAssociations@2021-09-01-preview' = {
   name: associationName
   scope: vm
   properties: {

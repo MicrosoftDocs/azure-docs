@@ -12,6 +12,8 @@ ms.date: 09/21/2020
 
 # Connect and query overview for Azure database for PostgreSQL- Single Server
 
+[!INCLUDE [applies-to-postgresql-single-server](../includes/applies-to-postgresql-single-server.md)]
+
 The following document includes links to examples showing how to connect and query with Azure Database for PostgreSQL Single Server. This guide also includes TLS recommendations and extension that you can use to connect to the server in supported languages below.
 
 ## Quickstarts
