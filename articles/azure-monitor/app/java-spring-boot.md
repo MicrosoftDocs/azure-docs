@@ -46,7 +46,7 @@ To use the programmatic configuration and attach the Application Insights agent 
 </dependency>
 ```
 
-You halso also to invoke the `attach()`of the `com.microsoft.applicationinsights.attach.ApplicationInsights` class.
+And invoke the `attach()` method of the `com.microsoft.applicationinsights.attach.ApplicationInsights` class.
 
 > [!TIP]
 > ⚠ The invocation  must be requested at the beginning of the `main` method.
