@@ -18,4 +18,4 @@ Assign the proper App Configuration role assignments to the credentials being us
 1. Select the service principal associated with the service connection that you created in the previous section.
 
     :::image type="content" source="./media/azure-app-configuration-role-assignment/add-role-assignment.png" alt-text="Screenshot shows the Add role assignment dialog.":::
-1. If the store contains Key Vault references, go to relevant Key Vault and assign **Key Vault Secret User** role to the service principal created in the previous step. From the Key Vault menu, select **Access policies** and ensure [Azure role-based access control](https://docs.microsoft.com/azure/key-vault/general/rbac-guide?tabs=azure-cli) is selected as the permission model. 
+1. If the store contains Key Vault references, go to relevant Key Vault and assign **Key Vault Secret User** role to the service principal created in the previous step. From the Key Vault menu, select **Access policies** and ensure [Azure role-based access control](../articles/key-vault/general/rbac-guide.md) is selected as the permission model. 
