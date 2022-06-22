@@ -799,7 +799,7 @@ The Python worker for Azure Functions requires a specific set of libraries. You 
 > [!NOTE]
 > If your package contains certain libraries that might collide with the worker's dependencies (for example, protobuf, TensorFlow, or grpcio), configure [PYTHON_ISOLATE_WORKER_DEPENDENCIES](functions-app-settings.md#python_isolate_worker_dependencies-preview) to `1` in app settings to prevent your application from referring to the worker's dependencies. This feature is in preview.
 
-### Azure Functions library for Python
+### Python library for Azure Functions
 
 Every Python worker update includes a new version of the [Azure Functions library for Python (azure.functions)](https://github.com/Azure/azure-functions-python-library). This approach makes it easier to continuously update your Python function apps, because each update is backward compatible. You can find a list of releases of this library in the [azure-functions information on the PyPi website](https://pypi.org/project/azure-functions/#history).
 
