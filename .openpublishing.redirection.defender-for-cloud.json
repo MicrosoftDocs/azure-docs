@@ -586,11 +586,6 @@
             "redirect_document_id": true
         },
         {
-            "source_path_from_root": "/articles/defender-for-cloud/quickstart-enable-database-protections.md",
-            "redirect_url": "/azure/defender-for-cloud/defender-for-sql-enable-azure-sql-protections",
-            "redirect_document_id": true
-        },
-        {
             "source_path_from_root": "/articles/defender-for-cloud/defender-for-sql-enable-azure-sql-protections.md",
             "redirect_url": "/azure/defender-for-cloud/quickstart-enable-database-protections",
             "redirect_document_id": true
