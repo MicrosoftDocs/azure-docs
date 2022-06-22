@@ -21,7 +21,6 @@ To export historical log data from Microsoft Sentinel, you'll need complete the 
 - [Configure your Azure Synapse Analytics integration](notebooks-with-synapse.md#configure-your-azure-synapse-analytics-integration)
 - [Set up continuous data export from Log Analytics](../azure-monitor/logs/logs-data-export.md)
 
-
 ## Launch the notebook
 
 1. In Microsoft Sentinel, select **Notebooks**.

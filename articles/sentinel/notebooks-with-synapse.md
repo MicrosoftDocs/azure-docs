@@ -63,7 +63,9 @@ Microsoft Sentinel provides the built-in notebook **Azure Synapse - Configure Az
 
 You only need to run this notebook once to configure your Azure Synapse integration to your Microsoft Sentinel workspace.
 
-To run the Azure Synapse - Configure Azure ML and Azure Synapse Analytics notebook:
+### Launch the notebook
+
+To launch the Azure Synapse - Configure Azure ML and Azure Synapse Analytics notebook:
 
 1. In Microsoft Sentinel, select **Notebooks**.
 1. Select the **Templates** tab.
@@ -77,6 +79,10 @@ To run the Azure Synapse - Configure Azure ML and Azure Synapse Analytics notebo
 1. After your notebook is deployed, select **Launch Notebook** to open it.
 
     The notebook opens in your Azure ML workspace, inside Microsoft Sentinel. For more information, see [Launch a notebook in your Azure ML workspace](notebooks-hunt.md#launch-a-notebook-in-your-azure-ml-workspace).
+
+### Configure the integration
+
+To integrate Azure ML and Azure Synapse Analytics:
 
 1. Run the cells in the notebook's initial steps to load the required Python libraries and functions and to authenticate to Azure resources.
 
