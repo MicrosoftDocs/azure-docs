@@ -1,6 +1,6 @@
 ---
-title: Microsoft Purview supported data sources and file types
-description: This article provides details about supported data sources, file types, and functionalities in Microsoft Purview.
+title: Microsoft Purview Data Map supported data sources and file types
+description: This article provides details about supported data sources, file types, and functionalities in the Microsoft Purview Data Map.
 author: linda33wj
 ms.author: jingwang
 ms.service: purview
@@ -12,9 +12,9 @@ ms.custom: ignite-fall-2021
 
 # Supported data sources and file types
 
-This article discusses currently supported data sources, file types, and scanning concepts in Microsoft Purview.
+This article discusses currently supported data sources, file types, and scanning concepts in the Microsoft Purview Data Map.
 
-## Microsoft Purview data sources
+## Microsoft Purview Data Map available data sources
 
 The table below shows the supported capabilities for each data source. Select the data source, or the feature, to learn more.
 
@@ -60,12 +60,12 @@ The table below shows the supported capabilities for each data source. Select th
 \* Besides the lineage on assets within the data source, lineage is also supported if dataset is used as a source/sink in [Data Factory](how-to-link-azure-data-factory.md) or [Synapse pipeline](how-to-lineage-azure-synapse-analytics.md).
 
 > [!NOTE]
-> Currently, Microsoft Purview can't scan an asset that has `/`, `\`, or `#` in its name. To scope your scan and avoid scanning assets that have those characters in the asset name, use the example in [Register and scan an Azure SQL Database](register-scan-azure-sql-database.md#creating-the-scan).
+> Currently, the Microsoft Purview Data Map can't scan an asset that has `/`, `\`, or `#` in its name. To scope your scan and avoid scanning assets that have those characters in the asset name, use the example in [Register and scan an Azure SQL Database](register-scan-azure-sql-database.md#creating-the-scan).
 
 ## Scan regions
-The following is a list of all the Azure data source (data center) regions where the Microsoft Purview scanner runs. If your Azure data source is in a region outside of this list, the scanner will run in the region of your Microsoft Purview instance.
+The following is a list of all the Azure data source (data center) regions where the Microsoft Purview Data Map scanner runs. If your Azure data source is in a region outside of this list, the scanner will run in the region of your Microsoft Purview instance.
 
-### Microsoft Purview scanner regions
+### Microsoft Purview Data Map scanner regions
 
 - Australia East
 - Australia Southeast
@@ -97,14 +97,14 @@ The following file types are supported for scanning, for schema extraction, and 
 
 - Structured file formats supported by extension: AVRO, ORC, PARQUET, CSV, JSON, PSV, SSV, TSV, TXT, XML, GZIP
  > [!Note]
- > * Microsoft Purview scanner only supports schema extraction for the structured file types listed above.
- > * For AVRO, ORC, and PARQUET file types, Microsoft Purview scanner does not support schema extraction for files that contain complex data types (for example, MAP, LIST, STRUCT). 
- > * Microsoft Purview scanner supports scanning snappy compressed PARQUET types for schema extraction and classification. 
+ > * The Microsoft Purview Data Map scanner only supports schema extraction for the structured file types listed above.
+ > * For AVRO, ORC, and PARQUET file types, the scanner does not support schema extraction for files that contain complex data types (for example, MAP, LIST, STRUCT). 
+ > * The scanner supports scanning snappy compressed PARQUET types for schema extraction and classification. 
  > * For GZIP file types, the GZIP must be mapped to a single csv file within. 
  > Gzip files are subject to System and Custom Classification rules. We currently don't support scanning a gzip file mapped to multiple files within, or any file type other than csv. 
  > * For delimited file types (CSV, PSV, SSV, TSV, TXT), we do not support data type detection. The data type will be listed as "string" for all columns. 
 - Document file formats supported by extension: DOC, DOCM, DOCX, DOT, ODP, ODS, ODT, PDF, POT, PPS, PPSX, PPT, PPTM, PPTX, XLC, XLS, XLSB, XLSM, XLSX, XLT
-- Microsoft Purview also supports custom file extensions and custom parsers.
+- The Microsoft Purview Data Map also supports custom file extensions and custom parsers.
 
 ## Nested data
 
@@ -116,12 +116,12 @@ Nested data, or nested schema parsing, isn't supported in SQL. A column with nes
 
 ## Sampling within a file
 
-In Microsoft Purview terminology,
+In Microsoft Purview Data Map terminology,
 - L1 scan: Extracts basic information and meta data like file name, size and fully qualified name
 - L2 scan: Extracts schema for structured file types and database tables
 - L3 scan: Extracts schema where applicable and subjects the sampled file to system and custom classification rules
 
-For all structured file formats, Microsoft Purview scanner samples files in the following way:
+For all structured file formats, the Microsoft Purview Data Map scanner samples files in the following way:
 
 - For structured file types, it samples the top 128 rows in each column or the first 1 MB, whichever is lower.
 - For document file formats, it samples the first 20 MB of each file.
@@ -131,7 +131,7 @@ For all structured file formats, Microsoft Purview scanner samples files in the 
 
 ## Resource set file sampling
 
-A folder or group of partition files is detected as a *resource set* in Microsoft Purview, if it matches with a system resource set policy or a customer defined resource set policy. If a resource set is detected, then Microsoft Purview will sample each folder that it contains. Learn more about resource sets [here](concept-resource-sets.md).
+A folder or group of partition files is detected as a *resource set* in the Microsoft Purview Data Map if it matches with a system resource set policy or a customer defined resource set policy. If a resource set is detected, then the scanner will sample each folder that it contains. Learn more about resource sets [here](concept-resource-sets.md).
 
 File sampling for resource sets by file types:
 
@@ -143,7 +143,7 @@ File sampling for resource sets by file types:
 
 ## Classification
 
-All 208 system classification rules apply to structured file formats. Only the MCE classification rules apply to document file types (Not the data scan native regex patterns, bloom filter-based detection). For more information on supported classifications, see [Supported classifications in Microsoft Purview](supported-classifications.md).
+All 208 system classification rules apply to structured file formats. Only the MCE classification rules apply to document file types (Not the data scan native regex patterns, bloom filter-based detection). For more information on supported classifications, see [Supported classifications in the Microsoft Purview Data Map](supported-classifications.md).
 
 ## Next steps
 

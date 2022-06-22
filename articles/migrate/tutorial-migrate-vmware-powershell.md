@@ -328,7 +328,7 @@ $job = Get-AzMigrateJob -InputObject $job
 
 ## 10. Update properties of a replicating VM
 
-[Azure Migrate:Server Migration](migrate-services-overview.md#azure-migrate-server-migration-tool) allows you to change target properties, such as name, size, resource group, NIC configuration and so on, for a replicating VM.
+[Azure Migrate: Server Migration](migrate-services-overview.md#azure-migrate-server-migration-tool) allows you to change target properties, such as name, size, resource group, NIC configuration and so on, for a replicating VM.
 
 The following properties can be updated for a VM.
 
