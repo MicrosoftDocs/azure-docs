@@ -49,7 +49,7 @@ Threat Monitoring for SAP solution configuration is accomplished by providing cu
 
 ### SAP - Systems watchlist
 SAP - Systems watchlist defines which SAP Systems are present in the monitored environment. For every system, specify its SID, whether it is a production system or a dev/test environment, as well as a description.
-This information is then leveraged by some analytic rules, which may react differently if relevant events appear in a Development or a Production system
+This information is used by some analytics rules, which may react differently if relevant events appear in a Development or a Production system.
 
 ### SAP - Networks watchlist
 SAP - Networks watchlist outlines all networks used by the organization. It is primarily used to identify whether user logons are originating from within known segments of the network, as well as if user logon origin changes unexpectedly.
