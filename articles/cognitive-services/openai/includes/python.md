@@ -41,7 +41,7 @@ To successfully make a call against the Azure OpenAI service, you'll need the fo
 
 Go to your resource in the Azure portal. The **Endpoint and Keys** can be found in the **Resource Management** section. Copy your endpoint and access key as you'll need both for authenticating your API calls. You can use either `KEY1` or `KEY2`. Always having two keys allows you to securely rotate and regenerate keys without causing a service disruption.
 
-:::image type="content" source="../media/quickstarts/endpoint.png" alt-text="Screenshot of the overview blade for an OpenAI Resource in the Azure Portal with the endpoint & access keys location circled in red" lightbox="../media/quickstarts/endpoint.png)":::
+:::image type="content" source="../media/quickstarts/endpoint.png" alt-text="Screenshot of the overview blade for an OpenAI Resource in the Azure Portal with the endpoint & access keys location circled in red" lightbox="../media/quickstarts/endpoint.png":::
 
 ### Create a new Python application
 
