@@ -49,7 +49,7 @@ items:
       - name: Delete the Mover resource
         href: resource-delete.md
       - name: Unregister an agent
-        href: agent-unregister.md
+        href: agent-manage.md
   - name: Troubleshoot
     items:
       - name: File copy errors
@@ -63,7 +63,7 @@ items:
   - name: Release notes
     href: release-notes.md
   - name: Samples
-    href: https://review.docs.microsoft.com/en-us/samples/browse/?branch=main&expanded=azure&products=storage-mover
+    href: https://review.docs.microsoft.com/en-us/samples/browse/?branch=main&expanded=azure
   - name: Azure Storage Mover release notes
     href: release-notes.md
 

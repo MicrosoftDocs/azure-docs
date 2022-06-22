@@ -89,7 +89,7 @@ Set-StorageSyncAgentAutoUpdatePolicy -PolicyMode InstallLatest
 Azure File Sync is a hybrid service which continuously introduces new features and improvements. This means that a specific Azure Storage Mover version can only be supported for a limited time. To facilitate your deployment, the following rules guarantee you have enough time and notification to accommodate agent updates/upgrades in your change management process:
 
 - Major versions are supported for at least six months from the date of initial release.
-- We guarantee there is an overlap of at least three months between the support of major agent versions. 
+- We guarantee there is an overlap of at least three months between the support of major agent versions.
 - Warnings are issued for registered servers using a soon-to-be expired agent at least three months prior to expiration. You can check if a registered server is using an older version of the agent under the registered servers section of a Storage Sync Service.
 
 > [!NOTE]
@@ -101,7 +101,7 @@ The following release notes are for version 15.0.0.0 of the Azure Storage Mover 
 
 ### Improvements and issues that are fixed
 
-- Reduced transactions when cloud change enumeration job runs 
+- Reduced transactions when cloud change enumeration job runs
 	- Azure File Sync has a cloud change enumeration job that runs every 24 hours to detect changes made directly in the Azure file share and sync those changes to servers in your sync groups. In the v14 release, we made improvements to reduce the number of transactions when this job runs and in the v15 release we made further improvements. The transaction cost is also more predictable, each job will now produce 1 List transaction per directory, per day.
  
 - View Cloud Tiering status for a server endpoint or volume
@@ -150,7 +150,7 @@ The following release notes are for version 15.0.0.0 of the Azure Storage Mover 
 
 ### Evaluation Tool
 
-Before deploying Azure File Sync, you should evaluate whether it is compatible with your system using the Azure File Sync evaluation tool. This tool is an Azure PowerShell cmdlet that checks for potential issues with your file system and dataset, such as unsupported characters or an unsupported OS version. For installation and usage instructions, see [Evaluation Tool](overview.md#evaluation-cmdlet) section in the planning guide.
+Before deploying Azure File Sync, you should evaluate whether it is compatible with your system using the Azure File Sync evaluation tool. This tool is an Azure PowerShell cmdlet that checks for potential issues with your file system and dataset, such as unsupported characters or an unsupported OS version. For installation and usage instructions, see [Evaluation Tool](overview.md) section in the planning guide.
 
 ### Agent installation and server configuration
 
@@ -160,7 +160,7 @@ For more information on how to install and configure the Azure Storage Mover wit
 - The agent installation package must be installed with elevated (admin) permissions.
 - The agent is not supported on Nano Server deployment option.
 - The agent is supported only on Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, and Windows Server 2022.
-- The agent requires at least 2 GiB of memory. If the server is running in a virtual machine with dynamic memory enabled, the VM should be configured with a minimum 2048 MiB of memory. See [Recommended system resources](overview.md#recommended-system-resources) for more information.
+- The agent requires at least 2 GiB of memory. If the server is running in a virtual machine with dynamic memory enabled, the VM should be configured with a minimum 2048 MiB of memory. See [Recommended system resources](overview.md) for more information.
 - The Storage Sync Agent (FileSyncSvc) service does not support server endpoints located on a volume that has the system volume information (SVI) directory compressed. This configuration will lead to unexpected results.
 
 ### Interoperability
@@ -173,7 +173,7 @@ For more information on how to install and configure the Azure Storage Mover wit
 
 The following items don't sync, but the rest of the system continues to operate normally:
 
-- Files with unsupported characters. See [Troubleshooting guide](overview.md#handling-unsupported-characters) for list of unsupported characters.
+- Files with unsupported characters. See [Troubleshooting guide](overview.md) for list of unsupported characters.
 - Files or directories that end with a period.
 - Paths that are longer than 2,048 characters.
 - The system access control list (SACL) portion of a security descriptor that's used for auditing.
@@ -226,7 +226,7 @@ The following release notes are for version 14.0.0.0 of the Azure Storage Mover 
 
 ### Improvements and issues that are fixed
 
-- Reduced transactions when cloud change enumeration job runs 
+- Reduced transactions when cloud change enumeration job runs
 	- Azure File Sync has a cloud change enumeration job that runs every 24 hours to detect changes made directly in the Azure file share and sync those changes to servers in your sync groups. We have made improvements to reduce the number of transactions when this job runs.
 
 - Improved server endpoint deprovisioning guidance in the portal
@@ -243,7 +243,7 @@ The following release notes are for version 14.0.0.0 of the Azure Storage Mover 
 
 ### Evaluation Tool
 
-Before deploying Azure File Sync, you should evaluate whether it is compatible with your system using the Azure File Sync evaluation tool. This tool is an Azure PowerShell cmdlet that checks for potential issues with your file system and dataset, such as unsupported characters or an unsupported OS version. For installation and usage instructions, see [Evaluation Tool](overview.md#evaluation-cmdlet) section in the planning guide.
+Before deploying Azure File Sync, you should evaluate whether it is compatible with your system using the Azure File Sync evaluation tool. This tool is an Azure PowerShell cmdlet that checks for potential issues with your file system and dataset, such as unsupported characters or an unsupported OS version. For installation and usage instructions, see [Evaluation Tool](overview.md) section in the planning guide.
 
 ### Agent installation and server configuration
 
@@ -253,7 +253,7 @@ For more information on how to install and configure the Azure Storage Mover wit
 - The agent installation package must be installed with elevated (admin) permissions.
 - The agent is not supported on Nano Server deployment option.
 - The agent is supported only on Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, and Windows Server 2022.
-- The agent requires at least 2 GiB of memory. If the server is running in a virtual machine with dynamic memory enabled, the VM should be configured with a minimum 2048 MiB of memory. See [Recommended system resources](overview.md#recommended-system-resources) for more information.
+- The agent requires at least 2 GiB of memory. If the server is running in a virtual machine with dynamic memory enabled, the VM should be configured with a minimum 2048 MiB of memory. See [Recommended system resources](overview.md) for more information.
 - The Storage Sync Agent (FileSyncSvc) service does not support server endpoints located on a volume that has the system volume information (SVI) directory compressed. This configuration will lead to unexpected results.
 
 ### Interoperability
@@ -265,7 +265,7 @@ For more information on how to install and configure the Azure Storage Mover wit
 ### Sync limitations
 
 The following items don't sync, but the rest of the system continues to operate normally:
-- Files with unsupported characters. See [Troubleshooting guide](overview.md#handling-unsupported-characters) for list of unsupported characters.
+- Files with unsupported characters. See [Troubleshooting guide](overview.md) for list of unsupported characters.
 - Files or directories that end with a period.
 - Paths that are longer than 2,048 characters.
 - The system access control list (SACL) portion of a security descriptor that's used for auditing.
@@ -290,7 +290,7 @@ The following items don't sync, but the rest of the system continues to operate 
 ### Cloud endpoint
 
 - Azure File Sync supports making changes to the Azure file share directly. However, any changes made on the Azure file share first need to be discovered by an Azure File Sync change detection job. A change detection job is initiated for a cloud endpoint once every 24 hours. To immediately sync files that are changed in the Azure file share, the [Invoke-AzStorageSyncChangeDetection](/powershell/module/az.storagesync/invoke-azstoragesyncchangedetection) PowerShell cmdlet can be used to manually initiate the detection of changes in the Azure file share. In addition, changes made to an Azure file share over the REST protocol will not update the SMB last modified time and will not be seen as a change by sync.
-- The storage sync service and/or storage account can be moved to a different resource group, subscription, or Azure AD tenant. After the  storage sync service or storage account is moved, you need to give the Microsoft.StorageSync application access to the storage account (see [Ensure Azure File Sync has access to the storage account](overview.md?tabs=portal1%252cportal#troubleshoot-rbac)).
+- The storage sync service and/or storage account can be moved to a different resource group, subscription, or Azure AD tenant. After the  storage sync service or storage account is moved, you need to give the Microsoft.StorageSync application access to the storage account (see [Ensure Azure File Sync has access to the storage account](overview.md)).
 
     > [!Note]  
     > When creating the cloud endpoint, the storage sync service and storage account must be in the same Azure AD tenant. Once the cloud endpoint is created, the storage sync service and storage account can be moved to different Azure AD tenants.
@@ -307,9 +307,9 @@ The following release notes are for version 13.0.0.0 of the Azure Storage Mover 
 ### Improvements and issues that are fixed
 
 - Authoritative upload  
-	- Authoritative upload is a new mode available when creating the first server endpoint in a sync group. It is useful for the scenario where the cloud (Azure file share) has some/most of the data but is outdated and needs to be caught up with the more recent data on the new server endpoint. This is the case in offline migration scenarios like DataBox, for instance. When a DataBox is filled and sent to Azure, the users of the local server will keep changing / adding / deleting files on the local server. That makes the data in the DataBox and thus the Azure file share, slightly outdated. With Authoritative Upload, you can now tell the server and cloud, how to resolve this case and get the cloud seamlessly updated with the latest changes on the server. 
+	- Authoritative upload is a new mode available when creating the first server endpoint in a sync group. It is useful for the scenario where the cloud (Azure file share) has some/most of the data but is outdated and needs to be caught up with the more recent data on the new server endpoint. This is the case in offline migration scenarios like DataBox, for instance. When a DataBox is filled and sent to Azure, the users of the local server will keep changing / adding / deleting files on the local server. That makes the data in the DataBox and thus the Azure file share, slightly outdated. With Authoritative Upload, you can now tell the server and cloud, how to resolve this case and get the cloud seamlessly updated with the latest changes on the server.
 
-		No matter how the data got to the cloud, this mode can update the Azure file share if the data stems from the matching location on the server. Be sure to avoid large directory restructures between the initial copy to the cloud and catching up with Authoritative Upload. This will ensure you are only transporting updates. Changes to directory names will cause all files in these renamed directories to be uploaded again. This functionality is comparable to semantics of RoboCopy /MIR = mirror source to target, including removing files on the target that no longer exist on the source. 
+		No matter how the data got to the cloud, this mode can update the Azure file share if the data stems from the matching location on the server. Be sure to avoid large directory restructures between the initial copy to the cloud and catching up with Authoritative Upload. This will ensure you are only transporting updates. Changes to directory names will cause all files in these renamed directories to be uploaded again. This functionality is comparable to semantics of RoboCopy /MIR = mirror source to target, including removing files on the target that no longer exist on the source.
 		
 		Authoritative Upload replaces the "Offline Data Transfer" feature for DataBox integration with Azure File Sync via a staging share. A staging share is no longer required to use DataBox. New Offline Data Transfer jobs can no longer be started with the AFS V13 agent. Existing jobs on a server will continue even with the upgrade to agent version 13.
 
@@ -327,15 +327,15 @@ The following release notes are for version 13.0.0.0 of the Azure Storage Mover 
 
 - Miscellaneous improvements
 	- Reliability improvements for sync, cloud tiering and cloud change enumeration.
-	- If a large number of files is changed on the server, sync upload is now performed from a VSS snapshot which reduces per-item errors and sync session failures. 
-	- The Invoke-StorageSyncFileRecall cmdlet will now recall all tiered files associated with a server endpoint, even if the file has moved outside the server endpoint location. 
+	- If a large number of files is changed on the server, sync upload is now performed from a VSS snapshot which reduces per-item errors and sync session failures.
+	- The Invoke-StorageSyncFileRecall cmdlet will now recall all tiered files associated with a server endpoint, even if the file has moved outside the server endpoint location.
 	- Explorer.exe is now excluded from cloud tiering last access time tracking.
 	- New telemetry (Event ID 6664) to monitor the orphaned tiered files cleanup progress after removing a server endpoint with cloud tiering enabled.
 
 
 ### Evaluation Tool
 
-Before deploying Azure File Sync, you should evaluate whether it is compatible with your system using the Azure File Sync evaluation tool. This tool is an Azure PowerShell cmdlet that checks for potential issues with your file system and dataset, such as unsupported characters or an unsupported OS version. For installation and usage instructions, see [Evaluation Tool](overview.md#evaluation-cmdlet) section in the planning guide. 
+Before deploying Azure File Sync, you should evaluate whether it is compatible with your system using the Azure File Sync evaluation tool. This tool is an Azure PowerShell cmdlet that checks for potential issues with your file system and dataset, such as unsupported characters or an unsupported OS version. For installation and usage instructions, see [Evaluation Tool](overview.md) section in the planning guide.
 
 ### Agent installation and server configuration
 
@@ -345,7 +345,7 @@ For more information on how to install and configure the Azure Storage Mover wit
 - The agent installation package must be installed with elevated (admin) permissions.
 - The agent is not supported on Nano Server deployment option.
 - The agent is supported only on Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, and Windows Server 2022.
-- The agent requires at least 2 GiB of memory. If the server is running in a virtual machine with dynamic memory enabled, the VM should be configured with a minimum 2048 MiB of memory. See [Recommended system resources](overview.md#recommended-system-resources) for more information.
+- The agent requires at least 2 GiB of memory. If the server is running in a virtual machine with dynamic memory enabled, the VM should be configured with a minimum 2048 MiB of memory. See [Recommended system resources](overview.md) for more information.
 - The Storage Sync Agent (FileSyncSvc) service does not support server endpoints located on a volume that has the system volume information (SVI) directory compressed. This configuration will lead to unexpected results.
 
 ### Interoperability
