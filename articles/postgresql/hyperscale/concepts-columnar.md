@@ -1,5 +1,5 @@
 ---
-title: Columnar table storage for Azure Database PostgreSQL Hyperscale
+title: Columnar table storage - Azure PostgreSQL Hyperscale (Citus)
 description: Learn how to compress data using columnar storage in Azure Database PostgreSQL Hyperscale (Citus).
 ms.author: jonels
 author: jonels-msft
@@ -10,7 +10,7 @@ ms.date: 05/23/2022
 ms.custom: kr2b-contr-experiment
 ---
 
-# Use columnar table storage to compress data
+# Use columnar table storage in Azure Database PostgreSQL - Hyperscale (Citus) to compress data
 
 [!INCLUDE[applies-to-postgresql-hyperscale](../includes/applies-to-postgresql-hyperscale.md)]
 
