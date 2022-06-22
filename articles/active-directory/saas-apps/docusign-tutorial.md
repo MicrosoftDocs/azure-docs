@@ -167,7 +167,7 @@ In this section, you'll grant B.Simon access to DocuSign so that this user can u
     
 9. Copy the **TXT Token**
 
-![TXT_token](https://user-images.githubusercontent.com/9428173/174054175-918f1624-670a-44e8-9aca-7dfe94db4bc6.png)
+    ![TXT_token](https://user-images.githubusercontent.com/9428173/174054175-918f1624-670a-44e8-9aca-7dfe94db4bc6.png)
 
 10. Configure your DNS provider with the **TXT Token** by following these steps:
 
