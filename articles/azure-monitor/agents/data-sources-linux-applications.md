@@ -15,8 +15,7 @@ This article provides details for configuring the [Log Analytics agent for Linux
 - [Apache HTTP Server](#apache-http-server)
 
 
-> [!IMPORTANT]
-> This article covers collecting performance data with the [Log Analytics agent](./log-analytics-agent.md) which is one of the agents used by Azure Monitor. The Log Analytics agent **will be deprecated by August 2024**. Please plan to [migrate to Azure Monitor agent](./azure-monitor-agent-migration.md) before August 2024. Other agents collect different data and are configured differently. See [Overview of Azure Monitor agents](../agents/agents-overview.md) for a list of the available agents and the data they can collect.
+[!INCLUDE [Log Analytics agent deprecation](../../../includes/log-analytics-agent-deprecation.md)]
 
 ## MySQL
 If MySQL Server or MariaDB Server is detected on the computer when the Log Analytics agent is installed, a performance monitoring provider for MySQL Server will be automatically installed. This provider connects to the local MySQL/MariaDB server to expose performance statistics. MySQL user credentials must be configured so that the provider can access the MySQL Server.

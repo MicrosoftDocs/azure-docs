@@ -10,8 +10,7 @@ ms.reviewer: luki
 # Collect Windows event log data sources with Log Analytics agent
 Windows Event logs are one of the most common [data sources](../agents/agent-data-sources.md) for Log Analytics agents on Windows virtual machines since many applications write to the Windows event log.  You can collect events from standard logs such as System and Application in addition to specifying any custom logs created by applications you need to monitor.
 
-> [!IMPORTANT]
-> This article covers collecting Windows events with the [Log Analytics agent](./log-analytics-agent.md) which is one of the agents used by Azure Monitor. This agent **will be deprecated by August, 2024**. Please plan to [migrate to Azure Monitor agent](./azure-monitor-agent-migration.md) before that. See [Overview of Azure Monitor agents](../agents/agents-overview.md) for a list of the available agents and the data they can collect.
+[!INCLUDE [Log Analytics agent deprecation](../../../includes/log-analytics-agent-deprecation.md)]
 
 ![Windows Events](media/data-sources-windows-events/overview.png)     
 
