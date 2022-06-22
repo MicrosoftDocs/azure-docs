@@ -56,7 +56,7 @@ Within the Spark config of a given application, we can then specify parameters f
     "spark.cosmos.throughputControl.globalControl.container" -> "ThroughputControl"
 ```
 
-In the above example, the `targetThroughputThreshold` is defined as **0.95**. Rate limiting will occur when clients that are using the specified throughput control group consume more than 95% of the throughput that is allocated to the container. This configuration is stored as a document in the throughput container that looks like the below:
+In the above example, the `targetThroughputThreshold` is defined as **0.95**, so rate limiting will occur (and requests will be retried) when clients consume more than 95% of the throughput that is allocated to the container. This configuration is stored as a document in the throughput container that looks like the below:
 
 ```json
     {
@@ -76,7 +76,7 @@ In the above example, the `targetThroughputThreshold` is defined as **0.95**. Ra
 > Throughput control does not do RU pre-calculation of each operation. Instead, it tracks the RU usages after the operation based on the response header. As such, throughput control is based an approximation - and does not guarantee that amount of throughput will be available. 
 
 > [!WARNING]
-> Changing the `targetThroughputThreshold` will **not take effect** unless **all Spark clients are restarted**. Keep this in mind if throughput threshhold needs to be changed. 
+> The `targetThroughputThreshold` is **immutable**. If you change the target throughput threshold value, this will create a new throughput control group. You need to restart all Spark jobs that are using the group to ensure they all consume the new threshold.
 
 For each Spark client that uses the throughput control group, a record will be created in the `ThroughputControl` container which looks like the below:
 
