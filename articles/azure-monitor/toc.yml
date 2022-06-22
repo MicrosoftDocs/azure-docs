@@ -1383,10 +1383,8 @@ items:
       items:
         - name: Using workbook templates
           href: visualize/workbooks-templates.md
-        - name: Create a new workbook
+        - name: Creating a new workbook
           href: visualize/workbooks-create-workbook.md
-        - name: Add workbook elements
-          href: visualize/workbooks-add-workbook-elements.md
         - name: Working with parameters
           items:
           - name: Workbook parameters
