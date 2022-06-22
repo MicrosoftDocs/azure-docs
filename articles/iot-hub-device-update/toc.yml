@@ -68,6 +68,7 @@ items:
   items:
   - name: Create a device update account
     href: create-device-update-account.md
+    displayName: Azure CLI, az iot, az iot device-update
   - name: Provisioning device update agent
     href: device-update-agent-provisioning.md
   - name: Create an update
@@ -80,6 +81,7 @@ items:
     href: deploy-update.md
   - name: Create a log collection operation
     href: device-update-log-collection.md
+    displayName: Azure CLI, az iot, az iot device-update
   - name: Single level Microsoft Connected Cache
     href: connected-cache-single-level.md
   - name: Nested level Microsoft Connected Cache
