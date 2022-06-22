@@ -392,7 +392,7 @@ Some common errors when you try to SSH with Azure AD credentials include no Azur
 
 ### Couldn’t retrieve token from local cache
 
-You must run az login again and go through an interactive sign in flow. Review the section [Using Azure Cloud Shell](#using-az-cloud-shell).
+You must run az login again and go through an interactive sign in flow. Review the section [Using Azure Cloud Shell](#using-azure-cloud-shell).
 
 ### Access denied: Azure role not assigned
 

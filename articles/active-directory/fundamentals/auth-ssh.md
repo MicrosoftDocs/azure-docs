@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: conceptual
-ms.date: 03/01/2022
+ms.date: 06/22/2022
 ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: "it-pro, seodec18"
@@ -47,4 +47,4 @@ Azure Active Directory (Azure AD) provides a Virtual Machine (VM) extension for 
 
 ## Implement SSH with Azure AD 
 
-* [Log in to a Linux® VM with Azure Active Directory credentials - Azure Virtual Machines ](https://docs.microsoft.com/azure/active-directory/devices/howto-vm-sign-in-azure-ad-linux) 
+* [Log in to a Linux® VM with Azure Active Directory credentials - Azure Virtual Machines ](../devices/howto-vm-sign-in-azure-ad-linux.md) 
