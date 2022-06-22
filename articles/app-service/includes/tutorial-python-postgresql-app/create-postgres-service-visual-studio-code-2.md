@@ -14,4 +14,4 @@ In the Azure Tools extension:
 
 1. Expand **RESOURCES**. (Make sure resources are sorted by resource type.)
 
-1. Under your subscription, right-click **PostgresSQL servers (Flexible)** and select **Create server**.
+1. Under your subscription, right-click **PostgresSQL servers (Flexible)** and select **Create Server**.

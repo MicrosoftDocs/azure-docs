@@ -10,7 +10,7 @@ ms.azure.devx-azure-tooling: ['vscode-azure-tools']
 ms.custom: devx-track-python
 ---
 
-In the Azure Tools extension for Visual Studio Code:
+In the Azure Tools extension:
 
 1. Expand **RESOURCES** and find your subscription. (Make sure resources are grouped by resource type.)
 
