@@ -7,7 +7,11 @@ ms.topic: reference
 author: timwarner-msft
 ms.author: timwarner
 ms.custom: subject-policy-reference
+<<<<<<< HEAD
 ms.date: 05/12/2022
+=======
+ms.date: 06/20/2022
+>>>>>>> 6b4ba5025d42fdc3cbe8c75b02e6c4b1ad4f5ffd
 ---
 
 # Azure Policy built-in definitions for Azure Database for MySQL

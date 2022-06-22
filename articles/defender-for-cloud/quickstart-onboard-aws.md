@@ -54,7 +54,7 @@ You can learn more from the product manager about Microsoft Defender for Cloud's
 
 - **To enable the Defender for SQL plan**, you'll need:
 
-    - Microsoft Defender for SQL enabled on your subscription. Learn how to [enable protection on all of your databases](quickstart-enable-database-protections.md).
+    - Microsoft Defender for SQL enabled on your subscription. Learn how to [enable protection on all of your databases](defender-for-sql-enable-azure-sql-protections.md).
 
     - An active AWS account, with EC2 instances running SQL server or RDS Custom for SQL Server.
 
