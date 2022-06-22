@@ -23,7 +23,7 @@ To hunt on large datasets, you might also want to export historical log data fro
 
 ## Hunt by using a notebook with a sample security scenario
 
-Get started with hunting by using the the built-in notebook **Azure Synapse - Detect potential network beaconing using Apache Spark**. Use this built-in notebook as a template and modify it for your organization's needs.
+Get started with hunting by using the built-in notebook **Azure Synapse - Detect potential network beaconing using Apache Spark**. Use this built-in notebook as a template and modify it for your organization's needs.
 
 ### Find and clone a notebook
 
@@ -62,7 +62,7 @@ Review and run the cells in the notebook to start hunting.
     csl_beacon_pd = csl_beacon_df.coalesce(1).write.format("json").save(new_path)
     ```
 
-1. After you have exported your data, you can stop your Spark session. After you've stopped your Spark session, and subsequent queries are run using the default Azure ML compute indicated in the **Compute** field at the top of the page.
+1. After you've exported your data, you can stop your Spark session. After you've stopped your Spark session, and subsequent queries are run using the default Azure ML compute indicated in the **Compute** field at the top of the page.
 
     Run the cell in the **Stop Spark Session** step:
 

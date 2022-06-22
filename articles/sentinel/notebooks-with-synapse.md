@@ -23,7 +23,7 @@ Integrate with Azure Synapse to get:
 
 - **PySpark, a Python-based API** for using the Spark framework in combination with Python, reducing the need to learn a new programming language if you're already familiar with Python.
 
-For example, you may want to use notebooks with Azure Synapse to hunt for anomalous behaviors from network firewall logs to detect potential network beaconing, or to train and build machine learning models on top of data collected from a Log Analytics workspace.
+For example, use notebooks with Azure Synapse to hunt for anomalous behaviors from network firewall logs to detect potential network beaconing. Or use notebooks with Azure Synapse to train and build machine learning models on top of data collected from a Log Analytics workspace.
 
 > [!IMPORTANT]
 > Microsoft Sentinel notebook integration with Azure Synapse Analytics is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
@@ -128,13 +128,13 @@ end_date = "<enter date in the format yyyy-MM-dd e.g.2021-09-17>"  # fill in you
 lookback_days = 21 # fill in lookback days if you want to run it on historical data. make sure you have historical data available in ADLS
 ```
 
-### Define your data lookback period
+### Define your data look back period
 
 The big data queries in this sample notebook can run on data from a pre-defined date, using the `end-date` parameter, or a longer time range.
 
 For example:
 
-- If you are interested in data from a specific date, specify November 15, 2021 as the current date, and the query will run only on data from November 15, 2021. 
+- If you're interested in data from a specific date, specify November 15, 2021 as the current date, and the query will run only on data from November 15, 2021.
 
 - To define a longer time scope for your query, in addition to the current date, define a lookback parameter. For example, if the `lookback_days` parameter is set to `21` days, and the `end_date` parameter is set to `2021-11-17`, the query will look at data for the 21 days, counting back from November 17, 2021.
 
@@ -164,7 +164,7 @@ To manage or select a different Synapse workspace than the one you're currently 
 
 - **If you've already created a linked service between your Azure ML and the new Azure Synapse workspace**:
 
-    1. Enter the name for the `linkservice` parameter in the following code cell, then re-run the cell and the subsequent cells:
+    1. Enter the name for the `linkservice` parameter in the following code cell, then rerun the cell and the subsequent cells:
 
         ```python
         amlworkspace = "<aml workspace name>"  # fill in your AML workspace name
