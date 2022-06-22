@@ -1,6 +1,6 @@
 ---
 title: Add app roles and get them from a token
-description: Learn how to add app roles to an application registered in Azure Active Directory, assign users and groups to these roles, and receive them in the 'roles' claim in the token.
+description: Learn how to add app roles to an application registered in Azure Active Directory. Assign users and groups to these roles, and receive them in the 'roles' claim in the token.
 services: active-directory
 author: kalyankrishna1
 manager: CelesteDG
@@ -17,9 +17,9 @@ ms.custom: aaddev
 
 # Add app roles to your application and receive them in the token
 
-Role-based access control (RBAC) is a popular mechanism to enforce authorization in applications. When using RBAC, an administrator grants permissions to roles, not to individual users or groups. The administrator can then assign roles to different users and groups to control who has access to what content and functionality.
+Role-based access control (RBAC) is a popular mechanism to enforce authorization in applications. RBAC allows administrators to grant permissions to roles rather than to specific users or groups. The administrator can then assign roles to different users and groups to control who has access to what content and functionality.
 
-Using RBAC with application role and role claims, developers can securely enforce authorization in their apps with less effort.
+By using RBAC with application role and role claims, developers can securely enforce authorization in their apps with less effort.
 
 Another approach is to use Azure Active Directory (Azure AD) groups and group claims as shown in the [active-directory-aspnetcore-webapp-openidconnect-v2](https://aka.ms/groupssample) code sample on GitHub. Azure AD groups and application roles aren't mutually exclusive; they can be used in tandem to provide even finer-grained access control.
 
@@ -71,7 +71,7 @@ To assign users and groups to roles by using the Azure portal:
 1. Select the application in which you want to assign users or security group to roles.
 1. Under **Manage**, select **Users and groups**.
 1. Select **Add user** to open the **Add Assignment** pane.
-1. Select the **Users and groups** selector from the **Add Assignment** pane. A list of users and security groups is displayed. You can search for a certain user or group as well as select multiple users and groups that appear in the list.
+1. Select the **Users and groups** selector from the **Add Assignment** pane. A list of users and security groups is displayed. You can search for a certain user or group and select multiple users and groups that appear in the list.
 1. Once you've selected users and groups, select the **Select** button to proceed.
 1. Select **Select a role** in the **Add assignment** pane. All the roles that you've defined for the application are displayed.
 1. Choose a role and select the **Select** button.
