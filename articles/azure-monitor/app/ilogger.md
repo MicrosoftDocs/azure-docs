@@ -65,7 +65,7 @@ By default, ASP.NET Core applications have an Application Insights logging provi
             public void ConfigureServices(IServiceCollection services)
             {
                 services.AddApplicationInsightsTelemetry();
-                // Configure the Connection String/Instrumentation key in appsettings.json
+                // Configure the Connection String in appsettings.json
             }
 
             public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -146,13 +146,13 @@ namespace WebApplication
                 })
                 .ConfigureLogging((context, builder) =>
                 {
-                    // Providing an instrumentation key is required if you're using the
+                    // Providing a connection string is required if you're using the
                     // standalone Microsoft.Extensions.Logging.ApplicationInsights package,
                     // or when you need to capture logs during application startup, such as
                     // in Program.cs or Startup.cs itself.
                     builder.AddApplicationInsights(
-                    configureTelemetryConfiguration: (config) => config.ConnectionString = context.Configuration["APPLICATIONINSIGHTS_CONNECTION_STRING"],
-                    configureApplicationInsightsLoggerOptions: (options) => { }
+                        configureTelemetryConfiguration: (config) => config.ConnectionString = context.Configuration["APPLICATIONINSIGHTS_CONNECTION_STRING"],
+                        configureApplicationInsightsLoggerOptions: (options) => { }
                     );
 
                     // Capture all log-level entries from Program
@@ -194,7 +194,7 @@ namespace WebApplication
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddApplicationInsightsTelemetry();
-            // Configure the Connection String/Instrumentation key in appsettings.json
+            // Configure the Connection String in appsettings.json
         }
 
         // The ILogger<Startup> is resolved by dependency injection
