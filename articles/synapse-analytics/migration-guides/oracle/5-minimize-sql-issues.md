@@ -32,7 +32,7 @@ Many data warehouses that support complex analytic SQL queries on large data vol
 >[!TIP]
 >Many existing Oracle installations are data warehouses that use a dimensional data model.
 
-The combination of SQL and dimensional data models in Oracle simplifies migration to Azure Synapse because the SQL and basic data model concepts are transferable. Microsoft recommends moving your existing data model as-is to Azure to reduce risk, effort, and migration time. Although your migration plan might include a change in the underlying data model, such as a move from an Inmon model to a data vault, it makes sense to initially perform an as-is migration. After the initial migration, you can then make changes within the Azure cloud environment to take advantage of the built-in features, performance, elastic scalability, and cost benefits.
+The combination of SQL and dimensional data models in Oracle simplifies migration to Azure Synapse because the SQL and basic data model concepts are transferable. Microsoft recommends moving your existing data model as-is to Azure to reduce risk, effort, and migration time. Although your migration plan might include a change in the underlying data model, such as a move from an Inmon model to a data vault, it makes sense to initially perform an as-is migration. After the initial migration, you can then make changes within the Azure cloud environment to take advantage of its built-in features, performance, elastic scalability, and cost benefits.
 
 Although the SQL language is standardized, individual vendors sometimes implement proprietary extensions. As a result, you might find [SQL differences](#sql-dml-differences-between-oracle-and-azure-synapse) during your migration that require workarounds in Azure Synapse.
 
@@ -42,16 +42,14 @@ You can automate and orchestrate the migration process by using the capabilities
 
 Azure Data Factory is a cloud-based data integration service that supports creating data-driven workflows in the cloud to orchestrate and automate data movement and data transformation. You can use Data Factory to create and schedule data-driven workflows (pipelines) that ingest data from disparate data stores. Data Factory can process and transform the data by using compute services such as Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics, and Azure Machine Learning.
 
-Azure also includes Migration Services to help you plan and perform a migration from environments like Oracle. [SQL Server Migration Assistant](/download/details.aspx?id=54258) (SSMA) for Oracle can automate migration of Oracle databases, including in some cases functions and procedural code.
+Azure also includes [Azure Database Migration Services](/services/database-migration/) to help you plan and perform a migration from environments such as Oracle. [SQL Server Migration Assistant](/download/details.aspx?id=54258) (SSMA) for Oracle can automate migration of Oracle databases, including functions and procedural code in some cases.
 
 >[!TIP]
 >Automate the migration process by using Azure Data Factory capabilities.
 
-When planning to use Azure facilities to manage the migration process, create metadata that lists all the data tables that need to be migrated and their location.
+When planning to use Azure facilities, such as Data Factory, to manage the migration process, first create metadata that lists all the data tables that need to be migrated and their location.
 
 ## SQL DDL differences between Oracle and Azure Synapse
-
-### SQL Data Definition Language
 
 The ANSI SQL standard defines the basic syntax for Data Definition Language (DDL) commands. Some DDL commands, like `CREATE TABLE` and `CREATE VIEW`, are common to both Oracle and Azure Synapse, but have been extended to provide implementation-specific features such as indexing, table distribution, and partitioning options.
 
@@ -69,7 +67,7 @@ Performance optimizations in the source environment, such as indexes, indicate w
 >[!TIP]
 >Existing indexes indicate candidates for indexing in the migrated warehouse.
 
-SQL view definitions contain SQL data manipulation language (DML) statements that define the view, typically with one or more `SELECT` statements. When you migrate `CREATE VIEW` statements, take into account the DML differences between Oracle and Azure Synapse, which are discussed [later](#sql-dml-differences-between-oracle-and-azure-synapse) in this article.
+SQL view definitions contain SQL Data Manipulation Language (DML) statements that define the view, typically with one or more `SELECT` statements. When you migrate `CREATE VIEW` statements, take into account the DML differences between Oracle and Azure Synapse, which are discussed [later](#sql-dml-differences-between-oracle-and-azure-synapse) in this article.
 
 ### Unsupported Oracle database object types
 
@@ -93,7 +91,7 @@ Oracle-specific features can often be replaced by Azure Synapse features. Howeve
 
   - A DML statement, such as `INSERT`, `UPDATE`, or `DELETE`, that runs on a table. If you defined a trigger that fires before an `INSERT` statement on a customer table, the trigger will fire once before a new row is inserted into the customer table.
 
-  - A data definition language (DDL) statement, such as `CREATE` or `ALTER`, runs. This triggering event is often used for auditing purposes to record schema changes.
+  - A DDL statement, such as `CREATE` or `ALTER`, runs. This triggering event is often used for auditing purposes to record schema changes.
 
   - A system event such as startup or shutdown of the Oracle database.
 
@@ -157,7 +155,7 @@ Oracle also supports defining user-defined objects that can contain a series of 
 
 Third-party vendors offer tools and services to automate migration, including the mapping of data types. If a [third-party](../../partner/data-integration.md) ETL tool is already in use in the Oracle environment, use that tool to implement any required data transformations.
 
-#### Data Definition Language (DDL) generation
+### SQL DDL generation
 
 >[!TIP]
 >Use existing Oracle metadata to automate the generation of CREATE TABLE and CREATE VIEW DDL for Azure Synapse.
@@ -182,8 +180,6 @@ Alternatively, you can automate generating `CREATE TABLE` statements from the in
 Third-party vendors offer tools and services to automate migration, including the mapping of data types. If a [third-party](../../partner/data-integration.md) ETL tool is already in use in the Oracle environment, use that tool to implement any required data transformations.
 
 ## SQL DML differences between Oracle and Azure Synapse
-
-### SQL Data Manipulation Language
 
 The ANSI SQL standard defines the basic syntax for DML commands, such as `SELECT`, `INSERT`, `UPDATE`, and `DELETE`. Although Oracle and Azure Synapse both support DDL commands, in some cases they implement the same command differently.
 
@@ -283,7 +279,7 @@ When migrating from a mature data warehouse environment like Oracle, you'll prob
 
 As part of your preparation phase, create an inventory of objects that need to be migrated, define a method for handling them, and allocate appropriate resources in your migration plan.
 
-Microsoft tools like SSMA for Oracle or [Azure Database Migration Services](/services/database-migration/), and [third-party](../../partner/data-integration.md) migration products and services can automate the migration of functions, stored procedures, and sequences.
+Microsoft tools like SSMA for Oracle or Azure Database Migration Services, and [third-party](../../partner/data-integration.md) migration products and services can automate the migration of functions, stored procedures, and sequences.
 
 >[!TIP]
 >Third-party products and services can automate migration of non-data elements.
