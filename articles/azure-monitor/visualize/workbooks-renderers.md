@@ -66,7 +66,7 @@ The instructions below will show you how to use thresholds with links to assign 
 
     ![Screenshot of Edit column settings tab with the above settings.](./media/workbooks-grid-visualizations/column-settings.png)
 
-    Keep the default row as is. You may enter whatever text you like. The Text column takes a String format as an input and populates it with the column value and unit if specified. For example, if warning is the column value the text can be "{0} {1} link!", it will be displayed as "warning link!".
+  Keep the default row as is. You may enter whatever text you like. The Text column takes a String format as an input and populates it with the column value and unit if specified. For example, if warning is the column value the text can be "{0} {1} link!", it will be displayed as "warning link!".
 
 1. Select the **Make this item a link** box.
      - Under **View to open**, choose **Workbook (Template)**.
