@@ -119,10 +119,10 @@ In this section, you'll create a virtual machine that will be used to test the p
     | Setting | Value |
     |-|-|
     | **Network interface** |  |
-    | Virtual network | **myVNet**. |
-    | Subnet | **mySubnet**. |
+    | Virtual network | Select **myVNet**. |
+    | Subnet | Select **mySubnet**. |
     | Public IP | Select **None**. |
-    | NIC network security group | **Basic**. |
+    | NIC network security group | Select **Basic**. |
     | Public inbound ports | Select **None**. |
    
 5. Select **Review + create**. 
@@ -163,8 +163,6 @@ In this section, you'll create a SQL server in Azure.
     
 1. Select **OK**.
 
-    :::image type="content" source="./media/tutorial-private-endpoint-sql-portal/create-sql-database-basics-tab-upper-inline.png" alt-text="Screenshot of Create S Q L Database page showing the setting values used up to creating the S Q L server." lightbox="./media/tutorial-private-endpoint-sql-portal/create-sql-database-basics-tab-upper-expanded.png":::
-
 1. In the **Basics** tab, enter or select this information after creating the SQL database server:
 
     | Setting | Value |
@@ -175,7 +173,7 @@ In this section, you'll create a SQL server in Azure.
     | **Backup storage redundancy** |  |
     | Backup storage redundancy  | Select **Locally-redundant backup storage**. |
 
-    :::image type="content" source="./media/tutorial-private-endpoint-sql-portal/create-sql-database-basics-tab-lower-inline.png" alt-text="Screenshot of Create S Q L Database page showing the setting values used." lightbox="./media/tutorial-private-endpoint-sql-portal/create-sql-database-basics-tab-expanded.png":::
+    :::image type="content" source="./media/tutorial-private-endpoint-sql-portal/create-sql-database-basics-tab-inline.png" alt-text="Screenshot of Create S Q L Database page showing the settings used." lightbox="./media/tutorial-private-endpoint-sql-portal/create-sql-database-basics-tab-expanded.png":::
 
 1. Select the **Networking** tab or select the **Next: Networking** button.
 
@@ -206,7 +204,7 @@ In this section, you'll create a SQL server in Azure.
 
 1. Select **OK**. 
 
-    :::image type="content" source="./media/tutorial-private-endpoint-sql-portal/create-private-endpoint-sql-inline.png" alt-text="Screenshot of Create private endpoint page showing the setting values used." lightbox="./media/tutorial-private-endpoint-sql-portal/create-private-endpoint-sql-expanded.png":::
+    :::image type="content" source="./media/tutorial-private-endpoint-sql-portal/create-private-endpoint-sql-inline.png" alt-text="Screenshot of Create private endpoint page showing the settings used." lightbox="./media/tutorial-private-endpoint-sql-portal/create-private-endpoint-sql-expanded.png":::
 
 1. Select **Review + create**.
 
@@ -254,9 +252,7 @@ In this section, you'll use the virtual machine you created in the previous step
     Address:  10.1.0.5
     Aliases:  mysqlserver.database.windows.net
     ```
-
     A private IP address of **10.1.0.5** is returned for the SQL server name. This address is in the subnet of the virtual network you created previously.
-
 
 9. Install [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?preserve-view=true&view=sql-server-2017) on **myVM**.
 
