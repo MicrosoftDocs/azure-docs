@@ -385,7 +385,7 @@ Automated ML offers options for you to monitor and evaluate your training result
 
 * To get a featurization summary and understand what features were added to a particular model, see [Featurization transparency](how-to-configure-auto-features.md#featurization-transparency). 
 
-From Azure Machine Learning UI at the model's page you can also view the hyperparameters used when training a particular a particular model and also view and customize the internal model's training code used. 
+From Azure Machine Learning UI at the model's page you can also view the hyperparameters used when training a particular model and also view and customize the internal model's training code used. 
 
 ## Register and deploy models
 
