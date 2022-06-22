@@ -694,7 +694,7 @@ items:
       href: question-answering/how-to/export-import-refresh.md
     - name: Encrypt data at rest
       href: question-answering/how-to/encrypt-data-at-rest.md
-    - name: Migrate knowledge base
+    - name: Move knowledge base
       href: question-answering/how-to/migrate-knowledge-base.md
     - name: Add chit-chat
       href: question-answering/how-to/chit-chat.md
@@ -712,6 +712,10 @@ items:
       href: question-answering/how-to/authoring.md
     - name: Prebuilt API
       href: question-answering/how-to/prebuilt.md
+    - name: Project Best practices
+      href: question-answering/how-to/best-practices.md
+    - name: Migrate from QnA Maker to Question Answering
+      href: question-answering/how-to/migrate-qnamaker-to-question-answering.md
     - name: Troubleshooting
       href: question-answering/how-to/troubleshooting.md
   - name: Concepts

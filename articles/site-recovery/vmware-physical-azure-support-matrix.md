@@ -352,7 +352,7 @@ As average churn on the disks increases, the number of disks that a storage acco
 V1 storage account    |    600 disks    |    300 disks
 V2 storage account    |    1500 disks    |    750 disks
 
-Please note that the above limits are applicable to hybrid DR scenarios only.
+Please note that the above limits are applicable to VMWare and Hyper-V scenarios only.
 
 ## Vault tasks
 
