@@ -24,7 +24,7 @@ ms.custom: mvc, cli-validate, seodec18, devx-track-azurecli, mode-other
 
 If you are running the sample code locally, you will need:
 
-* <a href="https://www.ruby-lang.org/en/documentation/installation/#rubyinstaller" target="_blank">Install Ruby 2.6 or higher</a>
+* <a href="https://www.ruby-lang.org/en/documentation/installation/#rubyinstaller" target="_blank">Install Ruby 2.7 or higher</a>
 * <a href="https://git-scm.com/" target="_blank">Install Git</a>
 
 You will not need to install these if you are using the Cloud Shell.
@@ -338,6 +338,9 @@ The Ruby sample code is running in an Azure App Service Linux web app.
     ![Screenshot of the App Services list in Azure. The name of the demo app service is highlighted.](media/quickstart-ruby/app-service-list.png)
 
 Your web app's **Overview** page will be displayed. Here, you can perform basic management tasks like **Browse**, **Stop**, **Restart**, and **Delete**.
+
+![Screenshot of the App Service overview page in Azure portal. In the action bar, the Browse, Stop, Swap (disabled), Restart, and Delete button group is highlighted.](media/quickstart-ruby/app-service-detail.png)
+
 
 ## 5 - Clean up resources
 
