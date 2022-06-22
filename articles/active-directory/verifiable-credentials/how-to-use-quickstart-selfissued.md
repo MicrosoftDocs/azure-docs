@@ -1,6 +1,6 @@
 ---
-title: How to create credentials using the QuickStart
-description: Learn how to use the QuickStart to create custom credentials
+title: How to create credentials using the QuickStart for selfIssued
+description: Learn how to use the QuickStart to create custom credentials for selfIssued
 documentationCenter: ''
 author: barclayn
 manager: rkarlin
@@ -13,7 +13,7 @@ ms.author: barclayn
 #Customer intent: As an administrator, I am looking for information to help me disable 
 ---
 
-# How to create credentials using the Quickstart
+# How to create credentials using the Quickstart for selfIssued flow
 
 [!INCLUDE [Verifiable Credentials announcement](../../../includes/verifiable-credentials-brand.md)]
 
@@ -22,18 +22,9 @@ ms.author: barclayn
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## Prerequisites
+A [rules definition](rules-and-display-definitions-model#rulesmodel-type) using the [selfIssued attestation](rules-and-display-definitions-model#selfissuedattestation-type) will produce an issuance flow where the user will be required to manually enter values for the claims in the Authenticator.  
 
-To use the Microsoft Entra Verified ID QuickStart, you only need to complete verifiable credentials onboarding.
-
-## What is the QuickStart?
-
-Azure AD verifiable Credentials now come with a QuickStart in the portal for creating custom credentials. When using the QuickStart, you don't need to edit and upload of display and rules files to Azure Storage. Instead you enter all details in the portal and create the credential in one page. 
-
->[!NOTE]
->When working with custom credentials, you provide display and rules definitions in JSON documents. These definitions are now stored together with the credential's details.
-
-## Create a Custom credential
+## Create a Custom credential with the selfIssued attestation type
 
 When you select + Add credential in the portal, you get the option to launch two Quickstarts. Select [x] Custom credential and select Next. 
 
@@ -45,7 +36,7 @@ In the next screen, you enter JSON for the Display and the Rules definitions and
 
 ## Sample JSON Display definitions
 
-The expected JSON for the Display definitions is the inner content of the displays collection. The JSON is a collection, so if you want to support multiple locales, you add multiple entries with a comma as separator.
+The Display JSON definition is very much the same regardless of attestation type. You just have to adjust the labels depending on what claims your VC have. The expected JSON for the Display definitions is the inner content of the displays collection. The JSON is a collection, so if you want to support multiple locales, you add multiple entries with a comma as separator. 
 
 ```json
 {
@@ -67,13 +58,13 @@ The expected JSON for the Display definitions is the inner content of the displa
     },
     "claims": [
       {
-        "claim": "vc.credentialSubject.firstName",
-        "label": "First name",
+        "claim": "vc.credentialSubject.displayName",
+        "label": "Name",
         "type": "String"
       },
       {
-        "claim": "vc.credentialSubject.lastName",
-        "label": "Last name",
+        "claim": "vc.credentialSubject.companyName",
+        "label": "Company",
         "type": "String"
       }
     ]
@@ -82,33 +73,37 @@ The expected JSON for the Display definitions is the inner content of the displa
 
 ## Sample JSON Rules definitions
 
-The expected JSON for the Rules definitions is the inner content of the rules attribute, which starts with the attestation attribute.
+The JSON attestation definition should contain the **selfIssued** name and the claims mapping section. Since the claims are selfIssued, the value will be the same for the **outputClaim** and the **inputClaim**. The expected JSON for the Rules definitions is the inner content of the rules attribute, which starts with the attestation attribute. The claims mapping in the below example will require that you do the token configuration as explained below in the section [Claims in id_token from Identity Provider](#Claims-in-id_token-from-Identity-Provider).
 
 ```json
 {
-      "attestations": {
-        "idTokenHints": [
-          {
-            "mapping": [
-              {
-                "outputClaim": "firstName",
-                "required": true,
-                "inputClaim": "$.given_name",
-                "indexed": false
-              },
-              {
-                "outputClaim": "lastName",
-                "required": true,
-                "inputClaim": "$.family_name",
-                "indexed": false
-              }
-            ],
-            "required": false
-          }
-        ]
-      }
+  "attestations": {
+    "selfIssued": {
+      "mapping": [
+        {
+          "outputClaim": "displayName",
+          "required": true,
+          "inputClaim": "displayName",
+          "indexed": false
+        },
+        {
+          "outputClaim": "companyName",
+          "required": true,
+          "inputClaim": "companyName",
+          "indexed": false
+        }
+      ],
+      "required": false
+    }
+  }
 }
 ```
+
+## Claims input during issuance
+
+During issuance, the Microsoft Authenticator will prompt the user to enter values for the specified claims. There is no validation of user input.
+
+![selfIssued claims input](media/how-to-use-quickstart-selfissued\selfIssued-claims-input.png)
 
 ## Configure the samples to issue and verify your Custom credential
 
@@ -129,4 +124,3 @@ After switching to custom issue, you have access to a textbox with a JSON payloa
 ## Next steps
 
 - Reference for [Rules and Display definitions model](rules-and-display-definitions-model.md)
-- Reference for creating a credential using the [idToken] attestation (idtoken-reference.md)

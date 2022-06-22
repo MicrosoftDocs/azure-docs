@@ -1,5 +1,5 @@
 ---
-title: Link your Domain to your Decentralized Identifier (DID) (preview) - Azure Active Directory Verifiable Credentials
+title: Link your Domain to your Decentralized Identifier (DID) (preview) - Microsoft Entra Verified ID
 description: Learn how to DNS Bind?
 documentationCenter: ''
 author: barclayn
@@ -18,7 +18,7 @@ ms.author: barclayn
 [!INCLUDE [Verifiable Credentials announcement](../../../includes/verifiable-credentials-brand.md)]
 
 > [!IMPORTANT]
-> Azure Active Directory Verifiable Credentials is currently in public preview.
+> Microsoft Entra Verified ID is currently in public preview.
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
@@ -158,6 +158,23 @@ If the trust system is ION, once the domain changes are published to ION, the do
 
 Congratulations, you now have bootstrapped the web of trust with your DID!
 
+## Linked Domain domain made easy for developers
+
+The easiest way for a developer to get a domain to use for linked domain is to use Azure Storage's static website feature. You can not control what hte domain name will be, other than it will contain your storage account name as part of it's hostname.
+
+Follow these steps to quickly setup a domain to use for Linked Domain:
+1. Create an **Azure Storage account** of kind StorageV2 (general-purpose v2 account) and with Redundancy being Locally-redundant storage (LRS). 
+1. Go to that Storage Account and select **Static website** in the left hand menu and enable static website. If you cannot see the **Static website** menu item, you did not create a **V2** storage account.
+1. Copy the primary endpoint name that appears after saving. That will be your domain name. It will look something like `https://<your-storageaccountname>.z6.web.core.windows.net/`.
+
+When it comes time to upload the `did-configuration.json` file, do the following:
+1. Go to that Storage Account and select **Containers** in the left hand menu. Then select the container named `$web`.
+1. Select **Upload** and click on the folder icon to find your file
+1. Before uploaded, open the **Advanced** section and specify `.well-known` in the **Upload to folder** textbox.
+1. Upload the file.
+
+You known have a your file publically available at URL that looks something like `https://<your-storageaccountname>.z6.web.core.windows.net/.well-known/did-configuration.json`.
+
 ## Next steps
 
-- [How to customize your Azure Active Directory Verifiable Credentials](credential-design.md)
+- [How to customize your Microsoft Entra Verified ID](credential-design.md)

@@ -1,5 +1,5 @@
 ---
-title: How to customize your Azure Active Directory Verifiable Credentials (preview)
+title: How to customize your Microsoft Entra Verified ID (preview)
 description: This article shows you how to create your own custom verifiable credential
 services: active-directory
 author: barclayn
@@ -19,7 +19,7 @@ ms.author: barclayn
 Verifiable credentials are made up of two components, the rules and display definitions. The rules definition determines what the user needs to provide before they receive a verifiable credential. The display definition controls the branding of the credential and styling of the claims. In this guide, we will explain how to modify both files to meet the requirements of your organization. 
 
 > [!IMPORTANT]
-> Azure Active Directory Verifiable Credentials is currently in public preview.
+> Microsoft Entra Verified ID is currently in public preview.
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
@@ -27,7 +27,7 @@ Verifiable credentials are made up of two components, the rules and display defi
 
 The rules definition is a simple JSON document that describes important properties of verifiable credentials. In particular, it describes how claims are used to populate your verifiable credential.
 
-There are currently three input types that are available to configure in the rules definition. These types are used by the verifiable credential issuing service to insert claims into a verifiable credential and attest to that information with your DID. The following are the four types with explanations.
+There are currently four input types that are available to configure in the rules definition. These types are used by the verifiable credential issuing service to insert claims into a verifiable credential and attest to that information with your DID. The following are the four types with explanations.
 
 - ID Token
 - ID Token Hint

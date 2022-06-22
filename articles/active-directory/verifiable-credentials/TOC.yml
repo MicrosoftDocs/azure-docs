@@ -3,7 +3,7 @@
 - name: Overview
   expanded: true
   items:
-  - name: Introduction to Azure Active Directory Verifiable Credentials
+  - name: Introduction to Microsoft Entra Verified ID
     href: decentralized-identifier-overview.md
   - name: What's new
     href: whats-new.md
@@ -36,16 +36,22 @@
     href: get-started-request-api.md
   - name: How to customize your credentials
     href: credential-design.md
-  - name: Manage credential revocation
-    href: how-to-use-quickstart.md
-  - name: Create credentials using the QuickStart
-    href: how-to-use-quickstart.md
-  - name: Revoke a Verifiable Credential
-    href: how-to-issuer-revoke.md
+  - name: Create credentials using Quickstart
+    items:
+    - name: Id Token Hint flow
+      href: how-to-use-quickstart.md
+    - name: Id Token flow
+      href: how-to-use-quickstart-idtoken.md      
+    - name: Self Issued flow
+      href: how-to-use-quickstart-selfissued.md
+    - name: Verified Employee
+      href: how-to-use-quickstart-verifiedemployee.md
   - name: Link your domain to your DID
     href: how-to-dnsbind.md
   - name: Register your website ID
     href: how-to-register-didwebsite.md
+  - name: Revoke a Verifiable Credential
+    href: how-to-issuer-revoke.md
   - name: Opt out of verifiable credentials
     href: how-to-opt-out.md
 - name: Samples
@@ -67,7 +73,7 @@
   - name: Rules and Display definition model
     href: rules-and-display-definitions-model.md
   - name: Supported standards
-    href: verifiable-credentials-standards.md
+    href: verifiable-credentials.md
 - name: Resources
   expanded: true
   items:
