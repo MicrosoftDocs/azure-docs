@@ -10,4 +10,6 @@ ms.azure.devx-azure-tooling: ['vscode-azure-tools']
 ms.custom: devx-track-python
 ---
 
-Select your subscription and click the **Create server** icon ( **+** ).
+1. Expand **RESOURCES**. (Make sure resources are sorted by resource type.)
+
+1. Under your subscription, right-click **PostgresSQL servers (Flexible)** and select **Create server**.
