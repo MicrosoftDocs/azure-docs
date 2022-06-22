@@ -54,7 +54,7 @@ For your disk pool to work with your client machines, you must delegate a subnet
 1. Go to the virtual networks pane in the Azure portal and select the virtual network to use for the disk pool.
 1. Select **Subnets** from the virtual network pane and select **+Subnet**.
 1. Create a new subnet by completing the following required fields in the **Add subnet** pane:
-        - Subnet delegation: Select Microsoft.StoragePool
+        - Subnet delegation: Select Microsoft.StoragePool/diskPools
 
 For more information on subnet delegation, see [Add or remove a subnet delegation](../virtual-network/manage-subnet-delegation.md).
 

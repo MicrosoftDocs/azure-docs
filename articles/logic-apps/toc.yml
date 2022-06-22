@@ -280,8 +280,6 @@
       href: ../connectors/connectors-create-api-servicebus.md
     - name: Azure SQL Database
       href: ../connectors/connectors-create-api-sqlazure.md
-    - name: Bing Search
-      href: ../connectors/connectors-create-api-bingsearch.md
     - name: Common Data Service
       href: ../connectors/connect-common-data-service.md
     - name: Custom APIs and web apps

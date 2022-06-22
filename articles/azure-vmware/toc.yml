@@ -288,6 +288,16 @@
       href: ./faq.yml
     - name: CSP and multi-tenancy
       href: ./faq.yml
+  - name: Videos
+    items:
+    - name: Playlist
+      href: https://www.youtube.com/playlist?list=PL1NLwHeM6ewbZu0dC0guj-OSpIoZnnJin
+    - name: Integration with Azure Service
+      href: https://youtu.be/m26iLu6DHbU
+    - name: Integration with Azure Application Gateway
+      href: https://youtu.be/BoQYvqzb6Y8
+    - name: Migration and capacity planning
+      href: https://youtu.be/NoNG-hkksrA
 - name: Reference
   items:
   - name: REST API

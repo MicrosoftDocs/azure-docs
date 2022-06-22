@@ -30,6 +30,10 @@ landingContent:
         links:
           - text: What's new
             url: whats-new.md
+      - linkListType: learn
+        links:
+          - text: Microsoft Learn
+            url: /learn/modules/classify-images-custom-vision/
       - linkListType: video
         links:
           - text: Train and identify unique images

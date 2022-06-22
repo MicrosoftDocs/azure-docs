@@ -42,15 +42,14 @@ Create a service principal with [New-AzADServicePrincipal](/powershell/module/az
 
 ```azurepowershell
 $sp = New-AzADServicePrincipal -DisplayName "PackerSP$(Get-Random)"
-$BSTR = [System.Runtime.InteropServices.Marshal]::SecureStringToBSTR($sp.Secret)
-$plainPassword = [System.Runtime.InteropServices.Marshal]::PtrToStringAuto($BSTR)
+$plainPassword = (New-AzADSpCredential -ObjectId $sp.Id).SecretText
 ```
 
 Then output the password and application ID.
 
 ```powershell
 $plainPassword
-$sp.ApplicationId
+$sp.AppId
 ```
 
 
@@ -68,7 +67,7 @@ Create a file named *windows.json* and paste the following content. Enter your o
 
 | Parameter                           | Where to obtain |
 |-------------------------------------|----------------------------------------------------|
-| *client_id*                         | View service principal ID with `$sp.applicationId` |
+| *client_id*                         | View service principal ID with `$sp.AppId` |
 | *client_secret*                     | View the auto-generated password with `$plainPassword` |
 | *tenant_id*                         | Output from `$sub.TenantId` command |
 | *subscription_id*                   | Output from `$sub.SubscriptionId` command |
