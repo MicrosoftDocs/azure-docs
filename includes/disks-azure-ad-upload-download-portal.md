@@ -26,7 +26,7 @@ To access managed disks secured with Azure AD, the requesting user must have eit
 - **Microsoft.Compute/snapshots/download/action**
 - **Microsoft.Compute/snapshots/upload/action**
 
-For detailed steps on assigning a role, see [Assign Azure roles using the Azure portal](../articles/role-based-access-control/role-assignments-portal.md).
+For detailed steps on assigning a role, see [Assign Azure roles using the Azure portal](../articles/role-based-access-control/role-assignments-portal.md). To create or update a custom role, see [Create or update Azure custom roles using the Azure portal](../articles/role-based-access-control/custom-roles-portal.md).
 
 ### Enable data access authentication mode
 
