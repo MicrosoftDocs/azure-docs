@@ -28,6 +28,7 @@ This article shows you how to connect to Azure Cosmos DB MongoDB API using the n
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free).
 * [Node.js LTS](https://nodejs.org/en/download/)
 * [Azure Command-Line Interface (CLI)](/cli/azure/) or [Azure PowerShell](/powershell/azure/)
+* [Azure Cosmos DB MongoDB API resource](quickstart-javascript.md#create-an-azure-cosmos-db-account)
 
 ## Set up your project
 
@@ -66,20 +67,25 @@ The most common constructor for **MongoClient** has two parameters:
 
 Refer to the [Troubleshooting guide](error-codes-solutions.md) for connection issues.
 
-#### Retrieve your connection string
+#### Get resource name
 
 ##### [Azure CLI](#tab/azure-cli)
 
 [!INCLUDE [Azure CLI - get resource name](<./includes/azurecli-get-resource-name.md>)]
 
-[!INCLUDE [Azure CLI - get connection string](<./includes/azurecli-get-connection-string.md>)]
-
 ##### [PowerShell](#tab/azure-powershell)
 
 [!INCLUDE [Powershell - set resource name](<./includes/powershell-set-resource-name.md>)]
 
-[!INCLUDE [Powershell - get connection string](<./includes/powershell-get-connection-string.md>)]
+---
 
+#### Retrieve your connection string
+
+[!INCLUDE [Azure CLI - get connection string](<./includes/azurecli-get-connection-string.md>)]
+
+##### [PowerShell](#tab/azure-powershell)
+
+[!INCLUDE [Powershell - get connection string](<./includes/powershell-get-connection-string.md>)]
 
 ##### [Portal](#tab/azure-portal)
 
@@ -89,6 +95,8 @@ Refer to the [Troubleshooting guide](error-codes-solutions.md) for connection is
 [!INCLUDE [Portal - get connection string](<./includes/portal-get-connection-string-from-sign-in.md>)]
 
 ---
+
+#### Configure environment variables
 
 [!INCLUDE [Multitab - store connection string in environment variable](<./includes/multitab-env-vars-connection-string.md>)]
 
@@ -100,19 +108,7 @@ Create a new instance of the **MongoClient** class with the ``COSMOS_CONNECTION_
 
 ## Build your application
 
-As you build your application, your code will primarily interact with these types of resources:
-
-- Databases, which organize the collections in your account.
-
-- Collections, which contain a set of individual docs in your database.
-
-- Docs, which represent a JSON document in your collection.
-
-The following diagram shows the relationship between these resources.
-
-:::image type="complex" source="media/quickstart-javascript/resource-hierarchy.png" alt-text="Diagram of the Azure Cosmos D B hierarchy including accounts, databases, collections, and docs.":::
-    Hierarchical diagram showing an Azure Cosmos D B account at the top. The account has two child database nodes. One of the database nodes includes two child collection nodes. The other database node includes a single child collection node. That single collection node has three child doc nodes.
-:::image-end:::
+[!INCLUDE [Conceptual object model](<./includes/multitab-env-vars-connection-string.md>)]
 
 Each type of resource is represented by one or more associated JavaScript classes. Here's a list of the most common classes:
 

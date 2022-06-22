@@ -15,7 +15,7 @@ ms.custom: devx-track-js
 
 [!INCLUDE[appliesto-mongodb-api](../includes/appliesto-mongodb-api.md)]
 
-Your MongoDB collections stores documents. Use a collection to insert, update, delete or query for documents.
+Manage you MongoDB collection store documents with the ability insert, update, delete or query for documents.
 
 > [!NOTE]
 > The [example code snippets](https://github.com/Azure-Samples/cosmos-db-mongodb-api-javascript-samples) are available on GitHub as a JavaScript project.
@@ -33,16 +33,22 @@ Here are some quick rules when naming a collection:
 * Collection names can only contain lowercase letters, numbers, or the dash (-) character.
 * Container names must start with a lowercase letter or number.
 
+## Get collection instance
+
+Use an instance of the **Collection** class to access the collection on the server.
+
+* [MongoClient.Db.Collection](https://mongodb.github.io/node-mongodb-native/4.7/classes/Collection.html)
+
+
 ## Create a collection
 
 To create a collection, insert a document into the collection.
 
 * [MongoClient.Db.Collection](https://mongodb.github.io/node-mongodb-native/4.5/classes/Db.html#collection)
 * [MongoClient.Db.Collection.insertOne](https://mongodb.github.io/node-mongodb-native/4.7/classes/Collection.html#insertOne)
+* [MongoClient.Db.Collection.insertMany](https://mongodb.github.io/node-mongodb-native/4.7/classes/Collection.html#insertMany)
 
-```javascript
-const insertOneResult = await client.db("adventureworks").collection("products").insertOne(doc);
-```
+:::code language="javascript" source="~/samples-cosmosdb-mongodb-javascript/203-insert-doc/index.js" id="database_object":::
 
 ## Drop a collection
 
@@ -70,7 +76,7 @@ The preceding code snippet displays the following example console output:
 
 ## Insert a document
 
-A document contains the information within a JSON schema. To insert a document, you can insert a single document.
+Insert a document, defined with a JSON schema, into your collection.
 
 * [MongoClient.Db.Collection.insertOne](https://mongodb.github.io/node-mongodb-native/4.7/classes/Collection.html#insertOne)
 * [MongoClient.Db.Collection.insertMany](https://mongodb.github.io/node-mongodb-native/4.7/classes/Collection.html#insertMany)
@@ -81,13 +87,25 @@ The preceding code snippet displays the following example console output:
 
 :::code language="console" source="~/samples-cosmosdb-mongodb-javascript/203-insert-doc/index.js" id="console_result":::
 
+## Document Id
+
+If you don't provide an ID, `_id`, for your document, one is created for you as a BSON object. The value of the provided ID is accessed with the ObjectId method.
+
+* [ObjectId](https://mongodb.github.io/node-mongodb-native/4.7/classes/ObjectId.html)
+
+Use the ID to query for documents:
+
+```javascript
+const query = { _id: ObjectId("62b1f43a9446918500c875c5")};
+```
 
 ## Update a document
 
-To update a document, specify the query used to find the document along with which properties of the document should be updated. You can choose to upsert the document, which inserts the document if it doesn't already exist. 
+To update a document, specify the query used to find the document along with a set of properties of the document that should be updated. You can choose to upsert the document, which inserts the document if it doesn't already exist. 
 
 * [MongoClient.Db.Collection.updateOne](https://mongodb.github.io/node-mongodb-native/4.7/classes/Collection.html#updateOne)
 * [MongoClient.Db.Collection.updateMany](https://mongodb.github.io/node-mongodb-native/4.7/classes/Collection.html#updateMany)
+
 
 :::code language="javascript" source="~/samples-cosmosdb-mongodb-javascript/250-upsert-doc/index.js" id="upsert":::
 
@@ -101,7 +119,7 @@ The preceding code snippet displays the following example console output for an 
 
 ## Bulk updates to a collection
 
-You can perform several operations with the **bulkWrite** operation. The following bulk operations are available:
+You can perform several operations at once with the **bulkWrite** operation. The following bulk operations are available:
 
 * [MongoClient.Db.Collection.bulkWrite](https://mongodb.github.io/node-mongodb-native/4.7/classes/Collection.html#bulkWrite)
     * insertOne

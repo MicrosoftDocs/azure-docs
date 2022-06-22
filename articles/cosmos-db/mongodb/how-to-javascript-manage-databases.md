@@ -24,6 +24,20 @@ Your MongoDB server in Azure Cosmos DB is available from the common npm packages
 
 [MongoDB API reference documentation](https://docs.mongodb.com/drivers/node) | [mongodb Package (NuGet)](https://www.npmjs.com/package/mongodb)
 
+## Name a database
+
+In Azure Cosmos DB, a database is analogous to a namespace. When you create a database, the database name forms a segment of the URI used to access the database resource and any child resources.
+
+Here are some quick rules when naming a database:
+
+* Keep database names between 3 and 63 characters long
+* Database names can only contain lowercase letters, numbers, or the dash (-) character.
+* Database names must start with a lowercase letter or number.
+
+Once created, the URI for a database is in this format:
+
+``https://<cosmos-account-name>.documents.azure.com/dbs/<database-name>``
+
 ## Get database instance
 
 The database holds the collections and their documents. Use an instance of the **Db** class to access the databases on the server.
