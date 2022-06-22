@@ -7,7 +7,7 @@ manager: rkarlin
 ms.service: decentralized-identity
 ms.topic: how-to
 ms.subservice: verifiable-credentials
-ms.date: 06/02/2022
+ms.date: 06/22/2022
 ms.author: barclayn
 
 #Customer intent: Why are we doing this?
@@ -59,7 +59,7 @@ We follow the [Well-Known DID configuration](https://identity.foundation/.well-k
     ]
     ```
 
-2. The verifiable credential service in Azure AD generates a compliant well-known configuration resource that you can host on your domain. The configuration file includes a self-issued verifiable credential of credentialType 'DomainLinkageCredential' signed with your DID that has an origin of your domain. Here is an example of the config doc that is stored at the root domain URL.
+2. The verifiable credential service in Azure AD generates a compliant well-known configuration resource that you can host on your domain. The configuration file includes a self-issued verifiable credential of credentialType 'DomainLinkageCredential' signed with your DID that has an origin of your domain. Here's an example of the config doc that is stored at the root domain URL.
 
 
     ```json
@@ -112,7 +112,7 @@ It is of high importance that you link your DID to a domain recognizable to the 
 ## How do you update the linked domain on your DID?
 
 1. Navigate to the Verifiable Credentials | Getting Started page.  
-1. On the left side of the page select **Domain**.
+1. On the left side of the page, select **Domain**.
 1. In the Domain box, enter your new domain name.
 1. Select **Publish**.
 
@@ -160,20 +160,22 @@ Congratulations, you now have bootstrapped the web of trust with your DID!
 
 ## Linked Domain domain made easy for developers
 
-The easiest way for a developer to get a domain to use for linked domain is to use Azure Storage's static website feature. You can not control what hte domain name will be, other than it will contain your storage account name as part of it's hostname.
+The easiest way for a developer to get a domain to use for linked domain is to use Azure Storage's static website feature. You can't control what the domain name will be, other than it will contain your storage account name as part of it's hostname.
 
-Follow these steps to quickly setup a domain to use for Linked Domain:
-1. Create an **Azure Storage account** of kind StorageV2 (general-purpose v2 account) and with Redundancy being Locally-redundant storage (LRS). 
-1. Go to that Storage Account and select **Static website** in the left hand menu and enable static website. If you cannot see the **Static website** menu item, you did not create a **V2** storage account.
-1. Copy the primary endpoint name that appears after saving. That will be your domain name. It will look something like `https://<your-storageaccountname>.z6.web.core.windows.net/`.
+Follow these steps to quickly set up a domain to use for Linked Domain:
 
-When it comes time to upload the `did-configuration.json` file, do the following:
+1. Create an **Azure Storage account**. During storage account creation, choose StorageV2 (general-purpose v2 account) and Locally redundant storage (LRS).
+1. Go to that Storage Account and select **Static website** in the left hand menu and enable static website. If you can't see the **Static website** menu item, you didn't create a **V2** storage account.
+1. Copy the primary endpoint name that appears after saving. This value is your domain name. It looks something like `https://<your-storageaccountname>.z6.web.core.windows.net/`.
+
+When it comes time to upload the `did-configuration.json` file, take the following steps:
+
 1. Go to that Storage Account and select **Containers** in the left hand menu. Then select the container named `$web`.
-1. Select **Upload** and click on the folder icon to find your file
+1. Select **Upload** and select on the folder icon to find your file
 1. Before uploaded, open the **Advanced** section and specify `.well-known` in the **Upload to folder** textbox.
 1. Upload the file.
 
-You known have a your file publically available at URL that looks something like `https://<your-storageaccountname>.z6.web.core.windows.net/.well-known/did-configuration.json`.
+You now have your file publicly available at a URL that looks something like `https://<your-storageaccountname>.z6.web.core.windows.net/.well-known/did-configuration.json`.
 
 ## Next steps
 
