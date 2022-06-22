@@ -31,7 +31,7 @@ To configure your VIS in the Azure portal:
 1. On the **Azure Center for SAP solutions** overview page, search for and select **Virtual Instances for SAP solutions** in the sidebar menu.
 1. On the **Virtual Instances for SAP solutions** page, select the VIS that you want to view.
 
-    :::image type="content" source="media/configure-virtual-instance/select-vis.png" lightbox="media/configure-virtual-instance/select-vis.png" alt-text="Screenshot of Azure portal, showing the V I S page in the A C S S service with a table of available V I S resources.":::
+    :::image type="content" source="media/configure-virtual-instance/select-vis.png" lightbox="media/configure-virtual-instance/select-vis.png" alt-text="Screenshot of Azure portal, showing the VIS page in the ACSS service with a table of available VIS resources.":::
 
 ## Monitor VIS
 
@@ -51,7 +51,7 @@ In the sidebar menu, look under the section **SAP resources**:
 - To see properties of application server instances, select **App server instances**.
 - To see properties of database instances, select **Databases**.
 
-:::image type="content" source="media/configure-virtual-instance/sap-resources.png" lightbox="media/configure-virtual-instance/sap-resources.png" alt-text="Screenshot of V I S resource in Azure portal, showing S A P resources pages in the sidebar menu for A S C S, App server, and Database instances.":::
+:::image type="content" source="media/configure-virtual-instance/sap-resources.png" lightbox="media/configure-virtual-instance/sap-resources.png" alt-text="Screenshot of VIS resource in Azure portal, showing SAP resources pages in the sidebar menu for ASCS, App server, and Database instances.":::
 
 ## Connect to HANA database
 
@@ -70,7 +70,7 @@ To retrieve the SAP password:
 1. [Open the VIS in the Azure portal](#open-vis-in-portal).
 1. On the overview page, select the **Managed resource group**.
 
-    :::image type="content" source="media/configure-virtual-instance/select-managed-resource-group.png" lightbox="media/configure-virtual-instance/select-managed-resource-group.png" alt-text="Screenshot of V I S resource in the Azure portal, showing selection of managed resource group on the overview page.":::
+    :::image type="content" source="media/configure-virtual-instance/select-managed-resource-group.png" lightbox="media/configure-virtual-instance/select-managed-resource-group.png" alt-text="Screenshot of VIS resource in the Azure portal, showing selection of managed resource group on the overview page.":::
 
 1. On the resource group's page, select the **Key vault** resource in the table.
 
@@ -110,11 +110,11 @@ To delete a VIS:
 1. [Open the VIS in the Azure portal](#open-vis-in-portal).
 1. On the overview page's menu, select **Delete**.
 
-    :::image type="content" source="media/configure-virtual-instance/delete-vis-button.png" lightbox="media/configure-virtual-instance/delete-vis-button.png" alt-text="Screenshot of V I S resource in the Azure portal, showing delete button in the overview page's menu..":::
+    :::image type="content" source="media/configure-virtual-instance/delete-vis-button.png" lightbox="media/configure-virtual-instance/delete-vis-button.png" alt-text="Screenshot of VIS resource in the Azure portal, showing delete button in the overview page's menu..":::
 
 1. In the deletion pane, make sure that you want to delete this VIS and related resources. You can see a count for each type of resource to be deleted.
     
-    :::image type="content" source="media/configure-virtual-instance/delete-vis-prompt.png" lightbox="media/configure-virtual-instance/delete-vis-prompt.png" alt-text="Screenshot of deletion prompt pane for a V I S resource in the Azure portal, showing list of related resources and confirmation field to enable the delete button.":::
+    :::image type="content" source="media/configure-virtual-instance/delete-vis-prompt.png" lightbox="media/configure-virtual-instance/delete-vis-prompt.png" alt-text="Screenshot of deletion prompt pane for a VIS resource in the Azure portal, showing list of related resources and confirmation field to enable the delete button.":::
 
 1. Enter **YES** in the confirmation field.
 1. Select **Delete** to delete the VIS.
