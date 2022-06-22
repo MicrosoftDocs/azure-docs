@@ -289,7 +289,7 @@
   - name: Database protection
     items:
     - name: Enable database protection
-      href: defender-for-sql-enable-azure-sql-protections.md
+      href: quickstart-enable-database-protections.md
     - name: Defender for Azure SQL Databases
       items: 
       - name: Overview
