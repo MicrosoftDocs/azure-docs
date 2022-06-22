@@ -11,8 +11,6 @@ ms.date: 10/18/2021
 ms.custom: sdkv1, event-tier1-build-2022
 ---
 
-[//]: # (needs PM review; run_id?)
-
 # Make predictions with ONNX on computer vision models from AutoML
 
 [!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
