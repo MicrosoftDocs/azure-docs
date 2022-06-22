@@ -136,7 +136,7 @@ When you submit a training job from the Python SDK or Machine Learning CLI, the 
 | `mlflow.source.git.commit` | `git rev-parse HEAD` | The commit hash of the code that was submitted for the job. |
 | `azureml.git.dirty` | `git status --porcelain .` | `True`, if the branch/commit is dirty; otherwise, `false`. |
 
-This information is sent for jobs that use an estimator, machine learning pipeline, or script job.
+This information is sent for jobs that use an estimator, machine learning pipeline, or script run.
 
 If your training files are not located in a git repository on your development environment, or the `git` command is not available, then no git-related information is tracked.
 
@@ -156,8 +156,8 @@ The git information is stored in the properties for a training job. You can view
 ### Azure portal
 
 1. From the [studio portal](https://ml.azure.com), select your workspace.
-1. Select __Experiments__, and then select one of your experiments.
-1. Select one of the jobs from the __RUN NUMBER__ column.
+1. Select __Jobs__, and then select one of your experiments.
+1. Select one of the jobs from the __Display name__ column.
 1. Select __Outputs + logs__, and then expand the __logs__ and __azureml__ entries. Select the link that begins with __###\_azure__.
 
 The logged information contains text similar to the following JSON:
