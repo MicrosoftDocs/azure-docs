@@ -600,13 +600,13 @@ That's it, congratulations! You have learned to use the Translator service to tr
 
  Explore our how-to documentation and take a deeper dive into Translation service capabilities:
 
-* [**Translate text**](translator-text-apis#translate-text)
+* [**Translate text**](translator-text-apis.md#translate-text)
 
-* [**Transliterate text**](translator-text-apis#transliterate-text)
+* [**Transliterate text**](translator-text-apis.md#transliterate-text)
 
-* [**Detect and identify language**](translator-text-apis#detect-language)
+* [**Detect and identify language**](translator-text-apis.md#detect-language)
 
-* [**Get sentence length**](translator-text-apis#get-sentence-length)
+* [**Get sentence length**](translator-text-apis.md#get-sentence-length)
 
-* [**Dictionary lookup and alternate translations**](translator-text-apis#dictionary-examples-translations-in-context)
+* [**Dictionary lookup and alternate translations**](translator-text-apis.md#dictionary-examples-translations-in-context)
 
