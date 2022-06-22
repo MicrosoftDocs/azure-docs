@@ -27,6 +27,7 @@ It analyzes SAP system data to detect threats such as privilege escalation, unap
 - Correlate SAP monitoring with other signals across your organization
 - Build your own detections to monitor sensitive transactions and other business risks
 
+## Solution details
 
 ### Log sources
 
