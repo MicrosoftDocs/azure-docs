@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 06/08/2022
+ms.date: 07/04/2022
 tags: connectors
 ---
 
@@ -34,9 +34,9 @@ The SQL Server connector has different versions, based on [logic app type and ho
 
 | Logic app | Environment | Connector version |
 |-----------|-------------|-------------------|
-| **Consumption** | Multi-tenant Azure Logic Apps | [Managed connector - Standard class](managed.md). For operations, limits, and other information, review the [SQL Server managed connector reference](/connectors/sql). |
-| **Consumption** | Integration service environment (ISE) | [Managed connector - Standard class](managed.md) and ISE version. For operations, managed connector limits, and other information, review the [SQL Server managed connector reference](/connectors/sql). For ISE-versioned limits, review the [ISE message limits](../logic-apps/logic-apps-limits-and-config.md#message-size-limits), not the managed connector's message limits. |
-| **Standard** | Single-tenant Azure Logic Apps and App Service Environment v3 (Windows plans only) | [Managed connector - Standard class](managed.md) and [built-in connector](built-in.md), which is [service provider based](../logic-apps/custom-connector-overview.md#service-provider-interface-implementation).  For managed connector operations, limits, and other information, review the [SQL Server managed connector reference](/connectors/sql/). <br><br>The built-in connector differs in the following ways: <br><br>- The built-in version has no triggers. <br><br>- The built-in version has a single **Execute Query** action. This action can directly access Azure virtual networks with a connection string and doesn't need the on-premises data gateway. <br><br>For built-in connector operations, limits, and other information, review the [SQL Server built-in connector reference](#built-in-connector-operations). |
+| **Consumption** | Multi-tenant Azure Logic Apps | Managed connector (Standard class). For more information, review the following documentation: <br><br>- [SQL Server managed connector reference](/connectors/sql). <br>- [Managed connectors in Azure Logic Apps](managed.md) |
+| **Consumption** | Integration service environment (ISE) | Managed connector (Standard class) and ISE version, which has different message limits than the Standard class. For more information, review the following documentation: <br><br>- [SQL Server managed connector reference](/connectors/sql) <br>- [ISE message limits](../logic-apps/logic-apps-limits-and-config.md#message-size-limits) <br>- [Managed connectors in Azure Logic Apps](managed.md) |
+| **Standard** | Single-tenant Azure Logic Apps and App Service Environment v3 (Windows plans only) | Managed connector (Standard class) and built-in connector, which is [service provider based](../logic-apps/custom-connector-overview.md#service-provider-interface-implementation). The built-in version differs in the following ways: <br><br>- The built-in version doesn't have triggers. You can use either a SQL managed connector trigger or a completely different trigger. <br><br>- The built-in version connects directly to a SQL server and database requiring only a connection string. You don't need the on-premises data gateway. <br><br>- The built-in version can directly access Azure virtual networks. You don't need the on-premises data gateway.<br><br>For more information, review the following documentation: <br><br>- [SQL Server managed connector reference](/connectors/sql/) <br>- [SQL Server built-in connector reference](#built-in-connector-operations) section later in this article <br>- [Built-in connectors in Azure Logic Apps](built-in.md) |
 ||||
 
 ## Limitations
@@ -53,7 +53,7 @@ For more information, review the [SQL Server managed connector reference](/conne
 
 * The information required to create a SQL database connection, such as your SQL server and database names. If you're using Windows Authentication or SQL Server Authentication to authenticate access, you also need your user name and password. You can usually find this information in the connection string.
 
-  > [!NOTE]
+  > [!IMPORTANT]
   >
   > If you use a SQL Server connection string that you copied directly from the Azure portal, 
   > you have to manually add your password to the connection string.
@@ -447,20 +447,77 @@ When you call a stored procedure by using the SQL Server connector, the returned
 
 <a name="built-in-connector-operations"></a>
 
-## Built-in connector operations
+## SQL built-in connector operations
 
+The SQL Server built-in connector is available only for Standard logic app workflows and provides the following actions, but no triggers:
 
-### Actions
+| Action | Description |
+|--------|-------------|
+| [**Delete rows**](#delete-rows) | Delete a file using the specified file path. |
+| [**Execute Query**](#execute-query) | Get the content of a file using the specified file path. |
+| [**Execute stored procedure**](#execute-stored-procedure) | Create a file using the specified file path and file content. |
+| [**Get rows**](#get-rows) | Get the metadata or properties of a file using the specified file path. |
+| [**Get tables**](#get-tables) | Get a list of files and subfolders in the specified folder. |
+| [**Insert row**](#insert-row) | Update a file using the specified file path and file content. |
+| [**Update rows**](#update-rows) | Update a file using the specified file path and file content. |
+|||
 
-The SQL Server built-in connector has a single action.
+<a name="delete-rows"></a>
 
-#### Execute Query
+Operation ID: `deleteRows`
+
+Deletes one or multiple rows from a table.
+
+#### Parameters
+
+| Name | Key | Required | Type | Description |
+|------|-----|----------|------|-------------|
+| **Table name** | `tableName` | True | String | The name for the table |
+| **Where condition** | `columnValuesForWhereCondition` | True | Object | This object contains the column names and corresponding values to delete. To provide this information, follow the *key-value* pair format, for example, *columnName* and *columnValue*. |
+||||||
+
+#### Returns
+
+| Name | Type |
+|------|------|
+| **Result** | An array object that contains the deleted rows where each row contains the column name and the corresponding deleted value. |
+|||
+
+*Example*
+
+The following example shows sample parameter values for the **Delete rows** action and the resulting SQL query that runs:
+
+**Sample values**
+
+| Parameter | JSON name | Sample value |
+|-----------|-----------|--------------|
+| **Table name** | `tableName` | tableName1 |
+| **Where condition** | `columnValuesForWhereCondition` | Key-value pairs: <br><br>- <*columnName1*>, <*columnValue1*> <br><br>- <*columnName2*>, <*columnValue2*> |
+||||
+
+**Parameters in the action's underlying JSON definition**
+
+```json
+"parameters": {
+   "tableName": "tableName1",
+   "columnValuesForWhereCondition": {
+      "columnName1": "columnValue1",
+      "columnName2": "columnValue2"
+   }
+},
+```
+
+**SQL query**: `DELETE FROM tableName1 WHERE columnName1 = columnValue1 AND columnName2 = columnValue2`
+
+<a name="execute-query"></a>
+
+### Execute Query
 
 Operation ID: `executeQuery`
 
 Runs a query against a SQL database.
 
-##### Parameters
+#### Parameters
 
 | Name | Key | Required | Type | Description |
 |------|-----|----------|------|-------------|
@@ -468,7 +525,7 @@ Runs a query against a SQL database.
 | **Query Parameters** | `queryParameters` | False | Objects | The parameters for your query |
 ||||||
 
-##### Returns
+#### Returns
 
 The outputs from this operation are dynamic.
 
