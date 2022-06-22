@@ -4,8 +4,7 @@ description: This article provides guidance for migrating from the existing lega
 ms.topic: conceptual
 author: shseth
 ms.author: shseth
-ms.date: 02/09/2022 
-ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.date: 02/09/2022
 
 ---
 
