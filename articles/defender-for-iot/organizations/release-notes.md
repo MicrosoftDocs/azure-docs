@@ -34,6 +34,7 @@ For more information, see the [Microsoft Security Development Lifecycle practice
 | Version | Date released | End support date |
 |--|--|--|
 | 22.2.4 | 07/2022 | 4/2023 |
+| 22.1.5 | 06/2022 | 03/2022 |
 | 22.1.4 | 04/2022 | 12/2022 |
 | 22.1.3 | 03/2022 | 11/2022 |
 | 22.1.1 | 02/2022 | 10/2022 |
@@ -67,6 +68,12 @@ Use the following table to understand the mapping between legacy names and the c
 We also now support new enterprise hardware profiles, for sensors supporting both 500 GB and 1 TB disk sizes.
 
 For more information, see [Which appliances do I need?](ot-appliance-sizing.md).
+
+## June
+
+**Sensor software version**: 22.1.5
+
+- Bug fixes related to OT monitoring software updates and sensor-cloud connections.
 
 ## May 2022
 
