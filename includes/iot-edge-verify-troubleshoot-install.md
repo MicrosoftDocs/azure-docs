@@ -2,11 +2,11 @@
  title: After installation and provisioning, verify success and troubleshoot
  description: include file
  services: iot-edge
- author: kgremban
+ author: PatAltimore
  ms.service: iot-edge
  ms.topic: include
  ms.date: 10/06/2020
- ms.author: kgremban
+ ms.author: patricka
  ms.custom: include file
 ---
 

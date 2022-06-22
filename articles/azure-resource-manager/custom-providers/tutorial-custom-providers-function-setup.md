@@ -3,11 +3,11 @@ title: Set up Azure Functions
 description: This tutorial goes over how to create a function app in Azure Functions and set it up to work with Azure Custom Providers.
 author: jjbfour
 ms.topic: tutorial
-ms.date: 06/19/2019
+ms.date: 05/06/2022
 ms.author: jobreen
 ---
 
-# Set up Azure Functions for Azure Custom Providers
+# Set up Azure Functions for custom providers
 
 A custom provider is a contract between Azure and an endpoint. With custom providers, you can change workflows in Azure. This tutorial shows how to set up a function app in Azure Functions to work as a custom provider endpoint.
 
@@ -16,7 +16,7 @@ A custom provider is a contract between Azure and an endpoint. With custom provi
 > [!NOTE]
 > In this tutorial, you create a simple service endpoint that uses a function app in Azure Functions. However, a custom provider can use any publicly accessible endpoint. Alternatives include Azure Logic Apps, Azure API Management, and the Web Apps feature of Azure App Service.
 
-To start this tutorial, you should first follow the tutorial [Create your first function app in the Azure portal](../../azure-functions/functions-get-started.md). That tutorial creates a .NET core webhook function that can be modified in the Azure portal. It is also the foundation for the current tutorial.
+To start this tutorial, you should first follow the tutorial [Create your first function app in the Azure portal](../../azure-functions/functions-get-started.md). That tutorial creates a .NET core webhook function that can be modified in the Azure portal. It's also the foundation for the current tutorial.
 
 ## Install Azure Table storage bindings
 
@@ -26,8 +26,8 @@ To install the Azure Table storage bindings:
 1. Select **+ New Input**.
 1. Select **Azure Table Storage**.
 1. Install the Microsoft.Azure.WebJobs.Extensions.Storage extension if it isn't already installed.
-1. In the **Table parameter name** box, enter **tableStorage**.
-1. In the **Table name** box, enter **myCustomResources**.
+1. In the **Table parameter name** box, enter *tableStorage*.
+1. In the **Table name** box, enter *myCustomResources*.
 1. Select **Save** to save the updated input parameter.
 
 ![Custom provider overview showing table bindings](./media/create-custom-provider/azure-functions-table-bindings.png)
@@ -44,7 +44,7 @@ To set up the Azure function to include the custom provider RESTful request meth
 ## Add Azure Resource Manager NuGet packages
 
 > [!NOTE]
-> If your C# project file is missing from the project directory, you can add it manually. Or it will appear after the Microsoft.Azure.WebJobs.Extensions.Storage extension is installed on the function app.
+> If your C# project file is missing from the project directory, you can add it manually, or it will appear after the Microsoft.Azure.WebJobs.Extensions.Storage extension is installed on the function app.
 
 Next, update the C# project file to include helpful NuGet libraries. These libraries make it easier to parse incoming requests from custom providers. Follow the steps to [add extensions from the portal](../../azure-functions/functions-bindings-register.md) and update the C# project file to include the following package references:
 
@@ -72,6 +72,6 @@ The following XML element is an example C# project file:
 
 ## Next steps
 
-In this tutorial, you set up a function app in Azure Functions to work as an Azure custom provider endpoint.
+In this tutorial, you set up a function app in Azure Functions to work as an Azure Custom Provider endpoint.
 
 To learn how to author a RESTful custom provider endpoint, see [Tutorial: Authoring a RESTful custom provider endpoint](./tutorial-custom-providers-function-authoring.md).

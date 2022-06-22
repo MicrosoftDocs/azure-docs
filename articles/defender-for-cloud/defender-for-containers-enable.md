@@ -3,7 +3,7 @@ title: How to enable Microsoft Defender for Containers in Microsoft Defender for
 description: Enable the container protections of Microsoft Defender for Containers
 ms.topic: overview
 zone_pivot_groups: k8s-host
-ms.date: 05/10/2022
+ms.date: 06/15/2022
 ---
 
 # Enable Microsoft Defender for Containers
@@ -22,10 +22,14 @@ Defender for Containers protects your clusters whether they're running in:
 
 Learn about this plan in [Overview of Microsoft Defender for Containers](defender-for-containers-introduction.md).
 
+You can learn more about from the product manager by watching [Microsoft Defender for Containers in a multi-cloud environment](episode-nine.md).
+
+You can also watch [Protect Containers in GCP with Defender for Containers](episode-ten.md) to learn how to protect your containers.
+
 ::: zone pivot="defender-for-container-arc,defender-for-container-eks,defender-for-container-gke"
 > [!NOTE]
 > Defender for Containers' support for Arc-enabled Kubernetes clusters, AWS EKS, and GCP GKE. This is a preview feature.
-> 
+>
 > [!INCLUDE [Legalese](../../includes/defender-for-cloud-preview-legal-text.md)]
 ::: zone-end
 
@@ -70,7 +74,7 @@ A full list of supported alerts is available in the [reference table of all Defe
 1. In the Azure portal, open Microsoft Defender for Cloud's security alerts page and look for the alert on the relevant resource:
 
     :::image type="content" source="media/defender-for-kubernetes-azure-arc/sample-kubernetes-security-alert.png" alt-text="Sample alert from Microsoft Defender for Kubernetes." lightbox="media/defender-for-kubernetes-azure-arc/sample-kubernetes-security-alert.png":::
- 
+
 ::: zone pivot="defender-for-container-arc,defender-for-container-eks,defender-for-container-gke"
 [!INCLUDE [Remove the extension](./includes/defender-for-containers-remove-extension.md)]
 ::: zone-end
@@ -87,6 +91,14 @@ A full list of supported alerts is available in the [reference table of all Defe
 [!INCLUDE [FAQ](./includes/defender-for-containers-override-faq.md)]
 ::: zone-end
 
+## Learn More
+
+You can check out the following blogs:
+
+- [Protect your Google Cloud workloads with Microsoft Defender for Cloud](https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/protect-your-google-cloud-workloads-with-microsoft-defender-for/ba-p/3073360)
+- [Introducing Microsoft Defender for Containers](https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/introducing-microsoft-defender-for-containers/ba-p/2952317)
+- [A new name for multicloud security: Microsoft Defender for Cloud](https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/a-new-name-for-multi-cloud-security-microsoft-defender-for-cloud/ba-p/2943020)
+ 
 ## Next steps
 
 [Use Defender for Containers to scan your ACR images for vulnerabilities](defender-for-container-registries-usage.md).

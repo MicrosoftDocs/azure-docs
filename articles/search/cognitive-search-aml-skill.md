@@ -7,6 +7,7 @@ manager: nitinme
 author: mattmsft
 ms.author: magottei
 ms.service: cognitive-search
+ms.custom: event-tier1-build-2022
 ms.topic: conceptual
 ms.date: 06/12/2020
 ---
@@ -28,7 +29,7 @@ Like built-in skills, an **AML** skill has inputs and outputs. The inputs are se
 ## Prerequisites
 
 * An [AML workspace](../machine-learning/concept-workspace.md)
-* An [Azure Kubernetes Service AML compute target](../machine-learning/concept-compute-target.md) in this workspace with a [deployed model](../machine-learning/how-to-deploy-azure-kubernetes-service.md)
+* An [Azure Kubernetes Service AML compute target](../machine-learning/concept-compute-target.md) in this workspace with a [deployed model](../machine-learning/v1/how-to-deploy-azure-kubernetes-service.md)
   * The [compute target should have SSL enabled](../machine-learning/how-to-secure-web-service.md#deploy-on-azure-kubernetes-service). Azure Cognitive Search only allows access to **https** endpoints
   * Self-signed certificates may not be used.
 

@@ -2,8 +2,8 @@
 title: 'Quickstart: Create a basic public load balancer - Azure CLI'
 titleSuffix: Azure Load Balancer
 description: Learn how to create a public basic SKU Azure Load Balancer in this quickstart using the Azure CLI.
-author: asudbring
-ms.author: allensu
+author: mbender-ms
+ms.author: mbender
 ms.service: load-balancer
 ms.topic: quickstart
 ms.date: 03/16/2022
@@ -166,11 +166,11 @@ Create a network security group rule using [az network nsg rule create](/cli/azu
 
 ## Create a bastion host
 
-In this section, you'll create te resources for Azure Bastion. Azure Bastion is used to securely manage the virtual machines in the backend pool of the load balancer.
+In this section, you'll create the resources for Azure Bastion. Azure Bastion is used to securely manage the virtual machines in the backend pool of the load balancer.
 
 ### Create a public IP address
 
-Use [az network public-ip create](/cli/azure/network/public-ip#az-network-public-ip-create) to create a public ip address for the bastion host. The public IP is used by the bastion host for secure access to the virtual machine resources.
+Use [az network public-ip create](/cli/azure/network/public-ip#az-network-public-ip-create) to create a public IP address for the bastion host. The public IP is used by the bastion host for secure access to the virtual machine resources.
 
 ```azurecli
   az network public-ip create \

@@ -6,7 +6,7 @@ author: mikaelweave
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 03/01/2022
+ms.date: 06/06/2022
 ms.author: mikaelw
 ms.custom: references_regions
 ---
@@ -144,3 +144,5 @@ In this article, you've learned the answers to frequently asked questions about 
  
 >[!div class="nextstepaction"]
 >[FAQs about Azure API for FHIR](../azure-api-for-fhir/fhir-faq.yml)
+
+FHIR&#174; is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.

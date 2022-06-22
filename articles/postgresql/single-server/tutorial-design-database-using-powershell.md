@@ -13,6 +13,8 @@ ms.date: 06/08/2020
 
 # Tutorial: Design an Azure Database for PostgreSQL - Single Server using PowerShell
 
+[!INCLUDE [applies-to-postgresql-single-server](../includes/applies-to-postgresql-single-server.md)]
+
 Azure Database for PostgreSQL is a relational database service in the Microsoft cloud based on PostgreSQL
 Community Edition database engine. In this tutorial, you use PowerShell and other utilities to learn
 how to:

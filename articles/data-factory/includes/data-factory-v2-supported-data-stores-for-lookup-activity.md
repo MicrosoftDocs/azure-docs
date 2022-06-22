@@ -5,7 +5,7 @@ services: data-factory
 author: jianleishen
 ms.service: data-factory
 ms.topic: include
-ms.date: 09/29/2021
+ms.date: 05/31/2022
 ms.author: jianleishen
 ms.custom: include file
 ---
@@ -69,7 +69,6 @@ ms.custom: include file
 | &nbsp; |[SFTP](../connector-sftp.md) |
 | **Generic protocol** |[Generic OData](../connector-odata.md) |
 | &nbsp; |[Generic ODBC](../connector-odbc.md) |
-| &nbsp; |[REST](../connector-rest.md) |
 | &nbsp; |[SharePoint Online List](../connector-sharepoint-online-list.md) |
 | **Services and apps** |[Amazon Marketplace Web Service](../connector-amazon-marketplace-web-service.md) |
 | &nbsp; |[Concur (Preview)](../connector-concur.md) |
@@ -88,7 +87,6 @@ ms.custom: include file
 | &nbsp; |[Oracle Service Cloud (Preview)](../connector-oracle-service-cloud.md) |
 | &nbsp; |[PayPal (Preview)](../connector-paypal.md) |
 | &nbsp; |[QuickBooks (Preview)](../connector-quickbooks.md) |
-| &nbsp; |[REST](../connector-rest.md) |
 | &nbsp; |[SAP Cloud for Customer (C4C)](../connector-sap-cloud-for-customer.md) |
 | &nbsp; |[SAP ECC](../connector-sap-ecc.md) |
 | &nbsp; |[Salesforce](../connector-salesforce.md) |

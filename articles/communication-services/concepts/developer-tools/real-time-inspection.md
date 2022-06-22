@@ -1,6 +1,6 @@
 ---
-title: Developer Tools - Real-Time Inspection for Azure Communication Services
-description: Conceptual documentation outlining the capabilities provided by the Real-Time Inspection tool.
+title: Developer Tools - Azure Communication Services Communication Monitoring
+description: Conceptual documentation outlining the capabilities provided by the Communication Monitoring tool.
 author: ddematheu2
 manager: chpalm
 services: azure-communication-services
@@ -11,18 +11,18 @@ ms.topic: conceptual
 ms.service: azure-communication-services
 ---
 
-# Real-time Inspection Tool for Azure Communication Services
+# Azure Communication Services communication monitoring
 
 [!INCLUDE [Private Preview Disclaimer](../../includes/private-preview-include-section.md)]
 
-The Real-time Inspection Tool enables Azure Communication Services developers to inspect the state of the `Call` to debug or monitor their solution. For developers building an Azure Communication Services solution, they might need visibility for debugging into general call information such as the `Call ID` or advanced states, such as did a user facing diagnostic fire. The Real-time Inspection Tool provides developers this information and more. It can be easily added to any JavaScript (Web) solution by downloading the npm package `azure/communication-tools`.
+The Azure Communication Services communication monitoring tool enables developers to inspect the state of the `Call` to debug or monitor their solution. For developers building an Azure Communication Services solution, they might need visibility for debugging into general call information such as the `Call ID` or advanced states, such as did a user facing diagnostic fire. The communication monitoring tool provides developers this information and more. It can be easily added to any JavaScript (Web) solution by downloading the npm package `@azure/communication-monitoring`.
 
 >[!NOTE]
->Find the open-source repository for the tool [here](https://github.com/Azure/communication-inspection).
+>Find the open-source repository for the tool [here](https://github.com/Azure/communication-monitoring).
 
 ## Capabilities
 
-The Real-time Inspection Tool provides developers three categories of information that can be used for debugging purposes:
+The Communication Monitoring tool provides developers three categories of information that can be used for debugging purposes:
 
 | Category                       | Descriptions                      |
 |--------------------------------|-----------------------------------|
@@ -32,64 +32,72 @@ The Real-time Inspection Tool provides developers three categories of informatio
 
 Data collected by the tool is only kept locally and temporarily. It can be downloaded from within the interface. 
 
-Real-time Inspection Tool is compatible with the same browsers as the Calling SDK [here](../voice-video-calling/calling-sdk-features.md?msclkid=f9cf66e6a6de11ec977ae3f6d266ba8d#javascript-calling-sdk-support-by-os-and-browser).
+Communication Monitoring is compatible with the same browsers as the Calling SDK [here](../voice-video-calling/calling-sdk-features.md?msclkid=f9cf66e6a6de11ec977ae3f6d266ba8d#javascript-calling-sdk-support-by-os-and-browser).
 
-## Get started with Real-time Inspection Tool
+## Get started with Communication Monitoring
 
-The tool can be accessed through an npm package `azure/communication-inspection`. The package contains the `InspectionTool` object that can be attached to a `Call`. The Call Inspector requires an `HTMLDivElement` as part of its constructor on which it will be rendered. The `HTMLDivElement` will dictate the size of the Call Inspector.
+The tool can be accessed through an npm package `@azure/communication-monitoring`. The package contains the `CommunicationMonitoring` object that can be attached to a `Call`. Instructions on how to initialize the required `CallClient` and `CallAgent` objects can be found [here](../../how-tos/calling-sdk/manage-calls.md?pivots=platform-web#initialize-required-objects). `CommunicationMonitoring` also requires an `HTMLDivElement` as part of its constructor on which it will be rendered. The `HTMLDivElement` will dictate the size of the rendered panel.
 
-### Installing Real-time Inspection Tool
+### Installing Communication Monitoring
 
 ```bash
-npm i  @azure/communication-inspection
+npm i  @azure/communication-monitoring
 ```
 
-### Initialize Real-time Inspection Tool
+### Initialize Communication Monitoring
 
 ```javascript
-import { CallClient, CallAgent } from "@azure/communication-calling";
-import { InspectionTool } from "@azure/communication-tools";
+import { CallAgent, CallClient } from '@azure/communication-calling'
+import { CommunicationMonitoring } from '@azure/communication-monitoring'
 
-const callClient = new callClient();
-const callAgent = await callClient.createCallAgent({INSERT TOKEN CREDENTIAL});
-const call = callAgent.startCall({INSERT CALL INFORMATION});
+const selectedDiv = document.getElementById('selectedDiv')
 
-const inspectionTool =  new InspectionTool(call, {HTMLDivElement});
+const options = {
+  callClient = {INSERT CALL CLIENT OBJECT},
+  callAgent = {INSERT CALL AGENT OBJECT},
+  divElement = selectedDiv,
+}
+
+const communicationMonitoring = new CommunicationMonitoring(options)
 
 ```
 ## Usage
 
-`start`: enable the `InspectionTool` to start reading data from the call object and storing it locally for visualization.
+`start`: enable the `CommunicationMonitoring` instance to start reading data from the call object and storing it locally for visualization.
 
 ```javascript
 
-inspectionTool.start()
+communicationMonitoring.start()
 
 ```
 
-`stop`: disable the `InspectionTool` from reading data from the call object.
+`stop`: disable the `CommunicationMonitoring` instance from reading data from the call object.
 
 ```javascript
 
-inspectionTool.stop()
+communicationMonitoring.stop()
 
 ```
 
-`open`: Open the `InspectionTool` in the UI.
+`open`: Open the `CommunicationMonitoring` instance in the UI.
 
 ```javascript
 
-inspectionTool.open()
+communicationMonitoring.open()
 
 ```
 
-`close`: Dismiss the `InspectionTool` in the UI.
+`close`: Dismiss the `CommunicationMonitoring` instance in the UI.
 
 ```javascript
 
-inspectionTool.close()
+communicationMonitoring.close()
 
 ```
+
+## Download logs
+
+The tool includes the ability to download the logs captured using the `Download logs` button on the top right. The tool will generate a compressed log file that can be provided to our customer support team for debugging.
 
 ## Next Steps
 

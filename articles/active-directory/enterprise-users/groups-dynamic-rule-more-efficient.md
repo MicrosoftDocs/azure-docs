@@ -31,8 +31,8 @@ Minimize the usage of the 'match' operator in rules as much as possible. Instead
 
 It's better to use rules like:
 
-- `user.city -contains "ago,"`
-- `user.city -startswith "Lag,"` 
+- `user.city -contains "ago"`
+- `user.city -startswith "Lag"` 
 
 Or, best of all:
 
