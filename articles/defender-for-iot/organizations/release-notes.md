@@ -33,6 +33,7 @@ For more information, see the [Microsoft Security Development Lifecycle practice
 
 | Version | Date released | End support date |
 |--|--|--|
+| 22.2.3 | 07/2022 | 04/2023 |
 | 22.1.4 | 04/2022 | 12/2022 |
 | 22.1.3 | 03/2022 | 11/2022 |
 | 22.1.1 | 02/2022 | 10/2022 |
@@ -41,7 +42,9 @@ For more information, see the [Microsoft Security Development Lifecycle practice
 | 10.5.3 | 10/2021 | 07/2022 |
 | 10.5.2 | 10/2021 | 07/2022 |
 
-## June 2022
+## July 2022
+
+**Sensor version**: 22.2.3
 
 - [Bi-directional alert synch between sensors and the Azure portal](#bi-directional-alert-synch-between-sensors-and-the-azure-portal-public-preview)
 
