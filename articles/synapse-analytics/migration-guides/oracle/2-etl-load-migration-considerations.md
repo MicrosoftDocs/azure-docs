@@ -241,7 +241,7 @@ Oracle v\$active\_session_history and v\$SQL to get the sql_text, then prefix th
 > [!TIP]
 > Use `EXPLAIN` to find SQL incompatibilities.
 
-In the worst case, manual recoding may be necessary. However, there are products and services available from Microsoft partners to assist with re-engineering Oracle-specific code. For example, [Ispirer](https://www.ispirer.com/products/Oracle-to-azure-sql-data-warehouse-migration) offers tools and services to migrate Oracle SQL and stored procedures to Azure Synapse.
+In the worst case, manual recoding may be necessary. However, there are products and services available from [Microsoft partners](../../partner/data-integration.md) to assist with re-engineering Oracle-specific code.
 
 > [!TIP]
 > Partners offer products and skills to assist in re-engineering Oracle-specific code.

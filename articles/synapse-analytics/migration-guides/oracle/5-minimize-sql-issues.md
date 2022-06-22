@@ -150,6 +150,8 @@ Most Oracle data types have a direct equivalent in Azure Synapse. The following 
 | VARCHAR2 | VARCHAR |
 | XMLType | Not supported. Store XML data in a VARCHAR. |
 
+Oracle also supports defining user-defined objects that can contain a series of individual fields, each with their own definition and default values. Those objects can then be referenced within a table definition in the same way as built-in data types like `NUMBER` or `VARCHAR`. Azure Synapse doesn't currently support user-defined types. If the data you need to migrate includes user-defined data types, either "flatten" them into a conventional table definition, or if they're arrays of data, normalize them in a separate table.
+
 >[!TIP]
 >Assess the number and type of unsupported data types during your preparation phase.
 
@@ -250,20 +252,20 @@ There are some SQL DML syntax differences between Oracle SQL and Azure Synapse T
 
 - Updates via views: in Oracle you can run insert, update, and delete operations against a view to update the underlying table. In Azure Synapse, you run those operations against a base table&mdash;not a view. You might have to re-engineer ETL processing if an Oracle table is updated through a view.
 
-- Built-in functions: the following table shows the differences in the syntax or usage of some built-in functions:
+- Built-in functions: the following table shows the differences in the syntax and usage of some built-in functions:
 
 | Oracle Function | Description | Synapse equivalent |
 |-|-|-|
 | ADD_MONTHS | Add a specified number of months | DATEADD |
 | CAST | Convert one built-in data type into another | CAST |
 | DECODE | Evaluate a list of conditions | CASE expression |
-| EMPTY_BLOB | Create an empty BLOB value | '0x' constant (empty binary string) |
-| EMPTY_CLOB | Create an empty CLOB or NCLOB value | '' (empty string) |
+| EMPTY_BLOB | Create an empty BLOB value | `0x` constant (empty binary string) |
+| EMPTY_CLOB | Create an empty CLOB or NCLOB value | `''` (empty string) |
 | INITCAP | Capitalize the first letter of each word | User-defined function |
 | INSTR | Find position of a substring in a string | CHARINDEX |
 | LAST_DAY | Get the last date of month | EOMONTH |
 | LENGTH | Get string length in characters | LEN |
-| LPAD | Left-pad string to the specified length | Expression using REPLICATE, RIGHT and LEFT |
+| LPAD | Left-pad string to the specified length | Expression using REPLICATE, RIGHT, and LEFT |
 | MOD | Get the remainder of a division of one number by another | % operator |
 | MONTHS_BETWEEN | Get the number of months between two dates | DATEDIFF |
 | NVL | Replace NULL with expression  | ISNULL |
@@ -277,10 +279,7 @@ There are some SQL DML syntax differences between Oracle SQL and Azure Synapse T
 
 ### Functions, stored procedures, and sequences
 
-If you migrate from a mature data warehouse environment like Oracle, you'll probably need to migrate elements other than simple tables and views, such as functions, stored procedures, and sequences. For those elements, check whether tools within the Azure environment can replace their functionality because it's usually more efficient to use built-in Azure facilities than recode the Oracle functions.
-
->[!TIP]
->Assess the number and type of unsupported data types during the preparation phase.
+When migrating from a mature data warehouse environment like Oracle, you'll probably need to migrate elements other than simple tables and views. For functions, stored procedures, and sequences check whether tools within the Azure environment can replace their functionality because it's usually more efficient to use built-in Azure tools than to recode the Oracle functions.
 
 As part of your preparation phase, create an inventory of objects that need to be migrated, define a method for handling them, and allocate appropriate resources in your migration plan.
 
@@ -293,36 +292,45 @@ The following sections further discuss the migration of functions, stored proced
 
 #### Functions
 
-In common with most database products, Oracle supports system functions and also user-defined functions within the SQL implementation. When migrating to another database platform such as Azure Synapse common system functions are generally available and can be migrated without change. Some system functions may have slightly different syntax but the required changes can be automated in this case. For system functions where there's no equivalent, of for arbitrary user-defined functions these may need to be recoded using the language(s) available in the target environment. Oracle user-defined functions are coded in PL/SQL, Java or C languages whereas Azure Synapse uses the popular Transact-SQL language for implementation of user-defined functions.
+As with most database products, Oracle supports system and user-defined functions within a SQL implementation. When you migrate a legacy database platform to Azure Synapse, common system functions can usually be migrated without change. Some system functions might have a slightly different syntax, but any required changes can be automated.
+
+For Oracle system functions or arbitrary user-defined functions that have no equivalent in Azure Synapse, recode those functions using a target environment language. Oracle user-defined functions are coded in PL/SQL, Java, or C. Azure Synapse uses the Transact-SQL language to implement user-defined functions.
 
 #### Stored procedures
 
-Most modern database products allow for procedures to be stored within the database -- in Oracle's case the PL/SQL language is provided for this purpose. A stored procedure typically contains SQL statements and some procedural logic and may return data or a status. Azure Synapse also supports stored procedures using T-SQL -- so if there are stored procedures to be migrated they must be recoded accordingly.
+Most modern database products support storing procedures within the database. Oracle provides the PL/SQL language for this purpose. A stored procedure typically contains both SQL statements and procedural logic, and returns data or a status.
+
+Azure Synapse supports stored procedures using T-SQL, so you'll need to recode any migrated stored procedures in that language.
 
 #### Sequences
 
-In Oracle a sequence is a named database object created via CREATE SEQUENCE that can provide the unique value via the NEXT VALUE FOR method. These can be used to generate unique numbers that can be used as surrogate key values for primary key values. Within Azure Synapse there's no CREATE SEQUENCE so sequences are handled via use of IDENTITY columns or using SQL code to create the next sequence number in a series.
+In Oracle, a sequence is a named database object, created using `CREATESEQUENCE`. A sequence provides unique numeric values via the `CURRVAL` and `NEXTVAL` methods. You can use the generated unique numbers as surrogate key values for primary keys. Azure Synapse doesn't implement `CREATE SEQUENCE`, but you can implement sequences using `IDENTITY` columns or SQL code that generates the next sequence number in a series.
 
 ### Use EXPLAIN to validate legacy SQL
 
 >[!TIP]
 >Use real queries from the existing system query logs to find potential migration issues.
 
-One way of testing legacy Oracle SQL for compatibility with Azure Synapse is to capture some representative SQL statements from the legacy system query history logs, then prefix those queries with 'EXPLAIN ' and then (assuming a 'like for like' migrated data model in Azure Synapse with the same table and column names) run those EXPLAIN statements in Azure Synapse. Any incompatible SQL will give an error -- and this information can be used to determine the scale of the recoding task. This approach doesn't require that data is loaded into the Azure environment, only that the relevant tables and views have been created.
+Assuming a like-for-like migrated data model in Azure Synapse with the same table and column names, one way of testing legacy Oracle SQL for compatibility with Azure Synapse is to:
+1. Capture some representative SQL statements from the legacy system query history logs.
+1. Prefix those queries with the `EXPLAIN` statement.
+1. Run those `EXPLAIN` statements in Azure Synapse.
+
+Any incompatible SQL will generate an error, and the error information can be used to determine the scale of the recoding task. This approach doesn't require you to load any data into the Azure environment&mdash;you only need to create the relevant tables and views.
 
 ## Summary
 
-Typical existing legacy Oracle installations are implemented in a way that makes migration to Azure Synapse relatively easy -- i.e. they use SQL for analytical queries on large data volumes, and are generally in some form of dimensional data model. All of these factors make it a good candidate for migration to Azure Synapse.
+Existing legacy Oracle installations are typically implemented in a way that makes migration to Azure Synapse relatively straightforward. Both environments use SQL for analytical queries on large data volumes, and generally both use some form of dimensional data model. These factors make Oracle installations a good candidate for migration to Azure Synapse.
 
-Recommendations for minimizing the task of migrating the actual SQL code are as follows:
+To summarize, our recommendations for minimizing the task of migrating SQL code from Oracle to Azure Synapse are:
 
-- Initial migration of the data warehouse should be 'as-is' to minimize risk and time taken (even if the eventual final environment will incorporate a different data model such as Data Vault)
+- Migrate your existing data model as-is to minimize risk, effort, and migration time, even if a different data model is planned, such as a data vault.
 
-- Understand the differences between Oracle SQL implementation and Azure Synapse
+- Understand the differences between the Oracle SQL implementation and Azure Synapse.
 
-- Use metadata and query logs from the existing Oracle implementation to assess the impact of the differences and plan an approach to mitigate those
+- Use the metadata and query logs from the existing Oracle implementation to assess the impact of changing the environment. Plan an approach to mitigate those differences.
 
-- Automate the process wherever possible to minimize errors, risk and time for the migration. Use Microsoft facilities such as Azure Database Migration Services and SSMA where possible to achieve this.
+- Automate the migration process to minimize risk, effort, and migration time by using Microsoft tools such as Azure Database Migration Services and SSMA.
 
 - Consider using specialist third-party tools and services to streamline the migration.
 
