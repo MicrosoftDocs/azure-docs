@@ -18,365 +18,333 @@ This article is part three of a seven-part series that provides guidance on how 
 
 ## Security considerations
 
-This article looks at the security and operational aspects of migration from a legacy Oracle data warehouse and data marts to Azure Synapse. This article applies specifically to migrations from an existing Oracle environment and assumes there is requirement to migrate the existing users, roles and permissions as-is.
+This article discusses connection methods for existing legacy Oracle environments and how they can be migrated to Azure Synapse with minimal risk and user impact.
 
-This section addresses the possible methods of authentication for existing legacy Oracle environments and how these can be migrated to Azure Synapse with least risk and impact to users.
+This article assumes that there's a requirement to migrate the existing methods of connection and user/role/permission structure as-is. If not, use the Azure portal to create and manage a new security regime.
 
-It is assumed that there is a requirement to migrate the existing methods of connection and user/role/permission structure 'as-is'. If this is not the case, then Azure utilities (e.g. Azure Portal) can be used to create and manage a new security regime.
-
-For more information on the Azure Synapse security options, see [Secure a dedicated SQL pool (formerly SQL DW) in Azure Synapse Analytics](../../sql-data-warehouse/sql-data-warehouse-overview-manage-security.md#authorization).
+For more information on [Azure Synapse security](../../sql-data-warehouse/sql-data-warehouse-overview-manage-security.md#authorization) options, see [Security whitepaper](../../guidance/security-white-paper-introduction.md).
 
 ### Connection and authentication
-
-Authentication in both Oracle and Azure Synapse can be 'in database' or via external methods
 
 #### Oracle authorization options
 
 Authentication is the process of verifying the identity of a user, device, or other entity in a computer system, generally as a prerequisite to granting access to resources in a system. The Oracle system offers several authentication methods for database users:
 
+> [!TIP]
+> Authentication in both Oracle and Azure Synapse can be "in database" or via external methods.
+
 ##### Database authentication
 
-With this approach administration of the user account including authentication of that user is performed entirely by Oracle database. To have Oracle database authenticate a user, a password for the user is specified when the user is created (or altered). Users can change their password at any time. Passwords are stored in an encrypted format and Oracle recommends the use of password management, including account locking, password aging and expiration, password history, and password complexity verification. This method is very common in older Oracle installations.
+With this approach, the Oracle database solely administers the user account, including authentication of that user. For the Oracle database to authenticate a user, a password for the user is specified when the user is created (or altered). Users can change their password at any time. Passwords are stored in an encrypted format. Oracle recommends the use of password management, including account locking, password aging and expiration, password history, and password complexity verification. This method is common in older Oracle installations.
 
 ##### External authentication
 
-With external authentication for a user, the user account is maintained by Oracle database, but password administration and user authentication is performed by an external service. This external service can be the operating system or a network service, such as Oracle Net. The database relies on the underlying operating system or network authentication service to restrict access to database accounts. A database password is not used for this type of login. There are 2 external authentication options:
+With external authentication, the user account is maintained by the Oracle database, but password administration and user authentication are performed by an external service. This external service can be the operating system or a network service, such as Oracle Net. The database relies on the underlying operating system or network authentication service to restrict access to database accounts. A database password isn't used for this type of login. There are two external authentication options:
 
-###### Operating System Authentication
+- **Operating system authentication**: By default, Oracle allows operating-system-authenticated logins only over secure connections, which precludes using Oracle Net and a shared-server configuration. This default restriction prevents a remote user from impersonating another operating system user over a network connection.
 
-By default, Oracle allows operating-system-authenticated logins only over secure connections, which precludes using Oracle Net and a shared server configuration. This default restriction prevents a remote user from impersonating another operating system user over a network connection.
+- **Network authentication**: With this approach, more authentication mechanisms are available, such as smart cards, fingerprints, Kerberos, or the operating system. Many network authentication services, such as Kerberos, support single sign-on, so that users have fewer passwords to remember.
 
-###### Network Authentication
+##### Global authentication and authorization 
 
-With this approach, more choices of authentication mechanism are available, such as smart cards, fingerprints, Kerberos, or the operating system. Many network authentication services, such as Kerberos support single sign-on, enabling users to have fewer passwords to remember.
+Oracle Advanced Security enables centralized management of user-related information, including authorizations, in an LDAP-based directory service. Users can be identified in the database as global users, which means that they're authenticated by SSL and that the management of these users is done outside of the database by the centralized directory service. 
 
-##### Global Authentication and Authorization 
+This approach provides strong authentication using SSL, Kerberos, or Windows-native authentication, and enables centralized management of users and privileges across the enterprise. Administration is easier since it's not necessary to create a schema for every user in every database in the enterprise. Single sign-on is also supported, so that users only need to sign on once to access multiple databases and services.
 
-Oracle Advanced Security enables centralized management of user-related information, including authorizations, in an LDAP-based directory service. Users can be identified in the database as global users, meaning that they are authenticated by SSL and that the management of these users is done outside of the database by the centralized directory service. This approach provides strong authentication using SSL, Kerberos, or Windows native authentication and enables centralized management of users and privileges across the enterprise. Is easy to administer in that it is not necessary to create a schema for every user in every database in the enterprise and also facilitates single sign-on so that users only need to sign on once to access multiple databases and services.
+##### Proxy authentication and authorization 
 
-##### Proxy Authentication and Authorization 
+You can designate a middle-tier server to proxy clients in a secure fashion. Oracle provides various options for proxy authentication: 
 
-It is possible to designate a middle-tier server to proxy clients in a secure fashion. Oracle provides various options for proxy authentication: The middle-tier server can authenticate itself with the database server and a client, in this case an application user or another application, authenticates itself with the middle-tier server. Client identities can be maintained all the way through to the database. The client, in this case a database user, is not authenticated by the middle-tier server. The client's identity and database password are passed through the middle-tier server to the database server for authentication. The client, in this case a global user, is authenticated by the middle-tier server, and passes either a Distinguished Name (DN) or Certificate through the middle tier for retrieving the client\'s user name.
+- The middle-tier server can authenticate itself with the database server. A client&mdash;in this case, an application user or another application&mdash;authenticates itself with the middle-tier server. Client identities can be maintained all the way through to the database. 
+
+- The client&mdash;in this case, a database user&mdash;isn't authenticated by the middle-tier server. The client's identity and database password are passed through the middle-tier server to the database server for authentication. 
+
+- The client&mdash;in this case, a global user&mdash;is authenticated by the middle-tier server, and passes either a distinguished name (DN) or certificate through the middle tier for retrieving the client's user name.
 
 #### Azure Synapse authorization options
 
-Azure Synapse supports 2 basic options for connection and authorization -- SQL Authentication and Azure Active Directory (AAD) authentication.
+Azure Synapse supports two basic options for connection and authorization: SQL authentication and Azure Active Directory (Azure AD) authentication.
 
-- **SQL authentication** -- this is authentication via a database connection which includes a database identifier, user ID and password plus other optional parameters. This is functionally equivalent to Oracle database connections above.
+- **SQL authentication**: This method of authentication uses a database connection that includes a database identifier, user ID, and password, plus other optional parameters. This method is functionally equivalent to Oracle database connections above.
 
-- **Azure Active Directory (AAD) authentication** - With Azure Active Directory authentication, you can centrally manage the identities of database users and other Microsoft services in one central location. Central ID management provides a single place to manage Azure Synapse users and simplifies permission management. AAD can also support connections to LDAP and Kerberos services, so for example this method can be used to connect to existing LDAP directories if these are to remain in place after migration of the database.
+- **Azure AD authentication**: With Azure AD authentication, you can centrally manage the identities of database users and other Microsoft services in one central location. Central ID management provides a single place to manage Azure Synapse users and simplifies permission management. Azure AD can also support connections to LDAP and Kerberos services. For example, this method can be used to connect to existing LDAP directories if they're to remain in place after migration of the database.
 
-### Users, roles and permissions
+### Users, roles, and permissions
 
-Planning is essential for a successful migration project -starting with high level approach decisions
+Both Oracle and Azure Synapse implement database access control via a combination of users, roles, and permissions. You can use standard SQL CREATE USER and CREATE ROLE/GROUP statements to define users and roles. GRANT and REVOKE statements assign or remove permissions to those users and/or roles.
 
-Automation of migration processes is recommended if possible to reduce elapsed time and scope for error
+> [!TIP]
+> Planning is essential for a successful migration project, starting with high-level approach decisions.
 
-Both Oracle and Azure Synapse implement database access control via a combination of users, roles and permissions, using standard SQL CREATE USER and CREATE ROLE/GROUP statements to define users and roles and GRANT and REVOKE statements to assign or remove permissions to those users and/or roles.
+Conceptually, the two databases are similar, and it might be possible to automate the migration of existing user IDs, groups, and permissions to some degree. Extract the legacy user and group information from the Oracle system catalog tables, then generate matching equivalent CREATE USER and CREATE ROLE statements to be run in Azure Synapse to recreate the same user/role hierarchy.
 
-Therefore conceptually the 2 databases are very similar, and so it may be possible to automate the migration of existing user ids, groups and permissions to some degree by extracting the existing legacy user and group information from the Oracle system catalog tables and generating matching equivalent CREATE USER and CREATE ROLE statements to be run in the Azure Synapse to recreate the same user/role hierarchy.
+> [!TIP] 
+> If possible, automate migration processes to reduce elapsed time and scope for error.
 
-Once this is in place, Oracle system catalog tables can again be used to generate equivalent GRANT statements to assign permissions (where an equivalent one exists).
+After data extraction, use Oracle system catalog tables to generate equivalent GRANT statements to assign permissions (where an equivalent one exists).
 
 :::image type="content" source="../media/3-security-access-operations/automating-migration-privileges.png" border="true" alt-text="Chart showing how to automate the migration of privileges from an existing system.":::
 
-See following sections for more details.
-
 #### Users and roles
-
-Migration of a data warehouse requires more than just tables, views and SQL statements
 
 The information about current users and groups in an Oracle system is held in system catalog views ALL_USERS or DBA_USERS. These views can be queried in the normal way via SQL\*Plus or SQL Developer.
 
-See below for some basic examples:
+Basic examples include:
 
-\-- List of users select \* from dba_users order by username; \--List of roles select \* from dba_roles order by role; \--List of users and their associated roles select \* from user_role_privs order by username, granted_role;
+```sql
+--List of users
+select * from dba_users order by username;
 
-SQL Developer also has built-in options to display this information in the 'Reports' section -- see example screen shot below:
+--List of roles
+select * from dba_roles order by role;
+
+--List of users and their associated roles
+select * from user_role_privs order by username, granted_role;
+```
+
+SQL Developer also has built-in options to display this information in the Reports section. For example:
 
 :::image type="content" source="../media/3-security-access-operations/oracle-sql-developer-reports-1.png" border="true" alt-text="Screenshot showing a Reports view for user roles in Oracle SQL Developer.":::
 
-The example SELECT statement can be modified to produce a result set which is a series of CREATE USER and CREATE GROUP statements by including the appropriate text as a literal within the SELECT statement.
+Modify the example SELECT statement to produce a result set that is a series of CREATE USER and CREATE GROUP statements by including the appropriate text as a literal within the SELECT statement.
 
-Note that there is no way to retrieve existing passwords so a scheme for allocating new initial passwords on the Azure Synapse will need to be implemented.
+There's no way to retrieve existing passwords, so you need to implement a scheme for allocating new initial passwords on Azure Synapse.
+
+> [!TIP]
+> Migration of a data warehouse requires more than just tables, views, and SQL statements.
 
 #### Permissions
 
-Migration of a data warehouse requires more than just tables, views and SQL statements
-
-In an Oracle system, the access rights for users and roles are held in the system view DBA_ROLE_PRIVS. This view can be queried (assuming that the user has SELECT access to those tables) to obtain current lists of access rights defined within the system:
+In an Oracle system, the system view DBA_ROLE_PRIVS holds the access rights for users and roles. Query these tables (if the user has SELECT access to those tables) to obtain current lists of access rights defined within the system.
 
 :::image type="content" source="../media/3-security-access-operations/oracle-sql-developer-reports-2.png" border="true" alt-text="Screenshot showing a Reports view for user access rights in Oracle SQL Developer.":::
 
-Queries can be created to produce a script which is a series of CREATE and GRANT statements for Azure Synapse based on the existing Oracle privileges:
+You can create queries to produce a script that's a series of CREATE and GRANT statements for Azure Synapse, based on the existing Oracle privileges:
 
 :::image type="content" source="../media/3-security-access-operations/oracle-sql-developer-reports-3.png" border="true" alt-text="Screenshot showing how to create a script of CREATE and GRANT statements in Oracle SQL Developer.":::
 
-To summarize -- the views required to view user, role and privilege information are listed below:
+This table lists and describes the data dictionary views required to view user, role, and privilege information.
 
-&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash; **View** **Description** &mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash; &mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;-- DBA_COL_PRIVS DBA view describes all column object grants in the database. ALL view describes all column object grants for which the current user or PUBLIC is the object owner, grantor, or grantee. USER view describes column object grants for which the current user is the object owner, grantor, or grantee.
+| **View** | **Description** |
+|--|--|
+DBA_COL_PRIVS<br> ALL_COL_PRIVS<br> USER_COL_PRIVS | DBA view describes all column object grants in the database. ALL view describes all column object grants for which the current user or PUBLIC is the object owner, grantor, or grantee. USER view describes column object grants for which the current user is the object owner, grantor, or grantee. |
+| ALL_COL_PRIVS_MADE<br> USER_COL_PRIVS_MADE | ALL view lists column object grants for which the current user is object owner or grantor. USER view describes column object grants for which the current user is the grantor. |
+| ALL_COL_PRIVS_RECD<br> USER_COL_PRIVS_RECD | ALL view describes column object grants for which the current user or PUBLIC is the grantee. USER view describes column object grants for which the current user is the grantee. |
+| DBA_TAB_PRIVS<br> ALL_TAB_PRIVS<br> USER_TAB_PRIVS | DBA view lists all grants on all objects in the database. ALL view lists the grants on objects where the user or PUBLIC is the grantee. USER view lists grants on all objects where the current user is the grantee. |
+| ALL_TAB_PRIVS_MADE<br> USER_TAB_PRIVS_MADE | ALL view lists the all object grants made by the current user or made on the objects owned by the current user. USER view lists grants on all objects owned by the current user. |
+| ALL_TAB_PRIVS_RECD<br> USER_TAB_PRIVS_RECD | ALL view lists object grants for which the user or PUBLIC is the grantee. USER view lists object grants for which the current user is the grantee. |
+| DBA_ROLES | This view lists all roles that exist in the database. |
+| DBA_ROLE_PRIVS<br> USER_ROLE_PRIVS | DBA view lists roles granted to users and roles. USER view lists roles granted to the current user. |
+| DBA_SYS_PRIVS<br> USER_SYS_PRIVS | DBA view lists system privileges granted to users and roles. USER view lists system privileges granted to the current user. |
+| ROLE_ROLE_PRIVS | This view describes roles granted to other roles. Information is provided only about roles to which the user has access. |
+| ROLE_SYS_PRIVS | This view contains information about system privileges granted to roles. Information is provided only about roles to which the user has access. |
+| ROLE_TAB_PRIVS | This view contains information about object privileges granted to roles. Information is provided only about roles to which the user has access. |
+| SESSION_PRIVS | This view lists the privileges that are currently enabled for the user. |
+| SESSION_ROLES | This view lists the roles that are currently enabled for the user. |
 
-ALL_COL_PRIVS 
-
-USER_COL_PRIVS 
-
-ALL_COL_PRIVS_MADE ALL view lists column object grants for which the current user is object owner or grantor. USER view describes column object grants for which the current user is the grantor.
-
-USER_COL_PRIVS_MADE 
-
-ALL_COL_PRIVS_RECD ALL view describes column object grants for which the current user or PUBLIC is the grantee. USER view describes column object grants for which the current user is the grantee.
-
-USER_COL_PRIVS_RECD 
-
-DBA_TAB_PRIVS DBA view lists all grants on all objects in the database. ALL view lists the grants on objects where the user or PUBLIC is the grantee. USER view lists grants on all objects where the current user is the grantee.
-
-ALL_TAB_PRIVS 
-
-USER_TAB_PRIVS 
-
-ALL_TAB_PRIVS_MADE ALL view lists the all object grants made by the current user or made on the objects owned by the current user. USER view lists grants on all objects owned by the current user.
-
-USER_TAB_PRIVS_MADE 
-
-ALL_TAB_PRIVS_RECD ALL view lists object grants for which the user or PUBLIC is the grantee. USER view lists object grants for which the current user is the grantee.
-
-USER_TAB_PRIVS_RECD 
-
-DBA_ROLES This view lists all roles that exist in the database.
-
-DBA_ROLE_PRIVS DBA view lists roles granted to users and roles. USER view lists roles granted to the current user.
-
-USER_ROLE_PRIVS 
-
-DBA_SYS_PRIVS DBA view lists system privileges granted to users and roles. USER view lists system privileges granted to the current user.
-
-USER_SYS_PRIVS 
-
-ROLE_ROLE_PRIVS This view describes roles granted to other roles. Information is provided only about roles to which the user has access.
-
-ROLE_SYS_PRIVS This view contains information about system privileges granted to roles. Information is provided only about roles to which the user has access.
-
-ROLE_TAB_PRIVS This view contains information about object privileges granted to roles. Information is provided only about roles to which the user has access.
-
-SESSION_PRIVS This view lists the privileges that are currently enabled for the user.
-
-SESSION_ROLES This view lists the roles that are currently enabled to the user. &mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;
-
-: Descriptions of Data Dictionary ViewsThis table lists and describes the data dictionary views that contain information about grants of privileges and roles.
-
-There are generally equivalent in Azure Synapse permissions for basic database operations such as DML and DDL
+> [!TIP] 
+> There are equivalent Azure Synapse permissions for basic database operations such as DML and DDL.
 
 Oracle supports various types of privilege:
 
-**System privileges**. These privileges allow the grantee to perform standard administrator tasks in the database. These are generally restricted to only to trusted users and many of them are specific to Oracle operations.
+**System privileges**: These privileges allow the grantee to perform standard administrator tasks in the database. These privileges are generally restricted to only trusted users, and many of them are specific to Oracle operations.
 
-**Object privileges**. Each type of object has privileges associated with it.
+**Object privileges**: Each type of object has privileges associated with it.
 
-**Table privileges**. These privileges enable security at the DML (data manipulation language) or DDL (data definition language) level -- these can be mapped directly to their equivalent in Azure Synapse.
+**Table privileges**: These privileges enable security at the DML (data manipulation language) or DDL (data definition language) level. They can be mapped directly to their equivalent in Azure Synapse.
 
-**View privileges**. You can apply DML object privileges to views, similar to tables -- these can be mapped directly to their equivalent in Azure Synapse.
+**View privileges**: You can apply DML object privileges to views, similar to tables. These privileges can be mapped directly to their equivalent in Azure Synapse.
 
-**Procedure privileges**. Procedures, including standalone procedures and functions, can be granted the EXECUTE privilege -- these can be mapped directly to their equivalent in Azure Synapse.
+**Procedure privileges**: Procedures, including standalone procedures and functions, can be granted to the EXECUTE privilege. They can be mapped directly to their equivalent in Azure Synapse.
 
-**Type privileges**. You can grant system privileges to named types (object types, VARRAYs, and nested tables). These are typically specific to Oracle features that have no equivalent in Azure Synapse.
+**Type privileges**: You can grant system privileges to named types (object types, VARRAYs, and nested tables). These privileges are typically specific to Oracle features that have no equivalent in Azure Synapse.
 
-See the table below for a list of common Oracle privileges which have a direct equivalent in Azure Synapse. Migration of these privileges could be automated by generating equivalent scripts for Synapse from the Oracle catalog tables as described above.
+These tables list common Oracle privileges that have a direct equivalent in Azure Synapse. Migration of these privileges could be automated by generating equivalent scripts for Synapse from the Oracle catalog tables as described above.
 
-&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash; Admin Privilege Description Synapse Equivalent &mdash;&mdash;&mdash;&mdash;&mdash;&mdash;- &mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;- &mdash;&mdash;&mdash;&mdash;&mdash;&mdash;-- \[Create\] Database Allows the user to create CREATE DATABASE databases. Permission to operate on existing databases is controlled by object privileges. 
+| **Admin privilege** | **Description** | **Synapse equivalent** |
+|--|--|--|
+| \[Create\] Database | Allows the user to create databases. Permission to operate on existing databases is controlled by object privileges. | CREATE DATABASE | 
+| \[Create\] External Table | Allows the user to create external tables. Permission to operate on existing tables is controlled by object privileges. | CREATE TABLE |
+| \[Create\] Function | Allows the user to create user-defined functions (UDFs). Permission to operate on existing UDFs is controlled by object privileges. | CREATE FUNCTION |
+| \[Create\] Role | Allows the user to create groups. Permission to operate on existing groups is controlled by object privileges. | CREATE ROLE |
+| \[Create\] Index | For system use only. Users can't create indexes. | CREATE INDEX |
+| \[Create\] Materialized View | Allows the user to create materialized views. | CREATE VIEW |
+| \[Create\] Procedure | Allows the user to create stored procedures. Permission to operate on existing stored procedures is controlled by object privileges. | CREATE PROCEDURE |
+| \[Create\] Schema | Allows the user to create schemas. Permission to operate on existing schemas is controlled by object privileges. | CREATE SCHEMA |
+| \[Create\] Table | Allows the user to create tables. Permission to operate on existing tables is controlled by object privileges. | CREATE TABLE |
+| \[Create\] Temporary Table | Allows the user to create temporary tables. Permission to operate on existing tables is controlled by object privileges. | CREATE TABLE |
+| \[Create\] User | Allows the user to create users. Permission to operate on existing users is controlled by object privileges. | CREATE USER |
+| \[Create\] View | Allows the user to create views. Permission to operate on existing views is controlled by object privileges. | CREATE VIEW |
 
-\[Create\] External Allows the user to create CREATE TABLE Table external tables. Permission to operate on existing tables is controlled by object privileges. 
+| **Object Privilege** | **Description** | **Synapse Equivalent** |
+|--|--|--|
+| Alter | Allows the user to modify object attributes. Applies to all objects. | ALTER |
+| Delete | Allows the user to delete table rows. Applies only to tables. | DELETE |
+| Drop | Allows the user to drop objects. Applies to all object types. | DROP |
+| Execute | Allows the user to run user-defined functions, user-defined aggregates, or stored procedures. | EXECUTE |
+| Insert | Allows the user to insert rows into a table. Applies only to tables. | INSERT |
+| List | Allows the user to display an object name, either in a list or in another manner. Applies to all objects. | LIST |
+| Select | Allows the user to select (or query) rows within a table. Applies to tables and views. | SELECT |
+| Truncate | Allows the user to delete all rows from a table. Applies only to tables. | TRUNCATE |
+| Update | Allows the user to modify table rows. Applies to tables only. | UPDATE |
 
-\[Create\] Function Allows the user to create CREATE FUNCTION user-defined functions (UDFs). Permission to operate on existing UDFs is controlled by object privileges. 
+For more full details of Azure Synapse permissions, see [Database engine permissions](/sql/relational-databases/security/permissions-database-engine.md).
 
-\[Create\] Role Allows the user to create CREATE ROLE groups. Permission to operate on existing groups is controlled by object privileges. 
+#### Migrating users, roles, and privileges
 
-\[Create\] Index For system use only. Users CREATE INDEX cannot create indexes. 
+You've seen that CREATE USER, CREATE ROLE, and GRANT SQL commands are commonly used to create and manage users, roles, and privileges in Oracle and Azure Synapse. While many Oracle-specific operations, typically involving system management, also have grantable privileges, these operations don't need to be migrated to Synapse since they're either not applicable or the equivalent functionality is automatic or managed outside the database.
 
-\[Create\] Allows the user to create CREATE VIEW Materialized View materialized views. 
+However, at the core of an Oracle data warehouse, there's a subset of privileges that have a direct equivalent in the Azure Synapse environment. You can automate the migration of these privileges. If you intend to maintain the existing environment in terms of users, roles, and privileges into the new Azure Synapse environment, you can automate migration using the following process:
 
-\[Create\] Allows the user to create CREATE PROCEDURE Procedure stored procedures. Permission to operate on existing stored procedures is controlled by object privileges. 
+1. Migrate Oracle schema, table, and view definitions to Synapse environment. At this point, only the table definitions are required. For example, no data needs to be moved.
 
-\[Create\] Schema Allows the user to create CREATE SCHEMA schemas. Permission to operate on existing schemas is controlled by object privileges. 
+2. Extract the existing user IDs for migration from the Oracle system tables, generate a script of CREATE USER statements for Synapse, and then run that script. Passwords can't be extracted, so some method of generating new initial passwords must be incorporated.
 
-\[Create\] Table Allows the user to create CREATE TABLE tables. Permission to operate on existing tables is controlled by object privileges. 
+3. Extract the existing roles from the Oracle system tables, generate a script of equivalent CREATE ROLE statements, and then run this script in the Synapse environment.
 
-\[Create\] Allows the user to create CREATE TABLE Temporary Table temporary tables. Permission to operate on existing tables is controlled by object privileges. 
+4. Extract the user/role combinations from the Oracle system tables, generate a script with the equivalent GRANT or roles to users in Synapse, and then run that script.
 
-\[Create\] User Allows the user to create CREATE USER users. Permission to operate on existing users is controlled by object privileges. 
-
-\[Create\] View Allows the user to create CREATE VIEW views. Permission to operate on existing views is controlled by object privileges. 
-
-Object Privilege **Description** **Synapse Equivalent**
-
-Alter Allows the user to modify ALTER object attributes. Applies to all objects. 
-
-Delete Allows the user to delete table DELETE rows. Applies only to tables. 
-
-Drop Allows the user to drop DROP objects. Applies to all object types. 
-
-Execute Allows the user to run EXECUTE user-defined functions, user-defined aggregates, or stored procedures. 
-
-Insert Allows the user to insert rows INSERT into a table. Applies only to tables. 
-
-List Allows the user to display an LIST object name, either in a list or in another manner. Applies to all objects. 
-
-Select Allows the user to select (or SELECT query) rows within a table. Applies to tables and views. 
-
-Truncate Allows the user to delete all TRUNCATE rows from a table. Applies only to tables. 
-
-Update Allows the user to modify table UPDATE rows. Applies to tables only. &mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;
-
-For more full details of Azure Synapse permissions, see [Database Engine Permissions](/sql/relational-databases/security/permissions-database-engine.md).
-
-#### Migrating Users, Roles and Privileges
-
-Migration of a data warehouse requires more than just tables, views and SQL statements
-
-As described above, there is a common approach for creating and managing users, roles and privileges in Oracle and Azure Synapse via the CREATE USER, CREATE ROLE and GRANT SQL commands. While there are many Oracle-specific (typically system management) operations which also have grantable privileges, these don't need to be migrated to Synapse as they are either not applicable or the equivalent functionality is either automatic or managed outside the database.
-
-However, at the core of an Oracle data warehouse there is a subset of the privileges that have a direct equivalent in the Azure Synapse environment, and migration of these can be automated. Therefore, if the intention is to maintain the existing environment in terms of users, roles and privileges into the new Azure Synapse environment the migration of these can be automated by the following process:
-
-1. Migrate Oracle schema, table and view definitions to Synapse environment. At this point, only the table definitions are required, i.e. no data needs to be moved.
-
-2. Extract the existing user IDs for migration from the Oracle system tables, generating a script of CREATE USER statements for Synapse and then run that script. Note that existing passwords cannot be extracted so some method of generating new initial passwords must be incorporated.
-
-3. Extract the existing roles from the Oracle system tables and generate a script of the equivalent CREATE ROLE statements then run this in the Synapse environment.
-
-4. Extract the user/role combinations from the Existing Oracle system tables and generate a script with the equivalent GRANT or roles to users in Synapse then run that script.
-
-5. Finally extract the relevant privilege information from the Oracle system tables and generate a script to GRANT the appropriate privileges to the users and roles in Synapse.
+5. Finally, extract the relevant privilege information from the Oracle system tables, then generate a script to GRANT the appropriate privileges to the users and roles in Synapse.
 
 ## Operational considerations
 
-Operational tasks are necessary to keep any data warehouse operating efficiently
+This section discusses how typical Oracle operational tasks can be implemented in Azure Synapse with minimal risk and impact to users.
 
-This section discusses how typical Oracle operational tasks can be implemented in Azure Synapse with least risk and impact to users.
+As with all data warehouse products, there are ongoing management tasks that are necessary to keep the system running efficiently in production and to provide data for monitoring and auditing. Resource utilization and capacity planning for future growth also fall into this category, as does backup/restore of data.
 
-As with all data warehouse products, once in production there are ongoing management tasks which are necessary to keep the system running efficiently and to provide data for monitoring and auditing. Resource utilization and capacity planning for future growth also falls into this category, as does backup/restore of data.
+> [!TIP]
+> Operational tasks are necessary to keep any data warehouse operating efficiently.
 
 Oracle administration tasks typically fall into two categories:
 
-##### System administration
+- **System administration**: Managing the hardware, configuration settings, system status, access, disk space, usage, upgrades, and other tasks.
 
-Managing the hardware, configuration settings, system status, access, disk space, usage, upgrades, and other tasks
+- **Database administration**: Managing the user databases and their content, loading data, backing up data, restoring data, and controlling access to data and permissions.
 
-##### Database administration
+Oracle offers several ways or interfaces that you can use to perform the various system and database management tasks:
 
-Managing the user databases and their content, loading data, backing up data, restoring data, controlling access to data and permissions
+- Oracle Enterprise Manager is Oracle's on-premises management platform. It provides a single pane of glass for managing all of a customer's Oracle deployments, whether in their data centers or in the Oracle Cloud. Through deep integration with Oracle's product stack, Enterprise Manager provides management and automation support for Oracle applications, databases, middleware, hardware, and engineered systems.
 
-Oracle offers several methods or interfaces that you can use to perform the various system and database management tasks:
+- Oracle Instance Manager provides a GUI for high-level administration of Oracle instances. Instance Manager enables tasks such as startup, shutdown, and log viewing.
 
-- Oracle Enterprise Manager is Oracle's on-premises management platform, providing a single pane of glass for managing all of a customer\'s Oracle deployments, whether in their data centers or in the Oracle Cloud. Through deep integration with Oracle's product stack, Enterprise Manager provides management and automation support for Oracle applications, databases, middleware, hardware and engineered systems.
+- Oracle Database Configuration Assistant is a GUI that allows management and configuration of various database features and functionality.
 
-- Oracle Instance Manager provides a GUI for high-level administration of Oracle instances -- enabling tasks such as startup, shutdown and log viewing.
+- The SQL commands support administration tasks and queries within a SQL database session. You can run SQL commands from the SQL\*Plus command interpreter, SQL Developer GUI, or through SQL APIs such as ODBC, JDBC, and the OLE DB Provider. You must have a database user account to run SQL commands, with appropriate permissions for the queries and tasks that you perform.
 
-- Oracle Database Configuration Assistant is a GUI which allows management and configuration of various database features and functionality.
-
-- The SQL commands support administration tasks and queries within a SQL database session. You can run the SQL commands from the SQL\*Plus command interpreter, SQL Developer GUI or through SQL APIs such as ODBC, JDBC, and the OLE DB Provider. You must have a database user account to run the SQL commands with appropriate permissions for the queries and tasks that you perform.
-
-While conceptually the management and operations tasks for different data warehouse are similar, the individual implementations may be very different. In general, modern cloud-based products such as Azure Synapse tend to incorporate a more automated and 'system managed' approach (as opposed to a more 'manual' approach in legacy data warehouses such as Oracle).
+While the management and operations tasks for different data warehouse are similar in concept, the individual implementations may be different. Modern cloud-based products, such as Azure Synapse, tend to incorporate a more automated and "system managed" approach (as opposed to a more "manual" approach in legacy data warehouses such as Oracle).
 
 The following sections compare Oracle and Azure Synapse options for various operational tasks.
 
 ### Housekeeping tasks
 
-Housekeeping tasks keep a production warehouse operating efficiently and optimize use of resources such as storage
+In most legacy data warehouse environments, regular "housekeeping" tasks are time-consuming. You can reclaim disk storage space by removing old versions of updated or deleted rows, or by reorganizing data, log files, or index blocks for efficiency (for example, ALTER TABLE.... SHRINK SPACE in Oracle).
 
-In most legacy data warehouse environments there is a requirement to perform regular 'housekeeping' tasks such as reclaiming disk storage space that can be freed up by removing old versions of updated or deleted rows or reorganizing data, log file or index blocks for efficiency (e.g. ALTER TABLE.... SHRINK SPACE in Oracle).
+> [!TIP]
+> Housekeeping tasks keep a production warehouse operating efficiently and optimize use of resources such as storage.
 
-Collecting statistics is also a potentially time-consuming task which is required after bulk data ingest to provide the query optimizer with up to date data on which to base generation of query execution plans.
+Collecting statistics is also a potentially time-consuming task, required after a bulk data ingest to provide the query optimizer with up-to-date data on which to base query execution plans.
 
-In version 12c Release 2 Oracle introduced a new feature called the Optimizer Statistics Advisor -- this works through a list of rules provided by Oracle, which represent \"best practices\" for optimizer statistics. It checks each rule and where necessary generates findings, recommendations and actions involving calls to the DBMS_STATS package to take corrective measures. The list of rules can be displayed using the V\$STATS_ADVISOR_RULES view as shown in the example below:
+Oracle introduced a feature called the [Optimizer Statistics Advisor](https://docs.oracle.com/en/database/oracle/oracle-database/19/tgsql/optimizer-statistics-advisor.html), which works through a list of rules provided by Oracle that represent "best practices" for optimizer statistics. The advisor checks each rule and, where necessary, generates findings, recommendations, and actions that involve calls to the DBMS_STATS package to take corrective measures. The list of rules can be displayed using the V$STATS_ADVISOR_RULES view as shown:
 
-:::image type="content" source="../media/3-security-access-operations/optimizer-statistics-advisor-rules.png" border="true" alt-text="Screenshot showing how to display a list of rules by using the the Optimizer Statistics Advisor.":::
+:::image type="content" source="../media/3-security-access-operations/optimizer-statistics-advisor-rules.png" border="true" alt-text="Screenshot showing how to display a list of rules by using the Optimizer Statistics Advisor.":::
 
-Housekeeping tasks can be automated and monitored in Azure
+> [!TIP]
+> Automate and monitor housekeeping tasks in Azure.
 
-An Oracle database contains many log tables in the Data Dictionary and external files that accumulate data, either automatically or after certain features are enabled. Because log data grows over time, older information must be purged to avoid using up permanent space. There are options to automate the maintenance of these logs available.
+An Oracle database contains many log tables in the data dictionary that accumulate data, either automatically or after certain features are enabled. Because log data grows over time, purge older information to avoid using up permanent space. There are options to automate the maintenance of these logs available.
 
-Azure Synapse has an option to collect statistics automatically so that no specific tasks to do this (e.g. as part of an ETL pipeline) are required. Defragmentation of indexes and data blocks can also be performed manually, on a scheduled basis or automatically as required.
-
-Again, leveraging these Azure native built-in capabilities can reduce the effort required in a migration exercise.
+Azure Synapse can automatically create statistics so that they can be used as needed. You can defragment indexes and data blocks manually, on a scheduled basis, or automatically. Using native built-in Azure capabilities can reduce the effort required in a migration exercise.
 
 ### Monitoring and auditing
 
-Oracle Enterprise Manager is the recommended method of monitoring and logging of Oracle systems
+The Oracle Enterprise Manager includes facilities to monitor various aspects of one or more Oracle systems, including activity, performance, queuing, and resource utilization. Oracle Enterprise Manager has an interactive GUI that allows users to drill down into low-level detail for any chart.
 
-Oracle's Enterprise Manager includes facilities to monitor various aspects of one or more Oracle systems including activity, performance, queuing and resource utilization. This is an interactive GUI which allows users to drill down into low level detail for any chart.
+> [!TIP]
+> Oracle Enterprise Manager is the recommended method of monitoring and logging of Oracle systems.
 
-An overview of the monitoring environment for an Oracle warehouse is shown in the diagram below:
+An overview of the monitoring environment for an Oracle warehouse is shown in the diagram:
 
 :::image type="content" source="../media/3-security-access-operations/oracle-warehouse-overview.png" border="true" alt-text="Diagram showing an overview of the monitoring environment for an Oracle warehouse.":::
 
-Azure Portal provides a GUI to manage monitoring and auditing tasks for all Azure data and processes
+Similarly, Azure Synapse provides a rich monitoring experience within the Azure portal to provide insights into your data warehouse workload. The Azure portal is the recommended tool when monitoring your data warehouse, since it provides configurable retention periods, alerts, recommendations, and customizable charts and dashboards for metrics and logs.
 
-Similarly, Azure Synapse provides a rich monitoring experience within the Azure Portal to surface insights to your data warehouse workload. The Azure portal is the recommended tool when monitoring your data warehouse as it provides configurable retention periods, alerts, recommendations, and customizable charts and dashboards for metrics and logs.
+> [!TIP]
+> The Azure portal provides a UI to manage monitoring and auditing tasks for all Azure data and processes.
 
-The Azure Portal can also provide recommendations for performance enhancements as shown in the screenshot below:
+The Azure portal can also provide recommendations for performance enhancements:
 
-:::image type="content" source="../media/3-security-access-operations/azure-portal-recommendations.png" border="true" alt-text="Screenshot of Azure Portal recommendations for performance enhancements.":::
+:::image type="content" source="../media/3-security-access-operations/azure-portal-recommendations.png" border="true" alt-text="Screenshot of Azure portal recommendations for performance enhancements.":::
 
-The portal also enables integration with other Azure monitoring services such as Operations Management Suite (OMS) and Azure Monitor (logs) to provide a holistic monitoring experience for not only the data warehouse but also the entire Azure analytics platform for an integrated monitoring experience.
+The portal also enables integration with other Azure monitoring services, such as Operations Management Suite (OMS) and Azure Monitor (logs), to provide a holistic monitoring experience for not only the data warehouse but also the entire Azure analytics platform for an integrated monitoring experience.
 
-For more information on the Azure Synapse operations and management options see [Manage and monitor workload importance in dedicated SQL pool for Azure Synapse Analytics](../../sql-data-warehouse/sql-data-warehouse-how-to-manage-and-monitor-workload-importance.md).
+For more information, see [Azure Synapse operations and management options](../../sql-data-warehouse/sql-data-warehouse-how-to-manage-and-monitor-workload-importance.md).
 
-### High Availability (HA) and Disaster Recovery (DR)
+### High availability (HA) and disaster recovery (DR)
 
-Oracle originally became available in 1979 and since then has evolved to incorporate many features required by large enterprise customers including a variety of options for high availability and disaster recovery. The latest announcements in this area is Maximum Availability Architecture (MAA) which incorporates a wide range of options including reference architectures for 4 levels of high availability and disaster recovery:
+Oracle originally became available in 1979 and has evolved since then to incorporate many features required by enterprise customers, including options for high availability and disaster recovery. The latest announcement in this area is Maximum Availability Architecture (MAA), which includes reference architectures for four levels of high availability and disaster recovery:
 
-Bronze Tier -- A Single Instance HA Architecture Silver Tier - High Availability with Automatic Failover Gold Tier - Comprehensive High Availability and Disaster Recovery Platinum Tier - Zero Outage for Platinum Ready Applications
+    Bronze Tier: A single-instance HA architecture
+    Silver Tier: High availability with automatic failover
+    Gold Tier: Comprehensive high availability and disaster recovery
+    Platinum Tier: Zero outage for platinum-ready applications
 
-Azure Synapse creates snapshots automatically to ensure a fast recovery time
+> [!TIP]
+> Azure Synapse creates snapshots automatically to ensure fast recovery time.
 
-Azure Synapse uses database snapshots to provide high availability of the warehouse. A data warehouse snapshot creates a restore point which can be used to recover or copy a data warehouse to a previous state. Since Azure Synapse is a distributed system, a data warehouse snapshot consists of many files that are located in Azure storage. Snapshots capture incremental changes from the data stored in your data warehouse.
+Azure Synapse uses database snapshots to provide high availability of the warehouse. A data warehouse snapshot creates a restore point that can be used to recover or copy a data warehouse to a previous state. Since Azure Synapse is a distributed system, a data warehouse snapshot consists of many files that are in Azure Storage. Snapshots capture incremental changes from the data stored in your data warehouse.
 
-Azure Synapse automatically takes snapshots throughout the day creating restore points that are available for seven days. This retention period cannot be changed. Azure Synapse supports an eight-hour recovery point objective (RPO). A data warehouse can be restored in the primary region from any one of the snapshots taken in the past seven days.
+> [!TIP]
+> User-defined snapshots can be used to define a recovery point before key updates.
 
-User-defined snapshots can be used to define a recovery point before key updates
+Azure Synapse automatically takes snapshots throughout the day, creating restore points that are available for seven days. You can't change this retention period. Azure Synapse supports an eight-hour recovery point objective (RPO). A data warehouse can be restored in the primary region from any one of the snapshots taken in the past seven days.
 
-Microsoft Azure provides automatic backups to a separate geographical location to enable DR
+> [!TIP]
+> Microsoft Azure provides automatic backups to a separate geographical location to enable DR.
 
-User-defined restore points are also supported, allowing manual triggering of snapshots to create restore points of a data warehouse before and after large modifications. This capability ensures that restore points are logically consistent, which provides additional data protection in case of any workload interruptions or user errors for quick recovery time.
+User-defined restore points are also supported, which allows manual triggering of snapshots to create restore points of a data warehouse before and after large modifications. This capability ensures that restore points are logically consistent, which provides additional data protection in case of workload interruptions or user errors for a desired RPO less than eight hours.
 
-As well as the snapshots described above, Azure Synapse also performs as standard a geo-backup once per day to a [paired data center](/azure/availability-zones/cross-region-replication-azure). The RPO for a geo-restore is 24 hours. You can restore the geo-backup to a server in any other region where Azure Synapse is supported. A geo-backup ensures that a data warehouse can be restored in case the restore points in the primary region are not available.
+In addition to snapshots, Azure Synapse performs a standard geo-backup once per day to a [paired data center](/azure/availability-zones/cross-region-replication-azure). The RPO for a geo-restore is 24 hours. You can restore the geo-backup to a server in any other region where Azure Synapse is supported. A geo-backup ensures that a data warehouse can be restored in case the restore points in the primary region aren't available.
 
 ### Workload management
 
-In a production data warehouse there are typically mixed workloads which have different resource usage characteristics running concurrently
+Oracle provides utilities such as Enterprise Manager and Database Resource Manager (DBRM) for managing workloads. These utilities include features such as load balancing across large clusters, parallel query execution, performance measurement, and prioritization.
 
-Oracle provides utilities such as Enterprise Manager and Database Resource Manager (DBRM) for managing workloads. This includes features such as load balancing across large clusters, parallel query execution, performance measurement and prioritization.
+> [!TIP]
+> A production data warehouse typically has mixed workloads with different resource usage characteristics running concurrently.
 
 Many of these features can be automated so that the system becomes (to a degree) self-tuning.
 
-Low-level and system-wide metrics are automatically logged within Azure
+> [!TIP]
+> Low-level and system-wide metrics are automatically logged within Azure.
 
-Resource utilization statistics for the Azure Synapse are automatically logged within the system. The metrics include usage statistics for CPU, memory, cache, I/O and temporary workspace for each query as well as connectivity information (e.g. failed connection attempts).
+Resource utilization statistics for Azure Synapse are automatically logged within the system. The metrics include usage statistics for CPU, memory, cache, I/O, and temporary workspace for each query. Connectivity information (for example, failed connection attempts) is also logged.
 
 The basic workload management concepts within Synapse are:
 
-1. Workload Classification -- To assign a request to a workload group and setting importance levels.
+1. Workload classification: To assign a request to a workload group and setting importance levels.
 
-2. Workload Importance -- To influence the order in which a request gets access to resources. By default, queries are released from the queue on a first-in, first-out basis as resources become available - Workload importance allows higher priority queries to receive resources immediately regardless of queue
+2. Workload importance: To influence the order in which a request gets access to resources. By default, queries are released from the queue on a first-in, first-out basis as resources become available. Workload importance allows higher priority queries to receive resources immediately regardless of queue.
 
-3. Workload Isolation -- To reserve resources for a workload group. Maximum and minimum usage can be assigned for varying resources. The amount of resources a group of requests can consume can be limited, and a timeout value can be set to automatically kill runaway queries
+3. Workload isolation: To reserve resources for a workload group. Maximum and minimum usage can be assigned for varying resources. The amount of resources a group of requests can consume can be limited, and a timeout value can be set to automatically kill runaway queries.
 
 Azure Synapse provides a set of Dynamic Management Views (DMVs) for monitoring of all aspects of workload management. These views are useful when actively troubleshooting and identifying performance bottlenecks with your workload.
 
-In Azure Synapse resource classes are pre-determined resource limits that govern compute resources and concurrency for query execution. Resource classes can help you manage your workload by setting limits on the number of queries that run concurrently and on the compute resources assigned to each query. There\'s a trade-off between memory and concurrency.
+In Azure Synapse, resource classes are pre-determined resource limits that govern compute resources and concurrency for query execution. Resource classes can help you manage your workload by setting limits on the number of queries that run concurrently and on the compute resources assigned to each query. There's a trade-off between memory and concurrency.
 
 See [Workload management with resource classes in Azure Synapse Analytics](../../sql-data-warehouse/resource-classes-for-workload-management.md) for detailed information.
 
-This information can also be used for capacity planning -- i.e. determining the resources required for additional users or application workload. This also applies to planning scale up/scale down of compute resources (see section below) for cost-effective support of 'peaky' workloads.
+The collected information can be used for capacity planning, for example, determining the resources required for additional users or application workload. You can also use it to plan scale up or scale down of compute resources for cost-effective support of "peaky" workloads.
 
-### Scaling compute resources
+### Scale compute resources
 
-A major benefit of Azure is the ability to independently scale up and down compute resources on demand to handle peaky workloads cost-effectively
+The architecture of Azure Synapse separates storage and compute, allowing each to scale independently. As a result, [compute resources can be scaled](../../sql-data-warehouse/quickstart-scale-compute-portal.md) to meet performance demands independent of data storage. You can also pause and resume compute resources. A natural benefit of this architecture is that billing for compute and storage is separate. If a data warehouse isn't in use, you can save on compute costs by pausing compute.
 
-The architecture of Azure Synapse separates storage and compute, allowing each to scale independently. As a result, compute resources can be scaled to meet performance demands independent of data storage. You can also pause and resume compute resources. A natural consequence of this architecture is that billing for compute and storage is separate. If you don\'t need to use your data warehouse for a while, you can save compute costs by pausing compute.
+> [!TIP]
+> A major benefit of Azure is the ability to independently scale up and down compute resources on demand to handle peaky workloads cost-effectively.
 
-Compute resources can be scaled out or scaled back by adjusting the data warehouse units setting for the data warehouse. Loading and query performance will increase linearly as more data warehouse units are added.
+Compute resources can be scaled up or scaled back by adjusting the data warehouse units setting for the data warehouse. Loading and query performance will increase linearly as you add more data warehouse units.
 
-Adding more compute nodes adds more compute power and ability to leverage more parallel processing. As the number of compute nodes increases, the number of distributions per compute node decreases, providing more compute power and parallel processing for queries. Similarly, decreasing data warehouse units reduces the number of compute nodes, which reduces the compute resources for queries. 
+Adding more compute nodes adds more compute power and ability to use more parallel processing. As the number of compute nodes increases, the number of distributions per compute node decreases, providing more compute power and parallel processing for queries. Similarly, decreasing data warehouse units reduces the number of compute nodes, which reduces the compute resources for queries.
 
 ## Next steps
 
