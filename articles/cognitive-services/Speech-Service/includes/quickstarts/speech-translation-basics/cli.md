@@ -70,6 +70,14 @@ Now that you've completed the quickstart, here are some additional consideration
     spx --% translate --source en-US --target it --microphone --phrases @phrases.txt
     ```
     ***
+- To change the speech recognition language, replace `en-US` with another [supported language](~/articles/cognitive-services/speech-service/supported-languages.md). For example, `es-ES` for Spanish (Spain). The default language is `en-US` if you don't specify a language.
+    ```console
+    spx translate --microphone --source es-ES
+    ```
+- To change the translation target language, replace `it` with another [supported language](~/articles/cognitive-services/speech-service/supported-languages.md). For example, `es` for Spanish (Spain). The default language is `en` if you don't specify a language.
+    ```console
+    spx translate --microphone --target es
+    ```
 - For continuous recognition of audio longer than 30 seconds, append `--continuous`:
     ```console
     spx translate --source en-US --target it --microphone --continuous

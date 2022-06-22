@@ -27,10 +27,10 @@ This document contains information about troubleshooting your solutions that use
 
 - Purchase fails because a valid credit card isn't connected to the Azure subscription or a payment method isn't associated with the subscription.
 
-  - Use a different Azure subscription. Or, add or update the credit card or payment method for the subscription. For more information, see [updating the credit and payment method](/azure/cost-management-billing/manage/change-credit-card).
+  - Use a different Azure subscription. Or, add or update the credit card or payment method for the subscription. For more information, see [updating the credit and payment method](../../cost-management-billing/manage/change-credit-card.md).
 
 - The EA subscription doesn't allow _Marketplace_ purchases.
-  - Use a different subscription. Or, check if your EA subscription is enabled for Marketplace purchase. For more information, see [Enable Marketplace purchases](/azure/cost-management-billing/manage/ea-azure-marketplace#enabling-azure-marketplace-purchases). If those options don't solve the problem, contact [Dynatrace support](https://support.dynatrace.com/).
+  - Use a different subscription. Or, check if your EA subscription is enabled for Marketplace purchase. For more information, see [Enable Marketplace purchases](../../cost-management-billing/manage/ea-azure-marketplace.md#enabling-azure-marketplace-purchases). If those options don't solve the problem, contact [Dynatrace support](https://support.dynatrace.com/).
 
 ### Unable to create Dynatrace resource
 

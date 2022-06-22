@@ -57,7 +57,7 @@ The following FastPath features are in Public preview:
 
 Available in all regions.
 
-**User Defined Routes (UDR)** - FastPath will honor UDRs configured on the GatewaySubnet and send traffic directly to an Azure Firewall or third party NVA.
+**User Defined Routes (UDRs)** - FastPath will honor UDRs configured on the GatewaySubnet and send traffic directly to an Azure Firewall or third party NVA.
 
 Available in all regions.
 

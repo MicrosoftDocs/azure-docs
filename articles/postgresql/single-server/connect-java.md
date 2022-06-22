@@ -13,6 +13,8 @@ ms.date: 08/17/2020
 
 # Quickstart: Use Java and JDBC with Azure Database for PostgreSQL
 
+[!INCLUDE [applies-to-postgresql-single-server](../includes/applies-to-postgresql-single-server.md)]
+
 This topic demonstrates creating a sample application that uses Java and [JDBC](https://en.wikipedia.org/wiki/Java_Database_Connectivity) to store and retrieve information in [Azure Database for PostgreSQL](./index.yml).
 
 JDBC is the standard Java API to connect to traditional relational databases.
