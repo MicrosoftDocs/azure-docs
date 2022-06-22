@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 ---
 # SSH  
 
-Secure Shell (SSH) is a network protocol that provides encryption for operating network services securely over an unsecured network. SSH also provides a command-line sign in, executes remote commands, and securely transfer files. It's commonly used in Unix-based systems such as Linux®. SSH replaces the Telnet protocol, which does not provide encryption in an unsecured network. 
+Secure Shell (SSH) is a network protocol that provides encryption for operating network services securely over an unsecured network. SSH also provides a command-line sign in, executes remote commands, and securely transfer files. It's commonly used in Unix-based systems such as Linux®. SSH replaces the Telnet protocol, which doesn't provide encryption in an unsecured network. 
 
 Azure Active Directory (Azure AD) provides a Virtual Machine (VM) extension for Linux®-based systems running on Azure, and a client extension that integrates with [Azure CLI](/cli/azure/) and the OpenSSH client.
 
