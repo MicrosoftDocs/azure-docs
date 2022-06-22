@@ -1,6 +1,6 @@
 ---
-title: How to configure Azure Storage Mover network endpoints #Required; page title is displayed in search results. Include the brand.
-description: Learn how to configure Azure Storage Mover network endpoints #Required; article description that is displayed in search results. 
+title: How to manage Azure Mover projects #Required; page title is displayed in search results. Include the brand.
+description: Learn how to manage Azure Mover projects #Required; article description that is displayed in search results. 
 author: stevenmatthew
 ms.author: shaas
 ms.service: storage-mover
@@ -18,7 +18,7 @@ This template provides the basic structure of a HOW-TO article. A HOW-TO article
 
 -->
 
-# Configure Azure Storage Mover network endpoints
+# Manage Azure Mover projects
 
 <!-- 
 

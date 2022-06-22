@@ -5,10 +5,6 @@ items:
   items:
   - name: What is Azure Storage Mover?
     href: overview.md
-  - name: Migration basics
-    href: migration.md
-  - name: Matching your needs with available tooling
-    href: match-tooling.md
   expanded: true
 - name: Concepts
   items: 
@@ -16,16 +12,12 @@ items:
     href: deployment-planning.md
   - name: Resource Hierarchy
     href: resource-hierarchy.md
-  - name: Networking considerations
-    href: network-considerations.md
   - name: Scale and performance targets
     href: performance-targets.md
-  - name: Prevent accidental deletion (disaster recovery)
-    href: disaster-recovery.md
   - name: Understanding billing
     href: billing.md
-  - name: Azure Storage compliance offerings
-    href: compliance-offerings.md
+  - name: Permissions and data security
+    href: data-security.md
 - name: How-To
   items: 
   - name: Deploy
@@ -35,15 +27,33 @@ items:
     - name: Deploy a storage mover agent
       href: agent-deploy.md
   - name: Network
-    items:    
-    - name: Configure network endpoints
-      href: network-endpoints-configure.md
+    items:
     - name: Configure agent proxy and firewall settings
       href: network-firewall-configure.md
   - name: Manage
     items:
       - name: Register or unregister an agent
         href: agent-manage.md
+      - name: Manage projects
+        href: projects-manage.md
+      - name: Manage job definitions
+        href: job-definitions-manage.md
+      - name: Manage job runs
+        href: job-runs-manage.md
+  - name: Monitor
+    items:
+      - name: Monitor job definitions
+        href: job-definitions-monitor.md
+  - name: Decommission
+    items:
+      - name: Delete the Mover resource
+        href: resource-delete.md
+      - name: Unregister an agent
+        href: agent-unregister.md
+  - name: Troubleshoot
+    items:
+      - name: File copy errors
+        href: copy-errors.md
 - name: Tutorials
   items:      
     - name: Migrate an NFS share to an Azure blob container
@@ -52,6 +62,8 @@ items:
       href: alternate-solutions.md
 - name: Resources
   items:
+  - name: Release notes
+    href: release-notes.md
   - name: Samples
     href: https://www.twinkies.com
   - name: Azure Storage Mover release notes
