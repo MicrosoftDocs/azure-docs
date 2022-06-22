@@ -8,11 +8,10 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: how-to
-ms.date: 01/16/2020
+ms.date: 06/22/2022
 ms.author: jhakulin
-zone_pivot_groups: programming-languages-set-two
+zone_pivot_groups: programming-languages-set-three
 ROBOTS: NOINDEX
-ms.devlang: cpp, csharp, java, python
 ---
 
 # Configure OpenSSL for Linux
@@ -71,7 +70,7 @@ config.SetProperty("CONFIG_MAX_CRL_SIZE_KB"", "15000");
 
 ::: zone pivot="programming-language-cpp"
 
-```C++
+```cpp
 config->SetProperty("CONFIG_MAX_CRL_SIZE_KB"", "15000");
 ```
 
@@ -87,16 +86,16 @@ config.setProperty("CONFIG_MAX_CRL_SIZE_KB"", "15000");
 
 ::: zone pivot="programming-language-python"
 
-```Python
+```python
 speech_config.set_property_by_name("CONFIG_MAX_CRL_SIZE_KB"", "15000")
 ```
 
 ::: zone-end
 
-::: zone pivot="programming-language-more"
+::: zone pivot="programming-language-go"
 
-```ObjectiveC
-[config setPropertyTo:@"15000" byName:"CONFIG_MAX_CRL_SIZE_KB"];
+```go
+speechConfig.properties.SetPropertyByString("CONFIG_MAX_CRL_SIZE_KB", "15000")
 ```
 
 ::: zone-end
@@ -120,7 +119,7 @@ config.SetProperty("OPENSSL_CONTINUE_ON_CRL_DOWNLOAD_FAILURE", "true");
 
 ::: zone pivot="programming-language-cpp"
 
-```C++
+```cpp
 config->SetProperty("OPENSSL_CONTINUE_ON_CRL_DOWNLOAD_FAILURE", "true");
 ```
 
@@ -136,16 +135,17 @@ config.setProperty("OPENSSL_CONTINUE_ON_CRL_DOWNLOAD_FAILURE", "true");
 
 ::: zone pivot="programming-language-python"
 
-```Python
+```python
 speech_config.set_property_by_name("OPENSSL_CONTINUE_ON_CRL_DOWNLOAD_FAILURE", "true")
 ```
 
 ::: zone-end
 
-::: zone pivot="programming-language-more"
+::: zone pivot="programming-language-go"
 
-```ObjectiveC
-[config setPropertyTo:@"true" byName:"OPENSSL_CONTINUE_ON_CRL_DOWNLOAD_FAILURE"];
+```go
+
+speechConfig.properties.SetPropertyByString("OPENSSL_CONTINUE_ON_CRL_DOWNLOAD_FAILURE", "true")
 ```
 
 ::: zone-end
@@ -162,7 +162,7 @@ config.SetProperty("OPENSSL_DISABLE_CRL_CHECK", "true");
 
 ::: zone pivot="programming-language-cpp"
 
-```C++
+```cpp
 config->SetProperty("OPENSSL_DISABLE_CRL_CHECK", "true");
 ```
 
@@ -178,16 +178,16 @@ config.setProperty("OPENSSL_DISABLE_CRL_CHECK", "true");
 
 ::: zone pivot="programming-language-python"
 
-```Python
+```python
 speech_config.set_property_by_name("OPENSSL_DISABLE_CRL_CHECK", "true")
 ```
 
 ::: zone-end
 
-::: zone pivot="programming-language-more"
+::: zone pivot="programming-language-go"
 
-```ObjectiveC
-[config setPropertyTo:@"true" byName:"OPENSSL_DISABLE_CRL_CHECK"];
+```go
+speechConfig.properties.SetPropertyByString("OPENSSL_DISABLE_CRL_CHECK", "true")
 ```
 
 ::: zone-end
