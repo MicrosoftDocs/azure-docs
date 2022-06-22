@@ -30,9 +30,7 @@ This article shows you how to connect to Azure Cosmos DB MongoDB API using the n
 * [Azure Command-Line Interface (CLI)](/cli/azure/) or [Azure PowerShell](/powershell/azure/)
 * [Azure Cosmos DB MongoDB API resource](quickstart-javascript.md#create-an-azure-cosmos-db-account)
 
-## Set up your project
-
-### Create a new JavaScript app
+## Create a new JavaScript app
 
 1. Create a new JavaScript application in an empty folder using your preferred terminal. Use the [``npm init``](https://docs.npmjs.com/cli/v8/commands/npm-init) command to begin the prompts to create the `package.json` file. Accept the defaults for the prompts. 
 
@@ -56,8 +54,6 @@ This article shows you how to connect to Azure Cosmos DB MongoDB API using the n
 
 To connect with the MongoDB native driver to Azure Cosmos DB, create an instance of the [``MongoClient``](https://mongodb.github.io/node-mongodb-native/4.5/classes/MongoClient.html#connect) class. This class is the starting point to perform all operations against databases. 
 
-### Connect with a MongoDB connection string
-
 The most common constructor for **MongoClient** has two parameters:
 
 | Parameter | Example value | Description |
@@ -67,27 +63,29 @@ The most common constructor for **MongoClient** has two parameters:
 
 Refer to the [Troubleshooting guide](error-codes-solutions.md) for connection issues.
 
-#### Get resource name
+## Get resource name
 
-##### [Azure CLI](#tab/azure-cli)
+### [Azure CLI](#tab/azure-cli)
 
 [!INCLUDE [Azure CLI - get resource name](<./includes/azurecli-get-resource-name.md>)]
 
-##### [PowerShell](#tab/azure-powershell)
+### [PowerShell](#tab/azure-powershell)
 
 [!INCLUDE [Powershell - set resource name](<./includes/powershell-set-resource-name.md>)]
 
 ---
 
-#### Retrieve your connection string
+## Retrieve your connection string
+
+### [Azure CLI](#tab/azure-cli)
 
 [!INCLUDE [Azure CLI - get connection string](<./includes/azurecli-get-connection-string.md>)]
 
-##### [PowerShell](#tab/azure-powershell)
+### [PowerShell](#tab/azure-powershell)
 
 [!INCLUDE [Powershell - get connection string](<./includes/powershell-get-connection-string.md>)]
 
-##### [Portal](#tab/azure-portal)
+### [Portal](#tab/azure-portal)
 
 > [!TIP]
 > For this guide, we recommend using the resource group name ``msdocs-cosmos``.
@@ -96,17 +94,17 @@ Refer to the [Troubleshooting guide](error-codes-solutions.md) for connection is
 
 ---
 
-#### Configure environment variables
+## Configure environment variables
 
 [!INCLUDE [Multitab - store connection string in environment variable](<./includes/multitab-env-vars-connection-string.md>)]
 
-#### Create MongoClient with connection string
+## Create MongoClient with connection string
 
 Create a new instance of the **MongoClient** class with the ``COSMOS_CONNECTION_STRING`` environment variable as the first parameter.
 
 :::code language="javascript" source="~/samples-cosmosdb-mongodb-javascript/101-client-connection-string/index.js" id="client_credentials":::
 
-## Build your application
+## Use MongoDB client classes with Cosmos DB for MongoDB API
 
 [!INCLUDE [Conceptual object model](<./includes/multitab-env-vars-connection-string.md>)]
 

@@ -124,6 +124,7 @@ You can perform several operations at once with the **bulkWrite** operation. Lea
 The following bulk operations are available:
 
 * [MongoClient.Db.Collection.bulkWrite](https://mongodb.github.io/node-mongodb-native/4.7/classes/Collection.html#bulkWrite)
+
     * insertOne
     * updateOne
     * updateMany
