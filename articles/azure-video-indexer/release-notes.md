@@ -56,6 +56,8 @@ As part of Microsoft's commitment to responsible AI, we are designing and releas
 Identification and celebrity recognition features require registration and are only available to Microsoft managed customers and partners. 
 Customers who wish to use this feature are required to apply and submit an [intake form](https://customervoice.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR7en2Ais5pxKtso_Pz4b1_xUMkZIOUE1R0YwMkU0M1NMUTA0QVNXVDlKNiQlQCN0PWcu). For more information, read [Azure Video Indexer limited access](limited-access-features.md). 
 
+Also, see the following: the [announcement blog post](https://aka.ms/AAh91ff) and [investment and safeguard for facial recognition](http://aka.ms/AAh9oye).
+          
 ## May 2022
 
 ### Line breaking in transcripts
