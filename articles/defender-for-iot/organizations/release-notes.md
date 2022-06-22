@@ -33,6 +33,7 @@ For more information, see the [Microsoft Security Development Lifecycle practice
 
 | Version | Date released | End support date |
 |--|--|--|
+| 22.1.5 | 06/2022 | 03/2022 |
 | 22.1.4 | 04/2022 | 12/2022 |
 | 22.1.3 | 03/2022 | 11/2022 |
 | 22.1.1 | 02/2022 | 10/2022 |
@@ -40,6 +41,12 @@ For more information, see the [Microsoft Security Development Lifecycle practice
 | 10.5.4 | 12/2021 | 09/2022 |
 | 10.5.3 | 10/2021 | 07/2022 |
 | 10.5.2 | 10/2021 | 07/2022 |
+
+## June
+
+**Sensor software version**: 22.1.5
+
+- Bug fixes related to OT monitoring software updates and sensor-cloud connections.
 
 ## May 2022
 
