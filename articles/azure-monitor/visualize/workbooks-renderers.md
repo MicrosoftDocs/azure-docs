@@ -65,9 +65,8 @@ The instructions below will show you how to use thresholds with links to assign 
     | ==       | error   | Failed  |
 
     ![Screenshot of Edit column settings tab with the above settings.](./media/workbooks-grid-visualizations/column-settings.png)
-
-  Keep the default row as is. You may enter whatever text you like. The Text column takes a String format as an input and populates it with the column value and unit if specified. For example, if warning is the column value the text can be "{0} {1} link!", it will be displayed as "warning link!".
-
+   
+   Keep the default row as is. You may enter whatever text you like. The Text column takes a String format as an input and populates it with the column value and unit if specified. For example, if warning is the column value the text can be "{0} {1} link!", it will be displayed as "warning link!".
 1. Select the **Make this item a link** box.
      - Under **View to open**, choose **Workbook (Template)**.
      - Under **Link value comes from**, choose **link**.
@@ -76,10 +75,10 @@ The instructions below will show you how to use thresholds with links to assign 
         - Under **Template Id comes from**, choose **Column**.
         - Under **Column** choose **link**.
 
-  ![Screenshot of link settings with the above settings.](./media/workbooks-grid-visualizations/make-this-item-a-link.png)
+   ![Screenshot of link settings with the above settings.](./media/workbooks-grid-visualizations/make-this-item-a-link.png)
 
 1. Select **link** from **Columns**. Under **Settings**, next to **Column renderer**, select **(Hide column)**.
 1. To change the display name of the **name** column, select the **Labels** tab. On the row with **name** as its **Column ID**, under **Column Label** enter the name you want displayed.
 1. Select **Apply**.
 
-  ![Screenshot of a thresholds in grid with the above settings](./media/workbooks-grid-visualizations/thresholds-workbooks-links.png)
+   ![Screenshot of a thresholds in grid with the above settings](./media/workbooks-grid-visualizations/thresholds-workbooks-links.png)
