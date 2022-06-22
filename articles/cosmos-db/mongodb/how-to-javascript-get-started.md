@@ -104,13 +104,28 @@ Skip this step and use the information for the portal in the next step.
 
 ## Create MongoClient with connection string
 
-Create a new instance of the **MongoClient** class with the ``COSMOS_CONNECTION_STRING`` environment variable as the first parameter.
 
-:::code language="javascript" source="~/samples-cosmosdb-mongodb-javascript/101-client-connection-string/index.js" id="client_credentials":::
+1. Add dependencies to reference the MongoDB and DotEnv npm packages. 
+
+    :::code language="javascript" source="~/samples-cosmosdb-mongodb-javascript/101-client-connection-string/index.js" id="package_dependencies":::
+
+2. Define a new instance of the ``MongoClient,`` class using the constructor, and [``process.env.``](https://nodejs.org/dist/latest-v8.x/docs/api/process.html#process_process_env) to use the connection string.
+
+    :::code language="javascript" source="~/samples-cosmosdb-mongodb-javascript/101-client-connection-string/index.js" id="client_credentials":::
+
+For more information on different ways to create a ``MongoClient`` instance, see [MongoDB NodeJS Driver Quick Start](https://www.npmjs.com/package/mongodb#quick-start).
+
+## Close the MongoClient connection
+
+When your application is finished with the connection remember to close it. That `.close()` call should be after all database calls are made. 
+
+```javascript
+client.close()
+```
 
 ## Use MongoDB client classes with Cosmos DB for MongoDB API
 
-[!INCLUDE [Conceptual object model](<./includes/multitab-env-vars-connection-string.md>)]
+[!INCLUDE [Conceptual object model](<./includes/conceptual-object-model.md>)]
 
 Each type of resource is represented by one or more associated JavaScript classes. Here's a list of the most common classes:
 

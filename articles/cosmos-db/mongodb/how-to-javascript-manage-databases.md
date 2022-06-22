@@ -44,6 +44,8 @@ The database holds the collections and their documents. Use an instance of the *
 
 * [MongoClient.Db](https://mongodb.github.io/node-mongodb-native/4.7/classes/Db.html)
 
+The following code snippets assume you've already created your [client connection](how-to-javascript-get-started.md#create-mongoclient-with-connection-string) and that you [close your client connection](how-to-javascript-get-started.md#close-the-mongoclient-connection) after these code snippets.
+
 ## Get server information
 
 Access the **Admin** class to retrieve server information. You don't need to specify the database name in the `db` method. The information returned is specific to MongoDB and doesn't represent the Azure Cosmos DB platform itself.

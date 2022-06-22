@@ -39,6 +39,7 @@ Use an instance of the **Collection** class to access the collection on the serv
 
 * [MongoClient.Db.Collection](https://mongodb.github.io/node-mongodb-native/4.7/classes/Collection.html)
 
+The following code snippets assume you've already created your [client connection](how-to-javascript-get-started.md#create-mongoclient-with-connection-string) and that you [close your client connection](how-to-javascript-get-started.md#close-the-mongoclient-connection) after these code snippets.
 
 ## Create a collection
 

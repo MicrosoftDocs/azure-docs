@@ -290,9 +290,9 @@
           items: 
             - name: Get started
               href: how-to-javascript-get-started.md
-            - name: Work with databases
+            - name: With databases
               href: how-to-javascript-manage-databases.md
-            - name: Work with collections amd docs
+            - name: With collections and docs
               href: how-to-javascript-manage-collections.md         
     - name: Connect using Mongoose
       href: connect-using-mongoose.md
