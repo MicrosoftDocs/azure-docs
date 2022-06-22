@@ -35,13 +35,13 @@ Authentication is the process of verifying the identity of a user, device, or ot
 
 ##### Database authentication
 
-With this approach, the Oracle database solely administers the user account, including authentication of that user. For the Oracle database to authenticate a user, a password for the user is specified when the user is created (or altered). Users can change their password at any time. Passwords are stored in an encrypted format. Oracle recommends the use of password management, including account locking, password aging and expiration, password history, and password complexity verification. This method is common in older Oracle installations.
+With database authentication, the Oracle database administers the user account and authenticates the user. For the Oracle database to authenticate a user, a password for the user is specified when the user is created (or altered). Users can change their password at any time. Passwords are stored in an encrypted format. Oracle recommends the use of password management, including account locking, password aging and expiration, password history, and password complexity verification. This method is common in older Oracle installations.
 
 ##### External authentication
 
-With external authentication, the user account is maintained by the Oracle database, but password administration and user authentication are performed by an external service. This external service can be the operating system or a network service, such as Oracle Net. The database relies on the underlying operating system or network authentication service to restrict access to database accounts. A database password isn't used for this type of login. There are two external authentication options:
+With external authentication, the Oracle database maintains the user account, and an external service performs password administration and user authentication. This external service can be the operating system or a network service, such as Oracle Net. The database relies on the underlying operating system or network authentication service to restrict access to database accounts. A database password isn't used for this type of login. There are two external authentication options:
 
-- **Operating system authentication**: By default, Oracle allows operating-system-authenticated logins only over secure connections, which precludes using Oracle Net and a shared-server configuration. This default restriction prevents a remote user from impersonating another operating system user over a network connection.
+- **Operating system authentication**: By default, Oracle requires a secure connection for logins that the operating system authenticates, which precludes using Oracle Net and a shared-server configuration. This default restriction prevents a remote user from impersonating another operating system user over a network connection.
 
 - **Network authentication**: With this approach, more authentication mechanisms are available, such as smart cards, fingerprints, Kerberos, or the operating system. Many network authentication services, such as Kerberos, support single sign-on, so that users have fewer passwords to remember.
 
@@ -65,7 +65,7 @@ You can designate a middle-tier server to proxy clients in a secure fashion. Ora
 
 Azure Synapse supports two basic options for connection and authorization: SQL authentication and Azure Active Directory (Azure AD) authentication.
 
-- **SQL authentication**: This method of authentication uses a database connection that includes a database identifier, user ID, and password, plus other optional parameters. This method is functionally equivalent to Oracle database connections above.
+- **SQL authentication**: This method of authentication uses a database connection that includes a database identifier, user ID, and password, plus other optional parameters. This method is functionally equivalent to Oracle database connections [previously discussed](#database-authentication).
 
 - **Azure AD authentication**: With Azure AD authentication, you can centrally manage the identities of database users and other Microsoft services in one central location. Central ID management provides a single place to manage Azure Synapse users and simplifies permission management. Azure AD can also support connections to LDAP and Kerberos services. For example, this method can be used to connect to existing LDAP directories if they're to remain in place after migration of the database.
 
@@ -76,18 +76,18 @@ Both Oracle and Azure Synapse implement database access control via a combinatio
 > [!TIP]
 > Planning is essential for a successful migration project, starting with high-level approach decisions.
 
-Conceptually, the two databases are similar, and it might be possible to automate the migration of existing user IDs, groups, and permissions to some degree. Extract the legacy user and group information from the Oracle system catalog tables, then generate matching equivalent `CREATE USER` and `CREATE ROLE` statements to be run in Azure Synapse to recreate the same user/role hierarchy.
+Conceptually, the two databases are similar, and it might be possible to automate the migration of existing user IDs, groups, and permissions to some degree. Extract the legacy user and group information from the Oracle system catalog tables, then generate matching equivalent `CREATE USER` and `CREATE ROLE` statements. Run those statements in Azure Synapse to recreate the same user/role hierarchy.
 
 > [!TIP] 
 > If possible, automate migration processes to reduce elapsed time and scope for error.
 
-After data extraction, use Oracle system catalog tables to generate equivalent `GRANT` statements to assign permissions (where an equivalent one exists).
+After data extraction, use Oracle system catalog tables to generate equivalent `GRANT` statements to assign permissions where an equivalent one exists.
 
 :::image type="content" source="../media/3-security-access-operations/automating-migration-privileges.png" border="true" alt-text="Chart showing how to automate the migration of privileges from an existing system.":::
 
 #### Users and roles
 
-The information about current users and groups in an Oracle system is held in system catalog views `ALL_USERS` or `DBA_USERS`. These views can be queried in the normal way via SQL\*Plus or SQL Developer.
+The information about current users and groups in an Oracle system is held in system catalog views `ALL_USERS` or `DBA_USERS`. These views can be queried in the normal way via Oracle SQL*Plus or Oracle SQL Developer.
 
 Basic examples include:
 
@@ -115,7 +115,7 @@ There's no way to retrieve existing passwords, so you need to implement a scheme
 
 #### Permissions
 
-In an Oracle system, the system view `DBA_ROLE_PRIVS` holds the access rights for users and roles. Query these tables (if the user has `SELECT` access to those tables) to obtain current lists of access rights defined within the system.
+In an Oracle system, the system view `DBA_ROLE_PRIVS` holds the access rights for users and roles. If you have `SELECT` access, you can query these views to obtain current lists of access rights defined within the system.
 
 :::image type="content" source="../media/3-security-access-operations/oracle-sql-developer-reports-2.png" border="true" alt-text="Screenshot showing a Reports view for user access rights in Oracle SQL Developer.":::
 
