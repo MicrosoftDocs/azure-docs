@@ -11,6 +11,8 @@ ms.date: 06/24/2022
 keywords: 
 ---
 
+[Library source code](https://github.com/openai/openai-python) | [Package (PyPi)](https://pypi.org/project/openai/) |
+
 ## Prerequisites
 
 - An Azure subscription
@@ -19,7 +21,7 @@ keywords:
 - The following python libraries: os, requests, json
 - An Azure OpenAI Service resource with a model deployed.
 
-## Set up the client
+## Set up
 
 1. Install the client library. You can install the client library with:
 
@@ -27,9 +29,7 @@ keywords:
 pip install openai
 ```
 
-## Authenticate the client
-
-### Retrieve key and endpoint
+## Retrieve key and endpoint
 
 To successfully make a call against the Azure OpenAI service, you'll need the following:
 
@@ -76,7 +76,7 @@ Go to your resource in the Azure portal. The **Endpoint and Keys** can be found 
     python quickstart.py
     ```
 
-### Output
+## Output
 
 ```console
 Sending a test completion job
@@ -87,7 +87,7 @@ Run the code a few more times to see what other types of responses you get as th
 
 ### Understanding your results
 
-Since our example of `When I go to the store, I want a` provides very little context, it is normal for the model to not always return expected results. We are also intentionally limiting the response up to the first newline `\n` character, so occasional truncated responses with only our prompt text may occur as the model's response in that instance was split over multiple lines. If you wish to see the larger responses you can remove `.split('\n')[0]` from your code and adjust the max number of tokens.
+Since our example of `When I go to the store, I want a` provides very little context, it's normal for the model to not always return expected results. We're also intentionally limiting the response up to the first newline `\n` character, so occasional truncated responses with only our prompt text may occur as the model's response in that instance was split over multiple lines. If you wish to see the larger responses, you can remove `.split('\n')[0]` from your code and adjust the max number of tokens.
 
 ## Clean up resources
 

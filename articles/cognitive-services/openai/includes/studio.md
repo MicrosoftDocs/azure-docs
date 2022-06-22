@@ -37,7 +37,7 @@ From here, select 'create new deployment' button in the banner at the top. If yo
 
 ## Deployments
 
-Before you can generate text or inference you need to deploy a model. This is done by clicking the 'create new deployment' on the deployments page. From here you can select from one of our many available models. For getting started we recommend `text-davinci-002` for users in South Central and `text-davinci-001` for users in West Europe (text-davinci-002 isn't available in this region).
+Before you can generate text or inference, you need to deploy a model. This is done by clicking the 'create new deployment' on the deployments page. From here you can select from one of our many available models. For getting started we recommend `text-davinci-002` for users in South Central and `text-davinci-001` for users in West Europe (text-davinci-002 isn't available in this region).
 
 Once this is complete, select the 'Playground' button on the left nav to start experimenting.
 
@@ -56,23 +56,25 @@ The best way to start exploring completions is through our Playground. It's simp
 - View the code you could use to make the same call with our python SDK, curl or other REST API client
 - Configure the parameters of the completions call to improve the performance of your task. You can read more about each parameter in our [REST API](../reference.md).
 
-Now that you've familiarized yourself with the playground, get started generating text by loading the Q&A example and add in your own unique question.
+1. Now that you've familiarized yourself with the playground, get started generating text by loading the Q&A example and add in your own unique question.
 
-For our example we will fill in:
+    For our example we'll fill in:
 
-```
-Q:What is the fastest the mile has ever been run in competition?
-```
+    ```
+    Q:What is the fastest the mile has ever been run in competition?
+    ```
 
-:::image type="content" source="../media/quickstarts/question.png" alt-text="Screenshot of the playground page of the Azure OpenAI Studio with the following text - Q: What is the fastest the mile has ever been run in competition?" lightbox="../media/quickstarts/question.png":::
+    :::image type="content" source="../media/quickstarts/question.png" alt-text="Screenshot of the playground page of the Azure OpenAI Studio with the following text - Q: What is the fastest the mile has ever been run in competition?" lightbox="../media/quickstarts/question.png":::
 
-Then select `Generate`.
+2. Then select `Generate`.
 
-You should get a result that looks like:
+    You should get a result that looks like:
 
-```
-A: The fastest mile has ever been run in competition is 3 minutes and 43 seconds.
-```
+    ```
+    A: The fastest the mile has ever been run in competition is 3 minutes and 43 seconds.
+    ```
+
+3. Try adding another question and then generate an additional response.
 
 ## Clean up resources
 

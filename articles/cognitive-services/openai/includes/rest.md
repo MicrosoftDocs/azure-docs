@@ -19,9 +19,7 @@ keywords:
 - The following python libraries: os, requests, json
 - An Azure OpenAI Service resource with a model deployed.
 
-## Authenticate the client
-
-### Retrieve key and endpoint
+## Retrieve key and endpoint
 
 To successfully make a call against the Azure OpenAI service, you'll need the following:
 
@@ -74,7 +72,7 @@ Create a new python file called quickstart.py. Then open it up in your preferred
     python quickstart.py
     ```
 
-### Output
+## Output
 
 The output from the completions API will look as follows.
 
@@ -97,7 +95,7 @@ The output from the completions API will look as follows.
 
 ## Clean up resources
 
-If you want to clean up and remove an OpenAI resource, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it. 
+If you want to clean up and remove an OpenAI resource, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it.
 
 - [Portal](/azure/cognitive-services/cognitive-services-apis-create-account#clean-up-resources)
 - [Azure CLI](/azure/cognitive-services/cognitive-services-apis-create-account-cli#clean-up-resources)
