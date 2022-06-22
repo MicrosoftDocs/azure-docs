@@ -1253,4 +1253,4 @@ curl -X DELETE 'https://example_resource_name.openai.azure.com/openai/deployment
 
 ## Next steps
 
-Learn more about the [underlying engines/models that power Azure OpenAI](./concepts/engines.md).
+Learn more about the [underlying models that power Azure OpenAI](./concepts/models.md).
