@@ -1,9 +1,9 @@
 ---
 title: Skill-up training resources
 description: This article walks you through a Microsoft Sentinel level 400 training to help you skill up on Microsoft Sentinel. The training includes 22 modules that contain relevant product documentation, blog posts and other resources. Please make sure to check the most recent links for the documentation.
-author: laghimpe
+author: laghimp
 ms.topic: conceptual
-ms.date: 22/06/2022
+ms.date: 06/22/2022
 ms.author: laghimpe
 ms.custom: fasttrack-edit
 ---
@@ -54,9 +54,9 @@ The modules listed below are split into five parts following the life cycle of a
 
 This Skill-up training is based on the [Microsoft Sentinel Ninja training](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/become-a-microsoft-sentinel-ninja-the-complete-level-400/ba-p/1246310) and is a level 400 training. If you don't want to go as deep or have a specific issue, other resources might be more suitable:
 
-* While extensive, the Skill-up training has to follow a script and cannot expand on every topic. The [Sentinel Skill-up FAQ](#faq) tries to close this gap. 
+* While extensive, the Skill-up training has to follow a script and cannot expand on every topic. Read the referenced documentation for details of each topic.
 * You can now certify with the new certification [SC-200: Microsoft Security Operations Analyst](https://docs.microsoft.com/learn/certifications/exams/sc-200) which covers Microsoft Sentinel.  You may also want to consider the [SC-900: Microsoft Security, Compliance, and Identity Fundamentals](https://docs.microsoft.com/learn/certifications/exams/sc-900) or the [AZ-500: Microsoft Azure Security Technologies](https://docs.microsoft.com/learn/certifications/exams/az-500), for a broader, higher level view of the Microsoft Security suite.
-* Already skilled-up on Microsoft Sentinel? Just keep track of [what's new](https://docs.microsoft.com/en-us/azure/sentinel/whats-new) or join the [Private Preview](https://forms.office.com/pages/responsepage.aspx?id=v4j5cvGGr0GRqy180BHbR-kibZAPJAVBiU46J6wWF_5URDFSWUhYUldTWjdJNkFMVU1LTEU4VUZHMy4u) program for an earlier glimpse. 
+* Already skilled-up on Microsoft Sentinel? Just keep track of [what's new](https://docs.microsoft.com/azure/sentinel/whats-new) or join the [Private Preview](https://forms.office.com/pages/responsepage.aspx?id=v4j5cvGGr0GRqy180BHbR-kibZAPJAVBiU46J6wWF_5URDFSWUhYUldTWjdJNkFMVU1LTEU4VUZHMy4u) program for an earlier glimpse. 
 * Have a good feature idea you want to share with us? Let us know on the [Microsoft Sentinel user voice page](https://feedback.azure.com/d365community/forum/37638d17-0625-ec11-b6e6-000d3a4f07b8).
 * Premier customer? You might want the on-site (or remote)  4-day Microsoft Sentinel Fundamentals Workshop. Contact your Customer Success Account Manager for more details.
 * Have a specific issue? Ask (or answer other) on the [Microsoft Sentinel Tech Community](https://techcommunity.microsoft.com/t5/microsoft-sentinel/bd-p/MicrosoftSentinel). As a last resort, send an e-mail to <MicrosoftSentinel@microsoft.com>.
@@ -64,13 +64,13 @@ This Skill-up training is based on the [Microsoft Sentinel Ninja training](https
 
 ### Module 1: Get started with Microsoft Sentinel
 
-Microsoft Sentinel is a **scalable, cloud-native, security information event management (SIEM) and security orchestration automated response (SOAR) solution**. Azure Sentinel delivers intelligent security analytics and threat intelligence across the enterprise, providing a single solution for alert detection, threat visibility, proactive hunting, and threat response. [Read more.](https://docs.microsoft.com/en-us/azure/sentinel/overview?wt.mc_id=SecNinja_sentinelninjatraining)
+Microsoft Sentinel is a **scalable, cloud-native, security information event management (SIEM) and security orchestration automated response (SOAR) solution**. Azure Sentinel delivers intelligent security analytics and threat intelligence across the enterprise, providing a single solution for alert detection, threat visibility, proactive hunting, and threat response. [Read more.](https://docs.microsoft.com/azure/sentinel/overview?wt.mc_id=SecNinja_sentinelninjatraining)
 
 
-If you want to get an initial overview of Microsoft Sentinel's technical capabilities, the [latest Ignite presentation](https://www.youtube.com/watch?v=kGctnb4ddAE) is a good starting point. You might also find the [Quick Start Guide to Microsoft Sentinel](https://azure.microsoft.com/en-us/resources/quick-start-guide-to-azure-sentinel/) useful (requires registration). A more detailed overview, however somewhat dated, can be found in this webinar: [MP4](https://1drv.ms/v/s%21AnEPjr8tHcNmggMkcVweWOqoxuN9), [YouTube](https://youtu.be/7An7BB-CcQI), [Presentation](https://1drv.ms/b/s!AnEPjr8tHcNmgjrN_zHpzbnfX_mX).
+If you want to get an initial overview of Microsoft Sentinel's technical capabilities, the [latest Ignite presentation](https://www.youtube.com/watch?v=kGctnb4ddAE) is a good starting point. You might also find the [Quick Start Guide to Microsoft Sentinel](https://azure.microsoft.com/resources/quick-start-guide-to-azure-sentinel/) useful (requires registration). A more detailed overview, however somewhat dated, can be found in this webinar: [MP4](https://1drv.ms/v/s%21AnEPjr8tHcNmggMkcVweWOqoxuN9), [YouTube](https://youtu.be/7An7BB-CcQI), [Presentation](https://1drv.ms/b/s!AnEPjr8tHcNmgjrN_zHpzbnfX_mX).
 
 
-Lastly, want to try it yourself? The Microsoft Sentinel All-In-One Accelerator  ([blog](https://techcommunity.microsoft.com/t5/azure-sentinel/azure-sentinel-all-in-one-accelerator/ba-p/1807933), [Youtube](https://youtu.be/JB73TuX9DVs), [MP4](https://aka.ms/AzSentinel_04FEB2021_MP4), [presentation](https://1drv.ms/b/s!AnEPjr8tHcNmhjw41XZvVSCSNIuX)) presents an easy way to get you started. To learn how to start yourself, review the [onboarding documentation](https://docs.microsoft.com/en-us/azure/sentinel/quickstart-onboard), or watch [Insight's Sentinel setup and configuration video](https://www.youtube.com/watch?v=Cyd16wVwxZc).
+Lastly, want to try it yourself? The Microsoft Sentinel All-In-One Accelerator  ([blog](https://techcommunity.microsoft.com/t5/azure-sentinel/azure-sentinel-all-in-one-accelerator/ba-p/1807933), [Youtube](https://youtu.be/JB73TuX9DVs), [MP4](https://aka.ms/AzSentinel_04FEB2021_MP4), [presentation](https://1drv.ms/b/s!AnEPjr8tHcNmhjw41XZvVSCSNIuX)) presents an easy way to get you started. To learn how to start yourself, review the [onboarding documentation](https://docs.microsoft.com/azure/sentinel/quickstart-onboard), or watch [Insight's Sentinel setup and configuration video](https://www.youtube.com/watch?v=Cyd16wVwxZc).
 
 
 **Learn from users**
@@ -127,7 +127,7 @@ You can also send the alerts from Microsoft Sentinel to your 3rd party SIEM or t
 **For MSSPs**
 Since it eliminates the setup cost and is location agnostics, Microsoft Sentinel is a popular choice for providing SIEM-as-a-service. You can find a [list of MISA (Microsoft Intelligent Security Association) member managed security service providers (MSSPs) using Microsoft Sentinel](https://www.microsoft.com/security/blog/2020/07/14/microsoft-intelligent-security-association-managed-security-service-providers/). Many other MSSPs, especially regional and smaller ones, use Microsoft Sentinel but are not MISA members.
 
-To start your journey as an MSSP, you should read the [Microsoft Sentinel Technical Playbooks for MSSPs](http://aka.ms/azsentinelmssp). More information about MSSP support is included in the next module, cloud architecture and multi-tenant support.  
+To start your journey as an MSSP, you should read the [Microsoft Sentinel Technical Playbooks for MSSPs](https://aka.ms/azsentinelmssp). More information about MSSP support is included in the next module, cloud architecture and multi-tenant support.  
 
 ## Part 2: Architecting & Deploying
 
@@ -152,7 +152,7 @@ There are a few specific areas that require your consideration when using multip
     * Read [Enable Continuous Deployment Natively with Microsoft Sentinel Repositories!](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/enable-continuous-deployment-natively-with-microsoft-sentinel/ba-p/2929413)
 * When managing multiple workspaces as an MSSP, you may want to [protect the MSSP’s Intellectual Property in Microsoft Sentinel](https://docs.microsoft.com/azure/sentinel/mssp-protect-intellectual-property).
 
-The [Microsoft Sentinel Technical Playbook for MSSPs](http://aka.ms/azsentinelmssp) provides detailed guidelines for many of those topics, and is useful also for large organizations, not just to MSSPs.
+The [Microsoft Sentinel Technical Playbook for MSSPs](https://aka.ms/azsentinelmssp) provides detailed guidelines for many of those topics, and is useful also for large organizations, not just to MSSPs.
 
 ### Module 4: Data Collection
 
@@ -200,7 +200,7 @@ If you want to retain data for _more than two years_ or _reduce the retention co
 
 Need more depth? Watch the Improving the Breadth and Coverage of Threat Hunting with ADX Support, More Entity Types, and Updated MITRE Integration webinar [here](https://www.youtube.com/watch?v=5coYjlw2Qqs&ab_channel=MicrosoftSecurityCommunity).
 
-If you prefer another long-term retention solution, [export from Microsoft Sentinel / Log Analytics to Azure Storage and Event Hub](https://docs.microsoft.com/cli/azure/monitor/log-analytics/workspace/data-export?view=azure-cli-latest&viewFallbackFrom=azure-cli-latest) or [move Logs to Long-Term Storage using Logic Apps](https://docs.microsoft.com/en-us/azure/azure-monitor/logs/logs-export-logic-app). The latter advantage is that it can export historical data.
+If you prefer another long-term retention solution, [export from Microsoft Sentinel / Log Analytics to Azure Storage and Event Hub](https://docs.microsoft.com/cli/azure/monitor/log-analytics/workspace/data-export?view=azure-cli-latest&viewFallbackFrom=azure-cli-latest) or [move Logs to Long-Term Storage using Logic Apps](https://docs.microsoft.com/azure/azure-monitor/logs/logs-export-logic-app). The latter advantage is that it can export historical data.
 Lastly, you can set fine-grained retention periods using [table-level retention Settings](https://techcommunity.microsoft.com/t5/core-infrastructure-and-security/azure-log-analytics-data-retention-by-type-in-real-life/ba-p/1416287). More details [here](https://docs.microsoft.com/azure/azure-monitor/logs/data-retention-archive?tabs=portal-1%2Cportal-2#configure-the-default-workspace-retention-policy).
 
 
@@ -330,7 +330,7 @@ Using ASIM provides the following benefits:
 * Use the [ASIM hunting queries from GitHub](https://github.com/search?q=ASIM+repo%3AAzure%2FAzure-Sentinel+path%3A%2Fdetections+path%3A%22%2FHunting+Queries%22&type=Code&ref=advsearch&l=&l=)
 * Use ASIM queries when using KQL in the log screen.
 * Write your own analytic rules using ASIM or [convert existing ones](https://docs.microsoft.com/azure/sentinel/normalization#modifying-your-content-to-use-normalized-data).
-* Write [parsers](https://docs.microsoft.com/en-us/azure/sentinel/normalization#asim-components) for your custom sources to make them ASIM compatible and take part in built-in analytics
+* Write [parsers](https://docs.microsoft.com/azure/sentinel/normalization#asim-components) for your custom sources to make them ASIM compatible and take part in built-in analytics
 
 ## Part 3: Creating Content
 
@@ -349,7 +349,7 @@ Note that the next section on writing rules explains how to use KQL in the speci
 **Below is the recommended journey for learning Sentinel KQL:**
 1. [Pluralsight KQL course](https://www.pluralsight.com/courses/kusto-query-language-kql-from-scratch) - the basics
 2. The Microsoft Sentinel KQL Lab: An interactive lab teaching KQL focusing on what you need for Microsoft Sentinel:
-    1. [Learning module (SC-200 part 4)](https://docs.microsoft.com/en-us/learn/paths/sc-200-utilize-kql-for-azure-sentinel/)
+    1. [Learning module (SC-200 part 4)](https://docs.microsoft.com/learn/paths/sc-200-utilize-kql-for-azure-sentinel/)
     2. [Presentation](https://onedrive.live.com/?authkey=%21AJRxX475AhXGQBE&cid=66C31D2DBF8E0F71&id=66C31D2DBF8E0F71%21740&parId=66C31D2DBF8E0F71%21446&o=OneUp), [Lab URL](https://aka.ms/lademo)
     3. a [Jupyter Notebooks version](https://github.com/jjsantanna/azure_sentinel_learn_kql_lab/blob/master/azure_sentinel_learn_kql_lab.ipynb), which let you test the queries within the notebook.
     4. Learning webinar: [YouTube](https://youtu.be/EDCBLULjtCM), [MP4](https://1drv.ms/v/s!AnEPjr8tHcNmglwAjUjmYy2Qn5J-);
@@ -398,11 +398,11 @@ Before embarking on your own rule writing, you should take advantage of the buil
 
 In modern SIEMs such as Microsoft Sentinel, SOAR (Security Orchestration, Automation, and Response) comprises the entire process from the moment an incident is triggered and until it is resolved. This process starts with an [incident investigation](https://docs.microsoft.com/azure/sentinel/investigate-cases) and continues with an [automated response](https://docs.microsoft.com/azure/sentinel/tutorial-respond-threats-playbook). The blog post ["How to use Microsoft Sentinel for Incident Response, Orchestration and Automation"](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/how-to-use-azure-sentinel-for-incident-response-orchestration/ba-p/2242397) provides an overview of common use cases for SOAR.
 
-[Automation rules](https://docs.microsoft.com/azure/sentinel/automate-incident-handling-with-automation-rules) are the starting point for Microsoft Sentinel automation. They provide a lightweight method for central automated handling of incidents, including suppression,[ false-positive handling](https://docs.microsoft.com/en-us/azure/sentinel/false-positives), and automatic assignment.
+[Automation rules](https://docs.microsoft.com/azure/sentinel/automate-incident-handling-with-automation-rules) are the starting point for Microsoft Sentinel automation. They provide a lightweight method for central automated handling of incidents, including suppression,[ false-positive handling](https://docs.microsoft.com/azure/sentinel/false-positives), and automatic assignment.
 
 To provide robust workflow based automation capabilities, automation rules use [Logic App playbooks](https://docs.microsoft.com/azure/sentinel/automate-responses-with-playbooks):
 * Watch the Unleash the automation Jedi tricks & build Logic Apps Playbooks like a Boss Webinar: [YouTube](https://www.youtube.com/watch?v=G6TIzJK8XBA&ab_channel=MicrosoftSecurityCommunity), [MP4](https://onedrive.live.com/?authkey=%21AMHoD01Fnv0Nkeg&cid=66C31D2DBF8E0F71&id=66C31D2DBF8E0F71%21513&parId=66C31D2DBF8E0F71%21511&o=OneUp), [Presentation](https://onedrive.live.com/?authkey=%21AJK2W6MaFrzSzpw&cid=66C31D2DBF8E0F71&id=66C31D2DBF8E0F71%21514&parId=66C31D2DBF8E0F71%21511&o=OneUp).
-* Read about [Logic Apps](https://docs.microsoft.com/en-us/azure/logic-apps/logic-apps-overview), which is the core technology driving Microsoft Sentinel playbooks.
+* Read about [Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview), which is the core technology driving Microsoft Sentinel playbooks.
 *[ The Microsoft Sentinel Logic App connector](https://docs.microsoft.com/connectors/azuresentinel/) is a link between Logic Apps and Azure Sentinel.
 
 You can find dozens of useful Playbooks in the [Playbooks folder](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks) on the [Microsoft Sentinel GitHub](https://github.com/Azure/Azure-Sentinel), or read "[A playbook using a watchlist to Inform a subscription owner about an alert"](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/playbooks-amp-watchlists-part-1-inform-the-subscription-owner/ba-p/1768917) for a Playbook walkthrough.
@@ -438,7 +438,7 @@ Workbooks can serve for reporting. For more advanced reporting capabilities such
 
 Jupyter notebooks are fully integrated with Microsoft Sentinel. While usually considered an important tool in the hunter's tool chest and discussed the webinars in the hunting section below, their value is much broader. Notebooks can serve for advanced visualization, an investigation guide, and for sophisticated automation. 
 
-To understand them better, watch the [Introduction to notebooks video](https://www.youtube.com/watch?v=TgRRJeoyAYw&ab_channel=MicrosoftSecurityCommunity). Get started using the Notebooks webinar ([YouTube](https://www.youtube.com/watch?v=rewdNeX6H94&ab_channel=MicrosoftSecurityCommunity), [MP4](https://onedrive.live.com/?authkey=%21ALXve0rEAhZOuP4&cid=66C31D2DBF8E0F71&id=66C31D2DBF8E0F71%21778&parId=66C31D2DBF8E0F71%21776&o=OneUp), [Presentation](https://onedrive.live.com/?authkey=%21AEQpzVDAwzzen30&cid=66C31D2DBF8E0F71&id=66C31D2DBF8E0F71%21779&parId=66C31D2DBF8E0F71%21776&o=OneUp)) or read the [documentation](https://docs.microsoft.com/en-us/azure/sentinel/notebooks). The [Microsoft Sentinel Notebooks Ninja series](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/becoming-a-microsoft-sentinel-notebooks-ninja-the-series/ba-p/2693491) is an ongoing training series to upskill you in Notebooks.
+To understand them better, watch the [Introduction to notebooks video](https://www.youtube.com/watch?v=TgRRJeoyAYw&ab_channel=MicrosoftSecurityCommunity). Get started using the Notebooks webinar ([YouTube](https://www.youtube.com/watch?v=rewdNeX6H94&ab_channel=MicrosoftSecurityCommunity), [MP4](https://onedrive.live.com/?authkey=%21ALXve0rEAhZOuP4&cid=66C31D2DBF8E0F71&id=66C31D2DBF8E0F71%21778&parId=66C31D2DBF8E0F71%21776&o=OneUp), [Presentation](https://onedrive.live.com/?authkey=%21AEQpzVDAwzzen30&cid=66C31D2DBF8E0F71&id=66C31D2DBF8E0F71%21779&parId=66C31D2DBF8E0F71%21776&o=OneUp)) or read the [documentation](https://docs.microsoft.com/azure/sentinel/notebooks). The [Microsoft Sentinel Notebooks Ninja series](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/becoming-a-microsoft-sentinel-notebooks-ninja-the-series/ba-p/2693491) is an ongoing training series to upskill you in Notebooks.
 
 An important part of the integration is implemented by [MSTICPY](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/msticpy-python-defender-tools/ba-p/648929), a Python library developed by our research team for use with Jupyter notebooks that adds Microsoft Sentinel interfaces and sophisticated security capabilities to your notebooks.
 * [MSTICPy Fundamentals to Build Your Own Notebooks](https://www.youtube.com/watch?v=S0knTOnA2Rk&ab_channel=MicrosoftSecurityCommunity)
@@ -453,12 +453,12 @@ The Webinar **"Tackling Identity"**([YouTube](https://www.youtube.com/watch?v=Bc
 Another very relevant solution area is **protecting remote work**. Watch our [Ignite session on protection remote work](https://www.youtube.com/watch?v=09JfbjQdzpg&ab_channel=MicrosoftSecurity), and read more on the specific use cases:
 * [Microsoft Teams hunting use cases](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/protecting-your-teams-with-azure-sentinel/ba-p/1265761) and [Graph Visualization of External Microsoft Teams Collaborations](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/graph-visualization-of-external-teams-collaborations-in-azure/ba-p/1356847)
 * [Monitoring Zoom with Microsoft Sentinel](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/monitoring-zoom-with-azure-sentinel/ba-p/1341516): custom connectors, analytic rules, and hunting queries.
-* [Monitoring Azure Virtual Desktop with Microsoft Sentinel](https://docs.microsoft.com/en-us/azure/virtual-desktop/diagnostics-log-analytics#push-diagnostics-data-to-your-workspace): use Windows Security Events, Azure AD Sign-in logs, Microsoft 365 defender for endpoints, and AVD diagnostics logs to detect and hunt for AVD threats.
+* [Monitoring Azure Virtual Desktop with Microsoft Sentinel](https://docs.microsoft.com/azure/virtual-desktop/diagnostics-log-analytics#push-diagnostics-data-to-your-workspace): use Windows Security Events, Azure AD Sign-in logs, Microsoft 365 defender for endpoints, and AVD diagnostics logs to detect and hunt for AVD threats.
 *[ Monitor Microsoft endpoint Manager / Intune](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/secure-working-from-home-deep-insights-at-enrolled-mem-assets/ba-p/1424255), using queries and workbooks.
 
 And lastly, focusing on recent attacks, learn how to [monitor the software supply chain with Microsoft Sentinel](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/monitoring-the-software-supply-chain-with-azure-sentinel/ba-p/2176463).
 
-**Microsoft Sentinel solutions** provide in-product discoverability, single-step deployment, and enablement of end-to-end product, domain, and/or vertical scenarios in Microsoft Sentinel. Read more about them [here](https://docs.microsoft.com/EN-US/azure/sentinel/sentinel-solutions), and watch the **webinar about how to create your own [here](https://www.youtube.com/watch?v=oYTgaTh_NOU&ab_channel=MicrosoftSecurityCommunity).** For more about Sentinel content management in general, watch the Microsoft Sentinel Content Management webinar - [YouTube](https://www.youtube.com/watch?v=oYTgaTh_NOU&ab_channel=MicrosoftSecurityCommunity), [Presentation](https://onedrive.live.com/?cid=66c31d2dbf8e0f71&id=66C31D2DBF8E0F71%212201&ithint=file%2Cpdf&authkey=%21AIdsDXF3iluXd94).
+**Microsoft Sentinel solutions** provide in-product discoverability, single-step deployment, and enablement of end-to-end product, domain, and/or vertical scenarios in Microsoft Sentinel. Read more about them [here](https://docs.microsoft.com/azure/sentinel/sentinel-solutions), and watch the **webinar about how to create your own [here](https://www.youtube.com/watch?v=oYTgaTh_NOU&ab_channel=MicrosoftSecurityCommunity).** For more about Sentinel content management in general, watch the Microsoft Sentinel Content Management webinar - [YouTube](https://www.youtube.com/watch?v=oYTgaTh_NOU&ab_channel=MicrosoftSecurityCommunity), [Presentation](https://onedrive.live.com/?cid=66c31d2dbf8e0f71&id=66C31D2DBF8E0F71%212201&ithint=file%2Cpdf&authkey=%21AIdsDXF3iluXd94).
 
 ## Part 4: Operating
 
@@ -498,10 +498,10 @@ For watching the latest updates, see [Future of Users Entity Behavioral Analytic
 
 Part of operating a SIEM is making sure it works smoothly and an evolving area in Azure Sentinel. Use the following to monitor Microsoft Sentinel's health:
 
-* Measure the efficiency of your [Security operations](https://docs.microsoft.com/en-us/azure/sentinel/manage-soc-with-incident-metrics#security-operations-efficiency-workbook) ([video](https://www.youtube.com/watch?v=jRucUysVpxI&ab_channel=MicrosoftSecurityCommunity))
-* **SentinelHealth data table**. Provides insights on health drifts, such as latest failure events per connector, or connectors with changes from success to failure states, which you can use to create alerts and other automated actions. Find more information [here](https://docs.microsoft.com/en-us/azure/sentinel/monitor-data-connector-health).
+* Measure the efficiency of your [Security operations](https://docs.microsoft.com/azure/sentinel/manage-soc-with-incident-metrics#security-operations-efficiency-workbook) ([video](https://www.youtube.com/watch?v=jRucUysVpxI&ab_channel=MicrosoftSecurityCommunity))
+* **SentinelHealth data table**. Provides insights on health drifts, such as latest failure events per connector, or connectors with changes from success to failure states, which you can use to create alerts and other automated actions. Find more information [here](https://docs.microsoft.com/azure/sentinel/monitor-data-connector-health).
 * Monitor [Data connectors health](https://docs.microsoft.com/azure/sentinel/monitor-data-connector-health) ([video](https://www.youtube.com/watch?v=T6Vyo7gZYds&ab_channel=MicrosoftSecurityCommunity)) and [get notifications on anomalies](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/data-connector-health-push-notification-alerts/ba-p/1996442).
-* Monitor agents using the [agents' health solution (Windows only)](https://docs.microsoft.com/azure/azure-monitor/insights/solution-agenthealth) and the [Heartbeat table](https://docs.microsoft.com/en-us/azure/azure-monitor/reference/tables/heartbeat)(Linux and Windows).
+* Monitor agents using the [agents' health solution (Windows only)](https://docs.microsoft.com/azure/azure-monitor/insights/solution-agenthealth) and the [Heartbeat table](https://docs.microsoft.com/azure/azure-monitor/reference/tables/heartbeat)(Linux and Windows).
 * Monitor your Log Analytics workspace: [YouTube](https://www.youtube.com/watch?v=DmDU9QP_JlI&ab_channel=MicrosoftSecurityCommunity), [MP4](https://onedrive.live.com/?cid=66c31d2dbf8e0f71&id=66C31D2DBF8E0F71%21792&ithint=video%2Cmp4&authkey=%21ALgHojpWDidvFyo), [Presentation](https://onedrive.live.com/?cid=66c31d2dbf8e0f71&id=66C31D2DBF8E0F71%21794&ithint=file%2Cpdf&authkey=%21AAva%2Do6Ru1fjJ78), including query execution and ingest health.
 * Cost management is also an important operational procedure in the SOC. Use the [Ingestion Cost Alert Playbook](https://techcommunity.microsoft.com/t5/azure-sentinel/ingestion-cost-alert-playbook/ba-p/2006003) to ensure you are aware in time of any cost increase. 
 
