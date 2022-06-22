@@ -67,7 +67,7 @@ In this quickstart you'll use following features to analyze and extract data and
     ```console
     mkdir form-recognizer-app && form-recognizer-app
     ```
-    
+
     ```powershell
     mkdir translator-text-app; cd translator-text-app
    ```
