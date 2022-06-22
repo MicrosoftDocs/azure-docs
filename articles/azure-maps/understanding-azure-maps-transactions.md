@@ -38,12 +38,12 @@ Below is a summary of which Azure Maps services generate transactions, billable 
 | Azure Maps Creator      | Billable | Transaction Calculation   | Meter |
 |-------------------------|----------|---------------------------|-------|
 | [Alias](/rest/api/maps/v2/alias) | No | One request = 1 transaction | Not applicable |
-| [Feature State](/rest/api/maps/v2/feature-state)  | Yes, except for `FeatureState.CreateStateset`, `FeatureState.DeleteStateset`, `FeatureState.GetStateset`, `FeatureState.ListStatesets`, `FeatureState.UpdateStatesets` | One request = 1 transaction | Azure Maps Creator Feature State (Gen2 pricing)     |
-| [WFS](/rest/api/maps/v2/wfs) | Yes| One request = 1 transaction | Azure Maps Creator Web Feature (WFS) (Gen2 pricing) |
-| [Dataset](/rest/api/maps/v2/dataset) | Are part of a provisioned Creator resource and not transactions based.| Not transaction-based     | Map Provisioning (Gen2 pricing)|
 | [Conversion](/rest/api/maps/v2/conversion) | Are part of a provisioned Creator resource and not transactions based.| Not transaction-based     | Map Provisioning (Gen2 pricing) |
+| [Dataset](/rest/api/maps/v2/dataset) | Are part of a provisioned Creator resource and not transactions based.| Not transaction-based     | Map Provisioning (Gen2 pricing)|
+| [Feature State](/rest/api/maps/v2/feature-state)  | Yes, except for `FeatureState.CreateStateset`, `FeatureState.DeleteStateset`, `FeatureState.GetStateset`, `FeatureState.ListStatesets`, `FeatureState.UpdateStatesets` | One request = 1 transaction | Azure Maps Creator Feature State (Gen2 pricing)     |
+| [Render v2](/rest/api/maps/render-v2) | Yes, only with `GetMapTile` with Creator Tileset ID and `GetStaticTile`.<br>For everything else for Render v2, see Render v2 section in the above table.| One request = 1 transaction<br>One tile = 1 transaction | Azure Maps Creator Map Render (Gen2 pricing) |
 | [Tileset](/rest/api/maps/v2/tileset) | Are part of a provisioned Creator resource and not transactions based.| Not transaction-based     | Map Provisioning    (Gen2 pricing) |
-| Render v2  | Yes, only with `GetMapTile` with Creator Tileset ID and `GetStaticTile`.<br>For everything else for Render v2, see Render v2 section in the above table.| One request = 1 transaction<br>One tile = 1 transaction | Azure Maps Creator Map Render (Gen2 pricing) |
+| [WFS](/rest/api/maps/v2/wfs) | Yes| One request = 1 transaction | Azure Maps Creator Web Feature (WFS) (Gen2 pricing) |
 
 <!--
 | Service          | Unit of measure         | Price  |
