@@ -25,7 +25,7 @@ After you configure your user-assigned managed identity to trust an external IdP
 
 In this article, you learn how to create, list, and delete federated identity credentials on a user-assigned managed identity.
 
-## Important properties of federated identity credential
+## Important considerations and limitations
 
 When you configure a federated identity credential, there are several important pieces of information to provide.
 
