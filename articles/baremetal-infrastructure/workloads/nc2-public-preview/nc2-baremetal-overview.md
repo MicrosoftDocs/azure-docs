@@ -40,8 +40,6 @@ This functionality allows mixing of processor generations within an AHV cluster 
 AOS abstracts kvm, virsh, qemu, libvirt, and iSCSI from the end-user and handles all backend configuration.
 Thus users can use Prism to manage everything they would want to manage, while not needing to be concerned with low-level management.
 
-## Next step
-
 ## Next steps
 
 Learn more:

@@ -21,7 +21,9 @@ on Azure Deployment and User Guide](https://download.nutanix.com/documentation/h
 
 ## Using NC2 on Azure
 
-For more information about using NC2 on Azure, see (insert Nutanix user guide link).
+For more information about using NC2 on Azure, see [Nutanix Cloud Clusters
+on Azure Deployment
+and User Guide](https://download.nutanix.com/documentation/hosted/Nutanix-Cloud-Clusters-Azure.pdf).
 
 ## Next step
 
