@@ -174,11 +174,13 @@ Extract text, tables, structure, key-value pairs, and named entities from docume
 
       public static void main(String[] args) {
 
+       // create your `DocumentAnalysisClient` instance and `AzureKeyCredential` variable
         DocumentAnalysisClient client = new DocumentAnalysisClientBuilder()
             .credential(new AzureKeyCredential(key))
             .endpoint(endpoint)
             .buildClient();
 
+        // sample document
         String documentUrl = "https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-layout.pdf";
         String modelId = "prebuilt-document";
         SyncPoller < DocumentOperationResult, AnalyzeResult> analyzeDocumentPoller =
@@ -309,11 +311,13 @@ Extract text, selection marks, text styles, table structures, and bounding regio
 
                public static void main(String[] args) {
 
+       // create your `DocumentAnalysisClient` instance and `AzureKeyCredential` variable
         DocumentAnalysisClient client = new DocumentAnalysisClientBuilder()
             .credential(new AzureKeyCredential(key))
             .endpoint(endpoint)
             .buildClient();
 
+        // sample document
         String documentUrl = "https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-layout.pdf";
         String modelId = "prebuilt-layout";
 
@@ -447,11 +451,13 @@ Analyze and extract common fields from specific document types using a prebuilt 
 
       public static void main(final String[] args) throws IOException {
 
+        // create your `DocumentAnalysisClient` instance and `AzureKeyCredential` variable
         DocumentAnalysisClient client = new DocumentAnalysisClientBuilder()
             .credential(new AzureKeyCredential(key))
             .endpoint(endpoint)
             .buildClient();
 
+        // sample document
         String invoiceUrl = "https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-invoice.pdf";
         String modelId = "prebuilt-invoice";
 
