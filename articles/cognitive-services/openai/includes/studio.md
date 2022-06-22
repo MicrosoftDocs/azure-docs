@@ -33,7 +33,7 @@ You'll first land on our main page for the Azure OpenAI Studio and from here you
 - Navigate to different parts of the Studio including the **Playground** for experimentation and our fine-tuning workflow
 - Find quick links to other helpful resources like documentation and community forums
 
-From here, select 'create new deployment' button in the banner at the top. If you don't see this, you already have a deployment and can proceed to the 'playground' step
+From here, select 'create new deployment' button in the banner at the top. If you don't see this, you already have a deployment and can proceed to the 'playground' step.
 
 ## Deployments
 
