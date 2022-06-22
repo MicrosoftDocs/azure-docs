@@ -10,7 +10,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 04/29/2022
+ms.date: 06/22/2022
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
@@ -36,6 +36,8 @@ This article describes how to create one or more access reviews for group member
 - (Preview) Microsoft 365 and Security group owner.
 
 For more information, see [License requirements](access-reviews-overview.md#license-requirements).
+
+If you are reviewing access to an application, then before creating the review, see the article on how to [prepare for an access review of users' access to an application](access-reviews-application-preparation.md) to ensure the application is integrated with Azure AD.
 
 ## Create a single-stage access review
 
@@ -63,16 +65,16 @@ For more information, see [License requirements](access-reviews-overview.md#lice
 
    ![Screenshot that shows the interface that appears if you selected applications instead of groups.](./media/create-access-review/select-application-detailed.png)
 
-   > [!NOTE]
-   > Selecting multiple groups or applications results in the creation of multiple access reviews. For example, if you select five groups to review, the result is five separate access reviews.
+> [!NOTE]
+> Selecting multiple groups or applications results in the creation of multiple access reviews. For example, if you select five groups to review, the result is five separate access reviews.
 
-1. Now you can select a scope for the review. Your options are:
-
+7. Now you can select a scope for the review. Your options are:
     - **Guest users only**: This option limits the access review to only the Azure AD B2B guest users in your directory.
     - **Everyone**: This option scopes the access review to all user objects associated with the resource.
 
     > [!NOTE]  
     > If you selected **All Microsoft 365 groups with guest users**, your only option is to review **Guest users only**.
+
 
 1. After you select the scope of the review, you can determine how nested group membership is reviewed (Preview). On the **Nested groups** setting, select:
     - **Review all users assignments, including assignment from nested group membership** if you want to include indirect members in your review. Deny decisions won't be applied to indirect users.
@@ -80,8 +82,8 @@ For more information, see [License requirements](access-reviews-overview.md#lice
 1. If you scoped the review to **All users and groups** and chose **Review only direct assignments, including direct users and unexpanded nested groups**, when you select a reviewer, your selection options are limited:
      - If you select **Managers of users** as the reviewer, a fallback reviewer must be selected to review the groups with access to the nested group.
      - If you select **Users review their own access** as the reviewer, the nested groups won't be included in the review. To have the groups reviewed, you must select a different reviewer and not a self-review.
-
-1. Select **Next: Reviews** and continue creating the access review to suit your needs.
+1. Or if you are conducting group membership review, you can create access reviews for only the inactive users in the group (preview). In the *Users scope* section, check the box next to **Inactive users (on tenant level)**. If you check the box, the scope of the review will focus on inactive users only, those who have not signed in either interactively or non-interactively to the tenant. Then, specify **Days inactive**  with a number of days inactive up to 730 days (two years). Users in the group inactive for the specified number of days will be the only users in the review.
+1. Select **Next: Reviews**.
 
 ### Next: Reviews
  
@@ -220,9 +222,9 @@ B2B direct connect users and teams are included in access reviews of the Teams-e
 - User administrator 
 - Identity Governance Administrator
 
-Ue the following instructions to create an access review on a team with shared channels:
+Use the following instructions to create an access review on a team with shared channels:
 
-1. Sign in to the Azure Portal as a Global Admin, User Admin or Identity Governance Admin.
+1. Sign in to the Azure portal as a Global Admin, User Admin or Identity Governance Admin.
   
 1. Open the [Identity Governance](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/) page.
 

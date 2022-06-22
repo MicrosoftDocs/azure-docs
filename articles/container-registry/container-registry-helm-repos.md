@@ -65,7 +65,7 @@ The following resources are needed for the scenario in this article:
 - **A Kubernetes cluster** where you will install a Helm chart. If needed, create an AKS cluster [using the Azure CLI][./learn/quick-kubernetes-deploy-cli], [using Azure PowerShell][./learn/quick-kubernetes-deploy-powershell], or [using the Azure portal][./learn/quick-kubernetes-deploy-portal].
 - **Azure CLI version 2.0.71 or later** - Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][azure-cli-install].
 
-## Enable OCI support
+## Set up Helm client
 
 Use the `helm version` command to verify that you have installed Helm 3:
 
@@ -73,11 +73,8 @@ Use the `helm version` command to verify that you have installed Helm 3:
 helm version
 ```
 
-Set the following environment variable to enable OCI support in the Helm 3 client. Currently, this support is experimental and subject to change. 
-
-```console
-export HELM_EXPERIMENTAL_OCI=1
-```
+> [!NOTE]
+> The version indicated must be at least 3.8.0, as OCI support in earlier versions was experimental.
 
 Set the following environment variables for the target registry. The ACR_NAME is the registry resource name. If the ACR registry url is myregistry.azurecr.io, set the ACR_NAME to myregistry
 
@@ -172,7 +169,7 @@ Run  `helm registry login` to authenticate with the registry. You may pass [regi
 
 ## Push chart to registry as OCI artifact
 
-Run the `helm push` command in the Helm 3 CLI to push the chart archive to the fully qualified target repository. In the following example, the target repository namespace is `helm/hello-world`, and the chart is tagged `0.1.0`:
+Run the `helm push` command in the Helm 3 CLI to push the chart archive to the fully qualified target repository. Separate the words in the chart names and use only lower case letters and numbers. In the following example, the target repository namespace is `helm/hello-world`, and the chart is tagged `0.1.0`:
 
 ```console
 helm push hello-world-0.1.0.tgz oci://$ACR_NAME.azurecr.io/helm

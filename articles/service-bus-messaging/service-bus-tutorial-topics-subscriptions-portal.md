@@ -349,7 +349,7 @@ private async Task ReceiveMessages(string subscription)
     // to the broker for the specified amount of seconds and the broker returns messages as soon as they arrive. The client then initiates
     // a new connection. So in reality you would not want to break out of the loop. 
     // Also note that the code shows how to batch receive, which you would do for performance reasons. For convenience you can also always
-    // use the regular receive pump which we show in our Quick Start and in other github samples.
+    // use the regular receive pump which we show in our Quick Start and in other GitHub samples.
     while (true)
     {
         try

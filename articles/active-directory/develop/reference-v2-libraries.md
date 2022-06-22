@@ -1,5 +1,5 @@
 ---
-title: Microsoft identity platform authentication libraries | Azure
+title: Microsoft identity platform authentication libraries
 description: List of client libraries and middleware compatible with the Microsoft identity platform. Use these libraries to add support for user sign-in (authentication) and protected web API access (authorization) to your applications.
 services: active-directory
 author: mmacy
@@ -22,7 +22,7 @@ The following tables show Microsoft Authentication Library support for several a
 
 The Microsoft identity platform has been certified by the OpenID Foundation as a [certified OpenID provider](https://openid.net/certification/). If you prefer to use a library other than the Microsoft Authentication Library (MSAL) or another Microsoft-supported library, choose one with a [certified OpenID Connect implementation](https://openid.net/developers/certified/).
 
-If you choose to hand-code your own protocol-level implementation of [OAuth 2.0 or OpenID Connect 1.0](active-directory-v2-protocols.md), pay close attention to the security considerations in each standard's specification and follow a software development lifecycle (SDL) methodology like the [Microsoft SDL][Microsoft-SDL].
+If you choose to hand-code your own protocol-level implementation of [OAuth 2.0 or OpenID Connect 1.0](active-directory-v2-protocols.md), pay close attention to the security considerations in each standard's specification and follow secure software design and development practices like those in the [Microsoft SDL][Microsoft-SDL].
 
 ## Single-page application (SPA)
 

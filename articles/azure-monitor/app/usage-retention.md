@@ -3,6 +3,7 @@ title: Analyze web app user retention with Application Insights
 description: How many users return to your app?
 ms.topic: conceptual
 ms.date: 07/30/2021
+ms.reviewer: mmcc
 ---
 
 # User retention analysis for web applications with Application Insights

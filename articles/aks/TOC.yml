@@ -39,7 +39,7 @@
       items:
         - name: Develop with Helm
           href: quickstart-helm.md
-        - name: Develop with Dapr (preview)
+        - name: Develop with Dapr
           href: quickstart-dapr.md
     - name: Subscribe to AKS events with Event Grid (Preview)
       href: quickstart-event-grid.md
@@ -181,6 +181,8 @@
           href: upgrade-cluster.md
         - name: Use Uptime SLA
           href: uptime-sla.md
+        - name: Use Draft (preview)
+          href: draft.md
         - name: Use proximity placement groups
           href: reduce-latency-ppg.md
         - name: Upgrade the node image
@@ -278,6 +280,8 @@
               href: manage-azure-rbac.md
             - name: Use Kubernetes RBAC with Azure AD integration
               href: azure-ad-rbac.md
+            - name: Use custom certificate authorities (preview)
+              href: custom-certificate-authority.md
             - name: Rotate certificates
               href: certificate-rotation.md
             - name: Use Azure Policy
@@ -333,62 +337,56 @@
           href: load-balancer-standard.md
         - name: Use a static IP address and DNS label
           href: static-ip.md
-        - name: Use an HTTP proxy (preview)
+        - name: Use an HTTP proxy
           href: http-proxy.md
         - name: Ingress
           items:
-            - name: Create a basic controller
-              href: ingress-basic.md
+            - name: Use ingress-nginx
+              items:
+                - name: Create an ingress controller
+                  href: ingress-basic.md
+                - name: Use TLS with an ingress controller
+                  href: ingress-tls.md
             - name: Use HTTP application routing
               href: http-application-routing.md
-            - name: Use internal network
-              href: ingress-internal-ip.md
             - name: Enable the AGIC add-on for an existing AKS cluster
               href: ../application-gateway/tutorial-ingress-controller-add-on-existing.md
               maintainContext: true
-            - name: Use TLS with your own certificates
-              href: ingress-own-tls.md
-            - name: Use TLS with Let's Encrypt
-              items:
-                - name: Use a dynamic public IP address
-                  href: ingress-tls.md
-                - name: Use a static public IP address
-                  href: ingress-static-ip.md
         - name: Egress
           items:
             - name: Restrict and control cluster egress traffic
               href: limit-egress-traffic.md
             - name: Use a user defined route for egress
               href: egress-outboundtype.md
-            - name: Managed NAT Gateway (preview)
+            - name: Managed NAT Gateway
               href: nat-gateway.md              
         - name: Customize CoreDNS
           href: coredns-custom.md
     - name: Configure data volumes
       items:
-        - name: Azure Disk - Dynamic
+        - name: Azure disk - dynamic
           href: azure-disks-dynamic-pv.md
-        - name: Azure Disk - Static
+        - name: Azure disk - static
           href: azure-disk-volume.md
-        - name: Azure Files - Dynamic
+        - name: Azure Files - dynamic
           href: azure-files-dynamic-pv.md
-        - name: Azure Files - Static
+        - name: Azure Files - static
           href: azure-files-volume.md
         - name: Azure HPC Cache
           href: azure-hpc-cache.md
-        - name: NFS Server - Static
+        - name: NFS Server - static
           href: azure-nfs-volume.md
         - name: Azure NetApp Files
           href: azure-netapp-files.md
         - name: Use Azure Ultra Disks
           href: use-ultra-disks.md
-    - name: CSI Storage Drivers
+    - name: CSI storage drivers
       items:
-        - name: Enable CSI Storage Drivers
+        - name: CSI storage drivers overview
           href: csi-storage-drivers.md
-        - name: Azure Disk CSI drivers
+        - name: Azure disks CSI driver
           href: azure-disk-csi.md
-        - name: Azure Files CSI drivers
+        - name: Azure Files CSI driver
           href: azure-files-csi.md
     - name: Monitoring and logging
       items:
@@ -405,6 +403,8 @@
       items:
         - name: Connect remotely
           href: rdp.md
+        - name: Use HostProcess containers
+          href: use-windows-hpc.md
         - name: Windows Server containers FAQ
           href: windows-faq.md
         - name: Create Dockerfiles for Windows Server containers
@@ -421,8 +421,6 @@
           href: kubernetes-helm.md
         - name: Use OpenFaaS
           href: openfaas.md
-        - name: Run Spark jobs
-          href: spark-job.md
         - name: Use GPUs
           href: gpu-cluster.md
         - name: Build Django app with PostgreSQL
@@ -440,7 +438,7 @@
           items:
             - name: Dapr overview
               href: dapr-overview.md
-            - name: How to use Dapr (preview)
+            - name: How to use Dapr
               href: dapr.md
         - name: Use GitOps
           href: ../azure-arc/kubernetes/tutorial-use-gitops-flux2.md
@@ -461,7 +459,23 @@
           href: open-service-mesh-troubleshoot.md
         - name: Uninstall the Open Service Mesh AKS add-on
           href: open-service-mesh-uninstall-add-on.md
-    - name: Use cluster extensions (preview)
+    - name: Track releases and region availability
+      href: release-tracker.md
+    - name: Deploy the Kubernetes Event-driven Autoscaler (KEDA) add-on (preview)
+      items:
+        - name: About Kubernetes Event-driven Autoscaler (KEDA)
+          href: keda-about.md
+        - name: Use ARM template
+          href: keda-deploy-add-on-arm.md
+        - name: Use Azure CLI
+          href: keda-deploy-add-on-cli.md
+        - name: Kubernetes Event-driven Autoscaler (KEDA) integrations
+          href: keda-integrations.md
+        - name: Troubleshoot Kubernetes Event-driven Autoscaler (KEDA)
+          href: keda-troubleshoot.md
+    - name: Use Web Application Routing (preview)
+      href: web-app-routing.md
+    - name: Use cluster extensions
       href: cluster-extensions.md
     - name: DevOps
       items:

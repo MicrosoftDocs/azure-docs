@@ -65,5 +65,5 @@ For more information about credits, see [Track Microsoft Customer Agreement Azur
 
 - [Explore and analyze costs with cost analysis](quick-acm-cost-analysis.md).
 - [Analyze Azure costs with the Power BI App](analyze-cost-data-azure-cost-management-power-bi-template-app.md).
-- [Connect to Azure Cost Management data in Power BI Desktop](/power-bi/connect-data/desktop-connect-azure-cost-management).
+- [Connect to Microsoft Cost Management data in Power BI Desktop](/power-bi/connect-data/desktop-connect-azure-cost-management).
 - [Create and manage exported data](tutorial-export-acm-data.md).

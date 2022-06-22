@@ -1,6 +1,5 @@
 ---
 title: Redirect URI (reply URL) restrictions | Azure AD
-titleSuffix: Microsoft identity platform
 description: A description of the restrictions and limitations on redirect URI (reply URL) format enforced by the Microsoft identity platform.
 author: madansr7
 ms.author: saumadan

@@ -2,7 +2,8 @@
 title: Deploy Horizon on Azure VMware Solution
 description: Learn how to deploy VMware Horizon on Azure VMware Solution.
 ms.topic: how-to
-ms.date: 09/29/2020
+ms.service: azure-vmware
+ms.date: 04/11/2022
 ---
 
 
@@ -29,12 +30,12 @@ Horizon 2006 and later versions on the Horizon 8 release line supports both on-p
 
 ## Deploy Horizon in a hybrid cloud
 
-You can deploy Horizon in a hybrid cloud environment by using Horizon Cloud Pod Architecture (CPA) to interconnect on-premises and Azure datacenters. CPA scales up your deployment, builds a hybrid cloud, and provides redundancy for Business Continuity and Disaster Recovery.  For more information, see [Expanding Existing Horizon 7 Environments](https://techzone.vmware.com/resource/business-continuity-vmware-horizon#_Toc41650874).
+You can deploy Horizon in a hybrid cloud environment by using Horizon Cloud Pod Architecture (CPA) to interconnect on-premises and Azure data centers. CPA scales up your deployment, builds a hybrid cloud, and provides redundancy for Business Continuity and Disaster Recovery.  For more information, see [Expanding Existing Horizon 7 Environments](https://techzone.vmware.com/resource/business-continuity-vmware-horizon#_Toc41650874).
 
 >[!IMPORTANT]
 >CPA is not a stretched deployment; each Horizon pod is distinct, and all Connection Servers that belong to each of the individual pods are required to be located in a single location and run on the same broadcast domain from a network perspective.
 
-Like on-premises or private datacenter, you can deploy Horizon in an Azure VMware Solution private cloud. We'll discuss key differences in deploying Horizon on-premises and Azure VMware Solution in the following sections.
+Like on-premises or private data centers, you can deploy Horizon in an Azure VMware Solution private cloud. We'll discuss key differences in deploying Horizon on-premises and Azure VMware Solution in the following sections.
 
 The _Azure private cloud_ is conceptually the same as the _VMware SDDC_, a term typically used in Horizon documentation. The rest of this document uses both terms interchangeably.
 
@@ -43,11 +44,11 @@ The Horizon Cloud Connector is required for Horizon on Azure VMware Solution to 
 >[!IMPORTANT]
 >Horizon Control Plane support for Horizon on Azure VMware Solution is not yet available. Be sure to download the VHD version of Horizon Cloud Connector.
 
-## vCenter Cloud Admin role
+## vCenter Server Cloud Admin role
 
-Since Azure VMware Solution is an SDDC service and Azure manages the lifecycle of the SDDC on Azure VMware Solution, the vCenter permission model on Azure VMware Solution is limited by design.
+Since Azure VMware Solution is an SDDC service and Azure manages the lifecycle of the SDDC on Azure VMware Solution, the vCenter Server permission model on Azure VMware Solution is limited by design.
 
-Customers are required to use the Cloud Admin role, which has a limited set of vCenter permissions. The Horizon product was modified to work with the Cloud Admin role on Azure VMware Solution, specifically:
+Customers are required to use the Cloud Admin role, which has a limited set of vCenter Server permissions. The Horizon product was modified to work with the Cloud Admin role on Azure VMware Solution, specifically:
 
 * Instant clone provisioning was modified to run on Azure VMware Solution.
 
@@ -63,9 +64,9 @@ Customers are required to use the Cloud Admin role, which has a limited set of v
 
 ## Horizon on Azure VMware Solution deployment architecture
 
-A typical Horizon architecture design uses a pod and block strategy. A block is a single vCenter, while multiple blocks combined make a pod. A Horizon pod is a unit of organization determined by Horizon scalability limits. Each Horizon pod has a separate management portal, and so a standard design practice is to minimize the number of pods.
+A typical Horizon architecture design uses a pod and block strategy. A block is a single vCenter Server, while multiple blocks combined make a pod. A Horizon pod is a unit of organization determined by Horizon scalability limits. Each Horizon pod has a separate management portal, and so a standard design practice is to minimize the number of pods.
 
-Every cloud has its own network connectivity scheme. Combined with VMware SDDC networking / NSX Edge, the Azure VMware Solution network connectivity presents unique requirements for deploying Horizon that is different from on-premises.
+Every cloud has its own network connectivity scheme. Combined with VMware SDDC networking / NSX-T Data Center, the Azure VMware Solution network connectivity presents unique requirements for deploying Horizon that is different from on-premises.
 
 Each Azure private cloud and SDDC can handle 4,000 desktop or application sessions, assuming:
 
@@ -106,27 +107,27 @@ You connect your AD domain controller in Azure Virtual Network with your on-prem
 
 A variation on the basic example might be to support connectivity for on-premises resources. For example, users access desktops and generate virtual desktop application traffic or connect to an on-premises Horizon pod using CPA.
 
-The diagram shows how to support connectivity for on-premises resources. To connect to your corporate network to the Azure Virtual Network, you'll need an ExpressRoute circuit.  You'll also need to connect your corporate network with each of the private cloud and SDDCs using ExpressRoute Global Reach.  It allows the connectivity from the SDDC to the ExpressRoute circuit and on-premises resources. 
+The diagram shows how to support connectivity for on-premises resources. To connect to your corporate network to the Azure Virtual Network, you'll need an ExpressRoute circuit. You'll also need to connect your corporate network with each of the private cloud and SDDCs using ExpressRoute Global Reach. It allows the connectivity from the SDDC to the ExpressRoute circuit and on-premises resources. 
 
 :::image type="content" source="media/vmware-horizon/connect-corporate-network-azure-virtual-network.png" alt-text="Diagram showing the connection of a corporate network to an Azure Virtual Network." border="false":::
 
 ### Multiple Horizon pods on Azure VMware Solution across multiple regions
 
-Another scenario is scaling Horizon across multiple pods.  In this scenario, you deploy two Horizon pods in two different regions and federate them using CPA. It's similar to the network configuration in the previous example, but with some additional cross-regional links. 
+Another scenario is scaling Horizon across multiple pods. In this scenario, you deploy two Horizon pods in two different regions and federate them using CPA. It's similar to the network configuration in the previous example, but with some additional cross-regional links. 
 
 You'll connect the Azure Virtual Network in each region to the private clouds/SDDCs in the other region. It allows Horizon connection servers part of the CPA federation to connect to all desktops under management. Adding extra private clouds/SDDCs to this configuration would allow you to scale to 24,000 sessions overall. 
 
-The same principles apply if you deploy two Horizon pods in the same region.  Make sure to deploy the second Horizon pod in a *separate Azure Virtual Network*. Just like the single pod example, you can connect your corporate network and on-premises pod to this multi-pod/region example using ExpressRoute and Global Reach. 
+The same principles apply if you deploy two Horizon pods in the same region. Make sure to deploy the second Horizon pod in a *separate Azure Virtual Network*. Just like the single pod example, you can connect your corporate network and on-premises pod to this multi-pod/region example using ExpressRoute and Global Reach. 
 
 :::image type="content" source="media/vmware-horizon/multiple-horizon-pod-azure-vmware-solution.png" alt-text=" Diagram showing multiple Horizon pods on Azure VMware Solution across multiple regions." border="false":::
 
 ## Size Azure VMware Solution hosts for Horizon deployments 
 
-Horizon's sizing methodology on a host running in Azure VMware Solution is simpler than Horizon on-premises.  That's because the Azure VMware Solution host is standardized.  Exact host sizing helps determine the number of hosts needed to support your VDI requirements.  It's central to determining the cost-per-desktop.
+Horizon's sizing methodology on a host running in Azure VMware Solution is simpler than Horizon on-premises. That's because the Azure VMware Solution host is standardized. Exact host sizing helps determine the number of hosts needed to support your VDI requirements. It's central to determining the cost-per-desktop.
 
 ### Sizing tables
 
-Specific vCPU/vRAM requirements for Horizon virtual desktops depend on the customer’s specific workload profile.   Work with your MSFT and VMware sales team to help determine your vCPU/vRAM requirements for your virtual desktops. 
+Specific vCPU/vRAM requirements for Horizon virtual desktops depend on the customer’s specific workload profile. Work with your MSFT and VMware sales team to help determine your vCPU/vRAM requirements for your virtual desktops. 
 
 | vCPU per VM | vRAM per VM (GB) | Instance | 100 VMs | 200 VMs | 300 VMs | 400 VMs | 500 VMs | 600 VMs | 700 VMs | 800 VMs | 900 VMs | 1000 VMs | 2000 VMs | 3000 VMs | 4000 VMs | 5000 VMs | 6000 VMs | 6400 VMs |
 |:-----------:|:----------------:|:--------:|:-------:|:-------:|:-------:|:-------:|:-------:|:-------:|:-------:|:-------:|:-------:|:--------:|:--------:|:--------:|:--------:|:--------:|:--------:|:--------:|

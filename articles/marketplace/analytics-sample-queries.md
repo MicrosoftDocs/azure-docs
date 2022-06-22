@@ -32,7 +32,6 @@ These sample queries apply to the Customers report.
 | List customer details with active customers of the partner until the date you choose | `SELECT DateAcquired,CustomerCompanyName,CustomerId FROM ISVCustomer WHERE IsActive = 1` |
 | List customer details with churned customers of the partner until the date you choose | `SELECT DateAcquired,CustomerCompanyName,CustomerId FROM ISVCustomer WHERE IsActive = 0` |
 | List of new customers from a specific geography in the last six months | `SELECT DateAcquired,CustomerCompanyName,CustomerId FROM ISVCustomer WHERE DateAcquired <= ‘2020-06-30’ AND CustomerCountryRegion = ‘United States’` |
-|||
 
 ## Usage report queries
 
@@ -50,7 +49,6 @@ These sample queries apply to the Usage report.
 | List usage details with Offer Name, metered usage for the last 6M | `SELECT OfferName, MeteredUsage FROM ISVUsage WHERE OfferName = ‘Example Offer Name’ AND OfferType IN (‘SaaS’, ‘Azure Applications’) TIMESPAN LAST_6_MONTHS` |
 | List all offer usage details of all offers for last 6M | `SELECT OfferType, OfferName, SKU, IsPrivateOffer, UsageReference, UsageDate, RawUsage, EstimatedPricePC FROM ISVUsage ORDER BY UsageDate DESC TIMESPAN LAST_MONTH` |
 | List all offer usage details of private offers for last 6M | `SELECT OfferType, OfferName, SKU, IsPrivateOffer, UsageReference, UsageDate, RawUsage, EstimatedPricePC FROM ISVUsage WHERE IsPrivateOffer = '1' ORDER BY UsageDate DESC TIMESPAN LAST_MONTH` |
-|||
 
 ## Orders report queries
 
@@ -67,7 +65,6 @@ These sample queries apply to the Orders report.
 | List Order details for trial orders active for the last 6M | `SELECT AssetId, Quantity, PurchaseRecordId, PurchaseRecordLineItemId from ISVOrder WHERE OrderStatus = 'Active' and IsTrial = 'True' TIMESPAN LAST_6_MONTHS` |
 | List Order details for all offers that are active for the last 6M | `SELECT OfferName, SKU, IsPrivateOffer, AssetId, PurchaseRecordId, PurchaseRecordLineItemId, OrderPurchaseDate, BilledRevenue FROM ISVOrder WHERE OrderStatus = 'Active' TIMESPAN LAST_6_MONTHS` |
 | List Order details for private offers active for the last 6M | `SELECT OfferName, SKU, IsPrivateOffer, AssetId, PurchaseRecordId, PurchaseRecordLineItemId, OrderPurchaseDate, BilledRevenue FROM ISVOrder WHERE IsPrivateOffer = '1' and OrderStatus = 'Active' TIMESPAN LAST_6_MONTHS` |
-|||
 
 ## Revenue report queries
 
@@ -78,7 +75,6 @@ These sample queries apply to the Revenue report.
 | List billed revenue of the partner for last 1 month | `SELECT BillingAccountId, OfferName, OfferType, Revenue, EarningAmountCC, EstimatedRevenueUSD, EarningAmountUSD, PayoutStatus, PurchaseRecordId, LineItemId,TransactionAmountCC,TransactionAmountUSD, Quantity,Units FROM ISVRevenue TIMESPAN LAST_MONTH` |
 | List estimated revenue in USD of all transactions with sent status in last 3 months | `SELECT BillingAccountId, OfferName, OfferType, EstimatedRevenueUSD, EarningAmountUSD, PayoutStatus, PurchaseRecordId, LineItemId, TransactionAmountUSD FROM ISVRevenue where PayoutStatus='Sent' TIMESPAN LAST_3_MONTHS` |
 | List of non-trial transactions for subscription-based billing model | `SELECT BillingAccountId, OfferName,OfferType, TrialDeployment EstimatedRevenueUSD, EarningAmountUSD FROM ISVRevenue WHERE TrialDeployment=’False’ and BillingModel=’SubscriptionBased’` |
-|||
 
 ## Quality of service report queries
 
@@ -87,7 +83,6 @@ This sample query applies to the Quality of service report.
 | **Query Description** | **Sample Query** |
 | ------------ | ------------- |
 | List deployment status of offers for last 6 months | `SELECT OfferId, Sku, DeploymentStatus, DeploymentCorrelationId, SubscriptionId, CustomerTenantId, CustomerName, TemplateType, StartTime, EndTime, DeploymentDurationInMilliSeconds, DeploymentRegion FROM ISVQualityOfService TIMESPAN LAST_6_MONTHS` |
-|||
 
 ## Customer retention report queries
 
@@ -97,7 +92,6 @@ This sample query applies to the Customer retention report.
 | ------------ | ------------- |
 | List customer retention details for last 6 months | `SELECT OfferCategory, OfferName, ProductId, DeploymentMethod, ServicePlanName, Sku, SkuBillingType, CustomerId, CustomerName, CustomerCompanyName, CustomerCountryName, CustomerCountryCode, CustomerCurrencyCode, FirstUsageDate, AzureLicenseType, OfferType, Offset FROM ISVOfferRetention TIMESPAN LAST_6_MONTHS` |
 | List usage activity and revenue details of all customers in last 6 months | `SELECT OfferCategory, OfferName, Sku, ProductId, OfferType, FirstUsageDate, Offset, CustomerId, CustomerName, CustomerCompanyName, CustomerCountryName, CustomerCountryCode, CustomerCurrencyCode FROM ISVOfferRetention TIMESPAN LAST_6_MONTHS` |
-|||
 
 ## Next steps
 

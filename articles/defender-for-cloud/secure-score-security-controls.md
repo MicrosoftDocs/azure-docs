@@ -1,19 +1,17 @@
 ---
 title: Security posture for Microsoft Defender for Cloud
 description: Description of Microsoft Defender for Cloud's secure score and its security controls 
-author: Elazark
-ms.author: elkrieger
-ms.topic: article
-ms.date: 04/03/2022
+author: bmansheim
+ms.author: benmansheim
+ms.topic: conceptual
+ms.date: 06/02/2022
 ---
 
 # Security posture for Microsoft Defender for Cloud
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
+## Overview of secure score
 
-## Introduction to secure score
-
-Microsoft Defender for Cloud has two main goals: 
+Microsoft Defender for Cloud has two main goals:
 
 - to help you understand your current security situation
 - to help you efficiently and effectively improve your security
@@ -51,7 +49,7 @@ You can group this section by environment by selecting the Group by Environment 
 
 :::image type="content" source="media/secure-score-security-controls/bottom-half.png" alt-text="Screenshot of the bottom half of the security posture page.":::
 
-## How your secure score is calculated 
+## How your secure score is calculated
 
 The contribution of each security control towards the overall secure score is shown on the recommendations page.
 
@@ -75,7 +73,7 @@ In this example:
 
 - **Current score** - :::image type="icon" source="media/secure-score-security-controls/current-score.png" border="false":::
 
-    The current score for this control.<br>Current score=[Score per resource]*[Number of healthy resources]. 
+    The current score for this control.<br>Current score=[Score per resource]*[Number of healthy resources].
 
     Each control contributes towards the total score. In this example, the control is contributing 2.00 points to current total secure score.
 
@@ -85,17 +83,17 @@ In this example:
 
     For example, Potential score increase=[Score per resource]*[Number of unhealthy resources] or 0.1714 x 30 unhealthy resources = 5.14.
 
-- **Insights** - :::image type="icon" source="media/secure-score-security-controls/insights.png" border="false"::: 
+- **Insights** - :::image type="icon" source="media/secure-score-security-controls/insights.png" border="false":::
 
-    Gives you extra details for each recommendation. Which can be: 
+    Gives you extra details for each recommendation. Which can be:
 
-    - :::image type="icon" source="media/secure-score-security-controls/preview-icon.png" border="false"::: Preview recommendation - This recommendation won't affect your secure score until it's GA.
+  - :::image type="icon" source="media/secure-score-security-controls/preview-icon.png" border="false"::: Preview recommendation - This recommendation won't affect your secure score until it's GA.
 
-    - :::image type="icon" source="media/secure-score-security-controls/fix-icon.png" border="false"::: Fix - From within the recommendation details page, you can use 'Fix' to resolve this issue.
+  - :::image type="icon" source="media/secure-score-security-controls/fix-icon.png" border="false"::: Fix - From within the recommendation details page, you can use 'Fix' to resolve this issue.
 
-    - :::image type="icon" source="media/secure-score-security-controls/enforce-icon.png" border="false"::: Enforce - From within the recommendation details page, you can automatically deploy a policy to fix this issue whenever someone creates a non-compliant resource.
+  - :::image type="icon" source="media/secure-score-security-controls/enforce-icon.png" border="false"::: Enforce - From within the recommendation details page, you can automatically deploy a policy to fix this issue whenever someone creates a non-compliant resource.
 
-    - :::image type="icon" source="media/secure-score-security-controls/deny-icon.png" border="false"::: Deny - From within the recommendation details page, you can prevent new resources from being created with this issue.
+  - :::image type="icon" source="media/secure-score-security-controls/deny-icon.png" border="false"::: Deny - From within the recommendation details page, you can prevent new resources from being created with this issue.
 
 ### Calculations - understanding your score
 
@@ -104,7 +102,7 @@ In this example:
 |**Security control's current score**|<br>![Equation for calculating a security control's score.](media/secure-score-security-controls/secure-score-equation-single-control.png)<br><br>Each individual security control contributes towards the Security Score. Each resource affected by a recommendation within the control, contributes towards the control's current score. The current score for each control is a measure of the status of the resources *within* the control.<br>![Tooltips showing the values used when calculating the security control's current score](media/secure-score-security-controls/security-control-scoring-tooltips.png)<br>In this example, the max score of 6 would be divided by 78 because that's the sum of the healthy and unhealthy resources.<br>6 / 78 = 0.0769<br>Multiplying that by the number of healthy resources (4) results in the current score:<br>0.0769 * 4 = **0.31**<br><br>|
 |**Secure score**<br>Single subscription, or connector|<br>![Equation for calculating a subscription's secure score](media/secure-score-security-controls/secure-score-equation-single-sub.png)<br><br>![Single subscription secure score with all controls enabled](media/secure-score-security-controls/secure-score-example-single-sub.png)<br>In this example, there's a single subscription, or connector with all security controls available (a potential maximum score of 60 points). The score shows 28 points out of a possible 60 and the remaining 32 points are reflected in the "Potential score increase" figures of the security controls.<br>![List of controls and the potential score increase](media/secure-score-security-controls/secure-score-example-single-sub-recs.png) <br> This equation is the same equation for a connector with just the word subscription being replaced by the word connector. |
 |**Secure score**<br>Multiple subscriptions, and connectors|<br>![Equation for calculating the secure score for multiple subscriptions.](media/secure-score-security-controls/secure-score-equation-multiple-subs.png)<br><br>When calculating the combined score for multiple subscriptions, and connectors, Defender for Cloud includes a *weight* for each subscription, and connector. The relative weights for your subscriptions, and connectors are determined by Defender for Cloud based on factors such as the number of resources.<br>The current score for each subscription, a dn connector is calculated in the same way as for a single subscription, or connector, but then the weight is applied as shown in the equation.<br>When viewing multiple subscriptions, and connectors, the secure score evaluates all resources within all enabled policies and groups their combined impact on each security control's maximum score.<br>![Secure score for multiple subscriptions with all controls enabled](media/secure-score-security-controls/secure-score-example-multiple-subs.png)<br>The combined score is **not** an average; rather it's the evaluated posture of the status of all resources across all subscriptions, and connectors.<br><br>Here too, if you go to the recommendations page and add up the potential points available, you'll find that it's the difference between the current score (22) and the maximum score available (58).|
- 
+
 ### Which recommendations are included in the secure score calculations?
 
 Only built-in recommendations have an impact on the secure score.
@@ -123,35 +121,36 @@ You can also configure the Enforce and Deny options on the relevant recommendati
 
 ## Security controls and their recommendations
 
-The table below lists the security controls in Microsoft Defender for Cloud. For each control, you can see the maximum number of points you can add to your secure score if you remediate *all* of the recommendations listed in the control, for *all* of your resources. 
+The table below lists the security controls in Microsoft Defender for Cloud. For each control, you can see the maximum number of points you can add to your secure score if you remediate *all* of the recommendations listed in the control, for *all* of your resources.
 
-The set of security recommendations provided with Defender for Cloud is tailored to the available resources in each organization's environment. You can [disable policies](tutorial-security-policy.md#disable-security-policies-and-disable-recommendations) and [exempt specific resources from a recommendation](exempt-resource.md) to further customize the recommendations. 
- 
+The set of security recommendations provided with Defender for Cloud is tailored to the available resources in each organization's environment. You can [disable policies](tutorial-security-policy.md#disable-security-policies-and-disable-recommendations) and [exempt specific resources from a recommendation](exempt-resource.md) to further customize the recommendations.
+
 We recommend every organization carefully reviews their assigned Azure Policy initiatives.
 
 > [!TIP]
-> For details about reviewing and editing your initiatives, see [Working with security policies](tutorial-security-policy.md). 
+> For details about reviewing and editing your initiatives, see [Working with security policies](tutorial-security-policy.md).
 
 Even though Defender for Cloud's default security initiative is based on industry best practices and standards, there are scenarios in which the built-in recommendations listed below might not completely fit your organization. It's sometimes necessary to adjust the default initiative - without compromising security - to ensure it's aligned with your organization's own policies, industry standards, regulatory standards, and benchmarks.<br><br>
 
 [!INCLUDE [security-center-controls-and-recommendations](../../includes/asc/security-control-recommendations.md)]
 
-
-
 ## FAQ - Secure score
 
 ### If I address only three out of four recommendations in a security control, will my secure score change?
+
 No. It won't change until you remediate all of the recommendations for a single resource. To get the maximum score for a control, you must remediate all recommendations for all resources.
 
 ### If a recommendation isn't applicable to me, and I disable it in the policy, will my security control be fulfilled and my secure score updated?
+
 Yes. We recommend disabling recommendations when they're inapplicable in your environment. For instructions on how to disable a specific recommendation, see [Disable security policies](./tutorial-security-policy.md#disable-security-policies-and-disable-recommendations).
 
 ### If a security control offers me zero points towards my secure score, should I ignore it?
+
 In some cases, you'll see a control max score greater than zero, but the impact is zero. When the incremental score for fixing resources is negligible, it's rounded to zero. Don't ignore these recommendations because they still bring security improvements. The only exception is the "Additional Best Practice" control. Remediating these recommendations won't increase your score, but it will enhance your overall security.
 
 ## Next steps
 
-This article described the secure score and the included security controls. 
+This article described the secure score and the included security controls.
 
 > [!div class="nextstepaction"]
 > [Access and track your secure score](secure-score-access-and-track.md)

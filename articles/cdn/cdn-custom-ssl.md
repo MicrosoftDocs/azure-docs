@@ -5,7 +5,7 @@ services: cdn
 author: duongau
 ms.service: azure-cdn
 ms.topic: tutorial
-ms.date: 12/06/2021
+ms.date: 06/06/2022
 ms.author: duau
 ms.custom: mvc
 #Customer intent: As a website owner, I want to enable HTTPS on the custom domain of my CDN endpoint so that my users can use my custom domain to access my content securely.
@@ -149,9 +149,9 @@ Grant Azure CDN permission to access the certificates (secrets) in your Azure Ke
 
     :::image type="content" source="./media/cdn-custom-ssl/cdn-access-policy-settings.png" alt-text="Select service principal of Azure CDN" border="true":::
 
-4. Select **Certificate permissions**. Select the check boxes for **Get** and **List** to allow CDN permissions to get and list the certificates.
+4. Select **Certificate permissions**. Select the check box for **Get** to allow CDN permissions to get the certificates.
 
-5. Select **Secret permissions**. Select the check boxes for **Get** and **List** to allow CDN permissions to get and list the secrets:
+5. Select **Secret permissions**. Select the check box for **Get** to allow CDN permissions to get the secrets:
 
     :::image type="content" source="./media/cdn-custom-ssl/cdn-vault-permissions.png" alt-text="Select permissions for CDN to keyvault" border="true":::
 
@@ -357,6 +357,8 @@ The following table shows the operation progress that occurs when you disable HT
 7. *How do cert renewals work with Bring Your Own Certificate?*
 
     To ensure a newer certificate is deployed to PoP infrastructure, upload your new certificate to Azure KeyVault. In your TLS settings on Azure CDN, choose the newest certificate version and select save. Azure CDN will then propagate your new updated cert.
+    
+    For **Azure CDN from Verizon** profiles, if you use the same Azure Key Vault certificate on several custom domains (e.g. a wildcard certificate), ensure you update all of your custom domains that use that same certificate to the newer certificate version.
 
 8. *Do I need to re-enable HTTPS after the endpoint restarts?*
 

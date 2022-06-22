@@ -3,7 +3,7 @@ title: Extend Microsoft Sentinel across workspaces and tenants | Microsoft Docs
 description: How to use Microsoft Sentinel to query and analyze data across workspaces and tenants.
 author: yelevin
 ms.topic: conceptual
-ms.date: 11/09/2021
+ms.date: 05/03/2022
 ms.author: yelevin
 ms.custom: ignite-fall-2021
 ---
@@ -48,7 +48,7 @@ To address this requirement, Microsoft Sentinel offers multiple-workspace capabi
 
 This model offers significant advantages over a fully centralized model in which all data is copied to a single workspace:
 
-- Flexible role assignment to the global and local SOCs, or to the MSSP its customers.
+- Flexible role assignment to the global and local SOCs, or to the MSSP and its customers.
 
 - Fewer challenges regarding data ownership, data privacy and regulatory compliance.
 

@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: how-to
-ms.date: 4/29/2022
+ms.date: 6/22/2022
 ms.author: ajburnle
 ms.custom: "it-pro, seodec18"
 ms.reviewer: krbain
@@ -34,6 +34,7 @@ You can add an existing Security group to another existing Security group (also 
 >- Applying licenses to nested groups.<br>
 >- Adding distribution groups in nesting scenarios.<br>
 >- Adding security groups as members of mail-enabled security groups.
+
 
 ### To add a group as a member of another group
 

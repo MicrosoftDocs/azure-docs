@@ -1,16 +1,12 @@
 ---
 title: Microsoft Defender for Containers feature availability
 description: Learn about the availability of Microsoft Defender for Cloud containers features according to OS, machine type, and cloud deployment.
-author: bmansheim
-ms.author: benmansheim
 ms.topic: overview
-ms.date: 04/28/2022
+ms.date: 06/08/2022
 ms.custom: references_regions
 ---
 
 # Defender for Containers feature availability
-
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 The **tabs** below show the features that are available, by environment, for Microsoft Defender for Containers.
 
@@ -20,7 +16,7 @@ The **tabs** below show the features that are available, by environment, for Mic
 
 | Domain | Feature | Supported Resources | Release state <sup>[1](#footnote1)</sup> | Windows support | Agentless/Agent-based | Pricing Tier | Azure clouds availability |
 |--|--|--|--|--|--|--|--|
-| Compliance | Docker CIS | VMs | GA | X | Log Analytics agent | Defender for Servers Plan 2 |  |
+| Compliance | Docker CIS | VM, VMSS | GA | X | Log Analytics agent | Defender for Servers Plan 2 | Commercial clouds<br><br> National clouds: Azure Government, Azure China 21Vianet |
 | Vulnerability Assessment | Registry scan | ACR, Private ACR | GA | ✓ (Preview) | Agentless | Defender for Containers  | Commercial clouds<br><br> National clouds: Azure Government, Azure China 21Vianet |
 | Vulnerability Assessment | View vulnerabilities for running images | AKS | Preview | ✓ (Preview) | Defender profile | Defender for Containers | Commercial clouds |
 | Hardening | Control plane recommendations | ACR, AKS | GA | ✓ | Agentless | Free | Commercial clouds<br><br> National clouds: Azure Government, Azure China 21Vianet |
@@ -75,7 +71,7 @@ The **tabs** below show the features that are available, by environment, for Mic
 | Domain | Feature | Supported Resources | Release state <sup>[1](#footnote1)</sup> | Windows support | Agentless/Agent-based | Pricing tier |
 |--|--| -- | -- | -- | -- | --| 
 | Compliance | Docker CIS | Arc enabled VMs | Preview | X | Log Analytics agent | Defender for Servers Plan 2 |
-| Vulnerability Assessment | Registry scan | ACR, Private ACR | Preview | ✓ (Preview) | Agentless | Defender for Containers |
+| Vulnerability Assessment | Registry scan | ACR, Private ACR | GA | ✓ (Preview) | Agentless | Defender for Containers |
 | Vulnerability Assessment | View vulnerabilities for running images | Arc enabled K8s clusters | Preview | X | Defender extension | Defender for Containers |
 | Hardening | Control plane recommendations | - | - | - | - | - |
 | Hardening | Kubernetes data plane recommendations | Arc enabled K8s clusters | Preview | X | Azure Policy extension | Defender for Containers |

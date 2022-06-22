@@ -7,8 +7,8 @@ ms.service: machine-learning
 ms.subservice: automl
 ms.topic: conceptual
 ms.reviewer: nibaccam
-author: nibaccam
-ms.author: nibaccam
+author: blackmist
+ms.author: larryfr
 ms.date: 10/21/2021
 ---
 

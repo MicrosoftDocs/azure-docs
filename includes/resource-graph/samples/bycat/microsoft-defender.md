@@ -2,7 +2,7 @@
 author: timwarner-msft
 ms.service: resource-graph
 ms.topic: include
-ms.date: 03/08/2022
+ms.date: 06/16/2022
 ms.author: timwarner
 ms.custom: generated
 ---
@@ -135,9 +135,9 @@ Returns sensitivity insight of a specific resource (replace placeholder {resourc
 
 ```kusto
 SecurityResources
-| where type =~ 'microsoft.security/insights'
-| where id endswith "microsoft.security/insights/classification"
-| where properties.associatedResource contains '{resource_id}'
+| where type == 'microsoft.security/insights/classification'
+| where properties.associatedResource contains '$resource_id'
+| project SensitivityInsight = properties.insightProperties.purviewCatalogs[0].sensitivity
 ```
 
 # [Azure CLI](#tab/azure-cli)
@@ -195,7 +195,7 @@ Search-AzGraph -Query "SecurityResources | where type =~ 'microsoft.security/iot
 
 ### List Container Registry vulnerability assessment results
 
-Returns all the all the vulnerabilities found on container images. Microsoft Defender for Containers has to be enabled in order to view these security findings.
+Returns all the vulnerabilities found on container images. Microsoft Defender for Containers has to be enabled in order to view these security findings.
 
 ```kusto
 SecurityResources
@@ -298,7 +298,7 @@ Returns all the vulnerabilities found on virtual machines that have a Qualys age
 ```kusto
 SecurityResources
 | where type == 'microsoft.security/assessments'
-| where properties contains 'Machines should have vulnerability findings resolved'
+| where * contains 'vulnerabilities in your virtual machines'
 | summarize by assessmentKey=name //the ID of the assessment
 | join kind=inner (
 	securityresources
