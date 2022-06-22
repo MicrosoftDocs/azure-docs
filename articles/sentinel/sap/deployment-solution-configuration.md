@@ -32,7 +32,7 @@ Track your SAP solution deployment journey through this series of articles:
 
 1. **Deploy SAP security content (*You are here*)**
 
-1. [Configure Threat Monitoring for SAP solution](deployment-solution-configuration.md)
+1. **Configure Threat Monitoring for SAP solution (*You are here*)**
 
 1. Optional deployment steps
    - [Configure auditing](configure-audit.md)
