@@ -306,7 +306,7 @@ The recommended approach also minimizes the performance hit on the existing Orac
 
 #### Existing data migration tools
 
-Data transformation and movement is the basic function of all ETL products. If a data migration tool is already in use in the existing Oracle environment and it supports Azure Synapse as a target environment, then consider using that tool to simplify data migration from Oracle to Azure Synapse.
+Data transformation and movement is the basic function of all ETL products. If a data migration tool is already in use in the existing Oracle environment and it supports Azure Synapse as a target environment, then consider using that tool to simplify data migration.
 
 Even if an existing ETL tool isn't in place, [Azure Synapse Analytics data integration partners](../../partner/data-integration.md) offer ETL tools to simplify the task of data migration.
 
