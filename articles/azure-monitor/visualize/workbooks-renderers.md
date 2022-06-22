@@ -43,15 +43,15 @@ The instructions below will show you how to use thresholds with links to assign 
 1. Switch the workbook to edit mode by selecting **Edit** toolbar item.
 1. Select **Add** then **Add query**.
 1. Change the **Data source** to "JSON" and **Visualization** to "Grid".
-1. Enter the following query.
+1. Enter this query.
 
-  ```json
-    [ 
-        { "name": "warning", "link": "Community-Workbooks/Performance/Performance Counter Analysis" },
-        { "name": "info", "link": "Community-Workbooks/Performance/Performance Insights" },
-        { "name": "error", "link": "Community-Workbooks/Performance/Apdex" }
-    ]
-  ```
+      ```json
+        [ 
+            { "name": "warning", "link": "Community-Workbooks/Performance/Performance Counter Analysis" },
+            { "name": "info", "link": "Community-Workbooks/Performance/Performance Insights" },
+            { "name": "error", "link": "Community-Workbooks/Performance/Apdex" }
+        ]
+      ```
 
 1. Run query.
 1. Select **Column Settings** to open the settings.
@@ -67,6 +67,7 @@ The instructions below will show you how to use thresholds with links to assign 
     ![Screenshot of Edit column settings tab with the above settings.](./media/workbooks-grid-visualizations/column-settings.png)
 
     Keep the default row as is. You may enter whatever text you like. The Text column takes a String format as an input and populates it with the column value and unit if specified. For example, if warning is the column value the text can be "{0} {1} link!", it will be displayed as "warning link!".
+
 1. Select the **Make this item a link** box.
      - Under **View to open**, choose **Workbook (Template)**.
      - Under **Link value comes from**, choose **link**.
@@ -79,6 +80,6 @@ The instructions below will show you how to use thresholds with links to assign 
 
 1. Select **link** from **Columns**. Under **Settings**, next to **Column renderer**, select **(Hide column)**.
 1. To change the display name of the **name** column, select the **Labels** tab. On the row with **name** as its **Column ID**, under **Column Label** enter the name you want displayed.
-2. Select **Apply**.
+1. Select **Apply**.
 
   ![Screenshot of a thresholds in grid with the above settings](./media/workbooks-grid-visualizations/thresholds-workbooks-links.png)
