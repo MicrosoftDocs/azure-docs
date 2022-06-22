@@ -128,31 +128,23 @@ The following table lists the alerts that will be deprecated during June 2022.
 
 These alerts are used to notify a user about suspicious activity connected to a Kubernetes cluster. The alerts will be replaced with matching alerts that are part of the Microsoft Defender for Cloud Container alerts (`K8S.NODE_ImageBuildOnNode`, `K8S.NODE_ KubernetesAPI` and `K8S.NODE_ ContainerSSH`) which will provide improved fidelity and comprehensive context to investigate and act on the alerts. Learn more about alerts for [Kubernetes Clusters](alerts-reference.md).
 
-### Deprecating the "API App should only be accessible over HTTPS" policy
-
-**Estimated date for change:** June 2022
-
-The policy `API App should only be accessible over HTTPS` is set to be deprecated. This policy will be replaced with `Web Application should only be accessible over HTTPS`, which will be renamed to `App Service apps should only be accessible over HTTPS`.
-
-To learn more about policy definitions for Azure App Service, see [Azure Policy built-in definitions for Azure App Service](../azure-app-configuration/policy-reference.md)
-
 ### Deprecate API App policies for App Service
 
 **Estimated date for change:** July 2022
 
-We will be deprecating the following policies:
+We will be deprecating the following policies to corresponding policies that already exist to include API apps:
 
-- `Ensure API app has 'Client Certificates (Incoming client certificates)' set to 'On'`
-- `Ensure that 'Python version' is the latest, if used as a part of the API app`
-- `CORS should not allow every resource to access your API App`
-- `Managed identity should be used in your API App`
-- `Remote debugging should be turned off for API Apps`
-- `Ensure that 'PHP version' is the latest, if used as a part of the API app`
-- `FTPS only should be required in your API App`
-- `Ensure that 'Java version' is the latest, if used as a part of the API app`
-- `Latest TLS version should be used in your API App`
-
-Each of these policies has a corresponding policy that already exists and has been changed to include API apps.
+| To be deprecated | Changing to |
+|--|--|
+|`Ensure API app has 'Client Certificates (Incoming client certificates)' set to 'On'` | `App Service apps should have 'Client Certificates (Incoming client certificates)' enabled` | 
+| `Ensure that 'Python version' is the latest, if used as a part of the API app` | `App Service apps that use Python should use the latest 'Python version` |
+| `CORS should not allow every resource to access your API App` | `App Service apps should not have CORS configured to allow every resource to access your apps` |
+| `Managed identity should be used in your API App` | `App Service apps should use managed identity` |
+| `Remote debugging should be turned off for API Apps` | `App Service apps should have remote debugging turned off` |
+| `Ensure that 'PHP version' is the latest, if used as a part of the API app` | `App Service apps that use PHP should use the latest 'PHP version'`|
+| `FTPS only should be required in your API App` | `App Service apps should require FTPS only` |
+| `Ensure that 'Java version' is the latest, if used as a part of the API app` | `App Service apps that use Java should use the latest 'Java version` |
+| `Latest TLS version should be used in your API App` | `App Service apps should use the latest TLS version` |
 
 ## Next steps
 
