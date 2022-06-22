@@ -177,7 +177,7 @@ Using Teams in a virtualized environment is different from using Teams in a non-
 
 For Teams known issues that aren't related to virtualized environments, see [Support Teams in your organization](/microsoftteams/known-issues).
 
-### Known issues for Teams for macOS (preview)
+### Known issues for Teams for macOS
 
 - You can't configure audio devices from the Teams app, and the client will automatically use the default client audio device. To switch audio devices, you'll need to configure your settings from the client audio preferences instead.
 - Teams for Azure Virtual Desktop on macOS doesn't currently support background effects such as background blur and background images.
