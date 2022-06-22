@@ -13,8 +13,6 @@ ms.date: 06/20/2022
 
 [!INCLUDE[applies-to-postgresql-hyperscale](../includes/applies-to-postgresql-hyperscale.md)]
 
-## Overview
-
 In this article, you'll learn how to connect to the database on Hyperscale (Citus) and run SQL statements to query using Python on macOS, Ubuntu Linux, or Windows.
 
 > [!TIP]
@@ -37,7 +35,7 @@ For this article you need:
 
 To get the database credentials, you can use the **Connection strings** tab in the Azure portal:
 
-![Diagram showing python connection string](../media/howto-app-stacks/01-python-connection-string.png)
+![Diagram showing python connection string.](../media/howto-app-stacks/01-python-connection-string.png)
 
 Replace the following values:
 

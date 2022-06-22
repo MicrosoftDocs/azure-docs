@@ -13,8 +13,6 @@ ms.date: 06/20/2022
 
 [!INCLUDE[applies-to-postgresql-hyperscale](../includes/applies-to-postgresql-hyperscale.md)]
 
-## Overview
-
 In this document, you'll learn how to connect to a Hyperscale (Citus) database using a C# application. You'll see how to use SQL statements to query, insert, update, and delete data in the database. The steps in this article assume that you're familiar with developing using C#, and are new to working with Hyperscale (Citus).
 
 > [!TIP]
@@ -33,7 +31,7 @@ In this document, you'll learn how to connect to a Hyperscale (Citus) database u
 
 To get the database credentials, you can use the **Connection strings** tab in the Azure portal. See below screenshot.
 
-![Diagram showing C# connection string](../media/howto-app-stacks/03-csharp-connection-string.png)
+![Diagram showing C# connection string.](../media/howto-app-stacks/03-csharp-connection-string.png)
 
 ## Step 1: Connect, create table, and insert data
 

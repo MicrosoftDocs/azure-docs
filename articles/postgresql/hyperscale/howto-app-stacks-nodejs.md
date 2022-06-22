@@ -13,8 +13,6 @@ ms.date: 06/20/2022
 
 [!INCLUDE[applies-to-postgresql-hyperscale](../includes/applies-to-postgresql-hyperscale.md)]
 
-## Overview
-
 In this article, you'll connect to a Hyperscale (Citus) server group using a Node.js application. We'll see how to use SQL statements to query, insert, update, and delete data in the database. The steps in this article assume that you're familiar with developing using Node.js, and are new to working with Hyperscale (Citus).
 
 > [!TIP]
@@ -46,7 +44,7 @@ npm list
 
 To get the database credentials, you can use the **Connection strings** tab in the Azure portal. See below screenshot.
 
-![Diagram showing NodeJS connection string](../media/howto-app-stacks/01-python-connection-string.png)
+![Diagram showing NodeJS connection string.](../media/howto-app-stacks/01-python-connection-string.png)
 
 ### Running JavaScript code in Node.js
 

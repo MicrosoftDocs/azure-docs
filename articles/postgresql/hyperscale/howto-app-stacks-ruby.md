@@ -13,8 +13,6 @@ ms.date: 06/20/2022
 
 [!INCLUDE[applies-to-postgresql-hyperscale](../includes/applies-to-postgresql-hyperscale.md)]
 
-## Overview
-
 In this how-to article, you'll connect to a Hyperscale (Citus) server group using a Ruby application. We'll see how to use SQL statements to query, insert, update, and delete data in the database. The steps in this article assume that you're familiar with developing using Node.js, and are new to working with Hyperscale (Citus).
 
 > [!TIP]
@@ -34,7 +32,7 @@ In this how-to article, you'll connect to a Hyperscale (Citus) server group usin
 
 To get the database credentials, you can use the **Connection strings** tab in the Azure portal. See below screenshot.
 
-![Diagram showing ruby connection string](../media/howto-app-stacks/01-python-connection-string.png)
+![Diagram showing ruby connection string.](../media/howto-app-stacks/01-python-connection-string.png)
 
 ## Connect, create table, insert data
 
