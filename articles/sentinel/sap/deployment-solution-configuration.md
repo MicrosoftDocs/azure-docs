@@ -30,7 +30,7 @@ Track your SAP solution deployment journey through this series of articles:
 
 1. [Deploy data connector agent](deploy-data-connector-agent-container.md)
 
-1. **Deploy SAP security content (*You are here*)**
+1. [Deploy SAP security content](deploy-sap-security-content.md)
 
 1. **Configure Threat Monitoring for SAP solution (*You are here*)**
 
@@ -52,17 +52,40 @@ SAP - Systems watchlist defines which SAP Systems are present in the monitored e
 This information is used by some analytics rules, which may react differently if relevant events appear in a Development or a Production system.
 
 ### SAP - Networks watchlist
-SAP - Networks watchlist outlines all networks used by the organization. It is primarily used to identify whether user logons are originating from within known segments of the network, as well as if user logon origin changes unexpectedly.
-A number of approaches on documenting the network topology exists - you can define a broad range of addresses, like 172.16.0.0/16 and name that range "Corporate Network", which will be good enough for tracking logons from outside of this defined range, however it's a better idea to spend some time defining the actual segments in use along with their geography, so that Microsoft Sentinel can distinguish that (for example) logon from 192.168.10.15 (defined by network segment 192.168.10.0/23) has been from one geographical location, and logon from 10.15.2.1 (defined by a network segment 10.15.0.0/16) was from another geographical location and alert you if such behavior is identified as atypical
+SAP - Networks watchlist outlines all networks used by the organization. It is primarily used to identify whether or not user logons are originating from within known segments of the network, also if user logon origin changes unexpectedly.
 
-### SAP - Sensitive Function Modules, SAP - Sensitive Tables,  SAP - Sensitive ABAP Programs, SAP - Sensitive Transactions, SAP - Critical Authorizations,
+There are a number of approaches for documenting network topology. You could define a broad range of addresses, like 172.16.0.0/16, and name it "Corporate Network", which will be good enough for tracking logons from outside that range. A more segmented approach, however, allows you better visibility into potentially atypical activity. 
+
+For example: define the following two segments and their geographical locations:
+
+| Segment | Location |
+| ---- | ---- |
+| 192.168.10.0/23 | Western Europe |
+| 10.15.0.0/16 | Australia |
+
+Now Microsoft Sentinel will be able to differentiate a logon from 192.168.10.15 (in the first segment) from a logon from 10.15.2.1 (in the second segment) and alert you if such behavior is identified as atypical.
+
+### Sensitive data watchlists
+
+- SAP - Sensitive Function Modules
+- SAP - Sensitive Tables
+- SAP - Sensitive ABAP Programs
+- SAP - Sensitive Transactions
+- SAP - Critical Authorizations
+
 All of these watchlists idenfity sensitive actions or data that can be carried out or accessed by users. Several well-known operations, tables and authorizations have been pre-configured in the watchlists, however we recommend you consult with the SAP BASIS team to identify which operations, transactions, authorizations and tables are considered to be sensitive in your SAP environment.
 
-### SAP - Sensitive Profiles, SAP - Sensitive Roles, SAP - Privileged Users
-Threat Monitoring for SAP solution uses User Master data gathered from SAP systems to identify which users, which profiles and roles should be considered sensitive. Some sample data is included in the watchlists, however we recommend you consult with the SAP BASIS team to identify sensitive users, roles and profiles and populate the watchlists accordingly
+### User master data watchlists
 
-## Start enabling rules
-By default all rules are disabled, when you install the solution, we recommend that you do not enable all rules at once to prevent noise, instead use a staged approach, enabling rules over time, ensuring you are not receiving noise or false positives. Ensure alerts are operationalized, i.e. a plan exists to respond to each of the alerts. We consider the following rules to be easiest to setup, so recommend to start with them
+- SAP - Sensitive Profiles
+- SAP - Sensitive Roles
+- SAP - Privileged Users
+
+Threat Monitoring for SAP solution uses User Master data gathered from SAP systems to identify which users, profiles, and roles should be considered sensitive. Some sample data is included in the watchlists, though we recommend you consult with the SAP BASIS team to identify sensitive users, roles and profiles and populate the watchlists accordingly.
+
+## Start enabling analytics rules
+By default, all analytics rules provided in the Threat Monitoring for SAP solution are disabled. When you install the solution, it's best if you don't enable all the rules at once so you don't end up with a lot of noise. Instead, use a staged approach, enabling rules over time, ensuring you are not receiving noise or false positives. Ensure alerts are operationalized, that is, have a response plan for each of the alerts. We consider the following rules to be easiest to implement, so best to start with them:
+
 1. Deactivation of Security Audit Log
 1. Client Configuration Change
 1. Change in Sensitive Privileged User

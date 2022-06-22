@@ -9,12 +9,15 @@ ms.date: 06/21/2022
 
 # Microsoft Sentinel Threat Monitoring for SAP solution overview
 
-SAP systems pose a unique security challenge, SAP systems handle extremely sensitive information and are prime targets for attackers.
+SAP systems pose a unique security challenge. SAP systems handle extremely sensitive information and are prime targets for attackers.
 
-An SAP system breach could result in stolen files, exposed data, or disrupted supply chain. Once an attacker is in the system, there are few controls to detect exfiltration or other bad acts. SAP activity needs to be correlated with other data across the org for efficient detection. SOC teams traditionally have very little visibility into SAP systems.
+Security operations teams have traditionally had very little visibility into SAP systems. An SAP system breach could result in stolen files, exposed data, or disrupted supply chain. Once an attacker is in the system, there are few controls to detect exfiltration or other bad acts. SAP activity needs to be correlated with other data across the organization for effective threat detection.
 
+To help close this gap, Microsoft Sentinel offers the Threat Monitoring for SAP solution. This comprehensive solution uses components at every level of Microsoft Sentinel to offer end-to-end detection, analysis, investigation, and response to threats in your SAP environment.
 
-Microsoft Sentinel Threat Monitoring for SAP solution continuously monitors SAP systems for threats at all layers: 
+## What Threat Monitoring for SAP does
+
+Microsoft Sentinel's Threat Monitoring for SAP solution continuously monitors SAP systems for threats at all layers - business logic, application, database, and OS.
 - business logic
 - application
 - database
