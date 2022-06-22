@@ -688,9 +688,11 @@
   - name: How-to guides
     items:
     - name: Connect and query
+      href: hyperscale/howto-connect.md
+    - name: App stacks
       items:
-        - name: Psql client
-          href: hyperscale/howto-connect.md
+        - name: Overview
+          href: hyperscale/howto-app-stacks-overview.md
         - name: Python
           href: hyperscale/howto-app-stacks-python.md
         - name: Node.js
