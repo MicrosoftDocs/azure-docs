@@ -76,9 +76,9 @@ Typically, legacy Oracle environments have evolved over time to encompass multip
 A good candidate for an initial migration from an Oracle environment supports the preceding items. Candidates usually implement a BI/Analytics workload rather than an online transaction processing (OLTP) workload. Good candidates also have a data model, such as a star or snowflake schema, that can be migrated with minimal modification.
 
 >[!TIP]
-> Create an inventory of objects that need to be migrated, and document the migration process.
+>Create an inventory of objects that need to be migrated, and document the migration process.
 
-The volume of migrated data in an initial migration should be large enough to demonstrate the capabilities and benefits of the Azure Synapse environment but not too large to quickly demonstrate value. A size in the 1-10 TB range is typical.
+The volume of migrated data in an initial migration should be large enough to demonstrate the capabilities and benefits of the Azure Synapse environment but not too large to quickly demonstrate value. A size in the 1-10 terabyte range is typical.
 
 An initial approach to a migration project is to minimize the risk, effort, and time needed so that you quickly see the benefits of the Azure cloud environment. The following [approaches](#lift-and-shift-migration-vs-phased-approach) limit the scope of the initial migration to just the data marts and doesn't address broader migration aspects, such as ETL migration and historical data migration. However, you can address those aspects in later phases of the project once the migrated data mart layer is backfilled with data and the required build processes.
 
@@ -132,7 +132,7 @@ In contrast, the Azure Synapse environment contains a single database and uses s
 - There may already be one or more layers of views in existence, and adding an extra layer of views could affect performance.
 
 >[!TIP]
-> Combine multiple databases into a single database within Azure Synapse and use schema names to logically separate the tables.
+>Combine multiple databases into a single database within Azure Synapse and use schema names to logically separate the tables.
 
 #### Table considerations
 
@@ -344,8 +344,8 @@ Many performance tuning concepts for Oracle databases hold true for Azure Synaps
 
 - Monitor performance using built-in database capabilities to ensure that resources are being used efficiently.
 
-> [!TIP]
-> Prioritize familiarity with Azure Synapse tuning options at the start of a migration.
+>[!TIP]
+>Prioritize familiarity with Azure Synapse tuning options at the start of a migration.
 
 ### Differences in performance tuning approach
 
