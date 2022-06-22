@@ -5,7 +5,7 @@ author: vhorne
 ms.service: firewall
 services: firewall
 ms.topic: how-to
-ms.date: 10/06/2021
+ms.date: 06/22/2022
 ms.author: victorh
 ---
 
@@ -37,9 +37,9 @@ You will need to create an Azure Firewall Policy and create Rule Collections for
 | Name      | Source type | Source                    | Protocol | Destination ports | Destination type | Destination                       |
 | --------- | ----------- | ------------------------- | -------- | ----------------- | ---------------- | --------------------------------- |
 | Rule Name | IP Address  | VNet or Subnet IP Address | TCP      | 80                | IP Address       | 169.254.169.254, 168.63.129.16    |
-| Rule Name | IP Address  | VNet or Subnet IP Address | TCP      | 443               | Service Tag      | AzureCloud, WindowsVirtualDesktop |
+| Rule Name | IP Address  | VNet or Subnet IP Address | TCP      | 443               | Service Tag      | AzureCloud, WindowsVirtualDesktop, AzureFrontDoor.Frontend |
 | Rule Name | IP Address  | VNet or Subnet IP Address | TCP, UDP | 53                | IP Address       | *                                 |
-|Rule name  | IP Address  | VNet or Subnet IP Address | TCP      | 1688              | IP address       | 23.102.135.246                    |
+|Rule name  | IP Address  | VNet or Subnet IP Address | TCP      | 1688              | IP address       | 23.102.135.246 (kms.core.windows.net)|
 
 > [!NOTE]
 > Some deployments might not need DNS rules. For example, Azure Active Directory Domain controllers forward DNS queries to Azure DNS at 168.63.129.16.
@@ -53,7 +53,7 @@ You will need to create an Azure Firewall Policy and create Rule Collections for
 > [!IMPORTANT]
 > We recommend that you don't use TLS inspection with Azure Virtual Desktop. For more information, see the [proxy server guidelines](../virtual-desktop/proxy-server-support.md#dont-use-ssl-termination-on-the-proxy-server).
 
-## Host pool outbound access to the internet
+## Host pool outbound access to the Internet
 
 Depending on your organization needs, you might want to enable secure outbound internet access for your end users. If the list of allowed destinations is well-defined (for example, for [Microsoft 365 access](/microsoft-365/enterprise/microsoft-365-ip-web-service)), you can use Azure Firewall application and network rules to configure the required access. This routes end-user traffic directly to the internet for best performance. If you need to allow network connectivity for Windows 365 or Intune, see [Network requirments for Windows 365](/windows-365/requirements-network#allow-network-connectivity) and [Network endpoints for Intune](/mem/intune/fundamentals/intune-endpoints).
 
