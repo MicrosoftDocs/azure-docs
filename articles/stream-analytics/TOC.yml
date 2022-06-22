@@ -97,9 +97,9 @@
     - name: Azure SQL Database
       items:
         - name: SQL Database output overview
-        href: sql-database-output.md  
+          href: sql-database-output.md  
         - name: SQL Database output performance
-        href: stream-analytics-sql-output-perf.md
+          href: stream-analytics-sql-output-perf.md
     - name: Azure Synapse Analytics
       href: azure-synapse-analytics-output.md
     - name: Blob storage & Azure Data Lake Gen 2
