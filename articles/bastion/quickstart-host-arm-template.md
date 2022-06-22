@@ -107,6 +107,6 @@ When you're done using the virtual network and the virtual machines, delete the 
 In this quickstart, you deployed Bastion from your virtual machine resource using the Bastion ARM template, and then connected to a virtual machine securely via Bastion. Next, you can continue with the following steps if you want to copy and paste to your virtual machine.
 
 > [!div class="nextstepaction"]
-> [Quickstart: Create a Windows virtual machine in the Azure portal](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal)
+> [Quickstart: Create a Windows virtual machine in the Azure portal](../virtual-machines/windows/quick-create-portal.md)
 
-> [Quickstart: Create a virtual network using the Azure portal](https://docs.microsoft.com/azure/virtual-network/quick-create-portal)
+> [Quickstart: Create a virtual network using the Azure portal](../virtual-network/quick-create-portal.md)
