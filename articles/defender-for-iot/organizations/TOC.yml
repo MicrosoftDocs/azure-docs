@@ -201,7 +201,7 @@
         href: appliance-catalog/ys-techsystems-ys-fit2.md
     - name: Virtual appliances
       items:
-      - name: OT sensor (VMWare ESXi)
+      - name: OT sensor (VMWare ESXi) 
         href: appliance-catalog/virtual-sensor-vmware.md
       - name: OT sensor (Hyper-V)
         href: appliance-catalog/virtual-sensor-hyper-v.md
