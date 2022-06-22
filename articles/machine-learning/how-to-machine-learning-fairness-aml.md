@@ -306,7 +306,7 @@ To compare multiple models and see how their fairness assessments differ, you ca
     ```python
     from azureml.contrib.fairness import upload_dashboard_dictionary, download_dashboard_by_upload_id
     ```
-    Create an Experiment, then a Job, and upload the dashboard to it:
+    Create an Experiment, then a Run, and upload the dashboard to it:
     ```python
     exp = Experiment(ws, "Compare_Two_Models_Fairness_Census_Demo")
     print(exp)
