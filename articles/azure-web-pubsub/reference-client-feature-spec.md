@@ -224,7 +224,7 @@ Different subprotocols have different format for message. Find the reference to 
 
 Callback functions are denoted as (argName: Type, ...) -> ReturnType. And callback function are implemented by users, and invoke by client libraries. Client libraries use callback functions to get customer returned value or notify custom defined logic. 
 
-Callback function is also one of the ways to achieve asynchronize. In different language, it can be implemented by language-idiomatic equivalent, such as [Task-based asynchronous pattern](https://docs.microsoft.com/dotnet/standard/asynchronous-programming-patterns/task-based-asynchronous-pattern-tap) in C#.
+Callback function is also one of the ways to achieve asynchronize. In different language, it can be implemented by language-idiomatic equivalent, such as [Task-based asynchronous pattern](/dotnet/standard/asynchronous-programming-patterns/task-based-asynchronous-pattern-tap) in C#.
 
 ### Function name
 
