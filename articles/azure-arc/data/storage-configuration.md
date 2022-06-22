@@ -175,7 +175,7 @@ When creating an instance using either `az sql mi-arc create` or `az postgres ar
 |`--storage-class-backups`|Storage class for all backup files. If not specified, defaults to storage class for data (`--storage-class-data`).<br/><br/> Use a ReadWriteMany (RWX) capable storage class for backups. Learn more about [access modes](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#access-modes). |
 
 > [!WARNING]
-> If you don't specify a storage class for backups, the deployment uses storage class specified for data. If this storage class isn't RWX capable, the point-in-time restore may not work as desired.
+> If you don't specify a storage class for backups, the deployment uses the storage class specified for data. If this storage class isn't RWX capable, the point-in-time restore may not work as desired.
 
 The table below lists the paths inside the Azure SQL Managed Instance container that is mapped to the persistent volume for data and logs:
 
