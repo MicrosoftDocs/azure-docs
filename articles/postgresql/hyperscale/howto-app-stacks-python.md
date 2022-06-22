@@ -33,7 +33,7 @@ For this article you need:
 * The latest [pip](https://pip.pypa.io/en/stable/installing/) package installer.
 * Install [psycopg2](https://pypi.python.org/pypi/psycopg2-binary/) using pip in a terminal or command prompt window. For more information, see [how to install psycopg2](https://www.psycopg.org/docs/install.html).
 
-### Get Database Connection Information
+### Get database connection information
 
 To get the database credentials, you can use the **Connection strings** tab in the Azure portal:
 

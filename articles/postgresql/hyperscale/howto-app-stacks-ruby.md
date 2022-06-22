@@ -30,7 +30,7 @@ In this how-to article, you'll connect to a Hyperscale (Citus) server group usin
 * [Ruby](https://www.ruby-lang.org/en/downloads/)
 * [Ruby pg](https://rubygems.org/gems/pg/), the PostgreSQL module for Ruby
 
-### Get Database Connection Information
+### Get database connection information
 
 To get the database credentials, you can use the **Connection strings** tab in the Azure portal. See below screenshot.
 

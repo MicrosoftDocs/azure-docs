@@ -42,7 +42,7 @@ Verify the installation by listing the packages installed.
 npm list
 ```
 
-### Get Database Connection Information
+### Get database connection information
 
 To get the database credentials, you can use the **Connection strings** tab in the Azure portal. See below screenshot.
 
