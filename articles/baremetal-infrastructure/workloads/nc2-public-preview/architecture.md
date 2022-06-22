@@ -29,7 +29,7 @@ In this article, we'll look at the architectural options for BareMetal Infrastru
 
 * Contains Prism Central - Nutanix's software appliance that enables advanced functionality within the Prism portal.
 
-## Connect on premises
+## Connect from cloud to on-premises
 
 Connecting from cloud to on-premises is supported by two traditional products: Express Route and VPN Gateway. 
 One example deployment is to have a VPN gateway in the Hub virtual network.

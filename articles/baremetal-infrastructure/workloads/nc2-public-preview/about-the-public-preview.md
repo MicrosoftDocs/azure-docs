@@ -25,7 +25,7 @@ The articles in this section are intended for the professionals participating in
 
 Get scale, automation, and fast provisioning for your Nutanix workloads on global Azure infrastructure to invent with purpose.
 
-### Investment Optimization
+### Optimize your investment
 
 Keep using your existing Nutanix investments, skills, and tools to quickly increase business agility with Azure cloud services.
 
@@ -33,7 +33,7 @@ Keep using your existing Nutanix investments, skills, and tools to quickly incre
 
 Manage your cloud spending with license portability to significantly reduce the cost of running workloads in the cloud.
 
-### Modernization through the power of Azure
+### Modernize through the power of Azure
 
 Adapt quicker with unified data governance and gain immediate insights with transformative analytics to drive innovation.
 
