@@ -13,17 +13,19 @@ ms.author: thvankra
 # Azure Cosmos DB Spark Connector - throughput control
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
 
-The Azure Cosmos DB Spark Connector allows you to communicate with Azure Cosmos DB using Apache Spark. This article describes how to use the throughput control feature to isolate the performance needs of applications running against a container by limiting the amount of [request units](../request-units.md) that can be consumed by a given Spark client. 
-
-Check out our [Spark samples in GitHub](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/cosmos/azure-cosmos-spark_3_2-12/Samples), which all make use of throughput control.
+The [Spark Connector](create-sql-api-spark.md) allows you to communicate with Azure Cosmos DB using Apache Spark. This article describes how to use the throughput control feature. Check out our [Spark samples in GitHub](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/cosmos/azure-cosmos-spark_3_2-12/Samples), which all make use of throughput control.
 
 ## Why is throughput control important?
 
-There are several advanced scenarios that benefit from client-side throughput isolation:
+ Having throughput control helps to isolate the performance needs of applications running against a container, by limiting the amount of [request units](../request-units.md) that can be consumed by a given Spark client. 
 
-- **Different operations and tasks have different priorities** - there can be a need to prevent normal transactions from being throttled due to data ingestion or copy activities. Some operations and/or tasks are not sensitive to latency, and are more tolerant to be throttled compared to others.
-- **Provide fairness/isolation to different end users/tenants** - An application will usually have many end users. Some users may send too many requests which consume all available throughput, causing others to get throttled.
-- **Load balancing of throughput between different Azure Cosmos DB clients** - in some use cases, it is important to make sure all the clients get a fair (equal) share of the throughput
+There are several advanced scenarios that benefit from client-side throughput control:
+
+- **Different operations and tasks have different priorities** - there can be a need to prevent normal transactions from being throttled due to data ingestion or copy activities. Some operations and/or tasks aren't sensitive to latency, and are more tolerant to being throttled than others.
+
+- **Provide fairness/isolation to different end users/tenants** - An application will usually have many end users. Some users may send too many requests, which consume all available throughput, causing others to get throttled.
+
+- **Load balancing of throughput between different Azure Cosmos DB clients** - in some use cases, it's important to make sure all the clients get a fair (equal) share of the throughput
 
 
 Throughput control enables the capability for more granular level RU rate limiting as needed.
@@ -43,13 +45,13 @@ Throughput control for the Spark Connector is configured by first creating a con
 > [!IMPORTANT]
 > The partition key must be defined as `/groupId`, and `ttl` must be enabled, for the throughput control feature to work. 
 
-Within the Spark config of a given application, we can then specify parameters for our workload that set whether throughput control is `enabled`, as well as defining a control group `name` and a `targetThroughputThreshold`. We also define the `database` and `container` in which through control group is maintained:  
+Within the Spark config of a given application, we can then specify parameters for our workload. The below example sets throughput control as `enabled`, as well as defining a control group `name` and a `targetThroughputThreshold`. We also define the `database` and `container` in which through control group is maintained:  
 
 ```scala
     "spark.cosmos.throughputControl.enabled" -> "true",
     "spark.cosmos.throughputControl.name" -> "SourceContainerThroughputControl",
     "spark.cosmos.throughputControl.targetThroughputThreshold" -> "0.95", 
-    "spark.cosmos.throughputControl.globalControl.database" -> "database-v4", //replace database-v4 with the name of your source database
+    "spark.cosmos.throughputControl.globalControl.database" -> "database-v4", 
     "spark.cosmos.throughputControl.globalControl.container" -> "ThroughputControl"
 ```
 
@@ -94,7 +96,7 @@ For each Spark client that uses the throughput control group, a record will be c
     }
 ```
 
-In this record, the `loadFactor` attribute represents the load on the given client, relative to other clients in the throughput control group. The `allocatedThroughput` attribute shows how many RUs are currently allocated to this client. The Spark Connector will adjust allocated throughput for each client based on it's load. This will ensure that each client gets a share of the throughput available that is proportional to it's load, and all clients together do not consume more than the total allocated for the throughput control group to which they belong. 
+In this record, the `loadFactor` attribute represents the load on the given client, relative to other clients in the throughput control group. The `allocatedThroughput` attribute shows how many RUs are currently allocated to this client. The Spark Connector will adjust allocated throughput for each client based on its load. This will ensure that each client gets a share of the throughput available that is proportional to its load, and all clients together don't consume more than the total allocated for the throughput control group to which they belong. 
 
 
 ## Next steps
