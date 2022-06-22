@@ -5,7 +5,7 @@ services: private-link
 author: asudbring
 ms.service: private-link
 ms.topic: tutorial
-ms.date: 06/21/2022
+ms.date: 06/22/2022
 ms.author: allensu
 ms.custom: fasttrack-edit, template-tutorial
 # Customer intent: As someone with a basic network background, but is new to Azure, I want to create a private endpoint on a SQL server so that I can securely connect to it.
@@ -47,7 +47,7 @@ The bastion host will be used to connect securely to the virtual machine for tes
     |------------------|-----------------------------------------------------------------|
     | **Project Details**  |                                                                 |
     | Subscription     | Select your Azure subscription.                                  |
-    | Resource Group   | Select **CreateSQLEndpointTutorial**. |
+    | Resource Group   | Select **Create new**. </br> Enter **CreateSQLEndpointTutorial** in **Name**. </br> Select **OK**. |
     | **Instance details** |                                                                 |
     | Name             | Enter **myVNet**.                                    |
     | Region           | Select **East US**. |
@@ -235,9 +235,9 @@ In this section, you'll use the virtual machine you created in the previous step
 
 4. On the overview page for **myVM**, select **Connect** then **Bastion**.
 
-5. Select the blue **Use Bastion** button.
+5. Enter the username and password that you entered during the virtual machine creation.
 
-6. Enter the username and password that you entered during the virtual machine creation.
+6. Select **Connect** button.
 
 7. Open Windows PowerShell on the server after you connect.
 
@@ -252,7 +252,7 @@ In this section, you'll use the virtual machine you created in the previous step
     Address:  10.1.0.5
     Aliases:  mysqlserver.database.windows.net
     ```
-    A private IP address of **10.1.0.5** is returned for the SQL server name. This address is in the subnet of the virtual network you created previously.
+    A private IP address of **10.1.0.5** is returned for the SQL server name. This address is in **mySubnet** subnet of **myVNet** virtual network you created previously.
 
 9. Install [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?preserve-view=true&view=sql-server-2017) on **myVM**.
 
