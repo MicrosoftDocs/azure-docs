@@ -15,7 +15,6 @@ ms.custom: devx-track-python, data4ml, sdkv1, event-tier1-build-2022
 #Customer intent: As an experienced data engineer, I need to create a production data ingestion pipeline for the data used to train my models.
 ---
 
-[//]: # (needs PM review)
 
 # Data ingestion with Azure Data Factory
 
@@ -93,7 +92,7 @@ Consume your prepared data in Azure Machine Learning by,
 
 This method is recommended for [Machine Learning Operations (MLOps) workflows](concept-model-management-and-deployment.md#what-is-mlops). If you don't want to set up an Azure Machine Learning pipeline, see [Read data directly from storage](#read-data-directly-from-storage).
 
-Each time the Data Factory pipeline jobs, 
+Each time the Data Factory pipeline runs, 
 
 1. The data is saved to a different location in storage. 
 1. To pass the location to Azure Machine Learning, the Data Factory pipeline calls an [Azure Machine Learning pipeline](concept-ml-pipelines.md). When calling the ML pipeline, the data location and job ID are sent as parameters. 

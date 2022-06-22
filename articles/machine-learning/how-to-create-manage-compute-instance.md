@@ -12,7 +12,7 @@ ms.author: swatig
 ms.reviewer: sgilley
 ms.date: 05/04/2022
 ---
-[//]: # (needs PM review)
+
 # Create and manage an Azure Machine Learning compute instance
 
 Learn how to create and manage a [compute instance](concept-compute-instance.md) in your Azure Machine Learning workspace.
