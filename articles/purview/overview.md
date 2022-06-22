@@ -1,16 +1,17 @@
 ---
-title: Introduction to Microsoft Purview
-description: This article provides an overview of Microsoft Purview, including its features and the problems it addresses. Microsoft Purview enables any user to register, discover, understand, and consume data sources.
-author: hophanms
-ms.author: hophan
+title: Introduction to Microsoft Purview governance solutions
+description: This article is an overview of the solutions that Microsoft Purview provides through the Microsoft Purview governance portal, and describes how they work together to help you manage your on-premises, multi-cloud, and software-as-a-service data.
+author: whhender
+ms.author: whhender
 ms.service: purview
+ms.custom: event-tier1-build-2022
 ms.topic: overview
-ms.date: 12/06/2021
+ms.date: 05/16/2022
 ---
 
-# What is Microsoft Purview?
+# What's available in the Microsoft Purview governance portal?
 
-Microsoft Purview is a unified data governance service that helps you manage and govern your on-premises, multi-cloud, and software-as-a-service (SaaS) data. Microsoft Purview allows you to:
+Microsoft Purview's solutions in the governance portal provide a unified data governance service that helps you manage your on-premises, multi-cloud, and software-as-a-service (SaaS) data. The Microsoft Purview governance portal allows you to:
 - Create a holistic, up-to-date map of your data landscape with automated data discovery, sensitive data classification, and end-to-end data lineage. 
 - Enable data curators to manage and secure your data estate. 
 - Empower data consumers to find valuable, trustworthy data.
@@ -42,7 +43,7 @@ With the Microsoft Purview Data Catalog, business and technical users can quickl
 For more information, see our [introduction to search using Data Catalog](how-to-search-catalog.md).
 
 ## Data Estate Insights
-With the Microsoft Purview Data Estate Insights, data officers and security officers can get a bird’s eye view and at a glance understand what data is actively scanned, where sensitive data is and how it moves.
+With the Microsoft Purview Data Estate Insights, the chief data officers and other governance stakeholders can get a bird’s eye view of their data estate and can gain actionable insights into the governance gaps that can be resolved from the experience itself.
 
 For more information, see our [introduction to Data Estate Insights](concept-insights.md).
 

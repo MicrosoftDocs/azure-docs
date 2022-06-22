@@ -15,9 +15,9 @@ recommendations: false
 # Get started: Form Recognizer Python SDK (beta)
 
 >[!NOTE]
-> Form Recognizer beta version is currently in public preview. Some features may not be supported or have limited capabilities.
+> Form Recognizer beta version—3.2.0b5—is currently in public preview. Some features may not be supported or have limited capabilities.
 
-[Reference documentation](/python/api/azure-ai-formrecognizer/azure.ai.formrecognizer?view=azure-python-preview&preserve-view=true) | [Library source code](https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-formrecognizer_3.2.0b3/sdk/formrecognizer/azure-ai-formrecognizer/) | [Package (PyPi)](https://pypi.org/project/azure-ai-formrecognizer/3.2.0b3/) | [Samples](https://github.com/Azure/azure-sdk-for-python/blob/azure-ai-formrecognizer_3.2.0b3/sdk/formrecognizer/azure-ai-formrecognizer/samples/README.md)
+[Reference documentation](/python/api/azure-ai-formrecognizer/azure.ai.formrecognizer?view=azure-python-preview&preserve-view=true) | [Library source code](https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-formrecognizer_3.2.0b5/sdk/formrecognizer/azure-ai-formrecognizer) | [Package (PyPi)](https://pypi.org/project/azure-ai-formrecognizer/3.2.0b5/) | [Samples](https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-formrecognizer_3.2.0b5/sdk/formrecognizer/azure-ai-formrecognizer/samples)
 
 Get started with Azure Form Recognizer using the Python programming language. Azure Form Recognizer is a cloud-based Azure Applied AI Service that uses machine learning to extract key-value pairs, text, and tables from your documents. You can easily call Form Recognizer models by integrating our client library SDks into your workflows and applications. We recommend that you use the free service when you're learning the technology. Remember that the number of free pages is limited to 500 per month.
 
@@ -55,7 +55,7 @@ In this quickstart you'll use following features to analyze and extract data and
 Open a terminal window in your local environment and install the Azure Form Recognizer client library for Python with pip:
 
 ```console
-pip install azure-ai-formrecognizer==3.2.0b3
+pip install azure-ai-formrecognizer==3.2.0b5
 
 ```
 
@@ -91,7 +91,7 @@ Extract text, tables, structure, key-value pairs, and named entities from docume
 > * For simplicity, all the entity fields that the service returns are not shown here. To see the list of all supported fields and corresponding types, see our [General document](../concept-general-document.md#named-entity-recognition-ner-categories) concept page.
 
 <!-- markdownlint-disable MD036 -->
-**Add the following code sample to your form_recognizer_quickstart.py application. Make sure you update the key and endpoint variables with values from your Form Recognizer instance in the Azure portal:**
+**Add the following code sample to your form_recognizer_quickstart.py application. Make sure you update the key and endpoint variables with values from your Azure portal Form Recognizer instance:**
 
 ```python
 
@@ -120,7 +120,7 @@ def analyze_general_documents():
     docUrl = "https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-layout.pdf"
 
     # create your `DocumentAnalysisClient` instance and `AzureKeyCredential` variable
-        document_analysis_client = DocumentAnalysisClient(endpoint=endpoint, credential=AzureKeyCredential(key))
+    document_analysis_client = DocumentAnalysisClient(endpoint=endpoint, credential=AzureKeyCredential(key))
 
     poller = document_analysis_client.begin_analyze_document_from_url(
             "prebuilt-document", docUrl)
@@ -261,7 +261,7 @@ Extract text, selection marks, text styles, table structures, and bounding regio
 > * We've added the file URL value to the `formUrl` variable in the `analyze_layout` function.
 > * To analyze a given file at a URL, you'll use the `begin_analyze_document_from_url` method and pass in `prebuilt-layout` as the model Id. The returned value is a `result` object containing data about the submitted document.
 
-**Add the following code sample to your form_recognizer_quickstart.py application. Make sure you update the key and endpoint variables with values from your Form Recognizer instance in the Azure portal:**
+**Add the following code sample to your form_recognizer_quickstart.py application. Make sure you update the key and endpoint variables with values from your Azure portal Form Recognizer instance:**
 
 ```python
 
@@ -419,7 +419,7 @@ Analyze and extract common fields from specific document types using a prebuilt 
 > * To analyze a given file at a URI, you'll use the `beginAnalyzeDocuments` method and pass `PrebuiltModels.Invoice` as the model Id. The returned value is a `result` object containing data about the submitted document.
 > * For simplicity, all the key-value pairs that the service returns are not shown here. To see the list of all supported fields and corresponding types, see our [Invoice](../concept-invoice.md#field-extraction) concept page.
 
-**Add the following code sample to your form_recognizer_quickstart.py application. Make sure you update the key and endpoint variables with values from your Form Recognizer instance in the Azure portal:**
+**Add the following code sample to your form_recognizer_quickstart.py application. Make sure you update the key and endpoint variables with values from your Azure portal Form Recognizer instance:**
 
 ```python
 # import libraries
@@ -740,7 +740,10 @@ That's it, congratulations!
 
 In this quickstart, you used the Form Recognizer Python SDK to analyze various forms in different ways. Next, explore the reference documentation to learn more about Form Recognizer v3.0 API.
 
-## Next step
+## Next steps
 
 > [!div class="nextstepaction"]
-> [Learn more about Form Recognizer REST API v3.0](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-2/operations/AnalyzeDocument)
+> [Form Recognizer REST API v3.0 (preview)](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-06-30-preview/operations/AnalyzeDocument)
+
+> [!div class="nextstepaction"]
+> [Form Recognizer Python reference library](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-ai-formrecognizer/3.2.0b5/index.html)

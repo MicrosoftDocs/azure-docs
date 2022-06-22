@@ -1,4 +1,4 @@
-- name: Azure Container Apps Preview documentation
+- name: Azure Container Apps documentation
   href: index.yml
 - name: Overview
   items:
@@ -114,10 +114,12 @@
       href: background-processing.md
 - name: Reference
   items:
-    - name: ARM API specification
+    - name: ARM and YAML specifications
       href: azure-resource-manager-api-spec.md
     - name: Azure CLI reference
       href: /cli/azure/containerapp?view=azure-cli-latest&preserve-view=true
+    - name: REST API reference
+      href: /rest/api/containerapps/
 - name: Resources
   items:
     - name: Samples

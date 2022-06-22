@@ -12,6 +12,8 @@ ms.custom: kr2b-contr-experiment
 
 # Use columnar table storage to compress data
 
+[!INCLUDE[applies-to-postgresql-hyperscale](../includes/applies-to-postgresql-hyperscale.md)]
+
 Azure Database for PostgreSQL - Hyperscale (Citus) supports append-only
 columnar table storage for analytic and data warehousing workloads. When
 columns (rather than rows) are stored contiguously on disk, data becomes more

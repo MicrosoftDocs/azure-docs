@@ -10,8 +10,8 @@ ms.topic: reference
 ms.reviewer: larryfr
 ms.author: andzha
 author: Anurzeuii
-ms.date: 03/14/2022
-ms.custom: references_regions
+ms.date: 05/09/2022
+ms.custom: references_regions, event-tier1-build-2022
 ---
 
 # Azure Machine Learning feature availability across clouds regions
@@ -22,6 +22,8 @@ In the list of global Azure regions, there are several regions that serve specif
 
 * Azure Government regions **US-Arizona** and **US-Virginia**.
 * Azure China 21Vianet region **China-East-2**.
+
+Azure Machine Learning is still in devlopment in Airgap Regions. 
 
 The information in the rest of this document provides information on what features of Azure Machine Learning are available in these regions, along with region-specific information on using these features.
 ## Azure Government	
@@ -62,6 +64,7 @@ The information in the rest of this document provides information on what featur
 | ACI behind VNet                                                            | Public Preview       | NO                 | NO          |
 | ACR behind VNet                                                            | GA       | YES                 | YES          |
 | Private IP of AKS cluster                                                  | Public Preview       | NO                 | NO          |
+| Network isolation for managed online endpoints                             | Public Preview       | NO                 | NO          |
 | **Compute** |   | | |
 | [quota management across workspaces](how-to-manage-quotas.md)                                         | GA                   | YES                | YES         |
 | **[Data for machine learning](concept-data.md)** |   | | |
@@ -70,8 +73,8 @@ The information in the rest of this document provides information on what featur
 | View, edit, or delete dataset drift monitors from the SDK                   | Public Preview       | YES                | YES         |
 | View, edit, or delete dataset drift monitors from the UI                    | Public Preview       | YES                | YES         |
 | **Machine learning lifecycle** |   | | |
-| [Model profiling](how-to-deploy-profile-model.md)                                                            | GA                   | YES                | PARTIAL     |
-| [The Azure ML CLI 1.0](reference-azure-machine-learning-cli.md)     | GA                   | YES                | YES         |
+| [Model profiling](v1/how-to-deploy-profile-model.md)                                                            | GA                   | YES                | PARTIAL     |
+| [The Azure ML CLI 1.0](v1/reference-azure-machine-learning-cli.md)     | GA                   | YES                | YES         |
 | [FPGA-based Hardware Accelerated Models](how-to-deploy-fpga-web-service.md)                                     | GA                   | NO                 | NO          |
 | [Visual Studio Code integration](how-to-setup-vs-code.md)                                             | Public Preview       | NO                 | NO          |
 | [Event Grid integration](how-to-use-event-grid.md)                                                     | Public Preview       | NO                 | NO          |
@@ -93,6 +96,7 @@ The information in the rest of this document provides information on what featur
 | [Experimentation UI](how-to-track-monitor-analyze-runs.md)                                                         | Public Preview                   | YES                | YES         |
 | [.NET integration ML.NET 1.0](/dotnet/machine-learning/tutorials/object-detection-model-builder)                                                | GA                   | YES                | YES         |
 | **Inference** |   | | |
+| Managed online endpoints | GA | YES | YES |
 | [Batch inferencing](tutorial-pipeline-batch-scoring-classification.md)                                                          | GA                   | YES                | YES         |
 | [Azure Stack Edge with FPGA](how-to-deploy-fpga-web-service.md#deploy-to-a-local-edge-server)                                                    | Public Preview       | NO                 | NO          |
 | **Other** |   | | |
@@ -172,6 +176,7 @@ The information in the rest of this document provides information on what featur
 | ACI behind VNet                                                            | Preview   | NO        | N/A        |
 | ACR behind VNet                                                            | GA   | YES       | N/A        |
 | Private IP of AKS cluster                                                  | Preview   | NO        | N/A        |
+| Network isolation for managed online endpoints                             | Preview       | NO                 | N/A          |
 | **Compute** |   | | |
 | quota management across workspaces                                         | GA               | YES       | N/A        |
 | **Data for machine learning** | | | |
@@ -203,6 +208,7 @@ The information in the rest of this document provides information on what featur
 | Experimentation UI                                                         | GA               | YES       | N/A        |
 | .NET integration ML.NET 1.0                                                | GA               | YES       | N/A        |
 | **Inference** |   | | |
+| Managed online endpoints | GA | YES | N/A |
 | Batch inferencing                                                          | GA               | YES       | N/A        |
 | Azure Stack Edge with FPGA                                                    | Deprecating       | Deprecating            | N/A        |
 | **Other** |    | | |

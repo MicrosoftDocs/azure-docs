@@ -5,7 +5,7 @@ services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
 ms.topic: conceptual
-ms.date: 03/30/2022
+ms.date: 05/06/2022
 ms.author: victorh
 ---
 
@@ -108,7 +108,7 @@ If bot protection is enabled, incoming requests that match bot rules are logged 
 
 ## Configuration
 
-You can configure and deploy all WAF rule types using the Azure portal, REST APIs, Azure Resource Manager templates, and Azure PowerShell.
+You can configure and deploy all WAF policies using the Azure portal, REST APIs, Azure Resource Manager templates, and Azure PowerShell. You can also configure and manage Azure WAF policies at scale using Firewall Manager integration (preview). For more information, see [Use Azure Firewall Manager to manage Web Application Firewall policies (preview)](../shared/manage-policies.md).
 
 ## Monitoring
 

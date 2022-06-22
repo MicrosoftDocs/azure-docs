@@ -100,6 +100,7 @@ The following table compares the Flexible orchestration mode, Uniform orchestrat
 | SKUs supported  | D series, E series, F series, A series, B series, Intel, AMD; Specialty SKUs (G, H, L, M, N) are not supported | All SKUs  | All SKUs |
 | Full control over VM, NICs, Disks  | Yes  | Limited control with virtual machine scale sets VM API  | Yes  |
 | RBAC Permissions Required  | Compute VMSS Write, Compute VM Write, Network | Compute VMSS Write  | N/A |
+| Cross tenant shared image gallery | No | Yes | Yes |
 | Accelerated networking  | Yes  | Yes  | Yes |
 | Spot instances and pricing   | Yes, you can have both Spot and Regular priority instances  | Yes, instances must either be all Spot or all Regular  | No, Regular priority instances only |
 | Mix operating systems  | Yes, Linux and Windows can reside in the same Flexible scale set  | No, instances are the same operating system  | Yes, Linux and Windows can reside in the same availability set |
@@ -108,12 +109,13 @@ The following table compares the Flexible orchestration mode, Uniform orchestrat
 | Write Accelerator   | No  | Yes  | Yes |
 | Proximity Placement Groups   | Yes, read [Proximity Placement Groups documentation](../virtual-machine-scale-sets/proximity-placement-groups.md) | Yes, read [Proximity Placement Groups documentation](../virtual-machine-scale-sets/proximity-placement-groups.md) | Yes |
 | Azure Dedicated Hosts   | No  | Yes  | Yes |
-| Managed Identity  | User Assigned Identity Only  | System Assigned or User Assigned  | N/A (can specify Managed Identity on individual instances) |
+| Managed Identity  | [User Assigned Identity](../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vmss.md#user-assigned-managed-identity) only<sup>1</sup>  | System Assigned or User Assigned  | N/A (can specify Managed Identity on individual instances) |
 | Add/remove existing VM to the group  | No  | No  | No |
 | Service Fabric  | No  | Yes  | No |
 | Azure Kubernetes Service (AKS) / AKE  | No  | Yes  | No |
 | UserData  | Yes | Yes  | UserData can be specified for individual VMs |
 
+<sup>1</sup> For Uniform scale sets, the `GET VMSS` response will have a reference to the *identity*, *clientID*, and *principalID*. For Flexible scale sets, the response will only get a reference the *identity*. You can make a call to `Identity` to get the *clientID* and *PrincipalID*. 
 
 ### Autoscaling and instance orchestration
 | Feature | Supported by Flexible orchestration for scale sets | Supported by Uniform orchestration for scale sets | Supported by Availability Sets |
