@@ -45,7 +45,7 @@ The solution's data connector retreives a wide variety of SAP Log Sources:
 - JAVA Webdispacher Logs 
 - Syslog
 
-Example Detection Coverage
+### Threat detection coverage
 
 - Suspicious privileges operations 
   – Privileged user creation
