@@ -120,71 +120,6 @@ curl https://YOUR_RESOURCE_NAME.openaiazure.com/openai/deployments/YOUR_DEPLOYME
 }
 ```
 
-## Search
-
-The search endpoint computes similarity scores between provided query and documents. Up to 200 Documents can be passed directly to the API. The similarity score is a positive score that usually ranges from 0 to 300 (but can sometimes go higher), where a score above 200 usually means the document is semantically similar to the query.
-
-```
-POST https://{your-resource-name}.openai.azure.com/openai/deployments/{deployment-id}/search?api-version={api-version}
-```
-
-**Path parameters**
-
-| Parameter | Type | Required? | Default | Description |
-|--|--|--|--|--|
-| ```your-resource-name``` | string |  Required | null | The name of your Azure OpenAI Resource. |
-| ```deployment-id``` | string | Required | null | The name of your model deployment. You're required to first deploy a model before you can make calls |
-| ```api-version``` | string | Required |  null |The API version to use for this operation. This follows the YYYY-MM-DD-preview format.|
-
-**Supported versions**
-
-- `2022-06-01-preview`
-
-**Request body**
-
-| Parameter | Type | Required? | Default | Description |
-|--|--|--|--|--|
-| documents | array | Optional | | Up to 200 documents to search over, provided as a list of strings. The maximum document length (in tokens) is 2034 minus the number of tokens in the query.
-| query | string | Required || Query to search against the documents. |
-
-#### Example request
-
-```console
-curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/deployments/YOUR_DEPLOYMENT_NAME/search?api-version=2022-06-01-preview \
-  -H "Content-Type: application/json" \
- -H 'api-key: YOUR_API_KEY' \
-  -d '{
-  "documents": ["White House", "hospital", "school"],
-  "query": "the president"
-}' 
-```
-
-#### Example response
-
-```json
-{
-  "object": "list",
-  "data": [
-    {
-      "object": "search_result",
-      "document": 0,
-      "score": 173.28
-    },
-    {
-      "object": "search_result",
-      "document": 1,
-      "score": 13.313
-    },
-    {
-      "object": "search_result",
-      "document": 2,
-      "score": 5.695
-    }
-  ],
-  "model": "ada"
-}
-```
-
 ## Embeddings
 Get a vector representation of a given input that can be easily consumed by machine learning models and other algorithms. 
 
@@ -1147,7 +1082,7 @@ curl -X GET https://example_resource_name.openai.azure.com/openai/deployments?ap
 
 #### Create a new deployment
 
-This API will create a new deployment in the resource. This will enable you to make completions and search calls with the model.
+This API will create a new deployment in the resource. This will enable you to make completions and embeddings calls with the model.
 
 ```
 POST https://{your-resource-name}.openai.azure.com/openai/deployments?api-version={api-version}
