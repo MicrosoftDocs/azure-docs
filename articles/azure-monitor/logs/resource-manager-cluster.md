@@ -27,27 +27,27 @@ The following sample creates a new empty Log Analytics cluster.
 # [Bicep](#tab/bicep)
 
 ```bicep
-@description('The name of the Log Analytics cluster.')
+@description('Specify the name of the Log Analytics cluster.')
 param clusterName string
 
-@description('The location of the soureces.')
+@description('Specify the location of the resources.')
 param location string = resourceGroup().location
 
-@description('The Capacity Reservation value.')
+@description('Specify the capacity reservation value.')
 @allowed([
   500
   1000
   2000
   5000
 ])
-param CommitmentTier int = 500
+param CommitmentTier int
 
-@description('The billing type settings. Can be \'Cluster\' (default) or \'Workspaces\' for proportional billing on workspaces.')
+@description('Specify the billing type settings. Can be \'Cluster\' (default) or \'Workspaces\' for proportional billing on workspaces.')
 @allowed([
   'Cluster'
   'Workspaces'
 ])
-param billingType string = 'Cluster'
+param billingType string
 
 resource cluster 'Microsoft.OperationalInsights/clusters@2021-06-01' = {
   name: clusterName
@@ -75,19 +75,18 @@ resource cluster 'Microsoft.OperationalInsights/clusters@2021-06-01' = {
     "clusterName": {
       "type": "string",
       "metadata": {
-        "description": "The name of the Log Analytics cluster."
+        "description": "Specify the name of the Log Analytics cluster."
       }
     },
     "location": {
       "type": "string",
       "defaultValue": "[resourceGroup().location]",
       "metadata": {
-        "description": "The location of the soureces."
+        "description": "Specify the location of the resources."
       }
     },
     "CommitmentTier": {
       "type": "int",
-      "defaultValue": 500,
       "allowedValues": [
         500,
         1000,
@@ -95,18 +94,17 @@ resource cluster 'Microsoft.OperationalInsights/clusters@2021-06-01' = {
         5000
       ],
       "metadata": {
-        "description": "The Capacity Reservation value."
+        "description": "Specify the capacity reservation value."
       }
     },
     "billingType": {
       "type": "string",
-      "defaultValue": "Cluster",
       "allowedValues": [
         "Cluster",
         "Workspaces"
       ],
       "metadata": {
-        "description": "The billing type settings. Can be 'Cluster' (default) or 'Workspaces' for proportional billing on workspaces."
+        "description": "Specify the billing type settings. Can be 'Cluster' (default) or 'Workspaces' for proportional billing on workspaces."
       }
     }
   },
@@ -162,20 +160,22 @@ The following sample updates a Log Analytics cluster to use customer-managed key
 # [Bicep](#tab/bicep)
 
 ```bicep
-@description('The name of the Log Analytics cluster.')
+@description('Specify the name of the Log Analytics cluster.')
 param clusterName string
 
-@description('The location of the resources')
+@description('Specify the location of the resources')
 param location string = resourceGroup().location
 
-@description('The key identifier URI.')
-param keyVaultUri string = 'https://key-vault-name.vault.azure.net'
+@description('Specify the key vault name.')
+param keyVaultName string
 
-@description('The key name.')
-param keyName string = 'key-name'
+@description('Specify the key name.')
+param keyName string
 
-@description('The key version. When empty, latest key version is used.')
-param keyVersion string = 'current-version'
+@description('Specify the key version. When empty, latest key version is used.')
+param keyVersion string
+
+var keyVaultUri = format('{0}{1}', keyVaultName, environment().suffixes.keyvaultDns)
 
 resource cluster 'Microsoft.OperationalInsights/clusters@2021-06-01' = {
   name: clusterName
@@ -203,37 +203,37 @@ resource cluster 'Microsoft.OperationalInsights/clusters@2021-06-01' = {
     "clusterName": {
       "type": "string",
       "metadata": {
-        "description": "The name of the Log Analytics cluster."
+        "description": "Specify the name of the Log Analytics cluster."
       }
     },
     "location": {
       "type": "string",
       "defaultValue": "[resourceGroup().location]",
       "metadata": {
-        "description": "The location of the resources"
+        "description": "Specify the location of the resources"
       }
     },
-    "keyVaultUri": {
+    "keyVaultName": {
       "type": "string",
-      "defaultValue": "https://key-vault-name.vault.azure.net",
       "metadata": {
-        "description": "The key identifier URI."
+        "description": "Specify the key vault name."
       }
     },
     "keyName": {
       "type": "string",
-      "defaultValue": "key-name",
       "metadata": {
-        "description": "The key name."
+        "description": "Specify the key name."
       }
     },
     "keyVersion": {
       "type": "string",
-      "defaultValue": "current-version",
       "metadata": {
-        "description": "The key version. When empty, latest key version is used."
+        "description": "Specify the key version. When empty, latest key version is used."
       }
     }
+  },
+  "variables": {
+    "keyVaultUri": "[format('{0}{1}', parameters('keyVaultName'), environment().suffixes.keyvaultDns)]"
   },
   "resources": [
     {
@@ -246,7 +246,7 @@ resource cluster 'Microsoft.OperationalInsights/clusters@2021-06-01' = {
       },
       "properties": {
         "keyVaultProperties": {
-          "keyVaultUri": "[parameters('keyVaultUri')]",
+          "keyVaultUri": "[variables('keyVaultUri')]",
           "keyName": "[parameters('keyName')]",
           "keyVersion": "[parameters('keyVersion')]"
         }
