@@ -2,11 +2,11 @@
 title: Overview of the Azure monitoring agents| Microsoft Docs
 description: This article provides a detailed overview of the Azure agents available which support monitoring virtual machines hosted in Azure or hybrid environment.
 services: azure-monitor
-
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/24/2022
+ms.reviewer: shseth
 ---
 
 # Overview of Azure Monitor agents

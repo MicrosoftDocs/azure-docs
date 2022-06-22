@@ -26,13 +26,14 @@ The Defender for IoT architecture uses on-premises sensors and management server
 For more information, see the [Microsoft Security Development Lifecycle practices](https://www.microsoft.com/en-us/securityengineering/sdl/), which describes Microsoft's SDK practices, including training, compliance, threat modeling, design requirements, tools such as Microsoft Component Governance, pen testing, and more.
 
 > [!IMPORTANT]
-> Manual changes to software packages may have detrimental effects on the sensor and on-premises management cosnole. Microsoft is unable to support deployments with manual changes made to packages.
+> Manual changes to software packages may have detrimental effects on the sensor and on-premises management console. Microsoft is unable to support deployments with manual changes made to packages.
 >
 
 **Current versions of the sensor and on-premises management console software include**:
 
 | Version | Date released | End support date |
 |--|--|--|
+| 22.1.5 | 06/2022 | 03/2022 |
 | 22.1.4 | 04/2022 | 12/2022 |
 | 22.1.3 | 03/2022 | 11/2022 |
 | 22.1.1 | 02/2022 | 10/2022 |
@@ -40,6 +41,12 @@ For more information, see the [Microsoft Security Development Lifecycle practice
 | 10.5.4 | 12/2021 | 09/2022 |
 | 10.5.3 | 10/2021 | 07/2022 |
 | 10.5.2 | 10/2021 | 07/2022 |
+
+## June
+
+**Sensor software version**: 22.1.5
+
+- Bug fixes related to OT monitoring software updates and sensor-cloud connections.
 
 ## May 2022
 
