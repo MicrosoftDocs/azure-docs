@@ -100,6 +100,11 @@ This version of the sensor provides a improved security for uploading proprietar
 
 For more information, see [Manage proprietary protocols with Horizon plugins](resources-manage-proprietary-protocols.md).
 
+## June
+
+**Sensor software version**: 22.1.5
+
+- Bug fixes related to OT monitoring software updates and sensor-cloud connections.
 
 ## May 2022
 
