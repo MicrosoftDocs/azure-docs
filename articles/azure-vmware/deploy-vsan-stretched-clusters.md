@@ -94,7 +94,7 @@ The following scenarios are supported:
         - 2 failures – RAID 6 (Erasure coding), requires a minimum of 6 hosts in each AZ
         - 3 failures – RAID 1 (Mirroring) 
 
-During the phase of creating the private cloud and enabling the first stretched cluster via the Azure portal, you need to open a [support ticket](https://rc.portal.azure.com/#create/Microsoft.Support) from the Azure portal to perform the following actions:
+While you create the private cloud and enable the first stretched cluster via the Azure portal, you need to open a [support ticket](https://rc.portal.azure.com/#create/Microsoft.Support) from the Azure portal to perform the following actions:
 
 - HCX installation, deployment, removal, and support for migration
 - Connect a private cloud in another region to a Stretched Cluster private cloud
@@ -140,9 +140,9 @@ No. A stretched cluster is created between two availability zones, while the thi
 - A non-stretched private cloud can't connect to a stretched private cloud in the same region.
 - Disaster recovery addons like, SRM, Zerto, and JetStream are currently not supported in a stretched cluster environment.
 
-**What kind of latencies should I expect between the availability zones (AZ)s?**
+**What kind of latencies should I expect between the availability zones (AZs)?**
 
-vSAN Stretched Clusters operate within a 5 ms RTT between the AZs that host the workload VMs. The Azure VMware Solution stretched cluster deployment caters to that guiding principle. Keep this information in mind when deploying applications (with SFTT of dual site mirroring, which uses synchronous writes) that have stringent latency requirements.
+vSAN Stretched Clusters operate within a 5 ms RTT between the AZs that host the workload VMs. The Azure VMware Solution stretched cluster deployment follows that guiding principle. Consider that information when deploying applications (with SFTT of dual site mirroring, which uses synchronous writes) that have stringent latency requirements.
 
 **Can I mix stretched and non-stretched clusters in my private cloud?**
 
