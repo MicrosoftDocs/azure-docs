@@ -789,7 +789,7 @@ To view the full details of these libraries, use these links:
 * [Python 3.8 Standard Library](https://docs.python.org/3.8/library/)
 * [Python 3.9 Standard Library](https://docs.python.org/3.9/library/)
 
-### Worker dependencies for Azure Functions on Python
+### Worker dependencies
 
 The Python worker for Azure Functions requires a specific set of libraries. You can also use these libraries in your functions, but they aren't a part of the Python standard. If your functions rely on any of these libraries, they might not be available to your code when you're running outside Azure Functions. You can find a detailed list of dependencies in the `install\_requires` section in the [setup.py](https://github.com/Azure/azure-functions-python-worker/blob/dev/setup.py#L282) file.
 
@@ -801,11 +801,11 @@ The Python worker for Azure Functions requires a specific set of libraries. You 
 
 ### Python library for Azure Functions
 
-Every Python worker update includes a new version of the [Azure Functions library for Python (azure.functions)](https://github.com/Azure/azure-functions-python-library). This approach makes it easier to continuously update your Python function apps, because each update is backward compatible. You can find a list of releases of this library in the [azure-functions information on the PyPi website](https://pypi.org/project/azure-functions/#history).
+Every Python worker update includes a new version of the [Python library for Azure Functions (azure.functions)](https://github.com/Azure/azure-functions-python-library). This approach makes it easier to continuously update your Python function apps, because each update is backward compatible. You can find a list of releases of this library in the [azure-functions information on the PyPi website](https://pypi.org/project/azure-functions/#history).
 
 The runtime library version is fixed by Azure, and *requirements.txt* can't override it. The `azure-functions` entry in *requirements.txt* is only for linting and customer awareness.
 
-Use the following code to track the version of the Azure Functions library for Python in your runtime:
+Use the following code to track the version of the Python library for Azure Functions in your runtime:
 
 ```python
 getattr(azure.functions, '__version__', '< 1.2.1')
