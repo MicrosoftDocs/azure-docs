@@ -2,7 +2,7 @@
 title: How to Use Availability Sets
 description: How to use availability sets within Azure CycleCloud.
 author: bwatrous
-ms.date: 03/10/2020
+ms.date: 06/21/2022
 ms.author:  bewatrou
 ---
 
@@ -10,7 +10,7 @@ ms.author:  bewatrou
 
 Azure provides several models for Virtual Machine placement for both fault isolation and proximity placement.  [Virtual Machine Scalesets](https://docs.microsoft.com/azure/virtual-machine-scale-sets/overview), [Proximity Placement Groups](https://docs.microsoft.com/azure/virtual-machines/linux/co-location?ocid=AID754288&wt.mc_id=azfr-c9-dbrown&wt.mc_id=CFID0493), and [Availability Sets](https://docs.microsoft.com/azure/virtual-machines/windows/manage-availability#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy) are the most common.
 
-In general, Azure recommends Virtual Machine Sets and potentially Proximity Placement Groups over Availability Sets.  And, by default, Azure CycleCloud places all VMs in a NodeArray in one or more Virtual Machine ScaleSets. VMSS is the recommended deployment model for large scale, dynamic clusters, and is the correct choice for most CycleCloud clusters.
+In general, Azure recommends Virtual Machine Scale Sets (VMSS) and potentially Proximity Placement Groups over Availability Sets.  And, by default, Azure CycleCloud places all VMs in a NodeArray in one or more Virtual Machine Scale Sets. VMSS is the recommended deployment model for large scale, dynamic clusters, and is the correct choice for most CycleCloud clusters.
 
 However, Azure CycleCloud does support configuring one or all NodeArrays in a cluster to place VMs using Availability Sets as an alternative to VMSS for rare cases where they are required/useful.
 
