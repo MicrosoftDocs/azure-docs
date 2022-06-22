@@ -26,7 +26,7 @@ The Azure OpenAI service provides REST API access to OpenAI's powerful language 
 | Managed Identity| Yes, via Azure Active Directory | 
 | UI experience | **Azure Portal** for account & resource management, <br> **Azure OpenAI Service Studio** for model exploration and fine tuning |
 | Regional availability | South Central US, <br> West Europe |
-| Content filtering | Prompts and completions are evaluated against our content policy with automated systems. High severity content will be blocked. |
+| Content filtering | Prompts and completions are evaluated against our content policy with automated systems. High severity content will be filtered. |
 
 ## Responsible AI
 
