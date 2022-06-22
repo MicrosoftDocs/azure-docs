@@ -18,7 +18,7 @@ As a Python developer, you might also be interested in one of the following arti
 | <ul><li>[Python function using Visual Studio Code](./create-first-function-vs-code-python.md)</li><li>[Python function with terminal/command prompt](./create-first-function-cli-python.md)</li></ul> | <ul><li>[Developer guide](functions-reference.md)</li><li>[Hosting options](functions-scale.md)</li><li>[Performance&nbsp;considerations](functions-best-practices.md)</li></ul> | <ul><li>[Image classification with PyTorch](machine-learning-pytorch.md)</li><li>[Azure Automation sample](/samples/azure-samples/azure-functions-python-list-resource-groups/azure-functions-python-sample-list-resource-groups/)</li><li>[Machine learning with TensorFlow](functions-machine-learning-tensorflow.md)</li><li>[Browse Python samples](/samples/browse/?products=azure-functions&languages=python)</li></ul> |
 
 > [!NOTE]
-> Although you can [develop your Python-based functions locally on Windows](create-first-function-vs-code-python.md#run-the-function-locally), Python is supported only on a Linux-based hosting plan when functions are running in Azure. See the [list of supported operating system/runtime combinations](functions-scale.md#operating-systemruntime).
+> Although you can [develop your Python-based functions locally on Windows](create-first-function-vs-code-python.md#run-the-function-locally), Python functions are supported in Azure only when they're running on Linux. See the [list of supported operating system/runtime combinations](functions-scale.md#operating-systemruntime).
 
 ## Programming model
 
