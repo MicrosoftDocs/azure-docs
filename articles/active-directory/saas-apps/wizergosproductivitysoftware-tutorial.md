@@ -130,11 +130,11 @@ To configure Azure AD single sign-on with Wizergos Productivity Software, perfor
 	
 	a. Click **UPLOAD** button to upload the downloaded certificate from Azure AD.
 	
-	b. In the **Issuer URL** textbox, paste the **Azure AD Identifier** value which you have copied from Azure portal.
+	b. In the **Issuer URL** textbox, paste the **Azure AD Identifier** value that you copied from the Azure portal.
 	
-	c. In the **Single Sign-On URL** textbox, paste the **Login URL** value which you have copied from Azure portal.
+	c. In the **Single Sign-On URL** textbox, paste the **Login URL** value that you copied from the Azure portal.
 	
-	d. In the **Single Sign-Out URL** textbox, paste the **Logout URL** value which you have copied from Azure portal.
+	d. In the **Single Sign-Out URL** textbox, paste the **Logout URL** value that you copied from Azure portal.
 	
 	e. Click **Save** button.
 
