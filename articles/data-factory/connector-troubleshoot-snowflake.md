@@ -23,13 +23,13 @@ This article provides suggestions to troubleshoot common problems with the Snowf
 
     `Job failed due to reason: net.snowflake.client.jdbc.SnowflakeSQLException: IP % is not allowed to access Snowflake.  Contact your local security administrator. `
 
-- **Cause**: It's a connectivity issue and usually caused by firewall IP issues when the integration runtime accesses your Snowflake.  
+- **Cause**: It's a connectivity issue and usually caused by firewall IP issues when integration runtimes access your Snowflake.  
 
 - **Recommendation**:  
 
     - If you configure a [self-hosted integration runtime](create-self-hosted-integration-runtime.md) to connect to Snowflake, make sure to add your self-hosted integration runtime IPs to the allowed list in Snowflake. 
     - If you use an Azure Integration Runtime and the access is restricted to IPs approved in the firewall rules, you can add [Azure Integration Runtime IPs](azure-integration-runtime-ip-addresses.md) to the allowed list in Snowflake.
-    - If you use the managed private endpoint feature and a network policy is in place on your Snowflake account, ensure the Synapse/ADF managed VNet CIDR is allowed. For more steps, refer to [How To: Set up a managed private endpoint from Azure Data Factory or Synapse to Snowflake](https://community.snowflake.com/s/article/How-to-set-up-a-managed-private-endpoint-from-Azure-Data-Factory-or-Synapse-to-Snowflake). 
+    - If you use a managed private endpoint and a network policy is in place on your Snowflake account, ensure the Synapse/ADF Managed VNet CIDR is allowed. For more steps, refer to [How To: Set up a managed private endpoint from Azure Data Factory or Synapse to Snowflake](https://community.snowflake.com/s/article/How-to-set-up-a-managed-private-endpoint-from-Azure-Data-Factory-or-Synapse-to-Snowflake). 
 
 ## Error message: Failed to access remote file: access denied.
 
