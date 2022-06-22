@@ -445,7 +445,7 @@ Learn more at [Overview of Microsoft Defender for Azure Cosmos DB](concept-defen
 
 We're also introducing a new enablement experience for database security. You can now enable Microsoft Defender for Cloud protection on your subscription to protect all database types, such as, Azure Cosmos DB, Azure SQL Database, Azure SQL servers on machines, and Microsoft Defender for open-source relational databases through one enablement process. Specific resource types can be included, or excluded by configuring your plan.  
 
-Learn how to [enable your database security at the subscription level](defender-for-sql-enable-azure-sql-protections.md#enable-database-protection-on-your-subscription).
+Learn how to [enable your database security at the subscription level](quickstart-enable-database-protections.md#enable-database-protection-on-your-subscription).
 
 ### Threat protection for Google Kubernetes Engine (GKE) clusters
 
