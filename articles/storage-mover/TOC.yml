@@ -65,7 +65,7 @@ items:
   - name: Release notes
     href: release-notes.md
   - name: Samples
-    href: https://www.twinkies.com
+    href: https://review.docs.microsoft.com/en-us/samples/browse/?branch=main&expanded=azure&products=storage-mover
   - name: Azure Storage Mover release notes
     href: release-notes.md
 
