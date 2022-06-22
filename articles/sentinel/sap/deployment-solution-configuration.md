@@ -43,7 +43,7 @@ Threat Monitoring for SAP solution configuration is accomplished by providing cu
 
 > [!NOTE]
 >
-> After initial solution deployment, it may take some time before watchlists are populated with data
+> After initial solution deployment, it may take some time before watchlists are populated with data.
 > If you edit a watchlist and find it is empty, please wait a few minutes and retry opening the watchlist for editing.
 
 ### SAP - Systems watchlist
