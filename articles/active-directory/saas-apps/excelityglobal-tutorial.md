@@ -90,7 +90,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     | **For Production Environment** : `https://ess.excelityglobal.com/ACS` |
     |**For Sandbox Environment** : `https://s6.excelityglobal.com/ACS` |
 
-1. Your ExcelityGlobal application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes, where as **nameidentifier** is mapped with **user.userprincipalname**. ExcelityGlobal application expects **nameidentifier** to be mapped with **user.mail**, so you need to edit the attribute mapping by clicking on **Edit** icon and change the attribute mapping.
+1. Your ExcelityGlobal application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes, whereas **nameidentifier** is mapped with **user.userprincipalname**. ExcelityGlobal application expects **nameidentifier** to be mapped with **user.mail**, so you need to edit the attribute mapping by clicking on **Edit** icon and change the attribute mapping.
  
 	![Screenshot shows the image of ExcelityGlobal application.](common/edit-attribute.png "Image")
 
