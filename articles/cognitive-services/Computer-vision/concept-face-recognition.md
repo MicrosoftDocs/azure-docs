@@ -21,7 +21,7 @@ Verification is one-to-one matching that takes two faces and returns whether the
 
 Try out the capabilities of face recognition quickly and easily using Vision Studio.
 > [!div class="nextstepaction"]
-> [Try Vision Studio](https://vision.cognitive.azure.com/)
+> [Try Vision Studio](https://portal.vision.cognitive.azure.com/)
 
 ## Related data structures
 
