@@ -1,5 +1,5 @@
 ---
-title: Diagnose with Live Metrics Stream - Azure Application Insights
+title: Diagnose with Live Metrics - Azure Application Insights
 description: Monitor your web app in real time with custom metrics, and diagnose issues with a live feed of failures, traces, and events.
 ms.topic: conceptual
 ms.date: 05/31/2022
@@ -7,14 +7,14 @@ ms.reviewer: sdash
 ms.devlang: csharp
 ---
 
-# Live Metrics Stream: Monitor & Diagnose with 1-second latency
+# Live Metrics: Monitor & Diagnose with 1-second latency
 
-Monitor your live, in-production web application by using Live Metrics Stream (also known as QuickPulse) from [Application Insights](./app-insights-overview.md). Select and filter metrics and performance counters to watch in real time, without any disturbance to your service. Inspect stack traces from sample failed requests and exceptions. Together with [Profiler](./profiler.md) and [Snapshot debugger](./snapshot-debugger.md), Live Metrics Stream provides a powerful and non-invasive diagnostic tool for your live website.
+Monitor your live, in-production web application by using Live Metrics (also known as QuickPulse) from [Application Insights](./app-insights-overview.md). Select and filter metrics and performance counters to watch in real time, without any disturbance to your service. Inspect stack traces from sample failed requests and exceptions. Together with [Profiler](./profiler.md) and [Snapshot debugger](./snapshot-debugger.md), Live Metrics provides a powerful and non-invasive diagnostic tool for your live website.
 
 > [!NOTE]
 > Live Metrics only supports TLS 1.2. For more information, refer to [Troubleshooting](#troubleshooting). 
 
-With Live Metrics Stream, you can:
+With Live Metrics, you can:
 
 * Validate a fix while it's released, by watching performance and failure counts.
 * Watch the effect of test loads, and diagnose issues live.
@@ -29,7 +29,7 @@ With Live Metrics Stream, you can:
 Live Metrics are currently supported for ASP.NET, ASP.NET Core, Azure Functions, Java, and Node.js apps.
 
 > [!NOTE]
-> The number of monitored server instances displayed by Live Metrics Stream may be lower than the actual number of instances allocated for the application. This is because many modern web servers will unload applications that do not receive requests over a period of time in order to conserve resources. Since Live Metrics Stream only counts servers that are currently running the application, servers that have already unloaded the process will not be included in that total.
+> The number of monitored server instances displayed by Live Metrics may be lower than the actual number of instances allocated for the application. This is because many modern web servers will unload applications that do not receive requests over a period of time in order to conserve resources. Since Live Metrics only counts servers that are currently running the application, servers that have already unloaded the process will not be included in that total.
 
 ## Get started
 
@@ -46,7 +46,7 @@ Live Metrics are currently supported for ASP.NET, ASP.NET Core, Azure Functions,
 3. [Secure the control channel](#secure-the-control-channel) if you might use sensitive data such as customer names in your filters.
 
 > [!IMPORTANT]
-> Monitoring ASP.NET Core [LTS](https://dotnet.microsoft.com/platform/support/policy/dotnet-core) applications require Application Insights version 2.8.0 or above. To enable Application Insights ensure it is both activated in the Azure Portal and that the Application Insights NuGet package is included. Without the NuGet package some telemetry is sent to Application Insights but that telemetry will not show in the Live Metrics Stream.
+> Monitoring ASP.NET Core [LTS](https://dotnet.microsoft.com/platform/support/policy/dotnet-core) applications require Application Insights version 2.8.0 or above. To enable Application Insights ensure it is both activated in the Azure Portal and that the Application Insights NuGet package is included. Without the NuGet package some telemetry is sent to Application Insights but that telemetry will not show in Live Metrics.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
 
@@ -102,7 +102,7 @@ namespace LiveMetricsDemo
             while (true)
             {
                 // Send dependency and request telemetry.
-                // These will be shown in Live Metrics stream.
+                // These will be shown in Live Metrics.
                 // CPU/Memory Performance counter is also shown
                 // automatically without any additional steps.
                 client.TrackDependency("My dependency", "target", "http://sample",
@@ -118,7 +118,7 @@ namespace LiveMetricsDemo
 
 While the above sample is for a console app, the same code can be used in any .NET applications. If any other TelemetryModules are enabled which auto-collects telemetry, it's important to ensure the same configuration used for initializing those modules is used for Live Metrics module as well.
 
-## How does Live Metrics Stream differ from Metrics Explorer and Analytics?
+## How does Live Metrics differ from Metrics Explorer and Analytics?
 
 | |Live Stream | Metrics Explorer and Analytics |
 |---|---|---|
@@ -268,7 +268,7 @@ Basic metrics include request, dependency, and exception rate. Performance metri
 
 ## Troubleshooting
 
-Live Metrics Stream uses different IP addresses than other Application Insights telemetry. Make sure [those IP addresses](./ip-addresses.md) are open in your firewall. Also check the [outgoing ports for Live Metrics Stream](./ip-addresses.md#outgoing-ports) are open in the firewall of your servers.
+Live Metrics uses different IP addresses than other Application Insights telemetry. Make sure [those IP addresses](./ip-addresses.md) are open in your firewall. Also check the [outgoing ports for Live Metrics](./ip-addresses.md#outgoing-ports) are open in the firewall of your servers.
 
 As described in the [Azure TLS 1.2 migration announcement](https://azure.microsoft.com/updates/azuretls12/), Live Metrics now only supports TLS 1.2. If you are using an older version of TLS, Live Metrics will not display any data. For applications based on .NET Framework 4.5.1, refer to [How to enable Transport Layer Security (TLS) 1.2 on clients - Configuration Manager](/mem/configmgr/core/plan-design/security/enable-tls-1-2-client#bkmk_net) to support newer TLS version.
 
