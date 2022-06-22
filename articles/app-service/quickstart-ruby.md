@@ -36,7 +36,7 @@ You will not need to install these if you are using the Cloud Shell.
 To complete this quickstart you need:
 
 1. An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?utm_source=campaign&utm_campaign=vscode-tutorial-app-service-extension&mktingSource=vscode-tutorial-app-service-extension).
-2. A GitHub account to fork a repository.
+1. A GitHub account to fork a repository.
 
 ---
 
@@ -201,14 +201,13 @@ http://<app-name>.azurewebsites.net
     ![Screenshot of the App Services page in the Azure portal. The Create button in the action bar is highlighted.](media/quickstart-ruby/azure-portal-create-app-service.png)
 
 1. Fill out the **Create Web App** page as follows.
-   - **Resource Group**: Create a resource group named *myResourceGroup*.
-   - **Name**: Type a globally unique name for your web app. 
-   - **Publish**: Select *Code*.
-   - **Runtime stack**: Select *Ruby 2.7*. 
-   - **Operating system**: Select *Linux*.
-   - **Region**: Select an Azure region close to you.
-   - **App Service Plan**: Create an app service plan named *myAppServicePlan*.
-
+  - **Resource Group**: Create a resource group named _myResourceGroup_.
+  - **Name**: Type a globally unique name for your web app. 
+  - **Publish**: Select _Code_.
+  - **Runtime stack**: Select _Ruby 2.7_. 
+  - **Operating system**: Select _Linux_.
+  - **Region**: Select an Azure region close to you.
+  - **App Service Plan**: Create an app service plan named _myAppServicePlan_.
 1.  To change to the Free tier, next to **Sku and size**, select **Change size**. 
    
 1.  In the Spec Picker, select **Dev/Test** tab, select **F1**, and select the **Apply** button at the bottom of the page.
@@ -223,27 +222,27 @@ http://<app-name>.azurewebsites.net
 
 1. After the Azure resources are created, select **Go to resource**.
 
-1.. From the left navigation, select **Deployment Center**.
+1. From the left navigation, select **Deployment Center**.
 
     ![Screenshot of the App Service in the Azure Portal. The Deployment Center option in the Deployment section of the left navigation is highlighted.](media/quickstart-ruby/azure-portal-configure-app-service-deployment-center.png)  
 
-1.. Under **Settings**, select a **Source**. For this quickstart, select *GitHub*.
+1. Under **Settings**, select a **Source**. For this quickstart, select _GitHub_.
 
-1.. In the section under **GitHub**, select the following settings:
+1. In the section under **GitHub**, select the following settings:
     - Organization: Select your organization.
-    - Repository: Select *ruby-docs-hello-world*.
+    - Repository: Select _ruby-docs-hello-world_.
     - Branch: Select the default branch for your repository.
 
-1.. Select **Save**.
+1. Select **Save**.
 
     ![Screenshot of the Deployment Center for the App Service, focusing on the GitHub integration settings. The Save button in the action bar is highlighted.](media/quickstart-ruby/azure-portal-configure-app-service-github-integration.png)  
 
     > [!TIP]
     > This quickstart uses GitHub. Additional continuous deployment sources include Bitbucket, Local Git, Azure Repos, and External Git. FTPS is also a supported deployment method.
 
-1.. Once the GitHub integration is saved, from the left navigation of your app, select **Overview** > **URL**. 
+1. Once the GitHub integration is saved, from the left navigation of your app, select **Overview** > **URL**. 
 
-1.. On the Overview, select the link under **URL**.
+1. On the Overview, select the link under **URL**.
 
     ![Screenshot of the App Service resource's overview with the URL highlighted.](media/quickstart-ruby/azure-portal-app-service-url.png)  
 
@@ -265,7 +264,7 @@ The Ruby sample code is running in an Azure App Service Linux web app.
     nano app/controllers/application_controller.rb
     ```
 
-2. Edit the *ApplicationController* class so that it shows "Hello world from Azure App Service on Linux!" instead of "Hello from Azure App Service on Linux!".
+1. Edit the _ApplicationController_ class so that it shows "Hello world from Azure App Service on Linux!" instead of "Hello from Azure App Service on Linux!".
 
     ```ruby
     class ApplicationController < ActionController::Base
@@ -275,9 +274,9 @@ The Ruby sample code is running in an Azure App Service Linux web app.
     end
     ```
 
-3. Save and close the file.
+1. Save and close the file.
 
-4. Commit the change to Git with the following commands:
+1. Commit the change to Git with the following commands:
 
     ```bash
     git add .
@@ -303,7 +302,7 @@ The Ruby sample code is running in an Azure App Service Linux web app.
 
     ![Screenshot of Visual Studio Code in the browser, highlighting app/controllers/application_controller.rb in the Explorer pane.](media/quickstart-ruby/visual-studio-code-in-browser-navigate-to-application-controller.png)
 
-1. Edit the *ApplicationController* class so that it shows "Hello world from Azure App Service on Linux!" instead of "Hello from Azure App Service on Linux!".
+1. Edit the _ApplicationController_ class so that it shows "Hello world from Azure App Service on Linux!" instead of "Hello from Azure App Service on Linux!".
 
     ```ruby
     class ApplicationController < ActionController::Base
@@ -333,7 +332,7 @@ The Ruby sample code is running in an Azure App Service Linux web app.
 
     ![Screenshot of the Azure portal with 'app services' typed in the search text box. In the results, the App Services option under Services is highlighted.](media/quickstart-ruby/azure-portal-search-for-app-services.png)    
 
-2. Select the name of your Azure app.
+1. Select the name of your Azure app.
 
     ![Screenshot of the App Services list in Azure. The name of the demo app service is highlighted.](media/quickstart-ruby/app-service-list.png)
 
@@ -349,7 +348,7 @@ Your web app's **Overview** page will be displayed. Here, you can perform basic 
 
 1. From your App Service **Overview** page, select the resource group you created.
 
-2. From the resource group page, select **Delete resource group**. Confirm the name of the resource group to finish deleting the resources.
+1. From the resource group page, select **Delete resource group**. Confirm the name of the resource group to finish deleting the resources.
 
 ---
 
