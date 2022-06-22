@@ -55,7 +55,7 @@ In this step, you'll create the mobile network site resource representing the ph
 
 1. In the **Attached data networks** section, select **Add data network**. Use the information you collected in [Collect data network values](collect-required-information-for-a-site.md#collect-data-network-values) to fill out the fields and select **Submit**. Note that you can only connect the packet core instance to a single data network.
 
-    :::image type="content" source="media/how-to-guide-deploy-a-private-mobile-network-azure-portal/create-site-add-data-network.png" alt-text="Screenshot of the Azure portal showing the Packet core configuration tab for a site resource.":::
+    :::image type="content" source="media/how-to-guide-deploy-a-private-mobile-network-azure-portal/create-site-add-data-network.png" alt-text="Screenshot of the Azure portal showing the Add data network screen.":::
 
 1. Select **Review + create**.
 1. Azure will now validate the configuration values you've entered. You should see a message indicating that your values have passed validation.
