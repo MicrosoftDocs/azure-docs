@@ -1349,7 +1349,7 @@ items:
       href: visualize/workbooks-overview.md 
     - name: Working with workbooks
       items:
-        - name: Getting Started with workbooks
+        - name: Getting started with workbooks
           href: visualize/workbooks-getting-started.md
         - name: Data sources
           href: visualize/workbooks-data-sources.md         
@@ -1377,7 +1377,7 @@ items:
             href: visualize/workbooks-composite-bar.md
           - name: Remderers
             href: visualize/workbooks-renderers.md
-        - name: Workbook Result Limits
+        - name: Workbook result limits
           href: visualize/workbooks-limits.md
     - name: Creating a workbook
       items:
