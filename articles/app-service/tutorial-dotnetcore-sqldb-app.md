@@ -221,7 +221,7 @@ If you receive the error `Client with IP address xxx.xxx.xxx.xxx is not allowed 
 
 ## 6 - Deploy to the App Service
 
-That we're able to create the schema in the database means that our .NET app can connect to the database successfully. We're now ready to deploy our .NET app to the App Service.
+That we're able to create the schema in the database means that our .NET app can connect to the Azure database successfully with the new connection string. Remember that the service connector already configured the `AZURE_SQL_CONNECTIONSTRING` connection string in our App Service app. We're now ready to deploy our .NET app to the App Service.
 
 ### [Deploy using Visual Studio](#tab/visualstudio-deploy)
 
