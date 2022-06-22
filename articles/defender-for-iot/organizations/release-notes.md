@@ -46,7 +46,7 @@ For more information, see the [Microsoft Security Development Lifecycle practice
 
 | Version | Date released | End support date |
 |--|--|--|
-| 22.2.3 | 06/2022 | 3/2023 |
+| 22.2.3 | 07/2022 | 4/2023 |
 | 22.1.5 | 06/2022 | 10/2023 |
 | 22.1.4 | 04/2022 | 10/2022 |
 | 22.1.3 | 03/2022 | 10/2022 |
@@ -56,17 +56,13 @@ For more information, see the [Microsoft Security Development Lifecycle practice
 | 10.5.3 | 10/2021 | 07/2022 |
 | 10.5.2 | 10/2021 | 07/2022 |
 
-## June 2022
+## July 2022
 
 **Sensor software version**: 22.2.3
 
 - [Define sensor settings from the Azure portal](#define-sensor-settings-from-the-azure-portal-public-preview)
 - [Support diagnostic log enhancements](#support-diagnostic-log-enhancements-public-preview)
 - [Improved security for uploading protocol plugins](#improved-security-for-uploading-protocol-plugins)
-
-**Sensor software version**: 22.1.5
-
-- Bug fixes related to OT monitoring software updates and sensor-cloud connections.
 
 ### Define sensor settings from the Azure portal (public preview)
 
