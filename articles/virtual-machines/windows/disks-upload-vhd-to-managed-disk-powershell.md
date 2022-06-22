@@ -24,14 +24,10 @@ If you're providing a backup solution for IaaS VMs in Azure, you should use dire
 If you're using [Azure Active Directory (Azure AD)](../../active-directory/fundamentals/active-directory-whatis.md) to control resource access, you can now use it to restrict uploading of Azure managed disks. This feature is currently in preview. When a user attempts to upload a disk, Azure validates the identity of the requesting user in Azure AD, and confirms that user has the required permissions. At a higher level, a system administrator could set a policy at the Azure account or subscription level, to ensure that all disks and snapshots must use Azure AD for uploading.
 
 ### Prerequisites
-- Email AzureDisks@microsoft .com to have the feature enabled on your subscription.
-- Install the latest [Azure PowerShell module](/powershell/azure/install-az-ps).
-- Install the [pre-release version](https://aka.ms/DisksAzureADAuthSDK) of the Az.Storage PowerShell module.
+[!INCLUDE [disks-azure-ad-upload-download-prereqs](../../../includes/disks-azure-ad-upload-download-prereqs.md)]
 
 ### Restrictions
-
-- VHDs can't be uploaded to empty snapshots.
-- Only currently available in xyz regions.
+[!INCLUDE [disks-azure-ad-upload-download-restrictions](../../../includes/disks-azure-ad-upload-download-restrictions.md)]
 
 ### Create custom role
 
@@ -70,7 +66,20 @@ For guidance on how to copy a managed disk from one region to another, see [Copy
 
 ### Upload a VHD
 
-If Azure AD is used to enforce upload restrictions on a subscription or at the account level, [Add-AzVHD](/powershell/module/az.compute/add-azvhd?view=azps-7.1.0&viewFallbackFrom=azps-5.4.0&preserve-view=true) only succeeds if attempted by a user that has the [appropriate RBAC role or necessary permissions](#create-custom-role).
+### (Optional) Grant access to the disk
+
+ > [!IMPORTANT]
+> If Azure AD is being used to enforce upload restrictions, you must use Add-AzVHD to upload a disk. The manual upload method isn't currently supported.
+
+If Azure AD is used to enforce upload restrictions on a subscription or at the account level, [Add-AzVHD](/powershell/module/az.compute/add-azvhd?view=azps-7.1.0&viewFallbackFrom=azps-5.4.0&preserve-view=true) only succeeds if attempted by a user that has the [appropriate RBAC role or necessary permissions](#create-custom-role). You'll need to [assign RBAC permissions](../../role-based-access-control/role-assignments-powershell.md) to grant access to the disk and generate a writeable SAS.
+
+```azurepowershell
+New-AzRoleAssignment -SignInName <emailOrUserprincipalname> `
+-RoleDefinitionName "Disks Data Operator" `
+-Scope /subscriptions/<subscriptionId>
+```
+
+### Use Add-AzVHD
 
 The following example uploads a VHD from your local machine to a new Azure managed disk using [Add-AzVHD](/powershell/module/az.compute/add-azvhd?view=azps-7.1.0&viewFallbackFrom=azps-5.4.0&preserve-view=true). Replace `<your-filepath-here>`, `<your-resource-group-name>`,`<desired-region>`, and `<desired-managed-disk-name>` with your parameters:
 
@@ -117,8 +126,6 @@ Replace `<yourdiskname>`, `<yourresourcegroupname>`, and `<yourregion>` then run
 
 > [!TIP]
 > If you're creating an OS disk, add `-HyperVGeneration '<yourGeneration>'` to `New-AzDiskConfig`.
-> 
-> If you're using Azure AD to secure your uploads, add `-dataAccessAuthMode 'AzureActiveDirectory'` to `New-AzDiskConfig`.  
 
 ```powershell
 $vhdSizeBytes = (Get-Item "<fullFilePathHere>").length
@@ -129,16 +136,6 @@ New-AzDisk -ResourceGroupName '<yourresourcegroupname>' -DiskName '<yourdiskname
 ```
 
 If you would like to upload either a premium SSD or a standard SSD, replace **Standard_LRS** with either **Premium_LRS** or **StandardSSD_LRS**. Ultra disks aren't currently supported.
-
-### (Optional) Grant access to the disk
-
-If you're using Azure AD to secure uploads, you'll need to [assign RBAC permissions](../../role-based-access-control/role-assignments-powershell.md) to grant access to the disk and generate a writeable SAS.
-
-```azurepowershell
-New-AzRoleAssignment -SignInName <email address of the user> `
--RoleDefinitionName "Disks Data Operator" `
--Scope $myDisk.Id
-```
 
 ### Generate writeable SAS
 

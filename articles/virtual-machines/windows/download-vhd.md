@@ -1,14 +1,13 @@
 ---
 title: Download a Windows VHD from Azure 
 description: Download a Windows VHD using the Azure portal.
-author: cynthn
-manager: gwallace
-ms.service: virtual-machines
+author: roygara
+ms.author: rogarana
+ms.service: storage
 ms.subservice: disks
 ms.workload: infrastructure-services
 ms.topic: how-to
-ms.date: 01/13/2019
-ms.author: cynthn
+ms.date: 06/21/2022
 ---
 
 # Download a Windows VHD from Azure
@@ -58,6 +57,11 @@ Your snapshot will be created shortly, and can then be used to download or creat
 >  
 > This method is only recommended for VMs with a single OS disk. VMs with one or more data disks should be stopped before download or before creating a snapshot for the OS disk and each data disk.
 
+
+## Secure uploads with Azure AD (preview)
+
+[!INCLUDE [disks-azure-ad-upload-download-portal](../../../includes/disks-azure-ad-upload-download-portal.md)]
+
 ## Generate download URL
 
 To download the VHD file, you need to generate a [shared access signature (SAS)](../../storage/common/storage-sas-overview.md?toc=/azure/virtual-machines/windows/toc.json) URL. When the URL is generated, an expiration time is assigned to the URL.
@@ -70,8 +74,6 @@ To download the VHD file, you need to generate a [shared access signature (SAS)]
 
 > [!NOTE]
 > The expiration time is increased from the default to provide enough time to download the large VHD file for a Windows Server operating system. Large VHDs can take up to several hours to download depending on your connection and the size of the VM. 
-> 
-> 
 
 ## Download VHD
 

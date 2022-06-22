@@ -8,7 +8,6 @@ ms.date: 06/21/2022
 ms.topic: how-to
 ms.service: storage
 ms.subservice: disks
-ms.custom: references_regions
 ---
 
 # Upload a VHD to Azure or copy a managed disk to another region - Azure CLI
@@ -22,42 +21,10 @@ If you're providing a backup solution for IaaS VMs in Azure, you should use dire
 
 ## Secure uploads with Azure AD (preview)
 
+> [!IMPORTANT]
+> If Azure AD is being used to enforce upload restrictions, you must use the Azure PowerShell module's [Add-AzVHD command](../windows/disks-upload-vhd-to-managed-disk-powershell.md#secure-uploads-with-azure-ad-preview) to upload a disk. Azure CLI isn't currently supported.
+
 If you're using [Azure Active Directory (Azure AD)](../../active-directory/fundamentals/active-directory-whatis.md) to control resource access, you can now use it to restrict uploading of Azure managed disks. This feature is currently in preview. When a user attempts to upload a disk, Azure validates the identity of the requesting user in Azure AD, and confirms that user has the required permissions. At a higher level, a system administrator could set a policy at the Azure account or subscription level, to ensure that all disks and snapshots must use Azure AD for uploading.
-
-### Prerequisites
-- Email AzureDisks@microsoft .com to have the feature enabled on your subscription.
-- Install the latest [Azure CLI](/cli/azure/install-azure-cli) or use the [Azure Cloud Shell](https://shell.azure.com/).
-
-### Restrictions
-- VHDs can't be uploaded to empty snapshots.
-- Only currently available in xyz regions.
-
-### Create custom role
-
-To secure your uploads with Azure AD, create a custom RBAC role with the necessary permissions.
-
-```azurecli
-az role definition create --role-definition '{
-    "Name": "Disks Data Operator",
-    "Description": "A user in this role can read the data of the underlying VHD, export the VHD or upload a VHD to a disk, which is not attached to a running VM.",
-    "Actions": [
-        "Microsoft.Compute/disks/download/action",
-        "Microsoft.Compute/disks/upload/action",
-        "Microsoft.Compute/snapshots/download/action",
-        "Microsoft.Compute/snapshots/upload/action"
-    ],
-    "DataActions": [
-        "Microsoft.Compute/disks/download/action",
-        "Microsoft.Compute/disks/upload/action",
-        "Microsoft.Compute/snapshots/download/action",
-        "Microsoft.Compute/snapshots/upload/action"
-    ],
-    "NotDataActions": [
-        "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write"
-    ],
-    "AssignableScopes": ["/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"]
-}'
-```
 
 ## Get started
 
@@ -98,16 +65,6 @@ az disk create -n <yourdiskname> -g <yourresourcegroupname> -l <yourregion> --os
 ```
 
 If you would like to upload either a premium SSD or a standard SSD, replace **standard_lrs** with either **premium_LRS** or **standardssd_lrs**. Ultra disks are not supported for now.
-
-### (Optional) Grant access to the disk
-
-If you're using Azure AD to secure uploads, you'll need to [assign RBAC permissions](../../role-based-access-control/role-assignments-cli.md) to grant access to the disk and generate a writeable SAS.
-
-```azurecli
-az role assignment create --assignee "{assignee}" \
---role "{Disks Data Operator}" \
---scope "/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/{providerName}/{resourceType}/{resourceSubType}/{diskName}"
-```
 
 ### Generate writeable SAS
 

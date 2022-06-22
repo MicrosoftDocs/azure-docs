@@ -1,13 +1,13 @@
 ---
 title: Download a Linux VHD from Azure 
 description: Download a Linux VHD using the Azure CLI and the Azure portal.
-author: cynthn
-ms.service: virtual-machines
+author: roygara
+ms.author: rogarana
+ms.service: storage
 ms.subservice: disks
 ms.collection: linux
 ms.topic: how-to
-ms.date: 08/03/2020
-ms.author: cynthn
+ms.date: 06/21/2022
 ---
 
 # Download a Linux VHD from Azure
@@ -46,6 +46,10 @@ Your snapshot will be created shortly, and can then be used to download or creat
 > If you don't stop the VM first, the snapshot will not be clean. The snapshot will be in the same state as if the VM had been power cycled or crashed at the point in time when the snapshot was made. While usually safe, it could cause problems if the running applications running at the time were not crash resistant.
 >  
 > This method is only recommended for VMs with a single OS disk. VMs with one or more data disks should be stopped before download or before creating a snapshot for the OS disk and each data disk.
+
+## Secure uploads with Azure AD (preview)
+
+[!INCLUDE [disks-azure-ad-upload-download-portal](../../../includes/disks-azure-ad-upload-download-portal.md)]
 
 ## Generate SAS URL
 
