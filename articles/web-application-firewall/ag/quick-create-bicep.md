@@ -1,7 +1,7 @@
 ---
 title: 'Quickstart: Create an Azure WAF v2 on Application Gateway - Bicep'
 titleSuffix: Azure Application Gateway
-description: Learn how to use an Azure Resource Manager quickstart template (ARM template) to create a Web Application Firewall v2 on Azure Application Gateway.
+description: Learn how to use Bicep to create a Web Application Firewall v2 on Azure Application Gateway.
 services: web-application-firewall
 author: schaffererin
 ms.service: web-application-firewall
@@ -79,7 +79,7 @@ Use IIS and Azure PowerShell to test the application gateway:
 3. Check the response. A **403 Forbidden** response verifies that the WAF was successfully created and is blocking connections to the backend pool.
 4. Change the custom rule to **Allow traffic** using Azure CLI or Azure PowerShell, replacing your resource group name.
 
-    # [PowerShell](#tab/PowerShell)
+    # PowerShell
 
     ```azurepowershell
     
