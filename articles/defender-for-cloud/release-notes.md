@@ -26,6 +26,7 @@ Updates in June include:
 - [Alerts by resource group](#alerts-by-resource-group)
 - [General availability (GA) for Microsoft Defender for Azure Cosmos DB](#general-availability-ga-for-microsoft-defender-for-azure-cosmos-db)
 - [Auto-provisioning of Microsoft Defender for Endpoint unified solution](#auto-provisioning-of-microsoft-defender-for-endpoint-unified-solution)
+- [Deprecating the "API App should only be accessible over HTTPS" policy](#deprecating-the-api-app-should-only-be-accessible-over-https-policy)
 
 ### Drive implementation of security recommendations to enhance your security posture
 
@@ -96,6 +97,12 @@ Now, the new unified solution is available for all machines in both plans, for b
 :::image type="content" source="media/integration-defender-for-endpoint/enable-unified-solution.png" alt-text="The integration between Microsoft Defender for Cloud and Microsoft's EDR solution, Microsoft Defender for Endpoint, is enabled." lightbox="media/integration-defender-for-endpoint/enable-unified-solution.png":::
 
 Learn more about [MDE integration with Defender for Servers.](integration-defender-for-endpoint.md#users-with-defender-for-servers-enabled-and-microsoft-defender-for-endpoint-deployed).
+
+### Deprecating the "API App should only be accessible over HTTPS" policy
+
+The policy `API App should only be accessible over HTTPS` has been deprecated. This policy is replaced with the `Web Application should only be accessible over HTTPS` policy, which has been renamed to `App Service apps should only be accessible over HTTPS`.
+
+To learn more about policy definitions for Azure App Service, see [Azure Policy built-in definitions for Azure App Service](../azure-app-configuration/policy-reference.md)
 
 ## May 2022
 
