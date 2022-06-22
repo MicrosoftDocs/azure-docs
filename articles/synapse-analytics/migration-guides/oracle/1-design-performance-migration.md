@@ -80,9 +80,9 @@ A good candidate for an initial migration from an Oracle environment supports th
 
 The volume of migrated data in an initial migration should be large enough to demonstrate the capabilities and benefits of the Azure Synapse environment but not too large to quickly demonstrate value. A size in the 1-10 TB range is typical.
 
-One approach to an initial migration project is to minimize the risk, effort, and time needed to see the benefits of migration to the Azure cloud environment. This approach limits the scope of the initial migration to just the data marts and doesn't address broader migration aspects, such as ETL migration and historical data migration. However, you can address those aspects in later phases of the project once the migrated data mart layer is backfilled with data and the required build processes.
+An initial approach to a migration project is to minimize the risk, effort, and time needed so that the benefits of the Azure cloud environment are quickly experienced. The following [approaches](#lift-and-shift-migration-vs-a-phased-approach) limit the scope of the initial migration to just the data marts and doesn't address broader migration aspects, such as ETL migration and historical data migration. However, you can address those aspects in later phases of the project once the migrated data mart layer is backfilled with data and the required build processes.
 
-#### Lift and shift migration vs a phased approach
+#### Lift and shift migration vs. Phased approach
 
 In general, there are two types of migration regardless of the purpose and scope of the planned migration: lift and shift as-is and a phased approach that incorporates changes.
 
@@ -256,10 +256,12 @@ Most Oracle data types have a direct equivalent in Azure Synapse. The following 
 | VARCHAR2 | VARCHAR |
 | XMLType | Not supported. Store XML data in a VARCHAR. |
 
+Oracle also supports defining user-defined objects that can contain a series of individual fields, each with their own definition and default values. Those objects can then be referenced within a table definition in the same way as built-in data types like `NUMBER` or `VARCHAR`. Azure Synapse doesn't currently support user-defined types. If the data you need to migrate includes user-defined data types, either "flatten" them into a conventional table definition, or if they're arrays of data, normalize them in a separate table.
+
 >[!TIP]
 >Assess the number and type of unsupported data types during the migration preparation phase.
 
-Third-party vendors offer tools and services to automate migration, including the mapping of data types. If a third-party ETL tool, such as [Informatica](https://www.informatica.com/) or [Talend](https://www.talend.com/), is already in use in the Oracle environment, use that tool to implement any required data transformations.
+Third-party vendors offer tools and services to automate migration, including the mapping of data types. If a [third-party](../../partner/data-integration.md) ETL tool is already in use in the Oracle environment, use that tool to implement any required data transformations.
 
 #### SQL DML syntax differences
 
@@ -318,7 +320,7 @@ Extract table data as efficiently as possible&mdash;especially when migrating la
 >[!TIP]
 >Use parallelism for the most efficient data extraction.
 
-If sufficient network bandwidth is available, you can extract data from an on-premises Oracle system directly into Azure Synapse tables or Azure Blob Data Storage. To do so, use Data Factory processes, Azure Database Migration Service, or third-party data migration or ETL products, such as Informatica and Talend.
+If sufficient network bandwidth is available, you can extract data from an on-premises Oracle system directly into Azure Synapse tables or Azure Blob Data Storage. To do so, use Data Factory processes, Azure Database Migration Service, or [third-party](../../partner/data-integration.md) data migration or ETL products.
 
 Extracted data files should contain delimited text in CSV, Optimized Row Columnar (ORC), or Parquet format.
 

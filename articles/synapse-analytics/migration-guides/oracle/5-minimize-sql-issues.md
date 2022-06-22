@@ -153,7 +153,7 @@ Most Oracle data types have a direct equivalent in Azure Synapse. The following 
 >[!TIP]
 >Assess the number and type of unsupported data types during your preparation phase.
 
-Third-party vendors offer tools and services to automate migration, including the mapping of data types. If a third-party ETL tool, such as [Informatica](https://www.informatica.com/) or [Talend](https://www.talend.com/), is already in use in the Oracle environment, use that tool to implement any required data transformations.
+Third-party vendors offer tools and services to automate migration, including the mapping of data types. If a [third-party](../../partner/data-integration.md) ETL tool is already in use in the Oracle environment, use that tool to implement any required data transformations.
 
 #### Data Definition Language (DDL) generation
 
@@ -177,7 +177,7 @@ Alternatively, you can automate generating `CREATE TABLE` statements from the in
 >[!TIP]
 >Third-party tools and services can automate data mapping tasks.
 
-Third-party vendors offer tools and services to automate migration, including the mapping of data types. If a third-party ETL tool, such as Informatica or Talend, is already in use in the Oracle environment, use that tool to implement any required data transformations.
+Third-party vendors offer tools and services to automate migration, including the mapping of data types. If a [third-party](../../partner/data-integration.md) ETL tool is already in use in the Oracle environment, use that tool to implement any required data transformations.
 
 ## SQL DML differences between Oracle and Azure Synapse
 
@@ -284,9 +284,7 @@ If you migrate from a mature data warehouse environment like Oracle, you'll prob
 
 As part of your preparation phase, create an inventory of objects that need to be migrated, define a method for handling them, and allocate appropriate resources in your migration plan.
 
-[Data integration partners](../../partner/data-integration.md) like Attunity and WhereScape offer tools and services that automate the migration of functions, stored procedures, and sequences.
-
-Microsoft tools like SSMA for Oracle or [Azure Database Migration Services](/services/database-migration/), or [third-party](../../partner/data-integration.md) migration products and services like Attunity and WhereScape can automate the migration of functions, stored procedures, and sequences.
+Microsoft tools like SSMA for Oracle or [Azure Database Migration Services](/services/database-migration/), and [third-party](../../partner/data-integration.md) migration products and services can automate the migration of functions, stored procedures, and sequences.
 
 >[!TIP]
 >Third-party products and services can automate migration of non-data elements.
