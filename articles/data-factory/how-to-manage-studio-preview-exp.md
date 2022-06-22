@@ -1,6 +1,6 @@
 ---
 title: Managing Azure Data Factory Studio preview updates
-description: Learn how to enable/disable Azure Data Factory studio preview updates.
+description: Learn more about the Azure Data Factory studio preview experience.
 author: n0elleli
 ms.author: noelleli
 ms.reviewer: 
