@@ -178,16 +178,16 @@ In this section, you'll grant B.Simon access to DocuSign so that this user can u
 	e. TTL: Default or 1 hour / 3600 seconds
 
 
-10. On the domain solutions page, select **Identity Providers**.
+11. On the domain solutions page, select **Identity Providers**.
   
     ![Identity Providers option](https://user-images.githubusercontent.com/9428173/174055061-b7be4853-6549-42b7-890e-691cbd152c5a.png)
 
-9. In the **Identity Providers** section, select **ADD IDENTITY PROVIDER**.
+12. In the **Identity Providers** section, select **ADD IDENTITY PROVIDER**.
 
     ![Add Identity Provider option](https://user-images.githubusercontent.com/9428173/174055576-2051d1dc-26fd-4fbf-bcca-fa8709161ab6.png)
 
 
-10. On the **Identity Provider Settings** page, follow these steps:
+13. On the **Identity Provider Settings** page, follow these steps:
 
     
 
