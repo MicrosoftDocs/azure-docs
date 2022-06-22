@@ -16,7 +16,7 @@ This article shows you how to configure the locations where you can create labs 
 When you create a lab plan, you have to set an initial region for the labs, but you can enable or disable more regions for your lab at any time. If you create a lab plan by using the Azure portal, enable regions initially includes the same region as the location of the lab plan. If you create a lab plan by using the API or SDKs, you must set the AllowedRegion property when you create the lab plan. 
 
 You might need to change the region for your labs in these circumstances:
-- Regulatory compliance. Choosing where your data resides, such as European organizations choosing specific regions to help ensure that they are General Data Protection Regulation (GDPR) compliant. For more information about GDPR, see [General Data Protection Regulation summary](/compliance/regulatory/gdpr).
+- Regulatory compliance. Choosing where your data resides, such as organizations choosing specific regions to help ensure that they are compliant with local regulations. 
 - Service availability. Providing the optimal lab experience for your students by ensuring the Azure Lab Service is available in the region closest to them. For more information about service availability, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=lab-services).
 - New region. You may acquire quota in a region different than the regions already enabled.
 
@@ -36,13 +36,13 @@ To enable one or more regions after lab creation, follow these steps:
 1. On the Enabled regions page, select the region(s) you want to add, select **Enable**.
    :::image type="content" source="./media/create-and-configure-labs-educator/enabled-regions-page.png" alt-text="Screenshot that shows the Enabled regions page with Enable and Apply highlighted.":::
 1. Enabled regions are displayed at the top of the list. Check that your desired regions are displayed and then select **Apply** to confirm your selection.
-   > NOTE
+   > [!NOTE]
    > There are two steps to saving your enabled regions: 
    > - At the top of the regions list select **Enable**
    > - At the bottom of the page, select **Apply** 
 1. On the Lab settings page, verify that the regions you enabled are listed and then select **Save**. 
    :::image type="content" source="./media/create-and-configure-labs-educator/newly-enabled-regions.png" alt-text="Screenshot that shows the Lab settings page with the newly selected regions highlighted.":::
-   > NOTE
+   > [!NOTE]
    > You must select **Save** to save your lab plan configuration. 
 
 ## Disable regions 
@@ -57,13 +57,13 @@ To disable one or more regions after lab creation, follow these steps:
 1. On the Enabled regions page, clear the check box of the region(s) you want to disable, select **Disable**.
    :::image type="content" source="./media/create-and-configure-labs-educator/disable-regions-page.png" alt-text="Screenshot that shows the Enabled regions page with Disable and Apply highlighted.":::
 1. Enabled regions are displayed at the top of the list. Check that your desired regions are displayed and then select **Apply** to confirm your selection.
-   > NOTE
+   > [!NOTE]
    > There are two steps to saving your disabled regions: 
    > - At the top of the regions list select **Disable**
    > - At the bottom of the page, select **Apply** 
 1. On the Lab settings page, verify that the regions you enabled are listed and then select **Save**. 
    :::image type="content" source="./media/create-and-configure-labs-educator/newly-enabled-regions.png" alt-text="Screenshot that shows the Lab settings page with the newly selected regions highlighted.":::
-   > NOTE
+   > [!NOTE]
    > You must select **Save** to save your lab plan configuration. 
 
 ## Next steps
