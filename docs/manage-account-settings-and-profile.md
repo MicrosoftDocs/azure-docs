@@ -2,11 +2,11 @@
 title: Manage your Microsoft 365 App Store account in Partner Center
 description: After you create a Partner Center account, you can manage your account and offers using the Partner Center dashboard.
 localization_priority: medium
-ms.author: mingshen
+ms.author: siraghav
 ms.date: 09/27/2021
 ---
 
-# Manage your Microsoft 365 App Store account in Partner Center 
+# Manage your Microsoft 365 App Store account in Partner Center
 
 After you [create a Partner Center account](./open-a-developer-account.md), you can manage your account and offers using the [Partner Center dashboard](https://partner.microsoft.com/dashboard/overview). In this article, we'll describe how to manage your Partner Center account.
 

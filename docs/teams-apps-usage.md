@@ -2,7 +2,7 @@
 title: Teams apps usage report in Partner Center
 description: Analyze the usage of your Teams app or add-in after users acquire it from Microsoft AppSource.
 ms.localizationpriority: medium
-ms.author: mingshen
+ms.author: siraghav
 ms.reviewer: dannyevers
 ms.date: 3/11/2022
 ---

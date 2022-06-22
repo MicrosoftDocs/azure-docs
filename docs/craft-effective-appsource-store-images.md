@@ -2,7 +2,7 @@
 title: Craft effective Microsoft AppSource store images
 description: Make sure that the images submitted for your app are legible, focused, and demonstrate value. 
 ms.date: 11/24/2020
-ms.author: mingshen
+ms.author: siraghav
 ms.localizationpriority: medium
 ---
 

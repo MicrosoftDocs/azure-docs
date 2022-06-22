@@ -1,7 +1,7 @@
 ---
 title: Create or update client IDs and secrets in Partner Center
 description: To enable OAuth in your SharePoint Add-ins, create or delete client IDs and secrets, update or replace expiring client secrets, and associate them with your add-ins in Partner Center.
-ms.author: mingshen
+ms.author: siraghav
 ms.date: 1/11/2018
 ms.localizationpriority: high
 ---

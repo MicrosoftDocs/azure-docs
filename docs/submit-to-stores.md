@@ -1,7 +1,7 @@
 ---
 title: Submit your app to Microsoft Stores
 description: Find out how to publish in Microsoft Stores with our checklist, guide, and other getting started resources.
-ms.author: mingshen
+ms.author: siraghav
 ms.localizationpriority: medium
 ---
 
