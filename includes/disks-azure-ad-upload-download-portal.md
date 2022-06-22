@@ -19,7 +19,12 @@ If you're using [Azure Active Directory (Azure AD)](../articles/active-directory
 
 ### Assign RBAC role
 
-To access managed disks secured with Azure AD, the requesting user must have either the **Data Operator for Managed Disks** role, or a custom role with: **Microsoft.Compute/disks/download/action**, **Microsoft.Compute/disks/upload/action**, **Microsoft.Compute/snapshots/download/action**, and **Microsoft.Compute/snapshots/upload/action**.
+To access managed disks secured with Azure AD, the requesting user must have either the **Data Operator for Managed Disks** role, or a custom role with the following permissions: 
+
+- **Microsoft.Compute/disks/download/action**
+- **Microsoft.Compute/disks/upload/action**
+- **Microsoft.Compute/snapshots/download/action**
+- **Microsoft.Compute/snapshots/upload/action**
 
 For detailed steps on assigning a role, see [Assign Azure roles using the Azure portal](../articles/role-based-access-control/role-assignments-portal.md).
 
