@@ -12,8 +12,6 @@ ms.topic: how-to
 ms.custom: devx-track-python
 ---
 
-[//]: # (needs PM review)
-
 # Manage software environments in Azure Machine Learning studio
 
 In this article, learn how to create and manage Azure Machine Learning [environments](/python/api/azureml-core/azureml.core.environment.environment) in the Azure Machine Learning studio. Use the environments to track and reproduce your projects' software dependencies as they evolve.

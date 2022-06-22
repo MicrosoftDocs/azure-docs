@@ -13,8 +13,6 @@ ms.topic: how-to
 ms.custom: sdkv1, event-tier1-build-2022
 ---
 
-[//]: # (needs PM review; Lots of code, what needs to be changed?)
-
 # Log & view metrics and log files
 
 > [!div class="op_single_selector" title1="Select the version of Azure Machine Learning Python SDK you are using:"]
@@ -165,7 +163,7 @@ params = finished_mlflow_run.data.params
 
 You can browse completed job records, including logged metrics, in the [Azure Machine Learning studio](https://ml.azure.com).
 
-Navigate to the **Experiments** tab. To view all your jobs in your Workspace across Experiments, select the **All jobs** tab. You can drill down on jobs for specific Experiments by applying the Experiment filter in the top menu bar.
+Navigate to the **Jobs** tab. To view all your jobs in your Workspace across Experiments, select the **All jobs** tab. You can drill down on jobs for specific Experiments by applying the Experiment filter in the top menu bar.
 
 For the individual Experiment view, select the **All experiments** tab. On the experiment run dashboard, you can see tracked metrics and logs for each run. 
 
@@ -176,7 +174,7 @@ You can also edit the job list table to select multiple jobs and display either 
 
 Log files are an essential resource for debugging the Azure ML workloads. After submitting a training job, drill down to a specific run to view its logs and outputs:  
 
-1. Navigate to the **Experiments** tab.
+1. Navigate to the **Jobs** tab.
 1. Select the runID for a specific run.
 1. Select **Outputs and logs** at the top of the page.
 2. Select **Download all** to download all your logs into a zip folder.

@@ -13,8 +13,6 @@ ms.topic: how-to
 ms.custom: devx-track-python, responsible-ml, sdkv1, event-tier1-build-2022
 ---
 
-[//]: # (needs PM review; what happens with the code?)
-
 # Use Azure Machine Learning with the Fairlearn open-source package to assess the fairness of ML models (preview)
 
 [!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
@@ -183,7 +181,7 @@ The following example shows how to use the fairness package. We will upload mode
     ```python
     from azureml.contrib.fairness import upload_dashboard_dictionary, download_dashboard_by_upload_id
     ```
-    Create an Experiment, then a Job, and upload the dashboard to it:
+    Create an Experiment, then a Run, and upload the dashboard to it:
     ```python
     exp = Experiment(ws, "Test_Fairness_Census_Demo")
     print(exp)
@@ -209,10 +207,10 @@ The following example shows how to use the fairness package. We will upload mode
     If you complete the previous steps (uploading generated fairness insights to Azure Machine Learning), you can view the fairness dashboard in [Azure Machine Learning studio](https://ml.azure.com). This dashboard is the same visualization dashboard provided in Fairlearn, enabling you to analyze the disparities among your sensitive feature's subgroups (e.g., male vs. female).
     Follow one of these paths to access the visualization dashboard in Azure Machine Learning studio:
 
-    * **Experiments pane (Preview)**
-    1. Select **Experiments** in the left pane to see a list of experiments that you've run on Azure Machine Learning.
-    1. Select a particular experiment to view all the jobs in that experiment.
-    1. Select a job, and then the **Fairness** tab to the explanation visualization dashboard.
+    * **Jobs pane (Preview)**
+    1. Select **Jobs** in the left pane to see a list of experiments that you've run on Azure Machine Learning.
+    1. Select a particular experiment to view all the runs in that experiment.
+    1. Select a run, and then the **Fairness** tab to the explanation visualization dashboard.
     1. Once landing on the **Fairness** tab, click on a **fairness id** from the menu on the right.
     1. Configure your dashboard by selecting your sensitive attribute, performance metric, and fairness metric of interest to land on the fairness assessment page.
     1. Switch chart type from one to another to observe both **allocation** harms and **quality of service** harms.
