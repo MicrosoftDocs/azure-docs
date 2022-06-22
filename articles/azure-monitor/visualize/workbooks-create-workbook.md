@@ -16,7 +16,7 @@ This video provides a walkthrough of creating workbooks.
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4B4Ap]
 
-## Create a new Azure Workbook
+## Create an Azure Workbook
 To create a new Azure workbook:
 1. From the Azure Workbooks page, select an empty template or select **New** in the top toolbar.
 1. Combine any of these steps to include the elements you want to the workbook:
@@ -28,7 +28,7 @@ To create a new Azure workbook:
    - groups
    - configuration options
 
-## Adding text to your workbook
+## Text
 
 Workbooks allow authors to include text blocks in their workbooks. The text can be human analysis of the telemetry, information to help users interpret the data, section headings, etc. 
 
@@ -44,8 +44,7 @@ Text is added through a markdown control into which an author can add their cont
 
 ### Add text to an Azure workbook
 1. Make sure you are in **Edit** mode. Add a query by doing any one of the following:
-    - Select **Add**, and **Add text** below an existing element
-    - Select **Add**, and **Add text** at the bottom of the workbook.
+    - Select **Add**, and **Add text** below an existing element, or at the bottom of the workbook.
     - Select the ellipses (...) to the right of the **Edit** button next to one of the elements in the workbook, then select **Add** and then **Add text**.
 1. Enter markdown text into the editor field.
 1. Use the **Text Style** option to switch between plain markdown, and markdown wrapped with the Azure portal's standard info/warning/success/error styling.
@@ -79,7 +78,7 @@ You can also choose a text parameter as the source of the style. The parameter v
 **Warning style example**:
    :::image type="content" source="media/workbooks-add-text/workbooks-text-example-warning.png" alt-text="Screenshot of a text visualization in warning style.":::
 
-## Adding queries to your workbook
+## Queries
 
 Azure Workbooks allow you to query any of the supported workbook [data sources](workbooks-data-sources.md). 
 
@@ -88,8 +87,7 @@ For example, you can query Azure Resource Health that helps you view any service
 ### Add a query to an Azure Workbook
 
 1. Make sure you are in **Edit** mode. Add a query by doing any one of the following:
-    - Select **Add**, and **Add query** below an existing element
-    - Select **Add**, and **Add query** at the bottom of the workbook.
+    - Select **Add**, and **Add query** below an existing element, or at the bottom of the workbook.
     - Select the ellipses (...) to the right of the **Edit** button next to one of the elements in the workbook, then select **Add** and then **Add query**.
 1. Select the [Data source](workbooks-data-sources.md) for your query. The other fields are determined based on the data source you choose.
 1. Select any other values that are required based on the data source you selected.
