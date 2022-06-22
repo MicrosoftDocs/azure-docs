@@ -598,7 +598,7 @@ That's it, congratulations! You have learned to use the Translator service to tr
 
 ## Next step
 
- Explore how-to documentation and dive deeper into Translation service capabilities:
+ Explore our how-to documentation and take a deeper dive into Translation service capabilities:
 
 * [**Translate text**](translator-text-apis#translate-text)
 
