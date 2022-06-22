@@ -45,22 +45,13 @@ During the preview:
 - The user or service principal that will share must be a member of the `Owner` role definition. Only an `Owner` at the scope of the gallery or higher will be able to enable group-based sharing.
 - You need to create a new gallery,  with the property `sharingProfile.permissions` set to `Groups`. When using the CLI to create a gallery, use the `--permissions groups` parameter. You can't use an existing gallery, the property can't currently be updated.
 
+## Prerequisites
+
+You need to create a [new gallery with direct sharing enabled](./create-gallery.md#create-a-direct-sharing-gallery). Direct sharing means that the `sharingProfile.permissions` property is set to `Groups`. When using the CLI to create a gallery, use the `--permissions groups` parameter. You can't use an existing gallery, the property can't currently be updated.
 ### [Portal](#tab/portaldirect)
 
 1. Sign in to the Azure portal at https://portal.azure.com.
 1. Type **Azure Compute Gallery** in the search box and select **Azure Compute Gallery** in the results.
-1. In the **Azure Compute Gallery** page, click **Add**.
-1. On the **Create Azure Compute Gallery** page, select the correct subscription.
-1. Complete all of the details on the page.
-1. At the bottom of the page, select **Next: Sharing method**.
-    :::image type="content" source="media/create-gallery/create-gallery.png" alt-text="Screenshot showing where to select to go on to sharing methods.":::
-1. On the **Sharing** tab, select **xxxxxxxxx**.
-
-   :::image type="content" source="media/create-gallery/sharing-type.png" alt-text="Screenshot showing the option to share using both role-based access control and a community gallery.":::
-
-1. xxx
-1. After validation passes, select **Create**.
-1. When the deployment is finished, select **Go to resource**.
 
 
 ### [CLI](#tab/clidirect)

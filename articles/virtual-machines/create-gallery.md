@@ -6,7 +6,7 @@ ms.service: virtual-machines
 ms.subservice: gallery
 ms.topic: how-to
 ms.workload: infrastructure
-ms.date: 04/24/2022
+ms.date: 06/22/2022
 ms.author: saraic
 ms.reviewer: cynthn
 ms.custom: template-how-to, devx-track-azurecli 
@@ -99,6 +99,81 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 
 
 <a name=community></a>
+
+
+## Create a direct sharing gallery
+
+> [!IMPORTANT]
+> Azure Compute Gallery – direct sharing is currently in PREVIEW and subject to the [Preview Terms for Azure Compute Gallery](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> 
+> During the preview, you need to create a new gallery, with the property `sharingProfile.permissions` set to `Groups`. When using the CLI to create a gallery, use the `--permissions groups` parameter. You can't use an existing gallery, the property can't currently be updated.
+>
+> You can't currently create a Flexible virtual machine scale set from an image shared to you by another tenant.
+
+### [Portal](#tab/portaldirect)
+
+1. Sign in to the Azure portal at https://portal.azure.com.
+1. Type **Azure Compute Gallery** in the search box and select **Azure Compute Gallery** in the results.
+1. In the **Azure Compute Gallery** page, click **Add**.
+1. On the **Create Azure Compute Gallery** page, select the correct subscription.
+1. Complete all of the details on the page.
+1. At the bottom of the page, select **Next: Sharing method**.
+    :::image type="content" source="media/create-gallery/create-gallery.png" alt-text="Screenshot showing where to select to go on to sharing methods.":::
+1. On the **Sharing** tab, select **xxxxxxxxx**.
+
+   :::image type="content" source="media/create-gallery/sharing-type.png" alt-text="Screenshot showing the option to share using both role-based access control and a community gallery.":::
+
+1. xxx
+1. After validation passes, select **Create**.
+1. When the deployment is finished, select **Go to resource**.
+
+
+### [CLI](#tab/clidirect)
+
+To create a gallery that can be shared to a subscription or tenant using direct sharing, you need to create the gallery with the `--permissions` parameter set to `groups`.
+
+```azurecli-interactive
+az sig create \
+   --gallery-name myGallery \
+   --permissions groups \
+   --resource-group myResourceGroup  
+```
+ 
+
+To start sharing the gallery with a subscription or tenant, use see [Share a gallery with a subscription or tenant](./share-gallery-direct.md).
+
+ 
+### [REST](#tab/restdirect)
+
+Create a gallery for subscription or tenant-level sharing using the Azure REST API.
+
+```rest
+PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{rgName}/providers/Microsoft.Compute/galleries/{gallery-name}?api-version=2020-09-30
+
+{
+	"properties": {
+		"sharingProfile": {
+			"permissions": "Groups"
+		}
+	},
+	"location": "{location}
+}
+```
+
+To start sharing the gallery with a subscription or tenant, use see [Share a gallery with a subscription or tenant](./share-gallery-direct.md).
+
+
+Reset sharing to clear everything in the `sharingProfile`.
+
+```rest
+POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{rgName}/providers/Microsoft.Compute/galleries/{galleryName}/share?api-version=2020-09-30 
+
+{ 
+ "operationType" : "Reset", 
+} 
+```
+
+---
 
 ## Create a community gallery (preview)
 
@@ -251,6 +326,9 @@ When you are ready to make the gallery public:
 
 
 ## Next steps
+
+- To start sharing the gallery with a subscription or tenant, use see [Share a gallery with a subscription or tenant](./share-gallery-direct.md).
+- To share the gallery publicly with all azure users, see 
 
 - Create an [image definition and an image version](image-version.md).
 
