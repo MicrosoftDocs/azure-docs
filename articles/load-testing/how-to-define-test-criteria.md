@@ -28,21 +28,25 @@ By defining test criteria, you can specify the performance expectations of your 
 
 This section discusses the syntax you use to define Azure Load Testing pass/fail criteria.
 
-You use `Aggregate_function (client_metric) condition value` syntax. When a criterion evaluates to `true`, the load test gets the *failed* status.
+You use `Request: Aggregate_function (client_metric) condition value` syntax. When a criterion evaluates to `true`, the load test gets the *failed* status.
 
 |Parameter  |Description  |
 |---------|---------|
+|`Request`     | *Optional.* Name of the request on which the criteria should be applied. If not specified, the criteria is applied on the aggregate for all the requests.  |
 |`Client metric`     | *Required.* The client metric on which the criteria should be applied.  |
 |`Aggregate function`     |  *Required.* The aggregate function to be applied on the client metric.  |
 |`Condition`     | *Required.* The comparison operator.        |
-|`Threshold`     |  *Required.* The numeric value to compare with the client metric.<BR>The threshold evaluates against the aggregated value. |
+|`Threshold`     |  *Required.* The numeric value to compare with the client metric. |
 
 Load Testing supports the following combination of parameters:
 
 |Metric  |Aggregate function  |Threshold  |Condition  |
 |---------|---------|---------|---------|
-|`response_time_ms`     |  `avg` (average)       | Integer value, representing number of milliseconds (ms)     |   `>` (greater than)      |
-|`error`     |  `percentage`       | Numerical values in the range 0-100, representing a percentage      |   `>` (greater than)      |
+|`response_time_ms`     |  `avg` (average)<BR> `min` (minimum)<BR> `max` (maximum)<BR> `pxx` (percentile), xx can be 50, 90, 95, 99     | Integer value, representing number of milliseconds (ms)     |   `>` (greater than)<BR> `<` (less than)      |
+|`latency_ms`     |  `avg` (average)<BR> `min` (minimum)<BR> `max` (maximum)<BR> `pxx` (percentile), xx can be 50, 90, 95, 99     | Integer value, representing number of milliseconds (ms)     |   `>` (greater than)<BR> `<` (less than)      |
+|`error`     |  `percentage`       | Numerical values in the range 0-100, representing a percentage      |   `>` (greater than) <BR> `<` (less than)      |
+|`requests_per_sec`     |  `avg` (average)       | Numerical values with upto two decimal places      |   `>` (greater than) <BR> `<` (less than)     |
+|`requests`     |  `count`       | Integer value      |   `>` (greater than) <BR> `<` (less than)     |
 
 ## Define test pass/fail criteria in the Azure portal
 
