@@ -11,6 +11,8 @@ ms.date: 5/6/2019
 
 # Troubleshoot connection issues to Azure Database for PostgreSQL - Single Server
 
+[!INCLUDE [applies-to-postgresql-single-server](../includes/applies-to-postgresql-single-server.md)]
+
 Connection problems may be caused by various things, including:
 
 * Firewall settings

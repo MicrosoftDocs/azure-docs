@@ -12,6 +12,8 @@ ms.date: 02/23/2022
 
 # Regional availability for Azure Database for PostgreSQL – Hyperscale (Citus)
 
+[!INCLUDE[applies-to-postgresql-hyperscale](../includes/applies-to-postgresql-hyperscale.md)]
+
 Hyperscale (Citus) server groups are available in the following Azure regions:
 
 * Americas:
