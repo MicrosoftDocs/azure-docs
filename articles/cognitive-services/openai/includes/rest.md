@@ -21,12 +21,21 @@ keywords:
 
 ## Set-up & Authenticate the client
 
-1. Get your API keys and endpoint
- Go to your resource in the Azure portal. The Endpoint and Keys can be found in the 'Essentials' Section as shown below. Copy your endpoint and access key as you'll need both for authenticating your API calls.
+### Retrieve Key and Endpoint
 
-    ![Screenshot of the overview blade for an OpenAI Resource in the Azure Portal with the endpoint & access keys location circled in red](../images/OverviewBlade.jpg)
+To successfully make a call against the Azure OpenAI service, you'll need the following:
 
-1. Create a new Python application.
+|Variable name | Value |
+|--------------------------|-------------|
+| `ENDPOINT`               | This value can be found in the **Keys & Endpoint** section when examining your resource from the Azure portal. Alternatively, you can find the value in the **Azure OpenAI Studio** > **Playground** > **Code View**. An example endpoint is: `https://docs-test-001.openai.azure.com/`.|
+| `API-KEY` | This value can be found in the **Keys & Endpoint** section when examining your resource from the Azure portal. You can use either `KEY1` or `KEY2`.|
+| `DEPLOYMENT-NAME` | This will correspond to the custom name you chose for your deployment when you deployed a model. This value can be found under **Resource Management** > **Deployments** in the Azure portal or alternatively under **Management** > **Deployments** in Azure OpenAI Studio.|
+
+Go to your resource in the Azure portal. The **Endpoint and Keys** can be found in the **Resource Management** section. Copy your endpoint and access key as you'll need both for authenticating your API calls. You can use either `KEY1` or `KEY2`. Always having two keys allows you to securely rotate and regenerate keys without causing a service disruption.
+
+:::image type="content" source="../media/quickstarts/endpoint.png)" alt-text="Screenshot of the overview blade for an OpenAI Resource in the Azure Portal with the endpoint & access keys location circled in red" lightbox="../media/quickstarts/endpoint.png)":::
+
+### Create a new Python application
 
 Create a new python file called quickstart.py. Then open it up in your preferred editor or IDE.
 
@@ -36,9 +45,9 @@ Create a new python file called quickstart.py. Then open it up in your preferred
     import os
     import requests
     import json
-    apiKey = "COPY_YOUR_OPENAI_KEY_HERE"
-    base_url = "COPY_YOUR_OPENAI_ENDPOINT_HERE"
-    deploymentName ="PASTE_YOUR_DEPLOYMENT_NAME_HERE"
+    apiKey = "REPLACE_WITH_YOUR_API_KEY_HERE"
+    base_url = "REPLACE_WITH_YOUR_ENDPOINT_HERE"
+    deploymentName ="REPLACE_WITH_YOUR_DEPLOYMENT_NAME_HERE"
 
     url = base_url + "openai/deployments/" + deploymentName + "/completions?api-version=2022-06-01-preview"
         prompt = "Once upon a time"
@@ -56,8 +65,6 @@ Create a new python file called quickstart.py. Then open it up in your preferred
 
     ```
 
-1.  Paste your key, endpoint and deployment name into the code where indicated. Your OpenAI endpoint has the form `https://YOUR_RESOURCE_NAME.openai.azure.com/`
-
 1. Run the application with the `python` command on your quickstart file
 
     ```console
@@ -66,7 +73,7 @@ Create a new python file called quickstart.py. Then open it up in your preferred
 
 ## Output 
 
-  The output from the completions API will look as follows. 
+  The output from the completions API will look as follows.
 
   ```json
   {

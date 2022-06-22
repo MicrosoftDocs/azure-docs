@@ -14,7 +14,7 @@ keywords:
 ## Prerequisites
 
 - An Azure subscription
-- Access granted to service in the desired Azure subscription. This service is currently invite only. You can fill out a new use case request here: <https://aka.ms/oai/access>. 
+- Access granted to service in the desired Azure subscription. This service is currently invite only. You can fill out a new use case request here: <https://aka.ms/oai/access>.
 - [Python 3.x](https://www.python.org/)
 - The following python libraries: os, requests, json
 - An Azure OpenAI Service resource with a model deployed.
@@ -29,40 +29,46 @@ pip install openai
 
 ## Set-up & Authenticate the client
 
-1. Get your API keys and endpoint
- Go to your resource in the Azure portal. The Endpoint and Keys can be found in the 'Essentials' Section as shown below. Copy your endpoint and access key as you'll need both for authenticating your API calls.
+### Retrieve Key and Endpoint
 
-    ![Screenshot of the overview blade for an OpenAI Resource in the Azure Portal with the endpoint & access keys location circled in red](../images/OverviewBlade.jpg)
+To successfully make a call against the Azure OpenAI service, you'll need the following:
 
-1. Create a new Python application.
+|Variable name | Value |
+|--------------------------|-------------|
+| `ENDPOINT`               | This value can be found in the **Keys & Endpoint** section when examining your resource from the Azure portal. Alternatively, you can find the value in the **Azure OpenAI Studio** > **Playground** > **Code View**. An example endpoint is: `https://docs-test-001.openai.azure.com/`.|
+| `API-KEY` | This value can be found in the **Keys & Endpoint** section when examining your resource from the Azure portal. You can use either `KEY1` or `KEY2`.|
+| `DEPLOYMENT-NAME` | This will correspond to the custom name you chose for your deployment when you deployed a model. This value can be found under **Resource Management** > **Deployments** in the Azure portal or alternatively under **Management** > **Deployments** in Azure OpenAI Studio.|
 
-Create a new python file called quickstart.py. Then open it up in your preferred editor or IDE.
+Go to your resource in the Azure portal. The **Endpoint and Keys** can be found in the **Resource Management** section. Copy your endpoint and access key as you'll need both for authenticating your API calls. You can use either `KEY1` or `KEY2`. Always having two keys allows you to securely rotate and regenerate keys without causing a service disruption.
 
-1. Replace the contents of quickstart.py with the following code:
+:::image type="content" source="../media/quickstarts/endpoint.png)" alt-text="Screenshot of the overview blade for an OpenAI Resource in the Azure Portal with the endpoint & access keys location circled in red" lightbox="../media/quickstarts/endpoint.png)":::
+
+### Create a new Python application
+
+1. Create a new python file called quickstart.py. Then open it up in your preferred editor or IDE.
+
+2. Replace the contents of quickstart.py with the following code. Modify the code to add your key, endpoint, and deployment name:
 
     ```python
     import os
     import requests
     import json
+    import openai
 
-
-    openai.api_key = "COPY_YOUR_OPENAI_KEY_HERE"
-    openai.api_base =  "COPY_YOUR_OPENAI_ENDPOINT_HERE" # your endpoint should look like the following https://YOUR_RESOURCE_NAME.openai.azure.com/
+    openai.api_key = "REPLACE_WITH_YOUR_API_KEY_HERE"
+    openai.api_base =  "REPLACE_WITH_YOUR_ENDPOINT_HERE" # your endpoint should look like the following https://YOUR_RESOURCE_NAME.openai.azure.com/
     openai.api_type = 'azure'
     openai.api_version = '2022-06-01-preview' # this may change in the future
 
-    deployment_id='COPY_IN_YOUR_DEPLOYMENT_NAME' #This will be text-davinci-002 
+    deployment_id='REPLACE_WITH_YOUR_DEPLOYMENT_NAME' #This will correspond to the custom name you chose for your deployment when you deployed a model. 
 
-    # Send a completiosn call to generate an answer
+    # Send a completion call to generate an answer
     print('Sending a test completion job')
     start_phrase = 'When I go to the store, I want a'
-    response = openai.Completion.create(engine=deployment_id, prompt=start_phrase, max_tokens=4)
-    text = response['choices'][0]['text'].replace('\n', '').replace(' .', '.').strip()
-    print(f'"{start_phrase} {text}"')
-
+    response = openai.Completion.create(engine=deployment_id, prompt=start_phrase, max_tokens=10)
+    text = response['choices'][0]['text'].split('\n')[0]
+    print(start_phrase+text)
     ```
-
-1. Paste your key, endpoint and deployment name into the code where indicated. Your OpenAI endpoint has the form `https://YOUR_RESOURCE_NAME.openai.azure.com/`
 
 1. Run the application with the `python` command on your quickstart file
 
@@ -70,12 +76,17 @@ Create a new python file called quickstart.py. Then open it up in your preferred
     python quickstart.py
     ```
 
-## Output
+### Output
 
 ```console
 Sending a test completion job
 "When I go to the store, I want a can of black beans"
 ```
+
+2. Run the code a few more times to see what other types of responses you get as the response won't always be the same.
+
+> [!NOTE]
+> Since our example of `When I go to the store, I want a` provides very little context, it is expected for the model to not always return the type of results we would want. We are also intentionally limiting the response up to the first newline `\n` character, so occasional truncated responses of `When I go to the store, I want a` may occur as the model's response in that instance was split over multiple lines. If you run the code m If you wish to see the larger responses you can remove `.split('\n')[0]` from your code and play with the max number of tokens. 
 
 ## Clean up resources
 

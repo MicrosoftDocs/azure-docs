@@ -25,7 +25,8 @@ Navigate to the Azure OpenAI Studio: <https://oai.azure.com/> and sign-in with c
 
 You'll first land on our main page for the Azure OpenAI Studio and from here you can navigate to several different features highlighted in the picture below.
 
-![Screenshot of the landing page of the Azure OpenAI Studio with sections highlighted](../media/quickstarts/studio.png)
+:::image type="content" source="../media/quickstarts/studio.png)" alt-text="Screenshot of the landing page of the Azure OpenAI Studio with sections highlighted" lightbox="../media/quickstarts/studio.png":::
+
 
 1. Resources without a deployment will be prompted to create one. This is required to be able to inference with your models
 1. Get started with a few simple examples that demonstrate the capabilities of the service
