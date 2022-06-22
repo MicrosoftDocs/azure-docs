@@ -151,7 +151,9 @@ namespace WebApplication
                     // or when you need to capture logs during application startup, such as
                     // in Program.cs or Startup.cs itself.
                     builder.AddApplicationInsights(
-                        context.Configuration["APPINSIGHTS_INSTRUMENTATIONKEY"]);
+                    configureTelemetryConfiguration: (config) => config.ConnectionString = context.Configuration["APPLICATIONINSIGHTS_CONNECTION_STRING"],
+                    configureApplicationInsightsLoggerOptions: (options) => { }
+                    );
 
                     // Capture all log-level entries from Program
                     builder.AddFilter<ApplicationInsightsLoggerProvider>(
@@ -164,9 +166,6 @@ namespace WebApplication
     }
 }
 ```
-
-In the preceding code, `ApplicationInsightsLoggerProvider` is configured with your `"APPINSIGHTS_INSTRUMENTATIONKEY"` instrumentation key. Filters are applied, setting the log level to <xref:Microsoft.Extensions.Logging.LogLevel.Trace?displayProperty=nameWithType>.
-
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
 
@@ -260,7 +259,10 @@ namespace ConsoleApp
                 services.AddLogging(builder =>
                 {
                     // Only Application Insights is registered as a logger provider
-                    builder.AddApplicationInsights("<YourInstrumentationKey>");
+                    builder.AddApplicationInsights(
+                        configureTelemetryConfiguration: (config) => config.ConnectionString = "<YourConnectionString>",
+                        configureApplicationInsightsLoggerOptions: (options) => { }
+                    );
                 });
 
                 IServiceProvider serviceProvider = services.BuildServiceProvider();
@@ -327,7 +329,10 @@ namespace ConsoleApp
                 services.AddLogging(builder =>
                 {
                     // Only Application Insights is registered as a logger provider
-                    builder.AddApplicationInsights("<YourInstrumentationKey>");
+                    builder.AddApplicationInsights(
+                        configureTelemetryConfiguration: (config) => config.ConnectionString = "<YourConnectionString>",
+                        configureApplicationInsightsLoggerOptions: (options) => { }
+                    );
                 });
 
                 IServiceProvider serviceProvider = services.BuildServiceProvider();
