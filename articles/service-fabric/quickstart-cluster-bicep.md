@@ -3,7 +3,7 @@ title: Create a Service Fabric cluster using Bicep
 description: In this quickstart, you will create an Azure Service Fabric test cluster using Bicep.
 author: schaffererin
 ms.author: v-eschaffer
-ms.date: 05/22/2022
+ms.date: 06/22/2022
 ms.topic: quickstart
 ms.service: service-fabric
 ms.custom: devx-track-azurepowershell, subject-armqs, mode-arm
@@ -15,7 +15,7 @@ Azure Service Fabric is a distributed systems platform that makes it easy to pac
 
 [!INCLUDE [About Bicep](../../includes/resource-manager-quickstart-bicep-introduction.md)]
 
-This five-node Windows cluster is secured with a self-signed certificate and thus only intended for instructional purposes (rather than production workloads). We'll use and Azure CLI or Azure PowerShell to deploy the Bicep file.
+This five-node Windows cluster is secured with a self-signed certificate and thus only intended for instructional purposes (rather than production workloads). We'll use Azure PowerShell to deploy the Bicep file.
 
 ## Prerequisites
 
@@ -25,12 +25,12 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 
 To complete this quickstart, you'll need to install the [Service Fabric SDK and PowerShell module](service-fabric-get-started.md).
 
-### Download the sample template and certificate helper script
+### Download the sample Bicep file and certificate helper script
 
-Clone or download the [Azure Resource Manager quickstart Templates](https://github.com/Azure/azure-quickstart-templates) repo. Alternatively, copy down locally the following files we'll be using from the *service-fabric-secure-cluster-5-node-1-nodetype* folder:
+Clone or download the [Azure Resource Manager Quickstart Templates](https://github.com/Azure/azure-quickstart-templates) repo. Alternatively, copy down locally the following files we'll be using from the *service-fabric-secure-cluster-5-node-1-nodetype* folder:
 
 * [New-ServiceFabricClusterCertificate.ps1](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.servicefabric/service-fabric-secure-cluster-5-node-1-nodetype/scripts/New-ServiceFabricClusterCertificate.ps1)
-* [azuredeploy.json](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.servicefabric/service-fabric-secure-cluster-5-node-1-nodetype/azuredeploy.json)
+* [main.bicep](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.servicefabric/service-fabric-secure-cluster-5-node-1-nodetype/main.bicep)
 * [azuredeploy.parameters.json](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.servicefabric/service-fabric-secure-cluster-5-node-1-nodetype/azuredeploy.parameters.json)
 
 ### Sign in to Azure
@@ -68,7 +68,7 @@ The script will prompt you for the following (be sure to modify *CertDNSName* an
 * **KeyVaultName:** *SFQuickstartKV*
 * **KeyVaultSecretName:** clustercert
 
-Upon completion, the script will provide the parameter values needed for template deployment. Be sure to store these in the following variables, as they will be needed to deploy your cluster template:
+Upon completion, the script will provide the parameter values needed for deployment. Be sure to store these in the following variables, as they will be needed for deployment:
 
 ```powershell
 $sourceVaultId = "<Source Vault Resource Id>"
@@ -131,7 +131,7 @@ For example:
 
 ## Deploy the Bicep file
 
-Store the paths of your ARM template and parameter files in variables, then deploy the template.
+Store the paths of your Bicep file and parameter file in variables, then deploy the Bicep file.
 
 ```powershell
 $templateFilePath = "<full path to azuredeploy.json>"
