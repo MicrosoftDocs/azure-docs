@@ -3,7 +3,7 @@ title: Skill-up training resources
 description: This article walks you through a Microsoft Sentinel level 400 training to help you skill up on Microsoft Sentinel. The training includes 22 modules that contain relevant product documentation, blog posts and other resources. Please make sure to check the most recent links for the documentation.
 author: laghimpe
 ms.topic: conceptual
-ms.date: 21/06/2022
+ms.date: 22/06/2022
 ms.author: laghimpe
 ms.custom: fasttrack-edit
 ---
@@ -55,7 +55,7 @@ The modules listed below are split into five parts following the life cycle of a
 This Skill-up training is based on the [Microsoft Sentinel Ninja training](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/become-a-microsoft-sentinel-ninja-the-complete-level-400/ba-p/1246310) and is a level 400 training. If you don't want to go as deep or have a specific issue, other resources might be more suitable:
 
 * While extensive, the Skill-up training has to follow a script and cannot expand on every topic. The [Sentinel Skill-up FAQ](#faq) tries to close this gap. 
-* You can now certify with the new certification [SC-200: Microsoft Security Operations Analyst](https://docs.microsoft.com/en-us/learn/certifications/exams/sc-200) which covers Microsoft Sentinel.  You may also want to consider the [SC-900: Microsoft Security, Compliance, and Identity Fundamentals](https://docs.microsoft.com/en-us/learn/certifications/exams/sc-900) or the [AZ-500: Microsoft Azure Security Technologies](https://docs.microsoft.com/en-us/learn/certifications/exams/az-500), for a broader, higher level view of the Microsoft Security suite.
+* You can now certify with the new certification [SC-200: Microsoft Security Operations Analyst](https://docs.microsoft.com/learn/certifications/exams/sc-200) which covers Microsoft Sentinel.  You may also want to consider the [SC-900: Microsoft Security, Compliance, and Identity Fundamentals](https://docs.microsoft.com/learn/certifications/exams/sc-900) or the [AZ-500: Microsoft Azure Security Technologies](https://docs.microsoft.com/learn/certifications/exams/az-500), for a broader, higher level view of the Microsoft Security suite.
 * Already skilled-up on Microsoft Sentinel? Just keep track of [what's new](https://docs.microsoft.com/en-us/azure/sentinel/whats-new) or join the [Private Preview](https://forms.office.com/pages/responsepage.aspx?id=v4j5cvGGr0GRqy180BHbR-kibZAPJAVBiU46J6wWF_5URDFSWUhYUldTWjdJNkFMVU1LTEU4VUZHMy4u) program for an earlier glimpse. 
 * Have a good feature idea you want to share with us? Let us know on the [Microsoft Sentinel user voice page](https://feedback.azure.com/d365community/forum/37638d17-0625-ec11-b6e6-000d3a4f07b8).
 * Premier customer? You might want the on-site (or remote)  4-day Microsoft Sentinel Fundamentals Workshop. Contact your Customer Success Account Manager for more details.
@@ -121,7 +121,7 @@ There are three common scenarios for side by side deployment:
     * With QRadar read [Sending QRadar offenses to Microsoft Sentinel](https://techcommunity.microsoft.com/t5/azure-sentinel/migrating-qradar-offenses-to-azure-sentinel/ba-p/2102043)
     * For ArcSight, use [CEF Forwarding](https://community.microfocus.com/t5/Logger-Forwarding-Connectors/ArcSight-Forwarding-Connector-Configuration-Guide/ta-p/1583918).
 
-You can also send the alerts from Microsoft Sentinel to your 3rd party SIEM or ticketing system using the [Graph Security API](https://docs.microsoft.com/en-us/graph/security-integration), which is simpler but would not enable sending additional data. 
+You can also send the alerts from Microsoft Sentinel to your 3rd party SIEM or ticketing system using the [Graph Security API](https://docs.microsoft.com/graph/security-integration), which is simpler but would not enable sending additional data. 
 
 
 **For MSSPs**
@@ -144,35 +144,35 @@ A Microsoft Sentinel instance is called a workspace. The workspace is the same a
 
 Multiple workspaces are often necessary and can act together as a single Microsoft Sentinel system. A special use case is providing service using Microsoft Sentinel, for example, by an **MSSP** (Managed Security Service Provider) or by a **Global SOC** in a large organization. 
 
-To learn more about why use multiple workspaces and use them as one Microsoft Sentinel system, read [Extend Microsoft Sentinel across workspaces and tenants](https://docs.microsoft.com/en-us/azure/sentinel/extend-sentinel-across-workspaces-tenants) or, if you prefer, the Webinar version: [MP4](https://1drv.ms/v/s!AnEPjr8tHcNmgkqH7MASAKIg8ql8), [YouTube](https://youtu.be/hwahlwgJPnE), [Presentation](https://1drv.ms/b/s!AnEPjr8tHcNmgkkYuxOITkGSI7x8).
+To learn more about why use multiple workspaces and use them as one Microsoft Sentinel system, read [Extend Microsoft Sentinel across workspaces and tenants](https://docs.microsoft.com/azure/sentinel/extend-sentinel-across-workspaces-tenants) or, if you prefer, the Webinar version: [MP4](https://1drv.ms/v/s!AnEPjr8tHcNmgkqH7MASAKIg8ql8), [YouTube](https://youtu.be/hwahlwgJPnE), [Presentation](https://1drv.ms/b/s!AnEPjr8tHcNmgkkYuxOITkGSI7x8).
 
 There are a few specific areas that require your consideration when using multiple workspaces:
-* An important driver for using multiple workspaces is **data residency**. Read more about [Microsoft Sentinel data residency](https://docs.microsoft.com/en-us/azure/sentinel/quickstart-onboard#geographical-availability-and-data-residency).
+* An important driver for using multiple workspaces is **data residency**. Read more about [Microsoft Sentinel data residency](https://docs.microsoft.com/azure/sentinel/quickstart-onboard#geographical-availability-and-data-residency).
 * To deploy Microsoft Sentinel and manage content efficiently across multiple workspaces; you would like to manage Sentinel as code using **CI/CD technology**. This is, in general, a recommended best practice for Microsoft Sentinel:
     * Read [Enable Continuous Deployment Natively with Microsoft Sentinel Repositories!](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/enable-continuous-deployment-natively-with-microsoft-sentinel/ba-p/2929413)
-* When managing multiple workspaces as an MSSP, you may want to [protect the MSSP’s Intellectual Property in Microsoft Sentinel](https://docs.microsoft.com/en-us/azure/sentinel/mssp-protect-intellectual-property).
+* When managing multiple workspaces as an MSSP, you may want to [protect the MSSP’s Intellectual Property in Microsoft Sentinel](https://docs.microsoft.com/azure/sentinel/mssp-protect-intellectual-property).
 
 The [Microsoft Sentinel Technical Playbook for MSSPs](http://aka.ms/azsentinelmssp) provides detailed guidelines for many of those topics, and is useful also for large organizations, not just to MSSPs.
 
 ### Module 4: Data Collection
 
 The foundation of a SIEM is collecting telemetry: events, alerts, and contextual enrichment information such as Threat Intelligence, vulnerability data, and asset information. You can find a list of sources you can connect here:
-* [Microsoft Sentinel data connectors](https://docs.microsoft.com/en-us/azure/sentinel/connect-data-sources)
-* [Find your Microsoft Sentinel data connector](https://docs.microsoft.com/en-us/azure/sentinel/data-connectors-reference) for seeing all the listed supported, out-of-the-box data connectors, together with links to generic deployment procedures, and extra steps required for specific connectors. 
-* Data Collection Scenarios: Learn more about a variety of solutions for log collection methods such as [Logstash/CEF/WEF](https://docs.microsoft.com/en-us/azure/sentinel/connect-logstash) and scenarios we often encounter such as permissions restriction to tables, log filtering, collecting logs from AWS/GCP, O365 raw logs and more in this webinar [YouTube](https://www.youtube.com/watch?v=FStpHl0NRM8), [MP4](https://aka.ms/AS_LogCollectionScenarios_V3.0_18MAR2021_MP4), [Presentiation](https://1drv.ms/b/s!AnEPjr8tHcNmhx-_hfIf0Ng3aM_G).
+* [Microsoft Sentinel data connectors](https://docs.microsoft.com/azure/sentinel/connect-data-sources)
+* [Find your Microsoft Sentinel data connector](https://docs.microsoft.com/azure/sentinel/data-connectors-reference) for seeing all the listed supported, out-of-the-box data connectors, together with links to generic deployment procedures, and extra steps required for specific connectors. 
+* Data Collection Scenarios: Learn more about a variety of solutions for log collection methods such as [Logstash/CEF/WEF](https://docs.microsoft.com/azure/sentinel/connect-logstash) and scenarios we often encounter such as permissions restriction to tables, log filtering, collecting logs from AWS/GCP, O365 raw logs and more in this webinar [YouTube](https://www.youtube.com/watch?v=FStpHl0NRM8), [MP4](https://aka.ms/AS_LogCollectionScenarios_V3.0_18MAR2021_MP4), [Presentiation](https://1drv.ms/b/s!AnEPjr8tHcNmhx-_hfIf0Ng3aM_G).
 
 The first piece of information you'll see for each connector is its **data ingestion method**. The method that appears there will be a link to one of the following generic deployment procedures, which contain most of the information you'll need to connect your data sources to Microsoft Sentinel:
 
 |Data ingestion method | Linked article with instructions |
 | ----------- | ----------- |
-| Azure service-to-service integration     | [Connect to Azure, Windows, Microsoft, and Amazon services](https://docs.microsoft.com/en-us/azure/sentinel/connect-azure-windows-microsoft-services)     |
-| Common Event Format (CEF) over Syslog	  | [Get CEF-formatted logs from your device or appliance into Microsoft Sentinel](https://docs.microsoft.com/en-us/azure/sentinel/connect-common-event-format) |
-| Microsoft Sentinel Data Collector API | [Connect your data source to the Microsoft Sentinel Data Collector API to ingest data](https://docs.microsoft.com/en-us/azure/sentinel/connect-rest-api-template) |
-| Azure Functions and the REST API | [Use Azure Functions to connect Microsoft Sentinel to your data source](https://docs.microsoft.com/en-us/azure/sentinel/connect-azure-functions-template) |
-| Syslog | [Collect data from Linux-based sources using Syslog](https://docs.microsoft.com/en-us/azure/sentinel/connect-syslog) |
-| Custom logs | [	Collect data in custom log formats to Microsoft Sentinel with the Log Analytics agent](https://docs.microsoft.com/en-us/azure/sentinel/connect-custom-logs) |
+| Azure service-to-service integration     | [Connect to Azure, Windows, Microsoft, and Amazon services](https://docs.microsoft.com/azure/sentinel/connect-azure-windows-microsoft-services)     |
+| Common Event Format (CEF) over Syslog	  | [Get CEF-formatted logs from your device or appliance into Microsoft Sentinel](https://docs.microsoft.com/azure/sentinel/connect-common-event-format) |
+| Microsoft Sentinel Data Collector API | [Connect your data source to the Microsoft Sentinel Data Collector API to ingest data](https://docs.microsoft.com/azure/sentinel/connect-rest-api-template) |
+| Azure Functions and the REST API | [Use Azure Functions to connect Microsoft Sentinel to your data source](https://docs.microsoft.com/azure/sentinel/connect-azure-functions-template) |
+| Syslog | [Collect data from Linux-based sources using Syslog](https://docs.microsoft.com/azure/sentinel/connect-syslog) |
+| Custom logs | [	Collect data in custom log formats to Microsoft Sentinel with the Log Analytics agent](https://docs.microsoft.com/azure/sentinel/connect-custom-logs) |
 
-If your source is not available, you can [create a custom connector](https://docs.microsoft.com/en-us/azure/sentinel/create-custom-connector). Custom connectors use the ingestion API and therefore are similar to direct sources. Custom connectors are most often implemented using Logic Apps, offering a codeless option, or Azure Functions.
+If your source is not available, you can [create a custom connector](https://docs.microsoft.com/azure/sentinel/create-custom-connector). Custom connectors use the ingestion API and therefore are similar to direct sources. Custom connectors are most often implemented using Logic Apps, offering a codeless option, or Azure Functions.
 
 ### Module 5: Log management
 
@@ -200,21 +200,21 @@ If you want to retain data for _more than two years_ or _reduce the retention co
 
 Need more depth? Watch the Improving the Breadth and Coverage of Threat Hunting with ADX Support, More Entity Types, and Updated MITRE Integration webinar [here](https://www.youtube.com/watch?v=5coYjlw2Qqs&ab_channel=MicrosoftSecurityCommunity).
 
-If you prefer another long-term retention solution, [export from Microsoft Sentinel / Log Analytics to Azure Storage and Event Hub](https://docs.microsoft.com/en-us/cli/azure/monitor/log-analytics/workspace/data-export?view=azure-cli-latest&viewFallbackFrom=azure-cli-latest) or [move Logs to Long-Term Storage using Logic Apps](https://docs.microsoft.com/en-us/azure/azure-monitor/logs/logs-export-logic-app). The latter advantage is that it can export historical data.
-Lastly, you can set fine-grained retention periods using [table-level retention Settings](https://techcommunity.microsoft.com/t5/core-infrastructure-and-security/azure-log-analytics-data-retention-by-type-in-real-life/ba-p/1416287). More details [here](https://docs.microsoft.com/en-us/azure/azure-monitor/logs/data-retention-archive?tabs=portal-1%2Cportal-2#configure-the-default-workspace-retention-policy).
+If you prefer another long-term retention solution, [export from Microsoft Sentinel / Log Analytics to Azure Storage and Event Hub](https://docs.microsoft.com/cli/azure/monitor/log-analytics/workspace/data-export?view=azure-cli-latest&viewFallbackFrom=azure-cli-latest) or [move Logs to Long-Term Storage using Logic Apps](https://docs.microsoft.com/en-us/azure/azure-monitor/logs/logs-export-logic-app). The latter advantage is that it can export historical data.
+Lastly, you can set fine-grained retention periods using [table-level retention Settings](https://techcommunity.microsoft.com/t5/core-infrastructure-and-security/azure-log-analytics-data-retention-by-type-in-real-life/ba-p/1416287). More details [here](https://docs.microsoft.com/azure/azure-monitor/logs/data-retention-archive?tabs=portal-1%2Cportal-2#configure-the-default-workspace-retention-policy).
 
 
 **Log Security**
 
-* Use [resource RBAC](https://techcommunity.microsoft.com/t5/azure-sentinel/controlling-access-to-azure-sentinel-data-resource-rbac/ba-p/1301463) or [table Level RBAC](https://docs.microsoft.com/en-us/azure/azure-monitor/logs/manage-access?tabs=portal#table-level-rbac) to enable multiple teams to use a single workspace.
-* If needed, [delete PII data from your workspaces](https://docs.microsoft.com/en-gb/azure/azure-monitor/logs/personal-data-mgmt).
+* Use [resource RBAC](https://techcommunity.microsoft.com/t5/azure-sentinel/controlling-access-to-azure-sentinel-data-resource-rbac/ba-p/1301463) or [table Level RBAC](https://docs.microsoft.com/azure/azure-monitor/logs/manage-access?tabs=portal#table-level-rbac) to enable multiple teams to use a single workspace.
+* If needed, [delete PII data from your workspaces](https://docs.microsoft.com/azure/azure-monitor/logs/personal-data-mgmt).
 * Learn how to [audit workspace queries and Microsoft Sentinel use, using alerts workbooks and queries](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/auditing-microsoft-sentinel-activities/ba-p/1718328).
-* Use [private links](https://docs.microsoft.com/en-us/azure/azure-monitor/logs/private-link-security) to ensure logs never leave your private network.
+* Use [private links](https://docs.microsoft.com/azure/azure-monitor/logs/private-link-security) to ensure logs never leave your private network.
 
 
 **Dedicated cluster**
 
-Use a [dedicated workspace cluster](https://docs.microsoft.com/en-us/azure/azure-monitor/logs/logs-dedicated-clusters) if your projected data ingestion is around or more than 500 GB per day. A dedicated cluster enables you to secure resources for your Microsoft Sentinel data, which enables better query performance for large data sets.
+Use a [dedicated workspace cluster](https://docs.microsoft.com/azure/azure-monitor/logs/logs-dedicated-clusters) if your projected data ingestion is around or more than 500 GB per day. A dedicated cluster enables you to secure resources for your Microsoft Sentinel data, which enables better query performance for large data sets.
 
 
 ### Module 6: Enrichment: TI, Watchlists, and more
@@ -227,13 +227,13 @@ Microsoft Sentinel provides comprehensive tools to import, manage, and use threa
 
 Threat Intelligence is an important building block of a SIEM. Watch the Explore the Power of Threat Intelligence in Microsoft Sentinel webinar [here](https://www.youtube.com/watch?v=i29Uzg6cLKc&ab_channel=MicrosoftSecurityCommunity).
 
-In Microsoft Sentinel, you can integrate threat intelligence (TI) using the built-in connectors from TAXII servers or through the Microsoft Graph Security API. Read more on how to in the [documentation](https://docs.microsoft.com/en-us/azure/sentinel/threat-intelligence-integration). Refer to the data collection modules for more information about importing Threat Intelligence. 
+In Microsoft Sentinel, you can integrate threat intelligence (TI) using the built-in connectors from TAXII servers or through the Microsoft Graph Security API. Read more on how to in the [documentation](https://docs.microsoft.com/azure/sentinel/threat-intelligence-integration). Refer to the data collection modules for more information about importing Threat Intelligence. 
 
-Once imported, [Threat Intelligence](https://docs.microsoft.com/en-us/azure/sentinel/understand-threat-intelligence#manage-your-threat-indicators-in-the-new-threat-intelligence-area-of-azure-sentinel) is used extensively throughout Microsoft Sentinel and is weaved into the different modules. The following features focus on using Threat Intelligence:
+Once imported, [Threat Intelligence](https://docs.microsoft.com/azure/sentinel/understand-threat-intelligence#manage-your-threat-indicators-in-the-new-threat-intelligence-area-of-azure-sentinel) is used extensively throughout Microsoft Sentinel and is weaved into the different modules. The following features focus on using Threat Intelligence:
 
 * View and manage the imported threat intelligence in **Logs** in the new Threat Intelligence area of Microsoft Sentinel.
-* Use the [built-in TI Analytics rule templates](https://docs.microsoft.com/en-us/azure/sentinel/understand-threat-intelligence#detect-threats-with-threat-indicator-based-analytics) to generate security alerts and incidents using your imported threat intelligence.
-* [Visualize key information about your threat intelligence](https://docs.microsoft.com/en-us/azure/sentinel/understand-threat-intelligence#view-and-manage-your-threat-indicators) in Microsoft Sentinel with the Threat Intelligence workbook.
+* Use the [built-in TI Analytics rule templates](https://docs.microsoft.com/azure/sentinel/understand-threat-intelligence#detect-threats-with-threat-indicator-based-analytics) to generate security alerts and incidents using your imported threat intelligence.
+* [Visualize key information about your threat intelligence](https://docs.microsoft.com/azure/sentinel/understand-threat-intelligence#view-and-manage-your-threat-indicators) in Microsoft Sentinel with the Threat Intelligence workbook.
 
 Watch the **Automate Your Microsoft Sentinel Triage Efforts with RiskIQ Threat 
 Intelligence** webinar: [YouTube](https://youtu.be/8vTVKitim5c), [Presentation](https://1drv.ms/b/s!AnEPjr8tHcNmkngW7psV4janJrVE?e=UkmgWk).
@@ -244,7 +244,7 @@ Go in-depth? Watch the Webinar: [YouTube](https://youtu.be/zfoVe4iarto), [MP4](h
 
 **Watchlists and other lookup mechanisms**
 
-To import and manage any type of contextual information, Microsoft Sentinel provides Watchlists, which enable you to upload data tables in CSV format and use them in your KQL queries. Read more about Watchlists in the [documentation](https://docs.microsoft.com/en-us/azure/sentinel/watchlists) or watch the use Watchlists to Manage Alerts, Reduce Alert Fatigue and improve SOC efficiency webinar: [YouTube](https://youtu.be/148mr8anqtI), [Presentation](https://1drv.ms/b/s!AnEPjr8tHcNmk1qPwVKXkyKwqsM5?e=jLlNmP).
+To import and manage any type of contextual information, Microsoft Sentinel provides Watchlists, which enable you to upload data tables in CSV format and use them in your KQL queries. Read more about Watchlists in the [documentation](https://docs.microsoft.com/azure/sentinel/watchlists) or watch the use Watchlists to Manage Alerts, Reduce Alert Fatigue and improve SOC efficiency webinar: [YouTube](https://youtu.be/148mr8anqtI), [Presentation](https://1drv.ms/b/s!AnEPjr8tHcNmk1qPwVKXkyKwqsM5?e=jLlNmP).
 
 Use watchlists to help you with following scenarios:
 
@@ -268,18 +268,18 @@ SOC efficiency** webinar. [YouTube](https://youtu.be/148mr8anqtI), [Presentation
 
 Microsoft Sentinel supports two new features for data ingestion and transformation. These features, provided by Log Analytics, act on your data even before it's stored in your workspace.
 
-1. The first of these features is the [**custom logs API.**](https://docs.microsoft.com/en-us/azure/azure-monitor/logs/custom-logs-overview) It allows you to send custom-format logs from any data source to your Log Analytics workspace, and store those logs either in certain specific standard tables, or in custom-formatted tables that you create. The actual ingestion of these logs can be done by direct API calls. You can use Log Analytics [data collection rules (DCRs)](https://docs.microsoft.com/en-us/azure/azure-monitor/essentials/data-collection-rule-overview) to define and configure these workflows.
+1. The first of these features is the [**custom logs API.**](https://docs.microsoft.com/azure/azure-monitor/logs/custom-logs-overview) It allows you to send custom-format logs from any data source to your Log Analytics workspace, and store those logs either in certain specific standard tables, or in custom-formatted tables that you create. The actual ingestion of these logs can be done by direct API calls. You can use Log Analytics [data collection rules (DCRs)](https://docs.microsoft.com/azure/azure-monitor/essentials/data-collection-rule-overview) to define and configure these workflows.
 
-2. The second feature is [**ingestion-time data transformation for standard logs**](https://docs.microsoft.com/en-us/azure/azure-monitor/logs/ingestion-time-transformations). It uses [DCRs](https://docs.microsoft.com/en-us/azure/azure-monitor/essentials/data-collection-rule-overview) to filter out irrelevant data, to enrich or tag your data, or to hide sensitive or personal information. Data transformation can be configured at ingestion time for the following types of built-in data connectors:
+2. The second feature is [**ingestion-time data transformation for standard logs**](https://docs.microsoft.com/azure/azure-monitor/logs/ingestion-time-transformations). It uses [DCRs](https://docs.microsoft.com/azure/azure-monitor/essentials/data-collection-rule-overview) to filter out irrelevant data, to enrich or tag your data, or to hide sensitive or personal information. Data transformation can be configured at ingestion time for the following types of built-in data connectors:
     * AMA-based data connectors (based on the new Azure Monitor Agent)
     * MMA-based data connectors (based on the legacy Log Analytics Agent)
     * Data connectors that use Diagnostic settings
-    * [Service-to-service data connectors](https://docs.microsoft.com/en-us/azure/sentinel/data-connectors-reference)
+    * [Service-to-service data connectors](https://docs.microsoft.com/azure/sentinel/data-connectors-reference)
 
 For more information, see: 
-* [Transform or customize data at ingestion time in Microsoft Sentinel](https://docs.microsoft.com/en-us/azure/sentinel/configure-data-transformation)
-* [Custom data ingestion and transformation in Microsoft Sentinel](https://docs.microsoft.com/en-us/azure/sentinel/data-transformation)
-* [Find your Microsoft Sentinel data connector](https://docs.microsoft.com/en-us/azure/sentinel/data-connectors-reference)
+* [Transform or customize data at ingestion time in Microsoft Sentinel](https://docs.microsoft.com/azure/sentinel/configure-data-transformation)
+* [Custom data ingestion and transformation in Microsoft Sentinel](https://docs.microsoft.com/azure/sentinel/data-transformation)
+* [Find your Microsoft Sentinel data connector](https://docs.microsoft.com/azure/sentinel/data-connectors-reference)
 
 ### Module 8: Migration 
 
@@ -301,7 +301,7 @@ The current implementation is based on query time normalization using KQL functi
 * **Normalized schemas** cover standard sets of predictable event types that are easy to work with and build unified capabilities. The schema defines which fields should represent an event, a normalized column naming convention, and a standard format for the field values. 
     * Watch the _Understanding Normalization in Microsoft Sentinel_ webinar: [YouTube](https://www.youtube.com/watch?v=WoGD-JeC7ng), [Presentation](https://1drv.ms/b/s!AnEPjr8tHcNmjDY1cro08Fk3KUj-?e=murYHG).
     * Watch the _Deep Dive into Microsoft Sentinel Normalizing Parsers and Normalized Content_ webinar: [YouTube](https://www.youtube.com/watch?v=zaqblyjQW6k), [MP3](https://aka.ms/AS_Normalizing_Parsers_and_Normalized_Content_11AUG2021_MP4), [Presentation](https://1drv.ms/b/s!AnEPjr8tHcNmjGtoRPQ2XYe3wQDz?e=R3dWeM).
-* **Parsers** map existing data to the normalized schemas. Parsers are implemented using [KQL functions](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/functions/user-defined-functions).  Watch the _Extend and Manage ASIM: Developing, Testing and Deploying Parsers_ webinar: [YouTube](https://youtu.be/NHLdcuJNqKw), [Presentation](https://1drv.ms/b/s!AnEPjr8tHcNmk0_k0zs21rL7euHp?e=5XkTnW).
+* **Parsers** map existing data to the normalized schemas. Parsers are implemented using [KQL functions](https://docs.microsoft.com/azure/data-explorer/kusto/query/functions/user-defined-functions).  Watch the _Extend and Manage ASIM: Developing, Testing and Deploying Parsers_ webinar: [YouTube](https://youtu.be/NHLdcuJNqKw), [Presentation](https://1drv.ms/b/s!AnEPjr8tHcNmk0_k0zs21rL7euHp?e=5XkTnW).
 * **Content** for each normalized schema includes analytics rules, workbooks, hunting queries, and additional content. This content works on any normalized data without the need to create source-specific content.
  
 
@@ -329,7 +329,7 @@ Using ASIM provides the following benefits:
 
 * Use the [ASIM hunting queries from GitHub](https://github.com/search?q=ASIM+repo%3AAzure%2FAzure-Sentinel+path%3A%2Fdetections+path%3A%22%2FHunting+Queries%22&type=Code&ref=advsearch&l=&l=)
 * Use ASIM queries when using KQL in the log screen.
-* Write your own analytic rules using ASIM or [convert existing ones](https://docs.microsoft.com/en-us/azure/sentinel/normalization#modifying-your-content-to-use-normalized-data).
+* Write your own analytic rules using ASIM or [convert existing ones](https://docs.microsoft.com/azure/sentinel/normalization#modifying-your-content-to-use-normalized-data).
 * Write [parsers](https://docs.microsoft.com/en-us/azure/sentinel/normalization#asim-components) for your custom sources to make them ASIM compatible and take part in built-in analytics
 
 ## Part 3: Creating Content
@@ -342,7 +342,7 @@ In this section, we grouped the modules that help you learn how to create such c
 
 ### Module 10: The Kusto Query Language (KQL)
 
-Most Microsoft Sentinel capabilities use [KQL or Kusto Query Language](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/). When you search in your logs, write rules, create hunting queries, or design workbooks, you use KQL.  
+Most Microsoft Sentinel capabilities use [KQL or Kusto Query Language](https://docs.microsoft.com/azure/data-explorer/kusto/query/). When you search in your logs, write rules, create hunting queries, or design workbooks, you use KQL.  
 
 Note that the next section on writing rules explains how to use KQL in the specific context of SIEM rules.
 
@@ -362,15 +362,15 @@ Note that the next section on writing rules explains how to use KQL in the speci
 You might also find the following reference information useful as you learn KQL:
 
 * [The KQL Cheat Sheet](https://www.mbsecure.nl/blog/2019/12/kql-cheat-sheet)
-* [Query optimization best practices](https://docs.microsoft.com/en-us/azure/azure-monitor/logs/query-optimization)
+* [Query optimization best practices](https://docs.microsoft.com/azure/azure-monitor/logs/query-optimization)
 
 ### Module 11: Analytics
 
 **Writing Scheduled Analytics Rules**
 
-Microsoft Sentinel enables you to use [built-in rule templates](https://docs.microsoft.com/en-us/azure/sentinel/detect-threats-built-in), customize the templates for your environment, or create custom rules. The core of the rules is a KQL query; however, there is much more than that to configure in a rule.
+Microsoft Sentinel enables you to use [built-in rule templates](https://docs.microsoft.com/azure/sentinel/detect-threats-built-in), customize the templates for your environment, or create custom rules. The core of the rules is a KQL query; however, there is much more than that to configure in a rule.
 
-To learn the procedure for creating rules, read the [documentation](https://docs.microsoft.com/en-us/azure/sentinel/detect-threats-custom). To learn how to write rules, i.e., what should go into a rule, focusing on KQL for rules, watch the webinar: [MP4](https://1drv.ms/v/s%21AnEPjr8tHcNmghlWrlBCPKwT5WTT), [YouTube](https://youtu.be/pJjljBT4ipQ), [Presentation](https://1drv.ms/b/s!AnEPjr8tHcNmgmffNHf0wqmNEqdx).
+To learn the procedure for creating rules, read the [documentation](https://docs.microsoft.com/azure/sentinel/detect-threats-custom). To learn how to write rules, i.e., what should go into a rule, focusing on KQL for rules, watch the webinar: [MP4](https://1drv.ms/v/s%21AnEPjr8tHcNmghlWrlBCPKwT5WTT), [YouTube](https://youtu.be/pJjljBT4ipQ), [Presentation](https://1drv.ms/b/s!AnEPjr8tHcNmgmffNHf0wqmNEqdx).
 
 SIEM analytics rules have specific patterns. Learn how to implement rules and write KQL for those patterns:  
 * **Correlation rules**: [using lists and the "in" operator](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/azure-sentinel-correlation-rules-active-lists-out-make-list-in/ba-p/1029225) or using the ["join" operator](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/azure-sentinel-correlation-rules-the-join-kql-operator/ba-p/1041500)
@@ -386,24 +386,24 @@ To blog post ["Blob and File Storage Investigations"](https://techcommunity.micr
 
 Before embarking on your own rule writing, you should take advantage of the built-in analytics capabilities. Those do not require much from you, but it is worthwhile learning about them:
 
-* Use the [built-in scheduled rule templates](https://docs.microsoft.com/en-us/azure/sentinel/detect-threats-built-in#about-out-of-the-box-detections). You can tune those templates by modifying the templates the same way to edit any scheduled rule. Make sure to deploy the templates for the data connectors you connect listed in the data connector "next steps" tab.
-* Learn more about Microsoft Sentinel's [Machine learning capabilities](https://docs.microsoft.com/en-us/azure/sentinel/bring-your-own-ml): [MP4](https://onedrive.live.com/?authkey=%21ANHkqv1CC1rX0JE&cid=66C31D2DBF8E0F71&id=66C31D2DBF8E0F71%21772&parId=66C31D2DBF8E0F71%21770&o=OneUp), [YouTube](https://www.youtube.com/watch?v=DxZXHvq1jOs&ab_channel=MicrosoftSecurityCommunity), [Presentation](https://onedrive.live.com/?authkey=%21ACovlR%2DY24o1rzU&cid=66C31D2DBF8E0F71&id=66C31D2DBF8E0F71%21773&parId=66C31D2DBF8E0F71%21770&o=OneUp)
-* Find the list of Microsoft Sentinel's [Advanced multi-stage attack detections ("Fusion") ](https://docs.microsoft.com/en-us/azure/sentinel/fusion) that are enabled by default.
+* Use the [built-in scheduled rule templates](https://docs.microsoft.com/azure/sentinel/detect-threats-built-in#about-out-of-the-box-detections). You can tune those templates by modifying the templates the same way to edit any scheduled rule. Make sure to deploy the templates for the data connectors you connect listed in the data connector "next steps" tab.
+* Learn more about Microsoft Sentinel's [Machine learning capabilities](https://docs.microsoft.com/azure/sentinel/bring-your-own-ml): [MP4](https://onedrive.live.com/?authkey=%21ANHkqv1CC1rX0JE&cid=66C31D2DBF8E0F71&id=66C31D2DBF8E0F71%21772&parId=66C31D2DBF8E0F71%21770&o=OneUp), [YouTube](https://www.youtube.com/watch?v=DxZXHvq1jOs&ab_channel=MicrosoftSecurityCommunity), [Presentation](https://onedrive.live.com/?authkey=%21ACovlR%2DY24o1rzU&cid=66C31D2DBF8E0F71&id=66C31D2DBF8E0F71%21773&parId=66C31D2DBF8E0F71%21770&o=OneUp)
+* Find the list of Microsoft Sentinel's [Advanced multi-stage attack detections ("Fusion") ](https://docs.microsoft.com/azure/sentinel/fusion) that are enabled by default.
 * Watch the Fusion ML Detections with Scheduled Analytics Rules webinar: [YouTube](https://www.youtube.com/watch?v=Ee7gBAQ2Dzc), [MP4](https://onedrive.live.com/?authkey=%21AJzpplg3agpLKdo&cid=66C31D2DBF8E0F71&id=66C31D2DBF8E0F71%211663&parId=66C31D2DBF8E0F71%211654&o=OneUp), [Presentation](https://onedrive.live.com/?cid=66c31d2dbf8e0f71&id=66C31D2DBF8E0F71%211674&ithint=file%2Cpdf&authkey=%21AD%5F1AN14N3W592M).
-* Learn more about Azure Sentinel's built-in SOC-ML anomalies [here](https://docs.microsoft.com/en-us/azure/sentinel/soc-ml-anomalies). 
+* Learn more about Azure Sentinel's built-in SOC-ML anomalies [here](https://docs.microsoft.com/azure/sentinel/soc-ml-anomalies). 
 * Watch the customized SOC-ML anomalies and how to use them webinar here: [YouTube](https://www.youtube.com/watch?v=z-suDfFgSsk&ab_channel=MicrosoftSecurityCommunity), [MP4](https://onedrive.live.com/?authkey=%21AJVEGsR4ym8hVKk&cid=66C31D2DBF8E0F71&id=66C31D2DBF8E0F71%211742&parId=66C31D2DBF8E0F71%211720&o=OneUp), [Presentation](https://onedrive.live.com/?authkey=%21AFqylaqbAGZAIfA&cid=66C31D2DBF8E0F71&id=66C31D2DBF8E0F71%211729&parId=66C31D2DBF8E0F71%211720&o=OneUp).
 * Watch the Fusion ML Detections for Emerging Threats & Configuration UI webinar here: [YouTube](https://www.youtube.com/watch?v=bTDp41yMGdk), [Presentation](https://onedrive.live.com/?cid=66c31d2dbf8e0f71&id=66C31D2DBF8E0F71%212287&ithint=file%2Cpdf&authkey=%21AIJICOTqjY7bszE).
 
 ### Module 12: Implementing SOAR
 
-In modern SIEMs such as Microsoft Sentinel, SOAR (Security Orchestration, Automation, and Response) comprises the entire process from the moment an incident is triggered and until it is resolved. This process starts with an [incident investigation](https://docs.microsoft.com/en-us/azure/sentinel/investigate-cases) and continues with an [automated response](https://docs.microsoft.com/en-us/azure/sentinel/tutorial-respond-threats-playbook). The blog post ["How to use Microsoft Sentinel for Incident Response, Orchestration and Automation"](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/how-to-use-azure-sentinel-for-incident-response-orchestration/ba-p/2242397) provides an overview of common use cases for SOAR.
+In modern SIEMs such as Microsoft Sentinel, SOAR (Security Orchestration, Automation, and Response) comprises the entire process from the moment an incident is triggered and until it is resolved. This process starts with an [incident investigation](https://docs.microsoft.com/azure/sentinel/investigate-cases) and continues with an [automated response](https://docs.microsoft.com/azure/sentinel/tutorial-respond-threats-playbook). The blog post ["How to use Microsoft Sentinel for Incident Response, Orchestration and Automation"](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/how-to-use-azure-sentinel-for-incident-response-orchestration/ba-p/2242397) provides an overview of common use cases for SOAR.
 
-[Automation rules](https://docs.microsoft.com/en-us/azure/sentinel/automate-incident-handling-with-automation-rules) are the starting point for Microsoft Sentinel automation. They provide a lightweight method for central automated handling of incidents, including suppression,[ false-positive handling](https://docs.microsoft.com/en-us/azure/sentinel/false-positives), and automatic assignment.
+[Automation rules](https://docs.microsoft.com/azure/sentinel/automate-incident-handling-with-automation-rules) are the starting point for Microsoft Sentinel automation. They provide a lightweight method for central automated handling of incidents, including suppression,[ false-positive handling](https://docs.microsoft.com/en-us/azure/sentinel/false-positives), and automatic assignment.
 
-To provide robust workflow based automation capabilities, automation rules use [Logic App playbooks](https://docs.microsoft.com/en-us/azure/sentinel/automate-responses-with-playbooks):
+To provide robust workflow based automation capabilities, automation rules use [Logic App playbooks](https://docs.microsoft.com/azure/sentinel/automate-responses-with-playbooks):
 * Watch the Unleash the automation Jedi tricks & build Logic Apps Playbooks like a Boss Webinar: [YouTube](https://www.youtube.com/watch?v=G6TIzJK8XBA&ab_channel=MicrosoftSecurityCommunity), [MP4](https://onedrive.live.com/?authkey=%21AMHoD01Fnv0Nkeg&cid=66C31D2DBF8E0F71&id=66C31D2DBF8E0F71%21513&parId=66C31D2DBF8E0F71%21511&o=OneUp), [Presentation](https://onedrive.live.com/?authkey=%21AJK2W6MaFrzSzpw&cid=66C31D2DBF8E0F71&id=66C31D2DBF8E0F71%21514&parId=66C31D2DBF8E0F71%21511&o=OneUp).
 * Read about [Logic Apps](https://docs.microsoft.com/en-us/azure/logic-apps/logic-apps-overview), which is the core technology driving Microsoft Sentinel playbooks.
-*[ The Microsoft Sentinel Logic App connector](https://docs.microsoft.com/en-us/connectors/azuresentinel/) is a link between Logic Apps and Azure Sentinel.
+*[ The Microsoft Sentinel Logic App connector](https://docs.microsoft.com/connectors/azuresentinel/) is a link between Logic Apps and Azure Sentinel.
 
 You can find dozens of useful Playbooks in the [Playbooks folder](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks) on the [Microsoft Sentinel GitHub](https://github.com/Azure/Azure-Sentinel), or read "[A playbook using a watchlist to Inform a subscription owner about an alert"](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/playbooks-amp-watchlists-part-1-inform-the-subscription-owner/ba-p/1768917) for a Playbook walkthrough.
 
@@ -413,8 +413,8 @@ You can find dozens of useful Playbooks in the [Playbooks folder](https://github
 
 As the nerve center of your SOC, you need Microsoft Sentinel to visualize the information it collects and produces. Use workbooks to visualize data in Microsoft Sentinel.
 
-* To learn how to create workbooks, read the [documentation](https://docs.microsoft.com/en-us/azure/azure-monitor/visualize/workbooks-overview) or watch Billy York's [Workbooks training](https://www.youtube.com/watch?v=iGiPpD_-10M&ab_channel=FestiveTechCalendar) (and [accompanying text](https://www.cloudsma.com/2019/12/azure-advent-calendar-azure-monitor-workbooks/).
-* The mentioned resources are not Microsoft Sentinel specific, and apply to Microsoft Workbooks in general. To learn more about Workbooks in Microsoft Sentinel, watch the Webinar: [YouTube](https://www.youtube.com/watch?v=7eYNaYSsk1A&list=PLmAptfqzxVEUD7-w180kVApknWHJCXf0j&ab_channel=MicrosoftSecurityCommunity), [MP4](https://onedrive.live.com/?authkey=%21ALoa5KFEhBq2DyQ&cid=66C31D2DBF8E0F71&id=66C31D2DBF8E0F71%21373&parId=66C31D2DBF8E0F71%21372&o=OneUp), [Presentation](https://onedrive.live.com/view.aspx?resid=66C31D2DBF8E0F71!374&ithint=file%2cpptx&authkey=!AD5hvwtCTeHvQLQ), and read the [documentation](https://docs.microsoft.com/en-us/azure/sentinel/monitor-your-data).
+* To learn how to create workbooks, read the [documentation](https://docs.microsoft.com/azure/azure-monitor/visualize/workbooks-overview) or watch Billy York's [Workbooks training](https://www.youtube.com/watch?v=iGiPpD_-10M&ab_channel=FestiveTechCalendar) (and [accompanying text](https://www.cloudsma.com/2019/12/azure-advent-calendar-azure-monitor-workbooks/).
+* The mentioned resources are not Microsoft Sentinel specific, and apply to Microsoft Workbooks in general. To learn more about Workbooks in Microsoft Sentinel, watch the Webinar: [YouTube](https://www.youtube.com/watch?v=7eYNaYSsk1A&list=PLmAptfqzxVEUD7-w180kVApknWHJCXf0j&ab_channel=MicrosoftSecurityCommunity), [MP4](https://onedrive.live.com/?authkey=%21ALoa5KFEhBq2DyQ&cid=66C31D2DBF8E0F71&id=66C31D2DBF8E0F71%21373&parId=66C31D2DBF8E0F71%21372&o=OneUp), [Presentation](https://onedrive.live.com/view.aspx?resid=66C31D2DBF8E0F71!374&ithint=file%2cpptx&authkey=!AD5hvwtCTeHvQLQ), and read the [documentation](https://docs.microsoft.com/azure/sentinel/monitor-your-data).
  
 Workbooks can be interactive and enable much more than just charting. With Workbooks, you can create apps or extension modules for Microsoft Sentinel to complement built-in functionality. We also use workbooks to extend the features of Microsoft Sentinel. Few examples of such apps you can both use and learn from are:
 * The [Investigation Insights Workbook](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/announcing-the-investigation-insights-workbook/ba-p/1816903) provides an alternative approach for investigating incidents.
@@ -430,8 +430,8 @@ You can find dozens of workbooks in the [Workbooks folder](https://github.com/Az
 **Reporting and other visualization options**
 
 Workbooks can serve for reporting. For more advanced reporting capabilities such as reports scheduling and distribution or pivot tables, you might want to use:
-* Power BI, which natively [integrates with Log Analytics and Sentinel](https://docs.microsoft.com/en-us/azure/azure-monitor/logs/log-powerbi).
-* Excel, which can use [Log Analytics and Sentinel as the data source](https://docs.microsoft.com/en-us/azure/azure-monitor/logs/log-excel) (and see a a [video](https://www.youtube.com/watch?v=Rx7rJhjzTZA) on how).
+* Power BI, which natively [integrates with Log Analytics and Sentinel](https://docs.microsoft.com/azure/azure-monitor/logs/log-powerbi).
+* Excel, which can use [Log Analytics and Sentinel as the data source](https://docs.microsoft.com/azure/azure-monitor/logs/log-excel) (and see a a [video](https://www.youtube.com/watch?v=Rx7rJhjzTZA) on how).
 * Jupyter notebooks covered later in the hunting module are also a great visualization tool.
 
 ### Module 14: Notebooks
@@ -456,7 +456,7 @@ Another very relevant solution area is **protecting remote work**. Watch our [Ig
 * [Monitoring Azure Virtual Desktop with Microsoft Sentinel](https://docs.microsoft.com/en-us/azure/virtual-desktop/diagnostics-log-analytics#push-diagnostics-data-to-your-workspace): use Windows Security Events, Azure AD Sign-in logs, Microsoft 365 defender for endpoints, and AVD diagnostics logs to detect and hunt for AVD threats.
 *[ Monitor Microsoft endpoint Manager / Intune](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/secure-working-from-home-deep-insights-at-enrolled-mem-assets/ba-p/1424255), using queries and workbooks.
 
-And lastly, focusing on recent attacks, learn how to m[onitor the software supply chain with Microsoft Sentinel](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/monitoring-the-software-supply-chain-with-azure-sentinel/ba-p/2176463).
+And lastly, focusing on recent attacks, learn how to [monitor the software supply chain with Microsoft Sentinel](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/monitoring-the-software-supply-chain-with-azure-sentinel/ba-p/2176463).
 
 **Microsoft Sentinel solutions** provide in-product discoverability, single-step deployment, and enablement of end-to-end product, domain, and/or vertical scenarios in Microsoft Sentinel. Read more about them [here](https://docs.microsoft.com/EN-US/azure/sentinel/sentinel-solutions), and watch the **webinar about how to create your own [here](https://www.youtube.com/watch?v=oYTgaTh_NOU&ab_channel=MicrosoftSecurityCommunity).** For more about Sentinel content management in general, watch the Microsoft Sentinel Content Management webinar - [YouTube](https://www.youtube.com/watch?v=oYTgaTh_NOU&ab_channel=MicrosoftSecurityCommunity), [Presentation](https://onedrive.live.com/?cid=66c31d2dbf8e0f71&id=66C31D2DBF8E0F71%212201&ithint=file%2Cpdf&authkey=%21AIdsDXF3iluXd94).
 
@@ -466,9 +466,9 @@ And lastly, focusing on recent attacks, learn how to m[onitor the software suppl
 
 After building your SOC, you need to start using it. The "day in a SOC analyst life" webinar ([YouTube](https://www.youtube.com/watch?v=HloK6Ay4h1M&ab_channel=MicrosoftSecurityCommunity), [MP4](https://onedrive.live.com/?authkey=%21ACD%5F1nY2ND8MOmg&cid=66C31D2DBF8E0F71&id=66C31D2DBF8E0F71%21273&parId=66C31D2DBF8E0F71%21271&o=OneUp), [Presentation](https://onedrive.live.com/?authkey=%21AAvOR9OSD51OZ8c&cid=66C31D2DBF8E0F71&id=66C31D2DBF8E0F71%21272&parId=66C31D2DBF8E0F71%21271&o=OneUp)) walks you through using Microsoft Sentinel in the SOC to **triage**, **investigate** and **respond** to incidents.
 
-[Integrating with Microsoft Teams directly from Microsoft Sentinel](https://docs.microsoft.com/EN-US/azure/sentinel/collaborate-in-microsoft-teams) enables your teams to collaborate seamlessly across the organization, and with external stakeholders. Watch the _Decrease Your SOC’s MTTR (Mean Time to Respond) by Integrating Microsoft Sentinel with Microsoft Teams_ webinar [here](https://www.youtube.com/watch?v=0REgc2jB560&ab_channel=MicrosoftSecurityCommunity).
+[Integrating with Microsoft Teams directly from Microsoft Sentinel](https://docs.microsoft.com/azure/sentinel/collaborate-in-microsoft-teams) enables your teams to collaborate seamlessly across the organization, and with external stakeholders. Watch the _Decrease Your SOC’s MTTR (Mean Time to Respond) by Integrating Microsoft Sentinel with Microsoft Teams_ webinar [here](https://www.youtube.com/watch?v=0REgc2jB560&ab_channel=MicrosoftSecurityCommunity).
 
-You might also want to read the [documentation article on incident investigation](https://docs.microsoft.com/en-us/azure/sentinel/investigate-cases). As part of the investigation, you will also use the [entity pages](https://docs.microsoft.com/en-us/azure/sentinel/identify-threats-with-entity-behavior-analytics#entity-pages) to get more information about entities related to your incident or identified as part of your investigation.
+You might also want to read the [documentation article on incident investigation](https://docs.microsoft.com/azure/sentinel/investigate-cases). As part of the investigation, you will also use the [entity pages](https://docs.microsoft.com/azure/sentinel/identify-threats-with-entity-behavior-analytics#entity-pages) to get more information about entities related to your incident or identified as part of your investigation.
 
 **Incident investigation** in Microsoft Sentinel extends beyond the core incident investigation functionality. We can build **additional investigation tools** using Workbooks and Notebooks (the latter are discussed later, under _Hunting_). You can also build additional investigation tools or modify existing one to your specific needs. Examples include: 
 * The [Investigation Insights Workbook](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/announcing-the-investigation-insights-workbook/ba-p/1816903) provides an alternative approach for investigating incidents.
@@ -486,7 +486,7 @@ While the intro webinar focuses on tools, hunting is all about security. Our **s
 
 ### Module 18: User and Entity Behavior Analytics (UEBA)
 
-Microsoft Sentinel newly introduced [User and Entity Behavior Analytics (UEBA)](https://docs.microsoft.com/en-us/azure/sentinel/identify-threats-with-entity-behavior-analytics) module enables you to identify and investigate threats inside your organization and their potential impact - whether a compromised entity or a malicious insider.
+Microsoft Sentinel newly introduced [User and Entity Behavior Analytics (UEBA)](https://docs.microsoft.com/azure/sentinel/identify-threats-with-entity-behavior-analytics) module enables you to identify and investigate threats inside your organization and their potential impact - whether a compromised entity or a malicious insider.
 
 As Microsoft Sentinel collects logs and alerts from all of its connected data sources, it analyzes them and builds baseline behavioral profiles of your organization’s entities (such as **users**, **hosts**, **IP addresses**, and **applications**) across time and peer group horizon. Using a variety of techniques and machine learning capabilities, Microsoft Sentinel can then identify anomalous activity and help you determine if an asset has been compromised. Not only that, but it can also figure out the relative sensitivity of particular assets, identify peer groups of assets, and evaluate the potential impact of any given compromised asset (its “blast radius”). Armed with this information, you can effectively prioritize your investigation and incident handling.
 
@@ -500,8 +500,8 @@ Part of operating a SIEM is making sure it works smoothly and an evolving area i
 
 * Measure the efficiency of your [Security operations](https://docs.microsoft.com/en-us/azure/sentinel/manage-soc-with-incident-metrics#security-operations-efficiency-workbook) ([video](https://www.youtube.com/watch?v=jRucUysVpxI&ab_channel=MicrosoftSecurityCommunity))
 * **SentinelHealth data table**. Provides insights on health drifts, such as latest failure events per connector, or connectors with changes from success to failure states, which you can use to create alerts and other automated actions. Find more information [here](https://docs.microsoft.com/en-us/azure/sentinel/monitor-data-connector-health).
-* Monitor [Data connectors health](https://docs.microsoft.com/en-us/azure/sentinel/monitor-data-connector-health) ([video](https://www.youtube.com/watch?v=T6Vyo7gZYds&ab_channel=MicrosoftSecurityCommunity)) and [get notifications on anomalies](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/data-connector-health-push-notification-alerts/ba-p/1996442?wt.mc_id=SecNinja_sentinelninjatraining).
-* Monitor agents using the [agents' health solution (Windows only)](https://docs.microsoft.com/en-us/azure/azure-monitor/insights/solution-agenthealth) and the [Heartbeat table](https://docs.microsoft.com/en-us/azure/azure-monitor/reference/tables/heartbeat)(Linux and Windows).
+* Monitor [Data connectors health](https://docs.microsoft.com/azure/sentinel/monitor-data-connector-health) ([video](https://www.youtube.com/watch?v=T6Vyo7gZYds&ab_channel=MicrosoftSecurityCommunity)) and [get notifications on anomalies](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/data-connector-health-push-notification-alerts/ba-p/1996442).
+* Monitor agents using the [agents' health solution (Windows only)](https://docs.microsoft.com/azure/azure-monitor/insights/solution-agenthealth) and the [Heartbeat table](https://docs.microsoft.com/en-us/azure/azure-monitor/reference/tables/heartbeat)(Linux and Windows).
 * Monitor your Log Analytics workspace: [YouTube](https://www.youtube.com/watch?v=DmDU9QP_JlI&ab_channel=MicrosoftSecurityCommunity), [MP4](https://onedrive.live.com/?cid=66c31d2dbf8e0f71&id=66C31D2DBF8E0F71%21792&ithint=video%2Cmp4&authkey=%21ALgHojpWDidvFyo), [Presentation](https://onedrive.live.com/?cid=66c31d2dbf8e0f71&id=66C31D2DBF8E0F71%21794&ithint=file%2Cpdf&authkey=%21AAva%2Do6Ru1fjJ78), including query execution and ingest health.
 * Cost management is also an important operational procedure in the SOC. Use the [Ingestion Cost Alert Playbook](https://techcommunity.microsoft.com/t5/azure-sentinel/ingestion-cost-alert-playbook/ba-p/2006003) to ensure you are aware in time of any cost increase. 
 
@@ -517,4 +517,4 @@ To learn more about Microsoft Sentinel APIs, watch the [short introductory video
 
 Microsoft Sentinel provides a great platform for implementing your own Machine Learning algorithms. We call it Bring-Your-Own-ML(BYOML for short). This is intended for advanced users. If you are looking for built-in behavioral analytics, use our ML Analytic rules, UEBA module, or write your own behavioral analytics KQL based analytics rules.
 
-To start with bringing your own ML to Microsoft Sentinel, watch the [video](https://www.youtube.com/watch?v=QDIuvZbmUmc), and read the [blog post](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/build-your-own-machine-learning-detections-in-the-ai-immersed/ba-p/1750920). You might also want to refer to the [BYOML documentation](https://docs.microsoft.com/en-us/azure/sentinel/bring-your-own-ml).
+To start with bringing your own ML to Microsoft Sentinel, watch the [video](https://www.youtube.com/watch?v=QDIuvZbmUmc), and read the [blog post](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/build-your-own-machine-learning-detections-in-the-ai-immersed/ba-p/1750920). You might also want to refer to the [BYOML documentation](https://docs.microsoft.com/azure/sentinel/bring-your-own-ml).
