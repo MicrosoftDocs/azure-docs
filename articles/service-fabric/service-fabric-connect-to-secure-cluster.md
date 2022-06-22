@@ -208,6 +208,9 @@ static X509Credentials GetCredentials(string clientCertThumb, string serverCertT
 
 The following example uses Azure Active Directory for client identity and server certificate for server identity.
 
+> [!WARNING]
+>Prior to the Service Fabric SDK 9.0 release, interactive AAD login didn't work. Update to version 9.0 or later to make use of this feature.
+
 A dialog window automatically pops up for interactive sign-in upon connecting to the cluster.
 
 ```csharp
