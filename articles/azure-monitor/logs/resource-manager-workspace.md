@@ -33,13 +33,13 @@ The following sample creates a new empty Log Analytics workspace. A workspace ha
 # [Bicep](#tab/bicep)
 
 ```bicep
-@description('Name of the workspace.')
+@description('Specify the name of the workspace.')
 param workspaceName string
 
-@description('Specifies the location for the workspace.')
+@description('Specify the location for the workspace.')
 param location string
 
-@description('Pricing tier: PerGB2018 or legacy tiers (Free, Standalone, PerNode, Standard or Premium) which are not available to all customers.')
+@description('Specify the pricing tier: PerGB2018 or legacy tiers (Free, Standalone, PerNode, Standard or Premium) which are not available to all customers.')
 @allowed([
   'CapacityReservation'
   'Free'
@@ -52,13 +52,13 @@ param location string
 ])
 param sku string = 'PerGB2018'
 
-@description('Number of days to retain data.')
+@description('Specify the number of days to retain data.')
 param retentionInDays int = 120
 
-@description('true to use resource or workspace permissions. false to require workspace permissions.')
+@description('Specify true to use resource or workspace permissions, or false to require workspace permissions.')
 param resourcePermissions bool
 
-@description('Number of days to retain data in Heartbeat table.')
+@description('Specify the number of days to retain data in Heartbeat table.')
 param heartbeatTableRetention int
 
 resource workspace 'Microsoft.OperationalInsights/workspaces@2021-12-01-preview' = {
@@ -75,7 +75,7 @@ resource workspace 'Microsoft.OperationalInsights/workspaces@2021-12-01-preview'
   }
 }
 
-resource workspaceName_Heartbeat 'Microsoft.OperationalInsights/workspaces/tables@2021-12-01-preview' = {
+resource table 'Microsoft.OperationalInsights/workspaces/tables@2021-12-01-preview' = {
   parent: workspace
   name: 'Heartbeat'
   properties: {
@@ -94,13 +94,13 @@ resource workspaceName_Heartbeat 'Microsoft.OperationalInsights/workspaces/table
     "workspaceName": {
       "type": "string",
       "metadata": {
-        "description": "Name of the workspace."
+        "description": "Specify the name of the workspace."
       }
     },
     "location": {
       "type": "string",
       "metadata": {
-        "description": "Specifies the location for the workspace."
+        "description": "Specify the location for the workspace."
       }
     },
     "sku": {
@@ -117,26 +117,26 @@ resource workspaceName_Heartbeat 'Microsoft.OperationalInsights/workspaces/table
         "Standard"
       ],
       "metadata": {
-        "description": "Pricing tier: PerGB2018 or legacy tiers (Free, Standalone, PerNode, Standard or Premium) which are not available to all customers."
+        "description": "Specify the pricing tier: PerGB2018 or legacy tiers (Free, Standalone, PerNode, Standard or Premium) which are not available to all customers."
       }
     },
     "retentionInDays": {
       "type": "int",
       "defaultValue": 120,
       "metadata": {
-        "description": "Number of days to retain data."
+        "description": "Specify the number of days to retain data."
       }
     },
     "resourcePermissions": {
       "type": "bool",
       "metadata": {
-        "description": "true to use resource or workspace permissions. false to require workspace permissions."
+        "description": "Specify true to use resource or workspace permissions, or false to require workspace permissions."
       }
     },
     "heartbeatTableRetention": {
       "type": "int",
       "metadata": {
-        "description": "Number of days to retain data in Heartbeat table."
+        "description": "Specify the number of days to retain data in Heartbeat table."
       }
     }
   },
@@ -212,12 +212,16 @@ The following sample adds collection of [Windows events](../agents/data-sources-
 # [Bicep](#tab/bicep)
 
 ```bicep
+@description('Specify the name of the workspace.')
 param workspaceName string
+
+@description('Specify the location for the workspace.')
 param location string
 
 resource workspace'Microsoft.OperationalInsights/workspaces@2021-12-01-preview' = {
   name: workspaceName
   location: location
+  properties: {}
 }
 
 resource windowsEventsSystemDataSource 'Microsoft.OperationalInsights/workspaces/dataSources@2020-08-01' = {
@@ -266,10 +270,16 @@ resource WindowsEventApplicationDataSource 'Microsoft.OperationalInsights/worksp
   "contentVersion": "1.0.0.0",
   "parameters": {
     "workspaceName": {
-      "type": "string"
+      "type": "string",
+      "metadata": {
+        "description": "Specify the name of the workspace."
+      }
     },
     "location": {
-      "type": "string"
+      "type": "string",
+      "metadata": {
+        "description": "Specify the location for the workspace."
+      }
     }
   },
   "resources": [
@@ -277,7 +287,8 @@ resource WindowsEventApplicationDataSource 'Microsoft.OperationalInsights/worksp
       "type": "Microsoft.OperationalInsights/workspaces",
       "apiVersion": "2021-12-01-preview",
       "name": "[parameters('workspaceName')]",
-      "location": "[parameters('location')]"
+      "location": "[parameters('location')]",
+      "properties": {}
     },
     {
       "type": "Microsoft.OperationalInsights/workspaces/dataSources",
@@ -358,15 +369,16 @@ The following sample adds collection of [syslog events](../agents/data-sources-s
 # [Bicep](#tab/bicep)
 
 ```bicep
-@description('Name of the workspace.')
+@description('Specify the name of the workspace.')
 param workspaceName string
 
-@description('Specifies the location in which to create the workspace.')
+@description('Specify the location in which to create the workspace.')
 param location string
 
 resource workspace 'Microsoft.OperationalInsights/workspaces@2020-08-01' = {
   name: workspaceName
   location: location
+  properties: {}
 }
 
 resource syslogKernDataSource 'Microsoft.OperationalInsights/workspaces/datasources@2020-08-01' = {
@@ -450,13 +462,13 @@ resource syslogCollectionDataSource 'Microsoft.OperationalInsights/workspaces/da
     "workspaceName": {
       "type": "string",
       "metadata": {
-        "description": "Name of the workspace."
+        "description": "Specify the name of the workspace."
       }
     },
     "location": {
       "type": "string",
       "metadata": {
-        "description": "Specifies the location in which to create the workspace."
+        "description": "Specify the location in which to create the workspace."
       }
     }
   },
@@ -465,7 +477,8 @@ resource syslogCollectionDataSource 'Microsoft.OperationalInsights/workspaces/da
       "type": "Microsoft.OperationalInsights/workspaces",
       "apiVersion": "2020-08-01",
       "name": "[parameters('workspaceName')]",
-      "location": "[parameters('location')]"
+      "location": "[parameters('location')]",
+      "properties": {}
     },
     {
       "type": "Microsoft.OperationalInsights/workspaces/dataSources",
@@ -582,15 +595,16 @@ The following sample adds collection of [Windows performance counters](../agents
 # [Bicep](#tab/bicep)
 
 ```bicep
-@description('Name of the workspace.')
+@description('Specify the name of the workspace.')
 param workspaceName string
 
-@description('Location of the workspace.')
+@description('Specify the location of the workspace.')
 param location string = resourceGroup().location
 
 resource workspace 'Microsoft.OperationalInsights/workspaces@2021-12-01-preview' = {
   name: workspaceName
   location: location
+  properties: {}
 }
 
 resource windowsPerfMemoryAvailableBytesDataSource 'Microsoft.OperationalInsights/workspaces/dataSources@2020-08-01' = {
@@ -640,14 +654,14 @@ resource windowsPerfProcessorPercentageDataSource 'Microsoft.OperationalInsights
     "workspaceName": {
       "type": "string",
       "metadata": {
-        "description": "Name of the workspace."
+        "description": "Specify the name of the workspace."
       }
     },
     "location": {
       "type": "string",
       "defaultValue": "[resourceGroup().location]",
       "metadata": {
-        "description": "Location of the workspace."
+        "description": "Specify the location of the workspace."
       }
     }
   },
@@ -656,7 +670,8 @@ resource windowsPerfProcessorPercentageDataSource 'Microsoft.OperationalInsights
       "type": "Microsoft.OperationalInsights/workspaces",
       "apiVersion": "2021-12-01-preview",
       "name": "[parameters('workspaceName')]",
-      "location": "[parameters('location')]"
+      "location": "[parameters('location')]",
+      "properties": {}
     },
     {
       "type": "Microsoft.OperationalInsights/workspaces/dataSources",
@@ -739,15 +754,16 @@ The following sample adds collection of [Linux performance counters](../agents/d
 # [Bicep](#tab/bicep)
 
 ```bicep
-@description('Name of the workspace.')
+@description('Specify the name of the workspace.')
 param workspaceName string
 
-@description('Specifies the location in which to create the workspace.')
+@description('Specify the location in which to create the workspace.')
 param location string = resourceGroup().location
 
 resource workspace 'Microsoft.OperationalInsights/workspaces@2020-08-01' = {
   name: workspaceName
   location: location
+  properties: {}
 }
 
 resource linuxPerformanceLogicalDiskDataSource 'Microsoft.OperationalInsights/workspaces/datasources@2020-08-01' = {
@@ -799,7 +815,6 @@ resource linuxPerformanceProcessorDataSource 'Microsoft.OperationalInsights/work
     ]
   }
 }
-
 ```
 
 # [JSON](#tab/json)
@@ -812,14 +827,14 @@ resource linuxPerformanceProcessorDataSource 'Microsoft.OperationalInsights/work
     "workspaceName": {
       "type": "string",
       "metadata": {
-        "description": "Name of the workspace."
+        "description": "Specify the name of the workspace."
       }
     },
     "location": {
       "type": "string",
       "defaultValue": "[resourceGroup().location]",
       "metadata": {
-        "description": "Specifies the location in which to create the workspace."
+        "description": "Specify the location in which to create the workspace."
       }
     }
   },
@@ -828,7 +843,8 @@ resource linuxPerformanceProcessorDataSource 'Microsoft.OperationalInsights/work
       "type": "Microsoft.OperationalInsights/workspaces",
       "apiVersion": "2020-08-01",
       "name": "[parameters('workspaceName')]",
-      "location": "[parameters('location')]"
+      "location": "[parameters('location')]",
+      "properties": {}
     },
     {
       "type": "Microsoft.OperationalInsights/workspaces/dataSources",
@@ -922,15 +938,16 @@ The following sample adds collection of [custom logs](../agents/data-sources-cus
 # [Bicep](#tab/bicep)
 
 ```bicep
-@description('Name of the workspace.')
+@description('Specify the name of the workspace.')
 param workspaceName string
 
-@description('Specifies the location in which to create the workspace.')
+@description('Specify the location in which to create the workspace.')
 param location string
 
 resource workspace 'Microsoft.OperationalInsights/workspaces@2021-12-01-preview' = {
   name: workspaceName
   location: location
+  properties: {}
 }
 
 resource armlogTimeDelimitedDataSource 'Microsoft.OperationalInsights/workspaces/dataSources@2020-08-01' = {
@@ -1031,18 +1048,17 @@ resource armlogNewlineDatasource 'Microsoft.OperationalInsights/workspaces/dataS
 {
   "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
-
   "parameters": {
     "workspaceName": {
       "type": "string",
       "metadata": {
-        "description": "Name of the workspace."
+        "description": "Specify the name of the workspace."
       }
     },
     "location": {
       "type": "string",
       "metadata": {
-        "description": "Specifies the location in which to create the workspace."
+        "description": "Specify the location in which to create the workspace."
       }
     }
   },
@@ -1051,7 +1067,8 @@ resource armlogNewlineDatasource 'Microsoft.OperationalInsights/workspaces/dataS
       "type": "Microsoft.OperationalInsights/workspaces",
       "apiVersion": "2021-12-01-preview",
       "name": "[parameters('workspaceName')]",
-      "location": "[parameters('location')]"
+      "location": "[parameters('location')]",
+      "properties": {}
     },
     {
       "type": "Microsoft.OperationalInsights/workspaces/dataSources",
@@ -1182,15 +1199,16 @@ The following sample adds collection of [IIS logs](../agents/data-sources-iis-lo
 # [Bicep](#tab/bicep)
 
 ```bicep
-@description('Name of the workspace.')
+@description('Specify the name of the workspace.')
 param workspaceName string
 
-@description('Specifies the location in which to create the workspace.')
+@description('Specify the location in which to create the workspace.')
 param location string
 
 resource workspace 'Microsoft.OperationalInsights/workspaces@2021-12-01-preview' = {
   name: workspaceName
   location: location
+  properties: {}
 }
 
 resource IISLogDataSource 'Microsoft.OperationalInsights/workspaces/datasources@2020-08-01' = {
@@ -1213,13 +1231,13 @@ resource IISLogDataSource 'Microsoft.OperationalInsights/workspaces/datasources@
     "workspaceName": {
       "type": "string",
       "metadata": {
-        "description": "Name of the workspace."
+        "description": "Specify the name of the workspace."
       }
     },
     "location": {
       "type": "string",
       "metadata": {
-        "description": "Specifies the location in which to create the workspace."
+        "description": "Specify the location in which to create the workspace."
       }
     }
   },
@@ -1228,7 +1246,8 @@ resource IISLogDataSource 'Microsoft.OperationalInsights/workspaces/datasources@
       "type": "Microsoft.OperationalInsights/workspaces",
       "apiVersion": "2021-12-01-preview",
       "name": "[parameters('workspaceName')]",
-      "location": "[parameters('location')]"
+      "location": "[parameters('location')]",
+      "properties": {}
     },
     {
       "type": "Microsoft.OperationalInsights/workspaces/dataSources",
