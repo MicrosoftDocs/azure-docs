@@ -33,7 +33,7 @@ This article shows you how to connect to Azure Cosmos DB MongoDB API using the n
 
 ### Create a new JavaScript app
 
-1. Create a new JavaScript application in an empty folder using your preferred terminal. Use the [``npm init``](https://docs.npmjs.com/cli/v8/commands/npm-init) command specifying the **console** template.
+1. Create a new JavaScript application in an empty folder using your preferred terminal. Use the [``npm init``](https://docs.npmjs.com/cli/v8/commands/npm-init) command to begin the prompts to create the `package.json` file. Accept the defaults for the prompts. 
 
     ```console
     npm init
@@ -55,8 +55,6 @@ This article shows you how to connect to Azure Cosmos DB MongoDB API using the n
 
 To connect with the MongoDB native driver to Azure Cosmos DB, create an instance of the [``MongoClient``](https://mongodb.github.io/node-mongodb-native/4.5/classes/MongoClient.html#connect) class. This class is the starting point to perform all operations against databases. 
 
-* [Connect with a MongoDB connection string](#connect-with-a-mongodb-connection-string)
-
 ### Connect with a MongoDB connection string
 
 The most common constructor for **MongoClient** has two parameters:
@@ -64,7 +62,7 @@ The most common constructor for **MongoClient** has two parameters:
 | Parameter | Example value | Description |
 | --- | --- | --- |
 | ``url`` | ``COSMOS_CONNECTION_STRIN`` environment variable | MongoDB API connection string to use for all requests |
-| ``options`` | `{ssl: true, tls: true, }` | MongoDB oOptions](https://mongodb.github.io/node-mongodb-native/4.5/interfaces/MongoClientOptions.html) for the connection. |
+| ``options`` | `{ssl: true, tls: true, }` | [MongoDB Options](https://mongodb.github.io/node-mongodb-native/4.5/interfaces/MongoClientOptions.html) for the connection. |
 
 Refer to the [Troubleshooting guide](error-codes-solutions.md) for connection issues.
 
@@ -72,57 +70,15 @@ Refer to the [Troubleshooting guide](error-codes-solutions.md) for connection is
 
 ##### [Azure CLI](#tab/azure-cli)
 
-1. Create a shell variable for *resourceGroupName*.
+[!INCLUDE [Azure CLI - get resource name](<./includes/azurecli-get-resource-name.md>)]
 
-    ```azurecli-interactive
-    # Variable for resource group name
-    resourceGroupName="msdocs-cosmos"
-    ```
-
-1. Use the [``az cosmosdb list``](/cli/azure/cosmosdb#az-cosmosdb-list) command to retrieve the name of the first Azure Cosmos DB account in your resource group and store it in the *accountName* shell variable.
-
-    ```azurecli-interactive
-    # Retrieve most recently created account name
-    accountName=$(
-        az cosmosdb list \
-            --resource-group $resourceGroupName \
-            --query "[0].name" \
-            --output tsv
-    )
-    ```
-
-1. Get the MongoDB API full-control *CONNECTION STRING* for the account using the [``az cosmosdb show``](/cli/azure/cosmosdb#az-cosmosdb-show) command.
-
-    ```azurecli-interactive
-    az cosmosdb list-connection-strings \
-        --resource-group $resourceGroupName \
-        --name $accountName 
-    ```
-
-1. Record the *Primary MongoDB Connection String* value. You'll use this value later.
+[!INCLUDE [Azure CLI - get connection string](<./includes/azurecli-get-connection-string.md>)]
 
 ##### [PowerShell](#tab/azure-powershell)
 
-1. Create a shell variable for *RESOURCE_GROUP_NAME*.
+[!INCLUDE [Powershell - set resource name](<./includes/powershell-set-resource-name.md>)]
 
-    ```azurepowershell-interactive
-    # Variable for resource group name
-    $RESOURCE_GROUP_NAME = "msdocs-cosmos"
-    ```
-
-1. Find the *CONNECTION STRING* from the list of keys and connection strings for the account with the [``Get-AzCosmosDBAccountKey``](/powershell/module/az.cosmosdb/get-azcosmosdbaccountkey) cmdlet.
-
-    ```azurepowershell-interactive
-    $parameters = @{
-        ResourceGroupName = $RESOURCE_GROUP_NAME
-        Name = $ACCOUNT_NAME
-        Type = "ConnectionStrings"
-    }    
-    Get-AzCosmosDBAccountKey @parameters |
-        Select-Object -Property "Primary MongoDB Connection String"    
-    ```
-
-1. Record the *CONNECTION STRING* value. You'll use these credentials later.
+[!INCLUDE [Powershell - get connection string](<./includes/powershell-get-connection-string.md>)]
 
 
 ##### [Portal](#tab/azure-portal)
@@ -130,41 +86,11 @@ Refer to the [Troubleshooting guide](error-codes-solutions.md) for connection is
 > [!TIP]
 > For this guide, we recommend using the resource group name ``msdocs-cosmos``.
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
-
-1. Navigate to the existing Azure Cosmos DB MongoDB API account page.
-
-1. From the Azure Cosmos DB MongoDB API account page, select the **Connection String** navigation menu option.
-
-1. Record the value for the **PRIMARY CONNECTION STRING** field. You'll use this value in a later step.
-
-   :::image type="content" source="media/quickstart-javascript/cosmos-endpoint-key-credentials.png" lightbox="media/quickstart-javascript/cosmos-endpoint-key-credentials.png" alt-text="Screenshot of Keys page with various credentials for an Azure Cosmos D B SQL A P I account.":::
+[!INCLUDE [Portal - get connection string](<./includes/portal-get-connection-string.md>)]
 
 ---
 
-To use the **CONNECION STRING** values within your JavaScript code, set this value on the local machine running the application. To set the environment variable, use your preferred terminal to run the following commands:
-
-#### [Windows](#tab/windows)
-
-```powershell
-$env:COSMOS_CONNECTION_STRING = "<cosmos-connection-string>"
-```
-
-#### [Linux / macOS](#tab/linux+macos)
-
-```bash
-export COSMOS_CONNECTION_STRING="<cosmos-connection-string>"
-```
-
-#### [.env](#tab/dotenv)
-
-A `.env` file is a standard way to store environment variables in a project. Create a `.env` file in the root of your project. Add the following lines to the `.env` file:
-
-```dotenv
-COSMOS_CONNECTION_STRING="<cosmos-connection-string>"
-```
-
----
+[!INCLUDE [Multitab - store connection string in environment variable](<./includes/multitab-env-vars-connection-string.md>)]
 
 #### Create MongoClient with connection string
 
