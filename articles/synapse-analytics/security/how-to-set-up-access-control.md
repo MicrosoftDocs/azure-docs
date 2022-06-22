@@ -220,7 +220,7 @@ You can grant users access to a **single** serverless SQL database with the step
     ALTER ROLE db_owner ADD member alias; -- Type USER name from step 2
     ```
 
-#### <a name="workspace-scoped-permission"></a>Configure Workspace-scoped permissions
+#### Configure Workspace-scoped permissions
 
 You can grant full access to **all** serverless SQL pools in the workspace. Run the script in this example in the `master` database:
 
