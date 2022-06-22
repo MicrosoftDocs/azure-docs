@@ -17,19 +17,21 @@ You can register an existing SAP system with *Azure Center for SAP solutions (AC
 - View and track the SAP system as an Azure resource, called the *Virtual Instance for SAP (VIS)*.
 - Get recommendations for your SAP infrastructure, based on quality checks that evaluate best practices for SAP on Azure.
 - Get health and status information about your SAP system.
+- Start and Stop SAP application tier.
 - Monitor the Azure infrastructure metrics for the SAP system resources.
 
 ## Prerequisites
 
 - Check that you're trying to register a [supported SAP system configuration](#supported-systems)
-- Check that your Azure account has **Contributor** role access on the subscription or resource groups where you want to deploy the SAP system resources.
+- Check that your Azure account has **Contributor** role access on the subscription or resource groups where you have the SAP system resources.
 - Make sure each virtual machine (VM) in the SAP system is currently running on Azure. These VMs include:
     - The ABAP SAP Central Services (ASCS) Server instance
     - The Application Server instance or instances
     - The Database instance for the SAP system identifier (SID)
 - Make sure the **sapstartsrv** process is currently running on all the VMs in the SAP system.
+    - Command to start up sapstartsrv process on SAP VMs: /usr/sap/hostctrl/exe/hostexecstart -start
 - Grant the ACSS application **Azure SAP Workloads Management**  **Contributor** role access to the resource groups for the SAP system. There are two options:
-    - If your Azure account has **Owner** or **User Access Admin** role access, you can automatically grant access to the application.
+    - If your Azure account has **Owner** or **User Access Admin** role access, you can automatically grant access to the application when registering the SAP system.
     - If your Azure account doesn't have **Owner** or **User Access Admin** role access, you can [enable access for the ACSS application](#enable-acss-resource-permissions) as described later.
 - Grant access to your Azure Storage accounts from the virtual network where the SAP system exists. Use one of these options:
     - Allow outbound internet connectivity for the VMs.
@@ -57,7 +59,7 @@ The following SAP system configurations aren't supported in ACSS:
 
 When you register an existing SAP system as a VIS, ACSS needs **Contributor** role access to the Azure subscription or resource group in which the SAP system exists. Before you register an SAP system with ACSS, either [update your Azure subscription permissions](#update-subscription-permissions) or [update your resource group permissions](#update-resource-group-permissions).
 
-ACSS uses this role access to install VM extensions on the ASCS and Application Server VMs. This step allows ACSS to discover the SAP system components, and other SAP system metadata. ACSS also needs this same permission to enable SAP system monitoring and management capabilities.
+ACSS uses this role access to install VM extensions on the ASCS, Application Server and DB VMs. This step allows ACSS to discover the SAP system components, and other SAP system metadata. ACSS also needs this same permission to enable SAP system monitoring and management capabilities.
 
 ### Update subscription permissions
 
@@ -110,7 +112,7 @@ To register an existing SAP system in ACSS:
     1. For **SAP product**, select the SAP system product from the drop-down menu.
     1. For **Environment**, select the environment type from the drop-down menu. For example, production or non-production environments.
     1. For **Method to grant permission**, select your preferred method to grant Azure access to the related subscriptions and resource groups.
-        - If you choose **Automatic**, ACSS has access to the entire Azure subscription where the ASCS VM exists. To use this option, your Azure account also must have **User Access Admin** role access.
+        - If you choose **Automatic**, ACSS has access to the entire Azure subscription where the ASCS VM exists. To use this option, your Azure account also must have **User Access Admin** or **Owner** role access.
         - If you choose **Manual**, you have to manually grant access to the resource group(s) where the SAP system exists. For more information, see the [resource permissions explanation](#enable-acss-resource-permissions).
     1. Select **Register** to discover the SAP system and begin the registration process.
     1. Wait for the VIS resource to be created. The VIS name is the same as the SID name. The VIS deployment finishes after all SAP system components are discovered from the ASCS VM that you selected.
@@ -125,8 +127,10 @@ The process of registering an SAP system in ACSS might fail for the following re
 
 - The selected ASCS VM and SID don't match. Make sure to select the correct ASCS VM for the SAP system that you chose, and vice versa.
 - The ASCS instance or VM isn't running. Make sure the instance and VM are in the **Running** state.
-- At least one Application Server and the Database aren't running for the SAP system that you chose. Make sure the Application Servers and Database are in the **Running** state.
-- The user trying to register the SAP system doesn't have **Contributor** and **User Access Admin** role permissions. For more information, see the [prerequisites for registering an SAP system](#prerequisites).
+- The **sapstartsrv** process isn't running on all the VMs in the SAP system.
+    - Command to start up sapstartsrv process on SAP VMs: /usr/sap/hostctrl/exe/hostexecstart -start
+- At least one Application Server and the Database aren't running for the SAP system that you chose. Make sure the Application Servers and Database VMs are in the **Running** state.
+- The user trying to register the SAP system doesn't have **Contributor** role permissions. For more information, see the [prerequisites for registering an SAP system](#prerequisites).
 - The ACSS service doesn't have **Contributor** role access to the Azure subscription or resource groups where the SAP system exists. For more information, see [how to enable ACSS resource permissions](#enable-acss-resource-permissions).
 
 There's also a known issue with registering *S/4 HANA 2021* version SAP systems. You might receive the error message: **Failed to discover details from the Db VM**. This error happens when the Database identifier is incorrectly configured on the SAP system. One possible cause is that the Application Server profile parameter `rsdb/dbid` has an incorrect identifier for the HANA Database. To fix the error:
