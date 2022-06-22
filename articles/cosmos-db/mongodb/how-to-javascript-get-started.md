@@ -73,6 +73,10 @@ Refer to the [Troubleshooting guide](error-codes-solutions.md) for connection is
 
 [!INCLUDE [Powershell - set resource name](<./includes/powershell-set-resource-name.md>)]
 
+### [Portal](#tab/azure-portal)
+
+Skip this step and use the information for the portal in the next step.
+
 ---
 
 ## Retrieve your connection string
