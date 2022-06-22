@@ -62,7 +62,6 @@ public class SpringBootApp {
     ApplicationInsights.attach();
     SpringApplication.run(SpringBootApp.class, args);
   }
-
 }
 ```
 
