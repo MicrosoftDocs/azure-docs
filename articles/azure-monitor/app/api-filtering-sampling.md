@@ -201,7 +201,7 @@ public void Process(ITelemetry item)
 
 ### Java
 
-To learn more about telemetry processors and their implementation in Java, please reference the [Java telemetry processors documentation](./java-standalone-telemetry-processors.md).
+To learn more about telemetry processors and their implementation in Java, reference the [Java telemetry processors documentation](./java-standalone-telemetry-processors.md).
 
 ### JavaScript web applications
 
