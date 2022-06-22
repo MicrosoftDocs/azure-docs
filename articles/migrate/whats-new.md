@@ -110,7 +110,7 @@ For more information, see [ASP.NET app containerization and migration to Azure K
 
 - Assessments for migrating on-premises VMware VMs to [Azure VMware Solution (AVS)](./concepts-azure-vmware-solution-assessment-calculation.md) are now supported. [Learn more](how-to-create-azure-vmware-solution-assessment.md)
 - Support for multiple credentials on appliance for physical server discovery.
-- Support to allow Azure login from appliance for tenant where tenant restriction has been configured.
+- Support to allow Azure sign in from appliance for tenant where tenant restriction has been configured.
 
 ## Update (April 2020)
 
@@ -166,7 +166,7 @@ The current version of Azure Migrate (released in July 2019) provides many new f
 
 ## Azure Migrate previous version
 
-If you're using the previous version of Azure Migrate (only assessment of on-premises VMware VMs was supported), you should now use the current version. In the previous version, you can no longer create new Azure Migrate projects, or perform new discoveries. You can still access existing projects. To do this in the Azure portal > **All services**, search for **Azure Migrate**. In the Azure Migrate notifications, there's a link to access old Azure Migrate projects.
+If you're using the previous version of Azure Migrate (only assessment of on-premises VMware VMs was supported), you should now use the current version. In the previous version, you can no longer create new Azure Migrate projects, or perform new discoveries. You can still access existing projects. To do this in the Azure portal, go to **All services**, search for **Azure Migrate**. In the Azure Migrate notifications, there's a link to access old Azure Migrate projects.
 
 ## Next steps
 

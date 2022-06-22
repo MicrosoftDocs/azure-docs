@@ -37,7 +37,7 @@ Before you begin this tutorial, you should:
 
 Once web apps are assessed, they can be migrated using the integrated migration flow in Azure Migrate.
 
- - You can select up to 5 App Service Plans as part of a single migration.  
+ - You can select up to five App Service Plans as part of a single migration.  
  - Currently we don't support selecting existing App Service Plans during the migration flow. 
  - You can migrate web apps up to a maximum size of 2 GB, including content stored in the mapped virtual directory.
  - Currently we don't support migrating UNC directory content.
@@ -73,7 +73,7 @@ Once web apps are assessed, they can be migrated using the integrated migration 
 1. In **Edit apps**, under **Will migrate?**, select **Yes**, and select the **App Service Plan** and **Pricing tier** of where the apps will be hosted. Next, select the **Ok** button.
 
     > [!NOTE]
-    > Up to 5 App Service Plans can be migrated at a time.
+    > Up to five App Service Plans can be migrated at a time.
 
     :::image type="content" source="./media/tutorial-migrate-webapps/edit-multiple-details.png" alt-text="Screenshot of Azure Migrate Edit apps":::
 

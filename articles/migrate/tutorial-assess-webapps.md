@@ -33,17 +33,17 @@ In this tutorial, you learn how to:
 
 Run an assessment as follows:
 
-1. On the **Overview** page > **Servers, databases and web apps**, click **Discover, assess and migrate**.
+1. On the **Overview** page > **Servers, databases and web apps**, select **Discover, assess and migrate**.
 
     :::image type="content" source="./media/tutorial-assess-webapps/discover-assess-migrate.png" alt-text="Overview page for Azure Migrate":::
 
-2. On **Azure Migrate: Discovery and assessment**, click **Assess** and choose the assessment type as **Azure App Service**.
+2. On **Azure Migrate: Discovery and assessment**, select **Assess** and choose the assessment type as **Azure App Service**.
 
     :::image type="content" source="./media/tutorial-assess-webapps/assess.png" alt-text="Dropdown to choose assessment type as Azure App Service":::
 
-3. In **Create assessment** > you will be able to see the assessment type pre-selected as **Azure App Service** and the discovery source defaulted to **Servers discovered from Azure Migrate appliance**.
+3. In **Create assessment**, you will be able to see the assessment type pre-selected as **Azure App Service** and the discovery source defaulted to **Servers discovered from Azure Migrate appliance**.
 
-4. Click **Edit** to review the assessment properties.
+4. Select **Edit** to review the assessment properties.
 
      :::image type="content" source="./media/tutorial-assess-webapps/assess-webapps.png" alt-text="Edit button from where assessment properties can be customized":::
 
@@ -61,27 +61,27 @@ Run an assessment as follows:
 
     :::image type="content" source="./media/tutorial-assess-webapps/webapps-assessment-properties.png" alt-text="App Service assessment properties":::
 
-1. In **Create assessment** > click **Next**.
+1. In **Create assessment**, select **Next**.
 1. In **Select servers to assess** > **Assessment name** > specify a name for the assessment.
 1. In **Select or create a group**, select **Create New** and specify a group name.
-1. Select the appliance, and select the servers that you want to add to the group. Click **Next**.
-1. In **Review + create assessment**, review the assessment details, and click **Create Assessment** to create the group and run the assessment.
-1. After the assessment is created, go to **Servers, databases and web apps** > **Azure Migrate: Discovery and assessment**. Refresh the tile data by clicking the **Refresh** option on top of the tile. Wait for the data to refresh.
+1. Select the appliance, and select the servers that you want to add to the group. Select **Next**.
+1. In **Review + create assessment**, review the assessment details, and select **Create Assessment** to create the group and run the assessment.
+1. After the assessment is created, go to **Servers, databases and web apps** > **Azure Migrate: Discovery and assessment**. Refresh the tile data by selecting the **Refresh** option on top of the tile. Wait for the data to refresh.
 
     :::image type="content" source="./media/tutorial-assess-webapps/tile-refresh.png" alt-text="Refresh discovery and assessment tool data":::
 
-1. Click the number next to Azure App Service assessment.
+1. Select the number next to Azure App Service assessment.
 
     :::image type="content" source="./media/tutorial-assess-webapps/assessment-webapps-navigation.png" alt-text="Navigation to created assessment":::
 
-1. Click the assessment name which you wish to view.
+1. Select the assessment name, which you wish to view.
 
 ## Review an assessment
 
 **To view an assessment**:
 
-1. **Servers, databases and web apps** > **Azure Migrate: Discovery and assessment**, click the number next to the Azure App Service assessment.
-2. Click the assessment name which you wish to view.
+1. **Servers, databases and web apps** > **Azure Migrate: Discovery and assessment**, select the number next to the Azure App Service assessment.
+2. Select the assessment name, which you wish to view.
 
   :::image type="content" source="./media/tutorial-assess-webapps/assessment-webapps-summary.png" alt-text="App Service assessment overview":::
 
@@ -89,7 +89,7 @@ Run an assessment as follows:
 
 #### Azure App Service readiness
 
-This indicates the distribution of the assessed web apps. You can drill-down to understand the details around migration issues/warnings that you can remediate before migration to Azure App Service. [Learn More](concepts-azure-webapps-assessment-calculation.md).
+This indicates the distribution of the assessed web apps. You can drill down to understand the details around migration issues/warnings that you can remediate before migration to Azure App Service. [Learn More](concepts-azure-webapps-assessment-calculation.md).
 You can also view the recommended App Service SKU and plan for migrating to Azure App Service.
 
 #### Azure App Service cost details
@@ -98,7 +98,7 @@ An [App Service plan](../app-service/overview-hosting-plans.md) carries a [charg
 
 ### Review readiness
 
-1. Click **Azure App Service readiness**.
+1. Select **Azure App Service readiness**.
 
     :::image type="content" source="./media/tutorial-assess-webapps/assessment-webapps-readiness.png" alt-text="Azure App Service readiness details":::
 
@@ -107,7 +107,7 @@ An [App Service plan](../app-service/overview-hosting-plans.md) carries a [charg
     1. If there are non-critical compatibility issues, such as degraded or unsupported features that do not block the migration to a specific target deployment type, the readiness is marked as **Ready with conditions** (hyperlinked) with **warning** details and recommended remediation guidance.
     1. If there are any compatibility issues that may block the migration to a specific target deployment type, the readiness is marked as **Not ready** with **issue** details and recommended remediation guidance.
     1. If the discovery is still in progress or there are any discovery issues for a web app, the readiness is marked as **Unknown** as the assessment could not compute the readiness for that web app.
-1. Review the recommended SKU for the web apps which is determined as per the matrix below:
+1. Review the recommended SKU for the web apps, which is determined as per the matrix below:
 
     **Isolation required** | **Reserved instance** | **App Service plan/ SKU**
     --- | --- | ---
@@ -123,7 +123,7 @@ An [App Service plan](../app-service/overview-hosting-plans.md) carries a [charg
     Not ready  | No | No
     Unknown  | No | No
 
-1. Click the App Service plan link in the Azure App Service readiness table to see the App Service plan details such as compute resources and other web apps that are part of the same plan.
+1. Select the App Service plan link in the Azure App Service readiness table to see the App Service plan details such as compute resources and other web apps that are part of the same plan.
 
 ### Review cost estimates
 
