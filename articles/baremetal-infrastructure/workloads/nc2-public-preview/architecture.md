@@ -8,7 +8,7 @@ ms.date: 04/14/2021
 
 # Architecture of BareMetal Infrastructure for Nutanix
 
-In this article, we'll look at the architectural options for BareMetal Infrastructure for Nutanix and the features each supports.
+In this article, we'll look at the architectural options for BareMetal Infrastructure for Nutanix and the features each option supports.
 
 ## Deployment Example
 
@@ -29,9 +29,9 @@ In this article, we'll look at the architectural options for BareMetal Infrastru
 
 * Contains Prism Central - Nutanix's software appliance that enables advanced functionality within the Prism portal.
 
-## Connecting on premises
+## Connect on premises
 
-Connecting from cloud to on-premises is supported with two traditional products: Express Route and VPN Gateway. 
+Connecting from cloud to on-premises is supported by two traditional products: Express Route and VPN Gateway. 
 One example deployment is to have a VPN gateway in the Hub virtual network.
 This virtual network is peered with both the PC virtual network and Cluster Management virtual network, providing connectivity across the network and to your on-premises site.
 

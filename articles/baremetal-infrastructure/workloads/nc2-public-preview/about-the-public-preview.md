@@ -14,14 +14,14 @@ The articles in this section are intended for the professionals participating in
 
 ![Nutanix Preview](media/nc2-on-azure-preview.png)
 
-## Unlock benefits of Azure
+## Unlock the benefits of Azure
 
 * Establish a consistent hybrid deployment strategy
 * Operate seamlessly with on-premise Nutanix Clusters in Azure
 * Build and scale without constraints
 * Invent for today and be prepared for tomorrow with NC2 on Azure
 
-### Scale and flexibility to align to needs
+### Scale and flexibility that align with your needs
 
 Get scale, automation, and fast provisioning for your Nutanix workloads on global Azure infrastructure to invent with purpose.
 
@@ -29,7 +29,7 @@ Get scale, automation, and fast provisioning for your Nutanix workloads on globa
 
 Keep using your existing Nutanix investments, skills, and tools to quickly increase business agility with Azure cloud services.
 
-### Gaining cloud cost efficiencies
+### Gain cloud cost efficiencies
 
 Manage your cloud spending with license portability to significantly reduce the cost of running workloads in the cloud.
 
