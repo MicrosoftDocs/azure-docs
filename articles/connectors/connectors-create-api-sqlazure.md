@@ -515,7 +515,7 @@ The following example shows sample parameter values for the **Delete rows** acti
 
 Operation ID: `executeQuery`
 
-Runs a query against a SQL database.
+Runs a query on a SQL database.
 
 #### Parameters
 
@@ -528,6 +528,24 @@ Runs a query against a SQL database.
 #### Returns
 
 The outputs from this operation are dynamic.
+
+<a name="execute-stored-procedure"></a>
+
+### Execute stored procedure
+
+Operation ID: `executeStoredProcedure`
+
+Runs a stored procedure on a SQL database.
+
+#### Parameters
+
+| Name | Key | Required | Type | Description |
+|------|-----|----------|------|-------------|
+| **Procedure name** | `storedProcedureName` | True | String | The name for your stored procedure |
+| **Parameters** | `storedProcedureParameters` | False | Objects | The parameters for stored procedure |
+||||||
+
+#### Returns
 
 ## Built-in connector app settings
 
