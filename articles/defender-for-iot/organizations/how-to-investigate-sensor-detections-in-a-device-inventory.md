@@ -1,6 +1,6 @@
 ---
-title: View detected devices from an OT sensor console - Microsoft Defender for IoT
-description: Learn about how to view detected devices on an OT sensor console.
+title: View OT devices in an on-premises Device inventory - Microsoft Defender for IoT
+description: Learn about how to view detected devices on an OT sensor console or an on-premises management console.
 ms.date: 06/12/2022
 ms.topic: how-to
 zone_pivot_groups: on-prem-exp-d4iot

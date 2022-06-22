@@ -1,5 +1,5 @@
 ---
-title: View OT / IoT devices from the Azure portal's Device inventory
+title: View OT / IoT devices from the Azure portal's Device inventory - Microsoft Defender for IoT
 description: Learn how to view and manage OT and IoT devices (assets) from the Device inventory page in the Azure portal.
 ms.date: 06/12/2022
 ms.topic: how-to
