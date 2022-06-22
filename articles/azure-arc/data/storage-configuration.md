@@ -169,7 +169,7 @@ When creating an instance using either `az sql mi-arc create` or `az postgres ar
 
 |Parameter name, short name|Used for|
 |---|---|
-|`--storage-class-data`, `-d`|Storage class for all data files (.mdf, ndf) including transaction log files. If not specified, defaults to storage class for data controller.|
+|`--storage-class-data`, `-d`|Storage class for all data files (.mdf, ndf). If not specified, defaults to storage class for data controller.|
 |`--storage-class-logs`, `-g`|Storage class for all log files. If not specified, defaults to storage class for data controller.|
 |`--storage-class-data-logs`|Storage class for the database transaction log files. If not specified, defaults to storage class for data controller.|
 |`--storage-class-backups`|Storage class for all backup files. If not specified, defaults to storage class for data (`--storage-class-data`).<br/><br/> Use a ReadWriteMany (RWX) capable storage class for backups. Learn more about [access modes](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#access-modes). |
