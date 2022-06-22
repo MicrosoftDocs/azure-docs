@@ -119,7 +119,9 @@ The preceding code snippet displays the following example console output for an 
 
 ## Bulk updates to a collection
 
-You can perform several operations at once with the **bulkWrite** operation. The following bulk operations are available:
+You can perform several operations at once with the **bulkWrite** operation. Learn more about how to [optimize bulk writes for Cosmos DB](optimize-write-performance.md#tune-for-the-optimal-batch-size-and-thread-count). 
+
+The following bulk operations are available:
 
 * [MongoClient.Db.Collection.bulkWrite](https://mongodb.github.io/node-mongodb-native/4.7/classes/Collection.html#bulkWrite)
     * insertOne
@@ -136,7 +138,7 @@ The preceding code snippet displays the following example console output:
 
 ## Delete a document
 
-To delete a document or several documents, use a query to define how the documents are found. 
+To delete documents, use a query to define how the documents are found. 
 
 * [MongoClient.Db.Collection.deleteOne](https://mongodb.github.io/node-mongodb-native/4.7/classes/Collection.html#deleteOne)
 * [MongoClient.Db.Collection.deleteMany](https://mongodb.github.io/node-mongodb-native/4.7/classes/Collection.html#deleteMany)
@@ -149,7 +151,7 @@ The preceding code snippet displays the following example console output:
 
 ## Query for documents
 
-To find a document or several documents, use a query to define how the documents are found. 
+To find documents, use a query to define how the documents are found. 
 
 * [MongoClient.Db.Collection.findOne](https://mongodb.github.io/node-mongodb-native/4.7/classes/Collection.html#findOne)
 * [MongoClient.Db.Collection.find](https://mongodb.github.io/node-mongodb-native/4.7/classes/Collection.html#find)
