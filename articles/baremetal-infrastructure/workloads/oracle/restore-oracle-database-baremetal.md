@@ -249,9 +249,5 @@ After cloning or restoring a database, the log archives volume should be unmount
 
 Learn more about high availability and disaster recovery for Oracle on BareMetal:
 
-## Next steps
-
-Learn more:
-
 > [!div class="nextstepaction"]
 > [High availability and disaster recovery for Oracle on BareMetal](concepts-oracle-high-availability.md)
