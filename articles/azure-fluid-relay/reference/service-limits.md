@@ -19,14 +19,15 @@ The Fluid Framework offers a variety of [distributed data structures (DDSes)](ht
 
 ## Fluid sessions
 
-| Name         | Limit  |
-|--|--|
-|Number of simultaneous users in one session | 100 |
-|Incremental summary size upload | 28 MB |
+The maximum number of simultaneous users in one session on Azure Fluid Relay is 100 users. Note that this is simultaneous users. What this means is that the 101st user will not be allowed to join the session, but if a few users leave the session, that user will be able to join because the number of simultaneous users at that point will be less than the limit. 
+
+## Fluid Summaries
+
+Incremental summaries that can be uploaded to Azure Fluid Relay cannot exceed 28 MB in size. More info [here](https://fluidframework.com/docs/concepts/summarizer).
 
 ## Signals
 
-The Fluid Framework has a concept of Signals that can be sent to participating clients in the session. More info linked [here](https://fluidframework.com/docs/concepts/signals/). The Azure Fluid Relay does not support the Signals.
+The Fluid Framework has a concept of Signals that can be sent to participating clients in the session. More info [here](https://fluidframework.com/docs/concepts/signals/). The Azure Fluid Relay does not support the Signals.
 
 ## Need help?
 
