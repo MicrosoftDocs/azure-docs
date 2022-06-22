@@ -4,8 +4,7 @@ description: How to view statistics and data about your authorization system in 
 services: active-directory
 author: kenwith
 manager: rkarlin
-ms.service: active-directory
-ms.subservice: ciem
+ms.service: ciem
 ms.workload: identity
 ms.topic: overview
 ms.date: 02/23/2022

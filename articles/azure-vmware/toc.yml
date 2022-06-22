@@ -217,31 +217,7 @@
     - name: VMware tools vix error code = 21009
       href: https://kb.vmware.com/s/article/2129927
   - name: FAQ
-    items:
-    - name: General
-      href: ./faq.yml
-    - name: Billing
-      href: ./faq.yml
-    - name: Customer communication
-      href: ./faq.yml
-    - name: Configuration and setup
-      href: ./faq.yml
-    - name: VMware software
-      href: ./faq.yml
-    - name: Third-party backup solutions
-      href: ./faq.yml
-    - name: Compute
-      href: ./faq.yml
-    - name: Networking and interconnectivity
-      href: ./faq.yml
-    - name: Storage
-      href: ./faq.yml
-    - name: Hosts, clusters, and private clouds
-      href: ./faq.yml
-    - name: Identity management
-      href: ./faq.yml
-    - name: CSP and multi-tenancy
-      href: ./faq.yml
+    href: ./faq.yml
   - name: Videos
     items:
     - name: Playlist

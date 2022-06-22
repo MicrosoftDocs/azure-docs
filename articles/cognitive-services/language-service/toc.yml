@@ -714,6 +714,8 @@ items:
       href: question-answering/how-to/prebuilt.md
     - name: Project Best practices
       href: question-answering/how-to/best-practices.md
+    - name: Migrate from QnA Maker to Question Answering
+      href: question-answering/how-to/migrate-qnamaker-to-question-answering.md
     - name: Troubleshooting
       href: question-answering/how-to/troubleshooting.md
   - name: Concepts
