@@ -40,7 +40,9 @@ Track your SAP solution deployment journey through this series of articles:
 
 ## Configure watchlists
 Threat Monitoring for SAP solution configuration is accomplished by providing customer-specific information in the provisioned watchlists.
+
 > [!NOTE]
+>
 > After initial solution deployment, it may take some time before watchlists are populated with data
 > If you edit a watchlist and find it is empty, please wait a few minutes and retry opening the watchlist for editing.
 
