@@ -102,14 +102,12 @@ Learn more about [MDE integration with Defender for Servers.](integration-defend
 
 To expand the threat protections provided by Microsoft Defender for Key Vault, we've added two new alerts.
 
-These alerts will inform you when there is an unusual amount of access from a single user to your key vaults and will deny access to that user.
+These alerts will inform you when there is an access denied anomaly detected to any of your key vaults.
 
 | Alert (alert type) | Description | MITRE tactics<br>([Learn more](#intentions)) | Severity |
 |--|--|--|--|
-| **Unusual access denied - User accessing high volume of key vaults denied**<br>(KV_DeniedAccountVolumeAnomaly) | A user or service principal has attempted access to anomalously high volume of key vaults in the last 24 hours. This anomalous access pattern may be legitimate activity. Though this attempt was unsuccessful, it could be an indication of a possible attempt to gain access of key vault and the secrets contained within it. We recommend further investigations. | Initial access, Discovery | Low |
-| **Unusual access denied - User accessing high volume of key vaults denied**<br>(KV_UserAccessDeniedAnomaly) | A user or service principal has attempted access to anomalously high volume of key vaults in the last 24 hours. This anomalous access pattern may be legitimate activity. Though this attempt was unsuccessful, it could be an indication of a possible attempt to gain access of key vault and the secrets contained within it. | Initial Access, Discovery | Low |
-
-
+| **Unusual access denied - User accessing high volume of key vaults denied**<br>(KV_DeniedAccountVolumeAnomaly) | A user or service principal has attempted access to anomalously high volume of key vaults in the last 24 hours. This anomalous access pattern may be legitimate activity. Though this attempt was unsuccessful, it could be an indication of a possible attempt to gain access of key vault and the secrets contained within it. We recommend further investigations. | Discovery | Low |
+| **Unusual access denied - Unusual user accessing key vault denied**<br>(KV_UserAccessDeniedAnomaly) | A key vault access was attempted by a user that does not normally access it, this anomalous access pattern may be legitimate activity. Though this attempt was unsuccessful, it could be an indication of a possible attempt to gain access of key vault and the secrets contained within it.  | Initial Access, Discovery | Low |
 
 ## May 2022
 
