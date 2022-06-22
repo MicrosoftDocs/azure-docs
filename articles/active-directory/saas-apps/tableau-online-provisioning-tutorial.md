@@ -203,7 +203,7 @@ POST https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronizat
 9. Return to the first web browser window and select the Provisioning tab for your application. Your configuration will have been reset. You can confirm the upgrade has taken place by confirming the Job ID starts with “TableauOnlineSCIM”. 
 
 10. Under the Admin Credentials section, select "Bearer Authentication" as the authentication method and enter the Tenant URL and Secret Token of the Tableau instance you wish to provision to.  
-![Screenshot of Admin Credentials in the Workplace by Facebook app in the Azure portalt](./media/tableau-online-provisioning-tutorial/tableau-cloud-creds.png)
+![Screenshot of Admin Credentials in Tableau Cloud in the Azure portal](./media/tableau-online-provisioning-tutorial/tableau-cloud-creds.png)
 
 11. Restore any previous changes you made to the application (Authentication details, Scoping filters, Custom attribute mappings) and re-enable provisioning. 
 
