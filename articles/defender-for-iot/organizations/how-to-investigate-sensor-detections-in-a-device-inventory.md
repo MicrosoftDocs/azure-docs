@@ -8,15 +8,18 @@ zone_pivot_groups: on-prem-exp-d4iot
 
 # View detected devices on-premises
 
-Use the **Device inventory** page on a sensor to new network devices detected by that sensor, or on an on-premises management console to view network devices detected by connected sensors.
+Use the **Device inventory** page on a OT sensor console to new network devices detected by that sensor, or on an on-premises management console to view network devices detected by connected sensors.
 
-The **Device inventory** page displays all detected OT devices in your network, and allows you to identify new devices detected, devices that might need troubleshooting, and more.
+The **Device inventory** pages display all detected OT devices in your network, and allows you to identify new devices detected, devices that might need troubleshooting, and more.
 
-The sensor and on-premises management console each provide different options for viewing and managing devices. Select one of the following options, depending on where you're viewing your network devices:
+The sensor and on-premises management console each provide different options for viewing and managing devices. Select one of the options at the top of this page to view the relevant procedures for you, depending on where you're viewing your network devices.
 
-::: zone pivot="experience-sensor"
+> [!TIP]
+> Alternately, view detected devices [in Microsoft Defender for IoT, in the the Azure portal](how-to-manage-device-inventory-for-organizations.md).
 
 For more information, see [Devices monitored by Defender for IoT](architecture.md#devices-monitored-by-defender-for-iot).
+
+::: zone pivot="experience-sensor"
 
 ## View the device inventory
 
@@ -24,7 +27,7 @@ This procedure describes how to view detected devices in the **Device inventory*
 
 1. Sign-in to your OT sensor console, and then select **Device inventory**.
 
-    :::image type="content" source="media/how-to-inventory-sensor/inventory-sensor.png" alt-text="Screenshot that shows the Device inventory main screen.":::
+    :::image type="content" source="media/how-to-work-with-asset-inventory-information/sensor-device-inventory.png" alt-text="Screenshot of the sensor console's Device inventory page." lightbox="media/how-to-work-with-asset-inventory-information/sensor-device-inventory.png":::
 
     Use any of the following options to modify or filter the devices shown:
 
@@ -32,9 +35,9 @@ This procedure describes how to view detected devices in the **Device inventory*
     |---------|---------|
     | **Sort devices** | Select a column header to sort the devices by that column. |
     |**Filter devices shown**    |   Select **Add filter** to filter the devices shown. <br><br>In the **Add filter** box, define your filter by column name, operator, and filter value. Select **Apply** to apply your filter.<br><br>You can apply multiple filters at the same time. Search results and filters aren't saved when you refresh the **Device inventory** page. |
-    | **Save a filter** | To save the current set of filters<br><br>1. Select **+Save Filter**. <br>2. In the **Create New Device Inventory Filter** pane on the right, enter a name for your filter, and then select **Submit**. <br><br>Saved filters are also saved as **Device map** groups, and provides extra granularity when [viewing network devices](how-to-work-with-the-sensor-device-map.md) on the **Device map** page. |
+    | **Save a filter** | To save the current set of filters:<br><br>1. Select **+Save Filter**. <br>2. In the **Create New Device Inventory Filter** pane on the right, enter a name for your filter, and then select **Submit**. <br><br>Saved filters are also saved as **Device map** groups, and provides extra granularity when [viewing network devices](how-to-work-with-the-sensor-device-map.md) on the **Device map** page. |
     | **Load a saved filter** | If you have predefined filters saved, load them by selecting the **show side pane** :::image type="icon" source="media/how-to-inventory-sensor/show-side-pane.png" border="false"::: button, and then select the filter you want to load. |
-    |**Modify columns shown**     |    **Edit Columns**. In the **Edit columns** pane:<br><br>        - Select **Add Column** to add new columns to the grid<br>        - Drag and drop fields to change the columns order.<br>- To remove a column, select the **Delete** :::image type="icon" source="media/how-to-manage-device-inventory-on-the-cloud/trashcan-icon.png" border="false"::: icon to the right.<br>- To reset the columns to their default settings, select **Reset** :::image type="icon" source="media/how-to-manage-device-inventory-on-the-cloud/reset-icon.png" border="false":::.   <br><br>Select **Save** to save any changes made.  |
+    |**Modify columns shown**     | Select **Edit Columns** :::image type="icon" source="media/how-to-manage-device-inventory-on-the-cloud/edit-columns-icon.png" border="false":::. In the **Edit columns** pane:<br><br>        - Select **Add Column** to add new columns to the grid<br>        - Drag and drop fields to change the columns order.<br>- To remove a column, select the **Delete** :::image type="icon" source="media/how-to-manage-device-inventory-on-the-cloud/trashcan-icon.png" border="false"::: icon to the right.<br>- To reset the columns to their default settings, select **Reset** :::image type="icon" source="media/how-to-manage-device-inventory-on-the-cloud/reset-icon.png" border="false":::.   <br><br>Select **Save** to save any changes made.  |
 
     For more information, see [Device inventory column reference](#device-inventory-column-reference).
 
@@ -42,7 +45,7 @@ This procedure describes how to view detected devices in the **Device inventory*
 
     For example:
 
-    :::image type="content" source="media/how-to-inventory-sensor/inventory-sensor.png" alt-text="Screenshot of the Device inventory page on an OT sensor console.":::
+    :::image type="content" source="media/how-to-inventory-sensor/sensor-inventory-view-details.png" alt-text="Screenshot of the Device inventory page on an OT sensor console." lightbox="media/how-to-inventory-sensor/sensor-inventory-view-details.png":::
 
 ## Edit device details
 
@@ -58,18 +61,25 @@ As you manage your network devices, you may need to update their details. For ex
 
 Editable fields include:
 
-- Authorized status
-- Device name
-- Device type
-- OS
-- Purdue layer
-- Description
+:::row:::
+   :::column span="":::
+      - Authorized status
+      - Device name
+      - Device type
+   :::column-end:::
+   :::column span="":::
+      - OS
+      - Purdue layer
+      - Description
+   :::column-end:::
+:::row-end:::
+
 
 ## Export the device inventory to CSV
 
 Export your device inventory to a CSV file to manage or share data outside of the OT sensor.
 
-To export device inventory data, select **Export** :::image type="icon" source="media/how-to-manage-device-inventory-on-the-cloud/export-button.png" border="false":::.
+To export device inventory data, on the **Device inventory** page, select **Export** :::image type="icon" source="media/how-to-manage-device-inventory-on-the-cloud/export-button.png" border="false":::.
 
 The device inventory is exported with any filters currently applied, and you can save the file locally.
 
@@ -139,14 +149,14 @@ To view detected devices in the **Device Inventory** page in an on-premises mana
 
 For example:
 
-:::image type="content" source="media/how-to-work-with-asset-inventory-information/device-inventory-data-table.png" alt-text="Screenshot of the on-premises management console Device Inventory page.":::
+:::image type="content" source="media/how-to-work-with-asset-inventory-information/device-inventory-data-table.png" alt-text="Screenshot of the on-premises management console Device Inventory page." lightbox="media/how-to-work-with-asset-inventory-information/device-inventory-data-table.png":::
 
 Use any of the following options to modify or filter the devices shown:
 
 |Option  |Steps  |
 |---------|---------|
 | **Sort devices** | To sort the grid by a specific column, select the **Sort** :::image type="icon" source="media/how-to-work-with-asset-inventory-information/alphabetical-order-icon.png" border="false"::: button in the column you want to sort by. Use the arrow buttons that appear to sort ascending or descending. |
-|**Filter devices shown**    |   In the column that you want to filter, select the **Filter** button :::image type="icon" source="media/how-to-work-with-asset-inventory-information/filter-a-column-icon.png" border="false":::.<br><br>In the **Filter** box, define your filter value.  <br><br>Filters aren't saved when you refresh the **Device Inventory** page. |
+|**Filter devices shown**    |  1. In the column that you want to filter, select the **Filter** button :::image type="icon" source="media/how-to-work-with-asset-inventory-information/filter-a-column-icon.png" border="false":::.<br>2. In the **Filter** box, define your filter value.  <br><br>Filters aren't saved when you refresh the **Device Inventory** page. |
 | **Save a filter** | To save the current set of filters, select the **Save As** button that appears in the filter row.|
 | **Load a saved filter** | Saved filters are listed on the left, in the **Groups** pane. <br><br>1. Select the **Options** :::image type="icon" source="media/how-to-work-with-asset-inventory-information/options-menu.png"border="false"::: button in the toolbar to display the **Groups** pane. <br>2. In the **Device Inventory Filters** list, select the saved filter you want to load.  |
 
@@ -208,6 +218,8 @@ Enhance the data in your device inventory with information from other sources, s
 Enhancement data is shown as extra columns in the on-premises management console **Device inventory** page.
 
 Enhance data by adding it manually or by running customized scripts from Defender for IoT. You can also work with Defender for IoT support to set up your system to receive Web API queries.
+
+For example, the following image shows an example of how you might use enhanced data in the device inventory:
 
 :::image type="content" source="media/how-to-work-with-asset-inventory-information/enterprise-data-integrator-graph.png" alt-text="Diagram of the data integrator.":::
 
