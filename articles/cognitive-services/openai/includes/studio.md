@@ -29,7 +29,7 @@ You'll first land on our main page for the Azure OpenAI Studio and from here you
 
 
 - Resources without a deployment will be prompted to create one. This is required to be able to inference with your models
-1. Get started with a few simple examples that demonstrate the capabilities of the service
+- Get started with a few simple examples that demonstrate the capabilities of the service
 1. Navigate to different parts of the Studio including the **Playground** for experimentation and our fine-tuning workflow
 1. Find quick links to other helpful resources like documentation and community forums
 
