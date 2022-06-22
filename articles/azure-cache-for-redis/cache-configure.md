@@ -66,7 +66,7 @@ You can view and configure the following settings using the **Resource Menu**. T
 
 ### Activity log
 
-Select **Activity log** to view actions done to your cache. You can also use filtering to expand this view to include other resources. For more information on working with audit logs, see [Audit operations with Resource Manager](../azure-monitor/essentials/activity-log.md). For more information on monitoring Azure Cache for Redis events, see [alerts](cache-how-to-monitor.md#alerts).
+Select **Activity log** to view actions done to your cache. You can also use filtering to expand this view to include other resources. For more information on working with audit logs, see [Audit operations with Resource Manager](../azure-monitor/essentials/activity-log.md). For more information on monitoring Azure Cache for Redis events, see [Create alerts](cache-how-to-monitor.md#create-alerts).
 
 ### Access control (IAM)
 
@@ -142,7 +142,7 @@ The **maxmemory-reserved** setting configures the amount of memory in MB per ins
 
 The **maxfragmentationmemory-reserved** setting configures the amount of memory in MB per instance in a cluster that is reserved to accommodate for memory fragmentation. When you set this value, the Redis server experience is more consistent when the cache is full or close to full and the fragmentation ratio is high. When memory is reserved for such operations, it's unavailable for storage of cached data. The minimum and maximum values on the slider are 10% and 60%, shown in megabytes. You must set the value in that range.
 
-When choosing a new memory reservation value (**maxmemory-reserved** or **maxfragmentationmemory-reserved**), consider how this change might affect a cache that is already running with large amounts of data in it. For instance, if you have a 53-GB cache with 49 GB of data, then change the reservation value to 8 GB, this change drops the max available memory for the system down to 45 GB. If either your current `used_memory` or your `used_memory_rss` values are higher than the new limit of 45 GB, then the system will have to evict data until both `used_memory` and `used_memory_rss` are below 45 GB. Eviction can increase server load and memory fragmentation. For more information on cache metrics such as `used_memory` and `used_memory_rss`, see [Available metrics and reporting intervals](cache-how-to-monitor.md#available-metrics-and-reporting-intervals).
+When choosing a new memory reservation value (**maxmemory-reserved** or **maxfragmentationmemory-reserved**), consider how this change might affect a cache that is already running with large amounts of data in it. For instance, if you have a 53-GB cache with 49 GB of data, then change the reservation value to 8 GB, this change drops the max available memory for the system down to 45 GB. If either your current `used_memory` or your `used_memory_rss` values are higher than the new limit of 45 GB, then the system will have to evict data until both `used_memory` and `used_memory_rss` are below 45 GB. Eviction can increase server load and memory fragmentation. For more information on cache metrics such as `used_memory` and `used_memory_rss`, see [Create your own metrics](cache-how-to-monitor.md#create-your-own-metrics).
 
 > [!IMPORTANT]
 > The **maxmemory-reserved** and **maxfragmentationmemory-reserved** settings are available only for Standard and Premium caches.
@@ -336,11 +336,11 @@ Select **Redis metrics** to [view metrics](cache-how-to-monitor.md#view-cache-me
 
 ### Alert rules
 
-Select **Alert rules** to configure alerts based on Azure Cache for Redis metrics. For more information, see [Alerts](cache-how-to-monitor.md#alerts).
+Select **Alert rules** to configure alerts based on Azure Cache for Redis metrics. For more information, see [Create alerts](cache-how-to-monitor.md#create-alerts).
 
 ### Diagnostics
 
-By default, cache metrics in Azure Monitor are [stored for 30 days](../azure-monitor/essentials/data-platform-metrics.md) and then deleted. To persist your cache metrics for longer than 30 days, select **Diagnostics** to [configure the storage account](cache-how-to-monitor.md#export-cache-metrics) used to store cache diagnostics.
+By default, cache metrics in Azure Monitor are [stored for 30 days](../azure-monitor/essentials/data-platform-metrics.md) and then deleted. To persist your cache metrics for longer than 30 days, select **Diagnostics** to [configure the storage account](cache-how-to-monitor.md#use-a-storage-account-to-export-cache-metrics) used to store cache diagnostics.
 
 >[!NOTE]
 >In addition to archiving your cache metrics to storage, you can also [stream them to an Event hub or send them to Azure Monitor logs](../azure-monitor/essentials/stream-monitoring-data-event-hubs.md).
