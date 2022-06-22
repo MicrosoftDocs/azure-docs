@@ -225,7 +225,7 @@ az network front-door waf-policy managed-rules add \
 Run [az afd security-policy create](/cli/azure/afd/security-policy#az-afd-security-policy-create) to apply your WAF policy to the endpoint's default domain.
 
 > [!NOTE]
-> Substitute 'mysubscription' with your Azure Subscription ID in the domains and waf-policy parameters below. Run [az account subscription list](/cli/azure/aaccount/subscription#az-account-subscription-list) to get Subscription ID details.
+> Substitute 'mysubscription' with your Azure Subscription ID in the domains and waf-policy parameters below. Run [az account subscription list](/cli/azure/account/subscription#az-account-subscription-list) to get Subscription ID details.
 
 
 ```azurecli-interactive
