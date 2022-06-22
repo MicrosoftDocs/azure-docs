@@ -62,7 +62,10 @@ Create a new python file called quickstart.py. Then open it up in your preferred
           },
           json = payload
         )
+    response = json.loads(r.text)
+    formatted_response = json.dumps(response, indent=4)
 
+    print(formatted_response)
     ```
 
 1. Run the application with the `python` command on your quickstart file
@@ -71,7 +74,7 @@ Create a new python file called quickstart.py. Then open it up in your preferred
     python quickstart.py
     ```
 
-## Output 
+## Output
 
   The output from the completions API will look as follows.
 
