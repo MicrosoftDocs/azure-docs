@@ -121,7 +121,7 @@ There are three common scenarios for side by side deployment:
     * With QRadar read [Sending QRadar offenses to Microsoft Sentinel](https://techcommunity.microsoft.com/t5/azure-sentinel/migrating-qradar-offenses-to-azure-sentinel/ba-p/2102043)
     * For ArcSight, use [CEF Forwarding](https://community.microfocus.com/t5/Logger-Forwarding-Connectors/ArcSight-Forwarding-Connector-Configuration-Guide/ta-p/1583918).
 
-You can also send the alerts from Microsoft Sentinel to your 3rd party SIEM or ticketing system using the [Graph Security API](~/../microsoftgraph/microsoft-graph-docs/concepts/security-integration.md), which is simpler but would not enable sending additional data. 
+You can also send the alerts from Microsoft Sentinel to your 3rd party SIEM or ticketing system using the [Graph Security API](/graph/security-integration), which is simpler but would not enable sending additional data. 
 
 
 **For MSSPs**
@@ -200,7 +200,7 @@ If you want to retain data for _more than two years_ or _reduce the retention co
 
 Need more depth? Watch the _Improving the Breadth and Coverage of Threat Hunting with ADX Support, More Entity Types, and Updated MITRE Integration_ webinar [here](https://www.youtube.com/watch?v=5coYjlw2Qqs&ab_channel=MicrosoftSecurityCommunity).
 
-If you prefer another long-term retention solution, [export from Microsoft Sentinel / Log Analytics to Azure Storage and Event Hub](https://docs.microsoft.com/cli/azure/monitor/log-analytics/workspace/data-export) or [move Logs to Long-Term Storage using Logic Apps](../azure-monitor/logs/logs-export-logic-app.md). The latter advantage is that it can export historical data.
+If you prefer another long-term retention solution, [export from Microsoft Sentinel / Log Analytics to Azure Storage and Event Hub](/cli/azure/monitor/log-analytics/workspace/data-export?view=azure-cli-latest) or [move Logs to Long-Term Storage using Logic Apps](../azure-monitor/logs/logs-export-logic-app.md). The latter advantage is that it can export historical data.
 Lastly, you can set fine-grained retention periods using [table-level retention Settings](https://techcommunity.microsoft.com/t5/core-infrastructure-and-security/azure-log-analytics-data-retention-by-type-in-real-life/ba-p/1416287). More details [here](../azure-monitor/logs/data-retention-archive.md).
 
 
@@ -301,7 +301,7 @@ The current implementation is based on query time normalization using KQL functi
 * **Normalized schemas** cover standard sets of predictable event types that are easy to work with and build unified capabilities. The schema defines which fields should represent an event, a normalized column naming convention, and a standard format for the field values. 
     * Watch the _Understanding Normalization in Microsoft Sentinel_ webinar: [YouTube](https://www.youtube.com/watch?v=WoGD-JeC7ng), [Presentation](https://1drv.ms/b/s!AnEPjr8tHcNmjDY1cro08Fk3KUj-?e=murYHG).
     * Watch the _Deep Dive into Microsoft Sentinel Normalizing Parsers and Normalized Content_ webinar: [YouTube](https://www.youtube.com/watch?v=zaqblyjQW6k), [MP3](https://aka.ms/AS_Normalizing_Parsers_and_Normalized_Content_11AUG2021_MP4), [Presentation](https://1drv.ms/b/s!AnEPjr8tHcNmjGtoRPQ2XYe3wQDz?e=R3dWeM).
-* **Parsers** map existing data to the normalized schemas. Parsers are implemented using [KQL functions](~/../data-explorer/kusto/query/functions/user-defined-functions.md).  Watch the _Extend and Manage ASIM: Developing, Testing and Deploying Parsers_ webinar: [YouTube](https://youtu.be/NHLdcuJNqKw), [Presentation](https://1drv.ms/b/s!AnEPjr8tHcNmk0_k0zs21rL7euHp?e=5XkTnW).
+* **Parsers** map existing data to the normalized schemas. Parsers are implemented using [KQL functions](/azure/data-explorer/kusto/query/functions/user-defined-functions).  Watch the _Extend and Manage ASIM: Developing, Testing and Deploying Parsers_ webinar: [YouTube](https://youtu.be/NHLdcuJNqKw), [Presentation](https://1drv.ms/b/s!AnEPjr8tHcNmk0_k0zs21rL7euHp?e=5XkTnW).
 * **Content** for each normalized schema includes analytics rules, workbooks, hunting queries, and additional content. This content works on any normalized data without the need to create source-specific content.
  
 
@@ -342,14 +342,14 @@ In this section, we grouped the modules that help you learn how to create such c
 
 ### Module 10: The Kusto Query Language (KQL)
 
-Most Microsoft Sentinel capabilities use [KQL or Kusto Query Language](~/../data-explorer/kusto/query/index.md). When you search in your logs, write rules, create hunting queries, or design workbooks, you use KQL.  
+Most Microsoft Sentinel capabilities use [KQL or Kusto Query Language](/azure/data-explorer/kusto/query/). When you search in your logs, write rules, create hunting queries, or design workbooks, you use KQL.  
 
 Note that the next section on writing rules explains how to use KQL in the specific context of SIEM rules.
 
 **Below is the recommended journey for learning Sentinel KQL:**
 1. [Pluralsight KQL course](https://www.pluralsight.com/courses/kusto-query-language-kql-from-scratch) - the basics
 2. The Microsoft Sentinel KQL Lab: An interactive lab teaching KQL focusing on what you need for Microsoft Sentinel:
-    1. [Learning module (SC-200 part 4)](https://docs.microsoft.com/learn/paths/sc-200-utilize-kql-for-azure-sentinel/)
+    1. [Learning module (SC-200 part 4)](/learn/paths/sc-200-utilize-kql-for-azure-sentinel/)
     2. [Presentation](https://onedrive.live.com/?authkey=%21AJRxX475AhXGQBE&cid=66C31D2DBF8E0F71&id=66C31D2DBF8E0F71%21740&parId=66C31D2DBF8E0F71%21446&o=OneUp), [Lab URL](https://aka.ms/lademo)
     3. a [Jupyter Notebooks version](https://github.com/jjsantanna/azure_sentinel_learn_kql_lab/blob/master/azure_sentinel_learn_kql_lab.ipynb), which let you test the queries within the notebook.
     4. Learning webinar: [YouTube](https://youtu.be/EDCBLULjtCM), [MP4](https://1drv.ms/v/s!AnEPjr8tHcNmglwAjUjmYy2Qn5J-);
@@ -403,7 +403,7 @@ In modern SIEMs such as Microsoft Sentinel, SOAR (Security Orchestration, Automa
 To provide robust workflow based automation capabilities, automation rules use [Logic App playbooks](automate-responses-with-playbooks.md):
 * Watch the Unleash the automation Jedi tricks & build Logic Apps Playbooks like a Boss Webinar: [YouTube](https://www.youtube.com/watch?v=G6TIzJK8XBA&ab_channel=MicrosoftSecurityCommunity), [MP4](https://onedrive.live.com/?authkey=%21AMHoD01Fnv0Nkeg&cid=66C31D2DBF8E0F71&id=66C31D2DBF8E0F71%21513&parId=66C31D2DBF8E0F71%21511&o=OneUp), [Presentation](https://onedrive.live.com/?authkey=%21AJK2W6MaFrzSzpw&cid=66C31D2DBF8E0F71&id=66C31D2DBF8E0F71%21514&parId=66C31D2DBF8E0F71%21511&o=OneUp).
 * Read about [Logic Apps](../logic-apps/logic-apps-overview.md), which is the core technology driving Microsoft Sentinel playbooks.
-*[ The Microsoft Sentinel Logic App connector](https://docs.microsoft.com/connectors/azuresentinel/) is a link between Logic Apps and Azure Sentinel.
+*[ The Microsoft Sentinel Logic App connector](/connectors/azuresentinel/) is a link between Logic Apps and Azure Sentinel.
 
 You can find dozens of useful Playbooks in the [Playbooks folder](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks) on the [Microsoft Sentinel GitHub](https://github.com/Azure/Azure-Sentinel), or read [_A playbook using a watchlist to Inform a subscription owner about an alert_](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/playbooks-amp-watchlists-part-1-inform-the-subscription-owner/ba-p/1768917) for a Playbook walkthrough.
 
@@ -501,7 +501,7 @@ Part of operating a SIEM is making sure it works smoothly and an evolving area i
 * Measure the efficiency of your [Security operations](manage-soc-with-incident-metrics.md#security-operations-efficiency-workbook) ([video](https://www.youtube.com/watch?v=jRucUysVpxI&ab_channel=MicrosoftSecurityCommunity))
 * **SentinelHealth data table**. Provides insights on health drifts, such as latest failure events per connector, or connectors with changes from success to failure states, which you can use to create alerts and other automated actions. Find more information [here](/monitor-data-connector-health.md).
 * Monitor [Data connectors health](monitor-data-connector-health.md) ([video](https://www.youtube.com/watch?v=T6Vyo7gZYds&ab_channel=MicrosoftSecurityCommunity)) and [get notifications on anomalies](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/data-connector-health-push-notification-alerts/ba-p/1996442).
-* Monitor agents using the [agents' health solution (Windows only)](../azure-monitor/insights/solution-agenthealth.md) and the [Heartbeat table](~/azure-reference-other/blob/main/azure-monitor-ref/tables/heartbeat.md)(Linux and Windows).
+* Monitor agents using the [agents' health solution (Windows only)](../azure-monitor/insights/solution-agenthealth.md) and the [Heartbeat table](/azure/azure-monitor/reference/tables/heartbeat)(Linux and Windows).
 * Monitor your Log Analytics workspace: [YouTube](https://www.youtube.com/watch?v=DmDU9QP_JlI&ab_channel=MicrosoftSecurityCommunity), [MP4](https://onedrive.live.com/?cid=66c31d2dbf8e0f71&id=66C31D2DBF8E0F71%21792&ithint=video%2Cmp4&authkey=%21ALgHojpWDidvFyo), [Presentation](https://onedrive.live.com/?cid=66c31d2dbf8e0f71&id=66C31D2DBF8E0F71%21794&ithint=file%2Cpdf&authkey=%21AAva%2Do6Ru1fjJ78), including query execution and ingest health.
 * Cost management is also an important operational procedure in the SOC. Use the [Ingestion Cost Alert Playbook](https://techcommunity.microsoft.com/t5/azure-sentinel/ingestion-cost-alert-playbook/ba-p/2006003) to ensure you are aware in time of any cost increase. 
 
