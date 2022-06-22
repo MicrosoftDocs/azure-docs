@@ -3,7 +3,7 @@ title: Create a device update account in Device Update for Azure IoT Hub | Micro
 description: Create a device update account in Device Update for Azure IoT Hub.
 author: vimeht
 ms.author: vimeht
-ms.date: 06/21/2022
+ms.date: 06/22/2022
 ms.topic: how-to
 ms.service: iot-hub-device-update
 ms.custom: subject-rbac-steps
@@ -27,13 +27,15 @@ An IoT hub. It's recommended that you use an S1 (Standard) tier or above.
 
   * Use the Bash environment in [Azure Cloud Shell](../cloud-shell/quickstart.md).
 
-    [![Launch Cloud Shell in a new window](media/cloud-shell-try-it/hdi-launch-cloud-shell.png)](https://shell.azure.com)
+    [![Launch Cloud Shell in a new window](../../includes/media/cloud-shell-try-it/hdi-launch-cloud-shell.png)](https://shell.azure.com)
 
   * If you prefer to run CLI reference commands locally, [install the Azure CLI](/cli/azure/install-azure-cli)
 
     * Sign in to the Azure CLI by using the [az login](/cli/azure/reference-index#az-login) command.
     * Run [az version](/cli/azure/reference-index#az-version) to find the version and dependent libraries that are installed. To upgrade to the latest version, run [az upgrade](/cli/azure/reference-index#az-upgrade).
     * When prompted, install Azure CLI extensions on first use. The commands in this article use the **azure-iot** extension. Run `az extension update --name azure-iot` to make sure you're using the latest version of the extension.
+
+---
 
 ## Create a device update account and instance
 

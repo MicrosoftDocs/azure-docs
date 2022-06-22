@@ -22,6 +22,7 @@ Learn how to initiate a Device Update for IoT Hub log operation and view collect
 
 > [!NOTE]
 > The remote log collection feature is currently compatible only with devices that implement the Diagnostic Interface and are able to upload files to Azure Blob storage. The reference agent implementation also expects the device to write log files to a user-specified file path on the device.
+
 # [CLI](#tab/cli)
 
 * [Access to an IoT Hub with Device Update for IoT Hub enabled](create-device-update-account.md).
@@ -34,7 +35,7 @@ Learn how to initiate a Device Update for IoT Hub log operation and view collect
 
   * Use the Bash environment in [Azure Cloud Shell](../cloud-shell/quickstart.md).
 
-    [![Launch Cloud Shell in a new window](media/cloud-shell-try-it/hdi-launch-cloud-shell.png)](https://shell.azure.com)
+    [![Launch Cloud Shell in a new window](../../includes/media/cloud-shell-try-it/hdi-launch-cloud-shell.png)](https://shell.azure.com)
 
   * If you prefer to run CLI reference commands locally, [install the Azure CLI](/cli/azure/install-azure-cli)
 
@@ -44,6 +45,8 @@ Learn how to initiate a Device Update for IoT Hub log operation and view collect
 
 > [!NOTE]
 > The remote log collection feature is currently compatible only with devices that implement the Diagnostic Interface and are able to upload files to Azure Blob storage. The reference agent implementation also expects the device to write log files to a user-specified file path on the device.
+
+---
 
 ## Link your Azure Blob storage account to your Device Update instance
 
