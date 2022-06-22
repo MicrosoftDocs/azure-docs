@@ -42,7 +42,7 @@ To use the programmatic configuration and attach the Application Insights agent 
 <dependency>
     <groupId>com.microsoft.azure</groupId>
     <artifactId>applicationinsights-runtime-attach</artifactId>
-    <version>3.2.12</version>
+    <version>3.3.0</version>
 </dependency>
 ```
 
