@@ -5,26 +5,30 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: conceptual
-ms.date: 05/10/2022
+ms.date: 06/10/2022
 ---
 
 # Built-in connectors in Azure Logic Apps
 
 Built-in connectors provide ways for you to control your workflow's schedule and structure, run your own code, manage or manipulate data, and complete other tasks in your workflows. Different from managed connectors, some built-in connectors aren't tied to a specific service, system, or protocol. For example, you can start almost any workflow on a schedule by using the Recurrence trigger. Or, you can have your workflow wait until called by using the Request trigger. All built-in connectors run natively on the Azure Logic Apps runtime. Some don't require that you create a connection before you use them.
 
-For a smaller number of services, systems and protocols, Azure Logic Apps provides a built-in version alongside the managed version. The number and range of built-in connectors vary based on whether you create a Consumption logic app that runs in multi-tenant Azure Logic Apps, or a Standard logic app that runs in single-tenant Azure Logic Apps. In most cases, the built-in version provides better performance, capabilities, pricing, and so on. In a few cases, some built-in connectors are available only in one logic app type and not the other.
+For a smaller number of services, systems, and protocols, Azure Logic Apps provides a built-in version alongside the managed version. The number and range of built-in connectors vary based on whether you create a Consumption logic app workflow that runs in multi-tenant Azure Logic Apps or a Standard logic app workflow that runs in single-tenant Azure Logic Apps. In most cases, the built-in version provides better performance, capabilities, pricing, and so on. In a few cases, some built-in connectors are available only in one logic app type and not the other.
 
-For example, a Standard logic app provides both managed connectors and built-in connectors for Azure Blob, Azure Cosmos DB, Azure Event Hubs, Azure Service Bus, DB2, FTP, MQ, SFTP, and SQL Server, while a Consumption logic app doesn't have the built-in versions. A Consumption logic app provides built-in connectors for Azure API Management, Azure App Services, and Batch, while a Standard logic app doesn't have these built-in connectors. For more information, review the following documentation: [Managed connectors in Azure Logic Apps](managed.md) and [Single-tenant versus multi-tenant and integration service environment (ISE)](../logic-apps/single-tenant-overview-compare.md).
+For example, a Standard logic app workflow provides both managed connectors and built-in connectors for Azure Blob, Azure Cosmos DB, Azure Event Hubs, Azure Service Bus, DB2, FTP, MQ, SFTP, and SQL Server. A Consumption logic app workflow doesn't have the built-in versions. A Consumption logic app workflow provides built-in connectors for Azure API Management, Azure App Services, and Batch, while a Standard logic app workflow doesn't have these built-in connectors.
 
-This article provides a general overview about built-in connectors in Consumption logic apps versus Standard logic apps.
+Also, in Standard logic app workflows, some [built-in connectors with specific attributes are informally known as *service providers*](../logic-apps/custom-connector-overview.md#service-provider-interface-implementation). Some built-in connectors support only a single way to authenticate a connection to the underlying service. Other built-in connectors can offer a choice, such as using a connection string, Azure Active Directory (Azure AD), or a managed identity. All built-in connectors run in the same process as the Azure Logic Apps runtime. For more information, review [Single-tenant versus multi-tenant and integration service environment (ISE)](../logic-apps/single-tenant-overview-compare.md).
 
-<a name="built-in-operations-lists"></a>
+This article provides a general overview about built-in connectors in Consumption logic app workflows versus Standard logic app workflows.
+
+<a name="built-in-connectors"></a>
 
 ## Built-in connectors in Consumption versus Standard
 
+The following table lists the current and expanding galleries of built-in connectors available for Consumption versus Standard logic app workflows. An asterisk (**\***) marks [service provider-based built-in connectors](../logic-apps/custom-connector-overview.md#service-provider-interface-implementation).
+
 | Consumption | Standard |
 |-------------|----------|
-| Azure API Management<br>Azure App Services <br>Azure Functions <br>Azure Logic Apps <br>Batch <br>Control <br>Data Operations <br>Date Time <br>Flat File <br>HTTP <br>Inline Code <br>Integration Account <br>Liquid <br>Request <br>Schedule <br>Variables <br>XML | Azure Blob <br>Azure Cosmos DB <br>Azure Functions <br>Azure Table Storage <br>Control <br>Data Operations <br>Date Time <br>DB2 <br>Event Hubs <br>Flat File <br>FTP <br>HTTP <br>IBM Host File <br>Inline Code <br>Liquid operations <br>MQ <br>Request <br>Schedule <br>Service Bus <br>SFTP <br>SQL Server <br>Variables <br>Workflow operations <br>XML operations |
+| Azure API Management<br>Azure App Services <br>Azure Functions <br>Azure Logic Apps <br>Batch <br>Control <br>Data Operations <br>Date Time <br>Flat File <br>HTTP <br>Inline Code <br>Integration Account <br>Liquid <br>Request <br>Schedule <br>Variables <br>XML | Azure Blob* <br>Azure Cosmos DB* <br>Azure Functions <br>Azure Queue* <br>Azure Table Storage* <br>Control <br>Data Operations <br>Date Time <br>DB2* <br>Event Hubs* <br>Flat File <br>FTP* <br>HTTP <br>IBM Host File* <br>Inline Code <br>Liquid operations <br>MQ* <br>Request <br>Schedule <br>Service Bus* <br>SFTP* <br>SQL Server* <br>Variables <br>Workflow operations <br>XML operations |
 |||
 
 <a name="custom-built-in"></a>
