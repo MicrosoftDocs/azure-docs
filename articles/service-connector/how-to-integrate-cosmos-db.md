@@ -6,7 +6,7 @@ ms.author: xshi
 ms.service: service-connector
 ms.custom: event-tier1-build-2022
 ms.topic: how-to 
-ms.date: 05/03/2022
+ms.date: 06/13/2022
 ---
 
 # Integrate Azure Cosmos DB with Service Connector
@@ -16,30 +16,28 @@ This page shows the supported authentication types and client types of Azure Cos
 ## Supported compute service
 
 - Azure App Service
+- Azure Container Apps
 - Azure Spring Cloud
 
-## Supported Authentication types and client types
+## Supported authentication types and client types
 
-| Client Type | System-assigned Managed Identity | User-assigned Managed Identity | Secret/ConnectionString | Service Principal |
-| --- | --- | --- | --- | --- |
-| .NET | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
-| Java  | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
-| Java - Spring Boot | | | ![yes icon](./media/green-check.png) | |
-| Node.js | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
-| Go | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
-
+| Client type        | System-assigned managed identity     | User-assigned managed identity       | Secret / connection string           | Service principal                    |
+|--------------------|--------------------------------------|--------------------------------------|--------------------------------------|--------------------------------------|
+| .NET               | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
+| Java               | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
+| Java - Spring Boot |                                      |                                      | ![yes icon](./media/green-check.png) |                                      |
+| Node.js            | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
+| Go                 | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
 
 ## Default environment variable names or application properties
 
-### Dotnet, Java, Nodejs, and Go
-
-**Secret/ConnectionString**
+### Secret / Connection string
 
 | Default environment variable name | Description | Example value |
 | --- | --- | --- |
 | AZURE_COSMOS_CONNECTIONSTRING | Mango DB in Cosmos DB connection string | `mongodb://{mango-db-admin-user}:{********}@{mango-db-server}.mongo.cosmos.azure.com:10255/?ssl=true&replicaSet=globaldb&retrywrites=false&maxIdleTimeMS=120000&appName=@{mango-db-server}@` |
 
-**System-assigned Managed Identity**
+### System-assigned managed identity
 
 | Default environment variable name | Description | Example value |
 | --- | --- | --- |
@@ -47,7 +45,7 @@ This page shows the supported authentication types and client types of Azure Cos
 | AZURE_COSMOS_SCOPE | Your managed identity scope | `https://management.azure.com/.default` |
 | AZURE_COSMOS_RESOURCEENDPOINT | Your resource endpoint| `https://{your-database-server}.documents.azure.com:443/` |
 
-**User-assigned Managed Identity**
+### User-assigned managed identity
 
 | Default environment variable name | Description | Example value |
 | --- | --- | --- |
@@ -57,7 +55,7 @@ This page shows the supported authentication types and client types of Azure Cos
 | AZURE_COSMOS_SUBSCRIPTIONID | Your subscription ID | `{your-subscription-id}` |
 | AZURE_COSMOS_RESOURCEENDPOINT | Your resource endpoint| `https://{your-database-server}.documents.azure.com:443/` |
 
-**Service Principal**
+### Service principal
 
 | Default environment variable name | Description | Example value |
 | --- | --- | --- |

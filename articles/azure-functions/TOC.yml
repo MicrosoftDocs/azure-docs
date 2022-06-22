@@ -180,7 +180,7 @@
           displayName: encryption, keys, mount, files
         - name: Error handling and function retries
           href: functions-bindings-error-pages.md
-          displayName: best practices
+          displayName: best practices, retry policies
         - name: Security
           href: security-concepts.md
           displayName: best practices

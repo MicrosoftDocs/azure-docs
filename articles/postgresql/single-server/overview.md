@@ -13,6 +13,8 @@ adobe-target: true
 
 # What is Azure Database for PostgreSQL?
 
+[!INCLUDE [applies-to-postgresql-single-server](../includes/applies-to-postgresql-single-server.md)]
+
 Azure Database for PostgreSQL is a relational database service in the Microsoft cloud based on the [PostgreSQL open source relational database](https://www.postgresql.org/). Azure Database for PostgreSQL delivers:
 
 - Built-in high availability.

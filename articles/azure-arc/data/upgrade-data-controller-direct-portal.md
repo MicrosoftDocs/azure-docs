@@ -7,7 +7,7 @@ ms.subservice: azure-arc-data
 author: grrlgeek
 ms.author: jeschult
 ms.reviewer: mikeray
-ms.date: 01/18/2022
+ms.date: 05/31/2022
 ms.topic: how-to
 ---
 
@@ -15,7 +15,7 @@ ms.topic: how-to
 
 This article describes how to upgrade a directly connected Azure Arc-enabled data controller using the Azure portal.
 
-During a data controller upgrade, portions of the data control plane such as Custom Resource Definitions (CRDs) and containers may be upgraded. An upgrade of the data controller will not cause downtime for the data services (SQL Managed Instance or PostgreSQL Hyperscale server).
+During a data controller upgrade, portions of the data control plane such as Custom Resource Definitions (CRDs) and containers may be upgraded. An upgrade of the data controller will not cause downtime for the data services (SQL Managed Instance or PostgreSQL server).
 
 ## Prerequisites
 
@@ -36,6 +36,9 @@ This section shows how to upgrade a directly connected data controller.
 > If you install GA and preview services on the same data controller, you can't upgrade in place.
 > To upgrade, delete all non-GA database instances. You can find the list of generally available 
 > and preview services in the [Release Notes](./release-notes.md).
+
+[!INCLUDE [upgrade-supported-path](includes/upgrade-supported-path.md)]
+
 
 ### Upgrade
 
