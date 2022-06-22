@@ -22,7 +22,7 @@ ms.custom: mvc, cli-validate, seodec18, devx-track-azurecli, mode-other
 
 ### [Azure CLI](#tab/cli)
 
-If you are running this locally, you will need:
+If you are running the sample code locally, you will need:
 
 * <a href="https://www.ruby-lang.org/en/documentation/installation/#rubyinstaller" target="_blank">Install Ruby 2.6 or higher</a>
 * <a href="https://git-scm.com/" target="_blank">Install Git</a>
