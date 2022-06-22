@@ -498,6 +498,8 @@
       href: entities-reference.md
     - name: UEBA enrichments
       href: ueba-enrichments.md
+    - name: Anomalies reference
+      href: anomalies-reference.md
     - name: Multistage attack detection scenarios
       href: fusion-scenario-reference.md
     - name: Watchlist template schemas
