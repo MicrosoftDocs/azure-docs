@@ -586,6 +586,16 @@
             "redirect_document_id": true
         },
         {
+            "source_path_from_root": "/articles/security-center/quickstart-enable-database-protections.md",
+            "redirect_url": "/azure/defender-for-cloud/defender-for-sql-enable-azure-sql-protections",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/security-center/quickstart-enable-defender-for-cosmos.md ",
+            "redirect_url": "/azure/defender-for-cloud/defender-for-databases-enable-cosmos-protections",
+            "redirect_document_id": true
+        },
+        {
             "source_path_from_root": "/articles/security-center/auto-deploy-vulnerability-assessment.md",
             "redirect_url": "/azure/defender-for-cloud/auto-deploy-vulnerability-assessment",
             "redirect_document_id": true
