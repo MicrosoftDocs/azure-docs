@@ -152,7 +152,7 @@ The data collected on each package includes:
 
 
 > [!NOTE]
-> The SBOM collector currently only collects the first 1,000 packages ingested.
+> The SBoM collector currently only collects the first 500 packages ingested.
 
 ## Next steps
 
