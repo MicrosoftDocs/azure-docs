@@ -2,11 +2,11 @@
 title: Frequently asked questions about Azure Route Server
 description: Find answers to frequently asked questions about Azure Route Server.
 services: route-server
-author: duongau
+author: halkazwini
 ms.service: route-server
 ms.topic: article
 ms.date: 03/25/2022
-ms.author: duau
+ms.author: halkazwini
 ---
 
 # Azure Route Server FAQ
@@ -84,6 +84,10 @@ No, Azure Route Server doesn't support configuring a UDR on the RouteServerSubne
 ### Can I associate a Network Security group (NSG) to the RouteServerSubnet?
 
 No, Azure Route Server doesn't support NSG association to the RouteServerSubnet.
+
+### When the same route is learned over ExpressRoute, VPN or SDWAN, which network is preferred.
+
+ExpressRoute is preferred over VPN or SDWAN.
 
 ### Can I peer two route servers in two peered virtual networks and enable the NVAs connected to the route servers to talk to each other? 
 

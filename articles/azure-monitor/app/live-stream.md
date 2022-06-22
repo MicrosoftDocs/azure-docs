@@ -2,7 +2,7 @@
 title: Diagnose with Live Metrics Stream - Azure Application Insights
 description: Monitor your web app in real time with custom metrics, and diagnose issues with a live feed of failures, traces, and events.
 ms.topic: conceptual
-ms.date: 10/12/2021
+ms.date: 05/31/2022
 ms.reviewer: sdash
 ms.devlang: csharp
 ---
@@ -16,7 +16,7 @@ Monitor your live, in-production web application by using Live Metrics Stream (a
 
 With Live Metrics Stream, you can:
 
-* Validate a fix while it is released, by watching performance and failure counts.
+* Validate a fix while it's released, by watching performance and failure counts.
 * Watch the effect of test loads, and diagnose issues live.
 * Focus on particular test sessions or filter out known issues, by selecting and filtering the metrics you want to watch.
 * Get exception traces as they happen.
@@ -52,7 +52,7 @@ Live Metrics are currently supported for ASP.NET, ASP.NET Core, Azure Functions,
 
 ### Enable LiveMetrics using code for any .NET application
 
-Even though LiveMetrics is enabled by default when onboarding using recommended instructions for .NET Applications, the following shows how to setup Live Metrics
+Even though LiveMetrics is enabled by default when onboarding using recommended instructions for .NET Applications, the following shows how to set up Live Metrics
 manually.
 
 1. Install the NuGet package [Microsoft.ApplicationInsights.PerfCounterCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.PerfCounterCollector)
@@ -114,7 +114,7 @@ namespace LiveMetricsDemo
 }
 ```
 
-While the above sample is for a console app, the same code can be used in any .NET applications. If any other TelemetryModules are enabled which auto-collects telemetry, it is important to ensure the same configuration used for initializing those modules is used for Live Metrics module as well.
+While the above sample is for a console app, the same code can be used in any .NET applications. If any other TelemetryModules are enabled which auto-collects telemetry, it's important to ensure the same configuration used for initializing those modules is used for Live Metrics module as well.
 
 ## How does Live Metrics Stream differ from Metrics Explorer and Analytics?
 
@@ -123,7 +123,7 @@ While the above sample is for a console app, the same code can be used in any .N
 |**Latency**|Data displayed within one second|Aggregated over minutes|
 |**No retention**|Data persists while it's on the chart, and is then discarded|[Data retained for 90 days](./data-retention-privacy.md#how-long-is-the-data-kept)|
 |**On demand**|Data is only streamed while the Live Metrics pane is open |Data is sent whenever the SDK is installed and enabled|
-|**Free**|There is no charge for Live Stream data|Subject to [pricing](../logs/cost-logs.md#application-insights-billing)
+|**Free**|There's no charge for Live Stream data|Subject to [pricing](../logs/cost-logs.md#application-insights-billing)
 |**Sampling**|All selected metrics and counters are transmitted. Failures and stack traces are sampled. |Events may be [sampled](./api-filtering-sampling.md)|
 |**Control channel**|Filter control signals are sent to the SDK. We recommend you secure this channel.|Communication is one way, to the portal|
 
@@ -131,7 +131,7 @@ While the above sample is for a console app, the same code can be used in any .N
 
 (Available with ASP.NET, ASP.NET Core, and Azure Functions (v2).)
 
-You can monitor custom KPI live by applying arbitrary filters on any Application Insights telemetry from the portal. Click the filter control that shows when you mouse-over any of the charts. The following chart is plotting a custom Request count KPI with filters on URL and Duration attributes. Validate your filters with the Stream Preview section that shows a live feed of telemetry that matches the criteria you have specified at any point in time.
+You can monitor custom KPI live by applying arbitrary filters on any Application Insights telemetry from the portal. Select the filter control that shows when you mouse-over any of the charts. The following chart is plotting a custom Request count KPI with filters on URL and Duration attributes. Validate your filters with the Stream Preview section that shows a live feed of telemetry that matches the criteria you've specified at any point in time.
 
 ![Filter request rate](./media/live-stream/filter-request.png)
 
@@ -144,11 +144,11 @@ In addition to Application Insights telemetry, you can also monitor any Windows 
 Live metrics are aggregated at two points: locally on each server, and then across all servers. You can change the default at either by selecting other options in the respective drop-downs.
 
 ## Sample Telemetry: Custom Live Diagnostic Events
-By default, the live feed of events shows samples of failed requests and dependency calls, exceptions, events, and traces. Click the filter icon to see the applied criteria at any point in time.
+By default, the live feed of events shows samples of failed requests and dependency calls, exceptions, events, and traces. Select the filter icon to see the applied criteria at any point in time.
 
 ![Filter button](./media/live-stream/filter.png)
 
-As with metrics, you can specify any arbitrary criteria to any of the Application Insights telemetry types. In this example, we are selecting specific request failures, and events.
+As with metrics, you can specify any arbitrary criteria to any of the Application Insights telemetry types. In this example, we're selecting specific request failures, and events.
 
 ![Query Builder](./media/live-stream/query-builder.png)
 
@@ -237,9 +237,9 @@ For Azure Function Apps (v2), securing the channel with an API key can be accomp
 
 Create an API key from within your Application Insights resource and go to **Settings > Configuration** for your Function App. Select **New application setting** and enter a name of `APPINSIGHTS_QUICKPULSEAUTHAPIKEY` and a value that corresponds to your API key.
 
-However, if you recognize and trust all the connected servers, you can try the custom filters without the authenticated channel. This option is available for six months. This override is required once every new session, or when a new server comes online.
+Securing the control channel is not necessary if you recognize and trust all the connected servers. This option is made available so that you can try custom filters without having to set up an authenticated channel. If you choose this option you will have to authorize the connected servers once every new session or when a new server comes online. We strongly discourage the use of unsecured channels and will disable this option 6 months after you start using it. To use custom filters without a secure channel simply click on any of the filter icons and authorize the connected servers. The “Authorize connected servers” dialog displays the date (highlighted below) after which this option will be disabled.
 
-![Live Metrics Auth options](./media/live-stream/live-stream-auth.png)
+:::image type="content" source="media/live-stream/live-stream-auth.png" alt-text="Screenshot displaying the authorize connected servers dialog." lightbox="media/live-stream/live-stream-auth.png":::
 
 > [!NOTE]
 > We strongly recommend that you set up the authenticated channel before entering potentially sensitive information like CustomerID in the filter criteria.

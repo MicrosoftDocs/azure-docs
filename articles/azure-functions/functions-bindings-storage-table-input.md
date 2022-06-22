@@ -22,11 +22,11 @@ The usage of the binding depends on the extension package version and the C# mod
 
 # [In-process](#tab/in-process)
 
-An in-process class library is a compiled C# function runs in the same process as the Functions runtime.
+An [in-process class library](functions-dotnet-class-library.md) is a compiled C# function runs in the same process as the Functions runtime.
  
 # [Isolated process](#tab/isolated-process)
 
-An isolated process class library compiled C# function runs in a process isolated from the runtime. Isolated process is required to support C# functions running on .NET 5.0.  
+An [isolated process class library](dotnet-isolated-process-guide.md) compiled C# function runs in a process isolated from the runtime. Isolated process is required to support C# functions running on .NET 5.0.   
    
 # [C# script](#tab/csharp-script)
 

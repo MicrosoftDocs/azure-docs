@@ -4,7 +4,7 @@ description: Describes how to enable VM insights for Azure virtual machines or v
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 07/27/2020
+ms.date: 06/08/2022
 
 ---
 

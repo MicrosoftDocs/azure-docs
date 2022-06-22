@@ -16,7 +16,7 @@ Azure periodically updates its platform to improve the reliability, performance,
 Updates rarely affect the hosted VMs. When updates do have an effect, Azure chooses the least impactful method for updates:
 
 - If the update doesn't require a reboot, the VM is paused while the host is updated, or the VM is live-migrated to an already updated host. 
-- If maintenance requires a reboot, you're notified of the planned maintenance. Azure also provides a time window in which you can start the maintenance yourself, at a time that works for you. The self-maintenance window is typically 35 days unless the maintenance is urgent. Azure is investing in technologies to reduce the number of cases in which planned platform maintenance requires the VMs to be rebooted. For instructions on managing planned maintenance, see Handling planned maintenance notifications using the Azure [CLI](maintenance-notifications-cli.md), [PowerShell](maintenance-notifications-powershell.md) or [portal](maintenance-notifications-portal.md).
+- If maintenance requires a reboot, you're notified of the planned maintenance. Azure also provides a time window in which you can start the maintenance yourself, at a time that works for you. The self-maintenance window is typically 35 days (for Host machines) unless the maintenance is urgent. Azure is investing in technologies to reduce the number of cases in which planned platform maintenance requires the VMs to be rebooted. For instructions on managing planned maintenance, see Handling planned maintenance notifications using the Azure [CLI](maintenance-notifications-cli.md), [PowerShell](maintenance-notifications-powershell.md) or [portal](maintenance-notifications-portal.md).
 
 This page describes how Azure performs both types of maintenance. For more information about unplanned events (outages), see [Manage the availability of VMs for Windows](./availability.md) or the corresponding article for [Linux](./availability.md).
 
@@ -32,11 +32,11 @@ Most nonzero-impact maintenance pauses the VM for less than 10 seconds. In certa
 
 Memory-preserving maintenance works for more than 90 percent of Azure VMs. It doesn't work for G, L, M, N, and H series. Azure increasingly uses live-migration technologies and improves memory-preserving maintenance mechanisms to reduce the pause durations.  
 
-These maintenance operations that don't require a reboot are applied one fault domain at a time. They stop if they receive any warning health signals from platform monitoring tools. 
+These maintenance operations that don't require a reboot are applied one fault domain at a time. They stop if they receive any warning health signals from platform monitoring tools. Maintenance operations that do not require a reboot may occur simultaneously in paired regions or Availability Zones. For a given change, the deployment are mostly sequenced across Availability Zones and across Region pairs, but there can be overlap at the tail.
 
 These types of updates can affect some applications. When the VM is live-migrated to a different host, some sensitive workloads might show a slight performance degradation in the few minutes leading up to the VM pause. To prepare for VM maintenance and reduce impact during Azure maintenance, try [using Scheduled Events for Windows](./windows/scheduled-events.md) or [Linux](./linux/scheduled-events.md) for such applications. 
 
-For greater control on all maintenance activities including zero-impact and rebootless updates, you can use Maintenance Control feature. You must be using either [Azure Dedicated Hosts](./dedicated-hosts.md) or an [isolated VM](../security/fundamentals/isolation-choices.md). Maintenance control gives you the option to skip all platform updates and apply the updates at your choice of time within a 35-day rolling window. For more information, see [Control updates with Maintenance Control and the Azure CLI](maintenance-control.md).
+For greater control on all maintenance activities including zero-impact and rebootless updates, you can create  a Maintenance Configuration feature. Creating a Maintenance Configuration gives you the option to skip all platform updates and apply the updates at your choice of time. For more information, see [Managing platform updates with Maintenance Configurations](maintenance-configurations.md).
 
 
 ### Live migration
@@ -63,7 +63,7 @@ In the rare case where VMs need to be rebooted for planned maintenance, you'll b
 
 During the *self-service phase*, which typically lasts four weeks, you start the maintenance on your VMs. As part of the self-service, you can query each VM to see its status and the result of your last maintenance request.
 
-When you start self-service maintenance, your VM is redeployed to an already updated node. Because the VM reboots, the temporary disk is lost and dynamic IP addresses associated with the virtual network interface are updated.
+When you start self-service maintenance, your VM is redeployed to an already updated node. Because the VM is redeployed, the temporary disk is lost and dynamic IP addresses associated with the virtual network interface are updated.
 
 If an error arises during self-service maintenance, the operation stops, the VM isn't updated, and you get the option to retry the self-service maintenance. 
 
@@ -85,7 +85,7 @@ Availability zones are unique physical locations within an Azure region. Each zo
 
 An availability zone is a combination of a fault domain and an update domain. If you create three or more VMs across three zones in an Azure region, your VMs are effectively distributed across three fault domains and three update domains. The Azure platform recognizes this distribution across update domains to make sure that VMs in different zones are not updated at the same time.
 
-Each infrastructure update rolls out zone by zone, within a single region. But, you can have deployment going on in Zone 1, and different deployment going in Zone 2, at the same time. Deployments are not all serialized. But, a single deployment only rolls out one zone at a time to reduce risk.
+Each infrastructure update rolls out zone by zone, within a single region. But, you can have deployment going on in Zone 1, and different deployment going in Zone 2, at the same time. Deployments are not all serialized. But, a single  deployment that requires a reboot only rolls out one zone at a time to reduce risk. In general, updates that require a reboot are avoided when possible, and Azure attempts to use Live Migration or provide customers control.
 
 #### Virtual machine scale sets
 
