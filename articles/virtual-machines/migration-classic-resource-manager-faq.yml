@@ -140,8 +140,8 @@ sections:
           I got the message "VM is reporting the overall agent status as Not Ready. Hence, the VM cannot be migrated. Ensure that the VM Agent is reporting overall agent status as Ready" or "VM contains Extension whose Status is not being reported from the VM. Hence, this VM cannot be migrated."
         answer: |
           This message is received when the VM does not have outbound connectivity to the internet. The VM agent uses outbound connectivity to reach the Azure storage account for updating the agent status every five minutes.
-
-       - question: |
+      
+      - question: |
           How do I migrate my classic storage accounts to Resource Manager?
         answer: |
           If you have a classic VM attached to your account, please migrate the classic VMs first. Classic storage accounts must be migrated after classic VM is migrated. Migration can be done either using the Azure Portal, with PowerShell or with Azure CLI.
