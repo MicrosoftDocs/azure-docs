@@ -1,6 +1,5 @@
 ---
-title: "How to: Build services that are resilient to Azure AD's OpenID Connect metadata refresh | Azure"
-titleSuffix: Microsoft identity platform
+title: "How to: Build services that are resilient to Azure AD's OpenID Connect metadata refresh"
 description: Learn how to ensure that your web app or web api is resilient to Azure AD's OpenID Connect metadata refresh.
 services: active-directory
 author: jmprieur

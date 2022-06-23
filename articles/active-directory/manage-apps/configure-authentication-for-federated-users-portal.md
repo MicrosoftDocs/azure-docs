@@ -1,6 +1,5 @@
 ---
 title: Configure sign-in auto-acceleration using Home Realm Discovery
-titleSuffix: Azure AD
 description: Learn how to force federated IdP acceleration for an application using Home Realm Discovery policy.
 services: active-directory
 author: nickludwig
@@ -219,7 +218,7 @@ Use the previous example to get the **ObjectID** of the policy, and that of the 
 
 ## Configuring policy through Graph Explorer
 
-Set the HRD policy using Microsoft Graph. See [homeRealmDiscoveryPolicy](/graph/api/resources/homeRealmDiscoveryPolicy?view=graph-rest-1.0) resource type for information on how to create the policy.
+Set the HRD policy using Microsoft Graph. See [homeRealmDiscoveryPolicy](/graph/api/resources/homeRealmDiscoveryPolicy?view=graph-rest-1.0&preserve-view=true) resource type for information on how to create the policy.
 
 From the Microsoft Graph explorer window:
 

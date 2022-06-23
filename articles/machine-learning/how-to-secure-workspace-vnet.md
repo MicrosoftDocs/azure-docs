@@ -8,10 +8,9 @@ ms.subservice: enterprise-readiness
 ms.reviewer: larryfr
 ms.author: jhirono
 author: jhirono
-ms.date: 03/09/2022
+ms.date: 06/17/2022
 ms.topic: how-to
-ms.custom: contperf-fy20q4, tracking-python, contperf-fy21q1, security, cliv2
-
+ms.custom: contperf-fy20q4, tracking-python, contperf-fy21q1, security, cliv2, sdkv1, event-tier1-build-2022
 ---
 
 # Secure an Azure Machine Learning workspace with virtual networks
@@ -23,7 +22,9 @@ In this article, you learn how to secure an Azure Machine Learning workspace and
 >
 > * [Virtual network overview](how-to-network-security-overview.md)
 > * [Secure the training environment](how-to-secure-training-vnet.md)
-> * [Secure the inference environment](how-to-secure-inferencing-vnet.md)
+> * For securing inference, see the following documents:
+>     * If using CLI v1 or SDK v1 - [Secure inference environment](how-to-secure-inferencing-vnet.md)
+>     * If using CLI v2 or SDK v2 - [Network isolation for managed online endpoints](how-to-secure-online-endpoint.md)
 > * [Enable studio functionality](how-to-enable-studio-virtual-network.md)
 > * [Use custom DNS](how-to-custom-dns.md)
 > * [Use a firewall](how-to-access-azureml-behind-firewall.md)
@@ -46,9 +47,6 @@ In this article you learn how to enable the following workspaces resources in a 
 + Read the [Azure Machine Learning best practices for enterprise security](/azure/cloud-adoption-framework/ready/azure-best-practices/ai-machine-learning-enterprise-security) article to learn about best practices.
 
 + An existing virtual network and subnet to use with your compute resources.
-
-    > [!TIP]
-    > If you plan on using Azure Container Instances in the virtual network (to deploy models), then the workspace and virtual network must be in the same resource group. Otherwise, they can be in different groups.
 
 + To deploy resources into a virtual network or subnet, your user account must have permissions to the following actions in Azure role-based access control (Azure RBAC):
 
@@ -73,6 +71,10 @@ In this article you learn how to enable the following workspaces resources in a 
 
     * If the storage account uses a __service endpoint__, the workspace private endpoint and storage service endpoint must be in the same subnet of the VNet.
     * If the storage account uses a __private endpoint__, the workspace private endpoint and storage private endpoint must be in the same VNet. In this case, they can be in different subnets.
+
+### Azure Container Instances
+
+When your Azure Machine Learning workspace is configured with a private endpoint, deploying to Azure Container Instances in a VNet is not supported. Instead, consider using a [Managed online endpoint with network isolation](how-to-secure-online-endpoint.md).
 
 ### Azure Container Registry
 
@@ -185,9 +187,9 @@ For information on using a private endpoint with Azure Key Vault, see [Integrate
 1. On the __Key Vault__ page, in the left pane, select __Networking__.
 
 1. On the __Firewalls and virtual networks__ tab, do the following actions:
-    1. Under __Allow access from__, select __Private endpoint and selected networks__.
-    1. Under __Virtual networks__, select __Add existing virtual networks__ to add the virtual network where your experimentation compute resides.
-    1. Under __Allow trusted Microsoft services to bypass this firewall__, select __Yes__.
+    1. Under __Allow access from__, select __Allow public access from specific virtual networks and IP addresses__.
+    1. Under __Virtual networks__, select __Add a virtual network__, __Add existing virtual networks__, and add the virtual network/subnet where your experimentation compute resides.
+    1. Verify that __Allow trusted Microsoft services to bypass this firewall__ is checked, and then select __Apply__.
 
     :::image type="content" source="./media/how-to-enable-virtual-network/key-vault-firewalls-and-virtual-networks-page.png" alt-text="The Firewalls and virtual networks section in the Key Vault pane":::
 
@@ -217,6 +219,8 @@ Azure Container Registry can be configured to use a private endpoint. Use the fo
     This command returns a value similar to `"/subscriptions/{GUID}/resourceGroups/{resourcegroupname}/providers/Microsoft.ContainerRegistry/registries/{ACRname}"`. The last part of the string is the name of the Azure Container Registry for the workspace.
 
     # [Python SDK](#tab/python)
+
+    [!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
 
     The following code snippet demonstrates how to get the container registry information using the [Azure Machine Learning SDK](/python/api/overview/azure/ml/):
 
@@ -264,6 +268,8 @@ Azure Container Registry can be configured to use a private endpoint. Use the fo
     # [Python SDK](#tab/python)
 
     The following code snippet demonstrates how to update the workspace to set a build compute using the [Azure Machine Learning SDK](/python/api/overview/azure/ml/). Replace `mycomputecluster` with the name of the cluster to use:
+
+    [!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
 
     ```python
     from azureml.core import Workspace
@@ -348,7 +354,10 @@ This article is part of a series on securing an Azure Machine Learning workflow.
 
 * [Virtual network overview](how-to-network-security-overview.md)
 * [Secure the training environment](how-to-secure-training-vnet.md)
-* [Secure the inference environment](how-to-secure-inferencing-vnet.md)
+* [Secure online endpoints (inference)](how-to-secure-online-endpoint.md)
+* For securing inference, see the following documents:
+    * If using CLI v1 or SDK v1 - [Secure inference environment](how-to-secure-inferencing-vnet.md)
+    * If using CLI v2 or SDK v2 - [Network isolation for managed online endpoints](how-to-secure-online-endpoint.md)
 * [Enable studio functionality](how-to-enable-studio-virtual-network.md)
 * [Use custom DNS](how-to-custom-dns.md)
 * [Use a firewall](how-to-access-azureml-behind-firewall.md)

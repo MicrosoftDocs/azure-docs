@@ -2,6 +2,7 @@
 title: "Overview of Azure Arc-enabled Kubernetes"
 services: azure-arc
 ms.service: azure-arc
+ms.custom: event-tier1-build-2022
 author: shashankbarsin
 ms.author: shasb
 ms.date: 05/03/2022
@@ -12,7 +13,7 @@ keywords: "Kubernetes, Arc, Azure, containers"
 
 # What is Azure Arc-enabled Kubernetes?
 
-Azure Arc-enabled Kubernetes allows you to attach and configure Kubernetes clusters running anywhere. You can connect your clusters running on other public cloud providers (such as GCP or AWS) or clusters running on your on-premise data center (such as VMware vSphere or Azure Stack HCI) to Azure Arc.
+Azure Arc-enabled Kubernetes allows you to attach and configure Kubernetes clusters running anywhere. You can connect your clusters running on other public cloud providers (such as GCP or AWS) or clusters running on your on-premises data center (such as VMware vSphere or Azure Stack HCI) to Azure Arc.
 
 When you connect a Kubernetes cluster to Azure Arc, it will:
 
@@ -26,7 +27,7 @@ Azure Arc-enabled Kubernetes supports the following scenarios for connected clus
 
 * [Connect Kubernetes](quickstart-connect-cluster.md) running outside of Azure for inventory, grouping, and tagging.
 
-* Deploy applications and apply configuration using [GitOps-based configuration management](tutorial-use-gitops-connected-cluster.md). 
+* Deploy applications and apply configuration using [GitOps-based configuration management](tutorial-use-gitops-connected-cluster.md).
 
 * View and monitor your clusters using [Azure Monitor for containers](../../azure-monitor/containers/container-insights-enable-arc-enabled-clusters.md?toc=/azure/azure-arc/kubernetes/toc.json).
 
@@ -40,7 +41,7 @@ Azure Arc-enabled Kubernetes supports the following scenarios for connected clus
 
 * Deploy [Open Service Mesh](tutorial-arc-enabled-open-service-mesh.md) on top of your cluster for observability and policy enforcement on service-to-service interactions
 
-* Deploy machine learning workloads using [Azure Machine Learning for Kubernetes clusters](../../machine-learning/how-to-attach-arc-kubernetes.md?toc=/azure/azure-arc/kubernetes/toc.json).
+* Deploy machine learning workloads using [Azure Machine Learning for Kubernetes clusters](../../machine-learning/how-to-attach-kubernetes-anywhere.md?toc=/azure/azure-arc/kubernetes/toc.json).
 
 * Create [custom locations](./custom-locations.md) as target locations for deploying Azure Arc-enabled Data Services (SQL Managed Instances, PostgreSQL Hyperscale.), [App Services on Azure Arc](../../app-service/overview-arc-integration.md) (including web, function, and logic apps), and [Event Grid on Kubernetes](../../event-grid/kubernetes/overview.md).
 

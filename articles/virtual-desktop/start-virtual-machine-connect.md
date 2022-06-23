@@ -10,7 +10,7 @@ ms.custom: subject-rbac-steps
 ---
 # Set up Start VM on Connect
 
-The Start VM On Connect feature lets you reduce costs by enabling end users to turn on their session host virtual machines (VMs) only when they need them. You can them turn off VMs when they're not needed.
+Start VM On Connect lets you reduce costs by enabling end users to turn on their session host virtual machines (VMs) only when they need them. You can them turn off VMs when they're not needed.
 
 You can configure Start VM on Connect for personal or pooled host pools using the Azure portal or PowerShell. Start VM on Connect is a host pool setting.
 
@@ -19,7 +19,7 @@ For personal host pools, Start VM On Connect will only turn on an existing sessi
 The time it takes for a user to connect to a session host VM that is powered off (deallocated) increases because the VM needs time to turn on again, much like turning on a physical computer. The Remote Desktop client has an indicator that lets the user know the VM is being powered on while they're connecting.
 
 > [!NOTE]
-> Azure Virtual Desktop (classic) doesn't support this feature.
+> Azure Virtual Desktop (classic) doesn't support Start VM On Connect.
 
 ## Prerequisites
 
@@ -209,7 +209,7 @@ You need to make sure you have the names of the resource group and host pool you
 
 ## Troubleshooting
 
-If the feature runs into any issues, we recommend you use the Azure Virtual Desktop [diagnostics feature](diagnostics-log-analytics.md) to check for problems. If you receive an error message, make sure to pay close attention to the message content and make a note of the error name for reference. You can also use [Azure Monitor for Azure Virtual Desktop](azure-monitor.md) to get suggestions for how to resolve issues.
+If you run into any issues with Start VM On Connect, we recommend you use the Azure Virtual Desktop [diagnostics feature](diagnostics-log-analytics.md) to check for problems. If you receive an error message, make sure to pay close attention to the message content and make a note of the error name for reference. You can also use [Azure Monitor for Azure Virtual Desktop](azure-monitor.md) to get suggestions for how to resolve issues.
 
 If the session host VM doesn't turn on, you'll need to check the health of the VM you tried to turn on as a first step.
 

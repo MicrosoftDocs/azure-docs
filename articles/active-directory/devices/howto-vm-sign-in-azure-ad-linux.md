@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: how-to
-ms.date: 11/22/2021
+ms.date: 06/20/2022
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -39,12 +39,13 @@ The following Linux distributions are currently supported during the preview of 
 
 | Distribution | Version |
 | --- | --- |
+| Common Base Linux Mariner (CBL-Mariner) | CBL-Mariner 1, CBL-Mariner 2 |
 | CentOS | CentOS 7, CentOS 8 |
-| Debian | Debian 9, Debian 10 |
+| Debian | Debian 9, Debian 10, Debian 11 |
 | openSUSE | openSUSE Leap 42.3, openSUSE Leap 15.1+ |
 | RedHat Enterprise Linux (RHEL) | RHEL 7.4 to RHEL 7.10, RHEL 8.3+ |
 | SUSE Linux Enterprise Server (SLES) | SLES 12, SLES 15.1+ |
-| Ubuntu Server | Ubuntu Server 16.04 to Ubuntu Server 20.04 |
+| Ubuntu Server | Ubuntu Server 16.04 to Ubuntu Server 22.04 |
 
 The following Azure regions are currently supported for this feature:
 
@@ -246,6 +247,27 @@ You can enforce Conditional Access policies such as require multi-factor authent
 
 > [!NOTE]
 > Conditional Access policy enforcement requiring device compliance or Hybrid Azure AD join on the client device running SSH client only works with Az CLI running on Windows and macOS. It is not supported when using Az CLI on Linux or Azure Cloud Shell.
+
+### Missing application
+
+If the Azure Linux VM Sign-In application is missing from Conditional Access, use the following steps to remediate the issue:
+
+1. Check to make sure the application isn't in the tenant by:
+   1. Sign in to the **Azure portal**.
+   1. Browse to **Azure Active Directory** > **Enterprise applications**
+   1. Remove the filters to see all applications, and search for "VM". If you don't see Azure Linux VM Sign-In as a result, the service principal is missing from the tenant.
+
+Another way to verify it is via Graph PowerShell:
+
+1. [Install the Graph PowerShell SDK](/powershell/microsoftgraph/installation) if you haven't already done so. 
+1. `Connect-MgGraph -Scopes "ServicePrincipalEndpoint.ReadWrite.All","Application.ReadWrite.All"`
+1. Sign-in with a Global Admin account
+1. Consent to permission prompt
+1. `Get-MgServicePrincipal -ConsistencyLevel eventual -Search '"DisplayName:Azure Linux VM Sign-In"'`
+   1. If this command results in no output and returns you to the PowerShell prompt, you can create the Service Principal with the following Graph PowerShell command:
+   1. `New-MgServicePrincipal -AppId ce6ff14a-7fdc-4685-bbe0-f6afdfcfa8e0`
+   1. Successful output will show that the AppID and the Application Name Azure Linux VM Sign-In was created.
+1. Sign out of Graph PowerShell when complete with the following command: `Disconnect-MgGraph`
 
 ## Login using Azure AD user account to SSH into the Linux VM
 

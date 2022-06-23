@@ -1,9 +1,10 @@
 ---
-title: Upgrade an indirectly connected Azure Arc-enabled Managed Instance using Kubernetes tools
-description: Article describes how to upgrade an indirectly connected Azure Arc-enabled Managed Instance using Kubernetes tools
+title: Upgrade Azure SQL Managed Instance indirectly connected to Azure Arc using Kubernetes tools
+description: Article describes how to upgrade an indirectly connected Azure Arc-enabled SQL Managed Instance using Kubernetes tools
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
+ms.custom: event-tier1-build-2022
 author: grrlgeek
 ms.author: jeschult
 ms.reviewer: mikeray
@@ -11,15 +12,15 @@ ms.date: 11/08/2021
 ms.topic: how-to
 ---
 
-# Upgrade an an indirectly connected Azure Arc-enabled Managed Instance using Kubernetes tools
+# Upgrade Azure SQL Managed Instance indirectly connected to Azure Arc using Kubernetes tools
 
-This article describes how to upgrade a SQL Managed Instance deployed on an indirectly connected Azure Arc-enabled data controller using Kubernetes tools.
+This article describes how to upgrade Azure SQL Managed Instance deployed on an indirectly connected Azure Arc-enabled data controller using Kubernetes tools.
 
 ## Prerequisites
 
 ### Install tools
 
-Before you can proceed with the tasks in this article you need:
+Before you can proceed with the tasks in this article, you need:
 
 - To connect and authenticate to a Kubernetes cluster
 - An existing Kubernetes context selected
@@ -28,29 +29,26 @@ You need an indirectly connected data controller with the `imageTag v1.0.0_2021-
 
 ## Limitations
 
-The Azure Arc Data Controller must be upgraded to the new version before the Managed Instance can be upgraded.
+The Azure Arc Data Controller must be upgraded to the new version before the managed instance can be upgraded.
 
-Currently, only one Managed Instance can be upgraded at a time.
+The managed instance must be at the same version as the data controller before a data controller is upgraded.
 
-## Upgrade the Managed Instance
+There's no batch upgrade process available at this time.
 
-### General Purpose
+## Upgrade the managed instance
 
-During a SQL Managed Instance General Purpose upgrade, the containers in the pod will be upgraded and will be reprovisioned. This will cause a short amount of downtime as the new pod is created. You will need to build resiliency into your application, such as connection retry logic, to ensure minimal disruption. Read [Overview of the reliability pillar](/azure/architecture/framework/resiliency/overview) for more information on architecting resiliency.
+[!INCLUDE [upgrade-sql-managed-instance-service-tiers](includes/upgrade-sql-managed-instance-service-tiers.md)]
 
-### Business Critical 
-
-[!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-business-critical-upgrade.md)]
 
 ### Upgrade
 
-Use a kubectl command to view the existing spec in yaml. 
+Use a kubectl command to view the existing spec in yaml.
 
 ```console
 kubectl --namespace <namespace> get sqlmi <sqlmi-name> --output yaml
 ```
 
-Run kubectl patch to update the desired version. 
+Run kubectl patch to update the desired version.
 
 ```console
 kubectl patch sqlmi <sqlmi-name> --namespace <namespace> --type merge --patch '{"spec": {"update": {"desiredVersion": "v1.1.0_2021-11-02"}}}'
@@ -58,7 +56,7 @@ kubectl patch sqlmi <sqlmi-name> --namespace <namespace> --type merge --patch '{
 
 ## Monitor
 
-You can monitor the progress of the upgrade with kubectl. 
+You can monitor the progress of the upgrade with kubectl.
 
 ### kubectl
 
