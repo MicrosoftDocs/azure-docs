@@ -23,6 +23,6 @@ Select the desired cache to view and configure the settings for that cache.
 
 You can view and configure your cache using the Resource menu.
 
-:::image type="content" source="./media/redis-cache-browse/redis-cache-blade.png" alt-text="Screenshot showing an overview of the an Azure Cache for Redis.":::
+:::image type="content" source="./media/redis-cache-browse/redis-cache-blade.png" alt-text="Screenshot showing a highlighted Resource menu for an Azure Cache for Redis.":::
 
 
