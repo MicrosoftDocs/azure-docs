@@ -295,8 +295,7 @@ Next, create a Docker image from the converted model and all dependencies.  This
 
 #### Deploy to a local edge server
 
-All [Azure Data Box Edge devices](../databox-online/azure-stack-edge-overview.md
-) contain an FPGA for running the model.  Only one model can be running on the FPGA at one time.  To run a different model, just deploy a new container. Instructions and sample code can be found in [this Azure Sample](https://github.com/Azure-Samples/aml-hardware-accelerated-models).
+All [Azure Data Box Edge devices](../databox-online/azure-stack-edge-overview.md) contain an FPGA for running the model.  Only one model can be running on the FPGA at one time.  To run a different model, just deploy a new container. Instructions and sample code can be found in [this Azure Sample](https://github.com/Azure-Samples/aml-hardware-accelerated-models).
 
 ### Consume the deployed model
 
