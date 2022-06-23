@@ -66,7 +66,7 @@ To send data to Log Analytics, create the data collection rule in the **same reg
 
     [![Data source basic](media/data-collection-rule-azure-monitor-agent/data-collection-rule-data-source-basic-updated.png)](media/data-collection-rule-azure-monitor-agent/data-collection-rule-data-source-basic-updated.png#lightbox)
 
-1. Select **Custom** to collect logs and performance counters that are not [currently supported data sources](azure-monitor-agent-overview.md#data-sources-and-destinations) or to filter events using XPath queries. You can then specify an [XPath ](https://www.w3schools.com/xml/xpath_syntax.asp) to collect any specific values. See [Sample DCR](data-collection-rule-sample-agent.md) for an example.
+1. Select **Custom** to collect logs and performance counters that are not [currently supported data sources](azure-monitor-agent-overview.md#data-sources-and-destinations) or to [filter events using XPath queries](#filter-events-using-xpath-queries). You can then specify an [XPath](https://www.w3schools.com/xml/xpath_syntax.asp) to collect any specific values. See [Sample DCR](data-collection-rule-sample-agent.md) for an example.
 
     [![Data source custom](media/data-collection-rule-azure-monitor-agent/data-collection-rule-data-source-custom-updated.png)](media/data-collection-rule-azure-monitor-agent/data-collection-rule-data-source-custom-updated.png#lightbox)
 
@@ -119,14 +119,15 @@ This is enabled as part of Azure CLI **monitor-control-service** Extension. [Vie
 See [Resource Manager template samples for data collection rules in Azure Monitor](./resource-manager-data-collection-rules.md) for sample templates.
 
 ---
-## Limit data collection with custom XPath queries
-Since you're charged for any data collected in a Log Analytics workspace, you should collect only the data that you require. Using basic configuration in the Azure portal, you only have limited ability to filter events to collect. For Application and System logs, this is all logs with a particular severity. For Security logs, this is all audit success or all audit failure logs.
+## Filter events using XPath queries
+Since you're charged for any data you collect in a Log Analytics workspace, collect only the data you need. The basic configuration in the Azure portal provides you with a limited ability to filter out events. 
 
-To specify additional filters, you must use Custom configuration and specify an XPath that filters out the events you don't. XPath entries are written in the form `LogName!XPathQuery`. For example, you may want to return only events from the Application event log with an event ID of 1035. The XPathQuery for these events would be `*[System[EventID=1035]]`. Since you want to retrieve the events from the Application event log, the XPath would be `Application!*[System[EventID=1035]]`
+To specify additional filters, use Custom configuration and specify an XPath that filters out the events you don't need. XPath entries are written in the form `LogName!XPathQuery`. For example, you may want to return only events from the Application event log with an event ID of 1035. The XPathQuery for these events would be `*[System[EventID=1035]]`. Since you want to retrieve the events from the Application event log, the XPath is `Application!*[System[EventID=1035]]`
 
 ### Extracting XPath queries from Windows Event Viewer
-One of the ways to create XPath queries is to use Windows Event Viewer to extract XPath queries as shown below.  
-*In step 5 when pasting over the 'Select Path' parameter value, you must append the log type category followed by '!' and then paste the copied value.
+In Windows, you can use Event Viewer to extract XPath queries as shown below.  
+
+When you paste the XPath query into the field on the **Add data source** screen, (step 5 in the picture below), you must append the log type category followed by '!'.
 
 [![Extract XPath](media/data-collection-rule-azure-monitor-agent/data-collection-rule-extract-xpath.png)](media/data-collection-rule-azure-monitor-agent/data-collection-rule-extract-xpath.png#lightbox)
 
@@ -140,12 +141,12 @@ See [XPath 1.0 limitations](/windows/win32/wes/consuming-events#xpath-10-limitat
 > Get-WinEvent -LogName 'Application' -FilterXPath $XPath
 > ```
 >
-> - **In the cmdlet above, the value for '-LogName' parameter is the initial part of the XPath query until the '!', while only the rest of the XPath query goes into the $XPath parameter.**
-> - If events are returned, the query is valid.
+> - **In the cmdlet above, the value of the *-LogName* parameter is the initial part of the XPath query until the '!'. The rest of the XPath query goes into the *$XPath* parameter.**
+> - If the script returns events, the query is valid.
 > - If you receive the message *No events were found that match the specified selection criteria.*, the query may be valid, but there are no matching events on the local machine.
 > - If you receive the message *The specified query is invalid* , the query syntax is invalid. 
 
-The following table shows examples for filtering events using a custom XPath.
+Examples of filtering events using a custom XPath:
 
 | Description |  XPath |
 |:---|:---|
