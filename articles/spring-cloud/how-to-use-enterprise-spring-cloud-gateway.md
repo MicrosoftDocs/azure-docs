@@ -21,7 +21,13 @@ This article shows you how to use Spring Cloud Gateway for VMware Tanzu® with A
 
 [Spring Cloud Gateway for Tanzu](https://docs.vmware.com/en/VMware-Spring-Cloud-Gateway-for-Kubernetes/index.html) is one of the commercial VMware Tanzu components. It's based on the open-source Spring Cloud Gateway project. Spring Cloud Gateway for Tanzu handles cross-cutting concerns for API development teams, such as single sign-on (SSO), access control, rate-limiting, resiliency, security, and more. You can accelerate API delivery using modern cloud native patterns, and any programming language you choose for API development.
 
-Spring Cloud Gateway for Tanzu also has other commercial API route filters for transporting authorized JSON Web Token (JWT) claims to application services, client certificate authorization, rate-limiting approaches, circuit breaker configuration, and support for accessing application services via HTTP Basic Authentication credentials.
+Spring Cloud Gateway for Tanzu also has the following features:
+
+- Other commercial API route filters for transporting authorized JSON Web Token (JWT) claims to application services.
+- Client certificate authorization.
+- Rate-limiting approaches.
+- Circuit breaker configuration.
+- Support for accessing application services via HTTP Basic Authentication credentials.
 
 To integrate with [API portal for VMware Tanzu®](./how-to-use-enterprise-api-portal.md), Spring Cloud Gateway for Tanzu automatically generates OpenAPI version 3 documentation after the route configuration gets changed.
 
@@ -84,7 +90,7 @@ Cross-origin resource sharing (CORS) allows restricted resources on a web page t
 
 ### Configure single sign-on (SSO)
 
-Spring Cloud Gateway for Tanzu supports authentication and authorization using single sign-on (SSO) with an OpenID identity provider (IdP) which supports OpenID Connect Discovery protocol.
+Spring Cloud Gateway for Tanzu supports authentication and authorization using single sign-on (SSO) with an OpenID identity provider (IdP) that supports OpenID Connect Discovery protocol.
 
 | Property     | Required? | Description                                                                                                                                                                                                                                                                                                        |
 |--------------|-----------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -117,10 +123,10 @@ This section describes how to add, update, and manage API routes for apps that u
 
 The route config definition includes the following parts:
 
-- OpenAPI URI: The URI points to an OpenAPI specification. Both OpenAPI 2.0 and OpenAPI 3.0 specs are supported. The specification can be shown in API portal to try out. Two types of URI are accepted. The first type of URI is a public endpoint like `https://petstore3.swagger.io/api/v3/openapi.json`. The second type of URI is a constructed URL `http://<app-name>/{relative-path-to-OpenAPI-spec}`, where `app-name` is the name of an application in Azure Spring Apps which includes the API definition.
+- OpenAPI URI: The URI points to an OpenAPI specification. Both OpenAPI 2.0 and OpenAPI 3.0 specs are supported. The specification can be shown in API portal to try out. Two types of URI are accepted. The first type of URI is a public endpoint like `https://petstore3.swagger.io/api/v3/openapi.json`. The second type of URI is a constructed URL `http://<app-name>/{relative-path-to-OpenAPI-spec}`, where `app-name` is the name of an application in Azure Spring Apps that includes the API definition.
 - routes: A list of route rules about how the traffic goes to one app.
 
-Use the following command to create a route config. The `--app-name` value should be the name of an app hosted in Azure Spring Apps which the requests will route to.
+Use the following command to create a route config. The `--app-name` value should be the name of an app hosted in Azure Spring Apps that the requests will route to.
 
 ```azurecli
 az spring gateway route-config create \
@@ -179,7 +185,7 @@ Not all the filters/predicates are supported in Azure Spring Apps because of sec
 
 Use the following steps to create an example application using Spring Cloud Gateway for Tanzu.
 
-1. To create an app in Azure Spring Apps which the Spring Cloud Gateway for Tanzu would route traffic to, follow the instructions in [Quickstart: Build and deploy apps to Azure Spring Apps using the Enterprise tier](quickstart-deploy-apps-enterprise.md). Select `customers-service` for this example.
+1. To create an app in Azure Spring Apps that the Spring Cloud Gateway for Tanzu would route traffic to, follow the instructions in [Quickstart: Build and deploy apps to Azure Spring Apps using the Enterprise tier](quickstart-deploy-apps-enterprise.md). Select `customers-service` for this example.
 
 1. Assign a public endpoint to the gateway to access it.
 

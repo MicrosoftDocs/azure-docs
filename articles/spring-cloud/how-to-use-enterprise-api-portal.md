@@ -79,7 +79,7 @@ az spring api-portal update --assign-endpoint
 
 This section describes how to view and try out APIs with schema definitions in API portal. Use the following steps to configure API routing with an OpenAPI spec URL on Spring Cloud Gateway for Tanzu.
 
-1. Create an app in Azure Spring Apps which the gateway will route traffic to.
+1. Create an app in Azure Spring Apps that the gateway will route traffic to.
 
 1. Generate the OpenAPI definition and get the URI to access it. The following two URI options are accepted:
 
