@@ -22,7 +22,7 @@ In this article, you'll learn the basic steps to load and analyze data with Data
 
     | Setting | Suggested value | Description |
     |--|--|--|
-    | Data Explorer pool name | contosodataexplorer | This is the name that the Data Explorer pool will have. |
+    | Data Explorer pool name | contosoexplorer | This is the name that the Data Explorer pool will have. |
     | Workload | Compute optimized | This workload provides a higher CPU to SSD storage ratio. |
     | Node size | Small (4 cores) | Set this to the smallest size to reduce costs for this quickstart |
 
