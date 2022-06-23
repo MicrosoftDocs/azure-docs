@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
-ms.date: 06/13/2022
+ms.date: 06/22/2022
 ms.author: lajanuar
 recommendations: false
 ---
@@ -50,7 +50,7 @@ In this quickstart you'll use following features to analyze and extract data and
 
 ## Set up
 
-1. Create a new Node.js Express application: In a console window (such as cmd, PowerShell, or Bash), create a new directory for your app named `form-recognizer-app`, and navigate to it.
+1. Create a new Node.js Express application: In a console window (such as cmd, PowerShell, or Bash), create and navigate to a new directory for your app named `form-recognizer-app`.
 
     ```console
     mkdir form-recognizer-app && cd form-recognizer-app
@@ -114,7 +114,7 @@ Extract text, tables, structure, key-value pairs, and named entities from docume
 > * We've added the file URL value to the `formUrl` variable near the top of the file.
 > * To see the list of all supported fields and corresponding types, see our [General document](../concept-general-document.md#named-entity-recognition-ner-categories) concept page.
 
-**Add the following code sample to the `index.js` file. Make sure you update the key and endpoint variables with values from your Form Recognizer instance in the Azure portal:**
+**Add the following code sample to the `index.js` file. Make sure you update the key and endpoint variables with values from your Azure portal Form Recognizer instance:**
 
 ```javascript
 
@@ -128,48 +128,36 @@ Extract text, tables, structure, key-value pairs, and named entities from docume
   const formUrl = "https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-layout.pdf"
 
   async function main() {
-       // create your `DocumentAnalysisClient` instance and `AzureKeyCredential` variable
-      const client = new DocumentAnalysisClient(endpoint, new AzureKeyCredential(key));
+    const client = new DocumentAnalysisClient(endpoint, new AzureKeyCredential(key));
 
-      const poller = await client.beginAnalyzeDocument("prebuilt-document", formUrl);
+    const poller = await client.beginAnalyzeDocument("prebuilt-document", formUrl);
 
-      const {
-          keyValuePairs,
-          entities
-      } = await poller.pollUntilDone();
+    const {
+        keyValuePairs,
+        entities
+    } = await poller.pollUntilDone();
 
-      if (keyValuePairs.length <= 0) {
-          console.log("No key-value pairs were extracted from the document.");
-      } else {
-          console.log("Key-Value Pairs:");
-          for (const {
-                  key,
-                  value,
-                  confidence
-              } of keyValuePairs) {
-              console.log("- Key  :", `"${key.content}"`);
-              console.log("  Value:", `"${value?.content ?? "<undefined>"}" (${confidence})`);
-          }
-      }
+    if (keyValuePairs.length <= 0) {
+        console.log("No key-value pairs were extracted from the document.");
+    } else {
+        console.log("Key-Value Pairs:");
+        for (const {
+                key,
+                value,
+                confidence
+            } of keyValuePairs) {
+            console.log("- Key  :", `"${key.content}"`);
+            console.log("  Value:", `"${value?.content ?? "<undefined>"}" (${confidence})`);
+        }
+    }
 
-      if (entities.length <= 0) {
-          console.log("No entities were extracted from the document.");
-      } else {
-          console.log("Entities:");
-          for (const entity of entities) {
-              console.log(
-                  `- "${entity.content}" ${entity.category} - ${entity.subCategory ?? "<none>"} (${
-            entity.confidence
-          })`
-              );
-          }
-      }
-  }
+}
 
-  main().catch((error) => {
-      console.error("An error occurred:", error);
-      process.exit(1);
-  });
+main().catch((error) => {
+    console.error("An error occurred:", error);
+    process.exit(1);
+});
+
 ```
 
 **Run your application**
@@ -224,7 +212,7 @@ Extract text, selection marks, text styles, table structures, and bounding regio
 > * We've added the file URL value to the `formUrl` variable near the top of the file.
 > * To analyze a given file from a URL, you'll use the `beginAnalyzeDocuments` method and pass in `prebuilt-layout` as the model Id.
 
-**Add the following code sample to the `index.js` file. Make sure you update the key and endpoint variables with values from your Form Recognizer instance in the Azure portal:**
+**Add the following code sample to the `index.js` file. Make sure you update the key and endpoint variables with values from your Azure portal Form Recognizer instance:**
 
 ```javascript
 
