@@ -734,10 +734,6 @@
         "source_path_from_root": "/articles/mysql/tutorial-design-database-using-powershell.md",
         "redirect_url": "/azure/mysql/single-server/tutorial-design-database-using-powershell",
         "redirect_document_id": false
-<<<<<<< HEAD
-    }
-    ]
-=======
     },
     {
         "source_path_from_root": "/articles/mysql/single-server/concepts-supported-versions.md",
@@ -750,5 +746,4 @@
         "redirect_document_id": true
     }
   ]
->>>>>>> 6b4ba5025d42fdc3cbe8c75b02e6c4b1ad4f5ffd
 }
