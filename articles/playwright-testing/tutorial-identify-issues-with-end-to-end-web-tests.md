@@ -114,36 +114,36 @@ Set up an access key to authenticate with Playwright Service.
 
 ## Configure Playwright for Microsoft Playwright Testing
 
-The `playwright.config.ts` file contains the Playwright configuration settings. The `@microsoft/playwright-service` npm package contains the `PlaywrightService` class to connect Playwright to Microsoft Playwright Testing.
+The `playwright.config.ts` file contains the Playwright configuration settings. The `@microsoft/playwright-service` npm package contains the `PlaywrightService` class to connect Playwright to Microsoft Playwright Testing. The tests in the sample repository are already preconfigured to use Microsoft Playwright Testing.
 
-The `playwright.config.ts` file in the sample repository is already preconfigured to use Microsoft Playwright Testing. Specify the access token you created earlier to connect to your account.
+Microsoft Playwright Testing uses an access token as an authorization mechanism. Specify the access token you created earlier to connect to your account.
 
-- If you run your tests from the command-line, create an environment variable `ACCESS_KEY` on your machine. 
+Optionally, you can also set a dashboard name to group your test runs in the Microsoft Playwright Testing portal. By default, all test runs are grouped in the `Default Group` dashboard.
 
-    Replace the placeholder text `<my-token-value>` with the access token value.
+If you run your tests from the command-line, create environment variables on your machine to set the access token and dashboard name.
 
-    Bash:
+* Bash:
 
     ```bash
     export ACCESS_KEY='<my-token-value>'
+    export DASHBOARD='<my-dashboard-name>'
     ```
 
-    PowerShell:
-    
+* PowerShell:
+
     ```Powershell
     $env:ACCESS_KEY = '<my-token-value>'
+    $env:DASHBOARD = '<my-dashboard-name>'
     ```
 
-- Alternately, set the value of the `accessKey` property in `playwright.config.ts`. 
+Alternately, you can set the values of the `accessKey` and `dashboard` properties directly in `playwright.config.ts`:
 
-    Replace the placeholder text `<my-token-value>` with the access token value.
-
-    ```typescript
-    var playwrightServiceConfig = new PlaywrightService({
-      accessKey: process.env.ACCESS_KEY || "<my-token-value>"
-      dashboard: process.env.DASHBOARD || "Default Group"
-    });
-    ```
+```typescript
+var playwrightServiceConfig = new PlaywrightService({
+  accessKey: "<my-token-value>"
+  dashboard: "<my-dashboard-name>"
+});
+```
 
 ## Run tests across multiple browsers
 
@@ -373,7 +373,7 @@ Playwright enables you to run your tests in parallel. In Playwright, the number 
 
 1. After the test finishes, open the Microsoft Playwright Testing dashboard link in the test output.
 
-1. Select **Default Group** from the breadcrumb, to view all your test results.
+1. To view all your tests, select your dashboard name, or **Default Group** if you didn't override the name, from the breadcrumb.
 
     :::image type="content" source="./media/tutorial-identify-issues-with-end-to-end-web-tests/dashboard-breadcrumb.png" alt-text="Screenshot that shows breadcrumb navigation in the Microsoft Playwright Testing dashboard.":::
 
