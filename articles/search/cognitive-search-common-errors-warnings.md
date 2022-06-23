@@ -207,7 +207,7 @@ This error occurs when the indexer is attempting to [project data into a knowled
 
 <a name="skill-throttled"></a>
 
-## Error: The cognitive service for skill '<skill-name>' has been throttled
+## `Error: The cognitive service for skill '<skill-name>' has been throttled`
 
 Skill execution failed because the call to Cognitive Services was throttled. Typically, this class of failure occurs when too many skills are executing in parallel. If you're using the Microsoft.Search.Documents client library to run the indexer, you can use the [SearchIndexingBufferedSender](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/search/Azure.Search.Documents/samples/Sample05_IndexingDocuments.md#searchindexingbufferedsender) to get automatic retry on failed steps. Otherwise, you can [reset and rerun the indexer](search-howto-run-reset-indexers.md).
 
