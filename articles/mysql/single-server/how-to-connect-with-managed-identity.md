@@ -4,12 +4,8 @@ description: Learn about how to connect and authenticate using Managed Identity 
 ms.service: mysql
 ms.subservice: single-server
 ms.topic: how-to
-<<<<<<< HEAD
-ms.date: 06/20/2022
-=======
 author: savjani
 ms.author: pariks
->>>>>>> 6b4ba5025d42fdc3cbe8c75b02e6c4b1ad4f5ffd
 ms.custom: devx-track-csharp, devx-track-azurecli
 ms.date: 06/20/2022
 ---
