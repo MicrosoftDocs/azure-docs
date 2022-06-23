@@ -44,7 +44,7 @@ This section provides details specifically for HA-related fields. You can follow
     :::image type="content" source="./media/how-to-manage-high-availability-portal/choose-standby-availability-zone.png" alt-text="Screenshot of Standby AZ selection.":::
 
 >[!NOTE]
-> See the [HA limitation section](concepts-high-availability.md#high-availability---limitations) to see a current restriction with same-zone HA deployment.  
+> See the [HA limitation section](concepts-high-availability.md#high-availability---limitations) for a current restriction with same-zone HA deployment.  
 
 1.  If you want to change the default compute and storage, click  **Configure server**.
  
