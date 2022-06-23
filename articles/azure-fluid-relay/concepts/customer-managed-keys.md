@@ -74,7 +74,7 @@ Notes:
 - Identity.type must be UserAssigned. It is the identity type of the managed identity that is assigned to the Fluid Relay resource.
 - Properties.encryption.customerManagedKeyEncryption.keyEncryptionKeyIdentity.identityType must be UserAssigned. It is the identity type of the managed identity that should be used for CMK.
 - Although you can specify more than one in Identity.userAssignedIdentities, only one user identity assigned to Fluid Relay resource specified will be used for CMK access the key vault for encryption.
-- Properties.encryption.customerManagedKeyEncryption.keyEncryptionKeyIdentity. UserAssignedIdentityResourceId is the resource ID of the user assigned identity that should be used for CMK. Notice that it should be one of the identities in Identity.userAssignedIdentities (You must assign the identity to Fluid Relay resource before it can use it for CMK). Also, it should have necessary permissions on the key (provided by keyEncryptionKeyUrl).
+- Properties.encryption.customerManagedKeyEncryption.keyEncryptionKeyIdentity.userAssignedIdentityResourceId is the resource ID of the user assigned identity that should be used for CMK. Notice that it should be one of the identities in Identity.userAssignedIdentities (You must assign the identity to Fluid Relay resource before it can use it for CMK). Also, it should have necessary permissions on the key (provided by keyEncryptionKeyUrl).
 - Properties.encryption.customerManagedKeyEncryption.keyEncryptionKeyUrl is the key identifier used for CMK. 
 
 ## Update CMK settings of an existing Fluid Relay resource 
