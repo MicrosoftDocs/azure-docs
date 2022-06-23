@@ -51,7 +51,7 @@ And invoke the `attach()` method of the `com.microsoft.applicationinsights.attac
 > [!TIP]
 > ⚠ The invocation  must be requested at the beginning of the `main` method.
 
-We provide you an example below:
+Example:
 
 ```java
 @SpringBootApplication
