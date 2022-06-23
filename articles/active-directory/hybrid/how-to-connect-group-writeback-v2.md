@@ -81,11 +81,11 @@ To enable group writeback, use the following steps:
  >Set-ADSyncUnifiedGroupWritebackPermissions -ADConnectorAccountDN $AzureADConnectSWritebackAccountDN -ADObjectDN $GroupWritebackOU
  >```
 
-For more information on configuring the Microsoft 365 groups see [Configure Microsoft 365 Groups with on-premises Exchange hybrid](/exchange/hybrid-deployment/set-up-microsoft-365-groups#enable-group-writeback-in-azure-ad-connect).
+For more information on configuring the Microsoft 365 groups, see [Configure Microsoft 365 Groups with on-premises Exchange hybrid](/exchange/hybrid-deployment/set-up-microsoft-365-groups#enable-group-writeback-in-azure-ad-connect).
 
 ## Enabling group writeback using PowerShell
 
-To enable group writeback via PowerShell, do the following:
+To enable group writeback via PowerShell:
 
  1. Open a PowerShell prompt as administrator. 
  2. Disable the sync scheduler after verifying that no synchronization operations are running: 
