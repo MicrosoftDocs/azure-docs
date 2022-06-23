@@ -50,6 +50,8 @@ sections:
           Face Identify and Celebrity Recognition features of Azure Video Indexer are Limited Access features that require registration. 
           
           Find the registration form and more information about Limited Access in [this article](limited-access-features.md).
+          
+          Also, see the following: the [announcement blog post](https://aka.ms/AAh91ff) and  [investment and safeguard for facial recognition blog post](https://aka.ms/AAh9oye).
 
       - question: Do I need machine learning skills to use Azure Video Indexer?
         answer: No, Azure Video Indexer provides the integration of multiple machine learning models into one pipeline. Indexing a video or audio file via Azure Video Indexer retrieves a full set of insights extracted on one shared timeline without any machine learning skills or knowledge on algorithms needed on the customer's part.

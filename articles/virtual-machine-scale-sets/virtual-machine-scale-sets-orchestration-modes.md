@@ -61,8 +61,9 @@ When you create a VM and add it to a Flexible scale set, you have full control o
 The preferred method is to use Azure Resource Graph to query for all VMs in a Virtual Machine Scale Set. Azure Resource Graph provides efficient query capabilities for Azure resources at scale across subscriptions.
 
 ```
+resources
 | where type =~ 'Microsoft.Compute/virtualMachines'
-| where properties.virtualMachineScaleSet contains "demo"
+| where properties.virtualMachineScaleSet.id contains "demo"
 | extend powerState = properties.extended.instanceView.powerState.code
 | project name, resourceGroup, location, powerState
 | order by resourceGroup desc, name desc
