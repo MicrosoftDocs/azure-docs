@@ -79,7 +79,7 @@ Once the web apps are assessed, you can migrate them using the integrated migrat
 
    :::image type="content" source="./media/tutorial-migrate-webapps/edit-multiple-details.png" alt-text="Screenshot of Azure Migrate Edit apps":::
 
-    Select the **Next: App Service Plans >** button.
+   8Select the **Next: App Service Plans >** button.
   1. In the **App Service Plans** section, verify the App Service Plan details.
 
      > [!NOTE]
