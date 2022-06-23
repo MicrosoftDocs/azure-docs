@@ -42,7 +42,7 @@ Global parameters can be used in any [pipeline expression](control-flow-expressi
 We recommend including global parameters in the ARM template during the CI/CD. The new mechanism of including global parameters in the ARM template (from 'Manage hub' -> 'ARM template' -> ‘Include global parameters in ARM template
 ') as illustrated below, will not conflict/ override the factory-level settings as it used to do earlier, hence not requiring additional PowerShell for global parameters deployment during CI/CD.
 
-:::image type="content" source="media/author-global-parameters/include-arm-template.png" alt-text="Include in ARM template":::
+:::image type="content" source="media/author-global-parameters/include-arm-template.png" alt-text="Screenshot of 'Include in ARM template'.":::
 
 > [!NOTE]
 > We have moved the UI experience for including global parameters from the 'Global parameters' section to the 'ARM template' section in the manage hub. 
@@ -51,11 +51,11 @@ If you are already using the older mechanism (from 'Manage hub' -> 'Global param
 If you are using the older flow of integrating global parameters in your continuous integration and deployment solution, it will continue to work:
 
 * Include global parameters in the ARM template (from 'Manage hub' -> 'Global parameters' -> 'Include in ARM template')
-:::image type="content" source="media/author-global-parameters/include-arm-template-deprecated.png" alt-text="Include in ARM template (old)":::
+:::image type="content" source="media/author-global-parameters/include-arm-template-deprecated.png" alt-text="Screenshot of deprecated 'Include in ARM template'.":::
 
 * Deploy global parameters via a PowerShell script
 
-We strongly recommend using the new mechanism of including global params in the ARM template (from 'Manage hub' -> 'ARM template' -> 'Include global parameters in an ARM template') since it makes the CICD with global parameters much more straightforward and easier to manage.
+We strongly recommend using the new mechanism of including global parameters in the ARM template (from 'Manage hub' -> 'ARM template' -> 'Include global parameters in an ARM template') since it makes the CICD with global parameters much more straightforward and easier to manage.
 
 > [!NOTE]
 > The **Include global parameters in an ARM template** configuration is only available in "Git mode". Currently it is disabled in "live mode" or "Data Factory" mode.  
@@ -68,7 +68,7 @@ We strongly recommend using the new mechanism of including global params in the 
 ### Deploying using PowerShell (older mechanism)
 
 > [!NOTE]
-> This is not required if you're including global parameters using the 'Manage hub' -> 'ARM template' -> 'Include global parameters in an ARM template' since you can deploy the ARM with the ARM templates without breaking the Factory-level configurations. For backward compatability we will contune to support it. 
+> This is not required if you're including global parameters using the 'Manage hub' -> 'ARM template' -> 'Include global parameters in an ARM template' since you can deploy the ARM with the ARM templates without breaking the Factory-level configurations. For backward compatability we will continue to support it. 
 
 The following steps outline how to deploy global parameters via PowerShell. This is useful when your target factory has a factory-level setting such as customer-managed key.
 
