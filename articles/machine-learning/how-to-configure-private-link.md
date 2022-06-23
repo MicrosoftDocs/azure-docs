@@ -340,6 +340,12 @@ In some situations, you may want to allow someone to connect to your secured wor
 
 To enable public access, use the following steps:
 
+> [!TIP]
+> There are two possible properties that you can configure:
+> * `allow_public_access_when_behind_vnet` - used by the Python SDK v1
+> * `public_network_access` - used by the CLI and Python SDK v2 (preview)
+> Microsoft recommends using `public_network_access`. Using `public_network_access` will override the `allow_public_access_when_behind_vnet` flag.
+
 # [Python](#tab/python)
 
 To enable public access, use [Workspace.update](/python/api/azureml-core/azureml.core.workspace(class)#update-friendly-name-none--description-none--tags-none--image-build-compute-none--service-managed-resources-settings-none--primary-user-assigned-identity-none--allow-public-access-when-behind-vnet-none-) and set `allow_public_access_when_behind_vnet=True`.
