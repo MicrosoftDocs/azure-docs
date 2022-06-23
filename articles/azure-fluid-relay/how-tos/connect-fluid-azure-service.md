@@ -35,7 +35,7 @@ To connect to an Azure Fluid Relay instance you first need to create an `AzureCl
 const config = {
   tenantId: "myTenantId",
   tokenProvider: new InsecureTokenProvider("myTenantKey", { id: "userId" }),
-  serviceEndpoint: "https://myServiceEndpointUrl",
+  endpoint: "https://myServiceEndpointUrl",
   type: "remote",
 };
 
