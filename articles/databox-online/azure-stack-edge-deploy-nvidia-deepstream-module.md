@@ -21,37 +21,39 @@ This article walks you through deploying Nvidia’s DeepStream module on an Ubun
 
 Before you begin, make sure you have:
 
-- Deployed IoT Edge on your GPU VM. For detailed steps, see [Deploy IoT Edge on an Ubuntu VM on Azure Stack Edge](azure-stack-edge-gpu-deploy-iot-edge-linux-vm.md).
-- Additional prerequisites?
+- Deployed an IoT Edge runtime on a GPU VM running on an Azure Stack Edge device. For detailed steps, see [Deploy IoT Edge on an Ubuntu VM on Azure Stack Edge](azure-stack-edge-gpu-deploy-iot-edge-linux-vm.md).
 
-## Get module from Azure Marketplace
+## Get module from IoT Edge Module Marketplace
 
-1. In the [Azure portal](https://portal.azure.com), go to Azure Marketplace.
-1. Disconnect from step 1 to step 3 > Set modules not in Marketplace...
-1. Select **IoT Hub** > **Set modules**.
+1. In the [Azure portal](https://portal.azure.com), go to **Device management** > **IoT Edge**.
+1. Select the IoT Hub device that you configured while deploying the IoT Edge runtime
 
-    ![Screenshot of the Azure portal, IoT Hub, set modules page.](media/azure-stack-edge-gpu-deploy-iot-edge-linux-vm/azure-portal-create-vm-iot-hub-set-module.png)
+    ![Screenshot of the Azure portal, I o T Edge, I o T Hub device.](media/azure-stack-edge-deploy-nvidia-deepstream-module/azure-portal-select-iot-edge-device.png)
 
-1. Select **Add** > **IoT Edge Module**.
+1. Select **Set modules**.
 
-    ![Screenshot of the Azure portal, Marketplace Module, Add modules selection.](media/azure-stack-edge-gpu-deploy-iot-edge-linux-vm/azure-portal-create-vm-add-iot-edge-module.png)
+    ![Screenshot of the Azure portal, I o T Hub, set modules page.](media/azure-stack-edge-deploy-nvidia-deepstream-module/azure-portal-create-vm-iot-hub-set-module.png)
+
+1. Select **Add** > **Marketplace Module**.
+
+    ![Screenshot of the Azure portal, Marketplace Module, Add Marketplace Module selection.](media/azure-stack-edge-deploy-nvidia-deepstream-module/azure-portal-create-vm-add-iot-edge-module.png)
 
 1. Search for **NVIDIA DeepStream SDK 5.1 for x86/AMD64** and then select it. 
 
-    ![Screenshot of the Azure portal, Marketplace Module, modules options.](media/azure-stack-edge-gpu-deploy-iot-edge-linux-vm/azure-portal-create-vm-iot-edge-module-marketplace.png)
+    ![Screenshot of the Azure portal, I o T Edge Module Marketplace, modules options.](media/azure-stack-edge-deploy-nvidia-deepstream-module/azure-portal-create-vm-iot-edge-module-marketplace.png)
 
 1. Select **Review + Create**, and then select **Create module**.
 
-## Verify runtime status of the module
+## Verify module runtime status
 
 1. Verify that the module is running.  
 
-     ![Screenshot of the Azure portal, modules runtime status.](media/azure-stack-edge-gpu-deploy-iot-edge-linux-vm/azure-portal-create-vm-verify-module-status.png)
+     ![Screenshot of the Azure portal, modules runtime status.](media/azure-stack-edge-deploy-nvidia-deepstream-module/azure-portal-create-vm-verify-module-status.png)
 
 1. Verify that the module provides the following output in the troubleshooting page of the IoT Edge device on IoT Hub:
 
-    ![Screenshot of the Azure portal, NVIDIADeepStreamSDK log file output.](media/azure-stack-edge-gpu-deploy-iot-edge-linux-vm/azure-portal-create-vm-troubleshoot-iot-edge-module.png)
+    ![Screenshot of the Azure portal, NVIDIADeepStreamSDK log file output.](media/azure-stack-edge-deploy-nvidia-deepstream-module/azure-portal-create-vm-troubleshoot-iot-edge-module.png)
 
 After a certain period of time, the module runtime will complete and quit, causing the module status to return an error. This error condition is expected behavior.
 
-![Screenshot of the Azure portal, NVIDIADeepStreamSDK module runtime status with error condition.](media/azure-stack-edge-gpu-deploy-iot-edge-linux-vm/azure-portal-create-vm-add-iot-edge-module-error.png)
+![Screenshot of the Azure portal, NVIDIADeepStreamSDK module runtime status with error condition.](media/azure-stack-edge-deploy-nvidia-deepstream-module/azure-portal-create-vm-add-iot-edge-module-error.png)
