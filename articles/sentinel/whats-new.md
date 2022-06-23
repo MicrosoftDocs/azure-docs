@@ -57,7 +57,7 @@ In addition to the native experience in the Microsoft 365 Defender Portal, custo
 
 ### Incident update trigger for automation rules (Preview)
 
-Automation rules are an essential tool for triaging your incidents queue, reducing the noise in it, and generally coping with the high volume of incidents seamlessly and transparently. Until today you could create and run automation rules and playbooks that would run upon the creation of an incident, but your automation options were more limited past that point in the incident lifecycle. 
+Automation rules are an essential tool for triaging your incidents queue, reducing the noise in it, and generally coping with the high volume of incidents in your SOC seamlessly and transparently. Previously you could create and run automation rules and playbooks that would run upon the creation of an incident, but your automation options were more limited past that point in the incident lifecycle. 
 
 You can now create automation rules and playbooks that will run when incident fields are modified - for example, when an owner is assigned, when its status or severity is changed, or when alerts and comments are added.
 

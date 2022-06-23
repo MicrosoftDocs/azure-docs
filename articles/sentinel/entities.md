@@ -124,6 +124,8 @@ Entity pages are designed to be part of multiple usage scenarios, and can be acc
 
 :::image type="content" source="./media/identify-threats-with-entity-behavior-analytics/entity-pages-use-cases.png" alt-text="Entity page use cases":::
 
+Entity page information is stored in the **BehaviorAnalytics** table, described in detail in the [Microsoft Sentinel UEBA enrichments reference](ueba-enrichments.md).
+
 ## Next steps
 
 In this document, you learned about working with entities in Microsoft Sentinel. For practical guidance on implementation, and to use the insights you've gained, see the following articles:
