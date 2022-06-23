@@ -83,7 +83,7 @@ Get-AzResource -ResourceGroupName exampleRG
 ## Visit function app welcome page
 
 1. Use the output from the previous validation step to retrieve the unique name created for your function app.
-1. Open a browser and enter the following URL: **\<https://<appName.azurewebsites.net\>**. Make sure to replace **<\appName\>** with the unique name created for your function app.
+1. Open a browser and enter the following URL: `https://<appName>.azurewebsites.net`, where `<appName>` is the unique name given to your function app.
 
 When you visit the URL, you should see a page like this:
 
