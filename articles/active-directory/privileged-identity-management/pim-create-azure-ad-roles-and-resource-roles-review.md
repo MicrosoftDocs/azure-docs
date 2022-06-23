@@ -145,7 +145,7 @@ Based on your selections in **Upon completion settings**, auto-apply will be exe
 > [!NOTE]
 > It's possible for a security group to have other groups assigned to it. In this case, only the users assigned directly to the security group assigned to the role will appear in the review of the role.
 
-These default applications will change if the administrator specifies settings for access reviews of nested groups. For more information, go to [Review access of nested group membership (preview)](manage-access-review.md#review-access-of-nested-group-membership-preview).
+These default applications will change if the administrator specifies settings for access reviews of nested groups.
 
 
 ## Update the access review
