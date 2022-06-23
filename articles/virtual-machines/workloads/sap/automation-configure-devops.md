@@ -77,6 +77,40 @@ Optionally you may copy the sample configuration files from the 'samples/WORKSPA
 
 Push the changes back to the repository by selecting the source control icon and providing a message about the change, for example: "Import of sample configurations" and press Cntr-Enter to commit the changes. Next select the _Sync Changes_ button to synchronize the changes back to the repository.
 
+## Set up the web app
+
+The automation framework optionally provisions a web app as a part of the control plane to assist with the deployment of SAP workload zones and systems. If you would like to use the web app, you must first create an app registration for authentication purposes. Open the Azure cloud shell and execute the following commands:
+
+# [Linux](#tab/linux)
+Replace MGMT with your environment as necessary.
+```bash
+echo '[{"resourceAppId":"00000003-0000-0000-c000-000000000000","resourceAccess":[{"id":"e1fe6dd8-ba31-4d61-89e7-88639da4683d","type":"Scope"}]}]' >> manifest.json 
+
+TF_VAR_app_registration_app_id=$(az ad app create --display-name MGMT-webapp-registration --available-to-other-tenants false --required-resource-access @manifest.json --query "appId" | tr -d '"')
+
+echo $TF_VAR_app_registration_app_id
+
+az ad app credential reset --id $TF_VAR_app_registration_app_id --append --query "password" 
+
+rm manifest.json
+```
+# [Windows](#tab/windows)
+Replace MGMT with your environment as necessary.
+```powershell
+Add-Content -Path manifest.json -Value '[{"resourceAppId":"00000003-0000-0000-c000-000000000000","resourceAccess":[{"id":"e1fe6dd8-ba31-4d61-89e7-88639da4683d","type":"Scope"}]}]'
+
+$TF_VAR_app_registration_app_id=(az ad app create --display-name MGMT-webapp-registration --available-to-other-tenants false --required-resource-access ./manifest.json --query "appId").Replace('"',"")
+
+echo $TF_VAR_app_registration_app_id
+
+az ad app credential reset --id $TF_VAR_app_registration_app_id --append --query "password" 
+
+rm ./manifest.json
+```
+---
+Save the app registration id and password values for later.
+
+
 ## Create Azure Pipelines
 
 Azure Pipelines are implemented as YAML files and they're stored in the 'deploy/pipelines' folder in the repository. 
@@ -115,6 +149,21 @@ Create the SAP system deployment pipeline by choosing _New Pipeline_ from the Pi
 | Name    | SAP system deployment (infrastructure)           |
 
 Save the Pipeline, to see the Save option select the chevron next to the Run button. Navigate to the Pipelines section and select the pipeline. Rename the pipeline to 'SAP system deployment (infrastructure)' by choosing 'Rename/Move' from the three-dot menu on the right.
+
+## SAP web app deployment pipeline
+
+Create the SAP web app deployment pipeline by choosing _New Pipeline_ from the Pipelines section, select 'Azure Repos Git' as the source for your code. Configure your Pipeline to use an existing Azure Pipeline YAML File. Specify the pipeline with the following settings:
+
+| Setting | Value                                            |
+| ------- | ------------------------------------------------ |
+| Branch  | main                                             |
+| Path    | `deploy/pipelines/21-deploy-web-app.yaml`        |
+| Name    | Web app deployment                               |
+
+Save the Pipeline, to see the Save option select the chevron next to the Run button. Navigate to the Pipelines section and select the pipeline. Rename the pipeline to 'Web app deployment' by choosing 'Rename/Move' from the three-dot menu on the right.
+
+> [!NOTE]
+> In order for the web app to function correctly, the SAP workload zone deployment and SAP system deployment pipelines must be named as specified.
 
 ## SAP software acquisition pipeline
 
@@ -252,13 +301,18 @@ Create a new variable group 'SDAF-MGMT' for the control plane environment using 
 | FENCING_SPN_ID        | Enter the service principal application ID for the fencing agent.  | Required for highly available deployments.               |
 | FENCING_SPN_PWD       | Enter the service principal password for the fencing agent.        | Required for highly available deployments.               |
 | FENCING_SPN_TENANT    | Enter the service principal tenant ID for the fencing agent.       | Required for highly available deployments.               |
+| TF_VAR_app_registration_app_id  | App registration application ID                          | Required if deploying the web app                        |
+| TF_VAR_webapp_client_secret     | App registration password                                | Required if deploying the web app                        |
 
 Save the variables.
 
 > [!NOTE]
 > Remember to assign permissions for all pipelines using _Pipeline permissions_.
 >
+> For use with the web app, assign the administrator role to the build service using _Security_.
+>
 > You can use the clone functionality to create the next environment variable group.
+
 
 ## Create a service connection
 
@@ -288,7 +342,7 @@ You must use the Deployer as a [self-hosted agent for Azure DevOps](/azure/devop
 
 Newly created pipelines might not be visible in the default view. Select on recent tab and go back to All tab to view the new pipelines.
 
-Select the _Control plane deployment_ pipeline, provide the configuration names for the deployer and the SAP library and choose "Run" to deploy the control plane. 
+Select the _Control plane deployment_ pipeline, provide the configuration names for the deployer and the SAP library and choose "Run" to deploy the control plane. Make sure to check "deploy the web app infrastructure" if you would like to set up the web app.
 
 Wait for the deployment to finish.
 
@@ -340,6 +394,32 @@ Accept the license and when prompted for server URL, enter the URL you captured 
 
 When prompted enter the application pool name, you created in the previous step. Accept the default agent name and the default work folder name.
 The agent will now be configured and started.
+
+
+## Deploy the web app
+
+Checking the "deploy the web app infrastructure" parameter when running the Control plane deployment pipeline will provision the infrastructure necessary for hosting the web app. The "Deploy web app" pipeline will publish the application's software to that infrastructure. 
+
+Before running the Deploy web app pipeline, first update the reply-url values for the app registration. As a result of running the SAP workload zone deployment pipeline, part of the web app URL needed will be stored in a variable named "WEBAPP_URL_BASE" in your environment-specific variable group. Copy this value, and use it in the following command:
+
+# [Linux](#tab/linux)
+
+```bash
+webapp_url_base=<WEBAPP_URL_BASE>
+az ad app update --id $TF_VAR_app_registration_app_id --homepage https://${webapp_url_base}.azurewebsites.net --reply-urls https://${webapp_url_base}.azurewebsites.net/ https://${webapp_url_base}.azurewebsites.net/.auth/login/aad/callback
+```
+# [Windows](#tab/windows)
+
+```powershell
+$webapp_url_base="<WEBAPP_URL_BASE>"
+az ad app update --id $TF_VAR_app_registration_app_id --homepage https://${webapp_url_base}.azurewebsites.net --reply-urls https://${webapp_url_base}.azurewebsites.net/ https://${webapp_url_base}.azurewebsites.net/.auth/login/aad/callback
+```
+---
+After updating the reply-urls, run the pipeline.
+
+By default there will be no inbound public internet access to the web app apart from the deployer virtual network. To allow additional access to the web app, navigate to the Azure portal. In the deployer resource group, find the web app. Then under settings on the left hand side, click on networking. From here, click Access restriction. Add any allow or deny rules you would like. For more information on configuring access restrictions, see [Set up Azure App Service access restrictions](https://docs.microsoft.com/en-us/azure/app-service/app-service-ip-restrictions).
+
+You should now be able to visit the web app, and use it to deploy SAP workload zones and SAP system infrastructure.
 
 ## Next step
 

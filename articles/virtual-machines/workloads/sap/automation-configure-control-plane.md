@@ -88,7 +88,13 @@ The table below contains the networking parameters.
 > | `management_firewall_subnet_address_prefix` | The address range for the subnet                                 | Mandatory  | For green field deployments.  | 
 > |                                             |                                                                  |            | |
 > | `management_bastion_subnet_arm_id`		      | The Azure resource identifier for the Bastion subnet             | Mandatory  | For brown field deployments.  |
-> | `management_bastion_subnet_address_prefix`  | The address range for the subnet                                 | Mandatory  | For green field deployments.  | 
+> | `management_bastion_subnet_address_prefix`  | The address range for the subnet                                 | Mandatory  | For green field deployments.  |
+> | `cmdb_subnet_arm_id`		                      | The Azure resource identifier for the Cosmos DB subnet   | Mandatory  | For brown field deployments using the web app |
+> | `cmdb_subnet_address_prefix`                | The address range for the subnet                         | Mandatory  | For green field deployments using the web app | 
+
+> [!NOTE]
+> When using an existing subnet for the cosmos db and web app, the subnet must be empty, in the same region as the resource group being deployed, and delegated to Microsoft.Web/serverFarms![image](https://user-images.githubusercontent.com/9037701/174907147-05acfbd3-7ccb-4d62-aa4c-7e2ea64320c2.png)
+ 
 
 ### Deployer Virtual Machine Parameters
 
