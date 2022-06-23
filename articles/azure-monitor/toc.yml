@@ -1192,6 +1192,8 @@ items:
       href: /azure/azure-monitor/faq#vm-insights
     - name: Configure workspace
       href: vm/vminsights-configure-workspace.md
+    - name: Support for Azure Monitor agent (Preview)
+      href: vm/vminsights-azure-monitor-agent.md
     - name: Install agents
       items:
       - name: Overview
@@ -1208,8 +1210,6 @@ items:
         href: vm/vminsights-enable-hybrid.md
       - name: Upgrade Dependency agent
         href: vm/vminsights-dependency-agent-maintenance.md
-    - name: Install Azure Monitor agent (Preview)
-      href: vm/vminsights-azure-monitor-agent.md
     - name: Map dependencies
       href: vm/vminsights-maps.md
     - name: Monitor performance
