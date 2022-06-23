@@ -67,7 +67,7 @@ Refer to the [Troubleshooting guide](error-codes-solutions.md) for connection is
 
 ### [Azure CLI](#tab/azure-cli)
 
-[!INCLUDE [Azure CLI - get resource name](<./includes/azurecli-get-resource-name.md>)]
+[!INCLUDE [Azure CLI - get resource name](<./includes/azure-cli-get-resource-name.md>)]
 
 ### [PowerShell](#tab/azure-powershell)
 
@@ -83,7 +83,7 @@ Skip this step and use the information for the portal in the next step.
 
 ### [Azure CLI](#tab/azure-cli)
 
-[!INCLUDE [Azure CLI - get connection string](<./includes/azurecli-get-connection-string.md>)]
+[!INCLUDE [Azure CLI - get connection string](<./includes/azure-cli-get-connection-string.md>)]
 
 ### [PowerShell](#tab/azure-powershell)
 
@@ -100,7 +100,7 @@ Skip this step and use the information for the portal in the next step.
 
 ## Configure environment variables
 
-[!INCLUDE [Multitab - store connection string in environment variable](<./includes/multitab-env-vars-connection-string.md>)]
+[!INCLUDE [Multitab - store connection string in environment variable](<./includes/environment-variables-connection-string.md>)]
 
 ## Create MongoClient with connection string
 
