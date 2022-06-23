@@ -55,7 +55,7 @@ Use Service Connector to create a new service connection in Container Apps using
 1. Select **Service Connector** from the left table of contents.
 1. Select **Create**.
 
-    :::image type="content" source="media/service-connector/connect-service-connector.png" alt-text="Screenshot of the Azure portal, selecting Service Connector within a container app" lightbox="media/service-connector/connect-service-connector-expanded.png":::
+    :::image type="content" source="media/service-connector/connect-service-connector.png" alt-text="Screenshot of the Azure portal, selecting Service Connector within a container app." lightbox="media/service-connector/connect-service-connector-expanded.png":::
 
 1. Select or enter the following settings.
 
@@ -127,7 +127,7 @@ View your existing service connections using the Azure portal or the CLI.
 
 1. Select **...** and then **Validate**. You can see the connection validation details in the pop-up panel on the right.
 
-    :::image type="content" source="media/service-connector/connect-service-connector-refresh.png" alt-text="Screenshot of the Azure portal, viewing connection validation details":::
+    :::image type="content" source="media/service-connector/connect-service-connector-refresh.png" alt-text="Screenshot of the Azure portal, viewing connection validation details.":::
 
 ### [Azure CLI](#tab/azure-cli)
 
