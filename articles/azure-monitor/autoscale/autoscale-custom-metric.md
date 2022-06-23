@@ -44,7 +44,7 @@ An App Service plan defines a set of compute resources for a web app to run on.
 1. Select **Review + create**, then **Create**.
 :::image type="content" source="media\autoscale-custom-metric\create-app-service-plan.png" alt-text="Create an app service plan":::
 
-## Create an App Service  
+## Create an App service  
 
 1. Search for and select App services
 :::image type="content" source="media\autoscale-custom-metric\search-app-services.png" alt-text="Search for app service":::
@@ -125,3 +125,9 @@ resources with the following steps:
 :::image type="content" source="media/autoscale-custom-metric/delete-service-plan.png" alt-text="Discard autoscale settings":::
 
 ## Next steps
+Learn more about Autoscale by referring to the following:
+- [Overview of autoscale](./autoscale-overview.md)
+- [Azure Monitor autoscale common metrics](./autoscale-common-metrics.md)
+- [Best practices for Azure Monitor autoscale](./autoscale-best-practices.md)
+- [Use autoscale actions to send email and webhook alert notifications](./autoscale-webhook-email.md)
+- [Autoscale REST API](/rest/api/monitor/autoscalesettings)
