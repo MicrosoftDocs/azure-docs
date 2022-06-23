@@ -11,8 +11,7 @@ ms.date: 06/23/2022
 
 # Real-time data ingestion using Azure Stream Analytics (ASA)
 
-In this tutorial, we'll walk through the steps involved in creating an [Azure
-Stream
+In this tutorial, we'll create an [Azure Stream
 Analytics](https://azure.microsoft.com/services/stream-analytics/#features)
 (ASA) job to integrate data flowing in from Azure IoT Hub to a table in Azure
 Database for PostgreSQL - Hyperscale (Citus).
@@ -34,22 +33,18 @@ Blob Storage into Hyperscale (Citus).
 
 ## Prerequisites
 
-Before we begin, it's assumed that you already have Azure IoT Hub provisioned
-and devices added to it.
-
-The demonstration data shown in this article comes from:
-
-1. Creating an [Azure IoT
-   Hub](../../iot-hub/iot-hub-create-through-portal.md)
-2. Generating data with the [Azure IoT Device Telemetry
-   Simulator](https://github.com/Azure-Samples/Iot-Telemetry-Simulator)
+Before we begin, it's assumed that you've [created an Azure IoT
+Hub](../../iot-hub/iot-hub-create-through-portal.md) and added devices to it.
+The demonstration data in this articles comes from the [Azure IoT Device
+Telemetry Simulator](https://github.com/Azure-Samples/Iot-Telemetry-Simulator).
+This article doesn't cover setting up the simulator.
 
 ## Steps to set up ASA with Hyperscale (Citus)
 
 > [!NOTE]
 >
 > The steps in this article walk through how to ingest data from IoT Hub to
-> Hyperscale (Citus).  A similar approach can be extended for other sources,
+> Hyperscale (Citus). A similar approach can be extended for other sources,
 > including Event Hub, Blob storage etc.
 
 1. Open **Azure portal** and select **Create a resource** in the upper left-hand corner of the Azure portal.
@@ -97,23 +92,25 @@ The demonstration data shown in this article comes from:
      ```
 
 6. **Configure Job Output**
+   ![Diagram of configuring job output in ASA](../media/howto-hyperscale-ingestion/04-ASA-output.png)
+
    * Navigate to the Stream Analytics job that you created earlier.
    * Select **Outputs** > **Add** > **Azure PostgreSQL**.
    * Fill out the **Azure PostgreSQL** page with the following values:
      * **Output alias** - Name to identify the job's output.
      * Select **"Provide PostgreSQL database settings manually"** and enter the DB server connection details like server FQDN, database, table name, username, and password.
+     * For our example dataset, we chose the table name `device_data`.
    * Select on **Save** to save the settings.
 
-   ![Diagram of configuring job output in ASA](../media/howto-hyperscale-ingestion/04-ASA-output.png)
-
    > [!NOTE]
-   > Test Connection feature for Azure PostgreSQL DB in currently not supported and might throw an error.
+   > The **Test Connection** feature for Hyperscale (Citus) in currently not
+   > supported and might throw an error, even when the connection works fine.
 
 7. **Define Transformation Query**
    ![Diagram of transformation query in ASA](../media/howto-hyperscale-ingestion/05-ASA-transformation-query.png)
 
    * Navigate to the Stream Analytics job that you created earlier.
-   * For this tutorial, we would be ingesting only the alternate events from IOT Hub into Hyperscale (Citus) to reduce the overall dataset.
+   * For this tutorial, we'll be ingesting only the alternate events from IoT Hub into Hyperscale (Citus) to reduce the overall data size.
 
      ```sql
      select
@@ -130,8 +127,10 @@ The demonstration data shown in this article comes from:
    * Select **Save Query**
 
      > [!NOTE]
-     > If you will notice carefully, we are using Query here to not only sample the data but also extract only the desired attributes from the data stream.
-     > So, inbuilt query option with stream analytics is helpful in pre-processing/transforming the data before it gets ingested into the DB.
+	 > We are using the query to not only sample the data, but also extract the
+	 > desired attributes from the data stream. The custom query option with
+	 > stream analytics is helpful in pre-processing/transforming the data
+	 > before it gets ingested into the DB.
 
 8. **Start the Stream Analytics Job and Verify Output**
 
