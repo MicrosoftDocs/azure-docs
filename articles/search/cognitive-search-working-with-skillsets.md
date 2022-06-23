@@ -7,7 +7,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 08/10/2021
+ms.date: 06/23/2022
 ---
 
 # Skillset concepts in Azure Cognitive Search
@@ -16,9 +16,14 @@ This article is for developers who need a deeper understanding of skillset conce
 
 A skillset is a reusable resource in Azure Cognitive Search that is attached to [an indexer](search-indexer-overview.md). It contains one or more skills, which are atomic operations that call built-in AI or external custom processing over documents retrieved from an external data source.
 
-From the onset of skillset processing to its conclusion, skills read and write to an enriched document. An enriched document is initially just the raw content extracted from a data source, but with each skill execution, it gains structure and substance. Ultimately, nodes from an enriched document are then [mapped to fields](cognitive-search-output-field-mapping.md) in a search index, or [mapped to projections](knowledge-store-projection-overview.md) in a knowledge store, so that the content can be routed appropriately, where it will be queried or consumed by other apps.
+From the onset of skillset processing to its conclusion, skills read and write to an enriched document. An enriched document is initially just the raw content extracted from a data source (`/document`), but with each skill execution, it gains structure and substance. The output of an enriched documents finds its way into an index through *output field mappings*. Any raw content that you want transferred from source to an index is defined through *field mappings*.
 
-:::image type="content" source="media/knowledge-store-concept-intro/knowledge-store-concept-intro.svg" alt-text="Pipeline with skillset" border="false":::
+The following diagram illustrates the data flow of skillset execution, where inputs and outputs of a skill are read from and written to an internal enriched document. Indexes are populated with fields. Those fields accept values from the data source directly (field mappings) or from an enriched document (output field mappings).
+
+<!-- Ultimately, nodes from an enriched document are then [mapped to fields](cognitive-search-output-field-mapping.md) in a search index, or [mapped to projections](knowledge-store-projection-overview.md) in a knowledge store, so that the content can be routed appropriately, where it will be queried or consumed by other apps. -->
+
+:::image type="content" source="media/cognitive-search-working-with-skillsets/architecture-indexes-indexers-skillsets-json.svg" alt-text="Diagram showing indexes, indexers, skillsets with field mappings and JSON representations." border="true":::
+
 
 ## Skillset definition
 
