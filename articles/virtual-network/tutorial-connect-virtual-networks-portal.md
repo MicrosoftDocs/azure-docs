@@ -201,7 +201,7 @@ Test the communication between the two virtual machines over the virtual network
     ping 10.0.0.4
     ```
     
-    :::image type="content" source="./media/tutorial-connect-virtual-networks-portal/myvm2-ping-myvm1.png" alt-text="Screenshot of first virtual machine pinging second virtual machine.":::
+    :::image type="content" source="./media/tutorial-connect-virtual-networks-portal/myvm2-ping-myvm1.png" alt-text="Screenshot of second virtual machine pinging first virtual machine.":::
 
 1. Disconnect your RDP sessions to both *myVm1* and *myVm2*.
 
