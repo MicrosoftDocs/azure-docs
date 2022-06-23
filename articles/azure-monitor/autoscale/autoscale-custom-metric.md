@@ -32,7 +32,7 @@ To create an autoscaled Web app, follow the steps below:
 An App Service plan defines a set of compute resources for a web app to run on.  
 
 1. Open the [Azure portal](https://portal.azure.com).
-1. Search for and select App Service plans.
+1. Search for and select *App Service plans*.
 
     :::image type="content" source="media\autoscale-custom-metric\search-app-service-plan.png" alt-text="Search for app service plans":::
 
@@ -50,7 +50,7 @@ An App Service plan defines a set of compute resources for a web app to run on.
 
 ## Create an App service  
 
-1. Search for and select App services.
+1. Search for and select *App services*.
 
     :::image type="content" source="media\autoscale-custom-metric\search-app-services.png" alt-text="Search for app service":::
 
