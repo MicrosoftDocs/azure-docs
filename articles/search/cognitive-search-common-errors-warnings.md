@@ -24,7 +24,7 @@ If you want indexers to ignore these errors (and skip over "failed documents"), 
 
 The error information in this article can help you resolve errors, allowing indexing to continue.
 
-Warnings do not stop indexing, but they do indicate conditions that could result in unexpected outcomes. Whether you take action or not depends on the data and your scenario.
+Warnings don't stop indexing, but they do indicate conditions that could result in unexpected outcomes. Whether you take action or not depends on the data and your scenario.
 
 Beginning with API version `2019-05-06`, item-level Indexer errors and warnings are structured to provide increased clarity around causes and next steps. They contain the following properties:
 
@@ -96,7 +96,7 @@ The indexer was not able to run a skill in the skillset.
 
 ## `Error: Could not execute skill because the Web API request failed`
 
-The skill execution failed because the call to the Web API failed. Typically, this class of failure occurs when custom skills are used, in which case you will need to debug your custom code to resolve the issue. If instead the failure is from a built-in skill, refer to the error message for help in fixing the issue.
+The skill execution failed because the call to the Web API failed. Typically, this class of failure occurs when custom skills are used, in which case you'll need to debug your custom code to resolve the issue. If instead the failure is from a built-in skill, refer to the error message for help in fixing the issue.
 
 While debugging this issue, be sure to pay attention to any [skill input warnings](#warning-skill-input-was-invalid) for this skill. Your Web API endpoint may be failing because the indexer is passing it unexpected input.
 
@@ -104,7 +104,7 @@ While debugging this issue, be sure to pay attention to any [skill input warning
 
 ## `Error: Could not execute skill because Web API skill response is invalid`
 
-The skill execution failed because the call to the Web API returned an invalid response. Typically, this class of failure occurs when custom skills are used, in which case you will need to debug your custom code to resolve the issue. If instead the failure is from a built-in skill, file a [support ticket](https://portal.azure.com/#create/Microsoft.Support) to get assistance.
+The skill execution failed because the call to the Web API returned an invalid response. Typically, this class of failure occurs when custom skills are used, in which case you'll need to debug your custom code to resolve the issue. If instead the failure is from a built-in skill, file a [support ticket](https://portal.azure.com/#create/Microsoft.Support) to get assistance.
 
 <a name="skill-did-not-execute-within-the-time-limit"></a>
 
@@ -125,7 +125,7 @@ If you continue to see this error on the same document for a built-in cognitive 
 
 ### Custom skills
 
-If you encounter a timeout error with a custom skill you have created, there are a couple of things you can try. First, review your custom skill and ensure that it's not getting stuck in an infinite loop and that it's returning a result consistently. Once you have confirmed that is the case, determine what the execution time of your skill is. If you didn't explicitly set a `timeout` value on your custom skill definition, then the default `timeout` is 30 seconds. If 30 seconds isn't long enough for your skill to execute, you may specify a higher `timeout` value on your custom skill definition. Here's an example of a custom skill definition where the timeout is set to 90 seconds:
+If you encounter a timeout error with a custom skill, there are a couple of things you can try. First, review your custom skill and ensure that it's not getting stuck in an infinite loop and that it's returning a result consistently. Once you have confirmed that a result is returned, check the duration of execution. If you didn't explicitly set a `timeout` value on your custom skill definition, then the default `timeout` is 30 seconds. If 30 seconds isn't long enough for your skill to execute, you may specify a higher `timeout` value on your custom skill definition. Here's an example of a custom skill definition where the timeout is set to 90 seconds:
 
 ```json
   {
@@ -149,7 +149,7 @@ If you encounter a timeout error with a custom skill you have created, there are
       }
 ```
 
-The maximum value that you can set for the `timeout` parameter is 230 seconds.  If your custom skill is unable to execute consistently within 230 seconds, you may consider reducing the `batchSize` of your custom skill so that it will have fewer documents to process within a single execution.  If you have already set your `batchSize` to 1, you will need to rewrite the skill to be able to execute in under 230 seconds or otherwise split it into multiple custom skills so that the execution time for any single custom skill is a maximum of 230 seconds. Review the [custom skill documentation](cognitive-search-custom-skill-web-api.md) for more information.
+The maximum value that you can set for the `timeout` parameter is 230 seconds.  If your custom skill is unable to execute consistently within 230 seconds, you may consider reducing the `batchSize` of your custom skill so that it will have fewer documents to process within a single execution.  If you have already set your `batchSize` to 1, you'll need to rewrite the skill to be able to execute in under 230 seconds or otherwise split it into multiple custom skills so that the execution time for any single custom skill is a maximum of 230 seconds. Review the [custom skill documentation](cognitive-search-custom-skill-web-api.md) for more information.
 
 <a name="could-not-mergeorupload--delete-document-to-the-search-index"></a>
 
@@ -223,11 +223,11 @@ An input to the skill was missing, it has the wrong type, or otherwise, invalid.
 
 Cognitive skills have required inputs and optional inputs. For example, the [Key phrase extraction skill](cognitive-search-skill-keyphrases.md) has two required inputs `text`, `languageCode`, and no optional inputs. Custom skill inputs are all considered optional inputs.
 
-If any required inputs are missing or if any input isn't the right type, the skill gets skipped and generates a warning. Skipped skills do not generate any outputs, so if other skills use outputs of the skipped skill they may generate additional warnings.
+If required inputs are missing or if the input isn't the right type, the skill gets skipped and generates a warning. Skipped skills don't generate outputs. If downstream skills consume the outputs of the skipped skill, they may generate additional warnings.
 
-If an optional input is missing, the skill will still run but may produce unexpected output due to the missing input.
+If an optional input is missing, the skill still runs but may produce unexpected output due to the missing input.
 
-In both cases, this warning may be expected due to the shape of your data. For example, if you have a document containing information about people with the fields `firstName`, `middleName`, and `lastName`, you may have some documents which do not have an entry for `middleName`. If you pass `middleName` as an input to a skill in the pipeline, then it's expected that this skill input may be missing some of the time. You will need to evaluate your data and scenario to determine whether or not any action is required as a result of this warning.
+In both cases, this warning may be expected due to the shape of your data. For example, if you have a document containing information about people with the fields `firstName`, `middleName`, and `lastName`, you may have some documents which don't have an entry for `middleName`. If you pass `middleName` as an input to a skill in the pipeline, then it's expected that this skill input may be missing some of the time. You will need to evaluate your data and scenario to determine whether or not any action is required as a result of this warning.
 
 If you want to provide a default value in case of missing input, you can use the [Conditional skill](cognitive-search-skill-conditional.md) to generate a default value and then use the output of the [Conditional skill](cognitive-search-skill-conditional.md) as the skill input.
 
