@@ -26,7 +26,7 @@ Through the VIS, you can start and stop:
 ## Prerequisites
 
 - An SAP system that you've [created in ACSS](create-network.md) or [registered with ACSS](register-existing-system.md).
-- All virtual machines (VM) inside the SAP system must be running. This capability starts or stops the VIS resources, not the VMs that make up the SAP system resources. As such, the VMs must be running for the start operation to work.
+- All virtual machines (VM) inside the SAP system must be running. This capability starts or stops the SAP application instances, not the VMs that make up the SAP system resources. As such, the VMs must be running for the start operation to work.
 - The `sapstartsrv` service must be running on all VMs related to the SAP system.
 - For HA deployments, the HA interface cluster connector for SAP (`sap_vendor_cluster_connector`) must be installed on the ASCS instance. For more information, see the [SUSE connector specifications](https://www.suse.com/c/sap-netweaver-suse-cluster-integration-new-sap_suse_cluster_connector-version-3-0-0/) and [RHEL connector specifications](https://access.redhat.com/solutions/3606101).
 
@@ -42,7 +42,7 @@ To stop an SAP system in the VIS resource:
 
 1. In the table of VIS resources, select the name of the VIS you want to stop.
 
-1. Select the **Stop** button. If you can't select this button, the SAP system already isn't running or partially running.
+1. Select the **Stop** button. If you can't select this button, the SAP system already isn't running.
 
     :::image type="content" source="media/start-stop-sap-systems/stop-button.png" lightbox="media/start-stop-sap-systems/stop-button.png" alt-text="Screenshot of the V I S resource menu in the Azure portal, showing the Stop button.":::
 
