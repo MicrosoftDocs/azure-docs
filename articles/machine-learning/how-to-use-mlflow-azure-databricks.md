@@ -116,7 +116,7 @@ mlflow.log_metric('epoch_loss', loss.item())
 
 If you prefer to manage your tracked experiments in a centralized location, you can set MLflow tracking  to **only** track in your Azure Machine Learning workspace. This configuration has the advantage of enabling easier path to deployment using Azure Machine Learning deployment options.
 
-You have to configure the MLflow tracking URI to point exclusively to Azure Machine Learning, as it is demostrated in the following example:
+You have to configure the MLflow tracking URI to point exclusively to Azure Machine Learning, as it is demonstrated in the following example:
 
    # [Using the Azure ML SDK v2](#tab/sdkv2)
    

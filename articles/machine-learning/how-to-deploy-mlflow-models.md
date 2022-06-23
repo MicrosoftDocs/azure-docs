@@ -63,11 +63,11 @@ There are three workflows for deploying MLflow models to Azure ML:
 
 - [Deploy using the MLflow plugin](#deploy-using-the-mlflow-plugin)
 - [Deploy using CLI (v2)](#deploy-using-cli-v2)
-- [Deploy using Azure Machine Learning Studio](#deploy-using-azure-machine-learning-studio)
+- [Deploy using Azure Machine Learning studio](#deploy-using-azure-machine-learning-studio)
 
 ### Which option to use?
 
-If you are familiar with MLflow or your platform support MLflow natively (like Azure Databricks) and you wish to continue using the same set of methods, use the `azureml-mlflow` plugin. On the other hand, if you are more familiar with the [Azure ML CLI v2](concept-v2.md), you want to automate deployments using automation pipelines, or you want to keep deployments configuration in a git repository; we recommend you to use the [Azure ML CLI v2](concept-v2.md). If you want to quickly deploy and test models trained with MLflow, you can use [Azure Machine Learning Studio](https://ml.azure.com) UI deployment.
+If you are familiar with MLflow or your platform support MLflow natively (like Azure Databricks) and you wish to continue using the same set of methods, use the `azureml-mlflow` plugin. On the other hand, if you are more familiar with the [Azure ML CLI v2](concept-v2.md), you want to automate deployments using automation pipelines, or you want to keep deployments configuration in a git repository; we recommend you to use the [Azure ML CLI v2](concept-v2.md). If you want to quickly deploy and test models trained with MLflow, you can use [Azure Machine Learning studio](https://ml.azure.com) UI deployment.
 
 ## Deploy using the MLflow plugin 
 
@@ -248,7 +248,7 @@ This example shows how you can deploy an MLflow model to an online endpoint usin
 
     :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint-mlflow.sh" ID="create_sklearn_deployment":::
     
-## Deploy using Azure Machine Learning Studio
+## Deploy using Azure Machine Learning studio
 
 This example shows how you can deploy an MLflow model to an online endpoint using [Azure Machine Learning studio](https://ml.azure.com).
 
@@ -269,17 +269,17 @@ This example shows how you can deploy an MLflow model to an online endpoint usin
 
     1. When you select a model registered in MLflow format, in the Environment step of the wizard, you don't need a scoring script or an environment.
 
-        :::image type="content" source="media/how-to-deploy-mlflow-models-online-endpoints/ncd-wizard.png" lightbox="media/how-to-deploy-mlflow-models-online-endpoints/ncd-wizard.png" alt-text="Screenshot showing no code and environment needed for MLflow models":::
+        :::image type="content" source="media/how-to-deploy-mlflow-models-online-endpoints/ncd-wizard.png" lightbox="media/how-to-deploy-mlflow-models-online-endpoints/ncd-wizard.png" alt-text="Screenshot showing no code and environment needed for MLflow models.":::
 
     1. Complete the wizard to deploy the model to the endpoint.
 
-        :::image type="content" source="media/how-to-deploy-mlflow-models-online-endpoints/review-screen-ncd.png" lightbox="media/how-to-deploy-mlflow-models-online-endpoints/review-screen-ncd.png" alt-text="Screenshot showing NCD review screen":::
+        :::image type="content" source="media/how-to-deploy-mlflow-models-online-endpoints/review-screen-ncd.png" lightbox="media/how-to-deploy-mlflow-models-online-endpoints/review-screen-ncd.png" alt-text="Screenshot showing NCD review screen.":::
 
     # [Models page](#tab/models)
 
     1. Select the MLflow model, and then select __Deploy__. When prompted, select __Deploy to real-time endpoint__.
 
-        :::image type="content" source="media/how-to-deploy-mlflow-models-online-endpoints/deploy-from-models-ui.png" lightbox="media/how-to-deploy-mlflow-models-online-endpoints/deploy-from-models-ui.png" alt-text="Screenshot showing how to deploy model from Models UI":::
+        :::image type="content" source="media/how-to-deploy-mlflow-models-online-endpoints/deploy-from-models-ui.png" lightbox="media/how-to-deploy-mlflow-models-online-endpoints/deploy-from-models-ui.png" alt-text="Screenshot showing how to deploy model from Models UI.":::
 
     1. Complete the wizard to deploy the model to the endpoint.
 
@@ -298,7 +298,7 @@ This section helps you understand how to deploy models to an online endpoint onc
 
     # [Azure Machine Learning studio](#tab/studio)
 
-    :::image type="content" source="media/how-to-deploy-mlflow-models-online-endpoints/download-output-logs.png" lightbox="media/how-to-deploy-mlflow-models-online-endpoints/download-output-logs.png" alt-text="Screenshot showing how to download Outputs and logs from Experimentation run":::
+    :::image type="content" source="media/how-to-deploy-mlflow-models-online-endpoints/download-output-logs.png" lightbox="media/how-to-deploy-mlflow-models-online-endpoints/download-output-logs.png" alt-text="Screenshot showing how to download Outputs and logs from Experimentation run.":::
 
     # [CLI](#tab/cli)
 
