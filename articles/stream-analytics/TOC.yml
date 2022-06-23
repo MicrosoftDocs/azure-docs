@@ -41,8 +41,6 @@
     href: stream-analytics-real-time-fraud-detection.md
   - name: Integrate 3rd party services using Azure Functions
     href: stream-analytics-with-azure-functions.md
-  - name: Visualize fraudulent calls in Power BI
-    href: stream-analytics-real-time-fraud-detection.md
   - name: Run a C# UDF
     href: stream-analytics-edge-csharp-udf.md
   - name: Create a custom .NET deserializer
@@ -97,9 +95,11 @@
     - name: Azure Database for PostgreSQL
       href: postgresql-database-output.md
     - name: Azure SQL Database
-      href: sql-database-output.md
-    - name: SQL Database performance
-      href: stream-analytics-sql-output-perf.md
+      items:
+        - name: SQL Database output overview
+          href: sql-database-output.md  
+        - name: SQL Database output performance
+          href: stream-analytics-sql-output-perf.md
     - name: Azure Synapse Analytics
       href: azure-synapse-analytics-output.md
     - name: Blob storage & Azure Data Lake Gen 2

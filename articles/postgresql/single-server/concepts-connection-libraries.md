@@ -10,9 +10,13 @@ ms.date: 5/6/2019
 ---
 
 # Connection libraries for Azure Database for PostgreSQL - Single Server
+
+[!INCLUDE [applies-to-postgresql-single-server](../includes/applies-to-postgresql-single-server.md)]
+
 This article lists libraries and drivers that developers can use to develop applications to connect to and query Azure Database for PostgreSQL.
 
 ## Client interfaces
+
 Most language client libraries used to connect to PostgreSQL server are external projects and are distributed independently. The  libraries listed are supported on the Windows, Linux, and Mac platforms, for connecting to Azure Database for PostgreSQL. Several quickstart examples are listed in the Next steps section.
 
 | **Language** | **Client interface** | **Additional information** | **Download** |

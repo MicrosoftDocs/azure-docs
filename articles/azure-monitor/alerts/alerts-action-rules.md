@@ -3,6 +3,7 @@ title: Alert processing rules for Azure Monitor alerts
 description: Understanding what alert processing rules in Azure Monitor are and how to configure and manage them.
 ms.topic: conceptual
 ms.date: 2/23/2022
+ms.reviewer: ofmanor
 
 ---
 

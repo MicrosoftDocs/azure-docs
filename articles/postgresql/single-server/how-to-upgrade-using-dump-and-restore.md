@@ -11,6 +11,8 @@ ms.date: 11/30/2021
 
 # Upgrade your PostgreSQL database using dump and restore
 
+[!INCLUDE [applies-to-postgresql-single-server](../includes/applies-to-postgresql-single-server.md)]
+
 >[!NOTE]
 > The concepts explained in this documentation are applicable to both Azure Database for PostgreSQL - Single Server and Azure Database for PostgreSQL - Flexible Server. 
 

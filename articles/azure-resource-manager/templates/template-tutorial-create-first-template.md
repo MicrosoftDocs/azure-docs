@@ -1,8 +1,8 @@
 ---
 title: Tutorial - Create and deploy template
 description: Create your first Azure Resource Manager template (ARM template). In the tutorial, you learn about the template file syntax and how to deploy a storage account.
-author: sheila
-ms.date: 06/07/2022
+author: mumian
+ms.date: 06/15/2022
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: devx-track-azurepowershell
@@ -15,9 +15,9 @@ ms.custom: devx-track-azurepowershell
 
 This tutorial introduces you to Azure Resource Manager templates (ARM templates). It shows you how to create a starter template and deploy it to Azure. It teaches you about the template structure and the tools you need to work with templates. It takes about **12 minutes** to complete this tutorial, but the actual time varies based on how many tools you need to install.
 
-This tutorial is the first of a series. As you progress through the series, you modify the starting template, step by step, until you've explored all of the core parts of an ARM template. These elements are the building blocks for more complex templates. We hope by the end of the series you're confident in creating your own templates and ready to automate your deployments with templates.
+This tutorial is the first of a series. As you progress through the series, you modify the starting template, step by step, until you explore all of the core parts of an ARM template. These elements are the building blocks for more complex templates. We hope by the end of the series you're confident in creating your own templates and ready to automate your deployments with templates.
 
-If you want to learn about the benefits of using templates and why you should automate deployments with templates, see [ARM template overview](overview.md). To learn about ARM templates through a guided set of modules on [Microsoft Learn](/learn), see [Deploy and manage resources in Azure by using JSON ARM templates](/learn/paths/deploy-manage-resource-manager-templates.md).
+If you want to learn about the benefits of using templates and why you should automate deployments with templates, see [ARM template overview](overview.md). To learn about ARM templates through a guided set of modules on [Microsoft Learn](/learn), see [Deploy and manage resources in Azure by using JSON ARM templates](/learn/paths/deploy-manage-resource-manager-templates).
 
 If you don't have a Microsoft Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
@@ -185,7 +185,7 @@ The deployment command returns results. Look for `ProvisioningState` to see whet
 ---
 
 > [!NOTE]
-> If the deployment failed, use the `verbose` switch to get information about the resources being created. Use the `debug` switch to get more information for debugging.
+> If the deployment fails, use the `verbose` switch to get information about the resources being created. Use the `debug` switch to get more information for debugging.
 
 ## Verify deployment
 
@@ -218,8 +218,8 @@ If you're moving on to the next tutorial, you don't need to delete the resource 
 If you're stopping now, you might want to delete the resource group.
 
 1. From the Azure portal, select **Resource groups** from the left menu.
-2. Type the resource group name in the **Filter for any field...**.
-3. Check the box next to **myResourceGroup** and select **myResourceGroup** or the resource group name you chose.
+2. Type the resource group name in the **Filter for any field...** text field.
+3. Check the box next to **myResourceGroup** and select **myResourceGroup** or your resource group name.
 4. Select **Delete resource group** from the top menu.
 
     :::image type="content" source="./media/template-tutorial-create-first-template/resource-deletion.png" alt-text="See deletion.":::

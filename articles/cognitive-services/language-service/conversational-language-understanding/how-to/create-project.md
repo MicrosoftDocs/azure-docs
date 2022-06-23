@@ -105,7 +105,7 @@ You can export a Conversational Language Understanding project as a JSON file at
 
 ---
 
-## Delete resources 
+## Delete project 
 
 ### [Language Studio](#tab/language-studio)
 
