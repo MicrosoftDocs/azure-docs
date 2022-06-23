@@ -186,7 +186,7 @@ Test the communication between the two virtual machines over the virtual network
 
     Though ping is used to communicate between VMs in this tutorial, allowing ICMP through the Windows Firewall for production deployments isn't recommended.
 
-1. To connect to the *myVm2* VM, enter the following command from a command prompt on the **myVm1**:
+1. To connect to the **myVm2** from **myVm1**, enter the following command from a command prompt on the **myVm1**:
 
     ```
     mstsc /v:10.1.0.4
@@ -195,7 +195,7 @@ Test the communication between the two virtual machines over the virtual network
     
     :::image type="content" source="./media/tutorial-connect-virtual-networks-portal/rdp-credentials-to-second-vm.png" alt-text="Screenshot of R D P credential screen for R D P session from first virtual machine to second virtual machine.":::        
     
-1. Since you enabled ping on **myVm1**, you can now ping it from **myVm2** by IP address:
+1. Since you enabled ping on **myVm1**, you can now ping it from **myVm2**:
 
     ```
     ping 10.0.0.4
