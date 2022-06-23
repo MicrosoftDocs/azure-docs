@@ -10,11 +10,12 @@ ms.reviewer: mmcc
 
 # Application Insights for web pages
 
+> [!NOTE]
+> We continue to assess the viability of OpenTelemetry for browser scenarios. The Application Insights JavaScript SDK is recommended for the forseeable future, which is fully compatible with OpenTelemetry distributed tracing.
+
 Find out about the performance and usage of your web page or app. If you add [Application Insights](app-insights-overview.md) to your page script, you get timings of page loads and AJAX calls, counts, and details of browser exceptions and AJAX failures, as well as users and session counts. All these can be segmented by page, client OS and browser version, geo location, and other dimensions. You can set alerts on failure counts or slow page loading. And by inserting trace calls in your JavaScript code, you can track how the different features of your web page application are used.
 
 Application Insights can be used with any web pages - you just add a short piece of JavaScript, Node.js has a [standalone SDK](nodejs.md). If your web service is [Java](java-in-process-agent.md) or [ASP.NET](asp-net.md), you can use the server-side SDKs with the client-side JavaScript SDK to get an end-to-end understanding of your app's performance.
-
-[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
 
 ## Adding the JavaScript SDK
 
@@ -117,6 +118,8 @@ The available configuration options are
 | cfg | object **[required]** | The configuration passed to the Application Insights SDK during initialization.
 
 ### Connection String Setup
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
 
 ```js
 import { ApplicationInsights } from '@microsoft/applicationinsights-web'
@@ -510,6 +513,7 @@ Access-Control-Allow-Headers: `Request-Id`, `traceparent`, `Request-Context`, `<
 If the SDK reports correlation recursively enable the configuration setting of `excludeRequestFromAutoTrackingPatterns` to exclude the duplicate data, this can occur when using connection strings. The syntax for the configuration setting is `excludeRequestFromAutoTrackingPatterns: [<endpointUrl>]`.
 
 ## <a name="next"></a> Next steps
+* [Source map for JavaScript](source-map-support.md)
 * [Track usage](usage-overview.md)
 * [Custom events and metrics](api-custom-events-metrics.md)
 * [Build-measure-learn](usage-overview.md)
