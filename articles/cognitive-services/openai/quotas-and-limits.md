@@ -34,7 +34,7 @@ The following sections provide you with a quick guide to the quotas and limits t
 | Max individual training file size | | 
 | Total size of all Files per resource | 1 GB| 
 | Max training job time (job will fail if exceeded) | 120 hours |
-| Max training job size (tokens in training file * # of epochs) | **Ada**: 4M tokens <br> **Babbage**: 4M tokens <br> **Curie**: 4M tokens <br> **Cushman**: 4M tokens <br> **DaVinci**: 500K |
+| Max training job size (tokens in training file * # of epochs) | **Ada**: 4-M tokens <br> **Babbage**: 4-M tokens <br> **Curie**: 4-M tokens <br> **Cushman**: 4-M tokens <br> **DaVinci**: 500 K |
 
 
 ### General best practices to mitigate throttling during autoscaling
@@ -44,11 +44,11 @@ To minimize issues related to throttling, it's a good idea to use the following 
 - Implement retry logic in your application.
 - Avoid sharp changes in the workload. Increase the workload gradually.
 - Test different load increase patterns. For more information, see the [workload pattern example](#example-of-a-workload-pattern-best-practice).
-- Create additional OpenAI service resources in the same or different regions, and distribute the workload among them.
+- Create another OpenAI service resources in the same or different regions, and distribute the workload among them.
 
 The next sections describe specific cases of adjusting quotas.
 
-### Request an increase to a limit on transactions-per-second or Number of fine-tned models deployed
+### Request an increase to a limit on transactions-per-second or Number of fine-tuned models deployed
 
 Increasing the limit of concurrent requests doesn't directly affect your costs. OpenAI uses a payment model that requires that you pay only for what you use. The limit defines how high the service can scale before it starts throttle your requests.
 
@@ -67,7 +67,7 @@ How to get this information:
    - **Resource ID**
    - **Location** (your endpoint region)
 1. From the **Resource Management** group, select **Deployments**.
-   - Copy and save the name of the Deployment you are requesting a limit increase
+   - Copy and save the name of the Deployment you're requesting a limit increase
 
 #### Create and submit a support request
 
@@ -82,7 +82,7 @@ Initiate the increase of the limit for concurrent requests for your resource, or
 1. In **Problem subtype**, select **Increasing limits or access to specific functionality**
 1. Select **Next: Solutions**. Proceed further with the request creation.
 1. On the **Details** tab, in the **Description** field, enter the following:
-   - Include details on which limit you are requesting an increase for.
+   - Include details on which limit you're requesting an increase for.
    - The Azure resource information you [collected previously](#have-the-required-information-ready).
    - Any other required information.
 1. On the **Review + create** tab, select **Create**. 

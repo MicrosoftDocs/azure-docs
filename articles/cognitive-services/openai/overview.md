@@ -49,9 +49,9 @@ All solutions using the Azure OpenAI service are also required to go through a u
 ## Key Concepts
 
 ### Prompts & Completions
-The completions endpoint is the core component of the API service. This API provides access to the model's text-in, text-out interface. Users simply need to provide an input  **prompt** containing the english text command, and the model will generate a text **completion**.
+The completions endpoint is the core component of the API service. This API provides access to the model's text-in, text-out interface. Users simply need to provide an input  **prompt** containing the English text command, and the model will generate a text **completion**.
 
-Here is an example of a simple prompt and completion:
+Here's an example of a simple prompt and completion:
 
 >**Prompt**: 
         ```
@@ -69,7 +69,7 @@ Here is an example of a simple prompt and completion:
 ### Tokens
 OpenAI Enterprise processes text by breaking it down into tokens. Tokens can be words or just chunks of characters. For example, the word “hamburger” gets broken up into the tokens “ham”, “bur” and “ger”, while a short and common word like “pear” is a single token. Many tokens start with a whitespace, for example “ hello” and “ bye”.
 
-The total number of tokens processed in a given request depends on the length of your input, output and request parameters. The quantity of tokens being processed will also impact your response latency and throughput for the models.
+The total number of tokens processed in a given request depends on the length of your input, output and request parameters. The quantity of tokens being processed will also affect your response latency and throughput for the models.
 
 ### Resources
 
@@ -77,11 +77,11 @@ The Azure OpenAI service is new product offering on Azure. You can get started w
 
 
 ### Deployments
-Once you create a an Azure OpenAI Resource, you must deploy a model before you can start making API calls and generating text. This can be done using the Deployment APIs. These APIs allow you to specify the model you wish to use. 
+Once you create an Azure OpenAI Resource, you must deploy a model before you can start making API calls and generating text. This action can be done using the Deployment APIs. These APIs allow you to specify the model you wish to use. 
 
 ### In-Context Learning
 
-The models used by the Azure OpenAI service use natural language instructions and examples provided during the generation call to identify the task being asked and skill required. Using this approach, the first part of the prompt includes natural language instructions and/or examples of the specific task desired. The model then completes the task by predicting the most probable next text. This technique is known as "in-context" learning. These models are not re-trained during this step but instead give predictions based on the context you include in the prompt.
+The models used by the Azure OpenAI service use natural language instructions and examples provided during the generation call to identify the task being asked and skill required. When you use this approach, the first part of the prompt includes natural language instructions and/or examples of the specific task desired. The model then completes the task by predicting the most probable next text. This technique is known as "in-context" learning. These models aren't retrained during this step but instead give predictions based on the context you include in the prompt.
 
 There are three main approaches for in-context learning: Few-shot, one-shot and zero-shot. These approaches vary based on the amount of task-specific data that is given to the model:
 
@@ -120,7 +120,7 @@ The Codex series of models are a descendant of GPT-3 and have been trained on bo
 
 ## Terms of Use
 
-The use  of Azure OpenAI service is governed by the terms of service that were agreed to upon onboarding. You may only use this service for the use case provided. You must complete an additional review before using the Azure OpenAI service in a "live" or production scenario, within your company, or with your customers (as compared to use solely for internal evaluation).
+The use  of Azure OpenAI service is governed by the terms of service that were agreed to upon onboarding. You may only use this service for the use case provided. You must complete another review before using the Azure OpenAI service in a "live" or production scenario, within your company, or with your customers (as compared to use solely for internal evaluation).
 
 
 ## Next steps

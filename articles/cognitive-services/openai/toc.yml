@@ -6,22 +6,28 @@ items:
   items:
     - name: What is Azure OpenAI?
       href: overview.md
+- name: Quickstarts
+  href: quickstart.md
 - name: How-to 
   items:
     - name: Completions
       href: ./how-to/completions.md
     - name: Work with code (Codex)
       href: ./how-to/work-with-code.md
+    - name: Prepare dataset
+      href: ./how-to/prepare-dataset.md
     - name: Generate embeddings
       href: ./how-to/embeddings.md
-    - name: Managed identity
+    - name: Search
+      href: ./how-to/search.md
+    - name: Manage identity
       href: ./how-to/managed-identity.md
     - name: Business continuity & disaster recovery (BCDR)
       href: ./how-to/business-continuity-disaster-recovery.md
 - name: Concepts
   items:
-    - name: Azure OpenAI Models
-      href: ./concepts/models.md
+    - name: Azure OpenAI Engines
+      href: ./concepts/engines.md
 - name: Reference
   items:
     - name: REST API

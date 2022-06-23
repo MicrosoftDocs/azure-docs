@@ -16,18 +16,18 @@ keywords:
 
 ## Overview
 
-Azure OpenAI Service includes a content management system that works alongside core models to filter content. This system works by running both the input prompt and generated content through an ensemble of classification models aimed at detecting missuse. If the system identifies harmful content, you will recieve either an error on the API call if the prompt was deemed inappropriate or  the finish_reason on the response will be `content_filter` to signify that some of the generation was filtered.
+Azure OpenAI Service includes a content management system that works alongside core models to filter content. This system works by running both the input prompt and generated content through an ensemble of classification models aimed at detecting misuse. If the system identifies harmful content, you'll receive either an error on the API call if the prompt was deemed inappropriate or  the finish_reason on the response will be `content_filter` to signify that some of the generation was filtered.
 
-You can generate content with the completions API using many different configurations which will alter the filtering behavior you should expect. The following section aims to enumerate all of these scenarios for you to appropriately design your solution.
+You can generate content with the completions API using many different configurations that will alter the filtering behavior you should expect. The following section aims to enumerate all of these scenarios for you to appropriately design your solution.
 
-To ensure a you have properly mitigated risks in your application, you should evaluate all potential harms carefully, follow guidance in the [Transparency Note](https://go.microsoft.com/fwlink/?linkid=2200003) and add scenario-specific mitigations as needed.
+To ensure you have properly mitigated risks in your application, you should evaluate all potential harms carefully, follow guidance in the [Transparency Note](https://go.microsoft.com/fwlink/?linkid=2200003) and add scenario-specific mitigation as needed.
 
 ## Scenario details
 
-When building your application, you will want to account for scenarios where the content returned by the Completions API is filtered and content may not be complete. How you act on this information will be application specific. The behavior can be summarized in the following key points:
+When building your application, you'll want to account for scenarios where the content returned by the Completions API is filtered and content may not be complete. How you act on this information will be application specific. The behavior can be summarized in the following key points:
 - Prompts that are deemed inappropriate will return an HTTP 400 error
-- Non-streaming completions calls will not return any content when the content is filtered. The `finish_reason` value will be set to `content_filter`, In rare cases with long responses, a partial results could be returned as well, but the `finish_reason` will still be updated.
-- For streaming completions calls, segements will be returned back to the user as they are completed. The servcie will continue streaming until either reaching a stop token, length or harmful content is detected.
+- Non-streaming completions calls won't return any content when the content is filtered. The `finish_reason` value will be set to `content_filter`. In rare cases with long responses, a partial result can be returned. In these cases,  the `finish_reason` will be updated.
+- For streaming completions calls, segments will be returned back to the user as they're completed. The service will continue streaming until either reaching a stop token, length or harmful content is detected.
 
 
 The table below outlines the various ways content filtering can appear:
@@ -46,7 +46,7 @@ The table below outlines the various ways content filtering can appear:
 
 </td>
     <td> 
-Example request paylod:
+Example request payload:
 
 ```json
 {
@@ -80,7 +80,7 @@ Example response JSON:
    </td>
 </tr>
 <tr>
-    <td> Your API call asks for multiple responses (N>1) and at least 1 of them generates content which is filtered. </td>
+    <td> Your API call asks for multiple responses (N>1) and at least 1 of the responses is filtered. </td>
     <td> 200 </td>
     <td> 
 
@@ -138,7 +138,7 @@ An inappropriate **input prompt** is sent to the completions API (either for str
     <td> The API call will fail when the prompt triggers one of our content policy models. Modify the prompt and try again </td>
     <td> 
 
-Example request paylod:
+Example request payload:
 
 ```json
 {
@@ -163,9 +163,9 @@ Example response JSON
    </td>
 </tr>
 <tr>
-    <td> You make a streaming completions call with all generated content passsing the content filters. </td>
+    <td> You make a streaming completions call with all generated content passing the content filters. </td>
     <td> 200 </td>
-    <td> In this case the call will stream back with the full generation and finish_reason will be either 'length' or 'stop' for each generated response. </td>
+    <td> In this case, the call will stream back with the full generation and finish_reason will be either 'length' or 'stop' for each generated response. </td>
     <td>
 
 Example request payload:
@@ -203,7 +203,7 @@ Example response JSON:
 <tr> 
     <td> You make a streaming completions call asking for multiple generated responses and at least one response is filtered. </td>
     <td> 200 </td>
-    <td>For a given generation index, the last chunk of the genreation will include a non-null `finish_reason` value. The value will be 'content_filter' when the generation was filtered. </td>
+    <td>For a given generation index, the last chunk of the generation will include a non-null `finish_reason` value. The value will be 'content_filter' when the generation was filtered. </td>
     <td> 
 
 Example request payload
@@ -236,9 +236,9 @@ Example response JSON
    </td>
 </tr>
 <tr>
-    <td>Content filtering system does not run on the generation </td>
+    <td>Content filtering system doesn't run on the generation </td>
     <td> 200 </td>
-    <td>If the content filtering system is down or otherwise unable to complete the operation in time, your request will still complete. You can determine that the filtering was not applied by looking for an error message in the "content_filter_result" object. </td>
+    <td>If the content filtering system is down or otherwise unable to complete the operation in time, your request will still complete. You can determine that the filtering wasn't applied by looking for an error message in the "content_filter_result" object. </td>
     <td>
 
 Example request payload:
@@ -283,11 +283,11 @@ Example response JSON:
 
 ## Best Practices
 
-As part of your application design you will need to think carefully on how to maximize the benefits of your applications  while minimizing the harms. As part of this, 
+As part of your application design you'll need to think carefully on how to maximize the benefits of your applications  while minimizing the harms. Consider the following best practices:
 
-- Consider how you want to handle scenarios where your users send in-appropriate or miss-use your aplication. You can check the finish_reason to see if the generation was filtered and take the best appropriate action. 
-- If it is critical that the content filters run on your generations, check that there is no `error` object in the `content_fitler_result`. 
-- To help with monitoring for possible misuse, applications serving multiple end-users should pass an additional `user` parameter with each API call. The `user` should be a unique identifier for the end-user. Do not send any actual user identifiable infromation as the value. 
+- How you want to handle scenarios where your users send in-appropriate or miss-use your application. Check the finish_reason to see if the generation is filtered. 
+- If it's critical that the content filters run on your generations, check that there's no `error` object in the `content_filter_result`. 
+- To help with monitoring for possible misuse, applications serving multiple end-users should pass the `user` parameter with each API call. The `user` should be a unique identifier for the end-user. Don't send any actual user identifiable information as the value. 
 
 
 ## Next steps
