@@ -298,6 +298,7 @@ Finally, remove the container runtime from your device.
 ```bash
 sudo apt-get remove --purge moby-cli
 sudo apt-get remove --purge moby-engine
+sudo apt autoremove
 ```
 
 ## Next steps
