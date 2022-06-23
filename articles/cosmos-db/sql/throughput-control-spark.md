@@ -56,7 +56,7 @@ Within the Spark config of a given application, we can then specify parameters f
     "spark.cosmos.throughputControl.globalControl.container" -> "ThroughputControl"
 ```
 
-In the above example, the `targetThroughputThreshold` is defined as **0.95**, so rate limiting will occur (and requests will be retried) when clients consume more than 95% of the throughput that is allocated to the container. This configuration is stored as a document in the throughput container that looks like the below:
+In the above example, the `targetThroughputThreshold` is defined as **0.95**, so rate limiting will occur (and requests will be retried) when clients consume more than 95% (+/- 5-10 percent) of the throughput that is allocated to the container. This configuration is stored as a document in the throughput container that looks like the below:
 
 ```json
     {
