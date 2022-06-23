@@ -32,6 +32,12 @@ Automation rules can also:
 
 In short, automation rules streamline the use of automation in Microsoft Sentinel, enabling you to simplify complex workflows for your incident orchestration processes.
 
+### Automation rules for alerts
+
+As of July 2022, automation rules have a new, added function: they are the preferred mechanism for running playbooks built on the **alert trigger**. 
+
+Previously, these playbooks could be automated only by attaching them to analytics rules on an individual basis. With the alert trigger for automation rules, a single automation rule can apply to any number of analytics rules, enabling you to centrally manage the running of playbooks for alerts as well as those for incidents.
+
 ## Components
 
 Automation rules are made up of several components:
