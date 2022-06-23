@@ -21,7 +21,7 @@ This article explains how to explore preview features and provides a list of the
 
 You can explore preview features from the Cost Management overview.
 
-1. On the Cost Management over view page, select the [Try preview](https://aka.ms/costmgmt/trypreview) command at the top of the page.
+1. On the Cost Management overview page, select the [Try preview](https://aka.ms/costmgmt/trypreview) command at the top of the page.
 2. From there, enable the features you'd like to use and select **Close** at the bottom of the page.  
     :::image type="content" source="./media/enable-preview-features-cost-management-labs/cost-management-labs.png" alt-text="Screenshot showing the Cost Management labs preview options." lightbox="./media/enable-preview-features-cost-management-labs/cost-management-labs.png" :::
 3. To see the features enabled, close and reopen Cost Management. You can reopen Cost Management by selecting the link in the notification in the top-right corner.  
