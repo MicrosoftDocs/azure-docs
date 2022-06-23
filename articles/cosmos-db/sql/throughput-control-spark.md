@@ -78,7 +78,7 @@ In the above example, the `targetThroughputThreshold` is defined as **0.95**, so
 > [!WARNING]
 > The `targetThroughputThreshold` is **immutable**. If you change the target throughput threshold value, this will create a new throughput control group (but as long as you use Version 4.10.0 or later it can have the same name). You need to restart all Spark jobs that are using the group if you want to ensure they all consume the new threshold immediately (otherwise they will pick-up the new threshold after the next restart).
 
-For each Spark client that uses the throughput control group, a record will be created in the `ThroughputControl` container which looks like the below:
+For each Spark client that uses the throughput control group, a record will be created in the `ThroughputControl` container - with a ttl of a few seconds - so the documents will vanish pretty quickly if a Spark client isn't actively running anymore -  which looks like the below:
 
 ```json
     {
