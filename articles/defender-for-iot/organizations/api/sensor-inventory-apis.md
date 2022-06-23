@@ -492,12 +492,12 @@ Array of JSON objects that represent device objects, or the following failure me
 | **operatingSystem** | Enum. Defines the device's operating system. TBD HADAR TO SEND DETAILS| | |
 | **macAddresses** | JSON array of strings. |Nullable | - |
 | **type** |String. 70 options here TBD HADAR TO SEND DETAILS |Not nullable |Can be `Unknown` |
-| **engineeringStation** |Boolean. Defines TBD LIKE AUTHORIZED ABOVE |Not nullable | |
-|**authorized**  |Boolean | | |
-|**scanner** |Boolean | | |
+| **engineeringStation** | Boolean. Defines whether the device is defined as an engineering station or not: <br><br>- `true`: Device is an engineering station <br>- `false`: Device is not an engineering station.  |Not nullable | |
+|**authorized**  |Boolean. Defines whether the device is defined as an engineering station or not: <br><br>- `true`: Device is an engineering station <br>- `false`: Device is not an engineering station. | | |
+|**scanner** |Boolean. Defines whether the device is authorized or not: <br><br>- `true`: Device is authorized <br>- `false`: Device is not authorized. | | |
 | **protocols** |Object TBD HADAR TO SEND | | |
 |**firmware** |Object TBD HADAR TO SEND | | |
-|**hasDynamicAddress** | Boolean. Defines TBD LIKE AUTHORIZED ABOVE |Not nullable|
+|**hasDynamicAddress** | Boolean. Defines whether the device has a dynamic address or not. <br><br>- `true`: Device has a dynamic address <br>- `false`: Device does not have a dynamic address |Not nullable|
 
 **Operating system fields**
 
