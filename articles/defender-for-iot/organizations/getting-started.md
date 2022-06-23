@@ -87,7 +87,7 @@ This procedure describes how to add a Defender for IoT plan to an Azure subscrip
     
         For more information, see the [Microsoft Defender for IoT pricing page](https://azure.microsoft.com/pricing/details/iot-defender/).
 
-    - **Committed sites** (OT only). Enter the number of committed sites.
+    - **Committed sites** (for OT annual commitment only). Enter the number of committed sites.
 
     - **Number of devices**. If you selected a monthly or annual commitment, enter the number of devices you'll want to monitor. If you selected a trial, this section doesn't appear as you have a default of 1000 devices.
 

@@ -1,5 +1,5 @@
 ---
-title: Get started with enterprise IoT - Microsoft Defender for IoT
+title: Get started with Enterprise IoT - Microsoft Defender for IoT
 description: In this tutorial, you'll learn how to onboard to Microsoft Defender for IoT with an Enterprise IoT deployment
 ms.topic: tutorial
 ms.date: 12/12/2021
@@ -112,7 +112,7 @@ A sensor is needed to discover and continuously monitor Enterprise IoT devices. 
 
 **To set up an Enterprise IoT sensor**:
 
-1. Navigate to the [Azure portal](https://portal.azure.com#home).
+1. In the Azure portal, go to **Defender for IoT** > **Getting started**.
 
 1. Select **Set up Enterprise IoT Security**.
 
@@ -139,7 +139,7 @@ Run the command that you received and saved when you registered the Enterprise I
 
 1. Sign in to the sensor's CLI using a terminal, such as PUTTY, or MobaXterm.
 
-1. Run the command that you saved from the [Set up an Enterprise IoT sensor](#set-up-an-enterprise-iot-sensor).
+1. Run the command that you saved from [setting up an Enterprise IoT sensor](#set-up-an-enterprise-iot-sensor).
 
 1. When the command is complete, the installation wizard will appear.
 
@@ -211,13 +211,7 @@ You can view your devices and network information in the Defender for IoT **Devi
 
 Once you've validated your setup, the **Device inventory** page will start to populate with all of your devices after 15 minutes.
 
-**To view your Device inventory:**
-
-1. Navigate to the [Azure portal](https://portal.azure.com/).
-
-1. Search for, and select **Defender for IoT**.
-
-1. From the left side toolbar, select **Device inventory**.
+To view your device inventory in the Azure portal, go to **Defender for IoT** > **Device inventory**.
 
 You can also view your sensors from the **Sites and sensors** page. Enterprise IoT sensors are all automatically added to the same site, named **Enterprise network**.
 

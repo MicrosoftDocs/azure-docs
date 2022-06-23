@@ -1,11 +1,11 @@
 ---
-title: Manage subscriptions
-description: Subscriptions consist of managed committed devices and can be onboarded or offboarded as needed. 
+title: Manage Defender for IoT plans on Azure subscriptions
+description: Manage Defender for IoT plans on your Azure subscriptions.
 ms.date: 11/09/2021
 ms.topic: how-to
 ---
 
-# Manage your subscriptions
+# Manage Defender for IoT plans
 
 Your Defender for IoT deployment is managed through a Microsoft Defender for IoT plan on your Azure subscriptions. You can onboard, edit, and cancel a Defender for IoT plan from your subscriptions in the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/Getting_Started).
 
@@ -86,7 +86,7 @@ This procedure describes how to add a Defender for IoT plan to an Azure subscrip
     
         For more information, see the [Microsoft Defender for IoT pricing page](https://azure.microsoft.com/pricing/details/iot-defender/).
 
-    - **Committed sites** (OT only). Enter the number of committed sites.
+    - **Committed sites** (for OT annual commitment only). Enter the number of committed sites.
 
     - **Number of devices**. If you selected a monthly or annual commitment, enter the number of devices you'll want to monitor. If you selected a trial, this section doesn't appear as you have a default of 1000 devices.
 

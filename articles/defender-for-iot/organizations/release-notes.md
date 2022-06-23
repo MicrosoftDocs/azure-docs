@@ -49,7 +49,7 @@ Defender for IoT's purchase experience for Enterprise IoT networks and the integ
 
 - An updated **Plans and pricing** page with an enhanced onboarding process. For more information, see [Manage your subscriptions](how-to-manage-subscriptions.md).
 
-- Integrate with Microsoft Defender for Endpoint to view detected Enterprise IoT devices, and their related alerts, vulnerabilities, and recommendations, in the [Microsoft 365 Security portal](/microsoft-365/security/defender-endpoint/enable-microsoft-defender-for-iot-integration). You can still continue to view detected Enterprise IoT devices on the Defender for IoT **Device inventory** page in the Azure portal.
+- Integrate with Microsoft Defender for Endpoint to view detected Enterprise IoT devices, and their related alerts, vulnerabilities, and recommendations, in the [Microsoft 365 Security portal](/microsoft-365/security/defender-endpoint/enable-microsoft-defender-for-iot-integration). You can continue to view detected Enterprise IoT devices on the Defender for IoT **Device inventory** page in the Azure portal.
 
 - All Enterprise IoT sensors are now automatically added to the same site in Defender for IoT, named **Enterprise network**. When onboarding a new Enterprise IoT device, you only need to define a sensor name and select your subscription, without defining a site or zone.
 
