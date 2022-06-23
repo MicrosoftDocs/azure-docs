@@ -20,11 +20,11 @@ This video walks you through creating workbooks.
 To create a new Azure workbook:
 1. From the Azure Workbooks page, select an empty template or select **New** in the top toolbar.
 1. Combine any of these elements to add to your workbook:
-   - [Text](#text)
+   - [Text](#adding-text)
    - Parameters
-   - [Queries](#queries)
-   - Metrics
-   - Links
+   - [Queries](#adding-queries)
+   - [Metric charts](#adding-metric-charts)
+   - [Links](#adding-links)
    - Groups
    - Configuration options
 
