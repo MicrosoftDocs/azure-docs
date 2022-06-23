@@ -46,7 +46,7 @@ You can deploy a scale set with a Windows Server image or Linux image such as RH
 1. In **Select a load balancer**, select a load balancer or create a new one.
 1. For **Select a backend pool**, select **Create new**, type *myBackendPool*, then select **Create**.
 
-1. Select **Next** to move the the next page.
+1. Select **Next** to move to the next page.
 
 1. On the **Scaling** page, set the **initial instance count** field to *5*. You can set this number up to 1000. 
 1. For the **Scaling policy**, keep it *Manual*. 
