@@ -20,7 +20,7 @@ This article is part five of a seven-part series that provides guidance on how t
 
 ### Characteristics of Oracle environments
 
-Oracle's initial database product, released in 1979, was a commercial SQL relational database for on-line transaction processing (OLTP) applications&mdash;with much lower transaction rates than today. Since that initial release, the Oracle environment has evolved to become far more complex and encompasses numerous features. The features include: client-server architectures, distributed databases, parallel processing, data analytics, high availability, data warehousing, data in memory techniques, and support for cloud-based instances.
+Oracle's initial database product, released in 1979, was a commercial SQL relational database for on-line transaction processing (OLTP) applications&mdash;with much lower transaction rates than today. Since that initial release, the Oracle environment has evolved to become far more complex and encompasses numerous features. The features include: client-server architectures, distributed databases, parallel processing, data analytics, high availability, data warehousing, data in-memory techniques, and support for cloud-based instances.
 
 >[!TIP]
 >Oracle pioneered the "data warehouse appliance" concept in the early 2000's.
