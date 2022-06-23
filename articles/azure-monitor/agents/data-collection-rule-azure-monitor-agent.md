@@ -9,18 +9,18 @@ ms.reviewer: shseth
 
 ---
 
-# Configure data collection for the Azure Monitor agent
+# Collect data from virtual machines with the Azure Monitor agent
 
 This article describes how to collect events and performance counters from virtual machines using the Azure Monitor agent. 
 
 To collect data from virtual machines using the Azure Monitor agent, you'll:
 
-1. Create a [data collection rule (DCR)](../essentials/data-collection-rule-overview.md), which defines which data Azure Monitor agent sends to which tables in Azure Monitor.
-1. Associate the DCR to specific virtual machines.
+1. Create [data collection rules (DCR)](../essentials/data-collection-rule-overview.md) that define which data Azure Monitor agent sends to which destinations.
+1. Associate the data collection rule to specific virtual machines.
 
 ## How data collection rule associations work
 
-A virtual machine may be associated to multiple data collection rules, and a data collection rule may have multiple virtual machines associated to it. This allows you to define each data collection rule to address a particular requirement, and associate the data collection rules to virtual machines based on the specific data you want to collect from each machine.
+You can associate virtual machines to multiple data collection rules. This allows you to define each data collection rule to address a particular requirement, and associate the data collection rules to virtual machines based on the specific data you want to collect from each machine.
 
 For example, consider an environment with a set of virtual machines running a line of business application and other virtual machines running SQL Server. You might have: 
 
@@ -38,45 +38,46 @@ To send data to Log Analytics, create the data collection rule in the **same reg
 
 ### [Portal](#tab/portal)
 
-When create a data collection rule and associate virtual machines to that rule in the Azure portal, the portal automatically installs Azure Monitor agent on the associated machines and creates a managed identity for any virtual machines that don't already have it installed.
+1. From the **Monitor** menu, select **Data Collection Rules**. 
+1. Select **Create** to create a new Data Collection Rule and associations.
 
-> [!IMPORTANT]
-> Creating a data collection rule using the portal also enables System-Assigned managed identity on the target resources, in addition to existing User-Assigned Identities (if any). For existing applications, unless they specify the User-Assigned identity in the request, the machine will default to using System-Assigned Identity instead. [Learn More](../../active-directory/managed-identities-azure-resources/managed-identities-faq.md#what-identity-will-imds-default-to-if-dont-specify-the-identity-in-the-request)
-                  
-
-1. In the **Monitor** menu in the Azure portal, select **Data Collection Rules** from the **Settings** section. 
-1. Click **Create** to create a new Data Collection Rule and assignment.
-
-    [![Data Collection Rules](media/data-collection-rule-azure-monitor-agent/data-collection-rules-updated.png)](media/data-collection-rule-azure-monitor-agent/data-collection-rules-updated.png#lightbox)
+    [![Screenshot showing the Create button on the Data Collection Rules screen.](media/data-collection-rule-azure-monitor-agent/data-collection-rules-updated.png)](media/data-collection-rule-azure-monitor-agent/data-collection-rules-updated.png#lightbox)
     
-1. Click **Create** to create a new rule and set of associations. 
-1. Provide a **Rule name** and specify a **Subscription**, **Resource Group** and **Region**. This specifies where the DCR will be created. The virtual machines and their associations can be in any subscription or resource group in the tenant.
-1. Choose the appropriate **Platform Type** which specifies the type of resources this rule can apply to. Custom will allow for both Windows and Linux types. This allows for pre-curated creation experiences with options scoped to the selected platform type.
+1. Provide a **Rule name** and specify a **Subscription**, **Resource Group**, **Region**, and **Platform Type**. 
 
-    [![Data Collection Rule Basics](media/data-collection-rule-azure-monitor-agent/data-collection-rule-basics-updated.png)](media/data-collection-rule-azure-monitor-agent/data-collection-rule-basics-updated.png#lightbox)
+    **Region** specifies where the DCR will be created. The virtual machines and their associations can be in any subscription or resource group in the tenant.
 
-1. In the **Resources** tab, add the resources (virtual machines, virtual machine scale sets, Arc for servers) that should have the Data Collection Rule applied. The Azure Monitor Agent will be installed on resources that don't already have it installed, and will enable Azure Managed Identity as well.
+    **Platform Type** specifies the type of resources this rule can apply to. Custom allows for both Windows and Linux types. 
 
-1. If you need network isolation using private links, select existing endpoints from the same region for the respective resources, or [create a new endpoint](../essentials/data-collection-endpoint-overview.md).
+    [![Screenshot showing the Basics tab of the Data Collection Rules screen.](media/data-collection-rule-azure-monitor-agent/data-collection-rule-basics-updated.png)](media/data-collection-rule-azure-monitor-agent/data-collection-rule-basics-updated.png#lightbox)
+
+1. On the **Resources** tab, add the resources (virtual machines, virtual machine scale sets, Arc for servers) to which to associate the data collection rule. The portal will install Azure Monitor Agent on resources that don't already have it installed, and will also enable Azure Managed Identity.
+
+    > [!IMPORTANT]
+    > The portal enables System-Assigned managed identity on the target resources, in addition to existing User-Assigned Identities (if any). For existing applications, unless you specify the User-Assigned identity in the request, the machine will default to using System-Assigned Identity instead.  
+
+    If you need network isolation using private links, select existing endpoints from the same region for the respective resources, or [create a new endpoint](../essentials/data-collection-endpoint-overview.md).
 
     [![Data Collection Rule virtual machines](media/data-collection-rule-azure-monitor-agent/data-collection-rule-virtual-machines-with-endpoint.png)](media/data-collection-rule-azure-monitor-agent/data-collection-rule-virtual-machines-with-endpoint.png#lightbox)
 
-1. On the **Collect and deliver** tab, click **Add data source** to add a data source and destination set.
-1. Select a **Data source type**, and the corresponding details to select will be displayed. For performance counters, you can select from a predefined set of objects and their sampling rate. For events, you can select from a set of logs or facilities and the severity level. 
+1. On the **Collect and deliver** tab, select **Add data source** to add a data source and set a destination.
+1. Select a **Data source type**.
+1. Select which data you want to collect. For performance counters, you can select from a predefined set of objects and their sampling rate. For events, you can select from a set of logs and severity levels. 
 
     [![Data source basic](media/data-collection-rule-azure-monitor-agent/data-collection-rule-data-source-basic-updated.png)](media/data-collection-rule-azure-monitor-agent/data-collection-rule-data-source-basic-updated.png#lightbox)
 
-
-1. To specify other logs and performance counters from the [currently supported data sources](azure-monitor-agent-overview.md#data-sources-and-destinations) or to filter events using XPath queries, select **Custom**. You can then specify an [XPath ](https://www.w3schools.com/xml/xpath_syntax.asp) for any specific values to collect. See [Sample DCR](data-collection-rule-sample-agent.md) for an example.
+1. Select **Custom** to collect logs and performance counters that are not [currently supported data sources](azure-monitor-agent-overview.md#data-sources-and-destinations) or to filter events using XPath queries. You can then specify an [XPath ](https://www.w3schools.com/xml/xpath_syntax.asp) to collect any specific values. See [Sample DCR](data-collection-rule-sample-agent.md) for an example.
 
     [![Data source custom](media/data-collection-rule-azure-monitor-agent/data-collection-rule-data-source-custom-updated.png)](media/data-collection-rule-azure-monitor-agent/data-collection-rule-data-source-custom-updated.png#lightbox)
 
-1. On the **Destination** tab, add one or more destinations for the data source. You can select multiple destinations of same of different types, for instance multiple Log Analytics workspaces (i.e. "multi-homing"). Windows event and Syslog data sources can only send to Azure Monitor Logs. Performance counters can send to both Azure Monitor Metrics and Azure Monitor Logs.
+1. On the **Destination** tab, add one or more destinations for the data source. You can select multiple destinations of the same or different types - for instance multiple Log Analytics workspaces (known as "multi-homing"). 
+
+    You can send Windows event and Syslog data sources can to Azure Monitor Logs only. You can send performance counters to both Azure Monitor Metrics and Azure Monitor Logs.
 
     [![Destination](media/data-collection-rule-azure-monitor-agent/data-collection-rule-destination.png)](media/data-collection-rule-azure-monitor-agent/data-collection-rule-destination.png#lightbox)
 
-1. Select **Add Data Source** and then **Review + create** to review the details of the data collection rule and association with the set of VMs. 
-1. Click **Create** to create the data collection rule.
+1. Select **Add Data Source** and then **Review + create** to review the details of the data collection rule and association with the set of virtual machines. 
+1. Select **Create** to create the data collection rule.
 
 > [!NOTE]
 > It might take up to 5 minutes for data to be sent to the destinations after you create the data collection rule and associations.
