@@ -39,16 +39,6 @@ Each error code falls under one of the following four buckets:
 
     Validate that the storage account name was entered correctly. For example, was the name copy/pasted incorrectly?
     Go to the Azure Portal (https://portal.azure.com/ ) and validate that the storage account still exists and was not deleted.
-    Spark_Ambiguous_ApplicationMaster_SparkContextInitializationTimedOut
-    Spark jobs failed waiting for internal services to be setup correctly.
-
-    Something took too long to load while the initial Spark context was being setup.
-
-    This can be caused by plugins registered with the Spark context taking too long to load.
-
-    Ensure that your Spark code is not defining the master to be local. Remove the specification of .master() from your SparkSession creation command.
-    Disable any custom Spark plugins. This would be done through a custom Spark configuration. Click the "Manage" button on the far left tab in the Synapse Studio UI. Click "Apache Spark pools" under the "Analytics pools" section. Find the pool the code is executing against. Mouse over the pool and click the three dot icon and select "Apache Spark configuration". Inspect this configuration for added plugins and remove them as necessary.
-
 
 2. **Spark_Ambiguous_ClassLoader_NoClassDefFound**
 
@@ -56,9 +46,9 @@ Each error code falls under one of the following four buckets:
 
     Please refer to the following pages for package management documentation:
 
-    For Notebook scenarios: [Apache Spark manage scala-packages](./apache-spark-manage-scala-packages.md) 
+    For Notebook scenarios: [Apache Spark manage packages for interactive jobs](./apache-spark-manage-scala-packages.md) 
 
-    For Spark batch scenarios (see section 6): https://docs.microsoft.com/azure/synapse-analytics/spark/apache-spark-job-definitions#create-an-apache-spark-job-definition-for-apache-sparkscala 
+    For Spark batch scenarios (see section 6): [Apache Spark manage packages for batch jobs](./apache-spark-job-definitions.md#create-an-apache-spark-job-definition-for-apache-sparkscala )
 
     Ensure all code dependencies are included in the JARs Synapse runs. If you do not or cannot include third party JARs with your own code, ensure that all dependencies are included in the workspace packages for the Spark pool you are executing code on or included in the "Reference files" listing for the Spark batch submission. See attached documentation.
 
@@ -109,11 +99,11 @@ Each error code falls under one of the following four buckets:
 
     Ensure the files you are loading are of the format. If you're loading data via read.parquet, ensure the format of the data that is being read is indeed parquet. Consider gating wildcard loads with the file type suffix you intend to load to avoid. For example, instead of using a load string like
 
-    /path/to/my/parquet/files/*
+    `/path/to/my/parquet/files/*`
 
     Change this to:
 
-    /path/to/my/parquet/files/*.parquet
+    `/path/to/my/parquet/files/*.parquet`
 
     To avoid loading JSON files that might exist in the directory.
 
@@ -124,13 +114,6 @@ Each error code falls under one of the following four buckets:
     At some point the code attempted to call a method or access a property on a null value. To avoid de-referencing null add null check guards around method calls or property accesses on values that can potentially be null.
 
     Check the logs for this Spark application by clicking the Monitor tab in left side of the Synapse Studio UI, select "Apache Spark Applications" from the "Activities" section, and find your Spark job from this list. Inspect the logs available in the "Logs" tab in the bottom part of this page for a clearer indication of what was de-referenced.
-    Spark_Ambiguous_UserApp_SparkBroadcastJoinTimeout
-    Spark broadcast variables allow programmers to keep a read-only variable cached on each machine rather than shipping a copy of it with tasks. A timeout can occur when the DataFrames is extremely large taking a lot of time hence timing out. Potential Solutions:
-
-    Increase spark.sql.broadcastTimeout
-    Use persist() on DataFrames then Spark will use Shuffle Join
-    Disable broadcast by setting spark.sql.autoBroadcastJoinThreshold to -1
-    Increase memory of node or driver to handle larger broadcast joins
 
 12. **Spark_Ambiguous_UserApp_SparkContextShutDown**
 
@@ -146,7 +129,7 @@ Each error code falls under one of the following four buckets:
 
     Cannot run job because all available nodes are disallowed (Spark internals refer to this as "blacklisted").
 
-    Nodes and executors become disallowed when the configuration "spark.blacklist.enabled" is set to true and too many tasks have failed.
+    Nodes and executors become disallowed when the configuration `spark.blacklist.enabled` is set to true and too many tasks have failed.
 
     To investigate this failure, look at task failures section below.
 
@@ -170,8 +153,8 @@ Each error code falls under one of the following four buckets:
     Most common causes for this would be a system issue with configuration of network access points or a transient error.
 
     While the ABFS driver has built in retry capabilities, try re-running your job after the job fails with this read timeout failure.
-    Increase the number of times the ABFS driver will retry before giving up. For example: spark.conf.set("fs.azure.io.retry.max.retries", "20")
-    Reduce the buffer size requested for ABFS. The default is 8MB. The minimum is 16KB, setting this lower might avoid the read timeouts at the expense of much greater network overhead. For example: spark.conf.set("fs.azure.read.request.size", "16384 ")
+    Increase the number of times the ABFS driver will retry before giving up. For example: `spark.conf.set("fs.azure.io.retry.max.retries", "20")`
+    Reduce the buffer size requested for ABFS. The default is `8MB`. The minimum is `16KB`, setting this lower might avoid the read timeouts at the expense of much greater network overhead. For example: `spark.conf.set("fs.azure.read.request.size", "16384 ")`
 
 17. **Spark_System_AMRMTokenSecretManager_AppAttemptNotFound**
 
@@ -239,11 +222,7 @@ Each error code falls under one of the following four buckets:
 
     Unable to connect to the MetaStore.
 
-    This is typically a system error. However, if you're using an external Metastore, please ensure the setup specified at:
-
-    https://docs.microsoft.com/azure/hdinsight/share-hive-metastore-with-synapse 
-
-    is followed.
+    This is typically a system error. However, if you're using an external Metastore, please ensure the setup specified at [Share Hive metastore with Synapse](../../../azure/hdinsight/share-hive-metastore-with-synapse.md) is followed.
 
 28. **Spark_System_NonJvmUserApp_FileDoesNotMatchContent**
 
@@ -278,9 +257,9 @@ Each error code falls under one of the following four buckets:
 
     The application is attempting to create a directory or file on a storage path that already exists.
 
-    Please follow the documentation here: https://docs.microsoft.com/azure/synapse-analytics/get-started-analyze-storage  on how to correctly work with data in a storage account and locate the existing directory or file.
+    Please follow the documentation [here](../get-started-analyze-storage.md) on how to correctly work with data in a storage account and locate the existing directory or file.
 
-    To overwrite the existing file, set mode("overwrite") on the DataFrameWriter. For more information, please see the mode section of Spark DataFrameWriter here: https://spark.apache.org/docs/latest/api/java/org/apache/spark/sql/DataFrameWriter.html#mode-org.apache.spark.sql.SaveMode- .
+    To overwrite the existing file, set `mode("overwrite")` on the DataFrameWriter. For more information, please see the mode section of Spark DataFrameWriter [here](https://spark.apache.org/docs/latest/api/java/org/apache/spark/sql/DataFrameWriter.html#mode-org.apache.spark.sql.SaveMode-) .
 
 36. **Spark_User_ABFS_Unauthorized**
 
@@ -292,7 +271,7 @@ Each error code falls under one of the following four buckets:
 
     Under Access Control (IAM), assign the role "Storage Blob Data contributor" to yourself as well as to the workspace managed identity.
 
-    More details can be found here: https://docs.microsoft.com/azure/synapse-analytics/security/how-to-grant-workspace-managed-identity-permissions#grant-permissions-to-managed-identity-after-workspace-creation 
+    More details can be found [here](../security/how-to-grant-workspace-managed-identity-permissions.md#grant-permissions-to-managed-identity-after-workspace-creation)
 
 37. **Spark_User_ADLS_OutputDirectoryAlreadyExist**
 
@@ -310,7 +289,7 @@ Each error code falls under one of the following four buckets:
 
     The application is attempting to access a path in storage that does not exist.
 
-    Please follow the documentation here: https://docs.microsoft.com/azure/synapse-analytics/get-started-analyze-storage  on how to correctly work with data in a storage account and verify the correct input path.
+    Please follow the documentation [here](../get-started-analyze-storage.md) on how to correctly work with data in a storage account and verify the correct input path.
 
 41. **Spark_User_HDFS_UnsupportedFileSystem**
 
@@ -324,6 +303,7 @@ Each error code falls under one of the following four buckets:
 
     Some common data storage backends and their schemes:
 
+    ```
     Azure Blob Storage: wasb
     Azure Blob Storage (Secure): wasbs
     Azure Data Lake Storage Gen1: adl
@@ -332,6 +312,8 @@ Each error code falls under one of the following four buckets:
     Azure Data Lake Storage Gen2 (Secure): abfss
     Amazon S3: s3a
     Google Cloud Storage: gs
+    ```
+
     To fix this issue:
 
     Check your resource reading/writing lines and ensure the schemes given for resource URLs is correct.
@@ -348,7 +330,7 @@ Each error code falls under one of the following four buckets:
 
     Please validate that you have entered the correct credentials.
 
-    For more information on how to setup Synapse SQL with JDBC, please visit: https://docs.microsoft.com/azure/synapse-analytics/sql/connect-overview  https://docs.microsoft.com/azure/synapse-analytics/sql/connection-strings 
+    For more information on how to setup Synapse SQL with JDBC, please visit: [Connect overview](../sql/connect-overview.md) and [Guide to connection strings](../sql/connection-strings.md).
 
 44. **Spark_User_Jackson_CouldNotResolveTypeId**
 
@@ -368,9 +350,9 @@ Each error code falls under one of the following four buckets:
 
 48. **Spark_User_LinkedServiceName_ConfigurationNotProvided**
 
-    LinkedServiceName is not provided in spark configuration. Please set spark.storage.synapse.linkedServiceName
+    LinkedServiceName is not provided in spark configuration. Please set `spark.storage.synapse.linkedServiceName`.
 
-    For more information on how to use ADLS Gen2 storage with linked services, please visit: https://docs.microsoft.com/azure/synapse-analytics/spark/apache-spark-secure-credentials-with-tokenlibrary?pivots=programming-language-scala#adls-gen2-storage-with-linked-services 
+    For more information on how to use ADLS Gen2 storage with linked services, please visit: [Secure credentials with TokenLibrary](./apache-spark-secure-credentials-with-tokenlibrary.md?pivots=programming-language-scala#adls-gen2-storage-with-linked-services).
 
 49. **Spark_User_MetaStore_NoSuchDatabase**
 
@@ -446,7 +428,7 @@ Each error code falls under one of the following four buckets:
 
     Check if the value is present in the iterable object
     If you want to check one value to another, use logical operator instead of Membership Operator.
-    If the membership operator contains None value, it won't be able to iterate and a null check or assigned default must be done.
+    If the membership operator contains `None` value, it won't be able to iterate and a `null` check or assigned default must be done.
     Check if the type of the value used can actually be checked and the typing is correct.
 
 66. **Spark_User_TypeError_UnableToInferSchemaForParquet**
@@ -471,9 +453,9 @@ Each error code falls under one of the following four buckets:
 
 71. **Spark_User_UserApp_CalledSystemExit**
 
-    User application called System.exit(). Spark treats this as a user error, and marks the application as FAILED.
+    User application called `System.exit()`. Spark treats this as a user error, and marks the application as FAILED.
 
-    If the application ran successfully, then instead of calling System.exit(0), simply return from main(). If the application failed, then throw an Exception instead of calling System.exit(1).
+    If the application ran successfully, then instead of calling `System.exit(0)`, simply return from `main()`. If the application failed, then throw an Exception instead of calling `System.exit(1)`.
 
 72. **Spark_User_UserApp_ChangingPermissionsFailedError**
 
@@ -505,7 +487,7 @@ Each error code falls under one of the following four buckets:
 
     Check if your code parses any strings to number types. If so, validate whether there are any edge cases or corner cases where a non-numerical string could be parsed.
 
-    For example: In Python: Is the application parsing a non-numerical string with int() or float()? In Scala: Is the application parsing a non-numerical string with .toInt or .toFloat?
+    For example: In Python: Is the application parsing a non-numerical string with `int()` or `float()`? In Scala: Is the application parsing a non-numerical string with `.toInt` or `.toFloat`?
 
 77. **Spark_User_UserApp_JSONDecodeError**
 
@@ -542,11 +524,11 @@ Each error code falls under one of the following four buckets:
 
     Likely mitigation steps:
 
-    Locate the dependency in question after "java.lang.NoSuchMethodError:" in the driver error stacktrace.
+    Locate the dependency in question after `java.lang.NoSuchMethodError:` in the driver error stacktrace.
 
-    If the dependency is missing, please visit the below link for instructions on how to include it in your application. For Notebook scenarios: https://docs.microsoft.com/  azure/synapse-analytics/spark/apache-spark-manage-scala-packages
+    If the dependency is missing, please visit the below link for instructions on how to include it in your application. For Notebook scenarios: [Apache Spark manage packages for interactive jobs](./apache-spark-manage-scala-packages.md)
 
-    For Spark batch scenarios (see section 6): https://docs.microsoft.com/azure/synapse-analytics/spark/  apache-spark-job-definitions# create-an-apache-spark-job-definition-for-apache-sparkscala
+    For Spark batch scenarios (see section 6): [Apache Spark manage packages for batch jobs](./apache-spark-job-definitions.md#create-an-apache-spark-job-definition-for-apache-sparkscala )
 
     If the dependency is incompatible with Spark and Scala version of your spark pool, please replace the dependency with the compatible versions. For example, Spark 2.4 requires Scala 2.11 and Spark 3.1 requires Scala 2.12.
 
@@ -572,7 +554,7 @@ Each error code falls under one of the following four buckets:
 
 89. **Spark_User_UserApp_SparkContextNotStarted**
 
-    User application did not start SparkContext. Spark treats this as a user error, and marks the application as FAILED.
+    User application did not start `SparkContext`. Spark treats this as a user error, and marks the application as FAILED.
 
 90. **Spark_User_UserApp_StreamNotFoundError**
 
@@ -594,9 +576,9 @@ Each error code falls under one of the following four buckets:
 
     The application code has instantiated more than one SparkContext.
 
-    Only one SparkContext may be running in a given JVM. For more details, please visit https://issues.apache.org/jira/browse/SPARK-2243 .
+    Only one `SparkContext` may be running in a given JVM. For more details, please visit https://issues.apache.org/jira/browse/SPARK-2243 .
 
-    If you are running a notebook or interactive session, please verify if your notebook code is instantiating a SparkContext. Synapse has already prepared a SparkContext for your session so please do not instantiate another one. The variable "spark" is the SparkSession object and the variable "sc" is the SparkContext object.
+    If you are running a notebook or interactive session, please verify if your notebook code is instantiating a SparkContext. Synapse has already prepared a SparkContext for your session so please do not instantiate another one. The variable `spark` is the SparkSession object and the variable `sc` is the SparkContext object.
 
 93. **Spark_User_UserApp_ValueError**
 
@@ -608,19 +590,19 @@ Each error code falls under one of the following four buckets:
 
     Verify that you meant to specify the storage path using a WASB URI. For example, if your storage account uses Azure Data Lake Storage Gen2, please specify storage URIs using the ABFS URI scheme:
 
-    abfss://file_system@account_name.dfs.core.windows.net/<path>/<path>/<file_name>
+    `abfss://file_system@account_name.dfs.core.windows.net/<path>/<path>/<file_name>`
 
-    For more information regarding the ABFS URI scheme, please consult this doc: https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction-abfs-uri 
+    For more information regarding the ABFS URI scheme, please consult [this article](/azure/storage/blobs/data-lake-storage-introduction-abfs-uri.md)
 
     If you are certain that you want to read from a WASB URI, then you will need to provide a SAS token. To do so, register your Azure Storage account as a Linked Service on the workspace, then use this function to get the SAS token:
 
-    val token = mssparkutils.credentials.getConnectionStringOrCreds(<linked service name>)
+    `val token = mssparkutils.credentials.getConnectionStringOrCreds(<linked service name>)`
 
     Once you have the SAS token, configure the SparkSession to use the token when connecting to the storage account via WASB:
 
-    spark.conf.set("fs.azure.sas.<container name>.<storage account name>.blob.core.windows.net", token)
+    `spark.conf.set("fs.azure.sas.<container name>.<storage account name>.blob.core.windows.net", token)`
 
-    A full example is provided in this doc: https://docs.microsoft.com/azure/synapse-analytics/spark/apache-spark-development-using-notebooks?tabs=classical#read-a-csv-from-azure-blob-storage-as-a-spark-dataframe 
+    A full example is provided in [this article](./apache-spark-development-using-notebooks?tabs=classical#read-a-csv-from-azure-blob-storage-as-a-spark-dataframe).
 
 95. **Spark_User_WASB_PathDoesNotExist**
 
@@ -639,6 +621,26 @@ Each error code falls under one of the following four buckets:
 97. **Spark_Ambiguous_UserApp_IllegalStateException**
 
     No TSG is available yet for this error code.
+
+98. **Spark_Ambiguous_ApplicationMaster_SparkContextInitializationTimedOut**
+
+    Spark jobs failed waiting for internal services to be setup correctly.
+
+    Something took too long to load while the initial Spark context was being setup.
+
+    This can be caused by plugins registered with the Spark context taking too long to load.
+
+    Ensure that your Spark code is not defining the master to be local. Remove the specification of `.master()` from your SparkSession creation command.
+    Disable any custom Spark plugins. This would be done through a custom Spark configuration. Click the "Manage" button on the far left tab in the Synapse Studio UI. Click "Apache Spark pools" under the "Analytics pools" section. Find the pool the code is executing against. Mouse over the pool and click the three dot icon and select "Apache Spark configuration". Inspect this configuration for added plugins and remove them as necessary.
+
+99. **Spark_Ambiguous_UserApp_SparkBroadcastJoinTimeout**
+
+    Spark broadcast variables allow programmers to keep a read-only variable cached on each machine rather than shipping a copy of it with tasks. A timeout can occur when the DataFrames is extremely large taking a lot of time hence timing out. Potential Solutions:
+
+    Increase `spark.sql.broadcastTimeout`
+    Use `persist()` on DataFrames then Spark will use Shuffle Join
+    Disable broadcast by setting `spark.sql.autoBroadcastJoinThreshold` to `-1`
+    Increase memory of node or driver to handle larger broadcast joins
 
 
 > [!NOTE]
