@@ -99,9 +99,7 @@ This procedure describes how to add a Defender for IoT plan to an Azure subscrip
 
 1. Select **Purchase**.
 
-Your plan will be shown under the associated subscription in the **Plans and pricing** grid. For example:
-
-:::image type="content" source="media/getting-started/pricing.png" alt-text="Screenshot of the Plans and pricing page in Defender for IoT." lightbox="media/getting-started/pricing.png":::
+Your plan will be shown under the associated subscription in the **Plans and pricing** grid. 
 
 For more information, see [Manage your subscriptions](how-to-manage-subscriptions.md).
 
