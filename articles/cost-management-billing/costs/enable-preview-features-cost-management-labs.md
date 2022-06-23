@@ -168,7 +168,7 @@ We're always listening and making constant improvements based on your feedback, 
 
 - If you have a problem or are seeing data that doesn't make sense, submit a support request. It's the fastest way to investigate and resolve data issues and major bugs.
 - For feature requests, you can share ideas and vote up others in the [Cost Management feedback forum](https://aka.ms/costmgmt/feedback).
-3. Take advantage of the **How would you rate…** prompts in the Azure portal to let us know how each experience is working for you. We monitor the feedback proactively to identify and prioritize changes. You'll see either a blue option in the bottom-right corner of the page or a banner at the top.
+- Take advantage of the **How would you rate…** prompts in the Azure portal to let us know how each experience is working for you. We monitor the feedback proactively to identify and prioritize changes. You'll see either a blue option in the bottom-right corner of the page or a banner at the top.
 
 ## Next steps
 
