@@ -178,7 +178,7 @@ $appId = "<client ID>"
 $secret = "<client secret>"
 $endpoint = "https://<tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/<policy>/oauth2/v2.0/token"
 $scope = "<Your API id uri>/.default"
-$body = "granttype=client_credentials&scope=" + $scope + "&client_id=" + $appId + "&client_secret=" + $secret
+$body = "grant_type=client_credentials&scope=" + $scope + "&client_id=" + $appId + "&client_secret=" + $secret
 
 $token = Invoke-RestMethod -Method Post -Uri $endpoint -Body $body
 ```
