@@ -50,8 +50,6 @@ The `Azure.AI.TextAnalytics` namespace enables you to use the following Language
 * [Sentiment analysis and opinion mining](../sentiment-opinion-mining/overview.md)
 * [Text analytics for health](../text-analytics-for-health/overview.md)
 
-### Azure.AI.TextAnalytics reference documentation and code samples
-
 As you use these features in your application, use the following documentation and code samples for additional information.
 
 |Development option / language  |Reference documentation |Samples  |
@@ -76,8 +74,6 @@ The `Azure.AI.Language.Conversations` namespace enables you to use the following
 * [Conversation summarization](../summarization/overview.md?tabs=conversation-summarization)
 * [Personally Identifing Information (PII) detection for conversations](../summarization/how-to/conversation-summarization.md)
 
-#### Azure.AI.Language.Conversations reference documentation and code samples
-
 As you use these features in your application, use the following documentation and code samples for additional information.
 
 |Development option / language  |Reference documentation (Authoring API) | Reference documentation (Runtime prediction API) |Samples  |
@@ -90,8 +86,6 @@ As you use these features in your application, use the following documentation a
 The `Azure.AI.Language.QuestionAnswering` namespace enables you to use the following Language features:
 
 * [Question answering](../question-answering/overview.md)
-
-#### Azure.AI.Language.QuestionAnswering reference documentation and code samples
 
 As you use these features in your application, use the following documentation and code samples for additional information.
 
