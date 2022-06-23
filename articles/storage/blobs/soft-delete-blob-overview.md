@@ -100,9 +100,9 @@ For more information on how to restore soft-deleted objects, see [Manage and res
 > [!IMPORTANT]
 > Versioning is not supported for accounts that have a hierarchical namespace.
 
-If blob versioning and blob soft delete are both enabled for a storage account, then overwriting a blob automatically creates a new previous version that reflects the blob's state before the write operation. The new version isn't soft-deleted and isn't removed when the soft-delete retention period expires. No soft-deleted snapshots are created. 
+If blob versioning and blob soft delete are both enabled for a storage account, then overwriting a blob automatically creates a new previous version that reflects the blob's state before the write operation. The new version isn't soft-deleted and isn't removed when the soft-delete retention period expires. No soft-deleted snapshots are created.
 
-If blob versioning and blob soft delete are both enabled for a storage account, then when you delete a blob, the current version of the blob becomes a previous version, and there's no longer a current version. No new version is created and no soft-deleted snapshots are created.
+If blob versioning and blob soft delete are both enabled for a storage account, then when you delete a blob, the current version of the blob becomes a previous version, and there's no longer a current version. No new version is created and no soft-deleted snapshots are created. All previous versions are retained until they are explicitly deleted, either with a direct delete operation or via a lifecycle management policy.
 
 Enabling soft delete and versioning together protects previous blob versions as well as current versions from deletion. When soft delete is enabled, explicitly deleting a previous version creates a soft-deleted version that is retained until the soft-delete retention period elapses. After the soft-delete retention period has elapsed, the soft-deleted blob version is permanently deleted.
 
