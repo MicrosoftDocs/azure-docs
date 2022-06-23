@@ -1,18 +1,14 @@
 ---
- title: include file
- description: include file
- services: vpn-gateway
+ ms.topic: include
  author: cherylmc
  ms.service: vpn-gateway
- ms.topic: include
- ms.date: 04/26/2021
+ ms.date: 05/23/2022
  ms.author: cherylmc
- ms.custom: include file
 
 # This include is used for both Virtual WAN and VPN Gateway articles. Any changes you make must apply address both services.
 ---
 
-You can deploy profiles for Azure VPN clients (Windows 10) by using Microsoft Intune. This article helps you create an Intune profile using custom settings.
+You can deploy profiles for Azure VPN clients (Windows 10 or later) by using Microsoft Intune. This article helps you create an Intune profile using custom settings.
 
 > [!NOTE]
 >* This article applies to deploying profiles that use Azure Active Directory for authentication only.
@@ -21,7 +17,7 @@ You can deploy profiles for Azure VPN clients (Windows 10) by using Microsoft In
 ## Prerequisites
 
 * Devices are already enrolled with Intune MDM.
-* The Azure VPN Client for Windows 10 is already deployed on the client machine.
+* The Azure VPN Client for Windows 10 or later is already deployed on the client machine.
 * Only Windows version 19H2 or higher is supported.
 
 ## <a name="xml"></a>Modify XML

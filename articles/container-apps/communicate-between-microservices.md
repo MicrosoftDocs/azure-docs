@@ -10,7 +10,7 @@ ms.author: cshoe
 zone_pivot_groups: container-apps-image-build-type
 ---
 
-# Tutorial: Communication between microservices in Azure Container Apps Preview
+# Tutorial: Communication between microservices in Azure Container Apps
 
 Azure Container Apps exposes each container app through a domain name if [ingress](ingress.md) is enabled. Ingress endpoints for container apps within an external environment can be either publicly accessible or only available to other container apps in the same [environment](environment.md).
 
@@ -124,7 +124,7 @@ Output from the `az acr build` command shows the upload progress of the source c
 
 ::: zone pivot="docker-local"
 
-1. The following command builds a container image for the album UI and tags it with the fully qualified name of the ACR log in server. The `.` at the end of the command represents the docker build context, meaning this command should be run within the *src* folder where the Dockerfile is located.
+1. The following command builds a container image for the album UI and tags it with the fully qualified name of the ACR login server. The `.` at the end of the command represents the docker build context, meaning this command should be run within the *src* folder where the Dockerfile is located.
 
     # [Bash](#tab/bash)
 

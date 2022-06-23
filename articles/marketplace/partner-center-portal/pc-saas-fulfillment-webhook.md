@@ -4,7 +4,7 @@ description: Learn how to implement a webhook on the SaaS service by using the f
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
-ms.date: 03/16/2022
+ms.date: 06/14/2022
 author: arifgani
 ms.author: argani
 ---
@@ -243,15 +243,6 @@ The publisher must implement a webhook in the SaaS service to keep the SaaS subs
 }
 ```
 
-*Webhook payload example of reinstate event:*
-
-```json
-{
-  "subscriptionId": "<guid>",
-  "operationType": "Reinstate"
-}
-```
-
 ## Development and testing
 
 To start the development process, we recommend creating dummy API responses on the publisher side.  These responses can be based on sample responses provided in this article.
@@ -276,3 +267,9 @@ See [Support for the commercial marketplace program in Partner Center](../suppor
 See the [commercial marketplace metering service APIs](../marketplace-metering-service-apis.md) for more options for SaaS offers in the commercial marketplace.
 
 Review and use the [clients for different programming languages and samples](https://github.com/microsoft/commercial-marketplace-samples).
+
+**Video tutorials**
+
+- [SaaS Webhook Overview](https://go.microsoft.com/fwlink/?linkid=2196258)
+- [Implementing a Simple SaaS Webhook in .NET](https://go.microsoft.com/fwlink/?linkid=2196159)
+- [Azure AD Application Registrations](https://go.microsoft.com/fwlink/?linkid=2196262)

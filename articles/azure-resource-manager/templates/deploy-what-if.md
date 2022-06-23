@@ -390,6 +390,7 @@ You can use the what-if operation through the Azure SDKs.
 
 ## Next steps
 
+- [ARM Deployment Insights](https://marketplace.visualstudio.com/items?itemName=AuthorityPartnersInc.arm-deployment-insights) extension provides an easy way to integrate the what-if operation in your Azure DevOps pipeline.
 - To use the what-if operation in a pipeline, see [Test ARM templates with What-If in a pipeline](https://4bes.nl/2021/03/06/test-arm-templates-with-what-if/).
 - If you notice incorrect results from the what-if operation, please report the issues at [https://aka.ms/whatifissues](https://aka.ms/whatifissues).
 - For a Microsoft Learn module that covers using what if, see [Preview changes and validate Azure resources by using what-if and the ARM template test toolkit](/learn/modules/arm-template-test/).

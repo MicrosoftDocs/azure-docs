@@ -5,7 +5,7 @@ author: karlerickson
 ms.author: karler
 ms.service: spring-cloud
 ms.topic: how-to
-ms.date: 12/07/2021
+ms.date: 06/07/2022
 ms.custom: devx-track-java, event-tier1-build-2022
 ---
 
@@ -96,7 +96,7 @@ Before proceeding, you'll need your Elastic APM server connectivity information 
    az spring app deploy \
        --name <your-app-name> \
        --artifact-path <unique-path-to-your-app-jar-on-custom-storage> \
-       --jvm-options='-javaagent:<agent-location>' \
+       --jvm-options='-javaagent:<elastic-agent-location>' \
        --env ELASTIC_APM_SERVICE_NAME=<your-app-name> \
              ELASTIC_APM_APPLICATION_PACKAGES='<your-app-package-name>' \
              ELASTIC_APM_SERVER_URL='<your-Elastic-APM-server-URL>' \
@@ -105,7 +105,7 @@ Before proceeding, you'll need your Elastic APM server connectivity information 
 
 ## Automate provisioning
 
-You can also run a provisioning automation pipeline using Terraform or an Azure Resource Manager template (ARM template). This pipeline can provide a complete hands-off experience to instrument and monitor any new applications that you create and deploy.
+You can also run a provisioning automation pipeline using Terraform, Bicep, or an Azure Resource Manager template (ARM template). This pipeline can provide a complete hands-off experience to instrument and monitor any new applications that you create and deploy.
 
 ### Automate provisioning using Terraform
 
@@ -114,7 +114,7 @@ To configure the environment variables in a Terraform template, add the followin
 ```terraform
 resource "azurerm_spring_cloud_java_deployment" "example" {
   ...
-  jvm_options = "-javaagent:<unique-path-to-your-app-jar-on-custom-storage>"
+  jvm_options = "-javaagent:<elastic-agent-location>"
   ...
     environment_variables = {
       "ELASTIC_APM_SERVICE_NAME"="<your-app-name>",
@@ -125,11 +125,28 @@ resource "azurerm_spring_cloud_java_deployment" "example" {
 }
 ```
 
+### Automate provisioning using a Bicep file
+
+To configure the environment variables in a Bicep file, add the following code to the file, replacing the *\<...>* placeholders with your own values. For more information, see [Microsoft.AppPlatform Spring/apps/deployments](/azure/templates/microsoft.appplatform/spring/apps/deployments?tabs=bicep).
+
+```bicep
+deploymentSettings: {
+  environmentVariables: {
+    ELASTIC_APM_SERVICE_NAME='<your-app-name>',
+    ELASTIC_APM_APPLICATION_PACKAGES='<your-app-package>',
+    ELASTIC_APM_SERVER_URL='<your-Elastic-APM-server-URL>',
+    ELASTIC_APM_SECRET_TOKEN='<your-Elastic-APM-secret-token>'
+  },
+  jvmOptions: '-javaagent:<elastic-agent-location>',
+  ...
+}
+```
+
 ### Automate provisioning using an ARM template
 
 To configure the environment variables in an ARM template, add the following code to the template, replacing the *\<...>* placeholders with your own values. For more information, see [Microsoft.AppPlatform Spring/apps/deployments](/azure/templates/microsoft.appplatform/spring/apps/deployments?tabs=json).
 
-```arm
+```json
 "deploymentSettings": {
   "environmentVariables": {
     "ELASTIC_APM_SERVICE_NAME"="<your-app-name>",
@@ -137,7 +154,7 @@ To configure the environment variables in an ARM template, add the following cod
     "ELASTIC_APM_SERVER_URL"="<your-Elastic-APM-server-URL>",
     "ELASTIC_APM_SECRET_TOKEN"="<your-Elastic-APM-secret-token>"
   },
-  "jvmOptions": "-javaagent:<unique-path-to-your-app-jar-on-custom-storage>",
+  "jvmOptions": "-javaagent:<elastic-agent-location>",
   ...
 }
 ```

@@ -139,5 +139,5 @@ Similarly,
 
 ## Next steps
 
-* [View a model's evaluation in Language Studio](../how-to/view-model-evaluation.md)
+* [View a model's performance in Language Studio](../how-to/view-model-evaluation.md)
 * [Train a model](../how-to/train-model.md)

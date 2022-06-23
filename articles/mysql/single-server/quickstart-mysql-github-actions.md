@@ -6,8 +6,8 @@ ms.service: mysql
 ms.subservice: single-server
 ms.topic: quickstart
 ms.author: jukullam
-ms.date: 05/09/2022
 ms.custom: github-actions-azure, mode-other
+ms.date: 06/20/2022
 ---
 
 # Quickstart: Use GitHub Actions to connect to Azure MySQL
@@ -319,7 +319,7 @@ You need to provide your application's **Client ID**, **Tenant ID**, and **Subsc
 
 2. Open the first result to see detailed logs of your workflow's run.
 
-    :::image type="content" source="media/quickstart-mysql-github-actions/github-actions-run-mysql.png" alt-text="Log of GitHub actions run":::
+    :::image type="content" source="media/quickstart-mysql-github-actions/github-actions-run-mysql.png" alt-text="Log of GitHub Actions run":::
 
 ## Clean up resources
 

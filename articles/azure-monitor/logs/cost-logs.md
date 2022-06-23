@@ -4,23 +4,24 @@ description: Cost details for data stored in a Log Analytics workspace in Azure 
 ms.topic: conceptual
 ms.reviewer: Dale.Koetke
 ms.date: 03/24/2022
+ms.reviwer: dalek git 
 ---
  
 # Azure Monitor Logs pricing details
 The most significant charges for most Azure Monitor implementations will typically be ingestion and retention of data in your Log Analytics workspaces. Several features in Azure Monitor do not have a direct cost but add to the workspace data that's collected. This article describes how data charges are calculated for your Log Analytics workspaces and Application Insights resources and the different configuration options that affect your costs.
 
 ## Pricing model
-The default pricing for Log Analytics is a Pay-As-You-Go model that's based on ingested data volume and data retention. Each Log Analytics workspace is charged as a separate service and contributes to the bill for your Azure subscription. The amount of data ingestion can be considerable, depending on the following factors:
+The default pricing for Log Analytics is a Pay-As-You-Go model that's based on ingested data volume and data retention. Each Log Analytics workspace is charged as a separate service and contributes to the bill for your Azure subscription. [Pricing for Log Analytics](https://azure.microsoft.com/pricing/details/monitor/) is set regionally. The amount of data ingestion can be considerable, depending on the following factors:
 
 - The set of management solutions enabled and their configuration
 - The number and type of monitored resources
-- Type of data collected from each monitored resource
+- The types of data collected from each monitored resource
 
 ## Data size calculation
 Data volume is measured as the size of the data that will be stored in GB (10^9 bytes). The data size of a single record is calculated from a string representation of the columns that are stored in the Log Analytics workspace for that record, regardless of whether the data is sent from an agent or added during the ingestion process. This includes any custom columns added by the [custom logs API](custom-logs-overview.md), [ingestion-time transformations](ingestion-time-transformations.md), or [custom fields](custom-fields.md) that are added as data is collected and then stored in the workspace. 
 
 >[!NOTE]
->The billable data volume calculation is substantially smaller than the size of the entire incoming JSON-packaged event, often less than 50%. It is essential to understand this calculation of billed data size when estimating costs and comparing to other pricing models. 
+>The billable data volume calculation is substantially smaller than the size of the entire incoming JSON-packaged event, often less than 50% for small events. It is essential to understand this calculation of billed data size when estimating costs and comparing to other pricing models. 
 
 ### Excluded columns
 The following [standard columns](log-standard-columns.md) that are common to all tables, are excluded in the calculation of the record size. All other columns stored in Log Analytics are included in the calculation of the record size. 
@@ -115,7 +116,6 @@ When Microsoft Sentinel is enabled in a Log Analytics workspace, all data collec
 - [SecurityDetection](/azure/azure-monitor/reference/tables/securitydetection)
 - [SecurityEvent](/azure/azure-monitor/reference/tables/securityevent)
 - [WindowsFirewall](/azure/azure-monitor/reference/tables/windowsfirewall)
-- [MaliciousIPCommunication](/azure/azure-monitor/reference/tables/maliciousipcommunication)
 - [LinuxAuditLog](/azure/azure-monitor/reference/tables/linuxauditlog)
 - [SysmonEvent](/azure/azure-monitor/reference/tables/sysmonevent)
 - [ProtectionStatus](/azure/azure-monitor/reference/tables/protectionstatus)

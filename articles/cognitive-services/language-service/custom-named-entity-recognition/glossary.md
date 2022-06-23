@@ -30,7 +30,7 @@ For example, in the sentence "*John borrowed 25,000 USD from Fred.*" the entitie
 | Loan Amount | *25,000 USD* |
 
 ## F1 score
-The F1 score is a function of Precision and Recall. It's needed when you seek a balance between [precision](#precision) and [recall](#recall].
+The F1 score is a function of Precision and Recall. It's needed when you seek a balance between [precision](#precision) and [recall](#recall).
 
 ## Model
 

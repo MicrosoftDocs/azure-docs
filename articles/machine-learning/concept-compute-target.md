@@ -75,39 +75,39 @@ When you select a node size for a managed compute resource in Azure Machine Lear
 There are a few exceptions and limitations to choosing a VM size:
 
 * Some VM series aren't supported in Azure Machine Learning.
-* Some VM series are restricted. To use a restricted series, contact support and request a quota increase for the series. For information on how to contact support, see [Azure support options](https://azure.microsoft.com/support/options/).
+* Some VM series are restricted. To use a restricted series, contact support and request a quota increase for the series. Please note that for GPUs and specialty SKUs, you would always have to request for quota due to high demand and limited supply. For information on how to contact support, see [Azure support options](https://azure.microsoft.com/support/options/).
 
 See the following table to learn more about supported series and restrictions.
 
-| **Supported VM series**  | **Restrictions** | **Category** | **Supported by** |
+| **Supported VM series** | **Category** | **Supported by** |
 |------------|------------|------------|------------|
-| [DDSv4](../virtual-machines/ddv4-ddsv4-series.md#ddsv4-series) | None. | General purpose | Compute clusters and instance |
-| [Dv2](../virtual-machines/dv2-dsv2-series.md#dv2-series) | None. | General purpose | Compute clusters and instance |
-| [Dv3](../virtual-machines/dv3-dsv3-series.md#dv3-series) | None.| General purpose | Compute clusters and instance |
-| [DSv2](../virtual-machines/dv2-dsv2-series.md#dsv2-series) | None. | General purpose | Compute clusters and instance |
-| [DSv3](../virtual-machines/dv3-dsv3-series.md#dsv3-series) | None.| General purpose | Compute clusters and instance |
-| [EAv4](../virtual-machines/eav4-easv4-series.md) | None. | Memory optimized | Compute clusters and instance |
-| [Ev3](../virtual-machines/ev3-esv3-series.md) | None. | Memory optimized | Compute clusters and instance |
-| [ESv3](../virtual-machines/ev3-esv3-series.md) | None. | Memory optimized | Compute clusters and instance |
-| [FSv2](../virtual-machines/fsv2-series.md) | None. | Compute optimized | Compute clusters and instance |
-| [FX](../virtual-machines/fx-series.md) | Requires approval. | Compute optimized | Compute clusters |
-| [H](../virtual-machines/h-series.md) | None. | High performance compute | Compute clusters and instance |
-| [HB](../virtual-machines/hb-series.md) | Requires approval. | High performance compute | Compute clusters and instance |
-| [HBv2](../virtual-machines/hbv2-series.md) | Requires approval. |  High performance compute | Compute clusters and instance |
-| [HBv3](../virtual-machines/hbv3-series.md) | Requires approval. |  High performance compute | Compute clusters and instance |
-| [HC](../virtual-machines/hc-series.md) | Requires approval. |  High performance compute | Compute clusters and instance |
-| [LSv2](../virtual-machines/lsv2-series.md) | None. |  Storage optimized | Compute clusters and instance |
-| [M](../virtual-machines/m-series.md) | Requires approval. | Memory optimized | Compute clusters and instance |
-| [NC](../virtual-machines/nc-series.md) | None. |  GPU | Compute clusters and instance |
-| [NC Promo](../virtual-machines/nc-series.md) | None. | GPU | Compute clusters and instance |
-| [NCv2](../virtual-machines/ncv2-series.md) | Requires approval. | GPU | Compute clusters and instance |
-| [NCv3](../virtual-machines/ncv3-series.md) | Requires approval. | GPU | Compute clusters and instance |
-| [ND](../virtual-machines/nd-series.md) | Requires approval. | GPU | Compute clusters and instance |
-| [NDv2](../virtual-machines/ndv2-series.md) | Requires approval. | GPU | Compute clusters and instance |
-| [NV](../virtual-machines/nv-series.md) | None. | GPU | Compute clusters and instance |
-| [NVv3](../virtual-machines/nvv3-series.md) | Requires approval. | GPU | Compute clusters and instance |
-| [NCasT4_v3](../virtual-machines/nct4-v3-series.md) | Requires approval. | GPU | Compute clusters and instance |
-| [NDasrA100_v4](../virtual-machines/nda100-v4-series.md) | Requires approval. | GPU | Compute clusters and instance |
+| [DDSv4](../virtual-machines/ddv4-ddsv4-series.md#ddsv4-series) | General purpose | Compute clusters and instance |
+| [Dv2](../virtual-machines/dv2-dsv2-series.md#dv2-series) | General purpose | Compute clusters and instance |
+| [Dv3](../virtual-machines/dv3-dsv3-series.md#dv3-series) | General purpose | Compute clusters and instance |
+| [DSv2](../virtual-machines/dv2-dsv2-series.md#dsv2-series) | General purpose | Compute clusters and instance |
+| [DSv3](../virtual-machines/dv3-dsv3-series.md#dsv3-series) | General purpose | Compute clusters and instance |
+| [EAv4](../virtual-machines/eav4-easv4-series.md) | Memory optimized | Compute clusters and instance |
+| [Ev3](../virtual-machines/ev3-esv3-series.md) | Memory optimized | Compute clusters and instance |
+| [ESv3](../virtual-machines/ev3-esv3-series.md) | Memory optimized | Compute clusters and instance |
+| [FSv2](../virtual-machines/fsv2-series.md) | Compute optimized | Compute clusters and instance |
+| [FX](../virtual-machines/fx-series.md) | Compute optimized | Compute clusters |
+| [H](../virtual-machines/h-series.md) | High performance compute | Compute clusters and instance |
+| [HB](../virtual-machines/hb-series.md) | High performance compute | Compute clusters and instance |
+| [HBv2](../virtual-machines/hbv2-series.md) | High performance compute | Compute clusters and instance |
+| [HBv3](../virtual-machines/hbv3-series.md) |  High performance compute | Compute clusters and instance |
+| [HC](../virtual-machines/hc-series.md) |  High performance compute | Compute clusters and instance |
+| [LSv2](../virtual-machines/lsv2-series.md) |  Storage optimized | Compute clusters and instance |
+| [M](../virtual-machines/m-series.md) | Memory optimized | Compute clusters and instance |
+| [NC](../virtual-machines/nc-series.md) |  GPU | Compute clusters and instance |
+| [NC Promo](../virtual-machines/nc-series.md) | GPU | Compute clusters and instance |
+| [NCv2](../virtual-machines/ncv2-series.md) | GPU | Compute clusters and instance |
+| [NCv3](../virtual-machines/ncv3-series.md) | GPU | Compute clusters and instance |
+| [ND](../virtual-machines/nd-series.md) | GPU | Compute clusters and instance |
+| [NDv2](../virtual-machines/ndv2-series.md) | GPU | Compute clusters and instance |
+| [NV](../virtual-machines/nv-series.md) | GPU | Compute clusters and instance |
+| [NVv3](../virtual-machines/nvv3-series.md) | GPU | Compute clusters and instance |
+| [NCasT4_v3](../virtual-machines/nct4-v3-series.md) | GPU | Compute clusters and instance |
+| [NDasrA100_v4](../virtual-machines/nda100-v4-series.md) | GPU | Compute clusters and instance |
 
 
 While Azure Machine Learning supports these VM series, they might not be available in all Azure regions. To check whether VM series are available, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines).
@@ -162,7 +162,7 @@ Azure Machine Learning supports the following unmanaged compute types:
 * Azure Databricks
 * Azure Data Lake Analytics
 * Azure Container Instance
-* Azure Kubernetes Service & Azure Arc-enabled Kubernetes (preview)
+* Kubernetes
 
 For more information, see [set up compute targets for model training and deployment](how-to-attach-compute-targets.md)
 

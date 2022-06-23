@@ -64,7 +64,7 @@ Because subdomains inherit the authentication type of the root domain by default
 Use the following command to promote the subdomain:
 
 ```http
-POST https://graph.microsoft.com/v1.0/domains/foo.contoso.com/promote
+POST https://graph.windows.net/{tenant-id}/domains/foo.contoso.com/promote
 ```
 
 ### Promote command error conditions

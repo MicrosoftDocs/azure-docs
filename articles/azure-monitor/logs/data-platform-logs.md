@@ -48,7 +48,7 @@ This configuration will be different depending on the data source. For example:
 For a complete list of data sources that you can configure to send data to Azure Monitor Logs, see [What is monitored by Azure Monitor?](../monitor-reference.md).
 
 ## Log Analytics workspaces
-Azure Monitor Logs stores the data that it collects in one or more [Log Analytics workspaces](./design-logs-deployment.md). You must create at least one workspace to use Azure Monitor Logs. See [Log Analytics workspace overview](log-analytics-workspace-overview.md) For a description of Log Analytics workspaces.
+Azure Monitor Logs stores the data that it collects in one or more [Log Analytics workspaces](./workspace-design.md). You must create at least one workspace to use Azure Monitor Logs. See [Log Analytics workspace overview](log-analytics-workspace-overview.md) For a description of Log Analytics workspaces.
 
 ## Log Analytics 
 Log Analytics is a tool in the Azure portal. Use it to edit and run log queries and interactively analyze their results. You can then use those queries to support other features in Azure Monitor, such as log query alerts and workbooks. Access Log Analytics from the **Logs** option on the Azure Monitor menu or from most other services in the Azure portal.

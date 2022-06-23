@@ -1,12 +1,10 @@
 ---
 title: Microsoft Defender for Servers - the benefits and features
 description: Learn about the benefits and features of Microsoft Defender for Servers.
-ms.date: 03/28/2022
+ms.date: 06/15/2022
 ms.topic: overview
-ms.author: benmansheim
-author: bmansheim
 ---
-# Introduction to Microsoft Defender for Servers
+# Overview of Microsoft Defender for Servers
 
 Microsoft Defender for Servers is one of the enhanced security features of Microsoft Defender for Cloud. Use it to add threat detection and advanced defenses to your Windows and Linux machines whether they're running in Azure, AWS, GCP, and on-premises environment.
 
@@ -15,7 +13,9 @@ To protect machines in hybrid and multicloud environments, Defender for Cloud us
 - [Connect your AWS accounts to Microsoft Defender for Cloud](quickstart-onboard-aws.md)
 
 > [!TIP]
-> For details of which Defender for Servers features are relevant for machines running on other cloud environments, see [Supported features for virtual machines and servers](supported-machines-endpoint-solutions-clouds-servers.md?tabs=features-windows#supported-features-for-virtual-machines-and-servers-).
+> For details of which Defender for Servers features are relevant for machines running on other cloud environments, see [Supported features for virtual machines and servers](supported-machines-endpoint-solutions-clouds-servers.md?tabs=features-windows#supported-features-for-virtual-machines-and-servers).
+
+You can learn more from the product manager about Defender for Servers, by watching [Microsoft Defender for Servers](episode-five.md). You can also watch [Enhanced workload protection features in Defender for Servers](episode-twelve.md).
 
 ## What are the Microsoft Defender for server plans?
 
@@ -128,8 +128,13 @@ You can simulate alerts by downloading one of the following playbooks:
 
 - For Linux: [Microsoft Defender for Cloud Playbook: Linux Detections](https://github.com/Azure/Azure-Security-Center/blob/master/Simulations/Azure%20Security%20Center%20Linux%20Detections_v2.pdf).
 
+## Learn more
 
+You can check out the following blogs:
 
+- [Security posture management and server protection for AWS and GCP are now generally available](https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/security-posture-management-and-server-protection-for-aws-and/ba-p/3271388)
+
+- [Microsoft Defender for Cloud Server Monitoring Dashboard](https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/microsoft-defender-for-cloud-server-monitoring-dashboard/ba-p/2869658)
 
 ## Next steps
 
