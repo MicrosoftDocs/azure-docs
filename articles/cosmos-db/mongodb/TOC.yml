@@ -290,10 +290,14 @@
           items: 
             - name: Get started
               href: how-to-javascript-get-started.md
-            - name: With databases
+            - name: Manage databases
               href: how-to-javascript-manage-databases.md
-            - name: With collections and docs
+            - name: Manage collections
               href: how-to-javascript-manage-collections.md         
+            - name: Manage documents
+              href: how-to-javascript-manage-documents.md         
+            - name: Manage queries
+              href: how-to-javascript-manage-queries.md         
     - name: Connect using Mongoose
       href: connect-using-mongoose.md
     - name: Distribute reads globally
