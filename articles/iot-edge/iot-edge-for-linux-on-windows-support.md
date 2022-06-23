@@ -56,7 +56,7 @@ For more information about Windows ARM64 supported processors, see [Windows Proc
 
 Azure IoT Edge for Linux on Windows can run in Windows virtual machines. Using a virtual machine as an IoT Edge device is common when customers want to augment existing infrastructure with edge intelligence. In order to run the EFLOW virtual machine inside a Windows VM, the host VM must support nested virtualization. Azure IoT Edge for Linux on Windows supports the following nested virtualization scenarios:
 
-| Version | Local VM | Azure VM | ESXi VM | Other Hypervisor | 
+| Version | Hyper-V VM | Azure VM | ESXi VM | Other Hypervisor | 
 | ---------------- | ----- |  ----- | ----- | ----- | 
 | EFLOW 1.1 LTS | ![1.1LTS](./media/support/green-check.png) |  ![1.1LTS](./media/support/green-check.png) |  ![1.1LTS](./media/support/green-check.png) | - |  
 | EFLOW Continuous Release (CR) ([Public preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)) | ![CR](./media/support/green-check.png) | ![CR](./media/support/green-check.png) |  ![CR](./media/support/green-check.png) | - |
