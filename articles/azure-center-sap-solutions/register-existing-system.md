@@ -77,7 +77,7 @@ To update permissions for an Azure subscription:
 1. In the **Select members** pane, search for **Azure_Workload_RP_RPaaS_Application_SAPVirtualInstance**.
 1. Select the ACSS application in the results.
 
-    :::image type="content" source="media/register-existing-system/role-assign.png" alt-text="Screenshot of Select members pane in Role assignment page, showing the A C S S application being selected for the contributor role access." lightbox="media/register-existing-system/role-assign.png":::
+    :::image type="content" source="media/register-existing-system/role-assign.png" alt-text="Screenshot of Select members pane in Role assignment page, showing the ACSS application being selected for the contributor role access." lightbox="media/register-existing-system/role-assign.png":::
 
 1. Select **Select**.
 1. Select **Review + assign**.
@@ -98,7 +98,7 @@ To update permissions for a resource group:
 1. In the **Select members** pane, search for **Azure_Workload_RP_RPaaS_Application_SAPVirtualInstance**.
 1. Select the ACSS application in the results.
 
-    :::image type="content" source="media/register-existing-system/role-assign.png" alt-text="Screenshot of Select members pane in Role assignment page, showing the A C S S application being selected for the contributor role access." lightbox="media/register-existing-system/role-assign.png":::
+    :::image type="content" source="media/register-existing-system/role-assign.png" alt-text="Screenshot of Select members pane in Role assignment page, showing the ACSS application being selected for the contributor role access." lightbox="media/register-existing-system/role-assign.png":::
 
 1. Select **Select**.
 1. Select **Review + assign**.
@@ -113,7 +113,7 @@ To register an existing SAP system in ACSS:
 1. Search for and select **Azure Center for SAP solutions** in the Azure portal's search bar.
 1. On the **Azure Center for SAP solutions** page, select **Register**.
 
-    :::image type="content" source="media/register-existing-system/register-button.png" alt-text="Screenshot of A C S S service overview page in the Azure portal, showing button to register an existing S A P system." lightbox="media/register-existing-system/register-button.png":::
+    :::image type="content" source="media/register-existing-system/register-button.png" alt-text="Screenshot of ACSS service overview page in the Azure portal, showing button to register an existing SAP system." lightbox="media/register-existing-system/register-button.png":::
 
 1. On the **Basics** tab of the **Register existing SAP system** page, provide information about the SAP system.
     1. For **ASCS virtual machine**, select **Select ASCS virtual machine** and select the ASCS VM resource.
@@ -125,7 +125,7 @@ To register an existing SAP system in ACSS:
         - If you choose **Manual**, you have to manually grant access to the resource group(s) where the SAP system exists. For more information, see the [resource permissions explanation](#enable-acss-resource-permissions).
     1. Select **Review + register** to discover the SAP system and begin the registration process.
 
-        :::image type="content" source="media/register-existing-system/registration-page.png" alt-text="Screenshot of A C S S registration page, highlighting mandatory fields to identify the existing S A P system." lightbox="media/register-existing-system/registration-page.png":::
+        :::image type="content" source="media/register-existing-system/registration-page.png" alt-text="Screenshot of ACSS registration page, highlighting mandatory fields to identify the existing SAP system." lightbox="media/register-existing-system/registration-page.png":::
 
     1. On the **Review + register** pane, make sure your settings are correct. Then, select **Register**.
 

@@ -44,11 +44,11 @@ To stop an SAP system in the VIS resource:
 
 1. Select the **Stop** button. If you can't select this button, the SAP system already isn't running.
 
-    :::image type="content" source="media/start-stop-sap-systems/stop-button.png" lightbox="media/start-stop-sap-systems/stop-button.png" alt-text="Screenshot of the V I S resource menu in the Azure portal, showing the Stop button.":::
+    :::image type="content" source="media/start-stop-sap-systems/stop-button.png" lightbox="media/start-stop-sap-systems/stop-button.png" alt-text="Screenshot of the VIS resource menu in the Azure portal, showing the Stop button.":::
 
 1. Select **Yes** in the confirmation prompt to stop the VIS.
 
-    :::image type="content" source="media/start-stop-sap-systems/confirm-stop.png" lightbox="media/start-stop-sap-systems/confirm-stop.png" alt-text="Screenshot of the V I S resource menu in the Azure portal, showing the confirmation prompt to stop the V I S resource.":::
+    :::image type="content" source="media/start-stop-sap-systems/confirm-stop.png" lightbox="media/start-stop-sap-systems/confirm-stop.png" alt-text="Screenshot of the VIS resource menu in the Azure portal, showing the confirmation prompt to stop the VIS resource.":::
 
     A notification pane then opens with a **Stopping Virtual Instance for SAP solutions** message.
 
@@ -70,7 +70,7 @@ To start an SAP system in the VIS resource:
 
 1. Select the **Start** button. If you can't select this button, make sure that you've followed the [prerequisites](#prerequisites) for the VMs within your SAP system.
 
-    :::image type="content" source="media/start-stop-sap-systems/start-button.png" lightbox="media/start-stop-sap-systems/start-button.png" alt-text="Screenshot of the V I S resource menu in the Azure portal, showing the Start button.":::
+    :::image type="content" source="media/start-stop-sap-systems/start-button.png" lightbox="media/start-stop-sap-systems/start-button.png" alt-text="Screenshot of the VIS resource menu in the Azure portal, showing the Start button.":::
 
     A notification pane then opens with a **Starting Virtual Instance for SAP solutions** message. The VIS resource's **Status** also changes to **Starting**.
 
