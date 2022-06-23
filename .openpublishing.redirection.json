@@ -6302,6 +6302,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/storage/common/storage-client-side-encryption.md",
+      "redirect_url": "/azure/storage/blobs/client-side-encryption-dotnet",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/storage/blobs/Storage-blob-performance-tiers.md",
       "redirect_url": "/azure/storage/common/storage-account-overview",
       "redirect_document_id": false
