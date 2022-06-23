@@ -27,13 +27,13 @@
   - name: References
     items:
     - name: .NET APIs
-      href: /dotnet/api/overview/azure/edgeorder?view=azure-dotnet-preview
+      href: /dotnet/api/overview/azure/edgeorder
     - name: REST API
       href: /rest/api/edgehardwarecenter/
     - name: Python SDK
       href: https://pypi.org/project/azure-mgmt-edgeorder/1.0.0/
     - name: Azure PowerShell
-      href: /powershell/module/az.edgeorder/?view=azps-7.3.2&viewFallbackFrom=azps-7.1.0#edgeorder
+      href: /powershell/module/az.edgeorder/
   - name: Resources
     items:
     - name: Azure Stack Edge product  

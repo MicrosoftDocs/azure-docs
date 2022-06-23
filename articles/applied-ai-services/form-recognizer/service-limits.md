@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 05/23/2022
+ms.date: 06/06/2022
 ms.author: lajanuar
 ---
 
@@ -29,6 +29,10 @@ For the usage with [Form Recognizer SDK](quickstarts/try-v3-csharp-sdk.md), [For
 | **Max size of labels file** | 10 MB | 10 MB |
 | Adjustable | No | No |
 | **Max size of OCR json response** | 500 MB | 500 MB |
+| Adjustable | No | No |
+| **Max number of Template models** | 500 | 5000 |
+| Adjustable | No | No |
+| **Max number of Neural models** | 100 | 500 |
 | Adjustable | No | No |
 
 # [Form Recognizer v3.0 (Preview)](#tab/v30)

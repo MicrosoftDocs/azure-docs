@@ -4,8 +4,9 @@ description: Azure PowerShell Samples common to all Azure Cosmos DB APIs
 ms.service: cosmos-db
 ms.topic: sample
 ms.date: 05/02/2022
-author: markjbrown
-ms.author: mjbrown
+author: seesharprun
+ms.author: sidandrews
+ms.reviewer: mjbrown
 ms.custom: devx-track-azurecli
 ---
 

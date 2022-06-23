@@ -11,7 +11,7 @@ manager: karenhoran
 ms.reviewer: calebb, dawoo, jebeckha, grtaylor
 ms.collection: M365-identity-device-management
 ---
-# How to: Block legacy authentication to Azure AD with Conditional Access   
+# How to: Block legacy authentication access to Azure AD with Conditional Access   
 
 To give your users easy access to your cloud apps, Azure Active Directory (Azure AD) supports a broad variety of authentication protocols including legacy authentication. However, legacy authentication doesn't support multifactor authentication (MFA). MFA is in many environments a common requirement to address identity theft. 
 

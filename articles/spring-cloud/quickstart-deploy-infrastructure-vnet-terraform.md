@@ -6,7 +6,7 @@ ms.service: spring-cloud
 ms.topic: quickstart
 ms.custom: devx-track-java, mode-other, event-tier1-build-2022
 ms.author: ariel
-ms.date: 11/12/2021
+ms.date: 05/31/2022
 ---
 
 # Quickstart: Provision Azure Spring Apps using Terraform
@@ -14,11 +14,23 @@ ms.date: 11/12/2021
 > [!NOTE]
 > Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
 
-**This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
+**This article applies to:** ❌ Basic tier ✔️ Standard tier ✔️ Enterprise tier
 
 This quickstart describes how to use Terraform to deploy an Azure Spring Apps cluster into an existing virtual network.
 
 Azure Spring Apps makes it easy to deploy Spring applications to Azure without any code changes. The service manages the infrastructure of Spring applications so developers can focus on their code. Azure Spring Apps provides lifecycle management using comprehensive monitoring and diagnostics, configuration management, service discovery, CI/CD integration, blue-green deployments, and more.
+
+The Enterprise tier deployment plan includes the following Tanzu components:
+
+* Build Service
+* Application Configuration Service
+* Service Registry
+* Spring Cloud Gateway
+* API Portal
+
+The API Portal component will be included when it becomes available through the AzureRM Terraform provider.
+
+For more customization including custom domain support, see the [Azure Spring Apps Terraform provider](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/spring_cloud_service) documentation.
 
 ## Prerequisites
 
@@ -26,84 +38,40 @@ Azure Spring Apps makes it easy to deploy Spring applications to Azure without a
 * [Hashicorp Terraform](https://www.terraform.io/downloads.html)
 * Two dedicated subnets for the Azure Spring Apps cluster, one for the service runtime and another for the Spring applications. For subnet and virtual network requirements, see the [Virtual network requirements](how-to-deploy-in-azure-virtual-network.md#virtual-network-requirements) section of [Deploy Azure Spring Apps in a virtual network](how-to-deploy-in-azure-virtual-network.md).
 * An existing Log Analytics workspace for Azure Spring Apps diagnostics settings and a workspace-based Application Insights resource. For more information, see [Analyze logs and metrics with diagnostics settings](diagnostic-services.md) and [Application Insights Java In-Process Agent in Azure Spring Apps](how-to-application-insights.md).
-* Three internal Classless Inter-Domain Routing (CIDR) ranges (at least */16* each) that you've identified for use by the Azure Spring Apps cluster. These CIDR ranges will not be directly routable and will be used only internally by the Azure Spring Apps cluster. Clusters may not use *169.254.0.0/16*, *172.30.0.0/16*, *172.31.0.0/16*, or *192.0.2.0/24* for the internal Spring app CIDR ranges, or any IP ranges included within the cluster virtual network address range.
+* Three internal Classless Inter-Domain Routing (CIDR) ranges (at least */16* each) that you've identified for use by the Azure Spring Apps cluster. These CIDR ranges won't be directly routable and will be used only internally by the Azure Spring Apps cluster. Clusters may not use *169.254.0.0/16*, *172.30.0.0/16*, *172.31.0.0/16*, or *192.0.2.0/24* for the internal Azure Spring Apps CIDR ranges, or any IP ranges included within the cluster virtual network address range.
 * Service permission granted to the virtual network. The Azure Spring Apps Resource Provider requires Owner permission to your virtual network in order to grant a dedicated and dynamic service principal on the virtual network for further deployment and maintenance. For instructions and more information, see the [Grant service permission to the virtual network](how-to-deploy-in-azure-virtual-network.md#grant-service-permission-to-the-virtual-network) section of [Deploy Azure Spring Apps in a virtual network](how-to-deploy-in-azure-virtual-network.md).
 * If you're using Azure Firewall or a Network Virtual Appliance (NVA), you'll also need to satisfy the following prerequisites:
   * Network and fully qualified domain name (FQDN) rules. For more information, see [Virtual network requirements](how-to-deploy-in-azure-virtual-network.md#virtual-network-requirements).
   * A unique User Defined Route (UDR) applied to each of the service runtime and Spring application subnets. For more information about UDRs, see [Virtual network traffic routing](../virtual-network/virtual-networks-udr-overview.md). The UDR should be configured with a route for *0.0.0.0/0* with a destination of your NVA before deploying the Azure Spring Apps cluster. For more information, see the [Bring your own route table](how-to-deploy-in-azure-virtual-network.md#bring-your-own-route-table) section of [Deploy Azure Spring Apps in a virtual network](how-to-deploy-in-azure-virtual-network.md).
+* If you're deploying Azure Spring Apps Enterprise tier for the first time in the target subscription, use the following commands to register the provider and accept the legal terms and privacy statements for the Enterprise tier.
 
-## Review the configuration file
+   ```azurecli
+   az provider register --namespace Microsoft.SaaS
+   az term accept \
+       --publisher vmware-inc \
+       --product azure-spring-cloud-vmware-tanzu-2 \
+       --plan tanzu-asc-ent-mtr
+   ```
+
+## Review the Terraform plan
 
 The configuration file used in this quickstart is from the [Azure Spring Apps reference architecture](reference-architecture.md).
 
-```hcl
-provider "azurerm" {
-    features {}
-}
+### [Standard tier](#tab/azure-spring-apps-standard)
 
-resource "azurerm_resource_group" "sc_corp_rg" {
-    name      = var.resource_group_name
-    location  = var.location
-}
+:::code language="hcl" source="~/azure-spring-cloud-reference-architecture/terraform/brownfield-deployment/Standard/main.tf":::
 
-resource "azurerm_application_insights" "sc_app_insights" {
-  name                = var.app_insights_name
-  location            = var.location
-  resource_group_name = var.resource_group_name
-  application_type    = "web"
-  depends_on = [azurerm_resource_group.sc_corp_rg]
-}
+### [Enterprise tier](#tab/azure-spring-apps-enterprise)
 
-resource "azurerm_spring_cloud_service" "sc" {
-  name                = var.sc_service_name
-  resource_group_name = var.resource_group_name
-  location            = var.location
+:::code language="hcl" source="~/azure-spring-cloud-reference-architecture/terraform/brownfield-deployment/Enterprise/main.tf":::
 
-  network {
-    app_subnet_id                   = "/subscriptions/${var.subscription}/resourceGroups/${var.azurespringappsvnetrg}/providers/Microsoft.Network/virtualNetworks/${var.vnet_spoke_name}/subnets/${var.app_subnet_id}"
-    service_runtime_subnet_id       = "/subscriptions/${var.subscription}/resourceGroups/${var.azurespringappsvnetrg}/providers/Microsoft.Network/virtualNetworks/${var.vnet_spoke_name}/subnets/${var.service_runtime_subnet_id}"
-    cidr_ranges                     = var.sc_cidr
-  }
+---
 
-  timeouts {
-      create = "60m"
-      delete = "2h"
-  }
+## Apply the Terraform plan
 
-  depends_on = [azurerm_resource_group.sc_corp_rg]
-  tags = var.tags
+To apply the Terraform plan, follow these steps:
 
-}
-
-resource "azurerm_monitor_diagnostic_setting" "sc_diag" {
-  name                        = "monitoring"
-  target_resource_id          = azurerm_spring_cloud_service.sc.id
-  log_analytics_workspace_id = "/subscriptions/${var.subscription}/resourceGroups/${var.azurespringappsvnetrg}/providers/Microsoft.OperationalInsights/workspaces/${var.sc_law_id}"
-
-  log {
-    category = "ApplicationConsole"
-    enabled  = true
-
-    retention_policy {
-      enabled = false
-    }
-  }
-
-  metric {
-    category = "AllMetrics"
-
-    retention_policy {
-      enabled = false
-    }
-  }
-}
-```
-
-## Apply the configuration
-
-To apply the configuration, follow these steps:
-
-1. Save the [variables.tf](https://raw.githubusercontent.com/Azure/azure-spring-cloud-reference-architecture/main/terraform/brownfield-deployment/variable.tf) file locally, then open it in an editor.
+1. Save the *variables.tf* file for [Standard tier](https://raw.githubusercontent.com/Azure/azure-spring-cloud-reference-architecture/main/terraform/brownfield-deployment/Standard/variable.tf) or [Enterprise tier](https://raw.githubusercontent.com/Azure/azure-spring-cloud-reference-architecture/main/terraform/brownfield-deployment/Enterprise/variable.tf) locally, then open it in an editor.
 
 1. Edit the file to add the following values:
 
@@ -111,19 +79,25 @@ To apply the configuration, follow these steps:
 
    * A deployment location from the regions where Azure Spring Apps is available, as shown in [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=spring-cloud&regions=all). You'll need the short form of the location name. To get this value, use the following command to generate a list of Azure locations, then look up the **Name** value for the region you selected.
 
-   ```azurecli
-   az account list-locations --output table
-   ```
+     ```azurecli
+     az account list-locations --output table
+     ```
+
+1. Edit the file to add the following new deployment information:
 
    * The name of the resource group you'll deploy to.
-   * A name of your choice for the Spring app deployment.
-   * The name of the virtual network resource group where you'll deploy your resources.
-   * The name of the spoke virtual network (for example, *vnet-spoke*).
-   * The name of the subnet to be used by the Azure Spring Apps service (for example, *snet-app*).
-   * The name of the subnet to be used by the Spring runtime service (for example, *snet-runtime*).
+   * A name of your choice for the Azure Spring Apps Deployment.
+   * A name of your choice for the Application Insights resource.
+   * Three CIDR ranges (at least /16) which are used to host the Azure Spring Apps backend infrastructure. The CIDR ranges must not overlap with any existing CIDR ranges in the target Subnet
+   * The key/value pairs to be applied as tags on all resources that support tags. For more information, see [Use tags to organize your Azure resources and management hierarchy](../azure-resource-manager/management/tag-resources.md)
+
+1. Edit the file to add the following existing infrastructure information:
+
+   * The name of the resource group where the existing virtual network resides.
+   * The name of the existing scope virtual network.
+   * The name of the existing subnet to be used by the Azure Spring Apps Application Service.
+   * The name of the existing subnet to be used by the Azure Spring Apps Runtime Service.
    * The name of the Azure Log Analytics workspace.
-   * The CIDR ranges from your virtual network to be used by Azure Spring Apps (for example, *XX.X.X.X/16,XX.X.X.X/16,XX.X.X.X/16*).
-   * The key/value pairs to be applied as tags on all resources that support tags. For more information, see [Use tags to organize your Azure resources and management hierarchy](../azure-resource-manager/management/tag-resources.md).
 
 1. Run the following command to initialize the Terraform modules:
 

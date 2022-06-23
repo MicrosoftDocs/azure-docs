@@ -1,6 +1,5 @@
 ---
 title: Create a trust relationship between an app and an external identity provider
-titleSuffix: Microsoft identity platform
 description: Set up a trust relationship between an app in Azure AD and an external identity provider.  This allows a software workload outside of Azure to access Azure AD protected resources without using secrets or certificates. 
 services: active-directory
 author: rwike77

@@ -74,7 +74,7 @@ The following video introduces Azure Spring Apps Enterprise tier.
 
 <br>
 
-> [!VIDEO https://www.youtube.com/embed/RoUtUv5CQSc]
+> [!VIDEO https://www.youtube.com/embed/CLvtz8SkrMA]
 
 ### Deploy and manage Spring and polyglot applications
 
@@ -116,14 +116,14 @@ Typically, open-source Spring project minor releases are supported for a minimum
 
 Azure Spring Apps, including Enterprise tier, runs on Azure in a fully managed environment. You get all the benefits of Azure and the Java ecosystem, and the experience is familiar and intuitive, as shown in the following table:
 
-| Best practice                                                      | Ecosystem |
-|--------------------------------------------------------------------|-----------|
-| Create service instances using a provisioning tool.                | Azure Portal, CLI, ARM Template, Bicep, or Terraform |
-| Automate environments and application deployments.                 | GitHub, Azure DevOps, GitLab, and Jenkins |
-| Monitor end-to-end using any tool and platform.                    | Application Insights, Azure Log Analytics, Splunk, Elastic, New Relic, Dynatrace, or AppDynamics |
+| Best practice                                                      | Ecosystem                                                                                             |
+|--------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------|
+| Create service instances using a provisioning tool.                | Azure portal, CLI, ARM Template, Bicep, or Terraform                                                  |
+| Automate environments and application deployments.                 | GitHub, Azure DevOps, GitLab, and Jenkins                                                             |
+| Monitor end-to-end using any tool and platform.                    | Application Insights, Azure Log Analytics, Splunk, Elastic, New Relic, Dynatrace, or AppDynamics      |
 | Connect Spring applications and interact with your cloud services. | Spring integration with Azure services for data, messaging, eventing, cache, storage, and directories |
-| Securely load app secrets and certificates.                        | Azure Key Vault |
-| Use familiar development tools.                                    | IntelliJ, VS Code, Eclipse, Spring Tool Suite, Maven, or Gradle |
+| Securely load app secrets and certificates.                        | Azure Key Vault                                                                                       |
+| Use familiar development tools.                                    | IntelliJ, VS Code, Eclipse, Spring Tool Suite, Maven, or Gradle                                       |
 
 After you create your Enterprise tier service instance and deploy your applications, you can monitor with Application Insights or any other application performance management tools of your choice.
 
@@ -132,9 +132,14 @@ After you create your Enterprise tier service instance and deploy your applicati
 The following quickstarts will help you get started using the Enterprise tier:
 
 * [View Enterprise Tier offering](how-to-enterprise-marketplace-offer.md)
-* [Provision an Azure Spring Apps instance using the Enterprise tier](quickstart-provision-service-instance-enterprise.md)
-* [Set up Application Configuration Service for Tanzu](quickstart-setup-application-configuration-service-enterprise.md)
-* [Build and deploy applications](quickstart-deploy-apps-enterprise.md)
+* [Introduction to Fitness Store sample](quickstart-sample-app-acme-fitness-store-introduction.md)
+* [Build and deploy apps](quickstart-deploy-apps-enterprise.md)
+* [Configure single sign-on](quickstart-configure-single-sign-on-enterprise.md)
+* [Integrate Azure Database for PostgreSQL and Azure Cache for Redis](quickstart-integrate-azure-database-and-redis-enterprise.md)
+* [Load application secrets using Key Vault](quickstart-key-vault-enterprise.md)
+* [Monitor applications end-to-end](quickstart-monitor-end-to-end-enterprise.md)
+* [Set request rate limits](quickstart-set-request-rate-limits-enterprise.md)
+* [Automate deployments](quickstart-automate-deployments-github-actions-enterprise.md)
 
 Most of the Azure Spring Apps documentation applies to all tiers. Some articles apply only to Enterprise tier or only to Basic/Standard tier, as indicated at the beginning of each article.
 

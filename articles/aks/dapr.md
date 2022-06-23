@@ -264,7 +264,7 @@ az k8s-extension delete --resource-group myResourceGroup --cluster-name myAKSClu
 [k8s-version-support-policy]: ./supported-kubernetes-versions.md?tabs=azure-cli#kubernetes-version-support-policy
 [arc-k8s-cluster]: ../azure-arc/kubernetes/quickstart-connect-cluster.md
 [update-extension]: ./cluster-extensions.md#update-extension-instance
-[install-cli]: https://docs.microsoft.com/cli/azure/install-azure-cli
+[install-cli]: /cli/azure/install-azure-cli
 
 <!-- LINKS EXTERNAL -->
 [kubernetes-production]: https://docs.dapr.io/operations/hosting/kubernetes/kubernetes-production
