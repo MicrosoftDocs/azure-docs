@@ -22,7 +22,7 @@ The modules listed below are split into five parts following the life cycle of a
 - [Module 2: How is Microsoft Sentinel used?](#module-2-how-is-microsoft-sentinel-used)
 
 [Part 2: Architecting & Deploying](#part-2-architecting--deploying)
-- [Module 3: Workspace and tenant architecture](#module-3-wokrspace-and-tenant-architecture)
+- [Module 3: Workspace and tenant architecture](#module-3-workspace-and-tenant-architecture)
 - [Module 4: Data collection](#module-4-data-collection)
 - [Module 5: Log Management](#module-5-log-management)
 - [Module 6: Enrichment: TI, Watchlists, and more](#module-6-enrichment-ti-watchlists-and-more)
@@ -444,7 +444,7 @@ An important part of the integration is implemented by [MSTICPY](https://techcom
 * [MSTICPy Fundamentals to Build Your Own Notebooks](https://www.youtube.com/watch?v=S0knTOnA2Rk&ab_channel=MicrosoftSecurityCommunity)
 * [MSTICPy Intermediate to Build Your Own Notebooks](https://www.youtube.com/watch?v=Rpj-FS_0Wqg&ab_channel=MicrosoftSecurityCommunity)
 
-### Module 15: Use cases and solution
+### Module 15: Use cases and solutions
 
 Connectors, rules, playbooks, and workbooks enable you to implement **use cases**: the SIEM term for a content pack intended to detect and respond to a threat. You can deploy Sentinel built-in use cases by activating the suggested rules when connecting each Connector. A **solution** is a **group of use cases** addressing a specific threat domain.
 
