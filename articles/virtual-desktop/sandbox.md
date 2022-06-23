@@ -10,7 +10,7 @@ manager: costinh
 
 # Set up Windows Sandbox in Azure Virtual Desktop
 
-This topic will walk you through how to publish Windows Sandbox for your users in a Azure Virtual Desktop environment.
+This topic will walk you through how to publish Windows Sandbox for your users in an Azure Virtual Desktop environment.
 
 ## Prerequisites
 
@@ -25,10 +25,8 @@ To get the OS image from the Azure portal:
 
 1. Open the [Azure portal](https://portal.azure.com) and sign in.
 2. Go to **Create a resource** > **Virtual Machine**.
-3. In the **Basic** tab, for the **Image** field, select **Windows 11 Enterprise multi-session- x64 Gen2**.
-<!--You can select Windows 10 Enterprise, Windows 10 Enterprise multi-session- or Windows 11?-->
-4. Follow the rest of the instructions to finish creating the virtual machine.
-<!--what instructions? nested virtualization?-->
+3. In the **Basic** tab, for the **Image** field, select either a Windows 10 Enterprise multi-session or Windows 11 image. For this example, we'll select **Windows 11 Enterprise multi-session- x64 Gen2**.
+4. Finish creating your virtual machine by following steps 7 through 15 in [Virtual machine details](create-host-pools-azure-marketplace.md#virtual-machine-details).
 
 ## Prepare the VHD image for Azure
 
@@ -72,7 +70,7 @@ To publish Windows Sandbox to your host pool using PowerShell:
 3. Run the following command to create a Sandbox remote app:
 
   ```powershell
-   New-AzWvdApplication -ResourceGroupName <Resource Group Name> -GroupName <Application Group Name> -FilePath 'C:\windows\system32\WindowsSandbox.exe' -IconIndex 0 -   IconPath 'C:\windows\system32\WindowsSandbox.exe' -CommandLineSetting 'Allow' -ShowInPortal:$true -SubscriptionId <Workspace Subscription ID>
+  New-AzWvdApplication -ResourceGroupName <Resource Group Name> -GroupName <Application Group Name> -FilePath 'C:\windows\system32\WindowsSandbox.exe' -IconIndex 0 -   IconPath 'C:\windows\system32\WindowsSandbox.exe' -CommandLineSetting 'Allow' -ShowInPortal:$true -SubscriptionId <Workspace Subscription ID>
   ```
   <!---this code has "WVD" in it. Is there an updated version? David also spotted some syntax errors here.-->
 
