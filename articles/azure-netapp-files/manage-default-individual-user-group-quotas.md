@@ -7,11 +7,17 @@ ms.author: anfdocs
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.topic: how-to
-ms.date: 04/22/2022
+ms.date: 06/23/2022
 ---
 # Manage default and individual user and group quotas for a volume 
 
 This article explains the considerations and steps for managing user and group quotas on Azure NetApp Files volumes. To understand the use cases for this feature, see [Understand default and individual user and group quotas](default-individual-user-group-quotas-introduction.md).
+
+## Quotas in cross-regional replication relationships
+
+Quota rules will be synced from CRR source to destination volume. Quota rules created, deleted, or updated on a cross-region replication (CRR) source volume will automatically be applied on CRR destination volume.
+
+Quota rules will only come into effect on the CRR destination volume after the replication relationship is deleted because the destination volume is read-only. To learn how to break the replication relationship, see [Delete volume replications](cross-region-replicaiton-delete.md#delete-volume-replications). If source volumes have quota rules and the CRR destination volume is created at the same time as the source volume, all the quota rules will be created on destination volume.
 
 ## Considerations 
 
@@ -23,6 +29,10 @@ This article explains the considerations and steps for managing user and group q
     * Currently, syncing quota rules to the destination (data protection) volume isn't supported.   
     * You can’t create quota rules on the destination volume until the [replication is deleted](cross-region-replication-delete.md).  
     * You need to manually create quota rules on the destination volume if you want them for the volume, and you can do so only after the replication is deleted.
+    * If a quota rule is in the error state after you delete the replication relationship, it must be deleted and recreated on the CRR destination volume. 
+    * During sync or reverse resync operations:
+        * If you create, update, or delete a rule (new or existing) on a source volume, you must perform the same operation on the destination volume. 
+        * Any new rule that is created or existing rule that is updated or deleted on a destination volume following the deletion of the replication relationship will be reverted to keep the CRR source and destination volumes in sync. 
 
 ## Register the feature  
 
