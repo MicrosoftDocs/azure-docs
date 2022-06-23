@@ -15,17 +15,15 @@ ms.custom: mvc, devx-track-azurecli
 
 [!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
-:::image type="content" source="media/tutorial-php-database-app/complete-checkbox-published.png" alt-text="PHP Web App in Azure with Flexible Server":::
-
 [Azure App Service](../../app-service/overview.md) provides a highly scalable, self-patching web hosting service using the Linux operating system. 
 
-This tutorial shows how to create a PHP app in Azure and connect it to a MySQL database. When you're finished, you'll have a sample PHP app running on Azure App Service on Linux.
+This tutorial shows how to build and deploy a sample PHP application to Azure App Service, and integrate it with Azure Database for MySQL - Flexible Server on the back end.
 
-In this tutorial, you learn how to:
+In this tutorial, you'll learn how to:
 > [!div class="checklist"]
 >
 > * Create a MySQL flexible server
-> * Connect a PHP app to MySQL - Flexible Server
+> * Connect a PHP app to the MySQL flexible server
 > * Deploy the app to Azure App Service
 > * Update and redeploy the app
 
@@ -39,7 +37,9 @@ In this tutorial, you learn how to:
 
 ## Create an Azure Database for MySQL flexible server
 
-First, we'll provision a MySQL flexible server with public access connectivity, configure firewall rules to allow the application to access the server, and create a production database.
+First, we'll provision a MySQL flexible server with public access connectivity, configure firewall rules to allow the application to access the server, and create a production database. 
+
+To learn how to use private access connectivity instead and isolate app and database resources in a virtual network, see [Tutorial: Connect an App Services Web app to an Azure Database for MySQL flexible server in a virtual network](tutorial-webapp-server-vnet.md).
 
 ### Create a resource group
 
@@ -61,7 +61,7 @@ An Azure resource group is a logical group in which Azure resources are deployed
 
 ### Create a MySQL flexible server
 
-1. To create a MySQL flexible server with public access connectivity, run the [`az flexible-server create`](/cli/azure/mysql/server#az-mysql-flexible-server-create) command. Replace your values for server name, admin username and password.
+1. To create a MySQL flexible server with public access connectivity, run the following [`az flexible-server create`](/cli/azure/mysql/server#az-mysql-flexible-server-create) command. Replace your values for server name, admin username and password.
 
     ```azurecli-interactive
     az mysql flexible-server create \
@@ -99,9 +99,9 @@ An Azure resource group is a logical group in which Azure resources are deployed
 
 For the purposes of this tutorial, we'll use a sample PHP application that displays and manages a product catalog. The application provides basic functionalities like viewing the products in the catalog, adding new products, updating existing item prices and removing products.
 
-We'll directly clone the coded app and learn how to deploy it on Azure App Service.
+To learn more about the application code, go ahead and explore the app in the [GitHub repository]((https://github.com/Azure-Samples/php-mysql-app-service)). To learn how to connect a PHP app to MySQL flexible server, refer [Quickstart: Connect using PHP](connect-php.md).
 
-**Note:** To learn more about the application code, go ahead and explore the app in the GitHub repository!
+In this tutorial, we'll directly clone the coded sample app and learn how to deploy it on Azure App Service.
 
 1. To clone the sample application repository and change to the repository root, run the following commands:
 
@@ -122,7 +122,7 @@ In Azure App Service (Web Apps, API Apps, or Mobile Apps), an app always runs in
 
 1. To create an App Service plan in the Free pricing tier, run the following command:
 
-    ```azurecli
+    ```azurecli-interactive
     az appservice plan create --name plan-php-demo \
     --resource-group rg-php-demo \
     --location centralus \
@@ -131,17 +131,15 @@ In Azure App Service (Web Apps, API Apps, or Mobile Apps), an app always runs in
 
 1. If you want to deploy an application to Azure web app using deployment methods like FTP or Local Git, you need to configure a deployment user with username and password credentials. After you configure your deployment user, you can take advantage of it for all your Azure App Service deployments.
 
-    ```azurecli
+    ```azurecli-interactive
     az webapp deployment user set \
     --user-name <your-deployment-username> \
     --password <your-deployment-password>
     ```
 
-1. To create an App Service web app with PHP 8.0 runtime and to configure  the Local Git deployment option to deploy your app from a Git repository on your local computer, run the following command.
+1. To create an App Service web app with PHP 8.0 runtime and to configure  the Local Git deployment option to deploy your app from a Git repository on your local computer, run the following command. Replace `<your-app-name>` with a globally unique app name (valid characters are a-z, 0-9, and -).
 
-    **Note**: Replace `<your-app-name>` with a globally unique app name (valid characters are a-z, 0-9, and -).
-
-    ```azurecli
+    ```azurecli-interactive
     az webapp create \
     --resource-group rg-php-demo \
     --plan plan-php-demo \
@@ -157,7 +155,7 @@ In Azure App Service (Web Apps, API Apps, or Mobile Apps), an app always runs in
 
     The `config.php` file in the sample PHP application retrieves the database connection information (server name, database name, server username and password) from environment variables using the `getenv()` function. In App Service, to set environment variables as **Application Settings** (*appsettings*), run the following command:
 
-    ```azurecli
+    ```azurecli-interactive
     az webapp config appsettings set \
     --name <your-app-name> \
     --resource-group rg-php-demo \
@@ -167,6 +165,8 @@ In Azure App Service (Web Apps, API Apps, or Mobile Apps), an app always runs in
     DB_PASSWORD="<your-mysql-admin-password>" \
     MYSQL_SSL="true"
     ```
+    
+    Alternatively, you can use Service Connector to establish a connection between the App Service app and the MySQL flexible server. For more details, see [Integrate Azure Database for MySQL with Service Connector](../../service-connector/how-to-integrate-mysql.md).
 
 ## Deploy your application using Local Git
 
@@ -174,7 +174,7 @@ Now, we'll deploy the sample PHP application to Azure App Service using the Loca
 
 1. Since you're deploying the main branch, you need to set the default deployment branch for your App Service app to main. To set the DEPLOYMENT_BRANCH under **Application Settings**, run the following command:
 
-    ```azurecli
+    ```azurecli-interactive
     az webapp config appsettings set \
     --name <your-app-name> \
     --resource-group rg-php-demo \
@@ -187,13 +187,13 @@ Now, we'll deploy the sample PHP application to Azure App Service using the Loca
 
     **Note:** Replace `<deploymentLocalGitUrl>` with the URL of the Git remote that you saved in the **Create an App Service web app** step.
 
-    ```azurecli
+    ```azurecli-interactive
     git remote add azure <deploymentLocalGitUrl>
     ```
 
 1. To deploy your app by performing a `git push` to the Azure remote, run the following command. When Git Credential Manager prompts you for credentials, enter the deployment credentials that you created in **Configure a deployment user** step.
 
-    ```azurecli
+    ```azurecli-interactive
     git push azure main
     ```
 
@@ -202,6 +202,8 @@ The deployment may take a few minutes to succeed.
 ## Test your application
 
 Finally, test the application by browsing to `https://<app-name>.azurewebsites.net`, and then add, view, update or delete items from the product catalog.
+
+:::image type="content" source="media/tutorial-php-database-app/sample-php-app.png" alt-text="Screenshot showing the sample Product Catalog PHP Web App":::
 
 Congratulations! You have successfully deployed a sample PHP application to Azure App Service and integrated it with Azure Database for MySQL - Flexible Server on the back end.
 
@@ -225,11 +227,11 @@ In this tutorial, you created all the Azure resources in a resource group. If yo
 az group delete --name rg-php-demo
 ```
 
-<a name="next"></a>
-
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [How to manage your resources in Azure portal](../../azure-resource-manager/management/manage-resources-portal.md) <br/>
+> [How to manage your resources in Azure portal](../../azure-resource-manager/management/manage-resources-portal.md)
+
 > [!div class="nextstepaction"]
 > [How to manage your server](how-to-manage-server-cli.md)
+
