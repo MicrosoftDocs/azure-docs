@@ -27,16 +27,22 @@ Anyone with permissions to create an app registration and add a secret or certif
 
 In this article, you learn how to create, list, and delete federated identity credentials on a application in Azure AD.
 
-## Important considerations and limitations
+## Important considerations and restrictions
+
+A maximum of 20 federated identity credentials can be added to an application.
 
 When you configure a federated identity credential, there are several important pieces of information to provide.
 
-*issuer* and *subject* are the key pieces of information needed to set up the trust relationship. *issuer* is the URL of the external identity provider and must match the `issuer` claim of the external token being exchanged.  *subject* is the identifier of the external software workload and must match the `sub` (`subject`) claim of the external token being exchanged. *subject* has no fixed format, as each IdP uses their own - sometimes a GUID, sometimes a colon delimited identifier, sometimes arbitrary strings. The combination of `issuer` and `subject` must be unique on the app.  When the external software workload requests Microsoft identity platform to exchange the external token for an access token, the *issuer* and *subject* values of the federated identity credential are checked against the `issuer` and `subject` claims provided in the external token. If that validation check passes, Microsoft identity platform issues an access token to the external software workload.
+*issuer* and *subject* are the key pieces of information needed to set up the trust relationship. The combination of `issuer` and `subject` must be unique on the app.  When the external software workload requests Microsoft identity platform to exchange the external token for an access token, the *issuer* and *subject* values of the federated identity credential are checked against the `issuer` and `subject` claims provided in the external token. If that validation check passes, Microsoft identity platform issues an access token to the external software workload.
+
+*issuer* is the URL of the external identity provider and must match the `issuer` claim of the external token being exchanged.  If the `issuer` claim has leading or trailing whitespace in the value, the token exchange is blocked.
+
+*subject* is the identifier of the external software workload and must match the `sub` (`subject`) claim of the external token being exchanged. *subject* has no fixed format, as each IdP uses their own - sometimes a GUID, sometimes a colon delimited identifier, sometimes arbitrary strings.
 
 > [!IMPORTANT]
 > If you accidentally add the incorrect external workload information in the *subject* setting the federated identity credential is created successfully without error.  The error does not become apparent until the token exchange fails.
 
-*audiences* lists the audiences that can appear in the external token.  This field is mandatory, and defaults to "api://AzureADTokenExchange". It says what Microsoft identity platform must accept in the `aud` claim in the incoming token.  This value represents Azure AD in your external identity provider and has no fixed value across identity providers - you may need to create a new application registration in your IdP to serve as the audience of this token.
+*audiences* lists the audiences that can appear in the external token.  This field is mandatory.  The recommended value is "api://AzureADTokenExchange". It says what Microsoft identity platform must accept in the `aud` claim in the incoming token.  This value represents Azure AD in your external identity provider and has no fixed value across identity providers - you may need to create a new application registration in your IdP to serve as the audience of this token.
 
 *name* is the unique identifier for the federated identity credential, which has a character limit of 120 characters and must be URL friendly. It is immutable once created.
 
@@ -183,7 +189,7 @@ Find the object ID of the app (not the application (client) ID), which you need 
 
 Get the *subject* and *issuer* information for your external IdP and software workload, which you need in the following steps.
 
-The Microsoft Graph endpoint (`https://graph.microsoft.com`) exposes REST APIs to create, update, delete [federatedIdentityCredentials](/graph/api/resources/federatedidentitycredential) on applications. Launch [Azure Cloud Shell](https://portal.azure.com/#cloudshell/) and sign in to your tenant in order to run Microsoft Graph commands from AZ CLI.
+
 
 ## Configure a federated identity credential on an app
 
@@ -198,21 +204,108 @@ The Microsoft Graph endpoint (`https://graph.microsoft.com`) exposes REST APIs t
 ::: zone pivot="identity-wif-apps-methods-powershell"
 
 ## Prerequisites
-[Create an app registration](quickstart-register-app.md) in Azure AD.  Grant your app access to the Azure resources targeted by your external software workload.  
+- To run the example scripts, you have two options:
+  - Use [Azure Cloud Shell](../../cloud-shell/overview.md), which you can open by using the **Try It** button in the upper-right corner of code blocks.
+  - Run scripts locally with Azure PowerShell, as described in the next section.
+- [Create an app registration](quickstart-register-app.md) in Azure AD.  Grant your app access to the Azure resources targeted by your external software workload.
+- Find the object ID of the app (not the application (client) ID), which you need in the following steps.  You can find the object ID of the app in the Azure portal.  Go to the list of [registered applications](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) in the Azure portal and select your app registration.  In **Overview**->**Essentials**, find the **Object ID**.
+- Get the *subject* and *issuer* information for your external IdP and software workload, which you need in the following steps.
 
-Find the object ID of the app (not the application (client) ID), which you need in the following steps.  You can find the object ID of the app in the Azure portal.  Go to the list of [registered applications](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) in the Azure portal and select your app registration.  In **Overview**->**Essentials**, find the **Object ID**.
+### Configure Azure PowerShell locally
 
-Get the *subject* and *issuer* information for your external IdP and software workload, which you need in the following steps.
+To use Azure PowerShell locally for this article instead of using Cloud Shell:
 
-The Microsoft Graph endpoint (`https://graph.microsoft.com`) exposes REST APIs to create, update, delete [federatedIdentityCredentials](/graph/api/resources/federatedidentitycredential) on applications. Launch [Azure Cloud Shell](https://portal.azure.com/#cloudshell/) and sign in to your tenant in order to run Microsoft Graph commands from AZ CLI.
+1. Install [the latest version of Azure PowerShell](/powershell/azure/install-az-ps) if you haven't already.
+
+1. Sign in to Azure.
+
+    ```azurepowershell
+    Connect-AzAccount
+    ```
+
+1. Install the [latest version of PowerShellGet](/powershell/scripting/gallery/installing-psget#for-systems-with-powershell-50-or-newer-you-can-install-the-latest-powershellget).
+
+    ```azurepowershell
+    Install-Module -Name PowerShellGet -AllowPrerelease
+    ```
+
+    You might need to `Exit` out of the current PowerShell session after you run this command for the next step.
+
+1. Install the prerelease version of the `Az.Resources` module to perform the federated identity credential operations in this article.
+
+    ```azurepowershell
+    Install-Module -Name Az.Resources -AllowPrerelease
+    ```
+
 
 ## Configure a federated identity credential on an app
 
+Run the [New-AzADAppFederatedIdentityCredential](/powershell/module/az.resources/new-azadappfederatedidentitycredential) cmdlet to create a new federated identity credential on an application.
+
+### GitHub Actions example
+
+- *ApplicationObjectId*: the object ID of the app (not the application (client) ID) you previously registered in Azure AD.
+- *Issuer* identifies GitHub as the external token issuer.  
+- *Subject* identifies the GitHub organization, repo, and environment for your GitHub Actions workflow.  When the GitHub Actions workflow requests Microsoft identity platform to exchange a GitHub token for an access token, the values in the federated identity credential are checked against the provided GitHub token.
+    - For Jobs tied to an environment: `repo:< Organization/Repository >:environment:< Name >`
+    - For Jobs not tied to an environment, include the ref path for branch/tag based on the ref path used for triggering the workflow: `repo:< Organization/Repository >:ref:< ref path>`.  For example, `repo:n-username/ node_express:ref:refs/heads/my-branch` or `repo:n-username/ node_express:ref:refs/tags/my-tag`.
+    - For workflows triggered by a pull request event: `repo:< Organization/Repository >:pull-request`.
+- *Name* is the name of the federated credential, which cannot be changed later.
+- *Audience* lists the audiences that can appear in the `aud` claim of the external token.
+
+```azurepowershell-interactive
+New-AzADappfederatedidentitycredential -ApplicationObjectId $appObjectId -Audience api://AzureADTokenExchange -Issuer 'https://token.actions.githubusercontent.com/' -name 'GitHub-Actions-Test' -Subject 'repo:octo-org/octo-repo:environment:Production'
+```
+
+### Kubernetes example
+
+- *ApplicationObjectId*: the object ID of the app (not the application (client) ID) you previously registered in Azure AD.
+- *Issuer* is your service account issuer URL (the [OIDC issuer URL](../../aks/cluster-configuration.md#oidc-issuer-preview) for the managed cluster or the [OIDC Issuer URL](https://azure.github.io/azure-workload-identity/docs/installation/self-managed-clusters/oidc-issuer.html) for a self-managed cluster).  
+- *Subject* is the subject name in the tokens issued to the service account. Kubernetes uses the following format for subject names: `system:serviceaccount:<SERVICE_ACCOUNT_NAMESPACE>:<SERVICE_ACCOUNT_NAME>`.
+- *Name* is the name of the federated credential, which cannot be changed later.
+- *Audience* lists the audiences that can appear in the `aud` claim of the external token. 
+
+```azurepowershell-interactive
+New-AzADappfederatedidentitycredential -ApplicationObjectId $appObjectId -Audience api://AzureADTokenExchange -Issuer 'https://aksoicwesteurope.blob.core.windows.net/9d80a3e1-2a87-46ea-ab16-e629589c541c/' -name 'Kubernetes-federated-credential' -Subject 'system:serviceaccount:erp8asle:pod-identity-sa'
+```
+
+### Other identity providers example
+
+Specify the following parameters (using a software workload running in Google Cloud as an example):
+
+- *ObjectID*: the object ID of the app (not the application (client) ID) you previously registered in Azure AD.
+- *Name* is the name of the federated credential, which cannot be changed later.
+- *Subject*: must match the `sub` claim in the token issued by the external identity provider.  In this example using Google Cloud, *subject* is the Unique ID of the service account you plan to use.
+- *Issuer*: must match the `iss` claim in the token issued by the external identity provider. A URL that complies with the OIDC Discovery spec. Azure AD uses this issuer URL to fetch the keys that are necessary to validate the token. In the case of Google Cloud, the *issuer* is "https://accounts.google.com".
+- *Audiences*: must match the `aud` claim in the external token. For security reasons, you should pick a value that is unique for tokens meant for Azure AD. 
+
+```azurepowershell-interactive
+New-AzADappfederatedidentitycredential -ApplicationObjectId $appObjectId -Audience api://AzureADTokenExchange -Issuer 'https://accounts.google.com' -name 'GcpFederation' -Subject '112633961854638529490'
+```
+
 ## List federated identity credentials on an app
+
+Run the [Get-AzADAppFederatedCredential](/powershell/module/az.resources/get-azadappfederatedidentitycredential) cmdlet to list the federated identity credentials for an application.
+
+```azurepowershell-interactive
+Get-AzADApplication -ObjectId $app | Get-AzADAppFederatedCredential
+```
 
 ## Get a federated identity credential on an app
 
+Run the [Get-AzADAppFederatedCredential](/powershell/module/az.resources/get-azadappfederatedidentitycredential) cmdlet to get the federated identity credential by ID from an application.
+
+```azurepowershell-interactive
+Get-AzADAppFederatedCredential -ApplicationObjectId $appObjectId -Id $credentialId
+```
+
 ## Delete a federated identity credential from an app
+
+Run the [Remove-AzADAppFederatedIdentityCredential](/powershell/module/az.resources/remove-azadappfederatedidentitycredential) cmdlet to delete a federated identity credential from an application.
+
+```azurepowershell-interactive
+Remove-AzADappfederatedidentitycredential -ApplicationObjectId $appObjectId -Id $credentialId
+```
 
 ::: zone-end
 
@@ -261,7 +354,7 @@ And you get the response:
 - For Jobs not tied to an environment, include the ref path for branch/tag based on the ref path used for triggering the workflow: `repo:< Organization/Repository >:ref:< ref path>`.  For example, `repo:n-username/ node_express:ref:refs/heads/my-branch` or `repo:n-username/ node_express:ref:refs/tags/my-tag`.
 - For workflows triggered by a pull request event: `repo:< Organization/Repository >:pull-request`.
 
-*audiences*: `api://AzureADTokenExchange` is the required value.
+*audiences*: lists the audiences that can appear in the 'aud' claim of the external token.
 
 > [!NOTE]
 > If you accidentally configure someone else's GitHub repo in the *subject* setting (enter a typo that matches someone elses repo) you can successfully create the federated identity credential.  But in the GitHub configuration, however, you would get an error because you aren't able to access another person's repo.
@@ -276,7 +369,7 @@ Run the following command to configure a federated identity credential on an app
 - *issuer* is your service account issuer URL (the [OIDC issuer URL](../../aks/cluster-configuration.md#oidc-issuer-preview) for the managed cluster or the [OIDC Issuer URL](https://azure.github.io/azure-workload-identity/docs/installation/self-managed-clusters/oidc-issuer.html) for a self-managed cluster).  
 - *subject* is the subject name in the tokens issued to the service account. Kubernetes uses the following format for subject names: `system:serviceaccount:<SERVICE_ACCOUNT_NAMESPACE>:<SERVICE_ACCOUNT_NAME>`.
 - *name* is the name of the federated credential, which cannot be changed later.
-- *audiences* lists the audiences that can appear in the 'aud' claim of the external token. This field is mandatory, and defaults to "api://AzureADTokenExchange".
+- *audiences* lists the audiences that can appear in the 'aud' claim of the external token. 
 
 ```azurecli
 az rest --method POST --uri 'https://graph.microsoft.com/applications/f6475511-fd81-4965-a00e-41e7792b7b9c/federatedIdentityCredentials' --body '{"name":"Kubernetes-federated-credential","issuer":"https://aksoicwesteurope.blob.core.windows.net/9d80a3e1-2a87-46ea-ab16-e629589c541c/","subject":"system:serviceaccount:erp8asle:pod-identity-sa","description":"Kubernetes service account federated credential","audiences":["api://AzureADTokenExchange"]}' 
@@ -305,7 +398,7 @@ Run the following command to configure a federated identity credential on an app
 - *ObjectID*: the object ID of the app (not the application (client) ID) you previously registered in Azure AD.
 - *subject*: must match the `sub` claim in the token issued by the external identity provider.  In this example using Google Cloud, *subject* is the Unique ID of the service account you plan to use.
 - *issuer*: must match the `iss` claim in the token issued by the external identity provider. A URL that complies with the OIDC Discovery spec. Azure AD uses this issuer URL to fetch the keys that are necessary to validate the token. In the case of Google Cloud, the *issuer* is "https://accounts.google.com".
-- *audiences*: must match the `aud` claim in the external token. For security reasons, you should pick a value that is unique for tokens meant for Azure AD. The Microsoft recommended value is "api://AzureADTokenExchange".
+- *audiences*: must match the `aud` claim in the external token. For security reasons, you should pick a value that is unique for tokens meant for Azure AD. 
 
 ```azurecli
 az rest --method POST --uri 'https://graph.microsoft.com/applications/<ObjectID>/federatedIdentityCredentials' --body '{"name":"GcpFederation","issuer":"https://accounts.google.com","subject":"112633961854638529490","description":"Testing","audiences":["api://AzureADTokenExchange"]}'
