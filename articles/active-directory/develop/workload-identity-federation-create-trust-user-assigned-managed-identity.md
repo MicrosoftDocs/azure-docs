@@ -38,7 +38,7 @@ When you configure a federated identity credential, there are several important 
 
 *name* is the unique identifier for the federated identity credential, which has a character limit of 120 characters and must be URL friendly. It is immutable once created.
 
-*description* is the un-validated, user-provided description of the federated identity credential.
+*description* is the un-validated, user-provided description of the federated identity credential. 
 
 ::: zone pivot="identity-mi-methods-azp"
 
