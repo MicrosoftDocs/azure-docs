@@ -74,7 +74,7 @@ This quickstart will create a single Azure Cosmos DB account using the MongoDB A
         --kind MongoDB
     ```
 
-1. Find the MongoDB API **connection string** from the list of connection strings for the account with the[``az cosmosdb list-connection-strings``](/cli/azure/cosmosdb#az-cosmosdb-list-connection-strings) command.
+1. Find the MongoDB API **connection string** from the list of connection strings for the account with the [`az cosmosdb list-connection-strings`](/cli/azure/cosmosdb#az-cosmosdb-list-connection-strings) command.
 
     ```azurecli-interactive
     az cosmosdb list-connection-strings \
@@ -186,7 +186,7 @@ This quickstart will create a single Azure Cosmos DB account using the MongoDB A
 
 ### Create a new JavaScript app
 
-Create a new JavaScript application in an empty folder using your preferred terminal. Use the [``npm init``](https://docs.npmjs.com/cli/v8/commands/npm-init) command specifying the **console** template.
+Create a new JavaScript application in an empty folder using your preferred terminal. Use the [``npm init``](https://docs.npmjs.com/cli/v8/commands/npm-init) command to begin the prompts to create the `package.json` file. Accept the defaults for the prompts. 
 
 ```console
 npm init
@@ -247,7 +247,6 @@ You'll use the following MongoDB classes to interact with these resources:
 - [Get database instance](#get-database-instance)
 - [Get collection instance](#get-collection-instance)
 - [Chained instances](#chained-instances)
-- [Create an doc](#create-a-doc)
 - [Create an index](#create-an-index)
 - [Create a doc](#create-a-doc)
 - [Get an doc](#get-a-doc)
