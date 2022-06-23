@@ -63,7 +63,7 @@ const serviceConfig = {
     connection: {
         tenantId: LOCAL_MODE_TENANT_ID, // REPLACE WITH YOUR TENANT ID
         tokenProvider: new InsecureTokenProvider("" /* REPLACE WITH YOUR PRIMARY KEY */, { id: "userId" }),
-        serviceEndpoint: "http://localhost:7070", // REPLACE WITH YOUR SERVICE ENDPOINT
+        serviceEndpoint: "https://myServiceEndpointUrl", // REPLACE WITH YOUR SERVICE ENDPOINT
         type: "remote",
     }
 };
