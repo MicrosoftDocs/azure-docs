@@ -102,7 +102,8 @@ Most Azure resources emit metric data about state and health such as CPU utiliza
 
 The example below shows the number of transactions in a storage account over the prior hour. This allows the storage owner to see the transaction trend and look for anomalies in behavior.  
 
-:::image type="content" source="media/workbooks-create-workbook/workbooks-metric-chart-storage-area.png" alt-text="Screenshot showing a metric area chart for Storage transactions in a workbook.":::
+:::image type="content" source="media/workbooks-create-workbook/workbooks-metric-chart-storage-area.png" alt-text="Screenshot showing a metric area chart for storage transactions in a workbook.":::
+
 ### Add a metric chart to an Azure Workbook
 1.  Make sure you are in **Edit** mode. Add a query by doing any one of the following:
     - Select **Add**, and **Add metric** below an existing element, or at the bottom of the workbook.
@@ -153,14 +154,15 @@ You can apply styles to the link element itself as well as to individual links.
 
 **Link element styles**
 
-| Style | Sample | Notes |
-|:------------- |:-------------|:-------------|
-| Bullet List| :::image type="content" source="media/workbooks-create-workbook/workbooks-link-style-bullet.png" alt-text="Screenshot of bullet style workbook link."::: | The default - links appears as a bulleted list of links, one on each line.  The **Text before link** and **Text after link** fields can be used to add additional text before or after the link items. |
-| List |:::image type="content" source="media/workbooks-create-workbook/workbooks-link-style-list.png" alt-text="Screenshot of list style workbook link.":::  | Links appear as a list of links, with no bullets.|
-| Paragraph |:::image type="content" source="media/workbooks-create-workbook/workbooks-link-style-paragraph.png" alt-text="Screenshot of paragraph style workbook link."::: | Links appear as a paragraph of links, wrapped like a paragraph of text |
-| Navigation |:::image type="content" source="media/workbooks-create-workbook/workbooks-link-style-navigation.png" alt-text="Screenshot of navigation style workbook link."::: | Links appear as links, with vertical dividers or pipes (|) between each link.|
-| Tabs |:::image type="content" source="media/workbooks-create-workbook/workbooks-link-style-tabs.png" alt-text="Screenshot of tabs style workbook link."::: | Links appear as tabs.  Each link appears as a tab, no link styling options apply to individual links.  See the [tabs](#using-tabs) section below for how to configure tabs.|
-| Toolbar |:::image type="content" source="media/workbooks-create-workbook/workbooks-link-style-toolbar.png" alt-text="Screenshot of toolbar style workbook link.":::| Links appear an Azure Portal styled toolbar, with icons and text.  Each link appears as a toolbar button.  See the [toolbar](#using-toolbars) section below for how to configure toolbars.|
+
+|Style  |Sample  |Notes  |
+|---------|---------|---------|
+|Bullet List     | :::image type="content" source="media/workbooks-create-workbook/workbooks-link-style-bullet.png" alt-text="Screenshot of bullet style workbook link.":::         |  The default, links, appears as a bulleted list of links, one on each line.  The **Text before link** and **Text after link** fields can be used to add additional text before or after the link items.       |
+|List     |:::image type="content" source="media/workbooks-create-workbook/workbooks-link-style-list.png" alt-text="Screenshot of list style workbook link.":::         | Links appear as a list of links, with no bullets.        |
+|Paragraph     | :::image type="content" source="media/workbooks-create-workbook/workbooks-link-style-paragraph.png" alt-text="Screenshot of paragraph style workbook link.":::        |Links appear as a paragraph of links, wrapped like a paragraph of text.         |
+|Navigation     | :::image type="content" source="media/workbooks-create-workbook/workbooks-link-style-navigation.png" alt-text="Screenshot of navigation style workbook link.":::        | Links appear as links, with vertical dividers or pipes (|) between each link.        |
+|Tabs     |  :::image type="content" source="media/workbooks-create-workbook/workbooks-link-style-tabs.png" alt-text="Screenshot of tabs style workbook link.":::       |Links appear as tabs. Each link appears as a tab, no link styling options apply to individual links. See the [tabs](#using-tabs) section below for how to configure tabs.         |
+|Toolbar     | :::image type="content" source="media/workbooks-create-workbook/workbooks-link-style-toolbar.png" alt-text="Screenshot of toolbar style workbook link.":::        | Links appear an Azure Portal styled toolbar, with icons and text.  Each link appears as a toolbar button.  See the [toolbar](#using-toolbars) section below for how to configure toolbars.        |
 
 
 **Link styles**
