@@ -42,7 +42,7 @@ For more information, see the [Microsoft Security Development Lifecycle practice
 | 10.5.3 | 10/2021 | 07/2022 |
 | 10.5.2 | 10/2021 | 07/2022 |
 
-## June
+## June 2022
 
 **Sensor software version**: 22.1.5
 
