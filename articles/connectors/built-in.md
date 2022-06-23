@@ -167,9 +167,9 @@ You can use the following built-in connectors to perform general tasks, for exam
 
 <a name="service-built-in"></a>
 
-## Service-based built-in connectors
+## Built-in connectors for specific services and systems
 
-Connectors for some services provide both built-in connectors and managed connectors, which might differ across these versions.
+You can use the following built-in connectors to access specific services and systems. In Standard logic app workflows, some of these built-in connectors are also available as managed connectors, but with some differences.
 
 :::row:::
     :::column:::
@@ -194,23 +194,34 @@ Connectors for some services provide both built-in connectors and managed connec
         When Swagger is included, the triggers and actions defined by these apps appear like any other first-class triggers and actions in Azure Logic Apps.
     :::column-end:::
     :::column:::
-        [![Azure Blob icon icon][azure-blob-storage-icon]][azure-app-services-doc]
+        [![Azure Blob icon][azure-blob-storage-icon]]
         \
         \
-        [**Azure Blob**][azure-blob-storage-doc]<br>(*Standard logic app only*)
+        [**Azure Blob**]<br>(*Standard logic app only*)
         \
         \
         Connect to your Azure Blob Storage account so you can create and manage blob content.
     :::column-end:::
     :::column:::
-        [![Azure Cosmos DB icon][azure-cosmos-db-icon]][azure-cosmos-db-doc]
+        [![Azure Cosmos DB icon][azure-cosmos-db-icon]]
         \
         \
-        [**Azure Cosmos DB**][azure-cosmos-db-doc]<br>(*Standard logic app only*)
+        [**Azure Cosmos DB**]<br>(*Standard logic app only*)
         \
         \
         Connect to Azure Cosmos DB so that you can access and manage Azure Cosmos DB documents.
     :::column-end:::
+    :::column:::
+        [![Azure Event Hubs icon][azure-event-hubs-icon]]
+        \
+        \
+        [**Azure Event Hubs**]<br>(*Standard logic app only*)
+        \
+        \
+        Consume and publish events through an event hub. For example, get output from your logic app with Event Hubs, and then send that output to a real-time analytics provider.
+    :::column-end:::
+:::row-end:::
+:::row:::
     :::column:::
         [![Azure Functions icon][azure-functions-icon]][azure-functions-doc]
         \
@@ -220,8 +231,6 @@ Connectors for some services provide both built-in connectors and managed connec
         \
         Call [Azure-hosted functions](../azure-functions/functions-overview.md) to run your own *code snippets* (C# or Node.js) within your workflow.
     :::column-end:::
-:::row-end:::
-:::row:::
     :::column:::
         [![Azure Logic Apps icon][azure-logic-apps-icon]][nested-logic-app-doc]
         \
@@ -232,37 +241,28 @@ Connectors for some services provide both built-in connectors and managed connec
         Call other workflows that start with the Request trigger named **When a HTTP request is received**.
     :::column-end:::
     :::column:::
-        [![Azure Service Bus icon][azure-service-bus-icon]][azure-service-bus-doc]
+        [![Azure Service Bus icon][azure-service-bus-icon]]
         \
         \
-        [**Azure Service Bus**][azure-service-bus-doc]<br>(*Standard logic app only*)
+        [**Azure Service Bus**]<br>(*Standard logic app only*)
         \
         \
         Manage asynchronous messages, queues, sessions, topics, and topic subscriptions.
     :::column-end:::
     :::column:::
-        [![Azure Table Storage icon][azure-table-storage-icon]][azure-table-storage-doc]
+        [![Azure Table Storage icon][azure-table-storage-icon]]
         \
         \
-        [**Azure Table Storage**][azure-table-storage-doc]<br>(*Standard logic app only*)
+        [**Azure Table Storage**]<br>(*Standard logic app only*)
         \
         \
         Connect to your Azure Storage account so that you can create, update, query, and manage tables.
     :::column-end:::
     :::column:::
-        [![Azure Event Hubs icon][azure-event-hubs-icon]][azure-event-hubs-doc]
+        [![IBM DB2 icon][ibm-db2-icon]]
         \
         \
-        [**Event Hubs**][azure-event-hubs-doc]<br>(*Standard logic app only*)
-        \
-        \
-        Consume and publish events through an event hub. For example, get output from your logic app with Event Hubs, and then send that output to a real-time analytics provider.
-    :::column-end:::
-    :::column:::
-        [![IBM DB2 icon][ibm-db2-icon]][ibm-db2-doc]
-        \
-        \
-        [**DB2**][ibm-db2-doc]<br>(*Standard logic app only*)
+        [**DB2**]<br>(*Standard logic app only*)
         \
         \
         Connect to IBM DB2 in the cloud or on-premises. Update a row, get a table, and more.
@@ -279,10 +279,10 @@ Connectors for some services provide both built-in connectors and managed connec
         Connect to IBM Host File and generate or parse contents.
     :::column-end:::
     :::column:::
-        [![IBM MQ icon][ibm-mq-icon]][ibm-mq-doc]
+        [![IBM MQ icon][ibm-mq-icon]]
         \
         \
-        [**MQ**][ibm-mq-doc]<br>(*Standard logic app only*)
+        [**IBM MQ**]<br>(*Standard logic app only*)
         \
         \
         Connect to IBM MQ on-premises or in Azure to send and receive messages.
