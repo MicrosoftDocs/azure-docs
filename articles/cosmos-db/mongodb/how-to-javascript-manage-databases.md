@@ -72,7 +72,7 @@ The preceding code snippet displays the following example console output:
 
 ## Get list of databases, collections, and document count
 
-When you manage your MongoDB server programmatically, its helpful to know what databases and collections are on the server and how many documents in each collection.
+When you manage your MongoDB server programmatically, it's helpful to know what databases and collections are on the server and how many documents in each collection.
 
 * [MongoClient.Db.Admin.listDatabases](https://mongodb.github.io/node-mongodb-native/4.7/classes/Db.html)
 * [MongoClient.Db.listCollections](https://mongodb.github.io/node-mongodb-native/4.7/classes/Db.html#listCollections)
