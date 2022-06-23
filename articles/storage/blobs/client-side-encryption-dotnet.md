@@ -1,12 +1,13 @@
 ---
-title: Client-Side Encryption with .NET for Microsoft Azure Storage | Microsoft Docs
-description: The Azure Storage Client Library for .NET supports client-side encryption and integration with Azure Key Vault for maximum security for your Azure Storage applications.
+title: Client-side encryption for blobs with .NET
+titleSuffix: Azure Storage
+description: The Blob Storage client library for .NET supports client-side encryption and integration with Azure Key Vault for maximum security for your Azure Storage applications.
 services: storage
 author: tamram
 
 ms.service: storage
 ms.topic: article
-ms.date: 06/21/2022
+ms.date: 06/23/2022
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
@@ -22,40 +23,40 @@ ms.custom: devx-track-csharp
 The [Azure Storage client library for .NET](/dotnet/api/overview/azure/storage) supports encrypting data within client applications before uploading to Azure Storage, and decrypting data while downloading to the client. The library also supports integration with [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) for storage account key management.
 
 > [!IMPORTANT]
-> Azure Storage supports both service-side and client-side encryption. For most scenarios, Microsoft recommends using service-side encryption features for ease of use together with ???. To learn more about service-side encryption, see .
+> Azure Storage supports both service-side and client-side encryption. For most scenarios, Microsoft recommends using service-side encryption features for ease of use in protecting your data. To learn more about service-side encryption, see [Azure Storage encryption for data at rest](storage-service-encryption.md).
 
 For a step-by-step tutorial that leads you through the process of encrypting blobs using client-side encryption and Azure Key Vault, see [Encrypt and decrypt blobs in Microsoft Azure Storage using Azure Key Vault](../blobs/storage-encrypt-decrypt-blobs-key-vault.md).
 
 ## Client-side encryption and decryption via the envelope technique
 
-The Azure Storage client libraries use the envelope technique to encrypt and decrypt your data on the client side.
+The Azure Storage client libraries use envelope encryption to encrypt and decrypt your data on the client side. Envelope encryption encrypts a key with one or more additional keys.
 
 ### Encryption via the envelope technique
 
 Encryption via the envelope technique works as follows:
 
 1. The Azure Storage client library generates a content encryption key (CEK), which is a one-time-use symmetric key.
-2. User data is encrypted using this CEK.
+2. User data is encrypted using the CEK.
 3. The CEK is then wrapped (encrypted) using the key encryption key (KEK). The KEK is identified by a key identifier and can be either an asymmetric key pair or a symmetric key. You can manage the KEK locally or store it in an Azure Key Vault.
 
     The Azure Storage client library itself never has access to KEK. The library invokes the key wrapping algorithm that is provided by Key Vault. Users can choose to use custom providers for key wrapping/unwrapping if desired.
 
-4. The encrypted data is then uploaded to Azure Storage. The wrapped key together with some additional encryption metadata is either stored as metadata (on a blob) or interpolated with the encrypted data (queue messages and table entities).
+4. The encrypted data is then uploaded to Azure Storage. The wrapped key together with some additional encryption metadata is either stored as metadata, in the case of blobs, or is interpolated with the encrypted data, in the case of queue messages and table entities.
 
 ### Decryption via the envelope technique
 
 Decryption via the envelope technique works as follows:
 
-1. The Azure Storage client library assumes that the user is managing the key encryption key (KEK) either locally or in an Azure Key Vault. The user does not need to know the specific key that was used for encryption. Instead, a key resolver which resolves different key identifiers to keys can be set up and used.
+1. The Azure Storage client library assumes that the user is managing the KEK either locally or in an Azure Key Vault. The user does not need to know the specific key that was used for encryption. Instead, a key resolver which resolves different key identifiers to keys can be set up and used.
 2. The client library downloads the encrypted data along with any encryption material that is stored in Azure Storage.
-3. The wrapped content encryption key (CEK) is then unwrapped (decrypted) using the key encryption key (KEK). Here again, the client library does not have access to KEK. It simply invokes the unwrapping algorithm of the Azure Key Vault or other key store.
-4. The client library uses the content encryption key (CEK) to decrypt the encrypted user data.
+3. The wrapped CEK)is then unwrapped (decrypted) using the KEK. The client library does not have access to the KEK during this process, but only invokes the unwrapping algorithm of the Azure Key Vault or other key store.
+4. The client library uses the CEK to decrypt the encrypted user data.
 
 ## Encryption mechanism
 
 The Azure Storage client library uses [AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) in order to encrypt user data. There are two versions of client-side encryption available in the client library:
 
-- Version 2.x uses ???
+- Version 2.x uses [Galois/Counter Mode (GCM)](https://en.wikipedia.org/wiki/Galois/Counter_Mode) mode with AES.
 - Version 1.x uses [Cipher Block Chaining (CBC)](https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Cipher-block_chaining_.28CBC.29) mode with AES.
 
 > [!WARNING]
