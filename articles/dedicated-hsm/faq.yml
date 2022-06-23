@@ -62,8 +62,13 @@ sections:
       - question: |
           Does Azure Dedicated HSM offer Password-based and PED-based authentication?
         answer: |
-          At this time, Azure Dedicated HSM only provides HSMs with password-based authentication.
+          No. Azure Dedicated HSM only provides HSMs with password-based authentication.
 
+      - question: |
+          Does Azure Dedicated HSM support functionality modules?
+        answer: |
+          No. Azure Dedicated HSM service does not support functionality modules.
+          
       - question: |
           Will Azure Dedicated HSM host my HSMs for me?
         answer: |
@@ -83,6 +88,8 @@ sections:
           * East US 2
           * West US
           * West US 2
+          * Canada East
+          * Canada Central
           * South Central US
           * Southeast Asia
           * East Asia
@@ -154,6 +161,11 @@ sections:
           Can I import/migrate keys from Luna 5/6 HSMs to Azure Dedicated HSMs?
         answer: |
           Yes. Contact your Thales representative for the appropriate Thales migration guide. 
+          
+      - question: |
+          Can I install functionality modules to Azure Dedicated HSMs?
+        answer: |
+          No. Azure Dedicated HSM service does not support functionality modules. 
 
   - name: Using your HSM
     questions:

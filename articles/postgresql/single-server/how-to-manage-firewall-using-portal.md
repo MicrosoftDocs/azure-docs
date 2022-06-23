@@ -10,6 +10,10 @@ ms.date: 5/6/2019
 ---
 
 # Create and manage firewall rules for Azure Database for PostgreSQL - Single Server using the Azure portal
+
+[!INCLUDE [applies-to-postgresql-single-server](../includes/applies-to-postgresql-single-server.md)]
+
+
 Server-level firewall rules can be used to manage access to an Azure Database for PostgreSQL Server from a specified IP address or range of IP addresses.
 
 Virtual Network (VNet) rules can also be used to secure access to your server. Learn more about [creating and managing Virtual Network service endpoints and rules using the Azure portal](how-to-manage-vnet-using-portal.md).

@@ -93,9 +93,9 @@ Depending on the current RU/s provisioned and resource settings, each resource c
 | --- | --- |
 | Maximum RU/s per container | 5,000 |
 | Maximum storage across all items per (logical) partition | 20 GB |
-| Maximum number of distinct (logical) partition keys | Unlimited |
-| Maximum storage per container (SQL API, Mongo API, Table API, Gremlin API)| 1 TB  |
-| Maximum storage per container (Cassandra API)| 1 TB  |
+| Maximum storage per container (SQL API, Mongo API, Table API, Gremlin API)| 50 GB (default)<sup>1</sup>  |
+| Maximum storage per container (Cassandra API)| 30 GB (default)<sup>1</sup>  |
+
 
 <sup>1</sup> Serverless containers up to 1 TB are currently in preview with Azure Cosmos DB. To try the new feature, register the *"Azure Cosmos DB Serverless 1 TB Container Preview"* [preview feature in your Azure subscription](../azure-resource-manager/management/preview-features.md).
 
@@ -164,6 +164,7 @@ An Azure Cosmos item can represent either a document in a collection, a row in a
 | Maximum length of numeric property value | IEEE754 double-precision 64-bit |
 | Maximum level of nesting for embedded objects / arrays | 128 |
 | Maximum TTL value |2147483647 |
+| Maximum precision/range for numbers in [JSON (to ensure safe interoperability)](https://www.rfc-editor.org/rfc/rfc8259#section-6) | [IEEE 754 binary64](https://www.rfc-editor.org/rfc/rfc8259#ref-IEEE754) |
 
 <sup>1</sup> Large document sizes up to 16 Mb are currently in preview with Azure Cosmos DB API for MongoDB only. Sign-up for the feature “Azure Cosmos DB API For MongoDB 16 MB Document Support” from [Preview Features the Azure portal](./access-previews.md), to try the new feature.
 
