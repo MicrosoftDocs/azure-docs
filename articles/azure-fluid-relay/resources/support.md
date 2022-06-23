@@ -11,7 +11,7 @@ ms.service: azure-fluid
 
 # Help and Support options for Azure Fluid Relay
 
-If you have an issue or question involving Azure Fluid Relay, then you have many options.
+If you have an issue or question involving Azure Fluid Relay, the following options are available.
 
 ## Check out Frequently Asked Questions
 
