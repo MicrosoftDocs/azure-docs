@@ -28,7 +28,7 @@ This article walks through the steps to configure **AzureClient** in local mode 
         connection: {
             tenantId: LOCAL_MODE_TENANT_ID,
             tokenProvider: new InsecureTokenProvider("", { id: "123", name: "Test User" }),
-            serviceEndpoint: "http://localhost:7070",
+            endpoint: "http://localhost:7070",
             type: "remote",
         },
     };
