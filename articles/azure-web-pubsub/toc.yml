@@ -142,8 +142,10 @@
     href: reference-cloud-events.md
   - name: Functions trigger and bindings
     href: reference-functions-bindings.md
-  - name: Server SDKs
+  - name: Data plane REST API and SDKs
     items:
+    - name: REST API
+      href: reference-rest-api-data-plane.md
     - name: Server SDK - C#
       href: reference-server-sdk-csharp.md
     - name: Server SDK - Java
@@ -152,7 +154,7 @@
       href: reference-server-sdk-js.md
     - name: Server SDK - Python
       href: reference-server-sdk-python.md
-  - name: REST API
+  - name: Control plane
     href: /rest/api/webpubsub/
 
 - name: Resources

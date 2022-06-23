@@ -6,6 +6,11 @@
         "redirect_document_id": true
     },
     {
+        "source_path_from_root": "/articles/machine-learning/concept-datastore.md",
+        "redirect_url": "/azure/machine-learning/concept-data",
+        "redirect_document_id": false
+    },
+    {
         "source_path_from_root": "/articles/machine-learning/tutorial-train-deploy-model-cli.md",
         "redirect_url": "/azure/machine-learning/how-to-train-cli",
         "redirect_document_id": "false"

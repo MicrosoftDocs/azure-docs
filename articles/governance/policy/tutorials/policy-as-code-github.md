@@ -1,6 +1,6 @@
 ---
 title: "Tutorial: Implement Azure Policy as Code with GitHub"
-description: In this tutorial, you implement an Azure Policy as Code workflow with export, GitHub actions, and GitHub workflows
+description: In this tutorial, you implement an Azure Policy as Code workflow with export, GitHub Actions, and GitHub workflows
 ms.date: 06/07/2022
 ms.topic: tutorial
 ms.author: timwarner
@@ -16,7 +16,7 @@ lifecycle process. These tasks include:
 > [!div class="checklist"]
 > - Export policy definitions and assignments to GitHub
 > - Push policy objects updated in GitHub to Azure
-> - Trigger a compliance scan from the GitHub action
+> - Trigger a compliance scan from the GitHub Actions
 
 If you would like to assign a policy to identify the current compliance state of your existing
 resources, the quickstart articles explain how to do so.
@@ -31,6 +31,9 @@ resources, the quickstart articles explain how to do so.
 
 ### Export Azure Policy objects from the Azure portal
 
+   > [!NOTE]
+   > Owner permissions are required at the scope of the policy objects being exported to GitHub. 
+
 To export a policy definition from Azure portal, follow these steps:
 
 1. Launch the Azure Policy service in the Azure portal by clicking **All services**, then searching
@@ -43,7 +46,7 @@ To export a policy definition from Azure portal, follow these steps:
 
 1. Select the **Sign in with GitHub** button. If you haven't yet authenticated with GitHub to
    authorize Azure Policy to export the resource, review the access the
-   [GitHub Action](https://github.com/features/actions) needs in the new window that opens and
+   [GitHub Actions](https://github.com/features/actions) needs in the new window that opens and
    select **Authorize AzureGitHubActions** to continue with the export process. Once complete, the
    new window self-closes.
 
@@ -129,9 +132,9 @@ repository and _root level folder_:
 
 1. The workflow also adds details in Azure Policy objects `properties.metadata` for you to track.
 
-   :::image type="content" source="../media/policy-as-code-github/updated-definition-metadata.png" alt-text="Screenshot of the Azure Policy definition in Azure portal updated with metadata specific to the GitHub action.":::
+   :::image type="content" source="../media/policy-as-code-github/updated-definition-metadata.png" alt-text="Screenshot of the Azure Policy definition in Azure portal updated with metadata specific to the GitHub Actions.":::
 
-### Trigger compliance scans using GitHub action
+### Trigger compliance scans using GitHub Actions
 
 Using the
 [Azure Policy Compliance Scan action](https://github.com/marketplace/actions/azure-policy-compliance-scan)
@@ -173,7 +176,7 @@ In this tutorial, you successfully accomplished the following tasks:
 > [!div class="checklist"]
 > - Exported policy definitions and assignments to GitHub
 > - Pushed policy objects updated in GitHub to Azure
-> - Triggered a compliance scan from the GitHub action
+> - Triggered a compliance scan from the GitHub Actions
 
 ## Next steps
 

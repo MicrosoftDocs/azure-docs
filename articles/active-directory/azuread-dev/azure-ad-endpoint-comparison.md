@@ -1,5 +1,5 @@
 ---
-title: Why update to Microsoft identity platform (v2.0) | Azure
+title: Why update to Microsoft identity platform (v2.0)
 description: Know the differences between the Microsoft identity platform (v2.0) endpoint and the Azure Active Directory (Azure AD) v1.0 endpoint, and learn the benefits of updating to v2.0.
 services: active-directory
 author: rwike77

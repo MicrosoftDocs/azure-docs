@@ -1,5 +1,5 @@
 ---
-title: Linking to an existing Dynatrace for Azure resource
+title: Linking to an existing Dynatrace for Azure (preview) resource - Azure partner solutions
 description: This article describes how to use the Azure portal to link to an instance of Dynatrace.
 ms.topic: quickstart
 author: flang-msft
@@ -12,7 +12,7 @@ ms.date: 06/07/2022
 
 In this quickstart, you link an Azure subscription to an existing Dynatrace environment. After you link to the Dynatrace environment, you can monitor the linked Azure subscription and the resources in that subscription using the Dynatrace environment.
 
-When you use the integrated experience for Dynatrace in the Azure portal, your billing and monitoring for the following entities is tracked in the portal.
+When you use the integrated experience for Dynatrace in the Azure (preview) portal, your billing and monitoring for the following entities is tracked in the portal.
 
 :::image type="content" source="media/dynatrace-link-to-existing/dynatrace-entities-linking.png" alt-text="Flowchart showing three entities: subscription 1 connected to subscription 1 and Dynatrace S A A S.":::
 
@@ -57,7 +57,7 @@ Before you link the subscription to a Dynatrace environment, [complete pre-deplo
     |**Property**   | **Description**  |
     |---------|---------|
     | Subscription | Select the Azure subscription you want to use for creating   the Dynatrace resource. This subscription will be linked to environment for monitoring purposes. |
-    | Resource Group | Specify whether you want to create a new resource group or use an existing one. A [resource group](/azure/azure-resource-manager/management/overview#resource-groups) is a container that holds related resources for an Azure solution. |
+    | Resource Group | Specify whether you want to create a new resource group or use an existing one. A [resource group](../../azure-resource-manager/management/overview.md#resource-groups) is a container that holds related resources for an Azure solution. |
     | Resource name | Specify a name for the Dynatrace resource. |
     | Region | Select the Azure region where the Dynatrace resource should be created. |
     | Dynatrace | The Azure portal displays a list of existing environments that can be linked. Select the desired environment from the available options. |
@@ -73,13 +73,13 @@ Before you link the subscription to a Dynatrace environment, [complete pre-deplo
 
     :::image type="content" source="media/dynatrace-link-to-existing/dynatrace-metrics-and-logs.png" alt-text="Screenshot showing options for metrics and logs.":::
 
-    - **Subscription activity logs** - These logs provide insight into the operations on your resources at the [control plane](/azure/azure-resource-manager/management/control-plane-and-data-plane). Updates on service-health events are also included. Use the activity log to determine the what, who, and when for any write operations (PUT, POST, DELETE). There\'s a single activity log for each Azure subscription.
+    - **Subscription activity logs** - These logs provide insight into the operations on your resources at the [control plane](../../azure-resource-manager/management/control-plane-and-data-plane.md). Updates on service-health events are also included. Use the activity log to determine the what, who, and when for any write operations (PUT, POST, DELETE). There\'s a single activity log for each Azure subscription.
 
-    - **Azure resource logs** - These logs provide insight into operations that were taken on an Azure resource at the [data plane](/azure/azure-resource-manager/management/control-plane-and-data-plane). For example, getting a secret from a Key Vault is a data plane operation. Or, making a request to a database is also a data plane operation. The content of resource logs varies by the Azure service and resource type.
+    - **Azure resource logs** - These logs provide insight into operations that were taken on an Azure resource at the [data plane](../../azure-resource-manager/management/control-plane-and-data-plane.md). For example, getting a secret from a Key Vault is a data plane operation. Or, making a request to a database is also a data plane operation. The content of resource logs varies by the Azure service and resource type.
 
 1. To send subscription level logs to Dynatrace, select **Send subscription activity logs**. If this option is left unchecked, none of the subscription level logs are sent to Dynatrace.
 
-    To send Azure resource logs to Dynatrace, select **Send Azure resource logs for all defined resources**. The types of Azure resource logs are listed in [Azure Monitor Resource Log categories](/azure/azure-monitor/essentials/resource-logs-categories). To filter the set of Azure resources sending logs to Dynatrace, use inclusion and exclusion rules and set the Azure resource tags.
+    To send Azure resource logs to Dynatrace, select **Send Azure resource logs for all defined resources**. The types of Azure resource logs are listed in [Azure Monitor Resource Log categories](../../azure-monitor/essentials/resource-logs-categories.md). To filter the set of Azure resources sending logs to Dynatrace, use inclusion and exclusion rules and set the Azure resource tags.
 
     Rules for sending resource logs are:
 
