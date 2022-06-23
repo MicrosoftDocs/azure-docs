@@ -12,9 +12,9 @@ ms.date: 06/23/2022
 ms.custom: references_regions
 ---
 
-# Apache Spark Advisor
+# Spark Advisor
 
-Apache Spark Advisor would be a system to automatically analyze commands/queries, and show the appropriate advise when customer execute code or query. After apply the advise, you would have chance to improve your execution performance, decrease cost and fix the execution failures.
+Spark Advisor would be a system to automatically analyze commands/queries, and show the appropriate advise when customer execute code or query. After apply the advise, you would have chance to improve your execution performance, decrease cost and fix the execution failures.
 
 
 ## Advises provided
