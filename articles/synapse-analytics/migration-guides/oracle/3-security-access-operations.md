@@ -192,24 +192,24 @@ The [previous](#users-roles-and-permissions) section described a common approach
 
 1. Extract the user/role combinations from the Oracle system tables, generate a script with the equivalent `GRANT` of roles to users in Azure Synapse, and then run that script in the Azure Synapse environment.
 
-1. Finally, extract the relevant privilege information from the Oracle system tables, then generate a script to `GRANT` the appropriate privileges to users and roles in Azure Synapse, and then run that script in the Azure Synapse environment.
+1. Extract the relevant privilege information from the Oracle system tables, then generate a script to `GRANT` the appropriate privileges to users and roles in Azure Synapse, and then run that script in the Azure Synapse environment.
 
 ## Operational considerations
 
 This section discusses how typical Oracle operational tasks can be implemented in Azure Synapse with minimal risk and user impact.
 
-As with all data warehouse products, ongoing management tasks are necessary to keep the system running efficiently in production and to provide data for monitoring and auditing. Resource utilization and capacity planning for future growth also fall into this category, as does backup/restore of data.
+As with all data warehouse products in production, ongoing management tasks are necessary to keep the system running efficiently and provide data for monitoring and auditing. Other operational considerations include resource utilization, capacity planning for future growth, and backup/restore of data.
 
 >[!TIP]
 >Operational tasks are necessary to keep any data warehouse operating efficiently.
 
 Oracle administration tasks typically fall into two categories:
 
-- **System administration**: Managing the hardware, configuration settings, system status, access, disk space, usage, upgrades, and other tasks.
+- **System administration**: management of the hardware, configuration settings, system status, access, disk space, usage, upgrades, and other tasks.
 
-- **Database administration**: Managing the user databases and their content, loading data, backing up data, restoring data, and controlling access to data and permissions.
+- **Database administration**: management of the user databases and their content, loading data, backing up data, restoring data, and controlling access to data and permissions.
 
-Oracle offers several ways or interfaces that you can use to perform the various system and database management tasks:
+Oracle offers several methods and interfaces that you can use to perform the various system and database management tasks:
 
 - Oracle Enterprise Manager is Oracle's on-premises management platform. It provides a single pane of glass for managing all of a customer's Oracle deployments, whether in their data centers or in the Oracle Cloud. Through deep integration with Oracle's product stack, Enterprise Manager provides management and automation support for Oracle applications, databases, middleware, hardware, and engineered systems.
 
@@ -217,122 +217,120 @@ Oracle offers several ways or interfaces that you can use to perform the various
 
 - Oracle Database Configuration Assistant is a UI that allows management and configuration of various database features and functionality.
 
-- The SQL commands support administration tasks and queries within a SQL database session. You can run SQL commands from the Oracle SQL\*Plus command interpreter, Oracle SQL Developer UI, or through SQL APIs such as ODBC, JDBC, and the OLE DB Provider. You must have a database user account to run SQL commands, with appropriate permissions for the queries and tasks that you perform.
+- SQL commands that support administration tasks and queries within a SQL database session. You can run SQL commands from the Oracle SQL\*Plus command interpreter, Oracle SQL Developer UI, or through SQL APIs such as ODBC, JDBC, and OLE DB Provider. You must have a database user account to run SQL commands, with appropriate permissions for the queries and tasks that you perform.
 
-While the management and operations tasks for different data warehouse are similar in concept, the individual implementations may be different. Modern cloud-based products, such as Azure Synapse, tend to incorporate a more automated and "system managed" approach (as opposed to a more "manual" approach in legacy data warehouses such as Oracle).
+While the management and operations tasks for different data warehouse are similar in concept, the individual implementations might be different. Modern cloud-based products such as Azure Synapse tend to incorporate a more automated and "system managed" approach, compared to a more manual approach in legacy environments such as Oracle.
 
 The following sections compare Oracle and Azure Synapse options for various operational tasks.
 
 ### Housekeeping tasks
 
-In most legacy data warehouse environments, regular "housekeeping" tasks are time-consuming. You can reclaim disk storage space by removing old versions of updated or deleted rows, or by reorganizing data, log files, or index blocks for efficiency (for example, `ALTER TABLE`.... `SHRINK SPACE` in Oracle).
+In most legacy data warehouse environments, regular housekeeping tasks are time-consuming. You can reclaim disk storage space by removing old versions of updated or deleted rows. Or, you can reclaim disk storage space by reorganizing data, log files, and index blocks for efficiency, for example by running `ALTER TABLE... SHRINK SPACE` in Oracle.
 
 >[!TIP]
->Housekeeping tasks keep a production warehouse operating efficiently and optimize use of resources such as storage.
+>Housekeeping tasks keep a production warehouse operating efficiently and optimize storage and other resources.
 
-Collecting statistics is also a potentially time-consuming task, required after a bulk data ingest to provide the query optimizer with up-to-date data on which to base query execution plans.
+Collecting statistics is a potentially time-consuming task that's required after bulk data ingestion to provide the query optimizer with up-to-date data for its query execution plans.
 
-Oracle introduced a feature called the [Optimizer Statistics Advisor](https://docs.oracle.com/en/database/oracle/oracle-database/19/tgsql/optimizer-statistics-advisor.html), which works through a list of rules provided by Oracle that represent "best practices" for optimizer statistics. The advisor checks each rule and, where necessary, generates findings, recommendations, and actions that involve calls to the `DBMS_STATS` package to take corrective measures. The list of rules can be displayed using the `V$STATS_ADVISOR_RULES` view as shown:
+Oracle introduced a feature called the [Optimizer Statistics Advisor](https://docs.oracle.com/en/database/oracle/oracle-database/19/tgsql/optimizer-statistics-advisor.html), which works through a list of rules provided by Oracle that represent best practices for optimizer statistics. The advisor checks each rule and, where necessary, generates findings, recommendations, and actions that involve calls to the `DBMS_STATS` package to take corrective measures. Users can see the list of rules in the `V$STATS_ADVISOR_RULES` view, as shown in the following screenshot.
 
 :::image type="content" source="../media/3-security-access-operations/optimizer-statistics-advisor-rules.png" border="true" alt-text="Screenshot showing how to display a list of rules by using the Optimizer Statistics Advisor.":::
+
+An Oracle database contains many log tables in the data dictionary that accumulate data, either automatically or after certain features are enabled. Because log data grows over time, purge older information to avoid using up permanent space. Oracle provides options to automate the maintenance of these logs.
+
+Azure Synapse can automatically create statistics so they're available when needed. You can defragment indexes and data blocks manually, on a scheduled basis, or automatically. By using native built-in Azure capabilities, you can reduce the migration effort.
 
 >[!TIP]
 >Automate and monitor housekeeping tasks in Azure.
 
-An Oracle database contains many log tables in the data dictionary that accumulate data, either automatically or after certain features are enabled. Because log data grows over time, purge older information to avoid using up permanent space. There are options to automate the maintenance of these logs available.
-
-Azure Synapse can automatically create statistics so that they can be used as needed. You can defragment indexes and data blocks manually, on a scheduled basis, or automatically. Using native built-in Azure capabilities can reduce the effort required in a migration exercise.
-
 ### Monitoring and auditing
 
-The Oracle Enterprise Manager includes facilities to monitor various aspects of one or more Oracle systems, including activity, performance, queuing, and resource utilization. Oracle Enterprise Manager has an interactive UI that allows users to drill down into low-level detail for any chart.
+Oracle Enterprise Manager includes tools to monitor various aspects of one or more Oracle systems, such as activity, performance, queuing, and resource utilization. Oracle Enterprise Manager has an interactive UI that lets users drill down into the low-level detail of any chart.
 
 >[!TIP]
->Oracle Enterprise Manager is the recommended method of monitoring and logging of Oracle systems.
+>Oracle Enterprise Manager is the recommended method of monitoring and logging in Oracle systems.
 
-An overview of the monitoring environment for an Oracle warehouse is shown in the diagram:
+The following diagram provides an overview of the monitoring environment in an Oracle data warehouse.
 
 :::image type="content" source="../media/3-security-access-operations/oracle-warehouse-overview.png" border="true" alt-text="Diagram showing an overview of the monitoring environment for an Oracle warehouse.":::
 
-Similarly, Azure Synapse provides a rich monitoring experience within the Azure portal to provide insights into your data warehouse workload. The Azure portal is the recommended tool when monitoring your data warehouse, because it provides configurable retention periods, alerts, recommendations, and customizable charts and dashboards for metrics and logs.
+Azure Synapse also provides a rich monitoring experience within the Azure portal to provide insights into your data warehouse workload. The Azure portal is the recommended tool for monitoring your data warehouse because it provides configurable retention periods, alerts, recommendations, and customizable charts and dashboards for metrics and logs.
 
 >[!TIP]
 >The Azure portal provides a UI to manage monitoring and auditing tasks for all Azure data and processes.
 
-The Azure portal can also provide recommendations for performance enhancements:
+The Azure portal can also provide recommendations for performance enhancements, as shown in the following screenshot.
 
 :::image type="content" source="../media/3-security-access-operations/azure-portal-recommendations.png" border="true" alt-text="Screenshot of Azure portal recommendations for performance enhancements.":::
 
-The portal also enables integration with other Azure monitoring services, such as Operations Management Suite (OMS) and Azure Monitor (logs), to provide a holistic monitoring experience for not only the data warehouse but also the entire Azure analytics platform for an integrated monitoring experience.
+The portal also supports integration with other Azure monitoring services, such as Operations Management Suite (OMS) and [Azure Monitor](/services/monitor/), to provide an integrated monitoring experience of the data warehouse and the entire Azure analytics platform.
 
 For more information, see [Azure Synapse operations and management options](../../sql-data-warehouse/sql-data-warehouse-how-to-manage-and-monitor-workload-importance.md).
 
 ### High availability (HA) and disaster recovery (DR)
 
-Oracle originally became available in 1979 and has evolved since then to incorporate many features required by enterprise customers, including options for high availability and disaster recovery. The latest announcement in this area is Maximum Availability Architecture (MAA), which includes reference architectures for four levels of HA and DR:
+Since its initial release in 1979, the Oracle environment has evolved to encompass the numerous features required by enterprise customers, including options for high availability (HA) and disaster recovery (DR). The latest announcement in this area is Maximum Availability Architecture (MAA), which includes reference architectures for four levels of HA and DR:
 
-- **Bronze tier**: A single-instance HA architecture
-- **Silver tier**: High availability with automatic failover
-- **Gold tier**: Comprehensive HA and DR
-- **Platinum tier**: Zero outage for platinum-ready applications
+- **Bronze tier**: a single-instance HA architecture
+- **Silver tier**: HA with automatic failover
+- **Gold tier**: comprehensive HA and DR
+- **Platinum tier**: zero outage for platinum-ready applications
+
+Azure Synapse uses database snapshots to provide HA of the data warehouse. A data warehouse snapshot creates a restore point that you can use to revert a data warehouse to a previous state. Because Azure Synapse is a distributed system, a data warehouse snapshot consists of many files, which are stored in Azure Storage. Snapshots capture incremental changes to the data stored in your data warehouse.
 
 >[!TIP]
 >Azure Synapse creates snapshots automatically to ensure fast recovery time.
 
-Azure Synapse uses database snapshots to provide high availability of the warehouse. A data warehouse snapshot creates a restore point that can be used to recover or copy a data warehouse to a previous state. Because Azure Synapse is a distributed system, a data warehouse snapshot consists of many files that are in Azure Storage. Snapshots capture incremental changes from the data stored in your data warehouse.
+Azure Synapse automatically takes snapshots throughout the day, and creates restore points that are available for seven days. You can't change this retention period. Azure Synapse supports an eight-hour recovery point objective (RPO). You can restore a data warehouse in the designated primary region from any one of the snapshots taken in the past seven days.
 
 >[!TIP]
 >User-defined snapshots can be used to define a recovery point before key updates.
 
-Azure Synapse automatically takes snapshots throughout the day, creating restore points that are available for seven days. You can't change this retention period. Azure Synapse supports an eight-hour recovery point objective (RPO). A data warehouse can be restored in the primary region from any one of the snapshots taken in the past seven days.
+Azure Synapse also supports user-defined restore points, which are created from manually triggered snapshots. By creating restore points before and after large modifications to a data warehouse, you ensure that the restore points are logically consistency. The user-defined restore points augment data protection and reduce recovery time if there are workload interruptions or user errors.
+
+In addition to snapshots, Azure Synapse performs a standard geo-backup once per day to a [paired data center](/azure/availability-zones/cross-region-replication-azure). The RPO for a geo-restore is 24 hours. You can restore the geo-backup to a server in any region where Azure Synapse is supported. A geo-backup ensures that a data warehouse can be restored in case the restore points in the primary region aren't available.
 
 >[!TIP]
 >Microsoft Azure provides automatic backups to a separate geographical location to enable DR.
 
-User-defined restore points are also supported, which allows manual triggering of snapshots to create restore points of a data warehouse before and after large modifications. This capability ensures that restore points are logically consistent, which provides additional data protection in case of workload interruptions or user errors for a desired RPO less than eight hours.
-
-In addition to snapshots, Azure Synapse performs a standard geo-backup once per day to a [paired data center](/azure/availability-zones/cross-region-replication-azure). The RPO for a geo-restore is 24 hours. You can restore the geo-backup to a server in any other region where Azure Synapse is supported. A geo-backup ensures that a data warehouse can be restored in case the restore points in the primary region aren't available.
-
 ### Workload management
 
-Oracle provides utilities such as Enterprise Manager and Database Resource Manager (DBRM) for managing workloads. These utilities include features such as load balancing across large clusters, parallel query execution, performance measurement, and prioritization.
+Oracle provides utilities such as Enterprise Manager and Database Resource Manager (DBRM) for managing workloads. These utilities include features such as load balancing across large clusters, parallel query execution, performance measurement, and prioritization. Many of these features can be automated so that the system becomes self-tuning, to a degree.
 
 >[!TIP]
 >A production data warehouse typically has mixed workloads with different resource usage characteristics running concurrently.
 
-Many of these features can be automated so that the system becomes self-tuning, to a degree.
+Azure Synapse automatically logs resource utilization statistics. Metrics include usage statistics for CPU, memory, cache, I/O, and temporary workspace for each query. Connectivity information, such as failed connection attempts, is also logged.
 
 >[!TIP]
 >Low-level and system-wide metrics are automatically logged within Azure.
 
-Resource utilization statistics for Azure Synapse are automatically logged within the system. The metrics include usage statistics for CPU, memory, cache, I/O, and temporary workspace for each query. Connectivity information, such as failed connection attempts, is also logged.
+Azure Synapse supports these basic workload management concepts:
 
-The basic workload management concepts within Azure Synapse are:
+1. Workload classification: you can assign a request to a workload group and set importance levels.
 
-1. Workload classification: Assign a request to a workload group and set importance levels.
+1. Workload importance: you can influence the order in which a request gets access to resources. By default, queries are released from the queue on a first-in, first-out basis as resources become available. Workload importance allows higher priority queries to receive resources immediately regardless of the queue.
 
-2. Workload importance: Influence the order in which a request gets access to resources. By default, queries are released from the queue on a first-in, first-out basis as resources become available. Workload importance allows higher priority queries to receive resources immediately regardless of queue.
+1. Workload isolation: reserve resources for a workload group. You can assign maximum and minimum usage for varying resources, limit the resources a group of requests can consume can, and set a timeout value to automatically kill runaway queries.
 
-3. Workload isolation: Reserve resources for a workload group. Maximum and minimum usage can be assigned for varying resources. The amount of resources a group of requests can consume can be limited, and a timeout value can be set to automatically kill runaway queries.
+Azure Synapse provides a set of Dynamic Management Views (DMVs) for monitoring all aspects of workload management. These views are useful when actively troubleshooting and identifying performance bottlenecks in your workload.
 
-Azure Synapse provides a set of Dynamic Management Views (DMVs) for monitoring of all aspects of workload management. These views are useful when actively troubleshooting and identifying performance bottlenecks with your workload.
+In Azure Synapse, resource classes are pre-determined resource limits that govern compute resources and concurrency for query execution. Resource classes help you manage your workload by setting limits on the number of queries that run concurrently and on the compute resources assigned to each query. There's a trade-off between memory and concurrency.
 
-In Azure Synapse, resource classes are pre-determined resource limits that govern compute resources and concurrency for query execution. Resource classes can help you manage your workload by setting limits on the number of queries that run concurrently and on the compute resources assigned to each query. There's a trade-off between memory and concurrency.
+For more information on workload management in Azure Synapse, see [Workload management with resource classes](../../sql-data-warehouse/resource-classes-for-workload-management.md).
 
-See [Workload management with resource classes in Azure Synapse Analytics](../../sql-data-warehouse/resource-classes-for-workload-management.md) for detailed information.
-
-The collected information can be used for capacity planning, for example, determining the resources required for additional users or application workload. You can also use it to plan scale up/down of compute resources for cost-effective support of "peaky" workloads.
+You can use the workload metrics that Azure Synapse collects for capacity planning, like determining the resources required for extra users or a larger application workload. You can also use the workload metrics to plan scale up/down of compute resources for cost-effective support of "peaky" workloads.
 
 ### Scale compute resources
 
-The architecture of Azure Synapse separates storage and compute, allowing each to scale independently. As a result, [compute resources can be scaled](../../sql-data-warehouse/quickstart-scale-compute-portal.md) to meet performance demands independent of data storage. You can also pause and resume compute resources. A natural benefit of this architecture is that billing for compute and storage is separate. If a data warehouse isn't in use, you can save on compute costs by pausing compute.
+The Azure Synapse architecture separates storage and compute, allowing each to scale independently. As a result, [compute resources can be scaled](../../sql-data-warehouse/quickstart-scale-compute-portal.md) to meet performance demands independent of data storage. You can also pause and resume compute resources. A natural benefit of this architecture is that billing for compute and storage is separate. If a data warehouse isn't in use, you can save on compute costs by pausing compute.
 
 >[!TIP]
 >A major benefit of Azure is the ability to independently scale up and down compute resources on demand to handle peaky workloads cost-effectively.
 
-Compute resources can be scaled up or scaled back by adjusting the data warehouse units setting for the data warehouse. Loading and query performance will increase linearly as you add more data warehouse units.
+Compute resources can be scaled up or down by adjusting the data warehouse units (DWU) setting for a data warehouse. Load and query performance will increase linearly as you allocate more DWUs.
 
-Adding more compute nodes adds more compute power and ability to use more parallel processing. As the number of compute nodes increases, the number of distributions per compute node decreases, providing more compute power and parallel processing for queries. Similarly, decreasing data warehouse units reduces the number of compute nodes, which reduces the compute resources for queries.
+If you increase DWUs, the number of compute nodes increase, which adds more compute power and supports more parallel processing. As the number of compute nodes increases, the number of distributions per compute node decreases, providing more compute power and parallel processing for queries. Similarly, if you decrease DWUs, the number of compute nodes decrease, which reduces the compute resources for queries.
 
 ## Next steps
 
