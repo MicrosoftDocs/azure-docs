@@ -61,7 +61,7 @@ service configuration values. These values can be found in the "Access Key" sect
 ```javascript
 const serviceConfig = {
     connection: {
-        tenantId: LOCAL_MODE_TENANT_ID, // REPLACE WITH YOUR TENANT ID
+        tenantId: "MY_TENANT_ID", // REPLACE WITH YOUR TENANT ID
         tokenProvider: new InsecureTokenProvider("" /* REPLACE WITH YOUR PRIMARY KEY */, { id: "userId" }),
         endpoint: "https://myServiceEndpointUrl", // REPLACE WITH YOUR SERVICE ENDPOINT
         type: "remote",
