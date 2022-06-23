@@ -12,9 +12,7 @@ manager: nitinme
 keywords: 
 ---
 
-# Content Filtering
-
-## Overview
+# Content filtering
 
 Azure OpenAI Service includes a content management system that works alongside core models to filter content. This system works by running both the input prompt and generated content through an ensemble of classification models aimed at detecting misuse. If the system identifies harmful content, you'll receive either an error on the API call if the prompt was deemed inappropriate or the finish_reason on the response will be `content_filter` to signify that some of the generation was filtered.
 
@@ -281,7 +279,7 @@ Example response JSON:
 </tr>
 </table>
 
-## Best Practices
+## Best practices
 
 As part of your application design you'll need to think carefully on how to maximize the benefits of your applications  while minimizing the harms. Consider the following best practices:
 
