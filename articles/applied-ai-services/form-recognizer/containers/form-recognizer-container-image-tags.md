@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: reference
-ms.date: 09/02/2021
+ms.date: 06/23/2022
 ms.author: lajanuar
 keywords: Docker, container, images
 ---
