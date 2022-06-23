@@ -22,11 +22,11 @@ ms.author: barclayn
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-A [rules definition](rules-and-display-definitions-model#rulesmodel-type) using the [selfIssued attestation](rules-and-display-definitions-model#selfissuedattestation-type) will produce an issuance flow where the user will be required to manually enter values for the claims in the Authenticator.  
+A [rules definition](rules-and-display-definitions-model.md#rulesmodel-type) using the [selfIssued attestation](rules-and-display-definitions-model.md#selfissuedattestation-type) will produce an issuance flow where the user will be required to manually enter values for the claims in the Authenticator.  
 
 ## Create a Custom credential with the selfIssued attestation type
 
-When you select + Add credential in the portal, you get the option to launch two Quickstarts. Select [x] Custom credential and select Next. 
+When you select + Add credential in the portal, you get the option to launch two QuickStarts. Select [x] Custom credential and select Next. 
 
 ![Screenshot of VC quickstart](media/how-to-use-quickstart/quickstart-startscreen.png)
 
@@ -73,7 +73,7 @@ The Display JSON definition is very much the same regardless of attestation type
 
 ## Sample JSON Rules definitions
 
-The JSON attestation definition should contain the **selfIssued** name and the claims mapping section. Since the claims are selfIssued, the value will be the same for the **outputClaim** and the **inputClaim**. The expected JSON for the Rules definitions is the inner content of the rules attribute, which starts with the attestation attribute. The claims mapping in the below example will require that you do the token configuration as explained below in the section [Claims in id_token from Identity Provider](#Claims-in-id_token-from-Identity-Provider).
+The JSON attestation definition should contain the **selfIssued** name and the claims mapping section. Since the claims are selfIssued, the value will be the same for the **outputClaim** and the **inputClaim**. The expected JSON for the Rules definitions is the inner content of the rules attribute, which starts with the attestation attribute. The claims mapping in the below example will require that you do the token configuration as explained below in the section [Claims in id_token from Identity Provider](#claims-in-id_token-from-identity-provider).
 
 ```json
 {

@@ -83,7 +83,7 @@ The Display JSON definition is very much the same regardless of attestation type
 
 ## Sample JSON Rules definitions
 
-The JSON attestation definition should contain the **idTokens** name, the [OIDC configuration details](rules-and-display-definitions-model.md#idtokenattestation-type) and the claims mapping section. The expected JSON for the Rules definitions is the inner content of the rules attribute, which starts with the attestation attribute. The claims mapping in the below example will require that you do the token configuration as explained below in the section [Claims in id_token from Identity Provider](#Claims-in-id_token-from-Identity-Provider).
+The JSON attestation definition should contain the **idTokens** name, the [OIDC configuration details](rules-and-display-definitions-model.md#idtokenattestation-type) and the claims mapping section. The expected JSON for the Rules definitions is the inner content of the rules attribute, which starts with the attestation attribute. The claims mapping in the below example will require that you do the token configuration as explained below in the section [Claims in id_token from Identity Provider](#claims-in-id_token-from-identity-provider).
 
 ```json
 {

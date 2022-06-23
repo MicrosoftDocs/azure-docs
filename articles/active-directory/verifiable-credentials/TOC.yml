@@ -38,9 +38,9 @@
     href: credential-design.md
   - name: Create credentials using Quickstart
     items:
-    - name: Id Token Hint flow
+    - name: ID Token Hint flow
       href: how-to-use-quickstart.md
-    - name: Id Token flow
+    - name: ID Token flow
       href: how-to-use-quickstart-idtoken.md      
     - name: Self Issued flow
       href: how-to-use-quickstart-selfissued.md
@@ -73,7 +73,7 @@
   - name: Rules and Display definition model
     href: rules-and-display-definitions-model.md
   - name: Supported standards
-    href: verifiable-credentials.md
+    href: verifiable-credentials-standards.md
 - name: Resources
   expanded: true
   items:
