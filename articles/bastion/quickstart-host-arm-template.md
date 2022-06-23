@@ -60,11 +60,11 @@ In this section, you'll deploy Bastion using the **Deploy to Azure** button belo
 | Setting                  | Value                          |
 |--------------------------|--------------------------------|
 | Subscription             | Select your Azure subscription |
-| Resource Group           | Select **TestRG1**             |
+| Resource Group           |Select **Create new** enter **TestRG1**, and select **OK**             |
 | Region                   | Enter **East US**              |
 | vnet-name                | Enter **VNet1**                |
 | vnet-ip-prefix           | Enter **10.1.0.0/16**          |
-| vnet-new-or-existing     | Select **existing**            |
+| vnet-new-or-existing     | Select **new**          |
 | bastion-subnet-ip-prefix | Enter **10.1.1.0/24**          |
 | bastion-host-name        | Enter **TestBastionHost**      |
 
@@ -81,16 +81,9 @@ In this section, you'll validate the deployment of Azure Bastion.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Select the **TestRG1** resource group that you created in the previous section.
-1. Create your virtual machine.
-1. From the Overview page of the virtual machine, scroll down to **Operations** in the left pane and select **Bastion**.
-1. Enter the username and password you created for your virtual machine and select **Connect**.
- :::image type="content" source="./media/quickstart-host-arm-template/connect-to-virtual-machine.png" alt-text="Screenshot shows the connect using Azure Bastion dialog." lightbox="./media/quickstart-host-arm-template/connect-to-virtual-machine.png":::
-1. The connection to this virtual machine via Bastion will open directly in the Azure portal (over HTML5) using port 443 and the Bastion service. Select **Allow** when asked for permissions to the clipboard. This lets you use the remote clipboard arrows on the left of the screen.
+1. From the Overview page of the resource group, scroll down to **Resources** in the middle pane. Validate the Bastion resource.
+ :::image type="content" source="./media/quickstart-host-arm-template/bastion-validate-deployment-full.png" alt-text="Screenshot shows the Azure Bastion resource." lightbox="./media/quickstart-host-arm-template/bastion-validate-deployment.png":::
 
-   * When you connect, the desktop of the VM may look different than the example screenshot.
-   * Using keyboard shortcut keys while connected to a VM may not result in the same behavior as shortcut keys on a local computer. For example, when connected to a Windows VM from a Windows client, CTRL+ALT+END is the keyboard shortcut for CTRL+ALT+Delete on a local computer. To do this from a Mac while connected to a Windows VM, the keyboard shortcut is Fn+CTRL+ALT+Backspace.
-
-     :::image type="content" source="./media/quickstart-host-arm-template/connected.png" alt-text="Screenshot of RDP connection." lightbox="./media/quickstart-host-arm-template/connected.png":::
 
 ## Clean up resources
 
@@ -109,4 +102,4 @@ In this quickstart, you deployed Bastion using the Bastion ARM template, and the
 > [!div class="nextstepaction"]
 > [Quickstart: Create a Windows virtual machine in the Azure portal](../virtual-machines/windows/quick-create-portal.md)
 
-> [Quickstart: Create a virtual network using the Azure portal](../virtual-network/quick-create-portal.md)
+>[Create an RDP connection to a Windows VM using Azure Bastion](../bastion/bastion-connect-vm-rdp-windows.md)
