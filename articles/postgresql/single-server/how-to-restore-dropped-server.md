@@ -10,6 +10,8 @@ ms.date: 04/26/2021
 ---
 # Restore a dropped Azure Database for PostgreSQL server
 
+[!INCLUDE [applies-to-postgresql-single-server](../includes/applies-to-postgresql-single-server.md)]
+
 When a server is dropped, the database server backup can be retained up to five days in the service. The database backup can be accessed and restored only from the Azure subscription where the server originally resided. The following recommended steps can be followed to recover a dropped PostgreSQL server resource within 5 days from the time of server deletion. The recommended steps will work only if the backup for the server is still available and not deleted from the system. 
 
 ## Pre-requisites

@@ -151,6 +151,8 @@
       href: manage-labs.md
     - name: Configure firewall settings
       href: how-to-configure-firewall-settings.md
+    - name: Configure regions for labs
+      href: create-and-configure-labs-admin.md
   - name: Create & configure labs (educator)
     items:        
     - name: Create and manage labs
@@ -190,7 +192,7 @@
     - name: Set and reset passwords 
       href: how-to-set-virtual-machine-passwords.md
     - name: Configure auto-shutdown settings
-      href: how-to-enable-shutdown-disconnect.md       
+      href: how-to-enable-shutdown-disconnect.md      
     - name: View support information
       href: lab-creator-support-information.md
   - name: Connect to VMs in labs (student)
@@ -269,6 +271,8 @@
         href: how-to-add-user-lab-owner.md
       - name: Manage labs in a lab account
         href: manage-labs-1.md
+    - name: Set up GPU VMs when using lab accounts
+      href: how-to-setup-lab-gpu-1.md
     - name: Az.LabServices PowerShell module for lab accounts
       href: reference-powershell-module.md     
 - name: Reference
