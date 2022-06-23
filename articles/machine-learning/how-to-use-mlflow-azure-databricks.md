@@ -51,7 +51,7 @@ After you create your Azure Databricks workspace and cluster,
 
 1. Connect your Azure Databricks workspace and Azure Machine Learning workspace.
 
-Additional detail for these steps are in the following sections  so you can successfully run your MLflow experiments with Azure Databricks. 
+Additional details for these steps are in the following sections so you can successfully run your MLflow experiments with Azure Databricks. 
 
 ## Install libraries
 
