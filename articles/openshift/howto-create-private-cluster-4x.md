@@ -233,7 +233,7 @@ Once you're logged into the OpenShift Web Console, click on the **?** on the top
 
 ![Image shows Azure Red Hat OpenShift login screen](media/aro4-download-cli.png)
 
-You can also download the latest release of the CLI appropriate to your machine from <https://mirror.openshift.com/pub/openshift-v4/clients/ocp/latest/>.
+You can also download the [latest release of the CLI](https://mirror.openshift.com/pub/openshift-v4/clients/ocp/latest/) appropriate to your machine.
 
 ## Connect using the OpenShift CLI
 
