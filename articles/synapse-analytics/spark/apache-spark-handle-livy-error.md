@@ -9,24 +9,20 @@ ms.date: 06/16/2022
 ms.author: nidutta
 ---
 
-# Handling failing jobs in Synapse Analytics
+# Interpreting error codes in Synapse
 
-Sometimes an application on Spark fails due to various reasons. These reasons could be system or user related, and debugging these errors involves significant effort from the user and support engineer to identify the root cause and resolution.
-To make this process easier, whenever a job fails on Azure Synapse Analytics, the error handling feature parses and checks the logs on the backend to identify the root cause and display it to the user on the monitoring pane along with the steps to take to resolve the issue.
-
-![Screenshot of New error codes.](./media/apache-spark-error-classification/apache-spark-new-error-view.png)
-
-## What has changed from previous experience
-
-Before this change, all errors in failing jobs on Synapse were surfaced to the user in the monitoring pane with the generic error code `LIVY_JOB_STATE_DEAD`. 
+There are many factors that can play into why a spark application fails in Azure Synapse Analytics today, for instance, it can be due to a system error or even a user related error. Previously, all errors in failing jobs on
+Synapse were surfaced with a generic error code displaying LIVY_JOB_STATE_DEAD. This error code gave no further insight into why the job has failed and requires significant effort to identify the root cause by digging into the driver, executor, Spark Event and Livy logs and find a resolution for it.
 
 ![Screenshot of old error codes.](./media/apache-spark-error-classification/apache-spark-old-error-view.png)
 
-This error code gives no further insight into the failing job and requires digging into the driver, executor , Spark Event and Livy logs to identify the root cause of the failure. To make this easier, we have introduced the change described above that aims to improve the debugging experience of the user by replacing the generic error code by a more precise error code that describes the cause of failure alongwith steps that can be taken to fix the issue.
+To make this process easier, we have introduced a more precise list of error codes, to replace the previous generic one, that describes the cause of failure. Now whenever a job fails on Azure Synapse Analytics, the error handling feature parses and checks the logs on the backend to identify the root cause and display it to the user on the monitoring pane along with the steps to take to resolve the issue.
+
+![Screenshot of New error codes.](./media/apache-spark-error-classification/apache-spark-new-error-view.png)
 
 Please find below the list of all error types we support today. Please note, we are continuously refining and adding to these error codes by improving our model.
 
-## Currently supported error codes in Synapse
+## Supported error codes and what they mean
 
 Each error code falls under one of the following four buckets:
 
@@ -60,7 +56,7 @@ Each error code falls under one of the following four buckets:
 
     Please refer to the following pages for package management documentation:
 
-    For Notebook scenarios: https://docs.microsoft.com/azure/synapse-analytics/spark/apache-spark-manage-scala-packages 
+    For Notebook scenarios: [Apache Spark manage scala-packages](./apache-spark-manage-scala-packages) 
 
     For Spark batch scenarios (see section 6): https://docs.microsoft.com/azure/synapse-analytics/spark/apache-spark-job-definitions#create-an-apache-spark-job-definition-for-apache-sparkscala 
 
@@ -646,10 +642,4 @@ Each error code falls under one of the following four buckets:
 
 
 > [!NOTE]
-> If you have built any tooling around Synapse job monitoring that checks for a failing job by checking against the error code `LIVY_JOB_STATE_DEAD`, that would no longer work as the returned error codes would be different as mentioned above. Please modify any scripts accordingly.
-
-
-
-
-
-
+> If you have built any tooling around Synapse job monitoring that checks for a failing job by checking against the error code `LIVY_JOB_STATE_DEAD`, that would no longer work as the returned error codes would be different as mentioned above. Please modify any scripts accordingly, this feature is currently disabled by default and can be opted-in by reaching out to the team at `impulse-devs@microsoft.com`. This feature will be enabled by default from 8th August and hence it is recommended to make any changes needed by then.
