@@ -6,7 +6,7 @@ author: sunilagarwal
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: overview
-ms.date: 06/15/2022
+ms.date: 06/23/2022
 ms.custom: "mvc, references_regions"
 ---
 
@@ -134,7 +134,7 @@ $ New Zone-redundant high availability deployments are temporarily blocked in th
 
 $$ New server deployments are temporarily blocked in these regions. Already provisioned servers are fully supported.
 
-** Zone-redundant high availability can now be deployed when you provision new servers in these regions. Pre-existing servers deployed in AZ with *no preference* (which you can check on the Azure portal), the standby will be provisioned in the same AZ. To configure zone-redundant high availability, perform a point-in-time restore of the server and enable HA on the restored server.
+** Zone-redundant high availability can now be deployed when you provision new servers in these regions. Any existing servers deployed in AZ with *no preference* (which you can check on the Azure portal) prior to the region started to support AZ, even when you enable zone-redundant HA, the standby will be provisioned in the same AZ (same-zone HA) as the primary server. To enable zone-redundant high availability, [follow the steps.](how-to-manage-high-availability-portal.md#enabling-zone-redundant-ha-after-the-region-supports-az).
 
 <!-- We continue to add more regions for flexible server. -->
 > [!NOTE]
