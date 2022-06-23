@@ -123,7 +123,7 @@ The table below provides a summary of the old fields available in the solutions 
 | costCenter | CostCenter |  |
 | unitOfMeasure | UnitOfMeasure |  |
 | resourceGroup | ResourceGroup |  |
-| isRecurringCharge |  | Not available. |
+| isRecurringCharge |  | Where applicable, use the Frequency and Term fields moving forward. |
 | extendedCost | CostInBillingCurrency |  |
 | planName | PlanName |  |
 | publisherName | PublisherName |  |
