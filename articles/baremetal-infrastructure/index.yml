@@ -150,7 +150,7 @@ landingContent:
             url: /azure/cost-management-billing/reservations/prepay-hana-large-instances-reserved-capacity
 
 # card 4
-  - title: BareMetal Infrastructure for NC2 
+  - title: BareMetal Infrastructure for NC2 on Azure
     linkLists: 
       - linkListType: overview
         links:
