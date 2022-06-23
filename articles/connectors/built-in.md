@@ -144,7 +144,7 @@ You can use the following built-in connectors to perform general tasks, for exam
 :::row-end:::
 :::row:::
     :::column:::
-        ![FTP icon][ftp-icon]]
+        ![FTP icon][ftp-icon]
         \
         \
         **FTP**<br>(*Standard logic app only*)
@@ -171,7 +171,7 @@ You can use the following built-in connectors to perform general tasks, for exam
 
 ## Built-in connectors for specific services and systems
 
-You can use the following built-in connectors to access specific services and systems. In Standard logic app workflows, some of these built-in connectors are also available as managed connectors, but with some differences.
+You can use the following built-in connectors to access specific services and systems. In Standard logic app workflows, some of these built-in connectors are also informally known as *service providers*, which can differ from their managed connector counterparts in some ways.
 
 :::row:::
     :::column:::
