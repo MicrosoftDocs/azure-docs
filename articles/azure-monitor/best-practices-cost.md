@@ -85,7 +85,7 @@ There are multiple methods that you can use to limit the amount of data collecte
 
 * **Sampling**: [Sampling](app/sampling.md) is the primary tool you can use to tune the amount of data collected by Application Insights. Use sampling to reduce the amount of telemetry that's sent from your applications with minimal distortion of metrics.
 
-* **Limit Ajax calls**: [Limit the number of Ajax calls](app/javascript.md#configuration) that can be reported in every page view or disable Ajax reporting. Note that disabling Ajax calls will disable [JavaScript correlation](app/javascript.md#enable-correlation).
+* **Limit Ajax calls**: [Limit the number of Ajax calls](app/javascript.md#configuration) that can be reported in every page view or disable Ajax reporting. Note that disabling Ajax calls will disable [JavaScript correlation](app/javascript.md#enable-distributed-tracing).
 
 * **Disable unneeded modules**: [Edit ApplicationInsights.config](app/configuration-with-applicationinsights-config.md) to turn off collection modules that you don't need. For example, you might decide that performance counters or dependency data aren't required.
 
