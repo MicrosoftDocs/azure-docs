@@ -53,7 +53,7 @@ If a queue item was already processed, allow your function to be a no-op.
 
 Take advantage of defensive measures already provided for components you use in the Azure Functions platform. For example, see **Handling poison queue messages** in the documentation for [Azure Storage Queue triggers and bindings](functions-bindings-storage-queue-trigger.md#poison-messages).
 
-For HTTP based functions consider [API versioning strategies](/azure/architecture/reference-architectures/serverless/web-app#api-versioning) with Azure API Management. For example, if you have to update your HTTP based function app, deploy the new update to a separate function app or a deployment slot and use API Management revisions or versions to direct clients to the new version or revision. Once all clients are using the revision or version and no more executions are left on the previous function app, you can deprovision the previous function app.
+For HTTP based functions consider [API versioning strategies](/azure/architecture/reference-architectures/serverless/web-app#api-versioning) with Azure API Management. For example, if you have to update your HTTP based function app, deploy the new update to a separate function app and use API Management revisions or versions to direct clients to the new version or revision. Once all clients are using the version or revision and no more executions are left on the previous function app, you can deprovision the previous function app.
 
 ## Function organization best practices
 
