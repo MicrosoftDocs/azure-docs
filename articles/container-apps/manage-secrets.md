@@ -93,7 +93,7 @@ Here, a connection string to a queue storage account is declared in the `--secre
 
 ## Using secrets
 
-The secret value is mapped to the secret name declared at the application level as described [above](#defining-secrets).    The `passwordSecretRef` and `secretRef` parameters are used to reference the secret names as environment variables at the container level.  The `passwordSecretRef` provides a descriptive parameter name for secrets containing passwords.
+The secret value is mapped to the secret name declared at the application level as described in the [defining secrets](#defining-secrets) section.    The `passwordSecretRef` and `secretRef` parameters are used to reference the secret names as environment variables at the container level.  The `passwordSecretRef` provides a descriptive parameter name for secrets containing passwords.
 
 ## Example
 
