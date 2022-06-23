@@ -192,4 +192,4 @@ Get-ChildItem Cert:\CurrentUser\My\{THUMBPRINT} | Remove-Item
 To learn how to create Bicep files with Visual Studio Code, see:
 
 > [!div class="nextstepaction"]
-> [Quickstart: Create Bicep files with Visual Studio Code](../../azure-resource-manager/bicep/quickstart-create-bicep-use-visual-studio-code.md)
+> [Quickstart: Create Bicep files with Visual Studio Code](../azure-resource-manager/bicep/quickstart-create-bicep-use-visual-studio-code.md)
