@@ -3,7 +3,7 @@ title: Transform data for Azure IoT Central | Microsoft Docs
 description: IoT devices send data in various formats that you may need to transform. This article describes how to transform data both on the way into IoT Central and on the way out. The scenarios described use IoT Edge and Azure Functions.
 author: dominicbetts
 ms.author: dobett
-ms.date: 12/27/2021
+ms.date: 06/24/2022
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
