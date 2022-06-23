@@ -19,7 +19,7 @@ The Microsoft Purview Data Map provides an automated classification capability w
 
 ## Use of classification
 
-Classification is the process of organizing data into *logical categories* that make the data easy to retrieve, sort, and identify for future use. This can be particularly important for data governance. Among other reasons, classifying data assets is important because it helps you:
+Classification is the process of organizing data into *logical categories* that make the data easy to retrieve, sort, and identify for future use. This can be important for data governance. Among other reasons, classifying data assets is important because it helps you:
 
 * Narrow down the search for data assets that you're interested in.
 * Organize and understand the variety of data classes that are important in your organization and where they're stored.
