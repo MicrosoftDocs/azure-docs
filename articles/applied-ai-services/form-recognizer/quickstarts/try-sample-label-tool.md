@@ -19,7 +19,11 @@ keywords: document processing
 <!-- markdownlint-disable MD029 -->
 # Get started with the Form Recognizer Sample Labeling tool
 
-Azure Form Recognizer is a cloud-based Azure Applied AI Service that uses machine-learning models to extract key-value pairs, text, and tables from your documents. You can use Form Recognizer to automate your data processing in applications and workflows, enhance data-driven strategies, and enrich document search capabilities.
+>[!TIP]
+> * For an enhanced experience and advanced model quality, try the [Form Recognizer v3.0 Studio (preview)](https://formrecognizer.appliedai.azure.com/studio).
+> * The v3.0 Studio supports any model trained with v2.1 labeled data.
+> * You can refer to the API migration guide for detailed information about migrating from v2.1 to v3.0.
+> * *See* our [**REST API**](quickstarts/try-v3-rest-api.md) or [**C#**](quickstarts/try-v3-csharp-sdk.md), [**Java**](quickstarts/try-v3-java-sdk.md), [**JavaScript**](quickstarts/try-v3-javascript-sdk.md), or [Python](quickstarts/try-v3-python-sdk) SDK quickstarts to get started with the V3.0 preview.
 
 The Form Recognizer Sample Labeling tool is an open source tool that enables you to test the latest features of Azure Form Recognizer and Optical Character Recognition (OCR) services:
 
