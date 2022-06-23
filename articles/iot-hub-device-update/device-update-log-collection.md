@@ -3,7 +3,7 @@ title: Device Update for Azure IoT Hub log collection | Microsoft Docs
 description: Device Update for IoT Hub enables remote collection of diagnostic logs from connected IoT devices.
 author: lichris
 ms.author: lichris
-ms.date: 06/22/2022
+ms.date: 06/23/2022
 ms.topic: how-to
 ms.service: iot-hub-device-update
 ---
@@ -23,7 +23,7 @@ Learn how to initiate a Device Update for IoT Hub log operation and view collect
 > [!NOTE]
 > The remote log collection feature is currently compatible only with devices that implement the Diagnostic Interface and are able to upload files to Azure Blob storage. The reference agent implementation also expects the device to write log files to a user-specified file path on the device.
 
-# [CLI](#tab/cli)
+# [Azure CLI](#tab/cli)
 
 * [Access to an IoT Hub with Device Update for IoT Hub enabled](create-device-update-account.md).
 
@@ -37,7 +37,7 @@ Learn how to initiate a Device Update for IoT Hub log operation and view collect
 
     [![Launch Cloud Shell in a new window](../../includes/media/cloud-shell-try-it/hdi-launch-cloud-shell.png)](https://shell.azure.com)
 
-  * If you prefer to run CLI reference commands locally, [install the Azure CLI](/cli/azure/install-azure-cli)
+  * Or, if you prefer to run CLI reference commands locally, [install the Azure CLI](/cli/azure/install-azure-cli)
 
     * Sign in to the Azure CLI by using the [az login](/cli/azure/reference-index#az-login) command.
     * Run [az version](/cli/azure/reference-index#az-version) to find the version and dependent libraries that are installed. To upgrade to the latest version, run [az upgrade](/cli/azure/reference-index#az-upgrade).
@@ -66,7 +66,7 @@ In order to use the remote log collection feature, you must first link an Azure 
 
 6. Once back on the instance list, select **Refresh** periodically until the instance's provisioning state shows "Succeeded." This process usually takes 2-3 minutes.
 
-# [CLI](#tab/cli)
+# [Azure CLI](#tab/cli)
 
 Use the [az iot device-update instance create](/cli/azure/iot/device-update/instance#az-iot-device-update-instance-create) command to configure diagnostics for your Device Update instance.
 
