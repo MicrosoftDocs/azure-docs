@@ -1,6 +1,6 @@
 ---
 title: Managing Azure Data Factory Studio preview updates
-description: Learn how to enable/disable Azure Data Factory studio preview updates.
+description: Learn more about the Azure Data Factory studio preview experience.
 author: n0elleli
 ms.author: noelleli
 ms.reviewer: 
@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: tutorials
 ms.topic: tutorial
 ms.custom: seo-lt-2019
-ms.date: 06/21/2022
+ms.date: 06/23/2022
 ---
 
 # Manage Azure Data Factory studio preview experience
@@ -48,7 +48,16 @@ There are two ways to enable preview experiences.
 
 ## Current Preview Updates
 
-### Dataflow Data first experimental view
+   [**Dataflow data first experimental view**](#dataflow-data-first-experimental-view)
+   * [Configuration panel](#configuration-panel)
+   * [Transformation settings](#transformation-settings)
+   * [Data preview](#data-preview)
+	
+   [**Pipeline experimental view**](#pipeline-experimental-view)
+   * [Adding activities](#adding-activities)
+   * [ForEach activity container](#foreach-activity-container)
+
+### Dataflow data first experimental view
 
 UI (user interfaces) changes have been made to mapping data flows. These changes were made to simplify and streamline the dataflow creation process so that you can focus on what your data looks like. 
 The dataflow authoring experience remains the same as detailed [here](https://aka.ms/adfdataflows), except for certain areas detailed below. 
@@ -61,8 +70,7 @@ Now, for each transformation, the configuration panel will only have **Data Prev
 :::image type="content" source="media/how-to-manage-studio-preview-exp/data-factory-preview-exp-6.png" alt-text="Screenshot of the configuration panel with only a Data preview tab.":::
   
 If no transformation is selected, the panel will show the pre-existing data flow configurations: **Parameters** and **Settings**.  
- 
- 
+
 #### Transformation settings
 
 Settings specific to a transformation will now show in a pop up instead of the configuration panel. With each new transformation, a corresponding pop-up will automatically appear. 
@@ -80,10 +88,11 @@ If debug mode is on, **Data Preview** in the configuration panel will give you a
 Columns can be rearranged by dragging a column by its header. You can also sort columns using the arrows next to the column titles and you can export data preview data using **Export to CSV** on the banner above column headers. 
 
 :::image type="content" source="media/how-to-manage-studio-preview-exp/data-factory-preview-exp-9.png" alt-text="Screenshot of Data preview with Export button in the top right corner of the banner and Elapsed Time highlighted in the bottom left corner of the screen.":::
-  
+
 ### Pipeline experimental view
 
 UI (user interface) changes have been made to activities in the pipeline editor canvas. These changes were made to simplify and streamline the pipeline creation process. 
+
 
 #### Adding activities
 
@@ -92,7 +101,7 @@ You now have the option to add an activity using the add button in the bottom ri
 Select an activity by using the search box or scrolling through the listed activities. The selected activity will be added to the canvas and automatically linked with the previous activity on success. 
 
 :::image type="content" source="media/how-to-manage-studio-preview-exp/data-factory-preview-exp-10.png" alt-text="Screenshot of new pipeline activity adding experience with a drop down list to select activities.":::
-  
+
 #### ForEach activity container
 
 You can now view the activities contained in your ForEach activity. 
@@ -100,6 +109,7 @@ You can now view the activities contained in your ForEach activity.
 :::image type="content" source="media/how-to-manage-studio-preview-exp/data-factory-preview-exp-11.png" alt-text="Screenshot of new ForEach activity container.":::
   
 You have two options to add activities to your ForEach loop.
+
 1. Use the + button in your ForEach container to add an activity. 
 
    :::image type="content" source="media/how-to-manage-studio-preview-exp/data-factory-preview-exp-12.png" alt-text="Screenshot of new ForEach activity container with the add button highlighted on the left side of the center of the screen.":::
