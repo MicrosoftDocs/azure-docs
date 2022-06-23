@@ -31,7 +31,7 @@ If you're using [Azure Active Directory (Azure AD)](../../active-directory/funda
 
 ### Create custom role
 
-To access managed disks secured with Azure AD, the requesting user must have either the **Data Operator for Managed Disks** role, or a [custom role](../../role-based-access-control/custom-roles-powershell.md) with the following permissions: 
+To access managed disks secured with Azure AD, the requesting user must have either the [Data Operator for Managed Disks](../../role-based-access-control/built-in-roles.md#data-operator-for-managed-disks) role, or a [custom role](../../role-based-access-control/custom-roles-powershell.md) with the following permissions: 
 
 - **Microsoft.Compute/disks/download/action**
 - **Microsoft.Compute/disks/upload/action**
