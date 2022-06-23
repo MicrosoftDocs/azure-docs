@@ -144,19 +144,19 @@ You can use the following built-in connectors to perform general tasks, for exam
 :::row-end:::
 :::row:::
     :::column:::
-        [![FTP icon][ftp-icon]][ftp-doc]
+        ![FTP icon][ftp-icon]]
         \
         \
-        [**FTP**][ftp-doc]<br>(*Standard logic app only*)
+        **FTP**<br>(*Standard logic app only*)
         \
         \
         Connect to FTP or FTPS servers you can access from the internet so that you can work with your files and folders.
     :::column-end:::
     :::column:::
-        [![SFTP-SSH icon][sftp-ssh-icon]][sftp-ssh-doc]
+        ![SFTP-SSH icon][sftp-ssh-icon]
         \
         \
-        [**SFTP-SSH**][sftp-ssh-doc]<br>(*Standard logic app only*)
+        **SFTP-SSH**<br>(*Standard logic app only*)
         \
         \
         Connect to SFTP servers that you can access from the internet by using SSH so that you can work with your files and folders.
