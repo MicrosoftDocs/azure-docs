@@ -496,6 +496,8 @@ When using the Redis Console with a premium clustered cache, you can issue comma
 :::image type="content" source="media/cache-configure/redis-console-premium-cluster.png" alt-text="Redis console":::
 
 If you attempt to access a key that is stored in a different shard than the connected shard, you receive an error message similar to the following message:
+
+```azurecli-interactive
 shard1>get myKey
 (error) MOVED 866 13.90.202.154:13000 (shard 0)
 shard1>get myKey
