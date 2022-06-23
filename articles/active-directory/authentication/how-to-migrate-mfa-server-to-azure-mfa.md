@@ -6,7 +6,7 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 06/09/2022
+ms.date: 06/23/2022
 
 ms.author: BaSelden
 author: BarbaraSelden
@@ -103,7 +103,7 @@ We recommend that you use Password Hash Synchronization (PHS).
 
 ### Passwordless authentication
 
-As part of enrolling users to use Microsoft Authenticator as a second factor, we recommend you enable passwordless phone sign-in as part of their registration. For more information, including other passwordless methods such as FIDO and Windows Hello for Business, visit [Plan a passwordless authentication deployment with Azure AD](howto-authentication-passwordless-deployment.md#plan-for-and-deploy-the-authenticator-app).
+As part of enrolling users to use Microsoft Authenticator as a second factor, we recommend you enable passwordless phone sign-in as part of their registration. For more information, including other passwordless methods such as FIDO and Windows Hello for Business, visit [Plan a passwordless authentication deployment with Azure AD](howto-authentication-passwordless-deployment.md#plan-for-and-deploy-microsoft-authenticator).
 
 ### Microsoft Identity Manager self-service password reset 
 
