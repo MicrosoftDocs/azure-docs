@@ -27,26 +27,25 @@ landingContent:
             url: overview.md
           - text: Frequently asked questions (FAQ)
             url: virtual-machine-scale-sets-faq.yml
-
+          - text: Orchestration modes
+            url: virtual-machine-scale-sets-orchestration-modes.md
   # Card
   - title: Get started
     linkLists:
       - linkListType: quickstart
         links:
-          - text: Azure portal
-            url: quick-create-portal.md
-          - text: Azure PowerShell
-            url: quick-create-powershell.md
           - text: Azure CLI
-            url: disk-encryption-cli.md
+            url: flexible-virtual-machine-scale-sets-cli.md
+          - text: Azure Portal
+            url: flexible-virtual-machine-scale-sets-portal.md
+          - text: Azure PowerShell
+            url: flexible-virtual-machine-scale-sets-powershell.md
 
   # Card
   - title: Latest features
     linkLists:
       - linkListType: whats-new
         links:
-          - text: Orchestration modes
-            url: virtual-machine-scale-sets-orchestration-modes.md
           - text: Scale-in policy
             url: virtual-machine-scale-sets-scale-in-policy.md
           - text: Terminate notification
@@ -92,20 +91,6 @@ landingContent:
             url: /learn/modules/create-windows-virtual-machine-in-azure/
 
 
-# Card
-  - title: Flexible orchestration for scale sets
-    linkLists:
-      - linkListType: concept
-        links:
-          - text: Flexible orchestration mode
-            url: ../virtual-machines/flexible-virtual-machine-scale-sets.md
-          - text: Get started with CLI
-            url: ../virtual-machines/flexible-virtual-machine-scale-sets-cli.md
-          - text: Get started with Portal 
-            url: ../virtual-machines/flexible-virtual-machine-scale-sets-portal.md
-          - text: Virtual Machine Scale Sets Orchestration modes 
-            url: virtual-machine-scale-sets-orchestration-modes.md
-            
 # Card
   - title: Troubleshooting
     linkLists:

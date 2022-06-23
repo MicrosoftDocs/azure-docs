@@ -11,23 +11,18 @@ ms.reviewer: jushiman
 ms.custom: mimckitt, devx-track-azurecli, vmss-flex
 ---
 
-# Create virtual machines in a Flexible scale set using Azure CLI
+# Create virtual machines in a scale set using Azure CLI
 
 **Applies to:** :heavy_check_mark: Flexible scale sets
 
 
-This article steps through using the Azure CLI to create a virtual machine scale set in Flexible orchestration mode. For more information about Flexible scale sets, see [Flexible orchestration mode for virtual machine scale sets](flexible-virtual-machine-scale-sets.md). 
+This article steps through using the Azure CLI to create a virtual machine scale set. 
 
 Make sure that you have installed the latest [Azure CLI](/cli/azure/install-az-cli2) and are logged in to an Azure account with [az login](/cli/azure/reference-index).
 
-
-> [!CAUTION]
-> The orchestration mode is defined when you create the scale set and cannot be changed or updated later.
-
-
 ## Get started with Flexible scale sets
 
-Create a Flexible virtual machine scale set with Azure CLI.
+Create a virtual machine scale set with Azure CLI.
 
 ### Add multiple VMs to a scale set
 
@@ -59,4 +54,4 @@ az vm create -n "$vmname" -g "$rg" -l $location --vmss $vmoname --image UbuntuLT
 
 ## Next steps
 > [!div class="nextstepaction"]
-> [Learn how to create a Flexible scale set in the Azure Portal.](flexible-virtual-machine-scale-sets-portal.md)
+> [Learn how to create a scale set in the Azure Portal.](flexible-virtual-machine-scale-sets-portal.md)

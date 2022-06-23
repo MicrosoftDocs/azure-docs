@@ -11,17 +11,11 @@ ms.reviewer: jushiman
 ms.custom: mimckitt, devx-track-azurecli, vmss-flex
 ---
 
-# Create virtual machines in a Flexible scale set using Azure portal
+# Create virtual machines in a scale set using Azure portal
 
 **Applies to:** :heavy_check_mark: Flexible scale sets
 
-This article steps through using Azure portal to create a virtual machine scale set in Flexible orchestration mode. For more information about Flexible scale sets, see [Flexible orchestration mode for virtual machine scale sets](flexible-virtual-machine-scale-sets.md). 
-
-
-> [!CAUTION]
-> The orchestration mode is defined when you create the scale set and cannot be changed or updated later.
-
-
+This article steps through using Azure portal to create a virtual machine scale set. 
 ## Log in to Azure
 Log in to the Azure portal at https://portal.azure.com.
 
@@ -51,9 +45,6 @@ You can deploy a scale set with a Windows Server image or Linux image such as RH
 1. In **Load balancing options**, select **Azure load balancer**.
 1. In **Select a load balancer**, select a load balancer or create a new one.
 1. For **Select a backend pool**, select **Create new**, type *myBackendPool*, then select **Create**.
-
-    > [!NOTE]
-    > For related information on networking for Flexible scale sets, see [scalable network connectivity for Flexible scale sets](../virtual-machines/flexible-virtual-machine-scale-sets-migration-resources.md#create-scalable-network-connectivity).
 
 1. Select **Next** to move the the next page.
 
