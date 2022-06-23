@@ -184,7 +184,7 @@ Models are logged inside of the run being tracked. That means that models are av
 
 As opposite to tracking, **model registries can't operate** at the same time in Azure Databricks and Azure Machine Learning. Either one or the other has to be used. By default, the Azure Databricks workspace is used for model registries; unless you chose to [set MLflow Tracking to only track in your Azure Machine Learning workspace](#set-mlflow-tracking-to-only-track-in-your-azure-machine-learning-workspace), then the model registry is the Azure Machine Learning workspace.
 
-Then, considering you are using the default configuration, the following line will log a model inside the corresponding runs of both both Azure Databricks and Azure Machine Learning, but it will register it only on Azure Databricks:
+Then, considering you are using the default configuration, the following line will log a model inside the corresponding runs of both Azure Databricks and Azure Machine Learning, but it will register it only on Azure Databricks:
 
 ```python
 mlflow.spark.log_model(model, artifact_path = "model", 
