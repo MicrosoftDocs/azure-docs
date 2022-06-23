@@ -1,5 +1,5 @@
 ---
-title: Azure Fluid Relay service limits
+title: Azure Fluid Relay limits
 description: Limits and throttles applied in Azure Fluid Relay.
 services: azure-fluid
 author: hickeys
@@ -9,13 +9,13 @@ ms.topic: reference
 ms.service: azure-fluid
 ---
 
-# Azure Fluid Relay Service Limits
+# Azure Fluid Relay Limits
 
-This article lists limits in different areas of Azure Fluid Relay.
+This article outlines known limitation of Azure Fluid Relay.
 
 ## Distributed Data Structures
 
-The Fluid Framework offers various [distributed data structures (DDSes)](https://fluidframework.com/docs/data-structures/overview/). The Azure Fluid Relay doesn't support the [experimental DDSes](https://fluidframework.com/docs/data-structures/experimental/).
+The Azure Fluid Relay doesn't support [experimental distributed data structures (DDSes)](https://fluidframework.com/docs/data-structures/experimental/). These include but are not limited to DDS packages with the `@fluid-experimental` package namespace.
 
 ## Fluid sessions
 
@@ -23,11 +23,11 @@ The maximum number of simultaneous users in one session on Azure Fluid Relay is 
 
 ## Fluid Summaries
 
-Incremental summaries that can be uploaded to Azure Fluid Relay can't exceed 28 MB in size. More info [here](https://fluidframework.com/docs/concepts/summarizer).
+Incremental summaries uploaded to Azure Fluid Relay can't exceed 28 MB in size. More info [here](https://fluidframework.com/docs/concepts/summarizer).
 
 ## Signals
 
-The Fluid Framework has a concept of Signals that can be sent to participating clients in the session. More info [here](https://fluidframework.com/docs/concepts/signals/). The Azure Fluid Relay doesn't support the Signals.
+Azure Fluid Relay doesn't currently have support for Signals. Learn about Signals [here](https://fluidframework.com/docs/concepts/signals/).
 
 ## Need help?
 
