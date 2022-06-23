@@ -57,12 +57,12 @@ Four Azure resources are defined in the template.
     | **Existing Mobile Network Name** | Enter the name of the mobile network resource representing your private mobile network. |
     | **Existing Data Network Name** | Enter the name of the data network to which your private mobile network connects. |
     | **Site Name** | Enter a name for your site. |
-    | **Control Plane Access Interface Name** | Enter the name of the control plane interface on the access network. This must match the interface corresponding to port 5 on your Azure Stack Edge Pro device. |
+    | **Control Plane Access Interface Name** | Enter the name of the control plane interface on the access network. This must match the corresponding virtual network name on port 5 on your Azure Stack Edge Pro device. |
     | **Control Plane Access Ip Address** | Enter the IP address for the control plane interface on the access network. |
-    | **User Plane Access Interface Name** | Enter the name of the user plane interface on the access network. This must match the interface corresponding to port 5 on your Azure Stack Edge Pro device. |
+    | **User Plane Access Interface Name** | Enter the name of the user plane interface on the access network. This must match the corresponding virtual network name on port 5 on your Azure Stack Edge Pro device. |
     | **Access Subnet** | Enter the network address of the access subnet in Classless Inter-Domain Routing (CIDR) notation. |
     | **Access Gateway** | Enter the access subnet default gateway. |
-    | **User Plane Data Interface Name** | Enter the name of the user plane interface on the data network. This must match the interface corresponding to port 6 on your Azure Stack Edge Pro device. |
+    | **User Plane Data Interface Name** | Enter the name of the user plane interface on the data network. This must match the corresponding virtual network name on port 6 on your Azure Stack Edge Pro device. |
     | **User Plane Data Interface Subnet** | Enter the network address of the data subnet in CIDR notation. |
     | **User Plane Data Interface Gateway** | Enter the data subnet default gateway. |
     |**User Equipment Address Pool Prefix**  | Enter the network address of the subnet from which dynamic IP addresses must be allocated to User Equipment (UEs) in CIDR notation. You can omit this if you don't want to support dynamic IP address allocation. |
