@@ -1,4 +1,3 @@
-
 ---
 title: Create an Azure Compute Gallery for sharing resources
 description: Learn how to create an Azure Compute Gallery.
