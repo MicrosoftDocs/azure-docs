@@ -41,12 +41,13 @@ Before you begin to enable customer-managed key (CMK) functionality, ensure the 
 
     # [Azure Portal](#tab/azure-portal)
     
-    1. Log into Azure portal.
+    1. Log in to Azure portal.
     1. Navigate to **Azure VMware Solution** and locate your SDDC.
-    1. From the left navigation, open **Manage** and select **Identity**. 
-    1. In **System Assigned**, check **Enable** and select **Save**.
-    
-    **System Assigned identity** should now be enabled.
+    1. From the left navigation, open **Manage** and select **Identity**.
+    1. In **System Assigned**, check **Enable** and select **Save**
+        1. **System Assigned identity** should now be enabled. 
+
+    Once System Assigned identity is enabled, you'll see the tab for **Object ID**. Make note of the Object ID for use later.
 
     # [Azure CLI](#tab/azure-cli)
 
@@ -54,7 +55,7 @@ Before you begin to enable customer-managed key (CMK) functionality, ensure the 
     
     `privateCloudId=$(az vmware private-cloud show --name $privateCloudName --resource-group $resourceGroupName --query id | tr -d '"')`
      
-    To configure the system-assigned identity on Azure VMware Solution private cloud with Azure CLI, call [az-resource-update](https://docs.microsoft.com/cli/azure/resource?view=azure-cli-latest#az-resource-update), providing the variable for the private cloud resource ID that you previously retrieved.
+    To configure the system-assigned identity on Azure VMware Solution private cloud with Azure CLI, call [az-resource-update](https://docs.microsoft.com/cli/azure/resource?view=azure-cli-latest#az-resource-update) and provide the variable for the private cloud resource ID that you previously retrieved.
     
     `az resource update --ids $privateCloudId --set identity.type=SystemAssigned --api-version "2021-12-01"`
 
@@ -64,7 +65,7 @@ Before you begin to enable customer-managed key (CMK) functionality, ensure the 
     
     # [Azure Portal](#tab/azure-portal)
 
-    1. Log into Azure portal.
+    1. Log in to Azure portal.
     1. Navigate to **Key vaults** and locate the Key vault you want to use.
     1. From the left navigation, under **Settings**, select **Access policies**.
     1. In **Access policies**, select **Add Access Policy**.
