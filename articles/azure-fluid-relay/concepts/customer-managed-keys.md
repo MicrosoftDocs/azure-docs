@@ -31,7 +31,7 @@ To verify a Fluid Relay resource is using CMK, you can check the property of the
 Before configuring CMK on your Azure Fluid Relay resource, the following prerequisites must be met: 
 - Keys must be stored in an Azure Key Vault.
 - Keys must be RSA key and not EC key since EC key doesn’t support WRAP and UNWRAP.
-- A user assigned managed identity must be created with necessary permission (GET, WRAP and UNWRAP) to the key vault in step 1. More information [here](../../active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-nonaad). Please grant GET, WRAP and UNWRAP under Key Permissions in AKV.
+- A user assigned managed identity must be created with necessary permission (GET, WRAP and UNWRAP) to the key vault in step 1. More information [here](../../active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-nonaad.md). Please grant GET, WRAP and UNWRAP under Key Permissions in AKV.
 - Azure Key Vault, user assigned identity, and the Fluid Relay resource must be in the same region and in the same Azure Active Directory (Azure AD) tenant. 
 
 ## Create a Fluid Relay resource with CMK
