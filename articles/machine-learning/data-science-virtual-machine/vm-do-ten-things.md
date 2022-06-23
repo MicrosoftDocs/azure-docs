@@ -6,10 +6,10 @@ services: machine-learning
 ms.service: data-science-vm
 ms.custom: devx-track-python, devx-track-azurepowershell
 
-author: Blackmist
-ms.author: larryfr
+author: jesscioffi
+ms.author: jcioffi
 ms.topic: conceptual
-ms.date: 05/08/2020
+ms.date: 06/23/2022
 
 ---
 
@@ -73,7 +73,7 @@ When you're in the notebook, you can explore your data, build the model, and tes
 
 You can use languages like R and Python to do your data analytics right on the DSVM.
 
-For R, you can use an IDE like RStudio that can be found on the start menu or on the desktop. Or you can use R Tools for Visual Studio. Microsoft has provided additional libraries on top of the open-source CRAN R to enable scalable analytics and the ability to analyze data larger than the memory size allowed in parallel chunked analysis. 
+For R, you can use R Tools for Visual Studio. Microsoft has provided additional libraries on top of the open-source CRAN R to enable scalable analytics and the ability to analyze data larger than the memory size allowed in parallel chunked analysis. 
 
 For Python, you can use an IDE like Visual Studio Community Edition, which has the Python Tools for Visual Studio (PTVS) extension pre-installed. By default, only Python 3.6, the root Conda environment, is configured on PTVS. To enable Anaconda Python 2.7, take the following steps:
 
