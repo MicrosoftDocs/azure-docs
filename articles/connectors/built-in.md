@@ -237,7 +237,7 @@ You can use the following built-in connectors to access specific services and sy
         [![Azure Logic Apps icon][azure-logic-apps-icon]][nested-logic-app-doc]
         \
         \
-        [**Azure Logic Apps**][nested-logic-app-doc]<br>(*Consumption logic app*) <br><br>-or-<br><br>[**Workflow operations**][nested-logic-app-doc]<br>(*Standard logic app*)
+        [**Azure Logic Apps**][nested-logic-app-doc]<br>(*Consumption logic app*) <br><br>-or-<br><br>**Workflow operations**<br>(*Standard logic app*)
         \
         \
         Call other workflows that start with the Request trigger named **When a HTTP request is received**.
