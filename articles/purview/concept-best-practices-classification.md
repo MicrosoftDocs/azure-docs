@@ -99,7 +99,7 @@ When you create and configure the classification rules for a custom classificati
 
    :::image type="content" source="./media/concept-best-practices/classification-custom-classification-rule-threshold-11.png" alt-text="Screenshot that shows thresholds of a custom classification rule." lightbox="./media/concept-best-practices/classification-custom-classification-rule-threshold-11.png":::
 
-   If you have a threshold of 55%, only columns **Sample_col1** and **Sample_col2** will be classified. **Sample_col3** will not be classified, because it doesn't meet the 55% threshold criterion.
+   If you have a threshold of 55%, only columns **Sample_col1** and **Sample_col2** will be classified. **Sample_col3** won't be classified, because it doesn't meet the 55% threshold criterion.
 
    :::image type="content" source="./media/concept-best-practices/classification-test-custom-classification-rule-12.png" alt-text="Screenshot that shows the result of a high-threshold criterion." lightbox="./media/concept-best-practices/classification-test-custom-classification-rule-12.png":::
 
@@ -139,7 +139,7 @@ Here are some considerations to bear in mind as you're defining classifications:
 
 * You can assign classifications at the asset or column level automatically by including relevant classifications in the scan rule, or you can assign them manually after you ingest the metadata into the Microsoft Purview Data Map.
 * For automatic assignment, see [supported data stores in the Microsoft Purview governance portal](./azure-purview-connector-overview.md).
-* Before you scan your data sources in the Microsoft Purview Data Map, it is important to understand your data and configure the appropriate scan rule set for it (for example, by selecting relevant system classification, custom classifications, or a combination of both), because it could affect your scan performance. For more information, see [supported classifications in the Microsoft Purview governance portal](./supported-classifications.md).
+* Before you scan your data sources in the Microsoft Purview Data Map, it's important to understand your data and configure the appropriate scan rule set for it (for example, by selecting relevant system classification, custom classifications, or a combination of both), because it could affect your scan performance. For more information, see [supported classifications in the Microsoft Purview governance portal](./supported-classifications.md).
 * The Microsoft Purview scanner applies data sampling rules for deep scans (subject to classification) for both system and custom classifications. The sampling rule is based on the type of data sources. For more information, see the "Sampling within a file" section in [Supported data sources and file types in Microsoft Purview](./sources-and-scans.md#sampling-within-a-file).
 
     > [!Note]
