@@ -38,7 +38,7 @@ To control the application, you can use any of several of environment variables:
 > Command-line arguments overrule environment variable settings.
 
 | Argument | Description |
-| --- | --- |
+| --- | --- | 
 | `--pf, --publishfile=VALUE` | The file name to use to configure the nodes to publish.<br>Default: '/appdata/publishednodes.json' |
 | `--tc, --telemetryconfigfile=VALUE` | The file name to use to configure the ingested telemetry.<br>Default: '' |
 | `-s, --site=VALUE` | The site that OPC Publisher is working in. If it's specified, this domain is appended (delimited by a ':' to the 'ApplicationURI' property when telemetry is sent to Iot Hub. The value must follow the syntactical rules of a DNS hostname.<br>Default: \<not set> |
@@ -48,13 +48,13 @@ To control the application, you can use any of several of environment variables:
 | `--di, --diagnosticsinterval=VALUE` | Shows OPC Publisher diagnostics information at the specified interval, in seconds (need log level information). -1 disables the remote diagnostics log and diagnostics output. 0 disables the diagnostics output.<br>Default: 0 |
 | `--ns, --noshutdown=VALUE` | Same as `runforever`.<br>Default: False |
 | `--rf, --runforever` | You can't stop OPC Publisher by pressing a key on the console. It runs forever.<br>Default: False |
-| `--lf, --logfile=VALUE` | The file name of the log file to use.<br>Default: './<hostname>-publisher.log' |
+| `--lf, --logfile=VALUE` | The file name of the log file to use.<br>Default: \<hostname>-publisher.log |
 | `--lt, --logflushtimespan=VALUE` | The timespan, in seconds, when the log file should be flushed.<br>Default: 00:00:30 sec |
 | `--ll, --loglevel=VALUE` | The log level to use (allowed: fatal, error, warn, info, debug, verbose).<br>Default: info |
 | `--ih, --iothubprotocol=VALUE` | The protocol to use for communication with Iot Hub (allowed values: Amqp, Http1, Amqp_WebSocket_Only, Amqp_Tcp_Only, Mqtt, Mqtt_WebSocket_Only, Mqtt_ Tcp_Only) or IoT EdgeHub (allowed values: Mqtt_ Tcp_Only, Amqp_Tcp_Only).<br>Default for Iot Hub: Mqtt_WebSocket_Only<br>Default for IoT EdgeHub: Amqp_Tcp_Only |
 | `--ms, --iothubmessagesize=VALUE` | The maximum size of a message that can be sent to Iot Hub. When telemetry of this size is available it is sent. 0 enforces immediate send when telemetry is available.<br>Minimum: 0<br>Maximum: 262144<br>Default: 262144 |
 | `--si, --iothubsendinterval=VALUE` | The interval, in seconds, when telemetry should be sent to IoT Hub. If the interval is 0, only the iothubmessagesize parameter controls when telemetry is sent.<br>Default: 10 |
-| `--dc, --deviceconnectionstring=VALUE` | If OPC Publisher can't register itself with Iot Hub, you can create a device with the name <applicationname> manually and pass in the connection string of this device.<br>Default: none |
+| `--dc, --deviceconnectionstring=VALUE` | If OPC Publisher can't register itself with Iot Hub, you can create a device with the name \<applicationname> manually and pass in the connection string of this device.<br>Default: none |
 | `-c, --connectionstring=VALUE` | The Iot Hub owner connection string.<br>Default: none |
 | `--hb, --heartbeatinterval=VALUE` | OPC Publisher uses this as a default value, in seconds, for the heartbeat interval setting of nodes without a heartbeat interval setting.<br>Default: 0 |
 | `--sf, --skipfirstevent=VALUE` | OPC Publisher uses this as default value for the skipfirstevent setting of nodes without a skipfirstevent setting.<br>Default: False |
@@ -109,7 +109,7 @@ To control the application, you can use any of several of environment variables:
 ## Command-line arguments for version 2.6 and later
 
 | Argument | Description |
-| --- | --- |
+| --- | --- | 
 | `--pf, --publishfile=VALUE` | The file name to configure the nodes to publish. If this option is specified, it puts OPC Publisher into *standalone* mode. |
 | `--lf, --logfile=VALUE` | The file name of the log file to use. |
 | `--ll. --loglevel=VALUE` | The log level to use. Allowed: fatal, error, warn, info, debug, verbose. |
@@ -142,7 +142,7 @@ The following OPC Publisher configuration can be applied by command-line interfa
 The `Alternative` field, when it's present, refers to the applicable CLI argument in *standalone mode only*. When both the environment variable and the CLI argument are provided, the latest argument overrules the environment variable.
 
 | Argument | Description |
-| --- | --- |
+| --- | --- | 
 | `PublishedNodesFile=VALUE` | The file that's used to store the configuration of the nodes to be published along with the information to connect to the OPC UA server sources. When this file is specified, or the default file is accessible by the module, OPC Publisher starts in *standalone* mode.<br>Alternative: --pf, --publishfile<br>Mode: Standalone only<br>Type: string - file name, optionally prefixed with the path<br>Default: publishednodes.json |
 | `site=VALUE` | The site that OPC Publisher is assigned to.<br>Alternative: --s, --site<br>Mode: Standalone, orchestrated<br>Type: string<br>Default: \<not set> |
 | `LogFile name==VALUE` | The file name of the log file to use<br>Alternative: --lf, --logfile<br>Mode: Standalone only<br>Type: string - file name, optionally prefixed with the path<br>Default: \<not set> |
