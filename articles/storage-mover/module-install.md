@@ -92,18 +92,13 @@ If you're using PowerShell 5.0 or 5.1, this will install the modules in *C:\Prog
 
 > [!IMPORTANT]
 > If the PowerShell binary is unsigned or the **Restricted** execution policy is in effect on your machine, you may encounter an error. To run unsigned scripts, start PowerShell with the *Run as Administrator* option and then use the following command to change the execution policy on the computer to **Unrestricted**.
-
-```powershell
-Set-ExecutionPolicy -ExecutionPolicy Unrestricted
-```
-
-> [!IMPORTANT]
+> ```powershell
+> Set-ExecutionPolicy -ExecutionPolicy Unrestricted
+> ```
 > If the Powershell binary is unsigned and you face issues with importing the module on strong name validation, import the following registry keys to skip strong name validation:
-
-*[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\StrongName\Verification\*,*]*
-*[HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\StrongName\Verification\*,*]*
-
-For more information, see the article for the [Set-ExecutionPolicy](/powershell/module/microsoft.powershell.security/set-executionpolicy) cmdlet.
+> *[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\StrongName\Verification\*,*]*
+> *[HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\StrongName\Verification\*,*]*
+> For more information, see the article for the [Set-ExecutionPolicy](/powershell/module/microsoft.powershell.security/set-executionpolicy) cmdlet.
 
 1. Enter necessary parameters in **sample.ps1** file, then run the script.
 
