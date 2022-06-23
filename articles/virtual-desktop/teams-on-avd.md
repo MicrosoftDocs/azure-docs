@@ -70,6 +70,7 @@ The following table lists the latest versions of the WebSocket Service:
 ### Updates for version 1.17.2205.23001
 
 - Fixed an issue that made the WebRTC redirector service disconnect from Teams on Azure Virtual Desktop.
+- Added keyboard shortcut detection for Shift+Ctrl+; that lets users turn on a diagnostic overlay during calls on Teams for Azure Virtual Desktop. This feature is supported in version 1.2.3313 or later of the Windows Desktop client. 
 - Added further stability and reliability improvements to the service.
 
 #### Updates for version 1.4.2111.18001
