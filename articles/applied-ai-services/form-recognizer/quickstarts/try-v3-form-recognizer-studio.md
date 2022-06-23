@@ -80,7 +80,7 @@ A **standard performance** [**Azure Blob Storage account**](https://portal.azure
 
 1. Start by creating a new CORS entry in the Blob service.
 
-1. Set the **Allowed origins** to **<https://formrecognizer.appliedai.azure.com>**.
+1. Set the **Allowed origins** to `https://formrecognizer.appliedai.azure.com`.
 
    :::image type="content" source="../media/quickstarts/cors-updated-image.png" alt-text="Screenshot that shows CORS configuration for a storage account.":::
 
