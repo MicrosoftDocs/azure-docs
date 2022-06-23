@@ -3,7 +3,7 @@
 - name: Overview
   items:
   - name: What are virtual machine scale sets?
-    href: flexible-virtual-machine-scale-sets.md
+    href: overview.md
   - name: Orchestration modes
     href: virtual-machine-scale-sets-orchestration-modes.md
   - name: Scale Set FAQ
