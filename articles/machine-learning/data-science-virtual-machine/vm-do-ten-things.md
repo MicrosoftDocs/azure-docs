@@ -17,7 +17,7 @@ ms.date: 06/23/2022
 
 The Windows Data Science Virtual Machine (DSVM) is a powerful data science development environment where you can perform data exploration and modeling tasks. The environment comes already built and bundled with several popular data analytics tools that make it easy to get started with your analysis for on-premises, cloud, or hybrid deployments. 
 
-The DSVM works closely with Azure services. It can read and process data that's already stored on Azure, in Azure Synapse (formerly SQL DW),Azure Data Lake, Azure Storage, or Azure Cosmos DB. It can also take advantage of other analytics tools, such as Azure Machine Learning.
+The DSVM works closely with Azure services. It can read and process data that's already stored on Azure, in Azure Synapse (formerly SQL DW), Azure Data Lake, Azure Storage, or Azure Cosmos DB. It can also take advantage of other analytics tools, such as Azure Machine Learning.
 
 In this article, you'll learn how to use your DSVM to perform data science tasks and interact with other Azure services. Here are some of the things you can do on the DSVM:
 
