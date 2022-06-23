@@ -392,9 +392,9 @@
       items:
       - name: Deploy IoT Edge samples (Self-serve)
         items:
-          - name: Deploy IoT Edge on VM
+          - name: IoT Edge on VM
             href: azure-stack-edge-gpu-deploy-iot-edge-linux-vm.md
-          - name: Deploy Nvidia DeepStream module
+          - name: Nvidia DeepStream module
             href: azure-stack-edge-deploy-nvidia-deepstream-module.md
       - name: Deploy IoT Edge samples (Managed)
         items:

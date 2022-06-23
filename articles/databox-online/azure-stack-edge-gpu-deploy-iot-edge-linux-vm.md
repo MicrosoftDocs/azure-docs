@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 06/22/2022
+ms.date: 06/23/2022
 ms.author: alkohli
 ---
 
@@ -17,9 +17,9 @@ ms.author: alkohli
 
 This article describes how to deploy an IoT Edge runtime on an Ubuntu VM running on your Azure Stack Edge device. For new development work, use the self-serve deployment method described in this article as it uses the latest software version.
 
-## Process overview
+## High-level flow
 
-The high-level process is as follows:
+The high-level flow is as follows:
 
 1. Create or identify the IoT Hub or [Azure IoT Hub Device Provisioning Service (DPS)](../iot-dps/about-iot-dps.md) instance.
 1. Acquire the Ubuntu 20.04 LTS image from the IoT Edge Module Marketplace.
@@ -260,7 +260,7 @@ Here are the high-level steps to deploy the VM and IoT Edge runtime:
 1. Install the container engine on the VM. For detailed steps, see [Create and provision an IoT Edge device on Linux using symmetric keys](../iot-edge/how-to-provision-single-device-linux-symmetric.md#install-a-container-engine) or [Quickstart - Set up IoT Hub DPS with the Azure portal](../iot-dps/quick-setup-auto-provision.md).
 
 
-## Verify successful deployment of the IoT Edge runtime
+## Verify the IoT Edge runtime
 
 Use these steps to verify that your IoT Edge runtime is running.
 
