@@ -296,6 +296,8 @@ The Ruby sample code is running in an Azure App Service Linux web app.
     > [!NOTE]
     > The URL will change from GitHub.com to GitHub.dev. This feature only works with repos that have files. This does not work on empty repos.
 
+    ![Screenshot of forked GitHub repo with an annotation to Press the period key.](media/github-forked-repo-press-period.png)
+
 1. Navigate to **app/controllers/application_controller.rb**.
 
     ![Screenshot of Visual Studio Code in the browser, highlighting app/controllers/application_controller.rb in the Explorer pane.](media/quickstart-ruby/visual-studio-code-in-browser-navigate-to-application-controller.png)
