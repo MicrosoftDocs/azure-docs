@@ -52,8 +52,8 @@ npx install-peerdeps @fluidframework/azure-client
 | ----------------------------------  | :-------------- | :--------------------------------------------------------------- |
 | @fluidframework/azure-client        | [1.0.1][]      | [API](https://fluidframework.com/docs/apis/azure-client/)        |
 | fluid-framework                     | [1.0.1][]      | [API](https://fluidframework.com/docs/apis/fluid-framework/)     |
-| @fluidframework/azure-service-utils | [1.0.0][]      | [API](https://fluidframework.com/docs/apis/azure-service-utils/) |
-| @fluidframework/test-client-utils   | [1.0.0][]      | [API](https://fluidframework.com/docs/apis/test-client-utils/)   |
+| @fluidframework/azure-service-utils | [1.0.1][]      | [API](https://fluidframework.com/docs/apis/azure-service-utils/) |
+| @fluidframework/test-client-utils   | [1.0.1][]      | [API](https://fluidframework.com/docs/apis/test-client-utils/)   |
 
 [1.0.0]: https://fluidframework.com/docs/updates/v1.0/
 [1.0.1]: https://fluidframework.com/docs/updates/v1.0/
