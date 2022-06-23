@@ -55,7 +55,7 @@ As always, if test queries aren't producing the matches you expect, experiment w
 
 Fuzzy queries are constructed using the full Lucene query syntax, invoking the [full Lucene query parser](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/classic/package-summary.html), and appending a tilde character `~` after each whole term entered by the user.
 
-Here's an example of a query request that invokes fuzzy search. It includes four terms, two of which are misspelled
+Here's an example of a query request that invokes fuzzy search. It includes four terms, two of which are misspelled:
 
 ```http
 POST https://[service name].search.windows.net/indexes/hotels-sample-index/docs/search?api-version=2020-06-30
@@ -75,9 +75,7 @@ POST https://[service name].search.windows.net/indexes/hotels-sample-index/docs/
 
    Include an optional parameter, a number between 0 and 2 (default), if you want to specify the edit distance (`~1`). For example, "blue~" or "blue~1" would return "blue", "blues", and "glue".
 
-1. Optionally, scope the request to specific fields, using this parameter (`searchFields=<field1,field2>`). You can also use the select property to specify which fields are returned as search results.
-
-In Azure Cognitive Search, besides the query parser, and the term and distance (maximum of 2), there are no other parameters to set on the query.
+Optionally, you can improve query performance by scoping the request to specific fields. Use the `searchFields` parameter to specify which fields to search. You can also use the `select` property to specify which fields are returned in the query response.
 
 ## Testing fuzzy search
 
