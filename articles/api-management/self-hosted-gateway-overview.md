@@ -154,6 +154,55 @@ When configuration backup is turned on and connectivity to Azure is interrupted:
 
 When connectivity is restored, each self-hosted gateway affected by the outage will automatically reconnect with its associated API Management service and download all configuration updates that occurred while the gateway was "offline".
 
+## Security
+
+### Transport Layer Security (TLS)
+
+> [!WARNING]
+> This is only applicable to the self-hosted gateway v2.
+
+The self-hosted gateway provides support for TLS v1.0 and above, except for TLS v1.3.
+
+It uses the following cipher suites for both client and server connections:
+
+- `TLS_AES_256_GCM_SHA384`
+- `TLS_CHACHA20_POLY1305_SHA256`
+- `TLS_AES_128_GCM_SHA256`
+- `TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384`
+- `TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384`
+- `TLS_DHE_RSA_WITH_AES_256_GCM_SHA384`
+- `TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256`
+- `TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256`
+- `TLS_DHE_RSA_WITH_CHACHA20_POLY1305_SHA256`
+- `TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256`
+- `TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256`
+- `TLS_DHE_RSA_WITH_AES_128_GCM_SHA256`
+- `TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384`
+- `TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384`
+- `TLS_DHE_RSA_WITH_AES_256_CBC_SHA256`
+- `TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256`
+- `TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256`
+- `TLS_DHE_RSA_WITH_AES_128_CBC_SHA256`
+- `TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA`
+- `TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA`
+- `TLS_DHE_RSA_WITH_AES_256_CBC_SHA`
+- `TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA`
+- `TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA`
+- `TLS_DHE_RSA_WITH_AES_128_CBC_SHA`
+- `TLS_RSA_WITH_AES_256_GCM_SHA384`
+- `TLS_RSA_WITH_AES_128_GCM_SHA256`
+- `TLS_RSA_WITH_AES_256_CBC_SHA256`
+- `TLS_RSA_WITH_AES_128_CBC_SHA256`
+- `TLS_RSA_WITH_AES_256_CBC_SHA`
+- `TLS_RSA_WITH_AES_128_CBC_SHA`
+
+#### Managing TLS Cipher Suites
+
+As of v2.1.1 and above, you can manage the ciphers that are being used:
+
+- `net.server.tls.ciphers.allowed-suites` allows you to define a comma-separated list of ciphers to use for the TLS connection between the API client and the self-hosted gateway.
+- `net.client.tls.ciphers.allowed-suites` allows you to define a comma-separated list of ciphers to use for the TLS connection between the self-hosted gateway and the backend.
+
 ## Next steps
 
 -   Learn more about [API Management in a Hybrid and Multi-Cloud World](https://aka.ms/hybrid-and-multi-cloud-api-management)
