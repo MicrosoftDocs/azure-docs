@@ -90,14 +90,15 @@ This procedure describes how to add a Defender for IoT plan to an Azure subscrip
 
     - **Number of devices**. If you selected a monthly or annual commitment, enter the number of devices you'll want to monitor. If you selected a trial, this section doesn't appear as you have a default of 1000 devices.
 
+    :::image type="content" source="media/how-to-manage-subscriptions/onboard-plan.png" alt-text="Screenshot of adding a plan to your subscription. ":::
+
 1. Select **Next**.
 
 1. **Review & purchase**. Review the listed charges for your selections and **accept the terms and conditions**. 
 
 1. Select **Purchase**.
 
-Your plan will be shown under the associated subscription in the **Plans and pricing** grid. For example:
-
+Your plan will be shown under the associated subscription in the **Plans and pricing** grid. 
 
 ### About Defender for IoT trials
 
@@ -111,6 +112,7 @@ You may need to make changes to your plan, such as to update the number of commi
 For example, you may have more devices that require monitoring if you're increasing existing site coverage, have discovered more devices than expected, or there are network changes such as adding switches. If the actual number of devices exceeds the number of committed devices on your plan, you'll see a warning on the **Plans and pricing** page, and will need to adjust the number of committed devices on your plan accordingly.
 
 **To edit a plan:**
+
 1. In the Azure portal, go to **Defender for IoT** > **Plans and pricing**.
 
 1. On the subscription row, select the options menu (**...**) at the right.
