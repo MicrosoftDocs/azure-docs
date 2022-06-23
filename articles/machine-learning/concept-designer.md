@@ -36,7 +36,7 @@ Use a visual canvas to build an end-to-end machine learning workflow. Train, tes
 
 + Drag-and-drop [datasets](#datasets) and [components](#component) onto the canvas.
 + Connect the components to create a [pipeline draft](#pipeline-draft).
-+ Submit a [pipeline run](#pipeline-run) using the compute resources in your Azure Machine Learning workspace.
++ Submit a [pipeline run](#pipeline-job) using the compute resources in your Azure Machine Learning workspace.
 + Convert your **training pipelines** to **inference pipelines**.
 + [Publish](#publish) your pipelines to a REST **pipeline endpoint** to submit a new pipeline that runs with different parameters and datasets.
     + Publish a **training pipeline** to reuse a single pipeline to train multiple models while changing parameters and datasets.
