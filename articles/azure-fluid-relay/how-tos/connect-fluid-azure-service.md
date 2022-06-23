@@ -36,6 +36,7 @@ const config = {
   tenantId: "myTenantId",
   tokenProvider: new InsecureTokenProvider("myTenantKey", { id: "userId" }),
   serviceEndpoint: "https://myServiceEndpointUrl",
+  type: "remote",
 };
 
 const clientProps = {
@@ -59,6 +60,7 @@ const config = {
     { userId: "userId", userName: "Test User" }
   ),
   serviceEndpoint: "https://myServiceEndpointUrl",
+  type: "remote",
 };
 
 const clientProps = {
@@ -85,6 +87,7 @@ const config = {
     { userId: "UserId", userName: "Test User", additionalDetails: userDetails }
   ),
   serviceEndpoint: "https://myServiceEndpointUrl",
+  type: "remote",
 };
 ```
 
