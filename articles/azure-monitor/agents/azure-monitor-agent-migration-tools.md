@@ -9,7 +9,7 @@ ms.custom: devx-track-azurepowershell, devx-track-azurecli
 
 ---
 
-# Migrate to Azure Monitor agent from Log Analytics agent
+# Migration tools for Log Analytics agent to Azure Monitor Agent
 The [Azure Monitor agent (AMA)](azure-monitor-agent-overview.md) collects monitoring data from the guest operating system of Azure virtual machines, scale sets, on premise and multi-cloud servers and Windows client devices. It uploads the data to Azure Monitor destinations where it can be used by different features, insights, and other services such as [Microsoft Sentinel](../../sentintel/../sentinel/overview.md) and [Microsoft Defender for Cloud](../../defender-for-cloud/defender-for-cloud-introduction.md). All of the data collection configuration is handled via [Data Collection Rules](../essentials/data-collection-rule-overview.md).  
 The Azure Monitor agent is meant to replace the Log Analytics agent (also known as MMA and OMS) for both Windows and Linux machines. By comparison, it is more **secure, cost-effective, performant, manageable and reliable**. You must migrate from [Log Analytics agent] to [Azure Monitor agent] before **August 2024**. To make this process easier and automated, use agent migration described in this article.
 
@@ -27,13 +27,13 @@ A workbook-based solution in Azure Monitor that helps you discover **what to mig
 
 
 ## DCR Config Generator (preview)
-The Azure Monitor agent relies only on [Data Collection rules] for configuration, whereas the legacy agent pulls all its configuration from Log Analytics workspaces. Use this tool to parse legacy agent configuration from your workspaces and automatically generate corresponding rules. You can then associate the rules to machines running the new agent using built-in association policies. 
+The Azure Monitor agent relies only on [Data Collection rules](../essentials/data-collection-rule-overview.md) for configuration, whereas the legacy agent pulls all its configuration from Log Analytics workspaces. Use this tool to parse legacy agent configuration from your workspaces and automatically generate corresponding rules. You can then associate the rules to machines running the new agent using built-in association policies. 
 
 > [!NOTE]
-> Additional configuration for [Azure solutions or services] dependent on agent are not yet supported in this tool. These will be available in future versions.
+> Additional configuration for [Azure solutions or services](./azure-monitor-agent-overview.md#supported-services-and-features) dependent on agent are not yet supported in this tool. These will be available in future versions.
 
 
-1. Prerequisites
+1. **Prerequisites**
 	1. Powershell version 7.1.3 or higher is recommended (minimum version 5.1)
 	2. Primarily uses `Az Powershell module` to pull workspace agent configuration information
 	3. You must have read access for the specified workspace resource
@@ -51,19 +51,19 @@ The Azure Monitor agent relies only on [Data Collection rules] for configuration
 		$dcrJson = Get-DCRJson -ResourceGroupName $rgName -WorkspaceName $workspaceName -PlatformType $platformType $dcrJson | ConvertTo-Json -Depth 10 | Out-File "<filepath>\OutputFiles\dcr_output.json"
 		```
 	
-	**Parameters**  
-	
-	| Paremeter | Required? | Description |
-	|------|------|------|
-	| SubscriptionId | Yes | Subscription Id that contains the target workspace |
-	| ResourceGroupName | Yes | Resource Group that contains the target workspace |
-	| WorkspaceName | Yes | Name of the target workspace |
-	| DCRName | Yes | Name of the new generated DCR to create |
-	| Location | Yes | Region location for the new DCR |
-	| FolderPath | No |  Local path to store the output. Current directory will be used if nothing is provided |  
+		**Parameters**  
+		
+		| Paremeter | Required? | Description |
+		|------|------|------|
+		| SubscriptionId | Yes | Subscription Id that contains the target workspace |
+		| ResourceGroupName | Yes | Resource Group that contains the target workspace |
+		| WorkspaceName | Yes | Name of the target workspace |
+		| DCRName | Yes | Name of the new generated DCR to create |
+		| Location | Yes | Region location for the new DCR |
+		| FolderPath | No |  Local path to store the output. Current directory will be used if nothing is provided |  
 	
 3. Review the output data collection rule(s). There are two separate ARM templates that can be produced (based on agent configuration of the target workspace):
 	- Windows ARM Template and Parameter Files: will be created if target workspace contains Windows Performance Counters and/or Windows Events
 	- Linux ARM Template and Parameter Files: will be created if target workspace contains Linux Performance Counters and/or Linux Syslog Events
 	
-4. Use the rule association built-in policies to associate generated rules with machines running the new agent. [Learn more](/data-collection-rule-azure-monitor-agent.md#data-collection-rule-associations)
+4. Use the rule association built-in policies to associate generated rules with machines running the new agent. [Learn more](./data-collection-rule-azure-monitor-agent.md#data-collection-rule-associations)
