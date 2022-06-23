@@ -100,7 +100,7 @@ This version of the sensor provides a improved security for uploading proprietar
 
 For more information, see [Manage proprietary protocols with Horizon plugins](resources-manage-proprietary-protocols.md).
 
-## June
+## June 2022
 
 **Sensor software version**: 22.1.5
 
