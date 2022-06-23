@@ -103,12 +103,15 @@ While debugging this issue, be sure to pay attention to any [skill input warning
 <a name="could-not-execute-skill-because-web-api-skill-response-is-invalid"></a>
 
 ## `Error: Could not execute skill because Web API skill response is invalid`
+
 The skill execution failed because the call to the Web API returned an invalid response. Typically, this class of failure occurs when custom skills are used, in which case you will need to debug your custom code to resolve the issue. If instead the failure is from a built-in skill, file a [support ticket](https://portal.azure.com/#create/Microsoft.Support) to get assistance.
 
 <a name="skill-did-not-execute-within-the-time-limit"></a>
 
 ## `Error: Type of value has a mismatch with column type. Couldn't store in 'xyz' column.  Expected type is 'abc'`
 If your data source has a field with a different data type than the field you're trying to map in your index, you may encounter this error. Check your data source field data types and make sure they are [mapped correctly to your index data types](/rest/api/searchservice/data-type-map-for-indexers-in-azure-search).
+
+<a name="skill-did-not-execute-within-the-time-limit"></a>
 
 ## `Error: Skill did not execute within the time limit`
 
@@ -167,6 +170,7 @@ The document was read and processed, but the indexer could not add it to the sea
 <a name="could-not-index-document-because-the-indexer-data-to-index-was-invalid"></a>
 
 ## `Error: Could not index document because some of the document's data was not valid`
+
 The document was read and processed by the indexer, but due to a mismatch in the configuration of the index fields and the data extracted and processed by the indexer, it could not be added to the search index. This can happen due to:
 
 | Reason | Details/Example
