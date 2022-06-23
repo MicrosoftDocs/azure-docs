@@ -37,7 +37,7 @@ function createAzureClient(): AzureClient {
         type: "remote",
         tenantId: "myTenantId",
         tokenProvider: new InsecureTokenProvider(tenantKey, user),
-        serviceEndpoint: "https://myServiceEndpointUrl",
+        endpoint: "https://myServiceEndpointUrl",
     } : {
         type: "local",
         tokenProvider: new InsecureTokenProvider("", user),
