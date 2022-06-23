@@ -152,6 +152,7 @@ Authors can use links to create links to other views, workbooks, other items ins
 You can apply styles to the link element itself as well as to individual links.
 
 **Link element styles**
+
 | Style | Sample | Notes |
 |:------------- |:-------------|:-------------|
 | Bullet List| :::image type="content" source="media/workbooks-create-workbook/workbooks-link-style-bullet.png" alt-text="Screenshot of bullet style workbook link."::: | The default - links appears as a bulleted list of links, one on each line.  The **Text before link** and **Text after link** fields can be used to add additional text before or after the link items. |
@@ -163,6 +164,7 @@ You can apply styles to the link element itself as well as to individual links.
 
 
 **Link styles**
+
 | Style | Description |
 |:------------- |:-------------|
 | Link | The default - links appears as a hyperlink.  URL links can only be link style.  |

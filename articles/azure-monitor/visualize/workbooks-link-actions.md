@@ -24,14 +24,11 @@ Link actions can be accessed through Workbook link steps or through column setti
 | Link action | Action on click |
 |:------------- |:-------------|
 |Custom Event Details| Opens the Application Insights search details with the custom event ID ("itemId") in the cell. |
-|* Details| Similar to Custom Event Details, except for dependencies, exceptions, page views, requests, and traces. |
+|Details| Similar to Custom Event Details, except for dependencies, exceptions, page views, requests, and traces. |
 |Custom Event User Flows| Opens the Application Insights User Flows experience pivoted on the custom event name in the cell. |
-|* User Flows| Similar to Custom Event User Flows except for exceptions, page views and requests. |
+|User Flows| Similar to Custom Event User Flows except for exceptions, page views and requests. |
 |User Timeline| Opens the user timeline with the user ID ("user_Id") in the cell. |
 |Session Timeline| Opens the Application Insights search experience for the value in the cell (for example, search for text 'abc' where abc is the value in the cell). |
-
->[!NOTE]
-> * denotes a wildcard for the above table
 
 ## Azure resource
 
