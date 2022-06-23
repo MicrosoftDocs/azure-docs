@@ -6,40 +6,51 @@ author: saimicrosoft
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: tutorial
-ms.date: 06/22/2022
+ms.date: 06/23/2022
 ---
 
 # Real-time data ingestion using Azure Stream Analytics (ASA)
 
-## What is Azure Stream Analytics (ASA)?
+In this tutorial, we'll walk through the steps involved in creating an [Azure
+Stream
+Analytics](https://azure.microsoft.com/services/stream-analytics/#features)
+(ASA) job to integrate data flowing in from Azure IoT Hub to a table in Azure
+Database for PostgreSQL - Hyperscale (Citus).
 
-[Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/#features) is a real-time analytics and event-processing engine that is designed to analyze and process high volumes of fast streaming data from devices, sensors, web sites and so on. It's also available on Azure IoT Edge runtime, enabling to process data on IoT devices.
-An Azure Stream Analytics job consists of an input, query, and an output. Stream Analytics ingests data from Azure Event Hubs, Azure IoT Hub, or Azure Blob Storage.  Then a SQL based query language can be used to perform filter, sort, aggregate and join streaming data over a period. You can also extend this SQL language with JavaScript and C# user-defined functions (UDFs).
-Each job has one or several outputs for the transformed data, and you can control what happens in response to the information you've analyzed. For example: you can run analytics on stream outputs with Hyperscale (Citus), or you can send the output to another service, like Event Hubs or Power BI for real-time visualization.
+ASA is a real-time analytics and event-processing engine that is designed to
+analyze and process high volumes of fast streaming data from sources such as
+devices, sensors, and web sites. It's also available on the Azure IoT Edge
+runtime, enabling data processing on IoT devices.
 
-## ASA with Hyperscale (Citus)- Reference Architecture
-
-Hyperscale (Citus) shines at real-time time series workloads such as [IOT](howto-build-scalable-apps-model-high-throughput.md). For such workloads, Azure Stream Analytics (ASA) can act as a no-code, performant & scalable alternative to pre-process and stream data in real-time from Event Hub, IOT Hub and Azure Blob Storage into Citus.
-Below diagram depicts a sample reference architecture for such apps:
+### How ASA works with Hyperscale (Citus)
 
 ![Diagram of reference architecture of ASA with Citus](../media/howto-hyperscale-ingestion/01-ASA-reference-arch.png)
 
+Hyperscale (Citus) shines at real-time workloads such as
+[IoT](howto-build-scalable-apps-model-high-throughput.md). For these workloads,
+Azure Stream Analytics (ASA) can act as a no-code, performant and scalable
+alternative to pre-process and stream data from Event Hubs, IoT Hub and Azure
+Blob Storage into Hyperscale (Citus).
+
+## Prerequisites
+
+Before we begin, it's assumed that you already have Azure IoT Hub provisioned
+and devices added to it.
+
+The demonstration data shown in this article comes from:
+
+1. Creating an [Azure IoT
+   Hub](../../iot-hub/iot-hub-create-through-portal.md)
+2. Generating data with the [Azure IoT Device Telemetry
+   Simulator](https://github.com/Azure-Samples/Iot-Telemetry-Simulator)
+
 ## Steps to set up ASA with Hyperscale (Citus)
-In this tutorial, we'll walk you through the steps involved in creating an Azure Stream Analytics job to integrate data flowing in from Azure IOT Hub to Hyperscale (Citus).
-Before we begin, it's assumed that you already have Azure IOT Hub provisioned and devices added to it. If you're new to Azure IOT Hub, here's a [quick guide](../../iot-hub/iot-concepts-and-iot-hub.md) on how to get started.
 
 > [!NOTE]
 >
-> The steps below walk through how to ingest data from IOT Hub to Hyperscale
-> (Citus).  A similar approach can be extended for other sources, including
-> Event Hub, Blob storage etc.
->
-> The specific data shown in this example comes from:
->
-> 1. Creating an [Azure IoT
->    Hub](../../iot-hub/iot-hub-create-through-portal.md)
-> 2. Generating data with the [Azure IoT Device Telemetry
->    Simulator](https://github.com/Azure-Samples/Iot-Telemetry-Simulator)
+> The steps in this article walk through how to ingest data from IoT Hub to
+> Hyperscale (Citus).  A similar approach can be extended for other sources,
+> including Event Hub, Blob storage etc.
 
 1. Open **Azure portal** and select **Create a resource** in the upper left-hand corner of the Azure portal.
 2. Select **Analytics** > **Stream Analytics job** from the results list.
@@ -67,23 +78,23 @@ Before we begin, it's assumed that you already have Azure IOT Hub provisioned an
    * Once the input stream is added, you can also verify/download the dataset flowing in.
    * Below is the data for sample event in our use case:
 
-   ```json
-   {
-      "deviceId": "sim000001",
-      "time": "2022-04-25T13:49:11.6892185Z",
-      "counter": 1,
-      "EventProcessedUtcTime": "2022-04-25T13:49:41.4791613Z",
-      "PartitionId": 3,
-      "EventEnqueuedUtcTime": "2022-04-25T13:49:12.1820000Z",
-      "IoTHub": {
-        "MessageId": null,
-        "CorrelationId": "990407b8-4332-4cb6-a8f4-d47f304397d8",
-        "ConnectionDeviceId": "sim000001",
-        "ConnectionDeviceGenerationId": "637842405470327268",
-        "EnqueuedTime": "2022-04-25T13:49:11.7060000Z"
-      }
-   }
-   ```
+     ```json
+     {
+        "deviceId": "sim000001",
+        "time": "2022-04-25T13:49:11.6892185Z",
+        "counter": 1,
+        "EventProcessedUtcTime": "2022-04-25T13:49:41.4791613Z",
+        "PartitionId": 3,
+        "EventEnqueuedUtcTime": "2022-04-25T13:49:12.1820000Z",
+        "IoTHub": {
+          "MessageId": null,
+          "CorrelationId": "990407b8-4332-4cb6-a8f4-d47f304397d8",
+          "ConnectionDeviceId": "sim000001",
+          "ConnectionDeviceGenerationId": "637842405470327268",
+          "EnqueuedTime": "2022-04-25T13:49:11.7060000Z"
+        }
+     }
+     ```
 
 6. **Configure Job Output**
    * Navigate to the Stream Analytics job that you created earlier.
@@ -145,3 +156,8 @@ Before we begin, it's assumed that you already have Azure IOT Hub provisioned an
            20 | sim000001          | 219488e5-c48a-4f04-93f6-12c11ed00a30 | 637842405470327268           | 2022-05-25T18:24:21.4610000Z
      (10 rows)
      ```
+
+## Next steps
+
+Learn how to create a [real-time
+dashboard](tutorial-design-database-realtime.md) with Hyperscale (Citus).
