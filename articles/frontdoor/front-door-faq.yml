@@ -40,12 +40,23 @@ sections:
       - question: |
           When should we deploy an Application Gateway behind Front Door?
         answer: |
-          The key scenarios why one should use Application Gateway behind Front Door are:
+          Front Door is a global service that will interface with all application traffic that enters the Azure cloud environment. From that point, Front Door can direct traffic to various regions; from here Application Gateway can take over to provide fine-tuned load balancing within each region (ie: load balance across multiple VM's in a region).
+
+          Some of the key scenarios why one should use Application Gateway behind Front Door are:
           
           - Front Door can perform path-based load balancing only at the global level but if one wants to load balance traffic even further within their virtual network (VNET) then they should use Application Gateway.
           - Since Front Door doesn't work at a VM/container level, so it cannot do Connection Draining. However, Application Gateway allows you to do Connection Draining. 
           - With an Application Gateway behind Front Door, one can achieve 100% TLS/SSL offload and route only HTTP requests within their virtual network (VNET).
           - Front Door and Application Gateway both support session affinity. While Front Door can direct subsequent traffic from a user session to the same cluster or backend in a given region, Application Gateway can direct affinitize the traffic to the same server within the cluster.  
+
+      - question: |
+          If there is an existing Application Gateway, what are some of the advantanges of deploying Azure Front Door in front of the Application Gateway?
+        answer: |
+          Some of the advantages of putting Azure Front Door in front of existing Application Gateway are:
+
+          - Security - protect the IP address of the Application Gateway
+          - Performance - users are distributed and Azure Front Door provides latency benefits through caching and acceleration
+          - Operational simplicity - Configure WAF at Azure Front Door instead of configuring WAF on multiple Application Gateway's
           
       - question: |
           Can we deploy Azure Load Balancer behind Front Door?
