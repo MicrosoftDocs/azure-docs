@@ -55,8 +55,8 @@ To run against the Azure Fluid Relay service, you'll need to update your app's c
 
 ### Configure and create an Azure client
 
-To configure the Azure client, replace the values in the `serviceConfig` object in `app.js` with your Azure Fluid Relay
-service configuration values. These values can be found in the "Access Key" section of the Fluid Relay resource in the Azure portal.
+To configure the Azure client, replace the local connection `serviceConfig` object in `app.js` with your Azure Fluid Relay
+service configuration values. These values can be found in the "Access Key" section of the Fluid Relay resource in the Azure portal. Your `serviceConfig` object should look like this with the values replaced
 
 ```javascript
 const serviceConfig = {
@@ -64,6 +64,7 @@ const serviceConfig = {
         tenantId: LOCAL_MODE_TENANT_ID, // REPLACE WITH YOUR TENANT ID
         tokenProvider: new InsecureTokenProvider("" /* REPLACE WITH YOUR PRIMARY KEY */, { id: "userId" }),
         serviceEndpoint: "http://localhost:7070", // REPLACE WITH YOUR SERVICE ENDPOINT
+        type: "remote",
     }
 };
 ```
