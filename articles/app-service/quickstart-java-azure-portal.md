@@ -102,6 +102,8 @@ The Java sample code is running in an Azure App Service Linux web app.
     > [!NOTE]
     > The URL will change from GitHub.com to GitHub.dev. This feature only works with repos that have files. This does not work on empty repos.
 
+    ![Screenshot of forked GitHub repo with an annotation to Press the period key.](media/quickstart-java/github-forked-repo-press-period.png)
+
 3. Navigate to **src/main/java/com/example/demo/DemoApplication.java**.
 
     ![Screenshot of Visual Studio Code in the browser, highlighting src/main/java/com/example/demo/DemoApplication.java in the Explorer pane.](media/quickstart-java/vscode-in-browser-navigate-to-application-controller.png)
