@@ -12,7 +12,7 @@ To quickly manage and deploy applications for Kubernetes, you can use the [open-
 This article shows you how to host Helm charts repositories in an Azure container registry, using Helm 3 commands and storing charts as [OCI artifacts](container-registry-image-formats.md#oci-artifacts). In many scenarios, you would build and upload your own charts for the applications you develop. For more information on how to build your own Helm charts, see the [Chart Template Developer's Guide][develop-helm-charts]. You can also store an existing Helm chart from another Helm repo.
 
 > [!IMPORTANT]
-> This article has been updated with Helm 3 commands as of version **3.7.1**. Helm 3.7.1 includes changes to Helm CLI commands and OCI support introduced in earlier versions of Helm 3. 
+> This article has been updated with Helm 3 commands as of version **3.7.1**. Helm 3.7.1 includes changes to Helm CLI commands and OCI support introduced in earlier versions of Helm 3. By design `helm` moves forward with version. We recommend to use the latest version. 
 
 ## Helm 3 or Helm 2?
 
