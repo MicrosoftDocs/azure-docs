@@ -17,7 +17,7 @@ Many Azure resources, such as Azure storage accounts, can be configured to accep
 
 For [Azure Storage](../storage/common/storage-network-security.md?tabs=azure-portal), if both the storage account and the search service are in the same region, outbound traffic uses a private IP address to communicate to storage and occurs over the Microsoft backbone network. For this scenario, you can omit private endpoints through Azure Cognitive Search. For other Azure PaaS resources, we suggest that you review the networking documentation for those resources to determine whether a private endpoint is helpful.
 
-To create a shared private link, use the Azure portal or the [Create Or Update Shared Private Link](/rest/api/searchmanagement/2020-08-01/shared-private-link-resources/create-or-update) operation in the Azure Cognitive Search Management REST API.
+To create a private endpoint that an indexer can use, use the Azure portal or the [Create Or Update Shared Private Link](/rest/api/searchmanagement/2020-08-01/shared-private-link-resources/create-or-update) operation in the Azure Cognitive Search Management REST API. A private endpoint that's used by your search service is created using Cognitive Search APIs or the portal pages for Azure Cognitive Search.
 
 ## Terminology
 
