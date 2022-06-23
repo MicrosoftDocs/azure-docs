@@ -30,7 +30,10 @@ The *systemconfig.ini* file is used to configure behavior of the data collector.
 
 ## Secrets Source section
 ```systemconfig.ini
-secrets=AZURE_KEY_VAULT|DOCKER_SECRETS|DOCKER_FIXED
+secrets=AZURE_KEY_VAULT|DOCKER_FIXED
+# Storage location of SAP credentials and Log Analytics workspace ID and key
+# AZURE_KEY_VAULT - store in an Azure Key Vault. Requires keyvault option and intprefix option
+# DOCKER_FIXED - store in systemconfig.ini file. Requires user, passwd, loganalyticswsid and publickey options
 
 keyvault=<vaultname>
 # Azure Keyvault name, in case secrets = AZURE_KEY_VAULT
