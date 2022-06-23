@@ -1,6 +1,7 @@
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An active Communication Services resource and connection string. [Create a Communication Services resource](../../create-communication-resource.md).
 - Install [Azure CLI](/cli/azure/install-azure-cli-windows?tabs=azure-cli).
 
 ## Setting up
@@ -14,24 +15,51 @@ az extension add --name communication
 ### Sign in to Azure CLI
 You will need to [sign in to Azure CLI](/cli/azure/authenticate-azure-cli). You can sign in running the ```az login``` command from the terminal and providing your credentials.
 
-### Create an ACS resource and get your connection string
-If you don't have an ACS resource, you create one by running the command below.
+## Operations
+
+### Create an identity and issue an access token in the same request
+
+Run the following command to create a Communication Services identity and issue an access token for it at the same time. The `scopes` parameter defines a set of access token permissions and roles. For more information, see the list of supported actions in [Authenticate to Azure Communication Services](../../../concepts/authentication.md).
 
 ```azurecli-interactive
-az communication create --name "<communicationName>" --location "Global" --data-location "United States" --resource-group "<resourceGroup>"
+az communication identity issue-access-token --scope chat --connection-string "<yourConnectionString>"
 ```
 
-You can get your connection string by running the command below.
+Make this replacement in the code:
+
+- Replace `<yourConnectionString>` with your connection string.
+
+### Issue access token
+
+Run the following command to issue an access token for your Communication Services identity. The `scopes` parameter defines a set of access token permissions and roles. For more information, see the list of supported actions in [Authenticate to Azure Communication Services](../../../concepts/authentication.md).
 
 ```azurecli-interactive
-az communication list-key --name "<communicationName>" --resource-group "<resourceGroup>"
+az communication identity issue-access-token --scope chat --userid "8:acs:xxxxxx" --connection-string "<yourConnectionString>"
 ```
 
-For more information on ACS resources and connection strings, see [Create an Azure Communication Services resources](../../create-communication-resource.md)
+Make this replacement in the code:
 
-### Store your connection string in an environment variable
+- Replace `<yourConnectionString>` with your connection string.
 
-To configure an environment variable, open a console window and select your operating system from the below tabs. Replace `<yourconnectionstring>` with your actual connection string.
+Access tokens are short-lived credentials that need to be reissued. Not doing so might cause a disruption of your application users' experience. The `expires_on` response property indicates the lifetime of the access token.
+
+### Issue access token with multiple scopes
+
+Run the following command to issue an access token with multiple scopes for your Communication Services identity. The `scopes` parameter defines a set of access token permissions and roles. For more information, see the list of supported actions in [Authenticate to Azure Communication Services](../../../concepts/authentication.md).
+
+```azurecli-interactive
+az communication identity issue-access-token --scope chat voip --userid "8:acs:xxxxxx" --connection-string "<yourConnectionString>"
+```
+
+Make this replacement in the code:
+
+- Replace `<yourConnectionString>` with your connection string.
+
+Access tokens are short-lived credentials that need to be reissued. Not doing so might cause a disruption of your application users' experience. The `expires_on` response property indicates the lifetime of the access token.
+
+### (Optional) Use Azure CLI identity operations without passing in a connection string
+
+You can configure the `AZURE_COMMUNICATION_CONNECTION_STRING` environment variable to use Azure CLI identity operations without having to use `--connection_string` to pass in the connection string. To configure an environment variable, open a console window and select your operating system from the below tabs. Replace `<yourConnectionString>` with your actual connection string.
 
 #### [Windows](#tab/windows)
 
@@ -64,37 +92,6 @@ export AZURE_COMMUNICATION_CONNECTION_STRING="<yourConnectionString>"
 After you add the environment variable, run `source ~/.bash_profile` from your console window to make the changes effective. If you created the environment variable with your IDE open, you may need to close and reopen the editor, IDE, or shell in order to access the variable.
 
 ---
-
-## Operations
-
-> [!NOTE]
-> The connection string environment variable must be set to try out operations in the embedded Docs Shell. 
-> ```bash
-> export AZURE_COMMUNICATION_CONNECTION_STRING="<yourConnectionString>"
-> ```
-
-### Issue access token
-
-Run the following command to issue an access token for your Communication Services identity.
-
-```azurecli-interactive
-az communication identity issue-access-token --scope chat voip --userid "8:acs:xxxxxx"
-```
-
-The `scopes` parameter defines a set of access token permissions and roles. For more information, see the list of supported actions in [Authenticate to Azure Communication Services](../../../concepts/authentication.md).
-
-Access tokens are short-lived credentials that need to be reissued. Not doing so might cause a disruption of your application users' experience. The `expires_on` response property indicates the lifetime of the access token.
-
-### Create an identity and issue an access token in the same request
-
-Run the following command to create a Communication Services identity and issue an access token for it at the same time.
-
-```azurecli-interactive
-az communication identity issue-access-token --scope chat
-```
-
-The `scopes` parameter defines a set of access token permissions and roles. For more information, see the list of supported actions in [Authenticate to Azure Communication Services](../../../concepts/authentication.md).
-
 
 ## Store your access token in an environment variable
 
