@@ -18,13 +18,13 @@ This article is part seven of a seven-part series that provides guidance on how 
 
 ## Beyond data warehouse migration to Azure
 
-One of the key reasons to migrate your existing data warehouse to Azure Synapse Analytics is to utilize a globally secure, scalable, low-cost, cloud-native, pay-as-you-use analytical database. Azure Synapse also lets you integrate your migrated data warehouse with the complete Microsoft Azure analytical ecosystem to take advantage of, and integrate with, other Microsoft technologies that help you modernize your migrated data warehouse. This includes integrating with technologies like:
+One of the key reasons to migrate your existing data warehouse to Azure Synapse Analytics is to utilize a globally secure, scalable, low-cost, cloud-native, pay-as-you-use analytical database. With Azure Synapse, you can integrate your migrated data warehouse with the complete Microsoft Azure analytical ecosystem to take advantage of, and integrate with, other Microsoft technologies that help you modernize your migrated data warehouse. You can integrate your migrated data warehouse with technologies such as:
 
-- Azure Data Lake Storage for cost effective data ingestion, staging, cleansing, and transformation, to free up data warehouse capacity occupied by fast growing staging tables.
+- [Azure Data Lake Storage](/services/storage/data-lake-storage) (ADLS) for cost effective data ingestion, staging, cleansing, and transformation. Data Lake Storage can free up data warehouse capacity occupied by fast-growing staging tables.
 
-- Azure Data Factory for collaborative IT and self-service data integration [with connectors](../../../data-factory/connector-overview.md) to cloud and on-premises data sources and streaming data.
+- [Azure Data Factory](../../../data-factory/introduction.md) for collaborative IT and self-service data integration with [connectors](../../../data-factory/connector-overview.md) to cloud and on-premises data sources and streaming data.
 
-- [The Open Data Model Common Data Initiative](/common-data-model/) to share consistent trusted data across multiple technologies, including:
+- [The Common Data Model](/common-data-model/) to share consistent trusted data across multiple technologies, including:
   - Azure Synapse
   - Azure Synapse Spark
   - Azure HDInsight
@@ -162,11 +162,11 @@ Data engineers can profile data quality and view the results of individual data 
 
 Extend Data Factory transformational and analytical functionality by adding a linked service containing your own code into a pipeline. For example, an Azure Synapse Spark pool notebook containing Python code could use a trained model to score the data integrated by a mapping data flow.
 
-Store integrated data and any results from analytics included in a Data Factory pipeline in one or more data stores such as Azure Data Lake Storage, Azure Synapse, or Azure HDInsight (Hive tables). Invoke other activities to act on insights produced by a Data Factory analytical pipeline.
+Store integrated data and any results from analytics included in a Data Factory pipeline in one or more data stores such as Azure Data Lake Storage, Azure Synapse, or Azure HDInsight (hive tables). Invoke other activities to act on insights produced by a Data Factory analytical pipeline.
 
 #### Utilize Spark to scale data integration
 
-Internally, Data Factory utilizes Azure Synapse Spark Pools&mdash;Microsoft's Spark-as-a-service offering&mdash;at run time to clean and integrate data on the Microsoft Azure cloud. This enables it to clean, integrate, and analyze high-volume and very high-velocity data (such as click stream data) at scale. Microsoft intends to execute Data Factory pipelines on other Spark distributions. In addition to executing ETL jobs on Spark, Data Factory can also invoke Pig scripts and Hive queries to access and transform data stored in Azure HDInsight.
+Internally, Data Factory utilizes Azure Synapse Spark pools&mdash;Microsoft's Spark-as-a-service offering&mdash;at run time to clean and integrate data on the Microsoft Azure cloud. This enables it to clean, integrate, and analyze high-volume and very high-velocity data (such as click stream data) at scale. Microsoft intends to execute Data Factory pipelines on other Spark distributions. In addition to executing ETL jobs on Spark, Data Factory can also invoke Pig scripts and hive queries to access and transform data stored in Azure HDInsight.
 
 #### Link self-service data prep and Data Factory ETL processing using wrangling data flows
 

@@ -111,7 +111,7 @@ You can automate and orchestrate the migration process by using the capabilities
 
 :::image type="content" source="../media/1-design-performance-migration/oracle-sql-server-migration-assistant-1.png" border="true" alt-text="Screenshot showing how SQL Server Migration Assistant for Oracle can automate many parts of the migration process.":::
 
-Azure Data Factory is a cloud-based data integration service that supports creating data-driven workflows in the cloud that orchestrate and automate data movement and data transformation. You can use Data Factory to create and schedule data-driven workflows (pipelines) that ingest data from disparate data stores. Data Factory can process and transform the data by using compute services such as Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics, and Azure Machine Learning.
+[Azure Data Factory](../../../data-factory/introduction.md) is a cloud-based data integration service that supports creating data-driven workflows in the cloud that orchestrate and automate data movement and data transformation. You can use Data Factory to create and schedule data-driven workflows (pipelines) that ingest data from disparate data stores. Data Factory can process and transform the data by using compute services such as Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics, and Azure Machine Learning.
 
 Azure also includes [Azure Database Migration Services](/services/database-migration/) to help you plan and perform a migration from environments like Oracle. SSMA for Oracle can automate migration of Oracle databases, including in some cases functions and procedural code.
 
@@ -383,7 +383,7 @@ You can only use one field per table for partitioning. That field is frequently 
 
 - Data retrieval from all files within a folder and subfolders.
 - Data retrieval from multiple locations in the same storage account. You can specify multiple locations by using comma separated paths.
-- Azure Data Lake Storage (ADLS) and Azure Blob Storage.
+- [Azure Data Lake Storage](/services/storage/data-lake-storage) (ADLS) and Azure Blob Storage.
 - CSV, PARQUET, and ORC file formats.
 
 #### Use resource classes for workload management

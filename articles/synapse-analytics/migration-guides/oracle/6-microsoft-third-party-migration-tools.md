@@ -38,7 +38,7 @@ Several tools from both Microsoft and [third-party partners](../../partner/data-
 
 Microsoft offers several tools to help you migrate your existing data warehouse to Azure Synapse, such as:
 
-- Azure Data Factory.
+- [Azure Data Factory](../../../data-factory/introduction.md).
 
 - Microsoft services for physical data transfer.
 
