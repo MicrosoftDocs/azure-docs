@@ -43,7 +43,7 @@ The log size varies by the string lengths of performance counters, and it can in
 The steps to configure VM insights are as follows. Follow each link for detailed guidance on each step:
 
 - [Create Log Analytics workspace.](./vminsights-configure-workspace.md#create-log-analytics-workspace)
-- [Add VMInsights solution to workspace.](./vminsights-configure-workspace.md#add-vminsights-solution-to-workspace)
+- [Add VMInsights solution to workspace.](./vminsights-configure-workspace.md#add-vminsights-solution-to-workspace) (Log ANalytics agent only))
 - [Install agents on virtual machine and virtual machine scale set to be monitored.](./vminsights-enable-overview.md)
 
 > [!NOTE]

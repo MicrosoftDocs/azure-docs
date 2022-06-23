@@ -4,39 +4,38 @@ description: Describes how to use the Azure Monitor agent with VM insights.
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 10/13/2021
+ms.date: 06/23/2022
 ms.custom: references_regions
 
 ---
 
 #  VM insights with Azure Monitor agent (Preview)
-This article describes using VM insights to monitor virtual machines with the Azure Monitor agent instead of the Log Analytics agent. This functionality is currently in public preview. The Azure Monitor agent is in the process of replacing the Log Analytics agent. 
+[Azure Monitor agent](../agents/azure-monitor-agent-overview.md) is in the process of replacing the Log Analytics agent. VM insights support for virtual machines running Azure Monitor agent is currently in public preview. This article describes the changes in VM insights using virtual machines with the Azure Monitor agent. 
 
 
 ## Comparing operation of agents
-The Log Analytics agent can only send data to Logs. VM insights delivers a management pack to each agent that instruct it what to collect. You can't modify this management pack. Configure additional data collection, such as Windows and Syslog events, from the workspace. All agents connected to the workspace get the same configuration.
+Azure Monitor agent includes several advantages over Log Analytics agent, and is the preferred agent for virtual machines and virtual machine scale sets. See [Migrate to Azure Monitor agent from Log Analytics age(../agents/azure-monitor-agent-migration.md) for comparison of the agent and information on migrating.
 
-The Azure Monitor agent can send data to both Logs and Metrics. When you enable VM insights for a virtual machine, you either select an existing data collection rule or create a new one. The data collection rule tells the agent which data to collect and where to send it. You can apply a single rule to multiple virtual machines or use separate rules for unique requirements.
+The most significant differences between the agents in relation to VM insights are:
+
+- You have no control over the data that VM insights collects from machines with the Log Analytics agent. You must [configure the Log Analytics workspace](../agents/agent-data-sources.md) if you want to collect additional data, and all machines connecting to the same workspace receive the same configuration. Azure Monitor agent uses [data collection rules](../essentials/data-collection-rule-overview.md) which can apply a unique configuration to different machines. VM insights creates a default DCR that you can modify to collect additional data. You can also create custom DCRs and associate them with different machines.
+- The Log Analytics agent can only send data to a [Log Analytics workspace](../logs/log-analytics-workspace-overview.md). The Azure Monitor agent can send data to both [Logs and Metrics](../data-platform.md) allowing you to leverage the advantages of each. 
 
 
-## Description of onboarding
-Enabling a virtual machine for monitoring by VM insights includes the following steps. When you use the Azure portal to enable a machine using the process below, these steps are performed for you.
-
-- Install the Azure Monitor agent
-- Install the Dependency agent
-- Create data collection rule and associate with virtual machine
-
-## Enable VM insights
+## Changes to enabling VM insights
 You no longer need to [enable VM insights on the Log Analytics workspace](vminsights-enable-portal.md#enable-vm-insights) since the VMinsights management pack isn't used by Azure Monitor agent.
 
 > [!NOTE]
 > You can't currently enable the Azure Monitor agent from the virtual machine's menu in the Azure portal. You must use the Azure Monitor menu.
 
-## Changes to Get Started tab
-The following changes have been made to the **Get Started** page in VM insights.
 
-- **Data collection rule** column has been added to **Monitored**. This either shows the data collection rules used by the Azure Monitor agent for the machine, or it gives the option to configure with the Azure Monitor agent.
-- **Monitor Coverage** column 
+
+
+## Changes to Overview page
+
+The following changes have been made to the **Overiew** page in VM insights.
+
+- **Data collection rule** column has replaced the **Workspace** column. This either shows the data collection rules used by the Azure Monitor agent for each machine, or it gives the option to configure with the Azure Monitor agent.
 
 ## Data collection
 Data collection rules for VM insights are defined by the following three options:

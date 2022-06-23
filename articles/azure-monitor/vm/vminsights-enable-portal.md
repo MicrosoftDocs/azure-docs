@@ -8,18 +8,16 @@ ms.date: 06/08/2022
 
 ---
 
-# Enable Azure Monitor for single virtual machine or virtual machine scale set in the Azure portal
-This article describes how to enable VM insights for a virtual machine or virtual machine scale set using the Azure portal. This procedure can be used for the following:
+# Enable VM insights on virtual machine or virtual machine scale set in the Azure portal
+This article describes how to enable VM insights for the following using the Azure portal:
 
 - Azure virtual machine
 - Azure virtual machine scale set
 - Hybrid virtual machine connected with Azure Arc
 
-[!INCLUDE [monitoring-limits](../../../includes/azure-monitor-vminsights-agent.md)]
-
 ## Prerequisites
 
-- [Create and configure a Log Analytics workspace](./vminsights-configure-workspace.md). Alternatively, you can create a new workspace during this process.
+- [Create a Log Analytics workspace](./vminsights-configure-workspace.md). You can create a new workspace during this process, but you should use an existing workspace if you already have one.
 - See [Supported operating systems](./vminsights-enable-overview.md#supported-operating-systems) to ensure that the operating system of the virtual machine or virtual machine scale set you're enabling is supported. 
 
 ## Enable VM insights
