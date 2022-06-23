@@ -50,7 +50,7 @@ npx install-peerdeps @fluidframework/azure-client
 
 | npm package                         | Minimum version | API                                                              |
 | ----------------------------------  | :-------------- | :--------------------------------------------------------------- |
-| @fluidframework/azure-client        | [1.0.0][]      | [API](https://fluidframework.com/docs/apis/azure-client/)        |
+| @fluidframework/azure-client        | [1.0.1][]      | [API](https://fluidframework.com/docs/apis/azure-client/)        |
 | fluid-framework                     | [1.0.1][]      | [API](https://fluidframework.com/docs/apis/fluid-framework/)     |
 | @fluidframework/azure-service-utils | [1.0.0][]      | [API](https://fluidframework.com/docs/apis/azure-service-utils/) |
 | @fluidframework/test-client-utils   | [1.0.0][]      | [API](https://fluidframework.com/docs/apis/test-client-utils/)   |
