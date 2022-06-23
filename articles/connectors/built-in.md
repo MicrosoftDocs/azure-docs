@@ -24,7 +24,7 @@ This article provides a general overview about built-in connectors in Consumptio
 
 ## Built-in connectors in Consumption versus Standard
 
-The following table lists the current and expanding galleries of built-in connectors available for Consumption versus Standard logic app workflows. For Standard workflows, an asterisk (**\***) marks [service provider-based built-in connectors](#service-provider-interface-implementation), which are available alongside the [managed connector versions](managed.md).
+The following table lists the current and expanding galleries of built-in connectors available for Consumption versus Standard logic app workflows. For Standard workflows, an asterisk (**\***) marks [built-in connectors based on the *service provider* model](#service-provider-interface-implementation), which is described in more detail later.
 
 | Consumption | Standard |
 |-------------|----------|
@@ -33,7 +33,7 @@ The following table lists the current and expanding galleries of built-in connec
 
 <a name="service-provider-interface-implementation"></a>
 
-### Service provider-based built-in connectors
+## Service provider-based built-in connectors
 
 In Standard logic app workflows, a built-in connector that has the following attributes is informally known as a *service provider*:
 
@@ -45,7 +45,9 @@ In Standard logic app workflows, a built-in connector that has the following att
 
 * Runs in the same process as the redesigned Azure Logic Apps runtime.
 
-A built-in connector that's *not a service provider* has the following attributes:
+These service provider-based built-in connectors are available alongside their [managed connector versions](managed.md).
+
+In contrast, a built-in connector that's *not a service provider* has the following attributes:
 
 * Isn't based on the Azure Functions extensibility model.
 
