@@ -106,5 +106,5 @@ In each client record, the `loadFactor` attribute represents the load on the giv
 ## Next steps
 
 * [Spark samples in GitHub](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/cosmos/azure-cosmos-spark_3_2-12/Samples).
-* [Manage data with Azure Cosmos DB Spark 3 OLTP Connector for SQL API](create-sql-api-spark.md)
+* [Manage data with Azure Cosmos DB Spark 3 OLTP Connector for SQL API](create-sql-api-spark.md).
 * Learn more about [Apache Spark](https://spark.apache.org/).
