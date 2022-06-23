@@ -85,7 +85,7 @@ You can enable Profiler by any of the following three ways:
   ```
 
 
-# [Powershell](#tab/windows)
+# [Powershell](#tab/powershell)
 
 1. Deploy the modified environment deployment definition.  
 
@@ -120,7 +120,7 @@ You can enable Profiler by any of the following three ways:
 1. Deploy your application.
 
 
-# [Azure Resource Explorer](#tab/windows)
+# [Azure Resource Explorer](#tab/are)
 
 ## Set Profiler Sink using Azure Resource Explorer
 
