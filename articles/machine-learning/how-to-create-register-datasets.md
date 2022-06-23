@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.custom: contperf-fy21q1, data4ml, sdkv1, event-tier1-build-2022
 ms.author: yogipandey
 author: ynpandey
-ms.reviewer: nibaccam
+ms.reviewer: ssalgado
 ms.date: 05/11/2022
 #Customer intent: As an experienced data scientist, I need to package my data into a consumable and reusable object to train my machine learning models.
 ---
