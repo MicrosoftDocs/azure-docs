@@ -34,12 +34,13 @@ Make this replacement in the code:
 Run the following command to issue an access token for your Communication Services identity. The `scopes` parameter defines a set of access token permissions and roles. For more information, see the list of supported actions in [Authenticate to Azure Communication Services](../../../concepts/authentication.md).
 
 ```azurecli-interactive
-az communication identity issue-access-token --scope chat --userid "8:acs:xxxxxx" --connection-string "<yourConnectionString>"
+az communication identity issue-access-token --scope chat --userid "<userId>" --connection-string "<yourConnectionString>"
 ```
 
 Make this replacement in the code:
 
 - Replace `<yourConnectionString>` with your connection string.
+- Replace `<userId>` with your userId.
 
 Access tokens are short-lived credentials that need to be reissued. Not doing so might cause a disruption of your application users' experience. The `expires_on` response property indicates the lifetime of the access token.
 
@@ -48,12 +49,13 @@ Access tokens are short-lived credentials that need to be reissued. Not doing so
 Run the following command to issue an access token with multiple scopes for your Communication Services identity. The `scopes` parameter defines a set of access token permissions and roles. For more information, see the list of supported actions in [Authenticate to Azure Communication Services](../../../concepts/authentication.md).
 
 ```azurecli-interactive
-az communication identity issue-access-token --scope chat voip --userid "8:acs:xxxxxx" --connection-string "<yourConnectionString>"
+az communication identity issue-access-token --scope chat voip --userid "<userId>" --connection-string "<yourConnectionString>"
 ```
 
 Make this replacement in the code:
 
 - Replace `<yourConnectionString>` with your connection string.
+- Replace `<userId>` with your userId.
 
 Access tokens are short-lived credentials that need to be reissued. Not doing so might cause a disruption of your application users' experience. The `expires_on` response property indicates the lifetime of the access token.
 
@@ -95,7 +97,7 @@ After you add the environment variable, run `source ~/.bash_profile` from your c
 
 ## Store your access token in an environment variable
 
-To configure an environment variable, open a console window and select your operating system from the below tabs. Replace `<youraccesstoken>` with your actual access token.
+To configure an environment variable, open a console window and select your operating system from the below tabs. Replace `<yourAccessToken>` with your actual access token.
 
 #### [Windows](#tab/windows)
 

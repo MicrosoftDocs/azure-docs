@@ -45,7 +45,7 @@ Make these replacements in the code:
 
 ### (Optional) Use Azure CLI phonenumbers operations without passing in a connection string
 
-You can configure the `AZURE_COMMUNICATION_CONNECTION_STRING` environment variable to use Azure CLI identity operations without having to use `--connection_string` to pass in the connection string. To configure an environment variable, open a console window and select your operating system from the below tabs. Replace `<yourConnectionString>` with your actual connection string.
+You can configure the `AZURE_COMMUNICATION_CONNECTION_STRING` environment variable to use Azure CLI phonenumbers operations without having to use `--connection_string` to pass in the connection string. To configure an environment variable, open a console window and select your operating system from the below tabs. Replace `<yourConnectionString>` with your actual connection string.
 
 #### [Windows](#tab/windows)
 

@@ -62,7 +62,7 @@ Below you'll find more information on prerequisites and steps to set up the samp
 3. Get the `Connection String` and `Endpoint URL` from the Azure Portal or by using the Azure CLI. 
 
     ```azurecli-interactive
-    az communication list-key --name "<communicationName>" --resource-group "<resourceGroup>"
+    az communication list-key --name "<acsResourceName>" --resource-group "<resourceGroup>"
     ```
 
    For more information on connection strings, see [Create an Azure Communication Services resources](../quickstarts/create-communication-resource.md)

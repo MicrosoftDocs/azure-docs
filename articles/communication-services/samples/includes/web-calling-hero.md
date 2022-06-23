@@ -67,7 +67,7 @@ Below you'll find more information on prerequisites and steps to set up the samp
 1. Get the `Connection String` from the Azure portal or by using the Azure CLI. 
 
     ```azurecli-interactive
-    az communication list-key --name "<communicationName>" --resource-group "<resourceGroup>"
+    az communication list-key --name "<acsResourceName>" --resource-group "<resourceGroup>"
     ```
 
    For more information on connection strings, see [Create an Azure Communication Resources](../../quickstarts/create-communication-resource.md)
@@ -75,7 +75,7 @@ Below you'll find more information on prerequisites and steps to set up the samp
 1. Get the `Endpoint string` from the Azure portal or by using the Azure CLI. 
 
     ```azurecli-interactive
-    az communication list-key --name "<communicationName>" --resource-group "<resourceGroup>"
+    az communication list-key --name "<acsResourceName>" --resource-group "<resourceGroup>"
     ```
 
    For more information on Endpoint strings, see [Create an Azure Communication Resources](../../quickstarts/create-communication-resource.md)

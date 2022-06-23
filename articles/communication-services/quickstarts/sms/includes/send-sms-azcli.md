@@ -66,7 +66,7 @@ You need to replace `<yourSubscriptionId>` with your actual subscription ID, whi
 To send an SMS message to a list of recipients, call the `send-sms` method from the sms module with a single recipient phone number. 
 
 ```azurecli-interactive
-az communication sms send-sms --sender "<from-phone-number>" --recipient "<to-phone-number>" --message "Hello world via SMS for Azure CLI!" --connection-string "<yourConnectionString>"
+az communication sms send-sms --sender "<fromPhoneNumber>" --recipient "<toPhoneNumber>" --message "Hello world via SMS for Azure CLI!" --connection-string "<yourConnectionString>"
 ```
 
 Make these replacements in the code:
@@ -90,13 +90,14 @@ Make these replacements in the code:
 
 - Replace `<fromPhoneNumber>` with an SMS-enabled phone number that's associated with your Communication Services resource.
 - Replace `<toPhoneNumberN>` with the N'th phone number that you'd like to send a message to.
+- Replace `<yourConnectionString>` with your connection string.
 
 > [!WARNING]
 > Provide phone numbers in E.164 international standard format, for example, +14255550123. The value for `<fromPhoneNumber>` can also be a short code, for example, 23456.
 
 ### (Optional) Use Azure CLI sms operations without passing in a connection string
 
-You can configure the `AZURE_COMMUNICATION_CONNECTION_STRING` environment variable to use Azure CLI identity operations without having to use `--connection_string` to pass in the connection string. To configure an environment variable, open a console window and select your operating system from the below tabs. Replace `<yourConnectionString>` with your actual connection string.
+You can configure the `AZURE_COMMUNICATION_CONNECTION_STRING` environment variable to use Azure CLI sms operations without having to use `--connection_string` to pass in the connection string. To configure an environment variable, open a console window and select your operating system from the below tabs. Replace `<yourConnectionString>` with your actual connection string.
 
 #### [Windows](#tab/windows)
 
