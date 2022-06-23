@@ -3,23 +3,22 @@ title: Azure OpenAI Service quotas and limits
 titleSuffix: Azure Cognitive Services
 description: Quick reference, detailed description, and best practices on the quotas and limits for the OpenAI service in Azure Cognitive Services.
 services: cognitive-services
-author: chrhoder
+author: ChrisHMSFT
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: openai
 ms.topic: conceptual
-ms.date: 06/01/2022
+ms.date: 06/30/2022
 ms.author: chrhoder
 ---
 
 # Azure OpenAI service quotas and limits
 
-This article contains a quick reference and a detailed description of the quotas and limits for the OpenAI service in Azure Cognitive Services.
+This article contains a quick reference and a detailed description of the quotas and limits for the Azure OpenAI service in Azure Cognitive Services.
 
 ## Quotas and limits reference
 
-The following sections provide you with a quick guide to the quotas and limits that apply to OpenAI Service
-
+The following sections provide you with a quick guide to the quotas and limits that apply to the Azure OpenAI service
 
 | Limit | Standard (S0) |
 |--|--|
@@ -32,7 +31,7 @@ The following sections provide you with a quick guide to the quotas and limits t
 | Max training jobs queued | 20 | 
 | Max Files per resource | 50 |
 | Max individual training file size | | 
-| Total size of all Files per resource | 1 GB| 
+| Total size of all files per resource | 1 GB| 
 | Max training job time (job will fail if exceeded) | 120 hours |
 | Max training job size (tokens in training file * # of epochs) | **Ada**: 4-M tokens <br> **Babbage**: 4-M tokens <br> **Curie**: 4-M tokens <br> **Cushman**: 4-M tokens <br> **DaVinci**: 500 K |
 
@@ -43,14 +42,14 @@ To minimize issues related to throttling, it's a good idea to use the following 
 
 - Implement retry logic in your application.
 - Avoid sharp changes in the workload. Increase the workload gradually.
-- Test different load increase patterns. For more information, see the [workload pattern example](#example-of-a-workload-pattern-best-practice).
+- Test different load increase patterns. <!--TODO For more information, see the [workload pattern example](#example-of-a-workload-pattern-best-practice).-->
 - Create another OpenAI service resources in the same or different regions, and distribute the workload among them.
 
 The next sections describe specific cases of adjusting quotas.
 
-### Request an increase to a limit on transactions-per-second or Number of fine-tuned models deployed
+### Request an increase to a limit on transactions-per-second or number of fine-tuned models deployed
 
-Increasing the limit of concurrent requests doesn't directly affect your costs. OpenAI uses a payment model that requires that you pay only for what you use. The limit defines how high the service can scale before it starts throttle your requests.
+Increasing the limit of concurrent requests doesn't directly affect your costs. Azure OpenAI uses a payment model that requires that you pay only for what you use. The limit defines how high the service can scale before it starts throttle your requests.
 
 #### Have the required information ready
 
@@ -61,7 +60,7 @@ Increasing the limit of concurrent requests doesn't directly affect your costs. 
 How to get this information:
 
 1. Go to the [Azure portal](https://portal.azure.com/).
-1. Select the OpenAI resource for which you would like to increase the request limit.
+1. Select the Azure OpenAI resource for which you would like to increase the request limit.
 1. From the **Resource Management** group, select **Properties**.
 1. Copy and save the values of the following fields:
    - **Resource ID**

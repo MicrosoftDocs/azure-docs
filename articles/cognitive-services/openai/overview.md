@@ -73,7 +73,7 @@ The total number of tokens processed in a given request depends on the length of
 
 ### Resources
 
-The Azure OpenAI service is new product offering on Azure. You can get started with the Azure OpenAI service the same way as any other Azure product where you create a resource, or instance of the service, in your Azure Subscription. You can read more about Azure's resource management design [here](https://docs.microsoft.com/azure/azure-resource-manager/management/overview)
+The Azure OpenAI service is new product offering on Azure. You can get started with the Azure OpenAI service the same way as any other Azure product where you create a resource, or instance of the service, in your Azure Subscription. You can read more about Azure's resource management design [here](/azure/azure-resource-manager/management/overview)
 
 
 ### Deployments
@@ -115,7 +115,7 @@ The number of examples typically range from 0 to 100 depending on how many can f
 
 The service provides users access to several different models. Each model provides a different capability and price point. The base GPT-3 models are known as Davinci, Curie, Babbage and Ada in decreasing order of intelligence and cost.
 
-The Codex series of models are a descendant of GPT-3 and have been trained on both natural language and code to power natural language to code use cases. Learn more about each model on our [models concept page](./Concepts/models.md).
+The Codex series of models are a descendant of GPT-3 and have been trained on both natural language and code to power natural language to code use cases. Learn more about each model on our [models concept page](./concepts/models.md).
 
 
 ## Terms of Use
