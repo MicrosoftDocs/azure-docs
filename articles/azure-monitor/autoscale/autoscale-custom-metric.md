@@ -6,14 +6,14 @@ ms.date: 05/07/2017
 ms.subservice: autoscale
 ms.reviewer: riroloff
 
-# Customer intent: As a user or dev ops administartor I want to use the portal to set up autoscale sp I can scale my resources.
+# Customer intent: As a user or dev ops administartor I want to use the portal to set up autoscale so I can scale my resources.
 
 ---
 # Quickstart: Autoscale a Web app using custom metrics.
 
-This article describes how to set up Autoscale for a Web app using a custom metric in Azure portal.
+This article describes how to set up Autoscale for a Web app using a custom metric in the Azure portal.
 
-Autoscale allows you to add and remove resources to handle increases and decreases in load. In this article we'll show you how to set up Autoscale for a Web app, based on metrics from Application Insights. We'll use a one of the Application Insights metrics to scale theWeb app in and out based on the metric's value.
+Autoscale allows you to add and remove resources to handle increases and decreases in load. In this article we'll show you how to set up Autoscale for a Web app, using one of the Application Insights metrics to scale the Web app in and out.
 
 Azure Monitor Autoscale applies to [Virtual Machine Scale Sets](https://azure.microsoft.com/services/virtual-machine-scale-sets/), [Cloud Services](https://azure.microsoft.com/services/cloud-services/), [App Service - Web Apps](https://azure.microsoft.com/services/app-service/web/), [Azure Data Explorer Cluster](https://azure.microsoft.com/services/data-explorer/) , 	
 Integration Service Environment and [API Management services](../../api-management/api-management-key-concepts.md).
@@ -23,9 +23,9 @@ An Azure account with an active subscription. [Create an account for free](https
 
 ## Overview
 To create an autoscaled Web app, follow the steps below:
-1. Create an App Service Plan
-1. Create an App Service using the service plan
-1. Configure auto scaling for the service plan.
+1. Create an App Service Plan.
+1. Create an App Service using the service plan.
+1. Configure autoscaling for the service plan.
 
 
 ## Create an App Service plan
@@ -33,68 +33,78 @@ An App Service plan defines a set of compute resources for a web app to run on.
 
 1. Open the [Azure portal](https://portal.azure.com).
 1. Search for and select App Service plans.
-:::image type="content" source="media\autoscale-custom-metric\search-app-service-plan.png" alt-text="Search for app service plans":::
+
+    :::image type="content" source="media\autoscale-custom-metric\search-app-service-plan.png" alt-text="Search for app service plans":::
 
 1. Select **Create** from the App Service plan overview page.
 1. Select a **Resource group** or create a new one.
 1. Enter a **Name** for your plan.
 1. Select an **Operating system** and **Region**.
 1. Select an **Sku and size**. 
-    > [!NOTE]  
+    > [!NOTE]
     > You cannot use autoscale with free or basic tiers.  
+
 1. Select **Review + create**, then **Create**.
-:::image type="content" source="media\autoscale-custom-metric\create-app-service-plan.png" alt-text="Create an app service plan":::
+
+    :::image type="content" source="media\autoscale-custom-metric\create-app-service-plan.png" alt-text="Create an app service plan":::
 
 ## Create an App service  
 
-1. Search for and select App services
-:::image type="content" source="media\autoscale-custom-metric\search-app-services.png" alt-text="Search for app service":::
+1. Search for and select App services.
+
+    :::image type="content" source="media\autoscale-custom-metric\search-app-services.png" alt-text="Search for app service":::
 
 1. Select **Create** from the App Services overview page.
 1. Enter a **Name** and select a **Runtime stack**.
 1. Select the **Operating System** and **Region** that you chose when defining your App Service plan.
 1. Select the **App Service plan** that you created earlier.
-:::image type="content" source="media\autoscale-custom-metric\create-web-app.png" alt-text="Create a web app":::
 1. Select **Monitoring** from the menu bar.
+
+    :::image type="content" source="media\autoscale-custom-metric\create-web-app.png" alt-text="Create a web app":::
+
 1. Select **Yes** to enable Application Insights.
 1. Select **Review + create**, then **Create**.
-:::image type="content" source="media\autoscale-custom-metric\enable-application-insights.png"alt-text="Enable Application Insights"::: 
+
+    :::image type="content" source="media\autoscale-custom-metric\enable-application-insights.png"alt-text="Enable Application Insights"::: 
 
 ## Configure Autoscale
-Now that you have your App Service plane and Web app configured, configure the Autoscale settings.
+Now that you have your App Service plan and Web app set up, configure the Autoscale settings.
 1. Search and select *Autoscale* in the search bar or select **Autoscale** under **Monitor** in the side menu bar.
 1. Select the App Service plan that you created earlier. Note that **Austoscale status** is for free tier service plans is **Not Available**
-:::image type="content" source="media\autoscale-custom-metric\autoscale-overview-page.png" alt-text="Autoscale overview page":::
 
-1. Select **Custom autoscale**.
+    :::image type="content" source="media\autoscale-custom-metric\autoscale-overview-page.png" alt-text="Autoscale overview page":::
 
 ### Set up a scale-out rule
+1. Select **Custom autoscale**.
 1. Select **Add a rule** in the **Rules** section of the default scale condition.
-:::image type="content" source="media/autoscale-custom-metric/autoscale-settings.png" alt-text="Autoscale settings":::
+
+    :::image type="content" source="media/autoscale-custom-metric/autoscale-settings.png" alt-text="Autoscale settings":::
 
 1. Select *Other resource* from the **Metric source** dropdown.
-1. Select *Application Insights* from the **Resource Type**
+1. Select *Application Insights* from the **Resource Type**.
 1. Select your Web app from the **Resource** dropdown.
-1. Select a metric to base your scaling on, for example *Sessions*
+1. Select a metric to base your scaling on, for example *Sessions*.
 1. Select *Greater than* from the **Operator** dropdown.
 1. Enter the **Metric threshold to trigger the scale action**, for example, *70*.
 1. Under **Actions**, set the **Operation** to *Increase count* and set the **Instance count** to *1*.
 1. Select **Add**.
-:::image type="content" source="media/autoscale-custom-metric/scale-out-rule.png" alt-text="Configure the scale-out rule":::
+
+    :::image type="content" source="media/autoscale-custom-metric/scale-out-rule.png" alt-text="Configure the scale-out rule":::
 
 You have set up a scale-out rule. When the number of sessions  your Web app is handling greater than 70, an additional instance of the Web app will be spun up.
 Now lets set up the scale-in rule.
 ### Set up a scale-in rule
 1. Select **Add a rule** in the **Rules** section of the default scale condition.
 1. Select *Other resource* from the **Metric source** dropdown.
-1. Select *Application Insights* from the **Resource Type**
+1. Select *Application Insights* from the **Resource Type**.
 1. Select your Web app from the **Resource** dropdown.
-1. Select a metric to base your scaling on, for example *Sessions*
+1. Select a metric to base your scaling on, for example *Sessions*.
 1. Select *Less than* from the **Operator** dropdown.
 1. Enter the **Metric threshold to trigger the scale action**, for example, *60*. 
 1. Under **Actions**, set the **Operation** to *Decrease count* and set the **Instance count** to *1*.
 1. Select **Add**.
-:::image type="content" source="media/autoscale-custom-metric/scale-in-rule.png" alt-text="Configure the scale in rule":::
+
+    :::image type="content" source="media/autoscale-custom-metric/scale-in-rule.png" alt-text="Configure the scale in rule":::
 
 You have now  set up a scale-in rule. When the number of sessions your Web app is handling less than 60, an instance of the Web app will be spun down.
 
@@ -102,7 +112,7 @@ You have now  set up a scale-in rule. When the number of sessions your Web app i
 
 1. Set the maximum number of instances that can be spun up in the **Maximum** field of the **Instance limits** section, for example, *4*.
 1. Select **Save**.
-:::image type="content" source="media/autoscale-custom-metric/autoscale-instance-limits.png" alt-text="Configure the scale in rule":::
+  :::image type="content" source="media/autoscale-custom-metric/autoscale-instance-limits.png" alt-text="Set instance limits":::
 
 ### Summary
 In this Quickstart 
@@ -118,13 +128,16 @@ In this Quickstart
 If you're not going to continue to use this application, delete
 resources with the following steps:
 1. Delete the Autoscale setting by selecting **Discard**.
-:::image type="content" source="media/autoscale-custom-metric/discard-autoscale-settings.png" alt-text="Discard autoscale settings":::
+
+    :::image type="content" source="media/autoscale-custom-metric/discard-autoscale-settings.png" alt-text="Discard autoscale settings":::
 
 1. From the App service overview page, select **Delete**.
-:::image type="content" source="media/autoscale-custom-metric/delete-webapp.png" alt-text="Discard autoscale settings":::
+
+    :::image type="content" source="media/autoscale-custom-metric/delete-webapp.png" alt-text="Delete the web app":::
 
 1. From The App Service Plan page, select **Delete**.
-:::image type="content" source="media/autoscale-custom-metric/delete-service-plan.png" alt-text="Discard autoscale settings":::
+
+    :::image type="content" source="media/autoscale-custom-metric/delete-service-plan.png" alt-text="Delete the app service plan":::
 
 ## Next steps
 Learn more about Autoscale by referring to the following articles:
