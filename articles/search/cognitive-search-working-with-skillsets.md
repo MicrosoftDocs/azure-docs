@@ -25,8 +25,9 @@ The following diagram illustrates the data flow of skillset execution, where inp
 :::image type="content" source="media/cognitive-search-working-with-skillsets/architecture-index-indexer-skillset-json.svg" alt-text="Diagram showing indexes, indexers, skillsets with field mappings and JSON representations." border="true":::
 
 
-
 :::image type="content" source="media/cognitive-search-working-with-skillsets/architecture-index-indexer-skillset-json.png" alt-text="Diagram showing indexes, indexers, skillsets with field mappings and JSON representations." border="true":::
+
+:::image type="content" source="media/cognitive-search-working-with-skillsets/architecture-index-indexer-skillset-json.png" alt-text="Diagram showing indexes, indexers, skillsets with field mappings and JSON representations." lightbox="media/cognitive-search-working-with-skillsets/architecture-index-indexer-skillset-json.png":::
 
 ## Skillset definition
 
