@@ -99,4 +99,4 @@ Azure Cognitive Service for Language is updated on an ongoing basis. To stay up-
 
 ## Next steps
 
-* [What is Azure Cognitive Service for Language?](overview.md)
+* See the [previous updates](./concepts/previous-updates.md) article for service updates not listed here. 
