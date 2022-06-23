@@ -96,11 +96,11 @@ These logs will indicate where users are using clients that are still depending 
 
 Additionally, to help triage legacy authentication within your tenant use the [Sign-ins using legacy authentication workbook](../reports-monitoring/workbook-legacy%20authentication.md).
 
-#### Indicators from Client
+#### Indicators from client
 
 To determine if a client is using legacy or modern authentication based on the dialog box presented at sign-in, see the article [Deprecation of Basic authentication in Exchange Online](/exchange/clients-and-mobile-in-exchange-online/deprecation-of-basic-authentication-exchange-online#authentication-dialog).
 
-## Important Considerations
+## Important considerations
 
 Many clients that previously only supported legacy authentication now support modern authentication. Clients that support both legacy and modern authentication may require configuration update to move from legacy to modern authentication. If you see **modern mobile**, **desktop client** or **browser** for a client in the Azure AD logs, it's using modern authentication. If it has a specific client or protocol name, such as **Exchange ActiveSync**, it's using legacy authentication. The client types in Conditional Access, Azure AD Sign-in logs, and the legacy authentication workbook distinguish between modern and legacy authentication clients for you.
 
