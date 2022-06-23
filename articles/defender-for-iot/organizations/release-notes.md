@@ -26,7 +26,7 @@ The Defender for IoT architecture uses on-premises sensors and management server
 For more information, see the [Microsoft Security Development Lifecycle practices](https://www.microsoft.com/en-us/securityengineering/sdl/), which describes Microsoft's SDK practices, including training, compliance, threat modeling, design requirements, tools such as Microsoft Component Governance, pen testing, and more.
 
 > [!IMPORTANT]
-> Manual changes to software packages may have detrimental effects on the sensor and on-premises management cosnole. Microsoft is unable to support deployments with manual changes made to packages.
+> Manual changes to software packages may have detrimental effects on the sensor and on-premises management console. Microsoft is unable to support deployments with manual changes made to packages.
 >
 
 **Current versions of the sensor and on-premises management console software include**:
@@ -59,7 +59,7 @@ PCAP files are downloaded to your Azure storage.
 
 For more information, see [View and manage alerts from the Azure portal](how-to-manage-cloud-alerts.md).
 
-## June
+## June 2022
 
 **Sensor software version**: 22.1.5
 
