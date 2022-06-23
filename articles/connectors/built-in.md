@@ -194,28 +194,28 @@ You can use the following built-in connectors to access specific services and sy
         When Swagger is included, the triggers and actions defined by these apps appear like any other first-class triggers and actions in Azure Logic Apps.
     :::column-end:::
     :::column:::
-        [![Azure Blob icon][azure-blob-storage-icon]]
+        ![Azure Blob icon][azure-blob-storage-icon]
         \
         \
-        [**Azure Blob**]<br>(*Standard logic app only*)
+        **Azure Blob**]<br>(*Standard logic app only*
         \
         \
         Connect to your Azure Blob Storage account so you can create and manage blob content.
     :::column-end:::
     :::column:::
-        [![Azure Cosmos DB icon][azure-cosmos-db-icon]]
+        ![Azure Cosmos DB icon[azure-cosmos-db-icon]]
         \
         \
-        [**Azure Cosmos DB**]<br>(*Standard logic app only*)
+        **Azure Cosmos DB**<br>(*Standard logic app only*)
         \
         \
         Connect to Azure Cosmos DB so that you can access and manage Azure Cosmos DB documents.
     :::column-end:::
     :::column:::
-        [![Azure Event Hubs icon][azure-event-hubs-icon]]
+        ![Azure Event Hubs icon][azure-event-hubs-icon]
         \
         \
-        [**Azure Event Hubs**]<br>(*Standard logic app only*)
+        **Azure Event Hubs**<br>(*Standard logic app only*)
         \
         \
         Consume and publish events through an event hub. For example, get output from your logic app with Event Hubs, and then send that output to a real-time analytics provider.
@@ -241,34 +241,34 @@ You can use the following built-in connectors to access specific services and sy
         Call other workflows that start with the Request trigger named **When a HTTP request is received**.
     :::column-end:::
     :::column:::
-        [![Azure Service Bus icon][azure-service-bus-icon]]
+        ![Azure Service Bus icon][azure-service-bus-icon]
         \
         \
-        [**Azure Service Bus**]<br>(*Standard logic app only*)
+        **Azure Service Bus**<br>(*Standard logic app only*)
         \
         \
         Manage asynchronous messages, queues, sessions, topics, and topic subscriptions.
     :::column-end:::
     :::column:::
-        [![Azure Table Storage icon][azure-table-storage-icon]]
+        ![Azure Table Storage icon][azure-table-storage-icon]
         \
         \
-        [**Azure Table Storage**]<br>(*Standard logic app only*)
+        **Azure Table Storage**<br>(*Standard logic app only*)
         \
         \
         Connect to your Azure Storage account so that you can create, update, query, and manage tables.
     :::column-end:::
+:::row-end:::
+:::row:::
     :::column:::
-        [![IBM DB2 icon][ibm-db2-icon]]
+        ![IBM DB2 icon][ibm-db2-icon]
         \
         \
-        [**DB2**]<br>(*Standard logic app only*)
+        **DB2**<br>(*Standard logic app only*)
         \
         \
         Connect to IBM DB2 in the cloud or on-premises. Update a row, get a table, and more.
     :::column-end:::
-:::row-end:::
-:::row:::
     :::column:::
         ![IBM Host File icon][ibm-host-file-icon]
         \
@@ -279,10 +279,10 @@ You can use the following built-in connectors to access specific services and sy
         Connect to IBM Host File and generate or parse contents.
     :::column-end:::
     :::column:::
-        [![IBM MQ icon][ibm-mq-icon]]
+        ![IBM MQ icon][ibm-mq-icon]
         \
         \
-        [**IBM MQ**]<br>(*Standard logic app only*)
+        **IBM MQ**<br>(*Standard logic app only*)
         \
         \
         Connect to IBM MQ on-premises or in Azure to send and receive messages.
