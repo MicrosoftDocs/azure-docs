@@ -1,6 +1,6 @@
 ---
-title: Share resources with a community gallery
-description: Learn how to use a community gallery to share VM images.
+title: Share Azure Compute Gallery resources with a community gallery
+description: Learn how to use a community gallery to share VM images stored in an Azure Compute Gallery.
 author: sandeepraichura
 ms.service: virtual-machines
 ms.subservice: gallery
@@ -33,7 +33,7 @@ Sharing images to the community is a new capability in [Azure Compute Gallery](.
 
 There are three main ways to share images in an Azure Compute Gallery, depending on who you want to share with:
 
-| Who? | Option |
+| Share with\: | Option |
 |----|----|
 | [Specific people, groups, or service principals](./share-gallery.md) | Role-based access control (RBAC) lets you share resources to specific people, groups, or service principals on a granular level. |
 | [Subscriptions or tenants](./share-gallery-direct.md) | Direct sharing lets you share to everyone in a subscription or tenant. |
@@ -112,8 +112,7 @@ To delete a gallery shared to community, you must first run `az sig share reset`
 
 Create an [image definition and an image version](image-version.md).
 
-You can also create Azure Compute Gallery resources using templates. There are several quickstart templates available:
+Create a VM from a [generalized](vm-generalized-image-version.md#create-a-vm-from-a-community-gallery-image) or [specialized](vm-specialized-image-version.md#create-a-vm-from-a-community-gallery-image) image in a community gallery.
 
-- [Create an Azure Compute Gallery](https://azure.microsoft.com/resources/templates/sig-create/)
-- [Create an Image Definition in an Azure Compute Gallery](https://azure.microsoft.com/resources/templates/sig-image-definition-create/)
-- [Create an Image Version in an Azure Compute Gallery](https://azure.microsoft.com/resources/templates/sig-image-version-create/)
+
+

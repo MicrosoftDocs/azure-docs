@@ -16,25 +16,28 @@ ms.devlang: azurecli
 
 # Share gallery resources
 
+As the Azure Compute Gallery, definition, and version are all resources, they can be shared using the built-in native Azure Roles-based Access Control (RBAC) roles. Using Azure RBAC roles you can share these resources to other users, service principals, and groups. You can even share access to individuals outside of the tenant they were created within. Once a user has access, they can the gallery resources to to deploy a VM or a Virtual Machine Scale Set.  Here is the sharing matrix that helps understand what the user gets access to:
+
+| Shared with User     | Azure Compute Gallery | Image Definition | Image version |
+|----------------------|----------------------|--------------|----------------------|
+| Azure Compute Gallery | Yes                  | Yes          | Yes                  |
+| Image Definition     | No                   | Yes          | Yes                  |
+
+We recommend sharing at the Gallery level for the best experience. We do not recommend sharing individual image versions. For more information about Azure RBAC, see [Assign Azure roles](../role-based-access-control/role-assignments-portal.md).
+
 There are three main ways to share images in an Azure Compute Gallery, depending on who you want to share with:
 
-| Who? | Option |
+| Share with\: | Option |
 |----|----|
-| [Specific people, groups, or service principals](#rbac) | Role-based access control (RBAC) lets you share resources to specific people, groups, or service principals on a granular level. |
-| [Subscriptions or tenants](#direct-sharing) | Direct sharing lets you share to everyone in a subscription or tenant. |
-| [Everyone](#community) | Community gallery lets you share your entire gallery publicly, to all Azure users. |
+| Specific people, groups, or service principals (described in this article) | Role-based access control (RBAC) lets you share resources to specific people, groups, or service principals on a granular level. |
+| [Subscriptions or tenants](./share-gallery-direct.md) | Direct sharing lets you share to everyone in a subscription or tenant. |
+| [Everyone](./share-gallery-community.md) | Community gallery lets you share your entire gallery publicly, to all Azure users. |
 
 
 > [!IMPORTANT]
 > You can't currently create a Flexible virtual machine scale set from an image shared by another tenant.
 
-## RBAC
-
-The Azure Compute Gallery, definitions, and versions are all resources, they can be shared using the built-in native Azure RBAC controls. Using Azure RBAC you can share these resources to other users, service principals, and groups. You can even share access to individuals outside of the tenant they were created within. Once a user has access to the image or application version, they can deploy a VM or a Virtual Machine Scale Set.  
-
-We recommend sharing at the gallery level for the best experience and prevent management overhead. We do not recommend sharing individual image or application versions. For more information about Azure RBAC, see [Assign Azure roles](../role-based-access-control/role-assignments-portal.md).
-
-If the user is outside of your organization, they will get an email invitation to join the organization. The user needs to accept the invitation, then they will be able to see the gallery and all of the image definitions and versions in their list of resources.
+## Share using RBAC
 
 ### [Portal](#tab/portal)
 
@@ -87,189 +90,10 @@ New-AzRoleAssignment `
 
 ---
 
-## Direct sharing
-
-Share with a subscription or tenant using direct sharing.
-
-> [!IMPORTANT]
-> Azure Compute Gallery – direct sharing is currently in PREVIEW and subject to the [Preview Terms for Azure Compute Gallery](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-> 
-> To use direct sharing, you need to register for the preview at [https://aka.ms/communitygallery-preview](https://aka.ms/communitygallery-preview). In addition, all of the subscriptions that you want to share with need to also be part of the preview.
-> "featureName":"SIGSharing","providerNamespace":"Microsoft.Compute" xxxx
-> During the preview, you need to create a new gallery, with the property `sharingProfile.permissions` set to `Groups`. When using the CLI to create a gallery, use the `--permissions groups` parameter. You can't use an existing gallery, the property can't currently be updated.
-
-
-### [Portal](#tab/portaldirect)
-
-1. Sign in to the Azure portal at https://portal.azure.com.
-1. Type **Azure Compute Gallery** in the search box and select **Azure Compute Gallery** in the results.
-1. In the **Azure Compute Gallery** page, click **Add**.
-1. On the **Create Azure Compute Gallery** page, select the correct subscription.
-1. Complete all of the details on the page.
-1. At the bottom of the page, select **Next: Sharing method**.
-    :::image type="content" source="media/create-gallery/create-gallery.png" alt-text="Screenshot showing where to select to go on to sharing methods.":::
-1. On the **Sharing** tab, select **xxxxxxxxx**.
-
-   :::image type="content" source="media/create-gallery/sharing-type.png" alt-text="Screenshot showing the option to share using both role-based access control and a community gallery.":::
-
-1. xxx
-1. After validation passes, select **Create**.
-1. When the deployment is finished, select **Go to resource**.
-
-
-### [CLI](#tab/clidirect)
-
-To create a gallery that can be shared to a subscription or tenant using direct sharing, you need to create the gallery with the `--permissions` parameter set to `groups`.
-
-```azurecli-interactive
-az sig create \
-   --gallery-name myGallery \
-   --permissions groups \
-   --resource-group myResourceGroup  
-```
- 
-
-To start sharing the gallery with a subscription or tenant, use [az sig share add](/cli/azure/sig#az-sig-share-add) 
-
-```azurecli-interactive
-sub=<subscription-id>
-tenant=<tenant-id>
-gallery=<gallery-name>
-rg=<resource-group-name>
-az sig share add \
-   --subscription-ids $sub \
-   --tenant-ids $tenant \
-   --gallery-name $gallery \
-   --resource-group $rg
-```
- 
-
-Remove access for a subscription or tenant using [az sig share remove](/cli/azure/sig#az-sig-share-remove).
-
-```azurecli-interactive
-sub=<subscription-id>
-tenant=<tenant-id>
-gallery=<gallery-name>
-rg=<resource-group-name>
-
-az sig share remove \
-   --subscription-ids $sub \
-   --tenant-ids $tenant \
-   --gallery-name $gallery \
-   --resource-group $rg
-```
- 
-
-
- 
-### [REST](#tab/restdirect)
-
-Create a gallery for subscription or tenant-level sharing using the Azure REST API.
-
-```rest
-PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{rgName}/providers/Microsoft.Compute/galleries/{gallery-name}?api-version=2020-09-30
-
-{
-	"properties": {
-		"sharingProfile": {
-			"permissions": "Groups"
-		}
-	},
-	"location": "{location}
-}
- 
-```
-
-
-Share a gallery to subscription or tenant.
-
-
-```rest
-POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{rgName}/providers/Microsoft.Compute/galleries/{galleryName}/share?api-version=2020-09-30
-
-{
-  "operationType": "Add",
-  "groups": [
-    {
-      "type": "Subscriptions",
-      "ids": [
-        "{SubscriptionID}"
-      ]
-    },
-    {
-      "type": "AADTenants",
-      "ids": [
-        "{tenantID}"
-      ]
-    }
-  ]
-}
-
-```
- 
-
-Remove access for a subscription or tenant.
-
-```rest
-POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{rgName}/providers/Microsoft.Compute/galleries/{galleryName}/share?api-version=2020-09-30
-
-{
-	"operationType": "Remove",
-	"groups":[ 
-		{
-			"type": "Subscriptions",
-			"ids": [
-				"{subscriptionId1}",
-				"{subscriptionId2}"
-			],
-},
-{
-			"type": "AADTenants",
-			"ids": [
-				"{tenantId1}",
-				"{tenantId2}"
-			]
-		}
-	]
-}
-
-```
-
-
-Reset sharing to clear everything in the `sharingProfile`.
-
-```rest
-POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{rgName}/providers/Microsoft.Compute/galleries/{galleryName}/share?api-version=2020-09-30 
-
-{ 
- "operationType" : "Reset", 
-} 
-```
-
----
-
-<a name=community></a>
-## Community gallery (preview)
-
-To share a gallery with all Azure users, you can [create a community gallery (preview)](create-gallery.md#community). Community galleries can be used by anyone with an Azure subscription. Someone creating a VM can browse images shared with the community using the portal, REST, or the Azure CLI.
-
-> [!IMPORTANT]
-> Azure Compute Gallery – community galleries is currently in PREVIEW and subject to the [Preview Terms for Azure Compute Gallery - community gallery](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-> 
-> To publish a community gallery, you need to register for the preview at [https://aka.ms/communitygallery-preview](https://aka.ms/communitygallery-preview). Creating VMs from the community gallery is open to all Azure users.
-> 
-> During the preview, the gallery must be created as a community gallery (for CLI, this means using the `--permissions community` parameter) you currently can't migrate a regular gallery to a community gallery.
-
-To learn more, see [Community gallery (preview) overview](azure-compute-gallery.md#community) and [Create a community gallery](create-gallery.md#community).
-
-
 
 ## Next steps
 
-Create an [image definition and an image version](image-version.md).
+- Create an [image definition and an image version](image-version.md).
+- Create a VM from a [generalized](vm-generalized-image-version.md#create-a-vm-from-your-gallery) or [specialized](vm-specialized-image-version.md#create-a-vm-from-your-gallery) private gallery.
 
-You can also create Azure Compute Gallery resources using templates. There are several quickstart templates available:
 
-- [Create an Azure Compute Gallery](https://azure.microsoft.com/resources/templates/sig-create/)
-- [Create an Image Definition in an Azure Compute Gallery](https://azure.microsoft.com/resources/templates/sig-image-definition-create/)
-- [Create an Image Version in an Azure Compute Gallery](https://azure.microsoft.com/resources/templates/sig-image-version-create/)

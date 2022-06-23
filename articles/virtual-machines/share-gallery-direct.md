@@ -29,7 +29,7 @@ This article covers how to share an Azure Compute Gallery with specific subscrip
 
 There are three main ways to share images in an Azure Compute Gallery, depending on who you want to share with:
 
-| Who? | Option |
+| Share with\: | Option |
 |----|----|
 | [Specific people, groups, or service principals](./share-gallery.md) | Role-based access control (RBAC) lets you share resources to specific people, groups, or service principals on a granular level. |
 | [Subscriptions or tenants](explained in this article) | Direct sharing lets you share to everyone in a subscription or tenant. |
@@ -187,11 +187,5 @@ POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/
 
 
 ## Next steps
-
-Create an [image definition and an image version](image-version.md).
-
-You can also create Azure Compute Gallery resources using templates. There are several quickstart templates available:
-
-- [Create an Azure Compute Gallery](https://azure.microsoft.com/resources/templates/sig-create/)
-- [Create an Image Definition in an Azure Compute Gallery](https://azure.microsoft.com/resources/templates/sig-image-definition-create/)
-- [Create an Image Version in an Azure Compute Gallery](https://azure.microsoft.com/resources/templates/sig-image-version-create/)
+- Create an [image definition and an image version](image-version.md).
+- Create a VM from a [generalized](vm-generalized-image-version.md#create-a-vm-from-a-community-gallery-image) or [specialized](vm-specialized-image-version.md#create-a-vm-from-a-community-gallery-image) image in a direct shared gallery.
