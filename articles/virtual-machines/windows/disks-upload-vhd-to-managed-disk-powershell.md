@@ -31,20 +31,14 @@ If you're using [Azure Active Directory (Azure AD)](../../active-directory/funda
 
 ### Create custom role
 
-To secure your uploads with Azure AD, create a custom RBAC role with the necessary permissions.
+To access managed disks secured with Azure AD, the requesting user must have either the **Data Operator for Managed Disks** role, or a [custom role](../../role-based-access-control/custom-roles-powershell.md) with the following permissions: 
 
-```azurepowershell
-$role = [Microsoft.Azure.Commands.Resources.Models.Authorization.PSRoleDefinition]::new()
-$role.Id = $null
-$role.Name = "Disks Data Operator"
-$role.Description = "A user in this role can read the data of the underlying VHD, export the VHD or upload a VHD to a disk, which is not attached to a running VM."
-$role.IsCustom = $true
-$perms = 'Microsoft.Compute/disks/download/action', 'Microsoft.Compute/disks/upload/action', 'Microsoft.Compute/snapshots/download/action', 'Microsoft.Compute/snapshots/upload/action'
-$role.DataActions = $perms
-$role.AssignableScopes = '/subscriptions/'+$subscriptionId
+- **Microsoft.Compute/disks/download/action**
+- **Microsoft.Compute/disks/upload/action**
+- **Microsoft.Compute/snapshots/download/action**
+- **Microsoft.Compute/snapshots/upload/action**
 
-New-AzRoleDefinition -Role $role 
-```
+For detailed steps on assigning a role, see [Assign Azure roles using Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md). To create or update a custom role, see [Create or update Azure custom roles using Azure PowerShell](../../role-based-access-control/custom-roles-powershell.md).
 
 ## Get started
 
@@ -75,7 +69,7 @@ If Azure AD is used to enforce upload restrictions on a subscription or at the a
 
 ```azurepowershell
 New-AzRoleAssignment -SignInName <emailOrUserprincipalname> `
--RoleDefinitionName "Disks Data Operator" `
+-RoleDefinitionName "Data Operator for Managed Disks" `
 -Scope /subscriptions/<subscriptionId>
 ```
 
