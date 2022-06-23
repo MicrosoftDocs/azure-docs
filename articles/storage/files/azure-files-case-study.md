@@ -1,6 +1,6 @@
 ---
-title: Compare NFS access to Azure Files, Blob Storage, and Azure NetApp Files
-description: Compare NFS access for Azure Files, Azure Blob Storage, and Azure NetApp Files.
+title: Azure files customer case studies
+description: Customer case studies of how azure files & azure file sync
 author: nataraj
 ms.service: storage
 ms.topic: conceptual
