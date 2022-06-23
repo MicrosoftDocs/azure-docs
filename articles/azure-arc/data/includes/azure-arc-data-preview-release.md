@@ -32,6 +32,7 @@ New for this release:
   - Billing estimate in Azure portal is updated to reflect the number of readable secondaries that are selected.
   - Added SPNs for readable secondary service
 
+
 - Data Controller
   - Control DB SQL instance version is upgraded to latest version
   - Additional compatibility checks are run prior to executing an upgrade request
