@@ -10,7 +10,7 @@ You can follow the steps here using a Mac, Windows, or Linux machine. Once the p
 
 To complete this quickstart you need:
 
-1. An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?utm_source=campaign&utm_campaign=vscode-tutorial-app-service-extension&mktingSource=vscode-tutorial-app-service-extension).
+1. An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?utm_source=campaign&utm_campaign=visual-studio-code-tutorial-app-service-extension&mktingSource=visual-studio-code-tutorial-app-service-extension).
 2. A GitHub account to fork a repository.
 
 ## 1 - Fork the sample repository
@@ -19,11 +19,11 @@ To complete this quickstart you need:
 
 2. In the upper right corner, select **Fork**.
 
-    ![Screenshot of the Azure-Samples/java-docs-spring-hello-world repo in GitHub, with the Fork option highlighted.](media/quickstart-java/fork-java-docs-hello-world-repo.png)
+    ![Screenshot of the Azure-Samples/java-docs-spring-hello-world repo in GitHub, with the Fork option highlighted.](media/quickstart-java/fork-java-docs-spring-hello-world-repo.png)
 
 3. On the **Create a new fork** screen, confirm the **Owner** and **Repository name** fields. Select **Create fork**.
 
-    ![Screenshot of the Create a new fork page in GitHub for creating a new fork of Azure-Samples/java-docs-spring-hello-world.](media/quickstart-java/fork-details-java-docs-hello-world-repo.png)
+    ![Screenshot of the Create a new fork page in GitHub for creating a new fork of Azure-Samples/java-docs-spring-hello-world.](media/quickstart-java/fork-details-java-docs-spring-hello-world-repo.png)
 
     >[!NOTE]
     > This should take you to the new fork. Your fork URL will look something like this: https://github.com/YOUR_GITHUB_ACCOUNT_NAME/java-docs-spring-hello-world
@@ -58,8 +58,6 @@ To complete this quickstart you need:
     ![Screenshot of the Spec Picker for the App Service Plan pricing tiers in the Azure portal. Dev/Test, F1, and Apply are highlighted.](media/quickstart-java/azure-portal-create-app-service-select-free-tier.png)   
 
 7. Select the **Review + create** button at the bottom of the page.
-
-    ![Screenshot of the Create Web App screen. The Review + create button is highlighted.](media/quickstart-java/azure-portal-create-app-service-review-create.png)   
 
 8. After validation runs, select the **Create** button at the bottom of the page. This will create an Azure resource group, app service plan, and app service.
 
@@ -106,7 +104,7 @@ The Java sample code is running in an Azure App Service Linux web app.
 
 3. Navigate to **src/main/java/com/example/demo/DemoApplication.java**.
 
-    ![Screenshot of Visual Studio Code in the browser, highlighting src/main/java/com/example/demo/DemoApplication.java in the Explorer pane.](media/quickstart-java/vscode-in-browser-navigate-to-application-controller.png)
+    ![Screenshot of Visual Studio Code in the browser, highlighting src/main/java/com/example/demo/DemoApplication.java in the Explorer pane.](media/quickstart-java/visual-studio-code-in-browser-navigate-to-application-controller.png)
 
 4. Edit the *sayHello* method so that it shows "Hello Azure!" instead of "Hello World!"
 
@@ -119,11 +117,11 @@ The Java sample code is running in an Azure App Service Linux web app.
 
 5. From the **Source Control** menu, select the **Stage Changes** button to stage the change.
 
-    ![Screenshot of Visual Studio Code in the browser, highlighting the Source Control navigation in the sidebar, then highlighting the Stage Changes button in the Source Control panel.](media/quickstart-java/vscode-in-browser-stage-changes.png)
+    ![Screenshot of Visual Studio Code in the browser, highlighting the Source Control navigation in the sidebar, then highlighting the Stage Changes button in the Source Control panel.](media/quickstart-java/visual-studio-code-in-browser-stage-changes.png)
 
 6. Enter a commit message such as *Hello Azure*. Then, select **Commit and Push**.
 
-    ![Screenshot of Visual Studio Code in the browser, Source Control panel with a commit message of 'Hello Azure' and the Commit and Push button highlighted ](media/quickstart-java/vscode-in-browser-commit-push.png)
+    ![Screenshot of Visual Studio Code in the browser, Source Control panel with a commit message of 'Hello Azure' and the Commit and Push button highlighted ](media/quickstart-java/visual-studio-code-in-browser-commit-push.png)
 
 7. Once deployment has completed, return to the browser window that opened during the **Browse to the app** step, and refresh the page.
 
