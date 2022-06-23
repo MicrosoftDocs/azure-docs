@@ -10,10 +10,12 @@ ms.reviewer: jogrima
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-In this article, you learn how to run Application Insights Profiler on your Azure virtual machine (VM) or Azure VM scale set. You will: 
+In this article, you learn how to run Application Insights Profiler on your Azure virtual machine (VM) or Azure VM scale set via three different methods. Using any of these methods, you will: 
 
 - Configure the Azure Diagnostics extension to run Profiler.
-- Build the Application Insights SDK into your application.
+- Install the Application Insights SDK onto a VM.
+- Deploy your application.
+- View Profiler traces via the Application Insights instance on Azure portal.
 
 ## Pre-requisites
 
@@ -23,7 +25,18 @@ In this article, you learn how to run Application Insights Profiler on your Azur
   - [Virtual machine](https://github.com/Azure/azure-docs-json-samples/blob/master/application-insights/WindowsVirtualMachine.json)
   - [Virtual machine scale set](https://github.com/Azure/azure-docs-json-samples/blob/master/application-insights/WindowsVirtualMachineScaleSet.json)
 
-## Add Application Insights SDK to your application
+## Enable Profiler
+
+You can enable Profiler by any of the following three ways:
+
+- Within your ASP.NET Core application using an Azure Resource Manager template and Visual Studio.
+- Using a Powershell command via the Azure CLI.
+- Using Azure Resource Explorer.
+
+
+# [Visual Studio and ARM template](#tab/vs-arm)
+
+### Add Application Insights SDK to your application
 
 1. Open your ASP.NET core project in Visual Studio.
 
@@ -71,6 +84,9 @@ In this article, you learn how to run Application Insights Profiler on your Azur
   }        
   ```
 
+
+# [Powershell](#tab/windows)
+
 1. Deploy the modified environment deployment definition.  
 
    Applying the modifications usually involves a full template deployment or a cloud service-based publish through PowerShell cmdlets or Visual Studio.  
@@ -103,6 +119,9 @@ In this article, you learn how to run Application Insights Profiler on your Azur
 
 1. Deploy your application.
 
+
+# [Azure Resource Explorer](#tab/windows)
+
 ## Set Profiler Sink using Azure Resource Explorer
 
 We don't yet have a way to set the Application Insights Profiler sink from the portal. Instead of using PowerShell as described above, you can use Azure Resource Explorer to set the sink. But note, if you deploy the VM again, the sink will be lost. You'll need to update the config you use when deploying the VM to preserve this setting.
@@ -122,6 +141,12 @@ We don't yet have a way to set the Application Insights Profiler sink from the p
 4. When you're done editing the config, press 'Put'. If the put is successful, a green check will appear in the middle of the screen.
 
     ![Send put request to apply changes][resourceexplorerput]
+
+
+---
+
+
+
 
 
 
