@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
-ms.date: 03/31/2022
+ms.date: 06/23/2022
 ms.author: lajanuar
 recommendations: false
 ---
@@ -107,12 +107,12 @@ key = "<your-key>"
 def format_bounding_region(bounding_regions):
     if not bounding_regions:
         return "N/A"
-    return ", ".join("Page #{}: {}".format(region.page_number, format_bounding_box(region.bounding_box)) for region in bounding_regions)
+    return ", ".join("Page #{}: {}".format(region.page_number, format_polygon(region.polygon)) for region in bounding_regions)
 
-def format_bounding_box(bounding_box):
-    if not bounding_box:
+def format_polygon(polygon):
+    if not polygon:
         return "N/A"
-    return ", ".join(["[{}, {}]".format(p.x, p.y) for p in bounding_box])
+    return ", ".join(["[{}, {}]".format(p.x, p.y) for p in polygon])
 
 
 def analyze_general_documents():
@@ -148,13 +148,6 @@ def analyze_general_documents():
                     )
                 )
 
-    print("----Entities found in document----")
-    for entity in result.entities:
-        print("Entity of category '{}' with sub-category '{}'".format(entity.category, entity.sub_category))
-        print("...has content '{}'".format(entity.content))
-        print("...within '{}' bounding regions".format(format_bounding_region(entity.bounding_regions)))
-        print("...with confidence {}\n".format(entity.confidence))
-
     for page in result.pages:
         print("----Analyzing document from page #{}----".format(page.page_number))
         print(
@@ -168,7 +161,7 @@ def analyze_general_documents():
                 "...Line # {} has text content '{}' within bounding box '{}'".format(
                     line_idx,
                     line.content,
-                    format_bounding_box(line.bounding_box),
+                    format_polygon(line.polygon),
                 )
             )
 
@@ -183,7 +176,7 @@ def analyze_general_documents():
             print(
                 "...Selection mark is '{}' within bounding box '{}' and has a confidence of {}".format(
                     selection_mark.state,
-                    format_bounding_box(selection_mark.bounding_box),
+                    format_polygon(selection_mark.polygon),
                     selection_mark.confidence,
                 )
             )
@@ -199,7 +192,7 @@ def analyze_general_documents():
                 "Table # {} location on page: {} is {}".format(
                     table_idx,
                     region.page_number,
-                    format_bounding_box(region.bounding_box),
+                    format_polygon(region.polygon),
                 )
             )
         for cell in table.cells:
@@ -214,7 +207,7 @@ def analyze_general_documents():
                 print(
                     "...content on page {} is within bounding box '{}'\n".format(
                         region.page_number,
-                        format_bounding_box(region.bounding_box),
+                        format_polygon(region.polygon),
                     )
                 )
     print("----------------------------------------")
@@ -274,17 +267,18 @@ from azure.core.credentials import AzureKeyCredential
 endpoint = "<your-endpoint>"
 key = "<your-key>"
 
-def format_bounding_box(bounding_box):
-    if not bounding_box:
+def format_polygon(polygon):
+    if not polygon:
         return "N/A"
-    return ", ".join(["[{}, {}]".format(p.x, p.y) for p in bounding_box])
+    return ", ".join(["[{}, {}]".format(p.x, p.y) for p in polygon])
 
 def analyze_layout():
     # sample form document
     formUrl = "https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-layout.pdf"
 
-    # create your `DocumentAnalysisClient` instance and `AzureKeyCredential` variable
-    document_analysis_client = DocumentAnalysisClient(endpoint=endpoint, credential=AzureKeyCredential(key))
+    document_analysis_client = DocumentAnalysisClient(
+        endpoint=endpoint, credential=AzureKeyCredential(key)
+    )
 
     poller = document_analysis_client.begin_analyze_document_from_url(
             "prebuilt-layout", formUrl)
@@ -312,7 +306,7 @@ def analyze_layout():
                     line_idx,
                     len(words),
                     line.content,
-                    format_bounding_box(line.bounding_box),
+                    format_polygon(line.polygon),
                 )
             )
 
@@ -327,7 +321,7 @@ def analyze_layout():
             print(
                 "...Selection mark is '{}' within bounding box '{}' and has a confidence of {}".format(
                     selection_mark.state,
-                    format_bounding_box(selection_mark.bounding_box),
+                    format_polygon(selection_mark.polygon),
                     selection_mark.confidence,
                 )
             )
@@ -343,7 +337,7 @@ def analyze_layout():
                 "Table # {} location on page: {} is {}".format(
                     table_idx,
                     region.page_number,
-                    format_bounding_box(region.bounding_box),
+                    format_polygon(region.polygon),
                 )
             )
         for cell in table.cells:
@@ -358,7 +352,7 @@ def analyze_layout():
                 print(
                     "...content on page {} is within bounding box '{}'".format(
                         region.page_number,
-                        format_bounding_box(region.bounding_box),
+                        format_polygon(region.polygon),
                     )
                 )
 
@@ -434,20 +428,21 @@ key = "<your-key>"
 def format_bounding_region(bounding_regions):
     if not bounding_regions:
         return "N/A"
-    return ", ".join("Page #{}: {}".format(region.page_number, format_bounding_box(region.bounding_box)) for region in bounding_regions)
+    return ", ".join("Page #{}: {}".format(region.page_number, format_polygon(region.polygon)) for region in bounding_regions)
 
-def format_bounding_box(bounding_box):
-    if not bounding_box:
+def format_polygon(polygon):
+    if not polygon:
         return "N/A"
-    return ", ".join(["[{}, {}]".format(p.x, p.y) for p in bounding_box])
+    return ", ".join(["[{}, {}]".format(p.x, p.y) for p in polygon])
 
 
 def analyze_invoice():
 
     invoiceUrl = "https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-invoice.pdf"
 
-    # create your `DocumentAnalysisClient` instance and `AzureKeyCredential` variable
-    document_analysis_client = DocumentAnalysisClient(endpoint=endpoint, credential=AzureKeyCredential(key))
+    document_analysis_client = DocumentAnalysisClient(
+        endpoint=endpoint, credential=AzureKeyCredential(key)
+    )
 
     poller = document_analysis_client.begin_analyze_document_from_url(
             "prebuilt-invoice", invoiceUrl)
@@ -702,6 +697,8 @@ def analyze_invoice():
 
 if __name__ == "__main__":
     analyze_invoice()
+
+    print("----------------------------------------")
 ```
 
 **Run the application**
