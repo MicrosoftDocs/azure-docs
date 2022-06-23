@@ -67,7 +67,7 @@ Azure Machine Learning’s [Responsible AI scorecard](./how-to-responsible-ai-sc
 
 The ML platform also enables decision-making by informing model-driven and data-driven business decisions:
 
-- Data-driven insights to further understand heterogeneous treatment effects on an outcome, using historic data only. For example, “how would a medicine impact a patient’s blood pressure?". Such insights are provided through the[Causal Inference](concept-causal-inference.md) component of the [Responsible AI dashboard](concept-responsible-ai-dashboard.md).
+- Data-driven insights to further understand heterogeneous treatment effects on an outcome, using historic data only. For example, “how would a medicine impact a patient’s blood pressure?". Such insights are provided through the [Causal Inference](concept-causal-inference.md) component of the [Responsible AI dashboard](concept-responsible-ai-dashboard.md).
 - Model-driven insights, to answer end-users’ questions such as “what can I do to get a different outcome from your AI next time?” to inform their actions. Such insights are provided to data scientists through the [Counterfactual What-If](concept-counterfactual-analysis.md) component of the [Responsible AI dashboard](concept-responsible-ai-dashboard.md).
 
 ## Next steps

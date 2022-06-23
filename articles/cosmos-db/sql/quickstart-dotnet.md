@@ -88,7 +88,7 @@ This quickstart will create a single Azure Cosmos DB account using the SQL API.
         --query "documentEndpoint"
     ```
 
-1. Find the *PRIMARY KEY* from the list of keys for the account with the[``az-cosmosdb-keys-list``](/cli/azure/cosmosdb/keys#az-cosmosdb-keys-list) command.
+1. Find the *PRIMARY KEY* from the list of keys for the account with the [`az-cosmosdb-keys-list`](/cli/azure/cosmosdb/keys#az-cosmosdb-keys-list) command.
 
     ```azurecli-interactive
     az cosmosdb keys list \
