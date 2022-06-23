@@ -1,6 +1,6 @@
 ---
-title: Overview about built-in connectors in Azure Logic Apps
-description: Learn about built-in connectors that run natively to create automated integration workflows in Azure Logic Apps.
+title: Built-in connector overview
+description: Learn about built-in connectors that run natively in Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
@@ -24,18 +24,38 @@ This article provides a general overview about built-in connectors in Consumptio
 
 ## Built-in connectors in Consumption versus Standard
 
-The following table lists the current and expanding galleries of built-in connectors available for Consumption versus Standard logic app workflows. An asterisk (**\***) marks [service provider-based built-in connectors](../logic-apps/custom-connector-overview.md#service-provider-interface-implementation).
+The following table lists the current and expanding galleries of built-in connectors available for Consumption versus Standard logic app workflows. For Standard workflows, an asterisk (**\***) marks [service provider-based built-in connectors](#service-provider-interface-implementation), which are available alongside the [managed connector versions](managed.md).
 
 | Consumption | Standard |
 |-------------|----------|
 | Azure API Management<br>Azure App Services <br>Azure Functions <br>Azure Logic Apps <br>Batch <br>Control <br>Data Operations <br>Date Time <br>Flat File <br>HTTP <br>Inline Code <br>Integration Account <br>Liquid <br>Request <br>Schedule <br>Variables <br>XML | Azure Blob* <br>Azure Cosmos DB* <br>Azure Functions <br>Azure Queue* <br>Azure Table Storage* <br>Control <br>Data Operations <br>Date Time <br>DB2* <br>Event Hubs* <br>Flat File <br>FTP* <br>HTTP <br>IBM Host File* <br>Inline Code <br>Liquid operations <br>MQ* <br>Request <br>Schedule <br>Service Bus* <br>SFTP* <br>SQL Server* <br>Variables <br>Workflow operations <br>XML operations |
 |||
 
+<a name="service-provider-interface-implementation"></a>
+
+### Service provider-based built-in connectors
+
+In Standard logic app workflows, a built-in connector that has the following attributes is informally known as a *service provider*:
+
+* Is based on the [Azure Functions extensibility model](../azure-functions/functions-bindings-register.md).
+
+* Provides access from a Standard logic app workflow to a service, such as Azure Blob Storage, Azure Service Bus, Azure Event Hubs, SFTP, and SQL Server.
+
+  Some built-in connectors support only a single way to authenticate a connection to the underlying service. Other built-in connectors can offer a choice, such as using a connection string, Azure Active Directory (Azure AD), or a managed identity.
+
+* Runs in the same process as the redesigned Azure Logic Apps runtime.
+
+A built-in connector that's *not a service provider* has the following attributes:
+
+* Isn't based on the Azure Functions extensibility model.
+
+* Is directly implemented as a job within the Azure Logic Apps runtime, such as Schedule, HTTP, Request, and XML operations.
+
 <a name="custom-built-in"></a>
 
 ## Custom built-in connectors
 
-For Standard logic apps, if a built-connector isn't available for your scenario, you can create your own built-in connector. You can use the same [*service provider interface implementation*](../logic-apps/custom-connector-overview.md#service-provider-interface-implementation) that's used by service provider-based built-in connectors, such as SQL Server, Service Bus, Blob Storage, Event Hubs, and Blob Storage. This interface implementation is based on the [Azure Functions extensibility model](../azure-functions/functions-bindings-register.md) and provides the capability for you to create custom built-in connectors that anyone can use in Standard logic apps.
+For Standard logic apps, if a built-connector isn't available for your scenario, you can create your own built-in connector. You can use the same [*service provider interface implementation*](../logic-apps/custom-connector-overview.md#service-provider-interface-implementation) that's used by service provider-based built-in connectors, such as Blob Storage, Event Hubs, Service Bus, SQL Server, and more. This interface implementation is based on the [Azure Functions extensibility model](../azure-functions/functions-bindings-register.md) and provides the capability for you to create custom built-in connectors that anyone can use in Standard logic apps.
 
 For more information, review the following documentation:
 
