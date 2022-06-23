@@ -59,23 +59,23 @@ Once the web apps are assessed, you can migrate them using the integrated migrat
 
   1. In **Basics**, under **Project details**, select the **Subscription**, **Resource Group**, and **Region** where the web apps will be hosted, from the drop-down. Under **Storage**, select the **Storage account** for an intermediate storage location during the migration process. Select **Next: Web Apps >**.
 
-    :::image type="content" source="./media/tutorial-migrate-webapps/web-apps-basics.png" alt-text="Screenshot of Azure Migrate Web Apps Basics screen":::
+   :::image type="content" source="./media/tutorial-migrate-webapps/web-apps-basics.png" alt-text="Screenshot of Azure Migrate Web Apps Basics screen":::
 
   1. In the **Web Apps** section, review the web apps you'd like to migrate.
 
-    :::image type="content" source="./media/tutorial-migrate-webapps/select-web-apps.png" alt-text="Screenshot of Azure Migrate Web Apps screen":::
+   :::image type="content" source="./media/tutorial-migrate-webapps/select-web-apps.png" alt-text="Screenshot of Azure Migrate Web Apps screen":::
 
     > [!NOTE]
     > Apps with the Ready status are tagged for migration by default. Apps tagged as *Ready with conditions* can be migrated by updating **Will migrate?** to **Yes**.
 
    - Select the web apps to migrate and select **Edit**.
 
-    :::image type="content" source="./media/tutorial-migrate-webapps/web-apps-edit-multiple.png" alt-text="Screenshot of Azure Migrate selected web apps":::
+   :::image type="content" source="./media/tutorial-migrate-webapps/web-apps-edit-multiple.png" alt-text="Screenshot of Azure Migrate selected web apps":::
 
    - In **Edit apps**, under **Will migrate?**, select **Yes**, and select the **App Service Plan** and **Pricing tier** of where the apps will be hosted. Next, select the **Ok** button.
 
-    > [!NOTE]
-    > Up to five App Service Plans can be migrated at a time.
+   > [!NOTE]
+   > Up to five App Service Plans can be migrated at a time.
 
     :::image type="content" source="./media/tutorial-migrate-webapps/edit-multiple-details.png" alt-text="Screenshot of Azure Migrate Edit apps":::
 

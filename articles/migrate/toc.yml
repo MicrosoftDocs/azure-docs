@@ -277,7 +277,7 @@
     items:
     - name: Troubleshoot replication issues in agentless VMware migration
       href: troubleshoot-changed-block-tracking-replication.md
-    name: Troubleshoot web app migration issues
+    - name: Troubleshoot web app migration issues
       href: troubleshoot-webapps-migration.md  
 - name: Reference
   items:
