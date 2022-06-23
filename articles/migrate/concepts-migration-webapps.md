@@ -15,7 +15,7 @@ This article summarizes support settings and limitations for agentless migration
 
 ## Migration options
 
-You can perform agentless migration of ASP.NET web apps at-scale to [Azure App Service](https://azure.microsoft.com/services/app-service/) using Azure Migrate. Agent based migration is not supported.
+You can perform agentless migration of ASP.NET web apps at-scale to [Azure App Service](https://azure.microsoft.com/services/app-service/) using Azure Migrate. However, agent based migration is not supported.
 
 ## Limitations
 
