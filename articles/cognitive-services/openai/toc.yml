@@ -27,7 +27,7 @@ items:
     - name: Azure OpenAI Models
       href: ./concepts/models.md
     - name: Content Filtering
-      href: ./concepts/content-filtering
+      href: ./concepts/content-filtering.md
 - name: Reference
   items:
     - name: REST API
