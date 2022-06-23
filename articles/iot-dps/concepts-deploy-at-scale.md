@@ -19,13 +19,13 @@ First-time provisioning is the process of onboarding a device for the first time
 
 ### Device deployment using a staggered provisioning schedule
 
-For deployment of devices in the scale of millions, registering all the devices at once may result in the DPS instance being overwhelmed due to throttling (HTTP response code `429, Too Many Requests`) and a failure to register your devices. To prevent such throttling, we recommended you use staggered registration schedule for the devices. The recommended batch size should be in accordance with DPS [quotas and limits](about-iot-dps.md#quotas-and-limits). For instance, if the registration rate is 200 devices per minute, the recommended batch size for onboarding is 200 devices per batch.
+For deployment of devices in the scale of millions, registering all the devices at once may result in the DPS instance being overwhelmed due to throttling (HTTP response code `429, Too Many Requests`) and a failure to register your devices. To prevent such throttling, you should use a staggered registration schedule for the devices. The recommended batch size should be in accordance with DPS [quotas and limits](about-iot-dps.md#quotas-and-limits). For instance, if the registration rate is 200 devices per minute, the batch size for onboarding would be 200 devices per batch.
 
 ### Timing logic when retrying operations
 
-If transient faults occur due to a service being busy, a retry logic enables devices to successfully connect to the IoT cloud. However, a large number of retries could further degrade a busy service that's running close to or at its capacity. As with any Azure service, we recommend that you implement an intelligent retry mechanism with exponential backoff. More information on different retry patterns can be found in [the Retry design pattern](/azure/architecture/patterns/retry) and [transient fault handling](/azure/architecture/best-practices/transient-faults).
+If transient faults occur due to a service being busy, a retry logic enables devices to successfully connect to the IoT cloud. However, a large number of retries could further degrade a busy service that's running close to or at its capacity. As with any Azure service, you should implement an intelligent retry mechanism with exponential backoff. More information on different retry patterns can be found in [the Retry design pattern](/azure/architecture/patterns/retry) and [transient fault handling](/azure/architecture/best-practices/transient-faults).
 
-Rather than immediately retrying a deployment when throttled, we recommend waiting until the time specified in the `retry-after` header. If there's no retry header available from the service, this algorithm can help achieve a smoother device onboarding experience:
+Rather than immediately retrying a deployment when throttled, you should wait until the time specified in the `retry-after` header. If there's no retry header available from the service, this algorithm can help achieve a smoother device onboarding experience:
 
 ```console
 min_retry_delay_msec = 1000
@@ -67,7 +67,7 @@ Reprovisioning is the process where the device needs to be provisioned to an IoT
 - A device reboot could happen due to reasons like power outage, loss in network connectivity, geo-relocation, firmware updates, factory reset, and certificate key rotation.
 - The Hub instance could be unavailable due to an unplanned Hub outage.
 
-We recommend not provisioning every time the device reboots. Upon successful reboot and provisioning, the device would be connected to the same IoT Hub in most scenarios and so fresh provisioning isn't necessary. The information about the IoT Hub that has been cached from a previous successful connection must be used to directly connect to the hub as opposed to going through the extensive reprovisioning process.
+You shouldn't need to provision every time the device reboots. Upon successful reboot and provisioning, the device would be connected to the same IoT Hub in most scenarios and so fresh provisioning isn't necessary. The information about the IoT Hub that has been cached from a previous successful connection must be used to directly connect to the hub as opposed to going through the extensive reprovisioning process.
 
 ### Devices that can store a connection string
 
