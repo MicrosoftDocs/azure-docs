@@ -583,7 +583,7 @@ To set up the data export to send data to your Device bridge:
 
 ### Verify
 
-The sample device you use to test the scenario is written in Node.js. Make sure you have Node.js and NPM installed on your local machine. If you don't want to install these prerequisites, use the[Azure Cloud Shell](https://shell.azure.com/) that has them preinstalled.
+The sample device you use to test the scenario is written in Node.js. Make sure you have Node.js and NPM installed on your local machine. If you don't want to install these prerequisites, use the [Azure Cloud Shell](https://shell.azure.com/) that has them preinstalled.
 
 To run a sample device that tests the scenario:
 
