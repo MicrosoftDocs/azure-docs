@@ -8,6 +8,8 @@ ms.date: 07/01/2022
 
 # Frequently asked questions about NC2 on Azure
 
+This article addresses questions most frequently asked about NC2 on Azure. 
+
 ## What is Hyperconverged Infrastructure (HCI)?
 
 Hyper-converged infrastructure (HCI) uses locally attached storage resources to combine common data center hardware with intelligent software to create flexible building blocks that replace legacy infrastructure consisting of separate servers, storage networks, and storage arrays. [Video explanation](https://www.youtube.com/watch?v=OPYA5-V0yRo)
@@ -22,7 +24,7 @@ This operation should be exactly the same as on-premises in the prism portal.
 NC2 on Azure is a 3rd-party offering on Azure Marketplace.
 However, we're working hand in hand with Nutanix to offer the best product experience
 
-## How will I get billed?
+## How will I be billed?
 
 Customers will be billed on a pay-as-you-go basis. Additionally, customers are able to use their existing MACC.
 

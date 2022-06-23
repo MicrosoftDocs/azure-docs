@@ -1,5 +1,5 @@
 ---
-title: About the Public Preview
+title: About the NC2 for Azure Public Preview
 description: Explains NC2 on Azure Public Preview and its parameters
 ms.topic: overview
 ms.subservice: baremetal-nutanix
@@ -13,6 +13,8 @@ The articles in this section are intended for the professionals participating in
  To provide input, email [NC2-on-Azure Docs](mailto:AzNutanixPM@microsoft.com).
 
 ![Nutanix Preview](media/nc2-on-azure-preview.png)
+
+In particular, this article highlights Public Preview features. 
 
 ## Unlock the benefits of Azure
 

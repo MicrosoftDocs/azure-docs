@@ -12,6 +12,8 @@ In this article, we'll look at the architectural options for BareMetal Infrastru
 
 ## Deployment Example
 
+The image in this section shows one example of an NC2 on Azure deployment.
+
 :::image type="content" source="media/nc2-on-azure-deployment-architecture.png#lightbox" alt-text="Diagram showing NC2-onarchitecture of NC2 Networking Flow." border="false" lightbox="media/nc2-on-azure-deployment-architecture-large.png":::
 
 
