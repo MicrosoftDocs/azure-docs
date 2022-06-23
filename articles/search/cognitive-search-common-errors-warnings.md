@@ -89,7 +89,7 @@ The indexer was not able to run a skill in the skillset.
 | Reason | Details/Example | Resolution |
 | --- | --- | --- |
 | Transient connectivity issues | A transient error occurred. Please try again later. | Occasionally there are unexpected connectivity issues. Try running the document through your indexer again later. |
-| Potential product bug | An unexpected error occurred. | This indicates an unknown class of failure and may mean there is a product bug. File a [support ticket](https://portal.azure.com/#create/Microsoft.Support) to get help. |
+| Potential product bug | An unexpected error occurred. | This indicates an unknown class of failure and may indicate a product bug. File a [support ticket](https://portal.azure.com/#create/Microsoft.Support) to get help. |
 | A skill has encountered an error during execution | (From Merge Skill) One or more offset values were invalid and could not be parsed. Items were inserted at the end of the text | Use the information in the error message to fix the issue. This kind of failure will require action to resolve. |
 
 <a name="could-not-execute-skill-because-the-web-api-request-failed"></a>
@@ -185,7 +185,7 @@ In all these cases, refer to [Supported Data types](/rest/api/searchservice/supp
 
 ## `Error: Integrated change tracking policy cannot be used because table has a composite primary key`
 
-This applies to SQL tables, and usually happens when the key is either defined as a composite key or, when the table has defined a unique clustered index (as in a SQL index, not an Azure Search index). The main reason is that the key attribute is modified to be a composite primary key in the case of a [unique clustered index](/sql/relational-databases/indexes/clustered-and-nonclustered-indexes-described). In that case, make sure that your SQL table does not have a unique clustered index, or that you map the key field to a field that is guaranteed not to have duplicate values.
+This applies to SQL tables, and usually happens when the key is either defined as a composite key or, when the table has defined a unique clustered index (as in a SQL index, not an Azure Search index). The main reason is that the key attribute is modified to be a composite primary key in the case of a [unique clustered index](/sql/relational-databases/indexes/clustered-and-nonclustered-indexes-described). In that case, make sure that your SQL table doesn't have a unique clustered index, or that you map the key field to a field that is guaranteed not to have duplicate values.
 
 <a name="could-not-process-document-within-indexer-max-run-time"></a>
 
@@ -201,7 +201,7 @@ This error occurs when the indexer is attempting to [project data into a knowled
 
 | Reason | Details/Example | Resolution |
 | --- | --- | --- |
-| Could not update projection blob `'blobUri'` in container `'containerName'` |The specified container does not exist. | The indexer will check if the specified container has been previously created and will create it if necessary, but it only performs this check once per indexer run. This error means that something deleted the container after this step.  To resolve this error, try this: leave your storage account information alone, wait for the indexer to finish, and then rerun the indexer. |
+| Could not update projection blob `'blobUri'` in container `'containerName'` |The specified container doesn't exist. | The indexer will check if the specified container has been previously created and will create it if necessary, but it only performs this check once per indexer run. This error means that something deleted the container after this step.  To resolve this error, try this: leave your storage account information alone, wait for the indexer to finish, and then rerun the indexer. |
 | Could not update projection blob `'blobUri'` in container `'containerName'` |Unable to write data to the transport connection: An existing connection was forcibly closed by the remote host. | This is expected to be a transient failure with Azure Storage and thus should be resolved by rerunning the indexer. If you encounter this error consistently, file a [support ticket](https://portal.azure.com/#create/Microsoft.Support) so it can be investigated further.  |
 | Could not update row `'projectionRow'` in table `'tableName'` | The server is busy. | This is expected to be a transient failure with Azure Storage and thus should be resolved by rerunning the indexer. If you encounter this error consistently, file a [support ticket](https://portal.azure.com/#create/Microsoft.Support) so it can be investigated further.  |
 
@@ -248,7 +248,7 @@ If you want to provide a default value in case of missing input, you can use the
 | Reason | Details/Example | Resolution |
 | --- | --- | --- |
 | Skill input is the wrong type | "Required skill input was not of the expected type `String`. Name: `text`, Source: `/document/merged_content`."  "Required skill input was not of the expected format. Name: `text`, Source: `/document/merged_content`."  "Cannot iterate over non-array `/document/normalized_images/0/imageCelebrities/0/detail/celebrities`."  "Unable to select `0` in non-array `/document/normalized_images/0/imageCelebrities/0/detail/celebrities`" | Certain skills expect inputs of particular types, for example [Sentiment skill](cognitive-search-skill-sentiment-v3.md) expects `text` to be a string. If the input specifies a non-string value, then the skill doesn't execute and generates no outputs. Ensure your data set has input values uniform in type, or use a [Custom Web API skill](cognitive-search-custom-skill-web-api.md) to preprocess the input. If you're iterating the skill over an array, check the skill context and input have `*` in the correct positions. Usually both the context and input source should end with `*` for arrays. |
-| Skill input is missing | `Required skill input is missing. Name: text, Source: /document/merged_content`  `Missing value /document/normalized_images/0/imageTags.`  `Unable to select 0 in array /document/pages of length 0.` | If all your documents get this warning, most likely there is a typo in the input paths and you should double check property name casing, extra or missing `*` in the path, and make sure that the documents from the data source provide the required inputs. |
+| Skill input is missing | `Required skill input is missing. Name: text, Source: /document/merged_content`  `Missing value /document/normalized_images/0/imageTags.`  `Unable to select 0 in array /document/pages of length 0.` | If this warning occurs for all documents, there could be a typo in the input paths. Check the property name casing. Check for an extra or missing `*` in the path. Verify that the documents from the data source provide the required inputs. |
 | Skill language code input is invalid | Skill input `languageCode` has the following language codes `X,Y,Z`, at least one of which is invalid. | See more details below. |
 
 <a name="skill-input-languagecode-has-the-following-language-codes-xyz-at-least-one-of-which-is-invalid"></a>
@@ -291,9 +291,9 @@ Here are some references for the currently supported languages for each of the s
 
 ## `Warning: Skill input was truncated`
 
-Cognitive skills have limits to the length of text that can be analyzed at once. If the text input of these skills is over that limit, we will truncate the text to meet the limit, and then perform the enrichment on that truncated text. This means that the skill is executed, but not over all of your data.
+Cognitive skills limit the length of text that can be analyzed at one time. If the text input exceeds the limit, the text is truncated before it's enriched. The skill executes, but not over all of your data.
 
-In the example `LanguageDetectionSkill` below, the `'text'` input field may trigger this warning if it's over the character limit. You can find the skill input limits in the [skills documentation](cognitive-search-predefined-skills.md).
+In the example `LanguageDetectionSkill` below, the `'text'` input field might trigger this warning if the input is over the character limit. Input limits can be found in the [skills reference documentation](cognitive-search-predefined-skills.md).
 
 ```json
  {
@@ -314,7 +314,7 @@ If you want to ensure that all text is analyzed, consider using the [Split skill
 
 ## `Warning: Web API skill response contains warnings`
 
-The indexer was able to run a skill in the skillset, but the response from the Web API request indicated there were warnings during execution. Review the warnings to understand how your data is impacted and whether or not, action is required.
+The indexer ran the skill in the skillset, but the response from the Web API request indicates there are warnings. Review the warnings to understand how your data is impacted and whether further action is required.
 
 <a name="the-current-indexer-configuration-does-not-support-incremental-progress"></a>
 
@@ -326,7 +326,7 @@ Incremental progress during indexing ensures that if indexer execution is interr
 
 The ability to resume an unfinished indexing job is predicated on having documents ordered by the `_ts` column. The indexer uses the timestamp to determine which document to pick up next. If the `_ts` column is missing or if the indexer can't determine if a custom query is ordered by it, the indexer starts at beginning and you'll see this warning.
 
-It is possible to override this behavior, enabling incremental progress and suppressing this warning by using the `assumeOrderByHighWaterMarkColumn` configuration property.
+It's possible to override this behavior, enabling incremental progress and suppressing this warning by using the `assumeOrderByHighWaterMarkColumn` configuration property.
 
 For more information, see [Incremental progress and custom queries](search-howto-index-cosmosdb.md#IncrementalProgress).
 
@@ -339,19 +339,21 @@ The [Table Storage service](https://azure.microsoft.com/services/storage/tables)
 <a name="truncated-extracted-text-to-x-characters"></a>
 
 ## `Warning: Truncated extracted text to X characters`
-Indexers limit how much text can be extracted from any one document. This limit depends on the pricing tier: 32,000 characters for Free tier, 64,000 for Basic, 4 million for Standard, 8 million for Standard S2, and 16 million for Standard S3. Text that was truncated will not be indexed. To avoid this warning, try breaking apart documents with large amounts of text into multiple, smaller documents. 
+
+Indexers limit how much text can be extracted from any one document. This limit depends on the pricing tier: 32,000 characters for Free tier, 64,000 for Basic, 4 million for Standard, 8 million for Standard S2, and 16 million for Standard S3. Text that was truncated won't be indexed. To avoid this warning, try breaking apart documents with large amounts of text into multiple, smaller documents. 
 
 For more information, see [Indexer limits](search-limits-quotas-capacity.md#indexer-limits).
 
 <a name="could-not-map-output-field-x-to-search-index"></a>
 
 ## `Warning: Could not map output field 'X' to search index`
+
 Output field mappings that reference non-existent/null data will produce warnings for each document and result in an empty index field. To work around this issue, double-check your output field-mapping source paths for possible typos, or set a default value using the [Conditional skill](cognitive-search-skill-conditional.md#sample-skill-definition-2-set-a-default-value-for-a-value-that-doesnt-exist). See [Output field mapping](cognitive-search-output-field-mapping.md) for details.
 
 | Reason | Details/Example | Resolution |
 | --- | --- | --- |
 | Cannot iterate over non-array | "Cannot iterate over non-array `/document/normalized_images/0/imageCelebrities/0/detail/celebrities`." | This error occurs when the output isn't an array. If you think the output should be an array, check the indicated output source field path for errors. For example, you might have a missing or extra `*` in the source field name. It's also possible that the input to this skill is null, resulting in an empty array. Find similar details in [Skill Input was Invalid](cognitive-search-common-errors-warnings.md#warning-skill-input-was-invalid) section.    |
-| Unable to select `0` in non-array | "Unable to select `0` in non-array `/document/pages`." | This could happen if the skills output does not produce an array and the output source field name has array index or `*` in its path. Double check the paths provided in the output source field names and the field value for the indicated field name. Find similar details in [Skill Input was Invalid](cognitive-search-common-errors-warnings.md#warning-skill-input-was-invalid) section.  |
+| Unable to select `0` in non-array | "Unable to select `0` in non-array `/document/pages`." | This could happen if the skills output doesn't produce an array and the output source field name has array index or `*` in its path. Double check the paths provided in the output source field names and the field value for the indicated field name. Find similar details in [Skill Input was Invalid](cognitive-search-common-errors-warnings.md#warning-skill-input-was-invalid) section.  |
 
 <a name="the-data-change-detection-policy-is-configured-to-use-key-column-x"></a>
 
