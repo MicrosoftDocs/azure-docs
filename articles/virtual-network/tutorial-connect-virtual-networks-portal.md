@@ -89,11 +89,11 @@ Sign in to the [Azure portal](https://portal.azure.com).
     | Setting | Value |
     | --- | --- |
     | **This virtual network** | |
-    | Peering link name | Enter *myVirtualNetwork1-myVirtualNetwork2*. This is the name of the peering from **myVirtualNetwork1** to the remote virtual network. |
+    | Peering link name | Enter *myVirtualNetwork1-myVirtualNetwork2* for the name of the peering from **myVirtualNetwork1** to the remote virtual network. |
     | **Remote virtual network** | |
-    | Peering link name | Enter *myVirtualNetwork2-myVirtualNetwork1*. This is the name of the peering from remote virtual network to **myVirtualNetwork1**. |
-    | Subscription | Select your subscription. This is Azure subscription of the remote virtual network. |
-    | Virtual network  | Select *myVirtualNetwork2*. This is the name of the remote virtual network which can be in the same region of **myVirtualNetwork1** or in a different region. |
+    | Peering link name | Enter *myVirtualNetwork2-myVirtualNetwork1* for the name of the peering from the remote virtual network to **myVirtualNetwork1**. |
+    | Subscription | Select your subscription of the remote virtual network. |
+    | Virtual network  | Select **myVirtualNetwork2** for the name of the remote virtual network. The remote virtual network can be in the same region of **myVirtualNetwork1** or in a different region. |
 
     :::image type="content" source="./media/tutorial-connect-virtual-networks-portal/peering-settings-bidirectional-inline.png" alt-text="Screenshot of virtual network peering configuration." lightbox="./media/tutorial-connect-virtual-networks-portal/peering-settings-bidirectional-expanded.png":::
 
@@ -115,7 +115,7 @@ Create a VM in each virtual network so that you can test the communication betwe
 
     :::image type="content" source="./media/tutorial-connect-virtual-networks-portal/create-vm.png" alt-text="Screenshot of create a resource for virtual machines.":::
 
-1. Enter, or select, the following information on the **Basics** tab, accept the defaults for the remaining settings, and then select **Create**:
+1. Enter or select the following information on the **Basics** tab. Accept the defaults for the remaining settings, and then select **Create**:
 
     | Setting | Value |
     | --- | --- |
@@ -152,7 +152,7 @@ Repeat steps 1-5 again to create a second virtual machine with the following cha
 | Name | myVm2 |
 | Virtual network | myVirtualNetwork2 |
 
-The VMs take a few minutes to create. Do not continue with the remaining steps until both VMs are created.
+The VMs take a few minutes to create. Don't continue with the remaining steps until both VMs are created.
 
 [!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
 
@@ -178,7 +178,7 @@ Test the communication between the two virtual machines over the virtual network
 
 1. You may receive a certificate warning during the sign-in process. Select **Yes** to continue with the connection.
 
-1. In a later step, ping is used to communicate with *myVm1* VM from the *myVm2* VM. Ping uses the Internet Control Message Protocol (ICMP), which is denied through the Windows Firewall, by default. On the *myVm1* VM, enable ICMP through the Windows firewall, so that you can ping this VM from *myVm2* in a later step, using PowerShell:
+1. In a later step, ping is used to communicate with **myVm1** from the **myVm2**. Ping uses the Internet Control Message Protocol (ICMP), which is denied through the Windows Firewall, by default. On the **myVm1**, enable ICMP through the Windows firewall, so that you can ping this VM from **myVm2** in a later step, using PowerShell:
 
     ```powershell
     New-NetFirewallRule –DisplayName "Allow ICMPv4-In" –Protocol ICMPv4
@@ -186,7 +186,7 @@ Test the communication between the two virtual machines over the virtual network
 
     Though ping is used to communicate between VMs in this tutorial, allowing ICMP through the Windows Firewall for production deployments isn't recommended.
 
-1. To connect to the *myVm2* VM, enter the following command from a command prompt on the *myVm1* VM:
+1. To connect to the *myVm2* VM, enter the following command from a command prompt on the **myVm1**:
 
     ```
     mstsc /v:10.1.0.4
@@ -220,7 +220,7 @@ When no longer needed, delete the resource group and all resources it contains:
 In this tutorial, you:
 
 * Created virtual network peering between two virtual networks.
-* Tested the the communication between two virtual machines over the virtual network peering using ping command.
+* Tested the communication between two virtual machines over the virtual network peering using ping command.
 
 To learn more about a virtual network peering:
 
