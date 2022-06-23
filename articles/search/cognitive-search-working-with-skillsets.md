@@ -16,14 +16,17 @@ This article is for developers who need a deeper understanding of skillset conce
 
 A skillset is a reusable resource in Azure Cognitive Search that is attached to [an indexer](search-indexer-overview.md). It contains one or more skills, which are atomic operations that call built-in AI or external custom processing over documents retrieved from an external data source.
 
-From the onset of skillset processing to its conclusion, skills read and write to an enriched document. An enriched document is initially just the raw content extracted from a data source (`/document`), but with each skill execution, it gains structure and substance. The output of an enriched documents finds its way into an index through *output field mappings*. Any raw content that you want transferred from source to an index is defined through *field mappings*.
+From the onset of skillset processing to its conclusion, skills read and write to an enriched document. An enriched document is initially just the raw content extracted from a data source (`/document`), but with each skill execution, it gains structure and substance. The output of an enriched document finds its way into an index through *output field mappings*. Any raw content that you want transferred directly from source to an index is defined through *field mappings*.
 
 The following diagram illustrates the data flow of skillset execution, where inputs and outputs of a skill are read from and written to an internal enriched document. Indexes are populated with fields. Those fields accept values from the data source directly (field mappings) or from an enriched document (output field mappings).
 
 <!-- Ultimately, nodes from an enriched document are then [mapped to fields](cognitive-search-output-field-mapping.md) in a search index, or [mapped to projections](knowledge-store-projection-overview.md) in a knowledge store, so that the content can be routed appropriately, where it will be queried or consumed by other apps. -->
 
-:::image type="content" source="media/cognitive-search-working-with-skillsets/architecture-indexes-indexers-skillsets-json.svg" alt-text="Diagram showing indexes, indexers, skillsets with field mappings and JSON representations." border="true":::
+:::image type="content" source="media/cognitive-search-working-with-skillsets/architecture-index-indexer-skillset-json.svg" alt-text="Diagram showing indexes, indexers, skillsets with field mappings and JSON representations." border="true":::
 
+
+
+:::image type="content" source="media/cognitive-search-working-with-skillsets/architecture-index-indexer-skillset-json.png" alt-text="Diagram showing indexes, indexers, skillsets with field mappings and JSON representations." border="true":::
 
 ## Skillset definition
 
@@ -82,7 +85,11 @@ Skills have a type, a context, and inputs and outputs that are often chained tog
 }
 ```
 
-Key points to notice about the above example are that inputs and outputs are name-value pairs, you can match the outputs of one skill to the inputs of downstream skills, and that all skills have context that determines where in the enrichment tree the processing occurs.
+Key points to notice about the above example are:
+
++ Inputs and outputs are name-value pairs
++ You can match the outputs of one skill to the inputs of downstream skills
++ All skills have context that determines where in the enrichment tree the processing occurs
 
 For more detail about how inputs and outputs are formulated, see [How to reference annotations](cognitive-search-concept-annotations-syntax.md).
 
@@ -106,12 +113,12 @@ As skills execute, output is added  to the enrichment tree as new nodes. These n
 
 An enrichment tree consists of extracted content and metadata pulled from the source, plus any new nodes that are created by a skill, such as `translated_text` from the [Text Translation skill](cognitive-search-skill-text-translation.md), `locations` from [Entity Recognition skill](cognitive-search-skill-entity-recognition-v3.md), or `keyPhrases` from the [Key Phrase Extraction skill](cognitive-search-skill-keyphrases.md). Although you can [visualize and work with an enrichment tree](cognitive-search-debug-session.md) through a visual editor, it's mostly an internal structure. 
 
-Enrichments aren't mutable: once created, nodes cannot be edited. As your skillsets get more complex, so will your enrichment tree, but not all nodes in the enrichment tree need to make it to the index or the knowledge store. You can selectively persist just a subset of the enrichment outputs so that you are only keeping what you intend to use.
+Enrichments aren't mutable: once created, nodes can't be edited. As your skillsets get more complex, so will your enrichment tree, but not all nodes in the enrichment tree need to make it to the index or the knowledge store. You can selectively persist just a subset of the enrichment outputs so that you're only keeping what you intend to use.
 
-Because a skill's inputs and outputs are reading from and writing to enrichment trees, one of tasks you'll complete as part of skillset design is creating [output field mappings](cognitive-search-output-field-mapping.md) that move content out of the enrichment tree and into a field in a search index. Likewise, if you are creating a knowledge store, you can map outputs into [shapes](knowledge-store-projection-shape.md) that are assigned to projections.
+Because a skill's inputs and outputs are reading from and writing to enrichment trees, one of tasks you'll complete as part of skillset design is creating [output field mappings](cognitive-search-output-field-mapping.md) that move content out of the enrichment tree and into a field in a search index. Likewise, if you're creating a knowledge store, you can map outputs into [shapes](knowledge-store-projection-shape.md) that are assigned to projections.
 
 > [!NOTE]
-> The enrichment tree format enables the enrichment pipeline to attach metadata to even primitive data types. The metadata will not be a valid JSON object, but can be projected into a valid JSON format in projection definitions in a knowledge store. For more information, see [Shaper skill](cognitive-search-skill-shaper.md).
+> The enrichment tree format enables the enrichment pipeline to attach metadata to even primitive data types. The metadata won't be a valid JSON object, but can be projected into a valid JSON format in projection definitions in a knowledge store. For more information, see [Shaper skill](cognitive-search-skill-shaper.md).
 
 ## Context
 
@@ -148,7 +155,7 @@ Conceptually, the initial enrichment tree looks as follows:
 
 ![enrichment tree after document cracking](media/cognitive-search-working-with-skillsets/enrichment-tree-doc-cracking.png "Enrichment tree after document cracking and before skill execution")
 
-The root node for all enrichments is `"/document"`. When working with blob indexers, the `"/document"` node will have child nodes of `"/document/content"` and `"/document/normalized_images"`. When working with CSV data, as we are in this example, the column names will map to nodes beneath `"/document"`.
+The root node for all enrichments is `"/document"`. When you're working with blob indexers, the `"/document"` node will have child nodes of `"/document/content"` and `"/document/normalized_images"`. When the data is CSV, as in this example, the column names will map to nodes beneath `"/document"`.
 
 ### Skill #1: Split skill
 
@@ -177,19 +184,19 @@ A text split skill is typically first in a skillset.
 }
 ```
 
-With the skill context of `"/document/reviews_text"`, the split skill executes once for the `reviews_text`. The skill output is a list where the `reviews_text` is chunked into 5000 character segments. The output from the split skill is named `pages` and it is added to the enrichment tree. The `targetName` feature allows you to rename a skill output before being added to the enrichment tree.
+With the skill context of `"/document/reviews_text"`, the split skill executes once for the `reviews_text`. The skill output is a list where the `reviews_text` is chunked into 5000 character segments. The output from the split skill is named `pages` and it's added to the enrichment tree. The `targetName` feature allows you to rename a skill output before being added to the enrichment tree.
 
 The enrichment tree now has a new node placed under the context of the skill. This node is available to any skill, projection, or output field mapping. 
  
 ![enrichment tree after skill #1](media/cognitive-search-working-with-skillsets/enrichment-tree-skill1.png "Enrichment tree after  skill #1 executes")
 
-To access any of the enrichments added to a node by a skill, the full path for the enrichment is needed. For example, if you want to use the text from the ```pages``` node as an input to another skill, you will need to specify it as ```"/document/reviews_text/pages/*"```. For more information about paths, see [Reference annotations](cognitive-search-concept-annotations-syntax.md).
+To access any of the enrichments added to a node by a skill, the full path for the enrichment is needed. For example, if you want to use the text from the ```pages``` node as an input to another skill, you'll need to specify it as ```"/document/reviews_text/pages/*"```. For more information about paths, see [Reference annotations](cognitive-search-concept-annotations-syntax.md).
 
 ### Skill #2 Language detection
 
 Hotel review documents include customer feedback expressed in multiple languages. The language detection skill determines which language is used. The result will then be passed to key phrase extraction and sentiment detection (not shown), taking language into consideration when detecting sentiment and phrases.
 
-While the language detection skill is the third (skill #3) skill defined in the skillset, it is the next skill to execute. Since it is not blocked by requiring any inputs, it will execute in parallel with the previous skill. Like the split skill that preceded it, the language detection skill is also invoked once for each document. The enrichment tree now has a new node for language.
+While the language detection skill is the third (skill #3) skill defined in the skillset, it's the next skill to execute. It doesn't require any inputs so it executes in parallel with the previous skill. Like the split skill that preceded it, the language detection skill is also invoked once for each document. The enrichment tree now has a new node for language.
 
  ![enrichment tree after skill #2](media/cognitive-search-working-with-skillsets/enrichment-tree-skill2.png "Enrichment tree after skill #2 executes")
 
@@ -203,13 +210,13 @@ You should now be able to look at the rest of the skills in the skillset and vis
 
 ![enrichment tree after all skills](media/cognitive-search-working-with-skillsets/enrichment-tree-final.png "Enrichment tree after  all skills")
 
-The colors of the connectors in the tree above indicate that the enrichments were created by different skills and the nodes will need to be addressed individually and will not be part of the object returned when selecting the parent node.
+The colors of the connectors in the tree above indicate that the enrichments were created by different skills and the nodes will need to be addressed individually and won't be part of the object returned when selecting the parent node.
 
 ### Skill #5 Shaper skill
 
 If output includes a [knowledge store](knowledge-store-concept-intro.md), add a [Shaper skill](cognitive-search-skill-shaper.md) as a last step. The Shaper skill creates data shapes out of nodes in an enrichment tree. For example, you might want to consolidate multiple nodes into a single shape. You can then project this shape as a table (nodes become the columns in a table), passing the shape by name to a table projection.
 
-The Shaper skill is easy to work with because it focuses shaping under one skill. Alternatively, you can opt for in-line shaping within individual projections. The Shaper Skill does not add or detract from an enrichment tree, so it's not visualized. Instead, you can think of a Shaper skill as the means by which you re-articulate the enrichment tree you already have. Conceptually, this is similar to creating views out of tables in a database.
+The Shaper skill is easy to work with because it focuses shaping under one skill. Alternatively, you can opt for in-line shaping within individual projections. The Shaper Skill doesn't add or detract from an enrichment tree, so it's not visualized. Instead, you can think of a Shaper skill as the means by which you re-articulate the enrichment tree you already have. Conceptually, this is similar to creating views out of tables in a database.
 
 ```json
 {
