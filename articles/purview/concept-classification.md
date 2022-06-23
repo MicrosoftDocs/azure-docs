@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.date: 01/04/2022
 ---
 
-# Data Classification in the Microsoft Purview governance portal
+# Data classification in the Microsoft Purview governance portal
 
 Data classification in the Microsoft Purview governance portal is a way of categorizing data assets by assigning unique logical tags or classes to the data assets. Classification is based on the business context of the data. For example, you might classify assets by *Passport Number*, *Driver's License Number*, *Credit Card Number*, *SWIFT Code*, *Person’s Name*, and so on.
 
