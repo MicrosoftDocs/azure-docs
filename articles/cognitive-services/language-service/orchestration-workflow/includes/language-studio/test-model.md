@@ -9,7 +9,7 @@ ms.date: 05/17/2022
 ms.author: aahi
 ---
 
-To test your model from the Language studio
+To test your model from Language Studio
 
 1. Select **Testing deployments** from the left side menu.
 

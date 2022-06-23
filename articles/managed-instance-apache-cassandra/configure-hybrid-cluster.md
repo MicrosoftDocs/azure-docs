@@ -6,20 +6,20 @@ ms.author: thvankra
 ms.service: managed-instance-apache-cassandra
 ms.topic: quickstart
 ms.date: 11/02/2021
-ms.custom: ignite-fall-2021, mode-other, devx-track-azurecli 
+ms.custom: ignite-fall-2021, mode-other, devx-track-azurecli
 ms.devlang: azurecli
 ---
 # Quickstart: Configure a hybrid cluster with Azure Managed Instance for Apache Cassandra
 
 Azure Managed Instance for Apache Cassandra provides automated deployment and scaling operations for managed open-source Apache Cassandra datacenters. This service helps you accelerate hybrid scenarios and reduce ongoing maintenance.
 
-This quickstart demonstrates how to use the Azure CLI commands to configure a hybrid cluster. If you have existing datacenters in an on-premise or self-hosted environment, you can use Azure Managed Instance for Apache Cassandra to add other datacenters to that cluster and maintain them.
+This quickstart demonstrates how to use the Azure CLI commands to configure a hybrid cluster. If you have existing datacenters in an on-premises or self-hosted environment, you can use Azure Managed Instance for Apache Cassandra to add other datacenters to that cluster and maintain them.
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
 * This article requires the Azure CLI version 2.30.0 or higher. If you are using Azure Cloud Shell, the latest version is already installed.
 
-* [Azure Virtual Network](../virtual-network/virtual-networks-overview.md) with connectivity to your self-hosted or on-premise environment. For more information on connecting on premises environments to Azure, see the [Connect an on-premises network to Azure](/azure/architecture/reference-architectures/hybrid-networking/) article.
+* [Azure Virtual Network](../virtual-network/virtual-networks-overview.md) with connectivity to your self-hosted or on-premises environment. For more information on connecting on premises environments to Azure, see the [Connect an on-premises network to Azure](/azure/architecture/reference-architectures/hybrid-networking/) article.
 
 ## <a id="create-account"></a>Configure a hybrid cluster
 
@@ -31,7 +31,7 @@ This quickstart demonstrates how to use the Azure CLI commands to configure a hy
     <!-- ![image](./media/configure-hybrid-cluster/subnet.png) -->
 
    > [!NOTE]
-   > The Deployment of a Azure Managed Instance for Apache Cassandra requires internet access. Deployment fails in environments where internet access is restricted. Make sure you aren't blocking access within your VNet to the following vital Azure services that are necessary for Managed Cassandra to work properly. You can also find an extensive list of IP address and port dependencies [here](network-rules.md). 
+   > The Deployment of a Azure Managed Instance for Apache Cassandra requires internet access. Deployment fails in environments where internet access is restricted. Make sure you aren't blocking access within your VNet to the following vital Azure services that are necessary for Managed Cassandra to work properly. You can also find an extensive list of IP address and port dependencies [here](network-rules.md).
    > - Azure Storage
    > - Azure KeyVault
    > - Azure Virtual Machine Scale Sets
@@ -51,8 +51,8 @@ This quickstart demonstrates how to use the Azure CLI commands to configure a hy
    > [!NOTE]
    > The `assignee` and `role` values in the previous command are fixed service principle and role identifiers respectively.
 
-1. Next, we will configure resources for our hybrid cluster. Since you already have a cluster, the cluster name here will only be a logical resource to identify the name of your existing cluster. Make sure to use the name of your existing cluster when defining `clusterName` and `clusterNameOverride` variables in the following script. 
- 
+1. Next, we will configure resources for our hybrid cluster. Since you already have a cluster, the cluster name here will only be a logical resource to identify the name of your existing cluster. Make sure to use the name of your existing cluster when defining `clusterName` and `clusterNameOverride` variables in the following script.
+
    You also need, at minimum, the seed nodes from your existing datacenter, and the gossip certificates required for node-to-node encryption. Azure Managed Instance for Apache Cassandra requires node-to-node encryption for communication between datacenters. If you do not have node-to-node encryption implemented in your existing cluster, you would need to implement it - see documentation [here](https://docs.datastax.com/en/cassandra-oss/3.x/cassandra/configuration/secureSSLNodeToNode.html). You should supply the path to the location of the certificates. Each certificate should be in PEM format, e.g. `-----BEGIN CERTIFICATE-----\n...PEM format 1...\n-----END CERTIFICATE-----`. In general, there are two ways of implementing certificates:
 
    1. Self signed certs. This means a private and public (no CA) certificate for each node - in this case we need all public certificates.
@@ -70,11 +70,11 @@ This quickstart demonstrates how to use the Azure CLI commands to configure a hy
    clusterNameOverride='cassandra-hybrid-cluster-illegal-name'
    location='eastus2'
    delegatedManagementSubnetId='/subscriptions/<subscriptionID>/resourceGroups/<resourceGroupName>/providers/Microsoft.Network/virtualNetworks/<vnetName>/subnets/<subnetName>'
-    
+
    # You can override the cluster name if the original name is not legal for an Azure resource:
    # overrideClusterName='ClusterNameIllegalForAzureResource'
    # the default cassandra version will be v3.11
-    
+
    az managed-cassandra cluster create \
      --cluster-name $clusterName \
      --resource-group $resourceGroupName \
@@ -83,18 +83,18 @@ This quickstart demonstrates how to use the Azure CLI commands to configure a hy
      --external-seed-nodes 10.52.221.2 10.52.221.3 10.52.221.4 \
      --external-gossip-certificates /usr/csuser/clouddrive/rootCa.pem /usr/csuser/clouddrive/gossipKeyStore.crt_signed
      # optional - add your existing datacenter's client-to-node certificates (if implemented):
-     # --client-certificates /usr/csuser/clouddrive/rootCa.pem /usr/csuser/clouddrive/nodeKeyStore.crt_signed 
+     # --client-certificates /usr/csuser/clouddrive/rootCa.pem /usr/csuser/clouddrive/nodeKeyStore.crt_signed
    ```
 
    > [!NOTE]
-   > If your cluster already has node-to-node and client-to-node encryption, you should know where your existing client and/or gossip SSL certificates are kept. If you are uncertain, you should be able to run `keytool -list -keystore <keystore-path> -rfc -storepass <password>` to print the certs. 
+   > If your cluster already has node-to-node and client-to-node encryption, you should know where your existing client and/or gossip SSL certificates are kept. If you are uncertain, you should be able to run `keytool -list -keystore <keystore-path> -rfc -storepass <password>` to print the certs.
 
 1. After the cluster resource is created, run the following command to get the cluster setup details:
 
    ```azurecli-interactive
    resourceGroupName='MyResourceGroup'
    clusterName='cassandra-hybrid-cluster'
-    
+
    az managed-cassandra cluster show \
       --cluster-name $clusterName \
       --resource-group $resourceGroupName \
@@ -134,14 +134,14 @@ This quickstart demonstrates how to use the Azure CLI commands to configure a hy
    dataCenterLocation='eastus2'
    virtualMachineSKU='Standard_D8s_v4'
    noOfDisksPerNode=4
-    
+
    az managed-cassandra datacenter create \
      --resource-group $resourceGroupName \
      --cluster-name $clusterName \
      --data-center-name $dataCenterName \
      --data-center-location $dataCenterLocation \
      --delegated-subnet-id $delegatedManagementSubnetId \
-     --node-count 9 
+     --node-count 9
      --sku $virtualMachineSKU \
      --disk-capacity $noOfDisksPerNode \
      --availability-zone false
@@ -151,19 +151,19 @@ This quickstart demonstrates how to use the Azure CLI commands to configure a hy
    > The value for `--sku` can be chosen from the following available SKUs:
    >
    > - Standard_E8s_v4
-   > - Standard_E16s_v4 
+   > - Standard_E16s_v4
    > - Standard_E20s_v4
-   > - Standard_E32s_v4 
+   > - Standard_E32s_v4
    > - Standard_DS13_v2
    > - Standard_DS14_v2
    > - Standard_D8s_v4
    > - Standard_D16s_v4
-   > - Standard_D32s_v4 
-   > 
+   > - Standard_D32s_v4
+   >
    > Note also that `--availability-zone` is set to `false`. To enable availability zones, set this to `true`. Availability zones increase the availability SLA of the service. For more details, review the full SLA details [here](https://azure.microsoft.com/support/legal/sla/managed-instance-apache-cassandra/v1_0/).
 
    > [!WARNING]
-   > Availability zones are not supported in all regions. Deployments will fail if you select a region where Availability zones are not supported. See [here](../availability-zones/az-overview.md#azure-regions-with-availability-zones) for supported regions. The successful deployment of availability zones is also subject to the availability of compute resources in all of the zones in the given region. Deployments may fail if the SKU you have selected, or capacity, is not available across all zones. 
+   > Availability zones are not supported in all regions. Deployments will fail if you select a region where Availability zones are not supported. See [here](../availability-zones/az-overview.md#azure-regions-with-availability-zones) for supported regions. The successful deployment of availability zones is also subject to the availability of compute resources in all of the zones in the given region. Deployments may fail if the SKU you have selected, or capacity, is not available across all zones.
 
 1. Now that the new datacenter is created, run the show datacenter command to view its details:
 
@@ -171,14 +171,14 @@ This quickstart demonstrates how to use the Azure CLI commands to configure a hy
    resourceGroupName='MyResourceGroup'
    clusterName='cassandra-hybrid-cluster'
    dataCenterName='dc1'
-    
+
    az managed-cassandra datacenter show \
      --resource-group $resourceGroupName \
      --cluster-name $clusterName \
-     --data-center-name $dataCenterName 
+     --data-center-name $dataCenterName
    ```
 
-1. The previous command outputs the new datacenter's seed nodes: 
+1. The previous command outputs the new datacenter's seed nodes:
 
    :::image type="content" source="./media/configure-hybrid-cluster/show-datacenter.png" alt-text="Get datacenter details." lightbox="./media/configure-hybrid-cluster/show-datacenter.png" border="true":::
     <!-- ![image](./media/configure-hybrid-cluster/show-datacenter.png) -->
@@ -190,7 +190,7 @@ This quickstart demonstrates how to use the Azure CLI commands to configure a hy
    ```
 
    > [!NOTE]
-   > If you want to add more datacenters, you can repeat the above steps, but you only need the seed nodes. 
+   > If you want to add more datacenters, you can repeat the above steps, but you only need the seed nodes.
 
    > [!IMPORTANT]
    > If your existing Apache Cassandra cluster only has a single data center, and this is the first time a data center is being added, ensure that the `endpoint_snitch` parameter in `cassandra.yaml` is set to `GossipingPropertyFileSnitch`.
@@ -206,16 +206,16 @@ This quickstart demonstrates how to use the Azure CLI commands to configure a hy
    ```bash
    ALTER KEYSPACE "system_auth" WITH REPLICATION = {'class': 'NetworkTopologyStrategy', 'on-premise-dc': 3, 'managed-instance-dc': 3}
    ```
-   
+
    > [!IMPORTANT]
-   > If you are using hybrid cluster as a method of migrating historic data into the new Azure Managed Instance Cassandra data centers, ensure that you run `nodetool repair --full` on all the nodes in your existing cluster's data center. You should run this only after all of the above steps have been taken. This should ensure that all historical data is replicated to your new data centers in Azure Managed Instance for Apache Cassandra. If you have a very large amount of data in your existing cluster, it may be necessary to run the repairs at the keyspace or even table level - see [here](https://cassandra.apache.org/doc/latest/cassandra/operating/repair.html) for more details on running repairs in Cassandra. Prior to changing the replication settings, you should also make sure that any application code that connects to your existing Cassandra cluster is using LOCAL_QUORUM. You should leave it at this setting during the migration (it can be switched back afterwards if required). 
+   > If you are using hybrid cluster as a method of migrating historic data into the new Azure Managed Instance Cassandra data centers, ensure that you run `nodetool repair --full` on all the nodes in your existing cluster's data center. You should run this only after all of the above steps have been taken. This should ensure that all historical data is replicated to your new data centers in Azure Managed Instance for Apache Cassandra. If you have a very large amount of data in your existing cluster, it may be necessary to run the repairs at the keyspace or even table level - see [here](https://cassandra.apache.org/doc/latest/cassandra/operating/repair.html) for more details on running repairs in Cassandra. Prior to changing the replication settings, you should also make sure that any application code that connects to your existing Cassandra cluster is using LOCAL_QUORUM. You should leave it at this setting during the migration (it can be switched back afterwards if required).
 
 ## Troubleshooting
 
 If you encounter an error when applying permissions to your Virtual Network using Azure CLI, such as *Cannot find user or service principal in graph database for 'e5007d2c-4b13-4a74-9b6a-605d99f03501'*, you can apply the same permission manually from the Azure portal. Learn how to do this [here](add-service-principal.md).
 
-> [!NOTE] 
-> The Azure Cosmos DB role assignment is used for deployment purposes only. Azure Managed Instanced for Apache Cassandra has no backend dependencies on Azure Cosmos DB.  
+> [!NOTE]
+> The Azure Cosmos DB role assignment is used for deployment purposes only. Azure Managed Instanced for Apache Cassandra has no backend dependencies on Azure Cosmos DB.
 
 ## Clean up resources
 

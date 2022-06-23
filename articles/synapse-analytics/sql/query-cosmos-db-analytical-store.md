@@ -283,7 +283,7 @@ The result of this query might look like the following table:
 | bb1206963e831f1… | The Use of Convalescent Sera in Immune-E… | `{"title":"The Use of Convalescent…` | `[{"first":"Antonio","last":"Lavazza","suffix":"", …` |
 | bb378eca9aac649… | Tylosema esculentum (Marama) Tuber and B… | `{"title":"Tylosema esculentum (Ma…` | `[{"first":"Walter","last":"Chingwaru","suffix":"",…` | 
 
-Learn more about analyzing [complex data types in Azure Synapse Link](../how-to-analyze-complex-schema.md) and [nested structures in a serverless SQL pool](query-parquet-nested-types.md).
+Learn more about analyzing [complex data types like Parquet files and containers in Azure Synapse Link for Azure Cosmos DB](../how-to-analyze-complex-schema.md) or [nested structures in a serverless SQL pool](query-parquet-nested-types.md).
 
 > [!IMPORTANT]
 > If you see unexpected characters in your text like `MÃƒÂ&copy;lade` instead of `Mélade`, then your database collation isn't set to [UTF-8](/sql/relational-databases/collations/collation-and-unicode-support#utf8) collation.

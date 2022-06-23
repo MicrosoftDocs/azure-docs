@@ -209,8 +209,8 @@ Users working with alerts on the Defender for IoT portal on Azure should underst
  Parameter | Description
 |--|--|
 | **Alert Exclusion rules**|  Alert *Exclusion rules* defined in the on-premises management console impact the alerts triggered by managed sensors. As a result, the alerts excluded by these rules also won't be displayed in the Alerts page on the portal. For more information, see [Create alert exclusion rules](how-to-work-with-alerts-on-premises-management-console.md#create-alert-exclusion-rules).
-| **Managing alerts on your sensor**  | If you change the status of an alert, or learn or mute an alert on a sensor, the changes are not updated in the Defender for IoT Alerts page on the portal. This means that this alert will stay open on the portal. However another alert  won't be triggered from sensor for this activity.
-| **Managing alerts in the portal Alerts page** | Changing the status of an alert on the Azure portal, Alerts page or changing the alert severity on the portal, does not impact the alert status or severity in on-premises sensors.
+| **Managing alerts on your sensor**  | If you change the status of an alert, or learn or mute an alert on a sensor, the changes are not updated in the Defender for IoT Alerts page on the portal. This means that this alert will stay open on the portal. However another alert  won't be triggered from the sensor for this activity.
+| **Managing alerts in the portal Alerts page** | Changing the status of an alert on the Azure portal, Alerts page or changing the alert severity on the portal, doesn't impact the alert status or severity in on-premises sensors.
 
 ## Next steps
 

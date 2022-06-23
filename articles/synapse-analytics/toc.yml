@@ -566,6 +566,8 @@ items:
         href: sql/create-use-external-tables.md
       - name: Store query results to storage
         href: sql/create-external-table-as-select.md
+      - name: Query Parquet files and containers in Azure Synapse Link for Azure Cosmos DB
+        href: how-to-analyze-complex-schema.md
     - name: Integrate
       items:
       - name: Build data pipelines
@@ -660,10 +662,8 @@ items:
       href: data-explorer/functions-library/toc.yml
 - name: Apache Spark
   items:
-  - name: Overview
-    items:
-    - name: Apache Spark overview
-      href: ./spark/apache-spark-overview.md
+  - name: Apache Spark overview
+    href: ./spark/apache-spark-overview.md
   - name: Quickstarts
     items:
     - name: Create a notebook
@@ -796,8 +796,6 @@ items:
           href: ./spark/synapse-spark-sql-pool-import-export.md
         - name: Azure SQL and SQL Server 
           href: ./spark/data-sources/apache-spark-sql-connector.md
-        - name: JSON
-          href: how-to-analyze-complex-schema.md
         - name: External Hive Metastore
           href: ./spark/apache-spark-external-metastore.md
 - name: Synapse Link
@@ -1437,6 +1435,8 @@ items:
     items:
     - name: Train machine learning models
       href: ./spark/apache-spark-machine-learning-training.md
+    - name: Deep learning 
+      href: ./machine-learning/concept-deep-learning.md
   - name: Tutorials
     items:
     - name: Data access and preparation
@@ -1457,6 +1457,14 @@ items:
         - name: In Python
           displayName: train model, automated machine learning, automated ml, automl
           href: ./spark/apache-spark-azure-machine-learning-tutorial.md
+      - name: With Horovod and Petastorm 
+        items:
+        - name: Train a model with Horovod and PyTorch
+          href: ./machine-learning/tutorial-horovod-pytorch.md
+        - name: Train a model with Horovod and TensorFlow
+          href: ./machine-learning/tutorial-horovod-tensorflow.md
+        - name: Write and load data with Petastorm
+          href: ./machine-learning/tutorial-load-data-petastorm.md
     - name: Score a model
       items:
       - name: Use the scoring wizard for dedicated SQL pools
@@ -1512,6 +1520,48 @@ items:
     href: how-to-access-container-with-access-control-lists.md
 - name: Guidance
   items:
+  - name: Azure Synapse Success by Design
+    items:
+    - name: Introduction
+      href: ./guidance/success-by-design-introduction.md
+    - name: Synapse proof of concept playbook
+      items:
+      - name: Overview
+        href: ./guidance/proof-of-concept-playbook-overview.md
+      - name: Data warehousing with dedicated SQL pool
+        href: ./guidance/proof-of-concept-playbook-dedicated-sql-pool.md
+      - name: Data lake exploration with serverless SQL pool
+        href: ./guidance/proof-of-concept-playbook-serverless-sql-pool.md
+      - name: Big data analytics with Apache Spark pool
+        href: ./guidance/proof-of-concept-playbook-spark-pool.md
+    - name: Synapse implementation success methodology
+      items:
+      - name: Overview
+        href: ./guidance/implementation-success-overview.md
+      - name: Assess environment
+        href: ./guidance/implementation-success-assess-environment.md
+      - name: Evaluate workspace design
+        href: ./guidance/implementation-success-evaluate-workspace-design.md
+      - name: Evaluate data integration design
+        href: ./guidance/implementation-success-evaluate-data-integration-design.md
+      - name: Evaluate dedicated SQL pool design
+        href: ./guidance/implementation-success-evaluate-dedicated-sql-pool-design.md
+      - name: Evaluate serverless SQL pool design
+        href: ./guidance/implementation-success-evaluate-serverless-sql-pool-design.md
+      - name: Evaluate Spark pool design
+        href: ./guidance/implementation-success-evaluate-spark-pool-design.md
+      - name: Evaluate project plan
+        href: ./guidance/implementation-success-evaluate-project-plan.md
+      - name: Evaluate solution development environment design
+        href: ./guidance/implementation-success-evaluate-solution-development-environment-design.md
+      - name: Evaluate team skill sets
+        href: ./guidance/implementation-success-evaluate-team-skill-sets.md
+      - name: Perform operational readiness review
+        href: ./guidance/implementation-success-perform-operational-readiness-review.md
+      - name: Perform user readiness and onboarding plan review
+        href: ./guidance/implementation-success-perform-user-readiness-and-onboarding-plan-review.md
+      - name: Perform monitoring review
+        href: ./guidance/implementation-success-perform-monitoring-review.md
   - name: Migration guides
     items:
     - name: All migration guides

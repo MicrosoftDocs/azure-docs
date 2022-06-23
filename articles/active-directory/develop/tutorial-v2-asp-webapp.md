@@ -1,6 +1,5 @@
 ---
-title: "Tutorial: Create an ASP.NET web app that uses the Microsoft identity platform for authentication | Azure"
-titleSuffix: Microsoft identity platform
+title: "Tutorial: Create an ASP.NET web app that uses the Microsoft identity platform for authentication"
 description: In this tutorial, you build an ASP.NET web application that uses the Microsoft identity platform and OWIN middleware to enable user login.
 services: active-directory
 author: jmprieur

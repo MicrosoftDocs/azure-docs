@@ -12,6 +12,8 @@ ms.custom: devx-track-azurepowershell
 
 # How to create and manage read replicas in Azure Database for PostgreSQL using PowerShell
 
+[!INCLUDE [applies-to-postgresql-single-server](../includes/applies-to-postgresql-single-server.md)]
+
 In this article, you learn how to create and manage read replicas in the Azure Database for PostgreSQL
 service using PowerShell. To learn more about read replicas, see the
 [overview](concepts-read-replicas.md).

@@ -1,6 +1,5 @@
 ---
-title: OAuth 2.0 and OpenID Connect protocols on the Microsoft identity platform | Azure
-titleSuffix: Microsoft identity platform
+title: OAuth 2.0 and OpenID Connect protocols on the Microsoft identity platform
 description: A guide to OAuth 2.0 and OpenID Connect protocols as supported by the Microsoft identity platform.
 services: active-directory
 author: nickludwig
@@ -38,7 +37,7 @@ Four parties are typically involved in an OAuth 2.0 and OpenID Connect authentic
 
 ## Tokens
 
-The parties in an authentication flow use **bearer tokens** to assure identification (authentication) and to grant or deny access to protected resources (authorization). Bearer tokens in the Microsoft identity platform are formatted as [JSON Web Tokens](https://tools.ietf.org/html/rfc7519) (JWT).
+The parties in an authentication flow use **bearer tokens** to assure, verify, and authenticate a principal (user, host, or service) and to grant or deny access to protected resources (authorization). Bearer tokens in the Microsoft identity platform are formatted as [JSON Web Tokens](https://tools.ietf.org/html/rfc7519) (JWT).
 
 Three types of bearer tokens are used by the Microsoft identity platform as *security tokens*:
 

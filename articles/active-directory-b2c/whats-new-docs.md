@@ -13,7 +13,18 @@ manager: CelesteDG
 
 # Azure Active Directory B2C: What's new
 
-Welcome to what's new in Azure Active Directory B2C documentation. This article lists new docs that have been added and those that have had significant updates in the last three months. To learn what's new with the B2C service, see [What's new in Azure Active Directory](../active-directory/fundamentals/whats-new.md).
+Welcome to what's new in Azure Active Directory B2C documentation. This article lists new docs that have been added and those that have had significant updates in the last three months. To learn what's new with the B2C service, see [What's new in Azure Active Directory](../active-directory/fundamentals/whats-new.md) and [Azure AD B2C developer release notes](custom-policy-developer-notes.md)
+
+
+## May 2022
+
+### Updated articles
+
+- [Set redirect URLs to b2clogin.com for Azure Active Directory B2C](b2clogin.md)
+- [Enable custom domains for Azure Active Directory B2C](custom-domain.md)
+- [Configure xID with Azure Active Directory B2C for passwordless authentication](partner-xid.md)
+- [UserJourneys](userjourneys.md)
+- [Secure your API used an API connector in Azure AD B2C](secure-rest-api.md)
 
 ## April 2022
 

@@ -1,6 +1,5 @@
 ---
 title: Overview of enterprise application ownership
-titleSuffix: Azure AD
 description: Learn about enterprise application ownership in Azure Active Directory
 services: active-directory
 author: saipradeepb23

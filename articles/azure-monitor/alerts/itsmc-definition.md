@@ -4,6 +4,7 @@ description: This article provides an overview of IT Service Management Connecto
 ms.topic: conceptual
 ms.date: 2/23/2022
 ms.custom: references_regions
+ms.reviewer: nolavime
 
 ---
 
@@ -60,7 +61,7 @@ After you've prepped your ITSM tool, complete these steps to create a connection
 1. Specify the connection settings for the ITSM product that you're using:
 
     - [ServiceNow](./itsmc-connections-servicenow.md)
-    - [System Center Service Manager](./itsmc-connections-scsm.md)
+    - [System Center Service Manager](./itsmc-connections.md)
 
    > [!NOTE]
    > By default, ITSMC refreshes the connection's configuration data once every 24 hours. To refresh your connection's data instantly to reflect any edits or template updates that you make, select the **Sync** button on your connection's pane:

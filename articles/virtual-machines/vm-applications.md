@@ -35,7 +35,9 @@ Application packages provide benefits over other deployment and packaging method
 
 - Support for virtual machines, and both flexible and uniform scale sets
 
+
 - If you have Network Security Group (NSG) rules applied on your VM or scale set, downloading the packages from an internet repository might not be possible. And  with storage accounts, downloading packages onto locked-down VMs would require setting up private links.
+
 
 
 
