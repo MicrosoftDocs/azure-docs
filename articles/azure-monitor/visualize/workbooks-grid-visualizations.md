@@ -76,7 +76,7 @@ This usually is taking the user to some other view with context coming from the 
 
 ### Custom formatting
 
-Workbooks also allows users to set the number formatting of their cell values. They can do so by clicking on the *Custom formatting* checkbox when available.
+Workbooks also allow users to set the number formatting of their cell values. They can do so by clicking on the **Custom formatting** checkbox when available.
 
 | Formatting option | Explanation |
 |:------------- |:-------------|

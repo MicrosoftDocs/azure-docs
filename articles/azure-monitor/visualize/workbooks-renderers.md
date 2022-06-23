@@ -7,7 +7,7 @@ ms.date: 06/22/2022
 ms.author: abbyweisberg
 ---
 
-# Rendering Options
+# Rendering options
 These rendering options can be used with grids, tiles, and graphs to produce the visualizations in optimal format.
 ## Column renderers
 
@@ -82,4 +82,4 @@ The instructions below will show you how to use thresholds with links to assign 
 1. To change the display name of the **name** column, select the **Labels** tab. On the row with **name** as its **Column ID**, under **Column Label** enter the name you want displayed.
 1. Select **Apply**.
 
-     ![Screenshot of a thresholds in grid with the above settings](./media/workbooks-grid-visualizations/thresholds-workbooks-links.png)
+     ![Screenshot of a thresholds in grid with the above settings.](./media/workbooks-grid-visualizations/thresholds-workbooks-links.png)

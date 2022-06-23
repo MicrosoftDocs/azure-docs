@@ -56,7 +56,7 @@ items:
     - name: Azure portal
       displayName: Custom logs
       href: logs/tutorial-custom-logs.md
-    - name: Resource manager templates
+    - name: Resource Manager templates
       displayName: Custom logs
       href: logs/tutorial-custom-logs-api.md
   - name: Ingestion-time transformations
@@ -64,7 +64,7 @@ items:
     - name: Azure portal
       displayName: Ingestion-time transformations
       href: logs/tutorial-ingestion-time-transformations.md
-    - name: Resource manager templates
+    - name: Resource Manager templates
       displayName: Ingestion-time transformations
       href: logs/tutorial-ingestion-time-transformations-api.md
 - name: Samples
@@ -1375,7 +1375,7 @@ items:
             href: visualize/workbooks-honey-comb.md
           - name: Composite bar
             href: visualize/workbooks-composite-bar.md
-          - name: Remderers
+          - name: Renderers
             href: visualize/workbooks-renderers.md
         - name: Workbook result limits
           href: visualize/workbooks-limits.md

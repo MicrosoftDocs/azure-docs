@@ -34,7 +34,7 @@ Workbooks allow querying logs from the following sources:
 
 Workbook authors can use KQL queries that transform the underlying resource data to select a result set that can visualized as text, charts, or grids.
 
-![Screenshot of workbooks logs report interface](./media/workbooks-data-sources/logs.png)
+![Screenshot of workbooks logs report interface.](./media/workbooks-data-sources/logs.png)
 
 Workbook authors can easily query across multiple resources creating a truly unified rich reporting experience.
 
@@ -42,9 +42,9 @@ Workbook authors can easily query across multiple resources creating a truly uni
 
 Azure resources emit [metrics](../essentials/data-platform-metrics.md) that can be accessed via workbooks. Metrics can be accessed in workbooks through a specialized control that allows you to specify the target resources, the desired metrics, and their aggregation. This data can then be plotted in charts or grids.
 
-![Screenshot of workbook metrics charts of cpu utilization](./media/workbooks-data-sources/metrics-graph.png)
+![Screenshot of workbook metrics charts of cpu utilization.](./media/workbooks-data-sources/metrics-graph.png)
 
-![Screenshot of workbook metrics interface](./media/workbooks-data-sources/metrics.png)
+![Screenshot of workbook metrics interface.](./media/workbooks-data-sources/metrics.png)
 
 ## Azure Resource Graph
 
@@ -52,7 +52,7 @@ Workbooks support querying for resources and their metadata using Azure Resource
 
 To make a query control use this data source, use the Query type drop-down to choose Azure Resource Graph and select the subscriptions to target. Use the Query control to add the ARG KQL-subset that selects an interesting resource subset.
 
-![Screenshot of Azure Resource Graph KQL query](./media/workbooks-data-sources/azure-resource-graph.png)
+![Screenshot of Azure Resource Graph KQL query.](./media/workbooks-data-sources/azure-resource-graph.png)
 
 ## Azure Resource Manager
 
@@ -68,7 +68,7 @@ To make a query control use this data source, use the Data source drop-down to c
 Workbooks now have support for querying from [Azure Data Explorer](/azure/data-explorer/) clusters with the powerful [Kusto](/azure/kusto/query/index) query language.
 For the **Cluster Name** field, you should add the region name following the cluster name. For example: *mycluster.westeurope*.
 
-![Screenshot of Kusto query window](./media/workbooks-data-sources/data-explorer.png)
+![Screenshot of Kusto query window.](./media/workbooks-data-sources/data-explorer.png)
 
 ## JSON
 
@@ -126,7 +126,7 @@ Azure Monitor has functionality that proactively monitors the availability and p
 
 To make a query control use this data source, use the **Query type** drop-down to choose Workload Health and select subscription, resource group or VM resources to target. Use the health filter drop downs to select an interesting subset of health incidents for your analytic needs.
 
-![Screenshot of alerts query](./media/workbooks-data-sources/workload-health.png)
+![Screenshot of alerts query.](./media/workbooks-data-sources/workload-health.png)
 
 ## Azure resource health
 
@@ -154,7 +154,7 @@ The Azure RBAC provider allows you to check permissions on resources. It is most
 To make a query control using [Application Change Analysis](../app/change-analysis.md) as the data source, use the **Data source** drop-down and choose *Change Analysis (preview)* and select a single resource. Changes for up to the last 14 days can be shown. The *Level* drop-down can be used to filter between "Important", "Normal", and "Noisy" changes, and this drop down supports workbook parameters of type [drop down](workbooks-dropdowns.md).
 
 > [!div class="mx-imgBorder"]
-> ![A screenshot of a workbook with Change Analysis](./media/workbooks-data-sources/change-analysis-data-source.png)
+> ![A screenshot of a workbook with Change Analysis.](./media/workbooks-data-sources/change-analysis-data-source.png)
 
 ## Next steps
 
