@@ -59,7 +59,7 @@ sections:
       - question: |
           What happens to my VMs if I don’t plan on migrating in the near future? 
         answer: |
-          On March 1st, 2023, the IaaS VMs (Classic) will be fully retired and any active or allocated VMs will be stopped & deallocated. To prevent business impact, we highly recomment to start planning your migration today and complete it before March 1st, 2023. 
+          On March 1st, 2023, the IaaS VMs (Classic) will be fully retired and any active or allocated VMs will be stopped & deallocated. To prevent business impact, we highly recommend to start planning your migration today and complete it before March 1st, 2023. 
           We are not deprecating the existing classic APIs, Cloud Services and resource model. We want to make migration easy, considering the advanced features that are available in the Resource Manager deployment model. We recommend that you start planning to migrate these resources to Azure Resource Manager. 
           
       - question: |
