@@ -47,6 +47,7 @@ sections:
           - Front Door can perform path-based load balancing only at the global level but if one wants to load balance traffic even further within their virtual network (VNET) then they should use Application Gateway.
           - Since Front Door doesn't work at a VM/container level, so it cannot do Connection Draining. However, Application Gateway allows you to do Connection Draining. 
           - With an Application Gateway behind Front Door, one can achieve 100% TLS/SSL offload and route only HTTP requests within their virtual network (VNET).
+          - Front Door can not route or load balance traffic within a virtual network. With an Application Gateway you can route and load balance traffic within a virtual network (VNET)
           - Front Door and Application Gateway both support session affinity. While Front Door can direct subsequent traffic from a user session to the same cluster or backend in a given region, Application Gateway can direct affinitize the traffic to the same server within the cluster.  
 
       - question: |
@@ -61,7 +62,7 @@ sections:
       - question: |
           Can we deploy Azure Load Balancer behind Front Door?
         answer:  |
-          Azure Front Door needs a public VIP or a publicly available DNS name to route the traffic to. Deploying an Azure Load Balancer behind Front Door is a common use case.
+          Azure Front Door needs a public VIP or a publicly available DNS name to route the traffic to. Deploying an Azure Load Balancer behind Front Door is a common use case. There are a [range of load balancing options available](https://docs.microsoft.com/en-us/azure/architecture/guide/technology-choices/load-balancing-overview#choosing-a-global-load-balancer)
 
       - question: |
           What protocols does Azure Front Door support?
