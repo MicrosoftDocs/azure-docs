@@ -5,7 +5,7 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.author: sairamyeturi
 author: yeturis
-ms.date: 05/25/2021
+ms.date: 06/23/2022
 ---
 
 # HDInsight Ubuntu 18.04 OS update
