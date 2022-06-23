@@ -144,14 +144,14 @@ $hostGroup = New-AzHostGroup `
    -ResourceGroupName $rgName `
    -Location $location `
    -Zone 1 `
-   -EnableUltraSSD true `
+   -EnableUltraSSD `
    -PlatformFaultDomain 2 `
    -SupportAutomaticPlacement true
 ```
 
 Add the `-SupportAutomaticPlacement true` parameter to have your VMs and scale set instances automatically placed on hosts, within a host group. For more information about this topic, see [Manual vs. automatic placement ](dedicated-hosts.md#manual-vs-automatic-placement).
 
-Add the `-EnableUltraSSD true` (Preview) parameter to enable creation of VMs that can support ultra disks.
+Add the `-EnableUltraSSD` (Preview) parameter to enable creation of VMs that can support ultra disks.
 
 ---
 
