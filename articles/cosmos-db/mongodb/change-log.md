@@ -24,15 +24,27 @@ To connect to your Cosmos DB account using MongoDB Compass, you must:
 * Download and install [Compass](https://www.mongodb.com/download-center/compass?jmp=hero)
 * Have your Cosmos DB [connection string](connect-mongodb-account.md) information -->
 
-## Jan- April 2022 Updates
+## Jan - April 2022 Updates
 
-### limit the document size to 16MB in backend
-core\push2.js is a negative test which ensures that the document size beyond 16MB is not honored, which is currently passing because $push is not implemented in pg backend and the test is expected to return writeErrors
+### $expr 
+Support $expr in Mongo 3.6 and 4.0.
 
-But after $push operator changes the test is not returning writeErrors and is executed successfully,
-The pgmongo backend should impose the limit of 16MB size while performing any updates or inserts similar to mongo.
+This change adds support for both in memory and backend $expr. Furthermore we now have the infra to support compute only query operators.
 
-The ideal solution looks to be to set some kind of size constraint in tables for update and insert otherwise point fixes maybe required in implementing operator
+This will allow us to support 3.6 style $lookup. There are future improvement available including more push down, point lookup, and _id/shard key constraints.
+
+### Expose Mongo native userId in diagnostic logs
+Reach out to Ashwini for this 
+
+###  RBAC for $merge stage
+Read doc
+
+### Add Hyperbolic trigonometric operators
+Read doc 
+
+### Use federation host name for RoutingGatewayConfiguration calls
+Reach out to Dmitri 
+
 
 ### Bump packages and .NET TargetRuntime versions
 Bump more packages and remove VersionOverrides under Compute, Mongo and CLuB.
@@ -43,40 +55,6 @@ Remove referencees to the CBT Symbol Indexing package. This is because Symbol in
 
 Remove moderncop since it is enabled only when EnableModernCop is set, and that is not set anywhere in our repo.
 ModernCop also does not run today in CloudBuild builds.
-
-### Use federation host name for RoutingGatewayConfiguration calls
-Use only one NamingService call while loading TenantContainer instead of 2 for non HTTP APIs for loading documentsServiceApiEndpoint (next PR will address most of the non HTTP clients by reading SNI info from the socket)
-Use static URI construction for to build documentsServiceApiEndpoint for HTTP based APIs
-Use federation names for making RoutingGatewayConfiguration calls to reduce count of used connections
-Feature flag to control tenant VS federation host name used for DocumentService and Address Resolution operations. See the changes on Routinggateway https://msdata.visualstudio.com/DefaultCollection/CosmosDB/_git/CosmosDB/pullrequest/633490 RoutingGateway has it under a feature flag, hence rolling feature disabled by default.
-
-### List Indexes support in compute gateway
-Includes :
-listIndexes or getIndexes in compute gateway
-Removed null check for typedRequest.TransactionInfo as it is already there in mongoClient.CreateIndexesAsync
-
-### Support $expr in Mongo 3.6 and 4.0.
-
-This change adds support for both in memory and backend $expr. Furthermore we now have the infra to support compute only query operators.
-
-This will allow us to support 3.6 style $lookup. There are future improvement available including more push down, point lookup, and _id/shard key constraints.
-
-### support for rbac and $merge stage.
-
-### Add Hyperbolic trigonometric operators
-
-### Use nameof(MongoNativeRbacControlPlaneUtilities) for FabricClient
-Minor change to use the standard approach of utilizing the nameof expression for the component name when creating a fabric client facade.
-
-### Bump System.runtime.compilerservices.unsafe to 6.0.0.
-This is a base line dependency that every other package tends to depend on.
-As part of this bump a few projects to .net 6.0 and clean up any version overrides.
-
-### Add support for ping request for SCRAM-SHA-256
-Using SCRAM-SHA-256 auth with mongosh results in the error "command ping not supported". Adding support for ping request in PostgresMongoRequestHandler.
-
-### Add system user configuration for config/auth calls
-In test pipelines we already set this to make it run cross-user. however, in prod, we were initially running the pg process as the same user (earlier), but switched to a dedicated linux user for the GW. After that change, we need to have a user mapping to make calls to the GW for system calls. Matching the behavior we have in test with prod.
 
 
 <!--
