@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
-ms.date: 06/13/2022
+ms.date: 06/22/2022
 ms.author: lajanuar
 recommendations: false
 ---
@@ -128,48 +128,36 @@ Extract text, tables, structure, key-value pairs, and named entities from docume
   const formUrl = "https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-layout.pdf"
 
   async function main() {
-       // create your `DocumentAnalysisClient` instance and `AzureKeyCredential` variable
-      const client = new DocumentAnalysisClient(endpoint, new AzureKeyCredential(key));
+    const client = new DocumentAnalysisClient(endpoint, new AzureKeyCredential(key));
 
-      const poller = await client.beginAnalyzeDocument("prebuilt-document", formUrl);
+    const poller = await client.beginAnalyzeDocument("prebuilt-document", formUrl);
 
-      const {
-          keyValuePairs,
-          entities
-      } = await poller.pollUntilDone();
+    const {
+        keyValuePairs,
+        entities
+    } = await poller.pollUntilDone();
 
-      if (keyValuePairs.length <= 0) {
-          console.log("No key-value pairs were extracted from the document.");
-      } else {
-          console.log("Key-Value Pairs:");
-          for (const {
-                  key,
-                  value,
-                  confidence
-              } of keyValuePairs) {
-              console.log("- Key  :", `"${key.content}"`);
-              console.log("  Value:", `"${value?.content ?? "<undefined>"}" (${confidence})`);
-          }
-      }
+    if (keyValuePairs.length <= 0) {
+        console.log("No key-value pairs were extracted from the document.");
+    } else {
+        console.log("Key-Value Pairs:");
+        for (const {
+                key,
+                value,
+                confidence
+            } of keyValuePairs) {
+            console.log("- Key  :", `"${key.content}"`);
+            console.log("  Value:", `"${value?.content ?? "<undefined>"}" (${confidence})`);
+        }
+    }
 
-      if (entities.length <= 0) {
-          console.log("No entities were extracted from the document.");
-      } else {
-          console.log("Entities:");
-          for (const entity of entities) {
-              console.log(
-                  `- "${entity.content}" ${entity.category} - ${entity.subCategory ?? "<none>"} (${
-            entity.confidence
-          })`
-              );
-          }
-      }
-  }
+}
 
-  main().catch((error) => {
-      console.error("An error occurred:", error);
-      process.exit(1);
-  });
+main().catch((error) => {
+    console.error("An error occurred:", error);
+    process.exit(1);
+});
+
 ```
 
 **Run your application**
