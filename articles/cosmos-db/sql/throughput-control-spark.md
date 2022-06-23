@@ -43,6 +43,9 @@ Throughput control for the Spark Connector is configured by first creating a con
     TBLPROPERTIES(partitionKeyPath = '/groupId', autoScaleMaxThroughput = '4000', indexingPolicy = 'AllProperties', defaultTtlInSeconds = '-1');
 ```
 
+> [!NOTE]
+> The above example creates a container with [autoscale](../provision-throughput-autoscale.md). If you prefer standard provisioning, you can replace `autoScaleMaxThroughput` will `manualThroughput` instead. 
+
 > [!IMPORTANT]
 > The partition key must be defined as `/groupId`, and `ttl` must be enabled, for the throughput control feature to work. 
 
