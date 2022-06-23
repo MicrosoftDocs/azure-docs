@@ -49,9 +49,7 @@ When you configure a federated identity credential, there are several important 
 
 Find the object ID of the app (not the application (client) ID), which you need in the following steps.  You can find the object ID of the app in the Azure portal.  Go to the list of [registered applications](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) in the Azure portal and select your app registration.  In **Overview**->**Essentials**, find the **Object ID**.
 
-Get the information for your external IdP and software workload, which you need in the following steps.
-
-The Microsoft Graph endpoint (`https://graph.microsoft.com`) exposes REST APIs to create, update, delete [federatedIdentityCredentials](/graph/api/resources/federatedidentitycredential) on applications. Launch [Azure Cloud Shell](https://portal.azure.com/#cloudshell/) and sign in to your tenant in order to run Microsoft Graph commands from AZ CLI.
+Get the *subject* and *issuer* information for your external IdP and software workload, which you need in the following steps.
 
 ## Configure a federated identity credential on an app
 
@@ -183,7 +181,7 @@ To delete a federated identity credential, select the **Delete** icon for the cr
 
 Find the object ID of the app (not the application (client) ID), which you need in the following steps.  You can find the object ID of the app in the Azure portal.  Go to the list of [registered applications](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) in the Azure portal and select your app registration.  In **Overview**->**Essentials**, find the **Object ID**.
 
-Get the information for your external IdP and software workload, which you need in the following steps.
+Get the *subject* and *issuer* information for your external IdP and software workload, which you need in the following steps.
 
 The Microsoft Graph endpoint (`https://graph.microsoft.com`) exposes REST APIs to create, update, delete [federatedIdentityCredentials](/graph/api/resources/federatedidentitycredential) on applications. Launch [Azure Cloud Shell](https://portal.azure.com/#cloudshell/) and sign in to your tenant in order to run Microsoft Graph commands from AZ CLI.
 
@@ -204,7 +202,7 @@ The Microsoft Graph endpoint (`https://graph.microsoft.com`) exposes REST APIs t
 
 Find the object ID of the app (not the application (client) ID), which you need in the following steps.  You can find the object ID of the app in the Azure portal.  Go to the list of [registered applications](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) in the Azure portal and select your app registration.  In **Overview**->**Essentials**, find the **Object ID**.
 
-Get the information for your external IdP and software workload, which you need in the following steps.
+Get the *subject* and *issuer* information for your external IdP and software workload, which you need in the following steps.
 
 The Microsoft Graph endpoint (`https://graph.microsoft.com`) exposes REST APIs to create, update, delete [federatedIdentityCredentials](/graph/api/resources/federatedidentitycredential) on applications. Launch [Azure Cloud Shell](https://portal.azure.com/#cloudshell/) and sign in to your tenant in order to run Microsoft Graph commands from AZ CLI.
 
@@ -225,7 +223,7 @@ The Microsoft Graph endpoint (`https://graph.microsoft.com`) exposes REST APIs t
 
 Find the object ID of the app (not the application (client) ID), which you need in the following steps.  You can find the object ID of the app in the Azure portal.  Go to the list of [registered applications](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) in the Azure portal and select your app registration.  In **Overview**->**Essentials**, find the **Object ID**.
 
-Get the information for your external IdP and software workload, which you need in the following steps.
+Get the *subject* and *issuer* information for your external IdP and software workload, which you need in the following steps.
 
 The Microsoft Graph endpoint (`https://graph.microsoft.com`) exposes REST APIs to create, update, delete [federatedIdentityCredentials](/graph/api/resources/federatedidentitycredential) on applications. Launch [Azure Cloud Shell](https://portal.azure.com/#cloudshell/) and sign in to your tenant in order to run Microsoft Graph commands from AZ CLI.
 
@@ -397,5 +395,6 @@ az rest -m DELETE  -u 'https://graph.microsoft.com/applications/f6475511-fd81-49
 ## Next steps
 - To learn how to use workload identity federation for Kubernetes, see [Azure AD Workload Identity for Kubernetes](https://azure.github.io/azure-workload-identity/docs/quick-start.html) open source project. 
 - To learn how to use workload identity federation for GitHub Actions, see [Configure a GitHub Actions workflow to get an access token](/azure/developer/github/connect-from-azure).
+- Read the [GitHub Actions documentation](https://docs.github.com/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-azure) to learn more about configuring your GitHub Actions workflow to get an access token from Microsoft identity provider and access Azure resources.
 - For more information, read about how Azure AD uses the [OAuth 2.0 client credentials grant](v2-oauth2-client-creds-grant-flow.md#third-case-access-token-request-with-a-federated-credential) and a client assertion issued by another IdP to get a token.
 - For information about the required format of JWTs created by external identity providers, read about the [assertion format](active-directory-certificate-credentials.md#assertion-format).
