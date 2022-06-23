@@ -67,13 +67,13 @@ If you want to reconcile costs with your price sheet or invoice, note the follow
 
 **Price Sheet unit of measure behavior** - The prices shown on the price sheet are the prices that you receive from Azure. They're scaled to a specific unit of measure. 
 
-**Cost details unit of measure behavior** - The unit of measure associated with the usage quantities and pricing seen in cost details aligns with actual resource usage. For EA customers, this can be different from the unit of measure used in the Price Sheet.
+**Cost details unit of measure behavior** - The unit of measure associated with the usage quantities and pricing seen in cost details aligns with actual resource usage.
 
 #### Example pricing scenarios seen in cost details for a resource
 
 | **MeterId** | **Quantity** | **PAYGPrice** | **UnitPrice** | **EffectivePrice** | **UnitOfMeasure** | **Notes** |
 | --- | --- | --- | --- | --- | --- | --- |
-| 00000000-0000-0000-0000-00000000000 | 24 | 1 | 0.8 | 0.76 | 1 hour | Manual calculation of the actual charge: multiply 24 * 0.76 * 1 hour. For EA customers, the unit of measure is currently incorrect in the Cost Details file. Please ignore this when doing calculations. |
+| 00000000-0000-0000-0000-00000000000 | 24 | 1 | 0.8 | 0.76 | 1 hour | Manual calculation of the actual charge: multiply 24 * 0.76 * 1 hour. |
 
 ## Unexpected charges
 
