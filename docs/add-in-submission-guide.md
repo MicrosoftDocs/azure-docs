@@ -3,7 +3,7 @@ title: Microsoft 365 Store step-by-step submission guide
 description:  Use this step-by-step submission guide to submit your app to the Microsoft stores. 
 ms.localizationpriority: medium
 ms.author: siraghav
-ms.date: 06/10/2022
+ms.date: 06/23/2022
 ---
 
 # Store step-by-step submission guide
@@ -45,7 +45,9 @@ This article is a step-by-step guide that will detail how to submit your app to 
 1. When filling out the **Product setup** page, you'll need to answer the following questions:
 
     - **Will your app be listed in the Apple Store?**
-    If so, include your Apple ID. You'll see a warning that reminds you to enter this information on screen.
+    If so, update your Apple Developer ID in Account Settings in Partner Center before publishing the app. You'll see a warning or a note to remind you to enter this information on screen. If you don’t enter this information, your app will not be available for acquisition on iOS mobile devices, but the app will appear to be available to use on iOS devices after you acquire the app on another type of device.
+        > [!NOTE]
+        > Only users with Developer Account Owner or Developer Account Manager roles can update Apple ID in [Account Settings](/azure/marketplace/manage-account).
     - **Does your app use Azure Active Directory or SSO (Azure AD/SSO)?**
     If so, select the box that asks about this.
     - **Does your app require additional purchases?**
@@ -53,8 +55,10 @@ This article is a step-by-step guide that will detail how to submit your app to 
     - **Do you want to connect with your lead management CRM system?**
     If so, connect this system using the Connect link.
 
+<!--- [
     > [!NOTE]
     > If you’re submitting a Teams add-in, make sure to update your Apple ID in your account settings to make your app acquirable on iOS mobile devices.
+]() --->
 
 1. Select **Save draft** before continuing to the next page: Packages.
 
