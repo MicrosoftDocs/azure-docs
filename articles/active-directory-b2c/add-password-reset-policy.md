@@ -130,8 +130,8 @@ Declare your claims in the [claims schema](claimsschema.md). Open the extensions
     </BuildingBlocks> -->
     ```
 
-### Add the Technical Profiles
-A claims transformation technical profile accesses the `isForgotPassword` claim. The technical profile is referenced later. When it's invoked, it sets the value of the `isForgotPassword` claim to `true`. Find the **ClaimsProviders** element (if the element doesn't exist, create it), then add the following claims provider:
+### Add the technical profiles
+A claims transformation technical profile accesses the `isForgotPassword` claim. The technical profile is referenced later. When it's invoked, it sets the value of the `isForgotPassword` claim to `true`. Find the **ClaimsProviders** element (if the element doesn't exist, create it), and then add the following claims provider:
 
 ```xml
 <!-- 
