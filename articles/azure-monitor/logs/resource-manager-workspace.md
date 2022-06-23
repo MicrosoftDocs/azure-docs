@@ -4,7 +4,7 @@ description: Sample Azure Resource Manager templates to deploy Log Analytics wor
 ms.topic: sample
 author: bwren
 ms.author: bwren
-ms.date: 06/13/2022
+ms.date: 06/23/2022
 ms.custom: devx-track-azurepowershell
 
 ---
@@ -177,7 +177,7 @@ resource table 'Microsoft.OperationalInsights/workspaces/tables@2021-12-01-previ
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2019-08-01/deploymentParameters.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "workspaceName": {
@@ -343,7 +343,7 @@ resource WindowsEventApplicationDataSource 'Microsoft.OperationalInsights/worksp
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2019-08-01/deploymentParameters.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "workspaceName": {
@@ -569,7 +569,7 @@ resource syslogCollectionDataSource 'Microsoft.OperationalInsights/workspaces/da
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2019-08-01/deploymentParameters.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "workspaceName": {
@@ -728,7 +728,7 @@ resource windowsPerfProcessorPercentageDataSource 'Microsoft.OperationalInsights
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2019-08-01/deploymentParameters.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "workspaceName": {
@@ -912,7 +912,7 @@ resource linuxPerformanceProcessorDataSource 'Microsoft.OperationalInsights/work
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2019-08-01/deploymentParameters.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "workspaceName": {
@@ -1177,7 +1177,7 @@ resource armlogNewlineDatasource 'Microsoft.OperationalInsights/workspaces/dataS
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2019-08-01/deploymentParameters.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "workspaceName": {
@@ -1271,7 +1271,7 @@ resource IISLogDataSource 'Microsoft.OperationalInsights/workspaces/datasources@
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2019-08-01/deploymentParameters.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "workspaceName": {
