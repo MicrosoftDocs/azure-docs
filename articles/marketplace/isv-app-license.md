@@ -1,6 +1,6 @@
 ---
 title: ISV app license management for Dynamics 365 apps on Dataverse and Power Apps - Microsoft AppSource and Azure Marketplace
-description: Learn about managing ISV app licenses through Microsoft.
+description: Learn about managing ISV app licenses through Microsoft for Dynamics 365 apps on Dataverse and Power Apps.
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
