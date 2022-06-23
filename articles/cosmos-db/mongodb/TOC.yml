@@ -284,6 +284,20 @@
       href: connect-using-compass.md
     - name: Connect using Robo 3T
       href: connect-using-robomongo.md
+    - name: Develop applications
+      items:
+        - name: JavaScript
+          items: 
+            - name: Get started
+              href: how-to-javascript-get-started.md
+            - name: Manage databases
+              href: how-to-javascript-manage-databases.md
+            - name: Manage collections
+              href: how-to-javascript-manage-collections.md         
+            - name: Manage documents
+              href: how-to-javascript-manage-documents.md         
+            - name: Manage queries
+              href: how-to-javascript-manage-queries.md         
     - name: Connect using Mongoose
       href: connect-using-mongoose.md
     - name: Distribute reads globally

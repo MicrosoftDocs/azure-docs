@@ -1402,7 +1402,9 @@ items:
           - name: Resource parameters
             href: visualize/workbooks-resources.md
           - name: Multi-value parameters
-            href: visualize/workbooks-multi-value.md     
+            href: visualize/workbooks-multi-value.md
+        - name: Link actions
+          href: visualize/workbooks-link-actions.md    
     - name: Configuration
       items:
       - name: Deploy with Azure Resource Manager
@@ -1417,24 +1419,26 @@ items:
         href: visualize/workbooks-move-region.md
       - name: Move Workbook Templates to another region
         href: visualize/workbook-templates-move-region.md
-    - name: Links
+    - name: Workbook Samples
       items:
-      - name: Link actions
-        href: visualize/workbooks-link-actions.md
-    - name: Convert views to workbooks
+        - name: Links
+          href: visualize/workbooks-sample-links.md
+    - name: Deprecated Features
       items:
-      - name: Conversion overview
-        href: visualize/view-designer-conversion-overview.md
-      - name: Conversion options
-        href: visualize/view-designer-conversion-options.md
-      - name: Overview and access
-        href: visualize/view-designer-conversion-access.md
-      - name: Common tasks
-        href: visualize/view-designer-conversion-tasks.md
-      - name: Tile conversions
-        href: visualize/view-designer-conversion-tiles.md
-      - name: Examples
-        href: visualize/view-designer-conversion-examples.md
+      - name: View Designer
+        items:
+          - name: Converting View Designer 
+            href: visualize/view-designer-conversion-overview.md
+          - name: Conversion options
+            href: visualize/view-designer-conversion-options.md
+          - name: Overview and access
+            href: visualize/view-designer-conversion-access.md
+          - name: Common tasks
+            href: visualize/view-designer-conversion-tasks.md
+          - name: Tile conversions
+            href: visualize/view-designer-conversion-tiles.md
+          - name: Examples
+            href: visualize/view-designer-conversion-examples.md
   - name: Other visualizations
     items:
     - name: Monitoring solutions
