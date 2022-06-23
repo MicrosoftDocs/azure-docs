@@ -26,6 +26,35 @@ To connect to your Cosmos DB account using MongoDB Compass, you must:
 
 ## Jan- April 2022 Updates
 
+### limit the document size to 16MB in backend
+core\push2.js is a negative test which ensures that the document size beyond 16MB is not honored, which is currently passing because $push is not implemented in pg backend and the test is expected to return writeErrors
+
+But after $push operator changes the test is not returning writeErrors and is executed successfully,
+The pgmongo backend should impose the limit of 16MB size while performing any updates or inserts similar to mongo.
+
+The ideal solution looks to be to set some kind of size constraint in tables for update and insert otherwise point fixes maybe required in implementing operator
+
+### Bump packages and .NET TargetRuntime versions
+Bump more packages and remove VersionOverrides under Compute, Mongo and CLuB.
+
+Migrate more projects to .net 6.0
+
+Remove referencees to the CBT Symbol Indexing package. This is because Symbol indexing is done by CloudBuild and that package was about pushing to symweb which is no longer supported.
+
+Remove moderncop since it is enabled only when EnableModernCop is set, and that is not set anywhere in our repo.
+ModernCop also does not run today in CloudBuild builds.
+
+### Use federation host name for RoutingGatewayConfiguration calls
+Use only one NamingService call while loading TenantContainer instead of 2 for non HTTP APIs for loading documentsServiceApiEndpoint (next PR will address most of the non HTTP clients by reading SNI info from the socket)
+Use static URI construction for to build documentsServiceApiEndpoint for HTTP based APIs
+Use federation names for making RoutingGatewayConfiguration calls to reduce count of used connections
+Feature flag to control tenant VS federation host name used for DocumentService and Address Resolution operations. See the changes on Routinggateway https://msdata.visualstudio.com/DefaultCollection/CosmosDB/_git/CosmosDB/pullrequest/633490 RoutingGateway has it under a feature flag, hence rolling feature disabled by default.
+
+### List Indexes support in compute gateway
+Includes :
+listIndexes or getIndexes in compute gateway
+Removed null check for typedRequest.TransactionInfo as it is already there in mongoClient.CreateIndexesAsync
+
 ### Support $expr in Mongo 3.6 and 4.0.
 
 This change adds support for both in memory and backend $expr. Furthermore we now have the infra to support compute only query operators.
