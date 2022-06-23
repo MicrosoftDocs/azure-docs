@@ -43,9 +43,8 @@ These steps illustrate the high-level process to manage ISV app licenses:
 | Customers purchase subscription to ISV products | Customers discover ISV’s offer in AppSource. Customers purchase subscription to the offer from [AppSource](https://appsource.microsoft.com/) and get licenses for the Power BI visual. |
 | Customers manage subscription | Customers can manage the subscriptions of these visuals and offers in [Microsoft 365 admin center](https://admin.microsoft.com/Adminportal/Home#/subscriptions), just like they normally do for any of their other subscriptions, such as Office or Power BI subscriptions. |
 | Customers assign licenses | Customers can assign licenses of these Power BI visuals in license pages under the billing node in [Microsoft 365 admin center](https://admin.microsoft.com/Adminportal/Home#/subscriptions). Customers can assign licenses to users or groups. Doing so will enable these users to launch the Power BI visual. |
-| ISV enforces runtime checks | ISV enforces license check based on the plans that user has access to.  |
-| ISV can view reports | Column 2 row 7 |
-| Column 1 row 8 | ISVs can view information on:<br>- Revenue details and payout information<br>- Orders purchased / renewed / cancelled over time and by geography<br>- Assigned licenses over time and by geography |
+| ISV enforces runtime checks | ISV enforces license check based on the plans that user has access to. |
+| ISV can view reports | ISVs can view information on:<br>- Revenue details and payout information<br>- Orders purchased / renewed / cancelled over time and by geography<br>- Assigned licenses over time and by geography |
 
 ## Offer listing page on AppSource
 
