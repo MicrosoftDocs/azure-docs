@@ -28,7 +28,7 @@ To create a new Azure workbook:
    - Groups
    - Configuration options
 
-## Adding Text
+## Adding text
 
 Workbooks allow authors to include text blocks in their workbooks. The text can be human analysis of the telemetry, information to help users interpret the data, section headings, etc. 
 
@@ -78,7 +78,7 @@ You can also choose a text parameter as the source of the style. The parameter v
 **Warning style example**:
    :::image type="content" source="media/workbooks-create-workbook/workbooks-text-example-warning.png" alt-text="Screenshot of a text visualization in warning style.":::
 
-## Adding Queries
+## Adding queries
 
 Azure Workbooks allow you to query any of the supported workbook [data sources](workbooks-data-sources.md). 
 
@@ -96,7 +96,7 @@ For example, you can query Azure Resource Health to help you view any service pr
 1. Select **Run Query**.
 1. When you are sure you have the query you want in your workbook, select **Done editing**.
 
-## Adding Metric Charts
+## Adding metric charts
 
 Most Azure resources emit metric data about state and health such as CPU utilization, storage availability, count of database transactions, failing app requests, etc. Workbooks allow the visualization of this data as time-series charts. 
 
@@ -136,7 +136,7 @@ Here is the edit mode version of the metric chart above:
 :::image type="content" source="media/workbooks-create-workbook/workbooks-metric-chart-storage-split-line.png" alt-text="Screenshot showing a metric line chart for Storage transactions split by API name.":::
 
 
-**Transactions split by response type as a large Bar chart**
+**Transactions split by response type as a large bar chart**
 
 :::image type="content" source="media/workbooks-create-workbook/workbooks-metric-chart-storage-bar-large.png" alt-text="Screenshot showing a large metric bar chart for Storage transactions split by response type.":::
 
@@ -144,11 +144,11 @@ Here is the edit mode version of the metric chart above:
 
 :::image type="content" source="media/workbooks-create-workbook/workbooks-metric-chart-storage-scatter.png" alt-text="Screenshot showing a metric scatter chart for storage latency.":::
 
-## Adding Links 
+## Adding links 
 
 Authors can use links to create links to other views, workbooks, other items inside a workbook, or to create tabbed views within a workbook. The links can be styled as hyperlinks, buttons, and tabs.  
 
-:::image type="content" source="media/workbooks-create-workbook/workbooks-empty-links.png" alt-text="Screenshot of a adding a link to a workbook.":::
+:::image type="content" source="media/workbooks-create-workbook/workbooks-empty-links.png" alt-text="Screenshot of adding a link to a workbook.":::
 ### Link styles
 You can apply styles to the link element itself as well as to individual links.
 
@@ -183,7 +183,7 @@ Links can use all of the link actions available in [link actions](workbooks-link
 |Set a parameter value | When selecting a link/button/tab, a parameter can be set to a value. Commonly tabs are configured to set a parameter to a value, which hides and shows other parts of the workbook based on that value  |
 |Scroll to a step| When selecting a link, the workbook will move focus and scroll to make another step visible. This action can be use to create a "table of contents", or a "go back to the top" style experience.   |
 
-### Using Tabs
+### Using tabs
 
 Most of the time, tab links are combined with the **Set a parameter value** action. Here's an example showing the links step configured to create 2 tabs, where select either tab will set a **selectedTab** parameter to a different value (the example shows a third tab being edited to show the parameter name and parameter value placeholders):
 
@@ -206,7 +206,7 @@ A sample workbook with the above tabs is available in [sample Azure Workbooks wi
 - When using tabs, the first tab will become selected by default, invoking whatever action that tab has specified. If the first tab's action opens another view, that means as soon as the tabs are created, a view appears.
 - While having tabs open other views is *supported*, it should be used sparingly, as most users won't expect selecting a tab to navigate. (Also, if other tabs are setting parameter to a specific value, a tab that opens a view would not change that value, so the rest of the workbook content will continue to show the view/data for the previous tab.)
 
-### Using Toolbars
+### Using toolbars
 
 To have your links appear styled as a toolbar, use the Toolbar style.  In toolbar style, the author must fill in fields for:
 - Button text, the text to display on the toolbar. Parameters may be used in this field.
