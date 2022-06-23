@@ -51,7 +51,7 @@ The function is invoked with the [Azure Data Factory Azure Function activity](..
 
 ## Azure Data Factory with Custom Component activity
 
-In this option, the data is processed with custom Python code wrapped into an executable. It is invoked with an [ Azure Data Factory Custom Component activity](../data-factory/transform-data-using-dotnet-custom-activity.md). This approach is a better fit for large data than the previous technique.
+In this option, the data is processed with custom Python code wrapped into an executable. It is invoked with an [Azure Data Factory Custom Component activity](../data-factory/transform-data-using-dotnet-custom-activity.md). This approach is a better fit for large data than the previous technique.
 
 ![Diagram shows an Azure Data Factory pipeline, with a custom component and Run M L Pipeline, and an Azure Machine Learning pipeline, with Train Model, and how they interact with raw data and prepared data.](media/how-to-data-ingest-adf/adf-customcomponent.png)
 

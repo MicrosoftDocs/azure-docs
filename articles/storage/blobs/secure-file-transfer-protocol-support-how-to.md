@@ -248,6 +248,9 @@ You can use any SFTP client to securely connect and then transfer files. The fol
 > ![Connect with Open SSH](./media/secure-file-transfer-protocol-support-how-to/ssh-connect-and-transfer.png)
 
 > [!NOTE]
+> The SFTP username is `storage_account_name`.`username`.  In the example above the `storage_account_name` is "contoso4" and the `username` is "contosouser."  The combined username becomes `contoso4.contosouser` for the SFTP command.
+
+> [!NOTE]
 > You might be prompted to trust a host key. During the public preview, valid host keys are published [here](secure-file-transfer-protocol-host-keys.md).  
 
 After the transfer is complete, you can view and manage the file in the Azure portal. 
