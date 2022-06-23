@@ -114,7 +114,7 @@ Set up an access key to authenticate with Playwright Service.
 
 ## Configure Playwright for Microsoft Playwright Testing
 
-The `playwright.config.js` file (or `playwright.config.ts`, if you use TypeScript) contains the Playwright configuration settings. The `@microsoft/playwright-service` npm package contains the `PlaywrightService` class to connect Playwright to Microsoft Playwright Testing.
+The `playwright.config.ts` file contains the Playwright configuration settings. The `@microsoft/playwright-service` npm package contains the `PlaywrightService` class to connect Playwright to Microsoft Playwright Testing.
 
 The `playwright.config.ts` file in the sample repository is already preconfigured to use Microsoft Playwright Testing. Specify the access token you created earlier to connect to your account.
 
@@ -321,7 +321,12 @@ To diagnose the failing tests in the Microsoft Playwright Testing dashboard, per
 
     In the example, you notice that there was an unexpected `something` value when running line 32.
 
-1. Select the trace file image in the **Traces** section, to open the web-based Trace Viewer. Optionally, you can download the trace file and use the [Playwright Test Viewer](https://playwright.dev/docs/trace-viewer) application on your local machine.
+1. Select the trace file image in the **Traces** section, to open the web-based Trace Viewer. 
+
+    :::image type="content" source="./media/tutorial-identify-issues-with-end-to-end-web-tests/dashboard-view-traces.png" alt-text="Screenshot that shows test run details in the Microsoft Playwright Testing dashboard, highlighting the traces image.":::
+
+    > [!NOTE]
+    > Optionally, select the download link to download the trace file, and then use the [Playwright Test Viewer](https://playwright.dev/docs/trace-viewer) application on your local machine.
 
     The trace viewer uses the test traces to enable you to step through the test run timeline. Hover over the timeline at the top to evaluate the application state over time.
 
