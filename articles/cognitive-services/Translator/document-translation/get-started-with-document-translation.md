@@ -535,25 +535,7 @@ key := "<YOUR-KEY>"
 uri := endpoint + "/batches"
 method := "POST"
 
-var jsonStr = []byte(`{
-    "inputs":[
-        {
-            "source":{
-                "sourceUrl":"https://YOUR-SOURCE-URL-WITH-READ-LIST-ACCESS-SAS",
-                "storageSource":"AzureBlob",
-                "language":"en"
-            },
-            "targets":[
-                {
-                    "targetUrl":"https://YOUR-TARGET-URL-WITH-WRITE-LIST-ACCESS-SAS",
-                    "storageSource":"AzureBlob",
-                    "category":"general",
-                    "language":"es"
-                }
-            ]
-        }
-    ]
-}`)
+var jsonStr = []byte(`{"inputs":[{"source":{"sourceUrl":"https://YOUR-SOURCE-URL-WITH-READ-LIST-ACCESS-SAS","storageSource":"AzureBlob","language":"en"},"targets":[{"targetUrl":"https://YOUR-TARGET-URL-WITH-WRITE-LIST-ACCESS-SAS","storageSource":"AzureBlob","category":"general","language":"es"}]}]}`)
 
 req, err := http.NewRequest(method, endpoint, bytes.NewBuffer(jsonStr))
 req.Header.Add("Ocp-Apim-Subscription-Key", key)
