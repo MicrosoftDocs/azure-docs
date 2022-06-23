@@ -12,7 +12,7 @@ ms.date: 06/22/2022
 
 # Similarity and scoring in Azure Cognitive Search
 
-This article describes relevance scoring and the similarity ranking algorithms used to rank search results in Azure Cognitive Search. A relevance score applies to matches returned in a [full text search query](search-lucene-query-architecture.md). Filter queries, autocomplete and suggested queries, wildcard search or fuzzy search queries are not scored or ranked.
+This article describes relevance scoring and the similarity ranking algorithms used to compute search scores in Azure Cognitive Search. A relevance score applies to matches returned in [full text search](search-lucene-query-architecture.md), where the most relevant matches appear first. Filter queries, autocomplete and suggested queries, wildcard search or fuzzy search queries are not scored or ranked for relevance.
 
 In Azure Cognitive Search, you can tune search relevance and boost search scores through these mechanisms:
 
@@ -21,15 +21,16 @@ In Azure Cognitive Search, you can tune search relevance and boost search scores
 + Scoring profiles
 + Custom scoring logic enabled through the *featuresMode* parameter
 
+> [!NOTE]
+> Matches are scored and ranked from high to low. The score is returned as "@search.score". By default, the top 50 are returned in the response, but you can use the **$top** parameter to return a smaller or larger number of items (up to 1000 in a single response), and **$skip** to get the next set of results.
+
 ## Relevance scoring
 
-Relevance scoring refers to the computation of a search score for every item returned in search results for full text search queries. The score is an indicator of an item's relevance in the context of the current query. The higher the score, the more relevant the item. 
+Relevance scoring refers to the computation of a search score that serves as an indicator of an item's relevance in the context of the current query. The higher the score, the more relevant the item. 
 
-In search results, items are rank ordered from high to low, based on the search scores calculated for each item. The score is returned in the response as "@search.score" on every document. By default, the top 50 are returned in the response, but you can use the **$top** parameter to return a smaller or larger number of items (up to 1000 in a single response), and **$skip** to get the next set of results.
+The search score is computed based on statistical properties of the string input and the query itself. Azure Cognitive Search finds documents that match on search terms (some or all, depending on [searchMode](/rest/api/searchservice/search-documents#query-parameters)), favoring documents that contain many instances of the search term. The search score goes up even higher if the term is rare across the data index, but common within the document. The basis for this approach to computing relevance is known as *TF-IDF or* term frequency-inverse document frequency.
 
-The search score is computed based on statistical properties of the data and the query. Azure Cognitive Search finds documents that match on search terms (some or all, depending on [searchMode](/rest/api/searchservice/search-documents#query-parameters)), favoring documents that contain many instances of the search term. The search score goes up even higher if the term is rare across the data index, but common within the document. The basis for this approach to computing relevance is known as *TF-IDF or* term frequency-inverse document frequency.
-
-Search score values can be repeated throughout a result set. When multiple hits have the same search score, the ordering of the same scored items is not defined, and is not stable. Run the query again, and you might see items shift position, especially if you are using the free service or a billable service with multiple replicas. Given two items with an identical score, there is no guarantee which one appears first.
+Search scores can be repeated throughout a result set. When multiple hits have the same search score, the ordering of the same scored items is undefined and not stable. Run the query again, and you might see items shift position, especially if you are using the free service or a billable service with multiple replicas. Given two items with an identical score, there is no guarantee which one appears first.
 
 If you want to break the tie among repeating scores, you can add an **$orderby** clause to first order by score, then order by another sortable field (for example, `$orderby=search.score() desc,Rating desc`). For more information, see [$orderby](search-query-odata-orderby.md).
 

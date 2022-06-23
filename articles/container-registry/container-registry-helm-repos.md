@@ -216,9 +216,9 @@ Output is similar to:
 Run the [az acr repository show-manifests][az-acr-repository-show-manifests] command to see details of the chart stored in the repository. For example:
 
 ```azurecli
-az acr repository show-manifests \
-  --name $ACR_NAME \
-  --repository helm/hello-world --detail
+az acr manifest list-metadata \
+  --registry $ACR_NAME \
+  --name helm/hello-world --detail
 ```
 
 Output, abbreviated in this example, shows a `configMediaType` of `application/vnd.cncf.helm.config.v1+json`:

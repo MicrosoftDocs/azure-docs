@@ -5,7 +5,7 @@ author: normesta
 ms.subservice: blobs
 ms.service: storage
 ms.topic: conceptual
-ms.date: 06/03/2022
+ms.date: 06/23/2022
 ms.author: normesta
 ms.reviewer: ylunagaria
 
@@ -73,8 +73,7 @@ The following clients are known to be incompatible with SFTP for Azure Blob Stor
 
 ## Integrations
 
-- Change feed and Event Grid notifications aren't supported.
-
+- Change feed notifications aren't supported.
 - Network File System (NFS) 3.0 and SFTP can't be enabled on the same storage account.
 
 ## Performance
