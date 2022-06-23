@@ -19,14 +19,6 @@ With Azure Center for SAP Solutions (ACSS), you can create an S4/HANA infrastruc
 - An Azure subscription.
 - [Review the quotas for your Azure subscription](../azure-portal/supportability/view-quotas.md). If the quotas are low, you might need to create a support request before creating your infrastructure deployment. Otherwise, you might experience deployment failures or an **Insufficient quota** error.
 
-## Limitations
-
-- Requires use of Standalone, High Availability (HA), or Distributed (non-HA) architecture mode. Only these architecture modes support S/4 HANA infrastructure deployment.
-- Maximum of 10 other SAP Application Servers, excluding the primary Application Server.
-- Requires use of Application Servers with ABAP stacks. ACSS doesn't support  Java stack-based infrastructure deployment.
-- Supported Azure regions for infrastructure deployment include: **East US**, **East US2**, **West US2**, **North Europe**, **West Europe**.
-- Only deployment with Linux is supported.
-- Only public SSH authentication is supported.
 
 ## Create network
 
