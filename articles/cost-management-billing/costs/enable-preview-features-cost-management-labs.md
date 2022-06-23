@@ -17,7 +17,7 @@ Short title: Enable preview features
 
 Anywhere in CM how-tos
 
-Cost Management Labs is an experience in the Azure portal where you can get a sneak peek at what's coming in Cost Management and can engage directly with us to share feedback and help us better understand how you use the service, so we can deliver more tuned and optimized experiences.
+Cost Management Labs is an experience in the Azure portal where you can get a sneak peek at what's coming in Cost Management. You can engage directly with us to share feedback and help us better understand how you use the service, so we can deliver more tuned and optimized experiences.
 
 This article explains how to explore preview features and provides a list of the recent previews you might be interested in.
 
@@ -70,13 +70,13 @@ For more information about anomaly detection and how to configure alerts, see [I
 
 <a name="aksnestedtable"></a>
 
-Get an at-a-glance view of your total SQL costs by grouping SQL databases and elastic pools under their parent server in the cost analysis preview. This feature is enabled by default.
+Get an at-a-glance view of your total SQL costs by grouping SQL databases and elastic pools. They're shown under their parent server in the cost analysis preview. This feature is enabled by default.
 
 Understanding what you're being charged for can be complicated. The best place to start for many people is the [Resources view](https://aka.ms/costanalysis/resources) in the cost analysis preview. It shows resources that are incurring cost. But even a straightforward list of resources can be hard to follow when a single deployment includes multiple, related resources. To help summarize your resource costs, we're trying to group related resources together. So, we're changing cost analysis to show child resources.
 
 Many Azure services use nested or child resources. SQL servers have databases, storage accounts have containers, and virtual networks have subnets. Most of the child resources are only used to configure services, but sometimes the resources have their own usage and charges. SQL databases are perhaps the most common example.
 
-SQL databases are deployed as part of a SQL server instance, but usage is tracked at the database level. Additionally, you might also have charges on the parent server, like for Microsoft Defender for SQL. To get the total cost for your SQL deployment in classic cost analysis, you need to find the server and each database and then manually sum up their total cost. As an example, you can see the **aepool**  elastic pool at the top of the list below and the **treyanalyticsengine** server lower down on the first page. What you don't see is another database even lower in the list. You can imagine how troubling this would be when you need the total cost of a large server instance with many databases.
+SQL databases are deployed as part of a SQL server instance, but usage is tracked at the database level. Additionally, you might also have charges on the parent server, like for Microsoft Defender for Cloud. To get the total cost for your SQL deployment in classic cost analysis, you need to find the server and each database and then manually sum up their total cost. As an example, you can see the **aepool**  elastic pool at the top of the list below and the **treyanalyticsengine** server lower down on the first page. What you don't see is another database even lower in the list. You can imagine how troubling this situation would be when you need the total cost of a large server instance with many databases.
 
 Here's an example showing classic cost analysis where multiple related resource costs aren't grouped.
 
@@ -102,7 +102,7 @@ Average in the cost analysis preview shows your average daily or monthly cost at
 
 :::image type="content" source="./media/enable-preview-features-cost-management-labs/cost-analysis-preview-average.png" alt-text="Screenshot showing average cost in cost analysis." lightbox="./media/enable-preview-features-cost-management-labs/cost-analysis-preview-average.png" :::
 
-If the selected date range includes the current day, the average is calculated up to and including yesterday. It doesn't not include partial cost from the current day because data for the day isn't complete. Every service submits usage at different timelines which will impact the average calculation. For more information about data latency and refresh processing, see [Understand Cost Management data](understand-cost-mgt-data.md).
+When the selected date range includes the current day, the average cost is calculated ending at yesterday's date. It doesn't include partial cost from the current day because data for the day isn't complete. Every service submits usage at different timelines that affects the average calculation. For more information about data latency and refresh processing, see [Understand Cost Management data](understand-cost-mgt-data.md).
 
 **Average in the cost analysis preview is available by default in the cost analysis preview.**
 
@@ -114,7 +114,7 @@ Budgets in the cost analysis preview help you quickly create and edit budgets di
 
 :::image type="content" source="./media/enable-preview-features-cost-management-labs/cost-analysis-budget.png" alt-text="Screenshot showing Budget in the cost analysis preview." lightbox="./media/enable-preview-features-cost-management-labs/cost-analysis-budget.png" :::
 
-If you don't have a budget yet, you'll see a link to create a new budget. Budgets created from the cost analysis preview are preconfigured with alerts. Thresholds are set for cost exceeding 50 percent, 80 percent, and 95 percent of your cost or 100 percent of your forecast for the month. You can add additional recipients or update alerts from the Budgets page.
+If you don't have a budget yet, you'll see a link to create a new budget. Budgets created from the cost analysis preview are preconfigured with alerts. Thresholds are set for cost exceeding 50 percent, 80 percent, and 95 percent of your cost. Or, 100 percent of your forecast for the month. You can add other recipients or update alerts from the Budgets page.
 
 **Budgets in the cost analysis preview is available by default in the cost analysis preview.**
 
@@ -148,7 +148,7 @@ Cost Management includes a central management view for all configuration setting
 
 :::image type="content" source="./media/enable-preview-features-cost-management-labs/cost-analysis-open-config-items-menu.png" alt-text="Screenshot showing configuration items after the Open config items in the menu option is selected."  :::
 
-**Open config items in the menu** is an experimental option to open the configuration page in the Cost Management menu. The option makes it easier to switch to other menu items with one selection. The feature works best in conjunction with the [streamlined menu](#streamlined-menu).
+**Open config items in the menu** is an experimental option to open the configuration page in the Cost Management menu. The option makes it easier to switch to other menu items with one selection. The feature works best with the [streamlined menu](#streamlined-menu).
 
 You can enable **Open config items in the menu** on the [Try preview](https://aka.ms/costmgmt/trypreview) page in the Azure portal.
 
@@ -158,7 +158,7 @@ You can enable **Open config items in the menu** on the [Try preview](https://ak
 
 <a name="changescope"></a>
 
-If you manage a lot of subscriptions and need to switch between subscriptions or resource groups often, you might want to include the **Change scope from menu** option.
+If you manage many subscriptions and need to switch between subscriptions or resource groups often, you might want to include the **Change scope from menu** option.
 
 :::image type="content" source="./media/enable-preview-features-cost-management-labs/cost-analysis-change-scope-menu.png" alt-text="Screenshot showing the Change scope option added to the menu after selecting the Change menu from scope preview option." lightbox="./media/enable-preview-features-cost-management-labs/cost-analysis-change-scope-menu.png" :::
 
