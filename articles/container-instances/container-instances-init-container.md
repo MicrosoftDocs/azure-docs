@@ -1,8 +1,12 @@
 ---
 title: Run init containers
 description: Run init containers in Azure Container Instances to perform setup tasks in a container group before the application containers run. 
-ms.topic: article
-ms.date: 06/01/2020
+ms.topic: how-to
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: container-instances
+services: container-instances
+ms.date: 06/17/2022
 ---
 
 # Run an init container for setup tasks in a container group
