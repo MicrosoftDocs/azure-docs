@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 05/24/2022
+ms.date: 06/23/2022
 ---
 
 # Troubleshooting common indexer errors and warnings in Azure Cognitive Search
@@ -74,7 +74,7 @@ Indexer read the document from the data source, but there was an issue convertin
 
 
 ## `Error: Could not map output field 'xyz' to search index due to deserialization problem while applying mapping function 'abc'`
-The output mapping might have failed because the output data is in the wrong format for the mapping function you are using. For example, applying Base64Encode mapping function on binary data would generate this error. To resolve the issue, either rerun indexer without specifying mapping function or ensure that the mapping function is compatible with the output field data type. See [Output field mapping](cognitive-search-output-field-mapping.md) for details.
+The output mapping might have failed because the output data is in the wrong format for the mapping function you're using. For example, applying Base64Encode mapping function on binary data would generate this error. To resolve the issue, either rerun indexer without specifying mapping function or ensure that the mapping function is compatible with the output field data type. See [Output field mapping](cognitive-search-output-field-mapping.md) for details.
 
 
 ## `Error: Could not execute skill`
@@ -99,7 +99,7 @@ The skill execution failed because the call to the Web API returned an invalid r
 
 
 ## `Error: Type of value has a mismatch with column type. Couldn't store in 'xyz' column.  Expected type is 'abc'`
-If your data source has a field with a different data type than the field you are trying to map in your index, you may encounter this error. Check your data source field data types and make sure they are [mapped correctly to your index data types](/rest/api/searchservice/data-type-map-for-indexers-in-azure-search).
+If your data source has a field with a different data type than the field you're trying to map in your index, you may encounter this error. Check your data source field data types and make sure they are [mapped correctly to your index data types](/rest/api/searchservice/data-type-map-for-indexers-in-azure-search).
 
 
 ## `Error: Skill did not execute within the time limit`
@@ -108,10 +108,10 @@ There are two cases under which you may encounter this error message, each of wh
 ### Built-in Cognitive Service skills
 Many of the built-in cognitive skills, such as language detection, entity recognition, or OCR, are backed by a Cognitive Service API endpoint. Sometimes there are transient issues with these endpoints and a request will time out. For transient issues, there is no remedy except to wait and try again. As a mitigation, consider setting your indexer to [run on a schedule](search-howto-schedule-indexers.md). Scheduled indexing picks up where it left off. Assuming transient issues are resolved, indexing and cognitive skill processing should be able to continue on the next scheduled run.
 
-If you continue to see this error on the same document for a built-in cognitive skill, file a [support ticket](https://portal.azure.com/#create/Microsoft.Support) to get assistance, as this is not expected.
+If you continue to see this error on the same document for a built-in cognitive skill, file a [support ticket](https://portal.azure.com/#create/Microsoft.Support) to get assistance, as this isn't expected.
 
 ### Custom skills
-If you encounter a timeout error with a custom skill you have created, there are a couple of things you can try. First, review your custom skill and ensure that it is not getting stuck in an infinite loop and that it is returning a result consistently. Once you have confirmed that is the case, determine what the execution time of your skill is. If you didn't explicitly set a `timeout` value on your custom skill definition, then the default `timeout` is 30 seconds. If 30 seconds is not long enough for your skill to execute, you may specify a higher `timeout` value on your custom skill definition. Here is an example of a custom skill definition where the timeout is set to 90 seconds:
+If you encounter a timeout error with a custom skill you have created, there are a couple of things you can try. First, review your custom skill and ensure that it's not getting stuck in an infinite loop and that it's returning a result consistently. Once you have confirmed that is the case, determine what the execution time of your skill is. If you didn't explicitly set a `timeout` value on your custom skill definition, then the default `timeout` is 30 seconds. If 30 seconds isn't long enough for your skill to execute, you may specify a higher `timeout` value on your custom skill definition. Here's an example of a custom skill definition where the timeout is set to 90 seconds:
 
 ```json
   {
@@ -144,7 +144,7 @@ The document was read and processed, but the indexer could not add it to the sea
 
 | Reason | Details/Example | Resolution |
 | --- | --- | --- |
-| A field contains a term that is too large | A term in your document is larger than the [32 KB limit](search-limits-quotas-capacity.md#api-request-limits) | You can avoid this restriction by ensuring the field is not configured as filterable, facetable, or sortable.
+| A field contains a term that is too large | A term in your document is larger than the [32 KB limit](search-limits-quotas-capacity.md#api-request-limits) | You can avoid this restriction by ensuring the field isn't configured as filterable, facetable, or sortable.
 | Document is too large to be indexed | A document is larger than the [maximum api request size](search-limits-quotas-capacity.md#api-request-limits) | [How to index large data sets](search-howto-large-index.md)
 | Document contains too many objects in collection | A collection in your document exceeds the [maximum elements across all complex collections limit](search-limits-quotas-capacity.md#index-limits). `The document with key '1000052' has '4303' objects in collections (JSON arrays). At most '3000' objects are allowed to be in collections across the entire document. Remove objects from collections and try indexing the document again.` | We recommend reducing the size of the complex collection in the document to below the limit and avoid high storage utilization.
 | Trouble connecting to the target index (that persists after retries) because the service is under other load, such as querying or indexing. | Failed to establish connection to update index. Search service is under heavy load. | [Scale up your search service](search-capacity-planning.md)
@@ -173,12 +173,12 @@ This applies to SQL tables, and usually happens when the key is either defined a
 
 
 ## `Error: Could not process document within indexer max run time`
-This error occurs when the indexer is unable to finish processing a single document from the data source within the allowed execution time. [Maximum running time](search-limits-quotas-capacity.md#indexer-limits) is shorter when skillsets are used. When this error occurs, if you have maxFailedItems set to a value other than 0, the indexer bypasses the document on future runs so that indexing can progress. If you cannot afford to skip any document, or if you are seeing this error consistently, consider breaking documents into smaller documents so that partial progress can be made within a single indexer execution.
+This error occurs when the indexer is unable to finish processing a single document from the data source within the allowed execution time. [Maximum running time](search-limits-quotas-capacity.md#indexer-limits) is shorter when skillsets are used. When this error occurs, if you have maxFailedItems set to a value other than 0, the indexer bypasses the document on future runs so that indexing can progress. If you can't afford to skip any document, or if you're seeing this error consistently, consider breaking documents into smaller documents so that partial progress can be made within a single indexer execution.
 
 
 
 ## `Error: Could not project document`
-This error occurs when the indexer is attempting to [project data into a knowledge store](knowledge-store-projection-overview.md) and there was a failure on the attempt. This failure could be consistent and fixable, or it could be a transient failure with the projection output sink that you may need to wait and retry in order to resolve. Here is a set of known failure states and possible resolutions.
+This error occurs when the indexer is attempting to [project data into a knowledge store](knowledge-store-projection-overview.md) and there was a failure on the attempt. This failure could be consistent and fixable, or it could be a transient failure with the projection output sink that you may need to wait and retry in order to resolve. Here's a set of known failure states and possible resolutions.
 
 | Reason | Details/Example | Resolution |
 | --- | --- | --- |
@@ -186,6 +186,10 @@ This error occurs when the indexer is attempting to [project data into a knowled
 | Could not update projection blob `'blobUri'` in container `'containerName'` |Unable to write data to the transport connection: An existing connection was forcibly closed by the remote host. | This is expected to be a transient failure with Azure Storage and thus should be resolved by rerunning the indexer. If you encounter this error consistently, file a [support ticket](https://portal.azure.com/#create/Microsoft.Support) so it can be investigated further.  |
 | Could not update row `'projectionRow'` in table `'tableName'` | The server is busy. | This is expected to be a transient failure with Azure Storage and thus should be resolved by rerunning the indexer. If you encounter this error consistently, file a [support ticket](https://portal.azure.com/#create/Microsoft.Support) so it can be investigated further.  |
 
+<a name="skill-throttled"></a>
+
+## Error: The cognitive service for skill '<skill-name>' has been throttled
+Skill execution failed because the call to Cognitive Services was throttled. Typically, this class of failure occurs when too many skills are executing in parallel. If you're using the Microsoft.Search.Documents client library to run the indexer, you can use the [SearchIndexingBufferedSender](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/search/Azure.Search.Documents/samples/Sample05_IndexingDocuments.md#searchindexingbufferedsender) to get automatic retry on failed steps. Otherwise, you can [reset and rerun the indexer](search-howto-run-reset-indexers.md).
 
 ## `Warning: Skill input was invalid`
 An input to the skill was missing, it has the wrong type, or otherwise, invalid. The warning message will indicate the impact:
@@ -194,11 +198,11 @@ An input to the skill was missing, it has the wrong type, or otherwise, invalid.
 
 Cognitive skills have required inputs and optional inputs. For example, the [Key phrase extraction skill](cognitive-search-skill-keyphrases.md) has two required inputs `text`, `languageCode`, and no optional inputs. Custom skill inputs are all considered optional inputs.
 
-If any required inputs are missing or if any input is not the right type, the skill gets skipped and generates a warning. Skipped skills do not generate any outputs, so if other skills use outputs of the skipped skill they may generate additional warnings.
+If any required inputs are missing or if any input isn't the right type, the skill gets skipped and generates a warning. Skipped skills do not generate any outputs, so if other skills use outputs of the skipped skill they may generate additional warnings.
 
 If an optional input is missing, the skill will still run but may produce unexpected output due to the missing input.
 
-In both cases, this warning may be expected due to the shape of your data. For example, if you have a document containing information about people with the fields `firstName`, `middleName`, and `lastName`, you may have some documents which do not have an entry for `middleName`. If you pass `middleName` as an input to a skill in the pipeline, then it is expected that this skill input may be missing some of the time. You will need to evaluate your data and scenario to determine whether or not any action is required as a result of this warning.
+In both cases, this warning may be expected due to the shape of your data. For example, if you have a document containing information about people with the fields `firstName`, `middleName`, and `lastName`, you may have some documents which do not have an entry for `middleName`. If you pass `middleName` as an input to a skill in the pipeline, then it's expected that this skill input may be missing some of the time. You will need to evaluate your data and scenario to determine whether or not any action is required as a result of this warning.
 
 If you want to provide a default value in case of missing input, you can use the [Conditional skill](cognitive-search-skill-conditional.md) to generate a default value and then use the output of the [Conditional skill](cognitive-search-skill-conditional.md) as the skill input.
 
@@ -224,13 +228,13 @@ If you want to provide a default value in case of missing input, you can use the
 
 
 ## `Warning:  Skill input 'languageCode' has the following language codes 'X,Y,Z', at least one of which is invalid.`
-One or more of the values passed into the optional `languageCode` input of a downstream skill is not supported. This can occur if you are passing the output of the [LanguageDetectionSkill](cognitive-search-skill-language-detection.md) to subsequent skills, and the output consists of more languages than are supported in those downstream skills.
+One or more of the values passed into the optional `languageCode` input of a downstream skill isn't supported. This can occur if you're passing the output of the [LanguageDetectionSkill](cognitive-search-skill-language-detection.md) to subsequent skills, and the output consists of more languages than are supported in those downstream skills.
 
-Note that you may also get a warning similar to this one if an invalid `countryHint` input gets passed to the LanguageDetectionSkill. If that happens, validate that the field you are using from your data source for that input contains valid ISO 3166-1 alpha-2 two letter country codes. If some are valid and some are invalid, continue with the following guidance but replace `languageCode` with `countryHint` and `defaultLanguageCode` with `defaultCountryHint` to match your use case.
+Note that you may also get a warning similar to this one if an invalid `countryHint` input gets passed to the LanguageDetectionSkill. If that happens, validate that the field you're using from your data source for that input contains valid ISO 3166-1 alpha-2 two letter country codes. If some are valid and some are invalid, continue with the following guidance but replace `languageCode` with `countryHint` and `defaultLanguageCode` with `defaultCountryHint` to match your use case.
 
 If you know that your data set is all in one language, you should remove the [LanguageDetectionSkill](cognitive-search-skill-language-detection.md) and the `languageCode` skill input and use the `defaultLanguageCode` skill parameter for that skill instead, assuming the language is supported for that skill.
 
-If you know that your data set contains multiple languages and thus you need the [LanguageDetectionSkill](cognitive-search-skill-language-detection.md) and `languageCode` input, consider adding a [ConditionalSkill](cognitive-search-skill-conditional.md) to filter out the text with languages that are not supported before passing in the text to the downstream skill.  Here is an example of what this might look like for the EntityRecognitionSkill:
+If you know that your data set contains multiple languages and thus you need the [LanguageDetectionSkill](cognitive-search-skill-language-detection.md) and `languageCode` input, consider adding a [ConditionalSkill](cognitive-search-skill-conditional.md) to filter out the text with languages that are not supported before passing in the text to the downstream skill. Here's an example of what this might look like for the EntityRecognitionSkill:
 
 ```json
 {
@@ -260,7 +264,7 @@ Here are some references for the currently supported languages for each of the s
 ## `Warning: Skill input was truncated`
 Cognitive skills have limits to the length of text that can be analyzed at once. If the text input of these skills is over that limit, we will truncate the text to meet the limit, and then perform the enrichment on that truncated text. This means that the skill is executed, but not over all of your data.
 
-In the example `LanguageDetectionSkill` below, the `'text'` input field may trigger this warning if it is over the character limit. You can find the skill input limits in the [skills documentation](cognitive-search-predefined-skills.md).
+In the example `LanguageDetectionSkill` below, the `'text'` input field may trigger this warning if it's over the character limit. You can find the skill input limits in the [skills documentation](cognitive-search-predefined-skills.md).
 
 ```json
  {
@@ -312,7 +316,7 @@ Output field mappings that reference non-existent/null data will produce warning
 
 | Reason | Details/Example | Resolution |
 | --- | --- | --- |
-| Cannot iterate over non-array | "Cannot iterate over non-array `/document/normalized_images/0/imageCelebrities/0/detail/celebrities`." | This error occurs when the output is not an array. If you think the output should be an array, check the indicated output source field path for errors. For example, you might have a missing or extra `*` in the source field name. It's also possible that the input to this skill is null, resulting in an empty array. Find similar details in [Skill Input was Invalid](cognitive-search-common-errors-warnings.md#warning-skill-input-was-invalid) section.    |
+| Cannot iterate over non-array | "Cannot iterate over non-array `/document/normalized_images/0/imageCelebrities/0/detail/celebrities`." | This error occurs when the output isn't an array. If you think the output should be an array, check the indicated output source field path for errors. For example, you might have a missing or extra `*` in the source field name. It's also possible that the input to this skill is null, resulting in an empty array. Find similar details in [Skill Input was Invalid](cognitive-search-common-errors-warnings.md#warning-skill-input-was-invalid) section.    |
 | Unable to select `0` in non-array | "Unable to select `0` in non-array `/document/pages`." | This could happen if the skills output does not produce an array and the output source field name has array index or `*` in its path. Double check the paths provided in the output source field names and the field value for the indicated field name. Find similar details in [Skill Input was Invalid](cognitive-search-common-errors-warnings.md#warning-skill-input-was-invalid) section.  |
 
 
@@ -338,4 +342,4 @@ To work around this warning, determine what the text encoding for this blob is a
 Collections with [Lazy](../cosmos-db/index-policy.md#indexing-mode) indexing policies can't be queried consistently, resulting in your indexer missing data. To work around this warning, change your indexing policy to Consistent.
 
 ## `Warning: The document contains very long words (longer than 64 characters). These words may result in truncated and/or unreliable model predictions.`
-This warning is passed from the Language service of Azure Cognitive Services. In some cases, it is safe to ignore this warning, such as when your document contains a long URL (which likely isn't a key phrase or driving sentiment, etc.).  Be aware that when a word is longer than 64 characters, it will be truncated to 64 characters which can affect model predictions.
+This warning is passed from the Language service of Azure Cognitive Services. In some cases, it's safe to ignore this warning, such as when your document contains a long URL (which likely isn't a key phrase or driving sentiment, etc.).  Be aware that when a word is longer than 64 characters, it will be truncated to 64 characters which can affect model predictions.
