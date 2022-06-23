@@ -21,7 +21,7 @@ sections:
           
           External load balancers, which load balance external traffic to an internet connected endpoint. For more information, see [Azure Load Balancer Types](./load-balancer-overview.md). 
           
-          For both of the types, Azure offers a basic SKU and standard SKU that have different functional, performance, security and health tracking capabilities. For more information about the different load balancer SKUs, [SKU Comparison](skus.md).
+          For both of the types, Azure offers a basic SKU and standard SKU that have different functional, performance, security and health tracking capabilities. For more information about the different load balancer SKUs, see [SKU Comparison](skus.md).
           
       - question: |
           How can I upgrade from a basic to a standard load balancer?
