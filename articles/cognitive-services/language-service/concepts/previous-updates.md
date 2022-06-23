@@ -204,17 +204,17 @@ Additional entity types are now available in the Named Entity Recognition (NER).
 
 * Introduction of PII feature
 * Model version `2019-10-01`, which includes:
-    * Expanded detection and categorization of entities found in text. 
-    * Recognition of the following new entity types:
-        * Phone number
-        * IP address
-* Model version `2019-10-01`, which includes:
+    * Named entity recognition:
+        * Expanded detection and categorization of entities found in text. 
+        * Recognition of the following new entity types:
+            * Phone number
+            * IP address
+    * Sentiment analysis:
+        * Significant improvements in the accuracy and detail of the API's text categorization and scoring.
+        * Automatic labeling for different sentiments in text.
+        * Sentiment analysis and output on a document and sentence level. 
 
-    * Significant improvements in the accuracy and detail of the API's text categorization and scoring.
-    * Automatic labeling for different sentiments in text.
-    * Sentiment analysis and output on a document and sentence level. 
-
-This model version supports: English (`en`), Japanese (`ja`), Chinese Simplified (`zh-Hans`),  Chinese Traditional (`zh-Hant`), French (`fr`), Italian (`it`), Spanish (`es`), Dutch (`nl`), Portuguese (`pt`), and German (`de`). 
+    This model version supports: English (`en`), Japanese (`ja`), Chinese Simplified (`zh-Hans`),  Chinese Traditional (`zh-Hant`), French (`fr`), Italian (`it`), Spanish (`es`), Dutch (`nl`), Portuguese (`pt`), and German (`de`). 
 
 ## Next steps
 
