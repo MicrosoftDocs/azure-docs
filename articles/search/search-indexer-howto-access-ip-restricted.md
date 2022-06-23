@@ -22,7 +22,7 @@ This article explains how to find the IP address of your search service and conf
 
 ## Get a search service IP address
 
-1. Determine the fully qualified domain name (FQDN) of your search service. This will look like `<search-service-name>.search.windows.net`. You can find the FQDN by looking up your search service on the Azure portal.
+1. Get the fully qualified domain name (FQDN) of your search service. This will look like `<search-service-name>.search.windows.net`. You can find the FQDN by looking up your search service on the Azure portal.
 
    :::image type="content" source="media\search-indexer-howto-secure-access\search-service-portal.png" alt-text="Screenshot of the search service Overview page." border="true":::
 
@@ -30,7 +30,7 @@ This article explains how to find the IP address of your search service and conf
 
 1. Copy the IP address so that you can specify it on an inbound rule in the next step. In the example below, the IP address that you should copy is "150.0.0.1".
 
-   ```azurepowershell
+   ```bash
    nslookup contoso.search.windows.net
    Server:  server.example.org
    Address:  10.50.10.50
