@@ -240,7 +240,7 @@ Here are the high-level steps to deploy the VM and IoT Edge runtime:
 
 1. In the [Azure portal](https://portal.azure.com), go to Azure Marketplace. 
     1. Connect to the Azure Cloud Shell or a client with Azure CLI installed. For detailed steps, see [Quickstart for Bash in Azure Cloud Shell](../cloud-shell/quickstart.md).
-    1. Use steps in [Search for Azure Marketplace images](azure-stack-edge-gpu-create-virtual-machine-marketplace-image.md#search-for-azure-marketplace-images) to search the Azure Marketplace and use the following Ubuntu 20.04 LTS image:
+    1. Use steps in [Search for Azure Marketplace images](azure-stack-edge-gpu-create-virtual-machine-marketplace-image.md#search-for-azure-marketplace-images) to search the Azure Marketplace for the following Ubuntu 20.04 LTS image:
   
        ```azurecli
        $urn = Canonical:0001-com-ubuntu-server-focal:20_04-lts:20.04.202007160
@@ -252,7 +252,7 @@ Here are the high-level steps to deploy the VM and IoT Edge runtime:
 
     For detailed steps, follow the instructions in [Use Azure Marketplace image to create VM image for your Azure Stack Edge](azure-stack-edge-gpu-create-virtual-machine-marketplace-image.md).
 
-1. Follow these steps to create an Ubuntu VM using the VM image created.
+1. Follow these steps to create an Ubuntu VM using the VM image.
    1. Specify the *cloud-init* script on the **Advanced** tab. To create a VM, see [Deploy GPU VM via Azure portal](azure-stack-edge-gpu-deploy-gpu-virtual-machine.md?tabs=portal) or [Deploy VM via Azure portal](azure-stack-edge-gpu-deploy-virtual-machine-portal.md).
 
       ![Screenshot of the Advanced tab of V M configuration in the Azure portal.](media/azure-stack-edge-gpu-deploy-iot-edge-linux-vm/azure-portal-create-vm-advanced-page-2.png)
@@ -261,9 +261,10 @@ Here are the high-level steps to deploy the VM and IoT Edge runtime:
 
       ![Screenshot of the Custom data field of V M configuration in the Azure portal.](media/azure-stack-edge-gpu-deploy-iot-edge-linux-vm/azure-portal-create-vm-init-script.png)
 
-      If you didn't specify the *cloud-init* during VM creation, you'll have to manually deploy the IoT Edge runtime after the VM is created:
-1. Connect to the VM via SSH.
-1. Install the container engine on the VM. For detailed steps, see [Create and provision an IoT Edge device on Linux using symmetric keys](../iot-edge/how-to-provision-single-device-linux-symmetric.md#install-a-container-engine) or [Quickstart - Set up IoT Hub DPS with the Azure portal](../iot-dps/quick-setup-auto-provision.md).
+  If you didn't specify the *cloud-init* during VM creation, you'll have to manually deploy the IoT Edge runtime after the VM is created:
+
+  1. Connect to the VM via SSH.
+  1. Install the container engine on the VM. For detailed steps, see [Create and provision an IoT Edge device on Linux using symmetric keys](../iot-edge/how-to-provision-single-device-linux-symmetric.md#install-a-container-engine) or [Quickstart - Set up IoT Hub DPS with the Azure portal](../iot-dps/quick-setup-auto-provision.md).
 
 
 ## Verify the IoT Edge runtime

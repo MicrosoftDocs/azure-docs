@@ -26,7 +26,7 @@ Before you begin, make sure you have:
 ## Get module from IoT Edge Module Marketplace
 
 1. In the [Azure portal](https://portal.azure.com), go to **Device management** > **IoT Edge**.
-1. Select the IoT Hub device that you configured while deploying the IoT Edge runtime
+1. Select the IoT Hub device that you configured while deploying the IoT Edge runtime.
 
     ![Screenshot of the Azure portal, I o T Edge, I o T Hub device.](media/azure-stack-edge-deploy-nvidia-deepstream-module/azure-portal-select-iot-edge-device.png)
 
