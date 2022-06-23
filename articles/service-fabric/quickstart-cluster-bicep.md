@@ -134,7 +134,7 @@ For example:
 Store the paths of your Bicep file and parameter file in variables, then deploy the Bicep file.
 
 ```powershell
-$templateFilePath = "<full path to azuredeploy.json>"
+$templateFilePath = "<full path to main.bicep>"
 $parameterFilePath = "<full path to azuredeploy.parameters.json>"
 
 New-AzResourceGroupDeployment `
