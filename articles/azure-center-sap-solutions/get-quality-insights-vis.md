@@ -27,11 +27,11 @@ To open the Quality Insights workbook:
 1. On the **Azure Center for SAP solutions** page's sidebar menu, select **Virtual Instances for SAP solutions**.
 1. On the **Virtual Instances for SAP solutions** page, select the VIS that you want to get insights about.
 
-    :::image type="content" source="media/get-quality-insights-vis/select-vis.png" lightbox="media/get-quality-insights-vis/select-vis.png" alt-text="Screenshot of Azure portal, showing the list of available virtual instances for S A P in a subscription.":::
+    :::image type="content" source="media/get-quality-insights-vis/select-vis.png" lightbox="media/get-quality-insights-vis/select-vis.png" alt-text="Screenshot of Azure portal, showing the list of available virtual instances for SAP in a subscription.":::
 
 1. On the sidebar menu for the VIS, under **Monitoring** select **Quality Insights**. 
 
-    :::image type="content" source="media/get-quality-insights-vis/quality-insights.png" lightbox="media/get-quality-insights-vis/quality-insights.png" alt-text="Screenshot of Azure portal, showing the Quality Insights workbook page selected in the sidebar menu for a virtual instance for S A P.":::
+    :::image type="content" source="media/get-quality-insights-vis/quality-insights.png" lightbox="media/get-quality-insights-vis/quality-insights.png" alt-text="Screenshot of Azure portal, showing the Quality Insights workbook page selected in the sidebar menu for a virtual instance for SAP.":::
 
 There are multiple sections in the workbook:
 
@@ -62,7 +62,7 @@ You can toggle **Show Help** to see more information about the table data.
 
 Select a VM name to see its overview page, and change settings like **Boot Diagnostic**.
 
-:::image type="content" source="media/get-quality-insights-vis/vm-compute-list.png" lightbox="media/get-quality-insights-vis/vm-compute-list.png" alt-text="Screenshot of Compute List tab, showing a table of details about the virtual machines inside of a virtual instance for S A P.":::
+:::image type="content" source="media/get-quality-insights-vis/vm-compute-list.png" lightbox="media/get-quality-insights-vis/vm-compute-list.png" alt-text="Screenshot of Compute List tab, showing a table of details about the virtual machines inside of a virtual instance for SAP.":::
 
 ### Compute Extensions
 
@@ -76,19 +76,19 @@ The **Compute Extensions** tab shows information about your VM extensions. There
 
 **VM+Extensions** shows a summary of any VM extensions installed on the VMs in your VIS.
 
-:::image type="content" source="media/get-quality-insights-vis/vm-plus-extensions.png" lightbox="media/get-quality-insights-vis/vm-plus-extensions.png" alt-text="Screenshot of the V M plus Extensions tab, showing a table of virtual machines with the names of virtual machine extensions installed on each resource.":::
+:::image type="content" source="media/get-quality-insights-vis/vm-plus-extensions.png" lightbox="media/get-quality-insights-vis/vm-plus-extensions.png" alt-text="Screenshot of the VM plus Extensions tab, showing a table of virtual machines with the names of virtual machine extensions installed on each resource.":::
 
 #### VM Extensions Status
 
 **VM Extensions Status** shows details about the VM extensions in each VM. You can see each extension's state, version, and if **AutoUpgrade** is enabled.
 
-:::image type="content" source="media/get-quality-insights-vis/vm-extensions-status.png" lightbox="media/get-quality-insights-vis/vm-extensions-status.png" alt-text="Screenshot of the V M extensions status tab, showing the states of each virtual machine extension per virtual machine.":::
+:::image type="content" source="media/get-quality-insights-vis/vm-extensions-status.png" lightbox="media/get-quality-insights-vis/vm-extensions-status.png" alt-text="Screenshot of the VM extensions status tab, showing the states of each virtual machine extension per virtual machine.":::
 
 #### Failed VM Extensions
 
 **Failed VM Extensions** shows which VM extensions are failing in the selected VIS.
 
-:::image type="content" source="media/get-quality-insights-vis/failed-vm-extensions.png" lightbox="media/get-quality-insights-vis/failed-vm-extensions.png" alt-text="Screenshot of the Failed V M Extensions tab, showing no failed extensions for the selected V I S.":::
+:::image type="content" source="media/get-quality-insights-vis/failed-vm-extensions.png" lightbox="media/get-quality-insights-vis/failed-vm-extensions.png" alt-text="Screenshot of the Failed VM Extensions tab, showing no failed extensions for the selected VIS.":::
 
 ### Compute + OS Disk
 
