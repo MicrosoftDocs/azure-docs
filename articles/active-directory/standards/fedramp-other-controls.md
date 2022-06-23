@@ -7,7 +7,7 @@ ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: how-to
 author: gargi-sinha
-ms.author: gasinha
+ms.author: gasinh
 manager: martinco
 ms.reviewer: martinco
 ms.date: 4/26/2021
