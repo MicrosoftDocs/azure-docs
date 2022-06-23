@@ -1,6 +1,6 @@
 ---
 title: Monitor data from virtual machines with Azure Monitor agent
-description: Describes how to create a data collection rule to collect events and performance data from virtual machines using the Azure Monitor agent.
+description: Describes how to collect events and performance data from virtual machines using the Azure Monitor agent.
 ms.topic: conceptual
 ms.date: 06/23/2022
 author: guywild

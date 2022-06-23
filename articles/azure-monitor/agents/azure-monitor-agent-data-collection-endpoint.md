@@ -83,5 +83,5 @@ You can use data collection endpoints to enable the Azure Monitor agent to commu
 	![Data collection endpoint network isolation](media/azure-monitor-agent-dce/data-collection-endpoint-network-isolation.png)
 
 ## Next steps
-- [Associate endpoint to machines](../agents/data-collection-rule-azure-monitor-agent.md#create-rule-and-association-in-azure-portal)
+- [Associate endpoint to machines](../agents/data-collection-rule-azure-monitor-agent.md#create-data-collection-rule-and-association)
 - [Add endpoint to AMPLS resource](../logs/private-link-configure.md#connect-azure-monitor-resources) 
