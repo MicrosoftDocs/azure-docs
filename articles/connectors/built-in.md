@@ -57,7 +57,7 @@ In contrast, a built-in connector that's *not a service provider* has the follow
 
 ## Custom built-in connectors
 
-For Standard logic apps, you can create your own built-in connector with the same [*service provider interface implementation*](../logic-apps/custom-connector-overview.md#service-provider-interface-implementation) that's used by service provider-based built-in connectors, such as Azure Blob Storage, Azure Event Hubs, Azure Service Bus, SQL Server, and more. This interface implementation is based on the [Azure Functions extensibility model](../azure-functions/functions-bindings-register.md) and provides the capability for you to create custom built-in connectors that anyone can use in Standard logic apps.
+For Standard logic apps, you can create your own built-in connector with the same [built-in connector extensibility model](../logic-apps/custom-connector-overview.md#built-in-connector-extensibility-model) that's used by service provider-based built-in connectors, such as Azure Blob, Azure Event Hubs, Azure Service Bus, SQL Server, and more. This interface implementation is based on the [Azure Functions extensibility model](../azure-functions/functions-bindings-register.md) and provides the capability for you to create custom built-in connectors that anyone can use in Standard logic apps.
 
 For Consumption logic apps, you can't create your own built-in connectors, but you create your own managed connectors.
 
