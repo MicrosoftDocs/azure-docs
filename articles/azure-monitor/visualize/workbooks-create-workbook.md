@@ -28,7 +28,7 @@ To create a new Azure workbook:
    - Groups
    - Configuration options
 
-## Text
+## Adding Text
 
 Workbooks allow authors to include text blocks in their workbooks. The text can be human analysis of the telemetry, information to help users interpret the data, section headings, etc. 
 
@@ -78,7 +78,7 @@ You can also choose a text parameter as the source of the style. The parameter v
 **Warning style example**:
    :::image type="content" source="media/workbooks-create-workbook/workbooks-text-example-warning.png" alt-text="Screenshot of a text visualization in warning style.":::
 
-## Queries
+## Adding Queries
 
 Azure Workbooks allow you to query any of the supported workbook [data sources](workbooks-data-sources.md). 
 
@@ -96,7 +96,7 @@ For example, you can query Azure Resource Health to help you view any service pr
 1. Select **Run Query**.
 1. When you are sure you have the query you want in your workbook, select **Done editing**.
 
-## Metric Charts
+## Adding Metric Charts
 
 Most Azure resources emit metric data about state and health such as CPU utilization, storage availability, count of database transactions, failing app requests, etc. Workbooks allow the visualization of this data as time-series charts. 
 
@@ -144,7 +144,7 @@ Here is the edit mode version of the metric chart above:
 
 :::image type="content" source="media/workbooks-create-workbook/workbooks-metric-chart-storage-scatter.png" alt-text="Screenshot showing a metric scatter chart for storage latency.":::
 
-## Links 
+## Adding Links 
 
 Authors can use links to create links to other views, workbooks, other items inside a workbook, or to create tabbed views within a workbook. The links can be styled as hyperlinks, buttons, and tabs.  
 
