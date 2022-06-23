@@ -42,14 +42,14 @@ To complete this quickstart you need:
     ![Screenshot of the App Services page in the Azure portal. The Create button in the action bar is highlighted.](media/quickstart-java/azure-portal-create-app-service.png)
 
 4. Fill out the **Create Web App** page as follows.
-   - **Resource Group**: Create a resource group named *myResourceGroup*.
+   - **Resource Group**: Create a resource group named _myResourceGroup_.
    - **Name**: Type a globally unique name for your web app. 
-   - **Publish**: Select *Code*.
-   - **Runtime stack**: Select *Java 11*. 
-   - **Java web-server stack**: Select *Java SE (Embedded Web Server)*.
-   - **Operating system**: Select *Linux*.
+   - **Publish**: Select _Code_.
+   - **Runtime stack**: Select _Java 11_. 
+   - **Java web-server stack**: Select _Java SE (Embedded Web Server)_.
+   - **Operating system**: Select _Linux_.
    - **Region**: Select an Azure region close to you.
-   - **App Service Plan**: Create an app service plan named *myAppServicePlan*.
+   - **App Service Plan**: Create an app service plan named _myAppServicePlan_.
 
 5.  To change to the Free tier, next to **Sku and size**, select **Change size**. 
    
@@ -67,12 +67,12 @@ To complete this quickstart you need:
 
     ![Screenshot of the App Service in the Azure Portal. The Deployment Center option in the Deployment section of the left navigation is highlighted.](media/quickstart-java/azure-portal-configure-app-service-deployment-center.png)  
 
-11. Under **Settings**, select a **Source**. For this quickstart, select *GitHub*.
+11. Under **Settings**, select a **Source**. For this quickstart, select _GitHub_.
 
 12. In the section under **GitHub**, select the following settings:
     - Organization: Select your organization.
-    - Repository: Select `java-docs-spring-hello-world`.
-    - Branch: Select `main`.
+    - Repository: Select _java-docs-spring-hello-world_.
+    - Branch: Select _main_.
 
 13. Select **Save**.
 
@@ -106,7 +106,7 @@ The Java sample code is running in an Azure App Service Linux web app.
 
     ![Screenshot of Visual Studio Code in the browser, highlighting src/main/java/com/example/demo/DemoApplication.java in the Explorer pane.](media/quickstart-java/visual-studio-code-in-browser-navigate-to-application-controller.png)
 
-4. Edit the *sayHello* method so that it shows "Hello Azure!" instead of "Hello World!"
+4. Edit the **sayHello** method so that it shows "Hello Azure!" instead of "Hello World!"
 
     ```java
     @RequestMapping("/")
@@ -119,7 +119,7 @@ The Java sample code is running in an Azure App Service Linux web app.
 
     ![Screenshot of Visual Studio Code in the browser, highlighting the Source Control navigation in the sidebar, then highlighting the Stage Changes button in the Source Control panel.](media/quickstart-java/visual-studio-code-in-browser-stage-changes.png)
 
-6. Enter a commit message such as *Hello Azure*. Then, select **Commit and Push**.
+6. Enter a commit message such as `Hello Azure`. Then, select **Commit and Push**.
 
     ![Screenshot of Visual Studio Code in the browser, Source Control panel with a commit message of 'Hello Azure' and the Commit and Push button highlighted ](media/quickstart-java/visual-studio-code-in-browser-commit-push.png)
 
