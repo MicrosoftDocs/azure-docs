@@ -199,13 +199,13 @@ You can use the following built-in connectors to access specific services and sy
         ![Azure Blob icon][azure-blob-storage-icon]
         \
         \
-        **Azure Blob**]<br>(*Standard logic app only*
+        **Azure Blob**<br>(*Standard logic app only*
         \
         \
         Connect to your Azure Blob Storage account so you can create and manage blob content.
     :::column-end:::
     :::column:::
-        ![Azure Cosmos DB icon[azure-cosmos-db-icon]]
+        ![Azure Cosmos DB icon][azure-cosmos-db-icon]
         \
         \
         **Azure Cosmos DB**<br>(*Standard logic app only*)
