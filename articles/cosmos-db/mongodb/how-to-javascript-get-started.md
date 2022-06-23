@@ -7,7 +7,7 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.devlang: javascript
 ms.topic: how-to
-ms.date: 06/20/2022
+ms.date: 06/23/2022
 ms.custom: devx-track-js
 
 ---
@@ -137,10 +137,12 @@ Each type of resource is represented by one or more associated JavaScript classe
 
 The following guides show you how to use each of these classes to build your application.
 
-| Guide | Description |
-|--|---|
-| [Manage a database](how-to-javascript-manage-databases.md) | Create databases |
-| [Manage a collection and work with documents](how-to-javascript-manage-collections.md) | Create collections |
+**Guide**:
+
+* [Manage databases](how-to-javascript-manage-databases.md)  
+* [Manage collections](how-to-javascript-manage-collections.md) 
+* [Manage documents](how-to-javascript-manage-documents.md) 
+* [Use queries to find documents](how-to-javascript-manage-queries.md) 
 
 ## See also
 
