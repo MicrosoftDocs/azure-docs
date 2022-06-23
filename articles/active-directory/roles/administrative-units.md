@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.topic: overview
 ms.subservice: roles
 ms.workload: identity
-ms.date: 05/24/2022
+ms.date: 06/23/2022
 ms.author: rolyon
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
@@ -84,8 +84,7 @@ The following sections describe current support for administrative unit scenario
 | Permissions | Microsoft Graph/PowerShell | Azure portal | Microsoft 365 admin center |
 | --- | :---: | :---: | :---: |
 | Create or delete administrative units | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| Add or remove members individually | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| Add or remove members in bulk | :x: | :heavy_check_mark: | :heavy_check_mark: |
+| Add or remove members | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | Assign administrative unit-scoped administrators | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | Add or remove users or devices dynamically based on rules (Preview) | :heavy_check_mark: | :heavy_check_mark: | :x: |
 | Add or remove groups dynamically based on rules | :x: | :x: | :x: |
@@ -95,7 +94,7 @@ The following sections describe current support for administrative unit scenario
 | Permissions | Microsoft Graph/PowerShell | Azure portal | Microsoft 365 admin center |
 | --- | :---: | :---: | :---: |
 | Administrative unit-scoped management of user properties, passwords | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| Administrative unit-scoped management of user licenses | :heavy_check_mark: | :x: | :heavy_check_mark: |
+| Administrative unit-scoped management of user licenses | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | Administrative unit-scoped blocking and unblocking of user sign-ins | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | Administrative unit-scoped management of user multi-factor authentication credentials | :heavy_check_mark: | :heavy_check_mark: | :x: |
 
