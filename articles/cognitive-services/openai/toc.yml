@@ -18,16 +18,16 @@ items:
       href: ./how-to/prepare-dataset.md
     - name: Generate embeddings
       href: ./how-to/embeddings.md
-    - name: Search
-      href: ./how-to/search.md
     - name: Manage identity
       href: ./how-to/managed-identity.md
     - name: Business continuity & disaster recovery (BCDR)
       href: ./how-to/business-continuity-disaster-recovery.md
 - name: Concepts
   items:
-    - name: Azure OpenAI Engines
-      href: ./concepts/engines.md
+    - name: Azure OpenAI Models
+      href: ./concepts/Models.md
+    - name: Content Filtering
+      href: ./concepts/Content Filtering
 - name: Reference
   items:
     - name: REST API

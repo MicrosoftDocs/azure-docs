@@ -15,7 +15,7 @@ keywords:
 
 # Learn how to generate or manipulate text, including code
 
-The completions endpoint can be used for a wide variety of tasks. It provides a simple but powerful text-in, text-out interface to any of our [models](../concepts/engines.md). You input some text as a prompt, and the model will generate a text completion that attempts to match whatever context or pattern you gave it. For example, if you give the API the prompt, "As Descartes said, I think, therefore", it will return the completion " I am" with high probability.
+The completions endpoint can be used for a wide variety of tasks. It provides a simple but powerful text-in, text-out interface to any of our [models](../concepts/models.md). You input some text as a prompt, and the model will generate a text completion that attempts to match whatever context or pattern you gave it. For example, if you give the API the prompt, "As Descartes said, I think, therefore", it will return the completion " I am" with high probability.
 
 The best way to start exploring completions is through our playground in the [Azure OpenAI Studio](https://oai.azure.com). It's a simple text box where you can submit a prompt to generate a completion. You can start with a simple example like the following:
 
@@ -641,4 +641,4 @@ button.onclick = function() {
 
 ## Next steps
 
-Learn more about the [underlying engines/models that power Azure OpenAI](../concepts/engines.md).
+Learn more about the [underlying models that power Azure OpenAI](../concepts/models.md).

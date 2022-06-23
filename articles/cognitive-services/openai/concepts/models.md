@@ -1,7 +1,7 @@
 ---
-title: Azure OpenAI Engines
+title: Azure OpenAI Models
 titleSuffix: Azure OpenAI
-description: Learn about the different AI models or engines that are available. 
+description: Learn about the different AI models that are available. 
 ms.service: cognitive-services
 ms.topic: conceptual 
 ms.date: 06/24/2022
@@ -11,9 +11,9 @@ recommendations: false
 keywords: 
 ---
 
-# Azure OpenAI Engines
+# Azure OpenAI Models
 
-The service provides access to many different models. Engines describe a family of models and are broken out as follows:
+The service provides access to many different models. Models describe a family of models and are broken out as follows:
 
 |Modes | Description|
 |--| -- |
@@ -46,7 +46,7 @@ While Davinci is the most capable, the other models provide significant speed ad
 
 ### Davinci
 
-Davinci is the most capable engine and can perform any task the other models can perform and often with less instruction. For applications requiring deep understanding of the content, like summarization for a specific audience and creative content generation, Davinci is going to produce the best results. These increased capabilities require more compute resources, so Davinci costs more and isn't as fast as the other engines.
+Davinci is the most capable model and can perform any task the other models can perform and often with less instruction. For applications requiring deep understanding of the content, like summarization for a specific audience and creative content generation, Davinci is going to produce the best results. These increased capabilities require more compute resources, so Davinci costs more and isn't as fast as the other models.
 
 Another area where Davinci excels is in understanding the intent of text. Davinci is excellent at solving many kinds of logic problems and explaining the motives of characters. Davinci has been able to solve some of the most challenging AI problems involving cause and effect.
 
@@ -121,7 +121,7 @@ When using our embedding models, please keep in mind their limitations and risks
 
 ## Finding the right model
 
-We recommend starting with our Davinci model since it will be the best way to understand what the service is capable of. After you have an idea of what you want to accomplish, you can either stay with Davinci if you’re not concerned about cost and speed or move onto Curie or another engine and try to optimize around its capabilities.
+We recommend starting with our Davinci model since it will be the best way to understand what the service is capable of. After you have an idea of what you want to accomplish, you can either stay with Davinci if you’re not concerned about cost and speed or move onto Curie or another model and try to optimize around its capabilities.
 
 ## Next steps
 

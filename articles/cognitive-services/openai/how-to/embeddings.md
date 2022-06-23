@@ -49,5 +49,5 @@ Our embedding models may be unreliable or pose social risks in certain cases, an
 
 ## Next steps
 
-Learn more about the [underlying engines/models that power Azure OpenAI](../concepts/engines.md).
+Learn more about the [underlying models that power Azure OpenAI](../concepts/models.md).
 <!--TODO: Get started with making Embeddings using our [Get_Embeddings](../Samples/Embeddings/Get_Embeddings.ipynb) sample notebook.-->
