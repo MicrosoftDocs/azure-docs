@@ -19,7 +19,6 @@ To help close this gap, Microsoft Sentinel offers the Threat Monitoring for SAP 
 
 Microsoft Sentinel's Threat Monitoring for SAP solution continuously monitors SAP systems for threats at all layers - business logic, application, database, and OS.
 - business logic
-- application
 
 It analyzes SAP system data to detect threats such as privilege escalation, unapproved changes, and unauthorized access. It allows you to correlate SAP monitoring with other signals across your organization, and to build your own detections to monitor sensitive transactions and other business risks.
     - Privilege escalation
