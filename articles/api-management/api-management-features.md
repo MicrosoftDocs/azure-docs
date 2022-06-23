@@ -39,7 +39,8 @@ Each API Management [pricing tier](https://aka.ms/apimpricing) offers a distinct
 | Azure Monitor logs and metrics                                                               | No          | Yes       | Yes   | Yes      | Yes     |
 | Static IP                                                                                    | No          | Yes       | Yes   | Yes      | Yes     |
 | [WebSocket APIs](websocket-api.md)                                                                                    | No          | Yes       | Yes   | Yes      | Yes     |
-| [GraphQL APIs (preview)](graphql-api.md)                                                                               | Yes          | Yes       | Yes   | Yes      | Yes     |
+| [GraphQL APIs](graphql-api.md)                                                                               | Yes          | Yes       | Yes   | Yes      | Yes     |
+| [GraphQL resolvers (preview)](graphql-schema-resolve-api.md)                                                            | Yes          | Yes       | Yes   | Yes      | Yes     |
 
 <sup>1</sup> Enables the use of Azure AD (and Azure AD B2C) as an identity provider for user sign in on the developer portal.<br/>
 <sup>2</sup> Including related functionality e.g. users, groups, issues, applications and email templates and notifications.<br/>
