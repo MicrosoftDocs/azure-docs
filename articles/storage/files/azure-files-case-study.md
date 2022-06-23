@@ -25,9 +25,3 @@ Puma, the iconic sportswear brand was looking for ways to elevate the speed and 
 
 ## Modern Game Studio
  Game studios deal with large files on a daily basis for asset storage, sharing builds & reviewing crash dumps. Post pandemic as game developers transitioned from a in-office workforce to a globally distributed remote team, working with large files in the existing setup didn’t scale well. It resulted in high latency for large file access, & increase in internet egress costs.  Azure Files offered them a scalable solution to easily work with large files. [Check out the full case study here](https://developer.microsoft.com/games/blog/how-to-transfer-large-files-in-a-distributed-environment/?OCID=AID3029701&).
-
-## Next steps
-
-- [Check out different architectures in which Azure File Shares are used](azure-files-reference-architectures.md).
-- [Check out different architectures across which Azure File Sync is used](../file-sync/azure-files-sync-reference-architectures.md).
-
