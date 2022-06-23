@@ -34,15 +34,15 @@ function createAzureClient(): AzureClient {
     const user = { id: "userId", name: "Test User" };
 
     const connectionConfig = useAzure ? {
+        type: "remote",
         tenantId: "myTenantId",
         tokenProvider: new InsecureTokenProvider(tenantKey, user),
         serviceEndpoint: "https://myServiceEndpointUrl",
     } : {
-        tenantId: LOCAL_MODE_TENANT_ID,
+        type: "local",
         tokenProvider: new InsecureTokenProvider("", user),
         serviceEndpoint: "http://localhost:7070",
     };
-
     const clientProps = {
         connection: config,
     };
