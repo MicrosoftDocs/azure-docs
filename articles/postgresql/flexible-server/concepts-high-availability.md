@@ -46,7 +46,7 @@ Automatic backups are performed periodically from the primary database server, w
 :::image type="content" source="./media/business-continuity/concepts-same-zone-high-availability-architecture.png" alt-text="Same-zone high availability"::: 
 
 >[!NOTE]
-> See the [HA limitation](#high-availability---limitations) to see a current restriction with same-zone HA deployment. 
+> See the [HA limitation section](#high-availability---limitations) for a current restriction with same-zone HA deployment.
 
 ## Components and workflow
 
@@ -221,7 +221,7 @@ Flexible servers that are configured with high availability, log data is replica
 ## High availability - limitations
 
 >[!NOTE]
-> New server creates with Same-zone HA are currently restricted when you choose the primary AZ in regions that support AZs. The workarounds are to (a) create your same-zone HA server without choosing the primary AZ, or (b) create your server as a non-HA single instance and then enable same-zone HA after the server is created. 
+> New server creates with **Same-zone HA** are currently restricted when you choose the primary server's AZ.  Workarounds are to (a) create your same-zone HA server without choosing the primary AZ, or (b) create as a single instance (non-HA) server and then enable same-zone HA after the server is created. 
 
 * High availability is not supported with burstable compute tier.
 * High availability is supported only in regions where multiple zones are available.
