@@ -41,7 +41,7 @@ function createAzureClient(): AzureClient {
     } : {
         type: "local",
         tokenProvider: new InsecureTokenProvider("", user),
-        serviceEndpoint: "http://localhost:7070",
+        endpoint: "http://localhost:7070",
     };
     const clientProps = {
         connection: config,
