@@ -68,7 +68,7 @@ The **Issuer**, **Audiences**, and **Subject identifier** fields autopopulate ba
 
 Click **Add** to configure the federated credential.
 
-:::image type="content" source="media/workload-identity-federation-create-trust-github/add-credential.png" alt-text="Screenshot of the Add a credential window, showing sample values." :::
+:::image type="content" source="media/workload-identity-federation-create-trust/add-credential.png" alt-text="Screenshot of the Add a credential window, showing sample values." :::
 
 > [!NOTE]
 > If you accidentally configure someone else's GitHub repo in the *subject* setting (enter a typo that matches someone elses repo) you can successfully create the federated identity credential.  But in the GitHub configuration, however, you would get an error because you aren't able to access another person's repo.
