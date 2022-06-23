@@ -402,6 +402,8 @@
         href: sap/deploy-data-connector-agent-container.md
       - name: Deploy SAP security content
         href: sap/deploy-sap-security-content.md
+      - name: Configure Threat Monitoring for SAP solution
+        href: sap/deployment-solution-configuration.md
     - name: Optional deployment steps
       items: 
       - name: Configure SAP data connector to use SNC
