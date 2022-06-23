@@ -12,7 +12,7 @@ ms.date: 06/22/2022
 
 # Similarity and scoring in Azure Cognitive Search
 
-This article describes relevance scoring and the similarity ranking algorithms used to compute search scores in Azure Cognitive Search. A relevance score applies to matches returned in a [full text search query](search-lucene-query-architecture.md). Filter queries, autocomplete and suggested queries, wildcard search or fuzzy search queries are not scored or ranked for relevance.
+This article describes relevance scoring and the similarity ranking algorithms used to compute search scores in Azure Cognitive Search. A relevance score applies to matches returned in [full text search](search-lucene-query-architecture.md), where the most relevant matches appear first. Filter queries, autocomplete and suggested queries, wildcard search or fuzzy search queries are not scored or ranked for relevance.
 
 In Azure Cognitive Search, you can tune search relevance and boost search scores through these mechanisms:
 
@@ -22,7 +22,7 @@ In Azure Cognitive Search, you can tune search relevance and boost search scores
 + Custom scoring logic enabled through the *featuresMode* parameter
 
 > [!NOTE]
-> Each search result is scored and then rank ordered from high to low. The score is returned in the response as "@search.score" for every document. By default, the top 50 are returned in the response, but you can use the **$top** parameter to return a smaller or larger number of items (up to 1000 in a single response), and **$skip** to get the next set of results.
+> Matches are scored and ranked from high to low. The score is returned as "@search.score". By default, the top 50 are returned in the response, but you can use the **$top** parameter to return a smaller or larger number of items (up to 1000 in a single response), and **$skip** to get the next set of results.
 
 ## Relevance scoring
 
