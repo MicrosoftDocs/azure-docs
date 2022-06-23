@@ -16,6 +16,8 @@ ms.author: barclayn
 
 # What's new in Azure Active Directory Verifiable Credentials (preview)
 
+[!INCLUDE [Verifiable Credentials announcement](../../../includes/verifiable-credentials-brand.md)]
+
 This article lists the latest features, improvements, and changes in the Azure Active Directory (Azure AD) Verifiable Credentials service.
 
 ## May 2022

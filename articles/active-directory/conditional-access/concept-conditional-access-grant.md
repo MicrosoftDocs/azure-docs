@@ -144,7 +144,7 @@ The following client apps have been confirmed to support this setting:
 - Microsoft Cortana
 - Microsoft Edge
 - Microsoft Excel
-- Microsoft Lists (iOS)
+- Microsoft Lists
 - Microsoft Office
 - Microsoft OneDrive
 - Microsoft OneNote

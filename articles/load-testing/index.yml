@@ -106,5 +106,7 @@ landingContent:
     linkLists:
       - linkListType: reference
         links:
+        - text: REST API
+          url: /rest/api/loadtesting/
         - text: Test configuration YAML
           url: reference-test-config-yaml.md

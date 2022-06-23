@@ -1,6 +1,5 @@
 ---
 title: Migrate Okta sync provisioning to Azure AD Connect
-titleSuffix: Active Directory
 description: Learn how to migrate user provisioning from Okta to Azure Active Directory (Azure AD). See how to use Azure AD Connect server or Azure AD cloud provisioning.
 services: active-directory-b2c
 author: gargi-sinha

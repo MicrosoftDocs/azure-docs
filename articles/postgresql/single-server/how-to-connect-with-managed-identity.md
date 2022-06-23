@@ -12,6 +12,8 @@ ms.date: 05/19/2020
 
 # Connect with Managed Identity to Azure Database for PostgreSQL
 
+[!INCLUDE [applies-to-postgresql-single-server](../includes/applies-to-postgresql-single-server.md)]
+
 You can use both system-assigned and user-assigned managed identities to authenticate to Azure Database for PostgreSQL. This article shows you how to use a system-assigned managed identity for an Azure Virtual Machine (VM) to access an Azure Database for PostgreSQL server. Managed Identities are automatically managed by Azure and enable you to authenticate to services that support Azure AD authentication, without needing to insert credentials into your code.
 
 You learn how to:
@@ -40,6 +42,10 @@ Retrieve the application ID for the system-assigned managed identity, which you'
 
 ```azurecli
 # Get the client ID (application ID) of the system-assigned managed identity
+
+[!INCLUDE [applies-to-postgresql-single-server](../includes/applies-to-postgresql-single-server.md)]
+
+
 az ad sp list --display-name vm-name --query [*].appId --out tsv
 ```
 
@@ -70,9 +76,17 @@ For testing purposes, you can run the following commands in your shell. Note you
 
 ```bash
 # Retrieve the access token
+
+[!INCLUDE [applies-to-postgresql-single-server](../includes/applies-to-postgresql-single-server.md)]
+
+
 export PGPASSWORD=`curl -s 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fossrdbms-aad.database.windows.net&client_id=CLIENT_ID' -H Metadata:true | jq -r .access_token`
 
 # Connect to the database
+
+[!INCLUDE [applies-to-postgresql-single-server](../includes/applies-to-postgresql-single-server.md)]
+
+
 psql -h SERVER --user USER@SERVER DBNAME
 ```
 

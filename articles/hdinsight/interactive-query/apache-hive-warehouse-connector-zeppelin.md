@@ -5,7 +5,7 @@ author: nis-goel
 ms.author: nisgoel
 ms.service: hdinsight
 ms.topic: how-to
-ms.date: 05/28/2020
+ms.date: 05/26/2022
 ---
 
 # Integrate Apache Zeppelin with Hive Warehouse Connector in Azure HDInsight

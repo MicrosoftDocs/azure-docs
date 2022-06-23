@@ -18,14 +18,14 @@ Create a **POST** request using the following URL, headers, and JSON body to exp
 Use the following URL when creating your API request. Replace the placeholder values below with your own values. 
 
 ```rest
-{ENDPOINT}/language/analyze-text/projects/{PROJECT-NAME}/:export?api-version={API-VERSION}
+{ENDPOINT}/language/authoring/analyze-text/projects/{PROJECT-NAME}/:export?stringIndexType=Utf16CodeUnit&api-version={API-VERSION}
 ```
 
 |Placeholder  |Value  | Example |
 |---------|---------|---------|
 |`{ENDPOINT}`     | The endpoint for authenticating your API request.   | `https://<your-custom-subdomain>.cognitiveservices.azure.com` |
 |`{PROJECT-NAME}`     | The name for your project. This value is case-sensitive.   | `MyProject` |
-|`{API-VERSION}`     | The version of the API you are calling. The value referenced here is the latest [model version](../../../concepts/model-lifecycle.md#choose-the-model-version-used-on-your-data) released.  | `2022-03-01-preview` |
+|`{API-VERSION}`     | The version of the API you are calling. The value referenced here is the latest [model version](../../../concepts/model-lifecycle.md#choose-the-model-version-used-on-your-data) released.  | `2022-05-01` |
 
 ### Headers
 

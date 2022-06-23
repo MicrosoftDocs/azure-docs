@@ -6,7 +6,7 @@ ms.author: xshi
 ms.service: service-connector
 ms.custom: event-tier1-build-2022
 ms.topic: how-to
-ms.date: 05/03/2022
+ms.date: 06/13/2022
 ---
 
 # Integrate Azure Key Vault with Service Connector
@@ -19,11 +19,12 @@ This page shows the supported authentication types and client types of Azure Key
 ## Supported compute service
 
 - Azure App Service
+- Azure Container Apps
 - Azure Spring Cloud
 
-## Supported Authentication types and client types
+## Supported authentication types and client types
 
-| Client Type | System-assigned Managed Identity | User-assigned Managed Identity | Secret/ConnectionString | Service Principal |
+| Client type | System-assigned managed identity | User-assigned managed identity | Secret / connection string  | Service principal |
 | --- | --- | --- | --- | --- |
 | .NET | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | | ![yes icon](./media/green-check.png) |
 | Java | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | | ![yes icon](./media/green-check.png) |
@@ -35,14 +36,14 @@ This page shows the supported authentication types and client types of Azure Key
 
 ### .NET, Java, Node.JS, Python
 
-**System-assigned Managed Identity**
+#### System-assigned managed identity
 
 | Default environment variable name | Description | Example value |
 | --- | --- | --- |
 | AZURE_KEYVAULT_SCOPE | Your Azure RBAC scope | `https://management.azure.com/.default` |
 | AZURE_KEYVAULT_RESOURCEENDPOINT | Your Key Vault endpoint | `https://{yourKeyVault}.vault.azure.net/` |
 
-**User-assigned Managed Identity**
+#### User-assigned managed identity
 
 | Default environment variable name | Description | Example value |
 | --- | --- | --- |
@@ -50,7 +51,7 @@ This page shows the supported authentication types and client types of Azure Key
 | AZURE_KEYVAULT_RESOURCEENDPOINT | Your Key Vault endpoint | `https://{yourKeyVault}.vault.azure.net/` |
 | AZURE_KEYVAULT_CLIENTID | Your Client ID | `{yourClientID}` |
 
-**Service Principal**
+#### Service principal
 
 | Default environment variable name | Description | Example value |
 | --- | --- | --- |
@@ -62,7 +63,7 @@ This page shows the supported authentication types and client types of Azure Key
 
 ### Java - Spring Boot
 
-**Service Principal**
+#### Java - Spring Boot service principal
 
 | Default environment variable name | Description | Example value |
 | --- | --- | --- |

@@ -25,6 +25,9 @@ To establish a WebSocket connection, a specific HTTP-based handshake is exchange
 
 ![Diagram compares a client interacting with a web server, connecting twice to get two replies, with a WebSocket interaction, where a client connects to a server once to get multiple replies.](./media/application-gateway-websocket/websocket.png)
 
+> [!NOTE]
+> As described, the HTTP protocol is used only to perform a handshake when establishing a WebSocket connection. Once the handshake is completed, a WebSocket connection gets opened for transmitting the data, and the Web Application Firewall (WAF) cannot parse any contents. Therefore, WAF does not perform any inspections on such data.
+
 ### Listener configuration element
 
 An existing HTTP listener can be used to support WebSocket traffic. The following is a snippet of an httpListeners element from a sample template file. You would need both HTTP and HTTPS listeners to support WebSocket and secure WebSocket traffic. Similarly you can use the portal or Azure PowerShell to create an application gateway with listeners on port 80/443 to support WebSocket traffic.
