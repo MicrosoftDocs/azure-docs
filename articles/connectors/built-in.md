@@ -199,7 +199,7 @@ You can use the following built-in connectors to access specific services and sy
         ![Azure Blob icon][azure-blob-storage-icon]
         \
         \
-        **Azure Blob**<br>(*Standard logic app only*
+        **Azure Blob**<br>(*Standard logic app only*)
         \
         \
         Connect to your Azure Blob Storage account so you can create and manage blob content.
@@ -297,8 +297,6 @@ You can use the following built-in connectors to access specific services and sy
         \
         \
         Connect to your SQL Server on premises or an Azure SQL Database in the cloud so that you can manage records, run stored procedures, or perform queries.
-    :::column-end:::
-    :::column:::
     :::column-end:::
     :::column:::
     :::column-end:::
