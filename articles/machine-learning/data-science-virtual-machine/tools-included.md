@@ -7,7 +7,7 @@ services: machine-learning
 ms.service: data-science-vm
 
 author: jesscioffi
-ms.author: jesscioffi
+ms.author: jcioffi
 ms.topic: reference
 ms.date: 06/23/2022
 ms.custom: contperf-fy20q4
