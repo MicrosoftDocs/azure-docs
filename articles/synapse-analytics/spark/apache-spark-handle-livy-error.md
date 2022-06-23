@@ -56,7 +56,7 @@ Each error code falls under one of the following four buckets:
 
     Please refer to the following pages for package management documentation:
 
-    For Notebook scenarios: [Apache Spark manage scala-packages](./apache-spark-manage-scala-packages) 
+    For Notebook scenarios: [Apache Spark manage scala-packages](./apache-spark-manage-scala-packages.md) 
 
     For Spark batch scenarios (see section 6): https://docs.microsoft.com/azure/synapse-analytics/spark/apache-spark-job-definitions#create-an-apache-spark-job-definition-for-apache-sparkscala 
 
