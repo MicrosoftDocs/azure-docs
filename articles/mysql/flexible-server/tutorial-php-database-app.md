@@ -99,7 +99,7 @@ An Azure resource group is a logical group in which Azure resources are deployed
 
 For the purposes of this tutorial, we'll use a sample PHP application that displays and manages a product catalog. The application provides basic functionalities like viewing the products in the catalog, adding new products, updating existing item prices and removing products.
 
-To learn more about the application code, go ahead and explore the app in the [GitHub repository]((https://github.com/Azure-Samples/php-mysql-app-service)). To learn how to connect a PHP app to MySQL flexible server, refer [Quickstart: Connect using PHP](connect-php.md).
+To learn more about the application code, go ahead and explore the app in the [GitHub repository](https://github.com/Azure-Samples/php-mysql-app-service). To learn how to connect a PHP app to MySQL flexible server, refer [Quickstart: Connect using PHP](connect-php.md).
 
 In this tutorial, we'll directly clone the coded sample app and learn how to deploy it on Azure App Service.
 
