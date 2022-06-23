@@ -2,12 +2,12 @@
 title: Outbound rules Azure Load Balancer
 description: This article explains how to configure outbound rules to control egress of internet traffic with Azure Load Balancer.
 services: load-balancer
-author: greg-lindsay
+author: mbender-ms
 ms.service: load-balancer
 ms.topic: conceptual
 ms.custom: contperf-fy21q1
 ms.date: 1/6/2022
-ms.author: greglin
+ms.author: mbender
 ---
 
 # <a name="outboundrules"></a>Outbound rules Azure Load Balancer

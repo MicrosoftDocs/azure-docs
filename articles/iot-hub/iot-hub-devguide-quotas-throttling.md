@@ -98,7 +98,7 @@ IoT Hub enforces other operational limits:
 | Message enrichments | Paid SKU hubs can have up to 10 message enrichments. Free SKU hubs can have up to 2 message enrichments.|
 | Device-to-cloud messaging | Maximum message size 256 KB |
 | Cloud-to-device messaging<sup>1</sup> | Maximum message size 64 KB. Maximum pending messages for delivery is 50 per device. |
-| Direct method<sup>1</sup> | Maximum direct method payload size is 128 KB. |
+| Direct method<sup>1</sup> | Maximum direct method payload size is 128 KB for the request and 128 KB for the response. |
 | Automatic device and module configurations<sup>1</sup> | 100 configurations per paid SKU hub. 10 configurations per free SKU hub. |
 | IoT Edge automatic deployments<sup>1</sup> | 50 modules per deployment. 100 deployments (including layered deployments) per paid SKU hub. 10 deployments per free SKU hub. |
 | Twins<sup>1</sup> | Maximum size of desired properties and reported properties sections are 32 KB each. Maximum size of tags section is 8 KB. Maximum size of each individual property in every section is 4 KB. |

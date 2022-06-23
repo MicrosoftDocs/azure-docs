@@ -40,19 +40,16 @@ When setting up scan, you can choose to scan an entire PostgreSQL database, or s
 
 ## Prerequisites
 
-* An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An active [Microsoft Purview account](create-catalog-portal.md).
+- You need Data Source Administrator and Data Reader permissions to register a source and manage it in the Microsoft Purview governance portal. For more information about permissions, see [Access control in Microsoft Purview](catalog-permissions.md).
 
-* An active [Microsoft Purview account](create-catalog-portal.md).
+> [!NOTE]
+> **If your data store is not publicly accessible** (if your data store limits access from on-premises network, private network or specific IPs, etc.), **you will need to configure a self hosted integration runtime to connect to it**.
 
-* You need Data Source Administrator and Data Reader permissions to register a source and manage it in the Microsoft Purview governance portal. For more information about permissions, see [Access control in Microsoft Purview](catalog-permissions.md).
-
-**If your data store is not publicly accessible** (if your data store limits access from on-premises network, private network or specific IPs, etc.) you need to configure a self-hosted integration runtime to connect to it:
-
-* Set up the latest [self-hosted integration runtime](https://www.microsoft.com/download/details.aspx?id=39717). For more information, see [the create and configure a self-hosted integration runtime guide](manage-integration-runtimes.md). The minimal supported Self-hosted Integration Runtime version is 5.11.7953.1.
-
-    * Ensure [JDK 11](https://www.oracle.com/java/technologies/downloads/#java11) is installed on the machine where the self-hosted integration runtime is installed. Restart the machine after you newly install the JDK for it to take effect.
-
-    * Ensure Visual C++ Redistributable for Visual Studio 2012 Update 4 is installed on the self-hosted integration runtime machine. If you don't have this update installed, [you can download it here](https://www.microsoft.com/download/details.aspx?id=30679).
+- If your data store isn't publicly accessible, set up the latest [self-hosted integration runtime](https://www.microsoft.com/download/details.aspx?id=39717). For more information, see [the create and configure a self-hosted integration runtime guide](manage-integration-runtimes.md).
+    - Ensure [JDK 11](https://www.oracle.com/java/technologies/downloads/#java11) is installed on the machine where the self-hosted integration runtime is installed. Restart the machine after you newly install the JDK for it to take effect.
+    - Ensure Visual C++ Redistributable for Visual Studio 2012 Update 4 is installed on the self-hosted integration runtime machine. If you don't have this update installed, [you can download it here](https://www.microsoft.com/download/details.aspx?id=30679).
 
 ### Required permissions for scan
 
@@ -64,14 +61,14 @@ This section describes how to register PostgreSQL in Microsoft Purview using the
 
 ### Steps to register
 
-To register a new PostgreSQL source in your data catalog, do the following:
+To register a new PostgreSQL source in your data catalog, follow these steps:
 
 1. Navigate to your Microsoft Purview account in the [Microsoft Purview governance portal](https://web.purview.azure.com/resource/).
 1. Select **Data Map** on the left navigation.
 1. Select **Register**
 1. On Register sources, select **PostgreSQL**. Select **Continue**.
 
-On the **Register sources (PostgreSQL)** screen, do the following:
+On the **Register sources (PostgreSQL)** screen, follow these steps:
 
 1. Enter a **Name** that the data source will be listed within the Catalog.
 
@@ -97,11 +94,13 @@ The supported authentication type for a PostgreSQL source is **Basic authenticat
 
 ### Create and run scan
 
-To create and run a new scan, do the following:
+To create and run a new scan, follow these steps:
 
-1. In the Management Center, select Integration runtimes. Make sure a self-hosted integration runtime is set up. If it isn't set up, use the steps mentioned [here](./manage-integration-runtimes.md) to create a self-hosted integration runtime.
+1. If your server is publicly accessible, skip to step two. Otherwise, you'll need to make sure your self-hosted integration runtime is configured:
+    1. In the [Microsoft Purview governance portal](https://web.purview.azure.com/), got to the Management Center, and select **Integration runtimes**.
+    1. Make sure a self-hosted integration runtime is available. If one isn't set up, use the steps mentioned [here](./manage-integration-runtimes.md) to set up a self-hosted integration runtime.
 
-1. Navigate to **Sources**.
+1. In the [Microsoft Purview governance portal](https://web.purview.azure.com/), navigate to **Sources**.
 
 1. Select the registered PostgreSQL source.
 
@@ -111,7 +110,7 @@ To create and run a new scan, do the following:
 
     1. **Name**: The name of the scan
 
-    1. **Connect via integration runtime**: Select the Azure auto-resolved integration runtime or your configured self-hosted integration runtime used to perform scan.
+    1. **Connect via integration runtime**: Select the Azure auto-resolved integration runtime if your server is publicly accessible, or your configured self-hosted integration runtime if it isn't publicly available.
 
     1. **Credential**: Select the credential to connect to your data source. Make sure to:
         * Select **Basic Authentication** while creating a credential.

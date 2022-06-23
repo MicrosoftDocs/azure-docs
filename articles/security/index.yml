@@ -24,7 +24,7 @@ highlightedContent:
       url: ./journey/index.yml
     - title: Learn about the Microsoft Entra family of multicloud identity and access solutions
       itemType: whats-new
-      url: https://docs.microsoft.com/entra/
+      url: /entra/
     - title: Find security services for your business needs
       itemType: overview
       url: ./fundamentals/end-to-end.md

@@ -18,7 +18,7 @@ This article describes the available virtual machine sizes for Cloud Services (e
 |---|---|
 |[Av2](../virtual-machines/av2-series.md) | 100 | 
 |[D](../virtual-machines/sizes-previous-gen.md?bc=%2fazure%2fvirtual-machines%2flinux%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#d-series) | 160 | 
-|[Dv2](../virtual-machines/dv2-dsv2-series.md) | 160 - 190* |
+|[Dv2](../virtual-machines/dv2-dsv2-series.md) | 210 - 250* |
 |[Dv3](../virtual-machines/dv3-dsv3-series.md) | 160 - 190* |
 |[Dav4](../virtual-machines/dav4-dasv4-series.md) | 230 - 260 |
 |[Eav4](../virtual-machines/eav4-easv4-series.md) | 230 - 260 |
