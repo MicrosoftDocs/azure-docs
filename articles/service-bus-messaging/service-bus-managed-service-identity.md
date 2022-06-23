@@ -2,7 +2,7 @@
 title: Managed identities for Azure resources with Service Bus
 description: This article describes how to use managed identities to access with Azure Service Bus entities (queues, topics, and subscriptions).
 ms.topic: article
-ms.date: 01/06/2022
+ms.date: 06/23/2022
 ms.custom: subject-rbac-steps, devx-track-azurecli
 ---
 
@@ -71,9 +71,7 @@ Before you can use managed identities for Azure Resources to authorize Service B
 - [Azure Resource Manager client libraries](../active-directory/managed-identities-azure-resources/qs-configure-sdk-windows-vm.md)
 
 ## Grant permissions to a managed identity in Azure AD
-To authorize a request to the Service Bus service from a managed identity in your application, first configure Azure role-based access control (Azure RBAC) settings for that managed identity. Azure Service Bus defines Azure roles that encompass permissions for sending and reading from Service Bus. When the Azure role is assigned to a managed identity, the managed identity is granted access to Service Bus entities at the appropriate scope.
-
-For more information about assigning Azure roles, see [Authenticate and authorize with Azure Active Directory for access to Service Bus resources](authenticate-application.md#azure-built-in-roles-for-azure-service-bus).
+To authorize a request to the Service Bus service from a managed identity in your application, first configure Azure role-based access control (Azure RBAC) settings for that managed identity. Azure Service Bus defines Azure roles that encompass permissions for sending and reading from Service Bus. When the Azure role is assigned to a managed identity, the managed identity is granted access to Service Bus entities at the appropriate scope. For a list of Service Bus roles, see the [Azure built-in roles for Azure Service Bus](#azure-built-in-roles-for-azure-service-bus) section. For more information about assigning Azure roles, see [Authenticate and authorize with Azure Active Directory for access to Service Bus resources](authenticate-application.md#azure-built-in-roles-for-azure-service-bus).
 
 ## Use Service Bus with managed identities for Azure resources
 To use Service Bus with managed identities, you need to assign the identity the role and the appropriate scope. The procedure in this section uses a simple application that runs under a managed identity and accesses Service Bus resources.
