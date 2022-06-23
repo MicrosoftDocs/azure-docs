@@ -1,6 +1,6 @@
 ---
 title: Migrate from MFA Server to Azure AD Multi-Factor Authentication - Azure Active Directory
-description: Step-by-step guidance to migrate from Azure MFA Server on-premises to Azure AD Multi-Factor Authentication
+description: Step-by-step guidance to migrate from MFA Server on-premises to Azure AD Multi-Factor Authentication
 
 services: multi-factor-authentication
 ms.service: active-directory
@@ -15,7 +15,7 @@ ms.reviewer: michmcla
 
 ms.collection: M365-identity-device-management
 ---
-# Migrate from Azure MFA Server to Azure AD Multi-Factor Authentication
+# Migrate from MFA Server to Azure AD Multi-Factor Authentication
 
 Multifactor authentication (MFA) is important to securing your infrastructure and assets from bad actors. Azure AD Multi-Factor Authentication Server (MFA Server) isn’t available for new deployments and will be deprecated. Customers who are using MFA Server should move to using cloud-based Azure Active Directory (Azure AD) Multi-Factor Authentication.
 
@@ -128,8 +128,8 @@ Check with the service provider for supported product versions and their capabil
 - The NPS extension doesn't use Azure AD Conditional Access policies. If you stay with RADIUS and use the NPS extension, all authentication requests going to NPS will require the user to perform MFA.
 - Users must register for Azure AD Multi-Factor Authentication prior to using the NPS extension. Otherwise, the extension fails to authenticate the user, which can generate help desk calls.
 - When the NPS extension invokes MFA, the MFA request is sent to the user's default MFA method. 
-  - Because the sign-in happens on non-Microsoft applications, it is unlikely that the user will see visual notification that multifactor authentication is required and that a request has been sent to their device.
-  - During the multifactor authentication requirement, the user must have access to their default authentication method to complete the requirement. They cannot choose an alternative method. Their default authentication method will be used even if it is disabled in the tenant authentication methods and multifactor authentication policies.
+  - Because the sign-in happens on non-Microsoft applications, it's unlikely that the user will see visual notification that multifactor authentication is required and that a request has been sent to their device.
+  - During the multifactor authentication requirement, the user must have access to their default authentication method to complete the requirement. They can't choose an alternative method. Their default authentication method will be used even if it's disabled in the tenant authentication methods and multifactor authentication policies.
   - Users can change their default multifactor authentication method in the Security Info page (aka.ms/mysecurityinfo).
 - Available MFA methods for RADIUS clients are controlled by the client systems sending the RADIUS access requests.
   - MFA methods that require user input after they enter a password can only be used with systems that support access-challenge responses with RADIUS. Input methods might include OTP, hardware OATH tokens or the Microsoft Authenticator application.
