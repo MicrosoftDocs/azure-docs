@@ -1,12 +1,13 @@
 ---
 title: Register and use stored procedures, triggers, and user-defined functions in Azure Cosmos DB SDKs
 description: Learn how to register and call stored procedures, triggers, and user-defined functions using the Azure Cosmos DB SDKs
-author: timsander1
+author: seesharprun
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 11/03/2021
-ms.author: tisande
+ms.author: sidandrews
+ms.reviewer: jucocchi
 ms.devlang: csharp, java, javascript, python
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp
 ---

@@ -19,9 +19,6 @@ When you provision a private AKS cluster, AKS by default creates a private FQDN 
 
 Private cluster is available in public regions, Azure Government, and Azure China 21Vianet regions where [AKS is supported](https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service).
 
-> [!NOTE]
-> Azure Government sites are supported, however US Gov Texas isn't currently supported because of missing Private Link support.
-
 ## Prerequisites
 
 * Azure CLI >= 2.28.0 or Azure CLI with aks-preview extension 0.5.29 or later.

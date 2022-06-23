@@ -4,7 +4,7 @@ description: This article describes how you can stop monitoring of your hybrid K
 ms.topic: conceptual
 ms.date: 05/24/2022
 ms.custom: devx-track-azurepowershell
-
+ms.reviewer: aul
 ---
 
 # How to stop monitoring your hybrid cluster

@@ -11,6 +11,8 @@ ms.date: 08/21/2019
 
 # Query Performance Insight 
 
+[!INCLUDE [applies-to-postgresql-single-server](../includes/applies-to-postgresql-single-server.md)]
+
 **Applies to:** Azure Database for PostgreSQL - Single Server versions 9.6, 10, 11
 
 Query Performance Insight helps you to quickly identify what your longest running queries are, how they change over time, and what waits are affecting them.

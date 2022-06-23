@@ -45,6 +45,14 @@ sections:
         answer: |
           You can use the Azure Video Indexer web-based interface to evaluate, configure, and manage your account with **no coding required**.  When you are ready to develop more complex applications, you can use the [Azure Video Indexer API](https://api-portal.videoindexer.ai/) to integrate Azure Video Indexer into your own applications, web sites, or [custom workflows using serverless technologies like Azure Logic Apps](https://azure.microsoft.com/blog/logic-apps-flow-connectors-will-make-automating-video-indexer-simpler-than-ever/) or Azure Functions.
 
+      - question: What are the Limited Access features of Azure Video Indexer and how to register? 
+        answer: |
+          Face Identify and Celebrity Recognition features of Azure Video Indexer are Limited Access features that require registration. 
+          
+          Find the registration form and more information about Limited Access in [this article](limited-access-features.md).
+          
+          Also, see the following: the [announcement blog post](https://aka.ms/AAh91ff) and  [investment and safeguard for facial recognition blog post](https://aka.ms/AAh9oye).
+
       - question: Do I need machine learning skills to use Azure Video Indexer?
         answer: No, Azure Video Indexer provides the integration of multiple machine learning models into one pipeline. Indexing a video or audio file via Azure Video Indexer retrieves a full set of insights extracted on one shared timeline without any machine learning skills or knowledge on algorithms needed on the customer's part.
 
@@ -145,6 +153,8 @@ sections:
         answer: |
           When uploading a video to Azure Video Indexer, an automatic content analysis is done by algorithms and models in order to make sure no inappropriate content will be presented publicly. If a video is found to be suspicious as containing explicit content, it will not be possible to set it as public. However, the account members can still access it as a private video (view it, download the insights and extracted artifacts, and perform other operations available to account members).
 
+          [!INCLUDE [artifacts](./includes/artifacts.md)]
+
           In order to set the video for public access, you can either:
 
           * Build your own interface layer (such as app or website) and use it to interact with the Azure Video Indexer service. This way the video remains private in our portal and your users can interact with it through your interface. For example, you can still get the insights or allow viewing of the video in your own interface.
@@ -194,7 +204,7 @@ sections:
     questions:
       - question: How much does Azure Video Indexer cost?
         answer: |
-          Azure Video Indexer uses a simple pay-as-you-go pricing model based on the duration of the content input that you index. Additional charges may apply for encoding, streaming, storage, network usage, and media reserved units. For more information, see the [pricing](https://azure.microsoft.com/pricing/details/cognitive-services/video-indexer/) page.
+          Azure Video Indexer uses a simple pay-as-you-go pricing model based on the duration of the content input that you index. Additional charges may apply for encoding, streaming, storage, network usage, and media reserved units. For more information, see the [pricing](./index.yml) page.
 
       - question: When am I billed for using Azure Video Indexer?
         answer: When sending a video to be indexed, the user will define the indexing to be video analysis, audio analysis or both. This will determine which SKUs will be charged. If there is a critical level error during processing, an error code will be returned as a response. In such a case, no billing occurs.  A critical error can be caused by a bug in our code or a critical failure in an internal dependency the service has. Errors such as wrong identification or insight extraction are not considered as critical and a response is returned. In any case where a valid (non-error code) response is returned, billing occurs.
