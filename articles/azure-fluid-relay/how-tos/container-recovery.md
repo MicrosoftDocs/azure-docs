@@ -10,14 +10,11 @@ ms.topic: reference
 
 # Recovering Fluid data
 
-> [!NOTE]
-> This preview version is provided without a service-level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-
-In this scenario, we will be exploring data recovery. We consider data to be corrupted when container reaches an invalid state where it cannot process further user actions. The outcome of corrupted state is container being unexpectedly closed. Often it is transient state, and upon reopening, the container may behave as expected. In an situation where a container failes to load even after multiple retries, we offer APIs and flows you can use to recover your data, as decribed below.
+In this scenario, we will be exploring data recovery. We consider data to be corrupted when container reaches an invalid state where it cannot process further user actions. The outcome of corrupted state is container being unexpectedly closed. Often it is transient state, and upon reopening, the container may behave as expected. In an situation where a container fails to load even after multiple retries, we offer APIs and flows you can use to recover your data, as decribed below.
 
 ## How Fluid Framework and Azure Fluid Relay save state
 
-Fluid framework periodically saves state, called summary, without any explicit backup action initiated by the user. This occurs every one (1) minute if there is no user activity, or sooner if there are more then 1000 pending ops present. Each pending op roughly translates to an individual user action (click, text input etc) that was not summarized yet. Azure Fluid Relay saves up to five (5) most recent summaries.
+Fluid framework periodically saves state, called summary, without any explicit backup action initiated by the user. This occurs every one (1) minute if there is no user activity, or sooner if there are more then 1000 pending ops present. Each pending op roughly translates to an individual user action (click, text input etc) that was not summarized yet.
 
 ## Azure Client APIs
 
