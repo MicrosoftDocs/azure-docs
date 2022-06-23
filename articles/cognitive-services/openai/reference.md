@@ -93,12 +93,12 @@ POST https://{your-resource-name}.openai.azure.com/openai/deployments/{deploymen
 
 ```console
 curl https://YOUR_RESOURCE_NAME.openaiazure.com/openai/deployments/YOUR_DEPLOYMENT_NAME/completions?api-version=2022-06-01-preview\
-  -H 'Content-Type: application/json' \
-  -H 'api-key: YOUR_API_KEY' \
-  -d '{
-  "prompt": "Once upon a time",
-  "max_tokens": 5
-}'
+  -H "Content-Type: application/json" \
+  -H "api-key: YOUR_API_KEY" \
+  -d "{
+  \"prompt\": \"Once upon a time\",
+  \"max_tokens\": 5
+}"
 ```
 
 #### Example response
@@ -151,10 +151,10 @@ POST https://{your-resource-name}.openai.azure.com/openai/deployments/{deploymen
 #### Example request
 
 ```console
-curl https://YOUR_RESOURCE_NAME.openaiazure.com/openai/deployments/YOUR_DEPLOYMENT_NAME/embeddings?api-version=2022-06-01-preview\
-  -H 'Content-Type: application/json' \
-  -H 'api-key: YOUR_API_KEY' \
-  -d '{"input": "The food was delicious and the waiter..."}'
+curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/deployments/YOUR_DEPLOYMENT_NAME/embeddings?api-version=2022-06-01-preview\
+  -H "Content-Type: application/json" \
+  -H "api-key: YOUR_API_KEY" \
+  -d "{\"input\": \"The food was delicious and the waiter...\"}"
 ```
 
 #### Example response
@@ -314,8 +314,8 @@ GET https://{your-resource-name}.openai.azure.com/openai/fine-tunes?api-version=
 #### Example request
 
 ```console
-curl https://your_resource_name.openai.azure.com/openai/fine-tunes?api-version=2022-06-01-preview \
-  -H 'api-key: YOUR_API_KEY'
+curl -X GET https://your_resource_name.openai.azure.com/openai/fine-tunes?api-version=2022-06-01-preview \
+  -H "api-key: YOUR_API_KEY"
 ```
 
 #### Example response
@@ -446,16 +446,16 @@ curl https://your-resource-name.openai.azure.com/openai/fine-tunes?api-version=2
   -X POST \
   -H "Content-Type: application/json" \
   -H "api-key: YOUR_API_KEY" \
-  -d '{
-        "model": "ada",
-        "training_file": "file-6ca9bd640c8e4eaa9ec922604226ab6c",
-        "validation_file": "file-cbdad17806aa48e48b05fc2c44c87bf5",
-        "hyperparams": {
-          "batch_size": 1,
-          "learning_rate_multiplier": 0.1,
-          "n_epochs": 4,
+  -d "{
+        \"model\": \"ada\",
+        \"training_file\": \"file-6ca9bd640c8e4eaa9ec922604226ab6c\",
+        \"validation_file\": \"file-cbdad17806aa48e48b05fc2c44c87bf5\",
+        \"hyperparams\": {
+          \"batch_size\": 1,
+          \"learning_rate_multiplier\": 0.1,
+          \"n_epochs\": 4,
         }
-      }'
+      }"
 ```
 
 #### Example response
@@ -718,8 +718,7 @@ POST https://{your-resource-name}.openai.azure.com/openai/fine-tunes/{fine_tune_
 
 #### Example request
 ```
-curl -X 'POST' \
-  ''https://your_resource_name.openai.azure.com/openai/fine-tunes/ft-d3f2a65d49d34e74a80f6328ba6d8d08/cancel?api-version=2022-06-01-preview' \
+curl -X POST https://your_resource_name.openai.azure.com/openai/fine-tunes/ft-d3f2a65d49d34e74a80f6328ba6d8d08/cancel?api-version=2022-06-01-preview \
     -H "api-key: YOUR_API_KEY" 
 ```
 
@@ -856,11 +855,11 @@ GET https://{your-resource-name}.openai.azure.com/openai/files?api-version={api-
 #### Example request
 
 ```console
-curl -X 'POST'  'https://example_resource_name.openai.azure.com/openai/files?api-version=2022-06-01-preview' \
-  -H 'accept: application/json' \
-  -H 'Content-Type: multipart/form-data' \
-  -F 'purpose=fine-tune' \
-  -F 'file=@straining_file_name.jsonl'
+curl -X POST https://example_resource_name.openai.azure.com/openai/files?api-version=2022-06-01-preview \
+  -H "accept: application/json" \
+  -H "Content-Type: multipart/form-data" \
+  -F "purpose=fine-tune" \
+  -F "file=@straining_file_name.jsonl"
 ```
 
 #### Example response
@@ -901,7 +900,7 @@ GET https://{your-resource-name}.openai.azure.com/openai/files/{file_id}?api-ver
 #### Example request
 
 ```console
-curl -X 'GET'  'https://example_resource_name.openai.azure.com/openai/files/file-6ca9bd640c8e4eaa9ec922604226ab6c?api-version=2022-06-01-preview' \
+curl -X GET https://example_resource_name.openai.azure.com/openai/files/file-6ca9bd640c8e4eaa9ec922604226ab6c?api-version=2022-06-01-preview \
   -H "api-key: YOUR_API_KEY" 
 ```
 
@@ -942,7 +941,7 @@ DELETE https://{your-resource-name}.openai.azure.com/openai/files/{file_id}?api-
 
 #### Example request
 ```console
-curl -X 'DELETE'  https://example_resource_name.openai.azure.com/openai/files/file-6ca9bd640c8e4eaa9ec922604226ab6c?api-version=2022-06-01-preview \
+curl -X DELETE https://example_resource_name.openai.azure.com/openai/files/file-6ca9bd640c8e4eaa9ec922604226ab6c?api-version=2022-06-01-preview \
   -H "api-key: YOUR_API_KEY" 
 ```
 
@@ -1002,15 +1001,14 @@ POST https://{your-resource-name}.openai.azure.com/openai/files/import?api-versi
 #### Example request
 
 ```console
-curl -X 'POST' \
-  'https://example_resource_name.openai.azure.com/openai/files/files/import?api-version=2022-06-01-preview' \
+curl -X POST https://example_resource_name.openai.azure.com/openai/files/files/import?api-version=2022-06-01-preview \
   -H "api-key: YOUR_API_KEY"
-  -H 'Content-Type: application/json' \
-  -d '{
-      "purpose": "fine-tune",
-      "filename": "NAME_OF_FILE",
-      "content_url": "URL_TO_FILE"
-      }'
+  -H "Content-Type: application/json" \
+  -d "{
+      \"purpose\": \"fine-tune\",
+      \"filename\": \"NAME_OF_FILE\",
+      \"content_url\": \"URL_TO_FILE\"
+      }"
 ```
 
 ### Example response
@@ -1109,16 +1107,15 @@ POST https://{your-resource-name}.openai.azure.com/openai/deployments?api-versio
 #### Example request
 
 ```console
-curl -X 'POST' \
-  'https://example_resource_name.openai.azure.com/openai/deployments?api-version=2022-06-01-preview' \
+curl -X POST https://example_resource_name.openai.azure.com/openai/deployments?api-version=2022-06-01-preview \
   -H "api-key: YOUR_API_KEY"
-  -H 'Content-Type: application/json' \
-  -d '{
-      "model": "ada",
-      "scale_settings": {
-            "scale_type": "standard"
-          }"
-      }'
+  -H "Content-Type: application/json" \
+  -d "{
+      \"model\": \"ada\",
+      \"scale_settings\": {
+            \"scale_type\": \"standard\"
+          }
+      }"
 ```
 
 #### Example response
@@ -1162,7 +1159,7 @@ GET https://{your-resource-name}.openai.azure.com/openai/deployments/{deployment
 #### Example request
 
 ```console
-curl -X GET 'https://example_resource_name.openai.azure.com/openai/deployments/{deployment_id}?api-version=2022-06-01-preview' \
+curl -X GET https://example_resource_name.openai.azure.com/openai/deployments/{deployment_id}?api-version=2022-06-01-preview \
   -H "api-key: YOUR_API_KEY"
 ```
 #### Example response
@@ -1212,16 +1209,15 @@ PATCH https://{your-resource-name}.openai.azure.com/openai/deployments/{deployme
 #### Example request
 
 ```console
-curl -X 'PATCH' \
-  'https://example_resource_name.openai.azure.com/openai/deployments/my_personal_deployment?api-version=2022-06-01-preview' \
+curl -X PATCH  https://example_resource_name.openai.azure.com/openai/deployments/my_personal_deployment?api-version=2022-06-01-preview \
   -H "api-key: YOUR_API_KEY"
-  -H 'Content-Type: application/merge-patch+json' \
-  -d '{
-      "model": "ada",
-      "scale_settings": {
-            "scale_type": "standard"
-          }"
-      }'
+  -H "Content-Type: application/merge-patch+json" \
+  -d "{
+      \"model\": \"ada\",
+      \"scale_settings\": {
+            \"scale_type\": \"standard\"
+          }
+      }"
 ```
 
 #### Delete a deployment
@@ -1247,7 +1243,7 @@ DELETE https://{your-resource-name}.openai.azure.com/openai/deployments/{deploym
 #### Example request
 
 ```Console
-curl -X DELETE 'https://example_resource_name.openai.azure.com/openai/deployments/{deployment_id}?api-version=2022-06-01-preview' \
+curl -X DELETE https://example_resource_name.openai.azure.com/openai/deployments/{deployment_id}?api-version=2022-06-01-preview \
   -H "api-key: YOUR_API_KEY"
 ```
 
