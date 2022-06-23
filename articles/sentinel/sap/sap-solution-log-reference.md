@@ -1,6 +1,6 @@
 ---
-title: Microsoft Sentinel SAP solution - data reference | Microsoft Docs
-description: Learn about the SAP logs, tables, and functions available from the Microsoft Sentinel SAP solution.
+title: Microsoft Sentinel Threat Monitoring for SAP solution - data reference | Microsoft Docs
+description: Learn about the SAP logs, tables, and functions available from the Microsoft Sentinel Threat Monitoring for SAP solution.
 author: MSFTandrelom
 ms.author: andrelom
 ms.topic: reference
@@ -8,17 +8,17 @@ ms.custom: mvc, ignite-fall-2021
 ms.date: 02/22/2022
 ---
 
-# Microsoft Sentinel SAP solution data reference (public preview)
+# Microsoft Sentinel Threat Monitoring for SAP solution data reference (public preview)
 
 [!INCLUDE [Banner for top of topics](../includes/banner.md)]
 
 > [!IMPORTANT]
-> The Microsoft Sentinel SAP solution is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+> The Microsoft Sentinel Threat Monitoring for SAP solution is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 >
 > Some logs, noted below, are not sent to Microsoft Sentinel by default, but you can manually add them as needed. For more information, see [Define the SAP logs that are sent to Microsoft Sentinel](sap-solution-deploy-alternate.md#define-the-sap-logs-that-are-sent-to-microsoft-sentinel).
 >
 
-This article describes the functions, logs, and tables available as part of the Microsoft Sentinel SAP solution and its data connector. It is intended for advanced SAP users.
+This article describes the functions, logs, and tables available as part of the Microsoft Sentinel Threat Monitoring for SAP solution and its data connector. It is intended for advanced SAP users.
 
 ## Functions available from the SAP solution
 
@@ -139,7 +139,7 @@ SAPConnectorOverview(7d)
 
 ## Logs produced by the data connector agent
 
-This section describes the SAP logs available from the Microsoft Sentinel SAP data connector, including the table names in Microsoft Sentinel, the log purposes, and detailed log schemas. Schema field descriptions are based on the field descriptions in the relevant [SAP documentation](https://help.sap.com/).
+This section describes the SAP logs available from the Microsoft Sentinel Threat Monitoring for SAP data connector, including the table names in Microsoft Sentinel, the log purposes, and detailed log schemas. Schema field descriptions are based on the field descriptions in the relevant [SAP documentation](https://help.sap.com/).
 
 For best results, use the Microsoft Sentinel functions listed below to visualize, access, and query the data.
 
@@ -815,8 +815,8 @@ For best results, refer to these tables using the name in the **Sentinel functio
 For more information, see:
 
 - [Deploy the Microsoft Sentinel solution for SAP](deployment-overview.md)
-- [Microsoft Sentinel SAP solution detailed SAP requirements](prerequisites-for-deploying-sap-continuous-threat-monitoring.md)
-- [Deploy the Microsoft Sentinel SAP data connector with SNC](configure-snc.md)
+- [Microsoft Sentinel Threat Monitoring for SAP solution detailed SAP requirements](prerequisites-for-deploying-sap-continuous-threat-monitoring.md)
+- [Deploy the Microsoft Sentinel Threat Monitoring for SAP data connector with SNC](configure-snc.md)
 - [Expert configuration options, on-premises deployment, and SAPControl log sources](sap-solution-deploy-alternate.md)
-- [Microsoft Sentinel SAP solution: built-in security content](sap-solution-security-content.md)
-- [Troubleshooting your Microsoft Sentinel SAP solution deployment](sap-deploy-troubleshoot.md)
+- [Microsoft Sentinel Threat Monitoring for SAP solution: built-in security content](sap-solution-security-content.md)
+- [Troubleshooting your Microsoft Sentinel Threat Monitoring for SAP solution deployment](sap-deploy-troubleshoot.md)
