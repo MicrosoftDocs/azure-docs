@@ -65,8 +65,8 @@ Once the web apps are assessed, you can migrate them using the integrated migrat
 
    :::image type="content" source="./media/tutorial-migrate-webapps/select-web-apps.png" alt-text="Screenshot of Azure Migrate Web Apps screen":::
 
-    > [!NOTE]
-    > Apps with the Ready status are tagged for migration by default. Apps tagged as *Ready with conditions* can be migrated by updating **Will migrate?** to **Yes**.
+   > [!NOTE]
+   > Apps with the Ready status are tagged for migration by default. Apps tagged as *Ready with conditions* can be migrated by updating **Will migrate?** to **Yes**.
 
    - Select the web apps to migrate and select **Edit**.
 
@@ -77,7 +77,7 @@ Once the web apps are assessed, you can migrate them using the integrated migrat
    > [!NOTE]
    > Up to five App Service Plans can be migrated at a time.
 
-    :::image type="content" source="./media/tutorial-migrate-webapps/edit-multiple-details.png" alt-text="Screenshot of Azure Migrate Edit apps":::
+   :::image type="content" source="./media/tutorial-migrate-webapps/edit-multiple-details.png" alt-text="Screenshot of Azure Migrate Edit apps":::
 
     Select the **Next: App Service Plans >** button.
   1. In the **App Service Plans** section, verify the App Service Plan details.
