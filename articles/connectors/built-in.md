@@ -260,8 +260,6 @@ You can use the following built-in connectors to access specific services and sy
         \
         Connect to your Azure Storage account so that you can create, update, query, and manage tables.
     :::column-end:::
-:::row-end:::
-:::row:::
     :::column:::
         ![IBM DB2 icon][ibm-db2-icon]
         \
@@ -271,6 +269,8 @@ You can use the following built-in connectors to access specific services and sy
         \
         Connect to IBM DB2 in the cloud or on-premises. Update a row, get a table, and more.
     :::column-end:::
+:::row-end:::
+:::row:::
     :::column:::
         ![IBM Host File icon][ibm-host-file-icon]
         \
@@ -297,6 +297,8 @@ You can use the following built-in connectors to access specific services and sy
         \
         \
         Connect to your SQL Server on premises or an Azure SQL Database in the cloud so that you can manage records, run stored procedures, or perform queries.
+    :::column-end:::
+    :::column:::
     :::column-end:::
     :::column:::
     :::column-end:::
