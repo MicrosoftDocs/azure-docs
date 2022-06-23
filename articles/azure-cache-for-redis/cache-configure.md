@@ -4,9 +4,8 @@ description: Understand the default Redis configuration for Azure Cache for Redi
 author: flang-msft
 ms.service: cache
 ms.topic: conceptual
-ms.date: 06/07/2022
+ms.date: 06/23/2022
 ms.author: franlanglois 
-
 
 ---
 
@@ -23,7 +22,7 @@ This article describes the configurations available for your Azure Cache for Red
 
 [!INCLUDE [redis-cache-create](includes/redis-cache-browse.md)]
 
-Azure Cache for Redis settings are viewed and configured on the **Azure Cache for Redis** on the left using the **Resource Menu**.
+Azure Cache for Redis settings are viewed and configured using the Resource Menu.
 
 :::image type="content" source="media/cache-configure/redis-cache-settings.png" alt-text="Azure Cache for Redis Settings":::
 
@@ -169,15 +168,18 @@ The **Azure Cache for Redis Advisor** on the left displays recommendations for y
 
 :::image type="content" source="media/cache-configure/redis-cache-no-recommendations.png" alt-text="Screenshot that shows where the recommendations are displayed.":::
 
-If any conditions occur during the operations of your cache such as high memory usage, network bandwidth, or server load, an alert is displayed on the **Azure Cache for Redis** on the left.
+If any conditions occur during the operations of your cache such as imminent changes, high memory usage, network bandwidth, or server load, an alert is displayed on the in the **Overview** of the Resource menu.
+
 
 :::image type="content" source="media/cache-configure/redis-cache-recommendations-alert.png" alt-text="Screenshot that shows where alerts are displayed in the Azure Cache for Redis section.":::
+<!-- Might want a better recommendation. -->
 
-Further information can be found on the **Recommendations** on the left.
+Further information can be found on the **Recommendations** in the working pane of the Azure portal.
 
-:::image type="content" source="media/cache-configure/redis-cache-recommendations.png" alt-text="Recommendations":::)
+:::image type="content" source="media/cache-configure/redis-cache-recommendations.png" alt-text="Recommendations":::
+<!-- How do we trigger an event that causes a good recommendation -->
 
-You can monitor these metrics on the [Monitoring charts](cache-how-to-monitor.md#monitoring-charts) and [Usage charts](cache-how-to-monitor.md#usage-charts) sections of the **Azure Cache for Redis** on the left.
+You can monitor these metrics on the [Monitoring charts](cache-how-to-monitor.md#monitoring-charts) and [Usage charts](cache-how-to-monitor.md#usage-charts) sections of the Resource menu.
 
 Each pricing tier has different limits for client connections, memory, and bandwidth. If your cache approaches maximum capacity for these metrics over a sustained period of time, a recommendation is created. For more information about the metrics and limits reviewed by the **Recommendations** tool, see the following table:
 
@@ -479,7 +481,7 @@ You can securely issue commands to your Azure Cache for Redis instances using th
 >
 >
 
-To access the Redis Console, select **Console** from the **Azure Cache for Redis** on the left.
+To access the Redis Console, select **Console** from the Resource menu.
 
 :::image type="content" source="media/cache-configure/redis-console-menu.png" alt-text="Screenshot that highlights the Console button.":::
 
@@ -494,8 +496,8 @@ When using the Redis Console with a premium clustered cache, you can issue comma
 :::image type="content" source="media/cache-configure/redis-console-premium-cluster.png" alt-text="Redis console":::
 
 If you attempt to access a key that is stored in a different shard than the connected shard, you receive an error message similar to the following message:
-
-```console
+shard1>get myKey
+(error) MOVED 866 13.90.202.154:13000 (shard 0)
 shard1>get myKey
 (error) MOVED 866 13.90.202.154:13000 (shard 0)
 ```
