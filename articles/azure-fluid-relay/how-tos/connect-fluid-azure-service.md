@@ -59,7 +59,7 @@ const config = {
     "myAzureFunctionUrl" + "/api/GetAzureToken",
     { userId: "userId", userName: "Test User" }
   ),
-  serviceEndpoint: "https://myServiceEndpointUrl",
+  endpoint: "https://myServiceEndpointUrl",
   type: "remote",
 };
 
