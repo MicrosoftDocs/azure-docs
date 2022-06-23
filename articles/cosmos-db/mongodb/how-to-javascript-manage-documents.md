@@ -35,7 +35,7 @@ The preceding code snippet displays the following example console output:
 
 :::code language="console" source="~/samples-cosmosdb-mongodb-javascript/203-insert-doc/index.js" id="console_result":::
 
-## Document Id
+## Document ID
 
 If you don't provide an ID, `_id`, for your document, one is created for you as a BSON object. The value of the provided ID is accessed with the ObjectId method.
 
