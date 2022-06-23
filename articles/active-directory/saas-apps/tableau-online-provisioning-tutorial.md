@@ -69,7 +69,7 @@ Before you configure and enable automatic user provisioning, decide which users 
 This section guides you through the steps to configure the Azure AD provisioning service. Use it to create, update, and disable users or groups in Tableau Online based on user or group assignments in Azure AD.
 
 > [!TIP]
-> You also can enable SAML-based single sign-on for Tableau Online. Follow the instructions in the [Tableau Online single sign-on tutorial](tableauonline-tutorial.md). Single sign-on can be configured independently of automatic user provisioning, although these two features complement each other.
+> You also can enable SAML-based Single Sign-On for Tableau Online. Follow the instructions in the [Tableau Online single sign-on tutorial](tableauonline-tutorial.md). Single sign-on can be configured independently of automatic user provisioning, although these two features complement each other.
 
 ### Configure automatic user provisioning for Tableau Online in Azure AD
 
@@ -171,17 +171,17 @@ In June 2022, Tableau released a SCIM 2.0 connector. Completing the steps below 
 2. Navigate to your current Tableau Cloud app under Azure Active Directory > Enterprise Applications
 3. In the Properties section of your new custom app, copy the Object ID.
 
-	![Screenshot of Tableau Cloud app in the Azure portal](./media/tableau-online-provisioning-tutorial/tableau-cloud-properties.png)
+	![Screenshot of Tableau Cloud app in the Azure portal.](./media/tableau-online-provisioning-tutorial/tableau-cloud-properties.png)
 
 4. In a new web browser window, go to https://developer.microsoft.com/graph/graph-explorer and sign in as the administrator for the Azure AD tenant where your app is added. 
 
-	![Screenshot of Microsoft Graph explorer sign in page](./media/workplace-by-facebook-provisioning-tutorial/permissions.png)
+	![Screenshot of Microsoft Graph explorer sign in page.](./media/workplace-by-facebook-provisioning-tutorial/permissions.png)
 
 5. Check to make sure the account being used has the correct permissions. The permission “Directory.ReadWrite.All” is required to make this change.                              
 
-	![Screenshot of Microsoft Graph settings option](./media/workplace-by-facebook-provisioning-tutorial/permissions-2.png)                          
+	![Screenshot of Microsoft Graph settings option.](./media/workplace-by-facebook-provisioning-tutorial/permissions-2.png)                          
 
-	![Screenshot of Microsoft Graph permissions](./media/workplace-by-facebook-provisioning-tutorial/permissions-3.png)
+	![Screenshot of Microsoft Graph permissions.](./media/workplace-by-facebook-provisioning-tutorial/permissions-3.png)
 
 6. Using the ObjectID selected from the app previously, run the following command:
 
@@ -198,12 +198,12 @@ DELETE https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchroniz
 POST https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs { "templateId": "TableauOnlineSCIM" }
 ```
 
-![Screenshot of Microsoft Graph request](./media/tableau-online-provisioning-tutorial/tableau-cloud-graph.png)
+![Screenshot of Microsoft Graph request.](./media/tableau-online-provisioning-tutorial/tableau-cloud-graph.png)
 
 9. Return to the first web browser window and select the Provisioning tab for your application. Your configuration will have been reset. You can confirm the upgrade has taken place by confirming the Job ID starts with “TableauOnlineSCIM”. 
 
 10. Under the Admin Credentials section, select "Bearer Authentication" as the authentication method and enter the Tenant URL and Secret Token of the Tableau instance you wish to provision to.  
-![Screenshot of Admin Credentials in Tableau Cloud in the Azure portal](./media/tableau-online-provisioning-tutorial/tableau-cloud-creds.png)
+![Screenshot of Admin Credentials in Tableau Cloud in the Azure portal.](./media/tableau-online-provisioning-tutorial/tableau-cloud-creds.png)
 
 11. Restore any previous changes you made to the application (Authentication details, Scoping filters, Custom attribute mappings) and re-enable provisioning. 
 
