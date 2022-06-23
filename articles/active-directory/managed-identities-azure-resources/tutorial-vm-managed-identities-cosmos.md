@@ -165,8 +165,7 @@ New-AzVm `
 
 ```
 
-The user assigned managed identity should be specified using its [resourceID](how-manage-user-assigned-managed-identities.md
-). 
+The user assigned managed identity should be specified using its [resourceID](./how-manage-user-assigned-managed-identities.md).
 
 # [Azure CLI](#tab/azure-cli)
 
