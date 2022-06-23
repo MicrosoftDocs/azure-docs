@@ -1,12 +1,12 @@
 ---
-title: About the NC2 for Azure Public Preview
+title: About NC2 on Azure Public Preview
 description: Explains NC2 on Azure Public Preview and its parameters
 ms.topic: overview
 ms.subservice: baremetal-nutanix
 ms.date: 03/31/2021
 ---
 
-# About the NC2 on Azure Public Preview
+# About NC2 on Azure Public Preview
 
 The articles in this section are intended for the professionals participating in the Public Preview of NC2 on Azure.
 

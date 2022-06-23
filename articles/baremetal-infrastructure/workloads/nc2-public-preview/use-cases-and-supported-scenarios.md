@@ -36,7 +36,8 @@ A disaster can be any of the following:
 When a disaster strikes, the goal of any DR plan is to ensure operations run as normally as possible.
 While the business will be aware of the crisis, ideally, its customers and end-users shouldn't be affected.
 
-## On Demand Elasticity
+## On-demand elasticity
+
 Scale up and scale out as you like.
 We provide the flexibility that means you don't have to procure hardware yourself - with just a click of a button you can get additional nodes in the cloud nearly instantly.
 

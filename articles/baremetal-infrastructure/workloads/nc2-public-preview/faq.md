@@ -22,11 +22,11 @@ This operation should be exactly the same as on-premises in the prism portal.
 ## Is NC2 on Azure a third party or first party offering?
 
 NC2 on Azure is a 3rd-party offering on Azure Marketplace.
-However, we're working hand in hand with Nutanix to offer the best product experience
+However, we're working hand in hand with Nutanix to offer the best product experience.
 
 ## How will I be billed?
 
-Customers will be billed on a pay-as-you-go basis. Additionally, customers are able to use their existing MACC.
+Customers will be billed on a pay-as-you-go basis. Additionally, customers are able to use their existing Microsoft Azure Consumption Contract (MACC).
 
 ## What software advantages does Nutanix have over competitors?
 

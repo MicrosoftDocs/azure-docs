@@ -14,7 +14,7 @@ The following table describes the network topologies supported by each network f
 
 |Topology |Basic network features |
 | :------------------- |:---------------:|
-|Connectivity to BM in a local VNet| Yes |
+|Connectivity to BareMetal (BM) in a local VNet| Yes |
 |Connectivity to BM in a peered VNet (Same region)|Yes |
 |Connectivity to BM in a peered VNet (Cross region or global peering)|No |
 |Connectivity to a BM over ExpressRoute gateway |Yes|
