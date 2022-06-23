@@ -13,25 +13,16 @@
       href: ../iot-develop/quickstart-send-telemetry-iot-hub.md?toc=/azure/iot-hub/toc.json&bc=/azure/iot-hub/breadcrumb/toc.json
     - name: Control a device
       href: quickstart-control-device.md
+    - name: Auto-route messages using Bicep
+      displayName: ARM, Resource Manager, Template
+      href: quickstart-bicep-route-messages.md
     - name: Auto-route messages using an ARM template
       displayName: Resource Manager
       href: horizontal-arm-route-messages.md
 - name: Tutorials
   items:
-    - name: Routing messages
-      items:
-        - name: Part 1 - Configure message routing
-          items:
-            - name: Portal
-              href: tutorial-routing.md
-            - name: Azure RM template
-              href: tutorial-routing-config-message-routing-RM-template.md
-            - name: Azure CLI
-              href: tutorial-routing-config-message-routing-CLI.md
-            - name: PowerShell
-              href: tutorial-routing-config-message-routing-PowerShell.md
-        - name: Part 2 - View message routing results
-          href: tutorial-routing-view-message-routing-results.md
+    - name: Route device messages to storage
+      href: tutorial-routing.md
     - name: Message enrichments
       href: tutorial-message-enrichments.md
     - name: Use metrics and logs

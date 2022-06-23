@@ -2,7 +2,7 @@
 title: Azure Monitor Application Insights Java
 description: Application performance monitoring for Java applications running in any environment without requiring code modification. Distributed tracing and application map.
 ms.topic: conceptual
-ms.date: 06/24/2021
+ms.date: 05/02/2022
 ms.devlang: java
 ms.custom: devx-track-java
 ---
@@ -33,9 +33,16 @@ Download the [applicationinsights-agent-3.2.11.jar](https://github.com/microsoft
 
 > [!WARNING]
 > 
-> If you're upgrading from 3.0 Preview:
+> If you're upgrading from 3.2.x to 3.3.0-BETA:
+> 
+>    -  Starting from 3.3.0-BETA, `LoggingLevel` is not captured by default as part of Traces' custom dimension since that data is already captured in the `SeverityLevel` field. For details on how to re-enable this if needed, please see the [config options](./java-standalone-config.md#logginglevel)
 >
->    - Review all [configuration options](./java-standalone-config.md) carefully. The JSON structure has completely changed. The file name is now all lowercase.
+> If you're upgrading from 3.1.x:
+> 
+>    -  Starting from 3.2.0, controller "InProc" dependencies are not captured by default. For details on how to enable this, please see the [config options](./java-standalone-config.md#autocollect-inproc-dependencies-preview).
+>    - Database dependency names are now more concise with the full (sanitized) query still present in the `data` field. HTTP dependency names are now more descriptive.
+>    This change can affect custom dashboards or alerts if they relied on the previous values.
+>    For details, see the [3.2.0 release notes](https://github.com/microsoft/ApplicationInsights-Java/releases/tag/3.2.0).
 > 
 > If you're upgrading from 3.0.x:
 > 
@@ -43,11 +50,7 @@ Download the [applicationinsights-agent-3.2.11.jar](https://github.com/microsoft
 >    This change can affect custom dashboards or alerts if they relied on the previous values.
 >    For details, see the [3.1.0 release notes](https://github.com/microsoft/ApplicationInsights-Java/releases/tag/3.1.0).
 >
-> If you're upgrading from 3.1.x:
->    -  Starting from 3.2.0, controller "InProc" dependencies are not captured by default. For details on how to enable this, please see the [config options](./java-standalone-config.md#autocollect-inproc-dependencies-preview).
->    - Database dependency names are now more concise with the full (sanitized) query still present in the `data` field. HTTP dependency names are now more descriptive.
->    This change can affect custom dashboards or alerts if they relied on the previous values.
->    For details, see the [3.2.0 release notes](https://github.com/microsoft/ApplicationInsights-Java/releases/tag/3.2.0).
+
 
 #### Point the JVM to the jar file
 
@@ -211,34 +214,115 @@ Telemetry emitted by these Azure SDKs is automatically collected by default:
 
 This section explains how to modify telemetry.
 
-### Add span attributes
+### Add spans
 
-You can use `opentelemetry-api` to add attributes to spans. These attributes can include adding a custom business dimension to your telemetry. You can also use attributes to set optional fields in the Application Insights schema, such as User ID or Client IP.
-
-#### Add a custom dimension
-
-Adding one or more custom dimensions populates the _customDimensions_ field in the requests, dependencies, or exceptions table.
+You can use `opentelemetry-api` to create [tracers](https://opentelemetry.io/docs/instrumentation/java/manual/#tracing) and spans. Spans populate the dependencies table in Application Insights. The string passed in for the span's name is saved to the _target_ field within the dependency.
 
 > [!NOTE]
 > This feature is only in 3.2.0 and later.
 
 1. Add `opentelemetry-api-1.6.0.jar` to your application:
 
-    ```xml
-    <dependency>
-      <groupId>io.opentelemetry</groupId>
-      <artifactId>opentelemetry-api</artifactId>
-      <version>1.6.0</version>
-    </dependency>
-    ```
+   ```xml
+   <dependency>
+     <groupId>io.opentelemetry</groupId>
+     <artifactId>opentelemetry-api</artifactId>
+     <version>1.6.0</version>
+   </dependency>
+   ```
+
+1. Add spans in your code:
+
+   ```java
+    import io.opentelemetry.api.trace.Span;
+
+    Span span = tracer.spanBuilder("mySpan").startSpan();
+   ```
+
+### Add span events
+
+You can use `opentelemetry-api` to create span events, which populate the traces table in Application Insights. The string passed in to `addEvent()` is saved to the _message_ field within the trace.
+
+> [!NOTE]
+> This feature is only in 3.2.0 and later.
+
+1. Add `opentelemetry-api-1.6.0.jar` to your application:
+
+   ```xml
+   <dependency>
+     <groupId>io.opentelemetry</groupId>
+     <artifactId>opentelemetry-api</artifactId>
+     <version>1.6.0</version>
+   </dependency>
+   ```
+
+1. Add span events in your code:
+
+   ```java
+    import io.opentelemetry.api.trace.Span;
+
+    span.addEvent("eventName");
+   ```
+
+### Add span attributes
+
+You can use `opentelemetry-api` to add attributes to spans. These attributes can include adding a custom business dimension to your telemetry. You can also use attributes to set optional fields in the Application Insights schema, such as User ID or Client IP.
+
+#### Add a custom dimension
+
+Adding one or more custom dimensions populates the _customDimensions_ field in the requests, dependencies, traces, or exceptions table.
+
+> [!NOTE]
+> This feature is only in 3.2.0 and later.
+
+1. Add `opentelemetry-api-1.6.0.jar` to your application:
+
+   ```xml
+   <dependency>
+     <groupId>io.opentelemetry</groupId>
+     <artifactId>opentelemetry-api</artifactId>
+     <version>1.6.0</version>
+   </dependency>
+   ```
 
 1. Add custom dimensions in your code:
 
-    ```java
+   ```java
     import io.opentelemetry.api.trace.Span;
-    
-    Span.current().setAttribute("mycustomdimension", "myvalue1");
-    ```
+    import io.opentelemetry.api.common.AttributeKey;
+    import io.opentelemetry.api.common.Attributes;
+
+    Attributes attributes = Attributes.of(AttributeKey.stringKey("mycustomdimension"), "myvalue1");
+    span.setAllAttributes(attributes);
+    span.addEvent("eventName", attributes);
+   ```
+
+### Update span status and record exceptions
+
+You can use `opentelemetry-api` to update the status of a span and record exceptions.
+
+> [!NOTE]
+> This feature is only in 3.2.0 and later.
+
+1. Add `opentelemetry-api-1.6.0.jar` to your application:
+
+   ```xml
+   <dependency>
+     <groupId>io.opentelemetry</groupId>
+     <artifactId>opentelemetry-api</artifactId>
+     <version>1.6.0</version>
+   </dependency>
+   ```
+
+1. Set status to error and record an exception in your code:
+
+   ```java
+    import io.opentelemetry.api.trace.Span;
+    import io.opentelemetry.api.trace.StatusCode;
+
+    span.setStatus(StatusCode.ERROR, "errorMessage");
+    span.recordException(e);
+   ```
 
 #### Set the user ID
 
@@ -252,21 +336,21 @@ Populate the _user ID_ field in the requests, dependencies, or exceptions table.
 
 1. Add `opentelemetry-api-1.6.0.jar` to your application:
 
-    ```xml
-    <dependency>
-      <groupId>io.opentelemetry</groupId>
-      <artifactId>opentelemetry-api</artifactId>
-      <version>1.6.0</version>
-    </dependency>
-    ```
+   ```xml
+   <dependency>
+     <groupId>io.opentelemetry</groupId>
+     <artifactId>opentelemetry-api</artifactId>
+     <version>1.6.0</version>
+   </dependency>
+   ```
 
 1. Set `user_Id` in your code:
 
-    ```java
-    import io.opentelemetry.api.trace.Span;
-    
-    Span.current().setAttribute("enduser.id", "myuser");
-    ```
+   ```java
+   import io.opentelemetry.api.trace.Span;
+
+   Span.current().setAttribute("enduser.id", "myuser");
+   ```
 
 ### Get the trace ID or span ID
 
@@ -276,23 +360,23 @@ You can use `opentelemetry-api` to get the trace ID or span ID. This action can 
 > This feature is only in 3.2.0 and later.
 
 1. Add `opentelemetry-api-1.6.0.jar` to your application:
-    
-    ```xml
-    <dependency>
-      <groupId>io.opentelemetry</groupId>
-      <artifactId>opentelemetry-api</artifactId>
-      <version>1.6.0</version>
-    </dependency>
-    ```
+
+   ```xml
+   <dependency>
+     <groupId>io.opentelemetry</groupId>
+     <artifactId>opentelemetry-api</artifactId>
+     <version>1.6.0</version>
+   </dependency>
+   ```
 
 1. Get the request trace ID and the span ID in your code:
 
-    ```java
-    import io.opentelemetry.api.trace.Span;
-    
-    String traceId = Span.current().getSpanContext().getTraceId();
-    String spanId = Span.current().getSpanContext().getSpanId();
-    ```
+   ```java
+   import io.opentelemetry.api.trace.Span;
+
+   String traceId = Span.current().getSpanContext().getTraceId();
+   String spanId = Span.current().getSpanContext().getSpanId();
+   ```
 
 ## Custom telemetry
 
@@ -317,7 +401,7 @@ The following table represents currently supported custom telemetry types that y
 | Exceptions          |            |  Yes                |  Yes    |  Yes              |
 | Page views          |            |                     |  Yes    |                   |
 | Requests            |            |                     |  Yes    |  Yes              |
-| Traces              |            |  Yes                |  Yes    |                   |
+| Traces              |            |  Yes                |  Yes    |  Yes              |
 
 Currently, we're not planning to release an SDK with Application Insights 3.x.
 

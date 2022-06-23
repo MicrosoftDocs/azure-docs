@@ -7,7 +7,7 @@ ms.topic: article
 author: smannepalle
 ms.author: smannepalle
 ms.reviewer: sroy
-ms.date: 04/26/2022
+ms.date: 06/06/2022
 ---
 
 # Orders dashboard in commercial marketplace analytics
@@ -44,11 +44,74 @@ The [Orders dashboard](https://partner.microsoft.com/dashboard/insights/commerci
 
 The following sections describe how to use the Orders dashboard and how to read the data.
 
+### Download
+
+To download of the data for this dashboard, select **Download as PDF** from the **Download** list.
+
+:::image type="content" source="./media/orders-dashboard/download-as-pdf.png" alt-text="Screenshot of the Download list.":::
+
+Alternatively, you can go to the [Downloads dashboard](https://partner.microsoft.com/dashboard/insights/commercial-marketplace/analytics/downloads) to download the report.
+
+### Share
+
+To share the dashboard widgets data via email, in the top menu, select **Share**.
+
+:::image type="content" source="./media/orders-dashboard/share.png" alt-text="Screenshot of the Share button in the top menu.":::
+
+In the dialog box that appears, provide the recipient email address and message. To share the report URL, select the **Copy link** or **Share to teams** button. To take a snapshot of the charts data, select the **Copy as image** button.
+
+### What's new
+
+To learn about changes and enhancements that were made to the dashboard, select **What’s new**. The _What’s new_ side panel appears.
+
+:::image type="content" source="./media/orders-dashboard/whats-new.png" alt-text="Screenshot of the What's new button in the top menu.":::
+
+### Data refresh details
+
+To view the data source and the data refresh details, such as the frequency of the data refresh, select the ellipsis (three dots) and then select **Data refresh details**.
+
+:::image type="content" source="./media/orders-dashboard/data-refresh-details.png" alt-text="Screenshot of the Data refresh details option in the ellipsis menu.":::
+
+### Got feedback?
+
+To provide instant feedback about the report/dashboard, select the ellipsis (three dots), and then select the **Got feedback?** link.
+
+:::image type="content" source="./media/orders-dashboard/got-feedback.png" alt-text="Screenshot of the Got feedback option in the ellipsis menu.":::
+
+Provide your feedback in the dialog box that appears.
+
+> [!NOTE]
+> A screenshot is automatically sent to us with your feedback.
+
 ### Month range
 
 A month range selection is at the top-right corner of each page. Customize the output of the **Orders** page graphs by selecting a month range based on the past 6 or 12 months, or by selecting a custom month range with a maximum duration of 12 months. The default month range is six months.
 
-[ ![Illustrates the month filters on the Orders dashboard.](./media/orders-dashboard/order-workspace-filters.png) ](./media/orders-dashboard/order-workspace-filters.png#lightbox)
+[ ![Illustrates the month filters on the Orders dashboard.](./media/orders-dashboard/time-range.png) ](./media/orders-dashboard/time-range.png#lightbox)
+
+### Orders dashboard filters
+
+The page has different dashboard-level filters you can use to filter the data based on the following:
+
+- Sales Channel
+- Offer Type
+- Is Free Trial
+- Subscription Status
+- Marketplace License Type
+- Marketplace Subscription Id
+- Customer Id
+- Customer Company Name
+- Country
+- Offer Name
+
+To select the filters, in the upper-right of the page, select Filters.
+
+[ ![Screenshot of the Filters button in the top menu.](./media/orders-dashboard/filters.png) ](./media/orders-dashboard/filters.png#lightbox)
+
+Each filter is expandable with multiple options that you can select. Filter options are dynamic and based on the selected date range.
+
+:::image type="content" source="./media/orders-dashboard/filters-panel.png" alt-text="Screenshot of the Filters side panel.":::
+
 
 ### Public and Private offer
 You can choose to view subscription and order details of public offers, private offers, or both by selecting the **Public offer** sub-tab, **Private offer** sub-tab, and the **All** sub-tab respectively.
@@ -119,7 +182,7 @@ For different statuses, the _Orders_ tab provides information about the count of
 - **New**: Indicates new orders purchased by customers for the selected month range.
 - **Convert**: This indicates orders for which customers purchased an offer after its trial period was over
 - **Renewed**: This indicates orders for subscriptions that were renewed in the selected month range. These orders do not include converted orders.
-- **Cancelled**: Orders that were canceled during the selected month range. Revenue of canceled orders is calculated using billed revenue of last term before order cancellation.
+- **Canceled**: Orders that were canceled during the selected month range. Revenue of canceled orders is calculated using billed revenue of last term before order cancellation.
 - **Seats/Sites added**: Seats or Sites that were added by customers to existing subscription orders.
 - **Seats/Sites removed**:  Seats or Sites that were removed by customers from existing subscription orders. It doesn't include seats or sites that were removed due to orders cancellations.
 
@@ -189,7 +252,7 @@ This table displays a numbered list of the 500 top orders sorted by date of acqu
 | Marketplace Subscription ID | Marketplace Subscription ID | The unique identifier associated with the Azure subscription the customer used to purchase your commercial marketplace offer. For infrastructure offers, this is the customer's Azure subscription GUID. For SaaS offers, this is shown as zeros since SaaS purchases do not require an Azure subscription. | Marketplace Subscription ID |
 | MonthStartDate | Month Start Date | Month Start Date represents month of Purchase. The format is yyyy-mm-dd. | MonthStartDate |
 | Offer Type | Offer Type | The type of commercial marketplace offering. | OfferType |
-| Azure License Type | Azure License Type | The type of licensing agreement used by customers to purchase Azure. Also known as Channel. The possible values are:<ul><li>[Cloud Solution Provider](cloud-solution-providers.md)</li><li>Enterprise</li><li>Enterprise through Reseller</li><li>Pay as You Go</li><li>GTM</li></ul> | AzureLicenseType |
+| Azure License Type | Azure License Type | The type of licensing agreement used by customers to purchase Azure. Also known as Channel. The possible values are:<ul><li>Cloud Solution Provider</li><li>Enterprise</li><li>Enterprise through Reseller</li><li>Pay as You Go</li><li>GTM</li></ul> | AzureLicenseType |
 | Marketplace License Type | Marketplace License Type | The billing method of the commercial marketplace offer. The possible values are:<ul><li>Billed through Azure</li><li>Bring Your Own License</li><li>Free</li><li>Microsoft as Reseller</li></ul> | MarketplaceLicenseType |
 | SKU | SKU | The plan associated with the offer | SKU |
 | Customer Country | Customer Country/Region | The country/region name provided by the customer. Country/region could be different than the country/region in a customer's Azure subscription. | CustomerCountry |
@@ -203,9 +266,11 @@ This table displays a numbered list of the 500 top orders sorted by date of acqu
 | Customer Company Name | Customer Company Name | The company name provided by the customer. Name could be different than the city in a customer's Azure subscription. | CustomerCompanyName |
 | Order Purchase Date | Order Purchase Date | The date the commercial marketplace order was created. The format is yyyy-mm-dd. | OrderPurchaseDate |
 | Offer Name | Offer Name | The name of the commercial marketplace offering. | OfferName |
-| Is Private Offer | Is Private Offer | Indicates whether a marketplace offer is private or a public offer<ul><li>0 value indicates false</li><li>1 value indicates true</li</ul> | Is Private Offer |
-| Term Start Date | TermStartDate | Indicates the start date of a term for an order. | TermStartDate |
-| Term End Date | TermEndDate | Indicates the end date of a term for an order. | TermEndDate |
+| Is Private Offer | Is Private Offer | Indicates whether a marketplace offer is private or a public offer<ul><li>0 value indicates false</li><li>1 value indicates true</li></ul>**Note:** [Private plans are different from Private offers](isv-customer-faq.yml).  | Is Private Offer |
+| Not available | BillingTerm | Indicates the term duration of the offer purchased by the customer | BillingTerm |
+| Not available | BillingPlan | Indicates the billing frequency of the offer purchased by the customer | BillingPlan |
+| Term Start Date | TermStartDate | Indicates the start date of a term for an order | TermStartDate |
+| Term End Date | TermEndDate | Indicates the end date of a term for an order | TermEndDate |
 | Not available | purchaseRecordId | The identifier of the purchase record for an order purchase | purchaseRecordId |
 | Not available | purchaseRecordLineItemId | The identifier of the purchase record line item related to this order. | purchaseRecordLineItemId |
 | Billed Revenue USD | EstimatedCharges | The price the customer will be charged for all order units before taxation. This is calculated in customer transaction currency. In tax-inclusive countries, this price includes the tax, otherwise it does not. | EstimatedCharges |
@@ -217,7 +282,10 @@ This table displays a numbered list of the 500 top orders sorted by date of acqu
 | Trial End Date | Trial End Date | The date the trial period for this order will end or has ended. | TrialEndDate |
 | Customer ID | Customer ID | The unique identifier assigned to a customer. A customer may have zero or more Azure Marketplace subscriptions. | CustomerID |
 | Billing Account ID | Billing Account ID | The identifier of the account on which billing is generated. Map **Billing Account ID** to **customerID** to connect your Payout Transaction Report with the Customer, Order, and Usage Reports. | BillingAccountId |
+| Reference Id | ReferenceId | A key to link orders having usage details in usage report. Map this field value with the value for UsageReference key in usage report. This is applicable for SaaS with custom meters and VM software reservation offer types | ReferenceId |
 | PlanId | PlanId | The display name of the plan entered when the offer was created in Partner Center. Note that PlanId was originally a numeric number. | PlanId |
+| Auto Renew | Auto Renew | Indicates whether a subscription is due for an automatic renewal. Possible values are:<br><ul><li>TRUE: Indicates that on the TermEnd the subscription will renew automatically.</li><li>FALSE: Indicates that on the TermEnd the subscription will expire.</li><li>NULL: The product does not support renewals. Indicates that on the TermEnd the subscription will expire. This is displayed "-" on the UI</li></ul> | AutoRenew |
+| Not available | Event Timestamp | Indicates the timestamp of an order management event, such as an order purchase, cancelation, renewal, and so on | EventTimestamp |
 
 ### Orders page filters
 

@@ -1,0 +1,9 @@
+{
+    "redirections": [
+        {
+            "source_path_from_root": "/articles/static-web-apps/apis.md",
+            "redirect_url": "/azure/static-web-apps/apis-functions",
+            "redirect_document_id": false
+        }
+    ]
+}

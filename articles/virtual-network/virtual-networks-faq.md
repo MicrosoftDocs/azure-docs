@@ -68,19 +68,15 @@ Yes. For more information about public IP address ranges, see [Create a virtual 
 Yes. See [Azure limits](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits) for details. Subnet address spaces cannot overlap one another.
 
 ### Are there any restrictions on using IP addresses within these subnets?
-Yes. Azure reserves 5 IP addresses within each subnet. These are x.x.x.0-x.x.x.3 and the last address of the subnet. x.x.x.1-x.x.x.3 is reserved in each subnet for Azure services.   
-- x.x.x.0: Network address
-- x.x.x.1: Reserved by Azure for the default gateway
-- x.x.x.2, x.x.x.3: Reserved by Azure to map the Azure DNS IPs to the VNet space
-- x.x.x.255: Network broadcast address for subnets of size /25 and larger. This will be a different address in smaller subnets. 
 
-For example, for the subnet with addressing 172.16.1.128/26:
+Yes. Azure reserves the first four and last IP address for a total of 5 IP addresses within each subnet.
 
-- 172.16.1.128: Network address
-- 172.16.1.129: Reserved by Azure for the default gateway
-- 172.16.1.130, 172.16.1.131: Reserved by Azure to map the Azure DNS IPs to the VNet space
-- 172.16.1.191: Network broadcast address
+For example, the IP address range of 192.168.1.0/24 has the following reserved addresses:
 
+- 192.168.1.0 : Network address
+- 192.168.1.1 : Reserved by Azure for the default gateway
+- 192.168.1.2, 192.168.1.3 : Reserved by Azure to map the Azure DNS IPs to the VNet space
+- 192.168.1.255 : Network broadcast address.
 
 ### How small and how large can VNets and subnets be?
 The smallest supported IPv4 subnet is /29, and the largest is /2 (using CIDR subnet definitions).  IPv6 subnets must be exactly /64 in size.  
@@ -90,6 +86,12 @@ No. VNets are Layer-3 overlays. Azure does not support any Layer-2 semantics.
 
 ### Can I specify custom routing policies on my VNets and subnets?
 Yes. You can create a route table and associate it to a subnet. For more information about routing in Azure, see [Routing overview](virtual-networks-udr-overview.md#custom-routes).
+
+### What would be the behavior when I apply both NSG and UDR at subnet?
+For inbound traffic, NSG inbound rules are processed. For outbound, NSG outbound rules are processed followed by UDR rules.
+
+### What would be the behavior when I apply NSG at NIC and subnet for a VM?
+When NSGs are applied both at NIC & Subnets for a VM, subnet level NSG followed by NIC level NSG is processed for inbound and NIC level NSG followed by subnet level NSG for outbound traffic.
 
 ### Do VNets support multicast or broadcast?
 No. Multicast and broadcast are not supported.

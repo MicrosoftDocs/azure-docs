@@ -1,11 +1,11 @@
 ---
-title: Connect to a Windows Server VM 
+title: Connect to an Azure VM running Windows 
 description: Learn how to connect and sign on to a Windows VM using the Azure portal and the Resource Manager deployment model.
 author: cynthn
 ms.service: virtual-machines
 ms.workload: infrastructure-services
 ms.topic: how-to
-ms.date: 11/26/2018
+ms.date: 02/24/2022
 ms.author: cynthn 
 ms.custom: devx-track-azurepowershell
 
@@ -14,8 +14,7 @@ ms.custom: devx-track-azurepowershell
 
 **Applies to:** :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets 
 
-
-You'll use the **Connect** button in the Azure portal to start a Remote Desktop (RDP) session from a Windows desktop. First you connect to the virtual machine, and then you sign on.
+You can create a remote desktop connection to a virtual machine (VM) running Windows in Azure if you have port 3389 open on the VM.
 
 To connect to a Windows VM from a Mac, you will need to install an RDP client for Mac such as [Microsoft Remote Desktop](https://aka.ms/rdmac).
 
@@ -35,6 +34,7 @@ To connect to a Windows VM from a Mac, you will need to install an RDP client fo
 
 - Verify your VM is running. On the Overview tab, in the essentials section, verify the status of the VM is Running. To start the VM, select **Start** at the top of the page.
 ## Connect to the virtual machine
+
 1. Go to the [Azure portal](https://portal.azure.com/) to connect to a VM. Search for and select **Virtual machines**.
 2. Select the virtual machine from the list.
 3. At the beginning of the virtual machine page, select **Connect**.

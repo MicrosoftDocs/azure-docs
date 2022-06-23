@@ -134,6 +134,8 @@ Azure Attestation includes the below claims in the attestation token for all att
 - **x-ms-attestation-type**: String value representing attestation type 
 - **x-ms-policy-hash**: Hash of Azure Attestation evaluation policy computed as BASE64URL(SHA256(UTF8(BASE64URL(UTF8(policy text)))))
 - **x-ms-policy-signer**: JSON object with a "jwk” member representing the key a customer used to sign their policy. This is applicable when customer uploads a signed policy
+- **x-ms-runtime**: JSON object containing "claims" that are defined and generated within the attested environment.  This is a specialization of the “enclave held data” concept, where the “enclave held data” is specifically formatted as a UTF-8 encoding of well formed JSON
+- **x-ms-inittime**: JSON object containing “claims” that are defined and verified at initialization time of the attested environment 
 
 Below claim names are used from [IETF JWT specification](https://tools.ietf.org/html/rfc7519)
 
@@ -195,7 +197,6 @@ $maa-attestationcollateral | x-ms-sgx-collateral
 
 The following claims are additionally supported by the SevSnpVm attestation type: 
 
-- **x-ms-runtime**: JSON object containing “claims” that are defined and generated within the attested environment.  This is a specialization of the “enclave held data” concept, where the “enclave held data” is specifically formatted as a UTF-8 encoding of well formed JSON
 - **x-ms-sevsnpvm-authorkeydigest**: SHA384 hash of the author signing key 
 - **x-ms-sevsnpvm-bootloader-svn** :AMD boot loader security version number (SVN)
 - **x-ms-sevsnpvm-familyId**: HCL family identification string

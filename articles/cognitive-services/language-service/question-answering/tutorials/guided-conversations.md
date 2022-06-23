@@ -4,8 +4,8 @@ description: In this tutorial, learn how to make guided conversations with multi
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: tutorial
-author: mrbullwinkle
-ms.author: mbullwin
+author: jboback
+ms.author: jboback
 ms.date: 11/02/2021
 ms.custom: language-service-question-answering, ignite-fall-2021
 ---

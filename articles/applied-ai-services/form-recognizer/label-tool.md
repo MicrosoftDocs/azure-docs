@@ -127,11 +127,11 @@ Fill in the fields with the following values:
 In the Sample Labeling tool, projects store your configurations and settings. Create a new project and fill in the fields with the following values:
 
 * **Display Name** - the project display name
-* **Security Token** - Some project settings can include sensitive values, such as API keys or other shared secrets. Each project will generate a security token that can be used to encrypt/decrypt sensitive project settings. You can find security tokens in the Application Settings by selecting the gear icon at the bottom of the left navigation bar.
+* **Security Token** - Some project settings can include sensitive values, such as keys or other shared secrets. Each project will generate a security token that can be used to encrypt/decrypt sensitive project settings. You can find security tokens in the Application Settings by selecting the gear icon at the bottom of the left navigation bar.
 * **Source Connection** - The Azure Blob Storage connection you created in the previous step that you would like to use for this project.
 * **Folder Path** - Optional - If your source forms are located in a folder on the blob container, specify the folder name here
 * **Form Recognizer Service Uri** - Your Form Recognizer endpoint URL.
-* **API Key** - Your Form Recognizer subscription key.
+* **Key** - Your Form Recognizer key.
 * **Description** - Optional - Project description
 
 :::image type="content" source="media/label-tool/new-project.png" alt-text="New project page on Sample Labeling tool.":::
@@ -146,7 +146,7 @@ When you create or open a project, the main tag editor window opens. The tag edi
 
 ### Identify text and tables 
 
-Select **Run OCR on all files** on the left pane to get the text and table layout information for each document. The labeling tool will draw bounding boxes around each text element.
+Select **Run Layout on unvisited documents** on the left pane to get the text and table layout information for each document. The labeling tool will draw bounding boxes around each text element.
 
 The labeling tool will also show which tables have been automatically extracted. Select the table/grid icon on the left hand of the document to see the extracted table. In this quickstart, because the table content is automatically extracted, we will not be labeling the table content, but rather rely on the automated extraction.
 

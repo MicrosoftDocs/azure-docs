@@ -2,10 +2,10 @@
 title: Partner Events overview for system owners who desire to become partners
 description: Provides an overview of the concepts and general steps to become a partner. 
 ms.topic: conceptual
-ms.date: 03/31/2021
+ms.date: 04/28/2022
 ---
 
-# Partner Events overview for partners - Azure Event Grid (preview)
+# Partner Events overview for partners - Azure Event Grid
 Event Grid's **Partner Events** allows customers to **subscribe to events** that originate in a registered system using the same mechanism they would use for any other event source on Azure, such as an Azure service. Those registered systems integrate with Event Grid are known as "partners". This feature also enables customers to **send events** to partner systems that support receiving and routing events to customer's solutions/endpoints in their platform. Typically, partners are software-as-a-service (SaaS) or [ERP](https://en.wikipedia.org/wiki/Enterprise_resource_planning) providers, but they might be corporate platforms wishing to make their events available to internal teams. They purposely integrate with Event Grid to realize end-to-end customer use cases that end on Azure (customers subscribe to events sent by partner) or end on a partner system (customers subscribe to Microsoft events sent by Azure Event Grid). Customers bank on Azure Event Grid to send events published by a partner to supported destinations such as webhooks, Azure Functions, Azure Event Hubs, or Azure Service Bus, to name a few. Customers also rely on Azure Event Grid to route events that originate in Microsoft services, such as Azure Storage, Outlook, Teams, or Azure AD, to partner systems where customer's solutions can react to them. With Partner Events, customers can build event-driven solutions across platforms and network boundaries to receive or send events reliably, securely and at a scale.
 
 > [!NOTE]
@@ -59,7 +59,7 @@ Registrations are global. That is, they aren't associated with a particular Azur
   
 ### Channel
 A Channel is a nested resource to a Partner Namespace. A channel has two main purposes:
-  - It's the resource type that allows you to create partner resources on a customer's Azure subscription.  When you create a channel of type `partner topic`, a partner topic is created on a customer's Azure subscription. A partner topic is the customer's resource where events from a partner system. Similarly, when a channel of type `partner destination` is created, a partner destination is created on a customer's Azure subscription. Partner destinations are resources that represent a partner system endpoint to where events are delivered. A channel is the kind of resource, along with partner topics and partner destinations, that enable bi-directional event integration.
+  - It's the resource type that allows you to create partner resources on a customer's Azure subscription.  When you create a channel of type `partner topic`, a partner topic is created on a customer's Azure subscription. A partner topic is the customer's resource where events from a partner system. Similarly, when a channel of type `partner destination` is created, a partner destination is created on a customer's Azure subscription. Partner destinations are resources that represent a partner system endpoint to where events are delivered. A channel along with partner topics and partner destinations enables bi-directional event integration.
    
       A channel has the same lifecycle as its associated customer partner topic or destination. When a channel of type `partner topic` is deleted, for example, the associated customer's partner topic is deleted. Similarly, if the partner topic is deleted by the customer, the associated channel on your Azure subscription is deleted.
   - It's a resource that is used to route events. A channel of type ``partner topic`` is used to route events to a customer's partner topic. It supports two types of routing modes. 
@@ -90,8 +90,11 @@ A verified partner is a partner organization whose identity has been validated b
 
 Customers authorize you to create partner topics or partner destinations on their Azure subscription. The authorization is granted for a given resource group in a customer Azure subscription and it's time bound. You must create the channel before the expiration date set by the customer. You should have documentation suggesting the customer an adequate window of time for configuring your system to send or receive events and to create the channel before the authorization expires. If you attempt to create a channel without authorization or after it has expired, the channel creation will fail and no resource will be created on the customer's Azure subscription. 
 
+> [!NOTE]
+> Event Grid will start **requiring authorizations to create partner topics or partner destinations** around June 30th, 2022. You should update your documentation asking your customers to grant you the authorization before you attempt to create a channel or an event channel.
+
 >[!IMPORTANT]
->A verified partner is not an authorized partner. Even if a partner has been vetted by Microsoft, you still need to be authorized before you can create a partner topic or partner destination on the customer's Azure subscription. 
+> **A verified partner is not an authorized partner**. Even if a partner has been vetted by Microsoft, you still need to be authorized before you can create a partner topic or partner destination on the customer's Azure subscription. 
 
 ## Partner topic and partner destination activation
 
@@ -105,18 +108,18 @@ You have two options:
 
 ## References
 
-  * [Swagger](https://github.com/ahamad-MS/azure-rest-api-specs/blob/master/specification/eventgrid/resource-manager/Microsoft.EventGrid/preview/2020-04-01-preview/EventGrid.json)
+  * [Swagger](https://github.com/ahamad-MS/azure-rest-api-specs/blob/main/specification/eventgrid/resource-manager/Microsoft.EventGrid/stable/2022-06-15/EventGrid.json)
   * [ARM template](/azure/templates/microsoft.eventgrid/allversions)
-  * [ARM template schema](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2020-04-01-preview/Microsoft.EventGrid.json)
-  * [REST APIs](/azure/templates/microsoft.eventgrid/2020-04-01-preview/partnernamespaces)
+  * [ARM template schema](https://github.com/Azure/azure-resource-manager-schemas/blob/main/schemas/2022-06-15/Microsoft.EventGrid.json)
+  * [REST APIs](/rest/api/eventgrid/controlplane-version2021-10-15-preview/partner-namespaces)
   * [CLI extension](/cli/azure/eventgrid)
 
 ### SDKs
   * [.NET](https://www.nuget.org/packages/Microsoft.Azure.Management.EventGrid/5.3.1-preview)
-  * [Python](https://pypi.org/project/azure-mgmt-eventgrid/3.0.0rc6/)
-  * [Java](https://search.maven.org/artifact/com.microsoft.azure.eventgrid.v2020_04_01_preview/azure-mgmt-eventgrid/1.0.0-beta-3/jar)
-  * [Ruby](https://rubygems.org/gems/azure_mgmt_event_grid/versions/0.19.0)
-  * [JS](https://www.npmjs.com/package/@azure/arm-eventgrid/v/7.0.0)
+  * [Python](https://pypi.org/project/azure-mgmt-eventgrid/)
+  * [Java](https://search.maven.org/search?q=azure-mgmt-eventgrid)
+  * [Ruby](https://rubygems.org/gems/azure_mgmt_event_grid/)
+  * [JS](https://www.npmjs.com/package/@azure/arm-eventgrid)
   * [Go](https://github.com/Azure/azure-sdk-for-go)
 
 

@@ -58,7 +58,7 @@ To find your current federation settings, run [Get-MgDomainFederationConfigurati
 Get-MgDomainFederationConfiguration –DomainID yourdomain.com
 ```
 
-Verify any settings that might have been customized for your federation design and deployment documentation. Specifically, look for customizations in **PreferredAuthenticationProtocol**, [federatedIdpMfaBehavior](/graph/api/resources/federatedIdpMfaBehavior?view=graph-rest-beta&preserve-view=true), **SupportsMfa** (if **federatedIdpMfaBehavior** is not set), and **PromptLoginBehavior**.
+Verify any settings that might have been customized for your federation design and deployment documentation. Specifically, look for customizations in **PreferredAuthenticationProtocol**, **federatedIdpMfaBehavior**, **SupportsMfa** (if **federatedIdpMfaBehavior** is not set), and **PromptLoginBehavior**.
 
 ### Back up federation settings
 
@@ -134,7 +134,7 @@ Consider replacing AD FS access control policies with the equivalent Azure AD [C
 
 For federated domains, MFA may be enforced by Azure AD Conditional Access or by the on-premises federation provider. You can enable protection to prevent bypassing of Azure MFA by configuring the security setting **federatedIdpMfaBehavior**. Enabling the protection for a federated domain in your Azure AD tenant makes sure that Azure MFA is always performed when a federated user accesses an application that is governed by a Conditional Access policy requiring MFA. This includes performing Azure MFA even when federated identity provider has issued federated token claims that on-prem MFA has been performed. Enforcing Azure MFA every time assures that a bad actor cannot bypass Azure MFA by imitating that MFA has already been performed by the identity provider, and is highly recommended unless you perform MFA for your federated users using a third party MFA provider.
 
-The following table explains the behavior for each option. For more information, see [federatedIdpMfaBehavior](/graph/api/resources/federatedIdpMfaBehavior?view=graph-rest-beta&preserve-view=true).
+The following table explains the behavior for each option. For more information, see **federatedIdpMfaBehavior**.
 
 | Value | Description |
 | :--- | :--- |

@@ -39,7 +39,7 @@ Both methods have significant drawbacks in themselves.
 | Area of concern | Local credentials | Federation |
 |:--------------|:-------------------|:----------------------|
 | Security | - Access continues after external user terminated<br> - Usertype is “member” by default which grants too much default access | - No user level visibility  <br> - Unknown partner security posture|
-| Expense | - Password + Multi-Factor Authentication management<br> - Onboarding process<br> - Identity cleanup<br> - Overhead of running a separate directory | - Small partners cannot afford the infrastructure<br> - Small partners do not have the expertise<br> - Small Partners might only have consumer emails (none IT) |
+| Expense | - Password + Multi-Factor Authentication management<br> - Onboarding process<br> - Identity cleanup<br> - Overhead of running a separate directory | - Small partners cannot afford the infrastructure<br> - Small partners do not have the expertise<br> - Small Partners might only have consumer emails (no IT) |
 | Complexity | - Partner users need to manage an additional set of credentials | - Complexity grows with each new partner<br> - Complexity grows on partners’ side as well |
 
 
