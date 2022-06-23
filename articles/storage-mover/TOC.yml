@@ -55,7 +55,9 @@ items:
       - name: File copy errors
         href: copy-errors.md
 - name: Tutorials
-  items:      
+  items:
+    - name: InstallStorage Mover modules for PowerShell
+      href: module-install.md
     - name: Migrate an NFS share to an Azure blob container
       href: migrate-share-nfs.md
 - name: Resources
