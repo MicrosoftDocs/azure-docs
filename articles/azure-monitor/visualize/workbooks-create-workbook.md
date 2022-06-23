@@ -89,9 +89,9 @@ For example, you can query Azure Resource Health to help you view any service pr
 1. Make sure you are in **Edit** mode. Add a query by doing any one of the following:
     - Select **Add**, and **Add query** below an existing element, or at the bottom of the workbook.
     - Select the ellipses (...) to the right of the **Edit** button next to one of the elements in the workbook, then select **Add** and then **Add query**.
-1. Select the [Data source](workbooks-data-sources.md) for your query. The other fields are determined based on the data source you choose.
+1. Select the [data source](workbooks-data-sources.md) for your query. The other fields are determined based on the data source you choose.
 1. Select any other values that are required based on the data source you selected.
-1. Select the [Visualization](workbooks-visualizations.md) for your workbook.
+1. Select the [visualization](workbooks-visualizations.md) for your workbook.
 1. In the query section, enter your query, or select from a list of sample queries by selecting **Samples**, and then edit the query to your liking.
 1. Select **Run Query**.
 1. When you are sure you have the query you want in your workbook, select **Done editing**.
@@ -158,8 +158,8 @@ You can apply styles to the link element itself as well as to individual links.
 | List |:::image type="content" source="media/workbooks-create-workbook/workbooks-link-style-list.png" alt-text="Screenshot of list style workbook link.":::  | Links appear as a list of links, with no bullets.|
 | Paragraph |:::image type="content" source="media/workbooks-create-workbook/workbooks-link-style-paragraph.png" alt-text="Screenshot of paragraph style workbook link."::: | Links appear as a paragraph of links, wrapped like a paragraph of text |
 | Navigation |:::image type="content" source="media/workbooks-create-workbook/workbooks-link-style-navigation.png" alt-text="Screenshot of navigation style workbook link."::: | Links appear as links, with vertical dividers or pipes (|) between each link.|
-| Tabs |:::image type="content" source="media/workbooks-create-workbook/workbooks-link-style-tabs.png" alt-text="Screenshot of tabs style workbook link."::: | Links appear as tabs.  Each link appears as a tab, no link styling options apply to individual links.  See the [tabs](#Using-Tabs) section below for how to configure tabs.|
-| Toolbar |:::image type="content" source="media/workbooks-create-workbook/workbooks-link-style-toolbar.png" alt-text="Screenshot of toolbar style workbook link.":::| Links appear an Azure Portal styled toolbar, with icons and text.  Each link appears as a toolbar button.  See the [toolbar](#Using-Toolbars) section below for how to configure toolbars.|
+| Tabs |:::image type="content" source="media/workbooks-create-workbook/workbooks-link-style-tabs.png" alt-text="Screenshot of tabs style workbook link."::: | Links appear as tabs.  Each link appears as a tab, no link styling options apply to individual links.  See the [tabs](#using-tabs) section below for how to configure tabs.|
+| Toolbar |:::image type="content" source="media/workbooks-create-workbook/workbooks-link-style-toolbar.png" alt-text="Screenshot of toolbar style workbook link.":::| Links appear an Azure Portal styled toolbar, with icons and text.  Each link appears as a toolbar button.  See the [toolbar](#using-toolbars) section below for how to configure toolbars.|
 
 
 **Link styles**
@@ -209,7 +209,7 @@ To have your links appear styled as a toolbar, use the Toolbar style.  In toolba
 - Icon, the icon to display in the toolbar.
 - Tooltip Text, text to be displayed on the toolbar button's tooltip text. Parameters may be used in this field.
 
-:::image type="content" source="media/workbooks-create-workbook/workbooks-links-create-toolbar.png" alt-text="Screenshot of creating tabs in workbooks.":::
+:::image type="content" source="media/workbooks-create-workbook/workbooks-links-create-toolbar.png" alt-text="Screenshot of creating links styled as a toolbar in workbooks.":::
 
 If any required parameters are used in Button text, Tooltip text, or Value fields, and the required parameter is unset, the toolbar button will be disabled. For example, this can be used to disable toolbar buttons when no value is selected in another parameter/control.
 
