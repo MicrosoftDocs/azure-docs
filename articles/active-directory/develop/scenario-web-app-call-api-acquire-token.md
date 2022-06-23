@@ -1,6 +1,5 @@
 ---
-title: Get a token in a web app that calls web APIs | Azure
-titleSuffix: Microsoft identity platform
+title: Get a token in a web app that calls web APIs
 description: Learn how to acquire a token for a web app that calls web APIs
 services: active-directory
 author: jmprieur
@@ -85,6 +84,9 @@ The code for ASP.NET is similar to the code shown for ASP.NET Core:
 - From there, it builds an MSAL.NET `IConfidentialClientApplication` object.
 - Finally, it calls the `AcquireTokenSilent` method of the confidential client application.
 - If interaction is required, the web app needs to challenge the user (re-sign in) and ask for more claims.
+
+>[!NOTE]
+>The scope should be the fully qualified scope name. For example,`({api_uri}/scope)`.
 
 The following code snippet is extracted from [HomeController.cs#L157-L192](https://github.com/Azure-Samples/ms-identity-aspnet-webapp-openidconnect/blob/257c8f96ec3ff875c351d1377b36403eed942a18/WebApp/Controllers/HomeController.cs#L157-L192) in the [ms-identity-aspnet-webapp-openidconnect](https://github.com/Azure-Samples/ms-identity-aspnet-webapp-openidconnect) ASP.NET MVC code sample:
 

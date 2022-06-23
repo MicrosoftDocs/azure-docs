@@ -10,7 +10,7 @@ ms.date: 01/22/2022
 [!INCLUDE [preview note](./includes/lab-services-new-update-focused-article.md)]
 
 > [!NOTE]
-> If using a version of Azure Lab Services prior to the [April 2022 Update (preview)](lab-services-whats-new.md), see [Azure Lab Services - Administrator guide (deprecated)](administrator-guide-1.md).
+> If using a version of Azure Lab Services prior to the [April 2022 Update (preview)](lab-services-whats-new.md), see [Administrator guide when using lab accounts](administrator-guide-1.md).
 
 Information technology (IT) administrators who manage a university's cloud resources are ordinarily responsible for setting up the lab plan for their school. After they have set up a lab plan, administrators or educators create the labs that are associated with the lab plan. This article provides a high-level overview of the Azure resources that are involved and the guidance for creating them.
 

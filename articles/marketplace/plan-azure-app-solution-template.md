@@ -7,7 +7,7 @@ ms.reviewer: dannyevers
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 11/11/2021
+ms.date: 05/25/2022
 ---
 
 # Plan a solution template for an Azure application offer
@@ -39,8 +39,6 @@ Maximum file sizes supported are:
 
 - Up to 1 Gb in total compressed .zip archive size
 - Up to 1 Gb for any individual uncompressed file within the .zip archive
-
-All new Azure application offers must also include an [Azure partner customer usage attribution](azure-partner-customer-usage-attribution.md) GUID.
 
 ## Azure regions
 

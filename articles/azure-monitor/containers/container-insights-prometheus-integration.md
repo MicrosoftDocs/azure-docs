@@ -3,6 +3,7 @@ title: Configure Container insights Prometheus Integration | Microsoft Docs
 description: This article describes how you can configure the Container insights agent to scrape metrics from Prometheus with your Kubernetes cluster.
 ms.topic: conceptual
 ms.date: 04/22/2020
+ms.reviewer: aul
 ---
 
 # Configure scraping of Prometheus metrics with Container insights
@@ -148,7 +149,7 @@ Perform the following steps to configure your ConfigMap configuration file for t
     
     Example: `kubectl apply -f container-azm-ms-agentconfig.yaml`. 
 
-The configuration change can take a few minutes to finish before taking effect, and all omsagent pods in the cluster will restart. The restart is a rolling restart for all omsagent pods, not all restart at the same time. When the restarts are finished, a message is displayed that's similar to the following and includes the result: `configmap "container-azm-ms-agentconfig" created`.
+The configuration change can take a few minutes to finish before taking effect. You must restart all omsagent pods manually. When the restarts are finished, a message is displayed that's similar to the following and includes the result: `configmap "container-azm-ms-agentconfig" created`.
 
 ## Configure and deploy ConfigMaps - Azure Red Hat OpenShift v3
 

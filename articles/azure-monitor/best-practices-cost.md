@@ -76,7 +76,7 @@ See the section below on filtering data with transformations for a summary on wh
 ### Multi-homing agents
 You should be cautious with any configuration using multi-homed agents where a single virtual machine sends data to multiple workspaces since you may be incurring charges for the same data multiple times. If you do multi-home agents, ensure that you're sending unique data to each workspace.
 
-You can also collect duplicate data with a single virtual machine running both the Azure Monitor agent and Log Analytics agent, even if they're both sending data to the same workspace. While the agents can coexist, each works independently without any knowledge of the other. You should continue to use the Log Analytics agent until you [migrate to the Azure Monitor agent](logs/../agents/azure-monitor-agent-migration.md) rather than using both together unless you can ensure that each are collecting unique data.
+You can also collect duplicate data with a single virtual machine running both the Azure Monitor agent and Log Analytics agent, even if they're both sending data to the same workspace. While the agents can coexist, each works independently without any knowledge of the other. You should continue to use the Log Analytics agent until you [migrate to the Azure Monitor agent](./agents/azure-monitor-agent-migration.md) rather than using both together unless you can ensure that each are collecting unique data.
 
 See [Analyze usage in Log Analytics workspace](logs/analyze-usage.md) for guidance on analyzing your collected data to ensure that you aren't collecting duplicate data for the same machine.
 
@@ -85,7 +85,7 @@ There are multiple methods that you can use to limit the amount of data collecte
 
 * **Sampling**: [Sampling](app/sampling.md) is the primary tool you can use to tune the amount of data collected by Application Insights. Use sampling to reduce the amount of telemetry that's sent from your applications with minimal distortion of metrics.
 
-* **Limit Ajax calls**: [Limit the number of Ajax calls](app/javascript.md#configuration) that can be reported in every page view or disable Ajax reporting. Note that disabling Ajax calls will disable [JavaScript correlation](app/javascript.md#enable-correlation).
+* **Limit Ajax calls**: [Limit the number of Ajax calls](app/javascript.md#configuration) that can be reported in every page view or disable Ajax reporting. Note that disabling Ajax calls will disable [JavaScript correlation](app/javascript.md#enable-distributed-tracing).
 
 * **Disable unneeded modules**: [Edit ApplicationInsights.config](app/configuration-with-applicationinsights-config.md) to turn off collection modules that you don't need. For example, you might decide that performance counters or dependency data aren't required.
 

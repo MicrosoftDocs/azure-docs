@@ -1,5 +1,5 @@
 ---
-title: Use managed identities from a virtual machine to access Cosmos DB  | Microsoft Docs 
+title: Use managed identities from a virtual machine to access Cosmos DB
 description: Learn how to use managed identities with Windows VMs using the Azure portal, CLI, PowerShell, Azure Resource Manager template  
 author: barclayn
 manager: karenhoran
@@ -9,7 +9,8 @@ ms.workload: integration
 ms.topic: tutorial
 ms.date: 01/11/2022
 ms.author: barclayn
-ms.custom: ep-miar, devx-track-azurecli 
+ms.custom: ep-miar
+ms.tool: azure-cli, azure-powershell
 ms.devlang: azurecli
 #Customer intent: As an administrator, I want to know how to access Cosmos DB from a virtual machine using a managed identity
 ---
@@ -164,8 +165,7 @@ New-AzVm `
 
 ```
 
-The user assigned managed identity should be specified using its [resourceID](how-manage-user-assigned-managed-identities.md
-). 
+The user assigned managed identity should be specified using its [resourceID](./how-manage-user-assigned-managed-identities.md).
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -181,9 +181,9 @@ Depending on your API version, you have to take [different steps](qs-configure-t
 
 ```json
     "variables": {
-	 "identityName": "my-user-assigned"	
-		
-	},
+     "identityName": "my-user-assigned"    
+        
+    },
 ```
 
 Under the resources element, add the following entry to assign a user-assigned managed identity to your VM. Be sure to replace ```<identityName>``` with the name of the user-assigned managed identity you created.

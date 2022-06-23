@@ -92,7 +92,7 @@ uname -r
 
     If the connection was successful, you should see something similar to the following output:
 
-    ```ouput
+    ```output
     Connection to <your-storage-account> 445 port [tcp/microsoft-ds] succeeded!
     ```
 

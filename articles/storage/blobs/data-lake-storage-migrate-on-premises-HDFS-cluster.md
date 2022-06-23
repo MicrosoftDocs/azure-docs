@@ -3,7 +3,7 @@ title: Migrate from on-prem HDFS store to Azure Storage with Azure Data Box
 description: Migrate data from an on-premises HDFS store into Azure Storage (blob storage or Data Lake Storage Gen2) by using a Data Box device.
 author: normesta
 ms.service: storage
-ms.date: 02/14/2019
+ms.date: 06/16/2022
 ms.author: normesta
 ms.topic: how-to
 ms.subservice: data-lake-storage-gen2
@@ -147,11 +147,30 @@ Follow these steps to copy data via the REST APIs of Blob/Object storage to your
 
     To improve the copy speed:
 
-    - Try changing the number of mappers. (The above example uses `m` = 4 mappers.)
+    - Try changing the number of mappers. (The default number of mappers is 20. The above example uses `m` = 4 mappers.) 
+    
+    - Try `-D fs.azure.concurrentRequestCount.out=<thread_number>` \. Replace `<thread_number>` with the number of threads per mapper. The product of the number of mappers and the number of threads per mapper, `m*<thread_number>`, should not exceed 32.  
 
     - Try running multiple `distcp` in parallel.
 
     - Remember that large files perform better than small files.
+    
+    - If you have files larger than 200 GB, we recommend changing the block size to 100MB with the following parameters: 
+    
+     ```
+     hadoop distcp \ 
+    -libjars $azjars \ 
+    -Dfs.azure.write.request.size= 104857600 \ 
+    -Dfs.AbstractFileSystem.wasb.Impl=org.apache.hadoop.fs.azure.Wasb \ 
+    -Dfs.azure.account.key.<blob_service_endpoint<>=<account_key> \ 
+    -strategy dynamic \ 
+    -Dmapreduce.map.memory.mb=16384 \ 
+    -Dfs.azure.concurrentRequestCount.out=8 \ 
+    -Dmapreduce.map.java.opts=-Xmx8196m \ 
+    -m 4 \ 
+    -update \ 
+    /data/bigfile wasb://hadoop@mystorageaccount.blob.core.windows.net/bigfile
+    ```
 
 ## Ship the Data Box to Microsoft
 

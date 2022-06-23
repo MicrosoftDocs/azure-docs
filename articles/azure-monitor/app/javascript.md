@@ -5,6 +5,7 @@ ms.topic: conceptual
 ms.date: 08/06/2020
 ms.devlang: javascript
 ms.custom: devx-track-js
+ms.reviewer: mmcc
 ---
 
 # Application Insights for web pages
@@ -253,7 +254,7 @@ Cookie Configuration for instance-based cookie management added in version 2.6.0
 
 By setting `autoTrackPageVisitTime: true`, the time in milliseconds a user spends on each page is tracked. On each new PageView, the duration the user spent on the *previous* page is sent as a [custom metric](../essentials/metrics-custom-overview.md) named `PageVisitTime`. This custom metric is viewable in the [Metrics Explorer](../essentials/metrics-getting-started.md) as a "log-based metric".
 
-## Enable Correlation
+## Enable Distributed Tracing
 
 Correlation generates and sends data that enables distributed tracing and powers the [application map](../app/app-map.md), [end-to-end transaction view](../app/app-map.md#go-to-details), and other diagnostic tools.
 
@@ -329,7 +330,7 @@ Here's a sample of how to create a dynamic JS using Razor:
     src: "https://js.monitor.azure.com/scripts/b/ai.2.min.js", // The SDK URL Source
     onInit: function(appInsights) {
         var serverId = "@this.Context.GetRequestTelemetry().Context.Operation.Id";
-        appInsights.context.telemetryContext.parentID = serverId;
+        appInsights.context.telemetryTrace.parentID = serverId;
     },
     cfg: { // Application Insights Configuration
         instrumentationKey: "YOUR_INSTRUMENTATION_KEY_GOES_HERE"
