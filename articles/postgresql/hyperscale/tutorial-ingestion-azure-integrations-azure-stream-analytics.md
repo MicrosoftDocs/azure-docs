@@ -6,7 +6,7 @@ author: saimicrosoft
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: tutorial
-ms.date: 05/17/2022
+ms.date: 06/22/2022
 ---
 
 # Real-time data ingestion using Azure Stream Analytics (ASA)
@@ -30,8 +30,16 @@ Before we begin, it's assumed that you already have Azure IOT Hub provisioned an
 
 > [!NOTE]
 >
-> Below steps walk through how to ingest data from IOT Hub to Hyperscale (Citus).
-> Similar approach can be extended for other sources incl. Event Hub, Blob storage etc.
+> The steps below walk through how to ingest data from IOT Hub to Hyperscale
+> (Citus).  A similar approach can be extended for other sources, including
+> Event Hub, Blob storage etc.
+>
+> The specific data shown in this example comes from:
+>
+> 1. Creating an [Azure IoT
+>    Hub](../../iot-hub/iot-hub-create-through-portal.md)
+> 2. Generating data with the [Azure IoT Device Telemetry
+>    Simulator](https://github.com/Azure-Samples/Iot-Telemetry-Simulator)
 
 1. Open **Azure portal** and select **Create a resource** in the upper left-hand corner of the Azure portal.
 2. Select **Analytics** > **Stream Analytics job** from the results list.
