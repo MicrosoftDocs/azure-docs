@@ -312,6 +312,14 @@
       href: visual-studio-code-custom-deserializer.md
     - name: JobConfig.json fields
       href: job-config-json.md
+  - name: Analyze job with metric dimensions
+    items:
+    - name: No input for certain partition
+      href: stream-analytics-job-analysis-no-input-for-certain-partition.md
+    - name: Input data-skew
+      href: stream-analytics-job-analysis-input-data-skew.md
+    - name: Overloaded CPU and Memory
+      href: stream-analytics-job-analysis-overloaded-cpu-memory.md
   - name: Troubleshoot
     items:
     - name: Input
@@ -322,6 +330,8 @@
       href: stream-analytics-troubleshoot-query.md
     - name: Activity and resource logs
       href: stream-analytics-job-diagnostic-logs.md
+    - name: Metrics and dimensions
+      href: stream-analytics-job-metrics-nodename.md
     - name: Data errors
       href: data-errors.md
     - name: Error codes

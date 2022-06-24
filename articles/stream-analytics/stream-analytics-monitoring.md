@@ -11,13 +11,15 @@ ms.custom: seodec18
 # Understand Stream Analytics job monitoring and how to monitor queries
 
 ## Introduction: The monitor page
-The Azure portal surfaces key performance metrics that can be used to monitor and troubleshoot your query and job performance. To see these metrics, browse to the Stream Analytics job you are interested in seeing metrics for and view the **Monitoring** section on the Overview page.  
+The Azure portal surfaces key performance metrics that can be used to monitor and troubleshoot your query and job performance. To see these metrics, browse to the Stream Analytics job you are interested in seeing metrics for and view the **Monitoring** section on the **Overview** page.  
 
 ![Stream Analytics job monitoring link](./media/stream-analytics-monitoring/02-stream-analytics-monitoring-block.png)
 
-The window will appear as shown:
 
-![Stream Analytics job monitoring dashboard](./media/stream-analytics-monitoring/01-stream-analytics-monitoring.png)  
+Alternatively, browse to the **Monitoring** blade in the left panel and click the **Metrics**, then the metric page will be shown for adding the specific metric you'd like to check:
+
+![Stream Analytics job monitoring dashboard](./media/stream-analytics-monitoring/01-stream-analytics-monitoring.png)
+
 
 ## Metrics available for Stream Analytics
 | Metric                 | Definition                               |
@@ -41,6 +43,22 @@ The window will appear as shown:
 | Watermark Delay       | The maximum watermark delay across all partitions of all outputs in the job. |
 
 You can use these metrics to [monitor the performance of your Stream Analytics job](./stream-analytics-set-up-alerts.md#scenarios-to-monitor). 
+
+## Metric dimensions for Stream Analytics
+
+Stream analytics service is a distributed system, which means the job is running on many distributed computer nodes which the platform automatically manages . The input data are partitioned and allocated to different stream nodes for processing. Metrics can be split by dimensions, like Partition ID or Node name which helps troubleshoot performance issues with your job.    
+Azure Stream Analytics provides 3 important dimensions: “Logic Name”, “Partition ID”, and “Node Name” for metrics splitting and filtering
+.
+
+| Dimension                 | Definition                               | 
+| ---------------------- | ---------------------------------------- | 
+| Logic Name       | The input or output name for a given Azure Stream Analytics (ASA) job. |
+| Partition ID     | The ID of the input data partition from input source, for example, if the input source is from event hub, the partition ID is the EH partition ID. The “Partition ID” is the same as it in the output as well. |
+| Node Name        | The streaming node name which the data is processed on a streaming node. A streaming node represents a set of compute resources that is used to process your input data. |
+
+![Stream Analytics job metrics dimension](./media/stream-analytics-monitoring/05-stream-analytics-monitoring-dimension.png)
+
+To learn more about the metric dimensions, see <<THE_LINK_TO_DIMENSION_DETAILS>>
 
 ## Customizing Monitoring in the Azure portal
 You can adjust the type of chart, metrics shown, and time range in the Edit Chart settings. For details, see [How to Customize Monitoring](../azure-monitor/data-platform.md).
