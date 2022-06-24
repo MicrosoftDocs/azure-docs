@@ -190,6 +190,7 @@ WVDErrors
 >- The ResourcesAlias column in the WVDConnections table shows whether a user has connected to a full desktop or a published app. The column only shows the first app they open during the connection. Any published apps the user opens are tracked in WVDCheckpoints.
 >- The WVDErrors table shows you management errors, host registration issues, and other issues that happen while the user subscribes to a list of apps or desktops.
 >- WVDErrors helps you to identify issues that can be resolved by admin tasks. The value on ServiceError always says “false” for those types of issues. If ServiceError = “true”, you'll need to escalate the issue to Microsoft. Ensure you provide the CorrelationID for the errors you escalate.
+>- When debugging connectivity issues, in some cases client information might be missing even if the connection events completes. This applies to WVDConnections and WVDCheckpoints table.
 
 ## Next steps
 
