@@ -62,7 +62,9 @@ Before you begin to enable customer-managed key (CMK) functionality, ensure the 
      
     To configure the system-assigned identity on Azure VMware Solution private cloud with Azure CLI, call [az-resource-update](https://docs.microsoft.com/cli/azure/resource?view=azure-cli-latest#az-resource-update) and provide the variable for the private cloud resource ID that you previously retrieved.
     
-    `az resource update --ids $privateCloudId --set identity.type=SystemAssigned --api-version "2021-12-01"`
+    ```azurecli-interactive
+    az resource update --ids $privateCloudId --set identity.type=SystemAssigned --api-version "2021-12-01"
+    ```
 
 ---
 
