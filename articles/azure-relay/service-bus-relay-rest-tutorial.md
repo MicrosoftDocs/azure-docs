@@ -3,7 +3,7 @@ title: 'Tutorial: REST tutorial using Azure Relay'
 description: 'Tutorial: Build an Azure Relay host application that exposes a REST-based interface.'
 ms.topic: tutorial
 ms.custom: devx-track-csharp
-ms.date: 06/23/2021
+ms.date: 06/21/2022
 ---
 
 # Tutorial: Azure WCF Relay REST tutorial
