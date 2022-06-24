@@ -64,6 +64,8 @@ The following clients are known to be incompatible with SFTP for Azure Blob Stor
 ## Networking
 
 - To access the storage account using SFTP, your network must allow traffic on port 22.
+ 
+- Static IP addresses are not supported for storage accounts.
 
 - There's a 2 minute timeout for idle or inactive connections. OpenSSH will appear to stop responding and then disconnect. Some clients reconnect automatically.
 
