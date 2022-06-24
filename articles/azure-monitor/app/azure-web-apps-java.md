@@ -5,6 +5,7 @@ ms.topic: conceptual
 ms.date: 08/05/2021
 ms.devlang: java
 ms.custom: "devx-track-java"
+ms.reviewer: abinetabate
 ---
 
 # Application Monitoring for Azure App Service and Java
@@ -19,9 +20,7 @@ You can apply additional configurations, and then based on your specific scenari
 
 ### Auto-instrumentation through Azure portal
 
-You can turn on monitoring for your Java apps running in Azure App Service just with one click, no code change required.
-Application Insights for Java is integrated with Azure App Service on Linux - both code-based and custom containers, and with App Service on Windows for code-based apps.
-The integration adds [Application Insights Java 3.x](./java-in-process-agent.md) and you will get the telemetry auto-collected.
+You can turn on monitoring for your Java apps running in Azure App Service just with one click, no code change required. The integration adds [Application Insights Java 3.x](./java-in-process-agent.md) and you will get the telemetry auto-collected.
 
 1. **Select Application Insights** in the Azure control panel for your app service, then select **Enable**.
 

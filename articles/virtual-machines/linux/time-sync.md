@@ -6,7 +6,7 @@ ms.service: virtual-machines
 ms.collection: linux
 ms.topic: how-to
 ms.workload: infrastructure-services
-ms.date: 09/03/2021
+ms.date: 05/04/2022
 ms.author: cynthn
 ---
 
@@ -53,10 +53,7 @@ Historically, most Azure Marketplace images with Linux have been configured in o
 
 To confirm ntpd is synchronizing correctly, run the `ntpq -p` command.
 
-Starting in early calendar 2021, the most current Azure Marketplace images with Linux are being changed to use chronyd as the time sync service,
-and chronyd is configured to synchronize against the Azure host rather than an external NTP time source. The Azure host time is usually the best time source to synchronize
-against, as it is maintained very accurately and reliably, and is accessible without the variable network delays inherent in accessing an external NTP time source
-over the public internet.
+Some Azure Marketplace images with Linux are being changed to use chronyd as the time sync service, and chronyd is configured to synchronize against the Azure host rather than an external NTP time source. The Azure host time is usually the best time source to synchronize against, as it is maintained very accurately and reliably, and is accessible without the variable network delays inherent in accessing an external NTP time source over the public internet.
 
 The VMICTimeSync is used in parallel and provides two functions:
 - Immediately updates the Linux VM time-of-day clock after a host maintenance event
@@ -103,10 +100,7 @@ cat /sys/class/ptp/ptp0/clock_name
 
 This should return `hyperv`, meaning the Azure host.
 
-In Linux VMs with Accelerated Networking enabled, you may see multiple PTP devices listed because the Mellanox mlx5 driver also creates a /dev/ptp device.
-Because the initialization order can be different each time Linux boots, the PTP device corresponding to the Azure host might be /dev/ptp0 or it might be /dev/ptp1, which makes
-it difficult to configure chronyd with the correct clock source. To solve this problem, the most recent Linux images have a udev rule that creates the
-symlink /dev/ptp_hyperv to whichever /dev/ptp entry corresponds to the Azure host. Chrony should be configured to use this symlink instead of /dev/ptp0 or /dev/ptp1.
+In Linux VMs with Accelerated Networking enabled, you may see multiple PTP devices listed because the Mellanox mlx5 driver also creates a /dev/ptp device. Because the initialization order can be different each time Linux boots, the PTP device corresponding to the Azure host might be `/dev/ptp0` or it might be `/dev/ptp1`, which makes it difficult to configure `chronyd` with the correct clock source. To solve this problem, the most recent Linux images have a `udev` rule that creates the symlink `/dev/ptp_hyperv` to whichever `/dev/ptp` entry corresponds to the Azure host. Chrony should be configured to use this symlink instead of `/dev/ptp0` or `/dev/ptp1`.
 
 ### chrony
 

@@ -4,9 +4,11 @@ description: This quickstart provides several ways to connect with Azure CLI wit
 author: mksuni
 ms.author: sumuth
 ms.service: mysql
-ms.custom: mvc, devx-track-azurecli, mode-api
+ms.subservice: flexible-server
+ms.custom: mvc, mode-api
 ms.topic: quickstart
 ms.date: 03/01/2021
+ms.tool: azure-cli
 ---
 
 # Quickstart: Connect and query with Azure CLI  with Azure Database for MySQL - Flexible Server

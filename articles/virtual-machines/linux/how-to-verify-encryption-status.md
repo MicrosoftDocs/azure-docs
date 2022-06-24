@@ -1,11 +1,11 @@
 ---
 title: Verify encryption status for Linux - Azure Disk Encryption
 description: This article provides instructions on verifying the encryption status from the platform and OS levels.
-author: kailashmsft
+author: mamccrea
 ms.service: virtual-machines
 ms.subservice: disks
 ms.topic: how-to
-ms.author: kaib
+ms.author: mamccrea
 ms.date: 03/11/2020
 ms.custom: seodec18, devx-track-azurecli, devx-track-azurepowershell
 

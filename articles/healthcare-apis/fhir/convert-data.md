@@ -6,7 +6,7 @@ author: ginalee-dotcom
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: overview
-ms.date: 03/21/2022
+ms.date: 06/06/2022
 ms.author: ranku
 ms.custom: subject-rbac-steps
 ---
@@ -152,7 +152,7 @@ You can register up to 20 ACR servers in the FHIR service.
 
 Install the Azure Health Data Services CLI from Azure PowerShell if needed:
 
-```powershell
+```azurecli
 az extension add -n healthcareapis
 ```
 
@@ -160,13 +160,13 @@ Register the acr servers to FHIR service following the examples below:
 
 ##### Register a single ACR server
 
-```powershell
+```azurecli
 az healthcareapis acr add --login-servers "fhiracr2021.azurecr.io" --resource-group fhir-test --resource-name fhirtest2021
 ```
 
 ##### Register multiple ACR servers
 
-```powershell
+```azurecli
 az healthcareapis acr add --login-servers "fhiracr2021.azurecr.io fhiracr2020.azurecr.io" --resource-group fhir-test --resource-name fhirtest2021
 ```
 ### Configure ACR firewall
@@ -227,3 +227,5 @@ In this article, you've learned about the $convert-data endpoint and customize-c
  
 >[!div class="nextstepaction"]
 >[Export data](export-data.md)
+
+FHIR&#174; is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.

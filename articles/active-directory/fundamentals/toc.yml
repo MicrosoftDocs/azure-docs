@@ -77,6 +77,14 @@
         href: sync-ldap.md                
       - name: SCIM synchronization
         href: sync-scim.md
+    - name: Recoverability
+      items:
+      - name: Recoverability best practices overview
+        href: recoverability-overview.md
+      - name: Recover from deletions
+        href: recover-from-deletions.md
+      - name: Recover from misconfigurations
+        href: recover-from-misconfigurations.md
     - name: Build for resilience
       items:
       - name: Overview
@@ -191,7 +199,7 @@
         href: 9-secure-access-teams-sharepoint.md
     - name: Secure service accounts
       items:
-      - name: Securing cloud-based service accounts
+      - name: Introduction to Azure service accounts
         href: service-accounts-introduction-azure.md
       - name: Secure managed identities
         href: service-accounts-managed-identities.md
@@ -199,7 +207,7 @@
         href: service-accounts-principal.md
       - name: Govern Azure service accounts
         href: service-accounts-governing-azure.md       
-      - name: Securing on-premises service accounts
+      - name: Introduction to on-premises service accounts
         href: service-accounts-on-premises.md
       - name: Secure group MSAs
         href: service-accounts-group-managed.md
@@ -300,4 +308,4 @@
     - name: Identity data storage for Australia and New Zealand
       href: active-directory-data-storage-australia-newzealand.md
     - name: Identity data storage for Japan
-      href: active-directory-data-storage-japan.md      
+      href: active-directory-data-storage-japan.md

@@ -123,7 +123,7 @@
     - name: JSON documents
       href: ../../cosmos-db/create-sql-api-dotnet.md
     - name: Relational tables
-      href: ../../azure-sql/database/single-database-create-quickstart.md
+      href: /azure/azure-sql/database/single-database-create-quickstart
     - name: Message queues
       href: ../../storage/queues/storage-dotnet-how-to-use-queues.md
   - name: Scale

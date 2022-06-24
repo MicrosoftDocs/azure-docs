@@ -3,7 +3,7 @@ title: Microsoft Teams on Azure Virtual Desktop - Azure
 description: How to use Microsoft Teams on Azure Virtual Desktop.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 02/14/2022
+ms.date: 06/23/2022
 ms.author: helohr
 manager: femila
 ---
@@ -15,7 +15,7 @@ manager: femila
 >[!NOTE]
 >Media optimization for Microsoft Teams is only available for the following two clients:
 >
->- Windows Desktop and client on Windows 10/11 machines. Windows Desktop client version 1.2.1026.0 or later.
+>- Windows Desktop client for Windows 10 or 11 machines, version 1.2.1026.0 or later.
 >- macOS Remote Desktop client, version 10.7.7 or later (preview)
 
 > [!IMPORTANT]
@@ -32,15 +32,15 @@ Before you can use Microsoft Teams on Azure Virtual Desktop, you'll need to do t
 
 - [Prepare your network](/microsoftteams/prepare-network/) for Microsoft Teams.
 - Install the [Remote Desktop client](./user-documentation/connect-windows-7-10.md) on a Windows 10 or Windows 10 IoT Enterprise device that meets the Microsoft Teams [hardware requirements for Teams](/microsoftteams/hardware-requirements-for-the-teams-app#hardware-requirements-for-teams-on-a-windows-pc/).
-- Connect to a Windows 10/11 Multi-session or Windows 10/11 Enterprise virtual machine (VM).
+- Connect to a Windows 10 or 11 Multi-session or Windows 10 or 11 Enterprise virtual machine (VM).
 
 ## Install the Teams desktop app
 
-This section will show you how to install the Teams desktop app on your Windows 10/11 Multi-session or Windows 10/11 Enterprise VM image. To learn more, check out [Install or update the Teams desktop app on VDI](/microsoftteams/teams-for-vdi#install-or-update-the-teams-desktop-app-on-vdi).
+This section will show you how to install the Teams desktop app on your Windows 10 or 11 Multi-session or Windows 10 or 11 Enterprise VM image. To learn more, check out [Install or update the Teams desktop app on VDI](/microsoftteams/teams-for-vdi#install-or-update-the-teams-desktop-app-on-vdi).
 
 ### Prepare your image for Teams
 
-To enable media optimization for Teams, set the following registry key on the host:
+To enable media optimization for Teams, set the following registry key on the host VM:
 
 1. From the start menu, run **RegEdit** as an administrator. Navigate to **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Teams**. Create the Teams key if it doesn't already exist.
 
@@ -52,7 +52,7 @@ To enable media optimization for Teams, set the following registry key on the ho
 
 ### Install the Teams WebSocket Service
 
-Install the latest version of the [Remote Desktop WebRTC Redirector Service](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RWQ1UW) on your VM image. If you encounter an installation error, install the [latest Microsoft Visual C++ Redistributable](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) and try again.
+Install the latest version of the [Remote Desktop WebRTC Redirector Service](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4YM8L) on your VM image. If you encounter an installation error, install the [latest Microsoft Visual C++ Redistributable](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) and try again.
 
 #### Latest WebSocket Service versions
 
@@ -60,11 +60,18 @@ The following table lists the latest versions of the WebSocket Service:
 
 |Version        |Release date  |
 |---------------|--------------|
+|1.17.2205.23001|06/20/2022    |
 |1.4.2111.18001 |12/02/2021    |
 |1.1.2110.16001 |10/15/2021    |
 |1.0.2106.14001 |07/29/2021    |
 |1.0.2006.11001 |07/28/2020    |
 |0.11.0         |05/29/2020    |
+
+### Updates for version 1.17.2205.23001
+
+- Fixed an issue that made the WebRTC redirector service disconnect from Teams on Azure Virtual Desktop.
+- Added keyboard shortcut detection for Shift+Ctrl+; that lets users turn on a diagnostic overlay during calls on Teams for Azure Virtual Desktop. This feature is supported in version 1.2.3313 or later of the Windows Desktop client. 
+- Added further stability and reliability improvements to the service.
 
 #### Updates for version 1.4.2111.18001
 
@@ -165,19 +172,20 @@ Using Teams in a virtualized environment is different from using Teams in a non-
 
 ### Calls and meetings
 
-- The Teams desktop client in Azure Virtual Desktop environments doesn't support creating live events, but you can join live events. For now, we recommend you create live events from the [Teams web client](https://teams.microsoft.com) in your remote session instead.
+- The Teams desktop client in Azure Virtual Desktop environments doesn't support creating live events, but you can join live events. For now, we recommend you create live events from the [Teams web client](https://teams.microsoft.com) in your remote session instead. When watching a live event in the browser, [enable multimedia redirection (MMR) for Teams live events](multimedia-redirection.md#how-to-use-mmr-for-teams-live-events) for smoother playback.
 - Calls or meetings don't currently support application sharing. Desktop sessions support desktop sharing.
-- Give control and take control aren't currently supported.
-- Teams on Azure Virtual Desktop only supports one incoming video input at a time. This means that whenever someone tries to share their screen, their screen will appear instead of the meeting leader's screen.
 - Due to WebRTC limitations, incoming and outgoing video stream resolution is limited to 720p.
 - The Teams app doesn't support HID buttons or LED controls with other devices.
 - New Meeting Experience (NME) is not currently supported in VDI environments.
+- Teams for Azure Virtual Desktop doesn't currently support uploading custom background images.
 
 For Teams known issues that aren't related to virtualized environments, see [Support Teams in your organization](/microsoftteams/known-issues).
 
 ### Known issues for Teams for macOS (preview)
 
-You can't configure audio devices from the Teams app, and the client will automatically use the default client audio device. To switch audio devices, you'll need to configure your settings from the client audio preferences instead.
+- You can't configure audio devices from the Teams app, and the client will automatically use the default client audio device. To switch audio devices, you'll need to configure your settings from the client audio preferences instead.
+- Teams for Azure Virtual Desktop on macOS doesn't currently support background effects such as background blur and background images.
+- Give control and take control aren't currently supported.
 
 ## Collect Teams logs
 

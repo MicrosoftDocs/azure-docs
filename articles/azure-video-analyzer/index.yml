@@ -25,10 +25,6 @@ highlightedContent:
     - title: Azure Video Analyzer documentation
       itemType: overview
       url: ./video-analyzer-docs/overview.md 
-    # Card
-    - title: Azure Video Analyzer for Media documentation
-      itemType: overview
-      url: ./video-analyzer-for-media-docs/video-indexer-overview.md
 
 additionalContent:
   sections:

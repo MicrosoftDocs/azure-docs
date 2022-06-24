@@ -191,7 +191,7 @@ Some data stores in the cloud also require that you allow the IP address of the 
 
 The following cloud data stores require that you allow the IP address of the self-hosted integration runtime machine. Some of these data stores, by default, might not require allow list.
 
-* [Azure SQL Database](../azure-sql/database/firewall-configure.md)
+* [Azure SQL Database](/azure/azure-sql/database/firewall-configure)
 * [Azure Synapse Analytics](../synapse-analytics/sql-data-warehouse/create-data-warehouse-portal.md)
 * [Azure Data Lake Store](../data-lake-store/data-lake-store-secure-data.md#set-ip-address-range-for-data-access)
 * [Azure Cosmos DB](../cosmos-db/how-to-configure-firewall.md)

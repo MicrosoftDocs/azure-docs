@@ -12,7 +12,7 @@ ms.custom: template-how-to
 
 # Provision SIMs for Azure Private 5G Core Preview - Azure portal
 
-*SIM resources* represent physical SIMs or eSIMs used by user equipment (UEs) served by the private mobile network. In this how-to guide, we'll provision new SIMs for an existing private mobile network. You can also choose to assign static IP addresses and a SIM policy to the SIMs you provision. 
+*SIM* resources represent physical SIMs or eSIMs used by user equipment (UEs) served by the private mobile network. In this how-to guide, we'll provision new SIMs for an existing private mobile network. You can also choose to assign static IP addresses and a SIM policy to the SIMs you provision. 
 
 ## Prerequisites
 

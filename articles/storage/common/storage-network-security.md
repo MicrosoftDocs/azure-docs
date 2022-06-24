@@ -64,7 +64,7 @@ By default, storage accounts accept connections from clients on any network. You
    
    - To allow traffic only from specific virtual networks, select **Enabled from selected virtual networks and IP addresses**. 
     
-   - To block traffic from all networks, use PowerShell or the Azure CLI. This setting does not yet appear in the Azure Portal.  
+   - To block traffic from all networks, select **Disabled**.
 
 4. Select **Save** to apply your changes.
 
@@ -150,7 +150,7 @@ When planning for disaster recovery during a regional outage, you should create 
 
 ### Enabling access to virtual networks in other regions (preview)
 
-To enable access from a virtual network that is located in another region, register the `AllowGlobalTagsForStorage` feature in the subscription of the virtual network. Subnets in other regions which have storage service endpoints will no longer use a public IP address to communicate with the storage account. All traffic will originate from a private IP address and any IP network rules that permit traffic from those subnets will no longer have an effect.
+To enable access from a virtual network that is located in another region, register the `AllowGlobalTagsForStorage` feature in the subscription of the virtual network. All the subnets in the subscription that has the _AllowedGlobalTagsForStorage_ feature enabled will no longer use a public IP address to communicate with any storage account. Instead, all the traffic from these subnets to storage accounts will use a private IP address as a source IP. As a result, any storage accounts that use IP network rules to permit traffic from those subnets will no longer have an effect.
 
 > [!IMPORTANT]
 > This capability is currently in PREVIEW.
@@ -458,14 +458,11 @@ You can manage IP network rules for storage accounts through the Azure portal, P
 
 <a id="grant-access-specific-instances"></a>
 
-## Grant access from Azure resource instances (preview)
+## Grant access from Azure resource instances
 
 In some cases, an application might depend on Azure resources that cannot be isolated through a virtual network or an IP address rule. However, you'd still like to secure and restrict storage account access to only your application's Azure resources. You can configure storage accounts to allow access to specific resource instances of some Azure services by creating a resource instance rule.
 
 The types of operations that a resource instance can perform on storage account data is determined by the Azure role assignments of the resource instance. Resource instances must be from the same tenant as your storage account, but they can belong to any subscription in the tenant.
-
-> [!NOTE]
-> This feature is in public preview and is available in all public cloud regions.
 
 ### [Portal](#tab/azure-portal)
 
@@ -493,22 +490,6 @@ You can use PowerShell commands to add or remove resource network rules.
 
 > [!IMPORTANT]
 > Be sure to [set the default rule](#change-the-default-network-access-rule) to **deny**, or network rules have no effect.
-
-#### Install the preview module
-
-Install the latest version of the PowershellGet module. Then, close and reopen the PowerShell console.
-
-```powershell
-install-Module PowerShellGet –Repository PSGallery –Force  
-```
-
-Install **Az. Storage** preview module.
-
-```powershell
-Install-Module Az.Storage -Repository PsGallery -RequiredVersion 3.0.1-preview -AllowClobber -AllowPrerelease -Force 
-```
-
-For more information about how to install PowerShell modules, see [Install the Azure PowerShell module](/powershell/azure/install-az-ps)
 
 #### Grant access
 
@@ -573,24 +554,6 @@ $rule.ResourceAccessRules
 ### [Azure CLI](#tab/azure-cli)
 
 You can use Azure CLI commands to add or remove resource network rules.
-
-#### Install the preview extension
-
-1. Open the [Azure Cloud Shell](../../cloud-shell/overview.md), or if you've [installed](/cli/azure/install-azure-cli) the Azure CLI locally, open a command console application such as Windows PowerShell.
-
-2. Then, verify that the version of Azure CLI that you have installed is `2.13.0` or higher by using the following command.
-
-   ```azurecli
-   az --version
-   ```
-
-   If your version of Azure CLI is lower than `2.13.0`, then install a later version. See [Install the Azure CLI](/cli/azure/install-azure-cli).
-
-3. Type the following command to install the preview extension.
-
-   ```azurecli
-   az extension add -n storage-preview
-   ```
 
 #### Grant access
 
@@ -674,7 +637,7 @@ If your account does not have the hierarchical namespace feature enabled on it, 
 You can use the same technique for an account that has the hierarchical namespace feature enable on it. However, you don't have to assign an Azure role if you add the managed identity to the access control list (ACL) of any directory or blob contained in the storage account. In that case, the scope of access for the instance corresponds to the directory or file to which the managed identity has been granted access. You can also combine Azure roles and ACLs together. To learn more about how to combine them together to grant access, see [Access control model in Azure Data Lake Storage Gen2](../blobs/data-lake-storage-access-control-model.md).
 
 > [!TIP]
-> The recommended way to grant access to specific resources is to use resource instance rules. To grant access to specific resource instances, see the [Grant access from Azure resource instances (preview)](#grant-access-specific-instances) section of this article.
+> The recommended way to grant access to specific resources is to use resource instance rules. To grant access to specific resource instances, see the [Grant access from Azure resource instances](#grant-access-specific-instances) section of this article.
 
 | Service                        | Resource Provider Name                 | Purpose            |
 | :----------------------------- | :------------------------------------- | :----------------- |
@@ -697,8 +660,8 @@ You can use the same technique for an account that has the hierarchical namespac
 | Microsoft Purview                  | Microsoft.Purview/accounts             | Allows Microsoft Purview to access storage accounts. |
 | Azure Remote Rendering         | Microsoft.MixedReality/remoteRenderingAccounts | Allows access to storage accounts through Remote Rendering. |
 | Azure Site Recovery            | Microsoft.RecoveryServices/vaults      | Allows access to storage accounts through Site Recovery. |
-| Azure SQL Database             | Microsoft.Sql                          | Allows [writing](../../azure-sql/database/audit-write-storage-account-behind-vnet-firewall.md) audit data to storage accounts behind firewall. |
-| Azure Synapse Analytics        | Microsoft.Sql                          | Allows import and export of data from specific SQL databases using the COPY statement or PolyBase (in dedicated pool), or the `openrowset` function and external tables in serverless pool. [Learn more](../../azure-sql/database/vnet-service-endpoint-rule-overview.md). |
+| Azure SQL Database             | Microsoft.Sql                          | Allows [writing](/azure/azure-sql/database/audit-write-storage-account-behind-vnet-firewall) audit data to storage accounts behind firewall. |
+| Azure Synapse Analytics        | Microsoft.Sql                          | Allows import and export of data from specific SQL databases using the COPY statement or PolyBase (in dedicated pool), or the `openrowset` function and external tables in serverless pool. [Learn more](/azure/azure-sql/database/vnet-service-endpoint-rule-overview). |
 | Azure Stream Analytics         | Microsoft.StreamAnalytics              | Allows data from a streaming job to be written to Blob storage. [Learn more](../../stream-analytics/blob-output-managed-identity.md). |
 | Azure Synapse Analytics        | Microsoft.Synapse/workspaces           | Enables access to data in Azure Storage from Azure Synapse Analytics. |
 

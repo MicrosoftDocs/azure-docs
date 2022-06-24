@@ -70,7 +70,7 @@ The following table describes the enrichments featured in the **UsersInsights** 
 | **Account display name**<br>*(AccountDisplayName)* | The account display name of the user. | Admin, Hayden Cook |
 | **Account domain**<br>*(AccountDomain)* | The account domain name of the user. |  |
 | **Account object ID**<br>*(AccountObjectID)* | The account object ID of the user. | a58df659-5cab-446c-9dd0-5a3af20ce1c2 |
-| **Blast radius**<br>*(BlastRadius)* | The blast radius is calculated based on several factors: the position of the user in the org tree, and the user's Azure Active Directory roles and permissions. | Low, Medium, High |
+| **Blast radius**<br>*(BlastRadius)* | The blast radius is calculated based on several factors: the position of the user in the org tree, and the user's Azure Active Directory roles and permissions. User must have *Manager* property populated in Azure Active Directory for *BlastRadius* to be calculated. | Low, Medium, High |
 | **Is dormant account**<br>*(IsDormantAccount)* | The account has not been used for the past 180 days. | True, False |
 | **Is local admin**<br>*(IsLocalAdmin)* | The account has local administrator privileges. | True, False |
 | **Is new account**<br>*(IsNewAccount)* | The account was created within the past 30 days. | True, False |

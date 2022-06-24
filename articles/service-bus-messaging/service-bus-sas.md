@@ -2,7 +2,7 @@
 title: Azure Service Bus access control with Shared Access Signatures
 description: Overview of Service Bus access control using Shared Access Signatures overview, details about SAS authorization with Azure Service Bus.
 ms.topic: article
-ms.date: 04/14/2022
+ms.date: 04/26/2022
 ms.devlang: csharp
 ms.custom: devx-track-csharp
 ---
@@ -48,7 +48,11 @@ A namespace or entity policy can hold up to 12 Shared Access Authorization rules
 
 An authorization rule is assigned a *Primary Key* and a *Secondary Key*. These keys are cryptographically strong keys. Don't lose them or leak them - they'll always be available in the [Azure portal][Azure portal]. You can use either of the generated keys, and you can regenerate them at any time. If you regenerate or change a key in the policy, all previously issued tokens based on that key become instantly invalid. However, ongoing connections created based on such tokens will continue to work until the token expires.
 
-When you create a Service Bus namespace, a policy rule named **RootManageSharedAccessKey** is automatically created for the namespace. This policy has Manage permissions for the entire namespace. It's recommended that you treat this rule like an administrative **root** account and don't use it in your application. You can create more policy rules in the **Configure** tab for the namespace in the portal, via PowerShell or Azure CLI.
+When you create a Service Bus namespace, a policy rule named **RootManageSharedAccessKey** is automatically created for the namespace. This policy has Manage permissions for the entire namespace. It's recommended that you treat this rule like an administrative **root** account and don't use it in your application. You can create more policy rules in the **Configure** tab for the namespace in the portal, via PowerShell or Azure CLI. 
+
+It is recommended that you periodically regenerate the keys used in the [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) object. The primary and secondary key slots exist so that you can rotate keys gradually. If your application generally uses the primary key, you can copy the primary key into the secondary key slot, and only then regenerate the primary key. The new primary key value can then be configured into the client applications, which have continued access using the old primary key in the secondary slot. Once all clients are updated, you can regenerate the secondary key to finally retire the old primary key.
+
+If you know or suspect that a key is compromised and you have to revoke the keys, you can regenerate both the [PrimaryKey](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) and the [SecondaryKey](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) of a [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule), replacing them with new keys. This procedure invalidates all tokens signed with the old keys.
 
 ## Best practices when using SAS
 When you use shared access signatures in your applications, you need to be aware of two potential risks:
@@ -119,9 +123,9 @@ To regenerate primary and secondary keys in the **Azure portal**, follow these s
 
     :::image type="content" source="./media/service-bus-sas/regenerate-keys.png" alt-text="Screenshot of SAS Policy page with Regenerate options selected.":::
 
-If you are using **Azure PowerShell**, use the [`New-AzServiceBusKey`](/powershell/module/az.servicebus/new-azservicebuskey) cmdlet to regenerate primary and secondary keys for a Service Bus namespace. With PowerShell, you can also specify values for primary and secondary keys that are being generated, by using the `-KeyValue` parameter. 
+If you are using **Azure PowerShell**, use the [`New-AzServiceBusKey`](/powershell/module/az.servicebus/new-azservicebuskey) cmdlet to regenerate primary and secondary keys for a Service Bus namespace. You can also specify values for primary and secondary keys that are being generated, by using the `-KeyValue` parameter. 
 
-If you are using **Azure CLI**, use the [`az servicebus namespace authorization-rule keys renew`](/cli/azure/servicebus/namespace/authorization-rule/keys#az-servicebus-namespace-authorization-rule-keys-renew) command to regenerate primary and secondary keys for a Service Bus namespace.
+If you are using **Azure CLI**, use the [`az servicebus namespace authorization-rule keys renew`](/cli/azure/servicebus/namespace/authorization-rule/keys#az-servicebus-namespace-authorization-rule-keys-renew) command to regenerate primary and secondary keys for a Service Bus namespace. You can also specify values for primary and secondary keys that are being generated, by using the `--key-value` parameter. 
     
 ## Shared Access Signature authentication with Service Bus
 
