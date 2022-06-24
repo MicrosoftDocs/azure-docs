@@ -630,7 +630,7 @@ You'll use the following files in the rest of this tutorial:
 
 ## Verify ownership of the root certificate
 
-For DPS to be able to validate the device's certificate chain during authentication, you must upload and verify ownership of the root CA certificate. Because you created the root CA certificate in the last section, you'll auto-verify that it's valid when you upload it. You can also manually verify the certificate if you're using a CA certificate from a 3rd-party. To learn more about verifying CA certificates, see [How to do proof-of-possession for X.509 CA certificates with your Device Provisioning Service](how-to-verify-certificates.md).
+For DPS to be able to validate the device's certificate chain during authentication, you must upload and verify ownership of the root CA certificate. Because you created the root CA certificate in the last section, you'll auto-verify that it's valid when you upload it. Alternatively, you can do manual verification of the certificate if you're using a CA certificate from a 3rd-party. To learn more about verifying CA certificates, see [How to do proof-of-possession for X.509 CA certificates with your Device Provisioning Service](how-to-verify-certificates.md).
 
 To add the root CA certificate, follow these steps:
 
