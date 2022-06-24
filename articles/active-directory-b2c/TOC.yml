@@ -183,7 +183,7 @@
          href: enable-authentication-web-api.md
        - name: Secure API Management API
          href: secure-api-management.md
-         displayName: apim, api management, migrate, b2clogin.com 
+         displayName: api, api management, migrate, b2clogin.com 
     - name: Microsoft Power Apps
       href: /powerapps/maker/portals/configure/configure-azure-ad-b2c-provider
     - name: SAML application
@@ -508,6 +508,8 @@
         href: partner-n8identity.md
       - name: Saviynt 
         href: partner-saviynt.md
+      - name: WhoIAM Rampart
+        href: partner-whoiam-rampart.md
   - name: Logs 
     items:
     - name: Audit logs

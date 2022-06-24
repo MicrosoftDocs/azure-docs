@@ -3,13 +3,13 @@ title: Azure Load Balancer Floating IP configuration
 description: Overview of Azure Load Balancer Floating IP
 services: load-balancer
 documentationcenter: na
-author: greg-lindsay
+author: mbender-ms
 ms.service: load-balancer
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/2/2021
-ms.author: greglin
+ms.author: mbender
 
 ---
 
