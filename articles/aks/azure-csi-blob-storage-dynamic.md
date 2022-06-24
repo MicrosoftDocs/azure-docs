@@ -4,7 +4,7 @@ titleSuffix: Azure Kubernetes Service
 description: Learn how to dynamically create a persistent volume with Azure Blob storage for use with multiple concurrent pods in Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
-ms.date: 06/17/2022
+ms.date: 06/24/2022
 
 ---
 
@@ -145,5 +145,5 @@ The following YAML creates a pod that uses the persistent volume claim my-blobst
 [kubernetes-secret]: https://kubernetes.io/docs/concepts/configuration/secret/
 [sas-tokens]: ../storage/common/storage-sas-overview.md
 [mount-blob-storage-nfs]: ../storage/blobs/network-file-system-protocol-support-how-to.md
-[azure-csi-blob-storage-static]: azure-csi-blob-storage-manual.md
+[azure-csi-blob-storage-static]: azure-csi-blob-storage-static.md
 [blob-storage-csi-driver]: azure-blob-csi.md

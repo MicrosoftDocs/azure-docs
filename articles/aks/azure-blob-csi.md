@@ -3,7 +3,7 @@ title: Use Container Storage Interface (CSI) driver for Azure Blob storage on Az
 description: Learn how to use the Container Storage Interface (CSI) driver for Azure Blob storage (preview) in an Azure Kubernetes Service (AKS) cluster.
 services: container-service
 ms.topic: article
-ms.date: 06/17/2021
+ms.date: 06/24/2021
 author: mgoedtel
 
 ---
@@ -32,7 +32,8 @@ Azure Blob storage CSI driver (preview) supports the following features:
 
 ## Before you begin
 
-The Azure CLI version 2.xx.xx or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
+- The Azure CLI version 2.xx.xx or later. Run `az --version` to find the version, and run `az upgrade` to upgrade the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
+- Install the aks-preview Azure CLI extension version 0.5.85 or later.
 
 ## Install the Azure CLI aks-preview extension
 
@@ -48,12 +49,44 @@ To upgrade the extension to the latest version, run the following command:
 az extension update --name aks-preview
 ```
 
-## Enable Blob storage CSI driver (preview) using the Azure CLI
+## Enable the Blob storage CSI driver (preview) using the Azure CLI
 
-To enable the CSI driver (preview) using the Azure CLI, run the following command:
+To register the CSI driver (preview) using the Azure CLI, run the following command:
 
 ```azurecli
-az feature register -name EnableBlobCSIDriver --namespace Microsoft.ContainerService
+az feature register --name EnableBlobCSIDriver --namespace Microsoft.ContainerService 
+```
+
+To register the provider, run the following command:
+
+```azurecli
+az provider register -n Microsoft.ContainerService
+```
+
+## Enable CSI driver on a new or existing AKS cluster
+
+Using the Azure CLI, you can enable the Blob storage CSI driver on a new or existing AKS cluster before you configure a persistent volume for use by pods in the cluster.
+
+To enable the driver on a new cluster, include the `--enable-blob-driver` parameter with the `az aks create` command as shown in the following example:
+
+```azurecli
+az aks create --enable-blob-driver -n myAKSCluster -g myResourceGroup
+```
+
+To enable the driver on an existing cluster, include the `--enable-blob-driver` parameter with the `az aks update` command as shown in the following example:
+
+```azurecli
+az aks update --enable-blob-driver -n myAKSCluster -g myResourceGroup
+```
+
+## Disable CSI driver on a new or existing AKS cluster
+
+Using the Azure CLI, you can disable the Blob storage CSI driver on an existing AKS cluster after you remove the persistent volume from the cluster.
+
+To disable the driver on an existing cluster, include the `--disable-blob-driver` parameter with the `az aks update` command as shown in the following example:
+
+```azurecli
+az aks update --disable-blob-driver -n myAKSCluster -g myResourceGroup
 ```
 
 ## Use a persistent volume with Azure Blob storage
@@ -222,4 +255,4 @@ storageclass.storage.k8s.io/blob-fuse created
 [use-tags]: use-tags.md
 [az-tags]: ../azure-resource-manager/management/tag-resources.md
 [azure-csi-blob-storage-dynamic]: azure-csi-blob-storage-dynamic.md
-[azure-csi-blob-storage-static]: azure-csi-blob-storage-manual.md
+[azure-csi-blob-storage-static]: azure-csi-blob-storage-static.md

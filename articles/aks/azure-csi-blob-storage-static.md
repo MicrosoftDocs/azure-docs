@@ -4,7 +4,7 @@ titleSuffix: Azure Kubernetes Service
 description: Learn how to create a static persistent volume with Azure Blob storage for use with multiple concurrent pods in Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
-ms.date: 06/17/2022
+ms.date: 06/24/2022
 
 ---
 
@@ -123,7 +123,7 @@ The following example demonstrates how to mount a Blob storage container using t
 2. Run the following command to create the persistent volume using the `kubectl create` command referencing the YAML file created earlier:
 
     ```bash
-    kubectl create -f pv-blobfuse-container.yaml
+    kubectl create -f statfulset-nfs.yaml
     ```
 
 ## Mount Blob storage as a volume using Blobfuse
@@ -161,7 +161,7 @@ The following example demonstrates how to mount a Blob storage container using B
 2. Run the following command to create the storage class using the `kubectl create` command referencing the YAML file created earlier:
 
     ```bash
-    kubectl create -f storageclass-blobfuse-existing-container.yaml
+    kubectl create -f storageclass-blobfuse-container.yaml
     ```
 
 3. Create a `pv-blobfuse-container.yaml` file with a *PersistentVolume*. For example:
@@ -246,7 +246,7 @@ Kubernetes needs credentials to access the Blob storage container created earlie
 3. Run the following command to create the storage class using the `kubectl create` command referencing the YAML file created earlier:
 
     ```bash
-    kubectl create -f pv-blobfuse-existing-container.yaml
+    kubectl create -f pv-blobfuse-container.yaml
     ```
 
 4. Create a `pvc-blobfuse-container.yaml` file with a *PersistentVolume*. For example:
