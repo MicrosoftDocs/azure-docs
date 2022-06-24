@@ -242,7 +242,7 @@ To copy data from Salesforce Service Cloud, the following properties are support
 ```
 
 > [!Note]
-> Salesforce source doesn't support proxy settings in the self-hosted integration runtime, but sink does.
+> Salesforce Service Cloud source doesn't support proxy settings in the self-hosted integration runtime, but sink does.
 
 ### Salesforce Service Cloud as a sink type
 
