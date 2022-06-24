@@ -195,7 +195,7 @@ Run the [az ad app federated-credential create](/cli/azure/ad/app/federated-cred
 
 The *id* parameter specifies the object ID of the application.  The *parameters* parameter specifies the parameters, in JSON format, for creating the federated identity credential.
 
-### GitHub Actions 
+### GitHub Actions example
 
 The *name* specifies the name of your federated identity credential.
 
