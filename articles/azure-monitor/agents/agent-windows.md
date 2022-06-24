@@ -16,8 +16,7 @@ This article provides details on installing the Log Analytics agent on Windows c
 
 The installation methods described in this article are typically used for virtual machines on-premises or in other clouds. See [Installation options](./log-analytics-agent.md#installation-options) for more efficient options you can use for Azure virtual machines.
 
->[!IMPORTANT]
->The Log Analytics agents are on a **deprecation path** and will no longer be supported after **August 31, 2024**. If you use the Log Analytics agents to ingest data to Azure Monitor, make sure to [migrate to the new Azure Monitor agent](./azure-monitor-agent-migration.md) prior to that date.  
+[!INCLUDE [Log Analytics agent deprecation](../../../includes/log-analytics-agent-deprecation.md)]
 
 > [!NOTE]
 > Installing the Log Analytics agent will typically not require you to restart the machine.  
