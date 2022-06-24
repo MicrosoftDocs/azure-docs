@@ -141,9 +141,9 @@ Examples:
 | --- | --- | --- | --- | --- |
 | HMaster |Head nodes |16000 |&nbsp; |&nbsp; |
 | HMaster info Web UI |Head nodes |16010 |HTTP |The port for the HBase Master web UI |
-| Region server |All worker nodes |16020 ||&nbsp;|
-| &nbsp; |&nbsp; | 2181 ||The port that clients use to connect to ZooKeeper |
-|||16030||UI listening port (private within cluster only as others)|
+|Region server|All worker nodes |16020 ||&nbsp;|
+|Region server info Web UI&nbsp;|&nbsp;All worker nodes |16030|HTTP|The port for the HBase Region server Web UI|
+||| 2181 ||The port that clients use to connect to ZooKeeper |
 
 ### Kafka ports
 
