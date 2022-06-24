@@ -132,7 +132,7 @@ This section applies to applications that use another SQL database as its underl
 
 ## Confirm Azure AD has users for each user from the application
 
-Now that you have a list of all the users obtained from the application, you'll next match those users from the application's data store with users in Azure AD.  Before proceeding, ensure that you have reviewed the section on [matching users in the source and target systems](/azure/active-directory/app-provisioning/customize-application-attributes#matching-users-in-the-source-and-target--systems) as you'll subsequently configure Azure AD provisioning with equivalent mappings.  That step will allow Azure AD provisioning to query the application's data store with the same matching rules.
+Now that you have a list of all the users obtained from the application, you'll next match those users from the application's data store with users in Azure AD.  Before proceeding, ensure that you have reviewed the section on [matching users in the source and target systems](/azure/active-directory/app-provisioning/customize-application-attributes#matching-users-in-the-source-and-target--systems) as you'll configure Azure AD provisioning with equivalent mappings afterwards.  That step will allow Azure AD provisioning to query the application's data store with the same matching rules.
 
 ### Retrieve the IDs of the users in Azure AD
 
