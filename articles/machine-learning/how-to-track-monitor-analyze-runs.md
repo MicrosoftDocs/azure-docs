@@ -33,7 +33,7 @@ This article shows how to do the following tasks:
 > * If you're looking for information on monitoring training jobs from the CLI or SDK v2, see [Track experiments with MLflow and CLI v2](how-to-use-mlflow-cli-runs.md).
 > * If you're looking for information on monitoring the Azure Machine Learning service and associated Azure services, see [How to monitor Azure Machine Learning](monitor-azure-machine-learning.md).
 >
-> If you're looking for information on monitoring models deployed as web services, see [Collect model data](how-to-enable-data-collection.md) and [Monitor with Application Insights](how-to-enable-app-insights.md).
+> If you're looking for information on monitoring models deployed as web services, see [Collect model data](how-to-enable-data-collection.md) and [Monitor with Application Insights](how-to-enable-app-insights.md)F.
 
 ## Prerequisites
 
@@ -122,7 +122,7 @@ To cancel a job in the studio, using the following steps:
     ![Screenshot of diagnostic settings for email notification](./media/how-to-track-monitor-analyze-runs/diagnostic-setting.png)
 
 1. In the Diagnostic Setting, 
-    1. under the **Category details**, select the **AmlJobStatusChangedEvent**. 
+    1. under the **Category details**, select the **AmlRunStatusChangedEvent**. 
     1. In the **Destination details**, select the **Send to Log Analytics workspace**  and specify the **Subscription** and **Log Analytics workspace**. 
 
     > [!NOTE]
