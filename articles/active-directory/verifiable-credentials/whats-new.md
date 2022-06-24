@@ -6,7 +6,7 @@ manager: rkarlin
 ms.service: decentralized-identity
 ms.subservice: verifiable-credentials
 ms.topic: reference
-ms.date: 05/10/2022
+ms.date: 06/24/2022
 ms.custom: references_regions
 ms.author: barclayn
 
@@ -23,8 +23,8 @@ This article lists the latest features, improvements, and changes in the Microso
 ## June 2022
 
 In June, we introduced a set of new preview features:
-- Web as a new, default, trust system that users' can choose from when [onbording](verifiable-credentials-configure-tenant.md#set-up-verifiable-credentials) a tenant. Web means you tenant will use [did:web](https://w3c-ccg.github.io/did-method-web/). ION is still available as a trust system.
-- [Quickstarts](how-to-use-quickstart.md) as a new way to create Managed Credentials. Managed Credentials no longer use of Azure Storage to store the Display & Rules JSON definitions. You will need to migrate your Azure Storaged based credentials to become Managed Credentials and we will provide instructions shortly.
+- Web as a new, default, trust system that users' can choose when [onboarding](verifiable-credentials-configure-tenant.md#set-up-verifiable-credentials) a tenant. Web means your tenant uses [did:web](https://w3c-ccg.github.io/did-method-web/) as its trust system. ION is still available.
+- [Quickstarts](how-to-use-quickstart.md) as a new way to create Managed Credentials. Managed Credentials no longer use of Azure Storage to store the Display & Rules JSON definitions. You need to migrate your Azure Storage based credentials to become Managed Credentials and we'll provide instructions shortly.
 - Managed Credential [Quickstart for Verifiable Credentials of type VerifiedEmployee](how-to-use-quickstart-verifiedemployee.md) with directory based claims from your tenant.
 - Updated documentation that describes the different ways to use the [Quickstarts](how-to-use-quickstart.md) and a [Rules and Display definition model](rules-and-display-definitions-model.md).  
 
@@ -47,7 +47,7 @@ Starting next month, we are rolling out exciting changes to the subscription req
 
 We are rolling out some breaking changes to our service. These updates require Microsoft Entra Verified ID service reconfiguration. End-users need to have their verifiable credentials reissued.
 
-- The Microsoft Entra Verified ID service can now store and handle data processing in the Azure European region. [More information](whats-new.md?#azure-ad-verifiable-credentials-available-in-europe)
+- The Microsoft Entra Verified ID service can now store and handle data processing in the Azure European region.
 - Microsoft Entra Verified ID customers can take advantage of enhancements to credential revocation. These changes add a higher degree of privacy through the implementation of the [W3C Status List 2021](https://w3c-ccg.github.io/vc-status-list-2021/) standard. [More information](whats-new.md?#credential-revocation-with-enhanced-privacy)
 - We made updates to Microsoft Authenticator that change the interaction between the Issuer of a verifiable credential and the user presenting the verifiable credential. This update forces all Verifiable Credentials to be reissued in Microsoft Authenticator for Android. [More information](whats-new.md?#microsoft-authenticator-did-generation-update)
 
@@ -86,6 +86,7 @@ To confirm which endpoint you should use, we recommend checking your Azure AD te
 The Azure AD Verifiable Credential service supports the [W3C Status List 2021](https://w3c-ccg.github.io/vc-status-list-2021/) standard. Each Issuer tenant now has an [Identity Hub](https://identity.foundation/identity-hub/spec/) endpoint used by verifiers to check on the status of a credential using a privacy-respecting mechanism. The identity hub endpoint for the tenant is also published in the DID document. This feature replaces the current status endpoint.
 
 To uptake this feature follow the next steps:
+
 1. [Check if your tenant has the Hub endpoint](verifiable-credentials-faq.md#how-can-i-check-if-my-tenant-has-the-new-hub-endpoint).
     1. If so, go to the next step.
     1. If not, [reconfigure the Verifiable Credentials service](verifiable-credentials-faq.md?#how-do-i-reset-the-azure-ad-verifiable-credentials-service) in your tenant and go to the next step.
@@ -131,7 +132,7 @@ We are making protocol updates in Microsoft Authenticator to support Single Long
 - We added [Postman collections](https://github.com/Azure-Samples/active-directory-verifiable-credentials/tree/main/Postman) to our samples as a quick start to start using the Request Service REST API.
 - New sample added that demonstrates the integration of [Microsoft Entra Verified ID with Azure AD B2C](https://github.com/Azure-Samples/active-directory-verifiable-credentials/tree/main/B2C).
 - Sample for setting up the Microsoft Entra Verified ID services using [PowerShell and an ARM template](https://github.com/Azure-Samples/active-directory-verifiable-credentials/tree/main/ARM).
-- Sample Verifiable Credential configuration files to show sample cards for [IDToken](https://github.com/Azure-Samples/active-directory-verifiable-credentials/tree/main/CredentialFiles/IDToken), [IDTokenHit](https://github.com/Azure-Samples/active-directory-verifiable-credentials/tree/main/CredentialFiles/IDTokenHint) and [Self-attested](https://github.com/Azure-Samples/active-directory-verifiable-credentials/tree/main/CredentialFiles/IDTokenHint) claims.
+- Sample Verifiable Credential configuration files to show sample cards for [ID Token](https://github.com/Azure-Samples/active-directory-verifiable-credentials/tree/main/CredentialFiles/IDToken), [IDTokenHit](https://github.com/Azure-Samples/active-directory-verifiable-credentials/tree/main/CredentialFiles/IDTokenHint) and [Self-attested](https://github.com/Azure-Samples/active-directory-verifiable-credentials/tree/main/CredentialFiles/IDTokenHint) claims.
 
 ## November 2021
 
