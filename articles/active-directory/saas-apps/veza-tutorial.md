@@ -73,9 +73,12 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. On the **Basic SAML Configuration** section, perform the following steps:
 
-	a. In the **Identifier** text box, type a value using the following pattern:
+	a. In the **Identifier** text box, type a value using one of the following patterns:
 
-    `urn:auth0:<Cookie-auth0-instance-name>:saml-<customer-name>-cookie-connectionurn:auth0:<Veza-auth0-instance-name>:saml-<customer-name>-cookie-connection`
+    | **Identifier** |
+    |-------------|
+    `urn:auth0:<Cookie-auth0-instance-name>:saml-<customer-name>-cookie-connection` |
+    `urn:auth0:<Veza-auth0-instance-name>:saml-<customer-name>-cookie-connection` |
 
     b. In the **Reply URL** text box, type a URL using one of the following patterns:
 
