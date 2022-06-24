@@ -18,7 +18,7 @@ Azure Cognitive Search supports IP rules for inbound access through a firewall, 
 You can set IP rules in the Azure portal, as described in this article, on search services provisioned at the Basic tier and above. Alternatively, you can use the [Management REST API version 2020-03-13](/rest/api/searchmanagement/), [Azure PowerShell](/powershell/module/az.search), or [Azure CLI](/cli/azure/search).
 
 > [!NOTE]
-> The "Allow access from Portal" exception has been removed. To access a search service protected by an IP firewall through the portal, [allow access from a specific client](#allow-access-from-your-client)
+> To access a search service protected by an IP firewall through the portal, [allow access from a specific client](#allow-access-from-your-client)
 
 <a id="configure-ip-policy"></a> 
 
