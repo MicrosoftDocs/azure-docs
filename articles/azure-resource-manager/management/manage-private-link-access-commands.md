@@ -9,7 +9,7 @@ ms.date: 06/16/2022
 
 This article explains how you to work with existing resource management private links. It shows API operations for getting and deleting existing resources.
 
-If you need to create a resource management private link, see [Use portal to create private link for managing Azure resources](create-private-link-access-portal.md) or [Use REST API to create private link for managing Azure resources](create-private-link-access-rest.md).
+If you need to create a resource management private link, see [Use portal to create private link for managing Azure resources](create-private-link-access-portal.md) or [Use APIs to create private link for managing Azure resources](create-private-link-access-commands.md).
 
 ## Resource management private links
 
@@ -29,7 +29,7 @@ To **get a specific** resource management private link, send the following reque
   Get-AzResourceManagementPrivateLink -ResourceGroupName PrivateLinkTestRG -Name NewRMPL
   ```
    
-# [Other](#tab/other)
+# [Other](#tab/REST)
   REST call
   ```http
     GET https://management.azure.com/subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/Microsoft.Authorization/resourceManagementPrivateLinks/{rmplName}?api-version=2020-05-01 
@@ -64,7 +64,7 @@ To **get all** resource management private links in a subscription, use:
   Get-AzResourceManagementPrivateLink
   ```
    
-# [Other](#tab/other)
+# [Other](#tab/REST)
   REST call
   ```http
   GET
@@ -113,7 +113,7 @@ To **delete a specific** resource management private link, use:
   Remove-AzResourceManagementPrivateLink -ResourceGroupName PrivateLinkTestRG -Name NewRMPL
   ```
    
-# [Other](#tab/other)
+# [Other](#tab/REST)
   REST call
   ```http
   DELETE
@@ -141,7 +141,7 @@ To **get a specific** private link association for a management group, use:
   Get-AzPrivateLinkAssociation -ManagementGroupId fc096d27-0434-4460-a3ea-110df0422a2d -Name 1d7942d1-288b-48de-8d0f-2d2aa8e03ad4 | fl
   ```
    
-# [Other](#tab/other)
+# [Other](#tab/REST)
   REST call
   ```http
   GET
@@ -184,7 +184,7 @@ To **delete** a private link association, use:
   Remove-AzPrivateLinkAssociation -ManagementGroupId 24f15700-370c-45bc-86a7-aee1b0c4eb8a -Name 1d7942d1-288b-48de-8d0f-2d2aa8e03ad4
   ```
    
-# [Other](#tab/other)
+# [Other](#tab/REST)
   REST call
 
   ```http

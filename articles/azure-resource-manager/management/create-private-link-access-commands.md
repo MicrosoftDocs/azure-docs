@@ -28,7 +28,7 @@ To create resource management private link, send the following request:
   New-AzResourceManagementPrivateLink -ResourceGroupName PrivateLinkTestRG -Name NewRMPL
   ```
    
-# [Other](#tab/other)
+# [Other](#tab/REST)
   REST call
   ```http
   PUT
@@ -63,7 +63,7 @@ To create resource management private link, send the following request:
 Note the ID that is returned for the new resource management private link. You'll use it for creating the private link association.
 
 ## Create private link association
-Note that the resource name of a private link association resource must be a GUID, and it is not yet supported to disable the publicNetworkAccess field. 
+The resource name of a private link association resource must be a GUID, and it isn't yet supported to disable the publicNetworkAccess field. 
 
 To create the private link association, use:
 # [Azure CLI](#tab/azure-cli)
@@ -80,7 +80,7 @@ To create the private link association, use:
   New-AzPrivateLinkAssociation -ManagementGroupId fc096d27-0434-4460-a3ea-110df0422a2d -Name 1d7942d1-288b-48de-8d0f-2d2aa8e03ad4 -PrivateLink "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/PrivateLinkTestRG/providers/Microsoft.Authorization/resourceManagementPrivateLinks/newRMPL" -PublicNetworkAccess enabled | fl
   ```
    
-# [Other](#tab/other)
+# [Other](#tab/REST)
   REST call
 
   ```http
