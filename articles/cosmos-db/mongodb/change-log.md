@@ -11,12 +11,6 @@ ms.author: t-khelanmodi
 
 # Change Log for Azure Cosmos DB API for MongoDB
 
-## Pre-requisites
-
-To look into your Cosmos DB account, you must:
-* Have your [Cosmos DB](./create-mongodb-python.md) ready 
-* You can get started in [.NET](./create-mongodb-dotnet.md), [Java](./create-mongodb-java.md), [Node.js](./create-mongodb-nodejs.md), [Golang](./create-mongodb-go.md)
-
 ## Cosmos DB's API for MongoDB updates
 
 ### Azure Data Studio MongoDB extension for Azure Cosmos DB
@@ -29,9 +23,10 @@ You can now use the free and lightweight tool feature to manage and query your M
 
 
 ### Continuous backup enhancements in Azure Cosmos DB
-Take advantage of new data backup and restore options available with your Azure Cosmos DB account. Continuous backup and point-in-time restore are valuable features. The feature allows you to use Azure Cosmos DB Core (SQL) API, API for MongoDB, Gremlin API, or Table API to recover from accidental data changes. Additionally, the feature allows you to restore the data in your database. The two continuous backup options free continuous backup with seven-day data retention or paid continuous backup with 30-day data retention. The free continuous backup option is a recommended replacement for accounts currently using periodic backup.
+ The feature allows you to use Azure Cosmos DB Core (SQL) API, API for MongoDB, Gremlin API, or Table API to recover from accidental data changes. Additionally, the feature allows you to restore the data in your database. The two continuous backup options free continuous backup with seven-day data retention or paid continuous backup with 30-day data retention. 
 
 [Learn more](../continuous-backup-restore-introduction.md)
+
 
 ### Linux emulator with Azure Cosmos DB API for MongoDB 
 The Azure Cosmos DB Linux emulator with API for MongoDB support provides a local environment that emulates the Azure Cosmos DB service for development purposes on Linux and macOS. Using the emulator, you can develop and test your MongoDB applications locally, without creating an Azure subscription or incurring any costs. When you're satisfied with how your application is working in the Azure Cosmos DB emulator, you can switch to using an Azure Cosmos DB account in the cloud.
@@ -74,13 +69,15 @@ We have added support for both in memory and backend. Additionally, we have the 
 `$expr` allows the use of [aggregation expressions](https://www.mongodb.com/docs/manual/meta/aggregation-quick-reference/#std-label-aggregation-expressions) within the query language. 
 `$expr` can build query expressions that compare fields from the same document in a `$match` stage.  
 
+[Learn more](https://www.mongodb.com/docs/manual/reference/operator/query/expr/)
+
 
 ###  Role-Based Access Control for $merge stage
 Added Role-Based Access Control(RBAC) for `$merge` stage. 
 
 
-### Add Hyperbolic trigonometric operators
-`$cosh` returns the Hyperbolic cosine of a value that is measured in radians. `$cosh` takes any valid expression that resolves to a number measured in radians. By default `$cosh` returns values as a double. 
+<!-- ### Add Hyperbolic trigonometric operators
+`$cosh` returns the Hyperbolic cosine of a value that is measured in radians. `$cosh` takes any valid expression that resolves to a number measured in radians. By default `$cosh` returns values as a double.  -->
 
 
 ### Bump packages and .NET TargetRuntime versions
