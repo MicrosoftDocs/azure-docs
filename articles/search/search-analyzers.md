@@ -93,9 +93,9 @@ Setting an analyzer is optional. As a general rule, try using the default standa
 
 The best time to add and assign analyzers is during active development, when dropping and recreating indexes is routine.
 
-Because analyzers are used to tokenize terms, you should assign an analyzer when the field is created. In fact, assigning an analyzer or indexAnalyzer to a field that has already been physically created is not allowed (although you can change the searchAnalyzer property at any time with no impact to the index).
+Because analyzers are used to tokenize terms, you should assign an analyzer when the field is created. In fact, assigning an analyzer or indexAnalyzer to a field that has already been physically created isn't allowed (although you can change the searchAnalyzer property at any time with no impact to the index).
 
-To change the analyzer of an existing field, you'll have to drop and recreate the entire index (you cannot rebuild individual fields). For indexes in production, you can defer a rebuild by creating a new field with the new analyzer assignment, and start using it in place of the old one. Use [Update Index](/rest/api/searchservice/update-index) to incorporate the new field and [mergeOrUpload](/rest/api/searchservice/addupdate-or-delete-documents) to populate it. Later, as part of planned index servicing, you can clean up the index to remove obsolete fields.
+To change the analyzer of an existing field, you'll have to drop and recreate the entire index (you can't rebuild individual fields). For indexes in production, you can defer a rebuild by creating a new field with the new analyzer assignment, and start using it in place of the old one. Use [Update Index](/rest/api/searchservice/update-index) to incorporate the new field and [mergeOrUpload](/rest/api/searchservice/addupdate-or-delete-documents) to populate it. Later, as part of planned index servicing, you can clean up the index to remove obsolete fields.
 
 To add a new field to an existing index, call [Update Index](/rest/api/searchservice/update-index) to add the field, and [mergeOrUpload](/rest/api/searchservice/addupdate-or-delete-documents) to populate it.
 
@@ -111,7 +111,7 @@ This section offers advice on how to work with analyzers.
 
 Azure Cognitive Search lets you specify different analyzers for indexing and search through the "indexAnalyzer" and "searchAnalyzer" field properties. If unspecified, the analyzer set with the analyzer property is used for both indexing and searching. If the analyzer is unspecified, the default Standard Lucene analyzer is used.
 
-A general rule is to use the same analyzer for both indexing and querying, unless specific requirements dictate otherwise. Be sure to test thoroughly. When text processing differs at search and indexing time, you run the risk of mismatch between query terms and indexed terms when the search and indexing analyzer configurations are not aligned.
+A general rule is to use the same analyzer for both indexing and querying, unless specific requirements dictate otherwise. Be sure to test thoroughly. When text processing differs at search and indexing time, you run the risk of mismatch between query terms and indexed terms when the search and indexing analyzer configurations aren't aligned.
 
 ### Test during active development
 
@@ -213,7 +213,7 @@ Walking through this example:
 
 ### Per-field analyzer assignment example
 
-The Standard analyzer is the default. Suppose you want to replace the default with a different predefined analyzer, such as the pattern analyzer. If you are not setting custom options, you only need to specify it by name in the field definition.
+The Standard analyzer is the default. Suppose you want to replace the default with a different predefined analyzer, such as the pattern analyzer. If you aren't setting custom options, you only need to specify it by name in the field definition.
 
 The "analyzer" element overrides the Standard analyzer on a field-by-field basis. There is no global override. In this example, `text1` uses the pattern analyzer and `text2`, which doesn't specify an analyzer, uses the default.
 
@@ -274,7 +274,7 @@ The APIs include index attributes for specifying different analyzers for indexin
 
 ### Language analyzer example
 
-Fields containing strings in different languages can use a language analyzer, while other fields retain the default (or use some other predefined or custom analyzer). If you use a language analyzer, it must be used for both indexing and search operations. Fields that use a language analyzer cannot have different analyzers for indexing and search.
+Fields containing strings in different languages can use a language analyzer, while other fields retain the default (or use some other predefined or custom analyzer). If you use a language analyzer, it must be used for both indexing and search operations. Fields that use a language analyzer can't have different analyzers for indexing and search.
 
 ```json
   {
