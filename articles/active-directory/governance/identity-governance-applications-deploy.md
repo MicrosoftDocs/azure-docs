@@ -55,7 +55,7 @@ In this section, you'll configure Azure AD entitlement management so users can r
 
 ## View reports on access
 
-Azure AD, in conjunction with Azure Monitor, provides several reports to help you understand who has access to an application and if they are using that access.
+Azure AD, in conjunction with Azure Monitor, provides several reports to help you understand who has access to an application and if they're using that access.
 
 * An administrator, or a catalog owner, can [retrieve the list of users who have access package assignments](entitlement-management-access-package-assignments.md), via the Azure portal, Graph or PowerShell.
 * You can also send the audit logs to Azure Monitor and view a history of [changes to the access package](entitlement-management-logs-and-reporting.md#view-events-for-an-access-package), in the Azure portal, or via PowerShell.
