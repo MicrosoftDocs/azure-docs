@@ -1,5 +1,5 @@
 items:
-- name: Device Update for IoT Hub Documentation
+- name: Device Update for IoT Hub documentation
   href: index.yml
 - name: Overview
   items:
@@ -33,19 +33,19 @@ items:
     href: device-update-groups.md
   - name: Deployments
     href: device-update-deployments.md
-  - name: How device update uses Plug and Play
-    href: device-update-plug-and-play.md
   - name: Device Update agent
     href: device-update-agent-overview.md
   - name: Configuration file
     href: device-update-configuration-file.md
   - name: Update manifest
     href: update-manifest.md
+  - name: How Device Update uses Plug and Play
+    href: device-update-plug-and-play.md
   - name: Security
     href: device-update-security.md
   - name: Support for disconnected devices
     href: connected-cache-disconnected-device-update.md
-  - name: Configure Microsoft Connected Cache for Device Update for IoT Hub
+  - name: Configure Connected Cache for Device Update
     href: connected-cache-configure.md
   - name: Import updates
     href: import-concepts.md
@@ -73,13 +73,13 @@ items:
     href: create-update.md
   - name: Import an update
     href: import-update.md
-  - name: Create a Device Update group
+  - name: Create a group
     href: create-update-group.md
   - name: Deploy an update
     href: deploy-update.md
   - name: Create a log collection operation
     href: device-update-log-collection.md
-  - name: Use the Microsoft Connected Cache
+  - name: Use Microsoft Connected Cache
     items:
     - name: Single gateway
       href: connected-cache-single-level.md
@@ -87,7 +87,7 @@ items:
       href: connected-cache-nested-level.md
     - name: Multi-level industrial IoT (IIOT) configuration
       href: connected-cache-industrial-iot-nested.md
-  - name: Migrate Devices from public preview to public preview refresh
+  - name: Migrate devices to public preview refresh
     href: migration-PP-to-PPR.md
   - name: Troubleshoot
     items:
@@ -101,13 +101,13 @@ items:
   items:
   - name: REST API
     href: /rest/api/deviceupdate/
-  - name: Control Plane SDK
+  - name: Control plane SDK
     items:
       - name: .NET
         href: /dotnet/api/overview/azure/iot/management
       - name: Python
         href: /python/api/azure-mgmt-deviceupdate/
-  - name: Data Plane SDK
+  - name: Data plane SDK
     items:
       - name: .NET
         href: /dotnet/api/azure.iot.deviceupdate?view=azure-dotnet-preview&preserve-view=true
