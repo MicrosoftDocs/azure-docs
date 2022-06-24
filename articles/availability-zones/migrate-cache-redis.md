@@ -20,7 +20,7 @@ Currently, the only way to convert a resource from non-availability zone support
 
 ## Prerequisites
 
-To migrate to availability zone support, you must create first have an Azure Cache for Redis resource in either the Premium, Enterprise, or Enterprise Flash tiers.
+To migrate to availability zone support, you must have an Azure Cache for Redis resource in either the Premium, Enterprise, or Enterprise Flash tiers.
 
 ## Downtime requirements
 
@@ -34,7 +34,7 @@ Azure Cache for Redis currently doesn’t allow adding availability zone support
 
 ### Redeployment considerations
 
-There are additional expenses from running multiple caches simultaneously as you convert your data to the new cache.
+There are extra expenses from running multiple caches simultaneously as you convert your data to the new cache.
 
 ### How to redeploy
 
