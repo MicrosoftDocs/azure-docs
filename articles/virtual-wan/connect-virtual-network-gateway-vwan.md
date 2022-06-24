@@ -4,7 +4,7 @@ description: Learn how to connect an Azure VPN gateway (virtual network gateway)
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: how-to
-ms.date: 06/22/2022
+ms.date: 06/24/2022
 ms.author: cherylmc
 
 ---
@@ -76,7 +76,7 @@ In this section, you'll create two Virtual WAN VPN sites that correspond to the 
 
 ## <a name="connect-sites"></a>3. Connect sites to the virtual hub
 
-Next, connect both sites to your virtual hub.
+Next, connect both sites to your virtual hub using the following steps. For more information about connecting sites, see [Connect VPN sites to a virtual hub](virtual-wan-site-to-site-portal.md#connectsites).
 
 1. On your Virtual WAN page, go to **Hubs**.
 
@@ -90,8 +90,6 @@ Next, connect both sites to your virtual hub.
 
 1. On the **Connect sites** page, configure the settings. Make sure to note the **Pre-shared key** value that you use. It will be used again later in the exercise when you create your connections.
 1. At the bottom of the page, select **Connect**. It takes a short while for the hub to update with the site settings.
-
-For more information, see [Connect the VPN sites to a virtual hub](virtual-wan-site-to-site-portal.md#connectsites).
 
 ## <a name="downloadconfig"></a>4. Download the VPN configuration files
 
