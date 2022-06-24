@@ -13,7 +13,7 @@ ms.date: 05/11/2022
 # Enable the ContainerLogV2 schema (preview)
 Azure Monitor Container insights is now in public preview of a new schema for container logs, called ContainerLogV2. As part of this schema, there are new fields to make common queries to view Azure Kubernetes Service (AKS) and Azure Arc-enabled Kubernetes data. In addition, this schema is compatible with [Basic Logs](../logs/basic-logs-configure.md), which offers a low-cost alternative to standard analytics logs.
 
-Because the ContainerLogv2 schema is a preview feature, Container insights does not yet support the **View in Analytics** option. However, the data is available when queried directly from the [Log Analytics](./container-insights-log-query.md) interface.
+The ContainerLogv2 schema is a preview feature. Container insights does not yet support the **View in Analytics** option, however, the data is available when queried directly from the [Log Analytics](./container-insights-log-query.md) interface.
 
 The new fields are:
 * `ContainerName`
