@@ -3,17 +3,19 @@ title: Change Log for Mongo
 description: Notifies our customers of any minor/medium updates that were pushed
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
-ms.topic: 
+ms.topic: overview
 ms.date: 06/22/2022
 author: t-khelan
 ms.author: t-khelanmodi
 ---
 
+# Azure Cosmos DB API for MongoDB
+
 ## Pre-requisites
 
 To look into your Cosmos DB account, you must:
-* Have your [Cosmos DB](https://docs.microsoft.com/en-us/azure/cosmos-db/mongodb/create-mongodb-python) ready 
-* You can get started in [.NET](https://docs.microsoft.com/en-us/azure/cosmos-db/mongodb/create-mongodb-dotnet), [Java](https://docs.microsoft.com/en-us/azure/cosmos-db/mongodb/create-mongodb-java), [Node.js](https://docs.microsoft.com/en-us/azure/cosmos-db/mongodb/quickstart-javascript), [Golang](https://docs.microsoft.com/en-us/azure/cosmos-db/mongodb/create-mongodb-go)
+* Have your [Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/mongodb/create-mongodb-python) ready 
+* You can get started in [.NET](https://docs.microsoft.com/azure/cosmos-db/mongodb/create-mongodb-dotnet), [Java](https://docs.microsoft.com/azure/cosmos-db/mongodb/create-mongodb-java), [Node.js](https://docs.microsoft.com/azure/cosmos-db/mongodb/quickstart-javascript), [Golang](https://docs.microsoft.com/azure/cosmos-db/mongodb/create-mongodb-go)
 
 ## CosmosDB's API for MongoDB updates
 
@@ -37,7 +39,7 @@ The Azure Cosmos DB Linux emulator with API for MongoDB support provides a local
 ### 16MB limit per document in API for MongoDB
 The 16MB document limit in the Azure Cosmos DB API for MongoDB provides developers the flexibility to store more data per document. With the new limit, you don’t have to worry about hitting the previous 2MB limit. You have the flexibility to create new applications that store larger documents. You also have the flexibility to migrate apps that already use larger documents. This ease-of-use feature will speed up your development process in these cases. 
 
-[Learn more](https://docs.microsoft.com/en-us/azure/cosmos-db/mongodb/mongodb-introduction)
+[Learn more](https://docs.microsoft.com/azure/cosmos-db/mongodb/mongodb-introduction)
 
 
 ### Azure Cosmos DB API for MongoDB data plane RBAC
