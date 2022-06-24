@@ -18,13 +18,13 @@ This article is part seven of a seven-part series that provides guidance on how 
 
 ## Beyond data warehouse migration to Azure
 
-A key reason to migrate your existing data warehouse to Azure Synapse Analytics is to utilize a globally secure, scalable, low-cost, cloud-native, pay-as-you-use analytical database. With Azure Synapse, you can integrate your migrated data warehouse with the complete Microsoft Azure analytical ecosystem to take advantage of, and integrate with, other Microsoft technologies to modernize your migrated data warehouse. These technologies include:
+A key reason to migrate your existing data warehouse to Azure Synapse Analytics is to utilize a globally secure, scalable, low-cost, cloud-native, pay-as-you-use analytical database. With Azure Synapse, you can integrate your migrated data warehouse with the Microsoft Azure analytical ecosystem to take advantage of, and integrate with, other Microsoft technologies to modernize your migrated data warehouse. Those technologies include:
 
-- [Azure Data Lake Storage](/services/storage/data-lake-storage) (ADLS) for cost effective data ingestion, staging, cleansing, and transformation. Data Lake Storage can free up data warehouse capacity occupied by fast-growing staging tables.
+- [Azure Data Lake Storage](/services/storage/data-lake-storage) (ADLS) for cost effective data ingestion, staging, cleansing, and transformation. Data Lake Storage can free up the data warehouse capacity occupied by fast-growing staging tables.
 
 - [Azure Data Factory](../../../data-factory/introduction.md) for collaborative IT and self-service data integration with [connectors](../../../data-factory/connector-overview.md) to cloud and on-premises data sources and streaming data.
 
-- [The Common Data Model](/common-data-model/) to share consistent trusted data across multiple technologies, including:
+- The [Common Data Model](/common-data-model/) to share consistent trusted data across multiple technologies, including:
   - Azure Synapse
   - Azure Synapse Spark
   - Azure HDInsight
@@ -33,7 +33,7 @@ A key reason to migrate your existing data warehouse to Azure Synapse Analytics 
   - Azure IoT
   - Microsoft ISV Partners
 
-- [Microsoft data science technologies](/azure/architecture/data-science-process/platforms-and-tools), including:
+- Microsoft [data science technologies](/azure/architecture/data-science-process/platforms-and-tools), including:
   - Azure Machine Learning studio
   - Azure Machine Learning
   - Azure Synapse Spark (Spark as a service)
@@ -52,19 +52,19 @@ In addition, there's an opportunity to integrate Azure Synapse with Microsoft pa
 
 Let's take a closer look at how you can take advantage of technologies in the Microsoft analytical ecosystem to modernize your data warehouse once you've migrated to Azure Synapse.
 
-## Offload data staging and ETL processing to Azure Data Lake and Azure Data Factory
+## Offload data staging and ETL processing to Data Lake Storage and Data Factory
 
-Digital transformation has created a key challenge for enterprises. A torrent of new data is being generated and captured for analysis, and much of this data finds its way into data warehouses. A good example is transaction data created by opening online transactional processing (OLTP) systems to self-service access from mobile devices. These OLTP systems are the main sources of data to a data warehouse, and with customers now driving the transaction rate rather than employees, the volume of data in data warehouse staging tables has been growing rapidly.
+Digital transformation has created a key challenge for enterprises. A torrent of new data is being generated and captured for analysis, and much of this data finds its way into data warehouses. A good example is transaction data created by opening online transactional processing (OLTP) systems to service access from mobile devices. OLTP systems are the main sources of data to data warehouses. With customers now driving the transaction rate rather than employees, the volume of data in data warehouse staging tables has been growing rapidly.
 
 With the rapid influx of data into the enterprise, along with new sources of data like Internet of Things (IoT), companies must find ways to scale up data integration ETL processing. One method is to offload ingestion, data cleansing, transformation, and integration to a data lake and process data at scale there, as part of a data warehouse modernization program.
 
-Once you've migrated your data warehouse to Azure Synapse, Microsoft can modernize your ETL processing by ingesting data into, and staging data in, Azure Data Lake Storage. You can then clean, transform, and integrate your data at scale using Data Factory before loading it into Azure Synapse in parallel using PolyBase.
+Once you've migrated your data warehouse to Azure Synapse, Microsoft can modernize your ETL processing by ingesting and staging data in Data Lake Storage. You can then clean, transform, and integrate your data at scale using Data Factory before loading it into Azure Synapse in parallel using PolyBase.
 
-For ELT strategies, consider offloading ELT processing to Azure Data Lake to easily scale as your data volume or frequency grows.
+For ELT strategies, consider offloading ELT processing to Data Lake Storage to easily scale as your data volume or frequency grows.
 
 ### Microsoft Azure Data Factory
 
-[Data Factory](https://azure.microsoft.com/services/data-factory/) is a pay-as-you-use, hybrid data integration service for highly scalable ETL and ELT processing. Data Factory provides a simple web-based user interface to build data integration pipelines with no code. You can:
+[Data Factory](https://azure.microsoft.com/services/data-factory/) is a pay-as-you-use, hybrid data integration service for highly scalable ETL and ELT processing. Data Factory provides a web-based user interface to build data integration pipelines with no code. With Data Factory, you can:
 
 - Build scalable data integration pipelines code-free. Easily acquire data at scale. Pay only for what you use, and connect to on-premises, cloud, and SaaS-based data sources.
 
@@ -78,8 +78,8 @@ You can use these features without writing any code. However, adding custom code
 
 :::image type="content" source="../media/7-beyond-data-warehouse-migration/azure-data-factory-pipeline.png" border="true" alt-text="Screenshot of an example of an Azure Data Factory pipeline.":::
 
-> [!TIP]
-> Data Factory allows you to build scalable data integration pipelines without code.
+>[!TIP]
+>Data Factory allows you to build scalable data integration pipelines without code.
 
 Implement Data Factory pipeline development from any of several places, including:
 
@@ -93,15 +93,15 @@ Implement Data Factory pipeline development from any of several places, includin
 
 - REST APIs
 
-> [!TIP]
-> Data Factory can connect to on-premises, cloud, and SaaS data.
+>[!TIP]
+>Data Factory can connect to on-premises, cloud, and SaaS data.
 
 Developers and data scientists who prefer to write code can easily author Data Factory pipelines in Java, Python, and .NET using the software development kits (SDKs) available for those programming languages. Data Factory pipelines can also be hybrid since they can connect, ingest, clean, transform, and analyze data in on-premises data centers, Microsoft Azure, other clouds, and SaaS offerings.
 
 Once you develop Data Factory pipelines to integrate and analyze data, deploy those pipelines globally and schedule them to run in batch, invoke them on demand as a service, or run them in real-time on an event-driven basis. A Data Factory pipeline can also run on one or more execution engines and monitor pipeline execution to ensure performance and track errors.
 
-> [!TIP]
-> Pipelines called data factories control the integration and analysis of data. Data Factory is enterprise-class data integration software aimed at IT professionals with a data wrangling facility for business users.
+>[!TIP]
+>Pipelines called data factories control the integration and analysis of data. Data Factory is enterprise-class data integration software aimed at IT professionals with a data wrangling facility for business users.
 
 #### Use cases
 
@@ -115,8 +115,8 @@ Data Factory supports multiple use cases.
 
 - Prepare, integrate, and enrich data for data-driven business applications running on the Azure cloud on top of operational data stores like Azure Cosmos DB.
 
-> [!TIP]
-> Build training data sets in data science to develop machine learning models.
+>[!TIP]
+>Build training data sets in data science to develop machine learning models.
 
 #### Data sources
 
@@ -128,8 +128,8 @@ Within a Data Factory pipeline, you can ingest, clean, transform, integrate, and
 
 Professional ETL developers can use Data Factory mapping data flows to filter, split, join many types, lookup, pivot, unpivot, sort, union, and aggregate data without writing any code. In addition, Data Factory supports surrogate keys, multiple write processing options such as insert, upsert, update, table recreation, and table truncation, and several types of target data stores&mdash;also known as sinks. ETL developers can also create aggregations, including time-series aggregations that require a window to be placed on data columns.
 
-> [!TIP]
-> Professional ETL developers can use Azure Data Factory mapping data flows to clean, transform, and integrate data without the need to write code.
+>[!TIP]
+>Professional ETL developers can use Azure Data Factory mapping data flows to clean, transform, and integrate data without the need to write code.
 
 You can run mapping data flows that transform data as activities in a Data Factory pipeline. Include multiple mapping data flows in a single pipeline, if necessary. Break up challenging data transformation and integration tasks into smaller mapping dataflows that can be combined to handle the complexity and custom code added, if necessary. In addition to this functionality, Data Factory mapping data flows include the ability to:
 
@@ -141,8 +141,8 @@ You can run mapping data flows that transform data as activities in a Data Facto
 
 - Inspect data to view the metadata of a stream you're transforming.
 
-> [!TIP]
-> Data Factory supports the ability to automatically detect and manage schema changes in inbound data, such as in streaming data.
+>[!TIP]
+>Data Factory supports the ability to automatically detect and manage schema changes in inbound data, such as in streaming data.
 
 This screenshot shows an example Data Factory mapping data flow.
 
@@ -150,15 +150,15 @@ This screenshot shows an example Data Factory mapping data flow.
 
 Data engineers can profile data quality and view the results of individual data transforms by switching on a debug capability during development.
 
-> [!TIP]
-> Data Factory can also partition data to enable ETL processing to run at scale.
+>[!TIP]
+>Data Factory can also partition data to enable ETL processing to run at scale.
 
 Extend Data Factory transformational and analytical functionality by adding a linked service that contains your own code into a pipeline. For example, an Azure Synapse Spark pool notebook containing Python code could use a trained model to score the data integrated by a mapping data flow.
 
-Store integrated data and any results from analytics included in a Data Factory pipeline in one or more data stores, such as Azure Data Lake Storage, Azure Synapse, or Azure HDInsight hive tables. You can also invoke other activities to act on insights produced by a Data Factory analytical pipeline.
+Store integrated data and any results from analytics included in a Data Factory pipeline in one or more data stores, such as Data Lake Storage, Azure Synapse, or Azure HDInsight hive tables. You can also invoke other activities to act on insights produced by a Data Factory analytical pipeline.
 
-> [!TIP]
-> Data Factory pipelines are extensible since Data Factory allows you to write your own code and run it as part of a pipeline.
+>[!TIP]
+>Data Factory pipelines are extensible since Data Factory allows you to write your own code and run it as part of a pipeline.
 
 #### Utilize Spark to scale data integration
 
@@ -172,8 +172,8 @@ Data wrangling lets business users&mdash;also known as citizen data integrators 
 
 In contrast to Excel and Power BI, Data Factory [wrangling data flows](../../../data-factory/wrangling-tutorial.md) uses Power Query to generate M code and translate it into a massively parallel in-memory Spark job for cloud-scale execution. The combination of mapping data flows and wrangling data flows lets professional ETL developers and business users collaborate to prepare, integrate, and analyze data for a common business purpose. The preceding Data Factory mapping data flow diagram shows how both Data Factory and Azure Synapse Spark pool notebooks can be combined in the same Data Factory pipeline, allowing IT and business to be aware of what each has created. Mapping data flows and wrangling data flows can then be available for reuse to maximize productivity and consistency and minimize reinvention.
 
-> [!TIP]
-> Data Factory supports wrangling data flows in addition to mapping data flows, which means that business users and IT can work together on a common platform to integrate data.
+>[!TIP]
+>Data Factory supports wrangling data flows in addition to mapping data flows, which means that business users and IT can work together on a common platform to integrate data.
 
 #### Link data and analytics in analytical pipelines
 
@@ -181,26 +181,26 @@ In addition to cleaning and transforming data, Data Factory can combine data int
 
 Models developed code-free with Azure Machine Learning studio, or with the Azure Machine Learning SDK using Azure Synapse Spark pool notebooks or using R in RStudio, can be invoked as a service from within a Data Factory pipeline to batch score your data. Analysis happens at scale by executing Spark machine learning pipelines on Azure Synapse Spark pool notebooks.
 
-Store integrated data and any results from analytics included in a Data Factory pipeline in one or more data stores, such as Azure Data Lake Storage, Azure Synapse, or Azure HDInsight (Hive tables). Invoke other activities to act on insights produced by a Data Factory analytical pipeline.
+Store integrated data and any results from analytics included in a Data Factory pipeline in one or more data stores, such as Data Lake Storage, Azure Synapse, or Azure HDInsight (Hive tables). Invoke other activities to act on insights produced by a Data Factory analytical pipeline.
 
 ## Use a lake database to share consistent trusted data
 
 A key objective in any data integration setup is the ability to integrate data once and reuse it everywhere, not just in a data warehouse&mdash;for example, in data science. Reuse avoids reinvention and ensures consistent, commonly understood data that everyone can trust.
 
-> [!TIP]
-> Microsoft has created a lake database to describe core data entities to be shared across the enterprise.
+>[!TIP]
+>Microsoft has created a lake database to describe core data entities to be shared across the enterprise.
 
 To achieve this goal, establish a set of common data names and definitions describing logical data entities that need to be shared across the enterprise&mdash;such as customer, account, product, supplier, orders, payments, returns, and so forth. IT and business professionals can then use data integration software to create these common data assets and store them to maximize their reuse to drive consistency everywhere.
 
-> [!TIP]
-> Azure Data Lake Storage is shared storage that underpins Microsoft Azure Synapse, Azure Machine Learning, Azure Synapse Spark, and Azure HDInsight.
+>[!TIP]
+>Data Lake Storage is shared storage that underpins Microsoft Azure Synapse, Azure Machine Learning, Azure Synapse Spark, and Azure HDInsight.
 
-Data assets can be shared and reused because Microsoft has created a [lake database](../../database-designer/concepts-lake-database.md), which is a common language that represents commonly used concepts and activities across a business. Azure Synapse Analytics provides industry-specific database templates to help standardize data in the lake. [Lake database templates](../../database-designer/concepts-database-templates.md) provide schemas for predefined business areas, enabling data to be loaded into a lake database in a structured way. The power comes when data integration software is used to create lake database common data assets, resulting in self-describing trusted data that can be consumed by applications and analytical systems. You can create a lake database in Azure Data Lake Storage by using Azure Data Factory, and consume it with Power BI, Azure Synapse Spark, Azure Synapse, and Azure Machine Learning. This diagram shows a lake database used in Azure Synapse Analytics.
+Data assets can be shared and reused because Microsoft has created a [lake database](../../database-designer/concepts-lake-database.md), which is a common language that represents commonly used concepts and activities across a business. Azure Synapse Analytics provides industry-specific database templates to help standardize data in the lake. [Lake database templates](../../database-designer/concepts-database-templates.md) provide schemas for predefined business areas, enabling data to be loaded into a lake database in a structured way. The power comes when data integration software is used to create lake database common data assets, resulting in self-describing trusted data that can be consumed by applications and analytical systems. You can create a lake database in Data Lake Storage by using Azure Data Factory, and consume it with Power BI, Azure Synapse Spark, Azure Synapse, and Azure Machine Learning. This diagram shows a lake database used in Azure Synapse Analytics.
 
 :::image type="content" source="../media/7-beyond-data-warehouse-migration/azure-synapse-analytics-lake-database.png" border="true" alt-text="Screenshot showing how a lake database can be used in Azure Synapse Analytics.":::
 
-> [!TIP]
-> Integrate data to create lake database logical entities in shared storage to maximize the reuse of common data assets.
+>[!TIP]
+>Integrate data to create lake database logical entities in shared storage to maximize the reuse of common data assets.
 
 ## Integration with Microsoft data science technologies on Azure
 
@@ -222,8 +222,8 @@ Microsoft offers a range of technologies to build predictive analytical models u
 
 Data scientists can use RStudio (R) and Jupyter Notebooks (Python) to develop analytical models, or they can use frameworks such as Keras or TensorFlow.
 
-> [!TIP]
-> Develop machine learning models using a no/low-code approach or from a range of programming languages like Python, R, and .NET.
+>[!TIP]
+>Develop machine learning models using a no/low-code approach or from a range of programming languages like Python, R, and .NET.
 
 #### Azure Machine Learning studio
 
@@ -235,11 +235,11 @@ Azure Machine Learning studio is a fully managed cloud service that lets you eas
 
 Azure Machine Learning provides a software development kit (SDK) and services for Python to quickly prepare data, as well as train and deploy machine learning models. Use Azure Machine Learning in Azure notebooks using Jupyter Notebook, and utilize open-source frameworks, such as PyTorch, TensorFlow, scikit-learn, or Spark MLlib&mdash;Azure Spark's machine learning library. Azure Machine Learning provides an AutoML capability that automatically identifies the most accurate algorithms to expedite model development. You can also use it to build machine learning pipelines that manage end-to-end workflow, programmatically scale on the cloud, and deploy models both to the cloud and the edge. Azure Machine Learning uses logical containers called workspaces, which can be either created manually from the Azure portal or created programmatically. These workspaces keep compute targets, experiments, data stores, trained machine learning models, Docker images, and deployed services all in one place to enable teams to work together. Use Azure Machine Learning from Visual Studio with a Visual Studio for AI extension.
 
-> [!TIP]
-> Azure Machine Learning provides an SDK for developing machine learning models using several open-source frameworks.
+>[!TIP]
+>Azure Machine Learning provides an SDK for developing machine learning models using several open-source frameworks.
 
-> [!TIP]
-> Organize and manage related data stores, experiments, trained models, Docker images, and deployed services in workspaces.
+>[!TIP]
+>Organize and manage related data stores, experiments, trained models, Docker images, and deployed services in workspaces.
 
 #### Azure Synapse Spark pool notebooks
 
@@ -249,22 +249,22 @@ Azure Machine Learning provides a software development kit (SDK) and services fo
 
 - Allows data scientists to build and execute machine learning models at scale using notebooks written in languages such as Scala, R, Python, Java, and SQL, and to visualize results.
 
-> [!TIP]
-> Azure Synapse Spark is a dynamically scalable Spark-as-a-service from Microsoft, offering scalable execution of data preparation, model development, and deployed model execution.
+>[!TIP]
+>Azure Synapse Spark is a dynamically scalable Spark-as-a-service from Microsoft, offering scalable execution of data preparation, model development, and deployed model execution.
 
-Jobs running in Azure Synapse Spark pool notebooks can retrieve, process, and analyze data at scale from Azure Blob Storage, Azure Data Lake Storage, Azure Synapse, Azure HDInsight, and streaming data services such as Kafka.
+Jobs running in Azure Synapse Spark pool notebooks can retrieve, process, and analyze data at scale from Azure Blob Storage, Data Lake Storage, Azure Synapse, Azure HDInsight, and streaming data services such as Kafka.
 
 Autoscaling and auto-termination are also supported to reduce total cost of ownership (TCO). Data scientists can use the MLflow open-source framework to manage the machine learning lifecycle.
 
-> [!TIP]
-> Azure Synapse Spark can access data in a range of Microsoft analytical ecosystem data stores on Azure.
+>[!TIP]
+>Azure Synapse Spark can access data in a range of Microsoft analytical ecosystem data stores on Azure.
 
 #### ML.NET
 
 ML.NET is an open-source and cross-platform machine learning framework (Windows, Linux, macOS), created by Microsoft for .NET developers so that they can use existing tools&mdash;like ML.NET Model Builder for Visual Studio&mdash;to develop custom machine learning models and integrate them into .NET applications.
 
-> [!TIP]
-> Microsoft has extended its machine learning capability to .NET developers.
+>[!TIP]
+>Microsoft has extended its machine learning capability to .NET developers.
 
 #### .NET for Apache Spark
 
@@ -280,8 +280,8 @@ Combine machine learning models with Azure Synapse by:
 
 - Deploying machine learning models, including models trained elsewhere, in Azure Synapse to analyze data in the data warehouse and drive new business value.
 
-> [!TIP]
-> Train, test, evaluate, and execute machine learning models at scale on Azure Synapse Spark pool notebook by using data in Azure Synapse.
+>[!TIP]
+>Train, test, evaluate, and execute machine learning models at scale on Azure Synapse Spark pool notebook by using data in Azure Synapse.
 
 Data scientists can use RStudio, Jupyter Notebooks, and Azure Synapse Spark pool notebooks together with Azure Machine Learning to develop machine learning models that run at scale on Azure Synapse Spark pool notebooks using data in Azure Synapse. For example, they could create an unsupervised model to segment customers for use in driving different marketing campaigns. Use supervised machine learning to train a model to predict a specific outcome, such as predicting a customer's propensity to churn, or recommending the next best offer for a customer to try to increase their value. This diagram shows how Azure Synapse Analytics can be used for Azure Machine Learning.
 
@@ -289,22 +289,22 @@ Data scientists can use RStudio, Jupyter Notebooks, and Azure Synapse Spark pool
 
 In addition, you can ingest big data&mdash;such as social network data or review website data&mdash;into Azure Data Lake, then prepare and analyze it at scale on Azure Synapse Spark pool notebook, using natural language processing to score sentiment about your products or your brand. Add these scores to your data warehouse to understand the impact of&mdash;for example&mdash;negative sentiment on product sales, and to use big data analytics to add to what you already know in your data warehouse.
 
-> [!TIP]
-> Produce new insights using machine learning on Azure in batch or in real-time and add to what you know in your data warehouse.
+>[!TIP]
+>Produce new insights using machine learning on Azure in batch or in real-time and add to what you know in your data warehouse.
 
 ## Integrate live streaming data into Azure Synapse Analytics
 
 When analyzing data in a modern data warehouse, you must be able to analyze streaming data in real-time and join it with historical data in your data warehouse. An example would be combining IoT data with product or asset data.
 
-> [!TIP]
-> Integrate your data warehouse with streaming data from IoT devices or clickstream.
+>[!TIP]
+>Integrate your data warehouse with streaming data from IoT devices or clickstream.
 
 Once you've successfully migrated your data warehouse to Azure Synapse, you can introduce this capability as part of a data warehouse modernization exercise by taking advantage of extra functionality in Azure Synapse.
 
-> [!TIP]
-> Ingest streaming data into Azure Data Lake Storage from Azure Event Hubs or Kafka, and access it from Azure Synapse using PolyBase external tables.
+>[!TIP]
+>Ingest streaming data into Data Lake Storage from Azure Event Hubs or Kafka, and access it from Azure Synapse using PolyBase external tables.
 
-To do so, ingest streaming data via Azure Event Hubs or other technologies, such as Kafka, using Azure Data Factory (or using an existing ETL tool if it supports the streaming data sources). Store the data in Azure Data Lake Storage (ADLS). Next, create an external table in Azure Synapse using PolyBase and point it at the data being streamed into Azure Data Lake. Your migrated data warehouse will now contain new tables that provide access to real-time streaming data. Query this external table as if the data was in the data warehouse via standard T-SQL from any BI tool that has access to Azure Synapse. You can also join this data to other tables containing historical data and create views that join live streaming data to historical data to make it easier for business users to access. In the following diagram, a real-time data warehouse on Azure Synapse Analytics is integrated with streaming data in ADLS.
+To do so, ingest streaming data via Azure Event Hubs or other technologies, such as Kafka, using Azure Data Factory (or using an existing ETL tool if it supports the streaming data sources). Store the data in Data Lake Storage (ADLS). Next, create an external table in Azure Synapse using PolyBase and point it at the data being streamed into Azure Data Lake. Your migrated data warehouse will now contain new tables that provide access to real-time streaming data. Query this external table as if the data was in the data warehouse via standard T-SQL from any BI tool that has access to Azure Synapse. You can also join this data to other tables containing historical data and create views that join live streaming data to historical data to make it easier for business users to access. In the following diagram, a real-time data warehouse on Azure Synapse Analytics is integrated with streaming data in ADLS.
 
 :::image type="content" source="../media/7-beyond-data-warehouse-migration/azure-datalake-streaming-data.png" border="true" alt-text="Screenshot of Azure Synapse Analytics with streaming data in an Azure Data Lake.":::
 
@@ -320,8 +320,8 @@ With PolyBase, you can create a logical data warehouse to simplify user access t
 
 - Azure Event Hubs and Azure Stream Analytics, for real-time analysis of data in motion.
 
-> [!TIP]
-> PolyBase simplifies access to multiple underlying analytical data stores on Azure to simplify access for business users.
+>[!TIP]
+>PolyBase simplifies access to multiple underlying analytical data stores on Azure to simplify access for business users.
 
 You may have some non-Microsoft equivalents. You may also have a master data management (MDM) system that needs to be accessed for consistent trusted data on customers, suppliers, products, assets, and more.
 
@@ -339,8 +339,8 @@ As a result, the need for new kinds of more complex analysis has emerged, such a
 
 :::image type="content" source="../media/7-beyond-data-warehouse-migration/analytical-workload-platforms.png" border="true" alt-text="Screenshot of different analytical platforms for different types of analytical workloads in Azure Synapse Analytics.":::
 
-> [!TIP]
-> The ability to make data in multiple analytical data stores look like it's all in one system and join it to Azure Synapse is known as a logical data warehouse architecture.
+>[!TIP]
+>The ability to make data in multiple analytical data stores look like it's all in one system and join it to Azure Synapse is known as a logical data warehouse architecture.
 
 Since these platforms produce new insights, it's normal to see a requirement to combine these insights with what you already know in Azure Synapse. PolyBase makes it possible.
 
@@ -350,8 +350,8 @@ By leveraging PolyBase data virtualization inside Azure Synapse, you can impleme
 
 The diagram shows how other technologies in the Microsoft analytical ecosystem can be combined with the capability of Azure Synapse logical data warehouse architecture. For example, data can be ingested into ADLS and curated using Azure Data Factory to create trusted data products that represent Microsoft [lake database](../../database-designer/concepts-lake-database.md) logical data entities. This trusted, commonly understood data can then be consumed and reused in different analytical environments such as Azure Synapse, Azure Synapse Spark pool notebooks, or Azure Cosmos DB. All insights produced in these environments are accessible via a logical data warehouse data virtualization layer made possible by PolyBase.
 
-> [!TIP]
-> A logical data warehouse architecture simplifies business user access to data and adds new value to what you already know in your data warehouse.
+>[!TIP]
+>A logical data warehouse architecture simplifies business user access to data and adds new value to what you already know in your data warehouse.
 
 ## Conclusions
 
@@ -361,8 +361,8 @@ Broaden your ETL processing to ingest data of any type into ADLS. Prepare and in
 
 Use PolyBase and `COPY INTO` to go beyond your data warehouse. Simplify access to insights from multiple underlying analytical platforms on Azure by creating holistic integrated views in a logical data warehouse. Easily access streaming, big data, and traditional data warehouse insights from BI tools and applications to drive new value in your business.
 
-> [!TIP]
-> Migrating your data warehouse to Azure Synapse lets you make use of a rich Microsoft analytical ecosystem running on Azure.
+>[!TIP]
+>Migrating your data warehouse to Azure Synapse lets you make use of a rich Microsoft analytical ecosystem running on Azure.
 
 ## Next steps
 
