@@ -40,8 +40,7 @@ The sample code below demonstrates the following features:
 
 Complete the following steps before you compile and run the sample code:
 
-1. [Provision a Gen 1 Azure Time Series Insights](./time-series-insights-get-started.md
-) environment.
+1. [Provision a Gen 1 Azure Time Series Insights](./time-series-insights-get-started.md) environment.
 
 1. [Create a Reference Data set](time-series-insights-add-reference-data-set.md) within your environment. Use the following Reference Data scheme:
 

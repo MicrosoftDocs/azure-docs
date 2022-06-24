@@ -182,6 +182,16 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/azure-monitor/visualize/workbooks-add-text.md",
+            "redirect_url": "/azure/azure-monitor/visualize/workbooks-add-workbook-elements",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/visualize/workbooks-combine-data.md",
+            "redirect_url": "/azure/azure-monitor/visualize/workbooks-data-sources",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/azure-monitor/alerts/itsmc-service-manager-script.md",
             "redirect_url": "/azure/azure-monitor/alerts/itsmc-connections",
             "redirect_document_id": false
