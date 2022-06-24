@@ -106,7 +106,7 @@ For listing your application in the Azure AD app gallery, see the details here h
  
  
 
-### Title: GA – Protect against by-passing of cloud Azure AD Multi-Factor Authentication when federated with Azure AD
+### GA – Protect against by-passing of cloud Azure AD Multi-Factor Authentication when federated with Azure AD
 
 **Type:** New feature  
 **Service category:** MS Graph  
