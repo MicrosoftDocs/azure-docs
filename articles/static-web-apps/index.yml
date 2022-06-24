@@ -72,7 +72,7 @@ landingContent:
           - text: Configuration
             url: configuration-overview.md
           - text: Serverless API endpoints
-            url: apis.md
+            url: apis-overview.md
           - text: Staging environments
             url: review-publish-pull-requests.md
           - text: Authentication and authorization

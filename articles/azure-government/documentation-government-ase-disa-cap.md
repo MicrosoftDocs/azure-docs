@@ -28,8 +28,7 @@ The customer has deployed an ASE with an ILB and has implemented an ExpressRoute
 When creating the ASE via the portal, a route table with a default route of 0.0.0.0/0 and next hop “Internet” is created. 
 However, since DISA advertises a default route out the ExpressRoute circuit, the User Defined Route (UDR) should either be deleted, or remove the default route to internet.  
 
-You will need to create new routes in the UDR for the management addresses in order to keep the ASE healthy. For Azure Government ranges see [App Service Environment management addresses](../app-service/environment/management-addresses.md
-)
+You will need to create new routes in the UDR for the management addresses in order to keep the ASE healthy. For Azure Government ranges, see [App Service Environment management addresses](../app-service/environment/management-addresses.md).
 
 - 23.97.29.209/32 --> Internet
 - 13.72.53.37/32 --> Internet
