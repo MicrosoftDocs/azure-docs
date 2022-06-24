@@ -34,7 +34,7 @@ A connectivity configuration enables you to create a mesh or a hub-and-spoke net
 
 * Centrally manage connectivity and security policies globally across regions and subscriptions.
 
-* Enable transitive communication between spokes in a hub-and-spoke configuration without the complexity of managing a mesh network.
+* Enable direct connectivity between spokes in a hub-and-spoke configuration without the complexity of managing a mesh network.
 
 * Highly scalable and highly available service with redundancy and replication across the globe.
 
