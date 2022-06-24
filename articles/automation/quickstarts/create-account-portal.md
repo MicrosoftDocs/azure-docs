@@ -42,12 +42,12 @@ The following table describes the fields on the **Basics** tab.
 |---|---|---|
 |Subscription|Required |From the drop-down list, select the Azure subscription for the account.|
 |Resource group|Required |From the drop-down list, select your existing resource group, or select **Create new**.|
-|Automation account name|Required |Enter a name unique for it's location and resource group. Names for Automation accounts that have been deleted might not be immediately available. You can't change the account name once it has been entered in the user interface. |
+|Automation account name|Required |Enter a name unique for its location and resource group. Names for Automation accounts that have been deleted might not be immediately available. You can't change the account name once it has been entered in the user interface. |
 |Region|Required |From the drop-down list, select a region for the account. For an updated list of locations that you can deploy an Automation account to, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=automation&regions=all).|
 
 The following image shows a standard configuration for a new Automation account.
 
-:::image type="content" source="./media/create-account-portal/create-account-basics.png" alt-text="Required fields for creating the Automation account on Basics tab.":::
+:::image type="content" source="./media/create-account-portal/create-account-basics.png" alt-text="Screenshot showing required fields for creating the Automation account on Basics tab.":::
 
 ### Advanced
 
@@ -66,7 +66,7 @@ You can chose to enable managed identities later, and the Automation account is 
 
 The following image shows a standard configuration for a new Automation account.
 
-:::image type="content" source="./media/create-account-portal/create-account-advanced.png" alt-text="Required fields for creating the Automation account on Advanced tab.":::
+:::image type="content" source="./media/create-account-portal/create-account-advanced.png" alt-text="Screenshot showing required fields for creating the Automation account on Advanced tab.":::
 
 ### Networking
 
@@ -76,7 +76,7 @@ On the **Networking** tab, you can connect to your automation account either pub
 
 - **Private Access** – This option provides a private endpoint for the Automation account that uses a private IP address from your virtual network. This network interface connects you privately and securely to the Automation account. You bring the service into your virtual network by enabling a private endpoint. This is the recommended configuration from a security point of view; however, this requires you to configure Hybrid Runbook Worker connected to an Azure virtual network & currently does not support cloud jobs.
 
-:::image type="content" source="./media/create-account-portal/create-account-networking.png" alt-text="Required fields for creating the Automation account on Networking tab.":::
+:::image type="content" source="./media/create-account-portal/create-account-networking.png" alt-text="Screenshot showing required fields for creating the Automation account on Networking tab.":::
 
 ### Tags
 
