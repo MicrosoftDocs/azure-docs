@@ -26,7 +26,7 @@ You need to open some outgoing ports in your server's firewall to allow the Appl
 | Telemetry | dc.applicationinsights.azure.com<br/>dc.applicationinsights.microsoft.com<br/>dc.services.visualstudio.com<br/>*.in.applicationinsights.azure.com<br/><br/> | 443 |
 | Live Metrics | live.applicationinsights.azure.com<br/>rt.applicationinsights.microsoft.com<br/>rt.services.visualstudio.com<br/><br/>{region}.livediagnostics.monitor.azure.com<br/>*Example for {region}: westus2*<br/><br/> | 443 |
 
-To find the code for your region, refer to [Addresses grouped by region (Azure public cloud)](./#addresses-grouped-by-region-(azure-public-cloud)).
+To find the code for your region, refer to [Addresses grouped by region (Azure public cloud)](#addresses-grouped-by-region-azure-public-cloud).
 
 ## Status Monitor
 
