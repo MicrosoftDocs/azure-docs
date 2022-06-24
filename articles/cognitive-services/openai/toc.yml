@@ -6,6 +6,8 @@ items:
   items:
     - name: What is Azure OpenAI?
       href: overview.md
+    - name: Quotas and limits
+      href: quotas-limits.md
 - name: Quickstarts
   href: quickstart.md
 - name: How-to 
@@ -26,8 +28,8 @@ items:
   items:
     - name: Azure OpenAI Models
       href: ./concepts/models.md
-    - name: Content Filtering
-      href: ./concepts/content-filtering.md
+    - name: Content filtering
+      href: ./concepts/content-filter.md
 - name: Reference
   items:
     - name: REST API

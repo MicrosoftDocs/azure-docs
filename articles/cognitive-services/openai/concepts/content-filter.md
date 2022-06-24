@@ -1,5 +1,5 @@
 ---
-title: Azure OpenAI Content Filtering
+title: Azure OpenAI content filtering
 titleSuffix: Azure OpenAI
 description: Learn about the content filtering capabilities of the OpenAI service in Azure Cognitive Services
 author: chrishMSFT
@@ -30,21 +30,11 @@ When building your application, you'll want to account for scenarios where the c
 
 The table below outlines the various ways content filtering can appear:
 
-<table>
-<tr>
-    <td> Scenario </td> <td> HTTP Response Code  </td> <td> Response behavior </td> <td>Example </td>
-</tr>
+**Scenario** | **HTTP response code** | Response behavior |
+|------------|------------------------|-------------------|
+| You send a non-streaming completions call asking for multiple generations with no inappropriate content.|200 |    In the cases when all generation passes the filter models no content moderation details are added to the response. The finish_reason for each generation will be either stop or length. |
 
-<tr> 
-    <td> You send a non-streaming completions call asking for multiple generations with no inappropriate content.
-    <td> 200 </td>
-    <td> 
-    In the cases when all generation passes the filter models no content moderation details are added to the response. The finish_reason for  
-    each generation will be either stop or length.
-
-</td>
-    <td> 
-Example request payload:
+**Example response:**
 
 ```json
 {
@@ -52,11 +42,9 @@ Example request payload:
     , "n": 3
     , "stream": false
 }
-
 ```
 
-
-Example response JSON: 
+**Example response JSON:**
 
 ```json
 {
@@ -75,33 +63,25 @@ Example response JSON:
 }
 
 ```
-   </td>
-</tr>
-<tr>
-    <td> Your API call asks for multiple responses (N>1) and at least 1 of the responses is filtered. </td>
-    <td> 200 </td>
-    <td> 
 
-The generations that were filtered will have a `finish_reason` value of 'content_filter'.
+**Scenario** | **HTTP Response Code** | **Response behavior**
+|------------|------------------------|----------------------|
+| Your API call asks for multiple responses (N>1) and at least 1 of the responses is filtered. | 200 |The generations that were filtered will have a `finish_reason` value of 'content_filter'.
 
-   </td>
-   <td> 
-Example request payload:
+**Example request payload:**
 
 ```json
 {
     "prompt":"Text example"
-    , "n": 2
+    , "n": 3
     , "stream": false
 }
-
 ```
 
-Example response JSON:
-
+**Example response JSON:**
 
 ```json
-   {
+{
     "id": "example",
     "object": "text_completion",
     "created": 1653666831,
@@ -123,29 +103,19 @@ Example response JSON:
 }
 ```
 
-   </td>
-</tr>
+**Scenario** | **HTTP Response Code** | **Response behavior**
+|------------|------------------------|----------------------|
+|An inappropriate input prompt is sent to the completions API (either for streaming or non-streaming)|400 |The API call will fail when the prompt triggers one of our content policy models. Modify the prompt and try again.|
 
-<tr>
-    <td>  
-
-An inappropriate **input prompt** is sent to the completions API (either for streaming or non-streaming)
-
-</td>
-    <td>  400 </td>
-    <td> The API call will fail when the prompt triggers one of our content policy models. Modify the prompt and try again </td>
-    <td> 
-
-Example request payload:
+**Example request payload:**
 
 ```json
 {
     "prompt":"Content that triggered the filtering model"
 }
-
 ```
 
-Example response JSON
+**Example response JSON:**
 
 ```json
 "error": {
@@ -155,18 +125,13 @@ Example response JSON
     "code": "content_filter",
     "status": 400
 }
-
 ```
 
-   </td>
-</tr>
-<tr>
-    <td> You make a streaming completions call with all generated content passing the content filters. </td>
-    <td> 200 </td>
-    <td> In this case, the call will stream back with the full generation and finish_reason will be either 'length' or 'stop' for each generated response. </td>
-    <td>
+**Scenario** | **HTTP Response Code** | **Response behavior**
+|------------|------------------------|----------------------|
+| You make a streaming completions call with all generated content passing the content filters.|200|In this case, the call will stream back with the full generation and finish_reason will be either 'length' or 'stop' for each generated response.|
 
-Example request payload:
+**Example request payload:**
 
 ```json
 {
@@ -174,10 +139,9 @@ Example request payload:
     , "n": 3
     , "stream": true
 }
-
 ```
 
-Example response JSON: 
+**Example response JSON:**
 
 ```json
 {
@@ -196,27 +160,24 @@ Example response JSON:
 }
 ```
 
-   </td>
-</tr>
-<tr> 
-    <td> You make a streaming completions call asking for multiple generated responses and at least one response is filtered. </td>
-    <td> 200 </td>
-    <td>For a given generation index, the last chunk of the generation will include a non-null `finish_reason` value. The value will be 'content_filter' when the generation was filtered. </td>
-    <td> 
+**Scenario** | **HTTP Response Code** | **Response behavior**
+|------------|------------------------|----------------------|
+| You make a streaming completions call asking for multiple generated responses and at least one response is filtered.| 200 | For a given generation index, the last chunk of the generation will include a non-null `finish_reason` value. The value will be 'content_filter' when the generation was filtered.|
 
-Example request payload
+**Example request payload:**
+
 ```json
 {
     "prompt":"Text example"
     , "n": 3
     , "stream": true
 }
-
 ```
 
-Example response JSON
-```JSON   
-    {
+**Example response JSON:**
+
+```json
+ {
     "id": "cmpl-example",
     "object": "text_completion",
     "created": 1653670515,
@@ -231,15 +192,12 @@ Example response JSON
     ]
 }
 ```
-   </td>
-</tr>
-<tr>
-    <td>Content filtering system doesn't run on the generation </td>
-    <td> 200 </td>
-    <td>If the content filtering system is down or otherwise unable to complete the operation in time, your request will still complete. You can determine that the filtering wasn't applied by looking for an error message in the "content_filter_result" object. </td>
-    <td>
 
-Example request payload:
+**Scenario** | **HTTP Response Code** | **Response behavior**
+|------------|------------------------|----------------------|
+|Content filtering system doesn't run on the generation | 200 | If the content filtering system is down or otherwise unable to complete the operation in time, your request will still complete. You can determine that the filtering wasn't applied by looking for an error message in the "content_filter_result" object.|
+
+**Example request payload:**
 
 ```json
 {
@@ -247,12 +205,11 @@ Example request payload:
     , "n": 1
     , "stream": false
 }
-
 ```
 
-Example response JSON:
+**Example response JSON:**
 
-```json   
+```json
 {
     "id": "cmpl-example",
     "object": "text_completion",
@@ -273,20 +230,16 @@ Example response JSON:
         }
     ]
 }
-
 ```
- </td>
-</tr>
-</table>
+
 
 ## Best practices
 
 As part of your application design you'll need to think carefully on how to maximize the benefits of your applications  while minimizing the harms. Consider the following best practices:
 
-- How you want to handle scenarios where your users send in-appropriate or miss-use your application. Check the finish_reason to see if the generation is filtered. 
-- If it's critical that the content filters run on your generations, check that there's no `error` object in the `content_filter_result`. 
-- To help with monitoring for possible misuse, applications serving multiple end-users should pass the `user` parameter with each API call. The `user` should be a unique identifier for the end-user. Don't send any actual user identifiable information as the value. 
-
+- How you want to handle scenarios where your users send in-appropriate or miss-use your application. Check the finish_reason to see if the generation is filtered.
+- If it's critical that the content filters run on your generations, check that there's no `error` object in the `content_filter_result`.
+- To help with monitoring for possible misuse, applications serving multiple end-users should pass the `user` parameter with each API call. The `user` should be a unique identifier for the end-user. Don't send any actual user identifiable information as the value.
 
 ## Next steps
 Learn more about the [underlying models that power Azure OpenAI](../concepts/models.md).

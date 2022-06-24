@@ -68,7 +68,7 @@ How to get this information:
 1. From the **Resource Management** group, select **Deployments**.
    - Copy and save the name of the Deployment you're requesting a limit increase
 
-#### Create and submit a support request
+## Create and submit a support request
 
 Initiate the increase of the limit for concurrent requests for your resource, or if necessary check the current limit, by submitting a support request. Here's how:
 
@@ -86,3 +86,7 @@ Initiate the increase of the limit for concurrent requests for your resource, or
    - Any other required information.
 1. On the **Review + create** tab, select **Create**. 
 1. Note the support request number in Azure portal notifications. You'll be contacted shortly about your request.
+
+## Next steps
+
+Learn more about the [underlying models that power Azure OpenAI](./concepts/models.md).

@@ -46,7 +46,7 @@ Apply here for initial access or for a production review:
 
 All solutions using the Azure OpenAI service are also required to go through a use case review before they can be released for production use, and are evaluated on a case-by-case basis. In general, the more sensitive the scenario the more important risk mitigation measures will be for approval.
 
-## Key Concepts
+## Key concepts
 
 ### Prompts & Completions
 The completions endpoint is the core component of the API service. This API provides access to the model's text-in, text-out interface. Users simply need to provide an input  **prompt** containing the English text command, and the model will generate a text **completion**.
@@ -73,13 +73,13 @@ The total number of tokens processed in a given request depends on the length of
 
 ### Resources
 
-The Azure OpenAI service is new product offering on Azure. You can get started with the Azure OpenAI service the same way as any other Azure product where you create a resource, or instance of the service, in your Azure Subscription. You can read more about Azure's resource management design [here](/azure/azure-resource-manager/management/overview)
+The Azure OpenAI service is new product offering on Azure. You can get started with the Azure OpenAI service the same way as any other Azure product where you create a resource, or instance of the service, in your Azure Subscription. You can read more about Azure's [resource management design](/azure/azure-resource-manager/management/overview).
 
 
 ### Deployments
 Once you create an Azure OpenAI Resource, you must deploy a model before you can start making API calls and generating text. This action can be done using the Deployment APIs. These APIs allow you to specify the model you wish to use. 
 
-### In-Context Learning
+### In-context learning
 
 The models used by the Azure OpenAI service use natural language instructions and examples provided during the generation call to identify the task being asked and skill required. When you use this approach, the first part of the prompt includes natural language instructions and/or examples of the specific task desired. The model then completes the task by predicting the most probable next text. This technique is known as "in-context" learning. These models aren't retrained during this step but instead give predictions based on the context you include in the prompt.
 
@@ -117,11 +117,9 @@ The service provides users access to several different models. Each model provid
 
 The Codex series of models are a descendant of GPT-3 and have been trained on both natural language and code to power natural language to code use cases. Learn more about each model on our [models concept page](./concepts/models.md).
 
-
-## Terms of Use
+## Terms of use
 
 The use  of Azure OpenAI service is governed by the terms of service that were agreed to upon onboarding. You may only use this service for the use case provided. You must complete another review before using the Azure OpenAI service in a "live" or production scenario, within your company, or with your customers (as compared to use solely for internal evaluation).
-
 
 ## Next steps
 
