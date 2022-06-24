@@ -227,7 +227,7 @@ This section shows how to interact with Azure AD using [Microsoft Graph PowerShe
 
 1. When the script completes, it will indicate an error if there were any records from the data source that weren't located in Azure AD.  If not all the records for users from the application's data store could be located as users in Azure AD, then you'll need to investigate which records didn't match and why.  For example, someone's email address may have been changed in Azure AD without their corresponding `mail` property being updated in the application's data source.  Or, they may have already left the organization, but still be in the application's data source.  Or there might be a vendor or super-admin account in the application's data source who does not correspond to any specific person in Azure AD.
 
-1. If there were users that could not be located in Azure AD, but you want to have their access be reviewed or their attributes updated in the database, you'll need to create Azure AD users for the users that could not be located.
+1. If there were users that couldn't be located in Azure AD, but you want to have their access be reviewed or their attributes updated in the database, you'll need to create Azure AD users for the users that could not be located.
 
 1. After adding any missing users to Azure AD, then run the script from step 6 above again, and ensure that no errors are reported.
 
