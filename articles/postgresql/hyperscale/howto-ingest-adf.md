@@ -6,7 +6,7 @@ author: sudhanshuvishodia
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: how-to
-ms.date: 05/27/2022
+ms.date: 06/24/2022
 ---
 
 # What is Azure Data Factory(ADF)?
@@ -14,7 +14,7 @@ ms.date: 05/27/2022
 [Azure Data Factory](https://docs.microsoft.com/azure/data-factory/introduction) is the cloud-based ETL and data integration service that allows you to create data-driven workflows for orchestrating data movement and transforming data at scale. Using Azure Data Factory, you can create and schedule data-driven workflows (called pipelines) that can ingest data from disparate data stores running on-premises, in Azure or other cloud providers for analytics and reporting.
 The sink support for Hyperscale (Citus) allows you to bring your data (relational, NoSQL, data lake files) to your favourite open-source database for storage, processing, and reporting.
 
-![Dataflow diagram for Azure Data Factory.](../media/howto-ingestion-azure-integrations-azure-data-factory/architecture.png)
+![Dataflow diagram for Azure Data Factory.](../media/howto-hyperscale-ingestion/ADF_architecture.png)
 
 ## ADF for realtime ingestion to Hyperscale (Citus)
 
@@ -33,16 +33,16 @@ In Azure Data Factory, you can use the **Copy** activity to copy data among data
 
 1. Once ADF is provisioned, go to your data factory. You will see the Data Factory home page as shown in the following image:
 
-![Landing page of Azure Data Factory.](../media/howto-ingestion-azure-integrations-azure-data-factory/ADF_Home.png)
+![Landing page of Azure Data Factory.](../media/howto-hyperscale-ingestion/ADF_Home.png)
 
 2. On the home page, select **Orchestrate**.
 
-![Orchestrate page of Azure Data Factory.](../media/howto-ingestion-azure-integrations-azure-data-factory/ADF_Orchestrate.png)
+![Orchestrate page of Azure Data Factory.](../media/howto-hyperscale-ingestion/ADF_Orchestrate.png)
 
 3. In the General panel under **Properties**, specify the name of pipeline. 
 4. In the **Activities** toolbox, expand the **Move and Transform** category, and drag and drop the **Copy Data** activity to the pipeline designer surface. Specify the activity name.
 
-![Pipeline in Azure Data Factory.](../media/howto-ingestion-azure-integrations-azure-data-factory/ADF_Pipeline_COPY.png)
+![Pipeline in Azure Data Factory.](../media/howto-hyperscale-ingestion/ADF_Pipeline_COPY.png)
 
 5. Configure **Source**
 
@@ -54,7 +54,7 @@ In Azure Data Factory, you can use the **Copy** activity to copy data among data
    6. Next to **File path**, select **Browse** and select the desired file from BLOB storage.
    7. Click **Ok** to save the configuration.
 
-![Configuring Source in of Azure Data Factory.](../media/howto-ingestion-azure-integrations-azure-data-factory/ADF_Configure_Source.png)
+![Configuring Source in of Azure Data Factory.](../media/howto-hyperscale-ingestion/ADF_Configure_Source.png)
 
 6. Configure **Sink**
 
@@ -67,11 +67,11 @@ In Azure Data Factory, you can use the **Copy** activity to copy data among data
     6. Specify **Write method** as COPY command.
     7. Click **Ok** to save the configuration.
 
-![Configuring Sink in of Azure Data Factory.](../media/howto-ingestion-azure-integrations-azure-data-factory/ADF_Configure_Sink.png)
+![Configuring Sink in of Azure Data Factory.](../media/howto-hyperscale-ingestion/ADF_Configure_Sink.png)
 
 7. From the toolbar above the canvas, select **Validate** to validate pipeline settings. Fix errors (if any), revalidate and ensure that the pipeline has been successfully validated.
 8. Select Debug from the toolbar execute the pipeline.
-![Debug and Execute in of Azure Data Factory.](../media/howto-ingestion-azure-integrations-azure-data-factory/ADF_Execute.png)
+![Debug and Execute in of Azure Data Factory.](../media/howto-hyperscale-ingestion/ADF_Execute.png)
 9. Once the pipeline can run successfully, in the top toolbar, select **Publish all**. This action publishes entities (datasets, and pipelines) you created to Data Factory.
 
 
@@ -80,6 +80,6 @@ In Azure Data Factory, you can use the **Copy** activity to copy data among data
 
 In some specific scenarios, you might want to call a stored procedure/function to push aggregated data from staging table to summary table. As of today, ADF do not offer Stored Procedure activity for Azure Database for Postgres, but as a workaround we can use Lookup Activity with query to call a stored procedure as shown below:
 
-![Calling a procedure in Azure Data Factory.](../media/howto-ingestion-azure-integrations-azure-data-factory/ADF_Call_Procedure.png)
+![Calling a procedure in Azure Data Factory.](../media/howto-hyperscale-ingestion/ADF_Call_Procedure.png)
 ---
 
