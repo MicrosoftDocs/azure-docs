@@ -25,7 +25,7 @@ ms.collection: M365-identity-device-management
 
 There are two common scenarios in which it's necessary to populate Azure Active Directory (Azure AD) with existing users of an application, prior to using the application with an Azure AD identity governance feature such as [access reviews](access-reviews-application-preparation.md) or [entitlement management](entitlement-management-overview.md).
 
-### Application migrating to Azure AD after using its own identity provider
+### Application migrated to Azure AD after using its own identity provider
 
 The first scenario is one in which the application already exists in the environment, and previously used its own identity provider or data store to track which users had access. When you change the application to rely upon Azure AD, then only users who are in Azure AD and permitted access to that application can access it.  As part of that configuration change, you can choose to bring in the existing users from that application's data store into Azure AD, so that those users continue to have access, through Azure AD. Having the users associated with the application represented in Azure AD will enable Azure AD to track users with access to the application, even though the user's relationship with the application originated elsewhere, such as in an applications' database or directory.  Once Azure AD is aware of a user's assignment, Azure AD will be able send updates to the application's data store when that user's attributes change, or when the user goes out of scope of the application.
 
@@ -53,7 +53,7 @@ The first step to ensure all users are recorded in Azure AD, is to collect the l
 * From a SQL Server database
 * From another SQL-based database
 
-### Collect existing users from an LDAP directory
+### Collect existing users from an application that uses an LDAP directory
 
 This section applies to applications that use an LDAP directory as its underlying data store for users who don't authenticate to Azure AD.
 
@@ -70,7 +70,7 @@ Many LDAP directories, such as Active Directory, include a command that outputs 
 1. If needed, transfer the CSV file containing the list of users to a system with the [Microsoft Graph PowerShell cmdlets](https://www.powershellgallery.com/packages/Microsoft.Graph) installed.
 1. Continue reading at the section below, **Confirm Azure AD has users for each user from the application**.
 
-### Collect existing users from a database table using a SQL Server wizard
+### Collect existing users from an application's database table using a SQL Server wizard
 
 This section applies to applications that use SQL Server as its underlying data store.
 
@@ -85,7 +85,7 @@ First, get a list of the users from the tables. Most databases provide a way to 
 1. If needed, transfer the CSV file containing the list of users to a system with the [Microsoft Graph PowerShell cmdlets](https://www.powershellgallery.com/packages/Microsoft.Graph) installed.
 1. Continue reading at the section below, **Confirm Azure AD has users for each user from the application**.
 
-### Collect existing users from a database table using PowerShell
+### Collect existing users from an application's database table using PowerShell
 
 This section applies to applications that use another SQL database as its underlying data store, where you're using the [ECMA Connector Host](/azure/active-directory/app-provisioning/on-premises-sql-connector-configure) to provision users into that application.  If you've not yet configured the provisioning agent, use that guide to create the DSN connection file you'll use in this section.
 
