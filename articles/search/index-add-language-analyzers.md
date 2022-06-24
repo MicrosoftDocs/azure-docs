@@ -7,8 +7,8 @@ author: HeidiSteen
 manager: nitinme
 ms.author: heidist
 ms.service: cognitive-search
-ms.topic: conceptual
-ms.date: 09/08/2021
+ms.topic: how-to
+ms.date: 06/24/2022
 ---
 # Add language analyzers to string fields in an Azure Cognitive Search index
 
@@ -45,11 +45,11 @@ The default analyzer is Standard Lucene, which works well for English, but perha
 
 + Lucene's English analyzer extends the Standard analyzer. It removes possessives (trailing 's) from words, applies stemming as per Porter Stemming algorithm, and removes English stop words.  
 
-+ Microsoft's English analyzer performs lemmatization instead of stemming. This means it can handle inflected and irregular word forms much better which results in more relevant search results 
++ Microsoft's English analyzer performs lemmatization instead of stemming. This means it can handle inflected and irregular word forms much better which results in more relevant search results.
 
 ## How to specify a language analyzer
 
-Set the analyzer during index creation, before it's loaded with data.
+Set the analyzer during index creation before it's loaded with data.
 
 1. In the field definition, make sure the field is attributed as "searchable" and is of type Edm.String.
 
@@ -57,7 +57,7 @@ Set the analyzer during index creation, before it's loaded with data.
 
    The "analyzer" property is the only property that will accept a language analyzer, and it's used for both indexing and queries. Other analyzer-related properties ("searchAnalyzer" and "indexAnalyzer") will not accept a language analyzer.
 
-Language analyzers cannot be customized. If an analyzer isn't meeting your requirements, you can try creating a [custom analyzer](cognitive-search-working-with-skillsets.md) with the microsoft_language_tokenizer or microsoft_language_stemming_tokenizer, and add filters for pre- and post-tokenization processing.
+Language analyzers cannot be customized. If an analyzer isn't meeting your requirements, create a [custom analyzer](cognitive-search-working-with-skillsets.md) with the microsoft_language_tokenizer or microsoft_language_stemming_tokenizer, and then add filters for pre- and post-tokenization processing.
 
 The following example illustrates a language analyzer specification in an index:
 
