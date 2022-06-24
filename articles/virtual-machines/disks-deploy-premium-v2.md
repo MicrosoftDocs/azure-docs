@@ -124,8 +124,6 @@ $vm = Add-AzVMDataDisk -VM $vm -Name $diskName -CreateOption Attach -ManagedDisk
 Update-AzVM -VM $vm -ResourceGroupName $resourceGroup
 ```
 
-
-
 ---
 
 ### Create a premium SSD - 512 byte sector size
@@ -166,6 +164,7 @@ Optionally, you can deploy a premium SSD v2 that has a 512 byte sector size.
 #create a premium SSD v2 with 512 sector size
 az disk create --subscription $subscription -n $diskname -g $rgname --size-gb 100 --location $location --sku premiumV2SKU --disk-iops-read-write 400 --disk-mbps-read-write 400 --logical-sector-size 512
 ```
+---
 
 ## Adjust disk performance
 
@@ -186,3 +185,4 @@ az disk update `
 $diskupdateconfig = New-AzDiskUpdateConfig -DiskMBpsReadWrite 2000
 Update-AzDisk -ResourceGroupName $resourceGroup -DiskName $diskName -DiskUpdate $diskupdateconfig
 ```
+---
