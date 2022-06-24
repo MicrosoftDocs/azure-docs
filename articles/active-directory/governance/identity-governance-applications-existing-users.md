@@ -294,7 +294,7 @@ Before creating new assignments, you'll want to configure [Azure AD provisioning
 
 1. Check the [attribute mappings](/azure/active-directory/app-provisioning/customize-application-attributes) for provisioning to that application.  Make sure that *Match objects using this attribute* is set for the Azure AD attribute and column that you used in the sections above for matching.  If these rules aren't using the same attributes as you used earlier, then when application role assignments are created, Azure AD may be unable to locate existing users in the applications' data store, and inadvertently create duplicate users.
 1. Check that there's an attribute mapping for **isSoftDeleted** to an attribute of the application.  When subsequently a user is unassigned from the application, soft-deleted in Azure AD, or blocked from sign-in, then Azure AD provisioning will update the attribute mapped to **isSoftDeleted**.  If no attribute is mapped, then users who are subsequently unassigned from the application role will continue to exist in the application's data store.
-1. If provisioning has already been enabled for the application, ensure that the application provisioning is not in [quarantine](/azure/active-directory/app-provisioning/application-provisioning-quarantine-status). You will need to resolve any issues that are causing the quarantine prior to proceeding.
+1. If provisioning has already been enabled for the application, ensure that the application provisioning is not in [quarantine](/azure/active-directory/app-provisioning/application-provisioning-quarantine-status). You'll need to resolve any issues that are causing the quarantine prior to proceeding.
 
 ## Create app role or access package assignments in Azure AD
 
