@@ -6,7 +6,7 @@ author: chrishMSFT
 ms.author: chrhoder
 ms.service: cognitive-services
 ms.topic: conceptual 
-ms.date: 06/01/2022
+ms.date: 06/30/2022
 ms.custom: template-concept #Required; leave this attribute/value as-is.
 manager: nitinme
 keywords: 
@@ -27,12 +27,13 @@ When building your application, you'll want to account for scenarios where the c
 - Non-streaming completions calls won't return any content when the content is filtered. The `finish_reason` value will be set to `content_filter`. In rare cases with long responses, a partial result can be returned. In these cases,  the `finish_reason` will be updated.
 - For streaming completions calls, segments will be returned back to the user as they're completed. The service will continue streaming until either reaching a stop token, length or harmful content is detected.
 
+### Scenario: You send a non-streaming completions call asking for multiple generations with no inappropriate content
 
 The table below outlines the various ways content filtering can appear:
 
-**Scenario** | **HTTP response code** | Response behavior |
-|------------|------------------------|-------------------|
-| You send a non-streaming completions call asking for multiple generations with no inappropriate content.|200 |    In the cases when all generation passes the filter models no content moderation details are added to the response. The finish_reason for each generation will be either stop or length. |
+ **HTTP response code** | **Response behavior** |
+|------------------------|-------------------|
+| 200 |    In the cases when all generation passes the filter models no content moderation details are added to the response. The finish_reason for each generation will be either stop or length. |
 
 **Example response:**
 
@@ -64,9 +65,11 @@ The table below outlines the various ways content filtering can appear:
 
 ```
 
-**Scenario** | **HTTP Response Code** | **Response behavior**
-|------------|------------------------|----------------------|
-| Your API call asks for multiple responses (N>1) and at least 1 of the responses is filtered. | 200 |The generations that were filtered will have a `finish_reason` value of 'content_filter'.
+### Scenario: Your API call asks for multiple responses (N>1) and at least 1 of the responses is filtered
+
+| **HTTP Response Code** | **Response behavior**|
+|------------------------|----------------------|
+| 200 |The generations that were filtered will have a `finish_reason` value of 'content_filter'.
 
 **Example request payload:**
 
@@ -103,9 +106,11 @@ The table below outlines the various ways content filtering can appear:
 }
 ```
 
-**Scenario** | **HTTP Response Code** | **Response behavior**
-|------------|------------------------|----------------------|
-|An inappropriate input prompt is sent to the completions API (either for streaming or non-streaming)|400 |The API call will fail when the prompt triggers one of our content policy models. Modify the prompt and try again.|
+### Scenario: An inappropriate input prompt is sent to the completions API (either for streaming or non-streaming)
+
+**HTTP Response Code** | **Response behavior**
+|------------------------|----------------------|
+|400 |The API call will fail when the prompt triggers one of our content policy models. Modify the prompt and try again.|
 
 **Example request payload:**
 
@@ -127,9 +132,11 @@ The table below outlines the various ways content filtering can appear:
 }
 ```
 
-**Scenario** | **HTTP Response Code** | **Response behavior**
+### Scenario: You make a streaming completions call with all generated content passing the content filters
+
+**HTTP Response Code** | **Response behavior**
 |------------|------------------------|----------------------|
-| You make a streaming completions call with all generated content passing the content filters.|200|In this case, the call will stream back with the full generation and finish_reason will be either 'length' or 'stop' for each generated response.|
+|200|In this case, the call will stream back with the full generation and finish_reason will be either 'length' or 'stop' for each generated response.|
 
 **Example request payload:**
 
@@ -160,9 +167,11 @@ The table below outlines the various ways content filtering can appear:
 }
 ```
 
-**Scenario** | **HTTP Response Code** | **Response behavior**
+### Scenario: You make a streaming completions call asking for multiple generated responses and at least one response is filtered
+
+**HTTP Response Code** | **Response behavior**
 |------------|------------------------|----------------------|
-| You make a streaming completions call asking for multiple generated responses and at least one response is filtered.| 200 | For a given generation index, the last chunk of the generation will include a non-null `finish_reason` value. The value will be 'content_filter' when the generation was filtered.|
+| 200 | For a given generation index, the last chunk of the generation will include a non-null `finish_reason` value. The value will be 'content_filter' when the generation was filtered.|
 
 **Example request payload:**
 
@@ -193,9 +202,11 @@ The table below outlines the various ways content filtering can appear:
 }
 ```
 
-**Scenario** | **HTTP Response Code** | **Response behavior**
-|------------|------------------------|----------------------|
-|Content filtering system doesn't run on the generation | 200 | If the content filtering system is down or otherwise unable to complete the operation in time, your request will still complete. You can determine that the filtering wasn't applied by looking for an error message in the "content_filter_result" object.|
+### Scenario: Content filtering system doesn't run on the generation
+
+**HTTP Response Code** | **Response behavior**
+|------------------------|----------------------|
+| 200 | If the content filtering system is down or otherwise unable to complete the operation in time, your request will still complete. You can determine that the filtering wasn't applied by looking for an error message in the "content_filter_result" object.|
 
 **Example request payload:**
 
@@ -231,7 +242,6 @@ The table below outlines the various ways content filtering can appear:
     ]
 }
 ```
-
 
 ## Best practices
 
