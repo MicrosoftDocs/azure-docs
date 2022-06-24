@@ -29,7 +29,7 @@ In this article, you'll learn how to manage experiments and runs in your workspa
 
 ## Using MLflow SDK in Azure ML
 
-Use MLflow to query and manage all the experiments in Azure Machine Learning. The MLflow SDK has capabities to query everything that happens inside of a training job in Azure Machine Learning.
+Use MLflow to query and manage all the experiments in Azure Machine Learning. The MLflow SDK has capabilities to query everything that happens inside of a training job in Azure Machine Learning.
 
 ### Prerequisites
 
@@ -94,7 +94,7 @@ Details about a specific experiment can be retrieved using the `get_experiment_b
 
 ## Getting runs inside an experiment
 
-MLflow allows searching runs inside of any experiment, including multiple experiments at the same time. By default, MLflow returns the data in Pandas `Dataframe` format which makes it handy when doing further processing our analysis of the runs. Returned data includes columns with:
+MLflow allows searching runs inside of any experiment, including multiple experiments at the same time. By default, MLflow returns the data in Pandas `Dataframe` format, which makes it handy when doing further processing our analysis of the runs. Returned data includes columns with:
 
 - Basic information about the run.
 - Parameters with column's name `params.<parameter-name>`.
@@ -176,7 +176,7 @@ The following example shows all the runs that have been completed:
   
 ## Accessing runs details
 
-By default, MLflow returns runs as a Pandas `Dataframe`. You can get Python objects if required, which may be useful to get details about them by specifying the `output_format` parameter:
+By default, MLflow returns runs as a Pandas `Dataframe`. You can get Python objects if needed, which may be useful to get details about them by specifying the `output_format` parameter:
 
   ```python
   runs = mlflow.search_runs(
@@ -185,7 +185,7 @@ By default, MLflow returns runs as a Pandas `Dataframe`. You can get Python obje
       output_format="list",
   )
   ```
-Details can then be accessed from the `info` memeber. The following sample shows how to get the `run_id`:
+Details can then be accessed from the `info` member. The following sample shows how to get the `run_id`:
 
   ```python
   last_run = runs[-1]
@@ -252,7 +252,7 @@ MLflow also allows you to both operations at once and download and load the mode
 
 ## Getting child (nested) runs information
 
-MLflow supports the concept of child (nested) runs. They are useful when you need to spin off training routines requiring being tracked independently from the main training process. This is the typical case of hyper-parameter tuning for instance. You can query all the child runs of a specific run using the property tag `mlflow.parentRunId` which contains the run ID of the parent run.
+MLflow supports the concept of child (nested) runs. They are useful when you need to spin off training routines requiring being tracked independently from the main training process. This is the typical case of hyper-parameter tuning for instance. You can query all the child runs of a specific run using the property tag `mlflow.parentRunId`, which contains the run ID of the parent run.
 
 ```python
 hyperopt_run = mlflow.last_active_run()
