@@ -11,7 +11,7 @@ ms.date: 06/24/2022
 
 # What is Azure Data Factory(ADF)?
 
-[Azure Data Factory](https://docs.microsoft.com/azure/data-factory/introduction) is the cloud-based ETL and data integration service that allows you to create data-driven workflows for orchestrating data movement and transforming data at scale. Using Azure Data Factory, you can create and schedule data-driven workflows (called pipelines) that can ingest data from disparate data stores running on-premises, in Azure or other cloud providers for analytics and reporting.
+[Azure Data Factory](../../data-factory/introduction.md) is the cloud-based ETL and data integration service that allows you to create data-driven workflows for orchestrating data movement and transforming data at scale. Using Azure Data Factory, you can create and schedule data-driven workflows (called pipelines) that can ingest data from disparate data stores running on-premises, in Azure or other cloud providers for analytics and reporting.
 The sink support for Hyperscale (Citus) allows you to bring your data (relational, NoSQL, data lake files) to your favorite open-source database for storage, processing, and reporting.
 
 ![Dataflow diagram for Azure Data Factory.](../media/howto-hyperscale-ingestion/ADF_architecture.png)
@@ -27,7 +27,7 @@ Some of the key factors for choosing Azure Data Factory for ingestion with Hyper
 
 ## Steps to use ADF with Hyperscale (Citus)
 
-In this tutorial, we'll create a data pipeline by using the Azure Data Factory user interface (UI). The pipeline in this data factory copies data from Azure Blob storage to a database in Hyperscale (Citus). For a list of data stores supported as sources and sinks, see the [supported data stores](https://docs.microsoft.com/azure/data-factory/copy-activity-overview#supported-data-stores-and-formats) table.
+In this tutorial, we'll create a data pipeline by using the Azure Data Factory user interface (UI). The pipeline in this data factory copies data from Azure Blob storage to a database in Hyperscale (Citus). For a list of data stores supported as sources and sinks, see the [supported data stores](../../data-factory/copy-activity-overview.md#supported-data-stores-and-formats) table.
 
 In Azure Data Factory, you can use the **Copy** activity to copy data among data stores located on-premises and in the cloud to Hyperscale Citus. If you're new to Azure Data Factory, here's a quick guide on how to get started:
 
