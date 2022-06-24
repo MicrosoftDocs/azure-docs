@@ -140,11 +140,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
     ![Screenshot that shows the Configuration of SSO Authentication.](./media/veza-tutorial/details.png "Profile")
 
-    a. In the **Sign In Url** textbox, paste the **Login URL** value which you have copied from the Azure portal.
+    a. In the **Sign In Url** textbox, paste the **Login URL** value, which you've copied from the Azure portal.
 
     b. Open the downloaded **Certificate (Base64)** from the Azure portal and upload the file into the **X509 Signing Certificate** by clicking **Choose File** option.
 
-    c. In the **Sign Out Url** textbox, paste the **Logout URL** value which you have copied from the Azure portal.
+    c. In the **Sign Out Url** textbox, paste the **Logout URL** value, which you've copied from the Azure portal.
 
     d. Toggle **Enable Request Signing** button and select RSA-SHA-256 and SHA-256 as the **Sign Request Algorithm**.
 
@@ -168,7 +168,7 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 * Click on **Test this application** in Azure portal and you should be automatically signed in to the Veza for which you set up the SSO. 
 
-You can also use Microsoft My Apps to test the application in any mode. When you click the Veza tile in the My Apps, if configured in SP mode you would be redirected to the application sign-on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the Veza for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
+You can also use Microsoft My Apps to test the application in any mode. When you click the Veza tile in the My Apps, if configured in SP mode you would be redirected to the application Sign-On page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the Veza for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
 
 ## Next steps
 
