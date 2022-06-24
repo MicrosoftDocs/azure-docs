@@ -23,15 +23,15 @@ This preview is a test release.
 New for this release:
 
 - Miscellaneous
-  - <item>
+  - \<item\>
   - ...
 
-- Arc enabled SQL Managed Instance
-  - <item>
+- Arc-enabled SQL Managed Instance
+  - \<item\>
   - ...
 
 
-- Data Controller
-  - <item>
+- Data controller
+  - \<item\>
   - ...
 
