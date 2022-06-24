@@ -1,6 +1,6 @@
 ---
-title: How to create credentials using the QuickStart
-description: Learn how to use the QuickStart to create custom credentials
+title: How to create verifiable credentials for ID token hint
+description: Learn how to use the QuickStart to create custom verifiable credential for ID token hint
 documentationCenter: ''
 author: barclayn
 manager: rkarlin
@@ -10,10 +10,10 @@ ms.subservice: verifiable-credentials
 ms.date: 06/16/2022
 ms.author: barclayn
 
-#Customer intent: As an administrator, I am looking for information to help me disable 
+#Customer intent: As a verifiable credentials Administrator, I want to create a verifiable credential for the ID token hint scenario 
 ---
 
-# How to create credentials using the Quickstart
+# How to create verifiable credentials for ID token hint
 
 [!INCLUDE [Verifiable Credentials announcement](../../../includes/verifiable-credentials-brand.md)]
 
