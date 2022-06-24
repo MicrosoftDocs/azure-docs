@@ -222,7 +222,7 @@ The initialization code is different depending on the platform. For ASP.NET Core
 
 # [ASP.NET Core](#tab/aspnetcore)
 
-In ASP.NET Core web apps (and web APIs), the application is protected because you have a `[Authorize]` attribute on the controllers or the controller actions. This attribute checks that the user is authenticated. The code that's initializing the application is in the *Startup.cs* file.
+In ASP.NET Core web apps (and web APIs), the application is protected because you have a `[Authorize]` attribute on the controllers or the controller actions. This attribute checks that the user is authenticated. Prior to the release of .NET 6, the code that's initializing the application is in the *Startup.cs* file.  New ASP.NET Core projects with .NET 6 no longer contain a *Startup.cs* file.  Taking its place is the *Program.cs* file.  The rest of this tutorial pertains to .NET 5 or lower.
 
 To add authentication with the Microsoft identity platform (formerly Azure AD v2.0), you'll need to add the following code. The comments in the code should be self-explanatory.
 
