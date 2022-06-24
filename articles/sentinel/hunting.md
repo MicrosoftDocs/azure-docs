@@ -108,6 +108,7 @@ Create or modify a query and save it as your own query or share it with users wh
 **To modify an existing custom query**
 
 1. From the table, select the hunting query that you wish to modify. Note that only queries that from a custom content source can be edited. Other content sources have to be edited at that source.
+
 1. Select the ellipsis (...) in the line of the query you want to modify, and select **Edit query**.
 1. Modify the **Custom query** field with the updated query. You can also modify the entity mapping and techniques as per the "**To create a new query**" section og this documentation
 
