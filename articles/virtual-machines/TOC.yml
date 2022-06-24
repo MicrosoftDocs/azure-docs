@@ -996,85 +996,6 @@
     - name: FAQ
       displayName: classic, migration, classic to ARM, CSES, Cloud Services
       href: migration-classic-resource-manager-faq.yml
-- name: Availability and scale
-  items:
-  - name: Overview
-    displayName: availability and scale, availability, scale, autoscale
-    href: availability.md
-  - name: Availability zones
-    items:
-    - name: Overview
-      displayName: availability and scale, availability, scale, autoscale, availability zones, AV zones
-      href: ../availability-zones/az-overview.md?context=/azure/virtual-machines/context/context
-    - name: CLI
-      displayName: availability and scale, availability, scale, autoscale, availability zones, AV zones
-      href: ./linux/create-cli-availability-zone.md
-    - name: PowerShell
-      displayName: availability and scale, availability, scale, autoscale, availability zones, AV zones
-      href: ./windows/create-powershell-availability-zone.md
-    - name: Portal
-      displayName: availability and scale, availability, scale, autoscale, availability zones, AV zones
-      href: ./create-portal-availability-zone.md
-    - name: Migrate to Availability Zones
-      displayName: availability and scale, availability, scale, autoscale, availability zones, AV zones 
-      href: ../availability-zones/migrate-vm.md
-  - name: Proximity Placement Groups
-    items:
-    - name: Overview
-      displayName: proximity placement groups, ppg
-      href: co-location.md
-    - name: CLI
-      displayName: proximity placement groups, ppg
-      href: ./linux/proximity-placement-groups.md
-    - name: PowerShell
-      displayName: proximity placement groups, ppg
-      href: ./windows/proximity-placement-groups.md
-    - name: Portal
-      displayName: proximity placement groups, ppg
-      href: ./windows/proximity-placement-groups-portal.md
-  - name: Virtual machine scale sets
-    items:
-    - name: Overview
-      displayName: Flexible orchestration mode for virtual machine scale sets
-      href: flexible-virtual-machine-scale-sets.md
-    - name: Portal
-      displayName: Flexible orchestration mode for virtual machine scale sets
-      href: flexible-virtual-machine-scale-sets-portal.md
-    - name: CLI
-      displayName: Flexible orchestration mode for virtual machine scale sets
-      href: flexible-virtual-machine-scale-sets-cli.md
-    - name: PowerShell
-      displayName: Flexible orchestration mode for virtual machine scale sets
-      href: flexible-virtual-machine-scale-sets-powershell.md
-    - name: ARM template
-      displayName: Flexible orchestration mode for virtual machine scale sets
-      href: flexible-virtual-machine-scale-sets-rest-api.md
-    - name: Autoscale
-      href: ../virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview.md?context=/azure/virtual-machines/context/context
-    - name: Orchestration modes
-      displayName: VMSS, flex, scale set, scale, virtual machine scale set
-      href: ../virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes.md?context=/azure/virtual-machines/context/context
-    - name: Migration and considerations
-      displayName: VMSS, flex, scale set, scale, virtual machine scale set
-      href: flexible-virtual-machine-scale-sets-migration-resources.md
-  - name: Understand VM reboots
-    href: understand-vm-reboots.md
-  - name: Azure Regions
-    href: regions.md
-  - name: Availability sets
-    items:
-    - name: Overview
-      displayName: availability and scale, availability, scale, autoscale, availability sets, AV sets
-      href: availability-set-overview.md
-    - name: CLI
-      displayName: availability and scale, availability, scale, autoscale, availability sets, AV sets
-      href: ./linux/tutorial-availability-sets.md
-    - name: PowerShell
-      displayName: availability and scale, availability, scale, autoscale, availability sets, AV sets
-      href: ./windows/tutorial-availability-sets.md
-    - name: Change an availability set
-      displayName: availability and scale, availability, scale, autoscale, availability sets, AV sets
-      href: ./windows/change-availability-set.md
 - name: Disks
   items:
   - name: Overview
@@ -1927,95 +1848,176 @@
     href: ./linux/metrics-vm-usage-rest.md
   - name: Boot diagnostics
     href: boot-diagnostics.md
-- name: Backup and recovery
+- name: Resiliency
   items:
-  - name: Overview
-    displayName: Backup and recovery
-    href: backup-recovery.md
-  - name: Service disruptions
-    href: virtual-machines-disaster-recovery-guidance.md
-  - name: Back up VMs
+  - name: Availability and scale
     items:
     - name: Overview
-      href: ../backup/backup-azure-vms-introduction.md?context=/azure/virtual-machines/context/context
-      dispayName: backup VMs, Azure Backup, recovery
-    - name: Creating restore points
-      href: virtual-machines-create-restore-points.md
-    - name: Quickstarts
+      displayName: availability and scale, availability, scale, autoscale
+      href: availability.md
+    - name: Availability zones
       items:
+      - name: Overview
+        displayName: availability and scale, availability, scale, autoscale, availability zones, AV zones
+        href: ../availability-zones/az-overview.md?context=/azure/virtual-machines/context/context
       - name: CLI
-        href: ../backup/quick-backup-vm-cli.md?context=/azure/virtual-machines/context/context
-        dispayName: backup VMs, Azure Backup, recovery
+        displayName: availability and scale, availability, scale, autoscale, availability zones, AV zones
+        href: ./linux/create-cli-availability-zone.md
       - name: PowerShell
-        href: ../backup/quick-backup-vm-powershell.md?context=/azure/virtual-machines/context/context
-        dispayName: backup VMs, Azure Backup, recovery
+        displayName: availability and scale, availability, scale, autoscale, availability zones, AV zones
+        href: ./windows/create-powershell-availability-zone.md
       - name: Portal
-        href: ../backup/quick-backup-vm-portal.md?context=/azure/virtual-machines/context/context
-        dispayName: backup VMs, Azure Backup, recovery
-      - name: Template
-        href: ../backup/quick-backup-vm-template.md?context=/azure/virtual-machines/context/context
-        dispayName: backup VMs, Azure Backup, recovery
-    - name: Back up multiple VMs
-      href: ../backup/tutorial-backup-vm-at-scale.md?context=/azure/virtual-machines/context/context
-    - name: Restore options
-      href: ../backup/backup-azure-arm-restore-vms.md?context=/azure/virtual-machines/context/context
-    - name: Support matrix
-      href: ../backup/backup-support-matrix-iaas.md?context=/azure/virtual-machines/context/context
-      dispayName: backup VMs, Azure Backup, recovery
-    - name: Pricing
-      href: ../backup/azure-backup-pricing.md?context=/azure/virtual-machines/context/context
-      dispayName: backup VMs, Azure Backup, recovery
-    - name: FAQ
-      href: ../backup/backup-azure-vm-backup-faq.yml?context=/azure/virtual-machines/context/context
-      dispayName: backup VMs, Azure Backup, recovery
-  - name: Disaster recovery
+        displayName: availability and scale, availability, scale, autoscale, availability zones, AV zones
+        href: ./create-portal-availability-zone.md
+      - name: Migrate to availability zone support
+        displayName: availability and scale, availability, scale, autoscale, availability zones, AV zones 
+        href: ../availability-zones/migrate-vm.md
+    - name: Proximity Placement Groups
+      items:
+      - name: Overview
+        displayName: proximity placement groups, ppg
+        href: co-location.md
+      - name: CLI
+        displayName: proximity placement groups, ppg
+        href: ./linux/proximity-placement-groups.md
+      - name: PowerShell
+        displayName: proximity placement groups, ppg
+        href: ./windows/proximity-placement-groups.md
+      - name: Portal
+        displayName: proximity placement groups, ppg
+        href: ./windows/proximity-placement-groups-portal.md
+    - name: Virtual machine scale sets
+      items:
+      - name: Overview
+        displayName: Flexible orchestration mode for virtual machine scale sets
+        href: flexible-virtual-machine-scale-sets.md
+      - name: Portal
+        displayName: Flexible orchestration mode for virtual machine scale sets
+        href: flexible-virtual-machine-scale-sets-portal.md
+      - name: CLI
+        displayName: Flexible orchestration mode for virtual machine scale sets
+        href: flexible-virtual-machine-scale-sets-cli.md
+      - name: PowerShell
+        displayName: Flexible orchestration mode for virtual machine scale sets
+        href: flexible-virtual-machine-scale-sets-powershell.md
+      - name: ARM template
+        displayName: Flexible orchestration mode for virtual machine scale sets
+        href: flexible-virtual-machine-scale-sets-rest-api.md
+      - name: Autoscale
+        href: ../virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview.md?context=/azure/virtual-machines/context/context
+      - name: Orchestration modes
+        displayName: VMSS, flex, scale set, scale, virtual machine scale set
+        href: ../virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes.md?context=/azure/virtual-machines/context/context
+      - name: Migration and considerations
+        displayName: VMSS, flex, scale set, scale, virtual machine scale set
+        href: flexible-virtual-machine-scale-sets-migration-resources.md
+    - name: Understand VM reboots
+      href: understand-vm-reboots.md
+    - name: Azure Regions
+      href: regions.md
+    - name: Availability sets
+      items:
+      - name: Overview
+        displayName: availability and scale, availability, scale, autoscale, availability sets, AV sets
+        href: availability-set-overview.md
+      - name: CLI
+        displayName: availability and scale, availability, scale, autoscale, availability sets, AV sets
+        href: ./linux/tutorial-availability-sets.md
+      - name: PowerShell
+        displayName: availability and scale, availability, scale, autoscale, availability sets, AV sets
+        href: ./windows/tutorial-availability-sets.md
+      - name: Change an availability set
+        displayName: availability and scale, availability, scale, autoscale, availability sets, AV sets
+        href: ./windows/change-availability-set.md
+  - name: Backup and recovery
     items:
     - name: Overview
-      displayName: Disaster Recovery Overview
-      href: ../site-recovery/site-recovery-overview.md?context=/azure/virtual-machines/context/context
-    - name: Enable disaster recovery
+      displayName: Backup and recovery
+      href: backup-recovery.md
+    - name: Service disruptions
+      href: virtual-machines-disaster-recovery-guidance.md
+    - name: Back up VMs
       items:
-      - name: Linux
-        displayName: Enable disaster recovery
-        href: ./linux/tutorial-disaster-recovery.md
-      - name: Windows
-        displayName: Enable disaster recovery
-        href: ./windows/tutorial-disaster-recovery.md
-    - name: Fail over a VM to another region
-      href: ../site-recovery/azure-to-azure-tutorial-failover-failback.md?context=/azure/virtual-machines/context/context
-    - name: Fail back a VM to the primary region
-      href: ../site-recovery/azure-to-azure-tutorial-failback.md?context=/azure/virtual-machines/context/context
-  - name: Move and migrate VMs
-    items:
-    - name: Change subscription or resource group
+      - name: Overview
+        href: ../backup/backup-azure-vms-introduction.md?context=/azure/virtual-machines/context/context
+        dispayName: backup VMs, Azure Backup, recovery
+      - name: Creating restore points
+        href: virtual-machines-create-restore-points.md
+      - name: Quickstarts
+        items:
+        - name: CLI
+          href: ../backup/quick-backup-vm-cli.md?context=/azure/virtual-machines/context/context
+          dispayName: backup VMs, Azure Backup, recovery
+        - name: PowerShell
+          href: ../backup/quick-backup-vm-powershell.md?context=/azure/virtual-machines/context/context
+          dispayName: backup VMs, Azure Backup, recovery
+        - name: Portal
+          href: ../backup/quick-backup-vm-portal.md?context=/azure/virtual-machines/context/context
+          dispayName: backup VMs, Azure Backup, recovery
+        - name: Template
+          href: ../backup/quick-backup-vm-template.md?context=/azure/virtual-machines/context/context
+          dispayName: backup VMs, Azure Backup, recovery
+      - name: Back up multiple VMs
+        href: ../backup/tutorial-backup-vm-at-scale.md?context=/azure/virtual-machines/context/context
+      - name: Restore options
+        href: ../backup/backup-azure-arm-restore-vms.md?context=/azure/virtual-machines/context/context
+      - name: Support matrix
+        href: ../backup/backup-support-matrix-iaas.md?context=/azure/virtual-machines/context/context
+        dispayName: backup VMs, Azure Backup, recovery
+      - name: Pricing
+        href: ../backup/azure-backup-pricing.md?context=/azure/virtual-machines/context/context
+        dispayName: backup VMs, Azure Backup, recovery
+      - name: FAQ
+        href: ../backup/backup-azure-vm-backup-faq.yml?context=/azure/virtual-machines/context/context
+        dispayName: backup VMs, Azure Backup, recovery
+    - name: Disaster recovery
       items:
-      - name: CLI
-        displayName: Change subscription or resource group
-        href: ./linux/move-vm.md
-      - name: PowerShell
-        displayName: Change subscription or resource group
-        href: ./windows/move-vm.md
-      - name: Change subscription for Marketplace VMs
-        displayName: Change subscription or resource group
-        href: azure-cli-change-subscription-marketplace.md
-    - name: Move VMs to another region
-      href: ../site-recovery/azure-to-azure-tutorial-migrate.md?context=/azure/virtual-machines/context/context
-    - name: Move to an availability zone
-      href: ../site-recovery/move-azure-vms-avset-azone.md?context=/azure/virtual-machines/context/context
-    - name: Move Maintenance Control configurations to another region
-      href: move-region-maintenance-configuration.md
-    - name: Move Maintenance Control configuration resources to another region
-      href: move-region-maintenance-configuration-resources.md
-    - name: Migrate AWS and on-premises VMs
-      href: ./windows/on-prem-to-azure.md
+      - name: Overview
+        displayName: Disaster Recovery Overview
+        href: ../site-recovery/site-recovery-overview.md?context=/azure/virtual-machines/context/context
+      - name: Enable disaster recovery
+        items:
+        - name: Linux
+          displayName: Enable disaster recovery
+          href: ./linux/tutorial-disaster-recovery.md
+        - name: Windows
+          displayName: Enable disaster recovery
+          href: ./windows/tutorial-disaster-recovery.md
+      - name: Fail over a VM to another region
+        href: ../site-recovery/azure-to-azure-tutorial-failover-failback.md?context=/azure/virtual-machines/context/context
+      - name: Fail back a VM to the primary region
+        href: ../site-recovery/azure-to-azure-tutorial-failback.md?context=/azure/virtual-machines/context/context
+    - name: Move and migrate VMs
       items:
-      - name: Migrate from Amazon Web Services (AWS) to Azure
-        href: ./windows/aws-to-azure.md
-      - name: Upload on-prem VM
-        href: ./linux/upload-vhd.md
-        displayname: Migrate from Amazon Web Services (AWS) to Azure
-      - name: Use Azure Site Recovery
-        href: ../site-recovery/migrate-overview.md?context=/azure/virtual-machines/context/context
+      - name: Change subscription or resource group
+        items:
+        - name: CLI
+          displayName: Change subscription or resource group
+          href: ./linux/move-vm.md
+        - name: PowerShell
+          displayName: Change subscription or resource group
+          href: ./windows/move-vm.md
+        - name: Change subscription for Marketplace VMs
+          displayName: Change subscription or resource group
+          href: azure-cli-change-subscription-marketplace.md
+      - name: Move VMs to another region
+        href: ../site-recovery/azure-to-azure-tutorial-migrate.md?context=/azure/virtual-machines/context/context
+      - name: Move to an availability zone
+        href: ../site-recovery/move-azure-vms-avset-azone.md?context=/azure/virtual-machines/context/context
+      - name: Move Maintenance Control configurations to another region
+        href: move-region-maintenance-configuration.md
+      - name: Move Maintenance Control configuration resources to another region
+        href: move-region-maintenance-configuration-resources.md
+      - name: Migrate AWS and on-premises VMs
+        href: ./windows/on-prem-to-azure.md
+        items:
+        - name: Migrate from Amazon Web Services (AWS) to Azure
+          href: ./windows/aws-to-azure.md
+        - name: Upload on-prem VM
+          href: ./linux/upload-vhd.md
+          displayname: Migrate from Amazon Web Services (AWS) to Azure
+        - name: Use Azure Site Recovery
+          href: ../site-recovery/migrate-overview.md?context=/azure/virtual-machines/context/context
 - name: Infrastructure automation
   items:
   - name: Overview
