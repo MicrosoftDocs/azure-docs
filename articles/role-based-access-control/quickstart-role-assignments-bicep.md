@@ -7,7 +7,7 @@ ms.service: role-based-access-control
 ms.topic: quickstart
 ms.custom: subject-armqs, mode-arm
 ms.workload: identity
-ms.date: 06/14/2022
+ms.date: 06/24/2022
 ms.author: v-eschaffer
 #Customer intent: As a new user, I want to see how to grant access to resources using Bicep so that I can start automating role assignment processes.
 ---
@@ -87,7 +87,7 @@ When no longer needed, use the Azure portal, Azure CLI, or Azure PowerShell to r
 # [CLI](#tab/CLI)
 
 ```azurecli-interactive
-az role assignment delete 
+az role assignment delete --assignee 
 ```
 
 # [PowerShell](#tab/PowerShell)

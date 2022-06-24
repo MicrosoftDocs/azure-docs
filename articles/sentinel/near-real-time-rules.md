@@ -34,6 +34,10 @@ The following limitations currently govern the use of NRT rules:
 
 1. No more than 20 rules can be defined per customer at this time.
 
+1. By design, NRT rules will only work properly on log sources with an **ingestion delay of less than 12 hours**.
+
+    (Since the NRT rule type is supposed to approximate **real-time** data ingestion, it doesn't afford you any advantage to use NRT rules on log sources with significant ingestion delay, even if it's far less than 12 hours.)
+
 1. As this type of rule is new, its syntax is currently limited but will gradually evolve. Therefore, at this time the following restrictions are in effect:
 
     1. The query defined in an NRT rule can reference **only one table**. Queries can, however, refer to multiple watchlists and to threat intelligence feeds.

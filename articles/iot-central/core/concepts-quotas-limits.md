@@ -3,7 +3,7 @@ title: Azure IoT Central quotas and limits | Microsoft Docs
 description: This article lists the key quotas and limits that apply to an IoT Central application.
 author: dominicbetts
 ms.author: dobett
-ms.date: 12/15/2021
+ms.date: 06/07/2022
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
@@ -104,7 +104,7 @@ There are various quotas and limits that apply to IoT Central applications. IoT 
 | ---- | -------------- | ----- |
 | Number of concurrent job executions | 5 | For performance reasons, you shouldn't exceed this limit. |
 
-## Organizations
+## Users, roles, and organizations
 
 | Item | Quota or limit | Notes |
 | ---- | -------------- | ----- |

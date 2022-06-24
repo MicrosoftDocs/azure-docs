@@ -228,7 +228,7 @@ $sasTemplate="sv=2018-03-28&ss=bfqt&srt=sco&sp=rw&spr=https"
 |`SignedProtocol (spr)`|Optional. Specifies the protocol permitted for a request made with the account SAS. Possible values are both HTTPS and HTTP (`https,http`) or HTTPS only (`https`).  The default value is `https,http`.<br /><br /> Note that HTTP only is not a permitted value.|    
 
 For more information about account SAS, see:
-[Create an account SAS](https://docs.microsoft.com/rest/api/storageservices/create-account-sas)
+[Create an account SAS](/rest/api/storageservices/create-account-sas)
 
 > [!NOTE]
 > Key Vault ignores lifetime parameters like 'Signed Expiry', 'Signed Start' and parameters introduced after 2018-03-28 version

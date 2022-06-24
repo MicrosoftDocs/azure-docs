@@ -20,12 +20,12 @@ Use the Azure PowerShell [New-AzKeyVault](/powershell/module/az.keyvault/new-azk
 - The location: **EastUS**.
 
 ```azurepowershell-interactive
-New-AzKeyVault -Name "<your-unique-keyvault-name>" -ResourceGroupName "myResourceGroup" -Location "East US"
+New-AzKeyVault -Name "<your-unique-keyvault-name>" -ResourceGroupName "myResourceGroup" -Location "EastUS"
 ```
 
 The output of this cmdlet shows properties of the newly created key vault. Take note of the two properties listed below:
 
-- **Vault Name**: The name you provided to the --name parameter above.
+- **Vault Name**: The name you provided to the -Name parameter above.
 - **Vault URI**: In the example, this is https://&lt;your-unique-keyvault-name&gt;.vault.azure.net/. Applications that use your vault through its REST API must use this URI.
 
 At this point, your Azure account is the only one authorized to perform any operations on this new vault.

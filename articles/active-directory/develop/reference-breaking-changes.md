@@ -88,6 +88,9 @@ If a request fails the validation check, the application API for create/update w
 
 [!INCLUDE [active-directory-identifierUri](../../../includes/active-directory-identifier-uri-patterns.md)]
 
+>[!NOTE]
+> While it is safe to remove the identifierUris for app registrations within the current tenant, removing the identifierUris may cause clients to fail for other app registrations. 
+
 ## August 2021
 
 ### Conditional Access will only trigger for explicitly requested scopes

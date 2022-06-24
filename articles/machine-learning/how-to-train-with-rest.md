@@ -10,15 +10,14 @@ author: singankit
 ms.author: anksing
 ms.date: 03/31/2022
 ms.reviewer: nibaccam
-ms.custom: devplatv2
+ms.custom: devplatv2, event-tier1-build-2022
 ---
 
 # Train models with REST (preview)
 
 Learn how to use the Azure Machine Learning REST API to create and manage training jobs (preview).
 
-[!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
-[!INCLUDE [cli v2 how to update](../../includes/machine-learning-cli-v2-update-note.md)]
+
 
 The REST API uses standard HTTP verbs to create, retrieve, update, and delete resources. The REST API works with any language or tool that can make HTTP requests. REST's straightforward structure makes it a good choice in scripting environments and for MLOps automation.
 
