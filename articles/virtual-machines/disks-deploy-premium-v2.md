@@ -29,7 +29,7 @@ Sign up for the preview.
 
 ### VMs using availability zones
 
-To use premium SSD v2, you need to determine which availability zone you are in. Not every region supports every VM size with premium SSD v2. To determine if your region, zone, and VM size support premium SSD v2, run either of the following commands, make sure to replace the **region**, **vmSize**, and **subscription** values first:
+To use a premium SSD v2, you need to determine which availability zone you are in. Not every region supports every VM size with premium SSD v2. To determine if your region, zone, and VM size support premium SSD v2, run either of the following commands, make sure to replace the **region**, **vmSize**, and **subscription** values first:
 
 #### CLI
 
