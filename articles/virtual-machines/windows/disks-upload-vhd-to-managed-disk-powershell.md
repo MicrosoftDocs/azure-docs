@@ -3,7 +3,7 @@ title: Upload a VHD to Azure or copy a disk across regions - Azure PowerShell
 description: Learn how to upload a VHD to an Azure managed disk and copy a managed disk across regions, using Azure PowerShell, via direct upload.    
 author: roygara
 ms.author: rogarana
-ms.date: 06/21/2022
+ms.date: 06/23/2022
 ms.topic: how-to
 ms.service: storage
 ms.tgt_pltfrm: linux
@@ -60,10 +60,10 @@ For guidance on how to copy a managed disk from one region to another, see [Copy
 
 ### Upload a VHD
 
-### (Optional) Grant access to the disk
-
  > [!IMPORTANT]
-> If Azure AD is being used to enforce upload restrictions, you must use Add-AzVHD to upload a disk. The manual upload method isn't currently supported.
+> If Azure AD is being used to enforce upload restrictions, you must use Add-AzVHD to upload a disk. The manual upload process isn't currently supported.
+
+### (Optional) Grant access to the disk
 
 If Azure AD is used to enforce upload restrictions on a subscription or at the account level, [Add-AzVHD](/powershell/module/az.compute/add-azvhd?view=azps-7.1.0&viewFallbackFrom=azps-5.4.0&preserve-view=true) only succeeds if attempted by a user that has the [appropriate RBAC role or necessary permissions](#create-custom-role). You'll need to [assign RBAC permissions](../../role-based-access-control/role-assignments-powershell.md) to grant access to the disk and generate a writeable SAS.
 
