@@ -8,6 +8,7 @@ ms.author: bahusse
 author: Bashar-MSFT
 ms.date: 06/24/2022
 ---
+
 # Restore a dropped Azure Database for PostgreSQL server
 
 [!INCLUDE [applies-to-postgresql-single-server](../includes/applies-to-postgresql-single-server.md)]

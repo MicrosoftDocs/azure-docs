@@ -8,6 +8,7 @@ ms.author: nlarin
 author: niklarin
 ms.date: 06/24/2022
 ---
+
 # Configure TLS connectivity in Azure Database for PostgreSQL - Single Server
 
 [!INCLUDE [applies-to-postgresql-single-server](../includes/applies-to-postgresql-single-server.md)]

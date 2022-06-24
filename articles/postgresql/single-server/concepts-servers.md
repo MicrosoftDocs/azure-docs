@@ -8,6 +8,7 @@ ms.author: sunila
 author: sunilagarwal
 ms.date: 06/24/2022
 ---
+
 # Azure Database for PostgreSQL - Single Server
 
 [!INCLUDE [applies-to-postgresql-single-server](../includes/applies-to-postgresql-single-server.md)]

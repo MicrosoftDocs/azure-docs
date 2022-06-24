@@ -10,6 +10,7 @@ ms.date: 06/24/2022
 ms.custom: fasttrack-edit
 adobe-target: true
 ---
+
 # Supported PostgreSQL major versions
 
 [!INCLUDE [applies-to-postgresql-single-server](../includes/applies-to-postgresql-single-server.md)]

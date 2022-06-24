@@ -8,6 +8,7 @@ ms.author: alau
 author: alau-ms
 ms.date: 06/24/2022
 ---
+
 # Azure Advisor for PostgreSQL
 
 [!INCLUDE [applies-to-postgresql-single-server](../includes/applies-to-postgresql-single-server.md)]

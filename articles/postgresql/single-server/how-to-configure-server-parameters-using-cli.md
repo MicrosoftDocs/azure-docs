@@ -10,6 +10,7 @@ ms.devlang: azurecli
 ms.date: 06/24/2022
 ms.custom: devx-track-azurecli
 ---
+
 # Customize server configuration parameters for Azure Database for PostgreSQL - Single Server using Azure CLI
 
 [!INCLUDE [applies-to-postgresql-single-server](../includes/applies-to-postgresql-single-server.md)]

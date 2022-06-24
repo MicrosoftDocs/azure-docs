@@ -8,6 +8,7 @@ ms.author: nlarin
 author: niklarin
 ms.date: 06/24/2022
 ---
+
 # Create and manage VNet service endpoints and VNet rules in Azure Database for PostgreSQL - Single Server by using the Azure portal
 
 [!INCLUDE [applies-to-postgresql-single-server](../includes/applies-to-postgresql-single-server.md)]

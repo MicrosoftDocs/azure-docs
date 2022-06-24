@@ -9,6 +9,7 @@ author: sunilagarwal
 ms.custom: tutorial, mvc
 ms.date: 06/24/2022
 ---
+
 # Tutorial: Design an Azure Database for PostgreSQL - Single Server using the Azure portal
 
 [!INCLUDE [applies-to-postgresql-single-server](../includes/applies-to-postgresql-single-server.md)]

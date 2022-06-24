@@ -10,6 +10,7 @@ ms.devlang: azurecli
 ms.custom: devx-track-azurecli, mode-api
 ms.date: 06/24/2022
 ---
+
 # Quickstart: Use the az postgres up command to create an Azure Database for PostgreSQL - Single Server
 
 [!INCLUDE [applies-to-postgresql-single-server](../includes/applies-to-postgresql-single-server.md)]

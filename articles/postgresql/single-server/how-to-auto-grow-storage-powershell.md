@@ -9,6 +9,7 @@ author: sunilagarwal
 ms.date: 06/24/2022
 ms.custom: kr2b-contr-experiment
 ---
+
 # Auto grow Azure Database for PostgreSQL storage using PowerShell
 
 [!INCLUDE [applies-to-postgresql-single-server](../includes/applies-to-postgresql-single-server.md)]

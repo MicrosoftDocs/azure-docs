@@ -9,6 +9,7 @@ author: sr-msft
 ms.date: 06/24/2022
 ms.custom: fasttrack-edit
 ---
+
 # Azure Database for PostgreSQL versioning policy
 
 [!INCLUDE [applies-to-postgresql-single-server](../includes/applies-to-postgresql-single-server.md)]

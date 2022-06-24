@@ -10,6 +10,7 @@ ms.devlang: azurecli
 ms.custom: sample, mvc, devx-track-azurecli, seo-azure-cli
 ms.date: 06/24/2022
 ---
+
 # Azure CLI samples for Azure Database for PostgreSQL - Single Server
 
 [!INCLUDE [applies-to-postgresql-single-server](../includes/applies-to-postgresql-single-server.md)]

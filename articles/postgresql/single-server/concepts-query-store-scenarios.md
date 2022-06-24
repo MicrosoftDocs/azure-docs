@@ -8,6 +8,7 @@ ms.author: sunila
 author: sunilagarwal
 ms.date: 06/24/2022
 ---
+
 # Usage scenarios for Query Store
 
 [!INCLUDE [applies-to-postgresql-single-server](../includes/applies-to-postgresql-single-server.md)]
