@@ -55,7 +55,7 @@ mlflow.register_model(f"runs:/{run_id}/{artifact_path}", model_name)
 
 ### Creating models from assets
 
-If you have a folder with an MLModel MLflow model, then you can register it directly. There is no need for the model to be always in the context of a run. To do that you can use the URI schema `file://path/to/model` to register MLflow models stored in the local file system. Let's create a simple model using `Scikit-Learn` and save it in MLflow format in the local storage:
+If you have a folder with an MLModel MLflow model, then you can register it directly. There's no need for the model to be always in the context of a run. To do that you can use the URI schema `file://path/to/model` to register MLflow models stored in the local file system. Let's create a simple model using `Scikit-Learn` and save it in MLflow format in the local storage:
 
 ```python
 from sklearn import linear_model
@@ -159,7 +159,7 @@ client.transition_model_version_stage(
 
 ### Loading models from stages
 
-ou can load a model in a particular stage directly from Python using the `load_model` function and the following URI format. Notice that for this method to success, you need to have all the libraries and dependencies already installed in the environment you are working at.
+ou can load a model in a particular stage directly from Python using the `load_model` function and the following URI format. Notice that for this method to success, you need to have all the libraries and dependencies already installed in the environment you're working at.
 
 ```python
 model = mlflow.pyfunc.load_model(f"models:/{model_name}/Staging")
@@ -194,7 +194,7 @@ client.delete_model_version_tag(model_name, version="1", key="type")
 
 ### Deleting a model's version
 
-You can delete any model version in the registry using the MLflow client, as demostrated in the following example:
+You can delete any model version in the registry using the MLflow client, as demonstrated in the following example:
 
 ```python
 client.delete_model_version(model_name, version="2")
