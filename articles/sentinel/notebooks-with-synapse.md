@@ -44,7 +44,7 @@ To use Azure Synapse with Microsoft Sentinel notebooks, you must have the follow
 
 ## Connect to an Azure Machine Learning workspace
 
-To use Microsoft Sentinel notebooks with Azure Synapse, you must first connect an  Azure Machine Learning (ML) workspaces. If you aren't already connected, see [Use Jupyter notebooks to hunt for security threats](notebooks.md).
+To use Microsoft Sentinel notebooks with Azure Synapse, you must first connect an  Azure Machine Learning (ML) workspaces. If you aren't already connected, see [Create an Azure ML workspace from Microsoft Sentinel](notebooks-hunt.md#create-an-azure-ml-workspace-from-microsoft-sentinel).
 
 ## Create an Azure Synapse workspace
 
