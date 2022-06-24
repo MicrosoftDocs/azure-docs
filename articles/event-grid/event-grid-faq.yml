@@ -39,7 +39,6 @@ sections:
 
           Microsoft-initiated failover is exercised by Microsoft in rare situations to failover Event Grid resources from an affected region to the corresponding geo-paired region. This process doesn't require an intervention from the user. Microsoft reserves the right to make a determination of when this option will be exercised. This mechanism doesn't involve a user consent before the user's traffic is failed over.
 
-
   - name: Data residency
     questions:
 
