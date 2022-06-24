@@ -14,15 +14,9 @@ ms.date: 06/23/2022
 [Azure Stream
 Analytics](https://azure.microsoft.com/services/stream-analytics/#features)
 (ASA) is a real-time analytics and event-processing engine that is designed to
-analyze and process high volumes of fast streaming data from sources such as
-devices, sensors, and web sites. It's also available on the Azure IoT Edge
-runtime, enabling data processing on IoT devices.
-
-> [!NOTE]
->
-> This article uses [Azure IoT Hub](../../iot-hub/iot-concepts-and-iot-hub.md)
-> as an example datasource, but the technique is applicable to any other source
-> supported by ASA.
+process high volumes of fast streaming data from devices, sensors, and web
+sites. It's also available on the Azure IoT Edge runtime, enabling data
+processing on IoT devices.
 
 ![Diagram of reference architecture of ASA with Citus](../media/howto-hyperscale-ingestion/01-ASA-reference-arch.png)
 
@@ -36,8 +30,10 @@ Blob Storage into Hyperscale (Citus).
 
 > [!NOTE]
 >
-> The demonstration data in this articles comes from the [Azure IoT Device
-> Telemetry
+> This article uses [Azure IoT Hub](../../iot-hub/iot-concepts-and-iot-hub.md)
+> as an example datasource, but the technique is applicable to any other source
+> supported by ASA. Also, the demonstration data shown below comes from the
+> [Azure IoT Device Telemetry
 > Simulator](https://github.com/Azure-Samples/Iot-Telemetry-Simulator). This
 > article doesn't cover setting up the simulator.
 
