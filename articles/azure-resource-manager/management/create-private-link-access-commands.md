@@ -28,7 +28,7 @@ To create resource management private link, send the following request:
   New-AzResourceManagementPrivateLink -ResourceGroupName PrivateLinkTestRG -Name NewRMPL
   ```
    
-# [Other](#tab/REST)
+# [REST](#tab/REST)
   REST call
   ```http
   PUT
@@ -80,7 +80,7 @@ To create the private link association, use:
   New-AzPrivateLinkAssociation -ManagementGroupId fc096d27-0434-4460-a3ea-110df0422a2d -Name 1d7942d1-288b-48de-8d0f-2d2aa8e03ad4 -PrivateLink "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/PrivateLinkTestRG/providers/Microsoft.Authorization/resourceManagementPrivateLinks/newRMPL" -PublicNetworkAccess enabled | fl
   ```
    
-# [Other](#tab/REST)
+# [REST](#tab/REST)
   REST call
 
   ```http
