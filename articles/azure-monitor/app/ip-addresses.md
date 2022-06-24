@@ -64,9 +64,9 @@ Open port 80 (HTTP) and port 443 (HTTPS) for incoming traffic from these address
 
 ### IP addresses
 
-If you're looking for the actual IP addresses so that you can add them to the list of allowed IPs in your firewall, download the JSON file that describes Azure IP ranges. These files contain the most up-to-date information. For Azure public cloud, you might also look up the IP address ranges by location using the following table.
+If you're looking for the actual IP addresses so that you can add them to the list of allowed IPs in your firewall, download the JSON file that describes Azure IP ranges. These files contain the most up-to-date information. After you download the appropriate file, open it by using your favorite text editor. Search for **ApplicationInsightsAvailability** to go straight to the section of the file that describes the service tag for availability tests.
 
-After you download the appropriate file, open it by using your favorite text editor. Search for **ApplicationInsightsAvailability** to go straight to the section of the file that describes the service tag for availability tests.
+For Azure public cloud, you might also look up the global and regional IP address ranges using the following tables. You need to allow both, the global IP ranges and the ones specific for the region of your Application Insights resource which receives live data.
 
 > [!NOTE]
 > These addresses are listed by using Classless Interdomain Routing notation. As an example, an entry like `51.144.56.112/28` is equivalent to 16 IPs that start at `51.144.56.112` and end at `51.144.56.127`.
