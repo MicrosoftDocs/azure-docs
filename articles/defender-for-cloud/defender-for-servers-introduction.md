@@ -4,7 +4,7 @@ description: Learn about the benefits and features of Microsoft Defender for Ser
 ms.date: 06/15/2022
 ms.topic: overview
 ---
-# Introduction to Microsoft Defender for Servers
+# Overview of Microsoft Defender for Servers
 
 Microsoft Defender for Servers is one of the enhanced security features of Microsoft Defender for Cloud. Use it to add threat detection and advanced defenses to your Windows and Linux machines whether they're running in Azure, AWS, GCP, and on-premises environment.
 
