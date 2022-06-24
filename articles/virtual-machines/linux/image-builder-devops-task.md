@@ -88,7 +88,7 @@ VM Image Builder requires a managed identity, which it uses to read source custo
 
 ### Virtual network support
 
-The DevOps task doesn't currently support the ability to specify an existing subnet. This capability is on our roadmap, but if you want to utilize an existing virtual network, you can use an ARM template with a VM Image Builder template nested within it. For more information, see the Windows VM Image Builder template examples, or use [VM Image Builder PowerShell](../windows/image-builder-powershell.md).
+You can configure the created VM to be in a specific virtual network. When you configure the task, provide the resource ID of a pre-existing subnet in the **VNet Configuration (Optional)** input field. Omit the resource ID if no specific virtual network needs to be used. For more information, see [Azure VM Image Builder service networking options](./image-builder-networking).
 
 ### Source
 

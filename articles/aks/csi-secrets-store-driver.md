@@ -17,6 +17,7 @@ The Azure Key Vault Provider for Secrets Store CSI Driver allows for the integra
 
 - If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 - Before you start, ensure that your version of the Azure CLI is 2.30.0 or later. If it's an earlier version, [install the latest version](/cli/azure/install-azure-cli).
+- If restricting Ingress to the cluster, ensure Ports 9808 and 8095 are open. 
 
 ### Supported Kubernetes versions
 

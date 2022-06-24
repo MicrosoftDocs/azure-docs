@@ -6,7 +6,7 @@ ms.subservice: single-server
 ms.topic: conceptual
 ms.author: srranga
 author: sr-msft
-ms.date: 11/08/2021
+ms.date: 06/14/2022
 ---
 
 # Backup and restore in Azure Database for PostgreSQL - Single Server
@@ -25,12 +25,12 @@ These backup files cannot be exported. The backups can only be used for restore 
 
 #### Servers with up to 4-TB storage
 
-For servers which support up to 4-TB maximum storage, full backups occur once every week. Differential backups occur twice a day. Transaction log backups occur every five minutes.
+For servers that support up to 4-TB maximum storage, full backups occur once every week. Differential backups occur twice a day. Transaction log backups occur every five minutes.
 
 
 #### Servers with up to 16-TB storage
 
-In a subset of [Azure regions](./concepts-pricing-tiers.md#storage), all newly provisioned servers can support up to 16-TB storage. Backups on these large storage servers are snapshot-based. The first full snapshot backup is scheduled immediately after a server is created. That first full snapshot backup is retained as the server's base backup. Subsequent snapshot backups are differential backups only. Differential snapshot backups do not occur on a fixed schedule. In a day, three differential snapshot backups are performed. Transaction log backups occur every five minutes. 
+In a subset of [Azure regions](./concepts-pricing-tiers.md#storage), all newly provisioned servers can support up to 16-TB storage. Backups on these large storage servers are snapshot-based. The first full snapshot backup is scheduled immediately after a server is created. That first full snapshot backup is retained as the server's base backup. Subsequent snapshot backups are differential backups only. Differential snapshot backups do not occur on a fixed schedule.  In a day, multiple differential snapshot backups are performed, but only 3 backups are retained. Transaction log backups occur every five minutes. 
 
 > [!NOTE]
 > Automatic backups are performed for [replica servers](./concepts-read-replicas.md) that are configured with up to 4TB storage configuration.
@@ -45,14 +45,14 @@ The backup retention period governs how far back in time a point-in-time restore
 
 ### Backup redundancy options
 
-Azure Database for PostgreSQL provides the flexibility to choose between locally redundant or geo-redundant backup storage in the General Purpose and Memory Optimized tiers. When the backups are stored in geo-redundant backup storage, they are not only stored within the region in which your server is hosted, but are also replicated to a [paired data center](../../availability-zones/cross-region-replication-azure.md). This provides better protection and ability to restore your server in a different region in the event of a disaster. The Basic tier only offers locally redundant backup storage.
+Azure Database for PostgreSQL provides the flexibility to choose between locally redundant or geo-redundant backup storage in the General Purpose and Memory Optimized tiers. When the backups are stored in geo-redundant backup storage, an additional backup copy is replicated to a [paired region](../../availability-zones/cross-region-replication-azure.md). This provides better protection and ability to restore your server in the event of a regional disaster. The Basic tier only offers locally redundant backup storage.
 
 > [!IMPORTANT]
 > Configuring locally redundant or geo-redundant storage for backup is only allowed during server create. Once the server is provisioned, you cannot change the backup storage redundancy option.
 
 ### Backup storage cost
 
-Azure Database for PostgreSQL provides up to 100% of your provisioned server storage as backup storage at no additional cost. Any additional backup storage used is charged in GB per month. For example, if you have provisioned a server with 250 GB of storage, you have 250 GB of additional storage available for server backups at no additional charge. Storage consumed for backups more than 250 GB is charged as per the [pricing model](https://azure.microsoft.com/pricing/details/postgresql/).
+Azure Database for PostgreSQL provides up to 100% of your provisioned server storage as backup storage at no extra cost. Any additional backup storage used is charged in GB per month. For example, if you have provisioned a server with 250 GB of storage, you have 250 GB of additional storage available for server backups at no extra cost. Storage consumed for backups more than 250 GB is charged as per the [pricing model](https://azure.microsoft.com/pricing/details/postgresql/).
 
 You can use the [Backup Storage used](concepts-monitoring.md) metric in Azure Monitor available in the Azure portal to monitor the backup storage consumed by a server. The Backup Storage used metric represents the sum of storage consumed by all the full database backups, differential backups, and log backups retained based on the backup retention period set for the server. The frequency of the backups is service managed and explained earlier. Heavy transactional activity on the server can cause backup storage usage to increase irrespective of the total database size. For geo-redundant storage, backup storage usage is twice that of the locally redundant storage. 
 

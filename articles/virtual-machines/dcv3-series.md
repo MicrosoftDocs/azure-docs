@@ -25,7 +25,7 @@ With this generation, CPU Cores have increased 6x (up to a maximum of 48 physica
 
 There are two variants for each series, depending on whether the workload benefits from a local disk or not. You can attach remote persistent disk storage to all VMs, whether or not the VM has a local disk. As always, remote disk options (such as for the VM boot disk) are billed separately from the VMs in any case.
 
-Dcsv3-series instances run on a 3rd Generation Intel&reg; Xeon Scalable Processor 8370C. The base All-Core frequency is 2.8 GHz. [Turbo Boost Max 3.0](https://www.intel.com/content/www/us/en/gaming/resources/turbo-boost.html) is enabled with a max frequency of 3.5 GHz. 
+DCsv3-series instances run on a 3rd Generation Intel&reg; Xeon Scalable Processor 8370C. The base All-Core frequency is 2.8 GHz. [Turbo Boost Max 3.0](https://www.intel.com/content/www/us/en/gaming/resources/turbo-boost.html) is enabled with a max frequency of 3.5 GHz. 
 
 - [Premium Storage](premium-storage-performance.md): Supported
 - [Live Migration](maintenance-and-updates.md): Not supported
