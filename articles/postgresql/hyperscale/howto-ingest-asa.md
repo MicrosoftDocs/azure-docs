@@ -1,27 +1,28 @@
 ---
-title: Real-time data ingestion using Azure Stream Analytics (ASA)
-description: What is ASA? Why ASA? Steps for setting up ASA with Hypercale (Citus).
+title: Real-time data ingestion with Azure Stream Analytics - Hyperscale (Citus) - Azure DB for PostgreSQL
+description: How to transform and ingest streaming data
 ms.author: sasriram
 author: saimicrosoft
 ms.service: postgresql
 ms.subservice: hyperscale-citus
-ms.topic: tutorial
+ms.topic: how-to
 ms.date: 06/23/2022
 ---
 
-# Real-time data ingestion using Azure Stream Analytics (ASA)
+# How to ingest data using Azure Stream Analytics
 
-In this tutorial, we'll create an [Azure Stream
+[Azure Stream
 Analytics](https://azure.microsoft.com/services/stream-analytics/#features)
-(ASA) job to integrate data flowing in from Azure IoT Hub to a table in Azure
-Database for PostgreSQL - Hyperscale (Citus).
-
-ASA is a real-time analytics and event-processing engine that is designed to
+(ASA) is a real-time analytics and event-processing engine that is designed to
 analyze and process high volumes of fast streaming data from sources such as
 devices, sensors, and web sites. It's also available on the Azure IoT Edge
 runtime, enabling data processing on IoT devices.
 
-### How ASA works with Hyperscale (Citus)
+> [!NOTE]
+>
+> This article uses [Azure IoT Hub](../../iot-hub/iot-concepts-and-iot-hub.md)
+> as an example datasource, but the technique is applicable to any other source
+> supported by ASA.
 
 ![Diagram of reference architecture of ASA with Citus](../media/howto-hyperscale-ingestion/01-ASA-reference-arch.png)
 
@@ -31,21 +32,14 @@ Azure Stream Analytics (ASA) can act as a no-code, performant and scalable
 alternative to pre-process and stream data from Event Hubs, IoT Hub and Azure
 Blob Storage into Hyperscale (Citus).
 
-## Prerequisites
-
-Before we begin, it's assumed that you've [created an Azure IoT
-Hub](../../iot-hub/iot-hub-create-through-portal.md) and added devices to it.
-The demonstration data in this articles comes from the [Azure IoT Device
-Telemetry Simulator](https://github.com/Azure-Samples/Iot-Telemetry-Simulator).
-This article doesn't cover setting up the simulator.
-
 ## Steps to set up ASA with Hyperscale (Citus)
 
 > [!NOTE]
 >
-> The steps in this article walk through how to ingest data from IoT Hub to
-> Hyperscale (Citus). A similar approach can be extended for other sources,
-> including Event Hub, Blob storage etc.
+> The demonstration data in this articles comes from the [Azure IoT Device
+> Telemetry
+> Simulator](https://github.com/Azure-Samples/Iot-Telemetry-Simulator). This
+> article doesn't cover setting up the simulator.
 
 1. Open **Azure portal** and select **Create a resource** in the upper left-hand corner of the Azure portal.
 2. Select **Analytics** > **Stream Analytics job** from the results list.
