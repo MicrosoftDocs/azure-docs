@@ -29,7 +29,7 @@ To hunt on large datasets, also consider the following optional tasks:
 
 Get started with hunting by using the built-in notebook **Azure Synapse - Detect potential network beaconing using Apache Spark**. Use this built-in notebook as a template and modify it for your organization's needs.
 
-### Find and clone a notebook
+### Launch a notebook
 
 Find a notebook template to save a copy to your Azure Machine Learning workspace.
 
@@ -44,6 +44,18 @@ Find a notebook template to save a copy to your Azure Machine Learning workspace
 1. After your notebook is deployed, select **Launch Notebook**.
 
     The notebook opens in your Azure ML workspace, from inside Microsoft Sentinel. For more information, see [Launch a notebook in your Azure ML workspace](notebooks-hunt.md#launch-a-notebook-in-your-azure-ml-workspace).
+
+1. At the top of the page Azure ML workspace, select a **Compute** instance to use for your notebook server.
+
+    - If you don't have a compute instance, [create a new one](../machine-learning/how-to-create-manage-compute-instance.md?tabs=#create).
+    - If you are creating a new compute instance in order to test your notebooks, create your compute instance with the **General Purpose** category.
+    - If your compute instance is stopped, make sure to start it. For more information, see [Run a notebook in the Azure Machine Learning studio](../machine-learning/how-to-run-jupyter-notebooks.md).
+    - Only you can see and use the compute instances you create. Your user files are stored separately from the VM and are shared among all compute instances in the workspace.
+    - The kernel is shown at the top right of your Azure ML window. If the kernel you need isn't selected, select a different version from the dropdown list.
+
+When your notebook server is created and started, you can start running your notebook cells. For more information, see [Run a notebook or Python script](../machine-learning/how-to-run-jupyter-notebooks.md#run-a-notebook-or-python-script).
+
+If your notebook hangs or you want to start over, restart the kernel and rerun the notebook cells from the beginning. If you restart the kernel, variables and other state are deleted. Rerun any initialization and authentication cells after you restart. To start over, select **Kernel operations** > **Restart kernel**.
 
 ### Run hunting queries by using the notebook
 
@@ -86,7 +98,7 @@ Review and run the cells in the notebook to start hunting.
     The results can be written back to Microsoft Sentinel for further investigation. For example, you can create custom incidents, watchlists, or hunting bookmarks from the results.
 
     Use these steps as they are to detect potential network beaconing, or use them as a template and modify them for your organization's needs.
-    
+
 ## Next steps
 
 For more information, see:
