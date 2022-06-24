@@ -110,7 +110,7 @@ Ensure your client meets the following requirements:
 
 ## Enabling Azure AD login in for Linux VM in Azure
 
-To use Azure AD login in for Linux VM in Azure, you need to first enable Azure AD login option for your Linux VM, configure Azure role assignments for users who are authorized to login in to the VM and then use SSH client that supports OpensSSH such as Azure CLI or Azure Cloud Shell to SSH to your Linux VM. There are multiple ways you can enable Azure AD login for your Linux VM, as an example you can use:
+To use Azure AD login for Linux VM in Azure, you need to first enable Azure AD login option for your Linux VM, configure Azure role assignments for users who are authorized to login in to the VM and then use SSH client that supports OpensSSH such as Azure CLI or Azure Cloud Shell to SSH to your Linux VM. There are multiple ways you can enable Azure AD login for your Linux VM, as an example you can use:
 
 - Azure portal experience when creating a Linux VM
 - Azure Cloud Shell experience when creating a Windows VM or for an existing Linux VM
@@ -392,7 +392,7 @@ Some common errors when you try to SSH with Azure AD credentials include no Azur
 
 ### Couldn’t retrieve token from local cache
 
-You must run az login again and go through an interactive sign in flow. Review the section [Using Azure Cloud Shell](#using-azure-cloud-shell).
+You must run `az login` again and go through an interactive sign-in flow. Review the section [Using Azure Cloud Shell](#using-azure-cloud-shell).
 
 ### Access denied: Azure role not assigned
 
