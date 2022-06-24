@@ -89,7 +89,7 @@ Next, if the application implements a provisioning protocol, then you should con
 
 ## Perform an initial access review
 
-If this is a new application your organization hasn't used before, and therefore no one has pre-existing access, or if you have already been performing access reviews for this application, then skip to the [next section](identity-governance-applications-deploy.md).
+If this is a new application your organization hasn't used before, and therefore no one has pre-existing access, or if you've already been performing access reviews for this application, then skip to the [next section](identity-governance-applications-deploy.md).
 
 However, if the application already existed in your environment, then it is possible that users may have gotten access in the past through manual or out-of-band processes, and those users should now be reviewed to have confirmation that their access is still needed and appropriate going forward. We recommend performing an access review of the users who already have access to the application, before enabling policies for more users to be able to request access. This review will set a baseline of all users having been reviewed at least once, to ensure that those users are authorized for continued access.
 
