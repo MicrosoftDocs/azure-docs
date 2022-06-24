@@ -64,7 +64,7 @@ Azure AD, in conjunction with Azure Monitor, provides several reports to help yo
 
 ## Monitor to adjust entitlement management policies and access as needed
 
-At regular intervals, such as weekly, monthly or quarterly, based on the volume of application access assignment changes for your application, use the Azure portal to ensure that access is being granted in accordance with the policies, and the identified users for approval and review are still the correct individuals for these tasks.
+At regular intervals, such as weekly, monthly or quarterly, based on the volume of application access assignment changes for your application, use the Azure portal to ensure that access is being granted in accordance with the policies. You can also ensure that the identified users for approval and review are still the correct individuals for these tasks.
 
 1. **Watch for application role assignments and group membership changes.** If you have Azure AD configured to send its audit log to Azure Monitor, use the `Application role assignment activity` in Azure Monitor to [monitor and report on any application role assignments that weren't made through entitlement management](../governance/entitlement-management-access-package-incompatible.md#monitor-and-report-on-access-assignments).  If there are role assignments that were created by an application owner directly, you should contact that application owner to determine if that assignment was authorized.  In addition, if the application relies upon Azure AD security groups, also monitor for changes to those groups as well.
 
