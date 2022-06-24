@@ -64,10 +64,10 @@ netsh interface ipv4 set interface “interfacename” weakhostreceive=enabled
 For each loopback interface you added, repeat the commands below.
 
 ```console
-netsh interface add addr interfacename floatingip floatingipnetmask
-netsh interface ipv4 set interface interfacename weakhostreceive=enabled  weakhostsend=enabled 
+netsh interface ipv4 add addr "loopbackinterface" floatingip floatingipnetmask
+netsh interface ipv4 set interface "loopbackinterface" weakhostreceive=enabled  weakhostsend=enabled 
 ```
-(replace **interfacename** with the name of this loopback interface and **floatingip** and **floatingipnetmask** with the appropriate values, e.g. that correspond to the load balancer frontend IP) 
+(replace **loopbackinterface** with the name of this loopback interface and **floatingip** and **floatingipnetmask** with the appropriate values, e.g. that correspond to the load balancer frontend IP) 
 
 Finally, if firewall is being used on the guest host, ensure a rule set up so the traffic can reach the VM on the appropriate ports.
 
