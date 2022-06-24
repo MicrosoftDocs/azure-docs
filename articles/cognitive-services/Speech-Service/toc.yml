@@ -194,12 +194,14 @@ items:
         href: call-center-transcription.md
       - name: Ingestion Client
         href: ingestion-client.md
-    - name: Pronunciation Assessment
+    - name: Language learning
       items:
-        - name: Pronunciation Assessment in Speech Studio
-          href: pronunciation-assessment-tool.md
-        - name: How to use Pronunciation Assessment
-          href: how-to-pronunciation-assessment.md
+        - name: Pronunciation Assessment
+          items:
+            - name: Pronunciation Assessment in Speech Studio
+              href: pronunciation-assessment-tool.md
+            - name: How to use Pronunciation Assessment
+              href: how-to-pronunciation-assessment.md
     - name: Conversation transcription
       items:
         - name: Conversation Transcription overview
