@@ -67,8 +67,8 @@ You can enable Profiler by any of the following three ways:
 ### Install the Azure Diagnostics extension
 
 1. Choose which Azure Resource Manager template to use:
-   - ([VM](https://github.com/Azure/azure-docs-json-samples/blob/master/application-insights/WindowsVirtualMachine.json)
-   - [VM scale set](https://github.com/Azure/azure-docs-json-samples/blob/master/application-insights/WindowsVirtualMachineScaleSet.json).
+   - [VM](https://github.com/Azure/azure-docs-json-samples/blob/master/application-insights/WindowsVirtualMachine.json)
+   - [VM scale set](https://github.com/Azure/azure-docs-json-samples/blob/master/application-insights/WindowsVirtualMachineScaleSet.json)
 
 1. In the template, locate the resource of type `extension`.
 
