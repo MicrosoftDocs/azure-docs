@@ -1,13 +1,14 @@
 ---
 title: Limitations - Azure Database for MariaDB
 description: This article describes limitations in Azure Database for MariaDB, such as number of connection and storage engine options.
+ms.service: mariadb
 author: savjani
 ms.author: pariks
-ms.service: mariadb
 ms.topic: conceptual
-ms.date: 10/2/2020
+ms.date: 06/24/2022
 ---
 # Limitations in Azure Database for MariaDB
+
 The following sections describe capacity, storage engine support, privilege support, data manipulation statement support, and functional limits in the database service.
 
 ## Server parameters
@@ -24,19 +25,21 @@ Password plugins such as "validate_password" and "caching_sha2_password" are not
 ## Storage engine support
 
 ### Supported
+
 - [InnoDB](https://mariadb.com/kb/en/library/xtradb-and-innodb/)
 - [MEMORY](https://mariadb.com/kb/en/library/memory-storage-engine/)
 
 ### Unsupported
+
 - [MyISAM](https://mariadb.com/kb/en/library/myisam-storage-engine/)
 - [BLACKHOLE](https://mariadb.com/kb/en/library/blackhole/)
 - [ARCHIVE](https://mariadb.com/kb/en/library/archive/)
 
 ## Privileges & data manipulation support
 
-Many server parameters and settings can inadvertently degrade server performance or negate ACID properties of the MariaDB server. To maintain the service integrity and SLA at a product level, this service does not expose multiple roles. 
+Many server parameters and settings can inadvertently degrade server performance or negate ACID properties of the MariaDB server. To maintain the service integrity and SLA at a product level, this service does not expose multiple roles.
 
-The MariaDB service does not allow direct access to the underlying file system. Some data manipulation commands are not supported. 
+The MariaDB service does not allow direct access to the underlying file system. Some data manipulation commands are not supported.
 
 ## Privilege support
 
@@ -50,33 +53,42 @@ The following are unsupported:
 - `SELECT ... INTO OUTFILE`: Not supported in the service.
 
 ### Supported
+
 - `LOAD DATA INFILE` is supported, but the `[LOCAL]` parameter must be specified and directed to a UNC path (Azure storage mounted through SMB).
 
 ## Functional limitations
 
 ### Scale operations
+
 - Dynamic scaling to and from the Basic pricing tiers is currently not supported.
 - Decreasing server storage size is not supported.
 
 ### Server version upgrades
+
 - Automated migration between major database engine versions is currently not supported.
 
 ### Point-in-time-restore
+
 - When using the PITR feature, the new server is created with the same configurations as the server it is based on.
 - Restoring a deleted server is not supported.
 
 ### Subscription management
+
 - Dynamically moving pre-created servers across subscription and resource group is currently not supported.
 
 ### VNet service endpoints
+
 - Support for VNet service endpoints is only for General Purpose and Memory Optimized servers.
 
 ### Storage size
+
 - Please refer to [pricing tiers](concepts-pricing-tiers.md) for the storage size limits per pricing tier.
 
 ## Current known issues
+
 - MariaDB server instance displays the incorrect server version after connection is established. To get the correct server instance engine version, use the `select version();` command.
 
 ## Next steps
+
 - [What's available in each service tier](concepts-pricing-tiers.md)
 - [Supported MariaDB database versions](concepts-supported-versions.md)

@@ -1,11 +1,11 @@
 ---
 title: Backup and restore - Azure Database for MariaDB
 description: Learn about automatic backups and restoring your Azure Database for MariaDB server.
+ms.service: mariadb
 author: savjani
 ms.author: pariks
-ms.service: mariadb
 ms.topic: conceptual
-ms.date: 8/13/2020
+ms.date: 06/24/2022
 ---
 
 # Backup and restore in Azure Database for MariaDB
@@ -42,11 +42,10 @@ In a subset of [Azure regions](./concepts-pricing-tiers.md#storage), all newly p
 Differential snapshot backups occur at least once a day. Differential snapshot backups do not occur on a fixed schedule. Differential snapshot backups occur every 24 hours unless the transaction log (binlog in MariaDB) exceeds 50 GB since the last differential backup. In a day, a maximum of six differential snapshots are allowed.
 
 Transaction log backups occur every five minutes.
- 
 
 ### Backup retention
 
-Backups are retained based on the backup retention period setting on the server. You can select a retention period of 7 to 35 days. The default retention period is 7 days. You can set the retention period during server creation or later by updating the backup configuration using [Azure portal](howto-restore-server-portal.md#set-backup-configuration) or [Azure CLI](howto-restore-server-cli.md#set-backup-configuration). 
+Backups are retained based on the backup retention period setting on the server. You can select a retention period of 7 to 35 days. The default retention period is 7 days. You can set the retention period during server creation or later by updating the backup configuration using [Azure portal](howto-restore-server-portal.md#set-backup-configuration) or [Azure CLI](howto-restore-server-cli.md#set-backup-configuration).
 
 The backup retention period governs how far back in time a point-in-time restore can be retrieved, since it's based on backups available. The backup retention period can also be treated as a recovery window from a restore perspective. All backups required to perform a point-in-time restore within the backup retention period are retained in backup storage. For example, if the backup retention period is set to 7 days, the recovery window is considered last 7 days. In this scenario, all the backups required to restore the server in last 7 days are retained. With a backup retention window of seven days:
 
@@ -54,20 +53,22 @@ The backup retention period governs how far back in time a point-in-time restore
 -	Servers with up to 16-TB storage will retain the full database snapshot, all the differential snapshots and transaction log backups in last 8 days.
 
 #### Long-term retention of backups
-Long-term retention of backups beyond 35 days is currently not natively supported by the service yet. You have a option to use mysqldump to take backups and store them for long-term retention. Our support team has blogged a [step by step article](https://techcommunity.microsoft.com/t5/azure-database-for-mysql/automate-backups-of-your-azure-database-for-mysql-server-to/ba-p/1791157) to share how you can achieve it. 
+
+Long-term retention of backups beyond 35 days is currently not natively supported by the service yet. You have a option to use mysqldump to take backups and store them for long-term retention. Our support team has blogged a [step by step article](https://techcommunity.microsoft.com/t5/azure-database-for-mysql/automate-backups-of-your-azure-database-for-mysql-server-to/ba-p/1791157) to share how you can achieve it.
 
 ### Backup redundancy options
 
 Azure Database for MariaDB provides the flexibility to choose between locally redundant or geo-redundant backup storage in the General Purpose and Memory Optimized tiers. When the backups are stored in geo-redundant backup storage, they are not only stored within the region in which your server is hosted, but are also replicated to a [paired data center](../availability-zones/cross-region-replication-azure.md). This provides better protection and ability to restore your server in a different region in the event of a disaster. The Basic tier only offers locally redundant backup storage.
 
 #### Moving from locally redundant to geo-redundant backup storage
+
 Configuring locally redundant or geo-redundant storage for backup is only allowed during server create. Once the server is provisioned, you cannot change the backup storage redundancy option. In order to move your backup storage from locally redundant storage to geo-redundant storage, creating a new server and migrating the data using [dump and restore](howto-migrate-dump-restore.md) is the only supported option.
 
 ### Backup storage cost
 
-Azure Database for MariaDB provides up to 100% of your provisioned server storage as backup storage at no additional cost. Any additional backup storage used is charged in GB per month. For example, if you have provisioned a server with 250 GB of storage, you have 250 GB of additional storage available for server backups at no additional charge. Storage consumed for backups more than 250 GB is charged as per the [pricing model](https://azure.microsoft.com/pricing/details/mariadb/). 
+Azure Database for MariaDB provides up to 100% of your provisioned server storage as backup storage at no additional cost. Any additional backup storage used is charged in GB per month. For example, if you have provisioned a server with 250 GB of storage, you have 250 GB of additional storage available for server backups at no additional charge. Storage consumed for backups more than 250 GB is charged as per the [pricing model](https://azure.microsoft.com/pricing/details/mariadb/).
 
-You can use the [Backup Storage used](concepts-monitoring.md) metric in Azure Monitor available via the Azure portal to monitor the backup storage consumed by a server. The Backup Storage used metric represents the sum of storage consumed by all the full database backups, differential backups, and log backups retained based on the backup retention period set for the server. The frequency of the backups is service managed and explained earlier. Heavy transactional activity on the server can cause backup storage usage to increase irrespective of the total database size. For geo-redundant storage, backup storage usage is twice that of the locally redundant storage. 
+You can use the [Backup Storage used](concepts-monitoring.md) metric in Azure Monitor available via the Azure portal to monitor the backup storage consumed by a server. The Backup Storage used metric represents the sum of storage consumed by all the full database backups, differential backups, and log backups retained based on the backup retention period set for the server. The frequency of the backups is service managed and explained earlier. Heavy transactional activity on the server can cause backup storage usage to increase irrespective of the total database size. For geo-redundant storage, backup storage usage is twice that of the locally redundant storage.
 
 The primary means of controlling the backup storage cost is by setting the appropriate backup retention period and choosing the right backup redundancy options to meet your desired recovery goals. You can select a retention period from a range of 7 to 35 days. General Purpose and Memory Optimized servers can choose to have geo-redundant storage for backups.
 
