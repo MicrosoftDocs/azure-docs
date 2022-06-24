@@ -5,7 +5,7 @@ author: kgremban
 ms.author: kgremban
 ms.service: iot-dps
 ms.topic: conceptual
-ms.date: 06/24/2022
+ms.date: 06/27/2022
 ms.custom: template-concept
 ---
 
@@ -15,7 +15,7 @@ Scaling an IoT solution to millions of devices can be challenging. Large-scale s
 
 ## First-time device provisioning
 
-First-time provisioning is the process of onboarding a device for the first time as a part of an IoT solution. During such an onboarding process, the application can be prone to various faults such as the momentary loss of network connectivity to components and services, the temporary unavailability of a service, or timeouts that occur when a service is busy.
+First-time provisioning is the process of onboarding a device for the first time as a part of an IoT solution. When working with large-scale deployments, it's important to schedule the provisioning process to avoid overload situations caused by all the devices attempting to connect at the same time.
 
 ### Device deployment using a staggered provisioning schedule
 
