@@ -22,15 +22,15 @@ In this article, you learn how to run Application Insights Profiler on your Azur
 - A functioning [ASP.NET Core application](https://docs.microsoft.com/aspnet/core/getting-started) 
 - An [Application Insights resource](../app/create-workspace-resource.md).
 - Review the Azure Resource Manager templates for the Azure Diagnostics extension:
-  - [Virtual machine](https://github.com/Azure/azure-docs-json-samples/blob/master/application-insights/WindowsVirtualMachine.json)
-  - [Virtual machine scale set](https://github.com/Azure/azure-docs-json-samples/blob/master/application-insights/WindowsVirtualMachineScaleSet.json)
+  - [VM](https://github.com/Azure/azure-docs-json-samples/blob/master/application-insights/WindowsVirtualMachine.json)
+  - [VM scale set](https://github.com/Azure/azure-docs-json-samples/blob/master/application-insights/WindowsVirtualMachineScaleSet.json)
 
-## Enable Profiler
+## Ways to enable Profiler
 
 You can enable Profiler by any of the following three ways:
 
 - Within your ASP.NET Core application using an Azure Resource Manager template and Visual Studio.
-- Using a Powershell command via the Azure CLI.
+- Using a PowerShell command via the Azure CLI.
 - Using Azure Resource Explorer.
 
 
@@ -42,18 +42,18 @@ You can enable Profiler by any of the following three ways:
 
 1. Select **Project** > **Add Application Insights Telemetry**.
 
-1. Select **Azure Application Insights**, then **Next**. 
+1. Select **Azure Application Insights**, then click **Next**. 
 
-1. Select your subscription, then **Next**.
+1. Select the subscription where your Application Insights resource lives, then click **Next**.
 
-1. Select where to save connection string, then **Next**.
+1. Select where to save connection string, then click **Next**.
 
 1. Select **Finish**.
 
 > [!NOTE]
-> For full instructions, including enabling Application Insights without Visual Studio, see the [Application Insights for ASP.NET Core applications](../app/asp-net-core.md).
+> For full instructions, including enabling Application Insights on your ASP.NET Core application without Visual Studio, see the [Application Insights for ASP.NET Core applications](../app/asp-net-core.md).
 
-## Confirm the latest stable release of the Application Insights SDK
+### Confirm the latest stable release of the Application Insights SDK
 
 1. Go to **Project** > **Manage NuGet Packages**.
 
@@ -63,11 +63,19 @@ You can enable Profiler by any of the following three ways:
 
 1. Select **Update**.
 
-  ![Screenshot showing where to select the Application Insights package for update](../app/media/asp-net-core/update-nuget-package.png)
+   :::image type="content" source="../app/media/asp-net-core/update-nuget-package.png" alt-text="Screenshot showing where to select the Application Insights package for update":::
 
-## Install Azure Diagnostics extension
+### Install Azure Diagnostics extension
 
-1. Using the Azure Resource Manager template, locate the resource of type `extension` and add to your project.
+1. Choose which Azure Resource Manager template to use:
+   - ([VM](https://github.com/Azure/azure-docs-json-samples/blob/master/application-insights/WindowsVirtualMachine.json)
+   - [VM scale set](https://github.com/Azure/azure-docs-json-samples/blob/master/application-insights/WindowsVirtualMachineScaleSet.json).
+
+1. In the template, locate the resource of type `extension`.
+
+1. In Visual Studio, navigate to the `arm.json` file in your ASP.NET Core application that was added when you installed the Application Insights SDK.
+
+1. Add the resource type `extension` from the template to the `arm.json` file. This will set up a VM or VM scale set with Azure Diagnostics.
 
 1. Within the `WadCfg` tag, add your Application Insights instrumentation key to the `MyApplicationInsightsProfilerSink`.
     
@@ -84,8 +92,15 @@ You can enable Profiler by any of the following three ways:
   }        
   ```
 
+1. Deploy your application.
 
-# [Powershell](#tab/powershell)
+### View Profiler traces
+
+1. After a few minutes, navigate to your Application Insights resource in the Azure portal.
+
+1. Select **Profiler traces** to view the results from deployment.
+
+# [PowerShell](#tab/powershell)
 
 1. Deploy the modified environment deployment definition.  
 
@@ -120,7 +135,7 @@ You can enable Profiler by any of the following three ways:
 1. Deploy your application.
 
 
-# [Azure Resource Explorer](#tab/are)
+# [Azure Resource Explorer](#tab/azure-resource-explorer)
 
 ## Set Profiler Sink using Azure Resource Explorer
 
