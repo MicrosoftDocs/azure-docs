@@ -197,7 +197,7 @@ Test the communication between the two virtual machines over the virtual network
     
 1. Since you enabled ping on **myVm1**, you can now ping it from **myVm2**:
 
-    ```
+    ```powershell
     ping 10.0.0.4
     ```
     
