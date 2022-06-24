@@ -193,7 +193,6 @@ The following table lists a few example operations that relate to gallery operat
 | Microsoft.Compute/galleries/images/read	| Gets the properties of Gallery Image |
 | Microsoft.Compute/galleries/images/write	| Creates a new Gallery Image or updates an existing one |
 | Microsoft.Compute/galleries/images/versions/read	| Gets the properties of Gallery Image Version |
-| | |
 
 
 ## Billing
