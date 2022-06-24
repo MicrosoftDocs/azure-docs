@@ -1,0 +1,85 @@
+---
+title: Azure Stream Analytics metrics dimensions
+description: This article describes the Azure Stream Analytics metric dimensions.
+author: xujiang1
+ms.author: xujiang1
+ms.service: stream-analytics
+ms.topic: concept
+ms.custom: 
+ms.date: 06/30/2022
+---
+# Azure Stream Analytics metrics dimensions
+
+A typic Azure Stream Analytics architecture is illustrated below:
+
+![Azure Stream Analytics typic architecture](./media/stream-analytics-job-metrics-dimensions/01-asa-typic-architecture.png)
+
+Stream analytics service is a distributed system, which means the job is running on many distributed computer nodes which the platform automatically manages . The input data are partitioned and allocated to different stream nodes for processing. Metrics can be split by dimensions, like Partition ID or Node name which helps troubleshoot performance issues with your job.
+  
+Azure Stream Analytics provides 3 important dimensions: “Logic Name”, “Partition ID”, and “Node Name” for metrics splitting and filtering. 
+
+![Metric splitting with dimension](./media/stream-analytics-job-metrics-dimensions/02-metric-splitting-with-dimension.png)
+
+![Metric filtered by dimension](./media/stream-analytics-job-metrics-dimensions/03-metric-filtered-by-dimension.png) 
+
+
+## "Logic Name" dimension
+
+The “Logic Name” is the input or output name for a given Azure Stream Analytics (ASA) job. For example: if an ASA job has 4 inputs and 5 outputs, you will see the 4 individual logic inputs or 5 individual logic outputs when splitting input or output related metrics with this dimension. (e.g., Input Events, Output Events, etc.) 
+
+![Multiple input and output of an ASA job](./media/stream-analytics-job-metrics-dimensions/04-multiple-input-and-output-of-an-asa-job.png)
+
+!["Input events” metric is splitting by “Logic Name”](./media/stream-analytics-job-metrics-dimensions/05-input-events-splitting-by-logic-name.png)
+
+!["Output events” metric is splitting by “Logic Name”](./media/stream-analytics-job-metrics-dimensions/06-output-events-splitting-by-logic-name.png)
+
+“Logic Name” dimension is available for the metrics below for filtering and splitting:
+-	Backlogged Input Events 
+-	Data Conversion Errors
+-	Early Input Events
+-	Input Deserialization Errors
+-	Input Event Bytes
+-	Input Events
+-	Input Source Received
+-	Late Input Events
+-	Out of order Events
+-	Output Events
+-	Watermark delay
+
+## "Node Name" dimension
+
+A streaming node represents a set of compute resources that is used to process your input data. Every 6 Streaming Units (SUs) translates to one node which the service automatically manages on your behalf. For more information for the relationship between streaming unit and streaming node, see [Stream Analytics streaming unit and streaming node](./stream-analytics-streamingunit-and-streamingnode.md).
+
+The “Node Name” is “Streaming Node” level dimension which could help you to drill down certain metrics to the specific Streaming Node level. For example, the CPU utilization metrics could be split into Streaming Node level to check the CPU utilization of an individual Streaming Node.
+
+![Avg CPU utilization is splitting by "Node Name" dimension](./media/stream-analytics-job-metrics-dimensions/07-avg-cpu-splitting-by-nodename.png)
+
+“Node Name” dimension is available   for the metrics below for filtering and splitting:
+-	CPU % Utilization (Preview)
+-	SU % Utilization
+-	Input Events
+
+## "Partition ID" dimension
+
+When streaming data is ingested into Azure Stream Analytics service for processing, the input data is distributed to Streaming Nodes according to the partitions in input source. The “Partition ID” is the ID of the input data partition from input source, for example, if the input source is from event hub, the partition ID is the EH partition ID. The “Partition ID” is the same as it in the output as well.
+
+![Watermark delay is splitting by "Partition ID" dimension](./media/stream-analytics-job-metrics-dimensions/08-watermark-delay-splitting-by-partition-id.png)
+
+“Partition ID” dimension is available for the metrics below for filtering and splitting:
+-	Backlogged Input Events
+-	Data Conversion Errors
+-	Early Input Events
+-	Input Deserialization Errors
+-	Input Event Bytes
+-	Input Events
+-	Input Source Received
+-	Late Input Events
+-	Output Events
+-	Watermark delay
+
+
+## Next steps
+
+* [Analyze job with metric dimensions](./stream-analytics-job-analysis-with-metric-dimensions.md)
+* [Understand job monitoring in Azure Stream Analytics](./stream-analytics-monitoring.md)
+* [Stream Analytics streaming unit and streaming node](./stream-analytics-streamingunit-and-streamingnode.md)

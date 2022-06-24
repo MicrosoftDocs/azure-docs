@@ -75,6 +75,7 @@ For further assistance, try our [Microsoft Q&A question page for Azure Stream An
 
 ## Next steps
 * [Introduction to Azure Stream Analytics](stream-analytics-introduction.md)
+* [Azure Stream Analytics metrics dimensions](./stream-analytics-job-metrics-dimensions.md)
 * [Get started using Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Scale Azure Stream Analytics jobs](stream-analytics-scale-jobs.md)
 * [Azure Stream Analytics Query Language Reference](/stream-analytics-query/stream-analytics-query-language-reference)
