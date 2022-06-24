@@ -6,7 +6,7 @@ author: karlerickson
 ms.author: karler
 ms.service: spring-cloud
 ms.topic: tutorial
-ms.date: 11/03/2021
+ms.date: 06/24/2022
 ms.custom: devx-track-java, event-tier1-build-2022
 ---
 
@@ -68,7 +68,7 @@ In order to deploy to Azure you must sign-in with your Azure account, and choose
 
 1. Accept the name for app in the **Name** field. **Name** refers to the configuration, not app name. Users don't usually need to change it.
 1. Accept the identifier from the project for the **Artifact**.
-1. Select **App:** then select **Create app...**.
+1. Select **App:** then Click **+** to create Azure Spring App.
 
     ![Deploy to Azure 2](media/spring-cloud-intellij-howto/deploy-to-azure-2.png)
 
