@@ -41,16 +41,6 @@ This article explains how to find the IP address of your search service and conf
    aliases:  contoso.search.windows.net
    ```
 
-## Get the Azure portal IP address
-
-If you're using the Azure portal or the [Import Data wizard](search-import-data-portal.md) to create an indexer, you'll need an inbound rule for the Azure portal.
-
-To get the portal IP address, perform `nslookup` on `stamp2.ext.search.windows.net`, which is the domain of the traffic manager. 
-
-For nslookup, the IP address be visible in the "Non-authoritative answer" portion of the response. For ping, the request will time out, but the IP address will be visible in the response. For example, in the message "Pinging azsyrie.northcentralus.cloudapp.azure.com [52.252.175.48]", the IP address is "52.252.175.48".
-
-Clusters in different regions connect to different traffic managers. Regardless of the domain name, the IP address returned from the ping is the correct one to use when defining an inbound firewall rule for the Azure portal in your region.
-
 ## Get IP addresses for "AzureCognitiveSearch" service tag
 
 We also require customers to create an inbound rule that allows requests from the [multi-tenant execution environment](search-indexer-securing-resources.md#indexer-execution-environment) to ensure we optimize the resource availability for search services. This step explains how to get the range of IP addresses needed for this inbound rule.

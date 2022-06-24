@@ -18,11 +18,6 @@ Private endpoints are provided by [Azure Private Link](../private-link/private-l
 
 You can create a private endpoint in the Azure portal, as described in this article. Alternatively, you can use the [Management REST API version 2020-03-13](/rest/api/searchmanagement/), [Azure PowerShell](/powershell/module/az.search), or [Azure CLI](/cli/azure/search).
 
-> [!NOTE]
-> When the service endpoint is private, some portal features are disabled. You can view and manage service level information, but index, indexer, and skillset information is hidden for security reasons. Additionally, ARM templates don't currently have support for updating existing Private Endpoints that are connected to a search service.
->
-> To access a private search from the portal, [connect through a private endpoint](#portal-access-private-search-service)
-
 ## Why use a Private Endpoint for secure access?
 
 [Private Endpoints](../private-link/private-endpoint-overview.md) for Azure Cognitive Search allow a client on a virtual network to securely access data in a search index over a [Private Link](../private-link/private-link-overview.md). The private endpoint uses an IP address from the [virtual network address space](../virtual-network/ip-services/private-ip-addresses.md) for your search service. Network traffic between the client and the search service traverses over the virtual network and a private link on the Microsoft backbone network, eliminating exposure from the public internet. For a list of other PaaS services that support Private Link, check the [availability section](../private-link/private-link-overview.md#availability) in the product documentation.
@@ -32,6 +27,9 @@ Private endpoints for your search service enables you to:
 - Block all connections on the public endpoint for your search service.
 - Increase security for the virtual network, by enabling you to block exfiltration of data from the virtual network.
 - Securely connect to your search service from on-premises networks that connect to the virtual network using [VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md) or [ExpressRoutes](../expressroute/expressroute-locations.md) with private-peering.
+
+> [!NOTE]
+> ARM templates don't currently have support for updating existing Private Endpoints that are connected to a search service.
 
 ## Create the virtual network
 
@@ -53,7 +51,7 @@ In this section, you will create a virtual network and subnet to host the VM tha
 
 ## Create a search service with a private endpoint
 
-In this section, you will create a new Azure Cognitive Search service with a Private Endpoint. 
+In this section, you will create a new Azure Cognitive Search service with a Private Endpoint.
 
 1. On the upper-left side of the screen in the Azure portal, select **Create a resource** > **Web** > **Azure Cognitive Search**.
 
@@ -221,12 +219,12 @@ When the search service endpoint is private, some portal features are disabled. 
 
 ## Use the Portal to access a private search service
 
-The portal has the same restrictions as any other client application accessing your private search service. By default, the portal cannot access any private search service. The portal requires a private endpoint to access the search service.
+When the search service endpoint is private, some portal features are disabled. You can view and manage service level information, but index, indexer, and skillset information is hidden for security reasons. To work around this restriction, connect to Azure portal from a browser on a virtual machine inside the virtual network. The portal uses the private endpoint on the connection and gives you visibility into content and operations.
 
 ### Use a virtual machine to access the portal
 
 1. Follow the [steps to provision a VM that can access the search service through a private endpoint](#create-virtual-machine-private-endpoint).
-1. Open the Portal inside the VM. The Portal will use the private endpoint attached to the VM to access the search service.
+1. On a virtual machine in your virtual network, open a browser and sign into the Azure portal. The portal will use the private endpoint attached to the virtual machine to connect to your search service.
 
 ## Clean up resources 
 When you're done using the Private Endpoint, search service, and the VM, delete the resource group and all of the resources it contains:

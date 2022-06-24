@@ -24,7 +24,7 @@ You can set IP rules in the Azure portal, as described in this article, on searc
 
 ## Set IP ranges in Azure portal
 
-To set the IP access control policy in the Azure portal, go to your Azure Cognitive Search service page and select **Networking** on the left navigation pane. Endpoint networking connectivity must be **Public Access**. If your connectivity is set to **Private Access** or **Shared Private Access**, you can only access your search service via a Private Endpoint.
+To set the IP access control policy in the Azure portal, go to your Azure Cognitive Search service page and select **Networking** on the left navigation pane. Endpoint networking connectivity must be **Public** or **Selected Networks**. If your connectivity is set to **Disabled**, you can only access your search service via a Private Endpoint.
 
 :::image type="content" source="media/service-configure-firewall/azure-portal-firewall.png" alt-text="Screenshot showing how to configure the IP firewall in the Azure portal" border="true":::
 
@@ -32,11 +32,9 @@ The Azure portal provides the ability to specify IP addresses and IP address ran
 
 After you enable the IP access control policy for your Azure Cognitive Search service, all requests to the data plane from machines outside the allowed list of IP address ranges are rejected. 
 
-## Allow access from Azure portal
+## Azure portal
 
-By default, when IP rules are configured, some features of the Azure portal are disabled. You'll be able to view and manage service level information, but portal access to indexes, indexers, and other top-level resources is restricted.
-
-To retain service administration through the portal, select the "Allow access" option under **Exceptions**. Alternatively, use the [VS Code Extension](https://aka.ms/vscode-search) to manage content.
+When IP rules are configured, some features of the Azure portal are disabled. You'll be able to view and manage service level information, but portal access to indexes, indexers, and other top-level resources is restricted.
 
 <a id="allow-access-from-your-client"></a> 
 
@@ -44,9 +42,7 @@ To retain service administration through the portal, select the "Allow access" o
 
 Client applications that push indexing and query requests to the search service must be represented in an IP range. On Azure, you can generally determine the IP address by pinging the FQDN of a service (for example, `ping <your-search-service-name>.search.windows.net` will return the IP address of a search service).
 
-The Azure Portal has similar restrictions to other client applications. Add your client IP address to allow access to the service from the Azure Portal on your current computer.
-
-:::image type="content" source="media/service-configure-firewall/enable-current-ip.png" alt-text="Screenshot showing how to allow your client IP on the Azure Portal" border="true":::
+The portal has similar restrictions to other client applications. Add your client IP address to allow access to the service from the Azure Portal on your current computer. Navigate to the **Networking** section on the left navigation pane. Change **Public Network Access** to **Selected networks**, and then check **Add your client IP address** under **Firewall**.
 
 Providing IP addresses for clients ensures that the request is not rejected outright, but for successful access to content and operations, authorization is also necessary. Use one of the following methodologies to authenticate your request:
 
