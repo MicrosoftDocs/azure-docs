@@ -192,7 +192,7 @@ This operation takes your index offline for at least a few seconds, causing your
 
 ## Built-in analyzers
 
-If you want to use a built-in analyzer with custom options, creating a custom analyzer is the mechanism by which you specify those options. In contrast, to use a built-in analyzer as-is, you simply need to [reference it by name](search-analyzers.md#how-to-specify-analyzers) in the field definition.
+If you want to use a built-in analyzer with custom options, creating a custom analyzer is the mechanism by which you specify those options. In contrast, to use a built-in analyzer as-is, you simply need to [reference it by name](search-analyzers.md) in the field definition.
 
 |**analyzer_name**|**analyzer_type**  <sup>1</sup>|**Description and Options**|  
 |-----------------|-------------------------------|---------------------------|  
