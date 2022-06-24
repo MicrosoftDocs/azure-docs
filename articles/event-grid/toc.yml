@@ -174,6 +174,16 @@ items:
         items:
         - name: Auth0
           href: auth0-overview.md
+        - name: Microsoft Graph API
+          items:
+          - name: Graph API event sources
+            href: partner-events-graph-api.md          
+          - name: Azure Active Directory
+            href: azure-active-directory-events.md
+          - name: Microsoft Outlook
+            href: outlook-events.md
+          - name: Microsoft Teams
+            href: teams-events.md
     - name: Event Domains
       href: event-domains.md
     - name: Event schema formats
@@ -208,10 +218,12 @@ items:
         href: webhook-event-delivery.md
       - name: Custom delivery properties
         href: delivery-properties.md
-    - name: Disaster recovery
+    - name: Availability and disaster recovery
       items:
+      - name: Resiliency
+        href: availability-zone-resiliency.md      
       - name: Geo disaster recovery
-        href: geo-disaster-recovery.md      
+        href: geo-disaster-recovery.md
     - name: Security 
       items: 
       - name: Security baseline
@@ -263,6 +275,8 @@ items:
         href: subscribe-to-partner-events.md
       - name: Subscribe to Auth0 events
         href: auth0-how-to.md
+      - name: Subscribe to Microsoft Graph API events
+        href: subscribe-to-graph-api-events.md        
       - name: Deliver events to partner destinations
         href: deliver-events-to-partner-destinations.md
     - name: Get access keys for topics or domains
@@ -285,8 +299,12 @@ items:
       href: cloudevents-schema.md
     - name: Manage topics with Event Domains
       href: how-to-event-domains.md
-    - name: Implement client-side failover
-      href: custom-disaster-recovery.md
+    - name: Disaster recovery
+      items:      
+      - name: Build your own disaster recovery plan
+        href: custom-disaster-recovery.md
+      - name: Build your own client-side disaster recovery
+        href: custom-disaster-recovery-client-side.md
     - name: Track asynchronous REST operations
       href: ../azure-resource-manager/management/async-operations.md?toc=%2fazure%2fevent-grid%2ftoc.json
     - name: Move
@@ -367,6 +385,8 @@ items:
     items:
     - name: Build your skills with Microsoft Learn
       href: /learn/browse/?products=azure-event-grid
+    - name: FAQ
+      href: event-grid-faq.yml
     - name: Azure Roadmap
       href: https://azure.microsoft.com/roadmap/
     - name: Pricing

@@ -9,9 +9,13 @@ author: sunilagarwal
 ms.date: 03/25/2021
 ---
 # PostgreSQL extensions in Azure Database for PostgreSQL - Single Server
+
+[!INCLUDE [applies-to-postgresql-single-server](../includes/applies-to-postgresql-single-server.md)]
+
 PostgreSQL provides the ability to extend the functionality of your database using extensions. Extensions bundle multiple related SQL objects together in a single package that can be loaded or removed from your database with a single command. After being loaded in the database, extensions function like built-in features.
 
 ## How to use PostgreSQL extensions
+
 PostgreSQL extensions must be installed in your database before you can use them. To install a particular extension, run the [CREATE EXTENSION](https://www.postgresql.org/docs/current/sql-createextension.html) command from psql tool to load the packaged objects into your database.
 
 Azure Database for PostgreSQL supports a subset of key extensions as listed below. This information is also available by running `SELECT * FROM pg_available_extensions;`. Extensions beyond the ones listed are not supported. You cannot create your own extension in Azure Database for PostgreSQL.

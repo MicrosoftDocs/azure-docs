@@ -6,7 +6,7 @@ author: craigshoemaker
 ms.service: container-apps
 ms.custom: event-tier1-build-2022
 ms.topic:  how-to
-ms.date: 06/07/2022
+ms.date: 06/09/2022
 ms.author: cshoe
 zone_pivot_groups: azure-cli-or-portal
 ---
@@ -118,23 +118,15 @@ az network vnet subnet create `
 
 ---
 
-With the virtual network created, you can retrieve the IDs for both the VNET and the infrastructure subnet.
+With the virtual network created, you can retrieve the ID for the infrastructure subnet.
 
 # [Bash](#tab/bash)
-
-```bash
-VNET_RESOURCE_ID=`az network vnet show --resource-group ${RESOURCE_GROUP} --name ${VNET_NAME} --query "id" -o tsv | tr -d '[:space:]'`
-```
 
 ```bash
 INFRASTRUCTURE_SUBNET=`az network vnet subnet show --resource-group ${RESOURCE_GROUP} --vnet-name $VNET_NAME --name infrastructure-subnet --query "id" -o tsv | tr -d '[:space:]'`
 ```
 
 # [PowerShell](#tab/powershell)
-
-```powershell
-$VNET_RESOURCE_ID=(az network vnet show --resource-group $RESOURCE_GROUP --name $VNET_NAME --query "id" -o tsv)
-```
 
 ```powershell
 $INFRASTRUCTURE_SUBNET=(az network vnet subnet show --resource-group $RESOURCE_GROUP --vnet-name $VNET_NAME --name infrastructure-subnet --query "id" -o tsv)
@@ -165,9 +157,6 @@ az containerapp env create `
 ```
 
 ---
-
-> [!NOTE]
-> As you call `az containerapp create` to create the container app inside your environment, make sure the value for the `--image` parameter is in lower case.
 
 The following table describes the parameters used in `containerapp env create`.
 

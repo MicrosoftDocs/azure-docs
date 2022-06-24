@@ -19,13 +19,13 @@ Azure Arc-enabled System Center Virtual Machine Manager allows you to manage you
 Arc-enabled System Center VMM allows you to:
 
 -	Perform various VM lifecycle operations such as start, stop, pause, delete VMs on VMM managed VMs directly from Azure.
--	Empower developers and application teams to self-serve VM operations on-demand using [Azure role-based access control (RBAC)](/azure/role-based-access-control/overview).
+-	Empower developers and application teams to self-serve VM operations on-demand using [Azure role-based access control (RBAC)](../../role-based-access-control/overview.md).
 -	Browse your VMM resources (VMs, templates, VM networks, and storage) in Azure, providing you a single pane view for your infrastructure across both environments.
 -	Discover and onboard existing SCVMM managed VMs to Azure.
 
 ## How does it work?
 
-To Arc-enable a System Center VMM management server, deploy [Azure Arc resource bridge](/azure/azure-arc/resource-bridge/overview) (preview) in the VMM environment. Arc resource bridge is a virtual appliance that connects VMM management server to Azure. Azure Arc resource bridge (preview) enables you to represent the SCVMM resources (clouds, VMs, templates etc.) in Azure and do various operations on them.
+To Arc-enable a System Center VMM management server, deploy [Azure Arc resource bridge](../resource-bridge/overview.md) (preview) in the VMM environment. Arc resource bridge is a virtual appliance that connects VMM management server to Azure. Azure Arc resource bridge (preview) enables you to represent the SCVMM resources (clouds, VMs, templates etc.) in Azure and do various operations on them.
 
 ## Architecture
 
@@ -35,7 +35,7 @@ The following image shows the architecture for the Arc-enabled SCVMM:
 
 ### Supported VMM versions
 
-Azure Arc-enabled SCVMM works with VMM 2016, 2019 and 2022 versions.
+Azure Arc-enabled SCVMM works with VMM 2016, 2019 and 2022 versions and supports SCVMM management servers with a maximum of 3500 VMS.
 
 ### Supported scenarios
 
