@@ -140,7 +140,8 @@ Examples of sidecar containers include:
 - An agent that reads logs from the primary app container on a [shared volume](storage-mounts.md?pivots=aca-cli#temporary-storage) and forwards them to a logging service.
 - A background process that refreshes a cache used by the primary app container in a shared volume.
 
-> [!NOTE] Running multiple containers in a single container app is an advanced use case. You should use this pattern only in specific instances in which your containers are tightly coupled. In most situations where you want to run multiple containers, such as when implementing a microservice architecture, deploy each service as a separate container app.
+> [!NOTE]
+> Running multiple containers in a single container app is an advanced use case. You should use this pattern only in specific instances in which your containers are tightly coupled. In most situations where you want to run multiple containers, such as when implementing a microservice architecture, deploy each service as a separate container app.
 
 To run multiple containers in a container app, add more than one container in the containers array of the container app template.
 
