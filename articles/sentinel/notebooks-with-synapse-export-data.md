@@ -9,23 +9,33 @@ ms.date: 6/20/2022
 
 # Export historical log data from Microsoft Sentinel for big data analytics
 
-Do a one-time export, transform, and partition of historical data in your Azure Log Analytics workspace by using a notebook in Microsoft Sentinel. 
+Export, transform, and partition large datasets in your Azure Log Analytics workspace by using a notebook in Microsoft Sentinel. The notebook steps you through a one-time export of historical data from your Log Analytics workspace to Azure Data Lake Storage Gen2 Storage.
 
 ## Prerequisites
 
-To export historical log data from Microsoft Sentinel, you'll need complete the tasks in the following list. The historical data export notebook uses Azure Synapse to work with data at scale.
+To export historical log data from Microsoft Sentinel, you'll need to complete the tasks in the following list. The historical data export notebook uses Azure Synapse to work with data at scale.
 
 - [Review the required roles and permissions](notebooks-with-synapse.md#prerequisites)
 - [Connect to an Azure Machine Learning workspace](notebooks-with-synapse.md#connect-to-an-azure-machine-learning-workspace)
-- [Create an Azure Synapse workspace](notebooks-with-synapse.md#create-an-azure-synapse-workspace) that's linked to Azure Data Lake Storage Gen2 storage
+- [Create an Azure Synapse workspace](notebooks-with-synapse.md#create-an-azure-synapse-workspace) that's linked to [Azure Data Lake Storage Gen2 storage](../storage/blobs/create-data-lake-storage-account.md)
 - [Configure your Azure Synapse Analytics integration](notebooks-with-synapse.md#configure-your-azure-synapse-analytics-integration)
-- [Set up continuous data export from Log Analytics](../azure-monitor/logs/logs-data-export.md)
 
-## Launch the notebook
+We recommend that you set up a continuous log export rule before you export historical logs. This step is to make sure there's no gap in the exported logs. We also recommend that data is exported to Azure Data Lake Storage Gen2 to take advantage of hierarchical namespaces.  For more information, see:
+
+- [Set up continuous data export from Log Analytics](../azure-monitor/logs/logs-data-export.md)
+- [Azure Data Lake Storage Gen2 hierarchical namespace](../storage/blobs/data-lake-storage-namespace.md)
+
+## Find and clone the notebook
+
+Find the notebook template to save a copy to your Azure Machine Learning workspace.
 
 1. In Microsoft Sentinel, select **Notebooks**.
 1. Select the **Templates** tab.
-1. Select the **Export Historical Data** notebook.
+1. Enter **Export** in the search bar to find the notebook.
+1. Select the **Azure Synapse - Export Historical Data** notebook.
+
+   :::image type="content" source="media/notebooks-with-synapse-export-data/search-export-historical-log-data-template.png" alt-text="Screenshot of notebooks page with template tab selected and search result for synapse notebook.":::
+
 1. Select **Create from template** at the bottom right-hand side of the page.
 1. In the **Clone notebook** pane, change the notebook name as appropriate.
 1. Select your Azure Machine Learning workspace.

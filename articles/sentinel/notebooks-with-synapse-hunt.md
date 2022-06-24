@@ -13,13 +13,17 @@ Get started with big data hunting in Microsoft Sentinel by using a built-in note
 
 ## Prerequisites
 
+If you haven't already, you'll need to complete the following tasks:
+
 - [Review the required roles and permissions](notebooks-with-synapse.md#prerequisites)
 - [Connect to an Azure Machine Learning workspace](notebooks-with-synapse.md#connect-to-an-azure-machine-learning-workspace)
 - [Create an Azure Synapse workspace](notebooks-with-synapse.md#create-an-azure-synapse-workspace)
 - [Configure your Azure Synapse Analytics integration](notebooks-with-synapse.md#configure-your-azure-synapse-analytics-integration)
 
-To hunt on large datasets, you might also want to export historical log data from Microsoft Sentinel to Azure Data Lake Storage Gen 2. Then set up continuous data export from Log Analytics.
+To hunt on large datasets, also consider the following optional tasks:
 
+- [Set up continuous data export from Log Analytics](../azure-monitor/logs/logs-data-export.md)
+- [Export historical log data from Microsoft Sentinel for big data analytics](notebooks-with-synapse-export-data.md)
 
 ## Hunt by using a notebook with a sample security scenario
 
