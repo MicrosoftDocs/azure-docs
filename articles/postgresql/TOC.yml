@@ -720,7 +720,7 @@
     - name: Ingest data
       items:
       - name: Azure Stream Analytics (ASA)
-        href: hyperscale/howto-ingest-asa.md
+        href: hyperscale/howto-ingest-azure-stream-analytics.md
     - name: Server group size
       items:
       - name: Pick initial size
