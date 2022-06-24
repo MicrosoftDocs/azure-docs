@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: enterprise-users
 ms.workload: identity
 ms.topic: how-to
-ms.date: 10/22/2021
+ms.date: 06/24/2022
 ms.author: curtand
 ms.reviewer: jodah
 
@@ -20,7 +20,7 @@ ms.collection: M365-identity-device-management
 
 # Search groups and members in Azure Active Directory
 
-This article tells you how to search for members and owners of a group and how to use search filters the Azure Active Directory (Azure AD) portal. Search functions for groups include:
+This article tells you how to search for members and owners of a group and how to use search filters in the portal for Azure Active Directory (Azure AD), part of Microsoft Entra. Search functions for groups include:
 
 - Groups search capabilities, such as substring search in group names
 - Filtering and sorting options on member and owner lists
