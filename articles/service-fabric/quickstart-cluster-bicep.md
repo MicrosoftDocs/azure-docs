@@ -151,11 +151,11 @@ New-AzResourceGroupDeployment `
 
 Once the deployment completes, find the `managementEndpoint` value in the output and open the address in a web browser to view your cluster in [Service Fabric Explorer](./service-fabric-visualizing-your-cluster.md).
 
-![Service Fabric Explorer showing new cluster](./media/quickstart-cluster-template/service-fabric-explorer.png)
+![Screenshot of the Service Fabric Explorer showing new cluster.](./media/quickstart-cluster-template/service-fabric-explorer.png)
 
 You can also find the Service Fabric Explorer endpoint from your Service Explorer resource blade in Azure portal.
 
-![Service Fabric resource blade showing Service Fabric Explorer endpoint](./media/quickstart-cluster-template/service-fabric-explorer-endpoint-azure-portal.png)
+![Screenshot of the Service Fabric resource blade showing Service Fabric Explorer endpoint.](./media/quickstart-cluster-template/service-fabric-explorer-endpoint-azure-portal.png)
 
 ## Clean up resources
 
