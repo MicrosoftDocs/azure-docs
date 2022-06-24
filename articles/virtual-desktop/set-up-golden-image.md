@@ -37,7 +37,7 @@ Generalize the VM by running [sysprep](../virtual-machines/generalize.md).
 After you've completed sysprep and shut down your machine in the Azure portal, open the **VM** tab and select the **Capture** button to save the image for later use. When you capture a VM, you can either add the image to a shared image gallery or capture it as a managed image.
 The [Shared Image Gallery](../virtual-machines/shared-image-galleries.md) lets you add features and use existing images in other deployments. Images from a Shared Image Gallery are highly-available, ensure easy versioning, and you can deploy them at scale. However, if you have a simpler deployment, you may want to use a standalone managed image instead.
 > [!IMPORTANT]
-> We recommend using Shared Image Gallery images for production environments because of their enhanced capabilities, such as replication and image versioning. 
+> We recommend using Azure Compute Gallery images for production environments because of their enhanced capabilities, such as replication and image versioning. 
 When you create a capture, you'll need to delete the VM afterwards, as you'll no longer be able to use it after the capture process is finished. Don't try to capture the same VM twice, even if there's an issue with the capture. Instead, create a new VM from your latest snapshot, then run sysprep again.
 Once you've finished the capture process, you can use your image to create your session hosts. To find the image, open the **Host pool** tab, choose **Gallery**, then select all images. Next, select **My items** and look for your managed images under **My images**. Your image definitions should appear under the shared items section.
 ## Other recommendations
