@@ -37,7 +37,7 @@ If neither of those criteria are met for an application, for example when the ap
 
 ## Integrate the application with Azure AD to ensure only authorized users can access the application
 
-Typically this process of integrating an application begins with configuring that application to rely upon Azure AD for user authentication, with a federated single sign-on (SSO) protocol connection, and then adds provisioning.  The most commonly used protocols for SSO are [SAML and OpenID Connect](../develop/active-directory-v2-protocols.md).  You can read more about the tools and process to [discover and migrate application authentication to Azure AD](../manage-apps/migrate-application-authentication-to-azure-active-directory.md).
+Typically this process of integrating an application begins when you configure that application to rely upon Azure AD for user authentication, with a federated single sign-on (SSO) protocol connection, and then add provisioning.  The most commonly used protocols for SSO are [SAML and OpenID Connect](../develop/active-directory-v2-protocols.md).  You can read more about the tools and process to [discover and migrate application authentication to Azure AD](../manage-apps/migrate-application-authentication-to-azure-active-directory.md).
 
 Next, if the application implements a provisioning protocol, then you should configure Azure AD to provision users to the application, so that Azure AD can signal to the application when a user has been granted access or a user's access has been removed.  These provisioning signals permit the application to make automatic corrections, such as to reassign content created by an employee who has left to their manager.
 
