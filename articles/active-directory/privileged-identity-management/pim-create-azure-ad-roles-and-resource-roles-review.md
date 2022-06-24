@@ -78,7 +78,7 @@ The need for access to privileged Azure resource and Azure AD roles by employees
 
 14. In the **Reviewers** section, select one or more people to review all the users. Or you can select to have the members review their own access.
 
-    :::image type="content" source="./media/pim-create-azure-ad-roles-and-resource-roles-review/reviewers.png" alt-text="Screenshot of reviewers list of selected users or members (self) button":::
+    :::image type="content" source="./media/pim-create-azure-ad-roles-and-resource-roles-review/reviewers.png" alt-text="Screenshot of reviewers list of selected users or members (self) button.":::
 
     - **Selected users** - Use this option to designate a specific user to complete the review. This option is available regardless of the scope of the review, and the selected reviewers can review users, groups and service principals.
     - **Members (self)** - Use this option to have the users review their own role assignments. This option is only available if the review is scoped to **Users and Groups** or **Users**. For **Azure AD roles**, role-assignable groups won't be a part of the review when this option is selected. 
@@ -122,7 +122,7 @@ The need for access to privileged Azure resource and Azure AD roles by employees
 1. Set **Reminders** to **Enable** to have Azure AD send reminders of access reviews in progress to reviewers who haven't completed their review.
 1. The content of the email sent to reviewers is auto-generated based on the review details, such as review name, resource name, due date, etc. If you need a way to communicate additional information such as other instructions or contact information, you can specify these details in the **Additional content for reviewer email** which will be included in the invitation and reminder emails sent to assigned reviewers. The highlighted section below is where this information will be displayed.
 
-    :::image type="content" source="./media/pim-create-azure-ad-roles-and-resource-roles-review/email-info.png" alt-text="Screenshot of the content of the email sent to reviewers with highlights"::: 
+    :::image type="content" source="./media/pim-create-azure-ad-roles-and-resource-roles-review/email-info.png" alt-text="Screenshot of the content of the email sent to reviewers with highlights."::: 
 
 ## Manage the access review
 

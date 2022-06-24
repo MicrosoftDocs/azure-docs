@@ -86,7 +86,7 @@ For some scenarios, access to resources such as security groups, enterprise appl
 
 Administrators can perform an access review of members of nested groups. When the administrator creates the review, they can choose whether their reviewers can make decisions on indirect members or only on direct members. An example of an indirect user is a user that has access to a security group that has access to another security group, application or role. 
 
-![Diagram showing example of nested group membership](media/manage-access-review/nested-group-membership-access-review.png)
+![Diagram showing example of nested group membership.](media/manage-access-review/nested-group-membership-access-review.png)
 
 If the administrator decides to only allow reviews on direct members, reviewers can approve and deny access for nested groups or role-assignable groups as an entity. If denied, the nested group or role-assignable group will lose access to the resource. 
 
