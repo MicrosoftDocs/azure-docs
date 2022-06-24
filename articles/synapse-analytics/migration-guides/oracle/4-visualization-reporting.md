@@ -150,7 +150,7 @@ Another way to evaluate business value is to classify reports and dashboards as 
 | **Tactical**     | | | | | |  
 | **Operational**  | | | | | |
 
-Metadata discovery tools like [Azure Data Catalog](/azure/data-catalog/overview) let business users tag and rate data sources, which enriches the metadata for those data sources and assists with discovery. You can use the metadata for a report or dashboard to help you understand its business value. Without such tools, understanding the contribution of reports and dashboards to business value is likely to be a time consuming task, whether you're migrating or not. 
+Metadata discovery tools like [Azure Data Catalog](/azure/data-catalog/overview) let business users tag and rate data sources to enrich the metadata for those data sources to assist with their discovery and classification. You can use the metadata for a report or dashboard to help you understand its business value. Without such tools, understanding the contribution of reports and dashboards to business value is likely to be a time consuming task, whether you're migrating or not. 
 
 ### Migrate reports based on data migration strategy
 
@@ -161,7 +161,7 @@ If your migration strategy is based on migrating data marts first, then the orde
 
 ## Migration incompatibility issues that can affect reports and visualizations
 
-BI tools produce reports, dashboards, and other visualizations by issuing SQL queries that access physical tables and/or views in your data warehouse or data mart. When you migrate your legacy data warehouse to Azure Synapse, several factors can affect the ease of migration of reports, dashboards, and other visualizations, such as:
+BI tools produce reports, dashboards, and other visualizations by issuing SQL queries that access physical tables and/or views in your data warehouse or data mart. When you migrate your legacy data warehouse to Azure Synapse, several factors can affect the ease of migration of reports, dashboards, and other visualizations. Those factors include:
 
 - Schema incompatibilities between the environments.
 
@@ -169,23 +169,23 @@ BI tools produce reports, dashboards, and other visualizations by issuing SQL qu
 
 ### Schema incompatibilities
 
-During a migration, schema incompatibilities in the data warehouse or data mart tables that supply data for reports, dashboards, and other visualizations might be:
+During a migration, schema incompatibilities in the data warehouse or data mart tables that supply data for reports, dashboards, and other visualizations can be:
 
 - Non-standard table types in your legacy data warehouse DBMS that don't have an equivalent in Azure Synapse.
 
 - Data types in your legacy data warehouse DBMS that don't have an equivalent in Azure Synapse.
 
+In most cases, there's a workaround to the incompatibilities. For example, you can migrate the data in an unsupported table type into a standard table with appropriate data types and indexed or partitioned on a date/time column. Similarly, it might be possible to represent unsupported data types in another type of column and perform calculations in Azure Synapse to achieve the same results.
+
 >[!TIP]
 >Schema incompatibilities include legacy warehouse DBMS table types and data types that are unsupported on Azure Synapse.
 
-In many cases, you can find a way around the incompatibilities. For example, data in unsupported table types can be migrated into a standard table with appropriate data types and indexed or partitioned on a date/time column. Similarly, it might be possible to represent unsupported data types in another type of column and perform calculations in Azure Synapse to achieve the same results.
+To identify the reports affected by schema incompatibilities, run queries against the system catalog of your legacy data warehouse to identify the tables with unsupported data types. Then, you can use metadata from your BI tool to identify the reports that access data in those tables. For more information about how to identify object type incompatibilities, see [Unsupported Oracle database object types](1-design-performance-migration.md#unsupported-oracle-database-object-types).
 
 >[!TIP]
 >Query the system catalog of your legacy warehouse DBMS to identify schema incompatibilities with Azure Synapse.
 
-To identify the reports affected by schema incompatibilities, you can run queries against the system catalog of your legacy data warehouse to identify the tables with unsupported data types. Then, you can use metadata from your BI tool(s) to identify the reports that access data in those tables. For more information about how to identify these incompatibilities, see [Unsupported Oracle database object types](1-design-performance-migration.md#unsupported-oracle-database-object-types).
-
-The effect of schema incompatibilities on reports, dashboards, and other visualizations might be less than you think because many BI tools don't support the unsupported data types. As a result, your legacy data warehouse might already have views that `CAST` unsupported data types to more generic types.
+The effect of schema incompatibilities on reports, dashboards, and other visualizations might be less than you think because many BI tools don't support the less generic data types. As a result, your legacy data warehouse might already have views that `CAST` unsupported data types to more generic types.
 
 ### SQL incompatibilities
 
@@ -193,17 +193,17 @@ During a migration, SQL incompatibilities are likely to affect any report, dashb
 
 - Accesses legacy data warehouse DBMS views that include proprietary SQL functions that have no equivalent in Azure Synapse.
 
-- Issues SQL queries that have no equivalent in Azure Synapse, including proprietary SQL functions peculiar to the SQL dialect of your legacy data warehouse DBMS.
+- Issues SQL queries that include proprietary SQL functions, specific to the SQL dialect of your legacy environment, that have no equivalent in Azure Synapse.
 
 ### Gauge the impact of SQL incompatibilities on your reporting portfolio
 
-Your reporting portfolio can include embedded query services, reports, dashboards, and other visualizations. Don't rely on the documentation associated with the items in your reporting portfolio to gauge the effect of SQL incompatibilities on the migration of that portfolio migration to Azure Synapse. You need to use a more precise way to assess the effect of SQL incompatibilities.
+Your reporting portfolio might include embedded query services, reports, dashboards, and other visualizations. Don't rely on the documentation associated with those items to gauge the effect of SQL incompatibilities on the migration of your reporting portfolio to Azure Synapse. You need to use a more precise way to assess the effect of SQL incompatibilities.
 
 #### Use EXPLAIN statements to find SQL incompatibilities
 
-You can find SQL incompatibilities by viewing the logs of recent SQL activity in your legacy Oracle data warehouse. Use a script to capture a representative set of SQL statements into a file. Then, prefix each SQL statement with an `EXPLAIN` statement, and run all the `EXPLAIN` statements in Azure Synapse. Any SQL statements containing proprietary unsupported SQL extensions from your legacy data warehouse will be rejected by Azure Synapse when the `EXPLAIN` statements are executed. This approach would at least let you assess the extent of SQL incompatibilities.
+You can find SQL incompatibilities by reviewing the logs of recent SQL activity in your legacy Oracle data warehouse. Use a script to extract a representative set of SQL statements to a file. Then, prefix each SQL statement with an `EXPLAIN` statement, and run those `EXPLAIN` statements in Azure Synapse. Any SQL statements containing proprietary unsupported SQL extensions will be rejected by Azure Synapse when the `EXPLAIN` statements are executed. This approach lets you assess the extent of SQL incompatibilities.
 
-Metadata from your legacy data warehouse DBMS will also help you identify incompatible views. As before, capture a representative set of SQL statements, prefix each SQL statement with an `EXPLAIN` statement, and run all the `EXPLAIN` statements in Azure Synapse to identify incompatible SQL in views.
+Metadata from your legacy data warehouse DBMS can also help you identify incompatible views. As before, capture a representative set of SQL statements from the applicable logs, prefix each SQL statement with an `EXPLAIN` statement, and run those `EXPLAIN` statements in Azure Synapse to identify incompatible SQL in views.
 
 >[!TIP]
 >Gauge the impact of SQL incompatibilities by harvesting your DBMS log files and running `EXPLAIN` statements.
