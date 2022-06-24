@@ -287,7 +287,7 @@ The previous steps have confirmed that all the users in the application's data s
 Before creating new assignments, you'll want to configure [Azure AD provisioning](/azure/active-directory/app-provisioning/user-provisioning) of Azure AD users to the application.  Configuring provisioning will enable Azure AD to match up the users in Azure AD with the application role assignments to the users already in the application's data store.
 
 1. Ensure that the application is configured to require users to have application role assignments, so that only selected users will be provisioned to the application.
-1. If provisioning has not yet been configured for the application, then configure, but do not start, [provisioning](/azure/active-directory/app-provisioning/user-provisioning).
+1. If provisioning hasn't been configured for the application, then configure, but do not start, [provisioning](/azure/active-directory/app-provisioning/user-provisioning).
 
    * If the application uses an LDAP directory, follow the guide for [configuring Azure AD to provision users into LDAP directories](/azure/active-directory/app-provisioning/on-premises-ldap-connector-configure).
    * If the application uses a SQL database, follow the guide for [configuring Azure AD to provision users into SQL based applications](/azure/active-directory/app-provisioning/on-premises-sql-connector-configure).
