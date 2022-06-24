@@ -11,7 +11,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 05/25/2022
+ms.date: 06/24/2022
 ms.author: mwahl
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
@@ -91,14 +91,14 @@ This section applies to applications that use another SQL database as its underl
 
 1. Log in to the system where the provisioning agent is or will be installed.
 1. Launch PowerShell.
-1. Construct a connection string for connecting to your database system. The components of a connection string will depend upon the requirements of your database.  For example, if your database uses the pathname of the DSN file, a userID and password, then construct the connection string using the following commands.
+1. Construct a connection string for connecting to your database system. The components of a connection string will depend upon the requirements of your database. If you are using SQL Server, then see the [list of DSN and Connection String Keywords and Attributes](sql/connect/odbc/dsn-connection-string-attribute). If you are using a different database, then you'll need to include the mandatory keywords for connecting to that database. For example, if your database uses the fully-qualified pathname of the DSN file, a userID and password, then construct the connection string using the following commands.  
 
    ```powershell
-   $filedsn = ".\db.dsn"
-   $db_cs = "filedsn=" + $filedsn + ";uid=postgres;pwd=secret"
+   $filedsn = "c:\users\administrator\documents\db.dsn"
+   $db_cs = "filedsn=" + $filedsn + ";uid=p;pwd=secret"
    ```
 
-1. Open a connection to your database, using the following commands.
+1. Open a connection to your database, providing that connection string, using the following commands.
 
    ```powershell
    $db_conn = New-Object data.odbc.OdbcConnection
@@ -113,7 +113,7 @@ This section applies to applications that use another SQL database as its underl
 
    ```
 
-1. Send the query to the database.
+1. Send the query to the database via the connection, and retrieve the results.
 
    ```powershell
    $result = (new-object data.odbc.OdbcCommand($db_query,$db_conn)).ExecuteReader()
@@ -121,14 +121,14 @@ This section applies to applications that use another SQL database as its underl
    $table.Load($result)
    ```
 
-1. Write the result, the list of users retrieved from the query, to a CSV file.
+1. Write the result, the list of rows representing users that were retrieved from the query, to a CSV file.
 
    ```powershell
    $out_filename = ".\users.csv"
    $table.Rows | Export-Csv -Path $out_filename -NoTypeInformation -Encoding UTF8
    ```
 
-1. If needed, transfer the CSV file that was generated in the previous step, containing the list of users, to a system with the [Microsoft Graph PowerShell cmdlets](https://www.powershellgallery.com/packages/Microsoft.Graph) installed.
+1. If this system does not have the Microsoft Graph PowerShell cmdlets, or does not have connectivity to Azure AD, then transfer the CSV file that was generated in the previous step, containing the list of users, to a system which has the [Microsoft Graph PowerShell cmdlets](https://www.powershellgallery.com/packages/Microsoft.Graph) installed.
 
 ## Confirm Azure AD has users for each user from the application
 
@@ -136,13 +136,19 @@ Now that you have a list of all the users obtained from the application, you'll 
 
 ### Retrieve the IDs of the users in Azure AD
 
-This section shows how to interact with Azure AD using [Microsoft Graph PowerShell](https://www.powershellgallery.com/packages/Microsoft.Graph) cmdlets. The first time your organization use these cmdlets for this scenario, you'll need to be in a Global Administrator role to consent Microsoft Graph PowerShell to be used for these scenarios in your tenant.  Subsequent interactions can use a lower privileged role, such as User Administrator role if you anticipate creating new users, or the Application Administrator or [Identity Governance Administrator](/azure/active-directory/roles/permissions-reference#identity-governance-administrator) role, if you're just managing application or access package assignments.
+This section shows how to interact with Azure AD using [Microsoft Graph PowerShell](https://www.powershellgallery.com/packages/Microsoft.Graph) cmdlets. The first time your organization use these cmdlets for this scenario, you'll need to be in a Global Administrator role to consent Microsoft Graph PowerShell to be used for these scenarios in your tenant.  Subsequent interactions can use a lower privileged role, such as User Administrator role if you anticipate creating new users, or the Application Administrator or [Identity Governance Administrator](/azure/active-directory/roles/permissions-reference#identity-governance-administrator) role, if you're just managing application role or access package assignments.
 
 1. Launch PowerShell.
 1. If you don't have the [Microsoft Graph PowerShell modules](https://www.powershellgallery.com/packages/Microsoft.Graph) already installed, install the `Microsoft.Graph.Users` module and others using
 
    ```powershell
    Install-Module Microsoft.Graph
+   ```
+
+1. If you already have the modules installed, ensure you are using a recent version. 
+
+   ```powershell
+   Update-Module microsoft.graph.users,microsoft.graph.identity.governance,microsoft.graph.applications
    ```
 
 1. Connect to Azure AD.
@@ -162,16 +168,16 @@ This section shows how to interact with Azure AD using [Microsoft Graph PowerShe
 
 1. Pick the column of the `users` file that will match with an attribute of a user in Azure AD.
 
-   For example, you might have users in the database where the value in the column named `Mail` is the same value as in the Azure AD attribute `Email`.
+   For example, you might have users in the database where the value in the column named `EMail` is the same value as in the Azure AD attribute `mail`.
 
    ```powershell
-   $db_match_column_name = "Mail"
-   $azuread_match_attr_name = "Email"
+   $db_match_column_name = "EMail"
+   $azuread_match_attr_name = "mail"
    ```
 
 1. Retrieve the IDs of those users in Azure AD.
 
-   The following PowerShell script will use the `$dbusers`, `$db_match_column_name` and `$azuread_match_attr_name` specified above, and will query Azure AD to locate a user that has a matching value for each record in the source file.
+   The following PowerShell script will use the `$dbusers`, `$db_match_column_name` and `$azuread_match_attr_name` specified above, and will query Azure AD to locate a user that has a matching value for each record in the source file.  If there are many users in the database, this script may take several minutes to complete.
 
    ```powershell
    $dbu_not_queried_list = @()
@@ -187,7 +193,7 @@ This section shows how to interact with Azure AD using [Microsoft Graph PowerShe
          $filter = $azuread_match_attr_name + " eq '" + $escval + "'"
          try {
             $ul = @(Get-MgUser -Filter $filter -All -ErrorAction Stop)
-            if ($ul.length -eq 0) { $dbu_not_matched += $dbu; } elseif ($ul.length -gt 1) {$dbu_match_ambiguous_list += $dbu } else {
+            if ($ul.length -eq 0) { $dbu_not_matched_list += $dbu; } elseif ($ul.length -gt 1) {$dbu_match_ambiguous_list += $dbu } else {
                $id = $ul[0].id; 
                $azuread_match_id_list += $id;
             } 
@@ -204,22 +210,22 @@ This section shows how to interact with Azure AD using [Microsoft Graph PowerShe
    ```powershell
    $dbu_not_queried_count = $dbu_not_queried_list.Count
    if ($dbu_not_queried_count -ne 0) {
-     Write-Error "Unable to query for $dbu_not_queried_count records as rows lacked values for $db_match_column_name"
+     Write-Error "Unable to query for $dbu_not_queried_count records as rows lacked values for $db_match_column_name."
    }
    $dbu_not_matched_count = $dbu_not_matched_list.Count
    if ($dbu_not_matched_count -ne 0) {
-     Write-Error "Unable to locate $dbu_not_matched_count records in Azure AD by querying for $db_match_column_name in $azuread_match_attr_name"
+     Write-Error "Unable to locate $dbu_not_matched_count records in Azure AD by querying for $db_match_column_name values in $azuread_match_attr_name."
    }
    $dbu_match_ambiguous_count = $dbu_match_ambiguous_list.Count
    if ($dbu_match_ambiguous_count -ne 0) {
-     Write-Error "Unable to locate $dbu_match_ambiguous_count records in Azure AD"
+     Write-Error "Unable to locate $dbu_match_ambiguous_count records in Azure AD."
    }
    $dbu_query_failed_count = $dbu_query_failed_list.Count
    if ($dbu_query_failed_count -ne 0) {
-     Write-Error "Unable to locate $dbu_query_failed_count records in Azure AD as queries returned errors"
+     Write-Error "Unable to locate $dbu_query_failed_count records in Azure AD as queries returned errors."
    }
    if ($dbu_not_queried_count -ne 0 -or $dbu_not_matched_count -ne 0 -or $dbu_match_ambiguous_count -ne 0 -or $dbu_query_failed_count -ne 0) {
-    Write-Output "You will need to resolve those issues before access of existing users can be reviewed."
+    Write-Output "You will need to resolve those issues before access of all existing users can be reviewed."
    }
    $azuread_match_count = $azuread_match_id_list.Count
    Write-Output "Users corresponding to $azuread_match_count records were located in Azure AD." 
@@ -227,9 +233,54 @@ This section shows how to interact with Azure AD using [Microsoft Graph PowerShe
 
 1. When the script completes, it will indicate an error if there were any records from the data source that weren't located in Azure AD.  If not all the records for users from the application's data store could be located as users in Azure AD, then you'll need to investigate which records didn't match and why.  For example, someone's email address may have been changed in Azure AD without their corresponding `mail` property being updated in the application's data source.  Or, they may have already left the organization, but still be in the application's data source.  Or there might be a vendor or super-admin account in the application's data source who does not correspond to any specific person in Azure AD.
 
-1. If there were users that couldn't be located in Azure AD, but you want to have their access be reviewed or their attributes updated in the database, you'll need to create Azure AD users for the users that could not be located.
+1. If there were users that couldn't be located in Azure AD, but you want to have their access be reviewed or their attributes updated in the database, you'll need to create Azure AD users for the users that could not be located.  You can create users in bulk using either a CSV file, as described in [bulk create users in the Azure AD portal](../enterprise-users/users-bulk-add.md), or by using the [New-MgUser](/powershell/module/microsoft.graph.users/new-mguser?view=graph-powershell-1.0#examples) cmdlet.  When doing so, ensure that the users are populated with the attributes required for Azure AD to later match those to existing users in the application.
 
-1. After adding any missing users to Azure AD, then run the script from step 6 above again, and ensure that no errors are reported.
+1. After adding any missing users to Azure AD, then run the script from step 7 above again, and then the script from step 8, and ensure that no errors are reported.
+
+   ```powershell
+   $dbu_not_queried_list = @()
+   $dbu_not_matched_list = @()
+   $dbu_match_ambiguous_list = @()
+   $dbu_query_failed_list = @()
+   $azuread_match_id_list = @()
+
+   foreach ($dbu in $dbusers) { 
+      if ($null -ne $dbu.$db_match_column_name -and $dbu.$db_match_column_name.Length -gt 0) { 
+         $val = $dbu.$db_match_column_name
+         $escval = $val -replace "'","''"
+         $filter = $azuread_match_attr_name + " eq '" + $escval + "'"
+         try {
+            $ul = @(Get-MgUser -Filter $filter -All -ErrorAction Stop)
+            if ($ul.length -eq 0) { $dbu_not_matched_list += $dbu; } elseif ($ul.length -gt 1) {$dbu_match_ambiguous_list += $dbu } else {
+               $id = $ul[0].id; 
+               $azuread_match_id_list += $id;
+            } 
+         } catch { $dbu_query_failed_list += $dbu } 
+       } else { $dbu_not_queried_list += $dbu }
+   }
+
+   $dbu_not_queried_count = $dbu_not_queried_list.Count
+   if ($dbu_not_queried_count -ne 0) {
+     Write-Error "Unable to query for $dbu_not_queried_count records as rows lacked values for $db_match_column_name."
+   }
+   $dbu_not_matched_count = $dbu_not_matched_list.Count
+   if ($dbu_not_matched_count -ne 0) {
+     Write-Error "Unable to locate $dbu_not_matched_count records in Azure AD by querying for $db_match_column_name values in $azuread_match_attr_name."
+   }
+   $dbu_match_ambiguous_count = $dbu_match_ambiguous_list.Count
+   if ($dbu_match_ambiguous_count -ne 0) {
+     Write-Error "Unable to locate $dbu_match_ambiguous_count records in Azure AD."
+   }
+   $dbu_query_failed_count = $dbu_query_failed_list.Count
+   if ($dbu_query_failed_count -ne 0) {
+     Write-Error "Unable to locate $dbu_query_failed_count records in Azure AD as queries returned errors."
+   }
+   if ($dbu_not_queried_count -ne 0 -or $dbu_not_matched_count -ne 0 -or $dbu_match_ambiguous_count -ne 0 -or $dbu_query_failed_count -ne 0) {
+    Write-Output "You will need to resolve those issues before access of all existing users can be reviewed."
+   }
+   $azuread_match_count = $azuread_match_id_list.Count
+   Write-Output "Users corresponding to $azuread_match_count records were located in Azure AD." 
+   ```
 
 ## Check for users who are not already assigned to the application
 
@@ -265,7 +316,7 @@ The previous steps have confirmed that all the users in the application's data s
 
    If 0 users aren't assigned to application roles, indicating that all users are assigned to application roles, then no further changes are needed before performing an access review.
 
-   However, if one or more users aren't currently assigned to the application roles, you'll need to add them to one of the application's roles, either directly, or through an access package.
+   However, if one or more users aren't currently assigned to the application roles, you'll need to add them to one of the application's roles, either directly, or through an access package, as described in the sections below.
 
 1. Select the role of the application to assign the remaining users to.
 
@@ -298,7 +349,12 @@ Before creating new assignments, you'll want to configure [Azure AD provisioning
 
 ## Create app role or access package assignments in Azure AD
 
+For Azure AD to match the users in the application with the users in Azure AD, you will need to create application role assignments in Azure AD.  You can either create those application role assignments directly, or create access package assignments. A user having an access package assignment will result in the user automatically receiving an application role assignment.
+
+### Choosing whether to create application role assignments or access package assignments
+
 Depending upon your organization's identity governance requirements and the Azure AD features you plan to use, choose the most appropriate model for representing existing user's access rights in Azure AD.  If you're just using provisioning to update existing users, or for reviewing their access, then you can create application role assignments.  However, if you plan to time-limit their existing access, and have Azure AD automatically remove access when a project ends, then you should create access package assignments.
+
 
 * Create an application role assignment for each user who already has access to the application.
 
