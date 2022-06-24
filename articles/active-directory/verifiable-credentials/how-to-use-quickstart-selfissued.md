@@ -1,6 +1,6 @@
 ---
-title: How to create credentials using the QuickStart for selfIssued
-description: Learn how to use the QuickStart to create custom credentials for selfIssued
+title: How to create verifiable credentials for self-asserted claims
+description: Learn how to use the QuickStart to create custom credentials for self-issued
 documentationCenter: ''
 author: barclayn
 manager: rkarlin
@@ -10,10 +10,10 @@ ms.subservice: verifiable-credentials
 ms.date: 06/22/2022
 ms.author: barclayn
 
-#Customer intent: As an administrator, I am looking for information to help me disable 
+#Customer intent: As a verifiable credentials Administrator, I want to create a verifiable credential for self-asserted claims scenario
 ---
 
-# How to create credentials using the Quickstart for selfIssued flow
+# How to create verifiable credentials for self-asserted claims
 
 [!INCLUDE [Verifiable Credentials announcement](../../../includes/verifiable-credentials-brand.md)]
 
