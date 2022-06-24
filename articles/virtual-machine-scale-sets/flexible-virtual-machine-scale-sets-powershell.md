@@ -11,16 +11,9 @@ ms.reviewer: jushiman
 ms.custom: mimckitt, devx-track-azurecli, vmss-flex
 ---
 
-# Create virtual machines in a Flexible scale set using PowerShell
+# Create virtual machines in a scale set using PowerShell
 
-**Applies to:** :heavy_check_mark: Flexible scale sets
-
-
-This article steps through using PowerShell to create a virtual machine scale set in Flexible orchestration mode. For more information about Flexible scale sets, see [Flexible orchestration mode for virtual machine scale sets](flexible-virtual-machine-scale-sets.md). 
-
-> [!CAUTION]
-> The orchestration mode is defined when you create the scale set and cannot be changed or updated later.
-
+This article steps through using PowerShell to create a virtual machine scale set. 
 
 ## Launch Azure Cloud Shell
 
@@ -31,7 +24,7 @@ To open the Cloud Shell, just select **Try it** from the upper right corner of a
 
 ## Get started with Flexible scale sets
 
-Create a Flexible virtual machine scale set with Azure PowerShell.
+Create a virtual machine scale set with Azure PowerShell.
 
 ### Add multiple VMs to a scale set 
 
@@ -108,7 +101,7 @@ The following example shows the creation of a Flexible scale set without a VM pr
     $vmname = "myFlexibleVM"
     ```
 
-1. Do not specify VM Profile parameters like networking or VM SKUs.
+1. Don't specify VM Profile parameters like networking or VM SKUs.
 
     ```azurepowershell-interactive
     $VmssConfigWithoutVmProfile = new-azvmssconfig -location $loc -platformfaultdomain 1 `
@@ -124,4 +117,4 @@ The following example shows the creation of a Flexible scale set without a VM pr
 
 ## Next steps
 > [!div class="nextstepaction"]
-> [Learn how to create a Flexible scale set in the Azure portal.](flexible-virtual-machine-scale-sets-portal.md)
+> [Learn how to create a scale set in the Azure portal.](flexible-virtual-machine-scale-sets-portal.md)
