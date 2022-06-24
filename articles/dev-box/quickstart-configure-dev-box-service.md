@@ -1,5 +1,5 @@
 ---
-title: Configure the Microsoft Dev Box service.
+title: Configure the Microsoft Dev Box service
 description: 'This quickstart shows you how to configure the Microsoft Dev Box service to provide dev boxes for your users. You will create a DevCenter, add a network connection, and then create a dev box definition, a project and a dev box pool.'
 services: dev-box
 ms.service: dev-box
@@ -7,6 +7,7 @@ ms.topic: quickstart
 author: RoseHJM
 ms.author: rosemalcolm
 ms.date: 04/15/2022
+ms.custom: references_regions
 ---
 <!-- 
   Customer intent:
@@ -58,7 +59,7 @@ The following steps show you how to use the Azure portal to create and configure
     - South Central US
     - West US 3
     - West Europe
-
+<!--Link to ACOM page when available, rather than listing regions-->
 
 1. [Optional] On the **Tags** tab, enter a name and value pair that you want to assign.
 <!--   :::image type="content" source="./media/quickstart-configure-dev-box-service/create-devcenter-tags.png" alt-text="Screenshot showing the Create DevCenter Tags tab."::: -->
@@ -137,13 +138,13 @@ The following steps show you how to use the Azure portal to create and configure
    |Name|Value|Note|
    |----|----|----|
    |**Name**|Enter a descriptive name for your dev box definition.|
-   |**Image**|Select the base operating system for the dev box. Azure provides a Windows 10 image and a Windows 11 image for Dev Box from the Marketplace.|To make more images available for the dev box pool, you can attach your own Azure Compute Gallery from an Azure Subscription that you manage. Learn [how to configure an Azure Compute Gallery](./how-to-configure-azure-compute-gallery.md).|
+   |**Image**|Select the base operating system for the dev box. Azure provides a Windows 10 image and a Windows 11 image for Dev Box from the Marketplace.|To make more images available for the dev box pool, you can attach your own Azure Compute Gallery from an Azure Subscription that you manage. <!-- Learn [how to configure an Azure Compute Gallery](./how-to-configure-azure-compute-gallery.md). -->|
    |**Image version**|Select a specific, numbered version to ensure all the dev boxes in the pool always use the same version of the image. Select  **Latest** to ensure new dev boxes use the latest image available.|Selecting the Latest image version enables the dev box pool to use the most recent image version for your chosen image from the Gallery. This way, the dev boxes created will stay up to date with the latest tools and code on your image. Existing dev boxes will not be modified when an image version is updated.|
 
 1. Select **Create**.
 
 > [!IMPORTANT]
-> For Private Preview, the only sku option available is 8 vCPU / 32 GB RAM / 1024 GB SSD. More compute and storage options will be available at Public Preview.
+> Currently, limited sku options are available is 8 vCPU / 32 GB RAM / 1024 GB SSD. More compute and storage options will be available at Public Preview.
 
 ## Create a Project
 
@@ -187,7 +188,7 @@ The following steps show you how to use the Azure portal to create a Dev Box Poo
 :::image type="content" source="./media/quickstart-configure-dev-box-service/projects-grid.png" alt-text="List of projects":::
 
 1. Select **Dev box pools** and then select **+ Add**.
-:::image type="content" source="./media/quickstart-configure-dev-box-service/dev-box-pool-grid_empty.png" alt-text="Create Dev Box Pool":::
+:::image type="content" source="./media/quickstart-configure-dev-box-service/dev-box-pool-grid-empty.png" alt-text="Create Dev Box Pool":::
 
 1. On the **Create a dev box pool** page, on the **Basics** tab, enter the following values:
 

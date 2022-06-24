@@ -35,25 +35,26 @@ To download and install the remote desktop app, follow these steps:
 1. Sign in to the [developer portal](https://portal.fidalgo.azure.com).
 
 1. In **Your dev box**, from the **Open in browser** dropdown, select **Download RDP client**.
-   :::image type="content" source="./media/quickstart-configure-dev-box-service/dev-portal-card-download.png" alt-text="Screenshot of the Your dev box card showing the Download RD client option.":::
+   :::image type="content" source="./media/tutorial-connect-to-dev-box-with-remote-desktop-app/dev-portal-card-download.png" alt-text="Screenshot of the Your dev box card showing the Download RD client option.":::
 
 1. Download Microsoft Remote Desktop for Windows.
-   :::image type="content" source="./media/quickstart-configure-dev-box-service/dev-portal-download-rd-app.png" alt-text="Screenshot of the Microsoft Remote Desktop apps dialog box with options to Download an RD App for Windows, Mac, iOS and Android.":::
+   :::image type="content" source="./media/tutorial-connect-to-dev-box-with-remote-desktop-app/dev-portal-download-rd-app.png" alt-text="Screenshot of the Microsoft Remote Desktop apps dialog box with options to Download an RD App for Windows, Mac, iOS and Android.":::
 
 1. Copy the subscription URL from the popup window.
-   :::image type="content" source="./media/quickstart-configure-dev-box-service/dev-portal-subscription-url.png" alt-text="Screenshot of the Set up Remote Desktop dialog box showing the Subscription URL.":::
+   :::image type="content" source="./media/tutorial-connect-to-dev-box-with-remote-desktop-app/dev-portal-subscription-url.png" alt-text="Screenshot of the Set up Remote Desktop dialog box showing the Subscription URL.":::
 
 1. In the Remote Desktop App, select the more options menu and select **Subscribe with URL**. 
-   :::image type="content" source="./media/quickstart-configure-dev-box-service/rd-app-overflow-menu.png" alt-text="Screenshot of Subscribe with URL menu option.":::
+   :::image type="content" source="./media/tutorial-connect-to-dev-box-with-remote-desktop-app/rd-app-overflow-menu.png" alt-text="Screenshot of Subscribe with URL menu option.":::
 
 1. Paste the subscription URL to subscribe to the workspace.
-   :::image type="content" source="./media/quickstart-configure-dev-box-service/rd-app-subscribe.png" alt-text="Screenshot of the Subscribe to a Workspace dialog box showing Email or Workspace box.":::
+   :::image type="content" source="./media/tutorial-connect-to-dev-box-with-remote-desktop-app/rd-app-subscribe.png" alt-text="Screenshot of the Subscribe to a Workspace dialog box showing Email or Workspace box.":::
 
 1. Your dev box will appear in the list under the your workspace. Double-click to connect. 
 
 ## Next steps
 To learn about managing Microsoft Dev Box, see:
-
+<!--
 > [!div class="nextstepaction"]
 > [Provide access to Project Admins](./how-to-project-admin.md)
 > [Provide access to Dev Box users](./how-to-dev-box-user.md)
+-->

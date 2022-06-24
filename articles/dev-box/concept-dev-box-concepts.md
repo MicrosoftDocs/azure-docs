@@ -1,5 +1,5 @@
 ---
-title: Microsoft Dev Box key concepts?
+title: Microsoft Dev Box key concepts
 titleSuffix: Microsoft dev box
 description: Learn key concepts and terminology for Microsoft Dev Box.
 services: dev-box

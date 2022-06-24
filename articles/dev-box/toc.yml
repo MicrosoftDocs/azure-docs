@@ -17,28 +17,17 @@
   expanded: true
   items: 
     - name: Connect to a Microsoft Dev Box by using a remote desktop app.
-      href: tutorial-connect-to-dev-box-with-rd-app.md
+      href: tutorial-connect-to-dev-box-with-remote-desktop-app.md
 - name: How-tos
   expanded: true
-  items: 
-    - name: Configure an Azure Compute Gallery
-      href: how-to-configure-azure-compute-gallery.md
-    - name: Provide access to Project Admins
-      href: how-to-project-admin.md
-    - name: Provide access to Dev Box users
-      href: how-to-dev-box-user.md  
 - name: Reference
   items:
       - name: Microsoft Dev Box concepts
         href: concept-dev-box-concepts.md
-      - name: CLI reference
-        href: cli-reference.md
 - name: Resources
   items: 
     - name: Azure roadmap
       href: https://azure.microsoft.com/roadmap/
-    - name: Pricing (placholder)
-      href: https://azure.microsoft.com/pricing/details/load-testing/
     - name: Regional availability
       href: https://azure.microsoft.com/regions/services/
 

@@ -1,5 +1,5 @@
 ---
-title: Create a Microsoft Dev Box.
+title: Create a Microsoft Dev Box
 description: This quickstart shows you how to create a Microsoft Dev Box and connect to it through RDP.
 services: dev-box
 ms.service: dev-box
@@ -26,7 +26,7 @@ In this quickstart, you will:
 
 ## Prerequisites
 
-- Permissions as a [Dev Box User](./how-to-dev-box-user.md) on the Project that has a configured Dev Box Pool. Follow the [Create Dev Box Pool Quickstart](./quickstart-configure-dev-box-service.md) if you do not have an available pool.
+- Permissions as a Dev Box User <!-- [Dev Box User](./how-to-dev-box-user.md)--> on the Project that has a configured Dev Box Pool. If you don't have an available pool, follow the steps in the [Create Dev Box Pool Quickstart](./quickstart-configure-dev-box-service.md).
 
 ## Create a dev box
 

@@ -40,32 +40,9 @@ conceptualContent:
   items:
 
     # Card
-    - title: Configure an Azure Compute Gallery
-      links:
-        - url: how-to-configure-azure-compute-gallery.md
-          itemType: how-to-guide
-          text: Learn how to create a repository for managing and sharing Dev Box images. 
-    
-    # Card
-    - title: Provide access to Dev Box
-      links:
-        - url: how-to-project-admin.md
-          itemType: how-to-guide
-          text: Learn how to provide access to Project Admins.
-        - url: how-to-dev-box-user.md
-          itemType: how-to-guide
-          text: Learn how to provide access to Dev Box users.
-
-    # Card
     - title: Microsoft Dev Box concepts
       links:
         - url: concept-dev-box-concepts.md
           itemType: reference
           text: Learn key concepts and terminology for Microsoft Dev Box.
 
-    # Card
-    - title: Reference
-      links:
-        - url: cli-reference.md
-          itemType: reference
-          text: CLI reference for Microsoft Dev Box.
