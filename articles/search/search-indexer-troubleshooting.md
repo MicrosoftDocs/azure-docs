@@ -8,7 +8,7 @@ author: mgottein
 ms.author: magottei
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 06/23/2022
+ms.date: 06/24/2022
 ---
 
 # Indexer troubleshooting guidance for Azure Cognitive Search
@@ -225,7 +225,6 @@ Indexer may show a different document count than either the data source, the ind
 - The counts are being checked in different intervals for each component of the pipeline: data source, indexer and index.
 - The index may take some minutes to show the real document count. 
 - The data source has a file that's mapped to many documents. This condition can occur when [indexing blobs](search-howto-index-json-blobs.md) and "parsingMode" is set to **`jsonArray`** and **`jsonLines`**.
-- There are documents that are being indexed since they have been updated in the source and if they already exist in the index, the index count is not increased since it is a change to an existent document, not a new document to be added.
 - Due to [documents processed multiple times](#documents-processed-multiple-times).
  
 
