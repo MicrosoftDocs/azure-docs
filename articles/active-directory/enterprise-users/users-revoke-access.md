@@ -10,7 +10,7 @@ author: curtand
 ms.author: curtand
 manager: karenhoran
 ms.reviewer: krbain
-ms.date: 03/29/2021
+ms.date: 06/24/2022
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ---
