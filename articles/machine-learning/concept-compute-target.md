@@ -76,7 +76,6 @@ There are a few exceptions and limitations to choosing a VM size:
 
 * Some VM series aren't supported in Azure Machine Learning.
 * There are some VM series, such as GPUs and other special SKUs, which may not initially appear in your list of available VMs.  But you can still use them, once you request a quota change. For more information about requesting quotas, see [Request quota increases](how-to-manage-quotas.md#request-quota-increases).
-* 
 See the following table to learn more about supported series.
 
 | **Supported VM series** | **Category** | **Supported by** |
