@@ -16,7 +16,12 @@ ms.custom: "seodec18, devx-track-csharp"
 
 # What is Optical character recognition?
 
-Optical character recognition (OCR) allows you to extract printed or handwritten text from images, such as photos of street signs and products, as well as from documents&mdash;invoices, bills, financial reports, articles, and more. Microsoft's OCR technologies support extracting printed text in [several languages](./language-support.md). Follow a [quickstart](./quickstarts-sdk/client-library.md) to get started.
+Optical character recognition (OCR) allows you to extract printed or handwritten text from images, such as photos of street signs and products, as well as from documents&mdash;invoices, bills, financial reports, articles, and more. Microsoft's OCR technologies support extracting printed text in [several languages](./language-support.md). 
+
+Follow a [quickstart](./quickstarts-sdk/client-library.md) to get started with the REST API or a client SDK. Or, try out the capabilities of OCR quickly and easily in your browser using Vision Studio.
+
+> [!div class="nextstepaction"]
+> [Try Vision Studio](https://portal.vision.cognitive.azure.com/)
 
 ![OCR demos](./Images/ocr-demo.gif)
 
@@ -25,6 +30,9 @@ This documentation contains the following types of articles:
 * The [how-to guides](./how-to/call-read-api.md) contain instructions for using the service in more specific or customized ways.
 <!--* The [conceptual articles](how-to/call-read-api.md) provide in-depth explanations of the service's functionality and features.
 * The [tutorials](./tutorials/storage-lab-tutorial.md) are longer guides that show you how to use this service as a component in broader business solutions. -->
+
+For a more structured approach, follow a Microsoft Learn module for OCR.
+* [Read Text in Images and Documents with the Computer Vision Service](/learn/modules/read-text-images-documents-with-computer-vision-service/)
 
 ## Read API 
 

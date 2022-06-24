@@ -7,7 +7,7 @@ manager: karenhoran
 ms.service: role-based-access-control
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 08/27/2021
+ms.date: 06/14/2022
 ms.author: rolyon
 ---
 
@@ -148,15 +148,15 @@ The following table describes what the custom role properties mean.
 
 | Property | Required | Type | Description |
 | --- | --- | --- | --- |
-| `Name`</br>`roleName` | Yes | String | The display name of the custom role. While a role definition is a management group or subscription-level resource, a role definition can be used in multiple subscriptions that share the same Azure AD directory. This display name must be unique at the scope of the Azure AD directory. Can include letters, numbers, spaces, and special characters. Maximum number of characters is 128. |
+| `Name`</br>`roleName` | Yes | String | The display name of the custom role. While a role definition is a management group or subscription-level resource, a role definition can be used in multiple subscriptions that share the same Azure AD directory. This display name must be unique at the scope of the Azure AD directory. Can include letters, numbers, spaces, and special characters. Maximum number of characters is 512. |
 | `Id`</br>`name` | Yes | String | The unique ID of the custom role. For Azure PowerShell and Azure CLI, this ID is automatically generated when you create a new role. |
 | `IsCustom`</br>`roleType` | Yes | String | Indicates whether this is a custom role. Set to `true` or `CustomRole` for custom roles. Set to `false` or `BuiltInRole` for built-in roles. |
-| `Description`</br>`description` | Yes | String | The description of the custom role. Can include letters, numbers, spaces, and special characters. Maximum number of characters is 1024. |
+| `Description`</br>`description` | Yes | String | The description of the custom role. Can include letters, numbers, spaces, and special characters. Maximum number of characters is 2048. |
 | `Actions`</br>`actions` | Yes | String[] | An array of strings that specifies the control plane actions that the role allows to be performed. For more information, see [Actions](role-definitions.md#actions). |
 | `NotActions`</br>`notActions` | No | String[] | An array of strings that specifies the control plane actions that are excluded from the allowed `Actions`. For more information, see [NotActions](role-definitions.md#notactions). |
 | `DataActions`</br>`dataActions` | No | String[] | An array of strings that specifies the data plane actions that the role allows to be performed to your data within that object. If you create a custom role with `DataActions`, that role cannot be assigned at the management group scope. For more information, see [DataActions](role-definitions.md#dataactions). |
 | `NotDataActions`</br>`notDataActions` | No | String[] | An array of strings that specifies the data plane actions that are excluded from the allowed `DataActions`. For more information, see [NotDataActions](role-definitions.md#notdataactions). |
-| `AssignableScopes`</br>`assignableScopes` | Yes | String[] | An array of strings that specifies the scopes that the custom role is available for assignment. You can only define one management group in `AssignableScopes` of a custom role. Adding a management group to `AssignableScopes` is currently in preview. For more information, see [AssignableScopes](role-definitions.md#assignablescopes). |
+| `AssignableScopes`</br>`assignableScopes` | Yes | String[] | An array of strings that specifies the scopes that the custom role is available for assignment. Maximum number of `AssignableScopes` is 2,000. You can define only one management group in `AssignableScopes` of a custom role. Adding a management group to `AssignableScopes` is currently in preview. For more information, see [AssignableScopes](role-definitions.md#assignablescopes). |
 
 Permission strings are case-insensitive. When you create your custom roles, the convention is to match the case that you see for permissions in [Azure resource provider operations](resource-provider-operations.md).
 

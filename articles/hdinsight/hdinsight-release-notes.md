@@ -25,7 +25,7 @@ This release applies for HDInsight 4.0. HDInsight release is made available to a
 **The Hive Warehouse Connector (HWC) on Spark v3.1.2**
 
 The Hive Warehouse Connector (HWC) allows you to take advantage of the unique features of Hive and Spark to build powerful big-data applications. HWC is currently supported for Spark v2.4 only.  This feature adds business value by allowing ACID transactions on Hive Tables using Spark. This feature is useful for customers who use both Hive and Spark in their data estate.
-For more information, see [Apache Spark & Hive - Hive Warehouse Connector - Azure HDInsight | Microsoft Docs](/azure/hdinsight/interactive-query/apache-hive-warehouse-connector)
+For more information, see [Apache Spark & Hive - Hive Warehouse Connector - Azure HDInsight | Microsoft Docs](./interactive-query/apache-hive-warehouse-connector.md)
 
 ## Ambari
 

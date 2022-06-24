@@ -35,7 +35,7 @@ Four steps are needed to set up an authorization with the authorization code gra
     :::image type="content" source="media/authorizations-how-to/register-application.png" alt-text="Screenshot of registering a new OAuth application in GitHub.":::
     1. Enter an **Application name** and **Homepage URL** for the application. 
     1. Optionally, add an **Application description**.
-    1. In **Authorization callback URL** (the redirect URL), enter `https://authorization-manager-test.consent.azure-apim.net/redirect/apim/<YOUR-APIM-SERVICENAME>`, substituting the API Management service name that is used.  
+    1. In **Authorization callback URL** (the redirect URL), enter `https://authorization-manager.consent.azure-apim.net/redirect/apim/<YOUR-APIM-SERVICENAME>`, substituting the API Management service name that is used.  
 1. Select **Register application**.
 1. In the **General** page, copy the **Client ID**, which you'll use in a later step.
 1. Select **Generate a new client secret**. Copy the secret, which won't be displayed again, and which you'll use in a later step. 
@@ -92,7 +92,7 @@ Four steps are needed to set up an authorization with the authorization code gra
     |Setting  |Value  |
     |---------|---------|
     |**Display name**     | *github*        |
-    |**Web service URL**     |  https://api.github.com/users/       |
+    |**Web service URL**     |  https://api.github.com/users       |
     |**API URL suffix**     |  *github*       |
 
 2. Navigate to the newly created API and select **Add Operation**. Enter the following settings and select **Save**.
