@@ -26,7 +26,7 @@ Azure Active Directory (Azure AD) Identity Governance allows you to balance your
 
 Organizations with compliance requirements or risk management plans will have sensitive or business-critical applications. The application sensitivity may be based on its purpose or the data it contains, such as financial information or personal information of the organization's customers. For those applications, only a subset of all the users in the organization will typically be authorized to have access, and access should only be permitted based on documented business requirements.  As part of your organization's controls for managing access, you can use Azure AD features to
 
-* set up appropriate access,
+* set up appropriate access
 * enforce access checks, and
 * produce reports to demonstrate how those controls are being used to meet your compliance and risk management objectives.
 
