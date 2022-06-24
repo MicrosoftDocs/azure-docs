@@ -19,4 +19,4 @@ If you have decided not to replicate any data to a paired region, you'll need to
 
 ## More information
 
-You may find more information availability zone resiliency and disaster recovery in Azure Event Grid in our [FAQ](event-grid-faq.md).
+You may find more information availability zone resiliency and disaster recovery in Azure Event Grid in our [FAQ](/azure/event-grid/event-grid-faq).
