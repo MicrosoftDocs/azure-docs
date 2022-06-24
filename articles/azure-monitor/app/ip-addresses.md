@@ -24,9 +24,9 @@ You need to open some outgoing ports in your server's firewall to allow the Appl
 | Purpose | URL | Ports |
 | --- | --- | --- |
 | Telemetry | dc.applicationinsights.azure.com<br/>dc.applicationinsights.microsoft.com<br/>dc.services.visualstudio.com<br/>*.in.applicationinsights.azure.com<br/><br/> | 443 |
-| Live Metrics | live.applicationinsights.azure.com<br/>rt.applicationinsights.microsoft.com<br/>rt.services.visualstudio.com<br/><br/>{region}.livediagnostics.monitor.azure.com<br/>*Example for {region}: en-us*<br/><br/> | 443 |
+| Live Metrics | live.applicationinsights.azure.com<br/>rt.applicationinsights.microsoft.com<br/>rt.services.visualstudio.com<br/><br/>{region}.livediagnostics.monitor.azure.com<br/>*Example for {region}: westus2*<br/><br/> | 443 |
 
-To find the code for your region, refer to [Country, region, and language codes](https://support.microsoft.com/topic/country-region-and-language-codes-add36afe-804a-44f1-ae68-cfb9c9b72f8b).
+To find the code for your region, refer to [Addresses grouped by region (Azure public cloud)](./#addresses-grouped-by-region-(azure-public-cloud)).
 
 ## Status Monitor
 
@@ -85,230 +85,64 @@ Download [China cloud IP addresses](https://www.microsoft.com/download/details.a
 
 #### Global addresses (Azure public cloud)
 
-```
 20.49.111.32/29
+
 13.73.253.112/29
-```
 
 #### Addresses grouped by region (Azure public cloud)
 
-```
-Australia Central	
-20.37.227.104/29
-
-
-Australia Central 2
-20.53.60.224/31
-
-
-Australia East
-20.40.124.176/28
-20.37.198.232/29
-
-
-Australia Southeast
-20.42.230.224/29
-
-
-Brazil South
-191.233.26.176/28
-191.234.137.40/29
-
-
-Brazil Southeast
-20.206.0.196/31
-
-
-Canada Central
-52.228.86.152/29
-
-
-Canada East
-52.242.40.208/31
-
-
-Central India
-52.140.108.216/29
-
-
-Central US
-13.86.97.224/28
-20.40.206.232/29
-
-
-East Asia
-52.229.216.48/28
-20.189.111.16/29
-
-
-East US
-20.42.35.32/28
-20.49.111.32/29
-
-
-East US 2
-20.49.102.24/29
-
-
-France Central
-20.40.129.32/28
-20.43.44.216/29
-
-
-France South
-20.40.129.96/28
-52.136.191.12/31
-
-
-Germany North
-51.116.75.92/31
-
-
-Germany West Central
-20.52.95.50/31
-
-
-Israel Central
-20.217.44.250/31
-
-
-Japan East
-52.140.232.160/28
-20.43.70.224/29
-
-
-Japan West
-20.189.194.102/31
-
-
-Jio India Central
-20.192.50.200/29
-
-
-Jio India West
-20.193.194.32/29
-
-
-Korea Central
-20.41.69.24/29
-
-
-North Central US
-23.100.224.16/28
-20.49.114.40/29
-
-
-North Europe
-52.158.28.64/28
-20.50.68.128/29
-
-
-Norway East
-51.120.235.248/29
-
-
-Norway West
-51.13.143.48/31
-
-
-Poland Central
-20.215.4.250/31
-
-
-Qatar Central
-20.21.39.224/29
-
-
-South Africa North
-102.133.219.136/29
-
-
-South Africa West
-102.37.86.196/31
-
-
-South Central US
-20.45.5.160/28
-13.73.253.112/29
-
-
-South India
-20.192.153.106/31
-
-
-Southeast Asia
-52.139.250.96/28
-23.98.106.152/29
-
-
-Sweden Central
-51.12.25.192/29
-
-
-Sweden South
-51.12.17.128/29
-
-
-Switzerland North
-51.107.52.200/29
-
-
-Switzerland West
-51.107.148.8/29
-
-
-Taiwan North
-51.53.28.214/31
-
-
-Taiwan Northwest
-51.53.172.214/31
-
-
-UAE Central
-20.45.95.68/31
-
-
-UAE North
-20.38.143.44/31
-40.120.87.204/31
-
-
-UK South
-51.105.9.128/28
-51.104.30.160/29
-
-
-UK West
-20.40.104.96/28
-51.137.164.200/29
-
-
-West Central US
-52.150.154.24/29
-
-
-West Europe
-51.144.56.96/28
-40.113.178.32/29
-
-
-West India
-20.192.84.164/31
-
-
-West US
-40.91.82.48/28
-52.250.228.8/29
-
-
-West US 2
-40.64.134.128/29
-
-
-West US 3
-20.150.241.64/29
-```
+| Continent/Country | Region | Code | IP ranges |
+| --- | --- | --- | --- |
+|Asia|East Asia|EastAsia|52.229.216.48/28<br/>20.189.111.16/29|
+||Southeast Asia|SoutheastAsia|52.139.250.96/28<br/>23.98.106.152/29|
+|Australia|Australia Central|AustraliaCentral|20.37.227.104/29<br/><br/>|
+||Australia Central 2|AustraliaCentral2|20.53.60.224/31<br/><br/>|
+||Australia East|AustraliaEast|20.40.124.176/28<br/>20.37.198.232/29|
+||Australia Southeast|AustraliaSoutheast|20.42.230.224/29<br/><br/>|
+|Brazil|Brazil South|BrazilSouth|191.233.26.176/28<br/>191.234.137.40/29|
+||Brazil Southeast|BrazilSoutheast|20.206.0.196/31<br/><br/>|
+|Canada|Canada Central|CanadaCentral|52.228.86.152/29<br/><br/>|
+||Canada East||52.242.40.208/31<br/><br/>|
+|Europe|North Europe|NorthEurope|52.158.28.64/28<br/>20.50.68.128/29|
+||West Europe|WestEurope|51.144.56.96/28<br/>40.113.178.32/29|
+|France|France Central|FranceCentral|20.40.129.32/28<br/>20.43.44.216/29|
+||France South|FranceSouth|20.40.129.96/28<br/>52.136.191.12/31|
+|Germany|Germany North||51.116.75.92/31<br/><br/>|
+||Germany West Central|GermanyWestCentral|20.52.95.50/31<br/><br/>|
+|India|Central India|CentralIndia|52.140.108.216/29<br/><br/>|
+||South India|SouthIndia|20.192.153.106/31<br/><br/>|
+||West India|WestIndia|20.192.84.164/31<br/><br/>|
+||Jio India Central||20.192.50.200/29<br/><br/>|
+||Jio India West||20.193.194.32/29<br/><br/>|
+|Israel|Israel Central||20.217.44.250/31<br/><br/>|
+|Japan|Japan East|JapanEast|52.140.232.160/28<br/>20.43.70.224/29|
+||Japan West|JapanWest|20.189.194.102/31<br/><br/>|
+|Korea|Korea Central|KoreaCentral|20.41.69.24/29<br/><br/>|
+|Norway|Norway East|NorwayEast|51.120.235.248/29<br/><br/>|
+||Norway West|NorwayWest|51.13.143.48/31<br/><br/>|
+|Poland|Poland Central||20.215.4.250/31<br/><br/>|
+|Qatar|Qatar Central||20.21.39.224/29<br/><br/>|
+|South Africa|South Africa North|SouthAfricaNorth|102.133.219.136/29<br/><br/>|
+||South Africa West||102.37.86.196/31<br/><br/>|
+|Sweden|Sweden Central||51.12.25.192/29<br/><br/>|
+||Sweden South||51.12.17.128/29<br/><br/>|
+|Switzerland|Switzerland North|SwitzerlandNorth|51.107.52.200/29<br/><br/>|
+||Switzerland West|SwitzerlandWest|51.107.148.8/29<br/><br/>|
+|Taiwan|Taiwan North||51.53.28.214/31<br/><br/>|
+||Taiwan Northwest||51.53.172.214/31<br/><br/>|
+|United Arab Emirates|UAE Central||20.45.95.68/31<br/><br/>|
+||UAE North|UAENorth|20.38.143.44/31<br/>40.120.87.204/31|
+|United Kingdom|UK South|UKSouth|51.105.9.128/28<br/>51.104.30.160/29|
+||UK West|UKWest|20.40.104.96/28<br/>51.137.164.200/29|
+|United States|Central US|CentralUS|13.86.97.224/28<br/>20.40.206.232/29|
+||East US|EastUS|20.42.35.32/28<br/>20.49.111.32/29|
+||East US 2|EastUS2|20.49.102.24/29<br/><br/>|
+||North Central US|NorthCentralUS|23.100.224.16/28<br/>20.49.114.40/29|
+||South Central US|SouthCentralUS|20.45.5.160/28<br/>13.73.253.112/29|
+||West Central US||52.150.154.24/29<br/><br/>|
+||West US|WestUS|40.91.82.48/28<br/>52.250.228.8/29|
+||West US 2|WestUS2|40.64.134.128/29<br/><br/>|
+||West US 3||20.150.241.64/29<br/><br/>|
 
 ### Discovery API
 
