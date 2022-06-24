@@ -14,13 +14,13 @@ ms.custom: references_regions
 
 This guide describes how to migrate your Azure Cache for Redis instance from non-availability zone support to availability zone support.
 
-Azure Cache for Redis supports zone redundancy in its Premium and Enterprise tiers. A zone-redundant cache runs on VMs spread across multiple availability zone to provide high resilience and availability.  
+Azure Cache for Redis supports zone redundancy in its Premium, Enterprise, and Enterprise Flash tiers. A zone-redundant cache runs on VMs spread across multiple availability zone to provide high resilience and availability.  
 
 Currently, the only way to convert a resource from non-availability zone support to availability zone support is to redeploy your current cache.
 
 ## Prerequisites
 
-To migrate to availability zone support, you must create first have an Azure Cache for Redis resource in either the Premium or Enterprise tiers.
+To migrate to availability zone support, you must create first have an Azure Cache for Redis resource in either the Premium, Enterprise, or Enterprise Flash tiers.
 
 ## Downtime requirements
 
