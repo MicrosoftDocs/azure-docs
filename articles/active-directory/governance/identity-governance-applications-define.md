@@ -23,7 +23,7 @@ ms.collection: M365-identity-device-management
 > [« Govern access for applications](identity-governance-applications-prepare.md)
 > [Integrate an application with Azure AD »](identity-governance-applications-integrate.md)
  
-Once you have identified one or more applications for which access is to be governed from Azure AD, write down the organization's policies for determining which users should have access, and any other constraints that the system should provide.
+Once you have identified one or more applications that you want to use Azure AD to govern access, write down the organization's policies for determining which users should have access, and any other constraints that the system should provide.
 
 ## Identifies applications and their roles in scope
 
