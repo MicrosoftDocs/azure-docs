@@ -23,15 +23,16 @@ This preview is a test release.
 New for this release:
 
 - Miscellaneous
-  - \<item\>
-  - ...
+  - Extended the disk metrics reported in monitoring dashboards to include more queue length stats as well as more counters for IOPS. All disks are in scope for data collection that start with "vd" or "sd" now.
 
 - Arc-enabled SQL Managed Instance
-  - \<item\>
-  - ...
-
+  - Added buffer cache hit ratio to collectd and surface it in monitoring dashboards.
+  - Improvements to the formatting of the legends on some dashboards.
+  - Added process level CPU  and memory metrics to the monitoring dashboards for the SQL managed instance process.
+  - syncSecondaryToCommit property is now available to be viewed and edited in Azure Portal and Azure Data Studio.
+  - Added ability to set the DNS name for the readableSecondaries service in Azure CLI and Azure Portal.
 
 - Data controller
-  - \<item\>
-  - ...
+  - Permissions required to deploy the Arc data controller have been reduced to a least-privilege level.
+  - When deployed via the Azure CLI, the Arc data controller is now installed via a K8s job that uses a helm chart to do the installation. There is no change to the user experience.
 
