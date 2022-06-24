@@ -95,9 +95,9 @@ There's a lot to think about here, so let's take a closer look.
 
 ## Use data virtualization to minimize the impact of migration on BI tools and reports
 
-During migration, you might be tempted to make other changes in order to fulfill long-term requirements like opening business requests, adding missing data, and implementing new features. However, such changes can affect BI tool access to your data warehouse, especially if the change involves structural changes in your data model. If you want to adopt an agile data modeling technique or implement structural changes, do so *after* migration.
+During migration, you might be tempted to fulfill long-term requirements like opening business requests, adding missing data, or implementing new features. However, such changes can affect BI tool access to your data warehouse, especially if the change involves structural changes to your data model. If you want to adopt an agile data modeling technique or implement structural changes, do so *after* migration.
 
-One way in which you can minimize the effect of schema changes or other structural changes on BI tools is to introduce data virtualization between BI tools and your data warehouse and data marts. The following diagram shows how data virtualization can hide the migration from users.
+One way to minimize the effect of schema changes or other structural changes on your BI tools is to introduce data virtualization between the BI tools and your data warehouse and data marts. The following diagram shows how data virtualization can hide a migration from users.
 
 :::image type="content" source="../media/4-visualization-reporting/migration-data-virtualization.png" border="true" alt-text="Diagram showing how to hide the migration from users through data virtualization.":::
 
@@ -106,11 +106,11 @@ Data virtualization breaks the dependency between business users utilizing self-
 >[!TIP]
 >Data virtualization allows you to shield business users from structural changes during migration so they remain unaware of those changes. Structural changes include schema alterations that tune your data model for Azure Synapse.
 
-With data virtualization, any schema alterations made during a migration to Azure Synapse, for example to optimize performance, can be hidden from business users because they only have access to virtual tables in the data virtualization layer. If you have data virtualization and you make structural changes, you only need to update the mappings between the data warehouse or data marts and any virtual tables. That way, users remain unaware of the structural changes. [Microsoft partners](../../partner/data-integration.md) provide useful data virtualization software.
+With data virtualization, any schema alterations made during a migration to Azure Synapse, for example to optimize performance, can be hidden from business users because they only have access to virtual tables in the data virtualization layer. And, if you make structural changes, you only need to update the mappings between the data warehouse or data marts and any virtual tables. With data virtualization, users remain unaware of structural changes. [Microsoft partners](../../partner/data-integration.md) provide data virtualization software.
 
 ## Identify high-priority reports to migrate first
 
-A key question when migrating your existing reports and dashboards to Azure Synapse is which ones to migrate first. Several factors can drive the decision, such as:
+A key question when migrating your existing reports and dashboards to Azure Synapse is which ones to migrate first. Several factors can drive that decision, such as:
 
 - Usage
 
@@ -122,27 +122,27 @@ A key question when migrating your existing reports and dashboards to Azure Syna
 
 These factors are discussed in the following sections.
 
-Whatever your decision, it must involve your business users. They produce the reports and dashboards, and make business decisions based on the insights provided by those artifacts. Everyone benefits when you can:
+Whatever your decision, it must involve your business users. They produce the reports, dashboards, and other visualizations, and make business decisions based on the insights provided by them. Everyone benefits when you can:
 
 - Migrate reports and dashboards seamlessly,
 - Migrate reports and dashboards with minimal effort, and 
-- Point your BI tool(s) at Azure Synapse instead of your legacy data warehouse system, and reports and dashboards offer like-for-like results.
+- Point your BI tool(s) at Azure Synapse instead of your legacy data warehouse system, and get like-for-like reports, dashboards, and other visualizations.
 
 ### Migrate reports based on usage
 
-Usage is often an indicator of business value. Reports and dashboards that are never used clearly don't contribute to business decisions or currently offer value. So, do you have a way find out which reports and dashboards are currently unused? If not, you can use one of the several BI tools that provide usage statistics.
+Usage is often an indicator of business value. Reports and dashboards that are never used clearly don't contribute to business decisions or offer current value. If you don't have a way find out which reports and dashboards are unused, you can use one of the several BI tools that provide usage statistics.
 
-If your legacy data warehouse has been up and running for many years, there's a good chance you have hundreds, if not thousands, of reports in existence. It's worth compiling an inventory of the reports and dashboards you have and defining their business purpose and usage statistics.
+If your legacy data warehouse has been up and running for years, there's a good chance you have hundreds, if not thousands, of reports in existence. It's worth compiling an inventory of reports and dashboards and identifying their business purpose and usage statistics.
 
-For reports that aren't used at all, determine whether to decommission them to reduce your migration effort. A key question worth asking when deciding whether to decommission an unused report: is it unused because people don't know it exists, because it offers no business value, or because it's been superseded by another report?
+For reports that aren't used at all, determine whether to decommission them to reduce your migration effort. A key question when deciding whether to decommission an unused report is whether the report is unused because people don't know it exists, because it offers no business value, or because it's been superseded by another report.
 
 ### Migrate reports based on business value
 
-Usage alone isn't always a good indicator of business value. You might want to consider the extent to which a report's insights contribute to business value. One way to do that is to evaluate the profitability of each business decision that relied on the report and the extent of the reliance. However, that information is unlikely to be readily available in most organizations.
+Usage alone isn't always a good indicator of business value. You might want to consider the extent to which a report's insights contribute to business value. One way to do that is to evaluate the profitability of every business decision that relied on the report and the extent of the reliance. However, that information is unlikely to be readily available in most organizations.
 
 Another way to evaluate business value is to look at the alignment of a report with business strategy. The business strategy set by your executive typically lays out strategic business objectives (SBOs), key performance indicators (KPIs), KPI targets that need to be achieved, and who is accountable for achieving them. You can classify a report by which SBOs the report contributes to, such as fraud reduction, improved customer engagement, and optimized business operations. Then, you can prioritize for migration the reports and dashboards that are associated with high-priority objectives. In this way, the initial migration can deliver business value in a strategic area.
 
-Another way to evaluate business value is to classify reports and dashboards as operational, tactical, or strategic to identify at which business level they're used. Contributions at all these levels are needed to deliver SBOs. By knowing which reports and dashboards are used, at what level, and what objectives they're associated with, you can focus the initial migration on high-priority business value. You can use the following **business strategy objective** table to evaluate reports and dashboards.
+Another way to evaluate business value is to classify reports and dashboards as operational, tactical, or strategic to identify at which business level they're used. SBOs require contributions at all these levels. By knowing which reports and dashboards are used, at what level, and what objectives they're associated with, you're able to focus the initial migration on high-priority business value. You can use the following **business strategy objective** table to evaluate reports and dashboards.
 
 | Level | Report / dashboard name | Business purpose | Department used | Usage frequency | Business priority |
 |-|-|-|-|-|-|
@@ -150,14 +150,14 @@ Another way to evaluate business value is to classify reports and dashboards as 
 | **Tactical**     | | | | | |  
 | **Operational**  | | | | | |
 
-Metadata discovery tools like [Azure Data Catalog](/azure/data-catalog/overview) let business users tag and rate data sources to enrich their metadata and assist with discovery. You can use the metadata for a report or dashboard to help you understand its business value. Without such tools, understanding the contribution of reports and dashboards to business value is likely to be a time consuming task, whether you're migrating or not. 
+Metadata discovery tools like [Azure Data Catalog](/azure/data-catalog/overview) let business users tag and rate data sources, which enriches the metadata for those data sources and assists with discovery. You can use the metadata for a report or dashboard to help you understand its business value. Without such tools, understanding the contribution of reports and dashboards to business value is likely to be a time consuming task, whether you're migrating or not. 
 
 ### Migrate reports based on data migration strategy
 
-If your migration strategy is based on migrating data marts first, the order of data mart migration will affect which reports and dashboards are migrated to Azure Synapse first. If your strategy is based on business value, the order in which you migrate data marts will reflect business priorities. Metadata discovery tools can help you implement your strategy by showing you which data mart tables supply data for which reports.
+If your migration strategy is based on migrating data marts first, then the order of data mart migration will affect which reports and dashboards are migrated first. If your strategy is based on business value, the order in which you migrate data marts to Azure Synapse will reflect business priorities. Metadata discovery tools can help you implement your strategy by showing you which data mart tables supply data for which reports.
 
 >[!TIP]
->Your data migration strategy can affect which reports and visualizations get migrated first.
+>Your data migration strategy affects which reports and visualizations get migrated first.
 
 ## Migration incompatibility issues that can affect reports and visualizations
 
