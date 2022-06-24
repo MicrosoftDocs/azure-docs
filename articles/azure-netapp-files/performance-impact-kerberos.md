@@ -46,7 +46,7 @@ There are two areas of focus: light load and upper limit. The following lists de
 * All comparisons are made against the `sec=sys` security parameter.
 * The test was done on a single volume, using a single client. 
 
-Performance impact of krb5:
+**Performance impact of krb5:**
 
 * Low concurrency (r/w):
     * Sequential latency increased 0.3 ms.
@@ -57,7 +57,7 @@ Performance impact of krb5:
     * Maximum random I/O decreased by 30% for pure read workloads with the overall impact dropping to zero as the workload shifts to pure write. 
     * Maximum metadata workload decreased 30%.
 
-Performance impact of krb5i: 
+**Performance impact of krb5i:**
 
 * Low concurrency (r/w):
     * Sequential latency increased 0.5 ms.
@@ -68,7 +68,7 @@ Performance impact of krb5i:
     * Maximum random I/O decreased by 50% for pure read workloads with the overall impact decreasing to 25% as the workload shifts to pure write. 
     * Maximum metadata workload decreased 30%.
 
-Performance impact of krb5p:
+**Performance impact of krb5p:**
 
 * Low concurrency (r/w):
     * Sequential latency increased 0.8 ms.
