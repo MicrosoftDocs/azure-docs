@@ -1,5 +1,5 @@
 ---
-title: How to create credentials using the QuickStart for idTokens
+title: How to create verifiable credentials for idTokens
 description: Learn how to use the QuickStart to create custom credentials for idTokens
 documentationCenter: ''
 author: barclayn
@@ -13,7 +13,7 @@ ms.author: barclayn
 #Customer intent: As an administrator, I am looking for information to help me disable 
 ---
 
-# How to create credentials using the Quickstart for idToken flow
+# How to create verifiable credentials for idTokens
 
 [!INCLUDE [Verifiable Credentials announcement](../../../includes/verifiable-credentials-brand.md)]
 
