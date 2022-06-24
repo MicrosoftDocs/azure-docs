@@ -7,7 +7,7 @@ ms.topic: overview
 ms.author: sunila
 author: sunilagarwal
 ms.custom: mvc
-ms.date: 12/01/2021
+ms.date: 06/24/2022
 ---
 # Choose the right PostgreSQL server option in Azure
 
