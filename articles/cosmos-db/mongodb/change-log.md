@@ -29,7 +29,7 @@ You can now use the free and lightweight tool feature to manage and query your M
 
 
 ### Continuous backup enhancements in Azure Cosmos DB
-Take advantage of new data backup and restore options available with your Azure Cosmos DB account. Continuous backup and point-in-time restore are valuable features. This allows you to use Azure Cosmos DB Core (SQL) API, API for MongoDB, Gremlin API, or Table API to recover from accidental data changes and restore the data in your database. The two continuous backup options free continuous backup with seven-day data retention or paid continuous backup with 30-day data retention. The free continuous backup option is a recommended replacement for accounts currently using periodic backup.
+Take advantage of new data backup and restore options available with your Azure Cosmos DB account. Continuous backup and point-in-time restore are valuable features. The feature allows you to use Azure Cosmos DB Core (SQL) API, API for MongoDB, Gremlin API, or Table API to recover from accidental data changes. Additionally, the feature allows you to restore the data in your database. The two continuous backup options free continuous backup with seven-day data retention or paid continuous backup with 30-day data retention. The free continuous backup option is a recommended replacement for accounts currently using periodic backup.
 
 [Learn more](../continuous-backup-restore-introduction.md)
 
@@ -70,7 +70,7 @@ The Azure Cosmos DB API for MongoDB version 4.2 includes new aggregation functio
 
 
 ### Support $expr in Mongo 3.6 and 4.0.
-We have added support for both in memory and backend. Additionally, we have the infrastructure to support compute only query operators which allows us to support 3.6 style $lookup. 
+We have added support for both in memory and backend. Additionally, we have the infrastructure to support compute only query operators, which allows us to support 3.6 style $lookup. 
 `$expr` allows the use of [aggregation expressions](https://www.mongodb.com/docs/manual/meta/aggregation-quick-reference/#std-label-aggregation-expressions) within the query language. 
 `$expr` can build query expressions that compare fields from the same document in a `$match` stage.  
 
