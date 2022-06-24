@@ -18,7 +18,7 @@ This article is part seven of a seven-part series that provides guidance on how 
 
 ## Beyond data warehouse migration to Azure
 
-A key reason to migrate your existing data warehouse to Azure Synapse Analytics is to utilize a globally secure, scalable, low-cost, cloud-native, pay-as-you-use analytical database. With Azure Synapse, you can integrate your migrated data warehouse with the Microsoft Azure analytical ecosystem to take advantage of, and integrate with, other Microsoft technologies to modernize your migrated data warehouse. Those technologies include:
+A key reason to migrate your existing data warehouse to Azure Synapse Analytics is to utilize a globally secure, scalable, low-cost, cloud-native, pay-as-you-use analytical database. With Azure Synapse, you can integrate your migrated data warehouse with the complete Microsoft Azure analytical ecosystem to take advantage of other Microsoft technologies and modernize your migrated data warehouse. Those technologies include:
 
 - [Azure Data Lake Storage](/services/storage/data-lake-storage) (ADLS) for cost effective data ingestion, staging, cleansing, and transformation. Data Lake Storage can free up the data warehouse capacity occupied by fast-growing staging tables.
 
@@ -44,13 +44,13 @@ A key reason to migrate your existing data warehouse to Azure Synapse Analytics 
   
 - [Azure HDInsight](../../../hdinsight/index.yml) to process large amounts of data, and to join big data with Azure Synapse data by creating a logical data warehouse using PolyBase.
 
-- [Azure Event Hubs](../../../event-hubs/event-hubs-about.md), [Azure Stream Analytics](../../../stream-analytics/stream-analytics-introduction.md), and [Apache Kafka](/azure/databricks/spark/latest/structured-streaming/kafka) to integrate with live streaming data from Azure Synapse.
+- [Azure Event Hubs](../../../event-hubs/event-hubs-about.md), [Azure Stream Analytics](../../../stream-analytics/stream-analytics-introduction.md), and [Apache Kafka](/azure/databricks/spark/latest/structured-streaming/kafka) to integrate live streaming data from Azure Synapse.
 
-The growth of big data has led to an acute demand to use [machine learning](../../machine-learning/what-is-machine-learning.md) to enable custom-built, trained machine learning models for use in Azure Synapse. These machine learning models enable in-database analytics to run at scale in-batch, on an event-driven basis and on-demand. The ability to exploit in-database analytics in Azure Synapse from multiple BI tools and applications also guarantees consistent predictions and recommendations.
+The growth of big data has led to an acute demand for [machine learning](../../machine-learning/what-is-machine-learning.md) to enable custom-built, trained machine learning models for use in Azure Synapse. Machine learning models enable in-database analytics to run at scale in-batch, on an event-driven basis and on-demand. The ability to take advantage of in-database analytics in Azure Synapse from multiple BI tools and applications also guarantees consistent predictions and recommendations.
 
-In addition, there's an opportunity to integrate Azure Synapse with Microsoft partner tools on Azure to shorten time to value.
+In addition, you can integrate Azure Synapse with Microsoft partner tools on Azure to shorten time to value.
 
-Let's take a closer look at how you can take advantage of technologies in the Microsoft analytical ecosystem to modernize your data warehouse once you've migrated to Azure Synapse.
+Let's take a closer look at how you can take advantage of technologies in the Microsoft analytical ecosystem to modernize your data warehouse after you've migrated to Azure Synapse.
 
 ## Offload data staging and ETL processing to Data Lake Storage and Data Factory
 
