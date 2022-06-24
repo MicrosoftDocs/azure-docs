@@ -23,7 +23,7 @@ ms.collection: M365-identity-device-management
 
 # Governing an application's existing users - Microsoft PowerShell
 
-There are two common scenarios in which it's necessary to populate Azure AD with existing users of an application, prior to using the application with an Azure AD identity governance feature such as [access reviews](access-reviews-application-preparation.md) or [entitlement management](entitlement-management-overview.md).
+There are two common scenarios in which it's necessary to populate Azure Active Directory (Azure AD) with existing users of an application, prior to using the application with an Azure AD identity governance feature such as [access reviews](access-reviews-application-preparation.md) or [entitlement management](entitlement-management-overview.md).
 
 ### Application migrating to Azure AD after using its own identity provider
 
