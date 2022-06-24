@@ -70,7 +70,7 @@ To create an Azure function, perform the following steps:
 
     1. Paste the following code:
 
-        ```
+        ```csharp
         using System;
         using System.Configuration;
         using Microsoft.WindowsAzure.Storage.Blob;
@@ -190,7 +190,7 @@ To create an Azure function, perform the following steps:
     
     3. Type **project.json**, and then press **Enter**. In the **project.json** file, paste the following code:
 
-        ```
+        ```json
         {
         "frameworks": {
             "net46":{
