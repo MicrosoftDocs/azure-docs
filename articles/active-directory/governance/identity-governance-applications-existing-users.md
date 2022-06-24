@@ -43,7 +43,7 @@ This article illustrates the process for managing application role assignments u
 
 In Azure AD, a `ServicePrincipal` represents an application in a particular organization's directory.  The `ServicePrincipal` has a property `AppRoles` that lists the roles an application supports, such as `Marketing specialist`.  An `AppRoleAssignment` links a `User` to a Service principal and specifies which role that user has in that application.
 
-You can also choose to use the Azure AD entitlement management access packages to time-limit access. An `AccessPackage` contains one or more resource roles, potentially from multiple service principals, and has `Assignment` for users to the access package.  When an assignment for a user to an access package is created, then Azure AD entitlement management automatically creates the necessary `AppRoleAssignment` for the user to each application.
+You can also choose to use the Azure AD entitlement management access packages to time-limit access. An `AccessPackage` contains one or more resource roles, potentially from multiple service principals, and has `Assignment` for users to the access package.  When you create an assignment for a user to an access package, then Azure AD entitlement management automatically creates the necessary `AppRoleAssignment` for the user to each application.
 
 ## Collect existing users from an application
 
