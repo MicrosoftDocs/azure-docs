@@ -5,7 +5,7 @@ services: active-directory
 author: curtand
 ms.author: curtand
 manager: karenhoran
-ms.date: 05/19/2021
+ms.date: 06/24/2022
 ms.topic: how-to
 ms.service: active-directory
 ms.subservice: enterprise-users
@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 
 # Bulk create users in Azure Active Directory
 
-Azure Active Directory (Azure AD) supports bulk user create and delete operations and supports downloading lists of users. Just fill out comma-separated values (CSV) template you can download from the Azure AD portal.
+Azure Active Directory (Azure AD), part of Microsoft Entra, supports bulk user create and delete operations and supports downloading lists of users. Just fill out comma-separated values (CSV) template you can download from the Azure AD portal.
 
 ## Required permissions
 
