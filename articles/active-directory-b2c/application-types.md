@@ -134,7 +134,7 @@ In this flow, the application executes [policies](user-flow-overview.md) and rec
 
 Applications that contain long-running processes or that operate without the presence of a user also need a way to access secured resources such as web APIs. These applications can authenticate and get tokens by using their identities (rather than a user's delegated identity) and by using the OAuth 2.0 client credentials flow. Client credential flow isn't the same as on-behalf-flow and on-behalf-flow shouldn't be used for server-to-server authentication.
 
-The [OAuth 2.0 client credentials flow](./client-credentials-grant-flow.md) is currently in public preview. You can also set up client credential flow using Azure AD and the Microsoft identity platform /token endpoint (`https://login.microsoftonline.com/your-tenant-name.onmicrosoft.com/oauth2/v2.0/token`) for a [Microsoft Graph application](microsoft-graph-get-started.md) or your own application. For more information, check out the [Azure AD token reference](../active-directory/develop/id-tokens.md) article.
+For Azure AD B2C, the [OAuth 2.0 client credentials flow](./client-credentials-grant-flow.md) is currently in public preview. However, you can set up client credential flow using Azure AD and the Microsoft identity platform `/token` endpoint (`https://login.microsoftonline.com/your-tenant-name.onmicrosoft.com/oauth2/v2.0/token`) for a [Microsoft Graph application](microsoft-graph-get-started.md) or your own application. For more information, check out the [Azure AD token reference](../active-directory/develop/id-tokens.md) article.
 
 ## Unsupported application types
 

@@ -256,7 +256,7 @@ GET https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/{policy}/oauth2/v2.0/
 
 > [!NOTE]
 > Directing the user to the `end_session_endpoint` clears some of the user's single sign-on state with Azure AD B2C. However, it doesn't sign the user out of the user's social identity provider session. If the user selects the same identity provider during a subsequent sign in, the user is re-authenticated, without entering their credentials. If a user wants to sign out of your Azure AD B2C application, it doesn't necessarily mean they want to completely sign out of their Facebook account, for example. However, for local accounts, the user's session will be ended properly.
->
+
 
 ## Next steps
 
