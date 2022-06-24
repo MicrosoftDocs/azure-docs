@@ -7,7 +7,7 @@ ms.topic: quickstart
 ms.author: sunila
 author: sunilagarwal
 ms.custom: subject-armqs, devx-track-azurepowershell, mode-arm
-ms.date: 02/11/2021
+ms.date: 06/24/2022
 ---
 
 # Quickstart: Use an ARM template to create an Azure Database for PostgreSQL - single server
@@ -192,6 +192,7 @@ read -p "Press [ENTER] to continue: "
 ---
 
 ## Exporting ARM template from the portal
+
 You can [export an ARM template](../../azure-resource-manager/templates/export-template-portal.md) from the Azure portal. There are two ways to export a template:
 
 - [Export from resource group or resource](../../azure-resource-manager/templates/export-template-portal.md#export-template-from-a-resource). This option generates a new template from existing resources. The exported template is a "snapshot" of the current state of the resource group. You can export an entire resource group or specific resources within that resource group.
@@ -216,7 +217,6 @@ When exporting the template, in the ```"properties":{ }```  section of the Postg
         "administratorLogin": "[parameters('administratorLogin')]",
         "administratorLoginPassword": "[parameters('administratorLoginPassword')]",
 ```
-
 
 
 ## Clean up resources
@@ -262,4 +262,4 @@ read -p "Press [ENTER] to continue: "
 For a step-by-step tutorial that guides you through the process of creating a template, see:
 
 > [!div class="nextstepaction"]
-> [ Tutorial: Create and deploy your first ARM template](../../azure-resource-manager/templates/template-tutorial-create-first-template.md)
+> [Tutorial: Create and deploy your first ARM template](../../azure-resource-manager/templates/template-tutorial-create-first-template.md)
