@@ -48,15 +48,17 @@ Here's a sample configuration file for R4:
 
 For more detailed information on each of these four sections of the configuration file, select [here](https://github.com/microsoft/Tools-for-Health-Data-Anonymization/blob/master/docs/FHIR-anonymization.md#configuration-file-format).
 ## Using $export command for the de-identified data
- `https://<<FHIR service base URL>>/$export?_container=<<container_name>>&_anonymizationConfig=<<config file name>>&_anonymizationConfigEtag=<<ETag on storage>>`
-
+ `https://<<FHIR service base URL>>/$export?_container=<<container_name>>&_anonymizationConfigCollectionReference=<<ACR image reference>>&_anonymizationConfig=<<config file name>>&_anonymizationConfigEtag=<<ETag on storage>>`
 > [!Note] 
 > Right now the FHIR service only supports de-identified export at the system level ($export).
 
 |Query parameter            | Example |Optionality| Description|
 |---------------------------|---------|-----------|------------|
+| _\_container_|exportContainer|Optional for de-identified export|Specifies the container within the configured storage account where the data should be exported. If a container is specified, the data will be exported into a folder into that container. If the container is not specified, the data will be exported to a new container.|
+| _\_anonymizationConfigCollectionReference_|"myacr.azurecr.io/deidconfigs:default"|Optional for de-identified export|Reference to an OCI image on ACR. It is the image containing different de-id configs to be used for de-id export (such as stu3-config.json, r4-config.json). It can be a reference to the default image or a reference to a custom image that is registered within the FHIR service. (Format: `<RegistryServer>/<imageName>@<imageDigest>`, `<RegistryServer>/<imageName>:<imageTag>)`|
 | _\_anonymizationConfig_   |DemoConfig.json|Required for de-identified export |Name of the configuration file. See the configuration file format [here](https://github.com/microsoft/FHIR-Tools-for-Anonymization#configuration-file-format). This file should be kept inside a container named **anonymization** within the same Azure storage account that is configured as the export location. |
 | _\_anonymizationConfigEtag_|"0x8D8494A069489EC"|Optional for de-identified export|This is the Etag of the configuration file. You can get the Etag using Azure Storage Explorer from the blob property|
+
 
 > [!IMPORTANT]
 > Both raw export as well as de-identified export writes to the same Azure storage account specified as part of export configuration. It is recommended that you use different containers corresponding to different de-identified config and manage user access at the container level.
