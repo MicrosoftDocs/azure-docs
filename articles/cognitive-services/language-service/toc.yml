@@ -48,13 +48,13 @@ items:
   - name: Samples
     items:
     - name: Java
-      href: https://aka.ms/sdk-samples-java
+      href: https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/textanalytics/azure-ai-textanalytics/src/samples
     - name: JavaScript
-      href: https://aka.ms/sdk-samples-java-script
+      href: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/textanalytics/ai-text-analytics/samples/v5
     - name: C#
-      href:  https://aka.ms/sdk-samples-dot-net
+      href: https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/textanalytics/Azure.AI.TextAnalytics/samples
     - name: Python
-      href:  https://aka.ms/sdk-samples-python
+      href: https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/textanalytics/azure-ai-textanalytics/samples
   - name: Responsible use of AI
     items:
     - name: Transparency note for custom text classification
