@@ -73,7 +73,7 @@ In the next screen, you enter some of the Display definitions, like logo url, te
 
 ## Claims schema for Verified employee credential
 
-All of the claims in the Verified employee credential come from attributes in the [user's profile](/graph/api/resources/user?view=graph-rest-1.0) in Azure AD for the issuing tenant. All claims, except photo, come from the Microsoft Graph Query [https://graph.microsoft.com/v1.0/me](/graph/api/user-get?view=graph-rest-1.0&tabs=http). The photo claim comes from the value returned from the Microsoft Graph Query [https://graph.microsoft.com/v1.0/me/photo/$value.](/graph/api/profilephoto-get?view=graph-rest-1.0)
+All of the claims in the Verified employee credential come from attributes in the [user's profile](/graph/api/resources/user) in Azure AD for the issuing tenant. All claims, except photo, come from the Microsoft Graph Query [https://graph.microsoft.com/v1.0/me](/graph/api/user-get). The photo claim comes from the value returned from the Microsoft Graph Query [https://graph.microsoft.com/v1.0/me/photo/$value.](/graph/api/profilephoto-get)
 
 | Claim | Directory attribute | Value  |
 |---------|---------|---------|
@@ -86,7 +86,7 @@ All of the claims in the Verified employee credential come from attributes in th
 | `mail` | `mail` | The user's email address. The `mail` value isn't the same as the UPN. It's also an attribute that doesn't have a value by default. 
 | `photo` | `photo` | The uploaded photo for the user. The image type (JPEG, PNG, etc.), depends on the uploaded image type. When presenting the photo claim to a verifier, the photo claim is in the UrlEncode(Base64Encode(photo)) format. To use the photo, the verifier application has to Base64Decode(UrlDecode(photo)).
 
-See full Azure AD user profile [properties reference](/graph/api/resources/user?view=graph-rest-1.0#properties).
+See full Azure AD user profile [properties reference](/graph/api/resources/user).
 
 If attribute values change in the user's Azure AD profile, the VC isn't automatically reissued. You must reissue it manually. Issuance would be the same as the issuance process when working with the samples.
 
