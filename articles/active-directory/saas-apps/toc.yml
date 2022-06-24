@@ -1724,6 +1724,8 @@
         href: predictixordering-tutorial.md
       - name: Predictix Price Reporting
         href: predictixpricereporting-tutorial.md
+      - name: Preset
+        href: preset-tutorial.md
       - name: PressPage
         href: presspage-tutorial.md
       - name: Prezi
@@ -2284,6 +2286,8 @@
         href: traction-guest-tutorial.md
       - name: Tradeshift
         href: tradeshift-tutorial.md
+      - name: Training Platform
+        href: training-platform-tutorial.md
       - name: Trakopolis
         href: trakopolis-tutorial.md
       - name: Trakstar

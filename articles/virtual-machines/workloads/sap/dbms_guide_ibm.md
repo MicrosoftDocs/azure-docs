@@ -18,11 +18,11 @@ ms.custom: H1Hack27Feb2017, ignite-fall-2021
 # IBM Db2 Azure Virtual Machines DBMS deployment for SAP workload
 
 With Microsoft Azure, you can migrate your existing SAP application running on IBM Db2 for Linux, UNIX, and Windows (LUW) to Azure virtual machines. With SAP on IBM Db2 for LUW, administrators and developers can still use the same development and administration tools, which are available on-premises.
-General information about running SAP Business Suite on IBM Db2 for LUW can be found in the SAP Community Network (SCN) at <https://www.sap.com/community/topic/db2-for-linux-unix-and-windows.html>.
+General information about running SAP Business Suite on IBM Db2 for LUW is available via the SAP Community Network (SCN) in [SAP on IBM Db2 for Linux, UNIX, and Windows](https://www.sap.com/community/topic/db2-for-linux-unix-and-windows.html).
 
 For more information and updates about SAP on Db2 for LUW on Azure, see SAP Note [2233094]. 
 
-The  are various articles on SAP workload on Azure released.  It is recommended starting in [SAP workload on Azure - Get Started](./get-started.md) and then pick the area of interests
+Various articles on SAP workload on Azure have been published. We recommend beginning with [Get started with SAP on Azure VMs](./get-started.md) and then read about other areas of interest.
 
 The following SAP Notes are related to SAP on Azure regarding the area covered in this document:
 
@@ -83,8 +83,7 @@ IBM Db2 LUW 11.5 released support for 4-KB sector size. Though you need to enabl
 
 For older Db2 versions, a 512-Byte sector size must be used. Premium SSD disks are 4-KB native and have 512-Byte emulation. Ultra disk uses 4-KB sector size by default. You can enable 512-Byte sector size during creation of Ultra disk. Details are available [Using Azure ultra disks](../../disks-enable-ultra-ssd.md#deploy-an-ultra-disk---512-byte-sector-size). This 512-Byte sector size is a prerequisite for IBM Db2 LUW versions lower than 11.5.
 
-On Windows using Storage pools for Db2 storage paths for `log_dir`, `sapdata` and `saptmp` directories, you must specify a physical disk sector size of 512-Byte. When using Windows Storage Pools, you must create the storage pools  manually via command line interface using the parameter `-LogicalSectorSizeDefault`. For more information, see <https://technet.microsoft.com/itpro/powershell/windows/storage/new-storagepool>.
-
+On Windows using Storage pools for Db2 storage paths for `log_dir`, `sapdata` and `saptmp` directories, you must specify a physical disk sector size of 512-Byte. When using Windows Storage Pools, you must create the storage pools  manually via command line interface using the parameter `-LogicalSectorSizeDefault`. For more information, see [New-StoragePool](/powershell/module/storage/new-storagepool).
 
 ## Recommendation on VM and disk structure for IBM Db2 deployment
 
