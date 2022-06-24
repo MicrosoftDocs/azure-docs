@@ -73,7 +73,10 @@ We have added support for both in memory and backend. Additionally, we have the 
 
 
 ###  Role-Based Access Control for $merge stage
-Added Role-Based Access Control(RBAC) for `$merge` stage. 
+* Added Role-Based Access Control(RBAC) for `$merge` stage. 
+* `$merge` writes the results of agrregation pipeline to specified collection. The `$merge` operator must be the last stage in the pipeline
+
+[Learn more](https://www.mongodb.com/docs/manual/reference/operator/aggregation/merge/)
 
 
 <!-- ### Add Hyperbolic trigonometric operators
