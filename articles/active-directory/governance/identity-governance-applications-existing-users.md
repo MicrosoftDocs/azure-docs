@@ -424,7 +424,7 @@ In this section, you'll create access package assignments for users that don't h
    }
    ```
 
-   If any users are not assigned to application roles, check the Azure AD audit log for an error from a previous step.
+   If any users aren't assigned to application roles, check the Azure AD audit log for an error from a previous step.
 
 1. If the **Provisioning Status** of the application is **Off**, turn the **Provisioning Status** to **On**.
 1. Based on the guidance for [how long will it take to provision users](/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user#how-long-will-it-take-to-provision-users), wait for Azure AD provisioning to match the existing users of the application to those users just assigned.
