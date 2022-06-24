@@ -161,9 +161,15 @@ When connectivity is restored, each self-hosted gateway affected by the outage w
 > [!WARNING]
 > This is only applicable to the self-hosted gateway v2.
 
-The self-hosted gateway provides support for TLS v1.2 by default, with the option to enable TLS v1.0 and/or v1.1 by using [custom domains in the control plane](https://docs.microsoft.com/rest/api/apimanagement/current-ga/gateway-hostname-configuration/create-or-update).
+#### Supported Protocols
 
-It uses the following cipher suites for both client and server connections:
+The self-hosted gateway provides support for TLS v1.2 by default.
+
+Customers using custom domains can enable TLS v1.0 and/or v1.1 [in the control plane](/rest/api/apimanagement/current-ga/gateway-hostname-configuration/create-or-update).
+
+#### Available Cipher Suites
+
+The self-hosted gateway uses the following cipher suites for both client and server connections:
 
 - `TLS_AES_256_GCM_SHA384`
 - `TLS_CHACHA20_POLY1305_SHA256`
@@ -196,7 +202,7 @@ It uses the following cipher suites for both client and server connections:
 - `TLS_RSA_WITH_AES_256_CBC_SHA`
 - `TLS_RSA_WITH_AES_128_CBC_SHA`
 
-#### Managing TLS Cipher Suites
+#### Managing Cipher Suites
 
 As of v2.1.1 and above, you can manage the ciphers that are being used:
 
