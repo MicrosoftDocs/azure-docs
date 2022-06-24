@@ -2,7 +2,7 @@
 title: Azure Relay authentication and authorization | Microsoft Docs
 description: This article provides an overview of Shared Access Signature (SAS) authentication with the Azure Relay service.
 ms.topic: article
-ms.date: 07/19/2021
+ms.date: 06/21/2022
 ---
 
 # Azure Relay authentication and authorization

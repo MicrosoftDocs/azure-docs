@@ -48,6 +48,15 @@ $resource.Properties.functionAppScaleLimit = <SCALE_LIMIT>
 $resource | Set-AzResource -Force
 ```
 
+## Scale-in behaviors
+
+Event-driven scaling automatically reduces capacity when demand for your functions is reduced. It does this by shutting down worker instances of your function app. Before an instance is shut down, new events stop being sent to the instance. Also, functions that are currently executing are given time to finish executing. This behavior is logged as drain mode. This shut-down period can extend up to 10 minutes for Consumption plan apps and up to 60 minutes for Premium plan apps. Event-driven scaling and this behavior don't apply to Dedicated plan apps. 
+
+The following considerations apply for scale-in behaviors: 
+
+* For Consumption plan function apps running on Windows, only apps created after May 2021 have drain mode behaviors enabled by default.
+* To enable graceful shutdown for functions using the Service Bus trigger, use version 4.2.0 or a later version of the [Service Bus Extension](functions-bindings-service-bus.md).
+
 ## Event Hubs trigger
 
 This section describes how scaling behaves when your function uses an [Event Hubs trigger](functions-bindings-event-hubs-trigger.md) or an [IoT Hub trigger](functions-bindings-event-iot-trigger.md). In these cases, each instance of an event triggered function is backed by a single [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor) instance. The trigger (powered by Event Hubs) ensures that only one [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor) instance can get a lease on a given partition.

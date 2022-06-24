@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: how-to
-ms.date: 05/24/2022
+ms.date: 06/03/2022
 ms.author: aahi
 ms.custom: language-service-custom-ner, references_regions, ignite-fall-2021, event-tier1-build-2022
 ---
@@ -46,7 +46,7 @@ You can create a resource in the following ways:
 
 [!INCLUDE [create a new resource from the Azure portal](../includes/resource-creation-azure-portal.md)]
 
-[!INCLUDE [create a new resource from the Language Studio](../includes/language-studio/resource-creation-language-studio.md)]
+[!INCLUDE [create a new resource from Language Studio](../includes/language-studio/resource-creation-language-studio.md)]
 
 [!INCLUDE [create a new resource with Azure PowerShell](../includes/resource-creation-powershell.md)]
 
@@ -103,7 +103,7 @@ If you have already labeled data, you can use it to get started with the service
 
 ### [Language Studio](#tab/language-studio)
 
-[!INCLUDE [Delete project using the Language studio](../includes/language-studio/delete-project.md)]
+[!INCLUDE [Delete project using Language studio](../includes/language-studio/delete-project.md)]
 
 ### [Rest APIs](#tab/rest-api)
 

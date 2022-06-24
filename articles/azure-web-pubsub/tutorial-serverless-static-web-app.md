@@ -1,18 +1,18 @@
 ---
-title: Tutorial - Create a serverless chat app using Azure Web PubSub service and Azure Static Web Apps
-description: A tutorial for how to use Azure Web PubSub service and Azure Static Web Apps to build a serverless chat application.
+title: Tutorial - Create a serverless chat app with Azure Web PubSub service and Azure Static Web Apps
+description: A tutorial about how to use Azure Web PubSub service and Azure Static Web Apps to build a serverless chat application.
 author: JialinXin
 ms.author: jixin
 ms.service: azure-web-pubsub
 ms.topic: tutorial
-ms.date: 06/01/2022
+ms.date: 06/03/2022
 ---
 
-# Tutorial: Create a serverless chat app using Azure Web PubSub service and Azure Static Web Apps
+# Tutorial: Create a serverless chat app with Azure Web PubSub service and Azure Static Web Apps
 
-The Azure Web PubSub service helps you build real-time messaging web applications using WebSockets. And with Azure Static Web Apps, you can automatically build and deploy full stack web apps to Azure from a code repository conveniently. In this tutorial, you learn how to use Azure Web PubSub service and Azure Static Web Apps to build a serverless real-time messaging application under chat room scenario.  
+Azure Web PubSub service helps you build real-time messaging web applications using WebSockets. By using Azure Static Web Apps, you can automatically build and deploy full-stack web apps to Azure from a code repository. In this tutorial, you'll learn how to use Web PubSub service and Static Web Apps to build a serverless, real-time chat room messaging application.  
 
-In this tutorial, you learn how to:
+In this tutorial, you'll learn how to:
 
 > [!div class="checklist"]
 > * Build a serverless chat app
@@ -21,22 +21,25 @@ In this tutorial, you learn how to:
 
 ## Overview
 
-:::image type="content" source="media/tutorial-serverless-static-web-app/tutorial-serverless-static-web-app.png" alt-text="Diagram showing Azure Web PubSub work with Static Web App." border="false":::
+:::image type="content" source="media/tutorial-serverless-static-web-app/tutorial-serverless-static-web-app.png" alt-text="Diagram showing how Azure Web PubSub works with Azure Static Web Apps." border="false":::
 
-* GitHub along with DevOps provide source control and continuous delivery. So whenever there's code change to the source repo, Azure DevOps pipeline will soon apply it to Azure Static Web App and present to endpoint user.
-* When a new user is login, Functions `login` API will be triggered and generate Azure Web PubSub service client connection url.
-* When client init the connection request to Azure Web PubSub service, service will send a system `connect` event and Functions `connect` API will be triggered to auth the user.
-* When client send message to Azure Web PubSub service, service will send a user `message` event and Functions `message` API will be triggered and broadcast the message to all the connected clients.
-* Functions `validate` API will be triggered periodically for [CloudEvents Abuse Protection](https://github.com/cloudevents/spec/blob/v1.0/http-webhook.md#4-abuse-protection) purpose, when the events in Azure Web PubSub are configured with predefined parameter `{event}`, that is, https://$STATIC_WEB_APP/api/{event}.
+GitHub or Azure Repos provide source control for Static Web Apps. Azure monitors the repo branch you select, and every time there's a code change to the source repo a new build of your web app is automatically run and deployed to Azure. Continuous delivery is provided by GitHub Actions and Azure Pipelines. Static Web Apps detects the new build and presents it to the endpoint user. 
+
+The sample chat room application provided with this tutorial has the following workflow.
+
+1. When a user signs in to the app, the Azure Functions `login` API will be triggered to generate a Web PubSub service client connection URL.
+1. When the client initializes the connection request to Web PubSub, the service sends a system `connect` event that triggers the Functions `connect` API to authenticate the user.
+1. When a client sends a message to Azure Web PubSub service, the service will respond with a user `message` event and the Functions `message` API will be triggered to broadcast the message to all the connected clients.
+1. The Functions `validate` API is triggered periodically for [CloudEvents Abuse Protection](https://github.com/cloudevents/spec/blob/v1.0/http-webhook.md#4-abuse-protection) when the events in Azure Web PubSub are configured with predefined parameter `{event}`, that is, https://$STATIC_WEB_APP/api/{event}.
 
 > [!NOTE]
-> Functions APIs `connect` and `message` will be triggered when Azure Web PubSub service is configured with these 2 events.
+> The Functions APIs `connect` and `message` are triggered when Azure Web PubSub service is configured with these two events.
 
 ## Prerequisites
 
-* [GitHub](https://github.com/) account
-* [Azure](https://portal.azure.com/) account
-* [Azure CLI](/cli/azure) (version 2.29.0 or higher) or [Azure Cloud Shell](../cloud-shell/quickstart.md) to manage Azure resources
+* A [GitHub](https://github.com/) account.
+* An [Azure](https://portal.azure.com/) account. If you don't have an Azure subscription, create an [Azure free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
+* [Azure CLI](/cli/azure/install-azure-cli) (version 2.29.0 or higher) or [Azure Cloud Shell](../cloud-shell/quickstart.md) to manage Azure resources.
 
 ## Create a Web PubSub resource
 
@@ -75,17 +78,17 @@ In this tutorial, you learn how to:
     ```azurecli-interactive
     AWPS_ACCESS_KEY=<YOUR_AWPS_ACCESS_KEY>
     ```
-    Replace the placeholder `<YOUR_AWPS_ACCESS_KEY>` from previous result `primaryConnectionString`.
+
+    Replace the placeholder `<YOUR_AWPS_ACCESS_KEY>` with the value for `primaryConnectionString` from the previous step.
 
 ## Create a repository
 
-This article uses a GitHub template repository to make it easy for you to get started. The template features a starter app used to deploy using Azure Static Web Apps.
+This article uses a GitHub template repository to make it easy for you to get started. The template features a starter app that you will deploy to Azure Static Web Apps.
 
-1. Navigate to the following template to create a new repository under your repo:
-    1. [https://github.com/Azure/awps-swa-sample/generate](https://github.com/login?return_to=/Azure/awps-swa-sample/generate)
-1. Name your repository **my-awps-swa-app**
-
-Select **`Create repository from template`**.
+1. Go to [https://github.com/Azure/awps-swa-sample/generate](https://github.com/login?return_to=/Azure/awps-swa-sample/generate) to create a new repo for this tutorial.
+1. Select yourself as **Owner** and name your repository **my-awps-swa-app**.
+1. You can create a **Public** or **Private** repo according to your preference. Both work for the tutorial.
+1. Select **Create repository from template**.
 
 ## Create a static web app
 
@@ -99,7 +102,7 @@ Now that the repository is created, you can create a static web app from the Azu
 
     Replace the placeholder `<YOUR_GITHUB_USER_NAME>` with your GitHub user name.
 
-1. Create a new static web app from your repository. As you execute this command, the CLI starts GitHub interactive login experience. Following the message to complete authorization.
+1. Create a new static web app from your repository. When you run this command, the CLI starts a GitHub interactive sign-in. Follow the message to complete authorization.
 
     ```azurecli-interactive
     az staticwebapp create \
@@ -112,16 +115,17 @@ Now that the repository is created, you can create a static web app from the Azu
         --api-location "api" \
         --login-with-github
     ```
+
     > [!IMPORTANT]
     > The URL passed to the `--source` parameter must not include the `.git` suffix.
 
-1. Navigate to **https://github.com/login/device**.
+1. Go to **https://github.com/login/device**.
 
 1. Enter the user code as displayed your console's message.
 
-1. Select the **Continue** button.
+1. Select **Continue**.
 
-1. Select the **Authorize AzureAppServiceCLI** button.
+1. Select **Authorize AzureAppServiceCLI**.
 
 1. Configure the static web app settings.
 
@@ -133,7 +137,7 @@ Now that the repository is created, you can create a static web app from the Azu
 
 ## View the website
 
-There are two aspects to deploying a static app. The first operation creates the underlying Azure resources that make up your app. The second is a GitHub Actions workflow that builds and publishes your application.
+There are two aspects to deploying a static app: The first creates the underlying Azure resources that make up your app. The second is a GitHub Actions workflow that builds and publishes your application.
 
 Before you can navigate to your new static site, the deployment build must first finish running.
 
@@ -153,9 +157,9 @@ Before you can navigate to your new static site, the deployment build must first
 
     At this point, Azure is creating the resources to support your static web app. Wait until the icon next to the running workflow turns into a check mark with green background ✅. This operation may take a few minutes to complete.
 
-    Once the success icon appears, the workflow is complete and you can return back to your console window.
+    Once the success icon appears, the workflow is complete and you can return to your console window.
 
-2. Run the following command to query for your website's URL.
+1. Run the following command to query for your website's URL.
 
     ```azurecli-interactive
     az staticwebapp show \
@@ -171,9 +175,9 @@ Before you can navigate to your new static site, the deployment build must first
 
 ## Configure the Web PubSub event handler
 
-Now you're very close to complete. The last step is to configure Web PubSub transfer client requests to your function APIs. 
+You're very close to complete. The last step is to configure Web PubSub transfer client requests to your function APIs.
 
-1. Run command to configure Web PubSub service events. It's mapping to some functions under the `api` folder in your repo.
+1. Run the following command to configure Web PubSub service events. It maps functions under the `api` folder in your repo to the Web PubSub event handler.
 
     ```azurecli-interactive
     az webpubsub hub create \
@@ -184,7 +188,7 @@ Now you're very close to complete. The last step is to configure Web PubSub tran
       --event-handler url-template=https://$STATIC_WEB_APP/api/{event} system-event="connect"
     ```
 
-Now you're ready to play with your website **<YOUR_STATIC_WEB_APP>**. Copy it to browser and click continue to start chatting with your friends.
+Now you're ready to play with your website **<YOUR_STATIC_WEB_APP>**. Copy it to browser and select **Continue** to start chatting with your friends.
 
 ## Clean up resources
 
@@ -196,7 +200,7 @@ az group delete --name my-awps-swa-group
 
 ## Next steps
 
-In this quickstart, you learned how to run a serverless chat application. Now, you could start to build your own application. 
+In this quickstart, you learned how to run a serverless chat application. Now, you could start to build your own application.
 
 > [!div class="nextstepaction"]
 > [Tutorial: Client streaming using subprotocol](tutorial-subprotocol.md)

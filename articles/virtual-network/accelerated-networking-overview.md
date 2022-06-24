@@ -70,7 +70,7 @@ Accelerated Networking is supported on most general purpose and compute-optimize
 
 Support for Accelerated Networking can be found in the individual [virtual machine sizes](../virtual-machines/sizes.md) documentation.
 
-The list of Virtual Machine SKUs that support Accelerated Networking can be queried directly via the following Azure CLI [`az vm list-skus`](/cli/azure/vm?view=azure-cli-latest#az-vm-list-skus) command.
+The list of Virtual Machine SKUs that support Accelerated Networking can be queried directly via the following Azure CLI [`az vm list-skus`](/cli/azure/vm#az-vm-list-skus) command.
 
 ```azurecli-interactive
 az vm list-skus \

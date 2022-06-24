@@ -10,7 +10,6 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/23/2021
 ms.author: ergreenl
-ms.reviewer: davidmu
 ---
 
 # Manage access to an application
