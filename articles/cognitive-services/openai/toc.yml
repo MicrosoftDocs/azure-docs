@@ -49,7 +49,7 @@ items:
         - name: Code of conduct
           href: /legal/cognitive-services/openai/code-of-conduct?context=/azure/cognitive-services/openai/context/context
     - name: Data, privacy, and security
-      href: data-privacy
+      href: /legal/cognitive-services/openai/data-privacy?context=/azure/cognitive-services/openai/context/context
 
       
 
