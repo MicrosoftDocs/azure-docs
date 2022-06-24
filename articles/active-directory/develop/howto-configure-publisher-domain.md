@@ -110,7 +110,7 @@ The behavior for applications created between May 21, 2019 and November 30, 2020
 
 For multi-tenant applications created after November 30, 2020, only publisher verification status is surfaced in the consent prompt. The following table describes what is shown on the consent prompt depending on whether an app is verified or not. Consent prompt for single tenant applications will remain the same as above. 
 
-![Consent prompt for apps created after Nov 30, 2020](./media/howto-configure-publisher-domain/new-app-behavior-publisherVerificatio-table.png)
+![Consent prompt for apps created after Nov 30, 2020](./media/howto-configure-publisher-domain/new-app-behavior-publisherVerification-table.png)
 
 ## Implications on redirect URIs
 
