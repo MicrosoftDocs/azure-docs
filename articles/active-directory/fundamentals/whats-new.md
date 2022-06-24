@@ -31,6 +31,157 @@ Azure AD receives improvements on an ongoing basis. To stay up to date with the 
 
 This page is updated monthly, so revisit it regularly. If you're looking for items older than six months, you can find them in [Archive for What's new in Azure Active Directory](whats-new-archive.md).
 
+## June 2022
+ 
+
+[1950865](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=1950865&triage=true&fullScreen=false&_a=edit)
+
+### Public preview - New provisioning connectors in the Azure AD Application Gallery - June 2022
+
+**Type:** New feature  
+**Service category:** App Provisioning  
+**Product capability:** 3rd Party Integration  
+ 
+
+You can now automate creating, updating, and deleting user accounts for these newly integrated apps:
+
+- [Whimsical](../saas-apps/whimsical-provisioning-tutorial.md)
+
+For more information about how to better secure your organization by using automated user account provisioning, see [Automate user provisioning to SaaS applications with Azure AD](../app-provisioning/user-provisioning.md).
+ 
+
+---
+ 
+
+[823238](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=823238&triage=true&fullScreen=false&_a=edit)
+
+### General Availability - Temporary Access Pass is now available
+
+**Type:** New feature  
+**Service category:** MFA  
+**Product capability:** User Authentication  
+**Clouds impacted:** Public (M365, GCC); US Gov (GCC-H, DoD)
+ 
+
+Temporary Access Pass (TAP) is now generally available. TAP can be used to securely register password-less methods such as Phone Sign-in, phishing resistant methods such as FIDO2, and even assist in Windows onboarding (AADJ and WHFB). TAP also makes recovery easier when a user has lost or forgotten their strong authentication methods and needs to sign in to register new authentication methods. For more information, see: [Configure Temporary Access Pass in Azure AD to register Passwordless authentication methods](../authentication/howto-authentication-temporary-access-pass.md).
+ 
+
+---
+ 
+
+[1396250](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=1396250&triage=true&fullScreen=false&_a=edit)
+
+### Public Preview of Dynamic Group support for MemberOf
+
+**Type:** New feature  
+**Service category:** Group Management  
+**Product capability:** Directory  
+
+ 
+
+Create "nested" groups with Azure AD Dynamic Groups! This feature enables you to build dynamic Azure AD Security Groups and M365 groups based on other groups! For example, you can now create Dynamic-Group-A with members of Group-X and Group-Y. For more information, see: [Steps to create a memberOf dynamic group](../enterprise-users/groups-dynamic-rule-member-of.md#steps-to-create-a-memberof-dynamic-group).
+ 
+
+---
+ 
+
+[1951853](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=1951853&triage=true&fullScreen=false&_a=edit)
+
+### New Federated Apps available in Azure AD Application gallery - June 2022
+
+**Type:** New feature  
+**Service category:** Enterprise Apps  
+**Product capability:** 3rd Party Integration  
+
+ 
+
+In June 2022 we've added the following 22 new applications in our App gallery with Federation support:
+
+[Leadcamp Mailer](https://app.leadcamp.io/sign-in), [PULCE](https://ups.pulce.tech/index.php), [Hive Learning](../saas-apps/hive-learning-tutorial.md), [Planview LeanKit](../saas-apps/planview-leankit-tutorial.md), [Javelo](../saas-apps/javelo-tutorial.md), [きょうしつでビスケット,Agile Provisioning](https://online.viscuit.com/v1/all/?server=7), [xCarrier®](../saas-apps/xcarrier-tutorial.md), [Skillcast](../saas-apps/skillcast-tutorial.md), [JTRA](https://www.jingtengtech.com/r/#/register?id=1), [InnerSpace inTELLO](https://intello.innerspace.io/), [Seculio](../saas-apps/seculio-tutorial.md), [XplicitTrust Partner Console](https://console.xplicittrust.com/#/partner/auth), [Veracity Single-Sign On](https://www.veracity.com/), [Guardium Data Protection](../saas-apps/guardium-data-protection-tutorial.md), [IntellicureEHR v7](https://www.intellicure.com/wound-care-software/ehr/), [BMIS - Battery Management Information System](../saas-apps/battery-management-information-system-tutorial.md), [Finbiosoft Cloud](https://account.finbiosoft.com/), [Standard for Success K-12](../saas-apps/standard-for-success-tutorial.md), [E2open LSP](../saas-apps/e2open-lsp-tutorial.md), [TVU Service](../saas-apps/tvu-service-tutorial.md), [S4 - Digitsec](../saas-apps/s4-digitsec-tutorial.md).
+
+You can also find the documentation of all the applications from here https://aka.ms/AppsTutorial,
+
+For listing your application in the Azure AD app gallery, see the details here https://aka.ms/AzureADAppRequest
+
+
+
+ 
+
+---
+ 
+ 
+
+[1527465](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=1527465&triage=true&fullScreen=false&_a=edit)
+
+### Title: GA – Protect against by-passing of cloud Azure AD Multi-Factor Authentication when federated with Azure AD
+
+**Type:** New feature  
+**Service category:** MS Graph  
+**Product capability:** Identity Security & Protection  
+**Clouds impacted:** (Check this box to select all clouds);China; Public (M365, GCC); US Gov (GCC-H, DoD); US Nat; US Sec
+ 
+
+We're delighted to announce a new security protection that prevents bypassing of cloud Azure AD Multi-Factor Authentication when federated with Azure AD. When enabled for a federated domain in your Azure AD tenant, it ensures that a compromised federated account cannot bypass Azure AD Multi-Factor Authentication by imitating that a multi factor authentication has already been performed by the identity provider. The protection can be enabled via new security setting, [federatedIdpMfaBehavior values](/graph/api/resources/internaldomainfederation?view=graph-rest-beta#federatedidpmfabehavior-values&preserve-view=true). 
+
+We highly recommend enabling this new protection when using Azure AD Multi-Factor Authentication as your multi factor authentication for your federated users. To learn more about the protection and how to enable it, visit [Enable protection to prevent by-passing of cloud Azure AD Multi-Factor Authentication when federated with Azure AD](/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs#enable-protection-to-prevent-by-passing-of-cloud-azure-ad-multi-factor-authentication-when-federated-with-azure-ad). 
+ 
+
+---
+ 
+
+[1688022](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=1688022&triage=true&fullScreen=false&_a=edit)
+
+### Public Preview - New Azure AD Portal All Users list and User Profile UI
+
+**Type:** Changed feature  
+**Service category:** User Management  
+**Product capability:** User Management  
+ 
+
+We're enhancing the All Users list and User Profile in the Azure AD Portal to make it easier to find and manage your users. Improvements include: 
+
+
+All Users List:
+- Infinite scrolling (yes, no 'Load more')
+- More user properties can be added as columns and filtered on
+- Columns can be reordered via drag and drop
+- Default columns shown and their order can be managed via the column picker 
+- The ability to copy and share the current view
+
+
+User Profile:
+- A new Overview page that surfaces insights (that is, group memberships, account enabled, MFA capable, risky user, etc.)
+- A new monitoring tab
+- More user properties can be viewed and edited in the properties tab
+
+ 
+
+---
+ 
+
+[1412871](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=1412871&triage=true&fullScreen=false&_a=edit)
+
+### General availability - More device properties supported for Dynamic Device groups
+
+**Type:** Changed feature  
+**Service category:** Group Management  
+**Product capability:** Directory  
+**Clouds impacted:** (Check this box to select all clouds); China; Public (M365, GCC); US Gov (GCC-H, DoD); US Nat; US Sec
+ 
+
+You can now create or update dynamic device groups using the following properties:
+- deviceManagementAppId
+- deviceTrustType
+- extensionAttribute1-15
+- profileType
+
+For more information on how to use this feature, see: [Dynamic membership rule for device groups](../enterprise-users/groups-dynamic-membership.md#rules-for-devices) .
+ 
+
+---
+ 
+
+
 ## May 2022
  
 ### General Availability: Tenant-based service outage notifications
@@ -40,7 +191,7 @@ This page is updated monthly, so revisit it regularly. If you're looking for ite
 **Product capability:** Platform  
 
  
-Azure Service Health will soon support service outage notifications to Tenant Admins for Azure Active Directory issues in the near future. These outages will also appear on the Azure AD admin portal overview page with appropriate links to Azure Service Health. Outage events will be able to be seen by built-in Tenant Administrator Roles. We will continue to send outage notifications to subscriptions within a tenant for a period of transition. More information will be available when this capability is released. The expected release is for June 2022.
+Azure Service Health will soon support service outage notifications to Tenant Admins for Azure Active Directory issues in the near future. These outages will also appear on the Azure AD admin portal overview page with appropriate links to Azure Service Health. Outage events will be able to be seen by built-in Tenant Administrator Roles. We'll continue to send outage notifications to subscriptions within a tenant for transition. More information will be available when this capability is released. The expected release is for June 2022.
  
 ---
 
@@ -119,7 +270,7 @@ The signIns Microsoft Graph API now supports confirming safe and compromised on 
 **Type:** New feature  
 **Service category:** B2B  
 **Product capability:** B2B/B2C  
-**Clouds impacted:** China;Public (M365,GCC);US Gov (GCC-H, DoD)
+**Clouds impacted:** China; Public (M365, GCC); US Gov (GCC-H, DoD)
  
 
 Microsoft cloud settings let you collaborate with organizations from different Microsoft Azure clouds. With Microsoft cloud settings, you can establish mutual B2B collaboration between the following clouds:
@@ -138,7 +289,7 @@ To learn more about Microsoft cloud settings for B2B collaboration, see: [Cross-
 **Type:** Changed feature  
 **Service category:** B2B  
 **Product capability:** B2B/B2C  
-**Clouds impacted:** Public (M365,GCC);US Gov (GCC-H, DoD)
+**Clouds impacted:** Public (M365, GCC); US Gov (GCC-H, DoD)
  
 
 When setting up federation with a partner's IdP, new guest users from that domain can use their own IdP-managed organizational account to sign in to your Azure AD tenant and start collaborating with you. There's no need for the guest user to create a separate Azure AD account. To learn more about federating with SAML or WS-Fed identity providers in External Identities, see: [Federation with a SAML/WS-Fed identity provider (IdP) for B2B - Azure AD | Microsoft Docs](../external-identities/direct-federation.md).
@@ -152,7 +303,7 @@ When setting up federation with a partner's IdP, new guest users from that domai
 **Type:** Changed feature  
 **Service category:** Directory Management  
 **Product capability:** Access Control  
-**Clouds impacted:** China;Public (M365,GCC);US Gov (GCC-H, DoD)
+**Clouds impacted:** China; Public (M365, GCC); US Gov (GCC-H, DoD)
  
 
 Groups Administrators assigned over the scope of an administrative unit can now create groups within the administrative unit.  This enables scoped group administrators to create groups that they can manage directly, without needing to elevate to Global Administrator or Privileged Role Administrator. For more information, see: [Administrative units in Azure Active Directory](../roles/administrative-units.md).
@@ -166,10 +317,10 @@ Groups Administrators assigned over the scope of an administrative unit can now 
 **Type:** Changed feature  
 **Service category:** Directory Management  
 **Product capability:** AuthZ/Access Delegation  
-**Clouds impacted:** Public (M365,GCC)
+**Clouds impacted:** Public (M365, GCC)
  
 
-The public preview of dynamic administrative units now supports the **onPremisesDistinguishedName** property for users. This makes it possible to create dynamic rules which incorporate the organizational unit of the user from on-premises AD. For more information, see: [Manage users or devices for an administrative unit with dynamic membership rules (Preview)](../roles/admin-units-members-dynamic.md).
+The public preview of dynamic administrative units now supports the **onPremisesDistinguishedName** property for users. This makes it possible to create dynamic rules that incorporate the organizational unit of the user from on-premises AD. For more information, see: [Manage users or devices for an administrative unit with dynamic membership rules (Preview)](../roles/admin-units-members-dynamic.md).
  
 
 ---
@@ -180,7 +331,7 @@ The public preview of dynamic administrative units now supports the **onPremises
 **Type:** Changed feature  
 **Service category:** Other  
 **Product capability:** User Management  
-**Clouds impacted:** China;Public (M365,GCC);US Gov (GCC-H, DoD);US Nat;US Sec
+**Clouds impacted:** China; Public (M365, GCC); US Gov (GCC-H, DoD); US Nat; US Sec
  
 
 Smart Lockout now synchronizes the lockout state across Azure AD data centers, so the total number of failed sign-in attempts allowed before an account is locked out will match the configured lockout threshold. For more information, see: [Protect user accounts from attacks with Azure Active Directory smart lockout](../authentication/howto-password-smart-lockout.md).
@@ -419,7 +570,7 @@ Administrative units now support dynamic membership rules for user and device me
 **Type:** New feature  
 **Service category:** RBAC role  
 **Product capability:** AuthZ/Access Delegation  
-**Clouds impacted:** Public (Microsoft 365,GCC)
+**Clouds impacted:** Public (Microsoft 365, GCC)
  
 
 Devices can now be added as members of administrative units. This enables scoped delegation of device permissions to a specific set of devices in the tenant. Built-in and custom roles are also supported. For more information, see: [Administrative units in Azure Active Directory](../roles/administrative-units.md).
@@ -516,7 +667,7 @@ Azure AD Identity Protection is extending its core capabilities of detecting, in
 **Type:** New feature  
 **Service category:** B2B  
 **Product capability:** Collaboration  
-**Clouds impacted:** China;Public (Microsoft 365, GCC);US Gov (GCC-H, DoD)
+**Clouds impacted:** China; Public (Microsoft 365, GCC); US Gov (GCC-H, DoD)
  
 
 Cross-tenant access settings enable you to control how users in your organization collaborate with members of external Azure AD organizations. Now you’ll have granular inbound and outbound access control settings that work on a per org, user, group, and application basis. These settings also make it possible for you to trust security claims from external Azure AD organizations like multi-factor authentication (MFA), device compliance, and hybrid Azure AD joined devices. [Learn more](../external-identities/cross-tenant-access-overview.md)
