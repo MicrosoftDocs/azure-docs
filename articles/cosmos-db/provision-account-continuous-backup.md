@@ -39,9 +39,9 @@ Table API and Gremlin API are in preview and can be provisioned with PowerShell 
 
 For powershell and cli commands tier value is optional, if it is not provided – the account backup will be retained for 30 days. The tiers are represented by Continuous7Days or Continuous30Days. 
 
-   * Before provisioning the account, install the [latest version of Azure PowerShell](/powershell/azure/install-az-ps?view=azps-6.2.1&preserve-view=true) or version higher than 6.2.0. 
-   * For provisioning the Continuous7Days - you will need to install the preview version of the module by Install-Module -Name Az.CosmosDB -AllowPrerelease.  
-   * Next connect to your Azure account and select the required subscription with the following commands:
+  * Before provisioning the account, install the [latest version of Azure PowerShell](/powershell/azure/install-az-ps?view=azps-6.2.1&preserve-view=true) or version higher than 6.2.0. 
+  * For provisioning the Continuous7Days - you will need to install the preview version of the module by Install-Module -Name Az.CosmosDB -AllowPrerelease.  
+  * Next connect to your Azure account and select the required subscription with the following commands:
 
 1. Sign into Azure using the following command:
 
@@ -235,7 +235,6 @@ You can use Azure Resource Manager templates to deploy an Azure Cosmos DB accoun
   			} 
         "databaseAccountOfferType": "Standard"
       }
-    }
   ]
 }
 ```
