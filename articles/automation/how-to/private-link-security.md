@@ -94,7 +94,6 @@ Before setting up your Automation account resource, consider your network isolat
 Follow the steps below to create a private endpoint for your Automation account.
 
 1. Go to [Private Link center](https://portal.azure.com/#blade/Microsoft_Azure_Network/PrivateLinkCenterBlade/privateendpoints) in Azure portal to create a private endpoint to connect our network. 
-Once your changes to public Network Access and Private Link are applied, it can take up to 35 minutes for them to take effect.
 
 1. On **Private Link Center**, select **Create private endpoint**.
 
@@ -133,8 +132,9 @@ Once your changes to public Network Access and Private Link are applied, it can 
 
     :::image type="content" source="./media/private-link-security/create-private-endpoint-dns-inline.png" alt-text="Screenshot of how to create a private endpoint in DNS tab." lightbox="./media/private-link-security/create-private-endpoint-dns-expanded.png":::
 
-1. On **Tags**, you can categorize resources. Select **Name** and **Value** and select **Review + create**. You're taken to the **Review + create** page where Azure validates your configuration.
+1. On **Tags**, you can categorize resources. Select **Name** and **Value** and select **Review + create**. 
 
+You're taken to the **Review + create** page where Azure validates your configuration. Once your changes to public Network Access and Private Link are applied, it can take up to 35 minutes for them to take effect.
 
 On the **Private Link Center**, select **Private endpoints** to view your private link resource.
 

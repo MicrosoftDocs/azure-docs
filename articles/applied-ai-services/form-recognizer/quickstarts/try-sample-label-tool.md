@@ -19,7 +19,12 @@ keywords: document processing
 <!-- markdownlint-disable MD029 -->
 # Get started with the Form Recognizer Sample Labeling tool
 
-Azure Form Recognizer is a cloud-based Azure Applied AI Service that uses machine-learning models to extract key-value pairs, text, and tables from your documents. You can use Form Recognizer to automate your data processing in applications and workflows, enhance data-driven strategies, and enrich document search capabilities.
+>[!TIP]
+>
+> * For an enhanced experience and advanced model quality, try the [Form Recognizer v3.0 Studio (preview)](https://formrecognizer.appliedai.azure.com/studio).
+> * The v3.0 Studio supports any model trained with v2.1 labeled data.
+> * You can refer to the API migration guide for detailed information about migrating from v2.1 to v3.0.
+> * *See* our [**REST API**](try-v3-rest-api.md) or [**C#**](try-v3-csharp-sdk.md), [**Java**](try-v3-java-sdk.md), [**JavaScript**](try-v3-javascript-sdk.md), or [Python](try-v3-python-sdk.md) SDK quickstarts to get started with the V3.0 preview.
 
 The Form Recognizer Sample Labeling tool is an open source tool that enables you to test the latest features of Azure Form Recognizer and Optical Character Recognition (OCR) services:
 
@@ -126,13 +131,13 @@ Train a custom model to analyze and extract data from forms and documents specif
 
 ### Prerequisites for training a custom form model
 
-* An Azure Storage blob container that contains a set of training data. Make sure all the training documents are of the same format. If you have forms in multiple formats, organize them into subfolders based on common format. For this project, you can use our [sample data set](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/curl/form-recognizer/sample_data_without_labels.zip).
+* An Azure Storage blob container that contains a set of training data. Make sure all the training documents are of the same format. If you have forms in multiple formats, organize them into subfolders based on common format. For this project, you can use our [sample data set](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/curl/form-recognizer/sample_data_without_labels.zip). If you don't know how to create an Azure storage account with a container, follow the [Azure Storage quickstart for Azure portal](../../../storage/blobs/storage-quickstart-blobs-portal.md).
 
 * Configure CORS
 
-    [CORS (Cross Origin Resource Sharing)](/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services) needs to be configured on your Azure storage account for it to be accessible from the Form Recognizer Studio. To configure CORS in the Azure portal, you'll need access to the CORS blade of your storage account.
+    [CORS (Cross Origin Resource Sharing)](/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services) needs to be configured on your Azure storage account for it to be accessible from the Form Recognizer Studio. To configure CORS in the Azure portal, you'll need access to the CORS tab of your storage account.
 
-    1. Select the CORS blade for the storage account.
+    1. Select the CORS tab for the storage account.
 
        :::image type="content" source="../media/quickstarts/cors-setting-menu.png" alt-text="Screenshot of the CORS setting menu in the Azure portal.":::
 
