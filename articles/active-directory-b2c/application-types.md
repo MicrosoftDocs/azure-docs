@@ -67,7 +67,7 @@ In a web application, each execution of a [policy](user-flow-overview.md) takes 
 
 Validation of the `id_token` by using a public signing key that is received from Azure AD is sufficient to verify the identity of the user. This process also sets a session cookie that can be used to identify the user on subsequent page requests.
 
-To see this scenario in action, try one of the web application sign in code samples in our [Getting started section](overview.md).
+To see this scenario in action, try one of the web application sign-in code samples in our [Getting started section](overview.md).
 
 In addition to facilitating simple sign in, a web server application might also need to access a back-end web service. In this case, the web application can perform a slightly different [OpenID Connect flow](openid-connect.md) and acquire tokens by using authorization codes and refresh tokens. This scenario is depicted in the following [Web APIs section](#web-apis).
 
