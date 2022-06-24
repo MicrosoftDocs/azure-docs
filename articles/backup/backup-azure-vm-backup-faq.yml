@@ -146,7 +146,7 @@ sections:
 
       - question: Can I remove all restore points and retain the latest one?
         answer: |
-          No, you can't retain one single restore point. When you delete the previous restore points, the chain gets deleted.
+          No, you can't retain one single restore point. When you delete the previous restore points, the chain gets deleted. Therefore, you can't selectively retain or delete a recovery point.
 
   - name: Restore
     questions:
