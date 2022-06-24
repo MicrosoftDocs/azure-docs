@@ -820,7 +820,7 @@ items:
             - name: API reference
               href: app/status-monitor-v2-api-reference.md
         - name: Java
-          href: app/java-on-premises.md
+          href: app/java-in-process-agent.md
     - name: Application Insights SDKs
       items:
       - name: .NET
@@ -904,8 +904,12 @@ items:
         href: app/opentelemetry-overview.md
       - name: .NET
         href: app/opentelemetry-enable.md?tabs=net
-      - name: Node.js
-        href: app/opentelemetry-enable.md?tabs=nodejs
+      - name: JavaScript
+        items:
+        - name: Browser
+          href: app/javascript.md
+        - name: Node.js
+          href: app/opentelemetry-enable.md?tabs=nodejs
       - name: Java
         items:
         - name: Overview
