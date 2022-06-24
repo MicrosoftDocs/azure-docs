@@ -43,7 +43,7 @@ Conditional access is only possible for applications that rely upon Azure AD for
 
 ## Deploy entitlement management policies for automating access assignment
 
-In this section, you'll configure Azure AD entitlement management for users to be able to request access to your application's roles, or to groups used by the application.  In order to perform these tasks, you'll need to be in either the `Global Administrator` or `Identity Governance Administrator` role, or be [delegated as a catalog creator](entitlement-management-delegate-catalog.md) and owner of the application.
+In this section, you'll configure Azure AD entitlement management so users can request access to your application's roles or to groups used by the application.  In order to perform these tasks, you'll need to be in the *Global Administrator*, *Identity Governance Administrator* role, or be [delegated as a catalog creator](entitlement-management-delegate-catalog.md) and the owner of the application.
 
 1. **Access packages for governed applications should be in a designated catalog.** If you don't already have a catalog for your application governance scenario, [create a catalog](../governance/entitlement-management-catalog-create.md) in Azure AD entitlement management.
 1. **Populate the catalog with necessary resources.** Add the application, as well as any Azure AD groups that the application relies upon, [as resources in that catalog](../governance/entitlement-management-catalog-create.md).
