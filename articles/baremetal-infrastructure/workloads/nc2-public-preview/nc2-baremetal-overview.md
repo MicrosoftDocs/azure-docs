@@ -24,7 +24,8 @@ The following protocols are used for different mount points within BareMetal ser
 
 ## Licensing
 
-You can bring your own on-premises CBL Nutanix licenses. Alternatively, you can purchase licenses from Nutanix or the Azure Marketplace.
+You can bring your own on-premises capacity-based Nutanix licenses (CBLs). 
+Alternatively, you can purchase licenses from Nutanix or from Azure Marketplace.
 
 ## Operating system and hypervisor
 
