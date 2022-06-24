@@ -47,7 +47,7 @@ The MLflow client exposes several methods to retrieve and manage models. The fol
 
 ### Creating models from an existing run 
 
-If you have an Mlflow model logged inside of a run and you want to register it in a registry, you can do that by using the run ID and the path where the model was logged. See [Manage experiments and runs with MLflow](how-to-track-experiments-mlflow.md) to know how to query this information if you don't have it.
+If you have an MLflow model logged inside of a run and you want to register it in a registry, you can do that by using the run ID and the path where the model was logged. See [Manage experiments and runs with MLflow](how-to-track-experiments-mlflow.md) to know how to query this information if you don't have it.
 
 ```python
 mlflow.register_model(f"runs:/{run_id}/{artifact_path}", model_name)
@@ -67,7 +67,7 @@ mlflow.sklearn.save_model(reg, "./regressor")
 ```
 
 > [!TIP]
-> The method `save_model` works in the same way as `log_model`. While the later requires an MLflow run to be active so the model can be logged there, the former uses the local file system for the stage of the model's artifacts.
+> The method `save_model` works in the same way as `log_model`. While the latter requires an MLflow run to be active so the model can be logged there, the former uses the local file system for the stage of the model's artifacts.
 
 You can now register the model from the local path:
 
@@ -108,7 +108,7 @@ The command above will retrieve the model object which contains all the model ve
 client.get_registered_model(model_name)
 ```
 
-If you need an specific version of the model, you can indicate so:
+If you need a specific version of the model, you can indicate so:
 
 ```python
 client.get_model_version(model_name, version=2)
@@ -121,7 +121,7 @@ MLflow supports model's stages to manage model's lifecycle. Model's version can 
 > [!IMPORTANT]
 > Stages can only be accessed using the MLflow SDK. They don't show up in the [Azure ML Studio portal](https://ml.azure.com) and can't be retrieved using neither Azure ML SDK, Azure ML CLI, or Azure ML REST API. Creating deployment from a given model's stage is not supported by the moment.
 
-### Queying model stages
+### Querying model stages
 
 You can use the MLflow client to check all the possible stages a model can be:
 
