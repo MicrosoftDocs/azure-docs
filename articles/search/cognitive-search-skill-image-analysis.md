@@ -17,7 +17,7 @@ The **Image Analysis** skill extracts a rich set of visual features based on the
 
 This skill uses the machine learning models provided by [Computer Vision](../cognitive-services/computer-vision/overview.md) in Cognitive Services. **Image Analysis** works on images that meet the following requirements:
 
-+ The image must be presented in JPEG, PNG, or BMP format
++ The image must be presented in JPEG, PNG or BMP format
 + The file size of the image must be less than 4 megabytes (MB)
 + The dimensions of the image must be greater than 50 x 50 pixels
 
