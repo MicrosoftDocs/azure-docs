@@ -206,7 +206,7 @@ az cosmosdb create \
 
 ## <a id="provision-arm-template"></a>Provision using Resource Manager template
 
-You can use Azure Resource Manager templates to deploy an Azure Cosmos DB account with continuous mode. When defining the template to provision an account, include the `backupPolicy` parameter as shown in the following example:
+You can use Azure Resource Manager templates to deploy an Azure Cosmos DB account with continuous mode. When defining the template to provision an account, include the `backupPolicy` and tier parameter as shown in the following example, tier can be Continuous7Days or Continuous30Days :
 
 ```json
 {
@@ -224,9 +224,11 @@ You can use Azure Resource Manager templates to deploy an Azure Cosmos DB accoun
             "locationName": "West US"
           }
         ],
-        "backupPolicy": {
-          "type": "Continuous"
-        },
+        "backupPolicy": { 
+        "type": "Continuous", 
+        "continuousModeProperties": { 
+            "tier": "Continuous7Days" 
+          } 
         "databaseAccountOfferType": "Standard"
       }
     }
