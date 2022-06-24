@@ -50,8 +50,14 @@ items:
           href: /legal/cognitive-services/openai/code-of-conduct?context=/azure/cognitive-services/openai/context/context
     - name: Data, privacy, and security
       href: /legal/cognitive-services/openai/data-privacy?context=/azure/cognitive-services/openai/context/context
-
-      
+- name: Resources
+  items: 
+    - name: Support and help options
+      href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/openai/context/context
+    - name: Region support
+      href: https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services
+    - name: Terms of use
+      href: https://azure.microsoft.com/support/legal/preview-supplemental-terms/
 
 
 
