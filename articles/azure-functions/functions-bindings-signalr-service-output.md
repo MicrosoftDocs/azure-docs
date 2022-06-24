@@ -48,13 +48,21 @@ public static Task SendMessage(
 
 # [Isolated process](#tab/isolated-process)
 
-The following example shows a SignalR trigger that reads a message string from one hub using a SignalR trigger and writes it to a second hub using an output binding. The *target* is the name of the method to be invoked on each client.  
+The following example shows a function that sends a message using the output binding to all connected clients. The *newMessage* is the name of the method to be invoked on each client.  
 
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/SignalR/SignalRFunction.cs" range="12-31":::
-
-The `MyConnectionInfo` and `MyMessage` classes are defined as follows:
-
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/SignalR/SignalRFunction.cs" range="34-46":::
+```cs
+[Function("BroadcastToAll")]
+[SignalROutput(HubName = "hub")]
+public static SignalRMessageAction BroadcastToAll(
+[HttpTrigger(AuthorizationLevel.Anonymous, "post")] HttpRequestData req)
+{
+    using var bodyReader = new StreamReader(req.Body);
+    return new SignalRMessageAction("newMessage")
+    {
+        Arguments = new object[] { bodyReader.ReadToEnd() }
+    };
+}
+```
 
 
 # [C# Script](#tab/csharp-script)
@@ -194,7 +202,21 @@ public static Task SendMessage(
 
 # [Isolated process](#tab/isolated-process)
 
-Not supported for isolated process.
+```cs
+[Function("SendToUser")]
+[SignalROutput(HubName = "chat", ConnectionStringSetting = "SignalRConnection")]
+public static SignalRMessageAction SendToUser(
+[HttpTrigger(AuthorizationLevel.Anonymous, "post")] HttpRequestData req)
+{
+    using var bodyReader = new StreamReader(req.Body);
+    return new SignalRMessageAction("newMessage")
+    {
+        Arguments = new[] { bodyReader.ReadToEnd() },
+        // the message will only be sent to this user ID
+        UserId = "userToSend",
+    };
+}
+```
 
 # [C# Script](#tab/csharp-script)
 
@@ -336,7 +358,20 @@ public static Task SendMessage(
 ```
 # [Isolated process](#tab/isolated-process)
 
-Example not available for isolated process.
+```cs
+[Function("SendToGroup")]
+[SignalROutput(HubName = "chat", ConnectionStringSetting = "SignalRConnection")]
+public static SignalRMessageAction SendToGroup(
+[HttpTrigger(AuthorizationLevel.Anonymous, "post")] HttpRequestData req)
+{
+    using var bodyReader = new StreamReader(req.Body);
+    return new SignalRMessageAction("newMessage")
+    {
+        Arguments = new[] { bodyReader.ReadToEnd() },
+        GroupName = "groupToSend"
+    };
+}
+```
 
 # [C# Script](#tab/csharp-script)
 
@@ -456,9 +491,12 @@ public SignalRMessage sendMessage(
 ::: zone pivot="programming-language-csharp"
 ### Group management
 
-SignalR Service allows users to be added to groups. Messages can then be sent to a group. You can use the `SignalR` output binding to manage a user's group membership. The following example adds a user to a group.
+SignalR Service allows users or connections to be added to groups. Messages can then be sent to a group. You can use the `SignalR` output binding to manage groups. 
 
 # [In-process](#tab/in-process)
+
+Specify `GroupAction` to add or remove a member. The following example adds a user to a group.
+
 ```csharp
 [FunctionName("addToGroup")]
 public static Task AddToGroup(
@@ -478,30 +516,22 @@ public static Task AddToGroup(
 }
 ```
 
-The following example removes a user from a group.
-
-```csharp
-[FunctionName("removeFromGroup")]
-public static Task RemoveFromGroup(
-    [HttpTrigger(AuthorizationLevel.Anonymous, "post")]HttpRequest req,
-    ClaimsPrincipal claimsPrincipal,
-    [SignalR(HubName = "chat")]
-        IAsyncCollector<SignalRGroupAction> signalRGroupActions)
-{
-    var userIdClaim = claimsPrincipal.FindFirst(ClaimTypes.NameIdentifier);
-    return signalRGroupActions.AddAsync(
-        new SignalRGroupAction
-        {
-            UserId = userIdClaim.Value,
-            GroupName = "myGroup",
-            Action = GroupAction.Remove
-        });
-}
-```
-
 # [Isolated process](#tab/isolated-process)
 
-Example not available for isolated process.
+Specify `SignalRGroupActionType` to add or remove a member. The following example adds a user to a group.
+
+```cs
+[Function("RemoveFromGroup")]
+[SignalROutput(HubName = "Hub", ConnectionStringSetting = "SignalRConnection")]
+public static SignalRGroupAction RemoveFromGroup([HttpTrigger(AuthorizationLevel.Anonymous, "post")] HttpRequestData req)
+{
+    return new SignalRGroupAction(SignalRGroupActionType.Add)
+    {
+        GroupName = "group1",
+        UserId = "user1"
+    };
+}
+```
 
 # [C# Script](#tab/csharp-script)
 
@@ -587,7 +617,7 @@ public static Task Run(
 
 ### Group management
 
-SignalR Service allows users to be added to groups. Messages can then be sent to a group. You can use the `SignalR` output binding to manage a user's group membership. The following example adds a user to a group.
+SignalR Service allows users or connections to be added to groups. Messages can then be sent to a group. You can use the `SignalR` output binding to manage groups. 
 
 Example *function.json* that defines the output binding:
 
@@ -662,7 +692,7 @@ def main(req: func.HttpRequest, action: func.Out[str]) -> func.HttpResponse:
 
 ### Group management
 
-SignalR Service allows users to be added to groups. Messages can then be sent to a group. You can use the `SignalR` output binding to manage a user's group membership. 
+SignalR Service allows users or connections to be added to groups. Messages can then be sent to a group. You can use the `SignalR` output binding to manage groups. 
 
 The following example adds a user to a group.
 
