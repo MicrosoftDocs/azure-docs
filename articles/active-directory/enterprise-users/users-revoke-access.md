@@ -25,7 +25,7 @@ To mitigate the risks, you must understand how tokens work. There are many kinds
 
 Access tokens and refresh tokens are frequently used with thick client applications, and also used in browser-based applications such as single page apps.
 
-- When users authenticate to Azure AD, authorization policies are evaluated to determine if the user can be granted access to a specific resource.  
+- When users authenticate to Azure Active Directory (Azure AD), part of Microsoft Entra, authorization policies are evaluated to determine if the user can be granted access to a specific resource.  
 
 - If authorized, Azure AD issues an access token and a refresh token for the resource.  
 
