@@ -116,14 +116,14 @@ Synapse Link isn't recommended if you're looking for traditional data warehouse 
 
 * Enabling Synapse Link on existing Cosmos DB containers is only supported for SQL API accounts. Synapse Link can be enabled on new containers for both SQL API and MongoDB API accounts.
 
-*  Backup and restore: You can recreate your analytical store data in some scenarios as below:
-    * Azure Synapse Link and periodic backup mode can co-exist on the same database account. In this mode, your transactional store data will be automatically backed up.  If you use `transactional TTL` equal or greater than your `analytical TTL` on your container, you can fully recreate your analytical store data by enabling analytical store on the restored container. 
-    * Synapse Link and continuous backup mode (point-in-time restore) :
-        * If you enabled point-in-time restore on your database account before turning on Synapse Link, you can now restore your analytical data on such accounts. To get started, please reach out cosmosdbsynapselink@microsoft.com. This is applicable only for SQL API. 
-        * Restoring analytical data is not supported in following scenarios, for SQL API and API for Mongo DB:
-             * If you already enabled Synapse Link on your database account, you cannot enable point-in-time restore on such accounts.
-             * If your `analytical TTL` is greater than `transactional TTL`, you may lose data in analytical store, when the data is restored in new regions from your transactional store backup.
-
+*  Backup and restore:
+   *  You can recreate your analytical store data in some scenarios as below. In this mode, your transactional store data will be automatically backed up.  If `transactional TTL` is equal or greater than your `analytical TTL` on your container, you can fully recreate your analytical store data by enabling analytical store on the restored container:
+         - Azure Synapse Link can be enabled on accounts configured with periodic backups. 
+         - If continuous backup (point-in-time restore) is enabled on your account, you can now restore your analytical data. To enable Synapse Link for such accounts, please reach out to cosmosdbsynapselink@microsoft.com. This is applicable only for SQL API. 
+   *  Restoring analytical data is not supported in following scenarios, for SQL API and API for Mongo DB:
+         - If you already enabled Synapse Link on your database account, you cannot enable point-in-time restore on such accounts.
+         - If `analytical TTL` is greater than `transactional TTL`, data that only exists in analytical store cannot be restored. You can continue to access full data from analytical store in the parent region.
+         
 * Granular Role-based Access (RBAC)s isn't supported when querying from Synapse. Users that have access to your Synapse workspace and have access to the Cosmos DB account can access all containers within that account. We currently don't support more granular access to the containers. 
 
 
