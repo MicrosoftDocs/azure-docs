@@ -34,13 +34,13 @@ In addition to the application access governance scenario, you can also use iden
 
 ## Getting started with governing access to applications
 
-Azure AD identity governance can be integrated with many applications, using [standards](../fundamentals/auth-sync-overview.md) such as OpenID Connect, SAML, SCIM, SQL and LDAP.  Through these standards, you can use Azure AD  with many popular SaaS applications, as well as on-premises applications, and applications that your organization has developed. Once you have prepared your Azure AD environment, as described in the section below, the three step plan covers how to connect an application to Azure AD and enable identity governance features to be used for that application.
+Azure AD identity governance can be integrated with many applications, using [standards](../fundamentals/auth-sync-overview.md) such as OpenID Connect, SAML, SCIM, SQL and LDAP.  Through these standards, you can use Azure AD  with many popular SaaS applications, as well as on-premises applications, and applications that your organization has developed. Once you've prepared your Azure AD environment, as described in the section below, the three step plan covers how to connect an application to Azure AD and enable identity governance features to be used for that application.
 
 1. [Define your organization's policies for governing access to the application](identity-governance-applications-define.md)
 1. [Integrate the application with Azure AD](identity-governance-applications-integrate.md) to ensure only authorized users can access the application, and review user's existing access to the application to set a baseline of all users having been reviewed
 1. [Deploy those policies](identity-governance-applications-deploy.md) for controlling single sign-on (SSO) and automating access assignments for that application
 
-## Prerequisites for Azure AD
+## Prerequisites before configuring Azure AD for identity governance
 
 Before you begin the process of governing application access from Azure AD, you should check your Azure AD environment is appropriately configured.
 
