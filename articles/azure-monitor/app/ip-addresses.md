@@ -21,12 +21,12 @@ Alternatively, you can subscribe to this page as an RSS feed by adding https://g
 
 You need to open some outgoing ports in your server's firewall to allow the Application Insights SDK or Status Monitor to send data to the portal.
 
-| Purpose | URL | IP | Ports |
-| --- | --- | --- | --- |
-| Telemetry | dc.applicationinsights.azure.com<br/>dc.applicationinsights.microsoft.com<br/>dc.services.visualstudio.com<br/>*.in.applicationinsights.azure.com | | 443 |
-| Live Metrics Stream | live.applicationinsights.azure.com<br/>rt.applicationinsights.microsoft.com<br/>rt.services.visualstudio.com<br/>{region}.livediagnostics.monitor.azure.com |13.92.40.198<br/>40.112.49.101<br/>40.117.80.207<br/>157.55.177.6<br/>104.44.140.84<br/>104.215.81.124<br/>23.100.122.113 | 443 |
+| Purpose | URL | Ports |
+| --- | --- | --- |
+| Telemetry | dc.applicationinsights.azure.com<br/>dc.applicationinsights.microsoft.com<br/>dc.services.visualstudio.com<br/>*.in.applicationinsights.azure.com<br/><br/> | 443 |
+| Live Metrics | live.applicationinsights.azure.com<br/>rt.applicationinsights.microsoft.com<br/>rt.services.visualstudio.com<br/><br/>{region}.livediagnostics.monitor.azure.com<br/>*Example for {region}: en-us*<br/><br/> | 443 |
 
-Example for {region}: en-us
+To find the code for your region, refer to [Country, region, and language codes](https://support.microsoft.com/topic/country-region-and-language-codes-add36afe-804a-44f1-ae68-cfb9c9b72f8b).
 
 ## Status Monitor
 
@@ -87,12 +87,7 @@ Download [China cloud IP addresses](https://www.microsoft.com/download/details.a
 
 ```
 20.49.111.32/29
-
-2603:1030:210::1c0/123
-
 13.73.253.112/29
-
-2603:1030:807::1c0/123
 ```
 
 #### Addresses grouped by region (Azure public cloud)
@@ -100,261 +95,219 @@ Download [China cloud IP addresses](https://www.microsoft.com/download/details.a
 ```
 Australia Central	
 20.37.227.104/29
-2603:1010:304::7a0/123
 
 
 Australia Central 2
 20.53.60.224/31
-2603:1010:404::7a0/123
 
 
 Australia East
+20.40.124.176/28
 20.37.198.232/29
-2603:1010:6::1c0/123
 
 
 Australia Southeast
 20.42.230.224/29
-2603:1010:101::7a0/123
 
 
 Brazil South
+191.233.26.176/28
 191.234.137.40/29
-2603:1050:6::1c0/123
 
 
 Brazil Southeast
 20.206.0.196/31
-2603:1050:403:1::a0/123
 
 
 Canada Central
 52.228.86.152/29
-2603:1030:f05::1c0/123
 
 
 Canada East
 52.242.40.208/31
-2603:1030:1005::7a0/123
 
 
 Central India
 52.140.108.216/29
-2603:1040:a06::2c0/123
 
 
 Central US
+13.86.97.224/28
 20.40.206.232/29
-2603:1030:10::1c0/123
 
 
 East Asia
+52.229.216.48/28
 20.189.111.16/29
-2603:1040:207::7a0/123
 
 
 East US
+20.42.35.32/28
 20.49.111.32/29
-2603:1030:210::1c0/123
 
 
 East US 2
 20.49.102.24/29
-2603:1030:40c::1c0/123
 
 
 France Central
+20.40.129.32/28
 20.43.44.216/29
-2603:1020:805::1c0/123
 
 
 France South
+20.40.129.96/28
 52.136.191.12/31
-2603:1020:905::7a0/123
 
 
 Germany North
 51.116.75.92/31
-2603:1020:d04::7a0/123
 
 
 Germany West Central
 20.52.95.50/31
-2603:1020:c04::1c0/123
 
 
 Israel Central
 20.217.44.250/31
-2603:1040:1402:2::/123
 
 
 Japan East
+52.140.232.160/28
 20.43.70.224/29
-2603:1040:407::1c0/123
 
 
 Japan West
 20.189.194.102/31
-2603:1040:606::7a0/123
 
 
 Jio India Central
 20.192.50.200/29
-2603:1040:1104:1::180/123
 
 
 Jio India West
 20.193.194.32/29
-2603:1040:d04:1::3a0/123
 
 
 Korea Central
 20.41.69.24/29
-2603:1040:f05::1c0/123
 
 
 North Central US
+23.100.224.16/28
 20.49.114.40/29
-2603:1030:608::7a0/123
 
 
 North Europe
+52.158.28.64/28
 20.50.68.128/29
-2603:1020:5::1c0/123
 
 
 Norway East
 51.120.235.248/29
-2603:1020:e04::1c0/123
 
 
 Norway West
 51.13.143.48/31
-2603:1020:f04::7a0/123
 
 
 Poland Central
 20.215.4.250/31
-2603:1020:1302:2::/123
 
 
 Qatar Central
 20.21.39.224/29
-2603:1040:1002:2::40/123
 
 
 South Africa North
 102.133.219.136/29
-2603:1000:104::4e0/123
 
 
 South Africa West
 102.37.86.196/31
-2603:1000:4::7a0/123
 
 
 South Central US
+20.45.5.160/28
 13.73.253.112/29
-2603:1030:807::1c0/123
 
 
 South India
 20.192.153.106/31
-2603:1040:c06::7a0/123
 
 
 Southeast Asia
+52.139.250.96/28
 23.98.106.152/29
-2603:1040:5::2c0/123
 
 
 Sweden Central
 51.12.25.192/29
-2603:1020:1004:1::3a0/123
 
 
 Sweden South
 51.12.17.128/29
-2603:1020:1104:1::180/123
 
 
 Switzerland North
 51.107.52.200/29
-2603:1020:a04::1c0/123
 
 
 Switzerland West
 51.107.148.8/29
-2603:1020:b04::7a0/123
 
 
 Taiwan North
 51.53.28.214/31
-2603:1040:1302:1::120/123
 
 
 Taiwan Northwest
 51.53.172.214/31
-2603:1040:1202:1::6e0/123
 
 
 UAE Central
 20.45.95.68/31
-2603:1040:b04::7a0/123
 
 
 UAE North
 20.38.143.44/31
 40.120.87.204/31
-2603:1040:904::1c0/123
-
-
-UK North
-2603:1020:305::7a0/123
 
 
 UK South
+51.105.9.128/28
 51.104.30.160/29
-2603:1020:705::1c0/123
-
-
-UK South 2
-2603:1020:405::7a0/123
 
 
 UK West
+20.40.104.96/28
 51.137.164.200/29
-2603:1020:605::7a0/123
 
 
 West Central US
 52.150.154.24/29
-2603:1030:b04::7a0/123
 
 
 West Europe
+51.144.56.96/28
 40.113.178.32/29
-2603:1020:206::1c0/123
 
 
 West India
 20.192.84.164/31
-2603:1040:806::7a0/123
 
 
 West US
+40.91.82.48/28
 52.250.228.8/29
-2603:1030:a07::7a0/123
 
 
 West US 2
 40.64.134.128/29
-2603:1030:c06:2::a0/123
 
 
 West US 3
 20.150.241.64/29
-2603:1030:504::3a0/123	
 ```
 
 ### Discovery API
