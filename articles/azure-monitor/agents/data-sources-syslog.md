@@ -13,10 +13,10 @@ Syslog is an event logging protocol that is common to Linux. Applications will s
 > [!IMPORTANT]
 > This article covers collecting Syslog events with the [Log Analytics agent](./log-analytics-agent.md) which is one of the agents used by Azure Monitor. Other agents collect different data and are configured differently. See [Overview of Azure Monitor agents](../agents/agents-overview.md) for a list of the available agents and the data they can collect.
 
+
 > [!NOTE]
 > Azure Monitor supports collection of messages sent by rsyslog or syslog-ng, where rsyslog is the default daemon. The default syslog daemon on version 5 of Red Hat Enterprise Linux, CentOS, and Oracle Linux version (sysklog) is not supported for syslog event collection. To collect syslog data from this version of these distributions, the [rsyslog daemon](http://rsyslog.com) should be installed and configured to replace sysklog.
->
->
+
 
 ![Syslog collection](media/data-sources-syslog/overview.png)
 
