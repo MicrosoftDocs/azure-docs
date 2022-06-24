@@ -55,7 +55,7 @@ The first step to ensure all users are recorded in Azure AD, is to collect the l
 
 ### Collect existing users from an LDAP directory
 
-This section applies to applications that use an LDAP directory as its underlying data store for users who do not authenticate to Azure AD.
+This section applies to applications that use an LDAP directory as its underlying data store for users who don't authenticate to Azure AD.
 
 Many LDAP directories, such as Active Directory, include a command that outputs a list of users.
 
