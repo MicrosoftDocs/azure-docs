@@ -55,7 +55,7 @@ The rows in a downloaded CSV template are as follows:
 
 1. [Sign in to your Azure AD organization](https://aad.portal.azure.com) with an account that is a User administrator in the organization.
 1. In Azure AD, select **Users** > **Bulk create**.
-1. On the **Bulk create user** page, select **Download** to receive a valid comma-separated values (CSV) file of user properties, and then add add users you want to create.
+1. On the **Bulk create user** page, select **Download** to receive a valid comma-separated values (CSV) file of user properties, and then add users you want to create.
 
    ![Select a local CSV file in which you list the users you want to add](./media/users-bulk-add/upload-button.png)
 
