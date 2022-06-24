@@ -204,7 +204,7 @@ The self-hosted gateway uses the following cipher suites for both client and ser
 
 #### Managing Cipher Suites
 
-As of v2.1.1 and above, you can manage the ciphers that are being used:
+As of v2.1.1 and above, you can manage the ciphers that are being used through the configuration:
 
 - `net.server.tls.ciphers.allowed-suites` allows you to define a comma-separated list of ciphers to use for the TLS connection between the API client and the self-hosted gateway.
 - `net.client.tls.ciphers.allowed-suites` allows you to define a comma-separated list of ciphers to use for the TLS connection between the self-hosted gateway and the backend.
