@@ -234,17 +234,15 @@ In this section, you'll create the openssl configuration files, directory struct
     [ usr_cert ]
     # Extensions for client certificates.
     basicConstraints = CA:FALSE
-    nsCertType = client, email
     nsComment = "OpenSSL Generated Client Certificate"
     subjectKeyIdentifier = hash
     authorityKeyIdentifier = keyid,issuer
     keyUsage = critical, nonRepudiation, digitalSignature, keyEncipherment
-    extendedKeyUsage = clientAuth, emailProtection
+    extendedKeyUsage = clientAuth
 
     [ server_cert ]
     # Extensions for server certificates.
     basicConstraints = CA:FALSE
-    nsCertType = server
     nsComment = "OpenSSL Generated Server Certificate"
     subjectKeyIdentifier = hash
     authorityKeyIdentifier = keyid,issuer:always
@@ -366,17 +364,15 @@ In this section, you'll create the openssl configuration files, directory struct
     [ usr_cert ]
     # Extensions for client certificates.
     basicConstraints = CA:FALSE
-    nsCertType = client, email
     nsComment = "OpenSSL Generated Client Certificate"
     subjectKeyIdentifier = hash
     authorityKeyIdentifier = keyid,issuer
     keyUsage = critical, nonRepudiation, digitalSignature, keyEncipherment
-    extendedKeyUsage = clientAuth, emailProtection
+    extendedKeyUsage = clientAuth
 
     [ server_cert ]
     # Extensions for server certificates.
     basicConstraints = CA:FALSE
-    nsCertType = server
     nsComment = "OpenSSL Generated Server Certificate"
     subjectKeyIdentifier = hash
     authorityKeyIdentifier = keyid,issuer:always
@@ -634,67 +630,25 @@ You'll use the following files in the rest of this tutorial:
 
 ## Verify ownership of the root certificate
 
-> [!NOTE]
-> As of July 1st, 2021, you can perform automatic verification of certificates that you upload to DPS.
->
+For DPS to be able to validate the device's certificate chain during authentication, you must upload and verify ownership of the root CA certificate. Because you created the root CA certificate in the last section, you'll auto-verify that it's valid when you upload it. You can also manually verify the certificate if you're using a CA certificate from a 3rd-party. To learn more about verifying CA certificates, see [How to do proof-of-possession for X.509 CA certificates with your Device Provisioning Service](how-to-verify-certificates.md).
 
-For DPS to be able to validate the device's certificate chain during authentication, you must upload and verify ownership of the root CA certificate. You can verify ownership automatically when you upload the root CA certificate to DPS, or you can verify ownership manually by creating and uploading an additional certificate based on a verification code that you receive from DPS and signed with the private key associated with the root CA certificate. For this tutorial, we recommend verifying ownership automatically.
+To add the root CA certificate, follow these steps:
 
-### Automatically verify ownership of the root certificate
+1. Sign in to the Azure portal, select the **All resources** button on the left-hand menu and open your Device Provisioning Service.
 
-To verify ownership of the certificate automatically, follow these steps:
+1. Open **Certificates** from the left-hand menu and then select **+ Add** at the top of the panel to add a new certificate.
 
-1. Follow the instructions in [Automatic verification of intermediate or root CA through self-attestation](how-to-verify-certificates.md#automatic-verification-of-intermediate-or-root-ca-through-self-attestation) to upload the root certificate (`./certs/azure-iot-test-only.root.ca.cert.pem`). This is the recommended approach for this tutorial.
+1. Enter a friendly display name for your certificate. Browse to the location of the root CA certificate file `certs/azure-iot-test-only.root.ca.cert.pem`. Select **Upload**.
 
-### Manually verify ownership of the root certificate (optional)
+1. Select the box next to **Set certificate status to verified on upload*.
 
-To verify ownership of the certificate manually, follow these steps:
+    :::image type="content" source="./media/tutorial-custom-hsm-enrollment-group-x509/add-root-certificate.png" alt-text="Screenshot that shows adding adding the root C A certificate and the set certificate status to verified on upload box selected.":::
 
-1. Using the directions from [Register the public part of an X.509 certificate and get a verification code](how-to-verify-certificates.md#register-the-public-part-of-an-x509-certificate-and-get-a-verification-code), upload the root certificate (`./certs/azure-iot-test-only.root.ca.cert.pem`) and get a verification code from DPS.
+1. Select **Save**.
 
-2. Once you have a verification code from DPS for the root certificate, run the following commands from your GitBash command prompt to generate a verification certificate.
-
-    1. Create the verification certificate private key:
-
-        ```bash
-        openssl genrsa -out ./private/verification-code.key.pem 4096
-        ```
-
-    2. Create the verification certificate CSR with the subject common name (`-subj` parameter) set to the verification code downloaded from DPS.  The verification code given here, `1B1F84DE79B9BD5F16D71E92709917C2A1CA19D5A156CB9F`, is only an example. Use the code you generated from DPS.
-
-        ```bash
-        openssl req -config ./openssl_root_ca.cnf -key ./private/verification-code.key.pem -subj //CN=1B1F84DE79B9BD5F16D71E92709917C2A1CA19D5A156CB9F -new -sha256 -out ./csr/verification-code.csr.pem
-        ```
-
-    3. Create the verification certificate signed by the root CA certificate. The certificate is generated in `./certs/verification-code.cert.pem`.
-
-        ```bash
-        openssl ca -batch -config ./openssl_root_ca.cnf -passin pass:1234 -extensions usr_cert -days 30 -notext -md sha256 -in ./csr/verification-code.csr.pem -out ./certs/verification-code.cert.pem
-        ```
-
-    4. (Optional) Examine the verification certificate. Verify that the issuer is the root CA and that the subject is the verification code.
-
-        ```bash
-        openssl x509 -noout -text -in ./certs/verification-code.cert.pem
-        ```
-
-        ```output
-        Certificate:
-            Data:
-                Version: 3 (0x2)
-                Serial Number: 3 (0x3)
-                Signature Algorithm: sha256WithRSAEncryption
-                Issuer: CN = Azure IoT Hub CA Cert Test Only
-                Validity
-                    Not Before: Jun 17 22:21:54 2022 GMT
-                    Not After : Jul 17 22:21:54 2022 GMT
-                Subject: CN = 1B1F84DE79B9BD5F16D71E92709917C2A1CA19D5A156CB9F
-                Subject Public Key Info:
-                    Public Key Algorithm: rsaEncryption
-                        RSA Public-Key: (4096 bit)
-        ```
-
-3. As mentioned in [Upload the signed verification certificate](how-to-verify-certificates.md#upload-the-signed-verification-certificate), upload the verification certificate, and click **Verify** in DPS to complete proof of possession for the root certificate.
+1. Make sure your certificate is shown in the certificate tab with a status of *Verified*.
+  
+    :::image type="content" source="./media/tutorial-custom-hsm-enrollment-group-x509/verify-root-certificate.png" alt-text="Screenshot that shows the verified root C A certificate in the list of certificates.":::
 
 ## Update the certificate store on Windows-based devices
 
@@ -739,11 +693,9 @@ Your signing certificates are now trusted on the Windows-based device and the fu
 
 ## Create an enrollment group
 
-1. Sign in to the Azure portal, select the **All resources** button on the left-hand menu and open your Device Provisioning Service.
+1. From your DPS in Azure portal, select the **Manage enrollments** tab. then select the **Add enrollment group** button at the top.
 
-2. Select the **Manage enrollments** tab, then select the **Add enrollment group** button at the top.
-
-3. In the **Add Enrollment Group** panel, enter the following information, then press the **Save** button.
+1. In the **Add Enrollment Group** panel, enter the following information, then se;ect **Save**.
 
     :::image type="content" source="./media/tutorial-custom-hsm-enrollment-group-x509/custom-hsm-enrollment-group-x509.png" alt-text="Screenshot that shows adding an enrollment group in the portal.":::
 
