@@ -3,7 +3,7 @@ title: Deploy a premium SSD v2 (preview) managed disk
 description: Learn how to deploy a premium SSD v2 (preview).
 author: roygara
 ms.author: rogarana
-ms.date: 06/17/2022
+ms.date: 06/23/2022
 ms.topic: how-to
 ms.service: virtual-machines
 ms.subservice: disks
@@ -65,7 +65,7 @@ Preserve the **Zones** value, it represents your availability zone and you'll ne
 
 Now that you know which zone to deploy to, follow the deployment steps in this article to either deploy a VM with a premium SSD v2 attached or attach a premium SSD v2 to an existing VM.
 
-## Deploy a premium SSD v2
+## Create a premium SSD v2
 
 Portal, PowerShell, CLI, ARM, steps here.
 
@@ -76,15 +76,24 @@ You must create a VM that is capable of using premium SSD v2, to attach one.
 Replace or set the **$vmname**, **$rgname**, **$diskname**, **$location**, **$password**, **$user** variables with your own values. Set **$zone**  to the value of your availability zone that you got from the [start of this article](#determine-vm-size-and-region-availability). Then run the following CLI command:
 
 ```azurecli-interactive
-az disk create --subscription $subscription -n $diskname -g $rgname --size-gb 1024 --location $location --sku Premium_SKU_NAME --disk-iops-read-write 8192 --disk-mbps-read-write 400
+az disk create --subscription $subscription -n $diskname -g $rgname --size-gb 1024 --location $location --sku Premium_SKU_NAME --disk-iops-read-write 400 --disk-mbps-read-write 400
 az vm create --subscription $subscription -n $vmname -g $rgname --image Win2016Datacenter --zone $zone --authentication-type password --admin-password $password --admin-username $user --size Standard_D4s_v3 --location $location --attach-data-disks $diskname
 ```
 
 # [PowerShell](#tab/azure-powershell)
 
-To use a premium SSD v2, you must create a VM that is capable of using it. Replace or set the **$resourcegroup** and **$vmName** variables with your own values. Set **$zone** to the value of your availability zone that you got from the [start of this article](#determine-vm-size-and-region-availability). Then run the following [New-AzVm](/powershell/module/az.compute/new-azvm) command:
+To use a premium SSD v2, you must create a VM that is capable of using it. Set values for **$resourcegroup** and **$vmName**, then set **$zone** to the value of your availability zone that you got from the [start of this article](#determine-vm-size-and-region-availability). Then run the following [New-AzVm](/powershell/module/az.compute/new-azvm) command:
 
 ```powershell
+# Set parameters and select subscription
+$subscription = "<yourSubscriptionID>"
+$resourceGroup = "<yourResourceGroup>"
+$vmName = "<yourVMName>"
+$diskName = "<yourDiskName>"
+$lun = 1
+
+Connect-AzAccount -SubscriptionId $subscription
+
 New-AzVm `
     -ResourceGroupName $resourcegroup `
     -Name $vmName `
@@ -92,5 +101,88 @@ New-AzVm `
     -Image "Win2016Datacenter" `
     -size "Standard_D4s_v3" `
     -zone $zone
+
+# Create the disk
+$diskconfig = New-AzDiskConfig `
+-Location 'EastUS2' `
+-DiskSizeGB 8 `
+-DiskIOPSReadWrite 400 `
+-DiskMBpsReadWrite 100 `
+-AccountType PremiumV2SKU `
+-CreateOption Empty `
+-zone $zone;
+
+New-AzDisk `
+-ResourceGroupName $resourceGroup `
+-DiskName $diskName `
+-Disk $diskconfig;
+
+# add disk to VM
+$vm = Get-AzVM -ResourceGroupName $resourceGroup -Name $vmName
+$disk = Get-AzDisk -ResourceGroupName $resourceGroup -Name $diskName
+$vm = Add-AzVMDataDisk -VM $vm -Name $diskName -CreateOption Attach -ManagedDiskId $disk.Id -Lun $lun
+Update-AzVM -VM $vm -ResourceGroupName $resourceGroup
 ```
+
+
+
 ---
+
+### Create a premium SSD - 512 byte sector size
+
+# [Azure CLI](#tab/azure-cli)
+
+```azurecli
+#Define variables
+location="eastus2"
+subscription="xxx"
+rgName="<yourResourceGroupName>"
+diskName="<yourDiskName>"
+vmName="<yourVMName>"
+zone=123
+subscriptionId="<yourSubscriptionID>"
+
+#Create an ultra disk
+az disk create `
+--subscription $subscription `
+-n $diskname `
+-g $rgname `
+--size-gb 100 `
+--location $location `
+--zone $zone `
+--sku PremiumV2SKU `
+--disk-iops-read-write 400 `
+--disk-mbps-read-write 50
+
+#Attach the disk
+az vm disk attach -g $rgName --vm-name $vmName --disk $diskName --subscription $subscriptionId
+```
+
+# [PowerShell](#tab/azure-powershell)
+
+Optionally, you can deploy a premium SSD v2 that has a 512 byte sector size.
+
+```azurepowershell
+#create a premium SSD v2 with 512 sector size
+az disk create --subscription $subscription -n $diskname -g $rgname --size-gb 100 --location $location --sku premiumV2SKU --disk-iops-read-write 400 --disk-mbps-read-write 400 --logical-sector-size 512
+```
+
+## Adjust disk performance
+
+# [Azure CLI](#tab/azure-cli)
+
+```azurecli
+az disk update `
+--subscription $subscription `
+--resource-group $rgname `
+--name $diskName `
+--set diskIopsReadWrite=5000 `
+--set diskMbpsReadWrite=200
+```
+
+# [PowerShell](#tab/azure-powershell)
+
+```azurepowershell
+$diskupdateconfig = New-AzDiskUpdateConfig -DiskMBpsReadWrite 2000
+Update-AzDisk -ResourceGroupName $resourceGroup -DiskName $diskName -DiskUpdate $diskupdateconfig
+```
