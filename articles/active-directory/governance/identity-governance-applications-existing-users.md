@@ -47,7 +47,7 @@ You can also choose to use the Azure AD entitlement management access packages t
 
 ## Collect existing users from an application
 
-The first step of making users all users are record in Azure AD, is to collect the list of existing users who have access to the application.  Some applications may have a built-in command to export a list of current users from its data store. In other cases, the application may rely upon an external directory or database.  In some environments, the application may be located on a network segment or system that isn't appropriate for use for managing access to Azure AD, so you might need to extract the list of users from that directory or database, and then transfer it as a file to another system that can be used for Azure AD interactions.  This section illustrates three approaches for how to get a list of users, held in a comma separated text file (CSV),
+The first step to ensure all users are recorded in Azure AD, is to collect the list of existing users who have access to the application.  Some applications may have a built-in command to export a list of current users from its data store. In other cases, the application may rely upon an external directory or database.  In some environments, the application may be located on a network segment or system that isn't appropriate for use for managing access to Azure AD, so you might need to extract the list of users from that directory or database, and then transfer it as a file to another system that can be used for Azure AD interactions.  This section explains three approaches for how to get a list of users, held in a comma separated text file (CSV),
 
 * From an LDAP directory
 * From a SQL Server database
