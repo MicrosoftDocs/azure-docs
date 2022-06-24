@@ -9,81 +9,84 @@ author: t-khelan
 ms.author: t-khelanmodi
 ---
 
-# Azure Cosmos DB API for MongoDB
+# Change Log for Azure Cosmos DB API for MongoDB
 
 ## Pre-requisites
 
 To look into your Cosmos DB account, you must:
-* Have your [Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/mongodb/create-mongodb-python) ready 
-* You can get started in [.NET](https://docs.microsoft.com/azure/cosmos-db/mongodb/create-mongodb-dotnet), [Java](https://docs.microsoft.com/azure/cosmos-db/mongodb/create-mongodb-java), [Node.js](https://docs.microsoft.com/azure/cosmos-db/mongodb/quickstart-javascript), [Golang](https://docs.microsoft.com/azure/cosmos-db/mongodb/create-mongodb-go)
+* Have your [Cosmos DB](./create-mongodb-python.md) ready 
+* You can get started in [.NET](./create-mongodb-dotnet.md), [Java](./create-mongodb-java.md), [Node.js](./create-mongodb-nodejs.md), [Golang](./create-mongodb-go.md)
 
-## CosmosDB's API for MongoDB updates
+## Cosmos DB's API for MongoDB updates
 
 ### Azure Data Studio MongoDB extension for Azure Cosmos DB
-You can now use the free and lightweight tool feature, Azure Data Studio MongoDB extension for Azure Cosmos DB, to manage and query your MongoDB resources using mongo shell. This feature allows you to manage multiple account all in one view by connecting your Mongo resources, configuring the database settings, and performing create, read, update, and delete (CRUD) across Windows, macOS, and Linux. 
+You can now use the free and lightweight tool feature to manage and query your MongoDB resources using mongo shell. Azure Data Studio MongoDB extension for Azure Cosmos DB allows you to manage multiple accounts all in one view by 
+1. Connecting your Mongo resources 
+2. Configuring the database settings 
+3. Performing create, read, update, and delete (CRUD) across Windows, macOS, and Linux. 
 
 [Learn more](https://aka.ms/cosmosdb-ads)
 
 
 ### Continuous backup enhancements in Azure Cosmos DB
-Take advantage of new data backup and restore options available with your Azure Cosmos DB account. Continuous backup and point-in-time restore are valuable features that allow you to use Azure Cosmos DB Core (SQL) API, API for MongoDB, Gremlin API, or Table API to recover from accidental data changes and restore the data in your database. The two continuous backup options free continuous backup with seven-day data retention or paid continuous backup with 30-day data retention. The free continuous backup option is a recommended replacement for accounts currently using periodic backup.
+Take advantage of new data backup and restore options available with your Azure Cosmos DB account. Continuous backup and point-in-time restore are valuable features. This allows you to use Azure Cosmos DB Core (SQL) API, API for MongoDB, Gremlin API, or Table API to recover from accidental data changes and restore the data in your database. The two continuous backup options free continuous backup with seven-day data retention or paid continuous backup with 30-day data retention. The free continuous backup option is a recommended replacement for accounts currently using periodic backup.
 
-[Learn more](https://docs.microsoft.com/azure/cosmos-db/continuous-backup-restore-introduction)
+[Learn more](../continuous-backup-restore-introduction.md)
 
 ### Linux emulator with Azure Cosmos DB API for MongoDB 
-The Azure Cosmos DB Linux emulator with API for MongoDB support provides a local environment that emulates the Azure Cosmos DB service for development purposes on Linux and macOS. Using the emulator, you can develop and test your MongoDB applications locally, without creating an Azure subscription or incurring any costs. When you are satisfied with how your application is working in the Azure Cosmos DB emulator, you can switch to using an Azure Cosmos DB account in the cloud.
+The Azure Cosmos DB Linux emulator with API for MongoDB support provides a local environment that emulates the Azure Cosmos DB service for development purposes on Linux and macOS. Using the emulator, you can develop and test your MongoDB applications locally, without creating an Azure subscription or incurring any costs. When you're satisfied with how your application is working in the Azure Cosmos DB emulator, you can switch to using an Azure Cosmos DB account in the cloud.
 
 [Learn more](https://aka.ms/linux-emulator-mongo)
 
 
-### 16MB limit per document in API for MongoDB
-The 16MB document limit in the Azure Cosmos DB API for MongoDB provides developers the flexibility to store more data per document. With the new limit, you don’t have to worry about hitting the previous 2MB limit. You have the flexibility to create new applications that store larger documents. You also have the flexibility to migrate apps that already use larger documents. This ease-of-use feature will speed up your development process in these cases. 
+### 16-MB limit per document in API for MongoDB
+The 16-MB document limit in the Azure Cosmos DB API for MongoDB provides developers the flexibility to store more data per document. With the new limit, you don’t have to worry about hitting the previous 2-MB limit. You have the flexibility to create new applications that store larger documents. You also have the flexibility to migrate apps that already use larger documents. This ease-of-use feature will speed up your development process in these cases. 
 
-[Learn more](https://docs.microsoft.com/azure/cosmos-db/mongodb/mongodb-introduction)
+[Learn more](./mongodb-introduction.md)
 
 
-### Azure Cosmos DB API for MongoDB data plane RBAC
+### Azure Cosmos DB API for MongoDB data plane Role-Based Access Control (RBAC)
 The API for MongoDB now offers a built-in role-based access control (RBAC) that allows you to authorize your data requests with a fine-grained, role-based permission model. Users and roles residing within your database and can be managed using the Azure CLI, Azure PowerShell, or Azure Resource Manager. With this feature, you can audit each of the user’s actions via the Azure Cosmos DB diagnostic logs. Using this role-based access control (RBAC) allows you access with more options for control, security, and auditability of your database account data.
 
-[Learn more](https://docs.microsoft.com/azure/cosmos-db/mongodb/how-to-setup-rbac)
+[Learn more](./how-to-setup-rbac.md)
 
 
 ### Unique partial indexes in Azure Cosmos DB API for MongoDB
-The unique partial indexes feature allows you more flexibility to specify exactly which fields in which documents you’d like to index, all while enforcing uniqueness of that field’s value. This feature is used by specifying a partialFilterExpression when creating the index along with a 'unique' constraint in your Azure Cosmos DB API for MongoDB index. This results in the unique constraint being applied only to the documents that meet the specified filter expression. 
+The unique partial indexes feature allows you more flexibility to specify exactly which fields in which documents you’d like to index, all while enforcing uniqueness of that field’s value. This feature is used by specifying a partialFilterExpression when creating the index along with a 'unique' constraint in your Azure Cosmos DB API for MongoDB index. Resulting in the unique constraint being applied only to the documents that meet the specified filter expression. 
 
-[Learn more](https://docs.microsoft.com/azure/cosmos-db/mongodb/feature-support-42)
+[Learn more](./feature-support-42.md)
 
 
-### Azure Cosmos DB API for MongoDB unique index re-indexing
-The unique index feature for Azure Cosmos DB allows you to create unique indexes when your collection was empty and did not contain documents. This feature provides you with more flexibility by giving you the ability to create unique indexes whenever you want to—meaning there’s no need to plan unique indexes ahead of time before inserting any data into the collection. 
+### Azure Cosmos DB API for MongoDB unique index reindexing
+The unique index feature for Azure Cosmos DB allows you to create unique indexes when your collection was empty and didn't contain documents. This feature provides you with more flexibility by giving you the ability to create unique indexes whenever you want to—meaning there’s no need to plan unique indexes ahead of time before inserting any data into the collection. 
 
-[Learn more](https://docs.microsoft.com/azure/cosmos-db/mongodb/mongodb-indexing#unique-indexes) and enable the feature today by [submitting a support ticket request](https://azure.microsoft.com/support/create-ticket/)
+[Learn more](./mongodb-indexing.md) and enable the feature today by [submitting a support ticket request](https://azure.microsoft.com/support/create-ticket/)
 
 
 ### Azure Cosmos DB API for MongoDB supports version 4.2
-The Azure Cosmos DB API for MongoDB version 4.2 includes new aggregation functionality and improved security features such as client-side field encryption. These features help you accelerate development by leveraging the new functionality instead of developing it yourself. The Azure Cosmos DB API for MongoDB 4.2 can be enabled in the Azure Portal with any new or existing database account in seconds, with zero downtime. 
+The Azure Cosmos DB API for MongoDB version 4.2 includes new aggregation functionality and improved security features such as client-side field encryption. These features help you accelerate development by applying the new functionality instead of developing it yourself. The Azure Cosmos DB API for MongoDB 4.2 can be enabled in the Azure portal with any new or existing database account in seconds, with zero downtime. 
 
-[Learn more](https://docs.microsoft.com/azure/cosmos-db/mongodb/feature-support-42)
+[Learn more](./feature-support-42.md)
 
 
 ### Support $expr in Mongo 3.6 and 4.0.
-We have added support for both in memory and backend. Additionally, we have the infrastructure to support compute only query operators. This allows us to support 3.6 style $lookup. 
+We have added support for both in memory and backend. Additionally, we have the infrastructure to support compute only query operators which allows us to support 3.6 style $lookup. 
 `$expr` allows the use of [aggregation expressions](https://www.mongodb.com/docs/manual/meta/aggregation-quick-reference/#std-label-aggregation-expressions) within the query language. 
 `$expr` can build query expressions that compare fields from the same document in a `$match` stage.  
 
 
-###  RBAC for $merge stage
-Added Role-Based Access Control for `$merge` stage. 
+###  Role-Based Access Control for $merge stage
+Added Role-Based Access Control(RBAC) for `$merge` stage. 
 
 
 ### Add Hyperbolic trigonometric operators
-`$cosh` returns the hyberbolic cosine of a value that is measured in radians. `$cosh` takes any valid expression that resolves to a number measured in radians. By default `$cosh` returns values as a double. 
+`$cosh` returns the Hyperbolic cosine of a value that is measured in radians. `$cosh` takes any valid expression that resolves to a number measured in radians. By default `$cosh` returns values as a double. 
 
 
 ### Bump packages and .NET TargetRuntime versions
 * Bumped more packages and removed VersionOverrides under Compute, Mongo and CLuB. 
-* Migrated more projects to `.NET` 6.0
-* We removed references to the CBT Symbol Indexing package. Symbol indexing is performed by CloudBuild that requires pushing to `symweb` which is no longer supported. 
+* Migrated more projects to `.NET` 6.0.
+* We removed references to the CBT Symbol Indexing package. Symbol indexing is performed by CloudBuild that requires pushing to `symweb`, which is no longer supported. 
 
 
 ## Next steps
