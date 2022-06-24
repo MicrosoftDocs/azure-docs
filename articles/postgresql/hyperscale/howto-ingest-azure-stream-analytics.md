@@ -53,15 +53,15 @@ Blob Storage into Hyperscale (Citus).
 5. Configure Job Input
    ![Diagram of configuring job input in ASA](../media/howto-hyperscale-ingestion/03-ASA-input.png)
 
-   * Once the resource deployment is complete, navigate to your Stream Analytics job.
-   * Select **Inputs** > **Add Stream input** > **IoT Hub**.
-   * Fill out the IoT Hub page with the following values:
-   * **Input alias** - Name to identify the job's input.
-   * **Subscription** - Select the Azure subscription that has the IOT Hub account you created.
-   * **IoT Hub** – Select the name of the IoT Hub you have already created.
-   * Leave other options to default values and select **Save** to save the settings.
-   * Once the input stream is added, you can also verify/download the dataset flowing in.
-   * Below is the data for sample event in our use case:
+   1. Once the resource deployment is complete, navigate to your Stream Analytics job.
+   1. Select **Inputs** > **Add Stream input** > **IoT Hub**.
+   1. Fill out the IoT Hub page with the following values:
+   1. **Input alias** - Name to identify the job's input.
+   1. **Subscription** - Select the Azure subscription that has the IOT Hub account you created.
+   1. **IoT Hub** – Select the name of the IoT Hub you have already created.
+   1. Leave other options to default values and select **Save** to save the settings.
+   1. Once the input stream is added, you can also verify/download the dataset flowing in.
+   1. Below is the data for sample event in our use case:
 
      ```json
      {
@@ -84,13 +84,13 @@ Blob Storage into Hyperscale (Citus).
 6. **Configure Job Output**
    ![Diagram of configuring job output in ASA](../media/howto-hyperscale-ingestion/04-ASA-output.png)
 
-   * Navigate to the Stream Analytics job that you created earlier.
-   * Select **Outputs** > **Add** > **Azure PostgreSQL**.
-   * Fill out the **Azure PostgreSQL** page with the following values:
+   1. Navigate to the Stream Analytics job that you created earlier.
+   1. Select **Outputs** > **Add** > **Azure PostgreSQL**.
+   1. Fill out the **Azure PostgreSQL** page with the following values:
      * **Output alias** - Name to identify the job's output.
      * Select **"Provide PostgreSQL database settings manually"** and enter the DB server connection details like server FQDN, database, table name, username, and password.
      * For our example dataset, we chose the table name `device_data`.
-   * Select on **Save** to save the settings.
+   1. Select on **Save** to save the settings.
 
    > [!NOTE]
    > The **Test Connection** feature for Hyperscale (Citus) in currently not
@@ -99,34 +99,34 @@ Blob Storage into Hyperscale (Citus).
 7. **Define Transformation Query**
    ![Diagram of transformation query in ASA](../media/howto-hyperscale-ingestion/05-ASA-transformation-query.png)
 
-   * Navigate to the Stream Analytics job that you created earlier.
-   * For this tutorial, we'll be ingesting only the alternate events from IoT Hub into Hyperscale (Citus) to reduce the overall data size.
+   1. Navigate to the Stream Analytics job that you created earlier.
+   1. For this tutorial, we'll be ingesting only the alternate events from IoT Hub into Hyperscale (Citus) to reduce the overall data size.
 
-     ```sql
-     select
-        counter,
-        iothub.connectiondeviceid,
-        iothub.correlationid,
-        iothub.connectiondevicegenerationid,
-        iothub.enqueuedtime
-     from
-        [src-iot-hub]
-     where counter%2 = 0;
-     ```
+      ```sql
+      select
+         counter,
+         iothub.connectiondeviceid,
+         iothub.correlationid,
+         iothub.connectiondevicegenerationid,
+         iothub.enqueuedtime
+      from
+         [src-iot-hub]
+      where counter%2 = 0;
+      ```
 
-   * Select **Save Query**
+   1. Select **Save Query**
 
-     > [!NOTE]
-	 > We are using the query to not only sample the data, but also extract the
-	 > desired attributes from the data stream. The custom query option with
-	 > stream analytics is helpful in pre-processing/transforming the data
-	 > before it gets ingested into the DB.
+      > [!NOTE]
+      > We are using the query to not only sample the data, but also extract the
+      > desired attributes from the data stream. The custom query option with
+      > stream analytics is helpful in pre-processing/transforming the data
+      > before it gets ingested into the DB.
 
 8. **Start the Stream Analytics Job and Verify Output**
 
-   * Return to the job overview page and select Start.
-   * Under **Start job**, select **Now**, for the Job output start time field. Then, select **Start** to start your job.
-   * After few minutes, you can query the Hyperscale (Citus) database to verify the data loaded. The job will take some time to start at the first time, but once triggered it will continue to run as the data arrives.
+   1. Return to the job overview page and select Start.
+   1. Under **Start job**, select **Now**, for the Job output start time field. Then, select **Start** to start your job.
+   1. After few minutes, you can query the Hyperscale (Citus) database to verify the data loaded. The job will take some time to start at the first time, but once triggered it will continue to run as the data arrives.
 
      ```
      citus=> SELECT * FROM public.device_data LIMIT 10;
