@@ -210,9 +210,9 @@ Metadata from your legacy data warehouse DBMS can also help you identify incompa
 
 ## Test report and dashboard migration to Azure Synapse Analytics
 
-A key element in data warehouse migration is the testing of reports and dashboards in Azure Synapse to verify that the migration has worked. Define a series of tests and a set of required outcomes for each test that you'll run to verify success. Test and compare reports and dashboards across your existing and migrated data warehouse systems to:
+A key element of data warehouse migration is testing of reports and dashboards in Azure Synapse to verify the migration has worked. Define a series of tests and a set of required outcomes for each test that you will run to verify success. Test and compare the reports and dashboards across your existing and migrated data warehouse systems to:
 
-  - Identify whether any schema changes made during migration affected either the ability of reports to run, report results, or the corresponding report visualizations. An example of a schema change is mapping an incompatible data type to a data type that's supported in Azure Synapse.
+  - Identify whether any schema changes that were made during migration affected the ability of reports to run, report results, or the corresponding report visualizations. An example of a schema change is if you mapped an incompatible data type to an equivalent data type that's supported in Azure Synapse.
 
   - Verify that all users are migrated.
   
@@ -220,11 +220,11 @@ A key element in data warehouse migration is the testing of reports and dashboar
   
   - Verify that all data access security privileges are migrated to ensure access control list (ACL) migration.
   
-  - Ensure consistent results of all known queries, reports, and dashboards.
+  - Ensure consistent results for all known queries, reports, and dashboards.
   
   - Ensure that data and ETL migration is complete and error-free.
   
-  - Ensure data privacy is upheld.
+  - Ensure that data privacy is upheld.
   
   - Test performance and scalability.
   
@@ -235,19 +235,19 @@ A key element in data warehouse migration is the testing of reports and dashboar
 
 For information about how to migrate users, user groups, roles, and privileges, see [Security, access, and operations for Oracle migrations](3-security-access-operations.md), which is another guide in this series.
 
-Automate testing as much as possible to make each test repeatable and to support a consistent approach to evaluating test results. Automation works well for known regular reports, and can be managed via [Azure Synapse pipelines](../../get-started-pipelines.md) or [Azure Data Factory](../../../data-factory/introduction.md) orchestration. If you already have a suite of test queries in place for regression testing, you could use the existing testing tools to automate post migration testing.
+Automate testing as much as possible to make each test repeatable and to support a consistent approach to evaluating test results. Automation works well for known regular reports, and can be managed via [Azure Synapse pipelines](../../get-started-pipelines.md) or [Azure Data Factory](../../../data-factory/introduction.md) orchestration. If you already have a suite of test queries in place for regression testing, you can use the existing testing tools to automate post migration testing.
 
 >[!TIP]
->It's a best practice to build an automated test suite to make tests repeatable.
+>Best practice is to build an automated test suite to make tests repeatable.
 
-Ad-hoc analysis and reporting are more challenging and require compilation of a set of tests to verify that reports and dashboards are consistent before and after migration. If you find inconsistencies, then your ability to compare metadata lineage across the original and migrated systems during migration testing is crucial.  The comparison can highlight differences and pinpoint where inconsistencies occur when detection by other means is difficult.
+Ad-hoc analysis and reporting are more challenging and require compilation of a set of tests to verify that the same reports and dashboards from before and after migration are consistent. If you find inconsistencies, then your ability to compare metadata lineage across the original and migrated systems during migration testing becomes crucial.  That comparison can highlight differences and pinpoint where inconsistencies originated, when detection by other means is difficult.
 
 >[!TIP]
 >Leverage tools that compare metadata lineage to verify results.
 
 ## Analyze lineage to understand dependencies between reports, dashboards, and data
 
-Your understanding of lineage is a critical factor in the successful migration of reports and dashboards. Lineage is metadata that shows the journey of migrated data so you can track its path from a report or dashboard all the way back to the data source. Lineage shows how data has traveled from point to point, its location in the data warehouse and/or data mart, and which reports or other visualizations use it. Lineage can help you understand what happens to data as it travels through different data stores, such as files and databases, different ETL pipelines, and into reports. When business users have access to data lineage, it improves trust, instills confidence, and supports more informed business decisions.
+Your understanding of lineage is a critical factor in the successful migration of reports and dashboards. Lineage is metadata that shows the journey of migrated data so you can track its path from a report or dashboard all the way back to the data source. Lineage shows how data has traveled from point to point, its location in the data warehouse and/or data mart, and which reports and dashboards use it. Lineage can help you understand what happens to data as it travels through different data stores, such as files and databases, different ETL pipelines, and into reports. When business users have access to data lineage, it improves trust, instills confidence, and supports informed business decisions.
 
 >[!TIP]
 >Your ability to access metadata and data lineage from reports all the way back to a data source is critical for verifying that migrated reports work correctly.
@@ -255,11 +255,11 @@ Your understanding of lineage is a critical factor in the successful migration o
 In multi-vendor data warehouse environments, business analysts in BI teams might map out data lineage. For example, if you use different vendors for ETL, data warehouse, and reporting, and each vendor has its own metadata repository, then figuring out where a specific data element in a report came from can be challenging and time consuming.
 
 >[!TIP]
->Tools that automate metadata collection and show end-to-end lineage in a multi-vendor environment are valuable during a migration.
+>Tools that automate the collection of metadata and show end-to-end lineage in a multi-vendor environment are valuable during a migration.
 
-To migrate seamlessly from a legacy data warehouse to Azure Synapse, use end-to-end data lineage to prove like-for-like migration when you're comparing the reports and dashboards generated by each environment. To show the end-to-end data journey, you'll need to capture and integrate metadata from several tools. Having access to tools that support automated metadata discovery and data lineage lets you see duplicate reports and ETL processes and identify reports that rely on obsolete, questionable, or non-existent data sources. You can use that information to reduce the number of reports and ETL processes that you migrate.
+To migrate seamlessly from a legacy data warehouse to Azure Synapse, use end-to-end data lineage to prove like-for-like migration when you're comparing the reports and dashboards generated by each environment. To show the end-to-end data journey, you'll need to capture and integrate metadata from several tools. Having access to tools that support automated metadata discovery and data lineage, helps you identify duplicate reports or ETL processes, and find reports that rely on obsolete, questionable, or non-existent data sources. You can use that information to reduce the number of reports and ETL processes that you migrate.
 
-You can also compare the end-to-end lineage of a report in Azure Synapse to the end-to-end lineage of the same report in your legacy environment to check for differences that might have inadvertently occurred during migration. This comparison helps enormously when testing and verifying migration success.
+You can also compare the end-to-end lineage of a report in Azure Synapse to the end-to-end lineage of the same report in your legacy environment to check for differences that might have inadvertently occurred during migration. This type of comparison is exceptionally useful when you need to test and verify migration success.
 
 Data lineage visualization not only reduces time, effort, and error in the migration process, but also enables faster migration.
 
@@ -271,45 +271,45 @@ By using automated metadata discovery and data lineage tools that compare lineag
 
 - How to reduce report duplication.
 
-Automated metadata discovery and data lineage tools substantially simplify the migration process because they helps businesses become more aware of their data assets and to know what needs to be migrated to enable a solid reporting environment in Azure Synapse.
+Automated metadata discovery and data lineage tools substantially simplify the migration process because they helps businesses become more aware of their data assets and to know what needs to be migrated to Azure Synapse to achieve a solid reporting environment.
 
 >[!TIP]
 >Data Factory and several third-party ETL tools support lineage.
 
-Several ETL tools provide end-to-end lineage capability, so check whether your existing ETL tool has that capability if you plan to use it with Azure Synapse. Azure Synapse pipelines or Data Factory support viewing lineage in mapping flows. [Microsoft partners](../../partner/data-integration.md) also provide automated metadata discovery, data lineage, and lineage comparison tools.
+Several ETL tools provide end-to-end lineage capability, so check whether your existing ETL tool has that capability if you plan to use it with Azure Synapse. Azure Synapse pipelines or Data Factory both support the ability to view lineage in mapping flows. [Microsoft partners](../../partner/data-integration.md) also provide automated metadata discovery, data lineage, and lineage comparison tools.
 
 ## Migrate BI tool semantic layers to Azure Synapse Analytics
 
-Some BI tools have what is known as a semantic metadata layer. That layer simplifies business user access to the underlying physical data structures in a data warehouse or data mart database. The semantic metadata layer is able to simplify access by providing high-level objects like dimensions, measures, hierarchies, calculated metrics, and joins. The high-level objects use business terms that are familiar to business analysts, and map to physical data structures in the data warehouse or data mart database.
+Some BI tools have what is known as a semantic metadata layer. That layer simplifies business user access to the underlying physical data structures in a data warehouse or data mart database. The semantic metadata layer simplifies access by providing high-level objects like dimensions, measures, hierarchies, calculated metrics, and joins. The high-level objects use business terms that are familiar to business analysts, and map to physical data structures in your data warehouse or data mart.
 
 >[!TIP]
 >Some BI tools have semantic layers that simplify business user access to physical data structures in your data warehouse or data mart.
 
-In a data warehouse migration, you might be forced to change column or table names. For example, Oracle allows a `#` character in table names, but table names in Azure Synapse can only use that character as a prefix to indicate a temporary table. In such cases, you might also need to change mappings.
+In a data warehouse migration, you might be forced to change column or table names. For example, Oracle allows a `#` character in table names, but Azure Synapse only allows `#` as a table name prefix to indicate a temporary table. In such cases, you might also need to change mappings.
 
-To achieve consistency across multiple BI tools, create a universal semantic layer by using a data virtualization server that sits between applications, BI tools, and Azure Synapse. In the data virtualization server, use common data names for high-level objects like dimensions, measures, hierarchies, and joins. That way you configure everything, including calculated fields, joins, and mappings, once instead of in every tool. Then, point all BI tools at the data virtualization server.
+To achieve consistency across multiple BI tools, create a universal semantic layer by using a data virtualization server that sits between BI tools and applications and Azure Synapse. In the data virtualization server, use common data names for high-level objects like dimensions, measures, hierarchies, and joins. That way you configure everything, including calculated fields, joins, and mappings, only once instead of in every tool. Then, point all BI tools at the data virtualization server.
 
 >[!TIP]
 >Use data virtualization to create a common semantic layer to guarantee consistency across all BI tools in an Azure Synapse environment.
 
-With data virtualization, you get consistency across all BI tools and break the dependency between BI tools and applications and the underlying physical data structures in Azure Synapse. [Microsoft partners](../../partner/data-integration.md) can help you implement this consistency in Azure. The following diagram shows how a common vocabulary in the data virtualization server lets multiple BI tools see a common semantic layer.
+With data virtualization, you get consistency across all BI tools and break the dependency between BI tools and applications and the underlying physical data structures in Azure Synapse. [Microsoft partners](../../partner/data-integration.md) can help you achieve consistency in Azure. The following diagram shows how a common vocabulary in the data virtualization server lets multiple BI tools see a common semantic layer.
 
 :::image type="content" source="../media/4-visualization-reporting/data-virtualization-semantics.png" border="true" alt-text="Diagram with common data names and definitions that relate to the data virtualization server.":::
 
 ## Conclusions
 
-In a lift and shift data warehouse migration from a legacy environment to Azure Synapse, most reports, dashboards, and other visualizations should migrate easily.
+In a lift and shift data warehouse migration, most reports, dashboards, and other visualizations should migrate easily.
 
-During a migration, you might find that data in legacy data warehouse or data mart tables is stored in unsupported data types. Or, you may find legacy data warehouse views that include proprietary SQL with no equivalent in Azure Synapse. If so, you'll need to resolve those issues to ensure a successful migration.
+During a migration from a legacy environment, you might find that data in the legacy data warehouse or data mart tables is stored in unsupported data types. Or, you may find legacy data warehouse views that include proprietary SQL with no equivalent in Azure Synapse. If so, you'll need to resolve those issues to ensure a successful migration to Azure Synapse.
 
-Don't rely on user-maintained documentation to identify where issues might be located. Instead, use `EXPLAIN` statements because they're a fast and pragmatic way to identify SQL incompatibilities. Rework the incompatible SQL statements to achieve equivalent functionality in Azure Synapse. Also, use automated metadata discovery and lineage tools to understand dependencies, find duplicate reports, and identify invalid reports that rely on obsolete, questionable, or non-existent data sources. Use lineage tools to compare lineage to verify that reports running in your legacy data warehouse environment are produced identically in Azure Synapse.
+Don't rely on user-maintained documentation to identify where issues are located. Instead, use `EXPLAIN` statements because they're a quick, pragmatic way to identify SQL incompatibilities. Rework the incompatible SQL statements to achieve equivalent functionality in Azure Synapse. Also, use automated metadata discovery and lineage tools to understand dependencies, find duplicate reports, and identify invalid reports that rely on obsolete, questionable, or non-existent data sources. Use lineage tools to compare lineage to verify that reports running in your legacy data warehouse environment are produced identically in Azure Synapse.
 
 Don't migrate reports that you no longer use. BI tool usage data can help you determine which reports aren't in use. For the reports, dashboards, and other visualizations that you do want to migrate, migrate all users, user groups, roles, and privileges. If you're using business value to drive your report migration strategy, associate reports with strategic business objectives and priorities to help identify the contribution of report insights to specific objectives. If you're migrating data mart by data mart, use metadata to identify which reports are dependent on which tables and views, so you can make an informed decision about which data marts to migrate first.
 
-Structural changes to the data model of your data warehouse or data mart can occur during a migration. Consider using data virtualization to shield BI tools and applications from structural changes. With data virtualization, you can use a common vocabulary to define a common semantic layer that guarantees consistent common data names, definitions, metrics, hierarchies, and joins across all BI tools and applications in the migrated Azure Synapse environment.
-
 >[!TIP]
 >Identify incompatibilities early to gauge the extent of the migration effort. Migrate your users, group roles, and privilege assignments. Only migrate the reports and visualizations that are used and are contributing to business value.
+
+Structural changes to the data model of your data warehouse or data mart can occur during a migration. Consider using data virtualization to shield BI tools and applications from structural changes. With data virtualization, you can use a common vocabulary to define a common semantic layer. The common semantic layer guarantees consistent common data names, definitions, metrics, hierarchies, and joins across all BI tools and applications in the new Azure Synapse environment.
 
 ## Next steps
 
