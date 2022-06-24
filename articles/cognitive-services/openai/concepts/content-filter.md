@@ -27,7 +27,7 @@ When building your application, you'll want to account for scenarios where the c
 - Non-streaming completions calls won't return any content when the content is filtered. The `finish_reason` value will be set to `content_filter`. In rare cases with long responses, a partial result can be returned. In these cases,  the `finish_reason` will be updated.
 - For streaming completions calls, segments will be returned back to the user as they're completed. The service will continue streaming until either reaching a stop token, length or harmful content is detected.
 
-## Scenario: You send a non-streaming completions call asking for multiple generations with no inappropriate content
+### Scenario: You send a non-streaming completions call asking for multiple generations with no inappropriate content
 
 The table below outlines the various ways content filtering can appear:
 
@@ -65,7 +65,7 @@ The table below outlines the various ways content filtering can appear:
 
 ```
 
-## Scenario: Your API call asks for multiple responses (N>1) and at least 1 of the responses is filtered
+### Scenario: Your API call asks for multiple responses (N>1) and at least 1 of the responses is filtered
 
 | **HTTP Response Code** | **Response behavior**|
 |------------------------|----------------------|
@@ -106,7 +106,7 @@ The table below outlines the various ways content filtering can appear:
 }
 ```
 
-## Scenario: An inappropriate input prompt is sent to the completions API (either for streaming or non-streaming)
+### Scenario: An inappropriate input prompt is sent to the completions API (either for streaming or non-streaming)
 
 **HTTP Response Code** | **Response behavior**
 |------------------------|----------------------|
@@ -132,7 +132,7 @@ The table below outlines the various ways content filtering can appear:
 }
 ```
 
-## Scenario: You make a streaming completions call with all generated content passing the content filters
+### Scenario: You make a streaming completions call with all generated content passing the content filters
 
 **HTTP Response Code** | **Response behavior**
 |------------|------------------------|----------------------|
@@ -167,7 +167,7 @@ The table below outlines the various ways content filtering can appear:
 }
 ```
 
-## Scenario: You make a streaming completions call asking for multiple generated responses and at least one response is filtered
+### Scenario: You make a streaming completions call asking for multiple generated responses and at least one response is filtered
 
 **HTTP Response Code** | **Response behavior**
 |------------|------------------------|----------------------|
@@ -202,7 +202,7 @@ The table below outlines the various ways content filtering can appear:
 }
 ```
 
-## Scenario: Content filtering system doesn't run on the generation
+### Scenario: Content filtering system doesn't run on the generation
 
 **HTTP Response Code** | **Response behavior**
 |------------------------|----------------------|
