@@ -86,7 +86,7 @@ The result should show the `–sdn-type` option, as follows:
 
 ## Create an Azure Red Hat OpenShift cluster with OVN as the network provider
 
-The process to create an Azure Red Hat OpenShift cluster with OVN is exactly the same as the existing process explained in [Tutorial: Create an Azure Red Hat OpenShift 4 cluster](tutorial-create-cluster), with the following exception. You must also pass in the SDN type of `OVNKubernetes` in step 4 below. 
+The process to create an Azure Red Hat OpenShift cluster with OVN is exactly the same as the existing process explained in [Tutorial: Create an Azure Red Hat OpenShift 4 cluster](tutorial-create-cluster.md), with the following exception. You must also pass in the SDN type of `OVNKubernetes` in step 4 below. 
 
 The following high-level procedure outlines the steps to create an Azure Red Hat OpenShift cluster with OVN as the network provider:
 
@@ -101,15 +101,15 @@ The following high-level procedure outlines the steps to create an Azure Red Hat
 
 Using OVN CNI network provider for Azure Red Hat OpenShift clusters requires you to create a resource group, which will contain the virtual network for the cluster. You must have either Contributor and User Access Administrator permissions or have Owner permissions either directly on the virtual network or on the resource group or subscription containing it.
 
-You'll also need sufficient Azure Active Directory permissions (either a member user of the tenant, or a guest user assigned with role Application administrator) for the tooling to create an application and service principal on your behalf for the cluster. For more information about user roles, see [Member and guest users](../active-directory/fundamentals/users-default-permissions#member-and-guest-users) and [Assign administrator and non-administrator roles to users with Azure Active Directory](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal).
+You'll also need sufficient Azure Active Directory permissions (either a member user of the tenant, or a guest user assigned with role Application administrator) for the tooling to create an application and service principal on your behalf for the cluster. For more information about user roles, see [Member and guest users](../active-directory/fundamentals/users-default-permissions#member-and-guest-users) and [Assign administrator and non-administrator roles to users with Azure Active Directory](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md).
 
 ## Register the resource providers
 
-If you have multiple Azure subscriptions, you must register the resource providers. For information about the registration procedure, see [Register the resource providers](tutorial-create-cluster#register-the-resource-providers).
+If you have multiple Azure subscriptions, you must register the resource providers. For information about the registration procedure, see [Register the resource providers](tutorial-create-cluster#register-the-resource-providers.md).
 
 ## Create a virtual network containing two empty subnets
 
-If you have an existing virtual network that meets your needs, you can skip this step. To know the procedure of creating a virtual network, see [Create a virtual network containing two empty subnets](tutorial-create-cluster#create-a-virtual-network-containing-two-empty-subnets).
+If you have an existing virtual network that meets your needs, you can skip this step. To know the procedure of creating a virtual network, see [Create a virtual network containing two empty subnets](tutorial-create-cluster#create-a-virtual-network-containing-two-empty-subnets.md).
 
 ## Create an Azure Red Hat OpenShift cluster by using OVN-Kubernetes CNI network provider
 
