@@ -10,11 +10,11 @@ ms.topic: reference
 
 # Recovering Fluid data
 
-In this scenario, we will be exploring data recovery. We consider data to be corrupted when container reaches an invalid state where it cannot process further user actions. The outcome of corrupted state is container being unexpectedly closed. Often it is transient state, and upon reopening, the container may behave as expected. In an situation where a container fails to load even after multiple retries, we offer APIs and flows you can use to recover your data, as decribed below.
+In this scenario, we'll be exploring data recovery. We consider data to be corrupted when container reaches an invalid state where it can't process further user actions. The outcome of corrupted state is container being unexpectedly closed. Often it's transient state, and upon reopening, the container may behave as expected. In a situation where a container fails to load even after multiple retries, we offer APIs and flows you can use to recover your data, as described below.
 
 ## How Fluid Framework and Azure Fluid Relay save state
 
-Fluid framework periodically saves state, called summary, without any explicit backup action initiated by the user. This occurs every one (1) minute if there is no user activity, or sooner if there are more then 1000 pending ops present. Each pending op roughly translates to an individual user action (click, text input etc) that was not summarized yet.
+Fluid framework periodically saves state, called summary, without any explicit backup action initiated by the user. This workflow occurs every one (1) minute if there's no user activity, or sooner if there are more than 1000 pending ops present. Each pending op roughly translates to an individual user action (click, text input etc.) that wasn't summarized yet.
 
 ## Azure Client APIs
 
@@ -67,10 +67,10 @@ async function recoverDoc(
 
 ## Key Observations
 
-### This is new Container
+### We are creating a new Container
 
-We are not recovering (rolling back) existing container. `copyContainer` will give us new instance, with data being copied from the original container. In this process, old container is not deleted.
+We aren't recovering (rolling back) existing container. `copyContainer` will give us new instance, with data being copied from the original container. In this process, old container isn't deleted.
 
 ### New Container is detached
 
- New container is initially in `detached` state. We can continue working with detached container, or immediatelly attach. After calling `attach` we will get back unique Container ID, representing newly created instance.
+ New container is initially in `detached` state. We can continue working with detached container, or immediately attach. After calling `attach` we'll get back unique Container ID, representing newly created instance.
