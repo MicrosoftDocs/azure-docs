@@ -77,7 +77,7 @@ For more information on workspaces, see [how to manage resources in VS Code](how
 
 ## Create a GPU cluster for training
 
-A compute target is the computing resource or environment where you job training jobs. For more information, see the [Azure Machine Learning compute targets documentation](./concept-compute-target.md).
+A compute target is the computing resource or environment where you run training jobs. For more information, see the [Azure Machine Learning compute targets documentation](./concept-compute-target.md).
 
 1. In the Azure Machine Learning view, expand your workspace node.
 1. Right-click the **Compute clusters** node inside your workspace's **Compute** node and select **Create Compute**
