@@ -102,7 +102,7 @@ In this section, you download the VPN configuration file for the sites that you 
 1. On your Virtual WAN page, go to **VPN sites**.
 1. On the **VPN sites** page, at the top of the page, select **Download Site-to-Site VPN configuration** and download the file. Azure creates a configuration file with the necessary values that are used to configure your local network gateways in the next section.
 
-   :::image type="content" source="./media/connect-virtual-network-gateway-vwan/download.png" alt-text="VPN sites page with the Download Site-to-Site VPN configuration action selected." lightbox="./media/connect-virtual-network-gateway-vwan/download.png":::
+   :::image type="content" source="./media/connect-virtual-network-gateway-vwan/download.png" alt-text="Screenshot of VPN sites page with the Download Site-to-Site VPN configuration action selected." lightbox="./media/connect-virtual-network-gateway-vwan/download.png":::
 
 ## <a name="createlocalgateways"></a>5. Create the local network gateways
 
