@@ -116,17 +116,21 @@ A key question when migrating your existing reports and dashboards to Azure Syna
 
 - Data migration strategy
 
-These factors are discussed in another [guide](1-design-performance-migration#choose-the-workload-for-the-initial-migration) in the series.
+These factors are discussed in another [guide](1-design-performance-migration.md#choose-the-workload-for-the-initial-migration) in the series.
 
-Whatever your decision, it must involve your business users. They produce the reports and dashboards, and make business decisions based on the insights provided by those artifacts. That said, if most reports and dashboards can be migrated seamlessly, with minimal effort, and offer up like-for-like results, simply by pointing your BI tool(s) at Azure Synapse instead of your legacy data warehouse system, then everyone benefits.
+Whatever your decision, it must involve your business users. They produce the reports and dashboards, and make business decisions based on the insights provided by those artifacts. Everyone benefits when you can:
+
+- Migrate reports and dashboards seamlessly,
+- Migrate reports and dashboards with minimal effort, and 
+- Point your BI tool(s) at Azure Synapse instead of your legacy data warehouse system, and reports and dashboards offer like-for-like results.
 
 ### Migrate reports based on usage
 
-Usage is often an indicator of business value. Reports and dashboards that are never used clearly don't contribute to supporting any decisions and don't currently offer any value. So, do you have any mechanism for finding out which reports and dashboards are currently not used? Several BI tools provide statistics on usage, which would be an obvious place to start.
+Usage is often an indicator of business value. Reports and dashboards that are never used clearly don't contribute to business decisions or currently offer value. So, do you have a way find out which reports and dashboards are currently unused? If not, you can use one of the several BI tools that provide usage statistics.
 
-If your legacy data warehouse has been up and running for many years, there's a high chance you could have hundreds, if not thousands, of reports in existence. It's worth compiling an inventory of the reports and dashboards you have and defining their business purpose and usage statistics.
+If your legacy data warehouse has been up and running for many years, there's a good chance you have hundreds, if not thousands, of reports in existence. It's worth compiling an inventory of the reports and dashboards you have and defining their business purpose and usage statistics.
 
-For reports that aren't used at all, it's an appropriate time to determine whether to decommission them to optimize your migration efforts. A key question worth asking when deciding to decommission unused reports is: are they unused because people don't know they exist, because they offer no business value, or have they been superseded by others?
+For reports that aren't used at all, determine whether to decommission them to reduce your migration effort. A key question worth asking when deciding whether to decommission an unused report: is it unused because people don't know it exists, because it offers no business value, or because it's been superseded by another report?
 
 ### Migrate reports based on business value
 
