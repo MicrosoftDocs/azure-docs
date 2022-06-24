@@ -66,4 +66,4 @@ If you want to delete the source or destination volume, you must perform the fol
 * [Requirements and considerations for using cross-region replication](cross-region-replication-requirements-considerations.md)
 * [Display health status of replication relationship](cross-region-replication-display-health-status.md)
 * [Troubleshoot cross-region-replication](troubleshoot-cross-region-replication.md)
-
+* [Manage default and individual user and group quotas for a volume](manage-default-individual-user-group-quotas.md)
