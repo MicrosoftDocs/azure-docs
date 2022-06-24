@@ -186,7 +186,7 @@ Test the communication between the two virtual machines over the virtual network
 
     Though ping is used to communicate between VMs in this tutorial, allowing ICMP through the Windows Firewall for production deployments isn't recommended.
 
-1. To connect to the **myVm2** from **myVm1**, enter the following command from a command prompt on the **myVm1**:
+1. To connect to **myVm2** from **myVm1**, enter the following command from a command prompt on the **myVm1**:
 
     ```
     mstsc /v:10.1.0.4
