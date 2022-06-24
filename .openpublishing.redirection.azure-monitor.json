@@ -147,6 +147,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/azure-monitor/app/java-on-premises.md",
+            "redirect_url": "/azure/azure-monitor/app/java-in-process-agent",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/azure-monitor/app/change-analysis-troubleshoot.md",
             "redirect_url": "/azure/azure-monitor/change/change-analysis-troubleshoot",
             "redirect_document_id": false
@@ -174,6 +179,21 @@
         {
             "source_path_from_root": "/articles/azure-monitor/logs/data-ingestion-from-file.md",
             "redirect_url": "/azure/azure-monitor/agents/data-sources-custom-logs",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/visualize/workbooks-access-control.md",
+            "redirect_url": "/azure/azure-monitor/visualize/workbooks-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/visualize/workbooks-add-text.md",
+            "redirect_url": "/azure/azure-monitor/visualize/workbooks-add-workbook-elements",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/visualize/workbooks-combine-data.md",
+            "redirect_url": "/azure/azure-monitor/visualize/workbooks-data-sources",
             "redirect_document_id": false
         },
         {
