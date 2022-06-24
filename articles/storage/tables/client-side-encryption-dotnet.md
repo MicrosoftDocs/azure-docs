@@ -1,7 +1,7 @@
 ---
-title: Client-side encryption for blobs with .NET
+title: Client-side encryption for tables with .NET
 titleSuffix: Azure Storage
-description: The Blob Storage client library for .NET supports client-side encryption and integration with Azure Key Vault for maximum security for your Azure Storage applications.
+description: The Table Storage client library for .NET supports client-side encryption and integration with Azure Key Vault for maximum security for your Azure Storage applications.
 services: storage
 author: tamram
 
@@ -14,7 +14,7 @@ ms.subservice: common
 ms.custom: devx-track-csharp
 ---
 
-# Client-Side Encryption and Azure Key Vault for Microsoft Azure Storage
+# Client-side encryption for tables with .NET
 
 [!INCLUDE [storage-selector-client-side-encryption-include](../../../includes/storage-selector-client-side-encryption-include.md)]
 

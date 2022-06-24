@@ -417,7 +417,7 @@ items:
         - name: Configure client-side encryption
           items:
           - name: .NET
-            href: ../common/storage-client-side-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            href: client-side-encryption-dotnet.md
           - name: Java
             href: ../common/storage-client-side-encryption-java.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
           - name: Python
