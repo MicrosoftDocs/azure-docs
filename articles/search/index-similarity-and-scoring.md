@@ -1,5 +1,5 @@
 ---
-title: Similarity and scoring
+title: Relevance and scoring
 titleSuffix: Azure Cognitive Search
 description: Explains the concepts of similarity and scoring in Azure Cognitive Search, and what a developer can do to customize the scoring result.
 
@@ -10,7 +10,7 @@ ms.topic: conceptual
 ms.date: 06/22/2022
 ---
 
-# Similarity and scoring in Azure Cognitive Search
+# Relevance and scoring in Azure Cognitive Search
 
 This article describes relevance scoring and the similarity ranking algorithms used to compute search scores in Azure Cognitive Search. A relevance score applies to matches returned in [full text search](search-lucene-query-architecture.md), where the most relevant matches appear first. Filter queries, autocomplete and suggested queries, wildcard search or fuzzy search queries are not scored or ranked for relevance.
 
