@@ -1,6 +1,5 @@
 ---
-title: Using web browsers (MSAL.NET) | Azure
-titleSuffix: Microsoft identity platform
+title: Using web browsers (MSAL.NET)
 description: Learn about specific considerations when using Xamarin Android with the Microsoft Authentication Library for .NET (MSAL.NET).
 services: active-directory
 author: mmacy

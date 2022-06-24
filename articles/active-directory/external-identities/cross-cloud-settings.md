@@ -34,6 +34,9 @@ To set up B2B collaboration between partner organizations in different Microsoft
 
 After each organization has completed these steps, Azure AD B2B collaboration between the organizations is enabled.
 
+> [!NOTE]
+> B2B direct connect is not supported for collaboration with Azure AD tenants in a different Microsoft cloud.
+
 ## Before you begin
 
 - **Obtain the partner's tenant ID.** To enable B2B collaboration with a partner's Azure AD organization in another Microsoft Azure cloud, you'll need the partner's tenant ID. Using an organization's domain name for lookup isn't available in cross-cloud scenarios.

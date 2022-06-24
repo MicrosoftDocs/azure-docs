@@ -11,15 +11,22 @@ ms.topic: how-to
 ms.date: 05/08/2022
 ms.author: eur
 ms.custom: ignite-fall-2021
+zone_pivot_groups: speech-studio-cli-rest
+show_latex: true
+no-loc: [$$, '\times', '\over']
 ---
 
 # Test accuracy of a Custom Speech model
 
-In this article, you learn how to quantitatively measure and improve the accuracy of the Microsoft speech-to-text model or your own custom models. [Audio + human-labeled transcript](how-to-custom-speech-test-and-train.md#audio--human-labeled-transcript-data-for-training-or-testing) data is required to test accuracy, and 30 minutes to 5 hours of representative audio should be provided. 
+In this article, you learn how to quantitatively measure and improve the accuracy of the Microsoft speech-to-text model or your own custom models. [Audio + human-labeled transcript](how-to-custom-speech-test-and-train.md#audio--human-labeled-transcript-data-for-training-or-testing) data is required to test accuracy. You should provide from 30 minutes to 5 hours of representative audio. 
+
+[!INCLUDE [service-pricing-advisory](includes/service-pricing-advisory.md)]
 
 ## Create a test
 
-You can test the accuracy of your custom model by creating a test. A test requires a collection of audio files and their corresponding transcriptions. You can compare a custom model's accuracy a Microsoft speech-to-text base model or another custom model.
+You can test the accuracy of your custom model by creating a test. A test requires a collection of audio files and their corresponding transcriptions. You can compare a custom model's accuracy a Microsoft speech-to-text base model or another custom model. After you [get](#get-test-results) the test results, [evaluate](#evaluate-word-error-rate) the word error rate (WER) compared to speech recognition results.
+
+::: zone pivot="speech-studio"
 
 Follow these steps to create a test:
 
@@ -36,19 +43,355 @@ Follow these steps to create a test:
 1. Enter the test name and description, and then select **Next**.
 1. Review the test details, and then select **Save and close**.
 
-After your test has been successfully created, you can compare the [word error rate (WER)](#evaluate-word-error-rate) and recognition results side by side.
 
-## Side-by-side comparison
+::: zone-end
 
-After the test is complete, as indicated by the status change to *Succeeded*, you'll find a WER number for both models included in your test. Select the test name to view the test details page. This page lists all the utterances in your dataset and the recognition results of the two models, alongside the transcription from the submitted dataset. 
+::: zone pivot="speech-cli"
 
-To inspect the side-by-side comparison, you can toggle various error types, including insertion, deletion, and substitution. By listening to the audio and comparing recognition results in each column, which display the human-labeled transcription and the results for two speech-to-text models, you can decide which model meets your needs and determine where additional training and improvements are required.
+To create a test, use the `spx csr evaluation create` command. Construct the request parameters according to the following instructions:
+
+- Set the `project` parameter to the ID of an existing project. This is recommended so that you can also view the test in Speech Studio. You can run the `spx csr project list` command to get available projects.
+- Set the required `model1` parameter to the ID of a model that you want to test.
+- Set the required `model2` parameter to the ID of another model that you want to test. If you don't want to compare two models, use the same model for both `model1` and `model2`.
+- Set the required `dataset` parameter to the ID of a dataset that you want to use for the test.
+- Set the `language` parameter, otherwise the Speech CLI will set "en-US" by default. This should be the locale of the dataset contents. The locale can't be changed later. The Speech CLI `language` parameter corresponds to the `locale` property in the JSON request and response.
+- Set the required `name` parameter. This is the name that will be displayed in the Speech Studio. The Speech CLI `name` parameter corresponds to the `displayName` property in the JSON request and response.
+
+Here's an example Speech CLI command that creates a test:
+
+```azurecli-interactive
+spx csr evaluation create --project 9f8c4cbb-f9a5-4ec1-8bb0-53cfa9221226 --dataset be378d9d-a9d7-4d4a-820a-e0432e8678c7 --model1 ff43e922-e3e6-4bf0-8473-55c08fd68048 --model2 1aae1070-7972-47e9-a977-87e3b05c457d --name "My Evaluation" --description "My Evaluation Description"
+```
+
+You should receive a response body in the following format:
+
+```json
+{
+  "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/evaluations/8bfe6b05-f093-4ab4-be7d-180374b751ca",
+  "model1": {
+    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/models/ff43e922-e3e6-4bf0-8473-55c08fd68048"
+  },
+  "model2": {
+    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/models/base/1aae1070-7972-47e9-a977-87e3b05c457d"
+  },
+  "dataset": {
+    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/datasets/be378d9d-a9d7-4d4a-820a-e0432e8678c7"
+  },
+  "transcription2": {
+    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/transcriptions/6eaf6a15-6076-466a-83d4-a30dba78ca63"
+  },
+  "transcription1": {
+    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/transcriptions/0c5b1630-fadf-444d-827f-d6da9c0cf0c3"
+  },
+  "project": {
+    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/projects/9f8c4cbb-f9a5-4ec1-8bb0-53cfa9221226"
+  },
+  "links": {
+    "files": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/evaluations/8bfe6b05-f093-4ab4-be7d-180374b751ca/files"
+  },
+  "properties": {
+    "wordErrorRate2": -1.0,
+    "wordErrorRate1": -1.0,
+    "sentenceErrorRate2": -1.0,
+    "sentenceCount2": -1,
+    "wordCount2": -1,
+    "correctWordCount2": -1,
+    "wordSubstitutionCount2": -1,
+    "wordDeletionCount2": -1,
+    "wordInsertionCount2": -1,
+    "sentenceErrorRate1": -1.0,
+    "sentenceCount1": -1,
+    "wordCount1": -1,
+    "correctWordCount1": -1,
+    "wordSubstitutionCount1": -1,
+    "wordDeletionCount1": -1,
+    "wordInsertionCount1": -1
+  },
+  "lastActionDateTime": "2022-05-20T16:42:43Z",
+  "status": "NotStarted",
+  "createdDateTime": "2022-05-20T16:42:43Z",
+  "locale": "en-US",
+  "displayName": "My Evaluation",
+  "description": "My Evaluation Description"
+}
+```
+
+The top-level `self` property in the response body is the evaluation's URI. Use this URI to get details about the project and test results. You also use this URI to update or delete the evaluation.
+
+For Speech CLI help with evaluations, run the following command:
+
+```azurecli-interactive
+spx help csr evaluation
+```
+
+::: zone-end
+
+::: zone pivot="rest-api"
+
+To create a test, use the [CreateEvaluation](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CreateEvaluation) operation of the [Speech-to-text REST API v3.0](rest-speech-to-text.md). Construct the request body according to the following instructions:
+
+- Set the `project` property to the URI of an existing project. This is recommended so that you can also view the test in Speech Studio. You can make a [GetProjects](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetProjects) request to get available projects.
+- Set the `testingKind` property to `Evaluation` within `customProperties`. If you don't specify `Evaluation`, the test is treated as a quality inspection test. Whether the `testingKind` property is set to `Evaluation` or `Inspection`, or not set, you can access the accuracy scores via the API, but not in the Speech Studio.
+- Set the required `model1` property to the URI of a model that you want to test.
+- Set the required `model2` property to the URI of another model that you want to test. If you don't want to compare two models, use the same model for both `model1` and `model2`.
+- Set the required `dataset` property to the URI of a dataset that you want to use for the test.
+- Set the required `locale` property. This should be the locale of the dataset contents. The locale can't be changed later.
+- Set the required `displayName` property. This is the name that will be displayed in the Speech Studio.
+
+Make an HTTP POST request using the URI as shown in the following example. Replace `YourSubscriptionKey` with your Speech resource key, replace `YourServiceRegion` with your Speech resource region, and set the request body properties as previously described.
+
+```azurecli-interactive
+curl -v -X POST -H "Ocp-Apim-Subscription-Key: YourSubscriptionKey" -H "Content-Type: application/json" -d '{
+  "model1": {
+    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/models/ff43e922-e3e6-4bf0-8473-55c08fd68048"
+  },
+  "model2": {
+    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/models/base/1aae1070-7972-47e9-a977-87e3b05c457d"
+  },
+  "dataset": {
+    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/datasets/be378d9d-a9d7-4d4a-820a-e0432e8678c7"
+  },
+  "project": {
+    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/projects/9f8c4cbb-f9a5-4ec1-8bb0-53cfa9221226"
+  },
+  "displayName": "My Evaluation",
+  "description": "My Evaluation Description",
+  "customProperties": {
+    "testingKind": "Evaluation"
+  },
+  "locale": "en-US"
+}'  "https://YourServiceRegion.api.cognitive.microsoft.com/speechtotext/v3.0/evaluations"
+```
+
+You should receive a response body in the following format:
+
+```json
+{
+  "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/evaluations/8bfe6b05-f093-4ab4-be7d-180374b751ca",
+  "model1": {
+    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/models/ff43e922-e3e6-4bf0-8473-55c08fd68048"
+  },
+  "model2": {
+    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/models/base/1aae1070-7972-47e9-a977-87e3b05c457d"
+  },
+  "dataset": {
+    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/datasets/be378d9d-a9d7-4d4a-820a-e0432e8678c7"
+  },
+  "transcription2": {
+    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/transcriptions/6eaf6a15-6076-466a-83d4-a30dba78ca63"
+  },
+  "transcription1": {
+    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/transcriptions/0c5b1630-fadf-444d-827f-d6da9c0cf0c3"
+  },
+  "project": {
+    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/projects/9f8c4cbb-f9a5-4ec1-8bb0-53cfa9221226"
+  },
+  "links": {
+    "files": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/evaluations/8bfe6b05-f093-4ab4-be7d-180374b751ca/files"
+  },
+  "properties": {
+    "wordErrorRate2": -1.0,
+    "wordErrorRate1": -1.0,
+    "sentenceErrorRate2": -1.0,
+    "sentenceCount2": -1,
+    "wordCount2": -1,
+    "correctWordCount2": -1,
+    "wordSubstitutionCount2": -1,
+    "wordDeletionCount2": -1,
+    "wordInsertionCount2": -1,
+    "sentenceErrorRate1": -1.0,
+    "sentenceCount1": -1,
+    "wordCount1": -1,
+    "correctWordCount1": -1,
+    "wordSubstitutionCount1": -1,
+    "wordDeletionCount1": -1,
+    "wordInsertionCount1": -1
+  },
+  "lastActionDateTime": "2022-05-20T16:42:43Z",
+  "status": "NotStarted",
+  "createdDateTime": "2022-05-20T16:42:43Z",
+  "locale": "en-US",
+  "displayName": "My Evaluation",
+  "description": "My Evaluation Description",
+  "customProperties": {
+    "testingKind": "Evaluation"
+  }
+}
+```
+
+The top-level `self` property in the response body is the evaluation's URI. Use this URI to [get](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetEvaluation) details about the evaluation's project and test results. You also use this URI to [update](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/UpdateEvaluation) or [delete](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/DeleteEvaluation) the evaluation.
+
+::: zone-end
+
+## Get test results
+
+You should get the test results and [evaluate](#evaluate-word-error-rate) the word error rate (WER) compared to speech recognition results.
+
+::: zone pivot="speech-studio"
+
+Follow these steps to get test results:
+
+1. Sign in to the [Speech Studio](https://aka.ms/speechstudio/customspeech).
+1. Select **Custom Speech** > Your project name > **Test models**.
+1. Select the link by test name.
+1. After the test is complete, as indicated by the status set to *Succeeded*, you should see results that include the WER number for each tested model.
+
+This page lists all the utterances in your dataset and the recognition results, alongside the transcription from the submitted dataset. You can toggle various error types, including insertion, deletion, and substitution. By listening to the audio and comparing recognition results in each column, you can decide which model meets your needs and determine where additional training and improvements are required.
+
+::: zone-end
+
+::: zone pivot="speech-cli"
+
+To get test results, use the `spx csr evaluation status` command. Construct the request parameters according to the following instructions:
+
+- Set the required `evaluation` parameter to the ID of the evaluation that you want to get test results.
+
+Here's an example Speech CLI command that gets test results:
+
+```azurecli-interactive
+spx csr evaluation status --evaluation 8bfe6b05-f093-4ab4-be7d-180374b751ca
+```
+
+The word error rates and more details are returned in the response body.
+
+You should receive a response body in the following format:
+
+```json
+{
+	"self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/evaluations/8bfe6b05-f093-4ab4-be7d-180374b751ca",
+	"model1": {
+		"self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/models/ff43e922-e3e6-4bf0-8473-55c08fd68048"
+	},
+	"model2": {
+		"self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/models/base/1aae1070-7972-47e9-a977-87e3b05c457d"
+	},
+	"dataset": {
+		"self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/datasets/be378d9d-a9d7-4d4a-820a-e0432e8678c7"
+	},
+	"transcription2": {
+		"self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/transcriptions/6eaf6a15-6076-466a-83d4-a30dba78ca63"
+	},
+	"transcription1": {
+		"self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/transcriptions/0c5b1630-fadf-444d-827f-d6da9c0cf0c3"
+	},
+	"project": {
+		"self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/projects/9f8c4cbb-f9a5-4ec1-8bb0-53cfa9221226"
+	},
+	"links": {
+		"files": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/evaluations/8bfe6b05-f093-4ab4-be7d-180374b751ca/files"
+	},
+	"properties": {
+		"wordErrorRate2": 4.62,
+		"wordErrorRate1": 4.6,
+		"sentenceErrorRate2": 66.7,
+		"sentenceCount2": 3,
+		"wordCount2": 173,
+		"correctWordCount2": 166,
+		"wordSubstitutionCount2": 7,
+		"wordDeletionCount2": 0,
+		"wordInsertionCount2": 1,
+		"sentenceErrorRate1": 66.7,
+		"sentenceCount1": 3,
+		"wordCount1": 174,
+		"correctWordCount1": 166,
+		"wordSubstitutionCount1": 7,
+		"wordDeletionCount1": 1,
+		"wordInsertionCount1": 0
+	},
+	"lastActionDateTime": "2022-05-20T16:42:56Z",
+	"status": "Succeeded",
+	"createdDateTime": "2022-05-20T16:42:43Z",
+	"locale": "en-US",
+	"displayName": "My Evaluation",
+	"description": "My Evaluation Description",
+	"customProperties": {
+		"testingKind": "Evaluation"
+	}
+}
+```
+
+For Speech CLI help with evaluations, run the following command:
+
+```azurecli-interactive
+spx help csr evaluation
+```
+
+::: zone-end
+
+::: zone pivot="rest-api"
+
+To get test results, start by using the [GetEvaluation](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetEvaluation) operation of the [Speech-to-text REST API v3.0](rest-speech-to-text.md).
+
+Make an HTTP GET request using the URI as shown in the following example. Replace `YourEvaluationId` with your evaluation ID, replace `YourSubscriptionKey` with your Speech resource key, and replace `YourServiceRegion` with your Speech resource region.
+
+```azurecli-interactive
+curl -v -X GET "https://YourServiceRegion.api.cognitive.microsoft.com/speechtotext/v3.0/evaluations/YourEvaluationId" -H "Ocp-Apim-Subscription-Key: YourSubscriptionKey"
+```
+
+The word error rates and more details are returned in the response body.
+
+You should receive a response body in the following format:
+
+```json
+{
+	"self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/evaluations/8bfe6b05-f093-4ab4-be7d-180374b751ca",
+	"model1": {
+		"self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/models/ff43e922-e3e6-4bf0-8473-55c08fd68048"
+	},
+	"model2": {
+		"self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/models/base/1aae1070-7972-47e9-a977-87e3b05c457d"
+	},
+	"dataset": {
+		"self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/datasets/be378d9d-a9d7-4d4a-820a-e0432e8678c7"
+	},
+	"transcription2": {
+		"self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/transcriptions/6eaf6a15-6076-466a-83d4-a30dba78ca63"
+	},
+	"transcription1": {
+		"self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/transcriptions/0c5b1630-fadf-444d-827f-d6da9c0cf0c3"
+	},
+	"project": {
+		"self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/projects/9f8c4cbb-f9a5-4ec1-8bb0-53cfa9221226"
+	},
+	"links": {
+		"files": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/evaluations/8bfe6b05-f093-4ab4-be7d-180374b751ca/files"
+	},
+	"properties": {
+		"wordErrorRate2": 4.62,
+		"wordErrorRate1": 4.6,
+		"sentenceErrorRate2": 66.7,
+		"sentenceCount2": 3,
+		"wordCount2": 173,
+		"correctWordCount2": 166,
+		"wordSubstitutionCount2": 7,
+		"wordDeletionCount2": 0,
+		"wordInsertionCount2": 1,
+		"sentenceErrorRate1": 66.7,
+		"sentenceCount1": 3,
+		"wordCount1": 174,
+		"correctWordCount1": 166,
+		"wordSubstitutionCount1": 7,
+		"wordDeletionCount1": 1,
+		"wordInsertionCount1": 0
+	},
+	"lastActionDateTime": "2022-05-20T16:42:56Z",
+	"status": "Succeeded",
+	"createdDateTime": "2022-05-20T16:42:43Z",
+	"locale": "en-US",
+	"displayName": "My Evaluation",
+	"description": "My Evaluation Description",
+	"customProperties": {
+		"testingKind": "Evaluation"
+	}
+}
+```
+
+::: zone-end
+
 
 ## Evaluate word error rate
 
-The industry standard for measuring model accuracy is [word error rate (WER)](https://en.wikipedia.org/wiki/Word_error_rate). WER counts the number of incorrect words identified during recognition, divides the sum by the total number of words provided in the human-labeled transcript (shown in the following formula as N), and then multiplies that quotient by 100 to calculate the error rate as a percentage.
-
-![Screenshot showing the WER formula.](./media/custom-speech/custom-speech-wer-formula.png)
+The industry standard for measuring model accuracy is [word error rate (WER)](https://en.wikipedia.org/wiki/Word_error_rate). WER counts the number of incorrect words identified during recognition, and divides the sum by the total number of words provided in the human-labeled transcript (N). 
 
 Incorrectly identified words fall into three categories:
 
@@ -56,9 +399,22 @@ Incorrectly identified words fall into three categories:
 * Deletion (D): Words that are undetected in the hypothesis transcript
 * Substitution (S): Words that were substituted between reference and hypothesis
 
-Here's an example:
+In the Speech Studio, the quotient is multiplied by 100 and shown as a percentage. The Speech CLI and REST API results aren't multiplied by 100.
+
+$$
+WER = {{I+D+S}\over N} \times 100
+$$
+
+Here's an example that shows incorrectly identified words, when compared to the human-labeled transcript:
 
 ![Screenshot showing an example of incorrectly identified words.](./media/custom-speech/custom-speech-dis-words.png)
+
+The speech recognition result erred as follows:
+* Insertion (I): Added the word "a" 
+* Deletion (D): Deleted the word "are"
+* Substitution (S): Substituted the word "Jones" for "John"
+
+The word error rate from the previous example is 60%. 
 
 If you want to replicate WER measurements locally, you can use the sclite tool from the [NIST Scoring Toolkit (SCTK)](https://github.com/usnistgov/SCTK).
 

@@ -1,9 +1,9 @@
 ---
-author: bmansheim
-ms.author: benmansheim
+author: ElazarK
+ms.author: elkrieger
 ms.service: defender-for-cloud
 ms.topic: include
-ms.date: 05/26/2022
+ms.date: 06/19/2022
 ---
 
 ## Enable the plan
@@ -160,7 +160,7 @@ Request body parameters:
     |----------|-------------|
     | logAnalyticsWorkspaceResourceID | **Optional**. Full resource ID of your own Log Analytics workspace.<br>When not provided, the default workspace of the region will be used.<br><br>To get the full resource ID, run the following command to display the list of workspaces in your subscriptions in the default JSON format:<br>```az resource list --resource-type Microsoft.OperationalInsights/workspaces -o json```<br><br>The Log Analytics workspace resource ID has the following syntax:<br>/subscriptions/{your-subscription-id}/resourceGroups/{your-resource-group}/providers/Microsoft.OperationalInsights/workspaces/{your-workspace-name}. <br>Learn more in [Log Analytics workspaces](../../azure-monitor/logs/log-analytics-workspace-overview.md) |
 
-    You can include these settings in a JSON file and specify the JSON file in the `az aks create` and `az aks update` commands with this parameter: `--defender-config<path-to-JSON-file>`. The format of the JSON file must be:
+    You can include these settings in a JSON file and specify the JSON file in the `az aks create` and `az aks update` commands with this parameter: `--defender-config <path-to-JSON-file>`. The format of the JSON file must be:
 
     ```json
     {"logAnalyticsWorkspaceResourceID": "<workspace-id>"}
@@ -171,10 +171,10 @@ Request body parameters:
 1. To verify that the profile was successfully added, run the following command on your machine with the `kubeconfig` file pointed to your cluster:
 
     ```console
-    kubectl get pods -n azuredefender
+    kubectl get pods -n kube-system
     ```
 
-    When the profile is added, you should see a pod called `azuredefender-XXXXX` in `Running` state. It might take a few minutes for pods to be added.
+    When the profile is added, you should see a pods called `azuredefender-XXXXX` in `Running` state. It might take a few minutes for pods to be added.
 
 ### [**Resource Manager**](#tab/aks-deploy-arm)
 

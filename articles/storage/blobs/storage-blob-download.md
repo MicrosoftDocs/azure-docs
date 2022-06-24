@@ -59,7 +59,7 @@ public static async Task DownloadToStream(BlobClient blobClient, string localFil
 The following example downloads a blob to a string. This example assumes that the blob is a text file.  
 
 ```csharp
-public static async Task DownloadToText(BlobClient blobClient, string localFilePath)
+public static async Task DownloadToText(BlobClient blobClient)
 {
     BlobDownloadResult downloadResult = await blobClient.DownloadContentAsync();
     string downloadedData = downloadResult.Content.ToString();

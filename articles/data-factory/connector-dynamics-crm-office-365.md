@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.author: jianleishen
 author: jianleishen
 ms.custom: synapse
-ms.date: 04/12/2022
+ms.date: 06/01/2022
 ---
 # Copy and transform data in Dynamics 365 (Microsoft Dataverse) or Dynamics CRM using Azure Data Factory or Azure Synapse Analytics
 
@@ -68,7 +68,7 @@ To use this connector with Azure AD service-principal authentication, you must s
 
 [!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
-## Create a linked service to Dynamics 365 using UI
+## Create a linked service to Dynamics 365 (Microsoft Dataverse) or Dynamics CRM using UI
 
 Use the following steps to create a linked service to Dynamics 365 in the Azure portal UI.
 
@@ -82,9 +82,11 @@ Use the following steps to create a linked service to Dynamics 365 in the Azure 
 
     :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Screenshot of creating a new linked service with Azure Synapse UI.":::
 
-2. Search for Dynamics and select the Dynamics 365 connector.
+2. Search for Dynamics or Dataverse and select the Dynamics 365 (Microsoft Dataverse) or Dynamics CRM connector.
 
     :::image type="content" source="media/connector-dynamics-crm-office-365/dynamics-crm-office-365-connector.png" alt-text="Screenshot of the Dynamics 365 connector.":::    
+
+    :::image type="content" source="media/connector-dynamics-crm-office-365/dataverse-connector.png" alt-text="Screenshot of the Dataverse connector.":::  
 
 1. Configure the service details, test the connection, and create the new linked service.
 
@@ -504,7 +506,7 @@ If all of your source records map to the same target entity and your source data
 
 ## Mapping data flow properties
 
-When transforming data in mapping data flow, you can read and write to tables from Dynamics. For more information, see the [source transformation](data-flow-source.md) and [sink transformation](data-flow-sink.md) in mapping data flows. You can choose to use a Dynamics dataset or an [inline dataset](data-flow-source.md#inline-datasets) as source and sink type.
+When transforming data in mapping data flow, you can read from and write to tables in Dynamics. For more information, see the [source transformation](data-flow-source.md) and [sink transformation](data-flow-sink.md) in mapping data flows. You can choose to use a Dynamics dataset or an [inline dataset](data-flow-source.md#inline-datasets) as source and sink type.
 
 ### Source transformation
 
@@ -512,33 +514,31 @@ The below table lists the properties supported by Dynamics. You can edit these p
 
 | Name | Description | Required | Allowed values | Data flow script property |
 | ---- | ----------- | -------- | -------------- | ---------------- |
-| Table | If you select Table as input, data flow fetches all the data from the table specified in the dataset. | No | - | tableName |
+| Entity name| The logical name of the entity to retrieve. | Yes when use inline dataset | - |  *(for inline dataset only)*<br>entity |
 | Query |FetchXML is a proprietary query language that is used in Dynamics online and on-premises. See the following example. To learn more, see [Build queries with FetchXML](/previous-versions/dynamicscrm-2016/developers-guide/gg328332(v=crm.8)). | No | String | query |
-| Entity | The logical name of the entity to retrieve. | Yes when use inline mode | - | entity|
 
 > [!Note]
 > If you select **Query** as input type, the column type from tables can not be retrieved. It will be treated as string by default. 
 
 #### Dynamics source script example
 
-When you use Dynamics as source type, the associated data flow script is:
+When you use Dynamics dataset as source type, the associated data flow script is:
 
 ```
-source(
-   output(
-               new_name as string,
-               new_dataflowtestid as string
-         ),
-   store: 'dynamics',
-   format: 'dynamicsformat',
-   baseUrl: $baseUrl,
-   cloudType:'AzurePublic',
-   servicePrincipalId:$servicePrincipalId,
-   servicePrincipalCredential:$servicePrincipalCredential,
-   entity:'new_datalowtest'
-query:' <fetch mapping='logical' count='3 paging-cookie=''><entity name='new_dataflow_crud_test'><attribute name='new_name'/><attribute name='new_releasedate'/></entity></fetch> '
-  ) ~> movies
+source(allowSchemaDrift: true,
+	validateSchema: false,
+	query: '<fetch mapping='logical' count='3 paging-cookie=''><entity name='new_dataflow_crud_test'><attribute name='new_name'/><attribute name='new_releasedate'/></entity></fetch>') ~> DynamicsSource
+```
 
+If you use inline dataset, the associated data flow script is:
+
+```
+source(allowSchemaDrift: true,
+	validateSchema: false,
+	store: 'dynamics',
+	format: 'dynamicsformat',
+	entity: 'Entity1',
+	query: '<fetch mapping='logical' count='3 paging-cookie=''><entity name='new_dataflow_crud_test'><attribute name='new_name'/><attribute name='new_releasedate'/></entity></fetch>') ~> DynamicsSource
 ```
 
 ### Sink transformation
@@ -547,39 +547,41 @@ The below table lists the properties supported by Dynamics sink. You can edit th
 
 | Name | Description | Required | Allowed values | Data flow script property |
 | ---- | ----------- | -------- | -------------- | ---------------- |
-| Entity | The logical name of the entity to retrieve. | Yes when use inline mode | - | entity|
-| Request interval | The interval time between API requests in millisecond. | No  | - | requestInterval|
-| Update method | Specify what operations are allowed on your database destination. The default is to only allow inserts.<br>To update, upsert, or delete rows, an [Alter row transformation](data-flow-alter-row.md) is required to tag rows for those actions. | Yes | `true` or `false` | insertable <br/>updateable<br/>upsertable<br>deletable|
 | Alternate key name | The alternate key name defined on your entity to do an update, upsert or delete.  | No | - | alternateKeyName |
+| Update method | Specify what operations are allowed on your database destination. The default is to only allow inserts.<br>To update, upsert, or delete rows, an [Alter row transformation](data-flow-alter-row.md) is required to tag rows for those actions. | Yes | `true` or `false` | insertable <br/>updateable<br/>upsertable<br>deletable|
+| Entity name| The logical name of the entity to write. | Yes when use inline dataset | - | *(for inline dataset only)*<br>entity|
+
 
 #### Dynamics sink script example
 
-When you use Dynamics as sink type, the associated data flow script is:
+When you use Dynamics dataset as sink type, the associated data flow script is:
 
 ```
-moviesAltered sink(
-        input(new_name as string,
-                            new_id as string,
-                            new_releasedate as string
-                             ),
-         store: 'dynamics',
-              format: 'dynamicsformat',
-              baseUrl: $baseUrl,
-
-              cloudType:'AzurePublic',
-              servicePrincipalId:$servicePrincipalId,
-              servicePrincipalCredential:$servicePrincipalCredential,
-              updateable: true,
-              upsertable: true,
-              insertable: true,
-              deletable:true,
-              alternateKey:'new_testalternatekey',
-              entity:'new_dataflow_crud_test',
-
-requestInterval:1000
-         ) ~> movieDB
+IncomingStream sink(allowSchemaDrift: true,
+    validateSchema: false,
+    deletable:true,
+    insertable:true,
+    updateable:true,
+    upsertable:true,
+    skipDuplicateMapInputs: true,
+    skipDuplicateMapOutputs: true) ~> DynamicsSink
 ```
 
+If you use inline dataset, the associated data flow script is:
+
+```
+IncomingStream sink(allowSchemaDrift: true,
+    validateSchema: false,
+    store: 'dynamics',
+    format: 'dynamicsformat',
+    entity: 'Entity1',
+    deletable: true,
+    insertable: true,
+    updateable: true,
+    upsertable: true,
+    skipDuplicateMapInputs: true,
+    skipDuplicateMapOutputs: true) ~> DynamicsSink
+```
 ## Lookup activity properties
 
 To learn details about the properties, see [Lookup activity](control-flow-lookup-activity.md).

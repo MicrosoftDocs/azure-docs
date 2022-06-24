@@ -5,6 +5,7 @@ ms.topic: conceptual
 ms.date: 05/24/2022
 ms.custom: devx-track-terraform, devx-track-azurecli 
 ms.devlang: azurecli
+ms.reviewer: aul
 ---
 
 # Enable monitoring of a new Azure Kubernetes Service (AKS) cluster

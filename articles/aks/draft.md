@@ -26,7 +26,7 @@ Draft has the following commands to help ease your development on Kubernetes:
 
 - If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 - Install the latest version of the [Azure CLI](/cli/azure/install-azure-cli-windows) and the *aks-preview* extension.
-- If you don't have one already, you need to create an [AKS cluster][deploy-cluster].
+- If you don't have one already, you need to create an [AKS cluster][deploy-cluster] and an Azure Container Registry instance.
 
 ### Install the `aks-preview` Azure CLI extension
 

@@ -75,7 +75,7 @@ az vm host group create \
    --platform-fault-domain-count 2
 ```
 
-Add the `--automatic-placement true` parameter to have your VMs and scale set instances automatically placed on hosts, within a host group. For more information, see [Manual vs. automatic placement ](dedicated-hosts.md#manual-vs-automatic-placement).
+Add the `--automatic-placement true` parameter to have your VMs and scale set instances automatically placed on hosts, within a host group. For more information, see [Manual vs. automatic placement](dedicated-hosts.md#manual-vs-automatic-placement).
 
 
 **Other examples**
@@ -118,7 +118,7 @@ $hostGroup = New-AzHostGroup `
 ```
 
 
-Add the `-SupportAutomaticPlacement true` parameter to have your VMs and scale set instances automatically placed on hosts, within a host group. For more information, see [Manual vs. automatic placement ](dedicated-hosts.md#manual-vs-automatic-placement).
+Add the `-SupportAutomaticPlacement true` parameter to have your VMs and scale set instances automatically placed on hosts, within a host group. For more information, see [Manual vs. automatic placement](dedicated-hosts.md#manual-vs-automatic-placement).
 
 ---
 
@@ -576,10 +576,10 @@ Tags                   : {}
 
 ---
 
-## Deleting hosts 
+## Deleting a host
 
 
-being charged for your dedicated hosts even when no virtual machines are deployed. You should delete any hosts you're currently not using to save costs.
+You're being charged for your dedicated host even when no virtual machines are deployed on the host. You should delete any hosts you're currently not using to save costs.
 
 You can only delete a host when there are no any longer virtual machines using it.
 

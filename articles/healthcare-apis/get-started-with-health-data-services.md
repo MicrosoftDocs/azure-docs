@@ -5,7 +5,7 @@ author: ginalee-dotcom
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
-ms.date: 05/17/2022
+ms.date: 06/06/2022
 ms.author: ranku
 ---
 
@@ -110,4 +110,6 @@ This article described the basic steps to get started using Azure Health Data Se
 
 >[!div class="nextstepaction"]
 >[Frequently asked questions about Azure Health Data Services](healthcare-apis-faqs.md)
+
+FHIR&#174; is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.
 
