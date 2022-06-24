@@ -27,7 +27,7 @@ In this quickstart you'll use the following features to analyze and extract data
 
 * [🆕 **General document**](#general-document-model)—Analyze and extract key-value pairs, selection marks, and entities from documents.
 
-* [**Layout**](#layout-model)—Analyze and extract tables, lines, words, and selection marks like radio buttons and check boxes in forms documents, without the need to train a model.
+* [**Layout**](#layout-model)—Analyze and extract tables, lines, words, and selection marks like radio buttons and check boxes in documents, without the need to train a model.
 
 * [**Prebuilt Invoice**](#prebuilt-model)—Analyze and extract common fields from specific document types using a pre-trained invoice model.
 
