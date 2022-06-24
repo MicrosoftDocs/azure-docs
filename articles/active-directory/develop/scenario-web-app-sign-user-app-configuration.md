@@ -288,7 +288,7 @@ In the code above:
 
 - The `AddMicrosoftIdentityUI` extension method is defined in **Microsoft.Identity.Web.UI**. It provides a default controller to handle sign-in and sign-out.
 
-You can find more details about how Microsoft.Identity.Web enables you to create web apps in <https://aka.ms/ms-id-web/webapp>
+For more information about how Microsoft.Identity.Web enables you to create web apps, see [Web Apps in microsoft-identity-web](https://aka.ms/ms-id-web/webapp).
 
 # [ASP.NET](#tab/aspnet)
 
