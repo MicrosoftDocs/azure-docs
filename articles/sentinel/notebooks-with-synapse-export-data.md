@@ -57,9 +57,9 @@ If your notebook hangs or you want to start over, restart the kernel and rerun t
 
 ## Configure the data to export
 
-The notebook **Azure Synapse - Export Historical Log Data** gives you step-by-step instructions to export a subset of data from your Log Analytics workspace. Currently, data can only be exported from one table at a time.
+Follow the step-by-step instructions in the notebook to export a subset of data from your Log Analytics workspace. Currently, data can only be exported from one table at a time.
 
-To get started, specify the subset of logs you want to export. Use a table name or a specific Kusto Query Language query. Run some exploratory queries in your log analytics workspace to determine which subset of columns or rows you want to export.
+To get started, specify the subset of logs you want to export. Use a table name or a specific query in Kusto Query Language. Run some exploratory queries in your log analytics workspace to determine which subset of columns or rows you want to export.
 
 :::image type="content" source="media/notebooks-with-synapse-export-data/export-notebook-set-table-name.png" alt-text="Screenshot of the cell where you specify the query for a table or subset of data from the table." lightbox="media/notebooks-with-synapse-export-data/export-notebook-set-table-name.png":::
 
