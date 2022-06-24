@@ -8,27 +8,27 @@ ms.service: azure-fluid
 ms.topic: reference
 ---
 
-# Recovering Fluid data
+# Recovering container data
 
 In this scenario, we'll be exploring data recovery. We consider data to be corrupted when container reaches an invalid state where it can't process further user actions. The outcome of corrupted state is container being unexpectedly closed. Often it's transient state, and upon reopening, the container may behave as expected. In a situation where a container fails to load even after multiple retries, we offer APIs and flows you can use to recover your data, as described below.
 
 ## How Fluid Framework and Azure Fluid Relay save state
 
-Fluid framework periodically saves state, called summary, without any explicit backup action initiated by the user. This workflow occurs every one (1) minute if there's no user activity, or sooner if there are more than 1000 pending ops present. Each pending op roughly translates to an individual user action (click, text input etc.) that wasn't summarized yet.
+Fluid framework periodically saves state, called summary, without any explicit backup action initiated by the user. This workflow occurs every one (1) minute if there's no user activity, or sooner if there are more than 1000 pending ops present. Each pending op roughly translates to an individual user action (select, text input etc.) that wasn't summarized yet.
 
-## Azure Client APIs
+## Azure client APIs
 
 We've added following methods to AzureClient that will enable developers to recover data from corrupted containers. 
 
-[`getContainerVersions(id, options)`](https://fluidframework.com/docs/apis/azure-client/azureclient/#azure-client-azureclient-getcontainerversions-Method)
+[`getContainerVersions(ID, options)`](https://fluidframework.com/docs/apis/azure-client/azureclient/#azure-client-azureclient-getcontainerversions-Method)
 
 `getContainerVersions` allows developers to view the previously generated versions of the container.
 
-[copyContainer(id, containerSchema)](https://fluidframework.com/docs/apis/azure-client/azureclient/#azure-client-azureclient-copycontainer-Method)
+[copyContainer(ID, containerSchema)](https://fluidframework.com/docs/apis/azure-client/azureclient/#azure-client-azureclient-copycontainer-Method)
 
 `copyContainer` allows developers to generate a new detached container from a specific version of another container.
 
-## Example Recovery Flow
+## Example recovery flow
 
 ```typescript
 
@@ -65,9 +65,9 @@ async function recoverDoc(
 
 ```
 
-## Key Observations
+## Key observations
 
-### We are creating a new Container
+### We're creating a new Container
 
 We aren't recovering (rolling back) existing container. `copyContainer` will give us new instance, with data being copied from the original container. In this process, old container isn't deleted.
 
