@@ -36,6 +36,38 @@ To manage your ISV app licenses, you need to comply with the following pre-requi
 
 These steps illustrate the high-level process to manage ISV app licenses:
 
+### Step 1: ISV creates a transactable offer in Partner Center
+
+ISV creates an offer in Partner Center and chooses to transact through Microsoft’s commerce system and enable Microsoft to manage the licenses of these visuals. The ISV also defines at least one plan and configures pricing information and availability.
+
+*** Step 2: ISV adds license enforcement to their Power BI visual solution package
+
+ISV creates a Power BI visual solution package for the offer that leverages Power BI runtime license to perform license enforcement as per the plan that the user has access to.
+
+*** Step 3: Customers purchase subscription to ISV products
+
+Customers discover ISV’s offer in AppSource. Customers purchase subscription to the offer from [AppSource](https://appsource.microsoft.com/) and get licenses for the Power BI visual.
+
+*** Step 4: Customers manage subscription
+
+Customers can manage the subscriptions of these visuals and offers in [Microsoft 365 admin center](https://admin.microsoft.com/Adminportal/Home#/subscriptions), just like they normally do for any of their other subscriptions, such as Office or Power BI subscriptions.
+
+*** Step 5: Customers assign licenses
+
+Customers can assign licenses of these Power BI visuals in license pages under the billing node in [Microsoft 365 admin center](https://admin.microsoft.com/Adminportal/Home#/subscriptions). Customers can assign licenses to users or groups. Doing so will enable these users to launch the Power BI visual.
+
+*** Step 6: ISV enforces runtime checks
+
+ISV enforces license check based on the plans that user has access to.
+
+*** Step 7: ISV can view reports
+
+ISVs can view information on:
+- Revenue details and payout information
+- Orders purchased / renewed / cancelled over time and by geography
+- Assigned licenses over time and by geography
+
+<!--- [
 | Step | Details |
 | ------------ | ------------- |
 | ISV creates a transactable offer in Partner Center. | ISV creates an offer in Partner Center and chooses to transact through Microsoft’s commerce system and enable Microsoft to manage the licenses of these visuals. The ISV also defines at least one plan and configures pricing information and availability. |
@@ -45,6 +77,7 @@ These steps illustrate the high-level process to manage ISV app licenses:
 | Customers assign licenses | Customers can assign licenses of these Power BI visuals in license pages under the billing node in [Microsoft 365 admin center](https://admin.microsoft.com/Adminportal/Home#/subscriptions). Customers can assign licenses to users or groups. Doing so will enable these users to launch the Power BI visual. |
 | ISV enforces runtime checks | ISV enforces license check based on the plans that user has access to. |
 | ISV can view reports | ISVs can view information on:<br>- Revenue details and payout information<br>- Orders purchased / renewed / cancelled over time and by geography<br>- Assigned licenses over time and by geography |
+]() --->
 
 ## Offer listing page on AppSource
 
