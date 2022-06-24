@@ -59,7 +59,7 @@ This section applies to applications that use an LDAP directory as its underlyin
 
 Many LDAP directories, such as Active Directory, include a command that outputs a list of users.
 
-1. Identify which of users in that directory are in scope of being users the application. This choice will be dependent upon your application's configuration. For some applications, any user who exists in an LDAP directory is a valid user.  Other applications may require the user to have a particular attribute, or be a member of a group in that directory.
+1. Identify which of the users in that directory are in scope of being users of the application. This choice will be dependent upon your application's configuration. For some applications, any user who exists in an LDAP directory is a valid user.  Other applications may require the user to have a particular attribute or be a member of a group in that directory.
 
 1. Run the command that retrieves that subset of users from your directory. Ensure that the output includes the attributes of users that will be used for matching with Azure AD - such as an employee ID, account name or email address. For example, this command would produce a CSV file in the current directory with the `userPrincipalName` attribute of every person in the directory.
 
