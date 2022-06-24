@@ -32,7 +32,7 @@ Azure Blob storage CSI driver (preview) supports the following features:
 
 ## Before you begin
 
-- The Azure CLI version 2.xx.xx or later. Run `az --version` to find the version, and run `az upgrade` to upgrade the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
+- The Azure CLI version 2.37.0 or later. Run `az --version` to find the version, and run `az upgrade` to upgrade the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
 - Install the aks-preview Azure CLI extension version 0.5.85 or later.
 
 ## Install the Azure CLI aks-preview extension
