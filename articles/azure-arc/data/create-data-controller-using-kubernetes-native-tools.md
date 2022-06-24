@@ -114,7 +114,7 @@ If other people will be using this namespace that are not cluster administrators
    > [!IMPORTANT]
    > Requires Kubernetes permissions for creating service account, role, role binding, cluster role, cluster role binding, and all the RBAC permissiongs being granted to the service account.
 
-Save a copy of [arcdata-deployer.yaml](https://raw.githubusercontent.com/microsoft/azure_arc/main/arc_data_services/arcdata-deployer.yaml), and replace the placeholder `{{NAMESPACE}}` in the file with the namespace created in the previous step, for example: `arc`. Run the following command to create the deployer service account with the edited file.
+Save a copy of [arcdata-deployer.yaml](https://raw.githubusercontent.com/microsoft/azure_arc/release-arc-data/arc_data_services/arcdata-deployer.yaml), and replace the placeholder `{{NAMESPACE}}` in the file with the namespace created in the previous step, for example: `arc`. Run the following command to create the deployer service account with the edited file.
 
 ```console
 kubectl apply --namespace arc -f arcdata-deployer.yaml
@@ -128,10 +128,10 @@ The bootstrapper service handles incoming requests for creating, editing, and de
 Run the following command to create a "bootstrap" job to install the bootstrapper along with related cluster-scope and namespaced objects, such as custom resource definitions (CRDs), the service account and bootstrapper role.
 
 ```console
-kubectl apply --namespace arc -f https://raw.githubusercontent.com/microsoft/azure_arc/main/arc_data_services/deploy/yaml/bootstrap.yaml
+kubectl apply --namespace arc -f https://raw.githubusercontent.com/microsoft/azure_arc/release-arc-data/arc_data_services/deploy/yaml/bootstrap.yaml
 ```
 
-The [unistall.yaml](https://raw.githubusercontent.com/microsoft/azure_arc/main/arc_data_services/deploy/yaml/uninstall.yaml) is for uninstalling the bootstrapper and related Kubernetes objects, except the CRDs.
+The [unistall.yaml](https://raw.githubusercontent.com/microsoft/azure_arc/release-arc-data/arc_data_services/deploy/yaml/uninstall.yaml) is for uninstalling the bootstrapper and related Kubernetes objects, except the CRDs.
 
 Verify that the bootstrapper pod is running using the following command.  You may need to run it a few times until the status changes to `Running`.
 
@@ -192,7 +192,7 @@ Optionally, you can create SSL/TLS certificates for the logs and metrics dashboa
 
 Now you are ready to create the data controller itself.
 
-First, create a copy of the [template file](https://raw.githubusercontent.com/microsoft/azure_arc/main/arc_data_services/deploy/yaml/data-controller.yaml) locally on your computer so that you can modify some of the settings.
+First, create a copy of the [template file](https://raw.githubusercontent.com/microsoft/azure_arc/release-arc-data/arc_data_services/deploy/yaml/data-controller.yaml) locally on your computer so that you can modify some of the settings.
 
 Edit the following as needed:
 

@@ -86,7 +86,7 @@ You'll need to connect and authenticate to a Kubernetes cluster and have an exis
    > [!IMPORTANT]
    > Requires Kubernetes permissions for creating service account, role, role binding, cluster role, cluster role binding, and all the RBAC permissiongs being granted to the service account.
 
-Save a copy of [arcdata-deployer.yaml](https://raw.githubusercontent.com/microsoft/azure_arc/main/arc_data_services/arcdata-deployer.yaml), and replace the placeholder `{{NAMESPACE}}` in the file with the namespace created in the previous step, for example: `arc`. Run the following command to create the deployer service account with the edited file.
+Save a copy of [arcdata-deployer.yaml](https://raw.githubusercontent.com/microsoft/azure_arc/release-arc-data/arc_data_services/arcdata-deployer.yaml), and replace the placeholder `{{NAMESPACE}}` in the file with the namespace created in the previous step, for example: `arc`. Run the following command to create the deployer service account with the edited file.
 
 ```console
 kubectl apply --namespace arc -f arcdata-deployer.yaml
@@ -98,7 +98,7 @@ kubectl apply --namespace arc -f arcdata-deployer.yaml
 The following command creates a job for upgrading the bootstrapper and related Kubernetes objects.
 
 ```console
-kubectl apply --namespace arc -f https://raw.githubusercontent.com/microsoft/azure_arc/main/arc_data_services/upgrade/yaml/bootstrapper-upgrade-job.yaml
+kubectl apply --namespace arc -f https://raw.githubusercontent.com/microsoft/azure_arc/release-arc-data/arc_data_services/upgrade/yaml/bootstrapper-upgrade-job.yaml
 ```
 
 ### Upgrade the data controller
@@ -106,7 +106,7 @@ kubectl apply --namespace arc -f https://raw.githubusercontent.com/microsoft/azu
 The following command patches the image tag to upgrade the data controller.
 
 ```console
-kubectl apply --namespace arc -f https://raw.githubusercontent.com/microsoft/azure_arc/main/arc_data_services/upgrade/yaml/data-controller-upgrade.yaml
+kubectl apply --namespace arc -f https://raw.githubusercontent.com/microsoft/azure_arc/release-arc-data/arc_data_services/upgrade/yaml/data-controller-upgrade.yaml
 ```
 
 
