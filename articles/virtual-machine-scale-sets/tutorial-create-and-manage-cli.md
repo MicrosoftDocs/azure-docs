@@ -12,8 +12,6 @@ ms.custom: mimckitt, devx-track-azurecli
 ---
 # Tutorial: Create and manage a virtual machine scale set with the Azure CLI
 
-**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Uniform scale sets
-
 > [!NOTE]
 > This tutorial uses Uniform Orchestration mode. We recommend using Flexible Orchestration for new workloads. Learn more about this new orchestration mode in our [Flexible virtual machine scale sets overview](flexible-virtual-machine-scale-sets.md).
 
@@ -248,7 +246,7 @@ az vmss scale \
     --new-capacity 3
 ```
 
-If takes a few minutes to update the capacity of your scale set. To see the number of instances you now have in the scale set, use [az vmss show](/cli/azure/vmss) and query on *sku.capacity*:
+It takes a few minutes to update the capacity of your scale set. To see the number of instances you now have in the scale set, use [az vmss show](/cli/azure/vmss) and query on *sku.capacity*:
 
 ```azurecli-interactive
 az vmss show \

@@ -13,9 +13,6 @@ ms.custom: mimckitt, devx-track-azurecli, vmss-flex
 
 # Create virtual machines in a scale set using PowerShell
 
-**Applies to:** :heavy_check_mark: Flexible scale sets
-
-
 This article steps through using PowerShell to create a virtual machine scale set. 
 
 ## Launch Azure Cloud Shell
@@ -104,7 +101,7 @@ The following example shows the creation of a Flexible scale set without a VM pr
     $vmname = "myFlexibleVM"
     ```
 
-1. Do not specify VM Profile parameters like networking or VM SKUs.
+1. Don't specify VM Profile parameters like networking or VM SKUs.
 
     ```azurepowershell-interactive
     $VmssConfigWithoutVmProfile = new-azvmssconfig -location $loc -platformfaultdomain 1 `

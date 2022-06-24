@@ -18,7 +18,7 @@ ms.custom: mimckitt, devx-track-azurecli, vmss-flex
 
 This article steps through using the Azure CLI to create a virtual machine scale set. 
 
-Make sure that you have installed the latest [Azure CLI](/cli/azure/install-az-cli2) and are logged in to an Azure account with [az login](/cli/azure/reference-index).
+Make sure that you've installed the latest [Azure CLI](/cli/azure/install-az-cli2) and are logged in to an Azure account with [az login](/cli/azure/reference-index).
 
 ## Get started with Flexible scale sets
 

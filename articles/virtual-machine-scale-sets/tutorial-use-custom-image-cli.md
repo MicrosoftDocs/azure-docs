@@ -12,8 +12,6 @@ ms.reviewer: mimckitt
 ---
 # Tutorial: Create and use a custom image for virtual machine scale sets with the Azure CLI
 
-**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Uniform scale sets
-
 > [!NOTE]
 > This tutorial uses Uniform Orchestration mode. We recommend using Flexible Orchestration for new workloads. Learn more about this new orchestration mode in our [Flexible virtual machine scale sets overview](flexible-virtual-machine-scale-sets.md).
 
@@ -146,7 +144,7 @@ az sig image-version create \
 ## Create a scale set from the image
 Create a scale set from the specialized image using [`az vmss create`](/cli/azure/vmss#az-vmss-create). 
 
-Create the scale set using [`az vmss create`](/cli/azure/vmss#az-vmss-create) using the --specialized parameter to indicate the the image is a specialized image. 
+Create the scale set using [`az vmss create`](/cli/azure/vmss#az-vmss-create) using the --specialized parameter to indicate the image is a specialized image. 
 
 Use the image definition ID for `--image` to create the scale set instances from the latest version of the image that is available. You can also create the scale set instances from a specific version by supplying the image version ID for `--image`. 
 
