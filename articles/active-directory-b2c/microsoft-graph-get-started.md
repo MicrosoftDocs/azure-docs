@@ -36,7 +36,7 @@ There are two modes of communication you can use when working with the Microsoft
 
 You enable the **Automated** interaction scenario by creating an application registration shown in the following sections.
 
-Azure AD B2C authentication service directly supports OAuth 2.0 client credentials grant flow (**currently in public preview**), but you can't use it to manage to manage your resources via Microsoft Graph API. However, you can set up [client credential flow](../active-directory/develop/v2-oauth2-client-creds-grant-flow.md) using Azure AD and the Microsoft identity platform `/token` endpoint for an application in your Azure AD B2C tenant.
+Azure AD B2C authentication service directly supports OAuth 2.0 client credentials grant flow (**currently in public preview**), but you can't use it to manage your Azure AD B2C resources via Microsoft Graph API. However, you can set up [client credential flow](../active-directory/develop/v2-oauth2-client-creds-grant-flow.md) using Azure AD and the Microsoft identity platform `/token` endpoint for an application in your Azure AD B2C tenant.
 
 ## Register management application
 
