@@ -77,7 +77,7 @@ Form Recognizer offers several prebuilt models to choose from. Each model has it
 
 1. In the **Source** field, select **URL** from the dropdown menu, paste the selected URL, and select the **Fetch** button.
 
-    :::image type="content" source="../media/label-tool/fott-select-url.png" alt-text="{alt-text}":::
+    :::image type="content" source="../media/label-tool/fott-select-url.png" alt-text="Screenshot of source location dropdown menu.":::
 
 1. In the **Form recognizer service endpoint** field, paste the endpoint that you obtained with your Form Recognizer subscription.
 
