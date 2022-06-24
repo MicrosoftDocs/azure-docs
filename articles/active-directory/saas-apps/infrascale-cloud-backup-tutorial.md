@@ -82,18 +82,21 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     
     | **Sign-on URL** |
     |------------|
-    `https://dashboard.avgonlinebackup.com/Account/SingleSignOn`
-    `https://dashboard.infrascale.com/Account/SingleSignOn`
-    `https://dashboard.managedoffsitebackup.net/Account/SingleSignOn`
-    `https://dashboard.sosonlinebackup.com/Account/SingleSignOn`
-    `https://dashboard.trustboxbackup.com/Account/SingleSignOn`
-    `https://radialpoint-dashboard.managedoffsitebackup.net/Account/SingleSignOn`
-    `https://dashboard-cw.infrascale.com/Account/SingleSignOn`
-    `https://dashboard.digicelcloudbackup.com/Account/SingleSignOn`
-    `https://dashboard-cw.sosonlinebackup.com/Account/SingleSignOn`
-    `https://dashboard.my-data.dk/Account/SingleSignOn` `https://dashboard.beesafe.nu/Account/SingleSignOn` `https://dashboard.bekcloud.com/Account/SingleSignOn` `https://dashboard.alltimesecure.com/Account/SingleSignOn`
-    `https://dashboard-ec1.sosonlinebackup.com/Account/SingleSignOn`
-    `https://dashboard.glcsecurecloud.com/Account/SingleSignOninfrascalecloudbackup.com/infrascalecloudbackup.com/` |
+    | `https://dashboard.avgonlinebackup.com/Account/SingleSignOn` |
+    | `https://dashboard.infrascale.com/Account/SingleSignOn` |
+    | `https://dashboard.managedoffsitebackup.net/Account/SingleSignOn` |
+    | `https://dashboard.sosonlinebackup.com/Account/SingleSignOn` |
+    |`https://dashboard.trustboxbackup.com/Account/SingleSignOn` |
+    | `https://radialpoint-dashboard.managedoffsitebackup.net/Account/SingleSignOn` |
+    | `https://dashboard-cw.infrascale.com/Account/SingleSignOn` |
+    | `https://dashboard.digicelcloudbackup.com/Account/SingleSignOn` |
+    | `https://dashboard-cw.sosonlinebackup.com/Account/SingleSignOn` |
+    |`https://dashboard.my-data.dk/Account/SingleSignOn` |
+    |`https://dashboard.beesafe.nu/Account/SingleSignOn` |
+    |`https://dashboard.bekcloud.com/Account/SingleSignOn` |
+    | `https://dashboard.alltimesecure.com/Account/SingleSignOn` |
+    | `https://dashboard-ec1.sosonlinebackup.com/Account/SingleSignOn` |
+    | `https://dashboard.glcsecurecloud.com/Account/SingleSignOninfrascalecloudbackup.com/infrascalecloudbackup.com/` |
 
     > [!Note]
     > The Identifier value is not real. Update this value with the actual Identifier URL. Contact [Infrascale Cloud Backup support team](mailto:support@infrascale.com) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
