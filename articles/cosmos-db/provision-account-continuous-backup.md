@@ -39,7 +39,9 @@ Table API and Gremlin API are in preview and can be provisioned with PowerShell 
 
 For powershell and cli commands tier value is optional, if it is not provided – the account backup will be retained for 30 days. The tiers are represented by Continuous7Days or Continuous30Days. 
 
-Before provisioning the account, install the [latest version of Azure PowerShell](/powershell/azure/install-az-ps?view=azps-6.2.1&preserve-view=true) or version higher than 6.2.0. Next connect to your Azure account and select the required subscription with the following commands:
+   * Before provisioning the account, install the [latest version of Azure PowerShell](/powershell/azure/install-az-ps?view=azps-6.2.1&preserve-view=true) or version higher than 6.2.0. 
+   * For provisioning the Continuous7Days - you will need to install the preview version of the module by Install-Module -Name Az.CosmosDB -AllowPrerelease.  
+   * Next connect to your Azure account and select the required subscription with the following commands:
 
 1. Sign into Azure using the following command:
 
@@ -134,6 +136,7 @@ Before provisioning the account, install Azure CLI with the following steps:
 
    * Install the latest version of [Azure CLI](/cli/azure/install-azure-cli) or version higher than 2.26.0
    * If you have already installed CLI, run `az upgrade` command to update to the latest version. This command will only work with CLI version higher than 2.11. If you have an earlier version, use the above link to install the latest version.
+   * For provisioning the Continuous7Days tier - you will need to install the preview version of the extension by az extension update --name cosmosdb-preview 
 
 1. Sign in and select your subscription
 
@@ -225,10 +228,11 @@ You can use Azure Resource Manager templates to deploy an Azure Cosmos DB accoun
           }
         ],
         "backupPolicy": { 
-        "type": "Continuous", 
-        "continuousModeProperties": { 
-            "tier": "Continuous7Days" 
-          } 
+         "type": "Continuous", 
+         "continuousModeProperties": { 
+            "tier": "Continuous7Days" 
+          	} 
+  			} 
         "databaseAccountOfferType": "Standard"
       }
     }
