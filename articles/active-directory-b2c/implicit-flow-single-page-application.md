@@ -1,7 +1,7 @@
 ---
 title: Single-page application sign-in using the OAuth 2.0 implicit flow in Azure Active Directory B2C
 titleSuffix: Azure AD B2C
-description: Learn how to add single-page sign in using the OAuth 2.0 implicit flow with Azure Active Directory B2C.
+description: Learn how to add single-page sign-in using the OAuth 2.0 implicit flow with Azure Active Directory B2C.
 services: active-directory-b2c
 author: kengaderdus
 manager: CelesteDG
@@ -30,7 +30,7 @@ Some frameworks, like [MSAL.js 1.x](https://github.com/AzureAD/microsoft-authent
 
 Azure AD B2C extends the standard OAuth 2.0 implicit flow to more than simple authentication and authorization. Azure AD B2C introduces the [policy parameter](user-flow-overview.md). With the policy parameter, you can use OAuth 2.0 to add policies to your app, such as sign-up, sign-in, and profile management user flows. In the example HTTP requests in this article, we use **{tenant}.onmicrosoft.com** for illustration. Replace `{tenant}` with [the name of your tenant](tenant-management.md#get-your-tenant-name) if you've one. Also, you need to have [created a user flow](tutorial-create-user-flows.md?pivots=b2c-user-flow).
 
-We use the following figure to illustrate implicit sign in flow. Each step is described in detail later in the article.
+We use the following figure to illustrate implicit sign-in flow. Each step is described in detail later in the article.
 
 ![Swimlane-style diagram showing the OpenID Connect implicit flow](./media/implicit-flow-single-page-application/convergence_scenarios_implicit.png)
 
