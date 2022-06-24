@@ -306,7 +306,7 @@ The direct reports rule is constructed using the following syntax:
 Direct Reports for "{objectID_of_manager}"
 ```
 
-Here's an example of a valid rule, were "62e19b97-8b3d-4d4a-a106-4ce66896a863" is the objectID of the manager:
+Here's an example of a valid rule, where "62e19b97-8b3d-4d4a-a106-4ce66896a863" is the objectID of the manager:
 
 ```
 Direct Reports for "62e19b97-8b3d-4d4a-a106-4ce66896a863"
@@ -419,7 +419,7 @@ The following device attributes can be used.
  systemLabels | any string matching the Intune device property for tagging Modern Workplace devices | device.systemLabels -contains "M365Managed"
 
 > [!NOTE]
-> When using deviceOwnership to create Dynamic Groups for devices, you need to set the value equal to "Company". On Intune the device ownership is represented instead as Corporate. For more information, see [OwnerTypes](/intune/reports-ref-devices#ownertypes) for more details. 
+> When using deviceOwnership to create Dynamic Groups for devices, you need to set the value equal to "Company." On Intune the device ownership is represented instead as Corporate. For more information, see [OwnerTypes](/intune/reports-ref-devices#ownertypes) for more details. 
 > When using deviceTrustType to create Dynamic Groups for devices, you need to set the value equal to "AzureAD" to represent Azure AD joined devices, "ServerAD" to represent Hybrid Azure AD joined devices or "Workplace" to represent Azure AD registered devices.
 > When using extensionAttribute1-15 to create Dynamic Groups for devices you need to set the value for extensionAttribute1-15 on the device. Learn more on [how to write extensionAttributes on an Azure AD device object](/graph/api/device-update?view=graph-rest-1.0&tabs=http#example-2--write-extensionattributes-on-a-device&preserve-view=true)
 
