@@ -85,7 +85,7 @@ Next, if the application implements a provisioning protocol, then you should con
 
 1. If your application uses Microsoft Graph to query groups from Azure AD, then [consent](../develop/consent-framework.md) to the applications to have the appropriate permissions to read from your tenant.
 
-1. Set that access to the application is only permitted for users assigned to the application.  This setting will prevent users from inadvertently seeing the application in MyApps, and attempting to sign into the application, prior to Conditional Access policies being enabled.
+1. Set that access to **the application is only permitted for users assigned to the application**.  This setting will prevent users from inadvertently seeing the application in MyApps, and attempting to sign into the application, prior to Conditional Access policies being enabled.
 
 ## Perform an initial access review
 
