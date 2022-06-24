@@ -5,7 +5,7 @@ author: normesta
 ms.subservice: blobs
 ms.service: storage
 ms.topic: conceptual
-ms.date: 06/03/2022
+ms.date: 06/23/2022
 ms.author: normesta
 ms.reviewer: ylunagaria
 
@@ -64,8 +64,12 @@ The following clients are known to be incompatible with SFTP for Azure Blob Stor
 ## Networking
 
 - To access the storage account using SFTP, your network must allow traffic on port 22.
+ 
+- Static IP addresses are not supported for storage accounts.
+  
+- Internet routing is not supported. Use Microsoft network routing.
 
-- There's a 4-minute timeout for idle or inactive connections. OpenSSH will appear to stop responding and then disconnect. Some clients reconnect automatically. 
+- There's a 2 minute timeout for idle or inactive connections. OpenSSH will appear to stop responding and then disconnect. Some clients reconnect automatically.
 
 ## Security
 
@@ -73,8 +77,7 @@ The following clients are known to be incompatible with SFTP for Azure Blob Stor
 
 ## Integrations
 
-- Change feed and Event Grid notifications aren't supported.
-
+- Change feed notifications aren't supported.
 - Network File System (NFS) 3.0 and SFTP can't be enabled on the same storage account.
 
 ## Performance
@@ -86,8 +89,6 @@ For performance issues and considerations, see [SSH File Transfer Protocol (SFTP
 - Special containers such as $logs, $blobchangefeed, $root, $web aren't accessible via the SFTP endpoint. 
 
 - Symbolic links aren't supported.
-
-- `ssh-keyscan` isn't supported.
 
 - SSH and SCP commands that aren't SFTP aren't supported.
 
@@ -108,6 +109,14 @@ For performance issues and considerations, see [SSH File Transfer Protocol (SFTP
   -	The container name is specified in the connection string for local users don't have a home directory.
   
   -	The container name is specified in the connection string for local users that have a home directory that doesn't exist.
+
+- To resolve the `Received disconnect from XX.XXX.XX.XXX port 22:11:` when connecting, check that:
+  
+  - Public network access is `Enabled from all networks` or `Enabled from selected virtual networks and IP addresses`.
+  
+  - The client IP address is allowed by the firewall.
+  
+  - Network Routing is set to `Microsoft network routing`.
 
 ## See also
 

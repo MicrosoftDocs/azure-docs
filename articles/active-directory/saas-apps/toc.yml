@@ -368,7 +368,7 @@
       - name: Carbonite Endpoint Backup
         href: carbonite-endpoint-backup-tutorial.md
       - name: CWT
-        href: carlsonwagonlit-tutorial.md
+        href: cwt-tutorial.md
       - name: Catchpoint
         href: catchpoint-tutorial.md
       - name: CBRE ServiceInsight
@@ -1724,6 +1724,8 @@
         href: predictixordering-tutorial.md
       - name: Predictix Price Reporting
         href: predictixpricereporting-tutorial.md
+      - name: Preset
+        href: preset-tutorial.md
       - name: PressPage
         href: presspage-tutorial.md
       - name: Prezi
@@ -2284,6 +2286,8 @@
         href: traction-guest-tutorial.md
       - name: Tradeshift
         href: tradeshift-tutorial.md
+      - name: Training Platform
+        href: training-platform-tutorial.md
       - name: Trakopolis
         href: trakopolis-tutorial.md
       - name: Trakstar
@@ -2821,8 +2825,6 @@
         href: limblecmms-provisioning-tutorial.md
       - name: LinkedIn Elevate
         href: linkedinelevate-provisioning-tutorial.md
-      - name: LinkedIn Learning
-        href: linkedin-learning-provisioning-tutorial.md
       - name: LinkedIn Sales Navigator
         href: linkedinsalesnavigator-provisioning-tutorial.md
       - name: Lucidchart

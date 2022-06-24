@@ -4,14 +4,14 @@ titlesuffix: Azure Virtual Network
 description: This article shows how to deploy IPv6 addresses to an existing application in Azure virtual network using Azure PowerShell.
 services: virtual-network
 documentationcenter: na
-author: KumudD
+author: asudbring
 manager: mtillman
 ms.service: virtual-network
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/31/2020
-ms.author: kumud 
+ms.author: allensu 
 ms.custom: devx-track-azurepowershell
 ---
 
