@@ -8,7 +8,7 @@ ms.service: virtual-network
 ms.topic: tutorial
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
-ms.date: 06/23/2022
+ms.date: 06/24/2022
 ms.author: mbender
 ms.custom: template-tutorial #Required; leave this attribute/value as-is.
 # Customer intent: I want to connect two virtual networks so that virtual machines in one virtual network can communicate with virtual machines in the other virtual network.
@@ -178,7 +178,7 @@ Test the communication between the two virtual machines over the virtual network
 
 1. You may receive a certificate warning during the sign-in process. Select **Yes** to continue with the connection.
 
-1. In a later step, ping is used to communicate with **myVm1** from the **myVm2**. Ping uses the Internet Control Message Protocol (ICMP), which is denied through the Windows Firewall, by default. On the **myVm1**, enable ICMP through the Windows firewall, so that you can ping this VM from **myVm2** in a later step, using PowerShell:
+1. In a later step, ping is used to communicate with **myVm1** from **myVm2**. Ping uses the Internet Control Message Protocol (ICMP), which is denied through the Windows Firewall, by default. On **myVm1**, enable ICMP through the Windows firewall, so that you can ping this VM from **myVm2** in a later step, using PowerShell:
 
     ```powershell
     New-NetFirewallRule –DisplayName "Allow ICMPv4-In" –Protocol ICMPv4
@@ -186,12 +186,12 @@ Test the communication between the two virtual machines over the virtual network
 
     Though ping is used to communicate between VMs in this tutorial, allowing ICMP through the Windows Firewall for production deployments isn't recommended.
 
-1. To connect to **myVm2** from **myVm1**, enter the following command from a command prompt on the **myVm1**:
+1. To connect to **myVm2** from **myVm1**, enter the following command from a command prompt on **myVm1**:
 
     ```
     mstsc /v:10.1.0.4
     ```
-1. Enter the username and password you specified when creating the **myVm2** and select **Yes** if you receive a certificate warning during the sign-in process.
+1. Enter the username and password you specified when creating **myVm2** and select **Yes** if you receive a certificate warning during the sign-in process.
     
     :::image type="content" source="./media/tutorial-connect-virtual-networks-portal/rdp-credentials-to-second-vm.png" alt-text="Screenshot of R D P credential screen for R D P session from first virtual machine to second virtual machine.":::        
     
