@@ -1,6 +1,6 @@
 ---
-title: Publish applications in Azure Active Directory
-description: Learn how to publish your applications and apply to list them in Azure Active Directory application gallery. 
+title: Submit a request to publish your application
+description: Learn how to publish your application in Azure Active Directory application gallery.
 services: active-directory
 author: eringreenlee
 manager: CelesteDG
@@ -13,7 +13,7 @@ ms.author: ergreenl
 ms.custom: kr2b-contr-experiment
 ---
 
-# Publish your applications and apply to list them in the Azure Active Directory application gallery
+# Submit a request to publish your application in Azure Active Directory application gallery
 
 You can publish applications you develop in the *Azure Active Directory* (Azure AD) application gallery, which is a catalog of thousands of apps. When you publish your applications, they're made publicly available for users to add to their tenants. For more information, see [Overview of the Azure Active Directory application gallery](overview-application-gallery.md).
 
