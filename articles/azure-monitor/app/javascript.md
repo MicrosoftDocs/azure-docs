@@ -136,7 +136,7 @@ appInsights.trackPageView();
 
 By default, the Application Insights JavaScript SDK auto-collects many telemetry items that are helpful in determining the health of your application and the underlying user experience.
 
-This telemtry includes:
+This telemetry includes:
 
 - **Uncaught exceptions** in your app, including information on
     - Stack trace
