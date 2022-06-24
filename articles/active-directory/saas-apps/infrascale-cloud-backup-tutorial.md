@@ -148,7 +148,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ### Create Infrascale Cloud Backup test user
 
-In this section, you create a user called Britta Simon in Infrascale Cloud Backup. Work with [Infrascale Cloud Backup support team](mailto:support@infrascale.com) to add the users in the Infrascale Cloud Backup platfom. Users must be created and activated before you use single sign-on.
+In this section, you create a user called Britta Simon in Infrascale Cloud Backup. Work with [Infrascale Cloud Backup support team](mailto:support@infrascale.com) to add the users in the Infrascale Cloud Backup platform. Users must be created and activated before you use single sign-on.
 
 ## Test SSO 
 
