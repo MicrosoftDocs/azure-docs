@@ -1,5 +1,5 @@
 ---
-title: Login in to Linux virtual machine in Azure using Azure Active Directory and openSSH certificate-based authentication
+title: Login to Linux virtual machine in Azure using Azure Active Directory and openSSH certificate-based authentication
 description: Login with Azure AD using openSSH certificate-based authentication to an Azure VM running Linux
 
 services: active-directory
@@ -108,9 +108,9 @@ Ensure your client meets the following requirements:
 > [!IMPORTANT]
 > SSH clients based on PuTTy do not support openSSH certificates and cannot be used to login with Azure AD openSSH certificate-based authentication.
 
-## Enabling Azure AD login in for Linux VM in Azure
+## Enabling Azure AD login for Linux VM in Azure
 
-To use Azure AD login for Linux VM in Azure, you need to first enable Azure AD login option for your Linux VM, configure Azure role assignments for users who are authorized to login in to the VM and then use SSH client that supports OpensSSH such as Azure CLI or Azure Cloud Shell to SSH to your Linux VM. There are multiple ways you can enable Azure AD login for your Linux VM, as an example you can use:
+To use Azure AD login for Linux VM in Azure, you need to first enable Azure AD login option for your Linux VM, configure Azure role assignments for users who are authorized to login to the VM and then use SSH client that supports OpensSSH such as Azure CLI or Azure Cloud Shell to SSH to your Linux VM. There are multiple ways you can enable Azure AD login for your Linux VM, as an example you can use:
 
 - Azure portal experience when creating a Linux VM
 - Azure Cloud Shell experience when creating a Windows VM or for an existing Linux VM
@@ -238,7 +238,7 @@ az extension show --name ssh
 
 ## Using Conditional Access
 
-You can enforce Conditional Access policies such as require multi-factor authentication, require compliant or hybrid Azure AD joined device for the device running SSH client, and checking for risk before authorizing access to Linux VMs in Azure that are enabled with Azure AD login in. The application that appears in Conditional Access policy is called "Azure Linux VM Sign-In".
+You can enforce Conditional Access policies such as require multi-factor authentication, require compliant or hybrid Azure AD joined device for the device running SSH client, and checking for risk before authorizing access to Linux VMs in Azure that are enabled with Azure AD login. The application that appears in Conditional Access policy is called "Azure Linux VM Sign-In".
 
 > [!NOTE]
 > Conditional Access policy enforcement requiring device compliance or Hybrid Azure AD join on the client device running SSH client only works with Azure CLI running on Windows and macOS. It is not supported when using Azure CLI on Linux or Azure Cloud Shell.
