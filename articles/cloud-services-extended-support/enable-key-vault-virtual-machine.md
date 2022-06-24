@@ -24,7 +24,7 @@ The Key Vault VM extension is now supported on the Azure Cloud Services (extende
 The following procedure will show you how to install the Key Vault VM extension on Azure Cloud Services by first creating a bootstrap certificate in your vault to get a token from Azure Active Directory (Azure AD). That token will help in the authentication of the extension with the vault. After the authentication process is set up and the extension is installed, all the latest certificates will be pulled down automatically at regular polling intervals. 
 
 > [!NOTE]
-> The Key Vault VM extension downloads all the certificates in the Windows certificate store or to the location provided by the `certificateStoreLocation` property in the VM extension settings. Currently, the Key Vault VM extension grants access to the private key of the certificate only to the local system admin account. 
+> The Key Vault VM extension downloads all the certificates in the Windows certificate store to the location provided by the `certificateStoreLocation` property in the VM extension settings. Currently, the Key Vault VM extension grants access to the private key of the certificate only to the local system admin account. 
 
 
 ### Prerequisites 
