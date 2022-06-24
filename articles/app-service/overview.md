@@ -54,8 +54,6 @@ On June 30th 2022 Debian 9 (also known as "Stretch") will reach End-of-Life (EOL
 
 - Python 3.8
 - Python 3.7
-- Node 14
-- Node 16
 - .NET 3.1
 - PHP 7.4
 
