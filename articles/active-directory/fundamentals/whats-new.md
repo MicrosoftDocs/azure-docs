@@ -34,8 +34,6 @@ This page is updated monthly, so revisit it regularly. If you're looking for ite
 ## June 2022
  
 
-[1950865](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=1950865&triage=true&fullScreen=false&_a=edit)
-
 ### Public preview - New provisioning connectors in the Azure AD Application Gallery - June 2022
 
 **Type:** New feature  
@@ -53,7 +51,6 @@ For more information about how to better secure your organization by using autom
 ---
  
 
-[823238](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=823238&triage=true&fullScreen=false&_a=edit)
 
 ### General Availability - Temporary Access Pass is now available
 
@@ -69,7 +66,6 @@ Temporary Access Pass (TAP) is now generally available. TAP can be used to secur
 ---
  
 
-[1396250](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=1396250&triage=true&fullScreen=false&_a=edit)
 
 ### Public Preview of Dynamic Group support for MemberOf
 
@@ -85,7 +81,6 @@ Create "nested" groups with Azure AD Dynamic Groups! This feature enables you to
 ---
  
 
-[1951853](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=1951853&triage=true&fullScreen=false&_a=edit)
 
 ### New Federated Apps available in Azure AD Application gallery - June 2022
 
@@ -111,8 +106,6 @@ For listing your application in the Azure AD app gallery, see the details here h
  
  
 
-[1527465](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=1527465&triage=true&fullScreen=false&_a=edit)
-
 ### Title: GA – Protect against by-passing of cloud Azure AD Multi-Factor Authentication when federated with Azure AD
 
 **Type:** New feature  
@@ -129,7 +122,6 @@ We highly recommend enabling this new protection when using Azure AD Multi-Facto
 ---
  
 
-[1688022](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=1688022&triage=true&fullScreen=false&_a=edit)
 
 ### Public Preview - New Azure AD Portal All Users list and User Profile UI
 
@@ -159,7 +151,6 @@ User Profile:
 ---
  
 
-[1412871](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=1412871&triage=true&fullScreen=false&_a=edit)
 
 ### General availability - More device properties supported for Dynamic Device groups
 
