@@ -220,6 +220,8 @@ items:
         href: delivery-properties.md
     - name: Availability and disaster recovery
       items:
+      - name: Introduction to availability and disaster recovery
+        href: availability-disaster-recovery-introduction.md 
       - name: Resiliency
         href: availability-zone-resiliency.md      
       - name: Geo disaster recovery

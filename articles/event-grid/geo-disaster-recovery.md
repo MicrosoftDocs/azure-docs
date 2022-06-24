@@ -38,7 +38,6 @@ Event Grid’s automatic failover has different RPOs and RTOs for your metadata 
 > - The cost for metadata GeoDR on Event Grid is: $0.
 > - Geo-disaster recovery isn't supported for partner topics. 
 
-
 ## Next steps
 
 If you want to implement your own client-side failover logic, see [# Build your own disaster recovery for custom topics in Event Grid](custom-disaster-recovery.md)
