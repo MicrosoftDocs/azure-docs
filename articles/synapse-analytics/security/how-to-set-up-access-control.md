@@ -187,7 +187,7 @@ Access to SQL pools for other users is controlled by SQL permissions.  Assigning
 1. To grant access to the serverless SQL pool, 'Built-in', scripts can be run by any member of the `workspace1_SQLAdmins` group or the `workspace1_SynapseAdministrators` group.
 
 > [!TIP]
->You can grant access to all SQL databases by taking the following steps for **each** SQL pool. Section [Workspace-scoped permission](#workspace-scoped-permission) is an exception to the rule and it allows you to assign a user a sysadmin role at the workspace level.
+>You can grant access to all SQL databases by taking the following steps for **each** SQL pool. Section [Configure-Workspace-scoped permissions](#workspace-scoped-permission) is an exception to the rule and it allows you to assign a user a sysadmin role at the workspace level.
 
 ### STEP 7.1: Serverless SQL pool, Built-in
 
