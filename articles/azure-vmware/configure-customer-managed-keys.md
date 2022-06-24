@@ -17,7 +17,7 @@ When CMK encryptions are enabled on your Azure VMware Solution private cloud, Az
 When managing your own encryption keys, you can do the following actions:
 
 - Control Azure access to vSAN keys.
-- Centrally manage and lifecycle CMK.
+- Centrally manage the lifecycle of CMKs.
 - Revoke Azure from accessing the KEK.
 
 The Customer-managed keys (CMKs) feature supports the following key types. See the following key types, shown by key type and key size.
