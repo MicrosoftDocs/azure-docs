@@ -54,7 +54,7 @@ Let's take a closer look at how you can take advantage of technologies in the Mi
 
 ## Offload data staging and ETL processing to Data Lake Storage and Data Factory
 
-Digital transformation has created a key challenge for enterprises. A torrent of new data is being generated and captured for analysis, and much of this data finds its way into data warehouses. A good example is transaction data created by opening online transactional processing (OLTP) systems to service access from mobile devices. OLTP systems are the main sources of data to data warehouses. With customers now driving the transaction rate rather than employees, the volume of data in data warehouse staging tables has been growing rapidly.
+Digital transformation has created a key challenge for enterprises by generating a torrent of new data for capture and analysis. Much of this data finds its way into data warehouses. A good example is transaction data created by opening online transactional processing (OLTP) systems to service access from mobile devices. OLTP systems are the main sources of data in data warehouses. With customers now driving the transaction rate rather than employees, the volume of data in data warehouse staging tables has been growing rapidly.
 
 With the rapid influx of data into the enterprise, along with new sources of data like Internet of Things (IoT), companies must find ways to scale up data integration ETL processing. One method is to offload ingestion, data cleansing, transformation, and integration to a data lake and process data at scale there, as part of a data warehouse modernization program.
 
