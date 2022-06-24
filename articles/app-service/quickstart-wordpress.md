@@ -10,21 +10,20 @@ ms.custom: mvc
 ---
 # Create a WordPress site
 
+[WordPress](https://www.wordpress.org) is an open source content management system (CMS) that can be used to create websites, blogs, and other applications. Over 40% of the web uses WordPress from  blogs to major news websites.
+
 In this quickstart, you'll learn how to create and deploy your first [WordPress](https://www.wordpress.org) site to [Azure App Service](overview.md) using [Azure portal](https://portal.azure.com). 
 
-This quickstart configures WordPress in App Service on Linux.  It uses the **Basic** tier and [**incurs a cost**](https://azure.microsoft.com/pricing/details/app-service/linux/) for your Azure subscription.
+This quickstart configures WordPress in [App Service on Linux](https://docs.microsoft.com/azure/app-service/overview#app-service-on-linux).  It uses the **Basic** tier and [**incurs a cost**](https://azure.microsoft.com/pricing/details/app-service/linux/) for your Azure subscription. The WordPress installation comes with pre-installed plugins, [W3TC](https://wordpress.org/plugins/w3-total-cache/) for caching and [Smush](https://wordpress.org/plugins/wp-smushit/) for image compression. The plugins will increase performance by reducing load times.
 
 > [!IMPORTANT]
 > WordPress in App Service on Linux is in preview. [View the announcement](https://techcommunity.microsoft.com/t5/apps-on-azure-blog/the-new-and-better-wordpress-on-app-service/ba-p/3202594).
 >
 > [After November 28, 2022, PHP will only be supported on App Service on Linux.](https://github.com/Azure/app-service-linux-docs/blob/master/Runtime_Support/php_support.md#end-of-life-for-php-74)
 
-### Sign in to Azure portal
-
-Sign in to the Azure portal at https://portal.azure.com.
-
 ## Create WordPress site using Azure portal
 
+1. Sign in to the Azure portal at https://portal.azure.com.
 1. In the Azure portal, click **Create a resource**.
 
      :::image type="content" source="./media/quickstart-wordpress/01-portal-create-resource.png?text=Azure portal create a resource" alt-text="Screenshot of Azure portal create resource":::
@@ -54,7 +53,7 @@ Sign in to the Azure portal at https://portal.azure.com.
     :::image type="content" source="./media/quickstart-wordpress/08-wordpress-create.png?text=WordPress create button" alt-text="Screenshot of WordPress create button":::
 
     > [!NOTE]
-    > App Service creates environment variables and application settings needed for WordPress/PHP configuration. See [Environment variables and app settings in Azure App Service](reference-app-settings.md#wordpress) for more information.
+    > App Service creates environment variables and application settings needed for WordPress/PHP configuration. For more information on customizing environment variables, see the WordPress section in [Environment variables and app settings in Azure App Service](reference-app-settings.md#wordpress).
 
 1. Browse to your site URL and verify the app is running properly. The site may take a few minutes to load. If you receive an error, allow a few more minutes then refresh the browser.
 
