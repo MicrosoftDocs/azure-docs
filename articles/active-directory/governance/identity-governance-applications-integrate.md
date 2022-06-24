@@ -95,7 +95,7 @@ However, if the application already existed in your environment, then it's possi
 
 1. Follow the steps in [Preparing for an access review of users' access to an application](access-reviews-application-preparation.md).
 1. If the application wasn't integrated for provisioning, then once the review is complete, you may need to manually update the application's internal database or directory to remove those users who were denied.
-1. Once the review has been completed and the application access updated, or if no users have access, then continue in the next steps to deploy conditional access and entitlement management policies for the application.
+1. Once the review has been completed and the application access updated, or if no users have access, then continue on to the next steps to deploy conditional access and entitlement management policies for the application.
 
 Now that you have a baseline that ensures existing access has been reviewed, then you can deploy the organization's policies for ongoing access and any new access requests.
 
