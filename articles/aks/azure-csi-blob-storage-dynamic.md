@@ -47,23 +47,46 @@ If you don't have a storage account that supports the NFS v3 protocol, see [Use 
 |--- | **Following parameters are only for NFS protocol** | --- | --- |--- |
 |mountPermissions | Specify mounted folder permissions |The default is `0777`. If set to `0`, driver will not perform `chmod` after mount. | `0777` | No |
 
-## Create a persistent volume claim
+## Create a storage class
 
-A persistent volume claim (PVC) uses the storage class object to dynamically provision an Azure Blob storage container. The following YAML can be used to create a persistent volume claim 100 GB in size with ReadWriteMany access. For more information on access modes, see the [Kubernetes persistent volume][kubernetes-volumes] documentation.
+A storage class is used to define how an Azure Blob storage container is created.
 
-1. Create a file named `azure-blob-nfs-pvc.yaml` and copy in the following YAML. Make sure that the *storageClassName* matches the storage class created in the last step:
+1. Create a file named `azure-blob-nfs-sc.yaml` and copy in the following YAML.
 
     ```yml
-    apiVersion: apps/v1
-    apiVersion: v1
+    apiVersion: storage.k8s.io/v1
+    kind: StorageClass
+    metadata:
+      name: blob-nfs
+    provisioner: blob.csi.azure.com
+    parameters:
+      protocol: nfs
+    volumeBindingMode: Immediate
+    allowVolumeExpansion: true
+    mountOptions:
+      - nconnect=8
+    ```
+
+2. Create the storage class with the `kubectl create` command:
+
+    ```bash
+    kubectl create -f azure-blob-nfs-sc.yaml
+    ```
+
+## Create a persistent volume claim
+
+A persistent volume claim (PVC) uses the storage class object to dynamically provision an Azure Blob storage container. The following YAML can be used to create a persistent volume claim 100 GB in size with *ReadWriteMany* access. For more information on access modes, see the [Kubernetes persistent volume][kubernetes-volumes] documentation.
+
+1. Create a file named `azure-blob-nfs-pvc.yaml` and copy in the following YAML. Make sure that the *storageClassName* matches the storage class created in the previous step:
+
+    ```yml
+    apiVersion: storage.k8s.io/v1
     kind: PersistentVolumeClaim
     - metadata:
-        name: persistent-storage
-        annotations:
-          volume.beta.kubernetes.io/storage-class: blob-nfs
+        name: azure-blob-storage
       spec:
         accessModes: ["ReadWriteMany"]
-        storageClassName: my-blobstorage
+        storageClassName: managed-csi
         resources:
           requests:
             storage: 100Gi
@@ -96,10 +119,6 @@ The following YAML creates a pod that uses the persistent volume claim my-blobst
       containers:
       - name: persistent-storage
         image: mcr.microsoft.com/oss/nginx/nginx:1.17.3-alpine
-        command:
-            - "/bin/sh"
-            - "-c"
-            - while true; do echo $(date) >> /mnt/blob/outfile; sleep 1; done
         volumeMounts:
         - mountPath: "/mnt/blob"
           name: persistent-storage
