@@ -91,7 +91,9 @@ Before you begin to enable customer-managed key (CMK) functionality, ensure the 
     
     To configure the Key Vault access policy with Azure CLI, call [az keyvault set-policy](https://docs.microsoft.com/cli/azure/keyvault#az-keyvault-set-policy) and provide the variable for the principal ID that you previously retrieved for the managed identity.
 
-    `az keyvault set-policy --name $keyVault --resource-group $resourceGroupName --object-id $principalId --key-permissions get unwrapKey wrapKey`
+    ```azurecli-interactive
+    az keyvault set-policy --name $keyVault --resource-group $resourceGroupName --object-id $principalId --key-permissions get unwrapKey wrapKey
+    ```
 
     Learn more about how to [Assign an Azure Key Vault access policy](https://docs.microsoft.com/azure/key-vault/general/assign-access-policy?tabs=azure-portal).
 
