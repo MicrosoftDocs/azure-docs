@@ -37,7 +37,7 @@ Organizations with compliance requirements or risk management plans will have se
 
 ## Define the organization's policy with prerequisites and other constraints for access to the application
 
-In this section, you'll write down the organizational policies you plan to have expressed for the application. You can record this as a table in a spreadsheet, for example
+In this section, you'll write down the organizational policies you plan to use to determine access to the application. You can record this as a table in a spreadsheet, for example
 
 |Role|Prerequisite for access|Approvers|Default duration of access|Separation of duties constraints|Conditional access policies|
 |:--|-|-|-|-|-|

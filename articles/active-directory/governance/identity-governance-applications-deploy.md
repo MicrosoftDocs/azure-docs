@@ -76,7 +76,7 @@ For an application with the properties in the previous list, you should regularl
 
 1. **Ensure approvers and reviewers are kept up to date.** For each access package that you configured in the previous section, ensure the access package assignment policies continue to have the correct approvers and reviewers. Update those policies if the approvers and reviewers that were previously configured are no longer present in the organization, or are in a different role.
 
-1. **Validate that reviewers are making decisions during a review.** Monitor that recurring access reviews for those access packages are completing successfully, to ensure reviewers are participating and making decisions to approve or deny user's continued need for access.
+1. **Validate that reviewers are making decisions during a review.** Monitor that [recurring access reviews for those access packages](entitlement-management-access-package-lifecycle-policy.md) are completing successfully, to ensure reviewers are participating and making decisions to approve or deny user's continued need for access.
 
 1. **Check that provisioning and deprovisioning are working as expected.** If you had previously configured provisioning of users to the application, then when the results of a review are applied, or a user's assignment to an access package expires, Azure AD will begin deprovisioning denied users from the application. You can [monitor the process of deprovisioning users](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md). If provisioning indicates an error with the application, you can [download the provisioning log](../reports-monitoring/concept-provisioning-logs.md) to investigate if there was a problem with the application.
 
