@@ -47,7 +47,7 @@ These events are triggered if you enable a hierarchical namespace on the storage
 
 ### List of the events for SFTP APIs
 
-These events are triggered if you enable a hierarchical namespace on the storage account, and clients use SFTP APIs. For more information about SFTP support for Azure Blob Storage, see [SSH File Transfer Protocol (SFTP) in Azure Blob Storage](secure-file-transfer-protocol-support.md).
+These events are triggered if you enable a hierarchical namespace on the storage account, and clients use SFTP APIs. For more information about SFTP support for Azure Blob Storage, see [SSH File Transfer Protocol (SFTP) in Azure Blob Storage](../storage/blobs/secure-file-transfer-protocol-support.md).
 
 |Event name|Description|
 |----------|-----------|
