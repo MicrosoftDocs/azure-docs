@@ -38,6 +38,8 @@ There's no direct cost for VM insights, but you're charged for its activity in t
 
 The log size varies by the string lengths of performance counters, and it can increase with the number of logical disks and network adapters allocated to the VM. If you're already using Service Map, the only change you'll see is the extra performance data that's sent to the Azure Monitor `InsightsMetrics` data type.​
 
+## Accessing VM insights
+Access VM insights for all your virtual machines and virtual machine scale sets by selecting **Virtual Machines** from the **Monitor** menu in the Azure portal. Access VM insights for a single virtual machine or virtual machine scale set by selecting **Insights** from the machine's menu in the Azure portal.
 
 ## Configuring VM insights
 The steps to configure VM insights are as follows. Follow each link for detailed guidance on each step:

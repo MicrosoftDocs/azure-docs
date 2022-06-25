@@ -4,7 +4,7 @@ description: Learn how to deploy and configure VM insights. Find out the system 
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 06/08/2022
+ms.date: 06/24/2022
 ms.custom: references_regions
 
 ---
@@ -24,8 +24,8 @@ The following table shows the installation methods available for enabling VM ins
 
 | Method | Scope |
 |:---|:---|
-| [Azure portal](vminsights-enable-portal.md) | Enable a machine at a time using user interface. |
-| [Azure Policy](vminsights-enable-policy.md) | Automatically enable when supported machine is created. |
+| [Azure portal](vminsights-enable-portal.md) | Enable individual machines with the Azure portal. |
+| [Azure Policy](vminsights-enable-policy.md) | Create policy to automatically enable when a supported machine is created. |
 | [Resource Manager templates](../vm/vminsights-enable-resource-manager.md) | Enable multiple machines using any of the supported methods to deploy a Resource Manager template such as CLI and PowerShell. |
 | [PowerShell](vminsights-enable-powershell.md) | Use a PowerShell script to enable multiple machines. Log Analytics agent only. |
 | [Manual install](vminsights-enable-hybrid.md) | Virtual machines or physical computers on-premises other cloud environments. Log Analytics agent only |
@@ -34,14 +34,9 @@ The following table shows the installation methods available for enabling VM ins
 ## Supported Azure Arc machines
 VM insights is available for Azure Arc-enabled servers in regions where the Arc extension service is available. You must be running version 0.9 or above of the Arc Agent.
 
-| Connected source | Supported | Description |
-|:--|:--|:--|
-| Windows agents | Yes | Along with the [Azure Monitor agent (preview)](vminsights-azure-monitor-agent.md) or the [Log Analytics agent for Windows](../agents/log-analytics-agent.md), Windows agents need the Dependency agent. For more information, see [supported operating systems](../agents/agents-overview.md#supported-operating-systems). |
-| Linux agents | Yes | Along with the [Azure Monitor agent (preview)](vminsights-azure-monitor-agent.md) or the [Log Analytics agent for Linux](../agents/log-analytics-agent.md), Linux agents need the Dependency agent. For more information, see [supported operating systems](#supported-operating-systems). |
-
 ## Supported operating systems
 
-VM insights supports any operating system that supports the Log Analytics agent and Dependency agent. See [Overview of Azure Monitor agents
+VM insights supports any operating system that supports the Dependency agent and either the Azure Monitor agent (preview) or Log Analytics agent. See [Overview of Azure Monitor agents
 ](../agents/agents-overview.md#supported-operating-systems) for a complete list.
 
 > [!IMPORTANT]
@@ -81,7 +76,7 @@ VM insights requires a Log Analytics workspace. See [Configure Log Analytics wor
 ## Agents
 When you enable VM insights for a machine, the following agents are installed. See [Network requirements](../agents/log-analytics-agent.md#network-requirements) for the network requirements for these agents.
 
-- [Azure Monitor agent](../agents/azure-monitor-agent-overview.md) or [Log Analytics agent](../agents/log-analytics-agent.md). Collects data from the virtual machine or virtual machine scale set and delivers it to the Log Analytics workspace (both agents) and Azure Monitor Metrics (Azure Monitor agent only). VM insights support for Azure Monitor agent is currently in public preview. 
+- [Azure Monitor agent](../agents/azure-monitor-agent-overview.md) or [Log Analytics agent](../agents/log-analytics-agent.md). Collects data from the virtual machine or virtual machine scale set and delivers it to the Log Analytics workspace (both agents) and Azure Monitor Metrics (Azure Monitor agent only). VM insights support for Azure Monitor agent is currently in public preview. See [VM insights with Azure Monitor agent (Preview)](vminsights-azure-monitor-agent.md) for details.
 - Dependency agent. Collects discovered data about processes running on the virtual machine and external process dependencies, which are used by the [Map feature in VM insights](../vm/vminsights-maps.md). The Dependency agent relies on the Azure Monitor agent or Log Analytics agent to deliver its data to Azure Monitor.
 
 
@@ -90,12 +85,12 @@ When you enable VM insights for a machine, the following agents are installed. S
 - See [Network requirements](../agents/log-analytics-agent.md#network-requirements) for the network requirements for the Log Analytics agent.
 - The dependency agent requires a connection from the virtual machine to the address 169.254.169.254. This is the Azure metadata service endpoint. Ensure that firewall settings allow connections to this endpoint.
 
+## Data collection rule (Azure Monitor agent)
+When you enable VM insights on a machine with the Azure Monitor agent you must specify a [data collection rule](../essentials/data-collection-ruleo-overview.m) to use. The DCR specifies the data to collect and the workspace to use. VM insights creates a default DCR if one doesn't already exist. You can edit this DCR to collect additional data such as Windows and Syslog events, or you can create additional DCRs and associate with the machine.
 
-## Management packs
+It's not recommended to create your own DCR to support VM insights. The DCR created by VM insights includes a special data stream required for its operation. If you want to customize the configuration, modify the DCR created by VM insights instead of creating a new one.
 
-> [!NOTE]
-> This applies to the Log Analytics agent only.
-
+## Management packs (Log Analytics agent)
 When a Log Analytics workspace is configured for VM insights, two management packs are forwarded to all the Windows computers connected to that workspace. The management packs are named *Microsoft.IntelligencePacks.ApplicationDependencyMonitor* and *Microsoft.IntelligencePacks.VMInsights* and are written to *%Programfiles%\Microsoft Monitoring Agent\Agent\Health Service State\Management Packs*. 
 
 The data source used by the *ApplicationDependencyMonitor* management pack is **%Program files%\Microsoft Monitoring Agent\Agent\Health Service State\Resources\<AutoGeneratedID>\Microsoft.EnterpriseManagement.Advisor.ApplicationDependencyMonitorDataSource.dll*. The data source used by the *VMInsights* management pack is *%Program files%\Microsoft Monitoring Agent\Agent\Health Service State\Resources\<AutoGeneratedID>\ Microsoft.VirtualMachineMonitoringModule.dll*.

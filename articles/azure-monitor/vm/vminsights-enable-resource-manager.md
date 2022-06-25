@@ -21,14 +21,53 @@ This article describes how to enable VM insights for a virtual machine or virtua
 - See [Supported operating systems](./vminsights-enable-overview.md#supported-operating-systems) to ensure that the operating system of the virtual machine or virtual machine scale set you're enabling is supported. 
 
 ## Resource Manager templates
-
-We have created example Azure Resource Manager templates for onboarding your virtual machines and virtual machine scale sets. These templates include scenarios you can use to enable monitoring on an existing resource and create a new resource that has monitoring enabled.
+Azure Resource Manager templates for onboarding virtual machines and virtual machine scale sets are available for both Azure Monitor agent and Log Analytics agent. If you aren't familiar how to deploy a Resource Manager template, see [Deploy templates](#deploy-templates) for different options.
 
 >[!NOTE]
 >The template needs to be deployed in the same resource group as the virtual machine or virtual machine scale set being enabled.
 
+## Azure Monitor agent
+Download the [Azure Monitor agent templates](https://aka.ms/vminsights/downloadAMADaVmiArmTemplates). You must first install the data collection rule and can then install agents to use that DCR.
 
-The Azure Resource Manager templates are provided in an archive file (.zip) that you can [download](https://aka.ms/VmInsightsARMTemplates) from our GitHub repo. Contents of the file include folders that represent each deployment scenario with a template and parameter file. Before you run them, modify the parameters file and specify the values required. 
+###  Deploy data collection rule
+You only need to perform this step once for each resource. This will install the DCR that's used by each agent. The DCR will be created in the same resource group as the workspace and the name will be in the format "MSVMI-{WorkspaceName}". 
+
+Install the template **DeployDcrTemplate** with the parameter file **DeployDcrParameters** from one of the following folders depending on your requirements:
+
+| Folder | File | Description |
+|:---|:---|
+| DeployDcr\PerfAndMapDcr | DeployDcrTemplate<br>DeployDcrParameters | Enable both Performance and Map experience of VM Insights. |
+| DeployDcr\PerfOnlyDcr | DeployDcrTemplate<br>DeployDcrParameters | Enable only Performance experience of VM Insights. |
+
+
+## Deploy agents to machines
+Once the data collection rule has been created, deploy the agents using one of the templates in the following table. You specify the resource ID of the DCR that you created in the first step in the parameters file.
+
+| Folder | File | Description |
+|:---|:---|
+| ExistingVmOnboarding\PerfAndMapOnboarding | ExistingVmOnboardingTemplate.json<br>ExistingVmOnboardingParameters.json  | Enable both Performance and Map experience for virtual machine. Use with PerfAndMapDcr. |
+| ExistingVmOnboarding\PerfOnlyOnboarding | ExistingVmOnboardingTemplate.json<br>ExistingVmOnboardingParameters.json  | Enable only Performance experience for virtual machine. Use with PerfOnlyDCR. |
+| ExistingVmssOnboarding\PerfAndMapOnboarding | ExistingVmOnboardingTemplate.json<br>ExistingVmssOnboardingParameters.json  | Enable both Performance and Map experience for virtual machine scale set. Use with PerfAndMapDcr. |
+| ExistingVmssOnboarding\PerfOnlyOnboarding | ExistingVmOnboardingTemplate.json<br>ExistingVmssOnboardingParameters.json  | Enable only Performance experience for virtual machine scale set. Use with PerfOnlyDCR. |
+
+
+
+Install either the template **ExistingVmssOnboardingParameters** with the parameter file **DeployDcrParameters** from one of the following folders depending on your requirements:
+
+
+
+Use one of the following templates from either the **ExistingVmOnboarding** or **ExistingVmssOnboarding** folder depending on whether you're enabling a virtual machine or virtual machine scale set:
+
+- **PerfAndMapOnboarding**: Use with **PerfOnlyDcr** to enable both Performance and Map experience of VM Insights.
+- **PerfOnlyOnboarding**: Use with **PerfOnlyDcr** to enable only Performance experience of VM Insights.
+
+> [!NOTE]
+> If Virtual Machines Scale Sets are already present and the upgrade policy is set to manual, AMA VMInsights will not be enabled for instances by default after running **ExistingVmssOnboarding** template. You have Manually upgrade the instances.
+
+## Log Analytics agent
+Download the [Logs Analytics agent templates](https://aka.ms/VmInsightsARMTemplates)
+
+Contents of the file include folders that represent each deployment scenario with a template and parameter file. Before you run them, modify the parameters file and specify the values required. 
 
 The download file contains the following templates for different scenarios:
 
@@ -52,6 +91,29 @@ New-AzResourceGroupDeployment -Name OnboardCluster -ResourceGroupName <ResourceG
 ```azurecli
 az deployment group create --resource-group <ResourceGroupName> --template-file <Template.json> --parameters <Parameters.json>
 ```
+
+## To deploy a resource manager template
+Each folder in the download has a template and a parameters file. Modify the parameters file with required detail details such as Virtual Machine Resource Id, Workspace resource Id, data collection rule resource Id, Location, and OS Type. Do not modify the template file unless you need to customize it for you particular scenario.
+
+### Deploy with the Azure portal
+See  [Quickstart: Create and deploy ARM templates by using the Azure portal](../../azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal.md) for details on deploying a template from the Azure portal.
+
+### Deploy with Powershell
+Use the following command to deploy the template with PowerShell.
+
+```PowerShell
+New-AzResourceGroupDeployment -Name OnboardCluster -ResourceGroupName <ResourceGroupName> -TemplateFile <Template.json> -TemplateParameterFile <Parameters.json>
+```
+
+### Azure CLI
+Use the following command to deploy the template with Azure CLI.
+
+```sh
+az login
+az account set --subscription "Subscription Name"
+az deployment group create --resource-group <ResourceGroupName> --template-file <Template.json> --parameters <Parameters.json>
+```
+
 
 
 
