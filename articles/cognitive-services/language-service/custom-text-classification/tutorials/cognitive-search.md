@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: tutorial
-ms.date: 05/24/2022
+ms.date: 06/03/2022
 ms.author: aahi
 ms.custom: 
 ---
@@ -51,7 +51,7 @@ Typically after you create a project, you go ahead and start [tagging the docume
 
 ## Deploy your model
 
-Generally after training a model you would review it's [evaluation details](../how-to/view-model-evaluation.md) and [make improvements](../how-to/improve-model.md) if necessary. In this quickstart, you will just deploy your model, and make it available for you to try in the Language studio, or you can call the [prediction API](https://aka.ms/ct-runtime-swagger).
+Generally after training a model you would review it's [evaluation details](../how-to/view-model-evaluation.md) and [make improvements](../how-to/improve-model.md) if necessary. In this quickstart, you will just deploy your model, and make it available for you to try in Language Studio, or you can call the [prediction API](https://aka.ms/ct-runtime-swagger).
 
 [!INCLUDE [Deploy a model using Language Studio](../includes/language-studio/deploy-model.md)]
 
@@ -92,7 +92,7 @@ Training could take sometime between 10 and 30 minutes for this sample dataset. 
 
 ## Deploy your model
 
-Generally after training a model you would review it's [evaluation details](../how-to/view-model-evaluation.md) and [make improvements](../how-to/improve-model.md) if necessary. In this quickstart, you will just deploy your model, and make it available for you to try in the Language studio, or you can call the [prediction API](https://aka.ms/ct-runtime-swagger).
+Generally after training a model you would review it's [evaluation details](../how-to/view-model-evaluation.md) and [make improvements](../how-to/improve-model.md) if necessary. In this quickstart, you will just deploy your model, and make it available for you to try in Language Studio, or you can call the [prediction API](https://aka.ms/ct-runtime-swagger).
 
 ### Submit deployment job
 

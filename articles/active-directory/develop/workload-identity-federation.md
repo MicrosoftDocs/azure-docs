@@ -1,6 +1,5 @@
 ---
 title: Workload identity federation 
-titleSuffix: Microsoft identity platform
 description: Use workload identity federation to grant workloads running outside of Azure access to Azure AD protected resources without using secrets or certificates. This eliminates the need for developers to store and maintain long-lived secrets or certificates outside of Azure.
 services: active-directory
 author: rwike77

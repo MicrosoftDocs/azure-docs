@@ -29,6 +29,7 @@ This document provides a list of Advanced Security Information Model (ASIM) pars
 - **Azure Active Directory sign-ins**, collected using the Azure Active Directory connector. Separate parsers are provided for regular, Non-Interactive, Managed Identities and Service Principles Sign-ins.
 - **AWS sign-ins**, collected using the AWS CloudTrail connector.
 - **Okta authentication**, collected using the Okta connector.
+- **PostgreSQL** sign-in logs.
  
 Deploy the parsers from the [Microsoft Sentinel GitHub repository](https://aka.ms/ASimAuthentication).
 
@@ -69,6 +70,7 @@ Microsoft Sentinel provides the following out-of-the-box, product-specific Netwo
 
 | **Source** | **Built-in parsers** | **Workspace deployed parsers** | 
 | --- | --------------------------- | ------------------------------ | 
+| **AppGate SDP** ip connection logs collected using Syslog |`_ASim_NetworkSession_AppGateSDP` (regular)<br> `_Im_NetworkSession_AppGateSDP` (filtering)  | `ASimNetworkSessionAppGateSDP` (regular)<br> `vimNetworkSessionAppGateSDP` (filtering)  |
 | **AWS VPC logs** collected using the AWS S3 connector |`_ASim_NetworkSession_AWSVPC` (regular)<br> `_Im_NetworkSession_AWSVPC` (filtering)  | `ASimNetworkSessionAWSVPC` (regular)<br> `vimNetworkSessionAWSVPC` (filtering)  |
 | **Azure Firewall logs** |`_ASim_NetworkSession_AzureFirewall` (regular)<br> `_Im_NetworkSession_AzureFirewall` (filtering)  | `ASimNetworkSessionAzureFirewall` (regular)<br> `vimNetworkSessionAzureFirewall` (filtering)  |
 | **Azure Monitor VMConnection** collected as part of the Azure Monitor [VM Insights solution](../azure-monitor/vm/vminsights-overview.md) |`_ASim_NetworkSession_VMConnection` (regular)<br> `_Im_NetworkSession_VMConnection` (filtering)  | `ASimNetworkSessionVMConnection` (regular)<br> `vimNetworkSessionVMConnection` (filtering)  |
@@ -112,6 +114,7 @@ Microsoft Sentinel provides the following out-of-the-box, product-specific Web S
 | **Source** | **Built-in parsers** | **Workspace deployed parsers** | 
 | --- | --------------------------- | ------------------------------ | 
 |**Squid Proxy** | `_ASim_WebSession_SquidProxy` (regular) <br> `_Im_WebSession_SquidProxy` (filtering) <br><br>  | `ASimWebSessionSquidProxy` (regular) <br>`vimWebSessionSquidProxy` (filtering) <br><br> |
+| **Vectra AI Streams** |`_ASim_WebSession_VectraAI` (regular)<br> `_Im_WebSession_VectraAI` (filtering)  | `ASimWebSessionVectraAI` (regular)<br> `vimWebSessionVectraAI` (filtering)  |
 | **Zscaler ZIA** |`_ASim_WebSessionZscalerZIA` (regular)<br> `_Im_WebSessionZscalerZIA` (filtering)  | `AsimWebSessionZscalerZIA` (regular)<br> `vimWebSessionSzcalerZIA` (filtering)  |
 
 

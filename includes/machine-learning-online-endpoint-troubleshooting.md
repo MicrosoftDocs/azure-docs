@@ -13,7 +13,7 @@ The Azure Machine Learning workspace can be configured for `v1_legacy_mode`, whi
 > [!IMPORTANT]
 > Check with your network security team before disabling `v1_legacy_mode`. It may have been enabled by your network security team for a reason.
 
-For information on how to disable `v1_legacy_mode`, see [Network isolation with v2](/azure/machine-learning/how-to-configure-network-isolation-with-v2).
+For information on how to disable `v1_legacy_mode`, see [Network isolation with v2](../articles/machine-learning/how-to-configure-network-isolation-with-v2.md).
 
 ### Online endpoint creation with key-based authentication fails
 
@@ -34,7 +34,7 @@ The response for this command is similar to the following JSON document:
 }
 ```
 
-If the value of `bypass` isn't `AzureServices`, use the guidance in the [Configure key vault network settings](/azure/key-vault/general/how-to-azure-key-vault-network-security?tabs=azure-cli) to set it to `AzureServices`.
+If the value of `bypass` isn't `AzureServices`, use the guidance in the [Configure key vault network settings](../articles/key-vault/general/how-to-azure-key-vault-network-security.md?tabs=azure-cli) to set it to `AzureServices`.
 
 ### Online deployments fail with an image download error
 
@@ -68,7 +68,7 @@ If the value of `bypass` isn't `AzureServices`, use the guidance in the [Configu
     ```
 
     The results should contain an entry that is similar to `*.<GUID>.inference.<region>`.
-1. If no inference value is returned, delete the private endpoint for the workspace and then recreate it. For more information, see [How to configure a private endpoint](/machine-learning/how-to-configure-private-link). 
+1. If no inference value is returned, delete the private endpoint for the workspace and then recreate it. For more information, see [How to configure a private endpoint](../articles/container-registry/container-registry-private-link.md). 
 
 ### Online deployments can't be scored
 

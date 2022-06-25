@@ -57,12 +57,14 @@ landingContent:
             url: add-application-portal-configure.md
           - text: Assign users and groups
             url: assign-user-or-group-access-portal.md
-          - text: Configure single sign-on
-            url: plan-sso-deployment.md
           - text: Provision an app
             url: ../governance/what-is-provisioning.md
           - text: Configure My Apps
             url: my-apps-deployment-plan.md
+      - linkListType: learn
+        links:
+          - text: Enable single sign-on
+            url: /learn/modules/enable-single-sign-on/
   - title: Secure an app
     linkLists:
       - linkListType: how-to-guide

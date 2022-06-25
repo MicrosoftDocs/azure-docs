@@ -135,7 +135,7 @@ The output of AI enrichment is either a [fully text-searchable index](search-wha
 
 ### Check content in a knowledge store
 
-In Azure Storage, a [knowledge store](knowledge-store-concept-intro.md) can assume the following forms: a blob container of JSON documents, a blob container of image objects, or tables in Table Storage. You can use [Storage Browser](knowledge-store-view-storage-explorer.md), [Power BI](knowledge-store-connect-power-bi.md), or any app that connects to Azure Storage to access your content.
+In Azure Storage, a [knowledge store](knowledge-store-concept-intro.md) can assume the following forms: a blob container of JSON documents, a blob container of image objects, or tables in Table Storage. You can use [Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md), [Power BI](knowledge-store-connect-power-bi.md), or any app that connects to Azure Storage to access your content.
 
 + A blob container captures enriched documents in their entirety, which is useful if you're creating a feed into other processes. 
 
@@ -159,8 +159,7 @@ To repeat any of the above steps, [reset the indexer](search-howto-reindex.md) b
 
 ## Next steps
 
-+ [Quickstart: Create a text translation and entity skillset](cognitive-search-quickstart-blob.md)
-+ [Quickstart: Create an OCR image skillset](cognitive-search-quickstart-ocr.md)
++ [Quickstart: Create a skillset for AI enrichment](cognitive-search-quickstart-blob.md)
 + [Tutorial: Learn about the AI enrichment REST APIs](cognitive-search-tutorial-blob.md)
 + [Skillset concepts](cognitive-search-working-with-skillsets.md)
 + [Knowledge store concepts](knowledge-store-concept-intro.md)

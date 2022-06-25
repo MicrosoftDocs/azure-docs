@@ -7,7 +7,7 @@ ms.reviewer: dannyevers
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 05/25/2022
+ms.date: 06/03/2022
 ---
 
 # Plan an Azure managed application for an Azure application offer
@@ -48,9 +48,9 @@ Use an Azure Application: Managed application plan when the following conditions
 ### Rules and known issues for AKS and containers in managed applications
 
 - AKS Node Resource Group does not inherit the Deny Assignments as a part of the Azure Managed Application. This means the customer will have full access to the AKS Node Resource Group that is created by the AKS resource when it is included in the managed application while the Managed Resource Group will have the proper Deny Assignments.
- 
+
 - The publisher can include Helm charts and other scripts as part of the Azure Managed Application. However, the offer will be treated like a regular managed application deployment and there will be no automatic container-specific processing or Helm chart installation at deployment time. It is the publisher’s responsibility to execute the relevant scripts, either at deployment time, using the usual techniques such as VM custom script extension or Azure Deployment Scripts, or after deployment.
- 
+
 - Same as with the regular Azure Managed Application, it is the publisher’s responsibility to ensure that the solution deploys successfully and that all components are properly configured, secured, and operational. For example, publishers can use their own container registry as the source of the images but are fully responsible for the container security and ongoing vulnerability scanning.
 
 > [!NOTE]
@@ -134,7 +134,7 @@ You must indicate who can manage a managed application in each of the selected c
 For each principal ID, you will associate one of the Azure AD built-in roles (Owner or Contributor). The role you select describes the permissions the principal will have on the resources in the customer subscription. For more information, see [Azure built-in roles](../role-based-access-control/built-in-roles.md). For more information about role-based access control (RBAC), see [Get started with RBAC in the Azure portal](../role-based-access-control/overview.md).
 
 > [!NOTE]
-> Although you may add up to 100 authorizations per Azure region, it's generally easier to create an Active Directory user group and specify its ID in the "Principal ID." This lets you add more users to the management group after the plan is deployed and reduce the need to update the plan just to add more authorizations.
+> Although you may add up to 100 authorizations per Azure region, we recommend you create an Active Directory user group and specify its ID in the "Principal ID." This lets you add more users to the management group after the plan is deployed and reduces the need to update the plan just to add more authorizations.
 
 ## Policy settings
 

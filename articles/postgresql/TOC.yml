@@ -534,7 +534,7 @@
         href: flexible-server/how-to-connect-query-guide.md
     - name: Database deployment
       items:
-      - name: GitHub actions
+      - name: GitHub Actions
         href: how-to-deploy-github-action.md
       - name: Azure pipelines
         href: flexible-server/azure-pipelines-deploy-database-task.md
@@ -687,6 +687,22 @@
       href: hyperscale/concepts-columnar.md
   - name: How-to guides
     items:
+    - name: Connect and query
+      href: hyperscale/howto-connect.md
+    - name: App stacks
+      items:
+        - name: Overview
+          href: hyperscale/howto-app-stacks-overview.md
+        - name: Python
+          href: hyperscale/howto-app-stacks-python.md
+        - name: Node.js
+          href: hyperscale/howto-app-stacks-nodejs.md
+        - name: C#
+          href: hyperscale/howto-app-stacks-csharp.md
+        - name: Java
+          href: hyperscale/howto-app-stacks-java.md
+        - name: Ruby
+          href: hyperscale/howto-app-stacks-ruby.md
     - name: Build scalable apps
       items:
       - name: Overview

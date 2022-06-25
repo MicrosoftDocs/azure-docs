@@ -170,6 +170,9 @@ The following JSON snippet is an example of an authorization policy that explici
 When writing your authorization policy, keep in mind:
 
 - It requires `$edgeHub` twin schema version 1.2.
+  > [!IMPORTANT]
+  > Once your IoT Edge device is deployed, it currently won't display correctly in the Azure portal with schema version 1.2 (version 1.1 will be fine). This is a known bug and will be fixed soon. However, this won't affect your device, as it's still connected in IoT Hub and can be communicated with at any time using the Azure CLI.
+  :::image type="content" source="./media/how-to-publish-subscribe/unsupported-1.2-schema.png" alt-text="Screenshot of Azure portal error on the IoT Edge device page.":::
 - By default, all operations are denied.
 - Authorization statements are evaluated in the order that they appear in the JSON definition. It starts by looking at `identities` and then selects the first *allow* or *deny* statements that match the request. If there are conflicts between these statements, the *deny* statement wins.
 - Several variables (for example, substitutions) can be used in the authorization policy:
