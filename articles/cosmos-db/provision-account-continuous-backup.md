@@ -236,8 +236,8 @@ You can use Azure Resource Manager templates to deploy an Azure Cosmos DB accoun
         } 
         "databaseAccountOfferType": "Standard"
         }
-   ]
-}
+        ]
+        }
 
 ```
 
