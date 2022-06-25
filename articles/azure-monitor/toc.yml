@@ -1194,7 +1194,7 @@ items:
       href: vm/vminsights-configure-workspace.md
     - name: Azure Monitor agent (Preview)
       href: vm/vminsights-azure-monitor-agent.md
-    - name: Install agents
+    - name: Enable and configure
       items:
       - name: Overview
         href: vm/vminsights-enable-overview.md
