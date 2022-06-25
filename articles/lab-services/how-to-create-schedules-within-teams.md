@@ -19,7 +19,7 @@ Here's how schedules affect lab virtual machines:
 > [!IMPORTANT]
 > The scheduled run time of VMs doesn't count against the quota allotted to a user. The alloted quota is for the time outside of schedule hours that a student spends on VMs.
 
-Users can create, edit, and delete lab schedules within Teams as in the Lab Services web portal: [https://labs.azure.com](https://labs.azure.com). For more information, see [creating and managing schedules](how-to-create-schedules-within-teams.md).
+Users can create, edit, and delete lab schedules within Teams as in the Lab Services web portal: [https://labs.azure.com](https://labs.azure.com). For more information, see [creating and managing schedules](how-to-create-schedules.md).
 
 ## Automatic shutdown and disconnect settings
 

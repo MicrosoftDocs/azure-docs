@@ -1,8 +1,9 @@
 ---
 title: PowerShell script to create resource lock for Azure Cosmos Gremlin API database and graph
 description: Create resource lock for Azure Cosmos Gremlin API database and graph
-author: markjbrown
-ms.author: mjbrown
+author: seesharprun
+ms.author: sidandrews
+ms.reviewer: mjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: sample

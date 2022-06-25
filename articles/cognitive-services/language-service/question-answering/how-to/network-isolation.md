@@ -55,7 +55,7 @@ This will establish a private endpoint connection between language resource and 
 
 Follow the steps below to restrict public access to question answering language resources. Protect a Cognitive Services resource from public access by [configuring the virtual network](../../../cognitive-services-virtual-networks.md?tabs=portal).
 
-After restricting access to Cognitive Service resource based on VNet, To browse knowledge bases on the Language Studio portal from your on-premises network or your local browser.
+After restricting access to Cognitive Service resource based on VNet, To browse knowledge bases on Language Studio from your on-premises network or your local browser.
 - Grant access to [on-premises network](../../../cognitive-services-virtual-networks.md?tabs=portal#configuring-access-from-on-premises-networks).
 - Grant access to your [local browser/machine](../../../cognitive-services-virtual-networks.md?tabs=portal#managing-ip-network-rules).
 - Add the **public IP address of the machine  under the Firewall** section of the **Networking** tab. By default `portal.azure.com` shows the current browsing machine's public IP (select this entry) and then select **Save**.

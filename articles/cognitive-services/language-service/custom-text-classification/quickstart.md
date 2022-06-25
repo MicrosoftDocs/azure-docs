@@ -8,13 +8,13 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: quickstart
-ms.date: 05/06/2022
+ms.date: 06/02/2022
 ms.author: aahi
 ms.custom: language-service-custom-classification, ignite-fall-2021, mode-other
 zone_pivot_groups: usage-custom-language-features
 ---
 
-# Quickstart: Custom text classification (preview)
+# Quickstart: Custom text classification
 
 Use this article to get started with creating a custom text classification project where you can train custom models for text classification. A model is an object that's trained to do a certain task. For this system, the models classify text. Models are trained by learning from tagged data.
 
