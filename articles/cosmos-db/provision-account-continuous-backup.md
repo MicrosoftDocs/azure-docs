@@ -228,16 +228,17 @@ You can use Azure Resource Manager templates to deploy an Azure Cosmos DB accoun
             "locationName": "West US"
           }
         ],
-        "backupPolicy":{ 
-          "type":"Continuous", 
-           "continuousModeProperties":{ 
-           "tier":"Continuous7Days" 
-         	} 
+        "backupPolicy":{
+        "type":"Continuous", 
+        "continuousModeProperties":{
+        "tier":"Continuous7Days"
+        }
         } 
         "databaseAccountOfferType": "Standard"
-      }
-  ]
+        }
+   ]
 }
+
 ```
 
 Next, deploy the template by using Azure PowerShell or CLI. The following example shows how to deploy the template with a CLI command:
