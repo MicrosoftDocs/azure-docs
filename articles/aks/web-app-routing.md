@@ -23,10 +23,9 @@ The Web Application Routing solution makes it easy to access applications that a
 The add-on deploys four components: an [nginx ingress controller][nginx], [Secrets Store CSI Driver][csi-driver], [Open Service Mesh (OSM)][osm], and [External-DNS][external-dns] controller.
 
 - **Nginx ingress Controller**: The ingress controller exposed to the internet.
-- **External-dns**: Watches for Kubernetes Ingress resources and creates DNS A records in the cluster-specific DNS zone.
+- **External-DNS controller**: Watches for Kubernetes Ingress resources and creates DNS A records in the cluster-specific DNS zone.
 - **CSI driver**: Connector used to communicate with keyvault to retrieve SSL certificates for ingress controller.
 - **OSM**: A lightweight, extensible, cloud native service mesh that allows users to uniformly manage, secure, and get out-of-the-box observability features for highly dynamic microservice environments.
-- **External-DNS controller**: Watches for Kubernetes Ingress resources and creates DNS A records in the cluster-specific DNS zone.
 
 ## Prerequisites
 
@@ -129,12 +128,12 @@ The Web Application Routing solution may only be triggered on service resources 
 ```yaml
 annotations:
   kubernetes.azure.com/ingress-host: myapp.contoso.com
-  kubernetes.azure.com/tls-cert-keyvault-uri: myapp-contoso.vault.azure.net
+  kubernetes.azure.com/tls-cert-keyvault-uri: myapp-contoso.vault.azure.net/certificates/keyvault-certificate-name/keyvault-certificate-name-revision
 ```
 
-These annotations in the service manifest would direct Web Application Routing to create an ingress servicing `myapp.contoso.com` connected to the keyvault `myapp-contoso`.
+These annotations in the service manifest would direct Web Application Routing to create an ingress servicing `myapp.contoso.com` connected to the keyvault `myapp-contoso` and will retrieve the `keyvault-certificate-name` with `keyvault-certificate-name-revision`
 
-Create a file named **samples-web-app-routing.yaml** and copy in the following YAML. On line 29-31, update `<MY_HOSTNAME>` with your DNS host name and `<MY_KEYVAULT_URI>` with the vault URI collected in the previous step of this article.
+Create a file named **samples-web-app-routing.yaml** and copy in the following YAML. On line 29-31, update `<MY_HOSTNAME>` with your DNS host name and `<MY_KEYVAULT_URI>` with the full certficicate vault URI.
 
 ```yaml
 apiVersion: apps/v1
@@ -164,9 +163,9 @@ apiVersion: v1
 kind: Service
 metadata:
   name: aks-helloworld
-annotations:
-  kubernetes.azure.com/ingress-host: <MY_HOSTNAME>
-  kubernetes.azure.com/tls-cert-keyvault-uri: <MY_KEYVAULT_URI>
+  annotations:
+    kubernetes.azure.com/ingress-host: <MY_HOSTNAME>
+    kubernetes.azure.com/tls-cert-keyvault-uri: <MY_KEYVAULT_URI>
 spec:
   type: ClusterIP
   ports:

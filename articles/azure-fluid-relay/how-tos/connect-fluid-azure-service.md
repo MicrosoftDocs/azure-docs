@@ -35,8 +35,8 @@ To connect to an Azure Fluid Relay instance you first need to create an `AzureCl
 const config = {
   tenantId: "myTenantId",
   tokenProvider: new InsecureTokenProvider("myTenantKey", { id: "userId" }),
-  orderer: "https://myOrdererUrl",
-  storage: "https://myStorageUrl",
+  endpoint: "https://myServiceEndpointUrl",
+  type: "remote",
 };
 
 const clientProps = {
@@ -50,7 +50,7 @@ Now that you have an instance of `AzureClient`, you can start using it to create
 
 ### Token providers
 
-The [AzureFunctionTokenProvider](https://github.com/microsoft/FluidFramework/blob/main/packages/framework/azure-client/src/AzureFunctionTokenProvider.ts) is an implementation of `ITokenProvider` which ensures your tenant key secret is not exposed in your client-side bundle code. The `AzureFunctionTokenProvider` takes in your Azure Function URL appended by `/api/GetAzureToken` along with the current user object. Later on, it makes a `GET` request to your Azure Function by passing in the tenantId, documentId and userId/userName as optional parameters.
+The [AzureFunctionTokenProvider](https://github.com/microsoft/FluidFramework/blob/main/azure/packages/azure-client/src/AzureFunctionTokenProvider.ts) is an implementation of `ITokenProvider` which ensures your tenant key secret is not exposed in your client-side bundle code. The `AzureFunctionTokenProvider` takes in your Azure Function URL appended by `/api/GetAzureToken` along with the current user object. Later on, it makes a `GET` request to your Azure Function by passing in the tenantId, documentId and userId/userName as optional parameters.
 
 ```javascript
 const config = {
@@ -59,8 +59,8 @@ const config = {
     "myAzureFunctionUrl" + "/api/GetAzureToken",
     { userId: "userId", userName: "Test User" }
   ),
-  orderer: "https://myOrdererUrl",
-  storage: "https://myStorageUrl",
+  endpoint: "https://myServiceEndpointUrl",
+  type: "remote",
 };
 
 const clientProps = {
@@ -86,8 +86,8 @@ const config = {
     "myAzureFunctionUrl" + "/api/GetAzureToken",
     { userId: "UserId", userName: "Test User", additionalDetails: userDetails }
   ),
-  orderer: "https://myOrdererUrl",
-  storage: "https://myStorageUrl",
+  endpoint: "https://myServiceEndpointUrl",
+  type: "remote",
 };
 ```
 

@@ -639,7 +639,7 @@ az aks nodepool add \
 To verify your node pool is FIPS-enabled, use [az aks show][az-aks-show] to check the *enableFIPS* value in *agentPoolProfiles*.
 
 ```azurecli-interactive
-az aks show --resource-group myResourceGroup --cluster-name myAKSCluster --query="agentPoolProfiles[].{Name:name enableFips:enableFips}" -o table
+az aks show --resource-group myResourceGroup --name myAKSCluster --query="agentPoolProfiles[].{Name:name enableFips:enableFips}" -o table
 ```
 
 The following example output shows the *fipsnp* node pool is FIPS-enabled and *nodepool1* isn't.
@@ -665,7 +665,7 @@ aks-nodepool1-12345678-vmss000000   Ready    agent   34m     v1.19.9
 In the above example, the nodes starting with `aks-fipsnp` are part of the FIPS-enabled node pool. Use `kubectl debug` to run a deployment with an interactive session on one of those nodes in the FIPS-enabled node pool.
 
 ```azurecli-interactive
-kubectl debug node/aks-fipsnp-12345678-vmss000000 -it --image=mcr.microsoft.com/aks/fundamental/base-ubuntu:v0.0.11
+kubectl debug node/aks-fipsnp-12345678-vmss000000 -it --image=mcr.microsoft.com/dotnet/runtime-deps:6.0
 ```
 
 From the interactive session, you can verify the FIPS cryptographic libraries are enabled:
@@ -920,7 +920,6 @@ Use [proximity placement groups][reduce-latency-ppg] to reduce latency for your 
 [taints-tolerations]: operator-best-practices-advanced-scheduler.md#provide-dedicated-nodes-using-taints-and-tolerations
 [vm-sizes]: ../virtual-machines/sizes.md
 [use-system-pool]: use-system-pools.md
-[ip-limitations]: ../virtual-network/virtual-network-ip-addresses-overview-arm#standard
 [node-resource-group]: faq.md#why-are-two-resource-groups-created-with-aks
 [vmss-commands]: ../virtual-machine-scale-sets/virtual-machine-scale-sets-networking.md#public-ipv4-per-virtual-machine
 [az-list-ips]: /cli/azure/vmss#az_vmss_list_instance_public_ips

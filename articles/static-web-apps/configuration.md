@@ -142,7 +142,7 @@ Common uses cases for wildcard routes include:
 Routes are secured by adding one or more role names into a rule's `allowedRoles` array. See the [example configuration file](#example-configuration-file) for usage examples.
 
 > [!IMPORTANT]
-> Routing rules can only secure HTTP requests to routes that are served from Static Web Apps. Many front-end frameworks use client-side routing that modifies routes in the browser without issuing requests to Static Web Apps. Routing rules don't secure client-side routes. Clients should call [HTTP APIs](apis.md) to retrieve sensitive data. Ensure APIs validate a [user's identity](user-information.md) before returning data.
+> Routing rules can only secure HTTP requests to routes that are served from Static Web Apps. Many front-end frameworks use client-side routing that modifies routes in the browser without issuing requests to Static Web Apps. Routing rules don't secure client-side routes. Clients should call [HTTP APIs](apis-overview.md) to retrieve sensitive data. Ensure APIs validate a [user's identity](user-information.md) before returning data.
 
 By default, every user belongs to the built-in `anonymous` role, and all logged-in users are members of the `authenticated` role. Optionally, users are associated to custom roles via [invitations](./authentication-authorization.md).
 

@@ -45,16 +45,14 @@ versions of PowerShell listed below.
 | OS | PowerShell Version |
 |-|-|
 |Windows|[PowerShell 7.1.3](https://github.com/PowerShell/PowerShell/releases/tag/v7.1.3)|
-|Ubuntu 18|[PowerShell 7.2.0-preview.6](https://github.com/PowerShell/PowerShell/releases/tag/v7.2.0-preview.6)|
+|Ubuntu 18|[PowerShell 7.2.4](https://github.com/PowerShell/PowerShell/releases/tag/v7.2.4)|
 
 The `GuestConfiguration` module requires the following software:
 
 - Azure PowerShell 5.9.0 or higher. The required Az modules are installed
   automatically with the `GuestConfiguration` module, or you can follow
   [these instructions](/powershell/azure/install-az-ps).
-  - Only the Az modules 'Az.Accounts', 'Az.Resources', and 'Az.Storage' are
-  required.
-- `PSDesiredStateConfiguration` module.
+
 
 ### Install the module from the PowerShell Gallery
 
@@ -71,17 +69,6 @@ Validate that the module has been imported:
 ```powershell
 # Get a list of commands for the imported GuestConfiguration module
 Get-Command -Module 'GuestConfiguration'
-```
-
-## Update and import the PSDesiredStateConfiguration module on Linux
-
-Starting with PowerShell 7.2 Preview 6, DSC is released independently from
-PowerShell as a module in the PowerShell Gallery. To install DSC version 3 in
-your PowerShell environment on Linux, run the command below.
-
-```powershell
-# Install the DSC module before compiling using the Configuration keyword
-Install-Module PSDesiredStateConfiguration -AllowPreRelease -Force
 ```
 
 ## Next steps

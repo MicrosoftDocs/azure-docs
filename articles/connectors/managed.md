@@ -584,7 +584,7 @@ For more information, see these topics:
 [youtube-icon]: ./media/apis-list/youtube.png
 
 <!--Managed connector doc links-->
-[apache-impala-doc]: /connectors/azureimpala/ "Connect to your Impala database to read data from tables"
+[apache-impala-doc]: /connectors/impala/ "Connect to your Impala database to read data from tables"
 [azure-automation-doc]: /connectors/azureautomation/ "Create and manage automation jobs for your cloud and on-premises infrastructure"
 [azure-blob-storage-doc]: ./connectors-create-api-azureblobstorage.md "Manage files in your blob container with Azure blob storage connector"
 [azure-cosmos-db-doc]: ./connectors-create-api-cosmos-db.md "Connect to Azure Cosmos DB so that you can access and manage Azure Cosmos DB documents"

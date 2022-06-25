@@ -868,7 +868,6 @@ The following limitations apply to tags:
    >     * Azure Automation
    >     * Azure Content Delivery Network (CDN)
    >     * Azure DNS (Zone and A records)
-   >     * Azure Private DNS (Zone, A records, and virtual network link)
 
 ## Next steps
 

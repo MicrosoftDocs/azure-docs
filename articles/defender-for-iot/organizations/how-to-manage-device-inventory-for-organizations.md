@@ -214,7 +214,7 @@ The following table describes the device properties shown in the device inventor
 | **Purdue level** | The Purdue level in which the device exists. |
 | **Scanner** | Whether the device performs scanning-like activities in the network. |
 | **Sensor** | The sensor the device is connected to.  |
-| **Site** | The site that contains this device. |
+| **Site** | The site that contains this device. <br><br>All Enterprise IoT sensors are automatically added to the **Enterprise network** site.|
 | **Slots** | The number of slots the device has.  |
 | **Subtype** | The subtype of the device, such as speaker and smart tv. <br>**Default**: `Managed Device` |
 | **Tags** | Tagging data for each device. |

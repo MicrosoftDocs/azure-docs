@@ -4,7 +4,7 @@ description: Learn how to deploy and configure VM insights. Find out the system 
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 12/22/2020
+ms.date: 06/08/2022
 ms.custom: references_regions
 
 ---
