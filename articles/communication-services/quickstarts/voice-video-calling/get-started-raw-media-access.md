@@ -29,6 +29,23 @@ Since the app will be generating the video frames, the app must inform the Azure
 
 The app must register a delegate to get notified about when it should start or stop producing video frames. The delegate event will inform the app which video format is more appropriate for the current network conditions.
 
+### Supported Video Resolutions
+
+| Aspect Ratio | Resolution  | Maximun FPS  |
+| :--: | :-: | :-: |
+| 16x9 | 1080p | 30 |
+| 16x9 | 720p | 30 |
+| 16x9 | 540p | 30 |
+| 16x9 | 480p | 30 |
+| 16x9 | 360p | 30 |
+| 16x9 | 270p | 15 |
+| 16x9 | 240p | 15 |
+| 16x9 | 180p | 15 |
+| 4x3 | VGA | 30 |
+| 4x3 | 424x320 | 15 |
+| 4x3 | QVGA | 15 |
+| 4x3 | 212x160 | 15 |
+
 The following is an overview of the steps required to create a virtual video stream.
 
 1. Create an array of `VideoFormat` with the video formats supported by the app. It is fine to have only one video format supported, but at least one of the provided video formats must be of the `VideoFrameKind::VideoSoftware` type. When multiple formats are provided, the order of the format in the list does not influence or prioritize which one will be used. The selected format is based on external factors like network bandwidth.
@@ -202,6 +219,12 @@ After that, create the ByteBuffer backing the video frame if needed. Then, updat
 Repeat steps `1 to 4` from the previous VirtualRawOutgoingVideoStream tutorial.
 
 Since the Android system generates the frames, you must implement your own foreground service to capture the frames and send them through using our Azure Communication Services Calling API
+
+### Supported Video Resolutions
+
+| Aspect Ratio | Resolution  | Maximun FPS  |
+| :--: | :-: | :-: |
+| Anyone | Anyone | 30 |
 
 The following is an overview of the steps required to create a screen share video stream.
 
