@@ -60,15 +60,16 @@ First, let's create an AKS cluster that supports network policy.
 >
 > The network policy feature can only be enabled when the cluster is created. You can't enable network policy on an existing AKS cluster.
 
-To use Azure Network Policy, you must use the [Azure CNI plug-in][azure-cni] and define your own virtual network and subnets. For more detailed information on how to plan out the required subnet ranges, see [configure advanced networking][use-advanced-networking]. Calico Network Policy could be used with either this same Azure CNI plug-in or with the Kubenet CNI plug-in.
+To use Azure Network Policy, you must use the [Azure CNI plug-in][azure-cni]. Calico Network Policy could be used with either this same Azure CNI plug-in or with the Kubenet CNI plug-in.
 
 The following example script:
 
-* Creates a virtual network and subnet.
-* Creates an AKS cluster in the defined virtual network with system-assigned identity and enables network policy.
+* Creates an AKS cluster with system-assigned identity and enables network policy.
     * The _Azure Network_ policy option is used. To use Calico as the network policy option instead, use the `--network-policy calico` parameter. Note: Calico could be used with either `--network-plugin azure` or `--network-plugin kubenet`.
 
 Note that instead of using a system-assigned identity, you can also use a user-assigned identity. For more information, see [Use managed identities](use-managed-identity.md).
+
+### Create an AKS cluster for Azure network policies
 
 You can replace the *RESOURCE_GROUP_NAME* and *CLUSTER_NAME* variables:
 
@@ -77,31 +78,13 @@ RESOURCE_GROUP_NAME=myResourceGroup-NP
 CLUSTER_NAME=myAKSCluster
 LOCATION=canadaeast
 
-# Create a resource group
-az group create --name $RESOURCE_GROUP_NAME --location $LOCATION
-
-# Create a virtual network and subnet
-az network vnet create \
-    --resource-group $RESOURCE_GROUP_NAME \
-    --name myVnet \
-    --address-prefixes 10.0.0.0/8 \
-    --subnet-name myAKSSubnet \
-    --subnet-prefix 10.240.0.0/16
-
-# Get the virtual network subnet resource ID
-SUBNET_ID=$(az network vnet subnet show --resource-group $RESOURCE_GROUP_NAME --vnet-name myVnet --name myAKSSubnet --query id -o tsv)
-```
-
-### Create an AKS cluster for Azure network policies
-
-Create the AKS cluster and specify the virtual network and *azure* for the network plugin and network policy.
+Create the AKS cluster and specify *azure* for the network plugin and network policy.
 
 ```azurecli
 az aks create \
     --resource-group $RESOURCE_GROUP_NAME \
     --name $CLUSTER_NAME \
     --node-count 1 \
-    --vnet-subnet-id $SUBNET_ID \
     --network-plugin azure \
     --network-policy azure
 ```
@@ -114,7 +97,7 @@ az aks get-credentials --resource-group $RESOURCE_GROUP_NAME --name $CLUSTER_NAM
 
 ### Create an AKS cluster for Calico network policies
 
-Create the AKS cluster and specify the virtual network, *azure* for the network plugin, and *calico* for the network policy. Using *calico* as the network policy enables Calico networking on both Linux and Windows node pools.
+Create the AKS cluster and specify *azure* for the network plugin, and *calico* for the network policy. Using *calico* as the network policy enables Calico networking on both Linux and Windows node pools.
 
 If you plan on adding Windows node pools to your cluster, include the `windows-admin-username` and `windows-admin-password` parameters with that meet the [Windows Server password requirements][windows-server-password]. To use Calico with Windows node pools, you also need to register the `Microsoft.ContainerService/EnableAKSWindowsCalico`.
 
@@ -156,7 +139,6 @@ az aks create \
     --resource-group $RESOURCE_GROUP_NAME \
     --name $CLUSTER_NAME \
     --node-count 1 \
-    --vnet-subnet-id $SUBNET_ID \
     --windows-admin-username $WINDOWS_USERNAME \
     --network-plugin azure \
     --network-policy calico
