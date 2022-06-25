@@ -93,7 +93,7 @@ If you need to publish events to a specific partition within an event hub, set t
 
 | Header name | Header type |
 | :-- | :-- |
-|`PartitionKey` | Static |
+|`PartitionKey` | Static or dynamic |
 
 You can also specify custom properties when sending messages to an event hub. Don't use the `aeg-` prefix for the property name as it's used by system properties in message headers. For a list of message header properties, see [Event Hubs as an event handler](handler-event-hubs.md#message-headers)
 

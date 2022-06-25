@@ -62,7 +62,7 @@ landingContent:
           - text: Create a public IP address
             url: ../../virtual-network/ip-services/create-public-ip-portal.md
           - text: Create a NAT gateway
-            url: ../../virtual-network/nat-gateway/tutorial-create-nat-gateway-portal.md
+            url: ../../virtual-network/nat-gateway/quickstart-create-nat-gateway-portal.md
       - linkListType: learn
         links:
           - text: Design an IP addressing schema for your Azure deployment

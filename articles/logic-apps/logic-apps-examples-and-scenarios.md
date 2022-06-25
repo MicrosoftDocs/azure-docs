@@ -67,7 +67,6 @@ and [switch statements](../logic-apps/logic-apps-control-flow-switch-statement.m
 * [Repeat steps or process items in arrays and collections with loops](../logic-apps/logic-apps-control-flow-loops.md)
 * [Group actions together with scopes](../logic-apps/logic-apps-control-flow-run-steps-group-scopes.md)
 * [Add error and exception handling to a workflow](../logic-apps/logic-apps-exception-handling.md)
-* [Use case: How a healthcare company uses logic app exception handling for HL7 FHIR workflows](../logic-apps/logic-apps-scenario-error-and-exception-handling.md)
 
 ## Create custom APIs and connectors
 

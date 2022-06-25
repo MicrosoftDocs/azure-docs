@@ -23,7 +23,7 @@ You can perform the following tasks in Synapse:
 - Execute pipelines and [push lineage information to Microsoft Purview](../../purview/how-to-lineage-azure-synapse-analytics.md)
 
 ## Prerequisites 
-- [Azure Microsoft Purview account](../../purview/create-catalog-portal.md) 
+- [Microsoft Purview account](../../purview/create-catalog-portal.md) 
 - [Synapse workspace](../quickstart-create-workspace.md) 
 
 ## Permissions for connecting a Microsoft Purview account 

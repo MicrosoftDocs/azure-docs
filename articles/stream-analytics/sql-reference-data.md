@@ -35,7 +35,7 @@ Please see [delta query](sql-reference-data.md#delta-query).
 
    ![When SQL Database is selected, the SQL Database New input page appears. There is a configuration form in the left pane, and a Snapshot query in the right pane.](./media/sql-reference-data/sql-input-config.png)
 
-3. Test the snapshot query in the SQL query editor. For more information, see [Use the Azure portal's SQL query editor to connect and query data](../azure-sql/database/connect-query-portal.md)
+3. Test the snapshot query in the SQL query editor. For more information, see [Use the Azure portal's SQL query editor to connect and query data](/azure/azure-sql/database/connect-query-portal)
 
 ### Specify storage account in Job config
 
@@ -64,7 +64,7 @@ Use the following steps to add Azure SQL Database as a reference input source us
 
 ### Create a SQL Database table
 
-Use SQL Server Management Studio to create a table to store your reference data. See [Design your first Azure SQL Database using SSMS](../azure-sql/database/design-first-database-tutorial.md) for details.
+Use SQL Server Management Studio to create a table to store your reference data. See [Design your first Azure SQL Database using SSMS](/azure/azure-sql/database/design-first-database-tutorial) for details.
 
 The example table used in the following example was created from the following statement:
 
@@ -124,7 +124,7 @@ Before deploying the job to Azure, you can test the query logic locally against 
 
 ## Delta query
 
-When using the delta query, [temporal tables in Azure SQL Database](../azure-sql/temporal-tables.md) are recommended.
+When using the delta query, [temporal tables in Azure SQL Database](/azure/azure-sql/temporal-tables) are recommended.
 
 1. Create a temporal table in Azure SQL Database.
 

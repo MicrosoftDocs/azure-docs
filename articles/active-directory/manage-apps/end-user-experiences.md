@@ -1,17 +1,15 @@
 ---
 title: End-user experiences for applications
-titleSuffix: Azure AD
 description: Azure Active Directory (Azure AD) provides several customizable ways to deploy applications to end users in your organization.
 services: active-directory
-author: davidmu1
+author: lnalepa
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/27/2019
-ms.author: davidmu
-ms.reviewer: lenalepa
+ms.author: lenalepa
 ---
 
 # End-user experiences for applications
@@ -27,7 +25,7 @@ Which method(s) you choose to deploy in your organization is your discretion.
 
 ## Azure AD My Apps
 
-My Apps at <https://myapps.microsoft.com> is a web-based portal that allows an end user with an organizational account in Azure Active Directory to view and launch applications to which they have been granted access by the Azure AD administrator. If you are an end user with [Azure Active Directory Premium](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing), you can also utilize self-service group management capabilities through My Apps.
+[My Apps](https://myapps.microsoft.com) is a web-based portal that allows an end user with an organizational account in Azure Active Directory to view and launch applications to which they have been granted access by the Azure AD administrator. If you are an end user with [Azure Active Directory Premium](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing), you can also utilize self-service group management capabilities through My Apps.
 
 By default, all applications are listed together on a single page. But you can use collections to group together related applications and present them on a separate tab, making them easier to find. For example, you can use collections to create logical groupings of applications for specific job roles, tasks, projects, and so on. For information, see [Create collections on the My Apps portal](access-panel-collections.md).
 

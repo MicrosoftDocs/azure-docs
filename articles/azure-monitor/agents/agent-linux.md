@@ -3,22 +3,19 @@ title: Install Log Analytics agent on Linux computers
 description: This article describes how to connect Linux computers hosted in other clouds or on-premises to Azure Monitor with the Log Analytics agent for Linux.
 ms.topic: conceptual
 ms.date: 03/31/2022
+ms.reviewer: JeffWo
 
 ---
 
 # Install Log Analytics agent on Linux computers
-The Log Analytics agents are on a **deprecation path** and will no longer be supported after **August 31, 2024**. If you use the Log Analytics agents to ingest data to Azure Monitor, make sure to [migrate to the new Azure Monitor agent](./azure-monitor-agent-migration.md) prior to that date.  
-
-
 This article provides details on installing the Log Analytics agent on Linux computers using the following methods:
 
 * [Install the agent for Linux using a wrapper-script](#install-the-agent-using-wrapper-script) hosted on GitHub. This is the recommended method to install and upgrade the agent when the computer has connectivity with the Internet, directly or through a proxy server.
-* [Manually download and install](#install-the-agent-manually) the agent. This is required when the Linux computer does not have access to the Internet and will be communicating with Azure Monitor or Azure Automation through the [Log Analytics gateway](./gateway.md). 
+* [Manually download and install](#install-the-agent-manually) the agent. This is required when the Linux computer doesn't have access to the Internet and will be communicating with Azure Monitor or Azure Automation through the [Log Analytics gateway](./gateway.md). 
 
->[!IMPORTANT]
-> The installation methods described in this article are typically used for virtual machines on-premises or in other clouds. See [Installation options](./log-analytics-agent.md#installation-options) for more efficient options you can use for Azure virtual machines.
+The installation methods described in this article are typically used for virtual machines on-premises or in other clouds. See [Installation options](./log-analytics-agent.md#installation-options) for more efficient options you can use for Azure virtual machines.
 
-
+[!INCLUDE [Log Analytics agent deprecation](../../../includes/log-analytics-agent-deprecation.md)]
 
 ## Supported operating systems
 
@@ -30,14 +27,14 @@ See [Overview of Azure Monitor agents](agents-overview.md#supported-operating-sy
 >[!NOTE]
 >Running the Log Analytics Linux Agent in containers is not supported. If you need to monitor containers, please leverage the [Container Monitoring solution](../containers/containers.md) for Docker hosts or [Container insights](../containers/container-insights-overview.md) for Kubernetes.
 
-Starting with versions released after August 2018, we are making the following changes to our support model:  
+Starting with versions released after August 2018, we're making the following changes to our support model:  
 
 * Only the server versions are supported, not client.  
-* Focus support on any of the [Azure Linux Endorsed distros](../../virtual-machines/linux/endorsed-distros.md). Note that there may be some delay between a new distro/version being Azure Linux Endorsed and it being supported for the Log Analytics Linux agent.
+* Focus support on any of the [Azure Linux Endorsed distros](../../virtual-machines/linux/endorsed-distros.md). There may be some delay between a new distro/version being Azure Linux Endorsed and it being supported for the Log Analytics Linux agent.
 * All minor releases are supported for each major version listed.
-* Versions that have passed their manufacturer's end-of-support date are not supported.
-* Only support VM images; containers, even those derived from official distro publishers' images, are not supported.
-* New versions of AMI are not supported.  
+* Versions that have passed their manufacturer's end-of-support date aren't supported.
+* Only support VM images; containers, even those derived from official distro publishers' images, aren't supported.
+* New versions of AMI aren't supported.  
 * Only versions that run OpenSSL 1.x by default are supported.
 
 >[!NOTE]
@@ -47,13 +44,13 @@ Starting with versions released after August 2018, we are making the following c
 
 Starting from Agent version 1.13.27, the Linux Agent will support both Python 2 and 3. We always recommend using the latest agent. 
 
-If you are using an older version of the agent, you must have the Virtual Machine use Python 2 by default. If your virtual machine is using a distro that doesn't include Python 2 by default then you must install it. The following sample commands will install Python 2 on different distros.
+If you're using an older version of the agent, you must have the Virtual Machine use Python 2 by default. If your virtual machine is using a distro that doesn't include Python 2 by default, then you must install it. The following sample commands will install Python 2 on different distros.
 
  - Red Hat, CentOS, Oracle: `yum install -y python2`
  - Ubuntu, Debian: `apt-get install -y python2`
  - SUSE: `zypper install -y python2`
 
-Again, only if you are using an older version of the agent, the python2 executable must be aliased to *python*. Following is one method that you can use to set this alias:
+Again, only if you're using an older version of the agent, the python2 executable must be aliased to *python*. Following is one method that you can use to set this alias:
 
 1. Run the following command to remove any existing aliases.
  
@@ -74,11 +71,11 @@ The following are currently supported:
 - FIPS
 - SELinux (Marketplace images for CentOS and RHEL with their default settings)
 
-The following are not supported:
+The following aren't supported:
 - CIS
 - SELinux (custom hardening like MLS)
 
-CIS and SELinux hardening support is planned for [Azure Monitoring Agent](./azure-monitor-agent-overview.md). Further hardening and customization methods are not supported nor planned for OMS Agent. For instance, OS images like GitHub Enterprise Server which include customizations such as limitations to user account privileges are not supported.
+CIS and SELinux hardening support is planned for [Azure Monitoring Agent](./azure-monitor-agent-overview.md). Further hardening and customization methods aren't supported nor planned for OMS Agent. For instance, OS images like GitHub Enterprise Server which include customizations such as limitations to user account privileges aren't supported.
 
 ## Agent prerequisites
 
@@ -101,7 +98,7 @@ See [Log Analytics agent overview](./log-analytics-agent.md#network-requirements
 
 ## Workspace ID and key
 
-Regardless of the installation method used, you will require the workspace ID and key for the Log Analytics workspace that the agent will connect to. Select the workspace from the **Log Analytics workspaces** menu in the Azure portal. Then select **Agents management** in the **Settings** section. 
+Regardless of the installation method used, you'll require the workspace ID and key for the Log Analytics workspace that the agent will connect to. Select the workspace from the **Log Analytics workspaces** menu in the Azure portal. Then select **Agents management** in the **Settings** section. 
 
 [![Workspace details](media/log-analytics-agent/workspace-details.png)](media/log-analytics-agent/workspace-details.png#lightbox)
 
@@ -121,10 +118,10 @@ docker-cimprov | 1.0.0 | Docker provider for OMI. Only installed if Docker is de
 
 ### Agent installation details
 
-After installing the Log Analytics agent for Linux packages, the following additional system-wide configuration changes are applied. These artifacts are removed when the omsagent package is uninstalled.
+After installing the Log Analytics agent for Linux packages, the following system-wide configuration changes are also applied. These artifacts are removed when the omsagent package is uninstalled.
 
 * A non-privileged user named: `omsagent` is created. The daemon runs under this credential. 
-* A sudoers *include* file is created in `/etc/sudoers.d/omsagent`. This authorizes `omsagent` to restart the syslog and omsagent daemons. If sudo *include* directives are not supported in the installed version of sudo, these entries will be written to `/etc/sudoers`.
+* A sudoers *include* file is created in `/etc/sudoers.d/omsagent`. This authorizes `omsagent` to restart the syslog and omsagent daemons. If sudo *include* directives aren't supported in the installed version of sudo, these entries will be written to `/etc/sudoers`.
 * The syslog configuration is modified to forward a subset of events to the agent. For more information, see [Configure Syslog data collection](data-sources-syslog.md).
 
 On a monitored Linux computer, the agent is listed as `omsagent`. `omsconfig` is the Log Analytics agent for Linux configuration agent that looks for new portal side configuration every 5 minutes. The new and updated configuration is applied to the agent configuration files located at `/etc/opt/microsoft/omsagent/conf/omsagent.conf`.
@@ -233,7 +230,7 @@ Upgrading from a previous version, starting with version 1.0.0-47, is supported 
 ## Cache information
 Data from the Log Analytics agent for Linux is cached on the local machine at *%STATE_DIR_WS%/out_oms_common*.buffer* before it's sent to Azure Monitor. Custom log data is buffered in *%STATE_DIR_WS%/out_oms_blob*.buffer*. The path may be different for some [solutions and data types](https://github.com/microsoft/OMS-Agent-for-Linux/search?utf8=%E2%9C%93&q=+buffer_path&type=).
 
-The agent attempts to upload every 20 seconds. If it fails, it will wait an exponentially increasing length of time until it succeeds: 30 seconds before the second attempt, 60 seconds before the third, 120 seconds ... and so on up to a maximum of 16 minutes between retries until it successfully connects again. The agent will retry up to 6 times for a given chunk of data before discarding and moving to the next one. This continues until the agent can successfully upload again. This means that data may be buffered up to approximately 30 minutes before being discarded.
+The agent attempts to upload every 20 seconds. If it fails, it waits an exponentially increasing length of time until it succeeds: 30 seconds before the second attempt, 60 seconds before the third, 120 seconds, and so on, up to a maximum of 16 minutes between retries until it successfully connects again. The agent retries up to 6 times for a given chunk of data before discarding and moving to the next one. This continues until the agent can successfully upload again. This means that data may be buffered up to approximately 30 minutes before being discarded.
 
 The default cache size is 10 MB but can be modified in the [omsagent.conf file](https://github.com/microsoft/OMS-Agent-for-Linux/blob/e2239a0714ae5ab5feddcc48aa7a4c4f971417d4/installer/conf/omsagent.conf).
 

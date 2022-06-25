@@ -8,11 +8,13 @@ ms.subservice: core
 ms.author: sagopal
 author: saachigopal
 ms.date: 08/11/2021
-ms.topic: conceptual
-ms.custom: how-to
+ms.topic: how-to
+ms.custom: sdkv1, event-tier1-build-2022
 ---
 
 # Train a model by using a custom Docker image
+
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
 
 In this article, learn how to use a custom Docker image when you're training models with Azure Machine Learning. You'll use the example scripts in this article to classify pet images by creating a convolutional neural network. 
 
@@ -106,7 +108,7 @@ For more information about creating and managing Azure Machine Learning environm
 
 ### Create or attach a compute target
 
-You need to create a [compute target](concept-azure-machine-learning-architecture.md#compute-targets) for training your model. In this tutorial, you create `AmlCompute` as your training compute resource.
+You need to create a [compute target](v1/concept-azure-machine-learning-architecture.md#compute-targets) for training your model. In this tutorial, you create `AmlCompute` as your training compute resource.
 
 Creation of `AmlCompute` takes a few minutes. If the `AmlCompute` resource is already in your workspace, this code skips the creation process.
 

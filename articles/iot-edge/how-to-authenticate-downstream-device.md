@@ -4,7 +4,7 @@ description: How to authenticate downstream devices or leaf devices to IoT Hub, 
 author: PatAltimore
 
 ms.author: patricka
-ms.date: 10/15/2020
+ms.date: 04/29/2022
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -74,8 +74,11 @@ When you create the new device identity, provide the following information:
 You also can use the [IoT extension for Azure CLI](https://github.com/Azure/azure-iot-cli-extension) to complete the same operation. The following example uses the [az iot hub device-identity](/cli/azure/iot/hub/device-identity) command to create a new IoT device with symmetric key authentication and assign a parent device:
 
 ```azurecli
-az iot hub device-identity create -n {iothub name} -d {new device ID} --pd {existing gateway device ID}
+az iot hub device-identity create -n {iothub name} -d {new device ID} --device-scope {deviceScope of parent device}
 ```
+
+> [!TIP]
+> You can list device properties including device scope using `az iot hub device-identity list --hub-name {iothub name}`.
 
 Next, [Retrieve and modify the connection string](#retrieve-and-modify-connection-string) so that your device knows to connect via its gateway.
 
@@ -129,8 +132,11 @@ For X.509 self-signed authentication, sometimes referred to as thumbprint authen
 You also can use the [IoT extension for Azure CLI](https://github.com/Azure/azure-iot-cli-extension) to complete the same device creation operation. The following example uses the [az iot hub device-identity](/cli/azure/iot/hub/device-identity) command to create a new IoT device with X.509 self-signed authentication and assigns a parent device:
 
 ```azurecli
-az iot hub device-identity create -n {iothub name} -d {device ID} --pd {gateway device ID} --am x509_thumbprint --ptp {primary thumbprint} --stp {secondary thumbprint}
+az iot hub device-identity create -n {iothub name} -d {device ID} --device-scope {deviceScope of gateway device} --am x509_thumbprint --ptp {primary thumbprint} --stp {secondary thumbprint}
 ```
+
+> [!TIP]
+> You can list device properties including device scope using `az iot hub device-identity list --hub-name {iothub name}`.
 
 Next, [Retrieve and modify the connection string](#retrieve-and-modify-connection-string) so that your device knows to connect via its gateway.
 
@@ -173,8 +179,11 @@ This section is based on the IoT Hub X.509 certificate tutorial series. See [Und
 You also can use the [IoT extension for Azure CLI](https://github.com/Azure/azure-iot-cli-extension) to complete the same device creation operation. The following example uses the [az iot hub device-identity](/cli/azure/iot/hub/device-identity) command to create a new IoT device with X.509 CA signed authentication and assigns a parent device:
 
 ```azurecli
-az iot hub device-identity create -n {iothub name} -d {device ID} --pd {gateway device ID} --am x509_ca
+az iot hub device-identity create -n {iothub name} -d {device ID} --device-scope {deviceScope of gateway device} --am x509_ca
 ```
+
+> [!TIP]
+> You can list device properties including device scope using `az iot hub device-identity list --hub-name {iothub name}`.
 
 Next, [Retrieve and modify the connection string](#retrieve-and-modify-connection-string) so that your device knows to connect via its gateway.
 

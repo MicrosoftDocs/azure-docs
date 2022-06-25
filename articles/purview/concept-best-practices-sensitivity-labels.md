@@ -1,6 +1,6 @@
 ---
 title: Best practices for applying sensitivity labels in the Microsoft Purview Data Map
-description: This article provides best practices for applying sensitivity labels in Microsoft Purview.
+description: This article provides best practices for applying sensitivity labels in Microsoft Purview Data Map.
 author: athenads
 ms.author: athenadsouza
 ms.service: purview
@@ -10,7 +10,7 @@ ms.date: 04/21/2022
 ms.custom: ignite-fall-2021
 ---
 
-# Labeling best practices
+# Labeling best practices for the data map
 
 The Microsoft Purview Data Map supports labeling structured and unstructured data stored across various data sources. Labeling data within the data map allows users to easily find data that matches predefined autolabeling rules that were configured in the Microsoft Purview compliance portal. The data map extends the use of sensitivity labels from Microsoft Purview Information Protection to assets stored in infrastructure cloud locations and structured data sources.
 
@@ -51,7 +51,7 @@ The following sections walk you through the process of implementing labeling for
    :::image type="content" source="media/concept-best-practices/label-detection-criteria.png" alt-text="Screenshot that shows detection criteria for a label.":::
 
    > [!NOTE]
-   > Microsoft Purview Information Protection trainable classifiers aren't used by the Microsoft Purview Data Map.
+   > Trainable classifiers from Microsoft Purview Information Protection aren't supported by Microsoft Purview Data Map.
 
 - Maintain consistency in labeling across your data estate. If you use autolabeling rules for files, use the same sensitive information types for autolabeling database columns.
 - [Define your sensitivity labels via Microsoft Purview Information Protection to identify your personal data at a central place](/microsoft-365/compliance/information-protection).
@@ -62,11 +62,11 @@ The following sections walk you through the process of implementing labeling for
 - Capture all test cases for your labels. Test your label policies with all applications you want to secure.
 - Promote sensitivity label policies to the Microsoft Purview Data Map.
 - Run test scans from the Microsoft Purview Data Map on different data sources like hybrid cloud and on-premises to identify sensitivity labels.
-- Gather and consider insights, for example, by using Microsoft Purview Insights. Use alerting mechanisms to mitigate potential breaches of regulations.
+- Gather and consider insights, for example, by using Microsoft Purview Data Estate Insights. Use alerting mechanisms to mitigate potential breaches of regulations.
 
-By using sensitivity labels with the Microsoft Purview Data Map, you can extend Microsoft Purview Information Protection beyond the border of your Microsoft data estate to your on-premises, hybrid cloud, multicloud, and software as a service (SaaS) scenarios.
+By using sensitivity labels with Microsoft Purview Data Map, you can extend information protection beyond the border of your Microsoft data estate to your on-premises, hybrid cloud, multicloud, and software as a service (SaaS) scenarios.
 
 ## Next steps
 
 - [Get started with sensitivity labels](/microsoft-365/compliance/get-started-with-sensitivity-labels).
-- [Automatically apply sensitivity labels to your data in Microsoft Purview](how-to-automatically-label-your-content.md).
+- [How to automatically apply sensitivity labels to your data in the Microsoft Purview Data Map](how-to-automatically-label-your-content.md).

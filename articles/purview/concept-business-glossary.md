@@ -6,7 +6,7 @@ ms.author: nayenama
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
-ms.date: 09/27/2021
+ms.date: 04/28/2021
 ---
 
 # Understand business glossary features in Microsoft Purview
@@ -27,7 +27,7 @@ The same term can also imply multiple business objects. It is important that eac
 ## Custom attributes
 
 Microsoft Purview supports eight out-of-the-box attributes for any business glossary term:
-- Name
+- Name (mandatory)
 - Definition
 - Data stewards
 - Data experts

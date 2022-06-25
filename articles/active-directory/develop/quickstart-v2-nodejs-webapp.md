@@ -1,6 +1,5 @@
 ---
-title: "Quickstart: Add user sign-in to a Node.js web app | Azure"
-titleSuffix: Microsoft identity platform
+title: "Quickstart: Add user sign-in to a Node.js web app"
 description: In this quickstart, you learn how to implement authentication in a Node.js web application using OpenID Connect.
 services: active-directory
 author: jmprieur

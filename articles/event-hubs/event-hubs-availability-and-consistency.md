@@ -31,7 +31,7 @@ We recommend sending events to an event hub without setting partition informatio
 
 - [Send events using .NET](event-hubs-dotnet-standard-getstarted-send.md)
 - [Send events using Java](event-hubs-java-get-started-send.md)
-- [Send events using JavaScript](event-hubs-python-get-started-send.md)
+- [Send events using JavaScript](event-hubs-node-get-started-send.md)
 - [Send events using Python](event-hubs-python-get-started-send.md)
 
 

@@ -2,7 +2,7 @@
 title: Azure Blob Storage as Event Grid source
 description: Describes the properties that are provided for blob storage events with Azure Event Grid
 ms.topic: conceptual
-ms.date: 09/08/2021
+ms.date: 05/26/2022
 ---
 
 # Azure Blob Storage as an Event Grid source
@@ -58,7 +58,16 @@ These events are triggered if you enable a hierarchical namespace on the storage
 |**Microsoft.Storage.DirectoryRenamed**|Triggered when a directory is renamed. <br>Specifically, this event is triggered when clients use the `rename` operation on a directory, which corresponds to the `SftpRename` API.|
 |**Microsoft.Storage.DirectoryDeleted**|Triggered when a directory is deleted. <br>Specifically, this event is triggered when clients use the `rmdir` operation, which corresponds to the `SftpRemoveDir` API.|
 
-## Example event
+### List of policy-related events
+
+These events are triggered when the actions defined by a policy are performed.
+
+ |Event name |Description|
+ |----------|-----------|
+ |**Microsoft.Storage.BlobInventoryPolicyCompleted** |Triggered when the inventory run completes for a rule that is defined an inventory policy . This event also occurs if the inventory run fails with a user error before it starts to run. For example, an invalid policy, or an error that occurs when a destination container is not present will trigger the event.   |
+ |**Microsoft.Storage.LifecyclePolicyCompleted** |Triggered when the actions defined by a lifecycle management policy are performed. |
+
+## Example events
 When an event is triggered, the Event Grid service sends data about that event to subscribing endpoint. This section contains an example of what that data would look like for each blob storage event.
 
 # [Event Grid event schema](#tab/event-grid-event-schema)
@@ -167,7 +176,7 @@ If the blob storage account uses SFTP to create or overwrite a blob, then the da
     "blobType": "BlockBlob",
     "url": "https://my-storage-account.blob.core.windows.net/testcontainer/new-file.txt",
     "sequencer": "00000000000004420000000000028963",
-    "identity":"user",
+    "identity":"localuser",
     "storageDiagnostics": {
     "batchId": "b68529f3-68cd-4744-baa4-3c0498ec19f0"
     }
@@ -267,7 +276,7 @@ If the blob storage account uses SFTP to delete a blob, then the data looks simi
     "blobType": "BlockBlob",
     "url": "https://my-storage-account.blob.core.windows.net/testcontainer/new-file.txt",
     "sequencer": "00000000000004420000000000028963",  
-    "identity":"user",
+    "identity":"localuser",
     "storageDiagnostics": {
     "batchId": "b68529f3-68cd-4744-baa4-3c0498ec19f0"
     }
@@ -380,7 +389,7 @@ If the blob storage account uses SFTP to rename a blob, then the data looks simi
     "destinationUrl": "https://my-storage-account.blob.core.windows.net/testcontainer/my-renamed-file.txt",
     "sourceUrl": "https://my-storage-account.blob.core.windows.net/testcontainer/my-original-file.txt",
     "sequencer": "00000000000004420000000000028963",  
-    "identity":"user",
+    "identity":"localuser",
     "storageDiagnostics": {
     "batchId": "b68529f3-68cd-4744-baa4-3c0498ec19f0"
     }
@@ -438,7 +447,7 @@ If the blob storage account uses SFTP to create a directory, then the data looks
     "requestId": "831e1650-001e-001b-66ab-eeb76e000000",
     "url": "https://my-storage-account.blob.core.windows.net/testcontainer/my-new-directory",
     "sequencer": "00000000000004420000000000028963",  
-    "identity":"user",
+    "identity":"localuser",
     "storageDiagnostics": {
     "batchId": "b68529f3-68cd-4744-baa4-3c0498ec19f0"
     }
@@ -496,7 +505,7 @@ If the blob storage account uses SFTP to rename a directory, then the data looks
     "destinationUrl": "https://my-storage-account.blob.core.windows.net/testcontainer/my-renamed-directory",
     "sourceUrl": "https://my-storage-account.blob.core.windows.net/testcontainer/my-original-directory",
     "sequencer": "00000000000004420000000000028963",  
-    "identity":"user",
+    "identity":"localuser",
     "storageDiagnostics": {
     "batchId": "b68529f3-68cd-4744-baa4-3c0498ec19f0"
     }
@@ -554,7 +563,7 @@ If the blob storage account uses SFTP to delete a directory, then the data looks
     "url": "https://my-storage-account.blob.core.windows.net/testcontainer/directory-to-delete",
     "recursive": "false", 
     "sequencer": "00000000000004420000000000028963",  
-    "identity":"user",
+    "identity":"localuser",
     "storageDiagnostics": {
     "batchId": "b68529f3-68cd-4744-baa4-3c0498ec19f0"
     }
@@ -562,6 +571,61 @@ If the blob storage account uses SFTP to delete a directory, then the data looks
   "dataVersion": "1",
   "metadataVersion": "1"
 }]
+```
+
+### Microsoft.Storage.BlobInventoryPolicyCompleted event
+
+```json
+{
+  "topic": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/BlobInventory/providers/Microsoft.EventGrid/topics/BlobInventoryTopic",
+  "subject": "BlobDataManagement/BlobInventory",
+  "eventType": "Microsoft.Storage.BlobInventoryPolicyCompleted",
+  "id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+  "data": {
+    "scheduleDateTime": "2021-05-28T03:50:27Z",
+    "accountName": "testaccount",
+    "ruleName": "Rule_1",
+    "policyRunStatus": "Succeeded",
+    "policyRunStatusMessage": "Inventory run succeeded, refer manifest file for inventory details.",
+    "policyRunId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+    "manifestBlobUrl": "https://testaccount.blob.core.windows.net/inventory-destination-container/2021/05/26/13-25-36/Rule_1/Rule_1.csv"
+  },
+  "dataVersion": "1.0",
+  "metadataVersion": "1",
+  "eventTime": "2021-05-28T15:03:18Z"
+}
+```
+
+### Microsoft.Storage.LifecyclePolicyCompleted event
+
+```json
+{
+    "topic": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/contosoresourcegroup/providers/Microsoft.Storage/storageAccounts/contosostorageaccount",
+    "subject": "BlobDataManagement/LifeCycleManagement/SummaryReport",
+    "eventType": "Microsoft.Storage.LifecyclePolicyCompleted",
+    "id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+    "data": {
+        "scheduleTime": "2022/05/24 22:57:29.3260160",
+        "deleteSummary": {
+            "totalObjectsCount": 16,
+            "successCount": 14,
+            "errorList": ""
+        },
+        "tierToCoolSummary": {
+            "totalObjectsCount": 0,
+            "successCount": 0,
+            "errorList": ""
+        },
+        "tierToArchiveSummary": {
+            "totalObjectsCount": 0,
+            "successCount": 0,
+            "errorList": ""
+        }
+    },
+    "dataVersion": "1",
+    "metadataVersion": "1",
+    "eventTime": "2022-05-26T00:00:40.1880331"
+}
 ```
 
 # [Cloud event schema](#tab/cloud-event-schema)
@@ -783,7 +847,6 @@ If the blob storage account has a hierarchical namespace, the data looks similar
 ```
 
 ---
-
 
 ## Event properties
 

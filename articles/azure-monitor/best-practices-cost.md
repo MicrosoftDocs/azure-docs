@@ -50,7 +50,7 @@ The decision whether to configure a table for Basic Logs is based on the followi
 - You only require basic queries of the data using a limited version of the query language.
 - The cost savings for data ingestion over a month exceeds the expected cost for any expected queries
 
-See [Query Basic Logs in Azure Monitor (Preview)](/logs/basic-logs-query.md) for details on query limitations and [Configure Basic Logs in Azure Monitor (Preview)](logs/basic-logs-configure.md) for more details about them.
+See [Query Basic Logs in Azure Monitor (Preview)](.//logs/basic-logs-query.md) for details on query limitations and [Configure Basic Logs in Azure Monitor (Preview)](logs/basic-logs-configure.md) for more details about them.
 
 ## Reduce the amount of data collected
 The most straightforward strategy to reduce your costs for data ingestion and retention is to reduce the amount of data that you collect. Your goal should be to collect the minimal amount of data to meet your monitoring requirements. If you find that you're collecting data that's not being used for alerting or analysis, then you have an opportunity to reduce your monitoring costs by modifying your configuration to stop collecting data that you don't need.
@@ -63,9 +63,9 @@ Virtual machines can vary significantly in the amount of data they collect, depe
 
 | Source | Strategy | Log Analytics agent | Azure Monitor agent |
 |:---|:---|:---|:---|
-| Event logs | Collect only required event logs and levels. For example, *Information* level events are rarely used and should typically not be collected. For Azure Monitor agent, filter particular event IDs that are frequent but not valuable. | Change the [event log configuration for the workspace](agents/data-sources-windows-events.md) | Change the [data collection rule](agents/data-collection-rule-azure-monitor-agent.md).  Use [custom XPath queries](agents/data-collection-rule-azure-monitor-agent.md#limit-data-collection-with-custom-xpath-queries) to filter specific event IDs. |
-| Syslog | Reduce the number of facilities collected and only collect required event levels. For example, *Info* and *Debug* level events are rarely used and should typically not be collected. | Change the [syslog configuration for the workspace](agents/data-sources-syslog.md). |  Change the [data collection rule](agents/data-collection-rule-azure-monitor-agent.md).  Use [custom XPath queries](agents/data-collection-rule-azure-monitor-agent.md#limit-data-collection-with-custom-xpath-queries) to filter specific events. |
-| Performance counters | Collect only the performance counters required and reduce the frequency of collection. For Azure Monitor agent, consider sending performance data only to Metrics and not Logs. | Change the [performance counter configuration for the workspace](agents/data-sources-performance-counters.md). | Change the [data collection rule](agents/data-collection-rule-azure-monitor-agent.md).  Use [custom XPath queries](agents/data-collection-rule-azure-monitor-agent.md#limit-data-collection-with-custom-xpath-queries) to filter specific counters. |
+| Event logs | Collect only required event logs and levels. For example, *Information* level events are rarely used and should typically not be collected. For Azure Monitor agent, filter particular event IDs that are frequent but not valuable. | Change the [event log configuration for the workspace](agents/data-sources-windows-events.md) | Change the [data collection rule](agents/data-collection-rule-azure-monitor-agent.md).  Use [custom XPath queries](agents/data-collection-rule-azure-monitor-agent.md#filter-events-using-xpath-queries) to filter specific event IDs. |
+| Syslog | Reduce the number of facilities collected and only collect required event levels. For example, *Info* and *Debug* level events are rarely used and should typically not be collected. | Change the [syslog configuration for the workspace](agents/data-sources-syslog.md). |  Change the [data collection rule](agents/data-collection-rule-azure-monitor-agent.md).  Use [custom XPath queries](agents/data-collection-rule-azure-monitor-agent.md#filter-events-using-xpath-queries) to filter specific events. |
+| Performance counters | Collect only the performance counters required and reduce the frequency of collection. For Azure Monitor agent, consider sending performance data only to Metrics and not Logs. | Change the [performance counter configuration for the workspace](agents/data-sources-performance-counters.md). | Change the [data collection rule](agents/data-collection-rule-azure-monitor-agent.md).  Use [custom XPath queries](agents/data-collection-rule-azure-monitor-agent.md#filter-events-using-xpath-queries) to filter specific counters. |
 
 
 ### Use transformations to filter events
@@ -76,7 +76,7 @@ See the section below on filtering data with transformations for a summary on wh
 ### Multi-homing agents
 You should be cautious with any configuration using multi-homed agents where a single virtual machine sends data to multiple workspaces since you may be incurring charges for the same data multiple times. If you do multi-home agents, ensure that you're sending unique data to each workspace.
 
-You can also collect duplicate data with a single virtual machine running both the Azure Monitor agent and Log Analytics agent, even if they're both sending data to the same workspace. While the agents can coexist, each works independently without any knowledge of the other. You should continue to use the Log Analytics agent until you [migrate to the Azure Monitor agent](logs/../agents/azure-monitor-agent-migration.md) rather than using both together unless you can ensure that each are collecting unique data.
+You can also collect duplicate data with a single virtual machine running both the Azure Monitor agent and Log Analytics agent, even if they're both sending data to the same workspace. While the agents can coexist, each works independently without any knowledge of the other. You should continue to use the Log Analytics agent until you [migrate to the Azure Monitor agent](./agents/azure-monitor-agent-migration.md) rather than using both together unless you can ensure that each are collecting unique data.
 
 See [Analyze usage in Log Analytics workspace](logs/analyze-usage.md) for guidance on analyzing your collected data to ensure that you aren't collecting duplicate data for the same machine.
 
@@ -85,7 +85,7 @@ There are multiple methods that you can use to limit the amount of data collecte
 
 * **Sampling**: [Sampling](app/sampling.md) is the primary tool you can use to tune the amount of data collected by Application Insights. Use sampling to reduce the amount of telemetry that's sent from your applications with minimal distortion of metrics.
 
-* **Limit Ajax calls**: [Limit the number of Ajax calls](app/javascript.md#configuration) that can be reported in every page view or disable Ajax reporting. Note that disabling Ajax calls will disable [JavaScript correlation](app/javascript.md#enable-correlation).
+* **Limit Ajax calls**: [Limit the number of Ajax calls](app/javascript.md#configuration) that can be reported in every page view or disable Ajax reporting. Note that disabling Ajax calls will disable [JavaScript correlation](app/javascript.md#enable-distributed-tracing).
 
 * **Disable unneeded modules**: [Edit ApplicationInsights.config](app/configuration-with-applicationinsights-config.md) to turn off collection modules that you don't need. For example, you might decide that performance counters or dependency data aren't required.
 
@@ -118,7 +118,7 @@ You can also ingestion-time transformations to lower the storage requirements fo
 The following table for methods to apply transformations to different workflows.
 
 > [!NOTE]
-> Azure tables here refers to tables that are created and maintained by Microsoft and documented in the [Azure Monitor Reference](/azure/azure-monitor-reference). Custom tables are created by custom applications and have a suffix of *_CL* ion their name.
+> Azure tables here refers to tables that are created and maintained by Microsoft and documented in the [Azure Monitor Reference](/azure/azure-monitor/reference/). Custom tables are created by custom applications and have a suffix of *_CL* ion their name.
 
 | Source | Target | Description | Filtering method |
 |:---|:---|:---|:---|
