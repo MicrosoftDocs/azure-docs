@@ -8,21 +8,22 @@ author: shmed
 ms.author: ramero
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 06/16/2021
+ms.date: 06/24/2022
 ---
+
 # Add scoring profiles to a search index
 
 For full text search queries, the search engine computes a search score for each matching document, which allows results to be ranked from high to low. Azure Cognitive Search uses a default scoring algorithm to compute an initial score, but you can customize the calculation through a *scoring profile*.
 
 Scoring profiles are embedded in index definitions and include properties for boosting the score of matches, where additional criteria found in the profile provides the boosting logic. For example, you might want to boost matches based on their revenue potential, promote newer items, or perhaps boost items that have been in inventory too long.  
 
-Unfamiliar with relevance concepts? The following video segment fast-forwards to how scoring profiles work in Azure Cognitive Search, but the video also covers basic concepts. You might also want to review [Similarity ranking and scoring](index-similarity-and-scoring.md) for more background.
+Unfamiliar with relevance concepts? The following video segment fast-forwards to how scoring profiles work in Azure Cognitive Search, but the video also covers basic concepts. You might also want to review [Relevance and scoring in Azure Cognitive Search](index-similarity-and-scoring.md) for more background.
 
 > [!VIDEO https://www.youtube.com/embed/Y_X6USgvB1g?version=3&start=463&end=970]
 
 ## What is a scoring profile?
 
-A scoring profile is part of the index definition and is composed of weighted fields, functions and parameters. The purpose of a scoring profile is to boost or amplify matching documents based on criteria you provide. 
+A scoring profile is part of the index definition and is composed of weighted fields, functions, and parameters. The purpose of a scoring profile is to boost or amplify matching documents based on criteria you provide. 
 
 The following definition shows a simple profile named 'geo'. This one boosts results that have the search term in the hotelName field. It also uses the `distance` function to favor results that are within ten kilometers of the current location. If someone searches on the term 'inn', and 'inn' happens to be part of the hotel name, documents that include hotels with 'inn' within a 10 KM radius of the current location will appear higher in the search results.  
 
@@ -62,7 +63,7 @@ POST /indexes/hotels/docs&api-version=2020-06-30
 }
 ```  
 
-This query searches on the term "inn" and passes in the current location. Notice that this query includes other parameters, such as scoringParameter. Query parameters are described in [Search Documents (REST API)](/rest/api/searchservice/Search-Documents).  
+This query searches on the term "inn" and passes in the current location. Notice that this query includes other parameters, such as scoringParameter. Query parameters, including "scoringParameter", are described in [Search Documents (REST API)](/rest/api/searchservice/Search-Documents).  
 
 See the [Extended example](#bkmk_ex) to review a more detailed example of a scoring profile.  
 
@@ -72,7 +73,7 @@ See the [Extended example](#bkmk_ex) to review a more detailed example of a scor
 
 Scores are computed for full text search queries for the purpose of ranking the most relevant matches and returning them at the top of the response. The overall score for each document is an aggregation of the individual scores for each field, where the individual score of each field is computed based on the term frequency and document frequency of the searched terms within that field (known as [TF-IDF](https://en.wikipedia.org/wiki/Tf%E2%80%93idf) or term frequency-inverse document frequency). 
 
-> [!Tip]
+> [!TIP]
 > You can use the [featuresMode](index-similarity-and-scoring.md#featuresmode-parameter-preview) parameter to request additional scoring details with the search results (including the field level scores).
 
 ## When to add scoring logic
@@ -288,10 +289,10 @@ Use functions when simple relative weights are insufficient or don't apply, as i
 | functions > freshness | The freshness scoring function is used to alter ranking scores for items based on values in DateTimeOffset fields. For example, an item with a more recent date can be ranked higher than older items. </br></br>It is also possible to rank items like calendar events with future dates such that items closer to the present can be ranked higher than items further in the future. </br></br>In the current service release, one end of the range will be fixed to the current time. The other end is a time in the past based on the boostingDuration. To boost a range of times in the future, use a negative boostingDuration. </br></br>The rate at which the boosting changes from a maximum and minimum range is determined by the Interpolation applied to the scoring profile (see the figure below). To reverse the boosting factor applied, choose a boost factor of less than 1.|  
 | functions > freshness > boostingDuration | Sets an expiration period after which boosting will stop for a particular document. See [Set boostingDuration](#bkmk_boostdur) in the following section for syntax and examples.|  
 | functions > distance | The distance scoring function is used to affect the score of documents based on how close or far they are relative to a reference geographic location. The reference location is given as part of the query in a parameter (using the scoringParameter query parameter) as a lon,lat argument.|  
-|functions >  distance > referencePointParameter | A parameter to be passed in queries to use as reference location (using the scoringParameter query parameter). See [Search Documents (REST API)](/rest/api/searchservice/Search-Documents) for descriptions of query parameters.|  
+|functions >  distance > referencePointParameter | A parameter to be passed in queries to use as reference location (using the scoringParameter query parameter). |  
 | functions > distance > boostingDistance | A number that indicates the distance in kilometers from the reference location where the boosting range ends.|  
 | functions > tag | The tag scoring function is used to affect the score of documents based on tags in documents and search queries. Documents that have tags in common with the search query will be boosted. The tags for the search query are provided as a scoring parameter in each search request (using the scoringParameter query parameter). |  
-| functions > tag > tagsParameter | A parameter to be passed in queries to specify tags for a particular request (using the scoringParameter query parameter). See [Search Documents (REST API)](/rest/api/searchservice/Search-Documents) for descriptions of query parameters.|  
+| functions > tag > tagsParameter | A parameter to be passed in queries to specify tags for a particular request (using the scoringParameter query parameter). The parameter consists of a comma-delimited list of whole terms. If a given tag within the list is itself a comma-delimited list, you can [use a text normalizer](search-normalizers) on the field to strip out the commas at query time (map the comma character to a space). This approach will "flatten" the list so that all terms are a single string. |  
 | functions > functionAggregation | Optional. Applies only when functions are specified. Valid values include: sum (default), average, minimum, maximum, and firstMatching. A search score is single value that is computed from multiple variables, including multiple functions. This attribute indicates how the boosts of all the functions are combined into a single aggregate boost that then is applied to the base document score. The base score is based on the [tf-idf](http://www.tfidf.com/) value computed from the document and the search query.|  
 | defaultScoringProfile | When executing a search request, if no scoring profile is specified, then default scoring is used ([tf-idf](http://www.tfidf.com/) only). </br></br>You can override the built-in default, substituting a custom profile as the one to use when no specific profile is given in the search request.|  
 
@@ -331,7 +332,7 @@ For more examples, see [XML Schema: Datatypes (W3.org web site)](https://www.w3.
 
 ## See also
 
-+ [Similarity ranking and scoring in Azure Cognitive Search](index-similarity-and-scoring.md)
++ [Relevance and scoring in Azure Cognitive Search](index-similarity-and-scoring.md)
 + [REST API Reference](/rest/api/searchservice/)
 + [Create Index API](/rest/api/searchservice/create-index)
 + [Azure Cognitive Search .NET SDK](/dotnet/api/overview/azure/search?)
