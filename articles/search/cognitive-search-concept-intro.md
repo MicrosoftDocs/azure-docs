@@ -23,31 +23,31 @@ ms.custom: references_regions
 
 Enrichment is driven by an [**indexer**](search-indexer-overview.md) that has an attached  [**skillset**](cognitive-search-working-with-skillsets.md).
 
-Phase one is data ingestion. The indexer extracts content and sets up the pipeline. [**Blobs in Azure Storage**](../storage/blobs/storage-blobs-overview.md) are the most common data input, but any supported data source can provide the initial content. 
-
-Phase two is skillset execution. Skills can be the built-in skills provided by Microsoft or custom skills that execute external code that you build and publish. Skills might run as standalone or chained processes if you want to send the output of one skill as the input of another.
-
-Phrase three is exploration. Output is always a [**search index**](search-what-is-an-index.md) that you can query, and optionally a [**knowledge store**](knowledge-store-concept-intro.md). Field mappings, output field mappings, and projections determine the data paths that send content out of the pipeline and into a final search index or knowledge store.
-
   :::image type="content" source="media/cognitive-search-intro/cognitive-search-enrichment-architecture.png" alt-text="Diagram of an enrichment pipeline." border="true":::
+
+Phase one is data ingestion. The indexer extracts content ("document cracking") and sets up the pipeline. [**Blobs in Azure Storage**](../storage/blobs/storage-blobs-overview.md) are the most common data input, but any supported data source can provide the initial content. 
+
+Phase two is skillset execution and indexing. Skills are [*built-in skills*](cognitive-search-predefined-skills.md) provided by Microsoft, such as machine translation or OCR. [*Custom skills*](cognitive-search-create-custom-skill-example.md) execute external code that you provide. Skills might run standalone or as chained processes if you map outputs to inputs. *Indexing* follows as soon as skills are done executing, and this step creates the index.
+
+Phrase three is exploration. Output is always a [**search index**](search-what-is-an-index.md) that you can query, and optionally a [**knowledge store**](knowledge-store-concept-intro.md) that you can access through data exploration tools and processes. Field mappings, output field mappings, and projections determine the data paths that direct content out of the pipeline and into a search index or knowledge store.
 
 <!-- ![Enrichment pipeline diagram](./media/cognitive-search-intro/cogsearch-architecture.png "enrichment pipeline") -->
 
 Skillsets are composed of [*built-in skills*](cognitive-search-predefined-skills.md) from Cognitive Search or [*custom skills*](cognitive-search-create-custom-skill-example.md) for external processing that you provide. Custom skills aren’t always complex. For example, if you have an existing package that provides pattern matching or a document classification model, you can wrap it in a custom skill. 
 
-Built-in skills fall into these categories:
+<!-- Built-in skills fall into these categories:
 
 + **Machine translation** is provided by the [Text Translation](cognitive-search-skill-text-translation.md) skill, often paired with [language detection](cognitive-search-skill-language-detection.md) for multi-language solutions.
 
 + **Image processing** skills include [Optical Character Recognition (OCR)](cognitive-search-skill-ocr.md) and identification of [visual features](cognitive-search-skill-image-analysis.md), such as facial detection, image interpretation, image recognition (famous people and landmarks), or attributes like image orientation. These skills create text representations of image content for full text search in Azure Cognitive Search.
 
-+ **Natural language processing** skills include [Entity Recognition](cognitive-search-skill-entity-recognition-v3.md), [Language Detection](cognitive-search-skill-language-detection.md), [Key Phrase Extraction](cognitive-search-skill-keyphrases.md), text manipulation, [Sentiment Detection (including opinion mining)](cognitive-search-skill-sentiment-v3.md), and [Personal Identifiable Information Detection](cognitive-search-skill-pii-detection.md). With these skills, unstructured text is mapped as searchable and filterable fields in an index.
++ **Natural language processing** skills include [Entity Recognition](cognitive-search-skill-entity-recognition-v3.md), [Language Detection](cognitive-search-skill-language-detection.md), [Key Phrase Extraction](cognitive-search-skill-keyphrases.md), text manipulation, [Sentiment Detection (including opinion mining)](cognitive-search-skill-sentiment-v3.md), and [Personal Identifiable Information Detection](cognitive-search-skill-pii-detection.md). With these skills, unstructured text is mapped as searchable and filterable fields in an index. -->
 
 Built-in skills are based on the Cognitive Services APIs: [Computer Vision](../cognitive-services/computer-vision/index.yml) and [Language Service](../cognitive-services/language-service/overview.md). Unless your content input is small, expect to [attach a billable Cognitive Services resource](cognitive-search-attach-cognitive-services.md) to run larger workloads.
 
 ## Availability and pricing
 
-AI enrichment is available in regions that have Azure Cognitive Services. You can check the availability of AI enrichment on the [Azure products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=search) page. AI enrichment is available in all regions except:
+Enrichment is available in regions that have Azure Cognitive Services. You can check the availability of enrichment on the [Azure products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=search) page. Enrichment is available in all regions except:
 
 + Australia Southeast
 + China North 2
