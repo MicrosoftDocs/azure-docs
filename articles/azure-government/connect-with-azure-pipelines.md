@@ -5,7 +5,7 @@ ms.service: azure-government
 ms.topic: article
 ms.custom: devx-track-azurepowershell
 recommendations: false
-ms.date: 06/24/2022
+ms.date: 06/25/2022
 ---
 
 # Deploy an app in Azure Government with Azure Pipelines
@@ -13,7 +13,7 @@ ms.date: 06/24/2022
 This how-to guide helps you use Azure Pipelines to set up continuous integration (CI) and continuous delivery (CD) of your web app running in Azure Government. CI/CD automates the build of your code from a repository along with the deployment (release) of the built code artifacts to a service or set of services in Azure Government. In this how-to guide, you'll build a web app and deploy it to an Azure Governments App Service. The build and release process is triggered by a change to a code file in the repository.
 
 > [!NOTE]
-> [Azure DevOps](/azure/devops/) isn't available on Azure Government. While this how-to guide shows how to configure the CI/CD capabilities of Azure Pipelines to deploy an app to a service inside Azure Government, be aware that Azure Pipelines runs its pipelines outside of Azure Government. Research your organization's security and service policies before using it as part of your deployment tools. For guidance on how to use Azure DevOps Server to create a DevOps experience inside a completely private network on Azure Government, see [Azure DevOps Server on Azure Government](https://devblogs.microsoft.com/azuregov/azure-devops-server-in-azure-government/).
+> [Azure DevOps](/azure/devops/) isn't available on Azure Government. While this how-to guide shows how to configure the CI/CD capabilities of Azure Pipelines to deploy an app to a service inside Azure Government, be aware that Azure Pipelines runs its pipelines outside of Azure Government. Research your organization's security and service policies before using it as part of your deployment tools. For guidance on how to use Azure DevOps Server to create a DevOps experience inside a private network on Azure Government, see [Azure DevOps Server on Azure Government](https://devblogs.microsoft.com/azuregov/azure-devops-server-in-azure-government/).
 
 [Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines) is used by development teams to configure continuous deployment for applications hosted in Azure subscriptions. We can use this service for applications running in Azure Government by defining [service connections](/azure/devops/pipelines/library/service-endpoints) for Azure Government.
 
@@ -116,7 +116,6 @@ Review one of the following quickstarts to set up a build for your specific type
     Write-Output "Subscription Id: $id"
     Write-Output "Subscription Name: $connectionName"
     Write-Output "Service Principal Id: $appId"
-    Write-Output "Service Principal key: <password you entered>"
     Write-Output "Tenant Id: $tenantId"
     Write-Output "***************************************************************************"
     ```
@@ -125,7 +124,7 @@ Review one of the following quickstarts to set up a build for your specific type
 
    `Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass`
 
-   When you're asked whether you want to change the execution policy, enter "A" (for "Yes to All").
+   When asked whether you want to change the execution policy, enter "A" (for "Yes to All").
 
 3. Navigate to the directory where you saved the service principal creation PowerShell script.
 
@@ -161,7 +160,7 @@ Follow [Deploy an Azure Web App](/azure/devops/pipelines/targets/webapp) instruc
 You need at least one [agent](/azure/devops/pipelines/agents/agents) to run your deployments. By default, the build and deployment processes are configured to use [hosted agents](/azure/devops/pipelines/agents/agents#microsoft-hosted-agents). Configuring a private agent would limit data sharing outside of Azure Government.
 
 **Can I configure CD on Azure DevOps Server (formerly Team Foundation Server) to target Azure Government?** <br/>
-You can set up Azure DevOps Server in Azure Government. For guidance on how to use Azure DevOps Server to create a DevOps experience inside a completely private network on Azure Government, see [Azure DevOps Server on Azure Government](https://devblogs.microsoft.com/azuregov/azure-devops-server-in-azure-government/).
+You can set up Azure DevOps Server in Azure Government. For guidance on how to use Azure DevOps Server to create a DevOps experience inside a private network on Azure Government, see [Azure DevOps Server on Azure Government](https://devblogs.microsoft.com/azuregov/azure-devops-server-in-azure-government/).
 
 ## Next steps
 
