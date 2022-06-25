@@ -17,15 +17,21 @@ ms.custom: references_regions
 
 + Machine translation and language detection support multi-lingual search
 + Entity recognition finds people, places, and other entities in large chunks of text
-+ Key phrase extraction identifies and then aggregates important terms
-+ Optical Character Recognition (OCR) extracts text from binary files
-+ Image analysis tags and describes images in searchable text fields
++ Key phrase extraction identifies and then outputs important terms
++ Optical Character Recognition (OCR) recognizes text in binary files
++ Image analysis describes image content and outputs the descriptions as searchable text fields
 
-AI enrichment is an extension of an [**indexer**](search-indexer-overview.md) pipeline.
+Enrichment is driven by an [**indexer**](search-indexer-overview.md) that has an attached  [**skillset**](cognitive-search-working-with-skillsets.md).
 
-[**Blobs in Azure Storage**](../storage/blobs/storage-blobs-overview.md) are the most common data input, but any supported data source can provide the initial content. A [**skillset**](cognitive-search-working-with-skillsets.md), attached to an indexer, adds the AI processing. The indexer extracts content and sets up the pipeline. The skillset performs the enrichment steps. Output is always a [**search index**](search-what-is-an-index.md), and optionally a [**knowledge store**](knowledge-store-concept-intro.md).
+Phase one is data ingestion. The indexer extracts content and sets up the pipeline. [**Blobs in Azure Storage**](../storage/blobs/storage-blobs-overview.md) are the most common data input, but any supported data source can provide the initial content. 
 
-![Enrichment pipeline diagram](./media/cognitive-search-intro/cogsearch-architecture.png "enrichment pipeline overview")
+Phase two is skillset execution. Skills can be the built-in skills provided by Microsoft or custom skills that execute external code that you build and publish. Skills might run as standalone or chained processes if you want to send the output of one skill as the input of another.
+
+Phrase three is exploration. Output is always a [**search index**](search-what-is-an-index.md) that you can query, and optionally a [**knowledge store**](knowledge-store-concept-intro.md). Field mappings, output field mappings, and projections determine the data paths that send content out of the pipeline and into a final search index or knowledge store.
+
+  :::image type="content" source="media/cognitive-search-intro/cognitive-search-enrichment-architecture.png" alt-text="Diagram of an enrichment pipeline." border="true":::
+
+<!-- ![Enrichment pipeline diagram](./media/cognitive-search-intro/cogsearch-architecture.png "enrichment pipeline") -->
 
 Skillsets are composed of [*built-in skills*](cognitive-search-predefined-skills.md) from Cognitive Search or [*custom skills*](cognitive-search-create-custom-skill-example.md) for external processing that you provide. Custom skills aren’t always complex. For example, if you have an existing package that provides pattern matching or a document classification model, you can wrap it in a custom skill. 
 
