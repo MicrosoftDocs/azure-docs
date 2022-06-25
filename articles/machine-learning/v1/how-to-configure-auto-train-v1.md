@@ -458,7 +458,7 @@ Passing the `test_data` or `test_size` parameters into the `AutoMLConfig`, autom
 
 ### Get test run results 
 
-You can get the predictions and metrics from the remote test run from the [Azure Machine Learning studio](../how-to-use-automated-ml-for-ml-models.md#view-remote-test-job-results-preview) or with the following code. 
+You can get the predictions and metrics from the remote test run from the [Azure Machine Learning studio](../how-to-use-automated-ml-for-ml-models.md#view-remote-test-run-results-preview) or with the following code. 
 
 
 ```python
