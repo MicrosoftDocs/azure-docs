@@ -27,6 +27,7 @@ Updates in June include:
 - [Alerts by resource group](#alerts-by-resource-group)
 - [Auto-provisioning of Microsoft Defender for Endpoint unified solution](#auto-provisioning-of-microsoft-defender-for-endpoint-unified-solution)
 - [Deprecating the "API App should only be accessible over HTTPS" policy](#deprecating-the-api-app-should-only-be-accessible-over-https-policy)
+- [New Key Vault alerts](#new-key-vault-alerts)
 
 ### General availability (GA) for Microsoft Defender for Azure Cosmos DB
 
@@ -103,6 +104,17 @@ Learn more about [MDE integration with Defender for Servers](integration-defende
 The policy `API App should only be accessible over HTTPS` has been deprecated. This policy is replaced with the `Web Application should only be accessible over HTTPS` policy, which has been renamed to `App Service apps should only be accessible over HTTPS`.
 
 To learn more about policy definitions for Azure App Service, see [Azure Policy built-in definitions for Azure App Service](../azure-app-configuration/policy-reference.md).
+
+### New Key Vault alerts
+
+To expand the threat protections provided by Microsoft Defender for Key Vault, we've added two new alerts.
+
+These alerts inform you of an access denied anomaly, is detected for any of your key vaults.
+
+| Alert (alert type) | Description | MITRE tactics | Severity |
+|--|--|--|--|
+| **Unusual access denied - User accessing high volume of key vaults denied**<br>(KV_DeniedAccountVolumeAnomaly) | A user or service principal has attempted access to anomalously high volume of key vaults in the last 24 hours. This anomalous access pattern may be legitimate activity. Though this attempt was unsuccessful, it could be an indication of a possible attempt to gain access of key vault and the secrets contained within it. We recommend further investigations. | Discovery | Low |
+| **Unusual access denied - Unusual user accessing key vault denied**<br>(KV_UserAccessDeniedAnomaly) | A key vault access was attempted by a user that does not normally access it, this anomalous access pattern may be legitimate activity. Though this attempt was unsuccessful, it could be an indication of a possible attempt to gain access of key vault and the secrets contained within it.  | Initial Access, Discovery | Low |
 
 ## May 2022
 
