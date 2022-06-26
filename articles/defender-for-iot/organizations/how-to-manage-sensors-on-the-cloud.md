@@ -125,10 +125,9 @@ This procedure describes how to define sensor settings from the Azure portal and
 >
 > You can manage other sensor settings directly from the sensor console. For more information, see [Manage individual sensors](how-to-manage-individual-sensors.md).
 >
-
 **To configure and apply a sensor setting**:
 
-1. In Defender for IoT on the Azure portal, select **Sites and sensors**. To apply settings to multiple sensors, select **Sensor settings (Preview)**. To start from a single sensor, navigate to and select your sensor. Then, on the sensor details page, select **Sensor settings (Preview)**.
+1. In Defender for IoT on the Azure portal, select **Sites and sensors**. To apply settings to multiple sensors, select **Sensor settings (Preview)**.
 
 1. Select **Add** and use the wizard to define values for your setting.
 
@@ -147,9 +146,9 @@ This procedure describes how to define sensor settings from the Azure portal and
 
 After you've created sensor settings, they're listed on the **Sites and sensors** > **Sensor settings** page, by setting type. Each setting shows a card with the setting name and value, and any sites, zones and sensors where the setting is applied.
 
-Settings applied to specific sensors are also listed on the sensor details page. Select the link to the setting name to modify any values or applied sensors.
+For example:
 
-:::image type="content" source="media/how-to-manage-sensors-on-the-cloud/sensor-settings-details.png" alt-text="Screenshot of a sensor setting on a sensor details page.":::
+:::image type="content" source="media/how-to-manage-sensors-on-the-cloud/sensor-settings.png" alt-text="Screenshot of the sensor settings page.":::
 
 ### Sensor setting reference
 
@@ -158,15 +157,20 @@ Use the following sections to learn more about individual OT sensor settings:
 #### Bandwidth cap
 
 For a bandwidth cap, define the maximum bandwidth you want the sensor to use for outgoing communication from the sensor to the cloud, either in Kbps or Mbps.
+
 **Default**: 1500 Kbps
 **Minimum required for a stable connection to Azure** 350 Kbps. At this minimum setting, connections to the sensor console may be slower than usual.
 
 #### Subnet
 
 To define your sensor's subnets do any of the following:
+
 - Select **Import subnets** to import a comma-separated list of subnet IP addresses and masks. Select **Export subnets** to export a list of currently configured data, or **Clear all** to start from scratch.
+
 - Select **Auto subnet learning** to have Defender for IoT automatically learn subnets from existing network data.
+
 - Select **Resolve all Internet traffic as internal/private** to treat all public IPs as local addresses. If you select this option, your sensor will not send any alerts about unauthorized internet activity.
+
 - Select **Add subnet** to add subnet details manually, including each IP address, mask, and subnet name.
 
 For example:
