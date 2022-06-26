@@ -53,7 +53,7 @@ An App Service plan defines a set of compute resources for a web app to run on.
 
 1. Select **Review + create**, then **Create**.
 
-    :::image type="content" source="media\autoscale-custom-metric\create-app-service-plan.png" alt-text=""Screenshot of the Basics tab of the Create App Service Plan screen that you configure the App Service plan on.":::
+    :::image type="content" source="media\autoscale-custom-metric\create-app-service-plan.png" alt-text="Screenshot of the Basics tab of the Create App Service Plan screen that you configure the App Service plan on.":::
 
 ## Create a Web App
 
@@ -123,7 +123,7 @@ Set up a scale-in rule so Azure spins down one of the instances when the number 
 
 1. Set the maximum number of instances that can be spun up in the **Maximum** field of the **Instance limits** section, for example, *4*.
 1. Select **Save**.
-  :::image type="content" source="media/autoscale-custom-metric/autoscale-instance-limits.png" alt-text=""A screenshot of the Autoscale settings page where you setup instance limits":::
+  :::image type="content" source="media/autoscale-custom-metric/autoscale-instance-limits.png" alt-text="A screenshot of the Autoscale settings page where you setup instance limits":::
 
 ## Clean up resources
 
@@ -131,15 +131,15 @@ If you're not going to continue to use this application, delete
 resources with the following steps:
 1. Delete the Autoscale setting by selecting **Discard**.
 
-    :::image type="content" source="media/autoscale-custom-metric/discard-autoscale-settings.png" alt-text=""A screenshot of the Autoscale settings page where you can Discard autoscale settings":::
+    :::image type="content" source="media/autoscale-custom-metric/discard-autoscale-settings.png" alt-text="A screenshot of the Autoscale settings page where you can Discard autoscale settings":::
 
 1. From the App service overview page, select **Delete**.
 
-    :::image type="content" source="media/autoscale-custom-metric/delete-webapp.png" alt-text=""A screenshot of the App Service page where you can Delete the web app":::
+    :::image type="content" source="media/autoscale-custom-metric/delete-webapp.png" alt-text="A screenshot of the App Service page where you can Delete the web app":::
 
 1. From The App Service Plan page, select **Delete**.
 
-    :::image type="content" source="media/autoscale-custom-metric/delete-service-plan.png" alt-text=""A screenshot of theApp Service plan page where you can Delete the app service plan":::
+    :::image type="content" source="media/autoscale-custom-metric/delete-service-plan.png" alt-text="A screenshot of theApp Service plan page where you can Delete the app service plan":::
 
 ## Next steps
 Learn more about Autoscale by referring to the following articles:
