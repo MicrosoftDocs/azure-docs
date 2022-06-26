@@ -47,7 +47,8 @@ If you're using a legacy version of the sensor traffic and are connecting throug
 
 If you're working with an OT network, we recommend that you identify system requirements and plan your system architecture before you start, even if you plan to start with a trial subscription.
 
-If you're setting up network monitoring for enterprise IoT systems, you can skip directly to [Add a Defender for IoT plan to an Azure subscription](#add-a-defender-for-iot-plan-to-an-azure-subscription).
+> [!NOTE]
+> If you're setting up network monitoring for Enterprise IoT systems, you can skip directly to [Add a Defender for IoT plan to an Azure subscription](#add-a-defender-for-iot-plan-to-an-azure-subscription).
 
 **When working with an OT network**:
 
