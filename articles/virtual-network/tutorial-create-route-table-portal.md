@@ -9,7 +9,7 @@ ms.service: virtual-network
 ms.topic: tutorial
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
-ms.date: 06/25/2022
+ms.date: 06/26/2022
 ms.author: mbender
 ms.custom: template-tutorial #Required; leave this attribute/value as-is.
 # Customer intent: I want to route traffic from one subnet, to a different subnet, through a network virtual appliance.
@@ -52,7 +52,7 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 In this section, you'll create a virtual network, three subnets, and a bastion host. You'll use the bastion host to securely connect to the virtual machines.
 
-1. From the Azure portal menu, select **+ Create a resource** > **Networking** > **Virtual network**, or search for **Virtual Network** in the portal search box.
+1. From the Azure portal menu, select **+ Create a resource** > **Networking** > **Virtual network**, or search for *Virtual Network* in the portal search box.
 
 2. Select **Create**.
 
@@ -99,7 +99,7 @@ In this section, you'll create a virtual network, three subnets, and a bastion h
 
 Network virtual appliances (NVAs) are virtual machines that help with network functions, such as routing and firewall optimization. In this section, you'll create an NVA using a **Windows Server 2019 Datacenter** virtual machine. You can select a different operating system if you want.
 
-1. From the Azure portal menu, select **+ Create a resource** > **Compute** > **Virtual machine**, or search for **Virtual machine** in the portal search box.
+1. From the Azure portal menu, select **+ Create a resource** > **Compute** > **Virtual machine**, or search for *Virtual machine* in the portal search box.
 
 1. Select **Create**.  
    
@@ -146,7 +146,7 @@ Network virtual appliances (NVAs) are virtual machines that help with network fu
 
 In this section, you'll create a route table.
 
-1. From the Azure portal menu, select **+ Create a resource** > **Networking** > **Route table**, or search for **Route table** in the portal search box.
+1. From the Azure portal menu, select **+ Create a resource** > **Networking** > **Route table**, or search for *Route table* in the portal search box.
 
 3. Select **Create**.
 
@@ -170,7 +170,7 @@ In this section, you'll create a route table.
 
 In this section, you'll create a route in the route table that you created in the previous steps.
 
-1. Select **Go to resource** or Search for **myRouteTablePublic** in the portal search box.
+1. Select **Go to resource** or Search for *myRouteTablePublic* in the portal search box.
 
 3. In the **myRouteTablePublic** page, select **Routes** from the **Settings** section.
 
@@ -194,7 +194,7 @@ In this section, you'll create a route in the route table that you created in th
 
 In this section, you'll associate the route table that you created in the previous steps to a subnet.
 
-1. Search for **myVirtualNetwork** in the portal search box.
+1. Search for *myVirtualNetwork* in the portal search box.
 
 3. In the **myVirtualNetwork** page, select **Subnets** from the **Settings** section.
 
@@ -301,11 +301,11 @@ You'll create two virtual machines in **myVirtualNetwork** virtual network, then
 
 ### Allow ICMP in Windows firewall
 
-1. Search for **myVMPublic** in the portal search box.
+1. Select **Go to resource** or Search for *myVMPrivate* in the portal search box.
 
-1. In the **Overview** page of **myVMPublic**, select **Connect** then **Bastion**.
+1. In the **Overview** page of **myVMPrivate**, select **Connect** then **Bastion**.
 
-1. Enter the username and password you created for **myVMPublic** previously.
+1. Enter the username and password you created for **myVMPrivate** previously.
 
 1. Select **Connect** button.
 
@@ -317,43 +317,43 @@ You'll create two virtual machines in **myVirtualNetwork** virtual network, then
     New-NetFirewallRule –DisplayName "Allow ICMPv4-In" –Protocol ICMPv4
     ```
 
-1. From PowerShell, open a remote desktop connection to the **myVMPrivate** virtual machine:
+1. From PowerShell, open a remote desktop connection to the **myVMPublic** virtual machine:
 
     ```powershell
-    mstsc /v:myvmprivate
+    mstsc /v:myvmpublic
     ```
 
-1. After you connect to **myVMPrivate**, open Windows PowerShell and enter the same command from step 6.
+1. After you connect to **myVMPublic**, open Windows PowerShell and enter the same command from step 6.
 
-1. Close the remote desktop connection to **myVMPrivate**.
+1. Close the remote desktop connection to **myVMPublic**.
 
 ## Turn on IP forwarding
 
-To route traffic through **myVMNVA**, turn on IP forwarding in Azure and in the operating system of the virtual machine . Once IP forwarding is enabled, any traffic received by **myVMNVA** that's destined for a different IP address, won't be dropped and will be forwarded to the correct destination.
+To route traffic through **myVMNVA**, turn on IP forwarding in Azure and in the operating system of the virtual machine. Once IP forwarding is enabled, any traffic received by **myVMNVA** that's destined for a different IP address, won't be dropped and will be forwarded to the correct destination.
 
 ### Turn on IP forwarding in Azure
 
 In this section, you'll turn on IP forwarding for the network interface of **myVMNVA** virtual machine in Azure.
 
-1. Search for **myVMNVA** in the portal search box.
+1. Search for *myVMNVA* in the portal search box.
 
 3. In the **myVMNVA** overview page, select **Networking** from the **Settings** section.
 
 4. In the **Networking** page of **myVMNVA**, select the network interface next to **Network Interface:**.  The name of the interface will begin with **myvmnva**.
 
-    :::image type="content" source="./media/tutorial-create-route-table-portal/virtual-machine-networking.png" alt-text="Networking, network virtual appliance (NVA) virtual machine (VM), Azure portal" border="true":::
+    :::image type="content" source="./media/tutorial-create-route-table-portal/virtual-machine-networking.png" alt-text="Screenshot of Networking, network virtual appliance (NVA) virtual machine (VM), Azure portal" border="true":::
 
 5. In the network interface overview page, select **IP configurations** from the **Settings** section.
 
 6. In the **IP configurations** page, set **IP forwarding** to **Enabled**, then select **Save**.
 
-    :::image type="content" source="./media/tutorial-create-route-table-portal/enable-ip-forwarding.png" alt-text="Enable IP forwarding" border="true":::
+    :::image type="content" source="./media/tutorial-create-route-table-portal/enable-ip-forwarding.png" alt-text="Screenshot of Enable I P forwarding" border="true":::
 
 ### Turn on IP forwarding in the operating system
 
-In this section, you'll turn on IP forwarding for the operating system of **myVMNVA** to forward network traffic.
+In this section, you'll turn on IP forwarding for the operating system of **myVMNVA** to forward network traffic. You'll use the same bastion connection to **myVMPrivate**, that you started in the previous steps, to open a remote desktop connection to **myVMNVA**.
 
-1. From PowerShell on **myVMPublic** virtual machine, open a remote desktop connection to the **myVMNVA** virtual machine:
+1. From PowerShell on **myVMPrivate** virtual machine, open a remote desktop connection to the **myVMNVA** virtual machine:
 
     ```powershell
     mstsc /v:myvmnva
@@ -373,11 +373,18 @@ In this section, you'll turn on IP forwarding for the operating system of **myVM
 
 ## Test the routing of network traffic
 
-You'll test routing of network traffic from **myVMPublic** to **myVMPrivate**, and then you'll test the routing in the opposite direction.
+You'll test routing of network traffic using [tracert](/windows-server/administration/windows-commands/tracert.md) tool from **myVMPublic** to **myVMPrivate**, and then you'll test the routing in the opposite direction.
 
 ### Test network traffic from myVMPublic to myVMPrivate
 
-From PowerShell on **myVMPublic**, enter this command which tests the routing of network traffic from the **myVMPublic** to **myVMPrivate**:
+1. From PowerShell on **myVMPrivate** virtual machine, open a remote desktop connection to the **myVMPublic** virtual machine:
+
+    ```powershell
+    mstsc /v:myvmpublic
+    ```
+
+2. After you connect to **myVMPublic**, open Windows PowerShell and enter this *tracert* command to trace the routing of network traffic from the **myVMPublic** to **myVMPrivate**:
+
 
     ```powershell
     tracert myvmprivate
@@ -395,17 +402,13 @@ From PowerShell on **myVMPublic**, enter this command which tests the routing of
     Trace complete.
     ```
     
-You can see that there are two hops in the above response for *tracert* ICMP traffic from **myVMPublic** to **myVMPrivate**. The first hop is **myVMNVA** virtual machine, and the second hop is the destination **myVMPrivate** virtual machine.
+    You can see that there are two hops in the above response for *tracert* ICMP traffic from **myVMPublic** to **myVMPrivate**. The first hop is **myVMNVA** virtual machine, and the second hop is the destination **myVMPrivate** virtual machine.
 
-Azure sent the traffic through the NVA and not directly to the **Private** subnet because you added **ToPrivateSubnet** route to **myRouteTablePublic** route table and associated it to the **Public** subnet.
+    Azure sent the traffic through the NVA and not directly to the **Private** subnet because you added **ToPrivateSubnet** route to **myRouteTablePublic** route table and associated it to the **Public** subnet.
+
+1. Close the remote desktop connection to **myVMPublic**.
 
 ### Test network traffic from myVMPrivate to myVMPublic 
-
-1. From PowerShell on **myVMPublic**, enter this command:
-
-    ```powershell
-    mstsc /v:myvmprivate
-    ```
 
 1. Open PowerShell on **myVMPrivate**, and enter this command:
 
@@ -424,7 +427,7 @@ Azure sent the traffic through the NVA and not directly to the **Private** subne
     Trace complete.
     ```
 
-    You can see that there is one hop in the above response which is the destination **myVMPublic** virtual machine.
+    You can see that there's one hop in the above response, which is the destination **myVMPublic** virtual machine.
 
     Azure sent the traffic directly from **myVMPrivate** to **myVMPublic**. By default, Azure routes traffic directly between subnets.
 
