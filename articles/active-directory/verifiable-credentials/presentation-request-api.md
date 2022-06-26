@@ -242,7 +242,7 @@ The following example demonstrates a callback payload after the verifiable crede
       },
       "domain": "https://contoso.com/",
       "verified": "DNS",
-      "issuer": "did:ion:….."
+      "authority": "did:ion:….."
     }
   ],
   "receipt": {
