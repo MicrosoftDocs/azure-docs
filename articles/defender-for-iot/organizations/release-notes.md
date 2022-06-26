@@ -33,7 +33,7 @@ For more information, see the [Microsoft Security Development Lifecycle practice
 
 | Version | Date released | End support date |
 |--|--|--|
-| 22.1.5 | 06/2022 | 03/2022 |
+| 22.1.5 | 06/2022 | 03/2023 |
 | 22.1.4 | 04/2022 | 12/2022 |
 | 22.1.3 | 03/2022 | 11/2022 |
 | 22.1.1 | 02/2022 | 10/2022 |
@@ -59,7 +59,7 @@ Defender for IoT's purchase experience for Enterprise IoT networks and the integ
 
 For more information, see [Tutorial: Get started with Enterprise IoT monitoring](tutorial-getting-started-eiot-sensor.md).
 
-## June
+## June 2022
 
 **Sensor software version**: 22.1.5
 

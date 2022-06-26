@@ -217,7 +217,7 @@ If your data meets one of the following criteria, be sure to specify the min and
 * If the data is coming from a vector tile source, often source layers for different data types are only available through a range of zoom levels.
 * If using a tile layer that doesn't have tiles for all zoom levels 0 through 24 and you want it to only rendering at the levels it has tiles, and not try to fill in missing tiles with tiles from other zoom levels.
 * If you only want to render a layer at certain zoom levels.
-All layers have a `minZoom` and `maxZoom` option where the layer will be rendered when between these zoom levels based on this logic ` maxZoom > zoom >= minZoom`.
+All layers have a `minZoom` and `maxZoom` option where the layer will be rendered when between these zoom levels based on this logic `maxZoom > zoom >= minZoom`.
 
 **Example**
 
@@ -273,7 +273,7 @@ var layer = new atlas.layer.HeatMapLayer(source, null, {
 });
 ```
 
-Learn more in the [Clustering and heat maps in this document](clustering-point-data-web-sdk.md #clustering-and-the-heat-maps-layer)
+Learn more in the [Clustering and heat maps in this document](clustering-point-data-web-sdk.md#clustering-and-the-heat-maps-layer)
 
 ### Keep image resources small
 
