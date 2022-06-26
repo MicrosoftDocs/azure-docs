@@ -33,6 +33,7 @@ For more information, see the [Microsoft Security Development Lifecycle practice
 
 | Version | Date released | End support date |
 |--|--|--|
+| 22.2.3 | 06/2022 | 1/2023 |
 | 22.1.5 | 06/2022 | 03/2023 |
 | 22.1.4 | 04/2022 | 12/2022 |
 | 22.1.3 | 03/2022 | 11/2022 |
@@ -41,6 +42,20 @@ For more information, see the [Microsoft Security Development Lifecycle practice
 | 10.5.4 | 12/2021 | 09/2022 |
 | 10.5.3 | 10/2021 | 07/2022 |
 | 10.5.2 | 10/2021 | 07/2022 |
+
+## July 2022
+
+**Sensor software version**: 22.2.3
+
+### Remote sensor configuration from the Azure portal
+
+For sensor versions 22.2.3 and higher, you can configure sensor settings directly from the **Sites and sensors** page on the Azure portal.
+
+To create and apply settings across one or more cloud-connected sensors in your network, select **Sensor settings (Preview)**.
+
+For more information, see [Define and view OT sensor settings (Public preview)](how-to-manage-sensors-on-the-cloud.md#define-and-view-ot-sensor-settings-public-preview).
+
+
 
 ## June 2022
 
