@@ -61,7 +61,7 @@ To track a run that is not running on Azure Machine Learning compute (from now o
 
 # [Using the Azure ML SDK v2](#tab/mlflow)
 
-You can get the Azure ML MLflow tracking URI using the [Azure Machine Learning SDK v2 for Python](concept-v2). Ensure you have the library `azure-ai-ml` installed in the cluster you are using. The following sample gets the unique MLFLow tracking URI associated with your workspace. Then the method [`set_tracking_uri()`](https://mlflow.org/docs/latest/python_api/mlflow.html#mlflow.set_tracking_uri) points the MLflow tracking URI to that URI.
+You can get the Azure ML MLflow tracking URI using the [Azure Machine Learning SDK v2 for Python](concept-v2.md). Ensure you have the library `azure-ai-ml` installed in the cluster you are using. The following sample gets the unique MLFLow tracking URI associated with your workspace. Then the method [`set_tracking_uri()`](https://mlflow.org/docs/latest/python_api/mlflow.html#mlflow.set_tracking_uri) points the MLflow tracking URI to that URI.
 
 ```Python
 from azure.ai.ml import MLClient
@@ -125,7 +125,7 @@ experiment_name = 'experiment_with_mlflow'
 mlflow.set_experiment(experiment_name)
 ```
 
-# [Using an environment variable](#tab/terminal)
+# [Using an environment variable](#tab/environexp)
 
 You can set one of the MLflow environment variables [MLFLOW_EXPERIMENT_NAME or MLFLOW_EXPERIMENT_ID](https://mlflow.org/docs/latest/cli.html#cmdoption-mlflow-run-arg-uri) with the experiment name.
 
