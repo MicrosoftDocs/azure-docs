@@ -8,33 +8,39 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 02/01/2022
+ms.date: 06/26/2022
 ms.custom: references_regions
 ---
 # AI enrichment in Azure Cognitive Search
 
 *AI enrichment* is the application of machine learning models over raw content, where analysis and inference are used to create searchable content and structure where none previously existed. Because Azure Cognitive Search is a full text search solution, the purpose of AI enrichment is to improve the utility of your content in search-related scenarios:
 
-+ Machine translation and language detection support multi-lingual search
++ Machine translation and language detection supports multi-lingual search
 + Entity recognition finds people, places, and other entities in large chunks of text
 + Key phrase extraction identifies and then outputs important terms
 + Optical Character Recognition (OCR) recognizes text in binary files
 + Image analysis describes image content and outputs the descriptions as searchable text fields
 
-Enrichment is driven by an [**indexer**](search-indexer-overview.md) that has an attached  [**skillset**](cognitive-search-working-with-skillsets.md).
+Ai enrichment is driven by an [**indexer**](search-indexer-overview.md) that has an attached  [**skillset**](cognitive-search-working-with-skillsets.md).
 
   :::image type="content" source="media/cognitive-search-intro/cognitive-search-enrichment-architecture.png" alt-text="Diagram of an enrichment pipeline." border="true":::
 
 Phase one is data ingestion. The indexer extracts content ("document cracking") and sets up the pipeline. [**Blobs in Azure Storage**](../storage/blobs/storage-blobs-overview.md) are the most common data input, but any supported data source can provide the initial content. 
 
-Phase two is skillset execution and indexing. Skills are [*built-in skills*](cognitive-search-predefined-skills.md) provided by Microsoft, such as machine translation or OCR. [*Custom skills*](cognitive-search-create-custom-skill-example.md) execute external code that you provide. Skills might run standalone or as chained processes if you map outputs to inputs. *Indexing* follows as soon as skills are done executing, and this step creates the index.
+Phase two is skillset execution and indexing. Skills create an enriched document that collects the transformation. Skills can be either:
+
++ [*Built-in skills*](cognitive-search-predefined-skills.md) such as machine translation or OCR. Built-in skills are based on the Cognitive Services APIs: [Computer Vision](../cognitive-services/computer-vision/index.yml) and [Language Service](../cognitive-services/language-service/overview.md). Unless your content input is small, expect to [attach a billable Cognitive Services resource](cognitive-search-attach-cognitive-services.md) to run larger workloads.
+
++ [*Custom skills*](cognitive-search-create-custom-skill-example.md) execute external code that you provide. Custom skills aren’t always complex. For example, if you have an existing package that provides pattern matching or a document classification model, you can wrap it in a custom skill. 
+
+  Skills might run standalone or as chained processes if you map outputs to inputs. *Indexing* follows as soon as skills are done executing and it creates the index.
 
 Phrase three is exploration. Output is always a [**search index**](search-what-is-an-index.md) that you can query, and optionally a [**knowledge store**](knowledge-store-concept-intro.md) that you can access through data exploration tools and processes. Field mappings, output field mappings, and projections determine the data paths that direct content out of the pipeline and into a search index or knowledge store.
 
 <!-- ![Enrichment pipeline diagram](./media/cognitive-search-intro/cogsearch-architecture.png "enrichment pipeline") -->
 
-Skillsets are composed of [*built-in skills*](cognitive-search-predefined-skills.md) from Cognitive Search or [*custom skills*](cognitive-search-create-custom-skill-example.md) for external processing that you provide. Custom skills aren’t always complex. For example, if you have an existing package that provides pattern matching or a document classification model, you can wrap it in a custom skill. 
-
+<!-- Skillsets are composed of [*built-in skills*](cognitive-search-predefined-skills.md) from Cognitive Search or [*custom skills*](cognitive-search-create-custom-skill-example.md) for external processing that you provide. Custom skills aren’t always complex. For example, if you have an existing package that provides pattern matching or a document classification model, you can wrap it in a custom skill. 
+ -->
 <!-- Built-in skills fall into these categories:
 
 + **Machine translation** is provided by the [Text Translation](cognitive-search-skill-text-translation.md) skill, often paired with [language detection](cognitive-search-skill-language-detection.md) for multi-language solutions.
@@ -42,8 +48,6 @@ Skillsets are composed of [*built-in skills*](cognitive-search-predefined-skills
 + **Image processing** skills include [Optical Character Recognition (OCR)](cognitive-search-skill-ocr.md) and identification of [visual features](cognitive-search-skill-image-analysis.md), such as facial detection, image interpretation, image recognition (famous people and landmarks), or attributes like image orientation. These skills create text representations of image content for full text search in Azure Cognitive Search.
 
 + **Natural language processing** skills include [Entity Recognition](cognitive-search-skill-entity-recognition-v3.md), [Language Detection](cognitive-search-skill-language-detection.md), [Key Phrase Extraction](cognitive-search-skill-keyphrases.md), text manipulation, [Sentiment Detection (including opinion mining)](cognitive-search-skill-sentiment-v3.md), and [Personal Identifiable Information Detection](cognitive-search-skill-pii-detection.md). With these skills, unstructured text is mapped as searchable and filterable fields in an index. -->
-
-Built-in skills are based on the Cognitive Services APIs: [Computer Vision](../cognitive-services/computer-vision/index.yml) and [Language Service](../cognitive-services/language-service/overview.md). Unless your content input is small, expect to [attach a billable Cognitive Services resource](cognitive-search-attach-cognitive-services.md) to run larger workloads.
 
 ## Availability and pricing
 
@@ -59,7 +63,7 @@ Billing follows a pay-as-you-go pricing model. The costs of using built-in skill
 
 Enrichment is useful if raw content is unstructured text, image content, or content that needs language detection and translation. Applying AI through the built-in cognitive skills can unlock this content for full text search and data science applications.
 
-Enrichment also unlocks external processing. Open-source, third-party, or first-party code can be integrated into the pipeline as a custom skill. Classification models that identify salient characteristics of various document types fall into this category, but any external package that adds value to your content could be used.
+Enrichment also unlocks external processing that you provide. Open-source, third-party, or first-party code can be integrated into the pipeline as a custom skill. Classification models that identify salient characteristics of various document types fall into this category, but any external package that adds value to your content could be used.
 
 ### Use-cases for built-in skills
 
@@ -119,27 +123,27 @@ Indexing is the process wherein raw and enriched content is ingested as fields i
 
 Enriched content is generated during skillset execution, and is temporary unless you save it. In order for enriched content to appear in a search index, the indexer must have mapping information so that it can send enriched content to a field in a search index. [Output field mappings](cognitive-search-output-field-mapping.md) set up these associations.
 
-## Storing enriched output
+## Storing output
 
-In Azure Cognitive Search, an indexer saves the output it creates.
+In Azure Cognitive Search, an indexer saves the output it creates. A single indexer run can create up to three data structures that contain enriched and indexed output.
 
-A [**searchable index**](search-what-is-an-index.md) is one of the outputs that is always created by an indexer. Specification of an index is an indexer requirement, and when you attach a skillset, the output of the skillset, plus any fields that are mapped directly from the source, are used to populate the index. Usually, the outputs of specific skills, such as key phrases or sentiment scores, are ingested into the index in fields created for that purpose.
-
-A [**knowledge store**](knowledge-store-concept-intro.md) is an optional output, used for downstream apps like knowledge mining. A knowledge store is defined within a skillset. Its definition determines whether your enriched documents are projected as tables or objects (files or blobs). Tabular projections are recommended for interactive analysis in tools like Power BI. Files and blobs are typically used in data science or similar workloads.
-
-Finally, an indexer can [**cache enriched documents**](cognitive-search-incremental-indexing-conceptual.md) in Azure Blob Storage for potential reuse in subsequent skillset executions. The cache is for internal use. Cached enrichments are consumable by the same skillset that you rerun at a later date. Caching is helpful if your skillset include image analysis or OCR, and you want to avoid the time and expense of reprocessing image files.
+| Data store | Required | Location | Description |
+|------------|----------|----------|-------------|
+| [**searchable index**](search-what-is-an-index.md) | Required | Search service | Specification of an index is an indexer requirement. When you attach a skillset, the output of the skillset, plus any fields that are mapped directly from the source, are used to populate the index. Usually, the outputs of specific skills, such as key phrases or sentiment scores, are ingested into the index in fields created for that purpose. |
+| [**knowledge store**](knowledge-store-concept-intro.md) | Optional | Azure Storage | Used for downstream apps like knowledge mining. A knowledge store is defined within a skillset. Its definition determines whether your enriched documents are projected as tables or objects (files or blobs). |
+| [**enrichment cache**](cognitive-search-incremental-indexing-conceptual.md) | Optional | Azure Storage | Internal data (enriched document) that can be reused in subsequent skillset executions. Cached enrichments are consumable by the same skillset that you rerun at a later date. The data isn't necessarily human readable. Caching is helpful if your skillset include image analysis or OCR, and you want to avoid the time and expense of reprocessing image files. |
 
 Indexes and knowledge stores are fully independent of each other. While you must attach an index to satisfy indexer requirements, if your sole objective is a knowledge store, you can ignore the index after it's populated. Avoid deleting it though. If you want to rerun the indexer and skillset, you'll need the index in order for the indexer to run.
 
-## Consuming enriched content
+## Exploring content
 
-The output of AI enrichment is either a [fully text-searchable index](search-what-is-an-index.md) on Azure Cognitive Search, or a [knowledge store](knowledge-store-concept-intro.md) in Azure Storage.
+Once you have defined and loaded a [search index](search-what-is-an-index.md) or a [knowledge store](knowledge-store-concept-intro.md), you can explore it's data.
 
-### Check content in a search index
+### Query a search index
 
 [Run queries](search-query-overview.md) to access the enriched content generated by the pipeline. The index is like any other you might create for Azure Cognitive Search: you can supplement text analysis with custom analyzers, invoke fuzzy search queries, add filters, or experiment with scoring profiles to tune search relevance.
 
-### Check content in a knowledge store
+### Use data exploration tools on a knowledge store
 
 In Azure Storage, a [knowledge store](knowledge-store-concept-intro.md) can assume the following forms: a blob container of JSON documents, a blob container of image objects, or tables in Table Storage. You can use [Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md), [Power BI](knowledge-store-connect-power-bi.md), or any app that connects to Azure Storage to access your content.
 
@@ -149,7 +153,7 @@ In Azure Storage, a [knowledge store](knowledge-store-concept-intro.md) can assu
 
 ## Checklist: A typical workflow
 
-1. When beginning a project, it's helpful to work with a subset of data. Indexer and skillset design is an iterative process, and the work goes faster with a small representative data set.
+1. Start with a subset of data. Indexer and skillset design is an iterative process, and the work goes faster with a small representative data set.
 
 1. Create a [data source](/rest/api/searchservice/create-data-source) that specifies a connection to your data.
 
