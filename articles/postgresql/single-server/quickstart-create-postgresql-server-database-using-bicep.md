@@ -7,7 +7,7 @@ ms.topic: quickstart
 ms.author: v-eschaffer
 author: schaffererin
 ms.custom: subject-armqs, devx-track-azurepowershell, mode-arm
-ms.date: 04/29/2022
+ms.date: 06/24/2022
 ---
 
 # Quickstart: Use Bicep to create an Azure Database for PostgreSQL - single server
