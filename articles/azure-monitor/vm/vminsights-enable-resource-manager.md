@@ -40,19 +40,19 @@ Use on of the following sets of template and parameter files folders depending o
 
 | Folder | File | Description |
 |:---|:---|
-| DeployDcr\<br>PerfAndMapDcr | DeployDcrTemplate<br>DeployDcrParameters | Enable both Performance and Map experience of VM Insights. |
-| DeployDcr\<br>PerfOnlyDcr | DeployDcrTemplate<br>DeployDcrParameters | Enable only Performance experience of VM Insights. |
+| DeployDcr\\<br>PerfAndMapDcr | DeployDcrTemplate<br>DeployDcrParameters | Enable both Performance and Map experience of VM Insights. |
+| DeployDcr\\<br>PerfOnlyDcr | DeployDcrTemplate<br>DeployDcrParameters | Enable only Performance experience of VM Insights. |
 
 
-## Deploy agents to machines
+### Deploy agents to machines
 Once the data collection rule has been created, deploy the agents using one of the templates in the following table. You specify the resource ID of the DCR that you created in the first step in the parameters file. Each of the templates requires that the virtual machine or virtual machine scale set is already created.
 
 | Folder | File | Description |
 |:---|:---|
-| ExistingVmOnboarding\<br>PerfAndMapOnboarding | ExistingVmOnboardingTemplate.json<br>ExistingVmOnboardingParameters.json  | Enable both Performance and Map experience for virtual machine. Use with PerfAndMapDcr. |
-| ExistingVmOnboarding\<br>PerfOnlyOnboarding | ExistingVmOnboardingTemplate.json<br>ExistingVmOnboardingParameters.json  | Enable only Performance experience for virtual machine. Use with PerfOnlyDCR. |
-| ExistingVmssOnboarding\<br>PerfAndMapOnboarding | ExistingVmOnboardingTemplate.json<br>ExistingVmssOnboardingParameters.json  | Enable both Performance and Map experience for virtual machine scale set. Use with PerfAndMapDcr. |
-| ExistingVmssOnboarding\<br>PerfOnlyOnboarding | ExistingVmOnboardingTemplate.json<br>ExistingVmssOnboardingParameters.json  | Enable only Performance experience for virtual machine scale set. Use with PerfOnlyDCR. |
+| ExistingVmOnboarding\\<br>PerfAndMapOnboarding | ExistingVmOnboardingTemplate.json<br>ExistingVmOnboardingParameters.json  | Enable both Performance and Map experience for virtual machine. Use with PerfAndMapDcr. |
+| ExistingVmOnboarding\\<br>PerfOnlyOnboarding | ExistingVmOnboardingTemplate.json<br>ExistingVmOnboardingParameters.json  | Enable only Performance experience for virtual machine. Use with PerfOnlyDCR. |
+| ExistingVmssOnboarding\\<br>PerfAndMapOnboarding | ExistingVmOnboardingTemplate.json<br>ExistingVmssOnboardingParameters.json  | Enable both Performance and Map experience for virtual machine scale set. Use with PerfAndMapDcr. |
+| ExistingVmssOnboarding\\<br>PerfOnlyOnboarding | ExistingVmOnboardingTemplate.json<br>ExistingVmssOnboardingParameters.json  | Enable only Performance experience for virtual machine scale set. Use with PerfOnlyDCR. |
 
 > [!NOTE]
 > If your virtual machines scale sets have an upgrade policy set to manual, VM insights will not be enabled for instances by default after installing the template. You must manually upgrade the instances.
@@ -68,7 +68,7 @@ You only need to perform this step once for each workspace that will use VM insi
 |:---|:---|
 | ConfigureWorkspace | ConfigureWorkspaceTemplate.json<br>ConfigureWorkspaceParameters | Install *VMInsights* solution required for the workspace. |
 
-## Deploy agents to machines
+### Deploy agents to machines
 Once the workspace has been configured, deploy the agents using one of the templates in the following table. Templates are available that apply to an existing machine or create a new machine enabled for VM insights.
 
 
