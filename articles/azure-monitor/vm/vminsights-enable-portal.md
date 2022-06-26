@@ -39,10 +39,20 @@ From the **Overview** page for VM insights, select **Not Monitered**. Click the 
  
 Click **Enable** on the introduction page to view the configuration. The **Monitoring configuration** page allows you to select whether you will use the **Azure Monitor agent** or the **Log Analytics agent**. Azure Monitor agent is strongly recommended because of its considerable advantages. The Log Analytics agent is on a deprection path as described in [Log Analytics agent overview](../agents/log-analytics-agent).
 
-**### **Azure Monitor agent**
+> [!NOTE]
+> If a virtual machine has the Log Analytics agent installed but not the Dependency agent, it will be listed as not monitored. In this case, the Azure Monitor agent will be started without being given the option for the Log Analytics agent.
+
+
+### Azure Monitor agent
 If you select Azure Monitor agent, you need to specify a data collection rule to use. The data collection rule specifies the data to collect and the Log Analytics workspace the agent will use.
 
 VM insights will create a default data collection rule if one doesn't already exist. This DCR will collect **Guest performance** and **Process and dependencies**. 
+
+| Option | Description |
+|:---|:---|
+| Guest performance | Specifies whether to collect performance data from the guest operating system. |
+| Processes and dependencies | Collected details about processes running on the virtual machine and dependencies between machines. This enables the map feature in VM insights. |
+| Log Analytics workspace | Specifies the workspace to send data.|
 
 :::image type="content" source="media/vminsights-enable-portal/enable-unmonitored-configure-azure-monitor-agent.png" lightbox="media/vminsights-enable-portal/enable-unmonitored-configure-azure-monitor-agent.png" alt-text="Screenshot with unmonitored machines in V M insights":::
 
@@ -50,7 +60,7 @@ Click **Configure** to modify this DCR. Note that the DCR will be modified for a
 
 It will take several minutes for the agent to be installed and data to start being collected. You'll receive status messages as the configuration is performed.
 
-**Log Analytics agent**
+### Log Analytics agent
 If you select Log Analytics agent, you only need to specify the Log Analytics workspace that the agent will use. VM insights will configure the data to collect.
 
 If the virtual machine isn't already connected to a Log Analytics workspace, then you'll be prompted to select one. If you haven't previously [created a workspace](../logs/quick-create-workspace.md), then you can select a default for the location where the virtual machine or virtual machine scale set is deployed in the subscription. This workspace will be created and configured if it doesn't already exist. If you select an existing workspace, it will be configured for VM insights if it wasn't already.
@@ -70,11 +80,9 @@ Click **Configure** to modify the configuration. The only option you can modify 
 ## Enable Azure Monitor agent on monitored machines
 From the **Monitored** tab, click **Configure using Azure Monitor agent** to enable Azure Monitor agent on machines that already being monitored with the Log Analytics agent. This will initiate the process described in [Enable VM insights on unmonitored machine](#enable-vm-insights-on-unmonitored-machine).
 
-Once you've verified that the Azure Monitor agent has been enabled, you should remove the Log Analytics agent from the machine to prevent duplicate data collection. 
+Once you've verified that the Azure Monitor agent has been enabled, you should remove the Log Analytics agent from the machine to prevent duplicate data collection. If a machine has both agents installed, you'll have a warning in the Azure portal.
 
 :::image type="content" source="media/vminsights-azure-monitor-agent/both-agents-installed.png" alt-text="Both agents installed":::
-
-
 
 
 ## Next steps
