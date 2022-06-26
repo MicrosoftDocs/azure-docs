@@ -12,7 +12,7 @@ ms.date: 06/21/2022
 VM insights monitors the performance and health of your virtual machines and virtual machine scale sets, including their running processes and dependencies on other resources. It can help deliver predictable performance and availability of vital applications by identifying performance bottlenecks and network issues and can also help you understand whether an issue is related to other dependencies.
 
 > [!NOTE]
-> VM insights does not currently support [Azure Monitor agent](../agents/azure-monitor-agent-overview.md).
+> VM insights now supports [Azure Monitor agent](../agents/azure-monitor-agent-overview.md). See [VM insights with Azure Monitor agent (Preview)](vminsights-azure-monitor-agent.md).
 
 VM insights supports Windows and Linux operating systems on the following machines:
 
@@ -45,7 +45,7 @@ Access VM insights for all your virtual machines and virtual machine scale sets 
 The steps to configure VM insights are as follows. Follow each link for detailed guidance on each step:
 
 - [Create Log Analytics workspace.](./vminsights-configure-workspace.md#create-log-analytics-workspace)
-- [Add VMInsights solution to workspace.](./vminsights-configure-workspace.md#add-vminsights-solution-to-workspace) (Log ANalytics agent only))
+- [Add VMInsights solution to workspace.](./vminsights-configure-workspace.md#add-vminsights-solution-to-workspace) (Log Analytics agent only))
 - [Install agents on virtual machine and virtual machine scale set to be monitored.](./vminsights-enable-overview.md)
 
 > [!NOTE]
