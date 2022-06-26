@@ -38,7 +38,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 This diagram shows the resources created in this tutorial along with the expected network routes.
 
-:::image type="content" source="./media/tutorial-create-route-table-portal/overview.png" alt-text="Overview Diagram showing the Public, Private and NVA Virtual Machines for this tutorial." border="true":::
+:::image type="content" source="./media/tutorial-create-route-table-portal/overview.png" alt-text="Diagram showing an overview of interaction of the Public, Private and N V A Virtual Machines used in this tutorial." border="true":::
 
 ## Prerequisites
 
@@ -162,7 +162,7 @@ In this section, you'll create a route table.
     | Name | Enter *myRouteTablePublic*. |
     | Propagate gateway routes | Select **Yes**. |
 
-    :::image type="content" source="./media/tutorial-create-route-table-portal/create-route-table.png" alt-text="Create route table, Azure portal." border="true":::
+    :::image type="content" source="./media/tutorial-create-route-table-portal/create-route-table.png" alt-text="Screenshot showing Basics tab of Create route table in Azure portal." border="true":::
 
 5. Select the **Review + create** tab, or select the blue **Review + create** button at the bottom of the page.
 
@@ -186,7 +186,7 @@ In this section, you'll create a route in the route table that you created in th
     | Next hop type | Select **Virtual appliance**. |
     | Next hop address | Enter *10.0.2.4* (The address of **myVMNVA** VM created earlier in the **DMZ** subnet). |
 
-    :::image type="content" source="./media/tutorial-create-route-table-portal/add-route-inline.png" alt-text="Screenshot of add route configuration." lightbox="./media/tutorial-create-route-table-portal/add-route-expanded.png":::
+    :::image type="content" source="./media/tutorial-create-route-table-portal/add-route-inline.png" alt-text="Screenshot showing Add route configuration in Azure portal." lightbox="./media/tutorial-create-route-table-portal/add-route-expanded.png":::
 
 6. Select **Add**.
 
@@ -204,7 +204,7 @@ In this section, you'll associate the route table that you created in the previo
 
 6. Select **Save** to associate your route table to the **Public** subnet.
 
-    :::image type="content" source="./media/tutorial-create-route-table-portal/associate-route-table-inline.png" alt-text="Screenshot of Associate route table to a subnet in the virtual network." lightbox="./media/tutorial-create-route-table-portal/associate-route-table-expanded.png":::
+    :::image type="content" source="./media/tutorial-create-route-table-portal/associate-route-table-inline.png" alt-text="Screenshot showing Associate route table to the Public subnet in the virtual network in Azure portal." lightbox="./media/tutorial-create-route-table-portal/associate-route-table-expanded.png":::
 
 ## Create public and private virtual machines
 
@@ -341,13 +341,13 @@ In this section, you'll turn on IP forwarding for the network interface of **myV
 
 4. In the **Networking** page of **myVMNVA**, select the network interface next to **Network Interface:**.  The name of the interface will begin with **myvmnva**.
 
-    :::image type="content" source="./media/tutorial-create-route-table-portal/virtual-machine-networking.png" alt-text="Screenshot of Networking, network virtual appliance (NVA) virtual machine (VM), Azure portal" border="true":::
+    :::image type="content" source="./media/tutorial-create-route-table-portal/virtual-machine-networking.png" alt-text="Screenshot showing Networking page of network virtual appliance virtual machine in Azure portal" border="true":::
 
 5. In the network interface overview page, select **IP configurations** from the **Settings** section.
 
 6. In the **IP configurations** page, set **IP forwarding** to **Enabled**, then select **Save**.
 
-    :::image type="content" source="./media/tutorial-create-route-table-portal/enable-ip-forwarding.png" alt-text="Screenshot of Enable I P forwarding" border="true":::
+    :::image type="content" source="./media/tutorial-create-route-table-portal/enable-ip-forwarding.png" alt-text="Screenshot showing Enabled I P forwarding in Azure portal" border="true":::
 
 ### Turn on IP forwarding in the operating system
 
