@@ -158,16 +158,19 @@ When connectivity is restored, each self-hosted gateway affected by the outage w
 
 ### Transport Layer Security (TLS)
 
-> [!WARNING]
-> This is only applicable to the self-hosted gateway v2.
+> [!IMPORTANT]
+> This overview is only applicable to the self-hosted gateway v1 & v2.
 
-#### Supported Protocols
+#### Supported protocols
 
 The self-hosted gateway provides support for TLS v1.2 by default.
 
 Customers using custom domains can enable TLS v1.0 and/or v1.1 [in the control plane](/rest/api/apimanagement/current-ga/gateway-hostname-configuration/create-or-update).
 
-#### Available Cipher Suites
+#### Available cipher suites
+
+> [!IMPORTANT]
+> This overview is only applicable to the self-hosted gateway v2.
 
 The self-hosted gateway uses the following cipher suites for both client and server connections:
 
@@ -202,7 +205,7 @@ The self-hosted gateway uses the following cipher suites for both client and ser
 - `TLS_RSA_WITH_AES_256_CBC_SHA`
 - `TLS_RSA_WITH_AES_128_CBC_SHA`
 
-#### Managing Cipher Suites
+#### Managing cipher suites
 
 As of v2.1.1 and above, you can manage the ciphers that are being used through the configuration:
 

@@ -66,7 +66,7 @@ Customer must use the new Configuration API v2 by changing their deployment scri
 
 ### Security
 
-#### Available TLS Cipher Suites
+#### Available TLS cipher suites
 
 At launch, self-hosted gateway v2.0 only used a subset of the cipher suites that v1.x was using. As of v2.0.4, we have brought back all the cipher suites that v1.x supported.
 
