@@ -305,7 +305,7 @@ You'll create two virtual machines in **myVirtualNetwork** virtual network, then
 
 1. In the **Overview** page of **myVMPrivate**, select **Connect** then **Bastion**.
 
-1. Enter the username and password you created for **myVMPrivate** previously.
+1. Enter the username and password you created for **myVMPrivate** virtual machine previously.
 
 1. Select **Connect** button.
 
@@ -323,13 +323,13 @@ You'll create two virtual machines in **myVirtualNetwork** virtual network, then
     mstsc /v:myvmpublic
     ```
 
-1. After you connect to **myVMPublic**, open Windows PowerShell and enter the same command from step 6.
+1. After you connect to **myVMPublic** VM, open Windows PowerShell and enter the same command from step 6.
 
-1. Close the remote desktop connection to **myVMPublic**.
+1. Close the remote desktop connection to **myVMPublic** VM.
 
 ## Turn on IP forwarding
 
-To route traffic through **myVMNVA**, turn on IP forwarding in Azure and in the operating system of the virtual machine. Once IP forwarding is enabled, any traffic received by **myVMNVA** that's destined for a different IP address, won't be dropped and will be forwarded to the correct destination.
+To route traffic through the NVA, turn on IP forwarding in Azure and in the operating system of **myVMNVA** virtual machine. Once IP forwarding is enabled, any traffic received by **myVMNVA** VM that's destined for a different IP address, won't be dropped and will be forwarded to the correct destination.
 
 ### Turn on IP forwarding in Azure
 
@@ -351,21 +351,21 @@ In this section, you'll turn on IP forwarding for the network interface of **myV
 
 ### Turn on IP forwarding in the operating system
 
-In this section, you'll turn on IP forwarding for the operating system of **myVMNVA** to forward network traffic. You'll use the same bastion connection to **myVMPrivate**, that you started in the previous steps, to open a remote desktop connection to **myVMNVA**.
+In this section, you'll turn on IP forwarding for the operating system of **myVMNVA** virtual machine to forward network traffic. You'll use the same bastion connection to **myVMPrivate** VM, that you started in the previous steps, to open a remote desktop connection to **myVMNVA** VM.
 
-1. From PowerShell on **myVMPrivate** virtual machine, open a remote desktop connection to the **myVMNVA** virtual machine:
+1. From PowerShell on **myVMPrivate** VM, open a remote desktop connection to the **myVMNVA** VM:
 
     ```powershell
     mstsc /v:myvmnva
     ```
 
-2. After you connect to **myVMNVA**, open Windows PowerShell and enter this command to turn on IP forwarding:
+2. After you connect to **myVMNVA** VM, open Windows PowerShell and enter this command to turn on IP forwarding:
 
     ```powershell
     Set-ItemProperty -Path HKLM:\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters -Name IpEnableRouter -Value 1
     ```
 
-3. Restart **myVMNVA**.
+3. Restart **myVMNVA** VM.
 
     ```powershell
     Restart-Computer
@@ -373,17 +373,17 @@ In this section, you'll turn on IP forwarding for the operating system of **myVM
 
 ## Test the routing of network traffic
 
-You'll test routing of network traffic using [tracert](/windows-server/administration/windows-commands/tracert.md) tool from **myVMPublic** to **myVMPrivate**, and then you'll test the routing in the opposite direction.
+You'll test routing of network traffic using [tracert](/windows-server/administration/windows-commands/tracert.md) tool from **myVMPublic** VM to **myVMPrivate** VM, and then you'll test the routing in the opposite direction.
 
-### Test network traffic from myVMPublic to myVMPrivate
+### Test network traffic from myVMPublic VM to myVMPrivate VM
 
-1. From PowerShell on **myVMPrivate** virtual machine, open a remote desktop connection to the **myVMPublic** virtual machine:
+1. From PowerShell on **myVMPrivate** VM, open a remote desktop connection to the **myVMPublic** VM:
 
     ```powershell
     mstsc /v:myvmpublic
     ```
 
-2. After you connect to **myVMPublic**, open Windows PowerShell and enter this *tracert* command to trace the routing of network traffic from the **myVMPublic** to **myVMPrivate**:
+2. After you connect to **myVMPublic** VM, open Windows PowerShell and enter this *tracert* command to trace the routing of network traffic from the **myVMPublic** VM to **myVMPrivate** VM:
 
 
     ```powershell
@@ -402,15 +402,15 @@ You'll test routing of network traffic using [tracert](/windows-server/administr
     Trace complete.
     ```
     
-    You can see that there are two hops in the above response for *tracert* ICMP traffic from **myVMPublic** to **myVMPrivate**. The first hop is **myVMNVA** virtual machine, and the second hop is the destination **myVMPrivate** virtual machine.
+    You can see that there are two hops in the above response for *tracert* ICMP traffic from **myVMPublic** VM to **myVMPrivate** VM. The first hop is **myVMNVA** VM, and the second hop is the destination **myVMPrivate** VM.
 
-    Azure sent the traffic through the NVA and not directly to the **Private** subnet because you added **ToPrivateSubnet** route to **myRouteTablePublic** route table and associated it to the **Public** subnet.
+    Azure sent the traffic from **Public** subnet through the NVA and not directly to **Private** subnet because you previously added **ToPrivateSubnet** route to **myRouteTablePublic** route table and associated it to **Public** subnet.
 
-1. Close the remote desktop connection to **myVMPublic**.
+1. Close the remote desktop connection to **myVMPublic** VM.
 
-### Test network traffic from myVMPrivate to myVMPublic 
+### Test network traffic from myVMPrivate VM to myVMPublic VM
 
-1. Open PowerShell on **myVMPrivate**, and enter this command:
+1. From PowerShell on **myVMPrivate** VM, and enter this command:
 
     ```powershell
     tracert myvmpublic
@@ -429,7 +429,7 @@ You'll test routing of network traffic using [tracert](/windows-server/administr
 
     You can see that there's one hop in the above response, which is the destination **myVMPublic** virtual machine.
 
-    Azure sent the traffic directly from **myVMPrivate** to **myVMPublic**. By default, Azure routes traffic directly between subnets.
+    Azure sent the traffic directly from **Private** subnet to **Public** subnet. By default, Azure routes traffic directly between subnets.
 
 1. Close the bastion session.
 
