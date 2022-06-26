@@ -49,6 +49,9 @@ You can enable the Defender for Containers plan and deploy all of the relevant c
 
 Once the Defender profile has been deployed, a default workspace will be automatically assigned. You can [assign a custom workspace](../defender-for-containers-enable.md?pivots=defender-for-container-aks&tabs=aks-deploy-portal%2ck8s-deploy-asc%2ck8s-verify-asc%2ck8s-remove-arc%2caks-removeprofile-api#assign-a-custom-workspace) in place of the default workspace through Azure Policy.
 
+> [!NOTE]
+> You should deploy the Defender profile to each node to provide the runtime protections and collect signals from those nodes using [eBPF technology](https://ebpf.io/).
+
 ### [**Azure portal**](#tab/aks-deploy-portal)
 
 ### Use the fix button from the Defender for Cloud recommendation
