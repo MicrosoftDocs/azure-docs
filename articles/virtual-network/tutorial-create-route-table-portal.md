@@ -383,7 +383,7 @@ You'll test routing of network traffic using [tracert](/windows-server/administr
     mstsc /v:myvmpublic
     ```
 
-2. After you connect to **myVMPublic** VM, open Windows PowerShell and enter this *tracert* command to trace the routing of network traffic from the **myVMPublic** VM to **myVMPrivate** VM:
+2. After you connect to **myVMPublic** VM, open Windows PowerShell and enter this *tracert* command to trace the routing of network traffic from **myVMPublic** VM to **myVMPrivate** VM:
 
 
     ```powershell
@@ -410,13 +410,13 @@ You'll test routing of network traffic using [tracert](/windows-server/administr
 
 ### Test network traffic from myVMPrivate VM to myVMPublic VM
 
-1. From PowerShell on **myVMPrivate** VM, and enter this command:
+1. From PowerShell on **myVMPrivate** VM, and enter this *tracert* command to trace the routing of network traffic from **myVmPrivate** VM to **myVmPublic** VM.
 
     ```powershell
     tracert myvmpublic
     ```
 
-    This command tests the routing of network traffic from the **myVmPrivate** VM to the **myVmPublic** VM. The response is similar to this example:
+    The response is similar to this example:
 
     ```powershell
     Tracing route to myvmpublic.q04q2hv50taerlrtdyjz5nza1f.bx.internal.cloudapp.net [10.0.0.4]
