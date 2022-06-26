@@ -13,17 +13,17 @@ ms.date: 06/26/2022
 <br>
 <iframe src="https://aka.ms/docs/player?id=2426d341-bdb6-4795-bc08-179cfe7b99ba" width="1080" height="530" allowFullScreen="true" frameBorder="0"></iframe>
 
-- [00:00](/shows/mdc-in-the-field/defender-for-storage#time=00m00s) - Introduction
+- [00:00](/shows/mdc-in-the-field/defenders-for-servers-deploy-aws-gcp#time=00m00s) - Introduction
 
-- [01:30](/shows/mdc-in-the-field/defender-for-storage#time=01m30s) - Selecting the appropriate plan for AWS and GCP
+- [01:30](/shows/mdc-in-the-field/defenders-for-servers-deploy-aws-gcp#time=01m30s) - Selecting the appropriate plan for AWS and GCP
 
-- [03:05](/shows/mdc-in-the-field/defender-for-storage#time=03m05s) - Is it necessary to make any action to apply this change?
+- [03:05](/shows/mdc-in-the-field/defenders-for-servers-deploy-aws-gcp#time=03m05s) - Is it necessary to make any action to apply this change?
 
-- [03:23](/shows/mdc-in-the-field/defender-for-storage#time=03m23s) - Supported scenarios
+- [03:23](/shows/mdc-in-the-field/defenders-for-servers-deploy-aws-gcp#time=03m23s) - Supported scenarios
 
-- [03:40](/shows/mdc-in-the-field/defender-for-storage#time=03m40s) - What changes should you expect to see on your environment?
+- [03:40](/shows/mdc-in-the-field/defenders-for-servers-deploy-aws-gcp#time=03m40s) - What changes should you expect to see on your environment?
 
-- [05:49](/shows/mdc-in-the-field/defender-for-storage#time=05m49s) - Demonstration
+- [05:49](/shows/mdc-in-the-field/defenders-for-servers-deploy-aws-gcp#time=05m49s) - Demonstration
 
 ## Recommended resources
   
