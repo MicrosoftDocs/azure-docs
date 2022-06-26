@@ -15,7 +15,7 @@ ms.custom: references_regions
 
 *AI enrichment* is the application of machine learning models over raw content, where analysis and inference are used to create searchable content and structure where none previously existed. Because Azure Cognitive Search is a full text search solution, the purpose of AI enrichment is to improve the utility of your content in search-related scenarios:
 
-+ Machine translation and language detection supports multi-lingual search
++ Machine translation and language detection support multi-lingual search
 + Entity recognition finds people, places, and other entities in large chunks of text
 + Key phrase extraction identifies and then outputs important terms
 + Optical Character Recognition (OCR) recognizes text in binary files
@@ -125,13 +125,13 @@ In Azure Cognitive Search, an indexer saves the output it creates. A single inde
 |------------|----------|----------|-------------|
 | [**searchable index**](search-what-is-an-index.md) | Required | Search service | Specification of an index is an indexer requirement. When you attach a skillset, the output of the skillset, plus any fields that are mapped directly from the source, are used to populate the index. Usually, the outputs of specific skills, such as key phrases or sentiment scores, are ingested into the index in fields created for that purpose. |
 | [**knowledge store**](knowledge-store-concept-intro.md) | Optional | Azure Storage | Used for downstream apps like knowledge mining. A knowledge store is defined within a skillset. Its definition determines whether your enriched documents are projected as tables or objects (files or blobs). |
-| [**enrichment cache**](cognitive-search-incremental-indexing-conceptual.md) | Optional | Azure Storage | Internal data (enriched documents) that can be reused in subsequent skillset executions. The cache includes cracked documents and enrichments, which allows you to reuse any content thats already been extracted or processed during a previous skillset execution. Caching is helpful if your skillset include image analysis or OCR, and you want to avoid the time and expense of reprocessing image files. |
+| [**enrichment cache**](cognitive-search-incremental-indexing-conceptual.md) | Optional | Azure Storage | Internal data (enriched documents) that can be reused in subsequent skillset executions. The cache includes cracked documents and enrichments, which allows you to reuse any content that's already been extracted or processed during a previous skillset execution. Caching is helpful if your skillset include image analysis or OCR, and you want to avoid the time and expense of reprocessing image files. |
 
 Indexes and knowledge stores are fully independent of each other. While you must attach an index to satisfy indexer requirements, if your sole objective is a knowledge store, you can ignore the index after it's populated. Avoid deleting it though. If you want to rerun the indexer and skillset, you'll need the index in order for the indexer to run.
 
 ## Exploring content
 
-Once you have defined and loaded a [search index](search-what-is-an-index.md) or a [knowledge store](knowledge-store-concept-intro.md), you can explore it's data.
+After you've defined and loaded a [search index](search-what-is-an-index.md) or a [knowledge store](knowledge-store-concept-intro.md), you can explore its data.
 
 ### Query a search index
 
@@ -161,15 +161,15 @@ Billing follows a pay-as-you-go pricing model. The costs of using built-in skill
 
 1. Create a [data source](/rest/api/searchservice/create-data-source) that specifies a connection to your data.
 
-1. Create a [skillset](/rest/api/searchservice/create-skillset) to add enrichment.
+1. Create a [skillset](cognitive-search-defining-skillset.md) to add enrichment steps.
 
-1. Create an [index schema](/rest/api/searchservice/create-index) that defines a search index.
+1. Create an [index schema](search-how-to-create-search-index.md) that defines a search index.
 
-1. Create and run the [indexer](/rest/api/searchservice/create-indexer) to bring all of the above components together. This step retrieves the data, runs the skillset, and loads the index.
+1. Create and run the [indexer](search-howto-create-indexers.md) to bring all of the above components together. This step retrieves the data, runs the skillset, and loads the index.
 
-1. If possible, [enable enrichment caching](cognitive-search-incremental-indexing-conceptual.md) to reuse existing enrichments.
+   If possible, [enable enrichment caching](cognitive-search-incremental-indexing-conceptual.md) in the indexer configuration. This step allows you to reuse existing enrichments later on.
 
-1. Run queries to evaluate results and modify code to update skillsets, schema, or indexer configuration.
+1. Run [queries](search-query-create.md) to evaluate results and modify code to update skillsets, schema, or indexer configuration.
 
 1. To repeat any of the above steps, [reset the indexer](search-howto-reindex.md) before you run it. Or, delete and recreate the objects on each run (recommended if you’re using the free tier). If you enabled caching the indexer will pull from the cache if data is unchanged at the source, and if your edits to the pipeline don't invalidate the cache.
 
