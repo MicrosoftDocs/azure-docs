@@ -1,7 +1,7 @@
 ---
-title: Tracking for ML experiments with MLflow
+title: Track ML experiments and models with MLflow
 titleSuffix: Azure Machine Learning
-description:  Set up MLflow Tracking with Azure Machine Learning to log metrics and artifacts from ML models with MLflow or the Azure Machine Learning CLI (v2)
+description:  Set up MLflow Tracking with Azure Machine Learning to log metrics and artifacts from ML models with MLflow
 services: machine-learning
 author: abeomor
 ms.author: osomorog
@@ -14,7 +14,7 @@ ms.custom: devx-track-python, mlflow, devx-track-azurecli, cliv2, devplatv2, eve
 ms.devlang: azurecli
 ---
 
-# Track ML experiments and models with MLflow or the Azure Machine Learning CLI (v2)
+# Track ML experiments and models with MLflow
 
 [!INCLUDE [cli v1](../../includes/machine-learning-cli-v2.md)]
 
