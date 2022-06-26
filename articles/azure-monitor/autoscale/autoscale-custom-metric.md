@@ -26,16 +26,18 @@ An Azure account with an active subscription. [Create an account for free](https
 
 ## Overview
 To create an autoscaled Web app, follow the steps below:
+You can skip steps 1 and 2 if you already have a web app and service plan.
 1. Create an App Service Plan.
-1. Create a Web app using the service plan.
-1. Configure autoscaling for the service plan.
+1. Create a Web app using your service plan.
+1. Configure autoscaling for your service plan.
   
 ## Create an App Service Plan and a Web App  
 
 <details>
 <summary> Select to expand if you need to create an App Service plan and App service</summary>
   
-## Create an App Service Plan
+## Create an App Service Plan  
+
 An App Service plan defines a set of compute resources for a web app to run on.  
 
 1. Open the [Azure portal](https://portal.azure.com).
