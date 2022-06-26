@@ -26,7 +26,7 @@ The most significant differences between the agents in relation to VM insights a
 ## Changes to enabling VM insights
 
 ### Workspace configuration
-You no longer need to [enable VM insights on the Log Analytics workspace](vminsights-enable-portal.md#enable-vm-insights) since the VMinsights management pack isn't used by Azure Monitor agent.
+You no longer need to [enable VM insights on the Log Analytics workspace](vminsights-configure-workspace.md) since the VMinsights management pack isn't used by Azure Monitor agent.
 
 > [!NOTE]
 > You can't currently enable the Azure Monitor agent from the virtual machine's menu in the Azure portal. You must use the Azure Monitor menu.

@@ -86,7 +86,7 @@ When you enable VM insights for a machine, the following agents are installed. S
 - The dependency agent requires a connection from the virtual machine to the address 169.254.169.254. This is the Azure metadata service endpoint. Ensure that firewall settings allow connections to this endpoint.
 
 ## Data collection rule (Azure Monitor agent)
-When you enable VM insights on a machine with the Azure Monitor agent you must specify a [data collection rule](../essentials/data-collection-ruleo-overview.m) to use. The DCR specifies the data to collect and the workspace to use. VM insights creates a default DCR if one doesn't already exist. You can edit this DCR to collect additional data such as Windows and Syslog events, or you can create additional DCRs and associate with the machine.
+When you enable VM insights on a machine with the Azure Monitor agent you must specify a [data collection rule](../essentials/data-collection-rule-overview.md) to use. The DCR specifies the data to collect and the workspace to use. VM insights creates a default DCR if one doesn't already exist. You can edit this DCR to collect additional data such as Windows and Syslog events, or you can create additional DCRs and associate with the machine.
 
 It's not recommended to create your own DCR to support VM insights. The DCR created by VM insights includes a special data stream required for its operation. If you want to customize the configuration, modify the DCR created by VM insights instead of creating a new one.
 
