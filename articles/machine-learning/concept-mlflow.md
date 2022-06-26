@@ -83,7 +83,7 @@ The following table shows which operations are supported by each of the tools av
 | Deploy non-MLflow models to Azure Machine Learning | | **&check;** | **&check;** |
 
 > [!NOTE]
-> - <sup>1</sup> View [Manage experiments and runs with MLflow](how-to-track-experiments-mlflow) for details.
+> - <sup>1</sup> View [Manage experiments and runs with MLflow](how-to-track-experiments-mlflow.md) for details.
 > - <sup>2</sup> Only artifacts and models can be downloaded.
 > - <sup>3</sup> View [Manage models registries in Azure Machine Learning with MLflow](how-to-manage-models-mlflow.md) for details.
 > - <sup>4</sup> Loading models using the syntax `models:/model-name/version` is not supported for non-MLflow models.
