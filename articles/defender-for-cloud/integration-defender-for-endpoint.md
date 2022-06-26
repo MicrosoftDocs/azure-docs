@@ -9,7 +9,7 @@ ms.date: 06/19/2022
 
 # Protect your endpoints with Defender for Cloud's integrated EDR solution: Microsoft Defender for Endpoint
 
-Microsoft Defender for Endpoint is a holistic, cloud-delivered, endpoint security solution. Its main features are:
+With Microsoft Defender for Servers, you can deploy [Microsoft Defender for Endpoint Plan 2](/microsoft-365/security/defender-endpoint/microsoft-defender-endpoint?view=o365-worldwide) to your server resources. Microsoft Defender for Endpoint is a holistic, cloud-delivered, endpoint security solution. Its main features are:
 
 - Risk-based vulnerability management and assessment 
 - Attack surface reduction
@@ -35,7 +35,7 @@ Microsoft Defender for Endpoint is a holistic, cloud-delivered, endpoint securit
 
 ## Benefits of integrating Microsoft Defender for Endpoint with Defender for Cloud
 
-Microsoft Defender for Endpoint protects your Windows and Linux machines whether they're hosted in Azure, hybrid clouds (on-premises), or AWS. Protections include:
+[Microsoft Defender for Endpoint Plan 2](/microsoft-365/security/defender-endpoint/microsoft-defender-endpoint?view=o365-worldwide) protects your Windows and Linux machines whether they're hosted in Azure, hybrid clouds (on-premises), or AWS. Protections include:
 
 - **Advanced post-breach detection sensors**. Defender for Endpoint's sensors collect a vast array of behavioral signals from your machines.
 
