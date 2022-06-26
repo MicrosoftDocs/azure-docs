@@ -2,7 +2,7 @@
 title: Workflow automation in Microsoft Defender for Cloud | Microsoft Docs
 description: Learn how to create and automate workflows in Microsoft Defender for Cloud
 ms.topic: how-to
-ms.date: 11/09/2021
+ms.date: 06/26/2022
 ---
 # Automate responses to Microsoft Defender for Cloud triggers
 
@@ -31,7 +31,7 @@ This article describes the workflow automation feature of Microsoft Defender for
 
     From this page you can create new automation rules, as well as enable, disable, or delete existing ones.
 
-1. To define a new workflow, click **Add workflow automation**. The options pane for your new automation opens.
+1. To define a new workflow, select **Add workflow automation**. The options pane for your new automation opens.
 
     :::image type="content" source="./media/workflow-automation/add-workflow.png" alt-text="Add workflow automations pane.":::
 
@@ -46,17 +46,21 @@ This article describes the workflow automation feature of Microsoft Defender for
 
 1. From the Actions section, select **visit the Logic Apps page** to begin the Logic App creation process.
 
+    :::image type="content" source="media/workflow-automation/visit-logic.png" alt-text="Screenshot that shows where on the screen you need to select the visit the logic apps page in the actions section of the add workflow automation screen.":::
+
     You'll be taken to Azure Logic Apps.
 
-1. Select **Add**. 
+1. Select :::image type="icon" source="media/workflow-automation/add-icon.png" border="false":::. 
 
-    [![Creating a new Logic App.](media/workflow-automation/logic-apps-create-new.png)](media/workflow-automation/logic-apps-create-new.png#lightbox)
+    :::image type="content" source="media/workflow-automation/logic-apps-create-new.png" alt-text="Screenshot of the create a logic app screen." lightbox="media/workflow-automation/logic-apps-create-new.png":::
 
-1. Enter a name, resource group, and location, and select **Review and create** > **Create**.
+1. Fill out all required fields and select **Review and create + Create**.
 
     The message **Deployment is in progress** appears. Wait for the deployment complete notification to appear and select **Go to resource** from the notification.
 
-1. In your new logic app, you can choose from built-in, predefined templates from the security category. Or you can define a custom flow of events to occur when this process is triggered.
+1. Review the information you entered and select **Create**.
+
+    In your new logic app, you can choose from built-in, predefined templates from the security category. Or you can define a custom flow of events to occur when this process is triggered.
 
     > [!TIP]
     > Sometimes in a logic app, parameters are included in the connector as part of a string and not in their own field. For an example of how to extract parameters, see step #14 of [Working with logic app parameters while building Microsoft Defender for Cloud workflow automations](https://techcommunity.microsoft.com/t5/azure-security-center/working-with-logic-app-parameters-while-building-azure-security/ba-p/1342121).
@@ -74,7 +78,7 @@ This article describes the workflow automation feature of Microsoft Defender for
 
     [![Sample logic app.](media/workflow-automation/sample-logic-app.png)](media/workflow-automation/sample-logic-app.png#lightbox)
 
-1. After you've defined your logic app, return to the workflow automation definition pane ("Add workflow automation"). Click **Refresh** to ensure your new Logic App is available for selection.
+1. After you've defined your logic app, return to the workflow automation definition pane ("Add workflow automation"). Select **Refresh** to ensure your new Logic App is available for selection.
 
     ![Refresh.](media/workflow-automation/refresh-the-list-of-logic-apps.png)
 
@@ -85,7 +89,7 @@ This article describes the workflow automation feature of Microsoft Defender for
 
 You can also run Logic Apps manually when viewing any security alert or recommendation.
 
-To manually run a Logic App, open an alert or a recommendation and click **Trigger Logic App**:
+To manually run a Logic App, open an alert or a recommendation and select **Trigger Logic App**:
 
 [![Manually trigger a Logic App.](media/workflow-automation/manually-trigger-logic-app.png)](media/workflow-automation/manually-trigger-logic-app.png#lightbox)
 
@@ -120,17 +124,13 @@ To implement these policies:
 
 1. Open each tab and set the parameters as desired:
     1. In the **Basics** tab, set the scope for the policy. To use centralized management, assign the policy to the Management Group containing the subscriptions that will use the workflow automation configuration. 
-    1. In the **Parameters** tab, set the resource group and data type details. 
-        > [!TIP]
-        > Each parameter has a tooltip explaining the options available to you.
-        >
-        > Azure Policy's parameters tab (1) provides access to similar configuration options as Defender for Cloud's workflow automation page (2).
-        > :::image type="content" source="./media/workflow-automation/azure-policy-next-to-workflow-automation.png" alt-text="Comparing the parameters in workflow automation with Azure Policy." lightbox="./media/workflow-automation/azure-policy-next-to-workflow-automation.png":::
+    1. In the **Parameters** tab enter the required information. 
 
-    1. Optionally, to apply this assignment to existing subscriptions, open the **Remediation** tab and select the option to create a remediation task.
+    :::image type="content" source="media/workflow-automation/parameters-tab.png" alt-text="Screenshot of the parameters tab.":::
+
+    1. (Optional), Apply this assignment to an existing subscription in the **Remediation** tab and select the option to create a remediation task.
 
 1. Review the summary page and select **Create**.
-
 
 ## Data types schemas
 
