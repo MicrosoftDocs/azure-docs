@@ -379,7 +379,7 @@ Microsoft Defender for Containers provides security alerts on the cluster level 
 | **Access to kubelet kubeconfig file detected**<br>(K8S.NODE_KubeConfigAccess) <sup>[1](#footnote1)</sup> | Analysis of processes running on a Kubernetes cluster node detected access to kubeconfig file on the host. The kubeconfig file, normally used by the Kubelet process, contains credentials to the Kubernetes cluster API server. Access to this file is often associated with attackers attempting to access those credentials, or with security scanning tools which check if the file is accessible. | CredentialAccess | Medium |
 | **Access to cloud metadata service detected**<br>(K8S.NODE_ImdsCall) <sup>[1](#footnote1)</sup> | Analysis of processes running within a container detected access to the cloud metadata service for acquiring identity token. The container doesn't normally perform such operation. While this behavior might be legitimate, attackers might use this technique to access cloud resources after gaining initial access to a running container. | CredentialAccess | Medium |
 
-<sup><a name="footnote1"></a>1</sup>: **Preview on non-AKS clusters**: This alert is generally available on AKS clusters, but on preview phase for other environments, such as Azure Arc, EKS and GKE.
+<sup><a name="footnote1"></a>1</sup>: **Preview for non-AKS clusters**: This alert is generally available for AKS clusters, but it is in preview for other environments, such as Azure Arc, EKS and GKE.
 
 <sup><a name="footnote2"></a>2</sup>: **Limitations on GKE clusters**: GKE uses a Kuberenetes audit policy that doesn't support all alert types. As a result, this security alert, which is based on Kubernetes audit events, are not supported for GKE clusters.
 
