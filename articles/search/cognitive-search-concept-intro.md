@@ -27,17 +27,15 @@ The following diagram illustrates the processing phases of AI enrichment:
 
   :::image type="content" source="media/cognitive-search-intro/cognitive-search-enrichment-architecture.png" alt-text="Diagram of an enrichment pipeline." border="true":::
 
-Phase one is **data ingestion**. The indexer connects to a supported data source, and retrieves content (documents). [**Blobs in Azure Storage**](../storage/blobs/storage-blobs-overview.md) are the most common data input, but any supported data source can provide the initial content. 
+Phase one is **ingestion**. The indexer connects to a data source and imports content (documents). [Azure Blob Storage](../storage/blobs/storage-blobs-overview.md) is the most common, but any supported data source can provide content.
 
-Phase two is **enrichment and indexing**. Enrichment starts when the indexer extracts content (["document cracking"](search-indexer-overview.md#document-cracking)). Image content is routed to skills that perform image processing, while text content is queued for text processing. Internally, skills create an enriched document that collects the transformations as they occur. Indexing refers to the process of creating the [search index](search-what-is-an-index.md).
+Phase two is **enrichment and indexing**:
 
-Skillset execution can be linear or interdependent if you chain skills together. Within a skillset, skills can be either:
++ Enrichment starts when the indexer extracts content (["document cracking"](search-indexer-overview.md#document-cracking)). Image content is routed to skills that perform image processing, while text content is queued for text processing. Internally, skills create an "enriched document" that collects the transformations as they occur. Skill execution can be linear and parallel, or interdependent if you chain skills together.
 
-+ [*Built-in skills*](cognitive-search-predefined-skills.md) such as machine translation or OCR. Built-in skills are based on the Cognitive Services APIs: [Computer Vision](../cognitive-services/computer-vision/index.yml) and [Language Service](../cognitive-services/language-service/overview.md). Unless your content input is small, expect to [attach a billable Cognitive Services resource](cognitive-search-attach-cognitive-services.md) to run larger workloads.
++ Indexing refers to the process of creating the [search index](search-what-is-an-index.md) on your search service.
 
-+ [*Custom skills*](cognitive-search-create-custom-skill-example.md) execute external code that you provide. Custom skills aren’t always complex. For example, if you have an existing package that provides pattern matching or a document classification model, you can wrap it in a custom skill. 
-
-Phrase three is **exploration**. Output is always a [**search index**](search-what-is-an-index.md) that you can query. Output can optionally include a [**knowledge store**](knowledge-store-concept-intro.md), accessed through data exploration tools or downstream processes. [Field mappings](search-indexer-field-mappings.md), [output field mappings](cognitive-search-output-field-mapping.md), and [projections](knowledge-store-projection-overview.md) determine the data paths that direct content out of the pipeline and into a search index or knowledge store. The same enriched content can appear in both, using implicit or explicit field mappings to send the content to the correct fields.
+Phrase three is **exploration**. Output is always a [**search index**](search-what-is-an-index.md) that you can query. Output can optionally be a [**knowledge store**](knowledge-store-concept-intro.md), blobs and tables in Azure Storage that are accessed through data exploration tools or downstream processes. [Field mappings](search-indexer-field-mappings.md), [output field mappings](cognitive-search-output-field-mapping.md), and [projections](knowledge-store-projection-overview.md) determine the data paths that direct content out of the pipeline and into a search index or knowledge store. The same enriched content can appear in both, using implicit or explicit field mappings to send the content to the correct fields.
 
 <!-- ![Enrichment pipeline diagram](./media/cognitive-search-intro/cogsearch-architecture.png "enrichment pipeline") -->
 
@@ -53,11 +51,13 @@ Phrase three is **exploration**. Output is always a [**search index**](search-wh
 
 ## When to use AI enrichment
 
-Enrichment is useful if raw content is unstructured text, image content, or content that needs language detection and translation. Applying AI through the built-in cognitive skills can unlock this content for full text search and data science applications.
+Enrichment is useful if raw content is unstructured text, image content, or content that needs language detection and translation. Applying AI through the [*built-in skills*](cognitive-search-predefined-skills.md) can unlock this content for full text search and data science applications.
 
 Enrichment also unlocks external processing that you provide. Open-source, third-party, or first-party code can be integrated into the pipeline as a custom skill. Classification models that identify salient characteristics of various document types fall into this category, but any external package that adds value to your content could be used.
 
 ### Use-cases for built-in skills
+
+Built-in skills are based on the Cognitive Services APIs: [Computer Vision](../cognitive-services/computer-vision/index.yml) and [Language Service](../cognitive-services/language-service/overview.md). Unless your content input is small, expect to [attach a billable Cognitive Services resource](cognitive-search-attach-cognitive-services.md) to run larger workloads.
 
 A [skillset](cognitive-search-defining-skillset.md) that's assembled using built-in skills is well suited for the following application scenarios:
 
@@ -77,11 +77,13 @@ A [skillset](cognitive-search-defining-skillset.md) that's assembled using built
 
 ### Use-cases for custom skills
 
-Custom skills can support more complex scenarios, such as recognizing forms, or custom entity detection using a model that you provide and wrap in the [custom skill web interface](cognitive-search-custom-skill-interface.md). Several examples of custom skills include:
+[*Custom skills*](cognitive-search-create-custom-skill-example.md) execute external code that you provide. Custom skills can support more complex scenarios, such as recognizing forms, or custom entity detection using a model that you provide and wrap in the [custom skill web interface](cognitive-search-custom-skill-interface.md). Several examples of custom skills include:
 
 + [Forms Recognizer](../applied-ai-services/form-recognizer/overview.md)
 + [Bing Entity Search API](./cognitive-search-create-custom-skill-example.md)
 + [Custom entity recognition](https://github.com/Microsoft/SkillsExtractorCognitiveSearch)
+
+Custom skills aren’t always complex. For example, if you have an existing package that provides pattern matching or a document classification model, you can wrap it in a custom skill. 
 
 <!-- ## Enrichment steps <a name="enrichment-steps"></a>
 
@@ -163,13 +165,13 @@ Billing follows a pay-as-you-go pricing model. The costs of using built-in skill
 
 1. Create an [index schema](/rest/api/searchservice/create-index) that defines a search index.
 
-1. Create an [indexer](/rest/api/searchservice/create-indexer) to bring all of the above components together. This step retrieves the data, runs the skillset, and loads the index.
+1. Create and run the [indexer](/rest/api/searchservice/create-indexer) to bring all of the above components together. This step retrieves the data, runs the skillset, and loads the index.
 
 1. If possible, [enable enrichment caching](cognitive-search-incremental-indexing-conceptual.md) to reuse existing enrichments.
 
 1. Run queries to evaluate results and modify code to update skillsets, schema, or indexer configuration.
 
-To repeat any of the above steps, [reset the indexer](search-howto-reindex.md) before you run it. Or, delete and recreate the objects on each run (recommended if you’re using the free tier). 
+1. To repeat any of the above steps, [reset the indexer](search-howto-reindex.md) before you run it. Or, delete and recreate the objects on each run (recommended if you’re using the free tier). If you enabled caching the indexer will pull from the cache if data is unchanged at the source, and if your edits to the pipeline don't invalidate the cache.
 
 ## Next steps
 
