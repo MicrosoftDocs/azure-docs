@@ -19,8 +19,8 @@ zone_pivot_groups: programming-languages-set-functions
 | 1.x | GA | Recommended only for C# apps that must use .NET Framework and only supports development in the Azure portal, Azure Stack Hub portal, or locally on Windows computers. This version is in maintenance mode, with enhancements provided only in later versions. |
 
 > [!IMPORTANT]
-> Beginning on December 3, 2022, function apps running on versions 2.x and 3.x of the Azure Functions runtime can no longer be supported. Before that time, please test, verify, and migrate your function apps to version 4.x of the Functions runtime. End of support for these runtime versions is due to the ending of support for .NET Core 3.1, which is required by these runtime versions. This requirement affects all Functions languages.  
->Functions version 1.x is still supported for C# function apps that require the .NET Framework. Preview support is now available in Functions 4.x to [run C# functions on .NET Framework 4.8](dotnet-isolated-process-guide.md#supported-versions).  
+> Beginning on December 3, 2022, function apps running on versions 2.x and 3.x of the Azure Functions runtime can no longer be supported. Before that time, please test, verify, and migrate your function apps to version 4.x of the Functions runtime. End of support for these runtime versions is due to the ending of support for .NET Core 3.1, which is required by these runtime versions. This requirement affects all Azure Functions runtime languages.  
+>Functions version 1.x is still supported for C# function apps that require the .NET Framework. Preview support is now available in Functions 4.x to [run C# functions on .NET Framework 4.8](dotnet-isolated-process-guide.md#supported-versions). 
 
 This article details some of the differences between these versions, how you can create each version, and how to change the version on which your functions run.
 
