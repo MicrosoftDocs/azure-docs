@@ -179,7 +179,7 @@ After you've verified your app in the upgraded slot, you can swap the app and ne
 
 If your function app can handle the downtime of a full restart, you can update the `WEBSITE_OVERRIDE_STICKY_EXTENSION_VERSIONS` setting directly in the production slot. Because changing this setting directly in the production slot causes a restart that impacts availability, consider doing this at a time of reduced traffic. You can then swap in the upgraded version from the staging slot. 
 
-The [`Update-AzFunctionAppSetting` PowerShell cmdlet](/powershell/module/az.functions/update-azfunctionappsetting) doesn't currently support slots. You must use Azure CLI.
+The [`Update-AzFunctionAppSetting`](/powershell/module/az.functions/update-azfunctionappsetting) PowerShell cmdlet doesn't currently support slots. You must use Azure CLI or the Azure portal.
 
 1. Use the following command to set `WEBSITE_OVERRIDE_STICKY_EXTENSION_VERSIONS=0` in the production slot:
 
