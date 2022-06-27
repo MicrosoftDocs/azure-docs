@@ -76,7 +76,7 @@ The following Azure resources are defined in the template.
     |**Sim Policy Name**     | Leave this field unchanged.        |
     |**Slice Name**     | Leave this field unchanged.        |
     |**Control Plane Access Interface Name**     | Enter the name of the control plane interface on the access network. This must match the corresponding virtual network name on port 5 on your Azure Stack Edge Pro device.        |
-    |**Control Plane Access Ip Address**    | Enter the IP address for the control plane interface on the access network.        |
+    |**Control Plane Access IP Address**    | Enter the IP address for the control plane interface on the access network.        |
     |**User Plane Access Interface Name**     | Enter the name of the user plane interface on the access network. This must match the corresponding virtual network name on port 5 on your Azure Stack Edge Pro device.        |
     |**Access Subnet**     | Enter the network address of the access subnet in Classless Inter-Domain Routing (CIDR) notation.         |
     |**Access Gateway**     | Enter the access subnet default gateway.        |

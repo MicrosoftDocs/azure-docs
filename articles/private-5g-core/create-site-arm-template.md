@@ -58,7 +58,7 @@ Four Azure resources are defined in the template.
     | **Existing Data Network Name** | Enter the name of the data network to which your private mobile network connects. |
     | **Site Name** | Enter a name for your site. |
     | **Control Plane Access Interface Name** | Enter the name of the control plane interface on the access network. This must match the corresponding virtual network name on port 5 on your Azure Stack Edge Pro device. |
-    | **Control Plane Access Ip Address** | Enter the IP address for the control plane interface on the access network. |
+    | **Control Plane Access IP Address** | Enter the IP address for the control plane interface on the access network. |
     | **User Plane Access Interface Name** | Enter the name of the user plane interface on the access network. This must match the corresponding virtual network name on port 5 on your Azure Stack Edge Pro device. |
     | **Access Subnet** | Enter the network address of the access subnet in Classless Inter-Domain Routing (CIDR) notation. |
     | **Access Gateway** | Enter the access subnet default gateway. |
@@ -91,7 +91,7 @@ Four Azure resources are defined in the template.
     - A **Packet Core Data Plane** resource representing the data plane function of the packet core instance in the site.
     - An **Attached Data Network** resource representing the site's view of the data network.
 
-    :::image type="content" source="media/how-to-guide-deploy-a-private-mobile-network-azure-portal/site-related-resources.png" alt-text="Screenshot of the Azure portal showing a resource group containing a site and its related resources." lightbox="media/how-to-guide-deploy-a-private-mobile-network-azure-portal/site-related-resources.png":::
+    :::image type="content" source="media/create-a-site/site-related-resources.png" alt-text="Screenshot of the Azure portal showing a resource group containing a site and its related resources." lightbox="media/create-a-site/site-related-resources.png":::
 
 ## Next steps
 
