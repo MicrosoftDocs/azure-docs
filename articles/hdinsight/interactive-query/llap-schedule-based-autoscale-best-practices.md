@@ -1,5 +1,5 @@
 ---
-title: HDInsight Interactive Query Autoscale(Schedule-Based) Guide and Best Practices
+title: HDInsight Interactive Query Autoscale(bchedule-based) guide and best practices
 description: LLAP Autoscale Guide and Best Practices 
 ms.service: hdinsight
 ms.topic: quickstart
@@ -9,7 +9,7 @@ ms.reviewer: HDI HiveLLAP Team
 ms.date: 05/25/2022
 ---
 
-# Azure HDInsight Interactive Query Cluster (Hive LLAP) Schedule Based Autoscale
+# Azure HDInsight interactive query cluster (Hive LLAP) schedule based autoscale
 
 This document provides the onboarding steps to enable schedule-based autoscale for Interactive Query (LLAP) Cluster type in Azure HDInsight. It includes some of the best practices to operate Autoscale in Hive-LLAP.
 
@@ -92,7 +92,7 @@ Disabling the WLM should be before the actual schedule of the scaling event and 
 Each time the Interactive Query cluster scales, the Autoscale smart probe would perform a silent update of the number of LLAP Daemons and the Concurrency in the Ambari since these configurations are static. 
 These configs are updated to make sure if autoscale is in disabled state or LLAP Service restarts for some reason. It utilizes all the worker nodes resized at that time. Explicit restart of services to handle these stale config changes isn't required.
 
-### **Next Steps**
+### **Next steps**
 If the above guidelines didn't resolve your query, visit one of the following.
 
 * Get answers from Azure experts through [Azure Community Support](https://azure.microsoft.com/support/community/).
@@ -101,7 +101,7 @@ If the above guidelines didn't resolve your query, visit one of the following.
 
 * If you need more help, you can submit a support request from the [Azure portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Select **Support** from the menu bar or open the **Help + support** hub. For more detailed information, review [How to create an Azure support request](../../azure-portal/supportability/how-to-create-azure-support-request.md). Access to Subscription Management and billing support is included with your Microsoft Azure subscription, and Technical Support is provided through one of the [Azure Support Plans](https://azure.microsoft.com/support/plans/).  
 
-## **Other References:**
+## **Other references:**
   * [Interactive Query in Azure HDInsight](./apache-interactive-query-get-started.md)
   * [Create a cluster with Schedule-based Autoscaling](./apache-interactive-query-get-started.md)
   * [Azure HDInsight Interactive Query Cluster (Hive LLAP) sizing guide](./hive-llap-sizing-guide.md)

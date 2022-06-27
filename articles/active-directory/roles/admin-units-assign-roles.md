@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.topic: how-to
 ms.subservice: roles
 ms.workload: identity
-ms.date: 05/09/2022
+ms.date: 06/01/2022
 ms.author: rolyon
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
@@ -102,6 +102,8 @@ $roleAssignment = New-AzureADMSRoleAssignment -DirectoryScopeId $directoryScope 
 
 ### Microsoft Graph API
 
+Use the [Add a scopedRoleMember](/graph/api/administrativeunit-post-scopedrolemembers) API to assign a role with administrative unit scope.
+
 Request
 
 ```http
@@ -143,6 +145,8 @@ Get-AzureADMSScopedRoleMembership -Id $adminUnit.Id | fl *
 ```
 
 ### Microsoft Graph API
+
+Use the [List scopedRoleMembers](/graph/api/administrativeunit-list-scopedrolemembers) API to list role assignments with administrative unit scope.
 
 Request
 

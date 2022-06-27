@@ -3,7 +3,7 @@ title: 'Application Insights: languages, platforms, and integrations | Microsoft
 description: Languages, platforms, and integrations available for Application Insights
 ms.topic: conceptual
 ms.date: 10/29/2021
-ms.reviewer: olegan
+ms.reviewer: mmcc
 ---
 
 # Supported languages

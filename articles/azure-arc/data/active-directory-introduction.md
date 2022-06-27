@@ -12,7 +12,10 @@ ms.topic: how-to
 ---
 
 # Azure Arc-enabled SQL Managed Instance with Active Directory authentication 
+
 Azure Arc-enabled data services support Active Directory (AD) for Identity and Access Management (IAM). The Arc-enabled SQL Managed Instance uses an existing on-premises Active Directory (AD) domain for authentication. 
+
+[!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
 This article describes how to enable Azure Arc-enabled SQL Managed Instance with Active Directory (AD) Authentication. The article demonstrates two possible AD integration modes: 
 -  Customer-managed keytab (CMK) 

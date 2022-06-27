@@ -40,12 +40,14 @@ landingContent:
     linkLists:
     - linkListType: quickstart
       links:
-      - text: Provision an Enterprise tier instance
-        url: quickstart-provision-service-instance-enterprise.md
-      - text: Set up Application Configuration Service
-        url: quickstart-setup-application-configuration-service-enterprise.md
+      - text: Introduction to Fitness Store sample
+        url: quickstart-sample-app-acme-fitness-store-introduction.md
       - text: Build and deploy applications
         url: quickstart-deploy-apps-enterprise.md
+      - text: Configure Single Sign-On
+        url: quickstart-configure-single-sign-on-enterprise.md
+      - text: Monitor applications end-to-end
+        url: quickstart-monitor-end-to-end-enterprise.md
     - linkListType: how-to-guide
       links:
       - text: Use Application Configuration Service

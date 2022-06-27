@@ -5,7 +5,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: include
-ms.date: 11/02/2021
+ms.date: 06/06/2022
 ms.author: aahi
 ms.custom: ignite-fall-2021
 ---
@@ -35,6 +35,9 @@ To call the API, you need the following information:
 |`-d <documents>`     | The JSON containing the documents you want to send.         |
 
 The following cURL commands are executed from a BASH shell. Edit these commands with your own resource name, resource key, and JSON values.
+
+> [!div class="nextstepaction"]
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=REST API&Pillar=Language&Product=Sentiment-analysis&Page=quickstart&Section=Prerequisites" target="_target">I ran into an issue</a>
 
 
 ## Sentiment analysis and opinion mining
@@ -119,3 +122,6 @@ curl -X POST https://<your-text-analytics-endpoint-here>/text/analytics/v3.2-pre
    "modelVersion":"2020-04-01"
 }
 ```
+
+> [!div class="nextstepaction"]
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=REST API&Pillar=Language&Product=Sentiment-analysis&Page=quickstart&Section=Sentiment-analysis-and-opinion-mining" target="_target">I ran into an issue</a>

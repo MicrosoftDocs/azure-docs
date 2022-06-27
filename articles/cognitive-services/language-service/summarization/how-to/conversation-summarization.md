@@ -16,7 +16,7 @@ ms.custom: language-service-summarization, ignite-fall-2021, event-tier1-build-2
 # How to use conversation summarization (preview)
 
 > [!IMPORTANT] 
-> conversation summarization feature is a preview capability provided “AS IS” and “WITH ALL FAULTS.” As such, Conversation Summarization (preview) should not be implemented or deployed in any production use. The customer is solely responsible for any use of conversation summarization. 
+> The conversation summarization feature is a preview capability provided “AS IS” and “WITH ALL FAULTS.” As such, Conversation Summarization (preview) should not be implemented or deployed in any production use. The customer is solely responsible for any use of conversation summarization. 
 
 Conversation summarization is designed to summarize text chat logs between customers and customer-service agents. This feature is capable of providing both issues and resolutions present in these logs. 
 

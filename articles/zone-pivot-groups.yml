@@ -885,6 +885,17 @@ groups:
     title: CLI
   - id: programming-language-rest
     title: REST
+- id: speech-studio-cli-rest
+# Owner: eur
+  title: Programming languages
+  prompt: Choose a tool or API
+  pivots:
+  - id: speech-studio
+    title: Speech Studio
+  - id: speech-cli
+    title: CLI
+  - id: rest-api
+    title: REST
 - id: programming-languages-set-nineteen
   title: Programming languages
   prompt: Choose a programming language
@@ -1650,8 +1661,8 @@ groups:
   title: Data Box shipping
   prompt: Choose shipping location
   pivots:
-  - id: north-america
-    title: North America
+  - id: americas
+    title: Americas
   - id: europe
     title: Europe
   - id: asia
@@ -1870,3 +1881,12 @@ groups:
     title: Azure Pipelines
   - id: experience-ghactions
     title: GitHub Actions
+# Owner: bagol
+- id: on-prem-exp-d4iot
+  title: OT consoles
+  prompt: Choose an on-premises console
+  pivots:
+  - id: experience-sensor
+    title: OT sensor console
+  - id: experience-cm
+    title: On-premises management console

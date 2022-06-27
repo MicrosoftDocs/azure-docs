@@ -1,6 +1,5 @@
 ---
 title: Specify the Request Service REST API issuance request (preview)
-titleSuffix: Azure Active Directory Verifiable Credentials
 description: Learn how to issue a verifiable credential that you've issued.
 documentationCenter: ''
 author: barclayn
@@ -15,6 +14,8 @@ ms.author: barclayn
 ---
 
 # Request Service REST API issuance specification (preview)
+
+[!INCLUDE [Verifiable Credentials announcement](../../../includes/verifiable-credentials-brand.md)]
 
 Azure Active Directory (Azure AD) Verifiable Credentials includes the Request Service REST API. This API allows you to issue and verify a credential. This article specifies the Request Service REST API for an issuance request.
 

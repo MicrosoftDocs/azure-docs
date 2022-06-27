@@ -240,6 +240,10 @@
         href: sizes-storage.md
       - name: Lsv2-series
         href: lsv2-series.md
+      - name: Lsv3-series
+        href: lsv3-series.md
+      - name: Lasv3-series
+        href: lasv3-series.md
       - name: Optimize performance
         items:
         - name: Linux
@@ -1009,6 +1013,9 @@
     - name: Portal
       displayName: availability and scale, availability, scale, autoscale, availability zones, AV zones
       href: ./create-portal-availability-zone.md
+    - name: Migrate to Availability Zones
+      displayName: availability and scale, availability, scale, autoscale, availability zones, AV zones 
+      href: ../availability-zones/migrate-vm.md
   - name: Proximity Placement Groups
     items:
     - name: Overview
@@ -1849,9 +1856,6 @@
       - name: Overview
         displayName: VM insights
         href: ../azure-monitor/vm/vminsights-overview.md?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
-      - name: General Availability FAQ
-        displayName: VM insights
-        href: ../azure-monitor/vm/vminsights-ga-release-faq.yml?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
       - name: FAQ
         displayName: VM insights
         href: ../azure-monitor/faq.yml?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext

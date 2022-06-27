@@ -6,7 +6,7 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 04/18/2022
 ms.author: govindk
-ms.reviewer: wiassaf
+ms.reviewer: mjbrown
 ms.custom: devx-track-azurepowershell, devx-track-azurecli 
 ms.devlang: azurecli
 
@@ -225,7 +225,7 @@ You can use Azure Resource Manager templates to deploy an Azure Cosmos DB accoun
 Next, deploy the template by using Azure PowerShell or CLI. The following example shows how to deploy the template with a CLI command:
 
 ```azurecli-interactive
-az group deployment create -g <ResourceGroup> --template-file <ProvisionTemplateFilePath>
+az deployment group create -g <ResourceGroup> --template-file <ProvisionTemplateFilePath>
 ```
 
 ## Next steps

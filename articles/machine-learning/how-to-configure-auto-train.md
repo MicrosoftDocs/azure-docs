@@ -104,16 +104,15 @@ The following shows two ways of creating an MLTable.
 
 ```Python
 from azure.ai.ml.constants import AssetTypes
-from azure.ai.ml import automl
-from azure.ai.ml.entities import JobInput
+from azure.ai.ml import automl, Input
 
 # A. Create MLTable for training data from your local directory
-my_training_data_input = JobInput(
+my_training_data_input = Input(
     type=AssetTypes.MLTABLE, path="./data/training-mltable-folder"
 )
 
 # B. Remote MLTable definition
-my_training_data_input  = JobInput(type=AssetTypes.MLTABLE, path="azureml://datastores/workspaceblobstore/paths/Classification/Train")
+my_training_data_input  = Input(type=AssetTypes.MLTABLE, path="azureml://datastores/workspaceblobstore/paths/Classification/Train")
 ```
 
 ### Training, validation, and test data

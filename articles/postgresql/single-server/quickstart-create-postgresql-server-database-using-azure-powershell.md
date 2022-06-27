@@ -7,11 +7,14 @@ ms.topic: quickstart
 ms.author: sunila
 author: sunilagarwal
 ms.devlang: azurepowershell
-ms.custom: mvc, devx-track-azurepowershell, mode-api
+ms.tool: azure-powershell
+ms.custom: mvc, mode-api
 ms.date: 06/08/2020
 ---
 
 # Quickstart: Create an Azure Database for PostgreSQL - Single Server using PowerShell
+
+[!INCLUDE [applies-to-postgresql-single-server](../includes/applies-to-postgresql-single-server.md)]
 
 This quickstart describes how to use PowerShell to create an Azure Database for PostgreSQL server in an
 Azure resource group. You can use PowerShell to create and manage Azure resources interactively or

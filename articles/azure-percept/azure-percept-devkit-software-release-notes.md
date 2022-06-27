@@ -15,6 +15,11 @@ This page provides information of changes and fixes for each Azure Percept DK OS
 
 To download the update images, refer to [Azure Percept DK software releases for USB cable update](./software-releases-usb-cable-updates.md) or [Azure Percept DK software releases for OTA update](./software-releases-over-the-air-updates.md).
 
+## May (2205) Release
+
+- Operating System
+  - Latest security updates on BIND, Node.js, Cyrus SASL, libxml2, and OpenSSL packages.
+  
 ## March (2203) Release
 
 - Operating System

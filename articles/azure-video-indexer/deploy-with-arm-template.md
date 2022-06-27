@@ -1,6 +1,6 @@
 ---
 title:  Deploy Azure Video Indexer with ARM template
-description: In this tutorial you will create an Azure Video Indexer account by using Azure Resource Manager (ARM) template.
+description: Learn how to create an Azure Video Indexer account by using Azure Resource Manager (ARM) template.
 ms.topic: tutorial
 ms.date: 05/23/2022
 ms.author: juliako
@@ -10,17 +10,17 @@ ms.author: juliako
 
 ## Overview
 
-In this tutorial you will create an Azure Video Indexer account by using Azure Resource Manager (ARM) template (preview).
+In this tutorial, you will create an Azure Video Indexer account by using Azure Resource Manager (ARM) template (preview).
 The resource will be deployed to your subscription and will create the Azure Video Indexer resource based on parameters defined in the avam.template file.
 
 > [!NOTE]
 > This sample is *not* for connecting an existing Azure Video Indexer classic account to an ARM-based Azure Video Indexer account.
 > For full documentation on Azure Video Indexer API, visit the [Developer portal](https://aka.ms/avam-dev-portal) page.
-> The current API Version is "2021-10-27-preview". Check this Repo from time to time to get updates on new API Versions.
+> For the latest API version for Microsoft.VideoIndexer, see the [template reference](/azure/templates/microsoft.videoindexer/accounts?tabs=bicep).
 
 ## Prerequisites
 
-* An Azure Media Services (AMS) account. You can create one for free through the [Create AMS Account](/azure/azure/media-services/latest/account-create-how-to).
+* An Azure Media Services (AMS) account. You can create one for free through the [Create AMS Account](/azure/media-services/latest/account-create-how-to).
 
 ## Deploy the sample
 
@@ -40,7 +40,6 @@ The resource will be deployed to your subscription and will create the Azure Vid
 
     * Create a new Resource group on the same location as your Azure Video Indexer account, using the [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) cmdlet.
 
-
     ```powershell
     New-AzResourceGroup -Name myResourceGroup -Location eastus
     ```
@@ -52,7 +51,7 @@ The resource will be deployed to your subscription and will create the Azure Vid
     ```
 
 > [!NOTE]
-> If you would like to work with bicep format, inspect the [bicep file](https://github.com/Azure-Samples/media-services-video-indexer/blob/master/ARM-Samples/Create-Account/avam.template.bicep) on this repo.
+> If you would like to work with bicep format, see [Deploy by using Bicep](./deploy-with-bicep.md).
 
 ## Parameters
 

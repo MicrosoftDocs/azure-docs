@@ -30,7 +30,7 @@ You must also install [GStreamer](~/articles/cognitive-services/speech-service/h
 
 Follow these steps to create a new console application and install the Speech SDK.
 
-1. Download or copy the <a href="https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/scenarios/cpp/captioning/"  title="Copy the samples"  target="_blank">scenarios/cpp/windows/captioning/</a> sample files from GitHub into a local directory. 
+1. Download or copy the <a href="https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/scenarios/cpp/windows/captioning"  title="Copy the samples"  target="_blank">scenarios/cpp/windows/captioning/</a> sample files from GitHub into a local directory. 
 1. Open the `captioning.sln` solution file in Visual Studio.  
 1. Install the Speech SDK in your project with the NuGet package manager.
     ```powershell
