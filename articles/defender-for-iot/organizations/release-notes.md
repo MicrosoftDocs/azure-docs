@@ -2,7 +2,7 @@
 title: What's new in Microsoft Defender for IoT
 description: This article lets you know what's new in the latest release of Defender for IoT.
 ms.topic: overview
-ms.date: 05/25/2022
+ms.date: 06/27/2022
 ---
 
 # What's new in Microsoft Defender for IoT?
@@ -33,6 +33,7 @@ For more information, see the [Microsoft Security Development Lifecycle practice
 
 | Version | Date released | End support date |
 |--|--|--|
+| 22.2.3 | 07/2022 | 4/2023 |
 | 22.1.5 | 06/2022 | 03/2023 |
 | 22.1.4 | 04/2022 | 12/2022 |
 | 22.1.3 | 03/2022 | 11/2022 |
@@ -41,6 +42,20 @@ For more information, see the [Microsoft Security Development Lifecycle practice
 | 10.5.4 | 12/2021 | 09/2022 |
 | 10.5.3 | 10/2021 | 07/2022 |
 | 10.5.2 | 10/2021 | 07/2022 |
+
+## July 2022
+
+**Sensor software version**: 22.2.3
+
+- [Improved security for uploading protocol plugins](#improved-security-for-uploading-protocol-plugins)
+
+### Improved security for uploading protocol plugins
+
+This version of the sensor provides a improved security for uploading proprietary plugins you've created using the Horizon SDK.
+
+:::image type="content" source="media/release-notes/horizon.png" alt-text="Screenshot of the new Protocols DPI (Horizon Plugins) page.":::
+
+For more information, see [Manage proprietary protocols with Horizon plugins](resources-manage-proprietary-protocols.md).
 
 ## June 2022
 
