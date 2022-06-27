@@ -27,15 +27,15 @@ The following diagram illustrates the processing phases of AI enrichment:
 
   :::image type="content" source="media/cognitive-search-intro/cognitive-search-enrichment-architecture.png" alt-text="Diagram of an enrichment pipeline." border="true":::
 
-Phase one is **ingestion**. The indexer connects to a data source and imports content (documents). [Azure Blob Storage](../storage/blobs/storage-blobs-overview.md) is the most common, but any supported data source can provide content.
+**Ingest** is the first step. Here, the indexer connects to a data source and pulls content (documents) over to the search service. [Azure Blob Storage](../storage/blobs/storage-blobs-overview.md) is the most common resource used in AI enrichment scenarios, but any supported data source can provide content.
 
-Phase two is **enrichment and indexing**:
+**Enrich and Index** is next.
 
-+ Enrichment starts when the indexer extracts content (["document cracking"](search-indexer-overview.md#document-cracking)). Image content is routed to skills that perform image processing, while text content is queued for text processing. Internally, skills create an "enriched document" that collects the transformations as they occur. Skill execution can be linear and parallel, or interdependent if you chain skills together.
++ Enrichment starts when the indexer (["cracks documents"](search-indexer-overview.md#document-cracking)) and extracts image and text. The processing that occurs next will depend on your data and which skills you add to a skillset. If you have images, they can be routed to skills that perform image processing. Text content is queued for text and natural language processing. Internally, skills create an "enriched document" that collects the transformations as they occur. 
 
-+ Indexing refers to the process of creating the [search index](search-what-is-an-index.md) on your search service.
++ Indexing is also part of the processing phase. It refers to the process of creating the physical structures of a [search index](search-what-is-an-index.md) (its files and folders) and loading the index with text.
 
-Phrase three is **exploration**. Output is always a [**search index**](search-what-is-an-index.md) that you can query. Output can optionally be a [**knowledge store**](knowledge-store-concept-intro.md), blobs and tables in Azure Storage that are accessed through data exploration tools or downstream processes. [Field mappings](search-indexer-field-mappings.md), [output field mappings](cognitive-search-output-field-mapping.md), and [projections](knowledge-store-projection-overview.md) determine the data paths that direct content out of the pipeline and into a search index or knowledge store. The same enriched content can appear in both, using implicit or explicit field mappings to send the content to the correct fields.
+**Exploration** is the last step. Output is always a [search index](search-what-is-an-index.md) that you can query. Output can optionally be a [knowledge store](knowledge-store-concept-intro.md) consisting of blobs and tables in Azure Storage that are accessed through data exploration tools or downstream processes. [Field mappings](search-indexer-field-mappings.md), [output field mappings](cognitive-search-output-field-mapping.md), and [projections](knowledge-store-projection-overview.md) determine the data paths that direct content out of the pipeline and into a search index or knowledge store. The same enriched content can appear in both, using implicit or explicit field mappings to send the content to the correct fields.
 
 <!-- ![Enrichment pipeline diagram](./media/cognitive-search-intro/cogsearch-architecture.png "enrichment pipeline") -->
 
