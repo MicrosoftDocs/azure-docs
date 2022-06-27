@@ -383,7 +383,7 @@ You can only use one field per table for partitioning. That field is frequently 
 
 - Data retrieval from all files within a folder and subfolders.
 - Data retrieval from multiple locations in the same storage account. You can specify multiple locations by using comma separated paths.
-- [Azure Data Lake Storage](../../../data-lake-store/data-lake-store-overview.md) (ADLS) and Azure Blob Storage.
+- [Azure Data Lake Storage](../../../storage/blobs/data-lake-storage-introduction.md) (ADLS) and Azure Blob Storage.
 - CSV, PARQUET, and ORC file formats.
 
 #### Use resource classes for workload management
