@@ -10,7 +10,7 @@ ms.topic: conceptual
 ms.custom: ignite-fall-2021
 ---
 
-# Gateway Load Balancer (Preview)
+# Gateway Load Balancer
 
 Gateway Load Balancer is a SKU of the Azure Load Balancer portfolio catered for high performance and high availability scenarios with third-party Network Virtual Appliances (NVAs). With the capabilities of Gateway Load Balancer, you can easily deploy, scale, and manage NVAs. Chaining a Gateway Load Balancer to your public endpoint only requires one click. 
 
@@ -26,11 +26,6 @@ You can insert appliances transparently for different kinds of scenarios such as
 With Gateway Load Balancer, you can easily add or remove advanced network functionality without additional management overhead. It provides the bump-in-the-wire technology you need to ensure all traffic to a public endpoint is first sent to the appliance before your application. In scenarios with NVAs, it's especially important that flows are symmetrical. Gateway Load Balancer maintains flow stickiness to a specific instance in the backend pool along with flow symmetry. As a result, a consistent route to your network virtual appliance is ensured – without additional manual configuration. As a result, packets traverse the same network path in both directions and appliances that need this key capability are able to function seamlessly.
 
 The health probe listens across all ports and routes traffic to the backend instances using the HA ports rule. Traffic sent to and from Gateway Load Balancer uses the VXLAN protocol. 
-
-> [!IMPORTANT]
-> Gateway Load Balancer is currently in preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Benefits
 
