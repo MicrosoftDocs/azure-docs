@@ -56,7 +56,7 @@ There are a few pre-requisites for publisher verification, some of which will ha
 
     -  In Azure AD this user must be a member of one of the following [roles](../roles/permissions-reference.md): Application Admin, Cloud Application Admin, or Global Admin. 
 
-    -  In Partner Center this user must have of the following [roles](/partner-center/permissions-overview): MPN Admin, Accounts Admin, or a Global Admin (this is a shared role mastered in Azure AD).
+    -  In Partner Center this user must have of the following [roles](/partner-center/permissions-overview): MPN Partner Admin, Account Admin, or a Global Admin (this is a shared role mastered in Azure AD).
     
 -  The user performing verification must sign in using [multi-factor authentication](../authentication/howto-mfa-getstarted.md).
 
