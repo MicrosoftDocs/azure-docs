@@ -4,8 +4,7 @@ description:  Permissions Management glossary
 services: active-directory
 author: kenwith
 manager: rkarlin
-ms.service: active-directory
-ms.subservice: ciem
+ms.service: ciem
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 02/23/2022

@@ -826,6 +826,8 @@ items:
     items: 
     - name: Manage Azure Data Factory settings and preferences
       href: how-to-manage-settings.md
+    - name: Manage Azure Data Factory studio preview experience
+      href: how-to-manage-studio-preview-exp.md
   - name: Monitor and manage
     items:
     - name: Monitor visually
@@ -1139,6 +1141,8 @@ items:
         href: connector-troubleshoot-rest.md
       - name: SharePoint Online list
         href: connector-troubleshoot-sharepoint-online-list.md
+      - name: Snowflake
+        href: connector-troubleshoot-snowflake.md
       - name: XML format
         href: connector-troubleshoot-xml.md
     - name: Pipeline Triggers 
@@ -1205,7 +1209,7 @@ items:
   - name: Ask a question - Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-data-factory
   - name: Request a feature
-    href: /answers/topics/azure-data-factory.html
+    href: https://feedback.azure.com/d365community/forum/1219ec2d-6c26-ec11-b6e6-000d3a4f032c
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/data-factory/
   - name: Availability by region

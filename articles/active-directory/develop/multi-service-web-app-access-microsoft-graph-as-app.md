@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Web app accesses Microsoft Graph as the app| Azure
+title: Tutorial - Web app accesses Microsoft Graph as the app
 description: In this tutorial, you learn how to access data in Microsoft Graph by using managed identities.
 services: microsoft-graph, app-service-web
 author: rwike77

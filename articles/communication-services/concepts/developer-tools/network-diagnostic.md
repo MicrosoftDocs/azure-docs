@@ -15,7 +15,7 @@ ms.service: azure-communication-services
 
 [!INCLUDE [Private Preview Disclaimer](../../includes/private-preview-include-section.md)]
 
-The Network Diagnostics Tool enables Azure Communication Services developers to ensure that their device and network conditions are optimal for connecting to the service to ensure a great call experience. The tool can be found at [aka.ms/acsdiagnostics](https://acs-network-diagnostic-tool.azurewebsites.net/). Users can quickly run a test, by pressing the start test button. The tool performs diagnostics on the network, devices, and call quality. The results of the diagnostics are directly provided through the tools UI. No sign-in required to use the tool.
+The **Network Diagnostics Tool** enables Azure Communication Services developers to ensure that their device and network conditions are optimal for connecting to the service to ensure a great call experience. The tool can be found at [aka.ms/acsdiagnostics](https://azurecommdiagnostics.net/). Users can quickly run a test, by pressing the start test button. The tool performs diagnostics on the network, devices, and call quality. The results of the diagnostics are directly provided through the tools UI. No sign-in required to use the tool. After the test, a GUID is presented which can be provided to our support team for further help.
 
 ![Network Diagnostic Tool home screen](../media/network-diagnostic-tool.png)
   
@@ -38,6 +38,10 @@ If you are looking to build your own Network Diagnostic Tool or to perform deepe
 ## Privacy
 
 When a user runs a network diagnostic, the tool collects and store service and client telemetry data to verify your network conditions and ensure that they're compatible with Azure Communication Services. The telemetry collected doesn't contain personal identifiable information. The test utilizes both audio and video collected through your device for this verification. The audio and video used for the test aren't stored.
+
+## Support
+
+The test provides a **unique identifier** for your test which you can provide our support team who can provide further help. For more information see [help and support options](../../support.md)
   
 ## Next Steps
 
