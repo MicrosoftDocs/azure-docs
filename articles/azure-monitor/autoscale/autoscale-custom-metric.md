@@ -25,7 +25,7 @@ Integration Service Environment and [API Management services](../../api-manageme
 An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free).
 
 ## Overview
-To create an autoscaled Web app, follow the steps below:
+To create an autoscaled Web app, follow the steps below.
 You can skip steps 1 and 2 if you already have a web app and service plan.
 1. Create an App Service Plan.
 1. Create a Web app using your service plan.
