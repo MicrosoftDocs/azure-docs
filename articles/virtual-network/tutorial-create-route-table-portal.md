@@ -341,13 +341,13 @@ In this section, you'll turn on IP forwarding for the network interface of **myV
 
 4. In the **Networking** page of **myVMNVA**, select the network interface next to **Network Interface:**.  The name of the interface will begin with **myvmnva**.
 
-    :::image type="content" source="./media/tutorial-create-route-table-portal/virtual-machine-networking.png" alt-text="Screenshot showing Networking page of network virtual appliance virtual machine in Azure portal" border="true":::
+    :::image type="content" source="./media/tutorial-create-route-table-portal/virtual-machine-networking.png" alt-text="Screenshot showing Networking page of network virtual appliance virtual machine in Azure portal." border="true":::
 
 5. In the network interface overview page, select **IP configurations** from the **Settings** section.
 
 6. In the **IP configurations** page, set **IP forwarding** to **Enabled**, then select **Save**.
 
-    :::image type="content" source="./media/tutorial-create-route-table-portal/enable-ip-forwarding.png" alt-text="Screenshot showing Enabled I P forwarding in Azure portal" border="true":::
+    :::image type="content" source="./media/tutorial-create-route-table-portal/enable-ip-forwarding.png" alt-text="Screenshot showing Enabled I P forwarding in Azure portal." border="true":::
 
 ### Turn on IP forwarding in the operating system
 
