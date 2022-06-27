@@ -102,8 +102,8 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	![Token](media/tableau-online-provisioning-tutorial/tableau-test-connections.png)
 
-	> [!NOTE] Make sure that you select **Bearer Authentication** always.
-	> You will have 2 options for your Authentication Method: **Bearer Authentication** and **Basic Authentication**. Select Bearer Authentication. Basic authentication will not work for the SCIM 2.0 endpoint.
+	> [!NOTE]
+	> You will have 2 options for your Authentication Method: **Bearer Authentication** and **Basic Authentication**. Make sure that you select Bearer Authentication. Basic authentication will not work for the SCIM 2.0 endpoint.
 
 1. In the **Notification Email** field, enter the email address of a person or group who should receive the provisioning error notifications and select the **Send an email notification when a failure occurs** check box.
 
