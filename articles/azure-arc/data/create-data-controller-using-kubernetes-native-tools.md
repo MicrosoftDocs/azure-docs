@@ -139,6 +139,7 @@ Verify that the bootstrapper pod is running using the following command.
 kubectl get pod --namespace arc -l app=bootstrapper
 ```
 
+If the status is not *Running*, run the command a few times until the status is *Running*.
 The bootstrap.yaml template file defaults to pulling the bootstrapper container image from the Microsoft Container Registry (MCR). If your environment does not have access directly to the Microsoft Container Registry, you can do the following:
 - Follow the steps to [pull the container images from the Microsoft Container Registry and push them to a private container registry](offline-deployment.md).
 - [Create an image pull secret](https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/#create-a-secret-by-providing-credentials-on-the-command-line) named `arc-private-registry` for your private container registry.
