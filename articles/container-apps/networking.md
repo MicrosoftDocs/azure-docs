@@ -26,7 +26,7 @@ As you create a custom VNET, keep in mind the following situations:
 
 - If you want your container app to restrict all outside access, create an [internal Container Apps environment](vnet-custom-internal.md).
 
-- When you provide your own VNET, the network needs a single subnet.
+- When you provide your own VNET, you need to provide a subnet that is dedicated to the Container App Environment you will deploy. This subnet cannot be used by other services.
 
 - Network addresses are assigned from a subnet range you define as the environment is created.
 
@@ -150,7 +150,7 @@ The second URL grants access to the log streaming service and the console. If ne
 
 ## Ports and IP addresses
 
-The VNET associated with a Container Apps environment uses a single subnet with 255 addresses.
+The subnet associated with a Container App Environment must have a CIDR prefix of /23.
 
 The following ports are exposed for inbound connections.
 
@@ -192,7 +192,10 @@ There's no forced tunneling in Container Apps routes.
 
 ## Managed resources
 
-When you deploy an internal or an external environment into your own network, a new resource group prefixed with `MC_` is created in the Azure subscription where your environment is hosted. This resource group contains infrastructure components managed by the Azure Container Apps platform, and shouldn't be modified. The resource group contains Public IP addresses used specifically for outbound connectivity from your environment and a load balancer. As the load balancer is created in your subscription, there are extra costs associated with deploying the service to a custom virtual network.
+When you deploy an internal or an external environment into your own network, a new resource group prefixed with `MC_` is created in the Azure subscription where your environment is hosted. This resource group contains infrastructure components managed by the Azure Container Apps platform, and shouldn't be modified. The resource group contains Public IP addresses used specifically for outbound connectivity from your environment and a load balancer. In addition to the [Azure Container Apps billing](https://docs.microsoft.com/azure/container-apps/billing), you will be billed for the following:
+- 3 Standard Static [Public IPs](https://azure.microsoft.com/pricing/details/ip-addresses/) if using an internal environment, or 4 Standard Static [Public IPs](https://azure.microsoft.com/pricing/details/ip-addresses/) if using an external environment,
+- 2 Standard [Load Balancers](https://azure.microsoft.com/pricing/details/load-balancer/) if using an internal environment, or 1 Standard [Load Balancer](https://azure.microsoft.com/pricing/details/load-balancer/) if using an external environment, each with less than 6 rules, plus the cost of Data processed (GB). The Data processed (GB) includes both ingress and egress for management operations.
+
 
 ## Next steps
 
