@@ -53,7 +53,7 @@ For more information, see the [Microsoft Security Development Lifecycle practice
 
 This version of the sensor provides a improved security for uploading proprietary plugins you've created using the Horizon SDK.
 
-:::image type="content" source="media/release-notes/horizon.png" alt-text="Screenshot of the new Protocols DPI (Horizon Plugins) page.":::
+:::image type="content" source="media/release-notes/horizon.png" alt-text="Screenshot of the new Protocols D P I (Horizon Plugins) page." lightbox="media/release-notes/horizon.png":::
 
 For more information, see [Manage proprietary protocols with Horizon plugins](resources-manage-proprietary-protocols.md).
 

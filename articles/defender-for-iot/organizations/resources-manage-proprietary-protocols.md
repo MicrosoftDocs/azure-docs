@@ -45,7 +45,7 @@ After you've developed and tested a dissector plugin for proprietary protocols, 
 
     The **Protocols DPI (Horizon Plugins)** page lists all of the infrastructure plugins provided out-of-the-box by Defender for IoT and any other plugin you've created and uploaded to the sensor.
 
-    :::image type="content" source="media/release-notes/horizon.png" alt-text="Screenshot of the new Protocols DPI (Horizon Plugins) page.":::
+    :::image type="content" source="media/release-notes/horizon.png" alt-text="Screenshot of the new Protocols D P I (Horizon Plugins) page." lightbox="media/release-notes/horizon.png":::
 
 
 1. Select **Upload signing certificate**, and then browse to and select the certificate you created for your plugin.
