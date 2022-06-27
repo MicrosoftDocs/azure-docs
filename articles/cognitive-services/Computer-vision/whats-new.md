@@ -44,7 +44,7 @@ Language Studio provides you with a platform to try several service features, an
 
 ### Computer Vision 3.2 is generally available (GA)
 
-The general availability version of the 3.2 API is now released. Mind the following changes from the 3.2.preview versions:
+The general availability version of the 3.2 API is now released. Mind the following changes from the 3.2-preview versions:
 1. The [Analyze Image](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f21b) and [Read](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/5d986960601faab4bf452005) API calls now take an optional _model-version_ parameter that you can use to specify which AI model to use. By default, they will use the latest model.
 1. The [Analyze Image](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f21b) and [Read](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/5d986960601faab4bf452005) API calls also return a `model-version` field in successful API responses. This field reports which model was used.
 1. Image Analysis APIs now use a different error-reporting format. See the [API reference documentation](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f21b) to learn how to adjust any error-handling code.
