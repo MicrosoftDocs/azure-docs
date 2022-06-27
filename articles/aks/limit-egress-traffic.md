@@ -795,5 +795,5 @@ If you want to restrict how pods communicate between themselves and East-West tr
 [aks-support-policies]: support-policies.md
 [aks-faq]: faq.md
 [aks-private-clusters]: private-clusters.md
-[add role to identity]: use-managed-identity.md#Add-role-assignment-for-control-plane-identity
+[add role to identity]: use-managed-identity.md#add-role-assignment-for-control-plane-identity
 [Bring your own control plane managed identity]: use-managed-identity.md#bring-your-own-control-plane-managed-identity
