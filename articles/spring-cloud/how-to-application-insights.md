@@ -5,7 +5,7 @@ author: karlerickson
 ms.author: karler
 ms.service: spring-cloud
 ms.topic: how-to
-ms.date: 06/08/2022
+ms.date: 06/20/2022
 ms.custom: devx-track-java, devx-track-azurecli, event-tier1-build-2022
 zone_pivot_groups: spring-cloud-tier-selection
 ---
@@ -351,16 +351,17 @@ The following sections describe how to automate your deployment using Bicep, Azu
 To deploy using a Bicep file, copy the following content into a *main.bicep* file. For more information, see [Microsoft.AppPlatform Spring/monitoringSettings](/azure/templates/microsoft.appplatform/spring/monitoringsettings).
 
 ```bicep
+param springName string
 param location string = resourceGroup().location
 
-resource customize_this 'Microsoft.AppPlatform/Spring@2020-07-01' = {
-  name: 'customize this'
+resource spring 'Microsoft.AppPlatform/Spring@2020-07-01' = {
+  name: springName
   location: location
   properties: {}
 }
 
-resource customize_this_default 'Microsoft.AppPlatform/Spring/monitoringSettings@2020-11-01-preview' = {
-  parent: customize_this
+resource monitorSetting 'Microsoft.AppPlatform/Spring/monitoringSettings@2020-11-01-preview' = {
+  parent: spring
   name: 'default'
   properties: {
     appInsightsInstrumentationKey: '00000000-0000-0000-0000-000000000000'
@@ -378,6 +379,9 @@ To deploy using an ARM template, copy the following content into an *azuredeploy
   "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
+    "springName": {
+      "type": "string"
+    },
     "location": {
       "type": "string",
       "defaultValue": "[resourceGroup().location]"
@@ -387,25 +391,24 @@ To deploy using an ARM template, copy the following content into an *azuredeploy
     {
       "type": "Microsoft.AppPlatform/Spring",
       "apiVersion": "2020-07-01",
-      "name": "customize this",
+      "name": "[parameters('springName')]",
       "location": "[parameters('location')]",
       "properties": {}
     },
     {
       "type": "Microsoft.AppPlatform/Spring/monitoringSettings",
       "apiVersion": "2020-11-01-preview",
-      "name": "[format('{0}/{1}', 'customize this', 'default')]",
+      "name": "[format('{0}/{1}', parameters('springName'), 'default')]",
       "properties": {
         "appInsightsInstrumentationKey": "00000000-0000-0000-0000-000000000000",
         "appInsightsSamplingRate": 88
       },
       "dependsOn": [
-        "[resourceId('Microsoft.AppPlatform/Spring', 'customize this')]"
+        "[resourceId('Microsoft.AppPlatform/Spring', parameters('springName'))]"
       ]
     }
   ]
 }
-
 ```
 
 ### Terraform

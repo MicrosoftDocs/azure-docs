@@ -73,7 +73,7 @@ These are the new alerts:
 For more information, see:
 
 - [Threat matrix for storage services](https://www.microsoft.com/security/blog/2021/04/08/threat-matrix-for-storage/)
-- [Introduction to Microsoft Defender for Storage](defender-for-storage-introduction.md)
+- [Overview of Microsoft Defender for Storage](defender-for-storage-introduction.md)
 - [List of alerts provided by Microsoft Defender for Storage](alerts-reference.md#alerts-azurestorage)
 
 ### Improvements to alerts for Microsoft Defender for Storage
@@ -487,7 +487,7 @@ When Defender for Endpoint detects a threat, it triggers an alert. The alert is 
 During the preview period, you'll deploy the [Defender for Endpoint for Linux](/microsoft-365/security/defender-endpoint/microsoft-defender-endpoint-linux) sensor to supported Linux machines in one of two ways depending on whether you've already deployed it to your Windows machines:
 
 - [Existing users with Defender for Cloud's enhanced security features enabled and Microsoft Defender for Endpoint for Windows](integration-defender-for-endpoint.md#existing-users-with-defender-for-clouds-enhanced-security-features-enabled-and-microsoft-defender-for-endpoint-for-windows)
-- [New users who have never enabled the integration with Microsoft Defender for Endpoint for Windows](integration-defender-for-endpoint.md?tabs=linux#new-users-whove-never-enabled-the-integration-with-microsoft-defender-for-endpoint-for-windows)
+- [New users who have never enabled the integration with Microsoft Defender for Endpoint for Windows](integration-defender-for-endpoint.md?tabs=linux#new-users-who-never-enabled-the-integration-with-microsoft-defender-for-endpoint-for-windows)
 
 Learn more in [Protect your endpoints with Security Center's integrated EDR solution: Microsoft Defender for Endpoint](integration-defender-for-endpoint.md).
 
@@ -661,7 +661,7 @@ The description has also been updated to better explain the purpose of this hard
 
 | Recommendation                                                                                               | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | Severity |
 |--------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:--------:|
-| **Virtual machines should encrypt temp disks, caches, and data flows between Compute and Storage resources** | By default, a virtual machine’s OS and data disks are encrypted-at-rest using platform-managed keys; temp disks and data caches aren’t encrypted, and data isn’t encrypted when flowing between compute and storage resources. For a comparison of different disk encryption technologies in Azure, see <https://aka.ms/diskencryptioncomparison>.<br>Use Azure Disk Encryption to encrypt all this data. Disregard this recommendation if: (1) you’re using the encryption-at-host feature, or (2) server-side encryption on Managed Disks meets your security requirements. Learn more in Server-side encryption of Azure Disk Storage. | High     |
+| **Virtual machines should encrypt temp disks, caches, and data flows between Compute and Storage resources** | By default, a virtual machine’s OS and data disks are encrypted-at-rest using platform-managed keys; temp disks and data caches aren’t encrypted, and data isn’t encrypted when flowing between compute and storage resources. For more information, see the [comparison of different disk encryption technologies in Azure](https://aka.ms/diskencryptioncomparison).<br>Use Azure Disk Encryption to encrypt all this data. Disregard this recommendation if: (1) you’re using the encryption-at-host feature, or (2) server-side encryption on Managed Disks meets your security requirements. Learn more in Server-side encryption of Azure Disk Storage. | High     |
 
 ### Continuous export of secure score and regulatory compliance data released for general availability (GA)
 
@@ -932,7 +932,7 @@ To access this information, you can use any of the methods in the table below.
 
 | Tool                 | Details                                                                                                                                                                |
 |----------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| REST API call        | GET <https://management.azure.com/subscriptions/<SUBSCRIPTION_ID>/providers/Microsoft.Security/assessments?api-version=2019-01-01-preview&$expand=statusEvaluationDates> |
+| REST API call        | `GET https://management.azure.com/subscriptions/<SUBSCRIPTION_ID>/providers/Microsoft.Security/assessments?api-version=2019-01-01-preview&$expand=statusEvaluationDates` |
 | Azure Resource Graph | `securityresources`<br>`where type == "microsoft.security/assessments"`                                                                                                |
 | Continuous export    | The two dedicated fields will be available the Log Analytics workspace data                                                                                            |
 | [CSV export](continuous-export.md#manual-one-time-export-of-alerts-and-recommendations) | The two fields are included in the CSV files                                                        |
@@ -2280,7 +2280,8 @@ To ensure that Kubernetes workloads are secure by default, Security Center is ad
 
 The early phase of this project includes a private preview and the addition of new (disabled by default) policies to the ASC_default initiative.
 
-You can safely ignore these policies and there will be no impact on your environment. If you'd like to enable them, sign up for the preview at <https://aka.ms/SecurityPrP> and select from the following options:
+You can safely ignore these policies and there will be no impact on your environment. If you'd like to enable them, sign up for the preview via the [Microsoft Cloud Security 
+Private Community](https://aka.ms/SecurityPrP) and select from the following options:
 
 1. **Single Preview** – To join only this private preview. Explicitly mention "ASC Continuous Scan" as the preview you would like to join.
 1. **Ongoing Program** – To be added to this and future private previews. You'll need to complete a profile and privacy agreement.

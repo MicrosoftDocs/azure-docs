@@ -11,8 +11,6 @@ ms.service: azure-communication-services
 ms.custom: kr2b-contr-experiment
 ---
 
-[!INCLUDE [Public Preview Notice](../../../includes/public-preview-include.md)]
-
 *Composites* are turn-key solutions that implement common communication scenarios. You can add video calling experiences to your applications. Composites are open-source higher-order components that developers can take advantage of to reduce development time and engineering complexity.
 
 ## Composites overview
@@ -26,6 +24,8 @@ ms.custom: kr2b-contr-experiment
 ### Joining a video/audio call
 
 Users can join a call using the *Teams meeting URL* or they can set up an Azure Communication Services Call. This approach offers a simpler experience, just like the Teams application.
+
+:::image type="content" source="../../media/mobile-ui/android-composite.gif" alt-text="Gif animation shows the pre-meeting experience and joining experience on Android.":::
 
 ### Pre-call experience
 
@@ -56,7 +56,6 @@ These requirements help you choose the right client library:
 - **How much customization do you desire?** Azure Communication Services core client libraries don't have a UX and are designed so you can build whatever UX you want. UI Library components provide UI assets at the cost of reduced customization.
 
 - **What platforms are you targeting?** Different platforms have different capabilities.
-
 
 Here are some key trade-offs:
 

@@ -19,7 +19,15 @@ ms.custom: devx-track-java, devx-track-azurecli, event-tier1-build-2022
 
 This article shows you how to use VMware Spring Cloud Gateway for VMware Kubernetes with Azure Spring Apps Enterprise Tier to route requests to your applications.
 
-Spring Cloud Gateway for Kubernetes instances match requests to target endpoints using configured API routes. A route is assigned to each request by evaluating a number of conditions, called predicates. Each predicate may be evaluated against request headers and parameter values. All of the predicates associated with a route must evaluate to true for the route to be matched to the request. The route may also include a chain of filters, to modify the request before sending it to the target endpoint, or the received response.
+[Spring Cloud Gateway for Kubernetes](https://docs.vmware.com/en/VMware-Spring-Cloud-Gateway-for-Kubernetes/index.html) is one of the commercial VMware Tanzu components. It's based on the open-source Spring Cloud Gateway project. Spring Cloud Gateway for Tanzu handles cross-cutting concerns for API development teams, such as single sign-on (SSO), access control, rate-limiting, resiliency, security, and more. You can accelerate API delivery using modern cloud native patterns, and any programming language you choose for API development.
+
+Spring Cloud Gateway for Kubernetes also has the following features:
+
+- Other commercial API route filters for transporting authorized JSON Web Token (JWT) claims to application services.
+- Client certificate authorization.
+- Rate-limiting approaches.
+- Circuit breaker configuration.
+- Support for accessing application services via HTTP Basic Authentication credentials.
 
 To integrate with [API portal for VMware Tanzu®](./how-to-use-enterprise-api-portal.md), Spring Cloud Gateway for Kubernetes automatically generates OpenAPI version 3 documentation after the route configuration gets changed.
 
@@ -40,24 +48,60 @@ This section describes how to add, update, and manage API routes for apps that u
 
 ### Define route config
 
-The route definition includes the following parts:
+The route configuration definition includes the following parts:
 
-- appResourceId: The full app resource ID to route traffic to
-- routes: A list of route rules about how the traffic goes to one app
+- OpenAPI URI: The URI points to an OpenAPI specification. Both OpenAPI 2.0 and OpenAPI 3.0 specs are supported. The specification can be shown in API portal to try out. Two types of URI are accepted. The first type of URI is a public endpoint like `https://petstore3.swagger.io/api/v3/openapi.json`. The second type of URI is a constructed URL `http://<app-name>/{relative-path-to-OpenAPI-spec}`, where `app-name` is the name of an application in Azure Spring Apps that includes the API definition.
+- routes: A list of route rules about how the traffic goes to one app.
+
+Use the following command to create a route config. The `--app-name` value should be the name of an app hosted in Azure Spring Apps that the requests will route to.
+
+```azurecli
+az spring gateway route-config create \
+    --name <route-config-name> \
+    --app-name <app-name> \
+    --routes-file <routes-file.json>
+```
+
+The following is an example of a JSON file that is passed to the `--routes-file` parameter in the create command:
+
+```json
+{
+   "open_api": {
+      "uri": "<OpenAPI-URI>"
+   },
+   "routes": [
+      {
+         "title": "<title-of-route>",
+         "description": "<description-of-route>",
+         "predicates": [
+            "<predicate-of-route>",
+         ],
+         "ssoEnabled": true,
+         "filters": [
+            "<filter-of-route>",
+         ],
+         "tags": [
+            "<tag-of-route>"
+         ],
+         "order": 0
+      }
+   ]
+}
+```
 
 The following tables list the route definitions. All the properties are optional.
 
 | Property | Description |
 | - | - |
-| title | A title, will be applied to methods in the generated OpenAPI documentation |
-| description | A description, will be applied to methods in the generated OpenAPI documentation  |
-| uri | Full uri, will override `appResourceId` |
-| ssoEnabled | Enable SSO validation. See [Using Single Sign-on](./how-to-configure-enterprise-spring-cloud-gateway.md#configure-single-sign-on-sso) |
-| tokenRelay | Pass currently authenticated user's identity token to the application |
+| title | A title to apply to methods in the generated OpenAPI documentation |
+| description | A description to apply to methods in the generated OpenAPI documentation  |
+| uri | The full URI, which will override the name of app that requests route to. |
+| ssoEnabled | A value that indicates whether to enable SSO validation. See [Using Single Sign-on](./how-to-configure-enterprise-spring-cloud-gateway.md#configure-single-sign-on-sso) |
+| tokenRelay | Passes the currently authenticated user's identity token to the application |
 | predicates | A list of predicates. See [Available Predicates](https://docs.vmware.com/en/VMware-Spring-Cloud-Gateway-for-Kubernetes/1.0/scg-k8s/GUID-configuring-routes.html#available-predicates) |
 | filters | A list of filters. See [Available Filters](https://docs.vmware.com/en/VMware-Spring-Cloud-Gateway-for-Kubernetes/1.0/scg-k8s/GUID-configuring-routes.html#available-filters) |
-| order | Route processing order - a lower order is processed with higher precedence, same as [Spring Cloud Gateway OSS](https://docs.spring.io/spring-cloud-gateway/docs/current/reference/html/) |
-| tags | Classification tags, will be applied to methods in the generated OpenAPI documentation |
+| order | The route processing order - a lower order is processed with higher precedence, same as [Spring Cloud Gateway OSS](https://docs.spring.io/spring-cloud-gateway/docs/current/reference/html/) |
+| tags | Classification tags that will be applied to methods in the generated OpenAPI documentation |
 
 > [!NOTE]
 > Not all the filters/predicates are supported in Azure Spring Apps because of security or compatibility reasons. The following aren't supported:
@@ -69,7 +113,7 @@ The following tables list the route definitions. All the properties are optional
 
 Use the following steps to create an example application using Spring Cloud Gateway for Kubernetes.
 
-1. To create an app in Azure Spring Apps which the Spring Cloud Gateway for Kubernetes would route traffic to, follow the instructions in the [Animal Rescue Sample App](https://github.com/Azure-Samples/animal-rescue) through [Build and Deploy Applications](https://github.com/Azure-Samples/animal-rescue#build-and-deploy-applications).
+1. To create an app in Azure Spring Apps that the Spring Cloud Gateway for Kubernetes would route traffic to, follow the instructions in the [Animal Rescue Sample App](https://github.com/Azure-Samples/animal-rescue) through [Build and Deploy Applications](https://github.com/Azure-Samples/animal-rescue#build-and-deploy-applications).
 
 1. Assign a public endpoint to the gateway to access it.
 
@@ -85,43 +129,43 @@ Use the following steps to create an example application using Spring Cloud Gate
    az spring gateway update --assign-endpoint
    ```
 
-1. Configure routing rules to apps.
+   1. Configure routing rules to apps.
 
    Create rules to access apps deployed in the above step through Spring Cloud Gateway for Kubernetes.
 
    Save the following content to the *adoption-api.json* file.
 
-   ```json
-   [
-      {
-        "predicates": [
-          "Path=/api/animals",
-          "Method=GET"
-        ],
-        "filters": [
-          "RateLimit=2,10s"
-        ],
-        "tags": [
-          "pet adoption"
-        ],
-        "title": "Retrieve pets for adoption.",
-        "description": "Retrieve all of the animals who are up for pet adoption."
-      }
-   ]
-   ```
+      ```json
+      [
+         {
+           "title": "Retrieve pets for adoption.",
+           "description": "Retrieve all of the animals who are up for pet adoption.",
+           "predicates": [
+             "Path=/api/animals",
+             "Method=GET"
+           ],
+           "filters": [
+             "RateLimit=2,10s"
+           ],
+           "tags": [
+             "pet adoption"
+           ]
+         }
+      ]
+      ```
 
-   Use the following command to apply the rule to the app `animal-rescue-backend`:
+      Use the following command to apply the rule to the app `animal-rescue-backend`:
 
-   ```azurecli
-   az spring gateway route-config create \
-       --name adoption-api-routes \
-       --app-name animal-rescue-backend \
-       --routes-file adoption-api.json
-   ```
+      ```azurecli
+      az spring gateway route-config create \
+          --name adoption-api-routes \
+          --app-name animal-rescue-backend \
+          --routes-file adoption-api.json
+      ```
 
-   You can also view the routes in the portal.
+      You can also view the routes in the portal.
 
-   :::image type="content" source="media/enterprise/how-to-use-enterprise-spring-cloud-gateway/gateway-route.png" alt-text="Screenshot of Azure portal Azure Spring Apps Spring Cloud Gateway page showing 'Routing rules' pane.":::
+      :::image type="content" source="media/enterprise/how-to-use-enterprise-spring-cloud-gateway/gateway-route.png" alt-text="Screenshot of Azure portal Azure Spring Apps Spring Cloud Gateway page showing 'Routing rules' pane.":::
 
 1. Use the following command to access the `animal rescue backend` API through the gateway endpoint:
 

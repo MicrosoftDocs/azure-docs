@@ -28,6 +28,8 @@ landingContent:
         links:
           - text: Building scalable apps
             url: howto-build-scalable-apps-overview.md
+          - text: Language-specific app stacks
+            url: howto-app-stacks-overview.md
 
   # Card
   - title: Scale

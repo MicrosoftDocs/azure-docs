@@ -91,7 +91,7 @@ client = AnomalyDetectorClient(AzureKeyCredential(SUBSCRIPTION_KEY), ANOMALY_DET
 
 ## Load time series data from a file
 
-Download the example data for this quickstart from [GitHub](https://github.com/Azure-Samples/AnomalyDetector/blob/master/example-data/request-data.csv):
+Download the example data for this quickstart from [GitHub](https://github.com/Azure-Samples/AnomalyDetector/blob/master/sampledata/request-data.csv):
 1. In your browser, right-click **Raw**.
 2. Click **Save link as**.
 3. Save the file to your application directory, as a .csv file.

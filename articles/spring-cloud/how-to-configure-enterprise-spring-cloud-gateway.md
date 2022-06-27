@@ -17,13 +17,19 @@ ms.custom: devx-track-java, devx-track-azurecli, event-tier1-build-2022
 
 **This article applies to:** ❌ Basic/Standard tier ✔️ Enterprise tier
 
-This article shows you how to use VMware Spring Cloud Gateway for Kubernetes with Azure Spring Apps Enterprise Tier.
+This article shows you how to configure VMware Spring Cloud Gateway for Kubernetes with Azure Spring Apps Enterprise Tier.
 
-[Spring Cloud Gateway for Kubernetes](https://docs.vmware.com/en/VMware-Spring-Cloud-Gateway-for-Kubernetes/index.html) is one of the commercial VMware Tanzu components. It's based on the open-source Spring Cloud Gateway project. Spring Cloud Gateway for Kubernetes handles cross-cutting concerns for API development teams, such as Single Sign-on (SSO), access control, rate-limiting, resiliency, security, and more. You can accelerate API delivery using modern cloud native patterns, and any programming language you choose for API development.
+[Spring Cloud Gateway for Kubernetes](https://docs.vmware.com/en/VMware-Spring-Cloud-Gateway-for-Kubernetes/index.html) is one of the commercial VMware Tanzu components. It's based on the open-source Spring Cloud Gateway project. Spring Cloud Gateway for Tanzu handles cross-cutting concerns for API development teams, such as single sign-on (SSO), access control, rate-limiting, resiliency, security, and more. You can accelerate API delivery using modern cloud native patterns, and any programming language you choose for API development.
 
-Spring Cloud Gateway for Kubernetes also has other commercial API route filters for transporting authorized JSON Web Token (JWT) claims to application services, client certificate authorization, rate-limiting approaches, circuit breaker configuration, and support for accessing application services via HTTP Basic Authentication credentials.
+Spring Cloud Gateway for Tanzu also has the following features:
 
-To integrate with [API portal for VMware Tanzu®](./how-to-use-enterprise-api-portal.md), Spring Cloud Gateway for Kubernetes automatically generates OpenAPI version 3 documentation after the route configuration gets changed.
+- Other commercial API route filters for transporting authorized JSON Web Token (JWT) claims to application services.
+- Client certificate authorization.
+- Rate-limiting approaches.
+- Circuit breaker configuration.
+- Support for accessing application services via HTTP Basic Authentication credentials.
+
+To integrate with [API portal for VMware Tanzu®](./how-to-use-enterprise-api-portal.md), Spring Cloud Gateway for Tanzu automatically generates OpenAPI version 3 documentation after the route configuration gets changed.
 
 ## Prerequisites
 
@@ -42,8 +48,8 @@ Spring Cloud Gateway instance routes traffic according to rules. It supports ric
 
 Default resource usage:
 
-| Component name                          | Instance count | vCPU per instance | Memory per instance |
-|-----------------------------------------|----------------|-------------------|---------------------|
+| Component name                               | Instance count | vCPU per instance | Memory per instance |
+|----------------------------------------------|----------------|-------------------|---------------------|
 | Spring Cloud Gateway for Kubernetes          | 2              | 1 core            | 2Gi                 |
 | Spring Cloud Gateway for Kubernetes operator | 2              | 1 core            | 2Gi                 |
 
@@ -57,11 +63,11 @@ Spring Cloud Gateway for Kubernetes metadata is used to automatically generate O
 
 | Property | Description |
 | - | - |
-| title | Title describing the context of the APIs available on the Gateway instance (default: `Spring Cloud Gateway for K8S`) |
-| description | Detailed description of the APIs available on the Gateway instance (default: `Generated OpenAPI 3 document that describes the API routes configured for '[Gateway instance name]' Spring Cloud Gateway instance deployed under '[namespace]' namespace.`) |
-| documentation | Location of more documentation for the APIs available on the Gateway instance |
-| version | Version of APIs available on this Gateway instance (default: `unspecified`) |
-| serverUrl | Base URL that API consumers will use to access APIs on the Gateway instance |
+| title | A title describing the context of the APIs available on the Gateway instance (default: `Spring Cloud Gateway for K8S`) |
+| description | A detailed description of the APIs available on the Gateway instance (default: `Generated OpenAPI 3 document that describes the API routes configured for '[Gateway instance name]' Spring Cloud Gateway instance deployed under '[namespace]' namespace.`) |
+| documentation | The location of more documentation for the APIs available on the Gateway instance |
+| version | The version of APIs available on this Gateway instance (default: `unspecified`) |
+| serverUrl | The base URL that API consumers will use to access APIs on the Gateway instance |
 
 > [!NOTE]
 > `serverUrl` is mandatory if you want to integrate with [API portal](./how-to-use-enterprise-api-portal.md).

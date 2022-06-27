@@ -5,7 +5,7 @@ services: firewall-manager
 author: vhorne
 ms.service: firewall-manager
 ms.topic: tutorial
-ms.date: 03/03/2021
+ms.date: 06/15/2022
 ms.author: victorh
 ---
 
@@ -75,7 +75,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 2. For the policy name, type **Pol-Net01**.
 3. For Region, select **East US**.
 1. Select **Next : DNS Settings**.
-1. Select **Next : TLS inspection (preview)**
+1. Select **Next : TLS inspection**
 1. Select **Next:Rules**.
 1. Select **Add a rule collection**.
 1. For **Name**, type **RCNet01**.
