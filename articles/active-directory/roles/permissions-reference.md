@@ -2328,23 +2328,23 @@ In the following table, the columns list the roles that can read or update the s
 
 The following table is for roles assigned at the scope of a tenant. For roles assigned at the scope of an administrative unit, [further restrictions apply](admin-units-assign-roles.md#roles-that-can-be-assigned-with-administrative-unit-scope).
 
-Role that security attributes can be read or updated | Password Admin | Helpdesk Admin | Auth Admin | User Admin | Privileged Auth Admin | Global Admin
------- | ------ | ------ | ------ | ------ | ------ | ------
-Auth Admin | &nbsp; | &nbsp; | :heavy_check_mark: | &nbsp; | :heavy_check_mark: | :heavy_check_mark:
-Directory Readers | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:
-Global Admin | &nbsp; | &nbsp; | &nbsp; | &nbsp; | :heavy_check_mark: | :heavy_check_mark:
-Groups Admin | &nbsp; | &nbsp; | &nbsp; | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:
-Guest Inviter | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:
-Helpdesk Admin | &nbsp; | :heavy_check_mark: | &nbsp; | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:
-Message Center Reader | &nbsp; | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:
-Password Admin | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:
-Privileged Auth Admin | &nbsp; | &nbsp; | &nbsp; | &nbsp; | :heavy_check_mark: | :heavy_check_mark:
-Privileged Role Admin | &nbsp; | &nbsp; | &nbsp; | &nbsp; | :heavy_check_mark: | :heavy_check_mark:
-Reports Reader | &nbsp; | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:
-User<br/>(no admin role) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:
-User<br/>(no admin role, but member or owner of a role-assignable group) | &nbsp; | &nbsp; | &nbsp; | &nbsp; | :heavy_check_mark: | :heavy_check_mark:
-User Admin | &nbsp; | &nbsp; | &nbsp; | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:
-Usage Summary Reports Reader | &nbsp; | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:
+Role that security attributes can be read or updated | Auth Admin | User Admin | Privileged Auth Admin | Global Admin
+------ | ------ | ------ | ------ | ------
+Auth Admin | :heavy_check_mark: | &nbsp; | :heavy_check_mark: | :heavy_check_mark:
+Directory Readers | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:
+Global Admin | &nbsp; | &nbsp; | :heavy_check_mark: | :heavy_check_mark:
+Groups Admin | &nbsp; | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:
+Guest Inviter | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:
+Helpdesk Admin | &nbsp; | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:
+Message Center Reader | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:
+Password Admin | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:
+Privileged Auth Admin | &nbsp; | &nbsp; | :heavy_check_mark: | :heavy_check_mark:
+Privileged Role Admin | &nbsp; | &nbsp; | :heavy_check_mark: | :heavy_check_mark:
+Reports Reader | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:
+User<br/>(no admin role) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:
+User<br/>(no admin role, but member or owner of a role-assignable group) | &nbsp; | &nbsp; | :heavy_check_mark: | :heavy_check_mark:
+User Admin | &nbsp; | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:
+Usage Summary Reports Reader | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:
 
 ## Next steps
 
