@@ -64,7 +64,15 @@ Customer must use the new Configuration API v2 by changing their deployment scri
 > * DNS hostname must be resolvable to IP addresses and the corresponding IP addresses must be reachable.
 > This might require additional configuration in case you are using a private DNS, internal VNET or other infrastrutural requirements.
 
-### Meet minimal security requirements
+### Security
+
+#### Available TLS cipher suites
+
+At launch, self-hosted gateway v2.0 only used a subset of the cipher suites that v1.x was using. As of v2.0.4, we have brought back all the cipher suites that v1.x supported.
+
+You can learn more about the used cipher suites in [this article](self-hosted-gateway-overview.md#available-cipher-suites) or use v2.1.1 to [control what cipher suites to use](self-hosted-gateway-overview.md#managing-cipher-suites).
+
+#### Meet minimal security requirements
 
 During startup, the self-hosted gateway will prepare the CA certificates that will be used. This requires the gateway container to run with at least user ID 1001 and can't use read-only file system.
 
