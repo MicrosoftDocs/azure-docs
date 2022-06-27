@@ -1,6 +1,6 @@
 ---
-title: Use the Autoscale feature
-description: Learn how to use the Autoscale feature for Cognitive Services to dynamically adjust the rate limit of your service.
+title: Use the autoscale feature
+description: Learn how to use the autoscale feature for Cognitive Services to dynamically adjust the rate limit of your service.
 author: PatrickFarley
 ms.author: pafarley
 ms.service: cognitive-services
@@ -8,64 +8,74 @@ ms.topic: how-to
 ms.date: 06/27/2022
 ---
 
-# Cognitive Services Autoscale Feature
+# Cognitive Services autoscale Feature
 
-This article provides guidance for how customers can access higher rate limits on their cognitive service resources.
+This article provides guidance for how customers can access higher rate limits on their Cognitive Service resources.
 
 ## Overview
 
-Each Cognitive Services resource has a preconfigured static call rate (transactions per second) which limits the number of concurrent calls that can be made to the backend service at a given time. To ensure that customers can efficiently use cognitive service resources, the autoscale feature will automatically increase/decrease a customer’s resource’s rate limits based on near real time resource usage metrics and backend service capacity metrics.
+Each Cognitive Services resource has a pre-configured static call rate (transactions per second) which limits the number of concurrent calls that customers can make to the backend service in a given time frame. The autoscale feature will automatically increase/decrease a customer's resource's rate limits based on near-real-time resource usage metrics and backend service capacity metrics. This ensures that our customers can use their resources efficiently.
 
-## Getting started with the autoscale feature
+## Get started with the autoscale feature
 
-This feature is disabled by default for every new resource. You can enable the autoscale feature through:
+This feature is disabled by default for every new resource. Follow these instructions to enable it.
 
-* Azure portal
-* CLI
+#### [Azure portal](#tab/portal)
 
-After the resource is created, you can use this command to enable dynamic throttling.
+Go to your resource's page in the Azure portal, and select the **Overview** tab on the left pane. The **Autoscale Settings** pane will appear on the right.
 
+:::image type="content" source="media/cognitive-services-autoscale/portal-autoscale.png" alt-text="Screenshot of the Azure portal with the autoscale pane on right.":::
+
+#### [Azure CLI](#tab/cli)
+
+Run this command after you've created your resource:
+
+```azurecli
 az resource update --namespace Microsoft.CognitiveServices --resource-type accounts --set properties.dynamicThrottlingEnabled=true --resource-group {resource-group-name} --name {resource-name}
+
+```
+
+---
 
 ## Frequently Asked Questions
 
 ### Does enabling the autoscale feature mean my resource will never be throttled again?
 
-No, you may still get 429 errors. If your application triggers a spike, and your resource reports a 429 response, autoscale will check the available capacity projection section to see whether the current capacity can accommodate a rate limit increase and respond within 5 minutes.
+No, you may still get `429` errors for rate limit excess. If your application triggers a spike, and your resource reports a `429` response, autoscale will check the available capacity projection section to see whether the current capacity can accommodate a rate limit increase and respond within five minutes.
 
-If the available capacity is enough for an increase, autoscale will gradually increase the rate limit cap of your resource. If you continue to call your resource at a high rate which results in more 429 throttling, you can expect your TPS rate to continue to increase over time. After making calls to this resource in this manner for 1 hour or more you should reach the maximum (up to 1000 TPS) current available capacity at that time for the resource.
+If the available capacity is enough for an increase, autoscale will gradually increase the rate limit cap of your resource. If you continue to call your resource at a high rate which results in more `429` throttling, your TPS rate will continue to increase over time. If this continues for one hour or more, you should reach the maximum rate (up to 1000 TPS) currently available at that time for that resource.
 
-If the available capacity is not enough for an increase, the autoscale feature will wait 5 minutes and check again.
+If the available capacity is not enough for an increase, the autoscale feature will wait five minutes and check again.
 
-### What if I need a higher ‘minimum’ rate limit?
+### What if I need a higher default rate limit?
 
-By default, cognitive service resources have a default rate limit of 10 TPS. If you need a higher ‘minimum’ TPS, please submit a ‘quota increase’ ticket through our support team. Remember to include your business justification.
-
-### Can I disable this feature if I prefer throttle over unpredictable spend?
-
-Yes, you can disable the autoscale feature through Azure portal or CLI and return to your default call rate limit setting. If your resource was previously approved for a higher TPS, you will go back to that rate. Please note, it can take up to 5min for the changes to go into effect.
-
-### Which cognitive services support the autoscale feature?
-
-Autoscale feature supports the below services:
-
-* Face
-* Computer Vision
-* Text Analytics
+By default, Cognitive Service resources have a default rate limit of 10 TPS. If you need a higher default TPS, please submit a ticket by following the **New Support Request** link on your resource's page in the Azure portal. Remember to include a business justification in the request.
 
 ### Will this feature increase my Azure spend? 
-Cognitive service pricing has not changed and can be accessed here. We will only bill for successful calls made to cognitive services APIs. However, increased call rate limits means that more transactions will be completed, and you may receive a higher bill.
 
-If you introduce a bug into a client where it now calls our service hundreds of times a second then that would likely lead to a much higher bill, where the impact of something like that would have been more limited if a fixed rate limit was present on the resource. Errors of this nature will be your responsibility - so we highly recommend that you perform development and client update tests against a resource which has a fixed rate limit prior to using the autoscale feature.
+Cognitive Services pricing has not changed and can be accessed [here](https://azure.microsoft.com/pricing/details/cognitive-services/). We will only bill for successful calls made to Cognitive Services APIs. However, increased call rate limits mean more transactions will be completed, and you may receive a higher bill.
+
+Be aware of potential errors and their consequences. If a bug in your client application causes it to call the service hundreds of times per second, that would likely lead to a much higher bill, whereas the impact would be much more limited under a fixed rate limit. Errors of this kind are your responsibility, so we highly recommend that you perform development and client update tests against a resource with a fixed rate limit prior to using the autoscale feature.
+
+### Can I disable this feature if I'd rather limit the rate than have unpredictable spending?
+
+Yes, you can disable the autoscale feature through Azure portal or CLI and return to your default call rate limit setting. If your resource was previously approved for a higher default TPS, you will go back to that rate. It can take up to five minutes for the changes to go into effect.
+
+### Which Cognitive Services support the autoscale feature?
+
+Autoscale feature is available for the following services:
+
+* [Face](computer-vision/overview-identity.md)
+* [Computer Vision](computer-vision/index.yml)
+* [Language](language-service/overview.md)
 
 ### Can I test this feature using a free subscription?
 
 No, the autoscale feature is not available to free tier subscriptions.
 
-
 ## Next steps
 
-- Learn [how to optimize your cloud investment with Azure Cost Management](../cost-management-billing/costs/cost-mgt-best-practices.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
-- Learn more about managing costs with [cost analysis](../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
+- [Plan and Manage costs for Azure Cognitive Services](./plan-manage-costs.md).
+- [Optimize your cloud investment with Azure Cost Management](../cost-management-billing/costs/cost-mgt-best-practices.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
 - Learn about how to [prevent unexpected costs](../cost-management-billing/cost-management-billing-overview.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
 - Take the [Cost Management](/learn/paths/control-spending-manage-bills?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) guided learning course.
