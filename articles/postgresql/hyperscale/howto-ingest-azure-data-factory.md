@@ -28,7 +28,7 @@ for storage, processing, and reporting.
 
 ## ADF for real-time ingestion to Hyperscale (Citus)
 
-Here are key reaons to choose Azure Data Factory for ingesting data into
+Here are key reasons to choose Azure Data Factory for ingesting data into
 Hyperscale (Citus):
 
 * **Easy-to-use** - Offers a code-free visual environment for orchestrating and automating data movement.
@@ -38,7 +38,7 @@ Hyperscale (Citus):
 
 ## Steps to use ADF with Hyperscale (Citus)
 
-In this how-to, we'll create a data pipeline by using the Azure Data Factory
+In this article, we'll create a data pipeline by using the Azure Data Factory
 user interface (UI). The pipeline in this data factory copies data from Azure
 Blob storage to a database in Hyperscale (Citus). For a list of data stores
 supported as sources and sinks, see the [supported data
