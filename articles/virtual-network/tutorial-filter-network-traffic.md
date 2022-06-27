@@ -57,9 +57,9 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Select **Create**.
 
-## Create application security groups (ASGs)
+## Create application security groups
 
-An [application security group](application-security-groups.md) enables you to group together servers with similar functions, such as web servers.
+An [application security group (ASGs)](application-security-groups.md) enables you to group together servers with similar functions, such as web servers.
 
 1. From the Azure portal menu, select **+ Create a resource** > **Networking** > **Application security group**, or search for *Application security group* in the portal search box. 
 
@@ -95,9 +95,9 @@ An [application security group](application-security-groups.md) enables you to g
 
 9. Select **Create**.
 
-## Create a network security group (NSG)
+## Create a network security group
 
-A [network security group](network-security-groups-overview.md) secures network traffic in your virtual network. In this section you'll create a network security group. 
+A [network security group (NSG)](network-security-groups-overview.md) secures network traffic in your virtual network. In this section you'll create a network security group. 
 
 1. From the Azure portal menu, select **+ Create a resource** > **Networking** > **Network security group**, or search for *Network security group* in the portal search box.
 
@@ -158,7 +158,7 @@ In this section, you'll associate the network security group with the subnet of 
     | Priority | Leave the default of **100**. |
     | Name | Enter *Allow-Web-All*. |
 
-    :::image type="content" source="./media/tutorial-filter-network-traffic/inbound-security-rule-inline.png" alt-text="Screenshot of Add inbound security rule in a network security group." lightbox="./media/tutorial-filter-network-traffic/inbound-security-rule-expanded.png:::
+    :::image type="content" source="./media/tutorial-filter-network-traffic/inbound-security-rule-inline.png" alt-text="Screenshot of Add inbound security rule in a network security group." lightbox="./media/tutorial-filter-network-traffic/inbound-security-rule-expanded.png":::
 
 1. Select **Add**.
 
