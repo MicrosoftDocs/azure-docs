@@ -47,32 +47,6 @@ If you don't have a storage account that supports the NFS v3 protocol, see [Use 
 |--- | **Following parameters are only for NFS protocol** | --- | --- |--- |
 |mountPermissions | Specify mounted folder permissions |The default is `0777`. If set to `0`, driver will not perform `chmod` after mount. | `0777` | No |
 
-## Create a storage class
-
-A storage class is used to define how an Azure Blob storage container is created.
-
-1. Create a file named `azure-blob-nfs-sc.yaml` and copy in the following YAML.
-
-    ```yml
-    apiVersion: storage.k8s.io/v1
-    kind: StorageClass
-    metadata:
-      name: blob-nfs
-    provisioner: blob.csi.azure.com
-    parameters:
-      protocol: nfs
-    volumeBindingMode: Immediate
-    allowVolumeExpansion: true
-    mountOptions:
-      - nconnect=8
-    ```
-
-2. Create the storage class with the `kubectl create` command:
-
-    ```bash
-    kubectl create -f azure-blob-nfs-sc.yaml
-    ```
-
 ## Create a persistent volume claim
 
 A persistent volume claim (PVC) uses the storage class object to dynamically provision an Azure Blob storage container. The following YAML can be used to create a persistent volume claim 100 GB in size with *ReadWriteMany* access. For more information on access modes, see the [Kubernetes persistent volume][kubernetes-volumes] documentation.
@@ -108,7 +82,7 @@ kubectl exec -it statefulset-blob-0 -- df -h
 
 The following YAML creates a pod that uses the persistent volume claim my-blobstorage to mount the Azure Blob storage at the `*`/mnt/blob' path.
 
-1. Create a file named azure-pvc-blob.yaml, and copy in the following YAML. Make sure that the claimName matches the PVC created in the previous step.
+1. Create a file named azure-blob-nfs-pv.yaml, and copy in the following YAML. Make sure that the claimName matches the PVC created in the previous step.
 
     ```yml
     kind: Pod
@@ -131,7 +105,7 @@ The following YAML creates a pod that uses the persistent volume claim my-blobst
 2. Create the pod with the [kubectl apply][kubectl-apply] command:
 
    ```bash
-   kubectl apply -f azure-pvc-blob.yaml
+   kubectl apply -f azure-blob-nfs-pv.yaml
    ```
 
 ## Next steps
