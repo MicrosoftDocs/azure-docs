@@ -78,12 +78,12 @@ Create a new .NET application in an empty folder using your preferred terminal. 
 dotnet new webapp -o <app-name>
 ```
 
-### Install the package
+### Install the NuGet package
 
-Add the [MongoDB](https://www.npmjs.com/package/mongodb) npm package to the JavaScript project. Use the [``npm install package``](https://docs.npmjs.com/cli/v8/commands/npm-install) command specifying the name of the npm package. The `dotenv` package is used to read the environment variables from a `.env` file during local development.
+Add the [MongoDB.Driver](https://www.nuget.org/packages/MongoDB.Driver) NuGet package to the new .NET project. Use the [``dotnet add package``](https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-add-package) command specifying the name of the NuGet package.
 
 ```console
-npm install mongodb dotenv
+dotnet add package MongoDb.Driver
 ```
 
 ### Configure environment variables
@@ -113,9 +113,7 @@ You'll use the following MongoDB classes to interact with these resources:
 * [Get an item](#get-an-item)
 * [Query items](#query-items)
 
-The sample code described in this article creates a database named ``adventureworks`` with a container named ``products``. The ``products`` table is designed to contain product details such as name, category, quantity, and a sale indicator. Each product also contains a unique identifier.
-
-For this sample code, the container will use the category as a logical partition key.
+The sample code described in this article creates a database named ``adventureworks`` with a collection named ``products``. The ``products`` collection is designed to contain product details such as name, category, quantity, and a sale indicator. Each product also contains a unique identifier.
 
 ### Authenticate the client
 
@@ -131,49 +129,49 @@ For more information on different ways to create a ``CosmosClient`` instance, se
 
 ### Create a database
 
-Use the ``GetDatabase`` method to create a new database if it doesn't already exist. This method will return a reference to the existing or newly created database.
+Use the [``MongoClient.GetDatabase``](https://mongodb.github.io/mongo-csharp-driver/2.16/apidocs/html/M_MongoDB_Driver_MongoClient_GetDatabase.htm) method to create a new database if it doesn't already exist. This method will return a reference to the existing or newly created database.
 
-:::code language="csharp" source="~/azure-cosmos-mongodb-dotnet/001-quickstart/Program.cs" id="new_database" highlight="3":::
+:::code language="csharp" source="~/azure-cosmos-mongodb-dotnet/001-quickstart/Program.cs" id="new_database" :::
 
-For more information on creating a database, see [Create a database in Azure Cosmos DB SQL API using .NET](how-to-dotnet-create-database.md).
+### Create a collection
 
-### Create a container
+The [``MongoDatabase.GetCollection``](https://mongodb.github.io/mongo-csharp-driver/2.16/apidocs/html/M_MongoDB_Driver_MongoDatabase_GetCollection.htm) will create a new collection if it doesn't already exist. This method will also return a reference to the collection.
 
-The [``Database.CreateContainerIfNotExistsAsync``](/dotnet/api/microsoft.azure.cosmos.database.createcontainerifnotexistsasync) will create a new container if it doesn't already exist. This method will also return a reference to the container.
-
-:::code language="csharp" source="~/azure-cosmos-dotnet-v3/001-quickstart/Program.cs" id="new_container" highlight="3-5":::
-
-For more information on creating a container, see [Create a container in Azure Cosmos DB SQL API using .NET](how-to-dotnet-create-container.md).
+:::code language="csharp" source="~/azure-cosmos-mongodb-dotnet/001-quickstart/Program.cs" id="new_collection":::
 
 ### Create an item
 
-The easiest way to create a new item in a container is to first build a C# [class](/dotnet/csharp/language-reference/keywords/class) or [record](/dotnet/csharp/language-reference/builtin-types/record) type with all of the members you want to serialize into JSON. In this example, the C# record has a unique identifier, a *category* field for the partition key, and extra *name*, *quantity*, and *sale* fields.
+The easiest way to create a new item in a collection is to create a C# [class](/dotnet/csharp/language-reference/keywords/class) or [record](/dotnet/csharp/language-reference/builtin-types/record) type with all of the members you want to serialize into JSON. In this example, the C# record has a unique identifier, a *category* field for the partition key, and extra *name*, *quantity*, and *sale* fields.
 
-:::code language="csharp" source="~/azure-cosmos-dotnet-v3/001-quickstart/Product.cs" id="entity" highlight="3-4":::
+```csharp
+public record Product(
+    string Id,
+    string Category,
+    string Name,
+    int Quantity,
+    bool Sale
+);
+```
 
-Create an item in the container by calling [``Container.UpsertItemAsync``](/dotnet/api/microsoft.azure.cosmos.container.upsertitemasync). In this example, we chose to *upsert* instead of *create* a new item in case you run this sample code more than once.
+Create an item in the collection by calling [``IMongoCollection<TDocument>.InsertOne``](https://mongodb.github.io/mongo-csharp-driver/2.16/apidocs/html/M_MongoDB_Driver_IMongoCollection_1_InsertOne_1.htm). 
 
-:::code language="csharp" source="~/azure-cosmos-dotnet-v3/001-quickstart/Program.cs" id="new_item" highlight="3-4,12":::
-
-For more information on creating, upserting, or replacing items, see [Create an item in Azure Cosmos DB SQL API using .NET](how-to-dotnet-create-item.md).
+:::code language="csharp" source="~/azure-cosmos-mongodb-dotnet/001-quickstart/Program.cs" id="new_item" :::
 
 ### Get an item
 
-In Azure Cosmos DB, you can perform a point read operation by using both the unique identifier (``id``) and partition key fields. In the SDK, call [``Container.ReadItemAsync<>``](/dotnet/api/microsoft.azure.cosmos.container.readitemasync) passing in both values to return a deserialized instance of your C# type.
+In Azure Cosmos DB, you can retrieve items by composing queries using Linq. In the SDK, call [``IMongoCollection.FindAsync<>``](https://mongodb.github.io/mongo-csharp-driver/2.16/apidocs/html/M_MongoDB_Driver_IMongoCollection_1_FindAsync__1.htm) and pass in a C# expression to filter the results.
 
-:::code language="csharp" source="~/azure-cosmos-dotnet-v3/001-quickstart/Program.cs" id="read_item" highlight="3-4":::
+:::code language="csharp" source="~/azure-cosmos-mongodb-dotnet/001-quickstart/Program.cs" id="read_item" :::
 
-For more information about reading items and parsing the response, see [Read an item in Azure Cosmos DB SQL API using .NET](how-to-dotnet-read-item.md).
+### Query multiple items
 
-### Query items
+After you insert an item, you can run a query to get all items that match a specific filter by treating the collection as an `IQueryable`. This example uses an expression to filter products by category. Once the call to `AsQueryable`  is made, call [``MongoQueryable.Where``](https://mongodb.github.io/mongo-csharp-driver/2.16/apidocs/html/M_MongoDB_Driver_Linq_MongoQueryable_Where__1.htm) to get retrieve a set of filtered items.
 
-After you insert an item, you can run a query to get all items that match a specific filter. This example runs the SQL query: ``SELECT * FROM todo t WHERE t.partitionKey = 'gear-surf-surfboards'``. This example uses the **QueryDefinition** type and a parameterized query expression for the partition key filter. Once the query is defined, call [``Container.GetItemQueryIterator<>``](/dotnet/api/microsoft.azure.cosmos.container.getitemqueryiterator) to get a result iterator that will manage the pages of results. Then, use a combination of ``while`` and ``foreach`` loops to retrieve pages of results and then iterate over the individual items.
-
-:::code language="csharp" source="~/azure-cosmos-dotnet-v3/001-quickstart/Program.cs" id="query_items" highlight="3,5,16":::
+:::code language="csharp" source="~/azure-cosmos-mongodb-dotnet/001-quickstart/Program.cs" id="query_item" :::
 
 ## Run the code
 
-This app creates an Azure Cosmos DB SQL API database and container. The example then creates an item and then reads the exact same item back. Finally, the example issues a query that should only return that single item. With each step, the example outputs metadata to the console about the steps it has performed.
+This app creates an Azure Cosmos MongoDb API database and collection. The example then creates an item and then reads the exact same item back. Finally, the example creates a second item and then performs a query that should returns multiple items. With each step, the example outputs metadata to the console about the steps it has performed.
 
 To run the app, use a terminal to navigate to the application directory and run the application.
 
@@ -184,9 +182,11 @@ dotnet run
 The output of the app should be similar to this example:
 
 ```output
-New database:   adventureworks
-New container:  products
-Created item:   68719518391     [gear-surf-surfboards]
+Single product name: 
+Yamba Surfboard
+Multiple products:
+Yamba Surfboard
+Sand Surfboard
 ```
 
 ## Clean up resources
