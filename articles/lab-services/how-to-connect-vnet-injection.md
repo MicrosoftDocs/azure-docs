@@ -2,7 +2,8 @@
 title: Connect to your virtual network in Azure Lab Services | Microsoft Docs
 description: Learn how to connect a lab to one of your networks. 
 ms.topic: how-to
-ms.date: 2/11/2022
+ms.date: 06/27/2022
+ms.custom: devdivchpfy22
 ---
 
 # Connect to your virtual network in Azure Lab Services
@@ -13,7 +14,7 @@ This article provides information about connecting a [lab plan](tutorial-setup-l
 
 Some organizations have advanced network requirements and configurations that they want to apply to labs. For example, network requirements can include a network traffic control, ports management, access to resources in an internal network, etc.
 
-In the Azure Lab Services [April 2022 Update (preview)](lab-services-whats-new.md), customers may take control of the network for the labs using virtual network (VNet) injection. You can now tell us which virtual network to use, and we’ll inject the necessary resources into your network.  VNet injection replaces the [peering to your virtual network](how-to-connect-peer-virtual-network.md), as was done in previous versions.
+In the Azure Lab Services [April 2022 Update](lab-services-whats-new.md), customers may take control of the network for the labs using virtual network (VNet) injection. You can now tell us which virtual network to use, and we'll inject the necessary resources into your network.  VNet injection replaces the [peering to your virtual network](how-to-connect-peer-virtual-network.md), as was done in previous versions.
 
 With VNet injection, you can connect to on premise resources such as licensing servers and use user defined routes (UDRs).
 
@@ -79,7 +80,7 @@ Once you have a lab plan configured with advanced networking, all labs created w
 
 - Deleting your virtual network or subnet will cause the lab to stop working
 - Changing the DNS label on the public IP will cause the **Connect** button for lab VMs to stop working.
-- Azure Firewall isn’t currently supported.
+- Azure Firewall isn't currently supported.
 
 ## Next steps
 
