@@ -73,7 +73,7 @@ Follow these steps when deploying GPU VMs on your device using Azure Resource Ma
 
 1. To create GPU VMs, follow all the steps in [Deploy VM on your Azure Stack Edge using templates](azure-stack-edge-gpu-deploy-virtual-machine-templates.md), with these configuration requirements: 
             
-    - When specifying GPU VM sizes, make sure to use the NCasT4-v3-series in the `CreateVM.parameters.json`, which are supported for GPU VMs. For more information, see [Supported VM sizes for GPU VMs](azure-stack-edge-gpu-virtual-machine-sizes.md#ncast4_v3-series-preview).
+    - When specifying GPU VM sizes, make sure to use the NCasT4-v3-series in the `CreateVM.parameters.json`, which are supported for GPU VMs. For more information, see [Supported VM sizes for GPU VMs](azure-stack-edge-gpu-virtual-machine-sizes.md#n-series-gpu-optimized).
 
        ```json
            "vmSize": {
@@ -112,7 +112,7 @@ If you didn't install the GPU extension when you created the VM, follow these st
   
 1. In **Details**, select **+ Add extension**. Then select a GPU extension to install.
 
-    GPU extensions are only available for a virtual machine with a [VM size from NCasT4-v3-series](azure-stack-edge-gpu-virtual-machine-sizes.md#ncast4_v3-series-preview). If you prefer, you can [install the GPU extension after deployment](azure-stack-edge-gpu-deploy-gpu-virtual-machine.md#install-gpu-extension-after-deployment).
+    GPU extensions are only available for a virtual machine with a [VM size from N-series](azure-stack-edge-gpu-virtual-machine-sizes.md#n-series-gpu-optimized). If you prefer, you can [install the GPU extension after deployment](azure-stack-edge-gpu-deploy-gpu-virtual-machine.md#install-gpu-extension-after-deployment).
 
 ![Illustration showing 2 steps to use the "Plus Add Extension" button on the virtual machine "Details" pane to add a GPU extension to a VM on an Azure Stack Edge device.](media/azure-stack-edge-gpu-deploy-gpu-virtual-machine/add-extension-after-deployment-02.png)
 
