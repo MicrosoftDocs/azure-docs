@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: reference
-ms.date: 06/28/2022
+ms.date: 06/27/2022
 ms.author: rolyon
 ms.reviewer: abhijeetsinha
 ms.custom: generated, it-pro, fasttrack-edit
@@ -2317,9 +2317,7 @@ Usage Summary Reports Reader | &nbsp; | :heavy_check_mark: | :heavy_check_mark: 
 Some administrators can read or update the following sensitive attributes for some users:
 
 - accountEnabled
-- AlternativeSecurityId
 - businessPhones
-- DeviceKey
 - mobilePhone
 - onPremisesImmutableId
 - otherMails
