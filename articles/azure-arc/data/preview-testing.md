@@ -122,9 +122,7 @@ Complete the rest of the wizard as normal.
 
 When you deploy with this method, the most recent pre-release version will always be used.
 
-## Pre-release version history
-
-### Current preview
+## Current preview release information
 
 [!INCLUDE [azure-arc-data-preview-release](includes/azure-arc-data-preview-release.md)]
 
