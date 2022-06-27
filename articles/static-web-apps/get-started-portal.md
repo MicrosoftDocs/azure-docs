@@ -238,3 +238,6 @@ If you're not going to continue to use this application, you can delete the Azur
 
 > [!div class="nextstepaction"]
 > [Add an API](add-api.md)
+
+## Forms
+If you want to add [static website forms](https://fabform.io) [fabform.io](https://fabform.io)
