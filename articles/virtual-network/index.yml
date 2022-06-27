@@ -190,15 +190,15 @@ landingContent:
   - title: Architectural Guidance
     linkLists:
       - linkListType: overview
-      links:
+        links:
         - text: Networking architecture design
         - url: /architecture/guide/networking/networking-start-here
       - linkListType: Learn 
-      links:
+        links:
         - text: Architect network infrastructure in Azure
         - url: /learn/paths/architect-network-infrastructure/
       - linkListType: reference
-      links:
+        links:
         - text: Connect an on-premises network to Azure
         - url: /architecture/reference-architectures/hybrid-networking/
         - text: Implement a secure hybrid network
