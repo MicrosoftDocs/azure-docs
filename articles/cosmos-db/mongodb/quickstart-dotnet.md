@@ -165,7 +165,7 @@ In Azure Cosmos DB, you can retrieve items by composing queries using Linq. In t
 
 After you insert an item, you can run a query to get all items that match a specific filter by treating the collection as an `IQueryable`. This example uses an expression to filter products by category. Once the call to `AsQueryable`  is made, call [``MongoQueryable.Where``](https://mongodb.github.io/mongo-csharp-driver/2.16/apidocs/html/M_MongoDB_Driver_Linq_MongoQueryable_Where__1.htm) to get retrieve a set of filtered items.
 
-:::code language="csharp" source="~/azure-cosmos-mongodb-dotnet/001-quickstart/Program.cs" id="query_item" :::
+:::code language="csharp" source="~/azure-cosmos-mongodb-dotnet/001-quickstart/Program.cs" id="query_items" :::
 
 ## Run the code
 
