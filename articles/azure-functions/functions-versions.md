@@ -117,9 +117,9 @@ To learn more about extension bundles, see [Extension bundles](functions-binding
 Azure Functions version 4.x is highly backwards compatible to version 3.x. Many apps should safely upgrade to 4.x without significant code changes. During the upgrade, you set the `FUNCTIONS_EXTENSION_VERSION` app setting to a value of `~4`. Before upgrading your app to version 4.x of the Functions runtime, you should do the following:
 
 * Review the list of [breaking changes between 3.x and 4.x](#breaking-changes-between-3x-and-4x).
-* If applicable, [upgrade your local project environment to version 4.x](#upgrade-your-local-project). Fully test your app locally using version 4.x of the [Azure Functions Core Tools](functions-run-local.md). When you use Visual Studio to publish a version 4.x project to a existing function app at a lower version, you are prompted to let Visual Studio upgrade the function app to version 4.x during deployment. This is the same process as in [Migrate without slots](#migrate-without-slots).
+* If applicable, [upgrade your local project environment to version 4.x](#upgrade-your-local-project). Fully test your app locally using version 4.x of the [Azure Functions Core Tools](functions-run-local.md). When you use Visual Studio to publish a version 4.x project to a existing function app at a lower version, you're prompted to let Visual Studio upgrade the function app to version 4.x during deployment. This upgrade uses the same process defined in [Migrate without slots](#migrate-without-slots).
 * [Run the pre-upgrade validator](#run-the-pre-upgrade-validator).
-* Consider using a [staging slot](functions-deployment-slots.md) to test and verify your app in Azure on the new runtime version. You can then deploy your app to the production slot. You must [follow a specific procedure](#migration-with-slots) when using a staging slot to upgrade your app.  
+* Consider using a [staging slot](functions-deployment-slots.md) to test and verify your app in Azure on the new runtime version. You can then deploy your app with the updated version settings to the production slot. For more information, see [Migrate using slots](#migrate-using-slots).  
 
 ### Run the pre-upgrade validator
 
@@ -171,13 +171,13 @@ Set-AzWebApp -NetFrameworkVersion v6.0 -Name <APP_NAME> -ResourceGroupName <RESO
 
 ### Migrate using slots
 
-Using [deployment slots](functions-deployment-slots.md) is a good way to migrate your function app to the v4.x runtime from a previous version. By using a staging slot, you can run your app on the new runtime version in the staging slot and switch to production after verification. Slots also provide a way to minimize downtime during upgrade. If you need to minimize downtime, follow the steps in [Migrate without a restart](#migrate-without-a-restart).    
+Using [deployment slots](functions-deployment-slots.md) is a good way to migrate your function app to the v4.x runtime from a previous version. By using a staging slot, you can run your app on the new runtime version in the staging slot and switch to production after verification. Slots also provide a way to minimize downtime during upgrade. If you need to minimize downtime, follow the steps in [Minimum downtime upgrade](#minimum-downtime-upgrade).    
 
-After you've verified your app in the upgraded slot, you can swap the upgrade into production. This swap requires setting [`WEBSITE_OVERRIDE_STICKY_EXTENSION_VERSIONS`](functions-app-settings.md#website_override_sticky_extension_versions) in the production slot. How you add this setting in the production slot determines whether or not your function app restarts. 
+After you've verified your app in the upgraded slot, you can swap the app and new version settings into production. This swap requires setting [`WEBSITE_OVERRIDE_STICKY_EXTENSION_VERSIONS=0`](functions-app-settings.md#website_override_sticky_extension_versions) in the production slot. How you add this setting affects the amount of downtime required for the upgrade. 
 
 #### Standard upgrade
 
-If your function app can handle a restart, you can update the `WEBSITE_OVERRIDE_STICKY_EXTENSION_VERSIONS` setting directly in the production slot. Because changing this setting directly in the production slot causes a restart that impacts availability, consider doing this at a time of reduced traffic. You can then swap in the upgraded version from the staging slot. 
+If your function app can handle the downtime of a full restart, you can update the `WEBSITE_OVERRIDE_STICKY_EXTENSION_VERSIONS` setting directly in the production slot. Because changing this setting directly in the production slot causes a restart that impacts availability, consider doing this at a time of reduced traffic. You can then swap in the upgraded version from the staging slot. 
 
 The [`Update-AzFunctionAppSetting` PowerShell cmdlet](/powershell/module/az.functions/update-azfunctionappsetting) doesn't currently support slots. You must use Azure CLI.
 
