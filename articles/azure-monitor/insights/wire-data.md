@@ -5,7 +5,7 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/26/2021
-
+ms.reviewer: shijain
 ---
 
 # Wire Data 2.0 (Preview) solution in Azure Monitor (Retired)
