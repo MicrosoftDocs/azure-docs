@@ -1,5 +1,5 @@
 ---
-title: Azure OpenAi REST API reference
+title: Azure OpenAI REST API reference
 titleSuffix: Azure OpenAI
 description: Learn how to use the Azure OpenAI REST API. In this article, you'll learn about authorization options,  how to structure a request and receive a response.
 services: cognitive-services
@@ -25,20 +25,13 @@ The Azure OpenAI Service is deployed as a part of the Azure Cognitive Services. 
 
 [**Management APIs reference documentation**](/azure/rest/api/cognitiveservices/)
 
-## Service APIs
-
-Once you've created an Azure OpenAI Resource and deployed a model, you'll primarily use the Service APIs to interact. An easy way to view and test your service is to use the OpenAPI Swagger editor in VS Code: [available here](https://marketplace.visualstudio.com/items?itemName=42Crunch.vscode-openapi). Using this extension you can generate local reference documentation and make API calls to the service.
-
 ## Authentication
 
 The Azure OpenAI service provides two methods for authentication. you can use  either API Keys or Azure Active Directory.
 
-- **API Key authentication**: For this type of authentication, all API requests must include the API Key in the ```api-key``` HTTP header. 
-<!--TODO: Uncommment once the link to the doc is created
- The [Quickstart](../Quickstarts/Quickstarts.md) provides a tutorial for how to make calls with this type of authentication-->
+- **API Key authentication**: For this type of authentication, all API requests must include the API Key in the ```api-key``` HTTP header. The [Quickstart](./quickstart.md) provides a tutorial for how to make calls with this type of authentication
 
-<!--TODO: Uncomment once linked doc is created
-- **Azure Active Directory authentication**: You can authenticate an API call using an Azure Active Directory token. Authentication tokens are included in a request as the ```Authorization``` header. The token provided must be preceded by ```Bearer```, for example ```Bearer YOUR_AUTH_TOKEN```. You can read our how-to guide on [authenticating with Azure Active Directory](../How%20to/Set%20up%20managed%20identity.md)-->
+- **Azure Active Directory authentication**: You can authenticate an API call using an Azure Active Directory token. Authentication tokens are included in a request as the ```Authorization``` header. The token provided must be preceded by ```Bearer```, for example ```Bearer YOUR_AUTH_TOKEN```. You can read our how-to guide on [authenticating with Azure Active Directory](./how-to/managed-identity.md).
 
 ### REST API versioning
 
@@ -767,7 +760,7 @@ curl -X POST https://your_resource_name.openai.azure.com/openai/fine-tunes/ft-d3
 
 ```
 
-### Files
+## Files
 
 #### List all files in your resource
 
@@ -1025,7 +1018,7 @@ curl -X POST https://example_resource_name.openai.azure.com/openai/files/files/i
 }
 ```
 
-### Deployments
+## Deployments
 
 #### List all deployments in the resource
 
