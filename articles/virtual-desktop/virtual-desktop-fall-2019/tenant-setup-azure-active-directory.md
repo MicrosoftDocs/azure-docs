@@ -13,7 +13,8 @@ manager: femila
 >This content applies to Azure Virtual Desktop (classic), which doesn't support Azure Resource Manager Azure Virtual Desktop objects.
 
 >[!IMPORTANT]
->Starting July 2022, you will no longer be able to create new tenants in Azure Virtual Desktop (classic). You can still manage your existing Azure Virtual Desktop (classic) environments including adding new session hosts, but all new environments must be done in Azure Virtual Desktop.
+>Starting July 2022, you'll no longer be able to create new tenants in Azure Virtual Desktop (classic). You can still manage your existing Azure Virtual Desktop (classic) environments including adding new session hosts, but all new environments must be done in Azure Virtual Desktop.
+>
 >Information about how to migrate from Azure Virtual Desktop (classic) to Azure Virtual Desktop can be found at [Migrate automatically from Azure Virtual Desktop (classic)](https://docs.microsoft.com/azure/virtual-desktop/automatic-migration). 
 >Information about creating a host pool in Azure Virtual Desktop can be found at [Azure Virtual Desktop host pool Azure portal](https://docs.microsoft.com/azure/virtual-desktop/create-host-pools-azure-marketplace?tabs=azure-portal).
 
