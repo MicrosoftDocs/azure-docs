@@ -5,6 +5,8 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 4/19/2022
+ms.reviewer: dfurman
+
 ---
 
 # Troubleshoot SQL Insights (preview)

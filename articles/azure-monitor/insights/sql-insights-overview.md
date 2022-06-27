@@ -6,6 +6,7 @@ author: bwren
 ms.author: bwren
 ms.reviewer: wiassaf
 ms.date: 04/14/2022
+ms.reviewer: dfurman
 ---
 
 # Monitor your SQL deployments with SQL Insights (preview)

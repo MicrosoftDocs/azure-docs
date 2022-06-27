@@ -3,10 +3,10 @@ title: Overview of Azure platform logs | Microsoft Docs
 description: Overview of logs in Azure Monitor which provide rich, frequent data about the operation of an Azure resource.
 author: bwren
 services: azure-monitor
-
 ms.topic: conceptual
 ms.date: 12/19/2019
 ms.author: bwren
+ms.reiewer: bwren
 ---
 # Overview of Azure platform logs
 Platform logs provide detailed diagnostic and auditing information for Azure resources and the Azure platform they depend on. They are automatically generated although you need to configure certain platform logs to be forwarded to one or more destinations to be retained. This article provides an overview of platform logs including what information they provide and how you can configure them for collection and analysis.
