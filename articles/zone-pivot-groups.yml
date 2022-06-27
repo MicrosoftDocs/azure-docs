@@ -1070,11 +1070,11 @@ groups:
   prompt: Choose a hosting platform and development environment
   pivots:
   - id: platform-linux-development-environment-cli
-    title: Linux with CLI
+    title: Linux with Azure CLI
   - id: platform-linux-development-environment-azure-portal
     title: Linux with Azure Portal
   - id: platform-windows-development-environment-cli
-    title: Windows with CLI
+    title: Windows with Azure CLI
   - id: platform-windows-development-environment-azure-portal
     title: Windows with Azure Portal
 - id: app-service-containers-windows-linux
