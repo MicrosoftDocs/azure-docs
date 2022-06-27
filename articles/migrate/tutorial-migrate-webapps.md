@@ -66,11 +66,11 @@ Once the web apps are assessed, you can migrate them using the integrated migrat
    > [!NOTE]
    > Apps with the Ready status are tagged for migration by default. Apps tagged as *Ready with conditions* can be migrated by updating **Will migrate?** to **Yes**.
 
-   1. Select the web apps to migrate and select **Edit**.
+  1. Select the web apps to migrate and select **Edit**.
 
    :::image type="content" source="./media/tutorial-migrate-webapps/web-apps-edit-multiple.png" alt-text="Screenshot of Azure Migrate selected web apps":::
 
-   1. In **Edit apps**, under **Will migrate?**, select **Yes**, and select the **App Service Plan** and **Pricing tier** of where the apps will be hosted. Next, select the **Ok** button.
+  1. In **Edit apps**, under **Will migrate?**, select **Yes**, and select the **App Service Plan** and **Pricing tier** of where the apps will be hosted. Next, select the **Ok** button.
 
    > [!NOTE]
    > Up to five App Service Plans can be migrated at a time.
@@ -111,4 +111,14 @@ Once you have successfully completed migration, you may explore the following st
 
 ## Next steps
 
-Investigate the [cloud migration journey](/azure/architecture/cloud-adoption/getting-started/migrate) in the Azure Cloud Adoption Framework.
+- Investigate the [cloud migration journey](/azure/architecture/cloud-adoption/getting-started/migrate) in the Azure Cloud Adoption Framework.
+- Once you have successfully completed migration, you may explore the following steps based on web app specific requirement(s):
+
+  - [Map existing custom DNS name](../app-service/app-service-web-tutorial-custom-domain.md).
+  - [Secure a custom DNS with a TLS/SSL binding](../app-service/configure-ssl-bindings.md).
+  - [Securely connect to Azure resources](../app-service/tutorial-connect-overview)
+  - [Deployment best practices](../app-service/deploy-best-practices).
+  - [Security recommendations](../app-service/security-recommendations).
+  - [Networking features](../app-service/networking-features).
+  - [Monitor App Service with Azure Monitor](../app-service/monitor-app-service).
+  - [Configure Azure AD authentication](../app-service/configure-authentication-provider-aad).
