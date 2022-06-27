@@ -37,13 +37,17 @@ In this tutorial, you learn how to:
 ## Run an assessment
 Run an assessment as follows:
 1. On the **Overview** page > **Servers, databases and web apps**, select **Assess and migrate servers**.
-    :::image type="content" source="./media/tutorial-assess-sql/assess-migrate.png" alt-text="Image of Overview page for Azure Migrate.":::
+    
+    :::image type="content" source="./media/tutorial-assess-sql/assess-migrate-inline.png" alt-text="Screenshot of Overview page for Azure Migrate." lightbox="./media/tutorial-assess-sql/assess-migrate-expanded.png":::
+
 1. In **Azure Migrate: Discovery and assessment**, select **Assess** and choose the assessment type as **Azure SQL**.
-    :::image type="content" source="./media/tutorial-assess-sql/assess.png" alt-text="Screenshot of Dropdown to choose assessment type as Azure SQL.":::
+    
+    :::image type="content" source="./media/tutorial-assess-sql/assess-inline.png" alt-text="Screenshot of Dropdown to choose assessment type as Azure SQL." lightbox="./media/tutorial-assess-sql/assess-expanded.png":::
+    
 1. In **Assess servers**, the assessment type is pre-selected as **Azure SQL** and the discovery source is defaulted to **Servers discovered from Azure Migrate appliance**.
 
 1. Select **Edit** to review the assessment settings.
-     :::image type="content" source="./media/tutorial-assess-sql/assess-servers-sql.png" alt-text="Edit button from where assessment settings can be customized.":::
+     :::image type="content" source="./media/tutorial-assess-sql/assess-servers-sql-inline.png" alt-text="Screenshot of Edit button from where assessment settings can be customized." lightbox="./media/tutorial-assess-sql/assess-servers-sql-expanded.png":::
 1. In **Assessment settings** > **Target and pricing settings**, do the following:
     - In **Target location**, specify the Azure region to which you want to migrate. 
         - Azure SQL configuration and cost recommendations are based on the location that you specify. 
@@ -98,13 +102,13 @@ Run an assessment as follows:
 
     - Select **Save** if you made changes.
 
-     :::image type="content" source="./media/tutorial-assess-sql/view-all.png" alt-text="Screesnhot of Save button on assessment settings.":::
+     :::image type="content" source="./media/tutorial-assess-sql/view-all.png" alt-text="Screenshot of Save button on assessment settings.":::
 
 8. In **Assess Servers**, select **Next**.
 9.	In **Select servers to assess** > **Assessment name** > specify a name for the assessment.
 10.	In **Select or create a group** > select **Create New** and specify a group name.
 
-     :::image type="content" source="./media/tutorial-assess-sql/assessment-add-servers.png" alt-text="Screenshot of Location of New group button.":::
+     :::image type="content" source="./media/tutorial-assess-sql/assessment-add-servers-inline.png" alt-text="Screenshot of Location of New group button." lightbox="./media/tutorial-assess-sql/assessment-add-servers-expanded.png":::
 
 11.	Select the appliance and select the servers you want to add to the group and select **Next**.
 12.	In **Review + create assessment**, review the assessment details, and select **Create Assessment** to create the group and run the assessment.
@@ -123,7 +127,9 @@ Run an assessment as follows:
 
 1. In **Servers, databases and web apps** > **Azure Migrate: Discovery and assessment**, select the number next to Azure SQL assessment.
 2. Select the assessment name, which you wish to view. As an example(estimations and costs, for example, only):
-      :::image type="content" source="./media/tutorial-assess-sql/assessment-sql-summary.png" alt-text="Overview of SQL assessment.":::
+      
+      :::image type="content" source="./media/tutorial-assess-sql/assessment-sql-summary-inline.png" alt-text="Screenshot of Overview of SQL assessment." lightbox="./media/tutorial-assess-sql/assessment-sql-summary-expanded.png":::
+
 3. Review the assessment summary. You can also edit the assessment settings or recalculate the assessment.
 
 ### Discovered entities
@@ -143,8 +149,8 @@ You can see the SQL Server instance readiness for different recommended deployme
         - Understand details around migration issues/warnings that you can remediate before migration to the different Azure SQL targets. [Learn More](concepts-azure-sql-assessment-calculation.md).
     - You can go to the cost estimates report to review cost of each of the SQL instance after migrating to the recommended deployment target.
 
-> [!NOTE]
-> In the recommended deployment strategy, migrating instances to SQL Server on Azure VM is the recommended strategy for migrating SQL Server instances. When the SQL Server credentials are not available, the Azure SQL assessment provides right-sized lift-and-shift, that is, *Server to SQL Server on Azure VM* recommendations.
+   > [!NOTE]
+   > In the recommended deployment strategy, migrating instances to SQL Server on Azure VM is the recommended strategy for migrating SQL Server instances. When the SQL Server credentials are not available, the Azure SQL assessment provides right-sized lift-and-shift, that is, *Server to SQL Server on Azure VM* recommendations.
 
 1. **Migrate all instances to Azure SQL MI**: 
 In this strategy, you can see the readiness and cost estimates for migrating all SQL Server instances to Azure SQL Managed Instance. 
@@ -165,7 +171,7 @@ You can review readiness reports for different migration strategies:
 
 1. Select the **Readiness** report for any of the migration strategies.
 
-    :::image type="content" source="./media/tutorial-assess-sql/assessment-sql-readiness.png" alt-text="Screenshot with Details of Azure SQL readiness.":::
+    :::image type="content" source="./media/tutorial-assess-sql/assessment-sql-readiness-inline.png" alt-text="Screenshot with Details of Azure SQL readiness" lightbox="./media/tutorial-assess-sql/assessment-sql-readiness-expanded.png":::
 
 1. Review the readiness columns in the respective reports:
     
@@ -179,7 +185,7 @@ You can review readiness reports for different migration strategies:
 
 1. Review the readiness for the assessed SQL instances/SQL Servers/Databases:
     - **Ready**: The instance/server is ready to be migrated to SQL Server on Azure VM/Azure SQL MI/Azure SQL DB without any migration issues or warnings. 
-        - Ready: The instance is ready to be migrated to Azure VM/Azure SQL MI/Azure SQL DB without any migration issues but has some migration warnings that you need to review. You can select on the hyperlink to review the migration warnings and the recommended remediation guidance.
+        - Ready: The instance is ready to be migrated to Azure VM/Azure SQL MI/Azure SQL DB without any migration issues but has some migration warnings that you need to review. You can select the hyperlink to review the migration warnings and the recommended remediation guidance.
     - **Ready with conditions**: The instance/server has one or more migration issues for migrating to Azure VM/Azure SQL MI/Azure SQL DB. You can select on the hyperlink and review the migration issues and the recommended remediation guidance.
     - **Not ready**: The assessment could not find a SQL Server on Azure VM/Azure SQL MI/Azure SQL DB configuration meeting the desired configuration and performance characteristics. Select the hyperlink to review the recommendation to make the instance/server ready for the desired target deployment type.
     - **Unknown**: Azure Migrate can't assess readiness, because the discovery is in progress or there are issues during discovery that need to be fixed from the notifications blade. If the issue persists, contact [Microsoft support](https://support.microsoft.com).
@@ -193,11 +199,11 @@ The assessment summary shows the estimated monthly compute and storage costs for
 
 1. Review the monthly total costs. Costs are aggregated for all SQL instances in the assessed group.
     - Cost estimates are based on the recommended Azure SQL configuration for an instance/server/database.
-    - Estimated total(compute and storage) monthly costs are shown. As an example:
+    - Estimated total(compute and storage) monthly costs are displayed. As an example:
     
-    :::image type="content" source="./media/tutorial-assess-sql/assessment-sql-cost.png" alt-text="Screenshot of cost details.":::
+      :::image type="content" source="./media/tutorial-assess-sql/assessment-sql-cost-inline.png" alt-text="Screenshot of cost details." lightbox="./media/tutorial-assess-sql/assessment-sql-cost-expanded.png":::
 
-    - You can see compute and storage cost split in the individual cost estimates reports and at instance/server/database level.
+    - The compute and storage costs are split in the individual cost estimates reports and at instance/server/database level.
 1. You can drill down at an instance level to see Azure SQL configuration and cost estimates at an instance level.  
 1. You can also drill down to the database list to review the Azure SQL configuration and cost estimates per database when an Azure SQL Database configuration is recommended.
 

@@ -158,13 +158,11 @@ For storage sizing, the assessment maps each of the instance disk to an Azure di
 - Assessment adds the read and write IOPS of a disk to get the total IOPS required. Similarly, it adds the read and write throughput values to get the total throughput of each disk. The disk size needed for each of the disks is the size of SQL Data and SQL Log drives. 
 
 - The assessment recommends creating a storage disk pool for all SQL Log and SQL Data drives. For temp drives, the assessment recommends storing the files in the local drive.
-
-As an example(estimations and costs):
     
-:::image type="content" source="./media/tutorial-assess-sql/vm-migration-guidance.png" alt-text="Screenshot of instance migration guidance.":::
+:::image type="content" source="./media/tutorial-assess-sql/vm-migration-guidance-inline.png" alt-text="Screenshot of instance migration guidance." lightbox="./media/tutorial-assess-sql/vm-migration-guidance-expanded.png":::
 
-- If assessment can't find a disk for the required size, IOPS and throughput, it marks the instance as unsuitable for migrating to SQL Server on Azure VM
-- If assessment finds a set of suitable disks, it selects the disks that support the location specified in the assessment settings.
+- If the assessment can't find a disk for the required size, IOPS and throughput, it marks the instance as unsuitable for migrating to SQL Server on Azure VM
+- If the assessment finds a set of suitable disks, it selects the disks that support the location specified in the assessment settings.
 - If the environment type is *Production*, the assessment tries to find Premium disks to map each of the disks, else it tries to find a suitable disk, which could either be Premium or Standard SSD disk.
     - If there are multiple eligible disks, assessment selects the disk with the lowest cost.
 

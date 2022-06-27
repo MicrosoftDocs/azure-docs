@@ -52,7 +52,7 @@ Run an assessment as follows:
         - If you select a reserved capacity option, you can't specify “Discount (%)”.
 
 6. In Assessment properties > **Assessment criteria**:
-    - The Sizing criteria is defaulted to **Performance-based** which means Azure migrate will collect performance metrics pertaining to SQL instances and the databases managed by it to recommend an optimal-sized Azure SQL Database and/or Azure SQL Managed Instance configuration. You can specify:
+    - The Sizing criteria is defaulted to **Performance-based** which means Azure migrate will collect performance metrics pertaining to SQL instances and the databases managed by it to recommend an optimal-sized Azure SQL Database and/or SQL Managed Instance configuration. You can specify:
         - **Performance history** to indicate the data duration on which you want to base the assessment. (Default is one day)
         - **Percentile utilization**, to indicate the percentile value you want to use for the performance sample. (Default is 95th percentile)
     - In **Comfort factor**, indicate the buffer you want to use during assessment. This accounts for issues like seasonal usage, short performance history, and likely increases in future usage. For example, if you use a comfort factor of two: 
@@ -66,7 +66,7 @@ Run an assessment as follows:
     - In **Offer/Licensing program**, specify the Azure offer if you're enrolled. Currently you can only choose from Pay-as-you-go and Pay-as-you-go Dev/Test. 
         - You can avail additional discount by applying reserved capacity and Azure Hybrid Benefit on top of Pay-as-you-go offer. 
         - You can apply Azure Hybrid Benefit on top of Pay-as-you-go Dev/Test. The assessment currently does not support applying Reserved Capacity on top of Pay-as-you-go Dev/Test offer.
-    - In **Service Tier**, choose the most appropriate service tier option to accommodate your business needs for migration to Azure SQL Database and/or Azure SQL Managed Instance: 
+    - In **Service Tier**, choose the most appropriate service tier option to accommodate your business needs for migration to Azure SQL Database and/or SQL Managed Instance: 
         - Select **Recommended** if you want Azure Migrate to recommend the best suited service tier for your servers. This can be General purpose or Business critical. Learn More
         - Select **General Purpose** if you want an Azure SQL configuration designed for budget-oriented workloads.
         - Select **Business Critical** if you want an Azure SQL configuration designed for low-latency workloads with high resiliency to failures and fast failovers.
@@ -108,15 +108,15 @@ This indicates the distribution of assessed SQL instances:
     
 **Target deployment type (in assessment properties)** | **Readiness**   
 --- | --- |
-**Recommended** |  Ready for Azure SQL Database, Ready for Azure SQL Managed Instance, Potentially ready for Azure VM, Readiness unknown (In case the discovery is in progress or there are some discovery issues to be fixed)
-**Azure SQL DB** or **Azure SQL MI** | Ready for Azure SQL Database or Azure SQL Managed Instance, Not ready for Azure SQL Database or Azure SQL Managed Instance, Readiness unknown (In case the discovery is in progress or there are some discovery issues to be fixed)
+**Recommended** |  Ready for Azure SQL Database, Ready for SQL Managed Instance, Potentially ready for Azure VM, Readiness unknown (In case the discovery is in progress or there are some discovery issues to be fixed)
+**Azure SQL DB** or **Azure SQL MI** | Ready for Azure SQL Database or SQL Managed Instance, Not ready for Azure SQL Database or SQL Managed Instance, Readiness unknown (In case the discovery is in progress or there are some discovery issues to be fixed)
      
-You can drill-down to understand details around migration issues/warnings that you can remediate before migration to Azure SQL. [Learn More](concepts-azure-sql-assessment-calculation.md)
+You can drill down to understand details around migration issues/warnings that you can remediate before migration to Azure SQL. [Learn More](concepts-azure-sql-assessment-calculation.md)
 You can also review the recommended Azure SQL configurations for migrating to Azure SQL databases and/or Managed Instances.
     
 #### Azure SQL Database and Managed Instance cost details
 
-The monthly cost estimate includes compute and storage costs for Azure SQL configurations corresponding to the recommended Azure SQL Database and/or Azure SQL Managed Instance deployment type. [Learn More](concepts-azure-sql-assessment-calculation.md#calculate-monthly-costs)
+The monthly cost estimate includes compute and storage costs for Azure SQL configurations corresponding to the recommended Azure SQL Database and/or SQL Managed Instance deployment type. [Learn More](concepts-azure-sql-assessment-calculation.md#calculate-monthly-costs)
 
 
 ### Review readiness
@@ -157,7 +157,7 @@ The monthly cost estimate includes compute and storage costs for Azure SQL confi
         Not ready | No
         Unknown | No
 
-4. Click on the instance name drill down to see the number of user databases, instance details including instance properties, compute (scoped to instance) and source database storage details.
+4. Click on the instance name and drill down to see the number of user databases, instance details including instance properties, compute (scoped to instance) and source database storage details.
 5. Click on the number of user databases to review the list of databases and their details. As an example(estimations and costs for example only):
     :::image type="content" source="./media/tutorial-assess-sql/assessment-db.png" alt-text="SQL instance detail":::
 5. Click on review details in the Migration issues column to review the migration issues and warnings for a particular target deployment type. 
