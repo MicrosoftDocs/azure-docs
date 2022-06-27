@@ -1,4 +1,4 @@
-[Azure App Service](overview.md) provides a highly scalable, self-patching web hosting service. This quickstart tutorial shows how to deploy a Java app to Azure App Service on Linux using the Azure portal.
+[Azure App Service](../../overview.md) provides a highly scalable, self-patching web hosting service. This quickstart tutorial shows how to deploy a Java app to Azure App Service on Linux using the Azure portal.
 
 This quickstart configures an App Service app in the **Free** tier and incurs no cost for your Azure subscription.
 
