@@ -1,13 +1,13 @@
 ---
 title: Defender for Servers deployment in AWS and GCP
-description: Learn about the capabilities available 
+description: Learn about the capabilities available for Defender for Servers deployment within AWS and GCP.
 ms.topic: reference
 ms.date: 06/26/2022
 ---
 
 # Defender for Servers deployment in AWS and GCP
 
-**Episode description**: 
+**Episode description**: In this episode of Defender for Cloud in the Field, Ortal Parpara joins Yuri Diogenes to talk about the options to deploy Defender for Servers in AWS and GCP. Ortal talks about the new capability that allows you to select a different Defender for Server plan per connector, demonstrates how to customize the deployment and how this feature helps to deploy Azure Arc.
 
 <br>
 <br>
