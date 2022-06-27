@@ -994,3 +994,6 @@ items:
       href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/language-service/context/context
     - name: Migrate to the latest version
       href: concepts/migrate-language-service-latest.md
+    - name: Previous service updates
+      href: concepts/previous-updates.md
+      
