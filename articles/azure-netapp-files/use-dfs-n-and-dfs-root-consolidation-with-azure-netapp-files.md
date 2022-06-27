@@ -3,7 +3,7 @@ title: Use DFS-N and DFS Root Consolidation with Azure NetApp Files | Microsoft 
 description: Learn how to configure DFS-N and DFS Root Consolidation with Azure NetApp Files
 services: azure-netapp-files
 documentationcenter: ''
-author: b-sluce
+author: seanluce
 manager: ''
 editor: ''
 
