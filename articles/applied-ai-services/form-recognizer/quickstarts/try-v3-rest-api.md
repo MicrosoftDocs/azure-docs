@@ -100,7 +100,7 @@ curl -v -i POST "{endpoint}/formrecognizer/documentModels/{modelID}:analyze?api-
 | ID Documents  | prebuilt-idDocument | [Sample ID document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/rest-api/identity_documents.png) |
 | Business Cards  | prebuilt-businessCard | [Sample business card](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/de5e0d8982ab754823c54de47a47e8e499351523/curl/form-recognizer/rest-api/business_card.jpg) |
 
-#### Operation-Location
+#### POST response
 
 You'll receive a `202 (Success)` response that includes an **Operation-Location** header. The value of this header contains a `resultID` that can be queried to get the status of the asynchronous operation:
 
