@@ -24,7 +24,7 @@ This article lists the latest features, improvements, and changes in the Microso
 
 - We are adding support for the [did:web](https://w3c-ccg.github.io/did-method-web/) method. Any new tenant that starts using the Verifiable Credentials Service after June 14, 2022 will have Web as a new, default, trust system when [onboarding](verifiable-credentials-configure-tenant.md#set-up-verifiable-credentials). VC Administrators can still choose to use ION when setting a tenant. If you want to use did:web instead of ION or viceversa, you will need to [reconfigure your tenant](verifiable-credentials-faq.md?#how-do-i-reset-the-azure-ad-verifiable-credentials-service).
 - We are rolling out a number of features to improve the overall experience of creating verifiable credentials in the Entra Verified ID platform:
-  - Introducing Managed Credentials, Managed Credentials are verifiable credentials that no longer use of Azure Storage to store the [display & rules JSON definitions](verifiable-credentials/rules-and-display-definitions-model). Their definition varies from their predecesor.
+  - Introducing Managed Credentials, Managed Credentials are verifiable credentials that no longer use of Azure Storage to store the [display & rules JSON definitions](verifiable-credentials/rules-and-display-definitions-model.md). Their definition varies from their predecesor.
   - Create Managed Credentials using the [new quickstart experience](how-to-use-quickstart.md).
   - Administrators can create a Verified Employee Managed Credential using the [new quick start](how-to-use-quickstart-verifiedemployee.md). The Verified Employee is a verifiable credential of type verifiedEmployee that is based on a pre-defined set of claims from your tenant's Azure Active Directory.
 
@@ -32,7 +32,7 @@ This article lists the latest features, improvements, and changes in the Microso
 > You need to migrate your Azure Storage based credentials to become Managed Credentials. We'll soon provide migration instructions.
 
 - We made the following updates to our docs:
-  - (new) [Current supported open standards for Microsoft Entra Verified ID](verifiable-credentials-standards).
+  - (new) [Current supported open standards for Microsoft Entra Verified ID](verifiable-credentials-standards.md).
   - (new) [How to create verifiable credentials for ID token hint](how-to-use-quickstart.md).
   - (new) [How to create verifiable credentials for ID token](how-to-use-quickstart-idtoken.md).
   - (new) [How to create verifiable credentials for self-asserted claims](how-to-use-quickstart-selfissued.md). 
