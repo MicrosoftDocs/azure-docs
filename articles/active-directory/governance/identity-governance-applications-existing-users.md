@@ -45,6 +45,10 @@ In Azure AD, a `ServicePrincipal` represents an application in a particular orga
 
 You can also choose to use the Azure AD entitlement management access packages to time-limit access. An `AccessPackage` contains one or more resource roles, potentially from multiple service principals, and has `Assignment` for users to the access package.  When you create an assignment for a user to an access package, then Azure AD entitlement management automatically creates the necessary `AppRoleAssignment` for the user to each application.
 
+## Before you begin: ensure you have a service principal for your application
+
+XXX
+
 ## Collect existing users from an application
 
 The first step to ensure all users are recorded in Azure AD, is to collect the list of existing users who have access to the application.  Some applications may have a built-in command to export a list of current users from its data store. In other cases, the application may rely upon an external directory or database.  In some environments, the application may be located on a network segment or system that isn't appropriate for use for managing access to Azure AD, so you might need to extract the list of users from that directory or database, and then transfer it as a file to another system that can be used for Azure AD interactions.  This section explains three approaches for how to get a list of users, held in a comma separated text file (CSV),
