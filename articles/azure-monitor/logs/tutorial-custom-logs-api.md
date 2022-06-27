@@ -8,6 +8,8 @@ ms.date: 01/19/2022
 # Tutorial: Send custom logs to Azure Monitor Logs using Resource Manager templates (preview)
 [Custom logs](custom-logs-overview.md) in Azure Monitor allow you to send custom data to tables in a Log Analytics workspace with a REST API. This tutorial walks through configuration of a new table and a sample application to send custom logs to Azure Monitor using Resource Manager templates.
 
+[!INCLUDE [Sign up for preview](../../../includes/azure-monitor-custom-logs-signup.md)]
+
 > [!NOTE]
 > This tutorial uses Resource Manager templates and REST API to configure custom logs. See [Tutorial: Send custom logs to Azure Monitor Logs using the Azure portal (preview)](tutorial-custom-logs.md) for a similar tutorial using the Azure portal.
 
@@ -26,7 +28,7 @@ In this tutorial, you learn to:
 ## Prerequisites
 To complete this tutorial, you need the following: 
 
-- Log Analytics workspace where you have at least [contributor rights](manage-access.md#manage-access-using-azure-permissions) .
+- Log Analytics workspace where you have at least [contributor rights](manage-access.md#azure-rbac) .
 - [Permissions to create Data Collection Rule objects](../essentials/data-collection-rule-overview.md#permissions) in the workspace.
 
 ## Collect workspace details

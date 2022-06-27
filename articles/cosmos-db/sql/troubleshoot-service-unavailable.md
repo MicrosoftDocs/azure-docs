@@ -7,7 +7,7 @@ ms.subservice: cosmosdb-sql
 ms.date: 08/06/2020
 ms.author: jawilley
 ms.topic: troubleshooting
-ms.reviewer: sngun
+ms.reviewer: mjbrown
 ---
 
 # Diagnose and troubleshoot Azure Cosmos DB service unavailable exceptions

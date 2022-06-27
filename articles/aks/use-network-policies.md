@@ -4,7 +4,7 @@ titleSuffix: Azure Kubernetes Service
 description: Learn how to secure traffic that flows in and out of pods by using Kubernetes network policies in Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
-ms.date: 03/16/2021
+ms.date: 06/24/2022
 
 ---
 
@@ -17,15 +17,6 @@ This article shows you how to install the network policy engine and create Kuber
 ## Before you begin
 
 You need the Azure CLI version 2.0.61 or later installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
-
-> [!TIP]
-> If you used the network policy feature during preview, we recommend that you [create a new cluster](#create-an-aks-cluster-and-enable-network-policy).
-> 
-> If you wish to continue using existing test clusters that used network policy during preview, upgrade your cluster to a new Kubernetes versions for the latest GA release and then deploy the following YAML manifest to fix the crashing metrics server and Kubernetes dashboard. This fix is only required for clusters that used the Calico network policy engine.
->
-> As a security best practice, [review the contents of this YAML manifest][calico-aks-cleanup] to understand what is deployed into the AKS cluster.
->
-> `kubectl delete -f https://raw.githubusercontent.com/Azure/aks-engine/master/docs/topics/calico-3.3.1-cleanup-after-upgrade.yaml`
 
 ## Overview of network policy
 
@@ -69,71 +60,31 @@ First, let's create an AKS cluster that supports network policy.
 >
 > The network policy feature can only be enabled when the cluster is created. You can't enable network policy on an existing AKS cluster.
 
-To use Azure Network Policy, you must use the [Azure CNI plug-in][azure-cni] and define your own virtual network and subnets. For more detailed information on how to plan out the required subnet ranges, see [configure advanced networking][use-advanced-networking]. Calico Network Policy could be used with either this same Azure CNI plug-in or with the Kubenet CNI plug-in.
+To use Azure Network Policy, you must use the [Azure CNI plug-in][azure-cni]. Calico Network Policy could be used with either this same Azure CNI plug-in or with the Kubenet CNI plug-in.
 
 The following example script:
 
-* Creates a virtual network and subnet.
-* Creates an Azure Active Directory (Azure AD) service principal for use with the AKS cluster.
-* Assigns *Contributor* permissions for the AKS cluster service principal on the virtual network.
-* Creates an AKS cluster in the defined virtual network and enables network policy.
+* Creates an AKS cluster with system-assigned identity and enables network policy.
     * The _Azure Network_ policy option is used. To use Calico as the network policy option instead, use the `--network-policy calico` parameter. Note: Calico could be used with either `--network-plugin azure` or `--network-plugin kubenet`.
 
-Note that instead of using a service principal, you can use a managed identity for permissions. For more information, see [Use managed identities](use-managed-identity.md).
+Instead of using a system-assigned identity, you can also use a user-assigned identity. For more information, see [Use managed identities](use-managed-identity.md).
 
-Provide your own secure *SP_PASSWORD*. You can replace the *RESOURCE_GROUP_NAME* and *CLUSTER_NAME* variables:
+### Create an AKS cluster for Azure network policies
+
+You can replace the *RESOURCE_GROUP_NAME* and *CLUSTER_NAME* variables:
 
 ```azurecli-interactive
 RESOURCE_GROUP_NAME=myResourceGroup-NP
 CLUSTER_NAME=myAKSCluster
 LOCATION=canadaeast
 
-# Create a resource group
-az group create --name $RESOURCE_GROUP_NAME --location $LOCATION
-
-# Create a virtual network and subnet
-az network vnet create \
-    --resource-group $RESOURCE_GROUP_NAME \
-    --name myVnet \
-    --address-prefixes 10.0.0.0/8 \
-    --subnet-name myAKSSubnet \
-    --subnet-prefix 10.240.0.0/16
-
-# Create a service principal and read in the application ID
-SP=$(az ad sp create-for-rbac --role Contributor --output json)
-SP_ID=$(echo $SP | jq -r .appId)
-SP_PASSWORD=$(echo $SP | jq -r .password)
-
-# Wait 15 seconds to make sure that service principal has propagated
-echo "Waiting for service principal to propagate..."
-sleep 15
-
-# Get the virtual network resource ID
-VNET_ID=$(az network vnet show --resource-group $RESOURCE_GROUP_NAME --name myVnet --query id -o tsv)
-
-# Assign the service principal Contributor permissions to the virtual network resource
-az role assignment create --assignee $SP_ID --scope $VNET_ID --role Contributor
-
-# Get the virtual network subnet resource ID
-SUBNET_ID=$(az network vnet subnet show --resource-group $RESOURCE_GROUP_NAME --vnet-name myVnet --name myAKSSubnet --query id -o tsv)
-```
-
-### Create an AKS cluster for Azure network policies
-
-Create the AKS cluster and specify the virtual network, service principal information, and *azure* for the network plugin and network policy.
+Create the AKS cluster and specify *azure* for the network plugin and network policy.
 
 ```azurecli
 az aks create \
     --resource-group $RESOURCE_GROUP_NAME \
     --name $CLUSTER_NAME \
     --node-count 1 \
-    --generate-ssh-keys \
-    --service-cidr 10.0.0.0/16 \
-    --dns-service-ip 10.0.0.10 \
-    --docker-bridge-address 172.17.0.1/16 \
-    --vnet-subnet-id $SUBNET_ID \
-    --service-principal $SP_ID \
-    --client-secret $SP_PASSWORD \
     --network-plugin azure \
     --network-policy azure
 ```
@@ -146,7 +97,7 @@ az aks get-credentials --resource-group $RESOURCE_GROUP_NAME --name $CLUSTER_NAM
 
 ### Create an AKS cluster for Calico network policies
 
-Create the AKS cluster and specify the virtual network, service principal information, *azure* for the network plugin, and *calico* for the network policy. Using *calico* as the network policy enables Calico networking on both Linux and Windows node pools.
+Create the AKS cluster and specify *azure* for the network plugin, and *calico* for the network policy. Using *calico* as the network policy enables Calico networking on both Linux and Windows node pools.
 
 If you plan on adding Windows node pools to your cluster, include the `windows-admin-username` and `windows-admin-password` parameters with that meet the [Windows Server password requirements][windows-server-password]. To use Calico with Windows node pools, you also need to register the `Microsoft.ContainerService/EnableAKSWindowsCalico`.
 
@@ -188,16 +139,7 @@ az aks create \
     --resource-group $RESOURCE_GROUP_NAME \
     --name $CLUSTER_NAME \
     --node-count 1 \
-    --generate-ssh-keys \
-    --service-cidr 10.0.0.0/16 \
-    --dns-service-ip 10.0.0.10 \
-    --docker-bridge-address 172.17.0.1/16 \
-    --vnet-subnet-id $SUBNET_ID \
-    --service-principal $SP_ID \
-    --client-secret $SP_PASSWORD \
     --windows-admin-username $WINDOWS_USERNAME \
-    --vm-set-type VirtualMachineScaleSets \
-    --kubernetes-version 1.20.2 \
     --network-plugin azure \
     --network-policy calico
 ```
@@ -239,7 +181,13 @@ kubectl run backend --image=mcr.microsoft.com/oss/nginx/nginx:1.15.5-alpine --la
 Create another pod and attach a terminal session to test that you can successfully reach the default NGINX webpage:
 
 ```console
-kubectl run --rm -it --image=mcr.microsoft.com/aks/fundamental/base-ubuntu:v0.0.11 network-policy --namespace development
+kubectl run --rm -it --image=mcr.microsoft.com/dotnet/runtime-deps:6.0 network-policy --namespace development
+```
+
+Install `wget`:
+
+```console
+apt-get update && apt-get install -y wget
 ```
 
 At the shell prompt, use `wget` to confirm that you can access the default NGINX webpage:
@@ -295,7 +243,13 @@ kubectl apply -f backend-policy.yaml
 Let's see if you can use the NGINX webpage on the back-end pod again. Create another test pod and attach a terminal session:
 
 ```console
-kubectl run --rm -it --image=mcr.microsoft.com/aks/fundamental/base-ubuntu:v0.0.11 network-policy --namespace development
+kubectl run --rm -it --image=mcr.microsoft.com/dotnet/runtime-deps:6.0 network-policy --namespace development
+```
+
+Install `wget`:
+
+```console
+apt-get update && apt-get install -y wget
 ```
 
 At the shell prompt, use `wget` to see if you can access the default NGINX webpage. This time, set a timeout value to *2* seconds. The network policy now blocks all inbound traffic, so the page can't be loaded, as shown in the following example:
@@ -352,7 +306,13 @@ kubectl apply -f backend-policy.yaml
 Schedule a pod that is labeled as *app=webapp,role=frontend* and attach a terminal session:
 
 ```console
-kubectl run --rm -it frontend --image=mcr.microsoft.com/aks/fundamental/base-ubuntu:v0.0.11 --labels app=webapp,role=frontend --namespace development
+kubectl run --rm -it frontend --image=mcr.microsoft.com/dotnet/runtime-deps:6.0 --labels app=webapp,role=frontend --namespace development
+```
+
+Install `wget`:
+
+```console
+apt-get update && apt-get install -y wget
 ```
 
 At the shell prompt, use `wget` to see if you can access the default NGINX webpage:
@@ -382,7 +342,13 @@ exit
 The network policy allows traffic from pods labeled *app: webapp,role: frontend*, but should deny all other traffic. Let's test to see whether another pod without those labels can access the back-end NGINX pod. Create another test pod and attach a terminal session:
 
 ```console
-kubectl run --rm -it --image=mcr.microsoft.com/aks/fundamental/base-ubuntu:v0.0.11 network-policy --namespace development
+kubectl run --rm -it --image=mcr.microsoft.com/dotnet/runtime-deps:6.0 network-policy --namespace development
+```
+
+Install `wget`:
+
+```console
+apt-get update && apt-get install -y wget
 ```
 
 At the shell prompt, use `wget` to see if you can access the default NGINX webpage. The network policy blocks the inbound traffic, so the page can't be loaded, as shown in the following example:
@@ -415,7 +381,13 @@ kubectl label namespace/production purpose=production
 Schedule a test pod in the *production* namespace that is labeled as *app=webapp,role=frontend*. Attach a terminal session:
 
 ```console
-kubectl run --rm -it frontend --image=mcr.microsoft.com/aks/fundamental/base-ubuntu:v0.0.11 --labels app=webapp,role=frontend --namespace production
+kubectl run --rm -it frontend --image=mcr.microsoft.com/dotnet/runtime-deps:6.0 --labels app=webapp,role=frontend --namespace production
+```
+
+Install `wget`:
+
+```console
+apt-get update && apt-get install -y wget
 ```
 
 At the shell prompt, use `wget` to confirm that you can access the default NGINX webpage:
@@ -479,7 +451,13 @@ kubectl apply -f backend-policy.yaml
 Schedule another pod in the *production* namespace and attach a terminal session:
 
 ```console
-kubectl run --rm -it frontend --image=mcr.microsoft.com/aks/fundamental/base-ubuntu:v0.0.11 --labels app=webapp,role=frontend --namespace production
+kubectl run --rm -it frontend --image=mcr.microsoft.com/dotnet/runtime-deps:6.0 --labels app=webapp,role=frontend --namespace production
+```
+
+Install `wget`:
+
+```console
+apt-get update && apt-get install -y wget
 ```
 
 At the shell prompt, use `wget` to see that the network policy now denies traffic:
@@ -501,7 +479,13 @@ exit
 With traffic denied from the *production* namespace, schedule a test pod back in the *development* namespace and attach a terminal session:
 
 ```console
-kubectl run --rm -it frontend --image=mcr.microsoft.com/aks/fundamental/base-ubuntu:v0.0.11 --labels app=webapp,role=frontend --namespace development
+kubectl run --rm -it frontend --image=mcr.microsoft.com/dotnet/runtime-deps:6.0 --labels app=webapp,role=frontend --namespace development
+```
+
+Install `wget`:
+
+```console
+apt-get update && apt-get install -y wget
 ```
 
 At the shell prompt, use `wget` to see that the network policy allows the traffic:

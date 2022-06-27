@@ -2,7 +2,7 @@
 author: areddish
 ms.author: areddish
 ms.service: cognitive-services
-ms.date: 02/25/2021
+ms.date: 06/13/2022
 ---
 
 This guide provides instructions and sample code to help you get started using the Custom Vision client library for Go to build an image classification model. You'll create a project, add tags, train the project, and use the project's prediction endpoint URL to programmatically test it. Use this example as a template for building your own image recognition app.
@@ -52,7 +52,7 @@ dep ensure -add github.com/Azure/azure-sdk-for-go
 
 Create a new file called *sample.go* in your preferred project directory, and open it in your preferred code editor.
 
-Add the following code to your script to create a new Custom Vision service project. Insert your subscription keys in the appropriate definitions. Also, get your Endpoint URL from the Settings page of the Custom Vision website.
+Add the following code to your script to create a new Custom Vision service project. Insert your keys in the appropriate definitions. Also, get your Endpoint URL from the Settings page of the Custom Vision website.
 
 See the [CreateProject](/java/api/com.microsoft.azure.cognitiveservices.vision.customvision.training.trainings.createproject#com_microsoft_azure_cognitiveservices_vision_customvision_training_Trainings_createProject_String_CreateProjectOptionalParameter_) method to specify other options when you create your project (explained in the [Build a classifier](../../getting-started-build-a-classifier.md) web portal guide).
 

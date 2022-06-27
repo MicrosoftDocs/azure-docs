@@ -4,7 +4,7 @@ description: Learn how to perform administration tasks such as reboot and schedu
 author: flang-msft
 ms.service: cache
 ms.topic: conceptual
-ms.date: 07/05/2017
+ms.date: 05/21/2021
 ms.author: franlanglois 
 ms.custom: devx-track-azurepowershell
 

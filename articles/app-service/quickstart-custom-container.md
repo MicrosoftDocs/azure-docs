@@ -13,6 +13,7 @@ zone_pivot_groups: app-service-containers-windows-linux-portal
 
 ::: zone pivot="container-windows-cli"
 [!INCLUDE [quickstart-custom-container-windows-cli-pivot.md](includes/quickstart-custom-container/quickstart-custom-container-windows-cli-pivot.md)]
+
 ::: zone-end  
 
 ::: zone pivot="container-linux-cli"
