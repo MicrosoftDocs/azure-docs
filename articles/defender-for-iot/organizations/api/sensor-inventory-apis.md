@@ -1,7 +1,7 @@
 ---
 title: Inventory management API reference for OT monitoring sensors - Microsoft Defender for IoT
 description: Learn about the device management REST APIs supported for Microsoft Defender for IoT OT monitoring sensors.
-ms.date: 06/13/2022
+ms.date: 06/27/2022
 ms.topic: reference
 ---
 
@@ -489,20 +489,265 @@ Array of JSON objects that represent device objects, or the following failure me
 |**ipAddresses** | JSON array of strings. |Nullable | - |
 |**name** |String. Defines the device name. |Not nullable |- |
 |**vendor** |String. Defines the device's vendor. |Nullable |- |
-| **operatingSystem** | Enum. Defines the device's operating system. TBD HADAR TO SEND DETAILS| | |
+| **<a name="operatingsystem"></a>operatingSystem** | Enum. Defines the device's operating system. |Nullable | For more information, see [Supported operatingSystem values](#supported-operatingsystem-values). |
 | **macAddresses** | JSON array of strings. |Nullable | - |
-| **type** |String. 70 options here TBD HADAR TO SEND DETAILS |Not nullable |Can be `Unknown` |
+| <a name="type"></a>**type** |String. Defines the device type. |Not nullable |Can be `Unknown`. For more information, see [Supported type values](#supported-type-values). |
 | **engineeringStation** | Boolean. Defines whether the device is defined as an engineering station or not: <br><br>- `true`: Device is an engineering station <br>- `false`: Device is not an engineering station.  |Not nullable | |
 |**authorized**  |Boolean. Defines whether the device is defined as an engineering station or not: <br><br>- `true`: Device is an engineering station <br>- `false`: Device is not an engineering station. | | |
 |**scanner** |Boolean. Defines whether the device is authorized or not: <br><br>- `true`: Device is authorized <br>- `false`: Device is not authorized. | | |
-| **protocols** |Object TBD HADAR TO SEND | | |
+| <a name="protocol-names"></a>**protocols** |Object that contains the device's protocol details. |Nullable | For more information, see  |
 |**firmware** |Object TBD HADAR TO SEND | | |
 |**hasDynamicAddress** | Boolean. Defines whether the device has a dynamic address or not. <br><br>- `true`: Device has a dynamic address <br>- `false`: Device does not have a dynamic address |Not nullable|
 
-**Operating system fields**
+
+#### Supported operatingSystem values
+
+This section lists the supported values for the [operatingSystem](#operatingsystem) response field.
+
+:::row:::
+   :::column span="":::
+- `Windows 10`
+- `Windows 10 32`
+- `Windows 10 64`
+- `Windows 2000`
+- `Windows 7`
+- `Windows 7 32`
+- `Windows 7 64`
+- `Windows 8`
+- `Windows 8 32`
+- `Windows 8 64`
+- `Windows 8.1`
+- `Windows 8.1 32`
+   :::column-end:::
+   :::column span="":::
+- `Windows 8.1 64`
+- `Windows NT`
+- `Windows Server 2003`
+- `Windows Server 2003 R2`
+- `Windows Server 2008`
+- `Windows Server 2008 32`
+- `Windows Server 2008 64`
+- `Windows Server 2008 R2`
+- `Windows Server 2012`
+- `Windows Server 2012 R2`
+- `Windows Server 2016`
+- `Windows Vista`
+   :::column-end:::
+   :::column span="":::
+- `Windows Vista 32`
+- `Windows Vista 64`
+- `Windows XP`
+- `Mac OS`
+- `Mac OS X`
+- `Linux`
+- `Windows Server 2019`
+- `HP UX`
+- `Windows 11`
+- `Windows 11 32`
+- `Windows 11 64`
+   :::column-end:::
+:::row-end:::
+
+
+
+#### Supported type values
+
+This section lists the supported values for the [type](#type) response field.
+
+:::row:::
+   :::column span="":::
+- `Engineering Station`
+- `PLC`
+- `Historian`
+- `HMI`
+- `Domain Controller`
+- `DB Server`
+- `Wireless Access Point`
+- `Router`
+- `Switch`
+- `Workstation`
+- `Server`
+- `IP Camera`
+- `Printer`
+- `Multicast/Broadcast`
+- `Internet`
+- `Firewall`
+- `Terminal Station`
+- `VPN Gateway`
+- `Group`
+   :::column-end:::
+   :::column span="":::
+- `IED`
+- `DCS Controller`
+- `RTU`
+- `NTP Server`
+- `Storage`
+- `Industrial Packaging System`
+- `Industrial Scale`
+- `Industrial Robot`
+- `Slot`
+- `Punch Clock`
+- `ATM`
+- `Smart TV`
+- `Game console`
+- `DVR`
+- `Door Control Panel`
+- `HVAC`
+- `Thermostat`
+- `Fire Alarm`
+- `Smart Light`
+   :::column-end:::
+   :::column span="":::
+- `Smart Switch`
+- `Fire Detector`
+- `IP Telephone`
+- `Alarm System`
+- `Alarm Siren`
+- `Smart Phone`
+- `Tablet`
+- `Wifi Pineapple`
+- `Motion Detector`
+- `Elevator`
+- `Humidity Sensor`
+- `Physical Location`
+- `Backup Server`
+- `Meter`
+- `Barcode Scanner`
+- `Uninterruptable Power Supply`
+   :::column-end:::
+   :::column span="":::
+- `Variable Frequency Drive`
+- `Robot Controller`
+- `Servo Drive`
+- `Pneumatic Device`
+- `Marquee`
+- `People Counter System`
+- `Intercom`
+- `Turnstile`
+- `I/O Adapter`
+- `Protocol Converter`
+- `KVM`
+- `Web Guiding System`
+- `Turbine`
+- `External Management`
+- `Embedded Device`
+- `Unknown`
+   :::column-end:::
+:::row-end:::
+
+
+### Protocol fields and name values
 
 | Name | Type | Nullable / Not nullable | List of values |
 |--|--|--|--|
+| **id** | Numeric. Defines the protocol's internal ID. |  Not nullable | - |
+|<a name="protocol-name"></a>**name** |String. Defines the device name. |Not nullable | For more information, see below. <br><br>**Note**: To extend Defender for IoT support to proprietary protocols, create a Horizon plugin. For more information, see [Extend support to proprietary protocols](../overview.md#extend-support-to-proprietary-protocols).|
+|**ipAddresses** | JSON array of strings of protocol IP addresses. |Not nullable | - |
+
+The following values are supported as [protocol names](#protocol-names) out-of-the-box:
+
+:::row:::
+   :::column span="":::
+- `Unknown`
+- `DNP3`
+- `MODBUS`
+- `C37.118`
+- `SSH`
+- `HTTP`
+- `SYSLOG`
+- `GENERIC`
+- `ICMP`
+- `DNS`
+- `GOOSE`
+- `MMS`
+- `MALFORMED`
+- `IEC-60870`
+- `OPC UA`
+- `Siemens S7`
+- `ARP`
+- `Sampled Values`
+- `EtherNet/IP`
+   :::column-end:::
+   :::column span="":::
+- `Siemens S7 Plus`
+- `Motorola MDLC`
+- `Netbios Name Service`
+- `Netbios Datagram Service`
+- `Lightweight Access Point`
+- `CAPWAP`
+- `SNMP`
+- `DTLS`
+- `TNS`
+- `Database`
+- `SRTP`
+- `RPC`
+- `OPC`
+- `DF-1`
+- `DH-485`
+- `TDS`
+- `SMB`
+- `Suitelink`
+- `ControlNet`
+   :::column-end:::
+   :::column span="":::
+- `FTP`
+- `CDP`
+- `Profinet DCP`
+- `Profinet Real-Time`
+- `LLDP`
+- `Telnet`
+- `DeltaV`
+- `BACNet`
+- `AMS`
+- `TwinCAT`
+- `Ovation ADMD`
+- `Ovation SSRPC`
+- `Ovation DPUSTAT`
+- `Port Map`
+- `STP`
+- `Telvent OASyS Tags`
+- `Mitsubishi MELSEC`
+- `Honeywell Control Data Access`
+   :::column-end:::
+   :::column span="":::
+- `ARP`
+- `Yokogawa HIS Equalize`
+- `Emerson OpenBSI`
+- `Siemens SICAM`
+- `Omron FINS`
+- `Toshiba Computer Link`
+- `Foxboro I/A`
+- `Yokogawa VNet/IP`
+- `Emerson ROC`
+- `ABB Totalflow`
+- `Siemens Process Historian Discovery`
+- `Siemens WinCC Agent`
+- `LonTalk`
+- `Common ASCII Message`
+- `CodeSys`
+- `SAIA S-Bus`
+- `MDNS`
+- `Bently Nevada`
+   :::column-end:::
+:::row-end:::
+
+
+
+#### Supported firmware values
+
+firmware is a not nullable json array of the following structure:
+
+| Name | Type | Nullable / Not nullable | List of values |
+|--|--|--|--|
+|**address**  |String. Defines the firmware IP address. |Not nullable   | -  |
+| **moduleAddress** |String. Defines the firmware's module address. | Not nullable.  | - |
+| **serial** |String. Defines the firmware's serial number. | Nullable  | - |
+|**model**  | String. Defines the firmware model. | Nullable  | -  |
+| **firmwareVersion** |String. Defines the firmware version. | Nullable | - |
+|**additionalData**  | String. Defines additional data for the firmware. | Nullable | - |
+|**rack**  |String. Defines the firmware rack. | Nullable  | - |
+|**slot**  |String. Defines the firmware slot. | Nullable  | - |
+
 
 ## Next steps
 
