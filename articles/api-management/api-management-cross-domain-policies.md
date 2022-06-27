@@ -6,7 +6,7 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: reference
-ms.date: 06/03/2022
+ms.date: 06/27/2022
 ms.author: danlep
 ---
 # API Management cross-domain policies
@@ -85,8 +85,8 @@ Configure the `cors` policy in API Management for the following scenarios:
 
 * Enable API Management to reply to preflight requests or to pass through simple CORS requests when the backends don't provide their own CORS support.
 
-> [!NOTE]
-> If a request matches an operation with an `OPTIONS` method defined in the API, preflight request processing logic associated with the `cors` policy will not be executed. Therefore, such operations can be used to implement custom preflight processing logic - for example, to apply the `cors` policy only under certain conditions.
+    > [!NOTE]
+    > If a request matches an operation with an `OPTIONS` method defined in the API, preflight request processing logic associated with the `cors` policy will not be executed. Therefore, such operations can be used to implement custom preflight processing logic - for example, to apply the `cors` policy only under certain conditions.
 
 ### Configurations that cause CORS failures
 
