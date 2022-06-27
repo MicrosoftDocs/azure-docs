@@ -3,10 +3,12 @@ title: Azure Quickstart - Create an Azure key vault and a key by using Bicep | M
 description: Quickstart showing how to create Azure key vaults, and add key to the vaults by using Bicep.
 services: key-vault
 tags: azure-resource-manager
+author: mumian
 ms.service: key-vault
 ms.subservice: keys
 ms.topic: quickstart
-ms.date: 06/24/2022
+ms.author: jgao
+ms.date: 06/27/2022
 
 #Customer intent: As a security admin who is new to Azure, I want to use Key Vault to securely store keys and passwords in Azure.
 
@@ -161,13 +163,13 @@ More Azure Key Vault template samples can be found in [Azure Quickstart Template
 
     ```azurepowershell
     New-AzResourceGroup -Name exampleRG -Location eastus
-    New-AzResourceGroupDeployment -ResourceGroupName exampleRG -TemplateFile ./main.bicep -keyVaultName "<key-vault-name>" -keyName "<key-name>"
+    New-AzResourceGroupDeployment -ResourceGroupName exampleRG -TemplateFile ./main.bicep -vaultName "<key-vault-name>" -keyName "<key-name>"
     ```
 
     ---
 
     > [!NOTE]
-    > Replace **\<vault-name\>** with the name of the key vault. Replace **\<key-name\>** with the name of the key.
+    > Replace **\<vault-name\>** with the name of the key vault. Replace **\<vault-name\>** with the name of the key vault, and replace **\<key-name\>** with the name of the key.
 
     When the deployment finishes, you should see a message indicating the deployment succeeded.
 
