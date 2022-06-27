@@ -170,6 +170,7 @@ When you select the delete button for a user-assigned managed identity, you'll s
 This confirmation process is only available in the portal. To view an identity's resources before deleting it using the REST API, retrieve the list of resources manually in advance.
 
 ## Limitations
+ - This functionality is available in all public regions, and will be available in USGov and China in the coming weeks.
  - API requests for associated resources are limited to one per second per tenant. If you exceed this limit, you may receive a `HTTP 429` error. This limit doesn't apply to retrieving a list of user-assigned managed identities.
  - Azure Resources types that are in preview, or their support for Managed identities is in preview, may not appear in the associated resources list until fully generally available. This list includes Service Fabric clusters, Blueprints, and Machine learning services.
  - This functionality is limited to tenants with fewer than 5,000 subscriptions. An error will be displayed if the tenant has greater than 5,000 subscriptions.
