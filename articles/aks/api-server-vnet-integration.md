@@ -97,6 +97,8 @@ Where `--enable-private-cluster` is a mandatory flag for a private cluster, and 
 
 When using bring-your-own VNet, an API server subnet must be created and delegated to `Microsoft.ContainerService/managedClusters`. This grants the AKS service permissions to inject the API server pods and internal load balancer into that subnet. The subnet may not be used for any other workloads, but may be used for multiple AKS clusters located in the same virtual network. An AKS cluster will require from 2-7 IP addresses depending on cluster scale. The minimum supported API server subnet size is a /28.
 
+Note that the cluster identity needs permissions to both the API server subnet and the node subnet. Lack of permissions at the API server subnet will cause a provisioning failure.
+
 > [!WARNING]
 > Running out of IP addresses may prevent API server scaling and cause an API server outage.
 
@@ -133,6 +135,11 @@ az network vnet subnet create --vnet-name <vnet-name> \
 ```azurecli-interactive
 # Create the identity
 az identity create -n <managed-identity-name> -l <location>
+
+# Assign Network Contributor to the API server subnet
+az role assignment create --scope <apiserver-subnet-resource-id> \
+    --role "Network Contributor" \
+    --assignee <managed-identity-client-id>
 
 # Assign Network Contributor to the cluster subnet
 az role assignment create --scope <cluster-subnet-resource-id> \
