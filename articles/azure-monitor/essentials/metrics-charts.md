@@ -1,5 +1,5 @@
 ---
-title: Using features of Metrics Explorer
+title: Advanced features of Metrics Explorer
 description: Metrics are a series of measured values and counts that Azure collects. Learn to use Metrics Explorer to investigate the health and usage of resources.
 author: vgorbenko
 services: azure-monitor
@@ -10,7 +10,7 @@ ms.author: vitalyg
 ms.custom: kr2b-contr-experiment
 ---
 
-# Using features of Metrics Explorer in Azure Monitor
+# Advanced features of Metrics Explorer in Azure Monitor
 
 > [!NOTE]
 > This article assumes you're familiar with basic features of the Metrics Explorer feature of Azure Monitor. If you're a new user and want to learn how to create your first metric chart, see [Getting started with the Metrics Explorer](./metrics-getting-started.md).
