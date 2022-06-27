@@ -826,6 +826,8 @@ items:
     items: 
     - name: Manage Azure Data Factory settings and preferences
       href: how-to-manage-settings.md
+    - name: Manage Azure Data Factory studio preview experience
+      href: how-to-manage-studio-preview-exp.md
   - name: Monitor and manage
     items:
     - name: Monitor visually
@@ -1139,6 +1141,8 @@ items:
         href: connector-troubleshoot-rest.md
       - name: SharePoint Online list
         href: connector-troubleshoot-sharepoint-online-list.md
+      - name: Snowflake
+        href: connector-troubleshoot-snowflake.md
       - name: XML format
         href: connector-troubleshoot-xml.md
     - name: Pipeline Triggers 
