@@ -92,6 +92,8 @@ For performance issues and considerations, see [SSH File Transfer Protocol (SFTP
 - SSH and SCP commands that aren't SFTP aren't supported.
 
 - FTPS and FTP aren't supported.
+  
+- TLS/SSL are not related to SFTP.
 
 ## Troubleshooting
 
