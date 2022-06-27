@@ -48,7 +48,7 @@ From the Azure portal, follow these steps:
 
     | Parameter    | Description                                                                                                                                                                                                                                   | Example                   |
     |--------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------|
-    | Separator    | The separator is the character parsed in your imported configuration file to separate key-values which will be added to your configuration store. Select one of the following options: *.*, *,*, *:*, *;*, */*, *-*, *_*, *—*                 | *:*                       |
+    | Separator    | The separator is the character parsed in your imported configuration file to separate key-values that will be added to your configuration store. Select one of the following options: *.*, *,*, *:*, *;*, */*, *-*, *_*, *—*                 | *:*                       |
     | Prefix       | Optional. A key prefix is the beginning part of a key. Prefixes can be used to manage groups of keys in a configuration store. This prefix will be appended to the front of imported keys. Prefix will be ignored for feature flags.          | *TestApp*                 |
     | Label        | Optional. Select an existing label or enter a new label that will be assigned to your imported key-values.                                                                                                                                    | *prod*                    |
     | Content type | Optional. Indicate if the file you're importing is a Key Vault reference or a JSON file. For more information about Key Vault references, go to [Use Key Vault references in an ASP.NET Core app](./use-key-vault-references-dotnet-core.md). | *JSON (application/json)* |
@@ -70,12 +70,12 @@ Enter the import command `az appconfig kv import` and add the following paramete
 
 Optionally also add the following parameters:
 
-    | Parameter        | Description                                                                                                                                                                                                                                              | Example                   |
-    |------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------|
-    | `--separator`    | Optional. The separator is the character parsed in your imported configuration file to separate key-values which will be added to your configuration store. Select one of the following options: `'.'`, `','`, `':'`, `';'`, `'/'`, `'-'`, `'_'`, `'—'`. | `':'`                     |
-    | `--prefix`       | Optional. A key prefix is the beginning part of a key. Prefixes can be used to manage groups of keys in a configuration store. This prefix will be appended to the front of imported keys. Prefix will be ignored for feature flags.                     | `TestApp`                 |
-    | `--label`        | Optional. Enter a label that will be assigned to your imported key-values.                                                                                                                                                                               | `prod`                    |
-    | `--content-type` | Optional. Enter `appconfig/kvset` or `application/json` to state that the imported content consists of a Key Vault reference or a JSON file.                                                                                                             | `JSON (application/json)` |
+| Parameter        | Description                                                                                                                                                                                                                                              | Example                   |
+|------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------|
+| `--separator`    | Optional. The separator is the character parsed in your imported configuration file to separate key-values which will be added to your configuration store. Select one of the following options: `'.'`, `','`, `':'`, `';'`, `'/'`, `'-'`, `'_'`, `'—'`. | `':'`                     |
+| `--prefix`       | Optional. A key prefix is the beginning part of a key. Prefixes can be used to manage groups of keys in a configuration store. This prefix will be appended to the front of imported keys. Prefix will be ignored for feature flags.                     | `TestApp`                 |
+| `--label`        | Optional. Enter a label that will be assigned to your imported key-values.                                                                                                                                                                               | `prod`                    |
+| `--content-type` | Optional. Enter `appconfig/kvset` or `application/json` to state that the imported content consists of a Key Vault reference or a JSON file.                                                                                                             | `JSON (application/json)` |
 
 Example: import all keys and feature flags from a file and apply test label.
 
@@ -114,7 +114,7 @@ From the Azure portal, follow these steps:
     | Resource group | Select a resource group that contains the App Configuration store with configuration to import. | *my-resource-group*   |
     | Resource       | Select the App Configuration store that contains the configuration you want to import.          | *my-other-app-config* |
 
-1. The page now displays the selected **Source service** and resource id. The **Select resource** action lets you switch to another source App Configuration store.
+1. The page now displays the selected **Source service** and resource ID. The **Select resource** action lets you switch to another source App Configuration store.
 
 1. Optionally fill out the next part of the form:
 
@@ -231,11 +231,11 @@ To get the value for `--appservice-account`, use the command `az webapp show --r
 
 Example: import all keys and apply null label from an App Service application:
 
-```python
+```azurecli
 az appconfig kv import --name <your-app-config-store-name> --source appservice --appservice-account <your-app-service>
 ```
 
-For more details and examples, go to [az appconfig kv import](/cli/azure/appconfig/kv?view=azure-cli-latest#az-appconfig-kv-import&preserve-view=true).
+For more optional parameters and examples, go to [az appconfig kv import](/cli/azure/appconfig/kv?view=azure-cli-latest#az-appconfig-kv-import&preserve-view=true).
 
 ---
 
@@ -255,7 +255,7 @@ From the [Azure portal](https://portal.azure.com), follow these steps:
 
     :::image type="content" source="./media/export-file.png" alt-text="Screenshot of the Azure portal, exporting a file":::
 
-1. On the **Export** tab, select  select **Configuration file** under **Target service**.
+1. On the **Export** tab, select **Configuration file** under **Target service**.
 
 1. Fill out the form with the following parameters:
 
@@ -289,7 +289,7 @@ Optionally also add the following parameters:
 
 | Parameter        | Description                                                                                                                                                                                                                                              | Example                   |
 |------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------|
-| `--separator`    | Optional. The separator is the character parsed in your imported configuration file to separate key-values which will be added to your configuration store. Select one of the following options: `'.'`, `','`, `':'`, `';'`, `'/'`, `'-'`, `'_'`, `'—'`. | `':'`                     |
+| `--separator`    | Optional. The separator is the character parsed in your imported configuration file to separate key-values that will be added to your configuration store. Select one of the following options: `'.'`, `','`, `':'`, `';'`, `'/'`, `'-'`, `'_'`, `'—'`. | `':'`                     |
 | `--prefix`       | Optional. A key prefix is the beginning part of a key. Prefixes can be used to manage groups of keys in a configuration store. Prefix to be trimmed from keys. Prefix will be ignored for feature flags.                                                 | `TestApp`                 |
 | `--label`        | Optional. Enter a label that will be assigned to your imported key-values.                                                                                                                                                                               | `prod`                    |
 | `--content-type` | Optional. Enter `appconfig/kvset` or `application/json` to state that the imported content consists of a Key Vault reference or a JSON file.                                                                                                             | `JSON (application/json)` |
@@ -299,11 +299,11 @@ Optionally also add the following parameters:
 
 Example: export all keys and feature flags with label test to a json file.
 
-```python
+```azurecli
 az appconfig kv export --name <your-app-config-store-name> --label test --destination file --path D:/abc.json --format json
 ```
 
-For more details and examples, go to [az appconfig kv export](/cli/azure/appconfig/kv?view=azure-cli-latest#az-appconfig-kv-export&preserve-view=true).
+For more optional parameters and examples, go to [az appconfig kv export](/cli/azure/appconfig/kv?view=azure-cli-latest#az-appconfig-kv-export&preserve-view=true).
 
 ---
 
@@ -331,7 +331,7 @@ From the Azure portal, follow these steps:
     | Resource group | Select a resource group that contains the App Configuration store with configuration to import. | *my-resource-group*   |
     | Resource       | Select the App Configuration store that contains the configuration you want to import.          | *my-other-app-config* |
 
-1. The page now displays the selected **Target service** and resource id. The **Select resource** action lets you switch to another source App Configuration store.
+1. The page now displays the selected **Target service** and resource ID. The **Select resource** action lets you switch to another source App Configuration store.
 
 1. Optionally fill out the next part of the form:
 
@@ -364,7 +364,7 @@ Optionally also add the following parameters:
 | Parameter    | Description                                                                                                                                                                                                                                        | Examples                                    |
 |--------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------|
 | `--datetime` | Optional. Export key-values from a specific point in time. Format: "YYYY-MM-DDThh:mm:ssZ". If you don't specify a time zone, UTC will be used by default.                                                                                          | `"2021-01-28T13:00:00Z"`                    |
-| `--label`    | Optional. Enter a label to restrict export to keys and feature flags with this label. If you don't specify a label, you will only export keys and feature flags with no label.                                                                     | `prod`                                      |
+| `--label`    | Optional. Enter a label to restrict export to keys and feature flags with this label. If you don't specify a label, you'll only export keys and feature flags with no label.                                                                     | `prod`                                      |
 | `--dest-label` | Optional. Enter a destination label to label exported key-values with this label.                                                                                                                                                                | `new`                                       |
 | `--key`      | Optional. Enter a key to filter keys to export. If no key specified, return all keys by default. Support star sign as filter. Key filtering not applicable for feature flags. By default, all feature flags with specified label will be exported. | `abc*` exports all keys with abc as prefix. |
 
@@ -403,7 +403,7 @@ From the Azure portal, follow these steps:
     | Resource group | Select a resource group that contains the App Service with configuration to export. | *my-resource-group*   |
     | Resource       | Select the App Service that contains the configuration you want to export.          | *my-other-app-config* |
 
-1. The page now displays the selected **Target service** and resource id. The **Select resource** action lets you switch to another source App Service.
+1. The page now displays the selected **Target service** and resource ID. The **Select resource** action lets you switch to another source App Service.
 
 1. Optionally fill out the next part of the form:
 
@@ -438,7 +438,7 @@ Optionally also add the following parameters:
 | Parameter      | Description                                                                                                                                                                                                                                        | Examples                                    |
 |----------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------|
 | `--datetime`   | Optional. Export key-values from a specific point in time. Format: "YYYY-MM-DDThh:mm:ssZ". If you don't specify a time zone, UTC will be used by default.                                                                                          | `"2021-01-28T13:00:00Z"`                    |
-| `--label`      | Optional. Enter a label to restrict export to keys and feature flags with this label. If you don't specify a label, you will only export keys and feature flags with no label.                                                                     | `prod`                                      |
+| `--label`      | Optional. Enter a label to restrict export to keys and feature flags with this label. If you don't specify a label, you'll only export keys and feature flags with no label.                                                                     | `prod`                                      |
 | `--dest-label` | Optional. Enter a destination label to label exported key-values with this label.                                                                                                                                                                  | `new`                                       |
 | `--key`        | Optional. Enter a key to filter keys to export. If no key specified, return all keys by default. Support star sign as filter. Key filtering not applicable for feature flags. By default, all feature flags with specified label will be exported. | `abc*` exports all keys with abc as prefix. |
 
