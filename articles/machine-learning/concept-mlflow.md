@@ -16,12 +16,11 @@ ms.custom: devx-track-python, cliv2, sdkv2, event-tier1-build-2022
 
 [!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
 
-
 > [!div class="op_single_selector" title1="Select the version of Azure Machine Learning developer platform you are using:"]
 > * [v1](v1/concept-mlflow-v1.md)
 > * [v2 (current version)](concept-mlflow.md)
 
-[MLflow](https://www.mlflow.org) is an open-source framework, designed to manage the complete machine learning lifecycle. Its ability to train and serve models on different platforms allows to use a consistent set of tools regardless of where your experiments are running: locally on your computer, on a remote compute target, a virtual machine or an Azure Machine Learning compute instance.  
+[MLflow](https://www.mlflow.org) is an open-source framework, designed to manage the complete machine learning lifecycle. Its ability to train and serve models on different platforms allows you to use a consistent set of tools regardless of where your experiments are running: locally on your computer, on a remote compute target, a virtual machine or an Azure Machine Learning compute instance.  
 
 MLflow can manage the complete machine learning lifecycle using four core capabilities:
 
@@ -42,7 +41,7 @@ With MLflow Tracking you can connect Azure Machine Learning as the backend of yo
   + Azure Machine Learning also supports remote tracking of experiments by configuring MLflow to point to the Azure Machine Learning workspace. By doing so, you can leverage the capabilities of Azure Machine Learning while keeping your experiments where they are.
 + Lift and shift existing MLflow experiments to Azure Machine Learning. The workspace provides a centralized, secure, and scalable location to store training metrics and models.
 
-Azure Machine Learning uses MLflow Tracking for metric logging and artifact storage for your experiments, whether you created the experiment via the Azure Machine Learning Python SDK, Azure Machine Learning CLI or the Azure Machine Learning Studio. Learn more at [Track experiments with MLflow](how-to-use-mlflow-cli-runs.md).
+Azure Machine Learning uses MLflow Tracking for metric logging and artifact storage for your experiments, whether you created the experiment via the Azure Machine Learning Python SDK, Azure Machine Learning CLI or the Azure Machine Learning studio. Learn more at [Track experiments with MLflow](how-to-use-mlflow-cli-runs.md).
 
 ## Model Registries with MLflow
 
@@ -52,7 +51,7 @@ To learn more about how you can manage models using the MLflow API in Azure Mach
 
 ## Model Deployments of MLflow models
 
-You can [deploy MLflow models to Azure Machine Learning](how-to-deploy-mlflow-models.md), so you can leverage and apply Azure Machine Learning's model management capabilities and no-code deployment offering. We support deploying MLflow models to both real-time and batch endpoints. You can use the `azureml-mlflow` MLflow plugin, the Azure ML CLI v2, and using the user interface in Azure Machine Learning Studio.
+You can [deploy MLflow models to Azure Machine Learning](how-to-deploy-mlflow-models.md), so you can leverage and apply Azure Machine Learning's model management capabilities and no-code deployment offering. We support deploying MLflow models to both real-time and batch endpoints. You can use the `azureml-mlflow` MLflow plugin, the Azure ML CLI v2, and using the user interface in Azure Machine Learning studio.
 
 Learn more at [Deploy MLflow models to Azure Machine Learning](how-to-deploy-mlflow-models.md).
 
