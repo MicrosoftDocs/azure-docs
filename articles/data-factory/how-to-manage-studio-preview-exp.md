@@ -55,7 +55,7 @@ There are two ways to enable preview experiences.
 	
    [**Pipeline experimental view**](#pipeline-experimental-view)
    * [Adding activities](#adding-activities)
-   * [Iteration & conditionals containers](#iteration-and-conditionals-containers)
+   * [Iteration & conditionals container view](#iteration-and-conditionals-containers)
 
 ### Dataflow data first experimental view
 
