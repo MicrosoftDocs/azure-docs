@@ -121,7 +121,9 @@ You can use many different SFTP clients to securely connect and then transfer fi
 SFTP support for Azure Blob Storage currently limits its cryptographic algorithm support based on security considerations. We strongly recommend that customers utilize [Microsoft Security Development Lifecycle (SDL) approved algorithms](/security/sdl/cryptographic-recommendations) to securely access their data.
 
 > [!IMPORTANT]
-> Algorithm support is subject to change in the future. At this time, we do not plan on supporting the following: `ssh-dss`, `diffie-hellman-group14-sha1`, `diffie-hellman-group1-sha1`, `hmac-sha1`, `hmac-sha1-96`.
+> At this time, we do not plan on supporting the following: `ssh-dss`, `diffie-hellman-group14-sha1`, `diffie-hellman-group1-sha1`, `hmac-sha1`, `hmac-sha1-96`.
+
+Algorithm support is subject to change in the future.
 
 ### Known supported clients
 
