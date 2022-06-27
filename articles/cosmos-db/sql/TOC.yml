@@ -209,6 +209,10 @@
           href: ../security-controls-policy.md?toc=/azure/cosmos-db/sql/toc.json
         - name: Security baseline
           href: /security/benchmark/azure/baselines/cosmos-db-security-baseline?context=/azure/cosmos-db/context/context
+    - name: Spark Connector
+      items:
+        - name: Throughput control  
+          href: throughput-control-spark.md        
     - name: Analytics with Azure Synapse Link
       items:
         - name: Azure Synapse Link for Cosmos DB

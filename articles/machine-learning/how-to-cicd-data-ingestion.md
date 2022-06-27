@@ -106,9 +106,7 @@ steps:
     artifact: di-notebooks
 ```
 
-The pipeline uses [flake8](https://pypi.org/project/flake8/) to do the Python code linting. It runs the unit tests defined in the source code and publishes the linting and test results so they're available in the Azure Pipeline execution screen:
-
-![linting unit tests](media/how-to-cicd-data-ingestion/linting-unit-tests.png)
+The pipeline uses [flake8](https://pypi.org/project/flake8/) to do the Python code linting. It runs the unit tests defined in the source code and publishes the linting and test results so they're available in the Azure Pipeline execution screen.
 
 If the linting and unit testing is successful, the pipeline will copy the source code to the artifact repository to be used by the subsequent deployment steps.
 
