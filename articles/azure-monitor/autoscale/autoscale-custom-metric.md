@@ -103,7 +103,7 @@ Set up a scale-out rule so that Azure spins up an additional instance of the Web
 
 
 ### Set up a scale-in rule
-Set up a scale-in rule so Azure spins down one of the instances when the number of sessions your Web app is handling less than 60 per instance. Azure will reduce the number of instances each time this rule is run until the minimum number of instances is reached.
+Set up a scale-in rule so Azure spins down one of the instances when the number of sessions your Web app is handling is less than 60 per instance. Azure will reduce the number of instances each time this rule is run until the minimum number of instances is reached.
 1. Select **Add a rule** in the **Rules** section of the default scale condition.
 1. Select *Other resource* from the **Metric source** dropdown.
 1. Select *Application Insights* from the **Resource Type**.
@@ -127,15 +127,11 @@ Set up a scale-in rule so Azure spins down one of the instances when the number 
 
 If you're not going to continue to use this application, delete
 resources with the following steps:
-1. Delete the Autoscale setting by selecting **Discard**.
-
-    :::image type="content" source="media/autoscale-custom-metric/discard-autoscale-settings.png" alt-text="A screenshot of the Autoscale settings page where you can Discard autoscale settings":::
-
 1. From the App service overview page, select **Delete**.
 
     :::image type="content" source="media/autoscale-custom-metric/delete-webapp.png" alt-text="A screenshot of the App Service page where you can Delete the web app":::
 
-1. From The App Service Plan page, select **Delete**.
+1. From The App Service Plan page, select **Delete**. The autoscale settings will be deleted along with the App Service plan.
 
     :::image type="content" source="media/autoscale-custom-metric/delete-service-plan.png" alt-text="A screenshot of theApp Service plan page where you can Delete the app service plan":::
 
