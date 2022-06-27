@@ -43,7 +43,7 @@ Review one of the following quickstarts to set up a build for your specific type
 
 ## Generate a service principal
 
-1. Copy and paste the following service principal creation PowerShell script into an IDE or editor, and then save the script.
+1. Copy and paste the following service principal creation PowerShell script into an IDE or editor, and then save the script. This code is compatible only with Azure Az PowerShell v7.0.0 or higher.
     
     ```powershell
     param
