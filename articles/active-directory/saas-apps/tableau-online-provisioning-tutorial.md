@@ -1,228 +1,207 @@
 ---
 title: 'Tutorial: Configure Tableau Online for automatic user provisioning with Azure Active Directory | Microsoft Docs'
-description: Learn how to configure Azure Active Directory to automatically provision and deprovision user accounts to Tableau Online.
+description: Learn how to automatically provision and de-provision user accounts from Azure AD to Tableau Online.
 services: active-directory
 author: twimmers
 writer: twimmers
-manager: CelesteDG
+manager: beatrizd
+ms.assetid: b4038c18-2bfd-47cb-8e74-3873dc85a796
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/27/2019
-ms.author: jeedes
+ms.author: thwimmer
 ---
 
 # Tutorial: Configure Tableau Online for automatic user provisioning
 
-This tutorial demonstrates the steps to perform in Tableau Online and Azure Active Directory (Azure AD) to configure Azure AD to automatically provision and deprovision users and groups to Tableau Online.
+This tutorial describes the steps you need to do in both Tableau Online and Azure Active Directory (Azure AD) to configure automatic user provisioning. When configured, Azure AD automatically provisions and de-provisions users and groups to [Tableau Online](https://www.tableau.com/) using the Azure AD Provisioning service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../app-provisioning/user-provisioning.md). 
 
-> [!NOTE]
-> This tutorial describes a connector that's built on top of the Azure AD user provisioning service. For information on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to software-as-a-service (SaaS) applications with Azure Active Directory](../app-provisioning/user-provisioning.md).
+
+
+## Capabilities supported
+> [!div class="checklist"]
+> * Create users in Tableau Online.
+> * Remove users in Tableau Online when they do not require access anymore.
+> * Keep user attributes synchronized between Azure AD and Tableau Online.
+> * Provision groups and group memberships in Tableau Online.
+> * [Single sign-on](tableauonline-tutorial.md) to Tableau Online (recommended).
 
 ## Prerequisites
 
-The scenario outlined in this tutorial assumes that you have:
+The scenario outlined in this tutorial assumes that you already have the following prerequisites:
 
-*   An Azure AD tenant.
-*   A [Tableau Online tenant](https://www.tableau.com/).
-*   A user account in Tableau Online with admin permissions.
+* [An Azure AD tenant](../develop/quickstart-create-new-tenant.md) 
+* A user account in Azure AD with [permission](../roles/permissions-reference.md) to configure provisioning (for example, Application Administrator, Cloud Application administrator, Application Owner, or Global Administrator).
+* A [Tableau Online tenant](https://www.tableau.com/).
+* A user account in Tableau Online with Admin permission
 
 > [!NOTE]
 > The Azure AD provisioning integration relies on the [Tableau Online REST API](https://onlinehelp.tableau.com/current/api/rest_api/en-us/help.htm). This API is available to Tableau Online developers.
 
-## Add Tableau Online from the Azure Marketplace
-Before you configure Tableau Online for automatic user provisioning with Azure AD, add Tableau Online from the Azure Marketplace to your list of managed SaaS applications.
+## Step 1. Plan your provisioning deployment
+1. Learn about [how the provisioning service works](../app-provisioning/user-provisioning.md).
+1. Determine who will be in [scope for provisioning](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
+1. Determine what data to [map between Azure AD and Tableau Online](../app-provisioning/customize-application-attributes.md). 
 
-To add Tableau Online from the Marketplace, follow these steps.
+## Step 2. Configure Tableau Online to support provisioning with Azure AD
 
-1. In the [Azure portal](https://portal.azure.com), in the navigation pane on the left, select **Azure Active Directory**.
+`TBD`
 
-	![The Azure Active Directory icon](common/select-azuread.png)
+## Step 3. Add Tableau Online from the Azure AD application gallery
 
-2. Go to **Enterprise applications**, and then select **All applications**.
+Add Tableau Online from the Azure AD application gallery to start managing provisioning to Tableau Online. If you have previously setup Tableau Online for SSO, you can use the same application. However it's recommended you create a separate app when testing out the integration initially. Learn more about adding an application from the gallery [here](../manage-apps/add-application-portal.md). 
 
-	![The Enterprise applications blade](common/enterprise-applications.png)
+## Step 4. Define who will be in scope for provisioning 
 
-3. To add a new application, select **New application** at the top of the dialog box.
+The Azure AD provisioning service allows you to scope who will be provisioned based on assignment to the application and or based on attributes of the user and group. If you choose to scope who will be provisioned to your app based on assignment, you can use the following [steps](../manage-apps/assign-user-or-group-access-portal.md) to assign users and groups to the application. If you choose to scope who will be provisioned based solely on attributes of the user or group, you can use a scoping filter as described [here](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md). 
 
-	![The New application button](common/add-new-app.png)
+* Start small. Test with a small set of users and groups before rolling out to everyone. When scope for provisioning is set to assigned users and groups, you can control this by assigning one or two users or groups to the app. When scope is set to all users and groups, you can specify an [attribute based scoping filter](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-4. In the search box, enter **Tableau Online** and select **Tableau Online** from the result panel. To add the application, select **Add**.
+* If you need additional roles, you can [update the application manifest](../develop/howto-add-app-roles-in-azure-ad-apps.md) to add new roles.
 
-	![Tableau Online in the results list](common/search-new-app.png)
 
-## Assign users to Tableau Online
+## Step 5. Configure automatic user provisioning to Tableau Online 
 
-Azure Active Directory uses a concept called *assignments* to determine which users should receive access to selected apps. In the context of automatic user provisioning, only the users or groups that were assigned to an application in Azure AD are synchronized.
-
-Before you configure and enable automatic user provisioning, decide which users or groups in Azure AD need access to Tableau Online. To assign these users or groups to Tableau Online, follow the instructions in [Assign a user or group to an enterprise app](../manage-apps/assign-user-or-group-access-portal.md).
-
-### Important tips for assigning users to Tableau Online
-
-*	We recommend that you assign a single Azure AD user to Tableau Online to test the automatic user provisioning configuration. You can assign additional users or groups later.
-
-*	When you assign a user to Tableau Online, select any valid application-specific role, if available, in the assignment dialog box. Users with the **Default Access** role are excluded from provisioning.
-
-## Configure automatic user provisioning to Tableau Online
-
-This section guides you through the steps to configure the Azure AD provisioning service. Use it to create, update, and disable users or groups in Tableau Online based on user or group assignments in Azure AD.
+This section guides you through the steps to configure the Azure AD provisioning service to create, update, and disable users and groups in Tableau Online based on user and group assignments in Azure AD.
 
 > [!TIP]
-> You also can enable SAML-based Single Sign-On for Tableau Online. Follow the instructions in the [Tableau Online single sign-on tutorial](tableauonline-tutorial.md). Single sign-on can be configured independently of automatic user provisioning, although these two features complement each other.
+> You must enable SAML-based single sign-on for Tableau Online. Follow the instructions in the [Tableau Online single sign-on tutorial](tableauonline-tutorial.md). If SAML isn't enabled, then the user that is provisioned will not be able to sign in.
 
-### Configure automatic user provisioning for Tableau Online in Azure AD
+### To configure automatic user provisioning for Tableau Online in Azure AD:
 
-1. Sign in to the [Azure portal](https://portal.azure.com). Select **Enterprise applications** > **All applications** > **Tableau Online**.
+1. Sign in to the [Azure portal](https://portal.azure.com). Select **Enterprise Applications**, then select **All applications**.
 
 	![Enterprise applications blade](common/enterprise-applications.png)
 
-2. In the applications list, select **Tableau Online**.
+1. In the applications list, select **Tableau Online**.
 
-	![The Tableau Online link in the applications list](common/all-applications.png)
+	![The Tableau Online link in the Applications list](common/all-applications.png)
 
-3. Select the **Provisioning** tab.
+1. Select the **Provisioning** tab.
 
-	![Tableau Online Provisioning](./media/tableau-online-provisioning-tutorial/ProvisioningTab.png)
+	![Provisioning tab](common/provisioning.png)
 
-4. Set the **Provisioning Mode** to **Automatic**.
+1. Set the **Provisioning Mode** to **Automatic**.
 
-	![Tableau Online Provisioning Mode](./media/tableau-online-provisioning-tutorial/ProvisioningCredentials.png)
+	![Provisioning tab automatic](common/provisioning-automatic.png)
 
-5. Under the **Admin Credentials** section, input the domain, admin username, admin password, and content URL of your Tableau Online account:
+1. In the **Admin Credentials** section, input your Tableau Online Tenant URL and Secret Token. Click **Test Connection** to ensure Azure AD can connect to Tableau Online. If the connection fails, ensure your Tableau Online account has Admin permissions and try again.
 
-   * In the **Domain** box, fill in the subdomain based on Step 6.
+	![Token](media/tableau-online-provisioning-tutorial/tableau-test-connections.png)
 
-   * In the **Admin Username** box, fill in the username of the admin account on your Tableau Online Tenant. An example is admin@contoso.com.
+	>[!NOTE] Make sure that you select **Bearer Authentication** always.
 
-   * In the **Admin Password** box, fill in the password of the admin account that corresponds to the admin username.
+1. In the **Notification Email** field, enter the email address of a person or group who should receive the provisioning error notifications and select the **Send an email notification when a failure occurs** check box.
 
-   * In the **Content URL** box, fill in the subdomain based on Step 6.
+	![Notification Email](common/provisioning-notification-email.png)
 
-6. After you sign in to your administrative account for Tableau Online, you can get the values for **Domain** and **Content URL** from the URL of the admin page.
+1. Select **Save**.
 
-	* The **Domain** for your Tableau Online account can be copied from this part of the URL:
+1. In the **Mappings** section, select **Synchronize Azure Active Directory Users to Tableau Online**.
 
-		![Tableau Online Domain](./media/tableau-online-provisioning-tutorial/DomainUrlPart.png)
+1. Review the user attributes that are synchronized from Azure AD to Tableau Online in the **Attribute-Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in Tableau Online for update operations. If you choose to change the [matching target attribute](../app-provisioning/customize-application-attributes.md), you'll need to ensure that the Tableau Online API supports filtering users based on that attribute. Select the **Save** button to commit any changes.
 
-	* The **Content URL** for your Tableau Online account can be copied from this section. It's a value that's defined during account setup. In this example, the value is "contoso":
+   |Attribute|Type|Supported for filtering|Required by Tableau Online|
+   |---|---|---|---|
+   |userName|String|&check;|&check;
+   |active|Boolean||
+   |roles|String||
+1. Under the **Mappings** section, select **Synchronize Azure Active Directory Groups to Tableau Online**.
 
-		![Tableau Online Content URL](./media/tableau-online-provisioning-tutorial/ContentUrlPart.png)
+1. Review the group attributes that are synchronized from Azure AD to Tableau Online in the **Attribute-Mapping** section. The attributes selected as **Matching** properties are used to match the groups in Tableau Online for update operations. Select the **Save** button to commit any changes.
 
-		> [!NOTE]
-		> Your **Domain** might be different from the one shown here.
+   |Attribute|Type|Supported for filtering|Required by Tableau Online|
+   |---|---|---|---|
+   |displayName|String|&check;
+   |members|Reference|
 
-7. After you fill in the boxes shown in Step 5, select **Test Connection** to make sure that Azure AD can connect to Tableau Online. If the connection fails, make sure your Tableau Online account has admin permissions and try again.
+1. To configure scoping filters, refer to the following instructions provided in the [Scoping filter tutorial](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-	![Tableau Online Test Connection](./media/tableau-online-provisioning-tutorial/TestConnection.png)
+1. To enable the Azure AD provisioning service for Tableau Online, change the **Provisioning Status** to **On** in the **Settings** section.
 
-8. In the **Notification Email** box, enter the email address of the person or group to receive the provisioning error notifications. Select the **Send an email notification when a failure occurs** check box.
+	![Provisioning Status Toggled On](common/provisioning-toggle-on.png)
 
-	![Tableau Online Notification Email](./media/tableau-online-provisioning-tutorial/EmailNotification.png)
+1. Define the users and groups that you would like to provision to Tableau Online by choosing the desired values in **Scope** in the **Settings** section.
 
-9. Select **Save**.
+	![Provisioning Scope](common/provisioning-scope.png)
 
-10. Under the **Mappings** section, select **Synchronize Azure Active Directory Users to Tableau**.
+1. When you're ready to provision, click **Save**.
 
-	![Tableau Online user synchronization](./media/tableau-online-provisioning-tutorial/UserMappings.png)
+	![Saving Provisioning Configuration](common/provisioning-configuration-save.png)
 
-11. Review the user attributes that are synchronized from Azure AD to Tableau Online in the **Attribute Mappings** section. The attributes selected as **Matching** properties are used to match the user accounts in Tableau Online for update operations. To save any changes, select **Save**.
+This operation starts the initial synchronization cycle of all users and groups defined in **Scope** in the **Settings** section. The initial cycle takes longer to complete than next cycles, which occur approximately every 40 minutes as long as the Azure AD provisioning service is running. 
 
-	![Tableau Online matching user attributes](./media/tableau-online-provisioning-tutorial/attribute.png)
+### Update a Tableau Cloud application to use the Tableau Cloud SCIM 2.0 endpoint
 
-12. Under the **Mappings** section, select **Synchronize Azure Active Directory Groups to Tableau**.
-
-	![Tableau Online group synchronization](./media/tableau-online-provisioning-tutorial/GroupMappings.png)
-
-13.	Review the group attributes that are synchronized from Azure AD to Tableau Online in the **Attribute Mappings** section. The attributes selected as **Matching** properties are used to match the user accounts in Tableau Online for update operations. To save any changes, select **Save**.
-
-	![Tableau Online matching group attributes](./media/tableau-online-provisioning-tutorial/GroupAttributeMapping.png)
-
-14. To configure scoping filters, follow the instructions in the [scoping filter tutorial](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
-
-15. To enable the Azure AD provisioning service for Tableau Online, in the **Settings** section, change **Provisioning Status** to **On**.
-
-	![Tableau Online Provisioning Status](./media/tableau-online-provisioning-tutorial/ProvisioningStatus.png)
-
-16. Define the users or groups that you want to provision to Tableau Online. In the **Settings** section, select the values you want in **Scope**.
-
-	![Tableau Online Scope](./media/tableau-online-provisioning-tutorial/ScopeSync.png)
-
-17. When you're ready to provision, select **Save**.
-
-	![Tableau Online Save](./media/tableau-online-provisioning-tutorial/SaveProvisioning.png)
-
-This operation starts the initial synchronization of all users or groups defined in **Scope** in the **Settings** section. The initial sync takes longer to perform than later syncs. They occur approximately every 40 minutes as long as the Azure AD provisioning service runs. 
-
-You can use the **Synchronization Details** section to monitor progress and follow links to the provisioning activity report. The report describes all the actions performed by the Azure AD provisioning service on Tableau Online.
-
-For information on how to read the Azure AD provisioning logs, see [Reporting on automatic user account provisioning](../app-provisioning/check-status-user-account-provisioning.md).
-
-## Update a Tableau Cloud application to use the Tableau Cloud SCIM 2.0 endpoint
 In June 2022, Tableau released a SCIM 2.0 connector. Completing the steps below will update applications configured to use the Tableau API endpoint to the use the SCIM 2.0 endpoint. These steps will remove any customizations previously made to the Tableau Cloud application, including:
+
 * Authentication details
 * Scoping filters
 * Custom attribute mappings
+>[!Note]
+>Be sure to note any changes that have been made to the settings listed above before completing the steps below. Failure to do so will result in the loss of customized settings.
 
-> [!NOTE]
-> Be sure to note any changes that have been made to the settings listed above before completing the steps below. Failure to do so will result in the loss of customized settings. 
+1. Sign into the [Azure portal](https://portal.azure.com).
 
-1. Sign into the Azure portal at https://portal.azure.com 
-2. Navigate to your current Tableau Cloud app under Azure Active Directory > Enterprise Applications
-3. In the Properties section of your new custom app, copy the Object ID.
+1. Navigate to your current Tableau Cloud app under **Azure Active Directory > Enterprise Applications**.
 
-	![Screenshot of Tableau Cloud app in the Azure portal.](./media/tableau-online-provisioning-tutorial/tableau-cloud-properties.png)
+1. In the Properties section of your new custom app, copy the **Object ID**.
 
-4. In a new web browser window, go to https://developer.microsoft.com/graph/graph-explorer and sign in as the administrator for the Azure AD tenant where your app is added. 
+	![Screenshot of Tableau Cloud app in the Azure portal.](media/tableau-online-provisioning-tutorial/tableau-cloud-properties.png)	
 
-	![Screenshot of Microsoft Graph explorer sign in page.](./media/workplace-by-facebook-provisioning-tutorial/permissions.png)
+1. In a new web browser window, navigate to `https://developer.microsoft.com/graph/graph-explorer` and sign in as the administrator for the Azure AD tenant where your app is added.
 
-5. Check to make sure the account being used has the correct permissions. The permission “Directory.ReadWrite.All” is required to make this change.                              
+	![Screenshot of Microsoft Graph explorer sign in page.](media/tableau-online-provisioning-tutorial/tableau-graph-explorer-signin.png)
+	
 
-	![Screenshot of Microsoft Graph settings option.](./media/workplace-by-facebook-provisioning-tutorial/permissions-2.png)                          
+1. Check to make sure the account being used has the correct permissions. The permission **Directory.ReadWrite.All** is required to make this change.
 
-	![Screenshot of Microsoft Graph permissions.](./media/workplace-by-facebook-provisioning-tutorial/permissions-3.png)
+	![Screenshot of Microsoft Graph settings option.](media/tableau-online-provisioning-tutorial/tableau-graph-settings.png)
 
-6. Using the ObjectID selected from the app previously, run the following command:
+	![Screenshot of Microsoft Graph permissions.](media/tableau-online-provisioning-tutorial/tableau-graph-permissions.png)
 
-```
-GET https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs/
-```
+1. Using the ObjectID selected from the app previously, run the following command:
 
-7. Taking the "id" value from the response body of the GET request from above, run the command below, replacing "[job-id]" with the id value from the GET request. The value should have the format of "Tableau.xxxxxxxxxxxxxxx.xxxxxxxxxxxxxxx":
-```
-DELETE https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs/[job-id]
-```
-8. In the Graph Explorer, run the command below. Replace "[object-id]" with the service principal ID (object ID) copied from the third step.             
-```
-POST https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs { "templateId": "TableauOnlineSCIM" }
-```
+	`GET https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs/`
 
-![Screenshot of Microsoft Graph request.](./media/tableau-online-provisioning-tutorial/tableau-cloud-graph.png)
+1. Taking the "id" value from the response body of the GET request from above, run the command below, replacing "[job-id]" with the id value from the GET request. The value should have the format of "Tableau.xxxxxxxxxxxxxxx.xxxxxxxxxxxxxxx":
 
-9. Return to the first web browser window and select the Provisioning tab for your application. Your configuration will have been reset. You can confirm the upgrade has taken place by confirming the Job ID starts with “TableauOnlineSCIM”. 
+	`DELETE https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs/[job-id]`
 
-10. Under the Admin Credentials section, select "Bearer Authentication" as the authentication method and enter the Tenant URL and Secret Token of the Tableau instance you wish to provision to.  
-![Screenshot of Admin Credentials in Tableau Cloud in the Azure portal.](./media/tableau-online-provisioning-tutorial/tableau-cloud-creds.png)
+1. In the Graph Explorer, run the command below. Replace "[object-id]" with the service principal ID (object ID) copied from the third step.
 
-11. Restore any previous changes you made to the application (Authentication details, Scoping filters, Custom attribute mappings) and re-enable provisioning. 
+	`POST https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs { "templateId": "TableauOnlineSCIM" }`
 
-> [!NOTE] 
-> Failure to restore the previous settings may results in attributes (name.formatted for example) updating in Workplace unexpectedly. Be sure to check the configuration before enabling  provisioning 
+	![Screenshot of Microsoft Graph request.](media/tableau-online-provisioning-tutorial/tableau-cloud-graph.png)
+
+1. Return to the first web browser window and select the Provisioning tab for your application. Your configuration will have been reset. You can confirm the upgrade has taken place by confirming the Job ID starts with **TableauOnlineSCIM**.
+
+1. Under the Admin Credentials section, select "Bearer Authentication" as the authentication method and enter the Tenant URL and Secret Token of the Tableau instance you wish to provision to.
+	![Screenshot of Admin Credentials in Tableau Cloud in the Azure portal.](media/tableau-online-provisioning-tutorial/tableau-cloud-creds.png)
+
+1. Restore any previous changes you made to the application (Authentication details, Scoping filters, Custom attribute mappings) and re-enable provisioning.
+
+>[!Note]
+>Failure to restore the previous settings may results in attributes (name.formatted for example) updating in Workplace unexpectedly. Be sure to check the configuration before enabling provisioning
+
+## Step 6. Monitor your deployment
+Once you've configured provisioning, use the following resources to monitor your deployment:
+
+* Use the [provisioning logs](../reports-monitoring/concept-provisioning-logs.md) to determine which users have been provisioned successfully or unsuccessfully
+* Check the [progress bar](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md) to see the status of the provisioning cycle and how close it's to completion
+* If the provisioning configuration seems to be in an unhealthy state, the application will go into quarantine. Learn more about quarantine states [here](../app-provisioning/application-provisioning-quarantine-status.md).  
 
 ## Change log
 * 09/30/2020 - Added support for attribute "authSetting" for Users.
+* 06/24/2022 - Updated the ap to be SCIM 2.0 compliant.
 
-## Additional resources
+## More resources
 
-* [Manage user account provisioning for enterprise apps](../app-provisioning/configure-automatic-user-provisioning-portal.md)
+* [Managing user account provisioning for Enterprise Apps](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 ## Next steps
 
 * [Learn how to review logs and get reports on provisioning activity](../app-provisioning/check-status-user-account-provisioning.md)
-
-<!--Image references-->
-[1]: ./media/tableau-online-provisioning-tutorial/tutorial_general_01.png
-[2]: ./media/tableau-online-provisioning-tutorial/tutorial_general_02.png
-[3]: ./media/tableau-online-provisioning-tutorial/tutorial_general_03.png
