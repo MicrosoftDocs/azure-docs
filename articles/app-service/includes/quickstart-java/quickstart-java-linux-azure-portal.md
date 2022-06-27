@@ -55,7 +55,7 @@ To complete this quickstart you need:
    
 1.  In the Spec Picker, select **Dev/Test** tab, select **F1**, and select the **Apply** button at the bottom of the page.
 
-    ![Screenshot of the Spec Picker for the App Service Plan pricing tiers in the Azure portal. Dev/Test, F1, and Apply are highlighted.](../../media/quickstart-java/azure-portal-create-app-service-select-free-tier.png)   
+    ![Screenshot of the Spec Picker for the App Service Plan pricing tiers in the Azure portal. Dev/Test, F1, and Apply are highlighted.](../../media/quickstart-java/azure-portal-create-app-service-select-free-tier-linux.png)   
 
 1. Select the **Review + create** button at the bottom of the page.
 
