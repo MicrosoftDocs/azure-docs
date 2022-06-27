@@ -107,7 +107,7 @@ By experiment name:
   ```python
   mlflow.search_runs(experiment_names=[ "my_experiment" ])
   ```  
-By experiment id:
+By experiment ID:
 
   ```python
   mlflow.search_runs(experiment_ids=[ "1234-5678-90AB-CDEFG" ])
