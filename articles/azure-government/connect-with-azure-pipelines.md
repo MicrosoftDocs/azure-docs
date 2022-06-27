@@ -5,7 +5,7 @@ ms.service: azure-government
 ms.topic: article
 ms.custom: devx-track-azurepowershell
 recommendations: false
-ms.date: 06/25/2022
+ms.date: 06/27/2022
 ---
 
 # Deploy an app in Azure Government with Azure Pipelines
@@ -105,7 +105,7 @@ Review one of the following quickstarts to set up a build for your specific type
     Write-Output "Waiting for SPN creation to reflect in directory before role assignment"
     Start-Sleep 20
     Write-Output "Assigning role ($spnRole) to SPN app ($appId)" -Verbose
-    New-AzRoleAssignment -RoleDefinitionName $spnRole -ApplicationId $spn.ApplicationId
+    New-AzRoleAssignment -RoleDefinitionName $spnRole -ApplicationId $spn.AppId
     Write-Output "SPN role assignment completed successfully" -Verbose
 
     # Print values
