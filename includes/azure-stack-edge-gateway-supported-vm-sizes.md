@@ -2,7 +2,7 @@
 author: alkohli
 ms.service: databox  
 ms.topic: include
-ms.date: 03/29/2022
+ms.date: 06/24/2022
 ms.author: alkohli
 ---
 
@@ -42,9 +42,11 @@ The following VMs are supported for creation on your Azure Stack Edge device.
 For more information, see [Dv2 and DSv2-series](../articles/virtual-machines/dv2-dsv2-series.md#dv2-series).
 
 
-### NCasT4_v3-series (Preview)
+### N-series GPU optimized 
 
-These sizes are supported for GPU VMs on your device and are optimized for compute-intensive GPU-accelerated applications. This series is focused on inference workloads featuring Nvidia's Tesla T4 GPU.
+These sizes are supported for GPU VMs on your device and are optimized for compute-intensive GPU-accelerated applications, for example, inferencing workloads The GPU VM that you deploy should match the GPU type on your Azure Stack Edge device. 
+
+#### For Nvidia's Tesla T4 GPU.
 
 | Size                  | vCPU  | Memory (GiB)  | Temp storage (GiB)  | Max OS disk throughput (IOPS)  | Max temp storage throughput (IOPS)  | Max data disk throughput (IOPS)  | GPU  | GPU memory (GiB)  | Max NICs  |
 |-----------------------|-------|---------------|---------------------|--------------------------------|-------------------------------------|----------------------------------|------|-------------------|-----------|
@@ -53,6 +55,16 @@ These sizes are supported for GPU VMs on your device and are optimized for compu
 | **Standard_NC16as_T4_v3**   | 16    | 110            | 352                 | 2000                           | 48000                               | 2300                             | 1    | 16                | 8         |
 
 For more information, see [NCasT4_v3-series](../articles/virtual-machines/nct4-v3-series.md).
+
+#### For Nvidia's A2 Tensor Core GPU
+
+
+| Size                  | vCPU  | Memory (GiB)  | Temp storage (GiB)  | Max OS disk throughput (IOPS)  | Max temp storage throughput (IOPS)  | Max data disk throughput (IOPS)  | GPU  | GPU memory (GiB)  | Max NICs  |
+|-----------------------|-------|---------------|---------------------|--------------------------------|-------------------------------------|----------------------------------|------|-------------------|-----------|
+| **Standard_NC4as_A2**  | 4     | 28            | 176                 | 2000                           | 48000                               | 2300                             | 1    | 16                | 4         |
+| **Standard_NC8as_A2**  | 8     | 56            | 352                 | 2000                           | 48000                               | 2300                             | 1    | 16                | 8         |
+| **Standard_NC16as_A2**   | 16    | 110            | 352                 | 2000                           | 48000                               | 2300                             | 1    | 16                | 8         |
+
 
 ### F-series
 
