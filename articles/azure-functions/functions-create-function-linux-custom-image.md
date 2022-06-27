@@ -128,7 +128,7 @@ Follow the prompts and provide the following information:
 | **version** | `1.0-SNAPSHOT` | Select the default value. |
 | **package** | `com.fabrikam.functions` | A value that is the Java package for the generated function code. Use the default. |
 
-Type `Y` or press <kbd>Enter</kbd> to confirm.
+Type `Y` or press Enter to confirm.
 
 Maven creates the project files in a new folder named _artifactId_, which in this example is `fabrikam-functions`.
 ::: zone-end
@@ -291,7 +291,7 @@ func start
 
 After you see the `HttpExample` endpoint appear in the output, navigate to `http://localhost:7071/api/HttpExample?name=Functions`. The browser must display a "hello" message that echoes back `Functions`, the value supplied to the `name` query parameter.
 
-Press <kbd>Ctrl + C</kbd> to stop the host.
+Press **Ctrl**+**C** to stop the host.
 
 ## Build the container image and test locally
 
@@ -343,7 +343,7 @@ After the image starts in the local container, browse to `http://localhost:8080/
 After the image starts in the local container, browse to `http://localhost:8080/api/HttpExample?name=Functions`, which must display the same "hello" message as before. Because the HTTP triggered function you created uses anonymous authorization, you can call the function running in the container without having to obtain an access key. For more information, see [authorization keys].
 ::: zone-end  
 
-After verifying the function app in the container, press <kbd>Ctrl + C</kbd> to stop the docker.
+After verifying the function app in the container, press **Ctrl**+**C** to stop the docker.
 
 ## Push the image to Docker Hub
 

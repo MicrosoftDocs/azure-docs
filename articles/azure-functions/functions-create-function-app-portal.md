@@ -59,7 +59,7 @@ Next, create a function in the new function app.
 
     :::image type="content" source="./media/functions-create-first-azure-function/function-app-develop-tab-testing.png" alt-text="Screenshot of Copy the function URL window from the Azure portal.":::
 
-1. Paste the function URL into your browser's address bar. Add the query string value `?name=<your_name>` to the end of this URL and press <kbd>Enter</kbd> to run the request. The browser must display a response message that echoes back your query string value.
+1. Paste the function URL into your browser's address bar. Add the query string value `?name=<your_name>` to the end of this URL and press Enter to run the request. The browser must display a response message that echoes back your query string value.
 
     If the request URL included an [access key](functions-bindings-http-webhook-trigger.md#authorization-keys) (`?code=...`), it means you selected **Function** instead of **Anonymous** access level when creating the function. In this case, you must instead append `&name=<your_name>`.
 
