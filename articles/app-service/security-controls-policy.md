@@ -129,6 +129,9 @@ compliant with the specific standard.
   - Rename of policy to "App Service Environment should have internal encryption enabled"
 - **Function apps should only be accessible over HTTPS**
   - Update scope of policy to exclude Logic apps
+- **App Service should use a virtual network service endpoint**
+  - Rename of policy to "App Service apps should use a virtual network service endpoint"
+  - Update scope of policy to include all app types except Function apps
 
 ### June 2022
 
