@@ -1,6 +1,8 @@
 ---
 title: 'Tutorial: Configure Tableau Cloud for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to Tableau Cloud.
+
 services: active-directory
 author: twimmers
 writer: twimmers
@@ -16,7 +18,10 @@ ms.author: thwimmer
 
 # Tutorial: Configure Tableau Cloud for automatic user provisioning
 
+
 This tutorial describes the steps you need to do in both Tableau Cloud and Azure Active Directory (Azure AD) to configure automatic user provisioning. When configured, Azure AD automatically provisions and de-provisions users and groups to [Tableau Cloud](https://www.tableau.com/) using the Azure AD Provisioning service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../app-provisioning/user-provisioning.md). 
+
+
 
 
 
@@ -31,6 +36,7 @@ This tutorial describes the steps you need to do in both Tableau Cloud and Azure
 ## Prerequisites
 
 The scenario outlined in this tutorial assumes that you already have the following prerequisites:
+
 
 * [An Azure AD tenant](../develop/quickstart-create-new-tenant.md) 
 * A user account in Azure AD with [permission](../roles/permissions-reference.md) to configure provisioning (for example, Application Administrator, Cloud Application administrator, Application Owner, or Global Administrator).
@@ -60,11 +66,14 @@ Use the following steps to enable SCIM support with Azure Active Directory:
   	> The secret token is displayed only immediately after it is generated. If you lose it before you can apply it to Azure Active Directory, you can select **Generate New Secret**. In addition, the secret token is tied to the Tableau Cloud user account of the site administrator who enables SCIM support. If that user’s site role changes or the user is removed from the site, the secret token becomes invalid, and another site administrator must generate a new secret token and apply it to Azure Active Directory.
 
 
+
 ## Step 3. Add Tableau Cloud from the Azure AD application gallery
 
 Add Tableau Cloud from the Azure AD application gallery to start managing provisioning to Tableau Cloud. If you have previously setup Tableau Cloud for SSO, you can use the same application. However it's recommended you create a separate app when testing out the integration initially. Learn more about adding an application from the gallery [here](../manage-apps/add-application-portal.md). 
 
+
 ## Step 4. Define who will be in scope for provisioning 
+
 
 The Azure AD provisioning service allows you to scope who will be provisioned based on assignment to the application and or based on attributes of the user and group. If you choose to scope who will be provisioned to your app based on assignment, you can use the following [steps](../manage-apps/assign-user-or-group-access-portal.md) to assign users and groups to the application. If you choose to scope who will be provisioned based solely on attributes of the user or group, you can use a scoping filter as described [here](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md). 
 
@@ -92,22 +101,29 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 1. Select the **Provisioning** tab.
 
+
 	![Provisioning tab](common/provisioning.png)
 
+
 1. Set the **Provisioning Mode** to **Automatic**.
+
 
 	![Provisioning tab automatic](common/provisioning-automatic.png)
 
 1. In the **Admin Credentials** section, input your Tableau Cloud Tenant URL and Secret Token. Click **Test Connection** to ensure Azure AD can connect to Tableau Cloud. If the connection fails, ensure your Tableau Cloud account has Admin permissions and try again.
 
+
 	![Token](media/tableau-online-provisioning-tutorial/tableau-test-connections.png)
+
 
 	> [!NOTE]
 	> You will have 2 options for your Authentication Method: **Bearer Authentication** and **Basic Authentication**. Make sure that you select Bearer Authentication. Basic authentication will not work for the SCIM 2.0 endpoint.
 
+
 1. In the **Notification Email** field, enter the email address of a person or group who should receive the provisioning error notifications and select the **Send an email notification when a failure occurs** check box.
 
 	![Notification Email](common/provisioning-notification-email.png)
+
 
 1. Select **Save**.
 
@@ -125,7 +141,9 @@ This section guides you through the steps to configure the Azure AD provisioning
 	> The displayName attribute in Tableau Cloud will be mapped to the userPrincipalName attribute in Azure AD. When a provisioned user signs into Azure AD for the first time, they will be asked to create an account where they will need to enter in a first name and last name. Tableau Cloud will automatically update the value of the displayName field based on the first name and last name values provided by the provisioned user. Therefore, the displayName you see in Azure AD may have differences with the displayName that appears in Tableau Cloud based on the user’s input.
 1. Under the **Mappings** section, select **Synchronize Azure Active Directory Groups to Tableau Cloud**.
 
+
 1. Review the group attributes that are synchronized from Azure AD to Tableau Cloud in the **Attribute-Mapping** section. The attributes selected as **Matching** properties are used to match the groups in Tableau Cloud for update operations. Select the **Save** button to commit any changes.
+
 
    |Attribute|Type|Supported for filtering|Required by Tableau Cloud|
    |---|---|---|---|
@@ -134,13 +152,17 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 1. To configure scoping filters, refer to the following instructions provided in the [Scoping filter tutorial](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
+
 1. To enable the Azure AD provisioning service for Tableau Cloud, change the **Provisioning Status** to **On** in the **Settings** section.
 
+
 	![Provisioning Status Toggled On](common/provisioning-toggle-on.png)
+
 
 1. Define the users and groups that you would like to provision to Tableau Cloud by choosing the desired values in **Scope** in the **Settings** section.
 
 	![Provisioning Scope](common/provisioning-scope.png)
+
 
 1. When you're ready to provision, click **Save**.
 
@@ -148,8 +170,10 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 This operation starts the initial synchronization cycle of all users and groups defined in **Scope** in the **Settings** section. The initial cycle takes longer to complete than next cycles, which occur approximately every 40 minutes as long as the Azure AD provisioning service is running. 
 
+
 ### Recommendations
 Tableau Cloud will only store the highest privileged role that is assigned to a user. In other words, if a user is assigned to two groups, the user’s role will reflect the highest privileged role.
+
 
 To keep track of role assignments, you can create two purpose-specific groups for role assignments. For example, you can create groups such as Tableau – Creator, and Tableau – Explorer, etc. Assignment would then look like:
 * Tableau – Creator: Creator
@@ -161,7 +185,9 @@ Once provisioning is set up, you will want to edit role changes directly in Azur
 ### Valid Tableau site role values
 On the **Select a Role** page in your Azure Active Directory portal, the Tableau Site Role values that are valid include the following: **Creator, SiteAdministratorCreator, Explorer, SiteAdministratorExplorer, ExplorerCanPublish, Viewer, or Unlicensed**.
 
+
 If you select a role that is not in the above list, such as a legacy (pre-v2018.1) role, you will experience an error.
+
 
 ### Update a Tableau Cloud application to use the Tableau Cloud SCIM 2.0 endpoint
 
@@ -173,13 +199,18 @@ In June 2022, Tableau released a SCIM 2.0 connector. Completing the steps below 
 >[!Note]
 >Be sure to note any changes that have been made to the settings listed above before completing the steps below. Failure to do so will result in the loss of customized settings.
 
+
 1. Sign into the [Azure portal](https://portal.azure.com).
+
 
 1. Navigate to your current Tableau Cloud app under **Azure Active Directory > Enterprise Applications**.
 
+
 1. In the Properties section of your new custom app, copy the **Object ID**.
 
+
 	![Screenshot of Tableau Cloud app in the Azure portal.](media/tableau-online-provisioning-tutorial/tableau-cloud-properties.png)	
+
 
 1. In a new web browser window, navigate to `https://developer.microsoft.com/graph/graph-explorer` and sign in as the administrator for the Azure AD tenant where your app is added.
 
