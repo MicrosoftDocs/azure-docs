@@ -44,7 +44,6 @@ Support | Details
 
 - Learn how to [perform at-scale agentless migration of ASP.NET web apps to Azure App Service](./tutorial-migrate-webapps.md).
 - Once you have successfully completed migration, you may explore the following steps based on web app specific requirement(s):
-
   - [Map existing custom DNS name](/azure/app-service/app-service-web-tutorial-custom-domain.md).
   - [Secure a custom DNS with a TLS/SSL binding](/azure/app-service/configure-ssl-bindings.md).
   - [Securely connect to Azure resources](/azure/app-service/tutorial-connect-overview).
@@ -53,3 +52,4 @@ Support | Details
   - [Networking features](/azure/app-service/networking-features).
   - [Monitor App Service with Azure Monitor](/azure/app-service/monitor-app-service).
   - [Configure Azure AD authentication](/azure/app-service/configure-authentication-provider-aad).
+- [Review best practices](/azure/app-service/deploy-best-practices.md) for deploying to Azure App service.

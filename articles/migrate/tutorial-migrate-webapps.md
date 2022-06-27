@@ -67,18 +67,18 @@ To migrate the web apps, perform these steps:
    > [!NOTE]
    > Apps with the Ready status are tagged for migration by default. Apps tagged as *Ready with conditions* can be migrated by selecting **Yes** in **Will migrate?**.
 
-  1. Select the web apps to migrate and select **Edit**.
+   1. Select the web apps to migrate and select **Edit**.
 
-   :::image type="content" source="./media/tutorial-migrate-webapps/web-apps-edit-multiple.png" alt-text="Screenshot of Azure Migrate selected web apps.":::
+      :::image type="content" source="./media/tutorial-migrate-webapps/web-apps-edit-multiple.png" alt-text="Screenshot of Azure Migrate selected web apps.":::
 
-  1. In **Edit apps**, under **Will migrate?**, select **Yes**, and select the **App Service Plan** and **Pricing tier** of where the apps will be hosted. Next, select the **Ok** button.
+   1. In **Edit apps**, under **Will migrate?**, select **Yes**, and select the **App Service Plan** and **Pricing tier** of where the apps will be hosted. Next, select the **Ok** button.
 
-   > [!NOTE]
-   > Up to five App Service plans can be migrated at a time.
+      > [!NOTE]
+      > Up to five App Service plans can be migrated at a time.
 
-   :::image type="content" source="./media/tutorial-migrate-webapps/edit-multiple-details.png" alt-text="Screenshot of Azure Migrate Edit apps.":::
+      :::image type="content" source="./media/tutorial-migrate-webapps/edit-multiple-details.png" alt-text="Screenshot of Azure Migrate Edit apps.":::
 
-   Select the **Next: App Service Plans >** button.
+      Select the **Next: App Service Plans >** button.
 1. In the **App Service Plans** section, verify the App Service Plan details.
 
      > [!NOTE]
@@ -113,4 +113,5 @@ Once you have successfully completed migration, you may explore the following st
 
 ## Next steps
 
-Investigate the [cloud migration journey](/azure/architecture/cloud-adoption/getting-started/migrate) in the Azure Cloud Adoption Framework.
+- Investigate the [cloud migration journey](/azure/architecture/cloud-adoption/getting-started/migrate) in the Azure Cloud Adoption Framework.
+- [Review best practices](/azure/app-service/deploy-best-practices.md) for deploying to Azure App service.
