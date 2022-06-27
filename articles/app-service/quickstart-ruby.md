@@ -207,13 +207,13 @@ http://<app-name>.azurewebsites.net
     ![Screenshot of the App Services page in the Azure portal. The Create button in the action bar is highlighted.](media/quickstart-ruby/azure-portal-create-app-service.png)
 
 1. Fill out the **Create Web App** page as follows.
-    - **Resource Group**: Create a resource group named _myResourceGroup_.
+    - **Resource Group**: Create a resource group named *myResourceGroup*.
     - **Name**: Type a globally unique name for your web app. 
-    - **Publish**: Select _Code_.
-    - **Runtime stack**: Select _Ruby 2.7_. 
-    - **Operating system**: Select _Linux_.
+    - **Publish**: Select *Code*.
+    - **Runtime stack**: Select *Ruby 2.7*. 
+    - **Operating system**: Select *Linux*.
     - **Region**: Select an Azure region close to you.
-    - **App Service Plan**: Create an app service plan named _myAppServicePlan_.
+    - **App Service Plan**: Create an app service plan named *myAppServicePlan*.
 
 1.  To change to the Free tier, next to **Sku and size**, select **Change size**. 
    
@@ -231,11 +231,11 @@ http://<app-name>.azurewebsites.net
 
     ![Screenshot of the App Service in the Azure Portal. The Deployment Center option in the Deployment section of the left navigation is highlighted.](media/quickstart-ruby/azure-portal-configure-app-service-deployment-center.png)  
 
-1. Under **Settings**, select a **Source**. For this quickstart, select _GitHub_.
+1. Under **Settings**, select a **Source**. For this quickstart, select *GitHub*.
 
 1. In the section under **GitHub**, select the following settings:
     - Organization: Select your organization.
-    - Repository: Select _ruby-docs-hello-world_.
+    - Repository: Select *ruby-docs-hello-world*.
     - Branch: Select the default branch for your repository.
 
 1. Select **Save**.
@@ -269,7 +269,7 @@ The Ruby sample code is running in an Azure App Service Linux web app.
     nano app/controllers/application_controller.rb
     ```
 
-1. Edit the _ApplicationController_ class so that it shows "Hello world from Azure App Service on Linux!" instead of "Hello from Azure App Service on Linux!".
+1. Edit the *ApplicationController* class so that it shows "Hello world from Azure App Service on Linux!" instead of "Hello from Azure App Service on Linux!".
 
     ```ruby
     class ApplicationController < ActionController::Base
@@ -309,7 +309,7 @@ The Ruby sample code is running in an Azure App Service Linux web app.
 
     ![Screenshot of Visual Studio Code in the browser, highlighting app/controllers/application_controller.rb in the Explorer pane.](media/quickstart-ruby/visual-studio-code-in-browser-navigate-to-application-controller.png)
 
-1. Edit the _ApplicationController_ class so that it shows "Hello world from Azure App Service on Linux!" instead of "Hello from Azure App Service on Linux!".
+1. Edit the *ApplicationController* class so that it shows "Hello world from Azure App Service on Linux!" instead of "Hello from Azure App Service on Linux!".
 
     ```ruby
     class ApplicationController < ActionController::Base
