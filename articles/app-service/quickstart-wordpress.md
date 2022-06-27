@@ -3,7 +3,7 @@ title: 'Quickstart: Create a WordPress site'
 description: Create your first WordPress site on Azure App Service in minutes.
 keywords: app service, azure app service, wordpress, preview, app service on linux, plugins, mysql flexible server, wordpress on linux, php
 ms.topic: quickstart
-ms.date: 01/14/2021
+ms.date: 06/27/2022
 ms.devlang: wordpress
 ms.author: msangapu
 ms.custom: mvc
@@ -12,14 +12,11 @@ ms.custom: mvc
 
 [WordPress](https://www.wordpress.org) is an open source content management system (CMS) that can be used to create websites, blogs, and other applications. Over 40% of the web uses WordPress from  blogs to major news websites.
 
-In this quickstart, you'll learn how to create and deploy your first [WordPress](https://www.wordpress.org) site to [Azure App Service](overview.md) using [Azure portal](https://portal.azure.com). 
-
-This quickstart configures WordPress in [App Service on Linux](https://docs.microsoft.com/azure/app-service/overview#app-service-on-linux).  It uses the **Basic** tier and [**incurs a cost**](https://azure.microsoft.com/pricing/details/app-service/linux/) for your Azure subscription. The WordPress installation comes with pre-installed plugins, [W3TC](https://wordpress.org/plugins/w3-total-cache/) for caching and [Smush](https://wordpress.org/plugins/wp-smushit/) for image compression. The plugins will increase performance by reducing load times.
+In this quickstart, you'll learn how to create and deploy your first [WordPress](https://www.wordpress.org) site to [Azure App Service on Linux](overview.md#app-service-on-linux) using [Azure portal](https://portal.azure.com). It uses the **Basic** tier and [**incurs a cost**](https://azure.microsoft.com/pricing/details/app-service/linux/) for your Azure subscription. The WordPress installation comes with pre-installed plugins for performance improvements, [W3TC](https://wordpress.org/plugins/w3-total-cache/) for caching and [Smush](https://wordpress.org/plugins/wp-smushit/) for image compression.
 
 > [!IMPORTANT]
-> WordPress in App Service on Linux is in preview. [View the announcement](https://techcommunity.microsoft.com/t5/apps-on-azure-blog/the-new-and-better-wordpress-on-app-service/ba-p/3202594).
+> [After November 28, 2022, PHP will only be supported on App Service on Linux.](https://github.com/Azure/app-service-linux-docs/blob/master/Runtime_Support/php_support.md#end-of-life-for-php-74) Due to this reason, this article deploys WordPress to App Service on Linux.
 >
-> [After November 28, 2022, PHP will only be supported on App Service on Linux.](https://github.com/Azure/app-service-linux-docs/blob/master/Runtime_Support/php_support.md#end-of-life-for-php-74)
 
 ## Create WordPress site using Azure portal
 
@@ -40,7 +37,7 @@ This quickstart configures WordPress in [App Service on Linux](https://docs.micr
 
      :::image type="content" source="./media/quickstart-wordpress/04-wordpress-basics-project-details.png?text=Azure portal WordPress Project Details" alt-text="Screenshot of WordPress project details":::
 
-1. Under **Instance details**, type a globally unique name for your web app and choose **Linux (preview)** for **Operating System**. Select **Basic** for **Hosting plan**. See the table below for app and database SKUs for given hosting plans. You can view [hosting plans details in the announcement](https://techcommunity.microsoft.com/t5/apps-on-azure-blog/the-new-and-better-wordpress-on-app-service/ba-p/3202594). For pricing, visit [App Service pricing](https://azure.microsoft.com/pricing/details/app-service/linux/) and [Azure Database for MySQL pricing](https://azure.microsoft.com/pricing/details/mysql/flexible-server/). 
+1. Under **Instance details**, type a globally unique name for your web app and choose **Linux** for **Operating System**. Select **Basic** for **Hosting plan**. See the table below for app and database SKUs for given hosting plans. You can view [hosting plans details in the announcement](https://techcommunity.microsoft.com/t5/apps-on-azure-blog/the-new-and-better-wordpress-on-app-service/ba-p/3202594). For pricing, visit [App Service pricing](https://azure.microsoft.com/pricing/details/app-service/linux/) and [Azure Database for MySQL pricing](https://azure.microsoft.com/pricing/details/mysql/flexible-server/). 
 
      :::image type="content" source="./media/quickstart-wordpress/05-wordpress-basics-instance-details.png?text=WordPress basics instance details" alt-text="Screenshot of WordPress instance details":::
 
@@ -78,6 +75,9 @@ When no longer needed, you can delete the resource group, App service, and all r
 ## Next steps
 
 Congratulations, you've successfully completed this quickstart!
+
+> [!div class="nextstepaction"]
+> [Tutorial: Map a custom domain name](app-service-web-tutorial-custom-domain.md)
 
 > [!div class="nextstepaction"]
 > [Tutorial: PHP app with MySQL](tutorial-php-mysql-app.md)
