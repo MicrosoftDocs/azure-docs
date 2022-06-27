@@ -48,10 +48,8 @@
   - name: Visualize network devices
     displayName: assets
     items:
-    - name: View the Device inventory from the Azure portal
+    - name: Viewing the Device inventory
       href: how-to-manage-device-inventory-for-organizations.md
-    - name: View the Device inventory on-premises
-      href: how-to-investigate-sensor-detections-in-a-device-inventory.md
     - name: View the Device map on an OT sensor
       href: how-to-work-with-the-sensor-device-map.md
     - name: View OT devices on a sensor per zone
