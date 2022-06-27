@@ -54,7 +54,7 @@ Tracking using MLflow with Azure Machine Learning lets you store the logged metr
 
 ### Set up tracking environment
 
-To track a run that is not running on Azure Machine Learning compute (from now on refered as your *"local compute"*), you need to point your local compute to the Azure Machine Learning MLflow Tracking URI. 
+To track a run that is not running on Azure Machine Learning compute (from now on referred to as *"local compute"*), you need to point your local compute to the Azure Machine Learning MLflow Tracking URI. 
 
 > [!NOTE]
 > When running on Azure Compute (Azure Notebooks, Jupyter Notebooks hosted on Azure Compute Instances or Compute Clusters) you don't have to configure the tracking URI. It's automatically configured for you.
@@ -89,8 +89,6 @@ mlflow.set_tracking_uri(azureml_mlflow_uri)
 Another option is to set one of the MLflow environment variables [MLFLOW_TRACKING_URI](https://mlflow.org/docs/latest/tracking.html#logging-to-a-tracking-server) directly in your terminal. 
 
 ```Azure CLI
-# Configure MLflow to communicate with a Azure Machine Learning-hosted tracking server
-
 export MLFLOW_TRACKING_URI=$(az ml workspace show --query mlflow_tracking_uri | sed 's/"//g') 
 ```
 
@@ -159,7 +157,7 @@ Remote runs (jobs) let you train your models in a more robust and repetitive way
 When submitting runs using jobs, Azure Machine Learning automatically configures MLflow to work with the workspace the job is running in. This means that there is no need to configure the MLflow tracking URI. On top of that, experiments are automatically named based on the details of the job.
 
 > [!IMPORTANT]
-> When submitting training jobs to Azure Machine Learning, you don't have to configure the MLflow tracking URI on your training logic as it is already configured for you. You don't have to start a run neither. Attempting to do so will result in an error as the run is already started for you by Azure Machine Learning.
+> When submitting training jobs to Azure Machine Learning, you don't have to configure the MLflow tracking URI on your training logic as it is already configured for you.
 
 ### Creating a training routine
 
