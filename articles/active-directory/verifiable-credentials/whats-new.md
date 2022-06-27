@@ -33,11 +33,11 @@ This article lists the latest features, improvements, and changes in the Microso
 
 - We made the following updates to our docs:
   - (new) [Current supported open standards for Microsoft Entra Verified ID](verifiable-credentials-standards).
-  - (new) [How to create verifiable credentials for ID token hint](how-to-use-quickstart).
-  - (new) [How to create verifiable credentials for ID token](how-to-use-quickstart-idtoken).
-  - (new) [How to create verifiable credentials for self-asserted claims](how-to-use-quickstart-selfissued). 
-  - (new) [Rules and Display definition model specification](rules-and-display-definitions-model).
-  - (new) [Creating an Azure AD tenant for development](how-to-create-a-free-developer-account).
+  - (new) [How to create verifiable credentials for ID token hint](how-to-use-quickstart.md).
+  - (new) [How to create verifiable credentials for ID token](how-to-use-quickstart-idtoken.md).
+  - (new) [How to create verifiable credentials for self-asserted claims](how-to-use-quickstart-selfissued.md). 
+  - (new) [Rules and Display definition model specification](rules-and-display-definitions-model.md).
+  - (new) [Creating an Azure AD tenant for development](how-to-create-a-free-developer-account.md).
 
 ## May 2022
 
