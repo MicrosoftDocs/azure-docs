@@ -2317,7 +2317,9 @@ Usage Summary Reports Reader | &nbsp; | :heavy_check_mark: | :heavy_check_mark: 
 Some administrators can read or update the following sensitive attributes for some users:
 
 - accountEnabled
+- AlternativeSecurityId
 - businessPhones
+- DeviceKey
 - mobilePhone
 - onPremisesImmutableId
 - otherMails
