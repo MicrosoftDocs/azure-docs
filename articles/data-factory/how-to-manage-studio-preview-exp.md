@@ -55,7 +55,7 @@ There are two ways to enable preview experiences.
 	
    [**Pipeline experimental view**](#pipeline-experimental-view)
    * [Adding activities](#adding-activities)
-   * [ForEach activity container](#foreach-activity-container)
+   * [Iteration & conditionals containers](#iteration-and-conditionals-containers)
 
 ### Dataflow data first experimental view
 
@@ -93,7 +93,6 @@ Columns can be rearranged by dragging a column by its header. You can also sort 
 
 UI (user interface) changes have been made to activities in the pipeline editor canvas. These changes were made to simplify and streamline the pipeline creation process. 
 
-
 #### Adding activities
 
 You now have the option to add an activity using the add button in the bottom right corner of an activity in the pipeline editor canvas. Clicking the button will open a drop-down list of all activities that you can add. 
@@ -102,42 +101,42 @@ Select an activity by using the search box or scrolling through the listed activ
 
 :::image type="content" source="media/how-to-manage-studio-preview-exp/data-factory-preview-exp-10.png" alt-text="Screenshot of new pipeline activity adding experience with a drop down list to select activities.":::
 
-#### ForEach activity container
+#### Iteration and conditionals container view
 
-You can now view the activities contained in your ForEach activity. 
+You can now view the activities contained iteration and conditional activities.
 
-:::image type="content" source="media/how-to-manage-studio-preview-exp/data-factory-preview-exp-11.png" alt-text="Screenshot of new ForEach activity container.":::
+:::image type="content" source="media/how-to-manage-studio-preview-exp/data-factory-preview-exp-11.png" alt-text="Screenshot of all iterationa and conditional activity containers.":::
   
-You have two options to add activities to your ForEach loop.
+You have two options to add activities to your iteration and conditional activities.
 
-1. Use the + button in your ForEach container to add an activity. 
+1. Use the + button in your container to add an activity. 
 
-   :::image type="content" source="media/how-to-manage-studio-preview-exp/data-factory-preview-exp-12.png" alt-text="Screenshot of new ForEach activity container with the add button highlighted on the left side of the center of the screen.":::
+   :::image type="content" source="media/how-to-manage-studio-preview-exp/data-factory-preview-exp-12.png" alt-text="Screenshot of new activity container with the add button highlighted on the left side of the center of the screen.":::
     
    Clicking this button will bring up a drop-down list of all activities that you can add.
 
-   :::image type="content" source="media/how-to-manage-studio-preview-exp/data-factory-preview-exp-13.png" alt-text="Screenshot of a drop-down list in the ForEach container with all the activities listed.":::
+   :::image type="content" source="media/how-to-manage-studio-preview-exp/data-factory-preview-exp-13.png" alt-text="Screenshot of a drop-down list in the activity container with all the activities listed.":::
     
     Select an activity by using the search box or scrolling through the listed activities. The selected activity will be added to the canvas inside of the ForEach container.
 
-   :::image type="content" source="media/how-to-manage-studio-preview-exp/data-factory-preview-exp-14.png" alt-text="Screenshot of the ForEach container with three activities in the center of the container.":::
+   :::image type="content" source="media/how-to-manage-studio-preview-exp/data-factory-preview-exp-14.png" alt-text="Screenshot of the container with three activities in the center of the container.":::
 
 > [!NOTE]
-> If your ForEach container includes more than 5 activities, only the first 4 will be shown in the container preview.
+> If your container includes more than 5 activities, only the first 4 will be shown in the container preview.
 
 2. Use the edit button in your ForEach container to see everything within the container. You can use the canvas to edit or add to your pipeline.
 
-   :::image type="content" source="media/how-to-manage-studio-preview-exp/data-factory-preview-exp-15.png" alt-text="Screenshot of the ForEach container with the edit button highlighted on the right side of a box in the center of the screen.":::
+   :::image type="content" source="media/how-to-manage-studio-preview-exp/data-factory-preview-exp-15.png" alt-text="Screenshot of the container with the edit button highlighted on the right side of a box in the center of the screen.":::
 
-   :::image type="content" source="media/how-to-manage-studio-preview-exp/data-factory-preview-exp-16.png" alt-text="Screenshot of the inside of the ForEach container with three activities linked together.":::
+   :::image type="content" source="media/how-to-manage-studio-preview-exp/data-factory-preview-exp-16.png" alt-text="Screenshot of the inside of the container with three activities linked together.":::
     
-    Add additional activities by dragging new activities to the canvas or click the add button on the right most activity to bring up a drop-down list of activities. 
+    Add additional activities by dragging new activities to the canvas or click the add button on the right most activity to bring up a drop-down list of all activities. 
 
     :::image type="content" source="media/how-to-manage-studio-preview-exp/data-factory-preview-exp-17.png" alt-text="Screenshot of the Add activity button in the bottom left corner of the right most activity.":::
  
     :::image type="content" source="media/how-to-manage-studio-preview-exp/data-factory-preview-exp-18.png" alt-text="Screenshot of the drop-down list of activities in the right most activity.":::
     
-    Select an activity by using the search box or scrolling through the listed activities. The selected activity will be added to the canvas inside of the ForEach container.
+    Select an activity by using the search box or scrolling through the listed activities. The selected activity will be added to the canvas inside of the container.
     
 ## Provide feedback
 
