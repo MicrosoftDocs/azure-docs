@@ -42,7 +42,7 @@ Publisher verification provides the following benefits:
 ## Requirements
 There are a few pre-requisites for publisher verification, some of which will have already been completed by many Microsoft partners. They are: 
 
--  An MPN ID for a valid [Microsoft Partner Network](https://partner.microsoft.com/membership) account that has completed the [verification](/partner-center/verification-responses) process. This MPN account must be the [Partner global account (PGA)](/partner-center/account-structure#the-top-level-is-the-partner-global-account-pga) for your organization. 
+-  An MPN ID for a valid [Microsoft Partner Network](https://partner.microsoft.com/membership) account that has completed the [verification](/partner-center/verification-responses) process. This MPN account must be the [Partner global account (PGA)](/partner-center/account-structure#the-top-level-is-the-partner-global-account-pga) for your organization. (**NOTE**: It can't be the Partner Location MPN ID. Location MPN IDs aren't currently supported) 
 
 -  The application to be publisher verified must be registered using a Azure AD account. Applications registered using a Microsoft personal account aren't supported for publisher verification.
 
