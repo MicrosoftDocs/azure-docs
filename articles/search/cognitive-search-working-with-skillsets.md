@@ -34,13 +34,13 @@ Skills have a context, inputs, and an output:
 
 + Inputs originate from nodes in an enriched document, where a "source" and "name" identify a given node.
 
-+ Output is sent back to the enriched document as a new node. Value are the node "name" and node content. If a node name is duplicated, you can set a target name for disambiguation.
++ Output is sent back to the enriched document as a new node. Values are the node "name" and node content. If a node name is duplicated, you can set a target name for disambiguation.
 
 ### Indexer definition
 
 An indexer has properties and parameters used to configure indexer execution. Among those properties are mappings that set the path to fields in an index.
 
-:::image type="content" source="media/cognitive-search-working-with-skillsets/skillset-process-diagram-3.png" alt-text="Diagram showing which properties of indexers establish the data path to fields in an index." border="true":::
+:::image type="content" source="media/cognitive-search-working-with-skillsets/skillset-process-diagram-3.png" alt-text="Diagram showing which properties of indexers establish the data path to fields in an index." lightbox="media/cognitive-search-working-with-skillsets/skillset-process-diagram-3.png" border="true":::
 
 + Output field mappings get content out of the enriched document and into fields in a search index.
 
