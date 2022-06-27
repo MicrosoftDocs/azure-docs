@@ -255,7 +255,7 @@ Sample absolute pricing resource:
                     "paymentOption": {
                         "type": "month",
                         "value": 1
-                    }
+                    },
                     "billingTerm": {
                         "type": "year",
                         "value": 1
