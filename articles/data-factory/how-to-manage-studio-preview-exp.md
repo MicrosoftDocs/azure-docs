@@ -23,7 +23,7 @@ There are two ways to enable preview experiences.
 
 1. In the banner seen at the top of the screen, you can click **Open settings to learn more and opt in**. 
 
-	:::image type="content" source="media/how-to-manage-studio-preview-exp/data-factory-preview-exp-1.png" alt-text="Screenshot of Azure Data Factory home page with an Opt in option in a banner at the top of the screen.":::
+	:::image type="content" source="media/how-to-manage-studio-preview-exp/data-factory-preview-exp-1.png" alt-text="Screenshot of Azure Data Factory home page with an Opt-in option in a banner at the top of the screen.":::
 
 2. Alternatively, you can click the **Settings** button. 
 
@@ -41,7 +41,7 @@ There are two ways to enable preview experiences.
   
    Similarly, you can disable preview features with the same steps. Click **Open settings to opt out** or click the **Settings** button and unselect **Azure Data Factory Studio preview update**. 
    
-   	:::image type="content" source="media/how-to-manage-studio-preview-exp/data-factory-preview-exp-5.png" alt-text="Screenshot of Azure Data Factory home page with an Opt out option in a banner at the top of the screen and Settings gear in the top right corner of the screen.":::
+   	:::image type="content" source="media/how-to-manage-studio-preview-exp/data-factory-preview-exp-5.png" alt-text="Screenshot of Azure Data Factory home page with an Opt-out option in a banner at the top of the screen and Settings gear in the top right corner of the screen.":::
 
 > [!NOTE]
 > Enabling/disabling preview updates will discard any unsaved changes.
@@ -73,7 +73,7 @@ If no transformation is selected, the panel will show the pre-existing data flow
 
 #### Transformation settings
 
-Settings specific to a transformation will now show in a pop up instead of the configuration panel. With each new transformation, a corresponding pop-up will automatically appear. 
+Settings specific to a transformation will now show in a pop-up instead of the configuration panel. With each new transformation, a corresponding pop-up will automatically appear. 
  
 :::image type="content" source="media/how-to-manage-studio-preview-exp/data-factory-preview-exp-7.png" alt-text="Screenshot of a pop-up with settings specific to the data flow transformation.":::
   
@@ -95,17 +95,17 @@ UI (user interface) changes have been made to activities in the pipeline editor 
 
 #### Adding activities
 
-You now have the option to add an activity using the add button in the bottom right corner of an activity in the pipeline editor canvas. Clicking the button will open a drop-down list of all activities that you can add. 
+You now have the option to add an activity using the Add button in the bottom right corner of an activity in the pipeline editor canvas. Clicking the button will open a drop-down list of all activities that you can add. 
 
 Select an activity by using the search box or scrolling through the listed activities. The selected activity will be added to the canvas and automatically linked with the previous activity on success. 
 
-:::image type="content" source="media/how-to-manage-studio-preview-exp/data-factory-preview-exp-10.png" alt-text="Screenshot of new pipeline activity adding experience with a drop down list to select activities.":::
+:::image type="content" source="media/how-to-manage-studio-preview-exp/data-factory-preview-exp-10.png" alt-text="Screenshot of new pipeline activity adding experience with a drop-down list to select activities.":::
 
 #### Iteration and conditionals container view
 
 You can now view the activities contained iteration and conditional activities.
 
-:::image type="content" source="media/how-to-manage-studio-preview-exp/data-factory-preview-exp-11.png" alt-text="Screenshot of all iterationa and conditional activity containers.":::
+:::image type="content" source="media/how-to-manage-studio-preview-exp/data-factory-preview-exp-11.png" alt-text="Screenshot of all iteration and conditional activity containers.":::
   
 You have two options to add activities to your iteration and conditional activities.
 
@@ -130,11 +130,11 @@ You have two options to add activities to your iteration and conditional activit
 
    :::image type="content" source="media/how-to-manage-studio-preview-exp/data-factory-preview-exp-16.png" alt-text="Screenshot of the inside of the container with three activities linked together.":::
     
-    Add additional activities by dragging new activities to the canvas or click the add button on the right most activity to bring up a drop-down list of all activities. 
+    Add additional activities by dragging new activities to the canvas or click the add button on the right-most activity to bring up a drop-down list of all activities. 
 
-    :::image type="content" source="media/how-to-manage-studio-preview-exp/data-factory-preview-exp-17.png" alt-text="Screenshot of the Add activity button in the bottom left corner of the right most activity.":::
+    :::image type="content" source="media/how-to-manage-studio-preview-exp/data-factory-preview-exp-17.png" alt-text="Screenshot of the Add activity button in the bottom left corner of the right-most activity.":::
  
-    :::image type="content" source="media/how-to-manage-studio-preview-exp/data-factory-preview-exp-18.png" alt-text="Screenshot of the drop-down list of activities in the right most activity.":::
+    :::image type="content" source="media/how-to-manage-studio-preview-exp/data-factory-preview-exp-18.png" alt-text="Screenshot of the drop-down list of activities in the right-most activity.":::
     
     Select an activity by using the search box or scrolling through the listed activities. The selected activity will be added to the canvas inside of the container.
     
