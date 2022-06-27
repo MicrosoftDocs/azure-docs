@@ -6,7 +6,7 @@ ms.subservice: single-server
 ms.topic: conceptual
 ms.author: sunila
 author: sunilagarwal
-ms.date: 07/23/2020
+ms.date: 06/24/2022
 ---
 
 # Use Azure Active Directory for authenticating with PostgreSQL
