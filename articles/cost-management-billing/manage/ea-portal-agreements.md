@@ -3,7 +3,7 @@ title: Azure EA agreements and amendments
 description: This article explains how Azure EA agreements and amendments affect your Azure EA portal use.
 author: bandersmsft
 ms.author: banders
-ms.date: 04/28/2022
+ms.date: 06/27/2022
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
@@ -37,7 +37,7 @@ An enrollment has one of the following status values. Each value determines how 
 - Migrate to the Microsoft Online Subscription Program (MOSP)
 - Confirm disablement of all services associated with the enrollment
 
-EA credit expires when the EA enrollment ends.
+EA credit expires when the EA enrollment ends for all programs except the EU program.
 
 **Expired** - The EA enrollment expires when it reaches the enterprise agreement end date and is opted out of the extended term. Sign a new enrollment contract as soon as possible. Although your service won't be disabled immediately, there's a risk of it getting disabled.
 
