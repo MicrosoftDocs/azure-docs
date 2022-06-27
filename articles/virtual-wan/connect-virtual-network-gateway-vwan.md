@@ -4,7 +4,7 @@ description: Learn how to connect an Azure VPN gateway (virtual network gateway)
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: how-to
-ms.date: 06/22/2022
+ms.date: 06/24/2022
 ms.author: cherylmc
 
 ---
@@ -31,69 +31,65 @@ Virtual Network (for virtual network gateway)
 
 ## <a name="vnetgw"></a>1. Configure VPN Gateway virtual network gateway
 
-Create a **VPN Gateway** virtual network gateway in active-active mode for your virtual network. When you create the gateway, you can either use existing public IP addresses for the two instances of the gateway, or you can create new public IPs. You'll use these public IPs when setting up the Virtual WAN sites. For more information about active-active VPN gateways and configuration steps, see [Configure active-active VPN gateways](../vpn-gateway/vpn-gateway-activeactive-rm-powershell.md#aagateway).
+In this section you create a VPN Gateway virtual network gateway in active-active mode for your virtual network. When you create the gateway, you can either use existing public IP addresses for the two instances of the gateway, or you can create new public IPs. You'll use these public IPs when setting up the Virtual WAN sites. 
 
-The following sections show example settings for your gateway.
+1. Create a **VPN Gateway** virtual network gateway in active-active mode for your virtual network. For more information about active-active VPN gateways and configuration steps, see [Configure active-active VPN gateways](../vpn-gateway/vpn-gateway-activeactive-rm-powershell.md#aagateway).
 
-### <a name="active-active"></a>Active-active mode setting
+1. The following sections show example settings for your virtual network gateway.
 
-On the Virtual network gateway **Configuration** page, make sure **active-active** mode is enabled.
+   * **Active-active mode setting** - On the virtual network gateway **Configuration** page, make sure **active-active** mode is enabled.
 
-:::image type="content" source="./media/connect-virtual-network-gateway-vwan/active.png" alt-text="Screenshot showing a virtual network gateway with active-active mode enabled." lightbox="./media/connect-virtual-network-gateway-vwan/active.png":::
+     :::image type="content" source="./media/connect-virtual-network-gateway-vwan/active.png" alt-text="Screenshot showing a virtual network gateway with active-active mode enabled." lightbox="./media/connect-virtual-network-gateway-vwan/active.png":::
 
-### <a name="BGP"></a>BGP setting
+   * **BGP setting** - On the virtual network gateway **Configuration** page, you can (optionally) select **Configure BGP ASN**. If you configure BGP, change the ASN from the default value shown in the portal. For this configuration, the BGP ASN can't be 65515. 65515 will be used by Azure Virtual WAN.
 
-On the virtual network gateway **Configuration** page, you can (optionally) select **Configure BGP ASN**. If you configure BGP, change the ASN from the default value shown in the portal. For this configuration, the BGP ASN can't be 65515. 65515 will be used by Azure Virtual WAN.
+     :::image type="content" source="./media/connect-virtual-network-gateway-vwan/bgp.png" alt-text="Screenshot shows a virtual network gateway Configuration page with Configure BGP ASN selected." lightbox="./media/connect-virtual-network-gateway-vwan/bgp.png":::
 
-:::image type="content" source="./media/connect-virtual-network-gateway-vwan/bgp.png" alt-text="Screenshot shows a virtual network gateway Configuration page with Configure BGP ASN selected." lightbox="./media/connect-virtual-network-gateway-vwan/bgp.png":::
+   * **Public IP addresses** - Once the gateway is created, go to the **Properties** page. The properties and configuration settings will be similar to the following example. Notice the two public IP addresses that are used for the gateway.
 
-### <a name="pip"></a>Public IP addresses
-
-Once the gateway is created, go to the **Properties** page. The properties and configuration settings will be similar to the following example. Notice the two public IP addresses that are used for the gateway.
-
-:::image type="content" source="./media/connect-virtual-network-gateway-vwan/public-ip.png" alt-text="Screenshot shows a virtual network gateway Properties page with properties selected." lightbox="./media/connect-virtual-network-gateway-vwan/public-ip.png":::
+     :::image type="content" source="./media/connect-virtual-network-gateway-vwan/public-ip.png" alt-text="Screenshot shows a virtual network gateway Properties page with properties selected." lightbox="./media/connect-virtual-network-gateway-vwan/public-ip.png":::
 
 ## <a name="vwansite"></a>2. Create Virtual WAN VPN sites
 
-To create Virtual WAN VPN sites, navigate to your virtual WAN and, under **Connectivity**, select **VPN sites**. In this section, you'll create two Virtual WAN VPN sites that correspond to the virtual network gateways you created in the previous section.
+In this section, you'll create two Virtual WAN VPN sites that correspond to the virtual network gateways you created in the previous section.
 
-1. Select **+Create site**.
-1. On the **Create VPN sites** page, type the following values:
+1. On your **Virtual WAN** page, go to **VPN sites**.
+1. On the **VPN sites** page, select **+Create site**.
+1. On the **Create VPN Site** page, on the **Basics** tab, complete the following fields:
 
-   * **Region** - The same region as the Azure VPN Gateway virtual network gateway.
-   * **Device vendor** - Enter the device vendor (any name).
-   * **Private address space** - Enter a value, or leave blank when BGP is enabled.
-   * **Border Gateway Protocol** - Set to **Enable** if the Azure VPN Gateway virtual network gateway has BGP enabled.
-   * **Connect to Hubs** - Select the hub you created in the prerequisites from the dropdown. If you don't see a hub, verify that you created a site-to-site VPN gateway for your hub.
-1. Under **Links**, enter the following values:
+   * **Region**: The same region as the Azure VPN Gateway virtual network gateway.
+   * **Name**: Example: Site1
+   * **Device vendor**: The name of the VPN device vendor (for example: Citrix, Cisco, Barracuda). Adding the device vendor can help the Azure Team better understand your environment in order to add additional optimization possibilities in the future, or to help you troubleshoot.
+   * **Private address space**: Enter a value, or leave blank when BGP is enabled.
+1. Select **Next: Links>** to advance to the **Links** page.
+1. On the **Links** page, complete the following fields:
 
-   * **Provider Name** - Enter a Link name and a Provider name (any name).
-   * **Speed** - Speed (any number).
-   * **IP Address** - Enter IP address (same as the first public IP address shown under the (VPN Gateway) virtual network gateway properties).
-   * **BGP Address** and **ASN** - BGP address and ASN. These must be the same as one of the BGP peer IP addresses, and ASN from the VPN Gateway virtual network gateway that you configured in [Step 1](#vnetgw).
-1. Review and select **Confirm** to create the site.
+   * **Link Name**: A name you want to provide for the physical link at the VPN Site. Example: Link1.
+   * **Link speed**: This is the speed of the VPN device at the branch location. Example: 50, which means 50 Mbps is the speed of the VPN device at the branch site.
+   * **Link provider name**: The name of the physical link at the VPN Site. Example: ATT, Verizon.
+   * **Link IP Address** - Enter the IP address. For this configuration, it's the same as the first public IP address shown under the (VPN Gateway) virtual network gateway properties.
+   * **BGP Address** and **ASN** - These must be the same as one of the BGP peer IP addresses, and ASN from the VPN Gateway virtual network gateway that you configured in [Step 1](#vnetgw).
+
+1. Once you have finished filling out the fields, select **Review + create** to verify. Select **Create** to create the site.
 1. Repeat the previous steps to create the second site to match with the second instance of the VPN Gateway virtual network gateway. You'll keep the same settings, except using second public IP address and second BGP peer IP address from VPN Gateway configuration.
 1. You now have two sites successfully provisioned.
 
 ## <a name="connect-sites"></a>3. Connect sites to the virtual hub
 
-Next, connect both sites to your virtual hub.
+Next, connect both sites to your virtual hub using the following steps. For more information about connecting sites, see [Connect VPN sites to a virtual hub](virtual-wan-site-to-site-portal.md#connectsites).
 
 1. On your Virtual WAN page, go to **Hubs**.
 
 1. On the **Hubs** page, click the hub that you created.
 
-1. On the page for the hub that you created, in  the left pane, click **VPN (Site to site)**.
+1. On the page for the hub that you created, in  the left pane, select **VPN (Site to site)**.
 
 1. On the **VPN (Site to site)** page, you should see your sites. If you don't, you may need to click the **Hub association:x** bubble to clear the filters and view your site.
 
-1. Select the checkbox next to the name of each site that you want to connect (don't click the site name directly), then click **Connect VPN sites**.
+1. Select the checkbox next to the name of both sites (don't click the site name directly), then click **Connect VPN sites**.
 
-1. On the **Connect sites** page, configure the settings.
-
+1. On the **Connect sites** page, configure the settings. Make sure to note the **Pre-shared key** value that you use. It will be used again later in the exercise when you create your connections.
 1. At the bottom of the page, select **Connect**. It takes a short while for the hub to update with the site settings.
-
-For more information, see [Connect the VPN sites to a virtual hub](virtual-wan-site-to-site-portal.md#connectsites).
 
 ## <a name="downloadconfig"></a>4. Download the VPN configuration files
 
@@ -102,7 +98,7 @@ In this section, you download the VPN configuration file for the sites that you 
 1. On your Virtual WAN page, go to **VPN sites**.
 1. On the **VPN sites** page, at the top of the page, select **Download Site-to-Site VPN configuration** and download the file. Azure creates a configuration file with the necessary values that are used to configure your local network gateways in the next section.
 
-   :::image type="content" source="./media/connect-virtual-network-gateway-vwan/download.png" alt-text="VPN sites page with the Download Site-to-Site VPN configuration action selected." lightbox="./media/connect-virtual-network-gateway-vwan/download.png":::
+   :::image type="content" source="./media/connect-virtual-network-gateway-vwan/download.png" alt-text="Screenshot of VPN sites page with the Download Site-to-Site VPN configuration action selected." lightbox="./media/connect-virtual-network-gateway-vwan/download.png":::
 
 ## <a name="createlocalgateways"></a>5. Create the local network gateways
 
@@ -125,19 +121,20 @@ In this section, you create two Azure VPN Gateway local network gateways. The co
 
 In this section, you create a connection between the VPN Gateway local network gateways and virtual network gateway. For steps on how to create a VPN Gateway connection, see [Configure a connection](../vpn-gateway/tutorial-site-to-site-portal.md#CreateConnection).
 
-1. In the portal, navigate to your virtual network gateway and click **Connections**. At the top of the Connections page, click **+Add** to open the **Add connection** page.
+1. In the portal, go to your virtual network gateway and select **Connections**. At the top of the Connections page, select **+Add** to open the **Add connection** page.
 1. On the **Add connection** page, configure the following values for your connection:
 
    * **Name:** Name your connection.
    * **Connection type:** Select **Site-to-site(IPSec)**
    * **Virtual network gateway:** The value is fixed because you're connecting from this gateway.
    * **Local network gateway:** This connection will connect the virtual network gateway to the local network gateway. Choose one of the local network gateways that you created earlier.
-   * **Shared Key:** Enter a shared key.
+   * **Shared Key:** Enter the shared key from earlier.
    * **IKE Protocol:** Choose the IKE protocol.
-1. Click **OK** to create your connection.
+1. Select **OK** to create your connection.
 1. You can view the connection in the **Connections** page of the virtual network gateway.
 1. Repeat the preceding steps to create a second connection. For the second connection, select the other local network gateway that you created.
-1. If the connections are over BGP, after you've created your connections, navigate to a connection and select **Configuration**. On the **Configuration** page, for **BGP**, select **Enabled**. Then, click **Save**. Repeat for the second connection.
+1. If the connections are over BGP, after you've created your connections, go to a connection and select **Configuration**. On the **Configuration** page, for **BGP**, select **Enabled**. Then, select **Save**.
+1. Repeat for the second connection.
 
 ## <a name="test"></a>7. Test connections
 
@@ -151,7 +148,7 @@ You can test the connectivity by creating two virtual machines, one on the side 
     * **Hubs** - Select the hub you want to associate with this connection.
     * **Subscription** - Verify the subscription.
     * **Virtual network** - Select the virtual network you want to connect to this hub. The virtual network can't have an already existing virtual network gateway.
-1. Click **OK** to create the virtual network connection.
+1. Select **OK** to create the virtual network connection.
 1. Connectivity is now set between the VMs. You should be able to ping one VM from the other, unless there are any firewalls or other policies blocking the communication.
 
 ## Next steps

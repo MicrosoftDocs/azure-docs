@@ -6,7 +6,7 @@ ms.subservice: single-server
 ms.topic: how-to
 ms.author: dianas
 author: dianaputnam
-ms.date: 5/6/2019
+ms.date: 06/24/2022
 ---
 
 # Optimize query statistics collection on an Azure Database for PostgreSQL - Single Server
