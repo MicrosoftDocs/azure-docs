@@ -1072,7 +1072,7 @@ groups:
   - id: container-linux-cli
     title: Linux container - Azure CLI
   - id: container-windows-cli
-    title: Windows container - Azure cli
+    title: Windows container - Azure CLI
   - id: container-azure-portal
     title: Any container - Azure Portal
 - id: app-service-containers-code
