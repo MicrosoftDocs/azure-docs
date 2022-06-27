@@ -125,14 +125,14 @@ There are two major automated processes that can trigger ingestion of metadata i
 
 Data Estate Insights is billed on two dimensions:
     - **Report generation** - this incorporates the jobs that aggregate metrics about your Microsoft Purview account that will appear in specific reports.
-    - **Report consumption** - This incorporates access of the report features (currently mainly served through the UX)
+    - **Report consumption** - This incorporates access of the report features (currently served through the UX)
 
 > [!IMPORTANT]
 > The Data Estate Insights application is **on** by default when you create a Microsoft Purview account. This means, “State” is on and “Refresh Frequency” is set to automatic.
 
 If you don't plan on using Data Estate Insights for a while, a [data curator](catalog-permissions.md#roles) on the root collection can disable Data Estate Insights features in one of two ways:
     - [Disable the Data Estate Insights application](#disable-the-data-estate-insights-application) - this will stop billing from both report generation and report consumption.
-    - [Disable report refresh](#disable-report-refresh) - [insights readers](catalog-permissions.md#roles) have access to current reports, but reports will not be refreshed. Billing will occur for report consumption but not report generation.
+    - [Disable report refresh](#disable-report-refresh) - [insights readers](catalog-permissions.md#roles) have access to current reports, but reports won't be refreshed. Billing will occur for report consumption but not report generation.
 
 > [!NOTE]
 > The application or report refresh can be enabled again later at any time.
@@ -151,7 +151,7 @@ Disabling Data Estate Insights will disable the entire application, including th
 - Classification
 - Labeling
 
-The application icon will still show in the menu, but insights readers will not have access to reports at all, and report generation jobs will be stopped. The Microsoft Purview account will not receive any bill for Data Estate Insights.
+The application icon will still show in the menu, but insights readers won't have access to reports at all, and report generation jobs will be stopped. The Microsoft Purview account won't receive any bill for Data Estate Insights.
 
 For steps to disable the Data Estate Insights application, see the [disable article.](enable-disable-data-estate-insights.md#disable-the-data-estate-insights-application)
 
@@ -159,11 +159,11 @@ For steps to disable the Data Estate Insights application, see the [disable arti
 
 You can choose to disable report refreshes instead of disabling the entire Data Estate Insights application.
 
-When you disable report refreshes, insight readers will be able view reports, but they will see a banner on top of each report, warning that the report may not be current. It will also indicate the date the report was last generated.
+When you disable report refreshes, insight readers will be able view reports, but they'll see a banner on top of each report, warning that the report may not be current. It will also indicate the date the report was last generated.
 
 In this case, graphs showing data from last 30 days will appear blank after 30 days. Graphs showing snapshot of the data map will continue to show graph and details. When an [insights readers](catalog-permissions.md#roles) accesses an insight report, report consumption meter will be triggered, and the Microsoft Purview account will be billed.
 
-For steps to disable report refreshes see the [disable article.](enable-disable-data-estate-insights.md#disable-report-refresh)
+For steps to disable report refresh see the [disable article.](enable-disable-data-estate-insights.md#disable-report-refresh)
 
 ## Indirect costs  
 
@@ -205,4 +205,4 @@ Indirect costs impacting Microsoft Purview (formerly Azure Purview) pricing to b
 
 
 ## Next steps
-- [Microsoft Purview, forerly Azure Purview, pricing page](https://azure.microsoft.com/pricing/details/azure-purview/)
+- [Microsoft Purview, formerly Azure Purview, pricing page](https://azure.microsoft.com/pricing/details/azure-purview/)
