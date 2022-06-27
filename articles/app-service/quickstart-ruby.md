@@ -141,23 +141,31 @@ This quickstart shows how to deploy a Ruby on Rails app to App Service on Linux 
     }
     </pre>
 
-    You've created an empty new web app, with git deployment enabled.
+    You've created an empty new web app, with Git deployment enabled.
 
     > [!NOTE]
     > The URL of the Git remote is shown in the `deploymentLocalGitUrl` property, with the format `https://<username>@<app-name>.scm.azurewebsites.net/<app-name>.git`. Save this URL as you need it later.
     >
 
-1. Browse to the app to see your newly created web app with built-in image. Replace _&lt;app-name>_ with your web app name.
+1. Since you're deploying the `main` branch, you need to set the default deployment branch for your App Service app to `main` (see [Change deployment branch](../articles/app-service/deploy-local-git.md#change-deployment-branch)). In the Cloud Shell, set the `DEPLOYMENT_BRANCH` app setting with the [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings#az-webapp-config-appsettings-set) command. 
 
-    ```bash
-    http://<app_name>.azurewebsites.net
+    ```azurecli-interactive
+    az webapp config appsettings set --name <app-name> --resource-group myResourceGroup --settings DEPLOYMENT_BRANCH='main'
     ```
 
-    Here is what your new web app should look like:
+1. Back in the local terminal window, add an Azure remote to your local Git repository. Replace *\<deploymentLocalGitUrl-from-create-step>* with the URL of the Git remote that you saved from [Create a web app](#create-a-web-app).
 
-    ![Splash page]media/quickstart-ruby/splash-page.png)
+    ```bash
+    git remote add azure <deploymentLocalGitUrl-from-create-step>
+    ```
 
-[!INCLUDE [Push to Azure](../../includes/app-service-web-git-push-to-azure-no-h.md)]
+1. Push to the Azure remote to deploy your app with the following command. When Git Credential Manager prompts you for credentials, make sure you enter the credentials you created in **Configure a deployment user**, not the credentials you use to sign in to the Azure portal.
+
+    ```bash
+    git push azure main
+    ```
+
+    This command may take a few minutes to run. While running, it displays information similar to the following example:
 
    <pre>
    remote: Using turbolinks 5.2.0
@@ -182,8 +190,6 @@ This quickstart shows how to deploy a Ruby on Rails app to App Service on Linux 
 http://<app-name>.azurewebsites.net
 ```
 
-![updated web app]media/quickstart-ruby/hello-world-configured.png)
-
 > [!NOTE]
 > While the app is restarting, you may observe the HTTP status code `Error 503 Server unavailable` in the browser, or the `Hey, Ruby developers!` default page. It may take a few minutes for the app to fully restart.
 >
@@ -201,47 +207,47 @@ http://<app-name>.azurewebsites.net
     ![Screenshot of the App Services page in the Azure portal. The Create button in the action bar is highlighted.](media/quickstart-ruby/azure-portal-create-app-service.png)
 
 1. Fill out the **Create Web App** page as follows.
-  - **Resource Group**: Create a resource group named _myResourceGroup_.
-  - **Name**: Type a globally unique name for your web app. 
-  - **Publish**: Select _Code_.
-  - **Runtime stack**: Select _Ruby 2.7_. 
-  - **Operating system**: Select _Linux_.
-  - **Region**: Select an Azure region close to you.
-  - **App Service Plan**: Create an app service plan named _myAppServicePlan_.
+    - **Resource Group**: Create a resource group named _myResourceGroup_.
+    - **Name**: Type a globally unique name for your web app. 
+    - **Publish**: Select _Code_.
+    - **Runtime stack**: Select _Ruby 2.7_. 
+    - **Operating system**: Select _Linux_.
+    - **Region**: Select an Azure region close to you.
+    - **App Service Plan**: Create an app service plan named _myAppServicePlan_.
 
-2.  To change to the Free tier, next to **Sku and size**, select **Change size**. 
+1.  To change to the Free tier, next to **Sku and size**, select **Change size**. 
    
-3.  In the Spec Picker, select **Dev/Test** tab, select **F1**, and select the **Apply** button at the bottom of the page.
+1.  In the Spec Picker, select **Dev/Test** tab, select **F1**, and select the **Apply** button at the bottom of the page.
 
     ![Screenshot of the Spec Picker for the App Service Plan pricing tiers in the Azure portal. Dev/Test, F1, and Apply are highlighted.](media/quickstart-ruby/azure-portal-create-app-service-select-free-tier.png)   
 
-4. Select the **Review + create** button at the bottom of the page.
+1. Select the **Review + create** button at the bottom of the page.
     
-5. After validation runs, select the **Create** button at the bottom of the page. This will create an Azure resource group, app service plan, and app service.
+1. After validation runs, select the **Create** button at the bottom of the page. This will create an Azure resource group, app service plan, and app service.
 
-6. After the Azure resources are created, select **Go to resource**.
+1. After the Azure resources are created, select **Go to resource**.
 
-7. From the left navigation, select **Deployment Center**.
+1. From the left navigation, select **Deployment Center**.
 
     ![Screenshot of the App Service in the Azure Portal. The Deployment Center option in the Deployment section of the left navigation is highlighted.](media/quickstart-ruby/azure-portal-configure-app-service-deployment-center.png)  
 
-8. Under **Settings**, select a **Source**. For this quickstart, select _GitHub_.
+1. Under **Settings**, select a **Source**. For this quickstart, select _GitHub_.
 
-9. In the section under **GitHub**, select the following settings:
+1. In the section under **GitHub**, select the following settings:
     - Organization: Select your organization.
     - Repository: Select _ruby-docs-hello-world_.
     - Branch: Select the default branch for your repository.
 
-10. Select **Save**.
+1. Select **Save**.
 
     ![Screenshot of the Deployment Center for the App Service, focusing on the GitHub integration settings. The Save button in the action bar is highlighted.](media/quickstart-ruby/azure-portal-configure-app-service-github-integration.png)  
 
     > [!TIP]
     > This quickstart uses GitHub. Additional continuous deployment sources include Bitbucket, Local Git, Azure Repos, and External Git. FTPS is also a supported deployment method.
 
-11. Once the GitHub integration is saved, from the left navigation of your app, select **Overview** > **URL**. 
+1. Once the GitHub integration is saved, from the left navigation of your app, select **Overview** > **URL**. 
 
-12. On the Overview, select the link under **URL**.
+1. On the Overview, select the link under **URL**.
 
     ![Screenshot of the App Service resource's overview with the URL highlighted.](media/quickstart-ruby/azure-portal-app-service-url.png)  
 
