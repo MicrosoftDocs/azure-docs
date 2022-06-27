@@ -131,7 +131,7 @@ Run the following command to create a "bootstrap" job to install the bootstrappe
 kubectl apply --namespace arc -f https://raw.githubusercontent.com/microsoft/azure_arc/release-arc-data/arc_data_services/deploy/yaml/bootstrap.yaml
 ```
 
-The [unistall.yaml](https://raw.githubusercontent.com/microsoft/azure_arc/release-arc-data/arc_data_services/deploy/yaml/uninstall.yaml) is for uninstalling the bootstrapper and related Kubernetes objects, except the CRDs.
+The [uninstall.yaml](https://raw.githubusercontent.com/microsoft/azure_arc/release-arc-data/arc_data_services/deploy/yaml/uninstall.yaml) is for uninstalling the bootstrapper and related Kubernetes objects, except the CRDs.
 
 Verify that the bootstrapper pod is running using the following command.  You may need to run it a few times until the status changes to `Running`.
 
