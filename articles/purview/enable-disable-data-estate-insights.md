@@ -28,7 +28,7 @@ If you don't plan on using Data Estate Insights for a time, a [data curator](cat
 
 Steps for both methods, and for re-enablement, are below.
 
-For more information about billing for Data Estates Insights, see our [pricing guidelines](concept-guidelines-pricing.md#data-estate-insights).
+For more information about billing for Data Estates Insights, see our [pricing guidelines](concept-guidelines-pricing-data-estate-insights.md).
 
 ## Disable the Data Estate Insights application
 

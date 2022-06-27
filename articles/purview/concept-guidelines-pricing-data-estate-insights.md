@@ -1,6 +1,6 @@
 ---
-title: Pricing guidelines for Microsoft Purview (formerly Azure Purview)
-description: This article provides a guideline to understand and strategize pricing for the components of Microsoft Purview (formerly Azure Purview).
+title: Pricing guidelines for Data Estate Insights
+description: This article provides a guideline to understand and strategize pricing for the Data Estate Insights components of Microsoft Purview (formerly Azure Purview).
 author: SunetraVirdi
 ms.author: suvirdi
 ms.service: purview
