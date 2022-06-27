@@ -359,7 +359,7 @@ The response to this request looks like the following example:
     "provisioned": false,
     "template": "dtmi:contoso:Thermostat;1",
     "enabled": true,
-  ` "organizations": [
+   "organizations": [
     "seattle"
   ]
 
