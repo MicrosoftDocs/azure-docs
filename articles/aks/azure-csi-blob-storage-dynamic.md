@@ -58,9 +58,11 @@ A persistent volume claim (PVC) uses the storage class object to dynamically pro
     kind: PersistentVolumeClaim
     - metadata:
         name: azure-blob-storage
+        annotations:
+            volume.beta.kubernetes.io/storage-class: blob-nfs
       spec:
         accessModes: ["ReadWriteMany"]
-        storageClassName: managed-csi
+        storageClassName: my-blobstorage
         resources:
           requests:
             storage: 100Gi
@@ -82,7 +84,7 @@ kubectl exec -it statefulset-blob-0 -- df -h
 
 The following YAML creates a pod that uses the persistent volume claim my-blobstorage to mount the Azure Blob storage at the `*`/mnt/blob' path.
 
-1. Create a file named azure-blob-nfs-pv.yaml, and copy in the following YAML. Make sure that the claimName matches the PVC created in the previous step.
+1. Create a file named `azure-blob-nfs-pv.yaml`, and copy in the following YAML. Make sure that the claimName matches the PVC created in the previous step.
 
     ```yml
     kind: Pod
