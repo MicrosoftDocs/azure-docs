@@ -38,7 +38,6 @@ __RSS feed__: Get notified when this page is updated by copying and pasting the 
   + **azureml-responsibleai**
     + Updated azureml-responsibleai package and environment images to latest responsibleai and raiwidgets 0.19.0 release
   + **azureml-train-automl-client**
-    + Automatic cross-validation parameter configuration is now available for automl forecasting tasks. Users can now specify "auto" for n_cross_validations and cv_step_size or leave them empty, and automl will provide those configurations base on your data. However, currently this feature is not supported when TCN is enabled.
     + Now OutputDatasetConfig is supported as the input of the MM/HTS pipeline builder. The mappings are: 1) OutputTabularDatasetConfig -> treated as unpartitioned tabular dataset. 2) OutputFileDatasetConfig -> treated as filed dataset.
   + **azureml-train-automl-runtime**
     + Added data validation that requires the number of minority class samples in the dataset to be at least as much as the number of CV folds requested.    
