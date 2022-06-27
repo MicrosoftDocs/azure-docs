@@ -94,9 +94,9 @@ In order to deploy to Azure you must sign-in with your Azure account, and choose
 
 To get the logs:
 
-1. Select **Azure Explorer**, then **Spring Cloud**.
+1. Select **Azure Explorer**, then **Spring Apps**.
 1. Right-click the running app.
-1. Select **Streaming Logs** from the drop-down list.
+1. Select **Streaming Log** from the drop-down list.
 
     ![Select streaming logs](media/spring-cloud-intellij-howto/streaming-logs.png)
 
