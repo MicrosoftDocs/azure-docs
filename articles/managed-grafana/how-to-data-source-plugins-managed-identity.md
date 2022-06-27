@@ -47,7 +47,7 @@ Other data sources include:
 - [TestData DB](https://grafana.com/docs/grafana/latest/datasources/testdata/)
 - [Zipkin](https://grafana.com/docs/grafana/latest/datasources/zipkin/)
 
-You can find all available Grafana data sources by going to your resource and selecting this page from the left menu: **Configuration** > **Data sources**. Search for the data source you need from the available list and select **Add data source**.
+You can find all available Grafana data sources by going to your resource and selecting **Configuration** > **Data sources** from the left menu. Search for the data source you need from the available list and select **Add data source**.
 
    :::image type="content" source="media/managed-grafana-how-to-source-plugins.png" alt-text="Screenshot of the Add data source page.":::
 
