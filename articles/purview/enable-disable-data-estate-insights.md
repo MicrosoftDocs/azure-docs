@@ -14,18 +14,18 @@ ms.date: 06/27/2022
 > [!IMPORTANT]
 > The option to disable the Data Estate Insights application will only be available July 1st after 9am PST
 
-Microsoft Purview Data Estate insights automatically aggregates metrics and creates reports about you Microsoft Purview account, as well as your data estate. You scan registered sources and populate your Microsoft Purview Data Map, the Data Estate Insights application automatically extracts valuable governance gaps and highlights them in its top metrics. It also provides drill-down experience that enables all stakeholders, such as data owners and data stewards, to take appropriate action to close the gaps.
+Microsoft Purview Data Estate Insights automatically aggregates metrics and creates reports about your Microsoft Purview account, and your data estate. You scan registered sources and populate your Microsoft Purview Data Map, the Data Estate Insights application automatically extracts valuable governance gaps and highlights them in its top metrics. It also provides drill-down experience that enables all stakeholders, such as data owners and data stewards, to take appropriate action to close the gaps.
 
 These features are optional and can be enabled or disabled at any time. This article provides the specific steps required to enable or disable Microsoft Purview Data Estate Insights features.
 
 > [!IMPORTANT]
 > The Data Estate Insights application is **on** by default when you create a Microsoft Purview account. This means, “State” is on and “Refresh Frequency” is set to automatic. As the Data Map is populated and curated, Insights App shows data in the reports. The reports are ready for consumption to anyone with Insights Reader role.
 
-If you do not plan on using Data Estate Insights for a time, a [data curator](catalog-permissions.md#roles) on the root collection can disable the Data Estate Insights in one of two ways:
+If you don't plan on using Data Estate Insights for a time, a [data curator](catalog-permissions.md#roles) on the root collection can disable the Data Estate Insights in one of two ways:
     - [Disable the Data Estate Insights application](#disable-the-data-estate-insights-application) - this will stop billing from both report generation and report consumption.
-    - [Disable report refresh](#disable-report-refresh) - Insights readers have access to current reports, but reports will not be refreshed. Billing will occurr for report consumption but not report generation.
+    - [Disable report refresh](#disable-report-refresh) - Insights readers have access to current reports, but reports won't be refreshed. Billing will occur for report consumption but not report generation.
 
-Steps for both methods, and for re-enablement are below.
+Steps for both methods, and for re-enablement, are below.
 
 For more information about billing for Data Estates insights, see our [pricing guidelines](concept-guidelines-pricing.md#data-estate-insights).
 
@@ -38,7 +38,7 @@ Disabling Data Estate Insights will disable the entire application, including th
 - Classification
 - Labeling
 
-The application icon will still show in the menu, but insights readers will not have access to reports at all, and report generation jobs will be stopped. The Microsoft Purview account won't receive any bill for Data Estate Insights.
+The application icon will still show in the menu, but insights readers won't have access to reports at all, and report generation jobs will be stopped. The Microsoft Purview account won't receive any bill for Data Estate Insights.
 
 To disable the Data Estate Insights application, a user with the [data curator role](catalog-permissions.md#roles) at the [root collection](reference-azure-purview-glossary.md#root-collection) can follow these steps:
 
@@ -57,7 +57,7 @@ Once you have disabled Data Estate Insights, the icon will still appear in the l
 
 ### Disable report refresh
 
-You can choose to disable report refreshes instead of disabling the entire data estate insights application. When you disable report refreshes, insights will be able view reports, but they will see warning at the top of each report, indicating that the data may not be current, and the date of the last refresh.
+You can choose to disable report refreshes instead of disabling the entire data estate insights application. When you disable report refreshes, insights will be able view reports, but they'll see warning at the top of each report, indicating that the data may not be current, and the date of the last refresh.
 
 Graphs that show data from the last 30 days will appear blank after 30 days while graphs showing snapshot of the dat map will continue to show graph and details.
 
