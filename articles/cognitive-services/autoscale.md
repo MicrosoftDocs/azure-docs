@@ -14,7 +14,7 @@ This article provides guidance for how customers can access higher rate limits o
 
 ## Overview
 
-Each Cognitive Services resource has a pre-configured static call rate (transactions per second) which limits the number of concurrent calls that customers can make to the backend service in a given time frame. The autoscale feature will automatically increase/decrease a customer's resource's rate limits based on near-real-time resource usage metrics and backend service capacity metrics. This ensures that our customers can use their resources efficiently.
+Each Cognitive Services resource has a pre-configured static call rate (transactions per second) which limits the number of concurrent calls that customers can make to the backend service in a given time frame. The autoscale feature will automatically increase/decrease a customer's resource's rate limits based on near-real-time resource usage metrics and backend service capacity metrics. This feature ensures that our customers can use their resources efficiently.
 
 ## Get started with the autoscale feature
 
@@ -22,7 +22,7 @@ This feature is disabled by default for every new resource. Follow these instruc
 
 #### [Azure portal](#tab/portal)
 
-Go to your resource's page in the Azure portal, and select the **Overview** tab on the left pane. The **Autoscale Settings** pane will appear on the right.
+Go to your resource's page in the Azure portal, and select the **Overview** tab on the left pane. Under the  The **Essentials** section, find the **Autoscale** line and select the link to view the **Autoscale Settings** pane and enable the feature.
 
 :::image type="content" source="media/cognitive-services-autoscale/portal-autoscale.png" alt-text="Screenshot of the Azure portal with the autoscale pane on right.":::
 
@@ -43,25 +43,25 @@ az resource update --namespace Microsoft.CognitiveServices --resource-type accou
 
 No, you may still get `429` errors for rate limit excess. If your application triggers a spike, and your resource reports a `429` response, autoscale will check the available capacity projection section to see whether the current capacity can accommodate a rate limit increase and respond within five minutes.
 
-If the available capacity is enough for an increase, autoscale will gradually increase the rate limit cap of your resource. If you continue to call your resource at a high rate which results in more `429` throttling, your TPS rate will continue to increase over time. If this continues for one hour or more, you should reach the maximum rate (up to 1000 TPS) currently available at that time for that resource.
+If the available capacity is enough for an increase, autoscale will gradually increase the rate limit cap of your resource. If you continue to call your resource at a high rate that results in more `429` throttling, your TPS rate will continue to increase over time. If this continues for one hour or more, you should reach the maximum rate (up to 1000 TPS) currently available at that time for that resource.
 
 If the available capacity is not enough for an increase, the autoscale feature will wait five minutes and check again.
 
 ### What if I need a higher default rate limit?
 
-By default, Cognitive Service resources have a default rate limit of 10 TPS. If you need a higher default TPS, please submit a ticket by following the **New Support Request** link on your resource's page in the Azure portal. Remember to include a business justification in the request.
+By default, Cognitive Service resources have a default rate limit of 10 TPS. If you need a higher default TPS, submit a ticket by following the **New Support Request** link on your resource's page in the Azure portal. Remember to include a business justification in the request.
 
 ### Will this feature increase my Azure spend? 
 
-Cognitive Services pricing has not changed and can be accessed [here](https://azure.microsoft.com/pricing/details/cognitive-services/). We will only bill for successful calls made to Cognitive Services APIs. However, increased call rate limits mean more transactions will be completed, and you may receive a higher bill.
+Cognitive Services pricing hasn't changed and can be accessed [here](https://azure.microsoft.com/pricing/details/cognitive-services/). We'll only bill for successful calls made to Cognitive Services APIs. However, increased call rate limits mean more transactions will be completed, and you may receive a higher bill.
 
-Be aware of potential errors and their consequences. If a bug in your client application causes it to call the service hundreds of times per second, that would likely lead to a much higher bill, whereas the impact would be much more limited under a fixed rate limit. Errors of this kind are your responsibility, so we highly recommend that you perform development and client update tests against a resource with a fixed rate limit prior to using the autoscale feature.
+Be aware of potential errors and their consequences. If a bug in your client application causes it to call the service hundreds of times per second, that would likely lead to a much higher bill, whereas the cost would be much more limited under a fixed rate limit. Errors of this kind are your responsibility, so we highly recommend that you perform development and client update tests against a resource with a fixed rate limit prior to using the autoscale feature.
 
 ### Can I disable this feature if I'd rather limit the rate than have unpredictable spending?
 
-Yes, you can disable the autoscale feature through Azure portal or CLI and return to your default call rate limit setting. If your resource was previously approved for a higher default TPS, you will go back to that rate. It can take up to five minutes for the changes to go into effect.
+Yes, you can disable the autoscale feature through Azure portal or CLI and return to your default call rate limit setting. If your resource was previously approved for a higher default TPS, it will go back to that rate. It can take up to five minutes for the changes to go into effect.
 
-### Which Cognitive Services support the autoscale feature?
+### Which services support the autoscale feature?
 
 Autoscale feature is available for the following services:
 
