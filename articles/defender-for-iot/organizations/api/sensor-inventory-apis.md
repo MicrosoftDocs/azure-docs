@@ -500,7 +500,7 @@ Array of JSON objects that represent device objects, or the following failure me
 |**hasDynamicAddress** | Boolean. Defines whether the device has a dynamic address or not. <br><br>- `true`: Device has a dynamic address <br>- `false`: Device does not have a dynamic address |Not nullable|
 
 
-#### Supported operatingSystem values
+#### Supported `operatingSystem` values
 
 This section lists the supported values for the [operatingSystem](#operatingsystem) response field.
 
@@ -550,7 +550,7 @@ This section lists the supported values for the [operatingSystem](#operatingsyst
 
 
 
-#### Supported type values
+#### Supported `type` values
 
 This section lists the supported values for the [type](#type) response field.
 
@@ -636,7 +636,7 @@ This section lists the supported values for the [type](#type) response field.
 :::row-end:::
 
 
-### Protocol fields and name values
+### Supported fields for  the `protocols` object and protocol `name` values
 
 | Name | Type | Nullable / Not nullable | List of values |
 |--|--|--|--|
@@ -748,7 +748,7 @@ firmware is a not nullable json array of the following structure:
 |**rack**  |String. Defines the firmware rack. | Nullable  | - |
 |**slot**  |String. Defines the firmware slot. | Nullable  | - |
 
-
+---
 ## Next steps
 
 For more information, see the [Defender for IoT API reference overview](../references-work-with-defender-for-iot-apis.md).
