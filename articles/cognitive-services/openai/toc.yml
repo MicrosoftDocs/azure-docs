@@ -10,30 +10,26 @@ items:
       href: quotas-limits.md
 - name: Quickstarts
   href: quickstart.md
-- name: How-to 
-  items:
-    - name: Completions
-      href: ./how-to/completions.md
-    - name: Work with code (Codex)
-      href: ./how-to/work-with-code.md
-    - name: Prepare dataset
-      href: ./how-to/prepare-dataset.md
-    - name: Generate embeddings
-      href: ./how-to/embeddings.md
-    - name: Manage identity
-      href: ./how-to/managed-identity.md
-    - name: Business continuity & disaster recovery (BCDR)
-      href: ./how-to/business-continuity-disaster-recovery.md
 - name: Concepts
   items:
     - name: Azure OpenAI Models
       href: ./concepts/models.md
     - name: Content filtering
       href: ./concepts/content-filter.md
-- name: Reference
+- name: How-to 
   items:
-    - name: REST API
-      href: reference.md
+    - name: Completions
+      href: ./how-to/completions.md
+    - name: Work with code (Codex)
+      href: ./how-to/work-with-code.md
+    - name: Generate embeddings
+      href: ./how-to/embeddings.md
+    - name: Prepare dataset
+      href: ./how-to/prepare-dataset.md
+    - name: Manage identity
+      href: ./how-to/managed-identity.md
+    - name: Business continuity & disaster recovery (BCDR)
+      href: ./how-to/business-continuity-disaster-recovery.md
 - name: Responsible AI
   items:
     - name : Transparency note
@@ -52,6 +48,10 @@ items:
           href: /legal/cognitive-services/openai/code-of-conduct?context=/azure/cognitive-services/openai/context/context
     - name: Data, privacy, and security
       href: /legal/cognitive-services/openai/data-privacy?context=/azure/cognitive-services/openai/context/context
+- name: Reference
+  items:
+    - name: REST API
+      href: reference.md
 - name: Resources
   items: 
     - name: Support and help options
