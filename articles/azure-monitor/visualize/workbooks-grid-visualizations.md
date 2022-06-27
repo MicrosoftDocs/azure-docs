@@ -9,7 +9,7 @@ ms.author: abbyweisberg
 
 # Grid visualizations
 
-Grids or tables are a common way to present data to users. You can individually style the columns of grids in workbooks to provide a rich UI for your reports.
+Grids or tables are a common way to present data to users. You can individually style the columns of grids in Azure Monitor workbooks to provide a rich UI for your reports.
 
 The following example shows a grid that combines icons, heatmaps, and spark bars to present complex information. The workbook also provides sorting, a search box, and a go-to-analytics button.
 
@@ -19,10 +19,10 @@ The following example shows a grid that combines icons, heatmaps, and spark bars
 
 1. Switch the workbook to edit mode by selecting the **Edit** toolbar item.
 1. Select **Add query** to add a log query control to the workbook.
-1. Select **Query type** as **Log**. Select **Resource type**, for example, as **Application Insights**, and select the resources to target.
+1. Select **Query type** as **Logs**. Select **Resource type** as, for example, **Application Insights**, and select the resources to target.
 1. Use the query editor to enter the KQL for your analysis. An example is VMs with memory below a threshold.
-1. Set the visualization to **Grid**.
-1. Set other parameters like time range, size, color palette, and legend, if needed.
+1. Set **Visualization** to **Grid**.
+1. Set other parameters like the time range, size, color palette, and legend, if needed.
 
 [![Screenshot that shows a log-based grid query.](./media/workbooks-grid-visualizations/grid-query.png)](./media/workbooks-grid-visualizations/grid-query.png#lightbox)
 
@@ -30,10 +30,10 @@ The following example shows a grid that combines icons, heatmaps, and spark bars
 
 | Parameter | Explanation | Examples |
 | ------------- |:-------------|:-------------|
-|Query Type| The type of query to use. | Log, Azure Resource Graph |
-|Resource Type| The resource type to target. | Application Insights, Log Analytics, or Azure-first |
+|Query type| The type of query to use. | Logs, Azure Resource Graph |
+|Resource type| The resource type to target. | Application Insights, Log Analytics, or Azure-first |
 |Resources| A set of resources to get the metrics value from. | MyApp1 |
-|Time Range| The time window to view the log chart. | Last hour, Last 24 hours |
+|Time Range| The time window to view the log chart. | Last hour, last 24 hours |
 |Visualization| The visualization to use. | Grid |
 |Size| The vertical size of the control. | Small, medium, large, or full |
 |Query| Any KQL query that returns data in the format expected by the chart visualization. | _requests \| summarize Requests = count() by name_ |
@@ -66,13 +66,13 @@ Here's the same grid styled as bars:
 
 1. Select the **Column Setting** button on the query control toolbar.
 1. In the **Edit column settings** pane, select the column to style.
-1. Select **Column renderer** to **Heatmap**, **Bar**, or **Bar underneath** and related settings to style your column.
+1. In **Column renderer**, select **Heatmap**, **Bar**, or **Bar underneath** and select related settings to style your column.
 
 The following example shows the **Requests** column styled as a bar:
 
 [![Screenshot that shows a log-based grid with the Request column styled as a bar.](./media/workbooks-grid-visualizations/log-chart-grid-column-settings-start.png)](./media/workbooks-grid-visualizations/log-chart-grid-column-settings-start.png#lightbox)
 
-This usually takes you to some other view with context coming from the cell, or it might open a URL.
+This option usually takes you to some other view with context coming from the cell, or it might open a URL.
 
 ### Custom formatting
 
@@ -105,7 +105,7 @@ You can customize the width of any column in the grid by using the **Custom Colu
 
 ![Screenshot that shows column settings with the Custom Column Width field indicated in a red box.](./media/workbooks-grid-visualizations/custom-column-width-setting.png)
 
-If the field is left blank, the width is automatically determined based on the number of characters in the column and the number of visible columns. The default unit is "ch" (characters).
+If the field is left blank, the width is automatically determined based on the number of characters in the column and the number of visible columns. The default unit is "ch," which is an abbreviation for "characters."
 
 Selecting the blue **(Current Width)** button in the label fills the text field with the selected column's current width. If a value is present in the **Custom Column Width** field with no unit of measurement, the default is used.
 
@@ -126,7 +126,7 @@ There's no minimum or maximum width. This measurement is left to your discretion
 
 Here are some examples.
 
-### Sparklines and bar underneath
+### Spark lines and bar underneath
 
 The following example shows request counts and the trend by request name:
 
@@ -141,7 +141,7 @@ requests
 | order by Requests desc
 ```
 
-[![Screenshot that shows a log-based grid with a bar underneath and a sparkline.](./media/workbooks-grid-visualizations/log-chart-grid-spark-line.png)](./media/workbooks-grid-visualizations/log-chart-grid-spark-line.png#lightbox)
+[![Screenshot that shows a log-based grid with a bar underneath and a spark line.](./media/workbooks-grid-visualizations/log-chart-grid-spark-line.png)](./media/workbooks-grid-visualizations/log-chart-grid-spark-line.png#lightbox)
 
 ### Heatmap with shared scales and custom formatting
 
@@ -223,16 +223,22 @@ Supported icon names:
 
 ## Fractional unit percentages
 
-The fractional unit (fr) is a commonly used dynamic unit of measurement in various types of grids. As the window size or resolution changes, the fr width changes too.
+The fractional unit, abbreviated as "fr," is a commonly used dynamic unit of measurement in various types of grids. As the window size or resolution changes, the fr width changes too.
 
-The following screenshot shows a table with eight columns that are 1fr width each and all equal widths. As the window size changes, the width of each column changes proportionally.
+The following screenshot shows a table with eight columns that are 1fr width each and all are equal widths. As the window size changes, the width of each column changes proportionally.
 
 [![Screenshot that shows columns in a grid with a column-width value of 1fr each.](./media/workbooks-grid-visualizations/custom-column-width-fr.png)](./media/workbooks-grid-visualizations/custom-column-width-fr.png#lightbox)
 
-The following image shows the same table, except the first column is set to 50% width. This setting dynamically sets the column to half of the total grid width. Resizing the window continues to retain the 50% width unless the window size gets too small. These dynamic columns have a minimum width based on their contents. The remaining 50% of the grid is divided up by the eight total fractional units. The **Kind** column is set to 2fr, so it takes up one-fourth of the remaining space. Because the other columns are 1fr each, they each take up one-eighth of the right half of the grid.
+The following image shows the same table, except the first column is set to 50% width. This setting dynamically sets the column to half of the total grid width. Resizing the window continues to retain the 50% width unless the window size gets too small. These dynamic columns have a minimum width based on their contents. 
+
+The remaining 50% of the grid is divided up by the eight total fractional units. The **Kind** column is set to 2fr, so it takes up one-fourth of the remaining space. Because the other columns are 1fr each, they each take up one-eighth of the right half of the grid.
 
 [![Screenshot that shows columns in a grid with one column-width value of 50% and the rest as 1fr each.](./media/workbooks-grid-visualizations/custom-column-width-fr2.png)](./media/workbooks-grid-visualizations/custom-column-width-fr2.png#lightbox)
 
-Combining fr, %, px, and ch widths is possible and works similarly to the previous examples. The widths that are set by the static units (ch and px) are hard constants that won't change even if the window or resolution is changed. The columns set by % take up their percentage based on the total grid width. This width might not be exact because of previously minimum widths. The columns set with fr split up the remaining grid space based on the number of fractional units they're allotted.
+Combining fr, %, px, and ch widths is possible and works similarly to the previous examples. The widths that are set by the static units (ch and px) are hard constants that won't change even if the window or resolution is changed.
+
+The columns set by % take up their percentage based on the total grid width. This width might not be exact because of previously minimum widths.
+
+The columns set with fr split up the remaining grid space based on the number of fractional units they're allotted.
 
 [![Screenshot that shows columns in a grid with an assortment of different width units used.](./media/workbooks-grid-visualizations/custom-column-width-fr3.png)](./media/workbooks-grid-visualizations/custom-column-width-fr3.png#lightbox)

@@ -10,13 +10,13 @@ ms.date: 09/04/2020
 
 # Chart visualizations
 
-Workbooks allow monitoring data to be presented as charts. Supported chart types include line, bar, bar categorical, area, scatter plots, pie, and time. You can choose to customize the height, width, color palette, legend, titles, no-data message, and other characteristics. You can also customize axis types and series colors by using chart settings.
+Azure Monitor workbooks allow monitoring data to be presented as charts. Supported chart types include line, bar, bar categorical, area, scatter plots, pie, and time. You can choose to customize the height, width, color palette, legend, titles, no-data message, and other characteristics. You can also customize axis types and series colors by using chart settings.
 
 Workbooks support charts for both logs and metric data sources.
 
 ## Log charts
 
-Azure Monitor logs give resource owners detailed information about the workings of their apps and infrastructure. Unlike metrics, log information isn't collected by default and requires some kind of collection onboarding. When logs are present, they provide information about the state of the resource and data that's useful for diagnostics. Workbooks allow presenting log data as visual charts for user analysis.
+Azure Monitor logs give you detailed information about the workings of your apps and infrastructure. Unlike metrics, log information isn't collected by default and requires some kind of collection onboarding. When logs are present, they provide information about the state of the resource and data that's useful for diagnostics. Workbooks allow presenting log data as visual charts for user analysis.
 
 ### Add a log chart
 
@@ -24,7 +24,7 @@ The following example shows the trend of requests to an app over the previous da
 
 1. Switch the workbook to edit mode by selecting the **Edit** toolbar item.
 1. Use the **Add query** link to add a log query control to the workbook.
-1. Select **Query type** as **Logs**. Select **Resource type**, for example, as **Application Insights**, and select the resources to target.
+1. Select **Query type** as **Logs**. Select **Resource type** as, for example, **Application Insights**, and select the resources to target.
 1. Use the query editor to enter the [KQL](/azure/kusto/query/) for your analysis. An example is the trend of requests.
 1. Set **Visualization** to **Area**, **Bar**, **Bar (categorical)**, **Line**, **Pie**, **Scatter**, or **Time**.
 1. Set other parameters like the time range, size, color palette, and legend, if needed.
@@ -35,14 +35,14 @@ The following example shows the trend of requests to an app over the previous da
 
 | Parameter | Explanation | Examples |
 | ------------- |:-------------|:-------------|
-| Query Type | The type of query to use. | Log, Azure Resource Graph |
-| Resource Type | The resource type to target. | Application Insights, Log Analytics, or Azure-first |
+| Query type | The type of query to use. | Logs, Azure Resource Graph |
+| Resource type | The resource type to target. | Application Insights, Log Analytics, or Azure-first |
 | Resources | A set of resources to get the metrics value from. | MyApp1 |
-| Time Range | The time window to view the log chart. | Last hour, Last 24 hours |
-| Visualization | The visualization to use. | Area, Bar, Line, Pie, Scatter, Time, Bar (categorical) |
+| Time Range | The time window to view the log chart. | Last hour, last 24 hours |
+| Visualization | The visualization to use. | Area, bar, line, pie, scatter, time, bar (categorical) |
 | Size | The vertical size of the control. | Small, medium, large, or full |
 | Color palette | The color palette to use in the chart. Ignored in multi-metric or segmented mode. | Blue, green, red |
-| Legend | The aggregation function to use for the legend. | Sum or Average of values or Max, Min, First, Last value |
+| Legend | The aggregation function to use for the legend. | Sum or average of values or max, min, first, last value |
 | Query | Any KQL query that returns data in the format expected by the chart visualization. | _requests \| make-series Requests = count() default = 0 on timestamp from ago(1d) to now() step 1h_ |
 
 ### Time-series charts
@@ -73,7 +73,7 @@ requests
 
 #### Segmented time series
 
-The following query returns a table with three columns: `timestamp`, `Requests`, and `RequestName` where `RequestName` is a categorical column with the names of requests. The query control here uses `timestamp` for the x-axis and adds a series per value of `RequestName`.
+The following query returns a table with three columns: `timestamp`, `Requests`, and `RequestName`, where `RequestName` is a categorical column with the names of requests. The query control here uses `timestamp` for the x-axis and adds a series per value of `RequestName`.
 
 ```
 requests
@@ -153,14 +153,14 @@ The following example shows the number of transactions in a storage account over
 
 | Parameter | Explanation | Examples |
 | ------------- |:-------------|:-------------|
-| Resource Type | The resource type to target. | Storage or virtual machine |
+| Resource type | The resource type to target. | Storage or virtual machine |
 | Resources | A set of resources to get the metrics value from. | MyStorage1 |
 | Namespace | The namespace with the metric. | Storage > Blob |
 | Metric | The metric to visualize. | Storage > Blob > Transactions |
-| Aggregation | The aggregation function to apply to the metric. | Sum, Count, Average |
-| Time Range | The time window to view the metric in. | Last hour, Last 24 hours |
-| Visualization | The visualization to use. | Area, Bar, Line, Scatter, Grid |
-| Split By | Optionally split the metric on a dimension. | Transactions by Geo type |
+| Aggregation | The aggregation function to apply to the metric. | Sum, count, average |
+| Time Range | The time window to view the metric in. | Last hour, last 24 hours |
+| Visualization | The visualization to use. | Area, bar, line, scatter, grid |
+| Split by | Optionally split the metric on a dimension. | Transactions by geo type |
 | Size | The vertical size of the control. | Small, medium, or large |
 | Color palette | The color palette to use in the chart. Ignored if the *Split by* parameter is used. | Blue, green, red |
 
@@ -186,15 +186,15 @@ You can use chart settings to customize which fields are used in the chart axes,
 
 The **Settings** tab controls:
 
-- The axis settings, including which fields. Custom formatting that allows you to set the number formatting to the axis values and custom ranges.
-- Grouping settings, including which field. The limits before an "Others" group is created.
-- Legend settings, including showing metrics like series name, colors, and numbers at the bottom, and/or a legend like series names and colors.
+- **X-axis Settings**, **Y-axis Settings**: Includes which fields. You can use custom formatting to set the number formatting to the axis values and custom ranges.
+- **Grouping Settings**: Includes which field. The limits before an "Others" group is created.
+- **Legend Settings**: Shows metrics like series name, colors, and numbers at the bottom, and a legend like series names and colors.
 
 ![Screenshot that shows chart settings.](./media/workbooks-chart-visualizations/chart-settings.png)
 
 #### Custom formatting
 
-Number formatting options include:
+Number formatting options are shown in this table.
 
 | Formatting option             | Explanation                                                                                           |
 |:---------------------------- |:-------------------------------------------------------------------------------------------------------|
