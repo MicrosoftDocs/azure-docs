@@ -11,7 +11,9 @@ ms.date: #Required; mm/dd/yyyy format.
 
 # Monitoring Azure Functions data reference
 
-See [Monitoring Azure Functions](monitor-functions.md) for details on collecting and analyzing monitoring data for Azure Functions.
+See [Monitoring Azure Functions](monitor-functions.md) for details on collecting and analyzing monitoring data for Azure Functions at the **application** level.
+
+See [Monitor Azure Functions](functions-monitoring.md) for details on collecting and analysing monitoring data for Azure Functions at the **function** level.
 
 ## Metrics
 
@@ -38,15 +40,15 @@ For more information on what metric dimensions are, see [Multi-dimensional metri
 
 Azure Functions does not have any metrics that contain dimensions.
 
-[TODO-replace-with-service-name] has the following dimensions associated with
-its metrics.
-
 ## Resource logs
 
-This section lists the types of resource logs you can collect for Azure Functions.
+This section lists the types of resource logs you can collect for your function apps.
 
-<!-- List all the resource log types you can have and what they are for -->
-<!-- TODO:glenn Since this leverages up on the resource log types for App Service, should we just add a link to them here? If so, should we clearly mention FunctionAppLogs? -->
+| Log type | Description |
+|-|-|
+| FunctionAppLogs | Function app logs |
+
+For the complete list of resource logs you can collect for your function app considering the App Service platform, see [Monitoring *App Service* data reference](../app-service/monitor-app-service-reference.md#resource-logs).
 
 For reference, see a list of [all resource logs category types supported in Azure Monitor](../azure-monitor/essentials/resource-logs-schema.md).
 
@@ -56,68 +58,35 @@ This section refers to all of the Azure Monitor Logs Kusto tables relevant to Az
 
 <!-- TODO:glenn Same as above -->
 
-For a reference of all Azure Monitor Logs / Log Analytics tables, see the [Azure Monitor Log Table Reference](../azure-monitor/reference/tables/tables-resourcetype).
-
-<!-- TODO:glenn the reference above doesn't exist in the repo -->
-
-### Diagnostics tables
-
-<!-- TODO:glenn do we really need this section? -->
-
-<!-- REQUIRED. Please keep heading in this order -->
-<!-- If your service uses the AzureDiagnostics table in Azure Monitor Logs /
-Log Analytics, list what fields you use and what they are for. Azure
-Diagnostics is over 566 columns wide with all services using the fields that
-are consistent across Azure Monitor and then adding extra ones just for them-
-selves. If it uses service specific diagnostic table, refers to that table. If
-it uses both, put both types of information in. Most services in the future
-will have their own specific table. If you have questions, contact
-azmondocs@microsoft.com -->
-
-[TODO-replace-with-service-name] uses the [Azure Diagnostics](/azure/azure-monitor/reference/tables/azurediagnostics) table and the [TODO whatever addi-tional] table to store resource log information. The following columns are relevant.
-
-**Azure Diagnostics**
-
-Property I Description I
-c'___ o'___
-
-**[TODO Service-specific table]**
-
-I Property I Description I
--'___ o°___
-
+For a reference of all Azure Monitor Logs / Log Analytics tables, see the [Azure Monitor Log Table Reference](../azure-monitor/reference/tables/tables-resourcetype). <!-- TODO:glenn the reference above doesn't exist in the repo -->
 
 ## Activity log
 
 The following table lists the operations related to Azure Functions that may be created in the Activity log.
 
-<!-- Fill in the table with the operations that can be created in the Activity log for the service. -->
 | Operation | Description |
 |:---|:---|
-| | |
-| | |
-
-<!-- TODO:glenn do you have a complete list of the operation and their "official" meaning? -->
-
-<!-- NOTE: This information may be hard to find or not listed anywhere. Please
-ask your PM for at least an incomplete list of what type of messages could be
-written here. If you can't locate this, contact azmondocs@microsoft.com for
-help -->
+|Create or Update Web App| App was created or updated|
+|Delete Web App| App was deleted |
+|Create Web App Backup| Backup of app|
+|Get Web App Publishing Profile| Download of publishing profile |
+|Publish Web App| App deployed |
+|Restart Web App| App restarted|
+|Start Web App| App started |
+|Stop Web App| App stopped|
+|Swap Web App Slots| Slots were swapped|
+|Get Web App Slots Differences| Slot differences|
+|Apply Web App Configuration| Applied configuration changes|
+|Reset Web App Configuration| Configuration changes reset|
+|Approve Private Endpoint Connections| Approved private endpoint connections|
+|Network Trace Web Apps| Started network trace|
+|Newpassword Web Apps| New password created |
+|Get Zipped Container Logs for Web App| Get container logs |
+|Restore Web App From Backup Blob| App restored from backup|
 
 For more information on the schema of Activity Log entries, see [Activity Log schema](../azure-monitor/essentials/activity-log-schema.md).
 
-## Schemas
-
-<!-- TODO:glenn don't think we have anything to add here, but the template says it's required -->
-
-The following schemas are in use by Azure Functions
-
-<!-- List the schema and their usage. This can be for resource logs, alerts,
-event hub formats, etc depending on what you think is important. -->
-
 ## See Also
 
-<!-- replace below with the proper link to your main monitoring service article
--->
 - See [Monitoring Azure Functions](monitor-functions.md) for a description of monitoring Azure Functions.
 - See [Monitoring Azure resources with Azure Monitor](../azure-monitor/essentials/monitor-azure-resource.md) for details on monitoring Azure resources.
