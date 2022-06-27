@@ -7,7 +7,7 @@ ms.topic: overview
 ms.custom: public-preview
 ms.date: 3/21/2022
 ms.author: wamota
-# Customer intent: Educate potential partners on how to engage with the Azure Space partner Communitys.
+# Customer intent: Educate potential partners on how to engage with the Azure Space partner Communities.
 ---
 
 # What is the Azure Space Partner Community?
