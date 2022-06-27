@@ -59,7 +59,7 @@ This sample command produces the following results:
 az vm list-skus --location southcentralus --size Standard_F --output table
 ```
 
-:::image type="content" source="./media/cloud-services-troubleshoot-constrained-allocation-failed/cloud-services-troubleshoot-constrained-allocation-failed-1.png" alt-text="Screenshot shows the Azure C L I output of running the command, which shows the available SKUs.":::
+:::image type="content" source="./media/cloud-services-troubleshoot-constrained-allocation-failed/cloud-services-troubleshoot-constrained-allocation-failed-1.png" alt-text="Screenshot shows the Azure CLI output of running the command, which shows the available SKUs.":::
 
 #### List SKUs in region using PowerShell
 
