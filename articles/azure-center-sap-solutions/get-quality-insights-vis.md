@@ -34,34 +34,29 @@ To open the Quality Insights workbook:
     :::image type="content" source="media/get-quality-insights-vis/quality-insights.png" lightbox="media/get-quality-insights-vis/quality-insights.png" alt-text="Screenshot of Azure portal, showing the Quality Insights workbook page selected in the sidebar menu for a virtual instance for SAP.":::
 
 There are multiple sections in the workbook:
-- Select the **Advisor Recommendations** tab (this is the tab displayed by default) to [see the list of recommendations made by ACSS for the different instances in your VIS](#get-advisor-recommendations)
+- Select the default **Advisor Recommendations** tab to [see the list of recommendations made by ACSS for the different instances in your VIS](#get-advisor-recommendations)
 - Select the **Virtual Machine** tab to [find information about the VMs in your VIS](#get-vm-information)
 - Select the **Configuration Checks** tab to [see configuration checks for your VIS](#run-configuration-checks)
 
 ## Get Advisor Recommendations
 
-Azure Center for SAP solutions runs quality checks for all Virtual instances. These Quality checks validate if the SAP systems in ACSS are configured as per best practices recommended by SAP and Azure. If a VIS is not configured as per the different best practices, you will see a corresponding recommendation in Azure Advisor.
+ACSS runs quality checks for all VIS resources. These quality checks validate the SAP system configurations follow the best practices recommended by SAP and Azure. If a VIS doesn't follow these best practices, you receive a recommendation from Azure Advisor.
 
-The table in the **Advisor Recommendations** tab shows all the recommendations for Central Service Instance, App instances and Databases in the VIS.
+The table in the **Advisor Recommendations** tab shows all the recommendations for ASCS, Application and Database instances in the VIS.
 
-You can click on the instance name in the table to see all recommendations for the respective instance and the action you can take to address the recommendations. 
+Select an instance name to see all recommendations, including which action to take to resolve an issue.
 
-### What gets checked
-
-The following list of checks are run for all VIS today:
+The following checks are run for each VIS:
 
 - The VMs used for different instances in the VIS are certified by SAP
-- Accelerated networking is switched on for the NICs attached to different VMs
-- Network configuration is optimised for HANA and OS.  
+- Accelerated networking is enabled for the NICs attached to different VMs
+- Network configuration is optimized for HANA and the OS  
 - Swap space is set to 2GB in HANA systems
+ 
 
-We will continue to add more checks to the above list as per best practices from SAP and Azure. 
+These quality checks run on all VIS instances at a regular frequency of 12 hours. The corresponding recommendations in Azure Advisor also refresh on the same 12 hour frequency.
 
-### When are the checks performed
-
-The above list of checks are performed on all VIS on a regular frequency of 12 hours and the corresponding recommendations in Azure Advisor are also refreshed on the same 12 hour frequency. 
-
-**Note:** If you take action on one or more recommendations from ACSS, please wait for a few hours for the recommendations in Azure Advisor to get refreshed. 
+If you take action on one or more recommendations from ACSS, wait for the next refresh to see any new recommendations from Azure Advisor.
 
 ## Get VM information
 
