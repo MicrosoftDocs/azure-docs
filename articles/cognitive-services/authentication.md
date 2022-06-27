@@ -16,7 +16,7 @@ ms.author: pafarley
 Each request to an Azure Cognitive Service must include an authentication header. This header passes along a subscription key or access token, which is used to validate your subscription for a service or group of services. In this article, you'll learn about three ways to authenticate a request and the requirements for each.
 
 * Authenticate with a [single-service](#authenticate-with-a-single-service-subscription-key) or [multi-service](#authenticate-with-a-multi-service-subscription-key) subscription key
-* Authenticate with a [token](#authenticate-with-an-authentication-token)
+* Authenticate with a [token](#authenticate-with-an-access-token)
 * Authenticate with [Azure Active Directory (AAD)](#authenticate-with-azure-active-directory)
 
 ## Prerequisites
