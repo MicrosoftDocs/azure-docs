@@ -73,6 +73,10 @@ Use the Image Analysis client library for C# to analyze an image for content tag
 
     ---
 
+    > [!TIP]
+    > The latest version of Image Analysis, 4.0, features updated models that have achieved human parity in certain recognition tasks. If your resource belongs to one of the regions enabled for 4.0, we highly recommend you use this version going forward.
+
+
 
 1. Find the key and endpoint.
 

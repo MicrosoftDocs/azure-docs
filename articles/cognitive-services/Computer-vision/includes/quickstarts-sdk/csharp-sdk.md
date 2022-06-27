@@ -71,6 +71,9 @@ Use the OCR client library to read printed and handwritten text from a remote im
     ```
     ---
 
+    > [!TIP]
+    > The latest version of [Image Analysis](../../overview-image-analysis.md), 4.0, features an updated language model that can do OCR with improved performance. If you have a Computer Vision resource that belongs to one of the regions enabled for 4.0, we recommend you use Image Analysis for OCR.
+
 1. Find the key and endpoint.
 
     [!INCLUDE [find key and endpoint](../find-key.md)]

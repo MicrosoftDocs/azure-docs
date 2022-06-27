@@ -20,6 +20,9 @@ Optical character recognition (OCR) allows you to extract printed or handwritten
 
 ![OCR demos](./Images/ocr-demo.gif)
 
+> [!TIP]
+> The latest version of [Image Analysis](./overview-image-analysis.md), 4.0, features an updated language model that can do OCR with improved performance. If you have a Computer Vision resource that belongs to one of the regions enabled for 4.0, we recommend you use Image Analysis for OCR.
+
 This documentation contains the following types of articles:
 * The [quickstarts](./quickstarts-sdk/client-library.md) are step-by-step instructions that let you make calls to the service and get results in a short period of time. 
 * The [how-to guides](./how-to/call-read-api.md) contain instructions for using the service in more specific or customized ways.
