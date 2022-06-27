@@ -54,22 +54,26 @@ Clone the sample repository to your workstation:
     cd playwright-service-preview/samples/PlaywrightTestRunner
     ```
 
+## Authenticate with private npm repository
+
 To run tests with Microsoft Playwright Testing, you use the `@microsoft/playwright-service` npm package. This package resides in a private package registry.
 
-Authenticate your GitHub user account with the private repository:
+To authenticate your GitHub user account with the private repository, follow these steps:
 
 1. Create a [GitHub personal access token (PAT)](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token) for your account.
 
-    The token should have the following permissions: `read:packages` and `repo`.
+    The token should have the `read:packages` permission.
+
+    :::image type="content" source="./media/tutorial-identify-issues-with-end-to-end-web-tests/access-token-permissions.png" alt-text="Screenshot that shows the access token permissions.":::
 
     > [!IMPORTANT]
-    > Make sure to copy the token value, as you won't see it again.
+    > After generating the token, make sure to copy the token value, as you won't see it again.
 
-1. (Microsoft employees only) Authorize your personal access token to use SSO. 
+1. If your organization requires SAML SSO for GitHub, authorize your personal access token to use SSO.
 
     1. Go to your [Personal access tokens](https://github.com/settings/tokens) page.
     1. Select **[Configure SSO](https://docs.github.com/en/enterprise-cloud@latest/authentication/authenticating-with-saml-single-sign-on/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on)** to the right of the token.
-    1. Select **Microsoft** to authorize SSO.
+    1. Select your organization from the list to authorize SSO.
 
 1. Authenticate with the private npm registry to enable you to download the latest `@microsoft/playwright-service` package when you run `npm install`:
 
