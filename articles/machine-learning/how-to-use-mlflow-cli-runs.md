@@ -56,10 +56,10 @@ Tracking using MLflow with Azure Machine Learning lets you store the logged metr
 
 To track a run that is not running on Azure Machine Learning compute (from now on refered as your *"local compute"*), you need to point your local compute to the Azure Machine Learning MLflow Tracking URI. 
 
->[!IMPORTANT]
-> Make sure you are logged in to your Azure account on your local machine, otherwise the tracking URI returns an empty string. If you are using any Azure ML compute the tracking environment and experiment name is already configured..
+> [!NOTE]
+> When running on Azure Compute (Azure Notebooks, Jupyter Notebooks hosted on Azure Compute Instances or Compute Clusters) you don't have to configure the tracking URI. It's automatically configured for you.
 
-# [Using the Azure ML SDK v2](#tracking/amlsdk)
+# [Using the Azure ML SDK v2](#tab/amlsdk)
 
 You can get the Azure ML MLflow tracking URI using the [Azure Machine Learning SDK v2 for Python](concept-v2.md). Ensure you have the library `azure-ai-ml` installed in the cluster you are using. The following sample gets the unique MLFLow tracking URI associated with your workspace. Then the method [`set_tracking_uri()`](https://mlflow.org/docs/latest/python_api/mlflow.html#mlflow.set_tracking_uri) points the MLflow tracking URI to that URI.
 
@@ -73,7 +73,7 @@ subscription_id = '<SUBSCRIPTION_ID>'
 resource_group = '<RESOURCE_GROUP>'
 workspace = '<AML_WORKSPACE_NAME>'
 
-ml_client = MLClient(credential=DeviceCodeCredential(),
+ml_client = MLClient(credential=DefaultAzureCredential(),
                      subscription_id=subscription_id, 
                      resource_group_name=resource_group)
                      
@@ -81,7 +81,10 @@ azureml_mlflow_uri = ml_client.workspaces.get(workspace).mlflow_tracking_uri
 mlflow.set_tracking_uri(azureml_mlflow_uri)
 ```
 
-# [Using an environment variable](#tracking/environ)
+>[!IMPORTANT]
+> `DefaultAzureCredential` will try to pull the credentials from the available context. If you want to specify credentials in a different way, for instance using the web browser in an interactive way, you can use `InteractiveBrowserCredential` or any other method available in `azure.identity` package.
+
+# [Using an environment variable](#tab/environ)
 
 Another option is to set one of the MLflow environment variables [MLFLOW_TRACKING_URI](https://mlflow.org/docs/latest/tracking.html#logging-to-a-tracking-server) directly in your terminal. 
 
@@ -91,7 +94,10 @@ Another option is to set one of the MLflow environment variables [MLFLOW_TRACKIN
 export MLFLOW_TRACKING_URI=$(az ml workspace show --query mlflow_tracking_uri | sed 's/"//g') 
 ```
 
-# [Building the MLflow tracking URI](#tracking/build)
+>[!IMPORTANT]
+> Make sure you are logged in to your Azure account on your local machine, otherwise the tracking URI returns an empty string. If you are using any Azure ML compute the tracking environment and experiment name is already configured.
+
+# [Building the MLflow tracking URI](#tab/build)
 
 The Azure Machine Learning Tracking URI can be constructed using the subscription ID, region of where the resource is deployed, resource group name and workspace name. The following code sample shows how:
 
@@ -109,31 +115,23 @@ mlflow.set_tracking_uri(azureml_mlflow_uri)
 
 > [!NOTE]
 > You can also get this URL by: Navigate to the [Azure ML Studio web portal](https://ml.azure.com) -> Clic on the uper-right corner of the page -> View all properties in Azure Portal -> MLflow tracking URI.
----
 
+---
 
 ### Set experiment name
 
-All MLflow runs are logged to the active experiment, which can be set with the MLflow SDK or Azure CLI. 
-
-# [MLflow SDK](#setexp/mlflow)
-
-With MLflow you can use the [`mlflow.set_experiment()`](https://mlflow.org/docs/latest/python_api/mlflow.html#mlflow.set_experiment) command.
+All MLflow runs are logged to the active experiment. By default, runs are logged to an experiment named `Default` that is automatically created for you. To configure the experiment you want to work on use MLflow command [`mlflow.set_experiment()`](https://mlflow.org/docs/latest/python_api/mlflow.html#mlflow.set_experiment).
     
 ```Python
 experiment_name = 'experiment_with_mlflow'
 mlflow.set_experiment(experiment_name)
 ```
 
-# [Using an environment variable](#setexp/environ)
+You can also set one of the MLflow environment variables [MLFLOW_EXPERIMENT_NAME or MLFLOW_EXPERIMENT_ID](https://mlflow.org/docs/latest/cli.html#cmdoption-mlflow-run-arg-uri) with the experiment name. 
 
-You can set one of the MLflow environment variables [MLFLOW_EXPERIMENT_NAME or MLFLOW_EXPERIMENT_ID](https://mlflow.org/docs/latest/cli.html#cmdoption-mlflow-run-arg-uri) with the experiment name.
-
-```Azure CLI 
-# Configure MLflow to communicate with a Azure Machine Learning-hosted tracking server
+```bash
 export MLFLOW_EXPERIMENT_NAME="experiment_with_mlflow"
 ```
----
 
 ### Start training run
 
