@@ -323,7 +323,7 @@ client = PredictionClient(address=address,
                           service_name=aks_service.name)
 ```
 
-Since this classifier was trained on the [ImageNet](http://www.image-net.org/) data set, map the classes to human-readable labels.
+Since this classifier was trained on the ImageNet data set, map the classes to human-readable labels.
 
 ```python
 import requests
