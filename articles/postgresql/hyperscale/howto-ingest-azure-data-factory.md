@@ -6,14 +6,14 @@ author: sudhanshuvishodia
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: how-to
-ms.date: 06/24/2022
+ms.date: 06/27/2022
 ---
 
-# What is Azure Data Factory(ADF)?
+# How to ingest data using Azure Data Factory
 
-[Azure Data Factory](../../data-factory/introduction.md) is a cloud-based ETL
-and data integration service. It allows you to create data-driven workflows to
-move and transform data at scale.
+[Azure Data Factory](../../data-factory/introduction.md) (ADF) is a cloud-based
+ETL and data integration service. It allows you to create data-driven workflows
+to move and transform data at scale.
 
 Using Azure Data Factory, you can create and schedule data-driven workflows
 (called pipelines) that ingest data from disparate data stores. Pipelines can
@@ -117,3 +117,8 @@ a workaround we can use Lookup Activity with query to call a stored procedure
 as shown below:
 
 :::image type="content" source="../media/howto-hyperscale-ingestion/ADF_Call_Procedure.png" alt-text="Calling a procedure in Azure Data Factory." border="true":::
+
+## Next steps
+
+Learn how to create a [real-time
+dashboard](tutorial-design-database-realtime.md) with Hyperscale (Citus).
