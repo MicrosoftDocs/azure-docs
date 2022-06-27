@@ -1,14 +1,14 @@
 ---
-title: Automate incident handling in Microsoft Sentinel | Microsoft Docs
-description: This article explains how to use automation rules to automate incident handling, in order to maximize your SOC's efficiency and effectiveness in response to security threats.
+title: Automate threat response in Microsoft Sentinel with automation rules | Microsoft Docs
+description: This article explains what Microsoft Sentinel automation rules are, and how to use them to implement your Security Orchestration, Automation and Response (SOAR) operations, increasing your SOC's effectiveness and saving you time and resources.
 author: yelevin
 ms.topic: conceptual
-ms.date: 11/09/2021
+ms.date: 06/27/2022
 ms.author: yelevin
 ms.custom: ignite-fall-2021
 ---
 
-# Automate incident handling in Microsoft Sentinel with automation rules
+# Automate threat response in Microsoft Sentinel with automation rules
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
