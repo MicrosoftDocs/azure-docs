@@ -15,7 +15,7 @@ An Azure Kubernetes Service (AKS) cluster with API Server VNet Integration confi
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
-## API Server Connectivity
+## API server connectivity
 
 The control plane or API server is in an Azure Kubernetes Service (AKS)-managed Azure subscription. A customer's cluster or node pool is in the customer's subscription. The server and the virtual machines that make up the cluster nodes can communicate with each other through the API server VIP and pod IPs that are projected into the delegated subnet.
 
@@ -23,7 +23,7 @@ At this time, API Server VNet integration is only supported for private clusters
 
 ## Region availability
 
-API Server VNet Integration is available in the following regions at this time. More will be added as available:
+API Server VNet Integration is available in the following regions at this time:
 
 - canary regions
 - eastus2
