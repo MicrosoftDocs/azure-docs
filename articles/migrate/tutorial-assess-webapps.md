@@ -59,7 +59,7 @@ Run an assessment as follows:
     **Discount (%)** | Any subscription-specific discounts you receive on top of the Azure offer. The default setting is 0%.
     **EA subscription** | Specifies that an Enterprise Agreement (EA) subscription is used for cost estimation. Takes into account the discount applicable to the subscription. <br/><br/> Leave the settings for reserved instances, and discount (%) properties with their default settings.
 
-    :::image type="content" source="./media/tutorial-assess-webapps/webapps-assessment-properties.png" alt-text="App Service assessment properties":::
+    :::image type="content" source="./media/tutorial-assess-webapps/webapps-assessment-properties.png" alt-text="Screenshot of App Service assessment properties.":::
 
 1. In **Create assessment**, select **Next**.
 1. In **Select servers to assess** > **Assessment name** > specify a name for the assessment.
@@ -68,11 +68,11 @@ Run an assessment as follows:
 1. In **Review + create assessment**, review the assessment details, and select **Create Assessment** to create the group and run the assessment.
 1. After the assessment is created, go to **Servers, databases and web apps** > **Azure Migrate: Discovery and assessment**. Refresh the tile data by selecting the **Refresh** option on top of the tile. Wait for the data to refresh.
 
-    :::image type="content" source="./media/tutorial-assess-webapps/tile-refresh.png" alt-text="Refresh discovery and assessment tool data":::
+    :::image type="content" source="./media/tutorial-assess-webapps/tile-refresh.png" alt-text="Refresh discovery and assessment tool data.":::
 
 1. Select the number next to Azure App Service assessment.
 
-    :::image type="content" source="./media/tutorial-assess-webapps/assessment-webapps-navigation.png" alt-text="Navigation to created assessment":::
+    :::image type="content" source="./media/tutorial-assess-webapps/assessment-webapps-navigation.png" alt-text="Navigation to created assessment.":::
 
 1. Select the assessment name, which you wish to view.
 
@@ -83,7 +83,7 @@ Run an assessment as follows:
 1. **Servers, databases and web apps** > **Azure Migrate: Discovery and assessment**, select the number next to the Azure App Service assessment.
 2. Select the assessment name, which you wish to view.
 
-  :::image type="content" source="./media/tutorial-assess-webapps/assessment-webapps-summary.png" alt-text="App Service assessment overview":::
+  :::image type="content" source="./media/tutorial-assess-webapps/assessment-webapps-summary.png" alt-text="App Service assessment overview.":::
 
 3. Review the assessment summary. You can also edit the assessment properties or recalculate the assessment.
 
@@ -100,7 +100,7 @@ An [App Service plan](../app-service/overview-hosting-plans.md) carries a [charg
 
 1. Select **Azure App Service readiness**.
 
-    :::image type="content" source="./media/tutorial-assess-webapps/assessment-webapps-readiness.png" alt-text="Azure App Service readiness details":::
+    :::image type="content" source="./media/tutorial-assess-webapps/assessment-webapps-readiness.png" alt-text="Azure App Service readiness details.":::
 
 1. Review Azure App Service readiness column in table, for the assessed web apps:
     1. If there are no compatibility issues found, the readiness is marked as **Ready** for the target deployment type.

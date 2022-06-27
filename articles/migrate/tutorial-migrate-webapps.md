@@ -20,7 +20,7 @@ In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Migrate ASP.NET web apps at-scale to [Azure App Service](https://azure.microsoft.com/services/app-service/) using integrated flow in Azure Migrate.
-> * Change migration decision for web apps.
+> * Change migration plans for web apps.
 > * Change App Service plan for web apps.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/free-trial/) before you begin.
@@ -30,8 +30,8 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 Before you begin this tutorial, you should:
 
 1. [Complete the first tutorial](./tutorial-discover-vmware.md) to discover web apps running in your VMware environment.
-2. [Complete the second tutorial](./tutorial-assess-webapps.md) to assess web apps to determine their readiness status for migration to [Azure App Service](https://azure.microsoft.com/services/app-service/). It's mandatory to assess web apps in order to migrate them using the integrated flow.
-3. Go to the already created project or [create a new project](./create-manage-projects.md)
+2. [Complete the second tutorial](./tutorial-assess-webapps.md) to assess web apps to determine their readiness status for migration to [Azure App Service](https://azure.microsoft.com/services/app-service/). It's necessary to assess web apps in order to migrate them using the integrated flow.
+3. Go to the existing project or [create a new project](./create-manage-projects.md).
 
 ## Migrate web apps
 
@@ -44,6 +44,7 @@ Once the web apps are assessed, you can migrate them using the integrated migrat
  - You need Windows PowerShell 4.0 installed on servers hosting the IIS web servers from which you plan to migrate ASP.NET web apps to Azure App Services. 
   - Currently, the migration flow doesn't support VNet integrated scenarios.
 
+To migrate the web apps, perform these steps:
 1. In the Azure Migrate project > **Servers, databases and web apps** > **Migration tools** > **Migration and modernization**, select **Replicate**.
 
     :::image type="content" source="./media/tutorial-migrate-webapps/select-replicate.png" alt-text="Screenshot of the Replicate option selected.":::
@@ -57,34 +58,34 @@ Once the web apps are assessed, you can migrate them using the integrated migrat
 
 1. In **Basics**, under **Project details**, select the **Subscription**, **Resource Group**, and **Region** where the web apps will be hosted, from the drop-down. Under **Storage**, select the **Storage account** for an intermediate storage location during the migration process. Select **Next: Web Apps >**.
 
-   :::image type="content" source="./media/tutorial-migrate-webapps/web-apps-basics.png" alt-text="Screenshot of Azure Migrate Web Apps Basics screen":::
+   :::image type="content" source="./media/tutorial-migrate-webapps/web-apps-basics.png" alt-text="Screenshot of Azure Migrate Web Apps Basics screen.":::
 
 1. In the **Web Apps** section, review the web apps you'd like to migrate.
 
-   :::image type="content" source="./media/tutorial-migrate-webapps/select-web-apps.png" alt-text="Screenshot of Azure Migrate Web Apps screen":::
+   :::image type="content" source="./media/tutorial-migrate-webapps/select-web-apps.png" alt-text="Screenshot of Azure Migrate Web Apps screen.":::
 
    > [!NOTE]
-   > Apps with the Ready status are tagged for migration by default. Apps tagged as *Ready with conditions* can be migrated by updating **Will migrate?** to **Yes**.
+   > Apps with the Ready status are tagged for migration by default. Apps tagged as *Ready with conditions* can be migrated by selecting **Yes** in **Will migrate?**.
 
   1. Select the web apps to migrate and select **Edit**.
 
-   :::image type="content" source="./media/tutorial-migrate-webapps/web-apps-edit-multiple.png" alt-text="Screenshot of Azure Migrate selected web apps":::
+   :::image type="content" source="./media/tutorial-migrate-webapps/web-apps-edit-multiple.png" alt-text="Screenshot of Azure Migrate selected web apps.":::
 
   1. In **Edit apps**, under **Will migrate?**, select **Yes**, and select the **App Service Plan** and **Pricing tier** of where the apps will be hosted. Next, select the **Ok** button.
 
    > [!NOTE]
-   > Up to five App Service Plans can be migrated at a time.
+   > Up to five App Service plans can be migrated at a time.
 
-   :::image type="content" source="./media/tutorial-migrate-webapps/edit-multiple-details.png" alt-text="Screenshot of Azure Migrate Edit apps":::
+   :::image type="content" source="./media/tutorial-migrate-webapps/edit-multiple-details.png" alt-text="Screenshot of Azure Migrate Edit apps.":::
 
-    Select the **Next: App Service Plans >** button.
+   Select the **Next: App Service Plans >** button.
 1. In the **App Service Plans** section, verify the App Service Plan details.
 
      > [!NOTE]
-     > Depending on your web app requirements, you may wish to edit the number of apps in an App Service Plan or update the pricing tier. Follow these steps to update these details:
+     > Depending on your web app requirements, you can edit the number of apps in an App Service plan or update the pricing tier. Follow these steps to update these details:
      > 1. Select the **Edit** button.
      > 1. In **Edit plan**, select the **Target name** and **Pricing tier**, then select **Ok**.
-     >    :::image type="content" source="./media/tutorial-migrate-webapps/app-service-plan-edit-details.png" alt-text="Screenshot of App Service Plan Edit details":::
+     >    :::image type="content" source="./media/tutorial-migrate-webapps/app-service-plan-edit-details.png" alt-text="Screenshot of App Service Plan Edit details.":::
 
 1. Once the App Service Plans are verified, select **Next: Review + create**.
 1. Azure Migrate will now validate the migration settings. Validation may take a few minutes to run. Once complete, review the details and select **Migrate**. 
@@ -94,31 +95,22 @@ Once the web apps are assessed, you can migrate them using the integrated migrat
 
 Once the migration is initiated, you can track the status using the Azure Resource Manager Deployment Experience as shown below:
 
-   :::image type="content" source="./media/tutorial-migrate-webapps/web-apps-deployments.png" alt-text="Screenshot of Azure Migrate deployment":::
+   :::image type="content" source="./media/tutorial-migrate-webapps/web-apps-deployments.png" alt-text="Screenshot of Azure Migrate deployment.":::
 
 ## Post-migration steps
 
 Once you have successfully completed migration, you may explore the following steps based on web app specific requirement(s): 
 
-- Map existing custom DNS name - Azure App Service 
-- Secure a custom DNS with a TLS/SSL binding - Azure App Service 
-- Securely connect to Azure resources - Azure App Service 
-- Deployment best practices - Azure App Service 
-- Security recommendations - Azure App Service 
-- Networking features - Azure App Service 
-- Monitor App Service with Azure Monitor - Azure App Service 
-- Configure Azure AD authentication - Azure App Service 
+- [Map existing custom DNS name](/azure/app-service/app-service-web-tutorial-custom-domain.md).
+- [Secure a custom DNS with a TLS/SSL binding](/azure/app-service/configure-ssl-bindings.md).
+- [Securely connect to Azure resources](/azure/app-service/tutorial-connect-overview)
+- [Deployment best practices](/azure/app-service/deploy-best-practices).
+- [Security recommendations](../app-service/security-recommendations).
+- [Networking features](/azure/app-service/networking-features).
+- [Monitor App Service with Azure Monitor](/azure/app-service/monitor-app-service).
+- [Configure Azure AD authentication](/azure/app-service/configure-authentication-provider-aad).
+
 
 ## Next steps
 
-- Investigate the [cloud migration journey](/azure/architecture/cloud-adoption/getting-started/migrate) in the Azure Cloud Adoption Framework.
-- Once you have successfully completed migration, you may explore the following steps based on web app specific requirement(s):
-
-  - [Map existing custom DNS name](../app-service/app-service-web-tutorial-custom-domain.md).
-  - [Secure a custom DNS with a TLS/SSL binding](../app-service/configure-ssl-bindings.md).
-  - [Securely connect to Azure resources](../app-service/tutorial-connect-overview)
-  - [Deployment best practices](../app-service/deploy-best-practices).
-  - [Security recommendations](../app-service/security-recommendations).
-  - [Networking features](../app-service/networking-features).
-  - [Monitor App Service with Azure Monitor](../app-service/monitor-app-service).
-  - [Configure Azure AD authentication](../app-service/configure-authentication-provider-aad).
+Investigate the [cloud migration journey](/azure/architecture/cloud-adoption/getting-started/migrate) in the Azure Cloud Adoption Framework.
