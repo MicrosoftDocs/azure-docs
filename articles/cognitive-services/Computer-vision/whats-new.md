@@ -20,7 +20,7 @@ Learn what's new in the service. These items may be release notes, videos, blog 
 
 ### Computer Vision 4.0 public preview
 
-Version 4.0 of Computer Vision has been released in public preview, offering an updated version of the Analyze Image API. The new API uses improved AI models for image captioning and tagging. It also includes OCR functionality, now available through the same Analyze Image call. This also uses a new model, improved from the standard OCR offering of Version 3.2.
+Version 4.0 of Computer Vision has been released in public preview for certain regions, offering an updated version of the Analyze Image API. The new API uses improved AI models for image captioning and tagging. It also includes OCR functionality, now available through the same Analyze Image call. This also uses a new model, improved from the standard OCR offering of Version 3.2. If your resource belongs to one of the enabled regions, we recommend you use version 4.0 going forward.
 
 ## May 2022
 
