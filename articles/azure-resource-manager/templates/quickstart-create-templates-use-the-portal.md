@@ -2,7 +2,7 @@
 title: Deploy template - Azure portal
 description: Learn how to create your first Azure Resource Manager template (ARM template) using the Azure portal. You also learn how to deploy it.
 author: mumian
-ms.date: 03/24/2022
+ms.date: 06/27/2022
 ms.topic: quickstart
 ms.author: jgao
 ms.custom: contperf-fy21q3, mode-ui
@@ -23,7 +23,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 ## Generate a template using the portal
 
-If you're new to Azure deployment, you may find it challenging to create an ARM template. To get around this challenge, you can configure your deployment in the Azure portal and download the corresponding ARM template. You save the template and reuse it in the future.
+Although using Visual Studio Code is the recommended option, if you're new to Azure deployment, it may be more challenging to create an ARM template (especially in the beginning). To get around this, you can start by generating a template using the Azure portal option. You will be able to configure your deployment in the Azure portal and download the corresponding ARM template. This template can be saved and reused in the future, and will serve as a good starting point.
 
 Many experienced template developers use this method to generate templates when they try to deploy Azure resources that they aren't familiar with. For more information about exporting templates by using the portal, see [Export resource groups to templates](../management/manage-resource-groups-portal.md#export-resource-groups-to-templates). The other way to find a working template is from [Azure Quickstart templates](https://azure.microsoft.com/resources/templates/).
 
