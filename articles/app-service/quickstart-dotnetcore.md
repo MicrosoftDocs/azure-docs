@@ -860,6 +860,54 @@ You'll see the updated ASP.NET Framework 4.8 web app displayed in the page.
     
 :::zone-end
 
+:::zone target="docs" pivot="development-environment-azure-portal"
+
+
+1. Browse to your GitHub fork of the sample code.
+
+1. On your repo page, press `.` to start Visual Studio code within your browser.
+
+    > [!NOTE]
+    > The URL will change from GitHub.com to GitHub.dev. This feature only works with repos that have files. This does not work on empty repos.
+
+    ![Screenshot of forked GitHub repo with an annotation to Press the period key.](media/quickstart-dotnetcore/github-forked-repo-press-period.png)
+
+1. Open *Index.cshtml*.
+1. Replace the first `<div>` element with the following code:
+
+    ```razor
+    <div class="jumbotron">
+        <h1>.NET 💜 Azure</h1>
+        <p class="lead">Example .NET app to Azure App Service.</p>
+    </div>
+    ```
+
+   Save your changes.
+
+1. From the **Source Control** menu, select the **Stage Changes** button to stage the change.
+
+    ![Screenshot of Visual Studio Code in the browser, highlighting the Source Control navigation in the sidebar, then highlighting the Stage Changes button in the Source Control panel.](media/quickstart-dotnetcore/visual-studio-code-in-browser-stage-changes.png)
+
+1. Enter a commit message such as `We love Azure`. Then, select **Commit and Push**.
+
+    ![Screenshot of Visual Studio Code in the browser, Source Control panel with a commit message of 'We love Azure' and the Commit and Push button highlighted ](media/quickstart-dotnetcore/visual-studio-code-in-browser-commit-push.png)
+
+1. Once deployment has completed, return to the browser window that opened during the **Browse to the app** step, and refresh the page.
+    
+    ### [.NET 6.0](#tab/net60)
+    
+    You'll see the updated ASP.NET Core 6.0 web app displayed in the page.
+    
+    :::image type="content" source="media/quickstart-dotnet/updated-Azure-webapp-net.png" lightbox="media/quickstart-dotnet/updated-Azure-webapp-net.png" border="true" alt-text="Screenshot of the CLI - Updated ASP.NET Core 6.0 web app in Azure.":::
+    
+    ### [.NET Framework 4.8](#tab/netframework48)
+    
+    You'll see the updated ASP.NET Framework 4.8 web app displayed in the page.
+    
+    :::image type="content" source="media/quickstart-dotnet/updated-Azure-webapp-net48.png" lightbox="media/quickstart-dotnet/updated-Azure-webapp-net48.png" border="true" alt-text="Screenshot of the CLI - Updated ASP.NET Framework 4.8 web app in Azure.":::
+    
+:::zone-end
+
 ## Manage the Azure app
 
 To manage your web app, go to the [Azure portal](https://portal.azure.com), and search for and select **App Services**.
