@@ -183,6 +183,10 @@ Returns information about the Azure environment used for deployment.
 
 In Bicep, use the [environment](../bicep/bicep-functions-deployment.md#environment) function.
 
+### Remarks
+
+To see a list of registered environments for your account, use [az cloud list](/cli/azure/cloud#az-cloud-list) or [Get-AzEnvironment](/powershell/module/az.accounts/get-azenvironment).
+
 ### Return value
 
 This function returns properties for the current Azure environment. The following example shows the properties for global Azure. Sovereign clouds may return slightly different properties.
