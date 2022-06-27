@@ -86,7 +86,7 @@ Replace MGMT with your environment as necessary.
 ```bash
 echo '[{"resourceAppId":"00000003-0000-0000-c000-000000000000","resourceAccess":[{"id":"e1fe6dd8-ba31-4d61-89e7-88639da4683d","type":"Scope"}]}]' >> manifest.json 
 
-TF_VAR_app_registration_app_id=$(az ad app create --display-name MGMT-webapp-registration --available-to-other-tenants false --required-resource-access @manifest.json --query "appId" | tr -d '"')
+TF_VAR_app_registration_app_id=$(az ad app create --display-name MGMT-webapp-registration --enable-id-token-issuance true --sign-in-audience AzureADMyOrg --required-resource-access @manifest.json --query "appId" | tr -d '"')
 
 echo $TF_VAR_app_registration_app_id
 
@@ -99,7 +99,7 @@ Replace MGMT with your environment as necessary.
 ```powershell
 Add-Content -Path manifest.json -Value '[{"resourceAppId":"00000003-0000-0000-c000-000000000000","resourceAccess":[{"id":"e1fe6dd8-ba31-4d61-89e7-88639da4683d","type":"Scope"}]}]'
 
-$TF_VAR_app_registration_app_id=(az ad app create --display-name MGMT-webapp-registration --available-to-other-tenants false --required-resource-access ./manifest.json --query "appId").Replace('"',"")
+$TF_VAR_app_registration_app_id=(az ad app create --display-name MGMT-webapp-registration --enable-id-token-issuance true --sign-in-audience AzureADMyOrg --required-resource-access ./manifest.json --query "appId").Replace('"',"")
 
 echo $TF_VAR_app_registration_app_id
 
@@ -406,13 +406,13 @@ Before running the Deploy web app pipeline, first update the reply-url values fo
 
 ```bash
 webapp_url_base=<WEBAPP_URL_BASE>
-az ad app update --id $TF_VAR_app_registration_app_id --homepage https://${webapp_url_base}.azurewebsites.net --reply-urls https://${webapp_url_base}.azurewebsites.net/ https://${webapp_url_base}.azurewebsites.net/.auth/login/aad/callback
+az ad app update --id $TF_VAR_app_registration_app_id --web-home-page-url https://${webapp_url_base}.azurewebsites.net --web-redirect-uris https://${webapp_url_base}.azurewebsites.net/ https://${webapp_url_base}.azurewebsites.net/.auth/login/aad/callback
 ```
 # [Windows](#tab/windows)
 
 ```powershell
 $webapp_url_base="<WEBAPP_URL_BASE>"
-az ad app update --id $TF_VAR_app_registration_app_id --homepage https://${webapp_url_base}.azurewebsites.net --reply-urls https://${webapp_url_base}.azurewebsites.net/ https://${webapp_url_base}.azurewebsites.net/.auth/login/aad/callback
+az ad app update --id $TF_VAR_app_registration_app_id --web-home-page-url https://${webapp_url_base}.azurewebsites.net --web-redirect-uris https://${webapp_url_base}.azurewebsites.net/ https://${webapp_url_base}.azurewebsites.net/.auth/login/aad/callback
 ```
 ---
 After updating the reply-urls, run the pipeline.

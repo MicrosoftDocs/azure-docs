@@ -26,7 +26,8 @@ echo '[{"resourceAppId":"00000003-0000-0000-c000-000000000000","resourceAccess":
 
 TF_VAR_app_registration_app_id=$(az ad app create \
     --display-name MGMT-webapp-registration \
-    --available-to-other-tenants false \
+    --enable-id-token-issuance true \
+    --sign-in-audience AzureADMyOrg \
     --required-resource-access @manifest.json \
     --query "appId" | tr -d '"')
 
@@ -43,6 +44,8 @@ Add-Content -Path manifest.json -Value '[{"resourceAppId":"00000003-0000-0000-c0
 
 $TF_VAR_app_registration_app_id=(az ad app create `
     --display-name $region_code-webapp-registration     `
+    --enable-id-token-issuance true `
+    --sign-in-audience AzureADMyOrg `
     --required-resource-accesses ./manifest.json        `
     --query "appId").Replace('"',"")
 

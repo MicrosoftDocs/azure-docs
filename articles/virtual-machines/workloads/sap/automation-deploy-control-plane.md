@@ -52,8 +52,10 @@ echo '[{"resourceAppId":"00000003-0000-0000-c000-000000000000","resourceAccess":
 region_code=WEEU
 
 export TF_VAR_app_registration_app_id=$(az ad app create \
-    --display-name ${region_code}-webapp-registration    \
-    --required-resource-accesses @manifest.json          \
+    --display-name ${region_code}-webapp-registration \
+    --enable-id-token-issuance true \
+    --sign-in-audience AzureADMyOrg \
+    --required-resource-access @manifest.json \
     --query "appId" | tr -d '"')
 
 export TF_VAR_webapp_client_secret=$(az ad app credential reset \
@@ -74,6 +76,8 @@ $region_code="WEEU"
 
 $env:TF_VAR_app_registration_app_id = (az ad app create `
     --display-name $region_code-webapp-registration     `
+    --enable-id-token-issuance true                     `
+    --sign-in-audience AzureADMyOrg                     `
     --required-resource-accesses ./manifest.json        `
     --query "appId").Replace('"',"")
 
@@ -289,8 +293,8 @@ The following commands will configure the application urls, generate a zip file 
 webapp_url=<webapp_url>
 az ad app update \
     --id $TF_VAR_app_registration_app_id \
-    --homepage ${webapp_url} \
-    --reply-urls ${webapp_url}/ ${webapp_url}/.auth/login/aad/callback
+    --web-home-page-url ${webapp_url} \
+    --web-redirect-uris ${webapp_url}/ ${webapp_url}/.auth/login/aad/callback
 
 ```
 # [Windows](#tab/windows)
@@ -300,8 +304,8 @@ az ad app update \
 $webapp_url="<webapp_url>"
 az ad app update `
     --id $TF_VAR_app_registration_app_id `
-    --homepage $webapp_url `
-    --reply-urls $webapp_url/ $webapp_url/.auth/login/aad/callback
+    --web-home-page-url $webapp_url `
+    --web-redirect-uris $webapp_url/ $webapp_url/.auth/login/aad/callback
 
 ```
 ---
