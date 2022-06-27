@@ -193,7 +193,7 @@ landingContent:
         links:
         - text: Networking architecture design
           url: /architecture/guide/networking/networking-start-here
-      - linkListType: Learn 
+      - linkListType: learn 
         links:
         - text: Architect network infrastructure in Azure
           url: /learn/paths/architect-network-infrastructure/
