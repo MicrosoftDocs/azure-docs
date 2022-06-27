@@ -1,6 +1,6 @@
 ---
 title: Start and stop SAP systems (preview)
-description: Learn how to start or stop an SAP system through the Virtual Instance for SAP (VIS) resource in Azure Center for SAP solutions (ACSS) through the Azure portal.
+description: Learn how to start or stop an SAP system through the Virtual Instance for SAP solutions (VIS) resource in Azure Center for SAP solutions (ACSS) through the Azure portal.
 ms.service: azure-center-sap-solutions
 ms.topic: how-to
 ms.date: 07/01/2022
@@ -12,7 +12,7 @@ author: lauradolan
 
 [!INCLUDE [Preview content notice](./includes/preview.md)]
 
-With *Azure Center for SAP solutions (ACSS)*, you can start and stop your SAP systems through the *Virtual Instance for SAP (VIS)* resource in the Azure portal.
+With *Azure Center for SAP solutions (ACSS)*, you can start and stop your SAP systems through the *Virtual Instance for SAP solutions (VIS)* resource in the Azure portal.
 
 Through the VIS, you can start and stop:
 
@@ -50,11 +50,11 @@ To stop an SAP system in the VIS resource:
 
     :::image type="content" source="media/start-stop-sap-systems/confirm-stop.png" lightbox="media/start-stop-sap-systems/confirm-stop.png" alt-text="Screenshot of the VIS resource menu in the Azure portal, showing the confirmation prompt to stop the VIS resource.":::
 
-    A notification pane then opens with a **Stopping Virtual Instance for SAP solutions** message.
+    A notification pane then opens with a **Stopping Virtual Instance for SAP solutions solutions** message.
 
 1. Wait for the VIS resource's **Status** to change to **Stopping**. 
 
-    A notification pane then opens with a **Stopped Virtual Instance for SAP solutions** message.
+    A notification pane then opens with a **Stopped Virtual Instance for SAP solutions solutions** message.
 
 ## Start SAP system
 
@@ -72,11 +72,11 @@ To start an SAP system in the VIS resource:
 
     :::image type="content" source="media/start-stop-sap-systems/start-button.png" lightbox="media/start-stop-sap-systems/start-button.png" alt-text="Screenshot of the VIS resource menu in the Azure portal, showing the Start button.":::
 
-    A notification pane then opens with a **Starting Virtual Instance for SAP solutions** message. The VIS resource's **Status** also changes to **Starting**.
+    A notification pane then opens with a **Starting Virtual Instance for SAP solutions solutions** message. The VIS resource's **Status** also changes to **Starting**.
 
 1. Wait for the VIS resource's **Status** to change to **Running**. 
 
-    A notification pane then opens with a **Started Virtual Instance for SAP solutions** message.
+    A notification pane then opens with a **Started Virtual Instance for SAP solutions solutions** message.
 
 ## Troubleshooting
 

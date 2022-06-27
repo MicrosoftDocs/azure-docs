@@ -1,6 +1,6 @@
 ---
-title: Use Quality Insights for a Virtual Instance for SAP (preview)
-description: Learn how to use the Quality Insights workbook for a Virtual Instance for SAP (VIS) resource in Azure Center for SAP Solutions (ACSS) through the Azure portal.
+title: Use Quality Insights for a Virtual Instance for SAP solutions (preview)
+description: Learn how to use the Quality Insights workbook for a Virtual Instance for SAP solutions (VIS) resource in Azure Center for SAP Solutions (ACSS) through the Azure portal.
 ms.service: azure-center-sap-solutions
 ms.topic: conceptual
 ms.date: 07/01/2022
@@ -8,11 +8,11 @@ author: lauradolan
 ms.author: ladolan
 ---
 
-# Use Quality Insights for a Virtual Instance for SAP (preview)
+# Use Quality Insights for a Virtual Instance for SAP solutions (preview)
 
 [!INCLUDE [Preview content notice](./includes/preview.md)]
 
-The *Quality Insights* Azure workbook in *Azure Center for SAP solutions (ACSS)* provides insights about the SAP system resources. The feature is part of the monitoring capabilities built in to the *Virtual Instance for SAP (VIS)*. Quality Insights checks that your SAP system uses Azure and SAP best practices for reliability and performance. You can use Quality Insights to get more information about virtual machine (VM) configurations within your SAP system.
+The *Quality Insights* Azure workbook in *Azure Center for SAP solutions (ACSS)* provides insights about the SAP system resources. The feature is part of the monitoring capabilities built in to the *Virtual Instance for SAP solutions (VIS)*. Quality Insights checks that your SAP system uses Azure and SAP best practices for reliability and performance. You can use Quality Insights to get more information about virtual machine (VM) configurations within your SAP system.
 
 ## Prerequisites
 
@@ -31,7 +31,7 @@ To open the Quality Insights workbook:
 
 1. On the sidebar menu for the VIS, under **Monitoring** select **Quality Insights**. 
 
-    :::image type="content" source="media/get-quality-insights-vis/quality-insights.png" lightbox="media/get-quality-insights-vis/quality-insights.png" alt-text="Screenshot of Azure portal, showing the Quality Insights workbook page selected in the sidebar menu for a virtual instance for SAP.":::
+    :::image type="content" source="media/get-quality-insights-vis/quality-insights.png" lightbox="media/get-quality-insights-vis/quality-insights.png" alt-text="Screenshot of Azure portal, showing the Quality Insights workbook page selected in the sidebar menu for a virtual Instance for SAP solutions.":::
 
 There are multiple sections in the workbook:
 
@@ -62,7 +62,7 @@ You can toggle **Show Help** to see more information about the table data.
 
 Select a VM name to see its overview page, and change settings like **Boot Diagnostic**.
 
-:::image type="content" source="media/get-quality-insights-vis/vm-compute-list.png" lightbox="media/get-quality-insights-vis/vm-compute-list.png" alt-text="Screenshot of Compute List tab, showing a table of details about the virtual machines inside of a virtual instance for SAP.":::
+:::image type="content" source="media/get-quality-insights-vis/vm-compute-list.png" lightbox="media/get-quality-insights-vis/vm-compute-list.png" alt-text="Screenshot of Compute List tab, showing a table of details about the virtual machines inside of a virtual Instance for SAP solutions.":::
 
 ### Compute Extensions
 

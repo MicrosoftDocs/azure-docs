@@ -14,7 +14,7 @@ author: lauradolan
 
 You can register an existing SAP system with *Azure Center for SAP solutions (ACSS)* to use its visualization, management and monitoring capabilities with your system. After you register your SAP system with ACSS, you can:
 
-- View and track the SAP system as an Azure resource, called the *Virtual Instance for SAP (VIS)*.
+- View and track the SAP system as an Azure resource, called the *Virtual Instance for SAP solutions (VIS)*.
 - Get recommendations for your SAP infrastructure, based on quality checks that evaluate best practices for SAP on Azure.
 - Get health and status information about your SAP system.
 - Start and Stop SAP application tier.
@@ -186,4 +186,4 @@ If your registration fails:
 ## Next steps
 
 - [Monitor SAP system from Azure portal](monitor-portal.md)
-- [Configure a Virtual Instance for SAP](configure-virtual-instance.md)
+- [Configure a Virtual Instance for SAP solutions](configure-virtual-instance.md)

@@ -85,7 +85,7 @@ For ASCS and application server instances, the following color-coding applies:
 ## Check health and status
 
 > [!NOTE]
-> After creating your virtual instance for SAP (VIS), you might need to wait 2-5 minutes to see health and status information.
+> After creating your virtual Instance for SAP solutions (VIS), you might need to wait 2-5 minutes to see health and status information.
 > 
 > The average latency to get health and status information is about 30 seconds.
 
