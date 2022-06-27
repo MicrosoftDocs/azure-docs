@@ -4,7 +4,7 @@ description: This article describes how to use the Azure SDK for Node.js to mana
 ms.service: data-lake-analytics
 ms.reviewer: jasonh
 ms.topic: how-to
-ms.date: 12/05/2016
+ms.date: 06/27/2022
 ms.custom: devx-track-js
 ---
 # Manage Azure Data Lake Analytics using Azure SDK for Node.js
