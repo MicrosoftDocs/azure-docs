@@ -29,6 +29,7 @@ Data Estate Insights is billed on two dimensions:
     > On the [pricing page](https://azure.microsoft.com/pricing/details/purview/), you can find details for report generation pricing under Data Map Enrichment.
     > :::image type="content" source="media/concept-guidelines-pricing/data-map-enrichment.png" alt-text="Screenshot of the pricing page headers, showing Data Map Enrichment selected." :::
 - **Report consumption** - This incorporates access of the report features (currently served through the UX). On the [pricing page](https://azure.microsoft.com/pricing/details/purview/), you can find details for report generation pricing under Data Estate Insights.
+    :::image type="content" source="media/concept-guidelines-pricing/data-estate-insights.png" alt-text="Screenshot of the pricing page headers, showing Data Estate Insights selected." :::
 
 > [!IMPORTANT]
 > The Data Estate Insights application is **on** by default when you create a Microsoft Purview account. This means, “State” is on and “Refresh Frequency” is set to automatic.
