@@ -8,13 +8,13 @@ ms.topic: how-to
 ms.date: 06/27/2022
 ---
 
-# Cognitive Services autoscale Feature
+# Cognitive Services Autoscale Feature
 
-This article provides guidance for how customers can access higher rate limits on their Cognitive Service resources.
+This article provides guidance on how to access higher rate limits on Azure Cognitive Service resources.
 
 ## Overview
 
-Each Cognitive Services resource has a pre-configured static call rate (transactions per second) which limits the number of concurrent calls that customers can make to the backend service in a given time frame. The autoscale feature will automatically increase/decrease a customer's resource's rate limits based on near-real-time resource usage metrics and backend service capacity metrics. This feature ensures that our customers can use their resources efficiently.
+Each Azure Cognitive Service resource has a pre-configured static call rate (transactions per second) which limits the number of concurrent calls that can be made to the backend service in a given time frame. The autoscale feature will automatically increase/decrease a user's resource's rate limits based on near-real-time resource usage metrics and backend service capacity metrics. 
 
 ## Get started with the autoscale feature
 
