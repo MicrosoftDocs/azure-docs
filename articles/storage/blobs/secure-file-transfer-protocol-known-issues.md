@@ -93,7 +93,7 @@ For performance issues and considerations, see [SSH File Transfer Protocol (SFTP
 
 - FTPS and FTP aren't supported.
   
-- TLS/SSL are not related to SFTP.
+- TLS and SSL are not related to SFTP.
 
 ## Troubleshooting
 
