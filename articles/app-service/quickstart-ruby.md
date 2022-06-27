@@ -153,7 +153,7 @@ This quickstart shows how to deploy a Ruby on Rails app to App Service on Linux 
     az webapp config appsettings set --name <app-name> --resource-group myResourceGroup --settings DEPLOYMENT_BRANCH='main'
     ```
 
-1. Back in the local terminal window, add an Azure remote to your local Git repository. Replace *\<deploymentLocalGitUrl-from-create-step>* with the URL of the Git remote that you saved from [Create a web app](#create-a-web-app).
+1. Back in the local terminal window, add an Azure remote to your local Git repository. Replace *\<deploymentLocalGitUrl-from-create-step>* with the `deploymentLocalGitUrl` value from app creation.
 
     ```bash
     git remote add azure <deploymentLocalGitUrl-from-create-step>
