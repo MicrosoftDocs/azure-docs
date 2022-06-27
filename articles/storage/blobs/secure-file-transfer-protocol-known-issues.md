@@ -74,6 +74,8 @@ The following clients are known to be incompatible with SFTP for Azure Blob Stor
 ## Security
 
 - Host keys are published [here](secure-file-transfer-protocol-host-keys.md). During the public preview, host keys may rotate frequently.
+  
+- RSA keys must be minimum 2048 bits in length.
 
 ## Integrations
 
