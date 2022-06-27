@@ -141,23 +141,31 @@ This quickstart shows how to deploy a Ruby on Rails app to App Service on Linux 
     }
     </pre>
 
-    You've created an empty new web app, with git deployment enabled.
+    You've created an empty new web app, with Git deployment enabled.
 
     > [!NOTE]
     > The URL of the Git remote is shown in the `deploymentLocalGitUrl` property, with the format `https://<username>@<app-name>.scm.azurewebsites.net/<app-name>.git`. Save this URL as you need it later.
     >
 
-1. Browse to the app to see your newly created web app with built-in image. Replace _&lt;app-name>_ with your web app name.
+1. Since you're deploying the `main` branch, you need to set the default deployment branch for your App Service app to `main` (see [Change deployment branch](../articles/app-service/deploy-local-git.md#change-deployment-branch)). In the Cloud Shell, set the `DEPLOYMENT_BRANCH` app setting with the [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings#az-webapp-config-appsettings-set) command. 
 
-    ```bash
-    http://<app_name>.azurewebsites.net
+    ```azurecli-interactive
+    az webapp config appsettings set --name <app-name> --resource-group myResourceGroup --settings DEPLOYMENT_BRANCH='main'
     ```
 
-    Here is what your new web app should look like:
+1. Back in the local terminal window, add an Azure remote to your local Git repository. Replace *\<deploymentLocalGitUrl-from-create-step>* with the `deploymentLocalGitUrl` value from app creation.
 
-    ![Splash page]media/quickstart-ruby/splash-page.png)
+    ```bash
+    git remote add azure <deploymentLocalGitUrl-from-create-step>
+    ```
 
-[!INCLUDE [Push to Azure](../../includes/app-service-web-git-push-to-azure-no-h.md)]
+1. Push to the Azure remote to deploy your app with the following command. When Git Credential Manager prompts you for credentials, make sure you enter the credentials you created in **Configure a deployment user**, not the credentials you use to sign in to the Azure portal.
+
+    ```bash
+    git push azure main
+    ```
+
+    This command may take a few minutes to run. While running, it displays information similar to the following example:
 
    <pre>
    remote: Using turbolinks 5.2.0
@@ -182,8 +190,6 @@ This quickstart shows how to deploy a Ruby on Rails app to App Service on Linux 
 http://<app-name>.azurewebsites.net
 ```
 
-![updated web app]media/quickstart-ruby/hello-world-configured.png)
-
 > [!NOTE]
 > While the app is restarting, you may observe the HTTP status code `Error 503 Server unavailable` in the browser, or the `Hey, Ruby developers!` default page. It may take a few minutes for the app to fully restart.
 >
@@ -201,13 +207,14 @@ http://<app-name>.azurewebsites.net
     ![Screenshot of the App Services page in the Azure portal. The Create button in the action bar is highlighted.](media/quickstart-ruby/azure-portal-create-app-service.png)
 
 1. Fill out the **Create Web App** page as follows.
-  - **Resource Group**: Create a resource group named _myResourceGroup_.
-  - **Name**: Type a globally unique name for your web app. 
-  - **Publish**: Select _Code_.
-  - **Runtime stack**: Select _Ruby 2.7_. 
-  - **Operating system**: Select _Linux_.
-  - **Region**: Select an Azure region close to you.
-  - **App Service Plan**: Create an app service plan named _myAppServicePlan_.
+    - **Resource Group**: Create a resource group named _myResourceGroup_.
+    - **Name**: Type a globally unique name for your web app. 
+    - **Publish**: Select _Code_.
+    - **Runtime stack**: Select _Ruby 2.7_. 
+    - **Operating system**: Select _Linux_.
+    - **Region**: Select an Azure region close to you.
+    - **App Service Plan**: Create an app service plan named _myAppServicePlan_.
+
 1.  To change to the Free tier, next to **Sku and size**, select **Change size**. 
    
 1.  In the Spec Picker, select **Dev/Test** tab, select **F1**, and select the **Apply** button at the bottom of the page.
@@ -296,7 +303,7 @@ The Ruby sample code is running in an Azure App Service Linux web app.
     > [!NOTE]
     > The URL will change from GitHub.com to GitHub.dev. This feature only works with repos that have files. This does not work on empty repos.
 
-    ![Screenshot of forked GitHub repo with an annotation to Press the period key.](medstart-ruby/github-forked-repo-press-period.png)
+    ![Screenshot of forked GitHub repo with an annotation to Press the period key.](media/quickstart-ruby/github-forked-repo-press-period.png)
 
 1. Navigate to **app/controllers/application_controller.rb**.
 
