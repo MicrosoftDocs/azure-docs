@@ -496,7 +496,7 @@ Array of JSON objects that represent device objects, or the following failure me
 |**authorized**  |Boolean. Defines whether the device is defined as an engineering station or not: <br><br>- `true`: Device is an engineering station <br>- `false`: Device is not an engineering station. | | |
 |**scanner** |Boolean. Defines whether the device is authorized or not: <br><br>- `true`: Device is authorized <br>- `false`: Device is not authorized. | | |
 | <a name="protocol-names"></a>**protocols** |Object that contains the device's protocol details. |Nullable | For more information, see  |
-|**firmware** |Object TBD HADAR TO SEND | | |
+|<a name="firmware"></a>**firmware** | JSON array of a `firmware` object that defies the device's firmware. |Not nullable | For more information, see [Supported firmware fields](#supported-firmware-fields).|
 |**hasDynamicAddress** | Boolean. Defines whether the device has a dynamic address or not. <br><br>- `true`: Device has a dynamic address <br>- `false`: Device does not have a dynamic address |Not nullable|
 
 
@@ -638,6 +638,8 @@ This section lists the supported values for the [type](#type) response field.
 
 ### Supported fields for  the `protocols` object and protocol `name` values
 
+This section lists the supported fields for the [protocols](#protocols) object in the `protocols` response field.
+
 | Name | Type | Nullable / Not nullable | List of values |
 |--|--|--|--|
 | **id** | Numeric. Defines the protocol's internal ID. |  Not nullable | - |
@@ -733,9 +735,9 @@ The following values are supported as [protocol names](#protocol-names) out-of-t
 
 
 
-#### Supported firmware values
+#### Supported firmware fields
+This section lists the supported fields for the [firware](#operatingsystem) object in the `firmware` response field.
 
-firmware is a not nullable json array of the following structure:
 
 | Name | Type | Nullable / Not nullable | List of values |
 |--|--|--|--|
