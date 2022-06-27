@@ -102,15 +102,15 @@ Configuring the publisher domain has an impact on what users see on the app cons
 
 The following table describes the behavior for applications created before May 21, 2019.
 
-![Consent prompt for apps created before May 21, 2019](./media/howto-configure-publisher-domain/old-app-behavior-table.png)
+![Table that shows consent prompt behavior for apps created before May 21, 2019.](./media/howto-configure-publisher-domain/old-app-behavior-table.png)
 
 The behavior for applications created between May 21, 2019 and November 30, 2020 will depend on the publisher domain and the type of application. The following table describes what is shown on the consent prompt with the different combinations of configurations.
 
-![Consent prompt for apps created betweeb May 21, 2019 and Nov 30, 2020](./media/howto-configure-publisher-domain/new-app-behavior-table.png)
+![Table that shows consent prompt behavior for apps created betweeb May 21, 2019 and Nov 30, 2020.](./media/howto-configure-publisher-domain/new-app-behavior-table.png)
 
 For multi-tenant applications created after November 30, 2020, only publisher verification status is surfaced in the consent prompt. The following table describes what is shown on the consent prompt depending on whether an app is verified or not. Consent prompt for single tenant applications will remain the same as above. 
 
-![Consent prompt for apps created after Nov 30, 2020](./media/howto-configure-publisher-domain/new-app-behavior-publisher-verification-table.png)
+![Table that shows consent prompt behavior for apps created after Nov 30, 2020.](./media/howto-configure-publisher-domain/new-app-behavior-publisher-verification-table.png)
 
 ## Implications on redirect URIs
 
