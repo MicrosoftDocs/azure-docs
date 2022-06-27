@@ -48,8 +48,7 @@ The system information above information can also be read from the Azure portal.
 
 On Azure portal pages, check the Usage and Monitoring tabs for counts and metrics. Commands on the left-navigation provide access to configuration and data exploration pages.
 
-  ![Azure Monitor integration in a search service](./media/search-monitor-usage/azure-monitor-search.png
- "Azure Monitor integration in a search service")
+  ![Azure Monitor integration in a search service](./media/search-monitor-usage/azure-monitor-search.png "Azure Monitor integration in a search service")
 
 > [!NOTE]
 > Cognitive Search does not monitor individual user access to search data (sometimes referred to as document-level or row-level access). Indexing and query requests originate from a client application that presents either an admin or query API key on the request.
