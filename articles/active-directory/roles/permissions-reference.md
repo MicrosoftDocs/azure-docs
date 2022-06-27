@@ -2105,6 +2105,7 @@ Users with this role can create users, and manage all aspects of users with some
 | Manage licenses<br/>Manage all user properties except User Principal Name | Applies to all users, including all admins |
 | Delete and restore<br/>Disable and enable<br/>Manage all user properties including User Principal Name<br/>Update (FIDO) device keys | Applies to users who are non-admins or in any of the following roles:<ul><li>Helpdesk Administrator</li><li>User with no role</li><li>User Administrator</li></ul> |
 | Invalidate refresh Tokens<br/>Reset password | For a list of the roles that a User Administrator can reset passwords for and invalidate refresh tokens, see [Who can reset passwords](#who-can-reset-passwords). |
+| Manage sensitive attributes | For a list of the roles that a User Administrator can manage sensitive attributes for, see [Who can manage sensitive attributes](#who-can-manage-sensitive-attributes). |
 
 > [!IMPORTANT]
 > Users with this role can change passwords for people who may have access to sensitive or private information or critical configuration inside and outside of Azure Active Directory. Changing the password of a user may mean the ability to assume that user's identity and permissions. For example:
@@ -2316,11 +2317,11 @@ Usage Summary Reports Reader | &nbsp; | :heavy_check_mark: | :heavy_check_mark: 
 Some administrators can read or update the following sensitive attributes for some users:
 
 - accountEnabled
+- businessPhones
 - mobilePhone
 - onPremisesImmutableId
 - otherMails
 - passwordProfile
-- businessPhones
 - userPrincipalName
 
 In the following table, the columns list the roles that can read or update the sensitive attributes. The rows list the roles for which their sensitive attributes can be read or updated.
