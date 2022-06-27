@@ -22,21 +22,27 @@ highlightedContent:
     - title: Learn about the Microsoft Entra family of multicloud identity and access solutions
       itemType: whats-new
       url: /entra/
-
     - title: Build a Zero Trust Foundation
       itemType: concept
       url: ./fundamentals/zero-trust.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
-
-    - title: Begin your security journey
-      itemType: get-started
-      url: ./journey/index.yml
-
-    - title: Find security services for your business needs
-      itemType: overview
-      url: ./fundamentals/end-to-end.md
-    - title: Use best practices and recommendations to secure your cloud deployments
+    - title: Backup and restore plan to protect against ransomware
       itemType: concept
-      url: ./benchmarks/introduction.md
+      url: ./fundamentals/backup-plan-to-protect-against-ransomware.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+    - title: Protect your multicloud enviroment with unified security management and advanced threat protection
+      itemType: concept
+      url: ../defender-for-cloud/multicloud.yml
+    - title: Understand security coverage by the MITRE ATT&CK framework
+      itemType: how-to-guide
+      url: ../sentinel/mitre-coverage.md
+    - title: Combine SIEM and XDR to defend against modern attacks
+      itemType: overview
+      url: https://www.microsoft.com/security/business/threat-protection
+    - title: Sunset for SHA-1 Online Certificate Standard Protocol signing
+      itemType: whats-new
+      url: ./fundamentals/ocsp-sha-1-sunset.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+    - title: Use watchlists in Microsoft Sentinel
+      itemType: concept
+      url: ../sentinel/watchlists.md
 
 conceptualContent:
   items:
