@@ -57,7 +57,7 @@ For detailed instructions on how to send Azure Digital Twins data to Azure Maps,
 
 ### Data history
 
-To send twin data to [Azure Data Explorer](/azure/data-explorer/data-explorer-overview), set up a [data history (preview) connection](concepts-data-history.md) that automatically historizes digital twin property updates from your Azure Digital Twins instance to an Azure Data Explorer cluster. The data history connection requires an [event hub](../event-hubs/event-hubs-about.md), but doesn't require an explicit endpoint.
+To send twin data to [Azure Data Explorer](/azure/data-explorer/data-explorer-overview), set up a [data history connection](concepts-data-history.md) that automatically historizes digital twin property updates from your Azure Digital Twins instance to an Azure Data Explorer cluster. The data history connection requires an [event hub](../event-hubs/event-hubs-about.md), but doesn't require an explicit endpoint.
 
 Once the data has been historized, you can query this data in Azure Data Explorer using the [Azure Digital Twins query plugin for Azure Data Explorer](concepts-data-explorer-plugin.md).
 

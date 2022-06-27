@@ -1,6 +1,6 @@
 ---
 # Mandatory fields.
-title: Data history (with Azure Data Explorer) (preview)
+title: Data history (with Azure Data Explorer)
 titleSuffix: Azure Digital Twins
 description: Understand data history for Azure Digital Twins.
 author: baanders
@@ -15,9 +15,9 @@ ms.service: digital-twins
 # manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
 
-# Azure Digital Twins data history (with Azure Data Explorer) (preview)
+# Azure Digital Twins data history (with Azure Data Explorer)
 
-**Data history (preview)** is an integration feature of Azure Digital Twins. It allows you to connect an Azure Digital Twins instance to an [Azure Data Explorer](/azure/data-explorer/data-explorer-overview) cluster so that digital twin property updates are automatically historized to Azure Data Explorer.
+**Data history** is an integration feature of Azure Digital Twins. It allows you to connect an Azure Digital Twins instance to an [Azure Data Explorer](/azure/data-explorer/data-explorer-overview) cluster so that digital twin property updates are automatically historized to Azure Data Explorer.
 
 Once twin property values are historized to Azure Data Explorer, you can run joint queries using the [Azure Digital Twins plugin for Azure Data Explorer](concepts-data-explorer-plugin.md) to reason across digital twins, their relationships, and time series data to gain insights into the behavior of modeled environments. You can also use these queries to power operational dashboards, enrich 2D and 3D web applications, and drive immersive augmented/mixed reality experiences to convey the current and historical state of assets, processes, and people modeled in Azure Digital Twins. 
 
@@ -57,7 +57,7 @@ Later, your Azure Digital Twins instance must have the following permission on t
 
 Once all the [required resources](#required-resources-and-data-flow) are set up, you can use the [Azure CLI](/cli/azure/what-is-azure-cli), [Azure portal](https://portal.azure.com), or the [Azure Digital Twins SDK](concepts-apis-sdks.md) to create the data history connection between them. The CLI command is part of the [az iot](/cli/azure/iot?view=azure-cli-latest&preserve-view=true) extension.
 
-For instructions on how to set up a data history connection, see [Use data history with Azure Data Explorer (preview)](how-to-use-data-history.md).
+For instructions on how to set up a data history connection, see [Use data history with Azure Data Explorer](how-to-use-data-history.md).
 
 ## Data schema
 
