@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: overview
-ms.date: 06/06/2022
+ms.date: 06/27/2022
 ms.author: lajanuar
 recommendations: false
 keywords: automated data processing, document processing, automated data entry, forms processing
@@ -18,42 +18,30 @@ keywords: automated data processing, document processing, automated data entry, 
 <!-- markdownlint-disable MD036 -->
 # What is Azure Form Recognizer?
 
-Azure Form Recognizer is a cloud-based [Azure Applied AI Service](../../applied-ai-services/index.yml) that uses machine-learning models to extract key-value pairs, text, and tables from your documents. Form Recognizer analyzes your forms and documents, extracts text and data, maps field relationships as key-value pairs, and returns a structured JSON output. You quickly get accurate results that are tailored to your specific content without excessive manual intervention or extensive data science expertise. Use Form Recognizer to automate your data processing in applications and workflows, enhance data-driven strategies, and enrich document search capabilities.
+Azure Form Recognizer is a cloud-based [Azure Applied AI Service](../../applied-ai-services/index.yml) that analyzes forms and documents, extracts text and data, and maps field relationships as key-value pairs. The result of each analysis is returned in a structured JSON output. You can Use Form Recognizer to automate your data processing in applications and workflows, enhance data-driven strategies, and enrich document search capabilities.
 
 Form Recognizer uses the following models to easily identify, extract, and analyze document data:
 
-**Document analysis models**
-
-* [**Read model**](concept-read.md) | Extract text lines, words, locations, and detected languages from documents and images.
-* [**Layout model**](concept-layout.md) | Extract text, tables, selection marks, and structure information from documents and images.
-* [**General document model**](concept-general-document.md) | Extract key-value pairs, selection marks, and entities from documents.
-
-**Prebuilt models**
-
-* [**W-2 form model**](concept-w2.md) | Extract text and key information from US W2 tax forms.
-* [**Invoice model**](concept-invoice.md) | Extract text, selection marks, tables, key-value pairs, and key information from invoices.
-* [**Receipt model**](concept-receipt.md) | Extract text and key information from receipts.
-* [**ID document model**](concept-id-document.md) | Extract text and key information from driver licenses and international passports.
-* [**Business card model**](concept-business-card.md) | Extract text and key information from business cards.
-
-**Custom models**
-
-* [**Custom model**](concept-custom.md) | Extract and analyze distinct data and use cases from forms and documents specific to your business.
-* [**Composed model**](concept-model-overview.md) | Compose a collection of custom models and assign them to a single model built from your form types.
+| Model type | Model name and modelID |
+|------------|-----------|
+|**Document analysis models**| &#9679; [**Read model**](concept-read.md) **\|** **prebuilt-read** </br>&#9679; [**Layout model**](concept-layout.md) **\|** **prebuilt-layout** </br> &#9679; [**General document model**](concept-general-document.md) **\|** **prebuilt-document** </br> |
+| **Prebuilt models** | &#9679; [**W-2 form model**](concept-w2.md) **\|** **prebuilt-tax.us.w2** </br>&#9679; [**Invoice model**](concept-invoice.md) **\|** **prebuilt-invoice** </br>&#9679; [**Receipt model**](concept-receipt.md) **\|** **prebuilt-receipt** </br>&#9679; [**ID document model**](concept-id-document.md) **\|** **prebuilt-idDocument** </br>&#9679; [**Business card model**](concept-business-card.md) **\|** **prebuilt-businessCard** </br>
+| **Custom models** | &#9679; [**Custom model**](concept-custom.md) **\|** **prebuilt**-{*customModelName*}</br>&#9679; [**Composed model**](concept-model-overview.md) **\|** **prebuilt**-{*composedModelName*} </br>|
+||
 
 ## Which Form Recognizer feature should I use?
 
 This section helps you decide which Form Recognizer v3.0 supported feature you should use for your application:
 
-| What type of document do you want to analyze?| How is the document formatted? | Your best solution |
-| -----------------|-------------------| ----------|
-|<ul><li>**W-2 Form**</li></yl>| Is your W-2 document composed in United States English (en-US) text?|<ul><li>If **Yes**, use the [**W-2 Form**](concept-w2.md) model.<li>If **No**, use the [**Layout**](concept-layout.md) or [**General document (preview)**](concept-general-document.md) model.</li></ul>|
-|<ul><li>**Primarily text content**</li></yl>| Is your document _printed_ in a [supported language](language-support.md#read-layout-and-custom-form-template-model) and are you only interested in text and not tables, selection marks, and the structure?|<ul><li>If **Yes** to text-only extraction, use the [**Read**](concept-read.md) model.<li>If **No**, because you also need structure information, use the [**Layout**](concept-layout.md) model.</li></ul>
-|<ul><li>**General structured document**</li></yl>| Is your document mostly structured and does it contain a few fields and values that may not be covered by the other prebuilt models?|<ul><li>If **Yes**, use the [**General document (preview)**](concept-general-document.md) model.</li><li> If **No**, because the fields and values are complex and highly variable, train and build a [**Custom**](how-to-guides/build-custom-model-v3.md) model.</li></ul>
-|<ul><li>**Invoice**</li></yl>| Is your invoice document composed in a [supported language](language-support.md#invoice-model) text?|<ul><li>If **Yes**, use the [**Invoice**](concept-invoice.md) model.<li>If **No**, use the [**Layout**](concept-layout.md) or [**General document (preview)**](concept-general-document.md) model.</li></ul>
-|<ul><li>**Receipt**</li><li>**Business card**</li></ul>| Is your receipt or business card document composed in English text? | <ul><li>If **Yes**, use the [**Receipt**](concept-receipt.md) or [**Business Card**](concept-business-card.md) model.</li><li>If **No**, use the [**Layout**](concept-layout.md) or [**General document (preview)**](concept-general-document.md) model.</li></ul>|
-|<ul><li>**ID document**</li></ul>| Is your ID document a US driver's license or an international passport?| <ul><li>If **Yes**, use the [**ID document**](concept-id-document.md) model.</li><li>If **No**, use the [**Layout**](concept-layout.md) or [**General document (preview)**](concept-general-document.md) model</li></ul>|
- |<ul><li>**Form** or **Document**</li></ul>| Is your form or document an industry-standard format commonly used in your business or industry?| <ul><li>If **Yes**, use the [**Layout**](concept-layout.md) or [**General document (preview)**](concept-general-document.md).</li><li>If **No**, you can [**Train and build a custom model**](quickstarts/try-sample-label-tool.md#train-a-custom-form-model).
+| What type of document?| What data should be extracted? |How is the document formatted? | Your best solution |
+| -----------------|-------------------| ----------|-------------------|
+|<ul><li>**A U.S. W-2 form.**</li></yl>|Text and key information from US W2 tax forms. |Is your W-2 document composed in United States English (en-US) text?|<ul><li>If **Yes**, use the [**W-2 Form**](concept-w2.md) model.<li>If **No**, use the [**Layout**](concept-layout.md) or [**General document (preview)**](concept-general-document.md) model.</li></ul>|
+|<ul><li>**Content primarily comprised of text.**|Text lines, words, locations, and detected languages. |</li></ul>Is your document _printed_ in a [supported language](language-support.md#read-layout-and-custom-form-template-model) and are you only interested in extracting text (not tables, selection marks, and/or structure)?| <ul><li>If **Yes** to text-only extraction, use the [**Read**](concept-read.md) model.<li>If **No**, because you also need structure information, use the [**Layout**](concept-layout.md) model.</li></ul>
+|<ul><li>**Structured document**</li></yl>|Key-value pairs, selection marks, and tables. |Is your document mostly structured and contains fields and values that may not be covered by the other prebuilt models?|<ul><li>If **Yes**, use the [**General document (preview)**](concept-general-document.md) model.</li><li> If **No**, because the fields and values are complex and highly variable, train and build a [**Custom**](how-to-guides/build-custom-model-v3.md) model.</li></ul>
+|<ul><li>**Invoice**</li></yl>|Text, selection marks, tables, key-value pairs, and key information from invoices. |Is your invoice document formatted in a [supported language](language-support.md#invoice-model) text?|<ul><li>If **Yes**, use the [**Invoice**](concept-invoice.md) model.<li>If **No**, use the [**Layout**](concept-layout.md) or [**General document (preview)**](concept-general-document.md) model.</li></ul>
+|<ul><li>**Receipt**</li><li>**Business card**</li></ul>| <ul><li>Receipt: text and key information from receipts.</li></br><li>Business card: text and key information from business cards.</li></ul>|Is your receipt or business card document formatted in English text? | <ul><li>If **Yes**, use the [**Receipt**](concept-receipt.md) or [**Business Card**](concept-business-card.md) model.</li><li>If **No**, use the [**Layout**](concept-layout.md) or [**General document (preview)**](concept-general-document.md) model.</li></ul>|
+|<ul><li>**ID document**</li></ul>|Text and key information from US drivers' licenses and international passports. |Is your ID document a US driver's license or an international passport?| <ul><li>If **Yes**, use the [**ID document**](concept-id-document.md) model.</li><li>If **No**, use the [**Layout**](concept-layout.md) or [**General document (preview)**](concept-general-document.md) model</li></ul>|
+ |<ul><li>**Standardized Form or Document**</li></ul>|Text, tables, selection marks, and structure information |Is your form or document an industry-standard format commonly used in your business or industry?| <ul><li>If **Yes**, use the [**Layout**](concept-layout.md) or [**General document (preview)**](concept-general-document.md).</li><li>If **No**, you can [**Train and build a custom model**](quickstarts/try-sample-label-tool.md#train-a-custom-form-model).
 
 ## Form Recognizer features and development options
 
@@ -74,6 +62,12 @@ The following features  and development options are supported by the Form Recogn
 |[**Business card model**](concept-business-card.md) |Automated data processing and extraction of key information from business cards.| <ul><li>[**Form Recognizer Studio**](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=businessCard)</li><li>[**REST API**](quickstarts/try-v3-rest-api.md)</li><li>[**C# SDK**](quickstarts/try-v3-csharp-sdk.md#prebuilt-model)</li><li>[**Python SDK**](quickstarts/try-v3-python-sdk.md#prebuilt-model)</li><li>[**Java SDK**](quickstarts/try-v3-java-sdk.md#prebuilt-model)</li><li>[**JavaScript**](quickstarts/try-v3-javascript-sdk.md#prebuilt-model)</li></ul>|
 
 ### [Form Recognizer GA (v2.1)](#tab/v2-1)
+
+ >[!TIP]
+ >
+ > * For an enhanced experience and advanced model quality, try the [Form Recognizer v3.0 Studio (preview)](https://formrecognizer.appliedai.azure.com/studio).
+ > * The v3.0 Studio supports any model trained with v2.1 labeled data.
+ > * You can refer to the API migration guide for detailed information about migrating from v2.1 to v3.0.
 
 The following features are supported by Form Recognizer v2.1. Use the links in the table to learn more about each feature and browse the API references.
 
