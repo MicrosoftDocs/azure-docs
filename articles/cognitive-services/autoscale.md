@@ -14,7 +14,7 @@ This article provides guidance for how customers can access higher rate limits o
 
 ## Overview
 
-Each Cognitive Services resource has a pre-configured static call rate (transactions per second) which limits the number of concurrent calls that customers can make to the backend service in a given time frame. The autoscale feature will automatically increase/decrease a customer's resource's rate limits based on near-real-time resource usage metrics and backend service capacity metrics. This feature ensures that our customers can use their resources efficiently.
+Each Cognitive Services resource has a pre-configured static call rate (transactions per second) which limits the number of concurrent calls that customers can make to the backend service in a given time frame. The autoscale feature will automatically increase/decrease a customer's resource's rate limits based on near-real-time resource usage metrics and backend service capacity metrics.
 
 ## Get started with the autoscale feature
 
