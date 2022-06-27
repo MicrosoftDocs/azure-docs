@@ -1,12 +1,12 @@
 ---
 title: Perform Azure Table storage operations with PowerShell | Microsoft Docs
 description: Learn how to run common tasks such as creating, querying, deleting data from Azure Table storage account by using PowerShell.
-author: roygara
+author: tamram
 
 ms.service: storage
 ms.topic: article
 ms.date: 06/23/2022
-ms.author: rogarana
+ms.author: tamram
 ms.subservice: tables 
 ms.custom: devx-track-azurepowershell
 ---
@@ -16,7 +16,7 @@ ms.custom: devx-track-azurepowershell
 
 Azure Table storage is a NoSQL datastore that you can use to store and query huge sets of structured, non-relational data. The main components of the service are tables, entities, and properties. A table is a collection of entities. An entity is a set of properties. Each entity can have up to 252 properties, which are all name-value pairs. This article assumes that you are already familiar with the Azure Table Storage Service concepts. For detailed information, see [Understanding the Table Service Data Model](/rest/api/storageservices/Understanding-the-Table-Service-Data-Model) and [Get started with Azure Table storage using .NET](../../cosmos-db/tutorial-develop-table-dotnet.md).
 
-This how-to article covers common Azure Table storage operations. You learn how to: 
+This how-to article covers common Azure Table storage operations. You learn how to:
 
 > [!div class="checklist"]
 > * Create a table
@@ -43,11 +43,13 @@ Install-Module AzTable
 
 ## Authorizing table data operations
 
-The AzTable PowerShell module supports authorization with the account key via Shared Key authorization. For examples that show how to use Shared Key authorization for data access with the AzTable module, see [Use Shared Key authorization with the AzTable module](#use-shared-key-authorization-with-the-aztable-module).
+The AzTable PowerShell module supports authorization with the account access key via Shared Key authorization. For examples that show how to use Shared Key authorization for data access with the AzTable module, see [Use Shared Key authorization with the AzTable module](#use-shared-key-authorization-with-the-aztable-module).
 
-Azure Table Storage supports authorization with Azure AD. However, the AzTable PowerShell module does not natively support authorization with Azure AD. Using Azure AD with the AzTable module requires that you call methods in the .NET client library from PowerShell. 
+Azure Table Storage supports authorization with Azure AD. However, the AzTable PowerShell module does not natively support authorization with Azure AD. Using Azure AD with the AzTable module requires that you call methods in the .NET client library from PowerShell.
 
-## Use Shared Key authorization with the AzTable module
+The examples in this article show how to authorize table data operations via Shared Key.
+
+## Sign in to Azure
 
 To get started, sign in to your Azure subscription with the `Add-AzAccount` command and follow the on-screen directions.
 
@@ -55,7 +57,7 @@ To get started, sign in to your Azure subscription with the `Add-AzAccount` comm
 Add-AzAccount
 ```
 
-### Retrieve list of locations
+## Retrieve list of locations
 
 If you don't know which location you want to use, you can list the available locations. After the list is displayed, find the one you want to use. These examples use **eastus**. Store this value in the variable **location** for future use.
 
@@ -64,7 +66,7 @@ Get-AzLocation | select Location
 $location = "eastus"
 ```
 
-### Create resource group
+## Create resource group
 
 Create a resource group with the [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) command.
 
@@ -75,7 +77,7 @@ $resourceGroup = "pshtablesrg"
 New-AzResourceGroup -ResourceGroupName $resourceGroup -Location $location
 ```
 
-### Create storage account
+## Create storage account
 
 Create a standard general-purpose storage account with locally redundant storage (LRS) using [New-AzStorageAccount](/powershell/module/az.storage/New-azStorageAccount). Be sure to specify a unique storage account name. Next, get the context that represents the storage account. When acting on a storage account, you can reference the context instead of repeatedly providing your credentials.
 
@@ -90,7 +92,7 @@ $storageAccount = New-AzStorageAccount -ResourceGroupName $resourceGroup `
 $ctx = $storageAccount.Context
 ```
 
-### Create a new table
+## Create a new table
 
 To create a table, use the [New-AzStorageTable](/powershell/module/az.storage/New-AzStorageTable) cmdlet. In this example, the table is called `pshtesttable`.
 
@@ -99,7 +101,7 @@ $tableName = "pshtesttable"
 New-AzStorageTable –Name $tableName –Context $ctx
 ```
 
-### Retrieve a list of tables in the storage account
+## Retrieve a list of tables in the storage account
 
 Retrieve a list of tables in the storage account using [Get-AzStorageTable](/powershell/module/az.storage/Get-AzStorageTable).
 
@@ -107,7 +109,7 @@ Retrieve a list of tables in the storage account using [Get-AzStorageTable](/pow
 Get-AzStorageTable –Context $ctx | select Name
 ```
 
-### Retrieve a reference to a specific table
+## Retrieve a reference to a specific table
 
 To perform operations on a table, you need a reference to the specific table. Get a reference using [Get-AzStorageTable](/powershell/module/az.storage/Get-AzStorageTable).
 
@@ -115,7 +117,7 @@ To perform operations on a table, you need a reference to the specific table. Ge
 $storageTable = Get-AzStorageTable –Name $tableName –Context $ctx
 ```
 
-### Reference the CloudTable property of a specific table
+## Reference the CloudTable property of a specific table
 
 > [!IMPORTANT]
 > Using the **CloudTable** property is mandatory when working with table data via the **AzTable** PowerShell module. Call the **Get-AzStorageTable** command to get the reference to this object. This command also creates the table if it does not already exist.
@@ -128,7 +130,7 @@ $cloudTable = $storageTable.CloudTable
 
 [!INCLUDE [storage-table-entities-powershell-include](../../../includes/storage-table-entities-powershell-include.md)]
 
-### Delete a table
+## Delete a table
 
 To delete a table, use [Remove-AzStorageTable](/powershell/module/az.storage/Remove-AzStorageTable). This cmdlet removes the table, including all of its data.
 
@@ -138,10 +140,6 @@ Remove-AzStorageTable –Name $tableName –Context $ctx
 # Retrieve the list of tables to verify the table has been removed.
 Get-AzStorageTable –Context $Ctx | select Name
 ```
-
-## Azure AD
-
-
 
 ## Clean up resources
 
