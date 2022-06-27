@@ -3,7 +3,7 @@ title: Configure kubenet networking in Azure Kubernetes Service (AKS)
 description: Learn how to configure kubenet (basic) network in Azure Kubernetes Service (AKS) to deploy an AKS cluster into an existing virtual network and subnet.
 services: container-service
 ms.topic: article
-ms.date: 06/02/2022
+ms.date: 06/20/2022
 
 ms.reviewer: nieberts, jomore
 ---
@@ -30,15 +30,7 @@ This article shows you how to use *kubenet* networking to create and use a virtu
 
 ## Before you begin
 
-### [Azure CLI](#tab/azure-cli)
-
 You need the Azure CLI version 2.0.65 or later installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
-
-### [Azure PowerShell](#tab/azure-powershell)
-
-You need the Azure PowerShell version 7.5.0 or later. Run `Get-InstalledModule -Name Az` to find the version. If you need to install or upgrade, see [Install Azure PowerShell][install-azure-powershell].
-
----
 
 ## Overview of kubenet networking with your own subnet
 
@@ -94,7 +86,7 @@ Use *kubenet* when:
 
 - You have limited IP address space.
 - Most of the pod communication is within the cluster.
-- You don't need advanced AKS features such as virtual nodes or Azure Network Policy. Use [Calico network policies][calico-network-policies].
+- You don't need advanced AKS features such as virtual nodes or Azure Network Policy.  Use [Calico network policies][calico-network-policies].
 
 Use *Azure CNI* when:
 
@@ -106,8 +98,6 @@ Use *Azure CNI* when:
 For more information to help you decide which network model to use, see [Compare network models and their support scope][network-comparisons].
 
 ## Create a virtual network and subnet
-
-### [Azure CLI](#tab/azure-cli)
 
 To get started with using *kubenet* and your own virtual network subnet, first create a resource group using the [az group create][az-group-create] command. The following example creates a resource group named *myResourceGroup* in the *eastus* location:
 
@@ -126,124 +116,23 @@ az network vnet create \
     --subnet-prefix 192.168.1.0/24
 ```
 
-### [Azure PowerShell](#tab/azure-powershell)
-
-To get started with using *kubenet* and your own virtual network subnet, first create a resource group using the [New-AzResourceGroup][new-azresourcegroup] cmdlet. The following example creates a resource group named *myResourceGroup* in the *eastus* location:
-
-```azurepowershell-interactive
-New-AzResourceGroup -Name myResourceGroup -Location eastus
-```
-
-If you don't have an existing virtual network and subnet to use, create these network resources using the [New-AzVirtualNetwork][new-azvirtualnetwork] and [New-AzVirtualNetworkSubnetConfig][new-azvirtualnetworksubnetconfig] cmdlets. In the following example, the virtual network is named *myAKSVnet* with the address prefix of *192.168.0.0/16*. A subnet is created named *myAKSSubnet* with the address prefix *192.168.1.0/24*.
-
-```azurepowershell-interactive
-$myAKSSubnet = New-AzVirtualNetworkSubnetConfig -Name myAKSSubnet -AddressPrefix 192.168.1.0/24
-$params = @{
-    ResourceGroupName = 'myResourceGroup' 
-    Location          = 'eastus' 
-    Name              = 'myAKSVnet' 
-    AddressPrefix     = '192.168.0.0/16' 
-    Subnet            = $myAKSSubnet
-}
-New-AzVirtualNetwork @params
-```
-
----
-
-## Create a service principal and assign permissions
-
-### [Azure CLI](#tab/azure-cli)
-
-To allow an AKS cluster to interact with other Azure resources, an Azure Active Directory service principal is used. The service principal needs to have permissions to manage the virtual network and subnet that the AKS nodes use. To create a service principal, use the [az ad sp create-for-rbac][az-ad-sp-create-for-rbac] command:
+Get the subnet resource ID and store as a variable:
 
 ```azurecli-interactive
-az ad sp create-for-rbac
-```
-
-The following example output shows the application ID and password for your service principal. These values are used in additional steps to assign a role to the service principal and then create the AKS cluster:
-
-```output
-{
-  "appId": "476b3636-5eda-4c0e-9751-849e70b5cfad",
-  "displayName": "azure-cli-2019-01-09-22-29-24",
-  "password": "tzG8Q~DRYSJtMPhajpHfYaG~.4Yp2VonoZfU9bjy",
-  "tenant": "00000000-0000-0000-0000-000000000000"
-}
-```
-
-To assign the correct delegations in the remaining steps, use the [az network vnet show][az-network-vnet-show] and [az network vnet subnet show][az-network-vnet-subnet-show] commands to get the required resource IDs. These resource IDs are stored as variables and referenced in the remaining steps:
-
-> [!NOTE]
-> If you are using CLI, you can skip this step. With ARM template or other clients, you need to do the below role assignment.
-
-```azurecli-interactive
-VNET_ID=$(az network vnet show --resource-group myResourceGroup --name myAKSVnet --query id -o tsv)
 SUBNET_ID=$(az network vnet subnet show --resource-group myResourceGroup --vnet-name myAKSVnet --name myAKSSubnet --query id -o tsv)
 ```
 
-Now assign the service principal for your AKS cluster *Network Contributor* permissions on the virtual network using the [az role assignment create][az-role-assignment-create] command. Provide your own *\<appId>* as shown in the output from the previous command to create the service principal:
-
-```azurecli-interactive
-az role assignment create --assignee <appId> --scope $VNET_ID --role "Network Contributor"
-```
-
-### [Azure PowerShell](#tab/azure-powershell)
-
-To allow an AKS cluster to interact with other Azure resources, an Azure Active Directory service principal is used. The service principal needs to have permissions to manage the virtual network and subnet that the AKS nodes use. To create a service principal, use the [New-AzADServicePrincipal][new-azadserviceprincipal] command:
-
-```azurepowershell-interactive
-$servicePrincipal = New-AzADServicePrincipal
-```
-
-The following example output shows the application ID and password for your service principal. These values are used in additional steps to assign a role to the service principal and then create the AKS cluster:
-
-```azurepowershell-interactive
-$servicePrincipal.AppId
-$servicePrincipal.PasswordCredentials[0].SecretText
-```
-
-```output
-476b3636-5eda-4c0e-9751-849e70b5cfad
-tzG8Q~DRYSJtMPhajpHfYaG~.4Yp2VonoZfU9bjy
-```
-
-To assign the correct delegations in the remaining steps, use the [Get-AzVirtualNetwork][get-azvirtualnetwork] command to get the required resource IDs. These resource IDs are stored as variables and referenced in the remaining steps:
-
-> [!NOTE]
-> If you are using CLI, you can skip this step. With ARM template or other clients, you need to do the below role assignment.
-
-```azurepowershell-interactive
-$myAKSVnet = Get-AzVirtualNetwork -ResourceGroupName myResourceGroup -Name myAKSVnet
-$VNET_ID = $myAKSVnet.Id
-$SUBNET_ID = $myAKSVnet.Subnets[0].Id
-```
-
-Now assign the service principal for your AKS cluster *Network Contributor* permissions on the virtual network using the [New-AzRoleAssignment][new-azroleassignment] cmdlet. Provide your application ID as shown in the output from the previous command to create the service principal:
-
-```azurepowershell-interactive
-New-AzRoleAssignment -ApplicationId $servicePrincipal.AppId -Scope $VNET_ID -RoleDefinitionName "Network Contributor"
-```
-
----
-
 ## Create an AKS cluster in the virtual network
 
-### [Azure CLI](#tab/azure-cli)
+Now create an AKS cluster in your virtual network and subnet using the [az aks create][az-aks-create] command. 
 
-You've now created a virtual network and subnet, and created and assigned permissions for a service principal to use those network resources. Now create an AKS cluster in your virtual network and subnet using the [az aks create][az-aks-create] command. Define your own service principal *\<appId>* and *\<password>*, as shown in the output from the previous command to create the service principal.
+### Create an AKS cluster with system-assigned managed identities
 
-The following IP address ranges are also defined as part of the cluster create process:
+You can create an AKS cluster using a system-assigned managed identity by running the following CLI command.
 
-* The *--service-cidr* is used to assign internal services in the AKS cluster an IP address. This IP address range should be an address space that isn't in use elsewhere in your network environment, including any on-premises network ranges if you connect, or plan to connect, your Azure virtual networks using Express Route or a Site-to-Site VPN connection.
-
-* The *--dns-service-ip* address should be the *.10* address of your service IP address range.
-
-* The *--pod-cidr* should be a large address space that isn't in use elsewhere in your network environment. This range includes any on-premises network ranges if you connect, or plan to connect, your Azure virtual networks using Express Route or a Site-to-Site VPN connection.
-    * This address range must be large enough to accommodate the number of nodes that you expect to scale up to. You can't change this address range once the cluster is deployed if you need more addresses for additional nodes.
-    * The pod IP address range is used to assign a */24* address space to each node in the cluster. In the following example, the *--pod-cidr* of *10.244.0.0/16* assigns the first node *10.244.0.0/24*, the second node *10.244.1.0/24*, and the third node *10.244.2.0/24*.
-    * As the cluster scales or upgrades, the Azure platform continues to assign a pod IP address range to each new node.
-    
-* The *--docker-bridge-address* lets the AKS nodes communicate with the underlying management platform. This IP address must not be within the virtual network IP address range of your cluster, and shouldn't overlap with other address ranges in use on your network.
+> [!NOTE]
+> When using system-assigned identity, azure-cli will grant Network Contributor role to the system-assigned identity after the cluster is created.
+> System-assigned managed identity is only support for CLI. If you are using an ARM template or other clients, you need to use the [user-assigned managed identity][Create an AKS cluster with user-assigned managed identities]
 
 ```azurecli-interactive
 az aks create \
@@ -251,13 +140,7 @@ az aks create \
     --name myAKSCluster \
     --node-count 3 \
     --network-plugin kubenet \
-    --service-cidr 10.0.0.0/16 \
-    --dns-service-ip 10.0.0.10 \
-    --pod-cidr 10.244.0.0/16 \
-    --docker-bridge-address 172.17.0.1/16 \
-    --vnet-subnet-id $SUBNET_ID \
-    --service-principal <appId> \
-    --client-secret <password>
+    --vnet-subnet-id $SUBNET_ID 
 ```
 
 > [!Note]
@@ -269,73 +152,96 @@ az aks create \
     --name myAKSCluster \
     --node-count 3 \
     --network-plugin kubenet --network-policy calico \
-    --service-cidr 10.0.0.0/16 \
-    --dns-service-ip 10.0.0.10 \
-    --pod-cidr 10.244.0.0/16 \
-    --docker-bridge-address 172.17.0.1/16 \
+    --vnet-subnet-id $SUBNET_ID 
+```
+
+### Create an AKS cluster with user-assigned managed identities
+
+#### Create or obtain a managed identity
+
+If you don't have a managed identity, you should create one by running the [az identity][az-identity-create] command.
+
+```azurecli-interactive
+az identity create --name myIdentity --resource-group myResourceGroup
+```
+
+The output should resemble the following:
+
+```output
+{                                  
+  "clientId": "<client-id>",
+  "clientSecretUrl": "<clientSecretUrl>",
+  "id": "/subscriptions/<subscriptionid>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myIdentity", 
+  "location": "westus2",
+  "name": "myIdentity",
+  "principalId": "<principal-id>",
+  "resourceGroup": "myResourceGroup",                       
+  "tags": {},
+  "tenantId": "<tenant-id>",
+  "type": "Microsoft.ManagedIdentity/userAssignedIdentities"
+}
+```
+
+If you have an existing managed identity, you can find the Principal ID by running the following command:
+
+```azurecli-interactive
+az identity show --ids <identity-resource-id>
+``` 
+
+The output should resemble the following:
+
+```output
+{
+  "clientId": "<client-id>",
+  "id": "/subscriptions/<subscriptionid>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myIdentity",
+  "location": "eastus",
+  "name": "myIdentity",
+  "principalId": "<principal-id>",
+  "resourceGroup": "myResourceGroup",
+  "tags": {},
+  "tenantId": "<tenant-id>",
+  "type": "Microsoft.ManagedIdentity/userAssignedIdentities"
+}
+```
+
+#### Add role assignment for managed identity
+
+If you are using Azure CLI, the role will be added automatically and you can skip this step. If you are using an ARM template or other clients, you need to use the Principal ID of the cluster managed identity to perform a role assignment. 
+
+To assign the correct delegations in the remaining steps, use the [az network vnet show][az-network-vnet-show] and [az network vnet subnet show][az-network-vnet-subnet-show] commands to get the required resource IDs. These resource IDs are stored as variables and referenced in the remaining steps:
+
+```azurecli-interactive
+VNET_ID=$(az network vnet show --resource-group myResourceGroup --name myAKSVnet --query id -o tsv)
+```
+
+Now assign the managed identity for your AKS cluster *Network Contributor* permissions on the virtual network using the [az role assignment create][az-role-assignment-create] command. Provide the *\<principalId>* as shown in the output from the previous command to create the identity:
+
+```azurecli-interactive
+az role assignment create --assignee <control-plane-identity-principal-id> --scope $VNET_ID --role "Network Contributor"
+```
+
+Example:
+```azurecli-interactive
+az role assignment create --assignee 22222222-2222-2222-2222-222222222222 --scope "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/myAKSVnet" --role "Network Contributor"
+```
+
+> [!NOTE]
+> Permission granted to your cluster's managed identity used by Azure may take up 60 minutes to populate.
+
+#### Create an AKS cluster
+
+Now you can create an AKS cluster using the user-assigned managed identity by running the following CLI command. Provide the control plane identity resource ID via `assign-identity` 
+
+```azurecli-interactive
+az aks create \
+    --resource-group myResourceGroup \
+    --name myAKSCluster \
+    --node-count 3 \
+    --network-plugin kubenet \
     --vnet-subnet-id $SUBNET_ID \
-    --service-principal <appId> \
-    --client-secret <password>
+    --enable-managed-identity \
+    --assign-identity <identity-resource-id>
 ```
-
-### [Azure PowerShell](#tab/azure-powershell)
-
-You've now created a virtual network and subnet, and created and assigned permissions for a service principal to use those network resources. Now create an AKS cluster in your virtual network and subnet using the [New-AzAksCluster][new-azakscluster] cmdlet. Define your own service principal *\<appId>* and *\<password>*, as shown in the output from the previous command to create the service principal.
-
-The following IP address ranges are also defined as part of the cluster create process:
-
-* The *-ServiceCidr* is used to assign internal services in the AKS cluster an IP address. This IP address range should be an address space that isn't in use elsewhere in your network environment, including any on-premises network ranges if you connect, or plan to connect, your Azure virtual networks using Express Route or a Site-to-Site VPN connection.
-
-* The *-DnsServiceIP* address should be the *.10* address of your service IP address range.
-
-* The *-PodCidr* should be a large address space that isn't in use elsewhere in your network environment. This range includes any on-premises network ranges if you connect, or plan to connect, your Azure virtual networks using Express Route or a Site-to-Site VPN connection.
-    * This address range must be large enough to accommodate the number of nodes that you expect to scale up to. You can't change this address range once the cluster is deployed if you need more addresses for additional nodes.
-    * The pod IP address range is used to assign a */24* address space to each node in the cluster. In the following example, the *-PodCidr* of *10.244.0.0/16* assigns the first node *10.244.0.0/24*, the second node *10.244.1.0/24*, and the third node *10.244.2.0/24*.
-    * As the cluster scales or upgrades, the Azure platform continues to assign a pod IP address range to each new node.
-    
-* The *-DockerBridgeCidr* lets the AKS nodes communicate with the underlying management platform. This IP address must not be within the virtual network IP address range of your cluster, and shouldn't overlap with other address ranges in use on your network.
-
-```azurepowershell-interactive
-# Create a PSCredential object using the service principal's ID and secret
-$password = ConvertTo-SecureString -String $servicePrincipal.PasswordCredentials[0].SecretText -AsPlainText -Force
-$credential = New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $servicePrincipal.AppId, $password
-
-$params = @{
-    ResourceGroupName           = 'myResourceGroup'
-    Name                        = 'myAKSCluster'
-    NodeCount                   = 3
-    NetworkPlugin               = 'kubenet'
-    ServiceCidr                 = '10.0.0.0/16'
-    DnsServiceIP                = '10.0.0.10'
-    PodCidr                     = '10.244.0.0/16'
-    DockerBridgeCidr            = '172.17.0.1/16'
-    NodeVnetSubnetID            = $SUBNET_ID
-    ServicePrincipalIdAndSecret = $credential
-}
-New-AzAksCluster @params
-```
-
-> [!Note]
-> If you wish to enable an AKS cluster to include a [Calico network policy][calico-network-policies] you can use the following command.
-
-```azurepowershell-interactive
-$params = @{
-    ResourceGroupName           = 'myResourceGroup'
-    Name                        = 'myAKSCluster'
-    NodeCount                   = 3
-    NetworkPlugin               = 'kubenet'
-    NetworkPolicy               = 'calico'
-    ServiceCidr                 = '10.0.0.0/16'
-    DnsServiceIP                = '10.0.0.10'
-    PodCidr                     = '10.244.0.0/16'
-    DockerBridgeCidr            = '172.17.0.1/16'
-    NodeVnetSubnetID            = $SUBNET_ID
-    ServicePrincipalIdAndSecret = $credential
-}
-New-AzAksCluster @params
-```
-
----
 
 When you create an AKS cluster, a network security group and route table are automatically created. These network resources are managed by the AKS control plane. The network security group is automatically associated with the virtual NICs on your nodes. The route table is automatically associated with the virtual network subnet. Network security group rules and route tables are automatically updated as you create and expose services.
 
@@ -354,17 +260,14 @@ Kubenet networking requires organized route table rules to successfully route re
 
 Limitations:
 
-* Permissions must be assigned before cluster creation, ensure you are using a service principal with write permissions to your custom subnet and custom route table.
 * A custom route table must be associated to the subnet before you create the AKS cluster.
 * The associated route table resource cannot be updated after cluster creation. While the route table resource cannot be updated, custom rules can be modified on the route table.
 * Each AKS cluster must use a single, unique route table for all subnets associated with the cluster. You cannot reuse a route table with multiple clusters due to the potential for overlapping pod CIDRs and conflicting routing rules.
-* You can't provide your own subnet and route table with a system-assigned managed identity. To provide your own subnet and route table, you must use a [user-assigned managed identity][user-assigned managed identity], assign permissions before cluster creation, and ensure the user-assigned identity has write permissions to your custom subnet and custom route table.
+* For system-assigned managed identity, it's only supported to provide your own subnet and route table via Azure CLI. That's because CLI will add the role assignment automatically. If you are using an ARM template or other clients, you must use a [user-assigned managed identity][Create an AKS cluster with user-assigned managed identities], assign permissions before cluster creation, and ensure the user-assigned identity has write permissions to your custom subnet and custom route table.
 * Using the same route table with multiple AKS clusters isn't supported.
 
 After you create a custom route table and associate it to your subnet in your virtual network, you can create a new AKS cluster that uses your route table.
 You need to use the subnet ID for where you plan to deploy your AKS cluster. This subnet also must be associated with your custom route table.
-
-### [Azure CLI](#tab/azure-cli)
 
 ```azurecli-interactive
 # Find your subnet ID
@@ -374,25 +277,9 @@ az network vnet subnet list --resource-group
 ```
 
 ```azurecli-interactive
-# Create a kubernetes cluster with a custom subnet preconfigured with a route table
-az aks create -g MyResourceGroup -n MyManagedCluster --vnet-subnet-id <MySubnetID>
+# Create a kubernetes cluster with with a custom subnet preconfigured with a route table
+az aks create -g MyResourceGroup -n MyManagedCluster --vnet-subnet-id <MySubnetID-resource-id>
 ```
-
-### [Azure PowerShell](#tab/azure-powershell)
-
-```azurepowershell-interactive
-# Find your subnet ID
-Get-AzVirtualNetwork -ResourceGroupName MyResourceGroup -Name myAKSVnet |
- Select-Object -ExpandProperty subnets |
- Select-Object -Property Id
-```
-
-```azurepowershell-interactive
-# Create a kubernetes cluster with a custom subnet preconfigured with a route table
-New-AzAksCluster -ResourceGroupName MyResourceGroup -Name MyManagedCluster -NodeVnetSubnetID <MySubnetID>
-```
-
----
 
 ## Next steps
 
@@ -405,23 +292,16 @@ With an AKS cluster deployed into your existing virtual network subnet, you can 
 
 <!-- LINKS - Internal -->
 [install-azure-cli]: /cli/azure/install-azure-cli
-[install-azure-powershell]: /powershell/azure/install-az-ps
+[az-identity-create]: /cli/azure/identity#az_identity_create
 [aks-network-concepts]: concepts-network.md
 [aks-network-nsg]: concepts-network.md#network-security-groups
 [az-group-create]: /cli/azure/group#az_group_create
-[new-azresourcegroup]: /powershell/module/az.resources/new-azresourcegroup
 [az-network-vnet-create]: /cli/azure/network/vnet#az_network_vnet_create
-[new-azvirtualnetwork]: /powershell/module/az.network/new-azvirtualnetwork
-[new-azvirtualnetworksubnetconfig]: /powershell/module/az.network/new-azvirtualnetworksubnetconfig
 [az-ad-sp-create-for-rbac]: /cli/azure/ad/sp#az_ad_sp_create_for_rbac
-[new-azadserviceprincipal]: /powershell/module/az.resources/new-azadserviceprincipal
 [az-network-vnet-show]: /cli/azure/network/vnet#az_network_vnet_show
-[get-azvirtualnetwork]: /powershell/module/az.network/get-azvirtualnetwork
 [az-network-vnet-subnet-show]: /cli/azure/network/vnet/subnet#az_network_vnet_subnet_show
 [az-role-assignment-create]: /cli/azure/role/assignment#az_role_assignment_create
-[new-azroleassignment]: /powershell/module/az.resources/new-azroleassignment
 [az-aks-create]: /cli/azure/aks#az_aks_create
-[new-azakscluster]: /powershell/module/az.aks/new-azakscluster
 [byo-subnet-route-table]: #bring-your-own-subnet-and-route-table-with-kubenet
 [develop-helm]: quickstart-helm.md
 [use-helm]: kubernetes-helm.md
@@ -430,4 +310,4 @@ With an AKS cluster deployed into your existing virtual network subnet, you can 
 [express-route]: ../expressroute/expressroute-introduction.md
 [network-comparisons]: concepts-network.md#compare-network-models
 [custom-route-table]: ../virtual-network/manage-route-table.md
-[user-assigned managed identity]: use-managed-identity.md#bring-your-own-control-plane-managed-identity
+[Create an AKS cluster with user-assigned managed identities]: configure-kubenet.md#create-an-aks-cluster-with-user-assigned-managed-identities

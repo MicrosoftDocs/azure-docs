@@ -5,6 +5,124 @@ ms.topic: include
 ms.date: 01/24/2022
 ms.author: eur
 ---
+### 2022-June release
+
+#### Prebuilt Neural TTS Voice
+
+* Added 9 new languages and variants for Neural text-to-speech:
+
+| Language | Locale | Gender | Voice name | Style support |
+|---|---|---|---|---|
+| Arabic (Lebanon) | `ar-LB` | Female | `ar-LB-LaylaNeural` <sup>New</sup> | General |
+| Arabic (Lebanon) | `ar-LB` | Male | `ar-LB-RamiNeural` <sup>New</sup> | General |
+| Arabic (Oman) | `ar-OM` | Female | `ar-OM-AyshaNeural` <sup>New</sup> | General |
+| Arabic (Oman) | `ar-OM` | Male | `ar-OM-AbdullahNeural` <sup>New</sup> | General |
+| Azerbaijani (Azerbaijan) | `az-AZ` | Female | `az-AZ-BabekNeural` <sup>New</sup> | General |
+| Azerbaijani (Azerbaijan) | `az-AZ` | Male | `az-AZ-BanuNeural` <sup>New</sup> | General |
+| Bosnian (Bosnia and Herzegovina) | `bs-BA` | Female | `bs-BA-VesnaNeural` <sup>New</sup> | General |
+| Bosnian (Bosnia and Herzegovina) | `bs-BA` | Male | `bs-BA-GoranNeural` <sup>New</sup> | General |
+| Georgian (Georgia) | `ka-GE` | Female | `ka-GE-EkaNeural` <sup>New</sup> | General |
+| Georgian (Georgia) | `ka-GE` | Male | `ka-GE-GiorgiNeural` <sup>New</sup> | General |
+| Mongolian (Mongolia) | `mn-MN` | Female | `mn-MN-YesuiNeural` <sup>New</sup> | General |
+| Mongolian (Mongolia) | `mn-MN` | Male | `mn-MN-BataaNeural` <sup>New</sup> | General |
+| Nepali (Nepal) | `ne-NP` | Female | `ne-NP-HemkalaNeural` <sup>New</sup> | General |
+| Nepali (Nepal) | `ne-NP` | Male | `ne-NP-SagarNeural` <sup>New</sup> | General |
+| Albanian (Albania) | `sq-AL` | Female | `sq-AL-AnilaNeural` <sup>New</sup> | General |
+| Albanian (Albania) | `sq-AL` | Male | `sq-AL-IlirNeural` <sup>New</sup> | General |
+| Tamil (Malaysia) | `ta-MY` | Female | `ta-MY-KaniNeural` <sup>New</sup> | General |
+| Tamil (Malaysia) | `ta-MY` | Male | `ta-MY-SuryaNeural` <sup>New</sup> | General |
+
+* GA 36 voices from Public Preview for `en-GB` English (United Kingdom), `fr-FR` French (France) and `de-DE` German (Germany):
+
+| Language | Locale | Gender | Voice name | Style support |
+|---|---|---|---|---|
+| English (United Kingdom) | `en-GB` | Female | `en-GB-AbbiNeural` | General |
+| English (United Kingdom) | `en-GB` | Female | `en-GB-BellaNeural` | General |
+| English (United Kingdom) | `en-GB` | Female | `en-GB-HollieNeural` | General |
+| English (United Kingdom) | `en-GB` | Female | `en-GB-MaisieNeural` | General, child voice |
+| English (United Kingdom) | `en-GB` | Female | `en-GB-MiaNeural` <sup>Retired on 30 October 2021, see below</sup> | General |
+| English (United Kingdom) | `en-GB` | Female | `en-GB-OliviaNeural` | General |
+| English (United Kingdom) | `en-GB` | Female | `en-GB-SoniaNeural` | General |
+| English (United Kingdom) | `en-GB` | Male | `en-GB-AlfieNeural` | General |
+| English (United Kingdom) | `en-GB` | Male | `en-GB-ElliotNeural` | General |
+| English (United Kingdom) | `en-GB` | Male | `en-GB-EthanNeural` | General |
+| English (United Kingdom) | `en-GB` | Male | `en-GB-NoahNeural` | General |
+| English (United Kingdom) | `en-GB` | Male | `en-GB-OliverNeural` | General |
+| English (United Kingdom) | `en-GB` | Male | `en-GB-ThomasNeural` | General |
+| French (France) | `fr-FR` | Female | `fr-FR-BrigitteNeural` | General |
+| French (France) | `fr-FR` | Female | `fr-FR-CelesteNeural`  | General |
+| French (France) | `fr-FR` | Female | `fr-FR-CoralieNeural`  | General |
+| French (France) | `fr-FR` | Female | `fr-FR-EloiseNeural`  | General, child voice |
+| French (France) | `fr-FR` | Female | `fr-FR-JacquelineNeural`  | General |
+| French (France) | `fr-FR` | Female | `fr-FR-JosephineNeural`  | General |
+| French (France) | `fr-FR` | Female | `fr-FR-YvetteNeural`  | General |
+| French (France) | `fr-FR` | Male | `fr-FR-AlainNeural` | General |
+| French (France) | `fr-FR` | Male | `fr-FR-ClaudeNeural` | General |
+| French (France) | `fr-FR` | Male | `fr-FR-JeromeNeural` | General |
+| French (France) | `fr-FR` | Male | `fr-FR-MauriceNeural` | General |
+| French (France) | `fr-FR` | Male | `fr-FR-YvesNeural` | General |
+| German (Germany) | `de-DE` | Female | `de-DE-AmalaNeural` | General |
+| German (Germany) | `de-DE` | Female | `de-DE-ElkeNeural` | General |
+| German (Germany) | `de-DE` | Female | `de-DE-GiselaNeural` | General, child voice |
+| German (Germany) | `de-DE` | Female | `de-DE-KlarissaNeural` | General |
+| German (Germany) | `de-DE` | Female | `de-DE-LouisaNeural` | General |
+| German (Germany) | `de-DE` | Female | `de-DE-MajaNeural` | General |
+| German (Germany) | `de-DE` | Female | `de-DE-TanjaNeural` | General |
+| German (Germany) | `de-DE` | Male | `de-DE-BerndNeural` | General |
+| German (Germany) | `de-DE` | Male | `de-DE-ChristophNeural` | General |
+| German (Germany) | `de-DE` | Male | `de-DE-KasperNeural` | General |
+| German (Germany) | `de-DE` | Male | `de-DE-KillianNeural` | General |
+| German (Germany) | `de-DE` | Male | `de-DE-KlausNeural` | General |
+| German (Germany) | `de-DE` | Male | `de-DE-RalfNeural` | General |
+
+* Added 40 new voices of `es-MX` Spanish (Mexico), `it-IT` Italian (Italy), `pt-BR` Portuguese (Brazil) and 2 accents for `zh-CN` Chinese (Mandarin, Simplified) in Public Preview:
+
+| Language | Locale | Gender | Voice name | Style support |
+|---|---|---|---|---|
+| Spanish (Mexico) | `es-MX` | Female | `es-MX-BeatrizNeural` <sup>New</sup> | General |
+| Spanish (Mexico) | `es-MX` | Female | `es-MX-CarlotaNeural` <sup>New</sup> | General |
+| Spanish (Mexico) | `es-MX` | Female | `es-MX-NuriaNeural` <sup>New</sup> | General |
+| Spanish (Mexico) | `es-MX` | Female | `es-MX-RenataNeural` <sup>New</sup> | General |
+| Spanish (Mexico) | `es-MX` | Female | `es-MX-LarissaNeural` <sup>New</sup> | General |
+| Spanish (Mexico) | `es-MX` | Female | `es-MX-CandelaNeural` <sup>New</sup> | General |
+| Spanish (Mexico) | `es-MX` | Female | `es-MX-MarinaNeural` <sup>New</sup> | General |
+| Italian (Italy) | `it-IT` | Female | `it-IT-FiammaNeural` <sup>New</sup> | General |
+| Italian (Italy) | `it-IT` | Female | `it-IT-IrmaNeural` <sup>New</sup> | General |
+| Italian (Italy) | `it-IT` | Female | `it-IT-FabiolaNeural` <sup>New</sup> | General |
+| Italian (Italy) | `it-IT` | Female | `it-IT-PalmiraNeural` <sup>New</sup> | General |
+| Italian (Italy) | `it-IT` | Female | `it-IT-ImeldaNeural` <sup>New</sup> | General |
+| Italian (Italy) | `it-IT` | Female | `it-IT-PierinaNeural` <sup>New</sup> | General |
+| Portuguese (Brazil) | `pt-BR` | Female | `pt-BR-ElzaNeural` <sup>New</sup> | General |
+| Portuguese (Brazil) | `pt-BR` | Female | `pt-BR-ManuelaNeural` <sup>New</sup> | General |
+| Portuguese (Brazil) | `pt-BR` | Female | `pt-BR-BrendaNeural` <sup>New</sup> | General |
+| Portuguese (Brazil) | `pt-BR` | Female | `pt-BR-LeilaNeural` <sup>New</sup> | General |
+| Portuguese (Brazil) | `pt-BR` | Female | `pt-BR-YaraNeural` <sup>New</sup> | General |
+| Portuguese (Brazil) | `pt-BR` | Female | `pt-BR-GiovannaNeural` <sup>New</sup> | General |
+| Portuguese (Brazil) | `pt-BR` | Female | `pt-BR-LeticiaNeural` <sup>New</sup> | General |
+| Spanish (Mexico) | `es-MX` | Male | `es-MX-CecilioNeural` <sup>New</sup> | General |
+| Spanish (Mexico) | `es-MX` | Male | `es-MX-LibertoNeural` <sup>New</sup> | General |
+| Spanish (Mexico) | `es-MX` | Male | `es-MX-LucianoNeural` <sup>New</sup> | General |
+| Spanish (Mexico) | `es-MX` | Male | `es-MX-PelayoNeural` <sup>New</sup> | General |
+| Spanish (Mexico) | `es-MX` | Male | `es-MX-YagoNeural` <sup>New</sup> | General |
+| Spanish (Mexico) | `es-MX` | Male | `es-MX-GerardoNeural` <sup>New</sup> | General |
+| Italian (Italy) | `it-IT` | Male | `it-IT-BenignoNeural` <sup>New</sup> | General |
+| Italian (Italy) | `it-IT` | Male | `it-IT-CataldoNeural` <sup>New</sup> | General |
+| Italian (Italy) | `it-IT` | Male | `it-IT-LisandroNeural` <sup>New</sup> | General |
+| Italian (Italy) | `it-IT` | Male | `it-IT-CalimeroNeural` <sup>New</sup> | General |
+| Italian (Italy) | `it-IT` | Male | `it-IT-RinaldoNeural` <sup>New</sup> | General |
+| Italian (Italy) | `it-IT` | Male | `it-IT-GianniNeural` <sup>New</sup> | General |
+| Portuguese (Brazil) | `pt-BR` | Male | `pt-BR-DonatoNeural` <sup>New</sup> | General |
+| Portuguese (Brazil) | `pt-BR` | Male | `pt-BR-HumbertoNeural` <sup>New</sup> | General |
+| Portuguese (Brazil) | `pt-BR` | Male | `pt-BR-FabioNeural` <sup>New</sup> | General |
+| Portuguese (Brazil) | `pt-BR` | Male | `pt-BR-JulioNeural` <sup>New</sup> | General |
+| Portuguese (Brazil) | `pt-BR` | Male | `pt-BR-ValerioNeural` <sup>New</sup> | General |
+| Portuguese (Brazil) | `pt-BR` | Male | `pt-BR-NicolauNeural` <sup>New</sup> | General |
+| Chinese (Mandarin, Simplified) | `zh-CN-SC` | Male | `zh-CN-SC-YunxiSichuanNeural` <sup>New</sup> | General, Sichuan accent |
+| Chinese (Mandarin, Simplified) | `zh-CN-LN` | Female | `zh-CN-LN-XiaobeiNeural` <sup>New</sup> | General, Liaoning accent |
+
+* Improved quality for `en-SG-LunaNeural` and `en-SG-WayneNeural`
+* 48kHz output support for Public Preview with en-US-JennyNeural, en-US-AriaNeural, and zh-CN-XiaoxiaoNeural
+
 ### 2022-May release
 
 #### Prebuilt Neural TTS Voice
@@ -294,7 +412,7 @@ Read the [full announcement of the TTS updates for Ignite 2020](https://techcomm
 
     * Download: The audio "Download"/"Export" feature is enhanced to support generating audio by paragraph. You can edit content in the same file/SSML, while generating multiple audio outputs. The file structure of "Download" is refined as well. Now, you can easily get all audio files in one folder.
 
-    * Task status : The multi-file export experience is improved. When you export multiple files in the past, if one of the files has failed, the entire task will fail. But now, all other files will be successfully exported. The task report is enriched with more detailed and structured information. You can check the logs for all failed files and sentences now with the report.
+    * Task status: The multi-file export experience is improved. When you export multiple files in the past, if one of the files has failed, the entire task will fail. But now, all other files will be successfully exported. The task report is enriched with more detailed and structured information. You can check the logs for all failed files and sentences now with the report.
 
     * SSML documentation: linked to SSML document to help you check the rules for how to use all tuning features.
 

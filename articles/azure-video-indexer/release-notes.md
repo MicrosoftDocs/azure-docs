@@ -3,7 +3,7 @@ title: Azure Video Indexer release notes | Microsoft Docs
 description: To stay up-to-date with the most recent developments, this article provides you with the latest updates on Azure Video Indexer.
 ms.topic: article
 ms.custom: references_regions
-ms.date: 05/16/2022
+ms.date: 05/20/2022
 ms.author: juliako
 ---
 
@@ -41,7 +41,24 @@ In order to upload a video from a URL, change your code to send nu
 var uploadRequestResult = await client.PostAsync($"{apiUrl}/{accountInfo.Location}/Accounts/{accountInfo.Id}/Videos?{queryParams}", null);
 ```
 
-## May 2022 release updates
+## June 2022 release updates
+
+### Create Video Indexer blade improvements in Azure portal 
+
+Azure Video Indexer now supports the creation of new resource using system-assigned managed identity or system and user assigned managed identity for the same resource. 
+
+You can also change the primary managed identity using the **Identity** tab in the [Azure portal](https://portal.azure.com/#home). 
+
+### Limited access of celebrity recognition and face identification features
+
+As part of Microsoft's commitment to responsible AI, we are designing and releasing Azure Video Indexer – identification and celebrity recognition features. These features are designed to protect the rights of individuals and society and fostering transparent human-computer interaction. Thus, there is a limited access and use of Azure Video Indexer – identification and celebrity recognition features. 
+
+Identification and celebrity recognition features require registration and are only available to Microsoft managed customers and partners. 
+Customers who wish to use this feature are required to apply and submit an [intake form](https://customervoice.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR7en2Ais5pxKtso_Pz4b1_xUQjA5SkYzNDM4TkcwQzNEOE1NVEdKUUlRRCQlQCN0PWcu). For more information, read [Azure Video Indexer limited access](limited-access-features.md). 
+
+Also, see the following: the [announcement blog post](https://aka.ms/AAh91ff) and [investment and safeguard for facial recognition](https://aka.ms/AAh9oye).
+          
+## May 2022
 
 ### Line breaking in transcripts
 
@@ -63,7 +80,9 @@ Azure Video Indexer is now part of [Network Service Tags](network-security.md). 
 
 ### Celebrity recognition toggle 
 
-You can now enable or disable the celebrity recognition model on the account level (on classic account only). To turn on or off the model, go to the account settings > and toggle on/off the model. Once you disable the model, Video Indexer insights will not include the output of celebrity model and will not run the celebrity model pipeline. 
+You can now enable or disable the celebrity recognition model on the account level (on classic account only). To turn on or off the model, go to the **Model customization** > toggle on/off the model. Once you disable the model, Video Indexer insights will not include the output of celebrity model and will not run the celebrity model pipeline. 
+
+:::image type="content" source="./media/release-notes/celebrity-recognition.png" alt-text="Screenshot showing the celebrity recognition toggle.":::
 
 ### Azure Video Indexer repository name 
 
