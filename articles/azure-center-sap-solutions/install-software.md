@@ -195,7 +195,7 @@ To install the SAP software on Azure, use the ACSS installation wizard.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. Search for and select **Virtual Instance for SAP solutions solutions**.
+1. Search for and select **Virtual Instance for SAP solutions**.
 
 1. Select your Virtual Instance for SAP solutions (VIS) instance.
 
