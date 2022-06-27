@@ -1,29 +1,25 @@
 ---
 title: 'Tutorial: Set up continuous end-to-end testing'
 titleSuffix: Microsoft Playwright Testing
-description: In this tutorial, you learn how to identify issues in your web app with cross-platform, cross-browser end-to-end tests in Microsoft Playwright Testing. Troubleshoot problems by using rich traces, screenshots, and test result artifacts.
+description: In this tutorial, you learn how to set up continuous end-to-end testing with GitHub Actions and Microsoft Playwright Testing.
 services: playwright-testing
 ms.service: playwright-testing
 ms.author: nicktrog
 author: ntrogh
-ms.date: 06/21/2022
+ms.date: 06/27/2022
 ms.topic: tutorial
 ---
 
-# Tutorial: Set up continuous end-to-end testing with Microsoft Playwright Testing Preview and GitHub Actions
+# Tutorial: Set up continuous end-to-end testing with GitHub Actions and Microsoft Playwright Testing Preview
 
-In this tutorial, you'll learn how to identify performance bottlenecks in a web application by using Microsoft Playwright Testing Preview. You'll create a load test for a sample Node.js application.
-
-The sample application consists of a Node.js web API, which interacts with a NoSQL database. You'll deploy the web API to Azure App Service web apps and use Azure Cosmos DB as the database.
+In this tutorial, you'll learn how to set up continuous end-to-end testing with GitHub Actions and Microsoft Playwright Testing Preview. Create a CI/CD pipeline to trigger Playwright tests with every code push. You'll then use the CI/CD logs and the Microsoft Playwright Testing portal to diagnose failing tests.
 
 In this tutorial, you'll learn how to:
 
 > [!div class="checklist"]
-> * Deploy the sample app.
-> * Create and run a load test.
-> * Identify performance bottlenecks in the app.
-> * Remove a bottleneck.
-> * Rerun the load test to check performance improvements.
+> * Create an access token in Microsoft Playwright Testing.
+> * Create GitHub Actions workflow to trigger tests.
+> * Analyze test results using GitHub Actions logs.
 
 > [!IMPORTANT]
 > Microsoft Playwright Testing is currently in preview. For legal terms that apply to Azure features that are in beta, in preview, or otherwise not yet released into general availability, see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
