@@ -95,7 +95,16 @@ The location is the region where the custom image will be created. The following
 - East Asia
 - Korea Central
 - South Africa North
+- USGov Arizona (Public Preview)
+- USGov Virginia (Public Preview)
 
+> [!IMPORTANT]
+> Register the feature "Microsoft.VirtualMachineImages/FairfaxPublicPreview" to access the Azure Image Builder public preview in Fairfax regions (USGov Arizona and USGov Virginia).
+
+Use the following command to register the feature for Azure Image Builder in Fairfax regions (USGov Arizona and USGov Virginia).
+```azurecli-interactive
+az feature register --namespace Microsoft.VirtualMachineImages --name FairfaxPublicPreview
+```
 
 ```json
     "location": "<region>",
@@ -572,7 +581,12 @@ Write-Output '>>> Sysprep complete ...'
 #### Default Linux deprovision command
 
 ```bash
-/usr/sbin/waagent -force -deprovision+user && export HISTSIZE=0 && sync
+WAAGENT=/usr/sbin/waagent
+waagent -version 1> /dev/null 2>&1
+if [ $? -eq 0 ]; then
+  WAAGENT=waagent
+fi
+$WAAGENT -force -deprovision+user && export HISTSIZE=0 && sync
 ```
 
 #### Overriding the Commands

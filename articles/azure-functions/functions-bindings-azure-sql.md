@@ -4,7 +4,7 @@ description: Understand how to use Azure SQL bindings in Azure Functions.
 author: dzsquared
 ms.topic: reference
 ms.custom: event-tier1-build-2022
-ms.date: 5/24/2022
+ms.date: 6/3/2022
 ms.author: drskwier
 ms.reviewer: glenga
 zone_pivot_groups: programming-languages-set-functions-lang-workers
@@ -97,10 +97,17 @@ You can add the preview extension bundle by adding or replacing the following co
 
 ::: zone pivot="programming-language-python"  
 
-> [!NOTE]
-> Python language support for the SQL bindings extension is only available for v4 of the [functions runtime](./set-runtime-version.md#view-and-update-the-current-runtime-version) and requires runtime v4.5.0 for deployment in Azure.  Learn more about determining the runtime in the [functions runtime](./set-runtime-version.md#view-and-update-the-current-runtime-version) documentation.  Please see the tracking [GitHub issue](https://github.com/Azure/azure-functions-sql-extension/issues/250) for the latest update on availability.
+## Functions runtime
 
-## Install bundle    
+> [!NOTE]
+> Python language support for the SQL bindings extension is only available for v4 of the [functions runtime](./set-runtime-version.md#view-and-update-the-current-runtime-version) and requires runtime v4.5.0 or greater for deployment in Azure.  Learn more about determining the runtime in the [functions runtime](./set-runtime-version.md#view-and-update-the-current-runtime-version) documentation.  Please see the tracking [GitHub issue](https://github.com/Azure/azure-functions-sql-extension/issues/250) for the latest update on availability.
+
+The functions runtime required for local development and testing of Python functions isn't included in the current release of functions core tools and must be installed independently.  The latest instructions on installing a preview version of functions core tools are available in the tracking [GitHub issue](https://github.com/Azure/azure-functions-sql-extension/issues/250).
+
+Alternatively, a VS Code [development container](https://code.visualstudio.com/docs/remote/containers) definition can be used to expedite your environment setup.  The definition components are available in the SQL bindings [GitHub repository](https://github.com/Azure/azure-functions-sql-extension/tree/main/samples/samples-python/.devcontainer).
+
+
+## Install bundle
 
 The SQL bindings extension is part of a preview [extension bundle], which is specified in your host.json project file.  
 
@@ -120,7 +127,7 @@ You can add the preview extension bundle by adding or replacing the following co
 
 # [Preview Bundle v3.x](#tab/extensionv3)
 
-Python support is not available with the SQL bindings extension in the v3 version of the functions runtime.
+Python support isn't available with the SQL bindings extension in the v3 version of the functions runtime.
 
 ---
 

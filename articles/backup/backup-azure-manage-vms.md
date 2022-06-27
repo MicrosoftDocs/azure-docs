@@ -2,7 +2,10 @@
 title: Manage and monitor Azure VM backups
 description: Learn how to manage and monitor Azure VM backups by using the Azure Backup service.
 ms.topic: conceptual
-ms.date: 09/17/2021
+ms.date: 06/03/2022
+author: v-amallick
+ms.service: backup
+ms.author: v-amallick
 ---
 # Manage Azure VM backups with Azure Backup service
 
@@ -17,7 +20,7 @@ In the Azure portal, the Recovery Services vault dashboard provides access to va
 
 You can manage backups by using the dashboard and by drilling down to individual VMs. To begin machine backups, open the vault on the dashboard:
 
-:::image type="content" source="./media/backup-azure-manage-vms/bottom-slider.png" alt-text="Screenshot showing the full dashboard view with slider.":::
+:::image type="content" source="./media/backup-azure-manage-vms/bottom-slider-inline.png" alt-text="Screenshot showing the full dashboard view with slider." lightbox="./media/backup-azure-manage-vms/bottom-slider-expanded.png":::
 
 [!INCLUDE [backup-center.md](../../includes/backup-center.md)]
 
@@ -39,19 +42,19 @@ To view VMs on the vault dashboard:
 1. For ease of use, select the pin icon next to your vault name and select **Pin to dashboard**.
 1. Open the vault dashboard.
 
-    :::image type="content" source="./media/backup-azure-manage-vms/full-view-rs-vault.png" alt-text="Screenshot showing to open the vault dashboard and Settings pane.":::
+    :::image type="content" source="./media/backup-azure-manage-vms/full-view-rs-vault-inline.png" alt-text="Screenshot showing to open the vault dashboard and Settings pane." lightbox="./media/backup-azure-manage-vms/full-view-rs-vault-expanded.png":::
 
 1. On the **Backup Items** tile, select **Azure Virtual Machine**.
 
-    :::image type="content" source="./media/backup-azure-manage-vms/azure-virtual-machine.png" alt-text="Screenshot showing to open the Backup Items tile.":::
+    :::image type="content" source="./media/backup-azure-manage-vms/azure-virtual-machine-inline.png" alt-text="Screenshot showing to open the Backup Items tile." lightbox="./media/backup-azure-manage-vms/azure-virtual-machine-expanded.png":::
 
 1. On the **Backup Items** pane, you can view the list of protected VMs. In this example, the vault protects one virtual machine: *myVMR1*.  
 
-    :::image type="content" source="./media/backup-azure-manage-vms/backup-items-blade-select-item.png" alt-text="Screenshot showing to view the Backup Items pane.":::
+    :::image type="content" source="./media/backup-azure-manage-vms/backup-items-blade-select-item-inline.png" alt-text="Screenshot showing to view the Backup Items pane." lightbox="./media/backup-azure-manage-vms/backup-items-blade-select-item-expanded.png":::
 
 1. From the vault item's dashboard, you can modify backup policies, run an on-demand backup, stop or resume protection of VMs, delete backup data, view restore points, and run a restore.
 
-    :::image type="content" source="./media/backup-azure-manage-vms/item-dashboard-settings.png" alt-text="Screenshot showing the Backup Items dashboard and the Settings pane.":::
+    :::image type="content" source="./media/backup-azure-manage-vms/item-dashboard-settings-inline.png" alt-text="Screenshot showing the Backup Items dashboard and the Settings pane." lightbox="./media/backup-azure-manage-vms/item-dashboard-settings-expanded.png":::
 
 ## Manage backup policy for a VM
 
@@ -70,17 +73,17 @@ To manage a backup policy:
 1. Sign in to the [Azure portal](https://portal.azure.com/). Open the vault dashboard.
 2. On the **Backup Items** tile, select **Azure Virtual Machine**.
 
-    :::image type="content" source="./media/backup-azure-manage-vms/azure-virtual-machine.png" alt-text="Screenshot showing to open the Backup Items tile.":::
+    :::image type="content" source="./media/backup-azure-manage-vms/azure-virtual-machine-inline.png" alt-text="Screenshot showing to open the Backup Items tile." lightbox="./media/backup-azure-manage-vms/azure-virtual-machine-expanded.png":::
 
 3. On the **Backup Items** pane, you can view the list of protected VMs and last backup status with latest restore points time.
 
-    :::image type="content" source="./media/backup-azure-manage-vms/backup-items-blade-select-item.png" alt-text="Screenshot showing to view the Backup Items pane.":::
+    :::image type="content" source="./media/backup-azure-manage-vms/backup-items-blade-select-item-inline.png" alt-text="Screenshot showing to view the Backup Items pane." lightbox="./media/backup-azure-manage-vms/backup-items-blade-select-item-expanded.png":::
 
 4. From the vault item's dashboard, you can select a backup policy.
 
-   * To switch policies, select a different policy and then select **Save**. The new policy is immediately applied to the vault.
+   To switch policies, select a different policy and then select **Save**. The new policy is immediately applied to the vault.
 
-     :::image type="content" source="./media/backup-azure-manage-vms/backup-policy-create-new.png" alt-text="Screenshot showing to choose a backup policy.":::
+    :::image type="content" source="./media/backup-azure-manage-vms/backup-policy-create-new-inline.png" alt-text="Screenshot showing to choose a backup policy." lightbox="./media/backup-azure-manage-vms/backup-policy-create-new-expanded.png":::
 
 ## Run an on-demand backup
 

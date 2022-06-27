@@ -61,8 +61,9 @@ When you create a VM and add it to a Flexible scale set, you have full control o
 The preferred method is to use Azure Resource Graph to query for all VMs in a Virtual Machine Scale Set. Azure Resource Graph provides efficient query capabilities for Azure resources at scale across subscriptions.
 
 ```
+resources
 | where type =~ 'Microsoft.Compute/virtualMachines'
-| where properties.virtualMachineScaleSet contains "demo"
+| where properties.virtualMachineScaleSet.id contains "demo"
 | extend powerState = properties.extended.instanceView.powerState.code
 | project name, resourceGroup, location, powerState
 | order by resourceGroup desc, name desc
@@ -109,12 +110,13 @@ The following table compares the Flexible orchestration mode, Uniform orchestrat
 | Write Accelerator   | No  | Yes  | Yes |
 | Proximity Placement Groups   | Yes, read [Proximity Placement Groups documentation](../virtual-machine-scale-sets/proximity-placement-groups.md) | Yes, read [Proximity Placement Groups documentation](../virtual-machine-scale-sets/proximity-placement-groups.md) | Yes |
 | Azure Dedicated Hosts   | No  | Yes  | Yes |
-| Managed Identity  | User Assigned Identity Only  | System Assigned or User Assigned  | N/A (can specify Managed Identity on individual instances) |
+| Managed Identity  | [User Assigned Identity](../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vmss.md#user-assigned-managed-identity) only<sup>1</sup>  | System Assigned or User Assigned  | N/A (can specify Managed Identity on individual instances) |
 | Add/remove existing VM to the group  | No  | No  | No |
 | Service Fabric  | No  | Yes  | No |
 | Azure Kubernetes Service (AKS) / AKE  | No  | Yes  | No |
 | UserData  | Yes | Yes  | UserData can be specified for individual VMs |
 
+<sup>1</sup> For Uniform scale sets, the `GET VMSS` response will have a reference to the *identity*, *clientID*, and *principalID*. For Flexible scale sets, the response will only get a reference the *identity*. You can make a call to `Identity` to get the *clientID* and *PrincipalID*. 
 
 ### Autoscaling and instance orchestration
 | Feature | Supported by Flexible orchestration for scale sets | Supported by Uniform orchestration for scale sets | Supported by Availability Sets |

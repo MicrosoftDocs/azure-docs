@@ -1,3 +1,4 @@
+items:
 - name: Azure Load Testing docs
   href: index.yml
 - name: Overview
@@ -31,6 +32,8 @@
 - name: How-to guides
   expanded: true
   items:
+    - name: Create & manage tests
+      href: how-to-create-manage-test.md
     - name: Create a load test with a JMeter script
       href: how-to-create-and-run-load-test-with-JMeter-script.md 
     - name: Compare test runs
@@ -82,3 +85,5 @@
       href: https://azure.microsoft.com/regions/services/
     - name: Supported Azure resource types
       href: resource-supported-azure-resource-types.md
+    - name: Service limits
+      href: resource-limits-quotas-capacity.md

@@ -7,7 +7,7 @@ ms.reviewer: jucocchi
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 05/31/2022
+ms.date: 06/02/2022
 ---
 
 # Bitwise operators in Azure Cosmos DB
@@ -58,7 +58,7 @@ The example query's results as a JSON object.
 ```
 
 > [!IMPORTANT]
-> In this example, the values on the left and right side of the operands are 32-bit integer values.
+> The bitwise operators in Azure Cosmos DB SQL API follow the same behavior as bitwise operators in JavaScript. JavaScript stores numbers as 64 bits floating point numbers, but all bitwise operations are performed on 32 bits binary numbers. Before a bitwise operation is performed, JavaScript converts numbers to 32 bits signed integers. After the bitwise operation is performed, the result is converted back to 64 bits JavaScript numbers. For more information about the bitwise operators in JavaScript, see [JavaScript binary bitwise operators at MDN Web Docs](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Operators#binary_bitwise_operators).
 
 ## Next steps
 

@@ -6,13 +6,13 @@ ms.service: cognitive-services
 ms.subservice: language-service
 ms.custom: event-tier1-build-2022
 ms.topic: include
-ms.date: 05/05/2022
+ms.date: 06/03/2022
 ms.author: aahi
 ---
 
 1. Sign into the [Language Studio](https://aka.ms/languageStudio). A window will appear to let you select your subscription and Language resource. Select the Language resource you created in the above step. 
 
-2. Under the **Entity extraction** section of Language Studio, select **Custom named entity recognition**.
+2. Under the **Extract information** section of Language Studio, select **Custom named entity recognition**.
 
     :::image type="content" source="../../media/select-custom-ner.png" alt-text="A screenshot showing the location of custom NER in the Language Studio landing page." lightbox="../../media/select-custom-ner.png":::
 

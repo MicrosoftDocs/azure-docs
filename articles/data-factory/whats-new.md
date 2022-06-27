@@ -42,7 +42,7 @@ This page is updated monthly, so revisit it regularly.
 
 <tr><td><b>Monitoring</b></td><td>Multiple updates to Data Factory monitoring experiences</td><td>New updates to the monitoring experience in Data Factory include the ability to export results to a CSV, clear all filters, and open a run in a new tab. Column and result caching is also improved.<br><a href="https://techcommunity.microsoft.com/t5/azure-data-factory-blog/adf-monitoring-improvements/ba-p/3295531">Learn more</a></td></tr>
 
-<tr><td><b>User interface</b></td><td>New regional format support</td><td>Choose your language and the regional format that will influence how data such as dates and times appear in the Data Factory Studio monitoring. These language and regional settings affect only the Data Factory Studio user interface and don't change or modify your actual data.</td></tr>
+<tr><td><b>User interface</b></td><td>New regional format support</td><td>Choosing your language and the regional format in settings will influence the format of how data such as dates and times appear in the Azure Data Factory Studio monitoring. For example, the time format in Monitoring will appear like "Apr 2, 2022, 3:40:29 pm" when choosing English as the regional format, and "2 Apr 2022, 15:40:29" when choosing French as regional format. These settings affect only the Azure Data Factory Studio user interface and do not change/ modify your actual data and time zone.</td></tr>
 
 </table>
 

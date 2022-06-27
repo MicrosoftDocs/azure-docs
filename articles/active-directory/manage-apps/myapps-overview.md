@@ -1,7 +1,6 @@
 ---
 title: My Apps portal overview
 description: Learn about how to manage applications in the My Apps portal.
-titleSuffix: Microsoft Entra
 services: active-directory
 author: saipradeepb23
 manager: CelesteDG

@@ -5,7 +5,7 @@ author: ranvijaykumar
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 02/15/2022
+ms.date: 06/06/2022
 ms.author: ranku
 ---
 # Exporting de-identified data
@@ -67,3 +67,5 @@ In this article, you've learned how to set up and use de-identified export. For 
  
 >[!div class="nextstepaction"]
 >[Export data](export-data.md)
+
+FHIR&#174; is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.

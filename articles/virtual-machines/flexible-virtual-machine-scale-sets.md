@@ -118,12 +118,13 @@ The following tables list the Flexible orchestration mode features and links to 
 | Write Accelerator   | No  |
 | Proximity Placement Groups   | Yes, read [Proximity Placement Groups documentation](../virtual-machine-scale-sets/proximity-placement-groups.md) |
 | Azure Dedicated Hosts   | No  |
-| Managed Identity  | User Assigned Identity Only  |
+| Managed Identity  | [User Assigned Identity](../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vmss.md#user-assigned-managed-identity) only<sup>1</sup>  |
 | Add/remove existing VM to the group  | No  |
 | Service Fabric  | No  |
 | Azure Kubernetes Service (AKS) / AKE  | No  |
 | UserData  | Yes |
 
+<sup>1</sup> For Uniform scale sets, the `GET VMSS` response will have a reference to the *identity*, *clientID*, and *principalID*. For Flexible scale sets, the response will only get a reference the *identity*. You can make a call to `Identity` to get the *clientID* and *PrincipalID*. 
 
 ### Autoscaling and instance orchestration
 

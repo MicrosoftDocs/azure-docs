@@ -127,7 +127,7 @@ Alice has ordered a product from Contoso and struggles to set it up. Alice calls
 - One participant (Bob) x 30 minutes x $0.004 per participant per minute = $0.12 [both video and audio are charged at the same rate]
 - One participant (Charlie) x 25 minutes x $0.000 per participant per minute = $0.0*.
 
-*Charlie's participation is covered by her Teams license.
+*Charlie's participation is covered by his Teams license.
 
 **Total cost of the visit**:
 - Teams cost for a user joining using the Communication Services JavaScript SDK: 25 minutes from Teams minute pool
