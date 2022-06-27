@@ -108,7 +108,7 @@ You'll use the following MongoDB classes to interact with these resources:
 
 * [Authenticate the client](#authenticate-the-client)
 * [Create a database](#create-a-database)
-* [Create a container](#create-a-container)
+* [Create a container](#create-a-collection)
 * [Create an item](#create-an-item)
 * [Get an item](#get-an-item)
 * [Query items](#query-items)
@@ -161,7 +161,7 @@ In Azure Cosmos DB, you can retrieve items by composing queries using Linq. In t
 
 :::code language="csharp" source="~/azure-cosmos-mongodb-dotnet/001-quickstart/Program.cs" id="read_item" :::
 
-### Query multiple items
+### Query items
 
 After you insert an item, you can run a query to get all items that match a specific filter by treating the collection as an `IQueryable`. This example uses an expression to filter products by category. Once the call to `AsQueryable`  is made, call [``MongoQueryable.Where``](https://mongodb.github.io/mongo-csharp-driver/2.16/apidocs/html/M_MongoDB_Driver_Linq_MongoQueryable_Where__1.htm) to get retrieve a set of filtered items.
 
@@ -225,10 +225,3 @@ Remove-AzResourceGroup @parameters
    :::image type="content" source="media/delete-account-portal/delete-confirmation.png" lightbox="media/delete-account-portal/delete-confirmation.png" alt-text="Screenshot of the delete confirmation page for a resource group.":::
 
 ---
-
-## Next steps
-
-In this quickstart, you learned how to create an Azure Cosmos DB SQL API account, create a database, and create a container using the .NET SDK. You can now dive deeper into the SDK to import more data, perform complex queries, and manage your Azure Cosmos DB SQL API resources.
-
-> [!div class="nextstepaction"]
-> [Get started with Azure Cosmos DB SQL API and .NET](how-to-dotnet-get-started.md)
