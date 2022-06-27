@@ -133,17 +133,17 @@ When allocating resources, the total amount of CPUs and memory requested for all
 
 ## Multiple containers
 
-You can define multiple containers in a single container app. The containers in a container app share hard disk and network resources and experience the same [application lifecycle](application-lifecycle-management.md).
+You can define multiple containers in a single container app to implement the [sidecar pattern](/azure/architecture/patterns/sidecar). The containers in a container app share hard disk and network resources and experience the same [application lifecycle](./application-lifecycle-management.md).
 
-To run multiple containers in a container app,  add more than one container in the `containers` array of the container app template.
+Examples of sidecar containers include:
 
-Reasons to run containers together in a container app include:
+- An agent that reads logs from the primary app container on a [shared volume](storage-mounts.md?pivots=aca-cli#temporary-storage) and forwards them to a logging service.
+- A background process that refreshes a cache used by the primary app container in a shared volume.
 
-- Use a container as a sidecar to your primary app.
-- Share disk space and the same virtual network.
-- Share scale rules among containers.
-- Group multiple containers that need to always run together.
-- Enable direct communication among containers.
+> [!NOTE]
+> Running multiple containers in a single container app is an advanced use case. You should use this pattern only in specific instances in which your containers are tightly coupled. In most situations where you want to run multiple containers, such as when implementing a microservice architecture, deploy each service as a separate container app.
+
+To run multiple containers in a container app, add more than one container in the containers array of the container app template.
 
 ## Container registries
 
