@@ -368,7 +368,7 @@
       - name: Carbonite Endpoint Backup
         href: carbonite-endpoint-backup-tutorial.md
       - name: CWT
-        href: carlsonwagonlit-tutorial.md
+        href: cwt-tutorial.md
       - name: Catchpoint
         href: catchpoint-tutorial.md
       - name: CBRE ServiceInsight
@@ -1006,6 +1006,8 @@
         href: highground-tutorial.md
       - name: Hightail
         href: hightail-tutorial.md
+      - name: Hive Learning
+        href: hive-learning-tutorial.md
       - name: Hirebridge ATS
         href: hirebridge-ats-tutorial.md
       - name: Hiretual-SSO
@@ -1256,6 +1258,8 @@
         href: kemp-tutorial.md
       - name: Kendis - Azure AD Integration
         href: kendis-scaling-agile-platform-tutorial.md
+      - name: Keystone
+        href: keystone-tutorial.md
       - name: KFAdvance
         href: kfadvance-tutorial.md
       - name: Khoros Care
@@ -1698,6 +1702,8 @@
         href: planmyleave-tutorial.md
       - name: Planview Enterprise One
         href: planview-enterprise-one-tutorial.md
+      - name: Planview LeanKit
+        href: planview-leankit-tutorial.md
       - name: Pluralsight
         href: pluralsight-tutorial.md
       - name: Pluto
@@ -1720,6 +1726,8 @@
         href: predictixordering-tutorial.md
       - name: Predictix Price Reporting
         href: predictixpricereporting-tutorial.md
+      - name: Preset
+        href: preset-tutorial.md
       - name: PressPage
         href: presspage-tutorial.md
       - name: Prezi
@@ -2034,6 +2042,8 @@
         href: siteintel-tutorial.md
       - name: Skedda
         href: skedda-tutorial.md
+      - name: Skillcast
+        href: skillcast-tutorial.md
       - name: Skilljar
         href: skilljar-tutorial.md
       - name: Skillport
@@ -2172,7 +2182,7 @@
       items:
       - name: T&E Express
         href: tyeexpress-tutorial.md
-      - name: Tableau Online
+      - name: Tableau Cloud
         href: tableauonline-tutorial.md
       - name: Tableau Server
         href: tableauserver-tutorial.md
@@ -2214,6 +2224,8 @@
         href: teamzskill-tutorial.md
       - name: Templafy SAML2
         href: templafy-tutorial.md
+      - name: Tendium
+        href: tendium-tutorial.md
       - name: Terraform Cloud
         href: terraform-cloud-tutorial.md
       - name: Terraform Enterprise
@@ -2278,6 +2290,8 @@
         href: traction-guest-tutorial.md
       - name: Tradeshift
         href: tradeshift-tutorial.md
+      - name: Training Platform
+        href: training-platform-tutorial.md
       - name: Trakopolis
         href: trakopolis-tutorial.md
       - name: Trakstar
@@ -2368,6 +2382,8 @@
         href: verme-tutorial.md
       - name: Versal
         href: versal-tutorial.md
+      - name: Veza
+        href: veza-tutorial.md
       - name: Viareport (Europe)
         href: viareports-inativ-portal-europe-tutorial.md
       - name: Vibe HCM
@@ -2815,8 +2831,6 @@
         href: limblecmms-provisioning-tutorial.md
       - name: LinkedIn Elevate
         href: linkedinelevate-provisioning-tutorial.md
-      - name: LinkedIn Learning
-        href: linkedin-learning-provisioning-tutorial.md
       - name: LinkedIn Sales Navigator
         href: linkedinsalesnavigator-provisioning-tutorial.md
       - name: Lucidchart

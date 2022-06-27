@@ -714,6 +714,8 @@ items:
       href: question-answering/how-to/prebuilt.md
     - name: Project Best practices
       href: question-answering/how-to/best-practices.md
+    - name: Migrate from QnA Maker to Question Answering
+      href: question-answering/how-to/migrate-qnamaker-to-question-answering.md
     - name: Troubleshooting
       href: question-answering/how-to/troubleshooting.md
   - name: Concepts
@@ -992,3 +994,6 @@ items:
       href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/language-service/context/context
     - name: Migrate to the latest version
       href: concepts/migrate-language-service-latest.md
+    - name: Previous service updates
+      href: concepts/previous-updates.md
+      

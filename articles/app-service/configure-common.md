@@ -11,7 +11,7 @@ ms.devlang: azurecli
 ---
 # Configure an App Service app
 
-This article explains how to configure common settings for web apps, mobile back end, or API app.
+This article explains how to configure common settings for web apps, mobile back end, or API app. For Azure Functions, see [App settings reference for Azure Functions](../azure-functions/functions-app-settings.md).
 
 ## Configure app settings
 
@@ -203,7 +203,7 @@ For ASP.NET and ASP.NET Core developers, setting connection strings in App Servi
 For other language stacks, it's better to use [app settings](#configure-app-settings) instead, because connection strings require special formatting in the variable keys in order to access the values. 
 
 > [!NOTE]
-> There is one case where you may want to use connection strings instead of app settings for non-.NET languages: certain Azure database types are backed up along with the app _only_ if you configure a connection string for the database in your App Service app. For more information, see [What gets backed up](manage-backup.md#what-gets-backed-up). If you don't need this automated backup, then use app settings.
+> There is one case where you may want to use connection strings instead of app settings for non-.NET languages: certain Azure database types are backed up along with the app _only_ if you configure a connection string for the database in your App Service app. For more information, see [Create a custom backup](manage-backup.md#create-a-custom-backup). If you don't need this automated backup, then use app settings.
 
 At runtime, connection strings are available as environment variables, prefixed with the following connection types:
 
