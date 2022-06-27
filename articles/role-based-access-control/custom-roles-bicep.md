@@ -6,7 +6,7 @@ author: schaffererin
 ms.service: role-based-access-control
 ms.topic: how-to
 ms.workload: identity
-ms.date: 05/26/2022
+ms.date: 06/24/2022
 ms.author: v-eschaffer 
 ms.custom: devx-track-azurepowershell
 
