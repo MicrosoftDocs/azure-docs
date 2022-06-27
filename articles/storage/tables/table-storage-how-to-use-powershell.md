@@ -43,11 +43,9 @@ Install-Module AzTable
 
 ## Authorizing table data operations
 
-The AzTable PowerShell module supports authorization with the account access key via Shared Key authorization. For examples that show how to use Shared Key authorization for data access with the AzTable module, see [Use Shared Key authorization with the AzTable module](#use-shared-key-authorization-with-the-aztable-module).
+The AzTable PowerShell module supports authorization with the account access key via Shared Key authorization. The examples in this article show how to authorize table data operations via Shared Key.
 
 Azure Table Storage supports authorization with Azure AD. However, the AzTable PowerShell module does not natively support authorization with Azure AD. Using Azure AD with the AzTable module requires that you call methods in the .NET client library from PowerShell.
-
-The examples in this article show how to authorize table data operations via Shared Key.
 
 ## Sign in to Azure
 
