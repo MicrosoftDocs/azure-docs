@@ -35,7 +35,7 @@ It's important that you have the following prerequisites completed before you be
 
 If you already have an Azure account and an existing Resource Group, you can use the button below to deploy a MedTech service which will include the following:
  * An Azure Event Hubs Namespace and device message event hub (the event hub is named: **devicedata**)
- * An Azure event hub sender role (the sender role is named: **datasender**)
+ * An Azure event hub sender role (the sender role is named: **devicedatasender**)
  * An Azure Health Data Services workspace
  * An Azure Health Data Services FHIR service
  * An Azure Health Data Services MedTech service including the necessary system managed identity permissions to the device message event hub and FHIR service.
@@ -43,7 +43,7 @@ If you already have an Azure account and an existing Resource Group, you can use
 The only remaining configurations are:
  * Provide a working device mapping file. For more information see: [How to use device mappings](how-to-use-device-mappings.md)
  * Provide a working destination mapping file. For more information see: [How to use FHIR destination mappings](how-to-use-fhir-mappings.md)
- * Use the SAS key within the device message event hub for connecting your device or application to the MedTech service device message event hub. For more information see: [Connection string for a specific event hub in a namespace](../../event-hubs/event-hubs-get-connection-string.md#connection-string-for-a-specific-event-hub-in-a-namespace)
+ * Use the Shared access policies (SAS) key (**devicedatasender**) for connecting your device or application to the MedTech service device message event hub (**devicedata**). For more information see: [Connection string for a specific event hub in a namespace](../../event-hubs/event-hubs-get-connection-string.md#connection-string-for-a-specific-event-hub-in-a-namespace)
 
 [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.healthcareapis%2Fworkspaces%2Fiotconnectors%2Fazuredeploy.json) 
 
