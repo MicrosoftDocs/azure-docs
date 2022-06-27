@@ -117,14 +117,14 @@ You have two options to add activities to your iteration and conditional activit
 
    :::image type="content" source="media/how-to-manage-studio-preview-exp/data-factory-preview-exp-13.png" alt-text="Screenshot of a drop-down list in the activity container with all the activities listed.":::
     
-    Select an activity by using the search box or scrolling through the listed activities. The selected activity will be added to the canvas inside of the ForEach container.
+    Select an activity by using the search box or scrolling through the listed activities. The selected activity will be added to the canvas inside of the container.
 
    :::image type="content" source="media/how-to-manage-studio-preview-exp/data-factory-preview-exp-14.png" alt-text="Screenshot of the container with three activities in the center of the container.":::
 
 > [!NOTE]
 > If your container includes more than 5 activities, only the first 4 will be shown in the container preview.
 
-2. Use the edit button in your ForEach container to see everything within the container. You can use the canvas to edit or add to your pipeline.
+2. Use the edit button in your container to see everything within the container. You can use the canvas to edit or add to your pipeline.
 
    :::image type="content" source="media/how-to-manage-studio-preview-exp/data-factory-preview-exp-15.png" alt-text="Screenshot of the container with the edit button highlighted on the right side of a box in the center of the screen.":::
 
@@ -140,6 +140,6 @@ You have two options to add activities to your iteration and conditional activit
     
 ## Provide feedback
 
-We want to hear from you! If you see this pop-up, please provide feedback, and let us know your thoughts. 
+We want to hear from you! If you see this pop-up, please let us know your thoughts by providing feedback on the updates you've tested.  
 
 :::image type="content" source="media/how-to-manage-studio-preview-exp/data-factory-preview-exp-19.png" alt-text="Screenshot of the feedback survey where user can select between one and five stars.":::
