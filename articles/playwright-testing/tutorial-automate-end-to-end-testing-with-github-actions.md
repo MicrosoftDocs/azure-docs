@@ -28,13 +28,163 @@ In this tutorial, you'll learn how to:
 ## Prerequisites
 
 * An Azure account with an active subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-* Azure CLI version 2.2.0 or later. Run `az --version` to find the version that's installed on your computer. If you need to install or upgrade the Azure CLI, see [How to install the Azure CLI](/cli/azure/install-azure-cli).
-* Visual Studio Code. If you don't have it, [download and install it](https://code.visualstudio.com/Download).
 * Git. If you don't have it, [download and install it](https://git-scm.com/download).
 
-## Deploy the sample app
+## Set up the sample repository
 
-Before you can load test the sample app, you have to get it deployed and running. Use Azure CLI commands, Git commands, and PowerShell commands to make that happen.
+The sample repository contains Playwright tests and the configuration settings to run these tests with Microsoft Playwright Testing.
+
+1. Open a browser and go to the [sample GitHub repository](https://github.com/microsoft/playwright-service-preview).
+
+1. Select **Fork** to fork the sample application's repository to your GitHub account.
+
+    :::image type="content" source="./media/tutorial-automate-end-to-end-testing-with-github-actions/fork-github-repo.png" alt-text="Screenshot that shows the button to fork the sample application's GitHub repo.":::
+
+## Authenticate with private npm repository
+
+To run tests with Microsoft Playwright Testing, you use the `@microsoft/playwright-service` npm package. This package resides in a private package registry.
+
+To authenticate your GitHub user account with the private repository, follow these steps:
+
+1. Create a [GitHub personal access token (PAT)](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token) for your account.
+
+    The token should have the `read:packages` permission.
+
+    :::image type="content" source="./media/tutorial-automate-end-to-end-testing-with-github-actions/access-token-permissions.png" alt-text="Screenshot that shows the access token permissions.":::
+
+    > [!IMPORTANT]
+    > After generating the token, make sure to copy the token value, as you won't see it again.
+
+1. If your organization requires SAML SSO for GitHub, authorize your personal access token to use SSO.
+
+    1. Go to your [Personal access tokens](https://github.com/settings/tokens) page.
+    1. Select **[Configure SSO](https://docs.github.com/en/enterprise-cloud@latest/authentication/authenticating-with-saml-single-sign-on/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on)** to the right of the token.
+    1. Select your organization from the list to authorize SSO.
+
+1. Create a GitHub secret *PLAYWRIGHT_SERVICE_PACKAGE_GITHUB_TOKEN* in the sample repository, and set its value to the access token you copied previously.
+    
+    The CI/CD workflow uses the secret to authenticate with the private npm repository.
+
+    1. In your forked repository, select **Settings > Secrets > Actions > New repository secret**.
+    1. Enter *PLAYWRIGHT_SERVICE_PACKAGE_GITHUB_TOKEN* for the **Name**, and paste the access token value that you copied previously, for the **Value**. Then, select **Add secret**.
+
+        :::image type="content" source="./media/tutorial-automate-end-to-end-testing-with-github-actions/create-secret-npm-repository.png" alt-text="Screenshot that shows the page to add a GitHub secret for the private npm repository access token.":::
+
+## Authenticate with Microsoft Playwright Testing
+
+Set up an access key to authenticate with Microsoft Playwright Testing.
+
+1. Open the [Playwright portal](https://dashboard.playwright-ppe.io/) and sign in with your GitHub username and password.
+
+1. Access the **Settings > Access Token** menu in the top-right of the screen.
+
+    :::image type="content" source="./media/tutorial-automate-end-to-end-testing-with-github-actions/access-token-menu.png" alt-text="Screenshot that shows the Access Token menu in the Playwright portal.":::
+
+1. Select **Generate a new token**.
+
+1. Enter a **Token name**, select an **Expiration** duration, and then select **Generate Token**.
+
+    :::image type="content" source="./media/tutorial-automate-end-to-end-testing-with-github-actions/create-access-token.png" alt-text="Screenshot that shows the New access token page in the Playwright portal.":::
+
+1. In the list of access tokens, select **Copy** to copy the generated token value.
+
+    :::image type="content" source="./media/tutorial-automate-end-to-end-testing-with-github-actions/copy-access-token-value.png" alt-text="Screenshot that shows how to copy the access token functionality in the Playwright portal.":::
+    
+    > [!IMPORTANT]
+    > After generating the token, make sure to copy the token value, as you won't see it again.
+
+1. Create a GitHub secret *ACCESS_KEY* in the sample repository, and set its value to the Microsoft Playwright Testing access token you copied previously.
+    
+    The CI/CD workflow uses the secret to authenticate with the Microsoft Playwright Testing for running the tests.
+
+    1. In your forked repository, select **Settings > Secrets > Actions > New repository secret**.
+    1. Enter *ACCESS_KEY* for the **Name**, and paste the access token value that you copied previously, for the **Value**. Then, select **Add secret**.
+
+        :::image type="content" source="./media/tutorial-automate-end-to-end-testing-with-github-actions/create-secret-playwright-testing.png" alt-text="Screenshot that shows the page to add a GitHub secret for Microsoft Playwright Testing access token.":::
+
+## Create a GitHub Actions workflow
+
+To run your end-to-end tests with every source code change in the repository, create a GitHub Actions workflow that triggers on every push. This workflow performs the following steps:
+
+1. Check out the source code onto the CI/CD agent, and set up Node.js.
+1. Install all dependencies for running the tests. This step uses the `PLAYWRIGHT_SERVICE_PACKAGE_GITHUB_TOKEN` secret to authenticate with the private npm repository.
+1. Run the Playwright tests with Microsoft Playwright Testing. This step uses the `ACCESS_KEY` secret to authenticate with the service.
+
+To create the GitHub Actions workflow, perform the following:
+
+1. In your forked repository, select **Actions**, and then select **New workflow**.
+
+      :::image type="content" source="./media/tutorial-automate-end-to-end-testing-with-github-actions/create-github-actions-workflow.png" alt-text="Screenshot that shows Actions page in GitHub, highlighting the New workflow button.":::
+
+1. Select **set up a workflow yourself**, to create a new workflow.
+
+1. Replace the default workflow code with below code snippet:
+
+    ```yml
+    name: Run end-to-end tests with Microsoft Playwright Testing
+    
+    # Controls when the workflow will run
+    on:
+      # Triggers the workflow on push events but only for the "main" branch
+      push:
+        branches: [ "main" ]
+    
+      # Allows you to run this workflow manually from the Actions tab
+      workflow_dispatch:
+    
+    jobs:
+      test:
+        defaults:
+          run:
+            working-directory: samples/PlaywrightTestRunner
+        name: Run e2e tests
+        runs-on: ubuntu-latest
+    
+        # Steps represent a sequence of tasks that will be executed as part of the job
+        steps:
+          # Checks-out your repository
+          - uses: actions/checkout@v3
+    
+          - name: Setup Node.js environment
+            uses: actions/setup-node@v3.3.0
+    
+          - name: Install Dependencies
+            run: |
+              npm set //npm.pkg.github.com/:_authToken ${{ secrets.PLAYWRIGHT_SERVICE_PACKAGE_GITHUB_TOKEN }}
+              npm i
+            
+          - name: Run Playwright Tests
+            run: |
+             npm run test
+            continue-on-error: true
+            env:
+                # Access Key for Playwright Service
+                 ACCESS_KEY: ${{secrets.ACCESS_KEY}}
+                 # Group Id for Playwright Test. Please change it to reflect the dashboard name
+                 DASHBOARD: <my-dashboard-name>
+                 WORKERS: 10
+    ```
+
+1. Replace the text placeholder `<my-dashboard-name>` with your dashboard name. 
+
+    You can use dashboards to group test results in the Microsoft Playwright Testing portal.
+
+    ```yml
+    DASHBOARD: <my-dashboard-name>
+    ```
+
+1. Select **Start commit** to commit the GitHub Actions workflow to your repository.
+
+    After you commit the changes, the workflow starts and runs the Playwright tests with Microsoft Playwright Testing.
+    
+    :::image type="content" source="./media/tutorial-automate-end-to-end-testing-with-github-actions/new-workflow-commit.png" alt-text="Screenshot that shows how to commit the new GitHub Actions workflow file on the GitHub page.":::
+
+## Analyze results
+
+
+## Update tests
+
+
 
 1. Open Windows PowerShell, sign in to Azure, and set the subscription:
 
