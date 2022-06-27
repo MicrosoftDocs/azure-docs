@@ -130,11 +130,11 @@ In this section, a user called B.Simon is created in LMS and Education Managemen
 
 In this section, you test your Azure AD single sign-on configuration with following options. 
 
-* Click on **Test this application** in Azure portal. This will redirect to LMS and Education Management System Leaf Sign-On URL where you can initiate the login flow. 
+* Click on **Test this application** in Azure portal. This will redirect to LMS and Education Management System Leaf Sign-on URL where you can initiate the login flow. 
 
-* Go to LMS and Education Management System Leaf Sign-On URL directly and initiate the login flow from there.
+* Go to LMS and Education Management System Leaf Sign-on URL directly and initiate the login flow from there.
 
-* You can use Microsoft My Apps. When you click the LMS and Education Management System Leaf tile in the My Apps, this will redirect to LMS and Education Management System Leaf Sign-On URL. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
+* You can use Microsoft My Apps. When you click the LMS and Education Management System Leaf tile in the My Apps, this will redirect to LMS and Education Management System Leaf Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
 
 ## Next steps
 
