@@ -30,11 +30,7 @@ You can skip steps 1 and 2 if you already have a web app and service plan.
 1. Create an App Service Plan.
 1. Create a Web app using your service plan.
 1. Configure autoscaling for your service plan.
-  
-## Create an App Service Plan and a Web App  
 
-<details>
-<summary> Select to expand if you need to create an App Service plan and App service</summary>
   
 ## Create an App Service Plan  
 
@@ -75,7 +71,7 @@ An App Service plan defines a set of compute resources for a web app to run on.
 1. Select **Review + create**, then **Create**.
 
     :::image type="content" source="media\autoscale-custom-metric\enable-application-insights.png"alt-text="Screenshot of the Monitoring tab of the Create Web App page where you enable Application Insights"::: 
-</details>
+
 
 ## Configure Autoscale
 Configure the Autoscale settings for your App Service plan.
