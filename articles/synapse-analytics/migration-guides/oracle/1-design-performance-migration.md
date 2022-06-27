@@ -107,13 +107,13 @@ Microsoft recommends moving your existing data model as-is to Azure and using th
 
 You can automate and orchestrate the migration process by using the capabilities of the Azure environment. This approach minimizes the performance hit on the existing Oracle environment, which may already be running close to capacity.
 
-[SQL Server Migration Assistant](/download/details.aspx?id=54258) (SSMA) for Oracle can automate many parts of the migration process and supports Azure Synapse as a target environment.
+[SQL Server Migration Assistant](https://www.microsoft.com/download/details.aspx?id=54258) (SSMA) for Oracle can automate many parts of the migration process and supports Azure Synapse as a target environment.
 
 :::image type="content" source="../media/1-design-performance-migration/oracle-sql-server-migration-assistant-1.png" border="true" alt-text="Screenshot showing how SQL Server Migration Assistant for Oracle can automate many parts of the migration process.":::
 
 [Azure Data Factory](../../../data-factory/introduction.md) is a cloud-based data integration service that supports creating data-driven workflows in the cloud that orchestrate and automate data movement and data transformation. You can use Data Factory to create and schedule data-driven workflows (pipelines) that ingest data from disparate data stores. Data Factory can process and transform the data by using compute services such as Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics, and Azure Machine Learning.
 
-Azure also includes [Azure Database Migration Services](/services/database-migration/) to help you plan and perform a migration from environments like Oracle. SSMA for Oracle can automate migration of Oracle databases, including in some cases functions and procedural code.
+Azure also includes [Azure Database Migration Services](https://azure.microsoft.com/services/database-migration/) to help you plan and perform a migration from environments like Oracle. SSMA for Oracle can automate migration of Oracle databases, including in some cases functions and procedural code.
 
 When planning to use Azure facilities to manage the migration process, create metadata that lists all the data tables to be migrated and their location.
 
@@ -383,7 +383,7 @@ You can only use one field per table for partitioning. That field is frequently 
 
 - Data retrieval from all files within a folder and subfolders.
 - Data retrieval from multiple locations in the same storage account. You can specify multiple locations by using comma separated paths.
-- [Azure Data Lake Storage](/services/storage/data-lake-storage) (ADLS) and Azure Blob Storage.
+- [Azure Data Lake Storage](../../../data-lake-store/data-lake-store-overview.md) (ADLS) and Azure Blob Storage.
 - CSV, PARQUET, and ORC file formats.
 
 #### Use resource classes for workload management

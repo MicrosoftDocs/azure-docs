@@ -150,7 +150,7 @@ Another way to evaluate business value is to classify reports and dashboards as 
 | **Tactical**     | | | | | |  
 | **Operational**  | | | | | |
 
-Metadata discovery tools like [Azure Data Catalog](/azure/data-catalog/overview) let business users tag and rate data sources to enrich the metadata for those data sources to assist with their discovery and classification. You can use the metadata for a report or dashboard to help you understand its business value. Without such tools, understanding the contribution of reports and dashboards to business value is likely to be a time consuming task, whether you're migrating or not. 
+Metadata discovery tools like [Azure Data Catalog](../../../data-catalog/overview.md) let business users tag and rate data sources to enrich the metadata for those data sources to assist with their discovery and classification. You can use the metadata for a report or dashboard to help you understand its business value. Without such tools, understanding the contribution of reports and dashboards to business value is likely to be a time consuming task, whether you're migrating or not. 
 
 ### Migrate reports based on data migration strategy
 

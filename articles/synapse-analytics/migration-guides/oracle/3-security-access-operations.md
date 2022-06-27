@@ -178,7 +178,7 @@ The next tables list common Oracle object privileges that have a direct equivale
 | Truncate | The user can delete all rows from a table. Applies only to tables. | TRUNCATE |
 | Update | The user can modify table rows. Applies to tables only. | UPDATE |
 
-For more information about Azure Synapse permissions, see [Database engine permissions](/sql/relational-databases/security/permissions-database-engine.md).
+For more information about Azure Synapse permissions, see [Database engine permissions](/sql/relational-databases/security/permissions-database-engine).
 
 #### Migrating users, roles, and privileges
 
@@ -263,7 +263,7 @@ The Azure portal can also provide recommendations for performance enhancements, 
 
 :::image type="content" source="../media/3-security-access-operations/azure-portal-recommendations.png" border="true" alt-text="Screenshot of Azure portal recommendations for performance enhancements.":::
 
-The portal supports integration with other Azure monitoring services, such as Operations Management Suite (OMS) and [Azure Monitor](/services/monitor/), to provide an integrated monitoring experience of the data warehouse and the entire Azure analytics platform. For more information, see [Azure Synapse operations and management options](../../sql-data-warehouse/sql-data-warehouse-how-to-manage-and-monitor-workload-importance.md).
+The portal supports integration with other Azure monitoring services, such as Operations Management Suite (OMS) and [Azure Monitor](https://azure.microsoft.com/services/monitor/), to provide an integrated monitoring experience of the data warehouse and the entire Azure analytics platform. For more information, see [Azure Synapse operations and management options](../../sql-data-warehouse/sql-data-warehouse-how-to-manage-and-monitor-workload-importance.md).
 
 ### High availability (HA) and disaster recovery (DR)
 

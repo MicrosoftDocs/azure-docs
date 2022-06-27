@@ -83,7 +83,7 @@ The following sections discuss a range of products and services that Microsoft o
 
 #### Azure ExpressRoute
 
-[Azure ExpressRoute](/services/expressroute) creates private connections between Azure data centers and infrastructure on your premises or in a collocation environment. ExpressRoute connections don't go over the public internet, and offer more reliability, faster speeds, and lower latencies than typical internet connections. In some cases, you gain significant cost benefits by using ExpressRoute connections to transfer data between on-premises systems and Azure.
+[Azure ExpressRoute](../../../expressroute/expressroute-introduction.md) creates private connections between Azure data centers and infrastructure on your premises or in a collocation environment. ExpressRoute connections don't go over the public internet, and offer more reliability, faster speeds, and lower latencies than typical internet connections. In some cases, you gain significant cost benefits by using ExpressRoute connections to transfer data between on-premises systems and Azure.
 
 #### AzCopy
 
@@ -91,11 +91,11 @@ The following sections discuss a range of products and services that Microsoft o
 
 #### Azure Data Box
 
-[Azure Data Box](/services/databox) is a Microsoft service that provides you with a proprietary physical storage device that you can copy migration data onto. You then ship the device to an Azure data center for data upload to cloud storage. This service can be cost-effective for large volumes of data, such as tens or hundreds of terabytes, or where network bandwidth isn't readily available. Azure Data Box is typically used for a large one-off historical data load into Azure Synapse.
+[Azure Data Box](../../../databox/data-box-overview.md) is a Microsoft service that provides you with a proprietary physical storage device that you can copy migration data onto. You then ship the device to an Azure data center for data upload to cloud storage. This service can be cost-effective for large volumes of data, such as tens or hundreds of terabytes, or where network bandwidth isn't readily available. Azure Data Box is typically used for a large one-off historical data load into Azure Synapse.
 
 #### Azure Data Box Gateway
 
-[Azure Data Box Gateway](/azure/databox-gateway/data-box-gateway-overview) is a virtualized cloud storage gateway device that resides on your premises and sends your images, media, and other data to Azure. Use Data Box Gateway for one-off migration tasks or ongoing incremental data uploads.
+[Azure Data Box Gateway](../../../databox-gateway/data-box-gateway-overview.md) is a virtualized cloud storage gateway device that resides on your premises and sends your images, media, and other data to Azure. Use Data Box Gateway for one-off migration tasks or ongoing incremental data uploads.
 
 ### Microsoft services for data ingestion
 
@@ -125,7 +125,7 @@ PolyBase has some limitations, it requires data row length to be less than 1 meg
 
 ### Microsoft tools for Oracle migrations
 
-[SQL Server Migration Assistant](/download/details.aspx?id=54258) (SSMA) for Oracle can help you migrate your legacy on-premises data warehouse platform to Azure Synapse.
+[SQL Server Migration Assistant](https://www.microsoft.com/download/details.aspx?id=54258) (SSMA) for Oracle can help you migrate your legacy on-premises data warehouse platform to Azure Synapse.
 
 ### Microsoft partners for Oracle migrations
 

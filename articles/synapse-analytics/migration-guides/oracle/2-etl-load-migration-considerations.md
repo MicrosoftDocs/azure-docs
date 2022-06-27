@@ -196,7 +196,7 @@ GROUP BY data_type 
 ORDER BY data_type;
 ```
 
-Microsoft offers [SQL Server Migration Assistant](/sql/ssma/oracle/sql-server-migration-assistant-for-oracle-oracletosql.md) (SSMA) for Oracle to automate migration of data warehouses from legacy Oracle environments, including the mapping of data types. You can also use [Azure Database Migration Services](/services/database-migration/) to help plan and perform a migration from environments like Oracle. Third-party vendors also offer tools and services to automate migration. If a [third-party](../../partner/data-integration.md) ETL tool is already in use in the Oracle environment, you can use that tool to implement any required data transformations. The next section explores migration of existing ETL processes.
+Microsoft offers [SQL Server Migration Assistant](/sql/ssma/oracle/sql-server-migration-assistant-for-oracle-oracletosql) (SSMA) for Oracle to automate migration of data warehouses from legacy Oracle environments, including the mapping of data types. You can also use [Azure Database Migration Services](https://azure.microsoft.com/services/database-migration/) to help plan and perform a migration from environments like Oracle. Third-party vendors also offer tools and services to automate migration. If a [third-party](../../partner/data-integration.md) ETL tool is already in use in the Oracle environment, you can use that tool to implement any required data transformations. The next section explores migration of existing ETL processes.
 
 ## ETL migration considerations
 
@@ -219,7 +219,7 @@ In the Oracle environment, some (or all) of the ETL processing may be performed 
 
 If a [third-party](../../partner/data-integration.md) ETL tool is already in use&mdash;especially if there's a large investment in skills or several existing workflows and schedules use that tool&mdash;then decision 3 is whether the tool can efficiently support Azure Synapse as a target environment. Ideally, the tool will include native connectors that can use Azure facilities like [PolyBase](/en-us/azure/synapse-analytics/sql/load-data-overview) or [COPY INTO](/sql/t-sql/statements/copy-into-transact-sql), for the most efficient data loading. But even without native connectors, there's generally a way that you can call external processes, such as PolyBase or COPY INTO, and pass in applicable parameters. In this case, use existing skills and workflows, with Azure Synapse as the new target environment.
 
-If you're using ODI for ELT processing, then ODI Knowledge Modules would be needed for Azure Synapse. If these modules aren't available to you in your organization, but you have ODI, then you can use ODI to generate flat files. Those flat files can then be moved to Azure and ingested into [Azure Data Lake Storage](/services/storage/data-lake-storage) for loading into Azure Synapse.
+If you're using ODI for ELT processing, then ODI Knowledge Modules would be needed for Azure Synapse. If these modules aren't available to you in your organization, but you have ODI, then you can use ODI to generate flat files. Those flat files can then be moved to Azure and ingested into [Azure Data Lake Storage](../../../data-lake-store/data-lake-store-overview.md) for loading into Azure Synapse.
 
 >[!TIP]
 >Consider running ETL tools in Azure to leverage performance, scalability, and cost benefits.
@@ -286,8 +286,8 @@ Once the database tables to be migrated have been created in Azure Synapse, you 
 
     After extraction, move the flat files into Azure Blob Storage. Microsoft provides various options to move large volumes of data, including:
     - [AzCopy](../../../storage/common/storage-use-azcopy-v10.md) for moving files across the network into Azure Storage.
-    - [Azure ExpressRoute](/services/expressroute) for moving bulk data over a private network connection.
-    - [Azure Data Box](/services/databox) for moving files to a physical storage device that you ship to an Azure data center for loading.
+    - [Azure ExpressRoute](../../../expressroute/expressroute-introduction.md) for moving bulk data over a private network connection.
+    - [Azure Data Box](../../../databox/data-box-overview.md) for moving files to a physical storage device that you ship to an Azure data center for loading.
     
     For more information, see [Transfer data to and from Azure](/azure/architecture/data-guide/scenarios/data-transfer).
 
