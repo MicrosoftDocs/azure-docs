@@ -156,10 +156,12 @@ $storage.Properties.AddressPrefixes
 ```
 
 > [!NOTE]
-> 
+>
+> - The API data represents those tags that can be used with NSG rules in your region. Use the data as the source of truth for available service tags.
+> - Because of the process used to propagate the service tags to all Azure regions, your API data results may be out of sync with the downloadable JSON file as the API data is a as represents a subset of the tags currently in the downloadable JSON file.
 > - It takes up to 4 weeks for new Service Tag data to propagate in the API results across all Azure regions. 
 > - You must be authenticated and have a role with read permissions for your current subscription. 
-> - The API data represents those tags that can be used with NSG rules, which represents a subset of the tags currently in the downloadable JSON file. 
+
 
 ### Discover service tags by using downloadable JSON files 
 You can download JSON files that contain the current list of service tags together with IP address range details. These lists are updated and published weekly. Locations for each cloud are:
