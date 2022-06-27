@@ -60,7 +60,7 @@ To link your ADB workspace to a new or existing Azure Machine Learning workspace
 
 ## Track Azure Databricks runs with MLflow
 
-Azure Databricks can be configured to track experiments using MLflow in both Azure Databricks workspace and Azure Machine Learning workspace (dual-tracking), or exclusively on Azure Machine Learning. By default, dual-tracking is configured for you when you linked you Azure Databricks workspace.
+Azure Databricks can be configured to track experiments using MLflow in both Azure Databricks workspace and Azure Machine Learning workspace (dual-tracking), or exclusively on Azure Machine Learning. By default, dual-tracking is configured for you when you linked your Azure Databricks workspace.
 
 ### Dual-tracking on Azure Databricks and Azure Machine Learning
 
