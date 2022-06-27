@@ -1141,6 +1141,8 @@ items:
         href: connector-troubleshoot-rest.md
       - name: SharePoint Online list
         href: connector-troubleshoot-sharepoint-online-list.md
+      - name: Snowflake
+        href: connector-troubleshoot-snowflake.md
       - name: XML format
         href: connector-troubleshoot-xml.md
     - name: Pipeline Triggers 

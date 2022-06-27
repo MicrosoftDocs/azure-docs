@@ -4,7 +4,7 @@ metadata:
   description: In this article, discover answers to common questions about backing up Azure VMs with the Azure Backup service.
   ms.topic: faq
   ms.service: backup
-  ms.date: 05/27/2022
+  ms.date: 06/23/2022
   author: v-amallick
   ms.author: v-amallick
 
@@ -143,6 +143,10 @@ sections:
       - question: Does Azure Backup take backup of keys for ADE encrypted VMs and restore it along with the restored disk?
         answer: |
           Azure Backup backs up encryption keys and secrets of the backup data. Generally, the keys are not restored in the Key vault, but Azure Backup allows restoring the keys during the loss of keys.
+
+      - question: Can I remove all restore points and retain the latest one?
+        answer: |
+          No, you can't retain one single restore point. When you delete the previous restore points, the chain gets deleted. Therefore, you can't selectively retain or delete a recovery point.
 
   - name: Restore
     questions:
