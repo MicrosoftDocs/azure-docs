@@ -68,9 +68,7 @@ If your workloads are backed up by the old vault and you want to re-assign them 
 1. Configure the various backup items for protection in the new vault.
 
 >[!IMPORTANT]
->Existing recovery points in the old recovery vault will be retained and objects can be restored from these. However, since protection has been stopped, backup policy no longer applies to the retained data. As a result, recovery points won't expire through policy, but must be deleted manually. If this isn't done, recovery points will be retained and billed indefinitely.
-
-To avoid getting billed for the remaining recovery points, see [Delete recovery points]().
+>Existing recovery points in the old recovery vault will be retained and objects can be restored from these. However, since protection has been stopped, backup policy no longer applies to the retained data. As a result, recovery points won't expire through policy, but must be deleted manually. If this isn't done, recovery points will be retained and billed indefinitely. To avoid getting billed for the remaining recovery points, see [Delete protected items in the cloud](../backup/backup-azure-delete-vault?tabs=portal.md#delete-protected-items-in-the-cloud.).
 
 ## Migration Step 3: Site Recovery
 
