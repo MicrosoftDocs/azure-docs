@@ -721,6 +721,8 @@
       items:
       - name: Azure Stream Analytics (ASA)
         href: hyperscale/howto-ingest-azure-stream-analytics.md
+      - name: Azure Data Factory (ADF)
+        href: hyperscale/howto-ingest-azure-data-factory.md
     - name: Server group size
       items:
       - name: Pick initial size
