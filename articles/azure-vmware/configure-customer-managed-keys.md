@@ -58,7 +58,9 @@ Before you begin to enable customer-managed key (CMK) functionality, ensure the 
 
     Get the private cloud resource ID and save it to a variable. You'll need this value in the next step to update resource with system assigned identity.
     
-    `privateCloudId=$(az vmware private-cloud show --name $privateCloudName --resource-group $resourceGroupName --query id | tr -d '"')`
+    ```azurecli-interactive
+    privateCloudId=$(az vmware private-cloud show --name $privateCloudName --resource-group $resourceGroupName --query id | tr -d '"')
+    ```
      
     To configure the system-assigned identity on Azure VMware Solution private cloud with Azure CLI, call [az-resource-update](https://docs.microsoft.com/cli/azure/resource?view=azure-cli-latest#az-resource-update) and provide the variable for the private cloud resource ID that you previously retrieved.
     
@@ -87,7 +89,9 @@ Before you begin to enable customer-managed key (CMK) functionality, ensure the 
 
    Get the principal ID for the system-assigned managed identity and save it to a variable. You'll need this value in the next step to create the Key Vault access policy.
     
-    `principalId=$(az vmware private-cloud show --name $privateCloudName --resource-group $resourceGroupName --query identity.principalId | tr -d '"')`
+    ```azurecli-interactive
+    principalId=$(az vmware private-cloud show --name $privateCloudName --resource-group $resourceGroupName --query identity.principalId | tr -d '"')
+    ```
     
     To configure the Key Vault access policy with Azure CLI, call [az keyvault set-policy](https://docs.microsoft.com/cli/azure/keyvault#az-keyvault-set-policy) and provide the variable for the principal ID that you previously retrieved for the managed identity.
 
@@ -132,20 +136,24 @@ Navigate to your **Azure Key Vault** and provide access to the SDDC on Azure Key
 # [Azure CLI](#tab/azure-cli)
 
 To configure customer-managed keys for an Azure VMware Solution private cloud with automatic updating of the key version, call [az vmware private-cloud add-cmk-encryption](https://docs.microsoft.com/cli/azure/vmware/private-cloud?view=azure-cli-latest#az-vmware-private-cloud-add-cmk-encryption). See the examples below to understand the difference between not providing and providing a specific key version.
-
+    
 `keyVaultUrl =$(az keyvault show --name <keyvault_name> --resource-group <resource_group_name> --query properties.vaultUri --output tsv)`
 
 **Option 1**
 
 This example shows the customer not providing a specific key version.
-
-`az vmware private-cloud add-cmk-encryption --private-cloud <private_cloud_name> --resource-group <resource_group_name> --enc-kv-url $keyVaultUrl --enc-kv-key-name <keyvault_key_name>`
+    
+```azurecli-interactive
+az vmware private-cloud add-cmk-encryption --private-cloud <private_cloud_name> --resource-group <resource_group_name> --enc-kv-url $keyVaultUrl --enc-kv-key-name <keyvault_key_name>
+```
 
 **Option 2**
 
 This example shows the customer providing a specific key version.
-
-`az vmware private-cloud add-cmk-encryption --private-cloud <private_cloud_name> --resource-group <resource_group_name> --enc-kv-url $keyVaultUrl --enc-kv-key-name --enc-kv-key-version <keyvault_key_keyVersion>`
+    
+```azurecli-interactive
+az vmware private-cloud add-cmk-encryption --private-cloud <private_cloud_name> --resource-group <resource_group_name> --enc-kv-url $keyVaultUrl --enc-kv-key-name --enc-kv-key-version <keyvault_key_keyVersion>
+```
 
 ---
 
