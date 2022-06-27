@@ -67,7 +67,7 @@ To learn more about Form Recognizer features and development options, visit our 
   
 ## Analyze documents and get results
 
- Form Recognizer v3.0 consolidates the analyze document (POST) and get result (GET) requests into single operations. The `modelId` is used for POST and `resultId` for GET operations.
+ A POST request is used to analyze documents with a prebuilt or custom model. A GET request is used to retrieve the result of a document analysis call. The `modelId` is used with POST and `resultId` with GET operations.
 
 ### Analyze document (POST Request)
 
