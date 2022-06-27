@@ -4,7 +4,7 @@ titleSuffix: Azure Kubernetes Service
 description: Learn how to secure traffic that flows in and out of pods by using Kubernetes network policies in Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
-ms.date: 03/29/2022
+ms.date: 06/24/2022
 
 ---
 
@@ -60,71 +60,31 @@ First, let's create an AKS cluster that supports network policy.
 >
 > The network policy feature can only be enabled when the cluster is created. You can't enable network policy on an existing AKS cluster.
 
-To use Azure Network Policy, you must use the [Azure CNI plug-in][azure-cni] and define your own virtual network and subnets. For more detailed information on how to plan out the required subnet ranges, see [configure advanced networking][use-advanced-networking]. Calico Network Policy could be used with either this same Azure CNI plug-in or with the Kubenet CNI plug-in.
+To use Azure Network Policy, you must use the [Azure CNI plug-in][azure-cni]. Calico Network Policy could be used with either this same Azure CNI plug-in or with the Kubenet CNI plug-in.
 
 The following example script:
 
-* Creates a virtual network and subnet.
-* Creates an Azure Active Directory (Azure AD) service principal for use with the AKS cluster.
-* Assigns *Contributor* permissions for the AKS cluster service principal on the virtual network.
-* Creates an AKS cluster in the defined virtual network and enables network policy.
+* Creates an AKS cluster with system-assigned identity and enables network policy.
     * The _Azure Network_ policy option is used. To use Calico as the network policy option instead, use the `--network-policy calico` parameter. Note: Calico could be used with either `--network-plugin azure` or `--network-plugin kubenet`.
 
-Note that instead of using a service principal, you can use a managed identity for permissions. For more information, see [Use managed identities](use-managed-identity.md).
+Instead of using a system-assigned identity, you can also use a user-assigned identity. For more information, see [Use managed identities](use-managed-identity.md).
 
-Provide your own secure *SP_PASSWORD*. You can replace the *RESOURCE_GROUP_NAME* and *CLUSTER_NAME* variables:
+### Create an AKS cluster for Azure network policies
+
+You can replace the *RESOURCE_GROUP_NAME* and *CLUSTER_NAME* variables:
 
 ```azurecli-interactive
 RESOURCE_GROUP_NAME=myResourceGroup-NP
 CLUSTER_NAME=myAKSCluster
 LOCATION=canadaeast
 
-# Create a resource group
-az group create --name $RESOURCE_GROUP_NAME --location $LOCATION
-
-# Create a virtual network and subnet
-az network vnet create \
-    --resource-group $RESOURCE_GROUP_NAME \
-    --name myVnet \
-    --address-prefixes 10.0.0.0/8 \
-    --subnet-name myAKSSubnet \
-    --subnet-prefix 10.240.0.0/16
-
-# Create a service principal and read in the application ID
-SP=$(az ad sp create-for-rbac --output json)
-SP_ID=$(echo $SP | jq -r .appId)
-SP_PASSWORD=$(echo $SP | jq -r .password)
-
-# Wait 15 seconds to make sure that service principal has propagated
-echo "Waiting for service principal to propagate..."
-sleep 15
-
-# Get the virtual network resource ID
-VNET_ID=$(az network vnet show --resource-group $RESOURCE_GROUP_NAME --name myVnet --query id -o tsv)
-
-# Assign the service principal Contributor permissions to the virtual network resource
-az role assignment create --assignee $SP_ID --scope $VNET_ID --role Contributor
-
-# Get the virtual network subnet resource ID
-SUBNET_ID=$(az network vnet subnet show --resource-group $RESOURCE_GROUP_NAME --vnet-name myVnet --name myAKSSubnet --query id -o tsv)
-```
-
-### Create an AKS cluster for Azure network policies
-
-Create the AKS cluster and specify the virtual network, service principal information, and *azure* for the network plugin and network policy.
+Create the AKS cluster and specify *azure* for the network plugin and network policy.
 
 ```azurecli
 az aks create \
     --resource-group $RESOURCE_GROUP_NAME \
     --name $CLUSTER_NAME \
     --node-count 1 \
-    --generate-ssh-keys \
-    --service-cidr 10.0.0.0/16 \
-    --dns-service-ip 10.0.0.10 \
-    --docker-bridge-address 172.17.0.1/16 \
-    --vnet-subnet-id $SUBNET_ID \
-    --service-principal $SP_ID \
-    --client-secret $SP_PASSWORD \
     --network-plugin azure \
     --network-policy azure
 ```
@@ -137,7 +97,7 @@ az aks get-credentials --resource-group $RESOURCE_GROUP_NAME --name $CLUSTER_NAM
 
 ### Create an AKS cluster for Calico network policies
 
-Create the AKS cluster and specify the virtual network, service principal information, *azure* for the network plugin, and *calico* for the network policy. Using *calico* as the network policy enables Calico networking on both Linux and Windows node pools.
+Create the AKS cluster and specify *azure* for the network plugin, and *calico* for the network policy. Using *calico* as the network policy enables Calico networking on both Linux and Windows node pools.
 
 If you plan on adding Windows node pools to your cluster, include the `windows-admin-username` and `windows-admin-password` parameters with that meet the [Windows Server password requirements][windows-server-password]. To use Calico with Windows node pools, you also need to register the `Microsoft.ContainerService/EnableAKSWindowsCalico`.
 
@@ -179,16 +139,7 @@ az aks create \
     --resource-group $RESOURCE_GROUP_NAME \
     --name $CLUSTER_NAME \
     --node-count 1 \
-    --generate-ssh-keys \
-    --service-cidr 10.0.0.0/16 \
-    --dns-service-ip 10.0.0.10 \
-    --docker-bridge-address 172.17.0.1/16 \
-    --vnet-subnet-id $SUBNET_ID \
-    --service-principal $SP_ID \
-    --client-secret $SP_PASSWORD \
     --windows-admin-username $WINDOWS_USERNAME \
-    --vm-set-type VirtualMachineScaleSets \
-    --kubernetes-version 1.20.2 \
     --network-plugin azure \
     --network-policy calico
 ```
