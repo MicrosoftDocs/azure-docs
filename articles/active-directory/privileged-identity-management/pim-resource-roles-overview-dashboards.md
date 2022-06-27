@@ -11,7 +11,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: how-to
 ms.subservice: pim
-ms.date: 10/07/2021
+ms.date: 06/27/2022
 ms.author: curtand
 ms.reviewer: shaunliu
 ms.custom: pim
