@@ -106,7 +106,7 @@ openshift.io/sa.scc.supplemental-groups: 1000700001/10000
 openshift.io/sa.scc.uid-range: 1000700001/10000
 ```
 
-If other people will be using this namespace that are not cluster administrators, we recommend creating a namespace admin role and granting that role to those users through a role binding.  The namespace admin should have full permissions on the namespace.  More granular roles and example role bindings can be found on the [Azure Arc GitHub repository](https://github.com/microsoft/azure_arc/tree/main/arc_data_services/deploy/yaml/rbac).
+If other people who are not cluster administrators will be using this namespace, create a namespace admin role and grant that role to those users through a role binding.  The namespace admin should have full permissions on the namespace.  More granular roles and example role bindings can be found on the [Azure Arc GitHub repository](https://github.com/microsoft/azure_arc/tree/main/arc_data_services/deploy/yaml/rbac).
 
 
 ## Create the deployer service account
