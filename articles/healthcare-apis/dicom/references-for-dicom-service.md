@@ -5,7 +5,7 @@ author: aersoy
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 03/21/2022
+ms.date: 06/03/2022
 ms.author: aersoy
 ---
 
@@ -46,3 +46,5 @@ For more information about DICOM cast, see
 
 >[!div class="nextstepaction"]
 >[DICOM cast overview](dicom-cast-overview.md)
+
+FHIR&#174; is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.

@@ -4,7 +4,6 @@ description: Use the Web Application  Routing add-on to securely access applicat
 services: container-service
 author: jahabibi
 ms.topic: article
-ms.custom: event-tier1-build-2022
 ms.date: 05/13/2021
 ms.author: jahabibi
 ---
@@ -20,34 +19,38 @@ The Web Application Routing solution makes it easy to access applications that a
 - Web Application Routing currently doesn't support named ports in ingress backend.
 
 ## Web Application Routing solution overview
+
 The add-on deploys four components: an [nginx ingress controller][nginx], [Secrets Store CSI Driver][csi-driver], [Open Service Mesh (OSM)][osm], and [External-DNS][external-dns] controller.
 
 - **Nginx ingress Controller**: The ingress controller exposed to the internet.
-- **External-dns**: Watches for Kubernetes Ingress resources and creates DNS A records in the cluster-specific DNS zone.
+- **External-DNS controller**: Watches for Kubernetes Ingress resources and creates DNS A records in the cluster-specific DNS zone.
 - **CSI driver**: Connector used to communicate with keyvault to retrieve SSL certificates for ingress controller.
 - **OSM**: A lightweight, extensible, cloud native service mesh that allows users to uniformly manage, secure, and get out-of-the-box observability features for highly dynamic microservice environments.
-- **External-DNS controller**: Watches for Kubernetes Ingress resources and creates DNS A records in the cluster-specific DNS zone.
 
 ## Prerequisites
 
-* An Azure subscription. If you don't have an Azure subscription, you can create a [free account](https://azure.microsoft.com/free).
-* [Azure CLI installed](/cli/azure/install-azure-cli).
+- An Azure subscription. If you don't have an Azure subscription, you can create a [free account](https://azure.microsoft.com/free).
+- [Azure CLI installed](/cli/azure/install-azure-cli).
+- An Azure Key Vault containing any application certificates.
+- A DNS solution.
 
-### Install the `aks-preview` Azure CLI
+### Install the `aks-preview` Azure CLI extension
 
-You also need the *aks-preview* Azure CLI extension version 0.5.25 or later. Install the *aks-preview* Azure CLI extension by using the [az extension add][az-extension-add] command. Or install any available updates by using the [az extension update][az-extension-update] command.
+You also need the *aks-preview* Azure CLI extension version `0.5.75` or later. Install the *aks-preview* Azure CLI extension by using the [az extension add][az-extension-add] command. Or install any available updates by using the [az extension update][az-extension-update] command.
 
 ```azurecli-interactive
 # Install the aks-preview extension
 az extension add --name aks-preview
+
 # Update the extension to make sure you have the latest version installed
 az extension update --name aks-preview
 ```
 
-### Install `osm` CLI
-Since Web Application Routing uses OSM internally to secure intranet communication, we need to set up the CLI. The OSM command-line tool contains everything needed to install and configure Open Service Mesh. The binary is available on the [OSM GitHub releases page][osm-release].
+### Install the `osm` CLI
 
-## Deploy Web Application Routing: CLI
+Since Web Application Routing uses OSM internally to secure intranet communication, we need to set up the `osm` CLI. This command-line tool contains everything needed to install and configure Open Service Mesh. The binary is available on the [OSM GitHub releases page][osm-release].
+
+## Deploy Web Application Routing with the Azure CLI
 
 The Web Application Routing routing add-on can be enabled with the Azure CLI when deploying an AKS cluster. To do so, use the [az aks create][az-aks-create] command with the `--enable-addons` argument.
 
@@ -64,25 +67,23 @@ You can also enable Web Application Routing on an existing AKS cluster using the
 az aks enable-addons --resource-group myResourceGroup --name myAKSCluster --addons web_application_routing 
 ```
 
-After the cluster is deployed or updated, use the [az aks show][az-aks-show] command to retrieve the DNS zone name.
-
 ## Connect to your AKS cluster
 
 To connect to the Kubernetes cluster from your local computer, you use [kubectl][kubectl], the Kubernetes command-line client.
 
-If you use the Azure Cloud Shell, `kubectl` is already installed. You can also install it locally using the [az aks install-cli][] command:
+If you use the Azure Cloud Shell, `kubectl` is already installed. You can also install it locally using the `az aks install-cli` command:
 
 ```azurecli
 az aks install-cli
 ```
 
-To configure `kubectl` to connect to your Kubernetes cluster, use the [az aks get-credentials][] command. The following example gets credentials for the AKS cluster named *MyAKSCluster* in the *MyResourceGroup*:
+To configure `kubectl` to connect to your Kubernetes cluster, use the [az aks get-credentials][az-aks-get-credentials] command. The following example gets credentials for the AKS cluster named *myAKSCluster* in *myResourceGroup*:
 
 ```azurecli
-az aks get-credentials --resource-group MyResourceGroup --name MyAKSCluster
+az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 ```
 
-## Create Application Namespace
+## Create the application namespace
 
 For the sample application environment, let's first create a namespace called `hello-web-app-routing` to run the example pods:
 
@@ -90,7 +91,7 @@ For the sample application environment, let's first create a namespace called `h
 kubectl create namespace hello-web-app-routing
 ```
 
-## Add Application Namespace to OSM Control Plane
+We also need to add the application namespace to the OSM control plane:
 
 ```bash
 osm namespace add hello-web-app-routing
@@ -98,7 +99,7 @@ osm namespace add hello-web-app-routing
 
 ## Grant permissions for Web Application Routing
 
-Identify the Web Application Routing-associated managed identity within the cluster resource group `webapprouting-<MY_CLUSTER_NAME>`. In this walkthrough, the identity is named `webapprouting-myakscluster`.
+Identify the Web Application Routing-associated managed identity within the cluster resource group `webapprouting-<CLUSTER_NAME>`. In this walkthrough, the identity is named `webapprouting-myakscluster`.
 
 :::image type="content" source="media/web-app-routing/identify-msi-web-app-routing.png" alt-text="Cluster resource group in the Azure portal is shown, and the webapprouting-myakscluster user-assigned managed identity is highlighted." lightbox="media/web-app-routing/identify-msi-web-app-routing.png":::
 
@@ -106,7 +107,13 @@ Copy the identity's object ID:
 
 :::image type="content" source="media/web-app-routing/msi-web-app-object-id.png" alt-text="The webapprouting-myakscluster managed identity screen in Azure portal, the identity's object ID is highlighted. " lightbox="media/web-app-routing/msi-web-app-object-id.png":::
 
-### Grant Access to Keyvault
+### Grant access to Azure Key Vault
+
+Obtain the vault URI for your Azure Key Vault:
+
+```azurecli
+az keyvault show --resource-group myResourceGroup --name myapp-contoso
+```
 
 Grant `GET` permissions for Web Application Routing to retrieve certificates from Azure Key Vault:
 
@@ -121,12 +128,12 @@ The Web Application Routing solution may only be triggered on service resources 
 ```yaml
 annotations:
   kubernetes.azure.com/ingress-host: myapp.contoso.com
-  kubernetes.azure.com/tls-cert-keyvault-uri: myapp-contoso.vault.azure.net
+  kubernetes.azure.com/tls-cert-keyvault-uri: myapp-contoso.vault.azure.net/certificates/keyvault-certificate-name/keyvault-certificate-name-revision
 ```
 
-These annotations in the service manifest would direct Web Application Routing to create an ingress servicing `myapp.contoso.com` connected to the keyvault `myapp-contoso`.
+These annotations in the service manifest would direct Web Application Routing to create an ingress servicing `myapp.contoso.com` connected to the keyvault `myapp-contoso` and will retrieve the `keyvault-certificate-name` with `keyvault-certificate-name-revision`
 
-Create a file named **samples-web-app-routing.yaml** and copy in the following YAML. On line 29-31, update `<MY_HOSTNAME>` and `<MY_KEYVAULT_URI>` with the DNS zone name collected in the previous step of this article.
+Create a file named **samples-web-app-routing.yaml** and copy in the following YAML. On line 29-31, update `<MY_HOSTNAME>` with your DNS host name and `<MY_KEYVAULT_URI>` with the full certficicate vault URI.
 
 ```yaml
 apiVersion: apps/v1
@@ -156,9 +163,9 @@ apiVersion: v1
 kind: Service
 metadata:
   name: aks-helloworld
-annotations:
-  kubernetes.azure.com/ingress-host: <MY_HOSTNAME>
-  kubernetes.azure.com/tls-cert-keyvault-uri: <MY_KEYVAULT_URI>
+  annotations:
+    kubernetes.azure.com/ingress-host: <MY_HOSTNAME>
+    kubernetes.azure.com/tls-cert-keyvault-uri: <MY_KEYVAULT_URI>
 spec:
   type: ClusterIP
   ports:
@@ -173,37 +180,36 @@ Use the [kubectl apply][kubectl-apply] command to create the resources.
 kubectl apply -f samples-web-app-routing.yaml -n hello-web-app-routing
 ```
 
-The following example shows the created resources:
+The following example output shows the created resources:
 
 ```bash
-$ kubectl apply -f samples-web-app-routing.yaml -n hello-web-app-routing
-
 deployment.apps/aks-helloworld created
 service/aks-helloworld created
 ```
 
-## Verify managed ingress created
+## Verify the managed ingress was created
+
 ```bash
-$ kubectl get ingress -n hello-web-app-routing -n hello-web-app-routing
+$ kubectl get ingress -n hello-web-app-routing
 ```
 
 Open a web browser to *<MY_HOSTNAME>*, for example *myapp.contoso.com* and verify you see the demo application. The application may take a few minutes to appear.
 
 ## Remove Web Application Routing
-```console
+
+First, remove the associated namespace:
+
+```bash
 kubectl delete namespace hello-web-app-routing
 ```
 
-The Web Application Routing solution can be removed using the Azure CLI. To do so run the following command, substituting your AKS cluster and resource group name.
+The Web Application Routing add-on can be removed using the Azure CLI. To do so run the following command, substituting your AKS cluster and resource group name.
 
 ```azurecli
 az aks disable-addons --addons web_application_routing  --name myAKSCluster --resource-group myResourceGroup --no-wait
 ```
 
-When the Web Application Routing routing add-on is disabled, some Kubernetes resources may remain in the cluster. These resources include *configMaps* and *secrets*, and are created in the *app-routing-system* namespace. To maintain a clean cluster, you may want to remove these resources.
-
-Look for *addon-web-application-routing* resources using the following [kubectl get][kubectl-get] commands:
-
+When the Web Application Routing add-on is disabled, some Kubernetes resources may remain in the cluster. These resources include *configMaps* and *secrets*, and are created in the *app-routing-system* namespace. To maintain a clean cluster, you may want to remove these resources.
 
 ## Clean up
 
@@ -227,8 +233,8 @@ service "aks-helloworld" deleted
 [az-aks-show]: /cli/azure/aks#az-aks-show
 [ingress-https]: ./ingress-tls.md
 [az-aks-enable-addons]: /cli/azure/aks#az-aks-enable-addons
-[az aks install-cli]: /cli/azure/aks#az-aks-install-cli
-[az aks get-credentials]: /cli/azure/aks#az-aks-get-credentials
+[az-aks-install-cli]: /cli/azure/aks#az-aks-install-cli
+[az-aks-get-credentials]: /cli/azure/aks#az-aks-get-credentials
 [csi-driver]: https://github.com/Azure/secrets-store-csi-driver-provider-azure
 [az-extension-add]: /cli/azure/extension#az-extension-add
 [az-extension-update]: /cli/azure/extension#az-extension-update

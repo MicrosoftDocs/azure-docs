@@ -5,7 +5,7 @@ author: maud-lv
 ms.author: malev
 ms.service: service-connector
 ms.topic: how-to
-ms.date: 03/02/2022
+ms.date: 06/13/2022
 ---
 
 # Integrate Azure App Configuration with Service Connector
@@ -15,6 +15,7 @@ This page shows the supported authentication types and client types of Azure App
 ## Supported compute services
 
 - Azure App Service
+- Azure Container Apps
 - Azure Spring Cloud
 
 ## Supported authentication types and client types

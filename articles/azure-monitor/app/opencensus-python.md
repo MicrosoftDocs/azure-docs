@@ -5,6 +5,7 @@ ms.topic: conceptual
 ms.date: 10/12/2021
 ms.devlang: python
 ms.custom: devx-track-python
+ms.reviewer: mmcc
 ---
 
 # Set up Azure Monitor for your Python application
@@ -348,7 +349,7 @@ OpenCensus.stats supports 4 aggregation methods but provides partial support for
         main()
     ```
 
-1. The exporter sends metric data to Azure Monitor at a fixed interval. The default is every 15 seconds. We're tracking a single metric, so this metric data, with whatever value and time stamp it contains, is sent every interval. The value is cumulative, can only increase and resets to 0 on restart. You can find the data under `customMetrics`, but `customMetrics` properties valueCount, valueSum, valueMin, valueMax, and valueStdDev are not effectively used.
+1. The exporter sends metric data to Azure Monitor at a fixed interval. The default is every 15 seconds. To modify the export interval, pass in `export_interval` as a parameter in seconds to `new_metrics_exporter()`. We're tracking a single metric, so this metric data, with whatever value and time stamp it contains, is sent every interval. The value is cumulative, can only increase and resets to 0 on restart. You can find the data under `customMetrics`, but `customMetrics` properties valueCount, valueSum, valueMin, valueMax, and valueStdDev are not effectively used.
 
 ### Setting custom dimensions in metrics
 
@@ -522,7 +523,7 @@ Each exporter accepts the same arguments for configuration, passed through the c
 - `instrumentation_key`: The instrumentation key used to connect to your Azure Monitor resource.
 - `logging_sampling_rate`: Used for `AzureLogHandler`. Provides a sampling rate [0,1.0] for exporting logs. Defaults to 1.0.
 - `max_batch_size`: Specifies the maximum size of telemetry that's exported at once.
-- `proxies`: Specifies a sequence of proxies to use for sending data to Azure Monitor. For more information, see [proxies](https://requests.readthedocs.io/en/master/user/advanced/#proxies).
+- `proxies`: Specifies a sequence of proxies to use for sending data to Azure Monitor. For more information, see [proxies](https://requests.readthedocs.io/en/latest/user/advanced/#proxies).
 - `storage_path`: A path to where the local storage folder exists (unsent telemetry). As of `opencensus-ext-azure` v1.0.3, the default path is the OS temp directory + `opencensus-python` + `your-ikey`. Prior to v1.0.3, the default path is $USER + `.opencensus` + `.azure` + `python-file-name`.
 
 ## Integrate with Azure Functions

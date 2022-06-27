@@ -42,10 +42,6 @@ The confidence score indicates the confidence in an insight. It is a number betw
 
 Use textual and visual content moderation models to keep your users safe from inappropriate content and validate that the content you publish matches your organization's values. You can automatically block certain videos or alert your users about the content. For more information, see [Insights: visual and textual content moderation](video-indexer-output-json-v2.md#visualcontentmoderation). 
 
-## Blocks	
-
-Blocks are meant to make it easier to go through the data. For example, block might be broken down based on when speakers change or there is a long pause.	
-
 ## Project and editor
 
 The [Azure Video Indexer](https://www.videoindexer.ai/) website enables you to use your video's deep insights to: find the right media content, locate the parts that you’re interested in, and use the results to create an entirely new project. Once created, the project can be rendered and downloaded from Azure Video Indexer and be used in your own editing applications or downstream workflows.

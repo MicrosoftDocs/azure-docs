@@ -1,13 +1,14 @@
 ---
 title: 'Azure Cosmos DB: SQL .NET Standard API, SDK & resources'
 description: Learn all about the SQL API and .NET SDK including release dates, retirement dates, and changes made between each version of the Azure Cosmos DB .NET SDK.
-author: rothja
+author: seesharprun
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: csharp
 ms.topic: reference
 ms.date: 03/22/2022
-ms.author: jroth
+ms.author: sidandrews
+ms.reviewer: mjbrown
 ms.custom: devx-track-dotnet
 
 

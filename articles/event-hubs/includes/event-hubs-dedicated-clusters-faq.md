@@ -5,7 +5,7 @@ services: event-hubs
 author: spelluru
 ms.service: event-hubs
 ms.topic: include
-ms.date: 09/28/2021
+ms.date: 06/01/2022
 ms.author: spelluru
 ms.custom: "include file"
 
@@ -48,7 +48,7 @@ To monitor the CPU usage of the dedicated cluster you need to follow these steps
 - Select `CPU` as the metrics and use the `Max` as the aggregation. 
 - Then add a filter for the property type `Role`, use the equal operator and select all three values(`SBSAdmin`, `SBSFE`, `SBSEH`) from the dropdown.  
 
-Then you can monitor this metic to determine when you should scale your dedicated cluster. 
+Then you can monitor this metric to determine when you should scale your dedicated cluster. 
 You can also set up [alerts](../../azure-monitor/alerts/alerts-overview.md) against this metric to get notified when CPU usage reaches the thresholds you set.  
 
 
@@ -57,4 +57,4 @@ You can also set up [alerts](../../azure-monitor/alerts/alerts-overview.md) agai
 You can geo-pair a namespace under a Dedicated-tier cluster with another namespace under a Dedicated-tier cluster. We don't encourage pairing a dedicated-tier namespace with a namespace in our standard offering because the throughput limit will be incompatible and result in errors. 
 
 ### Can I migrate my Standard namespaces to belong to a Dedicated-tier cluster?
-We don't currently support an automated migration process for migrating your event hubs data from a Standard namespace to a Dedicated one. 
+We don't currently support an automated migration process for migrating your event hubs data from a standard or premium namespace to a dedicated one.

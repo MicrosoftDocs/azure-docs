@@ -12,7 +12,7 @@ ms.custom: template-how-to #Required; leave this attribute/value as-is.
 
 # Self-service access workflows for hybrid data estates
 
-[!INCLUDE [Region Notice](./includes/workflow-regions.md)]
+[!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
 
 [Workflows](concept-workflow.md) allow you to automate some business processes through Azure Purview. Self-service access workflows allow you to create a process for your users to request access to datasets they've discovered in Azure Purview!
 
@@ -66,7 +66,7 @@ This guide will show you how to create and manage self-service access workflows 
     1. Approval connector that specifies a user or group that will be contacted to approve the request.
     1. Condition to check approval status 
         - If approved:
-            1. Condition to check if data source is registered for [data use governance](how-to-enable-data-use-governance.md) (policy) 
+            1. Condition to check if data source is registered for [data use management](how-to-enable-data-use-governance.md) (policy) 
                 1. If a data source is registered with policy:
                     1. Create a [self-service policy](concept-self-service-data-access-policy.md) 
                     1. Send email to requestor that access is provided 

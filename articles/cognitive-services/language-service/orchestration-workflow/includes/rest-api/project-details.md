@@ -10,9 +10,7 @@ ms.date: 05/20/2022
 ms.author: aahi
 ---
 
-
 To get an orchestration workflow project's details, submit a **GET** request using the following URL and headers. Replace the placeholder values with your own values.   
-
 ```rest
 {ENDPOINT}/language/authoring/analyze-conversations/projects/{PROJECT-NAME}?api-version={API-VERSION}
 ```
@@ -21,7 +19,7 @@ To get an orchestration workflow project's details, submit a **GET** request usi
 |---------|---------|---------|
 |`{ENDPOINT}`     | The endpoint for authenticating your API request.   | `https://<your-custom-subdomain>.cognitiveservices.azure.com` |
 |`{PROJECT-NAME}`     | The name for your project. This value is case-sensitive.  | `myProject` |
-|`{API-VERSION}`     | The version of the API you are calling. The value referenced here is for the latest released [model version](../../../concepts/model-lifecycle.md#choose-the-model-version-used-on-your-data)  | `2022-03-01-preview` |
+|`{API-VERSION}`     | The version of the API you are calling. The value referenced here is for the latest released [model version](../../../concepts/model-lifecycle.md#choose-the-model-version-used-on-your-data).  | `2022-05-01` |
 
 ### Headers
 
@@ -37,20 +35,15 @@ Once you send the request, you will get the following response.
 
 ```json
 {
-  "createdDateTime": "{CREATED-TIME}",
-  "lastModifiedDateTime": "{CREATED-TIME}",
-  "lastTrainedDateTime": "{CREATED-TIME}",
-  "lastDeployedDateTime": "{CREATED-TIME}",
-  "projectKind": "orchestration",
-  "settings": {
-    "confidenceThreshold": 0
-  },
+  "createdDateTime": "2022-04-18T13:53:03Z",
+  "lastModifiedDateTime": "2022-04-18T13:53:03Z",
+  "lastTrainedDateTime": "2022-04-18T14:14:28Z",
+  "lastDeployedDateTime": "2022-04-18T14:49:01Z",
+  "projectKind": "Orchestration",
   "projectName": "{PROJECT-NAME}",
-  "multilingual": true,
-  "description": "string",
+  "description": "This is a sample orchestration project.",
   "language": "{LANGUAGE-CODE}"
 }
-
 ```
 
-Once you send your API request, you will receive a `202` response indicating success and JSON response body with your project details.
+Once you send your API request, you will receive a `200` response indicating success and JSON response body with your project details.
