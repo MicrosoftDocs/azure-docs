@@ -50,7 +50,7 @@ UnableToConnectToServer | Connecting to the remote server failed. | Check error 
 
   - [Map existing custom DNS name](/azure/app-service/app-service-web-tutorial-custom-domain.md).
   - [Secure a custom DNS with a TLS/SSL binding](/azure/app-service/configure-ssl-bindings.md).
-  - [Securely connect to Azure resources](../app-service/tutorial-connect-overview).
+  - [Securely connect to Azure resources](/azure/app-service/tutorial-connect-overview).
   - [Deployment best practices](/azure/app-service/deploy-best-practices).
   - [Security recommendations](/azure/app-service/security-recommendations).
   - [Networking features](/azure/app-service/networking-features).

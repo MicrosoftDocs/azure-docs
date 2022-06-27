@@ -105,7 +105,7 @@ Once you have successfully completed migration, you may explore the following st
 - [Secure a custom DNS with a TLS/SSL binding](/azure/app-service/configure-ssl-bindings.md).
 - [Securely connect to Azure resources](/azure/app-service/tutorial-connect-overview)
 - [Deployment best practices](/azure/app-service/deploy-best-practices).
-- [Security recommendations](../app-service/security-recommendations).
+- [Security recommendations](/azure/app-service/security-recommendations).
 - [Networking features](/azure/app-service/networking-features).
 - [Monitor App Service with Azure Monitor](/azure/app-service/monitor-app-service).
 - [Configure Azure AD authentication](/azure/app-service/configure-authentication-provider-aad).
