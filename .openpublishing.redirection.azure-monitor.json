@@ -172,6 +172,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/azure-monitor/app/usage-troubleshoot.md",
+            "redirect_url": "https://docs.microsoft.com/troubleshoot/azure/azure-monitor/app-insights/usage-troubleshoot",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/azure-monitor/app/java-on-premises.md",
             "redirect_url": "/azure/azure-monitor/app/java-in-process-agent",
             "redirect_document_id": false
