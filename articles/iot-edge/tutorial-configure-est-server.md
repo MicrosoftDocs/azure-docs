@@ -3,14 +3,14 @@ title: Tutorial - Configure Enrollment over Secure Transport Server (EST) for Az
 description: This tutorial shows you how to set up an Enrollment over Secure Transport (EST) server for Azure IoT Edge.
 author: PatAltimore
 ms.author: patricka
-ms.date: 06/22/2022
+ms.date: 06/27/2022
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 monikerRange: ">=iotedge-2020-11"
 ---
 
-# Tutorial: Configure Enrollment over Secure Transport (EST) Server for Azure IoT Edge
+# Tutorial: Configure Enrollment over Secure Transport Server for Azure IoT Edge
 
 [!INCLUDE [iot-edge-version-202011](../../includes/iot-edge-version-202011.md)]
 
@@ -163,7 +163,7 @@ Using Device Provisioning Service allows you to automatically issue and renew ce
 1. In the [Azure portal](https://portal.azure.com), navigate to your instance of IoT Hub Device Provisioning Service.
 1. Under **Settings**, select **Certificates**, then **+Add**.
 
-    :::image type="content" source="./media/tutorial-configure-est-server/dps-add-certificate.png" alt-text="A screenshot adding C A certificate to Device Provisioning Service using the Azure portal.":::
+    :::image type="content" source="./media/tutorial-configure-est-server/dps-add-certificate.png" alt-text="A screenshot adding CA certificate to Device Provisioning Service using the Azure portal.":::
 
     |Setting | Value |
     |--------|---------|
@@ -179,7 +179,7 @@ Using Device Provisioning Service allows you to automatically issue and renew ce
 1. Under **Settings**, select **Manage enrollments**.
 1. Select **Add enrollment group** then complete the following steps to configure the enrollment:
 
-    :::image type="content" source="./media/tutorial-configure-est-server/dps-add-enrollment.png" alt-text="A screenshot adding D P S enrollment group using the Azure portal.":::
+    :::image type="content" source="./media/tutorial-configure-est-server/dps-add-enrollment.png" alt-text="A screenshot adding DPS enrollment group using the Azure portal.":::
 
     |Setting | Value |
     |--------|---------|
@@ -207,7 +207,7 @@ On the IoT Edge device, update the IoT Edge configuration file to use device cer
 
 1. Add or replace the following sections in the configuration file. These configuration settings use username and password authentication initially to get the device certificate from the EST server. The device certificate is used to authenticate to the EST server for future certificate renewals.
 
-    Replace the following placeholder text: `<DPS-ID-SCOPE>` with the **ID Scope** of the DPS linked to the IoT Hub containing the registered device, and `myiotedgedevice` with the device ID registered in Azure IoT Hub. You can find the **ID Scope** value on the your DPS **Overview** page.
+    Replace the following placeholder text: `<DPS-ID-SCOPE>` with the **ID Scope** of the DPS linked to the IoT Hub containing the registered device, and `myiotedgedevice` with the device ID registered in Azure IoT Hub. You can find the **ID Scope** value on the DPS **Overview** page.
 
     ```bash
     # DPS provisioning with X.509 certificate
@@ -253,7 +253,7 @@ On the IoT Edge device, update the IoT Edge configuration file to use device cer
 
 1. Navigate to your device in IoT Hub. Certificate thumbprints have been added to the device automatically using DPS and the EST server.
 
-    :::image type="content" source="./media/tutorial-configure-est-server/device-thumbprints.png" alt-text="A screenshot of I O T Hub device settings in the Azure portal. Certificate thumbprints fields show values.":::
+    :::image type="content" source="./media/tutorial-configure-est-server/device-thumbprints.png" alt-text="A screenshot of IoT Hub device settings in the Azure portal. Certificate thumbprints fields show values.":::
 
     > [!NOTE]
     > When you create a new IoT Edge device, it displays the status code `417 -- The device's deployment configuration is not set in the Azure portal.` This status is normal, and means that the device is ready to receive a module deployment.
@@ -285,7 +285,7 @@ You can immediately reissue the device identity certificates by removing the exi
 
 1. Navigate to your device in IoT Hub. Certificate thumbprints have been updated.
 
-    :::image type="content" source="./media/tutorial-configure-est-server/renewed-thumbprints.png" alt-text="A screenshot of I O T Hub device settings in the Azure portal. Certificate thumbprints fields show new values.":::
+    :::image type="content" source="./media/tutorial-configure-est-server/renewed-thumbprints.png" alt-text="A screenshot of IoT Hub device settings in the Azure portal. Certificate thumbprints fields show new values.":::
 
 1. List the certificate files using the command `sudo ls -l /var/lib/aziot/certd/certs`. You should see recent creation dates for the device certificate files.
 1. Use the `openssl` command to check the new certificate contents. For example:
