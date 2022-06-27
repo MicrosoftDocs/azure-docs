@@ -54,18 +54,19 @@ A persistent volume claim (PVC) uses the storage class object to dynamically pro
 1. Create a file named `azure-blob-nfs-pvc.yaml` and copy in the following YAML. Make sure that the *storageClassName* matches the storage class created in the previous step:
 
     ```yml
-    apiVersion: storage.k8s.io/v1
+    apiVersion: v1
     kind: PersistentVolumeClaim
-    - metadata:
-        name: azure-blob-storage
-        annotations:
+    metadata:
+      name: azure-blob-storage
+      annotations:
             volume.beta.kubernetes.io/storage-class: blob-nfs
-      spec:
-        accessModes: ["ReadWriteMany"]
-        storageClassName: my-blobstorage
-        resources:
-          requests:
-            storage: 100Gi
+    spec:
+      accessModes:
+      - ReadWriteMany
+      storageClassName: my-blobstorage
+      resources:
+        requests:
+          storage: 5Gi
     ```
 
 2. Create the persistent volume claim with the kubectl create command:
@@ -74,15 +75,22 @@ A persistent volume claim (PVC) uses the storage class object to dynamically pro
     kubectl create -f azure-blob-nfs-pvc.yaml
     ```
 
-Once completed, the Blob storage container will be created. You can use the [kubectl exec][kubectl-exec] command to view the status of the PVC:
+Once completed, the Blob storage container will be created. You can use the [kubectl get][kubectl-get] command to view the status of the PVC:
 
 ```bash
-kubectl exec -it statefulset-blob-0 -- df -h
+kubectl get pvc azure-blob-storage
+```
+
+The output of the command resembles the following example:
+
+```bash
+NAME                 STATUS   VOLUME                                     CAPACITY   ACCESS MODES   STORAGECLASS   AGE
+azure-blob-storage   Bound    pvc-b88e36c5-c518-4d38-a5ee-337a7dda0a68   5Gi        RWX            blob-nfs       92m
 ```
 
 ## Use the persistent volume
 
-The following YAML creates a pod that uses the persistent volume claim my-blobstorage to mount the Azure Blob storage at the `*`/mnt/blob' path.
+The following YAML creates a pod that uses the persistent volume claim my-blobstorage to mount the Azure Blob storage at the `/mnt/blob' path.
 
 1. Create a file named `azure-blob-nfs-pv.yaml`, and copy in the following YAML. Make sure that the claimName matches the PVC created in the previous step.
 
@@ -93,15 +101,22 @@ The following YAML creates a pod that uses the persistent volume claim my-blobst
       name: mypod
     spec:
       containers:
-      - name: persistent-storage
+      - name: mypod
         image: mcr.microsoft.com/oss/nginx/nginx:1.17.3-alpine
+        resources:
+          requests:
+            cpu: 100m
+            memory: 128Mi
+          limits:
+            cpu: 250m
+            memory: 256Mi
         volumeMounts:
         - mountPath: "/mnt/blob"
-          name: persistent-storage
+          name: volume
       volumes:
         - name: volume
           persistentVolumeClaim:
-            claimName: my-blobstorage
+            claimName: azure-blob-storage
     ```
 
 2. Create the pod with the [kubectl apply][kubectl-apply] command:
@@ -118,6 +133,7 @@ The following YAML creates a pod that uses the persistent volume claim my-blobst
 
 <!-- LINKS - external -->
 [kubectl-create]: https://kubernetes.io/docs/user-guide/kubectl/v1.8/#create
+[kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 [kubernetes-files]: https://github.com/kubernetes/examples/blob/master/staging/volumes/azure_file/README.md
 [kubernetes-secret]: https://kubernetes.io/docs/concepts/configuration/secret/

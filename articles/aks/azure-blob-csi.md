@@ -83,16 +83,12 @@ You're prompted to confirm there isn't an open-source Blob CSI driver installed.
 
 ```output
 "storageProfile": {
-    "blobCsiDriver": 
-      "enabled": true,
-      "version": "v1"
+    "blobCsiDriver": {
+      "enabled": true
     },
     "diskCsiDriver": {
       "enabled": true,
       "version": "v1"
-    },
-    "fileCsiDriver": {
-      "enabled": true
     },
 ```
 
