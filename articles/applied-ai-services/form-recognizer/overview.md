@@ -20,11 +20,11 @@ keywords: automated data processing, document processing, automated data entry, 
 
 Azure Form Recognizer is a cloud-based [Azure Applied AI Service](../../applied-ai-services/index.yml) that analyzes forms and documents, extracts text and data, and maps field relationships as key-value pairs.
 
-| Model type | Model name and modelID |
+| Model type | Model name |
 |------------|-----------|
-|**Document analysis models**| &#9679; [**Read model**](concept-read.md) **\|** **prebuilt-read** </br>&#9679; [**Layout model**](concept-layout.md) **\|** **prebuilt-layout** </br> &#9679; [**General document model**](concept-general-document.md) **\|** **prebuilt-document** </br> |
-| **Prebuilt models** | &#9679; [**W-2 form model**](concept-w2.md) **\|** **prebuilt-tax.us.w2** </br>&#9679; [**Invoice model**](concept-invoice.md) **\|** **prebuilt-invoice** </br>&#9679; [**Receipt model**](concept-receipt.md) **\|** **prebuilt-receipt** </br>&#9679; [**ID document model**](concept-id-document.md) **\|** **prebuilt-idDocument** </br>&#9679; [**Business card model**](concept-business-card.md) **\|** **prebuilt-businessCard** </br>
-| **Custom models** | &#9679; [**Custom model**](concept-custom.md) **\|** **prebuilt**-{*customModelName*}</br>&#9679; [**Composed model**](concept-model-overview.md) **\|** **prebuilt**-{*composedModelName*} </br>|
+|**Document analysis models**| &#9679; [**Read model**](concept-read.md)  </br>&#9679; [**Layout model**](concept-layout.md) </br> &#9679; [**General document model**](concept-general-document.md)</br> |
+| **Prebuilt models** | &#9679; [**W-2 form model**](concept-w2.md) </br>&#9679; [**Invoice model**](concept-invoice.md)</br>&#9679; [**Receipt model**](concept-receipt.md) </br>&#9679; [**ID document model**](concept-id-document.md) </br>&#9679; [**Business card model**](concept-business-card.md) </br>
+| **Custom models** | &#9679; [**Custom model**](concept-custom.md) </br>&#9679; [**Composed model**](concept-model-overview.md)|
 
 ## Which Form Recognizer feature should I use?
 
