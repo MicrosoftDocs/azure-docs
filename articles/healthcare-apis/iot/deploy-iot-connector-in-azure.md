@@ -5,7 +5,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
-ms.date: 04/07/2022
+ms.date: 06/27/2022
 ms.author: jasteppe
 ms.custom: mode-api
 ---
@@ -32,6 +32,20 @@ It's important that you have the following prerequisites completed before you be
 > Examples: 
 >* Two MedTech services accessing the same device message event hub.
 >* A MedTech service and a storage writer application accessing the same device message event hub.
+
+If you already have an Azure account and an existing Resource Group, you can use the button below to deploy a MedTech service which will include the following:
+ * An Azure Event Hubs Namespace and device message event hub (the event hub is named: **devicedata**)
+ * An Azure event hub sender role (the sender role is named: **datasender**)
+ * An Azure Health Data Services workspace
+ * An Azure Health Data Services FHIR service
+ * An Azure Health Data Services MedTech service including the necessary system managed identity permissions to the device message event hub and FHIR service.
+
+The only remaining configurations are:
+ * Provide a working device mapping file. For more information see: [How to use device mappings](how-to-use-device-mappings.md)
+ * Provide a working destination mapping file. For more information see: [How to use FHIR destination mappings](how-to-use-fhir-mappings.md)
+ * Use the SAS key within the device message event hub for connecting your device or application to the MedTech service device message event hub. For more information see: [Connection string for a specific event hub in a namespace](../../event-hubs/event-hubs-get-connection-string.md#connection-string-for-a-specific-event-hub-in-a-namespace)
+
+[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.healthcareapis%2Fworkspaces%2Fiotconnectors%2Fazuredeploy.json) 
 
 ## Deploy MedTech service 
 
@@ -235,4 +249,4 @@ In this article, you've learned how to deploy a MedTech service in the Azure por
 >[!div class="nextstepaction"]
 >[MedTech service overview](iot-connector-overview.md)
 
-FHIR&#174; is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.
+FHIR&#174; is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and are used with their permission.
