@@ -5,6 +5,7 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/12/2021
+ms.reviewer: shijain
 ---
 
 # Create alerts with SQL Insights (preview)

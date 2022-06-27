@@ -7,6 +7,7 @@ author: rboucher
 ms.author: robb
 ms.service: azure-monitor
 ms.custom: subject-policy-compliancecontrols
+ms.reviewer: robb
 ---
 # Azure Policy Regulatory Compliance controls for Azure Monitor
 
