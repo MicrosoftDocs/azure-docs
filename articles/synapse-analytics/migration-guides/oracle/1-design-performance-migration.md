@@ -107,7 +107,7 @@ Microsoft recommends moving your existing data model as-is to Azure and using th
 
 You can automate and orchestrate the migration process by using the capabilities of the Azure environment. This approach minimizes the performance hit on the existing Oracle environment, which may already be running close to capacity.
 
-[SQL Server Migration Assistant](https://www.microsoft.com/download/details.aspx?id=54258) (SSMA) for Oracle can automate many parts of the migration process and supports Azure Synapse as a target environment.
+[SQL Server Migration Assistant](/sql/ssma/oracle/sql-server-migration-assistant-for-oracle-oracletosql) (SSMA) for Oracle can automate many parts of the migration process and supports Azure Synapse as a target environment.
 
 :::image type="content" source="../media/1-design-performance-migration/oracle-sql-server-migration-assistant-1.png" border="true" alt-text="Screenshot showing how SQL Server Migration Assistant for Oracle can automate many parts of the migration process.":::
 

@@ -125,7 +125,7 @@ PolyBase has some limitations, it requires data row length to be less than 1 meg
 
 ### Microsoft tools for Oracle migrations
 
-[SQL Server Migration Assistant](https://www.microsoft.com/download/details.aspx?id=54258) (SSMA) for Oracle can help you migrate your legacy on-premises data warehouse platform to Azure Synapse.
+[SQL Server Migration Assistant](/sql/ssma/oracle/sql-server-migration-assistant-for-oracle-oracletosql) (SSMA) for Oracle can help you migrate your legacy on-premises data warehouse platform to Azure Synapse.
 
 ### Microsoft partners for Oracle migrations
 
