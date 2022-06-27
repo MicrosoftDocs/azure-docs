@@ -21,21 +21,8 @@ __RSS feed__: Get notified when this page is updated by copying and pasting the 
 
 ## 2022-06-27
 
-  + **azureml-automl-core**
-    + Automatic cross-validation parameter configuration is now available for automl forecasting tasks. Users can now specify "auto" for n_cross_validations and cv_step_size or leave them empty, and automl will provide those configurations base on your data. However, currently this feature is not supported when TCN is enabled.
-    + The score.py with quantiles support for forecasting jobs is enabled for PowerBI.
-    + Added data validation that requires the number of minority class samples in the dataset to be at least as much as the number of CV folds requested.
-    + Updated automl scipy dependency upper bound to 1.5.3 from 1.5.2
   + **azureml-automl-dnn-nlp**
     + Remove duplicate labels column from multi-label predictions
-  + **azureml-automl-runtime**
-    + Automatic cross-validation parameter configuration is now available for automl forecasting tasks. Users can now specify "auto" for n_cross_validations and cv_step_size or leave them empty, and automl will provide those configurations base on your data. However, currently this feature is not supported when TCN is enabled.
-    + The score.py with quantiles support for forecasting jobs is enabled for PowerBI.
-    +  Added data validation that requires the number of minority class samples in the dataset to be at least as much as the number of CV folds requested.
-    + updated automl scipy dependency upper bound to 1.5.3 from 1.5.2
-  + **azureml-contrib-automl-dnn-forecasting**
-    + Automatic cross-validation parameter configuration is now available for automl forecasting tasks. Users can now specify "auto" for n_cross_validations and cv_step_size or leave them empty, and automl will provide those configurations base on your data. However, currently this feature is not supported when TCN is enabled.
-    + The score.py with quantiles support for forecasting jobs is enabled for PowerBI.
   + **azureml-contrib-automl-pipeline-steps**
     + Many Models now provides the capability to generate prediction output in csv format as well. - Many Models prediction will now include column names in the output file in case of **csv** file format.
   + **azureml-core**
@@ -50,16 +37,14 @@ __RSS feed__: Get notified when this page is updated by copying and pasting the 
     + Adding support for creating endpoints and deploying to them via the MLflow client plugin.
   + **azureml-responsibleai**
     + Updated azureml-responsibleai package and environment images to latest responsibleai and raiwidgets 0.19.0 release
-    + Updated azureml-responsibleai package and common env to responsibleai and raiwidgets 0.18.2
   + **azureml-train-automl-client**
     + Automatic cross-validation parameter configuration is now available for automl forecasting tasks. Users can now specify "auto" for n_cross_validations and cv_step_size or leave them empty, and automl will provide those configurations base on your data. However, currently this feature is not supported when TCN is enabled.
     + Now OutputDatasetConfig is supported as the input of the MM/HTS pipeline builder. The mappings are: 1) OutputTabularDatasetConfig -> treated as unpartitioned tabular dataset. 2) OutputFileDatasetConfig -> treated as filed dataset.
   + **azureml-train-automl-runtime**
+    + Added data validation that requires the number of minority class samples in the dataset to be at least as much as the number of CV folds requested.    
     + Automatic cross-validation parameter configuration is now available for automl forecasting tasks. Users can now specify "auto" for n_cross_validations and cv_step_size or leave them empty, and automl will provide those configurations base on your data. However, currently this feature is not supported when TCN is enabled.
     + Forecasting Parameters in Many Models and Hierarchical Time Series can now be passed via object rather than using individual parameters in dictionary.
-    + The score.py with quantiles support for forecasting jobs is enabled for PowerBI.
-    + Updated automl scipy dependency upper bound to 1.5.3 from 1.5.2
-  + **azureml-training-tabular**
+    + Enabled forecasting model endpoints with quantiles support to be consumed in PowerBI.
     + Updated automl scipy dependency upper bound to 1.5.3 from 1.5.2
 
 ## 2022-04-25
