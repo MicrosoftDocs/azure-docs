@@ -47,6 +47,15 @@ Here's a sample configuration file for R4:
 ```
 
 For more detailed information on each of these four sections of the configuration file, select [here](https://github.com/microsoft/Tools-for-Health-Data-Anonymization/blob/master/docs/FHIR-anonymization.md#configuration-file-format).
+
+## Manage Configuration File in ACR
+It's recommended that you host the export configuration files on Azure Container Registry(ACR). It takes the following steps similar as [hosting templates in ACR for $convert-data](https://docs.microsoft.com/en-us/azure/healthcare-apis/fhir/convert-data#host-and-use-templates).  
+1. Push the configuration files to your Azure Container Registry.
+2. Enable Managed Identity on your FHIR service instance.
+3. Provide access of the ACR to the FHIR service Managed Identity.
+4. Register the ACR servers in the FHIR service. You can use the portal to open "Artifacts" blade under "Transform and transfer data" section to add the ACR server.
+5. Optionally configure ACR firewall for secure access.
+
 ## Using $export command for the de-identified data
  `https://<<FHIR service base URL>>/$export?_container=<<container_name>>&_anonymizationConfigCollectionReference=<<ACR image reference>>&_anonymizationConfig=<<config file name>>&_anonymizationConfigEtag=<<ETag on storage>>`
 > [!Note] 
