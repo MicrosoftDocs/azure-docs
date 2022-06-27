@@ -9,7 +9,7 @@ ms.custom: contperf-fy21q3, mode-ui
 #Customer intent: As a developer new to Azure deployment, I want to learn how to use the Azure portal to create and edit Resource Manager templates, so I can use the templates to deploy Azure resources.
 ---
 
-# Quickstart: Create and deploy ARM templates by using the Azure portal
+# Quickstart: Create and deploy ARM templates by using the Azure portal eee
 
 In this quickstart, you learn how to generate an Azure Resource Manager template (ARM template) in the Azure portal. You edit and deploy the template from the portal. 
 
