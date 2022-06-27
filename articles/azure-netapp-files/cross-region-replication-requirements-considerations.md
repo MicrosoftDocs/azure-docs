@@ -34,11 +34,13 @@ This article describes requirements and considerations about [using the volume c
 * After you set up cross-region replication, the replication process creates *snapmirror snapshots* to provide references between the source volume and the destination volume. Snapmirror snapshots are cycled automatically when a new one is created for every incremental transfer. You cannot delete snapmirror snapshots until replication relationship and volume is deleted. 
 * You cannot mount a dual-protocol volume until you [authorize replication from the source volume](cross-region-replication-create-peering.md#authorize-replication-from-the-source-volume) and the initial [transfer](cross-region-replication-display-health-status.md#display-replication-status) happens.
 * You can delete manual snapshots on the source volume of a replication relationship when the replication relationship is active or broken, and also after the replication relationship is deleted. You cannot delete manual snapshots for the destination volume until the replication relationship is broken.
-* You cannot revert a source or destination volume of cross-region replication to a snapshot. The snapshot revert functionality is greyed out for volumes in a replication relationship. 
+* The ability to a revert a volume on a CRR source volume is currently in public preview. Volume volume of a replication source volume is available for snapshots thare are more recent the latest *snapmirror snapshot*. Snapshots older than the *snapmirror snapshot* cannot be used for a volume revert operation.
+
 
 ## Next steps
 * [Create volume replication](cross-region-replication-create-peering.md)
 * [Display health status of replication relationship](cross-region-replication-display-health-status.md)
+* [Revert a volume using snapshot revert with Azure NetApp Files](snapshots-revert-volume.md)
 * [Manage disaster recovery](cross-region-replication-manage-disaster-recovery.md)
 * [Volume replication metrics](azure-netapp-files-metrics.md#replication)
 * [Delete volume replications or volumes](cross-region-replication-delete.md)
