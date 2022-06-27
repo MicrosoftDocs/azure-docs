@@ -17,7 +17,7 @@ This quickstart describes how to use the Azure Command-Line Interface (CLI) to c
 > The CLI experience for Azure Managed Grafana Preview is part of the amg extension for the Azure CLI (version 2.30.0 or higher). The extension will automatically install the first time you run an `az grafana` command.
 
 > [!NOTE]
-> Azure Managed Grafana doesn't support personal [Microsoft accounts](https://account.microsoft.com) (a.k.a., MSA) currently.
+> Azure Managed Grafana doesn't support personal [Microsoft accounts](https://account.microsoft.com) currently.
 
 ## Prerequisite
 
