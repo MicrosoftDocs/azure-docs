@@ -17,7 +17,7 @@ This article describes the workflow automation feature of Microsoft Defender for
 |----|:----|
 |Release state:|General availability (GA)|
 |Pricing:|Free|
-|Required roles and permissions:|**Security admin role** or **Owner** on the resource group<br>Must also have write permissions for the target resource<br><br>To work with Azure Logic Apps workflows, you must also have the following Logic Apps roles/permissions:<br> - [Logic App Operator](../role-based-access-control/built-in-roles.md#logic-app-operator) permissions are required or Logic App read/trigger access (this role can't create or edit logic apps; only *run* existing ones)<br> - [Logic App Contributor](../role-based-access-control/built-in-roles.md#logic-app-contributor) permissions are required for Logic App creation and modification<br>If you want to use Logic App connectors, you may need additional credentials to sign in to their respective services (for example, your Outlook/Teams/Slack instances)|
+|Required roles and permissions:|**Security admin role** or **Owner** on the resource group<br>Must also have write permissions for the target resource<br><br>To work with Azure Logic Apps workflows, you must also have the following Logic Apps roles/permissions:<br> - [Logic App Operator](../role-based-access-control/built-in-roles.md#logic-app-operator) permissions are required or Logic App read/trigger access (this role can't create or edit logic apps; only *run* existing ones)<br> - [Logic App Contributor](../role-based-access-control/built-in-roles.md#logic-app-contributor) permissions are required for Logic App creation and modification<br>If you want to use Logic App connectors, you may need other credentials to sign in to their respective services (for example, your Outlook/Teams/Slack instances)|
 |Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/yes-icon.png"::: National (Azure Government, Azure China 21Vianet)|
 
 
@@ -29,11 +29,11 @@ This article describes the workflow automation feature of Microsoft Defender for
 
     :::image type="content" source="./media/workflow-automation/list-of-workflow-automations.png" alt-text="Screenshot of workflow automation page showing the list of defined automations." lightbox="./media/workflow-automation/list-of-workflow-automations.png":::
 
-    From this page you can create new automation rules, as well as enable, disable, or delete existing ones.
+    From this page you can create new automation rules, enable, disable, or delete existing ones.
 
 1. To define a new workflow, select **Add workflow automation**. The options pane for your new automation opens.
 
-    :::image type="content" source="./media/workflow-automation/add-workflow.png" alt-text="Add workflow automations pane.":::
+    :::image type="content" source="./media/workflow-automation/add-workflow.png" alt-text="Add workflow automations pane." lightbox="media/workflow-automation/add-workflow.png":::
 
     Here you can enter:
     1. A name and description for the automation.
@@ -46,15 +46,15 @@ This article describes the workflow automation feature of Microsoft Defender for
 
 1. From the Actions section, select **visit the Logic Apps page** to begin the Logic App creation process.
 
-    :::image type="content" source="media/workflow-automation/visit-logic.png" alt-text="Screenshot that shows where on the screen you need to select the visit the logic apps page in the actions section of the add workflow automation screen.":::
+    :::image type="content" source="media/workflow-automation/visit-logic.png" alt-text="Screenshot that shows where on the screen you need to select the visit the logic apps page in the actions section of the add workflow automation screen." border="true":::
 
     You'll be taken to Azure Logic Apps.
 
-1. Select :::image type="icon" source="media/workflow-automation/add-icon.png" border="false":::. 
+1. Select **(+) Add**.
 
     :::image type="content" source="media/workflow-automation/logic-apps-create-new.png" alt-text="Screenshot of the create a logic app screen." lightbox="media/workflow-automation/logic-apps-create-new.png":::
 
-1. Fill out all required fields and select **Review and create + Create**.
+1. Fill out all required fields and select **Review + Create**.
 
     The message **Deployment is in progress** appears. Wait for the deployment complete notification to appear and select **Go to resource** from the notification.
 
@@ -65,7 +65,7 @@ This article describes the workflow automation feature of Microsoft Defender for
     > [!TIP]
     > Sometimes in a logic app, parameters are included in the connector as part of a string and not in their own field. For an example of how to extract parameters, see step #14 of [Working with logic app parameters while building Microsoft Defender for Cloud workflow automations](https://techcommunity.microsoft.com/t5/azure-security-center/working-with-logic-app-parameters-while-building-azure-security/ba-p/1342121).
 
-    The logic app designer supports these Defender for Cloud triggers:
+    The logic app designer supports the following Defender for Cloud triggers:
 
     - **When a Microsoft Defender for Cloud Recommendation is created or triggered** - If your logic app relies on a recommendation that gets deprecated or replaced, your automation will stop working and you'll need to update the trigger. To track changes to recommendations, use the [release notes](release-notes.md).
 
@@ -82,7 +82,7 @@ This article describes the workflow automation feature of Microsoft Defender for
 
     ![Refresh.](media/workflow-automation/refresh-the-list-of-logic-apps.png)
 
-1. Select your logic app and save the automation. Note that the Logic App dropdown only shows Logic Apps with supporting Defender for Cloud connectors mentioned above.
+1. Select your logic app and save the automation. The Logic App dropdown only shows Logic Apps with supporting Defender for Cloud connectors mentioned above.
 
 
 ## Manually trigger a Logic App
@@ -124,7 +124,7 @@ To implement these policies:
 
 1. Open each tab and set the parameters as desired:
     1. In the **Basics** tab, set the scope for the policy. To use centralized management, assign the policy to the Management Group containing the subscriptions that will use the workflow automation configuration. 
-    1. In the **Parameters** tab enter the required information. 
+    1. In the Parameters tab, enter the required information. 
 
     :::image type="content" source="media/workflow-automation/parameters-tab.png" alt-text="Screenshot of the parameters tab.":::
 
@@ -134,7 +134,7 @@ To implement these policies:
 
 ## Data types schemas
 
-To view the raw event schemas of the security alerts or recommendations events passed to the Logic App instance, visit the [Workflow automation data types schemas](https://aka.ms/ASCAutomationSchemas). This can be useful in cases where you are not using Defender for Cloud's built-in Logic App connectors mentioned above, but instead are using Logic App's generic HTTP connector - you could use the event JSON schema to manually parse it as you see fit.
+To view the raw event schemas of the security alerts or recommendations events passed to the Logic App instance, visit the [Workflow automation data types schemas](https://aka.ms/ASCAutomationSchemas). This can be useful in cases where you aren't using Defender for Cloud's built-in Logic App connectors mentioned above, but instead are using Logic App's generic HTTP connector - you could use the event JSON schema to manually parse it as you see fit.
 
 
 ## FAQ - Workflow automation
