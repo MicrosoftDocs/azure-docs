@@ -24,6 +24,8 @@ Vision Studio is UI tool that lets you explore, build, and integrate features fr
 
 Language Studio provides you with a platform to try several service features, and see what they return in a visual manner. It also provides you with an easy-to-use experience to create custom projects and models to work on your data. Using the Studio, you can get started without needing to write code, and then use the available client libraries and REST APIs in your application.
 
+## Responsible AI for Face
+
 ### Face transparency documentation
 * The [transparency documentation](https://aka.ms/faceraidocs) provides guidance to assist our customers to improve the accuracy and fairness of their systems by incorporating meaningful human review to detect and resolve cases of misidentification or other failures, providing support to people who believe their results were incorrect, and identifying and addressing fluctuations in accuracy due to variations in operational conditions.
 
@@ -39,6 +41,13 @@ Language Studio provides you with a platform to try several service features, an
 ### Limited Access policy
 
 * As a part of aligning Face to the updated Responsible AI Standard, a new [Limited Access policy](https://aka.ms/AAh91ff) has been implemented for the Face API and Computer Vision. Existing customers have one year to apply and receive approval for continued access to the facial recognition services based on their provided use cases. See details on Limited Access for Face [here](/legal/cognitive-services/computer-vision/limited-access-identity?context=/azure/cognitive-services/computer-vision/context/context) and for Computer Vision [here](/legal/cognitive-services/computer-vision/limited-access?context=/azure/cognitive-services/computer-vision/context/context).
+
+## Computer Vision 3.2 is generally available (GA)
+
+The general availability version of the 3.2 API is now released. Mind the following changes from the 3.2.preview versions:
+1. The [Analyze Image](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f21b) and [Read](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/5d986960601faab4bf452005) API calls now take an optional _model-version_ parameter that you can use to specify which AI model to use. By default, they will use the latest model.
+1. The [Analyze Image](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f21b) and [Read](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/5d986960601faab4bf452005) API calls also return a `model-version` field in successful API responses. This field reports which model was used.
+1. Image Analysis APIs now use a different error-reporting format. See the [API reference documentation](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f21b) to learn how to adjust any error-handling code.
 
 ## May 2022
 
