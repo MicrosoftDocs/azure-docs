@@ -29,7 +29,7 @@ This article provides suggestions to troubleshoot common problems with the Snowf
 
     - If you configure a [self-hosted integration runtime](create-self-hosted-integration-runtime.md) to connect to Snowflake, make sure to add your self-hosted integration runtime IPs to the allowed list in Snowflake. 
     - If you use an Azure Integration Runtime and the access is restricted to IPs approved in the firewall rules, you can add [Azure Integration Runtime IPs](azure-integration-runtime-ip-addresses.md) to the allowed list in Snowflake.
-    - If you use a managed private endpoint and a network policy is in place on your Snowflake account, ensure the Synapse/Azure Data Factory Managed VNet CIDR is allowed. For more steps, refer to [How To: Set up a managed private endpoint from Azure Data Factory or Synapse to Snowflake](https://community.snowflake.com/s/article/How-to-set-up-a-managed-private-endpoint-from-Azure-Data-Factory-or-Synapse-to-Snowflake). 
+    - If you use a managed private endpoint and a network policy is in place on your Snowflake account, ensure Managed VNet CIDR is allowed. For more steps, refer to [How To: Set up a managed private endpoint from Azure Data Factory or Synapse to Snowflake](https://community.snowflake.com/s/article/How-to-set-up-a-managed-private-endpoint-from-Azure-Data-Factory-or-Synapse-to-Snowflake). 
 
 ## Error message: Failed to access remote file: access denied.
 
@@ -37,7 +37,7 @@ This article provides suggestions to troubleshoot common problems with the Snowf
 
     `ERROR [42501] Failed to access remote file: access denied. Please check your credentials,Source =SnowflakeODBC_sb64.dll..`
 
-- **Cause**: The error pops up by the Snowflake copy command and is caused by missing access permission on source/sink when execute Snowflake copy commands. 
+- **Cause**: The error pops up by the Snowflake COPY command and is caused by missing access permission on source/sink when execute Snowflake COPY commands. 
 
 - **Recommendation**: Check your source/sink to make sure that you have granted proper access permission to Snowflake. 
 
