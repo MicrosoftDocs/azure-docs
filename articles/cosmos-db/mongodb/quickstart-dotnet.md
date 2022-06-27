@@ -119,13 +119,11 @@ The sample code described in this article creates a database named ``adventurewo
 
 From the project directory, open the *Program.cs* file. In your editor, add a using directive for ``MongoDB.Driver``.
 
-:::code language="csharp" source="~/azure-cosmos-dotnet-v3/001-quickstart/Program.cs" id="using_directives":::
+:::code language="csharp" source="~/azure-cosmos-mongodb-dotnet/001-quickstart/Program.cs" id="using_directives":::
 
 Define a new instance of the ``MongoClient`` class using the constructor, and [``builder.Configuration.GetConnectionString``](/dotnet/api/microsoft.extensions.configuration.configurationextensions.getconnectionstring) to read the connection string you set earlier.
 
-:::code language="csharp" source="~/azure-cosmos-dotnet-v3/001-quickstart/Program.cs" id="client_credentials" highlight="3-4":::
-
-For more information on different ways to create a ``CosmosClient`` instance, see [Get started with Azure Cosmos DB SQL API and .NET](how-to-dotnet-get-started.md#connect-to-azure-cosmos-db-sql-api).
+:::code language="csharp" source="~/azure-cosmos-mongodb-dotnet/001-quickstart/Program.cs"  id="client_credentials":::
 
 ### Create a database
 
@@ -135,7 +133,7 @@ Use the [``MongoClient.GetDatabase``](https://mongodb.github.io/mongo-csharp-dri
 
 ### Create a collection
 
-The [``MongoDatabase.GetCollection``](https://mongodb.github.io/mongo-csharp-driver/2.16/apidocs/html/M_MongoDB_Driver_MongoDatabase_GetCollection.htm) will create a new collection if it doesn't already exist. This method will also return a reference to the collection.
+The [``MongoDatabase.GetCollection``](https://mongodb.github.io/mongo-csharp-driver/2.16/apidocs/html/M_MongoDB_Driver_MongoDatabase_GetCollection.htm) will create a new collection if it doesn't already exist and return a reference to the collection.
 
 :::code language="csharp" source="~/azure-cosmos-mongodb-dotnet/001-quickstart/Program.cs" id="new_collection":::
 
