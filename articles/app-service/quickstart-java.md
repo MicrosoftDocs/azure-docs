@@ -38,13 +38,13 @@ adobe-target-content: ./quickstart-java-uiex
 
 # [JBoss EAP](#tab/jbosseap)
 
-::: zone pivot="platform-windows"
+::: zone pivot="platform-windows-development-environment-cli"
 
 JBoss EAP is only available on the Linux version of App Service. Select the **Linux** button at the top of this article to view the quickstart instructions for JBoss EAP.
 
 ::: zone-end
 
-::: zone pivot="platform-linux"
+::: zone pivot="platform-linux-development-environment-cli"
 ![Maven Hello World web app running in Azure App Service](./media/quickstart-java/jboss-sample-in-app-service.png)
 
 ::: zone-end
@@ -94,12 +94,12 @@ cd helloworld
 
 # [JBoss EAP](#tab/jbosseap)
 
-::: zone pivot="platform-windows"
+::: zone pivot="platform-windows-development-environment-cli"
 
 JBoss EAP is only available on the Linux version of App Service. Select the **Linux** button at the top of this article to view the quickstart instructions for JBoss EAP.
 
 ::: zone-end
-::: zone pivot="platform-linux"
+::: zone pivot="platform-linux-development-environment-cli"
 
 Clone the Pet Store demo application.
 
@@ -131,7 +131,7 @@ Run the Maven command below to configure the deployment. This command will help 
 mvn com.microsoft.azure:azure-webapp-maven-plugin:2.5.0:config
 ```
 
-::: zone pivot="platform-windows"
+::: zone pivot="platform-windows-development-environment-cli"
 
 # [Java SE](#tab/javase)
 
@@ -205,7 +205,7 @@ JBoss EAP is only available on the Linux version of App Service. Select the **Li
 ---
 
 ::: zone-end
-::: zone pivot="platform-linux"
+::: zone pivot="platform-linux-development-environment-cli"
 
 # [Java SE](#tab/javase)
 
@@ -333,13 +333,13 @@ mvn package azure-webapp:deploy
 ```
 # [JBoss EAP](#tab/jbosseap)
 
-::: zone pivot="platform-windows"
+::: zone pivot="platform-windows-development-environment-cli"
 
 JBoss EAP is only available on the Linux version of App Service. Select the **Linux** button at the top of this article to view the quickstart instructions for JBoss EAP.
 
 ::: zone-end
 
-::: zone pivot="platform-linux"
+::: zone pivot="platform-linux-development-environment-cli"
 
 ```azurecli-interactive
 # Disable testing, as it requires Wildfly to be installed locally.
@@ -361,13 +361,13 @@ Once deployment is completed, your application will be ready at `http://<appName
 
 # [JBoss EAP](#tab/jbosseap)
 
-::: zone pivot="platform-windows"
+::: zone pivot="platform-windows-development-environment-cli"
 
 JBoss EAP is only available on the Linux version of App Service. Select the **Linux** button at the top of this article to view the quickstart instructions for JBoss EAP.
 
 ::: zone-end
 
-::: zone pivot="platform-linux"
+::: zone pivot="platform-linux-development-environment-cli"
 
 ![Maven Hello World web app running in Azure App Service](./media/quickstart-java/jboss-sample-in-app-service.png)
 
