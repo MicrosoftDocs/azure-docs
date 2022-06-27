@@ -15,23 +15,28 @@ metadata:
   author: TerryLanfear
   ms.author: terrylan
   manager: rkarlin
-  ms.date: 06/02/2022
+  ms.date: 06/27/2022
 
 highlightedContent:
   items:
-    - title: Begin your security journey
-      itemType: get-started
-      url: ./journey/index.yml
     - title: Learn about the Microsoft Entra family of multicloud identity and access solutions
       itemType: whats-new
       url: /entra/
+
+    - title: Build a Zero Trust Foundation
+      itemType: concept
+      url: ./fundamentals/zero-trust.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+
+    - title: Begin your security journey
+      itemType: get-started
+      url: ./journey/index.yml
+
     - title: Find security services for your business needs
       itemType: overview
       url: ./fundamentals/end-to-end.md
     - title: Use best practices and recommendations to secure your cloud deployments
       itemType: concept
       url: ./benchmarks/introduction.md
-
 
 conceptualContent:
   items:
