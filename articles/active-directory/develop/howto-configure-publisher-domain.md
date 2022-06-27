@@ -17,7 +17,7 @@ ms.custom: contperf-fy21q4, aaddev
 
 # Configure an application's publisher domain
 
-An application’s publisher domain informs the users where their information is being sent and acts as an input/prerequisite for [publisher verification](publisher-verification-overview.md). Depending on when the app was registered and it's verified publisher status, publisher domain may be displayed directly to the user on the [application's consent prompt](application-consent-experience.md). [Multi-tenant applications](/azure/architecture/guide/multitenant/overview.md) that are registered after May 21, 2019, that don't have a publisher domain show up as **unverified**. Multi-tenant applications are applications that support accounts outside of a single organizational directory; for example, support all Azure AD accounts, or support all Azure AD accounts and personal Microsoft accounts.
+An application’s publisher domain informs the users where their information is being sent and acts as an input/prerequisite for [publisher verification](publisher-verification-overview.md). Depending on when the app was registered and it's verified publisher status, publisher domain may be displayed directly to the user on the [application's consent prompt](application-consent-experience.md). [Multi-tenant applications](/azure/architecture/guide/multitenant/overview) that are registered after May 21, 2019, that don't have a publisher domain show up as **unverified**. Multi-tenant applications are applications that support accounts outside of a single organizational directory; for example, support all Azure AD accounts, or support all Azure AD accounts and personal Microsoft accounts.
 
 ## New applications
 
