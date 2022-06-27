@@ -1,6 +1,6 @@
 ---
-title: Upgrade indirectly connected Azure Arc data controller using Kubernetes tools
-description: Article describes how to upgrade an indirectly connected Azure Arc data controller using Kubernetes tools
+title: Upgrade indirectly connected data controller for Azure Arc using Kubernetes tools
+description: Article describes how to upgrade an indirectly connected data controller for Azure Arc using Kubernetes tools
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
@@ -11,7 +11,7 @@ ms.date: 05/27/2022
 ms.topic: how-to
 ---
 
-# Upgrade an indirectly connected Azure Arc data controller using Kubernetes tools
+# Upgrade an indirectly connected Azure Arc-enabled data controller using Kubernetes tools
 
 This article explains how to upgrade an indirectly connected Azure Arc-enabled data controller with Kubernetes tools.
 
@@ -31,7 +31,7 @@ In this article, you'll apply a .yaml file to:
 
 ## Prerequisites
 
-Prior to beginning the upgrade of the Azure Arc data controller, you'll need:
+Prior to beginning the upgrade of the data controller, you'll need:
 
 - To connect and authenticate to a Kubernetes cluster
 - An existing Kubernetes context selected
@@ -40,7 +40,7 @@ You need an indirectly connected data controller with the `imageTag: v1.0.0_2021
 
 ## Install tools
 
-To upgrade the Azure Arc data controller using Kubernetes tools, you need to have the Kubernetes tools installed.
+To upgrade the data controller using Kubernetes tools, you need to have the Kubernetes tools installed.
 
 The examples in this article use `kubectl`, but similar approaches could be used with other Kubernetes tools
 such as the Kubernetes dashboard, `oc`, or helm if you're familiar with those tools and Kubernetes yaml/json.
@@ -78,7 +78,7 @@ This section shows how to upgrade an indirectly connected data controller.
 
 ### Upgrade
 
-You'll need to connect and authenticate to a Kubernetes cluster and have an existing Kubernetes context selected prior to beginning the upgrade of the Azure Arc data controller.
+You'll need to connect and authenticate to a Kubernetes cluster and have an existing Kubernetes context selected prior to beginning the upgrade of the data controller.
 
 
 ### Create the service account for running upgrade
