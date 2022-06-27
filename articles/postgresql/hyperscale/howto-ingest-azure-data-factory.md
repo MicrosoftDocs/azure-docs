@@ -52,11 +52,11 @@ new to Azure Data Factory, here's a quick guide on how to get started:
 1. Once ADF is provisioned, go to your data factory. You'll see the Data
    Factory home page as shown in the following image:
 
-   ![Landing page of Azure Data Factory.](../media/howto-hyperscale-ingestion/ADF_Home.png)
+   :::image type="content" source="../media/howto-hyperscale-ingestion/ADF_Home.png" alt-text="Landing page of Azure Data Factory." border="true":::
 
 2. On the home page, select **Orchestrate**.
 
-   ![Orchestrate page of Azure Data Factory.](../media/howto-hyperscale-ingestion/ADF_Orchestrate.png)
+   :::image type="content" source="../media/howto-hyperscale-ingestion/ADF_Orchestrate.png" alt-text="Orchestrate page of Azure Data Factory." border="true":::
 
 3. In the General panel under **Properties**, specify the desired pipeline name.
 
@@ -64,11 +64,11 @@ new to Azure Data Factory, here's a quick guide on how to get started:
    and drag and drop the **Copy Data** activity to the pipeline designer
    surface. Specify the activity name.
 
-   ![Pipeline in Azure Data Factory.](../media/howto-hyperscale-ingestion/ADF_Pipeline_COPY.png)
+   :::image type="content" source="../media/howto-hyperscale-ingestion/ADF_Pipeline_COPY.png" alt-text="Pipeline in Azure Data Factory." border="true":::
 
 5. Configure **Source**
 
-   ![Configuring Source in of Azure Data Factory.](../media/howto-hyperscale-ingestion/ADF_Configure_Source.png)
+   :::image type="content" source="../media/howto-hyperscale-ingestion/ADF_Configure_Source.png" alt-text="Configuring Source in of Azure Data Factory." border="true":::
 
    1. Go to the Source tab. Select** + New **to create a source dataset.
    2. In the **New Dataset** dialog box, select **Azure Blob Storage**, and then select **Continue**. 
@@ -80,7 +80,7 @@ new to Azure Data Factory, here's a quick guide on how to get started:
 
 6. Configure **Sink**
 
-   ![Configuring Sink in of Azure Data Factory.](../media/howto-hyperscale-ingestion/ADF_Configure_Sink.png)
+   :::image type="content" source="../media/howto-hyperscale-ingestion/ADF_Configure_Sink.png" alt-text="Configuring Sink in of Azure Data Factory." border="true":::
 
    1. Go to the Sink tab. Select **+ New** to create a source dataset.
    2. In the **New Dataset** dialog box, select **Azure Database for PostgreSQL**, and then select **Continue**.
@@ -102,7 +102,7 @@ new to Azure Data Factory, here's a quick guide on how to get started:
 
 8. Select Debug from the toolbar execute the pipeline.
 
-   ![Debug and Execute in of Azure Data Factory.](../media/howto-hyperscale-ingestion/ADF_Execute.png)
+   :::image type="content" source="../media/howto-hyperscale-ingestion/ADF_Execute.png" alt-text="Debug and Execute in of Azure Data Factory." border="true":::
 
 9. Once the pipeline can run successfully, in the top toolbar, select **Publish
    all**. This action publishes entities (datasets, and pipelines) you created
@@ -116,4 +116,4 @@ doesn't offer Stored Procedure activity for Azure Database for Postgres, but as
 a workaround we can use Lookup Activity with query to call a stored procedure
 as shown below:
 
-![Calling a procedure in Azure Data Factory.](../media/howto-hyperscale-ingestion/ADF_Call_Procedure.png)
+:::image type="content" source="../media/howto-hyperscale-ingestion/ADF_Call_Procedure.png" alt-text="Calling a procedure in Azure Data Factory." border="true":::
