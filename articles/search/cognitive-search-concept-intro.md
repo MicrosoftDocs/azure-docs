@@ -29,9 +29,9 @@ The following diagram illustrates the processing phases of AI enrichment:
 
 **Ingest** is the first step. Here, the indexer connects to a data source and pulls content (documents) over to the search service. [Azure Blob Storage](../storage/blobs/storage-blobs-overview.md) is the most common resource used in AI enrichment scenarios, but any supported data source can provide content.
 
-**Enrich and Index** is next.
+**Enrich & Index** covers most of the AI enrichment pipeline:
 
-+ Enrichment starts when the indexer (["cracks documents"](search-indexer-overview.md#document-cracking)) and extracts image and text. The processing that occurs next will depend on your data and which skills you add to a skillset. If you have images, they can be routed to skills that perform image processing. Text content is queued for text and natural language processing. Internally, skills create an "enriched document" that collects the transformations as they occur. 
++ Enrichment starts when the indexer (["cracks documents"](search-indexer-overview.md#document-cracking)) and extracts image and text. The processing that occurs next will depend on your data and which skills you add to a skillset. If you have images, they can be forwarded to skills that perform image processing. Text content is queued for text and natural language processing. Internally, skills create an "enriched document" that collects the transformations as they occur. 
 
 + Indexing is also part of the processing phase. It refers to the process of creating the physical structures of a [search index](search-what-is-an-index.md) (its files and folders) and loading the index with text.
 
@@ -123,9 +123,9 @@ In Azure Cognitive Search, an indexer saves the output it creates. A single inde
 
 | Data store | Required | Location | Description |
 |------------|----------|----------|-------------|
-| [**searchable index**](search-what-is-an-index.md) | Required | Search service | Specification of an index is an indexer requirement. When you attach a skillset, the output of the skillset, plus any fields that are mapped directly from the source, are used to populate the index. Usually, the outputs of specific skills, such as key phrases or sentiment scores, are ingested into the index in fields created for that purpose. |
-| [**knowledge store**](knowledge-store-concept-intro.md) | Optional | Azure Storage | Used for downstream apps like knowledge mining. A knowledge store is defined within a skillset. Its definition determines whether your enriched documents are projected as tables or objects (files or blobs). |
-| [**enrichment cache**](cognitive-search-incremental-indexing-conceptual.md) | Optional | Azure Storage | Internal data (enriched documents) that can be reused in subsequent skillset executions. The cache includes cracked documents and enrichments, which allows you to reuse any content that's already been extracted or processed during a previous skillset execution. Caching is helpful if your skillset include image analysis or OCR, and you want to avoid the time and expense of reprocessing image files. |
+| [**searchable index**](search-what-is-an-index.md) | Required | Search service | Used for full text search and other query forms. Specifying an index is an indexer requirement. Index content is populated from skill outputs, plus any source fields that are mapped directly to fields in the index. |
+| [**knowledge store**](knowledge-store-concept-intro.md) | Optional | Azure Storage | Used for downstream apps like knowledge mining or data science. A knowledge store is defined within a skillset. Its definition determines whether your enriched documents are projected as tables or objects (files or blobs) in Azure Storage. |
+| [**enrichment cache**](cognitive-search-incremental-indexing-conceptual.md) | Optional | Azure Storage | Used for caching internal data (enriched documents) for reuse in subsequent skillset executions. The cache stored extracted and unprocessed content (cracked documents) and enriched documents. Caching is particularly helpful if your skillset includes image analysis or OCR, and you want to avoid the time and expense of reprocessing image files. |
 
 Indexes and knowledge stores are fully independent of each other. While you must attach an index to satisfy indexer requirements, if your sole objective is a knowledge store, you can ignore the index after it's populated. Avoid deleting it though. If you want to rerun the indexer and skillset, you'll need the index in order for the indexer to run.
 
