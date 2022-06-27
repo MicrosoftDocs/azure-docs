@@ -21,7 +21,7 @@ In this tutorial, you learn how to:
 > * Review an Azure SQL assessment.
 
 > [!NOTE]
-> Tutorials show the quickest path for trying out a scenario and use default options where possible. 
+> Tutorials show the quickest path for trying out a scenario, and use default options where possible. 
 
 > [!NOTE]
 > If SQL Servers are running on non-VMware platforms, [assess the readiness of a SQL Server data estate migrating to Azure SQL Database using the Data Migration Assistant](/sql/dma/dma-assess-sql-data-estate-to-sqldb).
@@ -37,13 +37,13 @@ In this tutorial, you learn how to:
 ## Run an assessment
 Run an assessment as follows:
 1. On the **Overview** page > **Servers, databases and web apps**, select **Assess and migrate servers**.
-    :::image type="content" source="./media/tutorial-assess-sql/assess-migrate.png" alt-text="Overview page for Azure Migrate":::
+    :::image type="content" source="./media/tutorial-assess-sql/assess-migrate.png" alt-text="Image of Overview page for Azure Migrate.":::
 1. In **Azure Migrate: Discovery and assessment**, select **Assess** and choose the assessment type as **Azure SQL**.
-    :::image type="content" source="./media/tutorial-assess-sql/assess.png" alt-text="Dropdown to choose assessment type as Azure SQL":::
+    :::image type="content" source="./media/tutorial-assess-sql/assess.png" alt-text="Screenshot of Dropdown to choose assessment type as Azure SQL.":::
 1. In **Assess servers**, the assessment type is pre-selected as **Azure SQL** and the discovery source is defaulted to **Servers discovered from Azure Migrate appliance**.
 
 1. Select **Edit** to review the assessment settings.
-     :::image type="content" source="./media/tutorial-assess-sql/assess-servers-sql.png" alt-text="Edit button from where assessment settings can be customized":::
+     :::image type="content" source="./media/tutorial-assess-sql/assess-servers-sql.png" alt-text="Edit button from where assessment settings can be customized.":::
 1. In **Assessment settings** > **Target and pricing settings**, do the following:
     - In **Target location**, specify the Azure region to which you want to migrate. 
         - Azure SQL configuration and cost recommendations are based on the location that you specify. 
@@ -53,7 +53,7 @@ Run an assessment as follows:
         - You can apply Azure Hybrid Benefit on top of the Pay-as-you-go offer and Dev/Test environment. The assessment does not support applying Reserved Capacity on top of the Pay-as-you-go offer and Dev/Test environment.
         - If the offer is set to *Pay-as-you-go* and Reserved capacity is set to *No reserved instances*, the monthly cost estimates are calculated by multiplying the number of hours chosen in the VM uptime field with the hourly price of the recommended SKU.
     - In **Reserved Capacity**, specify whether you want to use reserved capacity for the SQL server after migration.
-        - If you select a reserved capacity option, you can't specify “Discount (%)” or "VM uptime".
+        - If you select a reserved capacity option, you can't specify "Discount (%)" or "VM uptime".
         - If the Reserved capacity is set to *1 year reserved* or *3 years reserved*, the monthly cost estimates are calculated by multiplying 744 hours in the VM uptime field with the hourly price of the recommended SKU.
     - In **Currency**, select the billing currency for your account.
     - In **Discount (%)**, add any subscription-specific discounts you receive on top of the Azure offer. The default setting is 0%.
@@ -64,8 +64,8 @@ Run an assessment as follows:
 
 1. In **Assessment settings** > **Assessment criteria**,
     - The **Sizing criteria** is defaulted to *Performance-based*, which means Azure migrate will collect performance metrics pertaining to SQL instances and the databases managed by it to recommend an optimal-sized SQL Server on Azure VM and/or Azure SQL Database and/or Azure SQL Managed Instance configuration. You can specify:
-        - **Performance history** to indicate the data duration on which you want to base the assessment. (Default is one day)
-        - **Percentile utilization**, to indicate the percentile value you want to use for the performance sample. (Default is 95th percentile)
+        - **Performance history** to indicate the data duration on which you want to base the assessment. (Default is one day.)
+        - **Percentile utilization**, to indicate the percentile value you want to use for the performance sample. (Default is 95th percentile.)
     - In **Comfort factor**, indicate the buffer you want to use during assessment. This accounts for issues such as seasonal usage, short performance history, and likely increases in future usage. For example, the following table displays values if you use a comfort factor of two: 
         
         **Component** | **Effective utilization** | **Add comfort factor (2.0)**
@@ -98,19 +98,19 @@ Run an assessment as follows:
 
     - Select **Save** if you made changes.
 
-     :::image type="content" source="./media/tutorial-assess-sql/view-all.png" alt-text="Save button on assessment settings.":::
+     :::image type="content" source="./media/tutorial-assess-sql/view-all.png" alt-text="Screesnhot of Save button on assessment settings.":::
 
 8. In **Assess Servers**, select **Next**.
 9.	In **Select servers to assess** > **Assessment name** > specify a name for the assessment.
 10.	In **Select or create a group** > select **Create New** and specify a group name.
 
-     :::image type="content" source="./media/tutorial-assess-sql/assessment-add-servers.png" alt-text="Location of New group button":::
+     :::image type="content" source="./media/tutorial-assess-sql/assessment-add-servers.png" alt-text="Screenshot of Location of New group button.":::
 
 11.	Select the appliance and select the servers you want to add to the group and select **Next**.
 12.	In **Review + create assessment**, review the assessment details, and select **Create Assessment** to create the group and run the assessment.
 13.	After the assessment is created, go to **Servers, databases and web apps** > **Azure Migrate: Discovery and assessment**, select the number next to Azure SQL assessment. If you do not see the number populated, select **Refresh** to get the latest updates.
 
-     :::image type="content" source="./media/tutorial-assess-sql/assessment-sql-navigation.png" alt-text="Navigation to created assessment":::
+     :::image type="content" source="./media/tutorial-assess-sql/assessment-sql-navigation.png" alt-text="Screenshot of Navigation to created assessment.":::
 
 15.	Select the assessment name, which you wish to view.
 
@@ -123,7 +123,7 @@ Run an assessment as follows:
 
 1. In **Servers, databases and web apps** > **Azure Migrate: Discovery and assessment**, select the number next to Azure SQL assessment.
 2. Select the assessment name, which you wish to view. As an example(estimations and costs, for example, only):
-      :::image type="content" source="./media/tutorial-assess-sql/assessment-sql-summary.png" alt-text="SQL assessment overview":::
+      :::image type="content" source="./media/tutorial-assess-sql/assessment-sql-summary.png" alt-text="Overview of SQL assessment.":::
 3. Review the assessment summary. You can also edit the assessment settings or recalculate the assessment.
 
 ### Discovered entities
@@ -165,7 +165,7 @@ You can review readiness reports for different migration strategies:
 
 1. Select the **Readiness** report for any of the migration strategies.
 
-    :::image type="content" source="./media/tutorial-assess-sql/assessment-sql-readiness.png" alt-text="Details of Azure SQL readiness.":::
+    :::image type="content" source="./media/tutorial-assess-sql/assessment-sql-readiness.png" alt-text="Screenshot with Details of Azure SQL readiness.":::
 
 1. Review the readiness columns in the respective reports:
     
@@ -193,9 +193,9 @@ The assessment summary shows the estimated monthly compute and storage costs for
 
 1. Review the monthly total costs. Costs are aggregated for all SQL instances in the assessed group.
     - Cost estimates are based on the recommended Azure SQL configuration for an instance/server/database.
-    - Estimated total(compute and storage) monthly costs are shown. As an example(estimations and costs only):
+    - Estimated total(compute and storage) monthly costs are shown. As an example:
     
-    :::image type="content" source="./media/tutorial-assess-sql/assessment-sql-cost.png" alt-text="Cost details":::
+    :::image type="content" source="./media/tutorial-assess-sql/assessment-sql-cost.png" alt-text="Screenshot of cost details.":::
 
     - You can see compute and storage cost split in the individual cost estimates reports and at instance/server/database level.
 1. You can drill down at an instance level to see Azure SQL configuration and cost estimates at an instance level.  
