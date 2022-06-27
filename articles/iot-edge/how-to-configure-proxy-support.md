@@ -3,7 +3,7 @@ title: Configure devices for network proxies - Azure IoT Edge | Microsoft Docs
 description: How to configure the Azure IoT Edge runtime and any internet-facing IoT Edge modules to communicate through a proxy server. 
 author: PatAltimore
 ms.author: patricka
-ms.date: 02/28/2022
+ms.date: 06/27/2022
 ms.topic: how-to
 ms.service: iot-edge
 services: iot-edge
@@ -389,7 +389,7 @@ To use a proxy that performs traffic inspection, you must use either shared acce
 
 ## Fully qualified domain names (FQDNs) of destinations that IoT Edge communicates with
 
-If your proxy has a firewall that requires you to allow-list all FQDNs for internet connectivity, review the list from [Allow connections from IoT Edge devices](production-checklist.md#allow-connections-from-iot-edge-devices) to determine which FQDNs to add.
+If your proxy has a firewall that requires you to allowlist all FQDNs for internet connectivity, review the list from [Allow connections from IoT Edge devices](production-checklist.md#allow-connections-from-iot-edge-devices) to determine which FQDNs to add.
 
 ## Next steps
 

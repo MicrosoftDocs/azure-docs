@@ -4,7 +4,7 @@ description: Learn how the IoT Edge runtime manages modules, security, communica
 author: PatAltimore
 
 ms.author: patricka
-ms.date: 11/10/2020
+ms.date: 06/27/2022
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -148,7 +148,7 @@ The MQTT broker enables two additional communication patterns compared to routin
 The MQTT broker can be used by devices or modules built with either the Azure IoT Device SDKs that communicate via the MQTT protocol or any general-purpose MQTT clients. With the exception of C2D all messaging IoT Hub primitives, e.g. telemetry, direct methods, twins are supported. IoT Hub special topics used by IoT Hub primitives are supported and so are user-defined topics.
 This topic could be an IoT Hub special topic or a user-defined topic.
 
-Unlike with the routing mechanism, ordering of messages is only best-effort and not guaranteed and filtering of messages is not supported by the broker. The lack of these features however enable the MQTT broker to be faster than routing.
+Unlike with the routing mechanism, ordering of messages is only best-effort and not guaranteed and filtering of messages is not supported by the broker. The lack of these features however enables the MQTT broker to be faster than routing.
 
 For more information about the MQTT broker, see [Publish and subscribe with IoT Edge](how-to-publish-subscribe.md)
 
@@ -216,7 +216,7 @@ The IoT Edge hub is entirely controlled by the cloud. It gets its configuration 
 * Authorization policies
 * MQTT bridge configuration
 
-Additionally, several configuration can be done by setting up [environment variables on the IoT Edge hub](https://github.com/Azure/iotedge/blob/master/doc/EnvironmentVariables.md).
+Additionally, several configurations can be done by setting up [environment variables on the IoT Edge hub](https://github.com/Azure/iotedge/blob/master/doc/EnvironmentVariables.md).
 ::: moniker-end
 <!-- end iotedge-2020-11 -->
 
