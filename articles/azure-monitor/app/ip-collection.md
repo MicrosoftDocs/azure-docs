@@ -25,12 +25,14 @@ The telemetry types are:
 * Browser telemetry: Application Insights collects the sender's IP address. The ingestion endpoint calculates the IP address.
 * Server telemetry: The Application Insights telemetry module temporarily collects the client IP address. The IP address isn't collected locally when the `X-Forwarded-For` header is set. When the incoming list of IP address has more than one item, the last IP address is used to populate geolocation fields.
 
-This behavior is by design to help avoid unnecessary collection of personal data. Whenever possible, we recommend avoiding the collection of personal data. 
+This behavior is by design to help avoid unnecessary collection of personal data and ip address location information. Whenever possible, we recommend avoiding the collection of personal data. 
 
 > [!NOTE]
-> Although the default is to not collect IP addresses, you can override this behavior. We recommend verifying that the collection doesn't break any compliance requirements or local regulations. 
+> Although the default is to not collect IP addresses, you can override this behavior. We recommend verifying that the collection doesn't break any compliance requirements or local regulations.  
 >
 > To learn more about handling personal data in Application Insights, consult the [guidance for personal data](../logs/personal-data-mgmt.md).
+
+While not collecting ip addresses will also not collect city and other geolocation attributes are populated by our pipeline by using the IP address, you can also mask IP collection at the source. This can be done by either removing the client IP initializer [Configuration with Applications Insights Configuration](configuration-with-applicationinsights-config.md), or providing your own custom initializer. For more information, see [API Filtering example.](api-filtering-sampling.md).
 
 
 ## Storage of IP address data
