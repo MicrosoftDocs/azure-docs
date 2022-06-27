@@ -27,7 +27,7 @@ With media optimization for Microsoft Teams, the Remote Desktop client handles a
 Before you can use Microsoft Teams on Azure Virtual Desktop, you'll need to do these things:
 
 - [Prepare your network](/microsoftteams/prepare-network/) for Microsoft Teams.
-- Install the [Remote Desktop client](./user-documentation/connect-windows-7-10.md) on a Windows 10, Windows 10 IoT Enterprise, Windows 11, or macOS 10.14 or later device that meets the Microsoft Teams [hardware requirements for Teams](/microsoftteams/hardware-requirements-for-the-teams-app#hardware-requirements-for-teams-on-a-windows-pc/).
+- Install the [Remote Desktop client](./user-documentation/connect-windows-7-10.md) on a Windows 10, Windows 10 IoT Enterprise, Windows 11, or macOS 10.14 or later device that meets the [hardware requirements for Microsoft Teams](/microsoftteams/hardware-requirements-for-the-teams-app#hardware-requirements-for-teams-on-a-windows-pc/).
 - Connect to a Windows 10 or 11 Multi-session or Windows 10 or 11 Enterprise virtual machine (VM).
 
 ## Install the Teams desktop app
