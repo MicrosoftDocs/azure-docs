@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: overview
-ms.date: 11/02/2021
+ms.date: 06/15/2022
 ms.author: aahi
 ms.custom: language-service-ner, ignite-fall-2021
 ---
@@ -22,6 +22,8 @@ Named Entity Recognition (NER) is one of the features offered by [Azure Cognitiv
 * The [**conceptual articles**](concepts/named-entity-categories.md) provide in-depth explanations of the service's functionality and features.
 
 [!INCLUDE [Typical workflow for pre-configured language features](../includes/overview-typical-workflow.md)]
+
+[!INCLUDE [Developer reference](../includes/reference-samples-text-analytics.md)] 
 
 ## Responsible AI 
 
