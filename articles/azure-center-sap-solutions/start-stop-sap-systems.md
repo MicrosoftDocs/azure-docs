@@ -1,6 +1,6 @@
 ---
 title: Start and stop SAP systems (preview)
-description: Learn how to start or stop an SAP system through the Virtual Instance for SAP (VIS) resource in Azure Center for SAP solutions (ACSS) through the Azure portal.
+description: Learn how to start or stop an SAP system through the Virtual Instance for SAP solutions (VIS) resource in Azure Center for SAP solutions (ACSS) through the Azure portal.
 ms.service: azure-center-sap-solutions
 ms.topic: how-to
 ms.date: 07/01/2022
@@ -12,7 +12,7 @@ author: lauradolan
 
 [!INCLUDE [Preview content notice](./includes/preview.md)]
 
-With *Azure Center for SAP solutions (ACSS)*, you can start and stop your SAP systems through the *Virtual Instance for SAP (VIS)* resource in the Azure portal.
+With *Azure Center for SAP solutions (ACSS)*, you can start and stop your SAP systems through the *Virtual Instance for SAP solutions (VIS)* resource in the Azure portal.
 
 Through the VIS, you can start and stop:
 

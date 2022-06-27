@@ -29,7 +29,7 @@ landingContent:
             url: monitor-portal.md
           - text: Install SAP software in ACSS
             url: install-software.md
-          - text: Configure Virtual Instance for SAP
+          - text: Configure Virtual Instance for SAP solutions
             url: configure-virtual-instance.md
           - text: Deploy S/4 HANA infrastructure
             url: deploy-s4hana.md
