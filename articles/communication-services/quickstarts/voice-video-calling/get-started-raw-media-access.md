@@ -41,9 +41,9 @@ The app must register a delegate to get notified about when it should start or s
 | 16x9 | 270p | 15 |
 | 16x9 | 240p | 15 |
 | 16x9 | 180p | 15 |
-| 4x3 | VGA | 30 |
+| 4x3 | VGA (640x480) | 30 |
 | 4x3 | 424x320 | 15 |
-| 4x3 | QVGA | 15 |
+| 4x3 | QVGA (320x240) | 15 |
 | 4x3 | 212x160 | 15 |
 
 The following is an overview of the steps required to create a virtual video stream.
