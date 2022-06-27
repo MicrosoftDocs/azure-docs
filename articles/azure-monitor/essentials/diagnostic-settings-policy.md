@@ -6,7 +6,7 @@ ms.author: robb
 services: azure-monitor
 ms.topic: conceptual
 ms.date: 05/09/2022
-ms:reviewer: lualderm
+ms.reviewer: lualderm
 ---
 
 # Create diagnostic settings at scale using Azure Policy

@@ -4,8 +4,6 @@ description: Describes how to create a data collection rule to collect events an
 ms.topic: conceptual
 ms.date: 03/16/2022
 ms.reviewer: shseth
-
-
 ---
 
 # Configure data collection for the Azure Monitor agent

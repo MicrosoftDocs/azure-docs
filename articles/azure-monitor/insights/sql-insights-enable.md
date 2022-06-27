@@ -5,6 +5,7 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 1/18/2022
+ms.reviewer: dfurman
 ---
 
 # Enable SQL Insights (preview)

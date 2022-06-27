@@ -6,7 +6,7 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 05/09/2022
 ms.author: bwren
-ms:reviewer: lualderm
+ms.reviewer: lualderm
 
 ---
 
