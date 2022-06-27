@@ -26,7 +26,7 @@ The Defender for IoT architecture uses on-premises sensors and management server
 For more information, see the [Microsoft Security Development Lifecycle practices](https://www.microsoft.com/en-us/securityengineering/sdl/), which describes Microsoft's SDK practices, including training, compliance, threat modeling, design requirements, tools such as Microsoft Component Governance, pen testing, and more.
 
 > [!IMPORTANT]
-> Manual changes to software packages may have detrimental effects on the sensor and on-premises management cosnole. Microsoft is unable to support deployments with manual changes made to packages.
+> Manual changes to software packages may have detrimental effects on the sensor and on-premises management console. Microsoft is unable to support deployments with manual changes made to packages.
 >
 
 **Current versions of the sensor and on-premises management console software include**:
@@ -35,6 +35,7 @@ For more information, see the [Microsoft Security Development Lifecycle practice
 |--|--|--|
 | 22.2.3 | 07/2022 | 04/2023 |
 | 22.1.5 | 06/2022 | 03/2022 |
+| 22.1.5 | 06/2022 | 03/2023 |
 | 22.1.4 | 04/2022 | 12/2022 |
 | 22.1.3 | 03/2022 | 11/2022 |
 | 22.1.1 | 02/2022 | 10/2022 |
@@ -45,9 +46,6 @@ For more information, see the [Microsoft Security Development Lifecycle practice
 
 ## July 2022
 
-**Sensor version**: 22.2.3
-
-- [Bi-directional alert synch between sensors and the Azure portal](#bi-directional-alert-synch-between-sensors-and-the-azure-portal-public-preview)
 
 ### Bi-directional alert synch between sensors and the Azure portal (Public preview)
 
@@ -64,18 +62,15 @@ For more information, see:
 - [Manage alerts from the sensor console](how-to-manage-the-alert-event.md)
 - [Work with alerts on the on-premises management console](how-to-work-with-alerts-on-premises-management-console.md)
 
-## June
+## June 2022
 
 **Sensor software version**: 22.1.5
-
-- Bug fixes related to OT monitoring software updates and sensor-cloud connections.
-
-## May 2022
 
 We've recently optimized and enhanced our documentation as follows:
 
 - [Updated appliance catalog for OT environments](#updated-appliance-catalog-for-ot-environments)
 - [Documentation reorganization for end-user organizations](#documentation-reorganization-for-end-user-organizations)
+
 
 ### Updated appliance catalog for OT environments
 
