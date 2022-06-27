@@ -102,7 +102,7 @@ Run an assessment as follows:
 
     - Select **Save** if you made changes.
 
-     :::image type="content" source="./media/tutorial-assess-sql/view-all.png" alt-text="Screenshot of Save button on assessment settings.":::
+     :::image type="content" source="./media/tutorial-assess-sql/view-all-inline.png" alt-text="Screenshot to save the assessment properties." lightbox="./media/tutorial-assess-sql/view-all-expanded.png":::
 
 8. In **Assess Servers**, select **Next**.
 9.	In **Select servers to assess** > **Assessment name** > specify a name for the assessment.
