@@ -7,7 +7,7 @@ ms.service: machine-learning
 ms.author: larryfr
 author: blackmist
 ms.subservice: mlops
-ms.date: 06/24/2022
+ms.date: 06/27/2022
 ms.topic: conceptual
 ms.custom: how-to, devplatv2, event-tier1-build-2022
 ---
@@ -149,27 +149,26 @@ There are three logs that can be enabled for online endpoints:
 1. From the **Monitoring** section on the left of the page, select **Diagnostic settings** and then **Add settings**.
 1. Select the log categories to enable, select **Send to Log Analytics workspace**, and then select the Log Analytics workspace to use. Finally, enter a **Diagnostic setting name** and select **Save**.
 
-    :::image type="content" source="{source}" alt-text="{alt-text}":::
+    :::image type="content" source="./media/how-to-monitor-online-endpoints/diagnostic-settings.png" alt-text="Screenshot of the diagnostic settings dialog.":::
 
     > [!IMPORTANT]
     > It may take up to an hour for the connection to the Log Analytics workspace to be enabled. Wait an hour before continuing with the next steps.
     
 1. Submit scoring requests to the endpoint. This activity should create entries in the logs.
-1. Open the Log Analytics workspace and select **Logs** from the left of the screen.
+1. From either the online endpoint properties or the Log Analytics workspace, select **Logs** from the left of the screen.
 1. Close the **Queries** dialog that automatically opens, and then double-click the **AmlOnlineEndpointConsoleLog**. If you don't see it, use the **Search** field.
 
-    :::image type="content" source="{source}" alt-text="{alt-text}":::
+    :::image type="content" source="./media/how-to-monitor-online-endpoints/online-endpoints-log-queries.png" alt-text="Screenshot showing the log queries.":::
 
 1. Select **Run**.
 
-    :::image type="content" source="{source}" alt-text="{alt-text}":::
+    :::image type="content" source="./media/how-to-monitor-online-endpoints/query-results.png" alt-text="Screenshots of the results after running a query.":::
 
 ### Example queries
 
-In Azure Log Analytics workspace, see the following example queries:
+You can find example queries on the __Queries__ tab while viewing logs. Search for __Online endpoint__ to find example queries.
 
-* Online endpoint console logs
-* Online endpoint failed requests
+:::image type="content" source="./media/how-to-monitor-online-endpoints/example-queries.png" alt-text="Screenshot of the example queries.":::
 
 ### Log column details 
 

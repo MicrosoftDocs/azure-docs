@@ -320,7 +320,7 @@ Autoscale automatically runs the right amount of resources to handle the load on
 
 ### (Optional) Monitor SLA by using Azure Monitor
 
-To view metrics and set alerts based on your SLA, complete the steps that are described in [Monitor managed online endpoints](how-to-monitor-online-endpoints.md#monitor).
+To view metrics and set alerts based on your SLA, complete the steps that are described in [Monitor managed online endpoints](how-to-monitor-online-endpoints.md).
 
 ### (Optional) Integrate with Log Analytics
 
