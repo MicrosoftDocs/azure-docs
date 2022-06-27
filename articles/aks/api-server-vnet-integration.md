@@ -4,6 +4,7 @@ description: Learn how to create an Azure Kubernetes Service (AKS) cluster with 
 services: container-service
 ms.topic: article
 ms.date: 06/27/2022
+ms.custom: references_regions
 
 ---
 
