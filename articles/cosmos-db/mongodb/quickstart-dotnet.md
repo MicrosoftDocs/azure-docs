@@ -80,7 +80,7 @@ dotnet new webapp -o <app-name>
 
 ### Install the NuGet package
 
-Add the [MongoDB.Driver](https://www.nuget.org/packages/MongoDB.Driver) NuGet package to the new .NET project. Use the [``dotnet add package``](https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-add-package) command specifying the name of the NuGet package.
+Add the [MongoDB.Driver](https://www.nuget.org/packages/MongoDB.Driver) NuGet package to the new .NET project. Use the [``dotnet add package``](/dotnet/core/tools/dotnet-add-package) command specifying the name of the NuGet package.
 
 ```console
 dotnet add package MongoDb.Driver
