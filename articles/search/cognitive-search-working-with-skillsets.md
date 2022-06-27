@@ -14,26 +14,39 @@ ms.date: 06/23/2022
 
 This article is for developers who need a deeper understanding of skillset concepts and composition, and assumes familiarity with the high-level concepts and workflows of [AI enrichment](cognitive-search-concept-intro.md).
 
-A skillset is a reusable resource in Azure Cognitive Search that is attached to [an indexer](search-indexer-overview.md). It contains one or more skills, which are atomic operations that call built-in AI or external custom processing over documents retrieved from an external data source.
+A skillset is a reusable resource in Azure Cognitive Search that is attached to [an indexer](search-indexer-overview.md). It contains one or more skills that call built-in AI or external custom processing over documents retrieved from an external data source.
 
-From the onset of skillset processing to its conclusion, skills read and write to an enriched document. An enriched document is initially just the raw content extracted from a data source (`/document`), but with each skill execution, it gains structure and substance. The output of an enriched document finds its way into an index through *output field mappings*. Any raw content that you want transferred directly from source to an index is defined through *field mappings*.
+The following diagram illustrates the basic data flow of skillset execution. From the onset of skillset processing to its conclusion, skills read from and write to an *enriched document*. An enriched document is initially just the raw content extracted from a data source (`/document`), but with each skill execution, it gains structure and substance as each new output creates new nodes in the document. The output of an enriched document finds its way into an index through *output field mappings*. Any raw content that you want transferred directly from source to an index is defined through *field mappings*.
 
-The following diagram illustrates the data flow of skillset execution, where inputs and outputs of a skill are read from and written to an internal enriched document. Indexes are populated with fields. Those fields accept values from the data source directly (field mappings) or from an enriched document (output field mappings).
+:::image type="content" source="media/cognitive-search-working-with-skillsets/skillset-process-diagram-1.png" alt-text="Diagram showing skillset data flows, with focus on inputs, outputs, and mappings." border="true":::
 
-<!-- Ultimately, nodes from an enriched document are then [mapped to fields](cognitive-search-output-field-mapping.md) in a search index, or [mapped to projections](knowledge-store-projection-overview.md) in a knowledge store, so that the content can be routed appropriately, where it will be queried or consumed by other apps. -->
+To configure enrichment, you'll specify settings in a skillset and indexer.
 
-:::image type="content" source="media/cognitive-search-working-with-skillsets/architecture-index-indexer-skillset-json.svg" alt-text="Diagram showing indexes, indexers, skillsets with field mappings and JSON representations." border="true":::
+### Skillset definition
 
+A skillset is an array of one or more *skills* that perform an enrichment, such as translating text or OCR on an image file. Skills can be the [built-in skills](cognitive-search-predefined-skills.md) from Microsoft, or [custom skills](cognitive-search-create-custom-skill-example.md) for processing logic that you host externally. A skillset produces enriched documents that are either consumed during indexing or projected to a knowledge store.
 
-:::image type="content" source="media/cognitive-search-working-with-skillsets/architecture-index-indexer-skillset-json.png" alt-text="Diagram showing indexes, indexers, skillsets with field mappings and JSON representations." border="true":::
+Skills have a type, a context, and inputs and outputs:
 
-:::image type="content" source="media/cognitive-search-working-with-skillsets/architecture-index-indexer-skillset-json.png" alt-text="Diagram showing indexes, indexers, skillsets with field mappings and JSON representations." lightbox="media/cognitive-search-working-with-skillsets/architecture-index-indexer-skillset-json.png":::
+:::image type="content" source="media/cognitive-search-working-with-skillsets/skillset-process-diagram-2.png" alt-text="Diagram showing which properties of skillsets establish the data path." border="true":::
 
-## Skillset definition
++ Skill inputs originate from an enriched document. Input formulation is the ["context"](#context) or scope of the operation. Inputs also have a "source" and "name" that identify a given node in the enriched document.
 
-A skillset is an array of one or more *skills* that represent an atomic enrichment operation, like translating text, extracting key phrases, or performing optical character recognition from an image file. Skills can be the [built-in skills](cognitive-search-predefined-skills.md) from Microsoft, or [custom skills](cognitive-search-create-custom-skill-example.md) that contain models or processing logic that you provide. It produces enriched documents that are either consumed during indexing or projected to a knowledge store.
++ Skills outputs are sent back to the enriched document. Outputs are the node "name" and node value. 
 
-Skills have a type, a context, and inputs and outputs that are often chained together. The following example demonstrates two [built-in skills](cognitive-search-predefined-skills.md) that work together and introduces some of the terminology of skillset definition. 
+### Indexer definition
+
+An indexer has properties and parameters used to configure indexer execution. Among those properties are mappings that set the path to fields in an index.
+
+:::image type="content" source="media/cognitive-search-working-with-skillsets/skillset-process-diagram-3.png" alt-text="Diagram showing which properties of indexers establish the data path to fields in an index." border="true":::
+
++ Output field mappings get content out of the enriched document and into fields in a search index.
+
++ Field mappings map source fields from the original document to fields in a search index.
+
+### Working with multiple skills
+
+Skills can execute independently and in parallel, or with dependencies if you feed the output of one skill into another skill. The following example demonstrates two [built-in skills](cognitive-search-predefined-skills.md) that work together. 
 
 + Skill #1 is a [Text Split skill](cognitive-search-skill-textsplit.md) that accepts the contents of the "reviews_text" source field as input, and splits that content into "pages" of 5000 characters as output. Splitting large text into smaller chunks can produce better outcomes during natural language processing.
 
