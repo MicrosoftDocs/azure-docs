@@ -32,7 +32,7 @@ You use `Request: Aggregate_function (client_metric) condition value` syntax. Wh
 
 |Parameter  |Description  |
 |---------|---------|
-|`Request`     | *Optional.* Name of the request on which the criteria should be applied. If not specified, the criteria is applied on the aggregate for all the requests.  |
+|`Request`     | *Optional.* Name of the request on which the criteria should be applied. This is the descriptive name of a sampler that is given in your JMeter script. If not specified, the criteria is applied on the aggregate for all the requests.  |
 |`Client metric`     | *Required.* The client metric on which the criteria should be applied.  |
 |`Aggregate function`     |  *Required.* The aggregate function to be applied on the client metric.  |
 |`Condition`     | *Required.* The comparison operator.        |
