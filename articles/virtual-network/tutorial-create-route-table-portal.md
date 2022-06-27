@@ -9,7 +9,7 @@ ms.service: virtual-network
 ms.topic: tutorial
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
-ms.date: 06/26/2022
+ms.date: 06/27/2022
 ms.author: mbender
 ms.custom: template-tutorial #Required; leave this attribute/value as-is.
 # Customer intent: I want to route traffic from one subnet, to a different subnet, through a network virtual appliance.
@@ -120,7 +120,7 @@ Network virtual appliances (NVAs) are virtual machines that help with network fu
     | Size | Choose VM size or take default setting. |
     | **Administrator account** |  |
     | Username | Enter a username. |
-    | Password | Enter a password. |
+    | Password | Enter a password. The password must be at least 12 characters long and meet the [defined complexity requirements](../virtual-machines/windows/faq.yml?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm-).|
     | Confirm password | Reenter password. |
     | **Inbound port rules** |    |
     | Public inbound ports | Select **None**. |
@@ -234,7 +234,7 @@ You'll create two virtual machines in **myVirtualNetwork** virtual network, then
     | Size | Choose VM size or take default setting. |
     | **Administrator account** |  |
     | Username | Enter a username. |
-    | Password | Enter a password. |
+    | Password | Enter a password. The password must be at least 12 characters long and meet the [defined complexity requirements](../virtual-machines/windows/faq.yml?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm-).|
     | Confirm password | Reenter password. |
     | **Inbound port rules** |    |
     | Public inbound ports | Select **None**. |
@@ -277,7 +277,7 @@ You'll create two virtual machines in **myVirtualNetwork** virtual network, then
     | Size | Choose VM size or take default setting. |
     | **Administrator account** |  |
     | Username | Enter a username. |
-    | Password | Enter a password. |
+    | Password | Enter a password. The password must be at least 12 characters long and meet the [defined complexity requirements](../virtual-machines/windows/faq.yml?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm-).|
     | Confirm password | Reenter password. |
     | **Inbound port rules** |    |
     | Public inbound ports | Select **None**. |
