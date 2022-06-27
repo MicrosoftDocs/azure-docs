@@ -24,15 +24,14 @@ The most significant differences between the agents in relation to VM insights a
 
 
 ## Changes to enabling VM insights
+See [Enable VM insights overview](vminsights-enable-overview.md) for a summary of configuration options and requirements. The following sections describe changes in configuration process when using the Azure Monitor agent.
 
 ### Workspace configuration
 You no longer need to [enable VM insights on the Log Analytics workspace](vminsights-configure-workspace.md) since the VMinsights management pack isn't used by Azure Monitor agent.
 
-> [!NOTE]
-> You can't currently enable the Azure Monitor agent from the virtual machine's menu in the Azure portal. You must use the Azure Monitor menu.
 
 ### Data collection rule
-Azure Monitor agent uses [data collection rules](../essentials/data-collection-rule-overview.md) to configure its data collection. 
+Azure Monitor agent uses [data collection rules](../essentials/data-collection-rule-overview.md) to configure its data collection. VM insights creates a data collection rule that is automtically deployed if you enable your machine using the Azure portal. If you use other methods to onboard your machines, then you may need to install the data collection rule first.
 
 ### Agent deployment
 There are minor changes to the the process for onboarding virtual machines and virtual machine scale sets to VM insights in the Azure portal. Select **Not monitored** tab on the **Overview** page, and then click **Enable** next to the virtual machine you want to enable for monitoring. You must now select which agent you want to use, and you must select a data collection rule for Azure Monitor agent. See [Enable VM insights in the Azure portal](vminsights-enable-portal.md) for details and [Enable VM insights overview](vminsights-enable-overview.md) for other onboarding options.
