@@ -9,7 +9,7 @@ ms.topic: quickstart
 ms.date: 03/03/2022
 ms.author: jafreebe
 ms.custom: mvc, seo-java-july2019, seo-java-august2019, seo-java-september2019, mode-other, devdivchpfy22
-zone_pivot_groups: app-service-platform-windows-linux
+zone_pivot_groups: app-service-platform-environment
 adobe-target: true
 adobe-target-activity: DocsExp–386541–A/B–Enhanced-Readability-Quickstarts–2.19.2021
 adobe-target-experience: Experience B
@@ -19,6 +19,14 @@ adobe-target-content: ./quickstart-java-uiex
 # Quickstart: Create a Java app on Azure App Service
 
 [Azure App Service](overview.md) provides a highly scalable, self-patching web hosting service. This quickstart shows how to use the [Azure CLI](/cli/azure/get-started-with-azure-cli) with the [Azure Web App Plugin for Maven](https://github.com/Microsoft/azure-maven-plugins/tree/develop/azure-webapp-maven-plugin) to deploy a .jar file, or .war file. Use the tabs to switch between Java SE and Tomcat instructions.
+
+::: zone pivot="platform-linux-development-environment-azure-portal"
+[!INCLUDE [quickstart-java-azure-portal.md](./includes/quickstart-java/quickstart-java-linux-azure-portal.md)]
+::: zone-end
+
+::: zone pivot="platform-windows-development-environment-azure-portal"
+[!INCLUDE [quickstart-java-azure-portal.md](./includes/quickstart-java/quickstart-java-windows-azure-portal.md)]
+::: zone-end
 
 # [Java SE](#tab/javase)
 
@@ -44,6 +52,7 @@ JBoss EAP is only available on the Linux version of App Service. Select the **Li
 -----
 
 If Maven isn't your preferred development tool, check out our similar tutorials for Java developers:
++ [Azure Portal](./quickstart-java-azure-portal.md)
 + [Gradle](./configure-language-java.md?pivots=platform-linux#gradle)
 + [IntelliJ IDEA](/azure/developer/java/toolkit-for-intellij/create-hello-world-web-app)
 + [Eclipse](/azure/developer/java/toolkit-for-eclipse/create-hello-world-web-app)
