@@ -26,13 +26,15 @@ To configure enrichment, you'll specify settings in a skillset and indexer.
 
 A skillset is an array of one or more *skills* that perform an enrichment, such as translating text or OCR on an image file. Skills can be the [built-in skills](cognitive-search-predefined-skills.md) from Microsoft, or [custom skills](cognitive-search-create-custom-skill-example.md) for processing logic that you host externally. A skillset produces enriched documents that are either consumed during indexing or projected to a knowledge store.
 
-Skills have a type, a context, and inputs and outputs:
+Skills have a context, inputs, and an output:
 
 :::image type="content" source="media/cognitive-search-working-with-skillsets/skillset-process-diagram-2.png" alt-text="Diagram showing which properties of skillsets establish the data path." border="true":::
 
-+ Skill inputs originate from an enriched document. Input formulation is the ["context"](#context) or scope of the operation. Inputs also have a "source" and "name" that identify a given node in the enriched document.
++ ["context"](#context) is scope of the operation, which could be once per document or once for each item in a collection.
 
-+ Skills outputs are sent back to the enriched document. Outputs are the node "name" and node value. 
++ Inputs originate from nodes in an enriched document, where a "source" and "name" identify a given node.
+
++ Output is sent back to the enriched document as a new node. Value are the node "name" and node content. If a node name is duplicated, you can set a target name for disambiguation.
 
 ### Indexer definition
 
@@ -42,7 +44,7 @@ An indexer has properties and parameters used to configure indexer execution. Am
 
 + Output field mappings get content out of the enriched document and into fields in a search index.
 
-+ Field mappings map source fields from the original document to fields in a search index.
++ Field mappings assign the content of a given source field to a field in a search index.
 
 ### Working with multiple skills
 
