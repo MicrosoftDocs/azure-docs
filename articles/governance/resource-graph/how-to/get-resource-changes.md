@@ -274,7 +274,7 @@ resourcechanges
 | project changeTime, changeType, id, resourceGroup, type, properties
 ```
 
-### Change in virtual machine size  
+### Changes in virtual machine size  
 ```kusto
 resourcechanges
 |extend vmSize = properties.changes["properties.hardwareProfile.vmSize"], changeTime = todatetime(properties.changeAttributes.timestamp), targetResourceId = tostring(properties.targetResourceId), changeType = tostring(properties.changeType)  
@@ -283,12 +283,12 @@ resourcechanges
 | project changeTime, targetResourceId, changeType, properties.changes, previousSize = vmSize.previousValue, newSize = vmSize.newValue 
 ```
 
-### Resources updated across subscriptions
+### Count of changes by change type and subscription name
 ```kusto
 resourcechanges   
 |extend changeType = tostring(properties.changeType), changeTime = todatetime(properties.changeAttributes.timestamp), targetResourceType=tostring(properties.targetResourceType)   
 | summarize count() by changeType, subscriptionId  
-| join (ResourceContainers | where type=='microsoft.resources/subscriptions' | project SubscriptionName=name, subscriptionId) on subscriptionId  
+| join (resourcecontainers | where type=='microsoft.resources/subscriptions' | project SubscriptionName=name, subscriptionId) on subscriptionId  
 | project-away subscriptionId, subscriptionId1 
 | order by count_ desc  
 ``` 
