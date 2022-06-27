@@ -16,7 +16,7 @@ ms.custom: mode-other
 
 [!INCLUDE [Public Preview](../../includes/public-preview-include-document.md)]
 
-In this quickstart, you'll learn how implement raw media access using the Azure Communication Services Calling SDK for Android.
+In this quickstart, you'll learn how to implement raw media access using the Azure Communication Services Calling SDK for Android.
 
 The Azure Communication Services Calling SDK offers APIs allowing apps to generate their own video frames to send to remote participants.
 
@@ -31,7 +31,7 @@ The app must register a delegate to get notified about when it should start or s
 
 ### Supported Video Resolutions
 
-| Aspect Ratio | Resolution  | Maximun FPS  |
+| Aspect Ratio | Resolution  | Maximum FPS  |
 | :--: | :-: | :-: |
 | 16x9 | 1080p | 30 |
 | 16x9 | 720p | 30 |
@@ -48,7 +48,7 @@ The app must register a delegate to get notified about when it should start or s
 
 The following is an overview of the steps required to create a virtual video stream.
 
-1. Create an array of `VideoFormat` with the video formats supported by the app. It is fine to have only one video format supported, but at least one of the provided video formats must be of the `VideoFrameKind::VideoSoftware` type. When multiple formats are provided, the order of the format in the list does not influence or prioritize which one will be used. The selected format is based on external factors like network bandwidth.
+1. Create an array of `VideoFormat` with the video formats supported by the app. It is fine to have only one video format supported, but at least one of the provided video formats must be of the `VideoFrameKind::VideoSoftware` type. When multiple formats are provided, the order of the format in the list doesn't influence or prioritize which one will be used. The selected format is based on external factors like network bandwidth.
 
     ```java
     ArrayList<VideoFormat> videoFormats = new ArrayList<VideoFormat>();
@@ -71,7 +71,7 @@ The following is an overview of the steps required to create a virtual video str
     rawOutgoingVideoStreamOptions.setVideoFormats(videoFormats);
     ```
 
-3. Subscribe to `RawOutgoingVideoStreamOptions::addOnOutgoingVideoStreamStateChangedListener` delegate. This delegate will inform the state of the current stream, its important that you do not send frames if the state is no equal to `OutgoingVideoStreamState.STARTED`.
+3. Subscribe to `RawOutgoingVideoStreamOptions::addOnOutgoingVideoStreamStateChangedListener` delegate. This delegate will inform the state of the current stream, it's important that you don't send frames if the state is no equal to `OutgoingVideoStreamState.STARTED`.
 
     ```java
     private OutgoingVideoStreamState outgoingVideoStreamState;
@@ -222,7 +222,7 @@ Since the Android system generates the frames, you must implement your own foreg
 
 ### Supported Video Resolutions
 
-| Aspect Ratio | Resolution  | Maximun FPS  |
+| Aspect Ratio | Resolution  | Maximum FPS  |
 | :--: | :-: | :-: |
 | Anything | Anything | 30 |
 
@@ -242,7 +242,7 @@ The following is an overview of the steps required to create a screen share vide
     screenShareRawOutgoingVideoStream = new ScreenShareRawOutgoingVideoStream(rawOutgoingVideoStreamOptions);
     ```
 
-3. Request needed permissions for screen capture on Android, once this method is called Android will call automatically `onActivityResult` containing the request code we have sent and the result of the operation, expect `Activity.RESULT_OK` if the permission has been provided by the user if so attach the screenShareRawOutgoingVideoStream to the call and start your own foreground service to capture the frames.
+3. Request needed permissions for screen capture on Android, once this method is called Android will call automatically `onActivityResult` containing the request code we've sent and the result of the operation, expect `Activity.RESULT_OK` if the permission has been provided by the user if so attach the screenShareRawOutgoingVideoStream to the call and start your own foreground service to capture the frames.
     
     ```java
     public void GetScreenSharePermissions() {
