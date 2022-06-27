@@ -11,7 +11,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 05/24/2022
+ms.date: 06/27/2022
 ms.author: ajburnle
 ms.reviewer: 
 ms.collection: M365-identity-device-management
@@ -28,7 +28,7 @@ This article describes how to create an access package automatic assignment poli
 
 ## Create an automatic assignment policy (Preview)
 
-To create a policy for an access package, you need to start from the access package policy tab. Follow these steps to create a new policy for an access package.
+To create a policy for an access package, you need to start from the access package's policy tab. Follow these steps to create a new policy for an access package.
 
 **Prerequisite role:** Global administrator, Identity Governance administrator, Catalog owner, or Access package manager
 
@@ -36,7 +36,7 @@ To create a policy for an access package, you need to start from the access pack
 
 1. In the left menu, click **Access packages** and then open the access package.
 
-1. Click **Policies**.
+1. Click **Policies** and then **Add policy** to create a new policy.
 
 ## Next steps
 
