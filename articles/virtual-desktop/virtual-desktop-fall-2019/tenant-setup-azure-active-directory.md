@@ -17,7 +17,7 @@ manager: femila
 >
 >You can find more information about how to migrate from Azure Virtual Desktop (classic) to Azure Virtual Desktop at [Migrate automatically from Azure Virtual Desktop (classic)](../automatic-migration.md). 
 >
->Information about creating a host pool in Azure Virtual Desktop can be found at [Azure Virtual Desktop host pool Azure portal](https://docs.microsoft.com/azure/virtual-desktop/create-host-pools-azure-marketplace?tabs=azure-portal).
+>Learn about how to create a host pool in Azure Virtual Desktop at [Tutorial: Create a host pool](../create-host-pools-azure-marketplace.md).
 
 
 Creating a tenant in Azure Virtual Desktop is the first step toward building your desktop virtualization solution. A tenant is a group of one or more host pools. Each host pool consists of multiple session hosts, running as virtual machines in Azure and registered to the Azure Virtual Desktop service. Each host pool also consists of one or more app groups that are used to publish remote desktop and remote application resources to users. With a tenant, you can build host pools, create app groups, assign users, and make connections through the service.
