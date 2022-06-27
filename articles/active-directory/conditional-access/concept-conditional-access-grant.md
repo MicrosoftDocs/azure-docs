@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 01/27/2022
+ms.date: 06/27/2022
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -99,7 +99,7 @@ The following client apps have been confirmed to support this setting:
 - Microsoft Invoicing
 - Microsoft Kaizala
 - Microsoft Launcher
-- Microsoft Lists (iOS)
+- Microsoft Lists
 - Microsoft Office
 - Microsoft OneDrive
 - Microsoft OneNote
@@ -144,7 +144,7 @@ The following client apps have been confirmed to support this setting:
 - Microsoft Cortana
 - Microsoft Edge
 - Microsoft Excel
-- Microsoft Lists (iOS)
+- Microsoft Lists
 - Microsoft Office
 - Microsoft OneDrive
 - Microsoft OneNote
