@@ -39,7 +39,7 @@ While resources from different Azure services have different monitoring requirem
 
 Diagnostic settings define where resource logs and metrics for a particular resource should be sent. Possible destinations are:
 
-- [Activity log](./platform-logs-overview.md): Subscription-level events that track operations for each Azure resource, for example, creating a new resource or starting a virtual machine. Activity log events are automatically generated and collected for viewing in the Azure portal. You can create a diagnostic setting to send the Activity log to Azure Monitor Logs.
+- [Activity log](./platform-logs-overview.md): Subscription-level events that track operations for each Azure resource, for example, creating a new resource or starting a virtual machine. Activity log events are automatically generated and collected for viewing in the Azure portal. You can create a diagnostic setting to send the activity log to Azure Monitor Logs.
 - [Platform metrics](../essentials/data-platform-metrics.md): Numerical values that are automatically collected at regular intervals and describe some aspect of a resource at a particular time. Platform metrics are automatically generated and collected in Azure Monitor Metrics.
 - [Resource logs](./platform-logs-overview.md): Provide insight into operations that were performed by an Azure resource. Operation examples might be getting a secret from a key vault or making a request to a database. Resource logs are generated automatically, but you must create a diagnostic setting to send them to Azure Monitor Logs.
 - [Virtual machine guest metrics and logs](): Performance and log data from the guest operating system of Azure virtual machines. You must install an agent on the virtual machine to collect this data and send it to Azure Monitor Metrics and Azure Monitor Logs.
@@ -48,7 +48,7 @@ Diagnostic settings define where resource logs and metrics for a particular reso
 
 You can access Azure Monitor features from the **Monitor** menu in the Azure portal. You can also access Azure Monitor features directly from the menu for different Azure services. Different Azure services might have slightly different experiences, but they share a common set of monitoring options in the Azure portal. These menu items include **Overview** and **Activity log** and multiple options in the **Monitoring** section of the menu.
 
-:::image type="content" source="media/monitor-azure-resource/menu-01.png" lightbox="media/monitor-azure-resource/menu-01.png" alt-text="Screenshot that shows the Overview and Activity menu items.":::
+:::image type="content" source="media/monitor-azure-resource/menu-01.png" lightbox="media/monitor-azure-resource/menu-01.png" alt-text="Screenshot that shows the Overview and Activity log menu items.":::
 
 :::image type="content" source="media/monitor-azure-resource/menu-02.png" lightbox="media/monitor-azure-resource/menu-02.png" alt-text="Screenshot that shows the Monitoring menu.":::
 
@@ -62,9 +62,9 @@ For a tutorial on using Metrics Explorer, see [Tutorial: Analyze metrics for an 
 
 ### Activity log
 
-The **Activity log** menu item lets you view entries in the [Activity log](../essentials/activity-log.md) for the current resource.
+The **Activity log** menu item lets you view entries in the [activity log](../essentials/activity-log.md) for the current resource.
 
-:::image type="content" source="media/monitor-azure-resource/activity-log.png" lightbox="media/monitor-azure-resource/activity-log.png" alt-text="Screenshot that shows an Activity log.":::
+:::image type="content" source="media/monitor-azure-resource/activity-log.png" lightbox="media/monitor-azure-resource/activity-log.png" alt-text="Screenshot that shows an activity log.":::
 
 ## Alerts
 
@@ -72,7 +72,7 @@ The **Alerts** page shows you any recent alerts that were fired for the resource
 
 For tutorials on how to create alert rules and view alerts, see [Tutorial: Create a metric alert for an Azure resource](../alerts/tutorial-metric-alert.md) or [Tutorial: Create a log query alert for an Azure resource](../alerts/tutorial-log-alert.md).
 
-:::image type="content" source="media/monitor-azure-resource/alerts-view.png" lightbox="media/monitor-azure-resource/alerts-view.png" alt-text="Screenshot that shows an Alerts view.":::
+:::image type="content" source="media/monitor-azure-resource/alerts-view.png" lightbox="media/monitor-azure-resource/alerts-view.png" alt-text="Screenshot that shows the Alerts page.":::
 
 ## Metrics
 
@@ -88,7 +88,7 @@ The **Diagnostic settings** page lets you create a [diagnostic setting](../essen
 
 For a tutorial on how to create a diagnostic setting, see [Tutorial: Collect and analyze resource logs from an Azure resource](../essentials/tutorial-resource-logs.md).
 
-:::image type="content" source="media/monitor-azure-resource/diagnostic-settings.png" lightbox="media/monitor-azure-resource/diagnostic-settings.png" alt-text="Screenshot that shows Diagnostic settings.":::
+:::image type="content" source="media/monitor-azure-resource/diagnostic-settings.png" lightbox="media/monitor-azure-resource/diagnostic-settings.png" alt-text="Screenshot that shows the Diagnostic settings page.":::
 
 ## Insights
 
@@ -96,7 +96,7 @@ The **Insights** menu item opens the insight for the resource if the Azure servi
 
 For a list of insights that are available and links to their documentation, see [Insights and core solutions](../monitor-reference.md#insights-and-curated-visualizations).
 
-:::image type="content" source="media/monitor-azure-resource/insights.png" lightbox="media/monitor-azure-resource/insights.png" alt-text="Screenshot that shows Insights.":::
+:::image type="content" source="media/monitor-azure-resource/insights.png" lightbox="media/monitor-azure-resource/insights.png" alt-text="Screenshot that shows the Insights page.":::
 
 ## Next steps
 
