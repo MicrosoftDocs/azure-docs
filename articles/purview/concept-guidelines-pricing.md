@@ -137,7 +137,7 @@ If you don't plan on using Data Estate Insights for a while, a [data curator](ca
 > [!NOTE]
 > The application or report refresh can be enabled again later at any time.
 
-Your data curator can make these changes in the Management section of the Microsoft Purview governance portal in **Overview**, under **Feature options**.
+Your data curator can make these changes in the Management section of the Microsoft Purview governance portal in **Overview**, under **Feature options**. For specific steps, see the [enable or disable Data Estates Insights article](enable-disable-data-estate-insights.md)
 
 :::image type="content" source="media/concept-guidelines-pricing/disable-data-estate-insights.png" alt-text="Screenshot of the Overview window in the Management section of the Microsoft Purview governance portal. Under feature options, the data estate insights option is highlighted." :::
 

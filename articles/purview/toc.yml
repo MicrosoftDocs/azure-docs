@@ -281,6 +281,8 @@ items:
       href: sensitivity-labels-frequently-asked-questions.yml
   - name: Data Estate Insights
     items:
+    - name: Disable or enable
+      href: enable-disable-data-estate-insights.md
     - name: View data stewardship
       href: data-stewardship.md
     - name: View asset insights
