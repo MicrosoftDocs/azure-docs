@@ -48,7 +48,7 @@ For example, a single policy cannot be used to assign internal and external user
 For information about the priority logic that is used when multiple policies apply, see [Multiple policies](entitlement-management-troubleshoot.md#multiple-policies
 ).
 
-## Open an existing access package and add a new policy with request settings
+## Open an existing access package and add a new policy with different request settings
 
 If you have a set of users that should have different request and approval settings, you'll likely need to create a new policy. Follow these steps to start adding a new policy to an existing access package:
 
@@ -161,9 +161,9 @@ Follow these steps if you want to bypass access requests and allow administrator
 > When assigning users to an access package, administrators will need to verify that the users are eligible for that access package based on the existing policy requirements. Otherwise, the users won't successfully be assigned to the access package. If the access package contains a policy that requires user requests to be approved, users can't be directly assigned to the package without necessary approval(s) from the designated approver(s).
 
 
-## Open and edit an existing policy with request settings
+## Open and edit an existing policy's request settings
 
-To change the request and approval settings for an access package, you need to open the corresponding policy. Follow these steps to open and edit the request settings for an access package:
+To change the request and approval settings for an access package, you need to open the corresponding policy with those settings. Follow these steps to open and edit the request settings for an access package assignment policy:
 
 **Prerequisite role:** Global administrator, User administrator, Catalog owner, or Access package manager
 
