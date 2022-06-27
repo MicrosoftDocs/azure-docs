@@ -27,9 +27,11 @@ If you're looking for items older than six months, you'll find them in the [Arch
 >
 > You can also contribute! Join us in the [Microsoft Sentinel Threat Hunters GitHub community](https://github.com/Azure/Azure-Sentinel/wiki).
 
-## July 2022
+## June 2022
 
 - [Automation rules for alerts](#automation-rules-for-alerts)
+- [Microsoft Purview Data Loss Prevention (DLP) integration in Microsoft Sentinel (Preview)](#microsoft-purview-data-loss-prevention-dlp-integration-in-microsoft-sentinel-preview)
+- [Incident update trigger for automation rules (Preview)](#incident-update-trigger-for-automation-rules-preview)
 
 ### Automation rules for alerts
 
@@ -37,10 +39,7 @@ In addition to their incident-management duties, [automation rules](automate-inc
 
 Previously, these playbooks could be automated only by attaching them to analytics rules on an individual basis. With the alert trigger for automation rules, a single automation rule can apply to any number of analytics rules, enabling you to centrally manage the running of playbooks for alerts as well as those for incidents.
 
-## June 2022
-
-- [Microsoft Purview Data Loss Prevention (DLP) integration in Microsoft Sentinel (Preview)](#microsoft-purview-data-loss-prevention-dlp-integration-in-microsoft-sentinel-preview)
-- [Incident update trigger for automation rules (Preview)](#incident-update-trigger-for-automation-rules-preview)
+Learn more about [migrating your alert-trigger playbooks to be invoked by automation rules](migrate-playbooks-to-automation-rules.md).
 
 ### Microsoft Purview Data Loss Prevention (DLP) integration in Microsoft Sentinel (Preview)
 
