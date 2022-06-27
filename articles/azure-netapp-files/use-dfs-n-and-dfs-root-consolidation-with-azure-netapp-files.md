@@ -28,7 +28,7 @@ At its core, DFS Namespaces provide a mapping between a user-friendly UNC path, 
 
 - Preserve the logical name of one or more legacy file servers after the data has been migrated to Azure NetApp Files. Using DFS-N with root consolidation allows you to take over the hostname and share paths exactly as they are. This leaves document shortcuts, embedded document links, and UNC paths unchanged after the migration.
 
-If you already have a DFS Namespace in place, no special steps are required to use it with Azure NetApp Files. If you're accessing your Azure NetApp Files share from on-premises, normal networking considerations apply; see [Guidelines for Azure NetApp Files network planning](./azure-netapp-files-network-topologies) for more information.
+If you already have a DFS Namespace in place, no special steps are required to use it with Azure NetApp Files. If you're accessing your Azure NetApp Files share from on-premises, normal networking considerations apply; see [Guidelines for Azure NetApp Files network planning](./azure-netapp-files-network-topologies.md) for more information.
 
 ## Applies to
 
