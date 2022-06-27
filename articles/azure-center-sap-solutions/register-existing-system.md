@@ -50,6 +50,7 @@ You can register SAP systems with ACSS that run on the following configurations:
 The following SAP system configurations aren't supported in ACSS:
 
 - Windows operating system
+- HANA Large Instance (HLI)
 - Java stack
 - Dual stack (ABAP and Java)
 - Systems distributed across peered virtual networks
