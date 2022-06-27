@@ -59,9 +59,10 @@ From this example accumulation of Minutes Not Available, here is the calculation
     - D series, v2 and newer; AMD and Intel 
     - E series, all versions; AMD and Intel 
     - F series, all versions 
+    - Lsv3 (Intel) and Lasv3 (AMD)
     - At VM deployment, Fault Domain (FD) count of up to 3 may be set as desired using Virtual Machine Scale Sets. A deployment with more than 3 FDs will fail to deploy against a Capacity Reservation. 
 - Support for additional VM Series isn't currently available: 
-    - L series  
+    - Ls and Lsv2 series  
     - M series, any version 
     - NC-series, v3 and newer 
     - NV-series, v2 and newer 

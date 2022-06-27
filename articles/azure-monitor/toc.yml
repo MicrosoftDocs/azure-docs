@@ -820,7 +820,7 @@ items:
             - name: API reference
               href: app/status-monitor-v2-api-reference.md
         - name: Java
-          href: app/java-on-premises.md
+          href: app/java-in-process-agent.md
     - name: Application Insights SDKs
       items:
       - name: .NET
@@ -904,8 +904,12 @@ items:
         href: app/opentelemetry-overview.md
       - name: .NET
         href: app/opentelemetry-enable.md?tabs=net
-      - name: Node.js
-        href: app/opentelemetry-enable.md?tabs=nodejs
+      - name: JavaScript
+        items:
+        - name: Browser
+          href: app/javascript.md
+        - name: Node.js
+          href: app/opentelemetry-enable.md?tabs=nodejs
       - name: Java
         items:
         - name: Overview
@@ -1402,7 +1406,9 @@ items:
           - name: Resource parameters
             href: visualize/workbooks-resources.md
           - name: Multi-value parameters
-            href: visualize/workbooks-multi-value.md     
+            href: visualize/workbooks-multi-value.md
+        - name: Link actions
+          href: visualize/workbooks-link-actions.md    
     - name: Configuration
       items:
       - name: Deploy with Azure Resource Manager
@@ -1417,24 +1423,26 @@ items:
         href: visualize/workbooks-move-region.md
       - name: Move Workbook Templates to another region
         href: visualize/workbook-templates-move-region.md
-    - name: Links
+    - name: Workbook Samples
       items:
-      - name: Link actions
-        href: visualize/workbooks-link-actions.md
-    - name: Convert views to workbooks
+        - name: Links
+          href: visualize/workbooks-sample-links.md
+    - name: Deprecated Features
       items:
-      - name: Conversion overview
-        href: visualize/view-designer-conversion-overview.md
-      - name: Conversion options
-        href: visualize/view-designer-conversion-options.md
-      - name: Overview and access
-        href: visualize/view-designer-conversion-access.md
-      - name: Common tasks
-        href: visualize/view-designer-conversion-tasks.md
-      - name: Tile conversions
-        href: visualize/view-designer-conversion-tiles.md
-      - name: Examples
-        href: visualize/view-designer-conversion-examples.md
+      - name: View Designer
+        items:
+          - name: Converting View Designer 
+            href: visualize/view-designer-conversion-overview.md
+          - name: Conversion options
+            href: visualize/view-designer-conversion-options.md
+          - name: Overview and access
+            href: visualize/view-designer-conversion-access.md
+          - name: Common tasks
+            href: visualize/view-designer-conversion-tasks.md
+          - name: Tile conversions
+            href: visualize/view-designer-conversion-tiles.md
+          - name: Examples
+            href: visualize/view-designer-conversion-examples.md
   - name: Other visualizations
     items:
     - name: Monitoring solutions
