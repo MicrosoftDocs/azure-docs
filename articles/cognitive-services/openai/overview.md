@@ -6,8 +6,9 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: openai
 ms.topic: overview
-ms.date: 5/24/2021
+ms.date: 6/30/2021
 ms.custom: event-tier1-build-2022
+recommendations: false
 keywords:  
 ---
 
