@@ -18,7 +18,8 @@ In this tutorial, you'll learn how to:
 
 > [!div class="checklist"]
 > * Create an access token in Microsoft Playwright Testing.
-> * Create GitHub Actions workflow to trigger tests.
+> * Create a GitHub Actions workflow.
+> * Trigger tests from CI/CD on every code push.
 > * Analyze test results using GitHub Actions logs.
 
 > [!IMPORTANT]
