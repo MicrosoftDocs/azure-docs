@@ -37,7 +37,7 @@ To learn more about Form Recognizer features and development options, visit our 
 
 **Prebuilt Models**
 
-* 🆕 W-2—Analyze and extract fields from W-2 tax documents, using a pre-trained W-2 model.
+* 🆕 W-2—Analyze and extract fields from US W-2 tax documents (used to report income), using a pre-trained W-2 model.
 * Invoices—Analyze and extract common fields from invoices, using a pre-trained invoice model.
 * Receipts—Analyze and extract common fields from receipts, using a pre-trained receipt model.
 * ID documents—Analyze and extract common fields from ID documents like passports or driver's licenses, using a pre-trained ID documents model.
