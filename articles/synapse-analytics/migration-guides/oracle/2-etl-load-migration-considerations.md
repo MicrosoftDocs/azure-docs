@@ -213,7 +213,7 @@ The first step is always to build an inventory of ETL/ELT processes that need to
 >[!TIP]
 >Plan the approach to ETL migration ahead of time and leverage Azure facilities where appropriate.
 
-In the flowchart, decision 1 depends on whether you're migrating to a completely Azure-native environment. If so, we recommend that you re-engineer the ETL processing using [Pipelines and activities in Azure Data Factory](../../../data-factory/concepts-pipelines-activities.md) or [Azure Synapse Pipelines](../../get-started-pipelines.md). If you're not moving to a completely Azure-native environment, then decision 2 depends on whether an existing third-party ETL tool is already in use.
+In the flowchart, decision 1 depends on whether you're migrating to a completely Azure-native environment. If so, we recommend that you re-engineer the ETL processing using [Pipelines and activities in Azure Data Factory](../../../data-factory/concepts-pipelines-activities.md) or [Azure Synapse pipelines](../../get-started-pipelines.md). If you're not moving to a completely Azure-native environment, then decision 2 depends on whether an existing third-party ETL tool is already in use.
 
 In the Oracle environment, some (or all) of the ETL processing may be performed by custom scripts using Oracle-specific utilities such as SQL\*Developer, SQL\*Loader or Data Pump. The approach in this case is to re-engineer using Azure Data Factory.
 
@@ -300,7 +300,7 @@ There's also a hybrid approach that uses both methods. For example, you can use 
 
 #### Orchestrate from Oracle or Azure?
 
-The recommended approach when moving to Azure Synapse is to orchestrate data extraction and loading from the Azure environment using SSMA or Data Factory](../../../data-factory/concepts-pipelines-activities.md?msclkid=b6ea2be4cfda11ec929ac33e6e00db98&tabs=data-factory). Use the associated utilities, such as PolyBase or COPY INTO for the most efficient data loading. This approach benefits from built-in Azure capabilities and reduces the effort to build reusable data load pipelines. You can use metadata-driven data load pipelines to automate the migration process. 
+The recommended approach when moving to Azure Synapse is to orchestrate data extraction and loading from the Azure environment using SSMA or Data Factory](../../../data-factory/concepts-pipelines-activities.md). Use the associated utilities, such as PolyBase or COPY INTO for the most efficient data loading. This approach benefits from built-in Azure capabilities and reduces the effort to build reusable data load pipelines. You can use metadata-driven data load pipelines to automate the migration process. 
 
 The recommended approach also minimizes the performance hit on the existing Oracle environment during the data load process, because the management and load process runs in Azure.
 

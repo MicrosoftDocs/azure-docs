@@ -53,7 +53,7 @@ Data Factory is a fully managed, pay-as-you-use, hybrid data integration service
 >[!TIP]
 >Data Factory allows you to build scalable data integration pipelines code-free.
 
-[Data Factory connectors](../../../data-factory/connector-overview.md?msclkid=00086e4acff211ec9263dee5c7eb6e69) support connections to external data sources and databases, and include templates for common data integration tasks. A visual front-end, browser-based UI enables non-programmers to create and run [pipelines](../../data-explorer/ingest-data/data-explorer-ingest-data-pipeline.md) to ingest, transform, and load data. More experienced programmers can incorporate custom code, such as Python programs.
+[Data Factory connectors](../../../data-factory/connector-overview.md) support connections to external data sources and databases, and include templates for common data integration tasks. A visual front-end, browser-based UI enables non-programmers to create and run [pipelines](../../data-explorer/ingest-data/data-explorer-ingest-data-pipeline.md) to ingest, transform, and load data. More experienced programmers can incorporate custom code, such as Python programs.
 
 >[!TIP]
 >Data Factory enables collaborative development between business and IT professionals.
