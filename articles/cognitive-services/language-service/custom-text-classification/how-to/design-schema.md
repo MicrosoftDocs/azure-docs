@@ -25,11 +25,11 @@ The schema defines the classes that you need your model to classify your text in
 
     For example, if you are classifying support tickets, you might need the following classes: *login issue*, *hardware issue*, *connectivity issue*, and *new equipment request*.
 
-* **Avoid ambiguity in classes**: Ambiguity arises when the classes you specify share similar meaning to one another. The more ambiguous your schema is, the more tagged data you may need to differentiate between different classes.
+* **Avoid ambiguity in classes**: Ambiguity arises when the classes you specify share similar meaning to one another. The more ambiguous your schema is, the more labeled data you may need to differentiate between different classes.
 
-    For example, if you are classifying food recipes, they may be similar to an extent. To differentiate between *dessert recipe* and *main dish recipe*, you may need to tag more examples to help your model distinguish between the two classes. Avoiding ambiguity saves time and yields better results. 
+    For example, if you are classifying food recipes, they may be similar to an extent. To differentiate between *dessert recipe* and *main dish recipe*, you may need to label more examples to help your model distinguish between the two classes. Avoiding ambiguity saves time and yields better results. 
 
-* **Out of scope data**: When using your model in production, consider adding an *out of scope* class to your schema if you expect documents that don't belong to any of your classes. Then add a few documents to your dataset to be tagged as *out of scope*. The model can learn to recognize irrelevant documents, and predict their tags accordingly.
+* **Out of scope data**: When using your model in production, consider adding an *out of scope* class to your schema if you expect documents that don't belong to any of your classes. Then add a few documents to your dataset to be labeled as *out of scope*. The model can learn to recognize irrelevant documents, and predict their labels accordingly.
 
 
 ## Data selection
@@ -58,8 +58,11 @@ As a prerequisite for creating a custom text classification project, your traini
 
 You can only use `.txt`. documents for custom text. If your data is in other format, you can use [CLUtils parse command](https://github.com/microsoft/CognitiveServicesLanguageUtilities/blob/main/CustomTextAnalytics.CLUtils/Solution/CogSLanguageUtilities.ViewLayer.CliCommands/Commands/ParseCommand/README.md) to change your file format.
 
- You can upload an annotated dataset, or you can upload an unannotated one and [tag your data](../how-to/tag-data.md) in Language studio. 
+ You can upload an annotated dataset, or you can upload an unannotated one and [label your data](../how-to/tag-data.md) in Language studio. 
 
+## Test set
+
+When defining the testing set, make sure to include example documents that are not present in the training set. Defining the testing set is an important step to calculate the [model performance](view-model-evaluation.md#model-details). Also, make sure that the testing set include documents that represent all classes used in your project.
 
 ## Next steps
 

@@ -28,24 +28,22 @@ ms.author: lajanuar
 
 > [!NOTE]
 > Language code `pt` will default to `pt-br`, Portuguese (Brazil).
->
-> ☼ Indicates the language is not available for scanned PDF document translation.
 
-|Language | Language code | ☼ Cloud – Text Translation and Document Translation | Containers – Text Translation|Custom Translator|Auto Language Detection|Dictionary
+|Language | Language code | Cloud – Text Translation and Document Translation | Containers – Text Translation|Custom Translator|Auto Language Detection|Dictionary
 |:-|:-:|:-:|:-:|:-:|:-:|:-:|
 | Afrikaans  | `af` |✔|✔|✔|✔|✔|
 | Albanian | `sq` |✔|✔||✔||
-| Amharic ☼ | `am` |✔|✔||||
+| Amharic | `am` |✔|✔||||
 | Arabic | `ar` |✔|✔|✔|✔|✔|
-| Armenian ☼ | `hy` |✔|✔||✔||
-| Assamese ☼ | `as` |✔|✔|✔|||
+| Armenian  | `hy` |✔|✔||✔||
+| Assamese  | `as` |✔|✔|✔|||
 | Azerbaijani (Latin) | `az` |✔|✔||||
-| Bangla ☼ | `bn` |✔|✔|✔||✔|
-| Bashkir ☼ | `ba` |✔|||||
+| Bangla  | `bn` |✔|✔|✔||✔|
+| Bashkir  | `ba` |✔|||||
 | Basque | `eu` |✔|||||
 | Bosnian (Latin) | `bs` |✔|✔|✔||✔|
 | Bulgarian | `bg` |✔|✔|✔|✔|✔|
-| Cantonese (Traditional) ☼ | `yue` |✔|✔||||
+| Cantonese (Traditional)  | `yue` |✔|✔||||
 | Catalan | `ca` |✔|✔|✔|✔|✔|
 | Chinese (Literary) | `lzh` |✔|||||
 | Chinese Simplified | `zh-Hans` |✔|✔|✔|✔|✔|
@@ -54,7 +52,7 @@ ms.author: lajanuar
 | Czech | `cs` |✔|✔|✔|✔|✔|
 | Danish | `da` |✔|✔|✔|✔|✔|
 | Dari | `prs` |✔|✔||||
-| Divehi ☼ | `dv` |✔|||✔||
+| Divehi  | `dv` |✔|||✔||
 | Dutch | `nl` |✔|✔|✔|✔|✔|
 | English | `en` |✔|✔|✔|✔|✔|
 | Estonian | `et` |✔|✔|✔|✔||
@@ -65,55 +63,55 @@ ms.author: lajanuar
 | French | `fr` |✔|✔|✔|✔|✔|
 | French (Canada) | `fr-ca` |✔|✔||||
 | Galician | `gl` |✔|||||
-| Georgian ☼ | `ka` |✔|||✔||
+| Georgian  | `ka` |✔|||✔||
 | German | `de` |✔|✔|✔|✔|✔|
-| Greek ☼ | `el` |✔|✔|✔|✔|✔|
-| Gujarati ☼ | `gu` |✔|✔|✔|✔||
+| Greek  | `el` |✔|✔|✔|✔|✔|
+| Gujarati  | `gu` |✔|✔|✔|✔||
 | Haitian Creole | `ht` |✔|✔||✔|✔|
-| Hebrew ☼ | `he` |✔|✔|✔|✔|✔|
+| Hebrew  | `he` |✔|✔|✔|✔|✔|
 | Hindi | `hi` |✔|✔|✔|✔|✔|
 | Hmong Daw (Latin) | `mww` |✔|✔|||✔|
 | Hungarian | `hu` |✔|✔|✔|✔|✔|
 | Icelandic | `is` |✔|✔|✔|✔|✔|
 | Indonesian | `id` |✔|✔|✔|✔|✔|
-| Inuinnaqtun ☼ | `ikt` |✔|||||
-| Inuktitut ☼ | `iu` |✔|✔|✔|✔||
+| Inuinnaqtun  | `ikt` |✔|||||
+| Inuktitut  | `iu` |✔|✔|✔|✔||
 | Inuktitut (Latin) | `iu-Latn` |✔|||||
 | Irish | `ga` |✔|✔|✔|✔||
 | Italian | `it` |✔|✔|✔|✔|✔|
 | Japanese | `ja` |✔|✔|✔|✔|✔|
-| Kannada ☼ | `kn` |✔|✔|✔|||
+| Kannada  | `kn` |✔|✔|✔|||
 | Kazakh | `kk` |✔|✔||||
-| Khmer ☼ | `km` |✔|✔||✔||
+| Khmer  | `km` |✔|✔||✔||
 | Klingon | `tlh-Latn` |✔| ||✔|✔|
-| Klingon (plqaD) ☼ | `tlh-Piqd` |✔| ||✔||
+| Klingon (plqaD) | `tlh-Piqd` |✔| ||✔||
 | Korean | `ko` |✔|✔|✔|✔|✔|
 | Kurdish (Central)  | `ku` |✔|✔||✔||
-| Kurdish (Northern) ☼ | `kmr` |✔|✔||||
+| Kurdish (Northern)  | `kmr` |✔|✔||||
 | Kyrgyz (Cyrillic) | `ky` |✔|||||
-| Lao ☼ | `lo` |✔|✔||✔||
-| Latvian ☼| `lv` |✔|✔|✔|✔|✔|
+| Lao  | `lo` |✔|✔||✔||
+| Latvian | `lv` |✔|✔|✔|✔|✔|
 | Lithuanian | `lt` |✔|✔|✔|✔|✔|
-| Macedonian ☼ | `mk` |✔|||✔||
-| Malagasy ☼ | `mg` |✔|✔|✔|||
+| Macedonian  | `mk` |✔|||✔||
+| Malagasy  | `mg` |✔|✔|✔|||
 | Malay (Latin) | `ms` |✔|✔|✔|✔|✔|
-| Malayalam ☼ | `ml` |✔|✔|✔|||
+| Malayalam  | `ml` |✔|✔|✔|||
 | Maltese | `mt` |✔|✔|✔|✔|✔|
 | Maori | `mi` |✔|✔|✔|||
 | Marathi | `mr` |✔|✔|✔|||
-| Mongolian (Cyrillic) ☼| `mn-Cyrl` |✔|||||
-| Mongolian (Traditional) ☼ | `mn-Mong` |✔|||✔||
-| Myanmar ☼ | `my` |✔|✔||✔||
+| Mongolian (Cyrillic) | `mn-Cyrl` |✔|||||
+| Mongolian (Traditional) | `mn-Mong` |✔|||✔||
+| Myanmar  | `my` |✔|✔||✔||
 | Nepali | `ne` |✔|✔||||
 | Norwegian | `nb` |✔|✔|✔|✔|✔|
-| Odia ☼ | `or` |✔|✔|✔|||
+| Odia  | `or` |✔|✔|✔|||
 | Pashto | `ps` |✔|✔||✔||
 | Persian | `fa` |✔|✔|✔|✔|✔|
 | Polish | `pl` |✔|✔|✔|✔|✔|
 | Portuguese (Brazil) | `pt` |✔|✔|✔|✔|✔|
 | Portuguese (Portugal) | `pt-pt` |✔|✔||||
 | Punjabi | `pa` |✔|✔|✔|||
-| Queretaro Otomi ☼ | `otq` |✔|✔||||
+| Queretaro Otomi  | `otq` |✔|✔||||
 | Romanian | `ro` |✔|✔|✔|✔|✔|
 | Russian | `ru` |✔|✔|✔|✔|✔|
 | Samoan (Latin) | `sm` |✔| |✔|||
@@ -125,13 +123,13 @@ ms.author: lajanuar
 | Spanish | `es` |✔|✔|✔|✔|✔|
 | Swahili (Latin) | `sw` |✔|✔|✔|✔|✔|
 | Swedish | `sv` |✔|✔|✔|✔|✔|
-| Tahitian ☼ | `ty` |✔| |✔|✔||
-| Tamil ☼ | `ta` |✔|✔|✔||✔|
+| Tahitian  | `ty` |✔| |✔|✔||
+| Tamil  | `ta` |✔|✔|✔||✔|
 | Tatar (Latin) | `tt` |✔|||||
-| Telugu ☼ | `te` |✔|✔|✔|||
-| Thai ☼ | `th` |✔| |✔|✔|✔|
-| Tibetan ☼ | `bo` |✔||||
-| Tigrinya ☼ | `ti` |✔|✔||||
+| Telugu  | `te` |✔|✔|✔|||
+| Thai  | `th` |✔| |✔|✔|✔|
+| Tibetan  | `bo` |✔||||
+| Tigrinya  | `ti` |✔|✔||||
 | Tongan | `to` |✔|✔|✔|||
 | Turkish | `tr` |✔|✔|✔|✔|✔|
 | Turkmen (Latin) | `tk` |✔||||
@@ -140,10 +138,128 @@ ms.author: lajanuar
 | Urdu | `ur` |✔|✔|✔|✔|✔|
 | Uyghur (Arabic) | `ug` |✔||||
 | Uzbek (Latin | `uz` |✔|||✔||
-| Vietnamese ☼ | `vi` |✔|✔|✔|✔|✔|
+| Vietnamese  | `vi` |✔|✔|✔|✔|✔|
 | Welsh | `cy` |✔|✔|✔|✔|✔|
 | Yucatec Maya | `yua` |✔|✔||✔||
 | Zulu | `zu` |✔|||||
+
+## Document Translation: scanned PDF support
+
+|Language|Language Code|Supported as source language for scanned PDF?|Supported as target language for scanned PDF?|
+|:----|:----:|:----:|:----:|
+|Afrikaans|`af`|Yes|Yes|
+|Albanian|`sq`|Yes|Yes|
+|Amharic|`am`|No|No|
+|Arabic|`ar`|No|No|
+|Armenian|`hy`|No|No|
+|Assamese|`as`|No|No|
+|Azerbaijani (Latin)|`az`|Yes|Yes|
+|Bangla|`bn`|No|No|
+|Bashkir|`ba`|No|Yes|
+|Basque|`eu`|Yes|Yes|
+|Bosnian (Latin)|`bs`|Yes|Yes|
+|Bulgarian|`bg`|Yes|Yes|
+|Cantonese (Traditional)|`yue`|No|Yes|
+|Catalan|`ca`|Yes|Yes|
+|Chinese (Literary)|`lzh`|No|Yes|
+|Chinese Simplified|`zh-Hans`|Yes|Yes|
+|Chinese Traditional|`zh-Hant`|Yes|Yes|
+|Croatian|`hr`|Yes|Yes|
+|Czech|`cs`|Yes|Yes|
+|Danish|`da`|Yes|Yes|
+|Dari|`prs`|No|No|
+|Divehi|`dv`|No|No|
+|Dutch|`nl`|Yes|Yes|
+|English|`en`|Yes|Yes|
+|Estonian|`et`|Yes|Yes|
+|Faroese|`fo`|Yes|Yes|
+|Fijian|`fj`|Yes|Yes|
+|Filipino|`fil`|Yes|Yes|
+|Finnish|`fi`|Yes|Yes|
+|French|`fr`|Yes|Yes|
+|French (Canada)|`fr-ca`|Yes|Yes|
+|Galician|`gl`|Yes|Yes|
+|Georgian|`ka`|No|No|
+|German|`de`|Yes|Yes|
+|Greek|`el`|Yes|Yes|
+|Gujarati|`gu`|No|No|
+|Haitian Creole|`ht`|Yes|Yes|
+|Hebrew|`he`|No|No|
+|Hindi|`hi`|Yes|Yes|
+|Hmong Daw (Latin)|`mww`|Yes|Yes|
+|Hungarian|`hu`|Yes|Yes|
+|Icelandic|`is`|Yes|Yes|
+|Indonesian|`id`|Yes|Yes|
+|Interlingua|`ia`|Yes|Yes|
+|Inuinnaqtun|`ikt`|No|Yes|
+|Inuktitut|`iu`|No|No|
+|Inuktitut (Latin)|`iu-Latn`|Yes|Yes|
+|Irish|`ga`|Yes|Yes|
+|Italian|`it`|Yes|Yes|
+|Japanese|`ja`|Yes|Yes|
+|Kannada|`kn`|No|Yes|
+|Kazakh (Cyrillic)|`kk`, `kk-cyrl`|Yes|Yes|
+|Kazakh (Latin)|`kk-latn`|Yes|Yes|
+|Khmer|`km`|No|No|
+|Klingon|`tlh-Latn`|No|No|
+|Klingon (plqaD)|`tlh-Piqd`|No|No|
+|Korean|`ko`|Yes|Yes|
+|Kurdish (Arabic) (Central)|`ku-arab`,`ku`|No|No|
+|Kurdish (Latin) (Northern)|`ku-latn`, `kmr`|Yes|Yes|
+|Kyrgyz (Cyrillic)|`ky`|Yes|Yes|
+|Lao|`lo`|No|No|
+|Latvian|`lv`|No|Yes|
+|Lithuanian|`lt`|Yes|Yes|
+|Macedonian|`mk`|No|Yes|
+|Malagasy|`mg`|No|Yes|
+|Malay (Latin)|`ms`|Yes|Yes|
+|Malayalam|`ml`|No|Yes|
+|Maltese|`mt`|Yes|Yes|
+|Maori|`mi`|Yes|Yes|
+|Marathi|`mr`|Yes|Yes|
+|Mongolian (Cyrillic)|`mn-Cyrl`|Yes|Yes|
+|Mongolian (Traditional)|`mn-Mong`|No|No|
+|Myanmar (Burmese)|`my`|No|No|
+|Nepali|`ne`|Yes|Yes|
+|Norwegian|`nb`|Yes|Yes|
+|Odia|`or`|No|No|
+|Pashto|`ps`|No|No|
+|Persian|`fa`|No|No|
+|Polish|`pl`|Yes|Yes|
+|Portuguese (Brazil)|`pt`, `pt-br`|Yes|Yes|
+|Portuguese (Portugal)|`pt-pt`|Yes|Yes|
+|Punjabi|`pa`|No|Yes|
+|Queretaro Otomi|`otq`|No|Yes|
+|Romanian|`ro`|Yes|Yes|
+|Russian|`ru`|Yes|Yes|
+|Samoan (Latin)|`sm`|Yes|Yes|
+|Serbian (Cyrillic)|`sr-Cyrl`|No|Yes|
+|Serbian (Latin)|`sr`, `sr-latn`|Yes|Yes|
+|Slovak|`sk`|Yes|Yes|
+|Slovenian|`sl`|Yes|Yes|
+|Somali|`so`|No|Yes|
+|Spanish|`es`|Yes|Yes|
+|Swahili (Latin)|`sw`|Yes|Yes|
+|Swedish|`sv`|Yes|Yes|
+|Tahitian|`ty`|No|Yes|
+|Tamil|`ta`|No|Yes|
+|Tatar (Latin)|`tt`|Yes|Yes|
+|Telugu|`te`|No|Yes|
+|Thai|`th`|No|No|
+|Tibetan|`bo`|No|No|
+|Tigrinya|`ti`|No|No|
+|Tongan|`to`|Yes|Yes|
+|Turkish|`tr`|Yes|Yes|
+|Turkmen (Latin)|`tk`|Yes|Yes|
+|Ukrainian|`uk`|No|Yes|
+|Upper Sorbian|`hsb`|Yes|Yes|
+|Urdu|`ur`|No|No|
+|Uyghur (Arabic)|`ug`|No|No|
+|Uzbek (Latin)|`uz`|Yes|Yes|
+|Vietnamese|`vi`|No|Yes|
+|Welsh|`cy`|Yes|Yes|
+|Yucatec Maya|`yua`|Yes|Yes|
+|Zulu|`zu`|Yes|Yes|
 
 ## Transliteration
 
@@ -191,11 +307,11 @@ The [Transliterate operation](reference/v3-0-transliterate.md) in the Text Trans
 
 ## Other Cognitive Services
 
-Add more capabilities to your apps and workflows by utilizing other Cognitive Services with Translator. Language lists for other services are below.
+Add more capabilities to your apps and workflows by utilizing other Cognitive Services with Translator. Language lists for other services are below:
 
-* [Computer Vision](../computer-vision/language-support.md)
-* [Speech](../speech-service/language-support.md)
-* [Language service](../language-service/index.yml)
+* [Computer Vision](../computer-vision/language-support.md) 
+* [Speech](../speech-service/language-support.md) 
+* [Language service](../language-service/index.yml) 
   * Select the feature you want to use, and then **Language support** on the left navigation menu.
 
 View all [Cognitive Services](../index.yml).

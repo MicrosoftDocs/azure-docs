@@ -28,24 +28,48 @@ After the 10 seconds is over, the burst capacity has been used up. If the worklo
 
 ## Getting started
 
-To get started using burst capacity, enroll in the preview by filing a support ticket in the [Azure portal](https://portal.azure.com). 
+To get started using burst capacity, enroll in the preview by submitting a request for the **Azure Cosmos DB Burst Capacity** feature via the [**Preview Features** page](../azure-resource-manager/management/preview-features.md) in your Azure Subscription overview page.
+- Before submitting your request, verify that your Azure Cosmos DB account(s) meet all the [preview eligibility criteria](#preview-eligibility-criteria).
+- The Azure Cosmos DB team will review your request and contact you via email to confirm which account(s) in the subscription you want to enroll in the preview.
 
 ## Limitations
 
-### SDK requirements (SQL API only)
+### Preview eligibility criteria
+To enroll in the preview, your Cosmos account must meet all the following criteria:
+  - Your Cosmos account is using provisioned throughput (manual or autoscale). Burst capacity doesn't apply to serverless accounts.
+  - If you're using SQL API, your application must use the Azure Cosmos DB .NET V3 SDK, version 3.27.0 or higher. When burst capacity is enabled on your account, all requests sent from non .NET SDKs, or older .NET SDK versions won't be accepted.
+    - There are no SDK or driver requirements to use the feature with Cassandra API, Gremlin API, Table API, or API for MongoDB.
+  - Your Cosmos account isn't using any unsupported connectors
+    - Azure Data Factory
+    - Azure Stream Analytics
+    - Logic Apps
+    - Azure Functions
+    - Azure Search
 
-Burst capacity is supported only in the latest preview version of the .NET v3 SDK. When the feature is enabled on your account, you must only use the supported SDK. Requests sent from other SDKs or earlier versions won't be accepted. There are no driver or SDK requirements to use burst capacity with other APIs.
+### SDK requirements (SQL and Table API only)
+#### SQL API
+For SQL API accounts, burst capacity is supported only in the latest version of the .NET v3 SDK. When the feature is enabled on your account, you must only use the supported SDK. Requests sent from other SDKs or earlier versions won't be accepted. There are no driver or SDK requirements to use burst capacity with Gremlin API, Cassandra API, or API for MongoDB.
 
-Find the latest preview version the supported SDK:
+Find the latest version of the supported SDK:
 
 | SDK | Supported versions | Package manager link |
 | --- | --- | --- |
 | **.NET SDK v3** | *>= 3.27.0* | <https://www.nuget.org/packages/Microsoft.Azure.Cosmos/> |
 
-Support for other SDKs is planned for the future.
+Support for other SQL API SDKs is planned for the future.
 
 > [!TIP]
 > You should ensure that your application has been updated to use a compatible SDK version prior to enrolling in the preview. If you're using the legacy .NET V2 SDK, follow the [.NET SDK v3 migration guide](sql/migrate-dotnet-v3.md). 
+
+#### Table  API
+For Table API accounts, burst capacity is supported only when using the latest version of the Tables SDK. When the feature is enabled on your account, you must only use the supported SDK. Requests sent from other SDKs or earlier versions won't be accepted. The legacy SDK with namespace `Microsoft.Azure.CosmosDB.Table` isn't supported. Follow the [migration guide](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/tables/Azure.Data.Tables/MigrationGuide.md) to upgrade to the latest SDK.
+
+| SDK | Supported versions | Package manager link |
+| --- | --- | --- |
+| **Azure Tables client library for .NET** | *>= 12.0.0* | <https://www.nuget.org/packages/Azure.Data.Tables/> |
+| **Azure Tables client library for Java** | *>= 12.0.0* | <https://mvnrepository.com/artifact/com.azure/azure-data-tables> |
+| **Azure Tables client library for JavaScript** | *>= 12.0.0* | <https://www.npmjs.com/package/@azure/data-tables> |
+| **Azure Tables client library for Python** | *>= 12.0.0* | <https://pypi.org/project/azure-data-tables/> |
 
 ### Unsupported connectors
 

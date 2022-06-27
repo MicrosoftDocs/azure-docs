@@ -67,6 +67,9 @@ conceptualContent:
         - url: ./keys/quick-create-portal.md
           itemType: quickstart
           text:  Set and retrieve a key from Azure Key Vault using the Azure portal
+        - url: ./keys/how-to-configure-key-rotation.md
+          itemType: tutorial
+          text:  Configure key auto-rotation
         - url: ./keys/hsm-protected-keys.md
           itemType: overview
           text:  Import HSM-protected keys (overview)

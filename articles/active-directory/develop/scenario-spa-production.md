@@ -1,6 +1,5 @@
 ---
 title: Move single-page app to production
-titleSuffix: Microsoft identity platform
 description: Learn how to build a single-page application (move to production)
 services: active-directory
 author: mmacy
@@ -31,7 +30,7 @@ Check out a [deployment sample](https://github.com/Azure-Samples/ms-identity-jav
 These code samples demonstrate several key operations for a single-page app.
 - [SPA with an ASP.NET back-end](https://github.com/Azure-Samples/ms-identity-javascript-angular-spa-aspnetcore-webapi): How to get tokens for your own back-end web API (ASP.NET Core) by using **MSAL.js**.
 
-- [Node.js Web API (Azure AD](https://github.com/Azure-Samples/active-directory-javascript-nodejs-webapi-v2): How to validate access tokens for your back-end web API (Node.js) by using **passport-azure-ad**.
+- [Node.js Web API (Azure AD)](https://github.com/Azure-Samples/active-directory-javascript-nodejs-webapi-v2): How to validate access tokens for your back-end web API (Node.js) by using **passport-azure-ad**.
 
 - [SPA with Azure AD B2C](https://github.com/Azure-Samples/ms-identity-b2c-javascript-spa): How to use **MSAL.js** to sign in users in an app that's registered with **Azure Active Directory B2C** (Azure AD B2C).
 

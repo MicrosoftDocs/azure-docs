@@ -15,6 +15,9 @@ This article shows you how to perform the following tasks:
 - Enable or disable an application group
 - Apply throttling policies to an application group
 
+> [!NOTE] 
+> Application groups are available only in **premium** and **dedicated** tiers. 
+
 ## Create an application group
 
 You can create an application group using the Azure portal as illustrated below. When you create the application group, you should associate it to either a shared access signatures (SAS) or Azure Active Directory(Azure AD) application ID, which is used by client applications. 

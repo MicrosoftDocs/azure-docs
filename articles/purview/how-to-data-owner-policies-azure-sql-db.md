@@ -47,6 +47,17 @@ Set-AzContext $context
 
 Set-AzSqlServer -ResourceGroupName "RESOURCEGROUPNAME" -ServerName "SERVERNAME" -AssignIdentity
 ```
+You will also need to enable external policy based authorization on the server.
+
+```powershell
+$server = Get-AzSqlServer -ResourceGroupName "RESOURCEGROUPNAME" -ServerName "SERVERNAME"
+
+#Initiate the call to the REST API to set externalPolicyBasedAuthorization to true
+Invoke-AzRestMethod -Method PUT -Path "$($server.ResourceId)/externalPolicyBasedAuthorizations/MicrosoftPurview?api-version=2021-11-01-preview" -Payload '{"properties":{"externalPolicyBasedAuthorization":true}}'
+
+#Verify that the propery has been set
+Invoke-AzRestMethod -Method GET -Path "$($server.ResourceId)/externalPolicyBasedAuthorizations/MicrosoftPurview?api-version=2021-11-01-preview"
+```
 
 ### Register the data sources in Microsoft Purview
 The Azure SQL DB resources need to be registered first with Microsoft Purview to later define access policies. You can follow these guides:
@@ -103,8 +114,17 @@ SELECT * FROM sys.dm_server_external_policy_actions
 -- Lists the roles that are part of a policy published to this server
 SELECT * FROM sys.dm_server_external_policy_roles
 
+-- Lists the links between the roles and actions, could be used to join the two
+SELECT * FROM sys.dm_server_external_policy_role_actions
+
+-- Lists all Azure AD principals that were given connect permissions  
+SELECT * FROM sys.dm_server_external_policy_principals
+
 -- Lists Azure AD principals assigned to a given role on a given resource scope
 SELECT * FROM sys.dm_server_external_policy_role_members
+
+-- Lists Azure AD principals, joined with roles, joined with their data actions
+SELECT * FROM sys.dm_server_external_policy_principal_assigned_actions
 ```
 
 ## Additional information
@@ -138,7 +158,7 @@ This section contains a reference of how actions in Microsoft Purview data polic
 
 ## Next steps
 Check blog, demo and related how-to guides
-* [Demo of access policy for Azure Storage](/video/media/8ce7c554-0d48-430f-8f63-edf94946947c/purview-policy-storage-dataowner-scenario_mid.mp4)
+* [Demo of access policy for Azure Storage](https://learn-video.azurefd.net/vod/player?id=caa25ad3-7927-4dcc-88dd-6b74bcae98a2)
 * [Concepts for Microsoft Purview data owner policies](./concept-data-owner-policies.md)
 * Blog: [Private preview: controlling access to Azure SQL at scale with policies in Purview](https://techcommunity.microsoft.com/t5/azure-sql-blog/private-preview-controlling-access-to-azure-sql-at-scale-with/ba-p/2945491)
 * [Enable Microsoft Purview data owner policies on all data sources in a subscription or a resource group](./how-to-data-owner-policies-resource-group.md)

@@ -6,14 +6,14 @@ ms.service: cognitive-services
 ms.subservice: language-service
 ms.custom: event-tier1-build-2022
 ms.topic: include
-ms.date: 04/25/2022
+ms.date: 05/24/2022
 ms.author: aahi
 ---
 
 
 To delete your model from within the [Language Studio](https://aka.ms/LanguageStudio):
 
-1. Select **View model details** from the left side menu.
+1. Select **Model performance** from the left side menu.
 
 2. Click on the **model name** you want to delete and click **Delete** from the top menu.
 

@@ -7,7 +7,7 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 03/24/2022
 ms.custom: cosmos-db-video
-ms.reviewer: wiassaf
+ms.reviewer: mjbrown
 ---
 
 # Partitioning and horizontal scaling in Azure Cosmos DB
@@ -93,6 +93,8 @@ Selecting your partition key is a simple but important design choice in Azure Co
 For **all** containers, your partition key should:
 
 * Be a property that has a value which does not change. If a property is your partition key, you can't update that property's value.
+
+* Should only contain `String` values - or numbers should ideally be converted into a `String`, if there is any chance that they are outside the boundaries of double precision numbers according to [IEEE 754 binary64](https://www.rfc-editor.org/rfc/rfc8259#ref-IEEE754). The [Json specification](https://www.rfc-editor.org/rfc/rfc8259#section-6) calls out the reasons why using numbers outside of this boundary in general is a bad practice due to likely interoperability problems. These concerns are especially relevant for the partition key column, because it is immutable and requires data migration  to change it later.  
 
 * Have a high cardinality. In other words, the property should have a wide range of possible values.
 

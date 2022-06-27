@@ -31,7 +31,7 @@ A connected organization is another organization that you have a relationship wi
 
 There are three ways that entitlement management lets you specify the users that form a connected organization.  It could be
 
-* users in another Azure AD directory,
+* users in another Azure AD directory (from any Microsoft cloud),
 * users in another non-Azure AD directory that has been configured for direct federation, or
 * users in another non-Azure AD directory, whose email addresses all have the same domain name in common.
 

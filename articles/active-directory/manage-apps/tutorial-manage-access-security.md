@@ -1,6 +1,5 @@
 ---
 title: "Tutorial: Manage application access and security"
-titleSuffix: Azure AD
 description: In this tutorial, you learn how to manage access to an application in Azure Active Directory and make sure it's secure.
 author: omondiatieno
 manager: CelesteDG

@@ -24,7 +24,7 @@ sections:
 
       - question: How can I use custom IP prefixes (BYOIP) with Virtual Network NAT gateway?
         answer: |
-          You can use public IP prefixes and addresses derived from custom IP prefixes (BYOIP) with your NAT gateway resource. See [Custom IP address prefix (BYOIP)](/azure/virtual-network/ip-services/custom-ip-address-prefix) to learn more. 
+          You can use public IP prefixes and addresses derived from custom IP prefixes (BYOIP) with your NAT gateway resource. See [Custom IP address prefix (BYOIP)](../ip-services/custom-ip-address-prefix.md) to learn more. 
       
       - question: Can a zone-redundant public IP address be attached to a NAT gateway? 
         answer: |

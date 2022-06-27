@@ -1,9 +1,8 @@
 ---
 title: Claims mapping policy
-titleSuffix: Microsoft identity platform
 description: Learn about the claims mapping policy type, which is used to modify the claims emitted in tokens issued for specific applications.
 services: active-directory
-author: rwike77
+author: davidmu1
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
@@ -11,7 +10,7 @@ ms.custom: aaddev
 ms.workload: identity
 ms.topic: reference
 ms.date: 03/04/2022
-ms.author: ryanwi
+ms.author: davidmu
 ms.reviewer: paulgarn, ludwignick, jeedes, luleon
 ---
 

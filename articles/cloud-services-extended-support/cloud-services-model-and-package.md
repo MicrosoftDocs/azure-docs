@@ -20,11 +20,6 @@ Once the cloud service is running in Azure, you can reconfigure it through the *
 * I want to know more about the [ServiceDefinition.csdef](#csdef) and [ServiceConfig.cscfg](#cscfg) files.
 * I already know about that, give me [some examples](#next-steps) on what I can configure.
 * I want to create the [ServicePackage.cspkg](#cspkg).
-* I am using Visual Studio and I want to...
-  * [Create a cloud service][vs_create]
-  * [Reconfigure an existing cloud service][vs_reconfigure]
-  * [Deploy a Cloud Service project][vs_deploy]
-  * [Remote desktop into a cloud service instance][remotedesktop]
 
 <a name="csdef"></a>
 

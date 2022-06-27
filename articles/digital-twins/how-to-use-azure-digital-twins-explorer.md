@@ -1,6 +1,6 @@
 ---
 # Mandatory fields.
-title: Use Azure Digital Twins Explorer (all features)
+title: Use Azure Digital Twins Explorer
 titleSuffix: Azure Digital Twins
 description: Learn how to use all the features of Azure Digital Twins Explorer
 author: baanders

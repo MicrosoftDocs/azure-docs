@@ -9,6 +9,7 @@ ms.service: api-management
 ms.topic: article
 ms.date: 04/28/2022
 ms.author: danlep
+ms.custom: event-tier1-build-2022
 ---
 
 # Reuse policy configurations in your API Management policy definitions
@@ -81,13 +82,13 @@ For example, insert the policy fragment named *ForwardContext* in the inbound po
 ```
 
 > [!TIP]
-> To see the content of an included fragment displayed in the policy definition, select **Recalculate effective policy** in the policy editor.
+> To see the content of an included fragment displayed in the policy definition, select **Calculate effective policy** in the policy editor.
 
 ## Manage policy fragments
 
-After creating a policy fragment, you can view and update policy properties, or delete the policy at any time.
+After creating a policy fragment, you can view and update the properties of a policy fragment, or delete the policy fragment at any time.
 
-**To view properties of a fragment:**
+**To view properties of a policy fragment:**
 
 1. In the left navigation of your API Management instance, under **APIs**, select **Policy fragments**. Select the name of your fragment.
 1. On the **Overview** page, review the **Policy document references** to see the policy definitions that include the fragment.
@@ -99,14 +100,16 @@ After creating a policy fragment, you can view and update policy properties, or 
 1. Select **Policy editor**. 
 1. Update the statements in the fragment and then select **Apply**.
 
-
-* Update affects all policy definitions where the fragment is included
+> [!NOTE]
+> Update affects all policy definitions where the fragment is included.
 
 **To delete a policy fragment:**
 
 1. In the left navigation of your API Management instance, under **APIs**, select **Policy fragments**. Select the name of your fragment.
 1. Review **Policy document references** for policy definitions that include the fragment. Before a fragment can be deleted, you must remove the fragment references from all policy definitions.
 1. After all references are removed, select **Delete**.
+
+## Next steps
 
 For more information about working with policies, see:
 
