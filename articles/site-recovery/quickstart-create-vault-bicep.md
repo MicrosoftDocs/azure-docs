@@ -3,7 +3,7 @@ title: Quickstart to create an Azure Recovery Services vault using Bicep.
 description: In this quickstart, you learn how to create an Azure Recovery Services vault using Bicep.
 author: schaffererin
 ms.author: v-eschaffer
-ms.date: 05/24/2022
+ms.date: 06/27/2022
 ms.topic: quickstart
 ms.custom: devx-track-azurepowershell, subject-armqs, mode-arm
 ---
@@ -58,25 +58,32 @@ Two Azure resources are defined in the Bicep file:
 
 ## Review deployed resources
 
-Use the Azure portal, Azure CLI, or Azure PowerShell to list the deployed resources in the resource group.
+Use Azure CLI or Azure PowerShell to confirm that the vault was created.
 
 # [CLI](#tab/CLI)
 
 ```azurecli-interactive
-az resource list --resource-group exampleRG
+az backup vault show --name <vault-name> --resource-group exampleRG
+az backup vault backup-properties show --name <vault-name> --resource-group exampleRG
 ```
 
 # [PowerShell](#tab/PowerShell)
 
 ```azurepowershell-interactive
-Get-AzResource -ResourceGroupName exampleRG
+$vaultBackupConfig = Get-AzRecoveryServicesVault -Name "<vault-name>"
+
+Get-AzRecoveryServicesVault -Name "<vault-name>" -ResourceGroupName "exampleRG"
+Get-AzRecoveryServicesBackupProperty -Vault $vaultBackupConfig
 ```
 
 ---
 
+> [!NOTE]
+> Replace **\<vault-name\>** with the name of the vault you created.
+
 ## Clean up resources
 
-If you plan to use the new resources, no action is needed. Otherwise, you can remove the resource group and vault that was created in this quickstart. To delete the resource group and its resources use Azure CLI or Azure PowerShell.
+If you plan to use the new resources, no action is needed. Otherwise, you can remove the resource group and vault that was created in this quickstart. To delete the resource group and its resources, use Azure CLI or Azure PowerShell.
 
 # [CLI](#tab/CLI)
 
