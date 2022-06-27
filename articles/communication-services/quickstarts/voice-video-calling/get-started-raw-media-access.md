@@ -224,7 +224,7 @@ Since the Android system generates the frames, you must implement your own foreg
 
 | Aspect Ratio | Resolution  | Maximun FPS  |
 | :--: | :-: | :-: |
-| Anyone | Anyone | 30 |
+| Anything | Anything | 30 |
 
 The following is an overview of the steps required to create a screen share video stream.
 
