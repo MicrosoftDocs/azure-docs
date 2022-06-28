@@ -36,7 +36,7 @@ The Language service provides three namespaces for using the available features.
 The `Azure.AI.TextAnalytics` namespace enables you to use the following Language features. Use the links below for articles to help you send API requests using the SDK.
 
 * [Custom named entity recognition](../custom-named-entity-recognition/how-to/call-api.md?tabs=client#send-an-entity-recognition-request-to-your-model)
-* [Custom text classification](../custom-text-classification/how-to.md?tabs=client-libraries#send-a-text-classification-request-to-your-model)
+* [Custom text classification](../custom-text-classification/how-to/call-api.md?tabs=client-libraries#send-a-text-classification-request-to-your-model)
 * [Document summarization](../summarization/quickstart.md)
 * [Entity linking](../entity-linking/quickstart.md)
 * [Key phrase extraction](../key-phrase-extraction/quickstart.md)
@@ -64,8 +64,8 @@ As you use these features in your application, use the following documentation a
 
 The `Azure.AI.Language.Conversations` namespace enables you to use the following Language features. Use the links below for articles to help you send API requests using the SDK.
 
-* [Conversational language understanding](../conversational-language-understanding/call-api.md?tabs=azure-sdk#send-a-conversational-language-understanding-request)
-* [Orchestration workflow](../orchestration-workflow/call-api.md?tabs=azure-sdk#send-an-orchestration-workflow-request)
+* [Conversational language understanding](../conversational-language-understanding/how-to/call-api.md?tabs=azure-sdk#send-a-conversational-language-understanding-request)
+* [Orchestration workflow](../orchestration-workflow/how-to/call-api.md?tabs=azure-sdk#send-an-orchestration-workflow-request)
 * [Conversation summarization (Python only)](../summarization/quickstart.md?tabs=conversation-summarization&pivots=programming-language-python)
 * [Personally Identifying Information (PII) detection for conversations](../personally-identifiable-information/how-to-call-for-conversations.md?tabs=client-libraries#examples)
 
