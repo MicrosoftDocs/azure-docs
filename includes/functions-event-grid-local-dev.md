@@ -16,7 +16,7 @@ To break into a function being debugged on your machine, you must enable a way f
 The [ngrok](https://ngrok.com/) utility provides a way for Azure to call the function running on your machine. Start *ngrok* using the following command:
 
 ```bash
-ngrok http -host-header=localhost 7071
+ngrok http --host-header=localhost 7071
 ```
 As the utility is set up, the command window should look similar to the following screenshot:
 
