@@ -300,6 +300,8 @@
       href: https://azure.microsoft.com/pricing/calculator/
     - name: Use cost analysis for common tasks
       href: costs/cost-analysis-common-uses.md
+    - name: Enable preview features
+      href: costs/enable-preview-features-cost-management-labs.md
     - name: Automate actions with budgets
       href: manage/cost-management-budget-scenario.md
     - name: Save and share customized views

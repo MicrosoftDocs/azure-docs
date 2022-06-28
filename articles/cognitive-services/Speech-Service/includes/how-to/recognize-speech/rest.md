@@ -17,10 +17,22 @@ At a command prompt, run the following command. Insert the following values into
 - Your Speech service region.
 - The path for input audio files. You can generate audio files by using [text-to-speech](../../../get-started-text-to-speech.md).
 
-:::code language="curl" source="~/cognitive-services-quickstart-code/curl/speech/speech-to-text.sh" id="request":::
+```curl
+curl --location --request POST 'https://INSERT_REGION_HERE.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US' \
+--header 'Ocp-Apim-Subscription-Key: INSERT_SUBSCRIPTION_KEY_HERE' \
+--header 'Content-Type: audio/wav' \
+--data-binary @'INSERT_AUDIO_FILE_PATH_HERE'
+```
 
-You should receive a response like the following one:
+You should receive a response with a JSON body like the following one:
 
-:::code language="curl" source="~/cognitive-services-quickstart-code/curl/speech/speech-to-text.sh" id="response":::
+```json
+{
+    "RecognitionStatus": "Success",
+    "DisplayText": "My voice is my passport, verify me.",
+    "Offset": 6600000,
+    "Duration": 32100000
+}
+```
 
 For more information, see the [speech-to-text REST API reference](../../../rest-speech-to-text.md).
