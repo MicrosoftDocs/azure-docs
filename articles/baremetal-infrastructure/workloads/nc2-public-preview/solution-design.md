@@ -8,7 +8,7 @@ ms.date: 07/01/2022
 
 # Solution design
 
-This article identifies topologies and constraints for NC2 on Azure Public Preview. 
+This article identifies topologies and constraints for NC2 on Azure Public Preview.
 
 ## Supported topologies
 
