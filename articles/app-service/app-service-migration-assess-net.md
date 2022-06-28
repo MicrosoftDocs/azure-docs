@@ -22,10 +22,10 @@ You can create multiple assessments for the same web apps with different sets of
 
 For further information on web apps assessment please refer to :
 - [At scale discovery and assessment for ASP.NET app migration with Azure Migrate](https://channel9.msdn.com/Shows/Inside-Azure-for-IT/At-scale-discovery-and-assessment-for-ASPNET-app-migration-with-Azure-Migrate)
-- [Create an Azure App Service assessment](/migrate/how-to-create-azure-app-service-assessment.md)
-- [Tutorial to assess web apps for migration to Azure App Service](/migrate/tutorial-assess-webapps)
-- [Azure App Service assessments in Azure Migrate Discovery and assessment tool](/migrate/concepts-azure-webapps-assessment-calculation)
-- [Assessment best practices in Azure Migrate Discovery and assessment tool](https://docs.microsoft.com/en-us/azure/migrate/best-practices-assessment)
+- [Create an Azure App Service assessment](../migrate/how-to-create-azure-app-service-assessment.md)
+- [Tutorial to assess web apps for migration to Azure App Service](../migrate/tutorial-assess-webapps.md)
+- [Azure App Service assessments in Azure Migrate Discovery and assessment tool](../migrate/concepts-azure-webapps-assessment-calculation.md)
+- [Assessment best practices in Azure Migrate Discovery and assessment tool](../migrate/best-practices-assessment.md)
 
 
 ## Next steps
