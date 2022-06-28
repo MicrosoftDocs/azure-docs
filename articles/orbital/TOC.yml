@@ -8,8 +8,6 @@ items:
   - name: What is the Space Partner Community?
     href: space-partner-program-overview.md
 - name: Quickstart
-  items:
-  - name: Earth Observation
     items:
     - name: Onboard to the Azure Orbital Preview
       href: orbital-preview.md
