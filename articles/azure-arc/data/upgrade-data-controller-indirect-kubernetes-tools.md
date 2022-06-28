@@ -84,7 +84,7 @@ You'll need to connect and authenticate to a Kubernetes cluster and have an exis
 ### Create the service account for running upgrade
 
    > [!IMPORTANT]
-   > Requires Kubernetes permissions for creating service account, role, role binding, cluster role, cluster role binding, and all the RBAC permissiongs being granted to the service account.
+   > Requires Kubernetes permissions for creating service account, role binding, cluster role, cluster role binding, and all the RBAC permissions being granted to the service account.
 
 Save a copy of [arcdata-deployer.yaml](https://raw.githubusercontent.com/microsoft/azure_arc/release-arc-data/arc_data_services/arcdata-deployer.yaml), and replace the placeholder `{{NAMESPACE}}` in the file with the namespace created in the previous step, for example: `arc`. Run the following command to create the deployer service account with the edited file.
 
