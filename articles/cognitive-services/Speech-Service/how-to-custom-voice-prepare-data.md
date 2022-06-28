@@ -51,9 +51,9 @@ Files should be grouped by type into a dataset and uploaded as a zip file. Each 
 >
 > For the two beta options, only these languages are supported: Chinese (Mandarin, Simplified), English (India), English (United Kingdom), English (United States), French (France), German (Germany), Italian (Italy), Japanese (Japan), Portuguese (Brazil), and Spanish (Mexico). 
 
-## Individual utterances + matching transcript
+## Individual utterances and matching transcript
 
-You can prepare recordings of individual utterances and the matching transcript in two ways. Either write a script and have it read by a voice talent or use publicly available audio and transcribe it to text. If you do the latter, edit disfluencies from the audio files, such as "um" and other filler sounds, stutters, mumbled words, or mispronunciations.
+You can prepare recordings of individual utterances and the matching transcript in two ways. Either [write a script and have it read by a voice talent](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/record-custom-voice-samples) or use publicly available audio and transcribe it to text. If you do the latter, edit disfluencies from the audio files, such as "um" and other filler sounds, stutters, mumbled words, or mispronunciations.
 
 To produce a good voice model, create the recordings in a quiet room with a high-quality microphone. Consistent volume, speaking rate, speaking pitch, and expressive mannerisms of speech are essential.
 
@@ -99,7 +99,7 @@ Below is an example of how the transcripts are organized utterance by utterance 
 ```
 It’s important that the transcripts are 100% accurate transcriptions of the corresponding audio. Errors in the transcripts will introduce quality loss during the training.
 
-## Long audio + transcript (beta)
+## Long audio and transcript (beta)
 
 In some cases, you may not have segmented audio available. We provide a service (beta) through the Speech Studio to help you segment long audio files and create transcriptions. Keep in mind, this service will be charged toward your speech-to-text subscription usage.
 
