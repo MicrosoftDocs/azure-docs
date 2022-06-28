@@ -29,7 +29,7 @@ This page shows all the supported compute services, clients, and authentication 
 
 ## Default environment variable names or application properties
 
-Use the environment variable names and application properties listed below to connect an Azure service to Web PubSub using .NET, Java, Node.js, or Python. For each example below, replace the placeholder texts `<name>`, `<client-id>`, `<client-secret`, `<access-key>`, and `<tenant-id>` with your resource name, client ID, client secret, access-key, and tenant ID.
+Use the environment variable names and application properties listed below to connect an Azure service to Web PubSub using .NET, Java, Node.js, or Python. For each example below, replace the placeholder texts `<name>`, `<client-id>`, `<client-secret`, `<access-key>`, and `<tenant-id>` with your own resource name, client ID, client secret, access-key, and tenant ID.
 
 ### System-assigned managed identity
 
