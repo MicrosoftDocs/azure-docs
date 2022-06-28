@@ -8,7 +8,7 @@ ms.subservice: purview-data-catalog
 ms.topic: tutorial
 ms.date: 04/18/2022
 
-# Customer intent: As a developer, I want to use the new APIs available with Atlas 2.2 to interact programmatically with Microsoft Purview’s Data Map.
+# Customer intent: As a developer, I want to use the new APIs available with Atlas 2.2 to interact programmatically with the data map in Microsoft Purview.
 ---
 
 # Tutorial: Atlas 2.2 new functionality
@@ -29,7 +29,7 @@ Business metadata is a template that contains custom attributes (key values). Yo
 
 ### Create business metadata with attributes
 
-You can send a 'POST' request to the following endpoint:
+You can send a `POST` request to the following endpoint:
 
 ```
 POST {{endpoint}}/api/atlas/v2/types/typedefs
@@ -69,7 +69,7 @@ Sample JSON:
 
 ### Add or update an attribute to existing business metadata
 
-You can send a 'PUT' request to the following endpoint:
+You can send a `PUT` request to the following endpoint:
 
 ```
 PUT {{endpoint}}/api/atlas/v2/types/typedefs
@@ -120,7 +120,7 @@ Sample JSON:
 
 ### Get a business metadata definition
 
-You can send a 'GET' request to the following endpoint:
+You can send a `GET` request to the following endpoint:
 
 ```
 GET {endpoint}}/api/atlas/v2/types/typedef/name/{{Business Metadata Name}}
@@ -128,7 +128,7 @@ GET {endpoint}}/api/atlas/v2/types/typedef/name/{{Business Metadata Name}}
 
 ### Set a business metadata attribute to an entity
 
-You can send a 'POST' request to the following endpoint:
+You can send a `POST` request to the following endpoint:
 
 ```
 POST {{endpoint}}/api/atlas/v2/entity/guid/{{GUID}}/businessmetadata?isOverwrite=true
@@ -147,7 +147,7 @@ Sample JSON:
 
 ### Delete a business metadata attribute from an entity
 
-You can send a 'DELETE' request to the following endpoint:
+You can send a `DELETE` request to the following endpoint:
 
 ```
 'DELETE' {{endpoint}}/api/atlas/v2/entity/guid/{{GUID}}/businessmetadata?isOverwrite=true
@@ -165,7 +165,7 @@ Sample JSON:
 
 ### Delete a business metadata type definition
 
-You can send a 'DELETE' request to the following endpoint:
+You can send a `DELETE` request to the following endpoint:
 
 ```
 DELETE {{endpoint}}/api/atlas/v2/types/typedef/name/{{Business Metadata Name}}
@@ -177,7 +177,7 @@ Custom attributes are key/value pairs that can be directly added to an Atlas ent
 
 ### Set a custom attribute to an entity
 
-You can send a 'POST' request to the following endpoint:
+You can send a `POST` request to the following endpoint:
 
 ```
 POST {{endpoint}}/api/atlas/v2/entity
@@ -208,7 +208,7 @@ Labels are free text tags that can be applied to any Atlas entity.
 
 ### Set labels to an entity
 
-You can send a 'POST' request to the following endpoint:
+You can send a `POST` request to the following endpoint:
 
 ```
 POST {{endpoint}}/api/atlas/v2/entity/guid/{{GUID}}/labels
@@ -225,7 +225,7 @@ Sample JSON:
 
 ### Delete labels to an entity
 
-You can send a 'DELETE' request to the following endpoint:
+You can send a `DELETE` request to the following endpoint:
 
 ```
 DELETE {{endpoint}}/api/atlas/v2/entity/guid/{{GUID}}/labels
