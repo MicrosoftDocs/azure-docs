@@ -54,6 +54,10 @@ Logical decoding:
    ```
 8. You may want to make sure the role you are using has [privileges](https://www.postgresql.org/docs/current/sql-grant.html) on the schema that you are replicating. Otherwise, you may run into errors such as `Permission denied for schema`. 
 
+
+>[!NOTE]
+> It is always a good practice to separate your replication user from regular admin account.
+
 ## Using logical replication and logical decoding
 
 ### Native logical replication
