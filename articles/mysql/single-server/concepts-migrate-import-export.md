@@ -6,7 +6,7 @@ ms.author: pariks
 ms.service: mysql
 ms.subservice: migration-guide
 ms.topic: how-to
-ms.date: 10/30/2020
+ms.date: 06/20/2022
 ---
 
 # Migrate your MySQL database by using import and export

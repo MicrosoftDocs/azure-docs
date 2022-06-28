@@ -11,7 +11,7 @@ ms.author: cshoe
 
 # Bring your own functions to Azure Static Web Apps
 
-Azure Static Web Apps APIs are supported by two possible configurations: managed functions and bring your own functions. See the [API reference](apis.md) for details between the two configurations.
+Azure Static Web Apps APIs are supported by two possible configurations: managed functions and bring your own functions. See the [overview](apis-functions.md) for details between the two configurations.
 
 This article demonstrates how to link an existing Azure Functions app to an Azure Static Web Apps resource.
 

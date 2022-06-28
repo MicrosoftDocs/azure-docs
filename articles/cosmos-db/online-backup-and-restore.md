@@ -4,7 +4,7 @@ description: This article describes how automatic backup, on-demand data restore
 author: kanshiG
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 11/15/2021
+ms.date: 06/24/2022
 ms.author: govindk
 ms.reviewer: mjbrown
 
@@ -19,7 +19,7 @@ Azure Cosmos DB automatically takes backups of your data at regular intervals. T
 
 There are two backup modes:
 
-* **Continuous backup mode** –  This mode allows you to do restore to any point of time within the last 30 days. You can choose this mode while creating the Azure Cosmos DB account. To learn more, see the [Introduction to Continuous backup mode](continuous-backup-restore-introduction.md), provision continuous backup using [Azure portal](provision-account-continuous-backup.md#provision-portal), [PowerShell](provision-account-continuous-backup.md#provision-powershell), [CLI](provision-account-continuous-backup.md#provision-cli), or [Azure Resource Manager](provision-account-continuous-backup.md#provision-arm-template) articles. You can also [migrate the accounts from periodic to continuous mode](migrate-continuous-backup.md). 
+* **Continuous backup mode** –  This mode has two tiers one which has 7 days retention (preview) of the backup and another which has 30 days(GA). It allows you to do restore to any point of time within either 7 or 30 days. You can choose this mode while creating the Azure Cosmos DB account. To learn more, see the [Introduction to Continuous backup mode](continuous-backup-restore-introduction.md), provision continuous backup using [Azure portal](provision-account-continuous-backup.md#provision-portal), [PowerShell](provision-account-continuous-backup.md#provision-powershell), [CLI](provision-account-continuous-backup.md#provision-cli), or [Azure Resource Manager](provision-account-continuous-backup.md#provision-arm-template) articles. You can also [migrate the accounts from periodic to continuous mode](migrate-continuous-backup.md). 
 * **Periodic backup mode** - This mode is the default backup mode for all existing accounts. In this mode, backup is taken at a periodic interval and the data is restored by creating a request with the support team. In this mode, you configure a backup interval and retention for your account. The maximum retention period extends to a month. The minimum backup interval can be one hour.  To learn more, see the [Periodic backup mode](configure-periodic-backup-restore.md) article.
 
   > [!NOTE]

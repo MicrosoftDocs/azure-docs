@@ -94,4 +94,4 @@ This article explains how to install, and authenticate the Defender micro agent 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Building the Defender micro agent from source code](quickstart-building-the-defender-micro-agent-from-source.md)
+> [Configure Microsoft Defender for IoT agent-based solution](tutorial-configure-agent-based-solution.md)
