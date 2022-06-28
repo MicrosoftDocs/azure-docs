@@ -12,7 +12,7 @@ ms.custom: template-how-to
 # How to test Device Update for IoT Hub
 The [Device Update for IoT Hub](..\iot-hub-device-update\understand-device-update.md) test exercises your device’s ability to receive an update from IoT Hub. The following steps will guide you through the process to test Device Update for IoT Hub when attempting device certification.
 
-## Prerequisites:
+## Prerequisites
 * Device must be capable of running Linux [IoT Edge supported container](..\iot-edge\support.md).
 * Your device must be capable of receiving an [.SWU update](https://swupdate.org/) and be able to return to a running and connected state after the update is applied.  
 * The update package and manifest must be applicable to the device under test.  (Example:If the device is running “Version 1.0”, the update should be “Version 2.0”.)
@@ -22,7 +22,7 @@ The [Device Update for IoT Hub](..\iot-hub-device-update\understand-device-updat
 ## Testing the device
 1.	On the Connect + test page, select **"Yes"** for the **"Are you able to test Device Update for IoT Hub?"** question.
  ![Connect + test](.\media\how-to-adu\connect-test.png)
- 
+
 > [!Note]
 > If you are not able to test Device Update and select No, you will still be able to run all other Secured-core tests, but your product will not be eligible for certification.
 
