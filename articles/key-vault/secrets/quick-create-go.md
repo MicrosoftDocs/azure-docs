@@ -68,18 +68,18 @@ In the following sections, you create a client, set a secret, retrieve a secret,
 ### Authenticate and create a client
 
 ```go
+vaultURI := os.Getenv("AZURE_KEY_VAULT_URI")
+
 cred, err := azidentity.NewDefaultAzureCredential(nil)
 if err != nil {
     log.Fatalf("failed to obtain a credential: %v", err)
 }
 
-client, err := azsecrets.NewClient("https://quickstart-kv.vault.azure.net/", cred, nil)
+client, err := azsecrets.NewClient(vaultURI, cred, nil)
 if err != nil {
     log.Fatalf("failed to create a client: %v", err)
 }
 ```
-
-If you used a different key vault name, replace `quickstart-kv` with that name.
 
 ### Create a secret
 
@@ -103,19 +103,18 @@ if err != nil {
 fmt.Printf("secretValue: %s\n", *getResp.Value)
 ```
 
-### List secrets
+### List properties of secrets
 
 ```go
-pager := client.ListSecrets(nil)
-for pager.NextPage(context.TODO()) {
-  resp := pager.PageResponse()
-  for _, secret := range resp.Secrets {
-    fmt.Printf("Secret ID: %s\n", *secret.ID)
-  }
-}
-
-if pager.Err() != nil {
-  log.Fatalf("failed to get list secrets: %v", err)
+pager := client.ListPropertiesOfSecrets(nil)
+for pager.More() {
+	page, err := pager.NextPage(context.TODO())
+	if err != nil {
+		panic(err)
+	}
+	for _, v := range page.Secrets {
+		fmt.Printf("Secret Name: %s\tSecret Tags: %v\n", *v.ID, v.Tags)
+	}
 }
 ```
 
@@ -147,10 +146,9 @@ import (
 
 func main() {
 
-    mySecretName  := "quickstart-secret"
-    mySecretValue := "createdWithGO"
-    keyVaultName  := os.Getenv("KEY_VAULT_NAME")
-    keyVaultUrl := fmt.Sprintf("https://%s.vault.azure.net/", keyVaultName)
+	mySecretName := "secretName01"
+	mySecretValue := "secretValue"
+	vaultURI := os.Getenv("AZURE_KEY_VAULT_URI")
 
 	//Create a credential using the NewDefaultAzureCredential type.
 	cred, err := azidentity.NewDefaultAzureCredential(nil)
@@ -159,7 +157,7 @@ func main() {
 	}
 
 	//Establish a connection to the Key Vault client
-	client, err := azsecrets.NewClient(keyVaultURL, cred, nil)
+	client, err := azsecrets.NewClient(vaultURI, cred, nil)
 	if err != nil {
 		log.Fatalf("failed to connect to client: %v", err)
 	}
