@@ -92,48 +92,24 @@ additionalContent:
         - title: Microsoft Cloud Adoption Framework for Azure
           summary: Secure methodology designed to help cloud architects and business decision makers create and implement security strategies for the cloud
           url: https://docs.microsoft.com/azure/cloud-adoption-framework/secure/
+        - title: Azure security fundamentals
+          summary: Learn how to secure your cloud solutions on Azure
+          url: 	https://docs.microsoft.com/azure/security/journey/
+        - title: Azure Security Benchmark
+          summary: Best practices and recommendations to secure your cloud deployments
+          url: https://docs.microsoft.com/security/benchmark/azure/introduction
         - title: Azure Well-Architected Framework
           summary: Design principles for a securely architected system hosted on cloud or on-premises datacenters
           url: https://docs.microsoft.com/azure/architecture/framework/security/overview
         - title: Azure Architecture Center
           summary: A set of guiding tenets that can be used to protect your applications and data from threats
           url: https://docs.microsoft.com/azure/architecture/guide/security/security-start-here
-        - title: Azure Security Benchmark
-          summary: Best practices and recommendations to secure your cloud deployments
-          url: https://docs.microsoft.com/security/benchmark/azure/introduction
         - title: Microsoft Security Best Practices
           summary: Collection of best practices that provide clear actionable guidance for security related decisions, includes Azure and Microsoft 365
           url: https://docs.microsoft.com/security/compass/compass
         - title: Microsoft 365 security guidance
           summary: Learn about security in Microsoft 365
           url: https://docs.microsoft.com/microsoft-365/security/?view=o365-worldwide
-        - title: Azure security fundamentals
-          summary: Learn how to secure your cloud solutions on Azure
-          url: 	https://docs.microsoft.com/azure/security/journey/
-
-    - title: Security services and capabilities
-      items:
-        # Card
-        - title: cardtitle1
-          links:
-            - text: link1a
-              url: ./file1a.md OR /file1a
-            - text: link1b
-              url: ./file1b.md OR /file1b
-        # Card
-        - title: cardtitle2
-          links:
-            - text: link2a
-              url: ./file2a.md OR /file2a
-            - text: link2b
-              url: ./file2b.md OR /file2b
-        # Card
-        - title: cardtitle3
-          links:
-            - text: link3a
-              url: ./file3a.md OR /file3a
-            - text: link3b
-              url: ./file3b.md OR /file3b
 
     - title: Security services and capabilities
       items:
