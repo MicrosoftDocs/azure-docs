@@ -22,7 +22,7 @@ To improve the security of Linux virtual machines (VMs) in Azure, you can integr
 This functionality allows organizations to manage access to VMs with Azure role-based access control (RBAC) and Conditional Access policies. This article shows you how to create and configure a Linux VM and log in with Azure AD by using openSSH certificate-based authentication.
 
 > [!IMPORTANT]
-> This capability is now generally available. The previous version that made use of device code flow was [deprecated on August 15, 2021](../../virtual-machines/linux/login-using-aad.md). To migrate from the old version to this version, see the section [Migration from previous preview](#migration-from-previous-preview).
+> This capability is now generally available. The previous version that made use of device code flow was [deprecated on August 15, 2021](../../virtual-machines/linux/login-using-aad.md). To migrate from the old version to this version, see the section [Migrate from the previous (preview) version](#migrate-from-the-previous-preview-version).
 
 There are many security benefits of using Azure AD with openSSH certificate-based authentication to log in to Linux VMs in Azure. They include:
 
@@ -63,9 +63,9 @@ If you choose to install and use the Azure CLI locally, it must be version 2.22.
 > [!NOTE]
 > This functionality is also available for [Azure Arc-enabled servers](../../azure-arc/servers/ssh-arc-overview.md).
 
-## Requirements for login with Azure AD using openSSH certificate-based authentication
+## Meet requirements for login with Azure AD using openSSH certificate-based authentication
 
-To enable Azure AD login through SSH certificate-based authentication for Linux VMs in Azure, be sure to meet the the following network, virtual machine, and client (SSH client) requirements.
+To enable Azure AD login through SSH certificate-based authentication for Linux VMs in Azure, be sure to meet the following network, virtual machine, and client (SSH client) requirements.
 
 ### Network
 
@@ -125,14 +125,14 @@ There are multiple ways to enable Azure AD login for your Linux VM. For example,
 
 You can enable Azure AD login for any of the [supported Linux distributions](#supported-linux-distributions-and-azure-regions) by using the Azure portal.
 
-FOr example, to create an Ubuntu Server 18.04 Long Term Support (LTS) VM in Azure with Azure AD login:
+For example, to create an Ubuntu Server 18.04 Long Term Support (LTS) VM in Azure with Azure AD login:
 
 1. Sign in to the Azure portal by using an account that has access to create VMs, and then select **+ Create a resource**.
 1. Select **Create** under **Ubuntu Server 18.04 LTS** in the **Popular** view.
 1. On the **Management** tab: 
-   1. Select the **Login with Azure Active Directory (Preview)** checkbox.
+   1. Select the **Login with Azure Active Directory** checkbox.
    1. Ensure that the **System assigned managed identity** checkbox is selected.
-1. Go through the rest of the experience of creating a virtual machine. During this preview, you'll have to create an administrator account with username and password or SSH public key.
+1. Go through the rest of the experience of creating a virtual machine. You'll have to create an administrator account with username and password or SSH public key.
 
 ### Use the Azure Cloud Shell experience to enable Azure AD login
 
@@ -193,7 +193,7 @@ There are multiple ways to configure role assignments for a VM. For example, you
 > [!NOTE]
 > The Virtual Machine Administrator Login and Virtual Machine User Login roles use `dataActions` and can be assigned at the management group, subscription, resource group, or resource scope. We recommend that you assign the roles at the management group, subscription, or resource level and not at the individual VM level. This practice avoids the risk of reaching the [Azure role assignments limit](../../role-based-access-control/troubleshooting.md#azure-role-assignments-limit) per subscription.
 
-### Use Azure AD Portal experience
+### Use the Azure AD portal experience
 
 To configure role assignments for your Azure AD-enabled Linux VMs:
 
@@ -251,80 +251,78 @@ The minimum version required for the extension is 0.1.4. Check the installed SSH
 az extension show --name ssh
 ```
 
-## Using Conditional Access
+## Enforce Conditional Access policies
 
 You can enforce Conditional Access policies that are enabled with Azure AD login, such as requiring multifactor authentication, requiring a compliant or hybrid Azure AD-joined device for the device running the SSH client, and checking for risks before authorizing access to Linux VMs in Azure. The application that appears in the Conditional Access policy is called *Azure Linux VM Sign-In*.
 
 > [!NOTE]
-> Conditional Access policy enforcement that requires device compliance or hybrid Azure AD join on the client device running SSH client only works with Azure CLI running on Windows and macOS. It's not supported when you're using the Azure CLI on Linux or Azure Cloud Shell.
+> Conditional Access policy enforcement that requires device compliance or hybrid Azure AD join on the device running the SSH client works only with the Azure CLI running on Windows and macOS. It's not supported when you're using the Azure CLI on Linux or Azure Cloud Shell.
 
 ### Missing application
 
-If the Azure Linux VM Sign-In application is missing from Conditional Access, use the following steps to remediate the issue:
+If the Azure Linux VM Sign-In application is missing from Conditional Access, make sure the application isn't in the tenant:
 
-1. Check to make sure the application isn't in the tenant:
-   1. Sign in to the **Azure portal**.
-   1. Browse to **Azure Active Directory** > **Enterprise applications**.
-   1. Remove the filters to see all applications, and search for **VM**. If you don't see Azure Linux VM Sign-In as a result, the service principal is missing from the tenant.
+1. Sign in to the Azure portal.
+1. Browse to **Azure Active Directory** > **Enterprise applications**.
+1. Remove the filters to see all applications, and search for **VM**. If you don't see Azure Linux VM Sign-In as a result, the service principal is missing from the tenant.
 
 Another way to verify it is via Graph PowerShell:
 
 1. [Install the Graph PowerShell SDK](/powershell/microsoftgraph/installation) if you haven't already done so. 
-1. `Connect-MgGraph -Scopes "ServicePrincipalEndpoint.ReadWrite.All","Application.ReadWrite.All"`
-1. Sign-in with a Global Admin account
-1. Consent to permission prompt
-1. `Get-MgServicePrincipal -ConsistencyLevel eventual -Search '"DisplayName:Azure Linux VM Sign-In"'`
-   1. If this command results in no output and returns you to the PowerShell prompt, you can create the Service Principal with the following Graph PowerShell command:
-   1. `New-MgServicePrincipal -AppId ce6ff14a-7fdc-4685-bbe0-f6afdfcfa8e0`
-   1. Successful output will show that the AppID and the Application Name Azure Linux VM Sign-In was created.
-1. Sign out of Graph PowerShell when complete with the following command: `Disconnect-MgGraph`
+1. Enter the command `Connect-MgGraph -Scopes "ServicePrincipalEndpoint.ReadWrite.All","Application.ReadWrite.All"`.
+1. Sign in with a Global Admin account.
+1. Consent to the prompt that asks for your permission.
+1. Enter the command `Get-MgServicePrincipal -ConsistencyLevel eventual -Search '"DisplayName:Azure Linux VM Sign-In"'`.
+   
+   If this command results in no output and returns you to the PowerShell prompt, you can create the Service Principal with the following Graph PowerShell command: `New-MgServicePrincipal -AppId ce6ff14a-7fdc-4685-bbe0-f6afdfcfa8e0`.
+   
+   Successful output will show that the app ID and the application name Azure Linux VM Sign-In were created.
+1. Sign out of Graph PowerShell by using the following command: `Disconnect-MgGraph`.
 
-## Login using Azure AD user account to SSH into the Linux VM
+## Log in by using an Azure AD user account to SSH into the Linux VM
 
-### Using Azure CLI
+### Logging in by using the Azure CLI
 
-Enter `az login`, and then enter `az ssh vm`.
+Enter `az login`. This command opens a browser window, where you can sign in by using your Azure AD account.
 
 ```azurecli
 az login 
 ```
 
-The `az login` command will open a browser window, where users can sign in by using their Azure AD account. 
-
-The following example automatically resolves the appropriate IP address for the VM.
+Then enter `az ssh vm`. The following example automatically resolves the appropriate IP address for the VM.
 
 ```azurecli
 az ssh vm -n myVM -g AzureADLinuxVM
 ```
 
-If prompted, enter your Azure AD login credentials at the login page, perform an MFA, and/or satisfy device checks. You'll only be prompted if your Azure CLI session doesn't already meet any required Conditional Access criteria. Close the browser window, return to the SSH prompt, and you'll be automatically connected to the VM.
+If you're prompted, enter your Azure AD login credentials at the login page, perform multifactor authentication, and/or satisfy device checks. You'll only be prompted if your Azure CLI session doesn't already meet any required Conditional Access criteria. Close the browser window, return to the SSH prompt, and you'll be automatically connected to the VM.
 
 You're now signed in to the Azure Linux virtual machine with the role permissions as assigned, such as VM User or VM Administrator. If your user account is assigned the Virtual Machine Administrator Login role, you can use sudo to run commands that require root privileges.
 
-### Using Azure Cloud Shell
+### Log in by using Azure Cloud Shell
 
-You can use Azure Cloud Shell to connect to VMs without needing to install anything locally to your client machine. Start Cloud Shell by clicking the shell icon in the upper right corner of the Azure portal.
+You can use Azure Cloud Shell to connect to VMs without needing to install anything locally to your client machine. Start Cloud Shell by selecting the shell icon in the upper-right corner of the Azure portal.
 
-Azure Cloud Shell will automatically connect to a session in the context of the signed in user. During the Azure AD Login for Linux Preview, **you must run az login again and go through an interactive sign in flow**.
+Cloud Shell automatically connects to a session in the context of the signed-in user. Now run `az login` again and go through the interactive sign-in flow.
 
 ```azurecli
 az login
 ```
 
-Then you can use the normal `az ssh vm` commands to connect using name and resource group or IP address of the VM.
+Then you can use the normal `az ssh vm` commands to connect by using the name and resource group or IP address of the VM.
 
 ```azurecli
 az ssh vm -n myVM -g AzureADLinuxVM
 ```
 
 > [!NOTE]
-> Conditional Access policy enforcement requiring device compliance or Hybrid Azure AD join is not supported when using Azure Cloud Shell.
+> Conditional Access policy enforcement that requires device compliance or hybrid Azure AD join is not supported when you're using Azure Cloud Shell.
 
-### Login using Azure AD service principal to SSH into the Linux VM
+### Log in by using the Azure AD service principal to SSH into the Linux VM
 
-Azure CLI supports authenticating with a service principal instead of a user account. Since service principals are account not tied to any particular user, customers can use them to SSH to a VM to support any automation scenarios they may have. The service principal must have VM Administrator or VM User rights assigned. Assign permissions at the subscription or resource group level. 
+The Azure CLI supports authenticating with a service principal instead of a user account. Because service principals are account not tied to any particular user, customers can use them to SSH into a VM to support any automation scenarios they might have. The service principal must have VM Administrator or VM User rights assigned. Assign permissions at the subscription or resource group level. 
 
-The following example will assign VM Administrator rights to the service principal at the resource group level. Replace the service principal object ID, subscription ID, and resource group name fields.
+The following example will assign VM Administrator rights to the service principal at the resource group level. Replace the placeholders for service principal object ID, subscription ID, and resource group name.
 
 ```azurecli
 az role assignment create \
@@ -334,27 +332,27 @@ az role assignment create \
     --scope “/subscriptions/<subscription-id>/resourceGroups/<resourcegroup-name>"
 ```
 
-Use the following example to authenticate to Azure CLI using the service principal. To learn more about signing in using a service principal, see the article [Sign in to Azure CLI with a service principal](/cli/azure/authenticate-azure-cli#sign-in-with-a-service-principal).
+Use the following example to authenticate to the Azure CLI by using the service principal. For more information, see the article [Sign in to the Azure CLI with a service principal](/cli/azure/authenticate-azure-cli#sign-in-with-a-service-principal).
 
 ```azurecli
 az login --service-principal -u <sp-app-id> -p <password-or-cert> --tenant <tenant-id>
 ```
 
-Once authentication with a service principal is complete, use the normal Azure CLI SSH commands to connect to the VM.
+When authentication with a service principal is complete, use the normal Azure CLI SSH commands to connect to the VM:
 
 ```azurecli
 az ssh vm -n myVM -g AzureADLinuxVM
 ```
 
-### Exporting SSH Configuration for use with SSH clients that support OpenSSH
+### Export the SSH configuration for use with SSH clients that support OpenSSH
 
-Login to Azure Linux VMs with Azure AD supports exporting the OpenSSH certificate and configuration, allowing you to use any SSH clients that support OpenSSH based certificates to sign in Azure AD. The following example exports the configuration for all IP addresses assigned to the VM.
+Login to Azure Linux VMs with Azure AD supports exporting the OpenSSH certificate and configuration. That means you can use any SSH clients that support OpenSSH-based certificates to sign in through Azure AD. The following example exports the configuration for all IP addresses assigned to the VM:
 
 ```azurecli
 az ssh config --file ~/.ssh/config -n myVM -g AzureADLinuxVM
 ```
 
-Alternatively, you can export the config by specifying just the IP address. Replace the IP address in the example with the public or private IP address (you must bring your own connectivity for private IPs) for your VM. Type `az ssh config -h` for help on this command.
+Alternatively, you can export the configuration by specifying just the IP address. Replace the IP address in the following example with the public or private IP address for your VM. (You must bring your own connectivity for private IPs.). Enter `az ssh config -h` for help with this command.
 
 ```azurecli
 az ssh config --file ~/.ssh/config --ip 10.11.123.456
@@ -362,53 +360,53 @@ az ssh config --file ~/.ssh/config --ip 10.11.123.456
 
 You can then connect to the VM through normal OpenSSH usage. Connection can be done through any SSH client that uses OpenSSH.
 
-## Sudo and Azure AD login
+## Run sudo with Azure AD login
 
-Once, users assigned the VM Administrator role successfully SSH into a Linux VM, they'll be able to run sudo with no other interaction or authentication requirement. Users assigned the VM User role won't be able to run sudo.
+After users who are assigned the VM Administrator role successfully SSH into a Linux VM, they'll be able to run sudo with no other interaction or authentication requirement. Users who are assigned the VM User role won't be able to run sudo.
 
-## Virtual machine scale set support
+## Connect to VMs in virtual machine scale sets
 
-Virtual machine scale sets are supported, but the steps are slightly different for enabling and connecting to virtual machine scale set VMs.
+Virtual machine scale sets are supported, but the steps are slightly different for enabling and connecting to VMs in a virtual machine scale set.
 
-1. Create a virtual machine scale set or choose one that already exists. Enable a system assigned managed identity for your virtual machine scale set.
+1. Create a virtual machine scale set or choose one that already exists. Enable a system-assigned managed identity for your virtual machine scale set.
 
-```azurecli
-az vmss identity assign --name myVMSS --resource-group AzureADLinuxVM
-```
+   ```azurecli
+   az vmss identity assign --name myVMSS --resource-group AzureADLinuxVM
+   ```
 
 2. Install the Azure AD extension on your virtual machine scale set.
 
-```azurecli
-az vmss extension set --publisher Microsoft.Azure.ActiveDirectory --name AADSSHLoginForLinux --resource-group AzureADLinuxVM --vmss-name myVMSS
-```
+   ```azurecli
+   az vmss extension set --publisher Microsoft.Azure.ActiveDirectory --name AADSSHLoginForLinux --resource-group AzureADLinuxVM --vmss-name myVMSS
+   ```
 
-Virtual machine scale sets usually don't have public IP addresses. You must have connectivity to them from another machine that can reach their Azure virtual network. This example shows how to use the private IP of a virtual machine scale set VM to connect from a machine in the same virtual network. 
+Virtual machine scale sets usually don't have public IP addresses. You must have connectivity to them from another machine that can reach their Azure virtual network. This example shows how to use the private IP of a VM in a virtual machine scale set to connect from a machine in the same virtual network: 
 
 ```azurecli
 az ssh vm --ip 10.11.123.456
 ```
 
 > [!NOTE]
-> You cannot automatically determine the virtual machine scale set VM's IP addresses using the `--resource-group` and `--name` switches.
+> You can't automatically determine the virtual machine scale set VM's IP addresses by using the `--resource-group` and `--name` switches.
 
-## Migration from previous preview
+## Migrate from the previous (preview) version
 
-For customers who are using previous version of Azure AD login for Linux that was based on device code flow, complete the following steps using Azure CLI.
+If you're using the previous version of Azure AD login for Linux that was based on device code flow, complete the following steps by using the Azure CLI:
 
-1. Uninstall the AADLoginForLinux extension on the VM.
+1. Uninstall the AADLoginForLinux extension on the VM:
 
    ```azurecli
    az vm extension delete -g MyResourceGroup --vm-name MyVm -n AADLoginForLinux
    ```
     > [!NOTE]
-    > The extension uninstall can fail if there are any Azure AD users currently logged in on the VM. Make sure all users are logged off first.
-1. Enable system-assigned managed identity on your VM.
+    > Uninstallation of the extension can fail if there are any Azure AD users currently logged in on the VM. Make sure all users are logged off first.
+1. Enable system-assigned managed identity on your VM:
 
    ```azurecli
    az vm identity assign -g myResourceGroup -n myVm
    ```
 
-1. Install the AADSSHLoginForLinux extension on the VM.
+1. Install the AADSSHLoginForLinux extension on the VM:
 
     ```azurecli
     az vm extension set \
@@ -418,13 +416,20 @@ For customers who are using previous version of Azure AD login for Linux that wa
         --vm-name myVM
     ```
 
-## Using Azure Policy to ensure standards and assess compliance
+## Use Azure Policy to meet standards and assess compliance
 
-Use Azure Policy to ensure Azure AD login is enabled for your new and existing Linux virtual machines and assess compliance of your environment at scale on your Azure Policy compliance dashboard. With this capability, you can use many levels of enforcement: you can flag new and existing Linux VMs within your environment that don't have Azure AD login enabled. You can also use Azure Policy to deploy the Azure AD extension on new Linux VMs that don't have Azure AD login enabled, as well as remediate existing Linux VMs to the same standard. In addition to these capabilities, you can also use Azure Policy to detect and flag Linux VMs that have non-approved local accounts created on their machines. To learn more, review [Azure Policy](../../governance/policy/overview.md).
+Use Azure Policy to:
+
+- Ensure that Azure AD login is enabled for your new and existing Linux virtual machines. 
+- Assess compliance of your environment at scale on a compliance dashboard. 
+
+With this capability, you can use many levels of enforcement. You can flag new and existing Linux VMs within your environment that don't have Azure AD login enabled. You can also use Azure Policy to deploy the Azure AD extension on new Linux VMs that don't have Azure AD login enabled, as well as remediate existing Linux VMs to the same standard. 
+
+In addition to these capabilities, you can use Azure Policy to detect and flag Linux VMs that have unapproved local accounts created on their machines. To learn more, review [Azure Policy](../../governance/policy/overview.md).
 
 ## Troubleshoot sign-in issues
 
-Some common errors when you try to SSH with Azure AD credentials include no Azure roles assigned, and repeated prompts to sign-in. Use the following sections to correct these issues.
+Use the following sections to correct common errors that can happen when you try to SSH with Azure AD credentials.
 
 ### Couldn't retrieve token from local cache
 
@@ -432,78 +437,76 @@ You must run `az login` again and go through an interactive sign-in flow. Review
 
 ### Access denied: Azure role not assigned
 
-If you see the following error on your SSH prompt, verify that you have configured Azure RBAC policies for the VM that grants the user either the Virtual Machine Administrator Login or Virtual Machine User Login role. If you're running into issues with Azure role assignments, see the article [Troubleshoot Azure RBAC](../../role-based-access-control/troubleshooting.md#azure-role-assignments-limit).
+If you see an "Azure role not assigned" error on your SSH prompt, verify that you've configured Azure RBAC policies for the VM that grants the user either the Virtual Machine Administrator Login role or the Virtual Machine User Login role. If you're having problems with Azure role assignments, see the article [Troubleshoot Azure RBAC](../../role-based-access-control/troubleshooting.md#azure-role-assignments-limit).
 
 ### Problems deleting the old (AADLoginForLinux) extension
 
-If the uninstall scripts fail, the extension may get stuck in a transitioning state. When this happens, it can leave packages that it's supposed to uninstall during its removal. In such cases, it's better to manually uninstall the old packages and then try to run az vm extension delete command.
+If the uninstallation scripts fail, the extension might get stuck in a transitioning state. When this happens, it can leave packages that it's supposed to uninstall during its removal. In such cases, it's better to manually uninstall the old packages and then try to run the `az vm extension delete` command. 
 
-1.	Log in as a local user with admin privileges.
-1.	Make sure there are no logged in Azure AD users. Call `who -u` command to see who is logged in; then `sudo kill <pid>` for all session processes reported by the previous command.
-1.	Run `sudo apt remove --purge aadlogin` (Ubuntu/Debian), `sudo yum erase aadlogin` (RHEL or CentOS), or `sudo zypper remove aadlogin` (OpenSuse or SLES).
-1.	If the command fails, try the low-level tools with scripts disabled:
-   1. For Ubuntu/Deian run `sudo dpkg --purge aadlogin`. If it's still failing because of the script, delete `/var/lib/dpkg/info/aadlogin.prerm` file and try again.
-   1. For everything else run `rpm -e –noscripts aadogin`.
+To uninstall old packages:
+
+1. Log in as a local user with admin privileges.
+1. Make sure there are no logged-in Azure AD users. Call the `who -u` command to see who is logged in. Then use `sudo kill <pid>` for all session processes that the previous command reported.
+1. Run `sudo apt remove --purge aadlogin` (Ubuntu/Debian), `sudo yum erase aadlogin` (RHEL or CentOS), or `sudo zypper remove aadlogin` (openSUSE or SLES).
+1. If the command fails, try the low-level tools with scripts disabled:
+   1. For Ubuntu/Debian, run `sudo dpkg --purge aadlogin`. If it's still failing because of the script, delete the `/var/lib/dpkg/info/aadlogin.prerm` file and try again.
+   1. For everything else, run `rpm -e –noscripts aadogin`.
 1.	Repeat steps 3-4 for package `aadlogin-selinux`.
 
-### Extension Install Errors
+### Extension installation errors
 
-Installation of the AADSSHLoginForLinux VM extension to existing computers fails with one of the following known error codes:
+Installation of the AADSSHLoginForLinux VM extension to existing computers fails with one of the following known error codes.
 
 #### Non-zero exit code: 22
 
-The Status of the AADSSHLoginForLinux VM extension shows as Transitioning in the portal.
+The status of the AADSSHLoginForLinux VM extension shows as **Transitioning** in the portal.
 
-Cause 1: This failure is due to a system-assigned managed identity being required.
+This failure happens because a system-assigned managed identity is required.
 
-Solution 1: Perform these actions:
+The solution is to:
 
 1. Uninstall the failed extension.
 1. Enable a system-assigned managed identity on the Azure VM.
-1. Run the extension install command again.
+1. Run the extension installation command again.
 
 #### Non-zero exit code: 23
 
-The Status of the AADSSHLoginForLinux VM extension shows as Transitioning in the portal.
+The status of the AADSSHLoginForLinux VM extension shows as **Transitioning** in the portal.
 
-Cause 1: This failure is due to the older AADLoginForLinux VM extension is still installed.
+This failure happens when the older AADLoginForLinux VM extension is still installed.
 
-Solution 1: Perform these actions:
+The solution is to uninstall the older AADLoginForLinux VM extension from the VM. The status of the new AADSSHLoginForLinux VM extension will then change to **Provisioning succeeded** in the portal.
 
-1. Uninstall the older AADLoginForLinux VM extension from the VM. The Status of the new AADSSHLoginForLinux VM extension will change to Provisioning succeeded in the portal.
+#### Az ssh vm fails with KeyError: access_token.
 
-#### Az ssh vm fails with KeyError: 'access_token'.
+You're using an outdated version of the Azure CLI client.
 
-Cause 1: An outdated version of the Azure CLI client is being used.
+The solution is to upgrade the Azure CLI client to version 2.21.0 or later.
 
-Solution 1: Upgrade the Azure CLI client to version 2.21.0 or higher.
+#### SSH connection is closed
 
-#### SSH Connection closed
+After a user successfully signs in by using `az login`, connection to the VM using `az ssh vm -ip <address>` or `az ssh vm --name <vm_name> -g <resource_group>` fails with "Connection closed by <ip_address> port 22."
 
-After the user has successfully signed in using az login, connection to the VM using `az ssh vm -ip <addres>` or `az ssh vm --name <vm_name> -g <resource_group>` fails with *Connection closed by <ip_address> port 22*.
+One cause for this error is that the user isn't assigned to the Virtual Machine Administrator Login or Virtual Machine User Login role within the scope of this VM. In that case, the solution is to add the user to one of those Azure RBAC roles within the scope of this VM.
 
-Cause 1: The user isn't assigned to either of the Virtual Machine Administrator/User Login Azure RBAC roles within the scope of this VM.
-
-Solution 1: Add the user to the either of the Virtual Machine Administrator/User Login Azure RBAC roles within the scope of this VM.
-
-Cause 2: The user is in a required Azure RBAC role but the system-assigned managed identity has been disabled on the VM.
-
-Solution 2: Perform these actions:
+This error can also happen if the user is in a required Azure RBAC role, but the system-assigned managed identity has been disabled on the VM. In that case, perform these actions:
 
 1. Enable the system-assigned managed identity on the VM.
-1. Allow several minutes to pass before trying to connect using `az ssh vm --ip <ip_address>`.
+1. Allow several minutes to pass before the user tries to connect by using `az ssh vm --ip <ip_address>`.
 
-### Virtual machine scale set Connection Issues
+### Connection problems with virtual machine scale sets
 
-Virtual machine scale set VM connections may fail if the virtual machine scale set instances are running an old model. Upgrading virtual machine scale set instances to the latest model may resolve issues, especially if an upgrade hasn't been done since the Azure AD Login extension was installed. Upgrading an instance applies a standard virtual machine scale set configuration to the individual instance.
+VM connections with virtual machine scale sets can fail if the scale set instances are running an old model. 
 
-### AllowGroups / DenyGroups statements in sshd_config cause first login to fail for Azure AD users
+Upgrading scale set instances to the latest model might resolve the problem, especially if an upgrade hasn't been done since the Azure AD Login extension was installed. Upgrading an instance applies a standard scale set configuration to the individual instance.
 
-Cause 1: If sshd_config contains either AllowGroups or DenyGroups statements, the very first login fails for Azure AD users. If the statement was added after a user already has a successful login, they can log in.
+### AllowGroups or DenyGroups statements in sshd_config cause the first login to fail for Azure AD users
 
-Solution 1: Remove AllowGroups and DenyGroups statements from sshd_config.
+If *sshd_config* contains either `AllowGroups` or `DenyGroups` statements, the first login fails for Azure AD users. If the statement was added after users already has a successful login, they can log in.
 
-Solution 2: Move AllowGroups and DenyGroups to a "match user" section in sshd_config. Make sure the match template excludes Azure AD users.
+One solution is to remove `AllowGroups` and `DenyGroups` statements from *sshd_config*.
+
+Another solution is to move `AllowGroups` and `DenyGroups` to a `match user` section in *sshd_config*. Make sure the match template excludes Azure AD users.
 
 ## Next steps
 
