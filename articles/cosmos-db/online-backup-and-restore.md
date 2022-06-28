@@ -56,7 +56,7 @@ Next you can learn about how to configure and manage periodic and continuous bac
 * [Configure and manage periodic backup](configure-periodic-backup-restore.md) policy.
 * What is [continuous backup](continuous-backup-restore-introduction.md) mode?
 * Enable continuous backup using [Azure portal](provision-account-continuous-backup.md#provision-portal), [PowerShell](provision-account-continuous-backup.md#provision-powershell), [CLI](provision-account-continuous-backup.md#provision-cli), or [Azure Resource Manager](provision-account-continuous-backup.md#provision-arm-template).
-* Restore continuous backup account using [Azure portal](restore-account-continuous-backup.md#restore-an-account-using-azure-portal), [PowerShell](restore-account-continuous-backup.md#restore-an-account-using-azure-powershell), [CLI](restore-account-continuous-backup.md#restore-an-account-using-azure-cli), or [Azure Resource Manager](restore-account-continuous-backup.md#restore-using-the-azure-resource-manager-template).
+* Restore continuous backup account using [Azure portal](restore-account-continuous-backup.md#restore-account-portal), [PowerShell](restore-account-continuous-backup.md#restore-account-powershell), [CLI](restore-account-continuous-backup.md#restore-account-cli), or [Azure Resource Manager](restore-account-continuous-backup.md#restore-arm-template).
 * [Migrate to an account from periodic backup to continuous backup](migrate-continuous-backup.md).
 * [Manage permissions](continuous-backup-restore-permissions.md) required to restore data with continuous backup mode.
 * [Resource model of continuous backup mode](continuous-backup-restore-resource-model.md)
