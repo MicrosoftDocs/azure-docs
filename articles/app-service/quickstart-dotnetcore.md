@@ -862,7 +862,6 @@ You'll see the updated ASP.NET Framework 4.8 web app displayed in the page.
 
 :::zone target="docs" pivot="development-environment-azure-portal"
 
-
 1. Browse to your GitHub fork of the sample code.
 
 1. On your repo page, press `.` to start Visual Studio code within your browser.
@@ -870,10 +869,29 @@ You'll see the updated ASP.NET Framework 4.8 web app displayed in the page.
     > [!NOTE]
     > The URL will change from GitHub.com to GitHub.dev. This feature only works with repos that have files. This does not work on empty repos.
 
-    ![Screenshot of forked GitHub repo with an annotation to Press the period key.](media/quickstart-dotnetcore/github-forked-repo-press-period.png)
+    ### [.NET 6.0](#tab/net60)
+    
+    ![Screenshot of forked dotnetcore-docs-hello-world GitHub repo with an annotation to Press the period key.](media/quickstart-dotnetcore/github-forked-dotnetcore-docs-hello-world-repo-press-period.png)
+
+    ### [.NET Framework 4.8](#tab/netframework48)
+
+    ![Screenshot of forked app-service-web-dotnet-get-started GitHub repo with an annotation to Press the period key.](media/quickstart-dotnetcore/github-forked-app-service-web-dotnet-get-started-repo-press-period.png)
 
 1. Open *Index.cshtml*.
-1. Replace the first `<div>` element with the following code:
+
+    ### [.NET 6.0](#tab/net60)
+
+    Index.cshtml is located in the `Pages` folder.
+
+    ![Screenshot of the Explorer window from Visual Studio Code in the browser, highlighting the Index.cshtml in the dotnetcore-docs-hello-world repo.](media/quickstart-dotnetcore/index-cshtml-in-explorer-dotnetcore.png)
+
+    ### [.NET Framework 4.8](#tab/netframework48)
+
+    Index.cshtml is located in the `aspnet-get-started/Views/Home` folder
+
+    ![Screenshot of the Explorer window from Visual Studio Code in the browser, highlighting the Index.cshtml in the app-service-web-dotnet-get-started repo.](media/quickstart-dotnetcore/index-cshtml-in-explorer-dotnet-framework.png)
+
+2. Replace the first `<div>` element with the following code:
 
     ```razor
     <div class="jumbotron">
@@ -884,15 +902,27 @@ You'll see the updated ASP.NET Framework 4.8 web app displayed in the page.
 
    Save your changes.
 
-1. From the **Source Control** menu, select the **Stage Changes** button to stage the change.
+3. From the **Source Control** menu, select the **Stage Changes** button to stage the change.
 
-    ![Screenshot of Visual Studio Code in the browser, highlighting the Source Control navigation in the sidebar, then highlighting the Stage Changes button in the Source Control panel.](media/quickstart-dotnetcore/visual-studio-code-in-browser-stage-changes.png)
+    ### [.NET 6.0](#tab/net60)
 
-1. Enter a commit message such as `We love Azure`. Then, select **Commit and Push**.
+    ![Screenshot of Visual Studio Code in the browser, highlighting the Source Control navigation in the sidebar, then highlighting the Stage Changes button in the Source Control panel.](media/quickstart-dotnetcore/visual-studio-code-in-browser-stage-changes-dotnetcore.png)
 
-    ![Screenshot of Visual Studio Code in the browser, Source Control panel with a commit message of 'We love Azure' and the Commit and Push button highlighted ](media/quickstart-dotnetcore/visual-studio-code-in-browser-commit-push.png)
+    ### [.NET Framework 4.8](#tab/netframework48)
 
-1. Once deployment has completed, return to the browser window that opened during the **Browse to the app** step, and refresh the page.
+    ![Screenshot of Visual Studio Code in the browser, highlighting the Source Control navigation in the sidebar, then highlighting the Stage Changes button in the Source Control panel.](media/quickstart-dotnetcore/visual-studio-code-in-browser-stage-changes-dotnet-framework.png)
+
+4. Enter a commit message such as `We love Azure`. Then, select **Commit and Push**.
+
+    ### [.NET 6.0](#tab/net60)
+
+    ![Screenshot of Visual Studio Code in the browser, Source Control panel with a commit message of 'We love Azure' and the Commit and Push button highlighted ](media/quickstart-dotnetcore/visual-studio-code-in-browser-commit-push-dotnetcore.png)
+
+    ### [.NET Framework 4.8](#tab/netframework48)
+
+    ![Screenshot of Visual Studio Code in the browser, Source Control panel with a commit message of 'We love Azure' and the Commit and Push button highlighted ](media/quickstart-dotnetcore/visual-studio-code-in-browser-commit-push-dotnet-framework.png)
+
+5. Once deployment has completed, return to the browser window that opened during the **Browse to the app** step, and refresh the page.
     
     ### [.NET 6.0](#tab/net60)
     
