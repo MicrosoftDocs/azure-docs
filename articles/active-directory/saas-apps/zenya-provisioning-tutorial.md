@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Configure iProva for automatic user provisioning with Azure Active Directory | Microsoft Docs'
-description: Learn how to configure Azure Active Directory to automatically provision and de-provision user accounts to iProva.
+title: 'Tutorial: Configure Zenya for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+description: Learn how to configure Azure Active Directory to automatically provision and de-provision user accounts to Zenya.
 services: active-directory
 author: twimmers
 writer: twimmers
@@ -13,21 +13,20 @@ ms.date: 10/29/2019
 ms.author: thwimmer
 ---
 
-# Tutorial: Configure iProva for automatic user provisioning
+# Tutorial: Configure Zenya for automatic user provisioning
 
-The objective of this tutorial is to demonstrate the steps to be performed in iProva and Azure Active Directory (Azure AD) to configure Azure AD to automatically provision and de-provision users and/or groups to [iProva](https://www.iProva.com/). For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../app-provisioning/user-provisioning.md). Before you attempt to use this tutorial, be sure that you know and meet all requirements. If you have questions, please contact Infoland.
+The objective of this tutorial is to demonstrate the steps to be performed in Zenya and Azure Active Directory (Azure AD) to configure Azure AD to automatically provision and de-provision users and/or groups to [Zenya](https://www.infoland.nl/). For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../app-provisioning/user-provisioning.md). Before you attempt to use this tutorial, be sure that you know and meet all requirements. If you have questions, please contact Infoland.
 
 > [!NOTE]
 > This connector is currently in Public Preview. For more information on the general Microsoft Azure terms of use for Preview features, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 
 ## Capabilities supported
-> [!div class="checklist"]
-> * Create users in iProva
-> * Remove/disable users in iProva when they do not require access anymore
-> * Keep user attributes synchronized between Azure AD and iProva
-> * Provision groups and group memberships in iProva
-> * [Single sign-on](./iprova-tutorial.md) to iProva (recommended)
+> * Create users in Zenya
+> * Remove/disable users in Zenya when they do not require access anymore
+> * Keep user attributes synchronized between Azure AD and Zenya
+> * Provision groups and group memberships in Zenya
+> * [Single sign-on](./zenya-tutorial.md) to Zenya (recommended)
 
 ## Prerequisites
 
@@ -35,37 +34,37 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 * [An Azure AD tenant](../develop/quickstart-create-new-tenant.md).
 * A user account in Azure AD with [permission](../roles/permissions-reference.md) to configure provisioning (e.g. Application Administrator, Cloud Application administrator, Application Owner, or Global Administrator).
-* [An iProva tenant](https://www.iProva.com/).
-* A user account in iProva with Admin permissions.
+* [A Zenya tenant](https://www.infoland.nl/).
+* A user account in Zenya with admin permissions.
 
 ## Step 1. Plan your provisioning deployment
 1. Learn about [how the provisioning service works](../app-provisioning/user-provisioning.md).
 2. Determine who will be in [scope for provisioning](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
-3. Determine what data to [map between Azure AD and iProva](../app-provisioning/customize-application-attributes.md). 
+3. Determine what data to [map between Azure AD and Zenya](../app-provisioning/customize-application-attributes.md). 
 
-## Step 2. Configure iProva to support provisioning with Azure AD
+## Step 2. Configure Zenya to support provisioning with Azure AD
 
-1. Sign in to your [iProva Admin Console](https://www.iProva.com/). Navigate to **Go to > Application Management**.
+1. Sign in to your [Zenya Admin Console](https://www.infoland.nl/). Navigate to **Go to > Application Management**.
 
-	![iProva Admin Console](media/iprova-provisioning-tutorial/admin.png)
+	![Zenya Admin Console](media/zenya-provisioning-tutorial/admin.png)
 
 2.	Click on **External user management**.
 
-	![iProva Add SCIM](media/iprova-provisioning-tutorial/external.png)
+	![Zenya Add SCIM](media/zenya-provisioning-tutorial/external.png)
 
 3. To add a new provider, Click on the **plus** icon. In the new **Add provider** dialog box, provide a **Title**. You can choose to add **IP-based access restriction**. Click on **OK** button.
 
-	![iProva add new](media/iprova-provisioning-tutorial/add.png)
+	![Zenya add new](media/zenya-provisioning-tutorial/add.png)
 
-	![iProva add provider](media/iprova-provisioning-tutorial/addprovider.png)
+	![Zenya add provider](media/zenya-provisioning-tutorial/addprovider.png)
 
-4.	Click on **Permanent token** button. Copy the **Permanent token** and save it as this will be the only time you can view it. This value will be entered in the Secret Token field in the Provisioning tab of your iProva application in the Azure portal.
+4.	Click on **Permanent token** button. Copy the **Permanent token** and save it as this will be the only time you can view it. This value will be entered in the Secret Token field in the Provisioning tab of your Zenya application in the Azure portal.
 
-	![iProva Create Token](media/iprova-provisioning-tutorial/token.png)
+	![Zenya Create Token](media/zenya-provisioning-tutorial/token.png)
 
-## Step 3. Add iProva from the Azure AD application gallery
+## Step 3. Add Zenya from the Azure AD application gallery
 
-Add iProva from the Azure AD application gallery to start managing provisioning to iProva. If you have previously setup iProva for SSO you can use the same application. However it is recommended that you create a separate app when testing out the integration initially. Learn more about adding an application from the gallery [here](../manage-apps/add-application-portal.md). 
+Add Zenya from the Azure AD application gallery to start managing provisioning to Zenya. If you have previously setup Zenya for SSO you can use the same application. However it is recommended that you create a separate app when testing out the integration initially. Learn more about adding an application from the gallery [here](../manage-apps/add-application-portal.md). 
 
 ## Step 4. Define who will be in scope for provisioning 
 
@@ -75,19 +74,21 @@ The Azure AD provisioning service allows you to scope who will be provisioned ba
 
 * If you need additional roles, you can [update the application manifest](../develop/howto-add-app-roles-in-azure-ad-apps.md) to add new roles.
 
-## Step 5. Configure automatic user provisioning to iProva 
+## Step 5. Configure automatic user provisioning to Zenya 
 
-This section guides you through the steps to configure the Azure AD provisioning service to create, update, and disable users and/or groups in iProva based on user and/or group assignments in Azure AD.
+This section guides you through the steps to configure the Azure AD provisioning service to create, update, and disable users and/or groups in Zenya based on user and/or group assignments in Azure AD.
 
-### To configure automatic user provisioning for iProva in Azure AD:
+For additional info (in dutch) also read: [Implementatie SCIM koppeling](https://webshare.iprova.nl/8my7yg8c1ofsmdj9/Document.aspx)
+
+### To configure automatic user provisioning for Zenya in Azure AD:
 
 1. Sign in to the [Azure portal](https://portal.azure.com). Select **Enterprise Applications**, then select **All applications**.
 
 	![Enterprise applications blade](common/enterprise-applications.png)
 
-2. In the applications list, select **iProva**.
+2. In the applications list, select **Zenya**.
 
-	![The iProva link in the Applications list](common/all-applications.png)
+	![The Zenya link in the Applications list](media/zenya-provisioning-tutorial/browse-application.png)
 
 3. Select the **Provisioning** tab.
 
@@ -97,7 +98,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	![Screenshot of the Provisioning Mode dropdown list with the Automatic option called out.](common/provisioning-automatic.png)
 
-5. In the **Admin Credentials** section, input the **SCIM 2.0 base URL and Permanent Token** values retrieved earlier in the **Tenant URL** and add /scim/ to it. Also add the  **Secret Token**. You can generate a secret token in iProva by using the **permanent token** button. Click **Test Connection** to ensure Azure AD can connect to iProva. If the connection fails, ensure your iProva account has Admin permissions and try again. 
+5. In the **Admin Credentials** section, input the **SCIM 2.0 base URL and Permanent Token** values retrieved earlier in the **Tenant URL** and add /scim/ to it. Also add the  **Secret Token**. You can generate a secret token in Zenya by using the **permanent token** button. Click **Test Connection** to ensure Azure AD can connect to Zenya. If the connection fails, ensure your Zenya account has Admin permissions and try again. 
 
 	![Tenant URL + Token](common/provisioning-testconnection-tenanturltoken.png)
 
@@ -107,9 +108,9 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 7. Click **Save**.
 
-8. Under the **Mappings** section, select **Synchronize Azure Active Directory Users to iProva**.
+8. Under the **Mappings** section, select **Synchronize Azure Active Directory Users to Zenya**.
 
-9. Review the user attributes that are synchronized from Azure AD to iProva in the **Attribute Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in iProva for update operations. Select the **Save** button to commit any changes.
+9. Review the user attributes that are synchronized from Azure AD to Zenya in the **Attribute Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in Zenya for update operations. Select the **Save** button to commit any changes.
 
    |Attribute|Type|
    |---|---|
@@ -123,9 +124,9 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 
 
-10. Under the **Mappings** section, select **Synchronize Azure Active Directory Groups to iProva**.
+10. Under the **Mappings** section, select **Synchronize Azure Active Directory Groups to Zenya**.
 
-11. Review the group attributes that are synchronized from Azure AD to iProva in the **Attribute Mapping** section. The attributes selected as **Matching** properties are used to match the groups in iProva for update operations. Select the **Save** button to commit any changes.
+11. Review the group attributes that are synchronized from Azure AD to Zenya in the **Attribute Mapping** section. The attributes selected as **Matching** properties are used to match the groups in Zenya for update operations. Select the **Save** button to commit any changes.
 
       |Attribute|Type|
       |---|---|
@@ -135,11 +136,11 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 12. To configure scoping filters, refer to the following instructions provided in the [Scoping filter tutorial](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-13. To enable the Azure AD provisioning service for iProva, change the **Provisioning Status** to **On** in the **Settings** section.
+13. To enable the Azure AD provisioning service for Zenya, change the **Provisioning Status** to **On** in the **Settings** section.
 
 	![Provisioning Status Toggled On](common/provisioning-toggle-on.png)
 
-14. Define the users and/or groups that you would like to provision to iProva by choosing the desired values in **Scope** in the **Settings** section.
+14. Define the users and/or groups that you would like to provision to Zenya by choosing the desired values in **Scope** in the **Settings** section. Please keep in mind that you will need a P1 or P2 license in order the allow provisioning assigned users and groups. 
 
 	![Provisioning Scope](common/provisioning-scope.png)
 
@@ -165,6 +166,7 @@ Once you've configured provisioning, use the following resources to monitor your
 
 * [Managing user account provisioning for Enterprise Apps](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [Implementatie SCIM koppeling](https://webshare.iprova.nl/8my7yg8c1ofsmdj9/Document.aspx)
 
 ## Next steps
 
