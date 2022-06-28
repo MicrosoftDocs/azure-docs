@@ -34,6 +34,5 @@ For more information about web apps discovery please refer to:
 - [Discover web apps and SQL Server instances](../migrate/how-to-discover-sql-existing-project.md)
 
 
-## Next steps
-
+Next steps:
 [At-scale assessment of .NET web apps](/learn/modules/migrate-app-service-migration-assistant/)

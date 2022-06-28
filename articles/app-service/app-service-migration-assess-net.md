@@ -28,6 +28,5 @@ For more information on web apps assessment, see:
 - [Assessment best practices in Azure Migrate Discovery and assessment tool](../migrate/best-practices-assessment.md)
 
 
-## Next steps
-
+Next steps:
 [At-scale migration of .NET web apps](/learn/modules/migrate-app-service-migration-assistant/)

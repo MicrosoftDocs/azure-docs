@@ -26,14 +26,14 @@ Azure Migrate recently announced at-scale, agentless discovery, and assessment o
 
 Once you have successfully assessed readiness, you should proceed with migration of ASP.NET web apps to Azure App Services.  
 
-There are existing tools which enable migration of a standalone ASP.Net web app or multiple ASP.NET web apps hosted on a single IIS server as explained in [Migrate .NET apps to Azure App Service](../migrate/tutorial-migrate-webapps.md). With introduction of At-Scale or bulk migration feature integrated with Azure Migrate we are now opening up the possibilities to migrate multiple ASP.Net application hosted on multiple on-premises IIS servers.  
+There are existing tools which enable migration of a standalone ASP.Net web app or multiple ASP.NET web apps hosted on a single IIS server as explained in [Migrate .NET apps to Azure App Service](../migrate/tutorial-migrate-webapps.md). With introduction of At-Scale or bulk migration feature integrated with Azure Migrate we are now opening up the possibilities to migrate multiple ASP.NET application hosted on multiple on-premises IIS servers.  
 
 Azure Migrate provides at-scale, agentless discovery, and assessment of ASP.NET web apps. You can discover ASP.NET web apps running on Internet Information Services (IIS) servers in a VMware environment and assess them for migration to Azure App Service. Assessments will help you determine the web app migration readiness, migration blockers, remediation guidance, recommended SKU, and hosting costs. At-scale migration resources for  are found below.
 
 Bulk migration provides the following key capabilities: 
 
 - Bulk Migration of ASP.NET web apps to Azure App Services multitenant or App services environment 
-- Migrate ASP.Net web apps assessed as "Ready" & "Ready with Conditions"
+- Migrate ASP.NET web apps assessed as "Ready" & "Ready with Conditions"
 - Migrate up to five App Service Plans (and associated web apps) as part of a single E2E migration flow 
 - Ability to change suggested SKU for the target App Service Plan (Ex: Change suggested Pv3 SKU to Standard PV2 SKU) 
 - Ability to change web apps suggested web apps packing density for target app service plan (Add or Remove web apps associated with an App Service Plan) 
