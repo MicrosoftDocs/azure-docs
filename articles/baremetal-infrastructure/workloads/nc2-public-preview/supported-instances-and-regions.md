@@ -1,12 +1,14 @@
 ---
 title: Supported instances and regions
-description: Identifies instances and regions supported for Public Preview
+description: Learn about instances and regions supported for Public Preview.
 ms.topic: how-to
 ms.subservice:  
 ms.date: 03/31/2021
 ---
 
 # Supported instances and regions
+
+Learn about instances and regions supported for Public Preview.
 
 ## Supported instances
 

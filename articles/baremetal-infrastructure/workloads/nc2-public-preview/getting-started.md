@@ -1,6 +1,6 @@
 ---
 title: Getting started
-description: How to get started with NC2 on Azure Public Preview
+description: Learn how to sign up, set up, and use NC2 on Azure Public Preview.
 ms.topic: conceptual
 ms.subservice: baremetal-nutanix
 ms.date: 07/01/2021
@@ -8,13 +8,15 @@ ms.date: 07/01/2021
 
 # Getting started with NC2 on Azure
 
+Learn how to sign up, set up, and use NC2 on Azure Public Preview.
+
 ## Sign up for the Public Preview
 
 Once you've satisfied the [requirements](requirements.md), go to [Nutanix Cloud Clusters
 on Azure Deployment
 and User Guide](https://download.nutanix.com/documentation/hosted/Nutanix-Cloud-Clusters-Azure.pdf) to sign up for the Preview.
 
-## Setup NC2 on Azure
+## Set up NC2 on Azure
 
 To set up NC2 on Azure, go to [Nutanix Cloud Clusters
 on Azure Deployment and User Guide](https://download.nutanix.com/documentation/hosted/Nutanix-Cloud-Clusters-Azure.pdf).

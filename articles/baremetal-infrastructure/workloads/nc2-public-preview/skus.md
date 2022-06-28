@@ -1,6 +1,6 @@
 ---
 title: SKUs
-description: SKUs available for NC2 on Azure
+description: Describes SKU options for NC2 on Azure Public Preview, including core, RAM, storage, and network.
 ms.topic: conceptual
 ms.subservice: baremetal-nutanix
 ms.date: 07/01/2021

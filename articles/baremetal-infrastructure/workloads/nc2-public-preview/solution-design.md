@@ -1,12 +1,14 @@
 ---
 title: Solution design
-description: Topologies for NC2 on Azure
+description: Learn about topologies and constraints for NC2 on Azure Public Preview. 
 ms.topic: conceptual
 ms.subservice:  
 ms.date: 07/01/2022
 ---
 
 # Solution design
+
+This article identifies topologies and constraints for NC2 on Azure Public Preview. 
 
 ## Supported topologies
 

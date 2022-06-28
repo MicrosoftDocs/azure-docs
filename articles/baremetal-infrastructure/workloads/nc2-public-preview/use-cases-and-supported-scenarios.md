@@ -1,6 +1,6 @@
 ---
 title: Use cases and supported scenarios
-description: Learn about use cases and supported scenarios for NC2 on Azure. 
+description: Learn about use cases and supported scenarios for NC2 on Azure, including cluster management, disaster recovery, on-demand elasticity, and lift-and-shift. 
 ms.topic: conceptual
 ms.subservice:  
 ms.date: 07/01/2022
@@ -8,10 +8,12 @@ ms.date: 07/01/2022
 
 # Use cases and supported scenarios
 
+ Learn about use cases and supported scenarios for NC2 on Azure, including cluster management, disaster recovery, on-demand elasticity, and lift-and-shift. 
+
 ## Unified management experience - cluster management
 
-That operations and cluster management be nearly identical to on-premises is critical to customers. 
-Customers can update capacity, monitor alerts, replace hosts, monitor usage, and more by combining the power of microsoft and nutanix.
+That operations and cluster management be nearly identical to on-premises is critical to customers.
+Customers can update capacity, monitor alerts, replace hosts, monitor usage, and more by combining the respective strengths of Microsoft and Nutanix.
 
 ## Disaster Recovery
 
