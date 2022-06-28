@@ -3,7 +3,7 @@ title: Use Container Storage Interface (CSI) driver for Azure Blob storage on Az
 description: Learn how to use the Container Storage Interface (CSI) driver for Azure Blob storage (preview) in an Azure Kubernetes Service (AKS) cluster.
 services: container-service
 ms.topic: article
-ms.date: 06/24/2021
+ms.date: 06/28/2021
 author: mgoedtel
 
 ---
@@ -92,7 +92,7 @@ You're prompted to confirm there isn't an open-source Blob CSI driver installed.
     },
 ```
 
-## Disable CSI driver on a new or existing AKS cluster
+## Disable CSI driver on an existing AKS cluster
 
 Using the Azure CLI, you can disable the Blob storage CSI driver on an existing AKS cluster after you remove the persistent volume from the cluster.
 
@@ -120,6 +120,14 @@ A storage class is used to define how an Azure Blob storage container is created
 When you use storage CSI drivers on AKS, there are two additional built-in StorageClasses that use the Azure Blob CSI storage driver (preview).
 
 The reclaim policy on both storage classes ensures that the underlying Azure Blob storage is deleted when the respective PV is deleted. The storage classes also configure the container to be expandable by default, as the `set allowVolumeExpansion` parameter is set to **true**.
+
+Use the [kubectl get sc][kublet-get] command to see the storage classes. The following example shows the `blob-fuse` and `blob-nfs` storage classes available within an AKS cluster:
+
+```bash
+NAME                    PROVISIONER          RECLAIMPOLICY   VOLUMEBINDINGMODE      ALLOWVOLUMEEXPANSION   AGE
+blob-fuse               blob.csi.azure.com   Delete          Immediate              true                   23h
+blob-nfs                blob.csi.azure.com   Delete          Immediate              true                   23h
+```
 
 To use these storage classes, create a PVC and respective pod that references and uses them. A PVC is used to automatically provision storage based on a storage class. A PVC can use one of the pre-created storage classes or a user-defined storage class to create an Azure Blob storage container for the desired SKU, size, and protocol to communicate with it. When you create a pod definition, the PVC is specified to request the desired storage.
 

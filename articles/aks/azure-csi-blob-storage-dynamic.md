@@ -4,7 +4,7 @@ titleSuffix: Azure Kubernetes Service
 description: Learn how to dynamically create a persistent volume with Azure Blob storage for use with multiple concurrent pods in Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
-ms.date: 06/24/2022
+ms.date: 06/27/2022
 
 ---
 
@@ -49,9 +49,9 @@ If you don't have a storage account that supports the NFS v3 protocol, see [Use 
 
 ## Create a persistent volume claim
 
-A persistent volume claim (PVC) uses the storage class object to dynamically provision an Azure Blob storage container. The following YAML can be used to create a persistent volume claim 100 GB in size with *ReadWriteMany* access. For more information on access modes, see the [Kubernetes persistent volume][kubernetes-volumes] documentation.
+A persistent volume claim (PVC) uses the storage class object to dynamically provision an Azure Blob storage container. The following YAML can be used to create a persistent volume claim 5 GB in size with *ReadWriteMany* access. For more information on access modes, see the [Kubernetes persistent volume][kubernetes-volumes] documentation.
 
-1. Create a file named `azure-blob-nfs-pvc.yaml` and copy in the following YAML. Make sure that the *storageClassName* matches the storage class created in the previous step:
+1. Create a file named `azure-blob-nfs-pvc.yaml` and copy in the following YAML.
 
     ```yml
     apiVersion: v1
