@@ -66,6 +66,11 @@ To enable this Event Hubs namespace, you can follow these steps:
 1. Select **Managed Resources** under settings on your Microsoft Purview account page in the Azure Portal.
     :::image type="content" source="media/concept-best-practices/enable-disable-event-hubs.png" alt-text="Screenshot showing the Event Hubs namespace toggle highlighted on the Managed resources page of the Microsoft Purview account page in the Azure Portal.":::
 1. Select the Enable/Disable toggle to enable your Event Hubs namespace. It can be disabled at any time.
+1. Select **Save** to save the choice and begin the enablement or disablement process. This can take several minutes to complete.
+    :::image type="content" source="media/concept-best-practices/select-save.png" alt-text="Screenshot showing the Managed resources page of the Microsoft Purview account page in the Azure Portal with the save button highlighted.":::
+
+>[!NOTE]
+>Enabling this Event Hubs namespace does incur a cost for the namespace. For specific details, see [the pricing page](https://azure.microsoft.com/en-us/pricing/details/purview/).
 
 
 Once the namespace is enabled, Microsoft Purview events can be monitored by consuming messages from the event hub. External systems can also use the event hub to publish events to Microsoft Purview as they occur.
