@@ -82,8 +82,8 @@ This tool accepts different formats, with the only requirement that they contain
 
 Once you've prepared your dataset, you can upload your files to the service. We offer two ways to do this:
 
-1. [From a local file](../reference.md#postfiles)
-1. [Import from an Azure Blob store or other web location](../reference.md#ImportFileID)
+1. [From a local file](../reference.md#upload-a-file)
+1. [Import from an Azure Blob store or other web location](../reference.md#import-a-file-from-Azure-Blob)
 
 For large data files, we recommend you import from Azure Blob. Large files can become unstable when uploaded through multipart forms because the requests are atomic and can't be retried or resumed.
 
@@ -181,7 +181,7 @@ After you've started a fine-tune job, it may take some time to complete. Your jo
 
 ## Deploy a customized model
 
-When a job has succeeded, the **fine_tuned_model** field will be populated with the name of the model. Your model will also be available in the [list Models API](../reference.md#GetModels). You must now deploy your model so that you can run completions calls. You can do this either using the Management APIs or using the deployment APIs. We'll show you both options below.
+When a job has succeeded, the **fine_tuned_model** field will be populated with the name of the model. Your model will also be available in the [list Models API](../reference.md#list-all-available-models). You must now deploy your model so that you can run completions calls. You can do this either using the Management APIs or using the deployment APIs. We'll show you both options below.
 
 ### Deploy a model with the service APIs
 
@@ -234,7 +234,7 @@ When you're done with your fine-tuned model, you can delete the deployment and f
 
 ### Delete your model deployment
 
-To delete a deployment, you can use the [Azure CLI](/cli/azure/cognitiveservices/account/deployment?view=azure-cli-latest#az-cognitiveservices-account-deployment-delete), Azure OpenAI Studio or [REST APIs](../reference.md#DeleteDeployment). here's an example of how to delete your deployment with the Azure CLI:
+To delete a deployment, you can use the [Azure CLI](/cli/azure/cognitiveservices/account/deployment?view=azure-cli-latest#az-cognitiveservices-account-deployment-delete), Azure OpenAI Studio or [REST APIs](../reference.md#delete-a-deployment). here's an example of how to delete your deployment with the Azure CLI:
 
 ```console
 az cognitiveservices account deployment delete --name
