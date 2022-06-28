@@ -23,7 +23,7 @@ Azure Cognitive Service for Language is updated on an ongoing basis. To stay up-
     * [Python](https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-language-conversations_1.0.0/sdk/cognitivelanguage/azure-ai-language-conversations)
 * v1.1.0b1 client library for [conversation summarization](summarization/quickstart.md?tabs=conversation-summarization&pivots=programming-language-python) is available as a preview for:
     * [Python](https://github.com/Azure/azure-sdk-for-python/blob/azure-ai-language-conversations_1.1.0b1/sdk/cognitivelanguage/azure-ai-language-conversations/samples/README.md)
-
+* New endpoint URL format for Language service features. See the quickstart guide for the [available features](./overview.md#available-features) you wish to use, and the [reference documentation](/rest/api/language/) for information on structuring your API calls. 
 
 ## May 2022
 
