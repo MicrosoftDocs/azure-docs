@@ -1880,6 +1880,8 @@
         href: rolepoint-tutorial.md
       - name: Rollbar
         href: rollbar-tutorial.md
+      - name: Rootly
+        href: rootly-tutorial.md
       - name: RunMyProcess
         href: runmyprocess-tutorial.md
     - name: S
