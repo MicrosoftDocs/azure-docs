@@ -390,15 +390,17 @@ After the analytical store is enabled, based on the data retention needs of the 
 
 ## Resilience
 
-Analytical store relies on Azure Storage and offers the following protection for your data:
+Analytical store relies on Azure Storage and offers the following protection against physical failure:
 
  * Single region Azure Cosmos DB database accounts allocate analytical store in Locally Redundant Storage (LRS) Azure Storage accounts.
  * If any geo-region replication is configured for the Azure Cosmos DB database account, analytical store is allocated in Zone-Redundant Storage (ZRS) Azure storage accounts.
 
 ## Backup
 
-Your data in analytical store has Azure store protection against physical failures, but backup can be necessary for accidental deletes or updates in transactional store. In those cases, you can restore a container and rebuild analytical store if necessary. Currently analytical store doesn't support backup and restore, and your backup policy can't be planned relying on that. 
+Although analytical store has built-in protection against physical failures, backup can be necessary for accidental deletes or updates in transactional store. In those cases, you can restore a container and use the restored container to backfill the data in the original container, or fully rebuild analytical store if necessary. 
 
+> [!NOTE]
+> Currently analytical store isn't backuped and can't be restored, and your backup policy can't be planned relying on that. 
 
 Synapse Link, and analytical store by consequence, has different compatibility level with Azure Cosmos DB backup modes:
 
@@ -407,15 +409,30 @@ Synapse Link, and analytical store by consequence, has different compatibility l
 * Currently database accounts with continuous backup mode enabled can enable Synapse Link through a support case.
 * Currently new database accounts can be created with continous backup mode and Synapse Link enabled, using Azure CLI or PowerShell. Those two features must be turned on at the same time, in the exact same command that creates the database account.
 
-The original container is restored without analytical store in both backup modes.
+### Backup Polices
 
- #### Restore a container and fully rebuild analytical store when TTTL >= ATTL
+There two possible backup polices and to understand how it works, two details about Cosmos DB backups are very important:
+
+ * The original container is restored without analytical store in both backup modes.
+ * Cosmos DB doesn't support containers overwrite from a restore.
+
+Now let's see how to use backup and restores from the analytical store perspective.
+
+ #### Restoring a container with TTTL >= ATTL
  
- When `transactional TTL` is equal or bigger than `analytical TTL`, all data in analytical store still exists in transactional store. To rebuild analytical store, just enable Synapse Link at account level and container level.
+ When `transactional TTL` is equal or bigger than `analytical TTL`, all data in analytical store still exists in transactional store. In case of a restore, you have two possible situations:
+ * To use the restored container as a replacement for the original container. To rebuild analytical store, just enable Synapse Link at account level and container level.
+ * To use the restored container as a data source to backfill or update the data in the original container. In this case, analytical store will automatically reflect the data operations.
  
- #### Restore a container and partially rebuild analytical store when TTTL < ATTL
+ #### Restoring a container with TTTL < ATTL
  
-When `transactional TTL` is smaller than `analytical TTL`, some data only exists in analytical store. This data will remain available for queries as long as the original container exists. Analytical store is only deleted when you delete the container. Your analytical queries in Azure Synapse Analytics can read data from both original and restored container's analytical stores. Example:
+When `transactional TTL` is smaller than `analytical TTL`, some data only exists in analytical store and won't be in the restored container. Again your have two possible situations:
+ * To use the restored container as a replacement for the original container. In this case, when you enable Synapse Link at container level, only the data that was in transactional store will be included in the new analytical store. But please note that the analytical store of the original container remains available for queries as long as the original container exists. You may want to change your application to query both.
+ * To use the restored container as a data source to backfill or update the data in the original container:
+  * Analytical store will automatically reflect the data operations for the data that is in transactional store.
+  * If you re-insert data that was previously removed from transactional store due to `transactional TTL`, this data will be duplicated in analytical store.
+
+Example:
 
  * Container `OnlineOrders` has TTTL set to one month and ATTL set for one year.
  * When you restore it to `OnlineOrdersNew` and turn on analytical store to rebuild it, there will be only one month of data in both transactional and analytical store.
