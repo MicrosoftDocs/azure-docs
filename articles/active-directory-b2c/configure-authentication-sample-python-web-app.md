@@ -131,10 +131,28 @@ CLIENT_SECRET = "xxxxxxxxxxxxxxxxxxxxxxxx" # Placeholder - for use ONLY during t
     ```
 1. Install the required packages from PyPi and run the web app on your local machine by running the following commands:
 
-    ```console
-    pip install -r requirements.txt
-    flask run --host localhost --port 5000
+    # [Linux](#tab/linux)    
+
+    ```bash
+    python -m pip install -r requirements.txt
+    python -m flask run --host localhost --port 5000
     ```
+    
+    # [macOS](#tab/macos)
+    
+    ```bash
+    python -m pip install -r requirements.txt
+    python -m flask run --host localhost --port 5000
+    ```
+    
+    # [Windows](#tab/windows)
+    
+    ```bash
+    py -m pip install -r requirements.txt
+    py -m flask run --host localhost --port 5000
+    ```
+    
+    ---
 
     The console window displays the port number of the locally running application:
 
