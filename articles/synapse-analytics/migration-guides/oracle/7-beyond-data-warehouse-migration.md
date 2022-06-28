@@ -250,7 +250,7 @@ You can also use Azure Machine Learning to build machine learning pipelines that
 
 #### Azure Synapse Spark pool notebooks
 
-A [Azure Synapse Spark pool notebook](../../spark/apache-spark-development-using-notebooks.md) is an Azure-optimized Apache Spark service. With Azure Synapse Spark pool notebooks:
+An [Azure Synapse Spark pool notebook](../../spark/apache-spark-development-using-notebooks.md) is an Azure-optimized Apache Spark service. With Azure Synapse Spark pool notebooks:
 
 - Data engineers can build and run scalable data preparation jobs using Data Factory.
 
