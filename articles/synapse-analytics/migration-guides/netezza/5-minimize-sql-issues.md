@@ -9,7 +9,7 @@ ms.topic: conceptual
 author: ajagadish-24
 ms.author: ajagadish
 ms.reviewer: wiassaf
-ms.date: 05/24/2022
+ms.date: 05/31/2022
 ---
 
 # Minimize SQL issues for Netezza migrations
@@ -54,18 +54,18 @@ By creating metadata to list the data tables to be migrated and their location, 
 > [!TIP]
 > SQL DDL commands `CREATE TABLE` and `CREATE VIEW` have standard core elements but are also used to define implementation-specific options.
 
-The ANSI SQL standard defines the basic syntax for DDL commands such as `CREATE TABLE` and `CREATE VIEW`. These commands are used within both Netezza and Azure Synapse, but they've also been extended to allow definition of implementation-specific features such as indexing, table distribution and partitioning options.
+The ANSI SQL standard defines the basic syntax for DDL commands such as `CREATE TABLE` and `CREATE VIEW`. These commands are used within both Netezza and Azure Synapse, but they've also been extended to allow definition of implementation-specific features such as indexing, table distribution, and partitioning options.
 
-The following sections discuss  Netezza-specific options to consider during a migration to Azure Synapse.
+The following sections discuss Netezza-specific options to consider during a migration to Azure Synapse.
 
 ### Table considerations
 
 > [!TIP]
 > Use existing indexes to give an indication of candidates for indexing in the migrated warehouse.
 
-When migrating tables between different technologies, only the raw data and its descriptive metadata gets physically moved between the two environments. Other database elements from the source system, such as indexes and log files, aren't directly migrated as these may not be needed or may be implemented differently within the new target environment. For example, the `TEMPORARY` option within Netezza's `CREATE TABLE` syntax is equivalent to prefixing the table name with a "#" character in Azure Synapse.
+When migrating tables between different technologies, only the raw data and its descriptive metadata get physically moved between the two environments. Other database elements from the source system, such as indexes and log files, aren't directly migrated as these may not be needed or may be implemented differently within the new target environment. For example, the `TEMPORARY` option within Netezza's `CREATE TABLE` syntax is equivalent to prefixing the table name with a "#" character in Azure Synapse.
 
-It's important to understand where performance optimizations&mdash;such as indexes&mdash;were used in the source environment. This indicates where performance optimization can be added in the new target environment. For example, if zone maps were created in the source Netezza environment, this might indicate that a non-clustered index should be created in the migrated Azure Synapse. Other native performance optimization techniques, such as table replication, may be more applicable than a straight 'like for like' index creation.
+It's important to understand where performance optimizations&mdash;such as indexes&mdash;were used in the source environment. This indicates where performance optimization can be added in the new target environment. For example, if zone maps were created in the source Netezza environment, this might indicate that a non-clustered index should be created in the migrated Azure Synapse database. Other native performance optimization techniques, such as table replication, may be more applicable than a straight "like-for-like" index creation.
 
 ### Unsupported Netezza database object types
 
@@ -74,14 +74,14 @@ It's important to understand where performance optimizations&mdash;such as index
 
 Netezza implements some database objects that aren't directly supported in Azure Synapse, but there are methods to achieve the same functionality within the new environment:
 
-- Zone Maps: In Netezza, zone maps are automatically created and maintained for some column types and are used at query time to restrict the amount of data to be scanned. Zone Maps are created on the following column types:
+- Zone maps: in Netezza, zone maps are automatically created and maintained for some column types and are used at query time to restrict the amount of data to be scanned. Zone maps are created on the following column types:
   - `INTEGER` columns of length 8 bytes or less.
   - Temporal columns. For instance, `DATE`, `TIME`, and `TIMESTAMP`.
   - `CHAR` columns, if these are part of a materialized view and mentioned in the `ORDER BY` clause.
 
   You can find out which columns have zone maps by using the `nz_zonemap` utility, which is part of the NZ Toolkit. Azure Synapse doesn't include zone maps, but you can achieve similar results by using other user-defined index types and/or partitioning.
 
-- Clustered Base tables (CBT): In Netezza, CBTs are commonly used for fact tables, which can have billions of records. Scanning such a huge table requires a lot of processing time, since a full table scan might be needed to get relevant records. Organizing records on restrictive CBT via allows Netezza to group records in same or nearby extents. This process also creates zone maps that improve the performance by reducing the amount of data to be scanned.
+- Clustered base tables (CBT): in Netezza, CBTs are commonly used for fact tables, which can have billions of records. Scanning such a huge table requires a lot of processing time, since a full table scan might be needed to get relevant records. Organizing records on restrictive CBT allows Netezza to group records in same or nearby extents. This process also creates zone maps that improve the performance by reducing the amount of data to be scanned.
 
   In Azure Synapse, you can achieve a similar effect by use of partitioning and/or use of other indexes.
 
@@ -104,19 +104,19 @@ Most Netezza data types have a direct equivalent in Azure Synapse. The following
 | BYTEINT                        | TINYINT                             |
 | CHARACTER VARYING(n)           | VARCHAR(n)                          |
 | CHARACTER(n)                   | CHAR(n)                             |
-| DATE                           | DATE(DATE                           |
+| DATE                           | DATE(date)                          |
 | DECIMAL(p,s)                   | DECIMAL(p,s)                        |
 | DOUBLE PRECISION               | FLOAT                               |
 | FLOAT(n)                       | FLOAT(n)                            |
 | INTEGER                        | INT                                 |
-| INTERVAL                       | INTERVAL data types aren't currently directly supported in Azure Synapse but can be calculated using temporal functions such as DATEDIFF |
+| INTERVAL                       | INTERVAL data types aren't currently directly supported in Azure Synapse but can be calculated using temporal functions such as DATEDIFF. |
 | MONEY                          | MONEY                               |
 | NATIONAL CHARACTER VARYING(n)  | NVARCHAR(n)                         |
 | NATIONAL CHARACTER(n)          | NCHAR(n)                            |
 | NUMERIC(p,s)                   | NUMERIC(p,s)                        |
 | REAL                           | REAL                                |
 | SMALLINT                       | SMALLINT                            |
-| ST_GEOMETRY(n)                 | Spatial data types such as ST_GEOMETRY aren't currently supported in Azure Synapse, but the data could be stored as VARCHAR or VARBINARY |
+| ST_GEOMETRY(n)                 | Spatial data types such as ST_GEOMETRY aren't currently supported in Azure Synapse, but the data could be stored as VARCHAR or VARBINARY. |
 | TIME                           | TIME                                |
 | TIME WITH TIME ZONE            | DATETIMEOFFSET                      |
 | TIMESTAMP                      | DATETIME                            |
@@ -124,7 +124,7 @@ Most Netezza data types have a direct equivalent in Azure Synapse. The following
 ### Data Definition Language (DDL) generation
 
 > [!TIP]
-> Use existing Netezza metadata to automate the generation of `CREATE TABLE` and `CREATE VIEW DDL` for Azure Synapse.
+> Use existing Netezza metadata to automate the generation of `CREATE TABLE` and `CREATE VIEW` DDL for Azure Synapse.
 
 Edit existing Netezza `CREATE TABLE` and `CREATE VIEW` scripts to create the equivalent definitions with modified data types as described previously if necessary. Typically, this involves removing or modifying any extra Netezza-specific clauses such as `ORGANIZE ON`.
 
@@ -142,7 +142,7 @@ There are [Microsoft partners](../../partner/data-integration.md) who offer tool
 ### SQL Data Manipulation Language (DML)
 
 > [!TIP]
-> SQL DML commands `SELECT`, `INSERT` and `UPDATE` have standard core elements but may also implement different syntax options.
+> SQL DML commands `SELECT`, `INSERT`, and `UPDATE` have standard core elements but may also implement different syntax options.
 
 The ANSI SQL standard defines the basic syntax for DML commands such as `SELECT`, `INSERT`, `UPDATE`, and `DELETE`. Both Netezza and Azure Synapse use these commands, but in some cases there are implementation differences.
 
@@ -150,9 +150,9 @@ The following sections discuss the Netezza-specific DML commands that you should
 
 ### SQL DML syntax differences
 
-Be aware of these differences in SQL DML syntax between Netezza SQL and Azure Synapse when migrating:
+Be aware of these differences in SQL Data Manipulation Language (DML) syntax between Netezza SQL and Azure Synapse when migrating:
 
-- `STRPOS`: In Netezza, the `STRPOS` function returns the position of a substring within a string. The equivalent function in Azure Synapse is `CHARINDEX`, with the order of the arguments reversed. For example, `SELECT STRPOS('abcdef','def')...` in Netezza is equivalent to `SELECT CHARINDEX('def','abcdef')...` in Azure Synapse.
+- `STRPOS`: in Netezza, the `STRPOS` function returns the position of a substring within a string. The equivalent function in Azure Synapse is `CHARINDEX`, with the order of the arguments reversed. For example, `SELECT STRPOS('abcdef','def')...` in Netezza is equivalent to `SELECT CHARINDEX('def','abcdef')...` in Azure Synapse.
 
 - `AGE`: Netezza supports the `AGE` operator to give the interval between two temporal values, such as timestamps or dates. For example, `SELECT AGE('23-03-1956','01-01-2019') FROM...`. In Azure Synapse, `DATEDIFF` gives the interval. For example, `SELECT DATEDIFF(day, '1956-03-26','2019-01-01') FROM...`. Note the date representation sequence.
 
@@ -184,20 +184,20 @@ As with most database products, Netezza supports system functions and user-defin
 
 Most modern database products allow for procedures to be stored within the database. Netezza provides the NZPLSQL language, which is based on Postgres PL/pgSQL. A stored procedure typically contains SQL statements and some procedural logic, and may return data or a status.
 
-SQL Azure Data Warehouse also supports stored procedures using T-SQL, so if you must migrate stored procedures, recode them accordingly.
+Azure Synapse Analytics also supports stored procedures using T-SQL, so if you must migrate stored procedures, recode them accordingly.
 
 #### Sequences
 
 In Netezza, a sequence is a named database object created via `CREATE SEQUENCE` that can provide the unique value via the `NEXT VALUE FOR` method. Use these to generate unique numbers for use as surrogate key values for primary key values.
 
-In Azure Synapse, there's no `CREATE SEQUENCE`. Sequences are handled using [identity to create surrogate keys](../../sql-data-warehouse/sql-data-warehouse-tables-identity.md) or [managed identity](../../../data-factory/data-factory-service-identity.md?tabs=data-factory) using SQL code to create the next sequence number in a series.
+In Azure Synapse, there's no `CREATE SEQUENCE`. Sequences are handled using [IDENTITY to create surrogate keys](../../sql-data-warehouse/sql-data-warehouse-tables-identity.md) or [managed identity](../../../data-factory/data-factory-service-identity.md?tabs=data-factory) using SQL code to create the next sequence number in a series.
 
 ### Use [EXPLAIN](/sql/t-sql/queries/explain-transact-sql?msclkid=91233fc1cff011ec9dff597671b7ae97) to validate legacy SQL
 
 > [!TIP]
 > Find potential migration issues by using real queries from the existing system query logs.
 
-Capture some representative SQL statements from the legacy query history logs to evaluate legacy Netezza SQL for compatibility with Azure Synapse. Then prefix those queries with `EXPLAIN` and&mdash;assuming a 'like for like' migrated data model in Azure Synapse with the same table and column names&mdash;run those `EXPLAIN` statements in Azure Synapse. Any incompatible SQL will return an error. Use this information to determine the scale of the recoding task. This approach doesn't require data to be loaded into the Azure environment, only that the relevant tables and views have been created.
+Capture some representative SQL statements from the legacy query history logs to evaluate legacy Netezza SQL for compatibility with Azure Synapse. Then prefix those queries with `EXPLAIN` and&mdash;assuming a "like-for-like" migrated data model in Azure Synapse with the same table and column names&mdash;run those `EXPLAIN` statements in Azure Synapse. Any incompatible SQL will return an error. Use this information to determine the scale of the recoding task. This approach doesn't require data to be loaded into the Azure environment, only that the relevant tables and views have been created.
 
 #### IBM Netezza to T-SQL mapping
 

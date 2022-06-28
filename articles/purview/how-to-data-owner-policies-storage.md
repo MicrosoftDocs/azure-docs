@@ -1,5 +1,5 @@
 ---
-title: Access provisioning by data owner to Azure Storage datasets
+title: Access provisioning by data owner to Azure Storage datasets (preview)
 description: Step-by-step guide showing how data owners can create access policies to datasets in Azure Storage
 author: inward-eye
 ms.author: vlrodrig
@@ -7,10 +7,10 @@ ms.service: purview
 ms.subservice: purview-data-policies
 ms.topic: how-to
 ms.custom: references_regions, event-tier1-build-2022
-ms.date: 05/12/2022
+ms.date: 05/27/2022
 ---
 
-# Access provisioning by data owner to Azure Storage datasets (preview)
+# Access provisioning by data owner to Azure Storage datasets (Preview)
 
 [!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
 

@@ -21,7 +21,7 @@ To deploy your model from within the [Language Studio](https://aka.ms/LanguageSt
 3. Select **Create new deployment** to create a new deployment and assign a trained model from the dropdown below. You can also **Overwrite an existing deployment** by selecting this option and select the trained model you want to assign to it from the dropdown below.
 
     > [!NOTE]
-    > Overwriting an existing deployment doesn't require changes to your [Prediction API](https://aka.ms/clu-apis) call but the results you get will be based on the newly assigned model.
+    > Overwriting an existing deployment doesn't require changes to your [Prediction API](https://aka.ms/clu-runtime-api) call but the results you get will be based on the newly assigned model.
     
     :::image type="content" source="../../media/create-deployment-job.png" alt-text="A screenshot showing the screen for adding a new deployment in Language Studio." lightbox="../../media/create-deployment-job.png":::
 

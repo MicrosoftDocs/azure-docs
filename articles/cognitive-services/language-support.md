@@ -20,7 +20,7 @@ These Cognitive Services are language agnostic and don't have limitations based 
 
 * [Anomaly Detector (Preview)](./anomaly-detector/index.yml)
 * [Custom Vision](./custom-vision-service/index.yml)
-* [Face](./face/index.yml)
+* [Face](./computer-vision/index-identity.yml)
 * [Personalizer](./personalizer/index.yml)
 
 ## Vision

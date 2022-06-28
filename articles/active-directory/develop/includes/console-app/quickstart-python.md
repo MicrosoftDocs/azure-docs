@@ -1,6 +1,5 @@
 ---
-title: "Quickstart: Call Microsoft Graph from a Python daemon | Azure"
-titleSuffix: Microsoft identity platform
+title: "Quickstart: Call Microsoft Graph from a Python daemon"
 description: In this quickstart, you learn how a Python process can get an access token and call an API protected by Microsoft identity platform, using the app's own identity
 services: active-directory
 author: jmprieur

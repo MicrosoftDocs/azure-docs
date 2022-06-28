@@ -2,9 +2,8 @@
 title: Resource Manager template samples for VM insights
 description: Sample Azure Resource Manager templates to deploy and configureVM insights.
 ms.topic: sample
-author: bwren
-ms.author: bwren
-ms.date: 05/18/2020
+ms.date: 06/08/2022
+ms.reviewer: Xema Pathak
 
 ---
 
