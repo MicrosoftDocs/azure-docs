@@ -2012,6 +2012,8 @@
         href: servicenow-tutorial.md
       - name: Settling music
         href: settlingmusic-tutorial.md
+      - name: SevOne Network Monitoring System (NMS)
+        href: sevone-network-monitoring-system-tutorial.md
       - name: SharePoint on-premises
         href: sharepoint-on-premises-tutorial.md
       - name: ShareVault
