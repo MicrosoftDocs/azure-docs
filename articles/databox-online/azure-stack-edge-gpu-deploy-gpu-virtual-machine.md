@@ -15,7 +15,7 @@ ms.author: alkohli
 
 # Deploy GPU VMs on your Azure Stack Edge Pro GPU device
 
-[!INCLUDE [applies-to-GPU-and-pro-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-sku.md)]
+[!INCLUDE [applies-to-gpu-pro-pro2-and-pro-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-pro-2-pro-r-sku.md)]
 
 This article how to create a GPU VM in the Azure portal or by using the Azure Resource Manager templates.
 
