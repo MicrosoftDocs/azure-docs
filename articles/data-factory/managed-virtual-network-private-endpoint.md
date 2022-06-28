@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.subservice: integration-runtime
 ms.topic: conceptual
 ms.custom: seo-lt-2019, references_regions, devx-track-azurepowershell
-ms.date: 04/01/2022
+ms.date: 06/24/2022
 ---
 
 # Azure Data Factory managed virtual network
@@ -67,19 +67,27 @@ Only a managed private endpoint in an approved state can send traffic to a speci
 
 ## Interactive authoring
 
-Interactive authoring capabilities are used for functionalities like test connection, browse folder list and table list, get schema, and preview data. You can enable interactive authoring when you create or edit an integration runtime in a Data Factory managed virtual network. The back-end service preallocates the compute for interactive authoring functionalities. Otherwise, the compute is allocated every time any interactive operation is performed, which takes more time.
-
-The Time-To-Live (TTL) for interactive authoring is 60 minutes. This means it will be automatically disabled 60 minutes after the last interactive authoring operation.
+Interactive authoring capabilities are used for functionalities like test connection, browse folder list and table list, get schema, and preview data. You can enable interactive authoring when creating or editing an Azure integration runtime, which is in Azure Data Factory managed virtual network. The backend service will pre-allocate compute for interactive authoring functionalities. Otherwise, the compute will be allocated every time any interactive operation is performed which will take more time. The time to live (TTL) for interactive authoring is 60 minutes by default, which means it will automatically become disabled after 60 minutes of the last interactive authoring operation. You can change the TTL value according to your actual needs.
 
 :::image type="content" source="./media/managed-vnet/interactive-authoring.png" alt-text="Screenshot that shows interactive authoring.":::
 
-## Activity execution time using a managed virtual network
+## Time to live (preview)
 
-By design, an integration runtime in a managed virtual network takes longer queue time than a global integration runtime. One compute node isn't reserved per data factory, so warm-up is required before each activity starts. Warm-up occurs primarily on the virtual network join rather than the integration runtime.
+### Copy activity
 
-For non-Copy activities, including pipeline activity and external activity, there's a 60-minute TTL when you trigger them the first time. Within TTL, the queue time is shorter because the node is already warmed up.
+By default, every copy activity spins up a new compute based upon the configuration in copy activity. With managed virtual network enabled, cold computes start-up time takes a few minutes and data movement can't start until it is complete. If your pipelines contain multiple sequential copy activities or you have a lot of copy activities in foreach loop and can’t run them all in parallel, you can enable a time to live (TTL) value in the Azure integration runtime configuration. Specifying a time to live value and DIU numbers required for the copy activity keeps the corresponding computes alive for a certain period of time after its execution completes. If a new copy activity starts during the TTL time, it will reuse the existing computes and start-up time will be greatly reduced. After the second copy activity completes, the computes will again stay alive for the TTL time.
 
-The Copy activity doesn't have TTL support yet.
+> [!NOTE]
+> Reconfiguring the DIU number will not affect the current copy activity execution. 
+
+### Pipeline and external activity
+
+Unlike copy activity, pipeline and external activity have a default time to live (TTL) of 60 minutes. You can change the default TTL on Azure integration runtime configuration according to your actual needs, but it’s not supported to disable the TTL. 
+
+> [!NOTE]
+> Time to live (TTL) is only applicable to managed virtual network.
+
+:::image type="content" source="./media/managed-vnet/time-to-live-configuration.png" alt-text="Screenshot that shows the TTL configuration.":::
 
 > [!NOTE]
 > The data integration unit (DIU) measure of 2 DIU isn't supported for the Copy activity in a managed virtual network.
@@ -138,28 +146,15 @@ This section discusses limitations and known issues.
 
 ### Supported data sources and services
 
-The following data sources and services have native private endpoint support. They can be connected through private link from a Data Factory managed virtual network:
+The following services have native private endpoint support. They can be connected through private link from a Data Factory managed virtual network:
 
-- Azure Blob Storage (not including storage account V1)
-- Azure Cognitive Search
-- Azure Cosmos DB MongoDB API
-- Azure Cosmos DB SQL API
-- Azure Data Lake Storage Gen2
-- Azure Database for MariaDB
-- Azure Database for MySQL
-- Azure Database for PostgreSQL
-- Azure Files (not including storage account V1)
 - Azure Functions (Premium plan)
 - Azure Key Vault
 - Azure Machine Learning
 - Azure Private Link
 - Microsoft Purview
-- Azure SQL Database
-- Azure SQL Managed Instance (public preview)
-- Azure Synapse Analytics
-- Azure Table Storage (not including storage account V1)
 
-You can access all data sources that are supported by Data Factory through a public network.
+For the support of data sources, you can refer to [connector overview](connector-overview.md). You can access all data sources that are supported by Data Factory through a public network.
 
 > [!NOTE]
 > Because SQL Managed Instance native private endpoint is in private preview, you can access it from a managed virtual network by using Private Link and Azure Load Balancer. For more information, see [Access SQL Managed Instance from a Data Factory managed virtual network using a private endpoint](tutorial-managed-virtual-network-sql-managed-instance.md).

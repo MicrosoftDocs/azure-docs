@@ -2,14 +2,14 @@
 title: Azure Active Directory security operations for devices
 description: Learn to establish baselines, and monitor and report on devices to identity potential security risks with devices.
 services: active-directory
-author: BarbaraSelden
+author: janicericketts
 manager: martinco
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: conceptual
 ms.date: 07/15/2021
-ms.author: baselden
+ms.author: jricketts
 ms.custom: "it-pro, seodec18"
 ms.collection: M365-identity-device-management
 ---

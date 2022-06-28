@@ -273,7 +273,11 @@ Execute the following PowerShell code to download the appropriate version of the
 $osver = [System.Environment]::OSVersion.Version
 
 # Download the appropriate version of the Azure File Sync agent for your OS.
-if ($osver.Equals([System.Version]::new(10, 0, 17763, 0))) {
+if ($osver.Equals([System.Version]::new(10, 0, 20348, 0))) {
+    Invoke-WebRequest `
+        -Uri https://aka.ms/afs/agent/Server2022 `
+        -OutFile "StorageSyncAgent.msi" 
+} elseif ($osver.Equals([System.Version]::new(10, 0, 17763, 0))) {
     Invoke-WebRequest `
         -Uri https://aka.ms/afs/agent/Server2019 `
         -OutFile "StorageSyncAgent.msi" 

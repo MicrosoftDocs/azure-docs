@@ -3,6 +3,7 @@ title: Enable Profiler for Azure App Service apps | Microsoft Docs
 description: Profile live apps on Azure App Service with Application Insights Profiler.
 ms.topic: conceptual
 ms.date: 05/11/2022
+ms.reviewer: jogrima
 ---
 
 # Enable Profiler for Azure App Service apps
@@ -18,7 +19,7 @@ To enable Profiler on Linux, walk through the [ASP.NET Core Azure Linux web apps
 
 ## Pre-requisites
 
-- An [Azure App Services ASP.NET/ASP.NET Core app](/app-service/quickstart-dotnetcore.md).
+- An [Azure App Services ASP.NET/ASP.NET Core app](../../app-service/quickstart-dotnetcore.md).
 - [Application Insights resource](../app/create-new-resource.md) connected to your App Service app. 
 
 ## Verify "Always On" setting is enabled

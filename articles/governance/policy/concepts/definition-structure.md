@@ -1,8 +1,10 @@
 ---
 title: Details of the policy definition structure
 description: Describes how policy definitions are used to establish conventions for Azure resources in your organization.
-ms.date: 09/01/2021
+ms.date: 06/27/2022
 ms.topic: conceptual
+ms.author: timwarner
+author: timwarner-msft
 ---
 # Azure Policy definition structure
 
@@ -137,7 +139,7 @@ The following Resource Provider modes are fully supported:
 - `Microsoft.Kubernetes.Data` for managing your Kubernetes clusters on or off Azure. Definitions
   using this Resource Provider mode use effects _audit_, _deny_, and _disabled_. This mode supports
   custom definitions as a _public preview_. See
-  [Create policy definition from constraint template](https://docs.microsoft.com/azure/governance/policy/how-to/extension-for-vscode#create-policy-definition-from-constraint-template) to create a
+  [Create policy definition from constraint template](../how-to/extension-for-vscode.md#create-policy-definition-from-constraint-template) to create a
   custom definition from an existing [Open Policy Agent](https://www.openpolicyagent.org/) (OPA)
   GateKeeper v3
   [constraint template](https://open-policy-agent.github.io/gatekeeper/website/docs/howto/#constraint-templates). Use
@@ -147,12 +149,10 @@ The following Resource Provider modes are fully supported:
   definitions, see
   [Integrate Azure Key Vault with Azure Policy](../../../key-vault/general/azure-policy.md).
 
-The following Resource Provider mode is currently supported as a **preview**:
+The following Resource Provider modes are currently supported as a **[preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)**:
 
-- `Microsoft.ContainerService.Data` for managing admission controller rules on
-  [Azure Kubernetes Service](../../../aks/intro-kubernetes.md). Definitions using this Resource
-  Provider mode **must** use the [EnforceRegoPolicy](./effects.md#enforceregopolicy) effect. This
-  mode is _deprecated_.
+- `Microsoft.Network.Data` for managing [Azure Virtual Network Manager](../../../virtual-network-manager/overview.md) custom membership policies using Azure Policy.
+- `Microsoft.Kubernetes.Data` for Azure Policy components that target [Azure Kubernetes Service (AKS)](../../../aks/intro-kubernetes.md) resources such as pods, namespaces, and ingresses.
 
 > [!NOTE]
 >Unless explicitly stated, Resource Provider modes only support built-in policy definitions, and exemptions are not supported at the component-level.
@@ -172,7 +172,7 @@ _common_ properties used by Azure Policy and in built-ins. Each `metadata` prope
 - `preview` (boolean): True or false flag for if the policy definition is _preview_.
 - `deprecated` (boolean): True or false flag for if the policy definition has been marked as
   _deprecated_.
-- `portalReview` (string): Determines whether parameters should be reviewed in the portal, regardless of the required input. 
+- `portalReview` (string): Determines whether parameters should be reviewed in the portal, regardless of the required input.
 
 > [!NOTE]
 > The Azure Policy service uses `version`, `preview`, and `deprecated` properties to convey level of

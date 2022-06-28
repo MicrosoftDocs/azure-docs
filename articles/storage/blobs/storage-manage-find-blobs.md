@@ -139,7 +139,7 @@ The below table shows all the valid operators for `Find Blobs by Tags`:
 |     >      |  Greater than | `"Date" > '2018-06-18'` |
 |     >=     |  Greater than or equal | `"Priority" >= '5'` |
 |     <      |  Less than   | `"Age" < '32'` |
-|     <=     |  Less than or equal  | `"Company" <= 'Contoso'` |
+|     <=     |  Less than or equal  | `"Priority" <= '5'` |
 |    AND     |  Logical and  | `"Rank" >= '010' AND "Rank" < '100'` |
 | @container | Scope to a specific container | `@container = 'videofiles' AND "status" = 'done'` |
 
@@ -165,7 +165,7 @@ The below table shows the valid operators for conditional operations:
 |     >      |  Greater than | `"Date" > '2018-06-18'` |
 |     >=     |  Greater than or equal | `"Priority" >= '5'` |
 |     <      |  Less than   | `"Age" < '32'` |
-|     <=     |  Less than or equal  | `"Company" <= 'Contoso'` |
+|     <=     |  Less than or equal  | `"Priority" <= '5'` |
 |    AND     |  Logical and  | `"Rank" >= '010' AND "Rank" < '100'` |
 |     OR     | Logical or   | `"Status" = 'Done' OR "Priority" >= '05'` |
 

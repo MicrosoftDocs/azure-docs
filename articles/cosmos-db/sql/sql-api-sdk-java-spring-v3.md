@@ -19,22 +19,24 @@ ms.custom: devx-track-java
 
 The Spring Data Azure Cosmos DB version 3 for Core (SQL) allows developers to use Azure Cosmos DB in Spring applications. Spring Data Azure Cosmos DB exposes the Spring Data interface for manipulating databases and collections, working with documents, and issuing queries. Both Sync and Async (Reactive) APIs are supported in the same Maven artifact. 
 
-> [!IMPORTANT]
-> Spring Data Azure Cosmos DB has a dependency on the Spring Data framework.
-> 
-> azure-spring-data-cosmos versions from 3.0.0 to 3.4.0 support Spring Data versions 2.2 and 2.3.
-> 
-> azure-spring-data-cosmos versions 3.5.0 and above support Spring Data versions 2.4.3 and above.
->
-
 The [Spring Framework](https://spring.io/projects/spring-framework) is a programming and configuration model that streamlines Java application development. Spring streamlines the "plumbing" of applications by using dependency injection. Many developers like Spring because it makes building and testing applications more straightforward. [Spring Boot](https://spring.io/projects/spring-boot) extends this handling of the plumbing with an eye toward web application and microservices development. [Spring Data](https://spring.io/projects/spring-data) is a programming model and framework for accessing datastores like Azure Cosmos DB from the context of a Spring or Spring Boot application. 
 
 You can use Spring Data Azure Cosmos DB in your [Azure Spring Cloud](https://azure.microsoft.com/services/spring-cloud/) applications.
 
+## Spring Boot support policy
+
+Azure Spring Data Cosmos supports multiple [Spring Boot Versions](https://aka.ms/spring/versions). For complete list of currently supported versions, please visit our [Spring Version Mapping](https://aka.ms/spring/versions).
+
+Spring Boot releases are marked as "End of Life" when they are no longer supported or released in any form. If you are running an EOL version, you should upgrade as soon as possible. 
+
+Please note that a version can be out of support before it is marked as "End of Life." During this time you should only expect releases for critical bugs or security issues.
+
+For more information on Spring Boot supported versions, please visit [Spring Boot Supported Versions](https://github.com/spring-projects/spring-boot/wiki/Supported-Versions).
+
 > [!IMPORTANT]  
-> These release notes are for version 3 of Spring Data Azure Cosmos DB. You can find [release notes for version 2 here](sql-api-sdk-java-spring-v2.md). 
+> These release notes are for version 3 of Spring Data Azure Cosmos DB. 
 >
-> Spring Data Azure Cosmos DB supports only the SQL API.
+> Azure Spring Data Cosmos SDK has dependency on the Spring Data framework, and supports only the SQL API. 
 >
 > See these articles for information about Spring Data on other Azure Cosmos DB APIs:
 > * [Spring Data for Apache Cassandra with Azure Cosmos DB](/azure/developer/java/spring-framework/configure-spring-data-apache-cassandra-with-cosmos-db)
@@ -77,7 +79,7 @@ Release history is maintained in the azure-sdk-for-java repo, for detailed list 
 
 ## Recommended version
 
-It's strongly recommended to use version 3.10.0 and above.
+It's strongly recommended to use version 3.22.0 and above.
 
 ## Additional notes
 
