@@ -392,7 +392,7 @@ After the analytical store is enabled, based on the data retention needs of the 
 > When `analytical TTL` is bigger than `transactional TTL`, your container will have data that only exists in analytical store. This data is read only and currently we don't support document level `TTL` in analytical store. If your container data may need an update or a delete at some point in time in the future, don't use `analytical TTL` bigger than `transactional TTL`. This capability is recommended for data that won't need updates or deletes in the future.
 
 > [!NOTE]
-> If your scenario doen't demand physical deletes, you can adopt a logical delete/update approach. Insert in transactional store another version of the same document that only exists in analytical store but needs a logical delete/update. Maybe with a flag indicating that it's a delete or an update of an expired document. Both versions of the same document will co-exist in analytical store, and your application should only consider the last one.
+> If your scenario doesn't demand physical deletes, you can adopt a logical delete/update approach. Insert in transactional store another version of the same document that only exists in analytical store but needs a logical delete/update. Maybe with a flag indicating that it's a delete or an update of an expired document. Both versions of the same document will co-exist in analytical store, and your application should only consider the last one.
 
 
 ## Resilience
@@ -409,16 +409,17 @@ Although analytical store has built-in protection against physical failures, bac
 > [!NOTE]
 > Currently analytical store isn't backuped and can't be restored, and your backup policy can't be planned relying on that. 
 
-Synapse Link, and analytical store by consequence, has different compatibility level with Azure Cosmos DB backup modes:
+Synapse Link, and analytical store by consequence, has different compatibility levels with Azure Cosmos DB backup modes:
 
 * Periodic backup mode is fully compatible with Synapse Link and these 2 features can be used in the same database account without any restriction. 
-* Currently continuous backup mode isn't supported in database accounts with Synapse Link enabled.
-* Currently database accounts with continuous backup mode enabled can enable Synapse Link through a support case.
-* Currently new database accounts can be created with continous backup mode and Synapse Link enabled, using Azure CLI or PowerShell. Those two features must be turned on at the same time, in the exact same command that creates the database account.
+* Continuous backup mode isn't fully supported yet:
+ * Currently continuous backup mode can't be used in database accounts with Synapse Link enabled.
+ * Currently database accounts with continuous backup mode enabled can enable Synapse Link through a support case.
+ * Currently new database accounts can be created with continous backup mode and Synapse Link enabled, using Azure CLI or PowerShell. Those two features must be turned on at the same time, in the exact same command that creates the database account.
 
 ### Backup Polices
 
-There two possible backup polices and to understand how it works, two details about Cosmos DB backups are very important:
+There two possible backup polices and to understand how to use them, two details about Cosmos DB backups are very important:
 
  * The original container is restored without analytical store in both backup modes.
  * Cosmos DB doesn't support containers overwrite from a restore.
