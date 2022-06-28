@@ -37,7 +37,7 @@ To learn more about Form Recognizer features and development options, visit our 
 
 **Prebuilt Models**
 
-* 🆕 W-2—Analyze and extract fields from W-2 tax documents, using a pre-trained W-2 model.
+* 🆕 W-2—Analyze and extract fields from US W-2 tax documents (used to report income), using a pre-trained W-2 model.
 * Invoices—Analyze and extract common fields from invoices, using a pre-trained invoice model.
 * Receipts—Analyze and extract common fields from receipts, using a pre-trained receipt model.
 * ID documents—Analyze and extract common fields from ID documents like passports or driver's licenses, using a pre-trained ID documents model.
@@ -56,7 +56,7 @@ To learn more about Form Recognizer features and development options, visit our 
 
 * [PowerShell version 7.*+](/powershell/scripting/install/installing-powershell-on-windows?view=powershell-7.2&preserve-view=true), or a similar command-line application. To check your PowerShell version, type `Get-Host | Select-Object Version`.
 
-* A Cognitive Services or Form Recognizer resource. Once you have your Azure subscription, create a [single-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) or [multi-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) Form Recognizer resource in the Azure portal to get your key and endpoint. You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
+* A Form Recognizer (single-service) or Cognitive Services (multi-service) resource. Once you have your Azure subscription, create a [single-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) or [multi-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) Form Recognizer resource in the Azure portal to get your key and endpoint. You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
 
 > [!TIP]
 > Create a Cognitive Services resource if you plan to access multiple cognitive services under a single endpoint/key. For Form Recognizer access only, create a Form Recognizer resource. Please note that you'll  need a single-service resource if you intend to use [Azure Active Directory authentication](../../../active-directory/authentication/overview-authentication.md).
@@ -67,7 +67,7 @@ To learn more about Form Recognizer features and development options, visit our 
   
 ## Analyze documents and get results
 
- Form Recognizer v3.0 consolidates the analyze document (POST) and get result (GET) requests into single operations. The `modelId` is used for POST and `resultId` for GET operations.
+ A POST request is used to analyze documents with a prebuilt or custom model. A GET request is used to retrieve the result of a document analysis call. The `modelId` is used with POST and `resultId` with GET operations.
 
 ### Analyze document (POST Request)
 
