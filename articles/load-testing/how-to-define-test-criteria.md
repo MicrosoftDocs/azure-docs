@@ -40,7 +40,7 @@ The following table describes the different components:
 |`Condition`     | *Required.* The comparison operator.        |
 |`Threshold`     |  *Required.* The numeric value to compare with the client metric. |
 
-Load Testing supports the following combination of parameters:
+Azure Load Testing supports the following metrics:
 
 |Metric  |Aggregate function  |Threshold  |Condition  |
 |---------|---------|---------|---------|
