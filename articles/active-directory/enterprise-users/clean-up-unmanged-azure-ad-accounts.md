@@ -20,7 +20,7 @@ Azure Active Directory (Azure AD) supports self-service sign-up for
 email-verified users. Users can create Azure AD accounts if they can
 verify email ownership. To learn more, see, [What is self-service
 sign-up for Azure Active
-Directory?](https://docs.microsoft.com/en-us/azure/active-directory/enterprise-users/directory-self-service-signup)
+Directory?](https://docs.microsoft.com/azure/active-directory/enterprise-users/directory-self-service-signup)
 
 However, if a user creates an account, and the domain isn't verified in
 an Azure AD tenant, the user is created in an unmanaged, or viral
