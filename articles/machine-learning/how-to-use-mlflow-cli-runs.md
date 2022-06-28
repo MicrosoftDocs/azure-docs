@@ -112,7 +112,7 @@ mlflow.set_tracking_uri(azureml_mlflow_uri)
 ```
 
 > [!NOTE]
-> You can also get this URL by: Navigate to the [Azure ML Studio web portal](https://ml.azure.com) -> Click on the uper-right corner of the page -> View all properties in Azure Portal -> MLflow tracking URI.
+> You can also get this URL by: Navigate to [Azure ML studio](https://ml.azure.com) -> Click on the uper-right corner of the page -> View all properties in Azure Portal -> MLflow tracking URI.
 
 ---
 
