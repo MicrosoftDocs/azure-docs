@@ -43,7 +43,7 @@ Ensure the managed identity also has the appropriate access policy set for the A
 
 ### Certificate
 
-The certificate for custom domain suffix must be stored in an Azure Key Vault. App Service Environment will use the managed identity you selected to get the certificate. The Key Vault must be publicly accessible, however you can lock down the key vault by restricting access to your App Service Environment's outbound IPs. You can find your App Service Environment's outbound IPs under "Default outbound addresses" on the **IP addresses** page for your App Service Environment. You'll need to add both IPs to your key vault's firewall rules. 
+The certificate for custom domain suffix must be stored in an Azure Key Vault. App Service Environment will use the managed identity you selected to get the certificate. The Key Vault must be publicly accessible, however you can lock down the key vault by restricting access to your App Service Environment's outbound IPs. You can find your App Service Environment's outbound IPs under "Default outbound addresses" on the **IP addresses** page for your App Service Environment. You'll need to add both IPs to your key vault's firewall rules. For more information on key vault network security and firewall rules, see [Configure Azure Key Vault firewalls and virtual networks](../../key-vault/general/network-security.md#key-vault-firewall-enabled-ipv4-addresses-and-ranges---static-ips).
 
 :::image type="content" source="./media/custom-domain-suffix/key-vault-networking.png" alt-text="Sample networking page for key vault to allow custom domain suffix feature.":::
 
