@@ -39,6 +39,8 @@ The *updateID* object is a unique identifier for each update.
 |**name**|`string`|Identifier for a class of update. It can be a device class or model name.<br><br>Pattern: `^[a-zA-Z0-9.-]+$`<br>Maximum length: 64 characters|Yes|
 |**version**|`string`|Two- to four-part dot-separated numerical version numbers. Each part must be a number between 0 and 2147483647 and leading zeroes will be dropped.<br><br>Pattern: `^\d+(?:\.\d+)+$`<br>Examples: `"1.0"`, `"2021.11.8"`|Yes|
 
+Additional properties aren't allowed.
+
 For example:
 
 ```json
@@ -50,8 +52,6 @@ For example:
   }
 }
 ```
-
-Additional properties aren't allowed.
 
 ## compatibility object
 
@@ -91,6 +91,8 @@ The *instructions* object provides the update installation instructions. The ins
 |---|---|---|---|
 |**steps**|`array[1-10]`|Each element in the array must be either an [inlineStep object](#inlinestep-object) or a [referenceStep object](#referencestep-object).|Yes|
 
+Additional properties aren't allowed.
+
 For example:
 
 ```json
@@ -110,8 +112,6 @@ For example:
 }
 ```
 
-Additional properties aren't allowed.
-
 ## inlineStep object
 
 An *inline* step object is an installation instruction step that performs code execution.
@@ -123,6 +123,8 @@ An *inline* step object is an installation instruction step that performs code e
 |**handler**|`string`|Identity of the handler on the device that can execute this step.<br><br>Pattern: `^\S+/\S+:\d{1,5}$`<br>Minimum length: 5 characters<br>Maximum length: 32 characters<br>Examples: `microsoft/script:1`, `microsoft/swupdate:1`, `microsoft/apt:1` |Yes|
 |**files**|`string` `[1-10]`| Names of update files defined as [file objects](#file-object) that the agent will pass to the handler. Each element in the array must have length between 1 and 255 characters. |Yes|
 |**handlerProperties**|`inlineStepHandlerProperties`|JSON object that agent will pass to handler as arguments.|No|
+
+Additional properties aren't allowed.
 
 For example:
 
@@ -143,8 +145,6 @@ For example:
 }
 ```
 
-Additional properties aren't allowed.
-
 ## referenceStep object
 
 A *reference* step object is an installation instruction step that installs another update.
@@ -154,6 +154,8 @@ A *reference* step object is an installation instruction step that installs anot
 |**type**|`referenceStepType`|Instruction step type that installs another update. Must be `reference`.|Yes|
 |**description**|`stepDescription`|Optional instruction step description.<br><br>Maximum length: 64 characters |No|
 |**updateId**|`updateId`|Unique update identifier.|Yes|
+
+Additional properties aren't allowed.
 
 For example:
 
@@ -172,8 +174,6 @@ For example:
 }
 ```
 
-Additional properties aren't allowed.
-
 ## file object
 
 A *file* object is an update payload file, for example, binary, firmware, script, etc. Each file object must be unique within an update.
@@ -183,6 +183,8 @@ A *file* object is an update payload file, for example, binary, firmware, script
 |**filename**|`string`|Update payload file name.<br><br>Maximum length: 255 characters|Yes|
 |**sizeInBytes**|`number`|File size in number of bytes.<br><br>Maximum size: 2147483648 bytes|Yes|
 |**hashes**|`fileHashes`|Base64-encoded file hashes with algorithm name as key. At least SHA-256 algorithm must be specified, and additional algorithm may be specified if supported by agent. See below for details on how to calculate the hash. |Yes|
+
+Additional properties aren't allowed.
 
 For example:
 
@@ -198,8 +200,6 @@ For example:
 }
 ```
 
-Additional properties aren't allowed.
-
 ## fileHashes object
 
 Base64-encoded file hashes with the algorithm name as key. At least the SHA-256 algorithm must be specified, and other algorithms may be specified if supported by the agent. For an example of how to calculate the hash correctly, see the Get-AduFileHashes function in [AduUpdate.psm1 script](https://github.com/Azure/iot-hub-device-update/blob/main/tools/AduCmdlets/AduUpdate.psm1).
@@ -207,6 +207,8 @@ Base64-encoded file hashes with the algorithm name as key. At least the SHA-256 
 |Property|Type|Description|Required|
 |---|---|---|---|
 |**sha256**|`string`|Base64-encoded file hash value using SHA-256 algorithm.|Yes|
+
+Additional properties are allowed.
 
 For example:
 
@@ -217,8 +219,6 @@ For example:
   }
 }
 ```
-
-Additional properties are allowed.
 
 ## Next steps
 
