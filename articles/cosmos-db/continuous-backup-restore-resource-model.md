@@ -5,7 +5,7 @@ author: kanshiG
 ms.author: govindk
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 03/02/2022
+ms.date: 06/22/2022
 ms.reviewer: mjbrown
 
 ---
@@ -21,10 +21,10 @@ The database account's resource model is updated with a few extra properties to 
 
 ### BackupPolicy
 
-A new property in the account level backup policy named `Type` under `backuppolicy` parameter enables continuous backup and point-in-time restore functionalities. This mode is called **continuous backup**. You can set this mode when creating the account or while [migrating an account from periodic to continuous mode](migrate-continuous-backup.md). After continuous mode is enabled, all the containers and databases created within this account will have continuous backup and point-in-time restore functionalities enabled by default.
+A new property in the account level backup policy named `Type` under `backuppolicy` parameter enables continuous backup and point-in-time restore functionalities. This mode is called **continuous backup**. You can set this mode when creating the account or while [migrating an account from periodic to continuous mode](migrate-continuous-backup.md). After continuous mode is enabled, all the containers and databases created within this account will have continuous backup and point-in-time restore functionalities enabled by default. The tier can be Continuous7Days or Continuous30Days, by default no tier is provided Continuous30Days is applied on the account.
 
 > [!NOTE]
-> Currently the point-in-time restore feature is available for Azure Cosmos DB API for MongoDB and SQL accounts. After you create an account with continuous mode you can't switch it to a periodic mode.
+> Currently the point-in-time restore feature is available for Azure Cosmos DB API for MongoDB and SQL accounts. It is also available for Table API and Gremlin API in preview. After you create an account with continuous mode you can't switch it to a periodic mode. The Continuous7Days tier is in preview.
 
 ### CreateMode
 
@@ -83,6 +83,7 @@ The following JSON is a sample database account resource with continuous backup 
     },
     "backupPolicy": {
       "type": "Continuous"
+      ....
     }
   }
 }
@@ -114,6 +115,9 @@ This resource contains a database account instance that can be restored. The dat
 | restorableLocations: regionalDatabaseAccountInstanceId | The GUID of the regional account. |
 | restorableLocations: creationTime	| The time in UTC when the regional account was created r migrated.|
 | restorableLocations: deletionTime	| The time in UTC when the regional account was deleted. This value is empty if the regional account is live.|
+| OldestRestorableTimeStamp | The earliest time in UTC to which restore can be performed. For 30 day tier – this can be maximum 30 days from now, for the 7 days tier this can be 7 days from now.  | 
+
+
 
 To get a list of all restorable accounts, see [Restorable Database Accounts - list](/rest/api/cosmos-db-resource-provider/2021-04-01-preview/restorable-database-accounts/list) or [Restorable Database Accounts- list by location](/rest/api/cosmos-db-resource-provider/2021-04-01-preview/restorable-database-accounts/list-by-location) articles.
 
