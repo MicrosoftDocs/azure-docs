@@ -12,7 +12,7 @@ The articles in this section are intended for the professionals participating in
 
  To provide input, email [NC2-on-Azure Docs](mailto:AzNutanixPM@microsoft.com).
 
-![Nutanix Preview](media/nc2-on-azure-preview.png)
+![Illustration of NC2 on Azure Public Preview features](media/nc2-on-azure-preview.png)
 
 In particular, this article highlights Public Preview features. 
 
@@ -48,10 +48,10 @@ We offer two SKUs: AN36 and AN36P. For specifications, see [SKUs](skus.md).
 * Microsoft Azure Consumption Contract (MACC) credits
 * Nutanix Bring your own License (BYOL)  
 
-#### Upcoming benefits
+> [!NOTE]
 
-* RI
-  * During the public preview, RI is not supported. An additional discount may be available.
+> During the public preview, RI is not supported. 
+An additional discount may be available.
 
 ## Transaction
 
