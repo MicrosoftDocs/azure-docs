@@ -736,6 +736,10 @@ sections:
               "serialConsoleLogBlobUri": "https://o0sz3nhtbmkg6geswarm5.blob.core.windows.net/bootdiagnostics-swarmagen-4157d838-8335-4f78-bf0e-b616a99bc8bd/swarm-agent-9574AE92vmss-0_2.4157d838-8335-4f78-bf0e-b616a99bc8bd.serialconsole.log"
           }
           ```
+      - question: |
+          How do I troubleshoot other issues?
+        answer: |
+          Visit [Troubleshooting common issue with VM Scale Sets](https://docs.microsoft.com/troubleshoot/azure/virtual-machine-scale-sets/welcome-virtual-machine-scale-sets) page.
 
   - name: Virtual machine properties
     questions:
