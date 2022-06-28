@@ -17,7 +17,7 @@ ms.author: alkohli
 
 [!INCLUDE [applies-to-gpu-pro-pro2-and-pro-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-pro-2-pro-r-sku.md)]
 
-This article how to create a GPU VM in the Azure portal or by using the Azure Resource Manager templates.
+This article describes how to create a GPU VM in the Azure portal or by using the Azure Resource Manager templates.
 
 Use the Azure portal to quickly deploy a single GPU VM. You can install the GPU extension during or after VM creation. Or use Azure Resource Manager templates to efficiently deploy and manage multiple GPU VMs.
 
