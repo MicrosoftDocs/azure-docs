@@ -4,13 +4,13 @@ description: This article describes the relationship between streaming unit and 
 author: xujiang1
 ms.author: xujiang1
 ms.service: stream-analytics
-ms.topic: concept
+ms.topic: conceptual
 ms.custom: 
 ms.date: 06/30/2022
 ---
 # Streaming Units and Streaming Node
 
-There are some documents available already to describe the Streaming Units (SUs), such as: [Streaming Units in Azure Stream Analytics](./stream-analytics-streaming-unit-consumption.md) and [Scaling up and out in Azure Stream Analytics jobs](./stream-analytics/stream-analytics-scale-jobs.md). There's relationship between Streaming Units assigned to a job and the Streaming Node behind.
+There are some documents available already to describe the Streaming Units (SUs), such as: [Streaming Units in Azure Stream Analytics](./stream-analytics-streaming-unit-consumption.md) and [Scaling up and out in Azure Stream Analytics jobs](./stream-analytics-scale-jobs.md). There's relationship between Streaming Units assigned to a job and the Streaming Node behind.
 
 ## Computation resources of given SUs
 
