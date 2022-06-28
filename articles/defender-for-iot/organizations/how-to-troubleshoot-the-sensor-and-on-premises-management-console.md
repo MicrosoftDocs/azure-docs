@@ -1,7 +1,7 @@
 ---
 title: Troubleshoot the sensor and on-premises management console
 description: Troubleshoot your sensor and on-premises management console to eliminate any problems you might be having.
-ms.date: 05/22/2022
+ms.date: 06/15/2022
 ms.topic: article
 ---
 # Troubleshoot the sensor and on-premises management console
@@ -168,7 +168,7 @@ When signing into a preconfigured sensor for the first time, you'll need to perf
 
 1. Select either **CyberX** or **Support**, and copy the unique identifier.
 
-1. Navigate to the Azure portal and select **Sites and Sensors**.  
+1. Navigate to the Azure portal and select **Sites and Sensors**.
 
 1. Select the **More Actions** drop down menu and select **Recover on-premises management console password**.
 
@@ -185,11 +185,11 @@ When signing into a preconfigured sensor for the first time, you'll need to perf
 1. Select **Next**, and your user, and system-generated password for your management console will then appear.
 
     > [!NOTE]
-    > When you sign in to a sensor or on-premise management console for the first time it will be linked to the subscription you connected it to. If you need to reset the password for the CyberX, or Support user you will need to select that subscription. For more information on recovering a CyberX, or Support user password, see [Recover the password for the on-premises management console, or the sensor](how-to-create-and-manage-users.md#recover-the-password-for-the-on-premises-management-console-or-the-sensor).
+    > When you sign in to a sensor or on-premises management console for the first time it will be linked to the subscription you connected it to. If you need to reset the password for the CyberX, or Support user you will need to select that subscription. For more information on recovering a CyberX, or Support user password, see [Recover the password for the on-premises management console, or the sensor](how-to-create-and-manage-users.md#recover-the-password-for-the-on-premises-management-console-or-the-sensor).
 
 ### Investigate a lack of traffic
 
-An indicator appears at the top of the console when the sensor recognizes that there's no traffic on one of the configured ports. This indicator is visible to all users. When this message appears, you can investigate where there's no traffic. Make sure the span cable is connected and there was no change in the span architecture.  
+An indicator appears at the top of the console when the sensor recognizes that there's no traffic on one of the configured ports. This indicator is visible to all users. When this message appears, you can investigate where there's no traffic. Make sure the span cable is connected and there was no change in the span architecture.
 
 
 ### Check system performance
@@ -198,12 +198,12 @@ When a new sensor is deployed or a sensor is working slowly or not showing any a
 
 1. In the Defender for IoT dashboard > **Overview**, make sure that `PPS > 0`.
 1. In *Devices** check that devices are being discovered.
-1. In **Data Mining**, generate a report. 
+1. In **Data Mining**, generate a report.
 1. In **Trends & Statistics** window, create a dashboard.
 1. In **Alerts**, check that the alert was created.
 
 
-### Investigate a lack of expected alerts 
+### Investigate a lack of expected alerts
 
 If the **Alerts** window doesn't show an alert that you expected, verify the following:
 
@@ -239,7 +239,7 @@ To connect a sensor controlled by the management console to NTP:
 
 Sometimes ICS devices are configured with external IP addresses. These ICS devices are not shown on the map. Instead of the devices, an internet cloud appears on the map. The IP addresses of these devices are included in the cloud image. Another indication of the same problem is when multiple internet-related alerts appear. Fix the issue as follows:
 
-1. Right-click the cloud icon on the device map and select **Export IP Addresses**. 
+1. Right-click the cloud icon on the device map and select **Export IP Addresses**.
 1. Copy the public ranges that are private, and add them to the subnet list. Learn more about [configuring subnets](how-to-control-what-traffic-is-monitored.md#configure-subnets).
 1. Generate a new data-mining report for internet connections.
 1. In the data-mining report, enter the administrator mode and delete the IP addresses of your ICS devices.
@@ -262,19 +262,20 @@ All allowlists, policies, and configuration settings are cleared, and the sensor
 
 
 ## Troubleshoot an on-premises management console
-### Investigate a lack of expected alerts on the management console
 
-If an expected alert is not shown in the **Alerts** window, verify the following:
+### Investigate a lack of expected alerts
 
-- Check if the same alert already appears in the **Alerts** window as a reaction to a different security instance. If yes, and this alert has not been handled yet, a new alert is not shown.
+If you don't see an expected alert on the on-premises **Alerts** page, do the following to troubleshoot:
 
-- Verify that you did not exclude this alert by using the **Alert Exclusion** rules in the on-premises management console.  
+- Verify whether the alert is already listed as a reaction to a different security instance. If it has, and that alert hasn't yet been handled, a new alert isn't shown elsewhere.
+
+- Verify that the alert isn't being excluded by **Alert Exclusion** rules. For more information, see [Create alert exclusion rules](how-to-work-with-alerts-on-premises-management-console.md#create-alert-exclusion-rules).
 
 ### Tweak the Quality of Service (QoS)
 
 To save your network resources, you can limit the number of alerts sent to external systems (such as emails or SIEM) in one sync operation between an appliance and the on-premises management console.
 
-The default is 50. This means that in one communication session between an appliance and the on-premises management console, there will be no more than 50 alerts to external systems. 
+The default is 50. This means that in one communication session between an appliance and the on-premises management console, there will be no more than 50 alerts to external systems.
 
 To limit the number of alerts, use the `notifications.max_number_to_report` property available in `/var/cyberx/properties/management.properties`. No restart is needed after you change this property.
 
@@ -310,39 +311,33 @@ To limit the number of alerts, use the `notifications.max_number_to_report` prop
 
 1. Save the changes. No restart is required.
 
+### Export audit logs for troubleshooting
 
+Audit logs record key activity data at the time of occurrence. Use audit logs generated on the on-premises management console to understand which changes were made, when, and by whom.
 
-### Export audit logs from the management console
+You may also want to export your audit logs to send them to the support team for extra troubleshooting.
 
-Audit logs record key information at the time of occurrence. Audit logs are useful when you are trying to figure out what changes were made, and by who. Audit logs can be exported in the management console, and contain the following information:
+> [!NOTE]
+> New audit logs are generated at every 10 MB. One previous log is stored in addition to the current active log file.
+>
 
-| Action | Information logged |
-|--|--|
-| **Learn, and remediation of alerts** | Alert ID |
-| **Password changes** | User, User ID |
-| **Login** | User |
-| **User creation** | User, User role |
-| **Password reset** | User name |
-| **Exclusion rules-Creation**| Rule summary |
-| **Exclusion rules-Editing**| Rule ID, Rule Summary |
-| **Exclusion rules-Deletion** | Rule ID |
-| **Management Console Upgrade** | The upgrade file used |
-| **Sensor upgrade retry** | Sensor ID |
-| **Uploaded TI package** | No additional information recorded. |
+**To export audit log data**:
 
-**To export the audit log**:
+1. In the on-premises management console, select **System Settings > Export**.
 
-1. In the management console, in the left pane, select **System Settings**.
+1. In the **Export Troubleshooting Information** dialog:
 
-1. Select **Export**.
+    1. In the **File Name** field, enter a meaningful name for the exported log. The default filename uses the current date, such as **13:10-June-14-2022.tar.gz**.
 
-1. In the File Name field, enter the file name that you want to use for the exported log. If no name is entered, the default file name will be the current date.
+    1. Select **Audit Logs**.
 
-1. Select **Audit Logs**.
+    1. Select **Export**.
 
-1. Select **Export**.
+    The file is exported and is linked from the **Archived Files** list at the bottom of the **Export Troubleshooting Information** dialog. Select the link to download the file.
 
-The exported log is added to the **Archived Logs** list. Select the :::image type="icon" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/eye-icon.png" border="false"::: button to view the OTP. Send the OTP string to the support team in a separate message from the exported logs. The support team will be able to extract exported logs only by using the unique OTP that's used to encrypt the logs.
+1. Exported audit logs are encrypted for your security, and require a password to open. In the **Archived Files** list, select the :::image type="icon" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/eye-icon.png" border="false"::: button for your exported logs to view its password. If you're forwarding the audit logs to the support team, make sure to send the password to support separately from the exported logs.
+
+For more information, see [View audit log data on the on-premises management console](how-to-create-and-manage-users.md#view-audit-log-data-on-the-on-premises-management-console).
 
 ## Next steps
 

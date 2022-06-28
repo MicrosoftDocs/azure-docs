@@ -7,7 +7,7 @@ author: cherylmc
 
 ms.service: virtual-wan
 ms.topic: tutorial
-ms.date: 04/11/2022
+ms.date: 06/16/2022
 ms.author: cherylmc
 
 ---
@@ -58,7 +58,13 @@ In the following steps, when selecting the authentication method, you have three
 
 ## <a name="hub"></a>Create a virtual hub and gateway
 
-[!INCLUDE [Create hub](../../includes/virtual-wan-p2s-hub-include.md)]
+### Basics page
+
+[!INCLUDE [Create hub basics page](../../includes/virtual-wan-hub-basics.md)]
+
+### Point to site page
+
+[!INCLUDE [Point to site page](../../includes/virtual-wan-p2s-gateway-include.md)]
 
 ## <a name="download"></a>Generate client configuration files
 

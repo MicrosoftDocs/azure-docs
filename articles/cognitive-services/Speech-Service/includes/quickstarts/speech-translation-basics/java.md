@@ -27,7 +27,7 @@ To complete the steps in this quickstart, you must also install [Apache Maven](h
 > <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=JAVA&Pillar=Speech&Product=Speech-translation&Page=quickstart&Section=Set-up-the-environment" target="_target">I ran into an issue</a>
 
 ## Translate speech from a microphone
-
+To complete the steps in this quickstart, you must also install [Apache Maven](https://maven.apache.org/install.html).
 Follow these steps to create a new console application for speech recognition.
 
 1. Open a command prompt where you want the new project, and create a new `pom.xml` file. 
@@ -55,7 +55,7 @@ Follow these steps to create a new console application for speech recognition.
             <repository>
             <id>maven-cognitiveservices-speech</id>
             <name>Microsoft Cognitive Services Speech Maven Repository</name>
-            <url>https://csspeechstorage.blob.core.windows.net/maven/</url>
+            <url>https://azureai.azureedge.net/maven/</url>
             </repository>
         </repositories>
         <dependencies>
@@ -134,6 +134,7 @@ Follow these steps to create a new console application for speech recognition.
 
 1. In `SpeechTranslation.java`, replace `YourSubscriptionKey` with your Speech resource key, and replace `YourServiceRegion` with your Speech resource region.
 1. To change the speech recognition language, replace `en-US` with another [supported language](~/articles/cognitive-services/speech-service/supported-languages.md). For example, `es-ES` for Spanish (Spain). The default language is `en-US` if you don't specify a language. For details about how to identify one of multiple languages that might be spoken, see [language identification](~/articles/cognitive-services/speech-service/language-identification.md). 
+1. To change the translation target language, replace `it` with another [supported language](~/articles/cognitive-services/speech-service/supported-languages.md). For example, `es` for Spanish (Spain). The default language is `en` if you don't specify a language.
 
 Run your new console application to start speech recognition from a microphone:
 

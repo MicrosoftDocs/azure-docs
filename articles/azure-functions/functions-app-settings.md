@@ -425,7 +425,7 @@ Connection string for storage account where the function app code and configurat
 |---|------------|
 |WEBSITE_CONTENTAZUREFILECONNECTIONSTRING|`DefaultEndpointsProtocol=https;AccountName=...`|
 
-This setting is used for Consumption and Premium plan apps on both Windows and Linux. It's not used for Dedicated plan apps, which aren't dynamically scaled by Functions. 
+This setting is required for Consumption and Premium plan apps on both Windows and Linux. It's not required for Dedicated plan apps, which aren't dynamically scaled by Functions. 
 
 Changing or removing this setting may cause your function app to not start. To learn more, see [this troubleshooting article](functions-recover-storage-account.md#storage-account-application-settings-were-deleted).
 
@@ -447,7 +447,7 @@ The file path to the function app code and configuration in an event-driven scal
 |---|------------|
 |WEBSITE_CONTENTSHARE|`functionapp091999e2`|
 
-This setting is used for Consumption and Premium plan apps on both Windows and Linux. It's not used for Dedicated plan apps, which aren't dynamically scaled by Functions. 
+This setting is required for Consumption and Premium plan apps on both Windows and Linux. It's not required for Dedicated plan apps, which aren't dynamically scaled by Functions. 
 
 Changing or removing this setting may cause your function app to not start. To learn more, see [this troubleshooting article](functions-recover-storage-account.md#storage-account-application-settings-were-deleted).
 

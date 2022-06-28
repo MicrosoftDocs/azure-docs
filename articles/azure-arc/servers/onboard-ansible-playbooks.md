@@ -42,33 +42,54 @@ If you are onboarding machines to Azure Arc-enabled servers, copy the following 
       subscription_id: 'INSERT-SUBSCRIPTION-ID'
       location: 'INSERT-LOCATION'
   tasks:
+	- name: Check if the Connected Machine Agent has already been downloaded on Linux servers
+	  stat:
+	  	path: /usr/bin/azvmagent
+	  	get_attributes: False
+	  	get_checksum: False
+	  	get_mine: azcmagent_downloaded 
+        register: azcmagent_downloaded
+	  when: ansible_system == 'Linux'
+	- name: Check if the Connected Machine Agent has already been downloaded on Windows servers
+	  stat:
+	  	path: C:\Program Files\AzureConnectedMachineAgent
+	  	get_attributes: False
+	  	get_checksum: False
+	  	get_mine: azcmagent_downloaded 
+        register: azcmagent_downloaded
+	  when: ansible_system == 'Windows'
       - name: Download the Connected Machine Agent on Linux servers
         become: yes
         get_url:
           url: https://aka.ms/azcmagent
           dest: ~/install_linux_azcmagent.sh
           mode: '700'
-        when: ansible_system == 'Linux'
+        when: (ansible_system == 'Linux') and (not azcmagent_downloaded.stat.exists)
       - name: Download the Connected Machine Agent on Windows servers
         win_get_url:
           url: https://aka.ms/AzureConnectedMachineAgent
           dest: C:\AzureConnectedMachineAgent.msi
-        when: ansible_os_family == 'Windows'
+        when: (ansible_os_family == 'Windows') and (not azcmagent_downloaded.stat.exists)
       - name: Install the Connected Machine Agent on Linux servers
         become: yes
         shell: bash ~/install_linux_azcmagent.sh
-        when: ansible_system == 'Linux'
+        when: (ansible_system == 'Linux') and (not azcmagent_downloaded.stat.exists)
       - name: Install the Connected Machine Agent on Windows servers
         win_package:
           path: C:\AzureConnectedMachineAgent.msi
-        when: ansible_os_family == 'Windows'
+        when: (ansible_os_family == 'Windows') and (not azcmagent_downloaded.stat.exists)
+	- name: Check if the Connected Machine Agent has already been connected
+	  become: true 
+	  command:
+	  	cmd: azcmagent show --join
+        register: azcmagent_connected
       - name: Connect the Connected Machine Agent on Linux servers to Azure Arc
         become: yes
         shell: sudo azcmagent connect --service-principal-id {{ azure.service_principal_id }} --service-principal-secret {{ azure.service_principal_secret }} --resource-group {{ azure.resource_group }} --tenant-id {{ azure.tenant_id }} --location {{ azure.location }} --subscription-id {{ azure.subscription_id }}
-        when: ansible_system == 'Linux'
+        when: (azcmagent_connected.rc == 0) and (ansible_system == 'Linux')
       - name: Connect the Connected Machine Agent on Windows servers to Azure
         win_shell: '& $env:ProgramFiles\AzureConnectedMachineAgent\azcmagent.exe connect --service-principal-id "{{ azure.service_principal_id }}" --service-principal-secret "{{ azure.service_principal_secret }}" --resource-group "{{ azure.resource_group }}" --tenant-id "{{ azure.tenant_id }}" --location "{{ azure.location }}" --subscription-id "{{ azure.subscription_id }}"'
-        when: ansible_os_family == 'Windows'
+        when: (azcmagent_connected.rc == 0) and (ansible_os_family == 'Windows')
 ```
 
 ## Modify the Ansible playbook
@@ -77,14 +98,16 @@ After downloading the Ansible playbook, complete the following steps:
 
 1. Within the Ansible playbook, modify the variables under the **vars section** with the service principal and Azure details collected earlier:
 
-    * Service Principal Id
+    * Service Principal ID
     * Service Principal Secret
     * Resource Group
-    * Tenant Id
-    * Subscription Id
+    * Tenant ID
+    * Subscription ID
     * Region
 
 1. Enter the correct hosts field capturing the target servers for onboarding to Azure Arc. You can employ [Ansible patterns](https://docs.ansible.com/ansible/latest/user_guide/intro_patterns.html#common-patterns) to selectively target which hybrid machines to onboard.
+
+1. This template passes the service principal secret as a variable in the Ansible playbook. Please note that an [Ansible vault](https://docs.ansible.com/ansible/latest/user_guide/vault.html) could be used to encrypt this secret and the variables could be passed through a configuration file.
 
 ## Run the Ansible playbook
 
