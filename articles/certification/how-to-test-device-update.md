@@ -49,6 +49,6 @@ The [Device Update for IoT Hub](..\iot-hub-device-update\understand-device-updat
 
 8.  Select **Continue** to proceed
 
-9.	Congratulations!  You are now ready to proceed with Edge Secured-core testing. 
+9.	Congratulations!  You're now ready to proceed with Edge Secured-core testing. 
 
 10.	Select the **Run tests** button to begin the testing process. Your device will be updated as the final step in our Edge Secured-core testing.
