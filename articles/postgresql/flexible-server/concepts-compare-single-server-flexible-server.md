@@ -117,6 +117,7 @@ The following table provides a list of high-level features and capabilities comp
 | Customer managed encryption key(BYOK) | Yes | No |
 | SCRAM Authentication (SHA-256) | No | Yes |
 | Secure Sockets Layer support (SSL) | Yes | Yes |
+| Infrastructure double encryption | Yes | No |
 | **Other features** | | |
 | Alerts | Yes | Yes |
 | Microsoft Defender for Cloud | Yes | No |
