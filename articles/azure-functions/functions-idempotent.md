@@ -1,8 +1,8 @@
 ---
 title: Designing Azure Functions for identical input
 description: Building Azure Functions to be idempotent
-author: craigshoemaker
-ms.author: cshoe
+author: ggailey777
+ms.author: glenga
 ms.date: 06/09/2022
 ms.topic: article
 ---

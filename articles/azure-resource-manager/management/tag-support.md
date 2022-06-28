@@ -2,7 +2,7 @@
 title: Tag support for resources
 description: Shows which Azure resource types support tags. Provides details for all Azure services.
 ms.topic: conceptual
-ms.date: 06/03/2022
+ms.date: 06/27/2022
 ---
 
 # Tag support for Azure resources
@@ -79,7 +79,6 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > | alerts | No | No |
 > | alertsMetaData | No | No |
 > | migrateFromSmartDetection | No | No |
-> | prometheusRuleGroups | Yes | Yes |
 > | smartDetectorAlertRules | Yes | Yes |
 > | smartGroups | No | No |
 
