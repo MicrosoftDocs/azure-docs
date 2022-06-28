@@ -86,7 +86,7 @@ We’re at the final step, which is to deploy OurSecurityConfig. This is how the
 We need to create a network group specifically for the Application 1 team’s VNets so that we can create security admin rules that pertain only to Application 1’s VNets and allow them to handle SSH traffic through their own NSGs. Since we already have OurNetworkManager created, we can go ahead and create another network group.
 
 
-## Deploy the Security Admin Configuration
+## Re-deploy the Security Admin Configuration
 We’re at the final step, which is to redeploy OurSecurityConfig since we’ve modified this configuration by adding a rule collection.
 
 ## Verify 
