@@ -1,5 +1,5 @@
 ---
-title: Materialized Views for Azure Cosmos DB API for Cassandra.
+title: Materialized Views for Azure Cosmos DB API for Cassandra. (Preview)
 description: This documentation is provided as a resource for participants in the preview of Azure Cosmos DB Cassandra API Materialized View.
 author: dileepraotv-github
 ms.service: cosmos-db
@@ -9,7 +9,7 @@ ms.date: 01/06/2022
 ms.author: turao
 ---
 
-# Enable Materialized Views for Azure Cosmos DB API for Cassandra operations
+# Enable Materialized Views for Azure Cosmos DB API for Cassandra operations (Preview)
 [!INCLUDE[appliesto-cassandra-api](../includes/appliesto-cassandra-api.md)]
 
 > [!IMPORTANT]
@@ -44,7 +44,7 @@ New Cassandra API accounts with Materialized Views enabled can be provisioned on
 
 ### Log in to the Azure Command Line Interface
 
-Install Azure CLI as mentioned at [How to install the Azure CLI | Microsoft Docs](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli) and log in using the below:
+Install Azure CLI as mentioned at [How to install the Azure CLI | Microsoft Docs](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli) and log on using the below:
    ```azurecli-interactive
    az login
    ```
