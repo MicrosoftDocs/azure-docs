@@ -71,7 +71,7 @@ For steps to disable the Data Estate Insights application, see the [disable arti
 
 You can choose to disable report refreshes instead of disabling the entire Data Estate Insights application.
 
-When you disable report refreshes, insight readers will be able view reports, but they'll see a banner on top of each report, warning that the report may not be current. It will also indicate the date the report was last generated.
+When you disable report refreshes, insight readers will be able view reports but they'll see a banner on top of each report, warning that the report may not be current. It will also indicate the date the report was last generated.
 
 In this case, graphs showing data from last 30 days will appear blank after 30 days. Graphs showing snapshot of the data map will continue to show graph and details. When an [insights readers](catalog-permissions.md#roles) accesses an insight report, report consumption meter will be triggered, and the Microsoft Purview account will be billed.
 
