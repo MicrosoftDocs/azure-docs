@@ -236,7 +236,7 @@ Some elements of the ETL process are easy to migrate, for example, by simple bul
 >The inventory of ETL tasks to be migrated should include scripts and stored procedures.
 
 One way of testing Oracle SQL for compatibility with Azure Synapse is to capture some representative SQL statements from a join of 
-Oracle v\$active\_session_history and v\$SQL to get the sql_text, then prefix those queries with `EXPLAIN`. Assuming a like-for-like migrated data model in Azure Synapse, run those `EXPLAIN` statements in Azure Synapse. Any incompatible SQL will give an error. You can use this information to determine the scale of the recoding task.
+Oracle `v$active_session_history` and `v$SQL` to get `sql_text`, then prefix those queries with `EXPLAIN`. Assuming a like-for-like migrated data model in Azure Synapse, run those `EXPLAIN` statements in Azure Synapse. Any incompatible SQL will give an error. You can use this information to determine the scale of the recoding task.
 
 >[!TIP]
 >Use `EXPLAIN` to find SQL incompatibilities.

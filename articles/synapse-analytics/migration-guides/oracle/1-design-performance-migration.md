@@ -158,7 +158,7 @@ Oracle-specific features can often be replaced by Azure Synapse features. Howeve
     Or, run the following query to find all indexes of a given type:
 
     ```sql
-    SELECT \* FROM dba_indexes WHERE index_type LIKE 'FUNCTION-BASED%';
+    SELECT * FROM dba_indexes WHERE index_type LIKE 'FUNCTION-BASED%';
     ```
 
   - Querying the `dba_index_usage` or `v$object_usage` views when monitoring is enabled. You can query those views in Oracle SQL Developer, as shown in the following screenshot.
@@ -183,7 +183,7 @@ Oracle-specific features can often be replaced by Azure Synapse features. Howeve
   
   - **Heap tables**: when you're temporarily landing data on Azure Synapse, you might find that using a heap table makes the overall process faster. This is because loading data to heap tables is faster than loading data to index tables, and in some cases subsequent reads can be done from cache. If you're loading data only to stage it before running more transformations, it's much faster to load it to a heap table than a clustered columnstore table. Also, loading data to a [temporary table](../../sql-data-warehouse/sql-data-warehouse-tables-temporary.md) is faster than loading a table to permanent storage. For small lookup tables with less than 100 million rows, heap tables are usually the right choice. Cluster columnstore tables begin to achieve optimal compression when they contain more than 100 million rows.
 
-- **Clustered tables**: Oracle tables can be organized so that table rows that are frequently accessed together (based on a common value) are physically stored together to reduce disk I/O when data is retrieved. Oracle also provides a hash-cluster option for individual tables, which applies a hash value to the cluster key and physically stores rows with the same hash value together. To list clusters within an Oracle database, use the `SELECT \* FROM DBA_CLUSTERS;` query. To determine whether a table is within a cluster, use the `SELECT \* FROM TAB;` query, which shows the table name and cluster ID for each table.
+- **Clustered tables**: Oracle tables can be organized so that table rows that are frequently accessed together (based on a common value) are physically stored together to reduce disk I/O when data is retrieved. Oracle also provides a hash-cluster option for individual tables, which applies a hash value to the cluster key and physically stores rows with the same hash value together. To list clusters within an Oracle database, use the `SELECT * FROM DBA_CLUSTERS;` query. To determine whether a table is within a cluster, use the `SELECT * FROM TAB;` query, which shows the table name and cluster ID for each table.
 
   In Azure Synapse, you can achieve similar results by using materialized and/or replicated tables, because those table types minimize the I/O required at query run time.
 
