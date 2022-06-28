@@ -53,7 +53,7 @@ Creating the controller will take a few minutes to complete. You can monitor the
 >  The example commands below assume that you created a data controller and Kubernetes namespace with the name 'arc'.  If you used a different namespace/data controller name, you can replace 'arc' with your name.
 
 ```console
-kubectl get datacontroller/arc --namespace arc
+kubectl get datacontroller/arc-dc --namespace arc
 ```
 
 ```console
