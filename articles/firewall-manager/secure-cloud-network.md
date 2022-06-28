@@ -77,7 +77,7 @@ Create your secured virtual hub using Firewall Manager.
 3. On the **Firewall Manager** page under **Deployments**, select **Virtual hubs**.
 4. On the **Firewall Manager | Virtual hubs** page, select **Create new secured virtual hub**.
 
-    :::image type="content" source="./media/secure-cloud-network/1-create-new-secured-virtual-hub.jpg" alt-text="Create new secured virtual hub." lightbox="./media/secure-cloud-network/1-create-new-secured-virtual-hub.jpg":::
+    :::image type="content" source="./media/secure-cloud-network/1-create-new-secured-virtual-hub.jpg" alt-text="Screenshot of creating a new secured virtual hub." lightbox="./media/secure-cloud-network/1-create-new-secured-virtual-hub.jpg":::
 
 5. For **Resource group**, select **fw-manager-rg**.
 6. For **Region**, select **East US**.
@@ -87,7 +87,7 @@ Create your secured virtual hub using Firewall Manager.
 10. Select **New vWAN** and select **Standard** for "Type"
 11. Leave the **Include VPN gateway to enable Trusted Security Partners** check box cleared.
 
-    :::image type="content" source="./media/secure-cloud-network/2-create-new-secured-virtual-hub.png" alt-text="Create new virtual hub with properties." lightbox="./media/secure-cloud-network/2-create-new-secured-virtual-hub.png":::
+    :::image type="content" source="./media/secure-cloud-network/2-create-new-secured-virtual-hub.png" alt-text="Screenshot of creating a new virtual hub with properties." lightbox="./media/secure-cloud-network/2-create-new-secured-virtual-hub.png":::
 
 12. Select **Next: Azure Firewall**.
 13. Accept the default **Azure Firewall** **Enabled** setting.
@@ -97,17 +97,17 @@ Create your secured virtual hub using Firewall Manager.
 > [!IMPORTANT]
 > A Virtual WAN is a collection of hubs and services made available inside the hub. You can deploy as many Virtual WANs that you need. In a Virtual WAN hub, there are multiple services like VPN, ExpressRoute, and so on. Each of these services is automatically deployed across Availability Zones except Azure Firewall, if the region supports Availability Zones. To align with Azure Virtual WAN resiliency, you should select all available Availability Zones.
 
-   :::image type="content" source="./media/secure-cloud-network/3-azure-firewall-parameters-with-zones.png" alt-text="Configure Azure Firewall parameters." lightbox="./media/secure-cloud-network/3-azure-firewall-parameters-with-zones.png":::
+   :::image type="content" source="./media/secure-cloud-network/3-azure-firewall-parameters-with-zones.png" alt-text="Screenshot of configuring Azure Firewall parameters." lightbox="./media/secure-cloud-network/3-azure-firewall-parameters-with-zones.png":::
 
 16. Select the **Firewall Policy** to apply at the new Azure Firewall instance. Select **Default Deny Policy**, you will refine your settings later in this article.
 17. Select **Next: Trusted Security Partner**.
 
-    :::image type="content" source="./media/secure-cloud-network/4-trusted-security-partner.png" alt-text="Configure Trusted Partners parameters." lightbox="./media/secure-cloud-network/4-trusted-security-partner.png":::
+    :::image type="content" source="./media/secure-cloud-network/4-trusted-security-partner.png" alt-text="Screenshot of configuring Trusted Partners parameters." lightbox="./media/secure-cloud-network/4-trusted-security-partner.png":::
 
 18. Accept the default **Trusted Security Partner** **Disabled** setting, and select **Next: Review + create**.
 19. Select **Create**. 
 
-    :::image type="content" source="./media/secure-cloud-network/5-confirm-and-create.png" alt-text="Create the Firewall instance." lightbox="./media/secure-cloud-network/5-confirm-and-create.png":::
+    :::image type="content" source="./media/secure-cloud-network/5-confirm-and-create.png" alt-text="Screenshot of creating the Firewall instance." lightbox="./media/secure-cloud-network/5-confirm-and-create.png":::
 
 > [!NOTE]
 > It may take up to 30 minutes to create a secured virtual hub.
@@ -127,7 +127,7 @@ Now you can peer the hub and spoke virtual networks.
 1. Select the **fw-manager-rg** resource group, then select the **Vwan-01** virtual WAN.
 2. Under **Connectivity**, select **Virtual network connections**.
 
-    :::image type="content" source="./media/secure-cloud-network/7b-connect-the-hub-and-spoke.png" alt-text="Add VNET connections." lightbox="./media/secure-cloud-network/7b-connect-the-hub-and-spoke.png":::
+    :::image type="content" source="./media/secure-cloud-network/7b-connect-the-hub-and-spoke.png" alt-text="Screenshot of adding Virtual Network connections." lightbox="./media/secure-cloud-network/7b-connect-the-hub-and-spoke.png":::
 
 3. Select **Add connection**.
 4. For **Connection name**, type **hub-spoke-01**.
@@ -175,27 +175,27 @@ A firewall policy defines collections of rules to direct traffic on one or more 
 
 1. From Firewall Manager, select **Azure Firewall policies**.
 
-    :::image type="content" source="./media/secure-cloud-network/6-create-azure-firewall-policy1.png" alt-text="Create an Azure Policy with first step." lightbox="./media/secure-cloud-network/6-create-azure-firewall-policy1.png":::
+    :::image type="content" source="./media/secure-cloud-network/6-create-azure-firewall-policy1.png" alt-text="Screenshot of creating an Azure Policy with first step." lightbox="./media/secure-cloud-network/6-create-azure-firewall-policy1.png":::
 
 2. Select **Create Azure Firewall Policy**.
 
-    :::image type="content" source="./media/secure-cloud-network/6-create-azure-firewall-policy-basics 2.png" alt-text="Configure Azure Policy settings in first step." lightbox="./media/secure-cloud-network/6-create-azure-firewall-policy-basics 2.png":::
+    :::image type="content" source="./media/secure-cloud-network/6-create-azure-firewall-policy-basics 2.png" alt-text="Screenshot of configuring Azure Policy settings in first step." lightbox="./media/secure-cloud-network/6-create-azure-firewall-policy-basics 2.png":::
 
 3. For **Resource group**, select **fw-manager-rg**.
 4. Under **Policy details**, for the **Name** type **Policy-01** and for **Region** select **East US**.
 5. For **Policy tier**, select **Standard**.
 6. Select **Next: DNS Settings**.
 
-    :::image type="content" source="./media/secure-cloud-network/6-create-azure-firewall-policy-dns3.png" alt-text="Configure DNS settings." lightbox="./media/secure-cloud-network/6-create-azure-firewall-policy-dns3.png":::
+    :::image type="content" source="./media/secure-cloud-network/6-create-azure-firewall-policy-dns3.png" alt-text="Screenshot of configuring DNS settings." lightbox="./media/secure-cloud-network/6-create-azure-firewall-policy-dns3.png":::
 
 7. Select **Next: TLS Inspection**.
 
-    :::image type="content" source="./media/secure-cloud-network/6-create-azure-firewall-policy-tls4.png" alt-text="Configure TLS settings." lightbox="./media/secure-cloud-network/6-create-azure-firewall-policy-tls4.png":::
+    :::image type="content" source="./media/secure-cloud-network/6-create-azure-firewall-policy-tls4.png" alt-text="Screenshot of configuring TLS settings." lightbox="./media/secure-cloud-network/6-create-azure-firewall-policy-tls4.png":::
 
 8. Select **Next : Rules**.
 9. On the **Rules** tab, select **Add a rule collection**.
 
-    :::image type="content" source="./media/secure-cloud-network/6-create-azure-firewall-policy-add-rule-collection6.png" alt-text="Configure Rule Collection." lightbox="./media/secure-cloud-network/6-create-azure-firewall-policy-add-rule-collection6.png":::
+    :::image type="content" source="./media/secure-cloud-network/6-create-azure-firewall-policy-add-rule-collection6.png" alt-text="Screenshot of configuring Rule Collection." lightbox="./media/secure-cloud-network/6-create-azure-firewall-policy-add-rule-collection6.png":::
 
 10. On the **Add a rule collection** page, type **App-RC-01** for the **Name**.
 11. For **Rule collection type**, select **Application**.
@@ -246,11 +246,11 @@ A firewall policy defines collections of rules to direct traffic on one or more 
 
 23. In the **IDPS** page, click on **Next: Threat Intelligence**
 
-    :::image type="content" source="./media/secure-cloud-network/6-create-azure-firewall-policy-idps7.png" alt-text="Configure IDPS settings." lightbox="./media/secure-cloud-network/6-create-azure-firewall-policy-idps7.png":::
+    :::image type="content" source="./media/secure-cloud-network/6-create-azure-firewall-policy-idps7.png" alt-text="Screenshot of configuring IDPS settings." lightbox="./media/secure-cloud-network/6-create-azure-firewall-policy-idps7.png":::
 
 24. In the **Threat Intelligence** page, accept defaults and click on **Review and Create**:
 
-    :::image type="content" source="./media/secure-cloud-network/7a-create-azure-firewall-policy-threat-intelligence7.png" alt-text="Configure Threat Intelligence settings." lightbox="./media/secure-cloud-network/7a-create-azure-firewall-policy-threat-intelligence7.png":::
+    :::image type="content" source="./media/secure-cloud-network/7a-create-azure-firewall-policy-threat-intelligence7.png" alt-text="Screenshot of configuring Threat Intelligence settings." lightbox="./media/secure-cloud-network/7a-create-azure-firewall-policy-threat-intelligence7.png":::
 
 25. Review and confirm your selection clicking on **Create** button.
 
@@ -262,12 +262,12 @@ Associate the firewall policy with the hub.
 2. Select the check box for **Policy-01**.
 3. Select **Manage associations**, **Associate hubs**.
 
-    :::image type="content" source="./media/secure-cloud-network/8-associate-policy1.png" alt-text="Configure Policy association." lightbox="./media/secure-cloud-network/8-associate-policy1.png":::
+    :::image type="content" source="./media/secure-cloud-network/8-associate-policy1.png" alt-text="Screenshot of configuring Policy association." lightbox="./media/secure-cloud-network/8-associate-policy1.png":::
 
 4. Select **hub-01**.
 5. Select **Add**.
 
-   :::image type="content" source="./media/secure-cloud-network/8-associate-policy2.png" alt-text="Add Policy and Hub settings" lightbox="./media/secure-cloud-network/8-associate-policy2.png":::
+   :::image type="content" source="./media/secure-cloud-network/8-associate-policy2.png" alt-text="Screenshot of adding Policy and Hub settings." lightbox="./media/secure-cloud-network/8-associate-policy2.png":::
 
 ## Route traffic to your hub
 
@@ -281,14 +281,14 @@ Now you must ensure that network traffic gets routed through your firewall.
 6. Select **Save**.
 7. Select **OK** on the **Warning** dialog.
 
-   :::image type="content" source="./media/secure-cloud-network/9a-firewall-warning.png" alt-text="Secure Connections" lightbox="./media/secure-cloud-network/9a-firewall-warning.png":::
+   :::image type="content" source="./media/secure-cloud-network/9a-firewall-warning.png" alt-text="Screenshot of Secure Connections." lightbox="./media/secure-cloud-network/9a-firewall-warning.png":::
 
    > [!NOTE]
    > It takes a few minutes to update the route tables.
 
 8. Verify that the two connections show Azure Firewall secures both Internet and private traffic.
 
-   :::image type="content" source="./media/secure-cloud-network/9b-secured-connections.png" alt-text="Secure Connections Final Status" lightbox="./media/secure-cloud-network/9b-secured-connections.png":::
+   :::image type="content" source="./media/secure-cloud-network/9b-secured-connections.png" alt-text="Screenshot of Secure Connections final status." lightbox="./media/secure-cloud-network/9b-secured-connections.png":::
 
 ## Test the firewall
 
