@@ -7,7 +7,7 @@ metadata:
   ms.service: active-directory
   ms.subservice: B2B
   ms.topic: faq
-  ms.date: 05/06/2022
+  ms.date: 06/30/2022
   ms.author: mimart
   author: msmimart
   manager: celestedg
@@ -58,7 +58,7 @@ sections:
       - question: |
           What if a partner organization already has multifactor authentication set up? Can we trust their multifactor authentication?
         answer: |
-          [Cross-tenant access settings](cross-tenant-access-overview.md) (preview) let you trust multifactor authentication and device claims ([compliant claims and hybrid Azure AD joined claims](../conditional-access/howto-conditional-access-policy-compliant-device.md)) from other Azure AD organizations.
+          [Cross-tenant access settings](cross-tenant-access-overview.md) let you trust multifactor authentication and device claims ([compliant claims and hybrid Azure AD joined claims](../conditional-access/howto-conditional-access-policy-compliant-device.md)) from other Azure AD organizations.
       - question: |
           How can I use delayed invitations?
         answer: |
