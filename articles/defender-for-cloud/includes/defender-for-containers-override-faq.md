@@ -32,6 +32,12 @@ Depending on your region the default Log Analytics workspace located will be loc
 
 ### Why did auto provisioning fail?
 
-If you have an Organizational policy for resource tagging in place, auto provisioning may fail. If this happened to you, you will need to set [assign a custom workspace](../defender-for-containers-enable.md?pivots=defender-for-container-aks&tabs=aks-deploy-portal%2ck8s-deploy-asc%2ck8s-verify-asc%2ck8s-remove-arc%2caks-removeprofile-api#assign-a-custom-workspace) or exclude the following from your `Resource TaggingOrg` policy:
+If you have an organizational policy for resource tagging in place, auto provisioning may fail. If this happened to you, you can either:
+
+- [assign a custom workspace](../defender-for-containers-enable.md?pivots=defender-for-container-aks&tabs=aks-deploy-portal%2ck8s-deploy-asc%2ck8s-verify-asc%2ck8s-remove-arc%2caks-removeprofile-api#assign-a-custom-workspace) 
+
+    or 
+
+- exclude the following from your `Resource TaggingOrg` policy:
 - The resource group `DefaultResourceGroup-<RegionShortCode>`
 - The Workspace  `DefaultWorkspace-<sub-id>-<RegionShortCode>`, where the RegionShortCode is a 2-4 letters string.
