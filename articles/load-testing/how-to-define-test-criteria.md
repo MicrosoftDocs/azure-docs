@@ -26,7 +26,7 @@ By defining test criteria, you can specify the performance expectations of your 
 
 ## Load test pass/fail criteria
 
-This section discusses the syntax you use to define Azure Load Testing pass/fail criteria.
+This section discusses the syntax of Azure Load Testing pass/fail criteria. When a criterion evaluates to `true`, the load test gets the *failed* status.
 
 The structure of a pass/fail criterion is: `Request: Aggregate_function (client_metric) condition threshold`.
 
