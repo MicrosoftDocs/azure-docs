@@ -33,7 +33,7 @@ It's important that you have the following prerequisites completed before you be
 >* Two MedTech services accessing the same device message event hub.
 >* A MedTech service and a storage writer application accessing the same device message event hub.
 
-If you already have an active Azure account, you can use the button below to deploy a MedTech service that will include the following resources and permissions:
+If you already have an active Azure account, you can use the ![Deploy to Azure](https://aka.ms/deploytoazurebutton) button below to deploy a MedTech service that will include the following resources and permissions:
  * An Azure Event Hubs Namespace and device message event hub (the event hub is named: **devicedata**)
  * An Azure event hub sender role (the sender role is named: **devicedatasender**)
  * An Azure Health Data Services workspace
