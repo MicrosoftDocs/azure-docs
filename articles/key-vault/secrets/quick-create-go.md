@@ -157,7 +157,7 @@ func main() {
 	}
 
 	//Establish a connection to the Key Vault client
-	client, err := azsecrets.NewClient(vaultUri, cred, nil)
+	client, err := azsecrets.NewClient(vaultURI, cred, nil)
 	if err != nil {
 		log.Fatalf("failed to connect to client: %v", err)
 	}
