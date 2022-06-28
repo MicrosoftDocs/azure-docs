@@ -50,9 +50,7 @@ In this quickstart, you'll learn how to create and deploy your first [WordPress]
     :::image type="content" source="./media/quickstart-wordpress/08-wordpress-advanced-settings.png" alt-text="Screenshot of WordPress Advanced Settings":::
 
     > [!NOTE]
-    > WordPress on App Service on Linux provides performance options through Content Distribution in the form of a [Content Delivery Network](../cdn/cdn-overview) or [Blob Storage](../storage/blobs/storage-blobs-overview).
-    >
-    >CDN Endpoint creates an Azure CDN profile and Blob Storage creates an Azure Storage account with a blob container. For more details on the Content Distribution options, see [WordPress on App Service](https://azure.github.io/AppService/2022/02/23/WordPress-on-App-Service-Public-Preview.html).
+    > WordPress on App Service on Linux provides performance options through a [CDN Endpoint](../cdn/cdn-overview) or [Blob Storage](../storage/blobs/storage-blobs-overview). For more details on the Content Distribution options, see [WordPress on App Service](https://azure.github.io/AppService/2022/02/23/WordPress-on-App-Service-Public-Preview.html).
     >
 
 1. Select the **Review + create** tab. After validation runs, select the **Create** button at the bottom of the page to create the WordPress site.
