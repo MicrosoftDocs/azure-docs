@@ -516,7 +516,7 @@ If you want to attach custom dimensions to your logs, use [Log4j 1.2 MDC](https:
 
 ## Troubleshooting
 
-For help with troubleshooting, see [Troubleshooting](java-standalone-troubleshoot.md).
+See the dedicated [troubleshooting article](https://docs.microsoft.com/troubleshoot/azure/azure-monitor/app-insights/java-standalone-troubleshoot).
 
 ## Release notes
 
