@@ -107,13 +107,13 @@ Microsoft recommends moving your existing data model as-is to Azure and using th
 
 You can automate and orchestrate the migration process by using the capabilities of the Azure environment. This approach minimizes the performance hit on the existing Oracle environment, which may already be running close to capacity.
 
-[SQL Server Migration Assistant](/sql/ssma/oracle/sql-server-migration-assistant-for-oracle-oracletosql) (SSMA) for Oracle can automate many parts of the migration process and supports Azure Synapse as a target environment.
+[SQL Server Migration Assistant](/sql/ssma/oracle/sql-server-migration-assistant-for-oracle-oracletosql) (SSMA) for Oracle can automate many parts of the migration process, including in some cases functions and procedural code. SSMA supports Azure Synapse as a target environment.
 
 :::image type="content" source="../media/1-design-performance-migration/oracle-sql-server-migration-assistant-1.png" border="true" alt-text="Screenshot showing how SQL Server Migration Assistant for Oracle can automate many parts of the migration process.":::
 
 [Azure Data Factory](../../../data-factory/introduction.md) is a cloud-based data integration service that supports creating data-driven workflows in the cloud that orchestrate and automate data movement and data transformation. You can use Data Factory to create and schedule data-driven workflows (pipelines) that ingest data from disparate data stores. Data Factory can process and transform the data by using compute services such as Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics, and Azure Machine Learning.
 
-[Azure Database Migration Services](../../../dms/dms-overview.md) can help you plan and perform a migration from environments like Oracle. SSMA for Oracle can automate migration of Oracle databases, including in some cases functions and procedural code.
+[Azure Database Migration Services](../../../dms/dms-overview.md) can help you plan and perform a migration from environments like Oracle.
 
 When planning to use Azure facilities to manage the migration process, create metadata that lists all the data tables to be migrated and their location.
 
@@ -269,7 +269,7 @@ SQL DML syntax differences exist between Oracle SQL and Azure Synapse T-SQL. Tho
 
 #### Functions, stored procedures, and sequences
 
-When migrating from a mature data warehouse environment like Oracle, you'll probably need to migrate elements other than simple tables and views. For functions, stored procedures, and sequences check whether tools within the Azure environment can replace their functionality because it's usually more efficient to use built-in Azure tools than to recode the Oracle functions. [Data integration partners](../../partner/data-integration.md) offer tools and services that automate migration of functions, stored procedures, and sequences.
+When migrating from a mature data warehouse environment like Oracle, you'll probably need to migrate elements other than simple tables and views. For functions, stored procedures, and sequences, check whether tools within the Azure environment can replace their functionality because it's usually more efficient to use built-in Azure tools than to recode the Oracle functions. [Data integration partners](../../partner/data-integration.md) offer tools and services that automate migration of functions, stored procedures, and sequences.
 
 As part of your preparation phase, create an inventory of objects that need to be migrated, define a method for handling them, and allocate appropriate resources in your migration plan.
 

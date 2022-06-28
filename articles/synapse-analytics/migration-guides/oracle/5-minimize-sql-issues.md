@@ -109,7 +109,7 @@ Oracle-specific features can often be replaced by Azure Synapse features. Howeve
 
 ### SQL DDL generation
 
-You can edit existing Oracle `CREATE TABLE` and `CREATE VIEW` scripts to achieve equivalent definitions in Azure Synapse. To do so, you might need to use [modified data types](#oracle-data-type-mapping) and remove or modify Oracle-specific clauses, such as `TABLESPACE`.
+You can edit existing Oracle `CREATE TABLE` and `CREATE VIEW` scripts to achieve equivalent definitions in Azure Synapse. To do so, you might need to use [modified data types](1-design-performance-migration.md#oracle-data-type-mapping) and remove or modify Oracle-specific clauses, such as `TABLESPACE`.
 
 >[!TIP]
 >Use existing Oracle metadata to automate the generation of `CREATE TABLE` and `CREATE VIEW` DDL for Azure Synapse.
