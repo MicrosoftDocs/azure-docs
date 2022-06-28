@@ -16,11 +16,29 @@ Azure App Service provides easy-to-use tools to quickly discover on-premises .NE
 
 These tools are developed to support different kinds of scenarios, focused on discovery, assessment, and migration. Following is list of .NET migration tools and use cases.
 
-## Migrate from multiple servers at-scale (preview)
+## Migrate from multiple servers at-scale
 
 <!-- Intent: discover how to assess and migrate at scale. -->
 
 Azure Migrate recently announced at-scale, agentless discovery, and assessment of ASP.NET web apps. You can now easily discover ASP.NET web apps running on Internet Information Services (IIS) servers in a VMware environment and assess them for migration to Azure App Service. Assessments will help you determine the web app migration readiness, migration blockers, remediation guidance, recommended SKU, and hosting costs. At-scale migration resources for  are found below.
+
+Once you have successfully assessed readiness of ASP.Net web you should proceed with migration of ASP.Net web apps to Azure App Services.  
+
+There are existing tools which enable migration of a standalone ASP.Net web app or multiple ASP.Net web apps hosted on a single IIS server as explained here Migrate .NET apps to Azure App Service - Azure App Service ; With introduction of At-Scale or bulk migration feature integrated with Azure Migrate we are now opening up the possibilities to migrate multiple ASP.Net application hosted on multiple on-premises IIS servers.  
+
+Azure Migrate provides at-scale, agentless discovery, and assessment of ASP.NET web apps. You can discover ASP.NET web apps running on Internet Information Services (IIS) servers in a VMware environment and assess them for migration to Azure App Service. Assessments will help you determine the web app migration readiness, migration blockers, remediation guidance, recommended SKU, and hosting costs. At-scale migration resources for  are found below.
+
+Bulk migration provides the following key capabilities: 
+
+- Bulk Migration of ASP.NET web apps to Azure App Services multitenant or App services environment 
+- Migrate ASP.Net web apps assessed as “Ready” & “Ready with Conditions” 
+- Migrate up to 5 app service plans (and associated web apps) as part of a single E2E migration flow 
+- Ability to change suggested SKU for the target App Service Plan (Ex: Change suggested Pv3 SKU to Standard PV2 SKU) 
+- Ability to change web apps suggested web apps packing density for target app service plan (Add or Remove web apps associated with an App Service Plan) 
+- Change target name for app service plans and\or web apps 
+- Bulk edit migration settings\attributes 
+- Download CSV with details of target web app and app service plan name 
+- Track progress of migration using ARM template deployment experience 
 
 ### At-scale migration resources
 
@@ -30,6 +48,7 @@ Azure Migrate recently announced at-scale, agentless discovery, and assessment o
 | [Create an Azure App Service assessment](../migrate/how-to-create-azure-app-service-assessment.md)                            |
 | [Tutorial to assess web apps for migration to Azure App Service](../migrate/tutorial-assess-webapps.md)                       |
 | [Discover software inventory on on-premises servers with Azure Migrate](../migrate/how-to-discover-applications.md)           |
+| [Migrate .NET apps to App Service](../migrate/tutorial-migrate-webapps.md) |
 | **Blog** |
 | [Discover and assess ASP.NET apps at-scale with Azure Migrate](https://azure.microsoft.com/blog/discover-and-assess-aspnet-apps-atscale-with-azure-migrate/) |
 | **FAQ** |
