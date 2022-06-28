@@ -1184,6 +1184,17 @@ groups:
     title: Python
   - id: rest-api
     title: REST
+# Owner: mbullwin
+- id: openai-quickstart
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: programming-language-studio
+    title: Studio
+  - id: programming-language-python
+    title: Python
+  - id: rest-api
+    title: REST
 # Owner: diberry
 - id: app-service-webjob
   title: WebJob types

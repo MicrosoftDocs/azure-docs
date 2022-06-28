@@ -1258,6 +1258,8 @@
         href: kemp-tutorial.md
       - name: Kendis - Azure AD Integration
         href: kendis-scaling-agile-platform-tutorial.md
+      - name: Keystone
+        href: keystone-tutorial.md
       - name: KFAdvance
         href: kfadvance-tutorial.md
       - name: Khoros Care
@@ -1724,6 +1726,8 @@
         href: predictixordering-tutorial.md
       - name: Predictix Price Reporting
         href: predictixpricereporting-tutorial.md
+      - name: Preset
+        href: preset-tutorial.md
       - name: PressPage
         href: presspage-tutorial.md
       - name: Prezi
@@ -2220,6 +2224,8 @@
         href: teamzskill-tutorial.md
       - name: Templafy SAML2
         href: templafy-tutorial.md
+      - name: Tendium
+        href: tendium-tutorial.md
       - name: Terraform Cloud
         href: terraform-cloud-tutorial.md
       - name: Terraform Enterprise
@@ -2284,6 +2290,8 @@
         href: traction-guest-tutorial.md
       - name: Tradeshift
         href: tradeshift-tutorial.md
+      - name: Training Platform
+        href: training-platform-tutorial.md
       - name: Trakopolis
         href: trakopolis-tutorial.md
       - name: Trakstar
@@ -2374,6 +2382,8 @@
         href: verme-tutorial.md
       - name: Versal
         href: versal-tutorial.md
+      - name: Veza
+        href: veza-tutorial.md
       - name: Viareport (Europe)
         href: viareports-inativ-portal-europe-tutorial.md
       - name: Vibe HCM

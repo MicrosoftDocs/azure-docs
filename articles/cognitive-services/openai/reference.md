@@ -1,5 +1,5 @@
 ---
-title: Azure OpenAi REST API reference
+title: Azure OpenAI REST API reference
 titleSuffix: Azure OpenAI
 description: Learn how to use the Azure OpenAI REST API. In this article, you'll learn about authorization options,  how to structure a request and receive a response.
 services: cognitive-services
@@ -25,20 +25,13 @@ The Azure OpenAI Service is deployed as a part of the Azure Cognitive Services. 
 
 [**Management APIs reference documentation**](/azure/rest/api/cognitiveservices/)
 
-## Service APIs
-
-Once you've created an Azure OpenAI Resource and deployed a model, you'll primarily use the Service APIs to interact. An easy way to view and test your service is to use the OpenAPI Swagger editor in VS Code: [available here](https://marketplace.visualstudio.com/items?itemName=42Crunch.vscode-openapi). Using this extension you can generate local reference documentation and make API calls to the service.
-
 ## Authentication
 
 The Azure OpenAI service provides two methods for authentication. you can use  either API Keys or Azure Active Directory.
 
-- **API Key authentication**: For this type of authentication, all API requests must include the API Key in the ```api-key``` HTTP header. 
-<!--TODO: Uncommment once the link to the doc is created
- The [Quickstart](../Quickstarts/Quickstarts.md) provides a tutorial for how to make calls with this type of authentication-->
+- **API Key authentication**: For this type of authentication, all API requests must include the API Key in the ```api-key``` HTTP header. The [Quickstart](./quickstart.md) provides a tutorial for how to make calls with this type of authentication
 
-<!--TODO: Uncomment once linked doc is created
-- **Azure Active Directory authentication**: You can authenticate an API call using an Azure Active Directory token. Authentication tokens are included in a request as the ```Authorization``` header. The token provided must be preceded by ```Bearer```, for example ```Bearer YOUR_AUTH_TOKEN```. You can read our how-to guide on [authenticating with Azure Active Directory](../How%20to/Set%20up%20managed%20identity.md)-->
+- **Azure Active Directory authentication**: You can authenticate an API call using an Azure Active Directory token. Authentication tokens are included in a request as the ```Authorization``` header. The token provided must be preceded by ```Bearer```, for example ```Bearer YOUR_AUTH_TOKEN```. You can read our how-to guide on [authenticating with Azure Active Directory](./how-to/managed-identity.md).
 
 ### REST API versioning
 
@@ -93,12 +86,12 @@ POST https://{your-resource-name}.openai.azure.com/openai/deployments/{deploymen
 
 ```console
 curl https://YOUR_RESOURCE_NAME.openaiazure.com/openai/deployments/YOUR_DEPLOYMENT_NAME/completions?api-version=2022-06-01-preview\
-  -H 'Content-Type: application/json' \
-  -H 'api-key: YOUR_API_KEY' \
-  -d '{
-  "prompt": "Once upon a time",
-  "max_tokens": 5
-}'
+  -H "Content-Type: application/json" \
+  -H "api-key: YOUR_API_KEY" \
+  -d "{
+  \"prompt\": \"Once upon a time\",
+  \"max_tokens\": 5
+}"
 ```
 
 #### Example response
@@ -117,71 +110,6 @@ curl https://YOUR_RESOURCE_NAME.openaiazure.com/openai/deployments/YOUR_DEPLOYME
             "finish_reason": "length"
         }
     ]
-}
-```
-
-## Search
-
-The search endpoint computes similarity scores between provided query and documents. Up to 200 Documents can be passed directly to the API. The similarity score is a positive score that usually ranges from 0 to 300 (but can sometimes go higher), where a score above 200 usually means the document is semantically similar to the query.
-
-```
-POST https://{your-resource-name}.openai.azure.com/openai/deployments/{deployment-id}/search?api-version={api-version}
-```
-
-**Path parameters**
-
-| Parameter | Type | Required? | Default | Description |
-|--|--|--|--|--|
-| ```your-resource-name``` | string |  Required | null | The name of your Azure OpenAI Resource. |
-| ```deployment-id``` | string | Required | null | The name of your model deployment. You're required to first deploy a model before you can make calls |
-| ```api-version``` | string | Required |  null |The API version to use for this operation. This follows the YYYY-MM-DD-preview format.|
-
-**Supported versions**
-
-- `2022-06-01-preview`
-
-**Request body**
-
-| Parameter | Type | Required? | Default | Description |
-|--|--|--|--|--|
-| documents | array | Optional | | Up to 200 documents to search over, provided as a list of strings. The maximum document length (in tokens) is 2034 minus the number of tokens in the query.
-| query | string | Required || Query to search against the documents. |
-
-#### Example request
-
-```console
-curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/deployments/YOUR_DEPLOYMENT_NAME/search?api-version=2022-06-01-preview \
-  -H "Content-Type: application/json" \
- -H 'api-key: YOUR_API_KEY' \
-  -d '{
-  "documents": ["White House", "hospital", "school"],
-  "query": "the president"
-}' 
-```
-
-#### Example response
-
-```json
-{
-  "object": "list",
-  "data": [
-    {
-      "object": "search_result",
-      "document": 0,
-      "score": 173.28
-    },
-    {
-      "object": "search_result",
-      "document": 1,
-      "score": 13.313
-    },
-    {
-      "object": "search_result",
-      "document": 2,
-      "score": 5.695
-    }
-  ],
-  "model": "ada"
 }
 ```
 
@@ -216,10 +144,10 @@ POST https://{your-resource-name}.openai.azure.com/openai/deployments/{deploymen
 #### Example request
 
 ```console
-curl https://YOUR_RESOURCE_NAME.openaiazure.com/openai/deployments/YOUR_DEPLOYMENT_NAME/embeddings?api-version=2022-06-01-preview\
-  -H 'Content-Type: application/json' \
-  -H 'api-key: YOUR_API_KEY' \
-  -d '{"input": "The food was delicious and the waiter..."}'
+curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/deployments/YOUR_DEPLOYMENT_NAME/embeddings?api-version=2022-06-01-preview\
+  -H "Content-Type: application/json" \
+  -H "api-key: YOUR_API_KEY" \
+  -d "{\"input\": \"The food was delicious and the waiter...\"}"
 ```
 
 #### Example response
@@ -379,8 +307,8 @@ GET https://{your-resource-name}.openai.azure.com/openai/fine-tunes?api-version=
 #### Example request
 
 ```console
-curl https://your_resource_name.openai.azure.com/openai/fine-tunes?api-version=2022-06-01-preview \
-  -H 'api-key: YOUR_API_KEY'
+curl -X GET https://your_resource_name.openai.azure.com/openai/fine-tunes?api-version=2022-06-01-preview \
+  -H "api-key: YOUR_API_KEY"
 ```
 
 #### Example response
@@ -511,16 +439,16 @@ curl https://your-resource-name.openai.azure.com/openai/fine-tunes?api-version=2
   -X POST \
   -H "Content-Type: application/json" \
   -H "api-key: YOUR_API_KEY" \
-  -d '{
-        "model": "ada",
-        "training_file": "file-6ca9bd640c8e4eaa9ec922604226ab6c",
-        "validation_file": "file-cbdad17806aa48e48b05fc2c44c87bf5",
-        "hyperparams": {
-          "batch_size": 1,
-          "learning_rate_multiplier": 0.1,
-          "n_epochs": 4,
+  -d "{
+        \"model\": \"ada\",
+        \"training_file\": \"file-6ca9bd640c8e4eaa9ec922604226ab6c\",
+        \"validation_file\": \"file-cbdad17806aa48e48b05fc2c44c87bf5\",
+        \"hyperparams\": {
+          \"batch_size\": 1,
+          \"learning_rate_multiplier\": 0.1,
+          \"n_epochs\": 4,
         }
-      }'
+      }"
 ```
 
 #### Example response
@@ -783,8 +711,7 @@ POST https://{your-resource-name}.openai.azure.com/openai/fine-tunes/{fine_tune_
 
 #### Example request
 ```
-curl -X 'POST' \
-  ''https://your_resource_name.openai.azure.com/openai/fine-tunes/ft-d3f2a65d49d34e74a80f6328ba6d8d08/cancel?api-version=2022-06-01-preview' \
+curl -X POST https://your_resource_name.openai.azure.com/openai/fine-tunes/ft-d3f2a65d49d34e74a80f6328ba6d8d08/cancel?api-version=2022-06-01-preview \
     -H "api-key: YOUR_API_KEY" 
 ```
 
@@ -833,7 +760,7 @@ curl -X 'POST' \
 
 ```
 
-### Files
+## Files
 
 #### List all files in your resource
 
@@ -921,11 +848,11 @@ GET https://{your-resource-name}.openai.azure.com/openai/files?api-version={api-
 #### Example request
 
 ```console
-curl -X 'POST'  'https://example_resource_name.openai.azure.com/openai/files?api-version=2022-06-01-preview' \
-  -H 'accept: application/json' \
-  -H 'Content-Type: multipart/form-data' \
-  -F 'purpose=fine-tune' \
-  -F 'file=@straining_file_name.jsonl'
+curl -X POST https://example_resource_name.openai.azure.com/openai/files?api-version=2022-06-01-preview \
+  -H "accept: application/json" \
+  -H "Content-Type: multipart/form-data" \
+  -F "purpose=fine-tune" \
+  -F "file=@straining_file_name.jsonl"
 ```
 
 #### Example response
@@ -966,7 +893,7 @@ GET https://{your-resource-name}.openai.azure.com/openai/files/{file_id}?api-ver
 #### Example request
 
 ```console
-curl -X 'GET'  'https://example_resource_name.openai.azure.com/openai/files/file-6ca9bd640c8e4eaa9ec922604226ab6c?api-version=2022-06-01-preview' \
+curl -X GET https://example_resource_name.openai.azure.com/openai/files/file-6ca9bd640c8e4eaa9ec922604226ab6c?api-version=2022-06-01-preview \
   -H "api-key: YOUR_API_KEY" 
 ```
 
@@ -1007,7 +934,7 @@ DELETE https://{your-resource-name}.openai.azure.com/openai/files/{file_id}?api-
 
 #### Example request
 ```console
-curl -X 'DELETE'  https://example_resource_name.openai.azure.com/openai/files/file-6ca9bd640c8e4eaa9ec922604226ab6c?api-version=2022-06-01-preview \
+curl -X DELETE https://example_resource_name.openai.azure.com/openai/files/file-6ca9bd640c8e4eaa9ec922604226ab6c?api-version=2022-06-01-preview \
   -H "api-key: YOUR_API_KEY" 
 ```
 
@@ -1067,15 +994,14 @@ POST https://{your-resource-name}.openai.azure.com/openai/files/import?api-versi
 #### Example request
 
 ```console
-curl -X 'POST' \
-  'https://example_resource_name.openai.azure.com/openai/files/files/import?api-version=2022-06-01-preview' \
+curl -X POST https://example_resource_name.openai.azure.com/openai/files/files/import?api-version=2022-06-01-preview \
   -H "api-key: YOUR_API_KEY"
-  -H 'Content-Type: application/json' \
-  -d '{
-      "purpose": "fine-tune",
-      "filename": "NAME_OF_FILE",
-      "content_url": "URL_TO_FILE"
-      }'
+  -H "Content-Type: application/json" \
+  -d "{
+      \"purpose\": \"fine-tune\",
+      \"filename\": \"NAME_OF_FILE\",
+      \"content_url\": \"URL_TO_FILE\"
+      }"
 ```
 
 ### Example response
@@ -1092,7 +1018,7 @@ curl -X 'POST' \
 }
 ```
 
-### Deployments
+## Deployments
 
 #### List all deployments in the resource
 
@@ -1147,7 +1073,7 @@ curl -X GET https://example_resource_name.openai.azure.com/openai/deployments?ap
 
 #### Create a new deployment
 
-This API will create a new deployment in the resource. This will enable you to make completions and search calls with the model.
+This API will create a new deployment in the resource. This will enable you to make completions and embeddings calls with the model.
 
 ```
 POST https://{your-resource-name}.openai.azure.com/openai/deployments?api-version={api-version}
@@ -1174,16 +1100,15 @@ POST https://{your-resource-name}.openai.azure.com/openai/deployments?api-versio
 #### Example request
 
 ```console
-curl -X 'POST' \
-  'https://example_resource_name.openai.azure.com/openai/deployments?api-version=2022-06-01-preview' \
+curl -X POST https://example_resource_name.openai.azure.com/openai/deployments?api-version=2022-06-01-preview \
   -H "api-key: YOUR_API_KEY"
-  -H 'Content-Type: application/json' \
-  -d '{
-      "model": "ada",
-      "scale_settings": {
-            "scale_type": "standard"
-          }"
-      }'
+  -H "Content-Type: application/json" \
+  -d "{
+      \"model\": \"ada\",
+      \"scale_settings\": {
+            \"scale_type\": \"standard\"
+          }
+      }"
 ```
 
 #### Example response
@@ -1227,7 +1152,7 @@ GET https://{your-resource-name}.openai.azure.com/openai/deployments/{deployment
 #### Example request
 
 ```console
-curl -X GET 'https://example_resource_name.openai.azure.com/openai/deployments/{deployment_id}?api-version=2022-06-01-preview' \
+curl -X GET https://example_resource_name.openai.azure.com/openai/deployments/{deployment_id}?api-version=2022-06-01-preview \
   -H "api-key: YOUR_API_KEY"
 ```
 #### Example response
@@ -1277,16 +1202,15 @@ PATCH https://{your-resource-name}.openai.azure.com/openai/deployments/{deployme
 #### Example request
 
 ```console
-curl -X 'PATCH' \
-  'https://example_resource_name.openai.azure.com/openai/deployments/my_personal_deployment?api-version=2022-06-01-preview' \
+curl -X PATCH  https://example_resource_name.openai.azure.com/openai/deployments/my_personal_deployment?api-version=2022-06-01-preview \
   -H "api-key: YOUR_API_KEY"
-  -H 'Content-Type: application/merge-patch+json' \
-  -d '{
-      "model": "ada",
-      "scale_settings": {
-            "scale_type": "standard"
-          }"
-      }'
+  -H "Content-Type: application/merge-patch+json" \
+  -d "{
+      \"model\": \"ada\",
+      \"scale_settings\": {
+            \"scale_type\": \"standard\"
+          }
+      }"
 ```
 
 #### Delete a deployment
@@ -1312,10 +1236,10 @@ DELETE https://{your-resource-name}.openai.azure.com/openai/deployments/{deploym
 #### Example request
 
 ```Console
-curl -X DELETE 'https://example_resource_name.openai.azure.com/openai/deployments/{deployment_id}?api-version=2022-06-01-preview' \
+curl -X DELETE https://example_resource_name.openai.azure.com/openai/deployments/{deployment_id}?api-version=2022-06-01-preview \
   -H "api-key: YOUR_API_KEY"
 ```
 
 ## Next steps
 
-Learn more about the [underlying engines/models that power Azure OpenAI](./concepts/engines.md).
+Learn more about the [underlying models that power Azure OpenAI](./concepts/models.md).

@@ -37,7 +37,7 @@ The maximum length of input text for our embedding models are 2048 tokens (appro
 
 ### Choose the best model for your task
 
-For the search models you can obtain embeddings in two ways. The `<search_model>-doc` model is used for longer pieces of text (to be searched over) and the `<search_model>-query` model is used for shorter pieces of text, typically queries or class labels in zero shot classification. You can read more about all of the embeddings models in our [Engines](../Concepts/Engines.md) guide.
+For the search models you can obtain embeddings in two ways. The `<search_model>-doc` model is used for longer pieces of text (to be searched over) and the `<search_model>-query` model is used for shorter pieces of text, typically queries or class labels in zero shot classification. You can read more about all of the embeddings models in our [Models](../concepts/models.md) guide.
 
 ### Replace newlines with a single space
 
@@ -49,5 +49,5 @@ Our embedding models may be unreliable or pose social risks in certain cases, an
 
 ## Next steps
 
-Learn more about the [underlying engines/models that power Azure OpenAI](../concepts/engines.md).
+Learn more about the [underlying models that power Azure OpenAI](../concepts/models.md).
 <!--TODO: Get started with making Embeddings using our [Get_Embeddings](../Samples/Embeddings/Get_Embeddings.ipynb) sample notebook.-->

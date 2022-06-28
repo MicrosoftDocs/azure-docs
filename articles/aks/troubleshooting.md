@@ -131,6 +131,31 @@ To help diagnose the issue run `az aks show -g myResourceGroup -n myAKSCluster -
 * If cluster is actively upgrading, wait until the operation finishes. If it succeeded, retry the previously failed operation again.
 * If cluster has failed upgrade, follow steps outlined in previous section.
 
+## I'm receiving an error due to "PodDrainFailure"
+
+This error is due to the requested operation being blocked by a PodDisruptionBudget (PDB) that has been set on the deployments within the cluster. To learn more about how PodDisruptionBudgets work, please visit check out [the official Kubernetes example](https://kubernetes.io/docs/concepts/workloads/pods/disruptions/#pdb-example).
+
+You may use this command to find the PDBs applied on your cluster:
+
+```
+kubectl get poddisruptionbudgets --all-namespaces
+```
+or
+```
+kubectl get poddisruptionbudgets -n {namespace of failed pod}
+```
+Please view the label selector to see the exact pods that are causing this failure.
+
+There are a few ways this error can occur:
+1. Your PDB may be too restrictive such as having a high minAvailable pod count, or low maxUnavailable pod count. You can change it by updating the PDB with less restrictive.
+2. During an upgrade, the replacement pods may not be ready fast enough. You can investigate your Pod Readiness times to attempt to fix this situation.
+3. The deployed pods may not work with the new upgraded node version, causing Pods to fail and fall below the PDB.
+
+>[!NOTE]
+  > If the pod is failing from the namespace 'kube-system', please contact support. This is a namespace managed by AKS.
+
+For more information about PodDisruptionBudgets, please check out the [official Kubernetes guide on configuring a PDB](https://kubernetes.io/docs/tasks/run-application/configure-pdb/).
+
 ## Can I move my cluster to a different subscription or my subscription with my cluster to a new tenant?
 
 If you've moved your AKS cluster to a different subscription or the cluster's subscription to a new tenant, the cluster won't function because of missing cluster identity permissions. **AKS doesn't support moving clusters across subscriptions or tenants** because of this constraint.
