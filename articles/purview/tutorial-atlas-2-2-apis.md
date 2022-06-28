@@ -8,7 +8,7 @@ ms.subservice: purview-data-catalog
 ms.topic: tutorial
 ms.date: 04/18/2022
 
-# Customer intent: I can use the new APIs available with Atlas 2.2.
+# Customer intent: As a developer, I want to use the new APIs available with Atlas 2.2 to interact programmatically with Microsoft Purview’s Data Map.
 ---
 
 # Tutorial: Atlas 2.2 new functionality
