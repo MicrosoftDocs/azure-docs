@@ -149,7 +149,7 @@ Windows module uses a version of Windows that is incompatible with the version o
 
 **Resolution:**
 
-Check the version of your various Windows operating systems in [Troubleshoot host and container image mismatches](/update-containers.md#troubleshoot-host-and-container-image-mismatches). If the operating systems are different, update them to IoT Edge Windows version 1809 build 17763 and rebuild the Docker image used for that module.
+Check the version of your various Windows operating systems in [Troubleshoot host and container image mismatches](/virtualization/windowscontainers/deploy-containers/update-containers#troubleshoot-host-and-container-image-mismatches). If the operating systems are different, update them to IoT Edge Windows version 1809 build 17763 and rebuild the Docker image used for that module.
 
 :::moniker-end
 <!-- end 1.1 -->
