@@ -102,7 +102,7 @@ curl -v -i POST "{endpoint}/formrecognizer/documentModels/{modelID}:analyze?api-
 
 #### POST response
 
-You'll receive a `202 (Success)` response that includes an **Operation-Location** header. The value of this header contains a `resultID` that can be queried to get the status of the asynchronous operation:
+You'll receive a `202 (Success)` response that includes an **Operation-location** header. The value of this header contains a `resultID` that can be queried to get the status of the asynchronous operation:
 
 :::image type="content" source="../media/quickstarts/operation-location-result-id.png" alt-text="{alt-text}":::
 
@@ -110,17 +110,16 @@ You'll receive a `202 (Success)` response that includes an **Operation-Location*
 
 After you've called the [**Analyze document**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-06-30-preview/operations/AnalyzeDocument) API, call the [**Get analyze result**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-06-30-preview/operations/GetAnalyzeDocumentResult) API to get the status of the operation and the extracted data. Before you run the command, make these changes:
 
+1. Replace `{POST response}` Operation-location header from the [POST response](#post-response).
 
-1. Replace `{endpoint}` with the endpoint value from your Form Recognizer instance in the Azure portal.
 1. Replace `{key}` with the key value from your Form Recognizer instance in the Azure portal.
-1. Replace `{modelID}` with the same modelID you used to analyze your document.
-1. Replace `{resultID}` with the result ID from the [Operation-Location](#operation-location) header.
+
 <!-- markdownlint-disable MD024 -->
 
 #### GET request
 
 ```bash
-curl -v -X GET "{endpoint}/formrecognizer/documentModels/{modelID}/analyzeResults/{resultId}?api-version=2022-06-30-preview" -H "Ocp-Apim-Subscription-Key: {key}"
+curl -v -X GET "{POST response}" -H "Ocp-Apim-Subscription-Key: {key}"
 ```
 
 #### Examine the response
