@@ -94,6 +94,15 @@ If you need to submit a support incident, provide the request ID and time and da
 | 53003 | BlockedByConditionalAccess |
 | 53004 | ProofUpBlockedDueToRisk |
 
+## Service Dependencies
+In some specific scenarios, users can be blocked because there are cloud apps with dependencies to other resources and these resources are being blocked by CA Policy.
+Example below shows user was trying to sign into Azure DevOps ("Application") and access was blocked by CA policy.
+
+--Example: I am not able to upload image due to it being disabled oads are disabled. I can share via Teams or email anytime--
+
+This happened as an admin configured CA Policy that blocks access on all applications except for Azure DevOps app.
+Meanwhile, DevOps has dependencies with Windows Azure Service Management API ("Resource") and CA Policy was enforced while accessing it. An admin must also exclude dependencies app from the CA Policy to allow access to the Azure DevOps.
+
 ## What to do if you're locked out of the Azure portal?
 
 If you're locked out of the Azure portal due to an incorrect setting in a Conditional Access policy:
