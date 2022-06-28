@@ -55,12 +55,48 @@ This article provides a reference for required and optional settings that are us
 | net.server.tls.ciphers.allowed-suites |   Comma-separated list of ciphers to use for TLS connection between API client and the self-hosted gateway. | No | N/A |
 | net.client.tls.ciphers.allowed-suites | Comma-separated list of ciphers to use for TLS connection between the self-hosted gateway and the backend. | No | N/A |
 
+## How to configure settings
+
+### Kubernetes YAML file
+
+When deploying the self-hosted gateway to Kubernetes using a [YAML file](how-to-deploy-self-hosted-gateway-kubernetes.md), configure settings as name-value pairs in the `data` element of the gateway's ConfigMap. For example:
+
+```yml
+apiVersion: v1
+    kind: ConfigMap
+    metadata:
+        name: contoso-gateway-environment
+    data:
+        config.service.endpoint: "contoso.configuration.azure-api.net"
+        telemetry.logs.std: "text"
+        telemetry.logs.local.localsyslog.endpoint: "/dev/log"
+        telemetry.logs.local.localsyslog.facility: "7"
+
+[...]
+
+```
+
+### Helm chart
+
+When using [Helm](how-to-deploy-self-hosted-gateway-kubernetes-helm.md) to deploy the self-hosted gateway to Kubernetes, pass [available configuration settings](https://artifacthub.io/packages/helm/azure-api-management/azure-api-management-gateway) as parameters to the `helm install` command. For example:
+
+```
+helm install azure-api-management-gateway \
+    --set gateway.configuration.uri='contoso.configuration.azure-api.net' \
+    --set gateway.auth.key='GatewayKey contososgw&xxxxxxxxxxxxxx...' \
+    --set secret.createSecret=false \
+    --set secret.existingSecretName=`mysecret` \
+    azure-apim-gateway/azure-api-management-gateway
+```
+
+
 ## Next steps
 
 -   Learn more about guidance for [running the self-hosted gateway on Kubernetes in production](how-to-self-hosted-gateway-on-kubernetes-in-production.md)
 -   [Deploy self-hosted gateway to Docker](how-to-deploy-self-hosted-gateway-docker.md)
 -   [Deploy self-hosted gateway to Kubernetes](how-to-deploy-self-hosted-gateway-kubernetes.md)
 -   [Deploy self-hosted gateway to Azure Arc-enabled Kubernetes cluster](how-to-deploy-self-hosted-gateway-azure-arc.md)
+
 
 
 
