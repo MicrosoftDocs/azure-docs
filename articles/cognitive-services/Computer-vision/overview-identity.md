@@ -20,13 +20,28 @@ keywords: facial recognition, facial recognition software, facial analysis, face
 > [!WARNING]
 > On June 11, 2020, Microsoft announced that it will not sell facial recognition technology to police departments in the United States until strong regulation, grounded in human rights, has been enacted. As such, customers may not use facial recognition features or functionality included in Azure Services, such as Face or Video Indexer, if a customer is, or is allowing use of such services by or for, a police department in the United States. When you create a new Face resource, you must acknowledge and agree in the Azure Portal that you will not use the service by or for a police department in the United States and that you have reviewed the Responsible AI documentation and will use this service in accordance with it.
 
+[!INCLUDE [Gate notice](./includes/identity-gate-notice.md)]
+
 The Azure Face service provides AI algorithms that detect, recognize, and analyze human faces in images. Facial recognition software is important in many different scenarios, such as identity verification, touchless access control, and face blurring for privacy.
+
+You can use the Face service through a client library SDK or by calling the REST API directly. Follow the quickstart to get started.
+
+> [!div class="nextstepaction"]
+> [Quickstart](quickstarts-sdk/identity-client-library.md)
+
+Or, you can try out the capabilities of Face service quickly and easily in your browser using Vision Studio.
+
+> [!div class="nextstepaction"]
+> [Try Vision Studio](https://portal.vision.cognitive.azure.com/)
 
 This documentation contains the following types of articles:
 * The [quickstarts](./quickstarts-sdk/identity-client-library.md) are step-by-step instructions that let you make calls to the service and get results in a short period of time. 
 * The [how-to guides](./how-to/identity-detect-faces.md) contain instructions for using the service in more specific or customized ways.
 * The [conceptual articles](./concept-face-detection.md) provide in-depth explanations of the service's functionality and features.
 * The [tutorials](./enrollment-overview.md) are longer guides that show you how to use this service as a component in broader business solutions.
+
+For a more structured approach, follow a Microsoft Learn module for Face.
+* [Detect and analyze faces with the Face service](/learn/modules/detect-analyze-faces/)
 
 ## Example use cases
 
@@ -43,8 +58,7 @@ Face detection is required as a first step in all the other scenarios. The Detec
 
 Optionally, face detection can extract a set of face-related attributes, such as head pose, age, emotion, facial hair, and glasses. These attributes are general predictions, not actual classifications. Some attributes are useful to ensure that your application is getting high-quality face data when users add themselves to a Face service. For example, your application could advise users to take off their sunglasses if they're wearing sunglasses.
 
-> [!NOTE]
-> The face detection feature is also available through the [Computer Vision service](../computer-vision/overview.md). However, if you want to use other Face operations like Identify, Verify, Find Similar, or Face grouping, you should use this service instead.
+[!INCLUDE [Sensitive attributes notice](./includes/identity-sensitive-attributes.md)]
 
 For more information on face detection and analysis, see the [Face detection](concept-face-detection.md) concepts article. Also see the [Detect API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) reference documentation.
 
@@ -63,6 +77,10 @@ The following image shows an example of a database named `"myfriends"`. Each gro
 
 After you create and train a group, you can do identification against the group with a new detected face. If the face is identified as a person in the group, the person object is returned.
 
+Try out the capabilities of face identification quickly and easily using Vision Studio.
+> [!div class="nextstepaction"]
+> [Try Vision Studio](https://portal.vision.cognitive.azure.com/)
+
 ### Verification
 
 The verification operation answers the question, "Do these two faces belong to the same person?". 
@@ -71,6 +89,9 @@ Verification is also a "one-to-one" matching of a face in an image to a single f
 
 For more information about identity verification, see the [Facial recognition](concept-face-recognition.md) concepts guide or the [Identify](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239) and [Verify](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a) API reference documentation.
 
+Try out the capabilities of face verification quickly and easily using Vision Studio.
+> [!div class="nextstepaction"]
+> [Try Vision Studio](https://portal.vision.cognitive.azure.com/)
 
 ## Find similar faces
 

@@ -14,7 +14,7 @@ Defender for Cloud provides unified security management and advanced threat prot
 Use the following resources to get started with Defender for Cloud.
 
 Articles
-- [Introduction to Defender for Cloud](defender-for-cloud-introduction.md)
+- [What is Microsoft Defender for Cloud](defender-for-cloud-introduction.md)
 - [Defender for Cloud quickstart guide](get-started.md)
 
 Videos
