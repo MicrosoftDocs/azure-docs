@@ -138,7 +138,7 @@ items:
           items:
             - name: Configure
               href: configure-managed-instance.md
-            - name: Monitoring, log analytics, billing information, (portal)
+            - name: Monitor, log analytics, & billing information - portal
               href: monitoring-log-analytics-azure-portal-managed-instance.md
             - name: Reserved capacity
               href: reserved-capacity-overview.md
@@ -236,7 +236,7 @@ items:
       items:
         - name: Manage
           items:
-            - name: Backup & restore
+            - name: Back up & restore
               href: backup-restore-postgresql-hyperscale.md
             - name: Change PostgreSQL port
               href: change-postgresql-port.md
@@ -280,3 +280,5 @@ items:
   items:
     - name: Azure Arc jumpstart
       href: https://azurearcjumpstart.io
+    - name: Pre-release testing
+      href: preview-testing.md
