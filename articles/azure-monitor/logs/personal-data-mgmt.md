@@ -29,7 +29,10 @@ While it's up to you and your company to define a strategy for handling personal
 
 ## Where to look for personal data in Log Analytics
 
-Log Analytics prescribes a schema to your data, but allows you to override every field with custom values. You can also ingest custom schemas. As such, it's impossible to say exactly where personal data will be found in your specific workspace. The following locations, however, are good starting points in your inventory:
+Log Analytics prescribes a schema to your data, but allows you to override every field with custom values. You can also ingest custom schemas. As such, it's impossible to say exactly where personal data will be found in your specific workspace. The following locations, however, are good starting points in your inventory.
+
+> [!NOTE]
+> Some of the queries below use `search *` to query all tables in a workspace. We highly recommend you avoid using `search *`, which creates a highly inefficient query, whenever possible. Instead, query a specific table.
 
 ### Log data
 

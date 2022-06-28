@@ -117,7 +117,7 @@ Yes, certain Telemetry Channels will persist data locally if an endpoint cannot 
 
 Telemetry channels that utilize local storage create temp files in the TEMP or APPDATA directories, which are restricted to the specific account running your application. This may happen when an endpoint was temporarily unavailable or you hit the throttling limit. Once this issue is resolved, the telemetry channel will resume sending all the new and persisted data.
 
-This persisted data is not encrypted locally. If this is a concern, review the data and restrict the collection of private data. (For more information, see [How to export and delete private data](../logs/personal-data-mgmt.md#how-to-export-and-delete-private-data).)
+This persisted data is not encrypted locally. If this is a concern, review the data and restrict the collection of private data. (For more information, see [How to export and delete private data](../logs/personal-data-mgmt.md#exporting-and-deleting-personal-data).)
 
 If a customer needs to configure this directory with specific security requirements, it can be configured per framework. Please make sure that the process running your application has write access to this directory, but also make sure this directory is protected to avoid telemetry being read by unintended users.
 
