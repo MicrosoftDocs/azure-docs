@@ -183,7 +183,7 @@ If you set the data retention policy to 30 days, you can purge older data immedi
  
 Note that workspaces with a 30-day retention policy might actually keep data for 31 days if you don't set the `immediatePurgeDataOn30Days` parameter.
 
-You can also purge data from a workspace using the [purge feature](personal-data-mgmt.md#how-to-export-and-delete-private-data), which removes personal data. You can’t purge data from archived logs. 
+You can also purge data from a workspace using the [purge feature](personal-data-mgmt.md#exporting-and-deleting-personal-data), which removes personal data. You can’t purge data from archived logs. 
 
 The Log Analytics [Purge API](/rest/api/loganalytics/workspacepurge/purge) doesn't affect retention billing. **To lower retention costs, decrease the retention period for the workspace or for specific tables.** 
 
