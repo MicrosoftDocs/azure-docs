@@ -322,10 +322,16 @@ items:
     items:
     - name: REST API
       items:
-        - name: v3.2-preview.2
-          href: https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-2-Preview-2/operations/EntitiesLinking
-        - name: v3.1
-          href: https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1/operations/EntitiesLinking
+        - name: Text analysis runtime API (v2022-05-01)
+          href: /rest/api/language/text-analysis-runtime
+        - name: Text analysis runtime API (v2022-05-15-preview)
+          href: https://westus.dev.cognitive.microsoft.com/docs/services/Language-2022-05-15-preview/operations/AnalyzeText
+        - name: Previous versions
+          items:
+          - name: v3.2-preview.2
+            href: https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-2-Preview-2/operations/EntitiesLinking
+          - name: v3.1
+            href: https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1/operations/EntitiesLinking
     - name: SDKs
       items:
       - name: v3.2-preview.2
@@ -397,10 +403,16 @@ items:
     items:
     - name: REST API
       items:
-        - name: v3.2-preview.2
-          href: https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-2-Preview-2/operations/Languages
-        - name: v3.1
-          href: https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1/operations/Languages
+        - name: Text analysis runtime API (v2022-05-01)
+          href: /rest/api/language/text-analysis-runtime
+        - name: Text analysis runtime API (v2022-05-15-preview)
+          href: https://westus.dev.cognitive.microsoft.com/docs/services/Language-2022-05-15-preview/operations/AnalyzeText
+        - name: Previous versions
+          items:
+          - name: v3.2-preview.2
+            href: https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-2-Preview-2/operations/Languages
+          - name: v3.1
+            href: https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1/operations/Languages
     - name: SDKs
       items:
       - name: v3.2-preview.2
@@ -477,10 +489,16 @@ items:
     items:
     - name: REST API
       items:
-        - name: v3.2-preview.2
-          href: https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-2-Preview-2/operations/KeyPhrases
-        - name: v3.1
-          href: https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1/operations/KeyPhrases
+        - name: Text analysis runtime API (v2022-05-01)
+          href: /rest/api/language/text-analysis-runtime
+        - name: Text analysis runtime API (v2022-05-15-preview)
+          href: https://westus.dev.cognitive.microsoft.com/docs/services/Language-2022-05-15-preview/operations/AnalyzeText
+        - name: Previous versions
+          items:
+          - name: v3.2-preview.2
+            href: https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-2-Preview-2/operations/KeyPhrases
+          - name: v3.1
+            href: https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1/operations/KeyPhrases
     - name: SDKs
       items:
       - name: v3.2-preview.2
@@ -549,10 +567,16 @@ items:
     items:
     - name: REST API
       items:
-        - name: v3.2-preview.2
-          href: https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-2-Preview-2/operations/EntitiesRecognitionGeneral
-        - name: v3.1
-          href: https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1/operations/EntitiesRecognitionGeneral
+        - name: Text analysis runtime API (v2022-05-01)
+          href: /rest/api/language/text-analysis-runtime
+        - name: Text analysis runtime API (v2022-05-15-preview)
+          href: https://westus.dev.cognitive.microsoft.com/docs/services/Language-2022-05-15-preview/operations/AnalyzeText
+        - name: Previous versions
+          items:
+          - name: v3.2-preview.2
+            href: https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-2-Preview-2/operations/EntitiesRecognitionGeneral
+          - name: v3.1
+            href: https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1/operations/EntitiesRecognitionGeneral
     - name: SDKs
       items:
       - name: v3.2-preview.2
@@ -688,10 +712,16 @@ items:
     items:
     - name: REST API
       items:
-        - name: v3.2-preview.2
-          href: https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-2-Preview-2/operations/EntitiesRecognitionPii
-        - name: v3.1
-          href: https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1/operations/EntitiesRecognitionPii
+        - name: Text analysis runtime API (v2022-05-01)
+          href: /rest/api/language/text-analysis-runtime
+        - name: Text analysis runtime API (v2022-05-15-preview)
+          href: https://westus.dev.cognitive.microsoft.com/docs/services/Language-2022-05-15-preview/operations/AnalyzeText
+        - name: Previous versions
+          items:
+          - name: v3.2-preview.2
+            href: https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-2-Preview-2/operations/EntitiesRecognitionPii
+          - name: v3.1
+            href: https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1/operations/EntitiesRecognitionPii
     - name: SDKs
       items:
       - name: v3.2-preview.2
@@ -879,10 +909,16 @@ items:
     items:
     - name: REST API
       items:
-        - name: v3.2-preview.2
-          href: https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-2-Preview-2/operations/Sentiment
-        - name: v3.1
-          href: https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1/operations/Sentiment
+        - name: Text analysis runtime API (v2022-05-01)
+          href: /rest/api/language/text-analysis-runtime
+        - name: Text analysis runtime API (v2022-05-15-preview)
+          href: https://westus.dev.cognitive.microsoft.com/docs/services/Language-2022-05-15-preview/operations/AnalyzeText
+        - name: Previous versions
+          items:
+          - name: v3.2-preview.2
+            href: https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-2-Preview-2/operations/Sentiment
+          - name: v3.1
+            href: https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1/operations/Sentiment
     - name: SDKs
       items:
       - name: v3.2-preview.2
@@ -961,10 +997,16 @@ items:
     items:
     - name: REST API
       items:
-        - name: v3.2-preview.2
-          href: https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-2-Preview-2/operations/Health
-        - name: v3.1
-          href: https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1/operations/Health
+        - name: Text analysis runtime API (v2022-05-01)
+          href: /rest/api/language/text-analysis-runtime
+        - name: Text analysis runtime API (v2022-05-15-preview)
+          href: https://westus.dev.cognitive.microsoft.com/docs/services/Language-2022-05-15-preview/operations/AnalyzeText
+        - name: Previous versions
+          items:
+          - name: v3.2-preview.2
+            href: https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-2-Preview-2/operations/Health
+          - name: v3.1
+            href: https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1/operations/Health
     - name: SDKs
       items:
       - name: v3.2-preview.2
