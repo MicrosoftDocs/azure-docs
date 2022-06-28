@@ -170,7 +170,7 @@ To add a claim condition:
 
 The order in which you add the conditions are important. Azure AD first evaluates all conditions with source `Attribute` and then evaluates all conditions with source `Transformation` to decide which value to emit in the claim. Conditions with the same source are evaluated from top to bottom. The last value which matches the expression will be emitted in the claim. Transformations such as `IsNotEmpty` and `Contains` act like additional restrictions.
 
-For example, Britta Simon is a guest user in the Contoso tenant. She belongs to another organization that also uses Azure AD. Given the below configuration for the Fabrikam application, when Britta tries to sign in to Fabrikam, the Microsoft identity platform will evaluate the conditions as follow.
+For example, Britta Simon is a guest user in the Contoso tenant. Britta belongs to another organization that also uses Azure AD. Given the below configuration for the Fabrikam application, when Britta tries to sign in to Fabrikam, the Microsoft identity platform will evaluate the conditions as follows.
 
 First, the Microsoft identity platform verifies if Britta's user type is **All guests**. Since, this is true then the Microsoft identity platform assigns the source for the claim to `user.extensionattribute1`. Second, the Microsoft identity platform verifies if Britta's user type is **AAD guests**, since this is also true then the Microsoft identity platform assigns the source for the claim to `user.mail`. Finally, the claim is emitted with value `user.mail` for Britta.
 
@@ -180,10 +180,20 @@ As another example, consider when Britta Simon tries to sign in and the followin
 
 :::image type="content" source="./media/active-directory-saml-claims-customization/sso-saml-user-conditional-claims-2.png" alt-text="More claims conditional configuration" lightbox="./media/active-directory-saml-claims-customization/sso-saml-user-conditional-claims-2.png":::
 
-As a final example, let’s consider what happens if Britta has no `user.othermail` configured or it is empty. In both cases the condition entry is ignored, and the claim will fall back to `user.extensionattribute1` instead.
+As a final example, let’s consider what happens if Britta has no `user.othermail` configured or it's empty. In both cases the condition entry is ignored, and the claim will fall back to `user.extensionattribute1` instead.
 
+## Advanced SAML Claims Options
+There are several advanced options that can be configured for an application. 
+
+| Option | Description |
+|----------|-------------|
+| Append application ID to issuer | Automatically adds the application ID to the issuer claim. In the scenario where you have multiple instances of the same application this ensures you'll have a unique claim value for each instance. This setting will be ignored if no custom signing key is configured for the application. |   
+|Override audience claim | Allows for the overriding of the audience claim sent to the application. The value provided must be a valid absolute URI. This setting will be ignored if no custom signing key is configured for the application.| 
+| Include attribute name format | If selected, Azure Active Directory will add an additional attribute called "NameFormat" that describes the format of the name to restricted, core, and optional claims for this application. [Learn more](reference-claims-mapping-policy-type#claim-sets). | 
+
+   
 ## Next steps
 
 * [Application management in Azure AD](../manage-apps/what-is-application-management.md)
-* [Configure single sign-on on applications that are not in the Azure AD application gallery](../manage-apps/configure-saml-single-sign-on.md)
+* [Configure single sign-on on applications that arn't in the Azure AD application gallery](../manage-apps/configure-saml-single-sign-on.md)
 * [Troubleshoot SAML-based single sign-on](../manage-apps/debug-saml-sso-issues.md)

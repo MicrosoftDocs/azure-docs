@@ -16,7 +16,7 @@ ms.reviewer: paulgarn, ludwignick, jeedes, luleon
 
 # Claims mapping policy type
 
-In Azure AD, a **Policy** object represents a set of rules enforced on individual applications or on all applications in an organization. Each type of policy has a unique structure, with a set of properties that are then applied to objects to which they are assigned.
+In Azure AD, a **Policy** object represents a set of rules enforced on individual applications or on all applications in an organization. Each type of policy has a unique structure, with a set of properties that are then applied to objects to which they're assigned.
 
 A claims mapping policy is a type of **Policy** object that [modifies the claims emitted in tokens](active-directory-claims-mapping.md) issued for specific applications.
 
@@ -28,7 +28,7 @@ There are certain sets of claims that define how and when they're used in tokens
 |---|---|
 | Core claim set | Are present in every token regardless of the policy. These claims are also considered restricted, and can't be modified. |
 | Basic claim set | Includes the claims that are emitted by default for tokens (in addition to the core claim set). You can [omit or modify basic claims](active-directory-claims-mapping.md#omit-the-basic-claims-from-tokens) by using the claims mapping policies. |
-| Restricted claim set | Can't be modified using policy. The data source cannot be changed, and no transformation is applied when generating these claims. |
+| Restricted claim set | Can't be modified using policy. The data source can't be changed, and no transformation is applied when generating these claims. |
 
 This section lists:
 - [Table 1: JSON Web Token (JWT) restricted claim set](#table-1-json-web-token-jwt-restricted-claim-set)
@@ -275,6 +275,12 @@ Set the Source element to one of the following values:
 If the source is transformation, the **TransformationID** element must be included in this claim definition as well.
 
 The ID element identifies which property on the source provides the value for the claim. The following table lists the values of ID valid for each value of Source.
+
+**SAMLNameFormat:** The SAML Name Format property specifies the value for the “NameFormat” attribute for this claim. If present, the allowed values are: 
+
+- urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified 
+- urn:oasis:names:tc:SAML:2.0:attrname-format:uri 
+- urn:oasis:names:tc:SAML:2.0:attrname-format:basic 
 
 > [!WARNING]
 > Currently, the only available multi-valued claim sources on a user object are multi-valued extension attributes which have been synced from AADConnect.  Other properties, such as OtherMails and tags, are multi-valued but only one value is emitted when selected as a source.
