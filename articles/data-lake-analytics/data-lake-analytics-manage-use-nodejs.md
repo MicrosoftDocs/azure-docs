@@ -4,7 +4,7 @@ description: This article describes how to use the Azure SDK for Node.js to mana
 ms.service: data-lake-analytics
 ms.reviewer: jasonh
 ms.topic: how-to
-ms.date: 06/27/2022
+ms.date: 06/28/2022
 ms.custom: devx-track-js
 ---
 # Manage Azure Data Lake Analytics using Azure SDK for Node.js
@@ -19,7 +19,7 @@ The following versions are supported:
 ## Features
 * Account management: create, get, list, update, and delete.
 
-## How to Install
+## How to install
 ```bash
 npm install @azure/arm-datalake-analytics
 ```
