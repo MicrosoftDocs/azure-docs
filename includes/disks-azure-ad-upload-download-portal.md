@@ -5,7 +5,7 @@
  author: roygara
  ms.service: storage
  ms.topic: include
- ms.date: 06/21/2022
+ ms.date: 06/30/2022
  ms.author: rogarana
  ms.custom: include file
 ---
@@ -13,6 +13,7 @@ If you're using [Azure Active Directory (Azure AD)](../articles/active-directory
 
 ### Restrictions
 [!INCLUDE [disks-azure-ad-upload-download-restrictions](disks-azure-ad-upload-download-restrictions.md)]
+- To download a VHD that is using Azure AD to restrict access, you must access the Azure portal from this link: [https://aka.ms/dataAccessAuthenticationMode](https://aka.ms/dataAccessAuthenticationMode)
 
 ### Prerequisites
 [!INCLUDE [disks-azure-ad-upload-download-prereqs](disks-azure-ad-upload-download-prereqs.md)]
@@ -30,6 +31,6 @@ For detailed steps on assigning a role, see [Assign Azure roles using the Azure 
 
 ### Enable data access authentication mode
 
-You'll need to enable **data access authentication mode** to restrict access to the disk. You can either enable it when creating the disk, or on the **Disk Export** page on the disk after it's been created.
+You'll need to enable **data access authentication mode** to restrict access to the disk. You can either enable it when creating the disk, or on the **Disk Export** page on the disk after it's been created. In order to enable **data access authentication mode** you must access the Azure portal from the following link: [https://aka.ms/dataAccessAuthenticationMode](https://aka.ms/dataAccessAuthenticationMode)
 
 :::image type="content" source="media/disks-azure-ad-upload-download-portal/disks-data-access-auth-mode.png" alt-text="Screenshot of a disk's data access authentication mode checkbox, tick the checkbox to restrict access to the disk." lightbox="media/disks-azure-ad-upload-download-portal/disks-data-access-auth-mode.png":::
