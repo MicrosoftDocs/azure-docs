@@ -31,7 +31,7 @@ When the access token expires or the app session is invalidated, Azure Static We
 
 ## Prerequisites
 
-- If you haven't created an app yet, follow the guidance how to create an [Azure Static Web App](/static-web-apps/overview.md).
+- If you haven't created an app yet, follow the guidance how to create an [Azure Static Web App](../static-web-apps/overview.md).
 - Familiarize yourself with the Azure Static Web App [staticwebapp.config.json](../static-web-apps/configuration.md) configuration file.
 - Familiarize yourself with the Azure Static Web App [App Settings](../static-web-apps/application-settings.md).
 
@@ -56,7 +56,7 @@ To register your application, follow these steps:
 1. Select **App registrations**, and then select **New registration**.
 1. Under **Name**, enter a name for the application (for example, *My Azure Static web app*).
 1. Under **Supported account types**, select **Accounts in any identity provider or organizational directory (for authenticating users with user flows)**.
-1. Under **Redirect URI**, select **Web** and then, in the URL box, enter `https://<YOUR_SITE>/.auth/login/aadb2c/callback`. Replace the `<YOUR_SITE>` with your Azure Static Web App name. For example: `https://witty-island-11111111.azurestaticapps.net/.auth/login/aadb2c/callback`. If you configured an [Azure Static Web App's custom domains](/static-web-apps/custom-domain.md), use the custom domain in the redirect URI. For example, `https://www.example.com/.auth/login/aadb2c/callback`
+1. Under **Redirect URI**, select **Web** and then, in the URL box, enter `https://<YOUR_SITE>/.auth/login/aadb2c/callback`. Replace the `<YOUR_SITE>` with your Azure Static Web App name. For example: `https://witty-island-11111111.azurestaticapps.net/.auth/login/aadb2c/callback`. If you configured an [Azure Static Web App's custom domains](../static-web-apps/custom-domain.md), use the custom domain in the redirect URI. For example, `https://www.example.com/.auth/login/aadb2c/callback`
 1. Under **Permissions**, select the **Grant admin consent to openid and offline access permissions** checkbox.
 1. Select **Register**.
 1. Select **Overview**.
@@ -75,7 +75,7 @@ To register your application, follow these steps:
 
 ## Step 3: Configure the Azure Static App
 
-Once the application is registered with Azure AD B2C, create the following application secrets in the Azure Static Web App's  [application settings](/static-web-apps/application-settings.md). You can configure application settings via the Azure portal or with the Azure CLI. For more information, check out the [Configure application settings for Azure Static Web Apps](/static-web-apps/application-settings.md#configure-application-settings) article.
+Once the application is registered with Azure AD B2C, create the following application secrets in the Azure Static Web App's  [application settings](../static-web-apps/application-settings.md). You can configure application settings via the Azure portal or with the Azure CLI. For more information, check out the [Configure application settings for Azure Static Web Apps](../static-web-apps/application-settings.md#configure-application-settings) article.
 
 Add the following keys to the app settings:
 
@@ -146,5 +146,5 @@ Once you've added the app ID and secrete, use the following steps to add the Azu
 
 ## Next steps
 
-* After successful authentication, you can show display name on the navigation bar. To view the claims that the Azure AD B2C token returns to your app, check out [Accessing user information in Azure Static Web Apps](/static-web-apps/user-information).
+* After successful authentication, you can show display name on the navigation bar. To view the claims that the Azure AD B2C token returns to your app, check out [Accessing user information in Azure Static Web Apps](../static-web-apps/user-information).
 * Learn how to [customize and enhance the Azure AD B2C authentication experience for your web app](enable-authentication-azure-static-app-options.md).
