@@ -12,7 +12,7 @@ ms.date: 05/23/2022
 #Customer intent: As an developer, I want to design a hyperscale database so that my multi-tenant application runs efficiently for all tenants.
 ---
 
-# Tutorial: Design a multi-tenant database using Azure Database for PostgreSQL – Hyperscale (Citus)
+# Design a multi-tenant database using Azure Database for PostgreSQL – Hyperscale (Citus)
 
 [!INCLUDE[applies-to-postgresql-hyperscale](../includes/applies-to-postgresql-hyperscale.md)]
 
