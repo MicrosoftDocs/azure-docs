@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
-ms.date: 06/06/2022
+ms.date: 06/28/2022
 ms.author: lajanuar
 ---
 
@@ -31,7 +31,7 @@ To learn more about Form Recognizer features and development options, visit our 
 
 **Document Analysis**
 
-* 🆕 Read—Analyze and extract printed (typeface) and handwritten text lines, words, locations, and detected languages.  
+* 🆕 Read—Analyze and extract printed (typeface) and handwritten text lines, words, locations, and detected languages.
 * 🆕General document—Analyze and extract text, tables, structure, key-value pairs, and named entities.
 * Layout—Analyze and extract tables, lines, words, and selection marks from documents, without the need to train a model.
 
@@ -52,7 +52,10 @@ To learn more about Form Recognizer features and development options, visit our 
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services)
 
-* [cURL](https://curl.haxx.se/windows/) installed.
+* curl command line tool installed.
+
+  * [Windows](https://curl.haxx.se/windows/)
+  * [Mac or Linux](https://learn2torials.com/thread/how-to-install-curl-on-mac-or-linux-(ubuntu)-or-windows)
 
 * [PowerShell version 7.*+](/powershell/scripting/install/installing-powershell-on-windows?view=powershell-7.2&preserve-view=true), or a similar command-line application. To check your PowerShell version, type `Get-Host | Select-Object Version`.
 
@@ -64,7 +67,7 @@ To learn more about Form Recognizer features and development options, visit our 
 * After your resource deploys, select **Go to resource**. You need the key and endpoint from the resource you create to connect your application to the Form Recognizer API. You'll paste your key and endpoint into the code below later in the quickstart:
 
   :::image type="content" source="../media/containers/keys-and-endpoint.png" alt-text="Screenshot: keys and endpoint location in the Azure portal.":::
-  
+
 ## Analyze documents and get results
 
  A POST request is used to analyze documents with a prebuilt or custom model. A GET request is used to retrieve the result of a document analysis call. The `modelId` is used with POST and `resultId` with GET operations.
@@ -100,9 +103,9 @@ curl -v -i POST "{endpoint}/formrecognizer/documentModels/{modelID}:analyze?api-
 | ID Documents  | prebuilt-idDocument | [Sample ID document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/rest-api/identity_documents.png) |
 | Business Cards  | prebuilt-businessCard | [Sample business card](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/de5e0d8982ab754823c54de47a47e8e499351523/curl/form-recognizer/rest-api/business_card.jpg) |
 
-#### Operation-Location
+#### POST response
 
-You'll receive a `202 (Success)` response that includes an **Operation-Location** header. The value of this header contains a `resultID` that can be queried to get the status of the asynchronous operation:
+You'll receive a `202 (Success)` response that includes an **Operation-location** header. The value of this header contains a `resultID` that can be queried to get the status of the asynchronous operation:
 
 :::image type="content" source="../media/quickstarts/operation-location-result-id.png" alt-text="{alt-text}":::
 
@@ -110,17 +113,16 @@ You'll receive a `202 (Success)` response that includes an **Operation-Location*
 
 After you've called the [**Analyze document**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-06-30-preview/operations/AnalyzeDocument) API, call the [**Get analyze result**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-06-30-preview/operations/GetAnalyzeDocumentResult) API to get the status of the operation and the extracted data. Before you run the command, make these changes:
 
+1. Replace `{POST response}` Operation-location header from the [POST response](#post-response).
 
-1. Replace `{endpoint}` with the endpoint value from your Form Recognizer instance in the Azure portal.
 1. Replace `{key}` with the key value from your Form Recognizer instance in the Azure portal.
-1. Replace `{modelID}` with the same modelID you used to analyze your document.
-1. Replace `{resultID}` with the result ID from the [Operation-Location](#operation-location) header.
+
 <!-- markdownlint-disable MD024 -->
 
 #### GET request
 
 ```bash
-curl -v -X GET "{endpoint}/formrecognizer/documentModels/{modelID}/analyzeResults/{resultId}?api-version=2022-06-30-preview" -H "Ocp-Apim-Subscription-Key: {key}"
+curl -v -X GET "{POST response}" -H "Ocp-Apim-Subscription-Key: {key}"
 ```
 
 #### Examine the response
