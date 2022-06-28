@@ -63,5 +63,5 @@ Create associations between endpoints to your target machines or resources, usin
 See [Sample data collection endpoint](data-collection-endpoint-sample.md) for a sample data collection endpoint.
 
 ## Next steps
-- [Associate endpoint to machines](../agents/data-collection-rule-azure-monitor-agent.md#create-rule-and-association-in-azure-portal)
+- [Associate endpoint to machines](../agents/data-collection-rule-azure-monitor-agent.md#create-data-collection-rule-and-association)
 - [Add endpoint to AMPLS resource](../logs/private-link-configure.md#connect-azure-monitor-resources) 
