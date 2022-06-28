@@ -3,7 +3,7 @@ title: How to enable Microsoft Defender for Containers in Microsoft Defender for
 description: Enable the container protections of Microsoft Defender for Containers
 ms.topic: overview
 zone_pivot_groups: k8s-host
-ms.date: 06/15/2022
+ms.date: 06/28/2022
 ---
 
 # Enable Microsoft Defender for Containers
@@ -22,7 +22,7 @@ Defender for Containers protects your clusters whether they're running in:
 
 Learn about this plan in [Overview of Microsoft Defender for Containers](defender-for-containers-introduction.md).
 
-You can learn more about from the product manager by watching [Microsoft Defender for Containers in a multi-cloud environment](episode-nine.md).
+You can learn more by watching this video from the Defender for Cloud in the Field video series [Microsoft Defender for Containers in a multi-cloud environment](episode-nine.md).
 
 You can also watch [Protect Containers in GCP with Defender for Containers](episode-ten.md) to learn how to protect your containers.
 
