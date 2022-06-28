@@ -10,7 +10,7 @@ ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
-ms.date: 05/18/2022
+ms.date: 06/24/2022
 ms.author: curtand
 ms.reviewer: shaunliu
 ms.custom: pim
@@ -23,7 +23,7 @@ Privileged Identity Management (PIM) supports the ability to enable privileged a
 
 ## What are Azure AD role-assignable groups?
 
-Azure Active Directory (Azure AD) lets you assign a cloud Azure AD security group to an Azure AD role. A Global Administrator or Privileged Role Administrator must create a new security group and make the group role-assignable at creation time. Only the Global Administrator, Privileged Role Administrator, or the group Owner role assignments can change the membership of the group. Also, no other users can reset the password of the users who are members of the group. This feature helps prevent an admin from elevating to a higher privileged role without going through a request and approval procedure.
+Azure Active Directory (Azure AD), part of Microsoft Entra, lets you assign a cloud Azure AD security group to an Azure AD role. A Global Administrator or Privileged Role Administrator must create a new security group and make the group role-assignable at creation time. Only the Global Administrator, Privileged Role Administrator, or the group Owner role assignments can change the membership of the group. Also, no other users can reset the password of the users who are members of the group. This feature helps prevent an admin from elevating to a higher privileged role without going through a request and approval procedure.
 
 ## What are Privileged Access groups?
 

@@ -4,7 +4,7 @@ description: Azure Cosmos DB's point-in-time restore feature helps to recover da
 author: kanshiG
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 04/06/2022
+ms.date: 06/24/2022
 ms.author: govindk
 ms.reviewer: mjbrown
 ms.custom: references_regions, cosmos-db-video
@@ -26,7 +26,7 @@ Azure Cosmos DB performs data backup in the background without consuming any ext
 
 :::image type="content" source="./media/continuous-backup-restore-introduction/continuous-backup-restore-blob-storage.png" alt-text="Azure Cosmos DB data backup to the Azure Blob Storage." lightbox="./media/continuous-backup-restore-introduction/continuous-backup-restore-blob-storage.png" border="false":::
 
-The available time window for restore (also known as retention period) is the lower value of the following two: *30 days back in past from now* or *up to the resource creation time*. The point in time for restore can be any timestamp within the retention period. In strong consistency mode, backup taken in the write region is more up to date when compared to the read regions. Read regions can lag behind due to network or other transient issues. While doing restore, you can [get latest restorable timestamp](get-latest-restore-timestamp.md) for a given resource in that region to ensure that the resource has taken backups up to the given timestamp and can restore in that region.
+The available time window for restore (also known as retention period) is the lower value of the following two: *30 days or 7 days back in past from now(depending on the chosen tier of the continous backup mode)* or *up to the resource creation time*. The point in time for restore can be any timestamp within the retention period. In strong consistency mode, backup taken in the write region is more up to date when compared to the read regions. Read regions can lag behind due to network or other transient issues. While doing restore, you can [get latest restorable timestamp](get-latest-restore-timestamp.md) for a given resource in that region to ensure that the resource has taken backups up to the given timestamp and can restore in that region.
 
 Currently, you can restore the Azure Cosmos DB account for SQL API or MongoDB contents point in time to another account via the [Azure portal](restore-account-continuous-backup.md#restore-account-portal), the [Azure CLI](restore-account-continuous-backup.md#restore-account-cli) (az CLI), [Azure PowerShell](restore-account-continuous-backup.md#restore-account-powershell), or [Azure Resource Manager templates](restore-account-continuous-backup.md#restore-arm-template). Table API or Gremlin APIs are in preview and supported through [Azure CLI](restore-account-continuous-backup.md#restore-account-cli) (az CLI) and [Azure PowerShell](restore-account-continuous-backup.md#restore-account-powershell).
 
@@ -83,11 +83,11 @@ Azure Cosmos DB allows you to isolate and restrict the restore permissions for c
 
 ## <a id="continuous-backup-pricing"></a>Pricing
 
-Azure Cosmos DB accounts that have continuous backup enabled will incur an additional monthly charge to *store the backup* and to *restore your data*. The restore cost is added every time the restore operation is initiated. If you configure an account with continuous backup but don't restore the data, only backup storage cost is included in your bill.
+Azure Cosmos DB accounts that have continuous 30 days backup  enabled will incur an additional monthly charge to *store the backup*. Both 30 days and 7 days tier incur charges for *restore your data*. The restore cost is added every time the restore operation is initiated. If you configure an account with continuous backup but don't restore the data, only backup storage cost is included in your bill.
 
 The following example is based on the price for an Azure Cosmos account deployed in West US. The pricing and calculation can vary depending on the region you are using, see the [Azure Cosmos DB pricing page](https://azure.microsoft.com/pricing/details/cosmos-db/) for latest pricing information.
 
-* All accounts enabled with continuous backup policy incur an additional monthly charge for backup storage that is calculated as follows:
+* All accounts enabled with continuous backup policy with 30 days incur a monthly charge for backup storage that is calculated as follows:
 
   $0.20/GB * Data size in GB in account * Number of regions
 
@@ -102,7 +102,12 @@ For example, if you have 1 TB of data in two regions then:
 * Restore cost is calculated as (1000 * 0.15) = $150 per restore
 
 > [!TIP]
-> For more information about measuring the current data usage of your Azure Cosmos DB account, see [Explore Azure Monitor Cosmos DB insights](../azure-monitor/insights/cosmosdb-insights-overview.md#view-utilization-and-performance-metrics-for-azure-cosmos-db).
+> For more information about measuring the current data usage of your Azure Cosmos DB account, see [Explore Azure Monitor Cosmos DB insights](../azure-monitor/insights/cosmosdb-insights-overview.md#view-utilization-and-performance-metrics-for-azure-cosmos-db). Continous 7 days tier does not incur charges for backup of the data.
+
+## Continous 30 days tier vs Continous 7 days tier
+- Retention period for one tier is 30 days vs 7 days for another tier.
+- 30 days retention tier is charged for backup storage, 7 days retention tier is not charged. 
+- Restore is always charged in either tier 
 
 ## Customer-managed keys
 
@@ -115,7 +120,7 @@ See [How do customer-managed keys affect continuous backups?](./how-to-setup-cmk
 
 Currently the point in time restore functionality has the following limitations:
 
-* Azure Cosmos DB APIs for SQL and MongoDB are supported for continuous backup. Cassandra API is not supported at present
+* Azure Cosmos DB APIs for SQL and MongoDB are supported for continuous backup. Cassandra API is not supported at present.
 
 * Table API and Gremlin API are in preview and supported via PowerShell and Azure CLI.
 
@@ -127,7 +132,7 @@ Currently the point in time restore functionality has the following limitations:
 
 * The restored account is created in the same region where your source account exists. You can't restore an account into a region where the source account did not exist.
 
-* The restore window is only 30 days and it cannot be changed.
+* The restore window is only 30 days for continous 30 days tier and it cannot be changed.Similarly it is only 7 days for continuous 7 days tier and it can't be changed.
 
 * The backups are not automatically geo-disaster resistant. You have to explicitly add another region to have resiliency for the account and the backup.
 
