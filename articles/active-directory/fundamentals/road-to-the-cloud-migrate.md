@@ -2,7 +2,7 @@
 title: Road to the cloud - Moving identity and access management from AD to Azure AD
 description: Learn to plan your migration if IAM from AD to Azure AD.
 documentationCenter: ''
-author: jricketts
+author: janicericketts
 manager: martinco
 ms.service: active-directory
 ms.topic: how-to
