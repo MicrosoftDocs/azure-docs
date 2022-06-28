@@ -24,6 +24,12 @@ A security admin rule allows you to enforce security policy criteria that matche
 
 :::image type="content" source="./media/concept-security-admins/traffic-evaluation.png" alt-text="Diagram of how traffic is evaluated with security admin rules and NSG.":::
 
+### The Order of Evaluation
+Let’s drive this point home one more time – security admin rules aren't NSG rules. Security admin rules are evaluated before NSG rules and depending on the type of security admin rule you create, it can interact differently with NSG rules so that organizations can set enforced security policies alongside teams' NSGs that address their own use cases. The diagram below illustrates the order of evaluation of traffic.
+
+There are three kinds of actions – Allow, Always Allow, and Deny. If you create a security admin rule to “Allow” a certain type of traffic, then this rule will be evaluated first. When the traffic is allowed by a security admin rule, it will be further evaluated by NSG rules. This means it leaves room for NSG rules down the line to handle this type of traffic differently as needed. If you create a security admin rule to “Always Allow” or “Deny” a certain type of traffic, then this rule will be evaluated first, and it will terminate the NSG evaluation of this traffic – meaning the evaluation is stopped. If the security admin rule is “Always Allow,” then the traffic won't hit NSGs, and instead deliver directly to VMs or other resource. This can be useful when administrators want to enforce some traffic to be not denied by NSG rules. For example, administrators may want to force the organization to consume software updates from certain ports. In the case of “Deny,” evaluation and therefore traffic is stopped without being delivered to the destination. This means that you can use security admin rules to set definitive security rules that can't be overridden by others.
+Note that security admin rules don't depend on NSGs in order to exist. This means that administrators can use security admin rules to create default security rules. Even if application owners misconfigured or forgot to establish NSGs, your organization is protected by default!
+
 ## Network intent policies and security admin rules
 
  A network intent policy is applied to some network services to ensure the network traffic is working as needed for these services. By default, deployed security admin rules aren't applied on virtual networks with services that use network intent policies such as SQL managed instance service. If you deploy a service in a virtual network with existing security admin rules, those security admin rules will be removed from those virtual networks. 
@@ -36,6 +42,10 @@ When you define a security admin rule, there are required and optional fields.
 
 ### Required fields
 
+
+
+
+
 #### Priority
 
 Security rule priority is determined by an integer between 0 and 99. The lower the value the higher the priority of the rule. For example, a deny rule with a priority of 10 override an allow rule with a priority of 20. 
@@ -43,10 +53,11 @@ Security rule priority is determined by an integer between 0 and 99. The lower t
 #### <a name = "action"></a>Action
 
 You can define one of three actions for a security rule:
-
-* **Allow**: Allows traffic on the specific port, protocol, and source/destination IP prefixes in the specified direction.
-* **Deny**: Block traffic on the specified port, protocol, and source/destination IP prefixes in the specified direction.
-* **Always allow**: Regardless of other rules with lower priority or user-defined NSGs, allow traffic on the specified port, protocol, and source/destination IP prefixes in the specified direction.
+| Action | Description |
+| -------------- | --- |
+| **Allow** | Allows traffic on the specific port, protocol, and source/destination IP prefixes in the specified direction. |
+| **Deny** | Block traffic on the specified port, protocol, and source/destination IP prefixes in the specified direction. |
+| **Always allow** | Regardless of other rules with lower priority or user-defined NSGs, allow traffic on the specified port, protocol, and source/destination IP prefixes in the specified direction. |
 
 #### Direction
 
