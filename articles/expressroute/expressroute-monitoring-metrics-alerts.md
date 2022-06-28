@@ -168,7 +168,7 @@ You can view the Rx light level (the light level that the ExpressRoute Direct po
 :::image type="content" source="./media/expressroute-monitoring-metrics-alerts/rxlight-level-per-link.jpg" alt-text="ER Direct line Rx Light Level":::
 
 >[!NOTE]
-> ExpressRoute Direct connectivity is hosted across different device platforms. Some ExpressRoute Direct connections will support a split view for receive light levels by lane. However, this is not supported on all deployments.
+> ExpressRoute Direct connectivity is hosted across different device platforms. Some ExpressRoute Direct connections will support a split view for Rx light levels by lane. However, this is not supported on all deployments.
 >
 
 ### <a name = "txlight"></a>Tx Light Level - Split by link
@@ -180,7 +180,7 @@ You can view the Tx light level (the light level that the ExpressRoute Direct po
 :::image type="content" source="./media/expressroute-monitoring-metrics-alerts/txlight-level-per-link.jpg" alt-text="ER Direct line Tx Light Level":::
 
 >[!NOTE]
-> ExpressRoute Direct connectivity is hosted across different device platforms. Some ExpressRoute Direct connections will support a split view for transmit light levels by lane. However, this is not supported on all deployments.
+> ExpressRoute Direct connectivity is hosted across different device platforms. Some ExpressRoute Direct connections will support a split view for Tx light levels by lane. However, this is not supported on all deployments.
 >
 
 ## ExpressRoute Virtual Network Gateway Metrics
