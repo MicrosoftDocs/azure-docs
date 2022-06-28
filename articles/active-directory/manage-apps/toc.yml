@@ -160,6 +160,8 @@
         href: secure-hybrid-access.md
       - name: Secure hybrid access partner integrations
         href: secure-hybrid-access-integrations.md
+      - name: Cloudflare
+        href: cloudflare-azure-ad-integration.md
       - name: Datawiza
         href: datawiza-with-azure-ad.md 
       - name: F5
