@@ -18,15 +18,18 @@ ms.author: anfdocs
 
 # How to use DFS Namespaces with Azure NetApp Files
 
-[Distributed File Systems Namespaces](/windows-server/storage/dfs-namespaces/dfs-overview), commonly referred to as DFS Namespaces or DFS-N, is a Windows Server server role that is widely used to simplify the deployment and maintenance of SMB file shares in production. DFS Namespaces is a storage namespace virtualization technology, which means that it enables you to provide a layer of indirection between the UNC path of your file shares and the actual file shares themselves. DFS Namespaces work with SMB file shares, agnostic of where those file shares are hosted: it can be used with SMB shares hosted on an on-premises Windows File Server with or without Azure File Sync, Azure file shares directly, SMB file shares hosted in Azure NetApp Files, and even with file shares hosted in other clouds.
+[Distributed File Systems Namespaces](/windows-server/storage/dfs-namespaces/dfs-overview), commonly referred to as DFS Namespaces or DFS-N, is a Windows Server server role that is widely used to simplify the deployment and maintenance of SMB file shares in production. DFS Namespaces is a storage namespace virtualization technology, which means that it enables you to provide a layer of indirection between the UNC path of your file shares and the actual file shares themselves. DFS Namespaces works with SMB file shares, agnostic of where those file shares are hosted: it can be used with SMB shares hosted on an on-premises Windows File Server with or without Azure File Sync, Azure file shares directly, SMB file shares hosted in Azure NetApp Files, and even with file shares hosted in other clouds.
 
 At its core, DFS Namespaces provide a mapping between a user-friendly UNC path, like `\\contoso\shares\ProjectX` and the underlying UNC path of the SMB share like `\\Server01-Prod\ProjectX` or `\\anf-xxxx\projectx`. When the end user wants to navigate to their file share, they type in the user-friendly UNC path, but their SMB client accesses the underlying SMB path of the mapping. You can also extend this basic concept to take over an existing file server name, such as `\\MyServer\ProjectX` using root consolidation. You can use these capabilities to achieve the following scenarios:
 
-- Provide a migration-proof name for a logical set of data. In this example, you have a mapping like `\\contoso\shares\Engineering` that maps to `\\OldServer\Engineering`. When you complete your migration to Azure NetApp Files, you can change your mapping so your user-friendly UNC path points to `\\anf-xxxx\engineering`. When an end user accesses the user-friendly UNC path, they will be seamlessly redirected to the Azure NetApp Files share path.
+- **Provide a migration-proof name for a logical set of data**  
+In this example, you have a mapping like `\\contoso\shares\Engineering` that maps to `\\OldServer\Engineering`. When you complete your migration to Azure NetApp Files, you can change your mapping so your user-friendly UNC path points to `\\anf-xxxx\engineering`. When an end user accesses the user-friendly UNC path, they will be seamlessly redirected to the Azure NetApp Files share path.
 
-- Extend a logical set of data across size, IO, or other scale thresholds. This is common when dealing with corporate shares, where different folders have different performance requirements, or with scratch shares, where users get arbitrary space to handle temporary data needs. With DFS Namespaces, you stitch together multiple folders into a cohesive namespace. For example, `\\contoso\shares\engineering` maps to `\\anf-xxxx\engineering` (Azure NetApp Files, ultra tier), `\\contoso\shares\sales` maps to `\\anf-yyyy\sales` (Azure NetApp Files, standard tier), and so on.
+- **Extend a logical set of data across size, IO, or other scale thresholds**  
+This is common when dealing with corporate shares, where different folders have different performance requirements, or with scratch shares, where users get arbitrary space to handle temporary data needs. With DFS Namespaces, you stitch together multiple folders into a cohesive namespace. For example, `\\contoso\shares\engineering` maps to `\\anf-xxxx\engineering` (Azure NetApp Files, ultra tier), `\\contoso\shares\sales` maps to `\\anf-yyyy\sales` (Azure NetApp Files, standard tier), and so on.
 
-- Preserve the logical name of one or more legacy file servers after the data has been migrated to Azure NetApp Files. Using DFS-N with root consolidation allows you to take over the hostname and share paths exactly as they are. This leaves document shortcuts, embedded document links, and UNC paths unchanged after the migration.
+- **Preserve the logical name of one or more legacy file servers after the data has been migrated to Azure NetApp Files**  
+Using DFS-N with root consolidation allows you to take over the hostname and share paths exactly as they are. This leaves document shortcuts, embedded document links, and UNC paths unchanged after the migration.
 
 If you already have a DFS Namespace in place, no special steps are required to use it with Azure NetApp Files. If you're accessing your Azure NetApp Files share from on-premises, normal networking considerations apply; see [Guidelines for Azure NetApp Files network planning](./azure-netapp-files-network-topologies.md) for more information.
 
@@ -38,19 +41,25 @@ If you already have a DFS Namespace in place, no special steps are required to u
 
 ## Namespace types
 
-DFS Namespaces provide three namespace types:
+DFS Namespaces provides three namespace types:
 
-- **Domain-based namespace**: A namespace hosted as part of your Windows Server AD domain. Namespaces hosted as part of AD will have a UNC path containing the name of your domain, for example, `\\contoso.com\shares\myshare`, if your domain is `contoso.com`. Domain-based namespaces support larger scale limits and built-in redundancy through AD. Domain-based namespaces can't be a clustered resource on a failover cluster.
-- **Standalone namespace**: A namespace hosted on an individual server or a Windows Server failover cluster, not hosted as part of Windows Server AD. Standalone namespaces will have a name based on the name of the standalone server, such as `\\MyStandaloneServer\shares\myshare`, where your standalone server is named `MyStandaloneServer`. Standalone namespaces support lower scale targets than domain-based namespaces but can be hosted as a clustered resource on a failover cluster.
-- **Standalone namespace with root consolidation**: One or more namespaces hosted on an individual server or on a Windows Server failover cluster, not hosted as part of Windows Server AD. Standalone namespaces with root consolidation will have a UNC path that matches the name of the legacy file server you would like to take over, such as `\\oldserver`, where your namespace is named `#oldserver`. Standalone namespaces support lower scale targets than domain-based namespaces but can be hosted as a clustered resource on a Windows Server failover cluster.
+- **Domain-based namespace**:  
+A namespace hosted as part of your Windows Server AD domain. Namespaces hosted as part of AD will have a UNC path containing the name of your domain, for example, `\\contoso.com\shares\myshare`, if your domain is `contoso.com`. Domain-based namespaces support larger scale limits and built-in redundancy through AD. Domain-based namespaces can't be a clustered resource on a failover cluster.
+- **Standalone namespace**:  
+A namespace hosted on an individual server or a Windows Server failover cluster, not hosted as part of Windows Server AD. Standalone namespaces will have a name based on the name of the standalone server, such as `\\MyStandaloneServer\shares\myshare`, where your standalone server is named `MyStandaloneServer`. Standalone namespaces support lower scale targets than domain-based namespaces but can be hosted as a clustered resource on a failover cluster.
+- **Standalone namespace with root consolidation**:  
+One or more namespaces hosted on an individual server or on a Windows Server failover cluster, not hosted as part of Windows Server AD. Standalone namespaces with root consolidation will have a UNC path that matches the name of the legacy file server you would like to take over, such as `\\oldserver`, where your namespace is named `#oldserver`. Standalone namespaces support lower scale targets than domain-based namespaces but can be hosted as a clustered resource on a Windows Server failover cluster.
 
 ## Requirements
 
 To use DFS Namespaces with Azure NetApp Files, you must have the following resources:
 
-- An Active Directory domain. This can be hosted anywhere you like, such as on-premises, in an Azure virtual machine (VM), or even in another cloud.
-- A Windows Server that can host the namespace. For domain-based namespaces, a common deployment pattern is to use the Active Directory domain controller to host the namespaces, however the namespaces can be setup from any server with the DFS Namespaces server role installed. DFS Namespaces is available on all supported Windows Server versions.
+- An Active Directory domain. This can be hosted anywhere you like: an on-premises environment, an Azure virtual machine (VM), or even in another cloud.
+
+- A Windows Server that can host the namespace. For domain-based namespaces, a common deployment pattern is to use the Active Directory domain controller to host the namespaces, however the namespaces can be setup from any server with the DFS Namespaces server role installed. DFS Namespaces are available on all supported Windows Server versions.
+
 - For namespace root consolidation, Active Directory domain controllers can not be used to host the namespace. It is recommended to use a dedicated standalone Windows Server or a Windows Server failover cluster to host the namespace(s).
+
 - An Azure NetApp Files SMB file share hosted in a domain-joined environment.
 
 ## Install the DFS Namespaces server role
@@ -59,19 +68,31 @@ If you are already using DFS Namespaces, or wish to set up DFS Namespaces on you
 
 # [Portal](#tab/azure-portal)
 
-To install the DFS Namespaces server role, open the Server Manager on your server. Select **Manage**, and then select **Add Roles and Features**. The resulting wizard guides you through the installation of the necessary Windows components to run and manage DFS Namespaces.
+1. Open **Server Manager**
 
-In the **Installation Type** section of the installation wizard, select the **Role-based or feature-based installation** radio button and select **Next**. On the **Server Selection** section, select the desired server(s) on which you would like to install the DFS Namespaces server role, and select **Next**.
+2. Select **Manage**
 
-In the **Server Roles** section, select and check the **DFS Namespaces** role from role list. You can find this under **File and Storage Services** > **File and ISCSI Services**. When you select the DFS Namespaces server role, it may also add any required supporting server roles or features that you don't already have installed.
+3. Select **Add Roles and Features**. 
+
+4. For the **Installation Type**, select **Role-based or feature-based installation**
+
+5. Click **Next**. 
+
+6. For **Server Selection**, select the desired server(s) on which you would like to install the DFS Namespaces server role
+
+7. Click **Next**.
+
+8. In the **Server Roles** section, select and check the **DFS Namespaces** role from role list under **File and Storage Services** > **File and iSCSI Services**.
 
 ![A screenshot of the **Add Roles and Features** wizard with the **DFS Namespaces** role selected.](../media/azure-netapp-files/azure-netapp-files-dfs-namespaces-install.png)
 
-After you have checked the **DFS Namespaces** role, you may select **Next** on all subsequent screens, and select **Install** as soon as the wizard enables the button. When the installation is complete, you may configure your namespace.
+9. Click **Next**
+
+10. Click **Install**
 
 # [PowerShell](#tab/azure-powershell)
 
-From an elevated PowerShell session (or using PowerShell remoting), execute the following commands.
+From an elevated PowerShell session (or using PowerShell remoting), execute the following command:
 
 ```PowerShell
 Install-WindowsFeature -Name "FS-DFS-Namespace", "RSAT-DFS-Mgmt-Con"
@@ -87,7 +108,7 @@ Although useful for various datacenter migration scenarios, root consolidation i
 
 Root consolidation may only be used with standalone namespaces. If you already have an existing domain-based namespace for your file shares, you do not need to create a root consolidated namespace.
 
-This document outlines the steps to configure namespace root consolidation on a standalone server. For a highly available architecture please work with your Microsoft technical team to configure Windows Server failover clustering and an Azure Load Balancer as required. An example of a highly-available architecture is shown in the graphic below.
+This document outlines the steps to configure namespace root consolidation on a standalone server. For a highly available architecture please work with your Microsoft technical team to configure Windows Server failover clustering and an Azure Load Balancer as required. An example of a highly available architecture is shown in the graphic below.
 
 ![A screenshot of the architecture for root consolidation with Azure NetApp Files.](../media/azure-netapp-files/azure-netapp-files-root-consolidation-architecture-example.png)
 
@@ -116,15 +137,23 @@ Set-ItemProperty `
 
 ### Creating DNS entries for existing file server names
 
-In order for DFS Namespaces to respond to existing file server names, create alias (CNAME) records for your existing file servers that point at the DFS Namespaces server name. The exact procedure for updating your DNS records may depend on what servers your organization is using and if your organization is using custom tooling to automate the management of DNS. The following steps are shown for the DNS server included with Windows Server and automatically used by Windows AD.
+In order for DFS Namespaces to respond to existing file server names, **you must** create alias (CNAME) records for your existing file servers that point at the DFS Namespaces server name. The exact procedure for updating your DNS records may depend on what servers your organization is using and if your organization is using custom tooling to automate the management of DNS. The following steps are shown for the DNS server included with Windows Server and automatically used by Windows AD.
 
 # [Portal](#tab/azure-portal)
 
-On a Windows DNS server, open the DNS management console. This can be found by selecting the **Start** button and typing **DNS**. Navigate to the forward lookup zone for your domain. For example, if your domain is `contoso.com`, the forward lookup zone can be found under **Forward Lookup Zones** > **`contoso.com`** in the management console. The exact hierarchy shown in this dialog will depend on the DNS configuration for your network.
+1. From a Windows DNS server, open the DNS management console.
 
-Right-click on your forward lookup zone and select **New Alias (CNAME)**. In the resulting dialog, enter the short name for the file server you're replacing (the fully qualified domain name will be auto-populated in the textbox labeled **Fully qualified domain name**). In the textbox labeled **Fully qualified domain name (FQDN) for the target host**, enter the name of the DFS-N server you have set up. You can use the **Browse** button to help you select the server if desired. Select **OK** to create the CNAME record for your server.
+2. Navigate to the forward lookup zone for your domain. For example, if your domain is `contoso.com`, the forward lookup zone can be found under **Forward Lookup Zones** > **`contoso.com`** in the management console. The exact hierarchy shown in this dialog will depend on the DNS configuration for your network.
+
+3. Right-click on your forward lookup zone and select **New Alias (CNAME)**. 
+
+4. In the resulting dialog, enter the short name for the file server you're replacing (the fully qualified domain name will be auto-populated in the textbox labeled **Fully qualified domain name**)
+
+5. In the textbox labeled **Fully qualified domain name (FQDN) for the target host**, enter the name of the DFS-N server you have set up. You can use the **Browse** button to help you select the server if desired. 
 
 ![A screenshot depicting the **New Resource Record** for a CNAME DNS entry.](../media/azure-netapp-files/azure-netapp-files-root-consolidation-cname.png)
+
+6. Select **OK** to create the CNAME record for your server.
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -155,21 +184,24 @@ If you are using DFS Namespaces to take over an existing server name with root c
 
 # [Portal](#tab/azure-portal)
 
-To create a new namespace, open the **DFS Management** console. This can be found by selecting the **Start** button and typing **DFS Management**. The resulting management console has two sections **Namespaces** and **Replication**, which refer to DFS Namespaces and DFS Replication (DFS-R) respectively.
+1. Open the **DFS Management** console. This can be found by selecting the **Start** button and typing **DFS Management**. The resulting management console has two sections **Namespaces** and **Replication**, which refer to DFS Namespaces and DFS Replication (DFS-R) respectively.
+2. Select the **Namespaces** section, and select the **New Namespace** button (you may also right-click on the **Namespaces** section). The resulting **New Namespace Wizard** walks you through creating a namespace.
 
-Select the **Namespaces** section, and select the **New Namespace** button (you may also right-click on the **Namespaces** section). The resulting **New Namespace Wizard** walks you through creating a namespace.
+3. The first section in the wizard requires you to pick the DFS Namespace server to host the namespace. Multiple servers can host a namespace, but you will need to set up DFS Namespaces with one server at a time. Enter the name of the desired DFS Namespace server and select **Next**. 
+ 
+4. In the **Namespace Name and Settings** section, you can enter the desired name of your namespace and select **Next**.
 
-The first section in the wizard requires you to pick the DFS Namespace server to host the namespace. Multiple servers can host a namespace, but you will need to set up DFS Namespaces with one server at a time. Enter the name of the desired DFS Namespace server and select **Next**. In the **Namespace Name and Settings** section, you can enter the desired name of your namespace and select **Next**.
+5. The **Namespace Type** section allows you to choose between a **Domain-based namespace** and a **Stand-alone namespace**. If you intend to use DFS Namespaces to preserve an existing file server/NAS device name, you should select the standalone namespace option. For any other scenarios, you should select a domain-based namespace. Refer to [namespace types](#namespace-types) above for more information on choosing between namespace types.
 
-The **Namespace Type** section allows you to choose between a **Domain-based namespace** and a **Stand-alone namespace**. If you intend to use DFS Namespaces to preserve an existing file server/NAS device name, you should select the standalone namespace option. For any other scenarios, you should select a domain-based namespace. Refer to [namespace types](#namespace-types) above for more information on choosing between namespace types.
+6. Select the desired namespace type for your environment and select **Next**. The wizard will then summarize the namespace to be created.  
 
 ![A screenshot of selecting between a domain-based namespace and a standalone namespace in the **New Namespace Wizard**.](../media/azure-netapp-files/azure-netapp-files-dfs-namespace-type.png)
 
-Select the desired namespace type for your environment and select **Next**. The wizard will then summarize the namespace to be created. Select **Create** to create the namespace and **Close** when the dialog completes.
+7. Select **Create** to create the namespace and **Close** when the dialog completes.
 
 # [PowerShell](#tab/azure-powershell)
 
-From a PowerShell session on the DFS Namespace server, execute the following PowerShell commands, populating `$namespace`, `$type`, and `$takeOverName` with the relevant values for your environment.
+From a PowerShell session on the DFS Namespace server, execute the following PowerShell commands, populating `$namespace`, `$type`, and `$takeOverName` with the relevant values for your environment:
 
 ```PowerShell
 # Variables
@@ -208,11 +240,17 @@ You can think of DFS Namespaces folders as analogous to file shares.
 
 # [Portal](#tab/azure-portal)
 
-In the DFS Management console, select the namespace you just created and select **New Folder**. The resulting **New Folder** dialog will allow you to create both the folder and its targets.
+1. In the DFS Management console, select the namespace you just created and select **New Folder**. The resulting **New Folder** dialog will allow you to create both the folder and its targets.
 
 ![A screenshot of the **New Folder** dialog.](../media/azure-netapp-files/azure-netapp-files-dfs-folder-targets.png)
 
-In the textbox labeled **Name** provide the name of the folder. Select **Add...** to add folder targets for this folder. The resulting **Add Folder Target** dialog provides a textbox labeled **Path to folder target** where you can provide the UNC path to the desired folder. Select **OK** on the **Add Folder Target** dialog. Finally, select **OK** on the **New Folder** dialog to create the folder and folder targets.
+2. In the textbox labeled **Name** provide the name of the share. 
+
+3. Select **Add...** to add folder targets for this folder. The resulting **Add Folder Target** dialog provides a textbox labeled **Path to folder target** where you can provide the UNC path to the desired folder. 
+ 
+4. Select **OK** on the **Add Folder Target** dialog. 
+ 
+5. Select **OK** on the **New Folder** dialog to create the folder and folder targets.
 
 # [PowerShell](#tab/azure-powershell)
 
