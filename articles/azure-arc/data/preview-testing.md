@@ -38,10 +38,7 @@ Pre-release versions simultaneously release with artifacts, which are designed t
   
     > [!NOTE]
     > `mcr.microsoft.com/arcdata/` will continue to be the repository that hosts the final release builds.
-    >Pre-release images will be tagged in a format similar to release images, but with the addition of a git commit ID appended to the end:
-    > - Release version tag example: v1.0.0_2021-06-30
-    > - Pre-release version tag example: v1.8.0_2022-06-07_5ba6b837
-
+    
   - Azure CLI extension hosted on Azure Blob Storage
   - Azure Data Studio extension hosted on Azure Blob Storage
 
