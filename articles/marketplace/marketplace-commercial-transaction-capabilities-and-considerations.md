@@ -40,7 +40,8 @@ The transact publishing option is currently supported for the following offer ty
 | Dynamics 365 apps on Dataverse and Power Apps** | Monthly and annual | No | Per user |
 
 \* Azure Virtual Machine offers support usage-based billing plans. These plans are billed monthly for hourly use of the subscription based on per core, per core size, or per market and core size usage.
-\** Dynamics 365 apps on Dataverse and Power Apps offers that you transact through Microsoft are automatically enabled for license management. See [ISV app license management](isv-app-license.md).
+
+\* Dynamics 365 apps on Dataverse and Power Apps offers that you transact through Microsoft are automatically enabled for license management. See [ISV app license management](isv-app-license.md).
 
 ### Metered billing
 
