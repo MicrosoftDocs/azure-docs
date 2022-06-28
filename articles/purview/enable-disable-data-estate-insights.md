@@ -13,8 +13,6 @@ ms.date: 06/27/2022
 
 > [!IMPORTANT]
 > The option to disable the Data Estate Insights application will only be available July 1st after 9am PST.
-> [Billing for this feature](concept-guidelines-pricing-data-estate-insights.md) will also begin at that time for Data Estates Insights applications.
-> To stop billing for Data Estate Insights, you can disable the application.
 
 Microsoft Purview Data Estate Insights automatically aggregates metrics and creates reports about your Microsoft Purview account and your data estate. When you scan registered sources and populate your Microsoft Purview Data Map, the Data Estate Insights application automatically extracts valuable governance gaps and highlights them in its top metrics. It also provides drill-down experience that enables all stakeholders, such as data owners and data stewards, to take appropriate action to close the gaps.
 

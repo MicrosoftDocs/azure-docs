@@ -13,8 +13,6 @@ ms.custom: ignite-fall-2021
 
 > [!IMPORTANT]
 > The option to disable the Data Estate Insights application will only be available July 1st after 9am PST.
-> [Billing for this feature](concept-guidelines-pricing-data-estate-insights.md) will also begin at that time for enabled Data Estates Insights applications.
-> To stop billing for Data Estate Insights, you can [disable the application](enable-disable-data-estate-insights.md).
 
 This guide covers pricing guidelines for Data Estate Insights.
 
