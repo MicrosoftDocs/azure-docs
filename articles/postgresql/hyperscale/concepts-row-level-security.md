@@ -20,7 +20,7 @@ can be especially useful in a multi-tenant Hyperscale (Citus) server group. It
 allows individual tenants to have full SQL access to the database while hiding
 each tenant’s information from other tenants.
 
-### Implementing row-level security for multi-tenant apps
+## Implementing for multi-tenant apps
 
 We can implement the separation of tenant data by using a naming convention for
 database roles that ties into table row-level security policies. We’ll assign
