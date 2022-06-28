@@ -16,7 +16,7 @@ ms.author: eur
 
 [Custom Neural Voice](https://aka.ms/customvoice) is a set of online tools that you use to create a recognizable, one-of-a-kind voice for your brand. All it takes to get started are a handful of audio files and the associated transcriptions. See if Custom Neural Voice supports your [language](language-support.md#custom-neural-voice) and [region](regions.md#custom-neural-voices).
 
-> [!NOTE]
+> [!IMPORTANT]
 > Custom Neural Voice Pro can be used to create higher-quality models that are indistinguishable from human recordings. For access you must commit to using it in alignment with our responsible AI principles. Learn more about our [policy on the limited access](/legal/cognitive-services/speech-service/custom-neural-voice/limited-access-custom-neural-voice?context=%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext) and [apply here](https://aka.ms/customneural).
 > 
 > With [Custom Neural Voice Lite](custom-neural-voice.md#custom-neural-voice-project-types) (public preview), you can create a model for demonstration and evaluation purpose. No application is required. Microsoft restricts and selects the recording and testing samples for use with Custom Neural Voice Lite. You must apply the full access to Custom Neural Voice in order to deploy and use the Custom Neural Voice Lite model for business purpose. 
@@ -32,7 +32,7 @@ Once you've created an Azure account and a Speech service subscription, you'll n
 1. Select your subscription and create a speech project.
 1. If you want to switch to another Speech subscription, select the **cog** icon at the top.
 
-> [!NOTE]
+> [!IMPORTANT]
 > Custom Neural Voice training is currently only available in East US, Southeast Asia, UK South, with the S0 tier. Make sure you select the right Speech resource if you would like to create a neural voice.
 
 ## Create a project
@@ -42,11 +42,11 @@ Content like data, models, tests, and endpoints are organized into projects in S
 To create a custom voice project:
 
 1. Sign in to [Speech Studio](https://aka.ms/speechstudio/customvoice).
-1. Select **Text-to-Speech** > **Custom Voice** > **Create project**.
+1. Select **Speech Studio** > **Custom Voice** > **Create project**.
 
-   See [Custom Neural Voice project types](custom-neural-voice.md#custom-neural-voice-project-types) for information about capabilities, requirements, and differences between Custom Neural Voice Pro and Custom Neural Voice Lite projects.
+   See [Custom Neural Voice project types](custom-neural-voice.md#custom-neural-voice-project-types) for information about capabilities, requirements, and differences between Custom Neural Voice Lite and Custom Neural Voice Pro projects.
 
-1. After you've created a CNV Pro project, you'll see four tabs: **Set up voice talent**, **Prepare training data**, **Train model**, and **Deploy model**. See [Prepare data for Custom Neural Voice](how-to-custom-voice-prepare-data.md) to set up the voice talent, and proceed to training data.
+1. After you've created a CNV Pro project, click your project's name and you'll see four tabs: **Set up voice talent**, **Prepare training data**, **Train model**, and **Deploy model**. See [Prepare data for Custom Neural Voice](how-to-custom-voice-prepare-data.md) to set up the voice talent, and proceed to training data.
 
 ## Tips for creating a professional custom neural voice
 
@@ -54,17 +54,17 @@ Creating a great custom neural voice requires careful quality control in each st
 
 ### Persona design
 
-First, design a persona of the voice that represents your brand by using a persona brief document. This document defines elements such as the features of the voice, and the character behind the voice. This helps to guide the process of creating a custom neural voice model, including defining the scripts, selecting your voice talent, training, and voice tuning.
+First, [design a persona](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/record-custom-voice-samples#choose-your-voice-talent) of the voice that represents your brand by using a persona brief document. This document defines elements such as the features of the voice, and the character behind the voice. This helps to guide the process of creating a custom neural voice model, including defining the scripts, selecting your voice talent, training, and voice tuning.
 
 ### Script selection
  
-Carefully select the recording script to represent the user scenarios for your voice. For example, you can use the phrases from bot conversations as your recording script if you're creating a customer service bot. Include different sentence types in your scripts, including statements, questions, and exclamations.
+Carefully [select the recording script](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/record-custom-voice-samples#script-selection-criteria) to represent the user scenarios for your voice. For example, you can use the phrases from bot conversations as your recording script if you're creating a customer service bot. Include different sentence types in your scripts, including statements, questions, and exclamations.
 
 ### Preparing training data
 
 It's a good idea to capture the audio recordings in a professional quality recording studio to achieve a high signal-to-noise ratio. The quality of the voice model depends heavily on your training data. Consistent volume, speaking rate, pitch, and consistency in expressive mannerisms of speech are required.
 
-After the recordings are ready, follow [Prepare training data](how-to-custom-voice-prepare-data.md) to prepare the training data in the right format.
+After the recordings are ready, [prepare the training data](how-to-custom-voice-prepare-data.md) in the right format.
 
 ### Training
 
@@ -87,6 +87,6 @@ If you're using the old version of Custom Voice (which is scheduled to be retire
 ## Next steps
 
 - [Prepare data for custom neural voice](how-to-custom-voice-prepare-data.md)
+- [How to record voice samples](record-custom-voice-samples.md)
 - [Train your voice model](how-to-custom-voice-create-voice.md)
 - [Deploy and use your voice model](how-to-deploy-and-use-endpoint.md)
-- [How to record voice samples](record-custom-voice-samples.md)

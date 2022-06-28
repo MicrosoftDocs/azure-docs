@@ -18,7 +18,7 @@ Custom Neural Voice is a text-to-speech feature that lets you create a one-of-a-
 
 Based on the neural text-to-speech technology and the multilingual, multi-speaker, universal model, Custom Neural Voice lets you create synthetic voices that are rich in speaking styles, or adaptable cross languages. The realistic and natural sounding voice of Custom Neural Voice can represent brands, personify machines, and allow users to interact with applications conversationally. See the [supported languages](language-support.md#custom-neural-voice) for Custom Neural Voice.
 
-> [!NOTE]
+> [!IMPORTANT]
 > Custom Neural Voice access is limited based on eligibility and usage criteria. Request access on the [intake form](https://aka.ms/customneural).
 
 ## The basics of Custom Neural Voice
@@ -37,9 +37,9 @@ You can adapt the neural text-to-speech engine to fit your needs. To create a cu
 
 ## Custom Neural Voice project types
 
-Speech Studio provides two Custom Neural Voice (CNV) project types: CNV Pro and CNV Lite. 
+Speech Studio provides two Custom Neural Voice (CNV) project types: CNV Lite and CNV Pro. 
 
-The following table summarizes key differences between the CNV Pro and CNV Lite project types.  
+The following table summarizes key differences between the CNV Lite and CNV Pro project types.  
 
 |**Items**|**Lite (Preview)**| **Pro**|
 |---------------|---------------|---------------|
