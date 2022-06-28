@@ -76,8 +76,8 @@ As you use these features in your application, use the following documentation a
 
 |Development option / language  | Reference documentation |Samples  |
 |---------|---------|---------|---------|
-|C#     | [C# documentation](/dotnet/api/overview/azure/ai.language.conversations-readme-pre?view=azure-dotnet-preview&preserve-view=true)        |  [C# samples](https://aka.ms/sdk-sample-conversation-dot-net)        |
-|Python |  [Python documentation](/python/api/overview/azure/ai-language-conversations-readme?view=azure-python-preview&preserve-view=true)        | [Python samples](https://aka.ms/sdk-samples-conversation-python) |
+|C#     | [C# documentation](/dotnet/api/overview/azure/ai.language.conversations-readme-pre)        |  [C# samples](https://aka.ms/sdk-sample-conversation-dot-net)        |
+|Python |  [Python documentation](/python/api/overview/azure/ai-language-conversations-readme)        | [Python samples](https://aka.ms/sdk-samples-conversation-python) |
 
 ### Azure.AI.Language.QuestionAnswering 
 
@@ -89,8 +89,8 @@ As you use these features in your application, use the following documentation a
 
 |Development option / language  |Reference documentation  |Samples  |
 |---------|---------|---------|
-|C#     | [C# documentation](/dotnet/api/overview/azure/ai.language.questionanswering-readme-pre?view=azure-dotnet)        |  [C# samples](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/cognitivelanguage/Azure.AI.Language.QuestionAnswering)        |
-|Python | [Python documentation](/python/api/overview/azure/ai-language-questionanswering-readme?view=azure-python)        | [Python samples](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/cognitivelanguage/azure-ai-language-questionanswering) |
+|C#     | [C# documentation](/dotnet/api/overview/azure/ai.language.questionanswering-readme-pre)        |  [C# samples](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/cognitivelanguage/Azure.AI.Language.QuestionAnswering)        |
+|Python | [Python documentation](/python/api/overview/azure/ai-language-questionanswering-readme)        | [Python samples](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/cognitivelanguage/azure-ai-language-questionanswering) |
 
 
 # [REST API](#tab/rest-api)
@@ -168,4 +168,4 @@ The question answering APIs enables you to use the [question answering](../quest
 
 ## See also 
 
-[Azure Cognitive Service for Language overview](../overview.md)
+[Azure Cognitive Service for Language overview    ](../overview.md)
