@@ -17,12 +17,11 @@ ms.devlang: azurecli
 
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
-
 > [!div class="op_single_selector" title1="Select the version of Azure Machine Learning CLI extension you are using:"]
 > * [v1](./v1/how-to-deploy-mlflow-models.md)
-> * [v2 (current version)](how-to-deploy-mlflow-models-online-endpoints.md)
+> * [v2 (current version)](how-to-deploy-mlflow-models.md)
 
-In this article, learn how to deploy your [MLflow](https://www.mlflow.org) model to Azure ML for both real-time and batch inference. Azure ML supports no-code deployment of models created and logged with MLflow. This means that you don't have to provide a scoring script or an environment. Those models can be deployed to ACI (Azure Container Instances), AKS (Azure Kubernetes Services) or our managed inference services (referred as MIR).
+In this article, learn how to deploy your [MLflow](https://www.mlflow.org) model to Azure ML for both real-time and batch inference. Azure ML supports no-code deployment of models created and logged with MLflow. This means that you don't have to provide a scoring script or an environment.
 
 For no-code-deployment, Azure Machine Learning 
 
@@ -34,36 +33,33 @@ For no-code-deployment, Azure Machine Learning
     * `pandas`
     * The scoring script baked into the image.
 
-## Supported targets for MLflow models
-
-The following table shows the target support for MLflow models in Azure ML:
-
-
-| Scenario | Azure Container Instance | Azure Kubernetes | Managed Inference |
-| :- | :-: | :-: | :-: |
-| Deploying models logged with MLflow to real time inference | **&check;**<sup>1</sup> | **&check;**<sup>1</sup> | **&check;**<sup>1</sup> |
-| Deploying models logged with MLflow to batch inference | <sup>2</sup> | <sup>2</sup> | **&check;** |
-| Deploying models with ColSpec signatures | **&check;**<sup>4</sup> | **&check;**<sup>4</sup> | **&check;**<sup>4</sup> |
-| Deploying models with TensorSpec signatures | **&check;**<sup>5</sup> | **&check;**<sup>5</sup> | **&check;**<sup>5</sup> |
-| Run models logged with MLflow in you local compute with Azure ML CLI v2 | **&check;** | **&check;** | <sup>3</sup> |
-| Debug online endpoints locally in Visual Studio Code (preview) |  |  |  |
-
 > [!NOTE]
-> - <sup>1</sup> Spark flavor is not supported at the moment for deployment.
-> - <sup>2</sup> We suggest you to use Azure Machine Learning Pipelines with Parallel Run Step.
-> - <sup>3</sup> For deploying MLflow models locally, use the MLflow CLI command `mlflow models serve -m <MODEL_NAME>`. Configure the environment variable `MLFLOW_TRACKING_URI` with the URL of your tracking server.
-> - <sup>4</sup> Data type `mlflow.types.DataType.Binary` is not supported as column type. For models that work with images, we suggest you to use or (a) tensors inputs using the [TensorSpec input type](https://mlflow.org/docs/latest/python_api/mlflow.types.html#mlflow.types.TensorSpec), or (b) `Base64` encoding schemes with a `mlflow.types.DataType.String` column type, which is commonly used when there is a need to encode binary data that needs be stored and transferred over media.
-> - <sup>5</sup> Tensors with unspecified shapes (`-1`) is only supported at the batch size by the moment. For instance, a signature with shape `(-1, -1, -1, 3)` is not supported but `(-1, 300, 300, 3)` is.
+> Consider the following limitations when deploying MLflow models to Azure Machine Learning:
+> - Spark flavor is not supported at the moment for deployment.
+> - Data type `mlflow.types.DataType.Binary` is not supported as column type. For models that work with images, we suggest you to use or (a) tensors inputs using the [TensorSpec input type](https://mlflow.org/docs/latest/python_api/mlflow.types.html#mlflow.types.TensorSpec), or (b) `Base64` encoding schemes with a `mlflow.types.DataType.String` column type, which is commonly used when there is a need to encode binary data that needs be stored and transferred over media.
+> - Tensors with unspecified shapes (`-1`) is only supported at the batch size by the moment. For instance, a signature with shape `(-1, -1, -1, 3)` is not supported but `(-1, 300, 300, 3)` is.
 
 For more information about how to specify requests to online-endpoints or the supported file types in batch-endpoints, check [Considerations when deploying to real time inference](#considerations-when-deploying-to-real-time-inference) and [Considerations when deploying to batch inference](#considerations-when-deploying-to-batch-inference).
 
 ## Deployment tools
 
-There are three workflows for deploying MLflow models to Azure ML:
+There are three workflows for deploying MLflow models to Azure Machine Learning:
 
 - [Deploy using the MLflow plugin](#deploy-using-the-mlflow-plugin)
-- [Deploy using CLI (v2)](#deploy-using-cli-v2)
+- [Deploy using Azure ML CLI (v2)](#deploy-using-azure-ml-cli-v2)
 - [Deploy using Azure Machine Learning studio](#deploy-using-azure-machine-learning-studio)
+
+Each of this workflows have different capabilities, including:
+
+| Scenario | MLflow SDK | Azure ML CLI/SDK v2 | Azure ML studio |
+| :- | :-: | :-: | :-: |
+| Deploy MLflow models to Managed Online Endpoints | **&check;** | **&check;** | **&check;** |
+| Deploy MLflow models to Managed Batch Endpoints |  | **&check;** | **&check;** |
+| Deploy MLflow models to ACI/AKS | **&check;** |  |  |
+| Deploy MLflow models to ACI/AKS (with an scoring script) | | | **&check;**<sup>1</sup> |
+
+> [!NOTE]
+> - <sup>1</sup> No-code deployment is not supported when deploying to ACI/AKS from Azure ML studio. We recommend switching to our Managed Online Endpoints instead.
 
 ### Which option to use?
 
@@ -71,136 +67,166 @@ If you are familiar with MLflow or your platform support MLflow natively (like A
 
 ## Deploy using the MLflow plugin 
 
-The MLflow plugin [azureml-mlflow](https://pypi.org/project/azureml-mlflow/) can deploy models to Azure ML, either to Azure Kubernetes Service (AKS), Azure Container Instances (ACI) and Managed Inference Service (MIR) for real-time serving.
+The MLflow plugin [azureml-mlflow](https://pypi.org/project/azureml-mlflow/) can deploy models to Azure ML, either to Azure Kubernetes Service (AKS), Azure Container Instances (ACI) and Managed Endpoints for real-time serving.
 
 > [!WARNING]
-> Deploying to Managed Inference Service - Batch endpoints is not supported in the MLflow plugin at the moment.
+> Deploying to Managed Batch Endpoints is not supported in the MLflow plugin at the moment.
 
 ### Prerequisites
 
 * Install the `azureml-mlflow` package.
 * If you are running outside an Azure ML compute, configure the MLflow tracking URI or MLflow's registry URI to point to the workspace you are working on. See [MLflow Tracking URI to connect with Azure Machine Learning)[https://docs.microsoft.com/en-us/azure/machine-learning/how-to-use-mlflow] for more details.
 
-### Deploying models to ACI or AKS
+### Steps
 
-Deployments can be generated using both the Python API for MLflow or MLflow CLI. In both cases, a JSON configuration file can be indicated with the details of the deployment you want to achieve. If not indicated, then a default deployment is done using Azure Container Instances (ACI) and a minimal configuration. The full specification of this configuration for ACI and AKS file can be checked at [Deployment configuration schema](v1/reference-azure-machine-learning-cli.md#deployment-configuration-schema).
+Deployments can be generated using both the Python SDK for MLflow or MLflow CLI. In both cases, a JSON configuration file can be indicated with the details of the deployment you want to achieve. If not indicated, then a default deployment is done using Azure Container Instances (ACI) and a minimal configuration. 
+   
+   # [Managed Endpoints](#tab/mir)
+   
+   #. Create the configuration file. The full specification of this configuration can be found at [Managed online deployment schema (v2)](reference-yaml-deployment-managed-online.md).
+   
+   ```json
+   {
+       "instance_type": "Standard_DS2_v2",
+       "instance_count": 1,
+   }
+   ```
+   
+   #. Run the deployment. The following sample deploys a model to a real time Managed Online Endpoint:
 
-#### Configuration example for ACI deployment
+     ```python
+     import json
+     from mlflow.deployments import get_deploy_client
 
-```json
-{
-  "computeType": "aci",
-  "containerResourceRequirements":
-  {
-    "cpu": 1,
-    "memoryInGB": 1
-  },
-  "location": "eastus2",
-}
-```
+     # Create the deployment configuration.
+     deploy_config = {
+         "instance_type": "Standard_DS2_v2",
+         "instance_count": 1,
+     }
 
-> [!NOTE]
-> - If `containerResourceRequirements` is not indicated, a deployment with minimal compute configuration is applied (cpu: 0.1 and memory: 0.5).
-> - If `location` is not indicated, it defaults to the location of the workspace.
+     # Write the deployment configuration into a file.
+     deployment_config_path = "deployment_config.json"
+     with open(deployment_config_path, "w") as outfile:
+         outfile.write(json.dumps(deploy_config))
 
-#### Configuration example for an AKS deployment
+     # Set the tracking uri in the deployment client.
+     client = get_deploy_client("<azureml-mlflow-tracking-url>")
 
-```json
-{
-  "computeType": "aks",
-  "computeTargetName": "aks-mlflow"
-}
-```
+     # MLflow requires the deployment configuration to be passed as a dictionary.
+     config = {"deploy-config-file": deployment_config_path}
+     model_name = "mymodel"
+     model_version = 1
 
-> [!NOTE]
-> - In above exmaple, `aks-mlflow` is the name of an Azure Kubernetes Cluster registered/created in Azure Machine Learning.
+     # define the model path and the name is the service name
+     # if model is not registered, it gets registered automatically and a name is autogenerated using the "name" parameter below
+     client.create_deployment(
+         model_uri=f"models:/{model_name}/{model_version}",
+         config=config,
+         name="mymodel-mir-deployment",
+     )
+     ```
+   
+   # [ACI](#tab/aci)
+   
+   #. Create the configuration file. The full specification of this configuration for ACI file can be checked at [Deployment configuration schema](v1/reference-azure-machine-learning-cli.md#deployment-configuration-schema).
 
-#### Running the deployment
+   ```json
+   {
+     "computeType": "aci",
+     "containerResourceRequirements":
+     {
+       "cpu": 1,
+       "memoryInGB": 1
+     },
+     "location": "eastus2",
+   }
+   ```
 
-The following sample creates a deployment using an ACI:
+   > [!NOTE]
+   > - If `containerResourceRequirements` is not indicated, a deployment with minimal compute configuration is applied (cpu: 0.1 and memory: 0.5).
+   > - If `location` is not indicated, it defaults to the location of the workspace.
 
-  ```python
-  import json
-  from mlflow.deployments import get_deploy_client
+   #. Run the deployment. The following sample creates a deployment using an ACI:
 
-  # Create the deployment configuration.
-  # If no deployment configuration is provided, then the deployment happens on ACI.
-  deploy_config = {"computeType": "aci"}
+     ```python
+     import json
+     from mlflow.deployments import get_deploy_client
 
-  # Write the deployment configuration into a file.
-  deployment_config_path = "deployment_config.json"
-  with open(deployment_config_path, "w") as outfile:
-      outfile.write(json.dumps(deploy_config))
+     # Create the deployment configuration.
+     deploy_config = {"computeType": "aci"}
 
-  # Set the tracking uri in the deployment client.
-  client = get_deploy_client("<azureml-mlflow-tracking-url>")
+     # Write the deployment configuration into a file.
+     deployment_config_path = "deployment_config.json"
+     with open(deployment_config_path, "w") as outfile:
+         outfile.write(json.dumps(deploy_config))
 
-  # MLflow requires the deployment configuration to be passed as a dictionary.
-  config = {"deploy-config-file": deployment_config_path}
-  model_name = "mymodel"
-  model_version = 1
+     # Set the tracking uri in the deployment client.
+     client = get_deploy_client("<azureml-mlflow-tracking-url>")
 
-  # define the model path and the name is the service name
-  # if model is not registered, it gets registered automatically and a name is autogenerated using the "name" parameter below
-  client.create_deployment(
-      model_uri=f"models:/{model_name}/{model_version}",
-      config=config,
-      name="mymodel-aci-deployment",
-  )
-  ```
+     # MLflow requires the deployment configuration to be passed as a dictionary.
+     config = {"deploy-config-file": deployment_config_path}
+     model_name = "mymodel"
+     model_version = 1
 
-### Deploying models to Managed Inference
+     # define the model path and the name is the service name
+     # if model is not registered, it gets registered automatically and a name is autogenerated using the "name" parameter below
+     client.create_deployment(
+         model_uri=f"models:/{model_name}/{model_version}",
+         config=config,
+         name="mymodel-aci-deployment",
+     )
+     ```
+   
+   # [AKS](#tab/aks)
+   
+   #. Create the configuration file. The full specification of this configuration for ACI file can be checked at [Deployment configuration schema](v1/reference-azure-machine-learning-cli.md#deployment-configuration-schema).
+    
+   ```json
+   {
+     "computeType": "aks",
+     "computeTargetName": "aks-mlflow"
+   }
+   ```
 
-Deployments can be generated using both the Python API for MLflow or MLflow CLI. In both cases, a JSON configuration file needs to be indicated with the details of the deployment you want to achieve. The full specification of this configuration can be found at [Managed online deployment schema (v2)](reference-yaml-deployment-managed-online.md).
+   > [!NOTE]
+   > - In above exmaple, `aks-mlflow` is the name of an Azure Kubernetes Cluster registered/created in Azure Machine Learning.
+   
+   #. Running the deployment. The following sample creates a deployment using an AKS:
 
-#### Configuration example for a Managed Inference Service deployment (real time)
+     ```python
+     import json
+     from mlflow.deployments import get_deploy_client
 
-```json
-{
-    "instance_type": "Standard_DS2_v2",
-    "instance_count": 1,
-}
-```
+     # Create the deployment configuration.
+     deploy_config = {"computeType": "aks", "computeTargetName": "aks-mlflow" }
 
-#### Running the deployment
+     # Write the deployment configuration into a file.
+     deployment_config_path = "deployment_config.json"
+     with open(deployment_config_path, "w") as outfile:
+         outfile.write(json.dumps(deploy_config))
 
-The following sample deploys a model to a real time Managed Inference Endpoint:
+     # Set the tracking uri in the deployment client.
+     client = get_deploy_client("<azureml-mlflow-tracking-url>")
 
-  ```python
-  import json
-  from mlflow.deployments import get_deploy_client
+     # MLflow requires the deployment configuration to be passed as a dictionary.
+     config = {"deploy-config-file": deployment_config_path}
+     model_name = "mymodel"
+     model_version = 1
 
-  # Create the deployment configuration.
-  deploy_config = {
-      "instance_type": "Standard_DS2_v2",
-      "instance_count": 1,
-  }
+     # define the model path and the name is the service name
+     # if model is not registered, it gets registered automatically and a name is autogenerated using the "name" parameter below
+     client.create_deployment(
+         model_uri=f"models:/{model_name}/{model_version}",
+         config=config,
+         name="mymodel-aks-deployment",
+     )
+     ```
+   ---
 
-  # Write the deployment configuration into a file.
-  deployment_config_path = "deployment_config.json"
-  with open(deployment_config_path, "w") as outfile:
-      outfile.write(json.dumps(deploy_config))
 
-  # Set the tracking uri in the deployment client.
-  client = get_deploy_client("<azureml-mlflow-tracking-url>")
+## Deploy using Azure ML CLI (v2)
 
-  # MLflow requires the deployment configuration to be passed as a dictionary.
-  config = {"deploy-config-file": deployment_config_path}
-  model_name = "mymodel"
-  model_version = 1
-
-  # define the model path and the name is the service name
-  # if model is not registered, it gets registered automatically and a name is autogenerated using the "name" parameter below
-  client.create_deployment(
-      model_uri=f"models:/{model_name}/{model_version}",
-      config=config,
-      name="mymodel-mir-deployment",
-  )
-  ```
-
-## Deploy using CLI (v2)
-
-You can use Azure ML CLI v2 to deploy models trained and logged with MLflow to Managed Inference. When you deploy your MLflow model using the Azure ML CLI v2, it's a no-code-deployment so you don't have to provide a scoring script or an environment, but you can if needed.
+You can use Azure ML CLI v2 to deploy models trained and logged with MLflow to Managed Endpoints (Online/batch). When you deploy your MLflow model using the Azure ML CLI v2, it's a no-code-deployment so you don't have to provide a scoring script or an environment, but you can if needed.
 
 ### Prerequisites
 
