@@ -16,9 +16,6 @@ ms.author: aahi
 
 Use this article to find information on integrating the Language service SDKs and REST API into your applications. 
 
->[!TIP]
-> Is it your first time using Language service features? You can find quickstart guides with both REST API and SDK samples in the documentation for the [available features](../overview.md#available-features) you want to use.
-
 ## Development options
 
 The Language service provides support through a REST API, and client libraries in several languages.
@@ -32,52 +29,52 @@ The Language service provides three namespaces for using the available features.
 ### Azure.AI.TextAnalytics  
 
 >[!NOTE] 
-> If you're using custom named entity recognition or custom text classification, you will need to create a project and train a model before using the SDK. The SDK only provides the ability to analyze text using models you create. See the following quicsktarts for more information. 
+> If you're using custom named entity recognition or custom text classification, you will need to create a project and train a model before using the SDK. The SDK only provides the ability to analyze text using models you create. See the following quickstarts for information on creating a model. 
 > * [Custom named entity recognition](../custom-named-entity-recognition/quickstart.md)
 > * [Custom text classification](../custom-text-classification/quickstart.md)
 
-The `Azure.AI.TextAnalytics` namespace enables you to use the following Language features:
+The `Azure.AI.TextAnalytics` namespace enables you to use the following Language features. Use the links below for articles to help you send API requests using the SDK.
 
-* [Custom named entity recognition](../custom-named-entity-recognition/overview.md)
-* [Custom text classification](../custom-text-classification/overview.md)
-* [Document summarization](../summarization/overview.md?tabs=document-summarization)
-* [Entity linking](../entity-linking/overview.md)
-* [Key phrase extraction](../key-phrase-extraction/overview.md)
-* [Named entity recognition (NER)](../named-entity-recognition/overview.md)
-* [Personally Identifying Information (PII) detection](../personally-identifiable-information/overview.md)
-* [Sentiment analysis and opinion mining](../sentiment-opinion-mining/overview.md)
-* [Text analytics for health](../text-analytics-for-health/overview.md)
+* [Custom named entity recognition](../custom-named-entity-recognition/how-to/call-api.md?tabs=client#send-an-entity-recognition-request-to-your-model)
+* [Custom text classification](../custom-text-classification/how-to.md?tabs=client-libraries#send-a-text-classification-request-to-your-model)
+* [Document summarization](../summarization/quickstart.md)
+* [Entity linking](../entity-linking/quickstart.md)
+* [Key phrase extraction](../key-phrase-extraction/quickstart.md)
+* [Named entity recognition (NER)](../named-entity-recognition/quickstart.md)
+* [Personally Identifying Information (PII) detection](../personally-identifiable-information/quickstart.md)
+* [Sentiment analysis and opinion mining](../sentiment-opinion-mining/quickstart.md)
+* [Text analytics for health](../text-analytics-for-health/quickstart.md)
 
 As you use these features in your application, use the following documentation and code samples for additional information.
 
-|Development option / language  |Reference documentation |Samples  |
-|---------|---------|---------|
-|C#     | [C# documentation](/dotnet/api/azure.ai.textanalytics?view=azure-dotnet-preview&preserve-view=true)        | [C# samples](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/textanalytics/Azure.AI.TextAnalytics/samples)        |
-| Java     | [Java documentation](/java/api/overview/azure/ai-textanalytics-readme?view=azure-java-preview&preserve-view=true)        | [Java Samples](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/textanalytics/azure-ai-textanalytics/src/samples) |
-|JavaScript     | [JavaScript documentation](/javascript/api/overview/azure/ai-text-analytics-readme?view=azure-node-preview&preserve-view=true)        | [JavaScript samples](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/textanalytics/ai-text-analytics/samples/v5) |
-|Python | [Python documentation](/python/api/overview/azure/ai-textanalytics-readme?view=azure-python-preview&preserve-view=true)        | [Python samples](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/textanalytics/azure-ai-textanalytics/samples) |
+|Reference documentation |Samples  |
+|---------|---------|
+| [C# documentation](/dotnet/api/azure.ai.textanalytics?view=azure-dotnet-preview&preserve-view=true)        | [C# samples](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/textanalytics/Azure.AI.TextAnalytics/samples)        |
+| [Java documentation](/java/api/overview/azure/ai-textanalytics-readme?view=azure-java-preview&preserve-view=true)        | [Java Samples](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/textanalytics/azure-ai-textanalytics/src/samples) |
+| [JavaScript documentation](/javascript/api/overview/azure/ai-text-analytics-readme?view=azure-node-preview&preserve-view=true)        | [JavaScript samples](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/textanalytics/ai-text-analytics/samples/v5) |
+[Python documentation](/python/api/overview/azure/ai-textanalytics-readme?view=azure-python-preview&preserve-view=true)        | [Python samples](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/textanalytics/azure-ai-textanalytics/samples) |
 
 
 ### Azure.AI.Language.Conversations 
 
 > [!NOTE] 
-> If you're using conversational language understanding or orchestration workflow, you will need to create a project and train a model before using the SDK. The SDK only provides the ability to analyze text using models you create. See the following quicsktarts for more information. 
+> If you're using conversational language understanding or orchestration workflow, you will need to create a project and train a model before using the SDK. The SDK only provides the ability to analyze text using models you create. See the following quickstarts for more information. 
 > * [Conversational language understanding](../conversational-language-understanding/quickstart.md)
 > * [Orchestration workflow](../orchestration-workflow/quickstart.md)
 
-The `Azure.AI.Language.Conversations` namespace enables you to use the following Language features:
+The `Azure.AI.Language.Conversations` namespace enables you to use the following Language features. Use the links below for articles to help you send API requests using the SDK.
 
-* [Conversational language understanding](../conversational-language-understanding/overview.md)
-* [Orchestration workflow](../orchestration-workflow/overview.md)
-* [Conversation summarization](../summarization/overview.md?tabs=conversation-summarization)
-* [Personally Identifying Information (PII) detection for conversations](../summarization/how-to/conversation-summarization.md)
+* [Conversational language understanding](../conversational-language-understanding/call-api.md?tabs=azure-sdk#send-a-conversational-language-understanding-request)
+* [Orchestration workflow](../orchestration-workflow/call-api.md?tabs=azure-sdk#send-an-orchestration-workflow-request)
+* [Conversation summarization (Python only)](../summarization/quickstart.md?tabs=conversation-summarization&pivots=programming-language-python)
+* [Personally Identifying Information (PII) detection for conversations](../personally-identifiable-information/how-to-call-for-conversations.md?tabs=client-libraries#examples)
 
 As you use these features in your application, use the following documentation and code samples for additional information.
 
-|Development option / language  | Reference documentation |Samples  |
-|---------|---------|---------|---------|
-|C#     | [C# documentation](/dotnet/api/overview/azure/ai.language.conversations-readme-pre)        |  [C# samples](https://aka.ms/sdk-sample-conversation-dot-net)        |
-|Python |  [Python documentation](/python/api/overview/azure/ai-language-conversations-readme)        | [Python samples](https://aka.ms/sdk-samples-conversation-python) |
+| Reference documentation |Samples  |
+|---------|---------|
+| [C# documentation](/dotnet/api/overview/azure/ai.language.conversations-readme-pre)        |  [C# samples](https://aka.ms/sdk-sample-conversation-dot-net)        |
+|  [Python documentation](/python/api/overview/azure/ai-language-conversations-readme)        | [Python samples](https://aka.ms/sdk-samples-conversation-python) |
 
 ### Azure.AI.Language.QuestionAnswering 
 
@@ -87,10 +84,10 @@ The `Azure.AI.Language.QuestionAnswering` namespace enables you to use the follo
 
 As you use these features in your application, use the following documentation and code samples for additional information.
 
-|Development option / language  |Reference documentation  |Samples  |
-|---------|---------|---------|
-|C#     | [C# documentation](/dotnet/api/overview/azure/ai.language.questionanswering-readme-pre)        |  [C# samples](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/cognitivelanguage/Azure.AI.Language.QuestionAnswering)        |
-|Python | [Python documentation](/python/api/overview/azure/ai-language-questionanswering-readme)        | [Python samples](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/cognitivelanguage/azure-ai-language-questionanswering) |
+|Reference documentation  |Samples  |
+|---------|---------|
+| [C# documentation](/dotnet/api/overview/azure/ai.language.questionanswering-readme-pre)        |  [C# samples](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/cognitivelanguage/Azure.AI.Language.QuestionAnswering)        |
+| [Python documentation](/python/api/overview/azure/ai-language-questionanswering-readme)        | [Python samples](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/cognitivelanguage/azure-ai-language-questionanswering) |
 
 
 # [REST API](#tab/rest-api)
@@ -101,27 +98,24 @@ The Language service provides multiple API endpoints depending on which feature 
 
 ### Conversation analysis authoring API
 
-The conversation analysis authoring API enables you to author custom models and create/manage projects for:
-* [Conversational language understanding](../conversational-language-understanding/overview.md)
-* [Orchestration workflow](../orchestration-workflow/overview.md)
+The conversation analysis authoring API enables you to author custom models and create/manage projects for the following features.
+* [Conversational language understanding](../conversational-language-understanding/quickstart.md?pivots=rest-api)
+* [Orchestration workflow](../orchestration-workflow/quickstart.md?pivots=rest-api)
 
-#### Reference documentation
-
-* [Reference documentation](/rest/api/language/conversational-analysis-authoring)
+As you use this API in your application, see the [reference documentation](/rest/api/language/conversational-analysis-authoring) for additional information.
 
 ### Conversation analysis runtime API
 
 The conversation analysis runtime API enables you to send requests to custom models you've created for:
-* [Conversational language understanding](../conversational-language-understanding/overview.md)
-* [Orchestration workflow](../orchestration-workflow/overview.md)
+* [Conversational language understanding](../conversational-language-understanding/how-to/call-api.md?tabs=REST-APIs#send-a-conversational-language-understanding-request)
+* [Orchestration workflow](../orchestration-workflow/how-to/call-api.md?tabs=REST-APIs#send-an-orchestration-workflow-request)
 
 It additionally enables you to use the following features, without creating any models:
-* [Conversation summarization](../summarization/overview.md?tabs=conversation-summarization)
-* [Personally Identifiable Information (PII) detection for conversations](../summarization/how-to/conversation-summarization.md)
+* [Conversation summarization](../summarization/quickstart.md?pivots=rest-api&tabs=conversation-summarization)
+* [Personally Identifiable Information (PII) detection for conversations](../personally-identifiable-information/how-to-call-for-conversations.md?tabs=rest-api#examples)
 
-#### Reference documentation
+As you use this API in your application, see the [reference documentation](/rest/api/language/conversation-analysis-runtime) for additional information.
 
-* [Reference documentation](/rest/api/language/conversation-analysis-runtime)
 
 ### Text analysis authoring API
 
@@ -129,9 +123,7 @@ The text analysis authoring API enables you to author custom models and create/m
 * [Custom named entity recognition](../custom-named-entity-recognition/overview.md)
 * [Custom text classification](../custom-text-classification/overview.md)
 
-#### Reference documentation
-
-* [Reference documentation](/rest/api/language/text-analysis-authoring)
+As you use this API in your application, see the [reference documentation](/rest/api/language/text-analysis-authoring) for additional information.
 
 ### Text analysis runtime API
 
@@ -142,23 +134,23 @@ The text analysis runtime API enables you to send requests to custom models you'
 
 It additionally enables you to use the following features, without creating any models:
 
-* [Document summarization](../summarization/overview.md?tabs=document-summarization)
-* [Entity linking](../entity-linking/overview.md)
-* [Key phrase extraction](../key-phrase-extraction/overview.md)
-* [Named entity recognition (NER)](../named-entity-recognition/overview.md)
+* [Document summarization](../summarization/quickstart.md?tabs=document-summarization&pivots=rest-api)
+* [Entity linking](../entity-linking/quickstart.md?pivots=rest-api)
+* [Key phrase extraction](../key-phrase-extraction/quickstart.md?pivots=rest-api)
+* [Named entity recognition (NER)](../named-entity-recognition/quickstart.md?pivots=rest-api)
 * [Personally Identifying Information (PII) detection](../personally-identifiable-information/overview.md)
-* [Sentiment analysis and opinion mining](../sentiment-opinion-mining/overview.md)
-* [Text analytics for health](../text-analytics-for-health/overview.md)
+* [Sentiment analysis and opinion mining](../sentiment-opinion-mining/quickstart.md?pivots=rest-api)
+* [Text analytics for health](../text-analytics-for-health/quickstart.md?pivots=rest-api)
 
-#### Reference documentation
-
-* [Reference documentation](/rest/api/language/text-analysis-runtime)
+As you use this API in your application, see the [reference documentation](/rest/api/language/text-analysis-runtime) for additional information.
 
 ### Question answering APIs
 
 The question answering APIs enables you to use the [question answering](../question-answering/overview.md) feature. 
 
 #### Reference documentation
+
+As you use this API in your application, see the following reference documentation for additional information.
 
 * [Prebuilt API](/rest/api/cognitiveservices/questionanswering/question-answering/get-answers-from-text) - Use the prebuilt runtime API to answer specified question using text provided by users.
 * [Custom authoring API](/rest/api/cognitiveservices/questionanswering/question-answering-projects) - Create a knowledge base to answer questions.
@@ -168,4 +160,4 @@ The question answering APIs enables you to use the [question answering](../quest
 
 ## See also 
 
-[Azure Cognitive Service for Language overview    ](../overview.md)
+[Azure Cognitive Service for Language overview](../overview.md)
