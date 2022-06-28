@@ -1,8 +1,8 @@
 ---
 title: Azure Functions pricing
 description: Learn how billing works for Azure Functions.
-author: craigshoemaker
-ms.author: cshoe
+author: ggailey777
+ms.author: glenga
 ms.topic: conceptual
 ms.date: 11/20/2020
 ---
