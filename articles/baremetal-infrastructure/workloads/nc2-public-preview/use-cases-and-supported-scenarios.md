@@ -15,7 +15,7 @@ ms.date: 07/01/2022
 That operations and cluster management be nearly identical to on-premises is critical to customers.
 Customers can update capacity, monitor alerts, replace hosts, monitor usage, and more by combining the respective strengths of Microsoft and Nutanix.
 
-## Disaster Recovery
+## Disaster recovery
 
 Disaster recovery is critical to cloud functionality.
 A disaster can be any of the following:

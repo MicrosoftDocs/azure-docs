@@ -163,7 +163,7 @@ landingContent:
       - linkListType: get-started
         links:
          - text: Getting started
-           url: workloads/nc2-public-preview/getting-started.md
+           url: workloads/nc2-public-preview/get-started.md
          - text: Use cases and supported scenarios
            url: workloads/nc2-public-preview/use-cases-and-supported-scenarios.md  
          - text: Requirements

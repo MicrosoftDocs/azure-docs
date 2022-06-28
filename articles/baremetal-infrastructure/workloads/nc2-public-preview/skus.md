@@ -8,6 +8,12 @@ ms.date: 07/01/2021
 
 # SKUs
 
+This article identifies options associated with SKUs available for NC2 on Azure Public Preview, including core, RAM, storage, and network.
+
+## Options
+
+The following table presents component options for each available SKU.
+
 | Component |Ready Node for Nutanix AN36|Ready Node for Nutanix AN36P|
 | :------------------- | -------------------: |:---------------:|
 |Core|Intel 6140, 36 Core, 2.3 GHz|Intel 6240, 36 Core, 2.6 GHz|

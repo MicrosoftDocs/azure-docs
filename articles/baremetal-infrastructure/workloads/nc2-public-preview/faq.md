@@ -14,7 +14,7 @@ This article addresses questions most frequently asked about NC2 on Azure.
 
 Hyper-converged infrastructure (HCI) uses locally attached storage resources to combine common data center hardware with intelligent software to create flexible building blocks that replace legacy infrastructure consisting of separate servers, storage networks, and storage arrays. [Video explanation](https://www.youtube.com/watch?v=OPYA5-V0yRo)
 
-## How can I create a vm on a node?
+## How can I create a VM on a node?
 
 After a customer provisions a cluster of Nutanix Ready Nodes, they can spin up a VM through the Nutanix Prism Portal.
 This operation should be exactly the same as on-premises in the prism portal.
