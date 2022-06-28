@@ -76,8 +76,14 @@ items:
         href: concept-best-practices-lineage-azure-data-factory.md
       - name: Network architecture best practices
         href: concept-best-practices-network.md
-      - name: Pricing guidelines 
-        href: concept-guidelines-pricing.md
+      - name: Pricing guidelines
+        items:
+        - name: Pricing guidelines overview 
+          href: concept-guidelines-pricing.md
+        - name: Data map pricing
+          href: concept-guidelines-pricing-data-map.md
+        - name: Data Estate Insights pricing
+          href: concept-guidelines-pricing-data-estate-insights.md
       - name: Scanning best practices 
         href: concept-best-practices-scanning.md
       - name: Security best practices
@@ -281,6 +287,8 @@ items:
       href: sensitivity-labels-frequently-asked-questions.yml
   - name: Data Estate Insights
     items:
+    - name: Disable or enable
+      href: enable-disable-data-estate-insights.md
     - name: View data stewardship
       href: data-stewardship.md
     - name: View asset insights
