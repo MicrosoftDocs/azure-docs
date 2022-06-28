@@ -39,7 +39,7 @@ The sign-in flow involves the following steps:
 A computer that's running: 
 
 * [Visual Studio Code](https://code.visualstudio.com/) or another code editor
-* [Python](https://nodejs.org/en/download/) 2.7+ or 3+ 
+* [Python](https://www.python.org/downloads/) 3.9 or above 
 
 ## Step 1: Configure your user flow
 
