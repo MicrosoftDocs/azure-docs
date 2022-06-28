@@ -24,15 +24,11 @@ If web app discovery has failed then the discovery dashboard allows easy navigat
 
 For further information about web apps discovery please refer to: 
 
-At scale discovery and assessment for ASP.NET app migration with Azure Migrate 
-
-Discover and assess ASP.NET apps at-scale with Azure Migrate 
-
-At scale discovery and assessment for ASP.NET app migration with Azure Migrate 
-
-Discover software inventory on on-premises servers with Azure Migrate 
-
-Discover web apps and SQL Server instances 
+- [At scale discovery and assessment for ASP.NET app migration with Azure Migrate](https://channel9.msdn.com/Shows/Inside-Azure-for-IT/At-scale-discovery-and-assessment-for-ASPNET-app-migration-with-Azure-Migrate)
+- [Discover and assess ASP.NET apps at-scale with Azure Migrate](https://azure.microsoft.com/en-us/blog/discover-and-assess-aspnet-apps-atscale-with-azure-migrate/)
+- [At scale discovery and assessment for ASP.NET app migration with Azure Migrate](https://channel9.msdn.com/Shows/Inside-Azure-for-IT/At-scale-discovery-and-assessment-for-ASPNET-app-migration-with-Azure-Migrate)
+- [Discover software inventory on on-premises servers with Azure Migrate](/migrate/how-to-discover-applications.md)
+- [Discover web apps and SQL Server instances](/migrate/how-to-discover-sql-existing-project.md)
 
 
 ## Next steps
