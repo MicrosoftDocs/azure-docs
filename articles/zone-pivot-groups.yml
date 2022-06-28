@@ -1187,7 +1187,7 @@ groups:
 # Owner: mbullwin
 - id: openai-quickstart
   title: Programming languages
-  prompt: Choose a programming language
+  prompt: Choose your preferred usage method
   pivots:
   - id: programming-language-studio
     title: Studio
@@ -1195,6 +1195,15 @@ groups:
     title: Python
   - id: rest-api
     title: REST
+# Owner: mbullwin
+- id: openai-create-resource
+  title: Programming languages
+  prompt: Choose your preferred resource creation method
+  pivots:
+  - id: web-portal
+    title: Portal
+  - id: cli
+    title: CLI
 # Owner: diberry
 - id: app-service-webjob
   title: WebJob types

@@ -7,15 +7,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: openai
 ms.topic: include
-ms.date: 06/24/2022
+ms.date: 06/30/2022
 keywords: 
 ---
 
 ## Prerequisites
 
-- An Azure subscription
+- An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services)
 - Access granted to service in the desired Azure subscription. This service is currently invite only. You can fill out a new use case request here: <https://aka.ms/oai/access>.
-- An Azure OpenAI resource with a model deployed.
+- An Azure OpenAI Service resource with a model deployed. If you don't have a resource/model the process is documented in our [resource deployment guide](../how-to/create-resource.md)
 
 ## Go to the Azure OpenAI Studio
 
