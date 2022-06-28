@@ -1,12 +1,12 @@
 ---
-title: Road to the cloud - Moving identity and access management from AD to Azure AD
-description: Learn to plan your migration if IAM from AD to Azure AD.
+title: Road to the cloud - Implementing a cloud-first approach when moving identity and access management from AD to Azure AD
+description: Implement a cloud-first approach as part of planning your migration if IAM from AD to Azure AD.
 documentationCenter: ''
 author: janicericketts
 manager: martinco
 ms.service: active-directory
 ms.topic: how-to
-ms.subservice: none
+ms.subservice: fundamentals
 ms.date: 06/03/2022
 ms.author: jricketts
 ms.custom: references_regions
@@ -54,7 +54,7 @@ These links provide additional information on this topic but are not specific to
 
 * For application access, consider using [scope provisioning](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md) or [entitlement management](../governance/entitlement-management-overview.md)
 
-For more information on group types, see [Compare groups](/microsoft-365/admin/create-groups/compare-groups?view=o365-worldwide).
+For more information on group types, see [Compare groups](/microsoft-365/admin/create-groups/compare-groups).
 
 * Use external identities for collaboration with other organizations - stop creating accounts of external users in on-premises directories
 
@@ -64,7 +64,7 @@ You and your team might feel compelled to change your current employee provision
 
 Client workstations are traditionally joined to AD and managed via group policy (GPO) and/or device management solutions such as Microsoft Endpoint Configuration Manager (MECM). Your teams will establish a new policy and process to prevent newly deployed workstations from being domain-joined going forward. Key points include:
 
-* Mandate [Azure AD join](h../devices/concept-azure-ad-join.md) for new Windows client workstations to achieve "No more domain join"
+* Mandate [Azure AD join](../devices/concept-azure-ad-join.md) for new Windows client workstations to achieve "No more domain join"
 
 * Manage workstations from cloud by using Unified Endpoint Management (UEM) solutions such as [Intune](/mem/intune/fundamentals/what-is-intune)
 
