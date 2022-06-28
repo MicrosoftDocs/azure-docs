@@ -46,7 +46,7 @@ highlightedContent:
 
 conceptualContent:
   items:
-    - title: "Modernize security operations: Learn the fundamentals of Azure security and how to defend against threats"
+    - title: Modernize security operations
       links:
         - url: ./fundamentals/overview.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
           itemType: overview
@@ -58,7 +58,7 @@ conceptualContent:
           itemType: concept
           text: Protect against ransomware
 
-    - title: "Data security & governance, risk, and compliance: If your organization needs to comply with legal or regulatory standards, learn about compliance in Azure"
+    - title: Data security & governance, risk, and compliance
       links:
         - url: https://docs.microsoft.com/learn/modules/m365-compliance-information-governance/
           itemType: overview
@@ -70,7 +70,7 @@ conceptualContent:
           itemType: concept
           text: Deploy an information protection solution with Microsoft Purview
 
-    - title: "Secure identities and access: Learn how identity and access management offers security assurances"
+    - title: Secure identities and access
       links:
         - url: https://docs.microsoft.com/security/zero-trust/deploy/identity
           itemType: how-to-guide
@@ -81,3 +81,130 @@ conceptualContent:
         - url: https://docs.microsoft.com/security/zero-trust/develop/identity
           itemType: concept
           text: Building apps with a Zero Trust approach to identity
+
+additionalContent:
+  sections:
+    - title: Additional security guidance
+      items:
+        - title: Microsoft Learn
+          summary: If you're new to security, build your skills with Microsoft Learn                         
+          url: https://docs.microsoft.com/learn/browse/?products=azure&roles=security-engineer%2Csecurity-operations-analyst
+        - title: Microsoft Cloud Adoption Framework for Azure
+          summary: Secure methodology designed to help cloud architects and business decision makers create and implement security strategies for the cloud
+          url: https://docs.microsoft.com/azure/cloud-adoption-framework/secure/
+        - title: Azure Well-Architected Framework
+          summary: Design principles for a securely architected system hosted on cloud or on-premises datacenters
+          url: https://docs.microsoft.com/azure/architecture/framework/security/overview
+        - title: Azure Architecture Center
+          summary: A set of guiding tenets that can be used to protect your applications and data from threats
+          url: https://docs.microsoft.com/azure/architecture/guide/security/security-start-here
+        - title: Azure Security Benchmark
+          summary: Best practices and recommendations to secure your cloud deployments
+          url: https://docs.microsoft.com/security/benchmark/azure/introduction
+        - title: Microsoft Security Best Practices
+          summary: Collection of best practices that provide clear actionable guidance for security related decisions, includes Azure and Microsoft 365
+          url: https://docs.microsoft.com/security/compass/compass
+        - title: Microsoft 365 security guidance
+          summary: Learn about security in Microsoft 365
+          url: https://docs.microsoft.com/microsoft-365/security/?view=o365-worldwide
+        - title: Azure security fundamentals
+          summary: Learn how to secure your cloud solutions on Azure
+          url: 	https://docs.microsoft.com/azure/security/journey/
+
+    - title: Security services and capabilities
+      items:
+        # Card
+        - title: cardtitle1
+          links:
+            - text: link1a
+              url: ./file1a.md OR /file1a
+            - text: link1b
+              url: ./file1b.md OR /file1b
+        # Card
+        - title: cardtitle2
+          links:
+            - text: link2a
+              url: ./file2a.md OR /file2a
+            - text: link2b
+              url: ./file2b.md OR /file2b
+        # Card
+        - title: cardtitle3
+          links:
+            - text: link3a
+              url: ./file3a.md OR /file3a
+            - text: link3b
+              url: ./file3b.md OR /file3b
+
+    - title: Security services and capabilities
+      items:
+        - title: Microsoft Sentinel                   
+          links: 
+            - url: ../sentinel/overview.md
+              text:  What is Microsoft Sentinel?
+            - url: ../sentinel/quickstart-onboard.md
+              text:  Onboard Microsoft Sentinel
+            - url: https://docs.microsoft.com/en-us/learn/paths/security-ops-sentinel/
+              text:  "Learn: Cloud-native security operations with Microsoft Sentinel"
+
+        - title: Microsoft Defender for Cloud                  
+          links: 
+            - url: ../defender-for-cloud/defender-for-cloud-introduction.md
+              text:  What is Microsoft Defender for Cloud?
+            - url: ../defender-for-cloud/tutorial-protect-resources.md
+              text:  Protect your resources
+            - url: https://docs.microsoft.com/learn/modules/microsoft-cloud-app-security/
+              text:  "Learn: Secure your cloud apps and services"
+
+        - title: Azure Key Vault
+          links: 
+            - url: ../key-vault/general/overview.md
+              text:  What is Azure Key Vault?
+            - url: ../key-vault/secrets/quick-create-cli.md
+              text:  Set and retrieve a secret
+            - url: https://docs.microsoft.com/learn/modules/manage-secrets-with-azure-key-vault/
+              text:  "Learn: Manage secrets in your server apps"
+
+        - title: Microsoft Defender for IoT
+          links: 
+            - url: ../defender-for-iot/overview.md
+              text:  Introducing Microsoft Defender for IoT
+            - url: ../defender-for-iot/getting-started.md
+              text:  Get started with Defender for IoT
+            - url: https://docs.microsoft.com/learn/paths/enhance-iot-solution-security-by-using-azure-defender/
+              text:  "Learn: Enhance IoT solution security"
+
+        - title: Azure Active Directory
+          links: 
+            - url: https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis
+              text:  What is Azure Active Directory?
+            - url: https://docs.microsoft.com/azure/active-directory/fundamentals/security-operations-introduction
+              text:  Security operations guide
+            - url: https://docs.microsoft.com/learn/modules/secure-aad-users-with-mfa/
+              text:  "Learn: Secure Azure Active Directory users with Multi-Factor Authentication"
+
+        - title: Azure Information Protection
+          links: 
+            - url: https://docs.microsoft.com/azure/information-protection/what-is-information-protection
+              text:  What is Azure Information Protection?
+            - url: https://docs.microsoft.com/azure/information-protection/quickstart-deploy-client
+              text:  Deploying the client 
+            - url: https://docs.microsoft.com/azure/information-protection/tutorial-scan-networks-and-content
+              text:  Discovering your sensitive content
+
+        - title: Microsoft Defender for Cloud Apps
+          links: 
+            - url: https://docs.microsoft.com/defender-cloud-apps/what-is-defender-for-cloud-apps
+              text:  What is Microsoft Defender for Cloud Apps?
+            - url: https://docs.microsoft.com/defender-cloud-apps/get-started
+              text:  Get started 
+            - url: https://docs.microsoft.com/defender-cloud-apps/tutorial-suspicious-activity
+              text:  Detect and manage suspicious activity
+
+        - title: Microsoft 365 Defender
+          links: 
+            - url: https://docs.microsoft.com/microsoft-365/security/defender/microsoft-365-defender?view=o365-worldwide
+              text:  What is Microsoft 365 Defender?
+            - url: https://docs.microsoft.com/microsoft-365/security/defender/get-started?view=o365-worldwide
+              text:  Get started 
+            - url: https://docs.microsoft.com/microsoft-365/security/defender/integrate-microsoft-365-defender-secops?view=o365-worldwide
+              text:  Security operations guide
