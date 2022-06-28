@@ -48,6 +48,9 @@ When using Azure AD authentication, there are two Administrator accounts for the
 
 ![admin structure][2]
 
+ >[!NOTE]
+ > Service Principal or Managed Identity cannot act as fully functional Azure AD Administrator in Single Server and this limitation is fixed in our Flexible Server 
+
 ## Permissions
 
 To create new users that can authenticate with Azure AD, you must have the `azure_ad_admin` role in the database. This role is assigned by configuring the Azure AD Administrator account for a specific Azure Database for PostgreSQL server.
