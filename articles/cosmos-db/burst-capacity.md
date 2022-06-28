@@ -48,7 +48,7 @@ To check whether an Azure Cosmos DB account is eligible for the preview, you can
 To enroll in the preview, your Cosmos account must meet all the following criteria:
   - Your Cosmos account is using provisioned throughput (manual or autoscale). Burst capacity doesn't apply to serverless accounts.
   - If you're using SQL API, your application must use the Azure Cosmos DB .NET V3 SDK, version 3.27.0 or higher. When burst capacity is enabled on your account, all requests sent from non .NET SDKs, or older .NET SDK versions won't be accepted.
-    - There are no SDK or driver requirements to use the feature with Cassandra API, Gremlin API, Table API, or API for MongoDB.
+    - There are no SDK or driver requirements to use the feature with Cassandra API, Gremlin API, or API for MongoDB.
   - Your Cosmos account isn't using any unsupported connectors
     - Azure Data Factory
     - Azure Stream Analytics
