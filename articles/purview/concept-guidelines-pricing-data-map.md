@@ -36,11 +36,11 @@ Direct costs impacting pricing for the Microsoft Purview Data Map are based on t
 
 - An event driven factor based on the Create, Read, Update, Delete operations performed on the data map
 - Some examples of the data map operations would be:
-        - Creating an asset in Data Map
-        - Adding a relationship to an asset such as owner, steward, parent, lineage
-        - Editing an asset to add business metadata such as description, glossary term
-        - Keyword-search returning results to search result page
-        - Importing or exporting information using API
+   - Creating an asset in Data Map
+   - Adding a relationship to an asset such as owner, steward, parent, lineage
+   - Editing an asset to add business metadata such as description, glossary term
+   - Keyword-search returning results to search result page
+   - Importing or exporting information using API
 - If there are multiple queries executed on the Data Map, the number of I/O operations also increases resulting in the scaling up of the data map
 - The number of concurrent users also forms a factor governing the data map capacity unit
 - Other factors to consider are type of search query, API interaction, workflows, approvals, and so on
@@ -58,16 +58,16 @@ Direct costs impacting pricing for the Microsoft Purview Data Map are based on t
 ## Automated scanning, classification, and ingestion
 
 There are two major automated processes that can trigger ingestion of metadata into the Microsoft Purview Data Map:
-1. Automatic scans using native [connectors](azure-purview-connector-overview.md). This process includes three main steps:
+- Automatic scans using native [connectors](azure-purview-connector-overview.md). This process includes three main steps:
    - Metadata scan
    - Automatic classification
    - Ingestion of metadata into the Microsoft Purview Data Map
 
-2. Automated ingestion using Azure Data Factory and/or Azure Synapse pipelines. This process includes:
+- Automated ingestion using Azure Data Factory and/or Azure Synapse pipelines. This process includes:
    - Ingestion of metadata and lineage into the Microsoft Purview Data Map if the account is connected to any Azure Data Factory or Azure Synapse pipelines.
 
 
-### 1. Automatic scans using native connectors
+### Automatic scans using native connectors
 
 - A **full scan** processes all assets within a selected scope of a data source whereas an **incremental scan** detects and processes assets, which have been created, modified, or deleted since the previous successful scan 
 
@@ -91,9 +91,9 @@ There are two major automated processes that can trigger ingestion of metadata i
 
 - Align your scan schedules with Self-Hosted Integration Runtime (SHIR) VMs (Virtual Machines) size to avoid extra costs linked to virtual machines
 
-### 2. Automated ingestion using Azure Data Factory and/or Azure Synapse pipelines
+### Automated ingestion using Azure Data Factory and/or Azure Synapse pipelines
 
-- metadata and lineage are ingested from Azure Data Factory or Azure Synapse pipelines every time the pipelines run in the source system.
+- Metadata and lineage are ingested from Azure Data Factory or Azure Synapse pipelines every time the pipelines run in the source system.
 
 ## Advanced resource sets
 
