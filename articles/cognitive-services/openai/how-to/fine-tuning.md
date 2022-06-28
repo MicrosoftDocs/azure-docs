@@ -58,7 +58,7 @@ Prompts for completions calls, often use either detailed instructions or few-sho
 
 The more training examples you have, the better. We recommend having at least a couple hundred examples. In general, we've found that each doubling of the dataset size leads to a linear increase in model quality.
 
-For more detailed guidance on how to prepare training data for various tasks, please refer to our [how to on preparing your dataset](./PrepareDataset.md)
+For more detailed guidance on how to prepare training data for various tasks, please refer to our [how to on preparing your dataset](prepare-dataset.md)
 
 ### CLI dataset creation tool
 
@@ -82,8 +82,8 @@ This tool accepts different formats, with the only requirement that they contain
 
 Once you've prepared your dataset, you can upload your files to the service. We offer two ways to do this:
 
-1. [From a local file](../Reference/RESTAPI.md#POSTFiles)
-1. [Import from an Azure Blob store or other web location](../Reference/RESTAPI.md#ImportFileID)
+1. [From a local file](../reference.md#postfiles)
+1. [Import from an Azure Blob store or other web location](../reference.md#ImportFileID)
 
 For large data files, we recommend you import from Azure Blob. Large files can become unstable when uploaded through multipart forms because the requests are atomic and can't be retried or resumed.
 
@@ -139,7 +139,7 @@ while train_status not in ["succeeded", "failed"] or valid_status not in ["succe
 
 ## Create a customized model
 
-After you've uploaded the training and (optional) validation file, you wish to use for your training job you're ready to start the process. You can use the [Models API](../Reference/RESTAPI.md#models) to identify which models are fine-tunable.
+After you've uploaded the training and (optional) validation file, you wish to use for your training job you're ready to start the process. You can use the [Models API](../reference.md#models) to identify which models are fine-tunable.
 
 Once you have the model, you want to fine-tune you need to create a job. The following python code shows an example of how to create a new job:
 
@@ -181,7 +181,7 @@ After you've started a fine-tune job, it may take some time to complete. Your jo
 
 ## Deploy a customized model
 
-When a job has succeeded, the **fine_tuned_model** field will be populated with the name of the model. Your model will also be available in the [list Models API](../Reference/RESTAPI.md#GetModels). You must now deploy your model so that you can run completions calls. You can do this either using the Management APIs or using the deployment APIs. We'll show you both options below.
+When a job has succeeded, the **fine_tuned_model** field will be populated with the name of the model. Your model will also be available in the [list Models API](../reference.md#GetModels). You must now deploy your model so that you can run completions calls. You can do this either using the Management APIs or using the deployment APIs. We'll show you both options below.
 
 ### Deploy a model with the service APIs
 
@@ -225,7 +225,8 @@ text = response['choices'][0]['text'].replace('\n', '').replace(' .', '.').strip
 print(f'"{start_phrase} {text}"')
 ```
 
-> NOTE: As with all applications, we require a review process prior to going live.
+> [!NOTE]
+> As with all applications, we require a review process prior to going live.
 
 ## Clean up your deployments, fine-tuned models and training files
 
@@ -233,7 +234,7 @@ When you're done with your fine-tuned model, you can delete the deployment and f
 
 ### Delete your model deployment
 
-To delete a deployment, you can use the [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/cognitiveservices/account/deployment?view=azure-cli-latest#az-cognitiveservices-account-deployment-delete), Azure OpenAI Studio or [REST APIs](../Reference/RESTAPI.md#DeleteDeployment). here's an example of how to delete your deployment with the Azure CLI:
+To delete a deployment, you can use the [Azure CLI](/cli/azure/cognitiveservices/account/deployment?view=azure-cli-latest#az-cognitiveservices-account-deployment-delete), Azure OpenAI Studio or [REST APIs](../reference.md#DeleteDeployment). here's an example of how to delete your deployment with the Azure CLI:
 
 ```console
 az cognitiveservices account deployment delete --name
@@ -244,7 +245,7 @@ az cognitiveservices account deployment delete --name
 
 ### Delete your fine-tuned model
 
-You can delete a fine-tuned model either with the [REST APIs](../Reference/RESTAPI.md#a-name"deletefinetunesid"a-delete-a-specific-fine-tuning-job) or via the Azure OpenAI Studio. Here's an example of how to delete your fine-tuned model with the REST APIs:
+You can delete a fine-tuned model either with the [REST APIs](../reference.md#delete-a-specific-fine-tuning-job) or via the Azure OpenAI Studio. Here's an example of how to delete your fine-tuned model with the REST APIs:
 
 ```python
 openai.FineTune.delete(sid=job_id)
@@ -252,7 +253,7 @@ openai.FineTune.delete(sid=job_id)
 
 ### Delete your training files
 
-You can also delete any files you've uploaded for training with the [REST APIs](../Reference/RESTAPI.md#files) or with the Azure OpenAI Studio. Here's an example of how to delete your fine-tuned model with the REST APIs.
+You can also delete any files you've uploaded for training with the [REST APIs](../reference.md#files) or with the Azure OpenAI Studio. Here's an example of how to delete your fine-tuned model with the REST APIs.
 
 ```python
 print('Checking for existing uploaded files.')
@@ -302,7 +303,7 @@ We've picked default hyperparameters that work well across a range of use cases.
 
 That said, tweaking the hyperparameters used for fine-tuning can often lead to a model that produces higher quality output. In particular, you may want to configure the following:
 
-- **model**: The name of the base model to fine-tune. You can select one of "ada" or "curie". To learn more about these models, see the [Engines documentation](../Concepts/Engines.md). You can find out the exact models available for fine-tuning in your resource by calling the  [Models API](../Reference/RESTAPI.md#models).
+- **model**: The name of the base model to fine-tune. You can select one of "ada" or "curie". To learn more about these models, see the [Models documentation](../concepts/models.md). You can find out the exact models available for fine-tuning in your resource by calling the  [Models API](../reference.md#models).
 - **n_epochs**: The number of epochs to train the model for. An epoch refers to one full cycle through the training dataset.
 - **batch_size**: The batch size is the number of training examples used to train a single forward and backward pass. In general, we've found that larger batch sizes tend to work better for larger datasets.
 - **learning_rate_multiplier**: The fine-tuning learning rate is the original learning rate used for pre-training multiplied by this multiplier. We recommend experimenting with values in the range 0.02 to 0.2 to see what produces the best results. Empirically, we've found that larger learning rates often perform better with larger batch sizes.
