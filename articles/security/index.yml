@@ -91,25 +91,28 @@ additionalContent:
           url: https://docs.microsoft.com/learn/browse/?products=azure&roles=security-engineer%2Csecurity-operations-analyst
         - title: Microsoft Cloud Adoption Framework for Azure
           summary: Secure methodology designed to help cloud architects and business decision makers create and implement security strategies for the cloud
-          url: https://docs.microsoft.com/azure/cloud-adoption-framework/secure/
+          url: /azure/cloud-adoption-framework/secure/
         - title: Azure security fundamentals
           summary: Learn how to secure your cloud solutions on Azure
-          url: 	https://docs.microsoft.com/azure/security/journey/
+          url: 	./journey/index.yml
         - title: Azure Security Benchmark
           summary: Best practices and recommendations to secure your cloud deployments
-          url: https://docs.microsoft.com/security/benchmark/azure/introduction
+          url: /security/benchmark/azure/introduction
         - title: Azure Well-Architected Framework
           summary: Design principles for a securely architected system hosted on cloud or on-premises datacenters
-          url: https://docs.microsoft.com/azure/architecture/framework/security/overview
+          url: /azure/architecture/framework/security/overview
         - title: Azure Architecture Center
           summary: A set of guiding tenets that can be used to protect your applications and data from threats
-          url: https://docs.microsoft.com/azure/architecture/guide/security/security-start-here
+          url: /azure/architecture/guide/security/security-start-here
         - title: Microsoft Security Best Practices
           summary: Collection of best practices that provide clear actionable guidance for security related decisions, includes Azure and Microsoft 365
-          url: https://docs.microsoft.com/security/compass/compass
+          url: /security/compass/compass
+        - title: Secure development
+          summary: Learn how to develop and deploy secure applications on Azure with our sample apps, best practices, and guidance
+          url: ./develop/index.yml
         - title: Microsoft 365 security guidance
           summary: Learn about security in Microsoft 365
-          url: https://docs.microsoft.com/microsoft-365/security/?view=o365-worldwide
+          url: /microsoft-365/security/?view=o365-worldwide
 
     - title: Security services and capabilities
       items:
