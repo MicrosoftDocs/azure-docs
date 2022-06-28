@@ -16,16 +16,13 @@ ms.custom: ignite-fall-2021
 > [Billing for this feature](concept-guidelines-pricing-data-estate-insights.md) will also begin at that time for enabled Data Estates Insights applications.
 > To stop billing for Data Estate Insights, you can [disable the application](enable-disable-data-estate-insights.md).
 
-This guide covers pricing guidelines for Data Estate Insights,
+This guide covers pricing guidelines for Data Estate Insights.
 
 For a full pricing guideline details for Microsoft Purview (formerly Azure Purview), see the [pricing guideline overview.](concept-guidelines-pricing.md)
 
 For specific price details, see the [Microsoft Purview (formerly Azure Purview) pricing page](https://azure.microsoft.com/pricing/details/purview/). This article will guide you through the features and factors that will affect pricing for Data Estate Insights.
 
 ## Guidelines
-
-> [!IMPORTANT]
-> The option to disable the Data Estate Insights application will only be available July 1st after 9am PST
 
 Data Estate Insights is billed on two dimensions:
 
