@@ -2914,6 +2914,4 @@ The below API's can be used with the ServiceNow integration via the ServiceNow's
 
 ## Next steps
 
-- [Investigate sensor detections in a device inventory](how-to-investigate-sensor-detections-in-a-device-inventory.md)
-
-- [Investigate all enterprise sensor detections in a device inventory](how-to-investigate-all-enterprise-sensor-detections-in-a-device-inventory.md)
+- [View detected devices and assets](how-to-manage-device-inventory-for-organizations.md)
