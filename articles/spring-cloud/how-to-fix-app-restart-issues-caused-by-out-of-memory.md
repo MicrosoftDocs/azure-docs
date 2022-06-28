@@ -1,4 +1,20 @@
-This doc helps understand out of memory (OOM) issues for **Java** applications in Azure Spring Cloud.
+---
+title: How to fix app restart issues caused by out-of-memory issues
+titleSuffix: Azure Spring Apps
+description: Explains how to understand out of memory (OOM) issues for Java applications in Azure Spring Apps.
+author: karlerickson
+ms.author: kaiqianyang
+ms.service: spring-cloud
+ms.topic: conceptual
+ms.date: 06/28/2022
+ms.custom: devx-track-java
+---
+
+# How to fix app restart issues caused by out of memory issues
+
+**This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
+
+This doc helps understand out of memory (OOM) issues for Java applications in Azure Spring Cloud.
 
 ## OOM Concepts
 OOM is shortened from out of memory.
