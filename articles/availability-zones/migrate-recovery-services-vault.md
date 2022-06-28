@@ -2,7 +2,7 @@
 title: Migrate Azure Recovery Services Vault to availability zone support 
 description: Learn how to migrate your Azure Recovery Services Vault to availability zone support.
 author: anaharris-ms
-ms.service: site-recovery, backup
+ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 06/24/2022
 ms.author: anaharris 
@@ -47,7 +47,9 @@ If your workloads are backed up by the old vault and you want to re-assign them 
 
     1. [Virtual Machines](../backup/backup-azure-manage-vms.md#stop-protecting-a-vm).
     
-    1. [SQL Server database in Azure VM](../backup/manage-monitor-sql-database-backup.md#stop-protection-for-a-sql-server-database).
+    1. [SQL Server database in Azure VM](../backup/manage-monitor-sql-database-backup.md#stop-protection-for-a-sql-server-database). 
+    
+        1. After successfully completing this operation move the SQL on Azure VM to another resource group to completely break the association with the old recovery vault.
     
     1. [Storage Files](../backup/manage-afs-backup.md#stop-protection-on-a-file-share).
     
@@ -63,12 +65,12 @@ If your workloads are backed up by the old vault and you want to re-assign them 
     
     1. [SAP HANA database in Azure VM](../backup/sap-hana-db-manage.md#unregister-an-sap-hana-instance).
 
-    1. Move the SAP Azure VM to another resource group to completely break the association with the old recovery vault.
+        1. Move the SAP Azure VM to another resource group to completely break the association with the old recovery vault.
 
 1. Configure the various backup items for protection in the new vault.
 
 >[!IMPORTANT]
->Existing recovery points in the old recovery vault will be retained and objects can be restored from these. However, since protection has been stopped, backup policy no longer applies to the retained data. As a result, recovery points won't expire through policy, but must be deleted manually. If this isn't done, recovery points will be retained and billed indefinitely. To avoid getting billed for the remaining recovery points, see [Delete protected items in the cloud](../backup/backup-azure-delete-vault?tabs=portal.md#delete-protected-items-in-the-cloud.).
+>Existing recovery points in the old recovery vault will be retained and objects can be restored from these. However, since protection has been stopped, backup policy no longer applies to the retained data. As a result, recovery points won't expire through policy, but must be deleted manually. If this isn't done, recovery points will be retained and billed indefinitely. To avoid getting billed for the remaining recovery points, see [Delete protected items in the cloud](../backup/backup-azure-delete-vault.md?tabs=portal.md#delete-protected-items-in-the-cloud.).
 
 ## Migration Step 3: Site Recovery
 
@@ -93,7 +95,7 @@ Follow the steps in [Register a configuration server with a different vault](../
 
 ### Hyper-V Site to Azure replication
 
-1. Unregister the server in the old vault by following the steps in [Unregister a Hyper-V host in a Hyper-V site](../site-recovery-manage-registration-and-protection.md#unregister-a-hyper-v-host-in-a-hyper-v-site).
+1. Unregister the server in the old vault by following the steps in [Unregister a Hyper-V host in a Hyper-V site](../site-recovery/site-recovery-manage-registration-and-protection.md#unregister-a-hyper-v-host-in-a-hyper-v-site).
 
 1. Enable replication in the new vault.
 
