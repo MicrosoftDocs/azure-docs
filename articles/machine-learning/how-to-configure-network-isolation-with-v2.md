@@ -95,7 +95,7 @@ To disable v1_legacy_mode, use [Workspace.update](/python/api/azureml-core/azure
 from azureml.core import Workspace
 
 ws = Workspace.from_config()
-ws.update(v1_legacy_mode=false)
+ws.update(v1_legacy_mode=False)
 ```
 
 # [Azure CLI extension v1](#tab/azurecliextensionv1)
