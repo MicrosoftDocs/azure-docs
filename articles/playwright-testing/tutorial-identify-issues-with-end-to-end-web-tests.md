@@ -357,14 +357,14 @@ Playwright enables you to run your tests in parallel. In Playwright, the number 
 
 1. Increase the number of workers to speed up your test in Microsoft Playwright Testing using either of two ways:
 
-    - Update the `workers` property in the `playwright.config.ts` file to 50, and then rerun your tests.
+    - Update the `workers` property in the `playwright.config.ts` file to 20, and then rerun your tests.
 
         ```typescript
         // playwright.config.ts
         
         const config: PlaywrightTestConfig = {
           ...
-          workers: 50,
+          workers: 20,
           ...
         };
         ```
@@ -372,7 +372,7 @@ Playwright enables you to run your tests in parallel. In Playwright, the number 
     - If you run your tests from the command-line, specify the number of workers with the `workers` command-line parameter:
 
         ```bash
-        npx playwright test --workers=50
+        npx playwright test --workers=20
         ```
 
 1. After the test finishes, open the Microsoft Playwright Testing dashboard link in the test output.
