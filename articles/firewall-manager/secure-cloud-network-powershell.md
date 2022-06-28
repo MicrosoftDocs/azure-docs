@@ -210,7 +210,7 @@ Get-AzEffectiveRouteTable -ResourceGroupName $RG -NetworkInterfaceName $NIC2.Nam
 Now generate traffic from one Virtual Machine to the other, and verify that it's dropped in the Azure Firewall. In the following SSH commands you need to accept the virtual machines fingerprints, and provide the password that you defined when you created the virtual machines. In this example, you're going to send five ICMP echo request packets from the virtual machine in spoke1 to spoke2, plus a TCP connection attempt on port 22 using the Linux utility `nc` (with the `-vz` flags it just sends a connection request and shows the result). You should see the ping failing, and the TCP connection attempt on port 22 succeeding, since it's allowed by the network rule you configured previously:
 
 ```azurepowershell
-# Connect to one VM and ping the other. It shouldnt work, because the firewall should drop the traffic, since no rule for ICMP is configured
+# Connect to one VM and ping the other. It should not work, because the firewall should drop the traffic, since no rule for ICMP is configured
 ssh $AzFWPublicAddress -p 10001 -l $VMLocalAdminUser "ping $Spoke2VMPrivateIP -c 5"
 # Connect to one VM and send a TCP request on port 22 to the other. It should work, because the firewall is configured to allow SSH traffic (port 22)
 ssh $AzFWPublicAddress -p 10001 -l $VMLocalAdminUser "nc -vz $Spoke2VMPrivateIP 22"
@@ -319,7 +319,7 @@ $AzFW = New-AzFirewall -Name $FirewallName -ResourceGroupName $RG -Location $Loc
 ```
 After you run this script, Availability Zones should appear in the secured hub properties as shown in the following screenshot:
 
-:::image type="content" source="./media/secure-cloud-network/vwan-firewall-hub-az-correct7.png" alt-text="Screenshot of Secured virtual hub availability zones" lightbox="./media/secure-cloud-network/vwan-firewall-hub-az-correct7.png":::
+:::image type="content" source="./media/secure-cloud-network/vwan-firewall-hub-az-correct7.png" alt-text="Screenshot of Secured virtual hub availability zones." lightbox="./media/secure-cloud-network/vwan-firewall-hub-az-correct7.png":::
 
 After the Azure Firewall is deployed, a configuration procedure must be completed as described in the previous *Deploy Azure Firewall and configure custom routing* section.
 
