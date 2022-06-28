@@ -26,7 +26,7 @@ Enabling monitoring on your ASP.NET Core based web applications running on [Azur
 
 [Trim self-contained deployments](/dotnet/core/deploying/trimming/trim-self-contained) is **not supported**. Use [manual instrumentation](./asp-net-core.md) via code instead.
 
-See the [enable monitoring section](#enable-monitoring ) below to begin setting up Application Insights with your App Service resource. 
+See the [enable monitoring section](#enable-monitoring) below to begin setting up Application Insights with your App Service resource.
 
 # [Linux](#tab/Linux)
 
@@ -38,7 +38,7 @@ See the [enable monitoring section](#enable-monitoring ) below to begin setting 
 
 [Trim self-contained deployments](/dotnet/core/deploying/trimming/trim-self-contained) is **not supported**. Use [manual instrumentation](./asp-net-core.md) via code instead.
 
-See the [enable monitoring section](#enable-monitoring ) below to begin setting up Application Insights with your App Service resource. 
+See the [enable monitoring section](#enable-monitoring) below to begin setting up Application Insights with your App Service resource.
 
 ---
  
@@ -165,46 +165,6 @@ Below is our step-by-step troubleshooting guide for extension/agent based monito
    * `IKeyExists` is `true`. If it's `false`, add `APPINSIGHTS_INSTRUMENTATIONKEY` and `APPLICATIONINSIGHTS_CONNECTION_STRING` with your ikey GUID to your application settings.
 
 :::image type="content" source="media/azure-web-apps-net-core/auto-instrumentation-status.png" alt-text="Screenshot displaying auto instrumentation status web page." lightbox="media/azure-web-apps-net-core/auto-instrumentation-status.png":::
-
-##### No Data
-
-1. List and identify the process that is hosting an app. Navigate to your terminal and on the command line type `ps ax`. 
-    
-    The output should be similar to: 
-
-   ```bash
-     PID TTY      STAT   TIME COMMAND
-    
-        1 ?        SNs    0:00 /bin/bash /opt/startup/startup.sh
-    
-       19 ?        SNs    0:00 /usr/sbin/sshd
-    
-       27 ?        SNLl   5:52 dotnet dotnet6demo.dll
-    
-       50 ?        SNs    0:00 sshd: root@pts/0
-    
-       53 pts/0    SNs+   0:00 -bash
-    
-       55 ?        SNs    0:00 sshd: root@pts/1
-    
-       57 pts/1    SNs+   0:00 -bash
-   ``` 
-
-
-1. Then list environment variables from app process. On the command line type `cat /proc/27/environ | tr '\0' '\n`.
-    
-    The output should be similar to: 
-
-    ```bash
-    ASPNETCORE_HOSTINGSTARTUPASSEMBLIES=Microsoft.ApplicationInsights.StartupBootstrapper
-    
-    DOTNET_STARTUP_HOOKS=/DotNetCoreAgent/2.8.39/StartupHook/Microsoft.ApplicationInsights.StartupHook.dll
-    
-    APPLICATIONINSIGHTS_CONNECTION_STRING=InstrumentationKey=00000000-0000-0000-0000-000000000000;IngestionEndpoint=https://westus-0.in.applicationinsights.azure.com/
-    
-    ```
-    
-1. Validate that `ASPNETCORE_HOSTINGSTARTUPASSEMBLIES`, `DOTNET_STARTUP_HOOKS`, and `APPLICATIONINSIGHTS_CONNECTION_STRING` are set.
 
 ---
 

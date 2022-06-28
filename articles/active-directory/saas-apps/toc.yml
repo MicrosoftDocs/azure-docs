@@ -75,6 +75,8 @@
         href: adp-emea-french-hr-portal-tutorial.md  
       - name: ADP Globalview (Deprecated)
         href: adglobalview-tutorial.md
+      - name: Agile Provisioning
+        href: agile-provisioning-tutorial.md
       - name: Agiloft Contract Management Suite
         href: agiloft-tutorial.md
       - name: Aha!
@@ -181,6 +183,8 @@
         href: ares-for-enterprise-tutorial.md
       - name: Ariba
         href: ariba-tutorial.md
+      - name: Articulate 360
+        href: articulate360-tutorial.md
       - name: Aruba User Experience Insight
         href: aruba-user-experience-insight-tutorial.md
       - name: Asana
@@ -365,8 +369,8 @@
         href: capriza-tutorial.md
       - name: Carbonite Endpoint Backup
         href: carbonite-endpoint-backup-tutorial.md
-      - name: Carlson Wagonlit Travel
-        href: carlsonwagonlit-tutorial.md
+      - name: CWT
+        href: cwt-tutorial.md
       - name: Catchpoint
         href: catchpoint-tutorial.md
       - name: CBRE ServiceInsight
@@ -970,6 +974,8 @@
         href: grovo-tutorial.md
       - name: GT Nexus Prod System
         href: gtnexus-sso-module-tutorial.md  
+      - name: Guardium Data Protection
+        href: guardium-data-protection-tutorial.md
     - name: H - I
       items:
       - name: Hackerone
@@ -1002,6 +1008,8 @@
         href: highground-tutorial.md
       - name: Hightail
         href: hightail-tutorial.md
+      - name: Hive Learning
+        href: hive-learning-tutorial.md
       - name: Hirebridge ATS
         href: hirebridge-ats-tutorial.md
       - name: Hiretual-SSO
@@ -1118,6 +1126,8 @@
         href: informacast-tutorial.md
       - name: Informatica Platform
         href: informatica-platform-tutorial.md  
+      - name: Infrascale Cloud Backup
+        href: infrascale-cloud-backup-tutorial.md
       - name: Inkling
         href: inkling-tutorial.md
       - name: Innotas
@@ -1186,6 +1196,8 @@
       items:
       - name: Jamf Pro
         href: jamfprosamlconnector-tutorial.md
+      - name: Javelo
+        href: javelo-tutorial.md
       - name: JDA Cloud
         href: jdacloud-tutorial.md
       - name: Jedox
@@ -1250,6 +1262,8 @@
         href: kemp-tutorial.md
       - name: Kendis - Azure AD Integration
         href: kendis-scaling-agile-platform-tutorial.md
+      - name: Keystone
+        href: keystone-tutorial.md
       - name: KFAdvance
         href: kfadvance-tutorial.md
       - name: Khoros Care
@@ -1336,6 +1350,8 @@
         href: litmus-tutorial.md
       - name: Learnster
         href: learnster-tutorial.md
+      - name: Lines eLibrary Advance
+        href: lines-elibrary-advance-tutorial.md
       - name: LinkedIn Elevate
         href: linkedinelevate-tutorial.md
       - name: LinkedIn Learning
@@ -1346,6 +1362,8 @@
         href: liquidfiles-tutorial.md
       - name: SAP Litmos
         href: litmos-tutorial.md
+      - name: LMS and Education Management System Leaf
+        href: lms-and-education-management-system-leaf-tutorial.md
       - name: LockPath Keylight
         href: keylight-tutorial.md
       - name: LogicMonitor
@@ -1692,6 +1710,8 @@
         href: planmyleave-tutorial.md
       - name: Planview Enterprise One
         href: planview-enterprise-one-tutorial.md
+      - name: Planview LeanKit
+        href: planview-leankit-tutorial.md
       - name: Pluralsight
         href: pluralsight-tutorial.md
       - name: Pluto
@@ -1714,6 +1734,8 @@
         href: predictixordering-tutorial.md
       - name: Predictix Price Reporting
         href: predictixpricereporting-tutorial.md
+      - name: Preset
+        href: preset-tutorial.md
       - name: PressPage
         href: presspage-tutorial.md
       - name: Prezi
@@ -1846,6 +1868,8 @@
         href: rightscale-tutorial.md
       - name: RingCentral
         href: ringcentral-tutorial.md
+      - name: Rise.com
+        href: risecom-tutorial.md
       - name: Riskware
         href: riskware-tutorial.md
       - name: Riva
@@ -1864,6 +1888,8 @@
         href: rolepoint-tutorial.md
       - name: Rollbar
         href: rollbar-tutorial.md
+      - name: Rootly
+        href: rootly-tutorial.md
       - name: RunMyProcess
         href: runmyprocess-tutorial.md
     - name: S
@@ -2028,6 +2054,8 @@
         href: siteintel-tutorial.md
       - name: Skedda
         href: skedda-tutorial.md
+      - name: Skillcast
+        href: skillcast-tutorial.md
       - name: Skilljar
         href: skilljar-tutorial.md
       - name: Skillport
@@ -2166,7 +2194,7 @@
       items:
       - name: T&E Express
         href: tyeexpress-tutorial.md
-      - name: Tableau Online
+      - name: Tableau Cloud
         href: tableauonline-tutorial.md
       - name: Tableau Server
         href: tableauserver-tutorial.md
@@ -2208,6 +2236,8 @@
         href: teamzskill-tutorial.md
       - name: Templafy SAML2
         href: templafy-tutorial.md
+      - name: Tendium
+        href: tendium-tutorial.md
       - name: Terraform Cloud
         href: terraform-cloud-tutorial.md
       - name: Terraform Enterprise
@@ -2272,6 +2302,8 @@
         href: traction-guest-tutorial.md
       - name: Tradeshift
         href: tradeshift-tutorial.md
+      - name: Training Platform
+        href: training-platform-tutorial.md
       - name: Trakopolis
         href: trakopolis-tutorial.md
       - name: Trakstar
@@ -2362,6 +2394,8 @@
         href: verme-tutorial.md
       - name: Versal
         href: versal-tutorial.md
+      - name: Veza
+        href: veza-tutorial.md
       - name: Viareport (Europe)
         href: viareports-inativ-portal-europe-tutorial.md
       - name: Vibe HCM
@@ -2462,6 +2496,8 @@
         href: workplacebyfacebook-tutorial.md
       - name: Workrite
         href: workrite-tutorial.md
+      - name: Workshop
+        href: workshop-tutorial.md
       - name: Workspot Control
         href: workspotcontrol-tutorial.md
       - name: Workstars
@@ -2496,6 +2532,8 @@
         href: youearnedit-tutorial.md
       - name: Yuhu Property Management Platform
         href: yuhu-property-management-platform-tutorial.md
+      - name: ZDiscovery
+        href: zdiscovery-tutorial.md
       - name: Zendesk
         href: zendesk-tutorial.md
       - name: Zengine
@@ -2807,8 +2845,6 @@
         href: limblecmms-provisioning-tutorial.md
       - name: LinkedIn Elevate
         href: linkedinelevate-provisioning-tutorial.md
-      - name: LinkedIn Learning
-        href: linkedin-learning-provisioning-tutorial.md
       - name: LinkedIn Sales Navigator
         href: linkedinsalesnavigator-provisioning-tutorial.md
       - name: Lucidchart
@@ -2971,7 +3007,7 @@
         href: symantec-web-security-service.md
     - name: T - Z
       items:
-      - name: Tableau Online
+      - name: Tableau Cloud
         href: tableau-online-provisioning-tutorial.md
       - name: Talentech
         href: talentech-provisioning-tutorial.md

@@ -356,6 +356,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/active-directory/saas-apps/carlsonwagonlit-tutorial.md",
+      "redirect_url": "/azure/active-directory/saas-apps/cwt-tutorial",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/active-directory/active-directory-saas-fax.plus-tutorial.md",
       "redirect_url": "/articles/active-directory/saas-apps/fax-plus-tutorial",
       "redirect_document_id": false
@@ -8782,13 +8787,13 @@
     },
     {
       "source_path_from_root": "/articles/active-directory/active-directory-saas-linkedinlearning-provisioning-tutorial.md",
-      "redirect_url": "/azure/active-directory/saas-apps/linkedinlearning-provisioning-tutorial",
+      "redirect_url": "/azure/active-directory",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/active-directory-saas-linkedin-learning-provisioning-tutorial.md",
-      "redirect_url": "/azure/active-directory/saas-apps/linkedin-learning-provisioning-tutorial",
-      "redirect_document_id": true
+      "redirect_url": "/azure/active-directory",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/active-directory-saas-linkedinlearning-tutorial.md",

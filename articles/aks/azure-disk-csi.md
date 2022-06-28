@@ -3,7 +3,7 @@ title: Use Container Storage Interface (CSI) driver for Azure Disk in Azure Kube
 description: Learn how to use the Container Storage Interface (CSI) drivers for Azure disks in an Azure Kubernetes Service (AKS) cluster.
 services: container-service
 ms.topic: article
-ms.date: 05/23/2022
+ms.date: 05/31/2022
 author: palma21
 
 ---
@@ -32,14 +32,13 @@ In addition to in-tree driver features, Azure disk CSI driver supports the follo
   - `Premium_ZRS`, `StandardSSD_ZRS` disk types are supported, check more details about [Zone-redundant storage for managed disks](../virtual-machines/disks-redundancy.md)
 - [Snapshot](#volume-snapshots)
 - [Volume clone](#clone-volumes)
-- [Resize disk PV without downtime](#resize-a-persistent-volume-without-downtime)
+- [Resize disk PV without downtime(Preview)](#resize-a-persistent-volume-without-downtime-preview)
 
 ## Storage class driver dynamic disk parameters
 
 |Name | Meaning | Available Value | Mandatory | Default value
 |--- | --- | --- | --- | ---
 |skuName | Azure disk storage account type (alias: `storageAccountType`)| `Standard_LRS`, `Premium_LRS`, `StandardSSD_LRS`, `UltraSSD_LRS`, `Premium_ZRS`, `StandardSSD_ZRS` | No | `StandardSSD_LRS`|
-|kind | Managed or unmanaged (blob based) disk | `managed` (`dedicated` and `shared` are deprecated) | No | `managed`|
 |fsType | File System Type | `ext4`, `ext3`, `ext2`, `xfs`, `btrfs` for Linux, `ntfs` for Windows | No | `ext4` for Linux, `ntfs` for Windows|
 |cachingMode | [Azure Data Disk Host Cache Setting](../virtual-machines/windows/premium-storage-performance.md#disk-caching) | `None`, `ReadOnly`, `ReadWrite` | No | `ReadOnly`|
 |location | Specify Azure region where Azure disks will be created | `eastus`, `westus`, etc. | No | If empty, driver will use the same location name as current AKS cluster|
@@ -247,7 +246,10 @@ outfile
 test.txt
 ```
 
-## Resize a persistent volume without downtime
+## Resize a persistent volume without downtime (Preview)
+> [!IMPORTANT]
+> Azure disk CSI driver supports resizing PVCs without downtime.
+> Follow this [link][expand-an-azure-managed-disk] to register the disk online resize feature.
 
 You can request a larger volume for a PVC. Edit the PVC object, and specify a larger size. This change triggers the expansion of the underlying volume that backs the PV.
 
@@ -262,11 +264,6 @@ $ kubectl exec -it nginx-azuredisk -- df -h /mnt/azuredisk
 Filesystem      Size  Used Avail Use% Mounted on
 /dev/sdc        9.8G   42M  9.8G   1% /mnt/azuredisk
 ```
-
-> [!IMPORTANT]
-> Azure disk CSI driver supports resizing PVCs without downtime in specific regions.
-> Follow this [link][expand-an-azure-managed-disk] to register the disk online resize feature.
-> If your cluster is not in the supported region list, you need to delete application first to detach disk on the node before expanding PVC.
 
 Expand the PVC by increasing the `spec.resources.requests.storage` field running the following command:
 

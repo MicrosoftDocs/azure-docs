@@ -74,6 +74,9 @@ For more information, see [Manage Azure Data Lake Analytics using the Azure port
 
 Before you begin, review the two migration options below, and decide whether to only copy data from Gen1 to Gen2 (recommended) or perform a complete migration.
 
+> [!NOTE]
+> No matter which option you select, a container named **gen1** will be created on the Gen2 account, and all data from the Gen1 account will be copied to this new 'gen1' container. When the migration is complete, in order to find the data on a path that existed on Gen1, you must add the prefix **gen1/** to the same path to access it on Gen2. For example, a path that was named 'FolderRoot/FolderChild/FileName.csv' on Gen1 will be available at 'gen1/FolderRoot/FolderChild/FileName.csv' on Gen2. Container names can't be renamed on Gen2, so this **gen1** container on Gen2 can't be renamed post migration. However, the data can be copied to a new container in Gen2 if needed.
+
 ## Choose a migration option
 
 **Option 1: Copy data only (recommended).** In this option, data will be copied from Gen1 to Gen2. As the data is being copied, the Gen1 account will become read-only. After the data is copied, both the Gen1 and Gen2 accounts will be accessible. However, you must update the applications and compute workloads to use the new ADLS Gen2 endpoint.
