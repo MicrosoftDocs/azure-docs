@@ -1,7 +1,7 @@
 ---
-title: How to set up Single Sign-on with Azure AD for Spring Cloud Gateway and API Portal for Tanzu
+title: How to set up single sign-on with Azure AD for Spring Cloud Gateway and API Portal for Tanzu
 titleSuffix: Azure Spring Apps Enterprise Tier
-description: How to set up Single Sign-on with Azure Active Directory for Spring Cloud Gateway and API Portal for Tanzu with Azure Spring Apps Enterprise Tier.
+description: How to set up single sign-on with Azure Active Directory for Spring Cloud Gateway and API Portal for Tanzu with Azure Spring Apps Enterprise Tier.
 author: karlerickson
 ms.author: ninpan
 ms.service: spring-cloud
@@ -10,17 +10,16 @@ ms.date: 05/20/2022
 ms.custom: devx-track-java, devx-track-azurecli
 ---
 
-# Set up Single Sign-on using Azure Active Directory for Spring Cloud Gateway and API Portal
+# Set up single sign-on using Azure Active Directory for Spring Cloud Gateway and API Portal
 
 **This article applies to:** ❌ Basic/Standard tier ✔️ Enterprise tier
 
-This article shows you how to configure Single Sign-on (SSO) for Spring Cloud Gateway or API Portal using the Azure Active Directory (Azure AD) as an OpenID identify provider.
+This article shows you how to configure single sign-on (SSO) for Spring Cloud Gateway or API Portal using the Azure Active Directory (Azure AD) as an OpenID identify provider.
 
 ## Prerequisites
 
 - An Enterprise tier instance with Spring Cloud Gateway or API portal enabled. For more information, see [Quickstart: Provision an Azure Spring Apps service instance using the Enterprise tier](quickstart-provision-service-instance-enterprise.md).
 - Sufficient permissions to manage Azure AD applications.
-
 
 To enable SSO for Spring Cloud Gateway or API Portal, you need the following four properties configured:
 
