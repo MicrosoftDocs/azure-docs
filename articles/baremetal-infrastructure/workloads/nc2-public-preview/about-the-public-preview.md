@@ -51,7 +51,7 @@ We offer two SKUs: AN36 and AN36P. For specifications, see [SKUs](skus.md).
 #### Upcoming benefits
 
 * RI
-  * Added discount until RI is supported if there's committed interest in purchasing it once the option becomes available.
+  * During the public preview, RI is not supported. An additional discount may be available.
 
 ## Transaction
 
