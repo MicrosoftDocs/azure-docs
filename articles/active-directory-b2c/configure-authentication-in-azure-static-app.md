@@ -146,5 +146,5 @@ Once you've added the app ID and secrete, use the following steps to add the Azu
 
 ## Next steps
 
-* After successful authentication, you can show display name on the navigation bar. To view the claims that the Azure AD B2C token returns to your app, check out [Accessing user information in Azure Static Web Apps](../static-web-apps/user-information).
+* After successful authentication, you can show display name on the navigation bar. To view the claims that the Azure AD B2C token returns to your app, check out [Accessing user information in Azure Static Web Apps](../static-web-apps/user-information.md).
 * Learn how to [customize and enhance the Azure AD B2C authentication experience for your web app](enable-authentication-azure-static-app-options.md).
