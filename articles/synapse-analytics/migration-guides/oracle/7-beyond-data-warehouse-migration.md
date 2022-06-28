@@ -370,7 +370,7 @@ After you migrate your data warehouse to Azure Synapse, you can take advantage o
 
 You can broaden your ETL processing to ingest data of any type into Data Lake Storage, and then prepare and integrate the data at scale using Data Factory to produce trusted, commonly understood data assets. Those assets can be consumed by your data warehouse and accessed by data scientists and other applications. You can build real-time and batch oriented analytical pipelines and create machine learning models to run in batch, in real-time on streaming data, and on-demand as a service.
 
-You can use PolyBase and `COPY INTO` to go beyond your data warehouse by simplifying access to insights from multiple underlying analytical platforms on Azure. To do so, create holistic integrated views in a logical data warehouse to support access to streaming, big data, and traditional data warehouse insights from BI tools and applications. 
+You can use PolyBase or `COPY INTO` to go beyond your data warehouse to simplify access to insights from multiple underlying analytical platforms on Azure. To do so, create holistic integrated views in a logical data warehouse that support access to streaming, big data, and traditional data warehouse insights from BI tools and applications.
 
 By migrating your data warehouse to Azure Synapse, you can take advantage of the rich Microsoft analytical ecosystem running on Azure and drive new value in your business.
 
