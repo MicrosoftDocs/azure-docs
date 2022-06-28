@@ -11,15 +11,15 @@ ms.date: 06/24/2022
 ms.custom: devx-track-dotnet
 ---
 
-# Quickstart: Azure Cosmos DB MongoDB API for .NET with MongoDB driver
+# Quickstart: Azure Cosmos DB MongoDB API for .NET with the MongoDB driver
 [!INCLUDE[appliesto-mongodb-api](../includes/appliesto-mongodb-api.md)]
 
 Get started with MongoDB to create databases, collections, and docs within your Cosmos DB resource. Follow these steps to  install the package and try out example code for basic tasks.
 
 > [!NOTE]
-> The [example code snippets](https://github.com/Azure-Samples/cosmos-db-mongodb-api-javascript-samples) are available on GitHub as a JavaScript project.
+> The [example code snippets](https://github.com/Azure-Samples/cosmos-db-mongodb-api-dotnet-samples) are available on GitHub as a .NET project.
 
-[MongoDB API reference documentation](https://docs.mongodb.com/drivers/node) | [MongoDB Package (NuGet)](https://www.npmjs.com/package/mongodb)
+[MongoDB API reference documentation](https://docs.mongodb.com/drivers/node) | [MongoDB Package (NuGet)](https://www.nuget.org/packages/MongoDB.Driver)
 
 ## Prerequisites
 
@@ -29,7 +29,7 @@ Get started with MongoDB to create databases, collections, and docs within your 
 
 ### Prerequisite check
 
-* In a terminal or command window, run ``dotnet --list-sdks`` to check that Node.js is one of the LTS versions.
+* In a terminal or command window, run ``dotnet --list-sdks`` to check that .NET 6.x is one of the available versions.
 * Run ``az --version`` (Azure CLI) or ``Get-Module -ListAvailable AzureRM`` (Azure PowerShell) to check that you have the appropriate Azure command-line tools installed.
 
 ## Setting up
@@ -72,10 +72,10 @@ This quickstart will create a single Azure Cosmos DB account using the MongoDB A
 
 ### Create a new .NET app
 
-Create a new .NET application in an empty folder using your preferred terminal. Use the [``dotnet new webapp``](/dotnet/core/tools/dotnet-newt) to create a new Razor Pages app. 
+Create a new .NET application in an empty folder using your preferred terminal. Use the [``dotnet new console``](/dotnet/core/tools/dotnet-newt) to create a new console app. 
 
 ```console
-dotnet new webapp -o <app-name>
+dotnet new console -o <app-name>
 ```
 
 ### Install the NuGet package
@@ -121,7 +121,7 @@ From the project directory, open the *Program.cs* file. In your editor, add a us
 
 :::code language="csharp" source="~/azure-cosmos-mongodb-dotnet/001-quickstart/Program.cs" id="using_directives":::
 
-Define a new instance of the ``MongoClient`` class using the constructor, and [``builder.Configuration.GetConnectionString``](/dotnet/api/microsoft.extensions.configuration.configurationextensions.getconnectionstring) to read the connection string you set earlier.
+Define a new instance of the ``MongoClient`` class using the constructor, and [``Environment.GetEnvironmentVariable``](/dotnet/api/system.environment.getenvironmentvariables) to read the connection string you set earlier.
 
 :::code language="csharp" source="~/azure-cosmos-mongodb-dotnet/001-quickstart/Program.cs"  id="client_credentials":::
 
@@ -151,7 +151,7 @@ public record Product(
 );
 ```
 
-Create an item in the collection by calling [``IMongoCollection<TDocument>.InsertOne``](https://mongodb.github.io/mongo-csharp-driver/2.16/apidocs/html/M_MongoDB_Driver_IMongoCollection_1_InsertOne_1.htm). 
+Create an item in the collection using the `Product` record by calling [``IMongoCollection<TDocument>.InsertOne``](https://mongodb.github.io/mongo-csharp-driver/2.16/apidocs/html/M_MongoDB_Driver_IMongoCollection_1_InsertOne_1.htm). 
 
 :::code language="csharp" source="~/azure-cosmos-mongodb-dotnet/001-quickstart/Program.cs" id="new_item" :::
 
