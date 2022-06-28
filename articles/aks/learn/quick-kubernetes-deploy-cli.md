@@ -32,16 +32,16 @@ To learn more about creating a Windows Server node pool, see [Create an AKS clus
 - If you have multiple Azure subscriptions, select the appropriate subscription ID in which the resources should be billed using the
 [az account][az-account] command.
 
-- Verify *Microsoft.OperationsManagement* and *Microsoft.OperationalInsights* providers are registered on your subscription. These are Azure resource providers required to support [Container insights][azure-monitor-containers]. To check the registration status:
+- Verify *Microsoft.OperationsManagement* and *Microsoft.OperationalInsights* providers are registered on your subscription. These are Azure resource providers required to support [Container insights][azure-monitor-containers]. To check the registration status, run the following commands:
 
-    ```azurecli-interactive
+    ```azurecli
     az provider show -n Microsoft.OperationsManagement -o table
     az provider show -n Microsoft.OperationalInsights -o table
     ```
 
-    If they are not registered, register *Microsoft.OperationsManagement* and *Microsoft.OperationalInsights* using:
+    If they are not registered, register *Microsoft.OperationsManagement* and *Microsoft.OperationalInsights* using the following commands:
 
-    ```azurecli-interactive
+    ```azurecli
     az provider register --namespace Microsoft.OperationsManagement
     az provider register --namespace Microsoft.OperationalInsights
     ```
