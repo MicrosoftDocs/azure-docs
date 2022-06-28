@@ -63,6 +63,8 @@ Different resources have their own criteria for when they report that they are d
 
 ![Status of *Degraded* for a virtual machine](./media/resource-health-overview/degraded.png)
 
+For VM Scale Sets, visit [*Degraded* state that's displayed in Azure Virtual Machine Scale Set](https://docs.microsoft.com/troubleshoot/azure/virtual-machine-scale-sets/resource-health-degraded-state) page for more information.
+
 ## History information
 
 > [!NOTE]
