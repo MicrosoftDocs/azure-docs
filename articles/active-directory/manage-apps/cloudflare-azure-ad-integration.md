@@ -76,6 +76,8 @@ To integrate Cloudflare Zero Trust account with an instance of Azure AD:
 
 ## Register Cloudflare with Azure AD
 
+Use the instructions in the following three sections to register Cloudfare with Azure AD.
+
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
 2. Under **Azure Services**, select **Azure Active Directory**.
@@ -96,38 +98,42 @@ To integrate Cloudflare Zero Trust account with an instance of Azure AD:
 
    ![Screenshot shows registering an application](./media/cloudflare-azure-ad-integration/register-application.png)
 
-7. On the **Cloudflare Access** screen, under **Essentials**, copy and save the Application (client) ID and the Directory (tenant) ID.
+### Certificates & secrets
+
+1. On the **Cloudflare Access** screen, under **Essentials**, copy and save the Application (client) ID and the Directory (tenant) ID.
 
    ![Screenshot shows cloudflare access screen](./media/cloudflare-azure-ad-integration/cloudflare-access.png)
 
-8. In the left menu, under **Manage**, select **Certificates &
+2. In the left menu, under **Manage**, select **Certificates &
     secrets**.
 
     ![Screenshot shows Azure AD certificates and secrets screen](./media/cloudflare-azure-ad-integration/add-client-secret.png)
 
-9. Under **Client secrets**, select **+ New client secret**.
+3. Under **Client secrets**, select **+ New client secret**.
 
-10. In **Description**, name the client secret.
+4. In **Description**, name the client secret.
 
-11. Under **Expires**, select an expiration.
+5. Under **Expires**, select an expiration.
 
-12. Select **Add**.
+6. Select **Add**.
 
-13. Under **Client secrets**, from the **Value** field, copy the value. Consider the value an application password. This example's value is visible, Azure values appear in the Cloudflare Access configuration.
+7. Under **Client secrets**, from the **Value** field, copy the value. Consider the value an application password. This example's value is visible, Azure values appear in the Cloudflare Access configuration.
 
    ![Screenshot shows cloudflare access configuration for Azure AD](./media/cloudflare-azure-ad-integration/cloudflare-access-configuration.png)
 
-14. In the left menu, select **API permissions**.
+### Permissions
 
-15. Select **+** **Add a permission**.
+1. In the left menu, select **API permissions**.
+
+2. Select **+** **Add a permission**.
 
     ![Screenshot shows Azure AD API permissions](./media/cloudflare-azure-ad-integration/api-permissions.png)
 
-16. Under **Select an API**, select **Microsoft Graph**.
+3. Under **Select an API**, select **Microsoft Graph**.
 
     ![Screenshot shows Azure AD API permissions using MS Graph](./media/cloudflare-azure-ad-integration/microsoft-graph.png)
 
-17. Select **Delegated permissions** for the following permissions:
+4. Select **Delegated permissions** for the following permissions:
 
 - `Email`
 
@@ -145,27 +151,27 @@ To integrate Cloudflare Zero Trust account with an instance of Azure AD:
 
    ![Screenshot shows Azure AD request API permissions screen](./media/cloudflare-azure-ad-integration/request-api-permissions.png)
 
-18. Under **Manage**, select **+** **Add permissions**.
+5. Under **Manage**, select **+** **Add permissions**.
 
-19. Select **Grant Admin Consent for ...**.
+6. Select **Grant Admin Consent for ...**.
 
     ![Screenshot shows configured API permissions with granting admin consent](./media/cloudflare-azure-ad-integration/grant-admin-consent.png)
 
-20. On the [Cloudflare Zero Trust dashboard](https://dash.teams.cloudflare.com/),
+7. On the [Cloudflare Zero Trust dashboard](https://dash.teams.cloudflare.com/),
     navigate to **Settings> Authentication**.
 
-21. Under **Login methods**, select **Add new**.
+8. Under **Login methods**, select **Add new**.
 
-22. Select **Azure AD**.
+9. Select **Azure AD**.
 
-23. Enter the Application ID, Application secret, and Directory ID values.
+10. Enter the Application ID, Application secret, and Directory ID values.
 
     >[!NOTE]
     >For Azure AD groups, in **Edit your Azure AD identity provider**, for **Support Groups** select **On**.
 
-24. Select **Save**.
+11. Select **Save**.
 
-### Test the integration
+## Test the integration
 
 1. To test the integration on the Cloudflare Zero Trust dashboard,
     navigate to **Settings** > **Authentication**.
