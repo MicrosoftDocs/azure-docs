@@ -70,7 +70,7 @@ Complete the following tasks before completing steps in any section of this arti
 3. The following settings are listed for the virtual network you selected:
    - **Overview**: Provides information about the virtual network, including address space and DNS servers. The following screenshot shows the overview settings for a virtual network named **MyVNet**:
 
-     :::image type="content" source="media/manage-virtual-network/vnet-overview-inline.png" alt-text="This is a screenshot of the Virtual Network overview page. It includes essential information including resource group, subscription info, and DNS information." lightbox="media/manage-virtual-network/vnet-overview-expanded.png":::
+     :::image type="content" source="media/manage-virtual-network/vnet-overview-inline.png" alt-text="Screenshot of the Virtual Network overview page. It includes essential information including resource group, subscription info, and DNS information." lightbox="media/manage-virtual-network/vnet-overview-expanded.png":::
 
      You can move a virtual network to a different subscription, region, or resource group by selecting **Move** next to **Resource group**, **Location**, or **Subscription**. To learn how to move a virtual network, see [Move resources to a different resource group or subscription](../azure-resource-manager/management/move-resource-group-and-subscription.md?toc=%2fazure%2fvirtual-network%2ftoc.json). The article lists prerequisites, and how to move resources by using the Azure portal, PowerShell, and Azure CLI. All resources that are connected to the virtual network must move with the virtual network.
    - **Address space**: The address spaces that are assigned to the virtual network are listed. To learn how to add and remove an address range to the address space, complete the steps in [Add or remove an address range](#add-or-remove-an-address-range).
@@ -128,7 +128,7 @@ To add or remove an address range:
 All VMs that are connected to the virtual network register with the DNS servers that you specify for the virtual network. They also use the specified DNS server for name resolution. Each network interface (NIC) in a VM can have its own DNS server settings. If a NIC has its own DNS server settings, they override the DNS server settings for the virtual network. To learn more about NIC DNS settings, see [Network interface tasks and settings](virtual-network-network-interface.md#change-dns-servers). To learn more about name resolution for VMs and role instances in Azure Cloud Services, see [Name resolution for VMs and role instances](virtual-networks-name-resolution-for-vms-and-role-instances.md). To add, change, or remove a DNS server:
 
 1. In the search box at the top of the portal, enter *virtual networks* in the search box. When **Virtual networks** appear in the search results, select it.
-2. From the list of virtual networks, select the virtual network for which you want to change DNS servers for.
+2. From the list of virtual networks, select the virtual network for which you want to change DNS servers.
 3. Select **DNS servers**, under **SETTINGS**.
 4. Select one of the following options:
    - **Default (Azure-provided)**: All resource names and private IP addresses are automatically registered to the Azure DNS servers. You can resolve names between any resources that are connected to the same virtual network. You can't use this option to resolve names across virtual networks. To resolve names across virtual networks, you must use a custom DNS server.
