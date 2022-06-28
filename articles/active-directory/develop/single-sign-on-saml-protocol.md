@@ -215,7 +215,7 @@ To generate the digital signature, Azure AD uses the signing key in the `IDPSSOD
 
 #### Subject
 
-The `Subject` specifies the principle that is the subject of the statements in the assertion. It contains a `NameID` element, which represents the authenticated user. The `NameID` value is a targeted identifier that is directed only to the service provider that is the audience for the token. It's persistent - it can be revoked, but is never reassigned. It's also opaque, in that it doesn't reveal anything about the user and can't be used as an identifier for attribute queries.
+The `Subject` specifies the principal that is the subject of the statements in the assertion. It contains a `NameID` element, which represents the authenticated user. The `NameID` value is a targeted identifier that is directed only to the service provider that is the audience for the token. It's persistent - it can be revoked, but is never reassigned. It's also opaque, in that it doesn't reveal anything about the user and can't be used as an identifier for attribute queries.
 
 The `Method` attribute of the `SubjectConfirmation` element is always set to `urn:oasis:names:tc:SAML:2.0:cm:bearer`.
 
