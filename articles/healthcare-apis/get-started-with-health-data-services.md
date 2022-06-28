@@ -37,7 +37,7 @@ After the Azure Health Data Services resource group is deployed, you can enter t
 
 To be guided through these steps, see [Deploy Azure Health Data Services workspace using Azure portal](healthcare-apis-quickstart.md).
 
-> [!Note] 
+> [!NOTE] 
 > You can provision multiple data services within a workspace, and by design, they work seamlessly with one another. With the workspace, you can organize all your Azure Health Data Services instances and manage certain configuration settings that are shared among all the underlying datasets and services where it's applicable. 
 
 [![Screenshot of the Azure Health Data Services workspace.](media/health-data-services-workspace.png)](media/health-data-services-workspace.png#lightbox)
@@ -93,7 +93,7 @@ To ensure that your MedTech service works properly, it must have granted access 
 You can also do the following:
 - Create a new FHIR service or use an existing one in the same or different workspace 
 - Create a new Event Hub or use an existing one 
-- Assign roles to allow the MedTech service to access [Event Hub](./../healthcare-apis/iot/deploy-iot-connector-in-azure.md#granting-medtech-service-access) and [FHIR service](./../healthcare-apis/iot/deploy-iot-connector-in-azure.md#accessing-the-medtech-service-from-the-fhir-service)
+- Assign roles to allow the MedTech service to access [Event Hub](./../healthcare-apis/iot/deploy-iot-connector-in-azure.md#granting-the-medtech-service-access) and [FHIR service](./../healthcare-apis/iot/deploy-iot-connector-in-azure.md#accessing-the-medtech-service-from-the-fhir-service)
 - Send data to the Event Hub, which is associated with the MedTech service 
 
 For more information, see [Get started with the MedTech service](./../healthcare-apis/iot/get-started-with-iot.md).
@@ -112,4 +112,3 @@ This article described the basic steps to get started using Azure Health Data Se
 >[Frequently asked questions about Azure Health Data Services](healthcare-apis-faqs.md)
 
 FHIR&#174; is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.
-
