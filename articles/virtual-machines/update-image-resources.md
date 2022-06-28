@@ -12,9 +12,111 @@ ms.custom: devx-track-azurecli, devx-track-azurepowershell
 
 ---
 
-# List, update, and delete gallery resources 
+# List, update, and delete gallery resources
 
 You can manage your Azure Compute Gallery (formerly known as Shared Image Gallery) resources using the Azure CLI or Azure PowerShell.
+
+## List galleries shared with you
+
+### [CLI](#tab/cli)
+
+List Galleries shared with your subscription.
+
+```azurecli-interactive
+region=westus
+az sig list-shared --location $region 
+```
+
+List Galleries shared with your tenant.
+
+```azurecli-interactive
+region=westus
+az sig list-shared --location $region --shared-to tenant 
+```
+
+The output will contain the public `name` and `uniqueID` of the gallery that is shared with you. You can use the name of the gallery to query for images that are available through the gallery.
+
+Here is example output:
+
+```output
+[
+  {
+    "location": "westus",
+    "name": "1231b567-8a99-1a2b-1a23-123456789abc-MYDIRECTSHARED",
+    "uniqueId": "/SharedGalleries/1231b567-8a99-1a2b-1a23-123456789abc-MYDIRECTSHARED"
+  }
+]
+```
+
+### [REST](#tab/rest)
+
+List galleries shared with a subscription.
+
+```REST
+GET
+https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{rgName}/providers/Microsoft.Compute/Locations/{location}/SharedGalleries?api-version=2020-09-30 
+```
+ 
+
+The response should look similar to this: 
+
+```rest
+{	 
+"value": [ 
+{ 
+"identifier": { 
+"uniqueId": "/SharedGalleries/{SharedGalleryUniqueName}"         
+}, 
+"name": "galleryuniquename1", 
+   		"type": "Microsoft. Compute/sharedGalleries", 
+   		"location": "location" 
+  	}, 
+  	{ 
+"identifier": { 
+"uniqueName": "/SharedGalleries/{SharedGalleryUniqueName}"       
+}, 
+"name": "galleryuniquename2", 
+"type": "Microsoft. Compute/sharedGalleries", 
+"location": "location" 
+  	} 
+], 
+} 
+```
+ 
+
+List the galleries shared with a tenant.
+
+```rest
+GET
+https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Compute/Locations/{location}/SharedGalleries?api-version=2020-09-30&sharedTo=tenant 
+```
+ 
+
+The response should look similar to this:
+
+```
+{	 
+"value": [ 
+{ 
+"identifier": { 
+"uniqueName": "/SharedGalleries/{SharedGalleryUniqueName}"         
+}, 
+"name": "galleryuniquename1", 
+   		"type": "Microsoft. Compute/sharedGalleries", 
+   		"location": "location" 
+  	}, 
+  	{ 
+"identifier": { 
+"uniqueName": "/SharedGalleries/{SharedGalleryUniqueName}"       
+}, 
+"name": "galleryuniquename2", 
+"type": "Microsoft. Compute/sharedGalleries", 
+"location": "location" 
+  	} 
+], 
+} 
+
+---
 
 ## List your gallery information
 
@@ -366,7 +468,7 @@ In this example, we list all of the images in the *ContosoImage* gallery in *Wes
 List image versions shared in a community gallery using [az sig image-version list-community](/cli/azure/sig/image-version#az-sig-image-version-list-community):
 
 ```azurecli-interactive
-az sig image-version list-community \
+az sig image-version list-shared \
    --location westus \
    --public-gallery-name "ContosoImages-1a2b3c4d-1234-abcd-1234-1a2b3c4d5e6f" \
    --gallery-image-definition myImageDefinition \
@@ -376,4 +478,5 @@ az sig image-version list-community \
 
 ## Next steps
 
-[Azure Image Builder (preview)](./image-builder-overview.md) can help automate image version creation, you can even use it to update and [create a new image version from an existing image version](./linux/image-builder-gallery-update-image-version.md).
+- Create an [image definition and an image version](image-version.md).
+- Create a VM from a [generalized](vm-generalized-image-version.md#create-a-vm-from-a-community-gallery-image) or [specialized](vm-specialized-image-version.md#create-a-vm-from-a-community-gallery-image) image in a direct shared gallery.

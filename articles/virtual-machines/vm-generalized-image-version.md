@@ -517,6 +517,143 @@ https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{rg}/
 
 ---
 
+## Create a VM from a gallery shared with your subscription or tenant
+
+> [!IMPORTANT]
+> Azure Compute Gallery – direct sharing is currently in PREVIEW and subject to the [Preview Terms for Azure Compute Gallery](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> 
+> During the preview, you need to create a new gallery, with the property `sharingProfile.permissions` set to `Groups`. When using the CLI to create a gallery, use the `--permissions groups` parameter. You can't use an existing gallery, the property can't currently be updated.
+>
+> You can't currently create a Flexible virtual machine scale set from an image shared to you by another tenant.
+
+
+### [CLI](#tab/cli2)
+
+To create a VM using an image shared to your subscription or tenant, use the unique ID of the image for the `--image` which will be in the following format:
+
+```
+/SharedGalleries/<uniqueID>/Images/<image name>/Versions/latest
+```
+
+To find the `uniqueID` of a gallery that is shared with you, use [az sig list-shared](/cli/azure/sig/image-definition#az-sig-image-definition-list-shared). In this example, we are looking for galleries in the West US region.
+
+```azurecli-interactive
+region=westus
+az sig list-shared --location $region --query "[].uniqueId" -o tsv
+```
+
+In this example, we are creating a VM from a Linux image and creating SSH keys for authentication.
+
+```azurecli-interactive
+imgDef="/CommunityGalleries/ContosoImages-1a2b3c4d-1234-abcd-1234-1a2b3c4d5e6f>/Images/myLinuxImage/Versions/latest"
+vmResourceGroup=myResourceGroup
+location=eastus
+vmName=myVM
+adminUsername=azureuser
+
+az group create --name $vmResourceGroup --location $location
+
+az vm create\
+   --resource-group $vmResourceGroup \
+   --name $vmName \
+   --image $imgDef \
+   --admin-username $adminUsername \
+   --generate-ssh-keys
+```
+
+When using a community image, you'll be prompted to accept the legal terms. The message will look like this: 
+
+```output
+To create the VM from community gallery image, you must accept the license agreement and privacy statement: http://contoso.com. (If you want to accept the legal terms by default, please use the option '--accept-term' when creating VM/VMSS) (Y/n): 
+```
+
+### [Portal](#tab/portal2)
+
+1. Type **virtual machines** in the search.
+1. Under **Services**, select **Virtual machines**.
+1. In the **Virtual machines** page, select **Create** and then **Virtual machine**.  The **Create a virtual machine** page opens.
+1. In the **Basics** tab, under **Project details**, make sure the correct subscription is selected and then choose to **Create new** resource group or select one from the drop-down. 
+1. Under **Instance details**, type a name for the **Virtual machine name**.
+1. For **Security type**, make sure *Standard* is selected.
+1. For your **Image**, select **See all images**. The **Select an image** page will open.
+   :::image type="content" source="media/shared-image-galleries/see-all-images.png" alt-text="Screenshot showing the link to select to see more image options.":::
+1. In the left menu, under **Other Items**, select **Community images (PREVIEW)**. The **Other Items | Community Images (PREVIEW)** page will open.
+   :::image type="content" source="media/shared-image-galleries/community.png" alt-text="Screenshot showing where to select community gallery images.":::
+1. Select an image from the list. Make sure that the **OS state** is *Generalized*. If you want to use a specialized image, see [Create a VM using a specialized image version](vm-specialized-image-version.md). Depending on the image choose, the **Region** the VM will be created in will change to match the image.
+1. Complete the rest of the options and then select the **Review + create** button at the bottom of the page.
+1. On the **Create a virtual machine** page, you can see the details about the VM you are about to create. When you are ready, select **Create**.
+
+
+### [REST](#tab/rest2)
+
+Get the ID of the image version. The value will be used in the VM deployment request.
+
+```rest
+GET 
+https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Compute/Locations/{location}/CommunityGalleries/{CommunityGalleryPublicName}/Images/{galleryImageName}/Versions/{1.0.0}?api-version=2021-07-01 
+
+```
+
+Response:
+
+```json 
+"location": "West US",
+  "identifier": {
+    "uniqueId": "/CommunityGalleries/{PublicGalleryName}/Images/{imageName}/Versions/{verionsName}"
+  },
+  "name": "1.0.0"
+```
+ 
+
+
+Now you can deploy the VM. The example requires API version 2021-07-01 or later.
+
+```rest
+PUT 
+https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{rg}/providers/Microsoft.Compute/virtualMachines/{VMName}?api-version=2021-03-01   
+{ 
+ 	"location": "{location}", 
+ 	"properties": { 
+ 	 	"hardwareProfile": { 
+ 	 	 	"vmSize": "Standard_D1_v2" 
+ 	 	}, 
+ 	 	"storageProfile": { 
+ 	 	 	"imageReference": { 
+ 	 	 	 	"communityGalleryImageId":"/communityGalleries/{publicGalleryName}/images/{galleryImageName}/versions/1.0.0" 
+ 	 	 	}, 
+ 	 	 	"osDisk": { 
+ 	 	 	 	"caching": "ReadWrite", 
+ 	 	 	 	"managedDisk": { 
+ 	 	 	 	 	"storageAccountType": "Standard_LRS" 
+ 	 	 	 	}, 
+ 	 	 	 	"name": "myVMosdisk", 
+ 	 	 	 	"createOption": "FromImage" 
+ 	 	 	} 
+   	}, 
+ 	 	"osProfile": { 
+ 	 	 	"adminUsername": "azureuser", 
+ 	 	 	"computerName": "myVM", 
+ 	 	 	"adminPassword": "{password}}" 
+ 	 	}, 
+ 	 	"networkProfile": { 
+ 	 	 	"networkInterfaces": [ 
+ 	 	 	 	{ 
+ 	 	 	 	 	"id": "/subscriptions/00000000-0000-0000-0000-
+000000000000/resourceGroups/{rg}/providers/Microsoft.Network/networkInterfaces/{networkIntefaceName}", 
+ 	 	 	 	 	"properties": { 
+ 	 	 	 	 	 	"primary": true 
+ 	 	 	 	 	} 
+ 	 	 	 	} 
+ 	 	 	] 
+ 	 	} 
+ 	} 
+} 
+
+```
+
+---
+
+
 **Next steps**
 
 [Azure Image Builder (preview)](./image-builder-overview.md) can help automate image version creation, you can even use it to update and [create a new image version from an existing image version](./linux/image-builder-gallery-update-image-version.md).
