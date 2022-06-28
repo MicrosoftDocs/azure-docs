@@ -1,10 +1,8 @@
 ---
 title: Azure Functions deployment slots
 description: Learn to create and use deployment slots with Azure Functions
-author: ggailey777
 ms.topic: conceptual
 ms.date: 03/02/2022
-ms.author: glenga
 ---
 # Azure Functions deployment slots
 
