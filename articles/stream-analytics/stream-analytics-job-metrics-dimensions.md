@@ -4,7 +4,7 @@ description: This article describes the Azure Stream Analytics metric dimensions
 author: xujiang1
 ms.author: xujiang1
 ms.service: stream-analytics
-ms.topic: concept
+ms.topic: conceptual
 ms.custom: 
 ms.date: 06/30/2022
 ---
