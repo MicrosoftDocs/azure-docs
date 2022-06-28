@@ -68,6 +68,11 @@ The below table lists some more service dependencies, where the client apps must
 |                     | SharePoint                                  | Early-bound |
 | Microsoft To-Do     | Exchange                                    | Early-bound |
 
+## Troubleshoot Event:
+
+The Azure Active Directory sign-ins log is a valuable source of information when troubleshooting why and how Conditional Access policy applied in your environment.
+The information in [this article](https://docs.microsoft.com/en-us/azure/active-directory/conditional-access/troubleshoot-conditional-access#conditional-access-error-codes) can be used to troubleshoot unexpected sign-in outcomes related to Conditional Access using Azure AD sign-ins log.
+
 ## Next steps
 
 To learn how to implement Conditional Access in your environment, see [Plan your Conditional Access deployment in Azure Active Directory](plan-conditional-access.md).
