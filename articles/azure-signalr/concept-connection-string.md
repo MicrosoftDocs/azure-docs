@@ -40,10 +40,10 @@ The following table lists all the valid names for key/value pairs in the connect
 
 | key            | Description                                                                               | Required | Default value                          | Example value                                 |
 | -------------- | ----------------------------------------------------------------------------------------- | -------- | -------------------------------------- | --------------------------------------------- |
-| Endpoint       | The URI of your ASRS instance.                                                            | Y        | N/A                                    | https://foo.service.signalr.net               |
+| Endpoint       | The URI of your ASRS instance.                                                            | Y        | N/A                                    | `https://foo.service.signalr.net`               |
 | Port           | The port that your ASRS instance is listening on.                                         | N        | 80/443, depends on endpoint uri schema | 8080                                          |
 | Version        | The version of given connection string.                                                   | N        | 1.0                                    | 1.0                                           |
-| ClientEndpoint | The URI of your reverse proxy, like App Gateway or API Management                         | N        | null                                   | https://foo.bar                               |
+| ClientEndpoint | The URI of your reverse proxy, like App Gateway or API Management                         | N        | null                                   | `https://foo.bar`                               |
 | AuthType       | The auth type, we'll use AccessKey to authorize requests by default. **Case insensitive** | N        | null                                   | azure, azure.msi, azure.app |
 
 ### Use AccessKey
