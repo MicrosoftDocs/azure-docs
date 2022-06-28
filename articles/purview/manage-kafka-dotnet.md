@@ -29,7 +29,7 @@ To follow this quickstart, you need certain prerequisites in place:
     :::image type="content" source="media/manage-eventhub-kafka-dotnet/enable-disable-event-hubs.png" alt-text="Screenshot showing the Event Hubs namespace toggle highlighted on the Managed resources page of the Microsoft Purview account page in the Azure portal.":::
 
     >[!NOTE]
-    >Enabling this Event Hubs namespace does incur a cost for the namespace. For specific details, see [the pricing page](https://azure.microsoft.com/en-us/pricing/details/purview/).
+    >Enabling this Event Hubs namespace does incur a cost for the namespace. For specific details, see [the pricing page](https://azure.microsoft.com/pricing/details/purview/).
 
 ## Publish messages to Purview 
 Let's create a .NET Core console application that sends events to Purview via Event Hubs Kafka topic, **ATLAS_HOOK**.
