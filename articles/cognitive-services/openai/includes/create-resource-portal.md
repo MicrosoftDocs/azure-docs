@@ -11,7 +11,7 @@ ms.date: 06/30/2022
 keywords: 
 ---
 
-Use this article to get started with Azure OpenAI with step-by-step instructions to create a resource and deploy a model. While the steps to kick-off resource creation and model deployment can be completed in a few minutes, the actual deployment process itself can take more than hour. It is recommended to create your resource, start your deployment, and then check back in on your deployment later rather than actively waiting for the deployment to complete.
+Use this article to get started with Azure OpenAI with step-by-step instructions to create a resource and deploy a model. While the steps for resource creation and model deployment can be completed in a few minutes, the actual deployment process itself can take more than hour. It is recommended to create your resource, start your deployment, and then check back in on your deployment later rather than actively waiting for the deployment to complete.
 
 ## Prerequisites
 
@@ -28,7 +28,7 @@ Resources in Azure can be created several different ways:
 
 This guide walks you through the Azure Portal creation experience.
 
-1. Navigate to the create page: [Azure OpenAI Service Create Page](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=microsoft_openai_tip#create/Microsoft.CognitiveServicesOpenAI)<!--TODO:Change once new link is live>
+1. Navigate to the create page: [Azure OpenAI Service Create Page](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=microsoft_openai_tip#create/Microsoft.CognitiveServicesOpenAI)<!--TODO: Change once new link is live>
 1. On the **Create** page provide the following information:
 
     |Field| Description   |
@@ -39,11 +39,11 @@ This guide walks you through the Azure Portal creation experience.
     | **Name** | A descriptive name for your cognitive services resource. For example, *MyOpenAIResource*. |
     | **Pricing Tier** | Only 1 pricing tier is available for the service currently |
 
-    :::image type="content" source="../media/create-resource/create.png" alt-text="Screenshot of the resource creation blade for an OpenAI Resource in the Azure portal with options selected that match the preceding table of information." lightbox="../media/create-resource/create.png":::
+    :::image type="content" source="../media/create-resource/create.png" alt-text="Screenshot of the resource creation blade for an OpenAI Resource in the Azure portal." lightbox="../media/create-resource/create.png":::
 
 ## Deploy a model
 
-Before you can generate text or inference you need to deploy a model. This is done by selecting **create new deployment** on the **deployments** page. From here you can select from one of our many available models. For getting started we recommend `text-davinci-002` for users in South Central and `text-davinci-001` for users in West Europe (text-davinci-002 is not available in this region). You can do this in the Azure OpenAI Studio.
+Before you can generate text or inference, you need to deploy a model. This is done by selecting **create new deployment** on the **deployments** page. From here, you can select from one of our many available models. For getting started, we recommend `text-davinci-002` for users in South Central and `text-davinci-001` for users in West Europe (text-davinci-002 is not available in this region). You can do this in the Azure OpenAI Studio.
 
 1. Go to the [Azure OpenAI Studio](https://oai.azure.com)
 
@@ -51,9 +51,9 @@ Before you can generate text or inference you need to deploy a model. This is do
 
 1. Select the **Go to Deployments** button under **Manage deployments in your resource** to navigate to the **Deployments** page
 
-    :::image type="content" source="../media/create-resource/deployment.png" alt-text="Screenshot of the resource creation blade for an OpenAI Resource in the Azure portal with options selected that match the preceding table of information." lightbox="../media/create-resource/deployment.png":::
+    :::image type="content" source="../media/create-resource/deployment.png" alt-text="Screenshot of the Azure OpenAI Studio page with the 'Go to Deployments' button highlighted." lightbox="../media/create-resource/deployment.png":::
 
-1. Create a new deployment called `text-davinci-002` and choose the `text-davinci-002` model from the drop down.
+1. Create a new deployment called `text-davinci-002` and choose the `text-davinci-002` model from the drop-down.
 
   > [!NOTE]
   > Text-davinci-002 is only available in South Central US. If you are in a different region, please choose `text-davinci-001`.

@@ -14,9 +14,8 @@ keywords:
 
 ## Prerequisites
 
-- An Azure subscription
-- Access granted to service in the desired azure subscription. This service is currently invite only. You can fill out a new use case request here: <https://aka.ms/oai/access>. Please open an issue on this repo to contact us if you have an issue
-- The following python libraries: os, requests, json
+- An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services)
+- Access granted to service in the desired Azure subscription. This service is currently invite only. You can fill out a new use case request here: <https://aka.ms/oai/access>. Please open an issue on this repo to contact us if you have an issue
 - Azure CLI. [Installation Guide](https://docs.microsoft.com/cli/azure/install-azure-cli)
 
 ## Sign in to the CLI
@@ -33,7 +32,7 @@ You must have an Azure resource group in order to create an OpenAI resource. Whe
     ```
 
 ## Create a resource
-Run the following command to create an OpenAI resource in the new resource group. In this example, we create a resource called MyOpenAIResource in the resource group called OAIResourceGroup. Make sure to update with your own values for hte resource group, resource name and your Azure Subscription ID. You can find the full reference documentation [here](https://docs.microsoft.com/cli/azure/cognitiveservices/account?view=azure-cli-latest#az-cognitiveservices-account-create).
+Run the following command to create an OpenAI resource in the new resource group. In this example, we create a resource called MyOpenAIResource in the resource group called OAIResourceGroup. Make sure to update with your own values for the resource group, resource name and your Azure Subscription ID. You can find the full reference documentation [here](https://docs.microsoft.com/cli/azure/cognitiveservices/account?view=azure-cli-latest#az-cognitiveservices-account-create).
 
 ```azurecli
 az cognitiveservices account create \
@@ -67,7 +66,7 @@ Once your resource has been created, you can use the Azure CLI to find useful in
 
 ## Deploy a model
 
-To deploy a model, you can use the Azure CLI to run the following command to deploy an instance of text-curie-001. In this example, we deploy a model called MyModel. Make sure to update with your own values. You do not need to change the `model-version`, `model-format` or `scale-settings-scale-type` values. You can find the full reference documentation [here](https://docs.microsoft.com/cli/azure/cognitiveservices/account/deployment?view=azure-cli-latest).
+To deploy a model, you can use the Azure CLI to run the following command to deploy an instance of text-curie-001. In this example, we deploy a model called MyModel. Make sure to update with your own values. You don't need to change the `model-version`, `model-format` or `scale-settings-scale-type` values. You can find the full reference documentation [here](https://docs.microsoft.com/cli/azure/cognitiveservices/account/deployment?view=azure-cli-latest).
 
 ```azurecli
 az cognitiveservices account deployment create \
@@ -82,7 +81,7 @@ az cognitiveservices account deployment create \
 
 ## Delete a model from your resource
 
-You can delete any model you have deployed from your resource. To do so, you can use the Azure CLI to run the following command. In this example, we delete a model called MyModel. Make sure to update with your own values. You can find the full reference documentation [here](https://docs.microsoft.com/cli/azure/cognitiveservices/account/deployment?view=azure-cli-latest#az-cognitiveservices-account-deployment-delete).
+You can delete any model you've deployed from your resource. To do so, you can use the Azure CLI to run the following command. In this example, we delete a model called MyModel. Make sure to update with your own values. You can find the full reference documentation [here](https://docs.microsoft.com/cli/azure/cognitiveservices/account/deployment?view=azure-cli-latest#az-cognitiveservices-account-deployment-delete).
 
 ```azurecli
 az cognitiveservices account deployment delete \
