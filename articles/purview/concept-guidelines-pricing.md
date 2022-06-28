@@ -62,7 +62,7 @@ Direct costs impacting Microsoft Purview pricing are based on the following thre
 
 ### Metadata storage
 
-- If the number of assets reduces in the data estate, and are then removed in the data map through subsequent incremental scans, the storage component automatically reduces and so the data map scales down
+- If the number of assets reduces in the data estate, and are then removed in the data map through subsequent incremental scans, the storage component automatically reduces, and so the data map scales down
 
 ## Automated scanning, classification, and ingestion
 
@@ -125,7 +125,7 @@ Indirect costs impacting Microsoft Purview (formerly Azure Purview) pricing to b
 
 - [Managed resources](https://azure.microsoft.com/pricing/details/azure-purview/)
     - When an account is provisioned, a storage account is created in the subscription in order to cater to secured scanning, which may be charged separately.
-    - An Event Hubs namespace can be [enabled at creation](create-catalog-portal.md#create-an-account) or enabled in the [Azure portal](https://portal.azure.com) on the managed resources page of the account to enable monitoring with [*Atlas Kafka* topics events](manage-kafka-dotnet.md). This will be charged separately if it is enabled.
+    - An Event Hubs namespace can be [enabled at creation](create-catalog-portal.md#create-an-account) or enabled in the [Azure portal](https://portal.azure.com) on the managed resources page of the account to enable monitoring with [*Atlas Kafka* topics events](manage-kafka-dotnet.md). This will be charged separately if it's enabled.
 
 
 - [Azure private endpoint](./catalog-private-link.md)
@@ -160,4 +160,4 @@ Indirect costs impacting Microsoft Purview (formerly Azure Purview) pricing to b
 
 
 ## Next steps
-- [Microsoft Purview, forerly Azure Purview, pricing page](https://azure.microsoft.com/pricing/details/azure-purview/)
+- [Microsoft Purview, formerly Azure Purview, pricing page](https://azure.microsoft.com/pricing/details/azure-purview/)
