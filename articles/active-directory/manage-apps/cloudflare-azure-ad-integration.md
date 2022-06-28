@@ -107,7 +107,7 @@ Use the instructions in the following three sections to register Cloudfare with 
 2. In the left menu, under **Manage**, select **Certificates &
     secrets**.
 
-    ![Screenshot shows Azure AD certificates and secrets screen](./media/cloudflare-azure-ad-integration/add-client-secret.png)
+   ![Screenshot shows Azure AD certificates and secrets screen](./media/cloudflare-azure-ad-integration/add-client-secret.png)
 
 3. Under **Client secrets**, select **+ New client secret**.
 
@@ -127,27 +127,27 @@ Use the instructions in the following three sections to register Cloudfare with 
 
 2. Select **+** **Add a permission**.
 
-    ![Screenshot shows Azure AD API permissions](./media/cloudflare-azure-ad-integration/api-permissions.png)
+   ![Screenshot shows Azure AD API permissions](./media/cloudflare-azure-ad-integration/api-permissions.png)
 
 3. Under **Select an API**, select **Microsoft Graph**.
 
-    ![Screenshot shows Azure AD API permissions using MS Graph](./media/cloudflare-azure-ad-integration/microsoft-graph.png)
+   ![Screenshot shows Azure AD API permissions using MS Graph](./media/cloudflare-azure-ad-integration/microsoft-graph.png)
 
 4. Select **Delegated permissions** for the following permissions:
 
-- `Email`
+   - `Email`
 
-- `openid`
+   - `openid`
 
-- `profile`
+   - `profile`
 
-- `offline_access`
+   - `offline_access`
 
-- `user.read`
+   - `user.read`
 
-- `directory.read.all`
+   - `directory.read.all`
 
-- `group.read.all`
+   - `group.read.all`
 
    ![Screenshot shows Azure AD request API permissions screen](./media/cloudflare-azure-ad-integration/request-api-permissions.png)
 
@@ -155,7 +155,7 @@ Use the instructions in the following three sections to register Cloudfare with 
 
 6. Select **Grant Admin Consent for ...**.
 
-    ![Screenshot shows configured API permissions with granting admin consent](./media/cloudflare-azure-ad-integration/grant-admin-consent.png)
+   ![Screenshot shows configured API permissions with granting admin consent](./media/cloudflare-azure-ad-integration/grant-admin-consent.png)
 
 7. On the [Cloudflare Zero Trust dashboard](https://dash.teams.cloudflare.com/),
     navigate to **Settings> Authentication**.
