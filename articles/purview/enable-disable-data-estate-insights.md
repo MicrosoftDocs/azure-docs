@@ -21,7 +21,9 @@ Microsoft Purview Data Estate Insights automatically aggregates metrics and crea
 These features are optional and can be enabled or disabled at any time. This article provides the specific steps required to enable or disable Microsoft Purview Data Estate Insights features.
 
 > [!IMPORTANT]
-> The Data Estate Insights application is **on** by default when you create a Microsoft Purview account. This means, “State” is on and “Refresh Frequency” is set to automatic. As the Data Map is populated and curated, Insights App shows data in the reports. The reports are ready for consumption to anyone with Insights Reader role.
+> The Data Estate Insights application is **on** by default when you create a Microsoft Purview account. This means, “State” is on and “Refresh Frequency” is set to automatic*. As the Data Map is populated and curated, Insights App shows data in the reports. The reports are ready for consumption to anyone with Insights Reader role.
+> 
+> \* At this time automatic refresh is weekly.
 
 If you don't plan on using Data Estate Insights for a time, a **[data curator](catalog-permissions.md#roles) on the [root collection](reference-azure-purview-glossary.md#root-collection)** can disable the Data Estate Insights in one of two ways:
 
