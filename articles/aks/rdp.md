@@ -230,7 +230,7 @@ List the internal IP address of the Windows Server nodes using the [kubectl get]
 kubectl get nodes -o wide
 ```
 
-The follow example output shows the internal IP addresses of all the nodes in the cluster, including the Windows Server nodes.
+The following example output shows the internal IP addresses of all the nodes in the cluster, including the Windows Server nodes.
 
 ```console
 $ kubectl get nodes -o wide
