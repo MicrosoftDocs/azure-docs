@@ -34,7 +34,7 @@ If you already have a DFS Namespace in place, no special steps are required to u
 
 | File share type | SMB | NFS | dual-protocol |
 |-|:-:|:-:|:-:|
-| Azure NetApp Files | ![Yes](~/articles/media/azure-netapp-files/icons/yes-icon.png) | ![No](~/articles/media/azure-netapp-files/icons/no-icon.png) | ![Yes](~/articles/media/azure-netapp-files/icons/yes-icon.png) |
+| Azure NetApp Files | ![Yes](../media/azure-netapp-files/icons/yes-icon.png) | ![No](../media/azure-netapp-files/icons/no-icon.png) | ![Yes](../media/azure-netapp-files/icons/yes-icon.png) |
 
 ## Namespace types
 
@@ -65,7 +65,7 @@ In the **Installation Type** section of the installation wizard, select the **Ro
 
 In the **Server Roles** section, select and check the **DFS Namespaces** role from role list. You can find this under **File and Storage Services** > **File and ISCSI Services**. When you select the DFS Namespaces server role, it may also add any required supporting server roles or features that you don't already have installed.
 
-![A screenshot of the **Add Roles and Features** wizard with the **DFS Namespaces** role selected.](~/articles/media/azure-netapp-files/azure-netapp-files-dfs-namespaces-install.png)
+![A screenshot of the **Add Roles and Features** wizard with the **DFS Namespaces** role selected.](../media/azure-netapp-files/azure-netapp-files-dfs-namespaces-install.png)
 
 After you have checked the **DFS Namespaces** role, you may select **Next** on all subsequent screens, and select **Install** as soon as the wizard enables the button. When the installation is complete, you may configure your namespace.
 
@@ -89,7 +89,7 @@ Root consolidation may only be used with standalone namespaces. If you already h
 
 This document outlines the steps to configure namespace root consolidation on a standalone server. For a highly available architecture please work with your Microsoft technical team to configure Windows Server failover clustering and an Azure Load Balancer as required. An example of a highly-available architecture is shown in the graphic below.
 
-![A screenshot of the architecture for root consolidation with Azure NetApp Files.](~/articles/media/azure-netapp-files/azure-netapp-files-root-consolidation-architecture-example.png)
+![A screenshot of the architecture for root consolidation with Azure NetApp Files.](../media/azure-netapp-files/azure-netapp-files-root-consolidation-architecture-example.png)
 
 ### Enabling root consolidation
 
@@ -124,7 +124,7 @@ On a Windows DNS server, open the DNS management console. This can be found by s
 
 Right-click on your forward lookup zone and select **New Alias (CNAME)**. In the resulting dialog, enter the short name for the file server you're replacing (the fully qualified domain name will be auto-populated in the textbox labeled **Fully qualified domain name**). In the textbox labeled **Fully qualified domain name (FQDN) for the target host**, enter the name of the DFS-N server you have set up. You can use the **Browse** button to help you select the server if desired. Select **OK** to create the CNAME record for your server.
 
-![A screenshot depicting the **New Resource Record** for a CNAME DNS entry.](~/articles/media/azure-netapp-files/azure-netapp-files-root-consolidation-cname.png)
+![A screenshot depicting the **New Resource Record** for a CNAME DNS entry.](../media/azure-netapp-files/azure-netapp-files-root-consolidation-cname.png)
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -163,7 +163,7 @@ The first section in the wizard requires you to pick the DFS Namespace server to
 
 The **Namespace Type** section allows you to choose between a **Domain-based namespace** and a **Stand-alone namespace**. If you intend to use DFS Namespaces to preserve an existing file server/NAS device name, you should select the standalone namespace option. For any other scenarios, you should select a domain-based namespace. Refer to [namespace types](#namespace-types) above for more information on choosing between namespace types.
 
-![A screenshot of selecting between a domain-based namespace and a standalone namespace in the **New Namespace Wizard**.](~/articles/media/azure-netapp-files/azure-netapp-files-dfs-namespace-type.png)
+![A screenshot of selecting between a domain-based namespace and a standalone namespace in the **New Namespace Wizard**.](../media/azure-netapp-files/azure-netapp-files-dfs-namespace-type.png)
 
 Select the desired namespace type for your environment and select **Next**. The wizard will then summarize the namespace to be created. Select **Create** to create the namespace and **Close** when the dialog completes.
 
@@ -210,7 +210,7 @@ You can think of DFS Namespaces folders as analogous to file shares.
 
 In the DFS Management console, select the namespace you just created and select **New Folder**. The resulting **New Folder** dialog will allow you to create both the folder and its targets.
 
-![A screenshot of the **New Folder** dialog.](~/articles/media/azure-netapp-files/azure-netapp-files-dfs-folder-targets.png)
+![A screenshot of the **New Folder** dialog.](../media/azure-netapp-files/azure-netapp-files-dfs-folder-targets.png)
 
 In the textbox labeled **Name** provide the name of the folder. Select **Add...** to add folder targets for this folder. The resulting **Add Folder Target** dialog provides a textbox labeled **Path to folder target** where you can provide the UNC path to the desired folder. Select **OK** on the **Add Folder Target** dialog. Finally, select **OK** on the **New Folder** dialog to create the folder and folder targets.
 
