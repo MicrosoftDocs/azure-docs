@@ -68,14 +68,14 @@ In the following sections, you create a client, set a secret, retrieve a secret,
 ### Authenticate and create a client
 
 ```go
-vaultUri := os.Getenv("AZURE_KEY_VAULT_URI")
+vaultURI := os.Getenv("AZURE_KEY_VAULT_URI")
 
 cred, err := azidentity.NewDefaultAzureCredential(nil)
 if err != nil {
     log.Fatalf("failed to obtain a credential: %v", err)
 }
 
-client, err := azsecrets.NewClient(vaultUri, cred, nil)
+client, err := azsecrets.NewClient(vaultURI, cred, nil)
 if err != nil {
     log.Fatalf("failed to create a client: %v", err)
 }
@@ -148,7 +148,7 @@ func main() {
 
 	mySecretName := "secretName01"
 	mySecretValue := "secretValue"
-	vaultUri := os.Getenv("AZURE_KEY_VAULT_URI")
+	vaultURI := os.Getenv("AZURE_KEY_VAULT_URI")
 
 	//Create a credential using the NewDefaultAzureCredential type.
 	cred, err := azidentity.NewDefaultAzureCredential(nil)
