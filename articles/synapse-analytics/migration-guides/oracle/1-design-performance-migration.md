@@ -113,7 +113,7 @@ You can automate and orchestrate the migration process by using the capabilities
 
 [Azure Data Factory](../../../data-factory/introduction.md) is a cloud-based data integration service that supports creating data-driven workflows in the cloud that orchestrate and automate data movement and data transformation. You can use Data Factory to create and schedule data-driven workflows (pipelines) that ingest data from disparate data stores. Data Factory can process and transform the data by using compute services such as Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics, and Azure Machine Learning.
 
-[Azure Database Migration Services](../../../dms/dms-overview.md) helps you plan and perform a migration from environments like Oracle. SSMA for Oracle can automate migration of Oracle databases, including in some cases functions and procedural code.
+[Azure Database Migration Services](../../../dms/dms-overview.md) can help you plan and perform a migration from environments like Oracle. SSMA for Oracle can automate migration of Oracle databases, including in some cases functions and procedural code.
 
 When planning to use Azure facilities to manage the migration process, create metadata that lists all the data tables to be migrated and their location.
 
