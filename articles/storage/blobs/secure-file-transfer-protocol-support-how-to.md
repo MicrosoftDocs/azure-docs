@@ -277,6 +277,13 @@ When using a private endpoint the connection string is `myaccount.myuser@myaccou
 > [!NOTE]
 > Ensure you change networking configuration to "Enabled from selected virtual networks and IP addresses" and select your private endpoint, otherwise the regular SFTP endpoint will still be publicly accessible.
 
+## Networking considerations
+
+When using SFTP, you may want to limit public access through configuration of a firewall, virtual network, or private endpoint. These settings are enforced at the application layer, which means they are not specific to SFTP and will impact connectivity to all Azure Storage Endpoints. For more information on firewalls and network configuration, see [Configure Azure Storage firewalls and virtual networks](../common/storage-network-security.md).
+
+> [!NOTE]
+> Audit tools that attempt to determine TLS support at the protocol layer may return TLS versions in addition to the minimum required version when run directly against the storage account endpoint. For more information, see [Enforce a minimum required version of Transport Layer Security (TLS) for requests to a storage account](../common/transport-layer-security-configure-minimum-version.md).
+
 ## See also
 
 - [SSH File Transfer Protocol (SFTP) support for Azure Blob Storage](secure-file-transfer-protocol-support.md)
