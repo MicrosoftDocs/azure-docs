@@ -9,23 +9,23 @@ ms.author: thweiss
 author: ThomasWeiss
 ---
 
-# Microsoft Defender for Cosmos DB
+# Microsoft Defender for Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
 
-Microsoft Defender for Cosmos DB provides an extra layer of security intelligence that detects unusual and potentially harmful attempts to access or exploit Azure Cosmos DB accounts. This layer of protection allows you to address threats, even without being a security expert, and integrate them with central security monitoring systems.
+Microsoft Defender for Azure Cosmos DB provides an extra layer of security intelligence that detects unusual and potentially harmful attempts to access or exploit Azure Cosmos DB accounts. This layer of protection allows you to address threats, even without being a security expert, and integrate them with central security monitoring systems.
 
 Security alerts are triggered when anomalies in activity occur. These security alerts show up in [Microsoft Defender for Cloud](https://azure.microsoft.com/services/security-center/). Subscription administrators also get these alerts over email, with details of the suspicious activity and recommendations on how to investigate and remediate the threats.
 
 > [!NOTE]
 >
-> * Microsoft Defender for Cosmos DB is currently available only for the Core (SQL) API.
-> * Microsoft Defender for Cosmos DB is not currently available in Azure government and sovereign cloud regions.
+> * Microsoft Defender for Azure Cosmos DB is currently available only for the Core (SQL) API.
+> * Microsoft Defender for Azure Cosmos DB is not currently available in Azure government and sovereign cloud regions.
 
 For a full investigation experience of the security alerts, we recommended enabling [diagnostic logging in Azure Cosmos DB](../monitor-cosmos-db.md), which logs operations on the database itself, including CRUD operations on all documents, containers, and databases.
 
 ## Threat types
 
-Microsoft Defender for Cosmos DB detects anomalous activities indicating unusual and potentially harmful attempts to access or exploit databases. It can currently trigger the following alerts:
+Microsoft Defender for Azure Cosmos DB detects anomalous activities indicating unusual and potentially harmful attempts to access or exploit databases. It can currently trigger the following alerts:
 
 - **Potential SQL injection attacks**: Due to the structure and capabilities of Azure Cosmos DB queries, many known SQL injection attacks can’t work in Azure Cosmos DB. However, there are some variations of SQL injections that can succeed and may result in exfiltrating data from your Azure Cosmos DB accounts. Defender for Azure Cosmos DB detects both successful and failed attempts, and helps you harden your environment to prevent these threats.
 
@@ -33,62 +33,9 @@ Microsoft Defender for Cosmos DB detects anomalous activities indicating unusual
 
 - **Suspicious database activity**: For example, suspicious key-listing patterns that resemble known malicious lateral movement techniques and suspicious data extraction patterns.
 
-## Configure Microsoft Defender for Cosmos DB
+## Configure Microsoft Defender for Azure Cosmos DB
 
-You can configure Microsoft Defender protection in any of several ways, described in the following sections.
-
-# [Portal](#tab/azure-portal)
-
-1. Launch the Azure portal at  [https://portal.azure.com](https://portal.azure.com/).
-
-2. From the Azure Cosmos DB account, from the **Settings** menu, select **Microsoft Defender for Cloud**.
-
-    :::image type="content" source="./media/defender-for-cosmos-db/cosmos-db-atp.png" alt-text="Set up Azure Defender for Cosmos DB" border="true":::
-
-3. In the **Microsoft Defender for Cloud** configuration blade:
-
-    * Change the option from **OFF** to **ON**.
-    * Click **Save**.
-
-# [REST API](#tab/rest-api)
-
-Use REST API commands to create, update, or get the Azure Defender setting for a specific Azure Cosmos DB account.
-
-* [Advanced Threat Protection - Create](/rest/api/securitycenter/advancedthreatprotection/create)
-* [Advanced Threat Protection - Get](/rest/api/securitycenter/advancedthreatprotection/get)
-
-# [PowerShell](#tab/azure-powershell)
-
-Use the following PowerShell cmdlets:
-
-* [Enable Advanced Threat Protection](/powershell/module/az.security/enable-azsecurityadvancedthreatprotection)
-* [Get Advanced Threat Protection](/powershell/module/az.security/get-azsecurityadvancedthreatprotection)
-* [Disable Advanced Threat Protection](/powershell/module/az.security/disable-azsecurityadvancedthreatprotection)
-
-# [ARM template](#tab/arm-template)
-
-Use an Azure Resource Manager (ARM) template to set up Azure Cosmos DB with Azure Defender protection enabled. For more information, see
-[Create a Cosmos DB Account with Advanced Threat Protection](https://azure.microsoft.com/resources/templates/microsoft-defender-cosmosdb-create-account/).
-
-# [Azure Policy](#tab/azure-policy)
-
-Use an Azure Policy to enable Azure Defender for Cosmos DB.
-
-1. Launch the Azure **Policy - Definitions** page, and search for the **Deploy Advanced Threat Protection for Cosmos DB** policy.
-
-    :::image type="content" source="./media/defender-for-cosmos-db/cosmos-db.png" alt-text="Search Policy"::: 
-
-1. Click on the **Deploy Advanced Threat Protection for CosmosDB** policy, and then click **Assign**.
-
-    :::image type="content" source="./media/defender-for-cosmos-db/cosmos-db-atp-policy.png" alt-text="Select Subscription Or Group":::
-
-1. From the **Scope** field, click the three dots, select an Azure subscription or resource group, and then click **Select**.
-
-    :::image type="content" source="./media/defender-for-cosmos-db/cosmos-db-atp-details.png" alt-text="Policy Definitions Page":::
-
-1. Enter the other parameters, and click **Assign**.
-
----
+See [Enable Microsoft Defender for Azure Cosmos DB](../../defender-for-cloud/defender-for-databases-enable-cosmos-protections.md).
 
 ## Manage security alerts
 
@@ -102,5 +49,5 @@ When Azure Cosmos DB activity anomalies occur, a security alert is triggered wit
 
 ## Next steps
 
-* Learn more about [Microsoft Defender for Cosmos DB](../../defender-for-cloud/concept-defender-for-cosmos.md)
+* Learn more about [Microsoft Defender for Azure Cosmos DB](../../defender-for-cloud/concept-defender-for-cosmos.md)
 * Learn more about [Diagnostic logging in Azure Cosmos DB](../cosmosdb-monitor-resource-logs.md)

@@ -42,145 +42,31 @@ This quickstart will create a single Azure Cosmos DB account using the MongoDB A
 
 #### [Azure CLI](#tab/azure-cli)
 
-1. Create shell variables for *accountName*, *resourceGroupName*, and *location*.
-
-    ```azurecli-interactive
-    # Variable for resource group name
-    resourceGroupName="msdocs-cosmos-javascript-quickstart-rg"
-    location="westus"
-
-    # Variable for account name with a randomly generated suffix
-    let suffix=$RANDOM*$RANDOM
-    accountName="msdocs-javascript-$suffix"
-    ```
-
-1. If you haven't already, sign in to the Azure CLI using the [``az login``](/cli/azure/reference-index#az-login) command.
-
-1. Use the [``az group create``](/cli/azure/group#az-group-create) command to create a new resource group in your subscription.
-
-    ```azurecli-interactive
-    az group create \
-        --name $resourceGroupName \
-        --location $location
-    ```
-
-1. Use the [``az cosmosdb create``](/cli/azure/cosmosdb#az-cosmosdb-create) command to create a new Azure Cosmos DB MongoDB API account with default settings.
-
-    ```azurecli-interactive
-    az cosmosdb create \
-        --resource-group $resourceGroupName \
-        --name $accountName \
-        --locations regionName=$location
-        --kind MongoDB
-    ```
-
-1. Find the MongoDB API **connection string** from the list of connection strings for the account with the[``az cosmosdb list-connection-strings``](/cli/azure/cosmosdb#az-cosmosdb-list-connection-strings) command.
-
-    ```azurecli-interactive
-    az cosmosdb list-connection-strings \
-        --resource-group $resourceGroupName \
-        --name $accountName 
-    ```
-
-1. Record the *PRIMARY KEY* values. You'll use these credentials later.
+[!INCLUDE [Azure CLI - create resources](<./includes/azure-cli-create-resource-group-and-resource.md>)]
 
 #### [PowerShell](#tab/azure-powershell)
 
-1. Create shell variables for *ACCOUNT_NAME*, *RESOURCE_GROUP_NAME*, and **LOCATION**.
-
-    ```azurepowershell-interactive
-    # Variable for resource group name
-    $RESOURCE_GROUP_NAME = "msdocs-cosmos-javascript-quickstart-rg"
-    $LOCATION = "West US"
-    
-    # Variable for account name with a randomnly generated suffix
-    $SUFFIX = Get-Random
-    $ACCOUNT_NAME = "msdocs-javascript-$SUFFIX"
-    ```
-
-1. If you haven't already, sign in to Azure PowerShell using the [``Connect-AzAccount``](/powershell/module/az.accounts/connect-azaccount) cmdlet.
-
-1. Use the [``New-AzResourceGroup``](/powershell/module/az.resources/new-azresourcegroup) cmdlet to create a new resource group in your subscription. 
-
-    ```azurepowershell-interactive
-    $parameters = @{
-        Name = $RESOURCE_GROUP_NAME
-        Location = $LOCATION
-    }
-    New-AzResourceGroup @parameters    
-    ```
-
-1. Use the [``New-AzCosmosDBAccount``](/powershell/module/az.cosmosdb/new-azcosmosdbaccount) cmdlet to create a new Azure Cosmos DB MongoDB API account with default settings. 
-
-    ```azurepowershell-interactive
-    $parameters = @{
-        ResourceGroupName = $RESOURCE_GROUP_NAME
-        Name = $ACCOUNT_NAME
-        Location = $LOCATION
-        Kind = "MongoDB"
-    }
-    New-AzCosmosDBAccount @parameters
-    ```
-
-1. Find the *CONNECTION STRING* from the list of keys and connection strings for the account with the [``Get-AzCosmosDBAccountKey``](/powershell/module/az.cosmosdb/get-azcosmosdbaccountkey) cmdlet.
-
-    ```azurepowershell-interactive
-    $parameters = @{
-        ResourceGroupName = $RESOURCE_GROUP_NAME
-        Name = $ACCOUNT_NAME
-        Type = "ConnectionStrings"
-    }    
-    Get-AzCosmosDBAccountKey @parameters |
-        Select-Object -Property "Primary MongoDB Connection String"    
-    ```
-
-1. Record the *CONNECTION STRING* value. You'll use these credentials later.
+[!INCLUDE [Powershell - create resource group and resources](<./includes/powershell-create-resource-group-and-resource.md>)]
 
 #### [Portal](#tab/azure-portal)
 
-> [!TIP]
-> For this quickstart, we recommend using the resource group name ``msdocs-cosmos-javascript-quickstart-rg``.
+[!INCLUDE [Portal - create resource](<./includes/portal-create-resource.md>)]
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+---
 
-1. From the Azure portal menu or the **Home page**, select **Create a resource**.
+### Get MongoDB connection string
 
-1. On the **New** page, search for and select **Azure Cosmos DB**.
+#### [Azure CLI](#tab/azure-cli)
 
-1. On the **Select API option** page, select the **Create** option within the **MongoDB** section. Azure Cosmos DB has five APIs: SQL, MongoDB, Gremlin, Table, and Cassandra. [Learn more about the MongoDB API](/azure/cosmos-db/mongodb/mongodb-introduction).
+[!INCLUDE [Azure CLI - get connection string](<./includes/azure-cli-get-connection-string.md>)]
 
-   :::image type="content" source="media/quickstart-javascript/cosmos-api-choices.png" lightbox="media/quickstart-javascript/cosmos-api-choices.png" alt-text="Screenshot of select A P I option page for Azure Cosmos D B.":::
+#### [PowerShell](#tab/azure-powershell)
 
-1. On the **Create Azure Cosmos DB Account** page, enter the following information:
+[!INCLUDE [Powershell - get connection string](<./includes/powershell-get-connection-string.md>)]
 
-   | Setting | Value | Description |
-   | --- | --- | --- |
-   | Subscription | Subscription name | Select the Azure subscription that you wish to use for this Azure Cosmos account. |
-   | Resource Group | Resource group name | Select a resource group, or select **Create new**, then enter a unique name for the new resource group. |
-   | Account Name | A unique name | Enter a name to identify your Azure Cosmos account. The name will be used as part of a fully qualified domain name (FQDN) with a suffix of *documents.azure.com*, so the name must be globally unique. The name can only contain lowercase letters, numbers, and the hyphen (-) character. The name must also be between 3-44 characters in length. |
-   | Location | The region closest to your users | Select a geographic location to host your Azure Cosmos DB account. Use the location that is closest to your users to give them the fastest access to the data. |
-   | Capacity mode |Provisioned throughput or Serverless|Select **Provisioned throughput** to create an account in [provisioned throughput](../set-throughput.md) mode. Select **Serverless** to create an account in [serverless](../serverless.md) mode. |
-   | Apply Azure Cosmos DB free tier discount | **Apply** or **Do not apply** |With Azure Cosmos DB free tier, you'll get the first 1000 RU/s and 25 GB of storage for free in an account. Learn more about [free tier](https://azure.microsoft.com/pricing/details/cosmos-db/). |
-   | Version | MongoDB version  | Select the MongoDB server version that matches your application requirements.
+#### [Portal](#tab/azure-portal)
 
-   > [!NOTE]
-   > You can have up to one free tier Azure Cosmos DB account per Azure subscription and must opt-in when creating the account. If you do not see the option to apply the free tier discount, this means another account in the subscription has already been enabled with free tier.
-
-   :::image type="content" source="media/quickstart-javascript/new-cosmos-account-page.png" lightbox="media/quickstart-javascript/new-cosmos-account-page.png" alt-text="Screenshot of new account page for Azure Cosmos D B SQL A P I.":::
-
-1. Select **Review + create**.
-
-1. Review the settings you provide, and then select **Create**. It takes a few minutes to create the account. Wait for the portal page to display **Your deployment is complete** before moving on.
-
-1. Select **Go to resource** to go to the Azure Cosmos DB account page. 
-
-   :::image type="content" source="media/quickstart-javascript/cosmos-deployment-complete.png" lightbox="media/quickstart-javascript/cosmos-deployment-complete.png" alt-text="Screenshot of deployment page for Azure Cosmos D B SQL A P I resource.":::
-
-1. From the Azure Cosmos DB SQL API account page, select the **Connection String** navigation menu option.
-
-1. Record the values for the **PRIMARY CONNECTION STRING** field. You'll use this value in a later step.
-
-   :::image type="content" source="media/quickstart-javascript/cosmos-endpoint-key-credentials.png" lightbox="media/quickstart-javascript/cosmos-endpoint-key-credentials.png" alt-text="Screenshot of Keys page with various credentials for an Azure Cosmos D B SQL A P I account.":::
+[!INCLUDE [Portal - get connection string](<./includes/portal-get-connection-string-from-resource.md>)]
 
 ---
 
@@ -202,29 +88,7 @@ npm install mongodb dotenv
 
 ### Configure environment variables
 
-To use the **CONNECION STRING** values within your JavaScript code, set this value on the local machine running the application. To set the environment variable, use your preferred terminal to run the following commands:
-
-#### [Windows](#tab/windows)
-
-```powershell
-$env:COSMOS_CONNECTION_STRING = "<cosmos-connection-string>"
-```
-
-#### [Linux / macOS](#tab/linux+macos)
-
-```bash
-export COSMOS_CONNECTION_STRING="<cosmos-connection-string>"
-```
-
-#### [.env](#tab/dotenv)
-
-A `.env` file is a standard way to store environment variables in a project. Create a `.env` file in the root of your project. Add the following lines to the `.env` file:
-
-```dotenv
-COSMOS_CONNECTION_STRING="<cosmos-connection-string>"
-```
-
----
+[!INCLUDE [Multi-tab](<./includes/environment-variables-connection-string.md>)]
 
 ## Object model
 
@@ -247,7 +111,6 @@ You'll use the following MongoDB classes to interact with these resources:
 - [Get database instance](#get-database-instance)
 - [Get collection instance](#get-collection-instance)
 - [Chained instances](#chained-instances)
-- [Create an doc](#create-a-doc)
 - [Create an index](#create-an-index)
 - [Create a doc](#create-a-doc)
 - [Get an doc](#get-a-doc)

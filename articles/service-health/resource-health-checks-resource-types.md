@@ -189,6 +189,12 @@ Below is a complete list of all the checks executed through resource health by r
 |---|
 |<ul><li>Are the load balancing endpoints available?</li></ul>|
 
+
+## Microsoft.network/natGateways
+|Executed Checks|
+|---|
+|<ul><li>Are the NAT gateway endpoints available?</li></ul>|
+
 ## Microsoft.network/trafficmanagerprofiles
 |Executed Checks|
 |---|
