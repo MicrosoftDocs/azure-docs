@@ -73,7 +73,11 @@ Typically, legacy Oracle environments have evolved over time to encompass multip
 
 - Create a template for further migrations that's specific to the source Oracle environment and the current tools and processes that are already in place.
 
-A good candidate for an initial migration from an Oracle environment supports the preceding items. Candidates usually implement a BI/Analytics workload rather than an online transaction processing (OLTP) workload. Good candidates also have a data model, such as a star or snowflake schema, that can be migrated with minimal modification.
+A good candidate for an initial migration from an Oracle environment supports the preceding items, and:
+
+- Implements a BI/Analytics workload rather than an online transaction processing (OLTP) workload.
+
+- Has a data model, such as a star or snowflake schema, that can be migrated with minimal modification.
 
 >[!TIP]
 >Create an inventory of objects that need to be migrated, and document the migration process.
