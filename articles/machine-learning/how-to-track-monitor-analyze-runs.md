@@ -70,7 +70,7 @@ In the **All jobs'** page, you can filter the jobs list by tags, experiments, co
 
 1. To view the job logs, select a specific job and in the **Outputs + logs** tab, you can find diagnostic and error logs for your job.
 
-    
+    :::image type="content" source="media/how-to-track-monitor-analyze-runs/custom-views-2.gif" alt-text="Screenshot: create a custom view":::   
 
 ## Job description 
 
