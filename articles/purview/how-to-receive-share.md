@@ -17,8 +17,9 @@ Microsoft Purview Data Sharing supports in-place data sharing from Azure Data La
 
 ### Microsoft Purview prerequisites
 
-* [A Microsoft Purview account](create-catalog-portal.md). 
+* [A Microsoft Purview account](create-catalog-portal.md).
 * **Data Share Contributor** role on a Microsoft Purview collection. If you created the Microsoft Purview account, you're automatically assigned this role to the root collection. Refer to [Microsoft Purview permissions](catalog-permissions.md) to learn more about the Microsoft Purview collections and roles.
+* **Contributor** or **Owner** or **Storage Blob Data Owner** or **Storage Blob Data Contributor** on a storage account where you will house the shared data.
 
 ### Azure Storage account prerequisites
 
