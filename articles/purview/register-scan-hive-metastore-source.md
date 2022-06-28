@@ -92,7 +92,7 @@ The only supported authentication for a Hive Metastore database is Basic Authent
 > 1. Confirm you have followed all [**prerequisites**](#prerequisites).
 > 1. Review our [**scan troubleshooting documentation**](troubleshoot-connections.md).
 
-Use the following steps to scan Hive Metastore databases to automatically identify assets and classify your data. For more information about scanning in general, see [Scans and ingestion in Microsoft Purview](concept-scans-and-ingestion.md).
+Use the following steps to scan Hive Metastore databases to automatically identify assets. For more information about scanning in general, see [Scans and ingestion in Microsoft Purview](concept-scans-and-ingestion.md).
 
 1. In the Management Center, select integration runtimes. Make sure that a self-hosted integration runtime is set up. If it isn't set up, use the steps in [Create and manage a self-hosted integration runtime](./manage-integration-runtimes.md).
 
