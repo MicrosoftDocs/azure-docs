@@ -32,7 +32,7 @@ This page shows the supported authentication types and client types of Azure Eve
 
 ## Default environment variable names or application properties
 
-Use the connection details below to connect compute services to Event Hubs. For each example below, replace the placeholder texts `<Event-Hubs-namespace>`, `<access-key-name>`, `<access-key-value>` `<client-ID>`, `<client-secret>`, and `<tenant-id>` with your Event Hub namespace, shared access key name, shared access key value, client ID, client secret and tenant ID.
+Use the connection details below to connect compute services to Event Hubs. For each example below, replace the placeholder texts `<Event-Hubs-namespace>`, `<access-key-name>`, `<access-key-value>` `<client-ID>`, `<client-secret>`, and `<tenant-id>` with your Event Hubs namespace, shared access key name, shared access key value, client ID, client secret and tenant ID.
 
 ### .NET, Java, Node.JS, Python
 
