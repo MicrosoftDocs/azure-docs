@@ -33,14 +33,24 @@ It's important that you have the following prerequisites completed before you be
 >* Two MedTech services accessing the same device message event hub.
 >* A MedTech service and a storage writer application accessing the same device message event hub.
 
-If you already have an Azure account and an existing Resource Group, you can use the button below to deploy a MedTech service which will include the following:
+If you already have an active Azure account, you can use the button below to deploy a MedTech service which will include the following:
  * An Azure Event Hubs Namespace and device message event hub (the event hub is named: **devicedata**)
  * An Azure event hub sender role (the sender role is named: **devicedatasender**)
  * An Azure Health Data Services workspace
  * An Azure Health Data Services FHIR service
  * An Azure Health Data Services MedTech service including the necessary system managed identity permissions to the device message event hub and FHIR service.
 
-The only remaining configurations are:
+Once the Azure portal launches the following fields must be filled out:
+ * **Subscription** - Select the Azure subscription you would like to use for the deployment.
+ * **Resource Group** - Select an existing Resource Group or create a new Resource Group.
+ * **Basename** - This will be used to append the name the Azure service to be deployed.
+ * **Location** - Use the drop down to select a supported Azure Health Data Services region (this could be the same or different region than your Resource Group) 
+
+Leave the **Device Mapping** and **Destination Mapping** fields with their default values.
+
+:::image type="content" source="media\iot-deploy-arm-in-portal\iot-connector-arm-deploy-options.png" alt-text="Azure portal page displaying deployment options for the Azure Health Data Service MedTech service." lightbox="media\iot-deploy-arm-in-portal\iot-connector-arm-deploy-options.png"::: 
+
+After a successful deployment, these will be the remaining configurations that will need to be completed by you for a fully functional MedTech service:
  * Provide a working device mapping file. For more information see: [How to use device mappings](how-to-use-device-mappings.md)
  * Provide a working destination mapping file. For more information see: [How to use FHIR destination mappings](how-to-use-fhir-mappings.md)
  * Use the Shared access policies (SAS) key (**devicedatasender**) for connecting your device or application to the MedTech service device message event hub (**devicedata**). For more information see: [Connection string for a specific event hub in a namespace](../../event-hubs/event-hubs-get-connection-string.md#connection-string-for-a-specific-event-hub-in-a-namespace)
