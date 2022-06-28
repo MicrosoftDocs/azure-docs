@@ -55,11 +55,11 @@ Select the **Review + create** button once the fields are filled out.
 
 After the validation has passed, select the **Create** button to begin the deployment.
 
-:::image type="content" source="media\iot-deploy-arm-in-portal\iot-connector-arm-deploy-create.png" alt-text="Azure portal page displaying deployment options for the Azure Health Data Service MedTech service." lightbox="media\iot-deploy-arm-in-portal\iot-connector-arm-deploy-create.png"::: 
+:::image type="content" source="media\iot-deploy-arm-in-portal\iot-connector-arm-deploy-create.png" alt-text="Azure portal page displaying validation box and Create button for the Azure Health Data Service MedTech service." lightbox="media\iot-deploy-arm-in-portal\iot-connector-arm-deploy-create.png"::: 
 
 After a successful deployment, there will be remaining configurations that will need to be completed by you for a fully functional MedTech service:
- * Provide a working device mapping file. For more information, see: [How to use device mappings](how-to-use-device-mappings.md)
- * Provide a working destination mapping file. For more information, see: [How to use FHIR destination mappings](how-to-use-fhir-mappings.md)
+ * Provide a working device mapping file. For more information, see [How to use device mappings](how-to-use-device-mappings.md)
+ * Provide a working destination mapping file. For more information, see [How to use FHIR destination mappings](how-to-use-fhir-mappings.md)
  * Use the Shared access policies (SAS) key (**devicedatasender**) for connecting your device or application to the MedTech service device message event hub (**devicedata**). For more information, see: [Connection string for a specific event hub in a namespace](../../event-hubs/event-hubs-get-connection-string.md#connection-string-for-a-specific-event-hub-in-a-namespace)
 
 [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.healthcareapis%2Fworkspaces%2Fiotconnectors%2Fazuredeploy.json) 
