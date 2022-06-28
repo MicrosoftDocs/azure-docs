@@ -12,14 +12,12 @@ ms.date: 06/15/2022
 ms.author: aahi
 ---
 
-# Developer SDK and samples guide
-
-# SDK and REST developer resources for the Language service
+# SDK and REST developer guide for the Language service
 
 Use this article to find information on integrating the Language service SDKs and REST API into your applications. 
 
 >[!TIP]
-> Is it your first time using Language service features? You can find quickstart guides with both REST API and SDK samples in the docmentation for the [available features](../overview.md#available-features) you want to use.
+> Is it your first time using Language service features? You can find quickstart guides with both REST API and SDK samples in the documentation for the [available features](../overview.md#available-features) you want to use.
 
 ## Development options
 
@@ -46,7 +44,7 @@ The `Azure.AI.TextAnalytics` namespace enables you to use the following Language
 * [Entity linking](../entity-linking/overview.md)
 * [Key phrase extraction](../key-phrase-extraction/overview.md)
 * [Named entity recognition (NER)](../named-entity-recognition/overview.md)
-* [Personally Identifing Information (PII) detection](../personally-identifiable-information/overview.md)
+* [Personally Identifying Information (PII) detection](../personally-identifiable-information/overview.md)
 * [Sentiment analysis and opinion mining](../sentiment-opinion-mining/overview.md)
 * [Text analytics for health](../text-analytics-for-health/overview.md)
 
@@ -72,14 +70,14 @@ The `Azure.AI.Language.Conversations` namespace enables you to use the following
 * [Conversational language understanding](../conversational-language-understanding/overview.md)
 * [Orchestration workflow](../orchestration-workflow/overview.md)
 * [Conversation summarization](../summarization/overview.md?tabs=conversation-summarization)
-* [Personally Identifing Information (PII) detection for conversations](../summarization/how-to/conversation-summarization.md)
+* [Personally Identifying Information (PII) detection for conversations](../summarization/how-to/conversation-summarization.md)
 
 As you use these features in your application, use the following documentation and code samples for additional information.
 
-|Development option / language  |Reference documentation (Authoring API) | Reference documentation (Runtime prediction API) |Samples  |
+|Development option / language  | Reference documentation |Samples  |
 |---------|---------|---------|---------|
-|C#     |         | [C# documentation](/dotnet/api/overview/azure/ai.language.conversations-readme-pre?view=azure-dotnet-preview&preserve-view=true)        |  [C# samples](https://aka.ms/sdk-sample-conversation-dot-net)        |
-|Python |         | [Python documentation](/python/api/overview/azure/ai-language-conversations-readme?view=azure-python-preview&preserve-view=true)        | [Python samples](https://aka.ms/sdk-samples-conversation-python) |
+|C#     | [C# documentation](/dotnet/api/overview/azure/ai.language.conversations-readme-pre?view=azure-dotnet-preview&preserve-view=true)        |  [C# samples](https://aka.ms/sdk-sample-conversation-dot-net)        |
+|Python |  [Python documentation](/python/api/overview/azure/ai-language-conversations-readme?view=azure-python-preview&preserve-view=true)        | [Python samples](https://aka.ms/sdk-samples-conversation-python) |
 
 ### Azure.AI.Language.QuestionAnswering 
 
@@ -168,10 +166,6 @@ The question answering APIs enables you to use the [question answering](../quest
 
 ---
 
-<!--## Other development options 
+## See also 
 
-While not the main focus of the guide, informs customers that the Text Analytics for health Docker container can be used with the SDK (note: need to check if other containers are compatible with the SDK) 
-
-See also 
-
-Additional links to relevant material for SDK developers -->
+[Azure Cognitive Service for Language overview](../overview.md)
