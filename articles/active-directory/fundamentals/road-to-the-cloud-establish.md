@@ -1,12 +1,12 @@
 ---
-title: Road to the cloud - Moving identity and access management from AD to Azure AD
-description: Learn to plan your migration if IAM from AD to Azure AD.
+title: Road to the cloud - Establish a Footpring for Moving identity and access management from AD to Azure AD
+description: Establish an Azure AD footpring as part of planning your migration if IAM from AD to Azure AD.
 documentationCenter: ''
 author: janicericketts
 manager: martinco
 ms.service: active-directory
 ms.topic: how-to
-ms.subservice: none
+ms.subservice: fundamentals
 ms.date: 06/03/2022
 ms.author: jricketts
 ms.custom: references_regions
@@ -24,7 +24,7 @@ If you're using Microsoft Office 365, Exchange Online, or Teams then you are alr
 
 ## Optional tasks
 
-The following aren't specific nor mandatory to transforming from AD to Azure AD but are recommended functions to incorporate into your environment. These are also items recommended in the [Zero Trust](security/zero-trust/) guidance.
+The following aren't specific nor mandatory to transforming from AD to Azure AD but are recommended functions to incorporate into your environment. These are also items recommended in the [Zero Trust](/security/zero-trust/) guidance.
 
 ### Deploy Passwordless authentication
 
