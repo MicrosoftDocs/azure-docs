@@ -66,7 +66,7 @@ It's recommended that you host the export configuration files on Azure Container
 | _\_container_|exportContainer|Required|Name of container within the configured storage account where the data will be exported. |
 | _\_anonymizationConfigCollectionReference_|"myacr.azurecr.io/deidconfigs:default"|Optional|Reference to an OCI image on ACR containing de-id configuration files for de-id export (such as stu3-config.json, r4-config.json). The ACR server of the image should be registered within the FHIR service. (Format: `<RegistryServer>/<imageName>@<imageDigest>`, `<RegistryServer>/<imageName>:<imageTag>`) |
 | _\_anonymizationConfig_   |DemoConfig.json|Required|Name of the configuration file. See the configuration file format [here](https://github.com/microsoft/FHIR-Tools-for-Anonymization#configuration-file-format). If _\_anonymizationConfigCollectionReference_ is provided, we will search and use this file from the specified image.  Otherwise, we will search and use this file inside a container named **anonymization** within the same Azure storage account that is configured as the export location.|
-| _\_anonymizationConfigEtag_|"0x8D8494A069489EC"|Optional|This is the Etag of the configuration file. You can get the Etag using Azure Storage Explorer from the blob property|
+| _\_anonymizationConfigEtag_|"0x8D8494A069489EC"|Optional|Etag of the configuration file which can be obtained from the blob property in Azure Storage Explorer. Specify this parameter only if the configuration file is stored in Azure storage account. If you use ACR to host the configuration file, you should not include this parameter.|
 
 
 > [!IMPORTANT]
