@@ -17,6 +17,12 @@ ms.custom: mvc
 
 - Perform at-scale agentless migration of ASP.NET web apps running on IIS web servers hosted on a Windows OS in a VMware environment. [Learn more.](tutorial-migrate-webapps.md)
 
+## Update (May 2022)
+- Upgraded the Azure SQL assessment experience to identify the ideal migration target for your SQL deployments across Azure SQL MI, SQL Server on Azure VM, and Azure SQL DB:
+   - We recommended migrating instances to *SQL Server on Azure VM* as per the Azure best practices.
+   - *Right sized Lift and Shift* - Server to *SQL Server on Azure VM*. We recommend this when SQL Server credentials are not available. 
+   - Enhanced user-experience that covers readiness and cost estimates for multiple migration targets for SQL deployments in one assessment.
+
 ## Update (March 2022)
 - Perform agentless VMware VM discovery, assessments, and migrations over a private network using Azure Private Link. [Learn more.](how-to-use-azure-migrate-with-private-endpoints.md)
 - General Availability: Support to select subnets for each Network Interface Card of a replicating virtual machine in VMware agentless migration scenario.

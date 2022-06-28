@@ -421,7 +421,7 @@ IoT Edge modules that connect directly to cloud services, including the runtime 
 
 **Root cause:**
 
-Containers rely on IP packet forwarding in order to connect to the internet so that they can communicate with cloud services. IP packet forwarding is enabled by default in Docker, but if it gets disabled then any modules that connect to cloud services will not work as expected. For more information, see [Understand container communication](https://apimirror.com/docker~1.12/engine/userguide/networking/default_network/container-communication/index) in the Docker documentation.
+Containers rely on IP packet forwarding in order to connect to the internet so that they can communicate with cloud services. IP packet forwarding is enabled by default in Docker, but if it gets disabled then any modules that connect to cloud services will not work as expected. For more information, see [Understand container communication](https://docs.docker.com/config/containers/container-networking/) in the Docker documentation.
 
 **Resolution:**
 
