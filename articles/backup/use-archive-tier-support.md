@@ -86,6 +86,76 @@ You can also view the archive usage in the vault dashboard.
 
 :::image type="content" source="./media/use-archive-tier-support/view-archive-usage-in-vault-dashboard.png" alt-text="Screenshot showing the archive usage in the vault dashboard.":::
 
+## Enable Smart Tiering to Vault-archive using a backup policy (preview)
+
+You can automatically move all eligible/recommended recovery points to vault-archive by configuring the required settings in the Backup policy.
+
+>[!Note]
+>This feature is currently in preview. To use this feature, ensure that your subscription is allowlisted.
+
+### Allowlist a subscription for Smart Tiering (preview)
+
+To allowlist a subscription, follow these steps:
+
+1. In the Azure portal, select the subscription you want to allowlist.
+
+1. Select **Preview Features** in the left pane.
+   [Diagram 1]
+
+1. Select **Smart Tiering for Archive**.
+   [Diagram 2]
+
+1. Select **Register**.
+
+The subscription gets enabled for Smart Tiering in a few minutes.
+
+### Enable Smart Tiering for Azure virtual machine
+
+To enable Smart Tiering for Azure VM backup policies, follow these steps:
+
+1. Select or create a  backup policy:
+
+   - **Existing Backup Policy**: Select the backup policy for which you want to enable Smart Tiering.
+   - **Create a new Policy**: Create a new backup policy.
+
+1. In **Backup policy**, select **Enable Tiering**.
+   [Diagram 3]
+
+1. Select one of the following options to move to vault-archive tier:
+
+   - **Recommended recovery points**: This option moves all recommended recovery points to the vault-archive tier. [Learn more](archive-tier-support.md#archive-recommendations-only-for-azure-virtual-machines) about recommendations.
+   - **Eligible recovery points**: This option moves all eligible recovery point after a specific number of days.
+     [Diagram 4]
+   >[!Note]
+   >- The value of x can range from 3 months to (monthly/yearly retention in months -6).
+   >- Selecting this option can increase your overall costs.
+
+Once the policy is configured, all the recommended recovery points are moved to archive tier.
+
+### Enable Smart Tiering for SAP HANA/  SQL Servers in Azure Virtual Machines
+
+To enable Smart Tiering for Azure SAP HANA/SQL servers in Azure VM backup policies, follow these steps:
+
+1. Select or create a backup policy: 
+
+   - **Existing Backup Policy**: Select the backup policy for which you want to enable smart Tiering
+   - **Create a new Policy**: 
+
+1. In **Backup policy**, select **Move eligible recovery points to vault-archive**.
+   [Diagram 5]
+
+   Select the number of days after which you want to move your recovery point to archive.
+
+   >[!Note]
+   >The number of days would range from 45 days to (retention-180) days. 
+
+Once Smart Tiering is enabled, all the eligible recovery points are moved to the  vault-archive tier.
+
+### Move all/eligible recovery points for a backup item
+
+ To move recovery points for a backup item at one go, see [Move archivable recovery points](?pivots=client-portaltier#view-archived-recovery-points)
+
+
 ## Next steps
 
 - Use Archive tier support via [PowerShell](?pivots=client-powershelltier)/[CLI](?pivots=client-clitier).
