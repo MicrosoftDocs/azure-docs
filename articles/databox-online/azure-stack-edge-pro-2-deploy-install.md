@@ -245,7 +245,7 @@ Before you start cabling your device, you need the following things:
 
 On your device:
 
-- The front panel has disk drives and a power button.
+- The front panel has disk drives and a power button. The front panel has:
 
     - Has six disk slots in the front of your device.
     - Has 2, 4, or 6 data disks in the 6 available slots depending on the specific hardware configuration.
@@ -272,7 +272,7 @@ On your device:
         
     - Two Wi-Fi Sub miniature version A (SMA) connectors located on the faceplate of PCIe card slot located below Port 3 and Port 4. The Wi-Fi antennas are installed on these connectors.
     
-    - Two, one, or no Graphical Processing Units (GPUs) 
+    - Two, one, or no Graphical Processing Units (GPUs).
 
     ![Ports on the back plane of a device](./media/azure-stack-edge-pro-2-deploy-install/backplane-ports-1.png)  
     
