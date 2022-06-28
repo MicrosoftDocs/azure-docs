@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: overview
-ms.date: 11/02/2021
+ms.date: 06/15/2022
 ms.author: aahi
 ms.custom: language-service-sentiment-opinion-mining, ignite-fall-2021
 ---
@@ -38,7 +38,7 @@ Opinion mining is a feature of sentiment analysis. Also known as aspect-based se
 
 An AI system includes not only the technology, but also the people who will use it, the people who will be affected by it, and the environment in which it is deployed. Read the [transparency note for sentiment analysis](/legal/cognitive-services/language-service/transparency-note-sentiment-analysis?context=/azure/cognitive-services/language-service/context/context) to learn about responsible AI use and deployment in your systems. You can also see the following articles for more information:
 
-[!INCLUDE [Responsible AI links](../includes/overview-responsible-ai-links.md)]
+[!INCLUDE [Developer reference](../includes/reference-samples-text-analytics.md)] 
 
 ## Next steps
 
