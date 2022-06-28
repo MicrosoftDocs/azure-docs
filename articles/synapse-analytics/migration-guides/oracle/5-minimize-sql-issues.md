@@ -107,53 +107,6 @@ Oracle-specific features can often be replaced by Azure Synapse features. Howeve
 
   Azure Synapse doesn't currently support user-defined types. If the data you need to migrate includes user-defined data types, either "flatten" them into a conventional table definition, or if they're arrays of data, normalize them in a separate table.
 
-### Oracle data type mapping
-
-Most Oracle data types have a direct equivalent in Azure Synapse. The following table shows the recommended approach for mapping Oracle data types to Azure Synapse.
-
-| Oracle Data Type | Azure Synapse Data Type |
-|-|-|
-| BFILE | Not supported. Map to VARBINARY(MAX). |
-| BINARY_FLOAT | Not supported. Map to FLOAT. |
-| BINARY_DOUBLE | Not supported. Map to DOUBLE. |
-| BLOB | Not directly supported. Replace with VARBINARY(MAX). |
-| CHAR | CHAR |
-| CLOB | Not directly supported. Replace with VARCHAR(MAX). |
-| DATE | DATE in Oracle can also contain time information. Depending on usage map to DATE or TIMESTAMP. |
-| DECIMAL | DECIMAL |
-| DOUBLE | PRECISION DOUBLE |
-| FLOAT | FLOAT |
-| INTEGER | INT |
-| INTERVAL YEAR TO MONTH | INTERVAL data types aren't supported. Use date comparison functions, such as DATEDIFF or DATEADD, for date calculations. |
-| INTERVAL DAY TO SECOND | INTERVAL data types aren't supported. Use date comparison functions, such as DATEDIFF or DATEADD, for date calculations. |
-| LONG | Not supported. Map to VARCHAR(MAX). |
-| LONG RAW | Not supported. Map to VARBINARY(MAX). |
-| NCHAR | NCHAR |
-| NVARCHAR2 | NVARCHAR |
-| NUMBER | NUMBER |
-| NCLOB | Not directly supported. Replace with NVARCHAR(MAX). |
-| NUMERIC | NUMERIC |
-| ORD media data types | Not supported |
-| RAW | Not supported. Map to VARBINARY. |
-| REAL | REAL |
-| ROWID | Not supported. Map to GUID, which is similar. |
-| SDO Geospatial data types | Not supported |
-| SMALLINT | SMALLINT |
-| TIMESTAMP | DATETIME2 or the CURRENT_TIMESTAMP() function |
-| TIMESTAMP WITH LOCAL TIME ZONE | Not supported. Map to DATETIMEOFFSET. |
-| TIMESTAMP WITH TIME ZONE | Not supported because TIME is stored using wall-clock time without a time zone offset. |
-| URIType | Not supported. Store in a VARCHAR. |
-| UROWID | Not supported. Map to GUID, which is similar. |
-| VARCHAR | VARCHAR |
-| VARCHAR2 | VARCHAR |
-| XMLType | Not supported. Store XML data in a VARCHAR. |
-| User-defined types | See **User-defined types** in the [preceding](#unsupported-oracle-database-object-types) section. |
-
->[!TIP]
->Assess the number and type of unsupported data types during your preparation phase.
-
-Third-party vendors offer tools and services to automate migration, including the mapping of data types. If a [third-party](../../partner/data-integration.md) ETL tool is already in use in the Oracle environment, use that tool to implement any required data transformations.
-
 ### SQL DDL generation
 
 You can edit existing Oracle `CREATE TABLE` and `CREATE VIEW` scripts to achieve equivalent definitions in Azure Synapse. To do so, you might need to use [modified data types](#oracle-data-type-mapping) and remove or modify Oracle-specific clauses, such as `TABLESPACE`.

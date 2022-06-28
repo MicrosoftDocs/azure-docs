@@ -113,7 +113,7 @@ You can automate and orchestrate the migration process by using the capabilities
 
 [Azure Data Factory](../../../data-factory/introduction.md) is a cloud-based data integration service that supports creating data-driven workflows in the cloud that orchestrate and automate data movement and data transformation. You can use Data Factory to create and schedule data-driven workflows (pipelines) that ingest data from disparate data stores. Data Factory can process and transform the data by using compute services such as Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics, and Azure Machine Learning.
 
-Azure also includes [Azure Database Migration Services](../../../dms/dms-overview.md) to help you plan and perform a migration from environments like Oracle. SSMA for Oracle can automate migration of Oracle databases, including in some cases functions and procedural code.
+[Azure Database Migration Services](../../../dms/dms-overview.md) helps you plan and perform a migration from environments like Oracle. SSMA for Oracle can automate migration of Oracle databases, including in some cases functions and procedural code.
 
 When planning to use Azure facilities to manage the migration process, create metadata that lists all the data tables to be migrated and their location.
 
@@ -173,7 +173,7 @@ Oracle-specific features can often be replaced by Azure Synapse features. Howeve
 
   Azure Synapse features, such as parallel query processing and in-memory caching of data and results, make it likely that fewer indexes are required for data warehouse applications to achieve performance goals. We recommend that you use the following index types in Azure Synapse:
 
-  - **Clustered columnstore indexes**: when no index options are specified for a table, Azure Synapse by default creates a clustered columnstore index. Clustered columnstore tables offer the highest level of data compression, best overall query performance, and generally outperform clustered index or heap tables. A clustered columnstore index is usually the best choice for large tables. Choose clustered columnstore when you're unsure how to index your table. However, there are some scenarios where clustered columnstore indexes aren't the best option:
+  - **Clustered columnstore indexes**: when no index options are specified for a table, Azure Synapse by default creates a clustered [columnstore index](/sql/relational-databases/indexes/columnstore-indexes-design-guidance). Clustered columnstore tables offer the highest level of data compression, best overall query performance, and generally outperform clustered index or heap tables. A clustered columnstore index is usually the best choice for large tables. When you [create a table](/sql/t-sql/statements/create-table-azure-sql-data-warehouse), choose clustered columnstore if you're unsure how to index your table. However, there are some scenarios where clustered columnstore indexes aren't the best option:
 
     - Tables with varchar(max), nvarchar(max), or varbinary(max) data types, because a clustered columnstore index doesn't support those data types. Instead, consider using a heap or clustered index.
     - Tables with transient data, because columnstore tables might be less efficient than heap or temporary tables.
@@ -187,7 +187,7 @@ Oracle-specific features can often be replaced by Azure Synapse features. Howeve
 
   In Azure Synapse, you can achieve similar results by using materialized and/or replicated tables, because those table types minimize the I/O required at query run time.
 
-- **Materialized views**: Oracle supports materialized views and recommends using one or more for large tables with many columns where only a few columns are regularly used in queries. Materialized views are automatically refreshed by the system when data in the base table is updated.
+- **Materialized views**: Oracle supports [materialized views](/sql/t-sql/statements/create-materialized-view-as-select-transact-sql) and recommends using one or more for large tables with many columns where only a few columns are regularly used in queries. Materialized views are automatically refreshed by the system when data in the base table is updated.
 
   In 2019, Microsoft announced that Azure Synapse will support materialized views with the same functionality as in Oracle. Materialized views are now a preview feature in Azure Synapse.
 
