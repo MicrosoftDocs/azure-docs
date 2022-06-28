@@ -250,7 +250,7 @@ Azure Synapse supports stored procedures using T-SQL, so you'll need to recode a
 
 #### Sequences
 
-In Oracle, a sequence is a named database object, created using `CREATESEQUENCE`. A sequence provides unique numeric values via the `CURRVAL` and `NEXTVAL` methods. You can use the generated unique numbers as surrogate key values for primary keys. Azure Synapse doesn't implement `CREATE SEQUENCE`, but you can implement sequences using `IDENTITY` columns or SQL code that generates the next sequence number in a series.
+In Oracle, a sequence is a named database object, created using `CREATE SEQUENCE`. A sequence provides unique numeric values via the `CURRVAL` and `NEXTVAL` methods. You can use the generated unique numbers as surrogate key values for primary keys. Azure Synapse doesn't implement `CREATE SEQUENCE`, but you can implement sequences using `IDENTITY` columns or SQL code that generates the next sequence number in a series.
 
 ### Use EXPLAIN to validate legacy SQL
 
@@ -258,6 +258,7 @@ In Oracle, a sequence is a named database object, created using `CREATESEQUENCE`
 >Use real queries from the existing system query logs to find potential migration issues.
 
 Assuming a like-for-like migrated data model in Azure Synapse with the same table and column names, one way to test legacy Oracle SQL for compatibility with Azure Synapse is:
+
 1. Capture some representative SQL statements from the legacy system query history logs.
 1. Prefix those queries with the `EXPLAIN` statement.
 1. Run the `EXPLAIN` statements in Azure Synapse.

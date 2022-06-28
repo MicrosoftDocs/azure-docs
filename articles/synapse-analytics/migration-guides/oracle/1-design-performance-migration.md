@@ -295,7 +295,7 @@ Azure Synapse supports stored procedures using T-SQL, so you'll need to recode a
 
 ##### Sequences
 
-In Oracle, a sequence is a named database object, created using `CREATESEQUENCE`. A sequence provides unique numeric values via the `CURRVAL` and `NEXTVAL` methods. You can use the generated unique numbers as surrogate key values for primary keys. Azure Synapse doesn't implement `CREATE SEQUENCE`, but you can implement sequences using `IDENTITY` columns or SQL code that generates the next sequence number in a series.
+In Oracle, a sequence is a named database object, created using `CREATE SEQUENCE`. A sequence provides unique numeric values via the `CURRVAL` and `NEXTVAL` methods. You can use the generated unique numbers as surrogate key values for primary keys. Azure Synapse doesn't implement `CREATE SEQUENCE`, but you can implement sequences using `IDENTITY` columns or SQL code that generates the next sequence number in a series.
 
 ### Extracting metadata and data from an Oracle environment
 
