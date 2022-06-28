@@ -75,7 +75,7 @@ The MLflow plugin [azureml-mlflow](https://pypi.org/project/azureml-mlflow/) can
 ### Prerequisites
 
 * Install the `azureml-mlflow` package.
-* If you are running outside an Azure ML compute, configure the MLflow tracking URI or MLflow's registry URI to point to the workspace you are working on. For more information about how to Set up tracking environment, see [Track runs using MLflow with Azure Machine Learning](how-to-use-mlflow-cli-runs#set-up-tracking-environment) for more details.
+* If you are running outside an Azure ML compute, configure the MLflow tracking URI or MLflow's registry URI to point to the workspace you are working on. For more information about how to Set up tracking environment, see [Track runs using MLflow with Azure Machine Learning](how-to-use-mlflow-cli-runs.md#set-up-tracking-environment) for more details.
 
 ### Steps
 
