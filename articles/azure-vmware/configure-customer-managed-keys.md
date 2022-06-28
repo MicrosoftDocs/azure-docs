@@ -137,7 +137,9 @@ Navigate to your **Azure Key Vault** and provide access to the SDDC on Azure Key
 
 To configure customer-managed keys for an Azure VMware Solution private cloud with automatic updating of the key version, call [az vmware private-cloud add-cmk-encryption](https://docs.microsoft.com/cli/azure/vmware/private-cloud?view=azure-cli-latest#az-vmware-private-cloud-add-cmk-encryption). Get the Key Vault URL and save it to a variable. You will need this value in the next step to enable CMK.
     
-`keyVaultUrl =$(az keyvault show --name <keyvault_name> --resource-group <resource_group_name> --query properties.vaultUri --output tsv)`
+```azurecli-interactive
+keyVaultUrl =$(az keyvault show --name <keyvault_name> --resource-group <resource_group_name> --query properties.vaultUri --output tsv)
+```
 
 Option 1 and 2 below demonstrate the difference between not providing a specific key version and providing one.
 
