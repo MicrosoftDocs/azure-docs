@@ -107,7 +107,7 @@ To configure a policy:
     </policies>
     ```
     > [!NOTE]
-    > Set policy attributes and elements in the order provided in the policy statement and examples.
+    > Set a policy's elements and child elements in the order provided in the policy statement.
 
 1. Select **Save** to propagate changes to the API Management gateway immediately.
     
