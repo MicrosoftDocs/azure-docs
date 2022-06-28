@@ -27,7 +27,7 @@ There are two types of backups in App Service. Automatic backups made for your a
 | [Storage account](../storage/index.yml) required | No. | Yes. |
 | Backup frequency | Hourly, not configurable. | Configurable. |
 | Retention | 30 days, not configurable. | 0-30 days or indefinite. |
-| Donwloadable | No. | Yes, as Azure Storage blobs. |
+| Downloadable | No. | Yes, as Azure Storage blobs. |
 | Partial backups | Not supported. | Supported. |
 
 <!-- - No file copy errors due to file locks. -->
