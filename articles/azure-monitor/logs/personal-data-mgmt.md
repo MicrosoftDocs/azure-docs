@@ -78,7 +78,7 @@ We __strongly__ recommend you restructure your data collection policy to stop co
 >  While most purge operations complete much quicker, **the formal SLA for the completion of purge operations is set at 30 days** due to their heavy impact on the data platform. This SLA meets GDPR requirements. It's an automated process, so there's no way to expedite the operation. 
 ### View and export
 
-Use the [Log Analytics query API](https://dev.loganalytics.io/) or the [Application Insights query API](https://dev.applicationinsights.io/quickstart) for view and export data requests. 
+Use the [Log Analytics query API](/rest/api/loganalytics/dataaccess/query) or the [Application Insights query API](/rest/api/application-insights/query) for view and export data requests. 
 
 You need to implement the logic for converting the data to an appropriate format for delivery to your users. [Azure Functions](https://azure.microsoft.com/services/functions/) is a great place to host such logic.
 
