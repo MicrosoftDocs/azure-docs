@@ -6,14 +6,22 @@ author: sr-msft
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: conceptual
-ms.date: 06/14/2022
+ms.date: 06/16/2022
 ---
 
 # Comparison chart - Azure Database for PostgreSQL Single Server and Flexible Server
 
 [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 
-The following table provides a list of high-level features and capabilities comparisons between Single Server and Flexible Server. For most new deployments, we recommend using Flexible Server. However, you should consider your own requirements against the comparison table below.
+## Overview
+
+Azure Database for PostgreSQL Flexible Server is the next generation managed PostgreSQL service in Azure. It provides maximum flexibility over your database, built-in cost-optimizations, and offers serveral improvements over Single Server. 
+
+>[!NOTE]
+> For all your new PostgreSQL deployments, we recommend using Flexible Server. However, you should consider your own requirements against the comparison table below.
+
+## Comparison table
+The following table provides a list of high-level features and capabilities comparisons between Single Server and Flexible Server. 
 
 | **Feature / Capability** | **Single Server** | **Flexible Server** |
 | ---- | ---- | ---- |
@@ -55,8 +63,9 @@ The following table provides a list of high-level features and capabilities comp
 | Can turn off SSL | Yes | Yes (set ``require_secure_transport`` to OFF) |
 | SCRAM authentication | No | Yes |
 | **High Availability** | | |
-| Zone-redundant HA | No | Yes (a synchronous standby is established on another zone within a region) |
-| HA Configuration | Built-in with storage pinned to a zone. Compute can float across regions. | Physically separate compute & storage provisioned across two zones |
+| Zone-redundant HA | No | Yes (a synchronous standby is established in another zone within a region) |
+| Same-zone HA | No | Yes (a synchronous standby is established in the same zone as the primary) |
+| HA Configuration | Built-in with storage pinned to a zone. Compute can float across regions. | Physically separate compute & storage provisioned |
 | Cost | 1x | 2x (compute + storage) |
 | Availability with non-HA configuration | Automatic restart, compute relocation | Automatic restart, compute relocation)
 | Protect from zone failure | Compute - Yes. Storage - No | Compute & storage - Yes |
@@ -113,7 +122,7 @@ The following table provides a list of high-level features and capabilities comp
 | Microsoft Defender for Cloud | Yes | No |
 | Resource health | Yes | Yes |
 | Service health | Yes | Yes |
-| Performance insights (iPerf) | Yes | Yes |
+| Performance insights (iPerf) | Yes | Yes. Not available in portal |
 | Major version upgrades support | No | No |
 | Minor version upgrades | Yes. Automatic during maintenance window | Yes. Automatic during maintenance window |
 

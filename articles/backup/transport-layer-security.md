@@ -15,8 +15,8 @@ If the machine is running earlier versions of Windows, the corresponding updates
 
 |Operating system  |KB article |
 |---------|---------|
-|Windows Server 2008 SP2   |   <https://support.microsoft.com/help/4019276>      |
-|Windows Server 2008 R2, Windows 7, Windows Server 2012   | <https://support.microsoft.com/help/3140245>         |
+|Windows Server 2008 SP2 | <https://support.microsoft.com/help/4019276> |
+|Windows Server 2008 R2, Windows 7, Windows Server 2012 | <https://support.microsoft.com/help/3140245> |
 
 >[!NOTE]
 >The update will install the required protocol components. After installation, you must make the registry key changes mentioned in the KB articles above to properly enable the required protocols.

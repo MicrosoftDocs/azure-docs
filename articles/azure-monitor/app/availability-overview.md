@@ -31,7 +31,7 @@ You can create up to 100 availability tests per Application Insights resource.
 
 ## Troubleshooting
 
-See the dedicated [troubleshooting article](troubleshoot-availability.md).
+See the dedicated [troubleshooting article](https://docs.microsoft.com/troubleshoot/azure/azure-monitor/app-insights/troubleshoot-availability).
 
 ## Next steps
 

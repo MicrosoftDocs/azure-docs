@@ -57,6 +57,10 @@ If you haven't yet enabled UEBA, you will be taken to the **Settings** page. Sel
 
 ## Next steps
 
-In this document, you learned how to enable and configure User and Entity Behavior Analytics (UEBA) in Microsoft Sentinel. To learn more about Microsoft Sentinel, see the following articles:
+In this document, you learned how to enable and configure User and Entity Behavior Analytics (UEBA) in Microsoft Sentinel. For more information about UEBA:
+- See the [list of anomalies](anomalies-reference.md#ueba-anomalies) detected using UEBA.
+- Learn more about [how UEBA works](identify-threats-with-entity-behavior-analytics.md) and how to use it.
+
+To learn more about Microsoft Sentinel, see the following articles:
 - Learn how to [get visibility into your data, and potential threats](get-visibility.md).
 - Get started [detecting threats with Microsoft Sentinel](detect-threats-built-in.md).
