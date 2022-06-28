@@ -12,6 +12,8 @@ ms.author: sawinark
 
 # Prepare the SAP CDC linked service and source dataset for the SAP CDC solution in Azure Data Factory (Preview)
 
+[!INCLUDEappliesto-adf-asa-md]
+
 This topic introduces and describes preparation of the linked service and source dataset for SAP change data capture (Preview) in Azure Data Factory.
 
 ## Prepare the SAP CDC linked service

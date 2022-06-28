@@ -12,6 +12,8 @@ ms.author: sawinark
 
 # SAP change data capture (CDC) solution prerequisites and configuration in Azure Data Factory (Preview)
 
+[!INCLUDEappliesto-adf-asa-md]
+
 This topic introduces and describes the prerequisites and configuration of SAP change data capture (Preview) in Azure Data Factory.
 
 ## Prerequisites
@@ -20,7 +22,6 @@ To preview our new SAP CDC solution in ADF you can/should:
 
 1. Configure SAP systems for Operational Data Provisioning (ODP) framework
 1. Be already familiar w/ ADF concepts, such as integration runtimes, linked services, datasets, activities, data flows, pipelines, templates, and triggers
-1. Share your Azure subscription ID(s) for us to add in our allow list
 1. Prepare SHIR w/ SAP CDC connector
 1. Prepare SAP CDC linked service
 1. Prepare ADF copy activity w/ SAP CDC source dataset
@@ -30,7 +31,6 @@ To preview our new SAP CDC solution in ADF you can/should:
 1. Run SAP data replication pipeline frequently
 1. Recover a failed SAP data replication pipeline run
 1. Monitor data extractions on SAP systems
-1. Allocate your internal/partner resources who can frequently collaborate w/ us to resolve issues on both SAP and ADF sides
 
 ## Configure SAP systems for ODP framework
 

@@ -12,6 +12,8 @@ ms.author: sawinark
 
 # Auto-generate a pipeline from the SAP data replication template
 
+[!INCLUDEappliesto-adf-asa-md]
+
 This topic describes how to use the SAP data replication template for SAP change data capture (Preview) in Azure Data Factory.
 
 ## Steps to auto-generate a pipeline from the SAP data replication template

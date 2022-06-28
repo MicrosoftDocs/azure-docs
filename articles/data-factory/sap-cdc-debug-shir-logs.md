@@ -12,6 +12,8 @@ ms.author: sawinark
 
 # Debug ADF copy activity issues by sending SHIR logs
 
+[!INCLUDEappliesto-adf-asa-md]
+
 If you want us to debug your ADF copy activity issues, send SHIR logs to us.  To do so, complete the following steps.
 
 ## Send logs to Microsoft

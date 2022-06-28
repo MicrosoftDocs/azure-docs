@@ -12,13 +12,15 @@ ms.author: sawinark
 
 # Self-hosted integration runtime (SHIR) preparation for the SAP change data capture (CDC) solution in Azure Data Factory (Preview)
 
+[!INCLUDEappliesto-adf-asa-md]
+
 This topic introduces and describes preparation of the self-hosted integration runtime (SHIR) for SAP change data capture (Preview) in Azure Data Factory.
 
 To prepare SHIR w/ SAP CDC connector, complete the following steps:
 
 ## Create and configure SHIR
 
-On ADF Studio, create and configure SHIR, see [Create and configure a self-hosted integration runtime](create-self-hosted-integration-runtime.md?tabs=data-factory). You can download our latest private SHIR version w/ improved performance and detailed error messages from [SHIR installation download](https://adfsapfileshare.blob.core.windows.net/shir/IntegrationRuntime_5.18.8172.1.msi) and install it on your on-premises/virtual machine.
+On ADF Studio, create and configure SHIR, see [Create and configure a self-hosted integration runtime](create-self-hosted-integration-runtime.md?tabs=data-factory). You can download our latest private SHIR version w/ improved performance and detailed error messages from [SHIR installation download](https://www.microsoft.com/en-us/download/details.aspx?id=39717) and install it on your on-premises/virtual machine.
 
 The more CPU cores you have on your SHIR machine, the higher your data extraction throughput.  For example, our internal test achieved +12 MB/s throughput from running parallel extractions on SHIR machine w/ 16 CPU cores.
 

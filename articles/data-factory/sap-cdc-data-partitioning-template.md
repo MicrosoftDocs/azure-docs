@@ -12,6 +12,8 @@ ms.author: sawinark
 
 # Auto-generate a pipeline from the SAP data partitioning template
 
+[!INCLUDEappliesto-adf-asa-md]
+
 This topic introduces and describes auto-generation of a pipeline with the SAP data partitioning template for SAP change data capture (Preview) in Azure Data Factory.
 
 ## Steps to use the SAP data partitioning template

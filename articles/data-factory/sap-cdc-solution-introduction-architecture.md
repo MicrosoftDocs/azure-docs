@@ -12,6 +12,8 @@ ms.author: sawinark
 
 # SAP change data capture (CDC) solution in Azure Data Factory (Preview)
 
+[!INCLUDEappliesto-adf-asa-md]
+
 This topic introduces and describes the architecture for SAP change data capture (Preview) in Azure Data Factory.
 
 ## Introduction

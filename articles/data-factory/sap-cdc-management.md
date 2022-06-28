@@ -12,6 +12,8 @@ ms.author: sawinark
 
 # Management of SAP change data capture (CDC) (Preview) in Azure Data Factory
 
+[!INCLUDEappliesto-adf-asa-md]
+
 This topic describes how to manage SAP change data capture (Preview) in Azure Data Factory.
 
 ## Run SAP a data replication pipeline on a recurring schedule
@@ -60,3 +62,31 @@ These are the current limitations of SAP CDC solution in ADF that will be remove
 
 1.	Resetting and deleting ODQ subscriptions from ADF are not supported for now.
 1.	SAP hierarchies are not supported for now.
+
+## Troubleshooting
+
+The Azure Data Factory ODP connector reads delta changes from the ODP framework, which itself provides them in tables called Operational Delta Queues (ODQs). 
+
+In situations where the data movement works technically (i.e., copy activities complete without errors), but does not appear to deliver the data correctly (e.g., no data at all, or maybe just a subset of the expected data), you should first investigate if the number of records provided on the SAP side match the number of rows transferred by ADF. If this is the case, the issue is not related to ADF but probably comes from incorrect or missing configuration on SAP side. 
+
+### Troubleshooting in SAP using ODQMON 
+
+To analyze what data the SAP system has provided for your scenario, start transaction ODQMON in your SAP backend system. If you are using the SLT scenario, with a standalone SLT server, please start the transaction there. 
+
+To find the Operational Delta Queue(s) corresponding to your copy activities or copy activity runs, use the filter options (blurred out below). In the field “Queue” you can use wildcards to narrow down the search, e.g., by table name *EKKO*, etc. 
+
+Selecting the check box “Calculate Data Volume” provides details about the number of rows and data volume (in bytes) contained in the ODQs. 
+
+:::image type="content" source="media/sap-cdc-solution/sap-cdc-odqmon-troubleshooting-1.png" alt-text="Shows a screenshot of the SAP ODQMON tool with delta queues displayed."::: 
+
+Double clicking on the queue will bring you to the subscriptions of this ODQ. Since there can be multiple subscribers to the same ODQ, check for the subscriber name (which you entered in the ADF linked service) and pick the subscription whose timestamp best fits your copy activity run. (Note that for delta subscriptions, the first run of the copy activity will be recorded on SAP side for the subscription). 
+
+:::image type="content" source="media/sap-cdc-solution/sap-cdc-odqmon-troubleshooting-2.png" alt-text="Shows a screenshot of the SAP ODQMON tool with delta queue subscriptions displayed.":::
+
+Drilling down into the subscription, you find a list of “requests”, corresponding to copy activity runs in ADF. In the screen shot below, you see the result of 4 copy activity runs.  
+
+:::image type="content" source="media/sap-cdc-solution/sap-cdc-odqmon-troubleshooting-3.png" alt-text="Shows a screenshot of the SAP ODQMON tool with delta queue requests displayed."::: 
+
+Based on the timestamp in the first row, find the line corresponding to the copy activity run you want to analyze. If the number of rows shown in this screen equals the number of rows read by the copy activity, you have verified that ADF has read and transferred the data as provided by the SAP system. 
+
+In this case, we recommend to consult with the team responsible for your SAP system. 
