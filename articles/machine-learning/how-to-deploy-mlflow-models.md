@@ -93,8 +93,6 @@ The MLflow plugin [azureml-mlflow](https://pypi.org/project/azureml-mlflow/) can
    model_local_path = os.path.abspath("sklearn-diabetes/model")
    mlflow.register_model(f"file://{model_local_path}", "sample-sklearn-mlflow-model")
    ```
-   
-   ---
 
 2. Deployments can be generated using both the Python SDK for MLflow or MLflow CLI. In both cases, a JSON configuration file can be indicated with the details of the deployment you want to achieve. If not indicated, then a default deployment is done using Azure Container Instances (ACI) and a minimal configuration. 
    
@@ -170,15 +168,13 @@ The MLflow plugin [azureml-mlflow](https://pypi.org/project/azureml-mlflow/) can
    
    # [ACI](#tab/aci)
    
-  ```python
-  import json
-  from mlflow.deployments import get_deploy_client
+   ```python
+   import json
+   from mlflow.deployments import get_deploy_client
 
-  # Create the deployment configuration.
-  deploy_config = {"computeType": "aci"}
-  ```
-  
-  ---
+   # Create the deployment configuration.
+   deploy_config = {"computeType": "aci"}
+   ```
    
 4. Create a deployment client using the Azure Machine Learning Tracking URI.
 
@@ -210,9 +206,7 @@ You can use Azure ML CLI v2 to deploy models trained and logged with MLflow to M
 
 [!INCLUDE [basic cli prereqs](../../includes/machine-learning-cli-prereqs.md)]
 
-* You must have a MLflow model. The examples in this article are based on the models from [https://github.com/Azure/azureml-examples/blob/main/notebooks/using-mlflow](https://github.com/Azure/azureml-examples/blob/main/notebooks/using-mlflow/).
-
-    * If you don't have an MLflow formatted model, you can [convert your custom ML model to MLflow format](how-to-convert-custom-model-to-mlflow.md).  
+* You must have a MLflow model. If your model is not in MLflow format and you want to use this feature, you can [convert your custom ML model to MLflow format](how-to-convert-custom-model-to-mlflow.md).  
 
 [!INCLUDE [clone repo & set defaults](../../includes/machine-learning-cli-prepare.md)]
 
@@ -273,8 +267,6 @@ You can use [Azure Machine Learning studio](https://ml.azure.com) to deploy mode
    You can use the option *From local files* in the Models section of your workspace to select the MLflow model from [https://github.com/Azure/azureml-examples/tree/main/cli/endpoints/online/mlflow/sklearn-diabetes/model](https://github.com/Azure/azureml-examples/tree/main/cli/endpoints/online/mlflow/sklearn-diabetes/model):
    
    :::image type="content" source="./media/how-to-manage-models/register-model-as-asset.png" alt-text="Screenshot of the UI to register a model." lightbox="./media/how-to-manage-models/register-model-as-asset.png":::
-   
-   ---
 
 2. From [studio](https://ml.azure.com), select your workspace and then use either the __endpoints__ or __models__ page to create the endpoint deployment:
 
