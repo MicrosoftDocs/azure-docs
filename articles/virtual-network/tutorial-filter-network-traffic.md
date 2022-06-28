@@ -191,9 +191,9 @@ Once you've completed steps 1-3, review the rules you created. Your list should 
 
 :::image type="content" source="./media/tutorial-filter-network-traffic/security-rules.png" alt-text="Screenshot of Security rules of a network security group." border="true":::
 
-## Create virtual machines (VMs)
+## Create virtual machines
 
-Create two VMs in the virtual network.
+Create two virtual machines (VMs) in the virtual network.
 
 ### Create the first virtual machine
 
@@ -277,7 +277,7 @@ Add the network interface of each VM to one of the application security groups y
 
 5. You may receive a certificate warning during the connection process. If you receive the warning, select **Yes** or **Continue**, to continue with the connection.
 
-    The connection succeeds, because port 3389 is allowing inbound traffic from the internet to the **myAsgMgmtServers** application security group. 
+    The connection succeeds, because inbound traffic from the internet to the **myAsgMgmtServers** application security group is allowed through port 3389. 
     
     The network interface for **myVMMgmt** is associated with the **myAsgMgmtServers** application security group and allows the connection.
 
@@ -309,7 +309,7 @@ Add the network interface of each VM to one of the application security groups y
     
 11. To confirm that you can access the **myVMWeb** web server from the internet, open an internet browser on your computer and browse to `http://<public-ip-address-from-previous-step>`. 
 
-You see the IIS default page, because port 80 is allowing inbound traffic from the internet to the **myAsgWebServers** application security group. 
+You see the IIS default page, because inbound traffic from the internet to the **myAsgWebServers** application security group is allowed through port 80. 
 
 The network interface attached for **myVMWeb** is associated with the **myAsgWebServers** application security group and allows the connection. 
 
