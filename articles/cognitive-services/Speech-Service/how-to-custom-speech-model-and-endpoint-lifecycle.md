@@ -68,7 +68,7 @@ To get the training and transcription expiration dates for a base model, use the
 
 Here's an example Speech CLI command to get the training and transcription expiration dates for a base model:
 
-```azurecli-interactive
+```azurecli
 spx csr model status --model https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/models/base/b0bbc1e0-78d5-468b-9b7c-a5a43b2bb83f
 ```
 
@@ -100,7 +100,7 @@ You should receive a response body in the following format:
 
 For Speech CLI help with models, run the following command:
 
-```azurecli-interactive
+```azurecli
 spx help csr model
 ```
 
@@ -176,7 +176,7 @@ To get the transcription expiration date for your custom model, use the `spx csr
 
 Here's an example Speech CLI command to get the transcription expiration date for your custom model:
 
-```azurecli-interactive
+```azurecli
 spx csr model status --model https://YourServiceRegion.api.cognitive.microsoft.com/speechtotext/v3.0/models/YourModelId
 ```
 
@@ -219,7 +219,7 @@ You should receive a response body in the following format:
 
 For Speech CLI help with models, run the following command:
 
-```azurecli-interactive
+```azurecli
 spx help csr model
 ```
 

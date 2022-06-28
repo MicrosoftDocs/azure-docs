@@ -52,7 +52,7 @@ To create a dataset and connect it to an existing project, use the `spx csr data
 
 Here's an example Speech CLI command that creates a dataset and connects it to an existing project:
 
-```azurecli-interactive
+```azurecli
 spx csr dataset create --kind "Acoustic" --name "My Acoustic Dataset" --description "My Acoustic Dataset Description" --project YourProjectId --content YourContentUrl --language "en-US"
 ```
 
@@ -86,7 +86,7 @@ The top-level `self` property in the response body is the dataset's URI. Use thi
 
 For Speech CLI help with datasets, run the following command:
 
-```azurecli-interactive
+```azurecli
 spx help csr dataset
 ```
 
