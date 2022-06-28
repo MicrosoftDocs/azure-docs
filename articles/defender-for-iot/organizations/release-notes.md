@@ -63,6 +63,13 @@ For more information, see the [Microsoft Security Development Lifecycle practice
 - [Support diagnostic log enhancements](#support-diagnostic-log-enhancements-public-preview)
 - [Improved security for uploading protocol plugins](#improved-security-for-uploading-protocol-plugins)
 
+To update to version 22.2.3:
+
+- From version 22.1.1, update directly to version 22.2.3
+- From version 10.x, first update to version 21.1.6, and then update again to 22.2.3
+
+For more information, see [Update Defender for IoT OT monitoring software](update-ot-software.md).
+
 ### Support diagnostic log enhancements (Public preview)
 
 Starting in sensor version [22.1.1](#new-support-diagnostics-log), you've been able to download a diagnostic log from the sensor console to send to support when you open a ticket.
