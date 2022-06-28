@@ -20,7 +20,7 @@ You must create a new Azure Fluid Relay resource to enable CMK. You cannot chang
 
 Also, CMK of Fluid Relay relies on Managed Identity, and you need to assign a managed identity to the Fluid Relay resource when enabling CMK. Only user-assigned identity is allowed for Fluid Relay resource CMK. For more information about managed identities, see [here](../../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types).
 
-Configuring a Fluid Relay resource with CMK can't be done through Azure Portal yet. 
+Configuring a Fluid Relay resource with CMK can't be done through Azure portal yet. 
 
 When you configure the Fluid Relay resource with CMK, the Azure Fluid Relay service configures the appropriate CMK encrypted settings on the Azure Storage account scope where your Fluid session artifacts are stored. For more information about CMK in Azure Storage, see [here](../../storage/common/customer-managed-keys-overview.md). 
 
