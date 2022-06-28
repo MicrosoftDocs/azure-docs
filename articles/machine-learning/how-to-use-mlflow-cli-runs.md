@@ -219,8 +219,6 @@ params = finished_mlflow_run.data.params
 print(metrics,tags,params)
 ```
 
-### Retrieve artifacts with MLFLow
-
 To view the artifacts of a run, you can use [MlFlowClient.list_artifacts()](https://mlflow.org/docs/latest/python_api/mlflow.tracking.html#mlflow.tracking.MlflowClient.list_artifacts)
 
 ```Python
