@@ -61,7 +61,7 @@ Azure Synapse supports two basic options for connection and authorization:
 
 ### Users, roles, and permissions
 
-Both Oracle and Azure Synapse implement database access control via a combination of users, roles, and permissions. You can use standard `SQL CREATE USER` and `CREATE ROLE/GROUP` statements to define users and roles. `GRANT` and `REVOKE` statements assign or remove permissions to users and/or roles.
+Both Oracle and Azure Synapse implement database access control via a combination of users, roles, and permissions. You can use standard SQL statements `CREATE USER` and `CREATE ROLE/GROUP` to define users and roles. `GRANT` and `REVOKE` statements assign or remove permissions to users and/or roles.
 
 >[!TIP]
 >Planning is essential for a successful migration project. Start with high-level approach decisions.
