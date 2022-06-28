@@ -10,28 +10,29 @@ ms.date: 06/30/2022
 ---
 # Azure Stream Analytics metrics dimensions
 
-A typic Azure Stream Analytics architecture is illustrated below:
+A typical Azure Stream Analytics architecture is illustrated below:
 
-![Azure Stream Analytics typic architecture](./media/stream-analytics-job-metrics-dimensions/01-asa-typic-architecture.png)
+:::image type="content" source="./media/stream-analytics-job-metrics-dimensions/01-asa-typic-architecture.png" alt-text="Azure Stream Analytics typic architecture"":::
 
-Stream analytics service is a distributed system, which means the job is running on many distributed computer nodes which the platform automatically manages . The input data are partitioned and allocated to different stream nodes for processing. Metrics can be split by dimensions, like Partition ID or Node name which helps troubleshoot performance issues with your job.
+Stream analytics service is a distributed system, which means the job is running on many distributed computer nodes, which the platform automatically manages. The input data are partitioned and allocated to different stream nodes for processing. Metrics can be split by dimensions, like Partition ID or Node name that helps troubleshoot performance issues with your job.
   
-Azure Stream Analytics provides 3 important dimensions: “Logic Name”, “Partition ID”, and “Node Name” for metrics splitting and filtering. 
+Azure Stream Analytics provides three important dimensions: “Logic Name”, “Partition ID”, and “Node Name” for metrics splitting and filtering. 
 
-![Metric splitting with dimension](./media/stream-analytics-job-metrics-dimensions/02-metric-splitting-with-dimension.png)
+:::image type="content" source="./media/stream-analytics-job-metrics-dimensions/02-metric-splitting-with-dimension.png" alt-text="Metric splitting with dimension"":::
 
-![Metric filtered by dimension](./media/stream-analytics-job-metrics-dimensions/03-metric-filtered-by-dimension.png) 
+:::image type="content" source="./media/stream-analytics-job-metrics-dimensions/03-metric-filtered-by-dimension.png" alt-text="Metric filtered by dimension"":::
 
 
 ## "Logic Name" dimension
 
-The “Logic Name” is the input or output name for a given Azure Stream Analytics (ASA) job. For example: if an ASA job has 4 inputs and 5 outputs, you will see the 4 individual logic inputs or 5 individual logic outputs when splitting input or output related metrics with this dimension. (e.g., Input Events, Output Events, etc.) 
+The “Logic Name” is the input or output name for a given Azure Stream Analytics (ASA) job. For example: if an ASA job has four inputs and five outputs, you'll see the four individual logic inputs or five individual logical outputs when splitting input or output related metrics with this dimension. (for example, Input Events, Output Events, etc.) 
 
-![Multiple input and output of an ASA job](./media/stream-analytics-job-metrics-dimensions/04-multiple-input-and-output-of-an-asa-job.png)
+:::image type="content" source="./media/stream-analytics-job-metrics-dimensions/04-multiple-input-and-output-of-an-asa-job.png" alt-text="Multiple input and output of an ASA job"":::
 
-!["Input events” metric is splitting by “Logic Name”](./media/stream-analytics-job-metrics-dimensions/05-input-events-splitting-by-logic-name.png)
+:::image type="content" source="./media/stream-analytics-job-metrics-dimensions/05-input-events-splitting-by-logic-name.png" alt-text=" "Input events" metric is splitting by "Logic Name""":::
 
-!["Output events” metric is splitting by “Logic Name”](./media/stream-analytics-job-metrics-dimensions/06-output-events-splitting-by-logic-name.png)
+:::image type="content" source="./media/stream-analytics-job-metrics-dimensions/06-output-events-splitting-by-logic-name.png" alt-text=" "Output events" metric is splitting by "Logic Name""":::
+
 
 “Logic Name” dimension is available for the metrics below for filtering and splitting:
 -	Backlogged Input Events 
@@ -48,11 +49,11 @@ The “Logic Name” is the input or output name for a given Azure Stream Analyt
 
 ## "Node Name" dimension
 
-A streaming node represents a set of compute resources that is used to process your input data. Every 6 Streaming Units (SUs) translates to one node which the service automatically manages on your behalf. For more information for the relationship between streaming unit and streaming node, see [Stream Analytics streaming unit and streaming node](./stream-analytics-streamingunit-and-streamingnode.md).
+A streaming node represents a set of compute resources that is used to process your input data. Every six Streaming Units (SUs) translates to one node, which the service automatically manages on your behalf. For more information for the relationship between streaming unit and streaming node, see [Stream Analytics streaming unit and streaming node](./stream-analytics-streamingunit-and-streamingnode.md).
 
-The “Node Name” is “Streaming Node” level dimension which could help you to drill down certain metrics to the specific Streaming Node level. For example, the CPU utilization metrics could be split into Streaming Node level to check the CPU utilization of an individual Streaming Node.
+The “Node Name” is “Streaming Node” level dimension that could help you to drill down certain metrics to the specific Streaming Node level. For example, the CPU utilization metrics could be split into Streaming Node level to check the CPU utilization of an individual Streaming Node.
 
-![Avg CPU utilization is splitting by "Node Name" dimension](./media/stream-analytics-job-metrics-dimensions/07-avg-cpu-splitting-by-nodename.png)
+:::image type="content" source="./media/stream-analytics-job-metrics-dimensions/07-avg-cpu-splitting-by-nodename.png" alt-text="Avg CPU utilization is splitting by "Node Name" dimension"":::
 
 “Node Name” dimension is available   for the metrics below for filtering and splitting:
 -	CPU % Utilization (Preview)
@@ -63,7 +64,8 @@ The “Node Name” is “Streaming Node” level dimension which could help you
 
 When streaming data is ingested into Azure Stream Analytics service for processing, the input data is distributed to Streaming Nodes according to the partitions in input source. The “Partition ID” is the ID of the input data partition from input source, for example, if the input source is from event hub, the partition ID is the EH partition ID. The “Partition ID” is the same as it in the output as well.
 
-![Watermark delay is splitting by "Partition ID" dimension](./media/stream-analytics-job-metrics-dimensions/08-watermark-delay-splitting-by-partition-id.png)
+:::image type="content" source="./media/stream-analytics-job-metrics-dimensions/08-watermark-delay-splitting-by-partition-id.png" alt-text="Watermark delay is splitting by "Partition ID" dimension"":::
+
 
 “Partition ID” dimension is available for the metrics below for filtering and splitting:
 -	Backlogged Input Events
