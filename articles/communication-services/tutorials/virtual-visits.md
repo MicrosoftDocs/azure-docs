@@ -102,9 +102,7 @@ Opening the App Service’s URL and navigating to `https://<YOUR URL>/VISIT` all
 ![Screenshot of final view of azure app service](./media/virtual-visits/azure-resource-final.png)
 
 ### Step 5 - Set deployed app URL in Bookings 
-
-Copy your application url into your calendar Business information setting by going to https://outlook.office.com/bookings/businessinformation.
-
+Enter the application url followed by "/visit" in the "Deployed App URL" field in https://outlook.office.com/bookings/businessinformation.
 ![Screenshot of final view of bookings business information](./media/virtual-visits/bookings-acs-app-integration-url.png)
 
 ## Going to production
