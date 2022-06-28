@@ -83,7 +83,7 @@ This tool accepts different formats, with the only requirement that they contain
 Once you've prepared your dataset, you can upload your files to the service. We offer two ways to do this:
 
 1. [From a local file](../reference.md#upload-a-file)
-1. [Import from an Azure Blob store or other web location](../reference.md#import-a-file-from-Azure-Blob)
+1. [Import from an Azure Blob store or other web location](../reference.md#import-a-file-from-azure-blob)
 
 For large data files, we recommend you import from Azure Blob. Large files can become unstable when uploaded through multipart forms because the requests are atomic and can't be retried or resumed.
 
