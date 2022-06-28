@@ -135,9 +135,11 @@ Navigate to your **Azure Key Vault** and provide access to the SDDC on Azure Key
 
 # [Azure CLI](#tab/azure-cli)
 
-To configure customer-managed keys for an Azure VMware Solution private cloud with automatic updating of the key version, call [az vmware private-cloud add-cmk-encryption](https://docs.microsoft.com/cli/azure/vmware/private-cloud?view=azure-cli-latest#az-vmware-private-cloud-add-cmk-encryption). See the examples below to understand the difference between not providing and providing a specific key version.
+To configure customer-managed keys for an Azure VMware Solution private cloud with automatic updating of the key version, call [az vmware private-cloud add-cmk-encryption](https://docs.microsoft.com/cli/azure/vmware/private-cloud?view=azure-cli-latest#az-vmware-private-cloud-add-cmk-encryption). Get the Key Vault URL and save it to a variable. You will need this value in the next step to enable CMK.
     
 `keyVaultUrl =$(az keyvault show --name <keyvault_name> --resource-group <resource_group_name> --query properties.vaultUri --output tsv)`
+
+Option 1 and 2 below demonstrate the difference between not providing a specific key version and providing one.
 
 **Option 1**
 
@@ -187,7 +189,7 @@ When a customer wants to change from a customer-managed key (CMK) to a Microsoft
 The Azure Key Vault must be configured as recoverable.
 
 - Configure Azure Key Vault with the **Soft Delete** option.
-- Turn on **purge protection** to guard against force deletion of the secret vault, even after soft delete.
+- Turn on **Purge Protection** to guard against force deletion of the secret vault, even after soft delete.
 
 Updating CMK settings won't work if the key is expired or the Azure VMware Solution access key has been revoked.
 
