@@ -104,7 +104,7 @@ On the **Register sources (SAP S/4HANA)** screen, do the following:
 
 ## Scan
 
-Follow the steps below to scan SAP S/4HANA to automatically identify assets and classify your data. For more information about scanning in general, see our [introduction to scans and ingestion](concept-scans-and-ingestion.md).
+Follow the steps below to scan SAP S/4HANA to automatically identify assets. For more information about scanning in general, see our [introduction to scans and ingestion](concept-scans-and-ingestion.md).
 
 ### Create and run scan
 

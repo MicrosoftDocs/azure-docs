@@ -355,7 +355,7 @@ You can further restrict permissions by assigning roles at smaller scopes or by 
 > | Read all configuration | [Security Reader](permissions-reference.md#security-reader) |  |
 > | Read users flagged for risk | [Security Reader](permissions-reference.md#security-reader) |  |
 
-## Temporary Access Pass (Preview)
+## Temporary Access Pass 
 
 > [!div class="mx-tableFixed"]
 > | Task | Least privileged role | Additional roles |
