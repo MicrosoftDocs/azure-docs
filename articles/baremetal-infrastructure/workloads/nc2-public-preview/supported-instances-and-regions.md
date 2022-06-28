@@ -2,7 +2,8 @@
 title: Supported instances and regions
 description: Learn about instances and regions supported for Public Preview.
 ms.topic: how-to
-ms.subservice:  
+ms.custom: references_regions 
+ms.subservice:  baremetal-nutanix
 ms.date: 03/31/2021
 ---
 
@@ -27,19 +28,16 @@ This public preview release supports the following Azure regions:
 | :------------------- | -------------------: |:---------------:|
 |East US (Virginia)|​Yes|No|
 |West US 2 (Washington)​|Yes|No|
-|East US 2 (Virginia)*|No|Yes|
-|North Central US (Illinois)*​|No|Yes|
-|UK South (London)*​*|No|Yes|
-|Germany West Central (Frankfurt)**​|No|Yes|
-|Australia East**|No|Yes|
-|West Europe (Amsterdam)**|No|Yes|
-|Southeast Asia (Singapore)**​|No|Yes|
+|East US 2 (Virginia)|No|Yes|
+|North Central US (Illinois)​|No|Yes|
+|UK South (London)*|No|Yes|
+|Germany West Central (Frankfurt)​|No|Yes|
+|Australia East|No|Yes|
+|West Europe (Amsterdam)No|Yes|
+|Southeast Asia (Singapore)|No|Yes|
 
-\* This region will become supported during Public Preview.
 
-** This region will be supported for GA.
-
-## Next step
+## Next steps
 
 Learn more:
 

@@ -2,7 +2,7 @@
 title: FAQ
 description: Questions frequently asked about NC2 on Azure
 ms.topic: conceptual
-ms.subservice:  
+ms.subservice:  baremetal-nutanix
 ms.date: 07/01/2022
 ---
 
@@ -51,7 +51,7 @@ For more information about Production Support tiers and SLAs, see Product Suppor
 
 Technically, yes. Raise a support ticket from Azure portal to get this functionality enabled.
 
-## Next step
+## Next steps
 
 Learn more:
 

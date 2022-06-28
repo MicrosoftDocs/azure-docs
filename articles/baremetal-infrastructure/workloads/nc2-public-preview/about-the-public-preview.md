@@ -1,6 +1,6 @@
 ---
 title: About NC2 on Azure Public Preview
-description: Explains NC2 on Azure Public Preview and its parameters
+description: Learn about NC2 on Azure Public Preview and the benefits it offers.
 ms.topic: overview
 ms.subservice: baremetal-nutanix
 ms.date: 03/31/2021
@@ -12,7 +12,7 @@ The articles in this section are intended for the professionals participating in
 
  To provide input, email [NC2-on-Azure Docs](mailto:AzNutanixPM@microsoft.com).
 
-![Illustration of NC2 on Azure Public Preview features](media/nc2-on-azure-preview.png)
+:::image type="content" source="media/nc2-on-azure-preview.png#lightbox" alt-text="Illustration of NC2 on Azure Public Preview features." border="false" lightbox="media/media/nc2-on-azure-preview.png)-large.png":::
 
 In particular, this article highlights Public Preview features. 
 
@@ -49,14 +49,8 @@ We offer two SKUs: AN36 and AN36P. For specifications, see [SKUs](skus.md).
 * Nutanix Bring your own License (BYOL)  
 
 > [!NOTE]
-
 > During the public preview, RI is not supported. 
 An additional discount may be available.
-
-## Transaction
-
- The final solution will be transacted through the Azure Marketplace.
-Customers will get one invoice from Microsoft with Nutanix solution as a separate line item.
 
 ## Support
 

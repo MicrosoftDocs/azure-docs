@@ -2,7 +2,7 @@
 title: Requirements
 description: What you need to run NC2 on Azure, including Azure, Nutanix, networking, and other requirements. 
 ms.topic: how-to
-ms.subservice: baremetal-oracle
+ms.subservice: baremetal-nutanix
 ms.date: 03/31/2021
 ---
 
@@ -34,7 +34,7 @@ gateway-external-api.console.nutanix.com.
 * Only the Nutanix AHV hypervisor on Nutanix clusters running in Azure
 * Prism Central instance deployed on NC2 on Azure to manage the Nutanix clusters in Azure
 
-## Next step
+## Next steps
 
 Learn more:
 

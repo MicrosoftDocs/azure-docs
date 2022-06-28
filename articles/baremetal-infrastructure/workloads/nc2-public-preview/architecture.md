@@ -2,7 +2,7 @@
 title: Architecture of BareMetal Infrastructure for NC2
 description: Learn about the architecture of several configurations of BareMetal Infrastructure for NC2.
 ms.topic: reference
-ms.subservice:  
+ms.subservice:  baremetal-nutanix
 ms.date: 04/14/2021
 ---
 
@@ -10,11 +10,11 @@ ms.date: 04/14/2021
 
 In this article, we'll look at the architectural options for BareMetal Infrastructure for Nutanix and the features each option supports.
 
-## Deployment Example
+## Deployment xample
 
 The image in this section shows one example of an NC2 on Azure deployment.
 
-:::image type="content" source="media/nc2-on-azure-deployment-architecture.png#lightbox" alt-text="Diagram showing NC2-onarchitecture of NC2 Networking Flow." border="false" lightbox="media/nc2-on-azure-deployment-architecture-large.png":::
+:::image type="content" source="media/nc2-on-azure-deployment-architecture.png#lightbox" alt-text="Diagram showing NC2 on Azure deployment architecture." border="false" lightbox="media/nc2-on-azure-deployment-architecture-large.png":::
 
 
 ### Cluster Management virtual network
@@ -25,7 +25,7 @@ The image in this section shows one example of an NC2 on Azure deployment.
 ### Hub virtual network
 
 * Contains a gateway subnet and VPN Gateway
-* VPN Gateway is entry point from on=prem to cloud
+* VPN Gateway is entry point from on-premises to cloud
 
 ### PC virtual network 
 
@@ -39,7 +39,7 @@ This virtual network is peered with both the PC virtual network and Cluster Mana
 
 
 
-## Next step
+## Next steps
 
 Learn more:
 

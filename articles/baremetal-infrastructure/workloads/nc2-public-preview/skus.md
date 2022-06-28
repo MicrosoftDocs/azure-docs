@@ -22,7 +22,7 @@ The following table presents component options for each available SKU.
 |Storage|18.56 TB (8 x 1.92 TB SATA SSD, 2x1.6TB NVMe)|19.95 TB (2x375G Optane, 6x3.2TB NVMe)|
 |Network|100 Gbps (four links * 25 Gbps)|100 Gbps (four links * 25 Gbps)|
 
-## Next step
+## Next steps
 
 Learn more:
 

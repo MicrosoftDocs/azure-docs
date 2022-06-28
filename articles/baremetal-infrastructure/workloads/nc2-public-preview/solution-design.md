@@ -2,7 +2,7 @@
 title: Solution design
 description: Learn about topologies and constraints for NC2 on Azure Public Preview. 
 ms.topic: conceptual
-ms.subservice:  
+ms.subservice:  baremetal-nutanix
 ms.date: 07/01/2022
 ---
 
@@ -42,7 +42,7 @@ The following table describes what’s supported for each network features confi
 |Load balancers for NC2 on Azure traffic|No|
 |Dual stack (IPv4 and IPv6) virtual network|IPv4 only supported|
 
-## Next step
+## Next steps
 
 Learn more:
 
