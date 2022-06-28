@@ -43,13 +43,10 @@ Artifacts:
   - Permission: _`https://auth.msft.communication.azure.com/Teams.ManageCalls`_
 - Artifact A2
   - Type: Object ID of an Azure AD user
-  - Audience: Azure Communication Services — control plane
-  - Azure AD application ID: Contoso's _`Azure AD application ID`_
-  - Permission: _`https://auth.msft.communication.azure.com/Teams.ManageCalls`_
+  - Azure AD application ID: Fabrikam's _`Azure AD application ID`_
 - Artifact A3
   - Type: Azure AD application ID
-  - Audience: Azure Communication Services — control plane
-  - Azure AD application ID: Contoso's _`Azure AD application ID`_
+  - Azure AD application ID: Fabrikam's _`Azure AD application ID`_
 - Artifact D
   - Type: Azure Communication Services access token
   - Audience: _`Azure Communication Services`_ — data plane
@@ -81,12 +78,9 @@ Artifacts:
   - Permission: _`https://auth.msft.communication.azure.com/Teams.ManageCalls`_
 - Artifact A2
   - Type: Object ID of an Azure AD user
-  - Audience: Azure Communication Services — control plane
-  - Azure AD application ID: Contoso's _`Azure AD application ID`_
-  - Permission: _`https://auth.msft.communication.azure.com/Teams.ManageCalls`_
+  - Azure AD application ID: Fabrikam's _`Azure AD application ID`_
 - Artifact A3
   - Type: Azure AD application ID
-  - Audience: Azure Communication Services — control plane
   - Azure AD application ID: Contoso's _`Azure AD application ID`_
 - Artifact B
   - Type: Custom Contoso authentication artifact

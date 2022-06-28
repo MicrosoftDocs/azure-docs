@@ -38,7 +38,7 @@ Open the `pom.xml` file in your text editor. Add the following dependency elemen
     <dependency>
         <groupId>com.azure</groupId>
         <artifactId>azure-communication-identity</artifactId>
-        <version>1.2.0</version>
+        <version>[1.2.0,)</version>
     </dependency>
     <dependency>
       <groupId>com.microsoft.azure</groupId>
