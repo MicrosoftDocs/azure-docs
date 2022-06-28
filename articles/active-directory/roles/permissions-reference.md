@@ -2314,7 +2314,7 @@ Usage Summary Reports Reader | &nbsp; | :heavy_check_mark: | :heavy_check_mark: 
 
 ## Who can update sensitive attributes
 
-Some administrators can update the following sensitive attributes for some users:
+Some administrators can update the following sensitive attributes for some users. All users can read these sensitive attributes.
 
 - accountEnabled
 - businessPhones
