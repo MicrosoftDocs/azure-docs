@@ -40,6 +40,8 @@ The following partners offer pre-built solutions to support **conditional access
 
 - [Citrix Application Delivery Controller (ADC)](../saas-apps/citrix-netscaler-tutorial.md)
 
+- [Cloudflare](../manage-apps/cloudflare-azure-ad-integration.md)
+
 - [Datawiza Access Broker](../manage-apps/datawiza-with-azure-ad.md)
 
 - [F5 BIG-IP APM (ADC)](../manage-apps/f5-aad-integration.md)
