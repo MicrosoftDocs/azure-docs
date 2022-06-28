@@ -1,10 +1,8 @@
 ---
 title: Azure Functions reliable event processing
 description: Avoid missing Event Hub messages in Azure Functions
-author: ggailey777
 ms.topic: conceptual
 ms.date: 10/01/2020
-ms.author: glenga
 ---
 
 # Azure Functions reliable event processing

@@ -1,11 +1,9 @@
 ---
 title: Manually run a non HTTP-triggered Azure Functions
 description: Use an HTTP request to run a non-HTTP triggered Azure Functions
-author: ggailey777
 
 ms.topic: article
 ms.date: 04/23/2020
-ms.author: glenga
 ---
 
 # Manually run a non HTTP-triggered function
