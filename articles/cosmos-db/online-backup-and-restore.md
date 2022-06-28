@@ -4,7 +4,7 @@ description: This article describes how automatic backup, on-demand data restore
 author: kanshiG
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 06/24/2022
+ms.date: 06/28/2022
 ms.author: govindk
 ms.reviewer: mjbrown
 ---
