@@ -106,6 +106,9 @@ To configure a policy:
         </on-error>
     </policies>
     ```
+    > [!NOTE]
+    > Set policy attributes and elements in the order provided in the policy statement and examples.
+
 1. Select **Save** to propagate changes to the API Management gateway immediately.
     
     The **ip-filter** policy now appears in the **Inbound processing** section.
