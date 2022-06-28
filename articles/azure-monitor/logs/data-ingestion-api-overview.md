@@ -1,18 +1,18 @@
 ---
-title: Send custom logs to Azure Monitor Logs with REST API
-description: Sending log data to Azure Monitor using custom logs API.
+title: Send data to Azure Monitor Logs with REST API
+description: Send data to Log Analytics workspace using REST API.
 ms.topic: conceptual
-ms.date: 01/06/2022
+ms.date: 06/27/2022
 
 ---
 
-# Custom logs API in Azure Monitor (Preview)
-The custom logs API in Azure Monitor lets you send custom to a Log Analytics workspace from any REST API client. This allows you to send data from virtually any source to [supported built-in tables](#tables) or to custom tables that you create. You can even extend the schema of built-in tables with custom columns.
+# Data ingestion API in Azure Monitor (Preview)
+The data ingestion API in Azure Monitor lets you send data to a Log Analytics workspace from any REST API client. This allows you to send data from virtually any source to [supported built-in tables](#tables) or to custom tables that you create. You can even extend the schema of built-in tables with custom columns.
 
 [!INCLUDE [Sign up for preview](../../../includes/azure-monitor-custom-logs-signup.md)]
 
 > [!NOTE]
-> The custom logs API should not be confused with [custom logs](../agents/data-sources-custom-logs.md) data source with the legacy Log Analytics agent.
+> The data ingestion API was previously referred to as the custom logs API.
 
 
 ## Basic operation
@@ -22,10 +22,10 @@ Your application sends data to a [data collection endpoint](../essentials/data-c
 > See [Migrate from Data Collector API and custom fields-enabled tables to DCR-based custom logs](custom-logs-migrate.md) to migrate solutions from the [Data Collector API](data-collector-api.md).
 
 ## Authentication
-Authentication for the custom logs API is performed at the data collection endpoint which uses standard Azure Resource Manager authentication. A common strategy is to use an Application ID and Application Key as described in [Tutorial: Add ingestion-time transformation to Azure Monitor Logs (preview)](tutorial-custom-logs.md).
+Authentication for the data ingestion API is performed at the data collection endpoint which uses standard Azure Resource Manager authentication. A common strategy is to use an Application ID and Application Key as described in [Tutorial: Add ingestion-time transformation to Azure Monitor Logs (preview)](tutorial-custom-logs.md).
 
 ## Tables
-Custom logs can send data to any custom table that you create and to certain built-in tables in your Log Analytics workspace. The target table must exist before you can send data to it. The following built-in tables are currently supported:
+Data ingestion API can send data to any custom table that you create and to certain built-in tables in your Log Analytics workspace. The target table must exist before you can send data to it. The following built-in tables are currently supported:
 
 - [CommonSecurityLog](/azure/azure-monitor/reference/tables/commonsecuritylog)
 - [SecurityEvents](/azure/azure-monitor/reference/tables/securityevent)
@@ -67,7 +67,7 @@ The call can use the following headers:
 The body of the call includes the custom data to be sent to Azure Monitor. The shape of the data must be a JSON object or array with a structure that matches the format expected by the stream in the DCR.
 
 ## Limits and restrictions
-For limits related to custom logs, see [Azure Monitor service limits](../service-limits.md#custom-logs).
+For limits related to data ingestion API, see [Azure Monitor service limits](../service-limits.md#data-ingestion-api).
 
 ### Table limits
 
