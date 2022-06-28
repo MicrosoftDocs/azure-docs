@@ -27,7 +27,7 @@ Each detected face corresponds to a `faceRectangle` field in the response. This 
 
 Try out the capabilities of face detection quickly and easily using Vision Studio.
 > [!div class="nextstepaction"]
-> [Try Vision Studio](https://vision.cognitive.azure.com/)
+> [Try Vision Studio](https://portal.vision.cognitive.azure.com/)
 
 ## Face ID
 
