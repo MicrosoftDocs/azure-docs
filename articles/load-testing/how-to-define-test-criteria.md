@@ -88,6 +88,7 @@ In this section, you learn how to define load test pass/fail criteria for contin
     failureCriteria: 
         - avg(response_time_ms) > 300
         - percentage(error) > 20
+        - GetCustomerDetails: avg(latency_ms) >200
     ```
 
 1. Save the YAML configuration file.
