@@ -438,7 +438,7 @@
           href: how-to-train-with-rest.md
         - name: Train and track with MLflow
           items:
-            - name: Track experiments with MLflow and CLI (v2)
+            - name: Track experiments with MLflow
               displayName: log, monitor, metrics, model registry, register
               href: how-to-use-mlflow-cli-runs.md
             - name: Track Azure Databricks runs with MLflow
