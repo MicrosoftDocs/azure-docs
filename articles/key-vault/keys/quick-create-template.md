@@ -8,7 +8,7 @@ ms.service: key-vault
 ms.subservice: keys
 ms.topic: quickstart
 ms.custom: mvc, subject-armqs, devx-track-azurepowershell, mode-arm
-ms.date: 06/24/2022
+ms.date: 06/28/2022
 ms.author: sebansal
 #Customer intent: As a security admin who is new to Azure, I want to use Key Vault to securely store keys and passwords in Azure.
 ---
@@ -23,30 +23,6 @@ To complete this article:
 
 - If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 - User would need to have an Azure built-in role assigned, recommended role **contributor**. [Learn more here](../../role-based-access-control/role-assignments-portal.md)
-- Your Azure AD user object ID is needed by the template to configure permissions. The following procedure gets the object ID (GUID).
-
-    1. Run the following Azure PowerShell or Azure CLI command by select **Try it**, and then paste the script into the shell pane. To paste the script, right-click the shell, and then select **Paste**.
-
-        # [CLI](#tab/CLI)
-
-        ```azurecli-interactive
-        echo "Enter your email address that is used to sign in to Azure:" &&
-        read upn &&
-        az ad user show --id $upn --query "objectId" &&
-        echo "Press [ENTER] to continue ..."
-        ```
-
-        # [PowerShell](#tab/PowerShell)
-
-        ```azurepowershell-interactive
-        $upn = Read-Host -Prompt "Enter your email address used to sign in to Azure"
-        (Get-AzADUser -UserPrincipalName $upn).Id
-        Write-Host "Press [ENTER] to continue..."
-        ```
-
-        ---
-
-        Write down the object ID. You need it in the next section of this quickstart.
 
 ## Review the template
 
