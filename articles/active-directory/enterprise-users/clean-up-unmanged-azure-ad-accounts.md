@@ -102,5 +102,4 @@ To delete unmanaged Azure AD accounts, run:
 
 ## Next steps
 
-- View examples of using
-[Get-MSIdUnmanagedExternalUser](https://github.com/AzureAD/MSIdentityTools/wiki/Get-MsIdUnmanagedExternalUser)
+Examples of using [Get-MSIdUnmanagedExternalUser](https://github.com/AzureAD/MSIdentityTools/wiki/Get-MsIdUnmanagedExternalUser)
