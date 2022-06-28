@@ -137,8 +137,8 @@ resources with the following steps:
 
 ## Next steps
 Learn more about Autoscale by referring to the following articles:
+- [Use autoscale actions to send email and webhook alert notifications](./autoscale-webhook-email.md)
 - [Overview of autoscale](./autoscale-overview.md)
 - [Azure Monitor autoscale common metrics](./autoscale-common-metrics.md)
 - [Best practices for Azure Monitor autoscale](./autoscale-best-practices.md)
-- [Use autoscale actions to send email and webhook alert notifications](./autoscale-webhook-email.md)
 - [Autoscale REST API](/rest/api/monitor/autoscalesettings)
