@@ -29,7 +29,7 @@ items:
     - name: Prepare dataset
       href: ./how-to/prepare-dataset.md
     - name: Fine-tuning your model
-      href: /how-to/fine-tuning.md
+      href: ./how-to/fine-tuning.md
     - name: Manage identity
       href: ./how-to/managed-identity.md
     - name: Business continuity & disaster recovery (BCDR)
