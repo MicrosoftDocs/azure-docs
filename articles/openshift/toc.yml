@@ -62,7 +62,7 @@
           href: howto-add-update-pull-secret.md
         - name: Rotate service principal credentials for an Azure Red Hat OpenShift cluster
           href: howto-service-principal-credential-rotation.md
-        - name: Enable FIPs on a cluster
+        - name: Enable FIPS on a cluster
           href: howto-enable-fips-openshift.md
     - name: Back up and restore
       items:
