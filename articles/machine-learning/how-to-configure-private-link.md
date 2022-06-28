@@ -10,7 +10,7 @@ ms.custom: devx-track-azurecli, sdkv1, event-tier1-build-2022
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
-ms.date: 01/12/2022
+ms.date: 06/28/2022
 ---
 
 # Configure a private endpoint for an Azure Machine Learning workspace
@@ -344,7 +344,9 @@ To enable public access, use the following steps:
 > There are two possible properties that you can configure:
 > * `allow_public_access_when_behind_vnet` - used by the Python SDK v1
 > * `public_network_access` - used by the CLI and Python SDK v2 (preview)
-> Microsoft recommends using `public_network_access`. Using `public_network_access` will override the `allow_public_access_when_behind_vnet` flag.
+> Each property overrides the other. For example, setting `public_network_access` will override any previous setting to `allow_public_access_when_behind_vnet`.
+>
+> Microsoft recommends using `public_network_access` to enable or disable public access to a workspace.
 
 # [Python](#tab/python)
 
