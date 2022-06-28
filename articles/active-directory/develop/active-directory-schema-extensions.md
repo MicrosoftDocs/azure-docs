@@ -2,7 +2,7 @@
 title: Use Azure AD schema extension attributes in claims
 description: Describes how to use directory schema extension attributes for sending user data to applications in token claims.
 services: active-directory
-author: rwike77
+author: davidmu1
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
@@ -10,7 +10,7 @@ ms.custom: aaddev
 ms.workload: identity
 ms.topic: how-to
 ms.date: 07/29/2020
-ms.author: ryanwi
+ms.author: davidmu
 ms.reviewer: paulgarn, ludwignick, jeedes, luleon
 ---
 # Using directory schema extension attributes in claims
