@@ -42,10 +42,12 @@ Log Analytics prescribes a schema to your data, but allows you to override every
     | where * matches regex @'\b((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)(\.|$)){4}\b' //RegEx originally provided on https://stackoverflow.com/questions/5284147/validating-ipv4-addresses-with-regexp
     | summarize count() by $table
     ```
+    
 * **User IDs**: You'll find user usernames and user IDs in various solutions and tables. You can look for a particular username or user ID across your entire dataset using the search command:
     ```
     search "<username or user ID>"
     ```
+    
   Remember to look not only for human-readable usernames but also for GUIDs that can be traced back to a particular user.
 * **Device IDs**: Like user IDs, device IDs are sometimes considered personal data. Use the approach listed above for user IDs to identify tables that hold personal data. 
 * **Custom data**: Log Analytics lets you collect custom data through custom logs, custom fields, the [HTTP Data Collector API](../logs/data-collector-api.md), and as part of system event logs. Check all custom data for personal data.
@@ -59,7 +61,8 @@ Log Analytics prescribes a schema to your data, but allows you to override every
     | where timestamp > ago(1d)
     | summarize numNonObfuscatedIPs_24h = count() by $table
     ```
-* **User IDs**: By default, Application Insights uses randomly generated IDs for user and session tracking in fields such as *session_Id*, *user_Id*, *user_AuthenticatedId*, *user_AccountId*, and *customDimensions*. However, it's common to override these fields with an ID that's more relevant to the application, such as usernames or AAD GUIDs. These IDs are often considered to be personal data. We recommend obfuscating or anonymizing these IDs. 
+    
+* **User IDs**: By default, Application Insights uses randomly generated IDs for user and session tracking in fields such as *session_Id*, *user_Id*, *user_AuthenticatedId*, *user_AccountId*, and *customDimensions*. However, it's common to override these fields with an ID that's more relevant to the application, such as usernames or Azure Active Directory GUIDs. These IDs are often considered to be personal data. We recommend obfuscating or anonymizing these IDs. 
 * **Custom data**: Application Insights allows you to append a set of custom dimensions to any data type. Use the following query to identify custom dimensions collected in the last 24 hours:
     ```
     search * 
@@ -67,6 +70,7 @@ Log Analytics prescribes a schema to your data, but allows you to override every
     | where timestamp > ago(1d)
     | project $table, timestamp, name, customDimensions 
     ```
+    
 * **In-memory and in-transit data**: Application Insights tracks exceptions, requests, dependency calls, and traces. You'll often find personal data at the code and HTTP call level. Review exceptions, requests, dependencies, and traces tables to identify any such data. Use [telemetry initializers](../app/api-filtering-sampling.md) where possible to obfuscate this data.
 * **Snapshot Debugger captures**: The [Snapshot Debugger](../app/snapshot-debugger.md) feature in Application Insights lets you collect debug snapshots when Application Insights detects an exception on the production instance of your application. Snapshots expose the full stack trace leading to the exceptions and the values for local variables at every step in the stack. Unfortunately, this feature doesn't allow selective deletion of snap points or programmatic access to data within the snapshot. Therefore, if the default snapshot retention rate doesn't satisfy your compliance requirements, we recommend you turn off the feature.
 
