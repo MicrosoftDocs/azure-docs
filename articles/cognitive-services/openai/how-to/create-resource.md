@@ -1,19 +1,34 @@
 ---
-title: 'How-to create an Azure OpenAI resource'
+title: 'How-to - Create a resource and deploy a model using Azure OpenAI'
 titleSuffix: Azure OpenAI
-description: Walkthrough on how to get started with Azure OpenAI by creating your first resource and deploying a model.
+description: Walkthrough on how to get started with Azure OpenAI and make your first resource and deploy your first model.
 services: cognitive-services
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: openai
-ms.topic: quickstart
-ms.date: 06/22/2022
-keywords: 
+ms.topic: how-to
+ms.date: 06/30/2022
+zone_pivot_groups: openai-create-resource
+recommendations: false
 ---
 
-Use this article to get started with Azure OpenAI with step-by-step instructions to create a resource and deploy a model.
+# Create a resource and deploy a model using Azure OpenAI
 
-## Prerequisites
+Use this article to get started creating your first Azure OpenAI resource and deploying a model.
 
-- An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services)
-- Access granted to the service in the desired azure subscription. This service is currently invite only. You can fill out a new use case request here: <https://aka.ms/oai/access>. Please open an issue on this repo to contact us if you have an issue
+::: zone pivot="web-portal"
+
+[!INCLUDE [Studio quickstart](includes/create-resource-portal.md)]
+
+::: zone-end
+
+::: zone pivot="cli"
+
+[!INCLUDE [Python SDK quickstart](includes/create-resource-cli.md)]
+
+::: zone-end
+
+## Next steps
+
+* Now that you have a resource and your first model deployed get started making API calls and generating text with our [quickstarts](../quickstart.md).
+* Learn more about the [underlying models that power Azure OpenAI](../concepts/models.md).
