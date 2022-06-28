@@ -55,7 +55,7 @@ Select the **Review + create** button once the fields are filled out.
 
 After the validation has passed, select the **Create** button to begin the deployment.
 
-:::image type="content" source="media\iot-deploy-arm-in-portal\iot-connector-arm-deploy-create.png" alt-text="Azure portal page displaying deployment options for the Azure Health Data Service MedTech service." lightbox="media\iot-deploy-arm-in-porta\iot-connector-arm-deploy-create.png"::: 
+:::image type="content" source="media\iot-deploy-arm-in-portal\iot-connector-arm-deploy-create.png" alt-text="Azure portal page displaying deployment options for the Azure Health Data Service MedTech service." lightbox="media\iot-deploy-arm-in-portal\iot-connector-arm-deploy-create.png"::: 
 
 After a successful deployment, there will be remaining configurations that will need to be completed by you for a fully functional MedTech service:
  * Provide a working device mapping file. For more information, see: [How to use device mappings](how-to-use-device-mappings.md)
