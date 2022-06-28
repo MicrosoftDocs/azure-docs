@@ -204,6 +204,22 @@ This table shows how this feature is supported in your account and the effect on
 
 Object replication incurs additional costs on read and write transactions against the source and destination accounts, as well as egress charges for the replication of data from the source account to the destination account and read charges to process change feed.
 
+**FAQ**
+
+**If I delete some data from the Source Storage Account side, is it delete data from DR destination Storage account side as well ?**
+
+When a blob in the source account is deleted, the current version of the blob becomes a previous version, and there's no longer a current version. All existing previous versions of the blob are preserved. This state is replicated to the destination account. For more information about how to delete operations affect blob versions, see Versioning on delete operations.
+
+**If we updated one container with new changes which is already replicated in destination account side, is it still going to be re-replicated to destination storage account with only modified new changes ? or it will copy entire container again ? **
+
+If you had enabled copy everything, in OR. it will try to copy. might fail, if it’s not overwriting, if you enable, copy new changes only, it will scan for new changes. As Object replication requires that blob versioning is enabled on both the source and destination accounts. When a replicated blob in the source account is modified, a new version of the blob is created in the source account that reflects the previous state of the blob before modification. The current version in the source account reflects the most recent updates. Both the current version and any previous versions are replicated to the destination account. For more information about how write operations affect blob versions, see Versioning on write operations.
+
+**How to check Object Replication metrics , means how much percentage of data copied and replicated ? is there any way to capture the details ?**
+
+There is no such thing related to Replication metrics and how much percentage of data copied and replicated, also there’s currently no SLA on how long it takes to replicate data to the destination account. You can check the replication status on the source blob to determine whether replication is complete. For more information, see Check the replication status of a blob.
+
+
+
 ## Next steps
 
 - [Configure object replication](object-replication-configure.md)
