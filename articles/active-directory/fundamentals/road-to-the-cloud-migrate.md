@@ -6,7 +6,7 @@ author: janicericketts
 manager: martinco
 ms.service: active-directory
 ms.topic: how-to
-ms.subservice: fundementals
+ms.subservice: fundamentals
 ms.date: 06/03/2022
 ms.author: jricketts
 ms.custom: references_regions
@@ -38,7 +38,7 @@ To enable self-service capabilities, your authentication methods must be updated
 
 * Enable [combined registration (multi-factor authentication (MFA) +SSPR)](../authentication/concept-registration-mfa-sspr-combined.md) for a target group of users
 
-* Deploy [SSPR](../authentication/tutorial-enable-sspr.md)[](../authentication/tutorial-enable-sspr.md)for that target groups of users
+* Deploy [SSPR](../authentication/tutorial-enable-sspr.md) for a target group of users
 
 * For that group of users with Azure AD and Hybrid Azure AD joined devices (Windows devices - 7, 8, 8.1 and 10), enable [Windows password reset](../authentication/howto-sspr-windows.md) for those users.
 
@@ -99,7 +99,7 @@ This workstream will reduce your on-premises footprint by moving the HR provisio
 
 * For new employees who need access to applications that have dependency on AD, you can provision hybrid accounts
 
-Azure AD Cloud HR provisioning can also manage AD accounts for existing employees. For more information, see: [Plan cloud HR application to Azure Active Directory user provisioning](../app-provisioning/plan-cloud-hr-provision.md) and, specifically, [Plan the deployment project](../app-provisioning/plan-auto-user-provisioning#plan-the-deployment-project.md).
+Azure AD Cloud HR provisioning can also manage AD accounts for existing employees. For more information, see: [Plan cloud HR application to Azure Active Directory user provisioning](../app-provisioning/plan-cloud-hr-provision.md) and, specifically, [Plan the deployment project](../app-provisioning/plan-the-deployment-project.md).
 
 ### Move external identity management
 
