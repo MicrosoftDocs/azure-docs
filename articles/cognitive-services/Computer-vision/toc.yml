@@ -262,6 +262,8 @@ items:
         href: spatial-analysis-container.md
       - name: Configure operations
         href: spatial-analysis-operations.md
+      - name: Use a local video file
+        href: spatial-analysis-local.md
       - name: Deploy a people counting web app
         href: Spatial-analysis-web-app.md
       - name: Logging and troubleshooting
