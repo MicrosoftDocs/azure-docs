@@ -7,12 +7,12 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: openai
 ms.topic: quickstart
-ms.date: 06/24/2022
+ms.date: 06/30/2022
 zone_pivot_groups: openai-quickstart
 recommendations: false
 ---
 
-# Quickstart: Deploy a model and generate text using Azure OpenAI
+# Quickstart: Get started generating text using Azure OpenAI
 
 Use this article to get started making your first calls to the Azure OpenAI service.
 
