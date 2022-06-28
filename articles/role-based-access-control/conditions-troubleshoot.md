@@ -1,6 +1,6 @@
 ---
-title: Troubleshoot Azure role assignment conditions (preview)
-description: Troubleshoot Azure role assignment conditions (preview)
+title: Troubleshoot Azure role assignment conditions - Azure ABAC
+description: Troubleshoot Azure role assignment conditions
 services: active-directory
 author: rolyon
 manager: karenhoran
@@ -14,12 +14,7 @@ ms.author: rolyon
 #Customer intent: 
 ---
 
-# Troubleshoot Azure role assignment conditions (preview)
-
-> [!IMPORTANT]
-> Azure ABAC and Azure role assignment conditions are currently in preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+# Troubleshoot Azure role assignment conditions
 
 ## Symptom - Condition is not enforced
 
@@ -219,6 +214,6 @@ Open the **Select an action** pane and reselect the **Read a blob** action.
 
 ## Next steps
 
-- [Azure role assignment condition format and syntax (preview)](conditions-format.md)
-- [FAQ for Azure role assignment conditions (preview)](conditions-faq.md)
+- [Azure role assignment condition format and syntax](conditions-format.md)
+- [FAQ for Azure role assignment conditions](conditions-faq.md)
 - [Troubleshoot custom security attributes in Azure AD (Preview)](../active-directory/fundamentals/custom-security-attributes-troubleshoot.md)

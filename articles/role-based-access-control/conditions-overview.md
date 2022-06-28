@@ -1,5 +1,5 @@
 ---
-title: What is Azure attribute-based access control (Azure ABAC)? (preview)
+title: What is Azure attribute-based access control (Azure ABAC)?
 description: Get an overview of Azure attribute-based access control (Azure ABAC). Use role assignments with conditions to control access to Azure resources.
 services: active-directory
 author: rolyon
@@ -14,12 +14,7 @@ ms.author: rolyon
 #Customer intent: As a dev, devops, or it admin, I want to learn how to constrain access within a role assignment by using conditions.
 ---
 
-# What is Azure attribute-based access control (Azure ABAC)? (preview)
-
-> [!IMPORTANT]
-> Azure ABAC and Azure role assignment conditions are currently in preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+# What is Azure attribute-based access control (Azure ABAC)?
 
 Attribute-based access control (ABAC) is an authorization system that defines access based on attributes associated with security principals, resources, and environment. With ABAC, you can grant a security principal access to a resource based on attributes. Azure ABAC refers to the implementation of ABAC for Azure.
 
@@ -108,6 +103,7 @@ Here's a list of the primary features of conditions:
 
 | Feature | Status | Date |
 | --- | --- | --- |
+| [Resource and request attributes](conditions-format.md#attributes) are generally available | GA | July 2022 |
 | Use the following [attributes](../storage/common/storage-auth-abac-attributes.md#azure-blob-storage-attributes) in a condition: Account name, Blob prefix, Encryption scope name, Is Current Version, Is hierarchical namespace enabled, Snapshot, Version ID | Preview | May 2022 |
 | Use [custom security attributes on a principal in a condition](conditions-format.md#principal-attributes) | Preview | November 2021 |
 | Add conditions to blob storage data role assignments | Preview | May 2021 |
@@ -146,6 +142,6 @@ Here are the known issues with conditions:
 
 ## Next steps
 
-- [FAQ for Azure role assignment conditions (preview)](conditions-faq.md)
-- [Example Azure role assignment conditions (preview)](../storage/common/storage-auth-abac-examples.md)
-- [Tutorial: Add a role assignment condition to restrict access to blobs using the Azure portal (preview)](../storage/common/storage-auth-abac-portal.md)
+- [FAQ for Azure role assignment conditions](conditions-faq.md)
+- [Example Azure role assignment conditions](../storage/common/storage-auth-abac-examples.md)
+- [Tutorial: Add a role assignment condition to restrict access to blobs using the Azure portal](../storage/common/storage-auth-abac-portal.md)
