@@ -150,7 +150,29 @@ client_id=535fb089-9ff3-47b6-9bfb-4f1264799865
 &client_secret=sampleCredentia1s
 &grant_type=client_credentials
 ```
+```csharp
+ private static async Task<string> GetAccessTokenAsync(string tenantId)
+        {
+            //tenantID
+            var url = $"https://login.microsoftonline.com/{tenantId}/oauth2/v2.0/token";
 
+            var client = new HttpClient();
+
+            var bodyData = new Dictionary<string, string>
+            {
+                {"client_id", "535fb089-9ff3-47b6-9bfb-4f1264799865"},
+                {"grant_type", "client_credentials"},
+                {"client_secret","sampleCredentia1s" },
+                {"resource","can-be-client-Id" }
+            };
+
+            var response = await client.PostAsync(url, new FormUrlEncodedContent(bodyData));
+
+            var content = await response.Content.ReadAsStringAsync();
+            return content;
+        }
+
+```
 ```Bash
 # Replace {tenant} with your tenant!
 curl -X POST -H "Content-Type: application/x-www-form-urlencoded" -d 'client_id=535fb089-9ff3-47b6-9bfb-4f1264799865&scope=https%3A%2F%2Fgraph.microsoft.com%2F.default&client_secret=qWgdYAmab0YSkuL1qKv5bPX&grant_type=client_credentials' 'https://login.microsoftonline.com/{tenant}/oauth2/v2.0/token'
