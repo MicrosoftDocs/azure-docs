@@ -39,7 +39,7 @@ For no-code-deployment, Azure Machine Learning
 > - Data type `mlflow.types.DataType.Binary` is not supported as column type in signatures. For models that work with images, we suggest you to use or (a) tensors inputs using the [TensorSpec input type](https://mlflow.org/docs/latest/python_api/mlflow.types.html#mlflow.types.TensorSpec), or (b) `Base64` encoding schemes with a `mlflow.types.DataType.String` column type, which is commonly used when there is a need to encode binary data that needs be stored and transferred over media.
 > - Signatures with tensors with unspecified shapes (`-1`) is only supported at the batch size by the moment. For instance, a signature with shape `(-1, -1, -1, 3)` is not supported but `(-1, 300, 300, 3)` is.
 
-For more information about how to specify requests to online endpoints or the supported file types in batch endpoints, view [Considerations when deploying to real-time inference](#considerations-when-deploying-to-real-time-inference) and [Considerations when deploying to batch inference](#considerations-when-deploying-to-batch-inference).
+For more information about how to specify requests to online endpoints, view [Considerations when deploying to real-time inference](#considerations-when-deploying-to-real-time-inference). FOr more information about the supported file types in batch endpoints, view [Considerations when deploying to batch inference](#considerations-when-deploying-to-batch-inference).
 
 ## Deployment tools
 
@@ -49,14 +49,14 @@ There are three workflows for deploying MLflow models to Azure Machine Learning:
 - [Deploy using Azure ML CLI (v2)](#deploy-using-azure-ml-cli-v2)
 - [Deploy using Azure Machine Learning studio](#deploy-using-azure-machine-learning-studio)
 
-Each of this workflows have different capabilities, including:
+Each workflows has different capabilities, particularly around which type of compute they can target:
 
 | Scenario | MLflow SDK | Azure ML CLI/SDK v2 | Azure ML studio |
 | :- | :-: | :-: | :-: |
 | Deploy MLflow models to Managed Online Endpoints | **&check;** | **&check;** | **&check;** |
 | Deploy MLflow models to Managed Batch Endpoints |  | **&check;** | **&check;** |
 | Deploy MLflow models to ACI/AKS | **&check;** |  |  |
-| Deploy MLflow models to ACI/AKS (with an scoring script) | | | **&check;**<sup>1</sup> |
+| Deploy MLflow models to ACI/AKS (with a scoring script) | | | **&check;**<sup>1</sup> |
 
 > [!NOTE]
 > - <sup>1</sup> No-code deployment is not supported when deploying to ACI/AKS from Azure ML studio. We recommend switching to our Managed Online Endpoints instead.
@@ -75,7 +75,7 @@ The MLflow plugin [azureml-mlflow](https://pypi.org/project/azureml-mlflow/) can
 ### Prerequisites
 
 * Install the `azureml-mlflow` package.
-* If you are running outside an Azure ML compute, configure the MLflow tracking URI or MLflow's registry URI to point to the workspace you are working on. See [MLflow Tracking URI to connect with Azure Machine Learning)[https://docs.microsoft.com/en-us/azure/machine-learning/how-to-use-mlflow] for more details.
+* If you are running outside an Azure ML compute, configure the MLflow tracking URI or MLflow's registry URI to point to the workspace you are working on. For more information about how to Set up tracking environment, see [Track runs using MLflow with Azure Machine Learning](how-to-use-mlflow-cli-runs#set-up-tracking-environment) for more details.
 
 ### Steps
 
@@ -251,14 +251,13 @@ This example shows how you can deploy an MLflow model to an online endpoint usin
 You can use [Azure Machine Learning studio](https://ml.azure.com) to deploy models to Managed Online Endpoints.
 
 > [!IMPORTANT]
-> You can deploy models to ACI or AKS using [Azure Machine Learning studio](https://ml.azure.com). However, no-code deployment feature is not available for these compute targets. We recommend the use of Managed Online Endpoints as it provides a superior set of features.
-
+> Although deploying to ACI or AKS with [Azure Machine Learning studio](https://ml.azure.com) is possible. no-code deployment feature is not available for these compute targets. We recommend the use of Managed Online Endpoints as it provides a superior set of features.
 
 1. Ensure your model is registered in the Azure Machine Learning registry. Deployment of unregistered models is not supported in Azure Machine Learning. You can register models from files in the local file system or from the output of a job:
 
    # [From a training job](#tab/fromjob)
    
-   You can register the model directly from the job's output using Azure Machine Learning studio. To do so, naviate to the **Outputs + logs** tab in the run where your model was trained and select the option **Create model**.
+   You can register the model directly from the job's output using Azure Machine Learning studio. To do so, navigate to the **Outputs + logs** tab in the run where your model was trained and select the option **Create model**.
    
    :::image type="content" source="media/how-to-deploy-mlflow-models-online-endpoints/mlflow-register-model-output.gif" lightbox="media/how-to-deploy-mlflow-models-online-endpoints/download-output-logs.png" alt-text="Screenshot showing how to download Outputs and logs from Experimentation run":::
    
