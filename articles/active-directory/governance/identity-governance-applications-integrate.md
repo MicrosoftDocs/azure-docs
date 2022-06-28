@@ -47,9 +47,9 @@ Next, if the application implements a provisioning protocol, then you should con
    1. if the application supports provisioning, [configure the application for provisioning](../app-provisioning/configure-automatic-user-provisioning-portal.md).
    1. When complete, skip to the next section in this article.
    If the SaaS application isn't in the gallery, then [ask the SaaS vendor to onboard](../manage-apps/v2-howto-app-gallery-listing.md).  
-1. If this is a private or custom application, you can also select a single sign on integration that's most appropriate, based on the location and capabilities of the application.
+1. If this is a private or custom application, you can also select a single sign-on integration that's most appropriate, based on the location and capabilities of the application.
 
-   * If this application is in the public cloud, and it supports single sign on, then configure single sign-on directly from Azure AD to the application.
+   * If this application is in the public cloud, and it supports single sign-on, then configure single sign-on directly from Azure AD to the application.
 
      |Application supports| Next steps|
      |----|-----|
@@ -57,7 +57,7 @@ Next, if the application implements a provisioning protocol, then you should con
      | SAML 2.0 | Register the application and configure the application with [the SAML endpoints and certificate of Azure AD](../develop/active-directory-saml-protocol-reference.md) |
      | SAML 1.1 | [Add a SAML-based application](../saas-apps/saml-tutorial.md) |
 
-   * Otherwise, if this is an on-premises or IaaS hosted application that supports single sign on, then configure single sign-on from Azure AD to the application through the application proxy.
+   * Otherwise, if this is an on-premises or IaaS hosted application that supports single sign-on, then configure single sign-on from Azure AD to the application through the application proxy.
 
      |Application supports| Next steps|
      |----|-----|
