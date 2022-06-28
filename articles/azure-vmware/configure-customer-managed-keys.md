@@ -199,7 +199,7 @@ If you accidentally delete your key in the Azure Key Vault, private cloud won't 
 
 **Restore Key Vault permission**
 
-If you have a private cloud that has lost access to the customer managed key, check if Managed System Identity (MSI) requires permissions in Key Vault. The error notification that is returned from Azure may not correctly indicate MSI requiring permissions in Key Vault as the root cause. Remember, the required permissions are: get, list, wrapKey, and unwrapKey. See step 4 in [Prerequisites](#prerequisites).
+If you have a private cloud that lost access to the customer managed key, check if Managed System Identity (MSI) requires permissions in Key Vault. The error notification returned from Azure may not correctly indicate MSI requiring permissions in Key Vault as the root cause. Remember, the required permissions are: get, wrapKey, and unwrapKey. See step 4 in [Prerequisites](#prerequisites).
 
 **Fix expired key**
 
@@ -207,11 +207,11 @@ If you aren't using the auto-rotate function and the Customer Managed Key has ex
 
 **Restore Key Vault access**
 
-Ensure Managed System Identity (MSI) is used for providing private cloud access to Key Vault exits.
+Ensure Managed System Identity (MSI) is used for providing private cloud access to Key Vault.
 
 **Deletion of MSI**
 
-The customer has first deleted the private cloud’s MSI and then disabled the CMK. The only option for restoration is to disable the CMK first. To enable CMK again, enable MSI and then enable CMK.
+If you accidentally delete the Managed System Identity (MSI) associated with private cloud, you'll need to disable CMK, then follow the steps to enable CMK from start.
 
 ## Next steps
 
