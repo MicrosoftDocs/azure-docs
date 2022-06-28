@@ -227,7 +227,7 @@ items:
       href: ../aks/monitor-aks.md?toc=/azure/azure-monitor/toc.json
   - name: Azure Monitor Metrics
     items:
-    - name: Metrics explorer
+    - name: Metrics Explorer
       items:
       - name: Getting started with Metrics Explorer
         href: essentials/metrics-getting-started.md
@@ -235,12 +235,12 @@ items:
         href: essentials/metrics-charts.md
       - name: Viewing multiple resources in Metric Explorer
         href: essentials/metrics-dynamic-scope.md
+      - name: Understanding metrics aggregation
+        href: essentials/metrics-aggregation-explained.md
       - name: Examples of metric charts
         href: essentials/metric-chart-samples.md
       - name: Troubleshooting metric charts
         href: essentials/metrics-troubleshoot.md
-      - name: Understanding metrics aggregation
-        href: essentials/metrics-aggregation-explained.md
     - name: Custom metrics
       items:
       - name: Custom metrics
@@ -815,12 +815,10 @@ items:
               href: app/status-monitor-v2-get-started.md
             - name: Detailed instructions
               href: app/status-monitor-v2-detailed-instructions.md
-            - name: Troubleshooting
-              href: app/status-monitor-v2-troubleshoot.md
             - name: API reference
               href: app/status-monitor-v2-api-reference.md
         - name: Java
-          href: app/java-on-premises.md
+          href: app/java-in-process-agent.md
     - name: Application Insights SDKs
       items:
       - name: .NET
@@ -838,8 +836,6 @@ items:
             - name: ASP.NET App Monitoring
               displayName: ASP.NET, c#, csharp, .NET, NET, dotnet
               href: app/asp-net.md
-            - name: Troubleshoot ASP.NET
-              href: app/asp-net-troubleshoot-no-data.md
           - name: Non-HTTP/Background apps
             displayName: console, .NET, .NET Core, dotnet console, dotnet, c#, csharp, NET, worker, background, generic host
             href: app/worker-service.md
@@ -857,8 +853,6 @@ items:
             href: app/java-2x-agent.md
           - name: Filter telemetry
             href: app/java-2x-filter-telemetry.md
-          - name: Troubleshoot
-            href: app/java-2x-troubleshoot.md
       - name: Node.js
         href: app/nodejs.md
       - name: Python
@@ -904,8 +898,12 @@ items:
         href: app/opentelemetry-overview.md
       - name: .NET
         href: app/opentelemetry-enable.md?tabs=net
-      - name: Node.js
-        href: app/opentelemetry-enable.md?tabs=nodejs
+      - name: JavaScript
+        items:
+        - name: Browser
+          href: app/javascript.md
+        - name: Node.js
+          href: app/opentelemetry-enable.md?tabs=nodejs
       - name: Java
         items:
         - name: Overview
@@ -928,8 +926,6 @@ items:
           href: app/java-standalone-arguments.md
         - name: Upgrade from 2.x SDK
           href: app/java-standalone-upgrade-from-2x.md
-        - name: Troubleshooting
-          href: app/java-standalone-troubleshoot.md
       - name: Python
         href: app/opentelemetry-enable.md?tabs=python
       - name: FAQ
@@ -973,9 +969,6 @@ items:
         href: app/availability-alerts.md
       - name: SLA Report
         href: app/sla-report.md
-      - name: Troubleshooting
-        displayName: availability, troubleshoot, troubleshoot availability
-        href: app/troubleshoot-availability.md
     - name: Distributed tracing
       items:
       - name: Overview
@@ -1038,8 +1031,6 @@ items:
         href: app/usage-retention.md
       - name: User Flows
         href: app/usage-flows.md
-      - name: Usage analytics
-        href: app/usage-troubleshoot.md
       - name: HEART Framework
         href: app/usage-heart.md
     - name: Azure DevOps
