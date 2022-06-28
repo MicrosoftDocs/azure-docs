@@ -369,7 +369,7 @@ When you copy data from Salesforce, the following mappings are used from Salesfo
 | URL |String |
 
 > [!Note]
-> Salesforce Number type is mapping to Decimal type in Azure Data Factory as a service interim data type. Decimal type honors the defined precision and scale. For data whose decimal places exceeds the defined scale, its value will be rounded off in preview data and copy. To avoid getting such precision loss in Azure Data Factory, consider increasing the decimal places to a reasonably large value in **Custom Field Definition Edit** page of Salesforce. You can find this setting in Salesforce **Build** -> **Create** -> **Objects** -> **Custom Objects** -> Open **\<Your Label>** -> **Custom Fields & Relationships** -> **\<Your Number Type>** -> **Edit** ->**Number Options**. 
+> Salesforce Number type is mapping to Decimal type in Azure Data Factory and Azure Synapse pipelines as a service interim data type. Decimal type honors the defined precision and scale. For data whose decimal places exceeds the defined scale, its value will be rounded off in preview data and copy. To avoid getting such precision loss in Azure Data Factory and Azure Synapse pipelines, consider increasing the decimal places to a reasonably large value in **Custom Field Definition Edit** page of Salesforce. 
 
 ## Lookup activity properties
 
