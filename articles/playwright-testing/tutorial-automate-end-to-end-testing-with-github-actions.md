@@ -110,7 +110,7 @@ To run your end-to-end tests with every source code change in the repository, cr
 1. Install all dependencies for running the tests. This step uses the `PLAYWRIGHT_SERVICE_PACKAGE_GITHUB_TOKEN` secret to authenticate with the private npm repository.
 1. Run the Playwright tests with Microsoft Playwright Testing. This step uses the `ACCESS_KEY` secret to authenticate with the service.
 
-To create the GitHub Actions workflow, perform the following:
+Perform to following steps to create the GitHub Actions workflow:
 
 1. In your forked repository, select **Actions**, and then select **New workflow**.
 
@@ -156,12 +156,11 @@ To create the GitHub Actions workflow, perform the following:
           - name: Run Playwright Tests
             run: |
              npm run test
-            continue-on-error: true
             env:
                 # Access Key for Playwright Service
                  ACCESS_KEY: ${{secrets.ACCESS_KEY}}
                  # Group Id for Playwright Test. Please change it to reflect the dashboard name
-                 DASHBOARD: <my-dashboard-name>
+                 DASHBOARD: '<my-dashboard-name>'
                  WORKERS: 10
     ```
 
@@ -170,7 +169,7 @@ To create the GitHub Actions workflow, perform the following:
     You can use dashboards to group test results in the Microsoft Playwright Testing portal.
 
     ```yml
-    DASHBOARD: <my-dashboard-name>
+    DASHBOARD: '<my-dashboard-name>'
     ```
 
 1. Select **Start commit** to commit the GitHub Actions workflow to your repository.
@@ -181,211 +180,65 @@ To create the GitHub Actions workflow, perform the following:
 
 ## Analyze results
 
+After the tests finish, the GitHub Actions log enables you to analyze the test run. The log provides the following information:
 
-## Update tests
+- The number of tests that passed or failed.
+- The list of tests that failed.
+- Detailed error information to diagnose failing tests.
+- The list of tests that ran slowly, that you might optimize.
+- A direct link to the test run results in the Microsoft Playwright Testing portal.
 
+:::image type="content" source="./media/tutorial-automate-end-to-end-testing-with-github-actions/github-actions-playwright-log.png" alt-text="Screenshot that shows the GitHub Actions log output for running tests with Microsoft Playwright Testing.":::
 
+### Diagnose failing tests
 
-1. Open Windows PowerShell, sign in to Azure, and set the subscription:
+You notice that some tests failed. Microsoft Playwright Testing provides rich error information in the CI/CD output log to help diagnose failing tests:
 
-   ```azurecli
-   az login
-   az account set --subscription <your-Azure-Subscription-ID>
-   ```
+- Browser configuration and line number in the test specification file.
+- Error message with the received and expected values.
+- Playwright call log.
+- Extract of the test source code.
 
-1. Clone the sample application's source repo:
+:::image type="content" source="./media/tutorial-automate-end-to-end-testing-with-github-actions/github-actions-playwright-log-error-details.png" alt-text="Screenshot that shows Playwright test error details in the GitHub Actions log output.":::
 
-   ```powershell
-   git clone https://github.com/Azure-Samples/nodejs-appsvc-cosmosdb-bottleneck.git
-   ```
+Optionally, you can select the link to go the Microsoft Playwright Testing portal for further analysis of the test run. For more information, see [Tutorial: Identify app issues with end-to-end tests](./tutorial-identify-issues-with-end-to-end-web-tests.md).
 
-   The sample application is a Node.js app that consists of an Azure App Service web component and an Azure Cosmos DB database. The repo includes a PowerShell script that deploys the sample app to your Azure subscription. It also has an Apache JMeter script that you'll use in later steps.
+:::image type="content" source="./media/tutorial-automate-end-to-end-testing-with-github-actions/playwright-testing-dashboard-failed-tests.png" alt-text="Screenshot that shows the list of failing tests in the Microsoft Playwright Testing portal.":::
 
-1. Go to the Node.js app's directory and deploy the sample app by using this PowerShell script:
+In log output, you can see that the `Should persist its data` test expected a value of *Something* as the second item in the todo list after the page reload. However, the application contains *feed the cat*.
 
-   ```powershell
-   cd nodejs-appsvc-cosmosdb-bottleneck
-   .\deploymentscript.ps1
-   ```
+## Update failing test and rerun tests
 
-   > [!TIP]
-   > You can install PowerShell on [Linux/WSL](/powershell/scripting/install/installing-powershell-on-linux) or [macOS](/powershell/scripting/install/installing-powershell-on-macos).
-   >
-   > After you install it, you can run the previous command as `pwsh ./deploymentscript.ps1`.
+Now that you've identified the root cause of the failed tests, you'll update the test specification file.
 
-1. At the prompt, provide:
+1. Go to your forked repository.
+1. Open the `todo-persistence.spec.ts` file in the `samples/PlaywrightTestRunner/tests` folder.
+1. Select the **Edit this file** icon.
 
-   * Your Azure subscription ID.
-   * A unique name for your web app.
-   * A location. By default, the location is `eastus`. You can get region codes by running the [Get-AzLocation](/powershell/module/az.resources/get-azlocation) command.
+    :::image type="content" source="./media/tutorial-automate-end-to-end-testing-with-github-actions/github-edit-file.png" alt-text="Screenshot that shows the Edit this file functionality in GitHub.":::
 
-   > [!IMPORTANT]
-   > For your web app's name, use only lowercase letters and numbers. Don't use spaces or special characters.
+1. Replace lines 32 and 33 with the following text:
 
-1. After deployment finishes, go to the running sample application by opening `https://<yourappname>.azurewebsites.net` in a browser window.
+    ```typescript
+    await expect(todoItems).toHaveText([TODO_ITEMS[0], TODO_ITEMS[1]]);
+    await expect(todoItems).toHaveClass(['completed', '']);
+    ```
 
-1. To see the application's components, sign in to the [Azure portal](https://portal.azure.com) and go to the resource group that you created.
+1. Select **Commit changes** to commit the file changes to your repository.
 
-   :::image type="content" source="./media/tutorial-identify-issues-with-end-to-end-web-tests/resource-group.png" alt-text="Screenshot that shows the list of Azure resource groups.":::
+    After you commit the changes, the GitHub Actions workflow starts automatically, and all tests are rerun. The CI/CD log now shows the tests are passing.
 
-Now that you have the application deployed and running, you can run your first load test against it.
+    :::image type="content" source="./media/tutorial-automate-end-to-end-testing-with-github-actions/github-actions-trigger-by-commit.png" alt-text="Screenshot that shows the running workflow on the GitHub Actions page.":::
 
-## Configure and create the load test
+As you continue to make application code changes or update your test specifications, the tests will trigger automatically and give you continuous feedback about your application quality.
 
-In this section, you'll create a load test by using a sample Apache JMeter test script.
+<!-- ## Clean up resources
 
-The sample application's source repo includes an Apache JMeter script named *SampleApp.jmx*. This script makes three API calls to the web app on each test iteration:
-
-* `add`: Carries out a data insert operation on Azure Cosmos DB for the number of visitors on the web app.
-* `get`: Carries out a GET operation from Azure Cosmos DB to retrieve the count.
-* `lasttimestamp`: Updates the time stamp since the last user went to the website.
-
-> [!NOTE]
-> The sample Apache JMeter script requires two plugins: ```Custom Thread Groups``` and ```Throughput Shaping Timer```. To open the script on your local Apache JMeter instance, you need to install both plugins. You can use the [Apache JMeter Plugins Manager](https://jmeter-plugins.org/install/Install/) to do this.
-
-### Create the Azure Load Testing resource
-
-The Load Testing resource is a top-level resource for your load-testing activities. This resource provides a centralized place to view and manage load tests, test results, and related artifacts.
-
-If you don't yet have a Load Testing resource, create one now.
-
-### Create a load test
-
-To create a load test in the Load Testing resource for the sample app:
-
-1. Go to the Load Testing resource and select **Create new test** on the command bar.
-
-   :::image type="content" source="./media/tutorial-identify-issues-with-end-to-end-web-tests/create-test.png" alt-text="Screenshot that shows the button for creating a new test." :::
-
-1. On the **Basics** tab, enter the **Test name** and **Test description** information. Optionally, you can select the **Run test after creation** checkbox to automatically start the load test after creating it.
-
-   :::image type="content" source="./media/tutorial-identify-issues-with-end-to-end-web-tests/create-new-test-basics.png" alt-text="Screenshot that shows the Basics tab for creating a test." :::
-
-1. On the **Test plan** tab, select the **JMeter script** test method, and then select the *SampleApp.jmx* test script from the cloned sample application directory. Next, select **Upload** to upload the file to Azure and configure the load test.
-
-   :::image type="content" source="./media/tutorial-identify-issues-with-end-to-end-web-tests/create-new-test-test-plan.png" alt-text="Screenshot that shows the Test plan tab and how to upload an Apache J Meter script." :::
-
-    Optionally, you can select and upload additional Apache JMeter configuration files or other files that are referenced in the JMX file. For example, if your test script uses CSV data sets, you can upload the corresponding *.csv* file(s).
-
-1. On the **Parameters** tab, add a new environment variable. Enter *webapp* for the **Name** and *`<yourappname>.azurewebsites.net`* for the **Value**. Replace the placeholder text `<yourappname>` with the name of the newly deployed sample application. Don't include the `https://` prefix.
-
-    The Apache JMeter test script uses the environment variable to retrieve the web application URL. The script then invokes the three APIs in the web application.
-
-    :::image type="content" source="media/tutorial-identify-issues-with-end-to-end-web-tests/create-new-test-parameters.png" alt-text="Screenshot that shows the parameters tab to add environment variable.":::
-
-1. On the **Load** tab, configure the following details. You can leave the default value for this tutorial.
-
-    |Setting  |Value  |Description  |
-    |---------|---------|---------|
-    |**Engine instances**     |**1**         |The number of parallel test engines that run the Apache JMeter script. |
-
-   :::image type="content" source="./media/tutorial-identify-issues-with-end-to-end-web-tests/create-new-test-load.png" alt-text="Screenshot that shows the Load tab for creating a test." :::
-
-1. On the **Monitoring** tab, specify the application components that you want to monitor with the resource metrics. Select **Add/modify** to manage the list of application components.
-
-   :::image type="content" source="./media/tutorial-identify-issues-with-end-to-end-web-tests/create-new-test-monitoring.png" alt-text="Screenshot that shows the Monitoring tab for creating a test." :::
-
-   :::image type="content" source="./media/tutorial-identify-issues-with-end-to-end-web-tests/create-new-test-add-resource.png" alt-text="Screenshot that shows how to add Azure resources to monitor during the load test." :::
-
-   :::image type="content" source="./media/tutorial-identify-issues-with-end-to-end-web-tests/create-new-test-added-resources.png" alt-text="Screenshot that shows the Monitoring tab with the list of Azure resources to monitor." :::
-
-1. Select **Review + create**, review all settings, and select **Create**.
-
-   :::image type="content" source="./media/tutorial-identify-issues-with-end-to-end-web-tests/create-new-test-review.png" alt-text="Screenshot that shows the tab for reviewing and creating a test." :::
-
-> [!NOTE]
-> You can update the test configuration at any time, for example to upload a different JMX file. Choose your test in the list of tests, and then select **Edit**.
-
-## Run the load test in the Azure portal
-
-In this section, you'll use the Azure portal to manually start the load test that you created previously. If you checked the **Run test after creation** checkbox, the test will already be running.
-
-1. Select **Tests** to view the list of tests, and then select the test that you created.
-
-   :::image type="content" source="./media/tutorial-identify-issues-with-end-to-end-web-tests/test-list.png" alt-text="Screenshot that shows the list of tests." :::
-
-   >[!TIP]
-   > You can use the search box and the **Time range** filter to limit the number of tests.
-
-1. On the test details page, select **Run** or **Run test**. Then, select **Run** on the **Run test** confirmation pane to start the load test.
-
-    :::image type="content" source="./media/tutorial-identify-issues-with-end-to-end-web-tests/test-runs-run.png" alt-text="Screenshot that shows selections for running a test." :::
-
-    Azure Load Testing begins to monitor and display the application's server metrics on the dashboard.
-
-    You can see the streaming client-side metrics while the test is running. By default, the results refresh automatically every five seconds.
-
-    :::image type="content" source="./media/tutorial-identify-issues-with-end-to-end-web-tests/aggregated-by-percentile.png" alt-text="Screenshot that shows the dashboard with test results.":::
-
-    You can apply multiple filters or aggregate the results to different percentiles to customize the charts.
-
-   > [!TIP]
-   > You can stop a load test at any time from the Azure portal by selecting **Stop**.
-
-Wait until the load test finishes fully before you proceed to the next section.
-
-## Identify performance bottlenecks
-
-In this section, you'll analyze the results of the load test to identify performance bottlenecks in the application. Examine both the client-side and server-side metrics to determine the root cause of the problem.
-
-1. First, look at the client-side metrics. You'll notice that the 90th percentile for the **Response time** metric for the `add` and `get` API requests is higher than it is for the `lasttimestamp` API.
-
-    :::image type="content" source="./media/tutorial-identify-issues-with-end-to-end-web-tests/client-side-metrics.png" alt-text="Screenshot that shows the client-side metrics.":::
-
-    You can see a similar pattern for **Errors**, where the `lasttimestamp` API has fewer errors than the other APIs.
-
-    :::image type="content" source="./media/tutorial-identify-issues-with-end-to-end-web-tests/client-side-metrics-errors.png" alt-text="Screenshot that shows the error chart.":::
-
-    The results of the `add` and `get` APIs are similar, whereas the `lasttimestamp` API behaves differently. The cause might be database related, because both the `add` and `get` APIs involve database access.
-
-1. To investigate this bottleneck in more detail, scroll down to the **Server-side metrics** dashboard section.
-
-    The server-side metrics show detailed information about your Azure application components: Azure App Service plan, Azure App Service web app, and Azure Cosmos DB.
-
-    :::image type="content" source="./media/tutorial-identify-issues-with-end-to-end-web-tests/app-service-metrics-for-load-testing.png" alt-text="Screenshot that shows the Azure App Service plan metrics.":::
-
-    In the metrics for the Azure App Service plan, you can see that the **CPU Percentage** and **Memory Percentage** metrics are within an acceptable range.
-
-1. Now, look at the Azure Cosmos DB server-side metrics.
-
-    :::image type="content" source="./media/tutorial-identify-issues-with-end-to-end-web-tests/cosmos-db-metrics.png" alt-text="Screenshot that shows Azure Cosmos D B metrics.":::
-
-    Notice that the **Normalized RU Consumption** metric shows that the database was quickly running at 100% resource utilization. The high resource usage might have caused database throttling errors. It also might have increased response times for the `add` and `get` web APIs.
-
-    You can also see that the **Provisioned Throughput** metric for the Azure Cosmos DB instance has a maximum throughput of 400 RUs. Increasing the provisioned throughput of the database might resolve the performance problem.
-
-## Validate the performance improvements
-
-Now that you've increased the database throughput, rerun the load test and verify that the performance results have improved:
-
-1. On the test run dashboard, select **Rerun**, and then select **Rerun** on the **Rerun test** pane.
-
-   :::image type="content" source="./media/tutorial-identify-issues-with-end-to-end-web-tests/rerun-test.png" alt-text="Screenshot that shows selections for running the load test.":::
-
-   You'll see a new test run entry with a status column that cycles through the **Provisioning**, **Executing**, and **Done** states. At any time, select the test run to monitor how the load test is progressing.
-
-1. After the load test finishes, check the **Response time** results and the **Errors** results of the client-side metrics.
-
-1. Check the server-side metrics for Azure Cosmos DB and ensure that the performance has improved.
-
-   :::image type="content" source="./media/tutorial-identify-issues-with-end-to-end-web-tests/cosmos-db-metrics-post-run.png" alt-text="Screenshot that shows the Azure Cosmos D B client-side metrics after update of the scale settings.":::
-
-   The Azure Cosmos DB **Normalized RU Consumption** value is now well below 100%.
-
-Now that you've changed the scale settings of the database, you see that:
-
-* The response time for the `add` and `get` APIs has improved.
-* The normalized RU consumption remains well under the limit.
-
-As a result, the overall performance of your application has improved.
-
-## Clean up resources
-
-[!INCLUDE [alt-delete-resource-group](../../includes/alt-delete-resource-group.md)]
+[!INCLUDE [alt-delete-resource-group](../../includes/alt-delete-resource-group.md)] -->
 
 ## Next steps
 
-Advance to the next tutorial to learn how to set up an automated regression testing workflow by using Azure Pipelines or GitHub Actions.
+You've successfully set up a continuous end-to-end testing workflow with GitHub Actions and Microsoft Playwright Testing. 
 
 > [!div class="nextstepaction"]
 > [What is Microsoft Playwright Testing](./overview-what-is-microsoft-playwright-testing.md)
