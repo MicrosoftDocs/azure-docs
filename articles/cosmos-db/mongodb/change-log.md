@@ -23,43 +23,49 @@ You can now use the free and lightweight tool feature to manage and query your M
 
 
 ### Continuous backup enhancements in Azure Cosmos DB
- The feature allows you to use Azure Cosmos DB Core (SQL) API, API for MongoDB, Gremlin API, or Table API to recover from accidental data changes. Additionally, the feature allows you to restore the data in your database. The two continuous backup options free continuous backup with seven-day data retention or paid continuous backup with 30-day data retention. 
+ The feature allows you to use Azure Cosmos DB Core (SQL) API, API for MongoDB, Gremlin API, or Table API to recover from accidental data changes. 
+
+Azure Cosmos DB's point-in-time restore feature helps in multiple scenarios such as the following:
+
+* To recover from an accidental write or delete operation within a container.
+* To restore a deleted account, database, or a container.
+* To restore into any region (where backups existed) at the restore point in time.
 
 [Learn more](../continuous-backup-restore-introduction.md)
 
 
 ### Linux emulator with Azure Cosmos DB API for MongoDB 
-The Azure Cosmos DB Linux emulator with API for MongoDB support provides a local environment that emulates the Azure Cosmos DB service for development purposes on Linux and macOS. Using the emulator, you can develop and test your MongoDB applications locally, without creating an Azure subscription or incurring any costs. When you're satisfied with how your application is working in the Azure Cosmos DB emulator, you can switch to using an Azure Cosmos DB account in the cloud.
+The Azure Cosmos DB Linux emulator with API for MongoDB support provides a local environment that emulates the Azure Cosmos DB service for development purposes on Linux and macOS. Using the emulator, you can develop and test your MongoDB applications locally, without creating an Azure subscription or incurring any costs. 
 
 [Learn more](https://aka.ms/linux-emulator-mongo)
 
 
-### 16-MB limit per document in API for MongoDB
-The 16-MB document limit in the Azure Cosmos DB API for MongoDB provides developers the flexibility to store more data per document. With the new limit, you don’t have to worry about hitting the previous 2-MB limit. You have the flexibility to create new applications that store larger documents. You also have the flexibility to migrate apps that already use larger documents. This ease-of-use feature will speed up your development process in these cases. 
+### 16-MB limit per document in API for MongoDB (Preview)
+The 16-MB document limit in the Azure Cosmos DB API for MongoDB provides developers the flexibility to store more data per document. This ease-of-use feature will speed up your development process in these cases. 
 
 [Learn more](./mongodb-introduction.md)
 
 
-### Azure Cosmos DB API for MongoDB data plane Role-Based Access Control (RBAC)
-The API for MongoDB now offers a built-in role-based access control (RBAC) that allows you to authorize your data requests with a fine-grained, role-based permission model. Users and roles residing within your database and can be managed using the Azure CLI, Azure PowerShell, or Azure Resource Manager. With this feature, you can audit each of the user’s actions via the Azure Cosmos DB diagnostic logs. Using this role-based access control (RBAC) allows you access with more options for control, security, and auditability of your database account data.
+### Azure Cosmos DB API for MongoDB data plane Role-Based Access Control (RBAC) (Preview)
+The API for MongoDB now offers a built-in role-based access control (RBAC) that allows you to authorize your data requests with a fine-grained, role-based permission model. Using this role-based access control (RBAC) allows you access with more options for control, security, and auditability of your database account data.
 
 [Learn more](./how-to-setup-rbac.md)
 
 
-### Unique partial indexes in Azure Cosmos DB API for MongoDB
-The unique partial indexes feature allows you more flexibility to specify exactly which fields in which documents you’d like to index, all while enforcing uniqueness of that field’s value. This feature is used by specifying a partialFilterExpression when creating the index along with a 'unique' constraint in your Azure Cosmos DB API for MongoDB index. Resulting in the unique constraint being applied only to the documents that meet the specified filter expression. 
+### Unique partial indexes in Azure Cosmos DB API for MongoDB 
+The unique partial indexes feature allows you more flexibility to specify exactly which fields in which documents you’d like to index, all while enforcing uniqueness of that field’s value. Resulting in the unique constraint being applied only to the documents that meet the specified filter expression. 
 
 [Learn more](./feature-support-42.md)
 
 
-### Azure Cosmos DB API for MongoDB unique index reindexing
+### Azure Cosmos DB API for MongoDB unique index reindexing (Preview)
 The unique index feature for Azure Cosmos DB allows you to create unique indexes when your collection was empty and didn't contain documents. This feature provides you with more flexibility by giving you the ability to create unique indexes whenever you want to—meaning there’s no need to plan unique indexes ahead of time before inserting any data into the collection. 
 
 [Learn more](./mongodb-indexing.md) and enable the feature today by [submitting a support ticket request](https://azure.microsoft.com/support/create-ticket/)
 
 
 ### Azure Cosmos DB API for MongoDB supports version 4.2
-The Azure Cosmos DB API for MongoDB version 4.2 includes new aggregation functionality and improved security features such as client-side field encryption. These features help you accelerate development by applying the new functionality instead of developing it yourself. The Azure Cosmos DB API for MongoDB 4.2 can be enabled in the Azure portal with any new or existing database account in seconds, with zero downtime. 
+The Azure Cosmos DB API for MongoDB version 4.2 includes new aggregation functionality and improved security features such as client-side field encryption. These features help you accelerate development by applying the new functionality instead of developing it yourself. 
 
 [Learn more](./feature-support-42.md)
 
@@ -77,16 +83,6 @@ We have added support for both in memory and backend. Additionally, we have the 
 * `$merge` writes the results of agrregation pipeline to specified collection. The `$merge` operator must be the last stage in the pipeline
 
 [Learn more](https://www.mongodb.com/docs/manual/reference/operator/aggregation/merge/)
-
-
-<!-- ### Add Hyperbolic trigonometric operators
-`$cosh` returns the Hyperbolic cosine of a value that is measured in radians. `$cosh` takes any valid expression that resolves to a number measured in radians. By default `$cosh` returns values as a double.  -->
-
-
-### Bump packages and .NET TargetRuntime versions
-* Bumped more packages and removed VersionOverrides under Compute, Mongo and CLuB. 
-* Migrated more projects to `.NET` 6.0.
-* We removed references to the CBT Symbol Indexing package. Symbol indexing is performed by CloudBuild that requires pushing to `symweb`, which is no longer supported. 
 
 
 ## Next steps
