@@ -10,13 +10,6 @@ ms.custom: ignite-fall-2021
 ---
 
 
-
-# [Language API (Preview)](#tab/language)
-
-> [!NOTE]
-> The Language API is available in preview, and provides the following additional feature:
-> * Fast Healthcare Interoperability Resources (FHIR) support.
-
 ```bash
 curl -i -X POST https://your-Language-endpoint-here/language/analyze-text/jobs?api-version=2022-05-15-preview \
 -H "Content-Type: application/json" \
