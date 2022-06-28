@@ -274,7 +274,7 @@ On your device:
     
     - Two, one, or no Graphical Processing Units (GPUs).
 
-    ![Ports on the back plane of a device](./media/azure-stack-edge-pro-2-deploy-install/backplane-ports-1.png)  
+    ![Diagram that shows ports on the back plane of a device.](./media/azure-stack-edge-pro-2-deploy-install/backplane-ports-1.png)  
     
 
 ### Power cabling
