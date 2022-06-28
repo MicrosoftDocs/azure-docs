@@ -19,7 +19,7 @@ These tools are developed to support different kinds of scenarios, focused on di
 ## Migrate from multiple servers at-scale
 
 > [!NOTE]
-> [Learn how to migrate .NET apps to App SErvice using the .NET migration tutorial.](../migrate/tutorial-migrate-webapps.md)
+> [Learn how to migrate .NET apps to App Service using the .NET migration tutorial.](../migrate/tutorial-migrate-webapps.md)
 >
 
 Azure Migrate recently announced at-scale, agentless discovery, and assessment of ASP.NET web apps. You can now easily discover ASP.NET web apps running on Internet Information Services (IIS) servers in a VMware environment and assess them for migration to Azure App Service. Assessments will help you determine the web app migration readiness, migration blockers, remediation guidance, recommended SKU, and hosting costs. At-scale migration resources for  are found below.
@@ -62,12 +62,9 @@ Bulk migration provides the following key capabilities:
 
 ## Migrate from an IIS server
 
-<!-- Intent: discover how to assess and migrate from a single IIS server  -->
-
 You can migrate ASP.NET web apps from single IIS server discovered through Azure Migrate's at-scale discovery experience using [PowerShell scripts](https://github.com/Azure/App-Service-Migration-Assistant/wiki/PowerShell-Scripts) [(download)](https://appmigration.microsoft.com/api/download/psscriptpreview/AppServiceMigrationScripts.zip). Watch the video for [updates on migrating to Azure App Service](/Shows/The-Launch-Space/Updates-on-Migrating-to-Azure-App-Service).
 
 ## ASP.NET web app migration
-<!-- Intent: migrate a single web app -->
 
 Using App Service Migration Assistant, you can [migrate your standalone on-premises ASP.NET web app onto Azure App Service](https://www.youtube.com/watch?v=9LBUmkUhmXU). App Service Migration Assistant is designed to simplify your journey to the cloud through a free, simple, and fast solution to migrate applications from on-premises to the cloud. For more information about the migration assistant tool, see the [FAQ](https://github.com/Azure/App-Service-Migration-Assistant/wiki).
 
