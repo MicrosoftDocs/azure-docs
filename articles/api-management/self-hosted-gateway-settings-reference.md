@@ -6,13 +6,13 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: reference
-ms.date: 06/22/2022
+ms.date: 06/28/2022
 ms.author: danlep
 ---
 
 # Self-hosted gateway configuration settings
 
-This article provides a reference for required and optional settings that are used to configure the API Management [self-hosted gateway](self-hosted-gateway-overview.md). 
+This article provides a reference for required and optional settings that are used to configure the API Management [self-hosted gateway](self-hosted-gateway-overview.md). Settings apply to the self-hosted gateway v2.
 
 ## Deployment
 
@@ -78,12 +78,12 @@ apiVersion: v1
 
 ### Helm chart
 
-When using [Helm](how-to-deploy-self-hosted-gateway-kubernetes-helm.md) to deploy the self-hosted gateway to Kubernetes, pass [available configuration settings](https://artifacthub.io/packages/helm/azure-api-management/azure-api-management-gateway) as parameters to the `helm install` command. For example:
+When using [Helm](how-to-deploy-self-hosted-gateway-kubernetes-helm.md) to deploy the self-hosted gateway to Kubernetes, pass [chart configuration settings](https://artifacthub.io/packages/helm/azure-api-management/azure-api-management-gateway) as parameters to the `helm install` command. For example:
 
 ```
 helm install azure-api-management-gateway \
     --set gateway.configuration.uri='contoso.configuration.azure-api.net' \
-    --set gateway.auth.key='GatewayKey contososgw&xxxxxxxxxxxxxx...' \
+    --set gateway.auth.key='GatewayKey contosogw&xxxxxxxxxxxxxx...' \
     --set secret.createSecret=false \
     --set secret.existingSecretName=`mysecret` \
     azure-apim-gateway/azure-api-management-gateway
