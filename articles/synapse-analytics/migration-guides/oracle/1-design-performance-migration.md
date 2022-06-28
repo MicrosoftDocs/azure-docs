@@ -61,7 +61,7 @@ This article provides general information and guidelines for performance optimiz
 
 ### Migration scope
 
-When preparing to migrate from an Oracle environment, consider the following migration choices.
+When you're preparing to migrate from an Oracle environment, consider the following migration choices.
 
 #### Choose the workload for the initial migration
 
@@ -115,7 +115,7 @@ You can automate and orchestrate the migration process by using the capabilities
 
 [Azure Database Migration Services](../../../dms/dms-overview.md) can help you plan and perform a migration from environments like Oracle.
 
-When planning to use Azure facilities to manage the migration process, create metadata that lists all the data tables to be migrated and their location.
+When you're planning to use Azure facilities to manage the migration process, create metadata that lists all the data tables to be migrated and their location.
 
 ### Design differences between Oracle and Azure Synapse
 
@@ -269,9 +269,11 @@ SQL DML syntax differences exist between Oracle SQL and Azure Synapse T-SQL. Tho
 
 #### Functions, stored procedures, and sequences
 
-When migrating from a mature data warehouse environment like Oracle, you'll probably need to migrate elements other than simple tables and views. For functions, stored procedures, and sequences, check whether tools within the Azure environment can replace their functionality because it's usually more efficient to use built-in Azure tools than to recode the Oracle functions. [Data integration partners](../../partner/data-integration.md) offer tools and services that automate migration of functions, stored procedures, and sequences.
+When migrating a data warehouse from a mature environment like Oracle, you probably need to migrate elements other than simple tables and views. For functions, stored procedures, and sequences, check whether tools within the Azure environment can replace their functionality because it's usually more efficient to use built-in Azure tools than to recode the Oracle functions.
 
 As part of your preparation phase, create an inventory of objects that need to be migrated, define a method for handling them, and allocate appropriate resources in your migration plan.
+
+Microsoft tools like SSMA for Oracle and Azure Database Migration Services, or [third-party](../../partner/data-integration.md) migration products and services, can automate the migration of functions, stored procedures, and sequences.
 
 The following sections further discuss the migration of functions, stored procedures, and sequences.
 

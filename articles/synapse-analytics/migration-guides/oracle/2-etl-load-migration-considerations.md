@@ -22,7 +22,7 @@ There are many factors to consider when migrating data, ETL, and loads from a le
 
 ### Initial decisions about data migration from Oracle
 
-When planning a migration from an Oracle environment, consider the following data-related questions:
+When you're planning a migration from an Oracle environment, consider the following data-related questions:
 
 - Should unused table structures be migrated?
 
@@ -202,7 +202,7 @@ Microsoft offers [SQL Server Migration Assistant](/sql/ssma/oracle/sql-server-mi
 
 ### Initial decisions about Oracle ETL migration
 
-For ETL/ELT processing, legacy Oracle data warehouses often use custom-built scripts, [third-party](../../partner/data-integration.md) ETL tools, or a combination of approaches that has evolved over time. When planning a migration to Azure Synapse, determine the best way to implement the required ETL/ELT processing in the new environment, while minimizing the cost and risk involved.
+For ETL/ELT processing, legacy Oracle data warehouses often use custom-built scripts, [third-party](../../partner/data-integration.md) ETL tools, or a combination of approaches that has evolved over time. When you're planning a migration to Azure Synapse, determine the best way to implement the required ETL/ELT processing in the new environment while also minimizing cost and risk.
 
 The following flowchart summarizes one approach:
 
@@ -259,7 +259,7 @@ In many cases, the existing legacy data warehouse system will already be populat
 
 ### Choices available when loading data from Oracle
 
-When migrating data from an Oracle data warehouse, you'll need to decide how data will be physically moved from the existing on-premises environment into Azure Synapse in the cloud, and which tools will be used to perform the transfer and load. Consider the following questions, which are discussed in the next sections.
+When you're preparing to migrate data from an Oracle data warehouse, decide how data will be physically moved from the existing on-premises environment into Azure Synapse in the cloud, and which tools will be used to perform the transfer and load. Consider the following questions, which are discussed in the following sections.
 
 - Will you extract the data to files, or move it directly via a network connection?
 

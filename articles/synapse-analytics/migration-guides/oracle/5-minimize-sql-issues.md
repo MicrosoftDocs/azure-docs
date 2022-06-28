@@ -47,7 +47,7 @@ Azure also includes [Azure Database Migration Services](../../../dms/dms-overvie
 >[!TIP]
 >Automate the migration process by using Azure Data Factory capabilities.
 
-When planning to use Azure facilities, such as Data Factory, to manage the migration process, first create metadata that lists all the data tables that need to be migrated and their location.
+When you're planning to use Azure facilities, such as Data Factory, to manage the migration process, first create metadata that lists all the data tables that need to be migrated and their location.
 
 ## SQL DDL differences between Oracle and Azure Synapse
 
@@ -190,7 +190,7 @@ There are some SQL DML syntax differences between Oracle SQL and Azure Synapse T
       d.deptno, e.job;
   ```
 
-- `DATE` data: in Oracle, the `DATE` data type can store both date and time. Azure Synapse stores date and time in separate `DATE`, `TIME`, and `DATETIME` data types. When migrating Oracle `DATE` columns, check whether they store both date and time or just a date. If they only store a date, then map the column to `DATE`, otherwise to `DATETIME`.
+- `DATE` data: in Oracle, the `DATE` data type can store both date and time. Azure Synapse stores date and time in separate `DATE`, `TIME`, and `DATETIME` data types. When you're migrating Oracle `DATE` columns, check whether they store both date and time or just a date. If they only store a date, then map the column to `DATE`, otherwise to `DATETIME`.
 
 - `DATE` arithmetic: Oracle supports subtracting one date from another, for example `SELECT date '2018-12-31' - date '2018-1201' from dual;`. In Azure Synapse, you can subtract dates by using the `DATEDIFF()` function, for example `SELECT DATEDIFF(day, '2018-12-01', '2018-12-31');`.
 
@@ -229,7 +229,7 @@ When migrating a data warehouse from a mature environment like Oracle, you proba
 
 As part of your preparation phase, create an inventory of objects that need to be migrated, define a method for handling them, and allocate appropriate resources in your migration plan.
 
-Microsoft tools like SSMA for Oracle and Azure Database Migration Services, or [third-party](../../partner/data-integration.md) migration products and services can automate the migration of functions, stored procedures, and sequences.
+Microsoft tools like SSMA for Oracle and Azure Database Migration Services, or [third-party](../../partner/data-integration.md) migration products and services, can automate the migration of functions, stored procedures, and sequences.
 
 >[!TIP]
 >Third-party products and services can automate migration of non-data elements.
