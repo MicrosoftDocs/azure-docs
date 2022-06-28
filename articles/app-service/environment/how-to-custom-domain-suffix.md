@@ -43,7 +43,7 @@ Ensure the managed identity also has the appropriate access policy set for the A
 
 ### Certificate
 
-The certificate for custom domain suffix must be stored in an Azure Key Vault. App Service Environment will use the managed identity you selected to get the certificate. The Key Vault must be publicly accessible.
+The certificate for custom domain suffix must be stored in an Azure Key Vault. App Service Environment will use the managed identity you selected to get the certificate. The Key Vault must be publicly accessible, however you can lock down the key vault by restricting access to your App Service Environment's outbound IPs. You can find your App Service Environment's outbound IPs under "Default outbound addresses" on the **IP addresses** page for your App Service Environment. You'll need to add both IPs to your key vault's firewall rules. 
 
 :::image type="content" source="./media/custom-domain-suffix/key-vault-networking.png" alt-text="Sample networking page for key vault to allow custom domain suffix feature.":::
 
@@ -139,9 +139,13 @@ Alternatively, you can update your existing ILB App Service Environment using [A
 
 ::: zone-end
 
+## DNS configuration
+
+If you selected to have Azure DNS private zones configured automatically when creating your App Service Environment, then DNS is configured in the virtual network of your App Service Environment. If you selected to configure DNS manually, you need to use your own DNS server or configure Azure DNS private zones. For more information on configuring DNS for your domain, see [Use an App Service Environment](./using.md#dns-configuration).
+
 ## Access your Apps
 
-After configuring the custom domain suffix for your App Service Environment, you can go to the **Custom domains** page for one of your App Service apps in your App Service Environment and confirm the addition of the assigned custom domain for the app. 
+After configuring the custom domain suffix and DNS for your App Service Environment, you can go to the **Custom domains** page for one of your App Service apps in your App Service Environment and confirm the addition of the assigned custom domain for the app. 
 
 :::image type="content" source="./media/custom-domain-suffix/app-custom-domain-sample.png" alt-text="Sample custom domain for an app created by App Service Environment custom domain suffix feature.":::
 
