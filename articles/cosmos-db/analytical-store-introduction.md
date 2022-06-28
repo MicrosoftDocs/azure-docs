@@ -388,19 +388,31 @@ Data tiering refers to the separation of data between storage infrastructures op
 
 After the analytical store is enabled, based on the data retention needs of the transactional workloads, you can configure the transactional store Time-to-Live (TTTL) property to have records automatically deleted from the transactional store after a certain time period. Similarly, the  analytical store Time-to-Live (ATTL) allows you to manage the lifecycle of data retained in the analytical store independent from the transactional store. By enabling analytical store and configuring TTL properties, you can seamlessly tier and define the data retention period for the two stores.
 
+## Resilience
+
+Analytical store relies on Azure Storage and offers the following protection for your data:
+
+ * Single region Azure Cosmos DB database accounts allocate analytical store in Locally Redundant Storage (LRS) Azure Storage accounts.
+ * If any geo-region replication is configured for the Azure Cosmos DB database account, analytical store is allocated in Zone-Redundant Storage (ZRS) Azure storage accounts.
+
 ## Backup
 
-Currently analytical store doesn't support backup and restore, and your backup policy can't be planned relying on that. For more information, check the limitations section of [this](synapse-link.md#limitations) document. While continuous backup mode isn't supported in database accounts with Synapse Link enabled, periodic backup mode is. 
+Currently analytical store doesn't support backup and restore, and your backup policy can't be planned relying on that. Synapse Link, and analytical store by consequence, has different compatibility level with Azure Cosmos DB backup modes:
 
-With periodic backup mode and existing containers, you can:
+* Periodic backup mode is fully compatible with Synapse Link and these 2 features can be used in the same database account without any restriction. 
+* Currently continuous backup mode isn't supported in database accounts with Synapse Link enabled.
+* Currently database accounts with continuous backup mode enabled can enable Synapse Link through a support case.
+* Currently new database accounts can be created with continous backup mode and Synapse Link enabled, using Azure CLI or PowerShell. Those two features must be turned on at the same time, in the exact same command that creates the database account.
 
- ### Fully rebuild analytical store when TTTL >= ATTL
+The original container is restored without analytical store in both backup modes.
+
+ #### Restore a container and fully rebuild analytical store when TTTL >= ATTL
  
- The original container is restored without analytical store. But you can enable it and it will be rebuild with all data that existing in the container.
+ When `transactional TTL` is equal or bigger than `analytical TTL`, all data in analytical store still exists in transactional store. To rebuild analytical store, just enable Synapse Link at account level and container level.
  
- ### Partially rebuild analytical store when TTTL < ATTL
+ #### Restore a container and partially rebuild analytical store when TTTL < ATTL
  
-The data that was only in analytical store isn't restored, but it will be kept available for queries as long as you keep the original container. Analytical store is only deleted when you delete the container. Your analytical queries in Azure Synapse Analytics can read data from both original and restored container's analytical stores. Example:
+When `transactional TTL` is smaller than `analytical TTL`, some data only exists in analytical store. This data will remain available for queries as long as the original container exists. Analytical store is only deleted when you delete the container. Your analytical queries in Azure Synapse Analytics can read data from both original and restored container's analytical stores. Example:
 
  * Container `OnlineOrders` has TTTL set to one month and ATTL set for one year.
  * When you restore it to `OnlineOrdersNew` and turn on analytical store to rebuild it, there will be only one month of data in both transactional and analytical store.
