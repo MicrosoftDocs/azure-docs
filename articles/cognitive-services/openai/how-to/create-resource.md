@@ -18,13 +18,13 @@ Use this article to get started creating your first Azure OpenAI resource and de
 
 ::: zone pivot="web-portal"
 
-[!INCLUDE [Studio quickstart](includes/create-resource-portal.md)]
+[!INCLUDE [Studio quickstart](../includes/create-resource-portal.md)]
 
 ::: zone-end
 
 ::: zone pivot="cli"
 
-[!INCLUDE [Python SDK quickstart](includes/create-resource-cli.md)]
+[!INCLUDE [Python SDK quickstart](../includes/create-resource-cli.md)]
 
 ::: zone-end
 

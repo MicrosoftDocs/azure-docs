@@ -22,11 +22,11 @@ Use this article to get started with Azure OpenAI with step-by-step instructions
 
 Resources in Azure can be created several different ways:
 
-- Within the Azure Portal
-- Using the REST APIs, Azure ClI, PowerShell or client libraries
+- Within the Azure portal
+- Using the REST APIs, Azure CLI, PowerShell or client libraries
 - Via ARM templates
 
-This guide walks you through the Azure Portal creation experience.
+This guide walks you through the Azure portal creation experience.
 
 1. Navigate to the create page: [Azure OpenAI Service Create Page](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=microsoft_openai_tip#create/Microsoft.CognitiveServicesOpenAI)<!--TODO: Change once new link is live>
 1. On the **Create** page provide the following information:

@@ -19,7 +19,7 @@ items:
 - name: How-to 
   items:
     - name: Create a resource
-      href: .how-to/create-resource.md
+      href: ./how-to/create-resource.md
     - name: Completions
       href: ./how-to/completions.md
     - name: Work with code (Codex)
