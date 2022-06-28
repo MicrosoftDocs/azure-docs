@@ -300,7 +300,7 @@ Once you have run the command, continue on to [Monitoring the creation status](#
 Creating the controller will take a few minutes to complete. You can monitor the progress in another terminal window with the following commands:
 
 > [!NOTE]
->  The example commands below assume that you created a data controller named `arc-dc` and Kubernetes namespace named `arc`.  If you used  different values update the script accordingly.
+> The example commands below assume that you created a data controller named `arc-dc` and Kubernetes namespace named `arc`. If you used different values update the script accordingly.
 
 ```console
 kubectl get datacontroller/arc-dc --namespace arc
