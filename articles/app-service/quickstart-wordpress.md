@@ -45,9 +45,19 @@ In this quickstart, you'll learn how to create and deploy your first [WordPress]
 
      :::image type="content" source="./media/quickstart-wordpress/06-wordpress-basics-wordpress-settings.png?text=Azure portal WordPress settings" alt-text="Screenshot of WordPress settings":::
 
+1. Select the **Next: Advanced >** button.
+
+1. In the **Advanced** tab, under **Additional Settings** choose your preferred **Site Language**.
+
+WordPress on App Service on Linux provides performance options through Content Distribution in the form of a Content Delivery Network or Blob Storage.
+
+CDN Endpoint creates an Azure CDN profile and Blob Storage creates an Azure Storage account with a blob container. For more details regarding these Content Distribution options, see [WordPress on App Service](https://azure.github.io/AppService/2022/02/23/WordPress-on-App-Service-Public-Preview.html).
+
+1.  Select your preferred **Content Distribution**. If you're unfamiliar with using a Content Delivery Network or Blob Storage, select **Disabled**.
+
 1. Select the **Review + create** tab. After validation runs, select the **Create** button at the bottom of the page to create the WordPress site.
  
-    :::image type="content" source="./media/quickstart-wordpress/08-wordpress-create.png?text=WordPress create button" alt-text="Screenshot of WordPress create button":::
+    :::image type="content" source="./media/quickstart-wordpress/09-wordpress-create.png?text=WordPress create button" alt-text="Screenshot of WordPress create button":::
 
     > [!NOTE]
     > App Service creates environment variables and application settings needed for WordPress/PHP configuration. For more information on customizing environment variables, see the WordPress section in [Environment variables and app settings in Azure App Service](reference-app-settings.md#wordpress).
