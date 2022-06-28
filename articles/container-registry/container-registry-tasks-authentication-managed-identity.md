@@ -8,7 +8,7 @@ manager: gwallace
 ms.service: container-registry
 ms.topic: article
 ms.date: 01/14/2020
-ms.author: danlep
+ms.author: tejaswikolli
 ---
 
 # Use an Azure-managed identity in ACR Tasks 
