@@ -24,6 +24,9 @@ The following are the key reasons to migrate into continuous mode:
 * The ability to restore container, database, or the full account when it's deleted or modified.
 * The ability to choose the events on the container, database, or account and decide when to initiate the restore.
 
+> [!IMPORTANT]
+> Support for 7-day continous backup in both provisioning and migration scenarios is still in preview. Please use PowerShell and Azure CLI to migrate or provision an account with continous backup configured at the 7-day tier.
+
 > [!NOTE]
 > The migration capability is one-way only and it's an irreversible action. Which means once you migrate from periodic mode to continuous mode, you can’t switch back to periodic mode.
 >
