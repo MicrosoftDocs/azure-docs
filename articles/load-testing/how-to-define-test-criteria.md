@@ -47,7 +47,7 @@ Azure Load Testing supports the following metrics:
 |`response_time_ms`     |  `avg` (average)<BR> `min` (minimum)<BR> `max` (maximum)<BR> `pxx` (percentile), xx can be 50, 90, 95, 99     | Integer value, representing number of milliseconds (ms)     |   `>` (greater than)<BR> `<` (less than)      |
 |`latency_ms`     |  `avg` (average)<BR> `min` (minimum)<BR> `max` (maximum)<BR> `pxx` (percentile), xx can be 50, 90, 95, 99     | Integer value, representing number of milliseconds (ms).     |   `>` (greater than)<BR> `<` (less than)      |
 |`error`     |  `percentage`       | Numerical value in the range 0-100, representing a percentage.      |   `>` (greater than) <BR> `<` (less than)      |
-|`requests_per_sec`     |  `avg` (average)       | Numerical values with upto two decimal places      |   `>` (greater than) <BR> `<` (less than)     |
+|`requests_per_sec`     |  `avg` (average)       | Numerical value with up to two decimal places.      |   `>` (greater than) <BR> `<` (less than)     |
 |`requests`     |  `count`       | Integer value      |   `>` (greater than) <BR> `<` (less than)     |
 
 ## Define test pass/fail criteria in the Azure portal
