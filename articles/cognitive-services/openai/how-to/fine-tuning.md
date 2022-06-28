@@ -20,10 +20,10 @@ The Azure OpenAI Service lets you tailor our models to your personal datasets us
 
 ## Prerequisites
 
-- An Azure subscription
+- An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services)
 - Access granted to service in the desired Azure subscription. This service is currently invite only. You can fill out a new use case request here: <https://aka.ms/oai/access>. Please open an issue on this repo to contact us if you have an issue
 - The following python libraries: os, requests, json
-- Have an existing Azure OpenAI resource deployed
+- An Azure OpenAI Service resource with a model deployed. If you don't have a resource/model the process is documented in our [resource deployment guide](../how-to/create-resource.md)
 
 ## Fine-tuning workflow
 
