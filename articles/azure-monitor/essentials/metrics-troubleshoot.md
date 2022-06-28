@@ -5,7 +5,7 @@ author: vgorbenko
 services: azure-monitor
 ms.reviewer: vitalyg
 ms.topic: conceptual
-ms.date: 04/23/2019
+ms.date: 04/23/2019  
 ms.author: vitalyg
 ---
 
