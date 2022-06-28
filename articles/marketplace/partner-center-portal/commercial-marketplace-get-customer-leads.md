@@ -6,16 +6,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 author: durior1
 ms.author: uridor
-ms.date: 05/20/2021
+ms.date: 06/29/2022
 ---
 
 # Customer leads from your commercial marketplace offer
 
 Leads are customers interested in or deploying your offers from [Microsoft AppSource](https://appsource.microsoft.com) and [Azure Marketplace](https://azuremarketplace.microsoft.com). You can receive customer leads after your offer is published to the commercial marketplace. This article explains the following lead management concepts:
 
-* How your commercial marketplace offer generates customer leads to ensure that you don't miss business opportunities. 
-* How to connect your customer relationship management (CRM) system to your offer so that you can manage your leads in one central location.
-* The lead data we send you so that you can follow up on customers who reached out to you.
+- How your commercial marketplace offer generates customer leads to ensure that you don't miss business opportunities. 
+- How to manage your leads in Partner Center
+- How to connect your customer relationship management (CRM) system to your offer.
+- The lead data we send you so that you can follow up on customers who reached out to you.
 
 ## Generate customer leads
 
