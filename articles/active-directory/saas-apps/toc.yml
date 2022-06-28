@@ -2993,7 +2993,7 @@
         href: symantec-web-security-service.md
     - name: T - Z
       items:
-      - name: Tableau Online
+      - name: Tableau Cloud
         href: tableau-online-provisioning-tutorial.md
       - name: Talentech
         href: talentech-provisioning-tutorial.md

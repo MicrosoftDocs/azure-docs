@@ -34,7 +34,6 @@ In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * LinkedIn Learning supports **SP and IDP** initiated SSO.
 * LinkedIn Learning supports **Just In Time** user provisioning.
-* LinkedIn Learning supports [Automated user provisioning](linkedin-learning-provisioning-tutorial.md).
 
 ## Add LinkedIn Learning from the gallery
 
