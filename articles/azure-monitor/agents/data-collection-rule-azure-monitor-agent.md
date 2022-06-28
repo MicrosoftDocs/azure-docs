@@ -18,85 +18,15 @@ To collect data from virtual machines using the Azure Monitor agent, you'll:
 1. Create [data collection rules (DCR)](../essentials/data-collection-rule-overview.md) that define which data Azure Monitor agent sends to which destinations.
 1. Associate the data collection rule to specific virtual machines.
 
-## How data collection rule associations work
+## Data collection rule associations
 
-You can associate virtual machines to multiple data collection rules. This allows you to define each data collection rule to address a particular requirement, and associate the data collection rules to virtual machines based on the specific data you want to collect from each machine.
-
-For example, consider an environment with a set of virtual machines running a line of business application and other virtual machines running SQL Server. You might have: 
-
-- One default data collection rule that applies to all virtual machines.
-- Separate data collection rules that collect data specifically for the line of business application and for SQL Server. 
-    
-The following diagram illustrates the associations for the virtual machines to the data collection rules.
-
-![A diagram showing one virtual machine hosting a line of business application and one virtual machine hosting SQL Server. Both virtual machine are associated with data collection rule named central-i t-default. The virtual machine hosting the line of business application is also associated with a data collection rule called lob-app. The virtual machine hosting SQL Server is associated with a data collection rule called s q l.](media/data-collection-rule-azure-monitor-agent/associations.png)
-
+To apply a DCR to a virtual machine, you create a [data collection rule association](../data-collection.md#components) between the two. A virtual machine may have an association to multiple DCRs, and a DCR may have multiple virtual machines associated to it. This allows you to define a set of DCRs, each matching a particular requirement, and apply them to only the virtual machines where they apply. When you use the Azure portal, you simply choose the machines that should be associated with the DCR. Using other methods, you must explicitly create the data collection rule association.
 
 ## Create data collection rule and association
 
 To send data to Log Analytics, create the data collection rule in the **same region** where your Log Analytics workspace resides. You can still associate the rule to machines in other supported regions.
 
 ### [Portal](#tab/portal)
-
-1. From the **Monitor** menu, select **Data Collection Rules**. 
-1. Select **Create** to create a new Data Collection Rule and associations.
-
-    [![Screenshot showing the Create button on the Data Collection Rules screen.](media/data-collection-rule-azure-monitor-agent/data-collection-rules-updated.png)](media/data-collection-rule-azure-monitor-agent/data-collection-rules-updated.png#lightbox)
-    
-1. Provide a **Rule name** and specify a **Subscription**, **Resource Group**, **Region**, and **Platform Type**. 
-
-    **Region** specifies where the DCR will be created. The virtual machines and their associations can be in any subscription or resource group in the tenant.
-
-    **Platform Type** specifies the type of resources this rule can apply to. Custom allows for both Windows and Linux types. 
-
-    [![Screenshot showing the Basics tab of the Data Collection Rules screen.](media/data-collection-rule-azure-monitor-agent/data-collection-rule-basics-updated.png)](media/data-collection-rule-azure-monitor-agent/data-collection-rule-basics-updated.png#lightbox)
-
-1. On the **Resources** tab, add the resources (virtual machines, virtual machine scale sets, Arc for servers) to which to associate the data collection rule. The portal will install Azure Monitor Agent on resources that don't already have it installed, and will also enable Azure Managed Identity.
-
-    > [!IMPORTANT]
-    > The portal enables System-Assigned managed identity on the target resources, in addition to existing User-Assigned Identities (if any). For existing applications, unless you specify the User-Assigned identity in the request, the machine will default to using System-Assigned Identity instead.  
-
-    If you need network isolation using private links, select existing endpoints from the same region for the respective resources, or [create a new endpoint](../essentials/data-collection-endpoint-overview.md).
-
-    [![Data Collection Rule virtual machines](media/data-collection-rule-azure-monitor-agent/data-collection-rule-virtual-machines-with-endpoint.png)](media/data-collection-rule-azure-monitor-agent/data-collection-rule-virtual-machines-with-endpoint.png#lightbox)
-
-1. On the **Collect and deliver** tab, select **Add data source** to add a data source and set a destination.
-1. Select a **Data source type**.
-1. Select which data you want to collect. For performance counters, you can select from a predefined set of objects and their sampling rate. For events, you can select from a set of logs and severity levels. 
-
-    [![Data source basic](media/data-collection-rule-azure-monitor-agent/data-collection-rule-data-source-basic-updated.png)](media/data-collection-rule-azure-monitor-agent/data-collection-rule-data-source-basic-updated.png#lightbox)
-
-1. Select **Custom** to collect logs and performance counters that are not [currently supported data sources](azure-monitor-agent-overview.md#data-sources-and-destinations) or to [filter events using XPath queries](#filter-events-using-xpath-queries). You can then specify an [XPath](https://www.w3schools.com/xml/xpath_syntax.asp) to collect any specific values. See [Sample DCR](data-collection-rule-sample-agent.md) for an example.
-
-    [![Data source custom](media/data-collection-rule-azure-monitor-agent/data-collection-rule-data-source-custom-updated.png)](media/data-collection-rule-azure-monitor-agent/data-collection-rule-data-source-custom-updated.png#lightbox)
-
-1. On the **Destination** tab, add one or more destinations for the data source. You can select multiple destinations of the same or different types - for instance multiple Log Analytics workspaces (known as "multi-homing"). 
-
-    You can send Windows event and Syslog data sources can to Azure Monitor Logs only. You can send performance counters to both Azure Monitor Metrics and Azure Monitor Logs.
-
-    [![Destination](media/data-collection-rule-azure-monitor-agent/data-collection-rule-destination.png)](media/data-collection-rule-azure-monitor-agent/data-collection-rule-destination.png#lightbox)
-
-1. Select **Add Data Source** and then **Review + create** to review the details of the data collection rule and association with the set of virtual machines. 
-1. Select **Create** to create the data collection rule.
-
-> [!NOTE]
-> It might take up to 5 minutes for data to be sent to the destinations after you create the data collection rule and associations.
-
-## Data collection rule associations
-
-To apply a DCR to a virtual machine, you create a [data collection rule association](../data-collection.md#components) between the two. A virtual machine may have an association to multiple DCRs, and a DCR may have multiple virtual machines associated to it. This allows you to define a set of DCRs, each matching a particular requirement, and apply them to only the virtual machines where they apply. When you use the Azure portal, you simply choose the machines that should be associated with the DCR. Using other methods, you must explicitly create the data collection rule association. 
-
-## Create rule and association in Azure portal
-
-You can use the Azure portal to create a data collection rule and associate virtual machines in your subscription to that rule. The Azure Monitor agent will be automatically installed and a managed identity created for any virtual machines that don't already have it installed.
-
-> [!IMPORTANT]
-> Creating a data collection rule using the portal also enables System-Assigned managed identity on the target resources, in addition to existing User-Assigned Identities (if any). For existing applications unless they specify the User-Assigned identity in the request, the machine will default to using System-Assigned Identity instead. [Learn More](../../active-directory/managed-identities-azure-resources/managed-identities-faq.md#what-identity-will-imds-default-to-if-dont-specify-the-identity-in-the-request)
-
-                    
-
-> [!NOTE]
-> If you wish to send data to Log Analytics, you must create the data collection rule in the **same region** where your Log Analytics workspace resides. The rule can be associated to machines in other supported region(s).
 
 In the **Monitor** menu in the Azure portal, select **Data Collection Rules** from the **Settings** section. Click **Create** to create a new Data Collection Rule and assignment.
 
@@ -133,6 +63,22 @@ Click **Add Data Source** and then **Review + create** to review the details of 
 
 > [!NOTE]
 > After the data collection rule and associations have been created, it might take up to 5 minutes for data to be sent to the destinations.
+
+
+
+
+## Create rule and association in Azure portal
+
+You can use the Azure portal to create a data collection rule and associate virtual machines in your subscription to that rule. The Azure Monitor agent will be automatically installed and a managed identity created for any virtual machines that don't already have it installed.
+
+> [!IMPORTANT]
+> Creating a data collection rule using the portal also enables System-Assigned managed identity on the target resources, in addition to existing User-Assigned Identities (if any). For existing applications unless they specify the User-Assigned identity in the request, the machine will default to using System-Assigned Identity instead. [Learn More](../../active-directory/managed-identities-azure-resources/managed-identities-faq.md#what-identity-will-imds-default-to-if-dont-specify-the-identity-in-the-request)
+
+                    
+
+> [!NOTE]
+> If you wish to send data to Log Analytics, you must create the data collection rule in the **same region** where your Log Analytics workspace resides. The rule can be associated to machines in other supported region(s).
+
 
 ## Limit data collection with custom XPath queries
 Since you're charged for any data collected in a Log Analytics workspace, you should collect only the data that you require. Using basic configuration in the Azure portal, you only have limited ability to filter events to collect. For Application and System logs, this is all logs with a particular severity. For Security logs, this is all audit success or all audit failure logs.

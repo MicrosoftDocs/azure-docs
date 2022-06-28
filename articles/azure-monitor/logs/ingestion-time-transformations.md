@@ -19,7 +19,7 @@ Ingestion-time transformation is applied to any workflow that doesn't currently 
 The workflows that currently use data collection rules are as follows:
 
 - [Azure Monitor agent](../agents/data-collection-rule-azure-monitor-agent.md)
-- [Custom logs](../logs/custom-logs-overview.md)
+- [Custom logs](../logs/data-ingestion-api-overview.md)
 
 ## Supported tables
 See [Supported tables for ingestion-time transformations](tables-feature-support.md) for a complete list of tables that support ingestion-time transformations.

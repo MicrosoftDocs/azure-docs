@@ -30,7 +30,7 @@ When implementation is complete, all data collected by Azure Monitor will use th
 Workflows that currently support the Azure Monitor data collection pipeline include the following. This list will be modified as other workflows are added.
 
 - [Azure Monitor agent](agents/azure-monitor-agent-overview.md) (transformations currently not supported)
-- [Custom logs API](logs/custom-logs-overview.md)
+- [Custom logs API](logs/data-ingestion-api-overview.md)
 
 
 ## Legacy workflows

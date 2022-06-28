@@ -1322,7 +1322,7 @@ items:
   - name: Custom logs
     items:
     - name: Overview
-      href: logs/custom-logs-overview.md
+      href: logs/data-ingestion-api-overview.md
     - name: Tutorial (portal)
       href: logs/tutorial-custom-logs.md
     - name: Tutorial (API)
