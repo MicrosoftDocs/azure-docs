@@ -97,7 +97,7 @@ The most common constructor for **CosmosClient** has two parameters:
         --query "documentEndpoint"
     ```
 
-1. Find the *PRIMARY KEY* from the list of keys for the account with the[``az-cosmosdb-keys-list``](/cli/azure/cosmosdb/keys#az-cosmosdb-keys-list) command.
+1. Find the *PRIMARY KEY* from the list of keys for the account with the [`az-cosmosdb-keys-list`](/cli/azure/cosmosdb/keys#az-cosmosdb-keys-list) command.
 
     ```azurecli-interactive
     az cosmosdb keys list \
@@ -224,7 +224,7 @@ Another constructor for **CosmosClient** only contains a single parameter:
     )
     ```
 
-1. Find the *PRIMARY CONNECTION STRING* from the list of connection strings for the account with the[``az-cosmosdb-keys-list``](/cli/azure/cosmosdb/keys#az-cosmosdb-keys-list) command.
+1. Find the *PRIMARY CONNECTION STRING* from the list of connection strings for the account with the [`az-cosmosdb-keys-list`](/cli/azure/cosmosdb/keys#az-cosmosdb-keys-list) command.
 
     ```azurecli-interactive
     az cosmosdb keys list \

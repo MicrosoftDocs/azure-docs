@@ -7,7 +7,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: how-to
-ms.date: 06/10/2022
+ms.date: 06/24/2022
 ms.custom: devx-track-csharp
 ---
 
@@ -38,7 +38,7 @@ Optionally, you can define projections to accept image-analyzed output into a [k
 Image processing is indexer-driven, which means that the raw inputs must be a supported file type (as determined by the skills you choose) from a [supported data source](search-indexer-overview.md#supported-data-sources). 
 
 + Image analysis supports JPEG, PNG, GIF, and BMP
-+ OCR supports JPEG, PNG, GIF, BMP, and TIF
++ OCR supports JPEG, PNG, BMP, and TIF
 
 Images are either standalone binary files or embedded in documents (PDF, RTF, and Microsoft application files). A maximum of 1000 images will be extracted from a given document. If there are more than 1000 images in a document, the first 1000 will be extracted and a warning will be generated.
 

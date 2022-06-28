@@ -1079,6 +1079,6 @@
   - name: Load Testing
     tocHref: /azure/load-testing/
     topicHref: /azure/load-testing/overview-what-is-azure-load-testing
-  - name: Azure Spring Cloud
+  - name: Azure Spring Apps
     tocHref: /azure/spring-cloud/
     topicHref: /azure/spring-cloud/index
