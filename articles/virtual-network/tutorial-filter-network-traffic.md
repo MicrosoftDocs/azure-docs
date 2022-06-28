@@ -6,7 +6,7 @@ services: virtual-network
 author: mbender-ms
 ms.service: virtual-network
 ms.topic: tutorial
-ms.date: 06/26/2022
+ms.date: 06/28/2022
 ms.author: mbender
 ms.custom: template-tutorial #Required; leave this attribute/value as-is.
 # Customer intent: I want to filter network traffic to virtual machines that perform similar functions, such as web servers.
@@ -22,8 +22,9 @@ In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Create a network security group and security rules
+> * Create application security groups  
 > * Create a virtual network and associate a network security group to a subnet
-> * Deploy virtual machines (VMs) into a subnet
+> * Deploy virtual machines and associate their network interfaces to the application security groups
 > * Test traffic filters
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
@@ -97,7 +98,7 @@ An [application security group (ASGs)](application-security-groups.md) enables y
 
 ## Create a network security group
 
-A [network security group (NSG)](network-security-groups-overview.md) secures network traffic in your virtual network. In this section you'll create a network security group. 
+A [network security group (NSG)](network-security-groups-overview.md) secures network traffic in your virtual network. 
 
 1. From the Azure portal menu, select **+ Create a resource** > **Networking** > **Network security group**, or search for *Network security group* in the portal search box.
 
@@ -188,7 +189,7 @@ In this section, you'll associate the network security group with the subnet of 
 
 Once you've completed steps 1-3, review the rules you created. Your list should look like the list in the following example:
 
-:::image type="content" source="./media/tutorial-filter-network-traffic/security-rules.png" alt-text="Security rules." border="true":::
+:::image type="content" source="./media/tutorial-filter-network-traffic/security-rules.png" alt-text="Screenshot of Security rules of a network security group." border="true":::
 
 ## Create virtual machines (VMs)
 
@@ -254,7 +255,7 @@ Add the network interface of each VM to one of the application security groups y
 
 3. Select the **Application security groups** tab, then select **Configure the application security groups**.
 
-    :::image type="content" source="./media/tutorial-filter-network-traffic/configure-app-sec-groups.png" alt-text="Configure application security groups." border="true":::
+    :::image type="content" source="./media/tutorial-filter-network-traffic/configure-app-sec-groups.png" alt-text="Screenshot of Configure application security groups." border="true":::
 
 4. In **Configure the application security groups**, select **myAsgWebServers**. Select **Save**.
 
@@ -304,7 +305,7 @@ Add the network interface of each VM to one of the application security groups y
 
 11. On the **Overview** page of **myVMWeb**, note the **Public IP address** for your VM. The address shown in the following example is 23.96.39.113, but your address is different:
 
-    :::image type="content" source="./media/tutorial-filter-network-traffic/public-ip-address.png" alt-text="Public IP address." border="true":::
+    :::image type="content" source="./media/tutorial-filter-network-traffic/public-ip-address.png" alt-text="Screenshot of Public IP address of a virtual machine in the Overview page." border="true":::
     
 11. To confirm that you can access the **myVMWeb** web server from the internet, open an internet browser on your computer and browse to `http://<public-ip-address-from-previous-step>`. 
 
@@ -326,7 +327,7 @@ In this tutorial, you:
 
 * Created a network security group and associated it to a virtual network subnet. 
 * Created application security groups for web and management.
-* Created two virtual machines.
+* Created two virtual machines and associated their network interfaces with the application security groups.
 * Tested the application security group network filtering.
 
 To learn more about network security groups, see [Network security group overview](./network-security-groups-overview.md) and [Manage a network security group](manage-network-security-group.md).
