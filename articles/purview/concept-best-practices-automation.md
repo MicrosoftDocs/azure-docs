@@ -62,7 +62,7 @@ When to use?
 Each Microsoft Purview account can enable a fully managed event hub that is accessible via the Atlas Kafka endpoint found via the Azure portal > Microsoft Purview Account > Properties. 
 
 To enable this Event Hubs namespace, you can follow these steps:
-1. Search for and open your Microsoft Purview account in the Azure portal.
+1. Search for and open your Microsoft Purview account in the [Azure portal](https://portal.azure.com).
 1. Select **Managed Resources** under settings on your Microsoft Purview account page in the Azure Portal.
     :::image type="content" source="media/concept-best-practices/enable-disable-event-hubs.png" alt-text="Screenshot showing the Event Hubs namespace toggle highlighted on the Managed resources page of the Microsoft Purview account page in the Azure Portal.":::
 1. Select the Enable/Disable toggle to enable your Event Hubs namespace. It can be disabled at any time.

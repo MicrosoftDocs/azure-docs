@@ -78,7 +78,7 @@ There are two major automated processes that can trigger ingestion of metadata i
 
 ### 1. Automatic scans using native connectors
 
-- A **full scan** processes all assets within a selected scope of a data source whereas an **incremental scan** detects and processes assets, which have been created, modified, or deleted since the previous successful scan 
+- A **full scan** processes all assets within a selected scope of a data source whereas an **incremental scan** detects and processes assets, which have been created, modified, or deleted since the previous successful scan.
 
 - All scans (full or Incremental scans) will pick up **updated, modified, or deleted** assets
 
@@ -119,12 +119,13 @@ There are two major automated processes that can trigger ingestion of metadata i
 - It's important to note that billing for Advanced Resource Sets is based on the compute used by the offline tier to aggregate resource set information and is dependent on the size/number of resource sets in your catalog
 
 
-## Indirect costs   
+## Indirect costs
 
 Indirect costs impacting Microsoft Purview (formerly Azure Purview) pricing to be considered are:
 
 - [Managed resources](https://azure.microsoft.com/pricing/details/azure-purview/)
-    - When an account is provisioned, a storage account and event hub queue are created within the subscription in order to cater to secured scanning, which may be charged separately
+    - When an account is provisioned, a storage account is created in the subscription in order to cater to secured scanning, which may be charged separately.
+    - An Event Hubs namespace can be [enabled at creation](create-catalog-portal.md#create-an-account) or enabled in the [Azure portal](https://portal.azure.com) on the managed resources page of the account to enable monitoring with [*Atlas Kafka* topics events](manage-kafka-dotnet.md). This will be charged separately if it is enabled.
 
 
 - [Azure private endpoint](./catalog-private-link.md)

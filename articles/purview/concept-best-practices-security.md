@@ -305,7 +305,22 @@ Data at rest includes information that resides in persistent storage on physical
 To add another layer of security in addition to access controls, Microsoft Purview encrypts data at rest to protect against 'out of band' attacks (such as accessing underlying storage). 
 It uses encryption with Microsoft-managed keys. This practice helps make sure attackers can't easily read or modify the data. 
 
-For more information, see [Encrypt sensitive data at rest](/security/benchmark/azure/baselines/purview-security-baseline#dp-5-encrypt-sensitive-data-at-rest). 
+For more information, see [Encrypt sensitive data at rest](/security/benchmark/azure/baselines/purview-security-baseline#dp-5-encrypt-sensitive-data-at-rest).
+
+### Optional Event Hubs namespace
+
+Each Microsoft Purview account can enable a fully managed event hub that is accessible via the Atlas Kafka endpoint found via the Azure portal > Microsoft Purview Account > Properties. This can be enabled at creation, or from the Azure Portal. To remove this information distribution point, you can disable this Event Hubs namespace.
+
+To disable the Event Hubs namespace, you can follow these steps:
+1. Search for and open your Microsoft Purview account in the [Azure portal](https://portal.azure.com).
+1. Select **Managed Resources** under settings on your Microsoft Purview account page in the Azure Portal.
+    :::image type="content" source="media/concept-best-practices/disable-event-hubs.png" alt-text="Screenshot showing the Event Hubs namespace toggle highlighted on the Managed resources page of the Microsoft Purview account page in the Azure Portal.":::
+1. Select the Enable/Disable toggle to enable your Event Hubs namespace.
+1. Select **Save** to save the choice and begin the disablement process. This can take several minutes to complete.
+    :::image type="content" source="media/concept-best-practices/disable-select-save.png" alt-text="Screenshot showing the Managed resources page of the Microsoft Purview account page in the Azure Portal with the save button highlighted.":::
+
+> [!NOTE]
+> If you have an ingestion private endpoint when you disable this Event Hubs namespace, after disabling the ingestion private endpoint will show as disconnected.
 
 ## Credential management
 
