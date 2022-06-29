@@ -77,6 +77,9 @@ New-AzRoleAssignment -SignInName <emailOrUserprincipalname> `
 
 The following example uploads a VHD from your local machine to a new Azure managed disk using [Add-AzVHD](/powershell/module/az.compute/add-azvhd?view=azps-7.1.0&viewFallbackFrom=azps-5.4.0&preserve-view=true). Replace `<your-filepath-here>`, `<your-resource-group-name>`,`<desired-region>`, and `<desired-managed-disk-name>` with your parameters:
 
+> [!NOTE]
+> If you're using Auzre AD to enforce upload restrictions, add `DataAccessAuthMode 'AzureActiveDirectory'` to the end of your `Add-AzVhd` command.
+
 ```azurepowershell
 # Required parameters
 $path = <your-filepath-here>.vhd
@@ -87,6 +90,7 @@ $name = <desired-managed-disk-name>
 # Optional parameters
 # $Zone = <desired-zone>
 # $sku=<desired-SKU>
+# -DataAccessAuthMode 'AzureActiveDirectory'
 
 # To use $Zone or #sku, add -Zone or -DiskSKU parameters to the command
 Add-AzVhd -LocalFilePath $path -ResourceGroupName $resourceGroup -Location $location -DiskName $name
