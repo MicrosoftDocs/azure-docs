@@ -85,7 +85,7 @@ InstrumentationKey=...;IngestionEndpoint=...;LiveEndpoint=...
 Not setting the connection string will disable the Java agent.
 
 If you have multiple applications deployed in the same JVM and want them to send telemetry to different instrumentation
-keys, see [Instrumentation key overrides (preview)](./java-standalone-config#instrumentation-key-overrides-preview).
+keys, see [Instrumentation key overrides (preview)](#instrumentation-key-overrides-preview).
 
 ## Cloud role name
 
@@ -107,7 +107,7 @@ You can also set the cloud role name using the environment variable `APPLICATION
 (which will then take precedence over cloud role name specified in the json configuration).
 
 If you have multiple applications deployed in the same JVM and want them to send telemetry to different cloud role
-names, see [Cloud role name overrides (preview)](./java-standalone-config#cloud-role-name-overrides-preview).
+names, see [Cloud role name overrides (preview)](#cloud-role-name-overrides-preview).
 
 ## Cloud role instance
 
