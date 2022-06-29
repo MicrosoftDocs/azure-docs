@@ -613,6 +613,7 @@ longer network or ingestion service outages, you can increase this limit startin
     "diskPersistenceMaxSizeMb": 50
   }
 }
+```
 
 ## Self-diagnostics
 
