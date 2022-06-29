@@ -97,6 +97,9 @@ kubectl apply --namespace arc -f arcdata-deployer.yaml
 
 The following command creates a job for upgrading the bootstrapper and related Kubernetes objects.
 
+   > [!IMPORTANT]
+   > The yaml file in the following command defaults to mcr.microsoft.com/arcdata. Please save a copy of the yaml file and update it to a use a different registry/repository if necessary.
+
 ```console
 kubectl apply --namespace arc -f https://raw.githubusercontent.com/microsoft/azure_arc/release-arc-data/arc_data_services/upgrade/yaml/bootstrapper-upgrade-job.yaml
 ```

@@ -129,6 +129,9 @@ The bootstrapper service handles incoming requests for creating, editing, and de
 
 Run the following command to create a bootstrapper service, a service account for the bootstrapper service, and a role and role binding for the bootstrapper service account.
 
+   > [!IMPORTANT]
+   > The yaml files in the following commands default to mcr.microsoft.com/arcdata. Please save a copy of the yaml file and update it to a use a different registry/repository if necessary.
+
 ```console
 kubectl create --namespace arc -f https://raw.githubusercontent.com/microsoft/azure_arc/main/arc_data_services/deploy/yaml/bootstrapper.yaml
 ```
