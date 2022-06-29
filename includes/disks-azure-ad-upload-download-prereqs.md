@@ -14,3 +14,9 @@
     ```azurepowershell
     Register-AzProviderFeature -FeatureName "AllowAADAuthForDataAccess" -ProviderNamespace "Microsoft.Compute"
     ```
+
+It may take some time for the feature registration to complete, you can confirm if it has with the following command:
+
+```azurepowershell
+Get-AzProviderFeature -FeatureName "AllowAADAuthForDataAccess" -ProviderNamespace "Microsoft.Compute"
+```
