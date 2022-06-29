@@ -45,6 +45,9 @@ Here's an example Speech CLI command that creates a project:
 spx csr project create --name "My Project" --description "My Project Description" --language "en-US"
 ```
 
+> [!div class="nextstepaction"]
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=CLI&Pillar=Speech&Product=CustomSpeech&Page=quickstart&Section=Prerequisites" target="_target">I ran into an issue</a>
+
 You should receive a response body in the following format:
 
 ```json
@@ -97,6 +100,9 @@ curl -v -X POST -H "Ocp-Apim-Subscription-Key: YourSubscriptionKey" -H "Content-
   "locale": "en-US"
 } '  "https://YourServiceRegion.api.cognitive.microsoft.com/speechtotext/v3.0/projects"
 ```
+
+> [!div class="nextstepaction"]
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=CLI&Pillar=Speech&Product=CustomSpeech&Page=quickstart&Section=Prerequisites" target="_target">I ran into an issue</a>
 
 You should receive a response body in the following format:
 

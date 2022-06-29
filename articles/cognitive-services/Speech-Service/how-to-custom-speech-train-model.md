@@ -67,8 +67,12 @@ Here's an example Speech CLI command that creates a model with datasets for trai
 ```azurecli-interactive
 spx csr model create --project YourProjectId --name "My Model" --description "My Model Description" --dataset YourDatasetId --language "en-US"
 ```
+
 > [!NOTE]
 > In this example, the `baseModel` isn't set, so the default base model for the locale is used. The base model URI is returned in the response.
+
+> [!div class="nextstepaction"]
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=CLI&Pillar=Speech&Product=CustomSpeech&Page=quickstart&Section=Prerequisites" target="_target">I ran into an issue</a>
 
 You should receive a response body in the following format:
 
@@ -151,6 +155,9 @@ curl -v -X POST -H "Ocp-Apim-Subscription-Key: YourSubscriptionKey" -H "Content-
 
 > [!NOTE]
 > In this example, the `baseModel` isn't set, so the default base model for the locale is used. The base model URI is returned in the response.
+
+> [!div class="nextstepaction"]
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=CLI&Pillar=Speech&Product=CustomSpeech&Page=quickstart&Section=Prerequisites" target="_target">I ran into an issue</a>
 
 You should receive a response body in the following format:
 
@@ -241,6 +248,9 @@ curl -v -X POST -H "Ocp-Apim-Subscription-Key: YourSubscriptionKey" -H "Content-
 > [!NOTE]
 > Only the `targetSubscriptionKey` property in the request body has information about the destination Speech resource.
 
+> [!div class="nextstepaction"]
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=CLI&Pillar=Speech&Product=CustomSpeech&Page=quickstart&Section=Prerequisites" target="_target">I ran into an issue</a>
+
 You should receive a response body in the following format:
 
 ```json
@@ -304,6 +314,9 @@ Here's an example Speech CLI command that connects a model to a project:
 spx csr model update --model YourModelId --project YourProjectId
 ```
 
+> [!div class="nextstepaction"]
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=CLI&Pillar=Speech&Product=CustomSpeech&Page=quickstart&Section=Prerequisites" target="_target">I ran into an issue</a>
+
 You should receive a response body in the following format:
 
 ```json
@@ -337,6 +350,9 @@ curl -v -X PATCH -H "Ocp-Apim-Subscription-Key: YourSubscriptionKey" -H "Content
   },
 }'  "https://YourServiceRegion.api.cognitive.microsoft.com/speechtotext/v3.0/models"
 ```
+
+> [!div class="nextstepaction"]
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=CLI&Pillar=Speech&Product=CustomSpeech&Page=quickstart&Section=Prerequisites" target="_target">I ran into an issue</a>
 
 You should receive a response body in the following format:
 
