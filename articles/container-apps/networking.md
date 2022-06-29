@@ -32,7 +32,6 @@ As you create a custom VNET, keep in mind the following situations:
 
   - You can define the subnet range used by the Container Apps environment.
   - Once the environment is created, the subnet range is immutable.
-  - A single load balancer and single Kubernetes service are associated with each container apps environment.
   - Each [revision](revisions.md) is assigned an IP address in the subnet.
   - You can restrict inbound requests to the environment exclusively to the VNET by deploying the environment as [internal](vnet-custom-internal.md).
 

@@ -21,6 +21,11 @@ Computer Vision can detect adult material in images so that developers can restr
 > [!NOTE]
 > Much of this functionality is offered by the [Azure Content Moderator](../content-moderator/overview.md) service. See this alternative for solutions to more rigorous content moderation scenarios, such as text moderation and human review workflows.
 
+Try out the adult content detection features quickly and easily in your browser using Vision Studio.
+
+> [!div class="nextstepaction"]
+> [Try Vision Studio](https://portal.vision.cognitive.azure.com/)
+
 ## Content flag definitions
 
 The "adult" classification contains several different categories:

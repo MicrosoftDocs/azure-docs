@@ -31,6 +31,9 @@ resources, the quickstart articles explain how to do so.
 
 ### Export Azure Policy objects from the Azure portal
 
+   > [!NOTE]
+   > Owner permissions are required at the scope of the policy objects being exported to GitHub. 
+
 To export a policy definition from Azure portal, follow these steps:
 
 1. Launch the Azure Policy service in the Azure portal by clicking **All services**, then searching

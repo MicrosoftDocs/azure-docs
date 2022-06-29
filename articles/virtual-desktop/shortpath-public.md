@@ -71,6 +71,20 @@ Many of the NAT gateways are configured to allow the incoming traffic to the soc
 After the initial packet exchange, the client and session host may establish one or many data flows. After that, Remote Desktop Protocol chooses the fastest network path. Client then establishes a secure TLS connection with the session host and initiates the RDP Shortpath transport.
 After RDP establishes the Shortpath, all Dynamic Virtual Channels (DVCs), including remote graphics, input, and device redirection move to the new transport.
 
+## Requirements
+
+To support RDP Shortpath, the Azure Virtual Desktop client needs a direct line of sight to the session host. You can get a direct line of sight by using one of these methods:
+
+- Make sure the remote client machines are running Windows 11, Windows 10, or Windows 7 and have the [Windows Desktop client](/windows-server/remote/remote-desktop-services/clients/windowsdesktop) installed. Currently, non-Windows clients aren't supported.
+- Use [ExpressRoute private peering](../expressroute/expressroute-circuit-peerings.md)
+- Use a [Site-to-Site virtual private network (VPN) (IPsec-based)](../vpn-gateway/tutorial-site-to-site-portal.md)
+- Use a [Point-to-Site VPN (IPsec-based)](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md)
+- Use a [public IP address assignment](../virtual-network/ip-services/virtual-network-public-ip-address.md)
+
+If you're using other VPN types to connect to the Azure portal, we recommend using a User Datagram Protocol (UDP)-based VPN. While most Transmission Control Protocol (TCP)-based VPN solutions support nested UDP, they add inherited overhead of TCP congestion control, which slows down RDP performance.
+
+Having a direct line of sight means that the client can connect directly to the session host without being blocked by firewalls.
+
 ## Enabling the preview of RDP Shortpath for public networks
 
 To participate in the preview of RDP Shortpath, you need to enable the Shortpath functionality. You can configure RDP Shortpath on any number of session hosts used in your environment. There's no requirement to enable RDP Shortpath on all hosts in the pool.
@@ -127,8 +141,8 @@ Use the following table for reference when configuring firewalls for RDP Shortpa
 | RDP Shortpath Server Endpoint | Client network | 1024-65535       | UDP      | Public IP addresses assigned to NAT Gateway or Azure Firewall                | Allow  |
 | STUN Access                   | Client network | 3478             | UDP      | 13.107.17.41/32, 13.107.64.0/18, 20.202.0.0/16, 52.112.0.0/14, 52.120.0.0/14 | Allow  |
 
- > [!NOTE]
-   > The IP ranges for STUN servers used in preview would change at the feature's release to General Availability.
+> [!NOTE]
+> The IP ranges for STUN servers used in preview will change at the feature's release to General Availability.
 
 ### Limiting port range used on the client side
 
