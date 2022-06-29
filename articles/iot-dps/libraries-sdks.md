@@ -12,9 +12,9 @@ ms.custom: mvc
 
 # Microsoft SDKs for IoT Hub Device Provisioning Service
 
-Azure IoT Hub Device Provisioning Service (DPS) SDKs help you build backend and device applications to create IoT solutions that leverage DPS to provide zero-touch, just-in-time provisioning to one or more IoT hubs. The SDKs are published in a variety of popular languages and handle the underlying transport and security protocols between your devices, apps, and IoT Hub, freeing developers to focus on application development.
+Azure IoT Hub Device Provisioning Service (DPS) SDKs help you build backend and device applications that leverage DPS to provide zero-touch, just-in-time provisioning to one or more IoT hubs. The SDKs are published in a variety of popular languages and handle the underlying transport and security protocols between your devices or backend apps and DPS, freeing developers to focus on application development. Additionally, using the SDKs provides you with support for future updates to DPS, including security updates.
 
-There are three categories of software development kits (SDKs) for working with Device Provisioning Service (DPS):
+There are three categories of software development kits (SDKs) for working with DPS:
 
 - [DPS service SDKs](#service-sdks) provide data plane operations for backend apps. You can use the service SDKs to create and manage individual enrollments and enrollment groups, and to query and manage device registration records.
 
@@ -66,4 +66,4 @@ The DPS management SDKs help you build backend applications that manage the DPS 
 
 ## Next steps
 
-The Device Provisioning Service documentation also provides [tutorials](how-to-legacy-device-symm-key.md) and [additional samples](quick-create-simulated-device-tpm.md) that you can use to try out the SDKs and libraries.
+The Device Provisioning Service documentation provides [tutorials](how-to-legacy-device-symm-key.md) and [additional samples](quick-create-simulated-device-tpm.md) that you can use to try out the SDKs and libraries.
