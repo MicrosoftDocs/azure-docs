@@ -51,16 +51,19 @@ To leave an organization, follow these steps.
 
 ## Account removal
 
-When a B2B collaboration or B2B direct connect user leaves an organization, the user's account is "soft deleted" in the directory. By default, the user object moves to the **Deleted users** area in Azure AD but isn't permanently deleted for 30 days. This soft deletion enables the administrator to restore the user account, including groups and permissions, if the user makes a request to restore the account before it's permanently deleted.
+When a B2B collaboration user leaves an organization, the user's account is "soft deleted" in the directory. By default, the user object moves to the **Deleted users** area in Azure AD, but permanent deletion doesn't start for 30 days. This soft deletion enables the administrator to restore the user account, including groups and permissions, if the user makes a request to restore the account before it's permanently deleted. 
 
-If desired, a tenant administrator can permanently delete the account at any time during the soft-delete period:
+If desired, a tenant administrator can permanently delete the account at any time during the soft-delete period with the following steps. This action is irrevocable.
 
 1. In the [Azure portal](https://portal.azure.com), select **Azure Active Directory**.
 2. Under **Manage**, select **Users**.
 3. Select **Deleted users**.
 4. Select the check box next to a deleted user, and then select **Delete permanently**.
 
-If you permanently delete a B2B collaboration or B2B direct connect user account, this action is irrevocable.
+Once permanent deletion begins, whether it's initiated by the admin or the end of the soft deletion period, it can take up to an additional 30 days for data removal ([learn more](https://docs.microsoft.com/en-us/compliance/regulatory/gdpr-dsr-azure#step-5-delete)).
+
+> [!NOTE]
+> For B2B direct connect users, data removal begins as soon as the user selects **Leave** in the confirmation message and can take up to one month to complete ([learn more](https://docs.microsoft.com/en-us/compliance/regulatory/gdpr-dsr-azure#delete-a-users-data-when-there-is-no-account-in-the-azure-tenant)).
 
 ## Next steps
 
