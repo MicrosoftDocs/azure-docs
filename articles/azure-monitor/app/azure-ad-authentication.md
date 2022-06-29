@@ -13,23 +13,16 @@ Application Insights now supports Azure Active Directory (Azure AD) authenticati
 
 Typically, using various authentication systems can be cumbersome and pose risk since it's difficult to manage credentials at a large scale. You can now choose to opt-out of local authentication to ensure only telemetry exclusively authenticated using [Managed Identities](../../active-directory/managed-identities-azure-resources/overview.md) and [Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md) is ingested in your resource. This feature is a step to enhance the security and reliability of the telemetry used to make both critical operational (alerting/autoscale etc.) and business decisions.
 
-## Prerequisites to enable Azure AD authentication ingestion
+## Prerequisites
+
+The following are prerequisites to enable Azure AD authenticated ingestion.
 
 - Familiarity with:
     - [Managed identity](../../active-directory/managed-identities-azure-resources/overview.md). 
     - [Service principal](../../active-directory/develop/howto-create-service-principal-portal.md).
     - [Assigning Azure roles](../../role-based-access-control/role-assignments-portal.md). 
 - You have an "Owner" role to the resource group to grant access using [Azure built-in roles](../../role-based-access-control/built-in-roles.md).
-
-
-The following SDKs/scenarios are unsupported:
-- [Application Insights Java 2.x SDK](java-2x-agent.md) – Azure AD authentication is only available for Application Insights Java Agent >=3.2.0. 
-- [ApplicationInsights JavaScript Web SDK](javascript.md). 
-- [Application Insights OpenCensus Python SDK](opencensus-python.md) with Python version 3.4 and 3.5.
-- [Certificate/secret based Azure AD](../../active-directory/authentication/active-directory-certificate-based-authentication-get-started.md) isn't recommended for production. Use Managed Identities instead. 
-- On by default Codeless monitoring (for languages) for App Service, VM/Virtual machine scale sets, Azure Functions etc.
-- [Availability tests](availability-overview.md).
-- [Profiler](profiler-overview.md).
+- Understand the [unsupported scenarios](#unsupported-scenarios).
 
 ## Configuring and enabling Azure AD based authentication 
 
@@ -401,6 +394,20 @@ Below is an example Azure Resource Manager template that you can use to create a
 }
 
 ```
+
+## Unsupported scenarios
+
+The following SDK's and features are unsupported for use with Azure AD authenticated ingestion.
+
+- [Application Insights Java 2.x SDK](java-2x-agent.md)<br>
+ Azure AD authentication is only available for Application Insights Java Agent >=3.2.0.
+- [ApplicationInsights JavaScript Web SDK](javascript.md).
+- [Application Insights OpenCensus Python SDK](opencensus-python.md) with Python version 3.4 and 3.5.
+
+- [Certificate/secret based Azure AD](../../active-directory/authentication/active-directory-certificate-based-authentication-get-started.md) isn't recommended for production. Use Managed Identities instead.
+- On-by-default Codeless monitoring (for languages) for App Service, VM/Virtual machine scale sets, Azure Functions etc.
+- [Availability tests](availability-overview.md).
+- [Profiler](profiler-overview.md).
 
 ## Troubleshooting
 
