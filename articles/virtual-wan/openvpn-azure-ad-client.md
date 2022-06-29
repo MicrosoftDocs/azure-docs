@@ -252,6 +252,10 @@ azurevpn -i azurevpnconfig.xml
 To force the import, use the **-f** switch.
 
 
+### Multiple server certificate support?
+
+For Virtual WAN with multiple virtual hubs using Virtual WAN level VPN configuration for P2SClients to connect to servers, generated profile xmls have root end certificate included. Previously, only one certificate support was available from Azure VPN Client side. So for P2SClients using old server end root certificate, this resulted in a failure to connect to new VirtualHubs/P2SVpnGateways with new end certificates. With multiple server certificate support, the user will be able to add multiple server certs from UI and they can provide multiple certs tag via xml profile also.
+
 ## Next steps
 
 For more information, see [Create an Azure Active Directory tenant for P2S Open VPN connections that use Azure AD authentication](openvpn-azure-ad-tenant.md).
