@@ -17,7 +17,7 @@ ms.reviewer:
 # Configure SAML app multi-instancing for an application in Azure Active Directory    
 App multi-instancing refers to the need for the configuration of multiple instances of the same application within a tenant.  For example, the organization has multiple Amazon Web Services accounts, each of which needs a separate service principal to handle instance-specific claims mapping (adding the AccountID claim for that AWS tenant) and roles assignment.  Or the customer has multiple instances of Box, which doesn’t need special claims mapping, but does need separate service principals for separate signing keys.  
 
-## IDP versus SP initiated SSO?     
+## IDP versus SP initiated SSO     
 A user can sign-in to an application one of two ways, either through the application directly, which is known as SP (service provider) initiated SSO, or by going directly to the identity provider, known as IDP initiated SSO. Depending on which approach is used within your organization you'll need to follow the appropriate instructions below.  
 
 ## SP Initiated   
