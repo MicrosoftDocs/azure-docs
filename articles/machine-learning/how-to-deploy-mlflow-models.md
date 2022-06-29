@@ -49,17 +49,17 @@ There are three workflows for deploying MLflow models to Azure Machine Learning:
 - [Deploy using Azure ML CLI (v2)](#deploy-using-azure-ml-cli-v2)
 - [Deploy using Azure Machine Learning studio](#deploy-using-azure-machine-learning-studio)
 
-Each workflows has different capabilities, particularly around which type of compute they can target:
+Each workflows has different capabilities, particularly around which type of compute they can target. The following table shows them:
 
 | Scenario | MLflow SDK | Azure ML CLI/SDK v2 | Azure ML studio |
 | :- | :-: | :-: | :-: |
-| Deploy MLflow models to Managed Online Endpoints | **&check;** | **&check;** | **&check;** |
-| Deploy MLflow models to Managed Batch Endpoints |  | **&check;** | **&check;** |
+| Deploy MLflow models to managed online endpoints | **&check;** | **&check;** | **&check;** |
+| Deploy MLflow models to managed batch endpoints |  | **&check;** | **&check;** |
 | Deploy MLflow models to ACI/AKS | **&check;** |  |  |
 | Deploy MLflow models to ACI/AKS (with a scoring script) | | | **&check;**<sup>1</sup> |
 
 > [!NOTE]
-> - <sup>1</sup> No-code deployment is not supported when deploying to ACI/AKS from Azure ML studio. We recommend switching to our Managed Online Endpoints instead.
+> - <sup>1</sup> No-code deployment is not supported when deploying to ACI/AKS from Azure ML studio. We recommend switching to our [managed online endpoints](concept-endpoints.md) instead.
 
 ### Which option to use?
 
@@ -70,7 +70,7 @@ If you are familiar with MLflow or your platform support MLflow natively (like A
 The MLflow plugin [azureml-mlflow](https://pypi.org/project/azureml-mlflow/) can deploy models to Azure ML, either to Azure Kubernetes Service (AKS), Azure Container Instances (ACI) and Managed Endpoints for real-time serving.
 
 > [!WARNING]
-> Deploying to Managed Batch Endpoints is not supported in the MLflow plugin at the moment.
+> Deploying to managed batch endpoints is not supported in the MLflow plugin at the moment.
 
 ### Prerequisites
 
@@ -96,7 +96,7 @@ The MLflow plugin [azureml-mlflow](https://pypi.org/project/azureml-mlflow/) can
 
 2. Deployments can be generated using both the Python SDK for MLflow or MLflow CLI. In both cases, a JSON configuration file can be indicated with the details of the deployment you want to achieve. If not indicated, then a default deployment is done using Azure Container Instances (ACI) and a minimal configuration. 
    
-   # [Managed Endpoints](#tab/mir)
+   # [Managed endpoints](#tab/mir)
    
    ```json
    {
@@ -141,7 +141,7 @@ The MLflow plugin [azureml-mlflow](https://pypi.org/project/azureml-mlflow/) can
    
 3. Save the deployment configuration to a file:
    
-   # [Managed Endpoints](#tab/mir)
+   # [Managed endpoints](#tab/mir)
    
    ```python
    import json
@@ -200,7 +200,7 @@ The MLflow plugin [azureml-mlflow](https://pypi.org/project/azureml-mlflow/) can
    
 ## Deploy using Azure ML CLI (v2)
 
-You can use Azure ML CLI v2 to deploy models trained and logged with MLflow to Managed Endpoints (Online/batch). When you deploy your MLflow model using the Azure ML CLI v2, it's a no-code-deployment so you don't have to provide a scoring script or an environment, but you can if needed.
+You can use Azure ML CLI v2 to deploy models trained and logged with MLflow to [managed endpoints (Online/batch)](concept-endpoints.md). When you deploy your MLflow model using the Azure ML CLI v2, it's a no-code-deployment so you don't have to provide a scoring script or an environment, but you can if needed.
 
 ### Prerequisites
 
@@ -251,7 +251,7 @@ This example shows how you can deploy an MLflow model to an online endpoint usin
 You can use [Azure Machine Learning studio](https://ml.azure.com) to deploy models to Managed Online Endpoints.
 
 > [!IMPORTANT]
-> Although deploying to ACI or AKS with [Azure Machine Learning studio](https://ml.azure.com) is possible. no-code deployment feature is not available for these compute targets. We recommend the use of Managed Online Endpoints as it provides a superior set of features.
+> Although deploying to ACI or AKS with [Azure Machine Learning studio](https://ml.azure.com) is possible. no-code deployment feature is not available for these compute targets. We recommend the use of [managed online endpoints](concept-endpoints.md) as it provides a superior set of features.
 
 1. Ensure your model is registered in the Azure Machine Learning registry. Deployment of unregistered models is not supported in Azure Machine Learning. You can register models from files in the local file system or from the output of a job:
 
@@ -259,7 +259,7 @@ You can use [Azure Machine Learning studio](https://ml.azure.com) to deploy mode
    
    You can register the model directly from the job's output using Azure Machine Learning studio. To do so, navigate to the **Outputs + logs** tab in the run where your model was trained and select the option **Create model**.
    
-   :::image type="content" source="media/how-to-deploy-mlflow-models-online-endpoints/mlflow-register-model-output.gif" lightbox="media/how-to-deploy-mlflow-models-online-endpoints/download-output-logs.png" alt-text="Screenshot showing how to download Outputs and logs from Experimentation run":::
+   :::image type="content" source="media/how-to-deploy-mlflow-models-online-endpoints/mlflow-register-model-output.gif" lightbox="media/how-to-deploy-mlflow-models-online-endpoints/mlflow-register-model-output.gif" alt-text="Animated gif that demonstrates how to register a model directly from outputs.":::
    
    # [From a local model](#tab/fromlocal)
    
@@ -363,7 +363,7 @@ Your inputs should be submitted inside a JSON payload containing a dictionary wi
 
 ## Considerations when deploying to batch inference
 
-Azure ML supports no-code deployment for batch inference in Managed Inference service. This represents a convenient way to deploy models that require processing of big amounts of data in a batch-fashion.
+Azure Machine Learning supports no-code deployment for batch inference in [managed endpoints](concept-endpoints.md). This represents a convenient way to deploy models that require processing of big amounts of data in a batch-fashion.
 
 ### How work is distributed on workers
 
