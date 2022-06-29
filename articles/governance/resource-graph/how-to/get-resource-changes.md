@@ -40,7 +40,7 @@ Monitor.
 > [Guest Configuration for VMs](../../policy/concepts/guest-configuration.md). To view examples of how to query Guest Configuration resources in Resource Graph, view [Azure Resource Graph queries by category - Azure Policy Guest Configuration](../samples/samples-by-category.md#azure-policy-guest-configuration).
 
 > [!IMPORTANT]
-> Resource configuration changes only supports changes to resource types from the [Resources table](..//reference/supported-tables-resources.md#resources) in Resource Graph. This does not yet include changes to the resource container resources, such as Subscriptions and Resource groups. Changes are queryable for fourteen days. For longer retention, you can [integrate your Resource Graph query with Azure Logic Apps](../tutorials/logic-app-calling-arg.md) and export your query results to any of the Azure data stores (e.g., Log Analytics) for your desired retention.
+> Resource configuration changes only supports changes to resource types from the [Resources table](..//reference/supported-tables-resources.md#resources) in Resource Graph. This does not yet include changes to the resource container resources, such as Subscriptions and Resource groups. Changes are queryable for fourteen days. For longer retention, you can [integrate your Resource Graph query with Azure Logic Apps](../tutorials/logic-app-calling-arg.md) and export query result to any of the Azure data stores (e.g., Log Analytics) for your desired retention.
 
 ## Find detected change events and view change details
 
@@ -272,6 +272,38 @@ resourcechanges
 | join ( Resources | extend targetResourceId=id) on targetResourceId
 | order by changeTime desc
 | project changeTime, changeType, id, resourceGroup, type, properties
+```
+
+### Changes in virtual machine size  
+```kusto
+resourcechanges
+|extend vmSize = properties.changes["properties.hardwareProfile.vmSize"], changeTime = todatetime(properties.changeAttributes.timestamp), targetResourceId = tostring(properties.targetResourceId), changeType = tostring(properties.changeType)  
+| where isnotempty(vmSize)  
+| order by changeTime desc  
+| project changeTime, targetResourceId, changeType, properties.changes, previousSize = vmSize.previousValue, newSize = vmSize.newValue 
+```
+
+### Count of changes by change type and subscription name
+```kusto
+resourcechanges   
+|extend changeType = tostring(properties.changeType), changeTime = todatetime(properties.changeAttributes.timestamp), targetResourceType=tostring(properties.targetResourceType)   
+| summarize count() by changeType, subscriptionId  
+| join (resourcecontainers | where type=='microsoft.resources/subscriptions' | project SubscriptionName=name, subscriptionId) on subscriptionId  
+| project-away subscriptionId, subscriptionId1 
+| order by count_ desc  
+``` 
+
+
+### Query the latest resource configuration for resources created with a certain tag  
+```kusto
+resourcechanges  
+|extend targetResourceId = tostring(properties.targetResourceId), changeType = tostring(properties.changeType), createTime = todatetime(properties.changeAttributes.timestamp)  
+| where createTime > ago(7d) and changeType == "Create"  
+| project  targetResourceId, changeType, createTime  
+| join ( resources | extend targetResourceId=id) on targetResourceId  
+| where tags[“Environment”] =~ “prod”  
+| order by createTime desc  
+| project createTime, id, resourceGroup, type 
 ```
 
 ## Next steps

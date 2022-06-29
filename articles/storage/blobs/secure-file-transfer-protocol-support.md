@@ -114,7 +114,7 @@ You can use many different SFTP clients to securely connect and then transfer fi
 | rsa-sha2-512 <sup>1</sup> | ecdh-sha2-nistp256 | aes256-gcm@openssh.com | hmac-sha2-512 | ecdsa-sha2-nistp256 |
 | ecdsa-sha2-nistp256 | diffie-hellman-group14-sha256 | aes128-cbc| hmac-sha2-256-etm@openssh.com | ecdsa-sha2-nistp384 |
 | ecdsa-sha2-nistp384| diffie-hellman-group16-sha512 | aes256-cbc | hmac-sha2-512-etm@openssh.com | 
-||| aes192-cbc ||
+||diffie-hellman-group-exchange-sha256| aes192-cbc ||
 
 <sup>1</sup>    Requires minimum key length of 2048 bits.
 
