@@ -106,7 +106,7 @@ The transformation between the states is similar to moving locations:
 
 1. **Establish new location** - You purchase your destination and establish connectivity between the current location and the new location. This enables you to maintain your productivity and ability to operate. In this content, the activities are described in **[Establish Azure AD capabilities](road-to-the-cloud-establish.md)**. The results transition you to State 2.
 
-1. **Limit new items in old location** - You stop investing in the old location and set policy to stage new items in new location. In this content, the activities are described in **[Implement cloud-first approach](road-to-the-cloud-implement.md#Implement-cloud-first-approach)**. The activities set the foundation to migrate at scale and reach State 3.
+1. **Limit new items in old location** - You stop investing in the old location and set policy to stage new items in new location. In this content, the activities are described in **[Implement cloud-first approach](road-to-the-cloud-implement.md)**. The activities set the foundation to migrate at scale and reach State 3.
 
 1. **Move existing items to new location** - You move items from the old location to the new location. You assess the business value of the items to determine if you'll move them as-is, upgrade them, replace them, or deprecate them. In this content, the activities are described in **[Migrate out](road-to-the-cloud-migrate.md)**. These activities enable you to complete State 3 and reach State 4 and State 5. Based on your business objectives, you decide what end state you want to target.
 
