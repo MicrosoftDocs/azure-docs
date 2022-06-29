@@ -169,9 +169,9 @@ sections:
       - question: |
           My customer accepted the private offer. When will they be billed?
         answer: |
-          Accepting a private offer won't initiate billing. The customer must also activate their subscription in the Azure portal before billing will begin.
+          Accepting a private offer doesn't initiate billing. Before billing begins, the customer must accept the private offer and then subscribe to the software as a service (SaaS) product or deploy the virtual machine or Azure application product that's contained in the private offer in the Azure portal.
 
-          For a private offer that includes SaaS, the customer must activate within 30 days of accepting the private offer.
+          For a private offer that includes a SaaS product, the customer must also configure the product within 30 days of subscribing to the product.
 
   - name: Private offer end dates
     questions:
