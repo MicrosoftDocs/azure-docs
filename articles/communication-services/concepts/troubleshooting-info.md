@@ -76,7 +76,7 @@ chat_client = ChatClient(
 ---
 
 ## Access your server call ID
-When troubleshooting issues with the Call Automation SDK, like call recording and call management problems, you will need to collect the Server Call ID. This ID can be collected using the ```getServerCallId``` method.
+When troubleshooting issues with the Call Automation SDK, like call recording and call management problems, you'll need to collect the Server Call ID. This ID can be collected using the ```getServerCallId``` method.
 
 #### JavaScript
 ```
@@ -248,17 +248,17 @@ Sometimes you also need to provide immutable resource ID of your Communication S
 
 ## Verification of Teams license eligibility to use Azure Communication Services support for Teams users
 
-There are two ways to verify your Teams Licence eligibility to use Azure Communication Services support for Teams users:
+There are two ways to verify your Teams License eligibility to use Azure Communication Services support for Teams users:
 
 * **Verification via Teams web client**
 * **Checking your current Teams license via Microsoft Graph API**
 
 #### Verification via Teams web client 
-To verify your Teams Licence eligibility via Teams web client, follow the steps listed below:
+To verify your Teams License eligibility via Teams web client, follow the steps listed below:
 
 1. Open your browser and navigate to [Teams web client](https://teams.microsoft.com/).
 1. Sign in with credentials that have a valid Teams license. 
-1. If the authentication is successful and you remain in the https://teams.microsoft.com/ domain, then your Teams License is eligible. If authentication fails or you are redirected to the https://www.teams.live.com domain, then your Teams License is not eligible to use Azure Communication Services support for Teams users. 
+1. If the authentication is successful and you remain in the https://teams.microsoft.com/ domain, then your Teams License is eligible. If authentication fails or you're redirected to the https://www.teams.live.com domain, then your Teams License isn't eligible to use Azure Communication Services support for Teams users. 
 
 #### Checking your current Teams license via Microsoft Graph API
 You can find your current Teams license using [licenseDetails](https://docs.microsoft.com/graph/api/resources/licensedetails) Microsoft Graph API that returns licenses assigned to a user. Follow the steps below to use the Graph Explorer tool to view licenses assigned to a user:
@@ -266,7 +266,7 @@ You can find your current Teams license using [licenseDetails](https://docs.micr
 1. Open your browser and navigate to [Graph Explorer](https://developer.microsoft.com/graph/graph-explorer)
 1. Sign in to Graph Explorer using the credentials.
     :::image type="content" source="./media/troubleshooting/graph-explorer-sign-in.png" alt-text="Screenshot of how to sign in to Graph Explorer.":::
-1. In the query box enter the following API and click **Run Query** :
+1. In the query box, enter the following API and click **Run Query** :
     <!-- { "blockType": "request" } -->
     ```http
     https://graph.microsoft.com/v1.0/me/licenseDetails
@@ -333,7 +333,7 @@ The Azure Communication Services Chat SDK uses the following error codes to help
 | -------- | ---------------| ---------------|
 | 401 | Unauthorized | Ensure that your Communication Services token is valid and not expired. |
 | 403 | Forbidden | Ensure that the initiator of the request has access to the resource. |
-| 429 | Too many requests | Ensure that your client-side application handles this scenario in a user-friendly manner. If the error persists please file a support request. |
+| 429 | Too many requests | Ensure that your client-side application handles this scenario in a user-friendly manner. If the error persists, please file a support request. |
 | 503 | Service Unavailable | File a support request through the Azure portal. |
 
 ## SMS error codes
@@ -343,19 +343,19 @@ The Azure Communication Services SMS SDK uses the following error codes to help 
 | Error code | Description | Action to take |
 | -------- | ---------------| ---------------|
 | 2000 | Message Delivered Successfully |  |
-| 4000 | Message is rejected due to fraud detection | Ensure you are not exceeding the maximum number of messages allowed for your number|
+| 4000 | Message is rejected due to fraud detection | Ensure you aren't exceeding the maximum number of messages allowed for your number|
 | 4001 | Message is rejected due to invalid Source/From number format| Ensure the To number is in E.164 format and From number format is in E.164 or Short code format |
 | 4002 | Message is rejected due to invalid Destination/To number format| Ensure the To number is in E.164 format |
-| 4003 | Message failed to deliver due to unsupported destination| Check if the destination you are trying to send to is supported |
-| 4004 | Message failed to deliver since Destination/To number does not exist| Ensure the To number you are sending to is valid |
+| 4003 | Message failed to deliver due to unsupported destination| Check if the destination you're trying to send to is supported |
+| 4004 | Message failed to deliver since Destination/To number doesn't exist| Ensure the To number you're sending to is valid |
 | 4005 | Message is blocked by Destination carrier|  |
-| 4006 | The Destination/To number is not reachable| Try re-sending the message at a later time |
+| 4006 | The Destination/To number isn't reachable| Try resending the message at a later time |
 | 4007 | The Destination/To number has opted out of receiving messages from you| Mark the Destination/To number as opted out so that no further message attempts are made to the number|
-| 4008 | You have exceeded the maximum number of messages allowed for your profile| Ensure you are not exceeding the maximum number of messages allowed for your number or use queues to batch the messages |
-| 5000 | Message failed to deliver, Please reach out Microsoft support team for more details| File a support request through the Azure portal |
+| 4008 | You've exceeded the maximum number of messages allowed for your profile| Ensure you aren't exceeding the maximum number of messages allowed for your number or use queues to batch the messages |
+| 5000 | Message failed to deliver. Please reach out Microsoft support team for more details| File a support request through the Azure portal |
 | 5001 | Message failed to deliver due to temporary unavailability of application/system|  |
-| 5002 | Message Delivery Timeout|  Try re-sending the message |
-| 9999 | Message failed to deliver due to unknown error/failure|  Try re-sending the message |
+| 5002 | Message Delivery Timeout|  Try resending the message |
+| 9999 | Message failed to deliver due to unknown error/failure|  Try resending the message |
 
 
 ## Related information

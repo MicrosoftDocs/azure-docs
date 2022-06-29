@@ -1,6 +1,6 @@
 ---
 title: Teams License requirements to use Azure Communication Services support for Teams users
-description: This topic describes Teams License requirements and how users can find their current Teams license.
+description: This article describes Teams License requirements and how users can find their current Teams license.
 author: aigerimb
 manager: anitharaju
 services: azure-communication-services
