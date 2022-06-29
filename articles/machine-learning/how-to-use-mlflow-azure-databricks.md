@@ -145,11 +145,13 @@ mlflow.set_experiment(experiment_name="experiment-name")
 
 ## Logging models with MLflow
 
-After your model is trained, you can log it to the tracking server with the `mlflow.<model_flavor>.log_model()` method. `<model_flavor>`, refers to the framework associated with the model. [Learn what model flavors are supported](https://mlflow.org/docs/latest/models.html#model-api). In the following example, a model created with the Spark library MLLib is being registered. It's worth to mention that the flavor `spark` doesn't correspond to the fact that we are training a model in a Spark cluster but because of the training framework it was used (you can perfectly train a model using TensorFlow with Spark and hence the flavor to use would be `tensorflow`.
+After your model is trained, you can log it to the tracking server with the `mlflow.<model_flavor>.log_model()` method. `<model_flavor>`, refers to the framework associated with the model. [Learn what model flavors are supported](https://mlflow.org/docs/latest/models.html#model-api). In the following example, a model created with the Spark library MLLib is being registered:
 
 ```python
 mlflow.spark.log_model(model, artifact_path = "model")
 ```
+
+It's worth to mention that the flavor `spark` doesn't correspond to the fact that we are training a model in a Spark cluster but because of the training framework it was used (you can perfectly train a model using TensorFlow with Spark and hence the flavor to use would be `tensorflow`.
 
 Models are logged inside of the run being tracked. That means that models are available in either both Azure Databricks and Azure Machine Learning (default) or exclusively in Azure Machine Learning if you configured the tracking URI to point to it.
 
@@ -171,11 +173,11 @@ mlflow.spark.log_model(model, artifact_path = "model",
 
 * **If a registered model with the name already exists**, the method creates a new model version and returns the version object. 
 
-### Registering models in the Azure Machine Learning Registry with MLflow
+### Using Azure Machine Learning Registry with MLflow
 
-At some point you may want to start registering models in Azure Machine Learning. Such configuration has the advantage of enabling all the deployment capabilities of Azure Machine Learning automatically, including no-code-deployment and model management capabilities. In that case, we recommend you to [set MLflow Tracking to only track in your Azure Machine Learning workspace](#tracking-exclusively-on-azure-machine-learning-workspace). This will remove the ambiguity of where models are being registered.
+If you want to use Azure Machine Learning Model Registry instead of Azure Databricks, we recommend you to [set MLflow Tracking to only track in your Azure Machine Learning workspace](#tracking-exclusively-on-azure-machine-learning-workspace). This will remove the ambiguity of where models are being registered and usually simplifiest complexity.
 
-If you want to continue using the dual-tracking capabilities but register models in Azure Machine Learning you can instruct MLflow to use Azure ML for model registries by configuring the MLflow Model Registry URI. This URI has the exact same format and value that the MLflow tracking URI.
+However, if you want to continue using the dual-tracking capabilities but register models in Azure Machine Learning, you can instruct MLflow to use Azure ML for model registries by configuring the MLflow Model Registry URI. This URI has the exact same format and value that the MLflow tracking URI.
 
 ```python
 mlflow.set_registry_uri(azureml_mlflow_uri)
@@ -188,9 +190,9 @@ For a complete example about this scenario please check the example [Training mo
 
 ## Deploying and consuming models registered in Azure Machine Learning
 
-Model registered in Azure Machine Learning Service using MLflow can be consumed as: 
+Models registered in Azure Machine Learning Service using MLflow can be consumed as: 
 
-* An Azure Machine Learning endpoint (real-time and batch): This deployment allows you to leverage Azure Machine Learning deployment capabilities for both real-time and batch inference in Azure Container Instances (ACI) Azure Kubernetes (AKS) or our Managed Inference endpoints (MIR). 
+* An Azure Machine Learning endpoint (real-time and batch): This deployment allows you to leverage Azure Machine Learning deployment capabilities for both real-time and batch inference in Azure Container Instances (ACI), Azure Kubernetes (AKS) or our Managed Inference Endpoints. 
 
 * MLFlow model objects or Pandas UDFs, which can be used in Azure Databricks notebooks in streaming or batch pipelines.
 
