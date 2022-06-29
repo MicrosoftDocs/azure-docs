@@ -135,7 +135,7 @@ Depending on your scenario, Azure Image Builder may need permissions to:
 
 For more information on configuring permissions, see [Configure Azure Image Builder Service permissions using Azure CLI](image-builder-permissions-cli.md) or [Configure Azure Image Builder Service permissions using PowerShell](image-builder-permissions-powershell.md)
 
-### Build  step failed for image version
+### Build step failed for image version
 
 #### Error
 ```text
