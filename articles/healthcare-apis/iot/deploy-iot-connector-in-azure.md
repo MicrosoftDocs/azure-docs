@@ -14,7 +14,7 @@ ms.custom: mode-api
 
 In this quickstart, you'll learn how to deploy MedTech service in the Azure portal. The MedTech service will enable you to ingest data from Internet of Things (IoT) into your Fast Healthcare Interoperability Resources (FHIR&#174;) service.
 
-## Deploy the MedTech service in the Azure portal using the Deploy to Azure button
+## Deploy the MedTech service with the Deploy to Azure button
 
 If you already have an active Azure account, you can use this [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.healthcareapis%2Fworkspaces%2Fiotconnectors%2Fazuredeploy.json) button to deploy a MedTech service that will include the following resources and permissions:
 
@@ -46,7 +46,7 @@ After a successful deployment, there will be remaining configurations that will 
  * Provide a working destination mapping file. For more information, see [How to use FHIR destination mappings](how-to-use-fhir-mappings.md).
  * Use the Shared access policies (SAS) key (**devicedatasender**) for connecting your device or application to the MedTech service device message event hub (**devicedata**). For more information, see [Connection string for a specific event hub in a namespace](../../event-hubs/event-hubs-get-connection-string.md#connection-string-for-a-specific-event-hub-in-a-namespace).
 
-## Deploy the MedTech service manually in the Azure portal
+## Deploy the MedTech service
 
 ## Prerequisites
 
