@@ -119,7 +119,7 @@ additionalContent:
         - title: Microsoft Sentinel                   
           links: 
             - url: ../sentinel/overview.md
-              text:  What is Microsoft Sentinel?
+              text:  See and stop threats before they cause harm
             - url: ../sentinel/quickstart-onboard.md
               text:  Onboard Microsoft Sentinel
             - url: https://docs.microsoft.com/en-us/learn/paths/security-ops-sentinel/
@@ -128,7 +128,7 @@ additionalContent:
         - title: Microsoft Defender for Cloud                  
           links: 
             - url: ../defender-for-cloud/defender-for-cloud-introduction.md
-              text:  What is Microsoft Defender for Cloud?
+              text:  Unified security management and advanced threat protection across hybrid cloud workloads
             - url: ../defender-for-cloud/tutorial-protect-resources.md
               text:  Protect your resources
             - url: https://docs.microsoft.com/learn/modules/microsoft-cloud-app-security/
@@ -137,7 +137,7 @@ additionalContent:
         - title: Azure Key Vault
           links: 
             - url: ../key-vault/general/overview.md
-              text:  What is Azure Key Vault?
+              text:  Create and maintain keys that access and encrypt your cloud resources
             - url: ../key-vault/secrets/quick-create-cli.md
               text:  Set and retrieve a secret
             - url: https://docs.microsoft.com/learn/modules/manage-secrets-with-azure-key-vault/
@@ -146,7 +146,7 @@ additionalContent:
         - title: Microsoft Defender for IoT
           links: 
             - url: ../defender-for-iot/overview.md
-              text:  Introducing Microsoft Defender for IoT
+              text:  Comprehensive threat detection for IoT/OT environments
             - url: ../defender-for-iot/getting-started.md
               text:  Get started with Defender for IoT
             - url: https://docs.microsoft.com/learn/paths/enhance-iot-solution-security-by-using-azure-defender/
@@ -155,7 +155,7 @@ additionalContent:
         - title: Azure Active Directory
           links: 
             - url: https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis
-              text:  What is Azure Active Directory?
+              text:  Multi-tenant, cloud-based identity and access management service
             - url: https://docs.microsoft.com/azure/active-directory/fundamentals/security-operations-introduction
               text:  Security operations guide
             - url: https://docs.microsoft.com/learn/modules/secure-aad-users-with-mfa/
@@ -164,7 +164,7 @@ additionalContent:
         - title: Azure Information Protection
           links: 
             - url: https://docs.microsoft.com/azure/information-protection/what-is-information-protection
-              text:  What is Azure Information Protection?
+              text:  Control and secure emails, documents, and sensitive data
             - url: https://docs.microsoft.com/azure/information-protection/quickstart-deploy-client
               text:  Deploying the client 
             - url: https://docs.microsoft.com/azure/information-protection/tutorial-scan-networks-and-content
@@ -173,7 +173,7 @@ additionalContent:
         - title: Microsoft Defender for Cloud Apps
           links: 
             - url: https://docs.microsoft.com/defender-cloud-apps/what-is-defender-for-cloud-apps
-              text:  What is Microsoft Defender for Cloud Apps?
+              text:  Cloud Access Security Broker (CASB) that operates on multiple clouds
             - url: https://docs.microsoft.com/defender-cloud-apps/get-started
               text:  Get started 
             - url: https://docs.microsoft.com/defender-cloud-apps/tutorial-suspicious-activity
@@ -182,7 +182,7 @@ additionalContent:
         - title: Microsoft 365 Defender
           links: 
             - url: https://docs.microsoft.com/microsoft-365/security/defender/microsoft-365-defender?view=o365-worldwide
-              text:  What is Microsoft 365 Defender?
+              text:  Protect your enterprise across attack surfaces
             - url: https://docs.microsoft.com/microsoft-365/security/defender/get-started?view=o365-worldwide
               text:  Get started 
             - url: https://docs.microsoft.com/microsoft-365/security/defender/integrate-microsoft-365-defender-secops?view=o365-worldwide
