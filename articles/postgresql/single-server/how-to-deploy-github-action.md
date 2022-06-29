@@ -8,14 +8,14 @@ ms.author: sunila
 author: sunilagarwal
 ms.reviewer: ""
 ms.custom: github-actions-azure, mode-other
-ms.date: 10/12/2020
+ms.date: 06/24/2022
 ---
 
 # Quickstart: Use GitHub Actions to connect to Azure PostgreSQL
 
 [!INCLUDE [applies-to-postgresql-single-server](../includes/applies-to-postgresql-single-server.md)]
 
-**APPLIES TO:** :::image type="icon" source="./media/applies-to/yes.png" border="false":::Azure Database for PostgreSQL - Single Server :::image type="icon" source="./media/applies-to/yes.png" border="false":::Azure Database for PostgreSQL - Flexible Server 
+**APPLIES TO:** :::image type="icon" source="./media/applies-to/yes.png" border="false":::Azure Database for PostgreSQL - Single Server :::image type="icon" source="./media/applies-to/yes.png" border="false":::Azure Database for PostgreSQL - Flexible Server
 
 Get started with [GitHub Actions](https://docs.github.com/en/actions) by using a workflow to deploy database updates to [Azure Database for PostgreSQL](https://azure.microsoft.com/services/postgresql/).
 
@@ -98,7 +98,6 @@ You will use the connection string as a GitHub secret.
 1. Select **New secret** again.
 
 1. Paste the connection string value into the secret's value field. Give the secret the name `AZURE_POSTGRESQL_CONNECTION_STRING`.
-
 
 ## Add your workflow
 

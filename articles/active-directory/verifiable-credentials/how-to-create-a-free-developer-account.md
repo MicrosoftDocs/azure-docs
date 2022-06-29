@@ -12,19 +12,21 @@ ms.author: barclayn
 # Customer intent: As a developer I am looking to create a developer Azure Active Directory account so I can participate in the Preview with a P2 license. 
 ---
 
-# How to create a free Azure Active Directory developer tenant
+# Microsoft Entra Verified ID developer information
 
 [!INCLUDE [Verifiable Credentials announcement](../../../includes/verifiable-credentials-brand.md)]
 
 > [!IMPORTANT]
-> Azure Active Directory Verifiable Credentials is currently in public preview.
+> Microsoft Entra verified ID is currently in public preview.
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 > [!NOTE]
-> While in Preview a P2 license is required. 
+> The requirement of an Azure AD P2 license was removed in early May 2002. Azure AD Free tier is now supported. 
 
-There are two easy ways to create a free Azure Active Directory with a P2 trial license so you can install the Verifiable Credential Issuer service and you can test creating and validating Verifiable Credentials:
+## Creating an Azure AD tenant for development
+
+There are two easy ways to create a free Azure Active Directory so you can onboard the Verifiable Credential service and test issuing and verifying Verifiable Credentials:
 
 - [Join](https://aka.ms/o365devprogram) the free Microsoft 365 Developer Program and get a free sandbox, tools, and other resources like an Azure Active Directory with P2 licenses. Configured Users, Groups, mailboxes etc.
 - Create a new [tenant](../develop/quickstart-create-new-tenant.md) and activate a [free trial](https://azure.microsoft.com/trial/get-started-active-directory/) of Azure AD Premium P1 or P2 in your new tenant.
