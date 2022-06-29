@@ -19,7 +19,7 @@ When downloading your update files from the Azure portal, you’ll see the optio
 
 Make sure to select the file that matches your upgrade scenario.
 
-Updates from legacy versions may require a series of software updates. For example, if you still have a sensor version 3.1.1 installed, you'll need to first upgrade to version 10.5.5, and then to a 22.x version.
+Updates from legacy versions may require a series of software updates. For example, if you still have a sensor version 3.1.1 installed, you'll need to first upgrade to version 22.1.6, and then on to later versions.
 
 :::image type="content" source="media/update-ot-software/legacy.png" alt-text="Screenshot of the multiple download options displayed.":::
 
