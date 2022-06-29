@@ -35,11 +35,17 @@ The custom domain suffix is for the App Service Environment. This feature is dif
 
 A [managed identity](../../active-directory/managed-identities-azure-resources/overview.md) is used to authenticate against the Azure Key Vault where the SSL/TLS certificate is stored. If you don't currently have a managed identity associated with your App Service Environment, you'll need to configure one. 
 
-You can use either a system assigned or user assigned managed identity. Ensure the managed identity has sufficient permissions for both the App Service Environment and the Azure Key Vault. At minimum, you need to give the managed identity read access to the Azure Key Vault. To create a user assigned managed identity, see [manage user-assigned managed identities](../../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md). If you'd like to use a system assigned managed identity and don't already have one assigned, the Custom domain suffix portal experience will guide you through the creation process.
+You can use either a system assigned or user assigned managed identity. To create a user assigned managed identity, see [manage user-assigned managed identities](../../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md). If you'd like to use a system assigned managed identity and don't already have one assigned to your App Service Environment, the Custom domain suffix portal experience will guide you through the creation process.
 
-Ensure the managed identity also has the appropriate access policy set for the Azure Key Vault. At a minimum, the managed identity will need all "Get" permissions on the key vault.
+Ensure the managed identity has sufficient permissions for both the App Service Environment and the Azure Key Vault. For the key vault permissions, you can either use a vault access policy or Azure role-based access control. 
+
+If you use a vault access policy, the managed identity will need at a minimum the "Get" secrets permission on the key vault.
 
 :::image type="content" source="./media/custom-domain-suffix/key-vault-access-policy.png" alt-text="Sample key vault access policy for managed identity.":::
+
+If you choose to use Azure role-based access control to manage access to your key vault, you'll need to give your managed identity at a minimum the "Key Vault Secrets User" role.
+
+:::image type="content" source="./media/custom-domain-suffix/key-vault-rbac.png" alt-text="Sample key vault role based access control for managed identity.":::
 
 ### Certificate
 
