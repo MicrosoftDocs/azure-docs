@@ -59,7 +59,7 @@ To complete this quickstart you need:
 
 1. Select the **Deployment** section. Under **GitHub Actions settings**, for **Continuous deployment**, select **Enable**.
 
-    ![Screenshot of the Deployment section of the Create Web App wizard in the Azure portal. Deployment - the second section - is highlighted. Under GitHub Actiosn settings, continuous deployment's Enable is also highlighted.](../../media/quickstart-java/create-web-app-deployment-section.png)
+    ![Screenshot of the Deployment section of the Create Web App wizard in the Azure portal. Deployment - the second section - is highlighted. Under GitHub Actions settings, continuous deployment's Enable is also highlighted.](../../media/quickstart-java/create-web-app-deployment-section.png)
 
 1. In the section under **GitHub Actions details**, select the following settings:
     - GitHub account: Log into your GitHub account.
