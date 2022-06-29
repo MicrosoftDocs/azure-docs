@@ -4,8 +4,9 @@ description: Learn how to receive shared data from Azure Blob Storage and Azure 
 author: jifems
 ms.author: jife
 ms.service: purview
+ms.subservice: purview-data-share
 ms.topic: how-to
-ms.date: 06/17/2022
+ms.date: 06/28/2022
 ---
 # Receive Azure Storage in-place share with Microsoft Purview Data Sharing (preview)
 
