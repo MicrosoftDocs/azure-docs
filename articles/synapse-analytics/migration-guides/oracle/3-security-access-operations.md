@@ -147,7 +147,7 @@ Oracle supports various types of privileges:
 >[!TIP] 
 >Azure Synapse has equivalent permissions for basic database operations such as DML and DDL.
 
-The following table lists common Oracle admin privileges that have a direct equivalent in Azure Synapse. Migration of these privileges could be automated by generating equivalent scripts for Azure Synapse from the Oracle catalog tables, as described [previously](#permissions).
+The following table lists common Oracle admin privileges that have a direct equivalent in Azure Synapse.
 
 | Admin privilege | Description | Synapse equivalent |
 |--|--|--|
@@ -164,7 +164,9 @@ The following table lists common Oracle admin privileges that have a direct equi
 | \[Create\] User | The user can create users. Permission to operate on existing users is controlled by object privileges. | CREATE USER |
 | \[Create\] View | The user can create views. Permission to operate on existing views is controlled by object privileges. | CREATE VIEW |
 
-The next tables list common Oracle object privileges that have a direct equivalent in Azure Synapse.
+You can automate the migration of these privileges by generating equivalent scripts for Azure Synapse from the Oracle catalog tables, as described earlier in this section.
+
+The next table lists common Oracle object privileges that have a direct equivalent in Azure Synapse.
 
 | Object Privilege | Description | Synapse Equivalent |
 |--|--|--|
