@@ -33,6 +33,8 @@ To prepare SAP ODP linked service, complete the following steps:
     1.	For the **Server name** property, enter the mapped server name for your SAP system.
     1.	For the **Subscriber name** property, enter a unique name to register and identify this ADF connection as a subscriber that consumes data packages produced in ODQ by your SAP system.  For example, you can name it <_your ADF name_>_<_your linked service name_>.
 
+    When using extraction mode "Delta", the combination of Subscriber name (maintained in the linked service) and Subscriber process has to be unique for every copy activity reading from the same ODP source object to ensure that the ODP framework can distinguish these copy activities and provide the correct chances.
+
     :::image type="content" source="media/sap-cdc-solution/sap-cdc-linked-service-configuration.png" alt-text="Shows a screenshot of the SAP ODP linked service configuration.":::
 
 1.	Test the connection and create your new SAP ODP linked service.
