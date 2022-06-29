@@ -14,7 +14,7 @@ The **tabs** below show the features that are available, by environment, for Mic
 
 ### [**Azure (AKS)**](#tab/azure-aks)
 
-| Domain | Feature | Supported Resources | Linux release state <sup>[1](#footnote1)</sup> | Windows release state | Agentless/Agent-based | Pricing Tier | Azure clouds availability |
+| Domain | Feature | Supported Resources | Linux release state <sup>[1](#footnote1)</sup> | Windows release state <sup>[1](#footnote1)</sup>  | Agentless/Agent-based | Pricing Tier | Azure clouds availability |
 |--|--|--|--|--|--|--|--|
 | Compliance | Docker CIS | VM, VMSS | GA | X | Log Analytics agent | Defender for Servers Plan 2 | Commercial clouds<br><br> National clouds: Azure Government, Azure China 21Vianet |
 | Vulnerability Assessment | Registry scan | ACR, Private ACR | GA | Preview | Agentless | Defender for Containers  | Commercial clouds<br><br> National clouds: Azure Government, Azure China 21Vianet |
@@ -32,7 +32,7 @@ The **tabs** below show the features that are available, by environment, for Mic
 
 ### [**AWS (EKS)**](#tab/aws-eks)
 
-| Domain | Feature | Supported Resources | Linux release state <sup>[1](#footnote1)</sup> | Windows release state | Agentless/Agent-based | Pricing tier |
+| Domain | Feature | Supported Resources | Linux release state <sup>[1](#footnote1)</sup> | Windows release state <sup>[1](#footnote1)</sup>  | Agentless/Agent-based | Pricing tier |
 |--|--| -- | -- | -- | -- | --| 
 | Compliance | Docker CIS | EC2 | Preview | X | Log Analytics agent | Defender for Servers Plan 2 |
 | Vulnerability Assessment | Registry scan | - | - | - | - | - |
@@ -50,7 +50,7 @@ The **tabs** below show the features that are available, by environment, for Mic
 
 ### [**GCP (GKE)**](#tab/gcp-gke)
 
-| Domain | Feature | Supported Resources | Linux release state <sup>[1](#footnote1)</sup> | Windows release state | Agentless/Agent-based | Pricing tier |
+| Domain | Feature | Supported Resources | Linux release state <sup>[1](#footnote1)</sup> | Windows release state <sup>[1](#footnote1)</sup> | Agentless/Agent-based | Pricing tier |
 |--|--| -- | -- | -- | -- | --| 
 | Compliance | Docker CIS | GCP VMs | Preview | X | Log Analytics agent | Defender for Servers Plan 2 |
 | Vulnerability Assessment | Registry scan | - | - | - | - | - |
@@ -68,7 +68,7 @@ The **tabs** below show the features that are available, by environment, for Mic
 
 ### [**On-prem/IaaS (Arc)**](#tab/iaas-arc)
 
-| Domain | Feature | Supported Resources | Linux release state <sup>[1](#footnote1)</sup> | Windows release state | Agentless/Agent-based | Pricing tier |
+| Domain | Feature | Supported Resources | Linux release state <sup>[1](#footnote1)</sup> | Windows release state <sup>[1](#footnote1)</sup>  | Agentless/Agent-based | Pricing tier |
 |--|--| -- | -- | -- | -- | --| 
 | Compliance | Docker CIS | Arc enabled VMs | Preview | X | Log Analytics agent | Defender for Servers Plan 2 |
 | Vulnerability Assessment | Registry scan | ACR, Private ACR | GA | Preview | Agentless | Defender for Containers |
