@@ -174,7 +174,7 @@ Set the custom domain name to the selected resource. Replace the sample paramete
 > [!CAUTION]
 > After successful execution of the following command, you'll create a custom domain name for your Speech resource. Remember that this name *cannot* be changed.
 
-```azurecli
+```azurecli-interactive
 az cognitiveservices account update --name my-speech-resource-name --resource-group my-resource-group-name --custom-domain my-custom-name
 ```
 
