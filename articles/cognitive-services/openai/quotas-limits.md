@@ -20,7 +20,7 @@ This article contains a quick reference and a detailed description of the quotas
 
 The following sections provide you with a quick guide to the quotas and limits that apply to the Azure OpenAI service
 
-| Limit | Standard (S0) |
+| Limit Name | Limit Value |
 |--|--|
 | OpenAI resources per region | 2 | 
 | Requests per second per deployment | 1 |
