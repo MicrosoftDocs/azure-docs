@@ -11,7 +11,7 @@ ms.reviewer: rijolly
 
 Application Insights now supports [Azure Active Directory (Azure AD) authentication](../../active-directory/authentication/overview-authentication.md#what-is-azure-active-directory-authentication). By using Azure AD, you can ensure that only authenticated telemetry is ingested in your Application Insights resources. 
 
-Using various authentication systems can be cumbersome and risky because it's difficult to manage credentials at a large scale. You can now choose to opt-out of local authentication to ensure only telemetry exclusively authenticated using [Managed Identities](../../active-directory/managed-identities-azure-resources/overview.md) and [Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md) is ingested in your resource. This feature is a step to enhance the security and reliability of the telemetry used to make both critical operational ([alerting](../alerts/alerts-overview.md#what-are-azure-monitor-alerts), [autoscale](../autoscale/autoscale-overview.md#overview-of-autoscale-in-microsoft-azure), etc.) and business decisions.
+Using various authentication systems can be cumbersome and risky because it's difficult to manage credentials at scale. You can now choose to [opt-out of local authentication](#disable-local-authentication) to ensure only telemetry exclusively authenticated using [Managed Identities](../../active-directory/managed-identities-azure-resources/overview.md) and [Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md) is ingested in your resource. This feature is a step to enhance the security and reliability of the telemetry used to make both critical operational ([alerting](../alerts/alerts-overview.md#what-are-azure-monitor-alerts), [autoscale](../autoscale/autoscale-overview.md#overview-of-autoscale-in-microsoft-azure), etc.) and business decisions.
 
 ## Prerequisites
 
@@ -122,6 +122,8 @@ appInsights.setup("InstrumentationKey=00000000-0000-0000-0000-000000000000;Inges
 appInsights.defaultClient.config.aadTokenCredential = credential;
 
 ```
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
 
 ### [Java](#tab/java)
 
