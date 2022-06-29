@@ -52,9 +52,9 @@ The modules listed below are split into five parts following the life cycle of a
 
 ### Module 0: Other learning and support options
 
-This Skill-up training is based on the [Microsoft Sentinel Ninja training](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/become-a-microsoft-sentinel-ninja-the-complete-level-400/ba-p/1246310) and is a level 400 training. If you don't want to go as deep or have a specific issue, other resources might be more suitable:
+This Skill-up training is based on the [Microsoft Sentinel Ninja training](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/become-a-microsoft-sentinel-ninja-the-complete-level-400/ba-p/1246310) and is a level 400 training. If you don't want to go as deep, or have a specific issue, other resources might be more suitable:
 
-* While extensive, the Skill-up training has to follow a script and can't expand on every topic. Read the referenced documentation for details on every article.
+* While extensive, the Skill-up training has to follow a script, and can't expand on every topic. Read the referenced documentation for details on every article.
 * You can now certify with the new certification [SC-200: Microsoft Security Operations Analyst](/learn/certifications/exams/sc-200), which covers Microsoft Sentinel.  You may also want to consider the [SC-900: Microsoft Security, Compliance, and Identity Fundamentals](/learn/certifications/exams/sc-900) or the [AZ-500: Microsoft Azure Security Technologies](/learn/certifications/exams/az-500), for a broader, higher level view of the Microsoft Security suite.
 * Are you already skilled-up on Microsoft Sentinel? Just keep track of [what's new](whats-new.md) or join the [Private Preview](https://forms.office.com/pages/responsepage.aspx?id=v4j5cvGGr0GRqy180BHbR-kibZAPJAVBiU46J6wWF_5URDFSWUhYUldTWjdJNkFMVU1LTEU4VUZHMy4u) program for an earlier glimpse. 
 * Do you have a feature idea and do you want to share with us? Let us know on the [Microsoft Sentinel user voice page](https://feedback.azure.com/d365community/forum/37638d17-0625-ec11-b6e6-000d3a4f07b8).
@@ -158,7 +158,7 @@ The [Microsoft Sentinel Technical Playbook for MSSPs](https://aka.ms/azsentinelm
 
 The foundation of a SIEM is collecting telemetry: events, alerts, and contextual enrichment information such as Threat Intelligence, vulnerability data, and asset information. You can find a list of sources you can connect here:
 * [Microsoft Sentinel data connectors](connect-data-sources.md)
-* [Find your Microsoft Sentinel data connector](data-connectors-reference.md) for seeing all the supported and out-of-the-box data connectors. You will find links to generic deployment procedures, and extra steps required for specific connectors. 
+* [Find your Microsoft Sentinel data connector](data-connectors-reference.md) for seeing all the supported and out-of-the-box data connectors. You'll find links to generic deployment procedures, and extra steps required for specific connectors. 
 * Data Collection Scenarios: Learn about collection methods such as [Logstash/CEF/WEF](connect-logstash.md). Other common scenarios are permissions restriction to tables, log filtering, collecting logs from AWS or GCP, O365 raw logs etc. All can be found in this webinar: [YouTube](https://www.youtube.com/watch?v=FStpHl0NRM8), [MP4](https://aka.ms/AS_LogCollectionScenarios_V3.0_18MAR2021_MP4), [Presentation](https://1drv.ms/b/s!AnEPjr8tHcNmhx-_hfIf0Ng3aM_G).
 
 The first piece of information you'll see for each connector is its **data ingestion method**. The method that appears there will be a link to one of the following generic deployment procedures, which contain most of the information you'll need to connect your data sources to Microsoft Sentinel:
@@ -188,7 +188,7 @@ Watch the webinar: Manage Your Log Lifecycle with New Methods for Ingestion, Arc
 This suite of features contains:
 
 * **Basic ingestion tier**: new pricing tier for Azure Log Analytics that allows for logs to be ingested at a lower cost. This data is only retained in the workspace for eight days total.
-* **Archive tier**: Azure Log Analytics has expanded its retention capability from two years to seven years. With the new tier, it will allow data to be retained up to 7 years in a low-cost archived state.
+* **Archive tier**: Azure Log Analytics has expanded its retention capability from two years to seven years. With the new tier, it will allow data to be retained up to seven years in a low-cost archived state.
 * **Search jobs**: search tasks that run limited KQL in order to find and return all relevant logs to what is searched. These jobs search data across the analytics tier, basic tier. and archived data.
 * **Data restoration**: new feature that allows users to pick a data table and a time range in order to restore data to the workspace via restore table.
 
@@ -196,7 +196,7 @@ Learn more about these new features in [this article](https://techcommunity.micr
 
 #### Alternative retention options outside of the Microsoft Sentinel platform
 
-If you want to retain data for _more than two years_ or _reduce the retention cost_, you can consider using Azure Data Explorer for long-term retention of Microsoft Sentinel logs: [Webinar Slides](https://onedrive.live.com/?authkey=%21AGe3Zue4W0xYo4s&cid=66C31D2DBF8E0F71&id=66C31D2DBF8E0F71%21963&parId=66C31D2DBF8E0F71%21954&o=OneUp), [Webinar Recording](https://www.youtube.com/watch?v=UO8zeTxgeVw&ab_channel=MicrosoftSecurityCommunity), [Blog](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/using-azure-data-explorer-for-long-term-retention-of-microsoft/ba-p/1883947).
+If you want to retain data for _more than two years_, or _reduce the retention cost_, you can consider using Azure Data Explorer for long-term retention of Microsoft Sentinel logs: [Webinar Slides](https://onedrive.live.com/?authkey=%21AGe3Zue4W0xYo4s&cid=66C31D2DBF8E0F71&id=66C31D2DBF8E0F71%21963&parId=66C31D2DBF8E0F71%21954&o=OneUp), [Webinar Recording](https://www.youtube.com/watch?v=UO8zeTxgeVw&ab_channel=MicrosoftSecurityCommunity), [Blog](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/using-azure-data-explorer-for-long-term-retention-of-microsoft/ba-p/1883947).
 
 Need more depth? Watch the _Improving the Breadth and Coverage of Threat Hunting with ADX Support, More Entity Types, and Updated MITRE Integration_ webinar [here](https://www.youtube.com/watch?v=5coYjlw2Qqs&ab_channel=MicrosoftSecurityCommunity).
 
@@ -283,7 +283,7 @@ For more information, see:
 
 ### Module 8: Migration 
 
-In many (if not most) cases, you already have a SIEM and need to migrate to Microsoft Sentinel. While it may be a good time to start over and rethink your SIEM implementation, it makes sense to utilize some of the assets you already built in your current implementation. Watch the webinar describing best practices for converting detection rules from Splunk, QRadar, and ArcSight to Azure Sentinel Rules: [YouTube](https://youtu.be/njXK1h9lfR4), [MP4](https://aka.ms/AzSentinel_DetectionRules_19FEB21_MP4), [Presentation](https://1drv.ms/b/s!AnEPjr8tHcNmhlsYDm99KLbNWlq5), [blog](https://techcommunity.microsoft.com/t5/azure-sentinel/best-practices-for-migrating-detection-rules-from-arcsight/ba-p/2216417).
+In many (if not most) cases, you already have a SIEM and need to migrate to Microsoft Sentinel. While it may be a good time to start over, and rethink your SIEM implementation, it makes sense to utilize some of the assets you already built in your current implementation. Watch the webinar describing best practices for converting detection rules from Splunk, QRadar, and ArcSight to Azure Sentinel Rules: [YouTube](https://youtu.be/njXK1h9lfR4), [MP4](https://aka.ms/AzSentinel_DetectionRules_19FEB21_MP4), [Presentation](https://1drv.ms/b/s!AnEPjr8tHcNmhlsYDm99KLbNWlq5), [blog](https://techcommunity.microsoft.com/t5/azure-sentinel/best-practices-for-migrating-detection-rules-from-arcsight/ba-p/2216417).
 
 You might also be interested in some of the following resources:
 
@@ -336,7 +336,7 @@ Using ASIM provides the following benefits:
 
 What is Microsoft Sentinel's content?
 
-Microsoft Sentinel's security value is a combination of its built-in capabilities and your capability to create custom ones and customize the built-in ones. Among built-in capabilities there are UEBA, Machine Learning or out-of-the-box analytics rules. Customized capabilities are often referred to as "content" and include analytic rules, hunting queries, workbooks, playbooks, etc.
+Microsoft Sentinel's security value is a combination of its built-in capabilities and your capability to create custom ones and customize the built-in ones. Among built-in capabilities, there are UEBA, Machine Learning or out-of-the-box analytics rules. Customized capabilities are often referred to as "content" and include analytic rules, hunting queries, workbooks, playbooks, etc.
 
 In this section, we grouped the modules that help you learn how to create such content or modify built-in-content to your needs.  We start with KQL, the Lingua Franca of Azure Sentinel. The following modules discuss one of the content building blocks such as rules, playbooks, and workbooks. We wrap up by discussing use cases, which encompass elements of different types to address specific security goals such as threat detection, hunting, or governance. 
 
