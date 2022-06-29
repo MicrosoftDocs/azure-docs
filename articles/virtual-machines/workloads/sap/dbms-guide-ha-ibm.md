@@ -4,7 +4,7 @@ description: Establish high availability of IBM Db2 LUW on Azure virtual machine
 author: msjuergent
 ms.service: virtual-machines-sap
 ms.topic: article
-ms.date: 10/16/2020
+ms.date: 06/29/2022
 ms.author: juergent
 ms.reviewer: cynthn
 
