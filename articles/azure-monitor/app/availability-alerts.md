@@ -29,13 +29,18 @@ Alerts are now automatically enabled by default, but in order to fully configure
    ![Screenshot shows the Rules management page where you can edit the rule.](./media/availability-alerts/set-action-group.png)
 
 > [!NOTE]
-> Availability alerts created through this experience are state-based. This means that when the alert criteria is met a single alert is generated when the site is detected as unavailable. If the site is still down the next time the alert criteria is evaluated this won't generate a new alert. So if your site was down for an hour and you had setup an e-mail alert, you would only receive an e-mail when the site went down, and a subsequent e-mail when the site was back up. You would not receive continuous alerts reminding you that the site was still unavailable.
+> Availability alerts created through this experience are state-based. This means that when the alert criteria is met, a single alert is generated when the site is detected as unavailable. If the site is still down the next time the alert criteria is evaluated, it won't generate a new alert. For example, if your site was down for an hour and you had setup an e-mail alert, you would only receive an e-mail when the site went down, and a subsequent e-mail when the site was back up. You would not receive continuous alerts reminding you that the site was still unavailable.
 
-During maintenance, we recommend to either temporarily deactivate the alert, or create a custom alert rule which accounts for the maintenance window.
+> [!TIP]
+> If you don't want to receive constant notifications when your website is down, e.g. during maintenance, you can either temporarily deactivate the alert, or select the condition to configure the signal logic and change the aggregation granularity period to a higher value than the expected downtime.
+
+![Configure signal logic](./media/availability-alerts/configure-signal-logic.png)
 
 ### Custom alert rule
 
-Auto-generated alerts for availability tests have limited options to change the logic. If you need advanced capabilities, you can create a custom alert rule from the **Alerts** tab.
+Auto-generated alerts from availability test have a limited set of options to change the logic. If you need advanced capabilities, you can create a custom alert rule from the **Alerts** tab. This will allow you to further define the logic by selecting different operators, aggregation types, and threshold values. You also have the option to create a dynamic threshold.
+
+![Create custom alert](./media/availability-alerts/create-custom-alert.png)
 
 ### Alert on X out of Y locations reporting failures
 
