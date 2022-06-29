@@ -1,136 +1,97 @@
 ---
-title: Upgrade indirectly connected data controller for Azure Arc using Kubernetes tools
-description: Article describes how to upgrade an indirectly connected data controller for Azure Arc using Kubernetes tools
+title: Upgrade Azure SQL Managed Instance indirectly connected to Azure Arc using Kubernetes tools
+description: Article describes how to upgrade an indirectly connected Azure Arc-enabled SQL Managed Instance using Kubernetes tools
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
+ms.custom: event-tier1-build-2022
 author: grrlgeek
 ms.author: jeschult
 ms.reviewer: mikeray
-ms.date: 05/27/2022
+ms.date: 11/08/2021
 ms.topic: how-to
 ---
 
-# Upgrade an indirectly connected Azure Arc-enabled data controller using Kubernetes tools
+# Upgrade Azure SQL Managed Instance indirectly connected to Azure Arc using Kubernetes tools
 
-This article explains how to upgrade an indirectly connected Azure Arc-enabled data controller with Kubernetes tools.
-
-During a data controller upgrade, portions of the data control plane such as Custom Resource Definitions (CRDs) and containers may be upgraded. An upgrade of the data controller will not cause downtime for the data services (SQL Managed Instance or PostgreSQL server).
-
-In this article, you'll apply a .yaml file to:
-
-1. Create the service account for running upgrade.
-1. Upgrade the bootstrapper.
-1. Upgrade the data controller.
-
-> [!NOTE]
-> Some of the data services tiers and modes are generally available and some are in preview.
-> If you install GA and preview services on the same data controller, you can't upgrade in place.
-> To upgrade, delete all non-GA database instances. You can find the list of generally available 
-> and preview services in the [Release Notes](./release-notes.md).
+This article describes how to upgrade Azure SQL Managed Instance deployed on an indirectly connected Azure Arc-enabled data controller using Kubernetes tools.
 
 ## Prerequisites
 
-Prior to beginning the upgrade of the data controller, you'll need:
+### Install tools
+
+Before you can proceed with the tasks in this article, you need:
 
 - To connect and authenticate to a Kubernetes cluster
 - An existing Kubernetes context selected
 
-You need an indirectly connected data controller with the `imageTag: v1.0.0_2021-07-30` or greater.
+You need an indirectly connected data controller with the `imageTag v1.0.0_2021-07-30` or greater.
 
-## Install tools
+## Limitations
 
-To upgrade the data controller using Kubernetes tools, you need to have the Kubernetes tools installed.
+The Azure Arc Data Controller must be upgraded to the new version before the managed instance can be upgraded.
 
-The examples in this article use `kubectl`, but similar approaches could be used with other Kubernetes tools
-such as the Kubernetes dashboard, `oc`, or helm if you're familiar with those tools and Kubernetes yaml/json.
+The managed instance must be at the same version as the data controller before a data controller is upgraded.
 
-[Install the kubectl tool](https://kubernetes.io/docs/tasks/tools/)
+There's no batch upgrade process available at this time.
 
-## View available images and chose a version
+## Upgrade the managed instance
 
-Pull the list of available images for the data controller with the following command:
-
-```azurecli
-az arcdata dc list-upgrades --k8s-namespace <namespace>
- ```
-
-The command above returns output like the following example:
-
-```output
-Found 2 valid versions.  The current datacontroller version is <current-version>.
-<available-version>
-...
-```
-
-## Upgrade data controller
-
-This section shows how to upgrade an indirectly connected data controller.
-
-> [!NOTE]
-> Some of the data services tiers and modes are generally available and some are in preview.
-> If you install GA and preview services on the same data controller, you can't upgrade in place.
-> To upgrade, delete all non-GA database instances. You can find the list of generally available 
-> and preview services in the [Release Notes](./release-notes.md).
-
-[!INCLUDE [upgrade-supported-path](includes/upgrade-supported-path.md)]
+[!INCLUDE [upgrade-sql-managed-instance-service-tiers](includes/upgrade-sql-managed-instance-service-tiers.md)]
 
 
 ### Upgrade
 
-You'll need to connect and authenticate to a Kubernetes cluster and have an existing Kubernetes context selected prior to beginning the upgrade of the data controller.
-
-
-### Create the service account for running upgrade
-
-   > [!IMPORTANT]
-   > Requires Kubernetes permissions for creating service account, role binding, cluster role, cluster role binding, and all the RBAC permissions being granted to the service account.
-
-Save a copy of [arcdata-deployer.yaml](https://raw.githubusercontent.com/microsoft/azure_arc/release-arc-data/arc_data_services/arcdata-deployer.yaml), and replace the placeholder `{{NAMESPACE}}` in the file with the namespace created in the previous step, for example: `arc`. Run the following command to create the deployer service account with the edited file.
+Use a kubectl command to view the existing spec in yaml.
 
 ```console
-kubectl apply --namespace arc -f arcdata-deployer.yaml
+kubectl --namespace <namespace> get sqlmi <sqlmi-name> --output yaml
 ```
 
-
-### Upgrade the bootstrapper
-
-The following command creates a job for upgrading the bootstrapper and related Kubernetes objects.
+Run kubectl patch to update the desired version.
 
 ```console
-kubectl apply --namespace arc -f https://raw.githubusercontent.com/microsoft/azure_arc/release-arc-data/arc_data_services/upgrade/yaml/bootstrapper-upgrade-job.yaml
+kubectl patch sqlmi <sqlmi-name> --namespace <namespace> --type merge --patch '{"spec": {"update": {"desiredVersion": "v1.1.0_2021-11-02"}}}'
 ```
 
-### Upgrade the data controller
-
-The following command patches the image tag to upgrade the data controller.
-
-```console
-kubectl apply --namespace arc -f https://raw.githubusercontent.com/microsoft/azure_arc/release-arc-data/arc_data_services/upgrade/yaml/data-controller-upgrade.yaml
-```
-
-
-## Monitor the upgrade status
+## Monitor
 
 You can monitor the progress of the upgrade with kubectl.
 
 ### kubectl
 
 ```console
-kubectl get datacontrollers --namespace <namespace> -w
-kubectl get monitors --namespace <namespace> -w
+kubectl describe sqlmi --namespace <namespace>
 ```
 
-The upgrade is a two-part process. First the controller is upgraded, then the monitoring stack is upgraded. During the upgrade, use ```kubectl get monitors -n <namespace> -w``` to view the status. The output will be:
+### Output
+
+The output for the command will show the resource information. Upgrade information will be in Status.
+
+During the upgrade, ```State``` will show ```Updating``` and ```Running Version``` will be the current version:
 
 ```output
-NAME           STATUS     AGE
-monitorstack   Updating   36m
-monitorstack   Updating   36m
-monitorstack   Updating   39m
-monitorstack   Updating   39m
-monitorstack   Updating   41m
-monitorstack   Ready      41m
+Status:
+  Log Search Dashboard:  https://30.88.222.48:5601/app/kibana#/discover?_a=(query:(language:kuery,query:'custom_resource_name:sqlmi-1'))
+  Metrics Dashboard:     https://30.88.221.32:3000/d/40q72HnGk/sql-managed-instance-metrics?var-hostname=sqlmi-1-0
+  Observed Generation:   2
+  Primary Endpoint:      30.76.129.38,1433
+  Ready Replicas:        1/1
+  Running Version:       v1.0.0_2021-07-30
+  State:                 Updating
+```
+
+When the upgrade is complete, ```State``` will show ```Ready``` and ```Running Version``` will be the new version:
+
+```output
+Status:
+  Log Search Dashboard:  https://30.88.222.48:5601/app/kibana#/discover?_a=(query:(language:kuery,query:'custom_resource_name:sqlmi-1'))
+  Metrics Dashboard:     https://30.88.221.32:3000/d/40q72HnGk/sql-managed-instance-metrics?var-hostname=sqlmi-1-0
+  Observed Generation:   2
+  Primary Endpoint:      30.76.129.38,1433
+  Ready Replicas:        1/1
+  Running Version:       <version-tag>
+  State:                 Ready
 ```
 
 ## Troubleshoot upgrade problems
