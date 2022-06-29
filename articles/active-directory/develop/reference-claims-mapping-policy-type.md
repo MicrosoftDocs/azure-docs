@@ -462,7 +462,7 @@ Based on the method chosen, a set of inputs and outputs is expected. Define the 
 **Data type:** Boolean (True or False)   
 **Summary:** This property enables the addition of the application ID to the issuer claim. Ensures that multiple instances of the same application have a unique claim value for each instance. This setting is ignored if a custom signing key isn't configured for the application.
 - If set to `True`, the application ID is added to the issuer claim in tokens affected by the policy.
-- If set to False, the application ID will not be added to the issuer claim in tokens affected by the policy. (default) 
+- If set to `False`, the application ID isn't added to the issuer claim in tokens affected by the policy. (default) 
  
 ### Audience Override 
 **String:** audienceOverride  
