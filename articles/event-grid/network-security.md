@@ -89,7 +89,7 @@ For publishing to be successful, the private endpoint connection state should be
 
 
 ## Quotas and limits
-There's a limit on number of IP firewall rules and private endpoint connection per topic or domain. See [Event Grid quotas and limits](quotas-limits.md). 
+There's a limit on the number of IP firewall rules and private endpoint connections per topic or domain. See [Event Grid quotas and limits](quotas-limits.md). 
 
 ## Next steps
 You can configure IP firewall for your Event Grid resource to restrict access over the public internet from only a select set of IP Addresses or IP Address ranges. For step-by-step instructions, see [Configure IP firewall](configure-firewall.md).
