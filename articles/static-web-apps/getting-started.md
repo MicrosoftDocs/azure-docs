@@ -92,7 +92,7 @@ If you don't already have the [Azure Static Web Apps extension for Visual Studio
     | --- | --- |
     | Name | Enter **my-first-static-web-app** |
     | Region | Select the region closest to you. |
-    | Build preset | Select **Vue**. |
+    | Build preset | Select **Vue.js**. |
 
     ---
 
