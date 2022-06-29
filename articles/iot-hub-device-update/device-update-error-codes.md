@@ -26,10 +26,6 @@ The Device Update for IoT Hub Core PnP interface reports `ResultCode` and `Exten
 #### ResultCode
 `ResultCode` is a general status code and `ExtendedResultCode` is an integer with encoded error information.
 
-`ResultCode` is a general status code and follows http status code convention.
-[Learn More](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html) about http
-status codes.
-
 #### ExtendedResultCode
 
 `ExtendedResultCode` is an integer with encoded error information.
