@@ -20,7 +20,12 @@ ms.custom: devx-track-python, cliv2, sdkv2, event-tier1-build-2022
 > * [v1](v1/concept-mlflow-v1.md)
 > * [v2 (current version)](concept-mlflow.md)
 
-[MLflow](https://www.mlflow.org) is an open-source framework, designed to manage the complete machine learning lifecycle. Its ability to train and serve models on different platforms allows you to use a consistent set of tools regardless of where your experiments are running: locally on your computer, on a remote compute target, a virtual machine or an Azure Machine Learning compute instance.  
+[MLflow](https://www.mlflow.org) is an open-source framework, designed to manage the complete machine learning lifecycle. Its ability to train and serve models on different platforms allows you to use a consistent set of tools regardless of where your experiments are running: locally on your computer, on a remote compute target, a virtual machine or an Azure Machine Learning compute instance.
+
+> [!TIP]
+> Azure Machine Learning workspaces are MLflow compatible, meaning that you can use Azure Machine Learning workspaces in the same way you use an MLflow Tracking Server. Such compatibility has the following advantages:
+> * You can use Azure Machine Learning workspaces as you tracking server for any experiment you are running with MLflow, regardless if they run on Azure Machine Learning or not. You only need to configure MLflow to point to the workspace where the tracking should happen.
+> * You can run any training routine that uses MLflow in Azure Machine Learning without changes. Model mangagement and model deployment capabilities are also supported.
 
 MLflow can manage the complete machine learning lifecycle using four core capabilities:
 
