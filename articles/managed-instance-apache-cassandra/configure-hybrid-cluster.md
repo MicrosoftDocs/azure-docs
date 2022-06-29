@@ -210,7 +210,7 @@ This quickstart demonstrates how to use the Azure CLI commands to configure a hy
    > [!IMPORTANT]
    > If you are using hybrid cluster as a method of migrating historic data into the new Azure Managed Instance Cassandra data centers, ensure that you disable automatic repairs:
    > ```azurecli-interactive
-   >     az managed-cassandra cluster update --cluster-name --resource-group--repair-enabled true
+   >     az managed-cassandra cluster update --cluster-name --resource-group--repair-enabled false
    > ```
    > Then run `nodetool repair --full` on all the nodes in your existing cluster's data center. You should run this only after all of the above steps have been taken. This should ensure that all historical data is replicated to your new data centers in Azure Managed Instance for Apache Cassandra. If you have a very large amount of data in your existing cluster, it may be necessary to run the repairs at the keyspace or even table level - see [here](https://cassandra.apache.org/doc/latest/cassandra/operating/repair.html) for more details on running repairs in Cassandra. Prior to changing the replication settings, you should also make sure that any application code that connects to your existing Cassandra cluster is using LOCAL_QUORUM. You should leave it at this setting during the migration (it can be switched back afterwards if required). After everyhting is done and the old datacenter decommissioned you can enable automatic repair again).
 
