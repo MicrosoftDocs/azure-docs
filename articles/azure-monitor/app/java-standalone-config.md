@@ -574,6 +574,21 @@ you can configure Application Insights Java 3.x to use an HTTP proxy:
 Application Insights Java 3.x also respects the global `https.proxyHost` and `https.proxyPort` system properties
 if those are set (and `http.nonProxyHosts` if needed).
 
+## Recovery from ingestion failures
+
+When sending telemetry to the Application Insights service fails, Application Insights Java 3.x will store the telemetry
+to disk and continue retrying from disk.
+
+The default limit for disk persistence is 50 Mb. If you have high telemetry volume, or need to be able to recover from
+longer network or ingestion service outages, you can increase this limit:
+
+```json
+{
+  "preview": {
+    "diskPersistenceMaxSizeMb": 50
+  }
+}
+
 ## Self-diagnostics
 
 "Self-diagnostics" refers to internal logging from Application Insights Java 3.x.
