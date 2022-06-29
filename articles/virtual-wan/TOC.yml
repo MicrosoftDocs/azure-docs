@@ -169,14 +169,14 @@
         href: vpn-profile-intune.md
     - name: VPN clients
       items:
-        - name: OpenVPN
-          href: howto-openvpn-clients.md
         - name: Azure AD authentication
           items:
             - name: Windows 10
               href: openvpn-azure-ad-client.md
             - name: macOS
               href: openvpn-azure-ad-client-mac.md
+        - name: OpenVPN client software configuration
+          href: howto-openvpn-clients.md
     - name: Multi-Factor Authentication(MFA)
       href: openvpn-azure-ad-mfa.md   
     - name: Multi-application Azure AD authentication
