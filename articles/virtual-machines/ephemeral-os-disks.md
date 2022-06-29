@@ -93,15 +93,15 @@ For the same example above, if you create a standard Ephemeral OS disk VM you wo
 > 
 For more information on [how to deploy a trusted launch VM](trusted-launch-portal.md)
 
-## Confidential VMs using Ephemeral OS disks (in preview)
-Confidential VMs are for tenants with high security and confidentiality requirements. These VMs provide a strong, hardware-enforced boundary to help meet your security needs. There are limitations to Confidential VMs that apply when you create a Confidential VM with Ephemeral OS disk. Check the [region](../confidential-computing/confidential-vm-overview.md#regions), [size](../confidential-computing/confidential-vm-overview.md#size-support) and [OS supported](../confidential-computing/confidential-vm-overview.md#os-support) limitations for confidential VMs.
+## Confidential VMs using Ephemeral OS disks (preview)
+AMD-based Confidential VMs are for tenants with high security and confidentiality requirements. These VMs provide a strong, hardware-enforced boundary to help meet your security needs. There are limitations to use Confidential VMs. Check the [region](../confidential-computing/confidential-vm-overview.md#regions), [size](../confidential-computing/confidential-vm-overview.md#size-support) and [OS supported](../confidential-computing/confidential-vm-overview.md#os-support) limitations for confidential VMs.
 
-Virtual machine guest state (VMGS) disk contains the security state of the VM's components. Some components include the vTPM and UEFI bootloader. 
+Virtual machine guest state (VMGS) blob contains the security information of the VM's components. 
 Confidential VMs using Ephemeral OS disks by default would use **1 GiB** from the **OS cache** or **temp storage** based on the chosen placement option is reserved for VMGS.The lifecycle of the VMGS blob is tied to that of the OS Disk.
 
 > [!Important]
 > 
-> When choosing a confidential VM with full OS disk encryption before VM deployment that uses a customer-managed key (CMK). [Updating a CMK key version](../storage/common/customer-managed-keys-overview.md#update-the-key-version) would result in error as key rotation is not supported with Ephemeral OS disk. For updating the key the confidential VMs with Ephemeral OS disks needs to be deleted.
+> When choosing a confidential VM with full OS disk encryption before VM deployment that uses a customer-managed key (CMK). [Updating a CMK key version](../storage/common/customer-managed-keys-overview.md#update-the-key-version) is not supported with Ephemeral OS disk. For updating the key, Confidential VMs with Ephemeral OS disk need to be deleted and re-created with updated key version.
 > 
 
 For more information on [confidential VM](../confidential-computing/confidential-vm-overview.md)
