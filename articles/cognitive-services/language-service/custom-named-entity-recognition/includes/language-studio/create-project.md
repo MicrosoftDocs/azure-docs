@@ -6,7 +6,7 @@ ms.service: cognitive-services
 ms.subservice: language-service
 ms.custom: event-tier1-build-2022
 ms.topic: include
-ms.date: 06/03/2022
+ms.date: 06/29/2022
 ms.author: aahi
 ---
 
@@ -29,7 +29,7 @@ ms.author: aahi
     
     :::image type="content" source="../../media/connect-storage.png" alt-text="A screenshot showing the storage connection screen." lightbox="../../media/connect-storage.png":::
 
-5. Enter the project information, including a name, description, and the language of the files in your project. You won’t be able to change the name of your project later. Click **Next**
+5. Enter the project information, including a name, description, and the language of the files in your project. If you're using the [example dataset](https://go.microsoft.com/fwlink/?linkid=2175226), select **English**. You won’t be able to change the name of your project later. Click **Next**
 
     > [!TIP]
     > Your dataset doesn't have to be entirely in the same language. You can have multiple documents, each with different supported languages. If your dataset contains documents of different languages or if you expect text from different languages during runtime, select **enable multi-lingual dataset** option when you enter the basic information for your project. This option can be enabled later from the **Project settings** page.
