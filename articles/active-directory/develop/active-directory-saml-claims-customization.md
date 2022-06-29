@@ -185,11 +185,11 @@ As a final example, let’s consider what happens if Britta has no `user.otherma
 ## Advanced SAML Claims Options
 There are several advanced options that can be configured for an application. 
 
-| Option | Description |
+|Option|Description|
 |---------|---------|
-| Append application ID to issuer | Automatically adds the application ID to the issuer claim. In the scenario where you have multiple instances of the same application this ensures you will have a unique claim value for each instance. This setting will be ignored if no custom signing key is configured for the application.  |  
-| Override audience claim | Allows for the overriding of the audience claim sent to the application. The value provided must be a valid absolute URI. This setting will be ignored if no custom signing key is configured for the application. |
-| Include attribute name format  | If selected, Azure Active Directory will add an additional attribute called "NameFormat" that describes the format of the name to restricted, core, and optional claims for this application. [Learn more](reference-claims-mapping-policy-type.md#claim-sets) |
+|Append application ID to issuer|Automatically adds the application ID to the issuer claim. In the scenario where you have multiple instances of the same application this ensures you will have a unique claim value for each instance. This setting will be ignored if no custom signing key is configured for the application.|  
+|Override audience claim|Allows for the overriding of the audience claim sent to the application. The value provided must be a valid absolute URI. This setting will be ignored if no custom signing key is configured for the application.|
+|Include attribute name format|If selected, Azure Active Directory will add an additional attribute called "NameFormat" that describes the format of the name to restricted, core, and optional claims for this application. [Learn more](reference-claims-mapping-policy-type.md#claim-sets)|
 
 
 

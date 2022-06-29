@@ -19,20 +19,20 @@ ms.reviewer:
 App multi-instancing refers to the need for the configuration of multiple instances of the same application within a tenant.  For example, the organization has multiple Amazon Web Services accounts, each of which needs a separate service principal to handle instance-specific claims mapping (adding the AccountID claim for that AWS tenant) and roles assignment.  Or the customer has multiple instances of Box, which doesn’t need special claims mapping, but does need separate service principals for separate signing keys.  
 
 ## IDP versus SP initiated SSO?     
-A user can login to an application one of two ways, either through the application directly, which is known as SP (service provider) initiated SSO, or by going directly to the identity provider, known as IDP initiated SSO. Depending on which approach is used within your organization you'll need to follow the appropriate instructions below.  
+A user can sign-in to an application one of two ways, either through the application directly, which is known as SP (service provider) initiated SSO, or by going directly to the identity provider, known as IDP initiated SSO. Depending on which approach is used within your organization you'll need to follow the appropriate instructions below.  
 
 ## SP Initiated   
-The issue with SP initiated is that within the Saml request the Issuer specified is usually the App ID Uri. Utilizing App ID Uri doesn’t allow the customer to distinguish which instance of an application is being targeted when using Service Provider initiated SSO.   
+The issue with SP initiated is that within the SAML request the Issuer specified is usually the App ID Uri. Utilizing App ID Uri doesn’t allow the customer to distinguish which instance of an application is being targeted when using Service Provider initiated SSO.   
 
 ## SP Initiated Configuration Instructions  
-Update the Saml single sign-on service URL configured within the service provider for each instance to include the service principal guid as part of the URL. For example, the general SSO sign in URL for Saml would have been `https://login.microsoftonline.com/<tenantid>/saml2`, this URL can now be updated to target a specific service principal as follows `https://login.microsoftonline.com/<tenantid>/saml2/<issuer>`.  
+Update the SAML single sign-on service URL configured within the service provider for each instance to include the service principal guid as part of the URL. For example, the general SSO sign-in URL for SAML would have been `https://login.microsoftonline.com/<tenantid>/saml2`, the URL can now be updated to target a specific service principal as follows `https://login.microsoftonline.com/<tenantid>/saml2/<issuer>`.  
 
-Only service principal id's in GUID format will be accepted for the ‘issuer’ value. The service principal id will override the issuer in the SAML request/response, and the rest of the flow will be executed as usual. There's one exception to this: if the application requires the request to be signed, the request will be rejected even if the signature was valid. This is done to avoid any security risks with functionally overriding values in a signed request.  
+Only service principal id's in GUID format will be accepted for the ‘issuer’ value. The service principal id will override the issuer in the SAML request/response, and the rest of the flow will be executed as usual. There's one exception: if the application requires the request to be signed, the request will be rejected even if the signature was valid. The rejection is done to avoid any security risks with functionally overriding values in a signed request.  
 
 ## IDP Initiated   
 The IDP Initiated feature exposes two settings for each application.   
 
-- An “audience override” option exposed for configuration via claims mapping or the portal.  The intended use case are applications that require the same audience for multiple instances. This setting will be ignored if no custom signing key is configured for the application.    
+- An “audience override” option exposed for configuration via claims mapping or the portal.  The intended use case is applications that require the same audience for multiple instances. This setting will be ignored if no custom signing key is configured for the application.    
 
 - An “issuer with application id” flag to indicate the issuer should be unique for each application instead of unique for each tenant.  This setting will be ignored if no custom signing key is configured for the application.  
 
