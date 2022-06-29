@@ -54,7 +54,7 @@ In this section, you'll write down the organizational policies you plan to use t
 
 1. **Determine how exceptions to your criteria should be handled.**  For example, an application may typically only be available for designated employees, but an auditor or vendor may need temporary access for a specific project. Or, an employee who is traveling may require access from a location that is normally blocked as your organization has no presence in that location.   In these situations, you may choose to also have an entitlement management policy for approval that may have different stages, or a different time limit, or a different approver.  A vendor who is signed in as a guest user in your Azure AD tenant may not have a manager, so instead their access requests could be approved by a sponsor for their organization, or by a resource owner, or a security officer.
 
-As the organizational policy for who should have access is being reviewed by the stakeholders, then you can begin [integrating the application](identity-goernance-applications-integrate.md) with Azure AD. That way at a later step you'll be ready to [deploy the organization-approved policies](identity-governance-applications-deploy.md) for access in Azure AD identity governance.
+As the organizational policy for who should have access is being reviewed by the stakeholders, then you can begin [integrating the application](identity-governance-applications-integrate.md) with Azure AD. That way at a later step you'll be ready to [deploy the organization-approved policies](identity-governance-applications-deploy.md) for access in Azure AD identity governance.
 
 ## Next steps
 
