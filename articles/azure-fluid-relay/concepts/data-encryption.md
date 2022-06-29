@@ -20,7 +20,7 @@ The diagram below shows at a high level how Azure Fluid Relay is implemented and
 
 ### How much more does Azure Fluid Relay cost if encryption is enabled?
 
-Encryption-at-rest is enabled by default. There is no additional cost.
+Encryption-at-rest is enabled by default. There's no additional cost.
 
 ### Who manages the encryption keys?
 
@@ -28,11 +28,11 @@ The keys are managed by Microsoft.
 
 ### How often are encryption keys rotated?
 
-Microsoft has a set of internal guidelines for encryption key rotation which Azure Fluid Relay follows. The specific guidelines are not published. Microsoft does publish the [Security Development Lifecycle (SDL)](https://www.microsoft.com/sdl/default.aspx), which is seen as a subset of internal guidance and has useful best practices for developers.
+Microsoft has a set of internal guidelines for encryption key rotation which Azure Fluid Relay follows. The specific guidelines aren't published. Microsoft does publish the [Security Development Lifecycle (SDL)](https://www.microsoft.com/sdl/default.aspx), which is seen as a subset of internal guidance and has useful best practices for developers.
 
 ### Can I use my own encryption keys?
 
-Yes. For more information, refer to [Customer-managed keys for Azure Fluid Relay encryption](../concepts/customer-managed-keys.md).
+Yes. For more information, see [Customer-managed keys for Azure Fluid Relay encryption](../concepts/customer-managed-keys.md).
 
 ### What regions have encryption turned on?
 
@@ -40,7 +40,7 @@ All Azure Fluid Relay regions have encryption turned on for all user data.
 
 ### Does encryption affect the performance latency and throughput?
 
-A: There is no impact or changes to performance with encryption at rest enabled.
+A: There's no impact or changes to performance with encryption at rest enabled.
 
 ## See also
 
