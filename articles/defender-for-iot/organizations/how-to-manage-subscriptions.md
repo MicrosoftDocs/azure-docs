@@ -27,10 +27,6 @@ Before you subscribe, you should have a sense of how many devices you would like
 
 Users can also work with trial subscription, which supports monitoring a limited number of devices for 30 days. See [Microsoft Defender for IoT pricing](https://azure.microsoft.com/pricing/details/iot-defender/) information on committed device prices.
 
-### What's a device?
-
-[!INCLUDE [devices-inventoried](includes/devices-inventoried.md)]
-
 ## Requirements
 
 Before you onboard a subscription, verify that:
@@ -52,29 +48,19 @@ Azure **Subscription Owners** and **Subscription Contributor**s can onboard, upd
 
 ### Calculate the number of devices you need to monitor
 
-When onboarding or editing your Defender for IoT plan, you'll need to know how many devices you want to monitor. Defender for IoT discovers all devices of all types across all environments.<!--does it?--> The basic representation for a device in the inventory is IP address + MAC address.
+When onboarding or editing your Defender for IoT plan, you'll need to know how many devices you want to monitor.
 
-**To calculate the number of devices you need to monitor**:
+[!INCLUDE [devices-inventoried](includes/devices-inventoried.md)]
 
-Collect the total number of devices in your network and remove:
+**To calculate the number of devices you need to monitor**, collect the total number of devices in your network and remove any devices that aren't considered Defender for IoT committed devices.
 
-- **Duplicate devices that have the same IP or MAC address**. When detected, the duplicates are automatically removed by Defender for IoT.
+If you are also a Defender for Endpoint customer, devices managed by Defender for Endpoint aren't billable in Defender for IoT. Therefore, when estimating your committed devices, also exclude any devices onboarded in Defender for Endpoint.
 
-- **Duplicate devices that have the same ID**. These are the same devices, seen by the same sensor, with different field values. For such devices, check the last time each device had activity and use the latest device only.
+You can identify devices that were onboarded in Defender for Endpoint in the Defender for Endpoint **Device inventory** page. In the **Endpoints** tab, filter for devices by **Onboarding status**. For more information, see [Defender for Endpoint Device discovery overview](/microsoft-365/security/defender-endpoint/device-discovery?view=o365-worldwide).
 
-- **Inactive devices**, with no traffic for more than 60 days.
-
-- **Broadcast / multicast devices**. These represent unique addresses but not unique devices.
-
-- **Microsoft Defender for Endpoint managed devices**. If you are also a Defender for Endpoint customer, devices managed by Defender for Endpoint aren't billable in Defender for IoT. Therefore, when estimating your committed devices, exclude any devices onboarded in Defender for Endpoint.
-
-    You can identify devices that were onboarded in Defender for Endpoint in the Defender for Endpoint **Device inventory** page. In the **Endpoints** tab, filter for devices by **Onboarding status**. For more information, see [Defender for Endpoint Device discovery overview](/microsoft-365/security/defender-endpoint/device-discovery?view=o365-worldwide).
-
-    > [!TIP]
-    > We recommend making an initial estimate of your committed devices when onboarding your Defender for IoT plan. Then, once you've set up your network sensor and have full visibilty into all devices, you can [edit your plan](#update-committed-devices-in-a-subscription) to update the number of committed devices as needed.
-    >
-
-For more information, see [What's a device?](#whats-a-device)
+> [!TIP]
+> We recommend making an initial estimate of your committed devices when onboarding your Defender for IoT plan. Then, once you've set up your network sensor and have full visibilty into all devices, you can [edit your plan](#update-committed-devices-in-a-subscription) to update the number of committed devices as needed.
+>
 
 ## Onboard a trial subscription
 
