@@ -5,12 +5,12 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: include
-ms.date: 06/06/2022
+ms.date: 06/21/2022
 ms.author: aahi
 ms.custom: ignite-fall-2021
 ---
 
-[Reference documentation](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1/)
+[Reference documentation](/rest/api/language/text-analysis-runtime/analyze-text)
 
 
 ## Prerequisites
@@ -48,78 +48,85 @@ The following cURL commands are executed from a BASH shell. Edit these commands 
 > The below examples include a request for the Opinion Mining feature of Sentiment Analysis using the `opinionMining=true` parameter, which provides granular information about assessments (adjectives) related to targets (nouns) in the text.
 
 ```bash
-curl -X POST https://<your-text-analytics-endpoint-here>/text/analytics/v3.2-preview.1/sentiment?opinionMining=true \
+curl -i -X POST <your-language-resource-endpoint>/language/:analyze-text?api-version=2022-05-01 \
 -H "Content-Type: application/json" \
--H "Ocp-Apim-Subscription-Key: <your-text-analytics-key-here>" \
--d '{ documents: [{ id: "1", text: "The customer service here is really good."}]}'
+-H "Ocp-Apim-Subscription-Key: <your-language-resource-key>" \
+-d \
+'
+{
+    "kind": "SentimentAnalysis",
+    "parameters": {
+        "modelVersion": "latest",
+        "opinionMining": "True"
+    },
+    "analysisInput":{
+        "documents":[
+            {
+                "id":"1",
+                "language":"en",
+                "text": "The customer service here is really good."
+            }
+        ]
+    }
+}
+'
 ```
 
 ### JSON response
 
 ```json
 {
-   "documents":[
-      {
-         "id":"1",
-         "sentiment":"positive",
-         "confidenceScores":{
-            "positive":1.0,
-            "neutral":0.0,
-            "negative":0.0
-         },
-         "sentences":[
-            {
-               "sentiment":"positive",
-               "confidenceScores":{
-                  "positive":1.0,
-                  "neutral":0.0,
-                  "negative":0.0
-               },
-               "offset":0,
-               "length":41,
-               "text":"The customer service here is really good.",
-               "targets":[
-                  {
-                     "sentiment":"positive",
-                     "confidenceScores":{
-                        "positive":1.0,
-                        "negative":0.0
-                     },
-                     "offset":4,
-                     "length":16,
-                     "text":"customer service",
-                     "relations":[
-                        {
-                           "relationType":"assessment",
-                           "ref":"#/documents/0/sentences/0/assessments/0"
-                        }
-                     ]
-                  }
-               ],
-               "assessments":[
-                  {
-                     "sentiment":"positive",
-                     "confidenceScores":{
-                        "positive":1.0,
-                        "negative":0.0
-                     },
-                     "offset":36,
-                     "length":4,
-                     "text":"good",
-                     "isNegated":false
-                  }
-               ]
-            }
-         ],
-         "warnings":[
-            
-         ]
-      }
-   ],
-   "errors":[
-      
-   ],
-   "modelVersion":"2020-04-01"
+	"kind": "SentimentAnalysisResults",
+	"results": {
+		"documents": [{
+			"id": "1",
+			"sentiment": "positive",
+			"confidenceScores": {
+				"positive": 1.0,
+				"neutral": 0.0,
+				"negative": 0.0
+			},
+			"sentences": [{
+				"sentiment": "positive",
+				"confidenceScores": {
+					"positive": 1.0,
+					"neutral": 0.0,
+					"negative": 0.0
+				},
+				"offset": 0,
+				"length": 41,
+				"text": "The customer service here is really good.",
+				"targets": [{
+					"sentiment": "positive",
+					"confidenceScores": {
+						"positive": 1.0,
+						"negative": 0.0
+					},
+					"offset": 4,
+					"length": 16,
+					"text": "customer service",
+					"relations": [{
+						"relationType": "assessment",
+						"ref": "#/documents/0/sentences/0/assessments/0"
+					}]
+				}],
+				"assessments": [{
+					"sentiment": "positive",
+					"confidenceScores": {
+						"positive": 1.0,
+						"negative": 0.0
+					},
+					"offset": 36,
+					"length": 4,
+					"text": "good",
+					"isNegated": false
+				}]
+			}],
+			"warnings": []
+		}],
+		"errors": [],
+		"modelVersion": "2021-10-01"
+	}
 }
 ```
 
