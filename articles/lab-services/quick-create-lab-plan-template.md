@@ -3,7 +3,7 @@ title: Azure Lab Services Quickstart - Create a lab plan by using Azure Resource
 description: In this quickstart, you'll learn how to create an Azure Lab Services lab plan by using Azure Resource Manager template (ARM template).
 services: azure-resource-manager
 ms.topic: quickstart
-ms.custom: subject-armqs
+ms.custom: mode-arm
 ms.date: 05/04/2022
 ---
 
