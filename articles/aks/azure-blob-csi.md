@@ -3,7 +3,7 @@ title: Use Container Storage Interface (CSI) driver for Azure Blob storage on Az
 description: Learn how to use the Container Storage Interface (CSI) driver for Azure Blob storage (preview) in an Azure Kubernetes Service (AKS) cluster.
 services: container-service
 ms.topic: article
-ms.date: 06/28/2021
+ms.date: 06/29/2021
 author: mgoedtel
 
 ---
@@ -121,7 +121,7 @@ When you use storage CSI drivers on AKS, there are two additional built-in Stora
 
 The reclaim policy on both storage classes ensures that the underlying Azure Blob storage is deleted when the respective PV is deleted. The storage classes also configure the container to be expandable by default, as the `set allowVolumeExpansion` parameter is set to **true**.
 
-Use the [kubectl get sc][kublet-get] command to see the storage classes. The following example shows the `blob-fuse` and `blob-nfs` storage classes available within an AKS cluster:
+Use the [kubectl get sc][kubectl-get] command to see the storage classes. The following example shows the `blob-fuse` and `blob-nfs` storage classes available within an AKS cluster:
 
 ```bash
 NAME                    PROVISIONER          RECLAIMPOLICY   VOLUMEBINDINGMODE      ALLOWVOLUMEEXPANSION   AGE
@@ -131,103 +131,113 @@ blob-nfs                blob.csi.azure.com   Delete          Immediate          
 
 To use these storage classes, create a PVC and respective pod that references and uses them. A PVC is used to automatically provision storage based on a storage class. A PVC can use one of the pre-created storage classes or a user-defined storage class to create an Azure Blob storage container for the desired SKU, size, and protocol to communicate with it. When you create a pod definition, the PVC is specified to request the desired storage.
 
-The following example creates a PVC that uses the NFS protocol to mount a Blob storage container using the [kubectl create][kubectl-create] command:
+## Using a StatefulSet
 
-```bash
-kubectl create -f https://raw.githubusercontent.com/kubernetes-sigs/blob-csi-driver/master/deploy/example/storageclass-blob-nfs.yaml
-```
+To have a storage volume persist for your workload, you can use a StatefulSet. This makes it easier to match existing volumes to new Pods that replace any that have failed. The following examples demonstrate how to setup a StatefulSet for Blob storage using either Blobfuse or the NFS protocol.
 
-The output of the command resembles the following example:
+# [NFS](#tab/NFS)
 
-```bash
-storageclass.storage.k8s.io/blob-nfs created
-```
+1. Create a file named `azure-blob-nfs-ss.yaml` and copy in the following YAML.
 
-The following example creates a PVC that uses blobfuse to mount a Blob storage container using the [kubectl create][kubectl-create] command:
+    ```bash
+    ---
+    apiVersion: apps/v1
+    kind: StatefulSet
+    metadata:
+      name: statefulset-blob-nfs
+      labels:
+        app: nginx
+    spec:
+      serviceName: statefulset-blob-nfs
+      replicas: 1
+      template:
+        metadata:
+          labels:
+            app: nginx
+        spec:
+          nodeSelector:
+            "kubernetes.io/os": linux
+          containers:
+            - name: statefulset-blob-nfs
+              image: mcr.microsoft.com/oss/nginx/nginx:1.19.5
+              volumeMounts:
+                - name: persistent-storage
+                  mountPath: /mnt/blob
+      updateStrategy:
+        type: RollingUpdate
+      selector:
+        matchLabels:
+          app: nginx
+      volumeClaimTemplates:
+        - metadata:
+            name: persistent-storage
+            annotations:
+              volume.beta.kubernetes.io/storage-class: blob-nfs
+          spec:
+            accessModes: ["ReadWriteMany"]
+            resources:
+              requests:
+                storage: 100Gi
+    ```
 
-```bash
-kubectl create -f https://raw.githubusercontent.com/kubernetes-sigs/blob-csi-driver/master/deploy/example/storageclass-blobfuse.yaml
-```
+2. Create the StatefulSet with the kubectl create command:
 
-The output of the command resembles the following example:
+    ```bash
+    kubectl create -f azure-blob-nfs-ss.yaml
+    ```
 
-```bash
-storageclass.storage.k8s.io/blobfuse created
-```
+# [Blobfuse](#tab/Blobfuse)
 
-## Create a custom storage class
+1. Create a file named `azure-blobfuse-ss.yaml` and copy in the following YAML.
 
-The default storage classes suit the most common scenarios, but not all. For some cases, you might want to have your own storage class customized with your own parameters. To demonstrate two examples are shown, one based on using the NFS protocol, and the other using blobfuse.
+    ```bash
+    ---
+    apiVersion: apps/v1
+    kind: StatefulSet
+    metadata:
+      name: statefulset-blob
+      labels:
+        app: nginx
+    spec:
+      serviceName: statefulset-blob
+      replicas: 1
+      template:
+        metadata:
+          labels:
+            app: nginx
+        spec:
+          nodeSelector:
+            "kubernetes.io/os": linux
+          containers:
+            - name: statefulset-blob
+              image: mcr.microsoft.com/oss/nginx/nginx:1.19.5
+              volumeMounts:
+                - name: persistent-storage
+                  mountPath: /mnt/blob
+      updateStrategy:
+        type: RollingUpdate
+      selector:
+        matchLabels:
+          app: nginx
+      volumeClaimTemplates:
+        - metadata:
+            name: persistent-storage
+            annotations:
+              volume.beta.kubernetes.io/storage-class: blob-fuse
+          spec:
+            accessModes: ["ReadWriteMany"]
+            resources:
+              requests:
+                storage: 100Gi
+    ```
 
-In this example, the following manifest configures mounting a Blob storage container using the NFS protocol. Use it to add the *tags* parameter.
+2. Create the StatefulSet with the kubectl create command:
 
-Create a file named azure-blob-nfs-sc.yaml, and paste the following example manifest:
+    ```bash
+    kubectl create -f azure-blobfuse-ss.yaml
+    ```
 
-```yml
-apiVersion: storage.k8s.io/v1
-kind: StorageClass
-metadata:
-  name: blob-nfs
-provisioner: blob.csi.azure.com
-parameters:
-  protocol: nfs
-  tags: environment=Development
-volumeBindingMode: Immediate
-mountOptions:
-  - nconnect=8  # only supported on linux kernel version >= 5.3
-```
-
-Create the storage class with the [kubectl apply][kubectl-apply] command:
-
-```bash
-kubectl apply -f azure-blob-nfs-sc.yaml
-```
-
-The output of the command resembles the following example:
-
-```bash
-storageclass.storage.k8s.io/blob-nfs created
-```
-
-In this example, the following manifest configures using blobfuse and mount a Blob storage container. Use it to update the *skuName* parameter.
-
-Create a file named azure-blobfuse-sc.yaml, and paste the following example manifest:
-
-```yml
 ---
-apiVersion: storage.k8s.io/v1
-kind: StorageClass
-metadata:
-  name: blob-fuse
-provisioner: blob.csi.azure.com
-parameters:
-  skuName: Standard_GRS  # available values: Standard_LRS, Premium_LRS, Standard_GRS, Standard_RAGRS
-reclaimPolicy: Delete
-volumeBindingMode: Immediate
-allowVolumeExpansion: true
-mountOptions:
-  - -o allow_other
-  - --file-cache-timeout-in-seconds=120
-  - --use-attr-cache=true
-  - --cancel-list-on-mount-seconds=10  # prevent billing charges on mounting
-  - -o attr_timeout=120
-  - -o entry_timeout=120
-  - -o negative_timeout=120
-  - --log-level=LOG_WARNING  # LOG_WARNING, LOG_INFO, LOG_DEBUG
-  - --cache-size-mb=1000  # Default will be 80% of available memory, eviction will happen beyond that.
-```
-
-Create the storage class with the [kubectl apply][kubectl-apply] command:
-
-```bash
-kubectl apply -f azure-blobfuse-sc.yaml
-```
-
-The output of the command resembles the following example:
-
-```bash
-storageclass.storage.k8s.io/blob-fuse created
-```
 
 ## Next steps
 
