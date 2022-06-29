@@ -19,6 +19,7 @@
 - name: Quickstarts
   items:
   - name: Create Bicep templates - VS Code
+    displayname: vscode
     href: quickstart-create-bicep-use-visual-studio-code.md
   - name: Create template specs
     href: quickstart-create-template-specs.md
@@ -287,6 +288,7 @@
     - name: Best practices
       href: best-practices.md
     - name: Visual Studio Code
+      displayname: vscode,vs code
       href: visual-studio-code.md
     - name: Private module registry
       href: private-module-registry.md
