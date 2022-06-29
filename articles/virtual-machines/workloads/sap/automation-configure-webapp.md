@@ -50,7 +50,7 @@ $TF_VAR_app_registration_app_id=(az ad app create `
     --query "appId").Replace('"',"")
 
 $TF_VAR_webapp_client_secret=(az ad app credential reset `
-    --id $env:TF_VAR_app_registration_app_id --append            `
+    --id $TF_VAR_app_registration_app_id --append            `
     --query "password").Replace('"',"") 
 
 rm ./manifest.json
