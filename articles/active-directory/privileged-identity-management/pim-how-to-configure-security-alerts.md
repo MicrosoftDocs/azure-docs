@@ -11,7 +11,7 @@ ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
 ms.subservice: pim
-ms.date: 06/30/2021
+ms.date: 06/24/2022
 ms.author: curtand
 ms.reviewer: shaunliu
 ms.custom: pim
@@ -19,7 +19,7 @@ ms.collection: M365-identity-device-management
 ---
 # Configure security alerts for Azure AD roles in Privileged Identity Management
 
-Privileged Identity Management (PIM) generates alerts when there is suspicious or unsafe activity in your Azure Active Directory (Azure AD) organization. When an alert is triggered, it shows up on the Privileged Identity Management dashboard. Select the alert to see a report that lists the users or roles that triggered the alert.
+Privileged Identity Management (PIM) generates alerts when there is suspicious or unsafe activity in your organization in Azure Active Directory (Azure AD), part of Microsoft Entra. When an alert is triggered, it shows up on the Privileged Identity Management dashboard. Select the alert to see a report that lists the users or roles that triggered the alert.
 
 ![Screenshot that shows the "Alerts" page with a list of alerts and their severity.](./media/pim-how-to-configure-security-alerts/view-alerts.png)
 
@@ -68,9 +68,10 @@ Severity: **Low**
 
 Severity: **Medium**
 
+
 | | Description |
 | --- | --- |
-| **Why do I get this alert?** | Accounts in a privileged role have not changed their password in the past 90 days. These accounts might be service or shared accounts that aren't being maintained and are vulnerable to attackers. |
+| **Why do I get this alert?** | This alert is no longer triggered based on the last password change date of for an account. This alert is for accounts in a privileged role that haven't signed in during the past *n* days, where *n* is a number of days that is configurable between 1-365 days . These accounts might be service or shared accounts that aren't being maintained and are vulnerable to attackers. |
 | **How to fix?** | Review the accounts in the list. If they no longer need access, remove them from their privileged roles. |
 | **Prevention** | Ensure that accounts that are shared are rotating strong passwords when there is a change in the users that know the password. </br>Regularly review accounts with privileged roles using [access reviews](./pim-create-azure-ad-roles-and-resource-roles-review.md) and remove role assignments that are no longer needed. |
 | **In-portal mitigation action** | Removes the account from their privileged role. |

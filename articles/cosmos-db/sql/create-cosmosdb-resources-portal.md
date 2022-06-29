@@ -96,7 +96,7 @@ Add data to your new database using Data Explorer.
 
 If you wish to delete just the database and use the Azure Cosmos account in future, you can delete the database with the following steps:
 
-* Got to your Azure Cosmos account.
+* Go to your Azure Cosmos account.
 * Open **Data Explorer**, right click on the database that you want to delete and select **Delete Database**.
 * Enter the Database ID/database name to confirm the delete operation. 
 

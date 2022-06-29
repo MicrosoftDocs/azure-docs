@@ -24,7 +24,7 @@ Log queries against Basic Logs are optimized for simple data retrieval using a s
 - [extend](/azure/data-explorer/kusto/query/extendoperator)
 - [project](/azure/data-explorer/kusto/query/projectoperator)
 - [project-away](/azure/data-explorer/kusto/query/projectawayoperator)
-- [project-keep](/azure/data-explorer/kusto/query/projectkeepoperator)
+- [project-keep](/azure/data-explorer/kusto/query/project-keep-operator)
 - [project-rename](/azure/data-explorer/kusto/query/projectrenameoperator)
 - [project-reorder](/azure/data-explorer/kusto/query/projectreorderoperator)
 - [parse](/azure/data-explorer/kusto/query/parseoperator)
@@ -42,7 +42,7 @@ Queries with Basic Logs must use a workspace for the scope. You can't run querie
 You can run two concurrent queries per user. 
 
 ### Purge
-You can’t [purge personal data](personal-data-mgmt.md#how-to-export-and-delete-private-data) from Basic Logs tables. 
+You can’t [purge personal data](personal-data-mgmt.md#exporting-and-deleting-personal-data) from Basic Logs tables. 
 
 
 ## Run a query on a Basic Logs table

@@ -112,15 +112,6 @@ The verification phase involves a comprehensive effort to ensure that the code m
 
 You scan your application and its dependent libraries to identify any known vulnerable components. Products that are available to perform this scan include [OWASP Dependency Check](https://www.owasp.org/index.php/OWASP_Dependency_Check),[Snyk](https://snyk.io/), and [Black Duck](https://www.blackducksoftware.com/).
 
-Vulnerability scanning powered by [Tinfoil Security](https://www.tinfoilsecurity.com/) is available for Azure App Service Web Apps. [Tinfoil Security scanning through App Service](https://azure.microsoft.com/blog/web-vulnerability-scanning-for-azure-app-service-powered-by-tinfoil-security/) offers developers and administrators a fast, integrated, and economical means of discovering and addressing vulnerabilities before a malicious actor can take advantage of them.
-
-> [!NOTE]
-> You can also [integrate Tinfoil Security with Azure AD](../../active-directory/saas-apps/tinfoil-security-tutorial.md). Integrating Tinfoil Security with Azure AD provides you with the
-following benefits:
->  - In Azure AD, you can control who has access to Tinfoil Security.
->  - Your users can be automatically signed in to Tinfoil Security (single sign-on) by using their Azure AD accounts.
->  - You can manage your accounts in a single, central location, the Azure portal.
-
 ### Test your application in an operating state
 
 Dynamic application security testing (DAST) is a process of testing an application in an operating state to find security vulnerabilities. DAST tools analyze programs while they are executing to find security vulnerabilities such as memory corruption, insecure server configuration, cross-site scripting, user privilege issues, SQL injection, and other critical security concerns.
@@ -147,7 +138,7 @@ Ensuring that your application is secure is as important as testing any other fu
 
 ### Run security verification tests
 
-[Secure DevOps Kit for Azure](https://azsk.azurewebsites.net/index.html) (AzSK) contains SVTs for multiple services of the Azure platform. You run these SVTs periodically to ensure that your Azure subscription and the different resources that comprise your application are in a secure state. You can also automate these tests by using the continuous integration/continuous deployment (CI/CD) extensions feature of AzSK, which makes SVTs available as a Visual Studio extension.
+[Secure DevOps Kit for Azure](https://github.com/azsk/AzTS-docs/#readme) (AzSK) contains SVTs for multiple services of the Azure platform. You run these SVTs periodically to ensure that your Azure subscription and the different resources that comprise your application are in a secure state. You can also automate these tests by using the continuous integration/continuous deployment (CI/CD) extensions feature of AzSK, which makes SVTs available as a Visual Studio extension.
 
 ## Next steps
 

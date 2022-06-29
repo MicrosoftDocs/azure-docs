@@ -2,7 +2,7 @@
 title: Azure Service Bus Geo-disaster recovery | Microsoft Docs
 description: How to use geographical regions to fail over and disaster recovery in Azure Service Bus
 ms.topic: article
-ms.date: 07/28/2021
+ms.date: 04/01/2022
 ---
 
 # Azure Service Bus Geo-disaster recovery
@@ -17,9 +17,21 @@ The Service Bus Geo-disaster recovery feature is designed to make it easier to r
 
 The Geo-Disaster recovery feature ensures that the entire configuration of a namespace (Queues, Topics, Subscriptions, Filters) is continuously replicated from a primary namespace to a secondary namespace when paired, and it allows you to initiate a once-only failover move from the primary to the secondary at any time. The failover move will repoint the chosen alias name for the namespace to the secondary namespace and then break the pairing. The failover is nearly instantaneous once initiated. 
 
-> [!IMPORTANT]
-> - The feature enables instant continuity of operations with the same configuration, but **doesn't replicate the messages held in queues or topic subscriptions or dead-letter queues**. To preserve queue semantics, such a replication will require not only the replication of message data, but of every state change in the broker. For most Service Bus namespaces, the required replication traffic would far exceed the application traffic and with high-throughput queues, most messages would still replicate to the secondary while they are already being deleted from the primary, causing excessively wasteful traffic. For high-latency replication routes, which applies to many pairings you would choose for Geo-disaster recovery, it might also be impossible for the replication traffic to sustainably keep up with the application traffic due to latency-induced throttling effects.
-> - Azure Active Directory (Azure AD) role-based access control (RBAC) assignments to Service Bus entities in the primary namespace aren't replicated to the secondary namespace. Create role assignments manually in the secondary namespace to secure access to them. 
+## Important points to consider
+
+- The feature enables instant continuity of operations with the same configuration, but **doesn't replicate the messages held in queues or topic subscriptions or dead-letter queues**. To preserve queue semantics, such a replication will require not only the replication of message data, but of every state change in the broker. For most Service Bus namespaces, the required replication traffic would far exceed the application traffic and with high-throughput queues, most messages would still replicate to the secondary while they are already being deleted from the primary, causing excessively wasteful traffic. For high-latency replication routes, which applies to many pairings you would choose for Geo-disaster recovery, it might also be impossible for the replication traffic to sustainably keep up with the application traffic due to latency-induced throttling effects.
+- Azure Active Directory (Azure AD) role-based access control (RBAC) assignments to Service Bus entities in the primary namespace aren't replicated to the secondary namespace. Create role assignments manually in the secondary namespace to secure access to them. 
+- The following configurations are not replicated. 
+    - Virtual network configurations
+    - Private endpoint connections
+    - All networks access enabled
+    - Trusted service access enabled
+    - Public network access
+    - Default network action
+    - Identities and encryption settings (customer-managed key encryption or bring your own key (BYOK) encryption)
+    - Enable auto scale
+    - Disable local authentication
+
  
 > [!TIP]
 > For replicating the contents of queues and topic subscriptions and operating corresponding namespaces in active/active configurations to cope with outages and disasters, don't lean on this Geo-disaster recovery feature set, but follow the [replication guidance](service-bus-federation-overview.md).  

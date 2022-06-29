@@ -17,18 +17,18 @@ Note that if you're planning on using phone numbers, you can't use the free tria
 
 To create an Azure Communication Services resource, [sign in to Azure CLI](/cli/azure/authenticate-azure-cli). You can do this through the terminal using the ```az login``` command and providing your credentials. Run the following command to create the resource:
 
-```azurecli
+```azurepowershell-interactive
 az communication create --name "<communicationName>" --location "Global" --data-location "United States" --resource-group "<resourceGroup>"
 ```
 
 If you would like to select a specific subscription you can also specify the ```--subscription``` flag and provide the subscription ID.
-```
+```azurepowershell-interactive
 az communication create --name "<communicationName>" --location "Global" --data-location "United States" --resource-group "<resourceGroup> --subscription "<subscriptionID>"
 ```
 
 You can configure your Communication Services resource with the following options:
 
-* The resource group
+* The [resource group](../../../azure-resource-manager/management/manage-resource-groups-cli.md)
 * The name of the Communication Services resource
 * The geography the resource will be associated with
 
@@ -38,7 +38,7 @@ In the next step, you can assign tags to the resource. Tags can be used to organ
 
 To add tags to your Communication Services resource, run the following commands. You can target a specific subscription as well.
 
-```azurecli
+```azurepowershell-interactive
 az communication update --name "<communicationName>" --tags newTag="newVal1" --resource-group "<resourceGroup>"
 
 az communication update --name "<communicationName>" --tags newTag="newVal2" --resource-group "<resourceGroup>" --subscription "<subscriptionID>"

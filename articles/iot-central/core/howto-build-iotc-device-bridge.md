@@ -6,15 +6,16 @@ services: iot-central
 ms.service: iot-central
 author: dominicbetts
 ms.author: dobett
-ms.date: 12/21/2021
+ms.date: 06/22/2022
 ms.topic: how-to
+custom: contperf-fy22q3
 
 # Administrator
 ---
 
 # Use the IoT Central device bridge to connect other IoT clouds to IoT Central
 
-The IoT Central device bridge is an open-source solution that connects other IoT clouds to your IoT Central application. Examples of other IoT clouds include [Sigfox](https://www.sigfox.com/), [Particle Device Cloud](https://www.particle.io/), and [The Things Network](https://www.thethingsnetwork.org/). The device bridge works by forwarding data from devices connected to other IoT clouds through to your IoT Central application. The device bridge only forwards data to IoT Central, it doesn't send commands or property updates from IoT Central back to the devices.
+The IoT Central device bridge is an open-source solution that connects other IoT clouds such as [Sigfox](https://www.sigfox.com/), [Particle Device Cloud](https://www.particle.io/), and [The Things Network](https://www.thethingsnetwork.org/) to your IoT Central application. The device bridge works by forwarding data from devices connected to other IoT clouds through to your IoT Central application. The device bridge only forwards data to IoT Central, it doesn't send commands or property updates from IoT Central back to the devices.
 
 The device bridge lets you combine the power of IoT Central with devices such as asset tracking devices connected to Sigfox's low-power wide area network, air quality monitoring devices on the Particle Device Cloud, or soil moisture monitoring devices on The Things Network. You can use IoT Central application features such as rules and analytics on the data, create workflows in Power Automate and Azure Logic apps, or export the data.
 
@@ -42,7 +43,7 @@ If your IoT Central application recognizes the device ID in the forwarded messag
 
 To deploy the device bridge to your subscription:
 
-1. In your IoT Central application, navigate to the **Administration > Device Connection** page.
+1. In your IoT Central application, navigate to the **Permissions > Device connection groups** page.
 
     1. Make a note of the **ID Scope**. You use this value when you deploy the device bridge.
 
@@ -89,13 +90,11 @@ Each key in the `measurements` object must match the name of a telemetry type in
 
 You can include a `timestamp` field in the body to specify the UTC date and time of the message. This field must be in ISO 8601 format. For example, `2020-06-08T20:16:54.602Z`. If you don't include a timestamp, the current date and time is used.
 
-You can include a `modelId` field in the body. Use this field to assign the device to a device template during provisioning. This functionality is only supported by [V3 applications](howto-faq.yml#how-do-i-get-information-about-my-application-).
+You can include a `modelId` field in the body. Use this field to assign the device to a device template during provisioning.
 
 The `deviceId` must be alphanumeric, lowercase, and may contain hyphens.
 
 If you don't include the `modelId` field, or if IoT Central doesn't recognize the model ID, then a message with an unrecognized `deviceId` creates a new _unassigned device_ in IoT Central. An operator can manually migrate the device to the correct device template. To learn more, see [Manage devices in your Azure IoT Central application > Migrating devices to a template](howto-manage-devices-individually.md).
-
-In [V2 applications](howto-faq.yml#how-do-i-get-information-about-my-application-), the new device appears an unassigned device on the **Devices** page. Select **Assign template** and choose a device template to start receiving incoming telemetry from the device.
 
 > [!NOTE]
 > Until the device is assigned to a template, all HTTP calls to the function return a 403 error status.

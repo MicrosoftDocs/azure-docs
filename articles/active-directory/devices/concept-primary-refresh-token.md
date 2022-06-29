@@ -61,10 +61,13 @@ The PRT is issued during user authentication on a Windows 10 or newer device in 
 In Azure AD registered device scenarios, the Azure AD WAM plugin is the primary authority for the PRT since Windows logon is not happening with this  Azure AD account.
 
 > [!NOTE]
-> 3rd party identity providers need to support the WS-Trust protocol to enable PRT issuance on Windows 10 or newer devices. Without WS-Trust, PRT cannot be issued to users on Hybrid Azure AD joined or Azure AD joined devices. On ADFS only usernamemixed endpoints are required. Both adfs/services/trust/2005/windowstransport and adfs/services/trust/13/windowstransport should be enabled as intranet facing endpoints only and **must NOT be exposed** as extranet facing endpoints through the Web Application Proxy
+> 3rd party identity providers need to support the WS-Trust protocol to enable PRT issuance on Windows 10 or newer devices. Without WS-Trust, PRT cannot be issued to users on Hybrid Azure AD joined or Azure AD joined devices. On ADFS only usernamemixed endpoints are required. Both adfs/services/trust/2005/windowstransport and adfs/services/trust/13/windowstransport should be enabled as intranet facing endpoints only and **must NOT be exposed** as extranet facing endpoints through the Web Application Proxy.
 
 > [!NOTE]
-> Azure AD Conditional Access policies are not evaluated when PRTs are issued
+> Azure AD Conditional Access policies are not evaluated when PRTs are issued.
+
+> [!NOTE]
+> We do not support 3rd party credential providers for issuance and renewal of Azure AD PRTs.
 
 ## What is the lifetime of a PRT?
 

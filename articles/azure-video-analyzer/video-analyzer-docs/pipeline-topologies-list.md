@@ -7,6 +7,8 @@ ms.date: 01/12/2022
 
 # List of pipeline topologies
 
+[!INCLUDE [deprecation notice](./includes/deprecation-notice.md)]
+
 The following tables list validated sample Azure Video Analyzer [live pipeline topologies](terminology.md#pipeline-topology). These topologies can be further customized according to solution needs. The tables also provide
 
 * A short description,

@@ -4,7 +4,7 @@ description: Learn how to configure Azure File Sync network endpoints.
 author: khdownie
 ms.service: storage
 ms.topic: how-to
-ms.date: 04/13/2021
+ms.date: 05/24/2021
 ms.author: kendownie
 ms.subservice: files 
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
@@ -95,7 +95,7 @@ IP4Address : 192.168.0.5
 
 If you have a virtual machine inside of your virtual network, or you've configured DNS forwarding as described in [Configuring DNS forwarding for Azure Files](../files/storage-files-networking-dns.md?toc=%2fazure%2fstorage%2ffilesync%2ftoc.json), you can test that your private endpoint has been set up correctly with the following commands:
 
-```bash
+```azurecli
 httpEndpoint=$(az storage account show \
         --resource-group $storageAccountResourceGroupName \
         --name $storageAccountName \
@@ -121,9 +121,6 @@ Address: 192.168.0.5
 ---
 
 ### Create the Storage Sync Service private endpoint
-> [!Important]  
-> In order to use private endpoints on the Storage Sync Service resource, you must use Azure File Sync agent version 10.1 or greater. Agent versions prior to 10.1 do not support private endpoints on the Storage Sync Service. All prior agent versions support private endpoints on the storage account resource.
-
 # [Portal](#tab/azure-portal)
 Navigate to the **Private Link Center** by typing *Private Link* into the search bar at the top of the Azure portal. In the table of contents for the Private Link Center, select **Private endpoints**, and then **+ Add** to create a new private endpoint.
 
@@ -368,7 +365,7 @@ foreach($ipFqdn in $privateEndpointIpFqdnMappings) {
 # [Azure CLI](#tab/azure-cli)
 To create a private endpoint for your Storage Sync Service, first you will need to get a reference to your Storage Sync Service. Remember to replace `<storage-sync-service-resource-group>` and `<storage-sync-service>` with the correct values for your environment. The following CLI commands assume that you are using have already populated the virtual network information from above. 
 
-```bash
+```azurecli
 storageSyncServiceResourceGroupName="<storage-sync-service-resource-group>"
 storageSyncServiceName="<storage-sync-service>"
 
@@ -389,7 +386,7 @@ storageSyncServiceRegion=$(az resource show \
 
 To create a private endpoint, you must first ensure that the subnet's private endpoint network policy is set to disabled. Then you can create a private endpoint with the `az network private-endpoint create` command.
 
-```bash
+```azurecli
 # Disable private endpoint network policies
 az network vnet subnet update \
         --ids $subnet \
@@ -417,7 +414,7 @@ privateEndpoint=$(az network private-endpoint create \
 
 Creating an Azure private DNS zone enables the host names for the Storage Sync Service, such as `mysssmanagement.westus2.afs.azure.net`, to resolve to the correct private IPs for the Storage Sync Service inside of the virtual network. Although optional from the perspective of creating a private endpoint, it is explicitly required for the Azure File Sync agent to access the Storage Sync Service. 
 
-```bash
+```azurecli
 # Get the desired storage account suffix (afs.azure.net for public cloud).
 # This is done like this so this script will seamlessly work for non-public Azure.
 azureEnvironment=$(az cloud show \

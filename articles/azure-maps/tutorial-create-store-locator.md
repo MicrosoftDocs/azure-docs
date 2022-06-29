@@ -46,9 +46,9 @@ To see a live sample of what you will create in this tutorial, see [Simple Store
 
 To more easily follow and engage this tutorial, you'll need to download the following resources:
 
-* Full source code for the [Simple Store Locator](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/AzureMapsCodeSamples/Tutorials/Simple%20Store%20Locator) on GitHub.
-* [Store location data](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/AzureMapsCodeSamples/Tutorials/Simple%20Store%20Locator/data) that you'll import into the store locator dataset.
-* The [Map images](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/AzureMapsCodeSamples/Tutorials/Simple%20Store%20Locator/images).
+* Full source code for the [Simple Store Locator](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/Samples/Tutorials/Simple%20Store%20Locator) on GitHub.
+* [Store location data](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/Samples/Tutorials/Simple%20Store%20Locator/data) that you'll import into the store locator dataset.
+* The [Map images](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/Samples/Tutorials/Simple%20Store%20Locator/images).
 
 ## Store locator features
 
@@ -89,7 +89,7 @@ This section describes how to create a dataset of the stores that you want to di
 
 :::image type="content" source="./media/tutorial-create-store-locator/store-locator-data-spreadsheet.png" alt-text="Screenshot of the store locator data in an Excel workbook.":::
 
-The excel file containing the full dataset for the Contoso Coffee locator sample application can be downloaded from the [data](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/AzureMapsCodeSamples/Tutorials/Simple%20Store%20Locator/data) folder of the _Azure Maps code samples_ repository in GitHub.
+The excel file containing the full dataset for the Contoso Coffee locator sample application can be downloaded from the [data](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/Samples/Tutorials/Simple%20Store%20Locator/data) folder of the _Azure Maps code samples_ repository in GitHub.
 
 From the above screenshot of the data, we can make the following observations:
 
@@ -111,7 +111,7 @@ From the above screenshot of the data, we can make the following observations:
 
 To convert the Contoso Coffee shop location data from an Excel workbook into a tab-delimited text file:
 
-1. Download the Excel workbook [ContosoCoffee.xlsx](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/AzureMapsCodeSamples/Tutorials/Simple%20Store%20Locator/data) and Open it in Excel.
+1. Download the Excel workbook [ContosoCoffee.xlsx](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/Samples/Tutorials/Simple%20Store%20Locator/data) and Open it in Excel.
 
 1. Select **File > Save As...**.
 
@@ -147,7 +147,7 @@ If you open the text file in Notepad, it looks similar to the following text:
 
 8. Create another folder named *images*.
 
-9. If you haven't already, download the 10 [Map images](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/AzureMapsCodeSamples/Tutorials/Simple%20Store%20Locator/images) from the images directory in the GitHub Repository and add them to the *images* folder.
+9. If you haven't already, download the 10 [Map images](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/Samples/Tutorials/Simple%20Store%20Locator/images) from the images directory in the GitHub Repository and add them to the *images* folder.
 
     Your workspace folder should now look like the following screenshot:
 
@@ -213,7 +213,7 @@ To create the HTML:
     </main>
     ```
 
-After you finish, *index.html* should look like [this example index.html file](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/Simple%20Store%20Locator/index.html).
+After you finish, *index.html* should look like [Simple Store Locator.html](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/Samples/Tutorials/Simple%20Store%20Locator/Simple%20Store%20Locator.html).
 
 ## Define the CSS styles
 
@@ -1015,7 +1015,7 @@ In this tutorial, you learned how to create a basic store locator by using Azure
 
 ## Additional information
 
-* For the completed code used in this tutorial, see [Simple Store Locator](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/AzureMapsCodeSamples/Tutorials/Simple%20Store%20Locator) on GitHub.
+* For the completed code used in this tutorial, see the [Simple Store Locator](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/Samples/Tutorials/Simple%20Store%20Locator) tutorial on GitHub.
 * To view this sample live, see [Simple Store Locator](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Simple%20Store%20Locator) on the **Azure Maps Code Samples** site.
 * learn more about the coverage and capabilities of Azure Maps by using [Zoom levels and tile grid](zoom-levels-and-tile-grid.md).
 * You can also [Use data-driven style expressions](data-driven-style-expressions-web-sdk.md) to apply to your business logic.

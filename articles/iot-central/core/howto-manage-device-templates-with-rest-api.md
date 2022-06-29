@@ -3,7 +3,7 @@ title: Use the REST API to add device templates in Azure IoT Central
 description: How to use the IoT Central REST API to add device templates in an application
 author: v-krishnag
 ms.author: v-krishnag
-ms.date: 12/17/2021
+ms.date: 06/17/2022
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
@@ -17,6 +17,8 @@ The IoT Central REST API lets you develop client applications that integrate wit
 Every IoT Central REST API call requires an authorization header. To learn more, see [How to authenticate and authorize IoT Central REST API calls](howto-authorize-rest-api.md).
 
 For the reference documentation for the IoT Central REST API, see [Azure IoT Central REST API reference](/rest/api/iotcentral/).
+
+[!INCLUDE [iot-central-postman-collection](../../../includes/iot-central-postman-collection.md)]
 
 ## Device templates
 
@@ -39,7 +41,7 @@ The IoT Central REST API lets you:
 Use the following request to create and publish a new device template. Default views are automatically generated for device templates created this way.
 
 ```http
-PUT https://{subdomain}.{baseDomain}/api/deviceTemplates/{deviceTemplateId}?api-version=1.0
+PUT https://{subdomain}.{baseDomain}/api/deviceTemplates/{deviceTemplateId}?api-version=2022-05-31
 ```
 
 >[!NOTE]
@@ -174,6 +176,9 @@ The request body has some required fields:
 * `@context`: specifies the DTDL version used for the interface.
 * `contents`: lists the properties, telemetry, and commands that make up your device. The capabilities may be defined in multiple interfaces.
 * `capabilityModel` : Every device template has a capability model. A relationship is established between each module capability model and a device model. A capability model implements one or more module interfaces.
+
+> [!TIP]
+> The device template JSON is not a standard DTDL document. The device template JSON includes IoT Central specific data such as cloud property definitions, customizations, and display units. You can use the device template JSON format to import and export device templates in IoT Central by using the REST API and the CLI.
 
 There are some optional fields you can use to add more details to the capability model, such as display name and description.
 
@@ -311,7 +316,7 @@ The response to this request looks like the following example:
 Use the following request to retrieve details of a device template from your application:
 
 ```http
-GET https://{subdomain}.{baseDomain}/api/deviceTemplates/{deviceTemplateId}?api-version=1.0
+GET https://{subdomain}.{baseDomain}/api/deviceTemplates/{deviceTemplateId}?api-version=2022-05-31
 ```
 
 >[!NOTE]
@@ -443,7 +448,7 @@ The response to this request looks like the following example:
 ## Update a device template
 
 ```http
-PATCH https://{subdomain}.{baseDomain}/api/deviceTemplates/{deviceTemplateId}?api-version=1.0
+PATCH https://{subdomain}.{baseDomain}/api/deviceTemplates/{deviceTemplateId}?api-version=2022-05-31
 ```
 
 >[!NOTE]
@@ -719,7 +724,7 @@ The response to this request looks like the following example:
 Use the following request to delete a device template:
 
 ```http
-DELETE https://{subdomain}.{baseDomain}/api/deviceTemplates/{deviceTemplateId}?api-version=1.0
+DELETE https://{subdomain}.{baseDomain}/api/deviceTemplates/{deviceTemplateId}?api-version=2022-05-31
 ```
 
 ## List device templates
@@ -727,7 +732,7 @@ DELETE https://{subdomain}.{baseDomain}/api/deviceTemplates/{deviceTemplateId}?a
 Use the following request to retrieve a list of device templates from your application:
 
 ```http
-GET https://{subdomain}.{baseDomain}/api/deviceTemplates?api-version=1.0
+GET https://{subdomain}.{baseDomain}/api/deviceTemplates?api-version=2022-05-31
 ```
 
 The response to this request looks like the following example: 
@@ -980,7 +985,7 @@ The response to this request looks like the following example:
 You can use ODATA filters to filter the results returned by the list device templates API.
 
 > [!NOTE]
-> Currently, ODATA support is only available for `api-version=1.1-preview`.
+> Currently, ODATA support is only available for `api-version=1.2-preview`.
 
 ### $top
 
@@ -989,7 +994,7 @@ Use the **$top** filter to set the result size. The maximum returned result size
 Use the following request to retrieve the top 10 device templates from your application:
 
 ```http
-GET https://{subdomain}.{baseDomain}/api/deviceTemplates?api-version=1.1-preview&$top=10
+GET https://{subdomain}.{baseDomain}/api/deviceTemplates?api-version=1.2-preview&$top=10
 ```
 
 The response to this request looks like the following example:
@@ -1043,7 +1048,7 @@ The response to this request looks like the following example:
         },
         ...
     ],
-    "nextLink": "https://custom-12qmyn6sm0x.azureiotcentral.com/api/deviceTemplates?api-version=1.1-preview&%24top=1&%24skiptoken=%7B%22token%22%3A%22%2BRID%3A%7EJWYqAKZQKp20qCoAAAAACA%3D%3D%23RT%3A1%23TRC%3A1%23ISV%3A2%23IEO%3A65551%23QCF%3A4%22%2C%22range%22%3A%7B%22min%22%3A%2205C1DFFFFFFFFC%22%2C%22max%22%3A%22FF%22%7D%7D"
+    "nextLink": "https://custom-12qmyn6sm0x.azureiotcentral.com/api/deviceTemplates?api-version=1.2-preview&%24top=1&%24skiptoken=%7B%22token%22%3A%22%2BRID%3A%7EJWYqAKZQKp20qCoAAAAACA%3D%3D%23RT%3A1%23TRC%3A1%23ISV%3A2%23IEO%3A65551%23QCF%3A4%22%2C%22range%22%3A%7B%22min%22%3A%2205C1DFFFFFFFFC%22%2C%22max%22%3A%22FF%22%7D%7D"
 }
 ```
 
@@ -1090,7 +1095,7 @@ $filter=contains(displayName, 'template1) eq false
 The following example shows how to retrieve all the device templates where the display name contains the string `thermostat`:
 
 ```http
-GET https://{subdomain}.{baseDomain}/api/deviceTemplates?api-version=1.1-preview&$filter=contains(displayName, 'thermostat')
+GET https://{subdomain}.{baseDomain}/api/deviceTemplates?api-version=1.2-preview&$filter=contains(displayName, 'thermostat')
 ```
 
 The response to this request looks like the following example:
@@ -1180,7 +1185,7 @@ $orderby=displayName desc
 The following example shows how to retrieve all the device templates where the result is sorted by `displayName` :
 
 ```http
-GET https://{subdomain}.{baseDomain}/api/deviceTemplates?api-version=1.1-preview&$orderby=displayName
+GET https://{subdomain}.{baseDomain}/api/deviceTemplates?api-version=1.2-preview&$orderby=displayName
 ```
 
 The response to this request looks like the following example:
@@ -1263,7 +1268,7 @@ You can also combine two or more filters.
 The following example shows how to retrieve the top 2 device templates where the display name contains the string `thermostat`.
 
 ```http
-GET https://{subdomain}.{baseDomain}/api/deviceTemplates?api-version=1.1-preview&$filter=contains(displayName, 'thermostat')&$top=2
+GET https://{subdomain}.{baseDomain}/api/deviceTemplates?api-version=1.2-preview&$filter=contains(displayName, 'thermostat')&$top=2
 ```
 
 The response to this request looks like the following example:

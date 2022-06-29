@@ -1,25 +1,17 @@
 ---
-title: Troubleshooting file compression in Azure Front Door Standard/Premium
+title: Troubleshooting file compression in Azure Front Door
 description: Learn how to troubleshoot issues with file compression in Azure Front Door. This article covers several possible causes.
 services: frontdoor
 author: duongau
 ms.service: frontdoor
 ms.topic: how-to
-ms.date: 02/18/2020
-ms.author: qixwang
+ms.date: 03/20/2022
+ms.author: duau
 ---
 
-# Troubleshooting Azure Front Door Standard/Premium file compression
+# Troubleshooting Azure Front Door file compression
 
-> [!Note]
-> This documentation is for Azure Front Door Standard/Premium (Preview). Looking for information on Azure Front Door? View [here](../front-door-overview.md).
-
-This article helps you troubleshoot Azure Front Door Standard/Premium file compression issues.
-
-> [!IMPORTANT]
-> Azure Front Door Standard/Premium (Preview) is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+This article helps you troubleshoot Azure Front Door file compression issues.
 
 ## Symptom
 
@@ -43,7 +35,7 @@ There are several possible causes, including:
 ## Troubleshooting steps
 
 > [!TIP]
-> As with deploying new endpoints, AFD configuration changes take some time to propagate through the network.  Usually, changes are applied within 90 minutes.  If this is the first time you've set up compression for your CDN endpoint, you should consider waiting 1-2 hours to be sure the compression settings have propagated to the POPs. 
+> As with deploying new endpoints, Azure Front Door configuration changes take some time to propagate through the network. Usually, changes are applied within 90 minutes.  If this is the first time you've set up compression for your CDN endpoint, you should consider waiting 1-2 hours to be sure the compression settings have propagated to the POPs. 
 > 
 
 ### Verify the request
@@ -67,3 +59,7 @@ The **Via** HTTP header indicates to the web server that the request is being pa
 
 * **IIS 6**: Set HcNoCompressionForProxies="FALSE" in the IIS Metabase properties. For for information, see [IIS 6 Compression](/previous-versions/iis/6.0-sdk/ms525390(v=vs.90)).
 * **IIS 7 and up**: Set both **noCompressionForHttp10** and **noCompressionForProxies** to *False* in the server configuration. For more information, see, [HTTP Compression](https://www.iis.net/configreference/system.webserver/httpcompression).
+
+## Next steps
+
+For answers to Azure Front Door common questions, see [Azure Front Door FAQ](../front-door-faq.yml).

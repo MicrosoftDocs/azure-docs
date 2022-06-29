@@ -5,7 +5,7 @@ author: tamram
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: conceptual
-ms.date: 03/08/2021
+ms.date: 03/22/2022
 ms.author: tamram
 ---
 

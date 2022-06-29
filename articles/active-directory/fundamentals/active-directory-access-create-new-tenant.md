@@ -41,10 +41,10 @@ After you sign in to the Azure portal, you can create a new tenant for your orga
 
 1. Select **Next: Configuration** to move on to the Configuration tab.
 
+1.  On the Configuration tab, enter the following information:
+
     ![Azure Active Directory - Create a tenant page - configuration tab ](media/active-directory-access-create-new-tenant/azure-ad-create-new-tenant.png)
 
-1.  On the Configuration tab, enter the following information:
-    
     - Type _Contoso Organization_ into the **Organization name** box.
 
     - Type _Contosoorg_ into the **Initial domain name** box.

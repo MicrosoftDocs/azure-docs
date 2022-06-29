@@ -51,6 +51,11 @@ To start the configuration, sign in to your Azure account and select the subscri
     ($resource = Get-AzResource -ResourceId (Get-AzKeyVault -VaultName "your_existing_keyvault").ResourceId).Properties | Add-Member -MemberType "NoteProperty" -Name "enableSoftDelete" -Value "true"
     Set-AzResource -resourceid $resource.ResourceId -Properties $resource.Properties
     ```
+    
+    > [!NOTE]
+    > The Key Vault shouldn't be behind a private endpoint because communicate to the ExpressRoute management plane is required.
+    >
+    
 2. Create a user identity.
 
     ```azurepowershell-interactive

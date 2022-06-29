@@ -10,7 +10,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
-ms.date: 02/02/2022
+ms.date: 06/24/2022
 ms.author: curtand
 ms.reviewer: shaunliu
 ms.custom: pim
@@ -19,7 +19,7 @@ ms.collection: M365-identity-device-management
 
 # Assign eligibility for a privileged access group (preview) in Privileged Identity Management
 
-Azure Active Directory (Azure AD) Privileged Identity Management (PIM) can help you manage the eligibility and activation of assignments to privileged access groups in Azure AD. You can assign eligibility to members or owners of the group.
+Privileged Identity Management (PIM) in Azure Active Directory (Azure AD), part of Microsoft Entra, can help you manage the eligibility and activation of assignments to privileged access groups in Azure AD. You can assign eligibility to members or owners of the group.
 
 When a role is assigned, the assignment:
 - Can't be assigned for a duration of less than five minutes

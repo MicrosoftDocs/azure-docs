@@ -4,9 +4,10 @@ description: Learn about Azure Cosmos DB transactional (row-based) and analytica
 author: Rodrigossz
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 11/02/2021
+ms.date: 03/24/2022
 ms.author: rosouz
 ms.custom: seo-nov-2020, devx-track-azurecli
+ms.reviewer: mjbrown
 ---
 
 # What is Azure Cosmos DB analytical store?
@@ -62,10 +63,10 @@ At the end of each execution of the automatic sync process, your transactional d
 
 * Azure Synapse Analytics Spark pools can read all data, including the most recent updates, through Spark tables, which are updated automatically, or via the `spark.read` command, that always reads the last state of the data.
 
-*  Azure Synapse Analytics SQL Serverless pools can read all data, including the most recent updates, through views, which are updated automatically, or via `SELECT` together with the` OPENROWSET` commands, which always reads the latest status of the data.
+*  Azure Synapse Analytics SQL Serverless pools can read all data, including the most recent updates, through views, which are updated automatically, or via `SELECT` together with the `OPENROWSET` commands, which always reads the latest status of the data.
 
 > [!NOTE]
-> Your transactional data will be synchronized to analytical store even if your transactional TTL is smaller than 2 minutes. 
+> Your transactional data will be synchronized to analytical store even if your transactional time-to-live (TTL) is smaller than 2 minutes. 
 
 > [!NOTE]
 > Please note that if you delete your container, analytical store is also deleted.
@@ -306,7 +307,7 @@ This is achieved by translating the leaf properties of the operational data into
 
 In the full fidelity schema representation, each datatype of each property will generate a column for that datatype. Each of them count as one of the 1000 maximum properties.
 
-For example, let’s take the following sample document in the transactional store:
+For example, let's take the following sample document in the transactional store:
 
 ```json
 {
@@ -322,7 +323,7 @@ salary: 1000000
 }
 ```
 
-The leaf property `streetNo` within the nested object `address` will be represented in the analytical store schema as a column `address.object.streetNo.int32`. The datatype is added as a suffix to the column. This way, if another document is added to the transactional store where the value of leaf property `streetNo` is "123" (note it’s a string), the schema of the analytical store automatically evolves without altering the type of a previously written column. A new column added to the analytical store as `address.object.streetNo.string` where this value of "123" is stored.
+The leaf property `streetNo` within the nested object `address` will be represented in the analytical store schema as a column `address.object.streetNo.int32`. The datatype is added as a suffix to the column. This way, if another document is added to the transactional store where the value of leaf property `streetNo` is "123" (note it's a string), the schema of the analytical store automatically evolves without altering the type of a previously written column. A new column added to the analytical store as `address.object.streetNo.string` where this value of "123" is stored.
 
 **Data type to suffix map**
 
@@ -330,18 +331,18 @@ Here's a map of all the property data types and their suffix representations in 
 
 |Original data type  |Suffix  |Example  |
 |---------|---------|---------|
-| Double |	".float64" |	24.99|
-| Array	| ".array" |	["a", "b"]|
-|Binary	| ".binary"	|0|
-|Boolean	| ".bool"	|True|
-|Int32	| ".int32"	|123|
-|Int64	| ".int64"	|255486129307|
-|NULL	| ".NULL"	| NULL|
-|String| 	".string" |	"ABC"|
-|Timestamp |	".timestamp" |	Timestamp(0, 0)|
-|DateTime	|".date"	| ISODate("2020-08-21T07:43:07.375Z")|
-|ObjectId	|".objectId"	| ObjectId("5f3f7b59330ec25c132623a2")|
-|Document	|".object" |	{"a": "a"}|
+| Double |    ".float64" |    24.99|
+| Array    | ".array" |    ["a", "b"]|
+|Binary    | ".binary"    |0|
+|Boolean    | ".bool"    |True|
+|Int32    | ".int32"    |123|
+|Int64    | ".int64"    |255486129307|
+|NULL    | ".NULL"    | NULL|
+|String|     ".string" |    "ABC"|
+|Timestamp |    ".timestamp" |    Timestamp(0, 0)|
+|DateTime    |".date"    | ISODate("2020-08-21T07:43:07.375Z")|
+|ObjectId    |".objectId"    | ObjectId("5f3f7b59330ec25c132623a2")|
+|Document    |".object" |    {"a": "a"}|
 
 * Expect different behavior in regard to explicit `NULL` values:
   * Spark pools in Azure Synapse will read these values as `0` (zero).
@@ -367,11 +368,11 @@ The possible ATTL configurations are:
 
 Some points to consider:
 
-*	After the analytical store is enabled with an ATTL value, it can be updated to a different valid value later. 
-*	While TTTL can be set at the container or item level, ATTL can only be set at the container level currently.
-*	You can achieve longer retention of your operational data in the analytical store by setting ATTL >= TTTL at the container level.
-*	The analytical store can be made to mirror the transactional store by setting ATTL = TTTL.
-*	If you have ATTL bigger than TTTL, at some point in time you'll have data that only exists in analytical store. This data is read only.
+*    After the analytical store is enabled with an ATTL value, it can be updated to a different valid value later. 
+*    While TTTL can be set at the container or item level, ATTL can only be set at the container level currently.
+*    You can achieve longer retention of your operational data in the analytical store by setting ATTL >= TTTL at the container level.
+*    The analytical store can be made to mirror the transactional store by setting ATTL = TTTL.
+*    If you have ATTL bigger than TTTL, at some point in time you'll have data that only exists in analytical store. This data is read only.
 
 How to enable analytical store on a container:
 
@@ -381,25 +382,65 @@ How to enable analytical store on a container:
 
 To learn more, see [how to configure analytical TTL on a container](configure-synapse-link.md#create-analytical-ttl).
 
-## Cost-effective archival of historical data
+## Cost-effective analytics on historical data
 
 Data tiering refers to the separation of data between storage infrastructures optimized for different scenarios. Thereby improving the overall performance and cost-effectiveness of the end-to-end data stack. With analytical store, Azure Cosmos DB now supports automatic tiering of data from the transactional store to analytical store with different data layouts. With analytical store optimized in terms of storage cost compared to the transactional store, allows you to retain much longer horizons of operational data for historical analysis.
 
-After the analytical store is enabled, based on the data retention needs of the transactional workloads, you can configure the transactional store Time-to-Live (TTTL) property to have records automatically deleted from the transactional store after a certain time period. Similarly, the  analytical store Time-to-Live (ATTL)' allows you to manage the lifecycle of data retained in the analytical store independent from the transactional store. By enabling analytical store and configuring TTL properties, you can seamlessly tier and define the data retention period for the two stores.
+After the analytical store is enabled, based on the data retention needs of the transactional workloads, you can configure `transactional TTL` property to have records automatically deleted from the transactional store after a certain time period. Similarly, the  `analytical TTL` allows you to manage the lifecycle of data retained in the analytical store, independent from the transactional store. By enabling analytical store and configuring transactional and analytical `TTL` properties, you can seamlessly tier and define the data retention period for the two stores.
+
+> [!NOTE]
+> When `analytical TTL` is bigger than `transactional TTL`, your container will have data that only exists in analytical store. This data is read only and currently we don't support document level `TTL` in analytical store. If your container data may need an update or a delete at some point in time in the future, don't use `analytical TTL` bigger than `transactional TTL`. This capability is recommended for data that won't need updates or deletes in the future.
+
+> [!NOTE]
+> If your scenario doesn't demand physical deletes, you can adopt a logical delete/update approach. Insert in transactional store another version of the same document that only exists in analytical store but needs a logical delete/update. Maybe with a flag indicating that it's a delete or an update of an expired document. Both versions of the same document will co-exist in analytical store, and your application should only consider the last one.
+
+
+## Resilience
+
+Analytical store relies on Azure Storage and offers the following protection against physical failure:
+
+ * Single region Azure Cosmos DB database accounts allocate analytical store in Locally Redundant Storage (LRS) Azure Storage accounts.
+ * If any geo-region replication is configured for the Azure Cosmos DB database account, analytical store is allocated in Zone-Redundant Storage (ZRS) Azure storage accounts.
 
 ## Backup
 
-Currently analytical store doesn't support backup and restore, and your backup policy can't be planned relying on that. For more information, check the limitations section of [this](synapse-link.md#limitations) document. While continuous backup mode isn't supported in database accounts with Synapse Link enabled, periodic backup mode is. 
+Although analytical store has built-in protection against physical failures, backup can be necessary for accidental deletes or updates in transactional store. In those cases, you can restore a container and use the restored container to backfill the data in the original container, or fully rebuild analytical store if necessary. 
 
-With periodic backup mode and existing containers, you can:
+> [!NOTE]
+> Currently analytical store isn't backuped and can't be restored, and your backup policy can't be planned relying on that. 
 
- ### Fully rebuild analytical store when TTTL >= ATTL
+Synapse Link, and analytical store by consequence, has different compatibility levels with Azure Cosmos DB backup modes:
+
+* Periodic backup mode is fully compatible with Synapse Link and these 2 features can be used in the same database account without any restriction. 
+* Continuous backup mode isn't fully supported yet:
+ * Currently continuous backup mode can't be used in database accounts with Synapse Link enabled.
+ * Currently database accounts with continuous backup mode enabled can enable Synapse Link through a support case.
+ * Currently new database accounts can be created with continous backup mode and Synapse Link enabled, using Azure CLI or PowerShell. Those two features must be turned on at the same time, in the exact same command that creates the database account.
+
+### Backup Polices
+
+There two possible backup polices and to understand how to use them, two details about Cosmos DB backups are very important:
+
+ * The original container is restored without analytical store in both backup modes.
+ * Cosmos DB doesn't support containers overwrite from a restore.
+
+Now let's see how to use backup and restores from the analytical store perspective.
+
+ #### Restoring a container with TTTL >= ATTL
  
- The original container is restored without analytical store. But you can enable it and it will be rebuild with all data that existing in the container.
+ When `transactional TTL` is equal or bigger than `analytical TTL`, all data in analytical store still exists in transactional store. In case of a restore, you have two possible situations:
+ * To use the restored container as a replacement for the original container. To rebuild analytical store, just enable Synapse Link at account level and container level.
+ * To use the restored container as a data source to backfill or update the data in the original container. In this case, analytical store will automatically reflect the data operations.
  
- ### Partially rebuild analytical store when TTTL < ATTL
+ #### Restoring a container with TTTL < ATTL
  
-The data that was only in analytical store isn't restored, but it will be kept available for queries as long as you keep the original container. Analytical store is only deleted when you delete the container. Your analytical queries in Azure Synapse Analytics can read data from both original and restored container's analytical stores. Example:
+When `transactional TTL` is smaller than `analytical TTL`, some data only exists in analytical store and won't be in the restored container. Again your have two possible situations:
+ * To use the restored container as a replacement for the original container. In this case, when you enable Synapse Link at container level, only the data that was in transactional store will be included in the new analytical store. But please note that the analytical store of the original container remains available for queries as long as the original container exists. You may want to change your application to query both.
+ * To use the restored container as a data source to backfill or update the data in the original container:
+  * Analytical store will automatically reflect the data operations for the data that is in transactional store.
+  * If you re-insert data that was previously removed from transactional store due to `transactional TTL`, this data will be duplicated in analytical store.
+
+Example:
 
  * Container `OnlineOrders` has TTTL set to one month and ATTL set for one year.
  * When you restore it to `OnlineOrdersNew` and turn on analytical store to rebuild it, there will be only one month of data in both transactional and analytical store.
@@ -418,7 +459,7 @@ If you have a globally distributed Azure Cosmos DB account, after you enable ana
 
 ## Partitioning
 
-Analytical store partitioning is completely independent of partitioning in the transactional store. By default, data in analytical store isn't partitioned. If your analytical queries have frequently used filters, you have the option to partition based on these fields for better query performance. To learn more, see the [introduction to custom partitioning](custom-partitioning-analytical-store.md) and [how to configure custom partitioning](configure-custom-partitioning.md) articles.  
+Analytical store partitioning is completely independent of partitioning in the transactional store. By default, data in analytical store isn't partitioned. If your analytical queries have frequently used filters, you have the option to partition based on these fields for better query performance. To learn more, see [introduction to custom partitioning](custom-partitioning-analytical-store.md) and [how to configure custom partitioning](configure-custom-partitioning.md).  
 
 ## Security
 

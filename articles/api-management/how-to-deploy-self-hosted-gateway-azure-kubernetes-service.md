@@ -19,7 +19,7 @@ This article provides the steps for deploying self-hosted gateway component of A
 ## Prerequisites
 
 - [Create an Azure API Management instance](get-started-create-service-instance.md)
-- [Create an Azure Kubernetes cluster](../aks/kubernetes-walkthrough-portal.md)
+- Create an Azure Kubernetes cluster [using the Azure CLI](../aks/learn/quick-kubernetes-deploy-cli.md), [using Azure PowerShell](../aks/learn/quick-kubernetes-deploy-powershell.md), or [using the Azure portal](../aks/learn/quick-kubernetes-deploy-portal.md).
 - [Provision a gateway resource in your API Management instance](api-management-howto-provision-self-hosted-gateway.md).
 
 ## Deploy the self-hosted gateway to AKS

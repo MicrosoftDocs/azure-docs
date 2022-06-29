@@ -415,7 +415,7 @@ In the preceding code example, the input value cannot be longer than 11 characte
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
 | **References**              | N/A  |
-| **Steps** | Many javascript functions don't do encoding by default. When assigning untrusted input to DOM elements via such functions, may result in cross site script (XSS) executions.| 
+| **Steps** | Many JavaScript functions don't do encoding by default. When assigning untrusted input to DOM elements via such functions, may result in cross site script (XSS) executions.| 
 
 ### Example
 Following are insecure examples: 

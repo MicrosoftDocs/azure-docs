@@ -5,8 +5,8 @@ author: ginalee-dotcom
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 03/01/2022
-ms.author: cavoeg
+ms.date: 06/06/2022
+ms.author: mikaelw
 ---
 # Defining custom search parameters
 
@@ -215,3 +215,5 @@ In this article, you’ve learned how to create a search parameter. Next you can
 
 >[!div class="nextstepaction"]
 >[How to run a reindex job](how-to-run-a-reindex.md)
+
+FHIR&#174; is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.

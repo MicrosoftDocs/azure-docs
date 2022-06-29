@@ -15,7 +15,7 @@ Sometimes Web Application Firewall (WAF) might block a request that you want to 
 
 For example, Active Directory inserts tokens that are used for authentication. When used in a request header, these tokens can contain special characters that may trigger a false positive from the WAF rules. By adding the header to an exclusion list, you can configure WAF to ignore the header, but WAF still evaluates the rest of the request.
 
-An exclusion list can be configured using  [PowerShell](/powershell/module/az.frontdoor/New-AzFrontDoorWafManagedRuleExclusionObject), [Azure CLI](/cli/azure/network/front-door/waf-policy/managed-rules/exclusion#az_network_front_door_waf_policy_managed_rules_exclusion_add), [REST API](/rest/api/frontdoorservice/webapplicationfirewall/policies/createorupdate), or the Azure portal. The following example shows the Azure portal configuration. 
+An exclusion list can be configured using  [PowerShell](/powershell/module/az.frontdoor/New-AzFrontDoorWafManagedRuleExclusionObject), [Azure CLI](/cli/azure/network/front-door/waf-policy/managed-rules/exclusion#az-network-front-door-waf-policy-managed-rules-exclusion-add), [REST API](/rest/api/frontdoorservice/webapplicationfirewall/policies/createorupdate), or the Azure portal. The following example shows the Azure portal configuration. 
 
 ## Configure exclusion lists using the Azure portal
 

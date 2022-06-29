@@ -13,12 +13,12 @@ ms.custom: mvc
 Azure Kubernetes Service (AKS) simplifies deploying a managed Kubernetes cluster in Azure by offloading the operational overhead to Azure. As a hosted Kubernetes service, Azure handles critical tasks, like health monitoring and maintenance. Since Kubernetes masters are managed by Azure, you only manage and maintain the agent nodes. Thus, AKS is free; you only pay for the agent nodes within your clusters, not for the masters.  
 
 You can create an AKS cluster using:
-* [The Azure CLI](kubernetes-walkthrough.md)
-* [The Azure portal](kubernetes-walkthrough-portal.md)
-* [Azure PowerShell](kubernetes-walkthrough-powershell.md)
-* Using template-driven deployment options, like [Azure Resource Manager templates](kubernetes-walkthrough-rm-template.md), [Bicep](../azure-resource-manager/bicep/overview.md) and Terraform 
+* [The Azure CLI][aks-quickstart-cli]
+* [The Azure portal][aks-quickstart-portal]
+* [Azure PowerShell][aks-quickstart-powershell]
+* Using template-driven deployment options, like [Azure Resource Manager templates][aks-quickstart-template], [Bicep](../azure-resource-manager/bicep/overview.md) and Terraform.
 
-When you deploy an AKS cluster, the Kubernetes master and all nodes are deployed and configured for you. Advanced networking, Azure Active Directory (Azure AD) integration, monitoring, and other features can be configured during the deployment process. 
+When you deploy an AKS cluster, the Kubernetes master and all nodes are deployed and configured for you. Advanced networking, Azure Active Directory (Azure AD) integration, monitoring, and other features can be configured during the deployment process.
 
 For more information on Kubernetes basics, see [Kubernetes core concepts for AKS][concepts-clusters-workloads].
 
@@ -146,21 +146,22 @@ AKS is compliant with SOC, ISO, PCI DSS, and HIPAA. For more information, see [O
 Learn more about deploying and managing AKS with the Azure CLI Quickstart.
 
 > [!div class="nextstepaction"]
-> [Deploy an AKS Cluster using Azure CLI][aks-cli]
+> [Deploy an AKS Cluster using Azure CLI][aks-quickstart-cli]
 
 <!-- LINKS - external -->
-[aks-engine]: https://github.com/Azure/aks-engine
 [kubectl-overview]: https://kubernetes.io/docs/user-guide/kubectl-overview/
 [compliance-doc]: https://azure.microsoft.com/overview/trusted-cloud/compliance/
 
 <!-- LINKS - internal -->
 [acr-docs]: ../container-registry/container-registry-intro.md
 [aks-aad]: ./azure-ad-integration-cli.md
-[aks-cli]: ./kubernetes-walkthrough.md
+[aks-quickstart-cli]: ./learn/quick-kubernetes-deploy-cli.md
+[aks-quickstart-portal]: ./learn/quick-kubernetes-deploy-portal.md
+[aks-quickstart-powershell]: ./learn/quick-kubernetes-deploy-powershell.md
+[aks-quickstart-template]: ./learn/quick-kubernetes-deploy-rm-template.md
 [aks-gpu]: ./gpu-cluster.md
 [aks-http-routing]: ./http-application-routing.md
 [aks-networking]: ./concepts-network.md
-[aks-portal]: ./kubernetes-walkthrough-portal.md
 [aks-scale]: ./tutorial-kubernetes-scale.md
 [aks-upgrade]: ./upgrade-cluster.md
 [azure-dev-spaces]: /previous-versions/azure/dev-spaces/

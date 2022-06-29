@@ -21,6 +21,10 @@ See [Monitoring *App Service* data reference](monitor-app-service-reference.md) 
 
 App Service also provides built-in diagnostics to assist with debugging apps. See [Enable diagnostics logging](troubleshoot-diagnostic-logs.md) for more information on enabling the built-in logs. To monitor App Service instances, see [Monitor App Service instances using Health check](monitor-instances-health-check.md).
 
+
+## Application Insights
+
+Application Insights monitors the availability, performance, and usage of your web applications. It leverages the powerful data analysis platform in Azure Monitor to provide you with deep insights into your application's operations. It enables you to diagnose errors without waiting for a user to report them. Application Insights includes connection points to a variety of development tools and integrates with Visual Studio to support your DevOps processes. Learn more about Application Insights in the [Application Monitoring for App Service Overview](../azure-monitor/app/azure-web-apps.md).
 ## Collection and routing
 
 Platform metrics and the Activity log are collected and stored automatically, but can be routed to other locations by using a diagnostic setting.  

@@ -314,6 +314,12 @@
       - name: Logz.io
         tocHref: /azure/partner-solutions/logzio/
         topicHref: /azure/partner-solutions/logzio/overview
+      - name: Dynatrace
+        tocHref: /azure/partner-solutions/dynatrace/
+        topicHref: /azure/partner-solutions/dynatrace/dynatrace-overview
+      - name: NGINX
+        tocHref: /azure/partner-solutions/nginx/
+        topicHref: /azure/partner-solutions/nginx/nginx-overview
   - name: SignalR Service
     tocHref: /azure/azure-signalr/
     topicHref: /azure/azure-signalr/
@@ -460,7 +466,7 @@
 #      topicHref: /azure/cognitive-services/translator-speech/
     - name: Video Indexer
       tocHref: /azure/cognitive-services/video-indexer/
-      topicHref: /azure/cognitive-services/video-indexer/video-indexer-overview
+      topicHref: /azure/azure-video-indexer/video-indexer-overview
     - name: Web Language Model
       tocHref: /azure/cognitive-services/web-language-model/
       topicHref: https://www.programmableweb.com/sdk/microsoft-cognitive-services-web-language-model-c-sdk-microsoft
@@ -597,7 +603,7 @@
         topicHref: /azure/hdinsight/domain-joined/apache-domain-joined-introduction
       - name: ML Services
         tocHref: /azure/hdinsight/r-server
-        topicHref: /azure/hdinsight/r-server/r-server-overview
+        topicHref: https://azure.microsoft.com/services/hdinsight/r-server/#overview
       - name: Spark
         tocHref: /azure/hdinsight/spark
         topicHref: /azure/hdinsight/spark/apache-spark-overview
@@ -693,9 +699,6 @@
       - name: v2
         tocHref: /azure/media-services/previous/
         topicHref: /azure/media-services/previous/
-      - name: Video Indexer
-        tocHref: /azure/azure-video-analyzer/video-analyzer-for-media-docs/video-indexer-overview
-        topicHref: /azure/azure-video-analyzer/video-analyzer-for-media-docs/video-indexer-overview
       - name: Azure Media Player
         tocHref: /azure/media-services/azure-media-player/
         topicHref: /azure/media-services/azure-media-player/
@@ -770,9 +773,6 @@
       - name: Front Door Service
         tocHref: /azure/frontdoor/
         topicHref: /azure/frontdoor/
-      - name: Front Door Standard/Premium (Preview)
-        tocHref: /azure/frontdoor/standard-premium
-        topicHref: /azure/frontdoor/standard-premium
       - name: Internet Analyzer
         tocHref: /azure/internet-analyzer/
         topicHref: /azure/internet-analyzer/
@@ -1054,7 +1054,7 @@
     - name: Centrally managed Azure Hybrid Benefit
       tocHref: /azure/cost-management-billing/scope-level
       topicHref: /azure/cost-management-billing/scope-level
-  - name: Azure Purview
+  - name: Microsoft Purview
     tocHref: /azure/purview/
     topicHref: /azure/purview/
   - name: Applied AI Services 
@@ -1064,9 +1064,9 @@
     - name: Video Analyzer
       tocHref: /azure/azure-video-analyzer/video-analyzer-docs/
       topicHref: /azure/azure-video-analyzer/video-analyzer-docs/    
-    - name: Video Analyzer for Media
-      tocHref: /azure/azure-video-analyzer/video-analyzer-for-media-docs/
-      topicHref: /azure/azure-video-analyzer/video-analyzer-for-media-docs/
+    - name: Azure Video Indexer
+      tocHref: /azure/azure-video-indexer/
+      topicHref: /azure/azure-video-indexer/
   - name: 'Azure DevTest offer (Visual Studio subscriber benefit)'
     tocHref: /azure/devtest/offer/
     topicHref: /azure/devtest/offer/overview-what-is-devtest-offer-visual-studio
@@ -1079,6 +1079,6 @@
   - name: Load Testing
     tocHref: /azure/load-testing/
     topicHref: /azure/load-testing/overview-what-is-azure-load-testing
-  - name: Azure Spring Cloud
+  - name: Azure Spring Apps
     tocHref: /azure/spring-cloud/
     topicHref: /azure/spring-cloud/index

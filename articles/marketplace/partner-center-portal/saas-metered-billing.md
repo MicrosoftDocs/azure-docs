@@ -1,10 +1,10 @@
 ---
-title: Metered billing for SaaS offers using the Microsoft commercial marketplace metering service
-description: Learn about flexible billing models for SaaS offers using the commercial marketplace metering service. 
+title: Metered billing for SaaS offers in Partner Center
+description: Learn about flexible billing models using a metering service for SaaS offers in Partner Center. 
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 12/16/2021
+ms.date: 03/29/2022
 author: mingshen-ms
 ms.author: mingshen
 ---
@@ -50,20 +50,20 @@ As an example, Contoso is a publisher with a SaaS service called Contoso Notific
     - Beyond the 10000 emails, pay $1 for every 100 emails
     - Beyond the 1000 texts, pay $0.02 for every text
 
-    [![Basic plan pricing](./media/saas-basic-pricing.png "Click for enlarged view")](./media/saas-basic-pricing.png)
+    [ ![Screenshot of basic plan pricing.](./media/saas-basic-pricing.png) ](./media/saas-basic-pricing.png#lightbox)
 
 - Premium plan
     - Send 50000 emails and 10000 texts for $350/month or 5M emails and 1M texts for $3500 per year
     - Beyond the 50000 emails, pay $0.5 for every 100 emails
     - Beyond the 10000 texts, pay $0.01 for every text
 
-    [![Premium plan pricing](./media/saas-premium-pricing.png "Click for enlarged view")](./media/saas-premium-pricing.png)
+    [ ![Screenshot of premium plan pricing.](./media/saas-premium-pricing.png) ](./media/saas-premium-pricing.png#lightbox)
 
 - Enterprise plan
     - Send unlimited number of emails and 50000 texts for $400/month
     - Beyond the 50000 texts pay $0.005 for every txt
 
-    [![Enterprise plan pricing](./media/saas-enterprise-pricing.png "Click for enlarged view")](./media/saas-enterprise-pricing.png)
+    [ ![Screenshot of enterprise plan pricing.](./media/saas-enterprise-pricing.png) ](./media/saas-enterprise-pricing.png#lightbox)
 
 Based on the plan selected, an Azure customer purchasing subscription to CNS SaaS offer will be able to send the included quantity of text and emails per subscription term (month or year as appears in subscription details—startDate and endDate). Contoso counts the usage up to the included quantity in base without sending any usage events to Microsoft. When customers consume more than the included quantity, they do not have to change plans or do anything different. Contoso will measure the overage beyond the included quantity and start emitting usage events to Microsoft for charging the overage usage using the [commercial marketplace metering service API](../marketplace-metering-service-apis.md). Microsoft in turn will charge the customer for the overage usage as specified by the publisher in the custom dimensions. The overage billing is done on the next billing cycle (monthly, but can be quarterly or early for some customers). For a monthly flat rate plan, the overage billing will be made for every month where overage has occurred. For a yearly flat rate plan, once the quantity included in base per year is consumed, all additional usage emitted by the custom meter will be billed as overage during each billing cycle (monthly) until the end of the subscription's year term.
 
@@ -116,7 +116,7 @@ Like flat rate pricing, billing dimension prices can be set per supported countr
 
 The user interface of the meter will change to reflect that the prices of the dimension can only be seen in the file.
 
-[![commercial marketplace metering service dimensions](media/metering-service-dimensions.png "Click for enlarged view")](media/metering-service-dimensions.png)
+[ ![Screenshot of commercial marketplace metering service dimensions.](media/metering-service-dimensions.png) ](media/metering-service-dimensions.png#lightbox)
 
 ### Private plan
 
@@ -140,7 +140,6 @@ Once an offer is published with a dimension, the offer-level details for that di
 
 Once a plan is published, the plan-level details can no longer be changed:
 
-- Price per unit in USD
 - Monthly quantity included in base
 - Annual quantity included in base
 - Whether the dimension is enabled for the plan or not
@@ -162,3 +161,8 @@ To understand publisher support options and open a support ticket with Microsoft
 ## Next steps
 
 - [Marketplace metered billing APIs](../marketplace-metering-service-apis.md)
+
+**Video tutorials**
+
+- [SaaS Metered Billing Overview](https://go.microsoft.com/fwlink/?linkid=2196314)
+- [The SaaS Metered Billing API with REST](https://go.microsoft.com/fwlink/?linkid=2196418)

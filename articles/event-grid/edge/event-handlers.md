@@ -11,7 +11,7 @@ ms.topic: article
 An event handler is the place where the event for further action or to process the event. With the Event Grid on Edge module, the event handler can be on the same edge device, another device, or in the cloud. You may can use any WebHook to handle events, or send events to one of the native handlers like Azure Event Grid.
 
 > [!IMPORTANT]
-> On March 31, 2023, Event Grid on Azure IoT Edge support will be retired, so make sure to transition to IoT Edge native capabilities prior to that date. For more information, see [Transition from Event Grid on Azure IoT Edge to Azure IoT Edge ](transition.md). 
+> On March 31, 2023, Event Grid on Azure IoT Edge support will be retired, so make sure to transition to IoT Edge native capabilities prior to that date. For more information, see [Transition from Event Grid on Azure IoT Edge to Azure IoT Edge](transition.md). 
 
 
 

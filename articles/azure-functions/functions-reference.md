@@ -116,10 +116,8 @@ Identity-based connections are supported by the following components:
 | Azure Service Bus triggers and bindings       | All             | [Extension version 5.0.0 or later](./functions-bindings-service-bus.md)  |
 | Azure Cosmos DB triggers and bindings - Preview         | Elastic Premium | [Extension version 4.0.0-preview1 or later](.//functions-bindings-cosmosdb-v2.md?tabs=extensionv4) |
 | Azure Tables (when using Azure Storage) - Preview | All | [Table API extension](./functions-bindings-storage-table.md#table-api-extension) |
+| Durable Functions storage provider (Azure Storage) - Preview | All | [Extension version 2.7.0 or later](https://github.com/Azure/azure-functions-durable-extension/releases/tag/v2.7.0) | 
 | Host-required storage ("AzureWebJobsStorage") - Preview | All             | [Connecting to host storage with an identity](#connecting-to-host-storage-with-an-identity-preview)                        |
-
-> [!NOTE]
-> Identity-based connections are not supported with Durable Functions.
 
 [!INCLUDE [functions-identity-based-connections-configuration](../../includes/functions-identity-based-connections-configuration.md)]
 
@@ -148,6 +146,10 @@ Choose a tab below to learn about permissions for each component:
 # [Azure Tables API extension (preview)](#tab/table)
 
 [!INCLUDE [functions-table-permissions](../../includes/functions-table-permissions.md)]
+
+# [Durable Functions storage provider (preview)](#tab/durable)
+
+[!INCLUDE [functions-durable-permissions](../../includes/functions-durable-permissions.md)]
 
 # [Functions host storage (preview)](#tab/azurewebjobsstorage)
 
@@ -224,7 +226,7 @@ To use an identity-based connection for "AzureWebJobsStorage", configure the fol
 
 [Common properties for identity-based connections](#common-properties-for-identity-based-connections) may also be set as well.
 
-If you are configuring "AzureWebJobsStorage" using a storage account that uses the default DNS suffix and service name for global Azure, following the `https://<accountName>.blob/queue/file/table.core.windows.net` format, you can instead set `AzureWebJobsStorage__accountName` to the name of your storage account. The blob and queue endpoints will be inferred for this account. This will not work if the storage account is in a sovereign cloud or has a custom DNS.
+If you are configuring "AzureWebJobsStorage" using a storage account that uses the default DNS suffix and service name for global Azure, following the `https://<accountName>.blob/queue/file/table.core.windows.net` format, you can instead set `AzureWebJobsStorage__accountName` to the name of your storage account. The endpoints for each storage service will be inferred for this account. This will not work if the storage account is in a sovereign cloud or has a custom DNS.
 
 | Setting                       | Description                                | Example value                                        |
 |-----------------------------------------------------|--------------------------------------------|------------------------------------------------|

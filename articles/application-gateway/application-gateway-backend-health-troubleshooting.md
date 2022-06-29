@@ -2,11 +2,11 @@
 title: Troubleshoot backend health issues in Azure Application Gateway
 description: Describes how to troubleshoot backend health issues for Azure Application Gateway
 services: application-gateway
-author: vhorne
+author: greg-lindsay
 ms.service: application-gateway
 ms.topic: troubleshooting
 ms.date: 03/17/2022
-ms.author: victorh 
+ms.author: greglin 
 ms.custom: devx-track-azurepowershell
 ---
 
@@ -21,7 +21,7 @@ successfully, Application Gateway resumes forwarding the requests.
 ### How to check backend health
 
 To check the health of your backend pool, you can use the
-**Backend Health** page on the Azure portal. Or, you can use [Azure PowerShell](/powershell/module/az.network/get-azapplicationgatewaybackendhealth), [CLI](/cli/azure/network/application-gateway#az_network_application_gateway_show_backend_health), or [REST API](/rest/api/application-gateway/applicationgateways/backendhealth).
+**Backend Health** page on the Azure portal. Or, you can use [Azure PowerShell](/powershell/module/az.network/get-azapplicationgatewaybackendhealth), [CLI](/cli/azure/network/application-gateway#az-network-application-gateway-show-backend-health), or [REST API](/rest/api/application-gateway/applicationgateways/backendhealth).
 
 The status retrieved by any of these methods can be any one of the following:
 
@@ -82,7 +82,7 @@ The message displayed in the **Details** column provides more detailed insights 
 
 > [!NOTE]
 > The default probe request is sent in the format of
-\<protocol\>://127.0.0.1:\<port\>/. For example, http://127.0.0.1:80 for an http probe on port 80. Only HTTP status codes of 200 through 399 are considered healthy. The protocol and destination port are inherited from the HTTP settings. If you want Application Gateway to probe on a different protocol, host name, or path and to recognize a different status code as Healthy, configure a custom probe and associate it with the HTTP settings.
+`<protocol>://127.0.0.1:<port>`. For example, `http://127.0.0.1:80` for an HTTP probe on port 80. Only HTTP status codes of 200 through 399 are considered healthy. The protocol and destination port are inherited from the HTTP settings. If you want Application Gateway to probe on a different protocol, host name, or path and to recognize a different status code as Healthy, configure a custom probe and associate it with the HTTP settings.
 
 ## Error messages
 

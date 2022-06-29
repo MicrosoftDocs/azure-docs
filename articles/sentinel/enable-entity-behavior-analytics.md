@@ -33,7 +33,8 @@ To enable or disable this feature (these prerequisites are not required to use t
 - Your workspace must not have any Azure resource locks applied to it. [Learn more about Azure resource locking](../azure-resource-manager/management/lock-resources.md).
 
 > [!NOTE]
-> No special license is required to add UEBA functionality to Microsoft Sentinel, but **additional charges** may apply.
+> - No special license is required to add UEBA functionality to Microsoft Sentinel, and there's no additional cost for using it.
+> - However, since UEBA generates new data and stores it in new tables that UEBA creates in your Log Analytics workspace, **additional data storage charges** will apply. 
 
 ## How to enable User and Entity Behavior Analytics
 
@@ -56,6 +57,10 @@ If you haven't yet enabled UEBA, you will be taken to the **Settings** page. Sel
 
 ## Next steps
 
-In this document, you learned how to enable and configure User and Entity Behavior Analytics (UEBA) in Microsoft Sentinel. To learn more about Microsoft Sentinel, see the following articles:
+In this document, you learned how to enable and configure User and Entity Behavior Analytics (UEBA) in Microsoft Sentinel. For more information about UEBA:
+- See the [list of anomalies](anomalies-reference.md#ueba-anomalies) detected using UEBA.
+- Learn more about [how UEBA works](identify-threats-with-entity-behavior-analytics.md) and how to use it.
+
+To learn more about Microsoft Sentinel, see the following articles:
 - Learn how to [get visibility into your data, and potential threats](get-visibility.md).
 - Get started [detecting threats with Microsoft Sentinel](detect-threats-built-in.md).

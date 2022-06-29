@@ -2,7 +2,7 @@
 title: Create private link for managing resources - Azure portal
 description: Use Azure portal to create private link for managing resources.
 ms.topic: conceptual
-ms.date: 07/29/2021
+ms.date: 04/26/2022
 ---
 
 # Use portal to create private link for managing Azure resources (preview)

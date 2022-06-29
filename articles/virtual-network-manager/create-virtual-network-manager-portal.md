@@ -1,11 +1,11 @@
 ---
 title: 'Quickstart: Create a mesh network topology with Azure Virtual Network Manager using the Azure portal'
 description: Use this quickstart to learn how to create a mesh network topology with Virtual Network Manager using the Azure portal.
-author: duongau
-ms.author: duau
+author: mbender-ms
+ms.author: mbender
 ms.service: virtual-network-manager
 ms.topic: quickstart
-ms.date: 11/02/2021
+ms.date: 04/20/2021
 ms.custom: template-quickstart, ignite-fall-2021, mode-ui
 ---
 
@@ -40,7 +40,7 @@ In this quickstart, you'll deploy three virtual networks and use Azure Virtual N
 
 1. On the *Basics* tab, enter or select the following information:
 
-    :::image type="content" source="./media/create-virtual-network-manager-portal/network-manager-basics.png" alt-text="Screenshot of create a Network Manager basics page.":::
+    :::image type="content" source="./media/create-virtual-network-manager-portal/network-manager-basics.png" alt-text="Screenshot of Create a network manager Basics page.":::
 
     | Setting | Value |
     | ------- | ----- |
@@ -49,20 +49,16 @@ In this quickstart, you'll deploy three virtual networks and use Azure Virtual N
     | Name | Enter a name for this Azure Virtual Network Manager instance. This example will use the name **myAVNM**. |
     | Region | Select the region for this deployment. Azure Virtual Network Manager can manage virtual networks in any region. The region selected is for where the Virtual Network Manager instance will be deployed. |
     | Description | *(Optional)* Provide a description about this Virtual Network Manager instance and the task it will be managing. |
-    | [Scope](concept-network-manager-scope.md#scope) | Define the scope for which Azure Virtual Network Manager can manage.
+    | [Scope](concept-network-manager-scope.md#scope) | Define the scope for which Azure Virtual Network Manager can manage. This example will use a subscription-level scope.
     | [Features](concept-network-manager-scope.md#features) | Select the features you want to enable for Azure Virtual Network Manager. Available features are *Connectivity*, *SecurityAdmin*, or *Select All*. </br> Connectivity - Enables the ability to create a full mesh or hub and spoke network topology between virtual networks within the scope. </br> SecurityAdmin - Enables the ability to create global network security rules. |
 
 1. Select **Review + create** and then select **Create** once validation has passed.
-
-    :::image type="content" source="./media/create-virtual-network-manager-portal/network-manager-validation.png" alt-text="Screenshot of validation page for create a Network Manager resource.":::
 
 ## Create three virtual networks
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
 1. Select **+ Create a resource** and search for **Virtual network**. Then select **Create** to begin configuring the virtual network.
-
-    :::image type="content" source="./media/create-virtual-network-manager-portal/create-vnet.png" alt-text="Screenshot of create a virtual network page.":::
 
 1. On the *Basics* tab, enter or select the following information.
 
@@ -87,8 +83,6 @@ In this quickstart, you'll deploy three virtual networks and use Azure Virtual N
 
 1. Select **Review + create** and then select **Create** once validation has passed to deploy the virtual network.
 
-    :::image type="content" source="./media/create-virtual-network-manager-portal/vnet-validation.png" alt-text="Screenshot of validation page for create a virtual network.":::
-
 1. Repeat steps 2-5 to create two more virtual networks with the following information:
 
     | Setting | Value |
@@ -104,41 +98,40 @@ In this quickstart, you'll deploy three virtual networks and use Azure Virtual N
 
 1. Go to Azure Virtual Network Manager instance you created.
 
-1. Select **Network Groups** under *Settings*, then select **+ Add**.
+1. Select **Network Groups** under *Settings*, then select **+ Create**.
 
-    :::image type="content" source="./media/create-virtual-network-manager-portal/add-network-group.png" alt-text="Screenshot of add a network group button.":::
+    :::image type="content" source="./media/create-virtual-network-manager-portal/add-network-group-2.png" alt-text="Screenshot of add a network group button.":::
 
-1. On the *Add a network group* page, enter a **Name** for the network group. This example will use the name **myNetworkGroup**. Select **Next: Static group members >** to begin adding virtual networks to the network group.
+1. On the *Create a network group* page, enter a **Name** for the network group. This example will use the name **myNetworkGroup**. Select **Add** to create the network group.
 
-    :::image type="content" source="./media/create-virtual-network-manager-portal/network-group-basics.png" alt-text="Screenshot of create a network group basics tab.":::
+    :::image type="content" source="./media/create-virtual-network-manager-portal/network-group-basics.png" alt-text="Screenshot of create a network group page.":::
 
-1. On the *Static group members* tab, select **+ Add virtual networks**.
+1. You'll see the new network group added to the *Network Groups* page.
+    :::image type="content" source="./media/create-virtual-network-manager-portal/network-groups-list.png" alt-text="Screenshot of network group page with list of network groups.":::
 
-    :::image type="content" source="./media/create-virtual-network-manager-portal/add-virtual-networks-button.png" alt-text="Screenshot of add a virtual network button.":::
+1. From the list of network groups, select **myNetworkGroup** and select **Add** under **Static membership** on the *myNetworkGroup* page.
 
-1. On the *Add virtual networks* page, select all three virtual networks created previously (VNetA, VNetB, and VNetC). Then select **Add** to commit the selection.
+    :::image type="content" source="./media/create-virtual-network-manager-portal/add-static-member.png" alt-text="Screenshot of add a virtual network f.":::
+
+1. On the *Add static members* page, select all three virtual networks created previously (VNetA, VNetB, and VNetC). Then select **Add** to add the 3 virtual networks to the network group.
 
     :::image type="content" source="./media/create-virtual-network-manager-portal/add-virtual-networks.png" alt-text="Screenshot of add virtual networks to network group page.":::
 
-1. Select **Review + create**, and then select **Create** once validation has passed.
+1. Return to the *Network groups* page, and you'll see 3 members added under **Member virtual network**.
 
-    :::image type="content" source="./media/create-virtual-network-manager-portal/review-create.png" alt-text="Screenshot of review and create button for a new network group.":::
-
-1. You'll see the new network group added to the *Network Groups* page.
-
-    :::image type="content" source="./media/create-virtual-network-manager-portal/network-groups-list.png" alt-text="Screenshot of network groups page with new network group added.":::
+    :::image type="content" source="./media/create-virtual-network-manager-portal/list-network-members.png" alt-text="Screenshot of network manager instance page with three member virtual networks.":::
 
 ## Create  a connectivity configuration
 
-1. Select **Configurations** under *Settings*, then select **+ Add a configuration**.
+1. Select **Configurations** under *Settings*, then select **+ Create**.
 
-    :::image type="content" source="./media/create-virtual-network-manager-portal/add-configuration.png" alt-text="Screenshot of add a configuration button for Network Manager.":::
+    :::image type="content" source="./media/create-virtual-network-manager-portal/add-configuration.png" alt-text="Screenshot of configuration creation screen for Network Manager.":::
 
-1. Select **Connectivity** from the drop-down menu to begin creating a connectivity configuration.
+1. Select **Connectivity configuration** from the drop-down menu to begin creating a connectivity configuration.
 
     :::image type="content" source="./media/create-virtual-network-manager-portal/configuration-menu.png" alt-text="Screenshot of configuration drop-down menu.":::
 
-1. On the *Add a connectivity configuration* page, enter, or select the following information:
+1. On the *Basics* page, enter the following information, and select **Next: Topology >**.
 
     :::image type="content" source="./media/create-virtual-network-manager-portal/connectivity-configuration.png" alt-text="Screenshot of add a connectivity configuration page.":::
 
@@ -146,17 +139,20 @@ In this quickstart, you'll deploy three virtual networks and use Azure Virtual N
     | ------- | ----- |
     | Name | Enter a name for this connectivity configuration. |
     | Description | *(Optional)* Provide a description about this connectivity configuration. |
-    | Topology | Select the type of topology you want to create with this configuration. This example will use the **Mesh** topology. |
 
-1. Once you select the *Mesh* topology, the **Global Mesh** and **Network Groups** option will appear. *Global Mesh* isn't required for this set up since all the virtual networks are in the same region. Select **+ Add network groups** and then select the network group you created in the last section. Click **Select** to add the network group to the configuration.
+
+1. On the *Topology* tab, select the *Mesh* topology if not selected, and leave the **Enable mesh connectivity across regions** unchecked.  Cross-region connectivity isn't required for this set up since all the virtual networks are in the same region. 
+     :::image type="content" source="./media/create-virtual-network-manager-portal/topology-configuration.png" alt-text="Screenshot of topology selection for network group connectivity configuration.":::
+
+1. Select **+ Add** and then select the network group you created in the last section. Select **Select** to add the network group to the configuration.
 
     :::image type="content" source="./media/create-virtual-network-manager-portal/add-network-group-configuration.png" alt-text="Screenshot of add a network group to a connectivity configuration.":::
 
-1. Select **Add** to create the configuration.
+1. Select **Next: Review + Create >** and **Create** to create the configuration.
 
     :::image type="content" source="./media/create-virtual-network-manager-portal/create-connectivity-configuration.png" alt-text="Screenshot of create a connectivity configuration.":::
 
-1. You'll see the new connectivity configuration added to the *Configuration* page.
+1. Once the deployment completes, select **Refresh** and you'll see the new connectivity configuration added to the *Configurations* page.
 
     :::image type="content" source="./media/create-virtual-network-manager-portal/connectivity-configuration-list.png" alt-text="Screenshot of connectivity configuration list.":::
 
@@ -164,7 +160,7 @@ In this quickstart, you'll deploy three virtual networks and use Azure Virtual N
 
 To have your configurations applied to your environment, you'll need to commit the configuration by deployment. You'll need to deploy the configuration to the **West US** region where the virtual networks are deployed.
 
-1. Select **Deployments** under *Settings*, then select **Deploy a configuration**.
+1. Select **Deployments** under *Settings*, then select **Deploy configurations**.
 
     :::image type="content" source="./media/create-virtual-network-manager-portal/deployments.png" alt-text="Screenshot of deployments page in Network Manager.":::
 
@@ -174,21 +170,21 @@ To have your configurations applied to your environment, you'll need to commit t
 
     | Setting | Value |
     | ------- | ----- |
-    | Configuration type | Select the type of configuration you want to deploy. This example will deploy a **Connectivity** configuration. |
-    | Configurations | Select the **myConnectivityConfig** configuration created from the previous section. |
-    | Target regions | Select the region to deploy this configuration to. The **West US** region is selected, since all the virtual networks were created in that region. |
+    | Configurations | Select the type of configuration you want to deploy. This example will select **Include connectivity configurations in your goal state** . |
+    | Connectivity configurations | Select the **ConnectivityConfigA** configuration created from the previous section. |
+    | Regions | Select the region to deploy this configuration to. For this example, choose the **West US** region since all the virtual networks were created in that region. |
 
-1. Select **Deploy** and then select **OK** to confirm you want to overwrite any existing configuration.
+1. Select **Next** and then select **Deploy** to complete the deployment.
 
     :::image type="content" source="./media/create-virtual-network-manager-portal/deployment-confirmation.png" alt-text="Screenshot of deployment confirmation message.":::
 
-1. You should now see the deployment show up in the list for the selected region. The deployment of the configuration can take about 15-20 minutes to complete.
+1. You should now see the deployment show up in the list for the selected region. The deployment of the configuration can take several minutes to complete.
 
     :::image type="content" source="./media/create-virtual-network-manager-portal/deployment-in-progress.png" alt-text="Screenshot of configuration deployment in progress status.":::
 
 ## Confirm configuration deployment
 
-1. Select **Refresh** on the *Deployment* page to see the updated status of the configuration that you committed.
+1. Select **Refresh** on the *Deployments* page to see the updated status of the configuration that you committed.
 
     :::image type="content" source="./media/create-virtual-network-manager-portal/deployment-status.png" alt-text="Screenshot of refresh button for updated deployment status.":::
 
@@ -206,25 +202,50 @@ If you no longer need Azure Virtual Network Manager, you'll need to make sure al
 * All configurations have been deleted.
 * All network groups have been deleted.
 
-1. To remove all configurations from a region, deploy a **None** configuration to the target region. Select **Deploy** and then select **OK** to confirm.
+1. To remove all configurations from a region, start in the virtual network manager and select **Deploy configurations**. Select the following settings:
 
-    :::image type="content" source="./media/create-virtual-network-manager-portal/none-configuration.png" alt-text="Screenshot of deploy a none connectivity configuration.":::
+    :::image type="content" source="./media/create-virtual-network-manager-portal/none-configuration.png" alt-text="Screenshot of deploy a none connectivity configuration settings.":::
 
-1. To delete a configuration, select **Configurations** under *Settings* from the left pane of Azure Virtual Network Manager. Select the checkbox next to the configuration you want to remove and then select **Delete** at the top of the resource page.
+    | Setting | Value |
+    | ------- | ----- |
+    | Configurations | Select **Include connectivity configurations in your goal state**. |
+    | Connectivity configurations | Select the ****None - Remove existing connectivity configurations**** configuration. |
+    | Regions | Select **West US** as the deployed region. |
+
+1. Select **Next** and select **Deploy** to complete the deployment removal.
+
+1. To delete a configuration, select **Configurations** under *Settings* from the left pane of Azure Virtual Network Manager. Select the checkbox next to the configuration you want to remove and then select **Delete** at the top of the resource page. Select **Yes** to confirm the configuration deletion.
 
     :::image type="content" source="./media/create-virtual-network-manager-portal/delete-configuration.png" alt-text="Screenshot of delete button for a connectivity configuration.":::
 
 1. To delete a network group, select **Network Groups** under *Settings* from the left pane of Azure Virtual Network Manager. Select the checkbox next to the network group you want to remove and then select **Delete** at the top of the resource page.
 
-    :::image type="content" source="./media/create-virtual-network-manager-portal/delete-network-group.png" alt-text="Screenshot of delete button for network group.":::
+    :::image type="content" source="./media/create-virtual-network-manager-portal/delete-network-group.png" alt-text="Screenshot of delete a network group button.":::
 
-1. Once all network groups have been removed, you can now delete the resource by right-clicking the Azure Virtual Network Manager from the list and selecting **Delete**.
 
-    :::image type="content" source="./media/create-virtual-network-manager-portal/delete-network-manager.png" alt-text="Screenshot of delete button for an Azure Virtual Network Manager.":::
+1. On the **Delete a network group** page, select the following options:
+
+    :::image type="content" source="./media/create-virtual-network-manager-portal/ng-delete-options.png" alt-text="Screenshot of Network group to be deleted option selection.":::
+
+    | Setting | Value |
+    | ------- | ----- |
+    | Delete option | Select **Force delete the resource and all dependent resources**. |
+    | Confirm deletion | Enter the name of the network group. In this example, it's **myNetworkGroup**. |
+
+1. Select **Delete** and Select **Yes** to confirm the network group deletion.
+
+1. Once all network groups have been removed, select **Overview** from the left pane of Azure Virtual Network Manager and select **Delete**.
+
+1. On the **Delete a network manager** page, select the following options and select **Delete**. Select **Yes** to confirm the deletion.
+
+    :::image type="content" source="./media/create-virtual-network-manager-portal/network-manager-delete.png" alt-text="Screenshot of network manager to be deleted option selection.":::
+
+    | Setting | Value |
+    | ------- | ----- |
+    | Delete option | Select **Force delete the resource and all dependent resources**. |
+    | Confirm deletion | Enter the name of the network manager. In this example, it's **myAVNM**. |
 
 1. To delete the resource group, locate the resource group and select the **Delete resource group**. Confirm that you want to delete by entering the name of the resource group, then select **Delete**
-
-    :::image type="content" source="./media/create-virtual-network-manager-portal/delete-resource-group.png" alt-text="Screenshot of delete button for a resource group.":::
 
 ## Next steps
 

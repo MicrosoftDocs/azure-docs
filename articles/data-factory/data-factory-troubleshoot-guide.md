@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.subservice: troubleshooting
 ms.custom: synapse
 ms.topic: troubleshooting
-ms.date: 03/03/2022
+ms.date: 05/12/2022
 ms.author: abnarain
 ---
 
@@ -384,6 +384,48 @@ The following table applies to U-SQL.
 - **Cause**: The Azure ML pipeline run failed.
 
 - **Recommendation**: Check Azure Machine Learning for more error logs, then fix the ML pipeline.
+
+## Azure Synapse Analytics
+
+### Error code: 3250
+
+- **Message**: `There are not enough resources available in the workspace, details: '%errorMessage;'`
+
+- **Cause**: Insufficient resources
+
+- **Recommendation**: Try ending the running job(s) in the workspace, reducing the numbers of vCores requested, increasing the workspace quota or using another workspace.
+
+### Error code: 3251
+
+- **Message**: `There are not enough resources available in the pool, details: '%errorMessage;'`
+
+- **Cause**: Insufficient resources
+
+- **Recommendation**: Try ending the running job(s) in the pool, reducing the numbers of vCores requested, increasing the pool maximum size or using another pool.
+
+### Error code: 3252
+
+- **Message**: `There are not enough vcores available for your spark job, details: '%errorMessage;'`
+
+- **Cause**: Insufficient vcores
+
+- **Recommendation**: Try reducing the numbers of vCores requested or increasing your vCore quota. For more information, see [Apache Spark core concepts](../synapse-analytics/spark/apache-spark-concepts.md).
+
+### Error code: 3253
+
+- **Message**: `There are substantial concurrent MappingDataflow executions which is causing failures due to throttling under the Integration Runtime used for ActivityId: '%activityId;'.`
+
+- **Cause**: Throttling threshold was reached.
+
+- **Recommendation**: Retry the request after a wait period.
+
+### Error code: 3254
+
+- **Message**: `AzureSynapseArtifacts linked service has invalid value for property '%propertyName;'.`
+
+- **Cause**: Bad format or missing definition of property '%propertyName;'.
+
+- **Recommendation**: Check if the linked service has property '%propertyName;' defined with correct data.
 
 ## Common
 

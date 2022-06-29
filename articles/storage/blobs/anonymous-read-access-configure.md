@@ -241,7 +241,7 @@ When public access is disallowed for the storage account, a container's public a
 
 # [Azure CLI](#tab/azure-cli)
 
-To update the public access level for one or more containers with Azure CLI, call the [az storage container set permission](/cli/azure/storage/container#az_storage_container_set_permission) command. Authorize this operation by passing in your account key, a connection string, or a shared access signature (SAS). The [Set Container ACL](/rest/api/storageservices/set-container-acl) operation that sets the container's public access level does not support authorization with Azure AD. For more information, see [Permissions for calling blob and queue data operations](/rest/api/storageservices/authorize-with-azure-active-directory#permissions-for-calling-data-operations).
+To update the public access level for one or more containers with Azure CLI, call the [az storage container set permission](/cli/azure/storage/container#az-storage-container-set-permission) command. Authorize this operation by passing in your account key, a connection string, or a shared access signature (SAS). The [Set Container ACL](/rest/api/storageservices/set-container-acl) operation that sets the container's public access level does not support authorization with Azure AD. For more information, see [Permissions for calling blob and queue data operations](/rest/api/storageservices/authorize-with-azure-active-directory#permissions-for-calling-data-operations).
 
 The following example creates a container with public access disabled, and then updates the container's public access setting to permit anonymous access to the container and its blobs. Remember to replace the placeholder values in brackets with your own values:
 
@@ -300,14 +300,7 @@ Get-AzStorageContainer -Context $ctx | Select Name, PublicAccess
 
 ## Feature support
 
-This table shows how this feature is supported in your account and the impact on support when you enable certain capabilities.
-
-| Storage account type | Blob Storage (default support) | Data Lake Storage Gen2 <sup>1</sup> | NFS 3.0 <sup>1</sup> | SFTP <sup>1</sup> |
-|--|--|--|--|--|
-| Standard general-purpose v2 | ![Yes](../media/icons/yes-icon.png) |![Yes](../media/icons/yes-icon.png)              | ![Yes](../media/icons/yes-icon.png) |![Yes](../media/icons/yes-icon.png) |
-| Premium block blobs          | ![Yes](../media/icons/yes-icon.png)| ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |![Yes](../media/icons/yes-icon.png) |
-
-<sup>1</sup> Data Lake Storage Gen2, Network File System (NFS) 3.0 protocol, and SSH File Transfer Protocol (SFTP) support all require a storage account with a hierarchical namespace enabled.
+[!INCLUDE [Blob Storage feature support in Azure Storage accounts](../../../includes/azure-storage-feature-support.md)]
 
 ## Next steps
 

@@ -8,6 +8,7 @@ ms.author: osomorog
 ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
+ms.custom: event-tier1-build-2022
 ms.topic: how-to
 ms.date: 02/05/2021
 #Customer intent: As a data scientist, I want to use Git, install packages and add kernels to a compute instance in my workspace in Azure Machine Learning studio.
@@ -42,7 +43,7 @@ To access the terminal:
 
 In addition to the steps above, you can also access the terminal from:
 
-* RStudio: Select the **Terminal** tab on top left.
+* RStudio (See [Add RStudio]([Create and manage an Azure Machine Learning compute instance]): Select the **Terminal** tab on top left.
 * Jupyter Lab:  Select the **Terminal** tile under the **Other** heading in the Launcher tab.
 * Jupyter:  Select **New>Terminal** on top right in the Files tab.
 * SSH to the machine, if you enabled SSH access when the compute instance was created.
@@ -68,7 +69,7 @@ Learn more about [cloning Git repositories into your workspace file system](conc
 
 Or you can install packages directly in Jupyter Notebook or RStudio:
 
-* RStudio Use the **Packages** tab on the bottom right, or the **Console** tab on the top left.  
+* RStudio [Add RStudio]([Create and manage an Azure Machine Learning compute instance]: Use the **Packages** tab on the bottom right, or the **Console** tab on the top left.  
 * Python: Add install code and execute in a Jupyter Notebook cell.
 
 > [!NOTE]
@@ -107,4 +108,5 @@ Any of the [available Jupyter Kernels](https://github.com/jupyter/jupyter/wiki/J
 
  Select **View active sessions** in the terminal toolbar to see a list of all active terminal sessions. When there are no active sessions, this tab will be disabled.
 
-Close any unused sessions to preserve your compute instance's resources.
+> [!WARNING]
+>  Make sure you close any unused sessions to preserve your compute instance's resources. Idle terminals may impact performance of compute instances.

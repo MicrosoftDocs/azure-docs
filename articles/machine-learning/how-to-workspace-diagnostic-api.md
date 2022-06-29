@@ -10,7 +10,7 @@ author: jhirono
 ms.reviewer: larryfr
 ms.date: 11/18/2021
 ms.topic: how-to
-
+ms.custom: sdkv1, event-tier1-build-2022
 ---
 
 # How to use workspace diagnostics
@@ -34,6 +34,8 @@ After diagnostics run, a list of any detected problems is returned. This list in
 ## Diagnostics from Python
 
 The following snippet demonstrates how to use workspace diagnostics from Python
+
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
 
 ```python
 from azureml.core import Workspace

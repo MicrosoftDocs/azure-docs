@@ -62,8 +62,9 @@ sections:
       - question: |
           How do I add a user to the Administrators group?
         answer: |
-          Administrators groups is an immutable system group. Azure subscription administrators are members of this group. You cannot add a user to this group. See [How to create and use groups to manage developer accounts in Azure API Management](./api-management-howto-create-groups.md) for more information.
+          Administrators group is an immutable system group. Azure subscription administrators are members of this group. You can't add a user to this group. See [How to create and use groups to manage developer accounts in Azure API Management](./api-management-howto-create-groups.md) for more information. 
           
+          You can change the administrator [email settings](api-management-howto-configure-notifications.md#configure-email-settings) that are used in notifications sent to developers from your API Management instance.
       - question: |
           Why is the policy that I want to add unavailable in the policy editor?
         answer: |

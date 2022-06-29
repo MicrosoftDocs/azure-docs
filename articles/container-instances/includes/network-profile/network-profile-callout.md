@@ -1,8 +1,8 @@
 ---
-ms.author: mamccrea
+ms.author: tomcassidy
 ms.service: container-instances
 ms.topic: include
-ms.date: 12/14/2021
+ms.date: 06/17/2022
 ---
 
 > [!IMPORTANT]

@@ -37,8 +37,8 @@ Assessments you create with Azure Migrate are a point-in-time snapshot of data. 
 
 **Assessment type** | **Details** | **Data**
 --- | --- | ---
-**Performance-based** | Assessments that make recommendations based on collected performance data | The VM size recommendation is based on CPU and RAM-utilization data.<br/><br/> The disk-type recommendation is based on the input/output operations per second (IOPS) and throughput of the on-premises disks. Disk types are Azure Standard HDD, Azure Standard SSD, Azure Premium disks, and Azure Ultra disks.
-**As-is on-premises** | Assessments that don't use performance data to make recommendations | The VM size recommendation is based on the on-premises server size.<br/><br> The recommended disk type is based on the selected storage type for the assessment.
+**Performance-based** | Assessments that make recommendations based on collected performance data | The VM size recommendation is based on CPU and RAM-utilization data.<br><br> The disk-type recommendation is based on the input/output operations per second (IOPS) and throughput of the on-premises disks. Disk types are Azure Standard HDD, Azure Standard SSD, Azure Premium disks, and Azure Ultra disks.
+**As-is on-premises** | Assessments that don't use performance data to make recommendations | The VM size recommendation is based on the on-premises server size.<br><br> The recommended disk type is based on the selected storage type for the assessment.
 
 ## How do I run an assessment?
 
@@ -109,7 +109,7 @@ Calculations occur in these three stages:
 1. **Calculate sizing recommendations**: Estimate compute, storage, and network sizing.
 1. **Calculate monthly costs**: Calculate the estimated monthly compute and storage costs for running the servers in Azure after migration.
 
-Calculations are in the preceding order. A server server moves to a later stage only if it passes the previous one. For example, if a server fails the Azure readiness stage, it's marked as unsuitable for Azure. Sizing and cost calculations aren't done for that server.
+Calculations are in the preceding order. A server moves to a later stage only if it passes the previous one. For example, if a server fails the Azure readiness stage, it's marked as unsuitable for Azure. Sizing and cost calculations aren't done for that server.
 
 ## What's in an Azure VM assessment?
 
@@ -117,21 +117,21 @@ Here's what's included in an Azure VM assessment:
 
 **Property** | **Details**
 --- | ---
-**Target location** | The location to which you want to migrate. The assessment currently supports these target Azure regions:<br/><br/> Australia East, Australia Southeast, Brazil South, Canada Central, Canada East, Central India, Central US, China East, China North, East Asia, East US, East US 2, Germany Central, Germany Northeast, Japan East, Japan West, Korea Central, Korea South, North Central US, North Europe, South Central US, Southeast Asia, South India, UK South, UK West, US Gov Arizona, US Gov Texas, US Gov Virginia, West Central US, West Europe, West India, West US, and West US 2.
-**Target storage disk (as-is sizing)** | The type of disk to use for storage in Azure. <br/><br/> Specify the target storage disk as Premium-managed, Standard SSD-managed, Standard HDD-managed, or Ultra disk.
-**Target storage disk (performance-based sizing)** | Specifies the type of target storage disk as automatic, Premium-managed, Standard HDD-managed, Standard SSD-managed, or Ultra disk.<br/><br/> **Automatic**: The disk recommendation is based on the performance data of the disks, meaning the IOPS and throughput.<br/><br/>**Premium or Standard or Ultra disk**:  The assessment recommends a disk SKU within the storage type selected.<br/><br/> If you want a single-instance VM service-level agreement (SLA) of 99.9%, consider using Premium-managed disks. This use ensures that all disks in the assessment are recommended as Premium-managed disks.<br/><br/> If you are looking to run data-intensive workloads that need high throughput, high IOPS, and consistent low latency disk storage, consider using Ultra disks.<br/><br/> Azure Migrate supports only managed disks for migration assessment.
-**Azure Reserved VM Instances** | Specifies [reserved instances](https://azure.microsoft.com/pricing/reserved-vm-instances/) so that cost estimations in the assessment take them into account.<br/><br/> When you select 'Reserved instances', the 'Discount (%)' and 'VM uptime' properties are not applicable.<br/><br/> Azure Migrate currently supports Azure Reserved VM Instances only for pay-as-you-go offers.
-**Sizing criteria** | Used to rightsize the Azure VM.<br/><br/> Use as-is sizing or performance-based sizing.
+**Target location** | The location to which you want to migrate. The assessment currently supports these target Azure regions:<br><br> Australia Central, Australia Central 2, Australia East, Australia Southeast, Brazil South, Canada Central, Canada East, Central India, Central US, China East, China East 2,  China North, China North 2, East Asia, East US, East US 2, France Central, France South, Germany North, Germany West Central, Japan East, Japan West, Korea Central, Korea South, North Central US, North Europe, Norway East, Norway West, South Africa North, South Africa West, South Central US, Southeast Asia, South India, Switzerland North, Switzerland West, UAE Central, UAE North, UK South, UK West, West Central US, West Europe, West India, West US, West US 2, JioIndiaCentral, JioIndiaWest, US Gov Arizona, US Gov Iowa, US Gov Texas, US Gov Virginia.
+**Target storage disk (as-is sizing)** | The type of disk to use for storage in Azure. <br><br> Specify the target storage disk as Premium-managed, Standard SSD-managed, Standard HDD-managed, or Ultra disk.
+**Target storage disk (performance-based sizing)** | Specifies the type of target storage disk as automatic, Premium-managed, Standard HDD-managed, Standard SSD-managed, or Ultra disk.<br><br> **Automatic**: The disk recommendation is based on the performance data of the disks, meaning the IOPS and throughput.<br><br>**Premium or Standard or Ultra disk**:  The assessment recommends a disk SKU within the storage type selected.<br><br> If you want a single-instance VM service-level agreement (SLA) of 99.9%, consider using Premium-managed disks. This use ensures that all disks in the assessment are recommended as Premium-managed disks.<br><br> If you are looking to run data-intensive workloads that need high throughput, high IOPS, and consistent low latency disk storage, consider using Ultra disks.<br><br> Azure Migrate supports only managed disks for migration assessment.
+**Azure Reserved VM Instances** | Specifies [reserved instances](https://azure.microsoft.com/pricing/reserved-vm-instances/) so that cost estimations in the assessment take them into account.<br><br> When you select 'Reserved instances', the 'Discount (%)' and 'VM uptime' properties are not applicable.<br><br> Azure Migrate currently supports Azure Reserved VM Instances only for pay-as-you-go offers.
+**Sizing criteria** | Used to rightsize the Azure VM.<br><br> Use as-is sizing or performance-based sizing.
 **Performance history** | Used with performance-based sizing. Performance history specifies the duration used when performance data is evaluated.
 **Percentile utilization** | Used with performance-based sizing. Percentile utilization specifies the percentile value of the performance sample used for rightsizing.
 **VM series** | The Azure VM series that you want to consider for rightsizing. For example, if you don't have a production environment that needs A-series VMs in Azure, you can exclude A-series from the list of series.
-**Comfort factor** | The buffer used during assessment. It's applied to the CPU, RAM, disk, and network data for VMs. It accounts for issues like seasonal usage, short performance history, and likely increases in future usage.<br/><br/> For example, a 10-core VM with 20% utilization normally results in a two-core VM. With a comfort factor of 2.0, the result is a four-core VM instead.
+**Comfort factor** | The buffer used during assessment. It's applied to the CPU, RAM, disk, and network data for VMs. It accounts for issues like seasonal usage, short performance history, and likely increases in future usage.<br><br> For example, a 10-core VM with 20% utilization normally results in a two-core VM. With a comfort factor of 2.0, the result is a four-core VM instead.
 **Offer** | The [Azure offer](https://azure.microsoft.com/support/legal/offer-details/) in which you're enrolled. The assessment estimates the cost for that offer.
 **Currency** | The billing currency for your account.
 **Discount (%)** | Any subscription-specific discounts you receive on top of the Azure offer. The default setting is 0%.
-**VM uptime** | The duration in days per month and hours per day for Azure VMs that won't run continuously. Cost estimates are based on that duration.<br/><br/> The default values are 31 days per month and 24 hours per day.
+**VM uptime** | The duration in days per month and hours per day for Azure VMs that won't run continuously. Cost estimates are based on that duration.<br><br> The default values are 31 days per month and 24 hours per day.
 **Azure Hybrid Benefit** | Specifies whether you have software assurance and are eligible for [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-use-benefit/). If the setting has the default value "Yes," Azure prices for operating systems other than Windows are considered for Windows VMs.
-**EA subscription** | Specifies that an Enterprise Agreement (EA) subscription is used for cost estimation. Takes into account the discount applicable to the subscription. <br/><br/> Leave the settings for reserved instances, discount (%) and VM uptime properties with their default settings.
+**EA subscription** | Specifies that an Enterprise Agreement (EA) subscription is used for cost estimation. Takes into account the discount applicable to the subscription. <br><br> Leave the settings for reserved instances, discount (%) and VM uptime properties with their default settings.
 
 
 [Review the best practices](best-practices-assessment.md) for creating an assessment with Azure Migrate.
@@ -154,9 +154,9 @@ For an Azure VM Assessment, the assessment reviews the following properties of a
 Property | Details | Azure readiness status
 --- | --- | ---
 **Boot type** | Azure supports UEFI boot type for OS mentioned [here](./common-questions-server-migration.md#which-operating-systems-are-supported-for-migration-of-uefi-based-machines-to-azure)| Not ready if the boot type is UEFI and Operating System running on the VM is: Windows Server 2003/Windows Server 2003 R2/Windows Server 2008/Windows Server 2008 R2
-**Cores** | Each server must have no more than 128 cores, which is the maximum number an Azure VM supports.<br/><br/> If performance history is available, Azure Migrate considers the utilized cores for comparison. If the assessment settings specify a comfort factor, the number of utilized cores is multiplied by the comfort factor.<br/><br/> If there's no performance history, Azure Migrate uses the allocated cores to apply the comfort factor. | Ready if the number of cores is within the limit
-**RAM** | Each server must have no more than 3,892 GB of RAM, which is the maximum size an Azure M-series Standard_M128m&nbsp;<sup>2</sup> VM supports. [Learn more](../virtual-machines/sizes.md).<br/><br/> If performance history is available, Azure Migrate considers the utilized RAM for comparison. If a comfort factor is specified, the utilized RAM is multiplied by the comfort factor.<br/><br/> If there's no history, the allocated RAM is used to apply a comfort factor.<br/><br/> | Ready if the amount of RAM is within the limit
-**Storage disk** | The allocated size of a disk must be no more than 64 TB.<br/><br/> The number of disks attached to the server, including the OS disk, must be 65 or fewer. | Ready if the disk size and number are within the limits
+**Cores** | Each server must have no more than 128 cores, which is the maximum number an Azure VM supports.<br><br> If performance history is available, Azure Migrate considers the utilized cores for comparison. If the assessment settings specify a comfort factor, the number of utilized cores is multiplied by the comfort factor.<br><br> If there's no performance history, Azure Migrate uses the allocated cores to apply the comfort factor. | Ready if the number of cores is within the limit
+**RAM** | Each server must have no more than 3,892 GB of RAM, which is the maximum size an Azure M-series Standard_M128m&nbsp;<sup>2</sup> VM supports. [Learn more](../virtual-machines/sizes.md).<br><br> If performance history is available, Azure Migrate considers the utilized RAM for comparison. If a comfort factor is specified, the utilized RAM is multiplied by the comfort factor.<br><br> If there's no history, the allocated RAM is used to apply a comfort factor.<br><br> | Ready if the amount of RAM is within the limit
+**Storage disk** | The allocated size of a disk must be no more than 64 TB.<br><br> The number of disks attached to the server, including the OS disk, must be 65 or fewer. | Ready if the disk size and number are within the limits
 **Networking** | A server must have no more than 32 network interfaces (NICs) attached to it. | Ready if the number of NICs is within the limit
 
 ### Guest operating system
@@ -181,7 +181,7 @@ Windows 2000, Windows 98, Windows 95, Windows NT, Windows 3.1, and MS-DOS | Thes
 Windows 7, Windows 8, and Windows 10 | Azure provides support with a [Visual Studio subscription only.](../virtual-machines/windows/client-images.md) | Conditionally ready for Azure.
 Windows 10 Pro | Azure provides support with [Multitenant Hosting Rights.](../virtual-machines/windows/windows-desktop-multitenant-hosting-deployment.md) | Conditionally ready for Azure.
 Windows Vista and Windows XP Professional | These operating systems have passed their end-of-support dates. The server might start in Azure, but Azure provides no OS support. | Conditionally ready for Azure. We recommend that you upgrade the OS before migrating to Azure.
-Linux | See the [Linux operating systems](../virtual-machines/linux/endorsed-distros.md) that Azure endorses. Other Linux operating systems might start in Azure. But we recommend that you upgrade the OS to an endorsed version before you migrate to Azure. | Ready for Azure if the version is endorsed.<br/><br/>Conditionally ready if the version isn't endorsed.
+Linux | See the [Linux operating systems](../virtual-machines/linux/endorsed-distros.md) that Azure endorses. Other Linux operating systems might start in Azure. But we recommend that you upgrade the OS to an endorsed version before you migrate to Azure. | Ready for Azure if the version is endorsed.<br><br>Conditionally ready if the version isn't endorsed.
 Other operating systems like Oracle Solaris, Apple macOS, and FreeBSD | Azure doesn't endorse these operating systems. The server might start in Azure, but Azure provides no OS support. | Conditionally ready for Azure. We recommend that you install a supported OS before migrating to Azure.  
 OS specified as **Other** in vCenter Server | Azure Migrate can't identify the OS in this case. | Unknown readiness. Ensure that Azure supports the OS running inside the VM.
 32-bit operating systems | The server might start in Azure, but Azure might not provide full support. | Conditionally ready for Azure. Consider upgrading to a 64-bit OS before migrating to Azure.
@@ -205,7 +205,7 @@ If you use performance-based sizing in an Azure VM assessment, the assessment ma
 - The assessment considers the performance history of the server to identify the VM size and disk type in Azure.
 
 > [!NOTE] 
-> If you import serves by using a CSV file, the performance values you specify (CPU utilization, Memory utilization, Disk IOPS and throughput) are used if you choose performance-based sizing. You will not be able to provide performance history and percentile information.
+> If you import servers by using a CSV file, the performance values you specify (CPU utilization, Memory utilization, Disk IOPS and throughput) are used if you choose performance-based sizing. You will not be able to provide performance history and percentile information.
 
 - This method is especially helpful if you've overallocated the on-premises server, utilization is low, and you want to rightsize the Azure VM to save costs.
 - If you don't want to use the performance data, reset the sizing criteria to as-is on-premises, as described in the previous section.
@@ -291,7 +291,7 @@ Here are a few reasons why an assessment could get a low confidence rating:
 - Assessment is not able to collect the performance data for some or all the servers in the assessment period. For a high confidence rating, please ensure that: 
     - Servers are powered on for the duration of the assessment
     - Outbound connections on ports 443 are allowed
-    - For Hyper-V servers dynamic memory is enabled 
+    - For Hyper-V servers, dynamic memory is enabled 
     
     Please 'Recalculate' the assessment to reflect the latest changes in confidence rating.
 

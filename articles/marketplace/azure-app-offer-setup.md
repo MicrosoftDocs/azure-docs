@@ -7,7 +7,7 @@ ms.reviewer: dannyevers
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-ms.date: 12/03/2021
+ms.date: 06/29/2022
 ---
 
 # Create an Azure application offer
@@ -39,6 +39,11 @@ If you haven’t already done so, read [Plan an Azure application offer for the 
      * This name is only visible in Partner Center and it’s different from the offer name and other values shown to customers.
      * The Offer alias can't be changed after you select **Create**.
 
+1. Associate the new offer with a _publisher_. A publisher represents an account for your organization. You may have a need to create the offer under a particular publisher. If you don’t, you can simply accept the publisher account you’re signed in to.
+
+    > [!NOTE]
+    > The selected publisher must be enrolled in the [**Commercial Marketplace program**](marketplace-faq-publisher-guide.yml#how-do-i-sign-up-to-be-a-publisher-in-the-microsoft-commercial-marketplace-) and cannot be modified after the offer is created.
+
 1. To generate the offer and continue, select  **Create**.
 
 ## Configure your Azure application offer setup details
@@ -55,7 +60,12 @@ A test drive is a great way to showcase your offer to potential customers by giv
 
 ### Customer lead management
 
-Connect your customer relationship management (CRM) system with your commercial marketplace offer so you can receive customer contact information when a customer expresses interest or deploys your product.
+When a customer expresses interest or deploys your product, you’ll receive a lead in the [Referrals workspace](https://partner.microsoft.com/dashboard/referrals/v2/leads) in Partner Center.
+
+You can also connect the product to your customer relationship management (CRM) system to handle leads there.
+
+> [!NOTE]
+> Connecting to a CRM system is optional.
 
 #### To configure the connection details in Partner Center
 

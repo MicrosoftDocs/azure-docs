@@ -8,7 +8,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 03/03/2022
+ms.date: 03/30/2022
 ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: b2c-support
@@ -40,7 +40,7 @@ A [registered application](tutorial-register-applications.md) receives tokens an
 - `https://<tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/<policy-name>/oauth2/v2.0/token`
 
 Security tokens that your application receives from Azure AD B2C can come from the `/authorize` or `/token` endpoints. When ID tokens are acquired from the:
--  `/authorize` endpoint, it's done using the [implicit flow](implicit-flow-single-page-application.md), which is often used for users signing in to JavaScript-based web applications. 
+-  `/authorize` endpoint, it's done using the [implicit flow](implicit-flow-single-page-application.md), which is often used for users signing in to JavaScript-based web applications. However, if your app uses [MSAL.js 2.0 or later](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-browser), don't enable implicit flow grant in your app registration as MSAL.js 2.0+ supports the authorization code flow with PKCE.
 -  `/token` endpoint, it's done using the [authorization code flow](openid-connect.md#get-a-token), which keeps the token hidden from the browser.
 
 ## Claims

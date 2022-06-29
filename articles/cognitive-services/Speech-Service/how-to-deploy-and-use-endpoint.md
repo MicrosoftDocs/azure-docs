@@ -66,6 +66,13 @@ To copy your custom neural voice model to another project:
 1. Select **View model** under the notification message for copy success. 
 1. On the **Train model** tab, select the newly copied model and then select **Deploy model**.
 
+## Switch to a new voice model in your product
+
+Once you've updated your voice model to the latest engine version, or if you want to switch to a new voice in your product, you need to redeploy the new voice model to a new endpoint. Redeploying new voice model on your existing endpoint is not supported. After deployment, switch the traffic to the newly created endpoint. We recommend that you transfer the traffic to the new endpoint in a test environment first to ensure that the traffic works well, and then transfer to the new endpoint in the production environment. During the transition, you need to keep the old endpoint. If there are some problems with the new endpoint during transition, you can switch back to your old endpoint. If the traffic has been running well on the new endpoint for about 24 hours (recommended value), you can delete your old endpoint. 
+
+> [!NOTE]
+> If your voice name is changed and you are using Speech Synthesis Markup Language (SSML), be sure to use the new voice name in SSML.
+
 ## Suspend and resume an endpoint
 
 You can suspend or resume an endpoint, to limit spend and conserve resources that aren't in use. You won't be charged while the endpoint is suspended. When you resume an endpoint, you can use the same endpoint URL in your application to synthesize speech. 
@@ -275,7 +282,7 @@ The HTTP status code for each response indicates success or common errors.
 | 200              | OK                | The request was successful.                                                                                                                                               |
 | 202              | Accepted          | The request has been accepted and is being processed.                                                                                  |
 | 400              | Bad Request       | The value of a parameter is invalid, or a required parameter is missing, empty, or null. One common issue is a header that is too long. |
-| 401              | Unauthorized      | The request isn't authorized. Check to make sure your subscription key or [token](rest-speech-to-text.md#authentication) is valid and in the correct region.                                                      |
+| 401              | Unauthorized      | The request isn't authorized. Check to make sure your subscription key or [token](rest-speech-to-text-short.md#authentication) is valid and in the correct region.                                                      |
 | 429              | Too Many Requests | You've exceeded the quota or rate of requests allowed for your subscription.                                                                                            |
 | 502              | Bad Gateway       | Network or server-side issue. May also indicate invalid headers.                                                                                                          |
 

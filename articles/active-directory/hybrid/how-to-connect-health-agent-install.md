@@ -11,7 +11,7 @@ ms.service: active-directory
 ms.subservice: hybrid
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.date: 01/21/2022
+ms.date: 04/27/2022
 ms.topic: how-to
 ms.author: billmath
 ms.collection: M365-identity-device-management 
@@ -20,6 +20,9 @@ ms.custom: devx-track-azurepowershell
 # Azure AD Connect Health agent installation
 
 In this article, you'll learn how to install and configure the Azure Active Directory (Azure AD) Connect Health agents. To download the agents, see [these instructions](how-to-connect-install-roadmap.md#download-and-install-azure-ad-connect-health-agent).
+
+> [!NOTE]
+> Azure AD Connect Health is not available in the China sovereign cloud
 
 ## Requirements
 

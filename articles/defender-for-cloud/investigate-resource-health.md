@@ -6,8 +6,6 @@ ms.date: 11/09/2021
 ---
 # Tutorial: Investigate the health of your resources
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
 > [!NOTE]
 > The resource health page described in this tutorial is a preview release.
 
