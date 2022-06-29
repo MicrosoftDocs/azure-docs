@@ -59,7 +59,7 @@ sections:
           If you see your leads in the Referrals workspace in Partner Center, but not in your CRM system, you can try the following:
           - Make sure your connection to the lead destination is valid. We'll send you a test lead after you select **Publish** on your offer in Partner Center. If you see the test lead, the connection is valid.
           - Test your lead connection by trying to acquire the offer preview during the preview step. Select **Get It Now**, **Contact Me**, or **Free Trial** on the listing in the commercial marketplace.
-          - Make sure you're looking for the right data. See [Understand lead data](./partner-center-portal/commercial-marketplace-get-customer-leads) for an explanation of the lead data we send to your lead destination.
+          - Make sure you're looking for the right data. See [Understand lead data](./partner-center-portal/commercial-marketplace-get-customer-leads.md) for an explanation of the lead data we send to your lead destination.
 
           > [!NOTE]
           > If an issue with your CRM configuration or system caused loss of leads, you can export them from the 
