@@ -122,6 +122,7 @@ Java 3.x includes the following instrumentation libraries.
 * JMS consumers
 * Kafka consumers
 * Netty/WebFlux
+* Quartz
 * Servlets
 * Spring scheduling
 
