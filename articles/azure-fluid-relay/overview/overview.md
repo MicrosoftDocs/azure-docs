@@ -53,8 +53,3 @@ The following steps are a typical flow.
 1. Fluid runtime incorporates that operation into local data and raises a "valueChanged" event.
 1. Client code handles that event (updates view, runs business logic).
 
-## Getting to version 1.0
-
-The core technology powering Fluid Framework is mature and stable. However, the layers built on top of that foundation are still a work in progress. Over the coming months we will be evolving APIs, adding new features, and working to further simplify using the framework. These changes are driven by Microsoft's use of Fluid internally and by requirements we are gathering from developers currently building on Fluid.
-
-Fluid Framework is not ready to power production-quality solutions yet. But we are excited to open source it now to give developers an opportunity to explore, learn, and contribute both through feedback and through direct participation.
