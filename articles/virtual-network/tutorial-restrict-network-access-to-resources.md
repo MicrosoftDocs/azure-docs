@@ -59,7 +59,7 @@ Sign in to the [Azure portal](https://portal.azure.com).
    | Name | Enter *myVirtualNetwork*. |
    | Region | Select **East US** |
 
-    :::image type="content" source="./media/tutorial-restrict-network- access-to-resources/create-virtual-network.png" alt-text="Screenshot of basics tab for create a virtual network.":::  
+    :::image type="content" source="./media/tutorial-restrict-network-access-to-resources/create-virtual-network.png" alt-text="Screenshot of basics tab for create a virtual network.":::  
 
 1. On the **IP Addresses** tab, select the following IP address settings and then select **Review + create**.
    
