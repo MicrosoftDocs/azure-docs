@@ -20,12 +20,7 @@ There are two primary client-side components that may throw error codes: the Dev
 
 The Device Update for IoT Hub Core PnP interface reports `ResultCode` and `ExtendedResultCode`, which can be used to diagnose failures. [Learn More](device-update-plug-and-play.md) about the Device Update Core PnP interface.
 
-#### ResultCode
 `ResultCode` is a general status code and `ExtendedResultCode` is an integer with encoded error information.
-
-#### ExtendedResultCode
-
-`ExtendedResultCode` is an integer with encoded error information.
 
 You'll most likely see the `ExtendedResultCode` as a signed integer in the PnP interface. To decode the `ExtendedResultCode`, convert the signed integer to
 unsigned hex. Only the first 4 bytes of the `ExtendedResultCode` are used and are of the form `F` `FFFFFFF` where the first nibble is the **Facility Code** and
