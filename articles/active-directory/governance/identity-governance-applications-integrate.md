@@ -90,6 +90,7 @@ If this is a new application your organization hasn't used before, and therefore
 However, if the application already existed in your environment, then it's possible that users may have gotten access in the past through manual or out-of-band processes, and those users should now be reviewed to have confirmation that their access is still needed and appropriate going forward. We recommend performing an access review of the users who already have access to the application, before enabling policies for more users to be able to request access. This review will set a baseline of all users having been reviewed at least once, to ensure that those users are authorized for continued access.
 
 1. Follow the steps in [Preparing for an access review of users' access to an application](access-reviews-application-preparation.md).
+1. Bring in any [existing users and create application role assignments](identity-governance-applications-existing-users.md) for them.
 1. If the application wasn't integrated for provisioning, then once the review is complete, you may need to manually update the application's internal database or directory to remove those users who were denied.
 1. Once the review has been completed and the application access updated, or if no users have access, then continue on to the next steps to deploy conditional access and entitlement management policies for the application.
 

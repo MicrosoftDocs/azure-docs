@@ -59,7 +59,12 @@ For VM offers, Azure Resource Manager (ARM) deployment is the only test drive op
 
 To enable a test drive, select the **Enable a test drive** check box; this will enable a Test drive tab in the left-nav menu. You will configure and create the listing of your test drive using that tab later in [Configure a VM test drive](azure-vm-test-drive.md).
 
-With test drive, configuring a CRM for customer leads is required (see next section). To remove test drive from your offer, clear this check box.
+When a customer activates a test drive, you’ll receive a lead in the [Referrals workspace](https://partner.microsoft.com/dashboard/referrals/v2/leads) in Partner Center.
+
+You can also connect the offer to your customer relationship management (CRM) system to manage leads there.
+
+> [!NOTE]
+> Connecting to a CRM system is optional.
 
 ## Customer leads
 
