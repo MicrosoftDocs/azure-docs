@@ -14,7 +14,7 @@ When an application makes a request to Azure Storage, it must be authorized. Man
 
 Azure Storage also provides the option to use Connection Strings, which offer a simple solution but should be used with caution. Managed Identity provides improved management and security benefits over connection strings. Both options are outlined in the following example.
 
-### [Managed Identity](#tab/managed-identity)
+## [Managed Identity](#tab/managed-identity)
 
 ### Enable Managed Identity on the application
 
@@ -76,7 +76,7 @@ When the above code is run on your local workstation during development, it will
 
 When deployed to Azure this same code can also authenticate your app to other Azure resources. DefaultAzureCredential can retrieve environment settings and the managed identity configurations you setup earlier to authenticate to other services automatically.
 
-### [Connection String](#tab/connection-string)
+## [Connection String](#tab/connection-string)
 
 ### Retrieve your credentials from the Azure portal
 
@@ -95,13 +95,13 @@ When deployed to Azure this same code can also authenticate your app to other Az
 
 After you copy the connection string, write it to a new environment variable on the local machine running the application. To set the environment variable, open a console window, and follow the instructions for your operating system. Replace `<yourconnectionstring>` with your actual connection string.
 
-### [Windows](#tab/environment-variable-windows)
+### [Windows](#tab/connection-string/environment-variable-windows)
 
 ```cmd
 setx AZURE_STORAGE_CONNECTION_STRING "<yourconnectionstring>"
 ```
 
-### [Linux and macOS](#tab/environment-variable-linux)
+### [Linux and macOS](#tab/connection-string/environment-variable-linux)
 
 ```bash
 export AZURE_STORAGE_CONNECTION_STRING="<yourconnectionstring>"
