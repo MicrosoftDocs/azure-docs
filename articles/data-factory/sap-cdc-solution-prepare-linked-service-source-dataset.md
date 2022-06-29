@@ -10,15 +10,15 @@ ms.date: 06/01/2022
 ms.author: sawinark
 ---
 
-# Prepare the SAP CDC linked service and source dataset for the SAP CDC solution in Azure Data Factory (Preview)
+# Prepare the SAP ODP linked service and source dataset for the SAP CDC solution in Azure Data Factory (Preview)
 
 [!INCLUDEappliesto-adf-asa-md]
 
 This topic introduces and describes preparation of the linked service and source dataset for SAP change data capture (Preview) in Azure Data Factory.
 
-## Prepare the SAP CDC linked service
+## Prepare the SAP ODP linked service
 
-To prepare SAP CDC linked service, complete the following steps:
+To prepare SAP ODP linked service, complete the following steps:
 
 1.	On ADF Studio, go to the **Linked services** section of **Manage** hub and select the **New** button to create a new linked service.
 
@@ -28,18 +28,18 @@ To prepare SAP CDC linked service, complete the following steps:
 
     :::image type="content" source="media/sap-cdc-solution/sap-cdc-linked-service-selection.png" alt-text="Shows a screenshot of the linked service source selection with SAP CDC (Preview) selected.":::
 
-1.	Set SAP CDC linked service properties, many of them are similar to SAP Table linked service properties, see [Linked service properties](connector-sap-table.md?tabs=data-factory#linked-service-properties).
+1.	Set SAP ODP linked service properties, many of them are similar to SAP Table linked service properties, see [Linked service properties](connector-sap-table.md?tabs=data-factory#linked-service-properties).
     1.	For the **Connect via integration runtime** property, select your SHIR.
     1.	For the **Server name** property, enter the mapped server name for your SAP system.
     1.	For the **Subscriber name** property, enter a unique name to register and identify this ADF connection as a subscriber that consumes data packages produced in ODQ by your SAP system.  For example, you can name it <_your ADF name_>_<_your linked service name_>.
 
-    :::image type="content" source="media/sap-cdc-solution/sap-cdc-linked-service-configuration.png" alt-text="Shows a screenshot of the SAP CDC linked service configuration.":::
+    :::image type="content" source="media/sap-cdc-solution/sap-cdc-linked-service-configuration.png" alt-text="Shows a screenshot of the SAP ODP linked service configuration.":::
 
-1.	Test the connection and create your new SAP CDC linked service.
+1.	Test the connection and create your new SAP ODP linked service.
 
-## Prepare the SAP CDC source dataset
+## Prepare the SAP ODP source dataset
 
-To prepare ADF copy activity w/ SAP CDC data source, complete the following steps:
+To prepare an ADF copy activity with an SAP ODP data source, complete the following steps:
 
 1.	On ADF Studio, go to the **Pipeline** section of the **Author** hub, select the **…** button to drop down the **Pipeline Actions** menu, and select the **New pipeline** item.
 1.	Drag & drop the **Copy data** activity onto the canvas of new pipeline, go to the **Source** tab of ADF copy activity, and select the **New** button to create a new source dataset.
@@ -50,7 +50,7 @@ To prepare ADF copy activity w/ SAP CDC data source, complete the following step
 
     :::image type="content" source="media/sap-cdc-solution/sap-cdc-source-dataset-selection.png" alt-text="Shows a screenshot of the SAP CDC (Preview) dataset type on the New dataset dialog.":::
 
-1.	Select your new SAP CDC linked service for the new source dataset and set the rest of its properties.
+1.	Select your new SAP ODP linked service for the new source dataset and set the rest of its properties.
     1.	For the **Connect via integration runtime** property, select your SHIR.
     1.	For the **Context** property, select the context of data extraction via ODP, such as: 
         1.	_ABAP_CDS_ for extracting ABAP CDS views from S/4HANA
@@ -64,7 +64,7 @@ To prepare ADF copy activity w/ SAP CDC data source, complete the following step
     
     :::image type="content" source="media/sap-cdc-solution/sap-cdc-source-dataset-configuration.png" alt-text="Shows a screenshot of the SAP CDC (Preview) dataset configuration page.":::
 
-1.	Select the **OK** button to create your new SAP CDC source dataset.
+1.	Select the **OK** button to create your new SAP ODP source dataset.
 1.	For the **Extraction** mode property of ADF copy activity, select one of the following modes:
     1.	_Full_ for always extracting the current snapshot of selected data source object w/o registering ADF copy activity as its “delta” subscriber that consumes data changes produced in ODQ by your SAP system
     1.	_Delta_ for initially extracting the current snapshot of selected data source object, registering ADF copy activity as its “delta” subscriber, and subsequently extracting new data changes produced in ODQ by your SAP system since the last extraction
@@ -129,7 +129,7 @@ To prepare ADF copy activity w/ SAP CDC data source, complete the following step
 
      :::image type="content" source="media/sap-cdc-solution/sap-cdc-copy-code-2.png" alt-text="Shows a screenshot of the code configuration for a pipeline with the deltaExtensionNoData property highlighted.":::    
 
-1.	Select the **Save all** and **Debug** buttons to run your new pipeline containing ADF copy activity w/ SAP CDC source dataset.
+1.	Select the **Save all** and **Debug** buttons to run your new pipeline containing ADF copy activity w/ SAP ODP source dataset.
 
 To illustrate the results of full and delta extractions from consecutively running your new pipeline, let’s use the following simple/small custom table in SAP ECC as an example of data source object to extract.
 

@@ -16,7 +16,7 @@ ms.author: sawinark
 
 This topic introduces and describes preparation of the self-hosted integration runtime (SHIR) for SAP change data capture (Preview) in Azure Data Factory.
 
-To prepare SHIR w/ SAP CDC connector, complete the following steps:
+To prepare SHIR w/ SAP ODP connector, complete the following steps:
 
 ## Create and configure SHIR
 
@@ -61,4 +61,4 @@ On your SHIR machine, edit _C:\Windows\System32\drivers\etc\hosts_ to add mappin
 
 ## Next steps
 
-[Prepare the SAP CDC linked service and source dataset](sap-cdc-solution-prepare-linked-service-source-dataset.md).
+[Prepare the SAP ODP linked service and source dataset](sap-cdc-solution-prepare-linked-service-source-dataset.md).

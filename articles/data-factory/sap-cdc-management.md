@@ -46,11 +46,11 @@ To monitor data extractions on SAP systems, complete the following steps:
 
     :::image type="content" source="media/sap-cdc-solution/sap-cdc-logon-tool.png" alt-text="Shows a screenshot of the SAP Logon Tool.":::
 
-1.	Enter the value for the **Subscriber name** property of your SAP CDC linked service in the **Subscriber** input field and select _All_ in the **Request Selection** dropdown menu to show all data extractions using that linked service.
+1.	Enter the value for the **Subscriber name** property of your SAP ODP linked service in the **Subscriber** input field and select _All_ in the **Request Selection** dropdown menu to show all data extractions using that linked service.
 
     :::image type="content" source="media/sap-cdc-solution/sap-cdc-monitor-delta-queues.png" alt-text="Shows a screenshot of the SAP ODQMON tool with all data extractions for a particular subscriber.":::
 
-1.	You can now see all registered subscriber processes in ODQ representing data extractions from ADF copy activities that use your SAP CDC linked service.  On each ODQ subscription, you can drill down to see individual full/delta extractions.  On each extraction, you can drill down to see individual data packages that were consumed.
+1.	You can now see all registered subscriber processes in ODQ representing data extractions from ADF copy activities that use your SAP ODP linked service.  On each ODQ subscription, you can drill down to see individual full/delta extractions.  On each extraction, you can drill down to see individual data packages that were consumed.
 
 1.	When ADF copy activities that extract SAP data are no longer needed, their ODQ subscriptions should be deleted, so SAP systems can stop tracking their subscription states and remove the unconsumed data packages from ODQ.  To do so, select the unneeded ODQ subscriptions and delete them.
 

@@ -35,7 +35,7 @@ To auto-generate ADF pipeline from SAP data partitioning template, complete the 
  
 1.	Create SAP CDC and ADLS Gen2 linked services, if you haven’t done so already, and use them as inputs to SAP data partitioning template.  
 
-    For the **Connect via integration runtime** property of SAP CDC linked service, select your SHIR.  For the **Connect via integration runtime** property of ADLS Gen2 linked service, select _AutoResolveIntegrationRuntime_.
+    For the **Connect via integration runtime** property of SAP ODP linked service, select your SHIR.  For the **Connect via integration runtime** property of ADLS Gen2 linked service, select _AutoResolveIntegrationRuntime_.
 
     :::image type="content" source="media/sap-cdc-solution/sap-cdc-template-configuration.png" alt-text="Shows a screenshot of the SAP data partitioning template configuration page with the Inputs section highlighted.":::
 

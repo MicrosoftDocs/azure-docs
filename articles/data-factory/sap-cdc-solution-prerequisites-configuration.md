@@ -22,9 +22,9 @@ To preview our new SAP CDC solution in ADF you can/should:
 
 1. Configure SAP systems for Operational Data Provisioning (ODP) framework
 1. Be already familiar w/ ADF concepts, such as integration runtimes, linked services, datasets, activities, data flows, pipelines, templates, and triggers
-1. Prepare SHIR w/ SAP CDC connector
-1. Prepare SAP CDC linked service
-1. Prepare ADF copy activity w/ SAP CDC source dataset
+1. Prepare SHIR w/ SAP ODP connector
+1. Prepare SAP ODP linked service
+1. Prepare ADF copy activity w/ SAP ODP source dataset
 1. Debug ADF copy activity issues by sending SHIR logs
 1. Auto-generate ADF pipeline from SAP data partitioning template
 1. Auto-generate ADF pipeline from SAP data replication template
@@ -91,4 +91,4 @@ To validate your SAP system configurations for ODP, you can run RODPS_REPL_TEST 
 
 ## Next steps
 
-[Prepare the SHIR with the SAP CDC connector](sap-cdc-solution-shir-preparation.md).
+[Prepare the SHIR with the SAP ODP connector](sap-cdc-solution-shir-preparation.md).

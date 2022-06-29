@@ -31,7 +31,7 @@ This topic describes how to use the SAP data replication template for SAP change
 
 1.	Create SAP CDC, ADLS Gen2, and Azure Synapse Analytics linked services, if you haven’t done so already, and use them as inputs to SAP data replication template.  
 
-    For the **Connect via integration runtime** property of the SAP CDC linked service, select your SHIR.  For the **Connect via integration runtime** property of ADLS Gen2/Azure Synapse Analytics linked services, select _AutoResolveIntegrationRuntime_.
+    For the **Connect via integration runtime** property of the SAP ODP linked service, select your SHIR.  For the **Connect via integration runtime** property of ADLS Gen2/Azure Synapse Analytics linked services, select _AutoResolveIntegrationRuntime_.
 
     :::image type="content" source="media/sap-cdc-solution/sap-cdc-data-replication-template-configuration.png" alt-text="Shows a screenshot of the configuration page for the SAP data replication template.":::
 
