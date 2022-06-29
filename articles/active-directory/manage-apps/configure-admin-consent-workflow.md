@@ -8,9 +8,8 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: how-to
-ms.date: 05/27/2022
+ms.date: 06/10/2022
 ms.author: ergreenl
-ms.reviewer: davidmu
 ms.collection: M365-identity-device-management
 ms.custom: contperf-fy22q2
 #customer intent: As an admin, I want to configure the admin consent workflow.

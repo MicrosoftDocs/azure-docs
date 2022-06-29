@@ -5,7 +5,7 @@ author:  karlerickson
 ms.author: karler
 ms.service: spring-cloud
 ms.topic: how-to
-ms.date: 08/31/2021
+ms.date: 06/07/2022
 ms.custom: devx-track-java, devx-track-azurecli, event-tier1-build-2022
 ms.devlang: azurecli
 ---
@@ -50,7 +50,7 @@ The following sections describe how to activate Dynatrace OneAgent.
        --resource-group <your-resource-group-name> \
        --service <your-Azure-Spring-Apps-name> \
        --name <your-application-name> \
-       --is-public true 
+       --is-public true
    ```
 
 ### Determine the values for the required environment variables
@@ -97,7 +97,7 @@ To add the key/value pairs using the Azure portal, use the following steps:
 
 ## Automate provisioning
 
-Using Terraform or an Azure Resource Manager template (ARM template), you can also run a provisioning automation pipeline. This pipeline can provide a complete hands-off experience to instrument and monitor any new applications that you create and deploy.
+Using Terraform, Bicep, or Azure Resource Manager template (ARM template), you can also run a provisioning automation pipeline. This pipeline can provide a complete hands-off experience to instrument and monitor any new applications that you create and deploy.
 
 ### Automate provisioning using Terraform
 
@@ -112,11 +112,24 @@ environment_variables = {
 }
 ```
 
+### Automate provisioning using an Bicep file
+
+To configure the environment variables in a Bicep file, add the following code to the file, replacing the *\<...>* placeholders with your own values. For more information, see [Microsoft.AppPlatform Spring/apps/deployments](/azure/templates/microsoft.appplatform/spring/apps/deployments?tabs=bicep).
+
+```bicep
+environmentVariables: {
+  DT_TENANT: '<your-environment-ID>'
+  DT_TENANTTOKEN: '<your-tenant-token>'
+  DT_CONNECTION_POINT: '<your-communication-endpoint>'
+  DT_CLUSTER_ID: '<your-cluster-ID>'
+}
+```
+
 ### Automate provisioning using an ARM template
 
 To configure the environment variables in an ARM template, add the following code to the template, replacing the *\<...>* placeholders with your own values. For more information, see [Microsoft.AppPlatform Spring/apps/deployments](/azure/templates/microsoft.appplatform/spring/apps/deployments?tabs=json).
 
-```ARM template
+```json
 "environmentVariables": {
   "DT_TENANT": "<your-environment-ID>",
   "DT_TENANTTOKEN": "<your-tenant-token>",

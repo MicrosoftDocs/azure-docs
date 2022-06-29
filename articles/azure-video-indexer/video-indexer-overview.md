@@ -2,7 +2,7 @@
 title: What is Azure Video Indexer?
 description: This article gives an overview of the Azure Video Indexer service.
 ms.topic: overview
-ms.date: 02/15/2022
+ms.date: 06/09/2022
 ms.author: juliako
 ---
 
@@ -15,14 +15,12 @@ ms.author: juliako
 
 Azure Video Indexer is a cloud application, part of Azure Applied AI Services, built on Azure Media Services and Azure Cognitive Services (such as the Face, Translator, Computer Vision, and Speech). It enables you to extract the insights from your videos using Azure Video Indexer video and audio models.
 
-To start extracting insights with Azure Video Indexer, you need to create an account and upload videos. When you upload your videos to Azure Video Indexer, it analyses both visuals and audio by running different AI models. As Azure Video Indexer analyzes your video, the insights that are extracted by the AI models.
-
-When you create an Azure Video Indexer account and connect it to Media Services, the media and metadata files are stored in the Azure storage account associated with that Media Services account. For more information, see [Create an Azure Video Indexer account connected to Azure](connect-to-azure.md).
-
-The following diagram is an illustration and not a technical explanation of how Azure Video Indexer works in the backend.
+Azure Video Indexer analyzes the video and audio content by running 30+ AI models, generating rich insights. Below is an illustration of the audio and video analysis performed by Azure Video Indexer in the background.
 
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/video-indexer-overview/model-chart.png" alt-text="Azure Video Indexer flow diagram":::
+
+To start extracting insights with Azure Video Indexer, you need to [create an account](connect-to-azure.md) and upload videos, see the [how can i get started](#how-can-i-get-started-with-azure-video-indexer) section below.
 
 ## Compliance, Privacy and Security
 
@@ -37,7 +35,7 @@ To learn about compliance, privacy and security in Azure Video Indexer please vi
 Azure Video Indexer's insights can be applied to many scenarios, among them are:
 
 * *Deep search*: Use the insights extracted from the video to enhance the search experience across a video library. For example, indexing spoken words and faces can enable the search experience of finding moments in a video where a person spoke certain words or when two people were seen together. Search based on such insights from videos is applicable to news agencies, educational institutes, broadcasters, entertainment content owners, enterprise LOB apps, and in general to any industry that has a video library that users need to search against.
-* *Content creation*: Create trailers, highlight reels, social media content, or news clips based on the insights Azure Video Indexer extracts from your content. Keyframes, scenes markers, and timestamps for the people and label appearances make the creation process much smoother and easier, and allows you to get to the parts of the video you need for the content you're creating.
+* *Content creation*: Create trailers, highlight reels, social media content, or news clips based on the insights Azure Video Indexer extracts from your content. Keyframes, scenes markers, and timestamps of the people and label appearances make the creation process smoother and easier, enabling you to easily get to the parts of the video you need when creating content.
 * *Accessibility*: Whether you want to make your content available for people with disabilities or if you want your content to be distributed to different regions using different languages, you can use the transcription and  translation provided by Azure Video Indexer in multiple languages.
 * *Monetization*: Azure Video Indexer can help increase the value of videos. For example, industries that rely on ad revenue (news media, social media, and so on) can deliver relevant ads by using the extracted insights as additional signals to the ad server.
 * *Content moderation*: Use textual and visual content moderation models to keep your users safe from inappropriate content and validate that the content you publish matches your organization's values. You can automatically block certain videos or alert your users about the content.

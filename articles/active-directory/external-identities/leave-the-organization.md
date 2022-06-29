@@ -15,6 +15,7 @@ manager: celestedg
 ms.reviewer: mal
 
 ms.collection: M365-identity-device-management
+adobe-target: true
 ---
 
 # Leave an organization as a B2B collaboration user

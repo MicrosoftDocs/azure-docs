@@ -236,11 +236,11 @@ Teradata recommends collecting statistics as follows:
 
 - Collect statistics on unpopulated tables to set up the interval histogram used in internal processing. This initial collection makes subsequent statistics collections faster. Make sure to recollect statistics after data is added.
 
-- Prototype phase, newly populated tables.
+- Collect prototype phase statistics for newly populated tables.
 
-- Production phase, after a significant percentage of change to the table or partition (~10% of rows). For high volumes of nonunique values, such as dates or timestamps, it may be advantageous to recollect at 7%.
+- Collect production phase statistics after a significant percentage of change to the table or partition (~10% of rows). For high volumes of nonunique values, such as dates or timestamps, it may be advantageous to recollect at 7%.
 
-- Recommendation: collect production phase statistics after you've created users and applied real world query loads to the database (up to about three months of querying).
+- Collect production phase statistics after you've created users and applied real world query loads to the database (up to about three months of querying).
 
 - Collect statistics in the first few weeks after an upgrade or migration during periods of low CPU utilization.
 

@@ -4,7 +4,7 @@ description: Use the Azure Application Insights Profiler settings pane to see Pr
 ms.contributor: Charles.Weininger
 ms.topic: conceptual
 ms.date: 04/26/2022
-ms.reviewer: mbullwin
+ms.reviewer: jogrima
 ---
 
 # Configure Application Insights Profiler

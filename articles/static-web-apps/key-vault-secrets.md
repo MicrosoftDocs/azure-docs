@@ -16,7 +16,7 @@ When configuring custom authentication providers, you may want to store connecti
 Security secrets require the following items to be in place.
 
 - Create a system-assigned identity in the Static Web Apps instance.
-- Grant access a Key Vault secret access to the identity.
+- Grant the identity access to a Key Vault secret.
 - Reference the Key Vault secret from the Static Web Apps application settings.
 
 This article demonstrates how to set up each of these items in production for [bring your own functions applications](./functions-bring-your-own.md).
@@ -24,7 +24,7 @@ This article demonstrates how to set up each of these items in production for [b
 Key Vault integration is not available for:
 
 - [Staging versions of your static web app](./review-publish-pull-requests.md). Key Vault integration is only supported in the production environment.
-- [Static web apps using managed functions](./apis.md).
+- [Static web apps using managed functions](./apis-functions.md).
 
 > [!NOTE]
 > Using managed identity is only available in the Azure Static Web Apps Standard plan.

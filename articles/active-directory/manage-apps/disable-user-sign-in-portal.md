@@ -10,7 +10,6 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 09/23/2021
 ms.author: ergreenl
-ms.reviewer: davidmu
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 #customer intent: As an admin, I want to disable the way a user signs in for an application so that no user can sign in to it in Azure Active Directory.

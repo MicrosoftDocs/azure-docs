@@ -232,6 +232,10 @@ The initialized *GraphServiceClient* is then used in _UserService.cs_ to perform
 
 [Make API calls using the Microsoft Graph SDKs](/graph/sdks/create-requests) includes information on how to read and write information from Microsoft Graph, use `$select` to control the properties returned, provide custom query parameters, and use the `$filter` and `$orderBy` query parameters.
 
+## Next steps
+
+For code samples in JavaScript and Node.js, please see: [Manage B2C user accounts with MSAL.js and Microsoft Graph SDK](https://github.com/Azure-Samples/ms-identity-b2c-javascript-nodejs-management) 
+
 <!-- LINK -->
 
 [graph-objectIdentity]: /graph/api/resources/objectidentity

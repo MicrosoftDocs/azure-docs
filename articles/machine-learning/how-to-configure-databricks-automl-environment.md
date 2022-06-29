@@ -48,7 +48,7 @@ Use these settings:
 | Setting |Applies to| Value |
 |----|---|---|
 | Cluster Name |always| yourclustername |
-| Databricks Runtime Version |always| Runtime 7.3 LTS - Not ML|
+| Databricks Runtime Version |always| 9.1 LTS|
 | Python version |always| 3 |
 | Worker Type <br>(determines max # of concurrent iterations) |Automated ML<br>only| Memory optimized VM preferred |
 | Workers |always| 2 or higher |

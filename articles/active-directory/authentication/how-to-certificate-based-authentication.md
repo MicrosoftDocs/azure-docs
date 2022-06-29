@@ -5,7 +5,7 @@ description: Topic that shows how to configure Azure AD certificate-based authen
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 04/21/2022
+ms.date: 06/15/2022
 
 ms.author: justinha
 author: justinha
@@ -34,7 +34,7 @@ Follow these instructions to configure and use Azure AD CBA.
 
 Make sure that the following prerequisites are in place.
 
-- Configure at least one certificate authority (CA) and any intermediate certificate authorities in Azure Active Directory.
+- Configure at least one certification authority (CA) and any intermediate certification authorities in Azure Active Directory.
 - The user must have access to a user certificate (issued from a trusted Public Key Infrastructure configured on the tenant) intended for client authentication to authenticate against Azure AD. 
 
 >[!IMPORTANT]
@@ -45,17 +45,40 @@ Make sure that the following prerequisites are in place.
 
 ## Steps to configure and test Azure AD CBA
 
-There are some configuration steps to complete before enabling Azure AD CBA. First, an admin must configure the trusted CAs that issue user certificates. As seen in the following diagram, we use role-based access control to make sure only least-privileged administrators make changes. Configuring the certificate authority is done only by the [Privileged Authentication Administrator](../roles/permissions-reference.md#privileged-authentication-administrator) role.
+There are some configuration steps to complete before enabling Azure AD CBA. First, an admin must configure the trusted CAs that issue user certificates. As seen in the following diagram, we use role-based access control to make sure only least-privileged administrators make changes. Configuring the certification authority is done only by the [Privileged Authentication Administrator](../roles/permissions-reference.md#privileged-authentication-administrator) role.
 
 Optionally, you can also configure authentication bindings to map certificates to single-factor or multifactor and configure username bindings to map certificate field to a user object attribute. Configuring user-related settings can be done by [Authentication Policy Administrators](../roles/permissions-reference.md#authentication-policy-administrator). Once all the configurations are complete, enable Azure AD CBA on the tenant. 
 
-:::image type="content" border="false" source="./media/how-to-certificate-based-authentication/steps.png" alt-text="steps to enable Azure AD certificate-based authentication works in Azure AD.":::
+:::image type="content" border="false" source="./media/how-to-certificate-based-authentication/steps.png" alt-text="Diagram of the steps required to enable Azure Active Directory certificate-based authentication.":::
 
-## Step 1: Configure the certificate authorities
+## Step 1: Configure the certification authorities
+
+### Configure certification authorities using the Azure portal
+
+To enable the certificate-based authentication and configure user bindings in the Azure portal, complete the following steps:
+
+1. Sign in to the Azure portal as a Global Administrator.
+1. Select Azure Active Directory, then choose Security from the menu on the left-hand side.
+
+   :::image type="content" border="true" source="./media/how-to-certificate-based-authentication/certificate-authorities.png" alt-text="Screenshot of certification authorities.":::
+
+1. To upload a CA, click **Upload**: 
+   1. Select the CA file.
+   1. Select **Yes** if the CA is a root certificate, otherwise select **No**.
+   1. Set the http internet-facing URL for the certification authority's base CRL that contains all revoked certificates. This should be set or authentication with revoked certificates will not fail.
+   1. Set **Delta CRL URL** - the http internet-facing URL for the CRL that contains all revoked certificates since the last base CRL was published.
+   1. Click **Add**.
+
+      :::image type="content" border="true" source="./media/how-to-certificate-based-authentication/upload-certificate-authority.png" alt-text="Screenshot of how to upload certification authority file.":::
+
+1. To delete a CA certificate, select the certificate and click **Delete**.
+1. Click **Columns** to add or delete columns.
+
+### Configure certification authorities using PowerShell
 
 Only one CRL Distribution Point (CDP) for a trusted CA is supported. The CDP can only be HTTP URLs. Online Certificate Status Protocol (OCSP) or Lightweight Directory Access Protocol (LDAP) URLs are not supported.
 
-[!INCLUDE [Configure certificate authorities](../../../includes/active-directory-authentication-configure-certificate-authorities.md)]
+[!INCLUDE [Configure certification authorities](../../../includes/active-directory-authentication-configure-certificate-authorities.md)]
 
 ### Connect
 
@@ -69,12 +92,12 @@ Only one CRL Distribution Point (CDP) for a trusted CA is supported. The CDP can
 [!INCLUDE [New-AzureAD](../../../includes/active-directory-authentication-new-trusted-azuread.md)]
 
 **AuthorityType**
-- Use 0 to indicate that this is a Root Certificate Authority
-- Use 1 to indicate that this is an Intermediate or Issuing Certificate Authority
+- Use 0 to indicate that this is a Root certification authority
+- Use 1 to indicate that this is an Intermediate or Issuing certification authority
 
 **crlDistributionPoint**
 
-You can validate the crlDistributionPoint value you provide in the above PowerShell example are valid for the Certificate Authority being added by downloading the CRL and comparing the CA certificate and the CRL Information.
+You can validate the crlDistributionPoint value you provide in the above PowerShell example are valid for the certification authority being added by downloading the CRL and comparing the CA certificate and the CRL Information.
 
 The below table and graphic indicate how to map information from the CA Certificate to the attributes of the downloaded CRL.
 
@@ -93,7 +116,7 @@ The below table and graphic indicate how to map information from the CA Certific
 >If Issuing CA is Windows Server
 >
 >- On the [Properties](/windows-server/networking/core-network-guide/cncg/server-certs/configure-the-cdp-and-aia-extensions-on-ca1#to-configure-the-cdp-and-aia-extensions-on-ca1)
- of the CA in the Certificate Authority Microsoft Management Console (MMC)
+ of the CA in the certification authority Microsoft Management Console (MMC)
 >- On the CA running [certutil](/windows-server/administration/windows-commands/certutil#-cainfo) -cainfo cdp
 
 For additional details see: [Understanding the certificate revocation process](./concept-certificate-based-authentication-technical-deep-dive.md#understanding-the-certificate-revocation-process).
@@ -119,7 +142,6 @@ To enable the certificate-based authentication and configure user bindings in th
 1. Under **Manage**, select **Authentication methods** > **Certificate-based Authentication**.
 
    :::image type="content" border="true" source="./media/how-to-certificate-based-authentication/policy.png" alt-text="Screenshot of Authentication policy.":::
-
 
 1. Click **Configure** to set up authentication binding and username binding.
 1. The protection level attribute has a default value of **Single-factor authentication**. Select **Multi-factor authentication** to change the default value to MFA. 
@@ -362,5 +384,7 @@ To enable the certificate-based authentication and configure username bindings u
 - [Overview of Azure AD CBA](concept-certificate-based-authentication.md)
 - [Technical deep dive for Azure AD CBA](concept-certificate-based-authentication-technical-deep-dive.md)   
 - [Limitations with Azure AD CBA](concept-certificate-based-authentication-limitations.md)
+- [Windows SmartCard logon using Azure AD CBA](concept-certificate-based-authentication-smartcard.md)
+- [Azure AD CBA on mobile devices (Android and iOS)](concept-certificate-based-authentication-mobile.md)
 - [FAQ](certificate-based-authentication-faq.yml)
 - [Troubleshoot Azure AD CBA](troubleshoot-certificate-based-authentication.md)

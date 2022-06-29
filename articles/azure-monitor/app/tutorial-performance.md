@@ -4,6 +4,7 @@ description: Tutorial to find and diagnose performance issues in your applicatio
 ms.topic: tutorial
 ms.date: 06/15/2020
 ms.custom: mvc
+ms.reviewer: vitalyg
 ---
 
 # Find and diagnose performance issues with Azure Application Insights

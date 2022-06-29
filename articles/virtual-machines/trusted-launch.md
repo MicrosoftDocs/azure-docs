@@ -80,7 +80,6 @@ No additional cost to existing VM pricing.
 - Azure Site Recovery
 - Shared disk
 - Ultra disk
-- Managed image
 - Azure Dedicated Host
 - Nested Virtualization
 
@@ -172,7 +171,7 @@ Trusted launch now supports Azure Backup. For more information, see  [Support ma
 
 ### Does trusted launch support ephemeral OS disks?
 
-Trusted launch now supports ephemeral OS disks in preview. Note that, while using ephemeral disks for Trusted Launch VMs, keys and secrets generated or sealed by the vTPM after the creation of the VM may not be persisted across operations like reimaging and platform events like service healing. For more information, see [Trusted Launch for Ephemeral OS disks (Preview)](https://aka.ms/ephemeral-os-disks-support-trusted-launch).
+Trusted launch supports ephemeral OS disks. Note that, while using ephemeral disks for Trusted Launch VMs, keys and secrets generated or sealed by the vTPM after the creation of the VM may not be persisted across operations like reimaging and platform events like service healing. For more information, see [Trusted Launch for Ephemeral OS disks (Preview)](https://aka.ms/ephemeral-os-disks-support-trusted-launch).
 
 ### How can I find VM sizes that support Trusted launch?
 

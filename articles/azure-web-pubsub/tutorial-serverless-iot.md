@@ -459,7 +459,7 @@ If you already have a device registered in your IoT hub, you can skip this secti
 
 - For quickest results, simulate temperature data using the [Raspberry Pi Azure IoT Online Simulator](https://azure-samples.github.io/raspberry-pi-web-simulator/#Getstarted). Paste in the **device connection string**, and select the **Run** button.
 
-- If you have a physical Raspberry Pi and BME280 sensor, you may measure and report real temperature and humidity values by following the [Connect Raspberry Pi to Azure IoT Hub (Node.js)](/azure/iot-hub/iot-hub-raspberry-pi-kit-node-get-started) tutorial.
+- If you have a physical Raspberry Pi and BME280 sensor, you may measure and report real temperature and humidity values by following the [Connect Raspberry Pi to Azure IoT Hub (Node.js)](../iot-hub/iot-hub-raspberry-pi-kit-node-get-started.md) tutorial.
 
 ## Run the visualization website
 Open function host index page: `http://localhost:7071/api/index` to view the real-time dashboard. Register multiple devices and you can see the dashboard updates multiple devices in real-time. Open multiple browsers and you can see every page are updated in real-time.
@@ -475,10 +475,10 @@ Open function host index page: `http://localhost:7071/api/index` to view the rea
 In this quickstart, you learned how to run a serverless chat application. Now, you could start to build your own application. 
 
 > [!div class="nextstepaction"]
-> [Tutorial: Create a simple chatroom with Azure Web PubSub](https://azure.github.io/azure-webpubsub/getting-started/create-a-chat-app/js-handle-events)
+> [Tutorial: Create a simple chatroom with Azure Web PubSub](/azure/azure-web-pubsub/tutorial-build-chat)
 
 > [!div class="nextstepaction"]
-> [Azure Web PubSub bindings for Azure Functions](https://azure.github.io/azure-webpubsub/references/functions-bindings)
+> [Azure Web PubSub bindings for Azure Functions](/azure/azure-web-pubsub/reference-functions-bindings)
 
 > [!div class="nextstepaction"]
 > [Explore more Azure Web PubSub samples](https://github.com/Azure/azure-webpubsub/tree/main/samples)
