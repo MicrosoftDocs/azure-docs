@@ -459,8 +459,6 @@
     href: gtm-how-to-get-featured.md
   - name: Configure lead management
     items:    
-    - name: Referrals workspace
-      href: referrals-workspace.md
     - name: Azure Table
       href: partner-center-portal/commercial-marketplace-lead-management-instructions-azure-table.md
     - name: Dynamics 365 apps on Dataverse and Power Apps
