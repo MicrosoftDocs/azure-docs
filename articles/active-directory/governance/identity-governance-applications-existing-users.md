@@ -17,13 +17,13 @@ ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
 
 
-#Customer intent: As an IT admin, I want to ensure access to specific applications is governed, by setting up access reviews for those applications.  For this, I need to have in Azure AD the existing users of that application assigned to the application, either directly or through an access package.
+#Customer intent: As an IT admin, I want to ensure access to specific applications is governed, by setting up access reviews for those applications.  For this, I need to have in Azure AD the existing users of that application assigned to the application.
 
 ---
 
 # Governing an application's existing users - Microsoft PowerShell
 
-There are two common scenarios in which it's necessary to populate Azure Active Directory (Azure AD) with existing users of an application, prior to using the application with an Azure AD identity governance feature such as [access reviews](access-reviews-application-preparation.md) or [entitlement management](entitlement-management-overview.md).
+There are two common scenarios in which it's necessary to populate Azure Active Directory (Azure AD) with existing users of an application, prior to using the application with an Azure AD identity governance feature such as [access reviews](access-reviews-application-preparation.md).
 
 ### Application migrated to Azure AD after using its own identity provider
 
@@ -43,11 +43,20 @@ This article illustrates the process for managing application role assignments u
 
 In Azure AD, a `ServicePrincipal` represents an application in a particular organization's directory.  The `ServicePrincipal` has a property `AppRoles` that lists the roles an application supports, such as `Marketing specialist`.  An `AppRoleAssignment` links a `User` to a Service principal and specifies which role that user has in that application.
 
-You can also choose to use the Azure AD entitlement management access packages to time-limit access. An `AccessPackage` contains one or more resource roles, potentially from multiple service principals, and has `Assignment` for users to the access package.  When you create an assignment for a user to an access package, then Azure AD entitlement management automatically creates the necessary `AppRoleAssignment` for the user to each application.
+You may also be using [Azure AD entitlement management](entitlement-management-overview.md) access packages to give users time-limited access to the application. In entitlement management, an `AccessPackage` contains one or more resource roles, potentially from multiple service principals, and has `Assignment` for users to the access package.  When you create an assignment for a user to an access package, then Azure AD entitlement management automatically creates the necessary `AppRoleAssignment` for the user to each application.  See the [Manage access to resources in Azure AD entitlement management](/powershell/microsoftgraph/tutorial-entitlement-management) tutorial for more information on how to create access packages through PowerShell.
 
-## Before you begin: ensure you have a service principal for your application
+## Before you begin
 
-XXX
+- You must have one of the following licenses in your tenant:
+
+  - Azure AD Premium P2
+  - Enterprise Mobility + Security (EMS) E5 license
+
+- You will need to have an appropriate administrative role. If this is the first time you're performing these steps, you'll need the `Global administrator` role to authorize the use of Microsoft Graph PowerShell in your tenant.
+- You will need to have a service principal for your application in your tenant.
+
+  - If the application uses an LDAP directory, follow the guide for [configuring Azure AD to provision users into LDAP directories](/azure/active-directory/app-provisioning/on-premises-ldap-connector-configure) through the section to Download, install, and configure the Azure AD Connect Provisioning Agent Package.
+  - If the application uses a SQL database, follow the guide for [configuring Azure AD to provision users into SQL based applications](/azure/active-directory/app-provisioning/on-premises-sql-connector-configure) through the section to Download, install and configure the Azure AD Connect Provisioning Agent Package.
 
 ## Collect existing users from an application
 
@@ -95,7 +104,7 @@ This section applies to applications that use another SQL database as its underl
 
 1. Log in to the system where the provisioning agent is or will be installed.
 1. Launch PowerShell.
-1. Construct a connection string for connecting to your database system. The components of a connection string will depend upon the requirements of your database. If you are using SQL Server, then see the [list of DSN and Connection String Keywords and Attributes](sql/connect/odbc/dsn-connection-string-attribute). If you are using a different database, then you'll need to include the mandatory keywords for connecting to that database. For example, if your database uses the fully-qualified pathname of the DSN file, a userID and password, then construct the connection string using the following commands.  
+1. Construct a connection string for connecting to your database system. The components of a connection string will depend upon the requirements of your database. If you are using SQL Server, then see the [list of DSN and Connection String Keywords and Attributes](sql/connect/odbc/dsn-connection-string-attribute). If you are using a different database, then you'll need to include the mandatory keywords for connecting to that database. For example, if your database uses the fully-qualified pathname of the DSN file, a userID and password, then construct the connection string using the following commands.
 
    ```powershell
    $filedsn = "c:\users\administrator\documents\db.dsn"
@@ -140,7 +149,7 @@ Now that you have a list of all the users obtained from the application, you'll 
 
 ### Retrieve the IDs of the users in Azure AD
 
-This section shows how to interact with Azure AD using [Microsoft Graph PowerShell](https://www.powershellgallery.com/packages/Microsoft.Graph) cmdlets. The first time your organization use these cmdlets for this scenario, you'll need to be in a Global Administrator role to consent Microsoft Graph PowerShell to be used for these scenarios in your tenant.  Subsequent interactions can use a lower privileged role, such as User Administrator role if you anticipate creating new users, or the Application Administrator or [Identity Governance Administrator](/azure/active-directory/roles/permissions-reference#identity-governance-administrator) role, if you're just managing application role or access package assignments.
+This section shows how to interact with Azure AD using [Microsoft Graph PowerShell](https://www.powershellgallery.com/packages/Microsoft.Graph) cmdlets. The first time your organization use these cmdlets for this scenario, you'll need to be in a Global Administrator role to consent Microsoft Graph PowerShell to be used for these scenarios in your tenant.  Subsequent interactions can use a lower privileged role, such as User Administrator role if you anticipate creating new users, or the Application Administrator or [Identity Governance Administrator](/azure/active-directory/roles/permissions-reference#identity-governance-administrator) role, if you're just managing application role assignments.
 
 1. Launch PowerShell.
 1. If you don't have the [Microsoft Graph PowerShell modules](https://www.powershellgallery.com/packages/Microsoft.Graph) already installed, install the `Microsoft.Graph.Users` module and others using
@@ -320,7 +329,7 @@ The previous steps have confirmed that all the users in the application's data s
 
    If 0 users aren't assigned to application roles, indicating that all users are assigned to application roles, then no further changes are needed before performing an access review.
 
-   However, if one or more users aren't currently assigned to the application roles, you'll need to add them to one of the application's roles, either directly, or through an access package, as described in the sections below.
+   However, if one or more users aren't currently assigned to the application roles, you'll need to add them to one of the application's roles, as described in the sections below.
 
 1. Select the role of the application to assign the remaining users to.
 
@@ -335,6 +344,7 @@ The previous steps have confirmed that all the users in the application's data s
    ```powershell
    $azuread_app_role_name = "Admin"
    $azuread_app_role_id = ($azuread_sp.AppRoles | where-object {$_.AllowedMemberTypes -contains "User" -and $_.DisplayName -eq $azuread_app_role_name}).Id
+   if ($null -eq $azuread_app_role_id) { write-error "role $azuread_app_role_name not located in application manifest"}
    ```
 
 ## Configure application provisioning
@@ -351,45 +361,17 @@ Before creating new assignments, you'll want to configure [Azure AD provisioning
 1. Check that there's an attribute mapping for **isSoftDeleted** to an attribute of the application.  When subsequently a user is unassigned from the application, soft-deleted in Azure AD, or blocked from sign-in, then Azure AD provisioning will update the attribute mapped to **isSoftDeleted**.  If no attribute is mapped, then users who are subsequently unassigned from the application role will continue to exist in the application's data store.
 1. If provisioning has already been enabled for the application, ensure that the application provisioning is not in [quarantine](/azure/active-directory/app-provisioning/application-provisioning-quarantine-status). You'll need to resolve any issues that are causing the quarantine prior to proceeding.
 
-## Create app role or access package assignments in Azure AD
+## Create app role assignments in Azure AD
 
-For Azure AD to match the users in the application with the users in Azure AD, you will need to create application role assignments in Azure AD.  You can either create those application role assignments directly, or create access package assignments. A user having an access package assignment will result in the user automatically receiving an application role assignment.
+For Azure AD to match the users in the application with the users in Azure AD, you will need to create application role assignments in Azure AD.
 
-### Choosing whether to create application role assignments or access package assignments
-
-Depending upon your organization's identity governance requirements and the Azure AD features you plan to use, choose the most appropriate model for representing existing user's access rights in Azure AD.  If you're just using provisioning to update existing users, or for reviewing their access, then you can create application role assignments.  However, if you plan to time-limit their existing access, and have Azure AD automatically remove access when a project ends, then you should create access package assignments.
-
-
-* Create an application role assignment for each user who already has access to the application.
-
-  This approach is appropriate if users are expected to remain in the application indefinitely, until removed by an external trigger (such as a termination from an HR system), or with an access review of that application.
-
-  When an application role assignment is created in Azure AD for a user to application, then
+When an application role assignment is created in Azure AD for a user to application, then
 
     * Azure AD will query the application to determine if the user already exists.
     * Subsequent updates to the user's attributes in Azure AD will be sent to the application.
     * Users will remain in the application indefinitely, unless updated outside of Azure AD, or until the assignment in Azure AD is removed.
     * On the next review of that application's role assignments, the user will be included in the review.
     * If the user is denied in an access review, then their application role assignment will be removed, and Azure AD will notify the application that the user is blocked from sign in.
-
-* Create an access package assignment for each user who already has access to the application, to an access package with one of the application's roles.
-
-  This approach is appropriate if users should have only time-limited access.  For example, if existing users' access should be removed when a project ends on a particular date, then you can create an access package with a policy that will remove assignments on that date. You should also use an access package  if more than one service principal in your Azure AD tenant corresponds to the application.
-
-  When an access package assignment is created in Azure AD for that user, to an access package including the application's roles, then
-
-   * Azure AD entitlement management will create an application role assignment for that user.
-   * Azure AD will query the application to determine if the user already exists.
-   * Subsequent updates to the user's attributes in Azure AD will be sent to the application.
-   * Users will remain in the application indefinitely, unless updated outside of Azure AD, or until the assignment in Azure AD is removed.
-   * On the next review of that access package, the user will be included in the review.
-   * If the user is denied in an access review of an access package, or the access package assignment expires, then their application role assignment will be removed, and Azure AD will notify the application that the user is blocked from sign in.
-
-### Create application role assignments
-
-In this section, you'll create application role assignments for those users who don't have them.
-
-This section is only applicable if you aren't using entitlement management access package for this application. Because if application role assignments are created for a user, and then subsequently the user is assigned to an access package with that same application as one of its resources, Azure AD entitlement management will assume the lifecycle of the user's application role assignment isn't managed through Azure AD entitlement management.  If the user's assignment to the access package expires or is removed, then the application role assignment will remain. If you plan to use the access package assignment to determine when a user should lose access, then continue to the next section.
 
 1. Create application role assignments for users who don't currently have role assignments.
 
@@ -400,62 +382,6 @@ This section is only applicable if you aren't using entitlement management acces
    ```
 
 1. Wait 1 minute for changes to propagate within Azure AD.
-
-1. Continue reading at the section below, **Check that Azure AD provisioning has matched the existing users**.
-
-### Create access package assignments
-
-In this section, you'll create access package assignments for users that don't have application role assignments.  Azure AD entitlement management itself will create application role assignments for those users.
-
-1. Ensure that you have already created in entitlement management an access package with
-   * an application role for the application
-   * a direct assignment policy, which does not require approval
-
-1. Retrieve the access package and its policies.
-
-   ```powershell
-   $ap_display_name = "Access to department's apps"
-   $filter = "displayName eq '" + ($ap_display_name -replace "'","''") + "'"
-   $ap = Get-MgEntitlementManagementAccessPackage -Filter $filter -ExpandProperty "assignmentPolicies" -All
-   $ap_id = $ap.Id
-   $ap.AssignmentPolicies | ft id,DisplayName
-   ```
-
-1. Select the ID of the access package assignment policy from the list displayed in the previous step. For example, if the direct assignment policy has ID `2264bf65-76ba-417b-a27d-54d291f0cbc8`, then type
-
-   ```powershell
-   $policy_id = "2264bf65-76ba-417b-a27d-54d291f0cbc8"
-   ```
-
-1. Create access package assignments for users who do not currently have access package assignments.  This will iterate through each of the user IDs of users not currently assigned to the application, and create an access package assignment request, specifying the access package and policy IDs.
-
-   ```powershell
-   $uri = "https://graph.microsoft.com/v1.0/identityGovernance/entitlementManagement/assignmentRequests"
-   foreach ($u in $azuread_not_in_role_list) {
-      $a = @{}
-      $a["targetId"] = $u
-      $a["assignmentPolicyId"] = $policy_id
-      $a["accessPackageId"] = $ap_id
-      $req = @{}
-      $req["requestType"] = "AdminAdd"
-      $req["assignment"] = $a
-      $req_json = $req | ConvertTo-json
-      $res = invoke-MgGraphRequest -Method "POST" -Uri $uri -Body $req_json
-   }
-   ```
-
-1. Wait for the access package assignments to convert to state delivered.
-
-1. Check for any that were not delivered.
-
-   ```powershell
-   $af = "assignmentPolicy/Id eq '" + $policyid + "'"
-   $allassign = Get-MgEntitlementManagementAssignment -ExpandProperty assignmentPolicy,target -all -Filter $af
-   $notdelivered = $allassign | Where-Object {$_.State -ne "delivered" -and $_.State -ne "expired"} 
-   $notdelivered | select-Object -Property State -ExpandProperty Target | ft State,ObjectId
-   ```
-
-1. If delivery failed for any of the users, then check the requests and the Azure AD audit log for errors in delivery.
 
 ## Check that Azure AD provisioning has matched the existing users
 
