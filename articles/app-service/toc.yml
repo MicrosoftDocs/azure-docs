@@ -462,9 +462,13 @@
       href: https://azure.microsoft.com/resources/videos/index/?services=app-service
     - name: Migrate to App Service
       items:
-        - name: Migrate ASP.NET
+        - name: Assess .NET
+          href: app-service-migration-assess-net.md
+        - name: Discover .NET
+          href: app-service-migration-discover-net.md
+        - name: Migrate .NET
           href: app-service-asp-net-migration.md
-        - name: Migrate containerized ASP.NET
+        - name: Migrate containerized .NET
           href: ../migrate/tutorial-app-containerization-aspnet-app-service.md?bc=%2fazure%2fbread%2ftoc.json&toc=%2fazure%2fapp-service%2ftoc.json
         - name: Migrate Java
           href: app-service-java-migration.md

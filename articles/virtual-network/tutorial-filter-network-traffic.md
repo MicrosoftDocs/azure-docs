@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Filter network traffic with a network security group (NSG)- Azure portal'
+title: 'Tutorial: Filter network traffic with a network security group (NSG) - Azure portal'
 titlesuffix: Azure Virtual Network
 description: In this tutorial, you learn how to filter network traffic to a subnet, with a network security group (NSG), using the Azure portal.
 services: virtual-network
@@ -259,7 +259,7 @@ Add the network interface of each VM to one of the application security groups y
 
 4. In **Configure the application security groups**, select **myAsgWebServers**. Select **Save**.
 
-    :::image type="content" source="./media/tutorial-filter-network-traffic/select-asgs-inline.png" alt-text="Screenshot showing how to associate application security groups to a network interface." border="true" lightbox="./media/tutorial-filter-network-traffic/select-asgs-expanded.png":::
+    :::image type="content" source="./media/tutorial-filter-network-traffic/select-application-security-groups-inline.png" alt-text="Screenshot showing how to associate application security groups to a network interface." border="true" lightbox="./media/tutorial-filter-network-traffic/select-application-security-groups-expanded.png":::
 
 5. Complete steps 1 and 2 again, searching for the *myVMMgmt* virtual machine and selecting the **myAsgMgmtServers** ASG.
 

@@ -17,10 +17,9 @@ ms.devlang: azurecli
 
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
-
 > [!div class="op_single_selector" title1="Select the version of Azure Machine Learning CLI extension you are using:"]
 > * [v1](./v1/how-to-deploy-mlflow-models.md)
-> * [v2 (current version)](how-to-deploy-mlflow-models-online-endpoints.md)
+> * [v2 (current version)](how-to-deploy-mlflow-models.md)
 
 In this article, learn how to deploy your [MLflow](https://www.mlflow.org) model to Azure ML for both real-time and batch inference. Azure ML supports no-code deployment of models created and logged with MLflow. This means that you don't have to provide a scoring script or an environment. Those models can be deployed to ACI (Azure Container Instances), AKS (Azure Kubernetes Services) or our managed inference services (referred as MIR).
 
