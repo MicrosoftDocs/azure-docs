@@ -32,7 +32,7 @@ Several tools from both Microsoft and [third-party partners](../../partner/data-
 
 - Third-party data warehouse migration tools to migrate schema and data to Azure Synapse.
 
-- Third-party tools to bridge the SQL differences between your existing data warehouse DBMS and Azure Synapse.
+- Third-party tools to bridge the [SQL differences](#sql-dml-differences-between-oracle-and-azure-synapse) between your existing data warehouse DBMS and Azure Synapse.
 
 ## Microsoft data migration tools
 

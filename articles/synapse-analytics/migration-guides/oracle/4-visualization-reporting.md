@@ -51,7 +51,7 @@ For consistent results after migration, all BI tools and application dependencie
   - Roles assigned to user groups
   - Users assigned to user groups and/or roles
 
-Access and security are important considerations for data access in the migrated system, and are discussed in more detail in another [guide](3-security-access-operations.md) in this series.
+Access and security are important considerations for data access in the migrated system and are discussed in more detail in [Security, access, and operations for Oracle migrations](3-security-access-operations.md).
 
 >[!TIP]
 >Existing users, user groups, roles, and assignments of access security privileges need to be migrated first for migration of reports and visualizations to succeed.
@@ -233,7 +233,7 @@ A key element of data warehouse migration is testing of reports and dashboards i
 >[!TIP]
 >Test and tune performance to minimize compute costs.
 
-For information about how to migrate users, user groups, roles, and privileges, see [Security, access, and operations for Oracle migrations](3-security-access-operations.md), which is another guide in this series.
+For information about how to migrate users, user groups, roles, and privileges, see [Security, access, and operations for Oracle migrations](3-security-access-operations.md).
 
 Automate testing as much as possible to make each test repeatable and to support a consistent approach to evaluating test results. Automation works well for known regular reports, and can be managed via [Azure Synapse pipelines](../../get-started-pipelines.md) or [Azure Data Factory](../../../data-factory/introduction.md) orchestration. If you already have a suite of test queries in place for regression testing, you can use the existing testing tools to automate post migration testing.
 

@@ -334,4 +334,4 @@ If you increase DWUs, the number of compute nodes increase, which adds more comp
 
 ## Next steps
 
-To learn more about minimizing SQL issues, see the next article in this series: [Minimizing SQL issues for Oracle migrations](5-minimize-sql-issues.md).
+To learn more about visualization and reporting, see the next article in this series: [Visualization and reporting for Oracle migrations](4-visualization-reporting.md).

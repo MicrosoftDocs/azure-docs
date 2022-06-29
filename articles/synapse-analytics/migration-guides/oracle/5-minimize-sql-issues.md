@@ -67,7 +67,7 @@ Performance optimizations in the source environment, such as indexes, indicate w
 >[!TIP]
 >Existing indexes indicate candidates for indexing in the migrated warehouse.
 
-SQL view definitions contain SQL Data Manipulation Language (DML) statements that define the view, typically with one or more `SELECT` statements. When you migrate `CREATE VIEW` statements, take into account the DML differences between Oracle and Azure Synapse, which are discussed [later](#sql-dml-differences-between-oracle-and-azure-synapse) in this article.
+SQL view definitions contain SQL Data Manipulation Language (DML) statements that define the view, typically with one or more `SELECT` statements. When you migrate `CREATE VIEW` statements, take into account the [DML differences](#sql-dml-differences-between-oracle-and-azure-synapse) between Oracle and Azure Synapse.
 
 ### Unsupported Oracle database object types
 
@@ -283,4 +283,4 @@ To summarize, our recommendations for minimizing the task of migrating SQL code 
 
 ## Next steps
 
-To learn about migrating to a dedicated SQL pool, see [Migrate a data warehouse to a dedicated SQL pool in Azure Synapse Analytics](../migrate-to-synapse-analytics-guide.md).
+To learn more about Microsoft and third-party tools, see the next article in this series: [Tools for Oracle data warehouse migration to Azure Synapse Analytics](6-microsoft-third-party-migration-tools.md).
