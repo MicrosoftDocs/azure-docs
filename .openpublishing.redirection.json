@@ -30037,42 +30037,42 @@
     },
     {
       "source_path_from_root": "/articles/cognitive-services/Speech-Service/support.md",
-      "redirect_url": "http://docs.microsoft.com/azure/cognitive-services/cognitive-services-support-options?context=/azure/cognitive-services/speech-service/context/context",
+      "redirect_url": "/azure/cognitive-services/cognitive-services-support-options?context=/azure/cognitive-services/speech-service/context/context",
       "redirect_document_id": true
     },
     {
       "source_path_from_root": "/articles/cognitive-services/Speech-Service/faq-text-to-speech.md",
-      "redirect_url": "http://docs.microsoft.com/azure/cognitive-services/speech-service/get-started-text-to-speech",
+      "redirect_url": "/azure/cognitive-services/speech-service/get-started-text-to-speech",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/cognitive-services/Speech-Service/speech-studio-test-model.md",
-      "redirect_url": "http://docs.microsoft.com/azure/cognitive-services/speech-service/speech-studio-overview",
+      "redirect_url": "/azure/cognitive-services/speech-service/speech-studio-overview",
       "redirect_document_id": true
     },
     {
       "source_path_from_root": "/articles/cognitive-services/Speech-Service/whats-new.md",
-      "redirect_url": "http://docs.microsoft.com/azure/cognitive-services/speech-service/overview",
+      "redirect_url": "/azure/cognitive-services/speech-service/overview",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/cognitive-services/Speech-Service/concepts-gating-overview.md",
-      "redirect_url": "https://docs.microsoft.com/legal/cognitive-services/speech-service/custom-neural-voice/transparency-note-custom-neural-voice",
+      "redirect_url": "/legal/cognitive-services/speech-service/custom-neural-voice/transparency-note-custom-neural-voice",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/cognitive-services/Speech-Service/concepts-guidelines-responsible-deployment-synthetic.md",
-      "redirect_url": "https://docs.microsoft.com/legal/cognitive-services/speech-service/custom-neural-voice/concepts-guidelines-responsible-deployment-synthetic",
+      "redirect_url": "/legal/cognitive-services/speech-service/custom-neural-voice/concepts-guidelines-responsible-deployment-synthetic",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/cognitive-services/Speech-Service/concepts-disclosure-guidelines.md",
-      "redirect_url": "https://docs.microsoft.com/legal/cognitive-services/speech-service/custom-neural-voice/concepts-disclosure-guidelines",
+      "redirect_url": "/legal/cognitive-services/speech-service/custom-neural-voice/concepts-disclosure-guidelines",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/cognitive-services/Speech-Service/concepts-disclosure-patterns.md",
-      "redirect_url": "https://docs.microsoft.com/legal/cognitive-services/speech-service/custom-neural-voice/concepts-disclosure-patterns",
+      "redirect_url": "/legal/cognitive-services/speech-service/custom-neural-voice/concepts-disclosure-patterns",
       "redirect_document_id": false
     },
     {

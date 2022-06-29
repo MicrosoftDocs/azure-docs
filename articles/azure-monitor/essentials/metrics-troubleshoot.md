@@ -3,10 +3,9 @@ title: Troubleshooting Azure Monitor metric charts
 description: Troubleshoot the issues with creating, customizing, or interpreting metric charts
 author: vgorbenko
 services: azure-monitor
-
+ms.reviewer: vitalyg
 ms.topic: troubleshooting
 ms.date: 06/09/2022
-ms.author: vitalyg
 ---
 
 # Troubleshooting metrics charts
