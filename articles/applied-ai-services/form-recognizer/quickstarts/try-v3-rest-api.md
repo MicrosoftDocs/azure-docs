@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
-ms.date: 06/06/2022
+ms.date: 06/28/2022
 ms.author: lajanuar
 ---
 
@@ -31,7 +31,7 @@ To learn more about Form Recognizer features and development options, visit our 
 
 **Document Analysis**
 
-* 🆕 Read—Analyze and extract printed (typeface) and handwritten text lines, words, locations, and detected languages.  
+* 🆕 Read—Analyze and extract printed (typeface) and handwritten text lines, words, locations, and detected languages.
 * 🆕General document—Analyze and extract text, tables, structure, key-value pairs, and named entities.
 * Layout—Analyze and extract tables, lines, words, and selection marks from documents, without the need to train a model.
 
@@ -52,7 +52,10 @@ To learn more about Form Recognizer features and development options, visit our 
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services)
 
-* [cURL](https://curl.haxx.se/windows/) installed.
+* curl command line tool installed.
+
+  * [Windows](https://curl.haxx.se/windows/)
+  * [Mac or Linux](https://learn2torials.com/thread/how-to-install-curl-on-mac-or-linux-(ubuntu)-or-windows)
 
 * [PowerShell version 7.*+](/powershell/scripting/install/installing-powershell-on-windows?view=powershell-7.2&preserve-view=true), or a similar command-line application. To check your PowerShell version, type `Get-Host | Select-Object Version`.
 
@@ -64,7 +67,7 @@ To learn more about Form Recognizer features and development options, visit our 
 * After your resource deploys, select **Go to resource**. You need the key and endpoint from the resource you create to connect your application to the Form Recognizer API. You'll paste your key and endpoint into the code below later in the quickstart:
 
   :::image type="content" source="../media/containers/keys-and-endpoint.png" alt-text="Screenshot: keys and endpoint location in the Azure portal.":::
-  
+
 ## Analyze documents and get results
 
  A POST request is used to analyze documents with a prebuilt or custom model. A GET request is used to retrieve the result of a document analysis call. The `modelId` is used with POST and `resultId` with GET operations.
