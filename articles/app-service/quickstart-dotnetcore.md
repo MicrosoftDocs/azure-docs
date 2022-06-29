@@ -598,7 +598,7 @@ Follow these steps to create your App Service resources and publish your project
     - Under **Runtime stack** select *.NET 6 (LTS)*.
     - Select an **Operating System**, and a **Region** you want to serve your app from.
     
-    :::image type="content" source="media/quickstart-dotnet/app-service-dotnet60.png" lightbox="media/quickstart-dotnet/Azure-webapp-net.png" border="true" alt-text="Screenshot of the App Service Instance Details with a .NET 6 runtime.":::
+    :::image type="content" source="media/quickstart-dotnet/app-service-dotnet-60.png" lightbox="media/quickstart-dotnet/Azure-webapp-net.png" border="true" alt-text="Screenshot of the App Service Instance Details with a .NET 6 runtime.":::
         
     ### [.NET Framework 4.8](#tab/netframework48)
     
@@ -608,7 +608,7 @@ Follow these steps to create your App Service resources and publish your project
     - Select an **Operating System**, and a **Region** you want to serve your app from.
 
     
-    :::image type="content" source="media/quickstart-dotnet/app-service-dotnet48.png" lightbox="media/quickstart-dotnet/Azure-webapp-net.png" border="true" alt-text="Screenshot of the App Service Instance Details with a ASP.NET V4.8 runtime.":::
+    :::image type="content" source="media/quickstart-dotnet/app-service-dotnet-48.png" lightbox="media/quickstart-dotnet/Azure-webapp-net.png" border="true" alt-text="Screenshot of the App Service Instance Details with a ASP.NET V4.8 runtime.":::
     
     -----
 
@@ -628,7 +628,7 @@ Follow these steps to create your App Service resources and publish your project
     - For **Repository** select the *dotnetcore-docs-hello-world* project.
     - For **Branch** select *master*.
 
-    :::image type="content" source="media/quickstart-dotnet/app-service-deploy60.png" lightbox="media/quickstart-dotnet/Azure-webapp-net.png" border="true" alt-text="Screenshot of the deployment options for an app using the .NET 6 runtime.":::
+    :::image type="content" source="media/quickstart-dotnet/app-service-deploy-60.png" lightbox="media/quickstart-dotnet/Azure-webapp-net.png" border="true" alt-text="Screenshot of the deployment options for an app using the .NET 6 runtime.":::
         
     ### [.NET Framework 4.8](#tab/netframework48)
     
@@ -636,7 +636,7 @@ Follow these steps to create your App Service resources and publish your project
     - For **Repository** select the *app-service-web-dotnet-get-started* project.
     - For **Branch** select *master*.
     
-    :::image type="content" source="media/quickstart-dotnet/app-service-deploy48.png" lightbox="media/quickstart-dotnet/Azure-webapp-net.png" border="true" alt-text="Screenshot of the deployment options for an app using the .NET Framework 4.8 runtime.":::
+    :::image type="content" source="media/quickstart-dotnet/app-service-deploy-48.png" lightbox="media/quickstart-dotnet/Azure-webapp-net.png" border="true" alt-text="Screenshot of the deployment options for an app using the .NET Framework 4.8 runtime.":::
     
     -----
 
@@ -654,11 +654,11 @@ Follow these steps to create your App Service resources and publish your project
 
     ### [.NET 6.0](#tab/net60)
     
-    :::image type="content" source="media/quickstart-dotnet/browse-dotnet60.png" lightbox="media/quickstart-dotnet/Azure-webapp-net.png" border="true" alt-text="Screenshot of the deployed sample app":::
+    :::image type="content" source="media/quickstart-dotnet/browse-dotnet-60.png" lightbox="media/quickstart-dotnet/Azure-webapp-net.png" border="true" alt-text="Screenshot of the deployed sample app":::
         
     ### [.NET Framework 4.8](#tab/netframework48)
        
-    :::image type="content" source="media/quickstart-dotnet/browse-dotnet48.png" lightbox="media/quickstart-dotnet/Azure-webapp-net.png" border="true" alt-text="Screenshot of the deployed sample app":::
+    :::image type="content" source="media/quickstart-dotnet/browse-dotnet-48.png" lightbox="media/quickstart-dotnet/Azure-webapp-net.png" border="true" alt-text="Screenshot of the deployed sample app":::
     
     -----
 
