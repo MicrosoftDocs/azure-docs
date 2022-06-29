@@ -33,7 +33,7 @@ persist after the user leaves the organization.
 You can remove unmanaged Azure AD accounts from your Azure AD tenants
 and prevent these types of accounts from redeeming future invitations.
 
-1. Read how to enable [one-time
+1. Enable [email one-time
     passcodes](https://docs.microsoft.com/azure/active-directory/external-identities/one-time-passcode#enable-email-one-time-passcode)
     (OTP)
 
