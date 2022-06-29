@@ -88,6 +88,8 @@ The following command uses the [az aks update][az-aks-update] command to update 
  az aks update --resource-group myResourceGroup --name myAKSCluster --no-uptime-sla
 ```
 
+This process takes several minutes to complete.
+
 ## Next steps
 
 - Use [Availability Zones][availability-zones] to increase high availability with your AKS cluster workloads.
