@@ -73,6 +73,7 @@ This section shows how you can deploy Triton to managed online endpoint using th
     pip install tritonclient[http]
     pip install pillow
     pip install gevent
+    pip install requests
     ```
 
 1. Create a YAML configuration file for your endpoint. The following example configures the name and authentication mode of the endpoint. The one used in the following commands is located at `/cli/endpoints/online/triton/single-model/create-managed-endpoint.yml` in the azureml-examples repo you cloned earlier:
