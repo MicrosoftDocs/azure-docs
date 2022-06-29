@@ -2,7 +2,7 @@
 author: alkohli
 ms.service: databox  
 ms.topic: include
-ms.date: 06/06/2022
+ms.date: 06/29/2022
 ms.author: alkohli
 ---
 
@@ -40,6 +40,10 @@ To create a management resource for a device ordered through the Azure Edge Hard
     Select **Review + create** to continue.
 
 1. On the **Review + create** tab, review basic settings for the management resource and the terms of use. Then select **Create**.
+
+   If you started in Azure Stack Edge, instead of device order information, you'll see the device type listed in **Basics**. 
+
+   ![Screenshot of Review Plus Create tab when an Azure Stack Edge management resource is started in Azure Stack Edge. The device type is highlighted in Basics.](media/azure-edge-hardware-center-create-management-resource/create-management-resource-04.png) 
 
     The **Create** button isn't available until all validation checks have passed.
 
