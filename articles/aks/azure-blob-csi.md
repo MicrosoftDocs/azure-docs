@@ -37,30 +37,30 @@ Azure Blob storage CSI driver (preview) supports the following features:
 
 ## Install the Azure CLI aks-preview extension
 
-To use the Azure CLI aks-preview extension for enabling the Blob storage CSI driver (preview) on your AKS cluster, run the following command to install it:
+The following steps are required to install and register the Azure CLI aks-preview extension and driver in your subscription.
 
-```azurecli
-az extension add --name aks-preview
-```
+1. To use the Azure CLI aks-preview extension for enabling the Blob storage CSI driver (preview) on your AKS cluster, run the following command to install it:
 
-To upgrade the extension to the latest version, run the following command:
+    ```azurecli
+    az extension add --name aks-preview
+    ```
+
+2. Run the following command to register the CSI driver (preview):
+    
+    ```azurecli
+    az feature register --name EnableBlobCSIDriver --namespace Microsoft.ContainerService 
+    ```
+
+3. To register the provider, run the following command:
+
+    ```azurecli
+    az provider register -n Microsoft.ContainerService
+    ```
+
+When newer versions of the extension are released, run the following command to upgrade the extension to the latest release:
 
 ```azurecli
 az extension update --name aks-preview
-```
-
-## Enable the Blob storage CSI driver (preview) using the Azure CLI
-
-To register the CSI driver (preview) using the Azure CLI, run the following command:
-
-```azurecli
-az feature register --name EnableBlobCSIDriver --namespace Microsoft.ContainerService 
-```
-
-To register the provider, run the following command:
-
-```azurecli
-az provider register -n Microsoft.ContainerService
 ```
 
 ## Enable CSI driver on a new or existing AKS cluster
