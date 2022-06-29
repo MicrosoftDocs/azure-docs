@@ -179,7 +179,7 @@ Use [New-AzureADMSRoleAssignment](/powershell/module/azuread/new-azureadmsroleas
 
 #### Microsoft Graph API
 
-Use the [Create unifiedRoleAssignment](/graph/api/rbacapplication-post-roleassignments?view=graph-rest-beta&preserve-view=true) API to assign the role. For more information, see [Assign Azure AD roles at different scopes](../roles/assign-roles-different-scopes.md).
+Use the [Create unified Role Assignment](/graph/api/rbacapplication-post-roleassignments?view=graph-rest-beta&preserve-view=true) API to assign the role. For more information, see [Assign Azure AD roles at different scopes](../roles/assign-roles-different-scopes.md).
 
 ## View audit logs for attribute changes
 
