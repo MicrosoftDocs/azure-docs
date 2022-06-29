@@ -32,7 +32,7 @@ The following items *aren't* considered as committed devices:
     - OT networks: Devices that have been inactive for more than 60 days
     - Enterprise IoT networks: Devices that have been inactive for more than 30 days
 
-<!-->
+<!--
 For more information, see [Calculate the number of devices you need to monitor](../how-to-manage-subscriptions.md#calculate-the-number-of-devices-you-need-to-monitor).
 
 
