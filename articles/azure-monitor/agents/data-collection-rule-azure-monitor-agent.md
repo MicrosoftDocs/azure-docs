@@ -18,13 +18,11 @@ To collect data from virtual machines using the Azure Monitor agent, you'll:
 1. Create [data collection rules (DCR)](../essentials/data-collection-rule-overview.md) that define which data Azure Monitor agent sends to which destinations.
 1. Associate the data collection rule to specific virtual machines.
 
-## Data collection rule associations
-
-To apply a DCR to a virtual machine, you create a [data collection rule association](../data-collection.md#components) between the two. A virtual machine may have an association to multiple DCRs, and a DCR may have multiple virtual machines associated to it. This allows you to define a set of DCRs, each matching a particular requirement, and apply them to only the virtual machines where they apply. When you use the Azure portal, you simply choose the machines that should be associated with the DCR. Using other methods, you must explicitly create the data collection rule association.
+You can associate virtual machines to multiple data collection rules. This allows you to define each data collection rule to address a particular requirement, and associate the data collection rules to virtual machines based on the specific data you want to collect from each machine.
 
 ## Create data collection rule and association
 
-To send data to Log Analytics, create the data collection rule in the **same region** where your Log Analytics workspace resides. You can still associate the rule to machines in other supported regions.
+To send data to Log Analytics, create the data collection rule in the **same region** as your Log Analytics workspace. You can still associate the rule to machines in other supported regions.
 
 ### [Portal](#tab/portal)
 
@@ -124,7 +122,7 @@ Follow the steps below to create a data collection rule and association
 > If you wish to send data to Log Analytics, you must create the data collection rule in the **same region** where your Log Analytics workspace resides. The rule can be associated to machines in other supported region(s).
 ### [API](#tab/api)
 
-1. Manually create the DCR file using the JSON format shown in [Sample DCR](data-collection-rule-sample-agent.md).
+1. Create a DCR file using the JSON format shown in [Sample DCR](data-collection-rule-sample-agent.md).
 
 2. Create the rule using the [REST API](/rest/api/monitor/datacollectionrules/create#examples).
 

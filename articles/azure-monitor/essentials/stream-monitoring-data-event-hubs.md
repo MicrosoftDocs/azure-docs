@@ -6,6 +6,7 @@ author: bwren
 ms.author: bwren
 ms.topic: conceptual
 ms.date: 07/15/2020
+ms.reviewer: lualderm
 ---
 # Stream Azure monitoring data to an event hub or external partner
 
