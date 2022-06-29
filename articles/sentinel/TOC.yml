@@ -536,7 +536,7 @@
     href: ../security/fundamentals/feature-availability.md
   - name: Build your skills for Microsoft Sentinel
     items: 
-      name: Microsoft Sentinel skill-up training  
+    - name: Microsoft Sentinel skill-up training  
       href: skill-up-resources.md
     - name: Microsoft Learn modules for Microsoft Sentinel
       href: /learn/browse/?expanded=azure&products=azure-sentinel
