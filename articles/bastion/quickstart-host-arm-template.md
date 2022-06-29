@@ -71,7 +71,7 @@ In this section, you'll deploy Bastion using the **Deploy to Azure** button belo
    * To view the template, click **Edit template**. On this page, you can adjust some of the values such as address space or the name of certain resources. **Save** to save your changes, or **Discard**.
    * If you decide to create your bastion host in an existing VNet, make sure to fill in the values for the template as they are in your deployed environment, or the template will fail.
 
-    :::image type="content" source="./media/quickstart-host-arm-template/bastion-template-values.png" alt-text="Screenshot Bastion ARM template example values." lightbox="./media/quickstart-host-arm-template/bastion-template-values.png":::
+    :::image type="content" source="./media/quickstart-host-arm-template/bastion-template-values.png" alt-text="Screenshot of Bastion ARM template example values." lightbox="./media/quickstart-host-arm-template/bastion-template-values.png":::
 
    | Setting                  | Example value             |
    |--------------------------|--------------------------------|
