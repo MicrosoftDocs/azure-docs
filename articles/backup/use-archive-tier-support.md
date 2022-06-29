@@ -100,10 +100,12 @@ To allowlist a subscription, follow these steps:
 1. In the Azure portal, select the subscription you want to allowlist.
 
 1. Select **Preview Features** in the left pane.
-   [Diagram 1]
+
+   :::image type="content" source="./media/use-archive-tier-support/select-preview-feature-inline.png" alt-text="Screenshot showing to select the Preview Feature option." lightbox="./media/use-archive-tier-support/select-preview-feature-expanded.png":::
 
 1. Select **Smart Tiering for Archive**.
-   [Diagram 2]
+
+   :::image type="content" source="./media/use-archive-tier-support/select-smart-tiering-for-archive-inline.png" alt-text="Screenshot showing to select Smart Tiering for Archive option." lightbox="./media/use-archive-tier-support/select-smart-tiering-for-archive-expanded.png":::
 
 1. Select **Register**.
 
@@ -113,19 +115,22 @@ The subscription gets enabled for Smart Tiering in a few minutes.
 
 To enable Smart Tiering for Azure VM backup policies, follow these steps:
 
-1. Select or create a  backup policy:
+1. Select or create a backup policy:
 
    - **Existing Backup Policy**: Select the backup policy for which you want to enable Smart Tiering.
    - **Create a new Policy**: Create a new backup policy.
 
 1. In **Backup policy**, select **Enable Tiering**.
-   [Diagram 3]
+
+   :::image type="content" source="./media/use-archive-tier-support/select-enable-tiering-inline.png" alt-text="Screenshot showing to select the Enable Tiering option." lightbox="./media/use-archive-tier-support/select-enable-tiering-expanded.png":::
 
 1. Select one of the following options to move to vault-archive tier:
 
    - **Recommended recovery points**: This option moves all recommended recovery points to the vault-archive tier. [Learn more](archive-tier-support.md#archive-recommendations-only-for-azure-virtual-machines) about recommendations.
    - **Eligible recovery points**: This option moves all eligible recovery point after a specific number of days.
-     [Diagram 4]
+
+     :::image type="content" source="./media/use-archive-tier-support/select-eligible-recovery-points-inline.png" alt-text="Screenshot showing to select the Eligible recovery points option." lightbox="./media/use-archive-tier-support/select-eligible-recovery-points-expanded.png":::
+
    >[!Note]
    >- The value of x can range from 3 months to (monthly/yearly retention in months -6).
    >- Selecting this option can increase your overall costs.
@@ -142,7 +147,8 @@ To enable Smart Tiering for Azure SAP HANA/SQL servers in Azure VM backup polici
    - **Create a new Policy**: 
 
 1. In **Backup policy**, select **Move eligible recovery points to vault-archive**.
-   [Diagram 5]
+
+   :::image type="content" source="./media/use-archive-tier-support/select-move-eligible-recovery-points-to-vault-archive-inline.png" alt-text="Screenshot showing to select select Move eligible recovery points to vault-archive." lightbox="./media/use-archive-tier-support/select-move-eligible-recovery-points-to-vault-archive-expanded.png":::
 
    Select the number of days after which you want to move your recovery point to archive.
 
@@ -251,7 +257,7 @@ $rp | select RecoveryPointId, @{ Label="IsArchivable";Expression={$_.RecoveryPoi
 $rp = Get-AzRecoveryServicesBackupRecoveryPoint -VaultId $vault.ID -Item $bckItm -StartDate $startdate.ToUniversalTime() -EndDate $enddate.ToUniversalTime() -IsReadyForMove $true -TargetTier VaultArchive
 ```
 
-This lists all recovery points associated with a particular backup item that are ready to be moved to archive (from the start date to the end date). You can also modify the start dates and the end dates.
+This lists all recovery points associated with a particular backup item that's ready to be moved to archive (from the start date to the end date). You can also modify the start dates and the end dates.
 
 ## Check why a recovery point can't be moved to archive
 
@@ -290,7 +296,7 @@ $RecommendedRecoveryPointList = Get-AzRecoveryServicesBackupRecommendedArchivabl
 Move-AzRecoveryServicesBackupRecoveryPoint -VaultId $vault.ID -RecoveryPoint $rp[0] -SourceTier VaultStandard -DestinationTier VaultArchive
 ```
 
-Where, `$rp[0]` is the first recovery point in the list. If you want to move other recovery points, use `$rp[1]`, `$rp[2]`, and so on.
+Here, `$rp[0]` is the first recovery point in the list. If you want to move other recovery points, use `$rp[1]`, `$rp[2]`, and so on.
 
 This cmdlet moves an archivable recovery point to archive. It returns a job that can be used to track the move operation, both from portal and with PowerShell.
 
