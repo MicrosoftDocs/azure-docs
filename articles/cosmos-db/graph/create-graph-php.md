@@ -5,7 +5,7 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.devlang: php
 ms.topic: quickstart
-ms.date: 06/07/2022
+ms.date: 06/29/2022
 author: manishmsfte
 ms.author: mansha
 ms.custom: mode-api, kr2b-contr-experiment
