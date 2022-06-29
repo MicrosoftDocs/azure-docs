@@ -33,7 +33,7 @@ and the Java Profiling tools(such as Java Flight Recorder).
 
 ![memory 3](media/how-to-fix-app-restart-issues-caused-by-out-of-memory/heap-out-exception.png)
 
-This doc focuses on how to fix container OOM. To fix JVM OOM please check tools like [heap dump, thread dump and Java Flight Recorder](https://docs.microsoft.com/en-us/azure/spring-cloud/how-to-capture-dumps).
+This doc focuses on how to fix container OOM. To fix JVM OOM please check tools like heap dump, thread dump, and Java Flight Recorder. For more information, see [Capture heap dump and thread dump manually and use Java Flight Recorder in Azure Spring Apps](/azure/spring-cloud/how-to-capture-dumps).
 
 ## How to fix app restart issues due to OOM
 

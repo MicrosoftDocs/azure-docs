@@ -18,7 +18,9 @@ This doc provides a list of tools for troubleshooting Java memory issues. Note t
 
 ## Alert and diagnose
 
-### 1. Resource health [(Related doc)](https://docs.microsoft.com/en-us/azure/spring-cloud/monitor-app-lifecycle-events#monitor-app-lifecycle-events-in-azure-service-health)
+### 1. Resource health
+
+For more information, see [Monitor app lifecycle events using Azure Activity log and Azure Service Health](/azure/spring-cloud/monitor-app-lifecycle-events).
 
 Resource health sends alerts about app restart events due to [container OOM](https://github.com/KaiqianYang/azure-spring-cloud-docs-pr/blob/kaiqianyang/memory-oom/docs/fix-app-restart-issues-caused-by-out-of-memory.md#1-Out-of-available-app-memory).
 
@@ -26,7 +28,9 @@ Please check [the doc for fixing app restart issues caused by out of memory](htt
 
 ![memory 5](media/tools-to-troubleshoot-memory-issues/out-of-memory-alert-resource-health.png)
 
-### 2. Diagnose and solve problems [(Related doc)](https://docs.microsoft.com/en-us/azure/spring-cloud/how-to-self-diagnose-solve)
+### 2. Diagnose and solve problems
+
+For more information, see [Self-diagnose and solve problems in Azure Spring Apps](/azure/spring-cloud/how-to-self-diagnose-solve).
 
 Under "Diagnose and solve problems", you can find "Memory Usage" detector. It shows a simple diagnosis for app memory usage.
 
@@ -34,7 +38,9 @@ Under "Diagnose and solve problems", you can find "Memory Usage" detector. It sh
 
 ![memory 4](media/tools-to-troubleshoot-memory-issues/diagnose-solve-problem-example.png)
 
-### 3. Metrics [(Related doc)](https://docs.microsoft.com/en-us/azure/spring-cloud/quickstart-logs-metrics-tracing?tabs=Azure-CLI&pivots=programming-language-java#metrics-1)
+### 3. Metrics
+
+For more information, see [Quickstart: Monitoring Azure Spring Apps apps with logs, metrics, and tracing](/azure/spring-cloud/quickstart-logs-metrics-tracing?tabs=Azure-CLI&pivots=programming-language-java).
 
 Metrics cover issues including high memory usage, heap memory too large and garbage collection abnormal(too frequent or too not frequent), through following metrics.
 
@@ -89,7 +95,9 @@ This feature can be found on portal, and you can choose specific metrics and add
 
 ## Further debug
 
-### Capture heap dump and thread dump manually and use Java Flight Recorder [(Related doc)](https://docs.microsoft.com/en-us/azure/spring-cloud/how-to-capture-dumps)
+### Capture heap dump and thread dump manually and use Java Flight Recorder
+
+For more information, see [Capture heap dump and thread dump manually and use Java Flight Recorder in Azure Spring Apps](/azure/spring-cloud/how-to-capture-dumps).
 
 This feature provides further details on heap and threads, to help debug.
 
