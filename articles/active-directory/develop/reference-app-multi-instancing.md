@@ -1,8 +1,8 @@
 ---
-title: SAML App Multi-Instancing
+title: Configure SAML app multi-instancing for an application
 description: Learn about SAML App Multi-Instancing, which is needed for the configuration of multiple instances of the same application within a tenant.
 services: active-directory
-author: loganmabe
+author: davidmu1
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
@@ -10,12 +10,11 @@ ms.custom: aaddev
 ms.workload: identity
 ms.topic: reference
 ms.date: 06/28/2022
-ms.author: loganmabe
+ms.author: davidmu1
 ms.reviewer: 
 ---
 
-# SAML App Multi-Instancing 
-## What is App Multi-Instancing?     
+# Configure SAML app multi-instancing for an application in Azure Active Directory    
 App multi-instancing refers to the need for the configuration of multiple instances of the same application within a tenant.  For example, the organization has multiple Amazon Web Services accounts, each of which needs a separate service principal to handle instance-specific claims mapping (adding the AccountID claim for that AWS tenant) and roles assignment.  Or the customer has multiple instances of Box, which doesn’t need special claims mapping, but does need separate service principals for separate signing keys.  
 
 ## IDP versus SP initiated SSO?     

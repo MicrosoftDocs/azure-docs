@@ -123,8 +123,6 @@
               href: active-directory-optional-claims.md
             - name: Claims mapping policy type
               href: reference-claims-mapping-policy-type.md
-            - name: SAML App Multi-Instancing
-              href: reference-app-multi-instancing.md
             - name: Use directory schema extension attributes in claims
               href: active-directory-schema-extensions.md
             - name: Customize claims using Azure portal
@@ -489,6 +487,9 @@
         - name: Shared devices
           displayName: shared device mode, firstline worker, frontline worker, flw
           href: msal-shared-devices.md
+        - name: SAML app multi-instancing
+          displayName: Configure SAML app multi-instancing for an application
+          href: reference-app-multi-instancing.md
     - name: How-to
       items:
         - name: Mobile app that calls an API
