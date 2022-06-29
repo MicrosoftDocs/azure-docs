@@ -10,12 +10,6 @@ ms.reviewer: mmcc
 
 # Configuration options - Azure Monitor Application Insights for Java
 
-> [!WARNING]
-> **If you are upgrading from 3.0 Preview**
->
-> Please review all the configuration options below carefully, as the json structure has completely changed,
-> in addition to the file name itself which went all lowercase.
-
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
 
 ## Connection string and role name
