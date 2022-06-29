@@ -22,7 +22,7 @@ The URL endpoints to allow for the Azure portal are specific to the Azure cloud 
 
 ### [Public Cloud](#tab/public-cloud)
 
-#### Azure Portal login
+#### Azure portal authentication
 
 ```
 *.login.microsoftonline.com
@@ -34,7 +34,7 @@ The URL endpoints to allow for the Azure portal are specific to the Azure cloud 
 *.microsoftonline-p.com
 ```
 
-#### Azure Portal framework
+#### Azure portal framework
 
 ```
 *.portal.azure.com
