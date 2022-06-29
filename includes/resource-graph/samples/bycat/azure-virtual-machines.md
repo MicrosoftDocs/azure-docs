@@ -616,7 +616,7 @@ Search-AzGraph -Query "Resources | where type =~ 'Microsoft.Compute/virtualMachi
 
 ### Summarize virtual machine by the power states extended property
 
-This query uses the [extended properties](../../../../articles/governance/resource-graph/concepts/query-language.md#extended-properties) on virtual machines to summarize by power states.
+This query uses the [extended properties](../../../../articles/governance/resource-graph/concepts/query-language.md#extended-properties-preview) on virtual machines to summarize by power states.
 
 ```kusto
 Resources

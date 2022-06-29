@@ -7,7 +7,7 @@ ms.reviewer: dannyevers
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-ms.date: 03/28/2022
+ms.date: 06/29/2022
 ---
 
 # Create an Azure application offer
@@ -60,7 +60,12 @@ A test drive is a great way to showcase your offer to potential customers by giv
 
 ### Customer lead management
 
-Connect your customer relationship management (CRM) system with your commercial marketplace offer so you can receive customer contact information when a customer expresses interest or deploys your product.
+When a customer expresses interest or deploys your product, you’ll receive a lead in the [Referrals workspace](https://partner.microsoft.com/dashboard/referrals/v2/leads) in Partner Center.
+
+You can also connect the product to your customer relationship management (CRM) system to handle leads there.
+
+> [!NOTE]
+> Connecting to a CRM system is optional.
 
 #### To configure the connection details in Partner Center
 

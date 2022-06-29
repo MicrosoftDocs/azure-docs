@@ -6027,96 +6027,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/azure-arc/data/deploy-byok-active-directory-connector.md",
-      "redirect_url": "/azure/azure-arc/data/deploy-customer-managed-keytab-active-directory-connector",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/azure-arc/data/reference/reference-az-sql-mi-arc-dag.md",
-      "redirect_url": "/azure/azure-arc/data/reference/reference-az-sql-instance-failover-group-arc",
-      "redirect_document_id":true
-    },
-    {
-      "source_path_from_root": "/articles/azure-arc/data/retrieve-the-username-password-for-data-controller.md",
-      "redirect_url": "/azure/azure-arc/data/update-service-principal-credentials",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/azure-arc/data/create-aks-cluster-data-controller.md",
-      "redirect_url": "/azure/azure-arc/data/create-complete-managed-instance-indirectly-connected",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/azure-arc/data/how-to-apply-security-context-constraint.md",
-      "redirect_url": "/azure/azure-arc/data",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/azure-arc/data/deploy-data-controller-direct-mode-prerequisites.md",
-      "redirect_url": "/azure/azure-arc/data/create-data-controller-direct-cli",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/azure-arc/data/deploy-data-controller-direct-mode.md",
-      "redirect_url": "/azure/azure-arc/data/create-data-controller-direct-cli",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/azure-arc/data/create-data-controller.md",
-      "redirect_url": "/azure/azure-arc/data/plan-azure-arc-data-services",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/azure-arc/data/create-data-controller-azure-data-studio.md",
-      "redirect_url": "/azure/azure-arc/data/create-data-controller-indirect-azure-data-studio",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/azure-arc/data/data-controller-resource-in-azure-portal.md",
-      "redirect_url": "/azure/azure-arc/data/create-data-controller-indirect-azure-portal",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/azure-arc/data/create-data-controller-using-cli.md",
-      "redirect_url": "/azure/azure-arc/data/create-data-controller-indirect-cli",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/azure-arc/data/create-data-controller-using-azdata.md",
-      "redirect_url": "/azure/azure-arc/data/create-data-controller-using-cli",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/azure-arc/data/scale-out-postgresql-hyperscale-server-group.md",
-      "redirect_url": "/azure/azure-arc/data/scale-out-in-postgresql-hyperscale-server-group",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/azure-arc/data/known-issues.md",
-      "redirect_url": "/azure/azure-arc/data/release-notes",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/azure-arc/data/reference/overview.md",
-      "redirect_url": "/azure/azure-arc/data/reference/reference-az-arcdata",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/azure-arc/data/create-data-controller-using-k8s-native-tools.md",
-      "redirect_url": "/azure/azure-arc/data/create-data-controller-using-kubernetes-native-tools",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/azure-arc/data/create-postgresql-hyperscale-server-group-k8s-native-tools.md",
-      "redirect_url": "/azure/azure-arc/data/create-postgresql-hyperscale-server-group-kubernetes-native-tools",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/azure-arc/data/create-sql-managed-instance-using-k8s-native-tools.md",
-      "redirect_url": "/azure/azure-arc/data/create-sql-managed-instance-using-kubernetes-native-tools",
-      "redirect_document_id": false
-    },
-    {
       "source_path_from_root": "/articles/azure-arc/kubernetes/policy-samples.md",
       "redirect_url": "/azure/azure-arc/kubernetes/policy-reference",
       "redirect_document_id": false
@@ -11206,6 +11116,17 @@
       "redirect_url": "/azure/azure-resource-manager/management/move-resources-overview",
       "redirect_document_id": false
     },
+    {
+      "source_path_from_root": "/articles/azure-resource-manager/management/create-private-link-access-rest.md",
+      "redirect_url": "/azure/azure-resource-manager/management/create-private-link-access-commands",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-resource-manager/management/manage-private-link-access-rest.md",
+      "redirect_url": "/azure/azure-resource-manager/management/manage-private-link-access-commands",
+      "redirect_document_id": false
+    },
+
     {
       "source_path_from_root": "/articles/azure-resource-manager/resource-group-move-resources.md",
       "redirect_url": "/azure/azure-resource-manager/management/move-resource-group-and-subscription",
@@ -18999,6 +18920,11 @@
     {
       "source_path_from_root": "/articles/connectors/connectors-create-api-wunderlist.md",
       "redirect_url": "/connectors/todo",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/connectors/connectors-create-api-bingsearch.md",
+      "redirect_url": "/connectors/bingsearch",
       "redirect_document_id": false
     },
     {
@@ -30106,42 +30032,42 @@
     },
     {
       "source_path_from_root": "/articles/cognitive-services/Speech-Service/support.md",
-      "redirect_url": "http://docs.microsoft.com/azure/cognitive-services/cognitive-services-support-options?context=/azure/cognitive-services/speech-service/context/context",
+      "redirect_url": "/azure/cognitive-services/cognitive-services-support-options?context=/azure/cognitive-services/speech-service/context/context",
       "redirect_document_id": true
     },
     {
       "source_path_from_root": "/articles/cognitive-services/Speech-Service/faq-text-to-speech.md",
-      "redirect_url": "http://docs.microsoft.com/azure/cognitive-services/speech-service/get-started-text-to-speech",
+      "redirect_url": "/azure/cognitive-services/speech-service/get-started-text-to-speech",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/cognitive-services/Speech-Service/speech-studio-test-model.md",
-      "redirect_url": "http://docs.microsoft.com/azure/cognitive-services/speech-service/speech-studio-overview",
+      "redirect_url": "/azure/cognitive-services/speech-service/speech-studio-overview",
       "redirect_document_id": true
     },
     {
       "source_path_from_root": "/articles/cognitive-services/Speech-Service/whats-new.md",
-      "redirect_url": "http://docs.microsoft.com/azure/cognitive-services/speech-service/overview",
+      "redirect_url": "/azure/cognitive-services/speech-service/overview",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/cognitive-services/Speech-Service/concepts-gating-overview.md",
-      "redirect_url": "https://docs.microsoft.com/legal/cognitive-services/speech-service/custom-neural-voice/transparency-note-custom-neural-voice",
+      "redirect_url": "/legal/cognitive-services/speech-service/custom-neural-voice/transparency-note-custom-neural-voice",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/cognitive-services/Speech-Service/concepts-guidelines-responsible-deployment-synthetic.md",
-      "redirect_url": "https://docs.microsoft.com/legal/cognitive-services/speech-service/custom-neural-voice/concepts-guidelines-responsible-deployment-synthetic",
+      "redirect_url": "/legal/cognitive-services/speech-service/custom-neural-voice/concepts-guidelines-responsible-deployment-synthetic",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/cognitive-services/Speech-Service/concepts-disclosure-guidelines.md",
-      "redirect_url": "https://docs.microsoft.com/legal/cognitive-services/speech-service/custom-neural-voice/concepts-disclosure-guidelines",
+      "redirect_url": "/legal/cognitive-services/speech-service/custom-neural-voice/concepts-disclosure-guidelines",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/cognitive-services/Speech-Service/concepts-disclosure-patterns.md",
-      "redirect_url": "https://docs.microsoft.com/legal/cognitive-services/speech-service/custom-neural-voice/concepts-disclosure-patterns",
+      "redirect_url": "/legal/cognitive-services/speech-service/custom-neural-voice/concepts-disclosure-patterns",
       "redirect_document_id": false
     },
     {
@@ -40265,6 +40191,16 @@
     {
       "source_path_from_root": "/articles/private-link/private-endpoint-static-ip-powershell.md",
       "redirect_url": "/azure/private-link/create-private-endpoint-powershell",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/app-service/environment/overview-zone-redundancy.md",
+      "redirect_url": "/azure/availability-zones/migrate-app-service-environment",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/app-service/how-to-zone-redundancy.md",
+      "redirect_url": "/azure/availability-zones/migrate-app-service",
       "redirect_document_id": true
     },
     {

@@ -120,4 +120,4 @@ Also see:
 
 - [See Responsible use guidelines for Personalizer](responsible-use-cases.md).
 
-To learn more about Microsoft's privacy and security commitments, see the[Microsoft Trust Center](https://www.microsoft.com/trust-center).
+To learn more about Microsoft's privacy and security commitments, see the [Microsoft Trust Center](https://www.microsoft.com/trust-center).

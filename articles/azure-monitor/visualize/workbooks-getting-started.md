@@ -17,14 +17,11 @@ You can access Workbooks in a few ways:
 
    :::image type="content" source="./media/workbooks-overview/workbooks-menu.png" alt-text="Screenshot of Workbooks icon in the menu.":::
 
-- From a **Log Analytics workspace** page, select the **Workbooks** icon at the top of the page.
+- In a **Log Analytics workspace** page, select the **Workbooks** icon at the top of the page.
 
   :::image type="content" source="media/workbooks-overview/workbooks-log-analytics-icon.png" alt-text="Screenshot of Workbooks icon on Log analytics workspace page.":::
 
 The gallery opens. Select a saved workbook or a template from the gallery, or search for the name in the search bar.
-
-## Start a new workbook
-To start a new workbook, select the **Empty** template under **Quick start**, or the **New** icon in the top navigation bar. For more information on creating new workbooks, see [Create a workbook](workbooks-create-workbook.md).
 
 ## Save a workbook
 To save a workbook, save the report with a specific title, subscription, resource group, and location.

@@ -2,7 +2,7 @@
 title: Container security with Microsoft Defender for Cloud
 description: Learn about Microsoft Defender for Containers
 ms.topic: overview
-ms.date: 06/15/2022
+ms.date: 06/28/2022
 ---
 
 # Overview of Microsoft Defender for Containers
@@ -11,7 +11,8 @@ Microsoft Defender for Containers is the cloud-native solution for securing your
 
 [How does Defender for Containers work in each Kubernetes platform?](defender-for-containers-architecture.md)
 
-You can learn more from the product manager about Microsoft Defender for Containers by watching [Microsoft Defender for Containers](episode-three.md).
+You can learn more by watching this video from the Defender for Cloud in the Field video series:
+- [Microsoft Defender for Containers](episode-three.md)
 
 ## Microsoft Defender for Containers plan availability
 
@@ -113,10 +114,15 @@ No, AKS is a managed service, and manipulation of the IaaS resources isn't suppo
 
 ## Learn More
 
-You can check out the following blogs:
+Learn more about Defender for Containers:
 
-- [How to demonstrate the new containers features in Microsoft Defender for Cloud](https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/how-to-demonstrate-the-new-containers-features-in-microsoft/ba-p/3281172)
 - [Introducing Microsoft Defender for Containers](https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/introducing-microsoft-defender-for-containers/ba-p/2952317)
+- [Demonstrating Microsoft Defender for Cloud](https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/how-to-demonstrate-the-new-containers-features-in-microsoft/ba-p/3281172)
+- The release state of Defender for Containers is broken down by two dimensions: environment and feature. So, for example:
+  - **Kubernetes data plane recommendations** for AKS clusters are GA
+  - **Kubernetes data plane recommendations** for EKS clusters are preview
+
+  To view the status of the full matrix of features and environments, see [Microsoft Defender for Containers feature availability](supported-machines-endpoint-solutions-clouds-containers.md).
 
 ## Next steps
 

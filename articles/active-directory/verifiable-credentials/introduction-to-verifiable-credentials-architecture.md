@@ -18,7 +18,7 @@ ms.author: baselden
 > [!IMPORTANT]
 > Azure Active Directory Verifiable Credentials is currently in public preview. This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. For more information, see [**Supplemental Terms of Use for Microsoft Azure Previews**](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-It’s important to plan your verifiable credential solution so that in addition to issuing and or validating credentials, you have a complete view of the architectural and business impacts of your solution. If you haven’t reviewed them already, we recommend you review  [Introduction to Azure Active Directory Verifiable Credentials](decentralized-identifier-overview.md) and the[ FAQs](verifiable-credentials-faq.md), and then complete the [Getting Started](get-started-verifiable-credentials.md) tutorial. 
+It’s important to plan your verifiable credential solution so that in addition to issuing and or validating credentials, you have a complete view of the architectural and business impacts of your solution. If you haven’t reviewed them already, we recommend you review  [Introduction to Azure Active Directory Verifiable Credentials](decentralized-identifier-overview.md) and the [FAQs](verifiable-credentials-faq.md), and then complete the [Getting Started](get-started-verifiable-credentials.md) tutorial. 
 
 This architectural overview introduces the capabilities and components of the Azure Active Directory Verifiable Credentials service. For more detailed information on issuance and validation, see 
 
