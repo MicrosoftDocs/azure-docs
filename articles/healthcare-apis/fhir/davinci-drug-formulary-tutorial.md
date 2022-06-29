@@ -8,7 +8,7 @@ ms.topic: tutorial
 ms.reviewer: matjazl
 ms.author: mikaelw
 author: modillon
-ms.date: 03/01/2022
+ms.date: 06/06/2022
 ---
 
 # Tutorial for Da Vinci Drug Formulary
@@ -57,3 +57,5 @@ In this tutorial, we walked through how to pass the Da Vinci Payer Data Exchange
 
 >[!div class="nextstepaction"]
 >[Da Vinci PDex](davinci-pdex-tutorial.md)
+
+FHIR&#174; is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.

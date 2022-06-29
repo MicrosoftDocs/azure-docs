@@ -9,7 +9,7 @@ ms.topic: conceptual
 author: ajagadish-24
 ms.author: ajagadish
 ms.reviewer: wiassaf
-ms.date: 05/24/2022
+ms.date: 05/31/2022
 ---
 
 # Minimize SQL issues for Teradata migrations
@@ -73,7 +73,7 @@ By creating metadata to list the data tables to be migrated and their location, 
 > [!TIP]
 > SQL DDL commands `CREATE TABLE` and `CREATE VIEW` have standard core elements but are also used to define implementation-specific options.
 
-The ANSI SQL standard defines the basic syntax for DDL commands such as `CREATE TABLE` and `CREATE VIEW`. These commands are used within both Teradata and Azure Synapse, but they've also been extended to allow definition of implementation-specific features such as indexing, table distribution and partitioning options.
+The ANSI SQL standard defines the basic syntax for DDL commands such as `CREATE TABLE` and `CREATE VIEW`. These commands are used within both Teradata and Azure Synapse, but they've also been extended to allow definition of implementation-specific features such as indexing, table distribution, and partitioning options.
 
 The following sections discuss Teradata-specific options to consider during a migration to Azure Synapse.
 
@@ -82,16 +82,16 @@ The following sections discuss Teradata-specific options to consider during a mi
 > [!TIP]
 > Use existing indexes to give an indication of candidates for indexing in the migrated warehouse.
 
-When migrating tables between different technologies, only the raw data and its descriptive metadata gets physically moved between the two environments. Other database elements from the source system, such as indexes and log files, aren't directly migrated as these may not be needed or may be implemented differently within the new target environment. For example, there's no equivalent of the `MULTISET` option within Teradata's `CREATE TABLE` syntax.
+When migrating tables between different technologies, only the raw data and its descriptive metadata get physically moved between the two environments. Other database elements from the source system, such as indexes and log files, aren't directly migrated as these may not be needed or may be implemented differently within the new target environment. For example, there's no equivalent of the `MULTISET` option within Teradata's `CREATE TABLE` syntax.
 
-It's important to understand where performance optimizations&mdash;such as indexes&mdash;were used in the source environment. This indicates where performance optimization can be added in the new target environment. For example, if a non-unique secondary index (NUSI) has been created in the source Teradata environment, this might indicate that a non-clustered index should be created in the migrated Azure Synapse. Other native performance optimization techniques, such as table replication, may be more applicable than a straight 'like for like' index creation.
+It's important to understand where performance optimizations&mdash;such as indexes&mdash;were used in the source environment. This indicates where performance optimization can be added in the new target environment. For example, if a non-unique secondary index (NUSI) has been created in the source Teradata environment, this might indicate that a non-clustered index should be created in the migrated Azure Synapse database. Other native performance optimization techniques, such as table replication, may be more applicable than a straight "like-for-like" index creation.
 
 ### Unsupported Teradata table types
 
 > [!TIP]
-> Standard tables within Azure Synapse can support migrated Teradata time series and temporal tables.
+> Standard tables within Azure Synapse can support migrated Teradata time-series and temporal tables.
 
-Teradata includes support for special table types for time series and temporal data. The syntax and some of the functions for these table types aren't directly supported within Azure Synapse, but the data can be migrated into a standard table with appropriate data types and indexing or partitioning on the date/time column.
+Teradata includes support for special table types for time-series and temporal data. The syntax and some of the functions for these table types aren't directly supported within Azure Synapse, but the data can be migrated into a standard table with appropriate data types and indexing or partitioning on the date/time column.
 
 Teradata implements the temporal query functionality via query rewriting to add additional filters within a temporal query to limit the applicable date range. If this functionality is currently in use within the source Teradata environment and is to be migrated, then this additional filtering will need to be added into the relevant temporal queries.
 
@@ -215,7 +215,7 @@ There are [Microsoft partners](../../partner/data-integration.md) who offer tool
 ### SQL Data Manipulation Language (DML)
 
 > [!TIP]
-> SQL DML commands `SELECT`, `INSERT` and `UPDATE` have standard core elements but may also implement different syntax options.
+> SQL DML commands `SELECT`, `INSERT`, and `UPDATE` have standard core elements but may also implement different syntax options.
 
 The ANSI SQL standard defines the basic syntax for DML commands such as `SELECT`, `INSERT`, `UPDATE`, and `DELETE`. Both Teradata and Azure Synapse use these commands, but in some cases there are implementation differences.
 
@@ -223,7 +223,7 @@ The following sections discuss the Teradata-specific DML commands that you shoul
 
 ### SQL DML syntax differences
 
-There are a few differences in SQL DML syntax between Teradata SQL and Azure Synapse (T-SQL) that you should be aware of during migration:
+Be aware of these differences in SQL Data Manipulation Language (DML) syntax between Teradata SQL and Azure Synapse (T-SQL) when migrating:
 
 - `QUALIFY`: Teradata supports the `QUALIFY` operator. For example:
 
@@ -271,7 +271,7 @@ There are a few differences in SQL DML syntax between Teradata SQL and Azure Syn
 > [!TIP]
 > Use real queries from the existing system query logs to find potential migration issues.
 
-One way of testing legacy Teradata SQL for compatibility with Azure Synapse is to capture some representative SQL statements from the legacy system query logs, prefix those queries with [EXPLAIN](/sql/t-sql/queries/explain-transact-sql?msclkid=91233fc1cff011ec9dff597671b7ae97), and (assuming a 'like for like' migrated data model in Azure Synapse with the same table and column names) run those `EXPLAIN` statements in Azure Synapse. Any incompatible SQL will throw an error&mdash;use this information to determine the scale of the recoding task. This approach doesn't require that data is loaded into the Azure environment, only that the relevant tables and views have been created.
+One way of testing legacy Teradata SQL for compatibility with Azure Synapse is to capture some representative SQL statements from the legacy system query logs, prefix those queries with [EXPLAIN](/sql/t-sql/queries/explain-transact-sql?msclkid=91233fc1cff011ec9dff597671b7ae97), and (assuming a "like-for-like" migrated data model in Azure Synapse with the same table and column names) run those `EXPLAIN` statements in Azure Synapse. Any incompatible SQL will throw an error&mdash;use this information to determine the scale of the recoding task. This approach doesn't require that data is loaded into the Azure environment, only that the relevant tables and views have been created.
 
 ### Functions, stored procedures, triggers, and sequences
 
@@ -307,7 +307,7 @@ Azure Synapse doesn't support the creation of triggers, but you can implement th
 
 #### Sequences
 
-Azure Synapse sequences are handled in a similar way to Teradata, using [identity to create surrogate keys](../../sql-data-warehouse/sql-data-warehouse-tables-identity.md) or [managed identity](../../../data-factory/data-factory-service-identity.md?tabs=data-factory).
+Azure Synapse sequences are handled in a similar way to Teradata, using [IDENTITY to create surrogate keys](../../sql-data-warehouse/sql-data-warehouse-tables-identity.md) or [managed identity](../../../data-factory/data-factory-service-identity.md?tabs=data-factory).
 
 #### Teradata to T-SQL mapping
 

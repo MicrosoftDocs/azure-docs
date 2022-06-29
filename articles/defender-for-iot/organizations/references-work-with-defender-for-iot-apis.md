@@ -2501,7 +2501,7 @@ Define conditions under which alerts won't be sent. For example, define and upda
 
 The APIs that you define here appear in the on-premises management console's Alert Exclusions window as a read-only exclusion rule.
 
-This API is supported for maintenance purposes only and is not meant to be used instead of [alert exclusion rules](/azure/defender-for-iot/organizations/how-to-work-with-alerts-on-premises-management-console#create-alert-exclusion-rules). Use this API for one-time maintenance operations only.
+This API is supported for maintenance purposes only and is not meant to be used instead of [alert exclusion rules](./how-to-work-with-alerts-on-premises-management-console.md#create-alert-exclusion-rules). Use this API for one-time maintenance operations only.
 
 #### Method - POST
 

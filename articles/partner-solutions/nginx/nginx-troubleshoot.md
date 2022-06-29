@@ -1,8 +1,7 @@
 ---
 title: Troubleshooting your NGINX for Azure deployment
-description: This article provides information about getting support and troubleshooting an NGINX integration with Azure.
+description: This article provides information about getting support and troubleshooting an NGINX for Azure integration.
 ms.topic: conceptual
-ms.service: partner-services
 ms.custom: event-tier1-build-2022
 author: flang-msft
 ms.author: franlanglois

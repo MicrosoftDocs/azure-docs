@@ -24,6 +24,9 @@
   - name: Application Gateway
     expanded: true
     items:
+     - name: Deploy WAF v2 - Bicep
+       displayName: ARM, Template, Resource Manager
+       href: ./ag/quick-create-bicep.md
      - name: Deploy WAF v2 - ARM template
        displayName: Resource Manager
        href: ./ag/quick-create-template.md

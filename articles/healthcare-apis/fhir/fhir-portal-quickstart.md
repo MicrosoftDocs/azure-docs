@@ -4,7 +4,7 @@ description: This article teaches users how to deploy a FHIR service in the Azur
 author: stevewohl
 ms.service: healthcare-apis
 ms.topic: quickstart
-ms.date: 05/03/2022
+ms.date: 06/06/2022
 ms.author: ginle
 ms.custom: mode-api
 ---
@@ -55,3 +55,5 @@ In this article, you learned how to deploy FHIR service within Azure Health Data
 
 >[!div class="nextstepaction"]
 >[Access FHIR service using Postman](../fhir/use-postman.md)
+
+FHIR&#174; is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.

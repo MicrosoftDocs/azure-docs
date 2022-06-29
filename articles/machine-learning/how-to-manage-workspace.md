@@ -335,12 +335,19 @@ The Workspace.list(..) method does not return the full workspace object. It incl
 
 ## Search for assets across a workspace (preview)
 
-With the public preview search capability, you can search for machine learning assets such as jobs, models, components, environments, and datasets across all workspaces, resource groups, and subscriptions in your organization through a unified global view.
+With the public preview search capability, you can search for machine learning assets such as jobs, models, components, environments, and data across all workspaces, resource groups, and subscriptions in your organization through a unified global view.
+
+1. Start from [Azure Machine Learning studio](https://ml.azure.com).  
+1. If a workspace is open, select either the **Microsoft** menu item or the **Microsoft** link in the breadcrumb at the top of the page.
+
+:::image type="content" source="media/how-to-manage-workspace/back-to-main-page.png" alt-text="Screenshot shows two ways to get to the home page - menu item or breadcrumb link.":::
 
 ### Free text search
 
-Type search text into the global search bar on the top of portal and hit enter to trigger a 'contains' search.
+Type search text into the global search bar on the top of the studio **Microsoft** page and hit enter to trigger a 'contains' search.
 A contains search scans across all metadata fields for the given asset and sorts results relevance.
+
+:::image type="content" source="media/how-to-manage-workspace/start-search.png" alt-text="Screenshot shows the top search bar.":::
 
 You can use the asset quick links to navigate to search results for jobs, models, components, environments, and datasets that you created.
 
@@ -371,7 +378,7 @@ If an asset filter (job, model, component, environment, dataset) is present, res
 
 ### View search results
 
-You can view your search results in the individual **Jobs**, **Models**, **Components**, **Environments**, and **Datasets** tabs. Select an asset to open its **Details** page in the context of the relevant workspace. Results from workspaces you don't have permissions to view are not displayed.
+You can view your search results in the individual **Jobs**, **Models**, **Components**, **Environments**, and **Data** tabs. Select an asset to open its **Details** page in the context of the relevant workspace. Results from workspaces you don't have permissions to view are not displayed.
 
 :::image type="content" source="./media/how-to-manage-workspace/results.png" alt-text="Results displayed after search":::
 

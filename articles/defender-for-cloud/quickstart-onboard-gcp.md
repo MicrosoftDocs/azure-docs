@@ -2,7 +2,7 @@
 title: Connect your GCP project to Microsoft Defender for Cloud
 description: Monitoring your GCP resources from Microsoft Defender for Cloud
 ms.topic: quickstart
-ms.date: 06/01/2022
+ms.date: 06/06/2022
 zone_pivot_groups: connect-gcp-accounts
 ms.custom: mode-other
 ---

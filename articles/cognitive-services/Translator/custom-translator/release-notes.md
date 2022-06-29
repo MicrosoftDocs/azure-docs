@@ -9,6 +9,7 @@ ms.subservice: translator-text
 ms.date: 05/03/2021
 ms.author: lajanuar
 ms.topic: conceptual
+ms.custom: applied-ai-non-critical-form
 ---
 # Custom Translator release notes
 

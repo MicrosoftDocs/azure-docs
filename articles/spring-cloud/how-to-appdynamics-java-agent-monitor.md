@@ -6,7 +6,7 @@ author:  KarlErickson
 ms.author: jiec
 ms.service: spring-cloud
 ms.topic: how-to
-ms.date: 10/19/2021
+ms.date: 06/07/2022
 ms.custom: devx-track-java, devx-track-azurecli, event-tier1-build-2022
 ms.devlang: azurecli
 ---
@@ -108,7 +108,7 @@ To activate an application through the Azure portal, use the following steps.
 
 ## Automate provisioning
 
-You can also run a provisioning automation pipeline using Terraform or an Azure Resource Manager template (ARM template). This pipeline can provide a complete hands-off experience to instrument and monitor any new applications that you create and deploy.
+You can also run a provisioning automation pipeline using Terraform, Bicep, or Azure Resource Manager template (ARM template). This pipeline can provide a complete hands-off experience to instrument and monitor any new applications that you create and deploy.
 
 ### Automate provisioning using Terraform
 
@@ -133,11 +133,32 @@ resource "azurerm_spring_cloud_java_deployment" "example" {
 }
 ```
 
+### Automate provisioning using Bicep
+
+To configure the environment variables in a Bicep file, add the following code to the file, replacing the *\<...>* placeholders with your own values. For more information, see [Microsoft.AppPlatform Spring/apps/deployments](/azure/templates/microsoft.appplatform/spring/apps/deployments?tabs=bicep).
+
+```bicep
+deploymentSettings: {
+  environmentVariables: {
+    APPDYNAMICS_AGENT_APPLICATION_NAME : '<your-app-name>'
+    APPDYNAMICS_AGENT_ACCOUNT_ACCESS_KEY : '<your-agent-access-key>'
+    APPDYNAMICS_AGENT_ACCOUNT_NAME : '<your-agent-account-name>'
+    APPDYNAMICS_JAVA_AGENT_REUSE_NODE_NAME : 'true'
+    APPDYNAMICS_JAVA_AGENT_REUSE_NODE_NAME_PREFIX : '<your-agent-node-name>'
+    APPDYNAMICS_AGENT_TIER_NAME : '<your-agent-tier-name>'
+    APPDYNAMICS_CONTROLLER_HOST_NAME : '<your-AppDynamics-controller-host-name>'
+    APPDYNAMICS_CONTROLLER_SSL_ENABLED : 'true'
+    APPDYNAMICS_CONTROLLER_PORT : '443'
+  }
+  jvmOptions: '-javaagent:/opt/agents/appdynamics/java/javaagent.jar'
+}
+```
+
 ### Automate provisioning using an ARM template
 
 To configure the environment variables in an ARM template, add the following code to the template, replacing the *\<...>* placeholders with your own values. For more information, see [Microsoft.AppPlatform Spring/apps/deployments](/azure/templates/microsoft.appplatform/spring/apps/deployments?tabs=json).
 
-```ARM template
+```JSON
 "deploymentSettings": {
   "environmentVariables": {
     "APPDYNAMICS_AGENT_APPLICATION_NAME" : "<your-app-name>",
@@ -191,7 +212,7 @@ You can also see the garbage collection process, as shown in this screenshot:
 
 :::image type="content" source="media/how-to-appdynamics-java-agent-monitor/appdynamics-dashboard-customers-service-garbage-collection.jpg" alt-text="AppDynamics screenshot showing the Garbage Collection section of the Memory page." lightbox="media/how-to-appdynamics-java-agent-monitor/appdynamics-dashboard-customers-service-garbage-collection.jpg":::
 
-The following screenshot shows the **Slow Transactions** page: 
+The following screenshot shows the **Slow Transactions** page:
 
 :::image type="content" source="media/how-to-appdynamics-java-agent-monitor/appdynamics-dashboard-customers-service-slowest-transactions.jpg" alt-text="AppDynamics screenshot showing the Slow Transactions page." lightbox="media/how-to-appdynamics-java-agent-monitor/appdynamics-dashboard-customers-service-slowest-transactions.jpg":::
 

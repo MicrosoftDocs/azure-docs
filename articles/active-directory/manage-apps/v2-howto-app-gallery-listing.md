@@ -76,6 +76,8 @@ On the application **Registration** form, select the feature that you want to en
 
 If you're implementing a [SCIM](../app-provisioning/use-scim-to-provision-users-and-groups.md) 2.0 endpoint for user provisioning, select **User Provisioning (SCIM 2.0)**. Download the schema to provide in the onboarding request. For more information, see [Export provisioning configuration and roll back to a known good state](../app-provisioning/export-import-provisioning-configuration.md). The schema that you configured is used when testing the non-gallery application to build the gallery application.
 
+If you wish to register an MDM application in the Azure AD gallery, select **Register an MDM app**.
+
 You can track application requests by customer name at the Microsoft Application Network portal. For more information, see [Application requests by Customers](https://microsoft.sharepoint.com/teams/apponboarding/Apps/SitePages/AppRequestsByCustomers.aspx).
 
 ### Timelines
@@ -97,6 +99,31 @@ Here's the flow of customer-requested applications.
 :::image type="content" source="./media/howto-app-gallery-listing/customer-request-2.png" alt-text="Screenshot that shows the customer-requested apps flow.":::
 
 To escalate issues of any kind, send an email to the [Azure AD SSO Integration Team](mailto:SaaSApplicationIntegrations@service.microsoft.com). A response is typically sent as soon as possible.
+
+## Update or Remove the application from the Gallery
+
+You can submit your application update request in the [Microsoft Application Network portal](https://microsoft.sharepoint.com/teams/apponboarding/Apps). The first time you try to sign into the portal you are presented with one of two screens. 
+
+- If you receive the message "That didn't work", then you need to contact the [Azure AD SSO Integration Team](mailto:SaaSApplicationIntegrations@service.microsoft.com). Provide the email account that you want to use for submitting the request. A business email address such as `name@yourbusiness.com` is preferred. The Azure AD team will add the account in the Microsoft Application Network portal.
+
+- If you see a "Request Access" page, then fill in the business justification and select **Request Access**.
+
+After the account is added, you can sign in to the Microsoft Application Network portal and submit the request by selecting the **Submit Request (ISV)** tile on the home page and select **Update my application’s listing in the gallery** and select one of the following options as per your choice -
+
+* If you want to update applications SSO feature, select **Update my application’s Federated SSO feature**.
+
+* If you want to update Password SSO feature, select **Update my application’s Password SSO feature**.
+
+* If you want to upgrade your listing from Password SSO to Federated SSO, select **Upgrade my application from Password SSO to Federated SSO**.
+
+* If you want to update MDM listing, select **Update my MDM app**.
+
+* If you want to improve User Provisioning feature, select **Improve my application’s User Provisioning feature**.
+
+* If you want to remove the application from Azure AD gallery, select **Remove my application listing from the gallery**.
+
+If you see the **Your sign-in was blocked** error while logging in, see [Troubleshoot sign-in to the Microsoft Application Network portal](troubleshoot-app-publishing.md).
+
 
 
 ## Join the Microsoft partner network

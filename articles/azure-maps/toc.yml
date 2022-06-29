@@ -131,7 +131,7 @@ items:
           href: how-to-secure-spa-users.md
         - name: How to secure web application
           href: how-to-secure-webapp-users.md
-        - name: How to secure sas application
+        - name: How to secure account with a SAS token
           href: how-to-secure-sas-app.md
         - name: How to secure non-interactive sign-in single page application
           href: how-to-secure-spa-app.md
@@ -473,6 +473,8 @@ items:
     href: https://azure.microsoft.com/pricing/details/azure-maps/
   - name: Pricing calculator
     href: https://azure.microsoft.com/pricing/calculator/
+  - name: Understanding Azure Maps Transactions
+    href: understanding-azure-maps-transactions.md
   - name: Azure Maps videos
     href: /shows/
   - name: Open source projects

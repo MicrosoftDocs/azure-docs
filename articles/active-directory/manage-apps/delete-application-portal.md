@@ -2,14 +2,14 @@
 title: 'Quickstart: Delete an enterprise application'
 description: Delete an enterprise application in Azure Active Directory.
 services: active-directory
-author: davidmu1
+author: omondiatieno
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: quickstart
 ms.workload: identity
 ms.date: 03/24/2022
-ms.author: sureshja
+ms.author: jomondi
 ms.reviewer: sureshja
 ms.custom: mode-other
 #Customer intent: As an administrator of an Azure AD tenant, I want to delete an enterprise application.

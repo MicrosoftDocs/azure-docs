@@ -267,7 +267,7 @@ We also enforce some additional rules:
 * Entity interface methods must not have more than one parameter.
 * Entity interface methods must return `void`, `Task`, or `Task<T>`.
 
-If any of these rules are violated, an `InvalidOperationException` is thrown at runtime when the interface is used as a type argument to `SignalEntity` or `CreateProxy`. The exception message explains which rule was broken.
+If any of these rules are violated, an `InvalidOperationException` is thrown at runtime when the interface is used as a type argument to `SignalEntity`, `SignalEntityAsync`, or `CreateEntityProxy`. The exception message explains which rule was broken.
 
 > [!NOTE]
 > Interface methods returning `void` can only be signaled (one-way), not called (two-way). Interface methods returning `Task` or `Task<T>` can be either called or signalled. If called, they return the result of the operation, or re-throw exceptions thrown by the operation. However, when signalled, they do not return the actual result or exception from the operation, but just the default value.

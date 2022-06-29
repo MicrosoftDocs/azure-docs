@@ -30,7 +30,7 @@ Users can now make meetings more personalized and avoid unexpected distractions 
 
 ### Multi-window and "Call me with Teams" features now generally available
 
-The multi-window feature gives users the option to pop out chats, meetings, calls, or documents into separate windows to streamline their workflow. The "Call me" feature lets users transfer a Teams call to their phone. Both features are now generally available in Teams on Azure Virtual Desktop. For more information, see [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop-blog/microsoft-teams-multi-window-support-and-call-me-are-now-in-ga/ba-p/3401830).
+The multi-window feature gives users the option to pop out chats, meetings, calls, or documents into separate windows to streamline their workflow. The "Call me with Teams" feature lets users transfer a Teams call to their phone. Both features are now generally available in Teams on Azure Virtual Desktop. For more information, see [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop-blog/microsoft-teams-multi-window-support-and-call-me-are-now-in-ga/ba-p/3401830).
 
 ### Japan metadata service in public preview
 
@@ -46,7 +46,7 @@ Here's what changed in April 2022:
 
 ### Intune device configuration for Windows multisession now generally available
 
-Deploying Intune device configuration policies from Microsoft Endpoint Manager admin center to Windows multisession VMs on Azure Virtual Desktop is now generally available. Learn more at [Using Azure Virtual Desktop multi-session with Intune](/mem/intune/fundamentals/azure-virtual-desktop-multi-session) and[ our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop-blog/intune-device-configuration-for-azure-virtual-desktop-multi/ba-p/3294444).
+Deploying Intune device configuration policies from Microsoft Endpoint Manager admin center to Windows multisession VMs on Azure Virtual Desktop is now generally available. Learn more at [Using Azure Virtual Desktop multi-session with Intune](/mem/intune/fundamentals/azure-virtual-desktop-multi-session) and [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop-blog/intune-device-configuration-for-azure-virtual-desktop-multi/ba-p/3294444).
 
 ### Scheduled Agent Updates public preview
 
@@ -372,7 +372,7 @@ You can now configure Start VM on Connect (preview) in the Azure portal. With th
 
 ### Required URL Check tool 
 
-The Azure Virtual Desktop agent, version 1.0.2944.400 includes a tool that validates URLs and displays whether the virtual machine can access the URLs it needs to function. If any required URLs are accessible, the tool will list them so you can unblock them, if needed. Learn more at our [Safe URL list](safe-url-list.md#required-url-check-tool).
+The Azure Virtual Desktop agent, version 1.0.2944.400 includes a tool that validates URLs and displays whether the virtual machine can access the URLs it needs to function. If any required URLs are accessible, the tool will list them so you can unblock them, if needed. Learn more at [Required URL Check tool](required-url-check-tool.md).
 
 ### Updates to the Azure portal UI for Azure Virtual Desktop
 

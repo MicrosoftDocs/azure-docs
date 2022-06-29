@@ -7,7 +7,7 @@ ms.subservice: single-server
 ms.topic: how-to
 author: mksuni
 ms.author: sumuth
-ms.date: 09/22/2020
+ms.date: 06/20/2022
 ---
 
 # Connect and query overview for Azure database for MySQL- Single Server
