@@ -60,11 +60,12 @@ You can use Azure AD security groups to manage their access to workspace. This a
  * You can organize, manage and revoke users' permissions on workspace and other resources as a group, without having to manage permissions on user-by-user basis.
  * Using Azure AD groups helps you to avoid reaching the [subscription limit](https://docs.microsoft.com/azure/role-based-access-control/troubleshooting#azure-role-assignments-limit) on role assignments. 
 
-To use Azure AD security groups
+To use Azure AD security groups:
  1. [Create a security group](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-groups-create-azure-portal).
- 2. [Add a group owner](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-accessmanagement-managing-group-owners). This user has permissions to add or remove group members.
+ 2. [Add a group owner](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-accessmanagement-managing-group-owners). This user has permissions to add or remove group members. Note that the group owner is not required to be group member, or have direct RBAC role on the workspace.
  3. Assign the group an RBAC role on the workspace, such as AzureML Data Scientist, Reader or Contributor. 
- 4. [Add group members](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-groups-members-azure-portal).
+ 4. [Add group members](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-groups-members-azure-portal). The members consequently gain access to the workspace.
+
 
 ## Create custom role
 
