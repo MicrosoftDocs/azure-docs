@@ -20,7 +20,7 @@ This article is part five of a seven-part series that provides guidance on how t
 
 ### Characteristics of Oracle environments
 
-Oracle's initial database product, released in 1979, was a commercial SQL relational database for on-line transaction processing (OLTP) applications&mdash;with much lower transaction rates than today. Since that initial release, the Oracle environment has evolved to become far more complex and encompasses numerous features. The features include: client-server architectures, distributed databases, parallel processing, data analytics, high availability, data warehousing, data in-memory techniques, and support for cloud-based instances.
+Oracle's initial database product, released in 1979, was a commercial SQL relational database for on-line transaction processing (OLTP) applications&mdash;with much lower transaction rates than today. Since that initial release, the Oracle environment has evolved to become far more complex and encompasses numerous features. The features include client-server architectures, distributed databases, parallel processing, data analytics, high availability, data warehousing, data in-memory techniques, and support for cloud-based instances.
 
 >[!TIP]
 >Oracle pioneered the "data warehouse appliance" concept in the early 2000's.
@@ -40,7 +40,7 @@ Although the SQL language is standardized, individual vendors sometimes implemen
 
 You can automate and orchestrate the migration process by using the capabilities of the Azure environment. This approach minimizes the performance hit on the existing Oracle environment, which may already be running close to capacity.
 
-[Azure Data Factory](../../../data-factory/introduction.md) is a cloud-based data integration service that supports creating data-driven workflows in the cloud to orchestrate and automate data movement and data transformation. You can use Data Factory to create and schedule data-driven workflows (pipelines) that ingest data from disparate data stores. Data Factory can process and transform the data by using compute services such as [Azure HDInsight Hadoop](/azure/hdinsight/hadoop/apache-hadoop-introduction), Spark, Azure Data Lake Analytics, and Azure Machine Learning.
+[Azure Data Factory](../../../data-factory/introduction.md) is a cloud-based data integration service that supports creating data-driven workflows in the cloud to orchestrate and automate data movement and data transformation. You can use Data Factory to create and schedule data-driven workflows (pipelines) that ingest data from disparate data stores. Data Factory can process and transform data by using compute services such as [Azure HDInsight Hadoop](/azure/hdinsight/hadoop/apache-hadoop-introduction), Spark, Azure Data Lake Analytics, and Azure Machine Learning.
 
 Azure also includes [Azure Database Migration Services](../../../dms/dms-overview.md) to help you plan and perform a migration from environments such as Oracle. [SQL Server Migration Assistant](/sql/ssma/oracle/sql-server-migration-assistant-for-oracle-oracletosql) (SSMA) for Oracle can automate migration of Oracle databases, including in some cases functions and procedural code.
 

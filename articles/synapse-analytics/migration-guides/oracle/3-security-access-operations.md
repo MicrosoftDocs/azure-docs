@@ -31,11 +31,11 @@ Authentication is the process of verifying the identity of a user, device, or ot
 
 #### Oracle authorization options
 
-The Oracle system offers several authentication methods for database users:
+The Oracle system offers these authentication methods for database users:
 
 - **Database authentication**: with database authentication, the Oracle database administers the user account and authenticates the user. For the Oracle database to perform authentication, it generates a password for new users and stores passwords in encrypted format. Users can change their password at any time. Oracle recommends password management through account locking, password aging and expiration, password history, and password complexity verification. Database authentication is common in older Oracle installations.
 
-- **External authentication**: with external authentication, the Oracle database maintains the user account, and an external service performs password administration and user authentication. The external service can be the operating system or a network service like Oracle Net. The database relies on the underlying operating system or network authentication service to restrict access to database accounts. A database password isn't used for this type of sign in. There are two external authentication options:
+- **External authentication**: with external authentication, the Oracle database maintains the user account, and an external service performs password administration and user authentication. The external service can be an operating system or a network service like Oracle Net. The database relies on the underlying operating system or network authentication service to restrict access to database accounts. This type of sign doesn't use a database password. There are two external authentication options:
 
   - **Operating system authentication**: by default, Oracle requires a secure connection for logins that the operating system authenticates to prevent a remote user from impersonating an operating system user over a network connection. This requirement precludes the use of Oracle Net and a shared-server configuration.
 
@@ -119,7 +119,7 @@ DBA_COL_PRIVS<br>ALL_COL_PRIVS<br>USER_COL_PRIVS | The DBA view describes all co
 | ALL_COL_PRIVS_MADE<br>USER_COL_PRIVS_MADE | The ALL view lists column object grants for which the current user is the object owner or grantor. The USER view describes column object grants for which the current user is the grantor. |
 | ALL_COL_PRIVS_RECD<br>USER_COL_PRIVS_RECD | The ALL view describes column object grants for which the current user or PUBLIC is the grantee. The USER view describes column object grants for which the current user is the grantee. |
 | DBA_TAB_PRIVS<br>ALL_TAB_PRIVS<br>USER_TAB_PRIVS | The DBA view lists all grants on all objects in the database. The ALL view lists the grants on objects where the user or PUBLIC is the grantee. The USER view lists grants on all objects where the current user is the grantee. |
-| ALL_TAB_PRIVS_MADE<br>USER_TAB_PRIVS_MADE | The ALL view lists the all object grants made by the current user or made on the objects owned by the current user. The USER view lists grants on all objects owned by the current user. |
+| ALL_TAB_PRIVS_MADE<br>USER_TAB_PRIVS_MADE | The ALL view lists object grants made by the current user or made on the objects owned by the current user. The USER view lists grants on all objects owned by the current user. |
 | ALL_TAB_PRIVS_RECD<br>USER_TAB_PRIVS_RECD | The ALL view lists object grants for which the user or PUBLIC is the grantee. The USER view lists object grants for which the current user is the grantee. |
 | DBA_ROLES | This view lists all roles that exist in the database. |
 | DBA_ROLE_PRIVS<br>USER_ROLE_PRIVS | The DBA view lists roles granted to users and roles. The USER view lists roles granted to the current user. |
@@ -184,7 +184,7 @@ For more information about Azure Synapse permissions, see [Database engine permi
 
 #### Migrating users, roles, and privileges
 
-So far we've described a common approach for migrating users, roles, and privileges to Azure Synapse using `CREATE USER`, `CREATE ROLE`, and `GRANT` SQL commands. However, you don't need to migrate all Oracle operations with grantable privileges to the new environment. For example, system management operations aren't applicable to the new environment or the equivalent functionality is automatic or managed outside the database. For users, roles, and the subset of privileges that do have a direct equivalent in the Azure Synapse environment, the following steps describe the migration process:
+So far, we've described a common approach for migrating users, roles, and privileges to Azure Synapse using `CREATE USER`, `CREATE ROLE`, and `GRANT` SQL commands. However, you don't need to migrate all Oracle operations with grantable privileges to the new environment. For example, system management operations aren't applicable to the new environment or the equivalent functionality is automatic or managed outside the database. For users, roles, and the subset of privileges that do have a direct equivalent in the Azure Synapse environment, the following steps describe the migration process:
 
 1. Migrate Oracle schema, table, and view definitions to the Azure Synapse environment. This step migrates only the table definitions not the data.
 
@@ -281,7 +281,7 @@ Azure Synapse uses database snapshots to provide HA of the data warehouse. A dat
 >[!TIP]
 >Azure Synapse creates snapshots automatically to ensure fast recovery time.
 
-Azure Synapse automatically takes snapshots throughout the day, and creates restore points that are available for seven days. You can't change this retention period. Azure Synapse supports an eight-hour recovery point objective (RPO). You can restore a data warehouse in the primary region from any one of the snapshots taken in the past seven days.
+Azure Synapse automatically takes snapshots throughout the day and creates restore points that are available for seven days. You can't change this retention period. Azure Synapse supports an eight-hour recovery point objective (RPO). You can restore a data warehouse in the primary region from any one of the snapshots taken in the past seven days.
 
 >[!TIP]
 >User-defined snapshots can be used to define a recovery point before key updates.
@@ -328,7 +328,7 @@ The Azure Synapse architecture separates storage and compute, allowing each to s
 >[!TIP]
 >A major benefit of Azure is the ability to independently scale up and down compute resources on demand to handle peaky workloads cost-effectively.
 
-Compute resources can be scaled up or down by adjusting the data warehouse units (DWU) setting for a data warehouse. Load and query performance will increase linearly as you allocate more DWUs.
+You can scale compute resources up or down by adjusting the data warehouse units (DWU) setting for a data warehouse. Load and query performance will increase linearly as you allocate more DWUs.
 
 If you increase DWUs, the number of compute nodes increase, which adds more compute power and supports more parallel processing. As the number of compute nodes increase, the number of distributions per compute node decrease, providing more compute power and parallel processing for queries. Similarly, if you decrease DWUs, the number of compute nodes decrease, which reduces the compute resources for queries.
 

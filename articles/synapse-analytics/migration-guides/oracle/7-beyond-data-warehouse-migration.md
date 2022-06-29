@@ -137,7 +137,7 @@ Without writing any code, professional ETL developers can use Data Factory mappi
 >[!TIP]
 >Professional ETL developers can use Data Factory mapping data flows to clean, transform, and integrate data without the need to write code.
 
-You can run mapping data flows that transform data as activities in a Data Factory pipeline, and if necessary you can include multiple mapping data flows in a single pipeline. In this way, you can manage the complexity by breaking up challenging data transformation and integration tasks into smaller mapping dataflows that can be combined. And, you can add custom code when needed. In addition to this functionality, Data Factory mapping data flows include the ability to:
+You can run mapping data flows that transform data as activities in a Data Factory pipeline, and if necessary, you can include multiple mapping data flows in a single pipeline. In this way, you can manage the complexity by breaking up challenging data transformation and integration tasks into smaller mapping dataflows that can be combined. And, you can add custom code when needed. In addition to this functionality, Data Factory mapping data flows include the ability to:
 
 - Define expressions to clean and transform data, compute aggregations, and enrich data. For example, these expressions can perform feature engineering on a date field to break it into multiple fields to create training data during machine learning model development. You can construct expressions from a rich set of functions that include mathematical, temporal, split, merge, string concatenation, conditions, pattern match, replace, and many other functions.
 
@@ -193,7 +193,7 @@ You can store integrated data and any Data Factory analytical pipeline results i
 
 A key objective of any data integration setup is the ability to integrate data once and reuse it everywhere, not just in a data warehouse. For example, you might want to use integrated data in data science. Reuse avoids reinvention and ensures consistent, commonly understood data that everyone can trust.
 
-[Common Data Model](/common-data-model/) describes core data entities that can be shared and reused across the enterprise. To achieve reuse, Common Data Model establishes a set of common data names and definitions that describe logical data entities. Examples of common data names include: Customer, Account, Product, Supplier, Orders, Payments, and Returns. IT and business professionals can use data integration software to create and store common data assets to maximize their reuse and drive consistency everywhere.
+[Common Data Model](/common-data-model/) describes core data entities that can be shared and reused across the enterprise. To achieve reuse, Common Data Model establishes a set of common data names and definitions that describe logical data entities. Examples of common data names include Customer, Account, Product, Supplier, Orders, Payments, and Returns. IT and business professionals can use data integration software to create and store common data assets to maximize their reuse and drive consistency everywhere.
 
 Azure Synapse provides industry-specific database templates to help standardize data in the lake. [Lake database templates](../../database-designer/concepts-database-templates.md) provide schemas for predefined business areas, enabling data to be loaded into a lake database in a structured way. The power comes when you use data integration software to create lake database common data assets, resulting in self-describing trusted data that can be consumed by applications and analytical systems. You can create common data assets in Data Lake Storage by using Data Factory.
 
@@ -281,7 +281,7 @@ ML.NET is an open-source, cross-platform machine learning framework for Windows,
 
 To combine machine learning models with Azure Synapse, you can:
 
-- Use machine learning models in batch or in real-time on streaming data to produce new insights, and add them to what you already know in Azure Synapse.
+- Use machine learning models in batch or in real-time on streaming data to produce new insights, and add those insights to what you already know in Azure Synapse.
 
 - Use the data in Azure Synapse to develop and train new predictive models for deployment elsewhere, such as in other applications.
 

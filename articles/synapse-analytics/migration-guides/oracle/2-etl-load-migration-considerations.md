@@ -219,12 +219,12 @@ In the Oracle environment, some or all of the ETL processing may be performed by
 
 If a [third-party](../../partner/data-integration.md) ETL tool is already in use, and especially if there's a large investment in skills or several existing workflows and schedules use that tool, then decision 3 is whether the tool can efficiently support Azure Synapse as a target environment. Ideally, the tool will include native connectors that can use Azure facilities like [PolyBase](/en-us/azure/synapse-analytics/sql/load-data-overview) or [COPY INTO](/sql/t-sql/statements/copy-into-transact-sql) for the most efficient data loading. But even without native connectors, there's generally a way that you can call external processes, such as PolyBase or `COPY INTO`, and pass in applicable parameters. In this case, use existing skills and workflows, with Azure Synapse as the new target environment.
 
-If you're using ODI for ELT processing, then ODI Knowledge Modules would be needed for Azure Synapse. If these modules aren't available to you in your organization, but you have ODI, then you can use ODI to generate flat files. Those flat files can then be moved to Azure and ingested into [Azure Data Lake Storage](../../../storage/blobs/data-lake-storage-introduction.md) for loading into Azure Synapse.
+If you're using ODI for ELT processing, then you need ODI Knowledge Modules for Azure Synapse. If those modules aren't available to you in your organization, but you have ODI, then you can use ODI to generate flat files. Those flat files can then be moved to Azure and ingested into [Azure Data Lake Storage](../../../storage/blobs/data-lake-storage-introduction.md) for loading into Azure Synapse.
 
 >[!TIP]
 >Consider running ETL tools in Azure to leverage performance, scalability, and cost benefits.
 
-If you decide to retain an existing third-party ETL tool, you can run that tool within the Azure environment (rather than on an existing on-premises ETL server), and have Data Factory handle the overall orchestration of the existing workflows. So, decision 4 is whether to leave the existing tool running as-is or move it into the Azure environment to achieve cost, performance, and scalability benefits.
+If you decide to retain an existing third-party ETL tool, you can run that tool within the Azure environment (rather than on an existing on-premises ETL server) and have Data Factory handle the overall orchestration of the existing workflows. So, decision 4 is whether to leave the existing tool running as-is or move it into the Azure environment to achieve cost, performance, and scalability benefits.
 
 ### Re-engineer existing Oracle-specific scripts
 
@@ -249,7 +249,7 @@ In the worst case, manual recoding may be necessary. However, there are products
 
 In many cases, the existing legacy data warehouse system will already be populated and maintained by a third-party ETL product. See [Azure Synapse Analytics data integration partners](../../partner/data-integration.md) for a list of current Microsoft data integration partners for Azure Synapse.
 
- The Oracle community frequently uses several popular ETL products. The following paragraphs discuss the most popular ETL tools for Oracle warehouses. You can run all of those products within a VM in Azure, and use them to read and write Azure databases and files.
+ The Oracle community frequently uses several popular ETL products. The following paragraphs discuss the most popular ETL tools for Oracle warehouses. You can run all of those products within a VM in Azure and use them to read and write Azure databases and files.
 
 >[!TIP]
 >Leverage investment in existing third-party tools to reduce cost and risk.
@@ -272,7 +272,7 @@ Once the database tables to be migrated have been created in Azure Synapse, you 
 
 - **File Extract**: extract the data from the Oracle tables to flat delimited files, normally in CSV format. You can extract table data in several ways:
 
-    - Use standard Oracle tools such as SQLPlus, SQL Developer, and SQLcl.
+    - Use standard Oracle tools such as SQL\*Plus, SQL Developer, and SQLcl.
     - Use ODI to generate flat files.
     - Use Oracle connector in Data Factory to unload Oracle tables in parallel to enable data loading by partitions.
     - Use a [third-party](../../partner/data-integration.md) ETL tool.
@@ -323,7 +323,7 @@ To summarize, our recommendations for migrating data and associated ETL processe
 
 - Understand the data volumes to be migrated, and the network bandwidth between the on-premises data center and Azure cloud environments.
 
-- Consider using an Oracle instance in an Azure VM as a stepping stone to offload migration from the legacy Oracle environment.
+- Consider using an Oracle instance in an Azure VM as a steppingstone to offload migration from the legacy Oracle environment.
 
 - Use standard built-in Azure features to minimize the migration workload.
 

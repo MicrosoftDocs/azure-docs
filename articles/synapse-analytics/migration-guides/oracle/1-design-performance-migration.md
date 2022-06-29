@@ -115,7 +115,7 @@ You can automate and orchestrate the migration process by using the capabilities
 
 :::image type="content" source="../media/1-design-performance-migration/oracle-sql-server-migration-assistant-1.png" border="true" alt-text="Screenshot showing how SQL Server Migration Assistant for Oracle can automate many parts of the migration process.":::
 
-[Azure Data Factory](../../../data-factory/introduction.md) is a cloud-based data integration service that supports creating data-driven workflows in the cloud that orchestrate and automate data movement and data transformation. You can use Data Factory to create and schedule data-driven workflows (pipelines) that ingest data from disparate data stores. Data Factory can process and transform the data by using compute services such as [Azure HDInsight Hadoop](/azure/hdinsight/hadoop/apache-hadoop-introduction), Spark, Azure Data Lake Analytics, and Azure Machine Learning.
+[Azure Data Factory](../../../data-factory/introduction.md) is a cloud-based data integration service that supports creating data-driven workflows in the cloud that orchestrate and automate data movement and data transformation. You can use Data Factory to create and schedule data-driven workflows (pipelines) that ingest data from disparate data stores. Data Factory can process and transform data by using compute services such as [Azure HDInsight Hadoop](/azure/hdinsight/hadoop/apache-hadoop-introduction), Spark, Azure Data Lake Analytics, and Azure Machine Learning.
 
 [Azure Database Migration Services](../../../dms/dms-overview.md) can help you plan and perform a migration from environments like Oracle.
 
@@ -133,7 +133,7 @@ In contrast, the Azure Synapse environment contains a single database and uses s
 
 - Views in Azure Synapse are read-only, so any updates to the data must take place on the underlying base tables.
 
-- There may already be one or more layers of views in existence, and adding an extra layer of views could affect performance.
+- There may already be one or more layers of views in existence and adding an extra layer of views could affect performance.
 
 >[!TIP]
 >Combine multiple databases into a single database within Azure Synapse and use schema names to logically separate the tables.
@@ -319,7 +319,7 @@ You can also use third-party migration and ETL tools that process system catalog
 
 #### Data extraction from Oracle
 
-You can extract raw table data from Oracle tables to flat delimited files, such as CSV files, using standard Oracle utilities like Oracle SQL Developer, [SQLPlus](https://www.oracle.com/database/technologies/instant-client/downloads.html), and [SCLcl](https://www.oracle.com/database/technologies/appdev/sqlcl.html). Then, you can compress the flat delimited files using gzip, and upload the compressed files to Azure Blob Storage using AzCopy or Azure data transport tools like Azure Data Box.
+You can extract raw table data from Oracle tables to flat delimited files, such as CSV files, using standard Oracle utilities like Oracle SQL Developer, [SQL\*Plus](https://www.oracle.com/database/technologies/instant-client/downloads.html), and [SCLcl](https://www.oracle.com/database/technologies/appdev/sqlcl.html). Then, you can compress the flat delimited files using gzip, and upload the compressed files to Azure Blob Storage using AzCopy or Azure data transport tools like Azure Data Box.
 
 Extract table data as efficiently as possible&mdash;especially when migrating large fact tables. For Oracle tables, use parallelism to maximize extraction throughput. You can achieve parallelism by running multiple processes that individually extract discrete segments of data, or by using tools capable of automating parallel extraction through partitioning.
 

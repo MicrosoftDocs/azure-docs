@@ -22,7 +22,7 @@ By migrating your existing data warehouse to Azure Synapse, you benefit from:
 
 - A globally secure, scalable, low-cost, cloud-native, pay-as-you-use analytical database.
 
-- The rich Microsoft analytical ecosystem that exists on Azure. This ecosystem consists of technologies to help modernize your data warehouse once it's migrated, and extends your analytical capabilities to drive new value.
+- The rich Microsoft analytical ecosystem that exists on Azure. This ecosystem consists of technologies to help modernize your data warehouse once it's migrated and extend your analytical capabilities to drive new value.
 
 Several tools from both Microsoft and [third-party partners](../../partner/data-integration.md) can help you migrate your existing data warehouse to Azure Synapse. This article discusses the following types of tools:
 
@@ -48,17 +48,17 @@ The next sections discuss these tools in more detail.
 
 ### Microsoft Azure Data Factory
 
-Data Factory is a fully managed, pay-as-you-use, hybrid data integration service for highly scalable ETL and ELT processing. It uses Apache Spark to process and analyzes data in parallel and in-memory to maximize throughput.
+Data Factory is a fully managed, pay-as-you-use, hybrid data integration service for highly scalable ETL and ELT processing. It uses Apache Spark to process and analyze data in parallel and in-memory to maximize throughput.
 
 >[!TIP]
 >Data Factory allows you to build scalable data integration pipelines code-free.
 
-[Data Factory connectors](../../../data-factory/connector-overview.md) support connections to external data sources and databases, and include templates for common data integration tasks. A visual front-end, browser-based UI enables non-programmers to create and run [pipelines](../../data-explorer/ingest-data/data-explorer-ingest-data-pipeline.md) to ingest, transform, and load data. More experienced programmers can incorporate custom code, such as Python programs.
+[Data Factory connectors](../../../data-factory/connector-overview.md) support connections to external data sources and databases and include templates for common data integration tasks. A visual front-end, browser-based UI enables non-programmers to create and run [pipelines](../../data-explorer/ingest-data/data-explorer-ingest-data-pipeline.md) to ingest, transform, and load data. More experienced programmers can incorporate custom code, such as Python programs.
 
 >[!TIP]
 >Data Factory enables collaborative development between business and IT professionals.
 
-Data Factory is also an orchestration tool, and is the best Microsoft tool to automate the end-to-end migration process. Automation reduces the risk, effort, and time to migrate, and makes the migration process easily repeatable. The following diagram shows a mapping data flow in Data Factory.
+Data Factory is also an orchestration tool and is the best Microsoft tool to automate the end-to-end migration process. Automation reduces the risk, effort, and time to migrate, and makes the migration process easily repeatable. The following diagram shows a mapping data flow in Data Factory.
 
 :::image type="content" source="../media/6-microsoft-3rd-party-migration-tools/azure-data-factory-mapping-dataflows.png" border="true" alt-text="Screenshot showing an example of a Data Factory mapping dataflow." lightbox="../media/6-microsoft-3rd-party-migration-tools/azure-data-factory-mapping-dataflows-lrg.png":::
 
