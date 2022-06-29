@@ -123,6 +123,8 @@
               href: active-directory-optional-claims.md
             - name: Claims mapping policy type
               href: reference-claims-mapping-policy-type.md
+            - name: SAML App Multi-Instancing
+              href: reference-app-multi-instancing.md
             - name: Use directory schema extension attributes in claims
               href: active-directory-schema-extensions.md
             - name: Customize claims using Azure portal
