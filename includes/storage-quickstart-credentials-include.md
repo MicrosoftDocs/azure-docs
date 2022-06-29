@@ -95,13 +95,13 @@ When deployed to Azure this same code can also authenticate your app to other Az
 
 After you copy the connection string, write it to a new environment variable on the local machine running the application. To set the environment variable, open a console window, and follow the instructions for your operating system. Replace `<yourconnectionstring>` with your actual connection string.
 
-### [Windows](#tab/connection-string/environment-variable-windows)
+## [Windows](#tab/connection-string/environment-variable-windows)
 
 ```cmd
 setx AZURE_STORAGE_CONNECTION_STRING "<yourconnectionstring>"
 ```
 
-### [Linux and macOS](#tab/connection-string/environment-variable-linux)
+## [Linux and macOS](#tab/connection-string/environment-variable-linux)
 
 ```bash
 export AZURE_STORAGE_CONNECTION_STRING="<yourconnectionstring>"
