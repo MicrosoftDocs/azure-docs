@@ -54,7 +54,16 @@ In contrast, when working with locally managed sensors:
 
 ### Devices monitored by Defender for IoT
 
-[!INCLUDE [devices-inventoried](includes/devices-inventoried.md)]
+Defender for IoT can discover all devices, of all types, across all environments. Devices are listed in the Defender for IoT **Device inventory** pages based on a unique IP and MAC address coupling.
+
+Defender for IoT identifies any of the following as single and unique committed network devices:
+
+|Committed / Not committed  |Description  |
+|---------|---------|
+|**Committed devices**     |**Managed or un-managed, standalone IT/OT/IoT devices, with one or more NICs**. <br>If you are a Microsoft Defender for Endpoint customer, devices (seats) that are managed by Defender for Endpoint are not included. <br><br>**Devices that are part of the network infrastructure**, such as switches or routers, and might have one more NICs<br><br>**Devices that have one or more backplane components**, including all racks, slots, or modules.         |
+|**Not committed devices**     |  The following items *aren't* identified as committed devices:<br><br>**Public internet IP address**<br><br>**Multi-cast groups**<br><br>**Broadcast groups**<br><br>**Inactive devices**, defined as follows:<br>    - OT networks: Devices that have been inactive for more than 60 days<br>    - Enterprise IoT networks: Devices that have been inactive for more than 30 days       |
+
+For more information, see [Calculate the number of devices you need to monitor](how-to-manage-subscriptions.md#calculate-the-number-of-devices-you-need-to-monitor).
 
 ## Analytics engines
 
