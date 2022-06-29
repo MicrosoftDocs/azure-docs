@@ -64,7 +64,7 @@ To create a model with datasets for training, use the `spx csr model create` com
 
 Here's an example Speech CLI command that creates a model with datasets for training:
 
-```azurecli-interactive
+```azurecli
 spx csr model create --project YourProjectId --name "My Model" --description "My Model Description" --dataset YourDatasetId --language "en-US"
 ```
 > [!NOTE]
@@ -114,7 +114,7 @@ The top-level `self` property in the response body is the model's URI. Use this 
 
 For Speech CLI help with models, run the following command:
 
-```azurecli-interactive
+```azurecli
 spx help csr model
 ```
 
@@ -300,7 +300,7 @@ To connect a model to a project, use the `spx csr model update` command. Constru
 
 Here's an example Speech CLI command that connects a model to a project:
 
-```azurecli-interactive
+```azurecli
 spx csr model update --model YourModelId --project YourProjectId
 ```
 
@@ -316,7 +316,7 @@ You should receive a response body in the following format:
 
 For Speech CLI help with models, run the following command:
 
-```azurecli-interactive
+```azurecli
 spx help csr model
 ```
 
