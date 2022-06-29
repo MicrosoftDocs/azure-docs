@@ -46,4 +46,4 @@ Thus users can use Prism to manage everything they would want to manage, while n
 Learn more:
 
 > [!div class="nextstepaction"]
-> [Getting started with NC2-on-Azure](getting-started.md)
+> [Getting started with NC2 on Azure](get-started.md)

@@ -56,4 +56,4 @@ Technically, yes. Raise a support ticket from Azure portal to get this functiona
 Learn more:
 
 > [!div class="nextstepaction"]
-> [Getting started](getting-started.md)
+> [Getting started](get-started.md)
