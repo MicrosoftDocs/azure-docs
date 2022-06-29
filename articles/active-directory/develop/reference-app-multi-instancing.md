@@ -10,7 +10,7 @@ ms.custom: aaddev
 ms.workload: identity
 ms.topic: reference
 ms.date: 06/28/2022
-ms.author: davidmu1
+ms.author: davidmu
 ms.reviewer: 
 ---
 
