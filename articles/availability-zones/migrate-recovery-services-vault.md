@@ -59,7 +59,7 @@ If your workloads are backed up by the old vault and you want to re-assign them 
     1. [Virtual Machines](../backup/backup-azure-move-recovery-services-vault.md#move-an-azure-virtual-machine-to-a-different-recovery-service-vault).
     
     1. [SQL Server database in Azure VM](../backup/manage-monitor-sql-database-backup.md#unregister-a-sql-server-instance).
-    
+     1. Move the SQL on Azure VM to another resource group to completely break the association with the old recovery vault.
     1. [Storage Files](../backup/manage-afs-backup.md#unregister-a-storage-account). 
     
     1. [SAP HANA database in Azure VM](../backup/sap-hana-db-manage.md#unregister-an-sap-hana-instance).
