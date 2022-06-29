@@ -163,7 +163,7 @@ For more information, see [Train models with CLI](how-to-train-cli.md#model-trac
 
     # [Azure Machine Learning studio](#tab/studio)
 
-    :::image type="content" source="media/how-to-deploy-mlflow-models-online-endpoints/mlflow-register-model-output.gif" lightbox="media/how-to-deploy-mlflow-models-online-endpoints/download-output-logs.png" alt-text="Screenshot showing how to download Outputs and logs from Experimentation run":::
+    :::image type="content" source="media/how-to-deploy-mlflow-models-online-endpoints/mlflow-register-model-output.gif" lightbox="media/how-to-deploy-mlflow-models-online-endpoints/mlflow-register-model-output.gif" alt-text="Screenshot showing how to download Outputs and logs from Experimentation run":::
 
     # [Azure ML CLI (v2)](#tab/cli)
     
