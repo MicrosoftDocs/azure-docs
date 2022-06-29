@@ -22,9 +22,11 @@ If Maven isn't your preferred development tool, check out our similar tutorials 
 
 [!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../../../includes/cloud-shell-try-it.md)]
+## 1 - Use Azure Cloud Shell
 
-## Create a Java app
+[!INCLUDE [cloud-shell-try-it-no-h.md](../../../../includes/cloud-shell-try-it-no-h.md)]
+
+## 2 - Create a Java app
 
 # [Java SE](#tab/javase)
 
@@ -70,7 +72,7 @@ cd agoncal-application-petstore-ee7
 
 ---
 
-## Configure the Maven plugin
+## 3 - Configure the Maven plugin
 
 > [!TIP]
 > The Maven plugin supports **Java 17** and **Tomcat 10.0**. For more information about latest support, see [Java 17 and Tomcat 10.0 are available on Azure App Service](https://devblogs.microsoft.com/java/java-17-and-tomcat-10-0-available-on-azure-app-service/).
@@ -195,7 +197,7 @@ Be careful about the values of `<appName>` and `<resourceGroup>` (`helloworld-15
 > [!div class="nextstepaction"]
 > [I ran into an issue](https://www.research.net/r/javae2e?tutorial=quickstart-java&step=config)
 
-## Deploy the app
+## 4 - Deploy the app
 
 With all the configuration ready in your pom file, you can deploy your Java app to Azure with one single command.
 
@@ -237,7 +239,7 @@ Once deployment is completed, your application will be ready at `http://<appName
 > [!div class="nextstepaction"]
 > [I ran into an issue](https://www.research.net/r/javae2e?tutorial=app-service-linux-quickstart&step=deploy)
 
-## Clean up resources
+## 5 - Clean up resources
 
 In the preceding steps, you created Azure resources in a resource group. If you don't need the resources in the future, delete the resource group from portal, or by running the following command in the Cloud Shell:
 
