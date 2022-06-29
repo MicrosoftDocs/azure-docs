@@ -295,7 +295,7 @@ If you encounter errors, review [Troubleshoot Azure VM Image Builder failures](.
    Get-Content -Path C:\buildActions\buildActionsOutput.txt
    ```
 
-  The output is based on the contents of the file that you created during the image customization process.
+   The output is based on the contents of the file that you created during the image customization process.
 
    ```Output
    Azure-Image-Builder-Was-Here
