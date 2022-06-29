@@ -4,7 +4,7 @@ description: Describes the functions to use in a Bicep file to retrieve deployme
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 09/30/2021
+ms.date: 06/27/2022
 ---
 
 # Deployment functions for Bicep
@@ -109,6 +109,10 @@ The preceding example returns the following object:
 Returns information about the Azure environment used for deployment.
 
 Namespace: [az](bicep-functions.md#namespaces-for-functions).
+
+### Remarks
+
+To see a list of registered environments for your account, use [az cloud list](/cli/azure/cloud#az-cloud-list) or [Get-AzEnvironment](/powershell/module/az.accounts/get-azenvironment).
 
 ### Return value
 
