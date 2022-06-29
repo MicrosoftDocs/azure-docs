@@ -70,7 +70,7 @@ First, create a Gremlin (Graph) database account for Azure Cosmos DB.
 
    You go to the **Overview** page for the new Azure Cosmos DB account.
 
-   :::image type="content" source="../includes/media/cosmos-db-create-dbaccount-graph/azure-cosmos-db-graph-created.png" alt-text="Screenshot showing the Azure Cosmos DB Quick start page":::
+   :::image type="content" source="../includes/media/cosmos-db-create-dbaccount-graph/azure-cosmos-db-graph-created.png" alt-text="Screenshot showing the Azure Cosmos DB Quick start page.":::
 
 ### Optional account settings
 
@@ -120,7 +120,7 @@ Optionally, you can also configure the following settings on the **Create Azure 
    - **Graph id**: Enter *sample-graph*. Graph names have the same character requirements as database IDs.
    - **Partition key**: Enter */pk*. All Cosmos DB accounts need a partition key to horizontally scale. To learn how to select an appropriate partition key, see [Use a partitioned graph in Azure Cosmos DB](../graph-partitioning.md).
 
-   :::image type="content" source="../includes/media/cosmos-db-create-graph/azure-cosmosdb-data-explorer-graph.png" alt-text="SScreenshot showing the Azure Cosmos DB Data Explorer, New Graph page.":::
+   :::image type="content" source="../includes/media/cosmos-db-create-graph/azure-cosmosdb-data-explorer-graph.png" alt-text="Screenshot showing the Azure Cosmos DB Data Explorer, New Graph page.":::
 
 1. Select **OK**. The new graph database is created.
 
