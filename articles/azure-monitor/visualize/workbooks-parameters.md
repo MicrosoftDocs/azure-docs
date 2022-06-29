@@ -10,7 +10,7 @@ ms.topic: conceptual
 ms.date: 10/23/2019
 ---
 
-# Creating Workbook parameters
+# Workbook parameters
 
 Parameters allow workbook authors to collect input from the consumers and reference it in other parts of the workbook – usually to scope the result set or setting the right visual. It is a key capability that allows authors to build interactive reports and experiences. 
 
@@ -169,7 +169,7 @@ format | result
 > If the parameter value is not valid json, the result of the format will be an empty value.
 
 ## Parameter Style
-The following styles are available to layout the parameters in a parameters step
+The following styles are available for the parameters.
 #### Pills
 In pills style, the default style, the parameters look like text, and require the user to select them once to go into the edit mode.
 

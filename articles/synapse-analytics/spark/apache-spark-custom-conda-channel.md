@@ -76,7 +76,7 @@ In the next set of steps, we will create a custom Conda channel.
 ```
 
 cd ~/privatechannel/ 
-mkdir -P channel/linux64 
+mkdir -p channel/linux64 
 
 <Add all .tar.bz2 from https://repo.anaconda.com/pkgs/main/linux-64/> 
 // Note: Add all dependent .tar.bz2 as well 

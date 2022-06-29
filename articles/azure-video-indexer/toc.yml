@@ -6,6 +6,8 @@
     href: video-indexer-overview.md
   - name: Language support
     href: language-support.md
+  - name: Limited Access features
+    href: limited-access-features.md
 - name: Quickstarts
   expanded: true
   items:
@@ -69,6 +71,19 @@
       href: customize-language-model-overview.md
     - name: Person
       href: customize-person-model-overview.md
+  - name: Transparency notes
+    href: /legal/azure-video-indexer/transparency-note?context=/azure/azure-video-indexer/context/context
+    items:
+    - name: Audio Effects Detection
+      href: /legal/azure-video-indexer/audio-effects-detection-transparency-note?context=/azure/azure-video-indexer/context/context
+    - name: Faces detection
+      href: /legal/azure-video-indexer/face-detection-transparency-note?context=/azure/azure-video-indexer/context/context
+    - name: OCR
+      href: /legal/azure-video-indexer/ocr-transparency-note?context=/azure/azure-video-indexer/context/context
+    - name: Keywords extraction
+      href: /legal/azure-video-indexer/keywords-transparency-note?context=/azure/azure-video-indexer/context/context  
+    - name: Transcription, Translation, Language Identification
+      href: /legal/azure-video-indexer/transcription-translation-lid-transparency-note?context=/azure/azure-video-indexer/context/context
 - name: How to guides
   items:
   - name: Connect an existing account to ARM (Preview)

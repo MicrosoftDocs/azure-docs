@@ -1,3 +1,4 @@
+items:
 - name: Azure Load Testing docs
   href: index.yml
 - name: Overview
@@ -84,3 +85,5 @@
       href: https://azure.microsoft.com/regions/services/
     - name: Supported Azure resource types
       href: resource-supported-azure-resource-types.md
+    - name: Service limits
+      href: resource-limits-quotas-capacity.md

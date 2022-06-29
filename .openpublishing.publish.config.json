@@ -437,7 +437,7 @@
     {
       "path_to_root": "media-services-video-indexer",
       "url": "https://github.com/Azure-Samples/media-services-video-indexer",
-      "branch": "main",
+      "branch": "master",
       "branch_mapping": {}
     },
     {
@@ -473,7 +473,7 @@
     {
       "path_to_root": "azureml-examples-online-endpoint-vnet",
       "url": "https://github.com/azure/azureml-examples",
-      "branch": "rsethur/mvnet",
+      "branch": "main",
       "branch_mapping": {}
     },
     {

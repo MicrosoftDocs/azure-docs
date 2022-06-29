@@ -6,7 +6,7 @@ author: asudbring
 ms.author: allensu
 ms.service: private-link
 ms.topic: tutorial
-ms.date: 06/16/2022
+ms.date: 06/22/2022
 ms.custom: template-tutorial #Required; leave this attribute/value as-is.
 ---
 
@@ -46,7 +46,7 @@ The bastion host will be used to connect securely to the virtual machine for tes
     |------------------|-----------------------------------------|
     | **Project Details**  |                                 |
     | Subscription     | Select your Azure subscription.                        |
-    | Resource Group   | Select **myResourceGroup**. |
+    | Resource Group   | Select **Create new**. </br> Enter **myResourceGroup** in **Name**. </br> Select **OK**. |
     | **Instance details** |                                       |
     | Name             | Enter **myVNet**.                          |
     | Region           | Select **East US**. |
