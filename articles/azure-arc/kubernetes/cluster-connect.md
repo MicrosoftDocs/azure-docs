@@ -4,8 +4,6 @@ services: azure-arc
 ms.service: azure-arc
 ms.date: 06/03/2022
 ms.topic: article
-author: shashankbarsin
-ms.author: shasb
 description: "Use Cluster Connect to securely connect to Azure Arc-enabled Kubernetes clusters"
 ---
 
