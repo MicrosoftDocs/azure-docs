@@ -22,9 +22,9 @@ Defender for Containers protects your clusters whether they're running in:
 
 Learn about this plan in [Overview of Microsoft Defender for Containers](defender-for-containers-introduction.md).
 
-You can learn more by watching this video from the Defender for Cloud in the Field video series [Microsoft Defender for Containers in a multi-cloud environment](episode-nine.md).
-
-You can also watch [Protect Containers in GCP with Defender for Containers](episode-ten.md) to learn how to protect your containers.
+You can learn more by watching these video from the Defender for Cloud in the Field video series:
+- [Microsoft Defender for Containers in a multi-cloud environment](episode-nine.md)
+- [Protect Containers in GCP with Defender for Containers](episode-ten.md)
 
 ::: zone pivot="defender-for-container-arc,defender-for-container-eks,defender-for-container-gke"
 > [!NOTE]

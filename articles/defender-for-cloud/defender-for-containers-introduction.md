@@ -11,7 +11,8 @@ Microsoft Defender for Containers is the cloud-native solution for securing your
 
 [How does Defender for Containers work in each Kubernetes platform?](defender-for-containers-architecture.md)
 
-You can learn more by watching this video from the Defender for Cloud in the Field video series [Microsoft Defender for Containers](episode-three.md).
+You can learn more by watching this video from the Defender for Cloud in the Field video series:
+- [Microsoft Defender for Containers](episode-three.md)
 
 ## Microsoft Defender for Containers plan availability
 
