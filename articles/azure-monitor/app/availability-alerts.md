@@ -1,5 +1,5 @@
 ---
-title: Set up availability alerts with Azure Application Insights | Microsoft Docs
+title: Set up availability alerts with Application Insights - Azure Monitor | Microsoft Docs
 description: Learn how to set up web tests in Application Insights. Get alerts if a website becomes unavailable or responds slowly.
 ms.topic: conceptual
 ms.date: 06/19/2019
@@ -30,6 +30,12 @@ Alerts are now automatically enabled by default, but in order to fully configure
 
 > [!NOTE]
 > Availability alerts created through this experience are state-based. This means that when the alert criteria is met a single alert is generated when the site is detected as unavailable. If the site is still down the next time the alert criteria is evaluated this won't generate a new alert. So if your site was down for an hour and you had setup an e-mail alert, you would only receive an e-mail when the site went down, and a subsequent e-mail when the site was back up. You would not receive continuous alerts reminding you that the site was still unavailable.
+
+During maintenance, we recommend to either temporarily deactivate the alert, or create a custom alert rule which accounts for the maintenance window.
+
+### Custom alert rule
+
+Auto-generated alerts for availability tests have limited options to change the logic. If you need advanced capabilities, you can create a custom alert rule from the **Alerts** tab.
 
 ### Alert on X out of Y locations reporting failures
 
