@@ -29,7 +29,7 @@ Update the SAML single sign-on service URL configured within the service provide
 Only service principal identifiers in GUID format are accepted for the ‘issuer’ value. The service principal identifiers override the issuer in the SAML request and response, and the rest of the flow is completed as usual. There's one exception: if the application requires the request to be signed, the request is rejected even if the signature was valid. The rejection is done to avoid any security risks with functionally overriding values in a signed request.  
 
 ## IDP Initiated   
-The IDP Initiated feature exposes two settings for each application.   
+The IDP initiated feature exposes two settings for each application.   
 
 - An “audience override” option exposed for configuration by using claims mapping or the portal.  The intended use case is applications that require the same audience for multiple instances. This setting is ignored if no custom signing key is configured for the application.    
 
