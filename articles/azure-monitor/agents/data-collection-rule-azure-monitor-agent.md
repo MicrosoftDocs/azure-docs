@@ -18,23 +18,11 @@ To collect data from virtual machines using the Azure Monitor agent, you'll:
 1. Create [data collection rules (DCR)](../essentials/data-collection-rule-overview.md) that define which data Azure Monitor agent sends to which destinations.
 1. Associate the data collection rule to specific virtual machines.
 
-## How data collection rule associations work
-
-You can associate virtual machines to multiple data collection rules. This allows you to define each data collection rule to address a particular requirement, and associate the data collection rules to virtual machines based on the specific data you want to collect from each machine.
-
-For example, consider an environment with a set of virtual machines running a line of business application and other virtual machines running SQL Server. You might have: 
-
-- One default data collection rule that applies to all virtual machines.
-- Separate data collection rules that collect data specifically for the line of business application and for SQL Server. 
-    
-The following diagram illustrates the associations for the virtual machines to the data collection rules.
-
-![A diagram showing one virtual machine hosting a line of business application and one virtual machine hosting SQL Server. Both virtual machine are associated with data collection rule named central-i t-default. The virtual machine hosting the line of business application is also associated with a data collection rule called lob-app. The virtual machine hosting SQL Server is associated with a data collection rule called s q l.](media/data-collection-rule-azure-monitor-agent/associations.png)
-
+    You can associate virtual machines to multiple data collection rules. This allows you to define each data collection rule to address a particular requirement, and associate the data collection rules to virtual machines based on the specific data you want to collect from each machine.
 
 ## Create data collection rule and association
 
-To send data to Log Analytics, create the data collection rule in the **same region** where your Log Analytics workspace resides. You can still associate the rule to machines in other supported regions.
+To send data to Log Analytics, create the data collection rule in the **same region** as your Log Analytics workspace. You can still associate the rule to machines in other supported regions.
 
 ### [Portal](#tab/portal)
 
@@ -84,7 +72,7 @@ To send data to Log Analytics, create the data collection rule in the **same reg
 
 ### [API](#tab/api)
 
-1. Manually create the DCR file using the JSON format shown in [Sample DCR](data-collection-rule-sample-agent.md).
+1. Create a DCR file using the JSON format shown in [Sample DCR](data-collection-rule-sample-agent.md).
 
 2. Create the rule using the [REST API](/rest/api/monitor/datacollectionrules/create#examples).
 
