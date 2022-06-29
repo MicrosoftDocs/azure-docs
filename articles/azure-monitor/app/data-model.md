@@ -8,6 +8,7 @@ ms.workload: TBD
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/14/2019
+ms.reviewer: mmcc
 ---
 # Application Insights telemetry data model
 

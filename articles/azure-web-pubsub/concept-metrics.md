@@ -23,6 +23,7 @@ Metrics provide the running info of the service. The available metrics are:
 |Connection Quota Utilization|Percent|Max / Avg|The percentage of connection connected relative to connection quota.|No Dimensions|
 |Inbound Traffic|Bytes|Sum|The inbound traffic of service|No Dimensions|
 |Outbound Traffic|Bytes|Sum|The outbound traffic of service|No Dimensions|
+|Server Load|Percent|Max / Avg|The percentage of server load|No Dimensions|
 
 ### Understand Dimensions
 

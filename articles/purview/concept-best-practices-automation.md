@@ -6,7 +6,7 @@ ms.author: tarifat
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: conceptual
-ms.date: 11/23/2021
+ms.date: 05/17/2022
 ---
 
 # Microsoft Purview automation best practices
@@ -59,7 +59,7 @@ When to use?
 * Custom application development or process automation.
 
 ## Streaming (Atlas Kafka)
-Each Microsoft Purview account comes with an optional fully managed event hub, accessible via the Atlas Kafka endpoint found via the Azure portal > Microsoft Purview Account > Properties. Microsoft Purview events can be monitored by consuming messages from the event hub. External systems can also use the event hub to publish events to Microsoft Purview as they occur.
+Each Microsoft Purview account comes with a fully managed event hub, accessible via the Atlas Kafka endpoint found via the Azure portal > Microsoft Purview Account > Properties. Microsoft Purview events can be monitored by consuming messages from the event hub. External systems can also use the event hub to publish events to Microsoft Purview as they occur.
 * **Consume Events** - Microsoft Purview will send notifications about metadata changes to Kafka topic **ATLAS_ENTITIES**. Applications interested in metadata changes can monitor for these notifications. Supported operations include: `ENTITY_CREATE`, `ENTITY_UPDATE`, `ENTITY_DELETE`, `CLASSIFICATION_ADD`, `CLASSIFICATION_UPDATE`, `CLASSIFICATION_DELETE`.
 * **Publish Events** - Microsoft Purview can be notified of metadata changes via notifications to Kafka topic **ATLAS_HOOK**. Supported operations include: `ENTITY_CREATE_V2`, `ENTITY_PARTIAL_UPDATE_V2`, `ENTITY_FULL_UPDATE_V2`, `ENTITY_DELETE_V2`.
 

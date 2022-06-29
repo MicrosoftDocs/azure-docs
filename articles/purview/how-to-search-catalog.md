@@ -83,7 +83,6 @@ The following table contains the operators that can be used to compose a search 
 
 ### Known limitations
 
-* Searching for classifications only matches on the formal classification name. For example, the keywords "World Cities" don't match classification "MICROSOFT.GOVERNMENT.CITY_NAME".
 * Grouping isn't supported within a field search. Customers should use operators to connect field searches. For example,`name:(alice AND bob)` is invalid search syntax, but `name:alice AND name:bob` is supported.
 
 ## Next steps

@@ -7,9 +7,7 @@ ms.service: cache
 ms.topic: tutorial
 ms.devlang: csharp
 ms.custom: "devx-track-csharp, mvc"
-ms.date: 03/30/2018
-
-#Customer intent: As an ASP.NET developer, new to Azure Cache for Redis, I want to use Azure Cache for Redis to improve performance and reduce back-end database load.
+ms.date: 06/09/2021
 
 ---
 # Tutorial: Create a cache-aside leaderboard on ASP.NET
@@ -631,7 +629,7 @@ The scaffolding code that was generated as part of this sample includes methods 
 
 Run the application locally on your machine to verify the functionality that has been added to support the teams.
 
-In this test, the application and database, are both running locally. The Azure Cache for Redis is not local. It is hosted remotely in Azure. That's why the cache will likely under-perform the database slightly. For best performance, the client application and Azure Cache for Redis instance should be in the same location. 
+In this test, the application and database, are both running locally. The Azure Cache for Redis is not local. It is hosted remotely in Azure. That's why the cache will likely under-perform the database slightly. For best performance, the client application and Azure Cache for Redis instance should be in the same location.
 
 In the next section, you deploy all resources to Azure to see the improved performance from using a cache.
 

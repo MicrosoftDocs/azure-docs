@@ -202,7 +202,6 @@ If your extension was in the stable version and auto-upgrade-minor-version is se
 
 ### Application services extension v 0.13.0 (April 2022)
 
-- Added support for Azure Functions v4 and introduces support for PowerShell functions 
 - Added support for Application Insights codeless integration for Node JS applications
 - Added support for [Access Restrictions](app-service-ip-restrictions.md) via CLI
 - More details provided when extension fails to install, to assist with troubleshooting issues 

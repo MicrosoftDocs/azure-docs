@@ -7,11 +7,14 @@ author: cesardl
 ms.author: cesardl
 ms.service: machine-learning
 ms.subservice: automl
+ms.custom: sdkv1, event-tier1-build-2022
 ms.topic: how-to
 ms.date: 02/16/2022
 ---
 
 #  View automated ML model's training code (preview)
+
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
 
 [!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
@@ -437,7 +440,7 @@ run = experiment.submit(config=src)
 
 Once you have a trained model, you can save/serialize it to a `.pkl` file with  `pickle.dump()` and `pickle.load()`.  You can also use `joblib.dump()` and `joblib.load()`.
 
-The following example is how you download and load  a model in-memory that was trained in AML compute with `ScriptRunConfig`. This code can run in the same notebook you used the Azure ML SDK `ScriptRunConfig`.
+The following example is how you download and load  a model in-memory that was trained in AzureML compute with `ScriptRunConfig`. This code can run in the same notebook you used the Azure ML SDK `ScriptRunConfig`.
 
 ```python
 import joblib

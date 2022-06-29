@@ -151,9 +151,15 @@
       href: cache-how-to-manage-redis-cache-powershell.md
     - name: Deploy and Manage using Azure CLI
       href: cli-samples.md
+    - name: Create Redis cache - Bicep
+      displayName: ARM, Resource Manager, Template
+      href: cache-redis-cache-bicep-provision.md
     - name: Create Redis cache - ARM template
       displayName: Resource Manager
       href: cache-redis-cache-arm-provision.md
+    - name: Create Web App with Redis cache - Bicep
+      displayName: ARM, Resource Manager, Template
+      href: cache-web-app-bicep-with-redis-cache-provision.md
     - name: Create Web App with Redis cache - ARM template
       displayName: Resource Manager
       href: cache-web-app-arm-with-redis-cache-provision.md
@@ -182,7 +188,7 @@
     - name: Monitor in Azure portal
       href: cache-how-to-monitor.md
     - name: Set alerts for exceptions
-      href: cache-how-to-monitor.md#operations-and-alerts
+      href: cache-how-to-monitor.md#alerts
     - name: Monitor with diagnostic logs
       href: cache-monitor-diagnostic-settings.md
   - name: Scale

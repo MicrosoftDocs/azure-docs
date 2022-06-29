@@ -11,7 +11,9 @@ ms.service: virtual-machines-sap
 
 # Use SAP Deployment Automation Framework from Azure DevOps Services
 
+Using Azure DevOps will streamline the deployment process by providing pipelines that can be executed to perform both the infrastructure deployment and the configuration and SAP installation activities.
 You can use Azure Repos to store your configuration files and Azure Pipelines to deploy and configure the infrastructure and the SAP application. 
+
 ## Sign up for Azure DevOps Services
 
 To use Azure DevOps Services, you'll need an Azure DevOps organization. An organization is used to connect groups of related projects. Use your work or school account to automatically connect your organization to your Azure Active Directory (Azure AD). To create an account, open [Azure DevOps](https://azure.microsoft.com/services/devops/) and either _sign-in_ or create a new account. 
@@ -32,7 +34,7 @@ Start by importing the SAP Deployment Automation Framework GitHub repository int
 
 Navigate to the Repositories section and choose Import a repository, import the 'https://github.com/Azure/sap-automation.git' repository into Azure DevOps. For more info, see [Import a repository](/azure/devops/repos/git/import-git-repository?view=azure-devops&preserve-view=true)
 
-If you are unable to import a repository, you can create the 'sap-automation' repository and manually import the content from the SAP Deployment Automation Framework GitHub repository to it.
+If you're unable to import a repository, you can create the 'sap-automation' repository and manually import the content from the SAP Deployment Automation Framework GitHub repository to it.
 
 ### Create the repository for manual import
 
@@ -51,7 +53,7 @@ Clone the repository to a local folder by clicking the  _Clone_ button in the Fi
 
 ### Manually importing the repository content using a local clone
 
-In case you were not able to import the content from the SAP Deployment Automation Framework GitHub repository you can download the content manually and add it to the folder of your local clone of the Azure DevOps repository.
+You can also download the content from the SAP Deployment Automation Framework repository manually and add it to your local clone of the Azure DevOps repository.
 
 Navigate to 'https://github.com/Azure/SAP-automation' repository and download the repository content as a ZIP file by clicking the _Code_ button and choosing _Download ZIP_. 
 
@@ -62,13 +64,18 @@ Open the local folder in Visual Studio code, you should see that there are chang
 :::image type="content" source="./media/automation-devops/automation-vscode-changes.png" alt-text="Picture showing that source code has changed":::
 
 Select the source control icon and provide a message about the change, for example: "Import from GitHub" and press Cntr-Enter to commit the changes. Next select the _Sync Changes_ button to synchronize the changes back to the repository.
+
 ### Create configuration root folder
 
-Create a top level folder called 'WORKSPACES', this folder will be the root folder for all the SAP deployment configuration files. Create the following folders in the 'WORKSPACES' folder: 'DEPLOYER', 'LIBRARY', 'LANDSCAPE' and 'SYSTEM'.
+> [!IMPORTANT]
+   > In order to ensure that your configuration files are not overwritten by changes in the SAP Deployment Automation Framework, store them in a separate folder hierarchy.
 
-Optionally you may copy the sample configuration files from the 'samples/WORKSPACES' folders to the WORKSPACES folder you just created, this will allow you to experiment with sample deployments.
 
-Push the changes to Azure DevOps repos by selecting the source control icon and providing a message about the change, for example: "Import of sample configurations" and press Cntr-Enter to commit the changes. Next select the _Sync Changes_ button to synchronize the changes back to the repository.
+Create a top level folder called 'WORKSPACES', this folder will be the root folder for all the SAP deployment configuration files. Create the following folders in the 'WORKSPACES' folder: 'DEPLOYER', 'LIBRARY', 'LANDSCAPE' and 'SYSTEM'. These will contain the configuration files for the different components of the SAP Deployment Automation Framework. 
+
+Optionally you may copy the sample configuration files from the 'samples/WORKSPACES' folders to the WORKSPACES folder you created, this will allow you to experiment with sample deployments.
+
+Push the changes back to the repository by selecting the source control icon and providing a message about the change, for example: "Import of sample configurations" and press Cntr-Enter to commit the changes. Next select the _Sync Changes_ button to synchronize the changes back to the repository.
 
 ## Create Azure Pipelines
 
@@ -182,9 +189,26 @@ The pipelines use a custom task to run Ansible. The custom task can be installed
 
 The pipelines use a custom task to perform cleanup activities post deployment. The custom task can be installed from [Post Build Cleanup](https://marketplace.visualstudio.com/items?itemName=mspremier.PostBuildCleanup). Install it to your Azure DevOps organization before running the pipelines.
 
+
+## Preparations for self-hosted agent    
+
+
+1. Create an Agent Pool by navigating to the Organizational Settings and selecting _Agent Pools_ from the Pipelines section. Click the _Add Pool_ button and choose Self-hosted as the pool type. Name the pool to align with the workload zone environment, for example `DEV-WEEU-POOL`. Ensure _Grant access permission to all pipelines_ is selected and create the pool using the _Create_ button.
+
+1. Sign in with the user account you plan to use in your Azure DevOps organization (https://dev.azure.com).
+
+1. From your home page, open your user settings, and then select _Personal access tokens_.
+
+   :::image type="content" source="./media/automation-devops/automation-select-personal-access-tokens.jpg" alt-text="Diagram showing the creation of the Personal Access Token (PAT).":::
+
+1. Create a personal access token. Ensure that _Read & manage_ is selected for _Agent Pools_ and _Read & write_ is selected for _Code_. Write down the created token value.
+
+   :::image type="content" source="./media/automation-devops/automation-new-pat.png" alt-text="Diagram showing the attributes of the Personal Access Token (PAT).":::
+
 ## Variable definitions
 
 The deployment pipelines are configured to use a set of predefined parameter values. In Azure DevOps the variables are defined using variable groups.
+
 
 ### Common variables
 
@@ -192,16 +216,18 @@ There's a set of common variables that are used by all the deployment pipelines.
 
 Create a new variable group 'SDAF-General' using the Library page in the Pipelines section. Add the following variables:
 
-| Variable                           | Value                                   | Notes                                                            |
-| ---------------------------------- | --------------------------------------- | ---------------------------------------------------------------- |
-| `ANSIBLE_HOST_KEY_CHECKING`        | false                                   |                                                                  |
-| Deployment_Configuration_Path      | WORKSPACES                              | For testing the sample configuration use 'samples/WORKSPACES' instead of WORKSPACES.                    |
-| Branch                             | main                                    |                                                                  |
-| S-Username                         | `<SAP Support user account name>`       |                                                                  |
-| S-Password                         | `<SAP Support user password>`           | Change variable type to secret by clicking the lock icon        |
-| `advice.detachedHead`              | false                                   |                                                                  |
-| `skipComponentGovernanceDetection` | true                                    |                                                                  |
-| `tf_version`                       | 1.1.7                                   | The Terraform version to use, see [Terraform download](https://www.terraform.io/downloads)                                            |
+| Variable                           | Value                                   | Notes                                                                                       |
+| ---------------------------------- | --------------------------------------- | ------------------------------------------------------------------------------------------- |
+| `ANSIBLE_HOST_KEY_CHECKING`        | false                                   |                                                                                             |
+| Deployment_Configuration_Path      | WORKSPACES                              | For testing the sample configuration use 'samples/WORKSPACES' instead of WORKSPACES.        |
+| Branch                             | main                                    |                                                                                             |
+| S-Username                         | `<SAP Support user account name>`       |                                                                                             |
+| S-Password                         | `<SAP Support user password>`           | Change variable type to secret by clicking the lock icon.                                   |
+| `PAT`                              | `<Personal Access Token>`               | Use the Personal Token defined in the previous step.                                        |
+| `POOL`                             | `<Agent Pool name>`                     | Use the Agent pool defined in the previous step.                                            |
+| `advice.detachedHead`              | false                                   |                                                                                             |
+| `skipComponentGovernanceDetection` | true                                    |                                                                                             |
+| `tf_version`                       | 1.1.7                                   | The Terraform version to use, see [Terraform download](https://www.terraform.io/downloads)  |
 
 Save the variables.
 
@@ -214,15 +240,18 @@ As each environment may have different deployment credentials you'll need to cre
 
 Create a new variable group 'SDAF-MGMT' for the control plane environment using the Library page in the Pipelines section. Add the following variables:
 
-| Variable              | Value                                           | Notes                                                    |
-| --------------------- | ----------------------------------------------- | -------------------------------------------------------- |
-| Agent                 | 'Azure Pipelines' or the name of the agent pool | Note, this pool will be created in a later step.         |
-| ARM_CLIENT_ID         | Enter the Service principal application id.     |                                                          |
-| ARM_CLIENT_SECRET     | Enter the Service principal password.           | Change variable type to secret by clicking the lock icon |
-| ARM_SUBSCRIPTION_ID   | Enter the target subscription id.               |                                                          |
-| ARM_TENANT_ID         | Enter the Tenant id for the service principal.  |                                                          |
-| AZURE_CONNECTION_NAME | Previously created connection name              |                                                          |
-| sap_fqdn              | SAP Fully Qualified Domain Name, for example sap.contoso.net | Only needed if Private DNS isn't used.                                           |
+| Variable              | Value                                                              | Notes                                                    |
+| --------------------- | ------------------------------------------------------------------ | -------------------------------------------------------- |
+| Agent                 | 'Azure Pipelines' or the name of the agent pool                    | Note, this pool will be created in a later step.         |
+| ARM_CLIENT_ID         | Enter the Service principal application ID.                        |                                                          |
+| ARM_CLIENT_SECRET     | Enter the Service principal password.                              | Change variable type to secret by clicking the lock icon |
+| ARM_SUBSCRIPTION_ID   | Enter the target subscription ID.                                  |                                                          |
+| ARM_TENANT_ID         | Enter the Tenant ID for the service principal.                     |                                                          |
+| AZURE_CONNECTION_NAME | Previously created connection name.                                |                                                          |
+| sap_fqdn              | SAP Fully Qualified Domain Name, for example 'sap.contoso.net'.    | Only needed if Private DNS isn't used.                   |
+| FENCING_SPN_ID        | Enter the service principal application ID for the fencing agent.  | Required for highly available deployments.               |
+| FENCING_SPN_PWD       | Enter the service principal password for the fencing agent.        | Required for highly available deployments.               |
+| FENCING_SPN_TENANT    | Enter the service principal tenant ID for the fencing agent.       | Required for highly available deployments.               |
 
 Save the variables.
 
@@ -254,21 +283,6 @@ Enter a Service connection name, for instance 'Connection to MGMT subscription' 
 
 You must use the Deployer as a [self-hosted agent for Azure DevOps](/azure/devops/pipelines/agents/v2-linux) to perform the Ansible configuration activities. As a one-time step, you must register the Deployer as a self-hosted agent.
 
-### Prerequisites
-
-1. Connect to your Azure DevOps instance Sign-in to [Azure DevOps](https://dev.azure.com). Navigate to the Project you want to connect to and note the URL to the Azure DevOps project.
-
-1. Create an Agent Pool by navigating to the Organizational Settings and selecting _Agent Pools_ from the Pipelines section. Click the _Add Pool_ button and choose Self-hosted as the pool type. Name the pool to align with the workload zone environment, for example `DEV-WEEU-POOL`. Ensure _Grant access permission to all pipelines_ is selected and create the pool using the _Create_ button.
-
-1. Sign in with the user account you plan to use in your Azure DevOps organization (https://dev.azure.com).
-
-1. From your home page, open your user settings, and then select _Personal access tokens_.
-
-   :::image type="content" source="./media/automation-devops/automation-select-personal-access-tokens.jpg" alt-text="Diagram showing the creation of the Personal Access Token (PAT).":::
-
-1. Create a personal access token. Ensure that _Read & manage_ is selected for _Agent Pools_ and _Read & write_ is selected for _Code_. Write down the created token value.
-
-   :::image type="content" source="./media/automation-devops/automation-new-pat.png" alt-text="Diagram showing the attributes of the Personal Access Token (PAT).":::
 
 ## Deploy the Control Plane
 
@@ -330,4 +344,4 @@ The agent will now be configured and started.
 ## Next step
 
 > [!div class="nextstepaction"]
-> [DevOps Hands on Lab](automation-devops-tutorial.md)
+> [DevOps hands on lab](automation-devops-tutorial.md)

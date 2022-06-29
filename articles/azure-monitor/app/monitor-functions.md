@@ -3,6 +3,7 @@ title: Monitor applications running on Azure Functions with Application Insights
 description: Azure Monitor seamlessly integrates with your application running on Azure Functions, and allows you to monitor the performance and spot the problems with your apps in no time.
 ms.topic: conceptual
 ms.date: 08/27/2021
+ms.reviewer: abinetabate
 ---
 
 # Monitoring Azure Functions with Azure Monitor Application Insights

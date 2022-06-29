@@ -1,11 +1,11 @@
 ---
 title: On-premises NAS migration to Azure file shares
 description: Learn how to migrate files from an on-premises Network Attached Storage (NAS) location to Azure file shares with Azure DataBox.
-author: fauhse
+author: khdownie
 ms.service: storage
 ms.topic: how-to
 ms.date: 04/02/2021
-ms.author: fauhse
+ms.author: kendownie
 ms.subservice: files
 ---
 

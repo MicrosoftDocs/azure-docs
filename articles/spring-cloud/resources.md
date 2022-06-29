@@ -1,21 +1,24 @@
 ---
-title: Resources for Azure Spring Cloud | Microsoft Docs
-description: Azure Spring Cloud resource list
+title: Resources for Azure Spring Apps | Microsoft Docs
+description: Azure Spring Apps resource list
 author: karlerickson
 ms.service: spring-cloud
 ms.topic: reference
 ms.date: 09/08/2020
 ms.author: karler
-ms.custom: devx-track-java
+ms.custom: devx-track-java, event-tier1-build-2022
 ---
 
-# Azure Spring Cloud developer resources
+# Azure Spring Apps developer resources
+
+> [!NOTE]
+> Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
 
 **This article applies to:** ✔️ Java ✔️ C#
 
 **This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
 
-As a developer, you might find the following Azure Spring Cloud resources useful:
+As a developer, you might find the following Azure Spring Apps resources useful:
 
 * [Azure roadmap](https://azure.microsoft.com/updates)
 * [Frequently asked questions](./faq.md)
@@ -23,6 +26,6 @@ As a developer, you might find the following Azure Spring Cloud resources useful
 * [Microsoft Q&A question page](/answers/topics/azure-spring-cloud.html)
 * [Spring Cloud Services for VMware Tanzu Documentation](https://docs.pivotal.io/spring-cloud-services/1-5/common/index.html)
 * [Steeltoe](https://steeltoe.io/)
-* [Java Spring Cloud website](https://spring.io/)
+* [Spring](https://spring.io/)
 * [Spring framework](https://spring.io/projects/spring-cloud-azure)
 * [Spring on Azure](/azure/developer/java/spring-framework/)

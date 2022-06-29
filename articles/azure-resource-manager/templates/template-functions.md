@@ -164,6 +164,7 @@ Resource Manager provides several functions for working with objects.
 * [createObject](template-functions-object.md#createobject)
 * [empty](template-functions-object.md#empty)
 * [intersection](template-functions-object.md#intersection)
+* [items](template-functions-object.md#items)
 * [json](template-functions-object.md#json)
 * [length](template-functions-object.md#length)
 * [null](template-functions-object.md#null)

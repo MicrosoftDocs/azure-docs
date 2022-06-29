@@ -27,9 +27,17 @@ If your environment meets the prerequisites and you're familiar with using ARM t
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
+### [Azure CLI](#tab/azure-cli) 
+
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
 
 - This article requires version 2.0.64 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
+
+### [Azure PowerShell](#tab/azure-powershell)
+
+- If you're running PowerShell locally, install the Az PowerShell module and connect to your Azure account using the [Connect-AzAccount][connect-azaccount] cmdlet. For more information about installing the Az PowerShell module, see [Install Azure PowerShell][install-azure-powershell]. If using Azure Cloud Shell, the latest version is already installed.
+
+---
 
 - To create an AKS cluster using a Resource Manager template, you provide an SSH public key. If you need this resource, see the following section; otherwise skip to the [Review the template](#review-the-template) section.
 
@@ -89,6 +97,8 @@ It takes a few minutes to create the AKS cluster. Wait for the cluster to be suc
 
 To manage a Kubernetes cluster, use the Kubernetes command-line client, [kubectl][kubectl]. `kubectl` is already installed if you use Azure Cloud Shell.
 
+### [Azure CLI](#tab/azure-cli)
+
 1. Install `kubectl` locally using the [az aks install-cli][az-aks-install-cli] command:
 
     ```azurecli
@@ -107,7 +117,7 @@ To manage a Kubernetes cluster, use the Kubernetes command-line client, [kubectl
     kubectl get nodes
     ```
 
-    The following output example shows the single node created in the previous steps. Make sure the node status is *Ready*:
+    The following output example shows the three nodes created in the previous steps. Make sure the node status is *Ready*:
 
     ```output
     NAME                       STATUS   ROLES   AGE     VERSION
@@ -115,6 +125,37 @@ To manage a Kubernetes cluster, use the Kubernetes command-line client, [kubectl
     aks-agentpool-41324942-1   Ready    agent   6m46s   v1.12.6
     aks-agentpool-41324942-2   Ready    agent   6m45s   v1.12.6
     ```
+
+### [Azure PowerShell](#tab/azure-powershell)
+
+1. Install `kubectl` locally using the [Install-AzAksKubectl][install-azakskubectl] cmdlet:
+
+    ```azurepowershell
+    Install-AzAksKubectl
+    ```
+
+2. Configure `kubectl` to connect to your Kubernetes cluster using the [Import-AzAksCredential][import-azakscredential] cmdlet. The following cmdlet downloads credentials and configures the Kubernetes CLI to use them.
+
+    ```azurepowershell-interactive
+    Import-AzAksCredential -ResourceGroupName myResourceGroup -Name myAKSCluster
+    ```
+
+3. Verify the connection to your cluster using the [kubectl get][kubectl-get] command. This command returns a list of the cluster nodes.
+
+    ```azurepowershell-interactive
+    kubectl get nodes
+    ```
+
+    The following output example shows the three nodes created in the previous steps. Make sure the node status is *Ready*:
+
+    ```plaintext
+    NAME                       STATUS   ROLES   AGE     VERSION
+    aks-agentpool-41324942-0   Ready    agent   6m44s   v1.12.6    
+    aks-agentpool-41324942-1   Ready    agent   6m46s   v1.12.6
+    aks-agentpool-41324942-2   Ready    agent   6m45s   v1.12.6
+    ```
+
+---
 
 ### Deploy the application
 
@@ -131,7 +172,7 @@ Two [Kubernetes Services][kubernetes-service] are also created:
 * An external service to access the Azure Vote application from the internet.
 
 1. Create a file named `azure-vote.yaml`.
-    * If you use the Azure Cloud Shell, this file can be created using `vi` or `nano` as if working on a virtual or physical system
+    * If you use the Azure Cloud Shell, this file can be created using `code`, `vi`, or `nano` as if working on a virtual or physical system
 1. Copy in the following YAML definition:
 
     ```yaml
@@ -266,11 +307,23 @@ To see the Azure Vote app in action, open a web browser to the external IP addre
 
 ## Clean up resources
 
+### [Azure CLI](#tab/azure-cli)
+
 To avoid Azure charges, if you don't plan on going through the tutorials that follow, clean up your unnecessary resources. Use the [az group delete][az-group-delete] command to remove the resource group, container service, and all related resources.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --yes --no-wait
 ```
+
+### [Azure PowerShell](#tab/azure-powershell)
+
+To avoid Azure charges, if you don't plan on going through the tutorials that follow, clean up your unnecessary resources. Use the [Remove-AzResourceGroup][remove-azresourcegroup] cmdlet to remove the resource group, container service, and all related resources.
+
+```azurepowershell-interactive
+Remove-AzResourceGroup -Name myResourceGroup
+```
+
+---
 
 > [!NOTE]
 > The AKS cluster was created with system-assigned managed identity (default identity option used in this quickstart), the identity is managed by the platform and does not require removal.
@@ -299,10 +352,15 @@ To learn more about AKS, and walk through a complete code to deployment example,
 [az-aks-browse]: /cli/azure/aks#az_aks_browse
 [az-aks-create]: /cli/azure/aks#az_aks_create
 [az-aks-get-credentials]: /cli/azure/aks#az_aks_get_credentials
+[import-azakscredential]: /powershell/module/az.aks/import-azakscredential
 [az-aks-install-cli]: /cli/azure/aks#az_aks_install_cli
+[install-azakskubectl]: /powershell/module/az.aks/install-azakskubectl
 [az-group-create]: /cli/azure/group#az_group_create
 [az-group-delete]: /cli/azure/group#az_group_delete
+[remove-azresourcegroup]: /powershell/module/az.resources/remove-azresourcegroup
 [azure-cli-install]: /cli/azure/install-azure-cli
+[install-azure-powershell]: /powershell/azure/install-az-ps
+[connect-azaccount]: /powershell/module/az.accounts/Connect-AzAccount
 [sp-delete]: ../kubernetes-service-principal.md#additional-considerations
 [azure-portal]: https://portal.azure.com
 [kubernetes-deployment]: ../concepts-clusters-workloads.md#deployments-and-yaml-manifests

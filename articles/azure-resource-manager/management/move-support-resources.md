@@ -2,7 +2,7 @@
 title: Move operation support by resource type
 description: Lists the Azure resource types that can be moved to a new resource group, subscription, or region.
 ms.topic: conceptual
-ms.date: 05/04/2022
+ms.date: 06/27/2022
 ---
 
 # Move operation support for resources
@@ -22,6 +22,7 @@ Jump to a resource provider namespace:
 > - [Microsoft.AlertsManagement](#microsoftalertsmanagement)
 > - [Microsoft.AnalysisServices](#microsoftanalysisservices)
 > - [Microsoft.ApiManagement](#microsoftapimanagement)
+> - [Microsoft.App](#microsoftapp)
 > - [Microsoft.AppConfiguration](#microsoftappconfiguration)
 > - [Microsoft.AppPlatform](#microsoftappplatform)
 > - [Microsoft.AppService](#microsoftappservice)
@@ -52,6 +53,7 @@ Jump to a resource provider namespace:
 > - [Microsoft.ClassicSubscription](#microsoftclassicsubscription)
 > - [Microsoft.CognitiveServices](#microsoftcognitiveservices)
 > - [Microsoft.Commerce](#microsoftcommerce)
+> - [Microsoft.Communication](#microsoftcommunication)
 > - [Microsoft.Compute](#microsoftcompute)
 > - [Microsoft.Confluent](#microsoftconfluent)
 > - [Microsoft.Consumption](#microsoftconsumption)
@@ -279,6 +281,13 @@ Jump to a resource provider namespace:
 > | ------------- | ----------- | ---------- | ----------- |
 > | reportfeedback | No | No | No |
 > | service | Yes | Yes | Yes (using template) <br/><br/> [Move API Management across regions](../../api-management/api-management-howto-migrate.md). |
+
+## Microsoft.App
+
+> [!div class="mx-tableFixed"]
+> | Resource type | Resource group | Subscription | Region move |
+> | ------------- | ----------- | ---------- | ----------- |
+> | managedenvironments | Yes | Yes | No |
 
 ## Microsoft.AppConfiguration
 
@@ -594,6 +603,13 @@ Jump to a resource provider namespace:
 > | ratecard | No | No | No |
 > | usageaggregates | No | No | No |
 
+## Microsoft.Communication
+
+> [!div class="mx-tableFixed"]
+> | Resource type | Resource group | Subscription | Region move |
+> | ------------- | ----------- | ---------- | ----------- |
+> | communicationservices | Yes | Yes <br/><br/> Note that resources with attached phone numbers cannot be moved to subscriptions in different data locations, nor subscriptions that do not support having phone numbers. | No |
+
 ## Microsoft.Compute
 
 > [!IMPORTANT]
@@ -829,6 +845,7 @@ Jump to a resource provider namespace:
 > | services | No | No | No |
 > | services / projects | No | No | No |
 > | slots | No | No | No |
+> | sqlmigrationservices | No | No | No |
 
 ## Microsoft.DataProtection
 
@@ -1445,7 +1462,7 @@ Jump to a resource provider namespace:
 > | networkintentpolicies | Yes | Yes | No |
 > | networkinterfaces | Yes | Yes | Yes <br/><br/> Use [Azure Resource Mover](../../resource-mover/tutorial-move-region-virtual-machines.md) to move NICs. |
 > | networkprofiles | No | No | No |
-> | networksecuritygroups | Yes | Yes | Yes <br/><br/> Use [Azure Resource Mover](../../resource-mover/tutorial-move-region-virtual-machines.md) to move network security groups (NGSs). |
+> | networksecuritygroups | Yes | Yes | Yes <br/><br/> Use [Azure Resource Mover](../../resource-mover/tutorial-move-region-virtual-machines.md) to move network security groups (NSGs). |
 > | networkwatchers | No | No | No |
 > | networkwatchers / connectionmonitors | Yes | No | No |
 > | networkwatchers / flowlogs | Yes | No | No |
@@ -1457,7 +1474,7 @@ Jump to a resource provider namespace:
 > | privateendpointredirectmaps | No | No | No |
 > | privateendpoints | Yes | Yes | Yes |
 > | privatelinkservices | No | No | No |
-> | publicipaddresses | Yes | Yes | Yes<br/><br/> Use [Azure Resource Mover](../../resource-mover/tutorial-move-region-virtual-machines.md) to move public IP address configurations (IP addresses are not retained). |
+> | publicipaddresses | Yes | Yes - Basic SKU<br>No - Standard SKU | Yes<br/><br/> Use [Azure Resource Mover](../../resource-mover/tutorial-move-region-virtual-machines.md) to move public IP address configurations (IP addresses are not retained). |
 > | publicipprefixes | Yes | Yes | No |
 > | routefilters | No | No | No |
 > | routetables | Yes | Yes | No |
@@ -1499,6 +1516,7 @@ Jump to a resource provider namespace:
 > | ------------- | ----------- | ---------- | ----------- |
 > | hypervsites | No | No | No |
 > | importsites | No | No | No |
+> | mastersites | No | No | No |
 > | serversites | No | No | No |
 > | vmwaresites | No | No | No |
 

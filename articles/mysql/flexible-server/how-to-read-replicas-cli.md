@@ -4,6 +4,7 @@ description: Learn how to set up and manage read replicas in Azure Database for 
 author: savjani
 ms.author: pariks
 ms.service: mysql
+ms.subservice: flexible-server
 ms.topic: how-to
 ms.date: 10/23/2021
 ms.custom: devx-track-azurecli
@@ -61,7 +62,7 @@ az mysql flexible-server replica list --server-name mydemoserver --resource-grou
 Replication to a read replica server can be stopped using the following command:
 
 ```azurecli-interactive
-az mysql flexible-server replica stop-replication --replica-name mydemoreplicaserver --resource-group myresourcegroup
+az mysql flexible-server replica stop-replication --name mydemoreplicaserver --resource-group myresourcegroup
 ```
 
 ### Delete a replica server

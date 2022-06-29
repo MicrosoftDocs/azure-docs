@@ -2,7 +2,7 @@
 title: Geo-disaster recovery - Azure Event Hubs| Microsoft Docs
 description: How to use geographical regions to fail over and perform disaster recovery in Azure Event Hubs
 ms.topic: article
-ms.date: 06/21/2021
+ms.date: 05/10/2022
 ---
 
 # Azure Event Hubs - Geo-disaster recovery 
@@ -163,6 +163,9 @@ Event Hubs supports [Availability Zones](../availability-zones/az-overview.md), 
 When creating a namespace, you see the following highlighted message when you select a region that has availability zones. 
 
 :::image type="content" source="./media/event-hubs-geo-dr/eh-az.png" alt-text="Image showing the Create Namespace page with region that has availability zones":::
+
+> [!NOTE]
+> When you use the Azure portal, zone redundancy via support for availability zones is automatically enabled. You can't disable it in the portal. You can use the Azure CLI command [`az eventhubs namespace`](/cli/azure/eventhubs/namespace#az-eventhubs-namespace-create) with `--zone-redundant=false` or use the PowerShell command [`New-AzEventHubNamespace`](/powershell/module/az.eventhub/new-azeventhubnamespace) with `-ZoneRedundant=false` to create a namespace with zone redundancy disabled. 
 
 ## Private endpoints
 This section provides more considerations when using Geo-disaster recovery with namespaces that use private endpoints. To learn about using private endpoints with Event Hubs in general, see [Configure private endpoints](private-link-service.md).

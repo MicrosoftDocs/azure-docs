@@ -2,20 +2,19 @@
 title: 'What is Azure Route Server?'
 description: Learn how Azure Route Server can simplify routing between your network virtual appliance (NVA) and your virtual network.
 services: route-server
-author: duongau
+author: halkazwini
 ms.service: route-server
 ms.topic: overview
 ms.date: 09/27/2021
-ms.author: duau
+ms.author: halkazwini
 #Customer intent: As an IT administrator, I want to learn about Azure Route Server and what I can use it for.
 ---
 
 # What is Azure Route Server? 
 
-Azure Route Server simplifies dynamic routing between your network virtual appliance (NVA) and your virtual network. It allows you to exchange routing information directly through Border Gateway Protocol (BGP) routing protocol between any NVA that supports the BGP routing protocol and the Azure Software Defined Network (SDN) in the Azure Virtual Network (VNET) without the need to manually configure or maintain route tables. Azure Route Server is a fully managed service and is configured with high availability.
+Azure Route Server simplifies dynamic routing between your network virtual appliance (NVA) and your virtual network. It allows you to exchange routing information directly through Border Gateway Protocol (BGP) routing protocol between any NVA that supports the BGP routing protocol and the Azure Software Defined Network (SDN) in the Azure Virtual Network (VNet) without the need to manually configure or maintain route tables. Azure Route Server is a fully managed service and is configured with high availability.
 
-> [!IMPORTANT]
-> If you have an Azure Route Server created before September 1st and it doesn't have a public IP address asssociated, you'll need to recreate the Route Server so it can obtain an IP address for management purpose.
+[!INCLUDE [route server preview note](../../includes/route-server-note-preview-date.md)]
 
 ## How does it work?
 
@@ -31,7 +30,7 @@ Azure Route Server simplifies configuration, management, and deployment of your 
 
 * You no longer need to update [User-Defined Routes](../virtual-network/virtual-networks-udr-overview.md) manually whenever your NVA announces new routes or withdraw old ones. 
 
-* You can peer multiple instances of your NVA with Azure Route Server. You can configure the BGP attributes in your NVA and, depending on your design (e.g., active-active for performance or active-passive for resiliency), let Azure Route Server know which NVA instance is active or which one is passive. 
+* You can peer multiple instances of your NVA with Azure Route Server. You can configure the BGP attributes in your NVA and, depending on your design (for example, active-active for performance or active-passive for resiliency), let Azure Route Server know which NVA instance is active or which one is passive. 
 
 * The interface between NVA and Azure Route Server is based on a common standard protocol. As long as your NVA supports BGP, you can peer it with Azure Route Server. For more information, see [Route Server supported routing protocols](route-server-faq.md#protocol).
 

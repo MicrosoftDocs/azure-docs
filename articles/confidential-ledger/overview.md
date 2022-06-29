@@ -11,11 +11,13 @@ ms.author: mbaldwin
 ---
 # Microsoft Azure confidential ledger (preview)
 
-Microsoft Azure confidential ledger (ACL), is a new and highly secure service for managing sensitive data records. Based on a permissioned blockchain model, Azure confidential ledger offers unique data integrity advantages. These include immutability, making the ledger append-only, and tamper proofing, to ensure all records are kept intact.
+Microsoft Azure confidential ledger (ACL) is a new and highly secure service for managing sensitive data records. It runs exclusively on hardware-backed secure enclaves, a heavily monitored and isolated runtime environment which keeps potential attacks at bay. Furthermore, Azure confidential ledger runs on a minimalistic Trusted Computing Base (TCB), which ensures that no one⁠—not even Microsoft⁠—is "above" the ledger.
 
-The confidential ledger runs exclusively on hardware-backed secure enclaves, a heavily monitored and isolated runtime environment which keeps potential attacks at bay. Furthermore, no one is "above" the Ledger, not even Microsoft. By designing ourselves out of the solution, Azure confidential ledger runs on a minimalistic Trusted Computing Base (TCB) which prevents access to Ledger service developers, datacenter technicians and cloud administrators.
+As its name suggests, Azure confidential ledger utilizes the [Azure Confidential Computing platform](../confidential-computing/index.yml) and the [Confidential Consortium Framework](https://www.microsoft.com/research/project/confidential-consortium-framework) to provide a high integrity solution that is tamper-protected and evident. One ledger spans across three or more identical instances, each of which run in a dedicated, fully attested hardware-backed enclave. The ledger's integrity is maintained through a consensus-based blockchain.
 
-Azure confidential ledger appeals to use cases where critical metadata records must not be modified, including in perpetuity for regulatory compliance and archival purposes. Here are a few examples of things you can store on your Ledger:
+Azure confidential ledger offers unique data integrity advantages, including immutability, tamper-proofing, and append-only operations. These features, which ensure that all records are kept intact, are ideal when critical metadata records must not be modified, such as for regulatory compliance and archival purposes.
+
+Here are a few examples of things you can store on your ledger:
 
 - Records relating to your business transactions (for example, money transfers or confidential document edits).
 - Updates to trusted assets (for example, core applications or contracts).
@@ -26,13 +28,13 @@ For more information, you can watch the [Azure confidential ledger demo](https:/
 
 ## Key Features
 
-The confidential ledger is exposed through REST APIs which can be integrated into new or existing applications. The confidential ledger can be managed by administrators utilizing Administrative APIs (Control Plane). It can also be called directly by application code through Functional APIs (Data Plane). The Administrative APIs support basic operations such as create, update, get and, delete. The Functional APIs allow direct interaction with your instantiated Ledger and include operations such as put and get data.
+The confidential ledger is exposed through REST APIs which can be integrated into new or existing applications. The confidential ledger can be managed by administrators utilizing Administrative APIs (Control Plane). It can also be called directly by application code through Functional APIs (Data Plane). The Administrative APIs support basic operations such as create, update, get and, delete. The Functional APIs allow direct interaction with your instantiated ledger and include operations such as put and get data.
 
 ## Ledger security
 
-This section defines the security protections for the Ledger. The Ledger APIs use client certificate-based authentication. Currently, the Ledger supports certificate-based authentication process with owner roles. We will be adding support for Azure Active Directory (AAD) based authentication and also role-based access (for example, owner, reader, and contributor).
+This section defines the security protections for the ledger. The ledger APIs use client certificate-based authentication. Currently, the ledger supports certificate-based authentication process with owner roles. We will be adding support for Azure Active Directory (AAD) based authentication and also role-based access (for example, owner, reader, and contributor).
 
-The data to the Ledger is sent through TLS 1.2 connection and the TLS 1.2 connection terminates inside the hardware backed security enclaves (Intel® SGX enclaves). This ensures that no one can intercept the connection between a customer's client and the confidential ledger server nodes.
+The data to the ledger is sent through TLS 1.2 connection and the TLS 1.2 connection terminates inside the hardware backed security enclaves (Intel® SGX enclaves). This ensures that no one can intercept the connection between a customer's client and the confidential ledger server nodes.
 
 ### Ledger storage
 
@@ -42,9 +44,9 @@ The confidential ledger can be managed by administrators utilizing Administrativ
 
 The Functional APIs allow direct interaction with your instantiated confidential ledger and include operations such as put and get data.
 
-## Preview Limitations
+## Constraints
 
-- Once a confidential ledger is created, you cannot change the Ledger type.
+- Once a confidential ledger is created, you cannot change the ledger type.
 - Azure confidential ledger does not support standard Azure Disaster Recovery at this time. However, Azure confidential ledger offers built-in redundancy within the Azure region, as the confidential ledger runs on multiple independent nodes.
 - Azure confidential ledger deletion leads to a "hard delete", so your data will not be recoverable after deletion.
 - Azure confidential ledger names must be globally unique. Ledgers with the same name, irrespective of their type, are not allowed.
@@ -55,9 +57,9 @@ The Functional APIs allow direct interaction with your instantiated confidential
 |--|--|
 | ACL | Azure confidential ledger |
 | Ledger | An immutable append record of transactions (also known as a Blockchain) |
-| Commit | A confirmation that a transaction has been locally committed to a node. A local commit by itself does not guarantee that a transaction is part of the Ledger. |
-| Global commit | A confirmation that transaction was globally committed and is part of the Ledger. |
-| Receipt | Proof that the transaction was processed by the Ledger. |
+| Commit | A confirmation that a transaction has been locally committed to a node. A local commit by itself does not guarantee that a transaction is part of the ledger. |
+| Global commit | A confirmation that transaction was globally committed and is part of the ledger. |
+| Receipt | Proof that the transaction was processed by the ledger. |
 
 ## Next steps
 

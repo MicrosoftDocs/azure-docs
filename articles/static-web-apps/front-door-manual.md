@@ -110,9 +110,9 @@ Add the following settings to disable Front Door's caching policies from trying 
 
 1. Select the **Add an action** dropdown.
 
-1. Select **Cache expiration**.
+1. Select **Route configuration override**.
 
-1. Select **Bypass cache** in the *Cache Behavior* dropdown.
+1. Select **Disabled** in the *Caching* dropdown.
 
 1. Select the **Save** button.
 
@@ -203,4 +203,4 @@ If you no longer want to use the resources created in this tutorial, delete the 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Add an API](apis.md)
+> [Add an API](apis-overview.md)

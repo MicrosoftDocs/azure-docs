@@ -11,10 +11,12 @@ ms.date: 04/28/2022
 
 # Model high-throughput transactional apps
 
+[!INCLUDE[applies-to-postgresql-hyperscale](../includes/applies-to-postgresql-hyperscale.md)]
+
 ## Common filter as shard key
 
-To pick the shard key for a high-throughput transactional (HTAP) application,
-follow these guidelines:
+To pick the shard key for a high-throughput transactional application, follow
+these guidelines:
 
 * Choose a column that is used for point lookups and is present in most
   create, read, update, and delete operations.
@@ -57,5 +59,6 @@ When building a high-throughput app, keep some optimization in mind.
 
 We've completed the how-to for building scalable apps.
 
+* Learn how to use specific [app stacks](howto-app-stacks-overview.md) with Hyperscale (Citus).
 * You may now want to know how to [scale a server group](howto-scale-grow.md)
   to give your app more nodes and hardware capacity.

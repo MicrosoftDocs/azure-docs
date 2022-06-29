@@ -25,7 +25,7 @@ There are important topics you may want read before you proceed with creation:
 - [Overview of Azure Arc-enabled data services](overview.md)
 - [Connectivity modes and requirements](connectivity.md)
 - [Storage configuration and Kubernetes storage concepts](storage-configuration.md)
-- [Kubernetes resource model](https://github.com/kubernetes/community/blob/master/contributors/design-proposals/scheduling/resources.md#resource-quantities)
+- [Kubernetes resource model](https://github.com/kubernetes/design-proposals-archive/blob/main/scheduling/resources.md#resource-quantities)
 
 If you prefer to try out things without provisioning a full environment yourself, get started quickly with [Azure Arc Jumpstart](https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_data/) on Azure Kubernetes Service (AKS), AWS Elastic Kubernetes Service (EKS), Google Cloud Kubernetes Engine (GKE) or in an Azure VM.
 
@@ -34,7 +34,7 @@ If you prefer to try out things without provisioning a full environment yourself
 Implement this step before moving to the next step. To deploy PostgreSQL Hyperscale server group onto Red Hat OpenShift in a project other than the default, you need to execute the following commands against your cluster to update the security constraints. This command grants the necessary privileges to the service accounts that will run your PostgreSQL Hyperscale server group. The security context constraint (SCC) arc-data-scc is the one you added when you deployed the Azure Arc data controller.
 
 ```Console
-oc adm policy add-scc-to-user arc-data-scc -z <server-group-name> -n <namespace name>
+oc adm policy add-scc-to-user arc-data-scc -z <server-group-name> -n <namespace-name>
 ```
 
 **Server-group-name is the name of the server group you will create during the next step.**
@@ -216,4 +216,4 @@ psql postgresql://postgres:<EnterYourPassword>@10.0.0.4:30655
 - [Scale out your Azure Arc-enabled for PostgreSQL Hyperscale server group](scale-out-in-postgresql-hyperscale-server-group.md)
 - [Storage configuration and Kubernetes storage concepts](storage-configuration.md)
 - [Expanding Persistent volume claims](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#expanding-persistent-volumes-claims)
-- [Kubernetes resource model](https://github.com/kubernetes/community/blob/master/contributors/design-proposals/scheduling/resources.md#resource-quantities)
+- [Kubernetes resource model](https://github.com/kubernetes/design-proposals-archive/blob/main/scheduling/resources.md#resource-quantities)

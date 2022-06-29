@@ -3,7 +3,7 @@ title: Transform data inside Azure IoT Central | Microsoft Docs
 description: IoT devices send data in various formats that you may need to transform. This article describes how to transform data in an IoT Central before exporting it.
 author: dominicbetts
 ms.author: dobett
-ms.date: 10/28/2021
+ms.date: 06/15/2022
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
@@ -313,7 +313,7 @@ JSON output:
 }
 ```
 
-To learn more about how to add an Azure Data Explorer cluster and database as an export destination, see [Create an Azure Data Explorer destination](howto-export-data.md#create-an-azure-data-explorer-destination).
+To learn more about how to add an Azure Data Explorer cluster and database as an export destination, see [Create an Azure Data Explorer destination](howto-export-to-azure-data-explorer.md).
 
 ### Scenario 2: Breaking apart a telemetry array
 
@@ -546,7 +546,7 @@ JSON output:
 
 ### Scenario 4: Export data to Azure Data Explorer and visualize it in Power BI
 
-In this scenario, you export data to Azure Data Explorer and then a use a connector to visualize the data in Power BI. To learn more about how to add an Azure Data Explorer cluster and database as an export destination, see [Create an Azure Data Explorer destination](howto-export-data.md#create-an-azure-data-explorer-destination).
+In this scenario, you export data to Azure Data Explorer and then a use a connector to visualize the data in Power BI. To learn more about how to add an Azure Data Explorer cluster and database as an export destination, see [Create an Azure Data Explorer destination](howto-export-to-azure-data-explorer.md).
 
 This scenario uses an Azure Data Explorer table with the following schema:
 

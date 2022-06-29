@@ -51,7 +51,7 @@ For all deployments, bandwidth results for virtual machines may vary, depending 
 |**Enterprise**     |    **Max bandwidth**: 800 Mb/sec <br>**Max monitored assets**: 10,000      | **vCPU**: 8 <br>**Memory**: 32 GB <br>**Storage**: 1.8 TB (300 IOPS)        |
 |**SMB**     |   **Max bandwidth**: 160 Mb/sec <br>**Max monitored assets**: 1,000      | **vCPU**: 4 <br>**Memory**: 8 GB <br>**Storage**: 500 GB (150 IOPS)        |
 |**Office**     |    **Max bandwidth**: 100 Mb/sec <br>**Max monitored assets**: 800      | **vCPU**: 4 <br>**Memory**: 8 GB <br>**Storage**: 100 GB (150 IOPS)        |
-|**Rugged**     |     **Max bandwidth**: 10 Mb/sec <br>**Max monitored assets**: 100      | **vCPU**: 4 <br>**Memory**: 8 GB <br>**Storage**: 64 GB (150 IOPS)        |
+|**Rugged**     |     **Max bandwidth**: 10 Mb/sec <br>**Max monitored assets**: 100      | **vCPU**: 4 <br>**Memory**: 8 GB <br>**Storage**: 60 GB (150 IOPS)        |
 
 
 ## On-premises management console VM requirements

@@ -37,7 +37,6 @@ Only one usage event can be emitted for each hour of a calendar day per resource
 | Parameter | Recommendation          |
 | ---------- | ---------------------- |
 | `ApiVersion` | Use 2018-08-31. |
-| | |
 
 *Request headers:*
 
@@ -46,7 +45,6 @@ Only one usage event can be emitted for each hour of a calendar day per resource
 | `x-ms-requestid`     | Unique string value for tracking the request from the client, preferably a GUID. If this value is not provided, one will be generated and provided in the response headers. |
 | `x-ms-correlationid` | Unique string value for operation on the client. This parameter correlates all events from client operation with events on the server side. If this value isn't provided, one will be generated and provided in the response headers. |
 | `authorization`   | A unique access token that identifies the ISV that is making this API call. The format is `"Bearer <access_token>"` when the token value is retrieved by the publisher as explained for <br> <ul> <li> SaaS in [Get the token with an HTTP POST](partner-center-portal/pc-saas-registration.md#get-the-token-with-an-http-post). </li> <li> Managed application in [Authentication strategies](marketplace-metering-service-authentication.md). </li> </ul> |
-| | |
 
 *Request body example:*
 
@@ -158,7 +156,6 @@ The batch usage event API allows you to emit usage events for more than one purc
 | `x-ms-requestid`     | Unique string value for tracking the request from the client, preferably a GUID. If this value is not provided, one will be generated, and provided in the response headers. |
 | `x-ms-correlationid` | Unique string value for operation on the client. This parameter correlates all events from client operation with events on the server side. If this value isn't provided, one will be generated, and provided in the response headers. |
 | `authorization`      | A unique access token that identifies the ISV that is making this API call. The format is `Bearer <access_token>` when the token value is retrieved by the publisher as explained for <br> <ul> <li> SaaS in [Get the token with an HTTP POST](partner-center-portal/pc-saas-registration.md#get-the-token-with-an-http-post). </li> <li> Managed application in [Authentication strategies](./marketplace-metering-service-authentication.md). </li> </ul> |
-| | |
 
 >[!NOTE]
 >In the request body, the resource identifier has different meanings for SaaS app and for Azure Managed app emitting custom meter. The resource identifier for SaaS App is `resourceID`. The resource identifier for Azure Application Managed Apps plans is `resourceUri`.
@@ -302,7 +299,6 @@ GET: `https://marketplaceapi.microsoft.com/api/usageEvents`
 | dimension (optional) | Default = all available |
 | azureSubscriptionId (optional) | Default = all available |
 | reconStatus (optional) | Default = all available |
-|||
 
 *Possible values of reconStatus*:
 
@@ -314,7 +310,6 @@ GET: `https://marketplaceapi.microsoft.com/api/usageEvents`
 | Mismatch | MarketplaceAPI and Partner Center Analytics quantities are both non-zero, however not matching |
 | TestHeaders | Subscription listed with test headers, and therefore not in PC Analytics |
 | DryRun | Submitted with SessionMode=DryRun, and therefore not in PC |
-|||
 
 *Request headers*:
 
@@ -323,7 +318,6 @@ GET: `https://marketplaceapi.microsoft.com/api/usageEvents`
 | x-ms-requestid | Unique string value (preferably a GUID), for tracking the request from the client. If this value is not provided, one will be generated and provided in the response headers. |
 | x-ms-correlationid | Unique string value for operation on the client. This parameter correlates all events from client operation with events on the server side. If this value isn't provided, one will be generated and provided in the response headers. |
 | authorization | A unique access token that identifies the ISV that is making this API call. The format is `Bearer <access_token>` when the token value is retrieved by the publisher. For more information, see:<br><ul><li>SaaS in [Get the token with an HTTP POST](./partner-center-portal/pc-saas-registration.md#get-the-token-with-an-http-post)</li><li>Managed application in [Authentication strategies](marketplace-metering-service-authentication.md)</li></ul> |
-|||
 
 ### Responses
 

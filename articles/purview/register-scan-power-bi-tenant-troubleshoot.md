@@ -6,7 +6,7 @@ ms.author: zeinam
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 04/29/2022
+ms.date: 05/06/2022
 ms.custom: template-how-to, ignite-fall-2021
 ---
 
@@ -14,11 +14,26 @@ ms.custom: template-how-to, ignite-fall-2021
 
 This article explores common troubleshooting methods for scanning Power BI tenants in [Microsoft Purview](overview.md).
 
-## Supported capabilities
+## Supported scenarios for Power BI scans
 
-|**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Access Policy**|**Lineage**|
-|---|---|---|---|---|---|---|
-| [Yes](register-scan-power-bi-tenant.md#deployment-checklist)| [Yes](register-scan-power-bi-tenant.md#deployment-checklist)| Yes | No | No | No| [Yes](how-to-lineage-powerbi.md)|
+### Same-tenant
+
+|**Scenarios**  |**Microsoft Purview public access allowed/denied** |**Power BI public access allowed /denied** | **Runtime option** | **Authentication option**  | **Deployment checklist** | 
+|---------|---------|---------|---------|---------|---------|
+|Public access with Azure IR     |Allowed     |Allowed        |Azure Runtime      | Microsoft Purview Managed Identity   | [Review deployment checklist](register-scan-power-bi-tenant.md#deployment-checklist) |
+|Public access with Self-hosted IR     |Allowed     |Allowed        |Self-hosted runtime        |Delegated Authentication  | [Review deployment checklist](register-scan-power-bi-tenant.md#deployment-checklist) |
+|Private access     |Allowed     |Denied         |Self-hosted runtime        |Delegated Authentication  | [Review deployment checklist](register-scan-power-bi-tenant.md#deployment-checklist) |
+|Private access     |Denied      |Allowed*        |Self-hosted runtime        |Delegated Authentication  | [Review deployment checklist](register-scan-power-bi-tenant.md#deployment-checklist) |
+|Private access     |Denied      |Denied         |Self-hosted runtime        |Delegated Authentication  | [Review deployment checklist](register-scan-power-bi-tenant.md#deployment-checklist) |
+
+\* Power BI tenant must have a private endpoint which is deployed in a Virtual Network accessible from the self-hosted integration runtime VM. For more information, see [private endpoint for Power BI tenant](/power-bi/enterprise/service-security-private-links).
+
+### Cross-tenant
+
+|**Scenarios**  |**Microsoft Purview public access allowed/denied** |**Power BI public access allowed /denied** | **Runtime option** | **Authentication option**  | **Deployment checklist** | 
+|---------|---------|---------|---------|---------|---------|
+|Public access with Azure IR     |Allowed     |Allowed        |Azure runtime      |Delegated Authentication    | [Deployment checklist](register-scan-power-bi-tenant-cross-tenant.md#deployment-checklist) |
+|Public access with Self-hosted IR     |Allowed     |Allowed        |Self-hosted runtime        |Delegated Authentication  | [Deployment checklist](register-scan-power-bi-tenant-cross-tenant.md#deployment-checklist) |
 
 ## Troubleshooting tips
 
@@ -28,13 +43,17 @@ If delegated auth is used:
 - Validate if user is assigned to Power BI Administrator role.
 - If user is recently created, make sure password is reset successfully and user can successfully initiate the session.
 
+## My schema is not showing up after scanning
+
+It can take some time for schema to finish the scanning and ingestion process, depending on the size of your Power BI Tenant. Currently if you have a large PowerBI tenant, this process could take a few hours.
+
 ## Error code: Test connection failed - AASDST50079
 
 - **Message**: `Failed to get access token with given credential to access Power BI tenant. Authentication type PowerBIDelegated Message: AASDST50079 Due to a configuration change made by your administrator or because you moved to a new location, you must enroll in multi-factor authentication.`
 
 - **Cause**: Authentication is interrupted, due multi-factor authentication requirement for the Power BI admin user.
 
-- **Recommendation**: Disable multi-factor authentication requirement and exclude user from conditional access policies. Login with the user to Power BI dashboard to validate if user can successfully login to the application. 
+- **Recommendation**: Disable multi-factor authentication requirement and exclude user from conditional access policies. Login with the user to Power BI dashboard to validate if user can successfully login to the application.
 
 ## Error code: Test connection failed - AASTS70002
 
