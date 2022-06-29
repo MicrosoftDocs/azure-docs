@@ -77,7 +77,7 @@ After data extraction, use Oracle system catalog tables to generate equivalent `
 
 #### Users and roles
 
-The information about current users and groups in an Oracle system is held in system catalog views, such as `ALL_USERS` and `DBA_USERS`. You can query these views in the normal way via Oracle SQL*Plus or Oracle SQL Developer. The following queries are basic examples:
+The information about current users and groups in an Oracle system is held in system catalog views, such as `ALL_USERS` and `DBA_USERS`. You can query these views in the normal way via Oracle SQL\*Plus or Oracle SQL Developer. The following queries are basic examples:
 
 ```sql
 --List of users
@@ -90,7 +90,7 @@ select * from dba_roles order by role;
 select * from user_role_privs order by username, granted_role;
 ```
 
-Oracle SQL Developer has built-in options to display user and role information in the **Reports** pane, as shown in the following screenshot.
+Oracle SQL Developer has built-in options to display user and role information in the *Reports* pane, as shown in the following screenshot.
 
 :::image type="content" source="../media/3-security-access-operations/oracle-sql-developer-reports-1.png" border="true" alt-text="Screenshot showing the Reports pane for user roles in Oracle SQL Developer.":::
 
@@ -307,11 +307,11 @@ Azure Synapse automatically logs resource utilization statistics. Metrics includ
 
 Azure Synapse supports these basic workload management concepts:
 
-1. **Workload classification**: you can assign a request to a workload group to set importance levels.
+- **Workload classification**: you can assign a request to a workload group to set importance levels.
 
-1. **Workload importance**: you can influence the order in which a request gets access to resources. By default, queries are released from the queue on a first-in, first-out basis as resources become available. Workload importance allows higher priority queries to receive resources immediately regardless of the queue.
+- **Workload importance**: you can influence the order in which a request gets access to resources. By default, queries are released from the queue on a first-in, first-out basis as resources become available. Workload importance allows higher priority queries to receive resources immediately regardless of the queue.
 
-1. **Workload isolation**: you can reserve resources for a workload group, assign maximum and minimum usage for varying resources, limit the resources a group of requests can consume can, and set a timeout value to automatically kill runaway queries.
+- **Workload isolation**: you can reserve resources for a workload group, assign maximum and minimum usage for varying resources, limit the resources a group of requests can consume can, and set a timeout value to automatically kill runaway queries.
 
 Azure Synapse provides a set of Dynamic Management Views (DMVs) for monitoring all aspects of workload management. These views are useful when actively troubleshooting and identifying performance bottlenecks in your workload.
 

@@ -351,7 +351,7 @@ For relatively small tables, you might find this technique useful if you run int
 
 ### Use the Oracle connector in Azure Data Factory for parallel copy
 
-You can use the Oracle connector in Data Factory to unload large Oracle tables in parallel. The Oracle connector provides built-in data partitioning to copy data from Oracle in parallel. You can find the data partitioning options in the **Source** tab of the copy activity.
+You can use the Oracle connector in Data Factory to unload large Oracle tables in parallel. The Oracle connector provides built-in data partitioning to copy data from Oracle in parallel. You can find the data partitioning options in the *Source* tab of the copy activity.
 
 :::image type="content" source="../media/2-etl-load-migration-considerations/azure-data-factory-source-tab.png" border="true" alt-text="Screenshot of Azure Data Factory Oracle partition options in the source tab.":::
 

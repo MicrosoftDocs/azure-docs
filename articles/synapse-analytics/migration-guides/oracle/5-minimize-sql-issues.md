@@ -198,7 +198,7 @@ There are some SQL DML syntax differences between Oracle SQL and Azure Synapse T
 
 - Updates via views: in Oracle you can run insert, update, and delete operations against a view to update the underlying table. In Azure Synapse, you run those operations against a base table&mdash;not a view. You might have to re-engineer ETL processing if an Oracle table is updated through a view.
 
-- Built-in functions: the following table shows the differences in the syntax and usage of some built-in functions:
+- Built-in functions: the following table shows the differences in the syntax and usage of some built-in functions.
 
 | Oracle Function | Description | Synapse equivalent |
 |-|-|-|
