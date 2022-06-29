@@ -3,7 +3,7 @@ title: Azure Kubernetes Service (AKS) with Uptime SLA
 description: Learn about the optional Uptime SLA offering for the Azure Kubernetes Service (AKS) API Server.
 services: container-service
 ms.topic: conceptual
-ms.date: 01/08/2021
+ms.date: 06/29/2022
 ms.custom: references_regions, devx-track-azurecli
 ---
 
