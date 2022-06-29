@@ -298,8 +298,8 @@ For more information, check out the [telemetry processor](./java-standalone-tele
 
 ## Auto-collected logging
 
-Log4j, Logback, and java.util.logging are auto-instrumented, and logging performed via these logging frameworks
-is auto-collected.
+Log4j, Logback, JBoss Logging, and java.util.logging are auto-instrumented,
+and logging performed via these logging frameworks is auto-collected.
 
 Logging is only captured if it first meets the level that is configured for the logging framework,
 and second, also meets the level that is configured for Application Insights.
@@ -325,18 +325,18 @@ You can also set the level using the environment variable `APPLICATIONINSIGHTS_I
 
 These are the valid `level` values that you can specify in the `applicationinsights.json` file, and how they correspond to logging levels in different logging frameworks:
 
-| level             | Log4j  | Logback | JUL     |
-|-------------------|--------|---------|---------|
-| OFF               | OFF    | OFF     | OFF     |
-| FATAL             | FATAL  | ERROR   | SEVERE  |
-| ERROR (or SEVERE) | ERROR  | ERROR   | SEVERE  |
-| WARN (or WARNING) | WARN   | WARN    | WARNING |
-| INFO              | INFO   | INFO    | INFO    |
-| CONFIG            | DEBUG  | DEBUG   | CONFIG  |
-| DEBUG (or FINE)   | DEBUG  | DEBUG   | FINE    |
-| FINER             | DEBUG  | DEBUG   | FINER   |
-| TRACE (or FINEST) | TRACE  | TRACE   | FINEST  |
-| ALL               | ALL    | ALL     | ALL     |
+| level             | Log4j  | Logback | JBoss  | JUL     |
+|-------------------|--------|---------|--------|---------|
+| OFF               | OFF    | OFF     | OFF    | OFF     |
+| FATAL             | FATAL  | ERROR   | FATAL  | SEVERE  |
+| ERROR (or SEVERE) | ERROR  | ERROR   | ERROR  | SEVERE  |
+| WARN (or WARNING) | WARN   | WARN    | WARN   | WARNING |
+| INFO              | INFO   | INFO    | INFO   | INFO    |
+| CONFIG            | DEBUG  | DEBUG   | DEBUG  | CONFIG  |
+| DEBUG (or FINE)   | DEBUG  | DEBUG   | DEBUG  | FINE    |
+| FINER             | DEBUG  | DEBUG   | DEBUG  | FINER   |
+| TRACE (or FINEST) | TRACE  | TRACE   | TRACE  | FINEST  |
+| ALL               | ALL    | ALL     | ALL    | ALL     |
 
 > [!NOTE]
 > If an exception object is passed to the logger, then the log message (and exception object details)

@@ -1072,4 +1072,13 @@ items:
       href: concepts/migrate-language-service-latest.md
     - name: Previous service updates
       href: concepts/previous-updates.md
-      
+    - name: Learn modules
+      items:
+      - name: Explore natural language processing
+        href: /learn/paths/explore-natural-language-processing
+      - name: Build a question answering solution
+        href: /learn/paths/build-qna-solution
+      - name: Extract insights from text with the Language service
+        href: /learn/modules/extract-insights-text-with-text-analytics-service/
+      - name: Build custom text analytics solutions
+        href: /learn/paths/build-custom-text-analytics

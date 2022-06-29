@@ -154,9 +154,10 @@ Autocollected dependencies without downstream distributed trace propagation:
 
 ### Autocollected logs
 
+* Log4j (including MDC/Thread Context properties)
+* Logback (including MDC properties)
+* JBoss Logging (including MDC properties)
 * java.util.logging
-* Log4j, which includes MDC properties
-* SLF4J/Logback, which includes MDC properties
 
 ### Autocollected metrics
 
