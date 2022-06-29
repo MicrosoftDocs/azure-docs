@@ -891,44 +891,6 @@ The offline Azure AD Threat Intelligence risk detection can now have a risk reas
  
 ---
 
-## December 2021
-
-### Tenant enablement of combined security information registration for Azure Active Directory
-
-**Type:** Plan for change  
-**Service category:** MFA  
-**Product capability:** Identity Security & Protection  
- 
-We previously announced in April 2020, a new combined registration experience enabling users to register authentication methods for SSPR and multi-factor authentication at the same time was generally available for existing customer to opt in. Any Azure AD tenants created after August 2020 automatically have the default experience set to combined registration. Starting in 2022 Microsoft will be enabling the multi-factor authentication and SSPR combined registration experience for existing customers. [Learn more](../authentication/concept-registration-mfa-sspr-combined.md).
- 
----
-
-### Public Preview - Number Matching now available to reduce accidental notification approvals
-
-**Type:** New feature  
-**Service category:** Microsoft Authenticator App  
-**Product capability:** User Authentication  
- 
-To prevent accidental notification approvals, admins can now  require users to enter the number displayed on the sign in screen when approving a multi-factor authentication notification in the Authenticator app. This feature adds an extra security measure to the Microsoft Authenticator app. [Learn more](../authentication/how-to-mfa-number-match.md).
- 
----
-
-### Pre-authentication error events removed from Azure AD Sign-in Logs
-
-**Type:** Deprecated  
-**Service category:** Reporting  
-**Product capability:** Monitoring & Reporting  
- 
-We’re no longer publishing sign-in logs with the following error codes because these events are pre-authentication events that occur before our service has authenticated a user. Because these events happen before authentication, our service isn’t always able to correctly identify the user. If a user continues on to authenticate, the user sign-in will show up in your tenant Sign-in logs. These logs are no longer visible in the Azure portal UX, and querying these error codes in the Graph API will no longer return results.
-
-|Error code | Failure reason|
-| --- | --- |
-|50058| Session information isn’t sufficient for single-sign-on.|
-|16000| Either multiple user identities are available for the current request or selected account isn’t supported for the scenario.|
-|500581| Rendering JavaScript. Fetching sessions for single-sign-on on V2 with prompt=none requires JavaScript to verify if any MSA accounts are signed in.|
-|81012| The user trying to sign in to Azure AD is different from the user signed into the device.|
-
----
 
 
 
