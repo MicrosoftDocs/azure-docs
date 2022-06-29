@@ -46,9 +46,9 @@ The following cURL commands are executed from a BASH shell. Edit these commands 
 [!INCLUDE [REST API quickstart instructions](../../../includes/rest-api-instructions.md)]
 
 ```bash
-curl -i -X POST <your-language-resource-endpoint>/language/:analyze-text?api-version=2022-05-01 \
+curl -i -X POST https://<your-language-resource-endpoint>/language/:analyze-text?api-version=2022-05-01 \
 -H "Content-Type: application/json" \
--H "Ocp-Apim-Subscription-Key: <your-language-key>" \
+-H "Ocp-Apim-Subscription-Key: <your-language-resource-key>" \
 -d \
 '
 {

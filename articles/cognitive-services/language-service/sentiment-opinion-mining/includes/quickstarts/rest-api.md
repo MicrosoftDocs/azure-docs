@@ -50,7 +50,7 @@ The following cURL commands are executed from a BASH shell. Edit these commands 
 ```bash
 curl -i -X POST <your-language-resource-endpoint>/language/:analyze-text?api-version=2022-05-01 \
 -H "Content-Type: application/json" \
--H "Ocp-Apim-Subscription-Key: <your-language-resource-key" \
+-H "Ocp-Apim-Subscription-Key: <your-language-resource-key>" \
 -d \
 '
 {
