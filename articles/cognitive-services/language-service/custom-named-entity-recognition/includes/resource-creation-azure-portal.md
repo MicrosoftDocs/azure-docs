@@ -28,6 +28,9 @@ ms.author: aahi
     | Name | A name for your resource. |
     |Pricing tier     | The [pricing tier](../service-limits.md#language-resource-limits) for your Language resource. You can use the Free (F0) tier to try the service.       |
 
+    > [!NOTE]
+    > If you get a message saying "*your login account is not an owner of the selected storage account's resource group*", your account needs to have an owner role assigned on the resource group before you can create a Language resource. Contact your Azure subscription owner for assistance.
+
 1. In the **Custom text classification & custom named entity recognition** section, select an existing storage account or select **New storage account**. These values are to help you get started, and not necessarily the [storage account values](../../../../storage/common/storage-account-overview.md) you’ll want to use in production environments. To avoid latency during building your project connect to storage accounts in the same region as your Language resource.
 
     |Storage account value  |Recommended value  |
