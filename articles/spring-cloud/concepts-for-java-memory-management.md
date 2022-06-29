@@ -62,7 +62,7 @@ Spring-boot actuator doesn't observe the value of direct memory.
 
 In conclusion, Java memory model is like following layout.
 
-![java memory model](media/concepts-for-java-memory-management/java-memory-model.png)
+:::image type="content" source="media/concepts-for-java-memory-management/java-memory-model.png" alt-text="java memory model":::
 
 ## Java Garbage Collection
 
@@ -128,7 +128,7 @@ Direct memory size depends on your use of third party libraries like nio, gzip, 
 
 Here is a typical memory layout sample for 2 GB apps. Numbers in grey are reference values of daily memory usage. You can refer to this to configure your memory size settings.
 
-![2G-sample](media/concepts-for-java-memory-management/2-gb-sample.png)
+:::image type="content" source="media/concepts-for-java-memory-management/2-gb-sample.png" alt-text="2G-sample":::
 
 Overall, when configuring max memory sizes, you should consider the usage of each part in memory, and the sum of all max sizes shouldn't exceed total available memory.
 

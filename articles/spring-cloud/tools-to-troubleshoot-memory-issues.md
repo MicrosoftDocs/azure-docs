@@ -26,7 +26,7 @@ Resource health sends alerts about app restart events due to [container OOM](htt
 
 Please check [the doc for fixing app restart issues caused by out of memory](https://github.com/KaiqianYang/azure-spring-cloud-docs-pr/blob/kaiqianyang/memory-oom/docs/fix-app-restart-issues-caused-by-out-of-memory.md).
 
-![memory 5](media/tools-to-troubleshoot-memory-issues/out-of-memory-alert-resource-health.png)
+:::image type="content" source="media/tools-to-troubleshoot-memory-issues/out-of-memory-alert-resource-health.png" alt-text="memory 5":::
 
 ### 2. Diagnose and solve problems
 
@@ -34,9 +34,9 @@ For more information, see [Self-diagnose and solve problems in Azure Spring Apps
 
 Under "Diagnose and solve problems", you can find "Memory Usage" detector. It shows a simple diagnosis for app memory usage.
 
-![memory 1](media/tools-to-troubleshoot-memory-issues/diagnose-solve-problem-location.png)
+:::image type="content" source="media/tools-to-troubleshoot-memory-issues/diagnose-solve-problem-location.png" alt-text="memory 1":::
 
-![memory 4](media/tools-to-troubleshoot-memory-issues/diagnose-solve-problem-example.png)
+:::image type="content" source="media/tools-to-troubleshoot-memory-issues/diagnose-solve-problem-example.png" alt-text="memory 4":::
 
 ### 3. Metrics
 
@@ -91,7 +91,7 @@ It reflects full GC
 
 This feature can be found on portal, and you can choose specific metrics and add filters for specific app or deployment or instance, and can also apply splitting.
 
-![memory 8](media/tools-to-troubleshoot-memory-issues/metrics-example.png)
+:::image type="content" source="media/tools-to-troubleshoot-memory-issues/metrics-example.png" alt-text="memory 8":::
 
 ## Further debug
 
@@ -103,7 +103,7 @@ This feature provides further details on heap and threads, to help debug.
 
 Heap dump records the state of the Java heap memory. Thread dump records the stacks of all live threads. Using third party tools like [Memory Analyzer](https://www.eclipse.org/mat/) to analyze heap dumps can get useful information. It is both available on azure CLI and on the app page of portal:
 
-![memory 2](media/tools-to-troubleshoot-memory-issues/capture-dump-location.png)
+:::image type="content" source="media/tools-to-troubleshoot-memory-issues/capture-dump-location.png" alt-text="memory 2":::
 
 ## Modify configurations and fix problem
 
@@ -115,4 +115,4 @@ You can refer to [related JVM Options](https://github.com/KaiqianYang/azure-spri
 
 This feature is available on Azure CLI and on portal.
 
-![memory 6](media/tools-to-troubleshoot-memory-issues/maxdirectmemorysize-location.png)
+:::image type="content" source="media/tools-to-troubleshoot-memory-issues/maxdirectmemorysize-location.png" alt-text="memory 6":::
