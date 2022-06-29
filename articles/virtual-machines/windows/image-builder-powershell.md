@@ -94,58 +94,58 @@ Grant Azure image builder permissions to create images in the specified resource
 
 1. Create variables for the role definition and identity names. These values must be unique.
 
-  ```azurepowershell-interactive
-  [int]$timeInt = $(Get-Date -UFormat '%s')
-  $imageRoleDefName = "Azure Image Builder Image Def $timeInt"
-  $identityName = "myIdentity$timeInt"
-  ```
+   ```azurepowershell-interactive
+   [int]$timeInt = $(Get-Date -UFormat '%s')
+   $imageRoleDefName = "Azure Image Builder Image Def $timeInt"
+   $identityName = "myIdentity$timeInt"
+   ```
 
 1. Create a user identity.
 
-  ```azurepowershell-interactive
-  New-AzUserAssignedIdentity -ResourceGroupName $imageResourceGroup -Name $identityName
-  ```
+   ```azurepowershell-interactive
+   New-AzUserAssignedIdentity -ResourceGroupName $imageResourceGroup -Name $identityName
+   ```
 
 1. Store the identity resource and principal IDs in variables.
 
-  ```azurepowershell-interactive
-  $identityNameResourceId = (Get-AzUserAssignedIdentity -ResourceGroupName $imageResourceGroup -Name $identityName).Id
-  $identityNamePrincipalId = (Get-AzUserAssignedIdentity -ResourceGroupName $imageResourceGroup -Name $identityName).PrincipalId
-  ```
+   ```azurepowershell-interactive
+   $identityNameResourceId = (Get-AzUserAssignedIdentity -ResourceGroupName $imageResourceGroup -Name $identityName).Id
+   $identityNamePrincipalId = (Get-AzUserAssignedIdentity -ResourceGroupName $imageResourceGroup -Name $identityName).PrincipalId
+   ```
 
 ### Assign permissions for the identity to distribute the images
 
 1. Download the JSON configuration file, and then modify it based on the settings that are defined in this article.
 
-  ```azurepowershell-interactive
-  $myRoleImageCreationUrl = 'https://raw.githubusercontent.com/azure/azvmimagebuilder/master/solutions/12_Creating_AIB_Security_Roles/aibRoleImageCreation.json'
-  $myRoleImageCreationPath = "$env:TEMP\myRoleImageCreation.json"
+   ```azurepowershell-interactive
+   $myRoleImageCreationUrl = 'https://raw.githubusercontent.com/azure/azvmimagebuilder/master/solutions/12_Creating_AIB_Security_Roles/aibRoleImageCreation.json'
+   $myRoleImageCreationPath = "$env:TEMP\myRoleImageCreation.json"
 
-  Invoke-WebRequest -Uri $myRoleImageCreationUrl -OutFile $myRoleImageCreationPath -UseBasicParsing
+   Invoke-WebRequest -Uri $myRoleImageCreationUrl -OutFile $myRoleImageCreationPath -UseBasicParsing
 
-  $Content = Get-Content -Path $myRoleImageCreationPath -Raw
-  $Content = $Content -replace '<subscriptionID>', $subscriptionID
-  $Content = $Content -replace '<rgName>', $imageResourceGroup
-  $Content = $Content -replace 'Azure Image Builder Service Image Creation Role', $imageRoleDefName
-  $Content | Out-File -FilePath $myRoleImageCreationPath -Force
-  ```
+   $Content = Get-Content -Path $myRoleImageCreationPath -Raw
+   $Content = $Content -replace '<subscriptionID>', $subscriptionID
+   $Content = $Content -replace '<rgName>', $imageResourceGroup
+   $Content = $Content -replace 'Azure Image Builder Service Image Creation Role', $imageRoleDefName
+   $Content | Out-File -FilePath $myRoleImageCreationPath -Force
+   ```
 
 1. Create the role definition.
 
-  ```azurepowershell-interactive
-  New-AzRoleDefinition -InputFile $myRoleImageCreationPath
-  ```
+   ```azurepowershell-interactive
+   New-AzRoleDefinition -InputFile $myRoleImageCreationPath
+   ```
 
 1. Grant the role definition to the VM Image Builder service principal.
 
-  ```azurepowershell-interactive
-  $RoleAssignParams = @{
-    ObjectId = $identityNamePrincipalId
-    RoleDefinitionName = $imageRoleDefName
-    Scope = "/subscriptions/$subscriptionID/resourceGroups/$imageResourceGroup"
-  }
-  New-AzRoleAssignment @RoleAssignParams
-```
+   ```azurepowershell-interactive
+   $RoleAssignParams = @{
+     ObjectId = $identityNamePrincipalId
+     RoleDefinitionName = $imageRoleDefName
+     Scope = "/subscriptions/$subscriptionID/resourceGroups/$imageResourceGroup"
+   }
+   New-AzRoleAssignment @RoleAssignParams
+   ```
 
 > [!NOTE]
 > If you receive the error "New-AzRoleDefinition: Role definition limit exceeded. No more role definitions can be created," see [Troubleshoot Azure RBAC (role-based access control)](../../role-based-access-control/troubleshooting.md).
@@ -154,85 +154,85 @@ Grant Azure image builder permissions to create images in the specified resource
 
 1. Create the gallery.
 
-  ```azurepowershell-interactive
-  $myGalleryName = 'myImageGallery'
-  $imageDefName = 'winSvrImages'
+   ```azurepowershell-interactive
+   $myGalleryName = 'myImageGallery'
+   $imageDefName = 'winSvrImages'
 
-  New-AzGallery -GalleryName $myGalleryName -ResourceGroupName $imageResourceGroup -Location $location
-  ```
+   New-AzGallery -GalleryName $myGalleryName -ResourceGroupName $imageResourceGroup -Location $location
+   ```
 
 1. Create a gallery definition.
 
-  ```azurepowershell-interactive
-  $GalleryParams = @{
-    GalleryName = $myGalleryName
-    ResourceGroupName = $imageResourceGroup
-    Location = $location
-    Name = $imageDefName
-    OsState = 'generalized'
-    OsType = 'Windows'
-    Publisher = 'myCo'
-    Offer = 'Windows'
-    Sku = 'Win2019'
-  }
-  New-AzGalleryImageDefinition @GalleryParams
-  ```
+   ```azurepowershell-interactive
+   $GalleryParams = @{
+     GalleryName = $myGalleryName
+     ResourceGroupName = $imageResourceGroup
+     Location = $location
+     Name = $imageDefName
+     OsState = 'generalized'
+     OsType = 'Windows'
+     Publisher = 'myCo'
+     Offer = 'Windows'
+     Sku = 'Win2019'
+   }
+   New-AzGalleryImageDefinition @GalleryParams
+   ```
 
 ## Create an image
 
 1. Create a VM Image Builder source object. For valid parameter values, see [Find Windows VM images in Azure Marketplace with Azure PowerShell](./cli-ps-findimage.md).
 
-  ```azurepowershell-interactive
-  $SrcObjParams = @{
-    SourceTypePlatformImage = $true
-    Publisher = 'MicrosoftWindowsServer'
-    Offer = 'WindowsServer'
-    Sku = '2019-Datacenter'
-    Version = 'latest'
-  }
-  $srcPlatform = New-AzImageBuilderSourceObject @SrcObjParams
-  ```
+   ```azurepowershell-interactive
+   $SrcObjParams = @{
+     SourceTypePlatformImage = $true
+     Publisher = 'MicrosoftWindowsServer'
+     Offer = 'WindowsServer'
+     Sku = '2019-Datacenter'
+     Version = 'latest'
+   }
+   $srcPlatform = New-AzImageBuilderSourceObject @SrcObjParams
+   ```
 
 1. Create a VM Image Builder distributor object.
 
 1. Create a VM Image Builder customization object.
 
-  ```azurepowershell-interactive
-  $ImgCustomParams01 = @{
-    PowerShellCustomizer = $true
-    CustomizerName = 'settingUpMgmtAgtPath'
-    RunElevated = $false
-    Inline = @("mkdir c:\\buildActions", "mkdir c:\\buildArtifacts", "echo Azure-Image-Builder-Was-Here  > c:\\buildActions\\buildActionsOutput.txt")
-  }
-  $Customizer01 = New-AzImageBuilderCustomizerObject @ImgCustomParams01
-  ```
+   ```azurepowershell-interactive
+   $ImgCustomParams01 = @{
+     PowerShellCustomizer = $true
+     CustomizerName = 'settingUpMgmtAgtPath'
+     RunElevated = $false
+     Inline = @("mkdir c:\\buildActions", "mkdir c:\\buildArtifacts", "echo Azure-Image-Builder-Was-Here  > c:\\buildActions\\buildActionsOutput.txt")
+   }
+   $Customizer01 = New-AzImageBuilderCustomizerObject @ImgCustomParams01
+   ```
 
 1. Create a second VM Image Builder customization object.
 
-  ```azurepowershell-interactive
-  $ImgCustomParams02 = @{
-    FileCustomizer = $true
-    CustomizerName = 'downloadBuildArtifacts'
-    Destination = 'c:\\buildArtifacts\\index.html'
-    SourceUri = 'https://raw.githubusercontent.com/azure/azvmimagebuilder/master/quickquickstarts/exampleArtifacts/buildArtifacts/index.html'
-  }
-  $Customizer02 = New-AzImageBuilderCustomizerObject @ImgCustomParams02
-  ```
+   ```azurepowershell-interactive
+   $ImgCustomParams02 = @{
+     FileCustomizer = $true
+     CustomizerName = 'downloadBuildArtifacts'
+     Destination = 'c:\\buildArtifacts\\index.html'
+     SourceUri = 'https://raw.githubusercontent.com/azure/azvmimagebuilder/master/quickquickstarts/exampleArtifacts/buildArtifacts/index.html'
+   }
+   $Customizer02 = New-AzImageBuilderCustomizerObject @ImgCustomParams02
+   ```
 
 1. Create a VM Image Builder template.
 
-  ```azurepowershell-interactive
-  $ImgTemplateParams = @{
-    ImageTemplateName = $imageTemplateName
-    ResourceGroupName = $imageResourceGroup
-    Source = $srcPlatform
-    Distribute = $disSharedImg
-    Customize = $Customizer01, $Customizer02
-    Location = $location
-    UserAssignedIdentityId = $identityNameResourceId
-  }
-  New-AzImageBuilderTemplate @ImgTemplateParams
-  ```
+   ```azurepowershell-interactive
+   $ImgTemplateParams = @{
+     ImageTemplateName = $imageTemplateName
+     ResourceGroupName = $imageResourceGroup
+     Source = $srcPlatform
+     Distribute = $disSharedImg
+     Customize = $Customizer01, $Customizer02
+     Location = $location
+     UserAssignedIdentityId = $identityNameResourceId
+   }
+   New-AzImageBuilderTemplate @ImgTemplateParams
+   ```
 
 When the template has been created, a message is returned, and a VM Image Builder configuration template is created in `$imageResourceGroup`.
 
@@ -273,17 +273,17 @@ If you encounter errors, review [Troubleshoot Azure VM Image Builder failures](.
 
 1. Store the VM login credentials in a variable. The password must be complex.
 
-  ```azurepowershell-interactive
-  $Cred = Get-Credential
-  ```
+   ```azurepowershell-interactive
+   $Cred = Get-Credential
+   ```
 
 1. Create the VM by using the image you created.
 
-  ```azurepowershell-interactive
-  $ArtifactId = (Get-AzImageBuilderRunOutput -ImageTemplateName $imageTemplateName -ResourceGroupName $imageResourceGroup).ArtifactId
+   ```azurepowershell-interactive
+   $ArtifactId = (Get-AzImageBuilderRunOutput -ImageTemplateName $imageTemplateName -ResourceGroupName $imageResourceGroup).ArtifactId
 
-  New-AzVM -ResourceGroupName $imageResourceGroup -Image $ArtifactId -Name myWinVM01 -Credential $Cred
-  ```
+   New-AzVM -ResourceGroupName $imageResourceGroup -Image $ArtifactId -Name myWinVM01 -Credential $Cred
+   ```
 
 ## Verify the customizations
 
@@ -291,31 +291,31 @@ If you encounter errors, review [Troubleshoot Azure VM Image Builder failures](.
 
 1. Inside the VM, open PowerShell and run `Get-Content`, as shown in the following example:
 
-  ```azurepowershell-interactive
-  Get-Content -Path C:\buildActions\buildActionsOutput.txt
-  ```
+   ```azurepowershell-interactive
+   Get-Content -Path C:\buildActions\buildActionsOutput.txt
+   ```
 
   The output is based on the contents of the file that you created during the image customization process.
 
-  ```Output
-  Azure-Image-Builder-Was-Here
-  ```
+   ```Output
+   Azure-Image-Builder-Was-Here
+   ```
 
 1. From the same PowerShell session, verify that the second customization finished successfully by checking for the presence of `c:\buildArtifacts\index.html`, as shown in the following example:
 
-  ```azurepowershell-interactive
-  Get-ChildItem c:\buildArtifacts\
-  ```
+   ```azurepowershell-interactive
+   Get-ChildItem c:\buildArtifacts\
+   ```
 
-  The result should be a directory listing showing that the file was downloaded during the image customization process.
+   The result should be a directory listing showing that the file was downloaded during the image customization process.
 
-  ```Output
-      Directory: C:\buildArtifacts
+   ```Output
+       Directory: C:\buildArtifacts
 
-  Mode                 LastWriteTime         Length Name
-  ----                 -------------         ------ ----
-  -a---          29/01/2021    10:04            276 index.html
-  ```
+   Mode                 LastWriteTime         Length Name
+   ----                 -------------         ------ ----
+   -a---          29/01/2021    10:04            276 index.html
+   ```
 
 ## Clean up your resources
 
@@ -323,18 +323,18 @@ If you no longer need the resources that were created during this process, you c
 
 1. Delete the VM Image Builder template.
 
-  ```azurepowershell-interactive
-  Remove-AzImageBuilderTemplate -ResourceGroupName $imageResourceGroup -Name $imageTemplateName
-  ```
+   ```azurepowershell-interactive
+   Remove-AzImageBuilderTemplate -ResourceGroupName $imageResourceGroup -Name $imageTemplateName
+   ```
 
 1. Delete the image resource group.
 
-  > [!CAUTION]
-  > The following example deletes the specified resource group and all the resources that it contains. If any resources outside the scope of this article exist in the resource group, they'll also be deleted.
+   > [!CAUTION]
+   > The following example deletes the specified resource group and all the resources that it contains. If any resources outside the scope of this article exist in the resource group, they'll also be deleted.
 
-  ```azurepowershell-interactive
-  Remove-AzResourceGroup -Name $imageResourceGroup
-  ```
+   ```azurepowershell-interactive
+   Remove-AzResourceGroup -Name $imageResourceGroup
+   ```
 
 ## Next steps
 
