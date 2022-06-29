@@ -12,9 +12,6 @@ fluid.url: https://fluidframework.com/docs/build/overview/
 
 # Overview of Azure Fluid Relay architecture
 
-> [!NOTE]
-> This preview version is provided without a service-level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-
 There are three primary concepts to understand when building an application with Fluid.
 
 - Service

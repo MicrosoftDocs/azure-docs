@@ -10,9 +10,6 @@ ms.topic: reference
 
 # Data storage in Azure Fluid Relay
 
-> [!NOTE]
-> This preview version is provided without a service-level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-
 A Container is the atomic unit of storage in the Azure Fluid Relay service and represents the data stored from a Fluid session, including operations and snapshots. The Fluid runtime uses the container to rehydrate the state of a Fluid session when a user joins for the first time or rejoins after leaving.
 
 You have control of the Azure region where container data is stored. During the provisioning of the Azure Fluid Relay resource, you can select the region where you want that data to be stored at-rest. All containers created in that Azure Fluid Relay resource will be stored in that region. Once selected, the region cannot be changed. You will need to create a new Azure Fluid Relay resource in another region to store data in a different region.

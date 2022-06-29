@@ -12,9 +12,6 @@ fluid.url: https://fluidframework.com/docs/data-structures/overview/
 
 # Distributed data structures
 
-> [!NOTE]
-> This preview version is provided without a service-level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-
 The Fluid Framework provides developers with distributed data structures (DDSes) that automatically ensure that each connected client has access to the same state. The APIs provided by DDSes are designed to be familiar to programmers who've used common data structures before.
 
 > [!NOTE]

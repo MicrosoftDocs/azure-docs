@@ -11,9 +11,6 @@ ms.service: azure-fluid
 
 # How to: Provision an Azure Fluid Relay service
 
-> [!NOTE]
-> This preview version is provided without a service-level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-
 Before you can connect your app to an Azure Fluid Relay, you must provision an Azure Fluid Relay server resource in your Azure account. This article walks through the steps to get your Azure Fluid Relay service provisioned and ready to use. 
 
 ## Prerequisites
@@ -59,7 +56,7 @@ Each Azure Fluid Relay server resource provides a tenant for you to use in your 
     4. Select a location for the namespace.
     
     > [!NOTE]
-    > During the public preview, the only West US 2, West Europe, and SoutheastAsia regions are supported
+    > Currently, the only regions supported are: West US 2, West Europe, and SoutheastAsia.
 
 5. Click the **Review + Create** button at the bottom of the page.
 

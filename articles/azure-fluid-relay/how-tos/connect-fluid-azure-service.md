@@ -12,9 +12,6 @@ fluid.url: https://fluidframework.com/docs/deployment/azure-frs/
 
 # How to: Connect to an Azure Fluid Relay service
 
-> [!NOTE]
-> This preview version is provided without a service-level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-
 This article walks through the steps to get your Azure Fluid Relay service provisioned and ready to use. 
 
 > [!IMPORTANT]

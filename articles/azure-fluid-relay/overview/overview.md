@@ -11,9 +11,6 @@ ms.service: azure-fluid
 
 # Azure Fluid Relay overview
 
-> [!NOTE]
-> This preview version is provided without a service-level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-
 The [Fluid Framework](https://fluidframework.com/) is an open source, platform independent framework. [Azure Fluid Relay](../overview/overview.md) is a managed offering for the Fluid Framework that helps developers build real-time collaborative experiences and replicate state across connected JavaScript clients in real-time.
 
 ## What is the Fluid Framework?
