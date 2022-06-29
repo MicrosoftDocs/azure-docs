@@ -22,3 +22,6 @@ items:
     href: get-quality-insights-vis.md
   - name: Start and stop SAP systems
     href: start-stop-sap-systems.md
+
+- name: SAP workloads on Azure
+  href: ../virtual-machines/workloads/sap/get-started.md
