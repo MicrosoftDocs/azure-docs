@@ -259,7 +259,7 @@ You can use [Azure Machine Learning studio](https://ml.azure.com) to deploy mode
    
    You can register the model directly from the job's output using Azure Machine Learning studio. To do so, navigate to the **Outputs + logs** tab in the run where your model was trained and select the option **Create model**.
    
-   :::image type="content" source="media/how-to-deploy-mlflow-models-online-endpoints/mlflow-register-model-output.gif" lightbox="media/how-to-deploy-mlflow-models-online-endpoints/mlflow-register-model-output.gif" alt-text="Demostration about how to register a model directly from outputs":::
+   :::image type="content" source="media/how-to-deploy-mlflow-models-online-endpoints/mlflow-register-model-output.gif" lightbox="media/how-to-deploy-mlflow-models-online-endpoints/mlflow-register-model-output.gif" alt-text="Animated gif that demonstrates how to register a model directly from outputs.":::
    
    # [From a local model](#tab/fromlocal)
    
