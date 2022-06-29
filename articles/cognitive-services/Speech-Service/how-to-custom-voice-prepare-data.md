@@ -12,7 +12,7 @@ ms.date: 02/18/2022
 ms.author: eur
 ---
 
-# 
+# Prepare training data
 
 When you're ready to create a custom Text-to-Speech voice for your application, the first step is to gather audio recordings and associated scripts to start training the voice model. The Speech service uses this data to create a unique voice tuned to match the voice in the recordings. After you've trained the voice, you can start synthesizing speech in your applications.
 
@@ -21,7 +21,7 @@ When you're ready to create a custom Text-to-Speech voice for your application, 
 
 ## Voice talent verbal statement
 
-Before you can train your own Text-to-Speech voice model, you'll need [audio recordings](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/record-custom-voice-samples) and the [associated text transcriptions](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/how-to-custom-voice-prepare-data#types-of-training-data). On this page, we'll review data types, how they're used, and how to manage each.
+Before you can train your own Text-to-Speech voice model, you'll need [audio recordings](/record-custom-voice-samples.md) and the [associated text transcriptions](/how-to-custom-voice-prepare-data.md#types-of-training-data). On this page, we'll review data types, how they're used, and how to manage each.
 
 > [!IMPORTANT]
 > To train a neural voice, you must create a voice talent profile with an audio file recorded by the voice talent consenting to the usage of their speech data to train a custom voice model. When preparing your recording script, make sure you include the statement sentence. You can find the statement in multiple languages [here](https://github.com/Azure-Samples/Cognitive-Speech-TTS/blob/master/CustomVoice/script/verbal-statement-all-locales.txt). The language of the verbal statement must be the same as your recording. You need to upload this audio file to the Speech Studio as shown below to create a voice talent profile, which is used to verify against your training data when you create a voice model. Read more about the [voice talent verification](/legal/cognitive-services/speech-service/custom-neural-voice/data-privacy-security-custom-neural-voice?context=%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext) here. 
@@ -53,7 +53,7 @@ Files should be grouped by type into a dataset and uploaded as a zip file. Each 
 
 ## Individual utterances and matching transcript
 
-You can prepare recordings of individual utterances and the matching transcript in two ways. Either [write a script and have it read by a voice talent](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/record-custom-voice-samples) or use publicly available audio and transcribe it to text. If you do the latter, edit disfluencies from the audio files, such as "um" and other filler sounds, stutters, mumbled words, or mispronunciations.
+You can prepare recordings of individual utterances and the matching transcript in two ways. Either [write a script and have it read by a voice talent](/speech-service/record-custom-voice-samples.md) or use publicly available audio and transcribe it to text. If you do the latter, edit disfluencies from the audio files, such as "um" and other filler sounds, stutters, mumbled words, or mispronunciations.
 
 To produce a good voice model, create the recordings in a quiet room with a high-quality microphone. Consistent volume, speaking rate, speaking pitch, and expressive mannerisms of speech are essential.
 

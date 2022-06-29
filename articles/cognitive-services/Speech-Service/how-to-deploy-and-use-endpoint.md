@@ -13,7 +13,7 @@ ms.author: caoling
 ms.custom: references_regions
 ---
 
-# 
+# Deploy and use your voice model
 
 After you've successfully created and trained your voice model, you deploy it to a custom neural voice endpoint. Use the custom neural voice endpoint instead of the usual text-to-speech endpoint for requests with the REST API. Use the speech studio to create a custom neural voice endpoint. Use the REST API to suspend or resume a custom neural voice endpoint. 
 

@@ -12,7 +12,7 @@ ms.date: 02/18/2022
 ms.author: eur
 ---
 
-# professional custom neural voice
+# Record voice samples to create a professional custom neural voice
 
 This article provides you instructions on preparing high-quality voice samples for creating a professional voice model using the Custom Neural Voice Pro project.
 

@@ -54,11 +54,11 @@ Creating a great custom neural voice requires careful quality control in each st
 
 ### Persona design
 
-First, [design a persona](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/record-custom-voice-samples#choose-your-voice-talent) of the voice that represents your brand by using a persona brief document. This document defines elements such as the features of the voice, and the character behind the voice. This helps to guide the process of creating a custom neural voice model, including defining the scripts, selecting your voice talent, training, and voice tuning.
+First, [design a persona](/record-custom-voice-samples.md#choose-your-voice-talent) of the voice that represents your brand by using a persona brief document. This document defines elements such as the features of the voice, and the character behind the voice. This helps to guide the process of creating a custom neural voice model, including defining the scripts, selecting your voice talent, training, and voice tuning.
 
 ### Script selection
  
-Carefully [select the recording script](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/record-custom-voice-samples#script-selection-criteria) to represent the user scenarios for your voice. For example, you can use the phrases from bot conversations as your recording script if you're creating a customer service bot. Include different sentence types in your scripts, including statements, questions, and exclamations.
+Carefully [select the recording script](/record-custom-voice-samples.md#script-selection-criteria) to represent the user scenarios for your voice. For example, you can use the phrases from bot conversations as your recording script if you're creating a customer service bot. Include different sentence types in your scripts, including statements, questions, and exclamations.
 
 ### Preparing training data
 
