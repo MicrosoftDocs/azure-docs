@@ -55,7 +55,7 @@ If you're an owner of a workspace, you can add and remove roles for the workspac
 
 ## Use Azure AD security groups to manage workspace access
 
-You can use Azure AD security groups to manage their access to workspace. This approach has following benefits:
+You can use Azure AD security groups to manage access to workspaces. This approach has following benefits:
  * Team or project leaders can manage user access to workspace as security group owners, without needing Owner role on the workspace resource directly.
  * You can organize, manage and revoke users' permissions on workspace and other resources as a group, without having to manage permissions on user-by-user basis.
  * Using Azure AD groups helps you to avoid reaching the [subscription limit](https://docs.microsoft.com/azure/role-based-access-control/troubleshooting#azure-role-assignments-limit) on role assignments. 
