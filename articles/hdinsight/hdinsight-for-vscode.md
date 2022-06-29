@@ -164,9 +164,13 @@ With Spark & Hive Tools for Visual Studio Code, you can submit interactive Hive 
 
    - **MESSAGES** panel: When you select a **Line** number, it jumps to the first line of the running script.
 
-## Submit interactive PySpark queries
+## Submit interactive PySpark queries 
 
-Users can perform PySpark interactive in the following ways. Note here that Jupyter Extension version (ms-jupyter): v2022.1.1001614873 and Python Extension version (ms-python): v2021.12.1559732655, python 3.6.x and 3.7.x are only for HDInsight interactive PySpark queries.
+### Prerequisite for Pyspark interactive
+
+Note here that Jupyter Extension version (ms-jupyter): v2022.1.1001614873 and Python Extension version (ms-python): v2021.12.1559732655, python 3.6.x and 3.7.x are required for HDInsight interactive PySpark queries.
+
+Users can perform PySpark interactive in the following ways.
 
 ### Using the PySpark interactive command in PY file
 Using the PySpark interactive command to submit the queries, follow these steps:

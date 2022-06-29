@@ -6,7 +6,7 @@ author: mikaelweave
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: conceptual
-ms.date: 05/03/2022
+ms.date: 06/03/2022
 ms.author: mikaelw
 ---
 
@@ -36,3 +36,5 @@ In this article, you've learned how to obtain an access token for the Azure API 
 
 >[!div class="nextstepaction"]
 >[Access the FHIR service using Postman](./../fhir/use-postman.md)
+
+FHIR&#174; is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.

@@ -9,13 +9,13 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 08/17/2020
 ms.author: lajanuar
+ms.custom: applied-ai-non-critical-form
 #Customer intent: As a Custom Translator user, I want to understand how BLEU score works so that I understand system test outcome better.
 ---
 
 # What is a BLEU score?
 
-[BLEU (Bilingual Evaluation Understudy)](https://en.wikipedia.org/wiki/BLEU) is a measurement of the differences between an automatic translation and
-one or more human-created reference translations of the same source sentence.
+[BLEU (Bilingual Evaluation Understudy)](https://en.wikipedia.org/wiki/BLEU) is a measurement of the difference between an automatic translation and human-created reference translations of the same source sentence.
 
 ## Scoring process
 

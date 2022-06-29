@@ -6,6 +6,7 @@ ms.author: harelbr
 ms.topic: how-to
 ms.custom: subject-moving-resources
 ms.date: 2/23/2022
+ms.reviewer: ofmanor
 ---
 # How to update alert rules or alert processing rules when their target resource moves to a different Azure region
 
@@ -94,9 +95,9 @@ Navigate to Alerts > Alert processing rules (preview) > filter by the containing
 
 ### Change scope of a rule using PowerShell
 
-1. Get the existing rule ([metric alerts](/powershell/module/az.monitor/get-azmetricalertrulev2), [activity log alerts](/powershell/module/az.monitor/get-azactivitylogalert), [alert processing rules](/powershell/module/az.alertsmanagement/get-azactionrule)).
+1. Get the existing rule ([metric alerts](/powershell/module/az.monitor/get-azmetricalertrulev2), [activity log alerts](/powershell/module/az.monitor/get-azactivitylogalert), alert [processing rules](/powershell/module/az.alertsmanagement/get-azalertprocessingrule)).
 2. Modify the scope. If needed, split into two rules (relevant for some cases of metric alerts, as noted above).
-3. Redeploy the rule ([metric alerts](/powershell/module/az.monitor/add-azmetricalertrulev2), [activity log alerts](/powershell/module/az.monitor/enable-azactivitylogalert), [alert processing rules](/powershell/module/az.alertsmanagement/set-azactionrule)).
+3. Redeploy the rule ([metric alerts](/powershell/module/az.monitor/add-azmetricalertrulev2), [activity log alerts](/powershell/module/az.monitor/enable-azactivitylogalert), [alert processing rules](/powershell/module/az.alertsmanagement/set-azalertprocessingrule)).
 
 ### Change the scope of a rule using Azure CLI
 

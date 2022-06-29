@@ -10,7 +10,6 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 10/23/2021
 ms.author: ergreenl
-ms.reviewer: davidmu
 ms.custom: contperf-fy22q2, contperf-fy22q3
 
 #customer intent: As an admin, I want to manage user assignment for an app in Azure Active Directory using PowerShell

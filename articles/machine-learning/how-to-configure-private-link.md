@@ -10,7 +10,7 @@ ms.custom: devx-track-azurecli, sdkv1, event-tier1-build-2022
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
-ms.date: 01/12/2022
+ms.date: 06/28/2022
 ---
 
 # Configure a private endpoint for an Azure Machine Learning workspace
@@ -340,6 +340,14 @@ In some situations, you may want to allow someone to connect to your secured wor
 
 To enable public access, use the following steps:
 
+> [!TIP]
+> There are two possible properties that you can configure:
+> * `allow_public_access_when_behind_vnet` - used by the Python SDK v1
+> * `public_network_access` - used by the CLI and Python SDK v2 (preview)
+> Each property overrides the other. For example, setting `public_network_access` will override any previous setting to `allow_public_access_when_behind_vnet`.
+>
+> Microsoft recommends using `public_network_access` to enable or disable public access to a workspace.
+
 # [Python](#tab/python)
 
 To enable public access, use [Workspace.update](/python/api/azureml-core/azureml.core.workspace(class)#update-friendly-name-none--description-none--tags-none--image-build-compute-none--service-managed-resources-settings-none--primary-user-assigned-identity-none--allow-public-access-when-behind-vnet-none-) and set `allow_public_access_when_behind_vnet=True`.
@@ -355,26 +363,16 @@ ws.update(allow_public_access_when_behind_vnet=True)
 
 # [Azure CLI extension 2.0 preview](#tab/azurecliextensionv2)
 
-When using the Azure CLI [extension 2.0 CLI preview for machine learning](how-to-configure-cli.md), create a YAML document that sets the `public_network_access` property to `Enabled`. Then use the `az ml update` command to update the workspace:
-
-```yml
-$schema: https://azuremlschemas.azureedge.net/latest/workspace.schema.json
-name: mlw-privatelink-prod
-location: eastus
-display_name: Private Link endpoint workspace-example
-description: When using private link, you must set the image_build_compute property to a cluster name to use for Docker image environment building. You can also specify whether the workspace should be accessible over the internet.
-image_build_compute: cpu-compute
-public_network_access: Enabled
-tags:
-  purpose: demonstration
-```
+When using the Azure CLI [extension 2.0 CLI preview for machine learning](how-to-configure-cli.md), use the `az ml update` command to enable `public_network_access` for the workspace:
 
 ```azurecli
 az ml workspace update \
+    --set public_network_access=Enabled \
     -n <workspace-name> \
-    -f workspace.yml
     -g <resource-group-name>
 ```
+
+You can also enable public network access by using a YAML file. For more information, see the [workspace YAML reference](reference-yaml-workspace.md).
 
 # [Azure CLI extension 1.0](#tab/azurecliextensionv1)
 

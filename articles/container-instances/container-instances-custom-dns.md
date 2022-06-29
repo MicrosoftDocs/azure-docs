@@ -18,7 +18,7 @@ This article demonstrates how to deploy a container group with custom DNS settin
 For more information on deploying container groups to a virtual network, see the [Deploy in a virtual network article](container-instances-vnet.md).
 
 > [!IMPORTANT]
-> Previously, the process of deploying container groups on virtual networks used [network profiles](/azure/container-instances/container-instances-virtual-network-concepts#network-profile) for configuration. However, network profiles have been retired as of the `2021-07-01` API version. We recommend you use the latest API version, which relies on [subnet IDs](/azure/virtual-network/subnet-delegation-overview) instead.
+> Previously, the process of deploying container groups on virtual networks used [network profiles](./container-instances-virtual-network-concepts.md#network-profile) for configuration. However, network profiles have been retired as of the `2021-07-01` API version. We recommend you use the latest API version, which relies on [subnet IDs](../virtual-network/subnet-delegation-overview.md) instead.
 
 ## Prerequisites
 
@@ -226,4 +226,4 @@ See the Azure quickstart template [Create an Azure container group with VNet](ht
 [az-container-delete]: /cli/azure/container#az-container-delete
 [az-network-vnet-delete]: /cli/azure/network/vnet#az-network-vnet-delete
 [az-group-delete]: /cli/azure/group#az-group-create
-[cloud-shell-bash]: /cloud-shell/overview.md
+[cloud-shell-bash]: /azure/cloud-shell/overview

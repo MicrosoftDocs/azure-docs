@@ -4,7 +4,7 @@ description: Map is a feature of VM insights. It automatically discovers applica
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 03/20/2020
+ms.date: 06/08/2022
 
 ---
 

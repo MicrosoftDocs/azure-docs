@@ -12,9 +12,6 @@ ms.custom: mvc
 
 # AKS release tracker
 
-> [!NOTE]
-> The AKS release tracker is currently not accessible. When the feature is fully released, this article will be updated to include access instructions.
-
 AKS releases weekly rounds of fixes and feature and component updates that affect all clusters and customers. However, these releases can take up to two weeks to roll out to all regions from the initial time of shipping due to Azure Safe Deployment Practices (SDP). It is important for customers to know when a particular AKS release is hitting their region, and the AKS release tracker provides these details in real time by versions and regions.
 
 ## Why release tracker?
@@ -22,6 +19,8 @@ AKS releases weekly rounds of fixes and feature and component updates that affec
 With AKS release tracker, customers can follow specific component updates present in an AKS version release, such as fixes shipped to a core add-on. In addition to providing real-time updates of region release status, the tracker also links to the specific version of the AKS [release notes][aks-release] to help customers identify which instance of the release is relevant to them. As the data is updated in real time, customers can track the entire SDP process with a single tool.
 
 ## How to use the release tracker
+
+To view the release tracker, visit the [AKS release status webpage][release-tracker-webpage].
 
 The top half of the tracker shows the latest and 3 previously available release versions for each region, and links to the corresponding release notes entry. This view is helpful when you want to track the available versions by region.
 
@@ -33,3 +32,4 @@ The bottom half of the tracker shows the SDP process. The table has two views: o
 
 <!-- LINKS - external -->
 [aks-release]: https://github.com/Azure/AKS/releases
+[release-tracker-webpage]: https://releases.aks.azure.com/webpage/index.html

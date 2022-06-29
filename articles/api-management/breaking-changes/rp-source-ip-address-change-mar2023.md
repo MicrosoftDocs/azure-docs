@@ -48,7 +48,7 @@ API Management publishes a _service tag_ that you can use to configure the NSG f
 
 ## What do I need to do?
 
-Update the NSG security rules that allow the API Management resource provider to communicate with your API Management instance. For detailed instructions on how to manage a NSG, review [Create, change, or delete a network security group] in the Azure Virtual Network documentation.
+Update the NSG security rules that allow the API Management resource provider to communicate with your API Management instance. For detailed instructions on how to manage an NSG, review [Create, change, or delete a network security group] in the Azure Virtual Network documentation.
 
 1. Go to the [Azure portal](https://portal.azure.com) to view your NSGs.  Search for and select **Network security groups**.
 2. Select the name of the NSG associated with the virtual network hosting your API Management service.
@@ -85,5 +85,5 @@ Finally, check for any other systems that may impact the communication from the 
 <!-- Links -->
 [Configure NSG Rules]: ../api-management-using-with-internal-vnet.md#configure-nsg-rules
 [Virtual Network]: ../../virtual-network/index.yml
-[Force tunneling traffic]: ../virtual-network-reference.md#force-tunneling-traffic-to-on-premises-firewall-using-expressroute-or-network-virtual-appliance
-[Create, change, or delete a network security group]: /azure/virtual-network/manage-network-security-group
+[Force tunneling traffic]: ../api-management-using-with-internal-vnet.md#force-tunnel-traffic-to-on-premises-firewall-using-expressroute-or-network-virtual-appliance
+[Create, change, or delete a network security group]: ../../virtual-network/manage-network-security-group.md

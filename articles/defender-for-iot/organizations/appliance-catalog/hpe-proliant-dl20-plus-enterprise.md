@@ -40,7 +40,6 @@ The following image shows a sample of the HPE ProLiant DL20 back panel:
 | Quantity | PN| Description: high end |
 |--|--|--|
 |1| P06963-B21 | HPE DL20 Gen10 4SFF CTO Server |
-|1| P06963-B21 | HPE DL20 Gen10 4SFF CTO Server |
 |1| P17104-L21 | HPE DL20 Gen10 E-2234 FIO Kit |
 |2| 879507-B21 | HPE 16-GB 2Rx8 PC4-2666V-E STND Kit |
 |3| 655710-B21 | HPE 1-TB SATA 7.2 K SFF SC DS HDD |
@@ -144,6 +143,10 @@ This procedure describes how to update the HPE BIOS configuration for your OT de
 1. Select **Embedded RAID 1: HPE Smart Array P408i-a SR Gen 10** > **Array Configuration** > **Create Array**.
 
 1. In the **Create Array** form, select all the options. Three options are available for the **Enterprise** appliance.
+
+> [!NOTE]
+> For **Data-at-Rest** encryption, see the HPE guidance for activating RAID Secure Encryption or using Self-Encrypting-Drives (SED).
+>
 
 ### Install Defender for IoT software on the HPE ProLiant DL20 or HPE ProLiant DL20 Plus
 

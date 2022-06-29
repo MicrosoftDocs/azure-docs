@@ -95,5 +95,5 @@ Training could take sometime depending on the size of your training data and com
 ---
 
 ## Next steps
-* [Model evaluation metrics](../concepts/evaluation-metrics.md)
-* [Deploy and query the model](./deploy-model.md)
+* [Model evaluation metrics concepts](../concepts/evaluation-metrics.md)
+* How to [deploy a model](./deploy-model.md)
