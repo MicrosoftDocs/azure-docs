@@ -246,6 +246,67 @@ Sometimes you also need to provide immutable resource ID of your Communication S
 1. From **Resource JSON** page, copy the `immutableResourceId` value, and provide it to your support team.
     :::image type="content" source="./media/troubleshooting/communication-resource-id-json.png" alt-text="Screenshot of Resource JSON.":::
 
+## Verification of Teams license eligibility to use Azure Communication Services support for Teams users
+
+There are two ways to verify your Teams Licence eligibility to use Azure Communication Services support for Teams users:
+
+* **Verification via Teams web client**
+* **Checking your current Teams license via Microsoft Graph API**
+
+#### Verification via Teams web client 
+To verify your Teams Licence eligibility via Teams web client, follow the steps listed below:
+
+1. Open your browser and navigate to [Teams web client](https://teams.microsoft.com/).
+1. Sign in with credentials that have a valid Teams license. 
+1. If the authentication is successful and you remain in the https://teams.microsoft.com/ domain, then your Teams License is eligible. If authentication fails or you are redirected to the https://www.teams.live.com domain, then your Teams License is not eligible to use Azure Communication Services support for Teams users. 
+
+#### Checking your current Teams license via Microsoft Graph API
+You can find your current Teams license using [licenseDetails](https://docs.microsoft.com/graph/api/resources/licensedetails) Microsoft Graph API that returns licenses assigned to a user. Follow the steps below to use the Graph Explorer tool to view licenses assigned to a user:
+
+1. Open your browser and navigate to [Graph Explorer](https://developer.microsoft.com/graph/graph-explorer)
+1. Sign in to Graph Explorer using the credentials.
+    :::image type="content" source="./media/troubleshooting/graph-explorer-sign-in.png" alt-text="Screenshot of how to sign in to Graph Explorer.":::
+1. In the query box enter the following API and click **Run Query** :
+    <!-- { "blockType": "request" } -->
+    ```http
+    https://graph.microsoft.com/v1.0/me/licenseDetails
+    ```
+    :::image type="content" source="./media/troubleshooting/graph-explorer-query-box.png" alt-text="Screenshot of how to enter API.":::
+
+    Or you can query for a particular user by providing the user ID using the following API:
+    <!-- { "blockType": "request" } -->
+    ```http
+    https://graph.microsoft.com/v1.0/users/{id}/licenseDetails
+    ```
+1.  The **Response preview**  pane displays output as follows:
+
+    Note: The response object shown here might be shortened for readability.
+    <!-- {
+    "blockType": "response",
+    "truncated": true,
+    "isCollection": true
+    } -->
+    ```http
+    {
+        "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#users('071cc716-8147-4397-a5ba-b2105951cc0b')/assignedLicenses",
+        "value": [
+            {
+                "skuId": "b05e124f-c7cc-45a0-a6aa-8cf78c946968",
+                "servicePlans":[
+                    {
+                        "servicePlanId":"57ff2da0-773e-42df-b2af-ffb7a2317929",
+                        "servicePlanName":"TEAMS1",
+                        "provisioningStatus":"Success",
+                        "appliesTo":"User"
+                    }
+                ]
+            }
+        ]
+    }
+    ```
+1. Find license detail where property `servicePlanName` has one of the values in the [Eligible Teams Licenses table](../quickstarts/eligible-teams-licenses.md#eligible-teams-licenses)
+
+
 ## Calling SDK error codes
 
 The Azure Communication Services Calling SDK uses the following error codes to help you troubleshoot calling issues. These error codes are exposed through the `call.callEndReason` property after a call ends.

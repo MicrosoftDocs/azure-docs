@@ -36,6 +36,8 @@ For more information, see [Azure AD Product names and service plan identifiers](
 
 You can find your current Teams license using [licenseDetails](https://docs.microsoft.com/graph/api/resources/licensedetails) Microsoft Graph API that returns licenses assigned to a user.
 
+For more information on verification for eligibility, see [Verification of Teams license eligibility](../concepts/troubleshooting-info.md#verification-of-teams-license-eligibility-to-use-azure-communication-services-support-for-teams-users).
+
 ## Next steps
 
 The following articles might be of interest to you:
