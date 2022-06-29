@@ -1,5 +1,6 @@
 ---
 title: Monitoring Public IP addresses
+titleSuffix: Azure Virtual Network
 description: Start here to learn how to monitor Public IP addresses
 author: asudbring
 ms.author: allensu

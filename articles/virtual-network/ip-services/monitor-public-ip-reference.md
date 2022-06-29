@@ -1,10 +1,12 @@
 ---
 title: Monitoring Public IP addresses data reference
+titleSuffix: Azure Virtual Network
 description: Important reference material needed when you monitor Public IP addresses 
 author: asudbring
 ms.topic: reference
 ms.author: allensu
 ms.service: virtual-network
+ms.subservice: ip-services
 ms.custom: subject-monitoring
 ms.date: 06/29/2022
 ---
