@@ -25,6 +25,6 @@ To deploy your model from within the [Language Studio](https://aka.ms/LanguageSt
     
    :::image type="content" source="../../media/add-deployment.png" alt-text="A screenshot showing the deployment screen" lightbox="../../media/add-deployment.png":::
      
-4. click on **Submit** to start deployment job.
+4. Click on **Submit** to start deployment job.
 
 5. After deployment is successful, an expiration date will appear next to it. [Deployment expiration](../../../concepts/model-lifecycle.md#expiration-timeline) is when your deployed model will be unavailable to be used for prediction, which typically happens **twelve** months after a training configuration expires.

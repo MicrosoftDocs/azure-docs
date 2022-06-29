@@ -1,6 +1,6 @@
 ---
-title: Upgrade an indirectly connected Azure Arc-enabled Managed Instance using the CLI
-description: Article describes how to upgrade an indirectly connected Azure Arc-enabled Managed Instance using the CLI
+title: Upgrade Azure SQL Managed Instance indirectly connected to Azure Arc using the CLI
+description: Article describes how to upgrade an Azure SQL Managed Instance indirectly connected to Azure Arc-enabled using the CLI
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
@@ -12,7 +12,7 @@ ms.date: 11/03/2021
 ms.topic: how-to
 ---
 
-# Upgrade an indirectly connected Azure Arc-enabled Managed Instance using the CLI
+# Upgrade Azure SQL Managed Instance indirectly connected Azure Arc using the CLI
 
 This article describes how to upgrade a SQL Managed Instance deployed on an indirectly connected Azure Arc-enabled data controller using the Azure CLI (`az`).
 
@@ -20,24 +20,30 @@ This article describes how to upgrade a SQL Managed Instance deployed on an indi
 
 ### Install tools
 
-Before you can proceed with the tasks in this article you need to install:
+Before you can proceed with the tasks in this article, install:
 
-- The [Azure CLI (az)](/cli/azure/install-azure-cli)
+- The [Azure CLI (`az`)](/cli/azure/install-azure-cli)
 - The [`arcdata` extension for Azure CLI](install-arcdata-extension.md)
+
+The `arcdata` extension version and the image version are related. Check that you have the correct `arcdata` extension version that corresponds to the image version you want to upgrade to in the [Version log](version-log.md).
 
 ## Limitations
 
-The Azure Arc Data Controller must be upgraded to the new version before the Managed Instance can be upgraded.
+The Azure Arc Data Controller must be upgraded to the new version before the managed instance can be upgraded.
 
-Currently, only one Managed Instance can be upgraded at a time.
+The managed instance must be at the same version as the data controller before a data controller is upgraded.
 
-## Upgrade the Managed Instance
+There's no batch upgrade process available at this time.
 
-A dry run can be performed first. This will validate the version schema and list which instance(s) will be upgraded.
+## Upgrade the managed instance
 
-````cli
+A dry run can be performed first. The dry run validates the version schema and lists which instance(s) will be upgraded.
+
+For example:
+
+```azurecli
 az sql mi-arc upgrade --name <instance name> --k8s-namespace <namespace> --dry-run --use-k8s
-````
+```
 
 The output will be:
 
@@ -46,37 +52,28 @@ Preparing to upgrade sql sqlmi-1 in namespace arc to data controller version.
 ****Dry Run****1 instance(s) would be upgraded by this commandsqlmi-1 would be upgraded to <version-tag>.
 ```
 
-### General Purpose
+[!INCLUDE [upgrade-sql-managed-instance-service-tiers](includes/upgrade-sql-managed-instance-service-tiers.md)]
 
-During a SQL Managed Instance General Purpose upgrade, the containers in the pod will be upgraded and will be reprovisioned. This will cause a short amount of downtime as the new pod is created. You will need to build resiliency into your application, such as connection retry logic, to ensure minimal disruption. Read [Overview of the reliability pillar](/azure/architecture/framework/resiliency/overview) for more information on architecting resiliency and [Retry Guidance for Azure Services](/azure/architecture/best-practices/retry-service-specific#sql-database-using-adonet).
-
-### Business Critical 
 
 ### Upgrade
 
-To upgrade the Managed Instance, use the following command:
+To upgrade the managed instance, use the following command:
 
-````cli
+```azurecli
 az sql mi-arc upgrade --name <instance name> --desired-version <version> --k8s-namespace <namespace> --use-k8s
-````
+```
 
 Example:
 
-````cli
+```azurecli
 az sql mi-arc upgrade --name instance1 --desired-version v1.0.0.20211028 --k8s-namespace arc1 --use-k8s
-````
+```
 
 ## Monitor
 
-You can monitor the progress of the upgrade with kubectl or CLI.
-
-### kubectl
-
-```console
-kubectl describe sqlmi --namespace <namespace>
-```
-
 ### CLI
+
+You can monitor the progress of the upgrade with the `show` command.
 
 ```cli
 az sql mi-arc show --name <instance name> --k8s-namespace <namespace> --use-k8s

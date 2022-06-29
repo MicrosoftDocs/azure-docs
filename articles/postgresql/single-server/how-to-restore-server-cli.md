@@ -8,7 +8,7 @@ ms.author: srranga
 author: sr-msft
 ms.devlang: azurecli
 ms.custom: devx-track-azurecli
-ms.date: 10/25/2019 
+ms.date: 06/24/2022
 ---
 
 # How to back up and restore a server in Azure Database for PostgreSQL - Single Server using the Azure CLI
@@ -18,25 +18,26 @@ ms.date: 10/25/2019
 Azure Database for PostgreSQL servers are backed up periodically to enable Restore features. Using this feature you may restore the server and all its databases to an earlier point-in-time, on a new server.
 
 ## Prerequisites
+
 To complete this how-to guide:
 
 - You need an [Azure Database for PostgreSQL server and database](quickstart-create-server-database-azure-cli.md).
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
- - This article requires version 2.0 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
+- This article requires version 2.0 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
 ## Set backup configuration
 
-You make the choice between configuring your server for either locally redundant backups or geographically redundant backups at server creation. 
+You make the choice between configuring your server for either locally redundant backups or geographically redundant backups at server creation.
 
 > [!NOTE]
 > After a server is created, the kind of redundancy it has, geographically redundant vs locally redundant, can't be switched.
 >
 
-While creating a server via the `az postgres server create` command, the `--geo-redundant-backup` parameter decides your Backup Redundancy Option. If `Enabled`, geo redundant backups are taken. Or if `Disabled` locally redundant backups are taken. 
+While creating a server via the `az postgres server create` command, the `--geo-redundant-backup` parameter decides your Backup Redundancy Option. If `Enabled`, geo redundant backups are taken. Or if `Disabled` locally redundant backups are taken.
 
-The backup retention period is set by the parameter `--backup-retention-days`. 
+The backup retention period is set by the parameter `--backup-retention-days`.
 
 For more information about setting these values during create, see the [Azure Database for PostgreSQL server CLI Quickstart](quickstart-create-server-database-azure-cli.md).
 
@@ -51,7 +52,8 @@ The preceding example changes the backup retention period of mydemoserver to 10 
 The backup retention period governs how far back in time a point-in-time restore can be retrieved, since it's based on backups available. Point-in-time restore is described further in the next section.
 
 ## Server point-in-time restore
-You can restore the server to a previous point in time. The restored data is copied to a new server, and the existing server is left as is. For example, if a table is accidentally dropped at noon today, you can restore to the time just before noon. Then, you can retrieve the missing table and data from the restored copy of the server. 
+
+You can restore the server to a previous point in time. The restored data is copied to a new server, and the existing server is left as is. For example, if a table is accidentally dropped at noon today, you can restore to the time just before noon. Then, you can retrieve the missing table and data from the restored copy of the server.
 
 To restore the server, use the Azure CLI [az postgres server restore](/cli/azure/postgres/server) command.
 
@@ -74,14 +76,15 @@ The `az postgres server restore` command requires the following parameters:
 
 When you restore a server to an earlier point in time, a new server is created. The original server and its databases from the specified point in time are copied to the new server.
 
-The location and pricing tier values for the restored server remain the same as the original server. 
+The location and pricing tier values for the restored server remain the same as the original server.
 
 After the restore process finishes, locate the new server and verify that the data is restored as expected. The new server has the same server admin login name and password that was valid for the existing server at the time the restore was initiated. The password can be changed from the new server's **Overview** page.
 
 The new server created during a restore does not have the firewall rules or VNet service endpoints that existed on the original server. These rules need to be set up separately for this new server.
 
 ## Geo restore
-If you configured your server for geographically redundant backups, a new server can be created from the backup of that existing server. This new server can be created in any region that Azure Database for PostgreSQL is available.  
+
+If you configured your server for geographically redundant backups, a new server can be created from the backup of that existing server. This new server can be created in any region that Azure Database for PostgreSQL is available.
 
 To create a server using a geo redundant backup, use the Azure CLI `az postgres server georestore` command.
 
@@ -92,14 +95,14 @@ To create a server using a geo redundant backup, use the Azure CLI `az postgres 
 To geo restore the server, at the Azure CLI command prompt, enter the following command:
 
 ```azurecli-interactive
-az postgres server georestore --resource-group myresourcegroup --name mydemoserver-georestored --source-server mydemoserver --location eastus --sku-name GP_Gen4_8 
+az postgres server georestore --resource-group myresourcegroup --name mydemoserver-georestored --source-server mydemoserver --location eastus --sku-name GP_Gen5_8 
 ```
-This command creates a new server called *mydemoserver-georestored* in East US that will belong to *myresourcegroup*. It is a General Purpose, Gen 4 server with 8 vCores. The server is created from the geo-redundant backup of *mydemoserver*, which is also in the resource group *myresourcegroup*
+This command creates a new server called *mydemoserver-georestored* in East US that will belong to *myresourcegroup*. It is a General Purpose, Gen 5 server with 8 vCores. The server is created from the geo-redundant backup of *mydemoserver*, which is also in the resource group *myresourcegroup*
 
 If you want to create the new server in a different resource group from the existing server, then in the `--source-server` parameter you would qualify the server name as in the following example:
 
 ```azurecli-interactive
-az postgres server georestore --resource-group newresourcegroup --name mydemoserver-georestored --source-server "/subscriptions/$<subscription ID>/resourceGroups/$<resource group ID>/providers/Microsoft.DBforPostgreSQL/servers/mydemoserver" --location eastus --sku-name GP_Gen4_8
+az postgres server georestore --resource-group newresourcegroup --name mydemoserver-georestored --source-server "/subscriptions/$<subscription ID>/resourceGroups/$<resource group ID>/providers/Microsoft.DBforPostgreSQL/servers/mydemoserver" --location eastus --sku-name GP_Gen5_8
 
 ```
 
@@ -111,7 +114,7 @@ The `az postgres server georestore` command requires the following parameters:
 |name | mydemoserver-georestored | The name of the new server. |
 |source-server | mydemoserver | The name of the existing server whose geo redundant backups are used. |
 |location | eastus | The location of the new server. |
-|sku-name| GP_Gen4_8 | This parameter sets the pricing tier, compute generation, and number of vCores of the new server. GP_Gen4_8 maps to a General Purpose, Gen 4 server with 8 vCores.|
+|sku-name| GP_Gen5_8 | This parameter sets the pricing tier, compute generation, and number of vCores of the new server. GP_Gen5_8 maps to a General Purpose, Gen 5 server with 8 vCores.|
 
 When creating a new server by a geo restore, it inherits the same storage size and pricing tier as the source server. These values cannot be changed during creation. After the new server is created, its storage size can be scaled up.
 
@@ -120,6 +123,7 @@ After the restore process finishes, locate the new server and verify that the da
 The new server created during a restore does not have the firewall rules or VNet service endpoints that existed on the original server. These rules need to be set up separately for this new server.
 
 ## Next steps
+
 - Learn more about the service's [backups](concepts-backup.md)
 - Learn about [replicas](concepts-read-replicas.md)
 - Learn more about [business continuity](concepts-business-continuity.md) options

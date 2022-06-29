@@ -40,7 +40,7 @@ You need the following prerequisites to complete the steps in this guide:
 - Two IoT Central applications - one for your development environment and one for your production environment. To learn more, see [Create an IoT Central application](howto-create-iot-central-application.md).
 - Two Azure Key Vaults - one for your development environment and one for your production environment. It's best practice to have a dedicated Key Vault for each environment. To learn more, see [Create an Azure Key Vault with the Azure portal](../../key-vault/general/quick-create-portal.md).
 - A GitHub account [GitHub](https://github.com/).
-- An Azure DevOps organization. To learn more, see [Create an Azure DevOps organization](/devops/organizations/accounts/create-organization?view=azure-devops&preserve-view=true).
+- An Azure DevOps organization. To learn more, see [Create an Azure DevOps organization](/azure/devops/organizations/accounts/create-organization).
 - PowerShell 7 for Windows, Mac or Linux. [Get PowerShell](/powershell/scripting/install/installing-powershell).
 - Azure Az PowerShell module installed in your PowerShell 7 environment. To learn more, see [Install the Azure Az PowerShell module](/powershell/azure/install-az-ps).
 - Visual Studio Code or other tool to edit PowerShell and JSON files.[Get Visual Studio Code](https://code.visualstudio.com/Download).

@@ -122,7 +122,7 @@ For full details, refer to the article: [Disaster Recovery with Azure NetApp Fil
 - (Optional) Azure NetApp Files volume(s) are created and attached to the Azure VMware Solution private cloud for recovery or failover of protected VMs to Azure NetApp Files backed datastores.  
 
   - [Attach Azure NetApp Files datastores to Azure VMware Solution hosts (Preview)](attach-azure-netapp-files-to-azure-vmware-solution-hosts.md)
-  - [Disaster Recovery with Azure NetApp Files, JetStream DR and AVS (Azure VMware Solution)](https://www.jetstreamsoft.com/portal/jetstream-knowledge-base/disaster-recovery-with-azure-netapp-files-jetstream-dr-and-avs-azure-vmware-solution/)  
+  - [Disaster Recovery with Azure NetApp Files, JetStream DR and AVS (Azure VMware Solution)](https://www.jetstreamsoft.com/portal/jetstream-knowledge-base/disaster-recovery-with-azure-netapp-files-jetstream-dr-and-avs-azure-vmware-solution/)   
 
 ### Scenario 2: Azure VMware Solution to Azure VMware Solution DR
 
@@ -345,4 +345,3 @@ Azure VMware Solution uses the Run command (Preview) to automate both the instal
    - [Failover to Azure VMware Solution](https://vimeo.com/491883564/ca9fc57092)
 
    - [Failback to on-premises](https://vimeo.com/491884402/65ee817b60)
-

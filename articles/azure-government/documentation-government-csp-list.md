@@ -231,7 +231,6 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |[Jacobs Technolgy Inc.](https://www.jacobs.com/)|
 |[Jadex Strategic Group](https://jadexstrategic.com)|
 |[Jasper Solutions Inc.](https://jaspersolutions.com/)|
-|[JHC Technology, Inc.](https://www.effectual.com/jhc-technology/)|
 |[Quiet Professionals](https://quietprofessionalsllc.com)|
 |[Quzara LLC](https://www.quzara.com)|
 |[Karpel Solutions](https://www.karpel.com/)|
