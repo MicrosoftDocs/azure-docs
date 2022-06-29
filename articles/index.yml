@@ -88,7 +88,7 @@ productDirectory:
     # Card
     - title: Azure OpenAI Service (Preview)
       summary: Apply advanced coding and language models to a variety of use cases
-      imageSrc: cognitive-services/openai/media/icon/azure-openai-border.svg
+      imageSrc: cognitive-services/openai/media/icon/azure-openai-dark.svg
       azureCategories:
         - ai-machine-learning
       url: cognitive-services/openai/index.yml
