@@ -86,7 +86,7 @@ productDirectory:
         - mobile
       url: cognitive-services/index.yml
     # Card
-    - title: Azure OpenAI
+    - title: Azure OpenAI (Preview)
       summary: Access OpenAI's powerful language models including the GPT-3, Codex and Embeddings model series
       imageSrc: cognitive-services/openai/media/icon/openai.svg
       azureCategories:
