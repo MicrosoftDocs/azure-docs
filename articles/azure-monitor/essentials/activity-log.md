@@ -6,6 +6,7 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 09/09/2021
 ms.author: bwren
+ms.reviewer: lualderm
 ---
 
 # Azure Monitor activity log
