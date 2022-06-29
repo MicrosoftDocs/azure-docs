@@ -7,11 +7,14 @@ manager: karenhoran
 ms.service: active-directory
 ms.workload: identity
 ms.topic: overview
-ms.date: 09/04/2019
+ms.date: 06/29/2022
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ---
+
+>[!NOTE]
+>The Azure AD Connect Admin Agent is no longer part of the Azure AD Connect installation and cannot be used with Azure AD Connect versions 2.1.12.0 and newer.
 
 # What is the Azure AD Connect Admin Agent? 
 The Azure AD Connect Administration Agent is a new component of Azure Active Directory Connect that can be installed on an Azure Active Directory Connect server. It is used to collect specific data from your Active Directory environment that helps a Microsoft support engineer to troubleshoot issues when you open a support case. 
