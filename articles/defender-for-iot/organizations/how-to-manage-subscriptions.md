@@ -44,7 +44,7 @@ To get started with Microsoft Defender for IoT, you must have a Microsoft Azure 
 
 If you don't have a subscription, you can sign up for a free account. For more information, see https://azure.microsoft.com/free/.
 
-If you already have access to an Azure subscription, but it isn't listed when subscribing to Defender for IoT, check your account details and confirm your permissions with the subscription owner. For more information, see https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade.
+If you already have access to an Azure subscription, but it isn't listed when adding a Defender for IoT plan, check your account details and confirm your permissions with the subscription owner. For more information, see https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade.
 
 ### User permission requirements
 
@@ -157,7 +157,7 @@ Remove all sensors that are associated with the subscription prior to removing t
 
 ## Move existing sensors to a different subscription
 
-Business considerations may require that you apply your existing IoT sensors to a different subscription than the one you’re currently using. To do this, you'll need to onboard a new plan and register the sensors under the new subscription, and then remove them from the old subscription. This process may include some downtime, and historic data is not migrated.
+Business considerations may require that you apply your existing IoT sensors to a different subscription than the one you’re currently using. To do this, you'll need to onboard a new plan and register the sensors under the new subscription, and then remove them from the old subscription. This process may include some downtime, and historic data isn't migrated.
 
 **To switch to a new subscription**: 
 

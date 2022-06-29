@@ -32,7 +32,7 @@ In this tutorial, you learn how to:
 
 Before you start, make sure that you have:
 
-- A Defender for IoT plan added to your Azure subscription. You can do this from Defender for IoT in the Azure portal, or from Defender for Endpoint. If you already have a subscription that has Defender for IoT onboarded for OT environments, you’ll need to edit the plan to add Enterprise IoT. 
+- A Defender for IoT plan added to your Azure subscription. You can add a plan from Defender for IoT in the Azure portal, or from Defender for Endpoint. If you already have a subscription that has Defender for IoT onboarded for OT environments, you’ll need to edit the plan to add Enterprise IoT. 
 For more information, see  [Quickstart: Get started with Defender for IoT](getting-started.md), [Edit a plan](how-to-manage-subscriptions.md#edit-a-plan), or the [Defender for Endpoint documentation](/microsoft-365/security/defender-endpoint/enable-microsoft-defender-for-iot-integration).
 
 - The Azure permissions, as listed in [Quickstart: Getting Started with Defender for IoT](getting-started.md#permissions). 
@@ -223,9 +223,9 @@ For more information, see:
 
 ## Microsoft Defender for Endpoint integration
 
-Once you’ve onboarded a plan and set up your sensor to extend analytics capabilities for your enterprise devices, Defender for IoT integrates seamlessly with Defender for Endpoint. Devices discovered by both agents and your sensor appear in both portals, providing complete coverage and ease of use. You can turn off the integration at any time. For more information, see [Turn off subscription integration](/microsoft-365/security/defender-endpoint/enable-microsoft-defender-for-iot-integration).
+Once you’ve onboarded a plan and set up your sensor, your device data integrates automatically with Microsoft Defender for Endpoint. Discovered devices appear in both the Defender for IoT and Defender for Endpoint portals, extending security analytics capabilities for your Enterprise IoT devices and providing complete coverage.
 
-View detected devices and related alerts, vulnerabilities, and recommendations in Defender for Endpoint. For more information, see:
+In Defender for Endpoint, you can view discovered IoT devices and related alerts, vulnerabilities, and recommendations. For more information, see:
 
 - [Microsoft Defender for IoT integration](/microsoft-365/security/defender-endpoint/enable-microsoft-defender-for-iot-integration)
 - [Defender for Endpoint device inventory](/microsoft-365/security/defender-endpoint/machines-view-overview)
