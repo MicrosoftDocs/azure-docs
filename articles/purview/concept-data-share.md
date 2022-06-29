@@ -4,8 +4,9 @@ description: This article describes Microsoft Purview Data Sharing and its featu
 author: jifems
 ms.author: jife
 ms.service: purview
+ms.subservice: purview-data-share
 ms.topic: conceptual
-ms.date: 06/17/2022
+ms.date: 06/28/2022
 ---
 
 # Azure Storage in-place data sharing with Microsoft Purview (preview)
