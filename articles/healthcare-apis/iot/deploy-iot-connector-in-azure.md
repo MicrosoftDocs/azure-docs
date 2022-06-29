@@ -1,11 +1,11 @@
 ---
-title: MedTech service in the Azure portal - Azure Health Data Services
-description: In this article, you'll learn how to deploy MedTech service in the Azure portal.
+title: Deploy the MedTech service in the Azure portal - Azure Health Data Services
+description: In this article, you'll learn how to deploy the MedTech service in the Azure portal.
 author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
-ms.date: 06/28/2022
+ms.date: 06/29/2022
 ms.author: jasteppe
 ms.custom: mode-api
 ---
@@ -33,7 +33,8 @@ It's important that you have the following prerequisites completed before you be
 >* Two MedTech services accessing the same device message event hub.
 >* A MedTech service and a storage writer application accessing the same device message event hub.
 
-If you already have an active Azure account, you can use the ![Deploy to Azure](https://aka.ms/deploytoazurebutton) button below to deploy a MedTech service that will include the following resources and permissions:
+If you already have an active Azure account, you can use this [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.healthcareapis%2Fworkspaces%2Fiotconnectors%2Fazuredeploy.json) button to deploy a MedTech service that will include the following resources and permissions:
+
  * An Azure Event Hubs Namespace and device message event hub (the event hub is named: **devicedata**).
  * An Azure event hub sender role (the sender role is named: **devicedatasender**).
  * An Azure Health Data Services workspace.
@@ -41,8 +42,8 @@ If you already have an active Azure account, you can use the ![Deploy to Azure](
  * An Azure Health Data Services MedTech service including the necessary system managed identity permissions to the device message event hub and FHIR service.
 
 When the Azure portal launches, the following fields must be filled out:
- * **Subscription** - Chose the Azure subscription you would like to use for the deployment.
- * **Resource Group** - Chose an existing Resource Group or create a new Resource Group.
+ * **Subscription** - Choose the Azure subscription you would like to use for the deployment.
+ * **Resource Group** - Choose an existing Resource Group or create a new Resource Group.
  * **Region** - The Azure region of the Resource Group used for the deployment. This field will auto-fill based on the Resource Group region.
  * **Basename** - Will be used to append the name the Azure services to be deployed.
  * **Location** - Use the drop-down list to select a supported Azure region for the Azure Health Data Services (could be the same or different region than your Resource Group). 
@@ -61,8 +62,6 @@ After a successful deployment, there will be remaining configurations that will 
  * Provide a working device mapping file. For more information, see [How to use device mappings](how-to-use-device-mappings.md).
  * Provide a working destination mapping file. For more information, see [How to use FHIR destination mappings](how-to-use-fhir-mappings.md).
  * Use the Shared access policies (SAS) key (**devicedatasender**) for connecting your device or application to the MedTech service device message event hub (**devicedata**). For more information, see [Connection string for a specific event hub in a namespace](../../event-hubs/event-hubs-get-connection-string.md#connection-string-for-a-specific-event-hub-in-a-namespace).
-
-[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.healthcareapis%2Fworkspaces%2Fiotconnectors%2Fazuredeploy.json) 
 
 ## Deploy the MedTech service 
 
