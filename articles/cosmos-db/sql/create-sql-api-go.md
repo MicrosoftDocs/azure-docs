@@ -245,6 +245,7 @@ func createItem(client *azcosmos.Client, databaseName, containerName, partitionK
 import (
 	"context"
 	"log"
+	"fmt"
 	"github.com/Azure/azure-sdk-for-go/sdk/data/azcosmos"
 )
 
@@ -302,6 +303,12 @@ func readItem(client *azcosmos.Client, databaseName, containerName, partitionKey
 **Delete an item**
 
 ```go
+import (
+	"context"
+	"log"
+	"github.com/Azure/azure-sdk-for-go/sdk/data/azcosmos"
+)
+
 func deleteItem(client *azcosmos.Client, databaseName, containerName, partitionKey, itemId string) error {
 //	databaseName = "adventureworks"
 //	containerName = "customer"
