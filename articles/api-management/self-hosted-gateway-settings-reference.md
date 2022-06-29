@@ -10,7 +10,7 @@ ms.date: 06/28/2022
 ms.author: danlep
 ---
 
-# Self-hosted gateway configuration settings
+# Reference: Self-hosted gateway configuration settings
 
 This article provides a reference for required and optional settings that are used to configure the API Management [self-hosted gateway](self-hosted-gateway-overview.md). 
 
@@ -49,7 +49,7 @@ This article provides a reference for required and optional settings that are us
 | telemetry.logs.local.rfc5424.endpoint  |  rfc5424 endpoint.  | Yes if `telemetry.logs.local` is set to `rfc5424`; otherwise no. | N/A |
 | telemetry.logs.local.rfc5424.facility  | Facility code per [rfc5424](https://tools.ietf.org/html/rfc5424), for example, `7`  | No | N/A |
 | telemetry.logs.local.journal.endpoint  | Journal endpoint.   |Yes if `telemetry.logs.local` is set to `journal`; otherwise no. | N/A |
-| telemetry.logs.local.json.endpoint | 127.0.0.1:8888 | UDP endpoint that accepts JSON data, specified as file path, IP:port, or hostname:port. | Yes if `telemetry.logs.local` is set to `json`; otherwise no. | N/A |
+| telemetry.logs.local.json.endpoint | UDP endpoint that accepts JSON data, specified as file path, IP:port, or hostname:port. | Yes if `telemetry.logs.local` is set to `json`; otherwise no. | 127.0.0.1:8888  |
 
 ## Ciphers
 
