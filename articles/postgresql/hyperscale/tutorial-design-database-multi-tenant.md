@@ -8,7 +8,7 @@ ms.subservice: hyperscale-citus
 ms.custom: mvc, kr2b-contr-experiment
 ms.devlang: azurecli
 ms.topic: tutorial
-ms.date: 05/23/2022
+ms.date: 06/29/2022
 #Customer intent: As an developer, I want to design a hyperscale database so that my multi-tenant application runs efficiently for all tenants.
 ---
 
