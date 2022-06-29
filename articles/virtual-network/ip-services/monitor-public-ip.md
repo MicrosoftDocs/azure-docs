@@ -7,7 +7,7 @@ ms.topic: how-to
 ms.service: virtual-network
 ms.subservice: ip-services
 ms.custom: subject-monitoring
-ms.date: 06/22/2022
+ms.date: 06/29/2022
 ---
 
 # Monitoring Public IP addresses
@@ -96,7 +96,7 @@ Connect-AzAccount
 
 #### Log analytics workspace
 
-To enable Diagnostic Logs for a Log Analytics workspace, enter these commands. In this example, **myResourceGroup**, **myLogAnalyticsWorkspace** and **myPublicIP** are used for the resource values. Replace these values with yours.
+To send resource logs to a Log Analytics workspace, enter these commands. In this example, **myResourceGroup**, **myLogAnalyticsWorkspace** and **myPublicIP** are used for the resource values. Replace these values with yours.
 
 ```azurepowershell
 ## Place the public IP in a variable. ##
@@ -125,7 +125,7 @@ Set-AzDiagnosticSetting @diag
 
 #### Storage account
 
-To enable Diagnostic Logs in a storage account, enter these commands. In this example, **myResourceGroup**, **mystorageaccount8675** and **myPublicIP** are used for the resource values. Replace these values with yours.
+To send resource logs to a storage account, enter these commands. In this example, **myResourceGroup**, **mystorageaccount8675** and **myPublicIP** are used for the resource values. Replace these values with yours.
 
 ```azurepowershell
 ## Place the public IP in a variable. ##
@@ -154,7 +154,7 @@ Set-AzDiagnosticSetting @diag
 
 #### Event hub
 
-To enable Diagnostic Logs for an event hub namespace, enter these commands. In this example, **myResourceGroup**, **myeventhub8675** and **myPublicIP** are used for the resource values. Replace these values with yours.
+To send resource logs to an event hub namespace, enter these commands. In this example, **myResourceGroup**, **myeventhub8675** and **myPublicIP** are used for the resource values. Replace these values with yours.
 
 ```azurepowershell
 ## Place the public IP in a variable. ##
@@ -199,7 +199,7 @@ az login
 
 #### Log analytics workspace
 
-To enable Diagnostic Logs for a Log Analytics workspace, enter these commands. In this example, **myResourceGroup**, **myLogAnalyticsWorkspace** and **myPublicIP** are used for the resource values. Replace these values with yours.
+To send resource logs to a Log Analytics workspace, enter these commands. In this example, **myResourceGroup**, **myLogAnalyticsWorkspace** and **myPublicIP** are used for the resource values. Replace these values with yours.
 
 ```azurecli
 ipid=$(az network public-ip show \
@@ -224,7 +224,7 @@ az monitor diagnostic-settings create \
 
 #### Storage account
 
-To enable Diagnostic Logs in a storage account, enter these commands. In this example, **myResourceGroup**, **mystorageaccount8675** and **myPublicIP** are used for the resource values. Replace these values with yours.
+To send resource logs to a storage account, enter these commands. In this example, **myResourceGroup**, **mystorageaccount8675** and **myPublicIP** are used for the resource values. Replace these values with yours.
 
 ```azurecli
 ipid=$(az network public-ip show \
@@ -249,7 +249,7 @@ az monitor diagnostic-settings create \
 
 #### Event hub
 
-To enable Diagnostic Logs for an event hub namespace, enter these commands. In this example, **myResourceGroup**, **myeventhub8675** and **myPublicIP** are used for the resource values. Replace these values with yours.
+To send resource logs to an event hub namespace, enter these commands. In this example, **myResourceGroup**, **myeventhub8675** and **myPublicIP** are used for the resource values. Replace these values with yours.
 
 ```azurecli
 ipid=$(az network public-ip show \

@@ -6,7 +6,7 @@ ms.topic: reference
 ms.author: allensu
 ms.service: virtual-network
 ms.custom: subject-monitoring
-ms.date: 06/20/2022
+ms.date: 06/29/2022
 ---
 
 # Monitoring Public IP addresses data reference
@@ -51,17 +51,6 @@ This section lists all the resource log category types collected for Public IP a
 This section refers to all of the Azure Monitor Logs Kusto tables relevant to Public IP addresses and available for query by Log Analytics. 
 
 For more information, see [Azure Monitor Logs table reference organized by resource type](/azure/azure-monitor/reference/tables/tables-resourcetype#public-ip-addresses)
-
-### Diagnostics tables
-
-Public IP addresses use the [Azure Diagnostics](/azure/azure-monitor/reference/tables/azurediagnostics) table to store resource log information. The following columns are relevant.
-
-**Azure Diagnostics**
-
-| Property | Description |
-|:--- |:---|
-|  |  |
-|  |  |
 
 ## Activity log
 
