@@ -19,21 +19,22 @@ A *contact* is time reserved at an orbital ground station to communicate with a 
 
 Processing the Aqua data stream involves the following steps in order:
 
-1. [Prerequisites]().
-
-1. [Process RAW data using RT-STPS]().
-
-1. [Prepare a virtual machine (processor-vm) to process higher level products]().
-
-1. [Create higher level products using IPOPP]().
+1. [Prerequisites](#step-1-prerequisites).
+2. [Process RAW data using RT-STPS](#step-2-process-raw-data-using-rt-stps).
+3. [Prepare a virtual machine (processor-vm) to process higher level products](#step-3-prepare-a-virtual-machine-processor-vm-to-create-higher-level-products).
+4. [Create higher level products using IPOPP](#step-4-create-higher-level-products-using-ipopp).
 
 ## Step 1: Prerequisites
-First, follow the steps listed in the document [Tutorial: Downlink data from NASA's AQUA public satellite](https://docs.microsoft.com/en-us/azure/orbital/howto-downlink-aqua). This includes all the steps in each subsection of that document, in order. **Note:** In the section [Prepare a virtual machine (VM) to receive the downlinked AQUA data](https://docs.microsoft.com/en-us/azure/orbital/howto-downlink-aqua#prepare-a-virtual-machine-vm-to-receive-the-downlinked-aqua-data), use the following values:
 
-   - **Name:** receiver-vm
-   - **Operating System:** Linux (CentOS Linux 7 or higher)
-   - **Size:** Standard_D8_v5 or higher
-   - **IP Address:** Ensure that the VM has at least one standard public IP address
+First, follow the steps listed in [Tutorial: Downlink data from NASA's AQUA public satellite](howto-downlink-aqua.md). This includes all the steps in each subsection of that document, in order. 
+
+> [!NOTE]
+> In the section [Prepare a virtual machine (VM) to receive the downlinked AQUA data](https://docs.microsoft.com/en-us/azure/orbital/howto-downlink-aqua#prepare-a-virtual-machine-vm-to-receive-the-downlinked-aqua-data), use the following values:
+>
+>   - **Name:** receiver-vm
+>   - **Operating System:** Linux (CentOS Linux 7 or higher)
+>   - **Size:** Standard_D8_v5 or higher
+>   - **IP Address:** Ensure that the VM has at least one standard public IP address
 
 ## Step 2: Process RAW data using RT-STPS
 The [Real-time Software Telemetry Processing System (RT-STPS)](https://directreadout.sci.gsfc.nasa.gov/?id=dspContent&cid=69) is NASA-provided software for processing the raw Aqua payload. The steps below cover installation of RT-STPS on the receiver-vm, and production of level-0 PDS files for the Aqua payload captured in the previous step. 
