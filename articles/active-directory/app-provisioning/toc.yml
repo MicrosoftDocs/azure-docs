@@ -47,7 +47,7 @@ items:
      - name: Understand Workday integration 
        href: workday-integration-reference.md
      - name: Partner driven integrations
-       href: partner-driven-integrations
+       href: partner-driven-integrations.md
   - name: How-to guides
     expanded: true
     items:
