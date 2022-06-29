@@ -38,7 +38,7 @@ The following resources are defined in the Bicep file:
 
 ### Define a scale set
 
-To create a scale with a Bicep file, you define the appropriate resources. The core parts of the virtual machine scale set resource type are:
+To create a scale set with a Bicep file, you define the appropriate resources. The core parts of the virtual machine scale set resource type are:
 
 | Property                     | Description of property                                  | Example template value                    |
 |------------------------------|----------------------------------------------------------|-------------------------------------------|
