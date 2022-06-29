@@ -92,7 +92,7 @@ To use automated ML, skip to [Add the Azure ML SDK with AutoML](#add-the-azure-m
   ![Azure Machine Learning SDK for Databricks](./media/how-to-configure-environment/amlsdk-withoutautoml.jpg) 
 
 ## Add the Azure ML SDK with AutoML to Databricks
-If the cluster was created with Databricks Runtime 7.3 LTS (*not* ML), run the following command in the first cell of your notebook to install the AML SDK.
+If the cluster was created with Databricks Runtime 7.3 LTS (*not* ML), run the following command in the first cell of your notebook to install the AzureML SDK.
 
 ```
 %pip install --upgrade --force-reinstall -r https://aka.ms/automl_linux_requirements.txt
