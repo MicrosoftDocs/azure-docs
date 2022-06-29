@@ -468,6 +468,9 @@ Starting from version 3.0.3, specific auto-collected telemetry can be suppressed
     "mongo": {
       "enabled": false
     },
+    "quartz": {
+      "enabled": false
+    },
     "rabbitmq": {
       "enabled": false
     },
@@ -512,9 +515,6 @@ Starting from version 3.2.0, the following preview instrumentations can be enabl
         "enabled": true
       },
       "grizzly": {
-        "enabled": true
-      },
-      "quartz": {
         "enabled": true
       },
       "springIntegration": {
