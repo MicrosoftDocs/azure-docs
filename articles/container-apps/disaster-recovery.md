@@ -21,7 +21,7 @@ In the unlikely event of a full region outage, you have the option of using one 
 
 - **Manual recovery**: Manually deploy to a new region, or wait for the region to recover, and then manually redeploy all environments and apps.
 
-- **Resilient recovery**: First, deploy your container apps in advance to multiple regions. Next, use Azure Front Door or Azure Traffic Manager to handle incoming requests, pointing traffic to your primary region. Then, should an outage occur, you can redirect traffic away from the affected region. See [Cross-region replication in Azure](../availability-zones/cross-region-replication-azure.md) for more information.
+- **Resilient recovery**: First, deploy your container apps in advance to multiple regions. Next, use Azure Front Door or Azure Traffic Manager to handle incoming requests, pointing traffic to your primary region. Then, should an outage occur, you can redirect traffic away from the affected region. For more information, see [Cross-region replication in Azure](../availability-zones/cross-region-replication-azure.md).
 
 > [!NOTE]
 > Regardless of which strategy you choose, make sure your deployment configuration files are in source control so you can easily redeploy if necessary.
@@ -33,7 +33,7 @@ Additionally, the following resources can help you create your own disaster reco
 
 ## Set up zone redundancy in your Container Apps environment
 
-To take advantage of availability zones, you must enable zone redundancy when you create the Container Apps environment.  The environment must include an internal virtual network (VNET).  Since there are three zones in a supporting region, you'll need to ensure that your container app's minimum and maximum replica count is divisible by three.
+To take advantage of availability zones, you must enable zone redundancy when you create the Container Apps environment.  The environment must include a virtual network (VNET) with an infrastructure subnet.  To ensure even distribution of replicas, you should configure your app's minimum and maximum replica count with values that are divisible by three.  The minimum replica count should be at least three. 
 
 ### Enabled zone redundancy via the Azure portal 
  
@@ -45,15 +45,20 @@ To create a container app in an environment with zone redundancy enabled using t
 1. Select **Create New** in the *Container Apps Environment* field to open the *Create Container Apps Environment* panel.
 1. Enter the environment name.
 1. Select **Enabled** for the *Zone redundancy* field.
-1. You can choose to create a custom internal VNET in the **Networking** tab or allow a VNET to be automatically created for you when the environment is created.
+
+Zone redundancy requires a virtual network (VNET) with an infrastructure subnet.  You can choose an existing VNET or create a new one.  When creating a new VNET, you can accept the values provided for you or customize the settings.
+
+1. Select the **Networking** tab.  
+1. To assign a custom VNET name, select **Create New** in the *Virtual Network* field.
+1. To assign a custom infrastructure subnet name, select **Create New** in the *Infrastructure subnet* field.
+1. You can select **Internal** or **External** for the **Virtual IP**.
 1. Select **Create**.
 
-
-:::image type="content" source="media/select-zone-redundancy-portal.png" alt-text="Select the zone redundnacy option when creating a Container Apps environment,":::
+:::image type="content" source="media/screen-shot-vnet-configuration.png" alt-text="Screen shot of Networking tab in Create Container Apps Environment page.":::
 
 ### Enable zone redundancy with the Azure CLI
 
-Create an internal VNET and the  infrastructure subnet to include with the Container Apps environment .
+Create an VNET and infrastructure subnet to include with the Container Apps environment.
 
 When using these commands, replace the `\<PLACEHOLDERS\>` with your values.
 
