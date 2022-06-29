@@ -263,6 +263,11 @@ For each claim schema entry defined in this property, certain information is req
 
 **Source/ExtensionID pair:** The Source and ExtensionID elements define the directory schema extension attribute where the data in the claim is sourced from. For more information, see [Using directory schema extension attributes in claims](active-directory-schema-extensions.md).
 
+**SAMLNameFormat:** The SAML Name Format property specifies the value for the “NameFormat” attribute for this claim. If present, the allowed values are: 
+- urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified 
+- urn:oasis:names:tc:SAML:2.0:attrname-format:uri 
+- urn:oasis:names:tc:SAML:2.0:attrname-format:basic 
+
 Set the Source element to one of the following values:
 
 - "user": The data in the claim is a property on the User object.
