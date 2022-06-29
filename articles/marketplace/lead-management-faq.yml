@@ -29,7 +29,7 @@ sections:
       - question: |
           How can I find the test lead in my CRM system?
         answer: |
-          When testing the connection to your CRM system, search for "MSFT_TEST" in your leads. If you’re using the Referrals workspace in Partner Center, this step is not needed. Below is a sample test lead from Microsoft. Note that the format of the test lead varies depending on the lead destination.
+          When testing the connection to your CRM system, search for "MSFT_TEST" in your leads. If you’re using the Referrals workspace in Partner Center, this step isn't needed. Below is a sample test lead from Microsoft. The format of the test lead varies depending on the lead destination.
           
           ```
           {
@@ -56,7 +56,7 @@ sections:
           
           All collected leads should appear there, so if you don't see them in the Referrals workspace, contact support.
 
-          If you see your leads in the Referrals workspace in Partner Center, but not in your CRM system, you can try the following:
+          If you see your leads in the Referrals workspace in Partner Center, but not in your CRM system, you can try the following steps:
           - Make sure your connection to the lead destination is valid. We'll send you a test lead after you select **Publish** on your offer in Partner Center. If you see the test lead, the connection is valid.
           - Test your lead connection by trying to acquire the offer preview during the preview step. Select **Get It Now**, **Contact Me**, or **Free Trial** on the listing in the commercial marketplace.
           - Make sure you're looking for the right data. See [Understand lead data](./partner-center-portal/commercial-marketplace-get-customer-leads.md) for an explanation of the lead data we send to your lead destination.
@@ -75,7 +75,7 @@ sections:
         answer: |
           You can access the lead data stored in the Azure table from the Azure portal. You can also download and install [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) for free to view your Azure storage account's table data.
 
-          Another option is to simply view them in the [Referrals workspace](https://partner.microsoft.com/dashboard/referrals/v2/leads) in Partner Center instead.
+          Another option is to view them in the [Referrals workspace](https://partner.microsoft.com/dashboard/referrals/v2/leads) in Partner Center instead.
           
       - question: |
           I configured an Azure table as my lead destination. Can I get notified whenever a new commercial marketplace lead is sent?
@@ -109,15 +109,15 @@ sections:
         answer: |
           **Could not save the lead to Dynamics CRM. Check the Dynamics CRM account settings. LastCRMError: Unable to sign in to Dynamics CRM, LastCRMException:** 
           
-          > If Microsoft 365 authentication was selected, check if the user account and password is valid. If Azure Active Directory was selected, check if the tenant ID, application ID and application secret key matches what was set up on Azure Active Directory. Follow instructions [here](./partner-center-portal/commercial-marketplace-lead-management-instructions-dynamics.md). If the account username/password is valid, please make sure it has access to Dynamics 365 and has a license assigned (Steps 11-15 if using Azure Active Directory or Security Settings if using an Office user). 
+          > If Microsoft 365 authentication was selected, check if the user account and password is valid. If Azure Active Directory was selected, check if the tenant ID, application ID and application secret key matches what was set up on Azure Active Directory. Follow instructions [here](./partner-center-portal/commercial-marketplace-lead-management-instructions-dynamics.md). If the account username/password is valid, make sure it has access to Dynamics 365. Also make sure your account has a license assigned (Steps 11-15 if using Azure Active Directory or Security Settings if using an Office user). 
           
           **Could not save the lead to Dynamics CRM. User does not have create permissions for the leadsourcecode attribute in the lead entity** 
           
           > The application/user is missing security role(s) to Microsoft Marketplace lead writer. Follow steps 11-15 if using Azure Active Directory, or Security Settings if using an Office user [here](./partner-center-portal/commercial-marketplace-lead-management-instructions-dynamics.md).
           
-          **Could not save the lead to Dynamics CRM using AAD. Exception:: Tenant not found. This instance may happen if there are no active subscriptions for the tenant.**  
+          **Couldn't save the lead to Dynamics CRM using AAD. Exception:: Tenant not found. This instance may happen if there are no active subscriptions for the tenant.**  
           
-          > The Directory Id provided in the lead management section is not a valid directory. Please get the Directory Id based on the instructions at Step 2 (under Azure Active Directory) [here](./partner-center-portal/commercial-marketplace-lead-management-instructions-dynamics.md).
+          > The Directory Id provided in the lead management section is not a valid directory. Please get the Directory ID based on the instructions at Step 2 (under Azure Active Directory) [here](./partner-center-portal/commercial-marketplace-lead-management-instructions-dynamics.md).
           
           **Could not save the lead to Dynamics CRM. LastCRMError: SecLib::RetrievePrivilegeForUser failed - no roles are assigned to user.**  
           
@@ -125,15 +125,15 @@ sections:
           
           **Could not save the lead to Dynamics CRM using AAD. Exception:: Application with identifier was not found in the directory** 
           
-          > The Application Id provided in the lead management section is not a valid directory. Please get the Directory Id based on the instructions at Step 8 (under Azure Active Directory, from [here](./partner-center-portal/commercial-marketplace-lead-management-instructions-dynamics.md)). 
+          > The Application ID provided in the lead management section isn't a valid directory. Please get the Directory ID based on the instructions at Step 8 (under Azure Active Directory, from [here](./partner-center-portal/commercial-marketplace-lead-management-instructions-dynamics.md)). 
           
           **Could not save the lead to Dynamics CRM using AAD. Exception:: Requested tenant identifier is not valid and not valid external domain format** 
           
-          > The Directory Id provided in the lead management section is not a valid directory. Please get the Directory Id based on the instructions at Step 2 (under Azure Active Directory, from [here](./partner-center-portal/commercial-marketplace-lead-management-instructions-dynamics.md)). 
+          > The Directory ID provided in the lead management section isn't a valid directory. Please get the Directory ID based on the instructions at Step 2 (under Azure Active Directory, from [here](./partner-center-portal/commercial-marketplace-lead-management-instructions-dynamics.md)). 
           
           **Could not save the lead to Dynamics CRM using AAD. Exception:: Error validating credentials.: Invalid client secret is provided.** 
           
-          > Resolution: Sign in to the Azure portal, check if the application key matches what's in the Partner Center. Please generate password based on the instruction at Step 10 (under Azure Active Directory), from [here](./partner-center-portal/commercial-marketplace-lead-management-instructions-dynamics.md)). 
+          > Resolution: Sign in to the Azure portal, check if the application key matches what's in the Partner Center. Generate password based on the instruction at Step 10 (under Azure Active Directory), from [here](./partner-center-portal/commercial-marketplace-lead-management-instructions-dynamics.md)). 
           
           **Could not save the lead to Dynamics CRM. LastCRMError: The request channel timed out while waiting for a reply after 00:02:00. Increase the timeout value passed to the call to Request or increase the SendTimeout value on the Binding. The time allotted to this operation may have been a portion of a longer timeout.**  
           
