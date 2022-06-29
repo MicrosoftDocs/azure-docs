@@ -31,7 +31,7 @@ Only service principal id's in GUID format will be accepted for the ‘issuer’
 ## IDP Initiated   
 The IDP Initiated feature exposes two settings for each application.   
 
-- An “audience override” option exposed for configuration via claims mapping or the portal.  The intended use case is applications that require the same audience for multiple instances. This setting will be ignored if no custom signing key is configured for the application.    
+- An “audience override” option exposed for configuration by using claims mapping or the portal.  The intended use case is applications that require the same audience for multiple instances. This setting is ignored if no custom signing key is configured for the application.    
 
 - An “issuer with application id” flag to indicate the issuer should be unique for each application instead of unique for each tenant.  This setting will be ignored if no custom signing key is configured for the application.  
 
