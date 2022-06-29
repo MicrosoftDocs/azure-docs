@@ -122,7 +122,7 @@ By default, all virtual machine instances in a subnet can communicate with any r
 
 1. Select **Review + create**, and when the validation check is passed, select **Create**.
 
-    :::image type="content" source="./media/tutorial-restrict-network-access-to-resources/create-nsg-page.png" alt-text="Screenshot of create an network security group page.":::
+    :::image type="content" source="./media/tutorial-restrict-network-access-to-resources/create-nsg-page.png" alt-text="Screenshot of create a network security group page.":::
 
 1. After the network security group is created, select **Go to resource** or search for *myNsgPrivate* at the top of the Azure portal.
 
