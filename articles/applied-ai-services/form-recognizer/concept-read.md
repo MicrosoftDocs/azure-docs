@@ -1,129 +1,319 @@
 ---
-title: Read OCR - Form Recognizer
+title: Language support - Form Recognizer
 titleSuffix: Azure Applied AI Services
-description: Learn concepts related to Read OCR API analysis with Form Recognizer API—usage and limits.
+description: Learn more about the human languages that are available with Form Recognizer.
 author: laujan
 manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
-ms.topic: conceptual
+ms.topic: overview
 ms.date: 06/06/2022
 ms.author: lajanuar
-recommendations: false
-ms.custom: ignite-fall-2021
 ---
 
-# Form Recognizer Read OCR model
+# Language support for Form Recognizer
 
-Form Recognizer v3.0 preview includes the new Read Optical Character Recognition (OCR) model. The Read OCR model extracts typeface and handwritten text including mixed languages in documents. The Read OCR model can detect lines, words, locations, and languages and is the core of all other Form Recognizer models. Layout, general document, custom, and prebuilt models all use the Read OCR model as a foundation for extracting texts from documents.
+This article covers the supported languages for text and field **extraction (by feature)** and **[detection (Read only)](#detected-languages-read-api)**. Both groups are mutually exclusive.
 
-## Supported document types
+<!-- markdownlint-disable MD001 -->
+<!-- markdownlint-disable MD024 -->
 
-| **Model**   | **Images**   | **PDF**  | **TIFF** | **Word**   | **Excel**  | **PowerPoint** | **HTML** |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| Read  | ✓  | ✓  | ✓  | ✓  | ✓  | ✓  | ✓  |
+## Read, layout, and custom form (template) model
 
-### Data extraction
-
-| **Read model**   | **Text**   | **[Language detection](language-support.md#detected-languages-read-api)** |
-| --- | --- | --- |
-prebuilt-read  | ✓  |✓  |
-
-## Development options
-
-The following resources are supported by Form Recognizer v3.0:
-
-| Feature | Resources | Model ID |
-|----------|------------|------------|
-|**Read model**| <ul><li>[**Form Recognizer Studio**](https://formrecognizer.appliedai.azure.com)</li><li>[**REST API**](how-to-guides/use-prebuilt-read.md?pivots=programming-language-rest-api)</li><li>[**C# SDK**](how-to-guides/use-prebuilt-read.md?pivots=programming-language-csharp)</li><li>[**Python SDK**](how-to-guides/use-prebuilt-read.md?pivots=programming-language-python)</li><li>[**Java SDK**](how-to-guides/use-prebuilt-read.md?pivots=programming-language-java)</li><li>[**JavaScript**](how-to-guides/use-prebuilt-read.md?pivots=programming-language-javascript)</li></ul>|**prebuilt-read**|
-
-## Try Form Recognizer
-
-Try extracting text from forms and documents using the Form Recognizer Studio. You'll need the following assets:
-
-* An Azure subscription—you can [create one for free](https://azure.microsoft.com/free/cognitive-services/)
-
-* A [Form Recognizer instance](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) in the Azure portal. You can use the free pricing tier (`F0`) to try the service. After your resource deploys, select **Go to resource** to get your key and endpoint.
-
- :::image type="content" source="media/containers/keys-and-endpoint.png" alt-text="Screenshot: keys and endpoint location in the Azure portal.":::
-
-### Form Recognizer Studio (preview)
+The following lists include the currently GA languages in for the v2.1 version and the most recent v3.0 preview. These languages are supported by Read, Layout, and Custom form (template) model features.
 
 > [!NOTE]
-> Currently, Form Recognizer Studio doesn't support Microsoft Word, Excel, PowerPoint, and HTML file formats in the Read preview.
-
-***Sample form processed with [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/read)***
-
-:::image type="content" source="media/studio/form-recognizer-studio-read-v3p2-updated.png" alt-text="Screenshot: Read processing in Form Recognizer Studio.":::
-
-1. On the Form Recognizer Studio home page, select **Read**
-
-1. You can analyze the sample document or select the **+ Add** button to upload your own sample.
-
-1. Select the **Analyze** button:
-
-    :::image type="content" source="media/studio/form-recognizer-studio-read-analyze-v3p2-updated.png" alt-text="Screenshot: analyze read menu.":::
-
-   > [!div class="nextstepaction"]
-   > [Try Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/layout)
-
-## Input requirements
-
-* Supported file formats: These include JPEG/JPG, PNG, BMP, TIFF, PDF (text-embedded or scanned). Additionally, the newest API version `2022-06-30-preview` supports Microsoft Word (DOCX), Excel (XLS), PowerPoint (PPT), and HTML files.
-* For PDF and TIFF, up to 2000 pages can be processed (with a free tier subscription, only the first two pages are processed).
-* The file size must be less than 500 MB for paid (S0) tier and 4 MB for free (F0) tier.
-* Image dimensions must be between 50 x 50 pixels and 10,000 x 10,000 pixels.
-* The minimum height of the text to be extracted is 12 pixels for a 1024X768 image. This dimension corresponds to about eight font point text at 150 DPI.
-
-## Supported languages and locales
-
-Form Recognizer preview version supports several languages for the read model. *See* our [Language Support](language-support.md) for a complete list of supported handwritten and printed languages.
-
-## Data detection and extraction
-
-### Pages
-
-With the added support for Microsoft Word, Excel, PowerPoint, and HTML files, the page units in the model output are computed as shown:
-
- **File format**   | **Computed page unit**   | **Total pages**  |
-| --- | --- | --- |
-|Images | Each image = 1 page unit | Total images  |
-|PDF | Each page in the PDF = 1 page unit | Total pages in the PDF |
-|Word | Up to 3,000 characters = 1 page unit, Each embedded image = 1 page unit | Total pages of up to 3,000 characters each + Total embedded images |
-|Excel | Each worksheet = 1 page unit, Each embedded image = 1 page unit | Total worksheets + Total images
-|PowerPoint|  Each slide = 1 page unit, Each embedded image = 1 page unit | Total slides + Total images
-|HTML| Up to 3,000 characters = 1 page unit, embedded or linked images not supported | Total pages of up to 3,000 characters each |
-
-### Text lines and words
-
-Read extracts print and handwritten style text as `lines` and `words`. The model outputs bounding `polygon` coordinates and `confidence` for the extracted words. The `styles` collection includes any handwritten style for lines if detected along with the spans pointing to the associated text. This feature applies to [supported handwritten languages](language-support.md).
-
-For Microsoft Word, Excel, PowerPoint, and HTML file formats, Read will extract all embedded text as is. For any embedded images, it will run OCR on the images to extract text and append the text from each image as an added entry to the `pages` collection. These added entries will include the extracted text lines and words, their bounding polygons, confidences, and the spans pointing to the associated text.
-
-### Language detection
-
-Read adds [language detection](language-support.md#detected-languages-read-api) as a new feature for text lines. Read will predict all detected languages for text lines along with the `confidence` in the `languages` collection under `analyzeResult`.
-
-### Select page (s) for text extraction
-
-For large multi-page PDF documents, use the `pages` query parameter to indicate specific page numbers or page ranges for text extraction.
-
-> [!NOTE]
-> For Microsoft Word, Excel, PowerPoint, and HTML file formats, the Read API ignores the pages parameter and extracts all pages by default.
-
-## Next steps
-
-Complete a Form Recognizer quickstart:
-
-> [!div class="checklist"]
+> **Language code optional**
 >
-> * [**REST API**](how-to-guides/use-prebuilt-read.md?pivots=programming-language-rest-api)
-> * [**C# SDK**](how-to-guides/use-prebuilt-read.md?pivots=programming-language-csharp)
-> * [**Python SDK**](how-to-guides/use-prebuilt-read.md?pivots=programming-language-python)
-> * [**Java SDK**](how-to-guides/use-prebuilt-read.md?pivots=programming-language-java)
-> * [**JavaScript**](how-to-guides/use-prebuilt-read.md?pivots=programming-language-javascript)</li></ul>
+> Form Recognizer's deep learning based universal models extract all multi-lingual text in your documents, including text lines with mixed languages, and do not require specifying a language code. Do not provide the language code as the parameter unless you are sure about the language and want to force the service to apply only the relevant model. Otherwise, the service may return incomplete and incorrect text.
 
-Explore our REST API:
+To use the preview languages, refer to the [v3.0 REST API migration guide](/rest/api/media/#changes-to-the-rest-api-endpoints) to understand the differences from the v2.1 GA API and explore the [v3.0 preview SDK quickstarts](quickstarts/try-v3-python-sdk.md).
 
-> [!div class="nextstepaction"]
-> [Form Recognizer API v3.0](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-2/operations/AnalyzeDocument)
+### Handwritten text (preview and GA)
+
+The following table lists the supported languages for extracting handwritten texts.
+
+|Language| Language code (optional) | Language| Language code (optional) |
+|:-----|:----:|:-----|:----:|
+|English|`en`|Japanese (preview) |`ja`|
+|Chinese Simplified (preview)  |`zh-Hans`|Korean (preview)|`ko`|
+|French (preview) |`fr`|Portuguese (preview)|`pt`|
+|German (preview) |`de`|Spanish (preview) |`es`|
+|Italian (preview) |`it`|
+
+### Print text (preview)
+
+This section lists the supported languages for extracting printed texts in the latest preview.
+
+|Language| Code (optional) |Language| Code (optional) |
+|:-----|:----:|:-----|:----:|
+|Angika (Devanagari) | `anp`|Lakota | `lkt`
+|Arabic | `ar`|Latin | `la`
+|Awadhi-Hindi (Devanagari) | `awa`|Lithuanian | `lt`
+|Azerbaijani (Latin) | `az`|Lower Sorbian | `dsb`
+|Bagheli | `bfy`|Lule Sami | `smj`
+|Belarusian (Cyrillic)  | `be`, `be-cyrl`|Mahasu Pahari (Devanagari) | `bfz`
+|Belarusian (Latin) | `be`, `be-latn`|Maltese | `mt`
+|Bhojpuri-Hindi (Devanagari) | `bho`|Malto (Devanagari) | `kmj`
+|Bodo (Devanagari) | `brx`|Maori | `mi`
+|Bosnian (Latin) | `bs`|Marathi | `mr`
+|Brajbha | `bra`|Mongolian (Cyrillic)  | `mn`
+|Bulgarian  | `bg`|Montenegrin (Cyrillic)  | `cnr-cyrl`
+|Bundeli | `bns`|Montenegrin (Latin) | `cnr-latn`
+|Buryat (Cyrillic) | `bua`|Nepali | `ne`
+|Chamling | `rab`|Niuean | `niu`
+|Chhattisgarhi (Devanagari)| `hne`|Nogay | `nog`
+|Croatian | `hr`|Northern Sami (Latin) | `sme`
+|Dari | `prs`|Ossetic  | `os`
+|Dhimal (Devanagari) | `dhi`|Pashto | `ps`
+|Dogri (Devanagari) | `doi`|Persian | `fa`
+|Erzya (Cyrillic) | `myv`|Punjabi (Arabic) | `pa`
+|Faroese | `fo`|Ripuarian | `ksh`
+|Gagauz (Latin) | `gag`|Romanian | `ro`
+|Gondi (Devanagari) | `gon`|Russian | `ru`
+|Gurung (Devanagari) | `gvr`|Sadri  (Devanagari) | `sck`
+|Halbi (Devanagari) | `hlb`|Samoan (Latin) | `sm`
+|Haryanvi | `bgc`|Sanskrit (Devanagari) | `sa`
+|Hawaiian | `haw`|Santali(Devanagiri) | `sat`
+|Hindi | `hi`|Serbian (Latin) | `sr`, `sr-latn`
+|Ho(Devanagiri) | `hoc`|Sherpa (Devanagari) | `xsr`
+|Icelandic | `is`|Sirmauri (Devanagari) | `srx`
+|Inari Sami | `smn`|Skolt Sami | `sms`
+|Jaunsari (Devanagari) | `Jns`|Slovak | `sk`
+|Kangri (Devanagari) | `xnr`|Somali (Arabic) | `so`
+|Karachay-Balkar  | `krc`|Southern Sami | `sma`
+|Kara-Kalpak (Cyrillic) | `kaa-cyrl`|Tajik (Cyrillic)  | `tg`
+|Kazakh (Cyrillic)  | `kk-cyrl`|Thangmi | `thf`
+|Kazakh (Latin) | `kk-latn`|Tongan | `to`
+|Khaling | `klr`|Turkmen (Latin) | `tk`
+|Korku | `kfq`|Tuvan | `tyv`
+|Koryak | `kpy`|Urdu  | `ur`
+|Kosraean | `kos`|Uyghur (Arabic) | `ug`
+|Kumyk (Cyrillic) | `kum`|Uzbek (Arabic) | `uz-arab`
+|Kurdish (Arabic) | `ku-arab`|Uzbek (Cyrillic)  | `uz-cyrl`
+|Kurukh (Devanagari) | `kru`|Welsh | `cy`
+|Kyrgyz (Cyrillic)  | `ky`
+
+### Print text (GA)
+
+This section lists the supported languages for extracting printed texts in the latest GA version.
+
+|Language| Code (optional) |Language| Code (optional) |
+|:-----|:----:|:-----|:----:|
+|Afrikaans|`af`|Japanese | `ja` |
+|Albanian |`sq`|Javanese | `jv` |
+|Asturian |`ast`|K'iche'  | `quc` |
+|Basque  |`eu`|Kabuverdianu | `kea` |
+|Bislama   |`bi`|Kachin (Latin) | `kac` |
+|Breton    |`br`|Kara-Kalpak (Latin) | `kaa` |
+|Catalan    |`ca`|Kashubian | `csb` |
+|Cebuano    |`ceb`|Khasi  | `kha` |
+|Chamorro  |`ch`|Korean | `ko` |
+|Chinese Simplified | `zh-Hans`|Kurdish (Latin) | `ku-latn`
+|Chinese Traditional | `zh-Hant`|Luxembourgish  | `lb` |
+|Cornish     |`kw`|Malay (Latin) | `ms` |
+|Corsican      |`co`|Manx  | `gv` |
+|Crimean Tatar (Latin)|`crh`|Neapolitan   | `nap` |
+|Czech | `cs` |Norwegian | `no` |
+|Danish | `da` |Occitan | `oc` |
+|Dutch | `nl` |Polish | `pl` |
+|English | `en` |Portuguese | `pt` |
+|Estonian  |`et`|Romansh  | `rm` |
+|Fijian |`fj`|Scots  | `sco` |
+|Filipino  |`fil`|Scottish Gaelic  | `gd` |
+|Finnish | `fi` |Slovenian  | `sl` |
+|French | `fr` |Spanish | `es` |
+|Friulian  | `fur` |Swahili (Latin)  | `sw` |
+|Galician   | `gl` |Swedish | `sv` |
+|German | `de` |Tatar (Latin)  | `tt` |
+|Gilbertese    | `gil` |Tetum    | `tet` |
+|Greenlandic   | `kl` |Turkish | `tr` |
+|Haitian Creole  | `ht` |Upper Sorbian  | `hsb` |
+|Hani  | `hni` |Uzbek (Latin)     | `uz` |
+|Hmong Daw (Latin)| `mww` |Volapük   | `vo` |
+|Hungarian | `hu` |Walser    | `wae` |
+|Indonesian   | `id` |Western Frisian | `fy` |
+|Interlingua  | `ia` |Yucatec Maya | `yua` |
+|Inuktitut (Latin) | `iu` |Zhuang | `za` |
+|Irish    | `ga` |Zulu  | `zu` |
+|Italian | `it` |
+
+## Custom neural model
+
+Language| Locale code |
+|:-----|:----:|
+|English (United States)|en-us|
+
+## Receipt and business card models
+
+>[!NOTE]
+ > It's not necessary to specify a locale. This is an optional parameter. The Form Recognizer deep-learning technology will auto-detect the language of the text in your image.
+
+Pre-Built Receipt and Business Cards support all English receipts and business cards with the following locales:
+
+|Language| Locale code |
+|:-----|:----:|
+|English (Australia)|`en-au`|
+|English (Canada)|`en-ca`|
+|English (United Kingdom)|`en-gb`|
+|English (India|`en-in`|
+|English (United States)| `en-us`|
+
+## Business card model
+
+The **2022-06-30-preview** release includes Japanese language support:
+
+|Language| Locale code |
+|:-----|:----:|
+| Japanese | `ja` |
+
+## Invoice model
+
+Language| Locale code |
+|:-----|:----:|
+|English (United States) |en-US|
+|Spanish| es|
+|German (**2022-06-30-preview**)| de|
+|French (**2022-06-30-preview**)| fr|
+|Italian (**2022-06-30-preview**)|it|
+|Portuguese (**2022-06-30-preview**)|pt|
+|Dutch (**2022-06-30-preview**)| nl|
+
+## ID documents
+
+This technology is currently available for US driver licenses and the biographical page from international passports (excluding visa and other travel documents).
+
+## General Document
+
+Language| Locale code |
+|:-----|:----:|
+|English (United States)|en-us|
+
+## Detected languages: Read API
+
+The [Read API](concept-read.md) supports detecting the following languages in your documents. This list may include languages not currently supported for text extraction.
+
+> [!NOTE]
+> **Language detection**
+>
+> Form Recognizer read model can _detect_ possible presence of languages and returns language codes for detected languages. To determine if text can also be 
+> extracted for a given language, see previous sections.
+
+
+| Language            | Code |
+|---------------------|---------------|
+| Afrikaans           | `af`          |
+| Albanian            | `sq`          |
+| Amharic             | `am`          |
+| Arabic              | `ar`          |
+| Armenian            | `hy`          |
+| Assamese            | `as`          |
+| Azerbaijani         | `az`          |
+| Basque              | `eu`          |
+| Belarusian          | `be`          |
+| Bengali             | `bn`          |
+| Bosnian             | `bs`          |
+| Bulgarian           | `bg`          |
+| Burmese             | `my`          |
+| Catalan             | `ca`          |
+| Central Khmer       | `km`          |
+| Chinese             | `zh`          |
+| Chinese Simplified  | `zh_chs`      |
+| Chinese Traditional | `zh_cht`      |
+| Corsican            | `co`          |
+| Croatian            | `hr`          |
+| Czech               | `cs`          |
+| Danish              | `da`          |
+| Dari                | `prs`         |
+| Divehi              | `dv`          |
+| Dutch               | `nl`          |
+| English             | `en`          |
+| Esperanto           | `eo`          |
+| Estonian            | `et`          |
+| Fijian              | `fj`          |
+| Finnish             | `fi`          |
+| French              | `fr`          |
+| Galician            | `gl`          |
+| Georgian            | `ka`          |
+| German              | `de`          |
+| Greek               | `el`          |
+| Gujarati            | `gu`          |
+| Haitian             | `ht`          |
+| Hausa               | `ha`          |
+| Hebrew              | `he`          |
+| Hindi               | `hi`          |
+| Hmong Daw           | `mww`         |
+| Hungarian           | `hu`          |
+| Icelandic           | `is`          |
+| Igbo                | `ig`          |
+| Indonesian          | `id`          |
+| Inuktitut           | `iu`          |
+| Irish               | `ga`          |
+| Italian             | `it`          |
+| Japanese            | `ja`          |
+| Javanese            | `jv`          |
+| Kannada             | `kn`          |
+| Kazakh              | `kk`          |
+| Kinyarwanda         | `rw`          |
+| Kirghiz             | `ky`          |
+| Korean              | `ko`          |
+| Kurdish             | `ku`          |
+| Lao                 | `lo`          |
+| Latin               | `la`          |
+| Latvian             | `lv`          |
+| Lithuanian          | `lt`          |
+| Luxembourgish       | `lb`          |
+| Macedonian          | `mk`          |
+| Malagasy            | `mg`          |
+| Malay               | `ms`          |
+| Malayalam           | `ml`          |
+| Maltese             | `mt`          |
+| Maori               | `mi`          |
+| Marathi             | `mr`          |
+| Mongolian           | `mn`          |
+| Nepali              | `ne`          |
+| Norwegian           | `no`          |
+| Norwegian Nynorsk   | `nn`          |
+| Oriya               | `or`          |
+| Pasht               | `ps`          |
+| Persian             | `fa`          |
+| Polish              | `pl`          |
+| Portuguese          | `pt`          |
+| Punjabi             | `pa`          |
+| Queretaro Otomi     | `otq`         |
+| Romanian            | `ro`          |
+| Russian             | `ru`          |
+| Samoan              | `sm`          |
+| Serbian             | `sr`          |
+| Shona               | `sn`          |
+| Sindhi              | `sd`          |
+| Sinhala             | `si`          |
+| Slovak              | `sk`          |
+| Slovenian           | `sl`          |
+| Somali              | `so`          |
+| Spanish             | `es`          |
+| Sundanese           | `su`          |
+| Swahili             | `sw`          |
+| Swedish             | `sv`          |
+| Tagalog             | `tl`          |
+| Tahitian            | `ty`          |
+| Tajik               | `tg`          |
+| Tamil               | `ta`          |
+| Tatar               | `tt`          |
+| Telugu              | `te`          |
+| Thai                | `th`          |
+| Tibetan             | `bo`          |
+| Tigrinya            | `ti`          |
+| Tongan              | `to`          |
+| Turkish             | `tr`          |
+| Turkmen             | `tk`          |
+| Ukrainian           | `uk`          |
+| Urdu                | `ur`          |
+| Uzbek               | `uz`          |
+| Vietnamese          | `vi`          |
+| Welsh               | `cy`          |
+| Xhosa               | `xh`          |
+| Yiddish             | `yi`          |
+| Yoruba              | `yo`          |
+| Yucatec Maya        | `yua`         |
+| Zulu                | `zu`          |
