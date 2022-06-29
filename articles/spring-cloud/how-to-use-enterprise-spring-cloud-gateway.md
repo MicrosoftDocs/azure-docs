@@ -19,9 +19,15 @@ ms.custom: devx-track-java, devx-track-azurecli, event-tier1-build-2022
 
 This article shows you how to use Spring Cloud Gateway for VMware Tanzu® with Azure Spring Apps Enterprise Tier.
 
-[Spring Cloud Gateway for Tanzu](https://docs.vmware.com/en/VMware-Spring-Cloud-Gateway-for-Kubernetes/index.html) is one of the commercial VMware Tanzu components. It's based on the open-source Spring Cloud Gateway project. Spring Cloud Gateway for Tanzu handles cross-cutting concerns for API development teams, such as Single Sign-on (SSO), access control, rate-limiting, resiliency, security, and more. You can accelerate API delivery using modern cloud native patterns, and any programming language you choose for API development.
+[Spring Cloud Gateway for Tanzu](https://docs.vmware.com/en/VMware-Spring-Cloud-Gateway-for-Kubernetes/index.html) is one of the commercial VMware Tanzu components. It's based on the open-source Spring Cloud Gateway project. Spring Cloud Gateway for Tanzu handles cross-cutting concerns for API development teams, such as single sign-on (SSO), access control, rate-limiting, resiliency, security, and more. You can accelerate API delivery using modern cloud native patterns, and any programming language you choose for API development.
 
-Spring Cloud Gateway for Tanzu also has other commercial API route filters for transporting authorized JSON Web Token (JWT) claims to application services, client certificate authorization, rate-limiting approaches, circuit breaker configuration, and support for accessing application services via HTTP Basic Authentication credentials.
+Spring Cloud Gateway for Tanzu also has the following features:
+
+- Other commercial API route filters for transporting authorized JSON Web Token (JWT) claims to application services.
+- Client certificate authorization.
+- Rate-limiting approaches.
+- Circuit breaker configuration.
+- Support for accessing application services via HTTP Basic Authentication credentials.
 
 To integrate with [API portal for VMware Tanzu®](./how-to-use-enterprise-api-portal.md), Spring Cloud Gateway for Tanzu automatically generates OpenAPI version 3 documentation after the route configuration gets changed.
 
@@ -55,13 +61,13 @@ Spring Cloud Gateway for Tanzu is configured using the following sections and st
 
 Spring Cloud Gateway for Tanzu metadata is used to automatically generate OpenAPI version 3 documentation so that the [API portal](./how-to-use-enterprise-api-portal.md) can gather information to show the route groups.
 
-| Property | Description |
-| - | - |
-| title | Title describing the context of the APIs available on the Gateway instance (default: `Spring Cloud Gateway for K8S`) |
-| description | Detailed description of the APIs available on the Gateway instance (default: `Generated OpenAPI 3 document that describes the API routes configured for '[Gateway instance name]' Spring Cloud Gateway instance deployed under '[namespace]' namespace.`) |
-| documentation | Location of more documentation for the APIs available on the Gateway instance |
-| version | Version of APIs available on this Gateway instance (default: `unspecified`) |
-| serverUrl | Base URL that API consumers will use to access APIs on the Gateway instance |
+| Property      | Description                                                                                                                                                                                                                                                             |
+|---------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| title         | A title describing the context of the APIs available on the Gateway instance. The default value is *Spring Cloud Gateway for K8S*.                                                                                                                                      |
+| description   | A detailed description of the APIs available on the Gateway instance. The default value is *Generated OpenAPI 3 document that describes the API routes configured for '[Gateway instance name]' Spring Cloud Gateway instance deployed under '[namespace]' namespace.`* |
+| documentation | The location of more documentation for the APIs available on the Gateway instance.                                                                                                                                                                                      |
+| version       | The version of the APIs available on this Gateway instance. The default value is *unspecified*.                                                                                                                                                                         |
+| serverUrl     | The base URL that API consumers will use to access APIs on the Gateway instance.                                                                                                                                                                                        |
 
 > [!NOTE]
 > `serverUrl` is mandatory if you want to integrate with [API portal](./how-to-use-enterprise-api-portal.md).
@@ -70,30 +76,30 @@ Spring Cloud Gateway for Tanzu metadata is used to automatically generate OpenAP
 
 Cross-origin resource sharing (CORS) allows restricted resources on a web page to be requested from another domain outside the domain from which the first resource was served.
 
-| Property | Description |
-| - | - |
-| allowedOrigins | Allowed origins to make cross-site requests |
-| allowedMethods | Allowed HTTP methods on cross-site requests |
-| allowedHeaders |  Allowed headers in cross-site request |
-| maxAge | How long, in seconds, the response from a pre-flight request can be cached by clients |
-| allowCredentials | Whether user credentials are supported on cross-site requests |
-| exposedHeaders | HTTP response headers to expose for cross-site requests |
+| Property         | Description                                                                            |
+|------------------|----------------------------------------------------------------------------------------|
+| allowedOrigins   | Allowed origins to make cross-site requests.                                           |
+| allowedMethods   | Allowed HTTP methods on cross-site requests.                                           |
+| allowedHeaders   | Allowed headers in cross-site request.                                                 |
+| maxAge           | How long, in seconds, the response from a pre-flight request can be cached by clients. |
+| allowCredentials | A value that indicates whether user credentials are supported on cross-site requests.  |
+| exposedHeaders   | HTTP response headers to expose for cross-site requests.                               |
 
 > [!NOTE]
 > Be sure you have the correct CORS configuration if you want to integrate with the [API portal](./how-to-use-enterprise-api-portal.md). For an example, see the [Create an example application](#create-an-example-application) section.
 
-### Configure single Sign-on (SSO)
+### Configure single sign-on (SSO)
 
-Spring Cloud Gateway for Tanzu supports authentication and authorization using Single Sign-on (SSO) with an OpenID identity provider (IdP) which supports OpenID Connect Discovery protocol.
+Spring Cloud Gateway for Tanzu supports authentication and authorization using single sign-on (SSO) with an OpenID identity provider (IdP) that supports OpenID Connect Discovery protocol.
 
-| Property | Required? | Description |
-| - | - | - |
-| issuerUri | Yes | The URI that is asserted as its Issuer Identifier. For example, if the issuer-uri provided is "https://example.com", then an OpenID Provider Configuration Request will be made to "https://example.com/.well-known/openid-configuration". The result is expected to be an OpenID Provider Configuration Response. |
-| clientId | Yes | The OpenID Connect client ID provided by your IdP |
-| clientSecret | Yes | The OpenID Connect client secret provided by your IdP |
-| scope | Yes | A list of scopes to include in JWT identity tokens. This list should be based on the scopes allowed by your identity provider |
+| Property     | Required? | Description                                                                                                                                                                                                                                                                                                        |
+|--------------|-----------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| issuerUri    | Yes       | The URI that is asserted as its Issuer Identifier. For example, if the issuer-uri provided is "https://example.com", then an OpenID Provider Configuration Request will be made to "https://example.com/.well-known/openid-configuration". The result is expected to be an OpenID Provider Configuration Response. |
+| clientId     | Yes       | The OpenID Connect client ID provided by your IdP.                                                                                                                                                                                                                                                                 |
+| clientSecret | Yes       | The OpenID Connect client secret provided by your IdP.                                                                                                                                                                                                                                                             |
+| scope        | Yes       | A list of scopes to include in JWT identity tokens. This list should be based on the scopes allowed by your identity provider.                                                                                                                                                                                     |
 
-To set up SSO with Azure AD, see [How to set up Single Sign-on with Azure AD for Spring Cloud Gateway and API Portal for Tanzu](./how-to-set up-sso-with-azure-ad.md).
+To set up SSO with Azure AD, see [How to set up single sign-on with Azure AD for Spring Cloud Gateway and API Portal for Tanzu](./how-to-set-up-sso-with-azure-ad.md).
 
 > [!NOTE]
 > Only authorization servers supporting OpenID Connect Discovery protocol are supported. Also, be sure to configure the external authorization server to allow redirects back to the gateway. Refer to your authorization server's documentation and add `https://<gateway-external-url>/login/oauth2/code/sso` to the list of allowed redirect URIs.
@@ -115,24 +121,60 @@ This section describes how to add, update, and manage API routes for apps that u
 
 ### Define route config
 
-The route definition includes the following parts:
+The route config definition includes the following parts:
 
-- appResourceId: The full app resource ID to route traffic to
-- routes: A list of route rules about how the traffic goes to one app
+- OpenAPI URI: The URI points to an OpenAPI specification. Both OpenAPI 2.0 and OpenAPI 3.0 specs are supported. The specification can be shown in API portal to try out. Two types of URI are accepted. The first type of URI is a public endpoint like `https://petstore3.swagger.io/api/v3/openapi.json`. The second type of URI is a constructed URL `http://<app-name>/{relative-path-to-OpenAPI-spec}`, where `app-name` is the name of an application in Azure Spring Apps that includes the API definition.
+- routes: A list of route rules about how the traffic goes to one app.
+
+Use the following command to create a route config. The `--app-name` value should be the name of an app hosted in Azure Spring Apps that the requests will route to.
+
+```azurecli
+az spring gateway route-config create \
+    --name <route-config-name> \
+    --app-name <app-name> \
+    --routes-file <routes-file.json>
+```
+
+Here's a sample of the JSON file that is passed to the `--routes-file` parameter in the create command:
+
+```json
+{
+   "open_api": {
+      "uri": "<OpenAPI-URI>"
+   },
+   "routes": [
+      {
+         "title": "<title-of-route>",
+         "description": "<description-of-route>",
+         "predicates": [
+            "<predicate-of-route>",
+         ],
+         "ssoEnabled": true,
+         "filters": [
+            "<filter-of-route>",
+         ],
+         "tags": [
+            "<tag-of-route>"
+         ],
+         "order": 0
+      }
+   ]
+}
+```
 
 The following tables list the route definitions. All the properties are optional.
 
-| Property | Description |
-| - | - |
-| title | A title, will be applied to methods in the generated OpenAPI documentation |
-| description | A description, will be applied to methods in the generated OpenAPI documentation  |
-| uri | Full uri, will override `appResourceId` |
-| ssoEnabled | Enable SSO validation. See "Using Single Sign-on" |
-| tokenRelay | Pass currently authenticated user's identity token to application service |
-| predicates | A list of predicates. See [Available Predicates](https://docs.vmware.com/en/VMware-Spring-Cloud-Gateway-for-Kubernetes/1.0/scg-k8s/GUID-configuring-routes.html#available-predicates) and [Commercial Route Filters](https://docs.vmware.com/en/VMware-Spring-Cloud-Gateway-for-Kubernetes/1.0/scg-k8s/GUID-route-predicates.html)|
-| filters | A list of filters. See [Available Filters](https://docs.vmware.com/en/VMware-Spring-Cloud-Gateway-for-Kubernetes/1.0/scg-k8s/GUID-configuring-routes.html#available-filters) and [Commercial Route Filters](https://docs.vmware.com/en/VMware-Spring-Cloud-Gateway-for-Kubernetes/1.0/scg-k8s/GUID-route-filters.html)|
-| order | Route processing order, same as Spring Cloud Gateway for Tanzu |
-| tags | Classification tags, will be applied to methods in the generated OpenAPI documentation |
+| Property    | Description                                                                                                                                                                                                                                                                                                                         |
+|-------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| title       | A title to apply to methods in the generated OpenAPI documentation.                                                                                                                                                                                                                                                                 |
+| description | A description to apply to methods in the generated OpenAPI documentation.                                                                                                                                                                                                                                                           |
+| uri         | The full URI, which will override the name of app that requests route to.                                                                                                                                                                                                                                                           |
+| ssoEnabled  | A value that indicates whether to enable SSO validation. See the [Configure single sign-on (SSO)](#configure-single-sign-on-sso) section.                                                                                                                                                                                           |
+| tokenRelay  | Passes the currently authenticated user's identity token to the application service.                                                                                                                                                                                                                                                |
+| predicates  | A list of predicates. See [Available Predicates](https://docs.vmware.com/en/VMware-Spring-Cloud-Gateway-for-Kubernetes/1.0/scg-k8s/GUID-configuring-routes.html#available-predicates) and [Commercial Route Filters](https://docs.vmware.com/en/VMware-Spring-Cloud-Gateway-for-Kubernetes/1.0/scg-k8s/GUID-route-predicates.html). |
+| filters     | A list of filters. See [Available Filters](https://docs.vmware.com/en/VMware-Spring-Cloud-Gateway-for-Kubernetes/1.0/scg-k8s/GUID-configuring-routes.html#available-filters) and [Commercial Route Filters](https://docs.vmware.com/en/VMware-Spring-Cloud-Gateway-for-Kubernetes/1.0/scg-k8s/GUID-route-filters.html).             |
+| order       | The route processing order, which is the same as in Spring Cloud Gateway for Tanzu.                                                                                                                                                                                                                                                 |
+| tags        | Classification tags, which will be applied to methods in the generated OpenAPI documentation.                                                                                                                                                                                                                                       |
 
 Not all the filters/predicates are supported in Azure Spring Apps because of security/compatible reasons. The following aren't supported:
 
@@ -143,7 +185,7 @@ Not all the filters/predicates are supported in Azure Spring Apps because of sec
 
 Use the following steps to create an example application using Spring Cloud Gateway for Tanzu.
 
-1. To create an app in Azure Spring Apps which the Spring Cloud Gateway for Tanzu would route traffic to, follow the instructions in [Quickstart: Build and deploy apps to Azure Spring Apps using the Enterprise tier](quickstart-deploy-apps-enterprise.md). Select `customers-service` for this example.
+1. To create an app in Azure Spring Apps that the Spring Cloud Gateway for Tanzu would route traffic to, follow the instructions in [Quickstart: Build and deploy apps to Azure Spring Apps using the Enterprise tier](quickstart-deploy-apps-enterprise.md). Select `customers-service` for this example.
 
 1. Assign a public endpoint to the gateway to access it.
 
@@ -181,21 +223,24 @@ Use the following steps to create an example application using Spring Cloud Gate
    Save the following content to the *customers-service.json* file.
 
    ```json
-   [
-      {
-         "title": "Customers service",
-         "description": "Route to customer service",
-         "predicates": [
-            "Path=/api/customers-service/owners"
-         ],
-         "filters": [
-            "StripPrefix=2"
-         ],
-         "tags": [
-            "pet clinic"
-         ]
-      }
-   ]
+   {
+      "routes": [
+         {
+            "title": "Customers service",
+            "description": "Route to customer service",
+            "predicates": [
+               "Path=/api/customers-service/owners",
+               "Method=GET"
+            ],
+            "filters": [
+               "StripPrefix=2",
+            ],
+            "tags": [
+               "pet clinic"
+            ]
+         }
+      ]
+   }
    ```
 
    Use the following command to apply the rule to the app `customers-service`:

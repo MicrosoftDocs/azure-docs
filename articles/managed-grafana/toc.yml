@@ -24,6 +24,8 @@ items:
     href: how-to-api-calls.md
   - name: Monitor a Managed Grafana instance
     href: how-to-monitor-managed-grafana-workspace.md
+  - name: Troubleshoot common issues
+    href: troubleshoot-managed-grafana.md
 - name: Reference
   items:
   - name: Control Plane
