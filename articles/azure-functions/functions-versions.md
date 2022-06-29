@@ -3,7 +3,7 @@ title: Azure Functions runtime versions overview
 description: Azure Functions supports multiple versions of the runtime. Learn the differences between them and how to choose the one that's right for you.
 ms.topic: conceptual
 ms.custom: devx-track-dotnet
-ms.date: 01/22/2022
+ms.date: 06/24/2022
 zone_pivot_groups: programming-languages-set-functions
 ---
 
@@ -17,6 +17,10 @@ zone_pivot_groups: programming-languages-set-functions
 | 3.x | GA | Supports all languages. Use this version to [run C# functions on .NET Core 3.1 and .NET 5.0](functions-dotnet-class-library.md#supported-versions).|
 | 2.x | GA | Supported for [legacy version 2.x apps](#pinning-to-version-20). This version is in maintenance mode, with enhancements provided only in later versions.|
 | 1.x | GA | Recommended only for C# apps that must use .NET Framework and only supports development in the Azure portal, Azure Stack Hub portal, or locally on Windows computers. This version is in maintenance mode, with enhancements provided only in later versions. |
+
+> [!IMPORTANT]
+> Beginning on December 3, 2022, function apps running on versions 2.x and 3.x of the Azure Functions runtime can no longer be supported. Before that time, please test, verify, and migrate your function apps to version 4.x of the Functions runtime. End of support for these runtime versions is due to the ending of support for .NET Core 3.1, which is required by these runtime versions. This requirement affects all Azure Functions runtime languages.  
+>Functions version 1.x is still supported for C# function apps that require the .NET Framework. Preview support is now available in Functions 4.x to [run C# functions on .NET Framework 4.8](dotnet-isolated-process-guide.md#supported-versions). 
 
 This article details some of the differences between these versions, how you can create each version, and how to change the version on which your functions run.
 

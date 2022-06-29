@@ -137,18 +137,9 @@ This policy applies to all users who are accessing Azure Resource Manager servic
 
 ### Authentication methods
 
-Security defaults allow registration and use of Azure AD Multi-Factor Authentication **using only the Microsoft Authenticator app using notifications**. Conditional Access allows the use of any authentication method the administrator chooses to enable.
+Security defaults users are required to register for and use Azure AD Multi-Factor Authentication **using the Microsoft Authenticator app using notifications**. Users may use verification codes from the Microsoft Authenticator app but can only register using the notification option. 
 
-| Method | Security defaults | Conditional Access |
-| --- | --- | --- |
-| Notification through mobile app | X | X |
-| Verification code from mobile app or hardware token | X** | X |
-| Text message to phone |   | X |
-| Call to phone |   | X |
-| App passwords |   | X*** |
-
-- ** Users may use verification codes from the Microsoft Authenticator app but can only register using the notification option.
-- *** App passwords are only available in per-user MFA with legacy authentication scenarios only if enabled by administrators.
+Starting in July 2022, anyone with the global administrator role assigned to them will be required to register a phone-based method like call or text as a backup method.
 
 > [!WARNING]
 > Do not disable methods for your organization if you are using security defaults. Disabling methods may lead to locking yourself out of your tenant. Leave all **Methods available to users** enabled in the [MFA service settings portal](../authentication/howto-mfa-getstarted.md#choose-authentication-methods-for-mfa).
@@ -157,11 +148,11 @@ Security defaults allow registration and use of Azure AD Multi-Factor Authentica
 
 Every organization should have at least two backup administrator accounts configured. We call these emergency access accounts.
 
-These accounts may be used in scenarios where your normal administrator accounts can't be used. For example: The person with the most recent Global Administrator access has left the organization. Azure AD prevents the last Global Administrator account from being deleted, but it doesn't prevent the account from being deleted or disabled on-premises. Either situation might make the organization unable to recover the account.
+These accounts may be used in scenarios where your normal administrator accounts can't be used. For example: The person with the most recent global administrator access has left the organization. Azure AD prevents the last global administrator account from being deleted, but it doesn't prevent the account from being deleted or disabled on-premises. Either situation might make the organization unable to recover the account.
 
 Emergency access accounts are:
 
-- Assigned Global Administrator rights in Azure AD.
+- Assigned global administrator rights in Azure AD.
 - Aren't used on a daily basis.
 - Are protected with a long complex password.
  
@@ -190,7 +181,7 @@ If your organization is a previous user of per-user based Azure AD Multi-Factor 
 
 ### Conditional Access
 
-You can use Conditional Access to configure policies similar to security defaults, but with more granularity including user exclusions, which aren't available in security defaults. If you're using Conditional Access in your environment today, security defaults won't be available to you. 
+You can use Conditional Access to configure policies similar to security defaults, but with more granularity including selecting other authentication methods and the ability to exclude users, which aren't available in security defaults. If you're using Conditional Access in your environment today, security defaults won't be available to you. 
 
 ![Warning message that you can have security defaults or Conditional Access not both](./media/concept-fundamentals-security-defaults/security-defaults-conditional-access.png)
 
