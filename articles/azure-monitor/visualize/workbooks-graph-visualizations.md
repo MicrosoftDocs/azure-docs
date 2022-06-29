@@ -20,7 +20,7 @@ The following graph shows data flowing in and out of a computer via various port
 
 1. Switch the workbook to edit mode by selecting the **Edit** toolbar item.
 1. Use the **Add query** link to add a log query control to the workbook.
-1. Select **Query type** as **Logs**. Select **Resource type** as, for example, **Application Insights**, and select the resources to target.
+1. For **Query type**, select **Logs**. For **Resource type**, select, for example, **Application Insights**, and select the resources to target.
 1. Use the query editor to enter the KQL for your analysis.
 
     ```kusto
@@ -76,9 +76,9 @@ The following graph shows data flowing in and out of a computer via various port
 
 | Setting         | Explanation                                                                                                        |
 |:----------------|:-------------------------------------------------------------------------------------------------------------------|
-| `Node Id`       | Selects a column that provides the unique ID of nodes on the graph. The value of the column can be a string or a number. |
-| `Source Id`     | Selects a column that provides the IDs of source nodes for edges on the graph. Values must map to a value in the `Node Id` column. |
-| `Target Id`     | Selects a column that provides the IDs of target nodes for edges on the graph. Values must map to a value in the `Node Id` column. |
+| `Node ID`       | Selects a column that provides the unique ID of nodes on the graph. The value of the column can be a string or a number. |
+| `Source ID`     | Selects a column that provides the IDs of source nodes for edges on the graph. Values must map to a value in the `Node Id` column. |
+| `Target ID`     | Selects a column that provides the IDs of target nodes for edges on the graph. Values must map to a value in the `Node Id` column. |
 | `Edge Label`    | Selects a column that provides edge labels on the graph.                                                            |
 | `Edge Size`     | Selects a column that provides the metric on which the edge widths will be based.                                |
 | `Node Size`     | Selects a column that provides the metric on which the node areas will be based.                                 |
@@ -94,13 +94,13 @@ The following graph shows data flowing in and out of a computer via various port
 
 ## Node format settings
 
-You can specify what content goes to the different parts of a node: top, left, center, right, and bottom. Graphs can use any renderers workbook supports like text, big numbers, spark lines, and icons.
+You can specify what content goes to the different parts of a node: top, left, center, right, and bottom. Graphs can use any renderers' workbook supports like text, big numbers, spark lines, and icons.
 
 ## Field-based node coloring
 
 1. Switch the workbook to edit mode by selecting the **Edit** toolbar item.
 1. Use the **Add query** link to add a log query control to the workbook.
-1. Select **Query type** as **Logs**. Select **Resource type** as, for example, **Application Insights**, and select the resources to target.
+1. For **Query type**, select **Logs**. For **Resource type**, select, for example, **Application Insights**, and select the resources to target.
 1. Use the query editor to enter the KQL for your analysis.
 
     ```kusto
