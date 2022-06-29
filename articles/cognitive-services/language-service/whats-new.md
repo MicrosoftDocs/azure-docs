@@ -30,7 +30,7 @@ Azure Cognitive Service for Language is updated on an ongoing basis. To stay up-
     * [Named entity recognition](./named-entity-recognition/quickstart.md?pivots=rest-api)
     * [PII detection](./personally-identifiable-information/quickstart.md?pivots=rest-api)
     * [Sentiment analysis and opinion mining](./sentiment-opinion-mining/quickstart.md?pivots=rest-api)
- 
+    * [Text analytics for health](./text-analytics-for-health/quickstart.md?pivots=rest-api)
 
 
 ## May 2022
