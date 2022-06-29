@@ -176,7 +176,7 @@ You can now create or update dynamic device groups using the following propertie
 - extensionAttribute1-15
 - profileType
 
-For more information on how to use this feature, see: [Dynamic membership rule for device groups](../enterprise-users/groups-dynamic-membership.md#rules-for-devices) .
+For more information on how to use this feature, see: [Dynamic membership rule for device groups](../enterprise-users/groups-dynamic-membership.md#rules-for-devices).
  
 
 ---
