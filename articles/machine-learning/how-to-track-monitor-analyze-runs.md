@@ -42,7 +42,7 @@ You'll need the following items:
 * To use Azure Machine Learning, you must have an Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/).
 * You must have an Azure Machine Learning workspace. A workspace is created in [Install, set up, and use the CLI (v2)](how-to-configure-cli.md).
 
-## Job Display Name 
+## Job display name 
 
 The job display name is an optional and customizable name that you can provide for your job. To edit the job display name:
 
@@ -54,7 +54,7 @@ The job display name is an optional and customizable name that you can provide f
 
 1. Select the **Edit** button to edit the job display name.
 
-    :::image type="content" source="media/how-to-track-monitor-analyze-runs/display-name.gif" alt-text="Screenshot: edit the display name":::
+    :::image type="content" source="media/how-to-track-monitor-analyze-runs/display-name.gif" alt-text="Screenshot of how to edit the display name.":::
 
 ## Custom View 
     
@@ -70,7 +70,7 @@ In the **All jobs'** page, you can filter the jobs list by tags, experiments, co
 
 1. To view the job logs, select a specific job and in the **Outputs + logs** tab, you can find diagnostic and error logs for your job.
 
-    :::image type="content" source="media/how-to-track-monitor-analyze-runs/custom-views-2.gif" alt-text="Screenshot: create a custom view":::   
+    :::image type="content" source="media/how-to-track-monitor-analyze-runs/custom-views-2.gif" alt-text="Screenshot of how to create a custom view.":::   
 
 ## Job description 
 
@@ -78,7 +78,7 @@ A job description can be added to a job to provide more context and information 
 
 Navigate to the **Job Details** page for your job and select the edit or pencil icon to add, edit, or delete descriptions for your job. To persist the changes to the jobs list, save the changes to your existing Custom View or a new Custom View. Markdown format is supported for job descriptions, which allows images to be embedded and deep linking as shown below.
 
-:::image type="content" source="media/how-to-track-monitor-analyze-runs/run-description-2.gif" alt-text="Screenshot: create a job description"::: 
+:::image type="content" source="media/how-to-track-monitor-analyze-runs/run-description-2.gif" alt-text="Screenshot of how to create a job description."::: 
 
 ## Tag and find jobs
 
@@ -88,7 +88,7 @@ In Azure Machine Learning, you can use properties and tags to help organize and 
 
     You can add, edit, or delete job tags from the studio. Navigate to the **Job Details** page for your job and select the edit, or pencil icon to add, edit, or delete tags for your jobs. You can also search and filter on these tags from the jobs list page.
     
-    :::image type="content" source="media/how-to-track-monitor-analyze-runs/run-tags.gif" alt-text="Screenshot: Add, edit, or delete job tags":::
+    :::image type="content" source="media/how-to-track-monitor-analyze-runs/run-tags.gif" alt-text="Screenshot of how to add, edit, or delete job tags.":::
     
 
 * Query properties and tags
