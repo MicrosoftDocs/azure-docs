@@ -34,7 +34,7 @@ You can remove unmanaged Azure AD accounts from your Azure AD tenants
 and prevent these types of accounts from redeeming future invitations.
 
 1. Enable [email one-time
-    passcodes](https://docs.microsoft.com/azure/active-directory/external-identities/one-time-passcode#enable-email-one-time-passcode)
+    passcode](https://docs.microsoft.com/azure/active-directory/external-identities/one-time-passcode#enable-email-one-time-passcode)
     (OTP)
 
 2. Use the sample application in [Azure-samples/Remove-unmanaged-guests](https://github.com/Azure-Samples/Remove-Unmanaged-Guests) or
