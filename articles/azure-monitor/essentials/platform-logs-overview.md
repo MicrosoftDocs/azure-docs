@@ -5,7 +5,7 @@ author: bwren
 services: azure-monitor
 ms.topic: conceptual
 ms.date: 12/19/2019
-ms.reiewer: bwren
+ms.reviewer: bwren
 ---
 # Overview of Azure platform logs
 

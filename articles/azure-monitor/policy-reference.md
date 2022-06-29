@@ -6,7 +6,7 @@ ms.topic: reference
 author: bwren
 ms.author: bwren
 ms.custom: subject-policy-reference
-ms.reiewer: bwren
+ms.reviewer: bwren
 ---
 # Azure Policy built-in definitions for Azure Monitor
 
