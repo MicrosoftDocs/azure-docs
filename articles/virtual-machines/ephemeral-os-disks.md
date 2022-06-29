@@ -65,6 +65,10 @@ In the case of **Temp disk placement** as Ephemeral OS disk is placed on temp di
 Basic Linux and Windows Server images in the Marketplace that are denoted by `[smallsize]` tend to be around 30 GiB and can use most of the available VM sizes.
 Ephemeral disks also require that the VM size supports **Premium storage**. The sizes usually (but not always) have an `s` in the name, like DSv2 and EsV3. For more information, see [Azure VM sizes](sizes.md) for details around which sizes support Premium storage.
 
+> [!NOTE]
+> 
+> Ephemeral disk will not be accessible through the portal. You will receive a "Resource not Found" or "404" error when accessing the ephemeral disk which is expected.
+> 
 
 ## Unsupported features 
 - Capturing VM images
@@ -89,10 +93,19 @@ For the same example above if you create a standard Ephemeral OS disk VM you wou
 > 
 For more information on [how to deploy a trusted launch VM](trusted-launch-portal.md)
 
-> [!NOTE]
+## Confidential VMs using Ephemeral OS disks
+Confidential VMs are for tenants with high security and confidentiality requirements. These VMs provide a strong, hardware-enforced boundary to help meet your security needs. There are limitation to Confidential VMs that apply when you create a Confidential VM with Ephemeral OS disk. Please check the [region](../confidential-computing/confidential-vm-overview.md#regions), [size](../confidential-computing/confidential-vm-overview.md#size-support) and [OS supported](../confidential-computing/confidential-vm-overview.md#os-support) limitations for confidential VMs.
+
+Virtual machine guest state (VMGS) disk contains the security state of the VM's components. Some components include the vTPM and UEFI bootloader. 
+Confidential VMs using Ephemeral OS disks by default would use **1 GiB** from the **OS cache** or **temp storage** based on the chosen placement option is reserved for VMGS.The lifecycle of the VMGS blob is tied to that of the OS Disk.
+
+> [!Important]
 > 
-> Ephemeral disk will not be accessible through the portal. You will receive a "Resource not Found" or "404" error when accessing the ephemeral disk which is expected.
+> When choosing a confidential VM with full OS disk encryption before VM deployment that uses a customer-managed key (CMK). [Updating a CMK key version](../storage/common/customer-managed-keys-overview.md#update-the-key-version) would result in error as key rotation is not supported with Ephemeral OS disk. For updating the key the confidential VMs with Ephemeral OS disks needs to be deleted.
 > 
+
+For more information on [confidential VM](../confidential-computing/confidential-vm-overview.md)
+
  
 ## Next steps
 Create a VM with ephemeral OS disk using [Azure Portal/CLI/Powershell/ARM template](ephemeral-os-disks-deploy.md).
