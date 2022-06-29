@@ -247,7 +247,7 @@ Instrumentation key overrides allow you to override the [default instrumentation
 
 ## Autocollect InProc dependencies (preview)
 
-Starting from 3.2.0, if you want to capture controller "InProc" dependencies, please use the following configuration:
+Starting from version 3.2.0, if you want to capture controller "InProc" dependencies, please use the following configuration:
 
 ```json
 {
@@ -359,7 +359,7 @@ To disable auto-collection of Micrometer metrics (including Spring Boot Actuator
 
 ## HTTP headers
 
-Starting from 3.3.0, you can capture request and response headers on your server (request) telemetry:
+Starting from version 3.3.0, you can capture request and response headers on your server (request) telemetry:
 
 ```json
 {
@@ -580,7 +580,7 @@ When sending telemetry to the Application Insights service fails, Application In
 to disk and continue retrying from disk.
 
 The default limit for disk persistence is 50 Mb. If you have high telemetry volume, or need to be able to recover from
-longer network or ingestion service outages, you can increase this limit starting from 3.3.0:
+longer network or ingestion service outages, you can increase this limit starting from version 3.3.0:
 
 ```json
 {
