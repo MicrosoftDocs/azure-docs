@@ -39,7 +39,7 @@ Verify that you have met the following criteria before beginning your configurat
 
 A hub is a virtual network that can contain gateways for site-to-site, ExpressRoute, or point-to-site functionality. Once the hub is created, you'll be charged for the hub, even if you don't attach any sites.
 
-[!INCLUDE [Create a hub](../../includes/virtual-wan-tutorial-s2s-hub-include.md)]
+[!INCLUDE [Create a hub](../../includes/virtual-wan-hub-basics.md)]
 
 ## <a name="vnet"></a>Connect the VNet to the hub
 

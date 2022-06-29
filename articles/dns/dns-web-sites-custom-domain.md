@@ -1,11 +1,11 @@
 ---
 title: 'Tutorial: Create custom Azure DNS records for a web app'
-description: In this tutorial, you create custom domain DNS records for web app using Azure DNS.
+description: In this tutorial, you learn how to create custom domain DNS records for web apps using Azure DNS.
 services: dns
 author: rohinkoul
 ms.service: dns
 ms.topic: tutorial
-ms.date: 06/06/2022
+ms.date: 06/10/2022
 ms.author: rohink 
 ms.custom: devx-track-azurepowershell
 #Customer intent: As an experienced network administrator, I want to create DNS records in Azure DNS, so I can host a web app in a custom domain.
@@ -13,7 +13,7 @@ ms.custom: devx-track-azurepowershell
 
 # Tutorial: Create DNS records in a custom domain for a web app 
 
-You can configure Azure DNS to host a custom domain for your web apps. For example, you can create an Azure web app and have your users access it using either www\.contoso.com or contoso.com as a fully qualified domain name (FQDN).
+You can configure Azure DNS to host a custom domain for your web apps. For example, you can create an Azure web app and have your users access it using either `www.contoso.com` or `contoso.com` as a fully qualified domain name (FQDN).
 
 To do this, you have to create three records:
 
@@ -21,8 +21,6 @@ To do this, you have to create three records:
 * A root "TXT" record for verification
 * A "CNAME" record for the www name that points to the A record
 
-> [!NOTE]
-> Contoso.com is used as an example throughout this tutorial. Substitute your own domain name for contoso.com.
 
 In this tutorial, you learn how to:
 
@@ -33,9 +31,11 @@ In this tutorial, you learn how to:
 > * Add custom host names to your web app
 > * Test the custom host names
 
+If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+
 ## Prerequisites
 
-* An Azure account with an active subscription. If you don’t have one, you can [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* An Azure account with an active subscription.
 
 * A domain name that you can host in Azure DNS. You must have full control of this domain. Full control includes the ability to set the name server (NS) records for the domain.
 
@@ -43,10 +43,16 @@ In this tutorial, you learn how to:
 
 * An Azure DNS zone with delegation in your registrar to Azure DNS. If you don't have one, you can [create a DNS zone](./dns-getstarted-powershell.md), then [delegate your domain](dns-delegate-domain-azure-dns.md#delegate-the-domain) to Azure DNS.
 
+> [!NOTE]
+> In this tutorial, `contoso.com` is used as an example domain name. Replace `contoso.com` with your own domain name.
+
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+## Sign in to Azure
+
+Sign in to the Azure portal at https://portal.azure.com.
 
 ## Create the A record
 
@@ -65,7 +71,7 @@ To create the A record, use:
 ```azurepowershell
 New-AzDnsRecordSet -Name "@" -RecordType "A" -ZoneName "contoso.com" `
  -ResourceGroupName "MyAzureResourceGroup" -Ttl 600 `
- -DnsRecords (New-AzDnsRecordConfig -IPv4Address "<your web app IP address>")
+ -DnsRecords (New-AzDnsRecordConfig -IPv4Address "<ip of web app service>")
 ```
 
 > [!IMPORTANT]
@@ -173,17 +179,14 @@ You should see the same page for both URLs. For example:
 
 When no longer needed, you can delete all resources created in this tutorial by deleting the resource group **MyAzureResourceGroup**:
 
-1. From the left-hand menu, select **Resource groups**.
-
+1. On the Azure portal menu, select **Resource groups**.
 2. Select the **MyAzureResourceGroup** resource group.
-
-3. Select **Delete resource group**.
-
+3. On the **Overview** page, select **Delete resource group**.
 4. Enter *MyAzureResourceGroup* and select **Delete**.
 
 ## Next steps
 
-Learn how to create Azure DNS private zones.
+In this tutorial, you learned how to create DNS records in a custom domain for a web app. To learn how to create alias records to reference zone records, continue with the next tutorial:
 
 > [!div class="nextstepaction"]
-> [Get started with Azure DNS private zones using PowerShell](private-dns-getstarted-powershell.md)
+> [Create alias records for zone records](tutorial-alias-rr.md)

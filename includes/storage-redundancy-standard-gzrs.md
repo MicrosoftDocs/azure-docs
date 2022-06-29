@@ -2,7 +2,7 @@
 author: tamram
 ms.service: storage
 ms.topic: include
-ms.date: 04/21/2022
+ms.date: 06/22/2022
 ms.author: tamram
 ---
 
@@ -19,6 +19,7 @@ GZRS is available for a subset of Azure regions:
 - (Europe) North Europe
 - (Europe) Norway East
 - (Europe) Sweden Central
+- (Europe) Switzerland North
 - (Europe) UK South
 - (Europe) West Europe
 - (North America) Canada Central

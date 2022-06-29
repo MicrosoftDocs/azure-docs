@@ -61,9 +61,9 @@ For example, in an environment running MODBUS, you might want to generate an ale
 Use custom, condition-based alert triggering and messaging to help pinpoint specific network activity and effectively update your security, IT, and operational teams.
 Contact [ms-horizon-support@microsoft.com](mailto:ms-horizon-support@microsoft.com) for details about working with the Open Development Environment (ODE) SDK and creating protocol plugins.
 
-## Extend Defender for IoT to enterprise networks
+## Protect enterprise networks
 
-Microsoft Defender for IoT can protect IoT and OT devices, whether they're connected to IT, OT, or dedicated IoT networks. 
+<a name="enterprise"></a>Microsoft Defender for IoT can protect IoT and OT devices, whether they're connected to IT, OT, or dedicated IoT networks. 
 
 Enterprise IoT network protection extends agentless features beyond operational environments, providing coverage for all IoT devices in your environment. For example, an enterprise IoT environment may include printers, cameras, and purpose-built, proprietary, devices.
 

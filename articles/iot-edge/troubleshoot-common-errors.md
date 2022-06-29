@@ -70,7 +70,7 @@ By default, IoT Edge starts modules in their own isolated container network. The
 
 **Option 1: Set DNS server in container engine settings**
 
-Specify the DNS server for your environment in the container engine settings, which will apply to all container modules started by the engine. Create a file named `daemon.json` specifying the DNS server to use. For example:
+Specify the DNS server for your environment in the container engine settings, which will apply to all container modules started by the engine. Create a file named `daemon.json`, then specify the DNS server to use. For example:
 
 ```json
 {
@@ -78,7 +78,7 @@ Specify the DNS server for your environment in the container engine settings, wh
 }
 ```
 
-The above example sets the DNS server to a publicly accessible DNS service. If the edge device can't access this IP from its environment, replace it with DNS server address that is accessible.
+This DNS server is set to a publicly accessible DNS service. However some networks, such as corporate networks, have their own DNS servers installed and won't allow access to public DNS servers. Therefore, if your edge device can't access a public DNS server, replace it with an accessible DNS server address.
 
 <!-- 1.1 -->
 :::moniker range="iotedge-2018-06"
@@ -421,7 +421,7 @@ IoT Edge modules that connect directly to cloud services, including the runtime 
 
 **Root cause:**
 
-Containers rely on IP packet forwarding in order to connect to the internet so that they can communicate with cloud services. IP packet forwarding is enabled by default in Docker, but if it gets disabled then any modules that connect to cloud services will not work as expected. For more information, see [Understand container communication](https://apimirror.com/docker~1.12/engine/userguide/networking/default_network/container-communication/index) in the Docker documentation.
+Containers rely on IP packet forwarding in order to connect to the internet so that they can communicate with cloud services. IP packet forwarding is enabled by default in Docker, but if it gets disabled then any modules that connect to cloud services will not work as expected. For more information, see [Understand container communication](https://docs.docker.com/config/containers/container-networking/) in the Docker documentation.
 
 **Resolution:**
 

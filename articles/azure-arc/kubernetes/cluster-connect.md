@@ -177,11 +177,11 @@ az connectedk8s enable-features --features cluster-connect -n $CLUSTER_NAME -g $
 1. Get the service account's token using the following commands:
 
     ```console
-    SECRET_NAME=$(kubectl get serviceaccount admin-user -o jsonpath='{$.secrets[0].name}')
+    $SECRET_NAME=(kubectl get serviceaccount admin-user -o jsonpath='{$.secrets[0].name}')
     ```
 
     ```console
-    TOKEN=$(kubectl get secret ${SECRET_NAME} -o jsonpath='{$.data.token}' | base64 -d | sed $'s/$/\\\n/g')
+    $TOKEN=(kubectl get secret ${SECRET_NAME} -o jsonpath='{$.data.token}' | base64 -d | sed $'s/$/\\\n/g')
     ```
 
 ### [Azure PowerShell](#tab/azure-powershell)

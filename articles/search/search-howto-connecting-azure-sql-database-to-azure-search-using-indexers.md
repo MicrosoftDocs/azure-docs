@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: how-to
-ms.date: 06/07/2022
+ms.date: 06/09/2022
 ---
 
 # Index data from Azure SQL
@@ -22,7 +22,7 @@ This article supplements [**Create an indexer**](search-howto-create-indexers.md
 
 ## Prerequisites
 
-+ An [Azure SQL database](/azure/azure-sql/database/sql-database-paas-overview) with data in a single table or view. Use a table if you want the ability to [index incremental updates](#CaptureChangedRows) using SQL's native change detection capabilities.
++ An [Azure SQL database](/azure/azure-sql/database/sql-database-paas-overview) with data in a single table or view. Use a table if you want the ability to [index incremental updates](#CaptureChangedRows) using SQL's native change detection capabilities. If you use a view, take into consideration that large views are not ideal for SQL indexer. For such cases, it is suggested to change your application to create an additional single table just for ingestion into your Cognitive Search index with integrated change tracking enabled, where each column matches a column in the index, so processing is optimized. This approach will help using SQL integrated change tracking, which is easier to implement than High Water Mark.
 
 + Read permissions. Azure Cognitive Search supports SQL Server authentication, where the user name and password are provided on the connection string. Alternatively, you can [set up a managed identity and use Azure roles](search-howto-managed-identities-sql.md) to omit credentials on the connection.
 

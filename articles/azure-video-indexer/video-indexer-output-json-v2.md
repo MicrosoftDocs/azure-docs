@@ -13,38 +13,60 @@ ms.author: juliako
 
 When a video is indexed, Azure Video Indexer produces the JSON content that contains details of the specified video insights. The insights include transcripts, optical character recognition elements (OCRs), faces, topics, blocks, and similar details. Each insight type includes instances of time ranges that show when the insight appears in the video. 
 
-> [!TIP]
-> The produced JSON output contains `Insights` and `SummarizedInsights` elements. We highly recommend using `Insights` and not using `SummarizedInsights` (which is present for backward compatibility). 
-
 To visually examine the video's insights, press the **Play** button on the video on the [Azure Video Indexer](https://www.videoindexer.ai/) website. 
 
 ![Screenshot of the Insights tab in Azure Video Indexer.](./media/video-indexer-output-json/video-indexer-summarized-insights.png)
 
-When indexing with an API and the response status is OK, you get a detailed JSON output as the response content. When calling the [Get Video Index](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Get-Video-Index) API, we recommend passing `&includeSummarizedInsights=false` to save time and reduce response length. 
+When indexing with an API and the response status is OK, you get a detailed JSON output as the response content. When calling the [Get Video Index](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Get-Video-Index) API, we recommend passing `&includeSummarizedInsights=false`. 
+
+[!INCLUDE [insights](./includes/insights.md)]
 
 This article examines the Azure Video Indexer output (JSON content). For information about what features and insights are available to you, see [Azure Video Indexer insights](video-indexer-overview.md#video-insights).
 
 > [!NOTE]
 > All the access tokens in Azure Video Indexer expire in one hour.
 
-## Get the insights
+## Get the insights using the website
 
 To get insights produced on the website or the Azure portal:
 
 1. Browse to the [Azure Video Indexer](https://www.videoindexer.ai/) website and sign in.
 1. Find a video whose output you want to examine.
 1. Press **Play**.
-1. Select the **Insights** tab to get summarized insights. Or select the **Timeline** tab to filter the relevant insights.
-1. Download artifacts and what's in them.
+1. Choose the **Insights** tab.
+2. Select which insights you want to view (under the **View** drop-down).
+3. Go to the **Timeline** tab to see timestamped transcript lines.
+4. Select **Download** > **Insights (JSON)** to get the insights output file.
+5. If you want to download artifacts, beware of the following:
+
+    [!INCLUDE [artifacts](./includes/artifacts.md)]
 
 For more information, see [View and edit video insights](video-indexer-view-edit.md).
 
-To get insights produced by the API:
+## Get insights produced by the API
 
-- To retrieve the JSON file, call the [Get Video Index API](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Get-Video-Index).
-- If you're interested in specific artifacts, call the [Get Video Artifact Download URL API](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Get-Video-Artifact-Download-Url).
+To retrieve the JSON file (OCR, face, keyframe, etc.) or an artifact type, call the [Get Video Index API](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Get-Video-Index).
 
-  In the API call, specify the requested artifact type (for example, OCR, face, or keyframe).
+This API returns a URL only with a link to the specific resource type you request. An additional GET request must be made to this URL for the specific artifact. The file types for each artifact type vary depending on the artifact:
+
+### JSON
+
+* OCR 
+* Faces
+* VisualContentModeration
+* LanguageDetection
+* MultiLanguageDetection 
+* Metadata
+* Emotions
+* TextualContentModeration
+* AudioEffects
+* ObservedPeople  
+* Labels
+
+### Zip file containing JPG images
+
+* KeyframesThumbnails
+* FacesThumbnails
 
 ## Root elements of the insights
 
@@ -62,7 +84,7 @@ To get insights produced by the API:
 |`isEditable`|Indicates whether the current user is authorized to edit the playlist.|
 |`isBase`|Indicates whether the playlist is a base playlist (a video) or a playlist made of other videos (derived).|
 |`durationInSeconds`|The total duration of the playlist.|
-|`summarizedInsights`|Contains one [summarized insight](#summarizedinsights).
+|`summarizedInsights`|Contains one [summarized insight](#summary-of-the-insights).
 |`videos`|A list of [videos](#videos) that construct the playlist.<br/>If this playlist is constructed of time ranges of other videos (derived), the videos in this list will contain only data from the included time ranges.|
 
 ```json
@@ -84,7 +106,7 @@ To get insights produced by the API:
 }
 ```
 
-## summarizedInsights
+## Summary of the insights
 
 This section shows a summary of the insights.
 
@@ -878,7 +900,7 @@ Azure Video Indexer makes an inference of main topics from transcripts. When pos
      }
   ]
 },
-` ` `
+
 ```
 
 ## Next steps

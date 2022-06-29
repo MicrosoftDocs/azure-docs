@@ -199,7 +199,7 @@ Get more information about [SIOS DataKeeper](https://us.sios.com/products/datake
 _Windows failover clustering configuration in Azure with SIOS DataKeeper_
 
 > [!NOTE]
-> You don't need shared disks for high availability with some DBMS products, like SQL Server. SQL Server AlwaysOn replicates DBMS data and log files from the local disk of one cluster node to the local disk of another cluster node. In this case, the Windows cluster configuration doesn't need a shared disk.
+> You don't need shared disks for high availability with some DBMS products, like SQL Server. SQL Server Always On replicates DBMS data and log files from the local disk of one cluster node to the local disk of another cluster node. In this case, the Windows cluster configuration doesn't need a shared disk.
 >
 ## Optional configurations
 

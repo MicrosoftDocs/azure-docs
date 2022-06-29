@@ -21,7 +21,7 @@ The workbook helps you to:
 
 This article describes how to track your migration with the **Microsoft Sentinel Deployment and Migration** workbook, how to customize and manage the workbook, and how to use the workbook tabs to deploy and monitor data connectors, analytics, incidents, playbooks, automation rules, U E B A, and data management. Learn more about how to use [Azure Monitor workbooks](monitor-your-data.md) in Microsoft Sentinel.
 
-## Deploy the workbook content 
+## Deploy the workbook content and view the workbook
 
 1. In the Azure portal, select Microsoft Sentinel and then select **Workbooks**. 
 1. From the search bar, search for `migration`. 

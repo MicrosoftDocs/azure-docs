@@ -6,8 +6,8 @@ ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: conceptual
-author: barbaraselden
-ms.author: baselden
+author: gargi-sinha
+ms.author: gasinh
 manager: martinco
 ms.reviewer: 
 ms.date: 4/26/2021

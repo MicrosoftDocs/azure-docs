@@ -476,7 +476,7 @@ Azure portal support for role management is not available yet.
 
 ### Which SDKs in Azure Cosmos DB SQL API support RBAC?
 
-The [.NET V3](sql-api-sdk-dotnet-standard.md), [Java V4](sql-api-sdk-java-v4.md) and [JavaScript V3](sql-api-sdk-node.md) SDKs are currently supported.
+The [.NET V3](sql-api-sdk-dotnet-standard.md), [Java V4](sql-api-sdk-java-v4.md), [JavaScript V3](sql-api-sdk-node.md) and [Python V4.3+](sql-api-sdk-python.md) SDKs are currently supported.
 
 ### Is the Azure AD token automatically refreshed by the Azure Cosmos DB SDKs when it expires?
 

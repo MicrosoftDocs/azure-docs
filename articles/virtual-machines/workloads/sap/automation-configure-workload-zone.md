@@ -138,11 +138,11 @@ automation_username = "azureadm"
 The table below defines the parameters used for defining the Key Vault information
 
 > [!div class="mx-tdCol2BreakAll "]
-> | Variable                           | Description                                                               | Type          | 
-> | ---------------------------------- | ------------------------------------------------------------------------- | ------------- | 
-> | `user_keyvault_id`	               | Azure resource identifier for the system credentials key vault            | Optional	   | 
-> | `spn_keyvault_id`                  | Azure resource identifier for the deployment credentials (SPNs) key vault | Optional	   | 
-
+> | Variable                            | Description                                                                    | Type         | Notes                               |
+> | ----------------------------------- | ------------------------------------------------------------------------------ | ------------ | ----------------------------------- |
+> | `user_keyvault_id`	                | Azure resource identifier for existing system credentials key vault            | Optional	   |                                     | 
+> | `spn_keyvault_id`                   | Azure resource identifier for existing deployment credentials (SPNs) key vault | Optional	   |                                     | 
+> | `enable_purge_control_for_keyvaults | Disables the purge protection for Azure key vaults.                            | Optional     | Only use this for test environments |
 
 ## Private DNS
 
