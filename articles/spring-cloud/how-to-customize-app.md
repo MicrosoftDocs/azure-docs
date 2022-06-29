@@ -4,7 +4,7 @@ description: How to add health probes in Azure Spring Apps
 author: 
 ms.service: spring-cloud
 ms.topic: conceptual
-ms.date: 4/28/2022
+ms.date: 6/29/2022
 ms.author: xuycao
 ms.custom: devx-track-java, devx-track-azurecli
 ---
@@ -16,6 +16,8 @@ ms.custom: devx-track-java, devx-track-azurecli
 **This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
 
 This article shows you how to customize apps running in Azure Spring Apps with health probes.
+
+A probe is a diagnostic performed periodically by Azure Spring Apps on an app instance. To perform a diagnostic, Azure Spring Apps either executes code within the container, or makes a network request.
 
 Azure Spring Apps uses liveness probes to know when to restart an application. For example, liveness probes could catch a deadlock, where an application is running, but unable to make progress. Restarting the application in such a state can help to make the application more available despite bugs.
 
@@ -31,12 +33,19 @@ By default, Azure Spring Apps offers default health probe rules for every applic
 
 * The [Azure Spring Apps extension](/cli/azure/azure-cli-extensions-overview) for the Azure CLI
 
-## Config health probes to applications
+## Config health probes and grace termination to applications
+
+### Grace Termination
+
+|Property Name | Description|
+|-|-|
+| terminationGracePeriodSeconds|  The grace period is the duration in seconds after the processes running in the App Instance are sent a termination signal and the time when the processes are forcibly halted with a kill signal. Set this value longer than the expected cleanup time for your process. Value must be non-negative integer. The value zero indicates stop immediately via the kill signal (no opportunity to shut down). If this value is nil, the default grace period will be used instead. Defaults to 90 seconds.
+ |
 
 ### Health Probe Properties
 |Property Name | Description|
 |-|-|
-| initialDelaySeconds|Number of seconds after the App Instance has started before probes are initiated.|
+| initialDelaySeconds|Number of seconds after the App Instance has started before probes are initiated. Default to 0 seconds. Minimum value is 0.|
 |periodSeconds|How often (in seconds) to perform the probe. Default to 10 seconds. Minimum value is 1.|
 |timeoutSeconds|Number of seconds after which the probe times out. Defaults to 1 second. Minimum value is 1.|
 |failureThreshold|Minimum consecutive failures for the probe to be considered failed after having succeeded. Defaults to 3. Minimum value is 1.|
@@ -46,17 +55,20 @@ By default, Azure Spring Apps offers default health probe rules for every applic
 
 - *HTTPGetAction*
 
+
+    Performs an HTTP GET request against the app instance on a specified path. The diagnostic is considered successful if the response has a status code greater than or equal to 200 and less than 400.
+
 |Property Name | Description|
 |-|-|
 |scheme|Scheme to use for connecting to the host. Defaults to HTTP.|
-|path|Path to access on the HTTP server.|
+|path|Path to access on the HTTP server of the app instance.|
 
 
 - *ExecAction*
 
 |Property Name | Description|
 |-|-|
-|command|Command is the command line to execute inside the Application's container.|
+|command|Command is the command line to execute inside the app instance. Exit status of 0 is treated as live/healthy and non-zero is unhealthy.|
 
 - *TCPSocketAction*
 
@@ -133,6 +145,16 @@ You can customize your application with the Azure CLI by using the following ste
        --name <application-name>
    ```
 
+4. Optionally, set the termination grace period seconds using the following command:
+ 
+ ```azurecli
+    az spring app update \
+       --grace-period <termination-grace-period-seconds> \
+       --resource-group <resource-group-name> \
+       --service <Azure-Spring-Cloud-instance-name> \
+       --name <application-name>
+   ```
+
 ---
 
 ## Use best practices
@@ -142,7 +164,40 @@ Use the following best practices when adding your own persistent storage to Azur
 * It's recommanded to use liveness and readiness probe together. The reason is that Azure Spring Apps provides two approachs for service discovery at the same time. And when the readiness probe fails, the app instance will only be removed from Kubernetes Service Discovery. A proper configed liveness probe can remove the issued app instance from Eureka Service Discovery to avoid unexpected cases.
 For more information about Service Discovery, please refer [Discover and register your Spring Boot applications](how-to-service-registration.md).
 * The total timeout before a probe failure is *initialDelaySeconds + periodSeconds * failureThreshold*. Please ensure this timeout is longer enough for your application to be about to start to server the traffic.
-* For spring boot applications, Spring Boot shipped with the [Health Groups support](https://docs.spring.io/spring-boot/docs/2.2.x/reference/html/production-ready-features.html#health-groups), allowing developers to select a subset of health indicators and group them under a single, correlated, health status. Please refer this blog for more information [Liveness and Readiness Probes with Spring Boot](https://spring.io/blog/2020/03/25/liveness-and-readiness-probes-with-spring-boot).  
+* For spring boot applications, Spring Boot shipped with the [Health Groups support](https://docs.spring.io/spring-boot/docs/2.2.x/reference/html/production-ready-features.html#health-groups), allowing developers to select a subset of health indicators and group them under a single, correlated, health status. Please refer this blog for more information [Liveness and Readiness Probes with Spring Boot](https://spring.io/blog/2020/03/25/liveness-and-readiness-probes-with-spring-boot). 
+
+    > Examples for Liveness and Readiness Probes with Spring Boot:
+    > ```json
+    > // liveness probe
+    > "probe": {
+    >        "initialDelaySeconds": 30,
+    >        "periodSeconds": 10,
+    >        "timeoutSeconds": 1,
+    >        "failureThreshold": 30,
+    >        "successThreshold": 1,
+    >        "probeAction": {
+    >            "type": "HTTPGetAction",
+    >            "scheme": "HTTP",
+    >            "path": "/actuator/health/liveness"
+    >        }
+    >    }
+    > ```
+    >
+    > ```json
+    > // readiness probe
+    > "probe": {
+    >        "initialDelaySeconds": 0,
+    >        "periodSeconds": 10,
+    >        "timeoutSeconds": 1,
+    >        "failureThreshold": 3,
+    >        "successThreshold": 1,
+    >        "probeAction": {
+    >            "type": "HTTPGetAction",
+    >            "scheme": "HTTP",
+    >            "path": "/actuator/health/readiness"
+    >        }
+    >    }
+    > ```
 
 
 ## FAQs
@@ -152,6 +207,34 @@ The following are frequently asked questions (FAQ) about using health probes wit
 * I received 400 response when create applications with customized health probes
 
    *The error message will point out which probe is responsible for the provision failure. Please make sure the health probe rules are correct and the timeout is long enough for the application to be in running state.*
+
+* What is the default probe settings for existing applications
+
+    ```json
+    "startupProbe": null,
+    "livenessProbe": {
+        "disableProbe": false,
+        "failureThreshold": 24,
+        "initialDelaySeconds": 60,
+        "periodSeconds": 10,
+        "probeAction": {
+            "type": "TCPSocketAction"
+        },
+        "successThreshold": 1,
+        "timeoutSeconds": 1
+    },
+    "readinessProbe": {
+        "disableProbe": false,
+        "failureThreshold": 3,
+        "initialDelaySeconds": 0,
+        "periodSeconds": 10,
+        "probeAction": {
+            "type": "TCPSocketAction"
+        },
+        "successThreshold": 1,
+        "timeoutSeconds": 1
+    },
+    ```
 
 ## Next steps
 
