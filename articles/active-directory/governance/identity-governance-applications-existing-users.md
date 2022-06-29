@@ -105,7 +105,7 @@ This section applies to applications that use another SQL database as its underl
 
 1. Log in to the system where the provisioning agent is or will be installed.
 1. Launch PowerShell.
-1. Construct a connection string for connecting to your database system. The components of a connection string will depend upon the requirements of your database. If you are using SQL Server, then see the [list of DSN and Connection String Keywords and Attributes](sql/connect/odbc/dsn-connection-string-attribute). If you are using a different database, then you'll need to include the mandatory keywords for connecting to that database. For example, if your database uses the fully-qualified pathname of the DSN file, a userID and password, then construct the connection string using the following commands.
+1. Construct a connection string for connecting to your database system. The components of a connection string will depend upon the requirements of your database. If you are using SQL Server, then see the [list of DSN and Connection String Keywords and Attributes](/sql/connect/odbc/dsn-connection-string-attribute). If you are using a different database, then you'll need to include the mandatory keywords for connecting to that database. For example, if your database uses the fully-qualified pathname of the DSN file, a userID and password, then construct the connection string using the following commands.
 
    ```powershell
    $filedsn = "c:\users\administrator\documents\db.dsn"
@@ -368,11 +368,11 @@ For Azure AD to match the users in the application with the users in Azure AD, y
 
 When an application role assignment is created in Azure AD for a user to application, then
 
-    * Azure AD will query the application to determine if the user already exists.
-    * Subsequent updates to the user's attributes in Azure AD will be sent to the application.
-    * Users will remain in the application indefinitely, unless updated outside of Azure AD, or until the assignment in Azure AD is removed.
-    * On the next review of that application's role assignments, the user will be included in the review.
-    * If the user is denied in an access review, then their application role assignment will be removed, and Azure AD will notify the application that the user is blocked from sign in.
+  - Azure AD will query the application to determine if the user already exists.
+  - Subsequent updates to the user's attributes in Azure AD will be sent to the application.
+  - Users will remain in the application indefinitely, unless updated outside of Azure AD, or until the assignment in Azure AD is removed.
+  - On the next review of that application's role assignments, the user will be included in the review.
+  - If the user is denied in an access review, then their application role assignment will be removed, and Azure AD will notify the application that the user is blocked from sign in.
 
 1. Create application role assignments for users who don't currently have role assignments.
 
