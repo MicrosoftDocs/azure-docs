@@ -53,7 +53,7 @@ The URL endpoints to allow for the Azure portal are specific to the Azure cloud 
 *.bmx.azure.com
 *.subscriptionrp.trafficmanager.net
 *.signup.azure.com
-```111```
+```
  
 #### General Azure services and documentation
 
