@@ -172,7 +172,7 @@ Telemetry emitted by these Azure SDKs is automatically collected by default:
 * [Azure Communication Identity](/java/api/overview/azure/communication-identity-readme) 1.0.0+
 * [Azure Communication Phone Numbers](/java/api/overview/azure/communication-phonenumbers-readme) 1.0.0+
 * [Azure Communication SMS](/java/api/overview/azure/communication-sms-readme) 1.0.0+
-* [Azure Cosmos DB](/java/api/overview/azure/cosmos-readme) 4.13.0+
+* [Azure Cosmos DB](/java/api/overview/azure/cosmos-readme) 4.22.0+
 * [Azure Digital Twins - Core](/java/api/overview/azure/digitaltwins-core-readme) 1.1.0+
 * [Azure Event Grid](/java/api/overview/azure/messaging-eventgrid-readme) 4.0.0+
 * [Azure Event Hubs](/java/api/overview/azure/messaging-eventhubs-readme) 5.6.0+
@@ -192,7 +192,9 @@ Telemetry emitted by these Azure SDKs is automatically collected by default:
 * [Azure Storage - Queues](/java/api/overview/azure/storage-queue-readme) 12.9.0+
 * [Azure Text Analytics](/java/api/overview/azure/ai-textanalytics-readme) 5.0.4+
 
-[//]: # "the above names and links scraped from https://azure.github.io/azure-sdk/releases/latest/java.html"
+[//]: # "Cosmos 4.22.0+ due to https://github.com/Azure/azure-sdk-for-java/pull/25571"
+
+[//]: # "the remaining above names and links scraped from https://azure.github.io/azure-sdk/releases/latest/java.html"
 [//]: # "and version synched manually against the oldest version in maven central built on azure-core 1.14.0"
 [//]: # ""
 [//]: # "var table = document.querySelector('#tg-sb-content > div > table')"
