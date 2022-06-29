@@ -1,11 +1,11 @@
 ---
-title: MedTech service in the Azure portal - Azure Health Data Services
-description: In this article, you'll learn how to deploy MedTech service in the Azure portal.
+title: Deploy the MedTech service in the Azure portal - Azure Health Data Services
+description: In this article, you'll learn how to deploy the MedTech service in the Azure portal.
 author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
-ms.date: 06/28/2022
+ms.date: 06/29/2022
 ms.author: jasteppe
 ms.custom: mode-api
 ---
@@ -33,7 +33,7 @@ It's important that you have the following prerequisites completed before you be
 >* Two MedTech services accessing the same device message event hub.
 >* A MedTech service and a storage writer application accessing the same device message event hub.
 
-If you already have an active Azure account, you can use the ![Deploy to Azure](https://aka.ms/deploytoazurebutton) button below to deploy a MedTech service that will include the following resources and permissions:
+If you already have an active Azure account, you can use the **"Deploy to Azure"** button below to deploy a MedTech service that will include the following resources and permissions:
  * An Azure Event Hubs Namespace and device message event hub (the event hub is named: **devicedata**).
  * An Azure event hub sender role (the sender role is named: **devicedatasender**).
  * An Azure Health Data Services workspace.
