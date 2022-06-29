@@ -58,7 +58,7 @@ To use the data plane APIs:
    - You can see detailed information and usage examples by continuing to the [.NET (C#) SDK (data plane)](#net-c-sdk-data-plane) section of this article.
 * You can use the Java SDK. To use the Java SDK...
    - You can view and install the package from Maven: [`com.azure:azure-digitaltwins-core`](https://search.maven.org/artifact/com.azure/azure-digitaltwins-core/1.0.0/jar)
-   - You can view the [SDK reference documentation](/java/api/overview/azure/digitaltwins/client?view=azure-java-stable&preserve-view=true)
+   - You can view the [SDK reference documentation](/java/api/overview/azure/digitaltwins)
    - You can find the SDK source in GitHub: [Azure IoT Digital Twins client library for Java](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/digitaltwins/azure-digitaltwins-core)
 * You can use the JavaScript SDK. To use the JavaScript SDK...
    - You can view and install the package from npm: [Azure Azure Digital Twins Core client library for JavaScript](https://www.npmjs.com/package/@azure/digital-twins-core).

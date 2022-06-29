@@ -81,7 +81,7 @@ To configure Azure AD single sign-on with Adobe Sign, perform the following step
     `https://<companyname>.echosign.com`
 
     > [!NOTE]
-    > These values are not real. Update these values with the actual Sign on URL and Identifier. Contact [Adobe Sign Client support team](https://helpx.adobe.com/in/contact/support.html) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+    > These values are not real. Update these values with the actual Sign on URL and Identifier. Contact [Adobe Sign Client support team](https://helpx.adobe.com/support.html) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 5. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Certificate (Base64)** from the given options as per your requirement and save it on your computer.
 
@@ -117,16 +117,16 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure Adobe Sign SSO
 
-1. Before configuration, contact the [Adobe Sign Client support team](https://helpx.adobe.com/in/contact/support.html) to add your domain in the Adobe Sign allowlist. Here's how to add the domain:
+1. Before configuration, contact the [Adobe Sign Client support team](https://helpx.adobe.com/support.html) to add your domain in the Adobe Sign allowlist. Here's how to add the domain:
 
-    a. The [Adobe Sign Client support team](https://helpx.adobe.com/in/contact/support.html) sends you a randomly generated token. For your domain, the token will be like the following: **adobe-sign-verification= xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx**
+    a. The [Adobe Sign Client support team](https://helpx.adobe.com/support.html) sends you a randomly generated token. For your domain, the token will be like the following: **adobe-sign-verification= xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx**
 
-    b. Publish the verification token in a DNS text record, and notify the [Adobe Sign Client support team](https://helpx.adobe.com/in/contact/support.html).
+    b. Publish the verification token in a DNS text record, and notify the [Adobe Sign Client support team](https://helpx.adobe.com/support.html).
 
     > [!NOTE]
     > This can take a few days, or longer. Note that DNS propagation delays mean that a value published in DNS might not be visible for an hour or more. Your IT administrator should be knowledgeable about how to publish this token in a DNS text record.
 
-    c. When you notify the [Adobe Sign Client support team](https://helpx.adobe.com/in/contact/support.html) through the support ticket, after the token is published, they validate the domain and add it to your account.
+    c. When you notify the [Adobe Sign Client support team](https://helpx.adobe.com/support.html) through the support ticket, after the token is published, they validate the domain and add it to your account.
 
     d. Generally, here's how to publish the token on a DNS record:
 

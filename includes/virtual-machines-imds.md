@@ -373,7 +373,7 @@ Schema breakdown:
 | `tagsList` | Tags formatted as a JSON array for easier programmatic parsing  | 2019-06-04
 | `userData` | The set of data specified when the VM was created for use during or after provisioning (Base64 encoded)  | 2021-01-01
 | `version` | Version of the VM image | 2017-04-02
-| `virtualMachineScaleSet.id` | the id of the [Virtual Machine Scale Set](../articles/virtual-machine-scale-sets/overview.md) the Virtual Machine is part of (if applicable) | 2021-03-01
+| `virtualMachineScaleSet.id` | ID of the [Virtual Machine Scale Set created with flexible orchestration](../articles/virtual-machines/flexible-virtual-machine-scale-sets.md) the Virtual Machine is part of. This field is not available for Virtual Machine Scale Sets created with uniform orchestration. | 2021-03-01
 | `vmId` | [Unique identifier](https://azure.microsoft.com/blog/accessing-and-using-azure-vm-unique-id/) for the VM | 2017-04-02
 | `vmScaleSetName` | [Virtual machine scale set Name](../articles/virtual-machine-scale-sets/overview.md) of your virtual machine scale set | 2017-12-01
 | `vmSize` | [VM size](../articles/virtual-machines/sizes.md) | 2017-04-02

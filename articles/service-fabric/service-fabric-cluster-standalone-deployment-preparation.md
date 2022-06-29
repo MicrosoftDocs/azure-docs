@@ -2,7 +2,7 @@
 title: Standalone Cluster Deployment Preparation 
 description: Documentation related to preparing the environment and creating the cluster configuration, to be considered prior to deploying a cluster intended for handling a production workload.
 ms.topic: conceptual
-ms.date: 9/11/2018
+ms.date: 5/19/2022
 ---
 # Plan and prepare your Service Fabric Standalone cluster deployment
 
@@ -55,6 +55,8 @@ Here are recommended specs for machines in a Service Fabric cluster:
 * The [RemoteRegistry service](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc754820(v=ws.11)) should be running on all the machines
 * **Service Fabric installation drive must be NTFS File System**
 * **Windows services *Performance Logs & Alerts* and *Windows Event Log* must [be enabled](/previous-versions/windows/it-pro/windows-server-2008-r2-and-2008/cc755249(v=ws.11))**.
+* **Remote User Account Control must be disabled**
+
 
 > [!IMPORTANT]
 > The cluster administrator deploying and configuring the cluster must have [administrator privileges](https://social.technet.microsoft.com/wiki/contents/articles/13436.windows-server-2012-how-to-add-an-account-to-a-local-administrator-group.aspx) on each of the machines. You cannot install Service Fabric on a domain controller.

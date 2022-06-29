@@ -1,8 +1,8 @@
 ---
 title: Monitoring Azure Load Balancer
 description: Start here to learn how to monitor load balancer.
-author: asudbring
-ms.author: allensu
+author: mbender-ms
+ms.author: mbender
 ms.service: load-balancer
 ms.topic: how-to
 ms.custom: subject-monitoring, devx-track-azurecli
@@ -282,12 +282,6 @@ Data in Azure Monitor Logs is stored in tables where each table has its own set 
 The [Activity log](../azure-monitor/essentials/activity-log.md) is a type of platform log that provides insight into subscription-level events. You can view it independently or route it to Azure Monitor Logs, where you can do much more complex queries using Log Analytics.  
 
 For a list of the tables used by Azure Monitor Logs and queryable by Log Analytics, see [Monitoring Load Balancer data reference](monitor-load-balancer-reference.md#azure-monitor-logs-tables)  
-
-### Sample Kusto queries
-
-> [!NOTE]
-> There is currently an issue with Kusto queries that prevents data from being retrieved from load balancer logs.
-
 
 ## Alerts
 

@@ -23,7 +23,7 @@ ms.custom: include file
 | Upload bandwidth <sup>2</sup> (Mbps) | 10 | 20 | 50 |
 | Webhooks | 2 | 10 | 500 |
 | Geo-replication | N/A | N/A | [Supported][geo-replication] |
-| Availability zones | N/A | N/A | [Preview][zones] |
+| Availability zones | N/A | N/A | [Supported][zones] |
 | Content trust | N/A | N/A | [Supported][content-trust] |
 | Private link with private endpoints | N/A | N/A | [Supported][plink] |
 | &bull; Private endpoints | N/A | N/A | 200 |
@@ -44,6 +44,8 @@ ms.custom: include file
 <sup>3</sup>A [docker pull](https://docs.docker.com/registry/spec/api/#pulling-an-image) translates to multiple read operations based on the number of layers in the image, plus the manifest retrieval.
 
 <sup>4</sup>A [docker push](https://docs.docker.com/registry/spec/api/#pushing-an-image) translates to multiple write operations, based on the number of layers that must be pushed. A `docker push` includes *ReadOps* to retrieve a manifest for an existing image.
+
+<sup>5</sup> Individual *actions* of `content/delete`, `content/read`, `content/write`, `metadata/read`, `metadata/write` corresponds to the limit of Repositories per scope map. 
 
 <!-- LINKS - External -->
 [pricing]: https://azure.microsoft.com/pricing/details/container-registry/

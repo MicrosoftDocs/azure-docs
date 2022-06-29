@@ -41,7 +41,7 @@ Review this section to familiarize yourself with considerations for designing vi
 
 ### Connect to Azure services with Private Link
 
-When you connect your private network to Azure services such as Storage, SQL, Cosmos DB, or any other [Azure service listed here](/azure/private-link/availability), the recommended approach is to use [Private Link](../../private-link/private-link-overview.md). 
+When you connect your private network to Azure services such as Storage, SQL, Cosmos DB, or any other [Azure service listed here](../../private-link/availability.md), the recommended approach is to use [Private Link](../../private-link/private-link-overview.md). 
 
 Private Link uses the private IP addresses of your virtual machines or other compute resources from your Azure network to connect privately and securely to Azure PaaS services over the Azure backbone network instead of over the internet. Private Link should be used when possible to connect to Azure services since it frees up SNAT ports for making outbound connections to the internet. To learn more about how NAT gateway uses SNAT ports, see [Source Network Address Translation](#source-network-address-translation).
 
@@ -117,7 +117,9 @@ For guides on how to enable NSG flow logs, see [Enabling NSG Flow Logs](../../ne
 
 Each NAT gateway can provide up to 50 Gbps of throughput. You can split your deployments into multiple subnets and assign each subnet or group of subnets a NAT gateway to scale out.
 
-Each NAT gateway public IP address provides 64,512 SNAT ports to make outbound connections. NAT gateway can support up to 50,000 concurrent connections per public IP address to the same destination endpoint over the internet for TCP and UDP. Review the following section for details and the [troubleshooting article](./troubleshoot-nat.md) for specific problem resolution guidance.
+Each NAT gateway public IP address provides 64,512 SNAT ports to make outbound connections. NAT gateway can support up to 50,000 concurrent connections per public IP address to the same destination endpoint over the internet for TCP and UDP. NAT gateway can process 1M packets per second and scale up to 5M packets per second.
+
+Review the following section for details and the [troubleshooting article](./troubleshoot-nat.md) for specific problem resolution guidance.
 
 ## Protocols
 
@@ -179,7 +181,7 @@ The following illustrates this concept as an additional flow to the preceding se
 |:---:|:---:|:---:|
 | 4 | 192.168.0.16:4285 | 65.52.0.2:80 |
 
-A NAT gateway will  translate flow 4 to a source port that may already be in use for other destinations as well. See [Scale NAT gateway](#scale-nat-gateway) for more discussion on correctly sizing your IP address provisioning.
+A NAT gateway will  translate flow 4 to a source port that may already be in use for other destinations as well (see flow 1 from table above). See [Scale NAT gateway](#scale-nat-gateway) for more discussion on correctly sizing your IP address provisioning.
 
 | Flow | Source tuple | Source tuple after SNAT | Destination tuple |
 |:---:|:---:|:---:|:---:|
@@ -208,6 +210,7 @@ For UDP traffic, after a connection has closed, the port will be in hold down fo
 | Timer | Description | Value |
 |---|---|---|
 | TCP idle timeout | TCP connections can go idle when no data is transmitted between either endpoint for a prolonged period of time. A timer can be configured from 4 minutes (default) to 120 minutes (2 hours) to time out a connection that has gone idle. Traffic on the flow will reset the idle timeout timer. | Configurable; 4 minutes (default) - 120 minutes |
+| UDP idle timeout | UDP connections can go idle when no data is transmitted between either endpoint for a prolonged period of time. UDP idle timeout timers are 4 minutes and are **not configurable**. Traffic on the flow will reset the idle timeout timer. | **Not configurable**; 4 minutes |
 
 > [!NOTE]
 > These timer settings are subject to change. The values are provided to help with troubleshooting and you should not take a dependency on specific timers at this time.
@@ -216,9 +219,11 @@ For UDP traffic, after a connection has closed, the port will be in hold down fo
 
 Design recommendations for configuring timers:
 
-- In an idle connection scenario, NAT gateway holds onto SNAT ports until the connection idle times out. Because long idle timeout timers can unnecessarily increase the likelihood of SNAT port exhaustion, it isn't recommended to increase the idle timeout duration to longer than the default time of 4 minutes. If a flow never goes idle, then it will not be impacted by the idle timer.
+- In an idle connection scenario, NAT gateway holds onto SNAT ports until the connection idle times out. Because long idle timeout timers can unnecessarily increase the likelihood of SNAT port exhaustion, it isn't recommended to increase the TCP idle timeout duration to longer than the default time of 4 minutes. If a flow never goes idle, then it will not be impacted by the idle timer.
 
 - TCP keepalives can be used to provide a pattern of refreshing long idle connections and endpoint liveness detection. TCP keepalives appear as duplicate ACKs to the endpoints, are low overhead, and invisible to the application layer.
+
+- Because UDP idle timeout timers are not configurable, UDP keepalives should be used to ensure that the idle timeout value isn't reached and that the connection is maintained. Unlike TCP connections, a UDP keepalive enabled on one side of the connection only applies to traffic flow in one direction. UDP keepalives must be enabled on both sides of the traffic flow in order to keep the traffic flow alive.
 
 ## Limitations
 
@@ -226,7 +231,7 @@ Design recommendations for configuring timers:
   
   - To upgrade a basic load balancer to standard, see [Upgrade Azure Public Load Balancer](../../load-balancer/upgrade-basic-standard.md)
   
-  - To upgrade a basic public IP address too standard, see [Upgrade a public IP address](../ip-services/public-ip-upgrade-portal.md)
+  - To upgrade a basic public IP address to standard, see [Upgrade a public IP address](../ip-services/public-ip-upgrade-portal.md)
 
 - NAT gateway does not support ICMP 
 

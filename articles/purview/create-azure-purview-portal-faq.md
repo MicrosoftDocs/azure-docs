@@ -1,6 +1,6 @@
 ---
-title: Create an exception to deploy Azure Purview
-description: This article describes how to create an exception to deploy Azure Purview while leaving existing Azure policies in place to maintain security.
+title: Create an exception to deploy Microsoft Purview
+description: This article describes how to create an exception to deploy Microsoft Purview while leaving existing Azure policies in place to maintain security.
 author: nayenama
 ms.author: nayenama
 ms.service: purview
@@ -8,13 +8,13 @@ ms.topic: how-to
 ms.date: 08/26/2021
 ---
 
-# Create an exception to deploy Azure Purview
+# Create an exception to deploy Microsoft Purview
 
-Many subscriptions have [Azure Policies](../governance/policy/overview.md) in place that restrict the creation of some resources. This is to maintain subscription security and cleanliness. However, Azure Purview accounts deploy two other Azure resources when they're created: an Azure Storage account, and an Event Hubs namespace. When you [create Azure Purview Account](create-catalog-portal.md), these resources will be deployed. They'll be managed by Azure, so you don't need to maintain them, but you'll need to deploy them. Existing policies may block this deployment, and you may receive an error when attempting to create an Azure Purview account.
+Many subscriptions have [Azure Policies](../governance/policy/overview.md) in place that restrict the creation of some resources. This is to maintain subscription security and cleanliness. However, Microsoft Purview accounts deploy two other Azure resources when they're created: an Azure Storage account, and an Event Hubs namespace. When you [create Microsoft Purview Account](create-catalog-portal.md), these resources will be deployed. They'll be managed by Azure, so you don't need to maintain them, but you'll need to deploy them. Existing policies may block this deployment, and you may receive an error when attempting to create a Microsoft Purview account.
 
 To maintain your policies in your subscription, but still allow the creation of these managed resources, you can create an exception.
 
-## Create an Azure policy exception for Azure Purview
+## Create an Azure policy exception for Microsoft Purview
 
 1. Navigate to the [Azure portal](https://portal.azure.com) and search for **Policy**
 
@@ -64,7 +64,7 @@ To maintain your policies in your subscription, but still allow the creation of 
     ```
   
     > [!Note]
-    > The tag could be anything beside `resourceBypass` and it's up to you to define value when creating Azure Purview in later steps as long as the policy can detect the tag.
+    > The tag could be anything beside `resourceBypass` and it's up to you to define value when creating Microsoft Purview in later steps as long as the policy can detect the tag.
 
     :::image type="content" source="media/create-catalog-portal/policy-definition.png" alt-text="Screenshot showing how to create policy definition.":::
 
@@ -74,8 +74,8 @@ To maintain your policies in your subscription, but still allow the creation of 
 
 > [!Note] 
 > If you have **Azure Policy** and need to add exception as in **Prerequisites**, you need to add the correct tag. For example, you can add `resourceBypass` tag:
-> :::image type="content" source="media/create-catalog-portal/add-purview-tag.png" alt-text="Add tag to Azure Purview account.":::
+> :::image type="content" source="media/create-catalog-portal/add-purview-tag.png" alt-text="Add tag to Microsoft Purview account.":::
 
 ## Next steps
 
-To set up Azure Purview by using Private Link, see [Use private endpoints for your Azure Purview account](./catalog-private-link.md).
+To set up Microsoft Purview by using Private Link, see [Use private endpoints for your Microsoft Purview account](./catalog-private-link.md).

@@ -1,7 +1,7 @@
 ---
 title: List of built-in policy definitions
 description: List built-in policy definitions for Azure Policy. Categories include Tags, Regulatory Compliance, Key Vault, Kubernetes, Guest Configuration, and more.
-ms.date: 03/08/2022
+ms.date: 05/11/2022
 ms.topic: sample
 ms.custom: generated
 ---
@@ -13,7 +13,7 @@ The name of each built-in links to the policy definition in the Azure portal. Us
 **Source** column to view the source on the
 [Azure Policy GitHub repo](https://github.com/Azure/azure-policy). The built-ins are grouped by the
 **category** property in **metadata**. To jump to a specific **category**, use the menu on the right
-side of the page. Otherwise, use <kbd>Ctrl</kbd>-<kbd>F</kbd> (Windows) or <kbd>Cmd</kbd>-<kbd>F</kbd> (macOS) to use your browser's search feature.
+side of the page. Otherwise, use <kbd>Ctrl</kbd>-<kbd>F</kbd> to use your browser's search feature.
 
 ## API for FHIR
 
@@ -87,6 +87,10 @@ side of the page. Otherwise, use <kbd>Ctrl</kbd>-<kbd>F</kbd> (Windows) or <kbd>
 
 [!INCLUDE [azure-policy-reference-policies-cache](../../../../includes/policy/reference/bycat/policies-cache.md)]
 
+## CDN
+
+[!INCLUDE [azure-policy-reference-policies-cdn](../../../../includes/policy/reference/bycat/policies-cdn.md)]
+
 ## Cognitive Services
 
 [!INCLUDE [azure-policy-reference-policies-cognitive-services](../../../../includes/policy/reference/bycat/policies-cognitive-services.md)]
@@ -159,6 +163,10 @@ side of the page. Otherwise, use <kbd>Ctrl</kbd>-<kbd>F</kbd> (Windows) or <kbd>
 
 [!INCLUDE [azure-policy-reference-policies-kubernetes](../../../../includes/policy/reference/bycat/policies-kubernetes.md)]
 
+## Lab Services
+
+[!INCLUDE [azure-policy-reference-policies-lab-services](../../../../includes/policy/reference/bycat/policies-lab-services.md)]
+
 ## Lighthouse
 
 [!INCLUDE [azure-policy-reference-policies-lighthouse](../../../../includes/policy/reference/bycat/policies-lighthouse.md)]
@@ -174,6 +182,10 @@ side of the page. Otherwise, use <kbd>Ctrl</kbd>-<kbd>F</kbd> (Windows) or <kbd>
 ## Managed Application
 
 [!INCLUDE [azure-policy-reference-policies-managed-application](../../../../includes/policy/reference/bycat/policies-managed-application.md)]
+
+## Managed Labs
+
+[!INCLUDE [azure-policy-reference-policies-managed-labs](../../../../includes/policy/reference/bycat/policies-managed-labs.md)]
 
 ## Media Services
 

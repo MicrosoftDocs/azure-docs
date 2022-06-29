@@ -384,7 +384,7 @@ print(response.text)
 
 ### Using system-assigned managed identity to Access SQL Database
 
-For details on provisioning access to an Azure SQL database, see [Provision Azure AD admin (SQL Database)](../azure-sql/database/authentication-aad-configure.md#provision-azure-ad-admin-sql-database).
+For details on provisioning access to an Azure SQL database, see [Provision Azure AD admin (SQL Database)](/azure/azure-sql/database/authentication-aad-configure#provision-azure-ad-admin-sql-database).
 
 ```powershell
 $queryParameter = "?resource=https://database.windows.net/" 

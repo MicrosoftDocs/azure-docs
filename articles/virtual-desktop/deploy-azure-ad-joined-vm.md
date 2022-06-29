@@ -7,7 +7,7 @@ manager: lizross
 
 ms.service: virtual-desktop
 ms.topic: how-to
-ms.date: 04/11/2022
+ms.date: 04/27/2022
 ms.author: helohr
 ---
 
@@ -31,7 +31,7 @@ User accounts can be cloud-only or synced users from the same Azure AD tenant.
 The following known limitations may impact access to your on-premises or Active Directory domain-joined resources and should be considered when deciding whether Azure AD-joined VMs are right for your environment. We currently recommend Azure AD-joined VMs for scenarios where users only need access to cloud-based resources or Azure AD-based authentication.
 
 - Azure Virtual Desktop (classic) doesn't support Azure AD-joined VMs.
-- Azure AD-joined VMs don't currently support external users.
+- Azure AD-joined VMs don't currently support external identities, such as Azure AD Business-to-Business (B2B) and Azure AD Business-to-Consumer (B2C).
 - Azure AD-joined VMs can only access Azure Files file shares for synced users using Azure AD Kerberos.
 - The Windows Store client doesn't currently support Azure AD-joined VMs.
 - Azure Virtual Desktop doesn't currently support single sign-on for Azure AD-joined VMs.
@@ -73,9 +73,9 @@ To enable access from Windows devices not joined to Azure AD, add **targetisaadj
 
 To access Azure AD-joined VMs using the web, Android, macOS and iOS clients, you must add **targetisaadjoined:i:1** as a [custom RDP property](customize-rdp-properties.md) to the host pool. These connections are restricted to entering user name and password credentials when signing in to the session host.
 
-### Enabling MFA for Azure AD joined VMs
+### Enforcing Azure AD Multi-Factor Authentication for Azure AD-joined session VMs
 
-You can enable [multifactor authentication](set-up-mfa.md) for Azure AD-joined VMs by setting a Conditional Access policy on the Azure Virtual Desktop app. For connections to succeed, you must [disable the legacy per-user multifactor authentication](../active-directory/devices/howto-vm-sign-in-azure-ad-windows.md#mfa-sign-in-method-required). If you don't want to restrict signing in to strong authentication methods like Windows Hello for Business, you'll also need to [exclude the Azure Windows VM Sign-In app](../active-directory/devices/howto-vm-sign-in-azure-ad-windows.md#mfa-sign-in-method-required) from your Conditional Access policy.
+You can use Azure AD Multi-Factor Authentication with Azure AD-joined VMs. Follow the steps to [Enforce Azure Active Directory Multi-Factor Authentication for Azure Virtual Desktop using Conditional Access](set-up-mfa.md) and note the extra steps for [Azure AD-joined session host VMs](set-up-mfa.md#azure-ad-joined-session-host-vms).
 
 ## User profiles
 

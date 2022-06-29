@@ -151,6 +151,19 @@ You can run the Get operation to verify the status.
 
 After the previous operation is complete, you no longer have connectivity between your on-premises network through your ExpressRoute circuits.
 
+## Update connectivity configuration
+
+To update the Global Reach connectivity configuration run the following command against one of the ExpressRoute circuits.
+
+```azurepowershell-interactive
+$ckt_1 = Get-AzExpressRouteCircuit -Name "Your_circuit_1_name" -ResourceGroupName "Your_resource_group"
+$ckt_2 = Get-AzExpressRouteCircuit -Name "Your_circuit_2_name" -ResourceGroupName "Your_resource_group"
+$addressSpace = 'aa:bb::0/125'
+$addressPrefixType = 'IPv6'
+Set-AzExpressRouteCircuitConnectionConfig -Name "Your_connection_name" -ExpressRouteCircuit $ckt_1 -PeerExpressRouteCircuitPeering $ckt_2.Peerings[0].Id -AddressPrefix $addressSpace -AddressPrefixType $addressPrefixType
+Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt_1
+```
+
 ## Next steps
 1. [Learn more about ExpressRoute Global Reach](expressroute-global-reach.md)
 2. [Verify ExpressRoute connectivity](expressroute-troubleshooting-expressroute-overview.md)

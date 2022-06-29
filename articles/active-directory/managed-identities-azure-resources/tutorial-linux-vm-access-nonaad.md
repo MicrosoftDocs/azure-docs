@@ -1,10 +1,10 @@
 ---
-title: Tutorial`:` Use a managed identity to access Azure Key Vault - Linux - Azure AD 
+title: "Tutorial: Use a managed identity to access Azure Key Vault - Linux"
 description: A tutorial that walks you through the process of using a Linux VM system-assigned managed identity to access Azure Resource Manager.
 services: active-directory
 documentationcenter: ''
 author: barclayn
-manager: karenhoran
+manager: rkarlin
 editor: daveba
 
 ms.service: active-directory

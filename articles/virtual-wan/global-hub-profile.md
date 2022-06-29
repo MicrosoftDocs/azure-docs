@@ -13,7 +13,7 @@ ms.author: cherylmc
 
 # Download a global or hub-based profile for User VPN clients
 
-Azure Virtual WAN offers two types of connectivity for remote users: global and hub-based. Use the following sections to learn about profile types and how to download them.
+Azure Virtual WAN offers two types of connectivity for User VPN (P2S) remote users: global and hub-based. Use the following sections to learn about profile types and how to download them.
 
 
 

@@ -24,7 +24,7 @@ Use the OCR client library to read printed and handwritten text from a remote im
 ## Prerequisites
 
 * An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/)
-* The current version of the [Java Development Kit (JDK)](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
+* The current version of the [Java Development Kit (JDK)](https://www.microsoft.com/openjdk)
 * The [Gradle build tool](https://gradle.org/install/), or another dependency manager.
 * Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="Create a Computer Vision resource"  target="_blank">create a Computer Vision resource </a> in the Azure portal to get your key and endpoint. After it deploys, click **Go to resource**.
     * You will need the key and endpoint from the resource you create to connect your application to the Computer Vision service. You'll paste your key and endpoint into the code below later in the quickstart.
@@ -84,7 +84,7 @@ Use the OCR client library to read printed and handwritten text from a remote im
 
     Navigate to the new folder and create a file called *ComputerVisionQuickstart.java*. Open it in your preferred editor or IDE.
 
-1. Find the subscription key and endpoint.
+1. Find the key and endpoint.
 
     [!INCLUDE [find key and endpoint](../find-key.md)]
 
@@ -92,10 +92,10 @@ Use the OCR client library to read printed and handwritten text from a remote im
 
    [!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart-single.java?name=snippet_single)]
 
-1. Paste your subscription key and endpoint into the above code where indicated. Your Computer Vision endpoint has the form `https://<your_computer_vision_resource_name>.cognitiveservices.azure.com/`.
+1. Paste your key and endpoint into the above code where indicated. Your Computer Vision endpoint has the form `https://<your_computer_vision_resource_name>.cognitiveservices.azure.com/`.
 
    > [!IMPORTANT]
-   > Remember to remove the subscription key from your code when you're done, and never post it publicly. For production, consider using a secure way of storing and accessing your credentials. For example, [Azure key vault](../../../../key-vault/general/overview.md).
+   > Remember to remove the key from your code when you're done, and never post it publicly. For production, consider using a secure way of storing and accessing your credentials. For example, [Azure key vault](../../../../key-vault/general/overview.md).
 
 1. Change the value of the `localFilePath` to match the image file you downloaded. 
 
@@ -123,7 +123,7 @@ If you want to clean up and remove a Cognitive Services subscription, you can de
 In this quickstart, you learned how to install the OCR client library and use the Read API. Next, learn more about the Read API features.
 
 > [!div class="nextstepaction"]
->[Call the Read API](../../Vision-API-How-to-Topics/call-read-api.md)
+>[Call the Read API](../../how-to/call-read-api.md)
 
 * [OCR overview](../../overview-ocr.md)
 * The source code for this sample can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java).

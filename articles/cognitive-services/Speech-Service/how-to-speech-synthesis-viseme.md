@@ -47,7 +47,7 @@ The overall workflow of viseme is depicted in the following flowchart:
 |-----------|-------------|
 | Viseme ID | An integer number that specifies a viseme.<br>For English (US), we offer 22 different visemes, each depicting the mouth shape for a specific set of phonemes. There is no one-to-one correspondence between visemes and phonemes. Often, several phonemes correspond to a single viseme, because they look the same on the speaker's face when they're produced, such as `s` and `z`. For more specific information, see the table for [mapping phonemes to viseme IDs](#map-phonemes-to-visemes).  |
 | Audio offset | The start time of each viseme, in ticks (100 nanoseconds). |
-| | |
+
 
 ## Get viseme events with the Speech SDK
 

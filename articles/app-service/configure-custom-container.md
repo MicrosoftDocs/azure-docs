@@ -206,11 +206,13 @@ The only exception is the `C:\home\LogFiles` directory, which is used to store t
 
 ::: zone pivot="container-linux"
 
-You can use the */home* directory in your custom container file system to persist files across restarts and share them across instances. The `/home` directory is provided to enable your custom container to access persistent storage.
+You can use the */home* directory in your custom container file system to persist files across restarts and share them across instances. The `/home` directory is provided to enable your custom container to access persistent storage. Saving data within `/home` will contribute to the [storage space quota](../azure-resource-manager/management/azure-subscription-service-limits.md#app-service-limits) included with your App Service Plan.
 
 When persistent storage is disabled, then writes to the `/home` directory are not persisted across app restarts or across multiple instances. When persistent storage is enabled, all writes to the `/home` directory are persisted and can be accessed by all instances of a scaled-out app. Additionally, any contents inside the `/home` directory of the container are overwritten by any existing files already present on the persistent storage when the container starts.
 
 The only exception is the `/home/LogFiles` directory, which is used to store the container and application logs. This folder will always persist upon app restarts if [application logging is enabled](troubleshoot-diagnostic-logs.md#enable-application-logging-linuxcontainer) with the **File System** option, independently of the persistent storage being enabled or disabled. In other words, enabling or disabling the persistent storage will not affect the application logging behavior.
+
+It is recommended to write data to `/home` or a [mounted azure storage path](configure-connect-to-azure-storage.md?tabs=portal&pivots=container-linux). Data written outside these paths will not be persistent during restarts and will be saved to platform-managed host disk space separate from the App Service Plans file storage quota.
 
 ::: zone-end
 
@@ -492,6 +494,13 @@ The following lists show supported and unsupported Docker Compose configuration 
 - networks (ignored)
 - secrets (ignored)
 - ports other than 80 and 8080 (ignored)
+
+#### Syntax Limitations
+
+- the "version x.x" always needs to be the first yaml statement in the file
+- the ports section must use quoted numbers
+- the image > volume section must be quoted and cannot have a permissions definitions
+- the volumes section must not have an empty curly brace after the volume name
 
 > [!NOTE]
 > Any other options not explicitly called out are ignored in Public Preview.

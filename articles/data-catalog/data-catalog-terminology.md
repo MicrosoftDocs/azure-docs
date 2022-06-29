@@ -7,7 +7,7 @@ ms.date: 02/15/2022
 ---
 # Azure Data Catalog terminology
 
-[!INCLUDE [Azure Purview redirect](../../includes/data-catalog-use-purview.md)]
+[!INCLUDE [Microsoft Purview redirect](../../includes/data-catalog-use-purview.md)]
 
 This article provides an introduction to concepts and terms used in Azure Data Catalog documentation.
 

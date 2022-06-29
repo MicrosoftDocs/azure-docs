@@ -27,7 +27,6 @@ In order to access capabilities related to marketplace or your developer account
 | Business contributor | &#10004;&#160;&#160;Access financial information<br>&#10004;&#160;&#160;Set pricing details<br>&#x2718;&#160;&#160;Create or submit new apps and add-ons |
 | Financial contributor | &#10004;&#160;&#160;View payout reports<br>&#10004;&#160;&#160;Manage payout and tax profiles<br>&#x2718;&#160;&#160;Make changes to apps or settings |
 | Marketer | &#10004;&#160;&#160;Respond to customer reviews<br>&#10004;&#160;&#160;View non-financial reports<br>&#x2718;&#160;&#160;Make changes to apps or settings |
-|||
 
 > [!NOTE]
 > For the Commercial Marketplace program, the Global admin, Business Contributor, Financial Contributor, and Marketer roles are not used. Assigning these roles to users has no effect. Only the Manager and Developer roles grant permissions to users.

@@ -3,7 +3,7 @@ title: View your Azure usage summary details and download reports for direct EA 
 description: This article explains how enterprise administrators of direct Enterprise Agreement (EA) enrollments can view a summary of their usage data, Azure Prepayment consumed, and charges associated with other usage in the Azure portal.
 author: bandersmsft
 ms.author: banders
-ms.date: 11/16/2021
+ms.date: 04/28/2022
 ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: enterprise
@@ -65,9 +65,9 @@ Enterprise administrators can also view an overall summary of the charges for th
 
 ## Download or view your Azure billing invoice
 
-You can download your invoice from the [Azure portal](https://portal.azure.com) or have it sent in email. Invoices are sent to whoever is set up to receive invoices for the enrollment.
+An EA administrator can download the invoice from the [Azure portal](https://portal.azure.com) or have it sent in email. Invoices are sent to whoever is set up to receive invoices for the enrollment. If someone other than an EA administrator needs an email copy of the invoice, an EA administrator can send them a copy.
 
-Only an Enterprise Administrator has permission to view and get the billing invoice. To learn more about getting access to billing information, see [Manage access to Azure billing using roles](manage-billing-access.md).
+Only an Enterprise Administrator has permission to view and download the billing invoice. To learn more about getting access to billing information, see [Manage access to Azure billing using roles](manage-billing-access.md).
 
 You receive an Azure invoice when any of the following events occur during your billing cycle:
 
@@ -171,7 +171,7 @@ Below are the Accounting codes and description for the adjustments.
 | T2 | Strategic Investment Credit: Transfer of Funds |
 | T3 | Volume Licensing Reconciliation Credit |
 | T4 | Separate Channel Balance Transfer |
-| T5 | Reservations - Exchange |
+| T5 | Exchange adjustment for Azure reservation |
 | U1 | Latent Onboarding Credit |
 | U2 | Funding Transfer |
 | U3 | Contract Term Transfer |
@@ -199,7 +199,7 @@ The following table lists the terms and descriptions shown on the Reservation tr
 | Billing frequency | Billing frequency of the reservation |
 | Type | Type of the transaction. For example, Purchase or Refund. |
 | Purchase Month | Month of the Purchase |
-| MC (USD) | Indicates the Monetary Committment value |
+| MC (USD) | Indicates the Monetary Commitment value |
 | Overage (USD) | Indicates the Service Overage value |
 | Quantity | Reservation quantity that was purchased |
 | Amount (USD) | Reservation cost |

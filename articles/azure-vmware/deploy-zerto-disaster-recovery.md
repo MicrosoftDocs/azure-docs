@@ -2,6 +2,7 @@
 title: Deploy Zerto disaster recovery on Azure VMware Solution (Initial Availability)
 description: Learn how to implement Zerto disaster recovery for on-premises VMware or Azure VMware Solution virtual machines. 
 ms.topic: how-to 
+ms.service: azure-vmware
 ms.date: 10/25/2021
 
 ---
@@ -123,7 +124,7 @@ You can reuse pre-existing Zerto product licenses for Azure VMware Solution envi
 
 ### How is Zerto supported?
 
-Zerto disaster recovery is a solution that is sold and supported by Zerto. For any support issue with Zerto disaster recovery, always contact [Zerto support](https://www.zerto.com/company/support-and-service/support/).
+Zerto disaster recovery is a solution that is sold and supported by Zerto. For any support issue with Zerto disaster recovery, always contact [Zerto support](https://www.zerto.com/support-and-services/).
 
 Zerto and Microsoft support teams will engage each other as needed to troubleshoot Zerto disaster recovery issues on Azure VMware Solution.
 

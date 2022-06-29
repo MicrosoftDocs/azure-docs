@@ -1,6 +1,6 @@
 ---
 title: "How to use the read model with the Form Recognizer REST API"
-description: Use the Form Recognizer prebuilt-read model and REST API to extract printed and handwritten text from documents.
+description: Use the Form Recognizer prebuilt-read model and REST API to extract printed (typeface) and handwritten text from documents.
 author: laujan
 manager: nitinme
 ms.service: applied-ai-services
@@ -22,7 +22,7 @@ recommendations: false
 * A Cognitive Services or Form Recognizer resource. Once you have your Azure subscription, create a [single-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) or [multi-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) Form Recognizer resource in the Azure portal to get your key and endpoint. You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
 
 > [!TIP]
-> Create a Cognitive Services resource if you plan to access multiple cognitive services under a single endpoint/key. For Form Recognizer access only, create a Form Recognizer resource. Please note that you'lll need a single-service resource if you intend to use [Azure Active Directory authentication](../../../../active-directory/authentication/overview-authentication.md).
+> Create a Cognitive Services resource if you plan to access multiple cognitive services under a single endpoint/key. For Form Recognizer access only, create a Form Recognizer resource. Please note that you'll  need a single-service resource if you intend to use [Azure Active Directory authentication](../../../../active-directory/authentication/overview-authentication.md).
 
 * After your resource deploys, select **Go to resource**. You need the key and endpoint from the resource you create to connect your application to the Form Recognizer API. You'll paste your key and endpoint into the code below later in the quickstart:
 
@@ -41,11 +41,11 @@ Form Recognizer v3.0 consolidates the analyze document (POST) and get result (GE
 
 Before you run the following cURL command, make the following changes:
 
-1. Replace `{endpoint}` with the endpoint value from your Form Recognizer instance in the Azure portal.
-1. Replace `{key}` with the key value from your Form Recognizer instance in the Azure portal.
+1. Replace `{endpoint}` with the endpoint value from your Azure portal Form Recognizer instance.
+1. Replace `{key}` with the key value from your Azure portal Form Recognizer instance.
 
 ```bash
-curl -v -i POST "{endpoint}/formrecognizer/documentModels/prebuilt-read:analyze?api-version=2022-01-30-preview" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: {key}" --data-ascii "{'urlSource': 'https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/rest-api/read.png'}"
+curl -v -i POST "{endpoint}/formrecognizer/documentModels/prebuilt-read:analyze?api-version=2022-06-30" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: {key}" --data-ascii "{'urlSource': 'https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/rest-api/read.png'}"
 ```
 
 #### Operation-Location
@@ -56,14 +56,14 @@ You'll receive a `202 (Success)` response that includes an **Operation-Location*
 
 ### Get Request
 
-After you've called the [**Analyze document**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/AnalyzeDocument) API, call the [**Get analyze result**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/GetAnalyzeDocumentResult) API to get the status of the operation and the extracted data. Before you run the command, make these changes:
+After you've called the [**Analyze document**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-06-30-preview/operations/AnalyzeDocument) API, call the [**Get analyze result**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-06-30-preview/operations/GetAnalyzeDocumentResult) API to get the status of the operation and the extracted data. Before you run the command, make these changes:
 
-1. Replace `{endpoint}` with the endpoint value from your Form Recognizer instance in the Azure portal.
-1. Replace `{key}` with the key value from your Form Recognizer instance in the Azure portal.
+1. Replace `{endpoint}` with the endpoint value from your Azure portal Form Recognizer instance.
+1. Replace `{key}` with the key value from your Azure portal Form Recognizer instance.
 1. Replace `{resultID}` with the result ID from the [Operation-Location](#operation-location) header.
 
 ```bash
-curl -v -X GET "{endpoint}/formrecognizer/documentModels/prebuilt-read/analyzeResults/{resultId}?api-version=2022-01-30-preview" -H "Ocp-Apim-Subscription-Key: {key}"
+curl -v -X GET "{endpoint}/formrecognizer/documentModels/prebuilt-read/analyzeResults/{resultId}?api-version=2022-06-30" -H "Ocp-Apim-Subscription-Key: {key}"
 ```
 
 ### Read Model Output
@@ -76,7 +76,7 @@ You'll receive a `200 (Success)` response with JSON output. The first field, `"s
     "createdDateTime": "2022-04-08T00:36:48Z",
     "lastUpdatedDateTime": "2022-04-08T00:36:50Z",
     "analyzeResult": {
-        "apiVersion": "2022-01-30-preview",
+        "apiVersion": "2022-06-30",
         "modelId": "prebuilt-read",
         "stringIndexType": "textElements",
         "content": "While healthcare is still in the early stages of its Al journey, we\nare seeing...",

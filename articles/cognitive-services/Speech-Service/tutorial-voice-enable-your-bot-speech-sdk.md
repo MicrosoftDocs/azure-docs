@@ -11,7 +11,7 @@ ms.topic: tutorial
 ms.date: 01/24/2022
 ms.author: eur
 ms.devlang: csharp
-ms.custom: devx-track-csharp
+ms.custom: cogserv-non-critical-speech, devx-track-csharp
 ---
 
 # Tutorial: Voice-enable your bot
@@ -486,12 +486,7 @@ If you're not going to continue using the echo bot deployed in this tutorial, yo
 1. Find the **SpeechEchoBotTutorial-ResourceGroup** resource group. Select the three dots (...).
 1. Select **Delete resource group**.
 
-## Next steps
-
-> [!div class="nextstepaction"]
-> [Build your own client app by using the Speech SDK](./quickstarts/voice-assistants.md?pivots=programming-language-csharp)
-
-## See also
+## Explore documentation
 
 * [Deploy to an Azure region near you](https://azure.microsoft.com/global-infrastructure/locations/) to see the improvement in bot response time.
 * [Deploy to an Azure region that supports high-quality neural text-to-speech voices](./regions.md#prebuilt-neural-voices).
@@ -501,3 +496,8 @@ If you're not going to continue using the echo bot deployed in this tutorial, yo
 * Build and deploy your own voice-enabled bot:
   * Build a [Bot Framework bot](https://dev.botframework.com/). Then [register it with the Direct Line Speech channel](/azure/bot-service/bot-service-channel-connect-directlinespeech) and [customize your bot for voice](/azure/bot-service/directline-speech-bot).
   * Explore existing [Bot Framework solutions](https://microsoft.github.io/botframework-solutions/index): [Build a virtual assistant](https://microsoft.github.io/botframework-solutions/overview/virtual-assistant-solution/) and [extend it to Direct Line Speech](https://microsoft.github.io/botframework-solutions/clients-and-channels/tutorials/enable-speech/1-intro/).
+
+## Next steps
+
+> [!div class="nextstepaction"]
+> [Build your own client app by using the Speech SDK](./quickstarts/voice-assistants.md?pivots=programming-language-csharp)

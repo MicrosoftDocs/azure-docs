@@ -219,7 +219,7 @@ module.exports = function (context, req) {
 
 ### Test Blob Created event handling
 
-Test the new functionality of the function by putting a [Blob storage event](./event-schema-blob-storage.md#example-event) into the test field and running:
+Test the new functionality of the function by putting a [Blob storage event](./event-schema-blob-storage.md#example-events) into the test field and running:
 
 ```json
 [{

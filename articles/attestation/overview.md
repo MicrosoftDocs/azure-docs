@@ -46,7 +46,7 @@ OE standardizes specific requirements for verification of an enclave evidence. T
 
 Client applications can be designed to take advantage of TPM attestation by delegating security-sensitive tasks to only take place after a platform has been validated to be secure. Such applications can then make use of Azure Attestation to routinely establish trust in the platform and its ability to access sensitive data.
 
-### Azure Confidential VM attestation 
+### AMD SEV-SNP attestation 
 
 Azure [Confidential VM](../confidential-computing/confidential-vm-overview.md) (CVM) is based on [AMD processors with SEV-SNP technology](../confidential-computing/virtual-machine-solutions-amd.md) and aims to improve VM security posture by removing trust in host, hypervisor and Cloud Service Provider (CSP). To achieve this, CVM offers VM OS disk encryption option with platform-managed keys and binds the disk encryption keys to the virtual machine's TPM. When a CVM boots up, SNP report containing the guest VM firmware measurements will be sent to Azure Attestation. The service validates the measurements and issues an attestation token that is used to release keys from [Managed-HSM](../key-vault/managed-hsm/overview.md) or [Azure Key Vault](../key-vault/general/basic-concepts.md). These keys are used to decrypt the vTPM state of the guest VM, unlock the OS disk and start the CVM. The attestation and key release process is performed automatically on each CVM boot, and the process ensures the CVM boots up only upon successful attestation of the hardware.
 
@@ -54,7 +54,7 @@ Azure [Confidential VM](../confidential-computing/confidential-vm-overview.md) (
 
 Azure customers can [prevent bootkit and rootkit infections](https://www.youtube.com/watch?v=CQqu_rTSi0Q) by enabling [Trusted launch](../virtual-machines/trusted-launch.md)) for their virtual machines (VMs). When the VM is Secure Boot and vTPM enabled with guest attestation extension installed, vTPM measurements get submitted to Azure Attestation periodically for monitoring of boot integrity. An attestation failure indicates potential malware, which is surfaced to customers via Microsoft Defender for Cloud, through Alerts and Recommendations. 
 
-## Azure Attestation can run in a TEE
+## Azure Attestation runs in a TEE
 
 Azure Attestation is critical to Confidential Computing scenarios, as it performs the following actions:
 
@@ -63,11 +63,7 @@ Azure Attestation is critical to Confidential Computing scenarios, as it perform
 - Manages and stores tenant-specific policies.
 - Generates and signs a token that is used by relying parties to interact with the enclave.
 
-Azure Attestation is built to run in two types of environments:
-- Azure Attestation running in an SGX enabled TEE.
-- Azure Attestation running in a non-TEE.
-
-Azure Attestation customers have expressed a requirement for Microsoft to be operationally out of trusted computing base (TCB). This is to prevent Microsoft entities such as VM admins, host admins, and Microsoft developers from modifying attestation requests, policies, and Azure Attestation-issued tokens. Azure Attestation is also built to run in TEE, where features of Azure Attestation like quote validation, token generation, and token signing are moved into an SGX enclave.
+To keep Microsoft operationally out of trusted computing base (TCB), critical operations of Azure Attestation like quote validation, token generation, policy evaluation and token signing are moved into an SGX enclave.
 
 ## Why use Azure Attestation
 

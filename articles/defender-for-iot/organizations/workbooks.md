@@ -192,6 +192,6 @@ Learn more about viewing dashboards and reports on the sensor console:
 
 Learn more about Azure Monitor workbooks and Azure Resource Graph:
 
-- [Azure Resource Graph documentation](/azure/governance/resource-graph/)
-- [Azure Monitor workbook documentation](/azure/azure-monitor/visualize/workbooks-overview)
+- [Azure Resource Graph documentation](../../governance/resource-graph/index.yml)
+- [Azure Monitor workbook documentation](../../azure-monitor/visualize/workbooks-overview.md)
 - [Kusto Query Language (KQL) documentation](/azure/data-explorer/kusto/query/)

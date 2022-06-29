@@ -31,7 +31,7 @@ In this example, you set an environment variable for a container. The article as
 
     ```xml
       <ServiceManifestImport>
-        <ServiceManifestVersion="1.0.0" />
+        <ServiceManifestRef ServiceManifestName="Guest1Pkg" ServiceManifestVersion="1.0.0" />
         <EnvironmentOverrides CodePackageRef="MyCode">
           <EnvironmentVariable Name="MyEnvVariable" Value="OverrideValue"/>
         </EnvironmentOverrides>

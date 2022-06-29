@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.topic: how-to
 ms.subservice: roles
 ms.workload: identity
-ms.date: 03/22/2022
+ms.date: 06/01/2022
 ms.author: rolyon
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
@@ -90,18 +90,19 @@ You can assign an Azure AD role with an administrative unit scope by using the A
 
 ### PowerShell
 
+Use the [New-AzureADMSRoleAssignment](/powershell/module/azuread/new-azureadmsroleassignment) command and the `DirectoryScopeId` parameter to assign a role with administrative unit scope.
+
 ```powershell
-$adminUser = Get-AzureADUser -ObjectId "Use the user's UPN, who would be an admin on this unit"
-$role = Get-AzureADDirectoryRole | Where-Object -Property DisplayName -EQ -Value "User Administrator"
-$adminUnitObj = Get-AzureADMSAdministrativeUnit -Filter "displayname eq 'The display name of the unit'"
-$roleMember = New-Object -TypeName Microsoft.Open.MSGraph.Model.MsRoleMemberInfo
-$roleMember.Id = $adminUser.ObjectId
-Add-AzureADMSScopedRoleMembership -Id $adminUnitObj.Id -RoleId $role.ObjectId -RoleMemberInfo $roleMember
+$user = Get-AzureADUser -Filter "userPrincipalName eq 'Example_UPN'"
+$roleDefinition = Get-AzureADMSRoleDefinition -Filter "displayName eq 'Example_role_name'"
+$adminUnit = Get-AzureADMSAdministrativeUnit -Filter "displayName eq 'Example_admin_unit_name'"
+$directoryScope = '/administrativeUnits/' + $adminUnit.Id
+$roleAssignment = New-AzureADMSRoleAssignment -DirectoryScopeId $directoryScope -RoleDefinitionId $roleDefinition.Id -PrincipalId $user.objectId
 ```
 
-You can change the highlighted section as required for the specific environment.
-
 ### Microsoft Graph API
+
+Use the [Add a scopedRoleMember](/graph/api/administrativeunit-post-scopedrolemembers) API to assign a role with administrative unit scope.
 
 Request
 
@@ -136,14 +137,16 @@ You can view all the role assignments created with an administrative unit scope 
 
 ### PowerShell
 
+Use the [Get-AzureADMSScopedRoleMembership](/powershell/module/azuread/get-azureadmsscopedrolemembership) command to list role assignments with administrative unit scope.
+
 ```powershell
-$adminUnitObj = Get-AzureADMSAdministrativeUnit -Filter "displayname eq 'The display name of the unit'"
-Get-AzureADMSScopedRoleMembership -Id $adminUnitObj.Id | fl *
+$adminUnit = Get-AzureADMSAdministrativeUnit -Filter "displayname eq 'Example_admin_unit_name'"
+Get-AzureADMSScopedRoleMembership -Id $adminUnit.Id | fl *
 ```
 
-You can change the highlighted section as required for your specific environment.
-
 ### Microsoft Graph API
+
+Use the [List scopedRoleMembers](/graph/api/administrativeunit-list-scopedrolemembers) API to list role assignments with administrative unit scope.
 
 Request
 

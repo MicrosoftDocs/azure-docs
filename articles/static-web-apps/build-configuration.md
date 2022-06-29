@@ -5,7 +5,7 @@ services: static-web-apps
 author: craigshoemaker
 ms.service: static-web-apps
 ms.topic: conceptual
-ms.date: 12/21/2021
+ms.date: 04/20/2021
 ms.author: cshoe
 ms.custom: contperf-fy21q4
 ---
@@ -18,8 +18,8 @@ The following table lists the available configuration settings.
 
 | Property | Description | Required |
 |---|---|---|
-| `app_location` | This folder contains the source code for your front-end application. The value is relative to the repository root in GitHub and the current working folder in Azure DevOps. | Yes |
-| `api_location` | This folder that contains the source code for your API application. The value is relative to the repository root in GitHub and the current working folder in Azure DevOps. | No |
+| `app_location` | This folder contains the source code for your front-end application. The value is relative to the repository root in GitHub and the current working folder in Azure DevOps. When used with `skip_app_build: true`, this value is the app's build output location. | Yes |
+| `api_location` | This folder that contains the source code for your API application. The value is relative to the repository root in GitHub and the current working folder in Azure DevOps. When used with `skip_api_build: true`, this value is the API's build output location. | No |
 | `output_location` | If your web app runs a build step, the output location is the folder where the public files are generated. For most projects, the `output_location` is relative to the `app_location`. However, for .NET projects, the location is relative to the publish output folder. | No |
 | `app_build_command` | For Node.js applications, you can define a custom command to build the static content application.<br><br>For example, to configure a production build for an Angular application create an npm script named `build-prod` to run `ng build --prod` and enter `npm run build-prod` as the custom command. If left blank, the workflow tries to run the `npm run build` or `npm run build:azure` commands. | No |
 | `api_build_command` | For Node.js applications, you can define a custom command to build the Azure Functions API application. | No |
@@ -28,7 +28,7 @@ The following table lists the available configuration settings.
 | `cwd`<br />(Azure Pipelines only) | Absolute path to the working folder. Defaults to `$(System.DefaultWorkingDirectory)`. | No |
 | `build_timeout_in_minutes` | Set this value to customize the build timeout. Defaults to `15`. | No |
 
-With these settings, you can set up GitHub Actions or [Azure Pipelines](publish-devops.md) to run continuous integration/continuous delivery (CI/CD) for your static web app.
+With these settings, you can set up GitHub Actions or [Azure Pipelines](get-started-portal.md?pivots=azure-devops) to run continuous integration/continuous delivery (CI/CD) for your static web app.
 
 ## File name and location
 
@@ -134,7 +134,7 @@ In this configuration:
 - The `api_location` points to the `api` folder that contains the Azure Functions application for the site's API endpoints. This value is relative to the working directory (`cwd`). To set it to the working directory, use `/`.
 - The `output_location` points to the `public` folder that contains the final version of the app's source files. This value is relative to `app_location`. For .NET projects, the location is relative to the publish output folder.
 - The `cwd` is an absolute path pointing to the working directory. It defaults to `$(System.DefaultWorkingDirectory)`.
-- The `$(deployment_token)` variable points to the [generated Azure DevOps deployment token](./publish-devops.md).
+- The `$(deployment_token)` variable points to the [generated Azure DevOps deployment token](./get-started-portal.md?pivots=azure-devops).
 
 > [!NOTE]
 > `app_location` and `api_location` must be relative to the working directory (`cwd`) and they must be subdirectories under `cwd`.
@@ -189,6 +189,9 @@ To skip building the front-end app:
 - Set `skip_app_build` to `true`.
 - Set `output_location` to an empty string (`''`).
 
+> [!NOTE]
+> Make sure you have your `staticwebapp.config.json` file copied as well into the *output* directory.
+
 # [GitHub Actions](#tab/github-actions)
 
 ```yml
@@ -221,20 +224,19 @@ inputs:
 ## Skip building the API
 
 If you want to skip building the API, you can bypass the automatic build and deploy the API built in a previous step.
-> [!NOTE]
-> Currently the `skip_api_build` is only supported in GitHub Actions and not Azure Pipelines.
 
 Steps to skip building the API:
 
-- In the *staticwebapp.config.json* file, set `apiRuntime` to the correct language and version. Refer to [Configure Azure Static Web Apps](configuration.md#selecting-the-api-language-runtime-version) for the list of supported languages and versions.
-```json
-{
-  "platform": {
-    "apiRuntime": "node:16"
-  }
-}
-```
+- In the *staticwebapp.config.json* file, set `apiRuntime` to the correct runtime and version. Refer to [Configure Azure Static Web Apps](configuration.md#selecting-the-api-language-runtime-version) for the list of supported runtimes and versions.
+    ```json
+    {
+      "platform": {
+        "apiRuntime": "node:16"
+      }
+    }
+    ```
 - Set `skip_api_build` to `true`.
+- Set `api_location` to the folder containing the built API app to deploy. This path is relative to the repository root in GitHub Actions and `cwd` in Azure Pipelines.
 
 # [GitHub Actions](#tab/github-actions)
 
@@ -250,9 +252,21 @@ with:
   output_location: "public" # Built app content directory, relative to app_location - optional
   skip_api_build: true
 ```
+
 # [Azure Pipelines](#tab/azure-devops)
-This feature is unsupported in Azure Pipelines.
----
+
+
+```yml
+...
+
+inputs:
+  app_location: 'src'
+  api_location: 'api'
+  output_location: 'public'
+  skip_api_build: true
+  azure_static_web_apps_api_token: $(deployment_token)
+```
+
 ---
 
 ## Extend build timeout

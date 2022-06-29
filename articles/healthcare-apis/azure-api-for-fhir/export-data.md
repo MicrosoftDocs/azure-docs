@@ -1,12 +1,12 @@
 ---
 title: Executing the export by invoking $export command on Azure API for FHIR
 description: This article describes how to export FHIR data using $export for Azure API for FHIR
-author: caitlinv39
+author: mikaelweave
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 02/15/2022
-ms.author: cavoeg
+ms.date: 06/03/2022
+ms.author: mikaelw
 ---
 
 # How to export FHIR data in Azure API for FHIR
@@ -144,3 +144,5 @@ In this article, you've learned how to export FHIR resources using $export comma
  
 >[!div class="nextstepaction"]
 >[Export de-identified data](de-identified-export.md)
+
+FHIR&#174; is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.

@@ -7,7 +7,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/24/2021
+ms.date: 04/29/2022
 ms.custom: subject-monitoring
 ---
 
@@ -48,8 +48,7 @@ The system information above information can also be read from the Azure portal.
 
 On Azure portal pages, check the Usage and Monitoring tabs for counts and metrics. Commands on the left-navigation provide access to configuration and data exploration pages.
 
-  ![Azure Monitor integration in a search service](./media/search-monitor-usage/azure-monitor-search.png
- "Azure Monitor integration in a search service")
+  ![Azure Monitor integration in a search service](./media/search-monitor-usage/azure-monitor-search.png "Azure Monitor integration in a search service")
 
 > [!NOTE]
 > Cognitive Search does not monitor individual user access to search data (sometimes referred to as document-level or row-level access). Indexing and query requests originate from a client application that presents either an admin or query API key on the request.
@@ -142,8 +141,8 @@ The following table lists common and recommended alert rules for Azure Cognitive
 
 | Alert type | Condition | Description  |
 |:---|:---|:---|
-| Search Latency (metric alert) | Whenever the average search latency is greater than 15 seconds | Send an SMS alert when average query response time exceeds 15 seconds. |
-| Throttled search queries percentage (metric alert) | Whenever the total throttled search queries percentage is greater than or equal to 20% | Send an SMS alert when dropped queries begin to exceed 10%.|
+| Search Latency (metric alert) | Whenever the average search latency is greater than a user-specified threshold (in  seconds) | Send an SMS alert when average query response time exceeds the threshold. |
+| Throttled search queries percentage (metric alert) | Whenever the total throttled search queries percentage is greater than or equal to a user-specified threshold | Send an SMS alert when dropped queries begin to exceed the threshold.|
 | Delete Search Service (activity log alert) | Whenever the Activity Log has an event with Category='Administrative', Signal name='Delete Search Service (searchServices)', Level='critical' | Send an email if a search service is deleted in the subscription. |
 
 > [!NOTE]

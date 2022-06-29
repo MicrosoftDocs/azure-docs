@@ -52,16 +52,17 @@ From this example accumulation of Minutes Not Available, here is the calculation
 ## Limitations and restrictions 
 
 - Creating capacity reservations requires quota in the same manner as creating virtual machines. 
-- Creating capacity reservation is currently limited to certain VM Series and Sizes. The Compute [Resource SKUs list](https://docs.microsoft.com/rest/api/compute/resource-skus/list) advertises the set of supported VM Sizes. 
+- Creating capacity reservation is currently limited to certain VM Series and Sizes. The Compute [Resource SKUs list](/rest/api/compute/resource-skus/list) advertises the set of supported VM Sizes. 
 - The following VM Series support creation of capacity reservations: 
     - Av2 
     - B 
     - D series, v2 and newer; AMD and Intel 
     - E series, all versions; AMD and Intel 
     - F series, all versions 
+    - Lsv3 (Intel) and Lasv3 (AMD)
     - At VM deployment, Fault Domain (FD) count of up to 3 may be set as desired using Virtual Machine Scale Sets. A deployment with more than 3 FDs will fail to deploy against a Capacity Reservation. 
 - Support for additional VM Series isn't currently available: 
-    - L series  
+    - Ls and Lsv2 series  
     - M series, any version 
     - NC-series, v3 and newer 
     - NV-series, v2 and newer 
@@ -89,7 +90,7 @@ From this example accumulation of Minutes Not Available, here is the calculation
 
 ## Pricing and billing 
 
-Capacity Reservations are priced at the same rate as the underlying VM size. For example, if you create a reservation for quantity 10 for D2s_v3 VM then you will start getting billed for ten D2s_v3 VMs, even if the reservation is not being used.  
+Capacity Reservations are priced at the same rate as the underlying VM size. For example, if you create a reservation for ten D2s_v3 VMs then you will start getting billed for ten D2s_v3 VMs, even if the reservation is not being used.  
 
 If you then deploy a D2s_v3 VM and specify reservation property, the Capacity Reservation gets used. Once in use, you will only pay for the VM and nothing extra for the Capacity Reservation. Let’s say you deploy six D2s_v3 VMs against the previously mentioned Capacity Reservation. You will see a bill for six D2s_v3 VMs and four unused Capacity Reservation, both charged at the same rate as a D2s_v3 VM.  
 

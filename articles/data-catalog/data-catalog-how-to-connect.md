@@ -7,7 +7,7 @@ ms.date: 02/22/2022
 ---
 # How to connect to data sources
 
-[!INCLUDE [Azure Purview redirect](../../includes/data-catalog-use-purview.md)]
+[!INCLUDE [Microsoft Purview redirect](../../includes/data-catalog-use-purview.md)]
 
 ## Introduction
 

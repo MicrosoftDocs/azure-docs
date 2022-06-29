@@ -33,7 +33,7 @@ The Speech service phone set for `zh-HK` is based on the native phone <a href="h
 | i        | 詩                 | s**i** 1       | 6        |
 | o        | 疏                 | s**o** 1       | 3 In [**o**u], [o] corresponding viseme is 8 |
 | u        | 夫                 | f**u** 1       | 7        |
-| oe       | 鋸                 | g**oe** 3      | 1        |
+| oe       | 鋸                 | g**oe** 3      | 4        |
 | yu       | 書                 | s**yu** 1      | 4        |
 | a        | 新                 | s**a**n 1      | 4        |
 | eo       | 律                 | l**eo**t 6     | 1        |

@@ -19,7 +19,7 @@ To learn more about the concept of soft delete feature, see [Soft-Delete in Azur
 
 * An Azure subscription - [create one for free](https://azure.microsoft.com/free/dotnet)
 
-* Refer to the [Soft-Delete in Azure App Configuration](./concept-soft-delete.md#permissions-to-recover-or-purge-store) for permissions requirements.
+* Refer to the [Soft-Delete in Azure App Configuration](./concept-soft-delete.md#permissions-to-recover-a-deleted-store) section for permissions requirements.
 
 ## Set retention policy and enable purge protection at store creation
 

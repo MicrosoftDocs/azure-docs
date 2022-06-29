@@ -73,8 +73,8 @@ Alternatively, you can use a Managed HSM to handle your keys.
 To do this, you must complete the following prerequisites:
 
 - Install the latest [Azure CLI](/cli/azure/install-az-cli2) and log in to an Azure account in with [az login](/cli/azure/reference-index).
-- [Create and configure a managed HSM](/azure/key-vault/managed-hsm/quick-create-cli).
-- [Assign permissions to a user, so they can manage your Managed HSM](/azure/key-vault/managed-hsm/role-management).
+- [Create and configure a managed HSM](../articles/key-vault/managed-hsm/quick-create-cli.md).
+- [Assign permissions to a user, so they can manage your Managed HSM](../articles/key-vault/managed-hsm/role-management.md).
 
 #### Configuration
 

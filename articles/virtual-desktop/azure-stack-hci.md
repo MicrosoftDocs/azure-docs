@@ -106,25 +106,25 @@ You can find the image you're looking for by using the **Search** function in Az
 
 If you're looking for Windows 10 multi-session, you can run a search with this criteria:
 
-```azure
+```azurecli
 az vm image list --all --publisher "microsoftwindowsdesktop" --offer "windows-10" --sku "21h1-evd-g2"
 ```
 
 This command should return the following URN:
 
-```azure
+```output
 MicrosoftWindowsDesktop:Windows-10:21h1-evd-g2:latest
 ```
 
 If you're looking for Windows Server 2019 datacenter, you can run the following criteria in your Azure CLI:
 
-```azure
+```azurecli
 az vm image list --all --publisher "microsoftwindowsserver" --offer "WindowsServer" --sku "2019-Datacenter-gen2"
 ```
 
 This command should return the following URN:
 
-```azure
+```output
 MicrosoftWindowsServer:windowsserver-gen2preview:2019-datacenter-gen2:latest
 ```
 
@@ -139,7 +139,7 @@ To create an Azure managed disk:
 
 1. Run the following commands in an Azure command-line prompt to set the parameters of your managed disk. Make sure to replace the items in brackets with the values relevant to your scenario.
 
-```azure
+```console
 $urn = <URN of the Marketplace image> #Example: “MicrosoftWindowsServer:WindowsServer:2019-Datacenter:Latest”
 $diskName = <disk name> #Name for new disk to be created
 $diskRG = <resource group> #Resource group that contains the new disk
@@ -147,7 +147,7 @@ $diskRG = <resource group> #Resource group that contains the new disk
 
 2. Run these commands to create the disk and generate a Serial Attached SCSI (SAS) access URL.
 
-```azure
+```azurecli
 az disk create -g $diskRG -n $diskName --image-reference $urn
 $sas = az disk grant-access --duration-in-seconds 36000 --access-level Read --name $diskName --resource-group $diskRG
 $diskAccessSAS = ($sas | ConvertFrom-Json)[0].accessSas
@@ -166,7 +166,7 @@ To export the VHD:
 >[!NOTE]
 >If you're running azcopy, you may need to skip the md5check by running this command:
 >
-> ```azure
+> ```azurecli
 > azcopy copy “$sas" "destination_path_on_cluster" --check-md5 NoCheck
 > ```
 
@@ -176,7 +176,7 @@ When you're done with your VHD, you'll need to free up space by deleting the man
 
 To delete the managed disk you created, run these commands:
 
-```azure
+```azurecli
 az disk revoke-access --name $diskName --resource-group $diskRG 
 az disk delete --name $diskName --resource-group $diskRG --yes
 ```

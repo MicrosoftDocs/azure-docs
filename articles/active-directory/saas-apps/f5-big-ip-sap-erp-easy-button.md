@@ -25,7 +25,7 @@ Integrating a BIG-IP with Azure Active Directory (Azure AD) provides many benefi
 
 * Manage identities and access from a single control plane, the [Azure portal](https://portal.azure.com/)
 
-To learn about all the benefits, see the article on [F5 BIG-IP and Azure AD integration](/azure/active-directory/manage-apps/f5-aad-integration) and [what is application access and single sign-on with Azure AD](/azure/active-directory/active-directory-appssoaccess-whatis).
+To learn about all the benefits, see the article on [F5 BIG-IP and Azure AD integration](../manage-apps/f5-aad-integration.md) and [what is application access and single sign-on with Azure AD](/azure/active-directory/active-directory-appssoaccess-whatis).
 
 ## Scenario description
 
@@ -64,7 +64,7 @@ Prior BIG-IP experience isn’t necessary, but you will need:
 
 * An Azure AD free subscription or above
 
-* An existing BIG-IP or [deploy a BIG-IP Virtual Edition (VE) in Azure](/azure/active-directory/manage-apps/f5-bigip-deployment-guide)
+* An existing BIG-IP or [deploy a BIG-IP Virtual Edition (VE) in Azure](../manage-apps/f5-bigip-deployment-guide.md)
 
 * Any of the following F5 BIG-IP license offers
 
@@ -80,7 +80,7 @@ Prior BIG-IP experience isn’t necessary, but you will need:
 
 * An account with Azure AD Application admin [permissions](/azure/active-directory/users-groups-roles/directory-assign-admin-roles#application-administrator)
 
-* An [SSL Web certificate](/azure/active-directory/manage-apps/f5-bigip-deployment-guide#ssl-profile) for publishing services over HTTPS, or use default BIG-IP certs while testing
+* An [SSL Web certificate](../manage-apps/f5-bigip-deployment-guide.md#ssl-profile) for publishing services over HTTPS, or use default BIG-IP certs while testing
 
 * An existing SAP ERP environment configured for Kerberos authentication
 
@@ -226,7 +226,7 @@ Easy Button provides a set of pre-defined application templates for Oracle Peopl
 
 When a user successfully authenticates to Azure AD, it issues a SAML token with a default set of claims and attributes uniquely identifying the user. The **User Attributes & Claims tab** shows the default claims to issue for the new application. It also lets you configure more claims.
 
-As our example AD infrastructure is based on a .com domain suffix used both, internally and externally, we don’t require any additional attributes to achieve a functional KCD SSO implementation. See the [advanced tutorial](/azure/active-directory/manage-apps/f5-big-ip-kerberos-advanced) for cases where you have multiple domains or user’s log-in using an alternate suffix. 
+As our example AD infrastructure is based on a .com domain suffix used both, internally and externally, we don’t require any additional attributes to achieve a functional KCD SSO implementation. See the [advanced tutorial](../manage-apps/f5-big-ip-kerberos-advanced.md) for cases where you have multiple domains or user’s log-in using an alternate suffix. 
 
    ![Screenshot for user attributes and claims](./media/f5-big-ip-easy-button-sap-erp/user-attributes-claims.png)
    
@@ -330,7 +330,7 @@ For increased security, organizations using this pattern could also consider blo
 
 ## Advanced deployment
 
-There may be cases where the Guided Configuration templates lack the flexibility to achieve more specific requirements. For those scenarios, see [Advanced Configuration for kerberos-based SSO](/azure/active-directory/manage-apps/f5-big-ip-kerberos-advanced).
+There may be cases where the Guided Configuration templates lack the flexibility to achieve more specific requirements. For those scenarios, see [Advanced Configuration for kerberos-based SSO](../manage-apps/f5-big-ip-kerberos-advanced.md).
 
 Alternatively, the BIG-IP gives you the option to disable **Guided Configuration’s strict management mode**. This allows you to manually tweak your configurations, even though bulk of your configurations are automated through the wizard-based templates.
 

@@ -137,12 +137,12 @@ LOCATION=eastus # The location where ARO cluster is deployed
 ```
 
 ### Create a resource group
-```bash
+```azurecli
 az group create -g "$RESOURCEGROUP" -l $LOCATION
 ```
 
 ### Create the virtual network
-```bash
+```azurecli
 az network vnet create \
   -g $RESOURCEGROUP \
   -n $AROVNET \
@@ -150,7 +150,7 @@ az network vnet create \
 ```
 
 ### Add two empty subnets to your virtual network
-```bash
+```azurecli
   az network vnet subnet create \
     -g "$RESOURCEGROUP" \
     --vnet-name $AROVNET \
@@ -167,7 +167,7 @@ az network vnet create \
 ```
 
 ### Disable network policies for Private Link Service on your virtual network and subnets. This is a requirement for the ARO service to access and manage the cluster.
-```bash
+```azurecli
 az network vnet subnet update \
   -g "$RESOURCEGROUP" \
   --vnet-name $AROVNET \
@@ -175,7 +175,7 @@ az network vnet subnet update \
   --disable-private-link-service-network-policies true
 ```
 ### Create a Firewall Subnet
-```bash
+```azurecli
 az network vnet subnet create \
     -g "$RESOURCEGROUP" \
     --vnet-name $AROVNET \
@@ -185,7 +185,7 @@ az network vnet subnet create \
 
 ## Create a jump-host VM
 ### Create a jump-subnet
-```bash
+```azurecli
   az network vnet subnet create \
     -g "$RESOURCEGROUP" \
     --vnet-name $AROVNET \
@@ -194,7 +194,7 @@ az network vnet subnet create \
     --service-endpoints Microsoft.ContainerRegistry
 ```
 ### Create a jump-host VM
-```bash
+```azurecli
 VMUSERNAME=aroadmin
 
 az vm create --name ubuntu-jump \
@@ -224,7 +224,7 @@ When running the `az aro create` command, you can reference your pull secret usi
 
 If you are copying your pull secret or referencing it in other scripts, your pull secret should be formatted as a valid JSON string.
 
-```bash
+```azurecli
 az aro create \
   -g "$RESOURCEGROUP" \
   -n "$CLUSTER" \
@@ -239,24 +239,24 @@ az aro create \
 ## Create an Azure Firewall
 
 ### Create a public IP Address
-```bash
+```azurecli
 az network public-ip create -g $RESOURCEGROUP -n fw-ip --sku "Standard" --location $LOCATION
 ```
 ### Update install Azure Firewall extension
-```bash
+```azurecli
 az extension add -n azure-firewall
 az extension update -n azure-firewall
 ```
 
 ### Create Azure Firewall and configure IP Config
-```bash
+```azurecli
 az network firewall create -g $RESOURCEGROUP -n aro-private -l $LOCATION
 az network firewall ip-config create -g $RESOURCEGROUP -f aro-private -n fw-config --public-ip-address fw-ip --vnet-name $AROVNET
 
 ```
 
 ### Capture Azure Firewall IPs for a later use
-```bash
+```azurecli
 FWPUBLIC_IP=$(az network public-ip show -g $RESOURCEGROUP -n fw-ip --query "ipAddress" -o tsv)
 FWPRIVATE_IP=$(az network firewall show -g $RESOURCEGROUP -n aro-private --query "ipConfigurations[0].privateIpAddress" -o tsv)
 
@@ -265,7 +265,7 @@ echo $FWPRIVATE_IP
 ```
 
 ### Create a UDR and Routing Table for Azure Firewall
-```bash
+```azurecli
 az network route-table create -g $RESOURCEGROUP --name aro-udr
 
 az network route-table route create -g $RESOURCEGROUP --name aro-udr --route-table-name aro-udr --address-prefix 0.0.0.0/0 --next-hop-type VirtualAppliance --next-hop-ip-address $FWPRIVATE_IP
@@ -273,7 +273,7 @@ az network route-table route create -g $RESOURCEGROUP --name aro-udr --route-tab
 
 ### Add Application Rules for Azure Firewall
 Rule for OpenShift to work based on this [list](https://docs.openshift.com/container-platform/4.3/installing/install_config/configuring-firewall.html#configuring-firewall_configuring-firewall):
-```bash
+```azurecli
 az network firewall application-rule create -g $RESOURCEGROUP -f aro-private \
  --collection-name 'ARO' \
  --action allow \
@@ -284,7 +284,7 @@ az network firewall application-rule create -g $RESOURCEGROUP -f aro-private \
  --target-fqdns 'registry.redhat.io' '*.quay.io' 'sso.redhat.com' 'management.azure.com' 'mirror.openshift.com' 'api.openshift.com' 'quay.io' '*.blob.core.windows.net' 'gcs.prod.monitoring.core.windows.net' 'registry.access.redhat.com' 'login.microsoftonline.com' '*.servicebus.windows.net' '*.table.core.windows.net' 'grafana.com'
 ```
 Optional rules for Docker images:
-```bash
+```azurecli
 az network firewall application-rule create -g $RESOURCEGROUP -f aro-private \
  --collection-name 'Docker' \
  --action allow \
@@ -296,7 +296,7 @@ az network firewall application-rule create -g $RESOURCEGROUP -f aro-private \
 ```
 
 ### Associate ARO Subnets to FW
-```bash
+```azurecli
 az network vnet subnet update -g $RESOURCEGROUP --vnet-name $AROVNET --name "$CLUSTER-master" --route-table aro-udr
 az network vnet subnet update -g $RESOURCEGROUP --vnet-name $AROVNET --name "$CLUSTER-worker" --route-table aro-udr
 ```
@@ -326,7 +326,7 @@ ARO_PASSWORD=$(az aro list-credentials -n $CLUSTER -g $RESOURCEGROUP -o json | j
 ARO_USERNAME=$(az aro list-credentials -n $CLUSTER -g $RESOURCEGROUP -o json | jq -r '.kubeadminUsername')
 ```
 Get an API server endpoint:
-```bash
+```azurecli
 ARO_URL=$(az aro show -n $CLUSTER -g $RESOURCEGROUP -o json | jq -r '.apiserverProfile.url')
 ```
 
@@ -398,7 +398,7 @@ sudo ssh -i /Users/jimzim/.ssh/id_rsa -L 443:console-openshift-console.apps.d5xm
 
 ## Clean up resources
 
-```bash
+```azurecli
 
 # Clean up the ARO cluster, vnet, firewall and jumpbox
 

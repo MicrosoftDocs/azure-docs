@@ -28,7 +28,7 @@ In this quickstart, you'll build a sample Go application that uses the Azure SDK
 
 Azure Cosmos DB is a multi-model database service that lets you quickly create and query document, table, key-value, and graph databases with global distribution and horizontal scale capabilities. 
 
-To learn more about Azure Cosmos DB, go to [Azure Cosmos DB](/azure/cosmos-db/introduction).
+To learn more about Azure Cosmos DB, go to [Azure Cosmos DB](../introduction.md).
 
 ## Prerequisites
 
@@ -80,31 +80,31 @@ go get github.com/Azure/azure-sdk-for-go/sdk/data/azcosmos
 **Authenticate the client**
 
 ```go
-	var endpoint = "<azure_cosmos_uri>"
-	var key      = "<azure_cosmos_primary_key"
-	
-	cred, err := azcosmos.NewKeyCredential(key)
-	if err != nil {
-		log.Fatal("Failed to create a credential: ", err)
-	}
+var endpoint = "<azure_cosmos_uri>"
+var key      = "<azure_cosmos_primary_key"
 
-	// Create a CosmosDB client
-	client, err := azcosmos.NewClientWithKey(endpoint, cred, nil)
-	if err != nil {
-		log.Fatal("Failed to create cosmos client: ", err)
-	}
+cred, err := azcosmos.NewKeyCredential(key)
+if err != nil {
+    log.Fatal("Failed to create a credential: ", err)
+}
 
-	// Create database client
-  databaseClient, err := client.NewDatabase("<databaseName>")
-	if err != nil {
-		log.fatal("Failed to create database client:", err)
-	}
+// Create a CosmosDB client
+client, err := azcosmos.NewClientWithKey(endpoint, cred, nil)
+if err != nil {
+    log.Fatal("Failed to create cosmos client: ", err)
+}
 
-  // Create container client
-	containerClient, err := client.NewContainer("<databaseName>", "<containerName>")
-	if err != nil {
-		log.fatal("Failed to create a container client:", err)
-	}
+// Create database client
+databaseClient, err := client.NewDatabase("<databaseName>")
+if err != nil {
+    log.fatal("Failed to create database client:", err)
+}
+
+// Create container client
+containerClient, err := client.NewContainer("<databaseName>", "<containerName>")
+if err != nil {
+    log.fatal("Failed to create a container client:", err)
+}
 ```
 
 **Create a Cosmos database**
@@ -114,7 +114,7 @@ databaseProperties := azcosmos.DatabaseProperties{ID: "<databaseName>"}
 
 databaseResp, err := client.CreateDatabase(context.TODO(), databaseProperties, nil)
 if err != nil {
-	panic(err)
+	log.Fatal(err)
 }
 ```
 
@@ -123,7 +123,7 @@ if err != nil {
 ```go
 database, err := client.NewDatabase("<databaseName>") //returns struct that represents a database.
 if err != nil {
-	panic(err)
+	log.Fatal(err)
 }
 
 properties := azcosmos.ContainerProperties{
@@ -135,7 +135,7 @@ properties := azcosmos.ContainerProperties{
 
 resp, err := database.CreateContainer(context.TODO(), properties, nil)
 if err != nil {
-	panic(err)
+	log.Fatal(err)
 }
 ```
 
@@ -144,7 +144,7 @@ if err != nil {
 ```go
 container, err := client.NewContainer("<databaseName>", "<containerName>")
 if err != nil {
-	panic(err)
+	log.Fatal(err)
 }
 
 pk := azcosmos.NewPartitionKeyString("personal") //specifies the value of the partition key
@@ -159,12 +159,12 @@ item := map[string]interface{}{
 
 marshalled, err := json.Marshal(item)
 if err != nil {
-	panic(err)
+	log.Fatal(err)
 }
 
 itemResponse, err := container.CreateItem(context.TODO(), pk, marshalled, nil)
 if err != nil {
-	panic(err)
+	log.Fatal(err)
 }
 ```
 
@@ -173,13 +173,13 @@ if err != nil {
 ```go
 getResponse, err := container.ReadItem(context.TODO(), pk, "1", nil)
 if err != nil {
-	panic(err)
+	log.Fatal(err)
 }
 
 var getResponseBody map[string]interface{}
-err = json.Unmarshal([]byte(getResponse.Value), &getResponseBody)
+err = json.Unmarshal(getResponse.Value, &getResponseBody)
 if err != nil {
-	panic(err)
+	log.Fatal(err)
 }
 
 fmt.Println("Read item with Id 1:")
@@ -193,9 +193,8 @@ for key, value := range getResponseBody {
 
 ```go
 delResponse, err := container.DeleteItem(context.TODO(), pk, "1", nil)
-
 if err != nil {
-	panic(err)
+	log.Fatal(err)
 }
 ```
 
