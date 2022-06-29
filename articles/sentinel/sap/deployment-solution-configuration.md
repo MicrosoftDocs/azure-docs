@@ -73,7 +73,7 @@ Now Microsoft Sentinel will be able to differentiate a logon from 192.168.10.15 
 - SAP - Sensitive Transactions
 - SAP - Critical Authorizations
 
-All of these watchlists idenfity sensitive actions or data that can be carried out or accessed by users. Several well-known operations, tables and authorizations have been pre-configured in the watchlists, however we recommend you consult with the SAP BASIS team to identify which operations, transactions, authorizations and tables are considered to be sensitive in your SAP environment.
+All of these watchlists identify sensitive actions or data that can be carried out or accessed by users. Several well-known operations, tables and authorizations have been pre-configured in the watchlists, however we recommend you consult with the SAP BASIS team to identify which operations, transactions, authorizations and tables are considered to be sensitive in your SAP environment.
 
 ### User master data watchlists
 

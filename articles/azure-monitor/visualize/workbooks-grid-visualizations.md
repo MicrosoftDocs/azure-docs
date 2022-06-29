@@ -18,7 +18,7 @@ The example below shows a grid that combines icons, heatmaps, and spark-bars to 
 ## Adding a log-based grid
 
 1. Switch the workbook to edit mode by clicking on the **Edit** toolbar item.
-2. Use the **Add query** link to add a log query control to the workbook.
+2. Select **Add query** to add a log query control to the workbook.
 3. Select the query type as **Log**, resource type (for example, Application Insights) and the resources to target.
 4. Use the Query editor to enter the KQL for your analysis (for example, VMs with memory below a threshold)
 5. Set the visualization to **Grid**
