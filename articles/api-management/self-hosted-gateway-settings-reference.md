@@ -12,7 +12,10 @@ ms.author: danlep
 
 # Self-hosted gateway configuration settings
 
-This article provides a reference for required and optional settings that are used to configure the API Management [self-hosted gateway](self-hosted-gateway-overview.md). Settings apply to the self-hosted gateway v2.
+This article provides a reference for required and optional settings that are used to configure the API Management [self-hosted gateway](self-hosted-gateway-overview.md). 
+
+> [!IMPORTANT]
+> This reference applies only to the self-hosted gateway v2.
 
 ## Deployment
 
