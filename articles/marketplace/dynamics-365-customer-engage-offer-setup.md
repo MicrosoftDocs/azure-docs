@@ -80,7 +80,9 @@ Enter a descriptive name that we'll use to refer to this offer solely within Par
         > [!NOTE]
         > The tokens your application will receive through your trial link can only be used to obtain user information through Azure Active Directory (Azure AD) to automate account creation in your app. Microsoft accounts are not supported for authentication using this token.
 
-    - **Contact me** – Collect customer contact information by connecting your Customer Relationship Management (CRM) system. The customer will be asked for permission to share their information. These customer details, along with the offer name, ID, and marketplace source where they found your offer, will be sent to the CRM system that you've configured. For more information about configuring your CRM, see [Customer leads](#customer-leads).
+    - **Contact me** – Collect customer contact information in the [Referrals workspace](https://partner.microsoft.com/dashboard/referrals/v2/leads) in Partner Center. You can also connect your customer relationship management (CRM) system to manage leads there.
+        > [!NOTE]
+        > Connecting to a CRM system is optional. For more information about configuring your CRM, see [Customer leads](#customer-leads).
 
 ## Test drive
 
@@ -89,7 +91,7 @@ A test drive is a great way to showcase your offer to potential customers by giv
 > [!TIP]
 > A test drive is different from a free trial. You can offer either a test drive, free trial, or both. They both provide customers with your solution for a fixed period-of-time. But, a test drive also includes a hands-on, self-guided tour of your product’s key features and benefits being demonstrated in a real-world implementation scenario.
 
-To enable a test drive, select the **Enable a test drive** check box and select the **Type of test drive**. You will configure the test drive later. With test drive, you must also configure your offer to a CRM system for customer leads (see next section). To remove test drive from your offer, clear this check box.
+To enable a test drive, select the **Enable a test drive** check box and select the **Type of test drive**. You will configure the test drive later. To remove test drive from your offer, clear this check box.
 
 ## Customer leads
 
