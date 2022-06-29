@@ -55,19 +55,64 @@ Your snapshot will be created shortly, and can then be used to download or creat
 
 To download the VHD file, you need to generate a [shared access signature (SAS)](../../storage/common/storage-sas-overview.md?toc=/azure/virtual-machines/windows/toc.json) URL. When the URL is generated, an expiration time is assigned to the URL.
 
+# [Portal](#tab/azure-portal)
+
 1. On the menu of the page for the VM, select **Disks**.
 2. Select the operating system disk for the VM, and then select **Disk Export**.
 1. If the needed, update the value of **URL expires in (seconds)** to give you enough time to complete the download. The default is 3600 seconds (one hour).
 3. Select **Generate URL**.
- 
+
+# [PowerShell](#tab/azure-powershell)
+
+```azurepowershell
+$diskSas = Grant-AzDiskAccess -ResourceGroupName "yourRGName" -DiskName "yourDiskName" -DurationInSecond 86400 -Access 'Read'
+```
+
+# [Azure CLI](#tab/azure-cli)
+
+```azurecli
+diskSAS=$(az disk grant access --duration-in-seconds 86400 --access-level Read --name yourDiskName --resource-group yourRGName)
+```
+
+---
       
 ## Download VHD
+
+# [Portal](#tab/azure-portal)
 
 1.	Under the URL that was generated, select **Download the VHD file**.
 
     :::image type="content" source="./media/download-vhd/export-download.PNG" alt-text="Shows the button to download the VHD.":::
 
 2.	You may need to select **Save** in the browser to start the download. The default name for the VHD file is *abcd*.
+
+# [PowerShell](#tab/azure-powershell)
+
+Use the following script to download your VHD:
+
+```azurepowershell
+Connect-AzAccount
+#Set localFolder to your desired download location
+$localFolder = "yourPathHere"
+$blob = Get-AzStorageBlobContent -Uri $diskSas.AccessSAS -Destination $localFolder -Force 
+```
+
+When the download finishes, revoke access to your disk using
+
+# [Azure CLI](#tab/azure-cli)
+
+Use the following script to download your VHD:
+
+```azurecli
+
+#set localFolder to your desired download location
+localFolder=yourPathHere
+az storage blob download -f $localFolder --blob-url $diskSAS
+```
+
+When the download finishes, revoke access to your disk using `az disk revoke-access --name diskName --resource-group yourRGName`.
+
+---
 
 ## Next steps
 
