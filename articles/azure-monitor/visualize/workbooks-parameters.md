@@ -69,8 +69,8 @@ Each parameter type has its own formatting options. Use the **Previews** section
 
 You can use these options to format all parameter types except for the time range picker. For examples of formatting times, see [Time parameter options](workbooks-time.md#time-parameter-options).
 
-    - For Resource picker, resource IDs are formatted.
-    - For Subscription picker, subscription values are formatted.
+   - For Resource picker, resource IDs are formatted.
+   - For Subscription picker, subscription values are formatted.
     
 ### Convert toml to json
 

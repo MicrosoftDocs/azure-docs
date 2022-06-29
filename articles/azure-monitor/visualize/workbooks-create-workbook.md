@@ -257,7 +257,7 @@ Groups in workbooks are useful for several things:
 
   - **Layout**: When you want items to be organized vertically, you can create a group of items that will all stack up and set the styling of the group to be a percentage width instead of setting percentage width on all the individual items.
   - **Visibility**: When you want several items to hide or show together, you can set the visibility of the entire group of items, instead of setting visibility settings on each individual item. This can be useful in templates that use tabs, as you can use a group as the content of the tab, and the entire group can be hidden/shown based on a parameter set by the selected tab.
-  - **Performance**: When you have a large template with many sections or tabs, you can convert each section into its own subtemplate, and use groups to load all the subtemplates within the top-level template. The content of the subtemplates won't load or run until a user makes those groups visible. Learn more about [how to split a large template into many templates](#how-to-split-a-large-template-into-many-templates).
+  - **Performance**: When you have a large template with many sections or tabs, you can convert each section into its own subtemplate, and use groups to load all the subtemplates within the top-level template. The content of the subtemplates won't load or run until a user makes those groups visible. Learn more about [how to split a large template into many templates](#splitting-a-large-template-into-many-templates).
 
 ### Add a group to your workbook
 
