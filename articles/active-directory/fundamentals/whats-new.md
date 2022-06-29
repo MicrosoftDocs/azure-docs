@@ -156,7 +156,7 @@ User Profile:
 - A new monitoring tab
 - More user properties can be viewed and edited in the properties tab
 
- 
+ For more information, see: [User management enhancements in Azure Active Directory](../enterprise-users/users-search-enhanced.md).
 
 ---
  
