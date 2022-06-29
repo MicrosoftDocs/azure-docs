@@ -1396,12 +1396,10 @@ items:
             href: visualize/workbooks-multi-value.md
         - name: Link actions
           href: visualize/workbooks-link-actions.md    
-    - name: Configuration
+    - name: Integrating with other Azure services
       items:
       - name: Deploy with Azure Resource Manager
         href: visualize/workbooks-automate.md
-      - name: Groups
-        href: visualize/workbooks-groups.md
       - name: Bring your own storage
         href: visualize/workbooks-bring-your-own-storage.md
       - name: Transform JSON data with JSONPath
@@ -1414,7 +1412,7 @@ items:
       items:
         - name: Links
           href: visualize/workbooks-sample-links.md
-    - name: Deprecated Features
+    - name: Retired Features
       items:
       - name: View Designer
         items:

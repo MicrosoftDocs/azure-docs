@@ -217,6 +217,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/azure-monitor/visualize/workbooks-groups.md",   
+            "redirect_url": "/azure/azure-monitor/visualize/workbooks-create-workbook",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/azure-monitor/visualize/workbooks-add-text.md",
             "redirect_url": "/azure/azure-monitor/visualize/workbooks-add-workbook-elements",
             "redirect_document_id": false
