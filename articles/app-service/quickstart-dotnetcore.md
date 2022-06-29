@@ -165,10 +165,10 @@ If you've already installed Visual Studio 2022:
 
    :::image type="content" source="./media/quickstart-dotnet/configure-webapp-net.png" alt-text="Screenshot of Visual Studio - Configure ASP.NET 6.0 web app." lightbox="media/quickstart-dotnet/configure-webapp-net.png" border="true":::
 
-1. Select **.NET Core 6.0 (Long-term support)**.
+1. Select **.NET 6.0 (Long-term support)**.
 1. Ensure **Authentication Type** is set to **None**. Select **Create**.
 
-   :::image type="content" source="media/quickstart-dotnet/vs-additional-info-net60.png" alt-text="Screenshot of Visual Studio - Additional info when selecting .NET Core 6.0." lightbox="media/quickstart-dotnet/vs-additional-info-net60.png" border="true":::
+   :::image type="content" source="media/quickstart-dotnet/vs-additional-info-net60.png" alt-text="Screenshot of Visual Studio - Additional info when selecting .NET 6.0." lightbox="media/quickstart-dotnet/vs-additional-info-net60.png" border="true":::
 
 1. From the Visual Studio menu, select **Debug** > **Start Without Debugging** to run the web app locally.
 
