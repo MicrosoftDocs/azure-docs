@@ -17,7 +17,7 @@ Get started with Azure Private Link by creating and using a private endpoint to 
 
 In this quickstart, you'll create a private endpoint for an Azure web app and then create and deploy a virtual machine (VM) to test the private connection.  
 
-You can create private endpoints for a variety of Azure services, such as Azure SQL and Azure Storage.
+You can create private endpoints for various Azure services, such as Azure SQL and Azure Storage.
 
 ## Prerequisites
 
@@ -173,7 +173,7 @@ Next, you create a private endpoint for the web app that you created in the "Pre
     | Subscription | Select your subscription. |
     | Resource type | Select **Microsoft.Web/sites**. |
     | Resource | Select **mywebapp1979**. |
-    | Target sub-resource | Select **sites**. |
+    | Target subresource | Select **sites**. |
 
 6. Select **Next: Virtual Network**. 
 
@@ -228,7 +228,7 @@ Use the VM that you created earlier to connect to the web app across the private
 
 6. After you've connected, open PowerShell on the server.
 
-7. Enter `nslookup mywebapp1979.azurewebsites.net`. You'll receive a message that's similar to the following:
+7. Enter `nslookup mywebapp1979.azurewebsites.net`. You'll receive a message that's similar to the following example:
 
     ```powershell
     Server:  UnKnown
@@ -254,7 +254,7 @@ Use the VM that you created earlier to connect to the web app across the private
 
 ## Clean up resources
 
-If you're not going to continue to use this web app, delete the virtual network, virtual machine, and web app by doing the following:
+If you're not going to continue to use this web app, delete the virtual network, virtual machine, and web app by doing the following steps:
 
 1. On the left pane, select **Resource groups**.
 
