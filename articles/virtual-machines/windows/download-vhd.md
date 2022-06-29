@@ -110,7 +110,7 @@ $localFolder = "c:\tempfiles"
 $blob = Get-AzStorageBlobContent -Uri $diskSas.AccessSAS -Destination $localFolder -Force 
 ```
 
-When the download finishes, revoke access to your disk using
+When the download finishes, revoke access to your disk using `Revoke-AzDiskAccess -ResourceGroupName "yourRGName" -DiskName "yourDiskName"`.
 
 # [Azure CLI](#tab/azure-cli)
 
