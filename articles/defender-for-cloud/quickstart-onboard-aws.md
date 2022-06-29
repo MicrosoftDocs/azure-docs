@@ -10,14 +10,14 @@ ms.custom: mode-other
 
 With cloud workloads commonly spanning multiple cloud platforms, cloud security services must do the same. Microsoft Defender for Cloud protects workloads in Azure, Amazon Web Services (AWS), and Google Cloud Platform (GCP).
 
-To protect your AWS-based resources, you can connect an account with either:
+To protect your AWS-based resources, you can connect an AWS account with either:
 
 - **Native cloud connector** (recommended) - Provides an agentless connection to your AWS account that you can extend with Defender for Cloud's Defender plans to secure your AWS resources:
 
     - [**Cloud Security Posture Management (CSPM)**](overview-page.md) assesses your AWS resources according to AWS-specific security recommendations and reflects your security posture in your secure score. The resources are shown in Defender for Cloud's [asset inventory](asset-inventory.md) and are assessed for compliance with built-in standards specific to AWS (AWS CIS, AWS PCI DSS, and AWS Foundational Security Best Practices).
-    - **Microsoft Defender for Containers** brings threat detection and advanced defenses to [supported Amazon EKS clusters](supported-machines-endpoint-solutions-clouds-containers.md). This plan includes Kubernetes threat protection, behavioral analytics, Kubernetes best practices, admission control recommendations and more.
     - [**Microsoft Defender for Servers**](defender-for-servers-introduction.md) brings threat detection and advanced defenses to [supported Windows and Linux EC2 instances](supported-machines-endpoint-solutions-clouds-servers.md?tabs=tab/features-multicloud). This plan includes the integrated license for Microsoft Defender for Endpoint, security baselines and OS level assessments, vulnerability assessment scanning, adaptive application controls (AAC), file integrity monitoring (FIM), and more.
-    - [**Microsoft Defender for SQL**](defender-for-sql-introduction.md) brings threat detection and advanced defenses to your SQL Servers running on AWS EC2, AWS RDS Custom for SQL Server. This plan includes the advanced threat protection and vulnerability assessment scanning. You can view the [full list of available features.
+    - [**Microsoft Defender for Containers**](defender-for-containers-introduction.md) brings threat detection and advanced defenses to [supported Amazon EKS clusters](supported-machines-endpoint-solutions-clouds-containers.md). This plan includes Kubernetes threat protection, behavioral analytics, Kubernetes best practices, admission control recommendations and more.
+    - [**Microsoft Defender for SQL**](defender-for-sql-introduction.md) brings threat detection and advanced defenses to your SQL Servers running on AWS EC2, AWS RDS Custom for SQL Server, including advanced threat protection and vulnerability assessment scanning.
 
 - **Classic cloud connector** - Requires configuration in your AWS account to create a user that Defender for Cloud can use to connect to your AWS environment. If you have classic cloud connectors, we recommend that you [delete these connectors](#remove-classic-connectors) and use the native connector to reconnect to the account. Using both the classic and native connectors can produce duplicate recommendations.
 
@@ -41,8 +41,9 @@ You can learn more by watching this video from the Defender for Cloud in the Fie
 |Required roles and permissions:|**Contributor** permission for the relevant Azure subscription. <br> **Administrator** on the AWS account.|
 |Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/no-icon.png"::: National (Azure Government, Azure China 21Vianet)|
 
-
 ## Prerequisites
+
+The native cloud connector requires:
 
 - Access to an AWS account.
 
@@ -102,27 +103,7 @@ You can learn more by watching this video from the Defender for Cloud in the Fie
 
 ## Connect your AWS account
 
-Follow the steps below to create your AWS cloud connector. 
-
-### Remove 'classic' connectors
-
-If you have any existing connectors created with the classic cloud connectors experience, remove them first:
-
-1. Sign in to the [Azure portal](https://portal.azure.com). 
-
-1. Navigate to **Defender for Cloud** > **Environment settings**.
-
-1. Select the option to switch back to the classic connectors experience.
-
-    :::image type="content" source="media/quickstart-onboard-gcp/classic-connectors-experience.png" alt-text="Switching back to the classic cloud connectors experience in Defender for Cloud.":::
-
-1. For each connector, select the three dot button **…** at the end of the row, and select **Delete**.
-
-1. On AWS, delete the role ARN, or the credentials created for the integration.
-
-### Create a new connector
-
-**To create a new connector**:
+**To connect your AWS account to Defender for Cloud with a native connector**:
 
 1. Sign in to the [Azure portal](https://portal.azure.com). 
 
@@ -175,6 +156,22 @@ If you have any existing connectors created with the classic cloud connectors ex
 1. Select **Create**.
 
 Defender for Cloud will immediately start scanning your AWS resources and you'll see security recommendations within a few hours. For a reference list of all the recommendations Defender for Cloud can provide for AWS resources, see [Security recommendations for AWS resources - a reference guide](recommendations-reference-aws.md).
+
+### Remove 'classic' connectors
+
+If you have any existing connectors created with the classic cloud connectors experience, remove them first:
+
+1. Sign in to the [Azure portal](https://portal.azure.com). 
+
+1. Navigate to **Defender for Cloud** > **Environment settings**.
+
+1. Select the option to switch back to the classic connectors experience.
+
+    :::image type="content" source="media/quickstart-onboard-gcp/classic-connectors-experience.png" alt-text="Switching back to the classic cloud connectors experience in Defender for Cloud.":::
+
+1. For each connector, select the three dot button **…** at the end of the row, and select **Delete**.
+
+1. On AWS, delete the role ARN, or the credentials created for the integration.
 
 ::: zone-end
 
