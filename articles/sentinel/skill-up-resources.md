@@ -3,7 +3,7 @@ title: Microsoft Sentinel skill-up training
 description: This article walks you through a Microsoft Sentinel level 400 training to help you skill up on Microsoft Sentinel. The training includes 21 modules that contain relevant product documentation, blog posts and other resources. Make sure to check the most recent links for the documentation.
 author: laghimp
 ms.topic: conceptual
-ms.date: 06/22/2022
+ms.date: 06/29/2022
 ms.author: laghimpe
 ms.custom: fasttrack-edit
 ---
@@ -103,7 +103,7 @@ Use Microsoft Sentinel, Microsoft Defender for Cloud, Microsoft 365 Defender in 
 
 #### To monitor your multi-cloud workloads
 
-The cloud is (still) new and often not monitored as extensively as on-prem workloads. Read this [presentation](https://techcommunity.microsoft.com/gxcuf89792/attachments/gxcuf89792/AzureSentinelBlog/243/1/L400-P2%20Use%20cases.pdf) to learn how Microsoft Sentinel can help you close the cloud monitoring gap across your clouds.
+The cloud is (still) new and often not monitored as extensively as on-premises workloads. Read this [presentation](https://techcommunity.microsoft.com/gxcuf89792/attachments/gxcuf89792/AzureSentinelBlog/243/1/L400-P2%20Use%20cases.pdf) to learn how Microsoft Sentinel can help you close the cloud monitoring gap across your clouds.
 
 #### Side by side with your existing SIEM
 
@@ -115,8 +115,8 @@ For more information on migrating from another SIEM to Microsoft Sentinel, watch
 There are three common scenarios for side by side deployment:
 
 * If you have a ticketing system in your SOC, a best practice is to send alerts or incidents from both SIEM systems to a ticketing system such as Service Now. An example is using [Microsoft Sentinel Incident Bi-directional sync with ServiceNow](https://techcommunity.microsoft.com/t5/azure-sentinel/azure-sentinel-incident-bi-directional-sync-with-servicenow/ba-p/1667771) or [sending alerts enriched with supporting events from Microsoft Sentinel to third-party SIEMs](https://techcommunity.microsoft.com/t5/azure-sentinel/sending-alerts-enriched-with-supporting-events-from-azure/ba-p/1456976).
-* At least initially, many users send alerts from Microsoft Sentinel to your on-prem SIEM. Read on how to do it in [Sending alerts enriched with supporting events from Microsoft Sentinel to third-party SIEMs](https://techcommunity.microsoft.com/t5/azure-sentinel/sending-alerts-enriched-with-supporting-events-from-azure/ba-p/1456976).
-* Over time, as Microsoft Sentinel covers more workloads, it's typical to reverse that and send alerts from your on-prem SIEM to Microsoft Sentinel. To do that:
+* At least initially, many users send alerts from Microsoft Sentinel to your on-premises SIEM. Read on how to do it in [Sending alerts enriched with supporting events from Microsoft Sentinel to third-party SIEMs](https://techcommunity.microsoft.com/t5/azure-sentinel/sending-alerts-enriched-with-supporting-events-from-azure/ba-p/1456976).
+* Over time, as Microsoft Sentinel covers more workloads, it's typical to reverse that and send alerts from your on-premises SIEM to Microsoft Sentinel. To do that:
     * With Splunk, read [Send data and notable events from Splunk to Microsoft Sentinel using the Microsoft Sentinel Splunk ....](https://techcommunity.microsoft.com/t5/azure-sentinel/how-to-export-data-from-splunk-to-azure-sentinel/ba-p/1891237)
     * With QRadar read [Sending QRadar offenses to Microsoft Sentinel](https://techcommunity.microsoft.com/t5/azure-sentinel/migrating-qradar-offenses-to-azure-sentinel/ba-p/2102043)
     * For ArcSight, use [CEF Forwarding](https://community.microfocus.com/t5/Logger-Forwarding-Connectors/ArcSight-Forwarding-Connector-Configuration-Guide/ta-p/1583918).
@@ -200,14 +200,14 @@ If you want to retain data for _more than two years_ or _reduce the retention co
 
 Need more depth? Watch the _Improving the Breadth and Coverage of Threat Hunting with ADX Support, More Entity Types, and Updated MITRE Integration_ webinar [here](https://www.youtube.com/watch?v=5coYjlw2Qqs&ab_channel=MicrosoftSecurityCommunity).
 
-If you prefer another long-term retention solution, [export from Microsoft Sentinel / Log Analytics to Azure Storage and Event Hub](/cli/azure/monitor/log-analytics/workspace/data-export) or [move Logs to Long-Term Storage using Logic Apps](../azure-monitor/logs/logs-export-logic-app.md). The latter advantage is that it can export historical data.
+If you prefer another long-term retention solution, [export from Microsoft Sentinel / Log Analytics to Azure Storage and Event Hubs](/cli/azure/monitor/log-analytics/workspace/data-export) or [move Logs to Long-Term Storage using Logic Apps](../azure-monitor/logs/logs-export-logic-app.md). The latter advantage is that it can export historical data.
 Lastly, you can set fine-grained retention periods using [table-level retention Settings](https://techcommunity.microsoft.com/t5/core-infrastructure-and-security/azure-log-analytics-data-retention-by-type-in-real-life/ba-p/1416287). More details [here](../azure-monitor/logs/data-retention-archive.md).
 
 
 #### Log Security
 
 * Use [resource RBAC](https://techcommunity.microsoft.com/t5/azure-sentinel/controlling-access-to-azure-sentinel-data-resource-rbac/ba-p/1301463) or [Table Level RBAC](../azure-monitor/logs/manage-access.md) to enable multiple teams to use a single workspace.
-* If needed, [delete PII data from your workspaces](../azure-monitor/logs/personal-data-mgmt.md).
+* If needed, [delete customer content from your workspaces](../azure-monitor/logs/personal-data-mgmt.md).
 * Learn how to [audit workspace queries and Microsoft Sentinel use, using alerts workbooks and queries](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/auditing-microsoft-sentinel-activities/ba-p/1718328).
 * Use [private links](../azure-monitor/logs/private-link-security.md) to ensure logs never leave your private network.
 
@@ -307,7 +307,7 @@ The current implementation is based on query time normalization using KQL functi
 
 Using ASIM provides the following benefits:
 
-* **Cross source detection**: Normalized analytic rules work across sources, on-prem and cloud, now detecting attacks such as brute force or impossible travel across systems including Okta, AWS, and Azure.
+* **Cross source detection**: Normalized analytic rules work across sources, on-premises and cloud, now detecting attacks such as brute force or impossible travel across systems including Okta, AWS, and Azure.
 * **Allows source agnostic content**: the coverage of built-in and custom content using ASIM automatically expands to any source that supports ASIM, even if the source was added after the content was created. For example, process event analytics support any source that a customer may use to bring in the data, including Microsoft Defender for Endpoint, Windows Events, and Sysmon. We're ready to add [Sysmon for Linux](https://twitter.com/markrussinovich/status/1283039153920368651?lang=en) and WEF once released!
 * **Support for your custom sources in built-in analytics**
 * **Ease of use:** once an analyst learns ASIM, writing queries is much simpler as the field names are always the same.
@@ -453,7 +453,7 @@ The Webinar **"Tackling Identity"**([YouTube](https://www.youtube.com/watch?v=Bc
 Another relevant solution area is **protecting remote work**. Watch our [Ignite session on protection remote work](https://www.youtube.com/watch?v=09JfbjQdzpg&ab_channel=MicrosoftSecurity), and read more on the specific use cases:
 * [Microsoft Teams hunting use cases](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/protecting-your-teams-with-azure-sentinel/ba-p/1265761) and [Graph Visualization of External Microsoft Teams Collaborations](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/graph-visualization-of-external-teams-collaborations-in-azure/ba-p/1356847)
 * [Monitoring Zoom with Microsoft Sentinel](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/monitoring-zoom-with-azure-sentinel/ba-p/1341516): custom connectors, analytic rules, and hunting queries.
-* [Monitoring Azure Virtual Desktop with Microsoft Sentinel](../virtual-desktop/diagnostics-log-analytics.md): use Windows Security Events, Azure AD Sign-in logs, Microsoft 365 defender for endpoints, and AVD diagnostics logs to detect and hunt for AVD threats.
+* [Monitoring Azure Virtual Desktop with Microsoft Sentinel](../virtual-desktop/diagnostics-log-analytics.md): use Windows Security Events, Azure AD Sign-in logs, Microsoft 365 Defender for Endpoints, and AVD diagnostics logs to detect and hunt for AVD threats.
 *[ Monitor Microsoft endpoint Manager / Intune](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/secure-working-from-home-deep-insights-at-enrolled-mem-assets/ba-p/1424255), using queries and workbooks.
 
 And lastly, focusing on recent attacks, learn how to [monitor the software supply chain with Microsoft Sentinel](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/monitoring-the-software-supply-chain-with-azure-sentinel/ba-p/2176463).
