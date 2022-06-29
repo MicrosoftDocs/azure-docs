@@ -35,11 +35,19 @@ The custom domain suffix is for the App Service Environment. This feature is dif
 
 A [managed identity](../../active-directory/managed-identities-azure-resources/overview.md) is used to authenticate against the Azure Key Vault where the SSL/TLS certificate is stored. If you don't currently have a managed identity associated with your App Service Environment, you'll need to configure one. 
 
-You can use either a system assigned or user assigned managed identity. To create a user assigned managed identity, see [manage user-assigned managed identities](../../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md). If you'd like to use a system assigned managed identity and don't already have one assigned to your App Service Environment, the Custom domain suffix portal experience will guide you through the creation process.
+You can use either a system assigned or user assigned managed identity. To create a user assigned managed identity, see [manage user-assigned managed identities](../../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md). If you'd like to use a system assigned managed identity and don't already have one assigned to your App Service Environment, the Custom domain suffix portal experience will guide you through the creation process. Alternatively, you can go to the **Identity** page for your App Service Environment and configure and assign your managed identities there.
 
-Ensure the managed identity has sufficient permissions for both the App Service Environment and the Azure Key Vault. For the key vault permissions, you can either use a vault access policy or Azure role-based access control. 
+To enable a system assigned managed identity, set the Status to On.
 
-If you use a vault access policy, the managed identity will need at a minimum the "Get" secrets permission on the key vault.
+:::image type="content" source="./media/custom-domain-suffix/ase-system-assigned-managed-identity.png" alt-text="Sample system assigned managed identity for App Service Environment.":::
+
+To assign a user assigned managed identity, select "Add", and find the managed identity you want to use.
+
+:::image type="content" source="./media/custom-domain-suffix/ase-user-assigned-managed-identity.png" alt-text="Sample user assigned managed identity for App Service Environment.":::
+
+Once you assign the managed identity to your App Service Environment, ensure the managed identity has sufficient permissions for the Azure Key Vault. You can either use a vault access policy or Azure role-based access control. 
+
+If you use a vault access policy, the managed identity will need at a minimum the "Get" secrets permission for the key vault.
 
 :::image type="content" source="./media/custom-domain-suffix/key-vault-access-policy.png" alt-text="Sample key vault access policy for managed identity.":::
 
@@ -147,7 +155,7 @@ Alternatively, you can update your existing ILB App Service Environment using [A
 
 ## DNS configuration
 
-To access your apps in your App Service Environment using your custom domain suffix, for your custom domain you'll need to either configure your own DNS server or configure DNS in an Azure private DNS zone.
+To access your apps in your App Service Environment using your custom domain suffix, you'll need to either configure your own DNS server or configure DNS in an Azure private DNS zone for your custom domain.
 
 If you want to use your own DNS server, add the following records:
 
@@ -177,7 +185,7 @@ However, just like apps running on the public multi-tenant service, you can also
 
 ## Troubleshooting
 
-If your permissions or network settings for your managed identity, key vault, or App Service Environment aren't set appropriately, you won't be able to configure a custom domain suffix and you'll receive an error similar to the example below. Review the [prerequisites](#prerequisites) to ensure you've set the needed permissions. You'll also see a similar error message if the App Service platform detects that your certificate is degraded or expired.
+If your permissions or network settings for your managed identity, key vault, or App Service Environment aren't set appropriately, you won't be able to configure a custom domain suffix, and you'll receive an error similar to the example below. Review the [prerequisites](#prerequisites) to ensure you've set the needed permissions. You'll also see a similar error message if the App Service platform detects that your certificate is degraded or expired.
 
 :::image type="content" source="./media/custom-domain-suffix/custom-domain-suffix-error.png" alt-text="Sample custom domain suffix error message.":::
 
