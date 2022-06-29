@@ -467,7 +467,7 @@ Based on the method chosen, a set of inputs and outputs is expected. Define the 
 ### Audience Override 
 **String:** audienceOverride  
 **Data type:** String  
-**Summary:** This property allows for the overriding of the audience claim sent to the application. The value provided must be a valid absolute URI. This setting will be ignored if no custom signing key is configured for the application. 
+**Summary:** This property enables the overriding of the audience claim sent to the application. The value provided must be a valid absolute URI. This setting is ignored if no custom signing key is configured for the application. 
 
 
 ## Next steps
