@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
-ms.date: 11/02/2021
+ms.date: 06/24/2022
 ms.author: lajanuar
 ms.custom: cog-serv-seo-may-2021, ignite-fall-2021, mode-other
 keywords: document processing
@@ -75,7 +75,9 @@ Form Recognizer offers several prebuilt models to choose from. Each model has it
     * [**Sample receipt image**](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/contoso-allinone.jpg).
     * [**Sample business card image**](https://raw.githubusercontent.com/Azure/azure-sdk-for-python/master/sdk/formrecognizer/azure-ai-formrecognizer/samples/sample_forms/business_cards/business-card-english.jpg).
 
-1. In the **Source: URL** field, paste the selected URL and select the **Fetch** button.
+1. In the **Source** field, select **URL** from the dropdown menu, paste the selected URL, and select the **Fetch** button.
+
+    :::image type="content" source="../media/label-tool/fott-select-url.png" alt-text="Screenshot of source location dropdown menu.":::
 
 1. In the **Form recognizer service endpoint** field, paste the endpoint that you obtained with your Form Recognizer subscription.
 
@@ -110,7 +112,7 @@ Azure the Form Recognizer Layout API extracts text, tables, selection marks, and
 
 1. In the **key** field, paste  the key you obtained from your Form Recognizer resource.
 
-1. In the **Source: URL** field, paste the following URL `https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/layout-page-001.jpg`  and select the **Fetch** button.
+1. In the **Source** field, select **URL** from the dropdown menu, paste the following URL `https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/layout-page-001.jpg`, and select the **Fetch** button.
 
 1. Select **Run Layout**. The Form Recognizer Sample Labeling tool will call the Analyze Layout API and analyze the document.
 
@@ -131,7 +133,9 @@ Train a custom model to analyze and extract data from forms and documents specif
 
 ### Prerequisites for training a custom form model
 
-* An Azure Storage blob container that contains a set of training data. Make sure all the training documents are of the same format. If you have forms in multiple formats, organize them into subfolders based on common format. For this project, you can use our [sample data set](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/curl/form-recognizer/sample_data_without_labels.zip). If you don't know how to create an Azure storage account with a container, follow the [Azure Storage quickstart for Azure portal](../../../storage/blobs/storage-quickstart-blobs-portal.md).
+* An Azure Storage blob container that contains a set of training data. Make sure all the training documents are of the same format. If you have forms in multiple formats, organize them into subfolders based on common format. For this project, you can use our [sample data set](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/curl/form-recognizer/sample_data_without_labels.zip). 
+
+* If you don't know how to create an Azure storage account with a container, follow the [Azure Storage quickstart for Azure portal](../../../storage/blobs/storage-quickstart-blobs-portal.md).
 
 * Configure CORS
 
