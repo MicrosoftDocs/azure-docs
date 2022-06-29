@@ -30,10 +30,6 @@ The Device Update for IoT Hub Core PnP interface reports `ResultCode` and `Exten
 
 `ExtendedResultCode` is an integer with encoded error information.
 
-You will most likely see the `ExtendedResultCode` as a signed integer in the PnP
-interface. To decode the `ExtendedResultCode`, convert the signed integer to
-unsigned hex. Only the first 4 bytes of the `ExtendedResultCode` are used and
-are of the form `F` `FFFFFFF` where the first nibble is the **Facility Code** and
 You will most likely see the `ExtendedResultCode` as a signed integer in the PnP interface. To decode the `ExtendedResultCode`, convert the signed integer to
 unsigned hex. Only the first 4 bytes of the `ExtendedResultCode` are used and are of the form `F` `FFFFFFF` where the first nibble is the **Facility Code** and
 the rest of the bits are the **Error Code**.
