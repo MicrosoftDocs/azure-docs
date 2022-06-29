@@ -26,7 +26,7 @@ In the SAML request of SP initiated SSO, the Issuer specified is usually the App
 ## SP Initiated Configuration Instructions  
 Update the SAML single sign-on service URL configured within the service provider for each instance to include the service principal guid as part of the URL. For example, the general SSO sign-in URL for SAML would have been `https://login.microsoftonline.com/<tenantid>/saml2`, the URL can now be updated to target a specific service principal as follows `https://login.microsoftonline.com/<tenantid>/saml2/<issuer>`.  
 
-Only service principal id's in GUID format will be accepted for the ‘issuer’ value. The service principal id will override the issuer in the SAML request/response, and the rest of the flow will be executed as usual. There's one exception: if the application requires the request to be signed, the request will be rejected even if the signature was valid. The rejection is done to avoid any security risks with functionally overriding values in a signed request.  
+Only service principal identifiers in GUID format are accepted for the ‘issuer’ value. The service principal identifiers override the issuer in the SAML request and response, and the rest of the flow is completed as usual. There's one exception: if the application requires the request to be signed, the request is rejected even if the signature was valid. The rejection is done to avoid any security risks with functionally overriding values in a signed request.  
 
 ## IDP Initiated   
 The IDP Initiated feature exposes two settings for each application.   
