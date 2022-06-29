@@ -123,6 +123,7 @@ Java 3.x includes the following instrumentation libraries.
 * JMS consumers
 * Kafka consumers
 * Netty/WebFlux
+* Quartz
 * Servlets
 * Spring scheduling
 
@@ -153,9 +154,10 @@ Autocollected dependencies without downstream distributed trace propagation:
 
 ### Autocollected logs
 
+* Log4j (including MDC/Thread Context properties)
+* Logback (including MDC properties)
+* JBoss Logging (including MDC properties)
 * java.util.logging
-* Log4j, which includes MDC properties
-* SLF4J/Logback, which includes MDC properties
 
 ### Autocollected metrics
 
@@ -517,7 +519,7 @@ If you want to attach custom dimensions to your logs, use [Log4j 1.2 MDC](https:
 
 ## Troubleshooting
 
-See the dedicated [troubleshooting article](https://docs.microsoft.com/troubleshoot/azure/azure-monitor/app-insights/java-standalone-troubleshoot).
+See the dedicated [troubleshooting article](java-standalone-troubleshoot.md).
 
 ## Release notes
 
