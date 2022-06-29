@@ -146,6 +146,7 @@ WITH  ( <with_options> )
     The staging area for high-throughput data ingestion into Azure Synapse Analytics
     - Reserved for future usage. Does not apply to Azure SQL Edge.
 
+For more information about the input and ouput options supported corresponding to the data source type, please see [Azure Stream Anaylytics - Input Overview](../stream-analytics/stream-analytics-add-inputs.md) and [Azure Stream Anaylytics - Outputs Overview](../stream-analytics/stream-analytics-define-outputs.md) respectively.
 
 ## Examples
 
