@@ -20,7 +20,7 @@ To use Azure Communication Services support for Teams users, you need an Azure A
 
 Ensure that your Azure Active Directory users have at least one of the following eligible Teams licenses:
 
-| Service Plan(friendly names)   |  GUID  |
+| Service Plan(friendly names)   |  Service Plan ID  |
 |:--- |:--- |
 | TEAMS1 | 57ff2da0-773e-42df-b2af-ffb7a2317929 |
 | TEAMS_FREE | 4fa4026d-ce74-4962-a151-8e96d57ea8e4 |
