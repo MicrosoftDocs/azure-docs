@@ -15,14 +15,14 @@ JBoss EAP is only available on the Linux version of App Service. Select the **Li
 ---
 
 If Maven isn't your preferred development tool, check out our similar tutorials for Java developers:
-+ [Gradle](../.../configure-language-java.md?pivots=platform-linux#gradle)
++ [Gradle](../../configure-language-java.md?pivots=platform-linux#gradle)
 + [IntelliJ IDEA](/azure/developer/java/toolkit-for-intellij/create-hello-world-web-app)
 + [Eclipse](/azure/developer/java/toolkit-for-eclipse/create-hello-world-web-app)
 + [Visual Studio Code](https://code.visualstudio.com/docs/java/java-webapp)
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](/includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [cloud-shell-try-it.md](/includes/cloud-shell-try-it.md)]
 
 ## Create a Java app
 
@@ -77,11 +77,11 @@ mvn com.microsoft.azure:azure-webapp-maven-plugin:2.5.0:config
 # [Java SE](#tab/javase)
 
 1. If prompted with **Subscription** option, select the proper `Subscription` by entering the number printed at the line start.
-2. When prompted with **Web App** option, select the default option, `<create>`, by pressing enter.
-3. When prompted with **OS** option, select **Windows** by entering `1`.
-4. When prompted with **javaVersion** option, select **Java 11** by entering `2`.
-5. When prompted with **Pricing Tier** option, select **P1v2** by entering `10`.
-6. Finally, press enter on the last prompt to confirm your selections.
+1. When prompted with **Web App** option, select the default option, `<create>`, by pressing enter.
+1. When prompted with **OS** option, select **Windows** by entering `1`.
+1. When prompted with **javaVersion** option, select **Java 11** by entering `2`.
+1. When prompted with **Pricing Tier** option, select **P1v2** by entering `10`.
+1. Finally, press enter on the last prompt to confirm your selections.
 
     Your summary output will look similar to the snippet shown below.
 
@@ -109,12 +109,12 @@ mvn com.microsoft.azure:azure-webapp-maven-plugin:2.5.0:config
 # [Tomcat](#tab/tomcat)
 
 1. If prompted with **Subscription** option, select the proper `Subscription` by entering the number printed at the line start.
-2. When prompted with **Web App** option, select the default option, `<create>`, by pressing enter.
-3. When prompted with **OS** option, select **Windows** by entering `1`.
-4. When prompted with **javaVersion** option, select **Java 11** by entering `2`.
-5. When prompted with **webContainer** option, select **Tomcat 8.5** by entering `1`.
-6. When prompted with **Pricing Tier** option, select **P1v2** by entering `10`.
-7. Finally, press enter on the last prompt to confirm your selections.
+1. When prompted with **Web App** option, select the default option, `<create>`, by pressing enter.
+1. When prompted with **OS** option, select **Windows** by entering `1`.
+1. When prompted with **javaVersion** option, select **Java 11** by entering `2`.
+1. When prompted with **webContainer** option, select **Tomcat 8.5** by entering `1`.
+1. When prompted with **Pricing Tier** option, select **P1v2** by entering `10`.
+1. Finally, press enter on the last prompt to confirm your selections.
 
     Your summary output will look similar to the snippet shown below.
 

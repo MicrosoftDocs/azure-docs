@@ -20,9 +20,9 @@ If Maven isn't your preferred development tool, check out our similar tutorials 
 + [Eclipse](/azure/developer/java/toolkit-for-eclipse/create-hello-world-web-app)
 + [Visual Studio Code](https://code.visualstudio.com/docs/java/java-webapp)
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](/includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [cloud-shell-try-it.md](/includes/cloud-shell-try-it.md)]
 
 ## Create a Java app
 
@@ -89,9 +89,9 @@ mvn com.microsoft.azure:azure-webapp-maven-plugin:2.5.0:config
 1. When prompted with **Subscription** option, select the proper `Subscription` by entering the number printed at the line start.
 1. When prompted with **Web App** option, select the default option, `<create>`, by pressing enter.
 1. When prompted with **OS** option, select **Linux** by pressing enter.
-2. When prompted with **javaVersion** option, select **Java 11** by entering `2`.
-3. When prompted with **Pricing Tier** option, select **P1v2** by entering `9`.
-4. Finally, press enter on the last prompt to confirm your selections.
+1. When prompted with **javaVersion** option, select **Java 11** by entering `2`.
+1. When prompted with **Pricing Tier** option, select **P1v2** by entering `9`.
+1. Finally, press enter on the last prompt to confirm your selections.
 
     ```
     Please confirm webapp properties
