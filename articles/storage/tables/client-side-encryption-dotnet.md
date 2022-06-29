@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: article
-ms.date: 06/23/2022
+ms.date: 06/28/2022
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
@@ -27,11 +27,11 @@ The [Azure Storage client library for .NET](/dotnet/api/overview/azure/storage) 
 
 For a step-by-step tutorial that leads you through the process of encrypting blobs using client-side encryption and Azure Key Vault, see [Encrypt and decrypt blobs in Microsoft Azure Storage using Azure Key Vault](../blobs/storage-encrypt-decrypt-blobs-key-vault.md).
 
-## Client-side encryption and decryption via the envelope technique
+## How client-side encryption works
+
+### Encryption and decryption via the envelope technique
 
 The Azure Storage client libraries use envelope encryption to encrypt and decrypt your data on the client side. Envelope encryption encrypts a key with one or more additional keys.
-
-### Encryption via the envelope technique
 
 Encryption via the envelope technique works as follows:
 
@@ -43,8 +43,6 @@ Encryption via the envelope technique works as follows:
 
 4. The encrypted data is then uploaded to Azure Storage. The wrapped key together with some additional encryption metadata is either stored as metadata, in the case of blobs, or is interpolated with the encrypted data, in the case of queue messages and table entities.
 
-### Decryption via the envelope technique
-
 Decryption via the envelope technique works as follows:
 
 1. The Azure Storage client library assumes that the user is managing the KEK either locally or in an Azure Key Vault. The user does not need to know the specific key that was used for encryption. Instead, a key resolver which resolves different key identifiers to keys can be set up and used.
@@ -52,7 +50,7 @@ Decryption via the envelope technique works as follows:
 3. The wrapped CEK)is then unwrapped (decrypted) using the KEK. The client library does not have access to the KEK during this process, but only invokes the unwrapping algorithm of the Azure Key Vault or other key store.
 4. The client library uses the CEK to decrypt the encrypted user data.
 
-## Encryption mechanism
+### Encryption mechanism
 
 The Azure Storage client library uses [AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) in order to encrypt user data. There are two versions of client-side encryption available in the client library:
 
@@ -64,14 +62,11 @@ The Azure Storage client library uses [AES](https://en.wikipedia.org/wiki/Advanc
 
 Each service works somewhat differently, so we will discuss each of them here.
 
-### Blobs
+### Encryption/decryption on blob upload/download
 
 The client library currently supports encryption of whole blobs only (???does this mean on upload???). For downloads, both complete and range downloads are supported.
 
 During encryption, the client library generates a random initialization vector (IV) of 16 bytes and a random CEK of 32 bytes, and perform envelope encryption of the blob data using this information. The wrapped CEK and some additional encryption metadata are then stored as blob metadata along with the encrypted blob.
-
-> [!WARNING]
-> If you are editing or uploading your own metadata for the blob, you must ensure that the encryption metadata is preserved. If you upload new metadata without also preserving the encryption metadata, then the wrapped CEK, IV, and other metadata will be lost and you will not be able to retrieve the contents of the blob. Calling the [Set Blob Metadata](/rest/api/storageservices/set-blob-metadata) operation always replaces all blob metadata.
 
 When downloading an entire blob, the wrapped CEK is unwrapped and used together with the IV to return the decrypted data to the client.
 
@@ -79,7 +74,10 @@ Downloading an arbitrary range in the encrypted blob involves adjusting the rang
 
 All blob types (block blobs, page blobs, and append blobs) can be encrypted/decrypted using this scheme.
 
-- When reading from or writing to an encrypted blob, use whole blob upload commands and range/whole blob download commands. Avoid writing to an encrypted blob using protocol operations such as Put Block, Put Block List, Write Pages, Clear Pages, or Append Block; otherwise you may corrupt the encrypted blob and make it unreadable.
+> [!WARNING]
+> If you are editing or uploading your own metadata for the blob, you must ensure that the encryption metadata is preserved. If you upload new metadata without also preserving the encryption metadata, then the wrapped CEK, IV, and other metadata will be lost and you will not be able to retrieve the contents of the blob. Calling the [Set Blob Metadata](/rest/api/storageservices/set-blob-metadata) operation always replaces all blob metadata.
+>
+> When reading from or writing to an encrypted blob, use whole blob upload commands, such as [Put Blob](/rest/api/storageservices/put-blob), and range or whole blob download commands, such as Get Blob. Avoid writing to an encrypted blob using protocol operations such as Put Block, Put Block List, Write Pages, Clear Pages, or Append Block. Calling these operations on an encrypted blob can corrupt it and make it unreadable.
 
 
 ### Queues
