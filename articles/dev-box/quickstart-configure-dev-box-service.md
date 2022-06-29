@@ -1,6 +1,6 @@
 ---
 title: Configure the Microsoft Dev Box service
-description: 'This quickstart shows you how to configure the Microsoft Dev Box service to provide dev boxes for your users. You will create a DevCenter, add a network connection, and then create a dev box definition, a project and a dev box pool.'
+description: 'This quickstart shows you how to configure the Microsoft Dev Box service to provide dev boxes for your users. You'll create a DevCenter, add a network connection, and then create a dev box definition, a project and a dev box pool.'
 services: dev-box
 ms.service: dev-box
 ms.topic: quickstart
@@ -53,27 +53,27 @@ The following steps show you how to use the Azure portal to create and configure
  
 <!--   :::image type="content" source="./media/quickstart-configure-dev-box-service/create-devcenter-basics.png" alt-text="Screenshot showing the Create DevCenter Basics tab."::: -->
        
-   The currently supported Azure locations with capacity are:
-    - East US
-    - East US 2
-    - South Central US
-    - West US 3
-    - West Europe
+The currently supported Azure locations with capacity are:
+- East US
+- East US 2
+- South Central US
+- West US 3
+- West Europe
 <!--Link to ACOM page when available, rather than listing regions-->
 
-1. [Optional] On the **Tags** tab, enter a name and value pair that you want to assign.
+4. [Optional] On the **Tags** tab, enter a name and value pair that you want to assign.
 <!--   :::image type="content" source="./media/quickstart-configure-dev-box-service/create-devcenter-tags.png" alt-text="Screenshot showing the Create DevCenter Tags tab."::: -->
 
-1. Select **Review + Create**.
+5. Select **Review + Create**.
 
-1. On the **Review** tab, select **Create**.
+6. On the **Review** tab, select **Create**.
 
-1. You can check on the progress of the DevCenter creation from any page in the Azure portal, by opening the notifications pane. 
+7. You can check on the progress of the DevCenter creation from any page in the Azure portal, by opening the notifications pane. 
    :::image type="content" source="./media/quickstart-configure-dev-box-service/azure-notifications.png" alt-text="Screenshot showing Azure portal notifications pane.":::
 
-1. When the deployment is complete, select **Go to resource**.
+8. When the deployment is complete, select **Go to resource**.
 
-1. You'll see the **DevCenter** page.
+9. You'll see the **DevCenter** page.
    :::image type="content" source="./media/quickstart-configure-dev-box-service/devcenter-overview.png" alt-text="Screenshot showing the DevCenter overview page.":::
 
 ## Create a Network Connection
@@ -96,11 +96,11 @@ Network connections determine the region into which dev boxes are deployed and a
 
 <!--:::image type="content" source="./media/quickstart-configure-dev-box-service/create-native-network-connection-full-blank.png" alt-text="Screenshot showing the create network connection basics tab."::: -->
 
-1. Select **Review + Create**.
+4. Select **Review + Create**.
 
-1. On the **Review** tab, select **Create**.
+5. On the **Review** tab, select **Create**.
 
-1. When the deployment is complete, select **Go to resource**. You'll see the network connection overview page.
+6. When the deployment is complete, select **Go to resource**. You'll see the network connection overview page.
  
 ### Attach Network Connection to DevCenter
 You need to attach a network connection to a DevCenter before it can be used in projects to create dev box pools.
@@ -113,7 +113,7 @@ You need to attach a network connection to a DevCenter before it can be used in 
 
 After creation, several health checks are run on the network. You can view the status of the checks on the resource overview page. Network connections that pass all the health checks can be added to a DevCenter and used in the creation of Dev Box Pools. The dev boxes within the dev box pools will be created and domain joined in the location of the virtual network assigned to the network connection.
 
-:::image type="content" source="./media/quickstart-configure-dev-box-service/network-connection-grid-populated.png" alt-text="Screenshot showing the status of a Network Connection Status":::
+:::image type="content" source="./media/quickstart-configure-dev-box-service/network-connection-grid-populated.png" alt-text="Screenshot showing the status of a Network Connection Status.":::
 
 To resolve any errors, refer to the [Troubleshoot Azure network connections](/windows-365/enterprise/troubleshoot-azure-network-connection).
 
@@ -123,7 +123,7 @@ The following steps show you how to use the Azure portal to create and configure
 1. Use the following link to sign in to the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Fidalgo/FidalgoMenuBlade/devcenters).
 
 1. Open the DevCenter where you want to create the Dev Box Definition.
-   <!-- :::image type="content" source="./media/quickstart-configure-dev-box-service/dev-box-definition-grid_empty.png" alt-text="Dev Box Definition Grid"::: -->
+   <!-- :::image type="content" source="./media/quickstart-configure-dev-box-service/dev-box-definition-grid_empty.png" alt-text="Dev Box Definition Grid."::: -->
 
 1. Select **Dev box definitions**.
 
@@ -131,20 +131,20 @@ The following steps show you how to use the Azure portal to create and configure
 
 1. The **Create dev box definition** page appears as shown:
 
-      :::image type="content" source="./media/quickstart-configure-dev-box-service/dev-box-definition-create.png" alt-text="Dev Box Definition Create":::
+      :::image type="content" source="./media/quickstart-configure-dev-box-service/dev-box-definition-create.png" alt-text="Screenshot of the Create a dev box definition dialog.":::
 
    Enter the following values:
 
    |Name|Value|Note|
    |----|----|----|
-   |**Name**|Enter a descriptive name for your dev box definition.|
+   |**Name**|Enter a descriptive name for your dev  definition.|
    |**Image**|Select the base operating system for the dev box. Azure provides a Windows 10 image and a Windows 11 image for Dev Box from the Marketplace.|To make more images available for the dev box pool, you can attach your own Azure Compute Gallery from an Azure Subscription that you manage. <!-- Learn [how to configure an Azure Compute Gallery](./how-to-configure-azure-compute-gallery.md). -->|
    |**Image version**|Select a specific, numbered version to ensure all the dev boxes in the pool always use the same version of the image. Select  **Latest** to ensure new dev boxes use the latest image available.|Selecting the Latest image version enables the dev box pool to use the most recent image version for your chosen image from the Gallery. This way, the dev boxes created will stay up to date with the latest tools and code on your image. Existing dev boxes will not be modified when an image version is updated.|
 
 1. Select **Create**.
 
 > [!IMPORTANT]
-> Currently, limited sku options are available is 8 vCPU / 32 GB RAM / 1024 GB SSD. More compute and storage options will be available at Public Preview.
+> Currently, limited sku options are available is 8 vCPU / 32 GB RAM / 1024 GB SSD. 
 
 ## Create a Project
 
@@ -177,7 +177,7 @@ The following steps show you how to use the Azure portal to create and configure
 
 1. Verify that you see the **Project** page.
 
-    :::image type="content" source="./media/quickstart-configure-dev-box-service/project-page.png" alt-text="Project overview page":::
+    :::image type="content" source="./media/quickstart-configure-dev-box-service/project-page.png" alt-text="Screenshot of the Project overview page.":::
 
 ## Create a Dev Box Pool
 The following steps show you how to use the Azure portal to create a Dev Box Pool within a Project. You'll use the Dev Box Definition and Network Connection that you've already created in the DevCenter to configure a specific Dev Box Pool. Dev box users will create their dev boxes from this pool. A Dev Box Pool can be created and managed by the DevCenter Owner or Project Admin.
@@ -185,10 +185,10 @@ The following steps show you how to use the Azure portal to create a Dev Box Poo
 1. Use the following link to sign in to the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Fidalgo/FidalgoMenuBlade/projects). 
 
 1. Select **Projects** and open the project you want to create the pool in. 
-:::image type="content" source="./media/quickstart-configure-dev-box-service/projects-grid.png" alt-text="List of projects":::
+:::image type="content" source="./media/quickstart-configure-dev-box-service/projects-grid.png" alt-text="Screenshot of the list of existing projects.":::
 
 1. Select **Dev box pools** and then select **+ Add**.
-:::image type="content" source="./media/quickstart-configure-dev-box-service/dev-box-pool-grid-empty.png" alt-text="Create Dev Box Pool":::
+:::image type="content" source="./media/quickstart-configure-dev-box-service/dev-box-pool-grid-empty.png" alt-text="Screenshot of the list of dev box pools within a project. The list is empty.":::
 
 1. On the **Create a dev box pool** page, on the **Basics** tab, enter the following values:
 
@@ -198,15 +198,15 @@ The following steps show you how to use the Azure portal to create a Dev Box Poo
    |**Dev box definition**|Select an existing dev box definition. The definition determines the base image and size for the dev boxes created within this pool.|
    |**Network connection**|Select an existing network connection. The Network Connection determines the region of the dev boxes created within this pool.|
 
-<!--   :::image type="content" source="./media/quickstart-configure-dev-box-service/dev-box-pool-create.png" alt-text="Create Dev Box pool dialog"::: -->
+<!--   :::image type="content" source="./media/quickstart-configure-dev-box-service/dev-box-pool-create.png" alt-text="Screenshot of the Create dev box pool dialog."::: -->
 
-1. Select **Review + Create**.
+5. Select **Review + Create**.
 
-1. On the **Review** tab, select **Create**.
+6. On the **Review** tab, select **Create**.
 
 The Pool will be deployed and health checks will be run to ensure the image and network pass the validation criteria to be used for dev boxes. 
 
-:::image type="content" source="./media/quickstart-configure-dev-box-service/dev-box-pool-grid-populated.png" alt-text="Screenshot showing a list of existing pools":::
+:::image type="content" source="./media/quickstart-configure-dev-box-service/dev-box-pool-grid-populated.png" alt-text="Screenshot showing a list of existing pools.":::
 
 
 ## Next steps
