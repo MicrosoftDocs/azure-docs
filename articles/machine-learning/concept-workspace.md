@@ -96,9 +96,9 @@ There are multiple ways to create a workspace:
 
 ## <a name="sub-resources"></a> Sub resources
 
-These sub resources are the main resources that are made in the AML workspace.
+These sub resources are the main resources that are made in the AzureML workspace.
 
-* VMs: provide computing power for your AML workspace and are an integral part in deploying and training models.
+* VMs: provide computing power for your AzureML workspace and are an integral part in deploying and training models.
 * Load Balancer: a network load balancer is created for each compute instance and compute cluster to manage traffic even while the compute instance/cluster is stopped.
 * Virtual Network: these help Azure resources communicate with one another, the internet, and other on-premises networks.
 * Bandwidth: encapsulates all outbound data transfers across regions.

@@ -28,14 +28,14 @@ Resources in Azure can be created several different ways:
 
 This guide walks you through the Azure portal creation experience.
 
-1. Navigate to the create page: [Azure OpenAI Service Create Page](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=microsoft_openai_tip#create/Microsoft.CognitiveServicesOpenAI)<!--TODO: Change once new link is live>
+1. Navigate to the create page: [Azure OpenAI Service Create Page](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=microsoft_openai_tip#create/Microsoft.CognitiveServicesOpenAI)
 1. On the **Create** page provide the following information:
 
     |Field| Description   |
     |--|--|
     | **Subscription** | Select the Azure subscription used in your OpenAI onboarding application|
     | **Resource group** | The Azure resource group that will contain your OpenAI resource. You can create a new group or add it to a pre-existing group. |
-    | **Region** | The location of your instance. Different locations may introduce latency, but have no impact on the runtime availability of your resource. Please choose **South Central US**|
+    | **Region** | The location of your instance. Different locations may introduce latency, but have no impact on the runtime availability of your resource.|
     | **Name** | A descriptive name for your cognitive services resource. For example, *MyOpenAIResource*. |
     | **Pricing Tier** | Only 1 pricing tier is available for the service currently |
 
