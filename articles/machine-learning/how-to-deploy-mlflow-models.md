@@ -59,7 +59,7 @@ Each workflows has different capabilities, particularly around which type of com
 | Deploy MLflow models to ACI/AKS (with a scoring script) | | | **&check;**<sup>1</sup> |
 
 > [!NOTE]
-> - <sup>1</sup> No-code deployment is not supported when deploying to ACI/AKS from Azure ML studio. We recommend switching to our [managed online endpoints](#concept-endpoints.md) instead.
+> - <sup>1</sup> No-code deployment is not supported when deploying to ACI/AKS from Azure ML studio. We recommend switching to our [managed online endpoints](concept-endpoints.md) instead.
 
 ### Which option to use?
 
