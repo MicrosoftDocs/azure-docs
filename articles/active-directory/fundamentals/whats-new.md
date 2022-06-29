@@ -51,6 +51,16 @@ For more information about how to better secure your organization by using autom
 ---
  
 
+### Public Preview - Roles are being assigned outside of Privileged Identity Management
+
+**Type:** New feature  
+**Service category:** Privileged Identity Management  
+**Product capability:** Privileged Identity Management  
+ 
+Customers can be alerted on assignments made outside PIM either directly on the Azure Portal or also via email. For the current public preview, the assignments are being tracked at the subscription level. For more information, see [Configure security alerts for Azure roles in Privileged Identity Management](../privileged-identity-management/pim-resource-roles-configure-alerts.md#alerts).
+ 
+---
+
 
 ### General Availability - Temporary Access Pass is now available
 
