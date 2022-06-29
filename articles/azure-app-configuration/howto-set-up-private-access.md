@@ -114,13 +114,13 @@ This command will prompt your web browser to launch and load an Azure sign-in pa
     az network vnet create --name <vnet-name> --resource-group <rg-name> --subnet-name <subnet-name> --location <vnet-location>
     ```
 
-> [!div class="mx-tdBreakAll"]
-> | Command            | Placeholder | Description                                                                                                                                             | Example           |
-> |--------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------|
-> | `--name`           |`<vnet-name>` | Enter a name for your new virtual network. A virtual network enables Azure resources to communicate privately with each other, and with the internet. | `MyVNet`          |
-> | `--resource-group` | `<rg-name>`| Enter the name of an existing resource group or enter a new resource group name to create a new resource group for your virtual network.              | `MyResourceGroup` |
-> | `--subnet-name`    | `<subnet-name>`| Enter a name for your new subnet. A subnet is a network inside a network. This is where the private IP address is assigned.                           | `MySubnet`        |
-> | `--vnet-location`  | `<vnet-location>`| Enter a virtual network location. Your virtual network must be in the same region as your private endpoint.                                           | `centralus`       |
+    > [!div class="mx-tdBreakAll"]
+    > | Placeholder      | Description                                                                                                                                           | Example           |
+    > |------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------|
+    > | `<vnet-name>`    | Enter a name for your new virtual network. A virtual network enables Azure resources to communicate privately with each other, and with the internet. | `MyVNet`          |
+    > | `<rg-name>`      | Enter the name of an existing resource group for your virtual network.                                                                                | `MyResourceGroup` |
+    > | `<subnet-name>`  | Enter a name for your new subnet. A subnet is a network inside a network. This is where the private IP address is assigned.                           | `MySubnet`        |
+    > | `<vnet-location>`| Enter an Azure region. Your virtual network must be in the same region as your private endpoint.                                                      | `centralus`       |
 
 1. Run the command [az appconfig show](/cli/azure/appconfig/#az-appconfig-show) to retrieve the properties of the App Configuration store, for which you want to set up private access. Replace the placeholder `name` with the name or the App Configuration store.
 
@@ -128,7 +128,7 @@ This command will prompt your web browser to launch and load an Azure sign-in pa
     az appconfig show --name <name>
     ```
 
-    This command generates an output with information about your App Configuration store. Note down the values listed for `id`.
+    This command generates an output with information about your App Configuration store. Note down the *id* value. For instance: */subscriptions/123/resourceGroups/MyResourceGroup/providers/Microsoft.AppConfiguration/configurationStores/MyAppConfigStore*.
 
 1. Run the command [az network private-endpoint create](/cli/azure/network/private-endpoint#az-network-private-endpoint-create) to create a private endpoint for your App Configuration store. Replace the placeholder texts `<resource-group>`, `<private-endpoint-name>`, `<vnet-name>`, `<private-connection-resource-id>`, `<connection-name>`, and `<location>` with your own information.
 
@@ -136,15 +136,15 @@ This command will prompt your web browser to launch and load an Azure sign-in pa
     az network private-endpoint create --resource-group <resource-group> --name <private-endpoint-name> --vnet-name <vnet-name> --subnet Default --private-connection-resource-id <private-connection-resource-id> --connection-name <connection-name> --location <location> --group-id configurationStores
     ```
 
-> [!div class="mx-tdBreakAll"]
-> | Command                            | Placeholder                        | Description                                                                                      | Example                                                                                                                      |
-> |------------------------------------|------------------------------------|--------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------|
-> | `--resource-group`                 | `<resource-group>`                 | Create or select an existing resource group.                                                     | `MyResourceGroup`                                                                                                            |
-> | `--name`                           | `<private-endpoint-name>`          | Enter a name for your new private endpoint.                                                      | `MyPrivateEndpoint`                                                                                                          |
-> | `--vnet-name`                      | `<vnet-name>`                      | Enter the name of an existing vnet.                                                              | `Myvnet`                                                                                                                     |
-> | `--private-connection-resource-id` | `<private-connection-resource-id>` | This value is the ID you saved from the output of the previous command.                          | `/subscriptions/123/resourceGroups/MyResourceGroup/providers/Microsoft.AppConfiguration/configurationStores/MyAppConfigStore`|
-> | `--connection-name`                | `<connection-name>`                | Enter a connection name.                                                                         |`MyConnection`|
-> | `--location`                       | `<location>`                       | Enter an Azure region. Your private endpoint must be in the same region as your virtual network. |`centralus`|  
+    > [!div class="mx-tdBreakAll"]
+    > | Placeholder                        | Description                                                                                                                      | Example                                                                                                                      |
+    > |------------------------------------|----------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------|
+    > | `<resource-group>`                 | Enter the name of an existing resource group for your private endpoint.                                                          | `MyResourceGroup`                                                                                                            |
+    > | `<private-endpoint-name>`          | Enter a name for your new private endpoint.                                                                                      | `MyPrivateEndpoint`                                                                                                          |
+    > | `<vnet-name>`                      | Enter the name of an existing vnet.                                                                                              | `Myvnet`                                                                                                                     |
+    > | `<private-connection-resource-id>` | Enter your App Configuration store's private connection resource ID. This the ID you saved from the output of the previous step. | `/subscriptions/123/resourceGroups/MyResourceGroup/providers/Microsoft.AppConfiguration/configurationStores/MyAppConfigStore`|
+    > | `<connection-name>`                | Enter a connection name.                                                                                                         |`MyConnection`                                                                                                                |
+    > | `<location>`                       | Enter an Azure region. Your private endpoint must be in the same region as your virtual network.                                 |`centralus`                                                                                                                   |  
 
 ## Next steps
 
