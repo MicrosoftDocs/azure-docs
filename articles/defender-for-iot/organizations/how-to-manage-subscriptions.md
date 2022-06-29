@@ -60,7 +60,7 @@ We recommend making an initial estimate of your committed devices when onboardin
 
 If you are also a Defender for Endpoint customer, remember to also exclude devices that are managed by Defender for Endpoint, as these devices aren't billable in Defender for IoT.
 
-You can identify devices that were onboarded in Defender for Endpoint in the Defender for Endpoint **Device inventory** page. In the **Endpoints** tab, filter for devices by **Onboarding status**. For more information, see [Defender for Endpoint Device discovery overview](/microsoft-365/security/defender-endpoint/device-discovery?view=o365-worldwide).
+You can identify devices that were onboarded in Defender for Endpoint in the Defender for Endpoint **Device inventory** page. In the **Endpoints** tab, filter for devices by **Onboarding status**. For more information, see [Defender for Endpoint Device discovery overview](/microsoft-365/security/defender-endpoint/device-discovery).
 
 
 
