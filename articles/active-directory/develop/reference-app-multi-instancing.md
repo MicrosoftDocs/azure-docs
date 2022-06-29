@@ -21,7 +21,7 @@ App multi-instancing refers to the need for the configuration of multiple instan
 A user can sign-in to an application one of two ways, either through the application directly, which is known as service provider (SP) initiated single sign-on (SSO), or by going directly to the identity provider (IDP), known as IDP initiated SSO. Depending on which approach is used within your organization you'll need to follow the appropriate instructions below.  
 
 ## SP Initiated   
-The issue with SP initiated is that within the SAML request the Issuer specified is usually the App ID Uri. Utilizing App ID Uri doesn’t allow the customer to distinguish which instance of an application is being targeted when using Service Provider initiated SSO.   
+In the SAML request of SP initiated SSO, the Issuer specified is usually the App ID Uri. Utilizing App ID Uri doesn’t allow the customer to distinguish which instance of an application is being targeted when using SP initiated SSO.   
 
 ## SP Initiated Configuration Instructions  
 Update the SAML single sign-on service URL configured within the service provider for each instance to include the service principal guid as part of the URL. For example, the general SSO sign-in URL for SAML would have been `https://login.microsoftonline.com/<tenantid>/saml2`, the URL can now be updated to target a specific service principal as follows `https://login.microsoftonline.com/<tenantid>/saml2/<issuer>`.  
