@@ -21,7 +21,7 @@ With Azure VM Image Builder, you choose to deploy the service with or without an
 
 If you don't specify an existing virtual network, VM Image Builder creates one, along with a subnet, in the staging resource group. The service uses a public IP resource with a network security group to restrict inbound traffic. The public IP facilitates the channel for commands during the image build. After the build completes, the virtual machine (VM), public IP, disks, and virtual network are deleted. To use this option, don't specify any virtual network properties.
 
-## Deploy using an existing virtual network
+## Deploy using an existing VNET
 
 If you specify a virtual network and subnet, VM Image Builder deploys the build VM to your chosen virtual network. You can access resources that are accessible on your virtual network. You can also create a siloed virtual network, unconnected to any other virtual network. If you specify a virtual network, VM Image Builder doesn't use a public IP address. Communication from VM Image Builder to the build virtual machine uses Azure Private Link.
 
