@@ -10,7 +10,7 @@ ms.subservice: change-analysis
 ms.custom: devx-track-azurepowershell
 ---
 
-## Enable Change Analysis
+# Enable Change Analysis
 
 The Change Analysis service:
 - Computes and aggregates change data from the data sources mentioned earlier. 
@@ -22,7 +22,7 @@ Register the `Microsoft.ChangeAnalysis` resource provider with an Azure Resource
 - Enter the Web App **Diagnose and Solve Problems** tool, or 
 - Bring up the Change Analysis standalone tab.
 
-### Enable Change Analysis for web app in-guest changes
+## Enable Change Analysis for web app in-guest changes
 
 For web app in-guest changes, separate enablement is required for scanning code files within a web app. For more information, see [Change Analysis in the Diagnose and solve problems tool](change-analysis-visualizations.md#diagnose-and-solve-problems-tool) section.
 
@@ -57,15 +57,15 @@ By default, the graph displays changes from within the past 24 hours help with i
 
 :::image type="content" source="./media/change-analysis/change-view.png" alt-text="Screenshot of the change diff view":::   
 
-### Enable Change Analysis at scale for Web App in-guest file and environment variable changes
+## Enable Change Analysis at scale for Web App in-guest file and environment variable changes
 
 If your subscription includes several web apps, enabling the service at the web app level would be inefficient. Instead, run the following script to enable *all web apps* in your subscription.
 
-#### Pre-requisites
+### Pre-requisites
 
 PowerShell Az Module. Follow instructions at [Install the Azure PowerShell module](/powershell/azure/install-az-ps)
 
-#### Run the following script:
+### Run the following script:
 
 ```PowerShell
 # Log in to your Azure subscription
