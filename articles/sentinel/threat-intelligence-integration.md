@@ -32,8 +32,9 @@ To connect to TAXII threat intelligence feeds, follow the instructions to [conne
 
 - [Learn about Accenture CTI integration with Microsoft Sentinel](https://www.accenture.com/us-en/services/security/cyber-defense).
 
-### Anomali Limo
+### Anomali
 
+- [Learn how to import threat intelligence from Anoamli Threatstream into Microsoft Sentinel](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/import-anomali-threatstream-feed-into-microsoft-sentinel/ba-p/3561742#M3787)
 - [See what you need to connect to Anomali Limo feed](https://www.anomali.com/resources/limo).
 
 ### Cybersixgill Darkfeed
