@@ -21,7 +21,7 @@ With Azure VM Image Builder, you choose to deploy the service with or without an
 
 If you don't specify an existing virtual network, VM Image Builder creates one, along with a subnet, in the staging resource group. The service uses a public IP resource with a network security group to restrict inbound traffic. The public IP facilitates the channel for commands during the image build. After the build completes, the virtual machine (VM), public IP, disks, and virtual network are deleted. To use this option, don't specify any virtual network properties.
 
-## Deploy using an existing VNET
+## Deploy using an existing virtual network
 
 If you specify a virtual network and subnet, VM Image Builder deploys the build VM to your chosen virtual network. You can access resources that are accessible on your virtual network. You can also create a siloed virtual network, unconnected to any other virtual network. If you specify a virtual network, VM Image Builder doesn't use a public IP address. Communication from VM Image Builder to the build virtual machine uses Azure Private Link.
 
@@ -73,16 +73,16 @@ Private Link requires an IP from the specified virtual network and subnet. Curre
 ### Checklist for using your virtual network
 
 1. Allow Azure Load Balancer to communicate with the proxy VM in a network security group.
-    * [AZ CLI example](image-builder-vnet.md#add-an-nsg-rule)
+    * [Azure CLI example](image-builder-vnet.md#add-an-nsg-rule)
     * [PowerShell example](../windows/image-builder-vnet.md#add-an-nsg-rule)
 2. Disable the private service policy on the subnet.
-    * [AZ CLI example](image-builder-vnet.md#disable-private-service-policy-on-the-subnet)
+    * [Azure CLI example](image-builder-vnet.md#disable-private-service-policy-on-the-subnet)
     * [PowerShell example](../windows/image-builder-vnet.md#disable-private-service-policy-on-the-subnet)
 3. Allow VM Image Builder to create a load balancer, and add VMs to the virtual network.
-    * [AZ CLI Example](image-builder-permissions-cli.md#existing-virtual-network-azure-role-example)
+    * [Azure CLI example](image-builder-permissions-cli.md#existing-virtual-network-azure-role-example)
     * [PowerShell example](image-builder-permissions-powershell.md#permission-to-customize-images-on-your-virtual-networks)
 4. Allow VM Image Builder to read and write source images, and create images.
-    * [AZ CLI example](image-builder-permissions-cli.md#custom-image-azure-role-example)
+    * [Azure CLI example](image-builder-permissions-cli.md#custom-image-azure-role-example)
     * [PowerShell example](image-builder-permissions-powershell.md#custom-image-azure-role-example)
 5. Ensure that you're using a virtual network in the same region as the VM Image Builder service region.
 
