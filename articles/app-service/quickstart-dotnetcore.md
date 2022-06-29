@@ -614,7 +614,7 @@ Follow these steps to create your App Service resources and publish your project
 
 1. Under **App Service Plan**, select **Create new** App Service Plan. Type *myAppServicePlan* for the name. To change to the Free tier, select **Change size**, select **Dev/Test** tab, select **F1**, and select the **Apply** button at the bottom of the page.
 
-    :::image type="content" source="./media/quickstart-dotnet/app-service-plan-details.png" alt-text="Screenshot of the Administrator account section where you provide the administrator username and password":::
+    :::image type="content" source="./media/quickstart-dotnet/app-service-plan-details.png" alt-text="Screenshot of the Administrator account section where you provide the administrator username and password.":::
 
 1. Select the **Next: Deployment >** button at the bottom of the page.
 
@@ -642,23 +642,23 @@ Follow these steps to create your App Service resources and publish your project
 
 1. Select the **Review + create** button at the bottom of the page.
 
-    :::image type="content" source="./media/quickstart-dotnet/review-create.png" alt-text="Screenshot of the Review and create button at the bottom of the page":::
+    :::image type="content" source="./media/quickstart-dotnet/review-create.png" alt-text="Screenshot of the Review and create button at the bottom of the page.":::
 
 1. After validation runs, select the **Create** button at the bottom of the page.
 
 1. After deployment is complete, select **Go to resource**.
 
-    :::image type="content" source="./media/quickstart-dotnet/next-steps.png" alt-text="Screenshot of the next step of going to the resource":::
+    :::image type="content" source="./media/quickstart-dotnet/next-steps.png" alt-text="Screenshot of the next step of going to the resource.":::
 
 1. Browse to the deployed application in your web browser at the URL `http://<app-name>.azurewebsites.net`.
 
     ### [.NET 6.0](#tab/net60)
     
-    :::image type="content" source="media/quickstart-dotnet/browse-dotnet-60.png" lightbox="media/quickstart-dotnet/Azure-webapp-net.png" border="true" alt-text="Screenshot of the deployed sample app":::
+    :::image type="content" source="media/quickstart-dotnet/browse-dotnet-60.png" lightbox="media/quickstart-dotnet/Azure-webapp-net.png" border="true" alt-text="Screenshot of the deployed sample app.":::
         
     ### [.NET Framework 4.8](#tab/netframework48)
        
-    :::image type="content" source="media/quickstart-dotnet/browse-dotnet-48.png" lightbox="media/quickstart-dotnet/Azure-webapp-net.png" border="true" alt-text="Screenshot of the deployed sample app":::
+    :::image type="content" source="media/quickstart-dotnet/browse-dotnet-48.png" lightbox="media/quickstart-dotnet/Azure-webapp-net.png" border="true" alt-text="Screenshot of the deployed sample app.":::
     
     -----
 
@@ -916,11 +916,11 @@ You'll see the updated ASP.NET Framework 4.8 web app displayed in the page.
 
     ### [.NET 6.0](#tab/net60)
 
-    ![Screenshot of Visual Studio Code in the browser, Source Control panel with a commit message of 'We love Azure' and the Commit and Push button highlighted ](media/quickstart-dotnetcore/visual-studio-code-in-browser-commit-push-dotnetcore.png)
+    ![Screenshot of Visual Studio Code in the browser, Source Control panel with a commit message of 'We love Azure' and the Commit and Push button highlighted.](media/quickstart-dotnetcore/visual-studio-code-in-browser-commit-push-dotnetcore.png)
 
     ### [.NET Framework 4.8](#tab/netframework48)
 
-    ![Screenshot of Visual Studio Code in the browser, Source Control panel with a commit message of 'We love Azure' and the Commit and Push button highlighted ](media/quickstart-dotnetcore/visual-studio-code-in-browser-commit-push-dotnet-framework.png)
+    ![Screenshot of Visual Studio Code in the browser, Source Control panel with a commit message of 'We love Azure' and the Commit and Push button highlighted.](media/quickstart-dotnetcore/visual-studio-code-in-browser-commit-push-dotnet-framework.png)
 
 5. Once deployment has completed, return to the browser window that opened during the **Browse to the app** step, and refresh the page.
     
