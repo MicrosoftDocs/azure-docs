@@ -52,15 +52,17 @@ When onboarding or editing your Defender for IoT plan, you'll need to know how m
 
 [!INCLUDE [devices-inventoried](includes/devices-inventoried.md)]
 
-**To calculate the number of devices you need to monitor**, collect the total number of devices in your network and remove any devices that aren't considered Defender for IoT committed devices.
+**To calculate the number of devices you need to monitor**:
 
-If you are also a Defender for Endpoint customer, devices managed by Defender for Endpoint aren't billable in Defender for IoT. Therefore, when estimating your committed devices, also exclude any devices onboarded in Defender for Endpoint.
+Collect the total number of devices in your network and remove any devices that aren't considered Defender for IoT committed devices.
+
+We recommend making an initial estimate of your committed devices when onboarding your Defender for IoT plan. Then, once you've set up your network sensor and have full visibilty into all devices, you can [edit your plan](#update-committed-devices-in-a-subscription) to update the number of committed devices as needed.
+
+If you are also a Defender for Endpoint customer, remember to also exclude devices that are managed by Defender for Endpoint, as these devices aren't billable in Defender for IoT.
 
 You can identify devices that were onboarded in Defender for Endpoint in the Defender for Endpoint **Device inventory** page. In the **Endpoints** tab, filter for devices by **Onboarding status**. For more information, see [Defender for Endpoint Device discovery overview](/microsoft-365/security/defender-endpoint/device-discovery?view=o365-worldwide).
 
-> [!TIP]
-> We recommend making an initial estimate of your committed devices when onboarding your Defender for IoT plan. Then, once you've set up your network sensor and have full visibilty into all devices, you can [edit your plan](#update-committed-devices-in-a-subscription) to update the number of committed devices as needed.
->
+
 
 ## Onboard a trial subscription
 
