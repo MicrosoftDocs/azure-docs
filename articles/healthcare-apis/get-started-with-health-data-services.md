@@ -88,12 +88,12 @@ For more information, see [Get started with the DICOM service](./../healthcare-a
 
 MedTech service transforms device data into FHIR-based observation resources and then persists the transformed messages into Azure Health Data Services FHIR service. This allows for a unified approach to health data access, standardization, and trend capture enabling the discovery of operational and clinical insights, connecting new device applications, and enabling new research projects. 
 
-To ensure that your MedTech service works properly, it must have granted access permissions to the Azure Event Hub and FHIR service. The Azure Event Hubs Data Receiver role allows the MedTech service that's being assigned this role to receive data from this event hub. For more information about application roles, see [Authentication & Authorization for Azure Health Data Services](./../healthcare-apis/authentication-authorization.md)
+To ensure that your MedTech service works properly, it must have granted access permissions to the Azure Event Hubs and FHIR service. The Azure Event Hubs Data Receiver role allows the MedTech service that's being assigned this role to receive data from this event hub. For more information about application roles, see [Authentication & Authorization for Azure Health Data Services](./../healthcare-apis/authentication-authorization.md)
 
 You can also do the following:
 - Create a new FHIR service or use an existing one in the same or different workspace 
 - Create a new event hub or use an existing one 
-- Assign roles to allow the MedTech service to access [Event Hub](./../healthcare-apis/iot/deploy-iot-connector-in-azure.md#granting-the-medtech-service-access) and [FHIR service](./../healthcare-apis/iot/deploy-iot-connector-in-azure.md#accessing-the-medtech-service-from-the-fhir-service)
+- Assign roles to allow the MedTech service to access [Event Hubs](./../healthcare-apis/iot/deploy-iot-connector-in-azure.md#granting-the-medtech-service-access) and [FHIR service](./../healthcare-apis/iot/deploy-iot-connector-in-azure.md#accessing-the-medtech-service-from-the-fhir-service)
 - Send data to the event hub, which is associated with the MedTech service 
 
 For more information, see [Get started with the MedTech service](./../healthcare-apis/iot/get-started-with-iot.md).
