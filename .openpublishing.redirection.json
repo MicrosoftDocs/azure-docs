@@ -11117,6 +11117,17 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/azure-resource-manager/management/create-private-link-access-rest.md",
+      "redirect_url": "/azure/azure-resource-manager/management/create-private-link-access-commands",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-resource-manager/management/manage-private-link-access-rest.md",
+      "redirect_url": "/azure/azure-resource-manager/management/manage-private-link-access-commands",
+      "redirect_document_id": false
+    },
+
+    {
       "source_path_from_root": "/articles/azure-resource-manager/resource-group-move-resources.md",
       "redirect_url": "/azure/azure-resource-manager/management/move-resource-group-and-subscription",
       "redirect_document_id": false

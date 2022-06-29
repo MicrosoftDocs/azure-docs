@@ -1,12 +1,12 @@
 ---
-title: Nudge users to set up Microsoft Entra Authenticator app - Azure Active Directory
-description: Learn how to move your organization away from less secure authentication methods to the Microsoft Entra Authenticator app
+title: Nudge users to set up Microsoft Authenticator - Azure Active Directory
+description: Learn how to move your organization away from less secure authentication methods to Microsoft Authenticator
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 06/09/2022
+ms.date: 06/23/2022
 
 ms.author: justinha
 author: mjsantani
@@ -14,11 +14,11 @@ manager: karenhoran
 
 ms.collection: M365-identity-device-management
 
-# Customer intent: As an identity administrator, I want to encourage users to use the Microsoft Entra Authenticator app in Azure AD to improve and secure user sign-in events.
+# Customer intent: As an identity administrator, I want to encourage users to use the Microsoft Authenticator app in Azure AD to improve and secure user sign-in events.
 ---
-# How to run a registration campaign to set up Microsoft Entra Authenticator - Microsoft Entra Authenticator app
+# How to run a registration campaign to set up Microsoft Authenticator - Microsoft Authenticator
 
-You can nudge users to set up the Microsoft Entra Authenticator app during sign-in. Users will go through their regular sign-in, perform multifactor authentication as usual, and then be prompted to set up the Microsoft Entra Authenticator app. You can include or exclude users or groups to control who gets nudged to set up the app. This allows targeted campaigns to move users from less secure authentication methods to the Authenticator app.  
+You can nudge users to set up Microsoft Authenticator during sign-in. Users will go through their regular sign-in, perform multifactor authentication as usual, and then be prompted to set up Microsoft Authenticator. You can include or exclude users or groups to control who gets nudged to set up the app. This allows targeted campaigns to move users from less secure authentication methods to the Authenticator app.  
 
 In addition to choosing who can be nudged, you can define how many days a user can postpone, or "snooze", the nudge. If a user taps **Not now** to snooze the app setup, they'll be nudged again on the next MFA attempt after the snooze duration has elapsed. 
 
@@ -28,7 +28,7 @@ In addition to choosing who can be nudged, you can define how many days a user c
 - Users can't have already set up the Authenticator app for push notifications on their account. 
 - Admins need to enable users for the Authenticator app using one of these policies:  
   - MFA Registration Policy: Users will need to be enabled for **Notification through mobile app**.  
-  - Authentication Methods Policy: Users will need to be enabled for the Authenticator app and the Authentication mode set to **Any** or **Push**. If the policy is set to **Passwordless**, the user won't be eligible for the nudge. For more information about how to set the Authentication mode, see [Enable passwordless sign-in with the Microsoft Entra Authenticator app](howto-authentication-passwordless-phone.md). 
+  - Authentication Methods Policy: Users will need to be enabled for the Authenticator app and the Authentication mode set to **Any** or **Push**. If the policy is set to **Passwordless**, the user won't be eligible for the nudge. For more information about how to set the Authentication mode, see [Enable passwordless sign-in with Microsoft Authenticator](howto-authentication-passwordless-phone.md). 
 
 ## User experience
 
@@ -41,11 +41,11 @@ In addition to choosing who can be nudged, you can define how many days a user c
 1. User taps **Next** and steps through the Authenticator app setup. 
    1. First download the app.  
 
-      ![User downloads the Microsoft Entra Authenticator app](./media/how-to-nudge-authenticator-app/download.png)
+      ![User downloads Microsoft Authenticator](./media/how-to-nudge-authenticator-app/download.png)
 
    1. See how to set up the Authenticator app. 
    
-      ![User sets up the Microsoft Entra Authenticator app](./media/how-to-nudge-authenticator-app/setup.png)
+      ![User sets up Microsoft Authenticator](./media/how-to-nudge-authenticator-app/setup.png)
 
    1. Scan the QR Code. 
 
@@ -308,4 +308,4 @@ It's the same as snoozing.
 
 ## Next steps
 
-[Enable passwordless sign-in with the Microsoft Entra Authenticator app](howto-authentication-passwordless-phone.md)
+[Enable passwordless sign-in with Microsoft Authenticator](howto-authentication-passwordless-phone.md)

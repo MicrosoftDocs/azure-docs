@@ -302,4 +302,5 @@ This table shows how this feature is supported in your account and the impact on
 
 - [Enable and manage blob versioning](versioning-enable.md)
 - [Creating a snapshot of a blob](/rest/api/storageservices/creating-a-snapshot-of-a-blob)
-- [Soft delete for Azure Storage Blobs](./soft-delete-blob-overview.md)
+- [Soft delete for blobs](./soft-delete-blob-overview.md)
+- [Soft delete for containers](soft-delete-container-overview.md)

@@ -6,8 +6,9 @@ ms.subservice: single-server
 ms.topic: conceptual
 ms.author: alau
 author: alau-ms
-ms.date: 04/08/2021
+ms.date: 06/24/2022
 ---
+
 # Azure Advisor for PostgreSQL
 
 [!INCLUDE [applies-to-postgresql-single-server](../includes/applies-to-postgresql-single-server.md)]

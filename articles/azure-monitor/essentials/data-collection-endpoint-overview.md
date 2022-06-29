@@ -90,5 +90,5 @@ The sample data collection endpoint below is for virtual machines with Azure Mon
 ```
 
 ## Next steps
-- [Associate endpoint to machines](../agents/data-collection-rule-azure-monitor-agent.md#create-rule-and-association-in-azure-portal)
+- [Associate endpoint to machines](../agents/data-collection-rule-azure-monitor-agent.md#create-data-collection-rule-and-association)
 - [Add endpoint to AMPLS resource](../logs/private-link-configure.md#connect-azure-monitor-resources) 

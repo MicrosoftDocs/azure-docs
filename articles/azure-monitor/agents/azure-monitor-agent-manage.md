@@ -39,7 +39,7 @@ The following prerequisites must be met prior to installing the Azure Monitor ag
 - **Authentication**: [Managed identity](../../active-directory/managed-identities-azure-resources/overview.md) must be enabled on Azure virtual machines. Both system-assigned and user-assigned managed identities are supported.
   - **User-assigned**: This is recommended for large scale deployments, configurable via [built-in Azure policies](#using-azure-policy). It can be created once and shared across multiple VMs, and is thus more scalable than system-assigned.
   - **System-assigned**: This is suited for initial testing or small deployments. When used at scale (for example, for all VMs in a subscription) it results in substantial number of identities created (and deleted) in Azure AD (Azure Active Directory). To avoid this churn of identities, it is recommended to use user-assigned managed identities instead. **For Arc-enabled servers, system-assigned managed identity is enabled automatically** (as soon as you install the Arc agent) as it's the only supported type for Arc-enabled servers.
-  - This is not required for Azure Arc-enabled servers. The system identity will be enabled automatically if the agent is installed via [creating and assigning a data collection rule using the Azure portal](data-collection-rule-azure-monitor-agent.md#create-rule-and-association-in-azure-portal).
+  - This is not required for Azure Arc-enabled servers. The system identity will be enabled automatically if the agent is installed via [creating and assigning a data collection rule using the Azure portal](data-collection-rule-azure-monitor-agent.md#create-data-collection-rule-and-association).
 - **Networking**: The [AzureResourceManager service tag](../../virtual-network/service-tags-overview.md) must be enabled on the virtual network for the virtual machine. Additionally, the virtual machine must have access to the following HTTPS endpoints:
   -	global.handler.control.monitor.azure.com
   -	`<virtual-machine-region-name>`.handler.control.monitor.azure.com (example: westus.handler.control.azure.com)
@@ -55,7 +55,7 @@ The following prerequisites must be met prior to installing the Azure Monitor ag
 ## Using the Azure portal
 
 ### Install
-To install the Azure Monitor agent using the Azure portal, follow the process to [create a data collection rule](data-collection-rule-azure-monitor-agent.md#create-rule-and-association-in-azure-portal) in the Azure portal. This not only creates the rule, but it also associates it to the selected resources and installs the Azure Monitor agent on them if not already installed.
+To install the Azure Monitor agent using the Azure portal, follow the process to [create a data collection rule](data-collection-rule-azure-monitor-agent.md#create-data-collection-rule-and-association) in the Azure portal. This not only creates the rule, but it also associates it to the selected resources and installs the Azure Monitor agent on them if not already installed.
 
 ### Uninstall
 To uninstall the Azure Monitor agent using the Azure portal, navigate to your virtual machine, scale set or Arc-enabled server, select the **Extensions** tab and click on **AzureMonitorWindowsAgent** or **AzureMonitorLinuxAgent**. In the dialog that pops up, click **Uninstall**.
