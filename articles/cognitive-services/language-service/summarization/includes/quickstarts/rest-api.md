@@ -56,9 +56,9 @@ The following cURL commands are executed from a BASH shell. Edit these commands 
 [!INCLUDE [REST API quickstart instructions](../../../includes/rest-api-instructions.md)]
 
 ```bash
-curl -i -X POST https://your-text-analytics-endpoint-here/text/analytics/v3.2-preview.1/analyze \
+curl -i -X POST https://<your-language-resource-endpoint>/text/analytics/v3.2-preview.1/analyze \
 -H "Content-Type: application/json" \
--H "Ocp-Apim-Subscription-Key: your-key-here" \
+-H "Ocp-Apim-Subscription-Key: <your-language-resource-key>" \
 -d \
 ' 
 {
@@ -95,9 +95,9 @@ https://your-resource.cognitiveservices.azure.com/text/analytics/v3.2-preview.1/
 To get the results of the request, use the following cURL command. Be sure to replace `my-job-id` with the numerical ID value you received from the previous `operation-location` response header:
 
 ```bash
-curl -X GET    https://your-text-analytics-endpoint-here/text/analytics/v3.2-preview.1/analyze/jobs/my-job-id \
+curl -X GET    https://<your-language-resource-endpoint>/text/analytics/v3.2-preview.1/analyze/jobs/my-job-id \
 -H "Content-Type: application/json" \
--H "Ocp-Apim-Subscription-Key: your-key-here"
+-H "Ocp-Apim-Subscription-Key: <your-language-resource-key>"
 ```
 
 > [!div class="nextstepaction"]
@@ -185,9 +185,9 @@ The following cURL commands are executed from a BASH shell. Edit these commands 
 [!INCLUDE [REST API quickstart instructions](../../../includes/rest-api-instructions.md)]
 
 ```bash
-curl -i -X POST https://your-language-endpoint-here/language/analyze-conversations/jobs?api-version=2022-05-15-preview \
+curl -i -X POST https://<your-language-resource-endpoint>/language/analyze-conversations/jobs?api-version=2022-05-15-preview \
 -H "Content-Type: application/json" \
--H "Ocp-Apim-Subscription-Key: your-key-here" \
+-H "Ocp-Apim-Subscription-Key: <your-language-resource-key>" \
 -d \
 ' 
 {
@@ -265,15 +265,15 @@ curl -i -X POST https://your-language-endpoint-here/language/analyze-conversatio
 Get the `operation-location` from the response header. The value will look similar to the following URL:
 
 ```http
-https://your-language-endpoint-here/language/analyze-conversations/jobs/12345678-1234-1234-1234-12345678
+https://<your-language-resource-endpoint>/language/analyze-conversations/jobs/12345678-1234-1234-1234-12345678
 ```
 
 To get the results of the request, use the following cURL command. Be sure to replace `my-job-id` with the numerical ID value you received from the previous `operation-location` response header:
 
 ```bash
-curl -X GET    https://your-language-endpoint-here/language/analyze-conversations/jobs/my-job-id \
+curl -X GET    https://<your-language-resource-endpoint>/language/analyze-conversations/jobs/my-job-id \
 -H "Content-Type: application/json" \
--H "Ocp-Apim-Subscription-Key: your-key-here"
+-H "Ocp-Apim-Subscription-Key: <your-language-resource-key>"
 ```
 
 > [!div class="nextstepaction"]
