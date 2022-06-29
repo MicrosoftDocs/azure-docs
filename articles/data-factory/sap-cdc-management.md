@@ -60,6 +60,7 @@ To monitor data extractions on SAP systems, complete the following steps:
 
 These are the current limitations of SAP CDC solution in ADF that will be removed/improved in the near future:
 
+1.	Resetting and deleting ODQ subscriptions from ADF are not supported for now.
 1.	SAP hierarchies are not supported for now.
 
 ## Troubleshooting delta change
