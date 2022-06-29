@@ -1,5 +1,5 @@
 ---
-title: 'How to collect and process Aqua data using Azure Orbital Ground Station'
+title: 'Collect and Process AQUA satellite payload'
 description: 'An end-to-end walk through of using the Azure Orbital Ground Station as-a-Service (GSaaS) to capture and process satellite imagery'
 ms.service: orbital
 author: EliotSeattle
@@ -9,7 +9,7 @@ ms.date: 07/06/2022
 ms.custom: template-overview 
 ---
 
-# Collecting and processing satellite imagery with Azure Orbital Ground Station as-a-Service (GSaaS)
+# Collecting and processing AQUA satellite payload using Azure Orbital Ground Station as-a-Service (GSaaS)
 
 This topic is a comprehensive walk through showing how to use the [Azure Orbital Ground Station as-a-Service (GSaaS)](https://azure.microsoft.com/services/orbital/) to capture and process satellite imagery. It introduces the Azure Orbital GSaaS and its core concepts, shows how to schedule contacts, and steps through an example collecting and processing NASA Aqua satellite data in an Azure virtual machine (VM) using NASA-provided tools.
 
@@ -29,7 +29,7 @@ Processing the Aqua data stream involves the following steps in order:
 First, follow the steps listed in [Tutorial: Downlink data from NASA's AQUA public satellite](howto-downlink-aqua.md). This includes all the steps in each subsection of that document, in order. 
 
 > [!NOTE]
-> In the section [Prepare a virtual machine (VM) to receive the downlinked AQUA data](https://docs.microsoft.com/en-us/azure/orbital/howto-downlink-aqua#prepare-a-virtual-machine-vm-to-receive-the-downlinked-aqua-data), use the following values:
+> In the section [Prepare a virtual machine (VM) to receive the downlinked AQUA data](howto-downlink-aqua.md#prepare-a-virtual-machine-vm-to-receive-the-downlinked-aqua-data), use the following values:
 >
 >   - **Name:** receiver-vm
 >   - **Operating System:** Linux (CentOS Linux 7 or higher)
@@ -37,49 +37,44 @@ First, follow the steps listed in [Tutorial: Downlink data from NASA's AQUA publ
 >   - **IP Address:** Ensure that the VM has at least one standard public IP address
 
 ## Step 2: Process RAW data using RT-STPS
+
 The [Real-time Software Telemetry Processing System (RT-STPS)](https://directreadout.sci.gsfc.nasa.gov/?id=dspContent&cid=69) is NASA-provided software for processing the raw Aqua payload. The steps below cover installation of RT-STPS on the receiver-vm, and production of level-0 PDS files for the Aqua payload captured in the previous step. 
 
 Register with the [NASA DRL](https://directreadout.sci.gsfc.nasa.gov/) to download the RT-STPS installation package.
 
 Transfer the installation binaries to the receiver-vm:
 
-```command
+```console
 mkdir ~/software/
-
 scp RT-STPS_6.0*.tar.gz azureuser@receiver-vm:~/software/rt-stps/.
 ```
 
-Alternatively, you can upload your installation binaries to a container in Azure Storage and download them to the receiver-vm using [AzCopy](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy-v10)
+Alternatively, you can upload your installation binaries to a container in Azure Storage and download them to the receiver-vm using [AzCopy](../storage/common/storage-use-azcopy-v10.md)
 
 ### Install rt-stps
-```
+
+```console
 sudo yum install java (find version of java)
 cd ~/software
-
 tar -xzvf RT-STPS_6.0.tar.gz
-
 cd ./rt-stps
-
 ./install.sh
 ```
+
 ### Install rt-stps patches
-```
+
+```console
 cd ~/software
-
 tar -xzvf RT-STPS_6.0_PATCH_1.tar.gz
-
 tar -xzvf RT-STPS_6.0_PATCH_2.tar.gz
-
 tar -xzvf RT-STPS_6.0_PATCH_3.tar.gz
-
 cd ./rt-stps
-
 ./install.sh
 ```
 
 ### Validate install
 
-```command
+```console
 cd ~/software
 tar -xzvf RT-STPS_6.0_testdata.tar.gz
 cd ~/software/rt-stps
@@ -92,24 +87,28 @@ ls -la ./data
 ### Process RAW Aqua data
 
 Run rt-stps in batch mode to process the previously captured Aqua data (.bin files).
-```
-cd ~/software/rt-stps
 
+```console
+cd ~/software/rt-stps
 ./bin/batch.sh ./config/aqua.xml ~/aquadata/raw-2022-05-29T0957-0700.bin
 ```
+
 This will create level-0 product (.PDS files) in the ```~/software/rt-stps/data``` directory.
-[AzCopy](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy-v10) the level-0 files to a storage container:
-```
+[AzCopy](../storage/common/storage-use-azcopy-v10.md) the level-0 files to a storage container:
+
+```console
 azcopy sync ~/software/rt-stps/data/ "https://[account].blob.core.windows.net/[container]/[path/to/directory]?[SAS]"
 ```
+
 Download the level-0 PDS files from this storage container for further processing in later steps. 
+
 ## Step 3: Prepare a virtual machine (processor-vm) to create higher level products
 
 [International Planetary Observation Processing Package (IPOPP)](https://directreadout.sci.gsfc.nasa.gov/?id=dspContent&cid=68) is another NASA-provided software to process Aqua Level-0 data into higher level products.
 In the steps below, you will process the Aqua PDS files downloaded from the Azure Storage container in the previous step. 
 Because IPOPP has higher system requirements than RT-STPS, it should be run on a bigger VM called the "processor-vm".
 
-[Create a virtual machine(VM)](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/quick-create-portal) within the virtual network above. Ensure that this VM has the following specifications:
+[Create a virtual machine(VM)](../virtual-machines/linux/quick-create-portal.md) within the virtual network above. Ensure that this VM has the following specifications:
 
 -  **Name:** processor-vm
 -  **Size:** Standard D16ds v5
@@ -117,90 +116,102 @@ Because IPOPP has higher system requirements than RT-STPS, it should be run on a
 -  **Disk:** 2TB Premium SSD data disk
 
 Create a file system on the data disk:
-```
+
+```console
 sudo fdisk /dev/sdc
-
 sudo mkfs -t ext4 /dev/sdc1
-
 sudo mount /dev/sdc1 /datadrive
 ```
+
 IPOPP installation requires using a browser to sign on to the DRL website to download the installation script. This script must be run from the same host that it was downloaded to. IPOPP configuration also requires a GUI. Therefore, we install a full desktop and a vnc server to enable running GUI applications.
 
 ### Install Desktop and VNC Server
-```
-sudo yum install tigervnc-server
 
+```console
+sudo yum install tigervnc-server
 sudo yum groups install "GNOME Desktop"
 ```
+
 Start vnc server:
-```
+
+```console
 vncsever
 ```
 Enter a password when prompted. 
 
 Port forward the vncserver port (5901) over ssh:
-```
+
+```console
 ssh -L 5901:localhost:5901 azureuser@processor-vm
 ```
 
 Download the [TightVNC](https://www.tightvnc.com/download.php) viewer and connect to ```localhost:5901``` and enter the vncserver password entered in the previous step.  You should see the GNOME desktop running on the VM. 
 
 Start a new terminal and and start the firefox browser
-```
+
+```console
 firefox
 ```
+
 [Log on the DRL website](https://directreadout.sci.gsfc.nasa.gov/loginDRL.cfm?cid=320&type=software) and download the downloader script.
 
 Run the downloader script from the ```/datadrive/ipopp``` directory because
 the home directory is not big enough to hold the downloaded content.
-```
+
+```console
 INSTALL_DIR=/datadrive/ipopp
-
 cp ~/Downloads/downloader_DRL-IPOPP_4.1.sh $INSTALL_DIR
-
 cd $INSTALL_DIR
-
 ./downloader_DRL-IPOPP_4.1.sh
 ```
+
 This script will download \~35G and will take 1 hour or more.
 
 ### Install IPOPP
-```
+
+```console
 tar --C $INSTALL_DIR -xzf DRL-IPOPP_4.1.tar.gz
-
 chmod -R 755 $INSTALL_DIR/IPOPP
-
 $INSTALL_DIR/IPOPP/install_ipopp.sh -installdir $INSTALL_DIR/drl -datadir $INSTALL_DIR/data -ingestdir $INSTALL_DIR/data/ingest
 ```
+
 ### Install patches
-```
+
+```console
 $INSTALL_DIR/drl/tools/install_patch.sh $PATCH_FILE_NAME
 ```
 ### Start IPOPP services
-```
+
+```console
 $INSTALL_DIR/drl/tools/services.sh start
 ```
 ### Verify service status
+
 ```
 $INSTALL_DIR/drl/tools/services.sh status
-
 $INSTALL_DIR/drl/tools/spa_services.sh status
 ```
 
 ## Step 4: Create higher level products using IPOPP
+
 Before we can create level-1 and level-2 products from the PDS files, we need to configure IPOPP. 
-## Configure the IPOPP service using the dashboard
+
+### Configure the IPOPP service using the dashboard
+
 IPOPP must be configured with the dashboard GUI. To start the dashboard, first port forward the vncserver port (5901) over ssh:
-```
+
+```console
 ssh -L 5901:localhost:5901 azureuser@processor-vm
 ```
-Using the TightVNC client, connect to localhost:5901 and enter the vncserver password. On the virtual machine desktop, open a new terminal and start the dashboard:
-```
-cd /datadrive/ipopp
 
+Using the TightVNC client, connect to localhost:5901 and enter the vncserver password. On the virtual machine desktop, open a new terminal and start the dashboard:
+
+```console
+cd /datadrive/ipopp
 ./drl/tools/dashboard.sh & 
 ```
-1. IPOPP Dashboard starts in process monitoring mode, switch to **Configuration Mode** by using the menu option. 
+
+1. IPOPP Dashboard starts in process monitoring mode. Switch to **Configuration Mode** by using the menu option. 
 
 2. Aqua related products can be configured from EOS tab in configuration mode. Disable all other tabs. We are interested in the MODIS Aerosol L2 (MOD04) product which is produced by IMAPP SPA. Therefore, enable the following in the **EOS** tab: 
 
@@ -224,19 +235,24 @@ cd /datadrive/ipopp
 
 Download the PDS files generated by the RT-STPS tool from your storage container to the IPOPP ingest directory configured during installation.
 
-```
+```console
 azcopy cp
 "https://[account].blob.core.windows.net/[container]/[path/to/directory]?[SAS]"
 "/datadrive/ipopp/drl/data/dsm/ingest" --recursive=true
 ```
+
 Run the IPOPP ingest to create the products configured in the dashboard. 
+
 ```
 /datadrive/ipopp/drl/tools/ingest_ipopp.sh
 ```
+
 You can watch the progress in the dashboard.
+
 ```
 /datadrive/ipopp/drl/tools/dashboard.sh
 ```
+
 IPOPP will produce output products in the following directories:
 
 ```
@@ -246,10 +262,11 @@ IPOPP will produce output products in the following directories:
 ## Appendix
 
 ### Capture ground station telemetry
+
 An Azure Orbital Ground station emits telemetry events that can be used to analyze the ground station operation for the duration of the contact. You can configure your contact profile to send such telemetry events to Azure Event Hubs. The steps below describe how to create an event hub and grant Azure Orbital access to send events to it. 
 
 1. In your subscription, go to **Resource Provider** settings and register Microsoft.Orbital as a provider.  
-2. [Create an Azure Event Hub](https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-create) in your subscription. 
+2. [Create an Azure Event Hub](../event-hubs/event-hubs-create.md) in your subscription. 
 3. From the left menu, select **Access Control (IAM)**. Under **Grant Access to this Resource**, select **Add Role Assignment**.
 4. Select **Azure Event Hubs Data Sender**.  
 5. Assign access to '**User, group, or service principal**'.
@@ -262,43 +279,40 @@ Congrats! Orbital can now communicate with your hub. 
 
 ### Enable Telemetry for a Contact Profile in the Azure Portal 
 
-1. Go to **Contact Profile** resource and click **Create**. 
-1. Choose a namespace using the **Event Hub Namespace** dropdown. 
-1. Choose an instance using the **Event Hub Instance** dropdown that appears after namespace selection. 
+1. Go to **Contact Profile** resource, and click **Create**. 
+2. Choose a namespace using the **Event Hub Namespace** dropdown. 
+3. Choose an instance using the **Event Hub Instance** dropdown that appears after namespace selection. 
 
 ### Test Telemetry on a Contact 
+
 1. Schedule a contact using the Contact Profile that you previously configured for Telemetry. 
-1. Once the contact begins, you should begin to see data in your Event Hub soon after. 
+2. Once the contact begins, you should begin to see data in your Event Hub soon after. 
 
 To verify that events are being received in your Event Hub, you can check the graphs present on the Event Hub namespace **Overview** page. This shows data across all Event Hub instances within a namespace. You can navigate to the Overview page of a specific instance to see the graphs for that instance. 
 
-You can enable Event Hub's [Capture feature](https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-capture-enable-through-portal) that will automatically deliver the telemetry data to an Azure Blob storage account of your choosing. 
+You can enable Event Hub's [Capture feature](../event-hubs/event-hubs-capture-enable-through-portal.md) that will automatically deliver the telemetry data to an Azure Blob storage account of your choosing. 
 
 Once enabled, you can check your container and view or download the data. 
  
 Event Hub documentation provides a great deal of guidance on how to write simple consumer apps to receive events from your Event Hubs: 
 
-- [Python](https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-python-get-started-send)
+- [Python](../event-hubs/event-hubs-python-get-started-send.md)
 
-- [.NET](https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-dotnet-standard-getstarted-send) 
+- [.NET](../event-hubs/event-hubs-dotnet-standard-getstarted-send.md) 
 
-- [Java](https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-java-get-started-send) 
+- [Java](../event-hubs/event-hubs-java-get-started-send.md) 
 
-- [JavaScript](https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-node-get-started-send)  
+- [JavaScript](../event-hubs/event-hubs-node-get-started-send.md)  
 
 Other helpful resources: 
 
-- [Event Hubs using Python Getting Started](https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-python-get-started-send) 
+- [Event Hubs using Python Getting Started](../event-hubs/event-hubs-python-get-started-send.md) 
 
 - [Azure Event Hubs client library for Python code samples](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/eventhub/azure-eventhub/samples/async_samples) 
 
-<!-- 4. Next steps
-Required. Provide at least one next step and no more than three. Include some 
-context so the customer can determine why they would click the link.
--->
-
 ## Next steps
 
-<!-- Add a context sentence for any  links to follow -->
-- [Write an overview](contribute-how-to-write-overview.md)
-- [Links](links-how-to.md)
+For an end-to-end implementation that involves extracting, loading, transforming, and analyzing spaceborne data by using geospatial libraries and AI models with Azure Synapse Analytics, see: 
+
+- [Spaceborne data analysis with Azure Synapse Analytics](https://docs.microsoft.com/azure/architecture/industries/aerospace/geospatial-processing-analytics)
+
