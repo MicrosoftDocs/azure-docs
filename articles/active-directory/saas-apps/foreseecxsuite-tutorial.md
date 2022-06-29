@@ -68,7 +68,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 1. On the **Select a single sign-on method** page, select **SAML**.
 1. On the **Set up single sign-on with SAML** page, click the pencil icon for **Basic SAML Configuration** to edit the settings.
 
-   ![Edit Basic SAML Configuration](common/edit-urls.png)
+   ![Screenshot showing the edit Basic SAML Configuration screen.](common/edit-urls.png)
 
 4. On the **Basic SAML Configuration** section, if you have **Service Provider metadata file**, perform the following steps:
 
@@ -82,10 +82,10 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 	c. After the metadata file is successfully uploaded, the **Identifier** value gets auto populated in Basic SAML Configuration section.
 
-	a. In the **Sign-on URL** text box, type a URL:
+	d. In the **Sign-on URL** text box, type a URL:
     `https://cxsuite.foresee.com/`
 
-	b. In the **Identifier** textbox, type a URL using the following pattern: https:\//www.okta.com/saml2/service-provider/\<UniqueID>
+	e. In the **Identifier** textbox, type a URL using the following pattern: https:\//www.okta.com/saml2/service-provider/\<UniqueID>
 
 	> [!Note]
 	> If the **Identifier** value do not get auto polulated, then please fill in the value manually according to above pattern. The Identifier value is not real. Update this value with the actual Identifier. Contact [ForeSee CX Suite Client support team](mailto:support@foresee.com) to get this value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
@@ -128,7 +128,7 @@ To configure single sign-on on **ForeSee CX Suite** side, you need to send the d
 
 ### Create ForeSee CX Suite test user
 
-In this section, you create a user called Britta Simon in ForeSee CX Suite. Work with [ForeSee CX Suite support team](mailto:support@foresee.com) to add the users or the domain that must be added to an allow list for the ForeSee CX Suite platform. If the domain is added by the team, users will get automatically provisioned to the ForeSee CX Suite platform. Users must be created and activated before you use single sign-on.
+In this section, you create a user called Britta Simon in ForeSee CX Suite. Work with [ForeSee CX Suite support team](mailto:support@foresee.com) to add the users or the domain that must be added to an allowlist for the ForeSee CX Suite platform. If the domain is added by the team, users will get automatically provisioned to the ForeSee CX Suite platform. Users must be created and activated before you use single sign-on.
 
 ## Test SSO
 
