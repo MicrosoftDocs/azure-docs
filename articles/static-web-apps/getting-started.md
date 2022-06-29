@@ -123,14 +123,14 @@ If you don't already have the [Azure Static Web Apps extension for Visual Studio
 
     | Setting | Value |
     | --- | --- |
-    | Location of application code | Enter **/src** |
+    | Location of application code | Enter **/** |
     | Build location | Enter **build** |
 
     # [Vue](#tab/vue)
 
     | Setting | Value |
     | --- | --- |
-    | Location of application code | Enter **/src** |
+    | Location of application code | Enter **/** |
     | Build location | Enter **dist** |
 
     ---
