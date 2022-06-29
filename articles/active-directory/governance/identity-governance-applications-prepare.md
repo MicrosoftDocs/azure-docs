@@ -11,16 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 5/12/2022
+ms.date: 6/28/2022
 ms.author: ajburnle
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
 ---
 
 # Govern access for applications in your environment
-
-> [!div class="step-by-step"]
-> [Define governance policies »](identity-governance-applications-define.md)
 
 Azure Active Directory (Azure AD) Identity Governance allows you to balance your organization's need for security and employee productivity with the right processes and visibility. Its features ensure that the right people have the right access to the right resources in your organization at the right time.
 
@@ -59,7 +56,11 @@ Before you begin the process of governing application access from Azure AD, you 
 
 * **Check your tenant has appropriate isolation.** If your organization is using Active Directory on-premises, and these AD domains are connected to Azure AD, then you'll need to ensure that highly-privileged administrative operations for cloud-hosted services are isolated from on-premises accounts. Check that you've [configured your systems to protect your Microsoft 365 cloud environment from on-premises compromise](../fundamentals/protect-m365-from-on-premises-attacks.md).
 
+Once you have checked your Azure AD environment is ready, then proceed to [define the governance policies](identity-governance-applications-define.md) for your applications.
+
 ## Next steps
 
-> [!div class="step-by-step"]
-> [Define governance policies »](identity-governance-applications-define.md)
+- [Define governance policies](identity-governance-applications-define.md)
+- [Integrate an application with Azure AD](identity-governance-applications-integrate.md)
+- [Deploy governance policies](identity-governance-applications-deploy.md)
+

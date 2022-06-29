@@ -11,7 +11,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 4/22/2022
+ms.date: 6/28/2022
 ms.author: ajburnle
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
@@ -19,12 +19,8 @@ ms.collection: M365-identity-device-management
 
 # Integrating applications with Azure AD and establishing a baseline of reviewed access
 
-> [!div class="step-by-step"]
-> [« Define governance policies](identity-governance-applications-define.md)
-> [Deploy governance policies »](identity-governance-applications-deploy.md)
 
-
-Once you've established the policies for who should have access to your application, then you can [connect your application to Azure AD](../manage-apps/what-is-application-management.md) and then deploy the policies for governing access to them.
+Once you've [established the policies](identity-governance-applications-define.md) for who should have access to an application, then you can [connect your application to Azure AD](../manage-apps/what-is-application-management.md) and then [deploy the policies](identity-governance-applications-deploy.md) for governing access to them.
 
 Azure AD identity governance can be integrated with many applications, using [standards](../fundamentals/auth-sync-overview.md) such as OpenID Connect, SAML, SCIM, SQL and LDAP.  Through these standards, you can use Azure AD with many popular SaaS applications and on-premises applications, including applications that your organization has developed.  This deployment plan covers how to connect your application to Azure AD and enable identity governance features to be used for that application.
 
@@ -97,10 +93,8 @@ However, if the application already existed in your environment, then it's possi
 1. If the application wasn't integrated for provisioning, then once the review is complete, you may need to manually update the application's internal database or directory to remove those users who were denied.
 1. Once the review has been completed and the application access updated, or if no users have access, then continue on to the next steps to deploy conditional access and entitlement management policies for the application.
 
-Now that you have a baseline that ensures existing access has been reviewed, then you can deploy the organization's policies for ongoing access and any new access requests.
+Now that you have a baseline that ensures existing access has been reviewed, then you can [deploy the organization's policies](identity-governance-applications-deploy.md) for ongoing access and any new access requests.
 
 ## Next steps
 
-> [!div class="step-by-step"]
-> [« Define governance policies](identity-governance-applications-define.md)
-> [Deploy governance policies »](identity-governance-applications-deploy.md)
+- [Deploy governance policies](identity-governance-applications-deploy.md)

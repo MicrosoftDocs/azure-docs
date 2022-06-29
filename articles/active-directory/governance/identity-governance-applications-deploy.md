@@ -11,7 +11,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 4/22/2022
+ms.date: 6/28/2022
 ms.author: ajburnle
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
@@ -19,10 +19,8 @@ ms.collection: M365-identity-device-management
 
 # Deploying organizational policies for governing access to applications integrated with Azure AD
 
-> [!div class="step-by-step"]
-> [« Integrate an application with Azure AD](identity-governance-applications-integrate.md)
 
-In this section, you'll configure the Azure AD conditional access and entitlement management features to control ongoing access to your applications.  You'll establish
+In previous sections, you [defined your governance policies for an application](identity-governance-applications-define.md) and [integrated that application with Azure AD](identity-governance-applications-integrate.md).  In this section, you'll configure the Azure AD conditional access and entitlement management features to control ongoing access to your applications.  You'll establish
 * Conditional access policies, for how a user authenticates to Azure AD for an application integrated with Azure AD for single sign-on
 * Entitlement management policies, for how a user obtains and keeps assignments to application roles and membership in groups
 * Access review policies, for how often group memberships are reviewed
@@ -87,7 +85,4 @@ At regular intervals, such as weekly, monthly or quarterly, based on the volume 
 ## Next steps
 
 - [Access reviews deployment plan](deploy-access-reviews.md)
-
-> [!div class="step-by-step"]
-> [« Integrate an application with Azure AD](identity-governance-applications-integrate.md)
 

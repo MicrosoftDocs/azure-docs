@@ -11,7 +11,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 5/12/2022
+ms.date: 6/28/2022
 ms.author: ajburnle
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
@@ -19,11 +19,7 @@ ms.collection: M365-identity-device-management
 
 # Define organizational policies for governing access to applications in your environment
 
-> [!div class="step-by-step"]
-> [« Govern access for applications](identity-governance-applications-prepare.md)
-> [Integrate an application with Azure AD »](identity-governance-applications-integrate.md)
- 
-Once you've identified one or more applications that you want to use Azure AD to govern access, write down the organization's policies for determining which users should have access, and any other constraints that the system should provide.
+Once you've identified one or more applications that you want to use Azure AD to [govern access](identity-governance-applications-prepare.md), write down the organization's policies for determining which users should have access, and any other constraints that the system should provide.
 
 ## Identifies applications and their roles in scope
 
@@ -58,11 +54,10 @@ In this section, you'll write down the organizational policies you plan to use t
 
 1. **Determine how exceptions to your criteria should be handled.**  For example, an application may typically only be available for designated employees, but an auditor or vendor may need temporary access for a specific project. Or, an employee who is traveling may require access from a location that is normally blocked as your organization has no presence in that location.   In these situations, you may choose to also have an entitlement management policy for approval that may have different stages, or a different time limit, or a different approver.  A vendor who is signed in as a guest user in your Azure AD tenant may not have a manager, so instead their access requests could be approved by a sponsor for their organization, or by a resource owner, or a security officer.
 
-As the organizational policy for who should have access is being reviewed by the stakeholders, then you can begin integrating the application with Azure AD. That way at a later step you'll be ready to deploy the organization-approved policies for access in Azure AD identity governance.
+As the organizational policy for who should have access is being reviewed by the stakeholders, then you can begin [integrating the application](identity-goernance-applications-integrate.md) with Azure AD. That way at a later step you'll be ready to [deploy the organization-approved policies](identity-governance-applications-deploy.md) for access in Azure AD identity governance.
 
 ## Next steps
 
-> [!div class="step-by-step"]
-> [« Govern access for applications](identity-governance-applications-prepare.md)
-> [Integrate an application with Azure AD »](identity-governance-applications-integrate.md)
+- [Integrate an application with Azure AD](identity-governance-applications-integrate.md)
+- [Deploy governance policies](identity-governance-applications-deploy.md)
 
