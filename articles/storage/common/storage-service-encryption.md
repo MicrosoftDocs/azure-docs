@@ -61,6 +61,11 @@ Service-level encryption supports the use of either Microsoft-managed keys or cu
 
 For more information about how to create a storage account that enables infrastructure encryption, see [Create a storage account with infrastructure encryption enabled for double encryption of data](infrastructure-encryption-enable.md).
 
+## Client-side encryption
+
+> [!WARNING]
+> A security vulnerability has been discovered in client-side encryption. Microsoft recommends that you do not use it in your applications until the mitigation is released in new versions of the Azure Storage client libraries. For more information, see [Preview: Azure Storage updating client-side encryption in SDK to address security vulnerability](https://techcommunity.microsoft.com/t5/azure-storage-blog/preview-azure-storage-updating-client-side-encryption-in-sdk-to/ba-p/3522620).
+
 ## Next steps
 
 - [What is Azure Key Vault?](../../key-vault/general/overview.md)
