@@ -145,7 +145,7 @@ $roleAssignment = New-AzureADMSRoleAssignment -DirectoryScopeId $directoryScope 
 
 #### Microsoft Graph API
 
-Use the [Create unifiedRoleAssignment](/graph/api/rbacapplication-post-roleassignments?view=graph-rest-beta&preserve-view=true) API to assign the role. The following example assigns the Attribute Assignment Administrator role to a principal with an attribute set scope named Engineering.
+Use the [Create unified Role Assignment](/graph/api/rbacapplication-post-roleassignments?view=graph-rest-beta&preserve-view=true) API to assign the role. The following example assigns the Attribute Assignment Administrator role to a principal with an attribute set scope named Engineering.
 
 ```http
 POST https://graph.microsoft.com/beta/roleManagement/directory/roleAssignments
