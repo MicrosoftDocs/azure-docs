@@ -1,6 +1,6 @@
 ---
 title: Supported instances and regions
-description: Learn about instances and regions supported for Public Preview.
+description: Learn about instances and regions supported for NC2 on Azure Public Preview.
 ms.topic: how-to
 ms.custom: references_regions 
 ms.subservice:  baremetal-nutanix
@@ -9,7 +9,7 @@ ms.date: 03/31/2021
 
 # Supported instances and regions
 
-Learn about instances and regions supported for Public Preview.
+Learn about instances and regions supported for NC2 on Azure Public Preview.
 
 ## Supported instances
 

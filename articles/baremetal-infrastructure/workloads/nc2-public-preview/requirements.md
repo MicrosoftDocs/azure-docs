@@ -1,6 +1,6 @@
 ---
 title: Requirements
-description: What you need to run NC2 on Azure, including Azure, Nutanix, networking, and other requirements. 
+description: Learn what you need to run NC2 on Azure, including Azure, Nutanix, networking, and other requirements. 
 ms.topic: how-to
 ms.subservice: baremetal-nutanix
 ms.date: 03/31/2021

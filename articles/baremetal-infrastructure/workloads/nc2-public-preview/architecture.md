@@ -10,7 +10,7 @@ ms.date: 04/14/2021
 
 In this article, we'll look at the architectural options for BareMetal Infrastructure for Nutanix and the features each option supports.
 
-## Deployment xample
+## Deployment example
 
 The image in this section shows one example of an NC2 on Azure deployment.
 
