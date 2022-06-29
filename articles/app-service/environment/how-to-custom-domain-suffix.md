@@ -135,10 +135,10 @@ You'll need to configure the managed identity and ensure it exists before assign
 Alternatively, you can update your existing ILB App Service Environment using [Azure Resource Explorer](https://resources.azure.com).
 
 1. In Resource Explorer, go to the node for the App Service Environment (**subscriptions** > **{your Subscription}** > **resourceGroups** > **{your Resource Group}** > **providers** > **Microsoft.Web** > **hostingEnvironments**). Then select the specific App Service Environment that you want to update.
-2. Select **Read/Write** in the upper toolbar to allow interactive editing in Resource Explorer.  
-3. Select the **Edit** button to make the Resource Manager template editable.
-4. Scroll to the bottom of the right pane. The **customDnsSuffixConfiguration** attribute is at the bottom.
-5. Enter your values for **dnsSuffix**, **certificateUrl**, and **keyVaultReferenceIdentity**.
+1. Select **Read/Write** in the upper toolbar to allow interactive editing in Resource Explorer.  
+1. Select the **Edit** button to make the Resource Manager template editable.
+1. Scroll to the bottom of the right pane. The **customDnsSuffixConfiguration** attribute is at the bottom.
+1. Enter your values for **dnsSuffix**, **certificateUrl**, and **keyVaultReferenceIdentity**.
 1. Navigate to the **identity** attribute and enter the details associated with the managed identity you're using.
 1. Select the **PUT** button that's located at the top to commit the change to the App Service Environment.
 1. The **provisioningState** under **customDnsSuffixConfiguration** will provide a status on the configuration update. 
@@ -147,7 +147,23 @@ Alternatively, you can update your existing ILB App Service Environment using [A
 
 ## DNS configuration
 
-If you selected to have Azure DNS private zones configured automatically when creating your App Service Environment, then DNS is configured in the virtual network of your App Service Environment. If you selected to configure DNS manually, you need to use your own DNS server or configure Azure DNS private zones. For more information on configuring DNS for your domain, see [Use an App Service Environment](./using.md#dns-configuration).
+To access your apps in your App Service Environment using your custom domain suffix, for your custom domain you'll need to either configure your own DNS server or configure DNS in an Azure private DNS zone.
+
+If you want to use your own DNS server, add the following records:
+
+1. Create a zone for your custom domain.
+1. Create an A record in that zone that points * to the inbound IP address used by your App Service Environment.
+1. Create an A record in that zone that points @ to the inbound IP address used by your App Service Environment.
+
+To configure DNS in Azure DNS private zones:
+
+1. Create an Azure DNS private zone named for your custom domain. In the example below, the custom domain is *internal-contoso.com*.
+1. Create an A record in that zone that points * to the inbound IP address used by your App Service Environment.
+1. Create an A record in that zone that points @ to the inbound IP address used by your App Service Environment.
+
+:::image type="content" source="./media/custom-domain-suffix/custom-domain-suffix-dns-configuration.png" alt-text="Sample DNS configuration for your custom domain suffix.":::
+
+For more information on configuring DNS for your domain, see [Use an App Service Environment](./using.md#dns-configuration).
 
 ## Access your Apps
 
