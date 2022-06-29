@@ -20,11 +20,6 @@ This topic introduces and describes auto-generation of a pipeline with the SAP d
 
 To auto-generate ADF pipeline from SAP data partitioning template, complete the following steps.
 
-1.	Configure a Git repository w/ Azure Repos/GitHub for your ADF, if you haven’t done so already, see [Source control in Azure Data Factory](source-control.md).
-1.	Download the [SAP data partitioning template](https://adfsapfileshare.blob.core.windows.net/templates/Partition SAP data to extract and load into Azure Data Lake Store Gen2 in parallel.zip) and import it into your data factory.
-
-    :::image type="content" source="media/sap-cdc-solution/sap-cdc-import-template.png" alt-text="Shows a screenshot of the Azure Data Factory resources tab with the Import template menu highlighted.":::
-
 1.	Create a new pipeline from template.
 
     :::image type="content" source="media/sap-cdc-solution/sap-cdc-pipeline-from-template.png" alt-text="Shows a screenshot of the Azure Data Factory resources tab with the Pipeline from template menu highlighted.":::
