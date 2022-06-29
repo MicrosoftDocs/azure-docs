@@ -4,9 +4,10 @@ description: Learn how to share data with Microsoft Purview Data Sharing.
 author: jifems
 ms.author: jife
 ms.service: purview
+ms.subservice: purview-data-share
 ms.topic: how-to
 ms.custom: references_regions
-ms.date: 06/17/2022
+ms.date: 06/28/2022
 ---
 # Share Azure Storage data in-place with Microsoft Purview Data Sharing (preview)
 

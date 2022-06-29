@@ -4,8 +4,9 @@ description: Microsoft Purview Data Sharing frequently asked questions (FAQ) and
 author: jifems
 ms.author: jife
 ms.service: purview
+ms.subservice: purview-data-share
 ms.topic: how-to
-ms.date: 06/17/2022
+ms.date: 06/28/2022
 ---
 # FAQ: Azure Storage in-place data share with Microsoft Purview Data Sharing (preview)
 
