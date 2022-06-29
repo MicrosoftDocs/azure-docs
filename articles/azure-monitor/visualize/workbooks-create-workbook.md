@@ -26,7 +26,7 @@ To create a new Azure workbook:
    - [Queries](#adding-queries)
    - [Metric charts](#adding-metric-charts)
    - [Links](#adding-links)
-   - Groups
+   - [Groups](#adding-groups)
    - Configuration options
 
 ## Adding text
