@@ -88,7 +88,7 @@ productDirectory:
     # Card
     - title: Azure OpenAI
       summary: Add smart API capabilities to enable contextual interactions
-      imageSrc: cognitive-services/openai/media/icon/azure-openai.svg
+      imageSrc: cognitive-services/openai/media/icon/openai.svg
       azureCategories:
         - ai-machine-learning
       url: cognitive-services/openai/index.yml
