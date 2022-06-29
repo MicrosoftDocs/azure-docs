@@ -79,13 +79,13 @@ Ephemeral disks also require that the VM size supports **Premium storage**. The 
 - OS Disk Swap 
 
  ## Trusted Launch for Ephemeral OS disks
-Ephemeral OS disks can be created with Trusted launch. Not all VM sizes and regions are supported for trusted launch. Please check [limitations of trusted launch](trusted-launch.md#limitations) for supported sizes and regions.
-VM guest state (VMGS) is specific to trusted launch VMs. It is a blob that is managed by Azure and contains the unified extensible firmware interface (UEFI) secure boot signature databases and other security information. While using trusted launch by default **1 GiB** from the **OS cache** or **temp storage** based on the chosen placement option is reserved for VMGS.The lifecycle of the VMGS blob is tied to that of the OS Disk.
+Ephemeral OS disks can be created with Trusted launch. Not all VM sizes and regions are supported for trusted launch. Check [limitations of trusted launch](trusted-launch.md#limitations) for supported sizes and regions.
+VM guest state (VMGS) is specific to trusted launch VMs. It is a blob that is managed by Azure and contains the unified extensible firmware interface (UEFI) secure boot signature databases and other security information. When using trusted launch by default **1 GiB** from the **OS cache** or **temp storage** based on the chosen placement option is reserved for VMGS.The lifecycle of the VMGS blob is tied to that of the OS Disk.
 
 For example, If you try to create a Trusted launch Ephemeral OS disk VM using OS image of size 56 GiB with VM size [Standard_DS4_v2](dv2-dsv2-series.md) using temp disk placement you would get an error as 
 **"OS disk of Ephemeral VM with size greater than 55 GB is not allowed for VM size Standard_DS4_v2 when the DiffDiskPlacement is ResourceDisk."**
 This is because the temp storage for [Standard_DS4_v2](dv2-dsv2-series.md) is 56 GiB, and 1 GiB is reserved for VMGS when using trusted launch.
-For the same example above if you create a standard Ephemeral OS disk VM you would not get any errors and it would be a successful operation.
+For the same example above, if you create a standard Ephemeral OS disk VM you would not get any errors and it would be a successful operation.
 
 > [!Important]
 > 
@@ -93,8 +93,8 @@ For the same example above if you create a standard Ephemeral OS disk VM you wou
 > 
 For more information on [how to deploy a trusted launch VM](trusted-launch-portal.md)
 
-## Confidential VMs using Ephemeral OS disks
-Confidential VMs are for tenants with high security and confidentiality requirements. These VMs provide a strong, hardware-enforced boundary to help meet your security needs. There are limitation to Confidential VMs that apply when you create a Confidential VM with Ephemeral OS disk. Please check the [region](../confidential-computing/confidential-vm-overview.md#regions), [size](../confidential-computing/confidential-vm-overview.md#size-support) and [OS supported](../confidential-computing/confidential-vm-overview.md#os-support) limitations for confidential VMs.
+## Confidential VMs using Ephemeral OS disks (in preview)
+Confidential VMs are for tenants with high security and confidentiality requirements. These VMs provide a strong, hardware-enforced boundary to help meet your security needs. There are limitations to Confidential VMs that apply when you create a Confidential VM with Ephemeral OS disk. Check the [region](../confidential-computing/confidential-vm-overview.md#regions), [size](../confidential-computing/confidential-vm-overview.md#size-support) and [OS supported](../confidential-computing/confidential-vm-overview.md#os-support) limitations for confidential VMs.
 
 Virtual machine guest state (VMGS) disk contains the security state of the VM's components. Some components include the vTPM and UEFI bootloader. 
 Confidential VMs using Ephemeral OS disks by default would use **1 GiB** from the **OS cache** or **temp storage** based on the chosen placement option is reserved for VMGS.The lifecycle of the VMGS blob is tied to that of the OS Disk.
