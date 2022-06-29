@@ -63,7 +63,7 @@ If desired, a tenant administrator can permanently delete the account at any tim
 Once permanent deletion begins, whether it's initiated by the admin or the end of the soft deletion period, it can take up to an additional 30 days for data removal ([learn more](https://docs.microsoft.com/en-us/compliance/regulatory/gdpr-dsr-azure#step-5-delete)).
 
 > [!NOTE]
-> For B2B direct connect users, data removal begins as soon as the user selects **Leave** in the confirmation message and can take up to one month to complete ([learn more](https://docs.microsoft.com/en-us/compliance/regulatory/gdpr-dsr-azure#delete-a-users-data-when-there-is-no-account-in-the-azure-tenant)).
+> For B2B direct connect users, data removal begins as soon as the user selects **Leave** in the confirmation message and can take up to 30 days to complete ([learn more](https://docs.microsoft.com/en-us/compliance/regulatory/gdpr-dsr-azure#delete-a-users-data-when-there-is-no-account-in-the-azure-tenant)).
 
 ## Next steps
 
