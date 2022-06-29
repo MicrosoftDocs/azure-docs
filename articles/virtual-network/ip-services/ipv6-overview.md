@@ -69,6 +69,7 @@ The current IPv6 for Azure virtual network release has the following limitations
 - VPN gateways currently support IPv4 traffic only, but they still CAN be deployed in a Dual-stacked VNET.
 - Dual-stack configurations that use Floating IP can only be used with Public load balancers (not Internal load balancers)
 - Application Gateway v2 does not currently support IPv6. It can operate in a dual stack VNet using only IPv4, but the gateway subnet must be IPv4-only. Application Gateway v1 does not support dual stack VNets.
+- Azure Firewall does not currently support IPv6. It can operate in a dual stack VNet using only IPv4, but the firewall subnet must be IPv4-only.
 - The Azure platform (AKS, etc.) does not support IPv6 communication for Containers. 
 - IPv6-only Virtual Machines or Virtual Machines Scale Sets are not supported, each NIC must include at least one IPv4 IP configuration. 
 - When adding IPv6 to existing IPv4 deployments, IPv6 ranges can not be added to a VNET with existing resource navigation links.  
