@@ -340,7 +340,7 @@ You can use several techniques to extract Oracle data when migrating from Oracle
 
 You can use the Oracle SQL Developer UI to export table data to many formats, including CSV:
 
-:::image type="content" source="../media/2-etl-load-migration-considerations/oracle-sql-developer-export-option.png" border="true" alt-text="Screenshot of the SQL Developer export wizard UI.":::
+:::image type="content" source="../media/2-etl-load-migration-considerations/oracle-sql-developer-export-option-1.png" border="true" alt-text="Screenshot of the SQL Developer export wizard UI.":::
 
 Other export options include JSON and XML. You can use the UI to add a set of table names to a "cart", then apply the export to the entire set in the cart:
 
