@@ -121,6 +121,7 @@ Set up a scale-in rule so Azure spins down one of the instances when the number 
 
 1. Set the maximum number of instances that can be spun up in the **Maximum** field of the **Instance limits** section, for example, *4*.
 1. Select **Save**.
+
   :::image type="content" source="media/autoscale-custom-metric/autoscale-instance-limits.png" alt-text="A screenshot of the Autoscale settings page where you setup instance limits":::
 
 ## Clean up resources
