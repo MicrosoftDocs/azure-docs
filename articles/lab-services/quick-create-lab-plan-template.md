@@ -4,7 +4,7 @@ description: In this quickstart, you'll learn how to create an Azure Lab Service
 services: azure-resource-manager
 ms.topic: quickstart
 ms.custom: mode-arm
-ms.date: 05/04/2022
+ms.date: 06/04/2022
 ---
 
 # Quickstart: Create a lab plan using an ARM template
