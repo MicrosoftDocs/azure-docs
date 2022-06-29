@@ -51,7 +51,7 @@ Zone redundancy requires a virtual network (VNET) with an infrastructure subnet.
 1. Select the **Networking** tab.  
 1. To assign a custom VNET name, select **Create New** in the *Virtual Network* field.
 1. To assign a custom infrastructure subnet name, select **Create New** in the *Infrastructure subnet* field.
-1. You can select **Internal** or **External** for the **Virtual IP**.
+1. You can select **Internal** or **External** for the *Virtual IP*.
 1. Select **Create**.
 
 :::image type="content" source="media/screen-shot-vnet-configuration.png" alt-text="Screen shot of Networking tab in Create Container Apps Environment page.":::
