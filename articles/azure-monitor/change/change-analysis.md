@@ -5,7 +5,7 @@ ms.topic: conceptual
 ms.author: hannahhunter
 author: hhunter-ms
 ms.contributor: cawa
-ms.date: 05/20/2022 
+ms.date: 06/29/2022 
 ms.subservice: change-analysis
 ms.custom: devx-track-azurepowershell
 
@@ -138,6 +138,7 @@ Network resources are usually provisioned in the same resource group as the reso
 
 ## Next steps
 
+- Learn about [enabling Change Analysis](change-analysis-enable.md)
 - Learn about [visualizations in Change Analysis](change-analysis-visualizations.md)
 - Learn how to [troubleshoot problems in Change Analysis](change-analysis-troubleshoot.md)
 - Enable Application Insights for [Azure App Services apps](../../azure-monitor/app/azure-web-apps.md).
