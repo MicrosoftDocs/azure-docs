@@ -51,7 +51,7 @@ Leave the **Device Mapping** and **Destination Mapping** fields with their defau
 
 Select the **Review + create** button once the fields are filled out.
 
-:::image type="content" source="media\iot-deploy-arm-in-portal\iot-connector-arm-deploy-options.png" alt-text="Azure portal page displaying deployment options for the Azure Health Data Service MedTech service" lightbox="media\iot-deploy-arm-in-portal\iot-connector-arm-deploy-options.png"::: 
+:::image type="content" source="media\iot-deploy-arm-in-portal\iot-connector-arm-deploy-options.png" alt-text="Azure portal page displaying deployment options for the Azure Health Data Service MedTech service." lightbox="media\iot-deploy-arm-in-portal\iot-connector-arm-deploy-options.png"::: 
 
 After the validation has passed, select the **Create** button to begin the deployment.
 
