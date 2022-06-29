@@ -5,7 +5,7 @@ services: static-web-apps
 author: craigshoemaker
 ms.service: static-web-apps
 ms.topic: quickstart
-ms.date: 06/27/2022
+ms.date: 06/28/2022
 ms.author: cshoe
 ms.custom: mode-other
 ---
@@ -54,11 +54,47 @@ If you don't already have the [Azure Static Web Apps extension for Visual Studio
 
 1. Select *Azure Static Web Apps: Create static web app...* and select **Enter**.
 
+    # [No Framework](#tab/vanilla-javascript)
+
     | Setting | Value |
     | --- | --- |
     | Name | Enter **my-first-static-web-app** |
     | Region | Select the region closest to you. |
-    | Build preset | Select the framework preset that matches your application type. |
+    | Build preset | Select **Custom**. |
+
+    # [Angular](#tab/angular)
+
+    | Setting | Value |
+    | --- | --- |
+    | Name | Enter **my-first-static-web-app** |
+    | Region | Select the region closest to you. |
+    | Build preset | Select **Angular**. |
+
+    # [Blazor](#tab/blazor)
+
+    | Setting | Value |
+    | --- | --- |
+    | Name | Enter **my-first-static-web-app** |
+    | Region | Select the region closest to you. |
+    | Build preset | Select **Blazor**. |
+
+    # [React](#tab/react)
+
+    | Setting | Value |
+    | --- | --- |
+    | Name | Enter **my-first-static-web-app** |
+    | Region | Select the region closest to you. |
+    | Build preset | Select **React**. |
+
+    # [Vue](#tab/vue)
+
+    | Setting | Value |
+    | --- | --- |
+    | Name | Enter **my-first-static-web-app** |
+    | Region | Select the region closest to you. |
+    | Build preset | Select **Vue**. |
+
+    ---
 
 1. Enter the settings values for that match your framework preset choice.
 
