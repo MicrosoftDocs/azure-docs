@@ -79,10 +79,13 @@ If you specify a relative path, it will be resolved relative to the directory wh
 The file should contain only the connection string, for example:
 
 ```
-InstrumentationKey=...
+InstrumentationKey=...;IngestionEndpoint=...;LiveEndpoint=...
 ```
 
 Not setting the connection string will disable the Java agent.
+
+If you have multiple applications deployed in the same JVM and want them to send telemetry to different instrumentation
+keys, see [Instrumentation key overrides (preview)](./java-standalone-config#instrumentation-key-overrides-preview).
 
 ## Cloud role name
 
@@ -102,6 +105,9 @@ If cloud role name is not set, the Application Insights resource's name will be 
 
 You can also set the cloud role name using the environment variable `APPLICATIONINSIGHTS_ROLE_NAME`
 (which will then take precedence over cloud role name specified in the json configuration).
+
+If you have multiple applications deployed in the same JVM and want them to send telemetry to different cloud role
+names, see [Cloud role name overrides (preview)](./java-standalone-config#cloud-role-name-overrides-preview).
 
 ## Cloud role instance
 
@@ -220,7 +226,7 @@ Starting from version 3.2.0, if you want to set a custom dimension programmatica
 }
 ```
 
-## Instrumentation keys overrides (preview)
+## Instrumentation key overrides (preview)
 
 This feature is in preview, starting from 3.2.3.
 
@@ -239,6 +245,31 @@ Instrumentation key overrides allow you to override the [default instrumentation
       {
         "httpPathPrefix": "/myapp2",
         "instrumentationKey": "87654321-0000-0000-0000-0FEEDDADBEEF"
+      }
+    ]
+  }
+}
+```
+
+## Cloud role name overrides (preview)
+
+This feature is in preview, starting from 3.3.0.
+
+Cloud role name overrides allow you to override the [default cloud role name](#cloud-role-name), for example:
+* Set one cloud role name for one http path prefix `/myapp1`.
+* Set another cloud role name for another http path prefix `/myapp2/`.
+
+```json
+{
+  "preview": {
+    "roleNameOverrides": [
+      {
+        "httpPathPrefix": "/myapp1",
+        "roleName": "12345678-0000-0000-0000-0FEEDDADBEEF"
+      },
+      {
+        "httpPathPrefix": "/myapp2",
+        "roleName": "87654321-0000-0000-0000-0FEEDDADBEEF"
       }
     ]
   }
