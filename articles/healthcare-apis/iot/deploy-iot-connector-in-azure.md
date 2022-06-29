@@ -42,8 +42,8 @@ If you already have an active Azure account, you can use this [![Deploy to Azure
  * An Azure Health Data Services MedTech service including the necessary system managed identity permissions to the device message event hub and FHIR service.
 
 When the Azure portal launches, the following fields must be filled out:
- * **Subscription** - Chose the Azure subscription you would like to use for the deployment.
- * **Resource Group** - Chose an existing Resource Group or create a new Resource Group.
+ * **Subscription** - Choose the Azure subscription you would like to use for the deployment.
+ * **Resource Group** - Choose an existing Resource Group or create a new Resource Group.
  * **Region** - The Azure region of the Resource Group used for the deployment. This field will auto-fill based on the Resource Group region.
  * **Basename** - Will be used to append the name the Azure services to be deployed.
  * **Location** - Use the drop-down list to select a supported Azure region for the Azure Health Data Services (could be the same or different region than your Resource Group). 
