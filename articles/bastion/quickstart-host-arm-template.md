@@ -37,9 +37,9 @@ This template by default, creates an Azure Bastion deployment with a resource gr
 
 * [Microsoft.Network/bastionHosts](/azure/templates/microsoft.network/bastionhosts) creates the bastion host.
 * [Microsoft.Network/virtualNetworks](/azure/templates/microsoft.network/virtualnetworks) creates a virtual network.
-* [Microsoft.Network/virtualNetworks/subnets](azure/templates/microsoft.network/virtualnetworks/subnets) creates the subnet.
-* [Microsoft Network/networkSecurityGroups](azure/templates/microsoft.network/virtualnetworks/subnets) controls the network security group settings.
-* [Microsoft.Network/publicIpAddresses](azure/templates/microsoft.network/publicIpAddresses) specifies the public IP address value used for the bastion host.
+* [Microsoft.Network/virtualNetworks/subnets](/azure/templates/microsoft.network/virtualnetworks/subnets) creates the subnet.
+* [Microsoft Network/networkSecurityGroups](/azure/templates/microsoft.network/virtualnetworks/subnets) controls the network security group settings.
+* [Microsoft.Network/publicIpAddresses](/azure/templates/microsoft.network/publicIpAddresses) specifies the public IP address value used for the bastion host.
 
 ### Parameters
 
