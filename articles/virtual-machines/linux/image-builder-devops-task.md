@@ -88,7 +88,7 @@ VM Image Builder requires a managed identity, which it uses to read source custo
 
 ### Virtual network support
 
-You can configure the created VM to be in a specific virtual network. When you configure the task, provide the resource ID of a pre-existing subnet in the **VNet Configuration (Optional)** input field. Omit the resource ID if no specific virtual network needs to be used. For more information, see [Azure VM Image Builder service networking options](./image-builder-networking).
+You can configure the created VM to be in a specific virtual network. When you configure the task, provide the resource ID of a pre-existing subnet in the **VNet Configuration (Optional)** input field. Omit the resource ID if no specific virtual network needs to be used. For more information, see [Azure VM Image Builder service networking options](image-builder-networking.md).
 
 ### Source
 
