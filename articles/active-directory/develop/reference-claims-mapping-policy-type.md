@@ -9,7 +9,7 @@ ms.subservice: develop
 ms.custom: aaddev
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/04/2022
+ms.date: 06/28/2022
 ms.author: davidmu
 ms.reviewer: paulgarn, ludwignick, jeedes, luleon
 ---
@@ -456,6 +456,19 @@ Based on the method chosen, a set of inputs and outputs is expected. Define the 
 | ----- | ----- |
 | ExtractMailPrefix | None |
 | Join | The suffix being joined must be a verified domain of the resource tenant. |
+
+### Issuer With Application ID 
+**String:** issuerWithApplicationId  
+**Data type:** Boolean (True or False)   
+**Summary:** This property allows for the addition of the application ID to the issuer claim. In the scenario where you have multiple instances of the same application this ensures you will have a unique claim value for each instance. This setting will be ignored if no custom signing key is configured for the application.
+- If set to True, the application ID will be added to the issuer claim in tokens affected by the policy.
+- If set to False, the application ID will not be added to the issuer claim in tokens affected by the policy. (default) 
+ 
+### Audience Override 
+**String:** audienceOverride  
+**Data type:** String  
+**Summary:** This property allows for the overriding of the audience claim sent to the application. The value provided must be a valid absolute URI. This setting will be ignored if no custom signing key is configured for the application. 
+
 
 ## Next steps
 
