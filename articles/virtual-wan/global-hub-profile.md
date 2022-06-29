@@ -38,8 +38,8 @@ By default, every hub that uses a specific User VPN configuration is included in
 To check whether or not the hub is included in the global VPN profile:
 
 1. Go to the hub.
-1. On the left panel, go to **User VPN (Point to site)**.
-1. See **Gateway attachment state** to determine if this hub is included in the global VPN profile. If the state is **attached**, the hub is included. If the state is **detached**, the hub isn't included.
+1. In the left pane, select **User VPN (Point to site)**.
+1. On the **User VPN (Point-to-site)** page, see **Gateway attachment state** to determine if this hub is included in the global VPN profile. If the state is **attached**, the hub is included. If the state is **detached**, the hub isn't included.
 
    :::image type="content" source="./media/global-hub-profile/attachment-state.png" alt-text="Screenshot that shows the attachment state of a gateway."lightbox="./media/global-hub-profile/attachment-state.png":::
 
@@ -49,7 +49,7 @@ To include or exclude a specific hub from the global VPN profile:
 
    :::image type="content" source="./media/global-hub-profile/select-include-exclude.png" alt-text="Screenshot that shows the button for including or excluding a hub from a profile." lightbox="./media/global-hub-profile/select-include-exclude.png":::
 
-1. Make one of the following choices:
+1. On the **Include/Exclude** page, make one of the following choices.
 
    * Select **Exclude** if you want to remove this hub's gateway from the Virtual WAN global User VPN profile. Users who are using the hub-level User VPN profile will still be able to connect to this gateway. Users who are using the WAN-level profile (the global profile) won't be able to connect to this gateway.
 
