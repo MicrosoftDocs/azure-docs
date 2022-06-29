@@ -19,7 +19,7 @@ The purpose of the TIC initiative is to enhance network security across the US f
 
 ### TIC 2.0 guidance
 
-The TIC initiative was originally outlined in the Office of Management and Budget (OMB) [Memorandum M-08-05](https://georgewbush-whitehouse.archives.gov/omb/memoranda/fy2008/m08-05.pdf) released in November 2007, and referred to in this article as TIC 2.0 guidance. The TIC program was envisioned to improve federal network perimeter security and incident response functions. TIC was originally designed to perform network analysis of all inbound and outbound .gov traffic to identify specific patterns in network data flows and uncover behavioral anomalies, such as botnet activity. Agencies were mandated to consolidate their external network connections and route all traffic through intrusion detection and prevention devices known as EINSTEIN. The devices are hosted at a limited number of network endpoints, which are referred to as *trusted internet connections*.
+The TIC initiative was originally outlined in the Office of Management and Budget (OMB) [Memorandum M-08-05](https://georgewbush-whitehouse.archives.gov/omb/memoranda/fy2008/m08-05.pdf) released in November 2007, and referred to in this article as TIC 2.0 guidance. The TIC program was envisioned to improve federal network perimeter security and incident response functions. TIC was originally designed to perform network analysis of all inbound and outbound .gov traffic. The goal was to identify specific patterns in network data flows and uncover behavioral anomalies, such as botnet activity. Agencies were mandated to consolidate their external network connections and route all traffic through intrusion detection and prevention devices known as EINSTEIN. The devices are hosted at a limited number of network endpoints, which are referred to as *trusted internet connections*.
 
 The objective of TIC is for agencies to know:
 
@@ -29,21 +29,21 @@ The objective of TIC is for agencies to know:
 
 Under TIC 2.0, all agency external connections must route through an OMB-approved TIC. Federal agencies are required to participate in the TIC program as a TIC Access Provider (TICAP), or by contracting services with one of the major Tier 1 internet service providers. These providers are referred to as Managed Trusted Internet Protocol Service (MTIPS) providers. TIC 2.0 includes mandatory critical capabilities that are performed by the agency and MTIPS provider. In TIC 2.0, the EINSTEIN version 2 intrusion detection and EINSTEIN version 3 accelerated (3A) intrusion prevention devices are deployed at each TICAP and MTIPS. The agency establishes a *Memorandum of Understanding* with the Department of Homeland Security (DHS) to deploy EINSTEIN capabilities to federal systems.
 
-As part of its responsibility to protect the .gov network, DHS requires the raw data feeds of agency net flow data to correlate incidents across the federal enterprise and perform analyses by using specialized tools. DHS routers provide the ability to collect IP network traffic as it enters or exits an interface. Network administrators can analyze the net flow data to determine the source and destination of traffic, the class of service, and other parameters. Net flow data is considered to be "non-content data" similar to the header, source IP, destination IP, and so on. Non-content data allows DHS to learn about the content: who was doing what and for how long.
+As part of its responsibility to protect the .gov network, DHS requires the raw data feeds of agency net flow data to correlate incidents across the federal enterprise and perform analyses by using specialized tools. DHS routers enable collection of IP network traffic as it enters or exits an interface. Network administrators can analyze the net flow data to determine the source and destination of traffic, the class of service, and other parameters. Net flow data is considered to be "non-content data" similar to the header, source IP, destination IP, and so on. Non-content data allows DHS to learn about the content: who was doing what and for how long.
 
-The TIC 2.0 initiative also includes security policies, guidelines, and frameworks that assume an on-premises infrastructure. As government agencies move to the cloud to achieve cost savings, operational efficiency, and innovation, the implementation requirements of TIC 2.0 can slow down network traffic. The speed and agility with which government users can access their cloud-based data is limited as a result.
+The TIC 2.0 initiative also includes security policies, guidelines, and frameworks that assume an on-premises infrastructure. Government agencies move to the cloud to achieve cost savings, operational efficiency, and innovation. However, the implementation requirements of TIC 2.0 can slow down network traffic. The speed and agility with which government users can access their cloud-based data is limited as a result.
 
 ### TIC 3.0 guidance
 
 In September 2019, OMB released [Memorandum M-19-26](https://www.whitehouse.gov/wp-content/uploads/2019/09/M-19-26.pdf) that rescinded prior TIC-related memorandums and introduced [TIC 3.0 guidance](https://www.cisa.gov/trusted-internet-connections). The previous OMB memorandums required agency traffic to flow through a physical TIC access point, which has proven to be an obstacle to the adoption of cloud-based infrastructure. For example, TIC 2.0 focused exclusively on perimeter security by channeling all incoming and outgoing agency data through a TIC access point. In contrast, TIC 3.0 recognizes the need to account for multiple and diverse security architectures rather than a single perimeter security approach. This flexibility allows agencies to choose how to implement security capabilities in a way that fits best into their overall network architecture, risk management approach, and more.
 
-To enable this flexibility, the Cybersecurity & Infrastructure Security Agency (CISA) works with federal agencies to conduct pilots in diverse agency environments, which results in the development of TIC 3.0 use cases. For TIC 3.0 implementations, CISA encourages agencies to use [TIC 3.0 Core Guidance Documents](https://www.cisa.gov/publication/tic-30-core-guidance-documents) in conjunction with the National Institute of Standards and Technology (NIST) [Cybersecurity Framework](https://www.nist.gov/cyberframework) (CSF) and [NIST SP 800-53](https://csrc.nist.gov/publications/detail/sp/800-53/rev-5/final) *Security and Privacy Controls for Federal Information Systems and Organizations*. These documents can help agencies design a secure network architecture and determine appropriate requirements from cloud service providers.
+To enable this flexibility, the Cybersecurity & Infrastructure Security Agency (CISA) works with federal agencies to conduct pilots in diverse agency environments, which result in the development of TIC 3.0 use cases. For TIC 3.0 implementations, CISA encourages agencies to use [TIC 3.0 Core Guidance Documents](https://www.cisa.gov/publication/tic-30-core-guidance-documents) with the National Institute of Standards and Technology (NIST) [Cybersecurity Framework](https://www.nist.gov/cyberframework) (CSF) and [NIST SP 800-53](https://csrc.nist.gov/publications/detail/sp/800-53/rev-5/final) *Security and Privacy Controls for Federal Information Systems and Organizations*. These documents can help agencies design a secure network architecture and determine appropriate requirements from cloud service providers.
 
-TIC 3.0 complements other federal initiatives focused on cloud adoption such as the Federal Risk and Authorization Management Program (FedRAMP), which is based on the NIST SP 800-53 standard augmented by FedRAMP controls and control enhancements. Agencies can use existing Azure and Azure Government FedRAMP High provisional authorizations (P-ATO) issued by the FedRAMP Joint Authorization Board in addition to Azure and Azure Government support for the NIST CSF, as described in [Azure compliance documentation](../../compliance/index.yml). To assist agencies with TIC 3.0 implementation when selecting cloud-based security capabilities, CISA has mapped TIC capabilities to the NIST CSF and NIST SP 800-53. For example, TIC 3.0 security objectives can be mapped to the five functions of the NIST CSF, including Identify, Protect, Detect, Respond, and Recover. The TIC security capabilities are mapped to the NIST CSF in the TIC 3.0 Security Capabilities Catalog available from [TIC 3.0 Core Guidance Documents](https://www.cisa.gov/publication/tic-30-core-guidance-documents).
+TIC 3.0 complements other federal initiatives focused on cloud adoption such as the Federal Risk and Authorization Management Program (FedRAMP), which is based on the NIST SP 800-53 standard augmented by FedRAMP controls and control enhancements. Agencies can use existing Azure and Azure Government [FedRAMP High](/azure/compliance/offerings/offering-fedramp) provisional authorizations to operate (P-ATO) issued by the FedRAMP Joint Authorization Board. They can also use Azure and Azure Government support for the [NIST CSF](/azure/compliance/offerings/offering-nist-csf). To assist agencies with TIC 3.0 implementation when selecting cloud-based security capabilities, CISA has mapped TIC capabilities to the NIST CSF and NIST SP 800-53. For example, TIC 3.0 security objectives can be mapped to the five functions of the NIST CSF, including Identify, Protect, Detect, Respond, and Recover. The TIC security capabilities are mapped to the NIST CSF in the TIC 3.0 Security Capabilities Catalog available from [TIC 3.0 Core Guidance Documents](https://www.cisa.gov/publication/tic-30-core-guidance-documents).
 
 TIC 3.0 is a non-prescriptive cybersecurity guidance developed to provide agencies with flexibility to implement security capabilities that match their specific risk tolerance levels. While the guidance requires agencies to comply with all applicable telemetry requirements such as the National Cybersecurity Protection System (NCPS) and Continuous Diagnosis and Mitigation (CDM), TIC 3.0 currently only requires agencies to self-attest on their adherence to the TIC guidance.
 
-With TIC 3.0, agencies have the option to maintain the legacy TIC 2.0 implementation that uses TIC access points while adopting TIC 3.0 capabilities. CISA provided guidance on how to implement the traditional TIC model in TIC 3.0, known as the [Traditional TIC Use Case](https://www.cisa.gov/publication/tic-30-core-guidance-documents).
+With TIC 3.0, agencies can maintain the legacy TIC 2.0 implementation that uses TIC access points while adopting TIC 3.0 capabilities. CISA provided guidance on how to implement the traditional TIC model in TIC 3.0, known as the [Traditional TIC Use Case](https://www.cisa.gov/publication/tic-30-core-guidance-documents).
 
 The rest of this article provides guidance that is pertinent to Azure capabilities needed for legacy TIC 2.0 implementations; however, some of this guidance is also useful for TIC 3.0 requirements.
 
@@ -56,9 +56,14 @@ There are four main options to connect to Azure services:
 - **Azure ExpressRoute** – ExpressRoute is a direct connection to Microsoft services. ExpressRoute uses a provider at a peering location to connect to Microsoft Enterprise edge routers. ExpressRoute uses different peering types for IaaS and PaaS/SaaS services, private peering and Microsoft peering. Bandwidth ranges from 50 Mbps to 10 Gbps.
 - **Azure ExpressRoute Direct** – ExpressRoute Direct allows for direct fiber connections from your edge to the Microsoft Enterprise edge routers at the peering location. ExpressRoute Direct removes a third-party connectivity provider from the required hops. Bandwidth ranges from 10 Gbps to 100 Gbps. 
 
-To enable the connection from the *agency* to Azure or Microsoft 365, without routing traffic through the agency TIC, the agency must use an encrypted tunnel or a dedicated connection to the cloud service provider (CSP). The CSP services can ensure that connectivity to the agency cloud assets isn't offered via the public Internet for direct agency personnel access.
+To enable the connection from the *agency* to Azure or Microsoft 365, without routing traffic through the agency TIC, the agency must use:
 
-For Azure only, the second option (VPN) and third option (ExpressRoute) can meet these requirements when they're used in conjunction with services that limit access to the Internet.
+- An encrypted tunnel, or
+- A dedicated connection to the cloud service provider (CSP).
+
+The CSP services can ensure that connectivity to the agency cloud assets isn't offered via the public Internet for direct agency personnel access.
+
+For Azure only, the second option (VPN) and third option (ExpressRoute) can meet these requirements when they're used with services that limit access to the Internet.
 
 Microsoft 365 is compliant with TIC guidance by using either [ExpressRoute with Microsoft Peering](../../expressroute/expressroute-circuit-peerings.md) enabled or an Internet connection that encrypts all traffic by using the Transport Layer Security (TLS) 1.2. Agency end users on the agency network can connect via their agency network and TIC infrastructure through the Internet. All remote Internet access to Microsoft 365 is blocked and routes through the agency.
 
@@ -68,7 +73,7 @@ Microsoft 365 is compliant with TIC guidance by using either [ExpressRoute with 
 
 Compliance with TIC policy by using Azure IaaS is relatively simple because Azure customers manage their own virtual network routing.
 
-The main requirement to help assure compliance with the TIC 2.0 reference architecture is to ensure your virtual network is a private extension of the agency network. To be a *private* extension, the policy requires that no traffic leave your network except via the on-premises TIC network connection. This process is known as *forced tunneling*. For TIC 2.0 compliance, the process routes all traffic from any system in the CSP environment through an on-premises gateway on an organization's network out to the Internet through the TIC.
+The main requirement to help assure compliance with the TIC 2.0 reference architecture is to ensure your virtual network is a private extension of the agency network. To be a *private* extension, the policy requires that no traffic is allowed to leave your network except via the on-premises TIC network connection. This process is known as *forced tunneling*. For TIC 2.0 compliance, the process routes all traffic from any system in the CSP environment through an on-premises gateway on an organization's network out to the Internet through the TIC.
 
 Azure IaaS TIC compliance is divided into two major steps:
 
@@ -77,7 +82,7 @@ Azure IaaS TIC compliance is divided into two major steps:
 
 ### Azure IaaS TIC compliance: Configuration
 
-To configure a TIC-compliant architecture with Azure, you must first prevent direct Internet access to your virtual network and then force Internet traffic through the on-premises network.
+To configure a TIC-compliant architecture with Azure, you must first prevent direct Internet access to your virtual network, and then force Internet traffic through the on-premises network.
 
 #### Prevent direct Internet access
 
@@ -116,7 +121,7 @@ Azure offers several ways to audit TIC compliance.
 
 #### View effective routes
 
-Confirm that your default route is propagated by observing the *effective routes* for a particular virtual machine, a specific NIC, or a user-defined route table in the [Azure portal](../../virtual-network/diagnose-network-routing-problem.md#diagnose-using-azure-portal) or in [Azure PowerShell](../../virtual-network/diagnose-network-routing-problem.md#diagnose-using-powershell). The **Effective Routes** show the relevant user-defined routes, BGP advertised routes, and system routes that apply to the relevant entity, as shown in the following figure:
+Confirm your default route propagation by observing the *effective routes* for a particular virtual machine, a specific NIC, or a user-defined route table in the [Azure portal](../../virtual-network/diagnose-network-routing-problem.md#diagnose-using-azure-portal) or in [Azure PowerShell](../../virtual-network/diagnose-network-routing-problem.md#diagnose-using-powershell). The **Effective Routes** show the relevant user-defined routes, BGP advertised routes, and system routes that apply to the relevant entity, as shown in the following figure:
 
 :::image type="content" source="./media/tic-screen-1.png" alt-text="Effective routes" border="false":::
 
@@ -139,7 +144,7 @@ When Azure PaaS services are integrated with a virtual network, the service is p
 
 - **Deploy a dedicated instance of a service** – An increasing number of PaaS services are deployable as dedicated instances with virtual network-attached endpoints, sometimes called *VNet injection*. You can deploy an App Service Environment in *isolated mode* to allow the network endpoint to be constrained to a virtual network. The App Service Environment can then host many Azure PaaS services, such as Web Apps, API Management, and Functions. For more information, see [Deploy dedicated Azure services into virtual networks](../../virtual-network/virtual-network-for-azure-services.md).
 - **Use virtual network service endpoints** – An increasing number of PaaS services allow the option to move their endpoint to a virtual network private IP instead of a public address. For more information, see [Virtual Network service endpoints](../../virtual-network/virtual-network-service-endpoints-overview.md).
-- **Use Azure Private Link** – Provide a shared service with a private endpoint in your virtual network. Traffic between your virtual network and the service travels across the Microsoft backbone network and does not traverse the public Internet. For more information, see [Azure Private Link](../../private-link/private-link-overview.md).
+- **Use Azure Private Link** – Provide a shared service with a private endpoint in your virtual network. Traffic between your virtual network and the service travels across the Microsoft backbone network and doesn't traverse the public Internet. For more information, see [Azure Private Link](../../private-link/private-link-overview.md).
 
 ### Virtual network integration details
 
@@ -148,7 +153,7 @@ The following diagram shows the general network flow for access to Azure PaaS se
 :::image type="content" source="./media/tic-diagram-e.png" alt-text="PaaS connectivity options for TIC" border="false":::
 
 1. A private connection is made to Azure by using ExpressRoute. ExpressRoute private peering with forced tunneling is used to force all customer virtual network traffic over ExpressRoute and back to on-premises. Microsoft Peering isn't required.
-2. Azure VPN Gateway, when used in conjunction with ExpressRoute and Microsoft Peering, can overlay end-to-end IPSec encryption between the customer virtual network and the on-premises edge. 
+2. Azure VPN Gateway, when used with ExpressRoute and Microsoft Peering, can overlay end-to-end IPSec encryption between the customer virtual network and the on-premises edge. 
 3. Network connectivity to the customer virtual network is controlled by using network security groups that allow customers to permit/deny traffic based on IP, port, and protocol.
 4. Traffic to and from the customer private virtual network is monitored through Azure Network Watcher and data is analyzed using Log Analytics and Microsoft Defender for Cloud.
 5. The customer virtual network extends to the PaaS service by creating a service endpoint for the customer's service.
@@ -173,7 +178,7 @@ After you enable a service endpoint for a service, use policies exposed by the s
 
 #### Option C: Use Azure Private Link
 
-You can use [Azure Private Link](../../private-link/private-link-overview.md) to access Azure PaaS services and Azure-hosted customer/partner services over a [private endpoint](../../private-link/private-endpoint-overview.md) in your virtual network, ensuring that traffic between your virtual network and the service travels across the Microsoft global backbone network. This approach eliminates the need to expose the service to the public Internet. You can also create your own [private link service](../../private-link/private-link-service-overview.md) in your own virtual network and deliver it to your customers.
+You can use [Azure Private Link](../../private-link/private-link-overview.md) to access Azure PaaS services and Azure-hosted customer or partner services over a [private endpoint](../../private-link/private-endpoint-overview.md) in your virtual network, ensuring that traffic between your virtual network and the service travels across the Microsoft global backbone network. This approach eliminates the need to expose the service to the public Internet. You can also create your own [private link service](../../private-link/private-link-service-overview.md) in your own virtual network and deliver it to your customers.
 
 Azure private endpoint is a network interface that connects you privately and securely to a service powered by Azure Private Link. Private endpoint uses a private IP address from your virtual network, effectively bringing the service into your virtual network.
 
