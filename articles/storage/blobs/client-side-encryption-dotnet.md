@@ -27,40 +27,63 @@ The [Azure Storage client library for .NET](/dotnet/api/overview/azure/storage) 
 
 For a step-by-step tutorial that leads you through the process of encrypting blobs using client-side encryption and Azure Key Vault, see [Encrypt and decrypt blobs in Microsoft Azure Storage using Azure Key Vault](../blobs/storage-encrypt-decrypt-blobs-key-vault.md).
 
-## How client-side encryption works
+## About client-side encryption
 
-The Azure Storage client library uses [AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) in order to encrypt user data. There are two versions of client-side encryption available in the client library:
+The Azure Blob Storage client library uses [AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) in order to encrypt user data. There are two versions of client-side encryption available in the client library:
 
 - Version 2.x uses [Galois/Counter Mode (GCM)](https://en.wikipedia.org/wiki/Galois/Counter_Mode) mode with AES.
 - Version 1.x uses [Cipher Block Chaining (CBC)](https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Cipher-block_chaining_.28CBC.29) mode with AES.
 
 > [!WARNING]
-> Using version 1.x of client-side encryption is not recommended due to potential security concerns. If you are currently using version 1.x, we recommend that you update your application to use version 2.x and migrate your data.
+> Using version 1.x of client-side encryption is not recommended due to a security vulnerability in CBC mode. For more information about this security vulnerability, see [Preview: Azure Storage updating client-side encryption in SDK to address security vulnerability](https://techcommunity.microsoft.com/t5/azure-storage-blog/preview-azure-storage-updating-client-side-encryption-in-sdk-to/ba-p/3522620). If you are currently using version 1.x, we recommend that you update your application to use version 2.x and migrate your data.
+
+## Mitigate the security vulnerability in your applications
+
+Due to a security vulnerability discovered in CBC mode, Microsoft recommends that you take one or more of the following actions immediately:
+
+- Migrate your applications that are using client-side encryption v1 to client-side encryption v2.
+
+    Client-side encryption v2 is available only in version 12.x and later of the Azure Blob Storage client libraries. If your application is using an earlier version, you must first upgrade your code to version 12.x and then decrypt and re-encrypt your data with client-side encryption v2. For code examples, see [Example: Encrypting and decrypting a blob with client-side encryption v2](#example-encrypting-and-decrypting-a-blob-with-client-side-encryption-v2).
+
+- Consider using server-side encryption features instead of client-side encryption. For more information about server-side encryption features, see [Azure Storage encryption for data at rest](../common/storage-service-encryption.md).
+- Configure your storage accounts to use private endpoints to secure all traffic between your virtual network (VNet) and your storage account over a private link. For more information, see [Use private endpoints for Azure Storage](../common/storage-private-endpoints.md). ???need more info about how this is a substitute for CSE???
+- Limit network access to specific networks only. ???need more info about how this is a substitute for CSE? more info???
+
+The following table summarizes the steps you'll need to take if you choose to migrate your applications to client-side encryption v2:
+
+| Client-side encryption status | Recommended actions |
+|---|---|
+| Application is using client-side encryption with Azure Blob Storage SDK version 11.x or earlier | 1. Update your application to use Blob Storage SDK version 12.x or later.<br/><br/>2. Update your code to use client-side encryption v2.<br/><br/>3. Download any encrypted data to decrypt it, then reencrypt it with client-side encryption v2. |
+| Application is using client-side encryption with Azure Blob Storage SDK version 12.x or later | 1. Update your code to use client-side encryption v2.<br/><br/>2. Download any encrypted data to decrypt it, then reencrypt it with client-side encryption v2. |
+
+## How client-side encryption works
+
+The Azure Blob Storage client libraries use envelope encryption to encrypt and decrypt your data on the client side. Envelope encryption encrypts a key with one or more additional keys.
+
+The Blob Storage client libraries rely on Azure Key Vault to protect the keys that are used for client-side encryption. For more information about Azure Ke yVault, see see [What is Azure Key Vault?](../../key-vault/general/overview.md).
 
 ### Encryption and decryption via the envelope technique
-
-The Azure Storage client libraries use envelope encryption to encrypt and decrypt your data on the client side. Envelope encryption encrypts a key with one or more additional keys.
 
 Encryption via the envelope technique works as follows:
 
 1. The Azure Storage client library generates a content encryption key (CEK), which is a one-time-use symmetric key.
-2. User data is encrypted using the CEK.
-3. The CEK is then wrapped (encrypted) using the key encryption key (KEK). The KEK is identified by a key identifier and can be either an asymmetric key pair or a symmetric key. You can manage the KEK locally or store it in an Azure Key Vault.
+1. User data is encrypted using the CEK.
+1. The CEK is then wrapped (encrypted) using the key encryption key (KEK). The KEK is identified by a key identifier and can be either an asymmetric key pair or a symmetric key. You can manage the KEK locally or store it in an Azure Key Vault.
 
     The Azure Storage client library itself never has access to KEK. The library invokes the key wrapping algorithm that is provided by Key Vault. Users can choose to use custom providers for key wrapping/unwrapping if desired.
 
-4. The encrypted data is then uploaded to Azure Storage. The wrapped key together with some additional encryption metadata is either stored as metadata, in the case of blobs, or is interpolated with the encrypted data, in the case of queue messages and table entities.
+1. The encrypted data is then uploaded to Azure Storage. The wrapped key together with some additional encryption metadata is either stored as metadata, in the case of blobs, or is interpolated with the encrypted data, in the case of queue messages and table entities.
 
 Decryption via the envelope technique works as follows:
 
 1. The Azure Storage client library assumes that the user is managing the KEK either locally or in an Azure Key Vault. The user does not need to know the specific key that was used for encryption. Instead, a key resolver which resolves different key identifiers to keys can be set up and used.
-2. The client library downloads the encrypted data along with any encryption material that is stored in Azure Storage.
-3. The wrapped CEK)is then unwrapped (decrypted) using the KEK. The client library does not have access to the KEK during this process, but only invokes the unwrapping algorithm of the Azure Key Vault or other key store.
-4. The client library uses the CEK to decrypt the encrypted user data.
+1. The client library downloads the encrypted data along with any encryption material that is stored in Azure Storage.
+1. The wrapped CEK)is then unwrapped (decrypted) using the KEK. The client library does not have access to the KEK during this process, but only invokes the unwrapping algorithm of the Azure Key Vault or other key store.
+1. The client library uses the CEK to decrypt the encrypted user data.
 
 ### Encryption/decryption on blob upload/download
 
-The client library currently supports encryption of whole blobs only (???does this mean on upload???). For downloads, both complete and range downloads are supported.
+The client library supports encryption of whole blobs only on upload. For downloads, both complete and range downloads are supported.
 
 During encryption, the client library generates a random initialization vector (IV) of 16 bytes and a random CEK of 32 bytes, and perform envelope encryption of the blob data using this information. The wrapped CEK and some additional encryption metadata are then stored as blob metadata along with the encrypted blob.
 
@@ -75,30 +98,33 @@ All blob types (block blobs, page blobs, and append blobs) can be encrypted/decr
 >
 > When reading from or writing to an encrypted blob, use whole blob upload commands, such as [Put Blob](/rest/api/storageservices/put-blob), and range or whole blob download commands, such as Get Blob. Avoid writing to an encrypted blob using protocol operations such as [Put Block](/rest/api/storageservices/put-block), [Put Block List](/rest/api/storageservices/put-block-list), [Put Page](/rest/api/storageservices/put-page), or [Append Block](/rest/api/storageservices/append-block). Calling these operations on an encrypted blob can corrupt it and make it unreadable.
 
-## Example: Encrypting and decrypting a blob
+## Example: Encrypting and decrypting a blob with client-side encryption v2
 
-### Interface and dependencies
+The code example in this section shows how to use client-side encryption v2 to encrypt and decrypt a blob.
+
+If you have data that has been previously encrypted with client-side encryption v1, then you'll need to decrypt that data and reencrypt it with client-side encryption v2. For a sample project that shows how to decrypt and reencrypt existing data, see the [Encryption migration sample project](https://github.com/wastore/azure-storage-samples-for-net/pull/4) ???this is PR - will need pointer to project in repo after merge???.
+
+### Interfaces and dependencies
 
 Two packages are required for Azure Key Vault integration:
 
-- Azure.Core contains the `IKeyEncryptionKey` and `IKeyEncryptionKeyResolver` interfaces. The blob client library for .NET already defines it as a dependency.
-- Azure.Security.KeyVault.Keys (v4.x) contains the Key Vault REST client, as well as cryptographic clients used with client-side encryption.
+- The **Azure.Core** assembly provides the `IKeyEncryptionKey` and `IKeyEncryptionKeyResolver` interfaces. The Blob Storage client library for .NET already defines this assembly as a dependency.
+- The **Azure.Security.KeyVault.Keys** assembly (v4.x and later) provides the Key Vault REST client, as well as cryptographic clients used with client-side encryption. You'll need to ensure that this package is referenced in your project. ???it's not clear whether key vault is required or optional???
 
-Azure Key Vault is designed for high-value master keys, and throttling limits per key vault are designed with this in mind. As of version 4.1.0 of Azure.Security.KeyVault.Keys, the `IKeyEncryptionKeyResolver` interface does not support key caching. Should caching be necessary due to throttling, [this sample](/samples/azure/azure-sdk-for-net/azure-key-vault-proxy/) can be followed to inject a caching layer into an `Azure.Security.KeyVault.Keys.Cryptography.KeyResolver` instance.
+Azure Key Vault is designed for high-value master keys, and throttling limits per key vault are designed with this in mind. As of version 4.1.0 of Azure.Security.KeyVault.Keys, the `IKeyEncryptionKeyResolver` interface does not support key caching. Should caching be necessary due to throttling, you can use the approach demonstrated in [this sample](/samples/azure/azure-sdk-for-net/azure-key-vault-proxy/) to inject a caching layer into an `Azure.Security.KeyVault.Keys.Cryptography.KeyResolver` instance.
 
-### Client API / Interface
+### Client APIs
 
-Users can provide only a key, only a resolver, or both. Keys are identified using a key identifier and provides the logic for wrapping/unwrapping. Resolvers are used to resolve a key during the decryption process. It defines a resolve method that returns a key given a key identifier. This provides users the ability to choose between multiple keys that are managed in multiple locations.
+Users can provide a key, a key resolver, or both a key and a key resolver. Keys are identified using a key identifier that provides the logic for wrapping and unwrapping the CEK. A key resolver is used to resolve a key during the decryption process. The key resolver defines a resolve method that returns a key given a key identifier. The resolver provides users the ability to choose between multiple keys that are managed in multiple locations.
 
-- For encryption, the key is used always and the absence of a key will result in an error.
-- For decryption:
-  - If the key is specified and its identifier matches the required key identifier, that key is used for decryption. Otherwise, the resolver is attempted. If there is no resolver for this attempt, an error is thrown.
-  - The key resolver is invoked if specified to get the key. If the resolver is specified but does not have a mapping for the key identifier, an error is thrown.
+On encryption, the key is used always and the absence of a key will result in an error.
 
-Create a **ClientSideEncryptionOptions** object and set it on client creation with **SpecializedBlobClientOptions**. You cannot set encryption options on a per-API basis. Everything else will be handled by the client library internally.
+On decryption, if the key is specified and its identifier matches the required key identifier, that key is used for decryption. Otherwise, the client library attempts to call the resolver. If there is no resolver specified, then the client library throws an error. If a resolver is specified, then the key resolver is invoked to get the key. If the resolver is specified but does not have a mapping for the key identifier, then the client library throws an error.
+
+To use client-side encryption, create a **ClientSideEncryptionOptions** object and set it on client creation with **SpecializedBlobClientOptions**. You cannot set encryption options on a per-API basis. Everything else will be handled by the client library internally.
 
 ```csharp
-// Your key and key resolver instances, either through KeyVault SDK or an external implementation
+// Your key and key resolver instances, either through Azure Key Vault SDK or an external implementation.
 IKeyEncryptionKey key;
 IKeyEncryptionKeyResolver keyResolver;
 
@@ -107,7 +133,7 @@ ClientSideEncryptionOptions encryptionOptions = new ClientSideEncryptionOptions(
 {
    KeyEncryptionKey = key,
    KeyResolver = keyResolver,
-   // string the storage client will use when calling IKeyEncryptionKey.WrapKey()
+   // String value that the storage client will use when calling IKeyEncryptionKey.WrapKey()
    KeyWrapAlgorithm = "some algorithm name"
 };
 
@@ -115,7 +141,8 @@ ClientSideEncryptionOptions encryptionOptions = new ClientSideEncryptionOptions(
 BlobClientOptions options = new SpecializedBlobClientOptions() { ClientSideEncryption = encryptionOptions };
 
 // Get your blob client with client-side encryption enabled.
-// Client-side encryption options are passed from service to container clients, and container to blob clients.
+// Client-side encryption options are passed from service clients to container clients, 
+// and from container clients to blob clients.
 // Attempting to construct a BlockBlobClient, PageBlobClient, or AppendBlobClient from a BlobContainerClient
 // with client-side encryption options present will throw, as this functionality is only supported with BlobClient.
 BlobClient blob = new BlobServiceClient(connectionString, options).GetBlobContainerClient("my-container").GetBlobClient("myBlob");
@@ -128,9 +155,9 @@ MemoryStream outputStream = new MemoryStream();
 blob.DownloadTo(outputStream);
 ```
 
-A **BlobServiceClient** is not necessary to apply encryption options. They can also be passed into **BlobContainerClient**/**BlobClient** constructors that accept **BlobClientOptions** objects.
+A **BlobServiceClient** is not necessary to apply encryption options. They can also be passed into **BlobContainerClient** or **BlobClient** constructors that accept **BlobClientOptions** objects.
 
-If a desired **BlobClient** object already exists but without client-side encryption options, an extension method exists to create a copy of that object with the given **ClientSideEncryptionOptions**. This extension method avoids the overhead of constructing a new **BlobClient** object from scratch.
+If a **BlobClient** object already exists in your code but lacks client-side encryption options, then you can use an extension method to create a copy of that object with the given **ClientSideEncryptionOptions**. This extension method avoids the overhead of constructing a new **BlobClient** object from scratch.
 
 ```csharp
 using Azure.Storage.Blobs.Specialized;
@@ -145,7 +172,7 @@ BlobClient clientSideEncryptionBlob = plaintextBlob.WithClientSideEncryptionOpti
 
 ## Client-side encryption and performance
 
-Note that encrypting your storage data results in additional performance overhead. The CEK and IV must be generated, the content itself must be encrypted, and additional meta-data must be formatted and uploaded. This overhead varies depending on the quantity of data being encrypted. We recommend that customers always test their applications for performance during development.
+Keep in mind that encrypting your storage data results in additional performance overhead. When you use client-side encryption in your application, the client library must generate the CEK and IV, encrypt the content itself, and format and upload additional metadata. This overhead varies depending on the quantity of data being encrypted. We recommend that customers always test their applications for performance during development.
 
 ## Next steps
 
