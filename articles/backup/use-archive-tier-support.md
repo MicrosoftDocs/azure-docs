@@ -124,7 +124,7 @@ To enable Smart Tiering for Azure VM backup policies, follow these steps:
 
    :::image type="content" source="./media/use-archive-tier-support/select-enable-tiering-inline.png" alt-text="Screenshot showing to select the Enable Tiering option." lightbox="./media/use-archive-tier-support/select-enable-tiering-expanded.png":::
 
-1. Select one of the following options to move to vault-archive tier:
+1. Select one of the following options to move to Vault-archive tier:
 
    - **Recommended recovery points**: This option moves all recommended recovery points to the vault-archive tier. [Learn more](archive-tier-support.md#archive-recommendations-only-for-azure-virtual-machines) about recommendations.
    - **Eligible recovery points**: This option moves all eligible recovery point after a specific number of days.
@@ -132,7 +132,7 @@ To enable Smart Tiering for Azure VM backup policies, follow these steps:
      :::image type="content" source="./media/use-archive-tier-support/select-eligible-recovery-points-inline.png" alt-text="Screenshot showing to select the Eligible recovery points option." lightbox="./media/use-archive-tier-support/select-eligible-recovery-points-expanded.png":::
 
    >[!Note]
-   >- The value of x can range from 3 months to (monthly/yearly retention in months -6).
+   >- The value of *x* can range from *3 months* to *(monthly/yearly retention in months -6)*.
    >- Selecting this option can increase your overall costs.
 
 Once the policy is configured, all the recommended recovery points are moved to archive tier.
@@ -143,23 +143,24 @@ To enable Smart Tiering for Azure SAP HANA/SQL servers in Azure VM backup polici
 
 1. Select or create a backup policy: 
 
-   - **Existing Backup Policy**: Select the backup policy for which you want to enable smart Tiering
-   - **Create a new Policy**: 
+   - **Existing Backup Policy**: Select the backup policy for which you want to enable smart Tiering.
+   - **Create a new Policy**: Create a new backup policy.
 
-1. In **Backup policy**, select **Move eligible recovery points to vault-archive**.
+1. In **Backup policy**, select **Move eligible recovery points to Vault-archive**.
 
-   :::image type="content" source="./media/use-archive-tier-support/select-move-eligible-recovery-points-to-vault-archive-inline.png" alt-text="Screenshot showing to select select Move eligible recovery points to vault-archive." lightbox="./media/use-archive-tier-support/select-move-eligible-recovery-points-to-vault-archive-expanded.png":::
+   :::image type="content" source="./media/use-archive-tier-support/select-move-eligible-recovery-points-to-vault-archive-inline.png" alt-text="Screenshot showing to select the Move eligible recovery points to Vault-archive option." lightbox="./media/use-archive-tier-support/select-move-eligible-recovery-points-to-vault-archive-expanded.png":::
 
    Select the number of days after which you want to move your recovery point to archive.
 
    >[!Note]
-   >The number of days would range from 45 days to (retention-180) days. 
+   >The number of days would range from *45* to *(retention-180)* days.
+   >The number of days would range from 45* days to *(retention-180)* days.
 
-Once Smart Tiering is enabled, all the eligible recovery points are moved to the  vault-archive tier.
+Once Smart Tiering is enabled, all the eligible recovery points are moved to the Vault-archive tier.
 
 ### Move all/eligible recovery points for a backup item
 
- To move recovery points for a backup item at one go, see [Move archivable recovery points](?pivots=client-portaltier#view-archived-recovery-points)
+ To move recovery points for a backup item at one go, see [Move archivable recovery points](?pivots=client-portaltier#view-archived-recovery-points).
 
 
 ## Next steps
