@@ -66,19 +66,66 @@ Your snapshot will be created shortly, and can then be used to download or creat
 
 To download the VHD file, you need to generate a [shared access signature (SAS)](../../storage/common/storage-sas-overview.md?toc=/azure/virtual-machines/windows/toc.json) URL. When the URL is generated, an expiration time is assigned to the URL.
 
+# [Portal](#tab/azure-portal)
+
 1. On the page for the VM, click **Disks** in the left menu.
 1. Select the operating system disk for the VM.
 1. On the page for the disk, select **Disk Export** from the left menu.
 1. The default expiration time of the URL is *3600* seconds (one hour). You may need to increase this for Windows OS disks or large data disks. **36000** seconds (10 hours) is usually sufficient.
 1. Click **Generate URL**.
 
+# [PowerShell](#tab/azure-powershell)
+
+```azurepowershell
+$diskSas = Grant-AzDiskAccess -ResourceGroupName "yourRGName" -DiskName "yourDiskName" -DurationInSecond 86400 -Access 'Read'
+```
+
+# [Azure CLI](#tab/azure-cli)
+
+```azurecli
+diskSAS=$(az disk grant access --duration-in-seconds 86400 --access-level Read --name yourDiskName --resource-group yourRGName)
+```
+
+---
+
+
 > [!NOTE]
 > The expiration time is increased from the default to provide enough time to download the large VHD file for a Windows Server operating system. Large VHDs can take up to several hours to download depending on your connection and the size of the VM. 
 
 ## Download VHD
 
+# [Portal](#tab/azure-portal)
+
 1. Under the URL that was generated, click Download the VHD file.
 1. You may need to click **Save** in your browser to start the download. The default name for the VHD file is *abcd*.
+
+# [PowerShell](#tab/azure-powershell)
+
+Use the following script to download your VHD:
+
+```azurepowershell
+Connect-AzAccount
+#Set localFolder to your desired download location
+$localFolder = "c:\tempfiles"
+$blob = Get-AzStorageBlobContent -Uri $diskSas.AccessSAS -Destination $localFolder -Force 
+```
+
+When the download finishes, revoke access to your disk using
+
+# [Azure CLI](#tab/azure-cli)
+
+Use the following script to download your VHD:
+
+```azurecli
+
+#set localFolder to your desired download location
+localFolder=yourPathHere
+az storage blob download -f $localFolder --blob-url $diskSAS
+```
+
+When the download finishes, revoke access to your disk using `az disk revoke-access --name diskName --resource-group yourRGName`.
+
+---
 
 ## Next steps
 
