@@ -62,11 +62,7 @@ Authorization provider configuration includes which identity provider and grant 
 
 * An authorization provider configuration can only have one grant type. 
 * One authorization provider configuration can have multiple authorizations.
-
-The following identity providers are supported for public preview:
-
-- Azure AD, DropBox, Generic OAuth 2.0, GitHub, Google, LinkedIn, Spotify
-
+* You can find the supported identity providers for public preview in [this](https://github.com/Azure/APIManagement-Authorizations/blob/main/docs/identityproviders.md) GitHub repository.
 
 With the Generic OAuth 2.0 provider, other identity providers that support the standards of OAuth 2.0 flow can be used.
 
