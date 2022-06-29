@@ -60,7 +60,7 @@ Once implemented, you can call this Azure Function inside the `uploadHandler` fu
 
 ### Securing your Azure Blob Storage Container
 
-Note that the tutorial above assumes that your Azure blob storage container allows public access to the files you upload. Making your Azure storage cntainers public isn't recommended for real world production applications.
+Note that the tutorial above assumes that your Azure blob storage container allows public access to the files you upload. Making your Azure storage containers public isn't recommended for real world production applications.
 
 For downloading the files you upload to Azure blob storage, you can use shared access signatures (SAS). A shared access signature (SAS) provides secure delegated access to resources in your storage account. With a SAS, you have granular control over how a client can access your data.
 
