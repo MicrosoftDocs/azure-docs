@@ -68,7 +68,7 @@ By default, Azure Spring Apps offers default health probe rules for every applic
 
 |Property Name | Description|
 |-|-|
-|command|Command is the command line to execute inside the app instance. Exit status of 0 is treated as live/healthy and non-zero is unhealthy.|
+|command|Command is the command line to execute inside the app instance. The working directory for the command is root ('/') in the app instance's filesystem. The command is simply exec'd, it is not run inside a shell, so traditional shell instructions won't work. To use a shell, you need to explicitly call out to that shell. Exit status of 0 is treated as live/healthy and non-zero is unhealthy.|
 
 - *TCPSocketAction*
 
