@@ -111,6 +111,8 @@
         href: allocadia-tutorial.md
       - name: Ally.io
         href: ally-tutorial.md
+      - name: Altamira HRM
+        href: altamira-hrm-tutorial.md
       - name: Altoura
         href: altoura-tutorial.md
       - name: Amazing People Schools
@@ -779,6 +781,8 @@
         href: excelityglobal-tutorial.md
       - name: Excelity HCM
         href: excelity-hcm-tutorial.md  
+      - name: Exium
+        href: exium-tutorial.md
       - name: ExpenseIn
         href: expensein-tutorial.md
       - name: Expensify
@@ -1238,6 +1242,8 @@
         href: juno-journey-tutorial.md
       - name: JuriBlox
         href: juriblox-tutorial.md  
+      - name: JustLogin
+        href: justlogin-tutorial.md
       - name: Kallidus
         href: kallidus-tutorial.md
       - name: Kanbanize
