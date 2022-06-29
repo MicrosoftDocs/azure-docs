@@ -57,6 +57,8 @@
     items:
     - name: Analysis Services
       href: ../../analysis-services/analysis-services-create-bicep-file.md?toc=/azure/azure-resource-manager/bicep/toc.json
+    - name: Data Factory
+      href: ../../data-factory/quickstart-create-data-factory-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
     - name: Event Hubs
       href: ../../event-hubs/event-hubs-bicep-namespace-event-hub.md?toc=/azure/azure-resource-manager/bicep/toc.json
     - name: HDInsight - Hadoop
@@ -129,6 +131,8 @@
     items:
     - name: Resource Graph
       href: ../../governance/resource-graph/shared-query-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
+    - name: Site Recovery
+      href: ../../site-recovery/quickstart-create-vault-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
   - name: Media Services
     items:
     - name: Media Services account
@@ -145,6 +149,10 @@
       href: ../../dns/dns-get-started-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
     - name: ExpressRoute
       href: ../../expressroute/quickstart-create-expressroute-vnet-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
+    - name: Firewall - Availability Zones
+      href: ../../firewall/deploy-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
+    - name: Firewall Manager
+      href: ../../firewall-manager/quick-secure-virtual-hub-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
     - name: Front Door
       href: ../../frontdoor/quickstart-create-front-door-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
     - name: Load Balancer - internal
