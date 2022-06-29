@@ -32,7 +32,7 @@ By default, topic and domain are accessible from the internet as long as the req
 
 For step-by-step instructions to configure IP firewall for topics and domains, see [Configure IP firewall](configure-firewall.md).
 
-There's a limit on number of IP firewall rules per topic or domain. See [Event Grid quotas and limits](quotas-limits.md). 
+
 
 ## Private endpoints
 You can use [private endpoints](../private-link/private-endpoint-overview.md) to allow ingress of events directly from your virtual network to your topics and domains securely over a [private link](../private-link/private-link-overview.md) without going through the public internet. A private endpoint is a special network interface for an Azure service in your VNet. When you create a private endpoint for your topic or domain, it provides secure connectivity between clients on your VNet and your Event Grid resource. The private endpoint is assigned an IP address from the IP address range of your VNet. The connection between the private endpoint and the Event Grid service uses a secure private link.
@@ -87,7 +87,9 @@ The following table describes the various states of the private endpoint connect
 
 For publishing to be successful, the private endpoint connection state should be **approved**. If a connection is rejected, it can't be approved using the Azure portal. The only possibility is to delete the connection and create a new one instead.
 
-There's a limit on number of private endpoint connections you can have per topic or domain. See [Event Grid quotas and limits](quotas-limits.md). 
+
+## Quotas and limits
+There's a limit on number of IP firewall rules and private endpoint connection per topic or domain. See [Event Grid quotas and limits](quotas-limits.md). 
 
 ## Next steps
 You can configure IP firewall for your Event Grid resource to restrict access over the public internet from only a select set of IP Addresses or IP Address ranges. For step-by-step instructions, see [Configure IP firewall](configure-firewall.md).
