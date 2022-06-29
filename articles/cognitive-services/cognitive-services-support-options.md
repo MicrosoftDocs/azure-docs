@@ -64,7 +64,7 @@ If you can't find an answer to your problem using search, submit a new question 
 
 **Azure OpenAI**
 
-* [Azure OpenAI](answers/topics/azure-openai.html)
+* [Azure OpenAI](/answers/topics/azure-openai.html)
 
 ## Post a question to Stack Overflow
 
