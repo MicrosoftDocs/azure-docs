@@ -1,6 +1,6 @@
 ---
 title: Configure the Microsoft Dev Box service
-description: 'This quickstart shows you how to configure the Microsoft Dev Box service to provide dev boxes for your users. You'll create a DevCenter, add a network connection, and then create a dev box definition, a project and a dev box pool.'
+description: 'This quickstart shows you how to configure the Microsoft Dev Box service to provide dev boxes for your users. You will create a DevCenter, add a network connection, and then create a dev box definition, a project and a dev box pool.'
 services: dev-box
 ms.service: dev-box
 ms.topic: quickstart
