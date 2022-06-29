@@ -6,7 +6,7 @@ author: bwren
 ms.author: bwren
 ms.date: 5/19/2022
 ms.custom: references_regions
-ms.reviewe: shseth
+ms.reviewer: shseth
 ---
 
 # Azure Monitor agent overview
