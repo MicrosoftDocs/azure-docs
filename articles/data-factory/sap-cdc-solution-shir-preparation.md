@@ -24,10 +24,6 @@ On ADF Studio, create and configure SHIR, see [Create and configure a self-hoste
 
 The more CPU cores you have on your SHIR machine, the higher your data extraction throughput.  For example, our internal test achieved +12 MB/s throughput from running parallel extractions on SHIR machine w/ 16 CPU cores.
 
-If you already have a later SHIR version installed, uninstall it first, before you install our private version.  To avoid being replaced by later versions, on ADF Studio, go to the **Integration runtimes** section of **Manage** hub, select your SHIR to edit, and select the **Auto update** tab to disable this feature.
-
-:::image type="content" source="media/sap-cdc-solution/sap-cdc-shir-configuration.png" alt-text="Shows a screenshot of the SHIR configuration in the Azure Data Factory studio management hub.":::
- 
 ## Download and install the latest 64-bit SAP .NET Connector (SAP NCo 3.0)
 
 Download the latest [64-bit SAP .NET Connector (SAP NCo 3.0)](https://support.sap.com/en/product/connectors/msnet.html) and install it on your SHIR machine.  During installation, select the **Install Assemblies to GAC** option in the **Optional setup steps** window. 
