@@ -42,7 +42,7 @@ Data moves through these resources in this order:
 1. The event hub forwards the message to the target Azure Data Explorer cluster. 
 1. The Azure Data Explorer cluster maps the message fields to the data history schema, and stores the data as a timestamped record in a data history table.
 
-When working with data history, you'll also need to use the [2021-06-30-preview](https://github.com/Azure/azure-rest-api-specs/tree/main/specification/digitaltwins/data-plane/Microsoft.DigitalTwins/preview/2021-06-30-preview) version of the APIs.
+When working with data history, use the [2022-05-31](https://github.com/Azure/azure-rest-api-specs/tree/main/specification/digitaltwins/data-plane/Microsoft.DigitalTwins/stable/2022-05-31) version of the APIs.
 
 ### Required permissions
 
@@ -66,7 +66,7 @@ Time series data for twin property updates is stored in Azure Data Explorer with
 | Attribute | Type | Description |
 | --- | --- | --- |
 | `TimeStamp` | DateTime | The date/time the property update message was processed by Azure Digital Twins. This field is set by the system and isn't writable by users. |
-| `SourceTimeStamp` | DateTime |  An optional, writable property representing the timestamp when the property update was observed in the real world. This property can only be written using the **2021-06-30-preview** version of the [Azure Digital Twins APIs/SDKs](concepts-apis-sdks.md) and the value must comply to ISO 8601 date and time format. For more information about how to update this property, see [Update a property's sourceTime](how-to-manage-twin.md#update-a-propertys-sourcetime). |
+| `SourceTimeStamp` | DateTime |  An optional, writable property representing the timestamp when the property update was observed in the real world. This property can only be written using the **2022-05-31** version of the [Azure Digital Twins APIs/SDKs](concepts-apis-sdks.md) and the value must comply to ISO 8601 date and time format. For more information about how to update this property, see [Update a property's sourceTime](how-to-manage-twin.md#update-a-propertys-sourcetime). |
 | `ServiceId` | String | The service instance ID of the Azure IoT service logging the record |
 | `Id` | String | The twin ID |
 | `ModelId` | String | The DTDL model ID (DTMI) |
