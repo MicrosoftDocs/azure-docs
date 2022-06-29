@@ -16,10 +16,10 @@ ms.custom: devx-track-csharp
 
 # Client-side encryption for blobs
 
-The [Azure Storage client library for .NET](/dotnet/api/overview/azure/storage) supports encrypting data within client applications before uploading to Azure Storage, and decrypting data while downloading to the client. The library also supports integration with [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) for storage account key management.
+The [Azure Blob Storage client library for .NET](/dotnet/api/overview/azure/storage) supports encrypting data within client applications before uploading to Azure Storage, and decrypting data while downloading to the client. The library also supports integration with [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) for storage account key management.
 
 > [!IMPORTANT]
-> Azure Storage supports both service-side and client-side encryption. For most scenarios, Microsoft recommends using service-side encryption features for ease of use in protecting your data. To learn more about service-side encryption, see [Azure Storage encryption for data at rest](../common/storage-service-encryption.md).
+> Blob Storage supports both service-side and client-side encryption. For most scenarios, Microsoft recommends using service-side encryption features for ease of use in protecting your data. To learn more about service-side encryption, see [Azure Storage encryption for data at rest](../common/storage-service-encryption.md).
 
 For a step-by-step tutorial that leads you through the process of encrypting blobs using client-side encryption and Azure Key Vault, see [Encrypt and decrypt blobs in Microsoft Azure Storage using Azure Key Vault](../blobs/storage-encrypt-decrypt-blobs-key-vault.md).
 
@@ -41,7 +41,7 @@ Due to a security vulnerability discovered in CBC mode, Microsoft recommends tha
 
     Client-side encryption v2 is available only in version 12.x and later of the Azure Blob Storage client libraries. If your application is using an earlier version of the client library, you must first upgrade your code to version 12.x or later, and then decrypt and re-encrypt your data with client-side encryption v2. For code examples, see [Example: Encrypting and decrypting a blob with client-side encryption v2](#example-encrypting-and-decrypting-a-blob-with-client-side-encryption-v2).
 
-- Consider using server-side encryption features instead of client-side encryption. For more information about server-side encryption features, see [Azure Storage encryption for data at rest](../common/storage-service-encryption.md).
+- Consider using service-side encryption features instead of client-side encryption. For more information about service-side encryption features, see [Azure Storage encryption for data at rest](../common/storage-service-encryption.md).
 - Configure your storage accounts to use private endpoints to secure all traffic between your virtual network (VNet) and your storage account over a private link. For more information, see [Use private endpoints for Azure Storage](../common/storage-private-endpoints.md). ???need more info about how this is a substitute for CSE???
 - Limit network access to specific networks only. ???need more info about how this is a substitute for CSE? more info???
 
@@ -105,8 +105,8 @@ The code example in this section shows how to use client-side encryption v2 to e
 
 Two packages are required for Azure Key Vault integration:
 
-- The **Azure.Core** assembly provides the `IKeyEncryptionKey` and `IKeyEncryptionKeyResolver` interfaces. The Blob Storage client library for .NET already defines this assembly as a dependency.
-- The **Azure.Security.KeyVault.Keys** assembly (v4.x and later) provides the Key Vault REST client and the cryptographic clients that are used with client-side encryption. You'll need to ensure that this package is referenced in your project. ???it's not clear whether key vault is required or optional???
+- The **Azure.Core** package provides the `IKeyEncryptionKey` and `IKeyEncryptionKeyResolver` interfaces. The Blob Storage client library for .NET already defines this assembly as a dependency.
+- The **Azure.Security.KeyVault.Keys** package (v4.x and later) provides the Key Vault REST client and the cryptographic clients that are used with client-side encryption. You'll need to ensure that this package is referenced in your project. ???it's not clear whether key vault is required or optional???
 
 Azure Key Vault is designed for high-value master keys, and throttling limits per key vault reflect this design. As of version 4.1.0 of Azure.Security.KeyVault.Keys, the `IKeyEncryptionKeyResolver` interface doesn't support key caching. Should caching be necessary due to throttling, you can use the approach demonstrated in [this sample](/samples/azure/azure-sdk-for-net/azure-key-vault-proxy/) to inject a caching layer into an `Azure.Security.KeyVault.Keys.Cryptography.KeyResolver` instance.
 

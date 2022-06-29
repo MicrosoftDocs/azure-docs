@@ -47,8 +47,8 @@ The following table summarizes the steps you'll need to take if you choose to mi
 
 | Client-side encryption status | Recommended actions |
 |---|---|
-| Application is using client-side encryption with Azure Queue Storage SDK version 11.x or earlier | Update your application to use Queue Storage SDK version 12.x or later. [Learn more...](https://github.com/Azure/azure-sdk-for-net/queue/main/sdk/storage/Azure.Storage.Queues/AzureStorageNetMigrationV12.md)<br/><br/>Update your code to use client-side encryption v2. [Learn more...](#example-encrypting-and-decrypting-messages-with-client-side-encryption-v2)<br/><br/>Download any encrypted data to decrypt it, then reencrypt it with client-side encryption v2. [Learn more...](#reencrypt-previously-encrypted-data-with-client-side-encryption-v2) |
-| Application is using client-side encryption with Azure Queue Storage SDK version 12.x or later | Update your code to use client-side encryption v2. [Learn more...](#example-encrypting-and-decrypting-messages-with-client-side-encryption-v2)<br/><br/>Download any encrypted data to decrypt it, then reencrypt it with client-side encryption v2. [Learn more...](#reencrypt-previously-encrypted-data-with-client-side-encryption-v2) |
+| Application is using client-side encryption with Azure Queue Storage SDK version 11.x or earlier | Update your application to use Queue Storage SDK version 12.x or later.<br/><br/>Update your code to use client-side encryption v2.<br/><br/>Download any encrypted data to decrypt it, then reencrypt it with client-side encryption v2. |
+| Application is using client-side encryption with Azure Queue Storage SDK version 12.x or later | Update your code to use client-side encryption v2.<br/><br/>Download any encrypted data to decrypt it, then reencrypt it with client-side encryption v2. |
 
 ## How client-side encryption works
 
