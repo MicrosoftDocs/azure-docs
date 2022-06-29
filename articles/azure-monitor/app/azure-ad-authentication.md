@@ -9,9 +9,9 @@ ms.reviewer: rijolly
 
 # Azure AD authentication for Application Insights
 
-Application Insights now supports Azure Active Directory (Azure AD) authentication. By using Azure AD, you can ensure that only authenticated telemetry is ingested in your Application Insights resources. 
+Application Insights now supports [Azure Active Directory (Azure AD) authentication](../../active-directory/authentication/overview-authentication.md#what-is-azure-active-directory-authentication). By using Azure AD, you can ensure that only authenticated telemetry is ingested in your Application Insights resources. 
 
-Typically, using various authentication systems can be cumbersome and pose risk since it's difficult to manage credentials at a large scale. You can now choose to opt-out of local authentication to ensure only telemetry exclusively authenticated using [Managed Identities](../../active-directory/managed-identities-azure-resources/overview.md) and [Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md) is ingested in your resource. This feature is a step to enhance the security and reliability of the telemetry used to make both critical operational (alerting/autoscale etc.) and business decisions.
+Using various authentication systems can be cumbersome and risky because it's difficult to manage credentials at a large scale. You can now choose to opt-out of local authentication to ensure only telemetry exclusively authenticated using [Managed Identities](../../active-directory/managed-identities-azure-resources/overview.md) and [Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md) is ingested in your resource. This feature is a step to enhance the security and reliability of the telemetry used to make both critical operational ([alerting](../alerts/alerts-overview.md#what-are-azure-monitor-alerts), [autoscale](../autoscale/autoscale-overview.md#overview-of-autoscale-in-microsoft-azure), etc.) and business decisions.
 
 ## Prerequisites
 
