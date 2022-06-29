@@ -12,7 +12,7 @@ ms.author: jricketts
 ms.custom: references_regions
 ---
 
-# Implement cloud-first approach
+# Implement cloud first approach
 
 This is mainly a process and policy driven phase to stop, or limit as much as possible, adding new dependencies to AD and implement a cloud-first approach for new demand of IT solutions.
 
